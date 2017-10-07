@@ -1,6 +1,6 @@
 ---
-title: "Elemento de interface do usuário MultiStorageAccountCombo de aplicativo gerenciado do Azure | Microsoft Docs"
-description: "Descreve o elemento Microsoft.Storage.MultiStorageAccountCombo da interface do usuário para aplicativos gerenciados do Azure"
+title: "elemento de interface do usuário MultiStorageAccountCombo de aplicativo gerenciado aaaAzure | Microsoft Docs"
+description: "Descreve Olá elemento Microsoft.Storage.MultiStorageAccountCombo da interface do usuário para aplicativos gerenciados do Azure"
 services: azure-resource-manager
 documentationcenter: na
 author: tabrezm
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
-ms.openlocfilehash: 27843b116d949899e4eae65f342324f77ebca70b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 765be145b61c3dbf0a035a7a00aa18eee464a3eb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Elemento de interface do usuário Microsoft.Storage.MultiStorageAccountCombo
 Um grupo de controles para criar várias contas de armazenamento com nomes que começam com um prefixo comum. Use esse elemento ao [criar um Aplicativo Gerenciado do Azure](managed-application-publishing.md).
@@ -52,12 +52,12 @@ Um grupo de controles para criar várias contas de armazenamento com nomes que c
 ```
 
 ## <a name="remarks"></a>Comentários
-- O valor de `defaultValue.prefix` é concatenado com um ou mais números inteiros para gerar a sequência de nomes de conta de armazenamento. Por exemplo, se `defaultValue.prefix` é **foobar** e `count` é **2**, os nomes de conta de armazenamento **foobar1** e **foobar2** são gerados. Os nomes de conta de armazenamento gerados são validados por exclusividade automaticamente.
-- Os nomes de conta de armazenamento são gerados lexicograficamente com base em `count`. Por exemplo, se `count` for 10, os nomes de conta de armazenamento terminarão com números inteiros de 2 dígitos (01, 02, 03, etc.).
-- O valor padrão de `defaultValue.prefix` é **null**e `defaultValue.type` é **Premium_LRS**.
+- Olá valor `defaultValue.prefix` é concatenado com um ou mais inteiros toogenerate Olá sequência de nomes de conta de armazenamento. Por exemplo, se `defaultValue.prefix` é **foobar** e `count` é **2**, os nomes de conta de armazenamento **foobar1** e **foobar2** são gerados. Os nomes de conta de armazenamento gerados são validados por exclusividade automaticamente.
+- os nomes de conta de armazenamento Olá gerados lexicograficamente com base em `count`. Por exemplo, se `count` for 10, nomes de conta de armazenamento Olá terminam com números inteiros de 2 dígitos (01, 02, 03, etc.).
+- Olá valor padrão para `defaultValue.prefix` é **nulo**e para `defaultValue.type` é **Premium_LRS**.
 - Os tipos não especificados em `constraints.allowedTypes` ficam ocultos e os tipos não especificados em `constraints.excludedTypes` são mostrados.
 `constraints.allowedTypes` e `constraints.excludedTypes` são opcionais, mas não podem ser usados simultaneamente.
-- Além de gerar nomes de conta de armazenamento, `count` é usado para definir o multiplicador apropriado para o elemento. Ele dá suporte a um valor estático, como **2**, ou a um valor dinâmico de outro elemento, como `[steps('step1').storageAccountCount]`. O valor padrão é **1**.
+- Nomes de conta de armazenamento de toogenerating adição, `count` é tooset usado o multiplicador apropriado para o elemento de saudação. Ele dá suporte a um valor estático, como **2**, ou a um valor dinâmico de outro elemento, como `[steps('step1').storageAccountCount]`. valor padrão de saudação é **1**.
 
 ## <a name="sample-output"></a>Saída de exemplo
 ```json
@@ -70,6 +70,6 @@ Um grupo de controles para criar várias contas de armazenamento com nomes que c
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados do Azure](managed-application-overview.md).
-* Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* Para aplicativos de toomanaged uma introdução, consulte [visão geral de aplicativos gerenciados do Azure](managed-application-overview.md).
+* Para definições de interface do usuário de toocreating uma introdução, consulte [guia de Introdução ao CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de interface do usuário, consulte [Elementos de CreateUiDefinition](managed-application-createuidefinition-elements.md).

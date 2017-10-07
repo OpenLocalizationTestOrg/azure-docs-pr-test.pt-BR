@@ -1,6 +1,6 @@
 ---
-title: "Usar um dispositivo físico o Azure IoT Edge | Microsoft Docs"
-description: "Como usar um dispositivo Texas Instruments SensorTag para enviar dados para um Hub IoT por meio de um gateway IoT Edge que executa em um dispositivo Raspberry Pi 3. O gateway é criado usando o Azure IoT Edge."
+title: "aaaUse um dispositivo físico com borda de IoT do Azure | Microsoft Docs"
+description: "Como toouse um hub de IoT Texas instrumentos SensorTag dispositivo toosend dados tooan por meio de um gateway de borda IoT em execução em um dispositivo de framboesa Pi 3. gateway de saudação é criado usando o Azure IoT borda."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -14,147 +14,147 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2017
 ms.author: andbuc
-ms.openlocfilehash: 02962a91c739a53dfcf947bcc736e5c293b9384f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a2385accdbd99012ad094232653ee47d4e5c7839
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-iot-edge-on-a-raspberry-pi-to-forward-device-to-cloud-messages-to-iot-hub"></a>Usar o Azure IoT Edge em um Raspberry Pi para encaminhar mensagens de dispositivo para nuvem para o Hub IoT
+# <a name="use-azure-iot-edge-on-a-raspberry-pi-tooforward-device-to-cloud-messages-tooiot-hub"></a>Usar o Azure IoT borda em um tooIoT de mensagens de dispositivo para nuvem framboesa Pi tooforward Hub
 
-Este passo a passo do [Exemplo de Bluetooth de baixa energia][lnk-ble-samplecode] demonstra como usar o [Azure IoT Edge][lnk-sdk] para:
+Este passo a passo de saudação [exemplo de baixa energia Bluetooth] [ lnk-ble-samplecode] mostra como toouse [Azure IoT borda] [ lnk-sdk] para:
 
-* Encaminhar telemetria do dispositivo para a nuvem para o Hub IoT de um dispositivo físico.
-* Rotear comandos do Hub IoT para um dispositivo físico.
+* Encaminhe telemetria do dispositivo para nuvem tooIoT Hub de um dispositivo físico.
+* Comandos de rota do dispositivo físico do IoT Hub tooa.
 
 Este passo a passo aborda:
 
-* **Arquitetura**: informações importantes de arquitetura sobre o exemplo de Bluetooth de baixa energia.
-* **Criar e executar**: as etapas necessárias para criar e executar a amostra.
+* **Arquitetura**: importantes informações arquitetônicas sobre Olá Bluetooth baixo consumo de energia de exemplo.
+* **Compilar e executar**: Olá etapas necessárias toobuild e exemplo hello execução.
 
 ## <a name="architecture"></a>Arquitetura
 
-O passo a passo mostra como criar e executar um gateway do IoT Edge em um Raspberry Pi 3 que execute o Raspbian Linux. O gateway é criado usando o IoT Edge. O exemplo usa um dispositivo BLE (Bluetooth de baixa energia) Texas Instruments SensorTag para coletar dados de temperatura.
+Olá passo a passo mostra como toobuild e execute um gateway de extremidade IoT em um framboesa Pi 3 que executa Raspbian Linux. gateway de saudação é criado usando a borda de IoT. exemplo Hello usa um Texas instrumentos SensorTag Bluetooth baixa energia (var) dispositivo toocollect temperatura de dados.
 
-Ao executar o gateway do IoT Edge, ele:
+Quando você executa Olá gateway de borda IoT-lo:
 
-* Conecta-se a um dispositivo SensorTag usando o protocolo de BLE (Bluetooth de baixa energia).
-* Conecta-se ao Hub IoT usando o protocolo HTTP.
-* Encaminha a telemetria do dispositivo SensorTag ao Hub IoT.
-* Roteia comandos do Hub IoT para o dispositivo SensorTag.
+* Conecta tooa SensorTag dispositivo usando o protocolo do hello Bluetooth baixa energia (var).
+* Conecta-se tooIoT Hub usando o protocolo de saudação HTTP.
+* Encaminha a telemetria de saudação SensorTag dispositivo tooIoT Hub.
+* Rotas de comandos de dispositivo do IoT Hub toohello SensorTag.
 
-O gateway contém os seguintes módulos do IoT Edge:
+gateway Olá contém Olá módulos de borda IoT a seguir:
 
-* Um *módulo BLE* que interage com um dispositivo BLE para receber dados de temperatura do dispositivo e envia comandos para o dispositivo.
-* Um *módulo BLE nuvem para dispositivo* que converte as mensagens JSON enviadas do Hub IoT em instruções BLE para o *módulo BLE*.
-* Um *módulo de agente* que registra todas as mensagens do gateway em um arquivo local.
+* Um *módulo Bilitar* que interage com um dado de temperatura Bilitar dispositivo tooreceive de saudação dispositivo e enviar comandos toohello.
+* Um *módulo do Bilitar nuvem toodevice* que converte mensagens JSON enviadas do IoT Hub em instruções Bilitar para Olá *módulo Bilitar*.
+* Um *módulo agente* que registra todos os gateway mensagens tooa arquivo local.
 * Um *módulo de mapeamento de identidade* que faz a conversão entre endereços MAC dos dispositivos BLE e identidades de dispositivos do Hub IoT do Azure.
-* Um *módulo do Hub IoT* que carrega dados de telemetria para um Hub IoT e recebe comandos de dispositivo de um Hub IoT.
-* Um *módulo de impressora BLE* que interpreta a telemetria do dispositivo BLE e imprime dados formatados para o console para habilitar a solução de problemas e depuração.
+* Um *módulo de IoT Hub* que carrega o hub IoT do telemetria dados tooan e recebe comandos de dispositivo de um hub IoT.
+* Um *módulo de impressora Bilitar* que interprete a telemetria de dispositivo de Bilitar hello e imprime os dados formatados toohello console tooenable solução de problemas e depuração.
 
-### <a name="how-data-flows-through-the-gateway"></a>Como os dados fluem pelo gateway
+### <a name="how-data-flows-through-hello-gateway"></a>Como os dados fluem por meio do gateway de saudação
 
-O diagrama de bloco a seguir ilustra o pipeline do fluxo de dados de upload de telemetria:
+Olá bloco diagrama a seguir ilustra o pipeline de fluxo de dados de carregamento do hello telemetria:
 
 ![Pipeline de gateway de upload de telemetria](media/iot-hub-iot-edge-physical-device/gateway_ble_upload_data_flow.png)
 
-As etapas que um item de telemetria realiza ao viajar de um dispositivo BLE para o Hub IoT são:
+etapas de saudação que viajam de um tooIoT de dispositivo Bilitar entra em um item de telemetria Hub são:
 
-1. O dispositivo BLE gera uma amostra de temperatura e a envia por Bluetooth para o módulo BLE no gateway.
-1. O módulo BLE recebe a amostra e a publica para o agente com o endereço MAC do dispositivo.
-1. O módulo de mapeamento de identidade capta essa mensagem e usa uma tabela interna para converter o endereço MAC do dispositivo em uma identidade de dispositivo do Hub IoT. Uma identidade de dispositivo do Hub IoT consiste em uma ID de dispositivo e na chave do dispositivo.
-1. O módulo de mapeamento de identidade publica uma nova mensagem que contém os dados de exemplo de temperatura, além do endereço MAC, a ID e a chave do dispositivo.
-1. O módulo de Hub IoT recebe essa nova mensagem (gerada pelo módulo de mapeamento de identidade) e a publica no Hub IoT.
-1. O módulo de agente registra todas as mensagens do agente em um arquivo local.
+1. dispositivo de Bilitar Hello gera uma amostra de temperatura e envia módulo de Bilitar toohello Bluetooth no gateway hello.
+1. módulo de Bilitar Olá recebe exemplo hello e publica broker toohello junto com o endereço MAC de saudação do dispositivo hello.
+1. módulo de mapeamento de identidade de saudação pega essa mensagem e usa uma saudação tootranslate de tabela interna endereço MAC do dispositivo de saudação em uma identidade de dispositivo IoT Hub. Uma identidade de dispositivo do Hub IoT consiste em uma ID de dispositivo e na chave do dispositivo.
+1. módulo de mapeamento de identidade Olá publica uma nova mensagem que contém dados de exemplo hello temperatura, o endereço MAC de saudação do dispositivo de hello, ID do dispositivo hello e chave do dispositivo hello.
+1. Olá módulo IoT Hub recebe essa mensagem nova (gerada pelo módulo de mapeamento de identidade de saudação) e publica tooIoT Hub.
+1. módulo de agente Olá registra todas as mensagens de arquivo local da saudação broker tooa.
 
-O diagrama de bloco a seguir ilustra o pipeline do fluxo de dados de comando do dispositivo:
+Olá bloco diagrama a seguir ilustra Olá pipeline de fluxo de dados de comando de dispositivo:
 
 ![Pipeline do gateway de comando do dispositivo](media/iot-hub-iot-edge-physical-device/gateway_ble_command_data_flow.png)
 
-1. O módulo de Hub IoT periodicamente sonda o Hub IoT quanto a novas mensagens de comando.
-1. Quando o módulo de Hub IoT recebe uma nova mensagem de comando, ele a publica no agente.
-1. O módulo de mapeamento de identidade capta a mensagem de comando e usa uma tabela interna para converter a ID do dispositivo Hub IoT para um endereço MAC do dispositivo. Em seguida, ele publica uma nova mensagem que inclui o endereço MAC do dispositivo de destino no mapa de propriedades da mensagem.
-1. O módulo Nuvem para dispositivo BLE pega essa mensagem e a converte na instrução BLE adequada para o módulo BLE. Em seguida, ele publica uma nova mensagem.
-1. O módulo BLE capta essa mensagem e executa a instrução de E/S se comunicando com o dispositivo BLE.
-1. O módulo de agente registra todas as mensagens do agente em um arquivo de disco.
+1. Olá IoT Hub módulo periodicamente sonda Olá hub IoT para novas mensagens de comando.
+1. Quando Olá módulo IoT Hub recebe uma nova mensagem de comando, ela publica toohello broker.
+1. módulo de mapeamento de identidade Olá pega a mensagem de saudação do comando e usa uma saudação tootranslate de tabela interna IoT Hub dispositivo ID tooa dispositivo endereço MAC. Em seguida, publica uma nova mensagem que inclui o endereço MAC de saudação do dispositivo de destino Olá no mapa de propriedades de saudação de mensagem de saudação.
+1. módulo de nuvem para dispositivo Bilitar Olá pega essa mensagem e converte em instrução Bilitar adequada de Olá para o módulo de Bilitar Olá. Em seguida, ele publica uma nova mensagem.
+1. módulo de Bilitar Olá pega essa mensagem e executa a instrução de e/s de saudação comunicando-se com o dispositivo de Bilitar hello.
+1. módulo de agente Olá registra todas as mensagens do arquivo de disco Olá broker tooa.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você precisa de uma assinatura ativa do Azure.
+toocomplete neste tutorial, você precisa de uma assinatura ativa do Azure.
 
 > [!NOTE]
 > Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk-free-trial].
 
-É necessário um cliente SSH em seu computador desktop para que você possa acessar remotamente a linha de comando no Raspberry Pi.
+Você precisa cliente SSH no seu tooenable computador desktop você tooremotely acesso Olá linha de comando em Olá framboesa Pi.
 
 - O Windows não inclui um cliente SSH. Recomendamos o uso de [PuTTY](http://www.putty.org/).
-- A maioria das distribuições do Linux e Mac OS incluem o utilitário de linha de comando do SSH. Para obter mais informações, consulte [SSH usando o Linux ou Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
+- A maioria das distribuições do Linux e Mac OS incluem o utilitário SSH de linha de comando do hello. Para obter mais informações, consulte [SSH usando o Linux ou Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
 
 ## <a name="prepare-your-hardware"></a>Prepare seu hardware
 
-Este tutorial presume que você esteja usando um dispositivo [Texas Instruments SensorTag](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html) conectado a um Raspberry Pi 3 que executa o Raspbian.
+Este tutorial presume que você está usando um [Texas instrumentos SensorTag](http://www.ti.com/ww/en/wireless_connectivity/sensortag2015/index.html) dispositivo conectado tooa framboesa Pi 3 executando Raspbian.
 
 ### <a name="install-raspbian"></a>Instalar Raspbian
 
-Você pode usar uma das opções a seguir para instalar o Raspbian em seu dispositivo Raspberry Pi 3.
+Você pode usar qualquer um dos Olá opções tooinstall Raspbian a seguir em seu dispositivo framboesa Pi 3.
 
-* Para instalar a versão mais recente do Raspbian, use a interface do usuário gráfica [NOOBS][lnk-noobs].
-* [Baixe][lnk-raspbian] e grave manualmente a imagem mais recente do sistema operacional Raspbian em um cartão SD.
+* versão mais recente do hello tooinstall de Raspbian, use Olá [NOOBS] [ lnk-noobs] interface gráfica do usuário.
+* Manualmente [baixar] [ lnk-raspbian] e gravar a imagem mais recente de saudação do cartão de saudação Raspbian sistema operacional tooan SD.
 
-### <a name="sign-in-and-access-the-terminal"></a>Entre e acesse o terminal
+### <a name="sign-in-and-access-hello-terminal"></a>Entrar e acessar terminal Olá
 
-Você tem duas opções para acessar um ambiente de terminal no seu Raspberry Pi:
+Você tem um ambiente de terminal tooaccess de duas opções com seu Pi framboesa:
 
-* Se você tiver um teclado e um monitor conectado ao seu Raspberry Pi, você pode usar a GUI do Raspbian para acessar uma janela de terminal.
+* Se você tiver um teclado e monitorar tooyour conectado framboesa Pi, você pode usar o hello GUI Raspbian tooaccess uma janela de terminal.
 
-* Acesse a linha de comando em seu Raspberry Pi usando o SSH em seu computador desktop.
+* Acesso a linha de comando do hello no seu Pi framboesa usando SSH em seu computador desktop.
 
-#### <a name="use-a-terminal-window-in-the-gui"></a>Use uma janela de terminal na GUI
+#### <a name="use-a-terminal-window-in-hello-gui"></a>Use uma janela de terminal Olá GUI
 
-As credenciais padrões para Raspbian são o nome de usuário **pi** e a senha **raspberry**. Na barra de tarefas na GUI, você pode iniciar o utilitário **Terminal** usando o ícone que se parece com um monitor.
+credenciais de padrão de saudação para Raspbian são o nome de usuário **pi** e a senha **framboesa**. Na barra de tarefas de saudação em Olá GUI, você pode iniciar Olá **Terminal** utilitário usando o ícone de saudação que se parece com um monitor.
 
 #### <a name="sign-in-with-ssh"></a>Entre com o SSH
 
-Você pode usar o SSH para acesso de linha de comando para o Raspberry Pi. O artigo [SSH (Secure Shell)][lnk-pi-ssh] descreve como configurar SSH em seu Raspberry Pi e como conectar-se a partir do [Windows][lnk-ssh-windows] ou [Linux e Mac OS][lnk-ssh-linux].
+Você pode usar o SSH para acesso de linha de comando tooyour framboesa Pi. artigo Olá [SSH (Secure Shell)] [ lnk-pi-ssh] descreve como tooconfigure SSH com o Pi framboesa e como tooconnect de [Windows] [ lnk-ssh-windows] ou [Sistema operacional Linux e Mac][lnk-ssh-linux].
 
 Entre com o nome de usuário **pi** e a senha **raspberry**.
 
 ### <a name="install-bluez-537"></a>Instalar o BlueZ 5.37
 
-Os módulos BLE se comunicar com o hardware de Bluetooth usando a pilha de BlueZ. Você precisa ter a versão 5.37 do BlueZ para que os módulos funcionem corretamente. Essas instruções fazem com que a versão correta do BlueZ esteja instalada.
+módulos de Bilitar Olá falam toohello Bluetooth hardware por meio da pilha de BlueZ hello. Você precisa versão 5.37 do BlueZ para Olá módulos toowork corretamente. Essas instruções Certifique-se de saudação a versão correta do BlueZ está instalada.
 
-1. Pare o daemon do bluetooth atual:
+1. Pare o daemon do hello atual bluetooth:
 
     ```sh
     sudo systemctl stop bluetooth
     ```
 
-1. Instale as dependências de BlueZ:
+1. Instale dependências de BlueZ hello:
 
     ```sh
     sudo apt-get update
     sudo apt-get install bluetooth bluez-tools build-essential autoconf glib2.0 libglib2.0-dev libdbus-1-dev libudev-dev libical-dev libreadline-dev
     ```
 
-1. Baixe o código-fonte do BlueZ de bluez.org:
+1. Baixe o código-fonte Olá BlueZ do bluez.org:
 
     ```sh
     wget http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz
     ```
 
-1. Descompacte o código-fonte:
+1. Descompacte o código-fonte hello:
 
     ```sh
     tar -xvf bluez-5.37.tar.xz
     ```
 
-1. Altere os diretórios para a pasta recém-criada:
+1. Alterar pasta de toohello recém-criado de diretórios:
 
     ```sh
     cd bluez-5.37
     ```
 
-1. Configure o código BlueZ a ser compilado:
+1. Configure Olá BlueZ código toobe criado:
 
     ```sh
     ./configure --disable-udev --disable-systemd --enable-experimental
@@ -172,50 +172,50 @@ Os módulos BLE se comunicar com o hardware de Bluetooth usando a pilha de BlueZ
     sudo make install
     ```
 
-1. Altere a configuração de serviço systemd para o bluetooth a fim de que ele aponte para o novo daemon de bluetooth no arquivo `/lib/systemd/system/bluetooth.service`. Substitua a linha 'ExecStart' pelo seguinte texto:
+1. Alteração da configuração do serviço systemd para bluetooth para que ele aponte toohello novo daemon bluetooth no arquivo hello `/lib/systemd/system/bluetooth.service`. Substitua linha de 'ExecStart' hello Olá texto a seguir:
 
     ```conf
     ExecStart=/usr/local/libexec/bluetooth/bluetoothd -E
     ```
 
-### <a name="enable-connectivity-to-the-sensortag-device-from-your-raspberry-pi-3-device"></a>Habilitar conectividade para o dispositivo SensorTag de seu dispositivo Raspberry Pi 3
+### <a name="enable-connectivity-toohello-sensortag-device-from-your-raspberry-pi-3-device"></a>Habilitar o dispositivo de SensorTag toohello conectividade do dispositivo framboesa Pi 3
 
-Antes de executar o exemplo, você precisa verificar se seu Raspberry Pi 3 pode se conectar ao dispositivo SensorTag.
+Antes de exemplo hello em execução, é necessário tooverify seu framboesa Pi 3 pode conectar-se toohello SensorTag dispositivo.
 
-1. Verifique se o utilitário `rfkill` está instalado:
+1. Certifique-se de saudação `rfkill` utilitário é instalado:
 
     ```sh
     sudo apt-get install rfkill
     ```
 
-1. Desbloqueie o Bluetooth no Raspberry Pi 3 e verifique se o número de versão é **5.37**:
+1. Desbloquear bluetooth em Olá framboesa Pi 3 e verifique se o número de versão de saudação é **5.37**:
 
     ```sh
     sudo rfkill unblock bluetooth
     bluetoothctl --version
     ```
 
-1. Para acessar o shell de bluetooth interativo, inicie o serviço de bluetooth e execute o comando **bluetoothctl**:
+1. tooenter shell de bluetooth interativo hello, iniciar o serviço de bluetooth hello e executar Olá **bluetoothctl** comando:
 
     ```sh
     sudo systemctl start bluetooth
     bluetoothctl
     ```
 
-1. Digite o comando **power on** para ligar o controlador bluetooth. O comando retorna saídas semelhantes ao seguinte:
+1. Digite o comando Olá **ligado** toopower controlador do hello bluetooth. comando Olá retorna a seguir toohello semelhante saída:
 
     ```sh
     [NEW] Controller 98:4F:EE:04:1F:DF C3 raspberrypi [default]
     ```
 
-1. No shell interativo bluetooth, digite o comando **scan on** para verificar se há dispositivos bluetooth. O comando retorna saídas semelhantes ao seguinte:
+1. No shell de bluetooth interativo hello, digite o comando de saudação **a varredura em** tooscan dispositivos bluetooth. comando Olá retorna a seguir toohello semelhante saída:
 
     ```sh
     Discovery started
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: yes
     ```
 
-1. Torne o dispositivo SensorTag detectável pressionando o botão pequeno (o LED verde deve piscar). O Raspberry Pi 3 deve detectar o dispositivo SensorTag:
+1. Torne dispositivo de SensorTag Olá detectável pressionando Olá pequeno botão (Olá piscarão LED verde). Olá framboesa Pi 3 deve descobrir dispositivos de SensorTag hello:
 
     ```sh
     [NEW] Device A0:E6:F8:B5:F6:00 CC2650 SensorTag
@@ -223,19 +223,19 @@ Antes de executar o exemplo, você precisa verificar se seu Raspberry Pi 3 pode 
     [CHG] Device A0:E6:F8:B5:F6:00 RSSI: -43
     ```
 
-    Neste exemplo, você pode ver que é o endereço MAC do dispositivo SensorTag é **A0:E6:F8:B5:F6:00**.
+    Neste exemplo, você pode ver que Olá endereço MAC de saudação SensorTag dispositivo **A0:E6:F8:B5:F6:00**.
 
-1. Desligue a verificação inserindo o comando **scan off**:
+1. Desativar a verificação inserindo Olá **verificação** comando:
 
     ```sh
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: no
     Discovery stopped
     ```
 
-1. Conecte-se ao dispositivo SensorTag usando seu endereço MAC inserindo **connect \<endereço MAC\>**. A saída de exemplo a seguir é abreviada para fins de esclarecimento:
+1. Conectar tooyour SensorTag dispositivo usando seu endereço MAC inserindo **conectar \<endereço MAC\>**. saudação de saída de exemplo a seguir é abreviada para maior clareza:
 
     ```sh
-    Attempting to connect to A0:E6:F8:B5:F6:00
+    Attempting tooconnect tooA0:E6:F8:B5:F6:00
     [CHG] Device A0:E6:F8:B5:F6:00 Connected: yes
     Connection successful
     [CHG] Device A0:E6:F8:B5:F6:00 UUIDs: 00001800-0000-1000-8000-00805f9b34fb
@@ -251,32 +251,32 @@ Antes de executar o exemplo, você precisa verificar se seu Raspberry Pi 3 pode 
     [CHG] Device A0:E6:F8:B5:F6:00 Modalias: bluetooth:v000Dp0000d0110
     ```
 
-    > Você pode listar as características do GATT do dispositivo novamente usando o comando **list-attributes**.
+    > Você pode listar Olá GATT características de saudação dispositivo novamente usando Olá **lista atributos** comando.
 
-1. Agora você pode se desconectar do dispositivo usando o comando **disconnect** e sair do shell Bluetooth usando o comando **quit**:
+1. Agora você pode desconectar de dispositivo de saudação usando Olá **desconectar** de comando e, em seguida, saia do shell de bluetooth hello usando Olá **sair** comando:
 
     ```sh
-    Attempting to disconnect from A0:E6:F8:B5:F6:00
+    Attempting toodisconnect from A0:E6:F8:B5:F6:00
     Successful disconnected
     [CHG] Device A0:E6:F8:B5:F6:00 Connected: no
     ```
 
-Agora você está pronto para executar o exemplo de BLE IoT Edge no Raspberry Pi 3.
+Agora você está exemplo de borda de IoT Bilitar hello toorun pronto em seu framboesa Pi 3.
 
-## <a name="run-the-iot-edge-ble-sample"></a>Executar o exemplo de IoT Edge BLE
+## <a name="run-hello-iot-edge-ble-sample"></a>Executar Olá IoT borda Bilitar exemplo
 
-Para executar o exemplo de IoT Edge BLE, você precisará concluir três tarefas:
+exemplo de IoT borda Bilitar hello toorun, é necessário toocomplete três tarefas:
 
 * Configurar dois dispositivos de exemplo em seu Hub IoT.
 * Crie o IoT Edge em seu dispositivo Raspberry Pi 3.
-* Configure e execute o exemplo de BLE no dispositivo Raspberry Pi 3.
+* Configurar e executar o exemplo de Bilitar hello em seu dispositivo framboesa Pi 3.
 
-No momento da redação desse artigo, o IoT Edge dava suporte apenas a módulos BLE em gateways em execução no Linux.
+No momento da saudação de gravação, borda IoT só dá suporte a módulos Bilitar em gateways em execução no Linux.
 
 ### <a name="configure-two-sample-devices-in-your-iot-hub"></a>Configurar dois dispositivos de exemplo em seu Hub IoT
 
-* [Crie um Hub IoT][lnk-create-hub] em sua assinatura do Azure. Você precisará do nome do hub para concluir este passo a passo. Se não tiver uma conta, você poderá criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
-* Adicione um dispositivo chamado **SensorTag_01** ao hub IoT e anote sua ID e chave de dispositivo. Você pode usar as ferramentas do [iothub-explorer ou o Gerenciador de Dispositivos][lnk-explorer-tools] para adicionar esse dispositivo ao Hub IoT que criou na etapa anterior e para recuperar sua chave. Você mapeia este dispositivo para o dispositivo SensorTag quando configura o gateway.
+* [Criar um hub IoT] [ lnk-create-hub] na sua assinatura do Azure, você precisará Olá nome do seu hub toocomplete este passo a passo. Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
+* Adicionar um dispositivo chamado **SensorTag_01** tooyour IoT hub e anote sua chave de id e o dispositivo. Você pode usar o hello [Gerenciador de dispositivo ou Gerenciador de Hub IOT] [ lnk-explorer-tools] ferramentas tooadd este hub IoT de toohello de dispositivo criado na etapa anterior hello e tooretrieve sua chave. Você mapeia esse dispositivo toohello SensorTag dispositivo ao configurar o gateway de saudação.
 
 ### <a name="build-azure-iot-edge-on-your-raspberry-pi-3"></a>Criar o Azure IoT Edge no Raspberry Pi 3
 
@@ -286,29 +286,29 @@ Instalar dependências para o Azure IoT Edge:
 sudo apt-get install cmake uuid-dev curl libcurl4-openssl-dev libssl-dev
 ```
 
-Use os seguintes comandos para clonar o IoT Edge e todos os seus submódulos em seu diretório inicial:
+A seguir Olá use comandos tooclone IoT borda e todos os seu submódulos tooyour diretório base:
 
 ```sh
 cd ~
 git clone https://github.com/Azure/iot-edge.git
 ```
 
-Quando você tiver uma cópia completa do repositório do IoT Edge em seu Raspberry Pi 3, poderá criá-lo usando o comando a seguir na pasta que contém o SDK:
+Quando você tiver uma cópia completa de saudação repositório IoT borda em seu framboesa Pi 3, você pode criar usando Olá comando a seguir na pasta Olá contém Olá SDK:
 
 ```sh
 cd ~/iot-edge
 ./tools/build.sh  --disable-native-remote-modules
 ```
 
-### <a name="configure-and-run-the-ble-sample-on-your-raspberry-pi-3"></a>Configurar e execute o exemplo de BLE em seu Raspberry Pi 3
+### <a name="configure-and-run-hello-ble-sample-on-your-raspberry-pi-3"></a>Configurar e executar o exemplo de Bilitar de saudação em seu framboesa Pi 3
 
-Para inicializar e executar o exemplo, configure cada módulo IoT Edge que participe do gateway. Essa configuração é fornecida em um arquivo JSON e você precisa configurar todos os cinco módulos IoT Edge participantes. Há um arquivo JSON de exemplo no repositório chamado **gateway\_sample.json**, que pode ser usado como ponto de partida para criar seu próprio arquivo de configuração. Esse arquivo está na pasta **samples/ble_gateway/src** na cópia local do repositório do IoT Edge.
+toobootstrap e exemplo hello execução, você deve configurar cada módulo de borda IoT participa no gateway hello. Essa configuração é fornecida em um arquivo JSON e você precisa configurar todos os cinco módulos IoT Edge participantes. Há um arquivo JSON de exemplo no repositório de saudação chamado **gateway\_sample.json** que você pode usar como ponto de partida para criar seu próprio arquivo de configuração de saudação. Esse arquivo está em Olá **ble_gateway/exemplos/src** pasta na cópia local do hello repositório IoT borda.
 
-As seções a seguir descrevem como editar esse arquivo de configuração para o exemplo de BLE e pressupõem que o repositório do IoT Edge está na pasta **/home/pi/azure-iot-gateway-sdk/** do Raspberry Pi 3. Se o repositório estiver em outro lugar, ajuste os caminhos adequadamente.
+Olá seções a seguir descrevem como tooedit essa configuração do arquivo de exemplo de Bilitar hello e suponha que Olá repositório IoT borda está em Olá **/home/pi/iot-edge /** pasta no seu framboesa Pi 3. Se o repositório de saudação estiver em outro lugar, ajuste caminhos Olá adequadamente.
 
 #### <a name="logger-configuration"></a>Configuração do agente
 
-Pressupondo que o repositório de gateway esteja localizado na pasta **/home/pi/iot-edge/**, configure o módulo de agente da seguinte maneira:
+Supondo que o repositório de gateway hello está localizado em Olá **/home/pi/iot-edge /** pasta, configure o módulo de agente de log de saudação da seguinte maneira:
 
 ```json
 {
@@ -328,7 +328,7 @@ Pressupondo que o repositório de gateway esteja localizado na pasta **/home/pi/
 
 #### <a name="ble-module-configuration"></a>Configuração do módulo BLE
 
-A configuração de exemplo do dispositivo BLE pressupõe um dispositivo Texas Instruments SensorTag. Qualquer dispositivo BLE padrão que pode operar como um GATT periférico deve funcionar, mas você talvez precise atualizar as IDs de característica GATT e os dados. Adicione o endereço MAC do dispositivo SensorTag:
+configuração de exemplo Hello para dispositivo de Bilitar Olá pressupõe um dispositivo SensorTag de instrumentos Texas. Qualquer dispositivo Bilitar padrão que pode funcionar como um GATT periférico deve funcionar, mas você pode precisar característica de GATT tooupdate Olá IDs e dados. Adicione o endereço MAC de saudação do seu dispositivo SensorTag:
 
 ```json
 {
@@ -387,11 +387,11 @@ A configuração de exemplo do dispositivo BLE pressupõe um dispositivo Texas I
 }
 ```
 
-Se você não estiver usando um dispositivo SensorTag, leia a documentação do seu dispositivo BLE para determinar se é necessário atualizar os valores de dados e IDs características GATT.
+Se você não estiver usando um dispositivo SensorTag, revise a documentação de saudação para sua toodetermine de dispositivo Bilitar se você precisa de característica de GATT tooupdate Olá IDs e valores de dados.
 
 #### <a name="iot-hub-module"></a>módulo do Hub IoT
 
-Adicione o nome do Hub IoT. O valor do sufixo é geralmente **azure-devices.net**:
+Adicione nome de saudação do seu IoT Hub. valor de sufixo de saudação é normalmente **devices.net azure**:
 
 ```json
 {
@@ -412,7 +412,7 @@ Adicione o nome do Hub IoT. O valor do sufixo é geralmente **azure-devices.net*
 
 #### <a name="identity-mapping-module-configuration"></a>Configuração do módulo de mapeamento de identidade
 
-Adicione o endereço MAC do dispositivo SensorTag e a ID e a chave do dispositivo **SensorTag_01** adicionado ao seu Hub IoT:
+Adicione o endereço MAC de saudação do seu dispositivo de SensorTag e a ID do dispositivo Olá e a chave da saudação **SensorTag_01** dispositivo adicionado tooyour IoT Hub:
 
 ```json
 {
@@ -465,14 +465,14 @@ Adicione o endereço MAC do dispositivo SensorTag e a ID e a chave do dispositiv
 
 #### <a name="routing-configuration"></a>Configuração de roteamento
 
-A configuração abaixo garante o seguinte roteamento entre módulos IoT Edge:
+configuração a seguir Hello assegura seguir Olá roteamento entre módulos IoT borda:
 
-* O módulo **Agente** recebe e registra todas as mensagens.
-* O módulo **SensorTag** envia mensagens para os módulos **mapeamento** e **Impressora BLE**.
-* O módulo **mapeamento** envia mensagens ao módulo **IoTHub** a ser enviado ao seu Hub IoT.
-* O módulo **IoTHub** envia as mensagens de volta para o módulo **mapeamento**.
-* O módulo **mapeamento** envia mensagens para o módulo **BLEC2D**.
-* O módulo **BLEC2D** envia as mensagens de volta para o módulo **SensorTag**.
+* Olá **agente** módulo recebe e registra todas as mensagens.
+* Olá **SensorTag** módulo envia Olá de tooboth mensagens **mapeamento** e **Bilitar impressora** módulos.
+* Olá **mapeamento** módulo envia mensagens toohello **hub IOT** toobe módulo enviado tooyour IoT Hub.
+* Olá **hub IOT** módulo envia de volta toohello **mapeamento** módulo.
+* Olá **mapeamento** módulo envia mensagens toohello **BLEC2D** módulo.
+* Olá **BLEC2D** módulo envia de volta toohello **marca Sensor** módulo.
 
 ```json
 "links" : [
@@ -486,15 +486,15 @@ A configuração abaixo garante o seguinte roteamento entre módulos IoT Edge:
  ]
 ```
 
-Para executar o exemplo, passe o caminho até o arquivo de configuração JSON como um parâmetro para o binário **ble\_gateway**. O comando a seguir pressupõe que você esteja usando o arquivo de configuração **gateway_sample.json**. Execute este comando da pasta **iot-edge** no Raspberry Pi:
+exemplo de hello toorun, passagem Olá caminho toohello arquivo de configuração JSON como um parâmetro toohello **bilitar\_gateway** binário. Olá comando a seguir presume que você está usando Olá **gateway_sample.json** arquivo de configuração. Executar esse comando de saudação **iot borda** pasta Olá framboesa Pi:
 
 ```sh
 ./build/samples/ble_gateway/ble_gateway ./samples/ble_gateway/src/gateway_sample.json
 ```
 
-Talvez seja necessário pressionar o botão pequeno no dispositivo SensorTag para torná-lo detectável antes de executar o exemplo.
+Talvez seja necessário toopress Olá pequeno botão Olá SensorTag dispositivo toomake-lo detectável antes de executar o exemplo hello.
 
-Ao executar o exemplo, você pode usar o [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) ou a ferramenta [iothub-explorer](https://github.com/Azure/iothub-explorer) para monitorar as mensagens que o gateway do IoT Edge encaminha para o dispositivo SensorTag. Por exemplo, usando o iothub-explorer, você pode monitorar as mensagens de dispositivo para nuvem usando o seguinte comando:
+Quando você executar o exemplo hello, você pode usar o hello [explorer dispositivo](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) ou hello [Gerenciador de Hub IOT](https://github.com/Azure/iothub-explorer) ferramenta toomonitor Olá mensagens Olá encaminha o gateway de borda de IoT de dispositivo de SensorTag hello. Por exemplo, usando o Gerenciador de Hub IOT você pode monitorar mensagens de dispositivo para nuvem usando Olá comando a seguir:
 
 ```sh
 iothub-explorer monitor-events --login "HostName={Your iot hub name}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={Your IoT Hub key}"
@@ -502,11 +502,11 @@ iothub-explorer monitor-events --login "HostName={Your iot hub name}.azure-devic
 
 ## <a name="send-cloud-to-device-messages"></a>Envie mensagens da nuvem para o dispositivo
 
-O módulo BLE também dá suporte ao envio de comandos do Hub IoT para o dispositivo. Você pode usar a ferramenta [Gerenciador de Dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) ou o [iothub-explorer](https://github.com/Azure/iothub-explorer) para enviar as mensagens JSON que o módulo de gateway BLE encaminha para o dispositivo BLE.
+módulo de Bilitar Olá também oferece suporte a comandos de enviados do dispositivo do IoT Hub toohello. Você pode usar o hello [explorer dispositivo](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) ou hello [Gerenciador de Hub IOT](https://github.com/Azure/iothub-explorer) mensagens JSON toosend ferramenta módulo Olá Bilitar gateway encaminha no dispositivo de Bilitar toohello.
 
-Se você estiver usando o dispositivo Texas Instruments SensorTag, você poderá ativar o LED vermelho, o LED verde ou a campainha enviando comandos do Hub IoT. Antes de enviar comandos do Hub IoT, primeiro envie as duas mensagens JSON a seguir nesta ordem. Em seguida, você pode enviar um dos comandos para ligar as luzes ou a campainha.
+Se você estiver usando um dispositivo de Texas instrumentos SensorTag hello, você pode ativar LED Olá vermelho, LED verde ou campainha enviando comandos de IoT Hub. Antes de enviar comandos de IoT Hub, primeiro envie Olá duas mensagens JSON em ordem a seguir. Em seguida, você pode enviar qualquer Olá comandos tooturn luzes hello ou campainha.
 
-1. Redefinir todos os LEDs e a campainha (desativá-los):
+1. Redefina todos os LEDs e campainha hello (desativá-los):
 
     ```json
     {
@@ -526,9 +526,9 @@ Se você estiver usando o dispositivo Texas Instruments SensorTag, você poderá
     }
     ```
 
-Agora, você pode enviar um dos seguintes comandos para ligar as luzes ou a campainha no dispositivo SensorTag:
+Agora você pode enviar qualquer Olá tooturn comandos a seguir em luzes hello ou campainha no dispositivo de SensorTag hello:
 
-* Ativar o LED vermelho:
+* Ative o LED Olá vermelho:
 
     ```json
     {
@@ -538,7 +538,7 @@ Agora, você pode enviar um dos seguintes comandos para ligar as luzes ou a camp
     }
     ```
 
-* Ativar o LED verde:
+* Ative o LED verde do hello:
 
     ```json
     {
@@ -548,7 +548,7 @@ Agora, você pode enviar um dos seguintes comandos para ligar as luzes ou a camp
     }
     ```
 
-* Ativar a campainha:
+* Ative campainha hello:
 
     ```json
     {
@@ -560,11 +560,11 @@ Agora, você pode enviar um dos seguintes comandos para ligar as luzes ou a camp
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você quiser compreender de maneira mais avançada o IoT Edge e experimentar alguns exemplos de código, acesse os seguintes recursos e tutoriais para desenvolvedores:
+Se você quiser toogain uma compreensão mais avançada de IoT borda e fazer experiências com alguns exemplos de código, visite Olá tutoriais de desenvolvedor e recursos:
 
 * [Azure IoT Edge][lnk-sdk]
 
-Para explorar melhor as funcionalidades do Hub IoT, consulte:
+toofurther explorar recursos de saudação do IoT Hub, consulte:
 
 * [Guia do desenvolvedor do Hub IoT][lnk-devguide]
 

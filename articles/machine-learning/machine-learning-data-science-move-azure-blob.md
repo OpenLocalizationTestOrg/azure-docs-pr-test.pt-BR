@@ -1,6 +1,6 @@
 ---
-title: Mover dados de e para o Armazenamento de Blobs do Azure | Microsoft Docs
-description: Mover dados de e para o Armazenamento de Blobs do Azure
+title: aaaMove tooand de dados do armazenamento de BLOBs do Azure | Microsoft Docs
+description: Mover dados tooand do armazenamento de BLOBs do Azure
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;sachouks
-ms.openlocfilehash: d9a626cccd3cdfcdc85f000bd3192aef2881e9a6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e12b8c157955195e826f8b108075afaf25ca7bd9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="move-data-to-and-from-azure-blob-storage"></a>Mover dados para e do Armazenamento de Blobs do Azure
+# <a name="move-data-tooand-from-azure-blob-storage"></a>Mover dados tooand do armazenamento de BLOBs do Azure
 [!INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
-<!-- just in case, adding this to separate these two include references -->
+<!-- just in case, adding this tooseparate these two include references -->
 
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
-O melhor método para você depende de seu cenário. O artigo [Cenários para análises avançadas no Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md) ajudará você a determinar os recursos necessários para uma variedade de fluxos de trabalho de ciência de dados usados no processo de análise avançada.
+O melhor método para você depende de seu cenário. Olá [cenários para análises avançadas no aprendizado de máquina do Azure](machine-learning-data-science-plan-sample-scenarios.md) artigo o ajudará a determinar os recursos de saudação é necessário para uma variedade de fluxos de trabalho de ciência de dados usados em Olá avançado do processo de análise.
 
 > [!NOTE]
-> Para obter uma introdução completa ao Armazenamento de Blobs do Azure, confira [Noções básicas do Serviço Blob do Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md) e [Serviço Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> Para um armazenamento de blob tooAzure introdução completa, consulte muito[Noções básicas de Blob do Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md) e muito[serviço Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 > 
 > 
 
 Como alternativa, você pode usar o [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) para: 
 
 * criar e agendar um pipeline que baixa os dados do Armazenamento de Blobs do Azure, 
-* passá-lo para um serviço Web publicado do Azure Machine Learning, 
-* receber os resultados da análise preditiva, e 
-* carrega os resultados no armazenamento. 
+* passe-tooa publicado serviço da web de aprendizado de máquina do Azure, 
+* receber os resultados de análise preditiva Olá, e 
+* carregar Olá toostorage de resultados. 
 
 Para obter mais informações, consulte [Criar pipelines preditivos usando o Azure Data Factory e o Azure Machine Learning](../data-factory/data-factory-azure-ml-batch-execution-activity.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este documento pressupõe que você tenha uma assinatura, uma conta de armazenamento do Azure e a chave de armazenamento correspondente dessa conta. Antes de carregar/baixar os dados, você deve conhecer o nome e a chave da sua conta do Armazenamento do Azure.
+Este documento assume que você tenha uma assinatura do Azure, uma conta de armazenamento e chave de armazenamento correspondente Olá para essa conta. Antes de carregar/baixar os dados, você deve conhecer o nome e a chave da sua conta do Armazenamento do Azure.
 
-* Para configurar uma assinatura do Azure, consulte [Avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
-* Para obter instruções sobre como criar uma conta de armazenamento e para obter informações sobre conta e chave, consulte [Sobre contas do armazenamento do Azure](../storage/common/storage-create-storage-account.md).
+* tooset uma assinatura do Azure, consulte [um mês avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Para obter instruções sobre como criar uma conta de armazenamento e obter informações sobre conta e chave, consulte [Sobre contas do armazenamento do Azure](../storage/common/storage-create-storage-account.md).
 

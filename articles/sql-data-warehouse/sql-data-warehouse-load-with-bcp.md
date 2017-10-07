@@ -1,6 +1,6 @@
 ---
-title: Usar o bcp para carregar dados no SQL Data Warehouse | Microsoft Docs
-description: "Saiba o que é o bcp e como usá-lo em cenários de data warehouse."
+title: dados de tooload aaaUse bcp no SQL Data Warehouse | Microsoft Docs
+description: "Saiba quais bcp é e como toouse para cenários de data warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 7596eac10fdf53380d85128265430ce07b551fe3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 09a2980585097644924c71899f9e74fb32fbc26d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="load-data-with-bcp"></a>Carregar dados com o bcp
 > [!div class="op_single_selector"]
@@ -30,41 +30,41 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-**[bcp][bcp]** é um utilitário de carregamento em massa de linha de comando que permite copiar dados entre o SQL Server, arquivos de dados e o SQL Data Warehouse. Use o bcp para importar grandes quantidades de linhas nas tabelas do SQL Data Warehouse ou para exportar dados das tabelas do SQL Server em arquivos de dados. Exceto quando usado com a opção queryout, o bcp não exige conhecimento em Transact-SQL.
+**[BCP] [ bcp]**  é um utilitário de carregamento em massa de linha de comando que permite que você toocopy dados entre o SQL Server, arquivos de dados e SQL Data Warehouse. Use bcp tooimport grandes números de linhas em tabelas do SQL Data Warehouse ou tooexport dados de tabelas do SQL Server para arquivos de dados. Exceto quando usado com a opção queryout hello, bcp não requer conhecimento de Transact-SQL.
 
-O bcp é uma maneira rápida e fácil de mover conjuntos de dados menores para dentro e fora de um banco de dados do SQL Data Warehouse. O volume exato de dados que é recomendado para carregamento/extração por meio do bcp dependerá da sua conexão de rede com o datacenter do Azure.  Geralmente, as tabelas de dimensão podem ser carregadas e extraídas prontamente com bcp, no entanto, não recomendamos bcp para carregar ou extrair grandes volumes de dados.  Polybase é a ferramenta recomendada para carregar e extrair grandes volumes de dados, pois aproveita melhor a arquitetura de processamento extremamente paralelo do SQL Data Warehouse.
+o BCP é uma maneira rápida e fácil toomove conjuntos de dados menores dentro e fora de um banco de dados do SQL Data Warehouse. a quantidade exata Olá de dados que são recomendados tooload/extração via bcp dependerão na rede de conexão toohello data center do Azure.  Geralmente, as tabelas de dimensão podem ser carregadas e extraídas prontamente com bcp, no entanto, não recomendamos bcp para carregar ou extrair grandes volumes de dados.  O Polybase é hello recomendado a ferramenta de carregamento e extrair grandes volumes de dados, como faz um trabalho melhor aproveita a arquitetura de processamento paralelo em massa de saudação do SQL Data Warehouse.
 
 Com o bcp, você pode:
 
-* Usar um utilitário de linha de comando simples para carregar dados no SQL Data Warehouse.
-* Usar um utilitário de linha de comando simples para extrair dados do SQL Data Warehouse.
+* Use um utilitário de linha de comando simples tooload de dados no SQL Data Warehouse.
+* Use um utilitário de linha de comando simples de tooextract de dados do SQL Data Warehouse.
 
 Este tutorial mostrará como:
 
-* Importar dados em uma tabela usando o comando bcp in
-* Exportar dados de uma tabela usando o comando bcp out
+* Importar dados em uma tabela usando o bcp Olá no comando
+* Exportar dados de um tabela usar Olá saída bcp comando
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
 > 
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para acompanhar este tutorial, você precisará:
+toostep este tutorial, você precisa:
 
 * Um banco de dados do SQL Data Warehouse.
-* O utilitário de linha de comando bcp instalado
-* O utilitário de linha de comando SQLCMD instalado
+* Utilitário de linha de comando bcp Olá instalado
+* Olá utilitário de linha de comando SQLCMD instalado
 
 > [!NOTE]
-> Você pode baixar os utilitários bcp e sqlcmd do [Centro de Download da Microsoft][Microsoft Download Center].
+> Você pode baixar os utilitários de bcp e o sqlcmd Olá do hello [Microsoft Download Center][Microsoft Download Center].
 > 
 > 
 
 ## <a name="import-data-into-sql-data-warehouse"></a>Importar dados no SQL Data Warehouse
-Neste tutorial, você criará uma tabela no SQL Data Warehouse e importará dados na tabela.
+Neste tutorial, você criará uma tabela no Azure SQL Data Warehouse e importar dados em tabela hello.
 
 ### <a name="step-1-create-a-table-in-azure-sql-data-warehouse"></a>Etapa 1: Criar uma tabela no SQL Data Warehouse do Azure
-Em um prompt de comando, use sqlcmd para executar a consulta a seguir e criar uma tabela em sua instância:
+Em um prompt de comando, use sqlcmd toorun Olá toocreate consulta uma tabela a seguir na instância do:
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -83,12 +83,12 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 > [!NOTE]
-> Confira [Visão Geral da Tabela][Table Overview] ou a [sintaxe CREATE TABLE][CREATE TABLE syntax] para obter mais informações sobre como criar uma tabela no SQL Data Warehouse e ver as opções disponíveis na cláusula WITH.
+> Consulte [visão geral da tabela] [ Table Overview] ou [sintaxe CREATE TABLE] [ CREATE TABLE syntax] para obter mais informações sobre como criar uma tabela no SQL Data Warehouse e hello  opções disponíveis na cláusula WITH de saudação.
 > 
 > 
 
 ### <a name="step-2-create-a-source-data-file"></a>Etapa 2: Criar um arquivo de dados de origem
-Abra o Bloco de Notas e copie as seguintes linhas de dados em um novo arquivo de texto. Em seguida, salve esse arquivo em seu diretório temporário local, c:\Temp\DimDate2.txt.
+Abra o bloco de notas e copie Olá linhas de dados a seguir em um novo arquivo de texto e, em seguida, salvar esse arquivo tooyour local diretório temp, C:\Temp\DimDate2.txt.
 
 ```
 20150301,1,3
@@ -106,24 +106,24 @@ Abra o Bloco de Notas e copie as seguintes linhas de dados em um novo arquivo de
 ```
 
 > [!NOTE]
-> É importante lembrar que o bcp.exe não oferece suporte a codificação do arquivo UTF-8. Use arquivos ASCII ou arquivos codificados em UTF-16 ao usar o bcp.exe.
+> É importante tooremember que bcp.exe não oferece suporte para a codificação do arquivo hello UTF-8. Use arquivos ASCII ou arquivos codificados em UTF-16 ao usar o bcp.exe.
 > 
 > 
 
-### <a name="step-3-connect-and-import-the-data"></a>Etapa 3: Conectar e importar os dados
-Usando o bcp, você pode conectar e importar os dados usando o comando a seguir, substituindo os valores conforme apropriado:
+### <a name="step-3-connect-and-import-hello-data"></a>Etapa 3: Conectar e importar dados de saudação
+Usando o bcp, você pode conectar e importar dados de saudação usando Olá a seguir substituindo valores de saudação comando conforme apropriado:
 
 ```sql
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t  ','
 ```
 
-Você pode verificar se os dados foram carregados executando a consulta a seguir usando o sqlcmd:
+Você pode verificar Olá dados foram carregados executando hello usando o sqlcmd de consulta a seguir:
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
-Isso deve retornar os seguintes resultados:
+Isso deve retornar Olá resultados a seguir:
 
 | DateId | CalendarQuarter | FiscalQuarter |
 | --- | --- | --- |
@@ -141,9 +141,9 @@ Isso deve retornar os seguintes resultados:
 | 20151201 |4 |2 |
 
 ### <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Etapa 4: criar estatísticas sobre os dados recém-carregados
-O SQL Data Warehouse do Azure ainda não dá suporte a estatísticas de criação ou atualização automática. Para obter o melhor desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento ou após uma alteração significativa nos dados. Para obter uma explicação detalhada das estatísticas, confira o tópico [Estatísticas][Statistics] no grupo de tópicos Desenvolver. Veja abaixo um exemplo de como criar estatísticas na tabela carregada neste exemplo
+O SQL Data Warehouse do Azure ainda não dá suporte a estatísticas de criação ou atualização automática. Em ordem tooget Olá melhor desempenho de suas consultas, é importante que ser criadas estatísticas em todas as colunas de todas as tabelas após a primeira carga de saudação ou alterações substanciais ocorrerem nos dados de saudação. Para obter uma explicação detalhada de estatísticas, consulte Olá [estatísticas] [ Statistics] tópico no grupo de desenvolver Olá de tópicos. Abaixo está um exemplo rápido de como toocreate estatísticas na tabela de saudação carregados neste exemplo
 
-Execute as seguintes instruções CREATE STATISTICS em um prompt de sqlcmd:
+Execute Olá seguindo as instruções CREATE STATISTICS em um prompt de sqlcmd:
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -154,15 +154,15 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 ## <a name="export-data-from-sql-data-warehouse"></a>Exportar dados do SQL Data Warehouse
-Neste tutorial, você criará um arquivo de dados de uma tabela no SQL Data Warehouse. Exportaremos os dados que criamos acima para um novo arquivo de dados chamado DimDate2_export.txt.
+Neste tutorial, você criará um arquivo de dados de uma tabela no SQL Data Warehouse. Podemos exporta os dados de saudação que criamos acima tooa novo arquivo de dados chamado DimDate2_export.txt.
 
-### <a name="step-1-export-the-data"></a>Etapa 1: Exportar os dados
-Usando o utilitário bcp, você pode conectar e exportar dados usando o comando a seguir, substituindo os valores conforme apropriado:
+### <a name="step-1-export-hello-data"></a>Etapa 1: Exportar dados de saudação
+Usando o utilitário bcp de saudação, você pode se conectar e exportar dados usando Olá a seguir substituindo valores de saudação comando conforme apropriado:
 
 ```sql
 bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
-Você pode verificar se os dados foram exportados corretamente abrindo o novo arquivo. Os dados no arquivo devem corresponder ao texto abaixo:
+Você pode verificar Olá dados foram exportados corretamente abrindo novo arquivo de saudação. dados Olá no arquivo hello devem coincidir com o texto de saudação abaixo:
 
 ```
 20150301,1,3
@@ -180,7 +180,7 @@ Você pode verificar se os dados foram exportados corretamente abrindo o novo ar
 ```
 
 > [!NOTE]
-> Devido à natureza dos sistemas distribuídos, a ordem dos dados pode não ser a mesma entre os bancos de dados do SQL Data Warehouse. Outra opção é usar a função **queryout** do bcp para escrever uma extração de consulta, em vez de exportar a tabela inteira.
+> Devido a natureza toohello dos sistemas distribuídos, ordem de saudação de dados não pode ser Olá mesmo em bancos de dados do SQL Data Warehouse. Outra opção é Olá toouse **queryout** função de bcp toowrite uma consulta extrair, em vez de exportar a tabela inteira hello.
 > 
 > 
 

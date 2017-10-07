@@ -1,6 +1,6 @@
 ---
-title: "Usar o Azure WebHooks para monitorar as notificações de trabalho dos Serviços de Mídia com o .NET | Microsoft Docs"
-description: "Saiba como usar o Azure WebHooks para monitorar as notificações de trabalho dos Serviços de Mídia. O exemplo de código é escritos em C# e usam o SDK dos Serviços de Mídia para .NET."
+title: "notificações de trabalho de serviços de mídia aaaUse Azure WebHooks toomonitor com .NET | Microsoft Docs"
+description: "Saiba como toouse toomonitor de WebHooks do Azure Media Services trabalho notificações. exemplo de código Hello é escrito em c# e usa Olá SDK do Media Services para .NET."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,63 +14,63 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: juliako
-ms.openlocfilehash: eaa875a7c78de0b69c81514ea023f9b8bceb2656
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b7df597da20e551cb2a02cd21c96c7bddf9e1a66
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Usar o Azure WebHooks para monitorar as notificações de trabalho dos Serviços de Mídia com o .NET
-Quando você executa trabalhos, geralmente precisa de uma maneira de acompanhar o andamento do trabalho. Você pode monitorar as notificações de trabalho dos Serviços de Mídia usando o Azure WebHooks ou o [Armazenamento de Filas do Azure](media-services-dotnet-check-job-progress-with-queues.md). Este tópico mostra como trabalhar com Webhooks.
+# <a name="use-azure-webhooks-toomonitor-media-services-job-notifications-with-net"></a>Usar notificações de trabalho de serviços de mídia do Azure WebHooks toomonitor com .NET
+Quando você executa trabalhos, você geralmente requerem uma maneira tootrack trabalho de andamento. Você pode monitorar as notificações de trabalho dos Serviços de Mídia usando o Azure WebHooks ou o [Armazenamento de Filas do Azure](media-services-dotnet-check-job-progress-with-queues.md). Este tópico mostra como toowork com Webhooks.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os itens a seguir são necessários para concluir o tutorial:
+Olá seguem tutorial de saudação toocomplete necessária:
 
 * Uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, consulte [Como criar uma conta de Serviços de Mídia](media-services-portal-create-account.md).
-* Compreensão de [como usar o Azure Functions](../azure-functions/functions-overview.md). Além disso, examine as [Associações HTTP e de webhook do Azure Functions](../azure-functions/functions-bindings-http-webhook.md).
+* Uma conta dos Serviços de Mídia. toocreate uma conta de serviços de mídia, consulte [como tooCreate uma conta do Media Services](media-services-portal-create-account.md).
+* Compreensão de [como toouse Azure funções](../azure-functions/functions-overview.md). Além disso, examine as [Associações HTTP e de webhook do Azure Functions](../azure-functions/functions-bindings-http-webhook.md).
 
 Este tópico mostra como
 
-*  Definir uma Azure Function personalizada para responder a webhooks. 
+*  Defina uma função do Azure toowebhooks toorespond personalizado. 
     
-    Nesse caso, o webhook é disparado pelos Serviços de Mídia quando o trabalho de codificação altera o status. A função escuta em busca do retorno de chamada do webhook das notificações de Serviços de Mídia e publica o ativo de saída após o trabalho ser concluído. 
+    Nesse caso, Olá webhook é disparado por serviços de mídia quando o trabalho de codificação altera o status. função Hello escuta Olá webhook chamada de notificações de serviços de mídia e publica o ativo de saída de hello quando termina o trabalho de saudação. 
     
     >[!NOTE]
     >Antes de continuar, verifique se você entende como [associações HTTP de Azure Functions e webhook](../azure-functions/functions-bindings-http-webhook.md) funcionam.
     >
     
-* Adicione um webhook à sua tarefa de codificação e especifique a URL de webhook e a chave secreta à qual esse webhook responde. No exemplo mostrado aqui, o código que cria a tarefa de codificação é um aplicativo de console.
+* Adicionar uma tarefa de codificação tooyour webhook e especifique a URL do webhook hello e chave secreta esse webhook responde a. No exemplo hello mostrado aqui, o código Olá cria Olá tarefas de codificação é um aplicativo de console.
 
 ## <a name="setting-up-webhook-notification-azure-functions"></a>Configurando a "notificação webhook" do Azure Functions
 
-O código nesta seção mostra uma implementação de uma função do Azure que é um webhook. Nesta amostra, a função escuta em busca do retorno de chamada do webhook das notificações de Serviços de Mídia e publica o ativo de saída após o trabalho ser concluído.
+código de saudação nesta seção mostra uma implementação de uma função do Azure que é um webhook. Neste exemplo, a função hello escuta Olá webhook chamada de notificações de serviços de mídia e publica o ativo de saída de hello quando termina o trabalho de saudação.
 
-O webhook espera uma chave de autenticação (credencial) para corresponder àquela que você passa ao configurar o ponto de extremidade de notificação. A chave de assinatura é o valor com codificação Base64 de 64 bytes que é usado para proteger seus retornos de chamada de WebHooks de Serviços de Mídia do Azure. 
+Olá webhook espera uma assinatura toomatch de chave (credenciais) Olá um passar quando você configura o ponto de extremidade de notificação de saudação. Olá, chave de assinatura é Olá 64 bytes codificada em Base64 valor tooprotect usado e proteger seu retornos de chamada WebHooks dos serviços de mídia do Azure. 
 
-No código a seguir, o método **VerifyWebHookRequestSignature** faz a verificação na mensagem de notificação. A finalidade dessa validação é assegurar que a mensagem tenha sido enviada pelos Serviços de Mídia do Azure e não tenha sido adulterada. A assinatura é opcional para o Azure Functions, pois ela tem o valor **Code** como um parâmetro de consulta por protocolo TLS. 
+Em Olá código a seguir, Olá **VerifyWebHookRequestSignature** método hello verificação na mensagem de notificação de saudação. Olá finalidade dessa validação é tooensure que Olá a mensagem foi enviada pelo Azure Media Services e não foi adulterado. assinatura de saudação é opcional para as funções do Azure, pois tem Olá **código** valor como um parâmetro de consulta sobre segurança de camada de transporte (TLS). 
 
-Você pode encontrar a definição de várias funções do Azure Functions .NET dos Serviços de Mídia (incluindo a mostrada neste tópico) [aqui](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
+Você pode encontrar a definição de saudação de várias funções do Azure .NET de serviços de mídia (incluindo Olá mostrada neste tópico) [aqui](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
-A listagem de códigos a seguir mostra as definições dos parâmetros de função do Azure e três arquivos que estão associados à função do Azure: function.json, project.json e run.csx.
+listagem de código a seguir Hello mostra definições de saudação de parâmetros de função do Azure e três arquivos que estão associados a saudação função do Azure: function.json, Project e run.csx.
 
 ### <a name="application-settings"></a>Configurações do aplicativo 
 
-A tabela a seguir mostra os parâmetros que são usados pela função do Azure definida nesta seção. 
+Olá tabela a seguir mostra os parâmetros de saudação que são usados por hello Azure função definida nesta seção. 
 
 |Nome|Definição|Exemplo| 
 |---|---|---|
 |AMSAccount|O nome da conta AMS. |juliakomediaservices|
 |AMSKey |A chave de conta AMS. | JUWJdDaOHQQqsZeiXZuE76eDt2SO+YMJk25Lghgy2nY=|
-|MediaServicesStorageAccountName |Um nome de conta de armazenamento que está associada à sua conta do AMS.| storagepkeewmg5c3peq|
-|MediaServicesStorageAccountKey |Uma chave de conta de armazenamento que está associada à sua conta do AMS.|
+|MediaServicesStorageAccountName |Um nome de conta de armazenamento de saudação que é associado à sua conta AMS.| storagepkeewmg5c3peq|
+|MediaServicesStorageAccountKey |Uma chave de saudação da conta de armazenamento que está associada à sua conta AMS.|
 |SigningKey |Uma chave de assinatura.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | Um endereço do ponto de extremidade do webhook. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
 ### <a name="functionjson"></a>function.json
 
-O arquivo function.json define as associações de função e outras definições de configuração. O tempo de execução usa esse arquivo para determinar os eventos a serem monitorados, bem como para passar e retornar dados da execução da função. 
+arquivo de function.json Olá define associações de função hello e outras definições de configuração. saudação de tempo de execução usa toomonitor de eventos neste arquivo toodetermine hello e como toopass dados e retornar dados de função execução. 
 
     {
       "bindings": [
@@ -96,7 +96,7 @@ O arquivo function.json define as associações de função e outras definiçõe
     
 ### <a name="projectjson"></a>project.json
 
-O arquivo project.json contém dependências. 
+arquivo do Project Olá contém dependências. 
 
     {
       "frameworks": {
@@ -111,11 +111,11 @@ O arquivo project.json contém dependências.
     
 ### <a name="runcsx"></a>run.csx
 
-O código C# a seguir mostra uma definição de uma função do Azure que é um webhook. A função escuta em busca do retorno de chamada do webhook das notificações de Serviços de Mídia e publica o ativo de saída após o trabalho ser concluído. 
+Olá, c# código seguinte mostra uma definição de uma função do Azure que é um webhook. função Hello escuta Olá webhook chamada de notificações de serviços de mídia e publica o ativo de saída de hello quando termina o trabalho de saudação. 
 
 
 >[!NOTE]
->Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
+>Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Você deve usar Olá Olá a mesma ID de política se você estiver usando sempre mesmo dias acesso permissões, por exemplo, as políticas para localizadores são tooremain desejado no local por um longo período (políticas de carregamento não). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
 
     ///////////////////////////////////////////////////
     #r "Newtonsoft.Json"
@@ -177,7 +177,7 @@ O código C# a seguir mostra uma definição de uma função do Azure que é um 
                 if(_context!=null)   
                 {                        
                 string urlForClientStreaming = PublishAndBuildStreamingURLs(msg.Properties["JobId"]);
-                log.Info($"URL to the manifest for client streaming using HLS protocol: {urlForClientStreaming}");
+                log.Info($"URL toohello manifest for client streaming using HLS protocol: {urlForClientStreaming}");
                 }
             }
 
@@ -210,19 +210,19 @@ O código C# a seguir mostra uma definição de uma função do Azure que é um 
         TimeSpan.FromDays(30),
         AccessPermissions.Read);
 
-        // Create a locator to the streaming content on an origin. 
+        // Create a locator toohello streaming content on an origin. 
         ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
         policy,
         DateTime.UtcNow.AddMinutes(-5));
 
 
-        // Get a reference to the streaming manifest file from the  
-        // collection of files in the asset. 
+        // Get a reference toohello streaming manifest file from hello  
+        // collection of files in hello asset. 
         var manifestFile = asset.AssetFiles.Where(f => f.Name.ToLower().
                     EndsWith(".ism")).
                     FirstOrDefault();
 
-        // Create a full URL to the manifest file. Use this for playback
+        // Create a full URL toohello manifest file. Use this for playback
         // in streaming media clients. 
         string urlForClientStreaming = originLocator.Path + manifestFile.Name + "/manifest" +  "(format=m3u8-aapl)";
         return urlForClientStreaming;
@@ -278,7 +278,7 @@ O código C# a seguir mostra uma definição de uma função do Azure que é um 
     private static readonly char[] HexLookup = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
 
     /// <summary>
-    /// Converts a <see cref="T:byte[]"/> to a hex-encoded string.
+    /// Converts a <see cref="T:byte[]"/> tooa hex-encoded string.
     /// </summary>
     private static string ToHex(byte[] data)
     {
@@ -320,7 +320,7 @@ O código C# a seguir mostra uma definição de uma função do Azure que é um 
 
 ### <a name="function-output"></a>Saída da função
 
-O exemplo acima produziu a saída a seguir, os seus valores variarão.
+exemplo Hello acima produzido Olá saída a seguir, os valores irão variar.
 
     C# HTTP trigger function processed a request. RequestUri=https://juliako001-functions.azurewebsites.net/api/Notification_Webhook_Function?code=9376d69kygoy49oft81nel8frty5cme8hb9xsjslxjhalwhfrqd79awz8ic4ieku74dvkdfgvi
     Request Body = {
@@ -339,19 +339,19 @@ O exemplo acima produziu a saída a seguir, os seus valores variarão.
       }
     }
     
-    URL to the manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
+    URL toohello manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
-## <a name="adding-webhook-to-your-encoding-task"></a>Adicionando Webhook à tarefa de codificação
+## <a name="adding-webhook-tooyour-encoding-task"></a>Adicionando a tarefa de codificação do Webhook tooyour
 
-Nesta seção, é mostrado o código que adiciona uma notificação webhook a uma tarefa. Você também pode adicionar uma notificação de trabalho de nível, o que seria mais útil para um trabalho com tarefas encadeadas.  
+Nesta seção, o código de saudação que adiciona uma notificação de webhook tooa tarefa é mostrado. Você também pode adicionar uma notificação de trabalho de nível, o que seria mais útil para um trabalho com tarefas encadeadas.  
 
-1. No Visual Studio, crie um novo aplicativo de console C#. Digite o nome, o Local e o Nome da solução e OK.
-2. Use o [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) para instalar os Serviços de Mídia do Azure.
+1. No Visual Studio, crie um novo aplicativo de console C#. Insira Olá nome nome, o local e a solução e, em seguida, clique em Okey.
+2. Use [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) tooinstall serviços de mídia do Azure.
 3. Atualize o arquivo App.config com valores apropriados: 
     
     * O nome e a chave dos Serviços de Mídia do Azure que enviarão notificações, 
-    * a URL de webhook que espera receber as notificações, 
-    * a chave de assinatura que corresponde à chave que o webhook espera. A chave de assinatura é o valor com codificação Base64 de 64 bytes que é usado para proteger seus retornos de chamada de WebHooks de Serviços de Mídia do Azure. 
+    * URL do webhook que espera as notificações de saudação tooget, 
+    * saudação de assinatura de chave que coincide com a chave Olá que espera o webhook. Olá, chave de assinatura é Olá 64 bytes codificada em Base64 valor tooprotect usado e proteger seu retornos de chamada WebHooks dos serviços de mídia do Azure. 
 
             <appSettings>
               <add key="MediaServicesAccountName" value="AMSAcctName" />
@@ -360,7 +360,7 @@ Nesta seção, é mostrado o código que adiciona uma notificação webhook a um
               <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
             </appSettings>
             
-4. Atualize o arquivo Program.cs com o código a seguir:
+4. Atualize o arquivo Program.cs com hello código a seguir:
 
         using System;
         using System.Configuration;
@@ -371,7 +371,7 @@ Nesta seção, é mostrado o código que adiciona uma notificação webhook a um
         {
             class Program
             {
-            // Read values from the App.config file.
+            // Read values from hello App.config file.
             private static readonly string _mediaServicesAccountName =
                 ConfigurationManager.AppSettings["MediaServicesAccountName"];
             private static readonly string _mediaServicesAccountKey =
@@ -387,7 +387,7 @@ Nesta seção, é mostrado o código que adiciona uma notificação webhook a um
             static void Main(string[] args)
             {
 
-                // Used the cached credentials to create CloudMediaContext.
+                // Used hello cached credentials toocreate CloudMediaContext.
                 _context = new CloudMediaContext(new MediaServicesCredentials(
                         _mediaServicesAccountName,
                         _mediaServicesAccountKey));
@@ -396,7 +396,7 @@ Nesta seção, é mostrado o código que adiciona uma notificação webhook a um
 
                 IAsset newAsset = _context.Assets.FirstOrDefault();
 
-                // Check for existing Notification Endpoint with the name "FunctionWebHook"
+                // Check for existing Notification Endpoint with hello name "FunctionWebHook"
 
                 var existingEndpoint = _context.NotificationEndPoints.Where(e => e.Name == "FunctionWebHook").FirstOrDefault();
                 INotificationEndPoint endpoint = null;
@@ -413,11 +413,11 @@ Nesta seção, é mostrado o código que adiciona uma notificação webhook a um
                 Console.WriteLine("Notification Endpoint Created with Key : {0}", keyBytes.ToString());
                 }
 
-                // Declare a new encoding job with the Standard encoder
+                // Declare a new encoding job with hello Standard encoder
                 IJob job = _context.Jobs.Create("MES Job");
 
-                // Get a media processor reference, and pass to it the name of the 
-                // processor to use for the specific task.
+                // Get a media processor reference, and pass tooit hello name of hello 
+                // processor toouse for hello specific task.
                 IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
                 ITask task = job.Tasks.AddNew("My encoding task",
@@ -425,15 +425,15 @@ Nesta seção, é mostrado o código que adiciona uma notificação webhook a um
                 "Adaptive Streaming",
                 TaskOptions.None);
 
-                // Specify the input asset to be encoded.
+                // Specify hello input asset toobe encoded.
                 task.InputAssets.Add(newAsset);
 
-                // Add an output asset to contain the results of the job. 
+                // Add an output asset toocontain hello results of hello job. 
                 // This output is specified as AssetCreationOptions.None, which 
-                // means the output asset is not encrypted. 
+                // means hello output asset is not encrypted. 
                 task.OutputAssets.AddNew(newAsset.Name, AssetCreationOptions.None);
 
-                // Add the WebHook notification to this Task and request all notification state changes.
+                // Add hello WebHook notification toothis Task and request all notification state changes.
                 // Note that you can also add a job level notification
                 // which would be more useful for a job with chained tasks.  
                 if (endpoint != null)
@@ -448,8 +448,8 @@ Nesta seção, é mostrado o código que adiciona uma notificação webhook a um
 
                 job.Submit();
 
-                Console.WriteLine("Expect WebHook to be triggered for the Job ID: {0}", job.Id);
-                Console.WriteLine("Expect WebHook to be triggered for the Task ID: {0}", task.Id);
+                Console.WriteLine("Expect WebHook toobe triggered for hello Job ID: {0}", job.Id);
+                Console.WriteLine("Expect WebHook toobe triggered for hello Task ID: {0}", task.Id);
 
                 Console.WriteLine("Job Submitted");
 

@@ -1,6 +1,6 @@
 ---
-title: "Operações do provedor do Azure Resource Manager | Microsoft Docs"
-description: "Fornece detalhes sobre as operações disponíveis nos provedores de recursos do Microsoft Azure Resource Manager"
+title: "Operações de provedor do Gerenciador de recursos de aaaAzure | Microsoft Docs"
+description: "Detalhes Olá operações disponíveis nos provedores de recursos do Gerenciador de recursos do Microsoft Azure Olá"
 services: active-directory
 documentationcenter: 
 author: jboeshart
@@ -12,33 +12,33 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 95c6a1e9cfadeb19a0ec5a53fffb15ef220bfec0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2d2f912ecbade335667d68fdc42ce03a2930a0eb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações do provedor de recursos do Azure Resource Manager
 
-Este documento lista as operações disponíveis para cada provedor de recursos do Microsoft Azure Resource Manager. Elas podem ser usadas em funções personalizadas para fornecer permissões de RBAC (Controle de acesso baseado em função) completas para recursos no Azure. Observe que esta não é uma lista abrangente e outras operações podem ser adicionadas ou removidas conforme a atualização de cada provedor. Cadeias de caracteres de operação seguem o formato de `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Para obter uma lista abrangente e atual, use `Get-AzureRmProviderOperation` (no PowerShell) ou `azure provider operations show` (na CLI do Azure) para listar as operações dos provedores de recursos do Azure.
+Este documento lista operações Olá disponíveis para cada provedor de recursos do Gerenciador de recursos do Microsoft Azure. Eles podem ser usados em funções personalizadas tooprovide granular controle de acesso baseado em função (RBAC) permissões tooresources no Azure. Observe que esta não é uma lista abrangente e outras operações podem ser adicionadas ou removidas conforme a atualização de cada provedor. Cadeias de caracteres de operação seguem o formato de saudação do `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Para obter uma lista abrangente e atual use `Get-AzureRmProviderOperation` (no PowerShell) ou `azure provider operations show` (no Azure CLI) operações toolist de provedores de recursos do Azure.
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
 | Operação | Descrição |
 |---|---|
 |/configuration/action|Atualizar a configuração do locatário.|
-|/services/action|Atualizar uma instância de serviço no locatário.|
+|/services/action|Atualiza uma instância de serviço no locatário hello.|
 |/configuration/write|Criar uma configuração de locatário.|
-|/configuration/read|Ler a configuração de locatário.|
-|/services/write|Criar uma instância de serviço no locatário.|
-|/services/read|Ler as instâncias de serviço no locatário.|
-|/services/delete|Excluir uma instância de serviço no locatário.|
-|/services/servicemembers/action|Criar uma instância de membro de serviço no serviço.|
-|/services/servicemembers/read|Ler a instância do membro de serviço no serviço.|
-|/services/servicemembers/delete|Excluir uma instância de membro de serviço no serviço.|
-|/services/servicemembers/alerts/read|Ler os alertas de um membro de serviço.|
-|/services/alerts/read|Ler os alertas de um serviço.|
-|/services/alerts/read|Ler os alertas de um serviço.|
+|/configuration/read|Lê Olá configuração de locatário.|
+|/services/write|Cria uma instância de serviço no locatário hello.|
+|/services/read|Lê as instâncias de serviço Olá no locatário hello.|
+|/services/delete|Exclui uma instância de serviço no locatário hello.|
+|/services/servicemembers/action|Cria uma instância de membro de serviço no serviço de saudação.|
+|/services/servicemembers/read|Lê a instância do membro Olá serviço no serviço de saudação.|
+|/services/servicemembers/delete|Exclui uma instância de membro de serviço no serviço de saudação.|
+|/services/servicemembers/alerts/read|Lê os alertas de saudação para um membro do serviço.|
+|/services/alerts/read|Lê os alertas de saudação para um serviço.|
+|/services/alerts/read|Lê os alertas de saudação para um serviço.|
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 
@@ -46,7 +46,7 @@ Este documento lista as operações disponíveis para cada provedor de recursos 
 |---|---|
 |/generateRecommendations/action|Gera recomendações|
 |/suppressions/action|Criar/atualizar supressões|
-|/register/action|Registra a assinatura do Microsoft Advisor|
+|/register/action|Registra a assinatura Olá Olá Microsoft Advisor|
 |/generateRecommendations/read|Obter o status de gerar recomendações|
 |/recommendations/read|Ler recomendações|
 |/suppressions/read|Obter supressões|
@@ -56,11 +56,11 @@ Este documento lista as operações disponíveis para cada provedor de recursos 
 
 | Operação | Descrição |
 |---|---|
-|/servers/read|Recupera as informações do Analysis Server especificado.|
-|/servers/write|Criar ou atualizar o Analysis Server especificado.|
-|/servers/delete|Excluir o Analysis Server.|
-|/servers/suspend/action|Suspende o Analysis Server.|
-|/servers/resume/action|Retoma o Analysis Server.|
+|/servers/read|Recupera as informações sobre a saudação de saudação especificado Analysis Server.|
+|/servers/write|Cria ou atualiza Olá especificado Analysis Server.|
+|/servers/delete|Exclusões Olá Analysis Server.|
+|/servers/suspend/action|Suspende Olá Analysis Server.|
+|/servers/resume/action|Retoma hello Analysis Server.|
 |/servers/checkNameAvailability<br>/action|Verificar se determinado nome do Analysis Server é válido e não está em uso.|
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
@@ -75,30 +75,30 @@ Este documento lista as operações disponíveis para cada provedor de recursos 
 |/service/delete|Excluir uma instância do Serviço de Gerenciamento de API|
 |/service/updatehostname/action|Configurar, atualizar ou remover nomes de domínio personalizado para um Serviço de Gerenciamento de API|
 |/service/uploadcertificate/action|Carregar certificado SSL para um Serviço de Gerenciamento de API|
-|/service/backup/action|Fazer backup do Serviço de Gerenciamento de API para o contêiner especificado em uma conta de armazenamento fornecida pelo usuário|
-|/service/restore/action|Restaurar o Serviço de Gerenciamento de API do contêiner especificado em uma conta de armazenamento fornecida pelo usuário|
+|/service/backup/action|Contêiner especificado do backup toohello de serviço de gerenciamento de API em um usuário forneceu a conta de armazenamento|
+|/service/restore/action|Restaurar o serviço de gerenciamento de API do contêiner de saudação especificado em um conta de armazenamento de fornecida pelo usuário|
 |/service/managedeployments/action|Alterar SKU/unidades, adicionar/remover implantações regionais do Serviço de Gerenciamento de API|
-|/service/getssotoken/action|Obter token de SSO que pode ser usado para fazer logon no portal de herdado do Serviço de Gerenciamento de API como administrador|
-|/service/applynetworkconfigurationupdates/action|Atualiza os recursos Microsoft.ApiManagement em execução na rede virtual para obter configurações de rede atualizadas.|
+|/service/getssotoken/action|Obtém o token SSO que pode ser usado toologin no portal herdado de serviço de gerenciamento de API como um administrador|
+|/service/applynetworkconfigurationupdates/action|Atualizações Olá Microsoft.ApiManagement recursos em execução na rede Virtual toopick atualizadas as configurações de rede.|
 |/service/operationresults/read|Obter o status atual da operação de longa duração|
-|/service/networkStatus/read|Obter o status de acesso de rede dos recursos.|
+|/service/networkStatus/read|Obtém o status de acesso de rede de saudação de recursos.|
 |/service/loggers/read|Obter lista de agentes ou obter detalhes do agente|
 |/service/loggers/write|Adicionar novo agente ou atualizar detalhes do agente existente|
 |/service/loggers/delete|Remover agente existente|
 |/service/users/read|Obter uma lista de usuários registrados ou obter detalhes da conta de um usuário|
 |/service/users/write|Registrar um novo usuário ou atualizar detalhes da conta de um usuário existente|
 |/service/users/delete|Remover conta de usuário|
-|/service/users/generateSsoUrl/action|Gerar a URL do SSO. A URL pode ser usada para acessar o portal de administração|
+|/service/users/generateSsoUrl/action|Gerar a URL do SSO. Olá URL pode ser usado tooaccess portal de administração|
 |/service/users/subscriptions/read|Obter lista de assinaturas do usuário|
 |/service/users/keys/read|Obter lista de chaves do usuário|
 |/service/users/groups/read|Obter lista de grupos do usuário|
 |/service/tenant/operationResults/read|Obter lista de resultados da operação ou obter o resultado de uma operação específica|
-|/service/tenant/policy/read|Obter configuração de política do locatário|
-|/service/tenant/policy/write|Configuração de política do locatário|
-|/service/tenant/policy/delete|Remover configuração de política do locatário|
-|/service/tenant/configuration/save/action|Criar confirmação com instantâneo de configuração para uma ramificação específica no repositório|
-|/service/tenant/configuration/deploy/action|Executar uma tarefa de implantação para aplicar as alterações da ramificação git especificada para a configuração no banco de dados.|
-|/service/tenant/configuration/validate/action|Valida as alterações da ramificação git especificada|
+|/service/tenant/policy/read|Obter configuração de política para o locatário Olá|
+|/service/tenant/policy/write|Configuração de política para o locatário Olá|
+|/service/tenant/policy/delete|Remover configuração de política para o locatário Olá|
+|/service/tenant/configuration/save/action|Cria confirmação com a ramificação específica de toohello do instantâneo de configuração no repositório de saudação|
+|/service/tenant/configuration/deploy/action|Executa uma tarefa de implantação tooapply alterações de configuração de toohello de ramificação Olá git especificado no banco de dados.|
+|/service/tenant/configuration/validate/action|Valida as alterações do branch de git especificado Olá|
 |/service/tenant/configuration/operationResults/read|Obter lista de resultados da operação ou obter o resultado de uma operação específica|
 |/service/tenant/configuration/syncState/read|Obter status da última sincronização git|
 |/service/tenant/access/read|Obter informações detalhadas de acesso do locatário|
@@ -109,8 +109,8 @@ Este documento lista as operações disponíveis para cada provedor de recursos 
 |/service/identityProviders/write|Criar um novo provedor de identidade atualizar detalhes de um provedor de identidade existente|
 |/service/identityProviders/delete|Remover o provedor de identidade existente|
 |/service/subscriptions/read|Obter uma lista de assinaturas de produtos ou obter os detalhes de assinatura do produto|
-|/service/subscriptions/write|Inscrever um usuário existente para um produto existente ou atualizar os detalhes de uma assinatura existente. Essa operação pode ser usada para renovar a assinatura|
-|/service/subscriptions/delete|Excluir assinatura. Essa operação pode ser usada para excluir a assinatura|
+|/service/subscriptions/write|Inscrever-se um produto existente do usuário tooan existente ou atualizar os detalhes da assinatura existente. Essa operação pode ser usado toorenew assinatura|
+|/service/subscriptions/delete|Excluir assinatura. Essa operação pode ser usado toodelete assinatura|
 |/service/subscriptions/regeneratePrimaryKey/action|Regenerar a chave primária da assinatura|
 |/service/subscriptions/regenerateSecondaryKey/action|Regenerar a chave secundária da assinatura|
 |/service/backends/read|Obter lista de back-ends ou obter os detalhes de back-end|
@@ -132,8 +132,8 @@ Este documento lista as operações disponíveis para cada provedor de recursos 
 |/service/products/write|Criar novo produto ou atualizar detalhes do produto existente|
 |/service/products/delete|Remover produto existente|
 |/service/products/subscriptions/read|Obter lista de assinaturas de produto|
-|/service/products/apis/read|Obter lista de APIs adicionadas ao produto existente|
-|/service/products/apis/write|Adicionar API existente a um produto existente|
+|/service/products/apis/read|Obter uma lista de APIs adicionado tooexisting produto|
+|/service/products/apis/write|Adicionar um produto de tooexisting API existente|
 |/service/products/apis/delete|Remover API existente do produto existente|
 |/service/products/policy/read|Obter a configuração de política do produto existente|
 |/service/products/policy/write|Definir a configuração de política para o produto existente|
@@ -154,7 +154,7 @@ Este documento lista as operações disponíveis para cada provedor de recursos 
 |/service/groups/write|Criar novo grupo ou atualizar detalhes do grupo existente|
 |/service/groups/delete|Remover grupo existente|
 |/service/groups/users/read|Obter lista de usuários do grupo|
-|/service/groups/users/write|Adicionar usuário existente a grupo existente|
+|/service/groups/users/write|Adicionar grupo de tooexisting de usuário existente|
 |/service/groups/users/delete|Remover usuário existente do grupo existente|
 |/service/authorizationServers/read|Obter lista de servidores de autorização ou obter detalhes do servidor de autorização|
 |/service/authorizationServers/write|Criar um novo servidor de autorização ou atualizar detalhes de um servidor de autorização existente|
@@ -172,21 +172,21 @@ Este documento lista as operações disponíveis para cada provedor de recursos 
 
 | Operação | Descrição |
 |---|---|
-|/appidentities/Read|Retornar o recurso (site da Web) registrado no Gateway.|
+|/appidentities/Read|Retorna Olá recursos (site da web) registrado com hello Gateway.|
 |/appidentities/Write|Criar uma nova identidade de aplicativo.|
 |/appidentities/Delete|Excluir uma identidade de aplicativo existente.|
-|/deploymenttemplates/listMetadata/Action|Listar os metadados de interface do usuário associados ao pacote do aplicativo de API.|
-|/deploymenttemplates/generate/Action|Retornar um modelo de implantação para provisionar instâncias de aplicativo de API.|
-|/gateways/Read|Retornar a instância do Gateway.|
+|/deploymenttemplates/listMetadata/Action|Lista os metadados de interface do usuário associados Olá pacote API App.|
+|/deploymenttemplates/generate/Action|Retorna um modelo de implantação de tooprovision API App instância (s).|
+|/gateways/Read|Instância do Gateway Olá retorna.|
 |/gateways/Write|Criar um novo Gateway ou atualizar um existente.|
 |/gateways/Delete|Excluir uma instância do Gateway existente.|
 |/gateways/listLoginUris/Action|Preenche o repositório de token e retorna URIs de login OAuth.|
 |/gateways/listKeys/Action|Retornar os segredos de gateway.|
-|/gateways/tokens/Write|Criar um novo Token Zumo com o nome fornecido.|
-|/gateways/registrations/Read|Retornar o recurso (site da Web) registrado no Gateway.|
-|/gateways/registrations/Write|Registra um recurso (site da Web) com o Gateway.|
-|/gateways/registrations/Delete|Cancela o registro de um recurso (site da Web) do Gateway.|
-|/apiapps/Read|Retornar a instância do aplicativo de API.|
+|/gateways/tokens/Write|Cria um novo Zumo Token com nome hello.|
+|/gateways/registrations/Read|Retorna Olá recursos (site da web) registrado com hello Gateway.|
+|/gateways/registrations/Write|Registra um recurso (site da web) com hello Gateway.|
+|/gateways/registrations/Delete|Cancela o registro de um recurso (site da web) do hello Gateway.|
+|/apiapps/Read|Retorna Olá instância API App.|
 |/apiapps/Write|Criar um novo aplicativo de API ou atualizar um existente.|
 |/apiapps/Delete|Excluir uma instância existente do aplicativo de API.|
 |/apiapps/listStatus/Action|Retornar o status do aplicativo de API.|
@@ -197,27 +197,27 @@ Este documento lista as operações disponíveis para cada provedor de recursos 
 
 | Operação | Descrição |
 |---|---|
-|/elevateAccess/action|Concede ao chamador acesso de administrador de acesso do usuário no escopo do locatário|
-|/classicAdministrators/read|Ler os administradores para obter a assinatura.|
-|/classicAdministrators/write|Adicionar ou modificar o administrador de uma assinatura.|
-|/classicAdministrators/delete|Remover o administrador da assinatura.|
-|/locks/read|Obter bloqueios no escopo especificado.|
-|bloqueios/gravação|Adicionar bloqueios no escopo especificado.|
-|/locks/delete|Excluir bloqueios no escopo especificado.|
+|/elevateAccess/action|Olá de concede acesso de administrador de acesso do usuário no escopo de locatário de saudação do chamador|
+|/classicAdministrators/read|Lê administradores Olá para assinatura de saudação.|
+|/classicAdministrators/write|Adicionar ou modificar administrador tooa assinatura.|
+|/classicAdministrators/delete|Remove o administrador de saudação da assinatura hello.|
+|/locks/read|Obtém bloqueios no hello especificado escopo.|
+|bloqueios/gravação|Adicionar bloqueios no hello especificado escopo.|
+|/locks/delete|Excluir bloqueios no hello especificado escopo.|
 |/policyAssignments/read|Obter informações sobre uma atribuição de política.|
-|/policyAssignments/write|Criar uma atribuição de política no escopo especificado.|
-|/policyAssignments/delete|Excluir uma atribuição de política no escopo especificado.|
-|/permissions/read|Listar todas as permissões que o chamador tem em determinado escopo.|
+|/policyAssignments/write|Criar uma política de atribuição no hello especificado escopo.|
+|/policyAssignments/delete|Excluir uma atribuição de política no hello especificado escopo.|
+|/permissions/read|Lista todas as permissões de saudação chamador Olá tem em um determinado escopo.|
 |/roleDefinitions/read|Obter informações sobre uma definição de função.|
 |/roleDefinitions/write|Criar ou atualizar uma definição de função personalizada com permissões especificadas e escopos atribuíveis.|
-|/roleDefinitions/delete|Excluir a definição de função personalizada especificada.|
+|/roleDefinitions/delete|Excluir Olá especificado a definição de função personalizada.|
 |/providerOperations/read|Obter operações para todos os provedores de recursos que podem ser usados em definições de função.|
 |/policyDefinitions/read|Obter informações sobre uma definição de política.|
 |/policyDefinitions/write|Criar uma definição de política personalizada.|
 |/policyDefinitions/delete|Excluir uma definição de política.|
 |/roleAssignments/read|Obter informações sobre uma atribuição de função.|
-|/roleAssignments/write|Criar uma atribuição de função no escopo especificado.|
-|/roleAssignments/delete|Exclua uma atribuição de função no escopo especificado.|
+|/roleAssignments/write|Criar uma função de atribuição no hello especificado escopo.|
+|/roleAssignments/delete|Excluir uma atribuição de função em Olá especificado escopo.|
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -252,8 +252,8 @@ Este documento lista as operações disponíveis para cada provedor de recursos 
 |/automationAccounts/jobs/stop/action|Interrompe um trabalho da Automação do Azure|
 |/automationAccounts/jobs/suspend/action|Suspende um trabalho da Automação do Azure|
 |/automationAccounts/jobs/resume/action|Reinicia um trabalho da Automação do Azure|
-|/automationAccounts/jobs/runbookContent/action|Obter o conteúdo do runbook da Automação do Azure no momento da execução do trabalho|
-|/automationAccounts/jobs/output/action|Obter a saída de um trabalho|
+|/automationAccounts/jobs/runbookContent/action|Obtém o conteúdo de saudação do runbook de automação do Azure Olá momento Olá Olá da execução do trabalho|
+|/automationAccounts/jobs/output/action|Obtém a saída de saudação de um trabalho|
 |/automationAccounts/jobs/read|Obter um trabalho da Automação do Azure|
 |/automationAccounts/jobs/write|Criar um trabalho da Automação do Azure|
 |/automationAccounts/jobs/stop/action|Interrompe um trabalho da Automação do Azure|
@@ -266,15 +266,15 @@ Este documento lista as operações disponíveis para cada provedor de recursos 
 |/automationAccounts/variables/read|Ler um ativo de variável da Automação do Azure|
 |/automationAccounts/variables/write|Criar ou atualizar um ativo de variável da Automação do Azure|
 |/automationAccounts/variables/delete|Excluir um ativo de variável da Automação do Azure|
-|/automationAccounts/runbooks/readContent/action|Obter o conteúdo de um runbook da Automação do Azure|
+|/automationAccounts/runbooks/readContent/action|Obtém o conteúdo de saudação de um runbook de automação do Azure|
 |/automationAccounts/runbooks/read|Obter um runbook da Automação do Azure|
 |/automationAccounts/runbooks/write|Criar ou atualizar um runbook da Automação do Azure|
 |/automationAccounts/runbooks/delete|Excluir um runbook da Automação do Azure|
-|/automationAccounts/runbooks/draft/readContent/action|Obter o conteúdo de um rascunho de runbook da Automação do Azure|
-|/automationAccounts/runbooks/draft/writeContent/action|Criar o conteúdo de um rascunho de runbook da Automação do Azure|
+|/automationAccounts/runbooks/draft/readContent/action|Obtém o conteúdo de saudação de um rascunho de runbook de automação do Azure|
+|/automationAccounts/runbooks/draft/writeContent/action|Cria o conteúdo de saudação de um rascunho de runbook de automação do Azure|
 |/automationAccounts/runbooks/draft/read|Obter um rascunho de runbook da Automação do Azure|
 |/automationAccounts/runbooks/draft/publish/action|Publica um rascunho de runbook da Automação do Azure|
-|/automationAccounts/runbooks/draft/undoEdit/action|Desfazer edições em um rascunho de runbook da Automação do Azure|
+|/automationAccounts/runbooks/draft/undoEdit/action|Desfazer edições tooan rascunho de runbook da automação do Azure|
 |/automationAccounts/runbooks/draft/testJob/read|Obter um trabalho de teste de rascunho do runbook da Automação do Azure|
 |/automationAccounts/runbooks/draft/testJob/write|Criar um trabalho de teste de rascunho de runbook da Automação do Azure|
 |/automationAccounts/runbooks/draft/testJob/stop/action|Interrompe um trabalho de teste de rascunho de runbook da Automação do Azure|
@@ -293,21 +293,21 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 
 | Operação | Descrição |
 |---|---|
-|/register/action|Registra a assinatura do provedor de recursos de lote e permite a criação de contas do Lote|
+|/register/action|Registra a assinatura Olá Olá provedor de recursos de lote e permite a criação de saudação de contas em lotes|
 |/batchAccounts/write|Criar uma nova conta do Lote ou atualizar uma conta do Lote existente|
-|/batchAccounts/read|Listar contas do Lote ou obtém as propriedades de uma conta do Lote|
+|/batchAccounts/read|Lista de contas em lotes ou obtém as propriedades de saudação de uma conta de lote|
 |/batchAccounts/delete|Excluir uma conta do Lote|
 |/batchAccounts/listkeys/action|Listar chaves de acesso para uma conta do Lote|
 |/batchAccounts/regeneratekeys/action|Regenera chaves de acesso para uma conta do Lote|
-|/batchAccounts/syncAutoStorageKeys/action|Sincroniza as chaves de acesso da conta de armazenamento automática configurada para uma conta do Lote|
-|/batchAccounts/applications/read|Listar aplicativos ou obtém as propriedades de um aplicativo|
+|/batchAccounts/syncAutoStorageKeys/action|Sincroniza as chaves de acesso para a conta de armazenamento auto Olá para uma conta de lote|
+|/batchAccounts/applications/read|Lista os aplicativos ou obtém as propriedades de saudação de um aplicativo|
 |/batchAccounts/applications/write|Criar um novo aplicativo ou atualizar um aplicativo existente|
 |/batchAccounts/applications/delete|Excluir um aplicativo|
-|/batchAccounts/applications/versions/read|Obter as propriedades de um pacote de aplicativos|
+|/batchAccounts/applications/versions/read|Obtém as propriedades de saudação de um pacote de aplicativo|
 |/batchAccounts/applications/versions/write|Criar um novo pacote de aplicativos ou atualizar um pacote de aplicativos existente|
 |/batchAccounts/applications/versions/activate/action|Ativa um pacote de aplicativos|
 |/batchAccounts/applications/versions/delete|Excluir um pacote de aplicativos|
-|/locations/quotas/read|Obter cotas do Lote da assinatura especificada na região do Azure especificada|
+|/locations/quotas/read|Obtém cotas de lote de saudação especificado assinatura na região do Azure especificada de saudação|
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
@@ -322,39 +322,39 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/mapApis/Read|Operação de Leitura|
 |/mapApis/Write|Operação de Gravação|
 |/mapApis/Delete|Operação de Exclusão|
-|/mapApis/regenerateKey/action|Regenera a chave|
-|/mapApis/listSecrets/action|Listar os segredos|
-|/mapApis/listSingleSignOnToken/action|Ler o token de autorização de logon único para o recurso|
-|/Operations/read|Descrição da operação.|
+|/mapApis/regenerateKey/action|Regenera Olá chave|
+|/mapApis/listSecrets/action|Olá lista segredos|
+|/mapApis/listSingleSignOnToken/action|Olá leitura único logon na autorização Token para recursos|
+|/Operations/read|Descrição da operação de saudação.|
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 
 | Operação | Descrição |
 |---|---|
 |/checknameavailability/action|Verificar se um nome está disponível para uso com um novo Cache Redis|
-|/register/action|Registra o provedor de recursos 'Microsoft.Cache' com uma assinatura|
-|/unregister/action|Cancela o registro do provedor de recursos 'Microsoft.Cache' com uma assinatura|
-|/redis/write|Modificar as configurações do Cache Redis e a configuração no portal de gerenciamento|
-|/redis/read|Exibir as configurações do Cache Redis e a configuração no portal de gerenciamento|
-|/redis/delete|Excluir todo o Cache Redis|
-|/redis/listKeys/action|Exibir o valor das chaves de acesso do Cache Redis no portal de gerenciamento|
-|/redis/regenerateKey/action|Alterar o valor das chaves de acesso do Cache Redis no portal de gerenciamento|
+|/register/action|Registra o provedor de recursos 'Microsoft.Cache' hello com uma assinatura|
+|/unregister/action|Cancela o registro de provedor de recursos 'Microsoft.Cache' hello com uma assinatura|
+|/redis/write|Modificar as configurações e a configuração no portal de gerenciamento Olá Olá Redis Cache|
+|/redis/read|Exibir configurações e a configuração de saudação do Cache Redis no portal de gerenciamento de saudação|
+|/redis/delete|Excluir Olá todo o Cache Redis|
+|/redis/listKeys/action|Exibição Olá valor das chaves de acesso do Cache Redis no portal de gerenciamento Olá|
+|/redis/regenerateKey/action|Alterar o valor de saudação das chaves de acesso do Cache Redis no portal de gerenciamento Olá|
 |/redis/import/action|Importar dados em um formato especificado de vários blobs para o Redis|
-|/redis/export/action|Exportar dados do Redis para blobs de armazenamento prefixados no formato especificado|
+|/redis/export/action|Exportar os blobs de armazenamento de tooprefixed Redis dados no formato especificado|
 |/redis/forceReboot/action|Forçar a reinicialização de uma instância de cache, possivelmente com perda de dados.|
 |/redis/stop/action|Interromper uma instância de cache.|
 |/redis/start/action|Iniciar uma instância de cache.|
-|/redis/metricDefinitions/read|Obter a métrica disponível para um Cache Redis|
-|/redis/firewallRules/read|Obter as regras de firewall de IP de um Cache Redis|
-|/redis/firewallRules/write|Editar as regras de firewall de IP de um Cache Redis|
+|/redis/metricDefinitions/read|Obtém métricas disponíveis Olá para um Cache Redis|
+|/redis/firewallRules/read|Obter regras de firewall Olá IP de um Cache Redis|
+|/redis/firewallRules/write|Editar regras de firewall Olá IP de um Cache Redis|
 |/redis/firewallRules/delete|Excluir regras de firewall de IP de um Cache Redis|
-|/redis/listUpgradeNotifications/read|Listar as notificações de atualização mais recentes do locatário de cache.|
+|/redis/listUpgradeNotifications/read|Lista Olá notificações de atualização mais recente para o locatário de cache de saudação.|
 |/redis/linkedservers/read|Obter servidores vinculados associados a um Cache Redis.|
-|/redis/linkedservers/write|Adicionar um servidor vinculado a um Cache Redis|
+|/redis/linkedservers/write|Adicionar um servidor vinculado tooa Cache Redis|
 |/redis/linkedservers/delete|Excluir servidor vinculado de um Cache Redis|
-|/redis/patchSchedules/read|Obter o agendamento de aplicação de patch de um Cache Redis|
-|/redis/patchSchedules/write|Modificar o agendamento de aplicação de patch de um Cache Redis|
-|/redis/patchSchedules/delete|Excluir a agenda de patch de um Cache Redis|
+|/redis/patchSchedules/read|Obtém o hello patches agenda de um Cache Redis|
+|/redis/patchSchedules/write|Modificar Olá patches agenda de um Cache Redis|
+|/redis/patchSchedules/delete|Excluir Olá patch agenda de um Cache Redis|
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
@@ -362,192 +362,192 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |---|---|
 |/provisionGlobalAppServicePrincipalInUserTenant/Action|Provisionar entidade de serviço para entidade de serviço de aplicativo|
 |/validateCertificateRegistrationInformation/Action|Validar objeto de compra de certificado sem enviá-lo|
-|/register/action|Registrar o provedor de recursos do Microsoft Certificates da assinatura|
+|/register/action|Registrar o provedor de recursos Microsoft Certificates Olá para assinatura de saudação|
 |/certificateOrders/Write|Adicionar uma nova certificateOrder ou atualizar uma existente|
 |/certificateOrders/Delete|Excluir um AppServiceCertificate existente|
-|/certificateOrders/Read|Obter a lista de CertificateOrders|
+|/certificateOrders/Read|Obter lista de saudação do CertificateOrders|
 |/certificateOrders/reissue/Action|Emitir novamente um certificateorder existente|
 |/certificateOrders/renew/Action|Renovar um certificateorder existente|
-|/certificateOrders/retrieveCertificateActions/Action|Recuperar a lista de ações de certificado|
+|/certificateOrders/retrieveCertificateActions/Action|Recuperar a lista de saudação de ações de certificado|
 |/certificateOrders/retrieveEmailHistory/Action|Recuperar o histórico de email do certificado|
 |/certificateOrders/resendEmail/Action|Reenviar email de certificado|
 |/certificateOrders/verifyDomainOwnership/Action|Verificar a propriedade de domínio|
-|/certificateOrders/resendRequestEmails/Action|Reenviar emails de solicitação para outro endereço de email|
+|/certificateOrders/resendRequestEmails/Action|Reenviar o endereço de email de tooanother de emails de solicitação|
 |/certificateOrders/resendRequestEmails/Action|Recuperar o selo de site para um certificado do Serviço de Aplicativo emitido|
 |/certificateOrders/certificates/Write|Adicionar um novo certificado ou atualizar um existente|
 |/certificateOrders/certificates/Delete|Excluir um certificado existente|
-|/certificateOrders/certificates/Read|Obter a lista de certificados|
+|/certificateOrders/certificates/Read|Obter lista de saudação de certificados|
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
 | Operação | Descrição |
 |---|---|
-|/register/action|Registrar para computação clássica|
-|/checkDomainNameAvailability/action|Verificar a disponibilidade de um nome de domínio específico.|
-|/moveSubscriptionResources/action|Mover todos os recursos clássicos para uma assinatura diferente.|
-|/validateSubscriptionMoveAvailability/action|Valide a disponibilidade da assinatura para a operação de movimentação clássica.|
-|/operatingSystemFamilies/read|Listar as famílias de sistema operacional convidado disponíveis no Microsoft Azure e também lista as versões de sistema operacional disponíveis para cada f
-|/capabilities/read|Mostra as funcionalidades|
-|/operatingSystems/read|Listar as versões do sistema operacional convidado disponíveis atualmente no Microsoft Azure.|
-|/resourceTypes/skus/read|Obter a lista de SKU para tipos de recursos com suporte.|
-|/domainNames/read|Retornar os nomes de domínio dos recursos.|
-|/domainNames/write|Adicionar ou modificar os nomes de domínio dos recursos.|
-|/domainNames/delete|Remover os nomes de domínio dos recursos.|
-|/domainNames/swap/action|Alterna o slot de preparo para o slot de produção.|
-|/domainNames/serviceCertificates/read|Retornar todos os certificados de serviço usados.|
-|/domainNames/serviceCertificates/write|Adicionar ou modificar os certificados de serviço usados.|
-|/domainNames/serviceCertificates/delete|Excluir os certificados de serviço usados.|
-|/domainNames/serviceCertificates/operationStatuses/read|Ler o status da operação para os certificados de serviço dos nomes de domínio.|
-|/domainNames/capabilities/read|Mostra os recursos de nome de domínio|
-|/domainNames/extensions/read|Retornar extensões de nome de domínio.|
-|/domainNames/extensions/write|Adicionar as extensões de nome de domínio.|
-|/domainNames/extensions/delete|Remover as extensões de nome de domínio.|
-|/domainNames/extensions/operationStatuses/read|Ler o status da operação das extensões de nomes de domínio.|
-|/domainNames/active/write|Define o nome de domínio ativo.|
-|/domainNames/slots/read|Mostra os slots de implantação.|
-|/domainNames/slots/write|Criar ou atualizar a implantação.|
+|/register/action|Registrar tooClassic computação|
+|/checkDomainNameAvailability/action|Olá verifica a disponibilidade de um determinado nome de domínio.|
+|/moveSubscriptionResources/action|Mova assinatura diferente do todos os recursos clássicos tooa.|
+|/validateSubscriptionMoveAvailability/action|Valide a disponibilidade da assinatura Olá para operação de movimentação clássico.|
+|/operatingSystemFamilies/read|Lista as famílias de sistema operacional convidado Olá disponíveis no Microsoft Azure e também lista as versões do sistema operacional Olá disponíveis para cada f
+|/capabilities/read|Mostra os recursos de saudação|
+|/operatingSystems/read|Lista Olá versões do sistema de operacional convidado Olá que estão atualmente disponíveis no Microsoft Azure.|
+|/resourceTypes/skus/read|Obtém a lista de Sku de saudação para tipos de recursos com suporte.|
+|/domainNames/read|Retorna os nomes de domínio Olá para recursos.|
+|/domainNames/write|Adicionar ou modificar os nomes de domínio Olá para recursos.|
+|/domainNames/delete|Remova os nomes de domínio Olá para recursos.|
+|/domainNames/swap/action|Troca Olá slot de produção toohello slot de preparo.|
+|/domainNames/serviceCertificates/read|Retorna Olá certificados de serviço usados.|
+|/domainNames/serviceCertificates/write|Adicionar ou modificar os certificados de serviço Olá usados.|
+|/domainNames/serviceCertificates/delete|Exclua certificados de serviço Olá usados.|
+|/domainNames/serviceCertificates/operationStatuses/read|Lê o status da operação Olá para certificados de serviço de nomes de domínio hello.|
+|/domainNames/capabilities/read|Mostra os recursos de nome de domínio Olá|
+|/domainNames/extensions/read|Retorna Olá extensões de nome de domínio.|
+|/domainNames/extensions/write|Adicione extensões de nome de domínio de saudação.|
+|/domainNames/extensions/delete|Remova extensões de nome de domínio de saudação.|
+|/domainNames/extensions/operationStatuses/read|Lê o status da operação Olá para extensões de nomes de domínio hello.|
+|/domainNames/active/write|Define o nome de domínio do active hello.|
+|/domainNames/slots/read|Mostra os slots de implantação hello.|
+|/domainNames/slots/write|Cria ou atualiza a implantação de saudação.|
 |/domainNames/slots/delete|Excluir determinado slot de implantação.|
 |/domainNames/slots/start/action|Inicia um slot de implantação.|
-|/domainNames/slots/stop/action|Suspende o slot de implantação.|
-|/domainNames/slots/operationStatuses/read|Ler o status da operação dos slots de nomes de domínio.|
-|/domainNames/slots/roles/read|Obter a função do slot de implantação.|
-|/domainNames/slots/roles/extensionReferences/read|Retornar a referência de extensão para a função do slot de implantação.|
-|/domainNames/slots/roles/extensionReferences/write|Adicionar ou modificar a referência de extensão para a função do slot de implantação.|
-|/domainNames/slots/roles/extensionReferences/delete|Remover a referência de extensão para a função do slot de implantação.|
-|/domainNames/slots/roles/extensionReferences/operationStatuses/read|Ler o status da operação de referências de extensão das funções de slot dos nomes de domínio.|
-|/domainNames/slots/roles/roleInstances/read|Obter a instância de função.|
+|/domainNames/slots/stop/action|Suspende o slot de implantação de saudação.|
+|/domainNames/slots/operationStatuses/read|Lê o status da operação Olá para slots de nomes de domínio hello.|
+|/domainNames/slots/roles/read|Obter função hello slot de implantação de saudação.|
+|/domainNames/slots/roles/extensionReferences/read|Retorna Olá referência de extensão de função do slot de implantação de saudação.|
+|/domainNames/slots/roles/extensionReferences/write|Adicionar ou modificar a referência de extensão de saudação de função do slot de implantação de saudação.|
+|/domainNames/slots/roles/extensionReferences/delete|Remova a referência de extensão de saudação de função do slot de implantação de saudação.|
+|/domainNames/slots/roles/extensionReferences/operationStatuses/read|Lê o status da operação de saudação de referências de extensão de funções de slots de nomes de domínio de saudação.|
+|/domainNames/slots/roles/roleInstances/read|Obter a instância de função hello.|
 |/domainNames/slots/roles/roleInstances/restart/action|Reinicia as instâncias de função.|
-|/domainNames/slots/roles/roleInstances/reimage/action|Refaz a imagem da instância de função.|
-|/domainNames/slots/roles/roleInstances/operationStatuses/read|Ler o status da operação de instâncias de função das funções de slot dos nomes de domínio.|
-|/domainNames/slots/state/start/write|Altera o estado do slot de implantação para interrompido.|
-|/domainNames/slots/state/stop/write|Altera o estado do slot de implantação para iniciado.|
-|/domainNames/slots/upgradeDomain/write|Atualizar o domínio.|
-|/domainNames/internalLoadBalancers/read|Obter os balanceadores de carga internos.|
+|/domainNames/slots/roles/roleInstances/reimage/action|Instância de função hello reimages.|
+|/domainNames/slots/roles/roleInstances/operationStatuses/read|Lê o status da operação Olá para instâncias de função funções do slots de nomes de domínio hello.|
+|/domainNames/slots/state/start/write|Alterações Olá toostopped de estado do slot de implantação.|
+|/domainNames/slots/state/stop/write|Alterações Olá toostarted de estado do slot de implantação.|
+|/domainNames/slots/upgradeDomain/write|Percorrer domínio de atualização hello.|
+|/domainNames/internalLoadBalancers/read|Obtém os balanceadores de carga internos de saudação.|
 |/domainNames/internalLoadBalancers/write|Criar um novo balanceamento de carga interno.|
 |/domainNames/internalLoadBalancers/delete|Remover um novo balanceamento de carga interno.|
-|/domainNames/internalLoadBalancers/operationStatuses/read|Ler o status da operação para os balanceadores de carga internos dos nomes de domínio.|
-|/domainNames/loadBalancedEndpointSets/read|Mostra os conjuntos de ponto de extremidade com balanceamento de carga|
-|/domainNames/loadBalancedEndpointSets/operationStatuses/read|Ler o status da operação para os conjuntos de pontos de extremidade com balanceamento de carga dos nomes de domínio.|
-|/domainNames/availabilitySets/read|Mostra a conjunto de disponibilidade para o recurso.|
-|/quotas/read|Obter a cota para a assinatura.|
+|/domainNames/internalLoadBalancers/operationStatuses/read|Lê o status da operação de saudação para nomes de domínio de saudação balanceadores de carga interno.|
+|/domainNames/loadBalancedEndpointSets/read|Mostra os conjuntos de ponto de extremidade com balanceamento de carga Olá|
+|/domainNames/loadBalancedEndpointSets/operationStatuses/read|Lê o status da operação de saudação para nomes de domínio de saudação conjuntos de ponto de extremidade com balanceamento de carga.|
+|/domainNames/availabilitySets/read|Mostra Olá conjunto de disponibilidade para o recurso de saudação.|
+|/quotas/read|Obter cota Olá Olá assinatura.|
 |/virtualMachines/read|Retorna a lista de máquinas virtuais.|
 |/virtualMachines/write|Adicionar ou modificar máquinas virtuais.|
 |/virtualMachines/delete|Remover as máquinas virtuais.|
-|/virtualMachines/start/action|Iniciar a máquina virtual.|
-|/virtualMachines/redeploy/action|Reimplanta a máquina virtual.|
+|/virtualMachines/start/action|Inicie a máquina virtual de saudação.|
+|/virtualMachines/redeploy/action|Reimplantar a máquina virtual de saudação.|
 |/virtualMachines/restart/action|Reinicia as máquinas virtuais.|
-|/virtualMachines/stop/action|Interrompe a máquina virtual.|
-|/virtualMachines/shutdown/action|Desliga a máquina virtual.|
-|/virtualMachines/attachDisk/action|Anexa um disco de dados a uma máquina virtual.|
+|/virtualMachines/stop/action|Paradas Olá máquina virtual.|
+|/virtualMachines/shutdown/action|Olá desligar a máquina virtual.|
+|/virtualMachines/attachDisk/action|Anexa uma máquina virtual de tooa de disco de dados.|
 |/virtualMachines/detachDisk/action|Desanexa um disco de dados da máquina virtual.|
-|/virtualMachines/downloadRemoteDesktopConnectionFile/action|Baixa o arquivo RDP na máquina virtual.|
-|/virtualMachines/networkInterfaces/<br>associatedNetworkSecurityGroups/read|Obter um grupo de segurança de rede associado ao adaptador de rede.|
-|/virtualMachines/networkInterfaces/<br>associatedNetworkSecurityGroups/write|Adiciona um grupo de segurança de rede associado ao adaptador de rede.|
-|/virtualMachines/networkInterfaces/<br>associatedNetworkSecurityGroups/delete|Excluir um grupo de segurança de rede associado ao adaptador de rede.|
-|/virtualMachines/networkInterfaces/<br>associatedNetworkSecurityGroups/operationStatuses/read|Ler que o status de operação das máquinas virtuais associadas a grupos de segurança de rede.|
-|/virtualMachines/providers/Microsoft.Insights/metricDefinitions/read|Obter as definições de métrica.|
-|/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/read|Obter as configurações de diagnóstico.|
+|/virtualMachines/downloadRemoteDesktopConnectionFile/action|Baixa o arquivo RDP de saudação para a máquina virtual.|
+|/virtualMachines/networkInterfaces/<br>associatedNetworkSecurityGroups/read|Obtém o grupo de segurança de rede Olá associado Olá interface de rede.|
+|/virtualMachines/networkInterfaces/<br>associatedNetworkSecurityGroups/write|Adiciona um grupo de segurança de rede associado à interface de rede de saudação.|
+|/virtualMachines/networkInterfaces/<br>associatedNetworkSecurityGroups/delete|Exclui o grupo de segurança de rede Olá associado à interface de rede de saudação.|
+|/virtualMachines/networkInterfaces/<br>associatedNetworkSecurityGroups/operationStatuses/read|Lê o status da operação de saudação para máquinas virtuais de saudação associados a grupos de segurança de rede.|
+|/virtualMachines/providers/Microsoft.Insights/metricDefinitions/read|Obtém as definições de métricas de saudação.|
+|/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/read|Obter configurações de diagnóstico de saudação.|
 |/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/write|Adicionar ou modificar configurações de diagnóstico.|
-|/virtualMachines/metrics/read|Obter a métrica.|
-|/virtualMachines/operationStatuses/read|Ler o status da operação das máquinas virtuais.|
-|/virtualMachines/extensions/read|Obter a extensão da máquina virtual.|
-|/virtualMachines/extensions/write|Coloca a extensão da máquina virtual.|
-|/virtualMachines/extensions/operationStatuses/read|Ler o status da operação das extensões das máquinas virtuais.|
-|/virtualMachines/asyncOperations/read|Obter as operações assíncronas possíveis|
+|/virtualMachines/metrics/read|Obtém a métrica de saudação.|
+|/virtualMachines/operationStatuses/read|Lê o status da operação Olá para máquinas virtuais de saudação.|
+|/virtualMachines/extensions/read|Obtém a extensão da máquina virtual hello.|
+|/virtualMachines/extensions/write|Coloca a extensão da máquina virtual hello.|
+|/virtualMachines/extensions/operationStatuses/read|Lê o status da operação Olá para extensões de máquinas virtuais de saudação.|
+|/virtualMachines/asyncOperations/read|Obtém as operações assíncronas possíveis de saudação|
 |/virtualMachines/disks/read|Recupera a lista de discos de dados|
-|/virtualMachines/associatedNetworkSecurityGroups/read|Obter o grupo de segurança de rede associado à máquina virtual.|
-|/virtualMachines/associatedNetworkSecurityGroups/write|Adiciona um grupo de segurança de rede associado à máquina virtual.|
-|/virtualMachines/associatedNetworkSecurityGroups/delete|Excluir o grupo de segurança de rede associado à máquina virtual.|
-|/virtualMachines/associatedNetworkSecurityGroups/operationStatuses/read|Ler que o status de operação das máquinas virtuais associadas a grupos de segurança de rede.|
+|/virtualMachines/associatedNetworkSecurityGroups/read|Obtém o grupo de segurança de rede Olá associado à máquina virtual de saudação.|
+|/virtualMachines/associatedNetworkSecurityGroups/write|Adiciona um grupo de segurança de rede associado à máquina virtual de saudação.|
+|/virtualMachines/associatedNetworkSecurityGroups/delete|Exclui o grupo de segurança de rede Olá associado à máquina virtual de saudação.|
+|/virtualMachines/associatedNetworkSecurityGroups/operationStatuses/read|Lê o status da operação de saudação para máquinas virtuais de saudação associados a grupos de segurança de rede.|
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
 | Operação | Descrição |
 |---|---|
-|/register/action|Registrar-se na rede clássica|
-|/gatewaySupportedDevices/Read|Recupera a lista de dispositivos com suporte.|
-|/reservedIps/read|Obter os IPs reservados|
+|/register/action|Registrar tooClassic rede|
+|/gatewaySupportedDevices/Read|Recupera a lista de saudação de dispositivos com suporte.|
+|/reservedIps/read|Obtém Olá Ips reservados|
 |/reservedIps/write|Adicionar um novo IP reservado|
 |/reservedIps/delete|Excluir um IP reservado.|
 |/reservedIps/link/action|Vincular um IP reservado|
 |/reservedIps/join/action|Ingressar em um IP reservado|
-|/reservedIps/operationStatuses/read|Ler o status da operação dos IPs reservados.|
-|/virtualNetworks/read|Obter a rede virtual.|
+|/reservedIps/operationStatuses/read|Lê o status da operação Olá para ips Olá reservado.|
+|/virtualNetworks/read|Obtenha a rede virtual hello.|
 |/virtualNetworks/write|Adicionar uma nova rede virtual.|
-|/virtualNetworks/delete|Excluir a rede virtual.|
+|/virtualNetworks/delete|Exclui a rede virtual hello.|
 |/virtualNetworks/peer/action|Coloca uma rede virtual com outra rede virtual de mesmo nível.|
-|/virtualNetworks/join/action|Ingressar na rede virtual.|
-|/virtualNetworks/checkIPAddressAvailability/action|Verificar a disponibilidade de determinado endereço IP em uma rede virtual.|
-|/virtualNetworks/capabilities/read|Mostra as funcionalidades|
-|/virtualNetworks/subnets/<br>associatedNetworkSecurityGroups/read|Obter um grupo de segurança de rede associado à sub-rede.|
-|/virtualNetworks/subnets/<br>associatedNetworkSecurityGroups/write|Adiciona um grupo de segurança de rede associado à sub-rede.|
-|/virtualNetworks/subnets/<br>associatedNetworkSecurityGroups/delete|Excluir o grupo de segurança de rede associado à sub-rede.|
-|/virtualNetworks/subnets/<br>associatedNetworkSecurityGroups/operationStatuses/read|Ler o status da operação do grupo de segurança associado à sub-rede da rede virtual.|
-|/virtualNetworks/operationStatuses/read|Ler o status da operação das redes virtuais.|
-|/virtualNetworks/gateways/read|Obter os gateways de rede virtual.|
+|/virtualNetworks/join/action|Ingressar na rede virtual hello.|
+|/virtualNetworks/checkIPAddressAvailability/action|Olá verifica a disponibilidade de um endereço IP específico em uma rede virtual.|
+|/virtualNetworks/capabilities/read|Mostra os recursos de saudação|
+|/virtualNetworks/subnets/<br>associatedNetworkSecurityGroups/read|Obtém o grupo de segurança de rede Olá associado Olá sub-rede.|
+|/virtualNetworks/subnets/<br>associatedNetworkSecurityGroups/write|Adiciona um grupo de segurança de rede associado à sub-rede de saudação.|
+|/virtualNetworks/subnets/<br>associatedNetworkSecurityGroups/delete|Exclui o grupo de segurança de rede Olá associado à sub-rede de saudação.|
+|/virtualNetworks/subnets/<br>associatedNetworkSecurityGroups/operationStatuses/read|Lê o status da operação Olá para grupos de segurança de rede Olá rede virtual sub-rede associados.|
+|/virtualNetworks/operationStatuses/read|Lê o status da operação Olá para redes virtuais hello.|
+|/virtualNetworks/gateways/read|Obtém os gateways de rede virtual hello.|
 |/virtualNetworks/gateways/write|Adiciona um gateway de rede virtual.|
-|/virtualNetworks/gateways/delete|Excluir o gateway de rede virtual.|
-|/virtualNetworks/gateways/startDiagnostics/action|Inicia o diagnóstico do gateway de rede virtual.|
-|/virtualNetworks/gateways/stopDiagnostics/action|Interrompe o diagnóstico do gateway de rede virtual.|
-|/virtualNetworks/gateways/downloadDiagnostics/action|Baixa o diagnóstico de gateway.|
-|/virtualNetworks/gateways/listCircuitServiceKey/action|Recupera a chave de serviço do circuito.|
-|/virtualNetworks/gateways/downloadDeviceConfigurationScript/action|Baixa o script de configuração do dispositivo.|
-|/virtualNetworks/gateways/listPackage/action|Listar o pacote de gateway de rede virtual.|
-|/virtualNetworks/gateways/operationStatuses/read|Ler o status da operação dos gateways de redes virtuais.|
-|/virtualNetworks/gateways/packages/read|Obter o pacote de gateway de rede virtual.|
-|/virtualNetworks/gateways/connections/read|Recupera a lista de conexões.|
-|/virtualNetworks/gateways/connections/connect/action|Conecta uma conexão de gateway site a site.|
-|/virtualNetworks/gateways/connections/disconnect/action|Desconecta uma conexão de gateway site a site.|
-|/virtualNetworks/gateways/connections/test/action|Testa uma conexão de gateway site a site.|
-|/virtualNetworks/gateways/clientRevokedCertificates/read|Ler os certificados de cliente revogados.|
+|/virtualNetworks/gateways/delete|Exclui o gateway de rede virtual hello.|
+|/virtualNetworks/gateways/startDiagnostics/action|Inicia o diagnóstico de gateway de rede virtual hello.|
+|/virtualNetworks/gateways/stopDiagnostics/action|Paradas Olá diagnóstico de gateway de rede virtual hello.|
+|/virtualNetworks/gateways/downloadDiagnostics/action|Downloads de diagnóstico do gateway hello.|
+|/virtualNetworks/gateways/listCircuitServiceKey/action|Recupera a chave de serviço do circuito hello.|
+|/virtualNetworks/gateways/downloadDeviceConfigurationScript/action|Baixa o script de configuração de dispositivo de saudação.|
+|/virtualNetworks/gateways/listPackage/action|Lista o pacote de saudação do gateway de rede virtual.|
+|/virtualNetworks/gateways/operationStatuses/read|Lê o status da operação Olá para gateways de redes virtuais hello.|
+|/virtualNetworks/gateways/packages/read|Obtém o pacote de saudação do gateway de rede virtual.|
+|/virtualNetworks/gateways/connections/read|Recupera a lista de saudação de conexões.|
+|/virtualNetworks/gateways/connections/connect/action|Conecta-se uma conexão de gateway do site toosite.|
+|/virtualNetworks/gateways/connections/disconnect/action|Desconecta uma conexão de gateway do site toosite.|
+|/virtualNetworks/gateways/connections/test/action|Testa uma conexão de gateway do site toosite.|
+|/virtualNetworks/gateways/clientRevokedCertificates/read|Saudação de leitura revogar certificados de cliente.|
 |/virtualNetworks/gateways/clientRevokedCertificates/write|Revoga um certificado de cliente.|
 |/virtualNetworks/gateways/clientRevokedCertificates/delete|Cancela a revogação de um certificado de cliente.|
-|/virtualNetworks/gateways/clientRootCertificates/read|Localizar os certificados raiz do cliente.|
+|/virtualNetworks/gateways/clientRootCertificates/read|Localize Olá certificados raiz do cliente.|
 |/virtualNetworks/gateways/clientRootCertificates/write|Carrega um novo certificado raiz do cliente.|
-|/virtualNetworks/gateways/clientRootCertificates/delete|Excluir o certificado de cliente do gateway de rede virtual.|
+|/virtualNetworks/gateways/clientRootCertificates/delete|Exclui o certificado de cliente de gateway de rede virtual hello.|
 |/virtualNetworks/gateways/clientRootCertificates/download/action|Baixa o certificado por impressão digital.|
-|/virtualNetworks/gateways/clientRootCertificates/listPackage/action|Listar o pacote de certificado do gateway de rede virtual.|
-|/networkSecurityGroups/read|Obter o grupo de segurança de rede.|
+|/virtualNetworks/gateways/clientRootCertificates/listPackage/action|Lista o pacote de certificado de gateway de rede virtual hello.|
+|/networkSecurityGroups/read|Obtém o grupo de segurança de rede de saudação.|
 |/networkSecurityGroups/write|Adiciona um novo grupo de segurança de rede.|
-|/networkSecurityGroups/delete|Excluir o grupo de segurança de rede.|
-|/networkSecurityGroups/operationStatuses/read|Ler o status da operação do grupo de segurança de rede.|
-|/networkSecurityGroups/securityRules/read|Obter a regra de segurança.|
+|/networkSecurityGroups/delete|Exclui o grupo de segurança de rede de saudação.|
+|/networkSecurityGroups/operationStatuses/read|Lê o status da operação Olá para o grupo de segurança de rede hello.|
+|/networkSecurityGroups/securityRules/read|Obtém a regra de segurança de saudação.|
 |/networkSecurityGroups/securityRules/write|Adiciona ou atualiza uma regra de segurança.|
-|/networkSecurityGroups/securityRules/delete|Excluir a regra de segurança.|
-|/networkSecurityGroups/securityRules/operationStatuses/read|Ler o status da operação das regras de segurança do grupo de segurança de rede.|
-|/quotas/read|Obter a cota para a assinatura.|
+|/networkSecurityGroups/securityRules/delete|Exclui a regra de segurança de saudação.|
+|/networkSecurityGroups/securityRules/operationStatuses/read|Lê o status da operação Olá para regras de segurança de grupo de segurança de rede hello.|
+|/quotas/read|Obter cota Olá Olá assinatura.|
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
 | Operação | Descrição |
 |---|---|
-|/register/action|Registrar para armazenamento clássico|
-|/checkStorageAccountAvailability/action|Verificar a disponibilidade de uma conta de armazenamento.|
-|/capabilities/read|Mostra as funcionalidades|
-|/publicImages/read|Obter a imagem pública da máquina virtual.|
-|/images/read|Retornar a imagem.|
-|/storageAccounts/read|Retornar a conta de armazenamento com a conta fornecida.|
+|/register/action|Registrar tooClassic armazenamento|
+|/checkStorageAccountAvailability/action|Verifica se há disponibilidade de saudação de uma conta de armazenamento.|
+|/capabilities/read|Mostra os recursos de saudação|
+|/publicImages/read|Obtém a imagem de máquina virtual público hello.|
+|/images/read|Imagem de saudação retorna.|
+|/storageAccounts/read|Retorne conta de armazenamento Olá com hello dada conta.|
 |/storageAccounts/write|Adiciona uma nova conta de armazenamento.|
-|/storageAccounts/delete|Excluir a conta de armazenamento.|
-|/storageAccounts/listKeys/action|Listar as chaves de acesso das contas de armazenamento.|
-|/storageAccounts/regenerateKey/action|Regenera as chaves de acesso existentes da conta de armazenamento.|
-|/storageAccounts/operationStatuses/read|Ler o status da operação do recurso.|
-|/storageAccounts/images/read|Retornar a imagem da conta de armazenamento.|
+|/storageAccounts/delete|Exclua a conta de armazenamento hello.|
+|/storageAccounts/listKeys/action|Lista as chaves de acesso Olá Olá para contas de armazenamento.|
+|/storageAccounts/regenerateKey/action|Regenera as chaves de acesso existentes Olá Olá conta de armazenamento.|
+|/storageAccounts/operationStatuses/read|Lê o status da operação Olá para o recurso de saudação.|
+|/storageAccounts/images/read|Retorna Olá imagem da conta de armazenamento.|
 |/storageAccounts/images/delete|Excluir uma imagem da conta de armazenamento específica.|
-|/storageAccounts/disks/read|Retornar o disco da conta de armazenamento.|
+|/storageAccounts/disks/read|Retorna Olá disco da conta de armazenamento.|
 |/storageAccounts/disks/write|Adiciona um disco de conta de armazenamento.|
 |/storageAccounts/disks/delete|Excluir um disco de conta de armazenamento específico.|
-|/storageAccounts/disks/operationStatuses/read|Ler o status da operação do recurso.|
-|/storageAccounts/osImages/read|Retornar a imagem do sistema operacional da conta de armazenamento.|
+|/storageAccounts/disks/operationStatuses/read|Lê o status da operação Olá para o recurso de saudação.|
+|/storageAccounts/osImages/read|Retorna Olá imagem de sistema operacional da conta de armazenamento.|
 |/storageAccounts/osImages/delete|Excluir uma imagem do sistema operacional da conta de armazenamento específica.|
-|/storageAccounts/services/read|Obter os serviços disponíveis.|
-|/storageAccounts/services/metricDefinitions/read|Obter as definições de métrica.|
-|/storageAccounts/services/metrics/read|Obter a métrica.|
-|/storageAccounts/services/diagnosticSettings/read|Obter as configurações de diagnóstico.|
+|/storageAccounts/services/read|Obter serviços disponíveis da saudação.|
+|/storageAccounts/services/metricDefinitions/read|Obtém as definições de métricas de saudação.|
+|/storageAccounts/services/metrics/read|Obtém a métrica de saudação.|
+|/storageAccounts/services/diagnosticSettings/read|Obter configurações de diagnóstico de saudação.|
 |/storageAccounts/services/diagnosticSettings/write|Adicionar ou modificar configurações de diagnóstico.|
-|/disks/read|Retornar o disco da conta de armazenamento.|
-|/osImages/read|Retornar a imagem do sistema operacional.|
-|/quotas/read|Obter a cota para a assinatura.|
+|/disks/read|Retorna Olá disco da conta de armazenamento.|
+|/osImages/read|Imagem do sistema operacional Olá retorna.|
+|/quotas/read|Obter cota Olá Olá assinatura.|
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
@@ -559,103 +559,103 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/accounts/listKeys/action|Listar chaves|
 |/accounts/regenerateKey/action|Regenerar chave|
 |/accounts/skus/read|Ler SKUs disponíveis para um recurso existente.|
-|/accounts/usages/read|Obter a utilização de cota de um recurso existente.|
-|/Operations/read|Descrição da operação.|
+|/accounts/usages/read|Obter a utilização de cota Olá para um recurso existente.|
+|/Operations/read|Descrição da operação de saudação.|
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 
 | Operação | Descrição |
 |---|---|
-|/RateCard/read|Retornar dados da oferta, metadados de recurso/medidor e tarifas da assinatura especificada.|
-|/UsageAggregates/read|Recupera o consumo do Microsoft Azure para uma assinatura. O resultado contém dados totais de uso, assinatura e informações relativas a recursos em determinado intervalo de tempo.|
+|/RateCard/read|Retorna oferece dados, metadados/medidor de recursos e as taxas de saudação assinatura determinada.|
+|/UsageAggregates/read|Recupera o consumo do Microsoft Azure para uma assinatura. resultado Olá contém agregações de dados de uso, assinatura e recursos relacionados ao obter informações sobre um intervalo de tempo específico.|
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 | Operação | Descrição |
 |---|---|
 |/register/action|Registra a assinatura com o provedor de recursos Microsoft.Compute|
-|/restorePointCollections/read|Obter as propriedades de uma coleção de pontos de restauração|
+|/restorePointCollections/read|Obter propriedades de saudação de uma coleção de ponto de restauração|
 |/restorePointCollections/write|Criar uma nova coleção de pontos de restauração ou atualizar uma existente|
-|/restorePointCollections/delete|Excluir a coleção de pontos de restauração e os pontos contidos nela|
-|/restorePointCollections/restorePoints/read|Obter as propriedades de um ponto de restauração|
+|/restorePointCollections/delete|Coleção de pontos de restauração exclusões hello e pontos de restauração independente|
+|/restorePointCollections/restorePoints/read|Obter propriedades de saudação de um ponto de restauração|
 |/restorePointCollections/restorePoints/write|Criar um novo ponto de restauração|
-|/restorePointCollections/restorePoints/delete|Excluir o ponto de restauração|
-|/restorePointCollections/restorePoints/retrieveSasUris/action|Obter as propriedades de um ponto de restauração com URIs de SAS do blob|
-|/virtualMachineScaleSets/read|Obter as propriedades de um conjunto de dimensionamento de máquinas virtuais|
+|/restorePointCollections/restorePoints/delete|Exclui o ponto de restauração Olá|
+|/restorePointCollections/restorePoints/retrieveSasUris/action|Obter propriedades de saudação de um ponto de restauração com URIs de SAS do blob|
+|/virtualMachineScaleSets/read|Obter propriedades de saudação de um conjunto de escala de máquinas virtuais|
 |/virtualMachineScaleSets/write|Criar um novo conjunto de dimensionamento de máquinas virtuais ou atualizar um existente|
-|/virtualMachineScaleSets/delete|Excluir o conjunto de dimensionamento de máquinas virtuais|
-|/virtualMachineScaleSets/start/action|Iniciar a instância do conjunto de dimensionamento de máquinas virtuais|
-|/virtualMachineScaleSets/powerOff/action|Desligar a instância do conjunto de dimensionamento de máquinas virtuais|
-|/virtualMachineScaleSets/restart/action|Reiniciar a instância do conjunto de dimensionamento de máquinas virtuais|
-|/virtualMachineScaleSets/deallocate/action|Desligar e liberar os recursos de computação para as instâncias do conjunto de dimensionamento de máquinas virtuais |
-|/virtualMachineScaleSets/manualUpgrade/action|Atualizar manualmente as instâncias para o modelo mais recente do conjunto de dimensionamento de máquinas virtuais|
+|/virtualMachineScaleSets/delete|Exclui o conjunto de escalas da máquina virtual Olá|
+|/virtualMachineScaleSets/start/action|Inicia Olá instâncias do conjunto de escalas da máquina virtual Olá|
+|/virtualMachineScaleSets/powerOff/action|Desliga a instâncias de saudação do conjunto de escalas da máquina virtual Olá|
+|/virtualMachineScaleSets/restart/action|Reinicia as instâncias de saudação do conjunto de escalas da máquina virtual Olá|
+|/virtualMachineScaleSets/deallocate/action|Desliga e recursos de computação de saudação de versões para instâncias de saudação do conjunto de escalas da máquina virtual Olá |
+|/virtualMachineScaleSets/manualUpgrade/action|Atualiza manualmente o modelo de toolatest de instâncias do conjunto de escalas da máquina virtual Olá|
 |/virtualMachineScaleSets/scale/action|Reduzir ou escalar horizontalmente a contagem de instâncias de um conjunto de dimensionamento de máquinas virtuais existente|
-|/virtualMachineScaleSets/instanceView/read|Obter a exibição de instância do conjunto de dimensionamento de máquinas virtuais|
-|/virtualMachineScaleSets/skus/read|Listar as SKUs válidas para um conjunto de dimensionamento de máquinas virtuais existente|
-|/virtualMachineScaleSets/virtualMachines/read|Recuperar as propriedades de uma máquina virtual em um conjunto de dimensionamento de máquinas virtuais|
+|/virtualMachineScaleSets/instanceView/read|Obtém a exibição de instância de saudação do conjunto de escalas da máquina virtual Olá|
+|/virtualMachineScaleSets/skus/read|Listas Olá SKUs válidos para um conjunto de escala de máquina virtual existente|
+|/virtualMachineScaleSets/virtualMachines/read|Recupera as propriedades de saudação de uma máquina Virtual em um conjunto de escala de VM|
 |/virtualMachineScaleSets/virtualMachines/delete|Excluir uma máquina virtual específica em um conjunto de dimensionamento de VM.|
 |/virtualMachineScaleSets/virtualMachines/start/action|Iniciar uma instância de máquina virtual em um conjunto de dimensionamento de VM.|
 |/virtualMachineScaleSets/virtualMachines/powerOff/action|Desligar uma instância de máquina virtual em um conjunto de dimensionamento de VM.|
 |/virtualMachineScaleSets/virtualMachines/restart/action|Reiniciar uma instância de máquina virtual em um conjunto de dimensionamento de VM.|
-|/virtualMachineScaleSets/virtualMachines/deallocate/action|Desligar e liberar os recursos de computação para uma máquina virtual em um conjunto de dimensionamento de máquinas virtuais.|
-|/virtualMachineScaleSets/virtualMachines/instanceView/read|Recuperar a exibição de instância de uma máquina virtual em um conjunto de dimensionamento de máquinas virtuais.|
-|/images/read|Obter as propriedades da imagem|
+|/virtualMachineScaleSets/virtualMachines/deallocate/action|Desliga e recursos de computação de saudação de versões para uma máquina Virtual em um conjunto de escala de VM.|
+|/virtualMachineScaleSets/virtualMachines/instanceView/read|Recupera o modo de exibição de instância de saudação de uma máquina Virtual em um conjunto de escala de VM.|
+|/images/read|Obter propriedades de saudação do hello imagem|
 |/images/write|Criar uma nova imagem ou atualizar uma existente|
-|/images/delete|Excluir a imagem|
+|/images/delete|Exclui a imagem de saudação|
 |/operations/read|Listar as operações disponíveis no provedor de recursos Microsoft.Compute|
-|/disks/read|Obter as propriedades de um disco|
+|/disks/read|Obter propriedades de saudação de um disco|
 |/disks/write|Criar um novo disco ou atualizar um existente|
-|/disks/delete|Excluir o disco|
-|/disks/beginGetAccess/action|Obter o URI de SAS do disco para acesso de blob|
-|/disks/endGetAccess/action|Revogar o URI de SAS do disco|
-|/snapshots/read|Obter as propriedades de um instantâneo|
+|/disks/delete|Exclusões Olá disco|
+|/disks/beginGetAccess/action|Obter Olá URI SAS do disco de saudação para acesso de blob|
+|/disks/endGetAccess/action|Revogar Olá URI SAS de saudação em disco|
+|/snapshots/read|Obter propriedades de saudação de um instantâneo|
 |/snapshots/write|Criar um novo instantâneo ou atualizar um existente|
 |/snapshots/delete|Excluir um instantâneo|
-|/availabilitySets/read|Obter as propriedades de um conjunto de disponibilidade|
+|/availabilitySets/read|Obter propriedades de saudação de um conjunto de disponibilidade|
 |/availabilitySets/write|Criar um novo conjunto de disponibilidade ou atualizar um existente|
-|/availabilitySets/delete|Excluir o conjunto de disponibilidade|
-|/availabilitySets/vmSizes/read|Listar os tamanhos disponíveis para criar ou atualizar uma máquina virtual no conjunto de disponibilidade|
-|/virtualMachines/read|Obter as propriedades de uma máquina virtual|
+|/availabilitySets/delete|Exclui o conjunto de disponibilidade Olá|
+|/availabilitySets/vmSizes/read|Lista os tamanhos disponíveis para criar ou atualizar uma máquina virtual no conjunto de disponibilidade Olá|
+|/virtualMachines/read|Obter propriedades de saudação de uma máquina virtual|
 |/virtualMachines/write|Criar uma nova máquina virtual ou atualizar uma máquina virtual existente|
-|/virtualMachines/delete|Excluir a máquina virtual|
-|/virtualMachines/start/action|Inicia a máquina virtual|
-|/virtualMachines/powerOff/action|Desligar a máquina virtual. Observe que a máquina virtual continuará a ser cobrada.|
+|/virtualMachines/delete|Exclui a máquina virtual de saudação|
+|/virtualMachines/start/action|Olá inicia a máquina virtual|
+|/virtualMachines/powerOff/action|Desliga Olá VM. Observe que a máquina virtual Olá continuará toobe cobrado.|
 |/virtualMachines/redeploy/action|Reimplantar a máquina virtual|
-|/virtualMachines/restart/action|Reinicia a máquina virtual|
-|/virtualMachines/deallocate/action|Desligar a máquina virtual e liberar os recursos de computação|
-|/virtualMachines/generalize/action|Definir o estado da máquina virtual como Generalizada e preparar a máquina virtual para captura|
-|/virtualMachines/capture/action|Capturar a máquina virtual copiando discos rígidos virtuais e gera um modelo que pode ser usado para criar máquinas virtuais semelhantes|
-|/virtualMachines/convertToManagedDisks/action|Converter os discos baseados em blob da máquina virtual em discos gerenciados|
-|/virtualMachines/vmSizes/read|Listar os tamanhos disponíveis para os quais a máquina virtual possa ser atualizada|
-|/virtualMachines/instanceView/read|Obter o status de tempo de execução detalhado da máquina virtual e seus recursos|
-|/virtualMachines/extensions/read|Obter as propriedades de uma extensão da máquina virtual|
+|/virtualMachines/restart/action|Reinicia a máquina virtual de saudação|
+|/virtualMachines/deallocate/action|Desliga a máquina virtual de saudação e versões Olá os recursos de computação|
+|/virtualMachines/generalize/action|Define Olá tooGeneralized de estado de máquina virtual e prepara a máquina virtual de saudação para captura|
+|/virtualMachines/capture/action|Captura de máquina virtual de saudação copiando discos rígidos virtuais e gera um modelo que pode ser usado toocreate máquinas de virtuais semelhantes|
+|/virtualMachines/convertToManagedDisks/action|Converte os discos de blob com base em Olá de discos de toomanaged Olá máquina virtual|
+|/virtualMachines/vmSizes/read|Lista os tamanhos disponíveis Olá VM pode ser atualizado para|
+|/virtualMachines/instanceView/read|Obtém Olá status de execução detalhado da máquina virtual de saudação e seus recursos|
+|/virtualMachines/extensions/read|Obter propriedades de saudação de uma extensão de máquina virtual|
 |/virtualMachines/extensions/write|Criar uma nova extensão da máquina virtual ou atualizar uma existente|
-|/virtualMachines/extensions/delete|Excluir a extensão da máquina virtual|
+|/virtualMachines/extensions/delete|Exclui a extensão da máquina virtual Olá|
 |/locations/vmSizes/read|Listar os tamanhos de máquina virtual disponível em um local|
-|/locations/usages/read|Obter as quantidades de uso atual e limites de serviço para os recursos de computação da assinatura em determinado local|
-|/locations/operations/read|Obter o status de uma operação assíncrona|
+|/locations/usages/read|Obtém os limites de serviço e quantidades de uso atuais para recursos de computação da assinatura Olá em um local|
+|/locations/operations/read|Obtém o status de saudação de uma operação assíncrona|
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 | Operação | Descrição |
 |---|---|
-|/register/action|Registra a assinatura do provedor de recursos de registro de contêiner e permite a criação de registros de contêiner.|
+|/register/action|Registra a assinatura Olá para o provedor de recursos de registro de contêiner hello e permite a criação de saudação de registros do contêiner.|
 |/checknameavailability/read|Verificar se esse nome de registro é válido e não está em uso.|
-|/registries/read|Retornar a lista de registros de contêiner ou obter as propriedades do registro de contêiner especificado.|
-|/registries/write|Criar um registro de contêiner com os parâmetros especificados ou atualizar as propriedades ou marcas do registro de contêiner especificado.|
+|/registries/read|Olá retorna a lista de registros de contêiner ou obtém Olá propriedades de registro de contêiner especificado hello.|
+|/registries/write|Cria um registro de contêiner com hello parâmetros especificados ou atualizar propriedades de saudação ou marcações para registro de contêiner especificado hello.|
 |/registries/delete|Excluir um registro de contêiner existente.|
-|/registries/listCredentials/action|Listar as credenciais de logon para o registro de contêiner especificado.|
-|/registries/regenerateCredential/action|Regenerar as credenciais de logon para o registro de contêiner especificado.|
+|/registries/listCredentials/action|Lista as credenciais de logon de saudação para registro de contêiner especificado hello.|
+|/registries/regenerateCredential/action|Regenera as credenciais de logon de saudação para registro de contêiner especificado hello.|
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 
 | Operação | Descrição |
 |---|---|
-|/containerServices/subscriptions/read|Obter os Serviços de Contêiner especificados com base na assinatura|
-|/containerServices/resourceGroups/read|Obter os Serviços de Contêiner especificado com base no grupo de recursos|
-|/containerServices/resourceGroups/ContainerServiceName/read|Obter o Serviço de Contêiner especificado|
-|/containerServices/resourceGroups/ContainerServiceName/write|Inserir ou atualizar o Serviço de Contêiner especificado|
-|/containerServices/resourceGroups/ContainerServiceName/delete|Excluir o serviço de contêiner especificado|
+|/containerServices/subscriptions/read|Get hello serviços de contêiner especificados com base na assinatura|
+|/containerServices/resourceGroups/read|Get hello serviços de contêiner especificados com base no grupo de recursos|
+|/containerServices/resourceGroups/ContainerServiceName/read|Obtém Olá especificado serviço de contêiner|
+|/containerServices/resourceGroups/ContainerServiceName/write|Coloca ou Olá atualizações especificado serviço de contêiner|
+|/containerServices/resourceGroups/ContainerServiceName/delete|Olá exclusões especificado serviço de contêiner|
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
@@ -678,10 +678,10 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/hubs/read|Ler Hub de informações do Customer Insights|
 |/hubs/write|Criar ou atualizar um Hub de informações do Customer Insights|
 |/hubs/delete|Excluir Hub de informações do Customer Insights|
-|/hubs/providers/Microsoft.Insights/metricDefinitions/read|Obter a métrica disponível para o recurso|
-|/hubs/providers/Microsoft.Insights/diagnosticSettings/read|Obter a configuração de diagnóstico para o recurso|
-|/hubs/providers/Microsoft.Insights/diagnosticSettings/write|Criar ou atualizar a configuração de diagnóstico para o recurso|
-|/hubs/providers/Microsoft.Insights/logDefinitions/read|Obter os logs disponíveis para o recurso|
+|/hubs/providers/Microsoft.Insights/metricDefinitions/read|Obtém métricas disponíveis Olá para recursos|
+|/hubs/providers/Microsoft.Insights/diagnosticSettings/read|Obtém a configuração de diagnóstico de saudação para o recurso de saudação|
+|/hubs/providers/Microsoft.Insights/diagnosticSettings/write|Cria ou atualiza a configuração de diagnóstico de saudação para o recurso de saudação|
+|/hubs/providers/Microsoft.Insights/logDefinitions/read|Obtém os logs disponíveis Olá para o recurso|
 |/hubs/authorizationPolicies/read|Ler política de assinatura de acesso compartilhado do Azure Customer Insights|
 |/hubs/authorizationPolicies/write|Criar ou atualizar política de assinatura de acesso compartilhado do Azure Customer Insights|
 |/hubs/authorizationPolicies/delete|Excluir política de assinatura de acesso compartilhado do Azure Customer Insights|
@@ -713,8 +713,8 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |---|---|
 |/checkNameAvailability/action|Verificar a disponibilidade do nome do catálogo para o locatário.|
 |/catalogs/read|Obter propriedades dos catálogos na assinatura ou no grupo de recursos.|
-|/catalogs/write|Criar catálogo ou atualizar as marcações e propriedades do catálogo.|
-|/catalogs/delete|Excluir o catálogo.|
+|/catalogs/write|Cria catálogo ou atualizações de marcas de saudação e as propriedades de catálogo hello.|
+|/catalogs/delete|Exclui o catálogo de saudação.|
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -740,20 +740,20 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 
 | Operação | Descrição |
 |---|---|
-|/accounts/read|Obter informações sobre a conta DataLakeAnalytics.|
-|/accounts/write|Criar ou atualizar a conta DataLakeAnalytics.|
-|/accounts/delete|Excluir a conta DataLakeAnalytics.|
+|/accounts/read|Obter informações sobre Olá DataLakeAnalytics conta.|
+|/accounts/write|Criar ou atualizar a conta de DataLakeAnalytics hello.|
+|/accounts/delete|Exclua a conta de DataLakeAnalytics hello.|
 |/accounts/firewallRules/read|Obter informações sobre uma regra de firewall.|
 |/accounts/firewallRules/write|Criar ou atualizar uma regra de firewall.|
 |/accounts/firewallRules/delete|Excluir uma regra de firewall.|
-|/accounts/storageAccounts/read|Obter a conta de armazenamento vinculado para a conta do DataLakeAnalytics.|
-|/accounts/storageAccounts/write|Vincular uma conta de armazenamento à conta do DataLakeAnalytics.|
-|/accounts/storageAccounts/delete|Desvincular uma conta de armazenamento da conta do DataLakeAnalytics.|
-|/accounts/storageAccounts/Containers/read|Obter contêineres na conta de armazenamento|
-|/accounts/storageAccounts/Containers/listSasTokens/action|Listar de tokens SAS para o contêiner de armazenamento|
-|/accounts/dataLakeStoreAccounts/read|Obter conta vinculada do DataLakeStore para a conta de DataLakeAnalytics.|
-|/accounts/dataLakeStoreAccounts/write|Vincular uma conta do DataLakeStore à conta do DataLakeAnalytics.|
-|/accounts/dataLakeStoreAccounts/delete|Desvincular uma conta do DataLakeStore da conta do DataLakeAnalytics.|
+|/accounts/storageAccounts/read|Obter a conta de armazenamento vinculada para Olá DataLakeAnalytics conta.|
+|/accounts/storageAccounts/write|Vincule uma conta de armazenamento toohello DataLakeAnalytics conta.|
+|/accounts/storageAccounts/delete|Desvincule uma conta de armazenamento de saudação DataLakeAnalytics conta.|
+|/accounts/storageAccounts/Containers/read|Obter contêineres em Olá conta de armazenamento|
+|/accounts/storageAccounts/Containers/listSasTokens/action|Lista de Tokens de SAS Olá contêiner de armazenamento|
+|/accounts/dataLakeStoreAccounts/read|Obter conta DataLakeStore vinculada Olá DataLakeAnalytics conta.|
+|/accounts/dataLakeStoreAccounts/write|Vincule uma conta de DataLakeStore toohello DataLakeAnalytics conta.|
+|/accounts/dataLakeStoreAccounts/delete|Desvincule uma conta de DataLakeStore de saudação DataLakeAnalytics conta.|
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 
@@ -773,18 +773,18 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 
 | Operação | Descrição |
 |---|---|
-|/register/action|Registrar a assinatura do provedor de recursos IotHub e permitir a criação de recursos IotHub|
+|/register/action|Registrar assinatura Olá Olá hub IOT recurso provedor e permite Olá para a criação de recursos de Hub IOT|
 |/checkNameAvailability/Action|Verificar se o nome do IotHub está disponível|
 |/usages/Read|Obter detalhes de uso de assinatura para esse provedor.|
 |/operations/Read|Obter todas as operações de ResourceProvider|
-|/iotHubs/Read|Obter os recursos IotHub|
+|/iotHubs/Read|Obtém os recursos do hub IOT Olá|
 |/iotHubs/Write|Criar ou atualizar recursos IotHub|
 |/iotHubs/Delete|Excluir recurso IotHub|
 |/iotHubs/listkeys/Action|Obter todas as chaves IotHub|
 |/iotHubs/exportDevices/Action|Exportar dispositivos|
 |/iotHubs/importDevices/Action|Importar dispositivos|
-|/IotHubs/metricDefinitions/read|Obter as métricas disponíveis para o serviço IotHub|
-|/iotHubs/iotHubKeys/listkeys/Action|Obter a chave IotHub para o nome fornecido|
+|/IotHubs/metricDefinitions/read|Obtém métricas disponíveis Olá Olá serviço hub IOT|
+|/iotHubs/iotHubKeys/listkeys/Action|Obter IotHub Key para nome Olá|
 |/iotHubs/iotHubStats/Read|Obter estatísticas de IotHub|
 |/iotHubs/quotaMetrics/Read|Obter métrica de cota|
 |/iotHubs/eventHubEndpoints/consumerGroups/Write|Criar grupo de consumidores EventHub|
@@ -792,25 +792,25 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/iotHubs/eventHubEndpoints/consumerGroups/Delete|Excluir grupo de consumidores EventHub|
 |/iotHubs/routing/routes/$testall/Action|Testar uma mensagem com todas as rotas existentes|
 |/iotHubs/routing/routes/$testnew/Action|Testar uma mensagem em uma rota de teste fornecida|
-|/IotHubs/diagnosticSettings/read|Obter a configuração de diagnóstico para o recurso|
-|/IotHubs/diagnosticSettings/write|Criar ou atualizar a configuração de diagnóstico para o recurso|
+|/IotHubs/diagnosticSettings/read|Obtém a configuração de diagnóstico de saudação para o recurso de saudação|
+|/IotHubs/diagnosticSettings/write|Cria ou atualiza a configuração de diagnóstico de saudação para o recurso de saudação|
 |/iotHubs/skus/Read|Obter SKUs IotHub válidos|
 |/iotHubs/jobs/Read|Obter detalhes de trabalhos enviados em determinado IotHub|
-|/iotHubs/routingEndpointsHealth/Read|Obter a integridade de todos os pontos de extremidade de roteamento para um IotHub|
+|/iotHubs/routingEndpointsHealth/Read|Obtém a integridade de saudação de todos os pontos de extremidade de roteamentos para um hub IOT|
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
 | Operação | Descrição |
 |---|---|
-|/Subscription/register/action|Registra a assinatura|
+|/Subscription/register/action|Registra a assinatura de saudação|
 |/labs/delete|Excluir laboratórios.|
 |/labs/read|Ler laboratórios.|
 |/labs/write|Adicionar ou modificar os laboratórios.|
 |/labs/ListVhds/action|Listar imagens de disco disponíveis para a criação de imagens personalizadas.|
-|/labs/GenerateUploadUri/action|Gerar um URI para carregar imagens de disco personalizadas para um laboratório.|
+|/labs/GenerateUploadUri/action|Gere um URI para carregar as imagens de disco personalizada tooa laboratório.|
 |/labs/CreateEnvironment/action|Criar máquinas virtuais em um laboratório.|
-|/labs/ClaimAnyVm/action|Declarar uma máquina virtual aleatória declarável no laboratório.|
-|/labs/ExportResourceUsage/action|Exportar o uso de recursos de laboratório para uma conta de armazenamento|
+|/labs/ClaimAnyVm/action|Declaração de uma máquina virtual claimable aleatória no laboratório de saudação.|
+|/labs/ExportResourceUsage/action|Exportações Olá o uso de recursos do laboratório em uma conta de armazenamento|
 |/labs/users/delete|Excluir perfis de usuário.|
 |/labs/users/read|Ler perfis de usuário.|
 |/labs/users/write|Adicionar ou modificar perfis de usuário.|
@@ -823,8 +823,8 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/labs/users/disks/delete|Excluir discos.|
 |/labs/users/disks/read|Ler discos.|
 |/labs/users/disks/write|Adicionar ou modificar discos.|
-|/labs/users/disks/Attach/action|Anexar e criar a concessão do disco para a máquina virtual.|
-|/labs/users/disks/Detach/action|Desanexar e interromper a concessão do disco anexado à máquina virtual.|
+|/labs/users/disks/Attach/action|Anexar e criar concessão de saudação da máquina virtual do hello disco toohello.|
+|/labs/users/disks/Detach/action|Desanexar e concessão de saudação quebra do disco Olá anexado toohello VM.|
 |/labs/customImages/delete|Excluir imagens personalizadas.|
 |/labs/customImages/read|Ler imagens personalizadas.|
 |/labs/customImages/write|Adicionar ou modificar imagens personalizadas.|
@@ -835,7 +835,7 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/labs/artifactSources/read|Ler fontes de artefato.|
 |/labs/artifactSources/write|Adicionar ou modificar fontes de artefato.|
 |/labs/artifactSources/artifacts/read|Ler artefatos.|
-|/labs/artifactSources/artifacts/GenerateArmTemplate/action|Gera um modelo do ARM para o artefato determinado, carrega os arquivos necessários para uma conta de armazenamento e valida o artefato gerado.|
+|/labs/artifactSources/artifacts/GenerateArmTemplate/action|Gera um modelo do ARM para Olá fornecido artefato, carrega a conta de armazenamento de tooa Olá necessários arquivos e valida o artefato Olá gerado.|
 |/labs/artifactSources/armTemplates/read|Ler modelos do Azure Resource Manager.|
 |/labs/costs/read|Ler custos.|
 |/labs/costs/write|Adicionar ou modificar custos.|
@@ -860,9 +860,9 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/labs/virtualMachines/write|Adicionar ou modificar máquinas virtuais.|
 |/labs/virtualMachines/Start/action|Iniciar uma máquina virtual.|
 |/labs/virtualMachines/Stop/action|Parar uma máquina virtual|
-|/labs/virtualMachines/ApplyArtifacts/action|Aplicar artefatos à máquina virtual.|
-|/labs/virtualMachines/AddDataDisk/action|Anexar um disco de dados novo ou existente à máquina virtual.|
-|/labs/virtualMachines/DetachDataDisk/action|Desanexar o disco especificado da máquina virtual.|
+|/labs/virtualMachines/ApplyArtifacts/action|Aplica a máquina de toovirtual de artefatos.|
+|/labs/virtualMachines/AddDataDisk/action|Anexe uma máquina de toovirtual de disco de dados novo ou existente.|
+|/labs/virtualMachines/DetachDataDisk/action|Desanexe o disco especificado de saudação da máquina virtual de saudação.|
 |/labs/virtualMachines/Claim/action|Assumir o controle de uma máquina virtual existente|
 |/labs/virtualMachines/ListApplicableSchedules/action|Listar todas as agendas aplicáveis|
 |/labs/virtualMachines/schedules/delete|Excluir agendas.|
@@ -872,7 +872,7 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/labs/notificationChannels/delete|Excluir notificationchannels.|
 |/labs/notificationChannels/read|Ler notificationchannels.|
 |/labs/notificationChannels/write|Adicionar ou modificar notificationchannels.|
-|/labs/notificationChannels/Notify/action|Enviar notificação ao canal fornecido.|
+|/labs/notificationChannels/Notify/action|Envie o canal de notificação de tooprovided.|
 |/schedules/delete|Excluir agendas.|
 |/schedules/read|Ler agendas.|
 |/schedules/write|Adicionar ou modificar agendamentos.|
@@ -889,20 +889,20 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/databaseAccounts/write|Atualizar uma conta de banco de dados.|
 |/databaseAccounts/listKeys/action|Listar chaves de uma conta de banco de dados|
 |/databaseAccounts/regenerateKey/action|Girar chaves de uma conta de banco de dados|
-|/databaseAccounts/listConnectionStrings/action|Obter as cadeias de caracteres de conexão para uma conta de banco de dados|
+|/databaseAccounts/listConnectionStrings/action|Obter cadeias de caracteres de conexão Olá para uma conta de banco de dados|
 |/databaseAccounts/changeResourceGroup/action|Alterar o grupo de recursos de uma conta de banco de dados|
-|/databaseAccounts/failoverPriorityChange/action|Alterar as prioridades de failover das regiões de uma conta de banco de dados. Isso é usado para executar a operação de failover manual|
-|/databaseAccounts/delete|Excluir as contas de banco de dados.|
-|/databaseAccounts/metricDefinitions/read|Ler o banco de dados de definições de métrica da conta.|
-|/databaseAccounts/metrics/read|Ler a métrica da conta do banco de dados.|
-|/databaseAccounts/usages/read|Ler os usos da conta do banco de dados.|
-|/databaseAccounts/databases/collections/metricDefinitions/read|Ler a coleção de definições de métrica.|
-|/databaseAccounts/databases/collections/metrics/read|Ler a métrica da coleção.|
-|/databaseAccounts/databases/collections/usages/read|Ler os usos da coleção.|
-|/databaseAccounts/databases/metricDefinitions/read|Ler as definições de métrica do banco de dados|
-|/databaseAccounts/databases/metrics/read|Ler a métrica do banco de dados.|
-|/databaseAccounts/databases/usages/read|Ler os usos do banco de dados.|
-|/databaseAccounts/readonlykeys/read|Ler as chaves somente leitura da conta do banco de dados.|
+|/databaseAccounts/failoverPriorityChange/action|Alterar as prioridades de failover das regiões de uma conta de banco de dados. Isso é usado tooperform operação de failover manual|
+|/databaseAccounts/delete|Exclui Olá contas de banco de dados.|
+|/databaseAccounts/metricDefinitions/read|Lê definições de métricas de conta de banco de dados de saudação.|
+|/databaseAccounts/metrics/read|Lê as métricas Olá da conta do banco de dados.|
+|/databaseAccounts/usages/read|Lê os usos de conta do banco de dados de saudação.|
+|/databaseAccounts/databases/collections/metricDefinitions/read|Lê a coleção de saudação definições de métrica.|
+|/databaseAccounts/databases/collections/metrics/read|Lê as métricas de coleção de saudação.|
+|/databaseAccounts/databases/collections/usages/read|Lê os usos de coleção de saudação.|
+|/databaseAccounts/databases/metricDefinitions/read|Lê definições de métricas de banco de dados de saudação|
+|/databaseAccounts/databases/metrics/read|Lê as métricas de banco de dados de saudação.|
+|/databaseAccounts/databases/usages/read|Lê os usos do banco de dados de saudação.|
+|/databaseAccounts/readonlykeys/read|Lê a conta de banco de dados de saudação chaves somente leitura.|
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 
@@ -911,9 +911,9 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/generateSsoRequest/Action|Gerar uma solicitação para entrar no centro de controle de domínio.|
 |/validateDomainRegistrationInformation/Action|Validar o objeto de compra de domínio sem enviá-lo|
 |/checkDomainAvailability/Action|Verificar se um domínio está disponível para compra|
-|/listDomainRecommendations/Action|Recuperar as recomendações de domínio da lista com base em palavras-chave|
-|/register/action|Registrar o provedor de recursos Microsoft Domains para a assinatura|
-|/domains/Read|Obter a lista de domínios|
+|/listDomainRecommendations/Action|Recuperar Olá lista as recomendações de domínio com base em palavras-chave|
+|/register/action|Registrar o provedor de recursos Microsoft Domains Olá para assinatura de saudação|
+|/domains/Read|Obter lista de saudação de domínios|
 |/domains/Write|Adicionar um novo domínio ou atualizar um existente|
 |/domains/Delete|Excluir um modo de exibição existente.|
 |/domains/operationresults/Read|Obter uma operação de domínio|
@@ -922,40 +922,40 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 
 | Operação | Descrição |
 |---|---|
-|/lcsprojects/read|Exibir projetos dos Serviços de Ciclo de Vida do Microsoft Dynamics que pertencem a um usuário|
-|/lcsprojects/write|Criar e atualizar projetos dos Serviços de Ciclo de Vida do Microsoft Dynamics que pertencem ao usuário. Somente as propriedades de nome e a descrição podem ser atualizadas. A assinatura e o local associados ao projeto não podem ser atualizados após a criação|
-|/lcsprojects/delete|Excluir projetos dos Serviços de Ciclo de Vida do Microsoft Dynamics que pertencem ao usuário|
-|/lcsprojects/clouddeployments/read|Exibir as implantações de avaliação do Microsoft Dynamics AX 2012 R3 em um projeto dos Serviços de Ciclo de Vida do Microsoft Dynamics que pertencem a um usuário|
-|/lcsprojects/clouddeployments/write|Criar as implantações de avaliação do Microsoft Dynamics AX 2012 R3 em um projeto dos Serviços de Ciclo de Vida do Microsoft Dynamics que pertencem a um usuário. As implantações podem ser gerenciadas no portal de gerenciamento do Azure|
-|/lcsprojects/connectors/read|Ler os conectores que pertencem a um projeto dos Serviços de Ciclo de Vida do Microsoft Dynamics|
-|/lcsprojects/connectors/write|Criar e atualizar os conectores que pertencem a um projeto dos Serviços de Ciclo de Vida do Microsoft Dynamics|
+|/lcsprojects/read|Exibir projetos de serviços de ciclo de vida do Microsoft Dynamics que pertencem a usuário tooa|
+|/lcsprojects/write|Criar e atualizar os projetos de serviços de ciclo de vida do Microsoft Dynamics que pertencem a usuário toohello. Apenas propriedades de nome e uma descrição da saudação podem ser atualizadas. assinatura de saudação e no local associados ao projeto de saudação não podem ser atualizadas após a criação|
+|/lcsprojects/delete|Excluir projetos de serviços de ciclo de vida do Microsoft Dynamics que pertencem a usuário toohello|
+|/lcsprojects/clouddeployments/read|Exibir as implantações de avaliação do Microsoft Dynamics AX 2012 R3 em um projeto de serviços de ciclo de vida do Microsoft Dynamics que pertence a usuário tooa|
+|/lcsprojects/clouddeployments/write|Crie implantação de avaliação do Microsoft Dynamics AX 2012 R3 em um projeto de serviços de ciclo de vida do Microsoft Dynamics que pertence a usuário tooa. As implantações podem ser gerenciadas no portal de gerenciamento do Azure|
+|/lcsprojects/connectors/read|Leia os conectores que pertencem o projeto de serviços de ciclo de vida do Microsoft Dynamics tooa|
+|/lcsprojects/connectors/write|Criar e atualizar os conectores que pertencem o projeto de serviços de ciclo de vida do Microsoft Dynamics tooa|
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
 | Operação | Descrição |
 |---|---|
 |/checkNameAvailability/action|Verificar a disponibilidade do namespace em determinada assinatura.|
-|/register/action|Registrar a assinatura do provedor de recursos EventHub e permitir a criação de recursos EventHub|
-|/namespaces/write|Criar um recurso de namespace e atualizar suas propriedades. Marcas e status do namespace são as propriedades que podem ser atualizadas.|
-|/namespaces/read|Obter a lista de descrição do recurso de namespace|
+|/register/action|Registra a assinatura Olá para o provedor de recursos do EventHub hello e permite a criação de saudação dos recursos do Eventbus|
+|/namespaces/write|Criar um recurso de namespace e atualizar suas propriedades. Marcações e status do Namespace de saudação são propriedades de saudação que podem ser atualizadas.|
+|/namespaces/read|Obter lista de saudação da descrição do recurso de Namespace|
 |/namespaces/Delete|Excluir o recurso de namespace|
 |/namespaces/metricDefinitions/read|Obter lista de métrica de descrições de recurso de métrica do namespace|
-|/namespaces/authorizationRules/read|Obter a lista de descrição de regras de autorização de namespaces.|
-|/namespaces/authorizationRules/write|Criar regras de autorização no nível do namespace e atualizar suas propriedades. Os direitos de acesso das regras de autorização; as chaves primárias e secundárias podem ser atualizadas.|
-|/namespaces/authorizationRules/delete|Excluir regra de autorização de namespace. A regra de autorização do namespace padrão não pode ser excluída. |
-|/namespaces/authorizationRules/listkeys/action|Obter a cadeia de conexão para o namespace|
-|/namespaces/authorizationRules/regenerateKeys/action|Regenerar a chave primária ou secundária para o recurso|
+|/namespaces/authorizationRules/read|Obter lista de saudação da descrição de regras de autorização de Namespaces.|
+|/namespaces/authorizationRules/write|Criar regras de autorização no nível do namespace e atualizar suas propriedades. Olá direitos de acesso de regras de autorização, Olá primário e secundário chaves podem ser atualizadas.|
+|/namespaces/authorizationRules/delete|Excluir regra de autorização de namespace. saudação de regra de autorização de Namespace padrão não pode ser excluída. |
+|/namespaces/authorizationRules/listkeys/action|Obter cadeia de caracteres de Conexão de saudação toohello Namespace|
+|/namespaces/authorizationRules/regenerateKeys/action|Regenerar Olá primário ou secundário chave toohello recursos|
 |/namespaces/eventhubs/write|Criar ou atualizar propriedades EventHub.|
 |/namespaces/eventhubs/read|Obter lista de descrições de recursos de EventHub|
-|/namespaces/eventhubs/Delete|Operação para excluir o recurso EventHub|
+|/namespaces/eventhubs/Delete|Toodelete operação recurso do EventHub|
 |/namespaces/eventHubs/consumergroups/write|Criar ou atualizar propriedades ConsumerGroup.|
 |/namespaces/eventHubs/consumergroups/read|Obter lista de descrições de recursos ConsumerGroup|
-|/namespaces/eventHubs/consumergroups/Delete|Operação para excluir o recurso ConsumerGroup|
-|/namespaces/eventhubs/authorizationRules/read| Obter a lista de regras de autorização EventHub|
-|/namespaces/eventhubs/authorizationRules/write|Criar regras de autorização EventHub e atualizar suas propriedades. Os direitos de acesso das regras de autorização; as chaves primárias e secundárias podem ser atualizadas.|
-|/namespaces/eventhubs/authorizationRules/delete|Operação para excluir regras de autorização EventHub|
-|/namespaces/eventhubs/authorizationRules/listkeys/action|Obter a cadeia de conexão para EventHub|
-|/namespaces/eventhubs/authorizationRules/regenerateKeys/action|Regenerar a chave primária ou secundária para o recurso|
+|/namespaces/eventHubs/consumergroups/Delete|Toodelete operação recurso o ConsumerGroup|
+|/namespaces/eventhubs/authorizationRules/read| Obter lista de saudação EventHub de regras de autorização|
+|/namespaces/eventhubs/authorizationRules/write|Criar regras de autorização EventHub e atualizar suas propriedades. Olá direitos de acesso de regras de autorização, Olá primário e secundário chaves podem ser atualizadas.|
+|/namespaces/eventhubs/authorizationRules/delete|Operação toodelete EventHub as regras de autorização|
+|/namespaces/eventhubs/authorizationRules/listkeys/action|Obter Olá tooEventHub de cadeia de caracteres de Conexão|
+|/namespaces/eventhubs/authorizationRules/regenerateKeys/action|Regenerar Olá primário ou secundário chave toohello recursos|
 |/namespaces/diagnosticSettings/read|Obter lista de descrições de recurso de configurações de diagnóstico do namespace|
 |/namespaces/diagnosticSettings/write|Obter lista de descrições de recurso de configurações de diagnóstico do namespace|
 |/namespaces/logDefinitions/read|Obter lista de descrições do recurso de log do namespace|
@@ -964,9 +964,9 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 
 | Operação | Descrição |
 |---|---|
-|/providers/features/read|Obter o recurso de uma assinatura em determinado provedor de recursos.|
-|/providers/features/register/action|Registrar o recurso de uma assinatura em determinado provedor de recursos.|
-|/features/read|Obter os recursos de uma assinatura.|
+|/providers/features/read|Obtém o recurso de saudação de uma assinatura em um determinado provedor de recursos.|
+|/providers/features/register/action|Registra o recurso Olá para uma assinatura em um determinado provedor de recursos.|
+|/features/read|Obtém os recursos de saudação de uma assinatura.|
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
@@ -986,19 +986,19 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 
 | Operação | Descrição |
 |---|---|
-|/register/action|Registra a assinatura do provedor de recursos importar/exportar e habilita a criação de trabalhos de importação/exportação.|
-|/jobs/write|Criar um trabalho com os parâmetros especificados ou atualizar as propriedades ou marcações do trabalho especificado.|
-|/jobs/read|Obter as propriedades para o trabalho especificado ou retornar a lista de trabalhos.|
-|/jobs/listBitLockerKeys/action|Obter as chaves do BitLocker para o trabalho especificado.|
+|/register/action|Registra a assinatura Olá para o provedor de recursos de importação/exportação hello e permite a criação de saudação de trabalhos de importação/exportação.|
+|/jobs/write|Cria um trabalho com hello parâmetros especificados ou atualizar propriedades de saudação ou marcações para o trabalho especificado hello.|
+|/jobs/read|Obtém as propriedades de saudação do trabalho especificado hello ou retorna a lista de saudação de trabalhos.|
+|/jobs/listBitLockerKeys/action|Obtém as chaves do BitLocker Olá para o trabalho especificado Olá.|
 |/jobs/delete|Excluir um trabalho existente.|
-|/locations/read|Obter as propriedades do local especificado ou retornar a lista de locais.|
+|/locations/read|Obtém propriedades Olá Olá local ou retorna Olá lista especificada de locais.|
 
 ## <a name="microsoftinsights"></a>Microsoft.insights
 
 | Operação | Descrição |
 |---|---|
-|/Register/Action|Registrar o provedor do Microsoft Insights|
-|/AlertRules/Write|Gravar em uma configuração de regra de alerta|
+|/Register/Action|Registrar o provedor de informações do microsoft hello|
+|/AlertRules/Write|Configuração de regra de alerta de tooan de gravação|
 |/AlertRules/Delete|Excluir uma configuração de regra de alerta|
 |/AlertRules/Read|Ler uma configuração de regra de alerta|
 |/AlertRules/Activated/Action|Regra de alerta ativada|
@@ -1009,21 +1009,21 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/eventtypes/values/Read|Ler valores do tipo de evento de gerenciamento|
 |/eventtypes/digestevents/Read|Ler resumo do tipo de evento de gerenciamento|
 |/Metrics/Read|Ler métrica|
-|/LogProfiles/Write|Gravar em uma configuração de perfil de log|
+|/LogProfiles/Write|Gravar a configuração de perfil de registro tooa|
 |/LogProfiles/Delete|Excluir configuração de perfis de log|
 |/LogProfiles/Read|Ler perfis de log|
-|/AutoscaleSettings/Write|Gravar em uma configuração de dimensionamento automático|
+|/AutoscaleSettings/Write|Gravar a configuração de AutoEscala tooan|
 |/AutoscaleSettings/Delete|Excluir uma configuração de dimensionamento automático|
 |/AutoscaleSettings/Read|Ler uma configuração de dimensionamento automático|
 |/AutoscaleSettings/Scaleup/Action|Dimensionar operação de escalada vertical automaticamente|
 |/AutoscaleSettings/Scaledown/Action|Dimensionar operação de redução vertical automaticamente|
 |/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read|Ler definições de métrica|
-|/ActivityLogAlerts/Activated/Action|Disparou o alerta de log de atividade|
-|/DiagnosticSettings/Write|Gravar na configuração de diagnóstico|
+|/ActivityLogAlerts/Activated/Action|Disparado hello atividade de Log de alerta|
+|/DiagnosticSettings/Write|Gravação toodiagnostic definições de configuração|
 |/DiagnosticSettings/Delete|Excluir configuração de diagnóstico|
 |/DiagnosticSettings/Read|Ler uma configuração de diagnóstico|
 |/LogDefinitions/Read|Ler definições de log|
-|/ExtendedDiagnosticSettings/Write|Gravar em uma configuração de diagnóstico estendido|
+|/ExtendedDiagnosticSettings/Write|Configuração de configurações de diagnóstico de tooextended de gravação|
 |/ExtendedDiagnosticSettings/Delete|Excluir configuração de diagnóstico estendido|
 |/ExtendedDiagnosticSettings/Read|Ler uma configuração de diagnóstico estendido|
 
@@ -1033,56 +1033,56 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |---|---|
 |/register/action|Registrar uma assinatura|
 |/checkNameAvailability/read|Verificar se um nome de chave do cofre é válido e não está em uso|
-|/vaults/read|Exibir as propriedades de um cofre de chaves|
-|/vaults/write|Criar um novo cofre de chaves ou atualizar as propriedades de um cofre de chaves existente|
+|/vaults/read|Exibir propriedades de saudação de um cofre de chaves|
+|/vaults/write|Criar um novo Olá chave de cofre ou atualização propriedades de um cofre de chave existente|
 |/vaults/delete|Excluir um cofre de chaves|
-|/vaults/deploy/action|Permite acesso aos segredos em um cofre de chaves durante a implantação de recursos do Azure|
-|/vaults/secrets/read|Exibir as propriedades de um segredo, mas não seu valor|
-|/vaults/secrets/write|Criar um novo segredo ou atualizar o valor de um segredo existente|
-|/vaults/accessPolicies/write|Atualizar uma política de acesso existente por mesclagem ou substituição, ou adicionar uma nova política de acesso a um cofre.|
-|/deletedVaults/read|Exibir as propriedades de cofres de chaves com exclusão reversível|
-|/locations/operationResults/read|Verificar o resultado de uma operação de longo prazo|
-|/locations/deletedVaults/read|Exibir as propriedades de um cofre de chaves com exclusão reversível|
+|/vaults/deploy/action|Habilita toosecrets em um cofre de chaves de acesso ao implantar os recursos do Azure|
+|/vaults/secrets/read|Exibir propriedades de saudação de um segredo, mas não seu valor|
+|/vaults/secrets/write|Crie um novo valor de saudação de segredo ou atualização de um segredo existente|
+|/vaults/accessPolicies/write|Atualizar uma política de acesso de mesclagem ou substituindo ou adicionar um novo cofre de tooa de política de acesso.|
+|/deletedVaults/read|Exibir propriedades de saudação do software excluído cofres de chaves|
+|/locations/operationResults/read|Resultado da verificação de saudação de uma operação de longa execução|
+|/locations/deletedVaults/read|Exibir propriedades de saudação de um cofre de chaves excluído flexível|
 |/locations/deletedVaults/purge/action|Limpar um cofre de chaves com exclusão reversível|
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
 | Operação | Descrição |
 |---|---|
-|/workflows/read|Ler o fluxo de trabalho.|
-|/workflows/write|Criar ou atualizar o fluxo de trabalho.|
-|/workflows/delete|Excluir o fluxo de trabalho.|
-|/workflows/run/action|Iniciar uma execução do fluxo de trabalho.|
-|/workflows/disable/action|Desabilitar o fluxo de trabalho.|
-|/workflows/enable/action|Permitir o fluxo de trabalho.|
-|/workflows/validate/action|Valida o fluxo de trabalho.|
-|/workflows/move/action|Mover o fluxo de trabalho de sua id de assinatura, grupo de recursos e nome existente para uma id de assinatura, grupo de recursos e/ou nome diferente.|
-|/workflows/listSwagger/action|Obter as definições do Swagger para o fluxo de trabalho.|
-|/workflows/regenerateAccessKey/action|Regenera os segredos da chave de acesso.|
-|/workflows/listCallbackUrl/action|Obter a URL de retorno de chamada para o fluxo de trabalho.|
-|/workflows/versions/read|Ler a versão do fluxo de trabalho.|
-|/workflows/versions/triggers/listCallbackUrl/action|Obter a URL de retorno de chamada do gatilho.|
-|/workflows/runs/read|Ler a execução do fluxo de trabalho.|
-|/workflows/runs/cancel/action|Cancelar a execução de um fluxo de trabalho.|
-|/workflows/runs/actions/read|Ler a ação de execução do fluxo de trabalho.|
-|/workflows/runs/operations/read|Ler o status da operação de execução do fluxo de trabalho.|
-|/workflows/triggers/read|Ler o gatilho.|
-|/workflows/triggers/run/action|Executar o gatilho.|
-|/workflows/triggers/listCallbackUrl/action|Obter a URL de retorno de chamada do gatilho.|
-|/workflows/triggers/histories/read|Ler os históricos de gatilho.|
-|/workflows/triggers/histories/resubmit/action|Reenviar o gatilho do fluxo de trabalho.|
-|/workflows/accessKeys/read|Ler a chave de acesso.|
-|/workflows/accessKeys/write|Criar ou atualizar a chave de acesso.|
-|/workflows/accessKeys/delete|Excluir a chave de acesso.|
-|/workflows/accessKeys/list/action|Listar os segredos de chave de acesso.|
-|/workflows/accessKeys/regenerate/action|Regenera os segredos da chave de acesso.|
-|/locations/workflows/validate/action|Valida o fluxo de trabalho.|
+|/workflows/read|Lê o fluxo de trabalho de saudação.|
+|/workflows/write|Cria ou atualiza o fluxo de trabalho de saudação.|
+|/workflows/delete|Exclui o fluxo de trabalho de saudação.|
+|/workflows/run/action|Inicia uma execução de fluxo de trabalho de saudação.|
+|/workflows/disable/action|Desabilita o fluxo de trabalho de saudação.|
+|/workflows/enable/action|Permite que o fluxo de trabalho de saudação.|
+|/workflows/validate/action|Valida o fluxo de trabalho de saudação.|
+|/workflows/move/action|Move o fluxo de trabalho de sua existente id de assinatura, o grupo de recursos e/ou a id de assinatura diferente do nome tooa, grupo de recursos, e/ou nome.|
+|/workflows/listSwagger/action|Obtém o fluxo de trabalho Olá definições de swagger.|
+|/workflows/regenerateAccessKey/action|Regenera os segredos de chave de acesso de saudação.|
+|/workflows/listCallbackUrl/action|Obtém a URL de retorno de chamada Olá para fluxo de trabalho.|
+|/workflows/versions/read|Lê a versão de fluxo de trabalho de saudação.|
+|/workflows/versions/triggers/listCallbackUrl/action|Obtém o URL de retorno de chamada de saudação do gatilho.|
+|/workflows/runs/read|Lê o fluxo de trabalho Olá executar.|
+|/workflows/runs/cancel/action|Cancela a execução de saudação de um fluxo de trabalho.|
+|/workflows/runs/actions/read|Lê o fluxo de trabalho Olá executar a ação.|
+|/workflows/runs/operations/read|Lê o status da operação de execução de fluxo de trabalho do hello.|
+|/workflows/triggers/read|Lê o gatilho de saudação.|
+|/workflows/triggers/run/action|Executa o gatilho de saudação.|
+|/workflows/triggers/listCallbackUrl/action|Obtém o URL de retorno de chamada de saudação do gatilho.|
+|/workflows/triggers/histories/read|Lê os históricos de gatilho hello.|
+|/workflows/triggers/histories/resubmit/action|Reenvia gatilho do fluxo de trabalho de saudação.|
+|/workflows/accessKeys/read|Lê a chave de acesso de saudação.|
+|/workflows/accessKeys/write|Cria ou atualiza a chave de acesso de saudação.|
+|/workflows/accessKeys/delete|Exclui a chave de acesso de saudação.|
+|/workflows/accessKeys/list/action|Lista os segredos de chave de acesso de saudação.|
+|/workflows/accessKeys/regenerate/action|Regenera os segredos de chave de acesso de saudação.|
+|/locations/workflows/validate/action|Valida o fluxo de trabalho de saudação.|
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
 | Operação | Descrição |
 |---|---|
-|/register/action|Registra a assinatura do provedor de recursos do serviço Web do Machine Learning e permite a criação de serviços Web.|
+|/register/action|Registra a assinatura Olá para o provedor de recursos de serviço web de aprendizado de máquina hello e permite a criação de saudação de serviços web.|
 |/webServices/action|Criar propriedades do serviço Web regionais para regiões com suporte|
 |/commitmentPlans/read|Ler um plano de compromisso de Machine Learning|
 |/commitmentPlans/write|Criar ou atualizar plano de compromisso de Machine Learning|
@@ -1122,46 +1122,46 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 
 | Operação | Descrição |
 |---|---|
-|/register/action|Registra a assinatura|
-|/unregister/action|Cancelar o registro da assinatura|
-|/checkTrafficManagerNameAvailability/action|Verificar a disponibilidade de um nome DNS relativo do Gerenciador de Tráfego.|
-|/dnszones/read|Obter a zona DNS no formato JSON. As propriedades de zona incluem tags, etag, numberOfRecordSets e maxNumberOfRecordSets. Observe que esse comando não recupera conjuntos de registros contidos na zona.|
-|/dnszones/write|Criar ou atualizar uma zona DNS em um grupo de recursos.  Usado para atualizar as marcações em um recurso de zona DNS. Observe que esse comando não pode ser usado para criar ou atualizar conjuntos de registros na zona.|
-|/dnszones/delete|Excluir a zona DNS no formato JSON. As propriedades de zona incluem tags, etag, numberOfRecordSets e maxNumberOfRecordSets.|
-|/dnszones/MX/read|Obter o conjunto de registros do tipo 'MX' no formato JSON. O conjunto de registros contém uma lista de registros, o TTL, as marcações e as etags.|
-|/dnszones/MX/write|Criar ou atualizar um conjunto de registros do tipo 'MX' em uma zona DNS. Os registros especificados substituirão os registros atuais no conjunto de registros.|
-|/dnszones/MX/delete|Remover o conjunto de registros de determinado nome e tipo ‘MX’ de uma zona DNS.|
+|/register/action|Registra a assinatura de saudação|
+|/unregister/action|Cancela o registro de assinatura de saudação|
+|/checkTrafficManagerNameAvailability/action|Olá verifica a disponibilidade de um nome DNS do Traffic Manager relativo.|
+|/dnszones/read|Obtenha a zona do DNS hello, no formato JSON. Propriedades da zona Olá incluem marcas, etag, numberOfRecordSets e maxNumberOfRecordSets. Observe que esse comando não recupera conjuntos de registros Olá contidos Olá zona.|
+|/dnszones/write|Criar ou atualizar uma zona DNS em um grupo de recursos.  Marcas de saudação tooupdate usado em um recurso de zona DNS. Observe que esse comando não pode ser usado toocreate ou atualizar conjuntos de registros na zona de saudação.|
+|/dnszones/delete|Exclua a zona do DNS de hello, no formato JSON. Propriedades da zona Olá incluem marcas, etag, numberOfRecordSets e maxNumberOfRecordSets.|
+|/dnszones/MX/read|Obter conjunto de registros de saudação do tipo 'MX', no formato JSON. conjunto de registros de saudação contém uma lista de registros, bem como Olá TTL, marcas e etag.|
+|/dnszones/MX/write|Criar ou atualizar um conjunto de registros do tipo 'MX' em uma zona DNS. registros de saudação especificados substituirão os registros de atual de saudação no conjunto de registros de saudação.|
+|/dnszones/MX/delete|Remova o conjunto de registros de saudação de um determinado nome e tipo 'MX' de uma zona DNS.|
 |/dnszones/NS/read|Obter o conjunto de registros DNS do tipo NS|
 |/dnszones/NS/write|Criar ou atualizar o conjunto de registros DNS do tipo NS|
-|/dnszones/NS/delete|Excluir o conjunto de registros DNS do tipo NS|
-|/dnszones/AAAA/read|Obter o conjunto de registros do tipo 'AAAA' no formato JSON. O conjunto de registros contém uma lista de registros, o TTL, as marcações e as etags.|
-|/dnszones/AAAA/write|Criar ou atualizar um conjunto de registros do tipo 'AAAA' em uma zona DNS. Os registros especificados substituirão os registros atuais no conjunto de registros.|
-|/dnszones/AAAA/delete|Remover o conjunto de registros de determinado nome e digite ‘AAAA’ de uma zona DNS.|
-|/dnszones/CNAME/read|Obter o conjunto de registros do tipo 'CNAME' no formato JSON. O conjunto de registros contém TTL, marcações e etag.|
-|/dnszones/CNAME/write|Criar ou atualizar um conjunto de registros do tipo 'CNAME' em uma zona DNS. Os registros especificados substituirão os registros atuais no conjunto de registros.|
-|/dnszones/CNAME/delete|Remover o conjunto de registros de determinado nome e tipo ‘CNAME’ de uma zona DNS.|
+|/dnszones/NS/delete|Exclui o conjunto de registros de DNS de saudação do tipo NS|
+|/dnszones/AAAA/read|Obter conjunto de registros de saudação do tipo 'AAAA', no formato JSON. conjunto de registros de saudação contém uma lista de registros, bem como Olá TTL, marcas e etag.|
+|/dnszones/AAAA/write|Criar ou atualizar um conjunto de registros do tipo 'AAAA' em uma zona DNS. registros de saudação especificados substituirão os registros de atual de saudação no conjunto de registros de saudação.|
+|/dnszones/AAAA/delete|Remova o conjunto de registros de saudação de um determinado nome e tipo 'AAAA' de uma zona DNS.|
+|/dnszones/CNAME/read|Obter conjunto de registros de saudação do tipo 'CNAME', no formato JSON. conjunto de registros de saudação contém Olá TTL, marcas e etag.|
+|/dnszones/CNAME/write|Criar ou atualizar um conjunto de registros do tipo 'CNAME' em uma zona DNS. registros de saudação especificados substituirão os registros de atual de saudação no conjunto de registros de saudação.|
+|/dnszones/CNAME/delete|Remova o conjunto de registros de saudação de um determinado nome e tipo 'CNAME' de uma zona DNS.|
 |/dnszones/SOA/read|Obter o conjunto de registros DNS do tipo SOA|
 |/dnszones/SOA/write|Criar ou atualizar o conjunto de registros DNS do tipo SOA|
-|/dnszones/SRV/read|Obter o conjunto de registros do tipo 'SRV' no formato JSON. O conjunto de registros contém uma lista de registros, o TTL, as marcações e as etags.|
+|/dnszones/SRV/read|Obter conjunto de registros de saudação do tipo 'SRV', no formato JSON. conjunto de registros de saudação contém uma lista de registros, bem como Olá TTL, marcas e etag.|
 |/dnszones/SRV/write|Criar ou atualizar o conjunto de registros do tipo SRV|
-|/dnszones/SRV/delete|Remover o conjunto de registros de determinado nome e tipo ‘SRV’ de uma zona DNS.|
-|/dnszones/PTR/read|Obter o conjunto de registros do tipo 'PTR' no formato JSON. O conjunto de registros contém uma lista de registros, o TTL, as marcações e as etags.|
-|/dnszones/PTR/write|Criar ou atualizar um conjunto de registros do tipo 'PTR' em uma zona DNS. Os registros especificados substituirão os registros atuais no conjunto de registros.|
-|/dnszones/PTR/delete|Remover o conjunto de registros de determinado nome e tipo ‘PTR’ de uma zona DNS.|
-|/dnszones/A/read|Obter o conjunto de registros do tipo 'A', no formato JSON. O conjunto de registros contém uma lista de registros, o TTL, as marcações e as etags.|
-|/dnszones/A/write|Criar ou atualizar um conjunto de registros do tipo 'A' em uma zona DNS. Os registros especificados substituirão os registros atuais no conjunto de registros.|
-|/dnszones/A/delete|Remover o conjunto de registros de determinado nome e tipo ‘A’ de uma zona DNS.|
-|/dnszones/TXT/read|Obter o conjunto de registros do tipo 'TXT' no formato JSON. O conjunto de registros contém uma lista de registros, o TTL, as marcações e as etags.|
-|/dnszones/TXT/write|Criar ou atualizar um conjunto de registros do tipo 'TXT' em uma zona DNS. Os registros especificados substituirão os registros atuais no conjunto de registros.|
-|/dnszones/TXT/delete|Remover o conjunto de registros de determinado nome e tipo ‘TXT’ de uma zona DNS.|
+|/dnszones/SRV/delete|Remova o conjunto de registros de saudação de um determinado nome e tipo 'SRV' de uma zona DNS.|
+|/dnszones/PTR/read|Obter conjunto de registros de saudação do tipo 'PTR', no formato JSON. conjunto de registros de saudação contém uma lista de registros, bem como Olá TTL, marcas e etag.|
+|/dnszones/PTR/write|Criar ou atualizar um conjunto de registros do tipo 'PTR' em uma zona DNS. registros de saudação especificados substituirão os registros de atual de saudação no conjunto de registros de saudação.|
+|/dnszones/PTR/delete|Remova o conjunto de registros de saudação de um determinado nome e tipo 'PTR' de uma zona DNS.|
+|/dnszones/A/read|Obter conjunto de registros de saudação do tipo 'A', no formato JSON. conjunto de registros de saudação contém uma lista de registros, bem como Olá TTL, marcas e etag.|
+|/dnszones/A/write|Criar ou atualizar um conjunto de registros do tipo 'A' em uma zona DNS. registros de saudação especificados substituirão os registros de atual de saudação no conjunto de registros de saudação.|
+|/dnszones/A/delete|Remova o conjunto de registros de saudação de um determinado nome e tipo 'A' de uma zona DNS.|
+|/dnszones/TXT/read|Obter conjunto de registros de saudação do tipo 'TXT', no formato JSON. conjunto de registros de saudação contém uma lista de registros, bem como Olá TTL, marcas e etag.|
+|/dnszones/TXT/write|Criar ou atualizar um conjunto de registros do tipo 'TXT' em uma zona DNS. registros de saudação especificados substituirão os registros de atual de saudação no conjunto de registros de saudação.|
+|/dnszones/TXT/delete|Remova o conjunto de registros de saudação de um determinado nome e tipo 'TXT' de uma zona DNS.|
 |/dnszones/recordsets/read|Obter os conjuntos de registros DNS em todos os tipos|
 |/networkInterfaces/read|Obter uma definição de adaptador de rede. |
 |/networkInterfaces/write|Criar uma interface de rede ou atualizar uma interface de rede existente. |
-|/networkInterfaces/join/action|Adicionar uma Máquina Virtual a um adaptador de rede|
+|/networkInterfaces/join/action|Une uma interface de rede de tooa da máquina Virtual|
 |/networkInterfaces/delete|Excluir um adaptador de rede|
-|/networkInterfaces/effectiveRouteTable/action|Obter tabela de rota configurada no adaptador de rede da máquina virtual|
-|/networkInterfaces/effectiveNetworkSecurityGroups/action|Obter grupos de segurança de configurados no adaptador de rede da máquina virtual|
-|/networkInterfaces/loadBalancers/read|Obter todos os balanceadores de carga dos quais o adaptador de rede faz parte|
+|/networkInterfaces/effectiveRouteTable/action|Obter tabela de rota configurado na Interface de rede de Vm de saudação|
+|/networkInterfaces/effectiveNetworkSecurityGroups/action|Obter grupos de segurança de rede na rede Interface de saudação configurado Vm|
+|/networkInterfaces/loadBalancers/read|Obtém todos os balanceadores de carga Olá Olá interface de rede é parte de|
 |/networkInterfaces/ipconfigurations/read|Obter uma definição de configuração de IP do adaptador de rede. |
 |/publicIPAddresses/read|Obter uma definição de endereço IP público.|
 |/publicIPAddresses/write|Criar um endereço IP público ou atualizar um endereço IP público existente. |
@@ -1174,26 +1174,26 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/routeFilters/rules/read|Obter uma definição de regra de filtro de rota|
 |/routeFilters/rules/write|Criar uma regra de filtro de rota ou atualizar uma regra de filtro de rota existente|
 |/routeFilters/rules/delete|Excluir uma definição de regra de filtro de rota|
-|/networkWatchers/read|Obter a definição de observador de rede|
+|/networkWatchers/read|Obter definição de Inspetor de rede Olá|
 |/networkWatchers/write|Criar um observador de rede ou atualizar um observador de rede existente|
 |/networkWatchers/delete|Excluir um observador de rede|
 |/networkWatchers/configureFlowLog/action|Configurar o registro de fluxo em log para um recurso de destino.|
-|/networkWatchers/ipFlowVerify/action|Retornar se o pacote é permitido ou negado em relação a um destino específico.|
-|/networkWatchers/nextHop/action|Para um destino especificado e endereço IP de destino especificados, retornar o tipo do próximo salto e próximo endereço IP esperado.|
-|/networkWatchers/queryFlowLogStatus/action|Obter o status do registro do fluxo em log em um recurso.|
-|/networkWatchers/queryTroubleshootResult/action|Obter o resultado da solução de problemas da operação de solução de problemas executada ou atualmente em execução.|
-|/networkWatchers/securityGroupView/action|Exibir as regras de grupo de segurança de rede configuradas e em vigor aplicadas a uma máquina virtual.|
+|/networkWatchers/ipFlowVerify/action|Retorna se o pacote de saudação é permitido ou negado tooor de um destino específico.|
+|/networkWatchers/nextHop/action|Para um destino especificado e o endereço IP de destino, retornar o tipo de próximo salto hello e em seguida Esperamos que endereço IP.|
+|/networkWatchers/queryFlowLogStatus/action|Obtém o status de saudação do fluxo de log em um recurso.|
+|/networkWatchers/queryTroubleshootResult/action|Obtém a saudação resultados de saudação executada anteriormente ou executando a operação de solução de problemas de solução de problemas.|
+|/networkWatchers/securityGroupView/action|Exibir hello configurado e regras de grupo de segurança de rede eficaz aplicadas em uma máquina virtual.|
 |/networkWatchers/topology/action|Obter uma exibição dos recursos em nível de rede e de suas relações em um grupo de recursos.|
 |/networkWatchers/troubleshoot/action|Iniciar a solução de problemas em um recurso de rede no Azure.|
 |/networkWatchers/packetCaptures/queryStatus/action|Obter informações sobre propriedades e status de um recurso de captura de pacote.|
-|/networkWatchers/packetCaptures/stop/action|Interromper a sessão de captura de pacote em execução.|
-|/networkWatchers/packetCaptures/read|Obter a definição de captura de pacote|
+|/networkWatchers/packetCaptures/stop/action|Pare Olá que executa a sessão de captura de pacote.|
+|/networkWatchers/packetCaptures/read|Obter definição de captura de pacote de saudação|
 |/networkWatchers/packetCaptures/write|Criar uma captura de pacote|
 |/networkWatchers/packetCaptures/delete|Excluir uma captura de pacote|
 |/loadBalancers/read|Obter uma definição de balanceador de carga|
 |/loadBalancers/write|Criar um balanceador de carga ou atualizar um balanceador de carga existente|
 |/loadBalancers/delete|Excluir um balanceador de carga|
-|/loadBalancers/networkInterfaces/read|Obter as referências a todos os adaptadores de rede em um balanceador de carga|
+|/loadBalancers/networkInterfaces/read|Obtém referências de interfaces de rede Olá tooall sob o balanceador de carga|
 |/loadBalancers/loadBalancingRules/read|Obter uma definição regra de balanceamento de carga do balanceador de carga|
 |/loadBalancers/backendAddressPools/read|Obter uma definição de pool de endereços de back-end do balanceador de carga|
 |/loadBalancers/backendAddressPools/join/action|Ingressar em um pool de endereços de back-end do balanceador de carga|
@@ -1205,12 +1205,12 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/loadBalancers/inboundNatRules/join/action|Adicionar uma regra NAT de entrada do balanceador de carga|
 |/loadBalancers/outboundNatRules/read|Obter uma definição de regra NAT de saída do balanceador de carga|
 |/loadBalancers/probes/read|Obter uma investigação do balanceador de carga|
-|/loadBalancers/virtualMachines/read|Obter as referências a todas as máquinas virtuais em um balanceador de carga|
+|/loadBalancers/virtualMachines/read|Obtém referências tooall Olá máquinas virtuais de um balanceador de carga|
 |/loadBalancers/frontendIPConfigurations/read|Obter uma definição de configuração de IP de front-end do balanceador de carga|
-|/trafficManagerGeographicHierarchies/read|Obter a hierarquia de geográfica do Gerenciador de Tráfego contendo regiões que podem ser usadas com o método de roteamento de tráfego geográfico|
+|/trafficManagerGeographicHierarchies/read|Obtém Olá Traffic Manager geográfico hierarquia que contém regiões que podem ser usados com hello método de roteamento de tráfego geográfica|
 |/bgpServiceCommunities/read|Obter comunidades do serviço BGP|
 |/applicationGatewayAvailableWafRuleSets/read|Obter conjuntos de regras WAF disponíveis para o Gateway de Aplicativo|
-|/virtualNetworks/read|Obter a definição de rede virtual|
+|/virtualNetworks/read|Obter definição de rede virtual Olá|
 |/virtualNetworks/write|Criar uma rede virtual ou atualizar uma rede virtual existente|
 |/virtualNetworks/delete|Excluir uma rede virtual|
 |/virtualNetworks/peer/action|Colocar uma rede virtual com outra rede virtual de mesmo nível|
@@ -1221,18 +1221,18 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/virtualNetworks/subnets/write|Criar uma sub-rede de rede virtual ou atualizar uma sub-rede de rede virtual existente|
 |/virtualNetworks/subnets/delete|Excluir uma sub-rede de rede virtual|
 |/virtualNetworks/subnets/join/action|Ingressar em uma rede virtual|
-|/virtualNetworks/subnets/joinViaServiceTunnel/action|Adicionar recurso como conta de armazenamento ou banco de dados SQL a uma sub-rede habilitada para encapsulamento do serviço.|
-|/virtualNetworks/subnets/virtualMachines/read|Obter referências a todas as máquinas virtuais em uma sub-rede de rede virtual|
-|/virtualNetworks/checkIpAddressAvailability/read|Verificar se o endereço IP está disponível na rede virtual especificada|
-|/virtualNetworks/virtualMachines/read|Obter referências a todas as máquinas virtuais em uma rede virtual|
+|/virtualNetworks/subnets/joinViaServiceTunnel/action|Une o recurso, como conta de armazenamento ou SQL tooa serviço encapsulamento habilitado sub-rede do banco de dados.|
+|/virtualNetworks/subnets/virtualMachines/read|Obtém referências tooall Olá VMs em uma sub-rede de rede virtual|
+|/virtualNetworks/checkIpAddressAvailability/read|Verifique se o endereço Ip está disponível na rede virtual especificado do hello|
+|/virtualNetworks/virtualMachines/read|Obtém referências tooall Olá VMs em uma rede virtual|
 |/expressRouteServiceProviders/read|Obter os provedores de serviços do ExpressRoute|
 |/dnsoperationresults/read|Obter os resultados de uma operação de DNS|
 |/localnetworkgateways/read|Obter o LocalNetworkGateway|
 |/localnetworkgateways/write|Criar ou atualizar uma LocalNetworkGateway existente|
 |/localnetworkgateways/delete|Excluir LocalNetworkGateway|
-|/trafficManagerProfiles/read|Obter a configuração de perfil do Gerenciador de Tráfego. Isso inclui configurações DNS, configurações de roteamento de tráfego, configurações de monitoramento do ponto de extremidade e lista de pontos de extremidade roteados por esse perfil do Gerenciador de Tráfego.|
-|/trafficManagerProfiles/write|Criar um perfil do Gerenciador de Tráfego ou modificar a configuração de um perfil do Gerenciador de Tráfego existente. Isso inclui habilitar ou desabilitar um perfil e modificar as configurações de DNS, configurações de roteamento de tráfego ou configurações de monitoramento do ponto de extremidade. Pontos de extremidade roteados pelo perfil do Gerenciador de Tráfego podem ser adicionados, removidos, habilitados ou desabilitados.|
-|/trafficManagerProfiles/delete|Excluir o perfil do Gerenciador de Tráfego. Todas as configurações associadas ao perfil do Gerenciador de Tráfego serão perdidas e o perfil não poderá ser usado para rotear o tráfego.|
+|/trafficManagerProfiles/read|Obter configuração de perfil do Traffic Manager hello. Isso inclui configurações DNS, configurações de roteamento de tráfego, configurações de monitoramento do ponto de extremidade e lista de saudação de pontos de extremidade roteados por este perfil do Gerenciador de tráfego.|
+|/trafficManagerProfiles/write|Criar um perfil do Gerenciador de tráfego ou modificar a configuração de um perfil existente do Gerenciador de tráfego hello. Isso inclui habilitar ou desabilitar um perfil e modificar as configurações de DNS, configurações de roteamento de tráfego ou configurações de monitoramento do ponto de extremidade. Pontos de extremidade roteados pelo perfil do Traffic Manager Olá podem ser adicionados, removidos, habilitados ou desabilitados.|
+|/trafficManagerProfiles/delete|Exclua perfil do Gerenciador de tráfego de saudação. Todas as configurações associadas Olá perfil do Gerenciador de tráfego serão perdidas e perfil de saudação não pode mais ser usado tooroute tráfego.|
 |/dnsoperationstatuses/read|Obter o status de uma operação de DNS |
 |/operations/read|Obter operações disponíveis|
 |/expressRouteCircuits/read|Obter um ExpressRouteCircuit|
@@ -1277,67 +1277,67 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/routeTables/routes/write|Criar uma rota ou atualizar uma rota existente|
 |/routeTables/routes/delete|Excluir uma definição de rota|
 |/locations/operationResults/read|Obter o resultado de uma operação POST ou DELETE assíncrona|
-|/locations/checkDnsNameAvailability/read|Verificar se o rótulo de DNS está disponível no local especificado|
-|/locations/usages/read|Obter a métrica de uso dos recursos|
+|/locations/checkDnsNameAvailability/read|Verifica se o rótulo dns está disponível em Olá especificado local|
+|/locations/usages/read|Obtém as métricas de uso de recursos de saudação|
 |/locations/operations/read|Obter o recurso de operação que representa o status de uma operação assíncrona|
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 | Operação | Descrição |
 |---|---|
-|/register/action|Registra a assinatura do provedor de recursos NotifciationHubs e permite a criação de Namespaces e NotificationHubs|
-|/CheckNamespaceAvailability/action|Verificar se determinado nome de recurso do Namespace está disponível no serviço NotificationHub.|
-|/Namespaces/write|Criar um recurso de namespace e atualizar suas propriedades. Marcas e status do namespace são as propriedades que podem ser atualizadas.|
-|/Namespaces/read|Obter a lista de descrição do recurso de namespace|
+|/register/action|Registra a assinatura Olá para o provedor de recursos de NotifciationHubs hello e permite a criação de saudação de Namespaces e NotificationHubs|
+|/CheckNamespaceAvailability/action|Verifica se um determinado nome de recurso do Namespace está disponível no hello serviço do NotificationHub.|
+|/Namespaces/write|Criar um recurso de namespace e atualizar suas propriedades. Marcações e status do Namespace de saudação são propriedades de saudação que podem ser atualizadas.|
+|/Namespaces/read|Obter lista de saudação da descrição do recurso de Namespace|
 |/Namespaces/Delete|Excluir o recurso de namespace|
-|/Namespaces/authorizationRules/action|Obter a lista de descrição de regras de autorização de namespaces.|
+|/Namespaces/authorizationRules/action|Obter lista de saudação da descrição de regras de autorização de Namespaces.|
 |/Namespaces/CheckNotificationHubAvailability/action|Verificar se determinado nome de NotificationHub está disponível em um Namespace.|
-|/Namespaces/authorizationRules/write|Criar regras de autorização no nível do namespace e atualizar suas propriedades. Os direitos de acesso das regras de autorização; as chaves primárias e secundárias podem ser atualizadas.|
-|/Namespaces/authorizationRules/read|Obter a lista de descrição de regras de autorização de namespaces.|
-|/Namespaces/authorizationRules/delete|Excluir regra de autorização de namespace. A regra de autorização do namespace padrão não pode ser excluída. |
-|/Namespaces/authorizationRules/listkeys/action|Obter a cadeia de conexão para o namespace|
-|/Namespaces/authorizationRules/regenerateKeys/action|Regra de autorização de namespace regenera chave primária/secundária; especifique a chave que precisa ser regenerada|
+|/Namespaces/authorizationRules/write|Criar regras de autorização no nível do namespace e atualizar suas propriedades. Olá direitos de acesso de regras de autorização, Olá primário e secundário chaves podem ser atualizadas.|
+|/Namespaces/authorizationRules/read|Obter lista de saudação da descrição de regras de autorização de Namespaces.|
+|/Namespaces/authorizationRules/delete|Excluir regra de autorização de namespace. saudação de regra de autorização de Namespace padrão não pode ser excluída. |
+|/Namespaces/authorizationRules/listkeys/action|Obter cadeia de caracteres de Conexão de saudação toohello Namespace|
+|/Namespaces/authorizationRules/regenerateKeys/action|Namespace autorização regra regenerar primária/chave secundária, especifique Olá chave que precisa toobe regenerado|
 |/Namespaces/NotificationHubs/write|Criar um Hub de notificação e atualizar suas propriedades. Suas propriedades incluem principalmente as credenciais PNS. Tempo de vida útil e regras de autorização|
 |/Namespaces/NotificationHubs/read|Obter lista de descrições de recursos do Hub de notificação|
 |/Namespaces/NotificationHubs/Delete|Excluir recurso de Hub de notificação|
-|/Namespaces/NotificationHubs/authorizationRules/action|Obter a lista de regras de autorização do Hub de notificação|
+|/Namespaces/NotificationHubs/authorizationRules/action|Obter lista de saudação de regras de autorização do Hub de notificação|
 |/Namespaces/NotificationHubs/pnsCredentials/action|Obter todas as credenciais PNS do Hub de notificação. Isso inclui credenciais WNS, MPNS, APNS, GCM e Baidu|
 |/Namespaces/NotificationHubs/debugSend/action|Enviar notificação por push de teste.|
 |/Namespaces/NotificationHubs/metricDefinitions/read|Obter lista de métrica de descrições de recurso de métrica do namespace|
-|/Namespaces/NotificationHubs/<br>authorizationRules/write|Criar regras de autorização do Hub de notificação e atualizar suas propriedades. Os direitos de acesso das regras de autorização; as chaves primárias e secundárias podem ser atualizadas.|
-|/Namespaces/NotificationHubs/<br>authorizationRules/read|Obter a lista de regras de autorização do Hub de notificação|
+|/Namespaces/NotificationHubs/<br>authorizationRules/write|Criar regras de autorização do Hub de notificação e atualizar suas propriedades. Olá direitos de acesso de regras de autorização, Olá primário e secundário chaves podem ser atualizadas.|
+|/Namespaces/NotificationHubs/<br>authorizationRules/read|Obter lista de saudação de regras de autorização do Hub de notificação|
 |/Namespaces/NotificationHubs/<br>authorizationRules/delete|Excluir regras de autorização do Hub de notificação|
-|/Namespaces/NotificationHubs/<br>authorizationRules/listkeys/action|Obter a cadeia de conexão para o Hub de notificação|
-|/Namespaces/NotificationHubs/<br>authorizationRules/regenerateKeys/action|Regra de autorização de Hub de notificação regenera chave primária/secundária; especifique a chave que precisa ser regenerada|
+|/Namespaces/NotificationHubs/<br>authorizationRules/listkeys/action|Obter cadeia de caracteres de Conexão de saudação toohello Hub de notificação|
+|/Namespaces/NotificationHubs/<br>authorizationRules/regenerateKeys/action|Notificação de Hub autorização regra regenerar primária/chave secundária, especifique Olá chave que precisa toobe regenerada|
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
 | Operação | Descrição |
 |---|---|
-|/register/action|Registrar uma assinatura de um provedor de recursos.|
-|/linkTargets/read|Listar as contas existentes que não estão associadas uma assinatura do Azure. Para vincular essa assinatura do Azure a um espaço de trabalho, use uma ID de cliente retornada pela operação na propriedade customer id da operação Criar espaço de trabalho.|
-|/workspaces/write|Criar um novo espaço de trabalho ou links para um espaço de trabalho existente fornecendo a ID do cliente da área de trabalho existente.|
+|/register/action|Registre um provedor de recursos de tooa de assinatura.|
+|/linkTargets/read|Listar as contas existentes que não estão associadas uma assinatura do Azure. toolink este espaço de trabalho de tooa de assinatura do Azure, use uma id de cliente retornados por esta operação na propriedade de id de cliente de saudação do Olá operação criar espaço de trabalho.|
+|/workspaces/write|Cria um novo espaço de trabalho ou o espaço de trabalho existente do tooan links, fornecendo a id de cliente de saudação do espaço de trabalho existente do hello.|
 |/workspaces/read|Obter um espaço de trabalho existente|
-|/workspaces/delete|Excluir um espaço de trabalho. Se o espaço de trabalho foi vinculado a um espaço de trabalho existente no momento da criação, o espaço de trabalho a que ele foi vinculado não será excluído.|
-|/workspaces/generateregistrationcertificate/action|Gerar certificado de registro para o espaço de trabalho. Esse certificado é usado para conectar o Microsoft System Center Operations Manager ao espaço de trabalho.|
-|/workspaces/sharedKeys/action|Recupera as chaves compartilhadas do espaço de trabalho. Essas chaves são usadas para conectar agentes do Insights Operacionais da Microsoft ao espaço de trabalho.|
+|/workspaces/delete|Excluir um espaço de trabalho. Se o espaço de trabalho de saudação foi vinculado tooan o espaço de trabalho existente no momento da criação, em seguida, Olá foi vinculado toois não excluído do espaço de trabalho.|
+|/workspaces/generateregistrationcertificate/action|Gera de registro de certificado para o espaço de trabalho de saudação. Esse certificado é usado tooconnect Microsoft System Center Operation Manager toohello espaço de trabalho.|
+|/workspaces/sharedKeys/action|Recupera as chaves do espaço de trabalho de saudação Olá compartilhado. Essas chaves são usadas tooconnect Insights operacionais do Microsoft agentes toohello espaço de trabalho.|
 |/workspaces/search/action|Executar uma consulta de pesquisa|
 |/workspaces/datasources/read|Obter fontes de dados em um espaço de trabalho.|
 |/workspaces/datasources/write|Criar/atualizar fontes de dados em um espaço de trabalho.|
 |/workspaces/datasources/delete|Excluir fontes de dados em um espaço de trabalho.|
-|/workspaces/managementGroups/read|Obter os nomes e os metadados para grupos de gerenciamento do System Center Operations Manager conectados ao espaço de trabalho.|
-|/workspaces/schema/read|Obter o esquema de pesquisa do espaço de trabalho.  O esquema de pesquisa inclui os campos expostos e seus tipos.|
-|/workspaces/usages/read|Obter dados de uso de um espaço de trabalho e a quantidade de dados lidos pelo espaço de trabalho.|
-|/workspaces/intelligencepacks/read|Lista todos os pacotes de inteligência visíveis para determinado espaço de trabalho e também indica se o pacote está habilitado ou desabilitado para esse espaço de trabalho.|
+|/workspaces/managementGroups/read|Obtém o hello nomes e metadados para o espaço de trabalho do System Center Operations Manager gerenciamento grupos toothis conectado.|
+|/workspaces/schema/read|Obtém o esquema de pesquisa de saudação do espaço de trabalho de saudação.  Esquema de pesquisa inclui Olá exposto campos e seus tipos.|
+|/workspaces/usages/read|Obtém dados de uso de um espaço de trabalho incluindo Olá quantidade de dados lidos por espaço de trabalho de saudação.|
+|/workspaces/intelligencepacks/read|Lista todos os pacotes de inteligência que estão visíveis para um determinado espaço de trabalho e também indica se o pacote de saudação está habilitada ou desabilitada para esse espaço de trabalho.|
 |/workspaces/intelligencepacks/enable/action|Habilitar um pacote de inteligência para determinado espaço de trabalho.|
 |/workspaces/intelligencepacks/disable/action|Desabilitar um pacote de inteligência para determinado espaço de trabalho.|
-|/workspaces/sharedKeys/read|Recupera as chaves compartilhadas do espaço de trabalho. Essas chaves são usadas para conectar agentes do Insights Operacionais da Microsoft ao espaço de trabalho.|
+|/workspaces/sharedKeys/read|Recupera as chaves do espaço de trabalho de saudação Olá compartilhado. Essas chaves são usadas tooconnect Insights operacionais do Microsoft agentes toohello espaço de trabalho.|
 |/workspaces/savedSearches/read|Obter uma consulta de pesquisa salva|
 |/workspaces/savedSearches/write|Criar uma consulta de pesquisa salva|
 |/workspaces/savedSearches/delete|Excluir uma consulta de pesquisa salva|
-|/workspaces/storageinsightconfigs/write|Criar uma nova configuração de armazenamento. Essas configurações são usadas para extrair dados de um local em uma conta de armazenamento existente.|
+|/workspaces/storageinsightconfigs/write|Criar uma nova configuração de armazenamento. Essas configurações são usadas toopull dados de um local em uma conta de armazenamento existente.|
 |/workspaces/storageinsightconfigs/read|Obter uma configuração de armazenamento.|
-|/workspaces/storageinsightconfigs/delete|Excluir uma configuração de armazenamento. Isso interromperá a leitura dos dados da conta de armazenamento pelo Insights Operacionais.|
+|/workspaces/storageinsightconfigs/delete|Excluir uma configuração de armazenamento. Isso interromperá a Insights operacionais do Microsoft leiam os dados da conta de armazenamento hello.|
 |/workspaces/configurationScopes/read|Obter escopo de configuração|
 |/workspaces/configurationScopes/write|Definir o escopo da configuração|
 |/workspaces/configurationScopes/delete|Excluir escopo de configuração|
@@ -1346,7 +1346,7 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 
 | Operação | Descrição |
 |---|---|
-|/register/action|Registrar uma assinatura de um provedor de recursos.|
+|/register/action|Registre um provedor de recursos de tooa de assinatura.|
 |/solutions/write|Criar nova solução do OMS|
 |/solutions/read|Obter solução OMS de saída|
 |/solutions/delete|Excluir a solução do OMS existente|
@@ -1357,20 +1357,20 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |---|---|
 |/Vaults/backupJobsExport/action|Exportar trabalhos|
 |/Vaults/write|A operação Criar cofre cria um recurso do Azure do tipo 'cofre'|
-|/Vaults/read|A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre'|
-|/Vaults/delete|A operação Excluir cofre exclui o recurso do Azure do tipo 'cofre' especificado|
-|/Vaults/refreshContainers/read|Atualizar a lista de contêineres|
-|/Vaults/backupJobsExport/operationResults/read|Retornar o resultado da operação do trabalho de exportação.|
+|/Vaults/read|Olá operação obter cofre obtém um objeto que representa a saudação recursos do Azure do tipo 'cofre'|
+|/Vaults/delete|Olá Olá de exclusões de operação Excluir cofre especificado recursos do Azure do tipo 'cofre'|
+|/Vaults/refreshContainers/read|Atualiza a lista de contêineres de saudação|
+|/Vaults/backupJobsExport/operationResults/read|Olá retorna resultados da operação de trabalho de exportação.|
 |/Vaults/backupOperationResults/read|Retornar o resultado da operação de backup para o cofre dos Serviços de Recuperação.|
-|/Vaults/monitoringAlerts/read|Obter os alertas para o cofre dos Serviços de Recuperação.|
-|/Vaults/monitoringAlerts/{uniqueAlertId}/read|Obter os detalhes do alerta.|
+|/Vaults/monitoringAlerts/read|Obtém os alertas de saudação para Cofre de serviços de recuperação de saudação.|
+|/Vaults/monitoringAlerts/{uniqueAlertId}/read|Obtém os detalhes de saudação do alerta de saudação.|
 |/Vaults/backupSecurityPIN/read|Retornar a informação de PIN de segurança para o cofre dos Serviços de Recuperação.|
 |/vaults/replicationEvents/read|Ler eventos|
 |/Vaults/backupProtectableItems/read|Retornar a lista de todos os itens que podem ser protegidos.|
 |/vaults/replicationFabrics/read|Ler malhas|
 |/vaults/replicationFabrics/write|Criar ou atualizar malhas|
 |/vaults/replicationFabrics/remove/action|Remover malha|
-|/vaults/replicationFabrics/checkConsistency/action|Verificar consistência da malha|
+|/vaults/replicationFabrics/checkConsistency/action|Verificações de consistência de saudação do Fabric|
 |/vaults/replicationFabrics/delete|Excluir malhas|
 |/vaults/replicationFabrics/renewcertificate/action||
 |/vaults/replicationFabrics/deployProcessServerImage/action|Implantar imagem do servidor de processo|
@@ -1426,27 +1426,27 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/vaults/replicationRecoveryPlans/testFailoverCleanup/action|Testar plano de recuperação de limpeza do failover|
 |/vaults/replicationRecoveryPlans/failoverCommit/action|Plano de recuperação de confirmação de failover|
 |/vaults/replicationRecoveryPlans/reProtect/action|Proteja plano de recuperação novamente|
-|/Vaults/extendedInformation/read|A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault?|
-|/Vaults/extendedInformation/write|A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault?|
-|/Vaults/extendedInformation/delete|A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault?|
+|/Vaults/extendedInformation/read|Olá operação obter informações estendidas obtém informações estendidas de um objeto que representa a saudação tipo de recurso do Azure? cofre?|
+|/Vaults/extendedInformation/write|Olá operação obter informações estendidas obtém informações estendidas de um objeto que representa a saudação tipo de recurso do Azure? cofre?|
+|/Vaults/extendedInformation/delete|Olá operação obter informações estendidas obtém informações estendidas de um objeto que representa a saudação tipo de recurso do Azure? cofre?|
 |/Vaults/backupManagementMetaData/read|Retornar metadados de gerenciamento de backup para o cofre dos Serviços de Recuperação.|
-|/Vaults/backupProtectionContainers/read|Retornar todos os contêineres pertencentes à assinatura|
-|/Vaults/backupFabrics/operationResults/read|Retornar o status da operação|
+|/Vaults/backupProtectionContainers/read|Retorna todos os contêineres pertencentes toohello assinatura|
+|/Vaults/backupFabrics/operationResults/read|Retorna o status da operação de saudação|
 |/Vaults/backupFabrics/protectionContainers/read|Retornar todos os contêineres registrados|
 |/Vaults/backupFabrics/protectionContainers/<br>operationResults/read|Obter o resultado da operação executada no contêiner de proteção.|
-|/Vaults/backupFabrics/protectionContainers/<br>protectedItems/read|Retornar detalhes do objeto do item protegido|
+|/Vaults/backupFabrics/protectionContainers/<br>protectedItems/read|Retorna os detalhes do Item protegido de saudação objeto|
 |/Vaults/backupFabrics/protectionContainers/<br>protectedItems/write|Criar um item protegido de backup|
 |/Vaults/backupFabrics/protectionContainers/<br>protectedItems/delete|Excluir item protegido|
 |/Vaults/backupFabrics/protectionContainers/<br>protectedItems/backup/action|Executar um backup para um item protegido.|
 |/Vaults/backupFabrics/protectionContainers/<br>protectedItems/operationResults/read|Obter o resultado da operação executada em itens protegidos.|
-|/Vaults/backupFabrics/protectionContainers/<br>protectedItems/operationStatus/read|Retornar o status da operação executada em itens protegidos.|
+|/Vaults/backupFabrics/protectionContainers/<br>protectedItems/operationStatus/read|Retorna o status de saudação da operação executada em itens protegidos.|
 |/Vaults/backupFabrics/protectionContainers/<br>protectedItems/recoveryPoints/read|Obter pontos de recuperação para itens protegidos.|
 |/Vaults/backupFabrics/protectionContainers/<br>protectedItems/recoveryPoints/<br>restore/action|Restaurar pontos de recuperação para itens protegidos.|
 |/Vaults/backupFabrics/protectionContainers/<br>protectedItems/recoveryPoints/<br>provisionInstantItemRecovery/action|Provisionar recuperação de item instantânea para item protegido|
 |/Vaults/backupFabrics/protectionContainers/<br>protectedItems/recoveryPoints/<br>revokeInstantItemRecovery/action|Revogar a recuperação de item instantânea para item protegido|
 |/Vaults/usages/read|Retornar os detalhes de uso para um cofre dos Serviços de Recuperação.|
 |/vaults/usages/read|Ler usos de cofre|
-|/Vaults/certificates/write|A operação Atualizar certificado do recurso atualiza o certificado de credencial de cofre/recurso.|
+|/Vaults/certificates/write|Olá a operação de certificado do recurso de atualização atualiza o certificado de credencial de cofre/recurso hello.|
 |/Vaults/tokenInfo/read|Retornar a informação de token para o cofre dos Serviços de Recuperação.|
 |/vaults/replicationAlertSettings/read|Ler configurações de alertas|
 |/vaults/replicationAlertSettings/write|Criar ou atualizar as configurações de alertas|
@@ -1454,13 +1454,13 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/Vaults/storageConfig/read|Retornar cofre de armazenamento para o cofre dos Serviços de Recuperação.|
 |/Vaults/storageConfig/write|Atualizar cofre de armazenamento para o cofre dos Serviços de Recuperação.|
 |/Vaults/backupUsageSummaries/read|Retornar resumos de itens protegidos e servidores protegidos para os Serviços de Recuperação.|
-|/Vaults/backupProtectedItems/read|Retornar a lista de todos os itens protegidos.|
+|/Vaults/backupProtectedItems/read|Retorna Olá lista de todos os itens protegidos.|
 |/Vaults/backupconfig/vaultconfig/read|Retornar a configuração para cofre dos Serviços de Recuperação.|
 |/Vaults/backupconfig/vaultconfig/write|Atualizar configuração para o cofre dos Serviços de Recuperação.|
-|/Vaults/registeredIdentities/write|A operação Registrar o contêiner de serviço pode ser usada para registrar um contêiner com o Serviço de Recuperação.|
-|/Vaults/registeredIdentities/read|A operação Obter contêineres pode ser usada para obter os contêineres registrados para um recurso.|
-|/Vaults/registeredIdentities/delete|A operação Cancelar o registro de contêiner pode ser usada para cancelar o registro de um contêiner.|
-|/Vaults/registeredIdentities/operationResults/read|A operação Obter resultados da operação pode ser usada para obter o status da operação e o resultado da operação enviada de forma assíncrona|
+|/Vaults/registeredIdentities/write|Olá operação registrar contêiner de serviço pode ser usado tooregister um contêiner com o serviço de recuperação.|
+|/Vaults/registeredIdentities/read|Olá obter contêineres pode ser usada a operação obter contêineres de saudação registrados para um recurso.|
+|/Vaults/registeredIdentities/delete|Olá operação Cancelar registro do contêiner pode ser usado toounregister um contêiner.|
+|/Vaults/registeredIdentities/operationResults/read|Olá operação obter resultados da operação pode ser usada para obter status da operação hello e resultar de saudação assincronamente enviada operação|
 |/vaults/replicationJobs/read|Ler todos os trabalhos|
 |/vaults/replicationJobs/cancel/action|Cancelar trabalho|
 |/vaults/replicationJobs/restart/action|Reiniciar o trabalho|
@@ -1470,11 +1470,11 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/Vaults/backupPolicies/delete|Excluir uma política de proteção|
 |/Vaults/backupPolicies/operationResults/read|Obter os resultados da operação de política.|
 |/Vaults/backupPolicies/operationStatus/read|Obter o status da operação de política.|
-|/Vaults/vaultTokens/read|A operação de token do cofre pode ser usada a fim de obter o token do cofre para operações de back-end no nível do cofre.|
-|/Vaults/monitoringConfigurations/notificationConfiguration/read|Obter a configuração de notificação do cofre dos Serviços de Recuperação.|
+|/Vaults/vaultTokens/read|Olá operação do Token do cofre pode ser usado tooget de Token do cofre para operações de nível de back-end do cofre.|
+|/Vaults/monitoringConfigurations/notificationConfiguration/read|Obtém a configuração de notificação do hello recuperação serviços cofre.|
 |/Vaults/backupJobs/read|Retornar todos os objetos de trabalho|
-|/Vaults/backupJobs/cancel/action|Cancelar o trabalho|
-|/Vaults/backupJobs/operationResults/read|Retornar o resultado da operação do trabalho.|
+|/Vaults/backupJobs/cancel/action|Olá Cancelar trabalho|
+|/Vaults/backupJobs/operationResults/read|Olá retorna resultado da operação do trabalho.|
 |/locations/allocateStamp/action|AllocateStamp é uma operação interna usada pelo serviço|
 |/locations/allocatedStamp/read|GetAllocatedStamp é uma operação interna usada pelo serviço|
 
@@ -1483,41 +1483,41 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 | Operação | Descrição |
 |---|---|
 |/checkNamespaceAvailability/action|Verificar a disponibilidade do namespace em determinada assinatura.|
-|/register/action|Registrar a assinatura do provedor de recursos Relay e permitir a criação de recursos Relay|
-|/namespaces/write|Criar um recurso de namespace e atualizar suas propriedades. Marcas e status do namespace são as propriedades que podem ser atualizadas.|
-|/namespaces/read|Obter a lista de descrição do recurso de namespace|
+|/register/action|Registra a assinatura Olá para o provedor de recursos de retransmissão hello e permite a criação de saudação de recursos de retransmissão|
+|/namespaces/write|Criar um recurso de namespace e atualizar suas propriedades. Marcações e status do Namespace de saudação são propriedades de saudação que podem ser atualizadas.|
+|/namespaces/read|Obter lista de saudação da descrição do recurso de Namespace|
 |/namespaces/Delete|Excluir o recurso de namespace|
-|/namespaces/authorizationRules/write|Criar regras de autorização no nível do namespace e atualizar suas propriedades. Os direitos de acesso das regras de autorização; as chaves primárias e secundárias podem ser atualizadas.|
-|/namespaces/authorizationRules/delete|Excluir regra de autorização de namespace. A regra de autorização do namespace padrão não pode ser excluída. |
-|/namespaces/authorizationRules/listkeys/action|Obter a cadeia de conexão para o namespace|
+|/namespaces/authorizationRules/write|Criar regras de autorização no nível do namespace e atualizar suas propriedades. Olá direitos de acesso de regras de autorização, Olá primário e secundário chaves podem ser atualizadas.|
+|/namespaces/authorizationRules/delete|Excluir regra de autorização de namespace. saudação de regra de autorização de Namespace padrão não pode ser excluída. |
+|/namespaces/authorizationRules/listkeys/action|Obter cadeia de caracteres de Conexão de saudação toohello Namespace|
 |/namespaces/HybridConnections/write|Criar ou atualizar propriedades HybridConnection.|
 |/namespaces/HybridConnections/read|Obter lista de descrições de recursos HybridConnection|
-|/namespaces/HybridConnections/Delete|Operação para excluir o recurso HybridConnection|
-|/namespaces/HybridConnections/authorizationRules/write|Criar regras de autorização HybridConnection e atualizar suas propriedades. Os direitos de acesso das regras de autorização; as chaves primárias e secundárias podem ser atualizadas.|
-|/namespaces/HybridConnections/authorizationRules/delete|Operação para excluir regras de autorização HybridConnection|
-|/namespaces/HybridConnections/authorizationRules/listkeys/action|Obter a cadeia de conexão para HybridConnection|
+|/namespaces/HybridConnections/Delete|Toodelete operação recurso HybridConnection|
+|/namespaces/HybridConnections/authorizationRules/write|Criar regras de autorização HybridConnection e atualizar suas propriedades. Olá direitos de acesso de regras de autorização, Olá primário e secundário chaves podem ser atualizadas.|
+|/namespaces/HybridConnections/authorizationRules/delete|Operação toodelete HybridConnection as regras de autorização|
+|/namespaces/HybridConnections/authorizationRules/listkeys/action|Obter Olá tooHybridConnection de cadeia de caracteres de Conexão|
 |/namespaces/WcfRelays/write|Criar ou atualizar propriedades WcfRelay.|
 |/namespaces/WcfRelays/read|Obter lista de descrições de recursos WcfRelay|
-|/namespaces/WcfRelays/Delete|Operação para excluir o recurso WcfRelay|
-|/namespaces/WcfRelays/authorizationRules/write|Criar regras de autorização WcfRelay e atualizar suas propriedades. Os direitos de acesso das regras de autorização; as chaves primárias e secundárias podem ser atualizadas.|
-|/namespaces/WcfRelays/authorizationRules/delete|Operação para excluir regras de autorização WcfRelay|
-|/namespaces/WcfRelays/authorizationRules/listkeys/action|Obter a cadeia de conexão para WcfRelay|
+|/namespaces/WcfRelays/Delete|Toodelete operação recurso WcfRelay|
+|/namespaces/WcfRelays/authorizationRules/write|Criar regras de autorização WcfRelay e atualizar suas propriedades. Olá direitos de acesso de regras de autorização, Olá primário e secundário chaves podem ser atualizadas.|
+|/namespaces/WcfRelays/authorizationRules/delete|Operação toodelete WcfRelay as regras de autorização|
+|/namespaces/WcfRelays/authorizationRules/listkeys/action|Obter Olá tooWcfRelay de cadeia de caracteres de Conexão|
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 
 | Operação | Descrição |
 |---|---|
-|/AvailabilityStatuses/read|Obter os status de disponibilidade para todos os recursos no escopo especificado|
-|/AvailabilityStatuses/current/read|Obter o status de disponibilidade do recurso especificado|
+|/AvailabilityStatuses/read|Obtém status de disponibilidade Olá para todos os recursos Olá especificado escopo|
+|/AvailabilityStatuses/current/read|Obtém status de disponibilidade Olá para Olá o recurso especificado|
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
 | Operação | Descrição |
 |---|---|
-|/checkResourceName/action|Verificar a validade do nome do recurso.|
-|/providers/read|Obter a lista de provedores.|
-|/subscriptions/read|Obter a lista de assinaturas.|
-|/subscriptions/operationresults/read|Obter os resultados da operação da assinatura.|
+|/checkResourceName/action|Verifique o nome de recurso de saudação de validade.|
+|/providers/read|Obter lista de saudação de provedores.|
+|/subscriptions/read|Obtém a lista de saudação de assinaturas.|
+|/subscriptions/operationresults/read|Obter assinatura Olá resultados da operação.|
 |/subscriptions/providers/read|Obter ou listar provedores de recursos.|
 |/subscriptions/tagNames/read|Obter ou listar marcações de assinatura.|
 |/subscriptions/tagNames/write|Adicionar uma marcação de assinatura.|
@@ -1529,19 +1529,19 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/subscriptions/resourceGroups/read|Obter ou listar de grupos de recursos.|
 |/subscriptions/resourceGroups/write|Criar ou atualizar um grupo de recursos.|
 |/subscriptions/resourceGroups/delete|Excluir um grupo de recursos e todos os seus recursos.|
-|/subscriptions/resourceGroups/moveResources/action|Mover recursos de um grupo de recursos para outro.|
-|/subscriptions/resourceGroups/validateMoveResources/action|Validar a movimentação de recursos de um grupo de recursos para outro.|
-|/subscriptions/resourcegroups/resources/read|Obter os recursos do grupo de recursos.|
+|/subscriptions/resourceGroups/moveResources/action|Move recursos de um recurso grupo tooanother.|
+|/subscriptions/resourceGroups/validateMoveResources/action|Valide movimentação de recursos de um recurso grupo tooanother.|
+|/subscriptions/resourcegroups/resources/read|Obtém recursos Olá Olá para grupo de recursos.|
 |/subscriptions/resourcegroups/deployments/read|Obter ou lista implantações.|
 |/subscriptions/resourcegroups/deployments/write|Criar ou atualizar uma implantação.|
 |/subscriptions/resourcegroups/deployments/operationstatuses/read|Obter ou listar o status da operação de implantação.|
 |/subscriptions/resourcegroups/deployments/operations/read|Obter ou lista operações de implantação.|
-|/subscriptions/locations/read|Obter a lista de locais com suporte.|
+|/subscriptions/locations/read|Obtém a lista de saudação de locais com suporte.|
 |/links/read|Obter ou listar links de recursos.|
 |/links/write|Criar ou atualizar um link de recurso.|
 |/links/delete|Excluir um link de recurso.|
-|/tenants/read|Obter a lista de locatários.|
-|/resources/read|Obter a lista de recursos com base em filtros.|
+|/tenants/read|Obtém a lista de saudação de locatários.|
+|/resources/read|Obter lista de saudação de recursos com base em filtros.|
 |/deployments/read|Obter ou lista implantações.|
 |/deployments/write|Criar ou atualizar uma implantação.|
 |/deployments/delete|Excluir uma implantação.|
@@ -1569,40 +1569,40 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 
 | Operação | Descrição |
 |---|---|
-|/register/action|Registrar a assinatura do provedor de recursos de pesquisa e permitir a criação de serviços de pesquisa.|
-|/checkNameAvailability/action|Verificar a disponibilidade do nome do serviço.|
-|/searchServices/write|Criar ou atualizar o serviço de pesquisa.|
-|/searchServices/read|Ler o serviço de pesquisa.|
-|/searchServices/delete|Excluir o serviço de pesquisa.|
-|/searchServices/start/action|Iniciar o serviço de pesquisa.|
-|/searchServices/stop/action|Interromper o serviço de pesquisa.|
-|/searchServices/listAdminKeys/action|Ler as chaves de administração.|
-|/searchServices/regenerateAdminKey/action|Regenerar a chave de administração.|
-|/searchServices/createQueryKey/action|Criar a chave de consulta.|
-|/searchServices/queryKey/read|Ler as chaves de consulta.|
-|/searchServices/queryKey/delete|Excluir a chave de consulta.|
+|/register/action|Registra a assinatura Olá para o provedor de recursos de pesquisa hello e permite a criação de saudação de serviços de pesquisa.|
+|/checkNameAvailability/action|Verifica a disponibilidade do nome do serviço hello.|
+|/searchServices/write|Cria ou atualiza o serviço de pesquisa de saudação.|
+|/searchServices/read|Lê o serviço de pesquisa de saudação.|
+|/searchServices/delete|Exclui o serviço de pesquisa de saudação.|
+|/searchServices/start/action|Inicia o serviço de pesquisa de saudação.|
+|/searchServices/stop/action|Interrompe o serviço de pesquisa hello.|
+|/searchServices/listAdminKeys/action|Lê as chaves de administração de saudação.|
+|/searchServices/regenerateAdminKey/action|Regenera a chave de administração de saudação.|
+|/searchServices/createQueryKey/action|Cria a chave de consulta hello.|
+|/searchServices/queryKey/read|Lê as chaves de consulta hello.|
+|/searchServices/queryKey/delete|Exclui a chave de consulta hello.|
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
 | Operação | Descrição |
 |---|---|
-|/jitNetworkAccessPolicies/read|Obter as políticas de acesso de rede just-in-time|
+|/jitNetworkAccessPolicies/read|Obtém as políticas de acesso de rede just-in-time Olá|
 |/jitNetworkAccessPolicies/write|Criar uma nova política de acesso de rede just-in-time ou atualizar uma existente|
 |/jitNetworkAccessPolicies/initiate/action|Iniciar uma política de acesso de rede just-in-time|
-|/securitySolutionsReferenceData/read|Obter dados de referência das soluções de segurança|
-|/securityStatuses/read|Obter status de integridade da segurança para recursos do Azure|
-|/webApplicationFirewalls/read|Obter firewalls do aplicativo Web|
+|/securitySolutionsReferenceData/read|Obtém os dados de referência de soluções de segurança Olá|
+|/securityStatuses/read|Obtém status de integridade de segurança Olá para recursos do Azure|
+|/webApplicationFirewalls/read|Obtém os firewalls de aplicativo web Olá|
 |/webApplicationFirewalls/write|Criar um novo firewall do aplicativo Web ou atualizar um existente|
 |/webApplicationFirewalls/delete|Excluir um firewall do aplicativo Web|
-|/securitySolutions/read|Obter as soluções de segurança|
+|/securitySolutions/read|Obtém as soluções de segurança de saudação|
 |/securitySolutions/write|Criar uma nova solução de segurança ou atualizar uma existente|
 |/securitySolutions/delete|Excluir uma solução de segurança|
 |/tasks/read|Obter todas as recomendações de segurança disponíveis|
 |/tasks/dismiss/action|Ignorar recomendação de segurança|
 |/tasks/activate/action|Ativar recomendação de segurança|
-|/policies/read|Obter a política de segurança|
-|/policies/write|Atualizar a política de segurança|
-|/applicationWhitelistings/read|Obter a lista de liberações do aplicativo|
+|/policies/read|Obtém a política de segurança de saudação|
+|/policies/write|Olá de atualizações de política de segurança|
+|/applicationWhitelistings/read|Obtém a saudação aplicativo whitelistings|
 |/applicationWhitelistings/write|Criar uma nova lista de exceções do aplicativo ou atualizar uma existente|
 
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
@@ -1613,8 +1613,8 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/gateways/write|Criar ou atualizar um gateway|
 |/gateways/delete|Excluir um gateway|
 |/gateways/read|Obter um gateway|
-|/gateways/regenerateprofile/action|Gerar novamente o perfil de gateway|
-|/gateways/upgradetolatest/action|Atualizar o gateway para a versão mais recente|
+|/gateways/regenerateprofile/action|Gera novamente o perfil de gateway Olá|
+|/gateways/upgradetolatest/action|Versão mais recente do toohello atualizações Olá gateway|
 |/nodes/write|criar ou atualizar um nó|
 |/nodes/delete|Excluir um nó|
 |/nodes/read|Obter um nó|
@@ -1627,41 +1627,41 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 | Operação | Descrição |
 |---|---|
 |/checkNameAvailability/action|Verificar a disponibilidade do namespace em determinada assinatura.|
-|/register/action|Registrar a assinatura do provedor de recursos ServiceBus e permitir a criação de recursos ServiceBus|
-|/namespaces/write|Criar um recurso de namespace e atualizar suas propriedades. Marcas e status do namespace são as propriedades que podem ser atualizadas.|
-|/namespaces/read|Obter a lista de descrição do recurso de namespace|
+|/register/action|Registra a assinatura Olá para o provedor de recursos do ServiceBus hello e permite a criação de saudação do barramento de serviço de recursos|
+|/namespaces/write|Criar um recurso de namespace e atualizar suas propriedades. Marcações e status do Namespace de saudação são propriedades de saudação que podem ser atualizadas.|
+|/namespaces/read|Obter lista de saudação da descrição do recurso de Namespace|
 |/namespaces/Delete|Excluir o recurso de namespace|
 |/namespaces/metricDefinitions/read|Obter lista de métrica de descrições de recurso de métrica do namespace|
-|/namespaces/authorizationRules/write|Criar regras de autorização no nível do namespace e atualizar suas propriedades. Os direitos de acesso das regras de autorização; as chaves primárias e secundárias podem ser atualizadas.|
-|/namespaces/authorizationRules/read|Obter a lista de descrição de regras de autorização de namespaces.|
-|/namespaces/authorizationRules/delete|Excluir regra de autorização de namespace. A regra de autorização do namespace padrão não pode ser excluída. |
-|/namespaces/authorizationRules/listkeys/action|Obter a cadeia de conexão para o namespace|
-|/namespaces/authorizationRules/regenerateKeys/action|Regenerar a chave primária ou secundária para o recurso|
+|/namespaces/authorizationRules/write|Criar regras de autorização no nível do namespace e atualizar suas propriedades. Olá direitos de acesso de regras de autorização, Olá primário e secundário chaves podem ser atualizadas.|
+|/namespaces/authorizationRules/read|Obter lista de saudação da descrição de regras de autorização de Namespaces.|
+|/namespaces/authorizationRules/delete|Excluir regra de autorização de namespace. saudação de regra de autorização de Namespace padrão não pode ser excluída. |
+|/namespaces/authorizationRules/listkeys/action|Obter cadeia de caracteres de Conexão de saudação toohello Namespace|
+|/namespaces/authorizationRules/regenerateKeys/action|Regenerar Olá primário ou secundário chave toohello recursos|
 |/namespaces/diagnosticSettings/read|Obter lista de descrições de recurso de configurações de diagnóstico do namespace|
 |/namespaces/diagnosticSettings/write|Obter lista de descrições de recurso de configurações de diagnóstico do namespace|
 |/namespaces/queues/write|Criar ou atualizar propriedades Queue.|
 |/namespaces/queues/read|Obter lista de descrições do recurso Queue|
-|/namespaces/queues/Delete|Operação para excluir o recurso Queue|
-|/namespaces/queues/authorizationRules/write|Criar regras de autorização de fila e atualizar suas propriedades. Os direitos de acesso das regras de autorização; as chaves primárias e secundárias podem ser atualizadas.|
-|/namespaces/queues/authorizationRules/read| Obter a lista de regras de autorização de fila|
-|/namespaces/queues/authorizationRules/delete|Operação para excluir regras de autorização de fila|
-|/namespaces/queues/authorizationRules/listkeys/action|Obter a cadeia de conexão para fila|
-|/namespaces/queues/authorizationRules/regenerateKeys/action|Regenerar a chave primária ou secundária para o recurso|
+|/namespaces/queues/Delete|Toodelete operação recurso de fila|
+|/namespaces/queues/authorizationRules/write|Criar regras de autorização de fila e atualizar suas propriedades. Olá direitos de acesso de regras de autorização, Olá primário e secundário chaves podem ser atualizadas.|
+|/namespaces/queues/authorizationRules/read| Obter lista de saudação de regras de autorização de fila|
+|/namespaces/queues/authorizationRules/delete|Operação toodelete regras de autorização de fila|
+|/namespaces/queues/authorizationRules/listkeys/action|Obter Olá tooQueue de cadeia de caracteres de Conexão|
+|/namespaces/queues/authorizationRules/regenerateKeys/action|Regenerar Olá primário ou secundário chave toohello recursos|
 |/namespaces/logDefinitions/read|Obter lista de descrições do recurso de log do namespace|
 |/namespaces/topics/write|Criar ou atualizar propriedades Topic.|
 |/namespaces/topics/read|Obter lista de descrições de recurso Topic|
-|/namespaces/topics/Delete|Operação para excluir o recurso Topic|
-|/namespaces/topics/authorizationRules/write|Criar regras de autorização do tópico e atualizar suas propriedades. Os direitos de acesso das regras de autorização; as chaves primárias e secundárias podem ser atualizadas.|
-|/namespaces/topics/authorizationRules/read| Obter a lista de regras de autorização do tópico|
-|/namespaces/topics/authorizationRules/delete|Operação para excluir regras de autorização do tópico|
-|/namespaces/topics/authorizationRules/listkeys/action|Obter a cadeia de conexão para tópico|
-|/namespaces/topics/authorizationRules/regenerateKeys/action|Regenerar a chave primária ou secundária para o recurso|
+|/namespaces/topics/Delete|Toodelete operação recurso do tópico|
+|/namespaces/topics/authorizationRules/write|Criar regras de autorização do tópico e atualizar suas propriedades. Olá direitos de acesso de regras de autorização, Olá primário e secundário chaves podem ser atualizadas.|
+|/namespaces/topics/authorizationRules/read| Obter lista de saudação de regras de autorização do tópico|
+|/namespaces/topics/authorizationRules/delete|Operação toodelete regras de autorização do tópico|
+|/namespaces/topics/authorizationRules/listkeys/action|Obter Olá tooTopic de cadeia de caracteres de Conexão|
+|/namespaces/topics/authorizationRules/regenerateKeys/action|Regenerar Olá primário ou secundário chave toohello recursos|
 |/namespaces/topics/subscriptions/write|Criar ou atualizar propriedades TopicSubscription.|
 |/namespaces/topics/subscriptions/read|Obter lista de descrições do recurso TopicSubscription|
-|/namespaces/topics/subscriptions/Delete|Operação para excluir o recurso TopicSubscription|
+|/namespaces/topics/subscriptions/Delete|Toodelete operação recurso TopicSubscription|
 |/namespaces/topics/subscriptions/rules/write|Criar ou atualizar propriedades Rule.|
 |/namespaces/topics/subscriptions/rules/read|Obter lista de descrições do recurso Rule|
-|/namespaces/topics/subscriptions/rules/Delete|Operação para excluir o recurso Rule|
+|/namespaces/topics/subscriptions/rules/Delete|Toodelete operação recurso de regra|
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
@@ -1670,24 +1670,24 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/servers/read|Retornar uma lista de servidores em um grupo de recursos de uma assinatura|
 |/servers/write|Criar um novo servidor ou modificar propriedades de servidor existente em um grupo de recursos de uma assinatura|
 |/servers/delete|Excluir um servidor e todos os bancos de dados e pools elásticos contidos|
-|/servers/import/action|Criar um novo banco de dados no servidor e implantar o esquema e os dados de um pacote DacPac|
-|/servers/upgrade/action|Habilitar novas funcionalidades disponíveis na versão mais recente do servidor e especificar o mapa de conversão da edição do bancos de dados|
+|/servers/import/action|Criar um novo banco de dados no servidor de saudação e implantar o esquema e os dados de um pacote de DacPac|
+|/servers/upgrade/action|Habilitar a nova funcionalidade disponível na versão mais recente de saudação do servidor e especificar o mapa de conversão de edição de bancos de dados|
 |/servers/VulnerabilityAssessmentScans/action|Executar verificação de servidor para avaliação de vulnerabilidade|
-|/servers/operationResults/read|A operação é usada para controlar o andamento da atualização do servidor da versão anterior para uma posterior|
+|/servers/operationResults/read|Operação é usada tootrack progresso de atualização do servidor do toohigher de versão inferior|
 |/servers/operationResults/delete|Anular a atualização de versão do servidor em andamento|
-|/servers/securityAlertPolicies/read|Recuperar detalhes da política de detecção de ameaças do servidor configurada em determinado servidor|
-|/servers/securityAlertPolicies/write|Alterar a detecção de ameaças do servidor para determinado servidor|
-|/servers/securityAlertPolicies/operationResults/read|Recuperar os resultados da operação Definir da política de detecção de ameaças do servidor|
+|/servers/securityAlertPolicies/read|Recuperar detalhes da política de detecção de ameaças Olá servidor configurado em um determinado servidor|
+|/servers/securityAlertPolicies/write|Alterar a detecção de ameaças Olá server para um determinado servidor|
+|/servers/securityAlertPolicies/operationResults/read|Recuperar os resultados do servidor de saudação operação de definição de política de detecção de ameaças|
 |/servers/administrators/read|Recuperar detalhes do administrador do servidor|
 |/servers/administrators/write|Criar ou atualizar o administrador do servidor|
-|/servers/administrators/delete|Excluir do servidor o administrador do servidor|
-|/servers/recoverableDatabases/read|Essa operação é usada para a recuperação de desastres do banco de dados dinâmico a fim de restaurar o banco de dados no último ponto de backup bom conhecido. Ela retorna informações sobre o último backup, mas não restaura o banco de dados efetivamente.|
+|/servers/administrators/delete|Excluir o administrador do servidor do servidor de saudação|
+|/servers/recoverableDatabases/read|Esta operação é usada para recuperação de desastres do banco de dados ao vivo toorestore banco de dados toolast conhecido bom ponto de backup. Retorna informações sobre Olá último backup, mas ele, na verdade, não restaure o banco de dados de saudação.|
 |/servers/serviceObjectives/read|Recuperar a lista de objetivos de nível de serviço (também conhecido como níveis de desempenho) disponíveis em determinado servidor|
 |/servers/firewallRules/read|Recuperar detalhes de regra de firewall do servidor|
-|/servers/firewallRules/write|Criar ou atualizar regra de firewall de servidor que controla o intervalo de endereços IP permitido para se conectar ao servidor|
-|/servers/firewallRules/delete|Excluir regra de firewall do servidor|
+|/servers/firewallRules/write|Criar ou atualizar regra de firewall de servidor que controla o intervalo de endereços IP permitidos tooconnect toohello server|
+|/servers/firewallRules/delete|Excluir regra de firewall do servidor de saudação|
 |/servers/administratorOperationResults/read|Recuperar resultados de operação do administrador do servidor|
-|/servers/recommendedElasticPools/read|Recuperar recomendação para pools de banco de dados elástico a fim de reduzir custos ou melhorar o desempenho com base no histórico de utilização de recursos|
+|/servers/recommendedElasticPools/read|Recuperar uma recomendação para o banco de dados Elástico pools tooreduce custo ou melhorar o desempenho com base na utilização de recursos de historica|
 |/servers/recommendedElasticPools/metrics/read|Recuperar a métrica de pools de banco de dados elástico recomendados para determinado servidor|
 |/servers/recommendedElasticPools/databases/read|Recuperar bancos de dados que devem ser adicionados a pools de banco de dados elásticos recomendados para determinado servidor|
 |/servers/elasticPools/read|Recuperar detalhes do pool de banco de dados elástico em determinado servidor|
@@ -1695,239 +1695,239 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/servers/elasticPools/delete|Excluir pool de banco de dados elástico existente|
 |/servers/elasticPools/operationResults/read|Recuperar detalhes sobre determinada operação de pool de banco de dados elástico|
 |/servers/elasticPools/providers/Microsoft.Insights/<br>metricDefinitions/read|Retornar tipos de métricas que estão disponíveis para pools de bancos de dados elásticos|
-|/servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/read|Obter a configuração de diagnóstico para o recurso|
-|/servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/write|Criar ou atualizar a configuração de diagnóstico para o recurso|
+|/servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/read|Obtém a configuração de diagnóstico de saudação para o recurso de saudação|
+|/servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/write|Cria ou atualiza a configuração de diagnóstico de saudação para o recurso de saudação|
 |/servers/elasticPools/metrics/read|Retornar métrica de utilização de recursos do pool de banco de dados elástico|
 |/servers/elasticPools/elasticPoolDatabaseActivity/read|Recuperar atividades e detalhes em um banco de dados que faz parte do pool de banco de dados elástico|
-|/servers/elasticPools/advisors/read|Retornar a lista de consultores disponíveis para o pool elástico|
+|/servers/elasticPools/advisors/read|Retorna a lista de supervisores disponíveis para o pool Elástico Olá|
 |/servers/elasticPools/advisors/write|Atualizar status de execução automática de um assistente no nível do pool elástico.|
-|/servers/elasticPools/advisors/recommendedActions/read|Retornar a lista de ações recomendadas do assistente especificado para o pool elástico|
-|/servers/elasticPools/advisors/recommendedActions/write|Aplicar a ação recomendada no pool elástico|
+|/servers/elasticPools/advisors/recommendedActions/read|Retorna a lista de ações recomendadas do Supervisor especificado do pool Elástico Olá|
+|/servers/elasticPools/advisors/recommendedActions/write|Aplicar Olá ação no pool Elástico Olá recomendada|
 |/servers/elasticPools/elasticPoolActivity/read|Recuperar atividades e detalhes em um pool de banco de dados elástico|
 |/servers/elasticPools/databases/read|Recuperar a lista e os detalhes de bancos de dados que fazem parte do pool de banco de dados elástico em determinado servidor|
-|/servers/auditingPolicies/read|Recuperar detalhes da política de auditoria de tabela do servidor padrão configurada em determinado servidor|
-|/servers/auditingPolicies/write|Alterar a auditoria da tabela de servidor padrão para determinado servidor|
+|/servers/auditingPolicies/read|Recuperar detalhes da tabela de servidor padrão de saudação configurada em um determinado servidor de política de auditoria|
+|/servers/auditingPolicies/write|Altera a tabela de servidor padrão de saudação auditoria para um determinado servidor|
 |/servers/disasterRecoveryConfiguration/operationResults/read|Obter resultados de operação de configuração da recuperação de desastre|
-|/servers/advisors/read|Retornar a lista de consultores disponíveis para o servidor|
+|/servers/advisors/read|Retorna a lista de supervisores disponíveis para o servidor de saudação|
 |/servers/advisors/write|Atualizar status de execução automática de um assistente no nível do servidor.|
-|/servers/advisors/recommendedActions/read|Retornar a lista de ações recomendadas do assistente especificado para o servidor|
-|/servers/advisors/recommendedActions/write|Aplicar a ação recomendada no servidor|
-|/servers/usages/read|Retornar cota de DTU de servidor e DTU de consumo atual por todos os bancos de dados no servidor|
+|/servers/advisors/recommendedActions/read|Retorna a lista de ações recomendadas do advisor especificado para o servidor de saudação|
+|/servers/advisors/recommendedActions/write|Aplicar Olá ação no servidor de saudação recomendada|
+|/servers/usages/read|Cota de DTU de retorno de servidor e consuption atual de DTU por todos os bancos de dados no servidor de saudação|
 |/servers/elasticPoolEstimates/read|Retornar a lista de estimativas de pool elástico já criado para o servidor|
 |/servers/elasticPoolEstimates/write|Criar nova estimativa de pool elástico para a lista de bancos de dados fornecida|
-|/servers/auditingSettings/read|Recuperar detalhes da política de auditoria de blob do servidor configurada em determinado servidor|
-|/servers/auditingSettings/write|Alterar a auditoria de blob de servidor para determinado servidor|
-|/servers/auditingSettings/operationResults/read|Recuperar o resultado da operação Definir da política de auditoria do blob do servidor|
-|/servers/backupLongTermRetentionVaults/read|Essa operação é usada para obter um cofre de retenção de backup de longo prazo. Retornar informações sobre o cofre registrado para esse servidor.|
+|/servers/auditingSettings/read|Recuperar detalhes do blob de servidor de saudação configurada em um determinado servidor de política de auditoria|
+|/servers/auditingSettings/write|Auditoria de alteração Olá servidor blob para um determinado servidor|
+|/servers/auditingSettings/operationResults/read|Recuperar o resultado de blob do servidor de saudação operação de definição de política de auditoria|
+|/servers/backupLongTermRetentionVaults/read|Esta operação é usada tooget um cofre de retenção de backup de longo prazo. Retorna informações sobre o servidor do hello cofre toothis registrado.|
 |/servers/backupLongTermRetentionVaults/write|Registrar um cofre de retenção de backup de longo prazo|
 |/servers/restorableDroppedDatabases/read|Recuperar uma lista de bancos de dados que foram descartados em determinado servidor ainda na política de retenção. Essa operação retorna uma lista de bancos de dados e metadados associados, como a data de exclusão.|
 |/servers/databases/read|Retornar uma lista de servidores em um grupo de recursos de uma assinatura|
 |/servers/databases/write|Criar um novo servidor ou modificar propriedades de servidor existente em um grupo de recursos de uma assinatura|
 |/servers/databases/delete|Excluir um servidor e todos os bancos de dados e pools elásticos contidos|
-|/servers/databases/export/action|Criar um novo banco de dados no servidor e implantar o esquema e os dados de um pacote DacPac|
+|/servers/databases/export/action|Criar um novo banco de dados no servidor de saudação e implantar o esquema e os dados de um pacote de DacPac|
 |/servers/databases/VulnerabilityAssessmentScans/action|Executar verificação de banco de dados para avaliação de vulnerabilidade.|
 |/servers/databases/pause/action|Pausar um banco de dados de edição do DataWarehouse|
 |/servers/databases/resume/action|Retomar um banco de dados de edição do DataWarehouse|
-|/servers/databases/operationResults/read|A operação é usada para controlar o andamento da operação de banco de dados de longo prazo, como escala.|
+|/servers/databases/operationResults/read|Operação é usada tootrack andamento da operação de banco de dados em tempo de execução, como a escala.|
 |/servers/databases/replicationLinks/read|Retornar detalhes sobre links de replicação estabelecidos para determinado banco de dados|
-|/servers/databases/replicationLinks/delete|Encerrar a relação de replicação de modo forçado e com potencial perda de dados|
-|/servers/databases/replicationLinks/unlink/action|Encerrar a relação de replicação de modo forçado ou após a sincronização com o parceiro|
-|/servers/databases/replicationLinks/failover/action|Failover após a sincronização de todas as alterações do primário, tornando esse banco de dados o principal da relação de replicação e tornando o primário remoto um secundário|
-|/servers/databases/replicationLinks/forceFailoverAllowDataLoss/action|Failover imediatamente com possibilidade de perda de dados, tornando esse banco de dados o principal da relação de replicação e tornando o primário remoto um secundário|
-|/servers/databases/replicationLinks/updateReplicationMode/action|Atualizar o modo de replicação para o vincular ao modo síncrono ou assíncrono|
+|/servers/databases/replicationLinks/delete|Encerrar a relação de replicação de saudação forçada e com potencial perda de dados|
+|/servers/databases/replicationLinks/unlink/action|Encerrar a relação de replicação de saudação forçada ou após a sincronização com o parceiro Olá|
+|/servers/databases/replicationLinks/failover/action|Failover após a sincronização de todas as alterações do hello primária, tornando esse banco de dados no principal de remoto da relação de replicação Olá Olá primários e fazer em um secundário|
+|/servers/databases/replicationLinks/forceFailoverAllowDataLoss/action|Failover imediatamente com potencial perda de dados, tornando esse banco de dados em remoto de saudação primários e fazer da relação de replicação Olá primário para um secundário|
+|/servers/databases/replicationLinks/updateReplicationMode/action|Atualizar o modo de replicação para o link toosynchronous ou assíncrona|
 |/servers/databases/replicationLinks/operationResults/read|Obter status de operações de longa duração em links de replicação de banco de dados|
-|/servers/databases/dataMaskingPolicies/read|Recuperar detalhes da política de mascaramento de dados configurada em determinado servidor|
+|/servers/databases/dataMaskingPolicies/read|Recuperar os detalhes dos dados de saudação configurada em um determinado banco de dados de política de mascaramento|
 |/servers/databases/dataMaskingPolicies/write|Alterar política de mascaramento de dados para determinado banco de dados|
-|/servers/databases/dataMaskingPolicies/rules/read|Recuperar detalhes da regra de política de mascaramento de dados configurada em determinado servidor|
+|/servers/databases/dataMaskingPolicies/rules/read|Recuperar os detalhes dos dados de saudação configurada em um determinado banco de dados de regra de política de mascaramento|
 |/servers/databases/dataMaskingPolicies/rules/write|Alterar regra de política de mascaramento de dados para determinado banco de dados|
-|/servers/databases/securityAlertPolicies/read|Recuperar detalhes da política de detecção de ameaças configurada em determinado servidor|
-|/servers/databases/securityAlertPolicies/write|Alterar política de detecção de ameaças para determinado banco de dados|
+|/servers/databases/securityAlertPolicies/read|Recuperar detalhes da política de detecção de ameaças Olá configurado em um determinado banco de dados|
+|/servers/databases/securityAlertPolicies/write|Alterar a política de detecção de ameaças Olá para um determinado banco de dados|
 |/servers/databases/providers/Microsoft.Insights/<br>metricDefinitions/read|Retornar tipos de métricas que estão disponíveis para bancos de dados|
-|/servers/databases/providers/Microsoft.Insights/<br>diagnosticSettings/read|Obter a configuração de diagnóstico para o recurso|
-|/servers/databases/providers/Microsoft.Insights/<br>diagnosticSettings/write|Criar ou atualizar a configuração de diagnóstico para o recurso|
-|/servers/databases/providers/Microsoft.Insights/<br>logDefinitions/read|Obter os logs disponíveis para bancos de dados|
+|/servers/databases/providers/Microsoft.Insights/<br>diagnosticSettings/read|Obtém a configuração de diagnóstico de saudação para o recurso de saudação|
+|/servers/databases/providers/Microsoft.Insights/<br>diagnosticSettings/write|Cria ou atualiza a configuração de diagnóstico de saudação para o recurso de saudação|
+|/servers/databases/providers/Microsoft.Insights/<br>logDefinitions/read|Obtém os logs disponíveis Olá para bancos de dados|
 |/servers/databases/topQueries/read|Retorna estatísticas de tempo de execução agregadas para a consulta selecionada no período de tempo selecionado|
-|/servers/databases/topQueries/queryText/read|Retornar o texto Transact-SQL para a ID de consulta selecionada|
+|/servers/databases/topQueries/queryText/read|Retorna o texto do Transact-SQL de saudação para ID de consulta selecionada|
 |/servers/databases/topQueries/statistics/read|Retorna estatísticas de tempo de execução agregadas para a consulta selecionada no período de tempo selecionado|
-|/servers/databases/connectionPolicies/read|Recuperar detalhes da política de conexão configurada em determinado servidor|
+|/servers/databases/connectionPolicies/read|Recuperar detalhes da política de conexão de saudação configurado em um determinado banco de dados|
 |/servers/databases/connectionPolicies/write|Alterar política de conexão para determinado banco de dados|
 |/servers/databases/metrics/read|Retornar métrica de utilização de recursos do banco de dados|
-|/servers/databases/auditRecords/read|Recuperar os registros de auditoria do blob do banco de dados|
+|/servers/databases/auditRecords/read|Recuperar Olá os registros de auditoria do banco de dados blob|
 |/servers/databases/transparentDataEncryption/read|Recuperar o status e os detalhes do recurso de segurança Transparent Data Encryption para determinado banco de dados|
 |/servers/databases/transparentDataEncryption/write|Habilitar ou desabilitar o Transparent Data Encryption para determinado banco de dados|
 |/servers/databases/transparentDataEncryption/operationResults/read|Recuperar o status e os detalhes do recurso de segurança Transparent Data Encryption para determinado banco de dados|
-|/servers/databases/auditingPolicies/read|Recuperar detalhes da política de auditoria de tabela configurada em determinado servidor|
-|/servers/databases/auditingPolicies/write|Alterar a política de auditoria de tabela para determinado banco de dados|
-|/servers/databases/dataWarehouseQueries/read|Retornar as informações de consulta de distribuição do data warehouse para a ID de consulta selecionada|
-|/servers/databases/dataWarehouseQueries/<br>dataWarehouseQuerySteps/read|Retornar as informações de etapa de consulta distribuída da consulta de data warehouse para ID da etapa selecionada|
-|/servers/databases/serviceTierAdvisors/read|Retornar sugestão sobre escalar ou reduzir o banco de dados verticalmente com base nas estatísticas de execução de consulta para melhorar o desempenho ou reduzir os custos|
-|/servers/databases/advisors/read|Retornar a lista de consultores disponíveis para o banco de dados|
+|/servers/databases/auditingPolicies/read|Recuperar detalhes da política de auditoria de tabela do hello configurado em um determinado banco de dados|
+|/servers/databases/auditingPolicies/write|Alterar a política de auditoria de tabela Olá para um determinado banco de dados|
+|/servers/databases/dataWarehouseQueries/read|Retorna informações de consulta de distribuição do hello data warehouse para a ID de consulta selecionada|
+|/servers/databases/dataWarehouseQueries/<br>dataWarehouseQuerySteps/read|Olá retorna distribuídas informações de etapas de consulta da consulta de depósito de dados para a ID de etapa selecionada|
+|/servers/databases/serviceTierAdvisors/read|Retornar sugestões sobre como dimensionar o banco de dados para cima ou para baixo com base no desempenho de tooimprove de estatísticas de execução de consulta ou reduzir o custo|
+|/servers/databases/advisors/read|Retorna a lista de supervisores disponíveis para o banco de dados de saudação|
 |/servers/databases/advisors/write|Atualizar status de um assistente no nível do banco de dados.|
-|/servers/databases/advisors/recommendedActions/read|Retornar a lista de ações recomendadas do assistente especificado para o banco de dados|
-|/servers/databases/advisors/recommendedActions/write|Aplicar a ação recomendada no banco de dados|
+|/servers/databases/advisors/recommendedActions/read|Retorna a lista de ações recomendadas do Supervisor especificado do banco de dados de saudação|
+|/servers/databases/advisors/recommendedActions/write|Aplicar Olá ação no banco de dados de saudação recomendada|
 |/servers/databases/usages/read|Retornar o tamanho máximo do banco de dados que pode ser alcançado e o tamanho atual ocupado por dados|
-|/servers/databases/queryStore/read|Retornar os valores atuais das configurações de repositório de consulta do banco de dados|
-|/servers/databases/queryStore/write|Atualizar a configuração do repositório de consultas do banco de dados|
-|/servers/databases/auditingSettings/read|Recuperar detalhes da política de auditoria de blob configurada em determinado servidor|
-|/servers/databases/auditingSettings/write|Alterar a política de auditoria de blob para determinado banco de dados|
+|/servers/databases/queryStore/read|Retorna os valores atuais de configurações do repositório de consultas do banco de dados de saudação|
+|/servers/databases/queryStore/write|Atualiza a configuração do repositório de consultas do banco de dados de saudação|
+|/servers/databases/auditingSettings/read|Recuperar detalhes da política de auditoria de blob do hello configurado em um determinado banco de dados|
+|/servers/databases/auditingSettings/write|Alterar a política de auditoria de blob Olá para um determinado banco de dados|
 |/servers/databases/schemas/tables/recommendedIndexes/read|Recuperar a lista de recomendações de índice em um banco de dados|
 |/servers/databases/schemas/tables/recommendedIndexes/write|Aplicar a recomendação de índice|
 |/servers/databases/schemas/tables/columns/read|Recuperar a lista de colunas de uma tabela|
-|/servers/databases/missingindexes/read|Retornar sugestões sobre os índices do banco de dados que devem ser criados, modificados ou excluídos a fim de melhorar o desempenho de consulta|
+|/servers/databases/missingindexes/read|Retornar sugestões sobre toocreate de índices do banco de dados, modificar ou Excluir ordem tooimprove desempenho de consulta|
 |/servers/databases/missingindexes/write|Usar recomendação de índice de banco de dados em determinado banco de dados|
 |/servers/databases/importExportOperationResults/read|Retornar detalhes sobre a operação de importação ou exportação de banco de dados de DacPac localizado na conta de armazenamento|
-|/servers/importExportOperationResults/read|Retornar a lista com detalhes de operações de importação de banco de dados da conta de armazenamento em determinado servidor|
+|/servers/importExportOperationResults/read|Retornar a lista de saudação com detalhes para operações de importação de banco de dados da conta de armazenamento em um determinado servidor|
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 | Operação | Descrição |
 |---|---|
-|/register/action|Registra a assinatura do provedor de recursos de armazenamento e permite a criação de contas de armazenamento.|
+|/register/action|Registra a assinatura Olá para o provedor de recursos de armazenamento hello e permite a criação de saudação de contas de armazenamento.|
 |/checknameavailability/read|Verificar se o nome dessa conta é válido e não está em uso.|
-|/storageAccounts/write|Criar uma conta de armazenamento com os parâmetros especificados, atualizar as propriedades ou marcas ou adicionar um domínio personalizado à conta de armazenamento especificada.|
+|/storageAccounts/write|Cria uma conta de armazenamento com hello especificado parâmetros ou atualização Olá propriedades ou marcas ou adiciona personalizado domínio Olá especificou a conta de armazenamento.|
 |/storageAccounts/delete|Excluir uma conta de armazenamento existente.|
-|/storageAccounts/listkeys/action|Retornar as chaves de acesso da conta de armazenamento especificada.|
-|/storageAccounts/regeneratekey/action|Regenerar as chaves de acesso da conta de armazenamento especificada.|
-|/storageAccounts/read|Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada.|
-|/storageAccounts/listAccountSas/action|Retornar o token SAS da conta para a conta de armazenamento especificada.|
+|/storageAccounts/listkeys/action|Retorna Olá chaves de acesso para hello especificou a conta de armazenamento.|
+|/storageAccounts/regeneratekey/action|Regenera Olá chaves de acesso para Olá especificado a conta de armazenamento.|
+|/storageAccounts/read|Olá retorna a lista de contas de armazenamento ou obtém Olá propriedades Olá especificadas conta de armazenamento.|
+|/storageAccounts/listAccountSas/action|Token de SAS da conta de saudação retorna para Olá especificado a conta de armazenamento.|
 |/storageAccounts/listServiceSas/action|Token SAS do serviço de armazenamento|
 |/storageAccounts/services/diagnosticSettings/write|Criar/atualizar definições de diagnóstico da conta de armazenamento.|
-|/skus/read|Listar os SKUs com suporte pelo Microsoft.Storage.|
-|/usages/read|Retornar o limite e a contagem atual de uso de recursos na assinatura especificada|
-|/operations/read|Monitorar o status de uma operação assíncrona.|
+|/skus/read|Lista Olá Skus com o suporte da Microsoft.|
+|/usages/read|Retorna Olá limite e contagem de uso atual Olá para recursos Olá especificado assinatura|
+|/operations/read|Pesquisas Olá status de uma operação assíncrona.|
 |/locations/deleteVirtualNetworkOrSubnets/action|Notificar o Microsoft.Storage sobre a exclusão de uma rede virtual ou sub-rede|
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
 | Operação | Descrição |
 |---|---|
-|/managers/clearAlerts/action|Limpar todos os alertas associados ao Gerenciador de Dispositivos.|
-|/managers/getActivationKey/action|Obter a chave de ativação para o gerenciador de dispositivos.|
-|/managers/regenerateActivationKey/action|Regenerar a chave de ativação para o gerenciador de dispositivos.|
-|/managers/regenarateRegistationCertificate/action|Regenerar o certificado de registro para os gerenciadores de dispositivo.|
-|/managers/getEncryptionKey/action|Obter a chave de criptografia para o gerenciador de dispositivos.|
-|/managers/read|Listar ou obter os Gerenciadores de Dispositivo|
-|/managers/delete|Excluir os Gerenciadores de Dispositivo|
-|/managers/write|Criar ou atualizar os Gerenciadores de Dispositivo|
+|/managers/clearAlerts/action|Limpe todos os alertas de saudação associados ao Gerenciador de dispositivo de saudação.|
+|/managers/getActivationKey/action|Obter chave de ativação para o Gerenciador de dispositivos hello.|
+|/managers/regenerateActivationKey/action|Regenerar a chave de ativação para o Gerenciador de dispositivos hello.|
+|/managers/regenarateRegistationCertificate/action|Regenerar o registro de certificado para gerenciadores de saudação do dispositivo.|
+|/managers/getEncryptionKey/action|Obter chave de criptografia para o Gerenciador de dispositivos hello.|
+|/managers/read|Lista ou obtém gerenciadores de saudação do dispositivo|
+|/managers/delete|Exclui os gerenciadores de saudação do dispositivo|
+|/managers/write|Criar ou atualizar gerenciadores de saudação do dispositivo|
 |/managers/configureDevice/action|Configurar um dispositivo|
-|/managers/listActivationKey/action|Obter a chave de ativação do Gerenciador de Dispositivo StorSimple.|
+|/managers/listActivationKey/action|Obtém a chave de ativação de saudação do hello Gerenciador de dispositivos do StorSimple.|
 |/managers/listPublicEncryptionKey/action|Listar chaves de criptografia públicas de um Gerenciador de Dispositivo StorSimple.|
 |/managers/listPrivateEncryptionKey/action|Obter a chave de criptografia particular para um Gerenciador de Dispositivos StorSimple.|
 |/managers/provisionCloudAppliance/action|Criar um novo dispositivo de nuvem.|
 |/Managers/write|A operação Criar cofre cria um recurso do Azure do tipo 'cofre'|
-|/Managers/read|A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre'|
-|/Managers/delete|A operação Excluir cofre exclui o recurso do Azure do tipo 'cofre' especificado|
-|/managers/storageAccountCredentials/write|Criar ou atualizar as credenciais da conta de armazenamento|
-|/managers/storageAccountCredentials/read|Lista ou obtém as credenciais da conta de armazenamento|
-|/managers/storageAccountCredentials/delete|Excluir as credenciais da conta de armazenamento|
+|/Managers/read|Olá operação obter cofre obtém um objeto que representa a saudação recursos do Azure do tipo 'cofre'|
+|/Managers/delete|Olá Olá de exclusões de operação Excluir cofre especificado recursos do Azure do tipo 'cofre'|
+|/managers/storageAccountCredentials/write|Criar ou atualizar as credenciais de conta de armazenamento Olá|
+|/managers/storageAccountCredentials/read|Lista ou obtém Olá credenciais da conta de armazenamento|
+|/managers/storageAccountCredentials/delete|Exclui as credenciais de conta de armazenamento Olá|
 |/managers/storageAccountCredentials/listAccessKey/action|Listar chaves de acesso de credenciais da conta de armazenamento|
-|/managers/accessControlRecords/read|Listar ou obter os registros de controle de acesso|
-|/managers/accessControlRecords/write|Criar ou atualizar registros de controle de acesso|
-|/managers/accessControlRecords/delete|Excluir os registros de controle de acesso|
-|/managers/metrics/read|Listar ou obter a métrica|
-|/managers/bandwidthSettings/read|Listar as configurações de largura de banda (somente 8000 Series)|
+|/managers/accessControlRecords/read|Lista ou obtém Olá registros de controle de acesso|
+|/managers/accessControlRecords/write|Criar ou atualizar registros de controle de acesso de saudação|
+|/managers/accessControlRecords/delete|Exclui registros de controle de acesso de saudação|
+|/managers/metrics/read|Lista ou obtém Olá métricas|
+|/managers/bandwidthSettings/read|Lista as configurações de largura de banda de saudação (8000 Series apenas)|
 |/managers/bandwidthSettings/write|Criar novas configurações de largura de banda ou atualizá-las (somente 8000 Series)|
 |/managers/bandwidthSettings/delete|Excluir uma configuração de largura de banda existente (somente 8000 Series)|
-|/Managers/extendedInformation/read|A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault?|
-|/Managers/extendedInformation/write|A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault?|
-|/Managers/extendedInformation/delete|A operação Obter Informações Estendidas obtém informações estendidas de um objeto que representa o recurso do Azure do tipo ?vault?|
-|/managers/alerts/read|Listar ou obter os alertas|
-|/managers/storageDomains/read|Listar ou obter os domínios de armazenamento|
-|/managers/storageDomains/write|Criar ou atualizar os domínios de armazenamento|
-|/managers/storageDomains/delete|Excluir os domínios de armazenamento|
+|/Managers/extendedInformation/read|Olá operação obter informações estendidas obtém informações estendidas de um objeto que representa a saudação tipo de recurso do Azure? cofre?|
+|/Managers/extendedInformation/write|Olá operação obter informações estendidas obtém informações estendidas de um objeto que representa a saudação tipo de recurso do Azure? cofre?|
+|/Managers/extendedInformation/delete|Olá operação obter informações estendidas obtém informações estendidas de um objeto que representa a saudação tipo de recurso do Azure? cofre?|
+|/managers/alerts/read|Lista ou obtém Olá alertas|
+|/managers/storageDomains/read|Lista ou obtém Olá domínios de armazenamento|
+|/managers/storageDomains/write|Criar ou atualizar domínios de armazenamento Olá|
+|/managers/storageDomains/delete|Exclui Olá domínios de armazenamento|
 |/managers/devices/scanForUpdates/action|Verificar se há atualizações em um dispositivo.|
 |/managers/devices/download/action|Baixar atualizações para um dispositivo.|
 |/managers/devices/install/action|Instalar atualizações em um dispositivo.|
-|/managers/devices/read|Listar ou obter os dispositivos|
-|/managers/devices/write|Criar ou atualizar os dispositivos|
-|/managers/devices/delete|Excluir os dispositivos|
+|/managers/devices/read|Lista ou obtém Olá dispositivos|
+|/managers/devices/write|Criar ou atualizar dispositivos Olá|
+|/managers/devices/delete|Exclui Olá dispositivos|
 |/managers/devices/deactivate/action|Desativar um dispositivo.|
 |/managers/devices/publishSupportPackage/action|Publicar o pacote de suporte de um dispositivo para solução de problemas pelo Suporte da Microsoft.|
-|/managers/devices/failover/action|Failover do dispositivo.|
-|/managers/devices/sendTestAlertEmail/action|Enviar email de alerta de teste para destinatários de email configurados.|
-|/managers/devices/installUpdates/action|Instalar as atualizações nos dispositivos|
-|/managers/devices/listFailoverSets/action|Listar os conjuntos de failover para um dispositivo existente.|
-|/managers/devices/listFailoverTargets/action|Listar ou obter de destinos de failover dos dispositivos|
-|/managers/devices/publicEncryptionKey/action|Listar chave de criptografia pública do Gerenciador de Dispositivos|
-|/managers/devices/hardwareComponentGroups/<br>leitura|Listar os grupos de componentes de hardware|
+|/managers/devices/failover/action|Failover de dispositivo de saudação.|
+|/managers/devices/sendTestAlertEmail/action|Envie email de alerta de teste tooconfigured destinatários de email.|
+|/managers/devices/installUpdates/action|Instala as atualizações nos dispositivos Olá|
+|/managers/devices/listFailoverSets/action|Define a lista Olá failover para um dispositivo existente.|
+|/managers/devices/listFailoverTargets/action|Lista de destinos de failover de dispositivos de saudação|
+|/managers/devices/publicEncryptionKey/action|Chave de criptografia pública de lista do Gerenciador de dispositivos Olá|
+|/managers/devices/hardwareComponentGroups/<br>leitura|Olá lista grupos de componentes de Hardware|
 |/managers/devices/hardwareComponentGroups/<br>changeControllerPowerState/action|Alterar o estado de energia do controlador dos grupos de componentes de hardware|
-|/managers/devices/metrics/read|Listar ou obter a métrica|
-|/managers/devices/chapSettings/write|Criar ou atualizar as configurações de Chap|
-|/managers/devices/chapSettings/read|Listar ou obter as configurações de Chap|
-|/managers/devices/chapSettings/delete|Excluir as configurações de Chap|
-|/managers/devices/backupScheduleGroups/read|Listar ou obter os grupos de agendamento de backup|
-|/managers/devices/backupScheduleGroups/write|Criar ou atualizar os grupos de agendamento de backup|
-|/managers/devices/backupScheduleGroups/delete|Excluir os grupos de agendamento de backup|
-|/managers/devices/updateSummary/read|Listar ou obter o resumo de atualização|
+|/managers/devices/metrics/read|Lista ou obtém Olá métricas|
+|/managers/devices/chapSettings/write|Criar ou atualizar as configurações de Chap Olá|
+|/managers/devices/chapSettings/read|Lista ou obtém as configurações de Chap Olá|
+|/managers/devices/chapSettings/delete|Exclui as configurações de Chap Olá|
+|/managers/devices/backupScheduleGroups/read|Lista ou obtém Olá grupos de agendamento de Backup|
+|/managers/devices/backupScheduleGroups/write|Criar ou atualizar grupos de agendamento de Backup Olá|
+|/managers/devices/backupScheduleGroups/delete|Exclui Olá grupos de agendamento de Backup|
+|/managers/devices/updateSummary/read|Lista ou obtém Olá Resumo da atualização|
 |/managers/devices/migrationSourceConfigurations/<br>import/action|Importar configurações de origem para migração|
-|/managers/devices/migrationSourceConfigurations/<br>startMigrationEstimate/action|Iniciar um trabalho para estimar a duração do processo de migração.|
+|/managers/devices/migrationSourceConfigurations/<br>startMigrationEstimate/action|Inicie um trabalho tooestimate Olá durante saudação processo de migração.|
 |/managers/devices/migrationSourceConfigurations/<br>startMigration/action|Iniciar migração usando as configurações de origem|
 |/managers/devices/migrationSourceConfigurations/<br>confirmMigration/action|Confirmar uma migração bem-sucedida.|
-|/managers/devices/migrationSourceConfigurations/<br>fetchMigrationEstimate/action|Buscar o status do trabalho de estimativa de migração.|
-|/managers/devices/migrationSourceConfigurations/<br>fetchMigrationStatus/action|Buscar o status para a migração.|
-|/managers/devices/migrationSourceConfigurations/<br>fetchConfirmMigrationStatus/action|Buscar o status de confirmação da migração.|
-|/managers/devices/alertSettings/read|Listar ou obter as configurações de alerta|
-|/managers/devices/alertSettings/write|Criar ou atualizar as configurações de alerta|
-|/managers/devices/networkSettings/read|Listar ou obter as configurações de rede|
+|/managers/devices/migrationSourceConfigurations/<br>fetchMigrationEstimate/action|Busca o status de saudação para o trabalho de estimativa de migração de saudação.|
+|/managers/devices/migrationSourceConfigurations/<br>fetchMigrationStatus/action|Busca o status de saudação para migração de saudação.|
+|/managers/devices/migrationSourceConfigurations/<br>fetchConfirmMigrationStatus/action|Saudação de busca confirmar o status de migração.|
+|/managers/devices/alertSettings/read|Lista ou obtém as configurações de alerta de saudação|
+|/managers/devices/alertSettings/write|Criar ou atualizar as configurações de alerta de saudação|
+|/managers/devices/networkSettings/read|Lista ou obtém as configurações de rede Olá|
 |/managers/devices/networkSettings/write|Criar novas ou atualizar as configurações de rede|
-|/managers/devices/jobs/read|Listar ou obter os trabalhos|
+|/managers/devices/jobs/read|Lista ou obtém trabalhos Olá|
 |/managers/devices/jobs/cancel/action|Cancelar um trabalho em execução|
-|/managers/devices/metricsDefinitions/read|Listar ou obter as definições de métrica|
+|/managers/devices/metricsDefinitions/read|Lista ou obtém as definições de métricas de saudação|
 |/managers/devices/volumeContainers/write|Criar novos ou atualizar os contêineres de volume (somente 8000 Series)|
-|/managers/devices/volumeContainers/read|Listar os contêineres de volume (somente 8000 Series)|
+|/managers/devices/volumeContainers/read|Lista de contêineres de Volume hello (8000 Series apenas)|
 |/managers/devices/volumeContainers/delete|Excluir contêineres de Volume existentes (somente 8000 Series)|
 |/managers/devices/volumeContainers/listEncryptionKeys/action|Listar chaves de criptografia da lista de contêineres de volume|
 |/managers/devices/volumeContainers/rolloverEncryptionKey/action|Chaves de criptografia de substituição de contêineres de volume|
-|/managers/devices/volumeContainers/metrics/read|Listar a métrica|
-|/managers/devices/volumeContainers/volumes/read|Listar os volumes|
+|/managers/devices/volumeContainers/metrics/read|Lista as métricas de saudação|
+|/managers/devices/volumeContainers/volumes/read|Olá lista Volumes|
 |/managers/devices/volumeContainers/volumes/write|Criar ou atualizar volumes|
 |/managers/devices/volumeContainers/volumes/delete|Excluir um volume existente|
-|/managers/devices/volumeContainers/volumes/metrics/read|Listar a métrica|
-|/managers/devices/volumeContainers/volumes/metricsDefinitions/read|Lista as definições de métrica|
-|/managers/devices/volumeContainers/metricsDefinitions/read|Lista as definições de métrica|
-|/managers/devices/iscsiservers/read|Listar ou obter os servidores iSCSI|
-|/managers/devices/iscsiservers/write|Criar ou atualizar servidores iSCSI|
-|/managers/devices/iscsiservers/delete|Excluir servidores iSCSI|
+|/managers/devices/volumeContainers/volumes/metrics/read|Lista as métricas de saudação|
+|/managers/devices/volumeContainers/volumes/metricsDefinitions/read|Olá lista definições de métricas|
+|/managers/devices/volumeContainers/metricsDefinitions/read|Olá lista definições de métricas|
+|/managers/devices/iscsiservers/read|Lista ou obtém Olá iSCSI servidores|
+|/managers/devices/iscsiservers/write|Criar ou atualizar Olá iSCSI servidores|
+|/managers/devices/iscsiservers/delete|Exclui Olá iSCSI servidores|
 |/managers/devices/iscsiservers/backup/action|Fazer backup de um servidor iSCSI.|
-|/managers/devices/iscsiservers/metrics/read|Listar ou obter a métrica|
-|/managers/devices/iscsiservers/disks/read|Listar ou obter os discos|
-|/managers/devices/iscsiservers/disks/write|Criar ou atualizar os discos|
-|/managers/devices/iscsiservers/disks/delete|Excluir os discos|
-|/managers/devices/iscsiservers/disks/metrics/read|Listar ou obter a métrica|
-|/managers/devices/iscsiservers/disks/metricsDefinitions/read|Listar ou obter as definições de métrica|
-|/managers/devices/iscsiservers/metricsDefinitions/read|Listar ou obter as definições de métrica|
-|/managers/devices/backups/read|Listar ou obter o conjunto de backup|
-|/managers/devices/backups/delete|Excluir o conjunto de backup|
-|/managers/devices/backups/restore/action|Restaurar todos os volumes de um conjunto de backup.|
+|/managers/devices/iscsiservers/metrics/read|Lista ou obtém Olá métricas|
+|/managers/devices/iscsiservers/disks/read|Lista ou obtém Olá discos|
+|/managers/devices/iscsiservers/disks/write|Criar ou atualizar Olá discos|
+|/managers/devices/iscsiservers/disks/delete|Exclui Olá discos|
+|/managers/devices/iscsiservers/disks/metrics/read|Lista ou obtém Olá métricas|
+|/managers/devices/iscsiservers/disks/metricsDefinitions/read|Lista ou obtém as definições de métricas de saudação|
+|/managers/devices/iscsiservers/metricsDefinitions/read|Lista ou obtém as definições de métricas de saudação|
+|/managers/devices/backups/read|Lista ou obtém saudação do conjunto de Backup|
+|/managers/devices/backups/delete|Exclusões Olá do conjunto de Backup|
+|/managers/devices/backups/restore/action|Restaure todos os volumes de saudação de um conjunto de backup.|
 |/managers/devices/backups/elements/clone/action|Clonar um compartilhamento ou volume usando um elemento de backup.|
 |/managers/devices/backupPolicies/write|Criar novas ou atualizar as políticas de Backup (somente 8000 Series)|
-|/managers/devices/backupPolicies/read|Listar as políticas de backup (somente 8000 Series)|
+|/managers/devices/backupPolicies/read|Olá lista as políticas de Backup (8000 Series apenas)|
 |/managers/devices/backupPolicies/delete|Excluir políticas de backup existentes (somente 8000 Series)|
-|/managers/devices/backupPolicies/backup/action|Fazer um backup manual para criar um backup sob demanda de todos os volumes protegidos pela política.|
+|/managers/devices/backupPolicies/backup/action|Um toocreate backup manual uma demanda fazer backup de todos os volumes de saudação protegidos pela política de saudação.|
 |/managers/devices/backupPolicies/schedules/write|Criar ou atualizar agendas|
-|/managers/devices/backupPolicies/schedules/read|Listar as agendas|
+|/managers/devices/backupPolicies/schedules/read|Lista Olá agendas|
 |/managers/devices/backupPolicies/schedules/delete|Excluir agendas existentes|
-|/managers/devices/securitySettings/update/action|Atualizar as configurações de segurança.|
-|/managers/devices/securitySettings/read|Listar as configurações de segurança|
-|/managers/devices/securitySettings/<br>syncRemoteManagementCertificate/action|Sincronizar o certificado de gerenciamento remoto de um dispositivo.|
+|/managers/devices/securitySettings/update/action|Atualize as configurações de segurança de saudação.|
+|/managers/devices/securitySettings/read|Olá lista as configurações de segurança|
+|/managers/devices/securitySettings/<br>syncRemoteManagementCertificate/action|Sincronize o certificado de gerenciamento remoto de saudação para um dispositivo.|
 |/managers/devices/securitySettings/write|Criar ou atualizar as configurações de segurança|
-|/managers/devices/fileservers/read|Listar ou obter os servidores de arquivos|
-|/managers/devices/fileservers/write|Criar ou atualizar os servidores de arquivos|
-|/managers/devices/fileservers/delete|Excluir servidores de arquivos|
+|/managers/devices/fileservers/read|Lista ou obtém servidores de arquivo hello|
+|/managers/devices/fileservers/write|Criar ou atualizar os servidores de arquivos Olá|
+|/managers/devices/fileservers/delete|Exclui Olá servidores de arquivos|
 |/managers/devices/fileservers/backup/action|Fazer backup de um servidor de arquivos.|
-|/managers/devices/fileservers/metrics/read|Listar ou obter a métrica|
-|/managers/devices/fileservers/shares/write|Criar ou atualizar os compartilhamentos|
-|/managers/devices/fileservers/shares/read|Listar ou obter os compartilhamentos|
-|/managers/devices/fileservers/shares/delete|Excluir os compartilhamentos|
-|/managers/devices/fileservers/shares/metrics/read|Listar ou obter a métrica|
-|/managers/devices/fileservers/shares/metricsDefinitions/read|Listar ou obter as definições de métrica|
-|/managers/devices/fileservers/metricsDefinitions/read|Listar ou obter as definições de métrica|
-|/managers/devices/timeSettings/read|Listar ou obter as configurações de tempo|
+|/managers/devices/fileservers/metrics/read|Lista ou obtém Olá métricas|
+|/managers/devices/fileservers/shares/write|Criar ou atualizar compartilhamentos Olá|
+|/managers/devices/fileservers/shares/read|Lista ou obtém Olá compartilhamentos|
+|/managers/devices/fileservers/shares/delete|Exclui Olá compartilhamentos|
+|/managers/devices/fileservers/shares/metrics/read|Lista ou obtém Olá métricas|
+|/managers/devices/fileservers/shares/metricsDefinitions/read|Lista ou obtém as definições de métricas de saudação|
+|/managers/devices/fileservers/metricsDefinitions/read|Lista ou obtém as definições de métricas de saudação|
+|/managers/devices/timeSettings/read|Lista ou obtém as configurações de tempo de saudação|
 |/managers/devices/timeSettings/write|Criar ou atualizar as configurações de tempo|
-|/Managers/certificates/write|A operação Atualizar certificado do recurso atualiza o certificado de credencial de cofre/recurso.|
-|/managers/cloudApplianceConfigurations/read|Listar configurações com suporte pelo dispositivo de nuvem|
-|/managers/metricsDefinitions/read|Listar ou obter as definições de métrica|
-|/managers/encryptionSettings/read|Listar ou obter as configurações de criptografia|
+|/Managers/certificates/write|Olá a operação de certificado do recurso de atualização atualiza o certificado de credencial de cofre/recurso hello.|
+|/managers/cloudApplianceConfigurations/read|Olá lista configurações de suporte de dispositivos de nuvem|
+|/managers/metricsDefinitions/read|Lista ou obtém as definições de métricas de saudação|
+|/managers/encryptionSettings/read|Lista ou obtém as configurações de criptografia de saudação|
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
@@ -1938,10 +1938,10 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/streamingjobs/Read|Ler trabalho do Stream Analytics|
 |/streamingjobs/Write|Gravar trabalho de Stream Analytics|
 |/streamingjobs/Delete|Excluir trabalho de Stream Analytics|
-|/streamingjobs/providers/Microsoft.Insights/metricDefinitions/read|Obter a métrica disponível para streamingjobs|
+|/streamingjobs/providers/Microsoft.Insights/metricDefinitions/read|Obtém métricas disponíveis Olá para streamingjobs|
 |/streamingjobs/providers/Microsoft.Insights/diagnosticSettings/read|Ler configuração de diagnóstico.|
 |/streamingjobs/providers/Microsoft.Insights/diagnosticSettings/write|Gravar configuração de diagnóstico.|
-|/streamingjobs/providers/Microsoft.Insights/logDefinitions/read|Obter os logs disponíveis para streamingjobs|
+|/streamingjobs/providers/Microsoft.Insights/logDefinitions/read|Obtém os logs disponíveis Olá para streamingjobs|
 |/streamingjobs/transformations/Read|Ler transformação do trabalho do Stream Analytics|
 |/streamingjobs/transformations/Write|Gravar transformação do trabalho do Stream Analytics|
 |/streamingjobs/transformations/Delete|Excluir transformação do trabalho do Stream Analytics|
@@ -1956,25 +1956,25 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 
 | Operação | Descrição |
 |---|---|
-|/register/action|Registrar para dar suporte ao provedor de recursos|
-|/supportTickets/read|Obter detalhes de tíquete de suporte (incluindo status, severidade, detalhes de contato e comunicações) ou obtém a lista de tíquetes de suporte entre assinaturas.|
+|/register/action|Registra o provedor de recursos de tooSupport|
+|/supportTickets/read|Obtém detalhes de tíquete de suporte (incluindo status, gravidade, detalhes de contato e comunicações) ou obtém a lista de saudação de tíquetes de suporte entre assinaturas.|
 |/supportTickets/write|Criar ou atualizar um tíquete de suporte. Você pode criar um tíquete de suporte para problemas técnicos, de cotas, de cobrança ou de gerenciamento de assinaturas. Você pode atualizar severidade, detalhes de contato e comunicações de tíquetes de suporte existentes.|
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
 | Operação | Descrição |
 |---|---|
-|/unregister/action|Cancelar o registro do provedor de recursos Microsoft.Web para a assinatura.|
+|/unregister/action|Cancelar o registro do provedor de recursos do Microsoft para assinatura de saudação.|
 |/validate/action|Validar.|
-|/register/action|Registrar o provedor de recursos Microsoft.Web para a assinatura.|
-|/hostingEnvironments/Read|Obter as propriedades de um Ambiente do Serviço de Aplicativo|
+|/register/action|Registre o provedor de recursos do Microsoft para assinatura de saudação.|
+|/hostingEnvironments/Read|Obter propriedades de saudação de um ambiente de serviço de aplicativo|
 |/hostingEnvironments/Write|Criar um novo Ambiente do Serviço de Aplicativo ou atualizar um existente|
 |/hostingEnvironments/Delete|Excluir ambiente do Serviço de Aplicativo|
 |/hostingEnvironments/reboot/Action|Reinicializar todas as máquinas em um Ambiente do Serviço de Aplicativo|
 |/hostingenvironments/resume/action|Retomar ambientes de hospedagem.|
 |/hostingenvironments/suspend/action|Suspender ambientes de hospedagem.|
 |/hostingenvironments/metricdefinitions/read|Obter definições de métrica de ambientes de hospedagem.|
-|/hostingEnvironments/workerPools/Read|Obter as propriedades de um pool de trabalho em um Ambiente do Serviço de Aplicativo|
+|/hostingEnvironments/workerPools/Read|Obter propriedades de saudação de um Pool de trabalho em um ambiente de serviço de aplicativo|
 |/hostingEnvironments/workerPools/Write|Criar um novo pool de trabalho em um Ambiente do Serviço de Aplicativo ou atualizar um existente|
 |/hostingenvironments/workerpools/metricdefinitions/read|Obter definições de métrica de pools de trabalho dos ambientes de hospedagem.|
 |/hostingenvironments/workerpools/metrics/read|Obter a métrica de pools de trabalho de Ambientes de Hospedagem.|
@@ -1985,7 +1985,7 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/hostingenvironments/usages/read|Obter usos dos ambientes de hospedagem.|
 |/hostingenvironments/capacities/read|Obter as capacidades dos ambientes de hospedagem.|
 |/hostingenvironments/operations/read|Obter operações dos ambientes de hospedagem.|
-|/hostingEnvironments/multiRolePools/Read|Obter as propriedades de um pool de front-end em um Ambiente do Serviço de Aplicativo|
+|/hostingEnvironments/multiRolePools/Read|Obter propriedades de saudação de um Pool de front-end em um ambiente de serviço de aplicativo|
 |/hostingEnvironments/multiRolePools/Write|Criar um novo pool de front-end em um Ambiente do Serviço de Aplicativo ou atualizar um existente|
 |/hostingenvironments/multirolepools/metricdefinitions/read|Obter definições de métrica de pools multifunção dos ambientes de hospedagem.|
 |/hostingenvironments/multirolepools/metrics/read|Obter a métrica de pools multifunção em Ambientes de Hospedagem.|
@@ -1995,8 +1995,8 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/publishingusers/read|Obter usuários de publicação.|
 |/publishingusers/write|Atualizar usuários de publicação.|
 |/checknameavailability/read|Verificar se o nome do recurso está disponível.|
-|/geoRegions/Read|Obter a lista de regiões geográficas.|
-|/sites/Read|Obter as propriedades de um aplicativo Web|
+|/geoRegions/Read|Obter lista de saudação das regiões geográfica.|
+|/sites/Read|Obter propriedades de saudação de um aplicativo Web|
 |/sites/Write|Criar um novo aplicativo Web ou atualizar um existente|
 |/sites/Delete|Excluir um aplicativo Web existente|
 |/sites/backup/Action|Criar um novo backup do aplicativo Web|
@@ -2007,7 +2007,7 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/sites/stop/Action|Interromper um aplicativo Web|
 |/sites/slotsswap/Action|Trocar slots de implantação de aplicativo Web|
 |/sites/slotsdiffs/Action|Obter as diferenças de configuração entre aplicativo web e slots|
-|/sites/applySlotConfig/Action|Aplicar a configuração de slot de aplicativo Web do slot de destino ao aplicativo Web atual|
+|/sites/applySlotConfig/Action|Aplicar a configuração do slot de aplicativo web do aplicativo de web atual do destino slot toohello|
 |/sites/resetSlotConfig/Action|Redefinir a configuração de aplicativo Web|
 |/sites/functions/action|Aplicativos Web do Functions.|
 |/sites/listsyncfunctiontriggerstatus/action|Listar Aplicativos Web de status do gatilho da função de sincronização.|
@@ -2054,9 +2054,9 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/sites/slots/stop/Action|Interromper um slot de aplicativo Web|
 |/sites/slots/slotsswap/Action|Trocar slots de implantação de aplicativo Web|
 |/sites/slots/slotsdiffs/Action|Obter as diferenças de configuração entre aplicativo web e slots|
-|/sites/slots/applySlotConfig/Action|Aplicar a configuração de slot de aplicativo Web do slot de destino ao slot atual.|
+|/sites/slots/applySlotConfig/Action|Aplica a configuração do slot de aplicativo web do slot atual de toohello de slot de destino.|
 |/sites/slots/resetSlotConfig/Action|Redefinir a configuração de slot do aplicativo Web|
-|/sites/slots/Read|Obter as propriedades de um slot de implantação de aplicativo Web|
+|/sites/slots/Read|Obter propriedades de saudação de um slot de implantação de aplicativo Web|
 |/sites/slots/newpassword/action|Slots de aplicativos Web Newpassword.|
 |/sites/slots/sync/action|Sincronizar slots de aplicativos Web.|
 |/sites/slots/operationresults/read|Obter resultados de operação de slots de aplicativos Web.|
@@ -2098,7 +2098,7 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/sites/slots/sourcecontrols/Delete|Excluir definições de configuração de controle de origem do slot do aplicativo Web|
 |/sites/slots/restore/read|Obter a restauração dos slots de aplicativos Web.|
 |/sites/slots/analyzecustomhostname/read|Obter slots de aplicativos Web Analisar nome de host personalizado.|
-|/sites/slots/backups/Read|Obter as propriedades do backup dos slots de um aplicativo Web|
+|/sites/slots/backups/Read|Obter propriedades de saudação do backup dos slots um aplicativo web|
 |/sites/slots/backups/list/action|Listar backups de slots de aplicativos de Web.|
 |/sites/slots/backups/restore/action|Restaurar backups de slots de aplicativos Web.|
 |/sites/slots/deployments/delete|Excluir as implantações de slots de aplicativos Web.|
@@ -2109,7 +2109,7 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/sites/hybridconnection/read|Obter a conexão híbrida de aplicativos Web.|
 |/sites/hybridconnection/write|Atualizar a conexão híbrida de aplicativos Web.|
 |/sites/recommendationhistory/read|Obter o histórico de recomendação de aplicativos Web.|
-|/sites/recommendations/Read|Obter a lista de recomendações para o aplicativo Web.|
+|/sites/recommendations/Read|Obter lista de saudação de recomendações para o aplicativo web.|
 |/sites/recommendations/disable/action|Desabilitar as recomendações de aplicativos Web.|
 |/sites/config/Read|Obter definições de configuração do aplicativo Web|
 |/sites/config/list/Action|Listar as configurações confidenciais de segurança do aplicativo Web, como credenciais de publicação, configurações do aplicativo e cadeias de conexão|
@@ -2124,7 +2124,7 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/sites/sourcecontrols/Delete|Excluir definições de configuração de controle de origem do aplicativo Web|
 |/sites/restore/read|Obter a restauração de aplicativos Web.|
 |/sites/analyzecustomhostname/read|Analisar nome de host personalizado.|
-|/sites/backups/Read|Obter as propriedades do backup de um aplicativo Web|
+|/sites/backups/Read|Obter propriedades de saudação do backup de um aplicativo web|
 |/sites/backups/list/action|Listar backups de aplicativos de Web.|
 |/sites/backups/restore/action|Restaurar backups de aplicativos Web.|
 |/sites/snapshots/read|Obter instantâneos de aplicativos Web.|
@@ -2145,10 +2145,10 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/sites/diagnostics/frebanalysis/read|Obter a análise FREB do diagnóstico de aplicativos Web.|
 |/availablestacks/read|Obter pilhas disponíveis.|
 |/isusernameavailable/read|Verificar se o nome de usuário está disponível.|
-|/Microsoft.Web/apiManagementAccounts/<br>apis/Read|Obter a lista de APIs.|
+|/Microsoft.Web/apiManagementAccounts/<br>apis/Read|Obter lista de saudação de Apis.|
 |/Microsoft.Web/apiManagementAccounts/<br>apis/Write|Adicionar uma nova API ou atualizar uma existente.|
 |/Microsoft.Web/apiManagementAccounts/<br>apis/Delete|Excluir uma API existente.|
-|/Microsoft.Web/apiManagementAccounts/<br>apis/connections/Read|Obter a lista de conexões.|
+|/Microsoft.Web/apiManagementAccounts/<br>apis/connections/Read|Obter lista de saudação de conexões.|
 |/Microsoft.Web/apiManagementAccounts/<br>apis/connections/Write|Salvar uma nova conexão ou atualizar uma existente.|
 |/Microsoft.Web/apiManagementAccounts/<br>apis/connections/Delete|Remover uma conexão existente.|
 |/Microsoft.Web/apiManagementAccounts/<br>apis/connections/connectionAcls/Read|Ler ConnectionAcls|
@@ -2158,7 +2158,7 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/Microsoft.Web/apiManagementAccounts/<br>apis/apiAcls/Read|Ler ConnectionAcls|
 |/Microsoft.Web/apiManagementAccounts/<br>apis/apiAcls/Write|Criar ou atualizar as ACLS de API|
 |/Microsoft.Web/apiManagementAccounts/<br>apis/apiAcls/Delete|Excluir ACLS de API|
-|/serverfarms/Read|Obter as propriedades em um Plano do Serviço de Aplicativo|
+|/serverfarms/Read|Obter propriedades de saudação em um plano de serviço de aplicativo|
 |/serverfarms/Write|Criar um novo Plano do Serviço de Aplicativo ou atualizar um plano existente|
 |/serverfarms/Delete|Excluir um Plano do Serviço de Aplicativo existente|
 |/serverfarms/restartSites/Action|Reiniciar todos os aplicativos Web em um Plano do Serviço de Aplicativo|
@@ -2182,24 +2182,24 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/serverfarms/usages/read|Obter usos dos Planos do Serviço de Aplicativo.|
 |/serverfarms/hybridconnectionnamespaces/relays/sites/read|Obter aplicativos Web das retransmissões dos namespaces da conexão híbrida dos Planos do Serviço de Aplicativo.|
 |/ishostnameavailable/read|Verificar se o nome do host está disponível.|
-|/connectionGateways/Read|Obter a lista de gateways de conexão.|
+|/connectionGateways/Read|Obter lista de saudação de Gateways de Conexão.|
 |/connectionGateways/Write|Criar ou atualizar um Gateway de Conexão.|
 |/connectionGateways/Delete|Excluir um Gateway de Conexão.|
 |/connectionGateways/Join/Action|Adicionar um Gateway de Conexão.|
 |/classicmobileservices/read|Obter Serviços Móveis clássicos.|
 |/skus/read|Obter SKUs.|
-|/certificates/Read|Obter a lista de certificados.|
+|/certificates/Read|Obter lista de saudação de certificados.|
 |/certificates/Write|Adicionar um novo certificado ou atualizar um existente.|
 |/certificates/Delete|Excluir um certificado existente.|
 |/operations/read|Obter Operações.|
-|/recommendations/Read|Obter a lista de recomendações para assinaturas.|
+|/recommendations/Read|Obter lista de saudação de recomendações para assinaturas.|
 |/ishostingenvironmentnameavailable/read|Obter confirmação se o nome do ambiente de hospedagem está disponível.|
-|/apiManagementAccounts/Read|Obter a lista de ApiManagementAccounts.|
+|/apiManagementAccounts/Read|Obter lista de saudação do ApiManagementAccounts.|
 |/apiManagementAccounts/Write|Adicionar uma nova ApiManagementAccount ou atualizar uma existente|
 |/apiManagementAccounts/Delete|Excluir uma APIManagementAccount existente|
-|/apiManagementAccounts/connectionAcls/Read|Obter a lista de ACLS de Conexão.|
+|/apiManagementAccounts/connectionAcls/Read|Obter lista de saudação de Acls de Conexão.|
 |/apiManagementAccounts/apiAcls/Read|Ler ConnectionAcls|
-|/connections/Read|Obter a lista de conexões.|
+|/connections/Read|Obter lista de saudação de conexões.|
 |/connections/Write|Criar ou atualizar uma conexão.|
 |/connections/Delete|Excluir uma conexão.|
 |/connections/Join/Action|Ingressar em uma conexão.|
@@ -2214,12 +2214,12 @@ Esse provedor não é um provedor ARM completo e não fornece nenhuma operação
 |/locations/managedapis/read|Obter as APIs gerenciadas dos locais.|
 |/locations/apioperations/read|Obter operações API dos locais.|
 |/locations/connectiongatewayinstallations/read|Obter as instalações de gateway de conexão locais.|
-|/listSitesAssignedToHostName/Read|Obter nomes dos sites atribuídos ao nome de host.|
+|/listSitesAssignedToHostName/Read|Obter os nomes de sites atribuídos toohostname.|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [criar uma função personalizada](role-based-access-control-custom-roles.md).
+- Saiba como muito[criar uma função personalizada](role-based-access-control-custom-roles.md).
 
-- Examine as [funções RBAC incorporadas](role-based-access-built-in-roles.md).
+- Saudação de revisão [criados em funções RBAC](role-based-access-built-in-roles.md).
 
-- Saiba como gerenciar atribuições de acesso [por usuário](role-based-access-control-manage-assignments.md) ou [por recurso](role-based-access-control-configure.md) 
+- Saiba como toomanage acessar atribuições [por usuário](role-based-access-control-manage-assignments.md) ou [por recurso](role-based-access-control-configure.md) 

@@ -1,6 +1,6 @@
 ---
-title: "Visualizando o uso da unidade de um trabalho de exportação do serviço de Importação/Exportação do Azure — v1 | Microsoft Docs"
-description: "Saiba como visualizar a lista de blobs selecionada para um trabalho de exportação no serviço de Importação/Exportação do Azure."
+title: "uso da unidade aaaPreviewing para um trabalho de exportação de importação/exportação do Azure - v1 | Microsoft Docs"
+description: "Saiba como lista de saudação toopreview de blobs que você tiver selecionado para um trabalho de exportação no serviço de importação/exportação do Azure hello."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,39 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: 7bf74247090f91e17f81a9bc98ebfa78334c8c10
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 88495f921371458c0451da6878fd7cc9a45d20cd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Visualizando o uso da unidade de um trabalho de exportação
-Antes de criar um trabalho de exportação, você precisa escolher um conjunto de blobs a ser exportado. O serviço de Importação/Exportação do Microsoft Azure permite que você use uma lista de caminhos ou prefixos de blob para representar os blobs selecionados.  
+Antes de criar um trabalho de exportação, você precisa toochoose um conjunto de blobs toobe exportado. Olá serviço de importação/exportação do Microsoft Azure permite que você toouse uma lista de caminhos de blob ou prefixos de blob blobs de saudação toorepresent que você selecionou.  
   
-Em seguida, é necessário determinar quantas unidades você precisa enviar. A Ferramenta de Importação/Exportação fornece o comando `PreviewExport` para visualização do uso da unidade dos blobs selecionados, com base no tamanho das unidades que você pretende usar.
+Em seguida, você precisa toodetermine quantas unidades você precisa toosend. Olá, ferramenta de importação/exportação fornece Olá `PreviewExport` uso de unidade do comando toopreview para blobs de saudação que você selecionou, com base no tamanho Olá Olá unidades que serão toouse.
 
 ## <a name="command-line-parameters"></a>Parâmetros de linha de comando
 
-Você pode usar os parâmetros a seguir com o comando `PreviewExport` da Ferramenta de Importação/Exportação.
+Você pode usar o hello parâmetros a seguir ao usar o hello `PreviewExport` comando da ferramenta de importação/exportação de saudação.
 
 |Parâmetro de linha de comando|Descrição|  
 |--------------------------|-----------------|  
-|**/logdir:**<LogDirectory\>|Opcional. O diretório de log. Os arquivos de log detalhados serão gravados nesse diretório. Se nenhum diretório de log for especificado, o diretório atual será usado como o diretório de log.|  
-|**/sn:**<StorageAccountName\>|Obrigatório. O nome da conta de armazenamento do trabalho de exportação.|  
-|**/sk:**<StorageAccountKey\>|Necessário somente se uma SAS do contêiner não for especificada. A chave de conta da conta de armazenamento do trabalho de exportação.|  
-|**/csas:**<ContainerSas\>|Necessário somente se uma chave de conta de armazenamento não for especificada. A SAS do contêiner para listar os blobs a serem exportados no trabalho de exportação.|  
-|**/ExportBlobListFile:**<ExportBlobListFile\>|Obrigatório. Caminho até o arquivo XML que contém a lista de caminhos de blob ou prefixos de caminhos de blob para os blobs a serem exportados. O formato de arquivo usado no elemento `BlobListBlobPath` da operação [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) da API REST do serviço de Importação/Exportação.|  
-|**/DriveSize:**<DriveSize\>|Obrigatório. O tamanho das unidades a ser usado para um trabalho de exportação, *por exemplo*, 500 GB, 1,5 TB.|  
+|**/logdir:**<LogDirectory\>|Opcional. diretório de log Hello. Arquivos de log detalhados serão gravados toothis directory. Se nenhum diretório de log for especificado, diretório atual Olá será usado como diretório de log hello.|  
+|**/sn:**<StorageAccountName\>|Obrigatório. trabalho de exportação de nome de Olá Olá da conta de armazenamento para hello.|  
+|**/sk:**<StorageAccountKey\>|Necessário somente se uma SAS do contêiner não for especificada. trabalho de exportação da chave da conta Olá para conta de armazenamento Olá Olá.|  
+|**/csas:**<ContainerSas\>|Necessário somente se uma chave de conta de armazenamento não for especificada. SAS do contêiner Olá para listagem Olá blobs toobe exportados no trabalho de exportação de saudação.|  
+|**/ExportBlobListFile:**<ExportBlobListFile\>|Obrigatório. Toohello caminho XML arquivo contendo a lista de caminhos de blob ou prefixos de caminho para Olá blobs toobe exportados de blob. formato de arquivo Hello usado em Olá `BlobListBlobPath` elemento Olá [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operação da API REST do serviço de importação/exportação de saudação.|  
+|**/DriveSize:**<DriveSize\>|Obrigatório. Olá tamanho de unidades toouse para um trabalho de exportação, *, por exemplo,*, 500GB, 1,5 TB.|  
 
 ## <a name="command-line-example"></a>Exemplo de linha de comando
 
-O seguinte exemplo demonstra o comando `PreviewExport`:  
+Olá, exemplo a seguir demonstra Olá `PreviewExport` comando:  
   
 ```  
 WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB    
 ```  
   
-O arquivo de lista de blobs de exportação pode conter nomes e prefixos de blob, conforme mostrado aqui:  
+Olá arquivo de lista de blob de exportação pode conter nomes de blob e prefixos de blob, conforme mostrado aqui:  
   
 ```xml 
 <?xml version="1.0" encoding="utf-8"?>  
@@ -57,9 +57,9 @@ O arquivo de lista de blobs de exportação pode conter nomes e prefixos de blob
 </BlobList>  
 ```
 
-A Ferramenta de Importação/Exportação do Azure lista todos os blobs a serem exportados e calcula como empacotá-los em unidades do tamanho especificado, levando em consideração qualquer sobrecarga necessária. Em seguida, estima o número de unidades necessárias para manter os blobs e as informações de uso da unidade.  
+Olá, ferramenta de importação/exportação do Azure lista todos os toobe blobs exportados e calcula como toopack-los em unidades de saudação especificado tamanho, levando em consideração qualquer sobrecarga necessária, em seguida, calcula o número de saudação de unidades necessárias blobs de saudação toohold e o uso da unidade informações.  
   
-Este é um exemplo da saída, com a omissão dos logs informativos:  
+Aqui está um exemplo de saída de hello, com logs informativos omitidos:  
   
 ```  
 Number of unique blob paths/prefixes:   3  

@@ -1,5 +1,5 @@
 ---
-title: "Métricas comuns de dimensionamento automático do Azure Monitor | Microsoft Docs"
+title: "aaaAzure métricas comuns de dimensionamento automático do Monitor | Microsoft Docs"
 description: "Saiba quais métricas são usadas comumente para fazer o dimensionamento automático dos Serviços de Nuvem, Máquinas Virtuais e Aplicativos Web."
 author: anirudhcavale
 manager: orenr
@@ -14,44 +14,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/6/2016
 ms.author: ancav
-ms.openlocfilehash: 240a230d09680672ccd5316470a87d047fab9fd1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 372a40d72d7a6c22c5ff854b1460ec8a3b7ed1d1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métricas comuns de dimensionamento automático do Azure Monitor
-O dimensionamento automático do Azure Monitor permite que você aumente ou reduza número de instâncias em execução com base nos dados de telemetria (métricas). Este documento descreve as métricas mais comuns que você pode querer usar. No Portal do Azure para Serviços de Nuvem e Farms de Servidores, você pode escolher a métrica do recurso segundo a qual o dimensionamento será feito. No entanto, também é possível escolher qualquer métrica de um recurso diferente e fazer o dimensionamento com base nela.
+Dimensionamento automático de Monitor do Azure permite que você tooscale Olá número de instâncias em execução para cima ou para baixo, com base nos dados de telemetria (métricas). Este documento descreve as métricas mais comuns que talvez seja preferível toouse. Olá portal do Azure para serviços de nuvem e Farms de servidores, é possível métrica Olá Olá recursos tooscale por. No entanto, também é possível nenhuma métrica de tooscale um recurso diferente por.
 
-O dimensionamento automático do Azure Monitor aplica-se somente aos [Conjuntos de Dimensionamento da Máquina Virtual](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/) e [Serviço de Aplicativo - Aplicativos Web](https://azure.microsoft.com/services/app-service/web/). Outros serviços do Azure usam métodos de dimensionamento diferentes.
+Dimensionamento automático de Monitor do Azure se aplica apenas muito[conjuntos de escala de máquina Virtual](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [serviços de nuvem](https://azure.microsoft.com/services/cloud-services/), e [do serviço de aplicativo - aplicativos Web](https://azure.microsoft.com/services/app-service/web/). Outros serviços do Azure usam métodos de dimensionamento diferentes.
 
 ## <a name="compute-metrics-for-resource-manager-based-vms"></a>Computar métricas para VMs com base no Resource Manager
-Por padrão, Máquinas Virtuais e Conjuntos de Dimensionamento de Máquinas Virtuais com base no Resource Manager emitem métricas básicas (nível do host). Além disso, ao configurar a coleta de dados de diagnóstico para uma VM do Azure e VMSS, a extensão de diagnóstico do Azure também emite contadores de desempenho do SO convidado (conhecidos geralmente como “Métricas do SO convidado”).  Você pode usar todas essas métricas em regras de dimensionamento automático.
+Por padrão, Máquinas Virtuais e Conjuntos de Dimensionamento de Máquinas Virtuais com base no Resource Manager emitem métricas básicas (nível do host). Além disso, quando você configurar a coleta de dados de diagnóstico para uma VM do Azure e VMSS, Olá extensão de diagnóstico do Azure também emite contadores de desempenho do SO convidado (conhecidos como "Métricas do SO convidado").  Você pode usar todas essas métricas em regras de dimensionamento automático.
 
-Você pode usar o PoSH/API/CLI `Get MetricDefinitions` para exibir as métricas disponíveis para o recurso de VMSS.
+Você pode usar o hello `Get MetricDefinitions` disponível para o recurso VMSS para métricas de saudação do tooview do PoSH/API/CLI.
 
 Se você estiver usando conjuntos de dimensionamento de VM e não vir uma métrica específica listada, provavelmente ela estará *desabilitada* em sua extensão de diagnóstico.
 
-Se uma determinada métrica não estiver sendo amostrada ou transferida com a frequência que você deseja, você poderá atualizar a configuração de diagnóstico.
+Se uma determinada métrica não está sendo frequência Olá amostra ou transferidos em que você deseja, é possível atualizar a configuração de diagnóstico de saudação.
 
-Se qualquer um dos casos acima for verdadeiro, consulte [Usar o PowerShell para habilitar o Diagnóstico do Azure em uma máquina virtual que executa o Windows](../virtual-machines/windows/ps-extensions-diagnostics.md) sobre o PowerShell para configurar e atualizar sua extensão de diagnóstico de VM do Azure para habilitar a métrica. Esse artigo também inclui um arquivo de configuração de diagnóstico de exemplo.
+Se ambos os casos anteriores for true, examine [tooenable de usar o PowerShell diagnóstico do Azure em uma máquina virtual que executa o Windows](../virtual-machines/windows/ps-extensions-diagnostics.md) sobre tooconfigure PowerShell e atualizar seu tooenable de extensão de diagnóstico de VM do Azure Olá métrica. Esse artigo também inclui um arquivo de configuração de diagnóstico de exemplo.
 
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Métricas de host para VMs Windows e Linux baseadas no Resource Manager
-As seguintes métricas de nível de host são emitidas por padrão para a VM do Azure e VMSS em instâncias do Windows e Linux. Essas métricas descrevem sua VM do Azure, mas são coletadas do host de VM do Azure em vez de por meio do agente instalado na VM convidada. Você pode usar essas métricas em regras de dimensionamento automático.
+Olá métricas de nível de host a seguir é emitido por padrão para a máquina virtual do Azure e VMSS em instâncias do Windows e Linux. Essas métricas descrevem sua VM do Azure, mas são coletadas do host de VM do Azure hello, em vez de por meio do agente instalado na VM convidada de saudação. Você pode usar essas métricas em regras de dimensionamento automático.
 
 - [Métricas de host para VMs Windows e Linux baseadas no Resource Manager](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)
 - [Métricas de host para Conjuntos de Dimensionamento de VMs Windows e Linux baseadas no Resource Manager](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)
 
 ### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>Métricas de SO convidado de VMs Windows baseadas no Resource Manager
-Quando você cria uma VM no Azure, o diagnóstico é habilitado usando a extensão de Diagnóstico. A extensão de diagnóstico emite um conjunto de métricas extraído de dentro da VM. Isso significa que você pode desativar o dimensionamento automático de métricas que não são emitidas por padrão.
+Quando você cria uma máquina virtual no Azure, diagnóstico está habilitado por meio da extensão de diagnóstico de saudação. extensão de diagnóstico Olá emite um conjunto de métricas obtidas dentro Olá VM. Isso significa que você pode desativar o dimensionamento automático de métricas que não são emitidas por padrão.
 
-Você pode gerar uma lista das métricas usando o seguinte comando do PowerShell.
+Você pode gerar uma lista de métricas de saudação usando Olá comando do PowerShell a seguir.
 
 ```
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
-Você pode criar um alerta para as métricas a seguir:
+Você pode criar um alerta para Olá métricas a seguir:
 
 | Nome da métrica | Unidade |
 | --- | --- |
@@ -86,13 +86,13 @@ Você pode criar um alerta para as métricas a seguir:
 ### <a name="guest-os-metrics-linux-vms"></a>Métricas de SO convidado de VMs Linux
 Quando você cria uma VM no Azure, o diagnóstico é habilitado por padrão usando a extensão de Diagnóstico.
 
-Você pode gerar uma lista das métricas usando o seguinte comando do PowerShell.
+Você pode gerar uma lista de métricas de saudação usando Olá comando do PowerShell a seguir.
 
 ```
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
- Você pode criar um alerta para as métricas a seguir:
+ Você pode criar um alerta para Olá métricas a seguir:
 
 | Nome da métrica | Unidade |
 | --- | --- |
@@ -136,10 +136,10 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 | \NetworkInterface\TotalCollisions |Contagem |
 
 ## <a name="commonly-used-web-server-farm-metrics"></a>Métricas da Web (Farm de servidores) usadas normalmente
-Você também pode realizar a autoescala com base em métricas comuns do servidor Web, como o comprimento da fila Http. O nome da métrica é **HttpQueueLength**.  A seção a seguir lista as métricas de farm de servidores (aplicativos Web) disponíveis.
+Você também pode executar o dimensionamento automático com base nas métricas de servidor da web comuns como Olá comprimento da fila de Http. O nome da métrica é **HttpQueueLength**.  Olá seção listas disponíveis server farm (aplicativos da Web) métricas a seguir.
 
 ### <a name="web-apps-metrics"></a>Métricas de aplicativos Web
-Você pode gerar uma lista das métricas de aplicativos Web usando o seguinte comando do PowerShell.
+Você pode gerar uma lista de métricas de aplicativos Web hello usando Olá comando do PowerShell a seguir.
 
 ```
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
@@ -157,11 +157,11 @@ Você pode alertar ou dimensionar com base nessas métricas.
 | BytesSent |Bytes |
 
 ## <a name="commonly-used-storage-metrics"></a>Métricas de armazenamento usadas normalmente
-Você pode dimensionar segundo o comprimento da fila de armazenamento, que é o número de mensagens na fila de armazenamento. O comprimento da fila de armazenamento é uma métrica especial e o limite aplicado será o número de mensagens por instância. Por exemplo se houver duas instâncias e o limite for definido como 100, ocorrerá um dimensionado quando o número total de mensagens na fila for 200. Podendo ser 100 mensagens por instância, 120, 80 ou qualquer outra combinação totalizando até 200 ou mais.
+Você pode dimensionar por comprimento de fila de armazenamento, que é o número de saudação de mensagens na fila de armazenamento de saudação. Comprimento da fila de armazenamento é uma métrica especial e limite de saudação é o número de saudação de mensagens por instância. Por exemplo, se houver duas instâncias e limite de saudação é definido too100, dimensionamento ocorre quando a saudação o número total de mensagens na fila de saudação é 200. Que pode ser 100 mensagens por instância, 120 e 80 ou qualquer outra combinação que adiciona too200 ou mais.
 
-Defina essas configurações na folha **Configurações** do Portal do Azure. Para Conjuntos de Dimensionamento de VMs, você pode atualizar a configuração de Dimensionamento Automático no modelo do Resource Manager para utilizar *metricName* como *ApproximateMessageCount* e passar a ID da fila de armazenamento como *metricResourceUri*.
+Definir essa configuração no hello portal do Azure no hello **configurações** folha. Para conjuntos de escala de VM, você pode atualizar a configuração de dimensionamento automático de saudação toouse de modelo do Gerenciador de recursos de saudação *metricName* como *ApproximateMessageCount* e passar Olá ID da fila de armazenamento hello como  *metricResourceUri*.
 
-Por exemplo, com uma Conta de Armazenamento Clássico, a configuração de dimensionamento automático metricTrigger incluiria:
+Por exemplo, com uma saudação de conta de armazenamento clássico metricTrigger de configuração de AutoEscala inclui:
 
 ```
 "metricName": "ApproximateMessageCount",
@@ -169,7 +169,7 @@ Por exemplo, com uma Conta de Armazenamento Clássico, a configuração de dimen
  "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
  ```
 
-Para uma conta de armazenamento (não clássica), o metricTrigger incluiria:
+Para uma conta de armazenamento (não-clássico), Olá metricTrigger inclui:
 
 ```
 "metricName": "ApproximateMessageCount",
@@ -178,9 +178,9 @@ Para uma conta de armazenamento (não clássica), o metricTrigger incluiria:
 ```
 
 ## <a name="commonly-used-service-bus-metrics"></a>Métricas do Barramento de Serviço usadas frequentemente
-Você pode dimensionar segundo o comprimento da fila do Barramento de Serviço, que é o número de mensagens na fila do Barramento de Serviço. O comprimento da fila de Barramento de Serviço é uma métrica especial e o limite aplicado será o número de mensagens por instância. Por exemplo se houver duas instâncias e o limite for definido como 100, ocorrerá um dimensionado quando o número total de mensagens na fila for 200. Podendo ser 100 mensagens por instância, 120, 80 ou qualquer outra combinação totalizando até 200 ou mais.
+Você pode dimensionar por comprimento da fila de barramento de serviço, que é o número de saudação de mensagens na fila do barramento de serviço hello. Comprimento da fila de barramento de serviço é uma métrica especial e limite de saudação é o número de saudação de mensagens por instância. Por exemplo, se houver duas instâncias e limite de saudação é definido too100, dimensionamento ocorre quando a saudação o número total de mensagens na fila de saudação é 200. Que pode ser 100 mensagens por instância, 120 e 80 ou qualquer outra combinação que adiciona too200 ou mais.
 
-Para Conjuntos de Dimensionamento de VMs, você pode atualizar a configuração de Dimensionamento Automático no modelo do Resource Manager para utilizar *metricName* como *ApproximateMessageCount* e passar a ID da fila de armazenamento como *metricResourceUri*.
+Para conjuntos de escala de VM, você pode atualizar a configuração de dimensionamento automático de saudação toouse de modelo do Gerenciador de recursos de saudação *metricName* como *ApproximateMessageCount* e passar Olá ID da fila de armazenamento hello como  *metricResourceUri*.
 
 ```
 "metricName": "MessageCount",
@@ -189,6 +189,6 @@ Para Conjuntos de Dimensionamento de VMs, você pode atualizar a configuração 
 ```
 
 > [!NOTE]
-> Para o Barramento de Serviço, o conceito de grupo de recursos não existe, mas o Azure Resource Manager cria um grupo de recursos padrão por região. O grupo de recursos geralmente está no formato 'Default - ServiceBus-[região]'. Por exemplo, 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast' etc.
+> Barramento de serviço, conceito de grupo de recursos de saudação não existe, mas Azure Resource Manager cria um grupo de recursos padrão por região. grupo de recursos de Olá geralmente está no formato de 'Default - ServiceBus-[Região]' hello. Por exemplo, 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast' etc.
 >
 >

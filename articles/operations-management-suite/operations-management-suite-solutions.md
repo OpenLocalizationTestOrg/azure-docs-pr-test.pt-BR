@@ -1,6 +1,6 @@
 ---
-title: "Soluções no OMS (Operations Management Suite) | Microsoft Docs"
-description: "As soluções de estendem a funcionalidade do OMS (Operations Management Suite), fornecendo cenários de gerenciamento de pacotes que os clientes podem adicionar ao seu espaço de trabalho do OMS.  Este artigo fornece detalhes sobre soluções personalizadas criadas por clientes e parceiros."
+title: aaaSolutions no OMS Operations Management Suite () | Microsoft Docs
+description: "Soluções de estendem a funcionalidade de saudação do Operations Management Suite (OMS), fornecendo os cenários de pacotes de gerenciamento que os clientes podem adicionar tootheir espaço de trabalho do OMS.  Este artigo fornece detalhes sobre soluções personalizadas criadas por clientes e parceiros."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2443dd73fdf441721bd6f6f340da515d9f5a22a2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5b5a538f1bc4b5577bec94db08bd43668bc6584a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="working-with-management-solutions-in-operations-management-suite-oms-preview"></a>Trabalhando com soluções de gerenciamento no OMS (Operations Management Suite) (Versão prévia)
 > [!NOTE]
@@ -27,85 +27,85 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-As soluções de gerenciamento estendem a funcionalidade do OMS (Operations Management Suite), fornecendo cenários de gerenciamento empacotados que os clientes podem adicionar ao seu ambiente.  Além [soluções fornecidas pela Microsoft](../log-analytics/log-analytics-add-solutions.md), parceiros e clientes podem criar soluções de gerenciamento para serem usadas em seu próprio ambiente ou disponibilizadas para os clientes por meio da comunidade.
+Soluções de gerenciamento de estendem a funcionalidade de saudação do Operations Management Suite (OMS), fornecendo os cenários de pacotes de gerenciamento que os clientes podem adicionar tootheir ambiente.  Além disso muito[soluções fornecidas pela Microsoft](../log-analytics/log-analytics-add-solutions.md), parceiros e clientes podem criar toobe de soluções de gerenciamento usados em seu próprio ambiente ou feita toocustomers disponíveis por meio da comunidade de saudação.
 
 ## <a name="finding-and-installing-management-solutions"></a>Localizando e instalando soluções de gerenciamento
-Há vários métodos para localizar e instalar as soluções de gerenciamento, conforme descrito nas seções a seguir.
+Há vários métodos para localizar e instalar as soluções de gerenciamento, conforme descrito em Olá seções a seguir.
 
 ### <a name="azure-marketplace"></a>Azure Marketplace
-Soluções de gerenciamento fornecidos pela Microsoft e parceiros confiáveis podem ser instaladas no Azure Marketplace no portal do Azure.
+Soluções de gerenciamento fornecido pela Microsoft e parceiros confiáveis podem ser instalados do hello Azure Marketplace em Olá portal do Azure.
 
-1. Faça logon no Portal do Azure.
-2. No painel esquerdo, selecione **Mais serviços**.
-3. Role para baixo até **soluções** ou digite *soluções* na caixa de diálogo **Filtrar**.
-4. Clique no botão **+ Adicionar**.
-5. Procure soluções nas quais você está interessado ao navegar, clicar no botão **Filtrar** ou digitar na caixa **Pesquisar Tudo**.
-6. Clique em um item do Marketplace para exibir as informações detalhadas.
-7. Clique em **Criar** para abrir o painel **Adicionar solução**.
-8. Você será solicitado a fornecer informações necessárias, como o [Espaço de trabalho OMS e a Conta de automação](#oms-workspace-and-automation-account), além dos valores para quaisquer parâmetros na solução.
-9. Clique em **Criar** para instalar a solução.
+1. Faça logon em toohello portal do Azure.
+2. No painel esquerdo do hello, selecione **mais serviços**.
+3. O Role para baixo demais**soluções** ou tipo *soluções* em Olá **filtro** caixa de diálogo.
+4. Clique em Olá **+ adicionar** botão.
+5. Procurar soluções que você está interessado no navegando, clicando em Olá **filtro** botão ou digitando Olá **Everthing pesquisa** caixa.
+6. Clique em um tooview de item do marketplace as informações detalhadas.
+7. Clique em **criar** tooopen Olá **adicionar solução** painel.
+8. Será solicitada toorequired informações como Olá [OMS espaço de trabalho e a conta de automação](#oms-workspace-and-automation-account) além toovalues para todos os parâmetros Olá solução.
+9. Clique em **criar** tooinstall solução de saudação.
 
 ### <a name="oms-portal"></a>Portal do OMS
-Soluções de gerenciamento fornecidas pela Microsoft podem ser instaladas da Galeria de Soluções no portal do OMS.
+Soluções de gerenciamento fornecidas pela Microsoft podem ser instaladas do hello Galeria de soluções no portal do OMS hello.
 
-1. Entre no portal do OMS.
-2. Clique no bloco **Galeria de Soluções**.
-3. Na página Galeria de Soluções do OMS, saiba mais sobre cada solução disponível. Clique no nome da solução que deseja adicionar ao OMS.
-4. Na página para a solução que você escolheu, são exibidas informações detalhadas sobre a solução. Clique em **Adicionar**.
-5. Um novo bloco para a solução que você adicionou é mostrado na página Visão geral no OMS e será possível começar a usá-lo depois que o serviço de OMS processar seus dados.
+1. Faça logon em toohello portal do OMS.
+2. Clique em Olá **Galeria de soluções** lado a lado.
+3. Na página de galeria de soluções do OMS hello, saiba mais sobre cada solução disponível. Clique Olá nome de solução de saudação que você deseja tooadd tooOMS.
+4. Na página de saudação de solução de saudação que você escolheu, informações detalhadas sobre solução de saudação são exibidas. Clique em **Adicionar**.
+5. Um novo bloco para solução de saudação que você adicionou aparece na Olá página Visão geral do OMS e você pode começar a usá-lo depois que o serviço OMS Olá processa seus dados.
 
 ### <a name="azure-quickstart-templates"></a>Modelos de início rápido do Azure
-Os membros da comunidade podem enviar soluções de gerenciamento para Modelos de Início Rápido do Azure.  Você pode baixar esses modelos para instalação posterior ou inspecioná-los para saber como [criar suas próprias soluções](#creating-a-solution).
+Membros da comunidade Olá podem enviar tooAzure soluções de gerenciamento modelos de início rápido.  Você pode baixar esses modelos para instalação posterior ou inspecioná-los toolearn como muito[criar suas próprias soluções](#creating-a-solution).
 
-1. Siga o processo descrito no [Espaço de trabalho OMS e na Conta de automação](#oms-workspace-and-automation-account) para vincular um espaço de trabalho e uma conta.
-2. Acesse os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).  
+1. Siga o processo Olá descrito em [OMS espaço de trabalho e a conta de automação](#oms-workspace-and-automation-account) toolink um espaço de trabalho e a conta.
+2. Vá muito[modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/).  
 3. Pesquise uma solução na qual você esteja interessado.
-4. Selecione a solução nos resultados para exibir seus detalhes.
-5. Clique no botão **Implantar no Azure**.
-6. Você será solicitado a fornecer informações como o grupo de recursos e a localização, além de valores para parâmetros na solução.
-7. Clique em **Comprar** para instalar a solução.
+4. Selecione solução Olá Olá resultados tooview seus detalhes.
+5. Clique em Olá **implantar tooAzure** botão.
+6. Você será tooprovide solicitadas informações como o grupo de recursos de saudação e o local na adição toovalues para todos os parâmetros na solução de saudação.
+7. Clique em **compra** tooinstall solução de saudação.
 
 ### <a name="deploy-azure-resource-manager-template"></a>Implantar o modelo do Azure Resource Manager
-Soluções que você obtêm da comunidade ou que você [cria por conta própria](#creating-a-solution) são implementadas como um modelo do Resource Manager e você pode usar qualquer um dos métodos padrão para [implantar um modelo](../azure-resource-manager/resource-group-template-deploy-portal.md).  Observe que, antes de instalar a solução, você deve criar e vincular o [Espaço de trabalho do OMS e a conta de automação](#oms-workspace-and-automation-account).
+As soluções que você obteve de comunidade hello, ou que você [criar por conta própria](#creating-a-solution) são implementados como um modelo do Gerenciador de recursos, e você pode usar qualquer um dos métodos de saudação padrão para [implantar um modelo de](../azure-resource-manager/resource-group-template-deploy-portal.md).  Observe que, antes de instalar a solução hello, você deve criar e vincular Olá [OMS espaço de trabalho e a conta de automação](#oms-workspace-and-automation-account).
 
 ## <a name="oms-workspace-and-automation-account"></a>Espaço de trabalho do OMS e Conta de automação
-A maioria das soluções de gerenciamento exige que um [espaço de trabalho do OMS](../log-analytics/log-analytics-manage-access.md) contenha modos de exibição e que uma [Conta de automação](../automation/automation-security-overview.md#automation-account-overview) contenha runbooks e recursos relacionados. O espaço de trabalho e a conta devem atender aos seguintes requisitos.
+A maioria das soluções de gerenciamento exigem um [espaço de trabalho do OMS](../log-analytics/log-analytics-manage-access.md) toocontain modos de exibição e um [conta de automação](../automation/automation-security-overview.md#automation-account-overview) toocontain runbooks e recursos relacionados. Olá espaço de trabalho e conta deve atender a saudação requisitos a seguir.
 
 * Uma solução só pode usar um espaço de trabalho do OMS e uma conta de automação.  
-* O espaço de trabalho do OMS e a conta de automação usados por uma solução devem ser vinculados uns aos outros. Um espaço de trabalho do OMS só pode ser vinculado a uma conta de automação e uma conta de automação só pode ser vinculada a um espaço de trabalho do OMS.
-* Para ser vinculado, o espaço de trabalho do OMS e a conta de automação devem estar no mesmo grupo de recursos e região.  A exceção é um espaço de trabalho do OMS na região Leste dos EUA e a conta de automação no Leste dos EUA 2.
+* Olá espaço de trabalho do OMS e usado por uma solução de conta de automação devem ser vinculado tooone outro. Um espaço de trabalho do OMS só pode ser vinculado tooone conta de automação e uma conta de automação só pode ser vinculado tooone espaço de trabalho do OMS.
+* toobe vinculado, Olá espaço de trabalho do OMS e Olá de automação de conta deve estar no mesmo grupo de recursos e região.  exceção de saudação é um espaço de trabalho do OMS na região Leste dos EUA e e a conta de automação no Leste dos EUA 2.
 
 ### <a name="creating-a-link-between-an-oms-workspace-and-automation-account"></a>Criar um vínculo entre um espaço de trabalho do OMS e a conta de automação
-Como você especifica o espaço de trabalho do OMS e conta de automação depende do método de instalação para sua solução.
+Como especificar o espaço de trabalho OMS hello e conta de automação depende do método de instalação Olá para sua solução.
 
-* Quando você instala uma solução da Microsoft por meio do portal do OMS, ela é instalado no espaço de trabalho atual do OMS e nenhuma conta de automação é necessária.
-* Quando você instala uma solução por meio do Marketplace do Azure, você é solicitado a informar um espaço de trabalho do OMS e uma conta de automação, e o vínculo entre eles é criado para você.  
-* Para soluções fora do Azure Marketplace, você deve vincular o espaço de trabalho do OMS e a conta de automação antes de instalar a solução.  Você pode fazer isso selecionando qualquer solução no Azure Marketplace e selecionando o espaço de trabalho do OMS e a conta de automação.  Você não precisa instalar a solução em si porque o link será criado assim que o espaço de trabalho do OMS e a conta de automação forem selecionados.  Depois que o link é criado, você pode usar esse espaço de trabalho do OMS e a conta de automação para qualquer solução. 
+* Quando você instala uma solução da Microsoft por meio do portal do OMS hello, ele é instalado no espaço de trabalho Olá de atual do OMS e nenhuma conta de automação é necessária.
+* Quando você instala uma solução por meio de saudação do Azure Marketplace, você será solicitado para um espaço de trabalho do OMS e a conta de automação e link Olá entre eles é criado para você.  
+* Para soluções fora hello Azure Marketplace, você deve vincular o espaço de trabalho OMS hello e conta de automação antes de instalar a solução de saudação.  Você pode fazer isso selecionando qualquer solução no hello Azure Marketplace e selecionando o espaço de trabalho OMS hello e conta de automação.  Você não tem tooactually instalar solução Olá porque Olá link será criado como o espaço de trabalho do hello OMS e a conta de automação estão selecionadas.  Depois de criar o link hello, em seguida, você pode usar esse espaço de trabalho do OMS e a conta de automação para qualquer solução. 
 
-### <a name="verifying-the-link-between-an-oms-workspace-and-automation-account"></a>Verificando o link entre um espaço de trabalho do OMS e a Conta de automação
-Você pode verificar o link entre um espaço de trabalho do OMS e uma conta de automação usando o procedimento a seguir.
+### <a name="verifying-hello-link-between-an-oms-workspace-and-automation-account"></a>Verificando link de saudação entre um espaço de trabalho do OMS e a conta de automação
+Você pode verificar Olá link entre um espaço de trabalho do OMS e uma conta de automação usando Olá procedimento a seguir.
 
-1. Selecione a conta de automação no portal do Azure.
-2. Role até a parte inferior do painel **Configurações**.
-3. Se houver uma seção chamada **Recursos do OMS** no painel **Configurações**, essa conta será anexada a um espaço de trabalho do OMS.
-4. Selecione **Espaço de trabalho** para exibir os detalhes do espaço de trabalho do OMS vinculado a esta conta de automação.
+1. Selecione a conta de automação de saudação em Olá portal do Azure.
+2. Rolar para o fim da saudação toohello **configurações** painel.
+3. Se houver uma seção chamada **recursos do OMS** em Olá **configurações** painel e, em seguida, essa conta é anexado tooan espaço de trabalho do OMS.
+4. Selecione **espaço de trabalho** tooview detalhes de saudação do espaço de trabalho do OMS Olá vinculado toothis conta de automação.
 
 ## <a name="listing-management-solutions"></a>Listando as soluções de gerenciamento
-Use o procedimento a seguir para exibir as soluções de gerenciamento em espaços de trabalho vinculados à sua assinatura do Azure.
+Use Olá seguindo o procedimento tootooview Olá soluções de gerenciamento Olá de espaços de trabalho vinculado tooyour assinatura do Azure.
 
-1. Faça logon no Portal do Azure.
-2. No painel esquerdo, selecione **Mais serviços**.
-3. Role para baixo até **soluções** ou digite *soluções* na caixa de diálogo **Filtrar**.
+1. Faça logon em toohello portal do Azure.
+2. No painel esquerdo do hello, selecione **mais serviços**.
+3. O Role para baixo demais**soluções** ou tipo *soluções* em Olá **filtro** caixa de diálogo.
 4. Soluções instaladas em todos os seus espaços de trabalho serão listadas.
 
-Observe que você pode exibir apenas as soluções da Microsoft instaladas no espaço de trabalho atual usando o portal do OMS.
+Observe que você pode exibir apenas soluções de Microsoft hello instaladas no espaço de trabalho atual hello usando o portal do OMS hello.
 
 ## <a name="removing-a-management-solution"></a>Removendo uma solução de gerenciamento
-Quando uma solução de gerenciamento é removida, todos os recursos da solução também são removidos.  
+Quando uma solução de gerenciamento é removida, todos os recursos de solução de saudação também serão removidos.  
 
-1. Localize a solução no portal do Azure usando o procedimento em [Listando soluções](#listing-solutions).
-2. Selecione a solução que você deseja remover.
-3. Clique no botão **Excluir** .
+1. Localizar solução Olá no hello Azure portal usando o procedimento Olá [listando soluções](#listing-solutions).
+2. Selecione a solução de saudação deseja tooremove.
+3. Clique em Olá **excluir** botão.
 
 ## <a name="creating-a-management-solution"></a>Criando uma solução de gerenciamento
 Diretrizes completas sobre como criar soluções de gerenciamento estão disponíveis em [Criando soluções no OMS (Operations Management Suite)](operations-management-suite-solutions-creating.md). 

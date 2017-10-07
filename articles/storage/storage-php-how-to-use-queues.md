@@ -1,6 +1,6 @@
 ---
-title: Como usar o Armazenamento de Filas do PHP | Microsoft Docs
-description: "Saiba como usar o serviço de armazenamento de Filas do Azure para criar e excluir filas, bem como para inserir, obter e excluir mensagens. As amostras são escritas em PHP."
+title: aaaHow toouse armazenamento de fila do PHP | Microsoft Docs
+description: "Saiba como toocreate de serviço de armazenamento do toouse Olá fila do Azure e filas de delete e insert, obtenham e excluir mensagens. As amostras são escritas em PHP."
 documentationcenter: php
 services: storage
 author: robinsh
@@ -14,42 +14,42 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
-ms.openlocfilehash: 3c8f799a917cfc9d74412d90f27f2ea8c21265d4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5034faf3b5f28f72d5b56ac1ce7a5723be697ce6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-queue-storage-from-php"></a>Como usar o Armazenamento de Fila do PHP
+# <a name="how-toouse-queue-storage-from-php"></a>Como toouse armazenamento de fila do PHP
 [!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Visão geral
-Este guia lhe mostrará como executar cenários comuns usando o serviço de Armazenamento de Fila do Azure. Os exemplos são gravados usando classes do SDK do Windows para PHP. Os cenários abrangidos incluem inserir, exibir, obter e excluir mensagens da fila, bem como criar e excluir filas.
+Este guia mostrará como cenários comuns de tooperform usando Olá serviço de armazenamento de fila do Azure. exemplos de saudação são gravados por meio de classes do hello SDK do Windows para PHP. Olá cobertos cenários incluem inserir, inspecionar, obtendo e excluir mensagens da fila, bem como criar e excluir filas.
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-php-application"></a>Criar um aplicativo PHP
-O único requisito para a criação de um aplicativo PHP que acessa o armazenamento de Filas do Azure é a referência das classes do SDK do Azure para PHP de dentro de seu código. Você pode usar as ferramentas de desenvolvimento para criar seu aplicativo, incluindo o bloco de notas.
+Olá somente o requisito para criar um aplicativo PHP que acessa o armazenamento de fila do Azure é hello referência de classes de saudação do SDK do Azure para PHP de dentro de seu código. Você pode usar qualquer toocreate de ferramentas de desenvolvimento do aplicativo, incluindo o bloco de notas.
 
 Neste guia, você usará os recursos do armazenamento de Filas que podem ser chamados dentro de um aplicativo PHP localmente ou no código em execução dentro de uma função web do Azure, função de trabalho ou no site.
 
-## <a name="get-the-azure-client-libraries"></a>Obter as bibliotecas de cliente do Azure
+## <a name="get-hello-azure-client-libraries"></a>Obter bibliotecas de saudação do cliente do Azure
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
 
-## <a name="configure-your-application-to-access-queue-storage"></a>Configurar seu aplicativo para acessar o armazenamento de Filas
-Para usar as APIs de armazenamento de Filas do Azure, você precisa:
+## <a name="configure-your-application-tooaccess-queue-storage"></a>Configurar seu aplicativo tooaccess armazenamento de fila
+Olá toouse APIs para o armazenamento de fila do Azure, você precisa:
 
-1. Fazer referência ao arquivo do carregador automático usando a instrução [require_once].
+1. Arquivo de carregador automático de saudação de referência usando Olá [require_once] instrução.
 2. Fazer referência a qualquer classe que possa usar.
 
-O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe **ServicesBuilder** .
+Olá exemplo a seguir mostra como tooinclude Olá Olá de referência e o arquivo do carregador automático **ServicesBuilder** classe.
 
 > [!NOTE]
-> Este exemplo (e outros exemplos neste artigo) pressupõe que você instalou as Bibliotecas de Cliente PHP para Azure por meio do Compositor. Se tiver instalado as bibliotecas manualmente, você precisará fazer referência ao arquivo de carregador automático `WindowsAzure.php` .
+> Este exemplo (e outros exemplos neste artigo) pressupõe que você tenha instalado Olá PHP bibliotecas de cliente para o Azure por meio do criador. Se você instalou bibliotecas Olá manualmente, você precisará Olá tooreference `WindowsAzure.php` arquivo do carregador automático.
 > 
 > 
 
@@ -59,10 +59,10 @@ use WindowsAzure\Common\ServicesBuilder;
 
 ```
 
-Nos exemplos abaixo, a instrução `require_once` será mostrada sempre, mas somente as classes que são necessárias para executar o exemplo serão referenciadas.
+Nos exemplos de saudação abaixo, Olá `require_once` instrução serão sempre mostrada, mas apenas as classes de saudação que são necessárias para tooexecute do exemplo hello serão referenciadas.
 
 ## <a name="set-up-an-azure-storage-connection"></a>Configurar uma conexão de armazenamento do Azure
-Para criar uma instância de um cliente de armazenamento de Filas do Azure, você deve primeiramente ter uma cadeia de conexão válida. O formato da cadeia de conexão do serviço Fila é o seguinte.
+tooinstantiate um cliente de armazenamento de fila do Azure, primeiro você deve ter uma cadeia de caracteres de conexão válido. formato de saudação para cadeia de conexão de serviço de fila de saudação é da seguinte maneira.
 
 Para acessar um serviço ao vivo:
 
@@ -70,20 +70,20 @@ Para acessar um serviço ao vivo:
 DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
 ```
 
-Para acessar o armazenamento do emulador:
+Para acessar o armazenamento de emulador hello:
 
 ```php
 UseDevelopmentStorage=true
 ```
 
-Para criar qualquer cliente de serviço do Azure, é necessário usar a classe **ServicesBuilder** . É possível usar qualquer uma das técnicas a seguir:
+toocreate qualquer cliente de serviço do Azure, você precisa Olá toouse **ServicesBuilder** classe. Você pode usar qualquer um dos Olá técnicas a seguir:
 
-* Passar a cadeia de conexão diretamente para ele.
-* Use **CloudConfigurationManager (CCM)** para verificar várias fontes externas da cadeia de conexão:
+* Passar conexão Olá tooit cadeia de caracteres diretamente.
+* Use **CloudConfigurationManager (CCM)** toocheck externo de várias fontes de cadeia de caracteres de conexão hello:
   * Por padrão, ele é fornecido com suporte para uma fonte externa – variáveis de ambiente.
-  * É possível adicionar novas origens ao estender a classe **ConnectionStringSource** .
+  * Você pode adicionar novas fontes estendendo Olá **ConnectionStringSource** classe.
 
-Para os exemplos descritos aqui, a cadeia de conexão será passada diretamente.
+Para obter exemplos de saudação descritos aqui, cadeia de caracteres de conexão hello será passada diretamente.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -94,7 +94,7 @@ $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connection
 ```
 
 ## <a name="create-a-queue"></a>Criar uma fila
-O objeto **QueueRestProxy** permite que você crie uma fila com o método **createQueue**. Ao criar uma fila, você pode definir opções na fila, mas fazer isso não é necessário. (O exemplo abaixo mostra como definir metadados em uma fila.)
+Um **QueueRestProxy** objeto permite que você crie uma fila usando Olá **createQueue** método. Ao criar uma fila, você pode definir opções na fila hello, mas fazer isso não é necessário. (Olá o exemplo a seguir mostra como tooset metadados em uma fila.)
 
 ```php
 require_once 'vendor/autoload.php';
@@ -126,12 +126,12 @@ catch(ServiceException $e){
 ```
 
 > [!NOTE]
-> Você não deve depender de maiúsculas e minúsculas para as chaves de metadados. Todas as chaves são lidas do serviço em letras minúsculas.
+> Você não deve depender de maiúsculas e minúsculas para as chaves de metadados. Todas as chaves são lidas do serviço de saudação em minúsculas.
 > 
 > 
 
-## <a name="add-a-message-to-a-queue"></a>Adicionar uma mensagem a uma fila
-Para adicionar uma mensagem para uma fila, use **QueueRestProxy->createMessage**. O método utiliza o nome da fila, o texto da mensagem e opções de mensagem (que são opcionais).
+## <a name="add-a-message-tooa-queue"></a>Adicionar uma fila de mensagens tooa
+tooadd uma fila de tooa de mensagens, use **QueueRestProxy -> createMessage**. método Hello usa o nome da fila hello, texto de mensagem de saudação e opções de mensagem (que são opcionais).
 
 ```php
 require_once 'vendor/autoload.php';
@@ -158,8 +158,8 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="peek-at-the-next-message"></a>Espiar a próxima mensagem
-Você pode exibir uma mensagem (ou mensagens) na frente de uma fila sem removê-la da fila chamando **QueueRestProxy->peekMessages**. Por padrão, o método **peekMessage** retorna uma única mensagem, mas você pode alterar esse valor usando o método **PeekMessagesOptions->setNumberOfMessages**.
+## <a name="peek-at-hello-next-message"></a>Espiar a próxima mensagem de saudação
+Você pode inspecionar uma (ou mensagens) no início de saudação de uma fila sem removê-la da fila de saudação chamando **QueueRestProxy -> peekMessages**. Por padrão, Olá **peekMessage** método retorna uma única mensagem, mas você pode alterar esse valor usando Olá **PeekMessagesOptions -> setNumberOfMessages** método.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -204,8 +204,8 @@ else{
 }
 ```
 
-## <a name="de-queue-the-next-message"></a>Remover a próxima mensagem da fila
-Seu código remove uma mensagem de uma fila em duas etapas. Primeiro, você chama **QueueRestProxy->listMessages**, que torna a mensagem invisível para qualquer outro código de leitura da fila. Por padrão, essa mensagem permanecerá invisível por 30 segundos. (Se a mensagem não for excluída neste período de tempo, ela se tornará visível na fila novamente.) Para terminar de remover a mensagem da fila, você deve chamar **QueueRestProxy->deleteMessage**. Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Seu código chama **deleteMessage** logo depois que a mensagem é processada.
+## <a name="de-queue-hello-next-message"></a>Eliminação da fila de mensagem de saudação do próxima
+Seu código remove uma mensagem de uma fila em duas etapas. Primeiro, você chama **QueueRestProxy -> listMessages**, que torna Olá mensagem invisível tooany outro código que está lendo da fila de saudação. Por padrão, essa mensagem permanecerá invisível por 30 segundos. (Se a mensagem de saudação não será excluída nesse período de tempo, ela ficará visível na fila de saudação novamente.) toofinish mensagem de saudação remover da fila hello, você deve chamar **QueueRestProxy -> deleteMessage**. Esse processo de duas etapas de remoção de uma mensagem garante que, quando seu tooprocess de falha de código pode obter uma mensagem devido a falha de toohardware ou software, outra instância do seu código Olá mesma mensagem e tente novamente. Seu código chama **deleteMessage** logo depois que a mensagem de saudação foi processada.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -243,8 +243,8 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="change-the-contents-of-a-queued-message"></a>Alterar o conteúdo de uma mensagem na fila
-Você pode alterar o conteúdo de uma mensagem in-loco na fila chamando **QueueRestProxy->updateMessage**. Se a mensagem representar uma tarefa de trabalho, você poderá usar esse recurso para atualizar o status da tarefa de trabalho. O código a seguir atualiza a mensagem da fila com novo conteúdo e define o tempo limite de visibilidade para estender mais 60 segundos. Isso salva o estado do trabalho que está associado à mensagem e dá ao cliente mais um minuto para continuar trabalhando na mensagem. Você pode usar essa técnica para acompanhar fluxos de trabalho de várias etapas em mensagens em fila, sem a necessidade de começar desde o início, caso uma etapa de processamento falhar devido a uma falha de hardware ou de software. Normalmente, você mantém uma contagem de repetições e, se a mensagem for repetida mais de *n* vezes, você a exclui. Isso protege contra uma mensagem que dispara um erro do aplicativo sempre que for processada.
+## <a name="change-hello-contents-of-a-queued-message"></a>Alterar o conteúdo de saudação de uma mensagem na fila
+Você pode alterar o conteúdo de saudação de um mensagem no local na fila de saudação chamando **QueueRestProxy -> updateMessage**. Se a mensagem de saudação representa uma tarefa de trabalho, você pode usar esse status do recurso tooupdate Olá da tarefa de trabalho hello. saudação de código a seguir atualiza a mensagem da fila de saudação com novo conteúdo e, em seguida, define tooextend de tempo limite de visibilidade Olá outro 60 segundos. Isso salva o estado de saudação do trabalho associado à mensagem de saudação e oferece cliente Olá outro toocontinue minuto trabalhando na mensagem de saudação. Você pode usar esta técnica tootrack várias etapas os fluxos de trabalho na fila de mensagens, sem ter que toostart através do hello início se uma etapa de processamento falhar devido a falha de toohardware ou software. Normalmente, você mantém uma contagem de tentativa e se hello mensagem será repetida mais de  *n*  vezes, excluí-lo. Isso protege contra uma mensagem que dispara um erro do aplicativo sempre que for processada.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -287,7 +287,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="additional-options-for-de-queuing-messages"></a>Opções adicionais para remover mensagens da fila
-Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Primeiro, você pode obter um lote de mensagens (até 32). Segundo, você pode definir um tempo limite de visibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem. O seguinte exemplo de código usa o método **getMessages** para receber 16 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop **for** . Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem.
+Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Primeiro, você pode obter um lote de mensagens (até too32). Em seguida, você pode definir um limite de visibilidade maior ou menor, permitindo que o código mais ou menos tempo toofully processam cada mensagem. Olá, exemplo de código a seguir usa Olá **getMessages** mensagens tooget 16 de método em uma chamada. Em seguida, ele processa cada mensagem usando um loop **for** . Ele também define minutos de toofive de tempo limite de invisibilidade de saudação para cada mensagem.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -335,7 +335,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="get-queue-length"></a>Obter o tamanho da fila
-Você pode obter uma estimativa do número de mensagens em uma fila. O método **QueueRestProxy->getQueueMetadata** solicita que o serviço Fila retorne os metadados sobre a fila. Chamando o método **getApproximateMessageCount** no objeto retornado fornece uma contagem de quantas mensagens estão em uma fila. A contagem é aproximada apenas porque as mensagens podem ser adicionadas ou removidas depois que o serviço Fila responde à sua solicitação.
+Você pode obter uma estimativa do número de saudação de mensagens em uma fila. Olá **QueueRestProxy -> getQueueMetadata** método solicita Olá fila serviço tooreturn metadados sobre a fila de saudação. Olá chamada **getApproximateMessageCount** método em Olá retornou objeto fornece uma contagem de quantas mensagens estão em uma fila. Contagem de saudação só é aproximada pois mensagens podem ser adicionadas ou removidas depois que o serviço de fila Olá responde tooyour solicitação.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -364,7 +364,7 @@ echo $approx_msg_count;
 ```
 
 ## <a name="delete-a-queue"></a>Excluir uma fila
-Para excluir uma fila e todas as mensagens nela, chame o método **QueueRestProxy->deleteQueue**.
+toodelete uma fila e todas as mensagens de saudação, chame Olá **QueueRestProxy -> deleteQueue** método.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -390,11 +390,11 @@ catch(ServiceException $e){
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você aprendeu os conceitos básicos do armazenamento de Filas do Azure, siga estes links para saber mais sobre tarefas de armazenamento mais complexas:
+Agora que você aprendeu as Noções básicas de saudação do armazenamento de fila do Azure, siga essas toolearn links sobre tarefas mais complexas de armazenamento:
 
-* Visite o [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
+* Visite Olá [blog da equipe de armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-Para saber mais, veja também a [Central de desenvolvedores do PHP](/develop/php/).
+Para obter mais informações, consulte também Olá [Centro de desenvolvedores PHP](/develop/php/).
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php

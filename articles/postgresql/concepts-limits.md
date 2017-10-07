@@ -1,5 +1,5 @@
 ---
-title: "Limitações no Banco de Dados do Azure para PostgreSQL | Microsoft Docs"
+title: aaaLimitations no banco de dados do Azure para PostgreSQL | Microsoft Docs
 description: "Descreve as limitações no Banco de Dados do Azure para PostgreSQL."
 services: postgresql
 author: kamathsun
@@ -10,19 +10,19 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: article
 ms.date: 06/01/2017
-ms.openlocfilehash: 38988fc5c0dc05331ea078534cd1a05e9eca2493
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f53dd240e55e0633bc1dfb8ad25e1818fa8ae18c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitações no Banco de Dados do Azure para PostgreSQL
-O Banco de Dados do Azure para o serviço PostgreSQL está em visualização pública. As seções a seguir descrevem a capacidade e os limites funcionais no serviço de banco de dados.
+saudação de banco de dados PostgreSQL serviço está em visualização pública. Olá seções a seguir descrevem funcionais limites no serviço de banco de dados de saudação e capacidade.
 
 ## <a name="service-tier-maximums"></a>Limites máximos da camada de serviço
 O Banco de Dados do Azure para PostgreSQL tem vários níveis de serviço que você pode escolher ao criar um servidor. Para saber mais, confira [Entenda o que está disponível em cada camada de serviço](concepts-service-tiers.md).  
 
-Há um número máximo de conexões, unidades de computação e armazenamento em cada camada de serviço durante a visualização do serviço, da seguinte maneira: 
+Há um número máximo de conexões, as unidades de computação e armazenamento em cada camada de serviço durante a visualização de serviço hello, da seguinte maneira: 
 
 |                            |                   |
 | :------------------------- | :---------------- |
@@ -40,7 +40,7 @@ Há um número máximo de conexões, unidades de computação e armazenamento em
 | Camada de serviço Básica         | 1 TB              |
 | Camada de serviço Standard      | 1 TB              |
 
-Quando um número excessivo de conexões for atingido, você receberá o seguinte erro:
+Quando muitas conexões são alcançadas, você pode receber Olá erro a seguir:
 > FATAL: já existem muitos clientes
 
 ## <a name="preview-functional-limitations"></a>Limitações funcionais da versão prévia
@@ -56,10 +56,10 @@ Quando um número excessivo de conexões for atingido, você receberá o seguint
 - Não há suporte para mover dinamicamente servidores criados previamente entre a assinatura e o grupo de recursos.
 
 ### <a name="point-in-time-restore"></a>Restauração pontual
-1.  Não é permitido restaurar para a camada de serviço diferente e/ou Unidades de computação e Tamanho do armazenamento.
+1.  Não é permitido restaurar toodifferent da camada de serviço e/ou tamanho de unidades de computação e armazenamento.
 2.  Não há suporte para restaurar um servidor eliminado.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Entenda [O que está disponível em cada tipo de preço](concepts-service-tiers.md)
 - Entenda as [Versões de banco de dados PostgreSQL com suporte](concepts-supported-versions.md)
-- Veja [Como fazer backup e restaurar um servidor no Banco de Dados do Azure para PostgreSQL usando o Portal do Azure](howto-restore-server-portal.md)
+- Revisão [como tooBack backup e restauração de um servidor no banco de dados do Azure para usar PostgreSQL Olá portal do Azure](howto-restore-server-portal.md)

@@ -1,6 +1,6 @@
 ---
-title: Monitorar e gerenciar pipelines usando o Portal do Azure e o PowerShell | Microsoft Docs
-description: "Saiba como usar o Portal do Azure e o Azure PowerShell para monitorar e gerenciar as data factories e os pipelines do Azure que você criou."
+title: aaaMonitor e gerenciar pipelines usando hello portal do Azure e do PowerShell | Microsoft Docs
+description: "Saiba como toouse Olá portal do Azure e o Azure PowerShell toomonitor e gerenciar as fábricas de dados do Azure hello e pipelines que você criou."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -14,91 +14,91 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: spelluru
-ms.openlocfilehash: 61bb5379cd94dd00814e14420947e7783999ff0a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a8d3c7943e79450895ff754f06a37fdad1cbef92
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o Portal do Azure e o PowerShell
+# <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-hello-azure-portal-and-powershell"></a>Monitorar e gerenciar os pipelines de fábrica de dados do Azure usando hello portal do Azure e do PowerShell
 > [!div class="op_single_selector"]
 > * [Usando o Portal do Azure/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
 > * [Usando o aplicativo de Monitoramento e Gerenciamento](data-factory-monitor-manage-app.md)
 
 
 > [!IMPORTANT]
-> O aplicativo de monitoramento e gerenciamento fornece um melhor suporte para monitorar e gerenciar seus pipelines de dados e solucionar os problemas. Para obter detalhes sobre como usar o aplicativo, consulte [Monitorar e gerenciar os pipelines do Data Factory usando o aplicativo de Monitoramento e Gerenciamento](data-factory-monitor-manage-app.md). 
+> aplicativo de gerenciamento e monitoramento Hello fornece um melhor suporte para monitorar e gerenciar seus pipelines de dados e os problemas de solução de problemas. Para obter detalhes sobre como usar o aplicativo hello, consulte [monitorar e gerenciar os pipelines de fábrica de dados usando o aplicativo de monitoramento e gerenciamento Olá](data-factory-monitor-manage-app.md). 
 
 
-Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o portal do Azure e o PowerShell. Também fornece informações sobre como criar alertas e ser notificado sobre falhas.
+Este artigo descreve como toomonitor, gerenciar e depurar seus pipelines usando o portal do Azure e o PowerShell. Olá artigo também fornece informações sobre como toocreate alertas e obter notificado sobre falhas.
 
 ## <a name="understand-pipelines-and-activity-states"></a>Entenda os pipelines e os estados de atividade
-No Portal do Azure, você pode:
+Usando Olá portal do Azure, você pode:
 
 * Exibir sua data factory como um diagrama.
 * Exibir atividades dentro de um pipeline.
 * Exibir conjuntos de dados de entrada e saída.
 
-Esta seção também descreve como uma fatia do conjunto de dados faz a transição de um estado para outro.   
+Esta seção também descreve como uma fatia do conjunto de dados faz a transição de um estado de tooanother.   
 
-### <a name="navigate-to-your-data-factory"></a>Navegue até sua data factory
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Clique em **Data factories** no menu à esquerda. Se você não o vir, clique em **Mais serviços >**e clique em **Data factories** na categoria **INTELIGÊNCIA + ANÁLISE**.
+### <a name="navigate-tooyour-data-factory"></a>Navegue tooyour fábrica de dados
+1. Entrar toohello [portal do Azure](https://portal.azure.com).
+2. Clique em **fábricas de dados** no menu Olá Olá esquerda. Se você não estiver visível, clique em **mais serviços >**e, em seguida, clique em **fábricas de dados** em Olá **INTELLIGENCE + análise** categoria.
 
    ![Procurar tudo > Data factories](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
-3. Na folha **Data factories**, selecione o data factory no qual você está interessado.
+3. Em Olá **fábricas de dados** folha, a fábrica de dados Olá select que você está interessado.
 
     ![Selecionar o data factory](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
 
-   Você deverá ver a home page do data factory.
+   Você verá a página inicial de Olá Olá fábrica de dados.
 
    ![Folha Data factory](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
 #### <a name="diagram-view-of-your-data-factory"></a>Modo de exibição de diagrama de uma data factory
-O modo de exibição de **Diagrama** de uma data factory fornece um único painel onde você pode monitorar e gerenciar o data factory e seus ativos. Para ver o modo de exibição de **Diagrama** de seu data factory, clique em **Diagrama** na home page do data factory.
+Olá **diagrama** de uma fábrica de dados fornece um único painel de vidro toomonitor e gerencia Olá data factory e seus ativos. Olá toosee **diagrama** exibir sua fábrica de dados, clique em **diagrama** na página inicial do Olá Olá fábrica de dados.
 
 ![Exibição de diagrama](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
-Você pode ampliar, reduzir, ajustar o nível de zoom, aplicar zoom para 100%, bloquear o layout do diagrama e posicionar pipelines e conjuntos de dados automaticamente. Você também pode ver as informações de linhagem de dados (ou seja, mostrar itens upstream e downstream dos itens selecionados).
+Você pode ampliar, zoom, toofit de zoom, zoom too100%, layout de saudação do bloqueio do diagrama de saudação e posicione automaticamente pipelines e conjuntos de dados. Você também pode ver informações de linhagem de dados hello (ou seja, Mostrar itens upstream e downstream dos itens selecionados).
 
 ### <a name="activities-inside-a-pipeline"></a>Atividades dentro de um pipeline
-1. Clique com o botão direito do mouse no pipeline e depois clique em **Abrir pipeline** para ver todas as atividades no pipeline junto com conjuntos de dados de entrada e saída para as atividades. Esse recurso é útil quando o pipeline é composto por mais de uma atividade, e você deseja compreender a linhagem operacional de um único pipeline.
+1. Clique com botão direito pipeline hello e, em seguida, clique em **pipeline abrir** toosee todas as atividades em Olá pipeline, juntamente com conjuntos de dados de entrada e saídos para atividades de saudação. Esse recurso é útil quando seu pipeline inclui mais de uma atividade e desejar linhagem operacionais do hello toounderstand de um único pipeline.
 
     ![Menu do pipeline aberto](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)     
-2. No exemplo a seguir, você vê uma atividade de cópia no pipeline com uma entrada e uma saída. 
+2. Saudação de exemplo a seguir, você verá uma atividade de cópia no pipeline de saudação com uma entrada e uma saída. 
 
     ![Atividades dentro de um pipeline](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
-3. Você pode voltar à home page do data factory clicando no link **Data factory** na trilha no canto superior esquerdo.
+3. Você pode navegar toohello back home page da fábrica de dados Olá clicando Olá **fábrica de dados** link na navegação de trilha Olá no canto superior esquerdo de saudação.
 
-    ![Navegue de volta para a data factory](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
+    ![Navegue fábrica toodata back](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
 
-### <a name="view-the-state-of-each-activity-inside-a-pipeline"></a>Exibir o estado de cada atividade dentro de um pipeline
-Veja o estado atual de uma atividade exibindo o status de qualquer um dos conjuntos de dados produzidos pela atividade.
+### <a name="view-hello-state-of-each-activity-inside-a-pipeline"></a>Estado de saudação de exibição de cada atividade dentro de um pipeline
+Você pode exibir o estado atual de saudação de uma atividade exibindo status de saudação de qualquer um dos conjuntos de dados de saudação que são produzidos pela atividade de saudação.
 
-Clicar duas vezes em **OutputBlobTable** no **Diagrama** exibirá todas as fatias produzidas por diferentes execuções de atividade dentro de um pipeline. Você pode ver que a atividade de cópia foi executada com êxito pelas últimas oito horas e produziu as fatias com estado **Pronto**.  
+Clicando duas vezes em Olá **OutputBlobTable** em Olá **diagrama**, você pode ver todas as fatias de saudação que são produzidas pela atividade diferente executa dentro de um pipeline. Você pode ver que a atividade de cópia Olá foi executado com êxito para Olá últimas oito horas e produzido fatias Olá Olá **pronto** estado.  
 
-![Estado do pipeline](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
+![Estado do pipeline de saudação](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
 
-As fatias do conjunto de dados no data factory podem ter um dos seguintes status:
+fatias de conjunto de dados de saudação na fábrica de dados Olá podem ter um dos Olá status a seguir:
 
 <table>
 <tr>
     <th align="left">Estado</th><th align="left">Subestado</th><th align="left">Descrição</th>
 </tr>
 <tr>
-    <td rowspan="8">Aguardando</td><td>ScheduleTime</td><td>Não chegou o momento de execução da fatia.</td>
+    <td rowspan="8">Aguardando</td><td>ScheduleTime</td><td>tempo de saudação não são fornecidos para Olá fatia toorun.</td>
 </tr>
 <tr>
-<td>DatasetDependencies</td><td>As dependências de upstream não estão prontas.</td>
+<td>DatasetDependencies</td><td>dependências de upstream Olá não estão prontas.</td>
 </tr>
 <tr>
-<td>ComputeResources</td><td>Os recursos de computação não estão disponíveis.</td>
+<td>ComputeResources</td><td>recursos de computação de saudação não estão disponíveis.</td>
 </tr>
 <tr>
-<td>ConcurrencyLimit</td> <td>Todas as instâncias de atividade estão ocupadas executando outras fatias.</td>
+<td>ConcurrencyLimit</td> <td>Todas as instâncias do hello atividade estão ocupadas executando outras fatias.</td>
 </tr>
 <tr>
-<td>ActivityResume</td><td>A atividade está em pausa e não pode executar as fatias até que a atividades seja retomada.</td>
+<td>ActivityResume</td><td>atividade de saudação está em pausa e fatias Olá não pode ser executado até que a atividade de saudação é retomada.</td>
 </tr>
 <tr>
 <td>Retry</td><td>A execução da atividade está sendo repetida.</td>
@@ -107,69 +107,69 @@ As fatias do conjunto de dados no data factory podem ter um dos seguintes status
 <td>Validação</td><td>A validação ainda não foi iniciada.</td>
 </tr>
 <tr>
-<td>ValidationRetry</td><td>A validação está aguardando para ser repetida.</td>
+<td>ValidationRetry</td><td>A validação é toobe espera repetida.</td>
 </tr>
 <tr>
 <tr>
 <td rowspan="2">InProgress</td><td>Validando</td><td>Validação em andamento.</td>
 </tr>
 <td>-</td>
-<td>A fatia está sendo processada.</td>
+<td>fatia Hello está sendo processada.</td>
 </tr>
 <tr>
-<td rowspan="4">Falha</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
+<td rowspan="4">Com falha</td><td>TimedOut</td><td>a execução da atividade Olá demorou mais do que o permitido pela atividade de saudação.</td>
 </tr>
 <tr>
-<td>Cancelado</td><td>A fatia foi cancelada por ação do usuário.</td>
+<td>Cancelado</td><td>fatia Olá foi cancelada por ação do usuário.</td>
 </tr>
 <tr>
 <td>Validação</td><td>A validação falhou.</td>
 </tr>
 <tr>
-<td>-</td><td>Não foi possível gerar e/ou validar a fatia.</td>
+<td>-</td><td>fatia Olá falha toobe gerado e/ou validado.</td>
 </tr>
-<td>Ready</td><td>-</td><td>A fatia está pronta para consumo.</td>
-</tr>
-<tr>
-<td>Ignorado</td><td>Nenhum</td><td>A fatia não está sendo processada.</td>
+<td>Ready</td><td>-</td><td>fatia Hello está pronta para consumo.</td>
 </tr>
 <tr>
-<td>Nenhum</td><td>-</td><td>Uma fatia costumava existir com um status diferente, mas foi redefinida.</td>
+<td>Ignorado</td><td>Nenhum</td><td>fatia Olá não está sendo processada.</td>
+</tr>
+<tr>
+<td>Nenhum</td><td>-</td><td>Uma fatia usada tooexist com um status diferente, mas foi redefinida.</td>
 </tr>
 </table>
 
 
 
-Veja os detalhes de uma fatia clicando em uma entrada de fatia na folha **Fatias Atualizadas Recentemente** .
+Você pode exibir detalhes de saudação sobre uma fatia, clicando em uma entrada de fatia Olá **recentemente atualizado fatias** folha.
 
 ![Detalhes da fatia](./media/data-factory-monitor-manage-pipelines/slice-details.png)
 
-Se a fatia tiver sido executada várias vezes, você verá várias linhas na lista **Execuções de atividade** . Você pode exibir detalhes sobre uma execução de atividade clicando na entrada da execução na lista **Execuções de atividade** . A lista mostra todos os arquivos de log, junto com uma mensagem de erro, se houver. Esse recurso é útil para exibir e depurar logs sem precisar sair de sua data factory.
+Se fatia Olá tiver sido executada várias vezes, você verá várias linhas de saudação **atividade é executada** lista. Você pode exibir detalhes sobre uma atividade executar clicando em entrada hello executar Olá **atividade é executada** lista. lista de saudação mostra todos os arquivos de log hello, juntamente com uma mensagem de erro se houver um. Esse recurso é útil logs tooview e depuração sem ter que tooleave sua fábrica de dados.
 
 ![Detalhes da execução da atividade](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-Quando a fatia não está no estado **Pronto**, você pode ver as fatias upstream que não estão prontas e estão impedindo a execução da fatia atual na lista **Fatias upstream que não estão prontas**. Esse recurso é útil quando a fatia estiver no estado **Aguardando** e você quiser entender as dependências de upstream em que a fatia está aguardando.
+Se não fatia Olá Olá **pronto** estado, você pode ver fatias de upstream Olá que não estão prontos e estão bloqueando a fatia atual Olá executadas em Olá **fatias de Upstream que não estão prontas** lista. Esse recurso é útil quando a fatia é em **esperando** estado e você desejar que toounderstand Olá dependências de upstream que Olá fatia está aguardando.
 
 ![Fatias de upstream que não estão prontas](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
 ### <a name="dataset-state-diagram"></a>Diagrama de estado do conjunto de dados
-Após a implantação de uma data factory e a atribuição de um período de atividade válido para os pipelines, as fatias do conjunto de dados fazem a transição de um estado para outro. Atualmente, o status da fatia segue o seguinte diagrama de estado:
+Depois de implantar uma fábrica de dados e pipelines Olá têm um período de ativo válido, Olá dataset fatias de transição de um estado tooanother. Atualmente, status da fatia Olá segue Olá diagrama de estado a seguir:
 
 ![Diagrama de estado](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-O fluxo de transição de estado do conjunto de dados no data factory é o seguinte: Waiting-> In-Progress/In-Progress (Validating) -> Ready/Failed.
+Olá, fluxo de transição de estado do conjunto de dados na fábrica de dados é a seguir Olá: espera -> em andamento/em execução (Validando) -> pronto/falha.
 
-A fatia começa em um estado de **Aguardando**, esperando pelo atendimento de pré-condições antes da execução. Depois disso, a atividade começa a ser executada e a fatia passa para um estado **Em Andamento** . A execução da atividade pode ser bem-sucedida ou falhar. A fatia é marcada como **Pronta** ou **Falha** com base no resultado da execução.
+fatia Olá inicia em uma **esperando** estado, aguardando pré-condições toobe atendido antes de ele ser executado. Em seguida, inicia a execução da atividade hello e fatia Olá entra em um **em andamento** estado. a execução da atividade Olá pode ter êxito ou falhar. fatia Hello está marcada como **pronto** ou **falha**, com base no resultado de saudação da execução de saudação.
 
-Você pode redefinir a fatia para voltar do estado **Pronto** ou **Falha** para o estado **Aguardando**. Você também pode marcar o estado da fatia como **Ignorar**, o que impedirá a execução da atividade e não processará a fatia.
+Você pode redefinir Olá fatia toogo da saudação **pronto** ou **falha** estado toohello **esperando** estado. Você também pode marcar o estado de fatia Olá muito**ignorar**, que impede que a atividade de saudação de execução e não processando fatia hello.
 
 ## <a name="pause-and-resume-pipelines"></a>Pausar e retomar pipelines
 Você pode gerenciar seus pipelines usando o Azure PowerShell. Por exemplo, você pode pausar e retomar pipelines executando cmdlets do Azure PowerShell. 
 
 > [!NOTE] 
-> A exibição de diagrama não dá suporte à pausa e continuação de pipelines. Se você desejar usar uma interface do usuário, use o aplicativo de monitoramento e gerenciamento. Para obter detalhes sobre como usar o aplicativo, consulte o artigo [Monitorar e gerenciar os pipelines do Data Factory usando o aplicativo de Monitoramento e Gerenciamento](data-factory-monitor-manage-app.md). 
+> modo de exibição de diagrama de saudação não dá suporte a pausa e retomada de pipelines. Se você quiser toouse uma interface do usuário, use Olá monitoramento e gerenciamento de aplicativo. Para obter detalhes sobre como usar o aplicativo hello, consulte [monitorar e gerenciar os pipelines de fábrica de dados usando o aplicativo de monitoramento e gerenciamento Olá](data-factory-monitor-manage-app.md) artigo. 
 
-Você pode pausar/suspender pipelines usando o cmdlet **Suspend-AzureDataFactoryPipeline** do Powershell. Esse cmdlet é útil quando você não quiser executar o pipeline até que um problema seja corrigido. 
+Você pode pausar/suspender pipelines usando Olá **AzureRmDataFactoryPipeline Suspend** cmdlet do PowerShell. Esse cmdlet é útil quando você não deseja toorun seus pipelines até que um problema seja corrigido. 
 
 ```powershell
 Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
@@ -180,7 +180,7 @@ Por exemplo:
 Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
 ```
 
-Depois que o problema com o pipeline for corrigido, você poderá retomar o pipeline suspenso executando o seguinte comando do PowerShell:
+Após Olá problema foi corrigido com pipeline hello, você pode retomar pipeline Olá suspenso executando Olá comando PowerShell a seguir:
 
 ```powershell
 Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
@@ -192,27 +192,27 @@ Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName produc
 ```
 
 ## <a name="debug-pipelines"></a>Depurar pipelines
-O Azure Data Factory fornece recursos avançados para depurar e solucionar problemas com pipelines usando do Portal do Azure e o Azure PowerShell.
+A fábrica de dados do Azure fornece recursos avançados para você toodebug e solucionar problemas de pipelines usando hello portal do Azure e o Azure PowerShell.
 
-> [!NOTE] É muito mais fácil resolver erros usando o Aplicativo de Monitoramento e Gerenciamento. Para obter detalhes sobre como usar o aplicativo, consulte o artigo [Monitorar e gerenciar os pipelines do Data Factory usando o aplicativo de Monitoramento e Gerenciamento](data-factory-monitor-manage-app.md). 
+> [! Observe} é muito mais fácil tootroubleshot erros usando Olá monitoramento e gerenciamento de aplicativo. Para obter detalhes sobre como usar o aplicativo hello, consulte [monitorar e gerenciar os pipelines de fábrica de dados usando o aplicativo de monitoramento e gerenciamento Olá](data-factory-monitor-manage-app.md) artigo. 
 
 ### <a name="find-errors-in-a-pipeline"></a>Localizar erros em um pipeline
-Se a execução da atividade falhar em um pipeline, o conjunto de dados produzido pelo pipeline ficará em um estado de erro devido à falha. Você pode depurar e solucionar erros no Azure Data Factory usando os seguintes métodos.
+Se a execução da atividade Olá falhar em um pipeline, Olá conjunto de dados que é produzido pelo pipeline de saudação está em um estado de erro devido a falha de saudação. Você pode depurar e solucionar problemas de erros na fábrica de dados do Azure usando Olá métodos a seguir.
 
-#### <a name="use-the-azure-portal-to-debug-an-error"></a>Usar o Portal do Azure para depurar um erro
-1. Na folha **Tabela**, clique na fatia de problema com o **Status** definido como **Falha**.
+#### <a name="use-hello-azure-portal-toodebug-an-error"></a>Use Olá toodebug portal do Azure um erro
+1. Em Olá **tabela** folha, clique Olá problema fatia que tenha Olá **Status** definido muito**falha**.
 
    ![Folha de tabela com fatia com problema](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
-2. Na folha **Fatia de dados**, clique na execução de atividade com falha.
+2. Em Olá **fatia de dados** folha, clique em que a falha de execução da atividade hello.
 
    ![Fatia de dados com erro](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
-3. Na folha **Detalhes de execução da atividade**, você pode baixar os arquivos associados ao processamento do HDInsight. Clique em **Download** para que Status/stderr baixe o arquivo de log de erros que contém detalhes sobre o erro.
+3. Em Olá **detalhes da execução de atividade** folha, você pode baixar arquivos de saudação que estão associados com o processamento do HDInsight hello. Clique em **baixar** Status/stderr toodownload Olá erro arquivo de log que contém detalhes sobre o erro de saudação.
 
    ![Folha de detalhes da execução da atividade com erro](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
 
-#### <a name="use-powershell-to-debug-an-error"></a>Usar o PowerShell para depurar um erro
+#### <a name="use-powershell-toodebug-an-error"></a>Use o PowerShell toodebug um erro
 1. Inicie o **PowerShell**.
-2. Execute o comando **Get-AzureDataFactorySlice** para ver as fatias e seus status. Você deve ver uma fatia com o status **Falha**.        
+2. Executar Olá **AzureRmDataFactorySlice Get** comando fatias de saudação toosee e seus status. Você deve ver uma fatia com o status de saudação do **falha**.        
 
     ```powershell   
     Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
@@ -224,7 +224,7 @@ Se a execução da atividade falhar em um pipeline, o conjunto de dados produzid
     ```
 
    Substitua **StartDateTime** pela hora de início do pipeline. 
-3. Agora, execute o cmdlet **Get-AzureRmDataFactoryRun** para obter detalhes sobre a execução da atividade para a fatia.
+3. Agora, execute Olá **AzureRmDataFactoryRun Get** cmdlet tooget detalhes sobre a atividade de saudação executar fatia hello.
 
     ```powershell   
     Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
@@ -237,8 +237,8 @@ Se a execução da atividade falhar em um pipeline, o conjunto de dados produzid
     Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
     ```
 
-    O valor de StartDateTime é a hora de início do erro/fatia com problema observada na etapa anterior. A data e hora devem ser colocadas entre aspas duplas.
-4. Você deve ver uma saída semelhante à seguinte com detalhes sobre o erro:
+    valor de saudação do StartDateTime é hora de início de saudação de fatia de erro/problema Olá que você anotou na etapa anterior hello. Olá data e hora deve ser colocada entre aspas duplas.
+4. Você deve ver a saída com detalhes sobre o erro Olá a seguir toohello semelhante:
 
     ```   
     Id                      : 841b77c9-d56c-48d1-99a3-8c16c3e77d39
@@ -262,7 +262,7 @@ Se a execução da atividade falhar em um pipeline, o conjunto de dados produzid
     PipelineName            : EnrichGameLogsPipeline
     Type                    :
     ```
-5. Você pode executar o cmdlet **Save-AzureRmDataFactoryLog** com o valor de Id que você vê na saída e baixar os arquivos de log usando a opção **-DownloadLogsoption** para o cmdlet.
+5. Você pode executar Olá **salvar AzureRmDataFactoryLog** cmdlet com hello valor da Id que você consulte da saída de hello e baixar arquivos de log hello usando Olá **- DownloadLogsoption** Olá cmdlet.
 
     ```powershell
     Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
@@ -271,32 +271,32 @@ Se a execução da atividade falhar em um pipeline, o conjunto de dados produzid
 ## <a name="rerun-failures-in-a-pipeline"></a>Executar novamente as falhas em um pipeline
 
 > [!IMPORTANT]
-> É mais fácil resolver erros e executar novamente as fatias com falha usando o Aplicativo de Monitoramento e Gerenciamento. Para obter detalhes sobre como usar o aplicativo, consulte [Monitorar e gerenciar os pipelines do Data Factory usando o aplicativo de Monitoramento e Gerenciamento](data-factory-monitor-manage-app.md). 
+> É mais fácil erros de tootroubleshoot e execute fatias com falha usando Olá monitoramento e gerenciamento de aplicativo. Para obter detalhes sobre como usar o aplicativo hello, consulte [monitorar e gerenciar os pipelines de fábrica de dados usando o aplicativo de monitoramento e gerenciamento Olá](data-factory-monitor-manage-app.md). 
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
-Depois de solucionar problemas e depurar falhas em um pipeline, você pode executar as falhas novamente navegando até a fatia com erro e clicando no botão **Executar** na barra de comandos.
+### <a name="use-hello-azure-portal"></a>Use Olá portal do Azure
+Depois de solucionar problemas e falhas em um pipeline de depuração, você pode executar novamente falhas navegando toohello fatia de erro e clicando em Olá **executar** botão na barra de comandos de saudação.
 
 ![Executar novamente uma fatia com falha](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
 
-Em caso de falha na validação da fatia devido a uma falha de política (por exemplo, se nenhum dado estiver disponível), é possível corrigir a falha e validar novamente clicando no botão **Validar** na barra de comandos.
+Caso fatia Olá Falha na validação devido a uma falha de política (por exemplo, se dados não estiver disponíveis), você pode corrigir falha hello e valide novamente clicando em Olá **validar** botão na barra de comandos de saudação.
 
 ![Corrigir os erros e validar](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Usar PowerShell do Azure
-Você pode executar novamente as falhas usando o cmdlet **Set-AzureRmDataFactorySliceStatus**. Confira o tópico [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) para obter a sintaxe e outros detalhes sobre o cmdlet.
+Você pode executar novamente a falhas usando Olá **AzureRmDataFactorySliceStatus conjunto** cmdlet. Consulte Olá [AzureRmDataFactorySliceStatus conjunto](https://msdn.microsoft.com/library/mt603522.aspx) tópico para sintaxe e outros detalhes sobre o cmdlet hello.
 
 **Exemplo:**
 
-O exemplo a seguir define o status de todas as fatias da tabela "DAWikiAggregatedData" como "Aguardando" no Azure Data Factory "WikiADF".
+Olá, exemplo a seguir define Olá status de todas as fatias de saudação tabela 'DAWikiAggregatedData' too'Waiting' hello Azure data Factory 'WikiADF'.
 
-UpdateType é definido como UpstreamInPipeline, o que significa que o status de cada fatia da tabela e todas as tabelas dependentes (upstream) é definido como "Aguardando". O outro valor possível para esse parâmetro é "Individual".
+Olá 'Tipo de atualização' é definido too'UpstreamInPipeline ', que significa que o status de cada fatia para tabela hello e todas as tabelas (upstream) de dependente de saudação são definidas too'Waiting'. Olá, outro valor possível para esse parâmetro é "Individual".
 
 ```powershell
 Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 ```
 
 ## <a name="create-alerts"></a>Criar alertas
-O Azure registra eventos do usuário quando um recurso do Azure (por exemplo, Data Factory) é criado, atualizado ou excluído. Você pode criar alertas para esses eventos. Use o Data Factory para capturar várias métricas e criar alertas para as métricas. Recomendamos que você use os eventos para monitoramento em tempo real e métricas para fins de histórico.
+O Azure registra eventos do usuário quando um recurso do Azure (por exemplo, Data Factory) é criado, atualizado ou excluído. Você pode criar alertas para esses eventos. Você pode usar várias métricas de toocapture da fábrica de dados e criar alertas em métricas. Recomendamos que você use os eventos para monitoramento em tempo real e métricas para fins de histórico.
 
 ### <a name="alerts-on-events"></a>Alertas de eventos
 Eventos do Azure fornecem percepções úteis sobre o que está acontecendo em seus recursos do Azure. Ao usar o Azure Data Factory, os eventos são gerados quando:
@@ -305,14 +305,14 @@ Eventos do Azure fornecem percepções úteis sobre o que está acontecendo em s
 * O processamento de dados (como "execuções") foi iniciado ou concluído.
 * Um cluster de HDInsight sob demanda é criado ou removido.
 
-Você pode criar alertas para esses eventos de usuário e configurá-los para enviar notificações por email para o administrador e os coadministradores da assinatura. Além disso, você pode especificar endereços de email adicionais de usuários que precisem receber notificações por email quando as condições forem atendidas. Esse recurso é útil quando você deseja ser notificado sobre falhas e não quer monitorar continuamente sua data factory.
+Você pode criar alertas nesses eventos de usuário e configurá-los toosend administrador de toohello de notificações de email e coadministrators de assinatura de saudação. Além disso, você pode especificar endereços de email adicionais de usuários que precisam de notificações de email tooreceive quando Olá condições forem atendidas. Esse recurso é útil quando você deseja tooget notificado sobre as falhas e não quiser que o monitor de toocontinuously sua fábrica de dados.
 
 > [!NOTE]
-> Atualmente, o portal não mostra alertas em eventos. Use o [Aplicativo de Monitoramento e Gerenciamento](data-factory-monitor-manage-app.md) para ver todos os alertas.
+> Atualmente, portal de saudação não mostra alertas em eventos. Saudação de uso [monitoramento e gerenciamento de aplicativo](data-factory-monitor-manage-app.md) toosee todos os alertas.
 
 
 #### <a name="specify-an-alert-definition"></a>Especificar uma definição de alerta
-Para especificar uma definição de alerta, crie um arquivo JSON que descreva as operações sobre as quais você deseja ser alertado. No exemplo a seguir, o alerta enviará uma notificação por email para a operação RunFinished. Para ser específico, uma notificação por email será enviado quando uma execução no Data Factory for concluída e essa execução falhar (Status = FailedExecution).
+toospecify uma definição de alerta, você criar um arquivo JSON que descreve as operações de saudação que você deseja toobe alertado no. Saudação de exemplo a seguir, alerta Olá envia uma notificação por email para Olá RunFinished operação. toobe específico, uma notificação por email é enviada quando uma execução de fábrica de dados Olá foi concluída e Olá executar falhou (Status = FailedExecution).
 
 ```JSON
 {
@@ -329,7 +329,7 @@ Para especificar uma definição de alerta, crie um arquivo JSON que descreva as
             "properties":
             {
                 "name": "ADFAlertsSlice",
-                "description": "One or more of the data slices for the Azure Data Factory has failed processing.",
+                "description": "One or more of hello data slices for hello Azure Data Factory has failed processing.",
                 "isEnabled": true,
                 "condition":
                 {
@@ -353,15 +353,15 @@ Para especificar uma definição de alerta, crie um arquivo JSON que descreva as
 }
 ```
 
-Remova **subStatus** da definição do JSON acima se você não quiser receber um alerta sobre uma falha específica.
+Você pode remover **subStatus** de saudação definição JSON se você não quiser toobe alertado sobre uma falha específica.
 
-Esse exemplo configura o alerta para todas as fábricas de dados em sua assinatura. Se você quiser que o alerta seja configurado para um data factory específico, será possível especificar o **resourceUri** do data factory no bloco **dataSource**:
+Este exemplo define o alerta de saudação para todas as fábricas de dados em sua assinatura. Se você quiser Olá toobe alerta configurado para uma fábrica de dados específico, você pode especificar a fábrica de dados **resourceUri** em Olá **dataSource**:
 
 ```JSON
 "resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
 ```
 
-A tabela a seguir fornece a lista de operações e status (e substatus) disponíveis.
+Olá, tabela a seguir fornece Olá lista de operações disponíveis e status (e substatus).
 
 | Nome da operação | Status | Substatus |
 | --- | --- | --- |
@@ -371,21 +371,21 @@ A tabela a seguir fornece a lista de operações e status (e substatus) disponí
 | OnDemandClusterCreateSuccessful |Bem-sucedido | |
 | OnDemandClusterDeleted |Bem-sucedido | |
 
-Veja [Criar Regra de Alerta](https://msdn.microsoft.com/library/azure/dn510366.aspx) para obter detalhes sobre os elementos JSON usados no exemplo.
+Consulte [criar regra de alerta](https://msdn.microsoft.com/library/azure/dn510366.aspx) para obter detalhes sobre os elementos JSON Olá que são usados no exemplo hello.
 
-#### <a name="deploy-the-alert"></a>Implantar o alerta
-Para implantar o alerta, use o cmdlet do Azure PowerShell: **New-AzureRmResourceGroupDeployment**, conforme mostrado no exemplo a seguir:
+#### <a name="deploy-hello-alert"></a>Implantar o alerta Olá
+alerta de Olá toodeploy, use o cmdlet do hello Azure PowerShell **AzureRmResourceGroupDeployment novo**, conforme mostrado no exemplo a seguir de saudação:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 ```
 
-Após a implantação do grupo de recursos, você verá as seguintes mensagens:
+Após a implantação do grupo de recursos de saudação foi concluído com êxito, você verá Olá mensagens a seguir:
 
 ```
 VERBOSE: 7:00:48 PM - Template is valid.
-WARNING: 7:00:48 PM - The StorageAccountName parameter is no longer used and will be removed in a future release.
-Please update scripts to remove this parameter.
+WARNING: 7:00:48 PM - hello StorageAccountName parameter is no longer used and will be removed in a future release.
+Please update scripts tooremove this parameter.
 VERBOSE: 7:00:49 PM - Create template deployment 'ADFAlertFailedSlice'.
 VERBOSE: 7:00:57 PM - Resource microsoft.insights/alertrules 'ADFAlertsSlice' provisioning status is succeeded
 
@@ -400,11 +400,11 @@ Outputs           :
 ```
 
 > [!NOTE]
-> Você pode usar a API REST [Criar Regra de Alerta](https://msdn.microsoft.com/library/azure/dn510366.aspx) para criar uma regra de alerta. O conteúdo JSON é semelhante ao exemplo JSON.  
+> Você pode usar o hello [criar regra de alerta](https://msdn.microsoft.com/library/azure/dn510366.aspx) API REST toocreate uma regra de alerta. carga JSON Olá é exemplo JSON toohello semelhante.  
 
 
-#### <a name="retrieve-the-list-of-azure-resource-group-deployments"></a>Recuperar a lista de implantações de grupo de recursos do Azure
-Para recuperar a lista de implantações já realizadas do grupo de recursos do Azure, use o cmdlet **Get-AzureRmResourceGroupDeployment**, conforme mostra o exemplo a seguir:
+#### <a name="retrieve-hello-list-of-azure-resource-group-deployments"></a>Recuperar a lista de saudação de implantações de grupos de recursos do Azure
+lista de saudação tooretrieve de implantado implantações de grupos de recursos do Azure, use o cmdlet Olá **Get-AzureRmResourceGroupDeployment**, conforme mostrado no exemplo a seguir de saudação:
 
 ```powershell
 Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
@@ -422,23 +422,23 @@ Outputs           :
 ```
 
 #### <a name="troubleshoot-user-events"></a>Solucionar problemas de eventos de usuário
-1. Veja todos os eventos gerados depois de clicar no bloco **Métricas e operações**.
+1. Você pode ver todos os eventos de saudação que são gerados depois de clicar em Olá **métricas e operações** lado a lado.
 
     ![Bloco Métricas e operações](./media/data-factory-monitor-manage-pipelines/metrics-and-operations-tile.png)
-2. Clique no bloco **Eventos** para ver os eventos.
+2. Clique em Olá **eventos** eventos de saudação toosee lado a lado.
 
     ![Bloco de eventos](./media/data-factory-monitor-manage-pipelines/events-tile.png)
-3. Na folha **Eventos**, veja detalhes sobre eventos, eventos filtrados e assim por diante.
+3. Em Olá **eventos** folha, você pode ver detalhes sobre eventos, eventos filtrados e assim por diante.
 
     ![Folha Eventos](./media/data-factory-monitor-manage-pipelines/events-blade.png)
-4. Clique em uma **Operação** na lista de operações que causam um erro.
+4. Clique em uma **operação** na lista de operações de saudação que causa um erro.
 
     ![Selecionar uma operação](./media/data-factory-monitor-manage-pipelines/select-operation.png)
-5. Clique em um evento de **Erro** para ver detalhes sobre o erro.
+5. Clique em uma **erro** detalhes do evento toosee sobre o erro de saudação.
 
     ![Erro de evento](./media/data-factory-monitor-manage-pipelines/operation-error-event.png)
 
-Confira [Cmdlets do Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx) para ver os cmdlets do PowerShell que você pode usar para adicionar, obter ou remover alertas. Aqui estão alguns exemplos de como usar o cmdlet **Get-AlertRule** :
+Consulte [cmdlets do Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx) cmdlets do PowerShell que você pode usar tooadd, obter ou remover alertas. Aqui estão alguns exemplos de como usar o hello **AlertRule Get** cmdlet:
 
 ```powershell
 get-alertrule -res $resourceGroup -n ADFAlertsSlice -det
@@ -460,7 +460,7 @@ Status                : Failed
 SubStatus             : FailedExecution
 Claims                : Microsoft.Azure.Management.Insights.Models.RuleManagementEventClaimsDataSource
 Condition      :
-Description : One or more of the data slices for the Azure Data Factory has failed processing.
+Description : One or more of hello data slices for hello Azure Data Factory has failed processing.
 Status      : Enabled
 Name:       : ADFAlertsSlice
 Tags       :
@@ -499,7 +499,7 @@ Location   : West US
 Name       : FailedExecutionRunsWest0
 ```
 
-Execute os seguintes comandos get-help para ver detalhes e exemplos para o cmdlet Get-AlertRule.
+Execute Olá detalhes de toosee comandos get-help e exemplos para Olá Get-AlertRule cmdlet a seguir.
 
 ```powershell
 get-help Get-AlertRule -detailed
@@ -510,67 +510,67 @@ get-help Get-AlertRule -examples
 ```
 
 
-Se você vir os eventos de geração de alerta na folha do portal, mas não receber notificações por email, verifique se o endereço de email especificado está configurado para receber emails de remetentes externos. Os emails de alerta podem ter sido bloqueados por suas configurações de email.
+Se ocorrerem eventos de geração de alerta Olá Olá portal folha, mas você não recebe notificações por email, verifique se o endereço de email de saudação especificado está definido tooreceive emails de remetentes externos. emails de alerta Olá podem ter bloqueados por suas configurações de email.
 
 ### <a name="alerts-on-metrics"></a>Alertas sobre métricas
-No Data Factory, você pode capturar várias métricas e criar alertas sobre as métricas. Você pode monitorar e criar alertas nas seguintes métricas para as fatias em seu data factory:
+No Data Factory, você pode capturar várias métricas e criar alertas sobre as métricas. Você pode monitorar e criar alertas em Olá métricas para fatias Olá sua fábrica de dados a seguir:
 
 * **Execuções com falha**
 * **Execuções com êxito**
 
-Essas métricas são úteis e ajudam você a ter uma visão geral das execuções com falha e êxito em seu data factory. Métricas são emitidas sempre que há uma fatia de execução. No início de uma hora, essas métricas são agregadas e enviadas para sua conta de armazenamento. Para habilitar as métricas, configure uma conta de armazenamento.
+Essas métricas são úteis e ajudarão-lo a tooget que uma visão geral de geral com falha e bem-sucedida é executado na fábrica de dados hello. Métricas são emitidas sempre que há uma fatia de execução. No início de saudação de hora hello, essas métricas são agregadas e enviados por push tooyour conta de armazenamento. métricas de tooenable, configure uma conta de armazenamento.
 
 #### <a name="enable-metrics"></a>Habilitar a métrica
-Para habilitar as métricas, clique no seguinte na folha do **Data Factory**:
+tooenable métricas, clique em seguinte de saudação do hello **Data Factory** folha:
 
 **Monitoramento** > **Métrica** > **Configurações de diagnóstico** > **Diagnóstico**
 
 ![Link de diagnóstico](./media/data-factory-monitor-manage-pipelines/diagnostics-link.png)
 
-Na folha **Diagnóstico**, clique em **Ativar**, selecione a conta de armazenamento e clique em **Salvar**.
+Em Olá **diagnóstico** folha, clique em **na**, selecione a conta de armazenamento hello e clique em **salvar**.
 
 ![Folha de diagnósticos](./media/data-factory-monitor-manage-pipelines/diagnostics-blade.png)
 
-Talvez demore até uma hora para que as métricas fiquem visíveis na folha **Monitoramento**, porque a agregação de métricas acontece de hora em hora.
+Pode levar até tooone horas para Olá métricas toobe visível em hello **monitoramento** folha porque a agregação de métricas acontece por hora.
 
 ### <a name="set-up-an-alert-on-metrics"></a>Configurar alertas sobre métricas
-Clique no bloco **Métricas do Data Factory**:
+Clique em Olá **métricas de fábrica de dados** lado a lado:
 
 ![Bloco Métricas de data factory](./media/data-factory-monitor-manage-pipelines/data-factory-metrics-tile.png)
 
-Na folha **Métrica**, clique em **+ Adicionar alerta** na barra de ferramentas.
+Em Olá **métrica** folha, clique em **+ adicionar alerta** na barra de ferramentas de saudação.
 ![Folha Métricas do data factory > Adicionar alerta](./media/data-factory-monitor-manage-pipelines/add-alert.png)
 
-Na página **Adicionar uma regra de alerta**, siga as etapas a seguir e clique em **OK**.
+Em Olá **adicionar uma regra de alerta** página Olá etapas a seguir e clique em **Okey**.
 
-* Insira um nome para o alerta (exemplo: "alerta de falha").
-* Insira uma descrição para o alerta (exemplo: "enviar um email quando ocorre uma falha").
+* Insira um nome para o alerta de saudação (exemplo: "Falha no alerta").
+* Insira uma descrição do alerta de saudação (exemplo: "enviar um email quando ocorre uma falha").
 * Selecione uma métrica ("Execuções com falha" versus "Execuções com êxito").
 * Especifique uma condição e um valor de limite.   
-* Especifique o período.
-* Especifique se um email deve ser enviado para proprietários, colaboradores e leitores.
+* Especifica Olá período de tempo.
+* Especifique se deve ser enviado um email tooowners, colaboradores e leitores.
 
 ![Folha Métricas de data factory > Adicionar regra de alerta](./media/data-factory-monitor-manage-pipelines/add-an-alert-rule.png)
 
-Após a adição da regra, a folha fechará e você verá o novo alerta na folha **Métrica**.
+Depois de regra de alerta de saudação é adicionada com êxito, folha Olá fecha e ver o novo alerta de saudação em Olá **métrica** folha.
 
 ![Folha Métrica do data factory > Novo alerta adicionado](./media/data-factory-monitor-manage-pipelines/failed-alert-in-metric-blade.png)
 
-Você também verá o número de alertas no bloco **Regras de alerta**. Clique no bloco **Regras de alerta**.
+Você também deve ver o número de saudação de alertas no hello **regras de alerta** lado a lado. Clique em Olá **regras de alerta** lado a lado.
 
 ![Folha Métrica de data factory - Regras de alerta](./media/data-factory-monitor-manage-pipelines/alert-rules-tile-rules.png)
 
-Na folha **Regras de alertas**, você verá todos os alertas existentes. Para adicionar um alerta, clique em **Adicionar alerta** na barra de ferramentas.
+Em Olá **alertas regras** folha, consulte todos os alertas existentes. tooadd um alerta, clique em **adicionar alerta** na barra de ferramentas de saudação.
 
 ![Folha Regras de alerta](./media/data-factory-monitor-manage-pipelines/alert-rules-blade.png)
 
 ### <a name="alert-notifications"></a>Notificações de alerta
-Quando a regra de alerta corresponder à condição, você deverá receber um email informando que o alerta está ativo. Depois que o problema for resolvido e a condição do alerta deixar de corresponder, você receberá um email informando que o alerta foi resolvido.
+Depois de regra de alerta Olá corresponde a condição de saudação, você deve obter um email informando Olá alerta for ativado. Depois de Olá resolvido e a condição de alerta de saudação não corresponde mais, você obterá um email informando Olá alerta é resolvido.
 
 Esse comportamento é diferente dos eventos, para os quais uma notificação é enviada em cada falha para a qual a regra de alerta se qualifica.
 
 ### <a name="deploy-alerts-by-using-powershell"></a>Implantar alertas usando o PowerShell
-Você pode implantar alertas para métricas da mesma maneira que faz para eventos.
+Você pode implantar os alertas para métricas Olá mesma maneira que faria para eventos.
 
 **Definição do alerta**
 
@@ -614,16 +614,16 @@ Você pode implantar alertas para métricas da mesma maneira que faz para evento
 }
 ```
 
-Substitua *subscriptionId*, *resourceGroupName* e *dataFactoryName* no exemplo pelos valores adequados.
+Substituir *subscriptionId*, *resourceGroupName*, e *dataFactoryName* no exemplo hello com valores apropriados.
 
 No momento, *metricName* dá suporte a dois valores:
 
 * FailedRuns
 * SuccessfulRuns
 
-**Implantar o alerta**
+**Implantar o alerta Olá**
 
-Para implantar o alerta, use o cmdlet do Azure PowerShell: **New-AzureRmResourceGroupDeployment**, conforme mostrado no exemplo a seguir:
+alerta de Olá toodeploy, use o cmdlet do hello Azure PowerShell **AzureRmResourceGroupDeployment novo**, conforme mostrado no exemplo a seguir de saudação:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
@@ -647,13 +647,13 @@ Parameters        :
 Outputs           
 ```
 
-Você também usar o cmdlet **Add-AlertRule** para implantar uma regra de alerta. Consulte o tópico sobre [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) para obter detalhes e exemplos.  
+Você também pode usar o hello **AlertRule adicionar** cmdlet toodeploy uma regra de alerta. Consulte Olá [AlertRule adicionar](https://msdn.microsoft.com/library/mt282468.aspx) tópico para obter detalhes e exemplos.  
 
-## <a name="move-a-data-factory-to-a-different-resource-group-or-subscription"></a>Mover um data factory para outro grupo de recursos ou assinatura
-Você pode mover um data factory para outro grupo de recursos ou assinatura diferente usando o botão **Mover** da barra de comandos na home page do seu data factory.
+## <a name="move-a-data-factory-tooa-different-resource-group-or-subscription"></a>Mover um grupo de recursos diferente de tooa de fábrica de dados ou a assinatura
+Você pode mover um grupo de recursos diferentes de tooa de fábrica de dados ou uma assinatura diferente usando Olá **mover** botão Olá home page de sua fábrica de dados de barra de comandos.
 
 ![Mover o Data Factory](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
 
-Você também pode mover todos os recursos relacionados (como alertas associados ao data factory) juntamente com ele.
+Você também pode mover os recursos relacionados (como alertas que estão associados a fábrica de dados Olá), juntamente com a fábrica de dados hello.
 
 ![Caixa de diálogo Mover recursos](./media/data-factory-monitor-manage-pipelines/MoveResources.png)

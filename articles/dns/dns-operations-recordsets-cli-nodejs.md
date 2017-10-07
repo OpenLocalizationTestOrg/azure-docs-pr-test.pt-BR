@@ -1,5 +1,5 @@
 ---
-title: Gerenciar registros DNS no DNS do Azure usando a CLI do Azure 1.0| Microsoft Docs
+title: "aaaManage registros DNS no DNS do Azure usando Olá 1.0 da CLI do Azure | Microsoft Docs"
 description: "Gerenciando conjuntos de registros DNS e registros no DNS do Azure ao hospedar seu domínio no DNS do Azure. Todos os comandos da CLI 1.0 para operações em conjuntos de registros e registros."
 services: dns
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/20/2016
 ms.author: jonatul
-ms.openlocfilehash: 307b327e4c04a0461e39930114eb193791cbda9a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1f01450b0839f712cb1d96be318766bac581fea1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-dns-records-in-azure-dns-using-the-azure-cli-10"></a>Gerenciar registros DNS no DNS do Azure usando a CLI do Azure 1.0
+# <a name="manage-dns-records-in-azure-dns-using-hello-azure-cli-10"></a>Gerenciar registros DNS no DNS do Azure usando Olá 1.0 da CLI do Azure
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](dns-operations-recordsets-portal.md)
@@ -27,20 +27,20 @@ ms.lasthandoff: 07/11/2017
 > * [CLI 2.0 do Azure](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
-Este artigo mostra como gerenciar registros DNS para sua zona DNS usando a CLI (interface de linha de comando) do Azure de plataforma cruzada, que está disponível para Windows, Mac e Linux. Você também pode gerenciar seus registros DNS usando o [Azure PowerShell](dns-operations-recordsets.md) ou o [Portal do Azure](dns-operations-recordsets-portal.md).
+Este artigo mostra como toomanage registros DNS para a zona DNS usando Olá plataforma cruzada do Azure interface de linha de comando (CLI), que está disponível para Windows, Mac e Linux. Você também pode gerenciar seus registros DNS usando [Azure PowerShell](dns-operations-recordsets.md) ou hello [portal do Azure](dns-operations-recordsets-portal.md).
 
-## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
+## <a name="cli-versions-toocomplete-hello-task"></a>Tarefa de saudação do CLI versões toocomplete
 
-Você pode concluir a tarefa usando uma das seguintes versões da CLI:
+Você pode concluir a tarefa hello usando uma saudação versões da CLI a seguir:
 
-* [CLI do Azure 1.0](dns-operations-recordsets-cli-nodejs.md) – nossa CLI para os modelos de implantação clássico e do resource manager.
-* [CLI do Azure 2.0](dns-operations-recordsets-cli.md) – nossa próxima geração de CLI para o modelo de implantação do resource manager.
+* [1.0 de CLI do Azure](dns-operations-recordsets-cli-nodejs.md) -nosso CLI para modelos de implantação de gerenciamento de recursos e clássico de hello.
+* [2.0 do CLI do Azure](dns-operations-recordsets-cli.md) -nossa próxima geração CLI para o modelo de implantação do gerenciamento de recursos de saudação.
 
-Os exemplos neste artigo pressupõem que você já [instalou a CLI do Azure 1.0, entrou e criou uma zona DNS](dns-operations-dnszones-cli-nodejs.md).
+exemplos de saudação neste artigo presumem que você já tiver [instalado hello Azure CLI 1.0, conectado e criar uma zona DNS](dns-operations-dnszones-cli-nodejs.md).
 
 ## <a name="introduction"></a>Introdução
 
-Antes de criar registros DNS no DNS do Azure, primeiro você precisa entender como o DNS do Azure organiza registros DNS em conjuntos de registros DNS.
+Antes de criar os registros DNS no DNS do Azure, primeiro é necessário toounderstand como o DNS do Azure organiza os registros DNS em conjuntos de registros de DNS.
 
 [!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
@@ -48,21 +48,21 @@ Para obter mais informações sobre os registros DNS no DNS do Azure, confira [Z
 
 ## <a name="create-a-dns-record"></a>Criar um registro DNS
 
-Para criar um registro DNS, use o comando `azure network dns record-set add-record`. Para obter ajuda, consulte `azure network dns record-set add-record -h`.
+toocreate um registro DNS, use Olá `azure network dns record-set add-record` comando. Para obter ajuda, consulte `azure network dns record-set add-record -h`.
 
-Ao criar um registro, você precisa especificar o nome do grupo de recursos, o nome da zona, o nome do conjunto de registros, o tipo do registro e os detalhes do registro que está sendo criado. O nome do conjunto de registros fornecido deve ser um nome *relativo*, significando que ele deve excluir o nome da zona.
+Ao criar um registro, é necessário o nome do grupo de recursos do toospecify Olá, nome da zona, conjunto de registros, nome, tipo de registro de saudação e detalhes de saudação do registro de hello está sendo criado. Olá nome do conjunto de registros fornecido deve ser um *relativo* nome, o que significa que ele deve excluir o nome da zona hello.
 
-Se o conjunto de registros não existir, este comando o criará para você. Se o conjunto de registros já existir, este comando adicionará o registro que você especificar para o conjunto de registros existente.
+Se o conjunto de registros de saudação ainda não existir, este comando criará para você. Se já existir um conjunto de registros de hello, este comando denomine Olá registro que você especificar o conjunto de registros existentes toohello.
 
-Se um novo conjunto de registros for criado, um TTL padrão de 3600 será usado. Para obter instruções sobre como usar TTLs diferentes, consulte [Criar um conjunto de registros DNS](#create-a-dns-record-set).
+Se um novo conjunto de registros for criado, um TTL padrão de 3600 será usado. Para obter instruções sobre como toouse TTLs diferentes, consulte [criar um conjunto de registros de DNS](#create-a-dns-record-set).
 
-O exemplo a seguir cria um registro A chamado *www* na zona *contoso.com* no grupo de recursos *MyResourceGroup*. O endereço IP do registro A é *1.2.3.4*.
+Olá, exemplo a seguir cria um registro chamado *www* na zona Olá *contoso.com* no grupo de recursos de saudação *MyResourceGroup*. Olá Olá é um registro de endereço IP *1.2.3.4*.
 
 ```azurecli
 azure network dns record-set add-record MyResourceGroup contoso.com www A -a 1.2.3.4
 ```
 
-Para criar um registro no vértice da zona (nesse caso, "contoso.com"), use o nome do registro “@”, incluindo as aspas:
+toocreate um registro no ápice da saudação da zona de saudação (nesse caso, "contoso.com"), use o nome do registro hello "@", incluindo Olá aspas:
 
 ```azurecli
 azure network dns record-set add-record MyResourceGroup contoso.com "@" A -a 1.2.3.4
@@ -70,19 +70,19 @@ azure network dns record-set add-record MyResourceGroup contoso.com "@" A -a 1.2
 
 ## <a name="create-a-dns-record-set"></a>Criar um conjunto de registros DNS
 
-Nos exemplos acima, o registro DNS ou foi adicionado a um conjunto de registros existente ou então o conjunto de registros foi criado *implicitamente*. Você também pode criar o conjunto de registros *explicitamente* antes de adicionar registros a ele. O DNS do Azure também dá suporte a conjuntos de registros 'vazios', que podem agir como um espaço reservado para reservar um nome DNS antes da criação de registros DNS. Os conjuntos de registros vazios são visíveis no painel de controle do DNS do Azure, mas não aparecem nos servidores de nome DNS do Azure.
+Em Olá acima exemplos, registro DNS Olá era o tooan adicionado existente de conjunto de registros ou conjunto de registros de saudação foi criado *implicitamente*. Você também pode criar o conjunto de registros de saudação *explicitamente* antes de adicionar registros tooit. DNS do Azure oferece suporte a conjuntos de registros 'empty', que podem agir como um espaço reservado tooreserve um nome DNS antes de criar registros DNS. Conjuntos de registros vazios são visíveis em Olá DNS do Azure plano de controle, mas não aparecem nos servidores de nome DNS do Azure hello.
 
-Os conjuntos de registros são criados usando o comando `azure network dns record-set create`. Para obter ajuda, consulte `azure network dns record-set create -h`.
+Conjuntos de registros são criados usando Olá `azure network dns record-set create` comando. Para obter ajuda, consulte `azure network dns record-set create -h`.
 
-Criar o registro definido explicitamente permite que você especifique propriedades do conjunto de registros como o [TTL (vida útil)](dns-zones-records.md#time-to-live) e os metadados. Os [metadados do conjunto de registros](dns-zones-records.md#tags-and-metadata) podem ser usados para associar os dados específicos do aplicativo com cada conjunto de registros, como pares de chave-valor.
+Criar registro Olá definido explicitamente permite toospecify propriedades de conjunto de registros como Olá [Time-To-Live (TTL)](dns-zones-records.md#time-to-live) e metadados. [Metadados de conjunto de registros](dns-zones-records.md#tags-and-metadata) podem ser dados específicos do aplicativo de tooassociate usado com cada conjunto de registros, como pares chave-valor.
 
-O exemplo a seguir cria um conjunto de registros vazio com um TTL de 60 segundos, usando o parâmetro `--ttl` (forma abreviada `-l`):
+Olá, exemplo a seguir cria um registro vazio definido com um TTL de 60 segundos, por meio de saudação `--ttl` parâmetro (forma abreviada `-l`):
 
 ```azurecli
 azure network dns record-set create MyResourceGroup contoso.com www A --ttl 60
 ```
 
-O exemplo a seguir cria um conjunto de registros com duas entradas de metadados, "dept=finance" e "environment=production", pelo uso do parâmetro `--metadata` (forma abreviada `-m`):
+Olá, exemplo a seguir cria um conjunto de registros com duas entradas de metadados, "dept = Finanças" e "ambiente = produção", usando Olá `--metadata` parâmetro (forma abreviada `-m`):
 
 ```azurecli
 azure network dns record-set create MyResourceGroup contoso.com www A --metadata "dept=finance;environment=production"
@@ -92,13 +92,13 @@ Depois de criar um conjunto de registros vazio, registros podem ser adicionados 
 
 ## <a name="create-records-of-other-types"></a>Criar outros tipos de registro
 
-Depois de ter visto detalhadamente como criar os registros 'A', os exemplos a seguir mostram como criar registros de outros tipos, aos quais o DNS do Azure dá suporte.
+Depois de ter visto em detalhes como registros toocreate 'A', Olá seguintes exemplos mostram como suporte para registro de toocreate de outros tipos de registro DNS do Azure.
 
-Os parâmetros usados para especificar os dados de registro variam dependendo do tipo de registro. Por exemplo, para um registro do tipo "A", você especifica o endereço IPv4 com o parâmetro `-a <IPv4 address>`. Os parâmetros para cada tipo de registro podem ser listados usando `azure network dns record-set add-record -h`.
+parâmetros de saudação usados toospecify registro de saudação dados variar dependendo do tipo de saudação do registro hello. Por exemplo, para um registro do tipo "A", você especificar endereço Olá IPv4 com parâmetro hello `-a <IPv4 address>`. Olá parâmetros para cada tipo de registro pode ser listado usando `azure network dns record-set add-record -h`.
 
-Em cada caso, mostraremos como criar um único registro. O registro é adicionado ao conjunto de registros existente ou um conjunto de registros é criado implicitamente. Para obter mais informações sobre como criar conjuntos de registros e definir o parâmetro do conjunto de registros explicitamente, consulte [Criar um conjunto de registros DNS](#create-a-dns-record-set).
+Em cada caso, mostramos como toocreate um único registro. registro de saudação é adicionado toohello existente de conjunto de registros ou um conjunto de registros criado implicitamente. Para obter mais informações sobre como criar conjuntos de registros e definir o parâmetro do conjunto de registros explicitamente, consulte [Criar um conjunto de registros DNS](#create-a-dns-record-set).
 
-Não podemos dar um exemplo para criar um conjunto de registros SOA, pois os SOAs são criados e excluídos com cada zona DNS e não podem ser criados ou excluídos separadamente. No entanto, [o SOA pode ser modificado, como mostrado no exemplo mais adiante](#to-modify-an-SOA-record).
+Não fornecemos um exemplo toocreate um conjunto de registros SOA, como SOAs são criados e excluídos com cada zona DNS e não pode ser criado ou excluído separadamente. No entanto, [Olá SOA pode ser modificado, conforme mostrado no exemplo mais adiante](#to-modify-an-SOA-record).
 
 ### <a name="create-an-aaaa-record"></a>Criar um registro AAAA
 
@@ -109,7 +109,7 @@ azure network dns record-set add-record MyResourceGroup contoso.com test-aaaa AA
 ### <a name="create-a-cname-record"></a>Criar um registro CNAME
 
 > [!NOTE]
-> Os padrões do DNS não permitem registros CNAME no ápice de uma zona (`-Name "@"`), nem permitem conjuntos de registros que contêm mais de um registro.
+> padrões DNS Olá não permitem que os registros CNAME no ápice da saudação de uma zona (`-Name "@"`), nem eles permitem que os conjuntos de registro que contém mais de um registro.
 > 
 > Para obter mais informações, consulte [Registros CNAME](dns-zones-records.md#cname-records).
 
@@ -119,7 +119,7 @@ azure network dns record-set add-record  MyResourceGroup contoso.com  test-cname
 
 ### <a name="create-an-mx-record"></a>Criar um registro MX
 
-Neste exemplo, usamos o nome do conjunto de registros "@" para criar o registro MX no vértice da zona (nesse caso, "contoso.com").
+Neste exemplo, podemos usar o nome do conjunto de registros de hello "@" hello toocreate registro MX no ápice da zona de saudação (nesse caso, "contoso.com").
 
 ```azurecli
 azure network dns record-set add-record MyResourceGroup contoso.com  "@" MX --exchange mail.contoso.com --preference 5
@@ -133,7 +133,7 @@ azure network dns record-set add-record MyResourceGroup  contoso.com  test-ns NS
 
 ### <a name="create-a-ptr-record"></a>Criar um registro PTR
 
-Neste caso, 'minha-zona-arpa.com' representa a zona ARPA que apresenta o intervalo de IP. Cada registro PTR definido nesta zona corresponde a um endereço IP nesse intervalo de IP.  O nome do registro '10' é o último octeto do endereço IP dentro desse intervalo IP representado por esse registro.
+Nesse caso, ' Meu-arpa-zone.com' representa Olá zona ARPA que representa o intervalo de IP. Cada registro PTR definido nesta zona corresponde endereço IP tooan dentro desse intervalo IP.  nome do registro Olá '10' é último octeto saudação do endereço IP hello dentro desse intervalo IP representado por esse registro.
 
 ```azurecli
 azure network dns record-set add-record MyResourceGroup my-arpa-zone.com "10" PTR --ptrdname "myservice.contoso.com"
@@ -141,7 +141,7 @@ azure network dns record-set add-record MyResourceGroup my-arpa-zone.com "10" PT
 
 ### <a name="create-an-srv-record"></a>Criar um registro SRV
 
-Ao criar um [conjunto de registros SRV](dns-zones-records.md#srv-records), especifique o *\_serviço* e o *\_protocolo* no nome do conjunto de registros. Não é necessário incluir “@” no nome do conjunto de registros ao criar um conjunto de registros SRV definido no ápice da zona.
+Ao criar um [conjunto de registros SRV](dns-zones-records.md#srv-records), especificar Olá  *\_service* e  *\_protocolo* em Olá nome de conjunto de registros. Não há nenhuma necessidade tooinclude "@" no hello registro de nome do conjunto quando criar um registro SRV definida no ápice da zona de saudação.
 
 ```azurecli
 azure network dns record-set add-record MyResourceGroup contoso.com  "_sip._tls" SRV --priority 10 --weight 5 --port 8080 --target "sip.contoso.com"
@@ -149,7 +149,7 @@ azure network dns record-set add-record MyResourceGroup contoso.com  "_sip._tls"
 
 ### <a name="create-a-txt-record"></a>Criar um registro TXT
 
-O exemplo a seguir mostra como criar um registro TXT. Para obter mais informações sobre o tamanho máximo suportado pelos registros TXT, consulte [Registros TXT](dns-zones-records.md#txt-records).
+Olá exemplo a seguir mostra como registrar o toocreate um TXT. Para obter mais informações sobre Olá tamanho máximo com suporte no registros TXT, consulte [registros TXT](dns-zones-records.md#txt-records).
 
 ```azurecli
 azure network dns record-set add-record MyResourceGroup contoso.com test-txt TXT --text "This is a TXT record"
@@ -157,11 +157,11 @@ azure network dns record-set add-record MyResourceGroup contoso.com test-txt TXT
 
 ## <a name="get-a-record-set"></a>Obter um conjunto de registros
 
-Para recuperar um conjunto de registros existente, use `azure network dns record-set show`. Para obter ajuda, consulte `azure network dns record-set show -h`.
+tooretrieve um conjunto de registros existente, use `azure network dns record-set show`. Para obter ajuda, consulte `azure network dns record-set show -h`.
 
-Assim como acontece ao criar um registro ou conjunto de registros, o nome do conjunto de registros fornecido deve ser um nome *relativo*, significando que ele deve excluir o nome da zona. Você também precisa especificar o tipo de registro, a zona que contém o conjunto de registros e o grupo de recursos que contém a zona.
+Ao criar um conjunto de registros ou de registro, registro Olá definir nome fornecido deve ser um *relativo* nome, o que significa que ele deve excluir o nome da zona hello. Também é necessário o tipo de registro toospecify hello, zona Olá contendo Olá registro definido e Olá que contém a zona de saudação do grupo de recursos.
 
-O exemplo a seguir recupera o registro *www* de tipo A da zona *contoso.com* no grupo de recursos *MyResourceGroup*:
+Olá, exemplo a seguir recupera o registro de saudação *www* de um tipo de zona *contoso.com* no grupo de recursos *MyResourceGroup*:
 
 ```azurecli
 azure network dns record-set show MyResourceGroup contoso.com www A
@@ -169,37 +169,37 @@ azure network dns record-set show MyResourceGroup contoso.com www A
 
 ## <a name="list-record-sets"></a>Listar os conjuntos de registros
 
-Você pode listar todos os registros em uma zona DNS com o comando `azure network dns record-set list` . Para obter ajuda, consulte `azure network dns record-set list -h`.
+Você pode listar todos os registros em uma zona DNS usando Olá `azure network dns record-set list` comando. Para obter ajuda, consulte `azure network dns record-set list -h`.
 
-Este exemplo retorna todos os conjuntos de registros na zona *contoso.com* e no grupo de recursos *MyResourceGroup*, independentemente do nome ou tipo de registro:
+Este exemplo retorna conjuntos de todos os registros na zona Olá *contoso.com*, no grupo de recursos *MyResourceGroup*, independentemente do nome ou tipo de registro:
 
 ```azurecli
 azure network dns record-set list MyResourceGroup contoso.com
 ```
 
-Este exemplo retorna todos os conjuntos de registros correspondentes ao tipo de registro determinado (nesse caso, registros 'A'):
+Este exemplo retorna todos os conjuntos de registros que correspondem a saudação considerando o tipo de registro (nesse caso, 'A' registros):
 
 ```azurecli
 azure network dns record-set list MyResourceGroup contoso.com --type A
 ```
 
-## <a name="add-a-record-to-an-existing-record-set"></a>Adicionar um registro a um conjunto de registros existente
+## <a name="add-a-record-tooan-existing-record-set"></a>Adicionar um registro tooan existente de conjunto de registros
 
-Você pode usar `azure network dns record-set add-record` tanto para criar um registro em um novo conjunto de registros quanto para adicionar um registro a um conjunto de registros existente.
+Você pode usar `azure network dns record-set add-record` tanto toocreate um registro em um novo registro ou definidas tooadd um registro existente tooan registro.
 
 Para obter mais informações, consulte [Criar um registro DNS](#create-a-dns-record) e [Criar registros de outros tipos](#create-records-of-other-types), acima.
 
 ## <a name="remove-a-record-from-an-existing-record-set"></a>Remover um registro de um conjunto de registros existente.
 
-Para remover um registro DNS de um conjunto de registros existente, use `azure network dns record-set delete-record`. Para obter ajuda, consulte `azure network dns record-set delete-record -h`.
+registrar tooremove um DNS de um conjunto de registros existente, use `azure network dns record-set delete-record`. Para obter ajuda, consulte `azure network dns record-set delete-record -h`.
 
-Esse comando exclui um registro DNS de um conjunto de registros. Se o último registro de um conjunto de registros é excluído, o conjunto de registros em si **não** é excluído. Em vez disso, um conjunto de registros vazio é mantido. Para em vez disso excluir o conjunto de registros, veja [Excluir um conjunto de registros](#delete-a-record-set).
+Esse comando exclui um registro DNS de um conjunto de registros. Se o último registro de saudação em um conjunto de registros é excluído, o registro de saudação definido em si é **não** excluído. Em vez disso, um conjunto de registros vazio é mantido. registro de saudação toodelete definido em vez disso, consulte [excluir um conjunto de registros](#delete-a-record-set).
 
-Você precisa especificar o registro a ser excluído e a zona da qual ele deve ser excluído, usando os mesmos parâmetros usados ao criar um registro usando `azure network dns record-set add-record`. Esses parâmetros são descritos em [Criar um registro DNS](#create-a-dns-record) e [Criar registros de outros tipos](#create-records-of-other-types), acima.
+Você precisa toospecify Olá toobe registro excluído e zona Olá deve ser excluída, usando Olá os mesmos parâmetros durante a criação de um registro usando `azure network dns record-set add-record`. Esses parâmetros são descritos em [Criar um registro DNS](#create-a-dns-record) e [Criar registros de outros tipos](#create-records-of-other-types), acima.
 
-Esse comando solicita uma confirmação. Esse prompt pode ser suprimido usando a opção `--quiet` (forma abreviada `-q`).
+Esse comando solicita uma confirmação. Esse aviso pode ser suprimido Olá `--quiet` alternar (forma abreviada `-q`).
 
-O exemplo a seguir cria um registro A com o valor '1.2.3.4' do conjunto de recursos chamado *www* na zona *contoso.com*, no grupo de recursos *MyResourceGroup*. O prompt de confirmação será suprimido.
+Olá exclusões de exemplo a seguir Olá um registro com o valor '1.2.3.4' do registro Olá conjunto nomeado *www* na zona Olá *contoso.com*, no grupo de recursos de saudação *MyResourceGroup*. prompt de confirmação de saudação é suprimida.
 
 ```azurecli
 azure network dns record-set delete-record MyResourceGroup contoso.com www A -a 1.2.3.4 --quiet
@@ -207,69 +207,69 @@ azure network dns record-set delete-record MyResourceGroup contoso.com www A -a 
 
 ## <a name="modify-an-existing-record-set"></a>Modificar um conjunto de registros existente
 
-Cada conjunto de registros contém um [TTL (vida útil)](dns-zones-records.md#time-to-live), [metadados](dns-zones-records.md#tags-and-metadata) e registros DNS. As seções a seguir explicam como modificar cada uma dessas propriedades.
+Cada conjunto de registros contém um [TTL (vida útil)](dns-zones-records.md#time-to-live), [metadados](dns-zones-records.md#tags-and-metadata) e registros DNS. Olá seções a seguir explicam como toomodify essas propriedades.
 
-### <a name="to-modify-an-a-aaaa-mx-ns-ptr-srv-or-txt-record"></a>Para modificar um registro A, AAAA, MX, NS, PTR, SRV ou TXT
+### <a name="toomodify-an-a-aaaa-mx-ns-ptr-srv-or-txt-record"></a>toomodify um registro A, AAAA, MX, NS, PTR, SRV ou TXT
 
-Para modificar um registro existente do tipo A, AAAA, MX, NS, PTR, SRV ou TXT, você deve primeiro adicionar um novo registro e, em seguida, excluir o registro existente. Para obter instruções detalhadas sobre como excluir e adicionar registros, consulte as seções anteriores deste artigo.
+toomodify um registro existente do tipo A, AAAA, MX, NS, PTR, SRV ou TXT, você primeiro deve adicionar um novo registro e, em seguida, excluir o registro existente hello. Para obter instruções detalhadas sobre como toodelete e adicionar registros, consulte Olá seções anteriores deste artigo.
 
-O exemplo a seguir mostra como modificar um registro 'A', alterando o endereço IP 1.2.3.4 para o endereço IP 5.6.7.8:
+saudação de exemplo a seguir mostra como toomodify um registro de 'A', do IP endereço 1.2.3.4 tooIP endereço 5.6.7.8:
 
 ```azurecli
 azure network dns record-set add-record MyResourceGroup contoso.com www A -a 5.6.7.8
 azure network dns record-set delete-record MyResourceGroup contoso.com www A -a 1.2.3.4
 ```
 
-### <a name="to-modify-a-cname-record"></a>Para modificar um registro CNAME
+### <a name="toomodify-a-cname-record"></a>toomodify um registro CNAME
 
-Para modificar um registro CNAME, use `azure network dns record-set add-record` para adicionar o novo valor de registro. Ao contrário de outros tipos de registro, um conjunto de registros CNAME pode conter apenas um único registro. Portanto, o registro existente é *substituído* quando o novo registro é adicionado e não precisa ser excluído separadamente.  Será solicitado que você aceite essa substituição.
+toomodify um registro CNAME, use `azure network dns record-set add-record` tooadd Olá novo valor de registro. Ao contrário de outros tipos de registro, um conjunto de registros CNAME pode conter apenas um único registro. Portanto, o registro existente Olá é *substituído* quando Olá novo registro é adicionado e não precisa toobe excluído separadamente.  Você será solicitado tooaccept essa substituição.
 
-O exemplo modifica o conjunto de registros CNAME *www* na zona *contoso.com*, no grupo de recursos *MyResourceGroup*, para apontar para 'www.fabrikam.net' em vez de seu valor existente:
+exemplo Hello modifica conjunto de registros de CNAME Olá *www* na zona Olá *contoso.com*, no grupo de recursos *MyResourceGroup*, toopoint muito www.fabrikam.net em vez de seu valor existente:
 
 ```azurecli
 azure network dns record-set add-record MyResourceGroup contoso.com www CNAME --cname www.fabrikam.net
 ``` 
 
-### <a name="to-modify-an-soa-record"></a>Para modificar um registro SOA
+### <a name="toomodify-an-soa-record"></a>toomodify um registro SOA
 
-Use `azure network dns record-set set-soa-record` para modificar a SOA para uma zona DNS. Para obter ajuda, consulte `azure network dns record-set set-soa-record -h`.
+Use `azure network dns record-set set-soa-record` toomodify Olá SOA para uma zona DNS. Para obter ajuda, consulte `azure network dns record-set set-soa-record -h`.
 
-O exemplo a seguir mostra como definir a propriedade 'email' do registro SOA para a zona *contoso.com*, no grupo de recursos *MyResourceGroup*:
+Olá exemplo a seguir mostra como propriedade tooset Olá 'email' de saudação SOA registrar para a zona de saudação *contoso.com* no grupo de recursos de saudação *MyResourceGroup*:
 
 ```azurecli
 azure network dns record-set set-soa-record rg1 contoso.com --email admin.contoso.com
 ```
 
 
-### <a name="to-modify-ns-records-at-the-zone-apex"></a>Para modificar registros NS no apex da zona
+### <a name="toomodify-ns-records-at-hello-zone-apex"></a>toomodify NS registros no ápice da zona de saudação
 
-O registro NS definido no apex da zona é criado automaticamente com cada zona DNS. Ele contém os nomes dos servidores de nome DNS do Azure atribuídos à zona.
+registro de NS Olá definido no ápice da zona de saudação é criado automaticamente com cada zona DNS. Ela contém nomes de saudação da zona do hello Azure DNS nome servidores toohello atribuído.
 
-Você pode adicionar servidores de nome adicionais a esse conjunto de registros NS para dar suporte à co-hospedagem de domínios com mais de um provedor DNS. Você também pode modificar o TTL e os metadados para esse conjunto de registros. No entanto, você não pode remover nem modificar os servidores de nome DNS do Azure previamente populados.
+Você pode adicionar nome adicionais servidores toothis NS conjunto de registros, toosupport co-hospedagem domínios com mais de um provedor DNS. Você também pode modificar hello TTL e metadados para esse conjunto de registros. No entanto, você não pode remover ou modificar servidores de nome DNS do Azure preenchidos previamente hello.
 
-Observe que isso se aplica somente ao conjunto de registros NS definido no apex da zona. Outros conjuntos de registros NS na sua zona (conforme utilizados para delegar zonas filho) podem ser modificados sem restrição.
+Observe que isso se aplica apenas toohello NS conjunto de registros no ápice da zona de saudação. Outros conjuntos de registros NS na zona (como zonas de filho usado toodelegate) podem ser modificados sem restrição.
 
-O exemplo a seguir mostra como adicionar um servidor de nome adicional ao conjunto de registros NS no apex da zona:
+saudação de exemplo a seguir mostra como tooadd um registro NS de toohello de servidor de nome adicionais definir no ápice da zona de saudação:
 
 ```azurecli
 azure network dns record-set add-record MyResourceGroup contoso.com "@" --nsdname ns1.myotherdnsprovider.com 
 ```
 
-### <a name="to-modify-the-ttl-of-an-existing-record-set"></a>Para modificar o TTL de um conjunto de registros existente
+### <a name="toomodify-hello-ttl-of-an-existing-record-set"></a>Definir toomodify Olá TTL de um registro existente
 
-Para modificar o TTL de um conjunto de registros existente, use `azure network dns record-set set`. Para obter ajuda, consulte `azure network dns record-set set -h`.
+Definir toomodify Olá TTL de um registro existente, use `azure network dns record-set set`. Para obter ajuda, consulte `azure network dns record-set set -h`.
 
-O exemplo a seguir mostra como modificar um conjunto de registros TTL, nesse caso para 60 segundos:
+saudação de exemplo a seguir mostra como toomodify um conjunto de registros TTL, neste caso, too60 segundos:
 
 ```azurecli
 azure network dns record-set set MyResourceGroup contoso.com www A --ttl 60
 ```
 
-### <a name="to-modify-the-metadata-of-an-existing-record-set"></a>Para modificar os metadados de um conjunto de registros existente
+### <a name="toomodify-hello-metadata-of-an-existing-record-set"></a>toomodify Olá metadados de um conjunto de registro existente
 
-Os [metadados do conjunto de registros](dns-zones-records.md#tags-and-metadata) podem ser usados para associar os dados específicos do aplicativo com cada conjunto de registros, como pares de chave-valor. Para modificar os metadados de um conjunto de registros existente, use `azure network dns record-set set`. Para obter ajuda, consulte `azure network dns record-set set -h`.
+[Metadados de conjunto de registros](dns-zones-records.md#tags-and-metadata) podem ser dados específicos do aplicativo de tooassociate usado com cada conjunto de registros, como pares chave-valor. Definir toomodify Olá metadados de um registro existente, use `azure network dns record-set set`. Para obter ajuda, consulte `azure network dns record-set set -h`.
 
-O exemplo a seguir mostra como modificar um conjunto de registros com duas entradas de metadados, "dept=finance" e "environment=production", pelo uso do parâmetro `--metadata` (forma abreviada `-m`). Observe que os metadados existentes são *substituídos* pelos valores fornecidos.
+Olá exemplo a seguir mostra como toomodify um conjunto de registros com duas entradas de metadados, "dept = Finanças" e "ambiente = produção", usando Olá `--metadata` parâmetro (forma abreviada `-m`). Observe que os metadados existentes são *substituído* pelos valores hello fornecidos.
 
 ```azurecli
 azure network dns record-set set MyResourceGroup contoso.com www A --metadata "dept=finance;environment=production"
@@ -277,21 +277,21 @@ azure network dns record-set set MyResourceGroup contoso.com www A --metadata "d
 
 ## <a name="delete-a-record-set"></a>Excluir um conjunto de registros
 
-Os conjuntos de registros podem ser excluídos usando o comando `azure network dns record-set delete`. Para obter ajuda, consulte `azure network dns record-set delete -h`. Excluir um conjunto de registros também exclui todos os registros no conjunto de registros.
+Conjuntos de registros podem ser excluídos usando Olá `azure network dns record-set delete` comando. Para obter ajuda, consulte `azure network dns record-set delete -h`. Excluir um conjunto de registros também exclui todos os registros no conjunto de registros de saudação.
 
 > [!NOTE]
-> Não é possível excluir os conjuntos de registro SOA e NS no ápice da zona (`-Name "@"`).  Eles são criados automaticamente quando a zona foi criada e são excluídos automaticamente quando a zona é excluída.
+> Você não pode excluir Olá SOA e NS conjuntos de registros no ápice da zona de saudação (`-Name "@"`).  Eles são criados automaticamente quando Olá zona foi criado e são excluídos automaticamente quando Olá zona é excluída.
 
-O exemplo a seguir exclui o conjunto de registros chamado *www* de tipo A da zona *contoso.com* no grupo de recursos *MyResourceGroup*:
+Olá, exemplo a seguir exclui conjunto nomeado de registros de saudação *www* de um tipo de zona Olá *contoso.com* no grupo de recursos *MyResourceGroup*:
 
 ```azurecli
 azure network dns record-set delete MyResourceGroup contoso.com www A
 ```
 
-Será solicitado que você confirme a operação de exclusão. Para suprimir esse prompt, use a opção `--quiet` (forma abreviada `-q`).
+Você está operação de exclusão de saudação tooconfirm solicitada. toosuppress nesse prompt, use Olá `--quiet` alternar (forma abreviada `-q`).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as [zonas e os registros no DNS do Azure](dns-zones-records.md).
 <br>
-Saiba como [proteger seus registros e zonas](dns-protect-zones-recordsets.md) ao usar o DNS do Azure.
+Saiba como muito[proteger suas zonas e registros de](dns-protect-zones-recordsets.md) ao usar o DNS do Azure.

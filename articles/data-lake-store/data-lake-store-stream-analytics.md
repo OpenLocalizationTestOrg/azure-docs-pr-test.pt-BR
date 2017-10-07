@@ -1,6 +1,6 @@
 ---
-title: Transmitir dados do Stream Analytics para o Data Lake Store | Microsoft Docs
-description: "Usar o Stream Analytics do Azure para transmitir dados para o Repositório Azure Data Lake"
+title: "dados de aaaStream do Stream Analytics em repositório Data Lake | Microsoft Docs"
+description: "Usar dados de toostream do Stream Analytics do Azure no repositório Azure Data Lake"
 services: data-lake-store,stream-analytics
 documentationcenter: 
 author: nitinme
@@ -14,116 +14,116 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: nitinme
-ms.openlocfilehash: 90104aaacf24a5a7156900fc3848a27f60329814
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 68c727d4807db0abe6efa90145d68c78902eb789
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Dados de transmissão do Blob de Armazenamento do Azure para o Repositório Data Lake usando o Stream Analytics do Azure
-Neste artigo, você aprenderá como usar o Repositório Azure Data Lake como uma saída para um trabalho do Stream Analytics do Azure. Este artigo demonstra um cenário simples que lê dados de um blob de armazenamento do Azure (entrada) e grava os dados no Repositório Data Lake (saída).
+Neste artigo, você aprenderá como toouse do Azure Data Lake armazenar como uma saída para um trabalho do Stream Analytics do Azure. Este artigo demonstra um cenário simples que lê dados de um blob de armazenamento do Azure (entrada) e gravações Olá dados tooData Lake repositório (saída).
 
 > [!NOTE]
-> No momento, há suporte para a criação e a configuração das saídas do Data Lake Store para o Stream Analytics apenas no [Portal Clássico do Azure](https://manage.windowsazure.com). Portanto, algumas partes deste tutorial usarão o Portal Clássico do Azure.
+> Neste momento, criação e configuração do repositório Data Lake saída para análise de fluxo tem suporte apenas em Olá [Portal clássico do Azure](https://manage.windowsazure.com). Portanto, algumas partes deste tutorial usará Olá Portal clássico do Azure.
 >
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar este tutorial, você deve ter o seguinte:
+Antes de começar este tutorial, você deve ter o seguinte hello:
 
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Conta de Armazenamento do Azure**. Você usará um contêiner de blob desta conta para os dados de entrada para um trabalho do Stream Analytics. Para esse tutorial, suponha que você tem uma conta de armazenamento chamada **storageforasa** e um contêiner na conta chamado **storageforasacontainer**. Depois de criar o contêiner, carregue um arquivo de dados de exemplo nele. 
+* **Conta de Armazenamento do Azure**. Você usará um contêiner de blob de dados de tooinput essa conta para um trabalho do Stream Analytics. Para este tutorial, suponha que você tem uma conta de armazenamento chamada **storageforasa** e um contêiner na conta Olá chamado **storageforasacontainer**. Depois de criar o contêiner de hello, carregue um tooit de arquivo de dados de exemplo. 
   
-* **Conta do Repositório Azure Data Lake**. Siga as instruções em [Introdução ao Repositório Azure Data Lake usando o Portal do Azure](data-lake-store-get-started-portal.md). Vamos supor que você tenha uma conta do Data Lake Store chamada **asadatalakestore**. 
+* **Conta do Repositório Azure Data Lake**. Siga as instruções de saudação em [Introdução ao repositório Azure Data Lake usando hello Azure Portal](data-lake-store-get-started-portal.md). Vamos supor que você tenha uma conta do Data Lake Store chamada **asadatalakestore**. 
 
 ## <a name="create-a-stream-analytics-job"></a>Criar um trabalho do Stream Analytics
-Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de entrada e um destino de saída. Para este tutorial, o código-fonte é um contêiner de blob do Azure e o destino é o Repositório Data Lake.
+Você começa ao criar um trabalho do Stream Analytics, que inclui uma fonte de entrada e um destino de saída. Para este tutorial, origem Olá é um contêiner de BLOBs do Azure e o destino de saudação é repositório Data Lake.
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Logon toohello [Portal do Azure](https://portal.azure.com).
 
-2. No painel à esquerda, clique em **Trabalhos do Stream Analytics** e, em seguida, clique em **Adicionar**.
+2. No painel esquerdo do hello, clique em **trabalhos do Stream Analytics**e, em seguida, clique em **adicionar**.
 
     ![Criar um trabalho do Stream Analytics](./media/data-lake-store-stream-analytics/create.job.png "Criar um trabalho do Stream Analytics")
 
     > [!NOTE]
-    > Certifique-se de criar o trabalho na mesma região que a conta de armazenamento, ou você estará sujeito a pagar pelos custos adicionais de mover os dados entre regiões.
+    > Certifique-se de criar trabalho Olá mesma região que a conta de armazenamento hello, ou você incorrerá em custos adicionais de mover dados entre regiões.
     >
 
-## <a name="create-a-blob-input-for-the-job"></a>Criar uma entrada de blob para o trabalho
+## <a name="create-a-blob-input-for-hello-job"></a>Criar uma entrada de Blob para o trabalho de saudação
 
-1. Abra a página do trabalho do Stream Analytics, clique na guia **Entradas** no painel à esquerda e, em seguida, clique em **Adicionar**.
+1. Página abrir Olá para o trabalho de análise de fluxo hello, no painel esquerdo do hello clique Olá **entradas** guia e, em seguida, clique em **adicionar**.
 
-    ![Adicionar uma entrada ao trabalho](./media/data-lake-store-stream-analytics/create.input.1.png "Adicionar uma entrada ao trabalho")
+    ![Adicionar um trabalho de entrada tooyour](./media/data-lake-store-stream-analytics/create.input.1.png "adicionar um trabalho de entrada tooyour")
 
-2. Na folha **Nova entrada**, forneça os valores a seguir.
+2. Em Olá **nova entrada** folha, fornecer Olá valores a seguir.
 
-    ![Adicionar uma entrada ao trabalho](./media/data-lake-store-stream-analytics/create.input.2.png "Adicionar uma entrada ao trabalho")
+    ![Adicionar um trabalho de entrada tooyour](./media/data-lake-store-stream-analytics/create.input.2.png "adicionar um trabalho de entrada tooyour")
 
-    * Para **Alias de entrada**, insira um nome exclusivo para essa entrada de trabalho.
+    * Para **alias de entrada**, insira um nome exclusivo para a entrada de trabalho hello.
     * Para **Tipo de fonte**, selecione **luxo de dados**.
     * Para **Fonte**, selecione **Armazenamento de Blobs**.
     * Para **Assinatura**, selecione **Usar armazenamento de blobs da assinatura atual**.
-    * Para **Conta de armazenamento**, selecione a conta de armazenamento que você criou como parte dos pré-requisitos. 
-    * Para **Contêiner**, selecione o contêiner que você criou na conta de armazenamento selecionada.
+    * Para **conta de armazenamento**, selecione a conta de armazenamento de saudação que você criou como parte dos pré-requisitos de saudação. 
+    * Para **contêiner**, selecione contêiner Olá que você criou na saudação selecionado conta de armazenamento.
     * Para **Formato de Serialização de Evento**, clique em **CSV**.
     * Para **Delimitador**, selecione **guia**.
     * Para **Codificação**, selecione **UTF-8**.
 
-    Clique em **Criar**. O portal agora adiciona a entrada e testa a conexão.
+    Clique em **Criar**. portal de saudação agora adiciona entrada hello e testa Olá tooit de conexão.
 
 
-## <a name="create-a-data-lake-store-output-for-the-job"></a>Criar uma saída do Repositório Data Lake para o trabalho
+## <a name="create-a-data-lake-store-output-for-hello-job"></a>Criar uma saída de repositório Data Lake para trabalho Olá
 
-1. Abra a página do trabalho do Stream Analytics, clique na guia **Saídas** e, em seguida, clique em **Adicionar**.
+1. Abra a página Olá para o trabalho de análise de fluxo de saudação, clique em Olá **saídas** guia e, em seguida, clique em **adicionar**.
 
-    ![Adicionar uma saída ao trabalho](./media/data-lake-store-stream-analytics/create.output.1.png "Adicionar uma saída ao trabalho")
+    ![Adicionar um trabalho de saída tooyour](./media/data-lake-store-stream-analytics/create.output.1.png "adicionar um trabalho de tooyour de saída")
 
-2. Na folha **Nova saída**, forneça os valores a seguir.
+2. Em Olá **nova saída** folha, fornecer Olá valores a seguir.
 
-    ![Adicionar uma saída ao trabalho](./media/data-lake-store-stream-analytics/create.output.2.png "Adicionar uma saída ao trabalho")
+    ![Adicionar um trabalho de saída tooyour](./media/data-lake-store-stream-analytics/create.output.2.png "adicionar um trabalho de tooyour de saída")
 
-    * Para **Alias de saída**, insira um nome exclusivo para essa saída de trabalho. Esse é um nome amigável utilizado em consultas para direcionar a saída da consulta para esse Repositório Data Lake.
+    * Para **alias de saída**, insira uma um nome exclusivo para a saída do trabalho hello. Este é um nome amigável usado em consultas toodirect Olá consulta saída toothis repositório Data Lake.
     * Para **Coletor**, selecione **Data Lake Store**.
-    * Você precisará autorizar o acesso à conta do Data Lake Store. Clique em **Autorizar**.
+    * Você será solicitado tooauthorize acessar a conta do repositório de Lake tooData. Clique em **Autorizar**.
 
-3. Na folha **Nova saída**, forneça os valores a seguir.
+3. Em Olá **nova saída** folha, continuar Olá tooprovide valores a seguir.
 
-    ![Adicionar uma saída ao trabalho](./media/data-lake-store-stream-analytics/create.output.3.png "Adicionar uma saída ao trabalho")
+    ![Adicionar um trabalho de saída tooyour](./media/data-lake-store-stream-analytics/create.output.3.png "adicionar um trabalho de tooyour de saída")
 
-    * Para **Nome da conta**, selecione a conta do Data Lake Store criada para o qual você deseja que o trabalho de saída seja enviado.
-    * Para **Padrão de prefixo do caminho**, insira um caminho de arquivo usado para gravar seus arquivos na conta do Data Lake Store especificada.
-    * Para **Formato de data**, se você usou um token de data no caminho do prefixo, pode selecionar o formato de data em que os arquivos estão organizados.
-    * Para **Formato de hora**, se você usou um token de hora no caminho do prefixo, especifique o formato de hora em que os arquivos estão organizados.
+    * Para **nome da conta**, selecione conta de repositório Data Lake Olá já criada onde você deseja Olá toobe de saída de trabalho enviado para.
+    * Para **padrão de prefixo de caminho**, insira um toowrite de caminho usado do arquivo especificado de seus arquivos no hello conta do repositório Data Lake.
+    * Para **formato de data**, se você usou um token de data no caminho de prefixo Olá, você pode selecionar o formato de data de saudação na qual os arquivos são organizados.
+    * Para **formato de hora**, se você usou um token de tempo no caminho de prefixo hello, especificar o formato de tempo de saudação na qual os arquivos são organizados.
     * Para **Formato de Serialização de Evento**, clique em **CSV**.
     * Para **Delimitador**, selecione **guia**.
     * Para **Codificação**, selecione **UTF-8**.
     
-    Clique em **Criar**. O portal agora adiciona a saída e testa a conexão.
+    Clique em **Criar**. portal de saudação agora adiciona a saída de hello e testa Olá tooit de conexão.
     
-## <a name="run-the-stream-analytics-job"></a>Executar o trabalho do Stream Analytics
+## <a name="run-hello-stream-analytics-job"></a>Executar trabalho do Stream Analytics Olá
 
-1. Para executar um trabalho do Stream Analytics, você deve executar uma consulta da guia **Consulta**. Para este tutorial, você pode executar a consulta de exemplo, substituindo os espaços reservados pelos aliases de entrada e saída de trabalho, conforme mostrado na captura de tela abaixo.
+1. toorun um trabalho do Stream Analytics, você deve executar uma consulta de saudação **consulta** guia. Para este tutorial, você pode executar a consulta de exemplo hello, substituindo reservados Olá Olá trabalho aliases de entrada e saídas, conforme mostrado na captura de tela de saudação abaixo.
 
     ![Executar consulta](./media/data-lake-store-stream-analytics/run.query.png "Executar consulta")
 
-2. Clique em **Salvar** na parte superior da tela e, depois, em **Visão geral**, clique em **Iniciar**. Na caixa de diálogo, selecione **Hora Personalizada** e, em seguida, defina a data e a hora atuais.
+2. Clique em **salvar** de topo de saudação da tela hello e, em seguida, de saudação **visão geral** , clique em **iniciar**. Na caixa de diálogo hello, selecione **tempo personalizado**e, em seguida, defina Olá data e hora atuais.
 
     ![Definir o tempo de trabalho](./media/data-lake-store-stream-analytics/run.query.2.png "Definir o tempo de trabalho")
 
-    Clique em **Iniciar** para iniciar o teste. Pode levar até dois minutos para o trabalho ser iniciado.
+    Clique em **iniciar** toostart trabalho de saudação. Pode levar tooa alguns minutos toostart Olá de trabalho.
 
-3. Para acionar o trabalho de forma a escolher a os dados do blob, copie um arquivo de dados de exemplo para o contêiner de blob. Você pode obter um arquivo de dados de exemplo do [Repositório Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Para este tutorial, vamos copiar o arquivo **vehicle1_09142014.csv**. Você pode usar vários clientes, como o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/), para carregar dados em um contêiner de blob.
+3. dados tootrigger saudação trabalho toopick saudação do blob hello, copie um contêiner de blob do exemplo dados arquivo toohello. Você pode obter um arquivo de dados de exemplo da saudação [repositório Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Para este tutorial, vamos copiar arquivo hello **vehicle1_09142014.csv**. Você pode usar vários clientes, como [Azure Storage Explorer](http://storageexplorer.com/), contêiner de blob de tooa tooupload dados.
 
-4. Na guia **Visão geral**, em **Monitoramento**, veja como os dados foram processados.
+4. De saudação **visão geral** guia em **monitoramento**, consulte como dados saudação foi processados.
 
     ![Monitorar o trabalho](./media/data-lake-store-stream-analytics/run.query.3.png "Monitorar o trabalho")
 
-5. Por fim, você pode verificar se os dados de saída do trabalho estão disponíveis na conta do Data Lake Store. 
+5. Por fim, você pode verificar que os dados de saída do trabalho de saudação estão disponíveis na conta do repositório Data Lake Olá. 
 
     ![Verificar a saída](./media/data-lake-store-stream-analytics/run.query.4.png "Verificar a saída")
 
-    No painel Data Explorer, observe que a saída é gravada em uma pasta, conforme especificado nas configurações de saída do Data Lake Store (`streamanalytics/job/output/{date}/{time}`).  
+    No painel do Explorador de dados de hello, observe que Olá saída caminho da pasta tooa escrito como especificado no hello configurações de saída do repositório Data Lake (`streamanalytics/job/output/{date}/{time}`).  
 
 ## <a name="see-also"></a>Consulte também
-* [Criar um cluster do HDInsight para usar o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Criar um cluster de HDInsight toouse repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)

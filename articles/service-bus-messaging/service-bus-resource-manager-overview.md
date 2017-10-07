@@ -1,6 +1,6 @@
 ---
-title: "Criar recursos do Barramento de Serviço do Azure usando modelos do Azure Resource Manager | Microsoft Docs"
-description: "Usar modelos do Azure Resource Manager para automatizar a criação de recursos do Barramento de Serviço"
+title: recursos do Azure Service Bus aaaCreate usando modelos do Gerenciador de recursos do Azure | Microsoft Docs
+description: "Usar o Gerenciador de recursos do Azure modelos tooautomate Olá criação de recursos do barramento de serviço"
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: sethm
-ms.openlocfilehash: c8142d8edfd3a527b13d655bac21acf5332f2d14
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: e539902cae307b63ae7c332580e2064761331ec5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Criar recursos do Barramento de Serviço usando modelos do Azure Resource Manager
 
-Este artigo descreve como criar e implantar recursos do Barramento de Serviço usando modelos do Azure Resource Manager, o PowerShell e o provedor de recursos do Barramento de Serviço.
+Este artigo descreve como toocreate e implantar recursos de barramento de serviço usando o provedor de recursos do barramento de serviço hello, PowerShell e modelos do Azure Resource Manager.
 
-Os modelos do Azure Resource Manager ajudam você a definir os recursos a serem implantados em uma solução e a especificar os parâmetros e variáveis que lhe permitem inserir valores para diferentes ambientes. O modelo consiste em JSON e expressões que podem ser usados na criação de valores para sua implantação. Para obter informações detalhadas sobre a criação de modelos do Azure Resource Manager e uma discussão sobre o formato do modelo, consulte [Estrutura e sintaxe dos modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Modelos do Gerenciador de recursos do Azure ajudarão-lo a definir Olá toodeploy de recursos para uma solução e toospecify parâmetros e variáveis que permitem valores tooinput para ambientes diferentes. Olá modelo consiste em JSON e expressões que você pode usar valores de tooconstruct para sua implantação. Para obter informações detalhadas sobre como escrever modelos do Gerenciador de recursos do Azure e uma discussão sobre o formato de saudação de modelo, consulte [estrutura e a sintaxe de modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 > [!NOTE]
-> Os exemplos neste artigo mostram como usar o Azure Resource Manager para criar um namespace do Barramento de Serviço e uma entidade de mensagens (fila). Para obter outros exemplos de modelo, visite a [Galeria de Modelos de Início Rápido do Azure][Azure Quickstart Templates gallery] e pesquise “Barramento de Serviço”.
+> Olá exemplos mostram esse artigo como toouse toocreate do Gerenciador de recursos do Azure um namespace de barramento de serviço e de entidade (fila) de mensagens. Para obter outros exemplos de modelo, visite Olá [Galeria de modelos de início rápido do Azure] [ Azure Quickstart Templates gallery] e procure "Barramento de serviço".
 >
 >
 
 ## <a name="service-bus-resource-manager-templates"></a>Modelos do Gerenciador de Recursos do Barramento de Serviço
 
-Esses modelos do Azure Resource Manager no Barramento de Serviço estão disponíveis para download e implantação. Clique nos links abaixo para obter detalhes sobre cada um, com links para os modelos no GitHub:
+Esses modelos do Azure Resource Manager no Barramento de Serviço estão disponíveis para download e implantação. Clique em Olá seguindo os links para obter detalhes sobre cada um, com modelos de toohello links no GitHub:
 
 * [Criar um namespace do Barramento de Serviço](service-bus-resource-manager-namespace.md)
 * [Criar um namespace do Barramento de Serviço com fila](service-bus-resource-manager-namespace-queue.md)
@@ -43,25 +43,25 @@ Esses modelos do Azure Resource Manager no Barramento de Serviço estão dispon�
 
 ## <a name="deploy-with-powershell"></a>Implantação com o PowerShell
 
-O procedimento a seguir descreve como usar o PowerShell para implantar um modelo do Azure Resource Manager que cria um namespace de Barramento de Serviço de camada **Padrão** e uma fila dentro desse namespace. Este exemplo se baseia no modelo [Criar um namespace de Barramento de Serviço com fila](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue). O fluxo de trabalho é mais ou menos o seguinte:
+Olá procedimento a seguir descreve como toouse PowerShell toodeploy um modelo do Gerenciador de recursos do Azure que cria um **padrão** camada namespace de barramento de serviço e uma fila no namespace. Este exemplo é baseado no hello [criar um namespace de barramento de serviço com a fila](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) modelo. fluxo de trabalho aproximado Olá é o seguinte:
 
 1. Instale o PowerShell.
-2. Crie o modelo e (opcionalmente) um arquivo de parâmetro.
-3. No PowerShell, faça logon em sua conta do Azure.
+2. Crie modelo hello e (opcionalmente) um arquivo de parâmetro.
+3. No PowerShell, faça logon no tooyour conta do Azure.
 4. Crie um novo grupo de recursos se já não tiver um.
-5. Teste a implantação.
-6. Se desejar, defina o modo de implantação.
-7. Implante o modelo.
+5. Testar a implantação de saudação.
+6. Se desejar, defina o modo de implantação de saudação.
+7. Implante o modelo de saudação.
 
 Para obter informações completas sobre a implantação de modelos do Azure Resource Manager, consulte [Implantar recursos com modelos do Azure Resource Manager][Deploy resources with Azure Resource Manager templates].
 
 ### <a name="install-powershell"></a>Instalar o PowerShell
 
-Instale o Azure PowerShell seguindo as instruções em [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps).
+Instale o Azure PowerShell, seguindo as instruções de saudação do [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ### <a name="create-a-template"></a>Criar um modelo
 
-Clone ou copie o modelo [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) a partir do GitHub:
+Olá clone ou copie [201 servicebus-criar-fila](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) modelo do GitHub:
 
 ```json
 {
@@ -71,20 +71,20 @@ Clone ou copie o modelo [201-servicebus-create-queue](https://github.com/Azure/a
         "serviceBusNamespaceName": {
             "type": "string",
             "metadata": {
-                "description": "Name of the Service Bus namespace"
+                "description": "Name of hello Service Bus namespace"
             }
         },
         "serviceBusQueueName": {
             "type": "string",
             "metadata": {
-                "description": "Name of the Queue"
+                "description": "Name of hello Queue"
             }
         },
         "serviceBusApiVersion": {
             "type": "string",
             "defaultValue": "2015-08-01",
             "metadata": {
-                "description": "Service Bus ApiVersion used by the template"
+                "description": "Service Bus ApiVersion used by hello template"
             }
         }
     },
@@ -131,7 +131,7 @@ Clone ou copie o modelo [201-servicebus-create-queue](https://github.com/Azure/a
 
 ### <a name="create-a-parameters-file-optional"></a>Criar um arquivo de parâmetros (opcional)
 
-Para usar um arquivo de parâmetros opcionais, copie o arquivo [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json). Substitua o valor de `serviceBusNamespaceName` pelo nome do namespace do Barramento de Serviço que você deseja criar nessa implantação e substitua o valor do `serviceBusQueueName` pelo nome da fila que deseja criar.
+toouse um arquivo de parâmetros opcionais, Olá cópia [201 servicebus-criar-fila](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json) arquivo. Substituir valor de saudação do `serviceBusNamespaceName` com o nome de saudação do namespace de barramento de serviço Olá desejado toocreate nesta implantação e substituir o valor de saudação de `serviceBusQueueName` com o nome de saudação da fila de saudação você deseja toocreate.
 
 ```json
 {
@@ -151,37 +151,37 @@ Para usar um arquivo de parâmetros opcionais, copie o arquivo [201-servicebus-c
 }
 ```
 
-Para saber mais, consulte o tópico [Parâmetros](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
+Para obter mais informações, consulte Olá [parâmetros](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) tópico.
 
-### <a name="log-in-to-azure-and-set-the-azure-subscription"></a>Fazer logon no Azure e definir a assinatura do Azure
+### <a name="log-in-tooazure-and-set-hello-azure-subscription"></a>Faça logon no tooAzure e defina Olá assinatura do Azure
 
-Em um prompt do PowerShell, execute o seguinte comando:
+Em um prompt do PowerShell, execute Olá comando a seguir:
 
 ```powershell
 Login-AzureRmAccount
 ```
 
-Você precisará entrar em sua conta do Azure. Após o logon, execute o comando a seguir para exibir as assinaturas disponíveis.
+Você é solicitado toolog em tooyour conta do Azure. Depois de fazer logon, execute Olá tooview de comando a seguir as assinaturas disponíveis.
 
 ```powershell
 Get-AzureRMSubscription
 ```
 
-Esse comando retorna uma lista de assinaturas do Azure disponíveis. Escolha uma assinatura para a sessão atual executando o comando a seguir. Substitua `<YourSubscriptionId>` pelo GUID da assinatura do Azure que deseja usar.
+Esse comando retorna uma lista de assinaturas do Azure disponíveis. Escolha uma assinatura para Olá a sessão atual executando o comando a seguir de saudação. Substituir `<YourSubscriptionId>` com hello GUID para Olá assinatura do Azure, você deseja toouse.
 
 ```powershell
 Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 ```
 
-### <a name="set-the-resource-group"></a>Definir o grupo de recursos
+### <a name="set-hello-resource-group"></a>Grupo de recursos de saudação do conjunto
 
-Se você não tiver um grupo de recursos existente, crie um novo com o comando **New-AzureRmResourceGroup**. Forneça o nome do grupo de recursos e local que você deseja usar. Por exemplo:
+Se você não tiver um recurso existente do grupo, crie um novo grupo de recursos com hello * * AzureRmResourceGroup New * * comando. Fornece nome de saudação do grupo de recursos de saudação e local que você deseja toouse. Por exemplo:
 
 ```powershell
 New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
 ```
 
-Se for bem-sucedido, um resumo do novo grupo de recursos será exibido.
+Se for bem-sucedido, será exibido um resumo do novo grupo de recursos hello.
 
 ```powershell
 ResourceGroupName : MyDemoRG
@@ -191,44 +191,44 @@ Tags              :
 ResourceId        : /subscriptions/<GUID>/resourceGroups/MyDemoRG
 ```
 
-### <a name="test-the-deployment"></a>Teste a implantação
+### <a name="test-hello-deployment"></a>Implantação de saudação do teste
 
-Valide a implantação executando o cmdlet `Test-AzureRmResourceGroupDeployment`. Ao testar a implantação, forneça parâmetros exatamente como faria durante a sua execução.
-
-```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
-```
-
-### <a name="create-the-deployment"></a>Criar a implantação
-
-Para criar a nova implantação, execute o cmdlet `New-AzureRmResourceGroupDeployment` e forneça os parâmetros necessários quando solicitado. Os parâmetros incluem um nome para sua implantação, o nome do seu grupo de recursos e o caminho ou a URL para o arquivo do modelo. Caso o parâmetro **Mode** não esteja especificado, o valor padrão de **Incremental** será usado. Para saber mais, consulte [Implantações incrementais e completas](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments).
-
-O comando abaixo solicita os três parâmetros na janela do PowerShell:
+Valide a implantação executando Olá `Test-AzureRmResourceGroupDeployment` cmdlet. Ao testar a implantação de hello, forneça parâmetros exatamente como faria ao executar implantação hello.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
+Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path tootemplate file>\azuredeploy.json
 ```
 
-Para especificar um arquivo de parâmetros em vez disso, use o comando a seguir.
+### <a name="create-hello-deployment"></a>Criar implantação Olá
+
+toocreate Olá nova execução de implantação, Olá `New-AzureRmResourceGroupDeployment` cmdlet e forneça os parâmetros necessários do hello quando solicitado. parâmetros de saudação incluem um nome para sua implantação, nome de saudação do seu grupo de recursos e o caminho de saudação ou o arquivo de modelo de toohello de URL. Se hello **modo** parâmetro não for especificado, Olá valor padrão de **Incremental** é usado. Para saber mais, consulte [Implantações incrementais e completas](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments).
+
+Olá prompts de comando a seguir é para parâmetros de saudação três na janela do PowerShell hello:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
+New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path tootemplate file>\azuredeploy.json
 ```
 
-Você também pode usar parâmetros embutidos quando executa o cmdlet de implantação. O comando é o seguinte:
+toospecify um arquivo de parâmetros em vez disso, use Olá comando a seguir.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
+New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path tootemplate file>\azuredeploy.json -TemplateParameterFile <path tooparameters file>\azuredeploy.parameters.json
 ```
 
-Para executar uma implantação [completa](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments), defina o parâmetro **Mode** como **Complete**:
+Você também pode usar parâmetros embutido quando você executa o cmdlet de implantação de saudação. comando Olá é o seguinte:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
+New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path tootemplate file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
-### <a name="verify-the-deployment"></a>Verificar a implantação
-Se os recursos forem implantados com êxito, um resumo da implantação será exibido na janela do PowerShell:
+toorun um [completa](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) de implantação, Olá conjunto **modo** parâmetro muito**concluir**:
+
+```powershell
+New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path tootemplate file>\azuredeploy.json
+```
+
+### <a name="verify-hello-deployment"></a>Verificar a implantação de saudação
+Se os recursos de saudação são implantados com êxito, um resumo de implantação de saudação é exibido na janela do PowerShell Olá:
 
 ```powershell
 DeploymentName    : MyDemoDeployment
@@ -247,7 +247,7 @@ Parameters        :
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora você já viu o fluxo de trabalho básico e os comandos para implantar um modelo do Azure Resource Manager. Para obter informações mais detalhadas, visite os seguintes links:
+Agora você viu fluxo de trabalho básico hello e comandos para a implantação de um modelo do Gerenciador de recursos do Azure. Para obter mais informações, visite Olá links a seguir:
 
 * [Visão geral do Azure Resource Manager][Azure Resource Manager overview]
 * [Implantar recursos com modelos do Resource Manager e o Azure PowerShell][Deploy resources with Azure Resource Manager templates]

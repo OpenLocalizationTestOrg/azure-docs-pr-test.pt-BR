@@ -1,6 +1,6 @@
 ---
-title: "Problema na configuração do provisionamento do usuário para um aplicativo de galeria do Azure AD | Microsoft Docs"
-description: "Como solucionar problemas comuns enfrentados ao configurar provisionamento do usuário para um aplicativo já listado na Galeria de aplicativos do Azure AD"
+title: "aaaProblem configurar provisionamento de aplicativo da Galeria de tooan AD do Azure do usuário | Microsoft Docs"
+description: "Como tootroubleshoot problemas enfrentam durante a configuração de aplicativo tooan já listado na Galeria de aplicativos de saudação do AD do Azure de provisionamento do usuário"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,58 +13,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 44e344095352f2bc6b27e389fc8be2cdf3e368d8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 19b12be019b05faecef74c6f92a9de03b52a5ef9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problema na configuração do provisionamento do usuário para um aplicativo de galeria do Azure AD
+# <a name="problem-configuring-user-provisioning-tooan-azure-ad-gallery-application"></a>Problema na configuração de aplicativo da Galeria de tooan AD do Azure de provisionamento do usuário
 
-Configurando [provisionamento automático de usuário](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning) para um aplicativo (onde houver suporte), requer que as instruções específicas ser seguidas para preparar o aplicativo para o provisionamento automático. Em seguida, você pode usar o portal do Azure para configurar o serviço de provisionamento para sincronizar contas de usuário ao aplicativo.
+Configurando [provisionamento automático de usuário](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning) para um aplicativo (onde houver suporte), requer que as instruções específicas sejam tooprepare seguido Olá aplicativo para o provisionamento automático. Em seguida, você pode usar Olá tooconfigure portal do Azure Olá provisionamento de aplicativo toohello de contas de usuário do serviço toosynchronize.
 
-Você sempre deve começar encontrando o tutorial de instalação específica de configuração de provisionamento para seu aplicativo. Siga essas etapas para configurar o aplicativo e o Azure AD para criar a conexão de provisionamento. Uma lista de tutoriais de aplicativos podem ser encontrados em [lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+Você sempre deve começar encontrando instalação Olá tutorial toosetting específico o provisionamento para seu aplicativo. Em seguida, siga essas etapas tooconfigure ambos aplicativo hello e AD do Azure toocreate Olá provisionamento de conexão. Uma lista de tutoriais de aplicativo pode ser encontrada em [lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
 
-## <a name="how-to-see-if-provisioning-is-working"></a>Como saber se o provisionamento está funcionando 
+## <a name="how-toosee-if-provisioning-is-working"></a>Como toosee se provisionamento está funcionando 
 
-Depois que o serviço estiver configurado, a maioria das informações sobre a operação do serviço podem ser obtidas de dois lugares:
+Depois que o serviço Olá estiver configurado, a maioria das informações na operação de saudação do serviço Olá podem ser desenhadas em dois locais:
 
--   **Logs de auditoria** – os logs de auditoria do provisionamento registram todas as operações executadas pelo serviço de provisionamento, incluindo consultas ao Azure AD para usuários que estão no escopo para provisionamento. O aplicativo de destino para a existência desses usuários, comparando os objetos de usuário entre o sistema de consulta. Em seguida, adicione, atualize ou desabilite a conta de usuário no sistema de destino com base na comparação. Os logs de auditoria de provisionamento podem ser acessados no portal do Azure, na guia **Azure Active Directory &gt; Aplicativos Empresariais &gt; \[Nome do Aplicativo\] &gt; Logs de auditoria**. Filtre os logs na categoria de **provisionamento de conta**, para ver apenas os eventos de provisionamento para aquele aplicativo.
+-   **Logs de auditoria** – hello provisionamento todas as operações de saudação executadas pelo Olá provisionamento do serviço de registro de logs de auditoria, incluindo consultas AD do Azure para atribuídas a usuários que estejam no escopo para provisionamento. Aplicativo de destino Olá existência Olá desses usuários, comparando Olá objetos de usuário entre o sistema de saudação de consulta. Em seguida, adicionar, atualizar ou desabilitar a conta de usuário de saudação no sistema de destino de saudação com base em comparação de saudação. Olá provisionamento logs de auditoria pode ser acessada no hello portal do Azure, na Olá **Active Directory do Azure &gt; aplicativos corporativos &gt; \[nome do aplicativo\] &gt; Logs de auditoria**guia. Saudação de filtro logon Olá **provisionamento de conta** tooonly categoria consulte Olá provisionamento eventos para esse aplicativo.
 
--   **Provisionamento de status –** um resumo do último provisionamento executado para um determinado aplicativo pode ser visto na seção **Azure Active Directory &gt; Aplicativos Empresariais &gt; \[Nome do Aplicativo\] &gt;Provisionamento** na parte inferior da tela sob as configurações de serviço. Esta seção resume quantos usuários (e/ou grupos) estão sendo sincronizados no momento entre os dois sistemas, e se houve erros. Detalhes do erro estão nos logs de auditoria. Observe que o status de provisionamento não seja preenchido até que uma sincronização inicial completa entre o Azure AD foi concluída e o aplicativo.
+-   **Provisionamento de status –** um resumo da saudação última provisionamento executar para um determinado aplicativo pode ser visto no hello **Active Directory do Azure &gt; aplicativos corporativos &gt; \[nome do aplicativo\] &gt; Provisionamento** seção na parte inferior da saudação da tela de saudação em configurações de serviço hello. Esta seção resume quantos usuários (e/ou grupos) estão sendo atualmente sincronizados entre hello dois sistemas, e se há erros. Detalhes do erro ser nos logs de auditoria de saudação. Observe que Olá status de provisionamento não seja preenchido até que uma sincronização completa inicial foi concluída entre o AD do Azure e o aplicativo hello.
 
-## <a name="general-problem-areas-with-provisioning-to-consider"></a>Áreas de problemas gerais com o provisionamento a considerar
+## <a name="general-problem-areas-with-provisioning-tooconsider"></a>Áreas de problemas gerais com o provisionamento tooconsider
 
-Abaixo está uma lista das áreas de problema geral que você poderá analisar se você tiver uma ideia de onde começar.
+Abaixo está uma lista de saudação áreas de problema geral que você pode analisar se você tiver uma ideia de onde toostart.
 
-* [Serviço de provisionamento não aparece ao iniciar](#provisioning-service-does-not-appear-to-start)
-* [Não é possível salvar a configuração devido a credenciais de aplicativo não estarem funcionando](#can’t-save-configuration-due-to-app-credentials-not-working)
+* [Serviço de provisionamento não aparece toostart](#provisioning-service-does-not-appear-to-start)
+* [Não é possível salvar a configuração devido a credenciais tooapp não está funcionando](#can’t-save-configuration-due-to-app-credentials-not-working)
 * [Logs de auditoria informa quais usuários são ignorados e não provisionados, mesmo que eles sejam atribuídos](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
-## <a name="provisioning-service-does-not-appear-to-start"></a>Serviço de provisionamento não aparece ao iniciar
+## <a name="provisioning-service-does-not-appear-toostart"></a>Serviço de provisionamento não aparece toostart
 
-Se você definir o **Status de provisionamento** como **Ligado** na seção **Azure Active Directory &gt; Aplicativos Empresariais &gt; \[Nome do Aplicativo\] &gt;Provisionamento** do portal do Azure. No entanto, nenhum outro detalhe de status é mostrado nessa página depois recarregamentos subsequentes. É provável que o serviço está em execução, mas não concluiu uma sincronização inicial ainda. Verifique os **logs de auditoria** descritos acima para determinar quais operações o serviço está executando, e se existem erros.
+Se você definir Olá **Status de provisionamento** toobe **na** em Olá **Active Directory do Azure &gt; aplicativos corporativos &gt; \[denomedeaplicativo\] &gt;Provisionamento** seção Olá portal do Azure. No entanto, nenhum outro detalhe de status é mostrado nessa página depois recarregamentos subsequentes. É provável que o serviço de hello está sendo executado, mas não concluiu uma sincronização inicial ainda. Verificar Olá **logs de auditoria** descrito acima toodetermine quais operações Olá executa, e se há erros.
 
 >[!NOTE]
->Uma sincronização inicial entre o Azure AD e um aplicativo pode levar de 20 minutos até várias horas, dependendo do tamanho do diretório do Azure AD e o número de usuários no escopo para provisionamento. Sincronizações subsequentes após a sincronização inicial são mais rápidas, como o serviço de provisionamento armazena as marcas d'água que representam o estado dos dois sistemas após a sincronização inicial, melhorando o desempenho de sincronizações subsequentes.
+>Uma sincronização inicial pode levar de horas de tooseveral de 20 minutos, dependendo do tamanho de Olá Olá diretório AD do Azure e o número de saudação de usuários em escopo para provisionamento. As sincronizações subsequentes após a sincronização inicial Olá ser mais rápido, Olá provisionamento serviço armazena as marcas d'água que representam o estado de saudação de ambos os sistemas após a sincronização inicial hello, melhorando o desempenho de sincronizações subsequentes.
 >
 >
 
-## <a name="cant-save-configuration-due-to-app-credentials-not-working"></a>Não é possível salvar a configuração devido a credenciais de aplicativo não estarem funcionando
+## <a name="cant-save-configuration-due-tooapp-credentials-not-working"></a>Não é possível salvar a configuração devido a credenciais tooapp não está funcionando
 
-Para o provisionamento funcionar, Azure AD requer credenciais válidas que permitem a conexão com uma API fornecida pelo aplicativo de gerenciamento de usuário. Se essas credenciais não funcionam, ou você não souber o que são, examine o tutorial para configurar esse aplicativo, descrito anteriormente.
+Em ordem para provisionamento toowork, o AD do Azure requer credenciais válidas que permitem que o gerenciamento de usuários tooconnect tooa API fornecida pelo aplicativo. Se essas credenciais não funcionam, ou você não souber wat estiverem, revise o tutorial Olá para configurar este aplicativo, descrito anteriormente.
 
 ## <a name="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Logs de auditoria informa quais usuários são ignorados e não provisionados, mesmo que eles sejam atribuídos
 
-Quando um usuário aparece como "ignorado" nos logs de auditoria, é muito importante ler os detalhes estendidos na mensagem de log para determinar o motivo. Veja a seguir as resoluções e motivos comuns:
+Quando um usuário aparecer como "ignorado" nos logs de auditoria Olá, é muito importante tooread Olá detalhes em razão de Olá Olá log mensagem toodetermine estendidos. Veja a seguir as resoluções e motivos comuns:
 
--   **Um filtro de escopo foi configurado** **que está filtrando o usuário com base em um valor de atributo**. Para obter mais informações sobre filtros de escopo, consulte <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>.
+-   **Um filtro de escopo foi configurado** **que está filtrando usuário Olá com base em um valor de atributo**. Para obter mais informações sobre filtros de escopo, consulte <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>.
 
--   **O usuário é definido como "não qualificado efetivamente".** Caso você veja essa mensagem de erro específica, é porque há um problema com o registro de atribuição de usuário armazenado no Azure AD. Para corrigir esse problema, cancele a atribuição do usuário (ou grupo) do aplicativo e reatribua-a novamente. Para obter mais informações sobre atribuição, consulte <https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal>.
+-   **usuário de saudação é "não efetivamente intitulado".** Se você vir essa mensagem de erro específica, é porque não há um problema com o registro de atribuição do usuário Olá armazenado no AD do Azure. toofix esse problema, cancele sua atribuição Olá usuário (ou grupo) do aplicativo hello e novamente atribuí-lo novamente. Para obter mais informações sobre atribuição, consulte <https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal>.
 
--   **Um atributo obrigatório está ausente ou não está preenchido para um usuário.** Uma coisa importante a considerar ao configurar o provisionamento ser examinar e configurar os mapeamentos de atributo e fluxos de trabalho que definem quais fluxo propriedades de usuário (ou grupo) do Azure AD para o aplicativo. Isso inclui a configuração de "propriedade correspondente" usada para identificar exclusivamente e corresponder usuários/grupos entre os dois sistemas. Para obter mais informações sobre esse processo importante, consulte <https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings>.
+-   **Um atributo obrigatório está ausente ou não está preenchido para um usuário.** Tooconsider uma coisa importante quando a configuração de provisionamento ser tooreview e configurar mapeamentos de atributo hello e fluxos de trabalho que definem quais fluxo de propriedades de usuário (ou grupo) do aplicativo de toohello do AD do Azure. Isso inclui a configuração hello "correspondência da propriedade" ser toouniquely usada identificar e corresponder usuários/grupos entre sistemas Olá dois. Para obter mais informações sobre esse processo importante, consulte <https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings>.
 
-   * **Mapeamentos de atributos para grupos:** provisionamento do nome do grupo e detalhes do grupo, além de membros, se houver suporte para alguns aplicativos. Você pode habilitar ou desabilitar essa funcionalidade, habilitando ou desabilitando o **Mapeamento** para objetos de grupo mostrados na guia de **provisionamento**. Se o provisionamento de grupos é habilitado, certifique-se de rever os mapeamentos de atributos para garantir que um campo apropriado está sendo usado para a "ID correspondente". Este pode ser o nome de exibição ou alias de email, já que o grupo e seus membros não são provisionados se a propriedade correspondente está vazia ou não está preenchida para um grupo no Azure AD.
+   * **Mapeamentos de grupos de atributos:** provisionamento de saudação grupo detalhes de nome e grupo, em membros de toohello de adição, se houver suporte para alguns aplicativos. Você pode habilitar ou desabilitar essa funcionalidade habilitando ou desabilitando Olá **mapeamento** para objetos de grupo mostrados no hello **provisionamento** guia. Se grupos de provisionamento está habilitado, certifique-se de que tooreview Olá atributo mapeamentos tooensure um campo apropriado está sendo usado para hello "correspondência de ID". Isso pode ser Olá exibição nome ou alias de email), como Olá grupo e seus membros não ser provisionado se hello a propriedade correspondente está vazio ou não preenchido para um grupo no AD do Azure.
 
 #<a name="next-steps"></a>Próximas etapas
-[Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](active-directory-saas-app-provisioning.md)
+[Automatizar o provisionamento de usuário e desprovisionamento tooSaaS aplicativos com o Active Directory do Azure](active-directory-saas-app-provisioning.md)

@@ -1,5 +1,5 @@
 ---
-title: Entradas de amostragem no Stream Analytics do Azure | Microsoft Docs
+title: entradas de amostragem AAA no Azure Stream Analytics | Microsoft Docs
 description: Identificar problemas ao solucionar problemas em trabalhos do Stream Analytics.
 keywords: "entrada de solução de problemas, amostragem de entrada"
 documentationcenter: 
@@ -15,52 +15,52 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeffstok
-ms.openlocfilehash: 0bb66090b5025d57f5ca8f30713aef4e444fa8e7
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9637a8664de099eebb8f5654036d2957f4c6b7ce
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-stream-analytics-input-stream-sampling"></a>Amostragem do fluxo de entrada do Stream Analytics do Azure
 
-Usando o Stream Analytics do Azure, você pode criar uma amostra dos eventos de entrada que acompanham um arquivo e testar consultas no portal sem a necessidade de iniciar ou interromper um trabalho.
+Usando o Azure Stream Analytics, você pode criar amostra eventos de entrada que vêm de um arquivo e testar as consultas no portal de saudação sem a necessidade de toostart ou interromper um trabalho.
 
 ## <a name="testing-your-query"></a>Testando sua consulta
 
-No painel de detalhes de trabalho do Stream Analytics, abra a folha **Editor de Consultas** clicando no nome da consulta em **Consulta**. (No nosso cenário de exemplo, como ainda não foi criada nenhuma consulta, clique no espaço reservado **< >**.)
+No painel de detalhes do trabalho do Stream Analytics hello, abra Olá **editor de consultas** folha clicando no nome de consulta de saudação em **consulta**. (Em nosso cenário de exemplo, porque nenhuma consulta tiver sido criada, clique em Olá **< >** espaço reservado.)
 
-![O editor de consultas do Stream Analytics](media/stream-analytics-sample-data-input/stream-analytics-query-editor.png)
+![editor de consultas de análise de fluxo de saudação](media/stream-analytics-sample-data-input/stream-analytics-query-editor.png)
 
-A folha do editor avançado para criar sua consulta é exibida como era na versão anterior. Agora a folha foi atualizada com um novo painel à esquerda que mostra as entradas e saídas que são usadas pela consulta e definidas para esse trabalho.
+folha de editor avançado Olá para criar sua consulta é exibida como era na versão anterior do hello. Agora folha Olá foi atualizada com um novo painel esquerdo que mostra Olá entradas e saídas que são usadas pela consulta hello e definidas para este trabalho.
 
-![As listas de entradas e saídas do editor de consultas do Stream Analytics](media/stream-analytics-sample-data-input/stream-analytics-query-editor-highlight.png)
+![editor de consultas de análise de fluxo de saudação as entradas e saídas de listas](media/stream-analytics-sample-data-input/stream-analytics-query-editor-highlight.png)
 
-São mostradas também uma entrada adicional e uma saída, que não são definidas. Elas são provenientes do novo modelo de consulta com que você começa. Elas mudam, ou até mesmo desaparecem, conforme você edita a consulta. Você pode ignorá-las com segurança por ora.
+São mostradas também uma entrada adicional e uma saída, que não são definidas. Eles vêm Olá novo modelo de consulta que começam com. Alterar, ou até mesmo desaparecer completamente, como editar consulta hello. Você pode ignorá-las com segurança por ora.
 
-Para testar com dados de entrada de exemplo, clique com o botão direito do mouse em qualquer uma de suas entradas e, em seguida, selecione **Carregar dados de exemplo do arquivo**.
+tootest com dados de entrada de exemplo, qualquer uma das suas entradas e, em seguida, selecione **carregar dados de exemplo do arquivo**.
 
-![O comando Carregar dados de exemplo do arquivo do editor de consultas do Stream Analytics](media/stream-analytics-sample-data-input/stream-analytics-query-editor-upload.png)
+![Olá dados de exemplo do carregamento do Stream Analytics consulta editor de comando de arquivo](media/stream-analytics-sample-data-input/stream-analytics-query-editor-upload.png)
 
-Depois que o upload for concluído, clique em **Teste** para testar essa consulta em relação aos dados de exemplo que você forneceu.
+Após a conclusão do carregamento de saudação, clique em **teste** tootest esta consulta em relação a saudação amostra dos dados que você forneceu.
 
-![O botão Testar do editor de consultas do Stream Analytics](media/stream-analytics-sample-data-input/stream-analytics-query-editor-test.png)
+![botão de teste Olá Stream Analytics query editor](media/stream-analytics-sample-data-input/stream-analytics-query-editor-test.png)
 
-Se você deseja salvar a saída do teste para uso posterior, a saída da consulta é exibida no navegador com um link para os resultados do download. Agora você pode modificar fácil e iterativamente sua consulta e testá-la repetidamente para ver como a saída muda.
+Se você quiser saída do teste Olá toosave para uso posterior, a saída de saudação da consulta é exibida no navegador de saudação com resultados do download de toohello um link. Você pode facilmente e iterativamente modificar sua consulta e testá-lo repetidamente toosee como saída de hello é alterado.
 
 ![A saída do exemplo do editor de consultas do Stream Analytics](media/stream-analytics-sample-data-input/stream-analytics-query-editor-samples-output.png)
 
-Na imagem anterior, uma segunda saída foi adicionada, chamada **HighAvgTempOutput**.
+Olá anterior a imagem, uma segunda saída foi adicionada, chamado **HighAvgTempOutput**.
 
-Ao usar várias saídas em uma consulta, você pode ver os resultados de cada saída separadamente e alterná-los facilmente.
+Quando você usa várias saídas em uma consulta, você pode ver os resultados de saudação para cada saída separadamente e alternar facilmente entre eles.
 
-Depois que estiver satisfeito com os resultados, você poderá salvar sua consulta, iniciar seu trabalho, sentar-se e assistir à mágica do Stream Analytics.
+Depois que você estiver satisfeito com os resultados de Olá, você pode salvar sua consulta, iniciar o trabalho, sente-se e assista magic Olá da análise de fluxo de.
 
 ## <a name="get-help"></a>Obter ajuda
 
 Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
+* [Introdução tooAzure Stream Analytics](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)

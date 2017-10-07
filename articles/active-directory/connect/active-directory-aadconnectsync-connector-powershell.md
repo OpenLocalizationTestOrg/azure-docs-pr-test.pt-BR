@@ -1,6 +1,6 @@
 ---
-title: Conector do PowerShell | Microsoft Docs
-description: Este artigo descreve como configurar o conector Windows PowerShell da Microsoft.
+title: aaaPowerShell conector | Microsoft Docs
+description: Este artigo descreve como o conector do Microsoft tooconfigure do Windows PowerShell.
 services: active-directory
 documentationcenter: 
 author: AndKjell
@@ -14,305 +14,305 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0e5ccf5a38072e31d85bbc63eb0c608b0c34cfc2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 44ff6b1f53283000b72e15f861e0f86c21afe12b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Referência técnica do Windows PowerShell Connector
-Este artigo descreve o conector do Windows PowerShell. O artigo se aplica aos seguintes produtos:
+Este artigo descreve Olá conector do Windows PowerShell. artigo Olá aplica toohello produtos a seguir:
 
 * Microsoft Identity Manager 2016 (MIM2016)
 * Forefront Identity Manager 2010 R2 (FIM2010R2)
   * É necessário usar o hotfix 4.1.3671.0 ou posterior [KB3092178](https://support.microsoft.com/kb/3092178).
 
-Para MIM2016 e FIM2010R2 o conector está disponível para download do [Centro de Download da Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
+Para MIM2016 e FIM2010R2, Olá Connector está disponível como um download do hello [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=717495).
 
-## <a name="overview-of-the-powershell-connector"></a>Visão geral do conector do PowerShell
-O conector do PowerShell o habilita a integrar o serviço de sincronização a sistemas externos que oferecem que APIs baseadas no Windows PowerShell. O conector fornece uma ponte entre os recursos da estrutura do ECMA2 (agente de gerenciamento de conectividade extensível 2) baseada em chamada e o Windows PowerShell. Para obter mais informações sobre a estrutura do ECMA, confira [Extensible Connectivity 2.2 Management Agent Reference](https://msdn.microsoft.com/library/windows/desktop/hh859557.aspx).
+## <a name="overview-of-hello-powershell-connector"></a>Visão geral da saudação conector do PowerShell
+Olá PowerShell conector permite serviço de sincronização de saudação toointegrate com sistemas externos que oferecem que APIs baseadas no Windows PowerShell. conector de saudação fornece uma ponte entre recursos Olá Olá conectividade extensível baseada em chamada do agente de gerenciamento 2 framework (ECMA2) e do Windows PowerShell. Para obter mais informações sobre a estrutura ECMA hello, consulte Olá [extensível conectividade 2.2 Management Agent referência](https://msdn.microsoft.com/library/windows/desktop/hh859557.aspx).
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Para usar o conector, verifique se você tem os seguintes itens no servidor de sincronização:
+Antes de usar o conector de saudação, verifique se que você tem o seguinte Olá no servidor de sincronização de saudação:
 
 * Microsoft .NET 4.5.2 Framework ou posterior
 * Windows PowerShell 2.0, 3.0 ou 4.0
 
-A política de execução no servidor do Serviço de Sincronização deve ser configurada para permitir que o conector execute scripts do Windows PowerShell. A menos que os scripts que o conector executa sejam digitalmente assinados, configure a política de execução usando este comando:   
+política de execução Olá no servidor do serviço de sincronização de saudação deve ser configurado tooallow Olá conector toorun do Windows PowerShell scripts. A menos que a execução do conector de Olá Olá scripts assinadas digitalmente, configure a política de execução de saudação executando este comando:  
 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
 
 ## <a name="create-a-new-connector"></a>Criar um novo conector
-Para criar um conector Windows PowerShell no serviço de sincronização, você deve fornecer uma série de scripts do Windows PowerShell que execute as etapas solicitadas pelo serviço de sincronização. Os scripts que você deve implementar variam de acordo com a fonte de dados com a qual você vai se conectar e da funcionalidade que vai exigir. Esta seção descreve cada um dos scripts que podem ser implementados e quando eles são exigidos.
+toocreate um conector do Windows PowerShell no serviço de sincronização de saudação, você deve fornecer uma série de scripts do Windows PowerShell que execute as etapas de saudação solicitadas pelo serviço de sincronização de saudação. Dependendo da fonte de dados Olá você conectar-se a funcionalidade de saudação tooand necessária, scripts de saudação, você deve implementar varia. Esta seção descreve cada um dos scripts de saudação que podem ser implementados e quando eles são necessários.
 
-O conector Windows PowerShell foi desenvolvido para armazenar cada um dos scripts dentro do banco de dados do Serviço de Sincronização. Embora seja possível executar scripts que são armazenados no sistema de arquivos, é mais fácil inserir o corpo de cada script diretamente na configuração do conector.
+Olá, o Windows PowerShell conector é projetado toostore scripts hello dentro do banco de dados de serviço de sincronização de saudação. Embora seja possível toorun scripts que são armazenados no sistema de arquivo hello, é mais fácil corpo de saudação tooinsert cada script diretamente na configuração do conector toohello.
 
-Para criar um conector PowerShell, em **Serviço de Sincronização**, selecione **Agente de Gerenciamento** e **Criar**. Selecione o conector **PowerShell (Microsoft)** .
+tooCreate um conector do PowerShell, no **serviço de sincronização** selecione **Management Agent** e **criar**. Selecione Olá **PowerShell (Microsoft)** conector.
 
 ![Criar o conector](./media/active-directory-aadconnectsync-connector-powershell/createconnector.png)
 
 ### <a name="connectivity"></a>Conectividade
-Forneça parâmetros de configuração para se conectar a um sistema remoto. Esses valores são armazenados com segurança pelo Serviço de Sincronização e disponibilizados para os scripts do Windows PowerShell quando o conector for executado.
+Forneça os parâmetros de configuração para conectar-se o sistema remoto tooa. Esses valores são armazenados por Olá serviço de sincronização e feitos tooyour disponíveis do Windows PowerShell scripts quando Olá conector é executado com segurança.
 
 ![Conectividade](./media/active-directory-aadconnectsync-connector-powershell/connectivity.png)
 
-É possível configurar os seguintes parâmetros de conectividade:
+Você pode configurar Olá parâmetros de conectividade a seguir:
 
 **Conectividade**
 
 | Parâmetro | Valor Padrão | Finalidade |
 | --- | --- | --- |
-| Servidor |<Blank> |Nome do servidor ao qual o conector deve se conectar. |
-| Domínio |<Blank> |Domínio da credencial a ser armazenado para uso quando o conector é executado. |
-| Usuário |<Blank> |Nome de usuário da credencial a ser armazenado para uso quando o conector é executado. |
-| Senha |<Blank> |Senha da credencial a ser armazenada para uso quando o conector é executado. |
-| Representar Conta do Conector |Falso |Quando verdadeiro, o serviço de sincronização executa os scripts do Windows PowerShell no contexto das credenciais fornecidas. Quando possível, é recomendável que o parâmetro **$Credentials** é passado para cada script seja usado em vez da representação. Para obter mais informações sobre permissões adicionais que são necessárias para usar essa opção, confira [Configuração adicional para representação](#additional-configuration-for-impersonation). |
-| Carregar o Perfil de Usuário ao Representar |Falso |Instrui o Windows a carregar o perfil do usuário das credenciais do conector durante a representação. Se o usuário representado tiver um perfil móvel, o conector não carregará o perfil móvel. Para obter mais informações sobre permissões adicionais que são necessárias para usar esse parâmetro, confira [Configuração adicional para representação](#additional-configuration-for-impersonation). |
-| Tipo de Logon ao Representar |Nenhum |Tipo de logon durante representação. Para saber mais, veja a documentação de [dwLogonType][dw]. |
-| Somente Scripts Assinados |Falso |Se verdadeiro, o conector Windows PowerShell confirmará que cada script tem uma assinatura digital válida. Se falso, verifique se a política de execução do Windows PowerShell do servidor do Serviço de Sincronização é RemoteSigned ou Unrestricted. |
+| Servidor |<Blank> |Nome do servidor que Olá conector deve se conectar ao. |
+| Domínio |<Blank> |Domínio da saudação toostore de credencial para uso ao conector de saudação é executado. |
+| Usuário |<Blank> |Nome de usuário da saudação toostore de credencial para uso ao conector de saudação é executado. |
+| Senha |<Blank> |Senha da saudação toostore de credencial para uso ao conector de saudação é executado. |
+| Representar Conta do Conector |Falso |Quando for verdadeiro, serviço de sincronização de saudação executa scripts do Windows PowerShell Olá no contexto Olá Olá credenciais fornecidas. Quando possível, é recomendável que Olá **$Credentials** parâmetro é passado tooeach script é usado em vez de representação. Para obter mais informações sobre permissões adicionais que são necessárias toouse essa opção, consulte [configuração adicional para representação](#additional-configuration-for-impersonation). |
+| Carregar o Perfil de Usuário ao Representar |Falso |Instrui o perfil de usuário do Windows tooload Olá de credenciais do conector Olá durante a representação. Se o usuário representado Olá tem um perfil móvel, conector Olá não carrega o perfil móvel hello. Para obter mais informações sobre permissões adicionais que são necessárias toouse esse parâmetro, consulte [configuração adicional para representação](#additional-configuration-for-impersonation). |
+| Tipo de Logon ao Representar |Nenhum |Tipo de logon durante representação. Para obter mais informações, consulte Olá [dwLogonType] [ dw] documentação. |
+| Somente Scripts Assinados |Falso |Se true, conector do Windows PowerShell Olá valida cada script possui uma assinatura digital válida. Se for false, certifique-se de que a política de execução do servidor do serviço de sincronização de saudação do Windows PowerShell é RemoteSigned ou irrestrito. |
 
 **Módulo Comum**  
-O conector permite que você armazene um módulo do Windows PowerShell compartilhado na configuração. Quando o conector executa um script, o módulo do Windows PowerShell é extraído para o sistema de arquivos para que ele possa ser importado por cada script.
+Olá conector permite que você toostore um módulo do Windows PowerShell compartilhado na configuração de saudação. Quando o conector Olá executa um script, hello módulo do Windows PowerShell extraídos toohello sistema de arquivos para que ele possa ser importado por cada script.
 
-Para os scripts Importação, Exportação e Sincronização de Senha, o módulo comum é extraído para a pasta MAData do conector. Para os scripts Descoberta de Esquema, Validação, Hierarquia e Partição, o módulo comum é extraído para a pasta %TEMP%. Em ambos os casos, o script Módulo Comum é denominado de acordo com a configuração Nome de Script do Módulo Comum.
+Para scripts de importação, exportação e a sincronização de senha, módulo comum Olá é pasta de MAData toohello extraídos do conector. Para scripts de descoberta de esquema, validação, hierarquia e partição módulo comum Olá é pasta extraída toohello % TEMP %. Em ambos os casos, Olá extraídos comuns módulo de script é nomeado de acordo com a configuração de nome de Script de módulo comum toohello.
 
-Para carregar um módulo chamado FIMPowerShellConnectorModule.psm1 da pasta MAData, use a seguinte instrução: `Import-Module (Join-Path -Path [Microsoft.MetadirectoryServices.MAUtils]::MAFolder -ChildPath "FIMPowerShellConnectorModule.psm1")`
+tooload um módulo chamado FIMPowerShellConnectorModule.psm1 da pasta de MAData hello, use Olá instrução a seguir:`Import-Module (Join-Path -Path [Microsoft.MetadirectoryServices.MAUtils]::MAFolder -ChildPath "FIMPowerShellConnectorModule.psm1")`
 
-Para carregar um módulo chamado FIMPowerShellConnectorModule.psm1 da pasta %TEMP%, use a seguinte instrução: `Import-Module (Join-Path -Path $env:TEMP -ChildPath "FIMPowerShellConnectorModule.psm1")`
+tooload um módulo chamado FIMPowerShellConnectorModule.psm1 da pasta Olá % TEMP %, use Olá instrução a seguir:`Import-Module (Join-Path -Path $env:TEMP -ChildPath "FIMPowerShellConnectorModule.psm1")`
 
 **Validação de Parâmetro**  
-O Script de Validação é um script opcional do Windows PowerShell que pode ser usado para garantir que os parâmetros de configuração do conector fornecidos pelo administrador sejam válidos. Validar as credenciais de conexão e servidor e os parâmetros de conectividade são usos comuns do script de validação. O script de validação é chamado depois que as seguintes guias e caixas de diálogo são modificadas:
+Olá Script de validação é um script do Windows PowerShell opcional que pode ser usado tooensure que parâmetros de configuração de conector fornecidos pelo administrador de saudação são válidos. O servidor de validação, credenciais de conexão e parâmetros de conectividade são os usos comuns do script de validação de saudação. script de validação Hello é chamado depois hello guias e caixas de diálogo a seguir são modificadas:
 
 * Conectividade
 * Parâmetros Globais
 * Configuração de Partição
 
-O script de validação recebe os seguintes parâmetros do conector:
+script de validação Olá recebe Olá parâmetros a seguir do conector hello:
 
 | Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
-| ConfigParameterPage |[ConfigParameterPage][cpp] |A guia ou caixa de diálogo de configuração que disparou a solicitação de validação. |
-| ConfigParameters |[KeyedCollection][keyk] [string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
-| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador na guia Conectividade. |
+| ConfigParameterPage |[ConfigParameterPage][cpp] |Guia de configuração de saudação ou caixa de diálogo que disparou a solicitação de validação de saudação. |
+| ConfigParameters |[KeyedCollection][keyk] [string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para Olá conector. |
+| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador Olá na guia de conectividade de saudação. |
 
-O script de validação deve retornar um único objeto ParameterValidationResult para o pipeline.
+script de validação Olá deve retornar um único pipeline de toohello do objeto ParameterValidationResult.
 
 **Descoberta de Esquema**  
-O script de Descoberta de Esquema é obrigatório. Esse script retorna o tipo de objeto, atributos e restrições de atributo que o Serviço de Sincronização usa ao configurar regras de fluxo de atributo. O script de Descoberta de Esquema é executado durante a criação do conector e popula o esquema do conector. Ele também é usado pela ação de Atualização de Esquema no Gerenciador de Serviço de Sincronização.
+Olá script de descoberta de esquema é obrigatório. Esse script retorna tipos de objeto hello, atributos e restrições de atributo que Olá que usa o serviço de sincronização ao configurar regras de fluxo de atributo. Olá script de descoberta de esquema é executado durante a criação do conector e preenche o esquema do conector hello. Ele também é usado por Olá ação Atualizar esquema Olá Synchronization Service Manager.
 
-O script de descoberta de esquema recebe os seguintes parâmetros do conector:
+script de descoberta de esquema Olá recebe Olá parâmetros a seguir do conector hello:
 
 | Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
-| ConfigParameters |[KeyedCollection][keyk] [string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
-| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador na guia Conectividade. |
+| ConfigParameters |[KeyedCollection][keyk] [string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para Olá conector. |
+| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador Olá na guia de conectividade de saudação. |
 
-O script deve retornar um único objeto [Schema][schema] para o pipeline. O Objeto de Esquema é composto de objetos [SchemaType][schemaT] que representam os tipos de objeto (por exemplo: usuários e grupos). O objeto SchemaType mantém um conjunto de objetos [SchemaAttribute][schemaA] que representa os atributos (por ex., nome fornecido, sobrenome e endereço postal) do tipo.
+script Hello deve retornar um único [esquema] [ schema] pipeline de toohello do objeto. objeto de esquema de saudação é composto de [SchemaType] [ schemaT] objetos que representam os tipos de objeto (por exemplo: usuários e grupos). objeto de SchemaType Olá contém uma coleção de [SchemaAttribute] [ schemaA] objetos que representam atributos de saudação (por exemplo: nome, sobrenome e endereço postal) do tipo hello.
 
 **Parâmetros Adicionais**  
-Além das definições de configuração padrão abordadas até agora, você pode definir configurações personalizadas adicionais que sejam específicas à instância do conector. Esses parâmetros podem ser especificados nos níveis de conector, partição ou etapa de execução e acessados no script relevante do Windows PowerShell. As definições de configuração personalizadas podem ser armazenadas no banco de dados do Serviço de Sincronização como texto sem formatação ou podem ser criptografadas. O Serviço de Sincronização criptografa e descriptografa automaticamente as definições de configuração seguras quando necessário.
+Além disso configurações padrão de toohello, você pode definir as configurações personalizadas adicionais instância toohello específico de saudação conector. Esses parâmetros podem ser especificados no conector hello, partição, ou a etapa de execução níveis e acessado a partir do script do Windows PowerShell relevante de saudação. Configurações personalizadas podem ser armazenadas no banco de dados de serviço de sincronização de saudação em texto sem formatação ou eles podem ser criptografados. Olá serviço de sincronização automaticamente criptografa e descriptografa as definições de configuração segura quando necessário.
 
-Para especificar as definições de configuração personalizadas, separe o nome de cada parâmetro com uma vírgula (,).
+toospecify configurações personalizadas, nome hello separado de cada parâmetro com uma vírgula (,).
 
-Para acessar as definições de configuração personalizadas em um script, você deve colocar o sufixo com um sublinhado ( \_ ) no nome e o escopo do parâmetro (Global, Partição ou RunStep). Por exemplo, para acessar o parâmetro Global FileName, use este trecho de código: `$ConfigurationParameters["FileName_Global"].Value`
+tooaccess configurações personalizadas de um script, você deve sufixo nome hello com um sublinhado ( \_ ) e o escopo de saudação do parâmetro hello (Global, partição ou RunStep). Por exemplo, tooaccess Olá parâmetro FileName Global, use este trecho de código:`$ConfigurationParameters["FileName_Global"].Value`
 
 ### <a name="capabilities"></a>Funcionalidades
-A guia Recursos do Designer do Agente de Gerenciamento define o comportamento e a funcionalidade do conector. As seleções feitas nessa guia não podem ser modificadas depois que o conector tiver sido criado. Esta tabela lista as configurações de recurso.
+Guia de recursos de saudação do hello Designer do agente de gerenciamento define o comportamento de saudação e a funcionalidade do conector de saudação. as seleções de saudação nessa guia não podem ser modificadas quando Olá conector foi criado. Esta tabela lista as configurações de recurso de saudação.
 
 ![Funcionalidades](./media/active-directory-aadconnectsync-connector-powershell/capabilities.png)
 
 | Recurso | Descrição |
 | --- | --- |
-| [Estilo de Nome Diferenciado][dnstyle] |Indica se o conector dá suporte a nomes diferenciados e, em caso positivo, à qual estilo. |
-| [Tipo de Exportação][exportT] |Determina os tipos de objeto que são apresentados para o script Exportar. <li>AttributeReplace – inclui o conjunto completo de valores para um atributo com vários valores, quando o atributo é alterado.</li><li>AttributeUpdate – inclui apenas deltas para um atributo com vários valores, quando o atributo é alterado.</li><li>MultivaluedReferenceAttributeUpdate - inclui um conjunto completo de valores de atributos de vários valores de não referência e apenas deltas para atributos de referência com vários valores.</li><li>ObjectReplace – inclui todos os atributos de um objeto quando qualquer atributo é alterado</li> |
-| [Normalização de Dados][DataNorm] |Instrui o Serviço de Sincronização a normalizar os atributos de âncora antes que eles sejam fornecidos aos scripts. |
-| [Confirmação do Objeto][oconf] |Define o comportamento de importação pendente no Serviço de Sincronização. <li>Normal – o comportamento padrão que espera todas as alterações exportadas para confirmação por meio da importação</li><li>NoDeleteConfirmation – quando um objeto é excluído, não há nenhuma importação pendente gerada.</li><li>NoAddAndDeleteConfirmation – quando um objeto é criado ou excluído, não há nenhuma importação pendente gerada.</li> |
-| Usar DN como âncora |Se o Estilo de Nome Diferenciado for definido como LDAP, o atributo de âncora do espaço do conector também será o nome diferenciado. |
+| [Estilo de Nome Diferenciado][dnstyle] |Indica se conector Olá dá suporte a nomes distintos e, portanto, o estilo. |
+| [Tipo de Exportação][exportT] |Determina o tipo de saudação de objetos que são apresentados toohello script de exportação. <li>AttributeReplace – inclui todo o conjunto de valores para um atributo com vários valores hello quando o atributo de saudação é alterado.</li><li>AttributeUpdate – inclui somente Olá deltas tooa múltiplos atributo quando o atributo de saudação é alterado.</li><li>MultivaluedReferenceAttributeUpdate - inclui um conjunto completo de valores de atributos de vários valores de não referência e apenas deltas para atributos de referência com vários valores.</li><li>ObjectReplace – inclui todos os atributos de um objeto quando qualquer atributo é alterado</li> |
+| [Normalização de Dados][DataNorm] |Instrui a atributos de âncora de toonormalize de serviço de sincronização de saudação antes que eles são fornecidos tooscripts. |
+| [Confirmação do Objeto][oconf] |Configura Olá pendentes comportamento de importação em Olá serviço de sincronização. <li>Normal – comportamento padrão que espera todas exportadas toobe alterações confirmada através da importação</li><li>NoDeleteConfirmation – quando um objeto é excluído, não há nenhuma importação pendente gerada.</li><li>NoAddAndDeleteConfirmation – quando um objeto é criado ou excluído, não há nenhuma importação pendente gerada.</li> |
+| Usar DN como âncora |Se hello estilo de nome diferenciado é definido tooLDAP, atributo de âncora Olá para o espaço do conector Olá também será nome distinto hello. |
 | Operações Simultâneas de Vários Conectores |Quando marcada, vários conectores do Windows PowerShell podem ser executados simultaneamente. |
-| Partições |Quando marcada, o conector oferece suporte a várias partições e à descoberta de partição. |
-| Hierarquia |Quando marcada, o conector oferece suporte a uma estrutura hierárquica de estilo LDAP. |
-| Habilitar Importação |Quando marcada, o conector importa dados por meio de scripts de importação. |
-| Habilitar Importação Delta |Quando marcada, o conector pode solicitar deltas de scripts de importação. |
-| Habilitar Exportação |Quando marcada, o conector exporta dados por meio de scripts de exportação. |
-| Habilitar Exportação Completa |Quando marcada, os scripts de exportação oferecem suporte à exportação do espaço inteiro do conector. Para usar essa opção, Habilitar Exportação também deve ser marcada. |
+| Partições |Quando marcada, o conector Olá dá suporte a várias partições e descoberta da partição. |
+| Hierarquia |Quando marcada, o conector Olá dá suporte a uma estrutura hierárquica de estilo do LDAP. |
+| Habilitar Importação |Quando marcada, o conector de saudação importa dados por meio de scripts de importação. |
+| Habilitar Importação Delta |Quando marcada, o conector Olá pode solicitar deltas de saudação importar scripts. |
+| Habilitar Exportação |Quando marcada, o conector Olá exporta dados por meio de scripts de exportação. |
+| Habilitar Exportação Completa |Quando marcada, Olá exportar exportando espaço do conector inteiro Olá suporte a scripts. toouse que essa opção, habilitar a exportação também deve ser verificada. |
 | Nenhum Valor de Referência na Primeira Passagem de Exportação |Quando marcada, os atributos de referência são exportados em uma segunda passagem de exportação. |
 | Habilitar Renomeação do Objeto |Quando marcada, os nomes diferenciados podem ser modificados. |
 | Excluir-Adicionar como Substituição |Quando marcada, as operações excluir-adicionar são exportadas como uma única substituição. |
 | Habilitar Operações de Senha |Quando marcada, há suporte para scripts de sincronização de senha. |
-| Habilitar Exportar Senha na Primeira Passagem |Quando marcada, as senhas definidas durante o provisionamento são exportadas quando o objeto é criado. |
+| Habilitar Exportar Senha na Primeira Passagem |Quando marcada, senhas definidas durante o provisionamento são exportadas quando Olá objeto é criado. |
 
 ### <a name="global-parameters"></a>Parâmetros Globais
-A guia Parâmetros Globais no Designer de Agente de Gerenciamento permite que você configure os scripts do Windows PowerShell que são executados pelo conector. Você também pode configurar valores globais para configurações personalizadas definidas na guia Conectividade.
+guia parâmetros globais Olá Olá Management Agent Designer permite tooconfigure saudação do Windows PowerShell scripts que são executados pelo conector hello. Você também pode configurar valores globais para configurações personalizadas definidas na guia de conectividade de saudação.
 
 **Descoberta de Partição**  
-Uma partição é um namespace separado dentro de um esquema compartilhado. Por exemplo, no Active Directory, cada domínio é uma partição em uma floresta. Uma partição é o agrupamento lógico de operações de importação e exportação. Importação e Exportação têm partição como um contexto e todas as operações ocorrem nesse contexto. As partições supostamente representam uma hierarquia no LDAP. O nome diferenciado de uma partição é usado na importação para verificar se todos os objetos retornados estão dentro do escopo de uma partição. O nome diferenciado da partição também é usado durante o provisionamento do metaverso para o espaço do conector, de modo a determinar a qual partição um objeto deve ser associado durante a exportação.
+Uma partição é um namespace separado dentro de um esquema compartilhado. Por exemplo, no Active Directory, cada domínio é uma partição em uma floresta. Uma partição é um agrupamento lógico de saudação para importação e exportação de operações. Importação e Exportação têm partição como um contexto e todas as operações ocorrem nesse contexto. Partições devem toorepresent uma hierarquia no LDAP. nome distinto de saudação de uma partição é usado na importação tooverify todos os retornados os objetos estão dentro do escopo de saudação de uma partição. nome diferenciado da partição Olá também é usado durante o provisionamento de saudação metaverso toohello conector espaço toodetermine Olá partição que deve ser associado a um objeto durante a exportação.
 
-O script de descoberta de partição recebe os seguintes parâmetros do conector:
+script de descoberta de partição Olá recebe Olá parâmetros a seguir do conector hello:
 
 | Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
-| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
-| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador na guia Conectividade. |
+| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para Olá conector. |
+| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador Olá na guia de conectividade de saudação. |
 
-O script deve retornar um único objeto [Partition][part] ou uma Lista[T] de objetos Partition para o pipeline.
+Olá script deve retornar um uma única [partição] [ part] objeto ou uma lista [T] do pipeline de toohello de objetos de partição.
 
 **Descoberta de Hierarquia**  
-O script de descoberta de hierarquia é usado apenas quando o recurso Estilo de Nome Diferenciado é LDAP. O script é usado para permitir que você navegue e selecione um conjunto de contêineres que é considerado em escopo ou fora de escopo para operações de importação e exportação. O script deve fornecer somente uma lista de nós que sejam filhos diretos do nó raiz fornecido para o script.
+script de descoberta de hierarquia Olá é usado somente quando Olá recurso de estilo de nome diferenciado é LDAP. script Hello é usado tooallow você toobrowse e selecione um conjunto de contêineres que é considerado em ou fora do escopo de importação e exportação de operações. script Hello só deve fornecer uma lista de nós que são filhos diretos de saudação raiz nó fornecido toohello script.
 
-O script de descoberta de hierarquia recebe os seguintes parâmetros do conector:
+script de descoberta de hierarquia Olá recebe Olá parâmetros a seguir do conector hello:
 
 | Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
-| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
-| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador na guia Conectividade. |
-| ParentNode |[HierarchyNode][hn] |O nó raiz da hierarquia sob a qual o script deve retornar os filhos diretos. |
+| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para Olá conector. |
+| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador Olá na guia de conectividade de saudação. |
+| ParentNode |[HierarchyNode][hn] |nó de raiz de saudação da hierarquia de saudação em qual Olá script deve retornar os filhos diretos. |
 
-O script deve retornar um único objeto filho HierarchyNode ou uma Lista[T] de objetos filho HierarchyNode para o pipeline.
+script Hello deve retornar um objeto de HierarchyNode um único filho ou uma lista [T] do pipeline de toohello de objetos filho HierarchyNode.
 
 #### <a name="import"></a>Importar
 Os conectores que oferecem suporte às operações de importação devem implementar três scripts.
 
 **Iniciar Importação**  
-O script de início de importação é executado no começo de uma etapa de execução de importação. Durante esta etapa, você pode estabelecer uma conexão com o sistema de origem e executar etapas preparatórias antes de importar dados de sistema conectado.
+Olá começar a importar script é executado no início de uma etapa de importação executar hello. Durante esta etapa, você poderá estabelecer um sistema de origem de toohello de conexão e fazer as etapas preparatórias antes de importar dados de saudação sistema conectado.
 
-O script de início de importação recebe os seguintes parâmetros do conector:
+Olá começar a importar script recebe Olá parâmetros a seguir do conector hello:
 
 | Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
-| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
-| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador na guia Conectividade. |
-| OpenImportConnectionRunStep |[OpenImportConnectionRunStep][oicrs] |Informa o script sobre o tipo de execução de importação (delta ou completa), partição, hierarquia, marca d'água e tamanho esperado da página. |
-| Tipos |[Schema][schema] |Esquema para o espaço do conector que é importado. |
+| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para Olá conector. |
+| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador Olá na guia de conectividade de saudação. |
+| OpenImportConnectionRunStep |[OpenImportConnectionRunStep][oicrs] |Informa o script hello sobre tipo de saudação de importação executar (completo ou delta), partição, hierarquia, marca d'água e tamanho de página esperado. |
+| Tipos |[Schema][schema] |Esquema para o espaço do conector Olá que é importado. |
 
-O script deve retornar um único objeto [OpenImportConnectionResults][oicres] para o pipeline. Por exemplo: `Write-Output (New-Object Microsoft.MetadirectoryServices.OpenImportConnectionResults)`
+script Hello deve retornar um único [OpenImportConnectionResults] [ oicres] objeto pipeline toohello, por exemplo:`Write-Output (New-Object Microsoft.MetadirectoryServices.OpenImportConnectionResults)`
 
 **Importar Dados**  
-O script de importação de dados é chamado pelo conector até que o script indique que não há mais dados a serem importados. O conector Windows PowerShell tem um tamanho de página de 9.999 objetos. Se o script retornar mais de 9.999 objetos para importação, você deverá dar suporte à paginação. O conector expõe uma propriedade dados personalizada que pode ser usada para armazenar uma marca d’água, de modo que toda vez que o script de importação de dados for chamado, o script retome a importação de objetos onde ela foi interrompida.
+script de importação de dados de saudação é chamado pelo conector Olá até que o script hello indica que não há nenhuma mais tooimport de dados. conector do Windows PowerShell Olá tem um tamanho de página de 9.999 objetos. Se o script retornar mais de 9.999 objetos para importação, você deverá dar suporte à paginação. expõe de conector Olá uma propriedade de dados personalizados que você pode usar o repositório de tooa uma marca d'água para que cada Olá tempo Importar script de dados é chamada, o script continua a importação de objetos de onde parou.
 
-O script de importação de dados recebe os seguintes parâmetros do conector:
+script de importação de dados de saudação recebe Olá parâmetros a seguir do conector hello:
 
 | Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
-| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
-| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador na guia Conectividade. |
-| GetImportEntriesRunStep |[ImportRunStep][irs] |Contém a marca d'água (CustomData) que pode ser usada durante importações paginadas e importações delta. |
-| OpenImportConnectionRunStep |[OpenImportConnectionRunStep][oicrs] |Informa o script sobre o tipo de execução de importação (delta ou completa), partição, hierarquia, marca d'água e tamanho esperado da página. |
-| Tipos |[Schema][schema] |Esquema para o espaço do conector que é importado. |
+| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para Olá conector. |
+| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador Olá na guia de conectividade de saudação. |
+| GetImportEntriesRunStep |[ImportRunStep][irs] |Mantém Olá marca d'água (CustomData) que pode ser usada durante importações pagináveis e importa delta. |
+| OpenImportConnectionRunStep |[OpenImportConnectionRunStep][oicrs] |Informa o script hello sobre tipo de saudação de importação executar (completo ou delta), partição, hierarquia, marca d'água e tamanho de página esperado. |
+| Tipos |[Schema][schema] |Esquema para o espaço do conector Olá que é importado. |
 
-O script de importação de dados deve gravar um objeto List[[CSEntryChange][csec]] no pipeline. Essa coleção é composta por atributos CSEntryChange que representam cada objeto que está sendo importado. Durante uma importação completa, essa coleção deve ter um conjunto completo de objetos CSEntryChange que tenham todos os atributos para cada objeto. Durante uma importação delta, o objeto CSEntryChange deve conter os deltas de nível de atributo para cada objeto a ser importado ou uma representação completa dos objetos que foram alterados (modo Substituir).
+Olá script de importação de dados deve gravar uma lista [[CSEntryChange][csec]] pipeline de toohello do objeto. Essa coleção é composta por atributos CSEntryChange que representam cada objeto que está sendo importado. Durante uma importação completa, essa coleção deve ter um conjunto completo de objetos CSEntryChange que tenham todos os atributos para cada objeto. Durante a importação de Delta, objeto de CSEntryChange Olá deve conter deltas de nível de atributo Olá para cada tooimport de objeto ou uma representação completa de objetos de saudação que foram alterados (modo de substituição).
 
 **Encerrar Importação**  
-Na conclusão da execução da importação, o script Encerrar Importação é executado. Esse script deve executar as tarefas de limpeza necessárias (por exemplo, fechar conexões a sistemas e responder a falhas).
+Na conclusão de saudação da importação de saudação executar, Olá final Importar script é executado. Esse script deve executar as tarefas de limpeza necessárias (por exemplo, encerre as conexões toosystems e responder toofailures).
 
-O script de finalização de importação recebe os seguintes parâmetros do conector:
+script de importação de término Hello recebe Olá parâmetros a seguir do conector hello:
 
 | Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
-| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
-| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador na guia Conectividade. |
-| OpenImportConnectionRunStep |[OpenImportConnectionRunStep][oicrs] |Informa o script sobre o tipo de execução de importação (delta ou completa), partição, hierarquia, marca d'água e tamanho esperado da página. |
-| CloseImportConnectionRunStep |[CloseImportConnectionRunStep][cecrs] |Informa o script sobre o motivo da finalização da importação. |
+| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para Olá conector. |
+| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador Olá na guia de conectividade de saudação. |
+| OpenImportConnectionRunStep |[OpenImportConnectionRunStep][oicrs] |Informa o script hello sobre tipo de saudação de importação executar (completo ou delta), partição, hierarquia, marca d'água e tamanho de página esperado. |
+| CloseImportConnectionRunStep |[CloseImportConnectionRunStep][cecrs] |Informa o script hello sobre motivo Olá importação Olá foi finalizada. |
 
-O script deve retornar um único objeto [CloseImportConnectionResults][cicres] para o pipeline, por exemplo: `Write-Output (New-Object Microsoft.MetadirectoryServices.CloseImportConnectionResults)`
+script Hello deve retornar um único [CloseImportConnectionResults] [ cicres] objeto pipeline toohello, por exemplo:`Write-Output (New-Object Microsoft.MetadirectoryServices.CloseImportConnectionResults)`
 
 #### <a name="export"></a>Exportação
-Assim como a arquitetura de importação do conector, os conectores que oferecem suporte à exportação devem implementar três scripts.
+Arquitetura de importação toohello idênticas do conector Olá, os conectores que oferece suporte à exportação devem implementar três scripts.
 
 **Iniciar Importação**  
-O script de início de exportação é executado no começo de uma etapa de execução de exportação. Durante esta etapa, você pode estabelecer uma conexão com o sistema de origem e realizar todas as etapas preparatórias antes de exportar dados para o sistema conectado.
+Olá iniciar exportação script é executado no início de saudação de uma etapa de execução de exportação. Durante esta etapa, você pode estabelecer um sistema de origem de toohello de conexão e realize as etapas preparatórias antes de exportar dados toohello sistema conectado.
 
-O script de início de exportação recebe os seguintes parâmetros do conector:
+Olá iniciar exportação script recebe Olá parâmetros a seguir do conector hello:
 
 | Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
-| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
-| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador na guia Conectividade. |
-| OpenExportConnectionRunStep |[OpenExportConnectionRunStep][oecrs] |Informa o script sobre o tipo de execução de exportação (delta ou completa), partição, hierarquia e tamanho esperado da página. |
-| Tipos |[Schema][schema] |Esquema para o espaço do conector é exportado. |
+| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para Olá conector. |
+| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador Olá na guia de conectividade de saudação. |
+| OpenExportConnectionRunStep |[OpenExportConnectionRunStep][oecrs] |Informa o script hello sobre tipo hello de execução de exportação (completo ou delta), partição, hierarquia e tamanho de página esperado. |
+| Tipos |[Schema][schema] |Esquema para o espaço do conector Olá exportado. |
 
-O script não deve retornar saídas para o pipeline.
+script Hello não deve retornar qualquer pipeline toohello de saída.
 
 **Exportar Dados**  
-O Serviço de Sincronização chama o script Exportar Dados quantas vezes forem necessárias para processar todas as exportações pendentes. Se o espaço do conector tiver mais exportações pendentes do que o tamanho de página do conector, o script de exportação de dados poderá ser chamado várias vezes e, possivelmente, várias vezes para o mesmo objeto.
+Olá serviço de sincronização chama o script de exportar dados de saudação quantas vezes for necessário tooprocess todas as exportações pendentes. Se o espaço do conector Olá tem mais exportações pendentes que o tamanho da página do conector de hello, exportação Olá script de dados pode ser chamado várias vezes e possivelmente várias vezes para Olá mesmo objeto.
 
-O script de exportação de dados recebe os seguintes parâmetros do conector:
+script de exportação de dados de saudação recebe Olá parâmetros a seguir do conector hello:
 
 | Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
-| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
-| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador na guia Conectividade. |
-| CSEntries |IList[CSEntryChange][csec] |Lista de todos os objetos do espaço do conector com exportações pendentes a serem processadas durante essa etapa. |
-| OpenExportConnectionRunStep |[OpenExportConnectionRunStep][oecrs] |Informa o script sobre o tipo de execução de exportação (delta ou completa), partição, hierarquia e tamanho esperado da página. |
-| Tipos |[Schema][schema] |Esquema para o espaço do conector é exportado. |
+| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para Olá conector. |
+| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador Olá na guia de conectividade de saudação. |
+| CSEntries |IList[CSEntryChange][csec] |Lista de todos os espaços de conector Olá objetos com pendente toobe exportações processada durante essa passagem. |
+| OpenExportConnectionRunStep |[OpenExportConnectionRunStep][oecrs] |Informa o script hello sobre tipo hello de execução de exportação (completo ou delta), partição, hierarquia e tamanho de página esperado. |
+| Tipos |[Schema][schema] |Esquema para o espaço do conector Olá exportado. |
 
-O script de exportação de dados deve retornar um objeto [PutExportEntriesResults][peeres] para o pipeline. Esse objeto não precisa incluir informações de resultado para cada conector exportado, a menos que ocorra um erro ou uma alteração no atributo de âncora. Por exemplo, para retornar um objeto PutExportEntriesResults para o pipeline: `Write-Output (New-Object Microsoft.MetadirectoryServices.PutExportEntriesResults)`
+Olá script de exportação de dados deve retornar um [PutExportEntriesResults] [ peeres] pipeline de toohello do objeto. Este objeto não precisa de informações de resultado de tooinclude para cada conector exportado a menos que ocorra um erro ou um atributo de âncora de toohello de alteração. Por exemplo, tooreturn um pipeline de toohello PutExportEntriesResults objeto:`Write-Output (New-Object Microsoft.MetadirectoryServices.PutExportEntriesResults)`
 
 **Encerrar Exportação**  
-Na conclusão da execução de exportação, o script Encerrar Exportação é executado. Esse script deve executar as tarefas de limpeza necessárias (por exemplo, fechar conexões a sistemas e responder a falhas).
+Na conclusão de saudação da exportação de saudação é executado, Olá final exportar toorun de script. Esse script deve executar as tarefas de limpeza necessárias (por exemplo, encerre as conexões toosystems e responder toofailures).
 
-O script de finalização de exportação recebe os seguintes parâmetros do conector:
+script de exportação de término Hello recebe Olá parâmetros a seguir do conector hello:
 
 | Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
-| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
-| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador na guia Conectividade. |
-| OpenExportConnectionRunStep |[OpenExportConnectionRunStep][oecrs] |Informa o script sobre o tipo de execução de exportação (delta ou completa), partição, hierarquia e tamanho esperado da página. |
-| CloseExportConnectionRunStep |[CloseExportConnectionRunStep][cecrs] |Informa o script sobre o motivo da finalização da exportação. |
+| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para Olá conector. |
+| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador Olá na guia de conectividade de saudação. |
+| OpenExportConnectionRunStep |[OpenExportConnectionRunStep][oecrs] |Informa o script hello sobre tipo hello de execução de exportação (completo ou delta), partição, hierarquia e tamanho de página esperado. |
+| CloseExportConnectionRunStep |[CloseExportConnectionRunStep][cecrs] |Informa o script hello sobre motivo Olá exportação Olá foi finalizada. |
 
-O script não deve retornar saídas para o pipeline.
+script Hello não deve retornar qualquer pipeline toohello de saída.
 
 #### <a name="password-synchronization"></a>Sincronização de senha
 Os conectores do Windows PowerShell podem ser usados como um destino para alterações/redefinições de senha.
 
-O script de senha recebe os seguintes parâmetros do conector:
+script de senha Olá recebe Olá parâmetros a seguir do conector hello:
 
 | Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
-| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
-| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador na guia Conectividade. |
-| Partition |[Partição][part] |Partição de diretório em que CSEntry está. |
-| CSEntry |[CSEntry][cse] |Entrada do espaço do conector para o objeto que recebeu uma alteração ou redefinição de senha. |
-| OperationType |Cadeia de caracteres |Indica se a operação é uma redefinição (**SetPassword**) ou uma alteração (**ChangePassword**). |
-| PasswordOptions |[PasswordOptions][pwdopt] |Sinalizadores que especificam o comportamento de redefinição de senha pretendido. Esse parâmetro estará disponível somente se OperationType for **SetPassword**. |
-| OldPassword |Cadeia de caracteres |Populado com a senha antiga do objeto para alterações de senha. Esse parâmetro estará disponível somente se OperationType for **ChangePassword**. |
-| NewPassword |Cadeia de caracteres |Populado com a nova senha do objeto que o script deve definir. |
+| ConfigParameters |[KeyedCollection][keyk][string, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para Olá conector. |
+| Credencial |[PSCredential][pscred] |Contém as credenciais inseridas pelo administrador Olá na guia de conectividade de saudação. |
+| Partition |[Partição][part] |Partição de diretório que Olá CSEntry está em. |
+| CSEntry |[CSEntry][cse] |Entrada de espaço do conector para objeto Olá recebeu uma alteração de senha ou redefinido. |
+| OperationType |Cadeia de caracteres |Indica se a operação de saudação é uma redefinição (**SetPassword**) ou uma alteração (**ChangePassword**). |
+| PasswordOptions |[PasswordOptions][pwdopt] |Sinalizadores que especificam Olá destinado comportamento de redefinição de senha. Esse parâmetro estará disponível somente se OperationType for **SetPassword**. |
+| OldPassword |Cadeia de caracteres |Preenchido com a senha antiga do objeto Olá para alterações de senha. Esse parâmetro estará disponível somente se OperationType for **ChangePassword**. |
+| NewPassword |Cadeia de caracteres |Preenchido com a nova senha do objeto Olá que deve ser definidos por script hello. |
 
-Não é comum que o script de senha retorne algum resultado para o pipeline do Windows PowerShell. Se ocorrer um erro no script de senha, o script deverá lançar uma das seguintes exceções para informar o Serviço de Sincronização sobre o problema:
+Olá script de senha é qualquer pipeline do Windows PowerShell de toohello resultados de tooreturn não esperado. Se ocorrer um erro no script de senha hello, script hello deve lançar uma saudação exceções tooinform Olá serviço de sincronização sobre problema Olá a seguir:
 
-* [PasswordPolicyViolationException][pwdex1] – lançada se a senha não atender à política de senha no sistema conectado.
-* [PasswordIllFormedException][pwdex2] – lançada se a senha não for aceitável para o sistema conectado.
-* [PasswordExtension][pwdex3] – lançada para todos os outros erros no script de senha.
+* [PasswordPolicyViolationException] [ pwdex1] – lançada se senha Olá não atender a política de senha Olá no sistema Olá conectado.
+* [PasswordIllFormedException] [ pwdex2] – lançada se Olá senha não é aceitável para o sistema Olá conectado.
+* [PasswordExtension] [ pwdex3] – lançada para todos os outros erros no script de senha hello.
 
 ## <a name="sample-connectors"></a>Conectores de exemplo
-Para obter uma visão geral completa dos conectores de exemplo disponíveis, confira [Windows PowerShell Connector Sample Connector Collection][samp].
+Para obter uma visão geral completa dos conectores do exemplo disponível hello, consulte [coleção de conector de exemplo do Windows PowerShell conector][samp].
 
 ## <a name="other-notes"></a>Outras observações
 ### <a name="additional-configuration-for-impersonation"></a>Configuração adicional para representação
-Conceda ao usuário que é representado as seguintes permissões no servidor do Serviço de Sincronização:
+Conceder saudação do usuário que é representada hello seguintes permissões no servidor do serviço de sincronização de saudação:
 
-Acesso de leitura para as seguintes chaves do registro:
+Acesso de leitura toohello de chaves do registro a seguir:
 
 * HKEY_USERS\\[SynchronizationServiceServiceAccountSID]\Software\Microsoft\PowerShell
 * HKEY_USERS\\[SynchronizationServiceServiceAccountSID]\Environment
 
-Para determinar o SID (Identificador de Segurança) da conta de serviço do Serviço de Sincronização, execute os seguintes comandos do PowerShell:
+Olá toodetermine identificador de segurança (SID) da conta de serviço do serviço de sincronização hello, executar Olá comandos do PowerShell a seguir:
 
 ```
 $account = New-Object System.Security.Principal.NTAccount "<domain>\<username>"
 $account.Translate([System.Security.Principal.SecurityIdentifier]).Value
 ```
 
-Acesso de leitura para as seguintes pastas do sistema de arquivos:
+Acesso de leitura toohello de pastas do sistema de arquivos a seguir:
 
 * %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\Extensions
 * %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\ExtensionsCache
 * %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\MaData\\{ConnectorName}
 
-Substitua o nome do conector Windows PowerShell para o espaço reservado {ConnectorName}.
+Substitua o nome de saudação do conector do Windows PowerShell de saudação de espaço reservado de Olá {ConnectorName}.
 
 ## <a name="troubleshooting"></a>Solucionar problemas
-* Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
+* Para obter informações sobre como o log tooenable tootroubleshoot Olá conector, consulte Olá [como tooEnable o rastreamento ETW para conectores](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
+<!--Reference style links - using these makes hello source content way more readable than using inline links-->
 [cpp]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.configparameterpage.aspx
 [keyk]: https://msdn.microsoft.com/library/ms132438.aspx
 [cp]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.configparameter.aspx

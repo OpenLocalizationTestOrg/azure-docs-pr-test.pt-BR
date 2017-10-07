@@ -1,6 +1,6 @@
 ---
-title: Gatilho de temporizador do Azure Functions | Microsoft Docs
-description: Entenda como usar gatilhos de temporizador no Azure Functions.
+title: "gatilho de timer de funções aaaAzure | Microsoft Docs"
+description: "Entenda como toouse timer dispara em funções do Azure."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -17,26 +17,26 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 6a97ab8508f889b77d064a5da70e3c726d62900c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 17fca22372dbc55d4684c8c099cc97923a7d3cf3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-timer-trigger"></a>Gatilho de temporizador do Azure Functions
 
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Este artigo explica como configurar e codificar gatilhos de temporizador no Azure Functions. O Azure Functions tem uma associação de gatilho de timer que permite executar o código de função com base em um agendamento definido. 
+Este artigo explica como tooconfigure e o código de timer dispara em funções do Azure. O Azure Functions tem uma associação de gatilho de timer que permite executar o código de função com base em um agendamento definido. 
 
-O gatilho de timer dá suporte à expansão em várias instâncias. Uma única instância de uma função específica de timer é executada em todas as instâncias.
+gatilho de timer Olá dá suporte a várias instâncias em expansão. Uma única instância de uma função específica de timer é executada em todas as instâncias.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 <a id="trigger"></a>
 
 ## <a name="timer-trigger"></a>Gatilho de temporizador
-O gatilho de timer de uma função usa o seguinte objeto JSON na matriz `bindings` de function.json:
+função de tooa de gatilho de timer Hello usa Olá seguinte objeto JSON na Olá `bindings` matriz de function.json:
 
 ```json
 {
@@ -47,22 +47,22 @@ O gatilho de timer de uma função usa o seguinte objeto JSON na matriz `binding
 }
 ```
 
-O valor de `schedule` é uma [expressão CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) que inclui estes seis campos: 
+Olá valor `schedule` é um [expressão CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) que inclua esses seis campos: 
 
     {second} {minute} {hour} {day} {month} {day-of-week}
 &nbsp;
 >[!NOTE]   
->Muitas das expressões cron encontradas online omitem o campo `{second}`. Se você copiar de um deles, precisará ajustá-lo para o campo `{second}`. Para obter exemplos específicos, consulte [Agendar exemplos](#examples) abaixo.
+>Muitas das expressões de cron Olá encontrar online omitir Olá `{second}` campo. Se você copiar de um deles, você precisa tooadjust para Olá extra `{second}` campo. Para obter exemplos específicos, consulte [Agendar exemplos](#examples) abaixo.
 
-O fuso horário padrão usado com as expressões CRON é a Hora Universal Coordenada (UTC). Para que a expressão CRON se baseie em outro fuso horário, crie uma nova configuração de aplicativo para o aplicativo de funções denominada `WEBSITE_TIME_ZONE`. Defina o valor para o nome do fuso horário desejado, conforme mostrado no [Índice de fuso horário da Microsoft](https://msdn.microsoft.com/library/ms912391.aspx). 
+saudação padrão fuso horário usado com expressões de CRON Olá é Tempo Universal Coordenado (UTC). toohave expressão CRON com base em outro fuso horário, criar uma nova configuração de aplicativo para seu aplicativo de função chamada `WEBSITE_TIME_ZONE`. Nome do conjunto Olá valor toohello de saudação desejado fuso horário conforme Olá [índice de fuso horário do Microsoft](https://msdn.microsoft.com/library/ms912391.aspx). 
 
-Por exemplo, a *Hora padrão da costa leste dos EUA* é UTC-05:00. Para que o timer dispare às 10:00 AM EST diariamente, use a seguinte expressão CRON que considera o fuso horário UTC:
+Por exemplo, a *Hora padrão da costa leste dos EUA* é UTC-05:00. toohave seu timer gatilho acionado em 10:00 AM EST diariamente, use Olá expressão CRON que contas para o fuso horário UTC a seguir:
 
 ```json
 "schedule": "0 0 15 * * *",
 ``` 
 
-Como alternativa, você pode adicionar uma nova configuração de aplicativo para seu aplicativo de funções denominada `WEBSITE_TIME_ZONE` e definir o valor como **Horário padrão da costa leste dos EUA**.  Em seguida, a seguinte expressão CRON poderia ser usada para 10:00 EST: 
+Como alternativa, você pode adicionar uma nova configuração de aplicativo para seu aplicativo de função chamado `WEBSITE_TIME_ZONE` e defina o valor de saudação muito**horário padrão Oriental**.  Em seguida, Olá CRON expressão a seguir pode ser usado para 10:00 AM EST: 
 
 ```json
 "schedule": "0 0 10 * * *",
@@ -72,39 +72,39 @@ Como alternativa, você pode adicionar uma nova configuração de aplicativo par
 <a name="examples"></a>
 
 ## <a name="schedule-examples"></a>Exemplos de agendamento
-Aqui estão alguns exemplos de expressões CRON que você pode usar para a propriedade `schedule`. 
+Aqui estão alguns exemplos de expressões de CRON, você pode usar para Olá `schedule` propriedade. 
 
-Para disparar uma vez a cada cinco minutos:
+tootrigger uma vez a cada cinco minutos:
 
 ```json
 "schedule": "0 */5 * * * *"
 ```
 
-Para disparar uma vez a cada hora:
+tootrigger uma vez na parte superior de saudação de cada hora:
 
 ```json
 "schedule": "0 0 * * * *",
 ```
 
-Para disparar uma vez a cada duas horas:
+tootrigger uma vez a cada duas horas:
 
 ```json
 "schedule": "0 0 */2 * * *",
 ```
 
-Para disparar uma vez a cada hora das 9h às 17h:
+tootrigger uma vez a cada hora de too5 9: 00 PM:
 
 ```json
 "schedule": "0 0 9-17 * * *",
 ```
 
-Para disparar às 9h30 todos os dias:
+tootrigger às 9:30:00 diariamente:
 
 ```json
 "schedule": "0 30 9 * * *",
 ```
 
-Para disparar às 9h30 todos os dias da semana:
+tootrigger às 9:30:00 todo dia:
 
 ```json
 "schedule": "0 30 9 * * 1-5",
@@ -113,7 +113,7 @@ Para disparar às 9h30 todos os dias da semana:
 <a name="usage"></a>
 
 ## <a name="trigger-usage"></a>Uso de gatilho
-Quando uma função de gatilho de timer é chamada, o [objeto timer](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) é passado para a função. O JSON a seguir é uma representação de exemplo do objeto timer. 
+Quando uma função de gatilho de timer é invocada, Olá [objeto temporizador](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) é passado para a função hello. Olá JSON a seguir é uma representação de exemplo do objeto de timer de saudação. 
 
 ```json
 {
@@ -130,7 +130,7 @@ Quando uma função de gatilho de timer é chamada, o [objeto timer](https://git
 <a name="sample"></a>
 
 ## <a name="trigger-sample"></a>Exemplo de gatilho
-Suponha que você tenha o seguinte gatilho de timer na matriz `bindings` de function.json:
+Suponha que você tenha Olá seguindo gatilho de timer no hello `bindings` matriz de function.json:
 
 ```json
 {
@@ -141,7 +141,7 @@ Suponha que você tenha o seguinte gatilho de timer na matriz `bindings` de func
 }
 ```
 
-Consulte o exemplo específico da linguagem que lê o objeto de timer para ver se ele está atrasado.
+Consulte exemplo específico do idioma hello que lê o temporizador de saudação toosee de objeto se ele está atrasado.
 
 * [C#](#triggercsharp)
 * [F#](#triggerfsharp)

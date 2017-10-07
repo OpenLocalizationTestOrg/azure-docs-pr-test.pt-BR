@@ -1,5 +1,5 @@
 ---
-title: Consultas SQL para a API do DocumentDB do Azure Cosmos DB | Microsoft Docs
+title: consultas de aaaSQL para a API DocumentDB do Azure Cosmos DB | Microsoft Docs
 description: Saiba mais sobre a sintaxe SQL, os conceitos sobre banco de dados e as consultas SQL do Azure Cosmos DB. O SQL pode ser usado como uma linguagem de consulta JSON no Azure Cosmos DB.
 keywords: "sintaxe sql, consulta sql, consultas sql, linguagem de consulta json, conceitos de banco de dados e consultas sql, funções agregadas"
 services: cosmos-db
@@ -15,32 +15,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: arramac
-ms.openlocfilehash: 9b2b5668ef0552485a86f63a120b57c4623bfe35
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f4db95b87f5796c4e4299aaf016435cb6301bbfe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sql-queries-for-azure-cosmos-db-documentdb-api"></a>Consultas SQL para a API do DocumentDB do Azure Cosmos DB
-O Microsoft Azure Cosmos DB dá suporte à consulta de documentos usando a linguagem SQL como uma linguagem de consulta JSON. O Cosmos DB é verdadeiramente sem esquemas. Em virtude de seu comprometimento com o modelo de dados JSON diretamente dentro do mecanismo do banco de dados, ele fornece a indexação automática de documentos JSON sem a necessidade de esquemas explícitos ou da criação de índices secundários. 
+O Microsoft Azure Cosmos DB dá suporte à consulta de documentos usando a linguagem SQL como uma linguagem de consulta JSON. O Cosmos DB é verdadeiramente sem esquemas. Em virtude do seu compromisso toohello JSON modelo de dados diretamente no mecanismo de banco de dados hello, ele fornece a indexação automática dos documentos JSON sem a necessidade de esquema explícito ou a criação de índices secundários. 
 
-Ao criar a linguagem de consulta para o Cosmos DB, temos dois objetivos em mente:
+Ao projetar a linguagem de consulta Olá Cosmos DB, tivemos que dois objetivos em mente:
 
-* Em vez de inventar uma nova linguagem de consulta JSON, queremos oferecer suporte ao SQL. A SQL é uma das linguagens de consulta mais conhecidas e populares. O SQL do Cosmos DB fornece um modelo de programação formal para consultas avançadas em documentos JSON.
-* Como um banco de dados de documentos JSON capaz de executar o JavaScript diretamente no mecanismo do banco de dados, queríamos usar o modelo de programação do JavaScript como os alicerces da nossa linguagem de consulta. O SQL da API do DocumentDB é baseado no sistema de tipos, na avaliação de expressão e na invocação de função do JavaScript. Isso, por sua vez, oferece um modelo de programação natural para projeções relacionais, navegação hierárquica em documentos JSON, autojunções, consultas espaciais e invocação de UDFs (funções definidas pelo usuário) gravadas inteiramente em JavaScript, entre outros recursos. 
+* Em vez de criação de uma nova linguagem de consulta JSON, queremos toosupport SQL. SQL é uma das linguagens de consulta mais populares e familiar hello. O SQL do Cosmos DB fornece um modelo de programação formal para consultas avançadas em documentos JSON.
+* Como JSON documento banco de dados capaz de executar o JavaScript diretamente no mecanismo de banco de dados de hello, queremos o modelo de programação do JavaScript toouse como base Olá para a linguagem de consulta. Olá SQL do DocumentDB API baseada no sistema de tipos do JavaScript, a avaliação de expressão e invocação de função. Isso, por sua vez, oferece um modelo de programação natural para projeções relacionais, navegação hierárquica em documentos JSON, autojunções, consultas espaciais e invocação de UDFs (funções definidas pelo usuário) gravadas inteiramente em JavaScript, entre outros recursos. 
 
-Nós acreditamos que esses recursos sejam fundamentais para reduzir o atrito entre o aplicativo e o banco de dados e cruciais para a produtividade do desenvolvedor.
+Acreditamos que esses recursos são tooreducing chave fricção de saudação entre o aplicativo hello e o banco de dados de saudação e são essenciais para a produtividade do desenvolvedor.
 
-Recomendamos que você comece assistindo ao vídeo a seguir, em que Aravind Ramachandran mostra as funcionalidades de consulta do Cosmos DB e visitando nosso [Espaço de Consulta](http://www.documentdb.com/sql/demo), em que você pode experimentar o Cosmos DB e executar consultas SQL em nosso conjunto de dados.
+É recomendável que guia de Introdução observando Olá seguindo o vídeo, onde Aravind Ramachandran mostra os recursos de consulta do banco de dados Cosmos e visitando nosso [parque de consulta](http://www.documentdb.com/sql/demo), onde você pode experimentar o banco de dados do Cosmos e executar consultas SQL nosso conjunto de dados.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player]
 > 
 > 
 
-Em seguida, retorne a este artigo, em que começamos com um tutorial de consulta SQL que apresenta alguns documentos JSON e comandos SQL simples.
+Em seguida, retorne toothis artigo, onde começamos com um tutorial de consulta SQL que percorre alguns documentos JSON simples e comandos SQL.
 
 ## <a id="GettingStarted"></a>Introdução aos comandos SQL no Cosmos DB
-Para ver o SQL do Cosmos DB em ação, vamos começar com alguns documentos JSON simples e analisar algumas consultas simples neles. Considere esses dois documentos JSON sobre duas famílias. Com o Cosmos DB, não precisamos criar nenhum esquema nem índice secundário explicitamente. Basta inserir os documentos JSON em uma coleção do Cosmos DB e, em seguida, realizar a consulta. Aqui, temos um documento JSON simples relacionado à família Andersen, os pais, os filhos (e seus animais de estimação), endereço e informações de registro. O documento tem cadeias de caracteres, números, boolianos, matrizes e propriedades aninhadas. 
+toosee Cosmos banco de dados SQL em funciona, vamos começar com alguns documentos JSON simples e percorrer algumas consultas simples em relação a ela. Considere esses dois documentos JSON sobre duas famílias. Com o banco de dados do Cosmos, não precisamos toocreate qualquer esquemas ou índices secundários explicitamente. Precisamos simplesmente tooinsert Olá JSON documentos tooa Cosmos DB coleta e subsequentemente de consulta. Aqui temos JSON simple de documentos para Olá família Andersen, Olá pais, filhos (e seus animais de estimação), endereço e informações de registro. documento de saudação tem cadeias de caracteres, números, valores booleanos, matrizes e propriedades aninhadas. 
 
 **Documento**  
 
@@ -99,7 +99,7 @@ Aqui está um segundo documento, com uma pequena diferença: `givenName` e `fami
 }
 ```
 
-Agora, vamos tentar realizar algumas consultas nesses dados para entender alguns dos principais aspectos do SQL da API do DocumentDB. Por exemplo, a consulta a seguir retorna documentos cujo campo de ID corresponde a `AndersenFamily`. Por se tratar de um `SELECT *`, a saída da consulta será todo o documento JSON:
+Agora vamos tentar algumas consultas em relação a esse toounderstand dados alguns Olá chave aspectos de SQL de API do DocumentDB. Por exemplo, o seguinte Olá consulta retorna documentos de saudação em que o campo de id de saudação corresponde `AndersenFamily`. Uma vez que ele é um `SELECT *`, Olá saída consulta Olá é documento JSON completo hello:
 
 **Consulta**
 
@@ -128,7 +128,7 @@ Agora, vamos tentar realizar algumas consultas nesses dados para entender alguns
     }]
 
 
-Agora, considere um caso em que precisamos reformatar a saída JSON para um formato diferente. Esta consulta projeta um novo documento JSON com dois campos selecionados, Nome e Cidade, com a cidade e o estado tendo o mesmo nome. Neste caso, "NY, NY" é correspondente.
+Agora considere o caso de Olá onde precisamos tooreformat Olá a saída JSON em uma forma diferente. Essa consulta projetos novos JSON do objeto com dois campos selecionados, nome e a cidade quando, cidade dos Olá endereço tem Olá mesmo nome como o estado de saudação. Neste caso, "NY, NY" é correspondente.
 
 **Consulta**    
 
@@ -146,7 +146,7 @@ Agora, considere um caso em que precisamos reformatar a saída JSON para um form
     }]
 
 
-A próxima consulta retorna todos os nomes dos filhos na família cuja identificação corresponde ao `WakefieldFamily` solicitado pela cidade de residência.
+consulta seguinte Olá retorna todos os nomes de fornecido de saudação de filhos na família Olá cuja id corresponde `WakefieldFamily` ordenados por cidade Olá de residência.
 
 **Consulta**
 
@@ -164,30 +164,30 @@ A próxima consulta retorna todos os nomes dos filhos na família cuja identific
     ]
 
 
-Gostaríamos de chamar atenção para alguns aspectos de destaque da linguagem de consulta do Cosmos DB nos exemplos que vimos até agora:  
+Gostaríamos toodraw atenção tooa alguns aspectos notáveis Olá Cosmos DB consulta por meio de exemplos de saudação que vimos até agora:  
 
-* Como o SQL da API do DocumentDB trabalha com valores JSON, ele lida com entidades com formato de árvore em vez de linhas e colunas. A linguagem, portanto, possibilita a referência a nós da árvore em qualquer profundidade arbitrária, como `Node1.Node2.Node3…..Nodem`, de forma semelhante à SQL relacional relativa à referência bipartida de `<table>.<column>`.   
-* A linguagem de consulta estruturada trabalha com dados com menos esquema. Portanto, o sistema de tipos precisa estar vinculado dinamicamente. A mesma expressão pode obter diferentes tipos em diferentes documentos. O resultado de uma consulta é um valor JSON válido, mas não há garantia de que seja de um esquema fixo.  
-* O Cosmos DB dá suporte apenas a documentos JSON estritos. Isto significa que as expressões e sistema de tipos são restritos para lidar somente com tipos JSON. Consulte a [especificação JSON](http://www.json.org/) para obter mais detalhes.  
-* Uma coleção do Cosmos DB é um contêiner de documentos JSON sem esquemas. As relações nas entidades de dados dentro e entre documentos em uma coleção são capturadas implicitamente pela contenção e não pelas relações chave primária e chave estrangeira. Este é um importante aspecto que vale a pena destacar em virtude das junções intradocumentos abordadas mais adiante neste artigo.
+* Como o SQL da API do DocumentDB trabalha com valores JSON, ele lida com entidades com formato de árvore em vez de linhas e colunas. Portanto, linguagem Olá permite que você consulte toonodes da árvore de saudação em qualquer profundidade arbitrária, como `Node1.Node2.Node3…..Nodem`, semelhante toorelational Referência toohello dois parte referência SQL do `<table>.<column>`.   
+* Olá estruturado funciona de linguagem de consulta com os dados sem esquema. Portanto, Olá vinculado do tipo sistema necessidades toobe dinamicamente. Olá mesma expressão pode produzir diferentes tipos em documentos diferentes. resultado de saudação de uma consulta é um valor JSON válido, mas não há garantia de toobe de um esquema fixo.  
+* O Cosmos DB dá suporte apenas a documentos JSON estritos. Isso significa expressões e sistema de tipo hello são restrito toodeal somente com tipos JSON. Consulte toohello [especificação JSON](http://www.json.org/) para obter mais detalhes.  
+* Uma coleção do Cosmos DB é um contêiner de documentos JSON sem esquemas. relações de saudação em entidades de dados dentro e entre documentos em uma coleção implicitamente são capturadas por confinamento e não pela chave primária e as relações de chave estrangeiras. Este é um aspecto importante vale a pena destacar levando em consideração as junções de dentro do documento hello discutidas posteriormente neste artigo.
 
 ## <a id="Indexing"></a> Indexação do Cosmos DB
-Antes de passarmos à sintaxe do SQL da API do DocumentDB, vale a pena explorar o design de indexação no Cosmos DB. 
+Antes de entrar em Olá sintaxe SQL de API de documentos, vale a pena explorar Olá indexação de design no banco de dados do Cosmos. 
 
-O objetivo de índices de bancos de dados é atender a consultas em suas diversas formas com um consumo mínimo de recursos (como CPU, entrada/saída), oferecendo alta produtividade e baixa latência. Frequentemente, a escolha do índice correto para consultar um banco de dados requer muito planejamento e experimentação. Esta abordagem representa um desafio para bancos de dados sem esquemas, nos quais os dados não seguem um esquema rígido e evoluem rapidamente. 
+finalidade de saudação de índices do banco de dados é tooserve consultas em suas várias formas e formas com consumo de recursos mínimo (como CPU e entrada/saída), proporcionando uma taxa de transferência e baixa latência. Muitas vezes, a escolha de saudação do índice Olá para consultar um banco de dados requer muito planejamento e experimentação. Essa abordagem representa um desafio para bancos de dados sem esquema onde dados saudação não está de acordo com esquema estrita tooa e evolui rapidamente. 
 
-Portanto, quando criamos o subsistema de indexação do Cosmos DB, definimos os seguintes objetivos:
+Portanto, quando criamos o subsistema de indexação de banco de dados do Cosmos hello, definimos Olá seguintes metas:
 
-* Indexar documentos sem precisar de um esquema: o subsistema de indexação não requer nenhuma informação de esquema e não faz suposições sobre o esquema dos documentos. 
-* Suporte para pesquisas hierárquicas e relacionais avançadas e eficientes: o índice dá suporte à linguagem de pesquisa do Cosmos DB de maneira eficiente, incluindo suporte para projeções hierárquicas e relacionais.
-* Suporte para consultas consistentes diante do grande volume de gravações: para possibilitar cargas de trabalho com alta produtividade de gravação com consultas consistentes, o índice é atualizado gradativamente, eficientemente e online, em face de um volume contínuo de gravações. A atualização consistente do índice é crucial para atender às consultas no nível de consistência em que o usuário configurou o sistema.
-* Suporte a multilocatário: dado o modelo baseado em reserva para a governança de recurso entre os locatários, as atualizações do índice são realizadas dentro do orçamento dos recursos do sistema (CPU, memória e operações de entrada/saída por segundo) alocados por réplica. 
-* Eficiência no armazenamento: para manter um bom custo-benefício, a sobrecarga do armazenamento em disco do índice é vinculada e previsível. Isto é fundamental porque o Cosmos DB permite que o desenvolvedor faça compensações baseadas em custo entre a sobrecarga do índice em relação ao desempenho da consulta.  
+* Indexar documentos sem a necessidade de esquema: Olá indexação subsistema não exige nenhuma informação de esquema ou fazer suposições sobre o esquema de documentos de saudação. 
+* Suporte para consultas de hierárquicas, relacionais e eficientes, avançadas: índice Olá dá suporte a linguagem de consulta de banco de dados do Cosmos Olá com eficiência, incluindo suporte para projeções hierárquicas e relacionais.
+* Suporte para consultas consistentes em face de um volume prolongada de gravações: para cargas de trabalho gravação alta taxa de transferência com consultas consistentes, Olá índice é atualizado incrementalmente com eficiência e online na face de saudação de um volume prolongado de gravações. atualização do índice consistente de saudação é consultas de saudação tooserve crucial no nível de consistência de saudação em qual serviço de documento Olá Olá configurado pelo usuário.
+* Suporte para multilocação: dado o modelo com base em reserva de saudação de governança de recursos entre locatários, as atualizações de índice são executadas dentro do orçamento Olá de recursos do sistema (CPU, memória e operações de entrada/saída por segundo) alocados por réplica. 
+* Eficiência de armazenamento: para economia, Olá armazenamento em disco de sobrecarga de índice Olá é limitada e previsível. Isso é essencial porque Cosmos DB permite Olá desenvolvedor toomake baseado no custo vantagens e desvantagens entre sobrecarga de índice no desempenho da consulta toohello relação.  
 
-Consulte as [amostras do Azure Cosmos DB](https://github.com/Azure/azure-documentdb-net) no MSDN para obter amostras que exibem como configurar a política de indexação de uma coleção. Agora, vejamos os detalhes da sintaxe SQL do Azure Cosmos DB.
+Consulte toohello [exemplos de banco de dados do Azure Cosmos](https://github.com/Azure/azure-documentdb-net) no MSDN para obter exemplos que mostram como tooconfigure Olá política de indexação para uma coleção. Agora, vamos nos detalhes de saudação de saudação sintaxe SQL de banco de dados do Azure Cosmos.
 
 ## <a id="Basics"></a>Noções básicas de uma consulta SQL do Azure Cosmos DB
-Toda consulta consiste em uma cláusula SELECT e cláusulas FROM e WHERE opcionais de acordo com os padrões ANSI-SQL. Normalmente, para cada consulta, a fonte da cláusula FROM é enumerada. Então, o filtro da cláusula WHERE é aplicado para recuperar um subconjunto de documentos JSON. Por fim, a cláusula SELECT é usada para projetar os valores JSON solicitados na lista selecionada.
+Toda consulta consiste em uma cláusula SELECT e cláusulas FROM e WHERE opcionais de acordo com os padrões ANSI-SQL. Normalmente, para cada consulta, código-fonte na cláusula FROM de Olá Olá é enumerado. Em seguida, Olá filtrar em Olá cláusula WHERE é aplicada em Olá fonte tooretrieve um subconjunto de documentos JSON. Finalmente, a cláusula SELECT Olá é usada tooproject Olá solicitado valores JSON em Olá selecione lista.
 
     SELECT <select_list> 
     [FROM <from_specification>] 
@@ -196,16 +196,16 @@ Toda consulta consiste em uma cláusula SELECT e cláusulas FROM e WHERE opciona
 
 
 ## <a id="FromClause"></a>Cláusula FROM
-A cláusula `FROM <from_specification>` é opcional, a menos que a fonte seja filtrada ou projetada mais adiante na consulta. O objetivo desta cláusula é especificar a fonte de dados na qual a consulta deve operar. Normalmente, a coleção inteira é a fonte, mas é possível também especificar um subconjunto da coleção. 
+Olá `FROM <from_specification>` cláusula é opcional, a menos que fonte Olá é filtrada ou projetado posteriormente na consulta de saudação. Olá finalidade essa cláusula é toospecify fonte de dados de saudação após a qual Olá consulta deve operar. Normalmente coleção inteira de saudação é origem hello, mas você pode especificar um subconjunto da coleção de saudação em vez disso. 
 
-Uma consulta como `SELECT * FROM Families` indica que a coleção Families inteira é a fonte a ser enumerada. Um identificador especial ROOT pode ser usado para representar a coleção em vez de usar o nome da coleção. A lista a seguir contém as regras que são impostas por uma consulta:
+Uma consulta como `SELECT * FROM Families` indica que a coleção inteira de famílias Olá é origem Olá sobre quais tooenumerate. Um identificador especial raiz pode ser usado toorepresent Olá coleção em vez de usar o nome da coleção hello. Olá lista a seguir contém regras de saudação que são impostas por consulta:
 
-* A coleção pode ter um alias como `SELECT f.id FROM Families AS f`, ou simplesmente `SELECT f.id FROM Families f`. Aqui, `f` é o equivalente de `Families`. `AS` é uma palavra-chave opcional que serve como alias para o identificador.
-* Após receber um alias, a fonte original não pode ser associada. Por exemplo: `SELECT Families.id FROM Families f` é sintaticamente inválido, pois o identificador "Families" não pode mais ser resolvido.
-* Todas as propriedades que precisam ser referidas devem ser completamente qualificadas. Na falta de aderência a um esquema rígido, esta regra é aplicada para evitar associações ambíguas. Portanto, `SELECT id FROM Families f` é sintaticamente inválido, pois a propriedade `id` não está vinculada.
+* coleção de saudação pode ser um alias, como `SELECT f.id FROM Families AS f` ou simplesmente `SELECT f.id FROM Families f`. Aqui `f` é equivalente a saudação `Families`. `AS`é um identificador de saudação tooalias palavra-chave opcional.
+* Uma vez um alias, origem Olá não pode ser associada. Por exemplo, `SELECT Families.id FROM Families f` é sintaticamente inválida, pois o identificador de hello "Famílias" não pode ser resolvido mais.
+* Todas as propriedades que precisar toobe referenciado devem ser totalmente qualificadas. Na ausência de saudação do cumprimento de esquema estrita, isso é imposto tooavoid associações ambíguas. Portanto, `SELECT id FROM Families f` é sintaticamente inválida como propriedade Olá `id` não está associado.
 
 ### <a name="subdocuments"></a>Subdocumentos
-A fonte também pode ser reduzida a um subconjunto menor. Por exemplo, para enumerar somente uma subárvore de cada documento, a sub-raiz pode então se tornar a fonte, como no exemplo a seguir:
+origem Olá também pode ser o subconjunto menor reduzidos tooa. Por exemplo, tooenumerating apenas uma subárvore de cada documento, subroot Olá poderá se tornar fonte hello, conforme mostrado no exemplo a seguir de saudação:
 
 **Consulta**
 
@@ -243,7 +243,7 @@ A fonte também pode ser reduzida a um subconjunto menor. Por exemplo, para enum
       ]
     ]
 
-Embora o exemplo acima tenha usado uma matriz como origem, um objeto também pode ser usado como origem, o que é mostrado no exemplo a seguir: qualquer valor JSON válido (não indefinido) que pode ser encontrado na origem é considerado para inclusão no resultado da consulta. Se algumas famílias não tiverem um valor de `address.state`, elas serão excluídas do resultado da consulta.
+Enquanto Olá acima de exemplo usado uma matriz como origem de Olá, um objeto também pode ser usado como origem de saudação, que é o que é mostrado no exemplo a seguir de saudação: qualquer valor JSON válido que pode ser encontrado na origem da saudação (não indefinido) é considerado para inclusão no resultado de saudação do consulta de saudação. Se não tem algumas famílias um `address.state` valor, eles são excluídos no resultado de consulta hello.
 
 **Consulta**
 
@@ -259,9 +259,9 @@ Embora o exemplo acima tenha usado uma matriz como origem, um objeto também pod
 
 
 ## <a id="WhereClause"></a>Cláusula WHERE
-A cláusula WHERE (**`WHERE <filter_condition>`**) é opcional. Ela especifica as condições que os documentos JSON fornecidos pela fonte devem satisfazer para serem incluídas como parte dos resultados. Qualquer documento JSON deve avaliar as condições especificadas como “verdadeiras” para serem consideradas para os resultados. A cláusula WHERE é usada pela camada do índice para determinar o subconjunto absolutamente menor de documentos fonte que pode fazer parte do resultado. 
+Olá cláusula WHERE (**`WHERE <filter_condition>`**) é opcional. Ele especifica Olá condições que os documentos JSON Olá fornecidos pela fonte de saudação devem atender em ordem toobe incluído como parte do resultado de saudação. Qualquer documento JSON deve ser avaliada Olá especificado condições muito "true" toobe considerado para resultados de saudação. Olá onde cláusula é usada pela camada de índice Olá em ordem toodetermine Olá absoluto subconjunto menor de documentos de origem que podem fazer parte do resultado de saudação. 
 
-A consulta a seguir solicita documentos que contêm uma propriedade de nome cujo valor é `AndersenFamily`. Qualquer outro documento que não tiver uma propriedade de nome ou cujo valor não corresponder a `AndersenFamily` será excluído. 
+Olá, consulta a seguir solicita documentos que contêm uma propriedade de nome cujo valor é `AndersenFamily`. Qualquer outro documento que não tem uma propriedade de nome, ou onde o valor de saudação não corresponde `AndersenFamily` é excluído. 
 
 **Consulta**
 
@@ -280,9 +280,9 @@ A consulta a seguir solicita documentos que contêm uma propriedade de nome cujo
     }]
 
 
-O exemplo anterior mostrou uma consulta de igualdade simples. O SQL da API do DocumentDB também dá suporte a diversas expressões escalares. As expressões mais usadas são as binárias e unárias. Referências de propriedade do objeto JSON fonte também são expressões válidas. 
+exemplo de Hello anterior mostrou uma consulta de igualdade simples. O SQL da API do DocumentDB também dá suporte a diversas expressões escalares. Olá mais comumente usada são expressões binário e unário. Referências de propriedade do objeto JSON de origem Olá também são expressões válidas. 
 
-Os operadores binários a seguir têm suporte atualmente em consultas como as exemplificadas:  
+Olá operadores binários a seguir têm suporte atualmente e pode ser usado em consultas, conforme mostrado nos exemplos a seguir de saudação:  
 
 <table>
 <tr>
@@ -323,7 +323,7 @@ Vejamos algumas consultas que usam valores binários.
     WHERE c.grade >= 5     -- matching grades == 5
 
 
-Os operadores unários +,-, ~ e NOT também têm suporte e podem ser usados dentro de consultas, como mostrado no exemplo a seguir:
+Olá operadores unários +,-, ~ não também têm suporte e podem ser usados em consultas, conforme mostrado no exemplo a seguir de saudação:
 
     SELECT *
     FROM Families.children[0] c
@@ -335,10 +335,10 @@ Os operadores unários +,-, ~ e NOT também têm suporte e podem ser usados dent
 
 
 
-Além de operadores binários e unários, as referências de propriedade também são permitidas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` retorna o documento JSON que contém a propriedade `isRegistered`, em que o valor da propriedade é igual ao valor JSON `true`. Todos os outros valores (false, null, Indefinido, `<number>`, `<string>`, `<object>`, `<array>` etc.) levam ao documento de origem que está sendo excluído do resultado. 
+Além disso operadores unários e de toobinary, referências de propriedade também são permitidas. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` retorna Olá documento JSON que contém a propriedade Olá `isRegistered` onde o valor da propriedade Olá é igual toohello JSON `true` valor. Quaisquer outros valores (false, null, indefinido, `<number>`, `<string>`, `<object>`, `<array>`, etc.) leva toohello documento de origem que está sendo excluído do resultado de saudação. 
 
 ### <a name="equality-and-comparison-operators"></a>Operadores de igualdade e de comparação
-A tabela a seguir mostra o resultado de comparações de igualdade no SQL da API do DocumentDB entre dois tipos JSON quaisquer.
+Olá tabela a seguir mostra Olá resultado de comparações de igualdade em documentos API SQL entre quaisquer dois tipos JSON.
 
 <table style = "width:300px">
    <tbody>
@@ -510,33 +510,33 @@ Indefinido </td>
    </tbody>
 </table>
 
-Para outros operadores de comparação, como >, >=, !=, < e <=, aplicam-se as seguintes regras:   
+Para outros operadores de comparação, como >, > =,! =, < e < =, hello seguintes regras se aplicam:   
 
 * Comparação entre resultados de tipos em Indefinido.
 * Comparação entre resultados de dois objetos ou duas matrizes em Indefinido.   
 
-Se o resultado da expressão escalar do filtro for Indefinido, o documento correspondente não seria incluído no resultado, uma ver que Indefinido não corresponde logicamente a “verdadeiro”.
+Se o resultado de saudação de expressão escalar do hello no filtro de saudação é indefinido, documento correspondente Olá poderia não ser incluído no resultado de hello, pois indefinido muito "true" logicamente não serão iguais.
 
 ### <a name="between-keyword"></a>Palavra-chave BETWEEN
-Você também pode usar a palavra-chave BETWEEN para expressar consultas a intervalos de valores, como na ANSI SQL. BETWEEN pode ser usado em cadeias de caracteres ou números.
+Você também pode usar consultas de tooexpress de palavra-chave do hello BETWEEN em intervalos de valores, como no ANSI SQL. BETWEEN pode ser usado em cadeias de caracteres ou números.
 
-Por exemplo, esta consulta retorna todos os documentos de família nos quais a série do primeiro filho vai de 1 a 5 (incluindo ambos). 
+Por exemplo, esta consulta retorna todos os documentos de família em qual Olá classificação de seu primeiro filho é entre 1-5 (ambos incluídos). 
 
     SELECT *
     FROM Families.children[0] c
     WHERE c.grade BETWEEN 1 AND 5
 
-Diferente da ANSI-SQL, você também pode usar a cláusula BETWEEN na cláusula FROM, como no exemplo a seguir.
+Ao contrário no ANSI SQL, você também pode usar Olá BETWEEN cláusula na cláusula FROM de saudação como no exemplo a seguir de saudação.
 
     SELECT (c.grade BETWEEN 0 AND 10)
     FROM Families.children[0] c
 
-Para que os tempos de execução das consultas sejam menores, lembre-se de criar uma política de indexação que use um índice do tipo intervalo para quaisquer caminhos/propriedades numéricas que sejam filtradas na cláusula BETWEEN. 
+Para tempos de execução de consulta mais rápidos, lembre-se toocreate uma política de indexação que usa um tipo de índice de intervalo em relação a qualquer propriedades ou caminhos numéricos que são filtradas na cláusula BETWEEN hello. 
 
-A principal diferença entre usar BETWEEN na API do DocumentDB e no ANSI SQL é que você pode expressar consultas de intervalo em propriedades de tipos mistos. Por exemplo, você pode designar “série” como um número (5) em alguns documentos e como cadeias de caracteres em outros (“grade4”). Nesses casos, como no JavaScript, uma comparação entre dois tipos diferentes traz um resultado "indefinido" e o documento é ignorado.
+Olá principal diferença entre usando BETWEEN na API de documentos e ANSI SQL é que você pode expressar consultas de intervalo em Propriedades de tipos mistos – por exemplo, você pode ter "nota" ser um número (5) em alguns documentos e cadeias de caracteres em outros ("grade4"). Nesses casos, como em JavaScript, uma comparação entre dois resultados de tipos diferentes de "indefinidos" e documento hello será ignorada.
 
 ### <a name="logical-and-or-and-not-operators"></a>Operadores lógicos (AND, OR e NOT)
-Operadores lógicos funcionam em valores boolianos. As tabelas de verdade lógica desses operadores são mostradas nas tabelas a seguir.
+Operadores lógicos funcionam em valores boolianos. Olá tabelas lógicas de verdade para esses operadores são mostradas no hello tabelas a seguir.
 
 | OU | Verdadeiro | Falso | Indefinido |
 | --- | --- | --- | --- |
@@ -557,40 +557,40 @@ Operadores lógicos funcionam em valores boolianos. As tabelas de verdade lógic
 | Indefinido |Indefinido |
 
 ### <a name="in-keyword"></a>Palavra-chave IN
-A palavra-chave IN pode ser usada para verificar se um valor especificado corresponde a qualquer dos valores em uma lista. Por exemplo, esta consulta retorna todos os documentos de família cuja ID é "WakefieldFamily" ou então "AndersenFamily". 
+palavra-chave IN de saudação pode ser usado toocheck se um valor especificado corresponde a qualquer valor em uma lista. Por exemplo, esta consulta retorna todos os documentos família onde a id de saudação é "WakefieldFamily" ou "AndersenFamily". 
 
     SELECT *
     FROM Families 
     WHERE Families.id IN ('AndersenFamily', 'WakefieldFamily')
 
-Este exemplo retorna todos os documentos cujo estado é qualquer um dos valores especificados.
+Este exemplo retorna todos os documentos em que o estado de saudação é qualquer Olá especificado valores.
 
     SELECT *
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
 ### <a name="ternary--and-coalesce--operators"></a>Operadores Ternário (?) e de União (??)
-Os operadores Ternário e de União podem ser usados para compilar expressões condicionais, de modo semelhante a linguagens de programação populares como C# e JavaScript. 
+operadores ternários e adesão de saudação podem ser expressões condicionais toobuild usado, semelhante toopopular linguagens como c# e JavaScript de programação. 
 
-O operador Ternário (?) pode ser muito útil para construir novas propriedades JSON com muita rapidez. Por exemplo, agora você pode criar consultas para classificar os níveis de classe em um formato legível, como Iniciante/Intermediário/Avançado, como é mostrado abaixo.
+operador ternário (?) de saudação pode ser muito útil quando a criação de novas propriedades JSON no hello surgir. Por exemplo, agora você pode criar níveis de classe consultas tooclassify Olá em um formato legível humano como iniciante/intermediário/Avançado conforme mostrado abaixo.
 
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel 
      FROM Families.children[0] c
 
-Você também pode aninhar as chamadas no operador, como na consulta a seguir.
+Você também pode aninhar um operador de toohello de chamadas hello como na consulta de saudação abaixo.
 
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
     FROM Families.children[0] c
 
-Assim como outros operadores de consulta, se as propriedades mencionadas na expressão condicional estiverem faltando em algum documento ou se os tipos comparados forem diferentes, esses documentos serão excluídos dos resultados da consulta.
+Como com outros operadores de consulta, se hello propriedades de referência em expressão condicional Olá estão ausentes em qualquer documento, ou se Olá tipos que estão sendo comparados forem diferentes, em seguida, esses documentos são excluídos nos resultados da consulta hello.
 
-O operador de União (??) pode ser usado para verificar de modo eficaz a presença de uma propriedade (ou seja, é definido) em um documento. Isso é útil ao consultar dados semiestruturados ou dados de tipos mistos. Por exemplo, a consulta retorna o "lastName" se estiver presente ou o "surname" se não estiver.
+Olá adesão (?) pode ser usada para tooefficiently Verificar presença de saudação de uma propriedade (também conhecido como é definido) em um documento. Isso é útil ao consultar dados semiestruturados ou dados de tipos mistos. Por exemplo, esta consulta retorna lastName"hello" se estiver presente, ou hello "surname" se não estiver presente.
 
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
 ### <a id="EscapingReservedKeywords"></a>Acessador de propriedade entre aspas
-Você também pode acessar propriedades usando o operador de propriedade entre aspas `[]`. Por exemplo: `SELECT c.grade` and `SELECT c["grade"]` são equivalentes. Essa sintaxe é útil quando você precisa substituir uma propriedade que contém espaços, caracteres especiais ou compartilha o mesmo nome que uma palavra-chave ou palavra reservada SQL.
+Você também pode acessar as propriedades usando o operador de propriedade entre aspas Olá `[]`. Por exemplo: `SELECT c.grade` and `SELECT c["grade"]` são equivalentes. Essa sintaxe é útil quando você precisar tooescape uma propriedade que contém espaços, caracteres especiais, ou acontece Olá tooshare mesmo nome como uma palavra reservada ou uma palavra-chave SQL.
 
     SELECT f["lastName"]
     FROM Families f
@@ -598,9 +598,9 @@ Você também pode acessar propriedades usando o operador de propriedade entre a
 
 
 ## <a id="SelectClause"></a>Cláusula SELECT
-A cláusula SELECT (**`SELECT <select_list>`**) é obrigatória e especifica quais valores são recuperados da consulta, exatamente como ocorre em ANSI-SQL. O subconjunto que foi filtrado sobre os documentos fonte é passado à fase de projeção, em que os valores JSON especificados são recuperados e um novo objeto JSON é construído, para cada entrada passada a ele. 
+cláusula SELECT Hello (**`SELECT <select_list>`**) é obrigatório e especifica quais valores são recuperados da consulta hello, exatamente como no ANSI SQL. subconjunto Olá filtrado sobre documentos de origem Olá são passadas em fase de projeção hello, onde Olá especificados valores JSON são recuperados e um novo objeto JSON é construído, para cada entrada passada para ele. 
 
-O exemplo a seguir mostra uma consulta SELECT típica. 
+saudação de exemplo a seguir mostra uma consulta SELECT típica. 
 
 **Consulta**
 
@@ -620,7 +620,7 @@ O exemplo a seguir mostra uma consulta SELECT típica.
 
 
 ### <a name="nested-properties"></a>Propriedades aninhadas
-No exemplo a seguir, estamos projetando duas propriedades aninhadas, `f.address.state` and `f.address.city`.
+Em Olá exemplo a seguir, está projetando duas propriedades aninhadas `f.address.state` e `f.address.city`.
 
 **Consulta**
 
@@ -636,7 +636,7 @@ No exemplo a seguir, estamos projetando duas propriedades aninhadas, `f.address.
     }]
 
 
-A projeção tem suporte também para expressões JSON, conforme mostrado no exemplo a seguir:
+Projeção também oferece suporte a expressões de JSON conforme mostrado no exemplo a seguir de saudação:
 
 **Consulta**
 
@@ -655,7 +655,7 @@ A projeção tem suporte também para expressões JSON, conforme mostrado no exe
     }]
 
 
-Vejamos a função de `$1` aqui. A cláusula `SELECT` precisa criar um objeto JSON e, como nenhuma chave é fornecida, usamos nomes de variáveis de argumento implícito iniciadas por `$1`. Por exemplo, esta consulta retorna duas variáveis de argumento implícito, rotuladas como `$1` and `$2`.
+Vamos dar uma olhada na função de saudação do `$1` aqui. Olá `SELECT` cláusula precisa toocreate um objeto JSON e já que nenhuma chave é fornecida, podemos usar nomes de variável implícita argumento começando com `$1`. Por exemplo, esta consulta retorna duas variáveis de argumento implícito, rotuladas como `$1` and `$2`.
 
 **Consulta**
 
@@ -678,9 +678,9 @@ Vejamos a função de `$1` aqui. A cláusula `SELECT` precisa criar um objeto JS
 
 
 ### <a name="aliasing"></a>Atribuição de alias
-Agora, vamos estender o exemplo acima com a atribuição explícita de alias aos valores. AS é a palavra-chave usada para a atribuição de alias. É opcional, conforme mostrado ao projetar o segundo valor como `NameInfo`. 
+Agora vamos estender o exemplo de hello acima com o alias explícita de valores. COMO é Olá palavra-chave usada para o alias. É opcional, conforme mostrado durante a projeção Olá segundo valor como `NameInfo`. 
 
-Caso uma consulta tenha duas propriedades com o mesmo nome, a atribuição de alias deve ser usada para renomear uma ou as duas propriedades para que elas não sejam ambíguas no resultado projetado.
+No caso de uma consulta tem duas propriedades com hello mesmo nome, o alias devem ser usado toorename Olá propriedades uma ou ambas, para que suas ambiguidades são desfeitas no hello projetado resultado.
 
 **Consulta**
 
@@ -704,7 +704,7 @@ Caso uma consulta tenha duas propriedades com o mesmo nome, a atribuição de al
 
 
 ### <a name="scalar-expressions"></a>Expressões escalares
-Além de referências de propriedade, a cláusula SELECT dá suporte também a expressões escalares como constantes, expressões aritméticas, expressões lógicas etc. Por exemplo, vejamos uma consulta simples do tipo "Olá mundo".
+Além do tooproperty faz referência, a cláusula SELECT Olá também oferece suporte a expressões escalares como constantes, expressões aritméticas, expressões lógicas, etc. Por exemplo, vejamos uma consulta simples do tipo "Olá mundo".
 
 **Consulta**
 
@@ -730,7 +730,7 @@ Este é um exemplo mais complexo que usa uma expressão escalar.
     }]
 
 
-No exemplo a seguir, o resultado da expressão escalar é um booliano.
+Olá exemplo a seguir, o resultado de Olá da expressão escalar Olá é um valor booleano.
 
 **Consulta**
 
@@ -750,7 +750,7 @@ No exemplo a seguir, o resultado da expressão escalar é um booliano.
 
 
 ### <a name="object-and-array-creation"></a>Criação de objeto e de matriz
-Outro recurso fundamental do SQL da API do DocumentDB é a criação de matriz/objeto. Observe que, no exemplo anterior, criamos um novo objeto JSON. De modo semelhante, é possível construir matrizes, como mostram os exemplos a seguir:
+Outro recurso fundamental do SQL da API do DocumentDB é a criação de matriz/objeto. No exemplo anterior de saudação, observe que criamos um novo objeto JSON. Da mesma forma, um também pode construir matrizes, conforme mostrado no hello exemplos a seguir:
 
 **Consulta**
 
@@ -775,7 +775,7 @@ Outro recurso fundamental do SQL da API do DocumentDB é a criação de matriz/o
     ]
 
 ### <a id="ValueKeyword"></a>Palavra-chave VALUE
-A palavra-chave **VALUE** é uma forma de retornar valores JSON. Por exemplo: a consulta mostrada abaixo retorna o `"Hello World"` escalar, em vez de `{$1: "Hello World"}`.
+Olá **valor** palavra-chave fornece um valor do modo tooreturn JSON. Por exemplo, consulta Olá mostrada a seguir retorna Olá escalar `"Hello World"` em vez de `{$1: "Hello World"}`.
 
 **Consulta**
 
@@ -788,7 +788,7 @@ A palavra-chave **VALUE** é uma forma de retornar valores JSON. Por exemplo: a 
     ]
 
 
-A consulta a seguir retorna o valor JSON sem o rótulo `"address"` nos resultados.
+Olá, consulta a seguir retorna valor JSON de saudação sem Olá `"address"` rótulo nos resultados da saudação.
 
 **Consulta**
 
@@ -810,7 +810,7 @@ A consulta a seguir retorna o valor JSON sem o rótulo `"address"` nos resultado
       }
     ]
 
-O exemplo a seguir expande esse procedimento para mostrar como retornar valores JSON primitivos (no nível da folha da árvore JSON). 
+Olá exemplo a seguir estende essa tooshow como valores primitivos de JSON de tooreturn (nível de folha de saudação da árvore JSON Olá). 
 
 **Consulta**
 
@@ -826,7 +826,7 @@ O exemplo a seguir expande esse procedimento para mostrar como retornar valores 
 
 
 ### <a name="-operator"></a>* Operador
-O operador especial (*) é suportado para projetar o documento da forma que ele é. Quando usado, ele deve ser o único campo projetado. Embora uma consulta como `SELECT * FROM Families f` seja válida, `SELECT VALUE * FROM Families f ` e `SELECT *, f.id FROM Families f ` não são.
+Olá, operador especial (*) é documento de saudação tooproject com suporte como-é. Quando usado, ele deve ser Olá projetado apenas o campo. Embora uma consulta como `SELECT * FROM Families f` seja válida, `SELECT VALUE * FROM Families f ` e `SELECT *, f.id FROM Families f ` não são.
 
 **Consulta**
 
@@ -855,7 +855,7 @@ O operador especial (*) é suportado para projetar o documento da forma que ele 
     }]
 
 ### <a id="TopKeyword"></a>Operador TOP
-A palavra-chave TOP pode ser usada para limitar o número de valores de uma consulta. Quando TOP é usado em conjunto com a cláusula ORDER BY, o conjunto de resultados é limitado ao primeiro número N de valores ordenados; caso contrário, ele retorna o primeiro número N de resultados em uma ordem indefinida. Como melhor prática, em uma instrução SELECT, sempre use uma cláusula ORDER BY com a cláusula TOP. Essa é a única maneira de indicar de modo previsível quais linhas são afetadas pelo TOP. 
+palavra-chave TOP de saudação pode ser usado toolimit Olá número de valores de uma consulta. Quando TOP é usado em conjunto com a cláusula ORDER BY da saudação, o conjunto de resultados de Olá é o primeiro número de N toohello limitado de valores ordenados; Caso contrário, retornará Olá primeiro N número de resultados em uma ordem indefinida. Como prática recomendada, em uma instrução SELECT, sempre use uma cláusula ORDER BY com a cláusula TOP hello. Isso é única forma de saudação toopredictably indicar quais linhas são afetadas por TOP. 
 
 **Consulta**
 
@@ -885,7 +885,7 @@ A palavra-chave TOP pode ser usada para limitar o número de valores de uma cons
 O TOP pode ser usado com um valor constante (conforme mostrado acima) ou com um valor de variável usando consultas parametrizadas. Para obter mais detalhes, veja as consultas parametrizadas abaixo.
 
 ### <a id="Aggregates"></a>Funções de agregação
-Você também pode executar agregações na cláusula `SELECT`. Funções agregadas executam um cálculo em um conjunto de valores e retornam um único valor. Por exemplo, a consulta a seguir retorna a contagem de documentos de família dentro da coleção.
+Você também pode executar agregações em Olá `SELECT` cláusula. Funções agregadas executam um cálculo em um conjunto de valores e retornam um único valor. Por exemplo, hello consulta a seguir retorna Olá contagem de família documentos na coleção de saudação.
 
 **Consulta**
 
@@ -898,7 +898,7 @@ Você também pode executar agregações na cláusula `SELECT`. Funções agrega
         "$1": 2
     }]
 
-Você também pode retornar o valor escalar da agregação usando a palavra-chave `VALUE`. Por exemplo, a consulta a seguir retorna a contagem de valores como um único número:
+Você também pode retornar valor escalar Olá Olá agregação usando Olá `VALUE` palavra-chave. Por exemplo, hello consulta a seguir retorna Olá contagem de valores como um único número:
 
 **Consulta**
 
@@ -909,7 +909,7 @@ Você também pode retornar o valor escalar da agregação usando a palavra-chav
 
     [ 2 ]
 
-Você também pode executar agregações em combinação com filtros. Por exemplo, a consulta a seguir retorna a contagem de documentos com endereço no estado de Washington.
+Você também pode executar agregações em combinação com filtros. Por exemplo, hello consulta a seguir retorna Olá contagem de documentos com o endereço de saudação em Olá estado de Washington.
 
 **Consulta**
 
@@ -921,28 +921,28 @@ Você também pode executar agregações em combinação com filtros. Por exempl
 
     [ 1 ]
 
-A tabela a seguir mostra a lista de funções de agregação com suporte na API do DocumentDB. `SUM` e `AVG` são executados por meio de valores numéricos, enquanto `COUNT`, `MIN` e `MAX` podem ser executados em relação a números, cadeias de caracteres, Boolianos e nulos. 
+Olá tabela a seguir mostra Olá lista de funções de agregação com suporte na API do DocumentDB. `SUM` e `AVG` são executados por meio de valores numéricos, enquanto `COUNT`, `MIN` e `MAX` podem ser executados em relação a números, cadeias de caracteres, Boolianos e nulos. 
 
 | Uso | Descrição |
 |-------|-------------|
-| COUNT | Retorna o número de itens na expressão. |
-| SUM   | Retorna a soma de todos os valores na expressão. |
-| MÍN.   | Retorna o valor mínimo na expressão. |
-| MÁX.   | Retorna o valor máximo na expressão. |
-| AVG   | Retorna a média dos valores na expressão. |
+| COUNT | Retorna Olá número de itens na expressão de saudação. |
+| SUM   | Retorna Olá soma de todos os valores hello expressão hello. |
+| MÍN.   | Retorna Olá valor mínimo na expressão de saudação. |
+| MÁX.   | Retorna Olá valor máximo na expressão de saudação. |
+| AVG   | Retorna Olá média dos valores de saudação na expressão de saudação. |
 
-Agregações também podem ser executadas em relação aos resultados de uma iteração de matriz. Para obter mais informações, consulte [Iteração de matriz em consultas](#Iteration).
+Agregações também podem ser executadas nos resultados de saudação de uma iteração de matriz. Para obter mais informações, consulte [Iteração de matriz em consultas](#Iteration).
 
 > [!NOTE]
-> Ao usar o Gerenciador de Consultas do portal do Azure, observe que as consultas de agregação podem retornar resultados parcialmente agregados em uma página de consulta. Os SDKs produzem um único valor cumulativo em todas as páginas. 
+> Quando usar hello Pesquisador de objetos de consulta do portal do Azure, observe que consultas de agregação podem retornar Olá resultados parcialmente agregados em uma página de consulta. Olá SDKs produz um único valor cumulativo em todas as páginas. 
 > 
-> Para executar consultas de agregação usando o código, você precisa do .NET SDK 1.12.0, .NET Core SDK 1.1.0 ou Java SDK 1.9.5 ou posterior.    
+> Ordem em consultas de agregação tooperform usando o código, você precisa de SDK .NET 1.12.0, .NET Core SDK 1.1.0 ou Java SDK 1.9.5 ou superior.    
 >
 
 ## <a id="OrderByClause"></a>Cláusula ORDER BY
-Como no ANSI-SQL, agora você pode incluir uma cláusula Order By opcional ao realizar consultas. A cláusula pode incluir um argumento ASC/DESC opcional para especificar a ordem na qual os resultados devem ser recuperados.
+Como no ANSI-SQL, agora você pode incluir uma cláusula Order By opcional ao realizar consultas. cláusula Olá pode incluir uma opcional Crescente/Decrescente argumento toospecify Olá ordem na qual os resultados devem ser recuperados.
 
-Por exemplo, aqui está uma consulta que recupera famílias pela ordem do nome da cidade do residente.
+Por exemplo, aqui está uma consulta que recupera famílias em ordem de nome de cidade residente hello.
 
 **Consulta**
 
@@ -963,7 +963,7 @@ Por exemplo, aqui está uma consulta que recupera famílias pela ordem do nome d
       }
     ]
 
-E aqui está uma consulta que recupera famílias em ordem de data de criação, que é armazenada como um número que representa a época, ou seja, o tempo decorrido desde 1 de janeiro de 1970, em segundos.
+E aqui está uma consulta que recupera famílias na ordem da data de criação, que é armazenada como um número que representa Olá tempo, ou seja, tempo decorrido desde 1º de janeiro de 1970 em segundos.
 
 **Consulta**
 
@@ -987,7 +987,7 @@ E aqui está uma consulta que recupera famílias em ordem de data de criação, 
 ## <a id="Advanced"></a>Conceitos avançados de banco de dados e consultas SQL
 
 ### <a id="Iteration"></a>Iteração
-Um novo constructo foi adicionado por meio da palavra-chave **IN** ao SQL da API do DocumentDB para fornecer suporte à iteração em matrizes JSON. A fonte FROM dá suporte à iteração. Comecemos com o exemplo a seguir:
+Uma nova construção de foi adicionada via Olá **IN** palavra-chave no suporte do SQL do DocumentDB API tooprovide para iterar em matrizes JSON. origem do Hello FROM dá suporte à iteração. Vamos começar com hello exemplo a seguir:
 
 **Consulta**
 
@@ -1021,7 +1021,7 @@ Um novo constructo foi adicionado por meio da palavra-chave **IN** ao SQL da API
       ]
     ]
 
-Agora, vejamos outra consulta que realiza a iteração em filhos na coleção. Observe a diferença na matriz de saída. Este exemplo divide `children` e planifica os resultados em uma única matriz.  
+Agora vamos dar uma olhada em outra consulta que executa a iteração por filhos na coleção de saudação. Observe a diferença Olá Olá matriz de saída. Este exemplo divide `children` e mescla os resultados de saudação em uma única matriz.  
 
 **Consulta**
 
@@ -1051,7 +1051,7 @@ Agora, vejamos outra consulta que realiza a iteração em filhos na coleção. O
       }
     ]
 
-Isso pode ser usado ainda para filtrar cada entrada individual da matriz, como mostra o exemplo a seguir:
+Isso pode ser mais usado toofilter em cada entrada individual da matriz de saudação conforme mostrado no exemplo a seguir de saudação:
 
 **Consulta**
 
@@ -1065,7 +1065,7 @@ Isso pode ser usado ainda para filtrar cada entrada individual da matriz, como m
       "givenName": "Lisa"
     }]
 
-Você também pode executar a agregação sobre o resultado da iteração de matriz. Por exemplo, a consulta a seguir conta o número de filhos entre todas as famílias.
+Você também pode executar a agregação sobre o resultado de saudação de iteração de matriz. Por exemplo, hello consulta a seguir conta Olá número de filhos entre todas as famílias.
 
 **Consulta**
 
@@ -1081,11 +1081,11 @@ Você também pode executar a agregação sobre o resultado da iteração de mat
     ]
 
 ### <a id="Joins"></a>Junções
-Em um banco de dados relacional, a necessidade de realizar junções entre tabelas é importante. É o padrão lógico para criar esquemas normalizados. De forma contrária, a API do DocumentDB lida com o modelo de dados desnormalizado dos documentos sem esquemas. Trata-se do equivalente lógico de uma “autojunção”.
+Em um banco de dados relacional, é importante Olá necessidade toojoin entre tabelas. Sua saudação lógica toodesigning corolário normalizado esquemas. Contrary toothis, API DocumentDB lida com o modelo de dados desnormalizados Olá de documentos sem esquema. Este é o equivalente lógico de saudação de um "autojunção".
 
-A sintaxe à qual a linguagem oferece suporte é <from_source1> JOIN <from_source2> JOIN ... JUNÇÃO < from_sourceN >. De modo geral, isto retorna um conjunto de tuplas **N** (tupla com valores **N**). Cada tupla terá os valores produzidos pela iteração de todos os alias da coleção em seus respectivos conjuntos. Em outras palavras, trata-se do produto do cruzamento completo dos conjuntos que participam da junção.
+sintaxe de saudação que dá suporte a idioma Olá é junção de junção < from_source2 > de < from_source1 >... JUNÇÃO < from_sourceN >. De modo geral, isto retorna um conjunto de tuplas **N** (tupla com valores **N**). Cada tupla terá os valores produzidos pela iteração de todos os alias da coleção em seus respectivos conjuntos. Em outras palavras, este é um produto cruzado completo dos conjuntos de saudação participam da junção de saudação.
 
-Os exemplos a seguir mostram como a cláusula junção funciona. No exemplo a seguir, o resultado é vazio porque o produto cruzado de cada documento da fonte e de um conjunto vazio é vazio.
+Olá exemplos a seguir mostram como funciona a cláusula de junção hello. Olá exemplo a seguir, o resultado de saudação é vazio pois hello produto cruzado de cada documento de origem e um conjunto vazio está vazio.
 
 **Consulta**
 
@@ -1099,7 +1099,7 @@ Os exemplos a seguir mostram como a cláusula junção funciona. No exemplo a se
     }]
 
 
-No exemplo a seguir, a junção ocorre entre a raiz do documento e a sub-raiz de `children`. Trata-se de um produto cruzado entre dois objetos JSON. O fato de os filhos serem uma matriz não tem efeito sobre a junção, pois estamos lidando com uma única raiz que é a matriz de filhos. Sendo assim, os resultados contêm apenas dois resultados, uma vez que o produto cruzado de cada documento com a matriz resulta em exatamente um documento.
+Em Olá exemplo a seguir, junção de saudação é entre a raiz do documento hello e hello `children` subroot. Trata-se de um produto cruzado entre dois objetos JSON. fato Olá filhos é uma matriz não é eficaz em Olá junção já que estamos lidando com uma única raiz é Olá filhos matriz. Portanto, o resultado de Olá contém dois resultados, desde que o produto cruzado de cada documento com matriz Olá Olá produz exatamente apenas um documento.
 
 **Consulta**
 
@@ -1119,7 +1119,7 @@ No exemplo a seguir, a junção ocorre entre a raiz do documento e a sub-raiz de
     ]
 
 
-O exemplo a seguir mostra uma junção mais convencional:
+saudação de exemplo a seguir mostra uma junção mais convencional:
 
 **Consulta**
 
@@ -1143,15 +1143,15 @@ O exemplo a seguir mostra uma junção mais convencional:
 
 
 
-A primeira coisa a observar é que o `from_source` da cláusula **JOIN** é um iterador. Sendo assim, neste caso o fluxo é o seguinte:  
+Olá primeiro toonote é que hello `from_source` de saudação **INGRESSAR** cláusula é um iterador. Portanto, Olá fluxo nesse caso é o seguinte:  
 
-* Expanda cada elemento filho **c** na matriz.
-* Aplique um produto cruzado com a raiz do documento **f** com cada elemento filho **c** que foi tornado bidimensional na primeira etapa.
-* Por fim, projete a propriedade do nome do objeto raiz **f** sozinha. 
+* Expanda cada elemento filho **c** na matriz de saudação.
+* Aplicar um produto cruzado com raiz de saudação do documento hello **f** com cada elemento filho **c** que foi simplificada na primeira etapa de saudação.
+* Por fim, objeto de raiz de saudação do projeto **f** apenas da propriedade name. 
 
-O primeiro documento (`AndersenFamily`) contém somente um elemento filho, de modo que o conjunto de resultados contém apenas um único objeto correspondente a esse documento. O segundo documento (`WakefieldFamily`) contém dois filhos. Sendo assim, o produto cruzado produz um objeto separado para cada filho, resultando em dois objetos, um para cada filho correspondente a este documento. Os campos raiz em ambos os documentos são os mesmos, exatamente como você esperaria em um produto cruzado.
+documento primeiro Hello (`AndersenFamily`) contém apenas um elemento filho, portanto o conjunto de resultados Olá contém apenas um único objeto documento correspondente do toothis. segundo documento de saudação (`WakefieldFamily`) contém dois filhos. Portanto, hello produto cruzado produz um objeto separado para cada filho, resultando assim em dois objetos, um para cada documento de toothis filho correspondente. raiz de saudação campos em ambos esses documentos são iguais, Olá conforme o esperado em um produto cruzado.
 
-A utilidade real da junção é formar tuplas do produto cruzado em um formato que, de outra forma, seria difícil projetar. Além disso, como vemos no exemplo abaixo, é possível filtrar a combinação de uma tupla que permite ao usuário escolher uma condição que é atendida pelas tuplas de modo geral.
+Olá utilitário real de saudação junção é tooform tuplas de produto cruzado de saudação em uma forma que seja difícil tooproject. Além disso, como podemos ver no exemplo hello abaixo, você pode filtrar na combinação de saudação de uma tupla Olá que permite o usuário optou por uma condição atendida por tuplas Olá geral.
 
 **Consulta**
 
@@ -1186,7 +1186,7 @@ A utilidade real da junção é formar tuplas do produto cruzado em um formato q
 
 
 
-Este exemplo é uma extensão natural do exemplo anterior, e realiza uma junção dupla. Assim, o produto cruzado pode ser visto como o pseudocódigo a seguir:
+Este exemplo é uma extensão natural da saudação anterior de exemplo e executa uma junção dupla. Portanto, hello produto cruzado podem ser exibido como Olá pseudocódigo a seguir:
 
     for-each(Family f in Families)
     {    
@@ -1202,9 +1202,9 @@ Este exemplo é uma extensão natural do exemplo anterior, e realiza uma junçã
         }
     }
 
-`AndersenFamily` tem um filho que, por sua vez, tem um animal de estimação. Assim, o produto cruzado traz uma linha (1\*1\*1) desta família. WakefieldFamily, no entanto, tem dois filhos, mas apenas a filha "Jesse" tem animais de estimação. Porém, Jesse tem dois animais de estimação. Assim, o produto cruzado traz 1\*1\*2 = 2 linhas desta família.
+`AndersenFamily` tem um filho que, por sua vez, tem um animal de estimação. Portanto, hello produto cruzado produz uma linha (1\*1\*1) desta família. WakefieldFamily, no entanto, tem dois filhos, mas apenas a filha "Jesse" tem animais de estimação. Porém, Jesse tem dois animais de estimação. Portanto, hello produto cruzado produz 1\*1\*2 = 2 linhas a partir desta família.
 
-No próximo exemplo, há um filtro adicional em `pet`. Isto exclui todas as tuplas em que o nome do animal não é "Shadow". Observe que podemos criar tuplas por meio de matrizes, filtrar qualquer um dos elementos da tupla e projetas qualquer combinação dos elementos. 
+No exemplo a seguir hello, há um filtro adicional no `pet`. Exclui todas as tuplas Olá onde Olá animal de estimação nome não é "Sombra". Observe que estamos tuplas toobuild capaz de matrizes de filtro em qualquer um dos elementos de saudação de tupla Olá e qualquer combinação de elementos de saudação do projeto. 
 
 **Consulta**
 
@@ -1230,17 +1230,17 @@ No próximo exemplo, há um filtro adicional em `pet`. Isto exclui todas as tupl
 
 
 ## <a id="JavaScriptIntegration"></a>Integração do JavaScript
-O Azure Cosmos DB oferece um modelo de programação para executar a lógica de aplicativos baseados em JavaScript diretamente nas coleções, com relação a procedimentos armazenados e gatilhos. Isso possibilita:
+Banco de dados do Azure Cosmos fornece um modelo de programação para a execução lógica do aplicativo JavaScript baseado diretamente em coleções de saudação em termos de procedimentos armazenados e gatilhos. Isso possibilita:
 
-* Capacidade de realizar operações CRUD transacionais de alto desempenho e consultas documentos em uma coleção devido à profunda integração do tempo de execução do JavaScript diretamente ao mecanismo de banco de dados. 
-* Um modelamento natural de fluxo de controle, escopo de variáveis, atribuição e integração de primitivos que lidam com exceções com transações de bancos de dados. Para obter detalhes sobre o suporte do Azure Cosmos DB à integração com JavaScript, consulte a documentação sobre programação JavaScript do lado do servidor.
+* Capacidade toodo alto desempenho transacional as operações CRUD e consultas em documentos em uma coleção por meio da integração profunda de saudação do tempo de execução de JavaScript diretamente no mecanismo de banco de dados de saudação. 
+* Um modelamento natural de fluxo de controle, escopo de variáveis, atribuição e integração de primitivos que lidam com exceções com transações de bancos de dados. Para obter mais detalhes sobre o suporte de banco de dados do Azure Cosmos para integração do JavaScript, consulte toohello documentação de programação do lado do servidor de JavaScript.
 
 ### <a id="UserDefinedFunctions"></a>UDFs (Funções Definidas pelo Usuário)
-Além dos tipos já definidos neste artigo, o SQL da API do DocumentDB fornece suporte a UDFs (Funções Definidas pelo Usuário). Em particular, há suporte a UDFs escalares nas quais os desenvolvedores podem passar zero ou muitos argumentos e retornar um resultado com um único argumento. Cada um desses argumentos é verificado para definir se são valores JSON legais.  
+Juntamente com os tipos de saudação já foi definidos neste artigo, o DocumentDB API SQL oferece suporte para funções de definida pelo usuário (UDF). Em particular, UDFs escalares têm suporte em que os desenvolvedores de saudação podem passar argumentos zero ou muitos e retornar um resultado de único argumento novamente. Cada um desses argumentos é verificado para definir se são valores JSON legais.  
 
-A sintaxe SQL da API do DocumentDB é estendida para dar suporte à lógica de aplicativos personalizados usando essas Funções Definidas pelo Usuário. As UDFs podem ser registradas na API do DocumentDB e então referenciadas como parte de uma consulta SQL. De fato, as UDFs são projetadas de maneira especial para serem invocadas por consultas. Como consequência dessa escolha, as UDFs não têm acesso ao objeto de contexto que outros tipos de JavaScript (procedimentos armazenados e gatilhos) têm. Como as consultas são executadas como somente leitura, elas podem ser executadas em réplicas primárias ou secundárias. Portanto, as UDFs foram criadas para serem executadas em réplicas secundárias, diferente de outros tipos de JavaScript.
+Olá sintaxe SQL de API de documentos é estendido toosupport lógica de aplicativo personalizado usando estas funções definidas pelo usuário. As UDFs podem ser registradas na API do DocumentDB e então referenciadas como parte de uma consulta SQL. Na verdade, Olá UDFs exquisitely são projetados toobe chamado através de consultas. Como uma opção de resultado toothis, UDFs não tem objeto de contexto de toohello de acesso que Olá outros JavaScript têm tipos (procedimentos armazenados e gatilhos). Como as consultas são executadas como somente leitura, elas podem ser executadas em réplicas primárias ou secundárias. Portanto, UDFs são toorun projetado em réplicas secundárias ao contrário de outros tipos de JavaScript.
 
-Veja abaixo um exemplo de como uma UDF pode ser registrada no banco de dados do Cosmos DB, especificamente em uma coleção de documentos.
+Abaixo está um exemplo de como uma UDF pode ser registrada em Olá Cosmos banco de dados, especificamente em uma coleção de documentos.
 
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
        {
@@ -1254,12 +1254,12 @@ Veja abaixo um exemplo de como uma UDF pode ser registrada no banco de dados do 
            UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
            regexMatchUdf).Result;  
 
-O exemplo anterior cria um UDF cujo nome é `REGEX_MATCH`. Ele aceita dois valores de cadeia de caracteres JSON `input` and `pattern` , além de verificar, pelo uso da função string.match() do JavaScript, se o primeiro desses valores corresponde ao padrão especificado no segundo.
+Olá, exemplo anterior cria um UDF cujo nome é `REGEX_MATCH`. Ele aceita dois valores de cadeia de caracteres JSON `input` e `pattern` e verifica se a correspondência do primeiro Olá Olá padrão especificado no segundo Olá usando a função de string de JavaScript.
 
-Agora, podemos usar esta UDF em uma consulta em uma projeção. UDFs devem ser qualificadas com o prefixo que diferencia maiúsculas de minúsculas "udf." quando chamadas por meio de consultas. 
+Agora, podemos usar esta UDF em uma consulta em uma projeção. UDFs devem ser qualificadas com o prefixo de maiusculas e minúsculas hello "udf." quando chamadas por meio de consultas. 
 
 > [!NOTE]
-> Antes de 17/03/2015, o Cosmos DB dava suporte a chamadas a UDF sem o prefixo “udf”. como SELECT REGEX_MATCH(). Esse padrão de chamada foi preterido.  
+> Anterior too3/17/2015, Cosmos DB suporte para chamadas UDF sem hello "udf." como SELECT REGEX_MATCH(). Esse padrão de chamada foi preterido.  
 > 
 > 
 
@@ -1279,7 +1279,7 @@ Agora, podemos usar esta UDF em uma consulta em uma projeção. UDFs devem ser q
       }
     ]
 
-A UDF também pode ser usada dentro de um filtro, conforme mostrado no exemplo abaixo, também qualificado com o prefixo "udf." prefixo:
+Olá UDF também pode ser usado dentro de um filtro como mostrado no exemplo hello abaixo, também qualificado com hello "udf." prefixo:
 
 **Consulta**
 
@@ -1297,7 +1297,7 @@ A UDF também pode ser usada dentro de um filtro, conforme mostrado no exemplo a
 
 Basicamente, as UDFs são expressões escalares válidas e podem ser usadas em projeções e filtros. 
 
-Para expandir o poder das UDFs, vejamos outro exemplo com lógica condicional:
+tooexpand energia Olá de UDFs, vejamos outro exemplo com lógica condicional:
 
        UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
        {
@@ -1320,7 +1320,7 @@ Para expandir o poder das UDFs, vejamos outro exemplo com lógica condicional:
                 seaLevelUdf);
 
 
-Abaixo há um exemplo que aplica a UDF.
+Abaixo está um exemplo exercícios Olá UDF.
 
 **Consulta**
 
@@ -1341,21 +1341,21 @@ Abaixo há um exemplo que aplica a UDF.
     ]
 
 
-Como os exemplos anteriores demonstram, as UDFs integram o poder da linguagem JavaScript ao SQL da API do DocumentDB para fornecer uma avançada interface programável, a fim de realizar uma lógica complexa, condicional e de procedimentos com a ajuda das funcionalidades em tempo de execução internas do JavaScript.
+Como hello showcase de exemplos anteriores, UDFs integram power Olá da linguagem JavaScript Olá documentos API SQL tooprovide uma sofisticada interface programável toodo procedimento, condicional lógica complexa com a Ajuda de saudação do tempo de execução de JavaScript embutida recursos.
 
-O SQL da API do DocumentDB fornece os argumentos às UDFs para cada documento na fonte no estágio atual (cláusula WHERE ou cláusula SELECT) de processamento da UDF. O resultado é incorporado perfeitamente ao pipeline de execução geral. Se as propriedades referidas aos parâmetros das UDFs não estiverem disponíveis no valor JSON, o parâmetro é considerado indefinido e a invocação das UDFs é totalmente ignorada. De maneira semelhante, se o resultado das UDFs for indefinido, ele não será incluído nos resultados. 
+Documentos API SQL fornece argumentos Olá toohello UDFs para cada documento na fonte Olá Olá atual estágio (cláusula WHERE ou cláusula SELECT) de processamento hello UDF. Olá resultado é incorporado na Olá diretamente o pipeline de execução geral. Se propriedades de Olá tooby chamado hello UDF parâmetros não estão disponíveis em Olá valor JSON, hello parâmetro é considerado como indefinido e, portanto, Olá invocação UDF inteiramente será ignorada. Da mesma forma se resultado Olá Olá UDF é indefinido, ele não está incluído no resultado de saudação. 
 
-Em resumo, as UDFs são ótimas ferramentas para realizar lógicas de negócios complexas como parte da consulta.
+Em resumo, UDFs são lógica de negócios complexa toodo excelentes ferramentas como parte da consulta de saudação.
 
 ### <a name="operator-evaluation"></a>Avaliação de operador
-O Cosmos DB, em virtude se ser um banco de dados JSON, estabelece um paralelo com operadores JavaScript e sua semântica de avaliação. Embora o Cosmos DB tente preservar a semântica do JavaScript em termos de suporte ao JSON, a avaliação da operação se desvia em alguns casos.
+Cosmos banco de dados, porque Olá de ser um banco de dados JSON, desenha paralelos com operadores (JavaScript) e sua semântica de avaliação. Enquanto o banco de dados do Cosmos tenta toopreserve semântica de JavaScript em termos de suporte JSON, avaliação de operação de saudação do desvio em alguns casos.
 
-No SQL da API do DocumentDB, ao contrário do que ocorre no SQL tradicional, é frequente que os tipos de valores não sejam conhecidos até que os valores sejam recuperados do banco de dados. Para executar consultas com eficiência, a maioria dos operadores tem requisitos restritos de tipo. 
+No SQL da API de documentos, diferentemente no SQL tradicional, tipos de saudação de valores geralmente não são conhecidos até que os valores hello são recuperados do banco de dados. Em ordem tooefficiently executar consultas, a maioria dos operadores de saudação tem requisitos de tipo estrito. 
 
-O SQL da API do DocumentDB não realiza conversões implícitas, diferente do JavaScript. Por exemplo, uma consulta como `SELECT * FROM Person p WHERE p.Age = 21` corresponde a documentos que contêm a propriedade Age com o valor 21. Qualquer outro documento cuja propriedade Age corresponder a “21” — ou a outras variações potencialmente infinitas como “021”, “21,0”, “0021”, “00021” etc. — não será correspondido. Isso ocorre em oposição ao JavaScript, que os valores das cadeias de caracteres são convertidos implicitamente em números (baseado em operador como, por exemplo: ==). Esta escolha é fundamental para uma correspondência eficiente de índices no SQL da API do DocumentDB. 
+O SQL da API do DocumentDB não realiza conversões implícitas, diferente do JavaScript. Por exemplo, uma consulta como `SELECT * FROM Person p WHERE p.Age = 21` corresponde a documentos que contêm a propriedade Age com o valor 21. Qualquer outro documento cuja propriedade Age corresponder a “21” — ou a outras variações potencialmente infinitas como “021”, “21,0”, “0021”, “00021” etc. — não será correspondido. Isso é, em contraste, toohello JavaScript onde os valores de cadeia de caracteres de hello são implicitamente convertidos toonumbers (com base no operador, por exemplo: = =). Esta escolha é fundamental para uma correspondência eficiente de índices no SQL da API do DocumentDB. 
 
 ## <a name="parameterized-sql-queries"></a>Consultas SQL parametrizadas
-O Cosmos DB dá suporte a consultas com parâmetros expressos com a conhecida notação @. A SQL parametrizada oferece recursos robustos de manuseio e saída das entradas de usuário, evitando a exposição acidental de dados por meio de uma injeção SQL. 
+Cosmos banco de dados oferece suporte a consultas com parâmetros expressados com hello familiar notação @. A SQL parametrizada oferece recursos robustos de manuseio e saída das entradas de usuário, evitando a exposição acidental de dados por meio de uma injeção SQL. 
 
 Por exemplo, você pode escrever uma consulta que define o sobrenome e o estado do endereço como parâmetros e executá-la para vários valores de sobrenome e estado de endereço, com base na entrada do usuário.
 
@@ -1363,7 +1363,7 @@ Por exemplo, você pode escrever uma consulta que define o sobrenome e o estado 
     FROM Families f
     WHERE f.lastName = @lastName AND f.address.state = @addressState
 
-Essa solicitação pode então ser enviada ao Cosmos DB como uma consulta JSON parametrizada, conforme mostrado abaixo.
+Essa solicitação pode então ser enviada tooCosmos banco de dados como uma consulta parametrizada de JSON como mostrado abaixo.
 
     {      
         "query": "SELECT * FROM Families f WHERE f.lastName = @lastName AND f.address.state = @addressState",     
@@ -1373,7 +1373,7 @@ Essa solicitação pode então ser enviada ao Cosmos DB como uma consulta JSON p
         ] 
     }
 
-O argumento para TOP pode ser definido usando consultas parametrizadas, como mostrado abaixo.
+Olá argumento tooTOP pode ser definido usando consultas parametrizadas como mostrado abaixo.
 
     {      
         "query": "SELECT TOP @n * FROM Families",     
@@ -1395,39 +1395,39 @@ O Cosmos DB também dá suporte a várias funções internas para operações co
 | Funções de matriz         | ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH e ARRAY_SLICE                                                                                         |
 | Funções espaciais       | ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID e ST_ISVALIDDETAILED                                                                           | 
 
-Se, no momento, você estiver usando uma UDF (função definida pelo usuário) para a qual uma função interna agora está disponível, deverá usar a função interna correspondente, pois sua execução será mais rápida e mais eficiente. 
+Se você estiver usando uma função definida pelo usuário (UDF) para o qual uma função interna agora está disponível, você deve usar a função interna correspondente do hello como vai toobe toorun de mais rápido e mais eficiente. 
 
 ### <a name="mathematical-functions"></a>Funções matemáticas
-As funções matemáticas executam um cálculo, com base em valores de entrada fornecidos como argumentos e retornam um valor numérico. Aqui está uma tabela de funções matemáticas internas com suporte.
+Olá funções matemáticas executam um cálculo, com base em valores de entrada que são fornecidos como argumentos e retornam um valor numérico. Aqui está uma tabela de funções matemáticas internas com suporte.
 
 
 | Uso | Descrição |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [[ABS (num_expr)](#bk_abs) | Retorna o valor absoluto (positivo) da expressão numérica especificada. |
-| [CEILING (num_expr)](#bk_ceiling) | Retorna o menor valor de número inteiro maior ou igual à expressão numérica especificada. |
-| [FLOOR (num_expr)](#bk_floor) | Retorna o maior inteiro menor ou igual à expressão numérica especificada. |
-| [EXP (num_expr)](#bk_exp) | Retorna o expoente da expressão numérica especificada. |
-| [LOG (num_expr [,base])](#bk_log) | Retorna o logaritmo natural da expressão numérica especificada ou o logaritmo usando a base especificada |
-| [LOG10 (num_expr)](#bk_log10) | Retorna o valor logarítmico de base 10 da expressão numérica especificada. |
-| [ROUND (num_expr)](#bk_round) | Retorna um valor numérico, arredondado para o valor inteiro mais próximo. |
-| [TRUNC (num_expr)](#bk_trunc) | Retorna um valor numérico, truncado para o valor inteiro mais próximo. |
-| [SQRT (num_expr)](#bk_sqrt) | Retorna a raiz quadrada de expressão numérica especificada. |
-| [SQUARE (num_expr)](#bk_square) | Retorna o quadrado de expressão numérica especificada. |
-| [POWER (num_expr, num_expr)](#bk_power) | Retorna a potência da expressão numérica especificada para o valor especificado. |
-| [SIGN (num_expr)](#bk_sign) | Retorna o valor de entrada (-1, 0, 1) da expressão numérica especificada. |
-| [ACOS (num_expr)](#bk_acos) | Retorna o ângulo, em radianos, cujo cosseno é a expressão numérica especificada (também chamado de arco cosseno). |
-| [ASIN (num_expr)](#bk_asin) | Retorna o ângulo, em radianos, cujo seno é a expressão numérica especificada. Isso também é chamado de arco seno. |
-| [ATAN (num_expr)](#bk_atan) | Retorna o ângulo, em radianos, cuja tangente é a expressão numérica especificada. Isso também é chamado de arco tangente. |
-| [ATN2 (num_expr)](#bk_atn2) | Retorna o ângulo, em radianos, entre o eixo x positivo e o raio da origem até o ponto (x, y), em que x e y são os valores de duas expressões flutuantes especificadas. |
-| [COS (num_expr)](#bk_cos) | Retorna o cosseno trigonométrico do ângulo especificado, em radianos, na expressão especificada. |
-| [COT (num_expr)](#bk_cot) | Retorna a cotangente trigonométrica do ângulo especificado, em radianos, na expressão numérica especificada. |
-| [DEGREES (num_expr)](#bk_degrees) | Retorna o ângulo correspondente, em graus, para um ângulo especificado em radianos. |
-| [PI ()](#bk_pi) | Retorna o valor constante de PI. |
+| [[ABS (num_expr)](#bk_abs) | Retorna Olá valor absoluto (positivo) da saudação especificado expressão numérica. |
+| [CEILING (num_expr)](#bk_ceiling) | Retorna Olá menor valor de número inteiro maior ou igual ao Olá expressão numérica especificada. |
+| [FLOOR (num_expr)](#bk_floor) | Retorna Olá maior inteiro menor ou igual a toohello especificado expressão numérica. |
+| [EXP (num_expr)](#bk_exp) | Expoente de saudação retorna da saudação especificado expressão numérica. |
+| [LOG (num_expr [,base])](#bk_log) | Retorna Olá o logaritmo natural de saudação expressão numérica, ou logaritmo hello usando Olá especificada base |
+| [LOG10 (num_expr)](#bk_log10) | Olá retorna valor logarítmica de base 10 de saudação especificado expressão numérica. |
+| [ROUND (num_expr)](#bk_round) | Retorna um valor numérico, arredondado toohello valor de inteiro mais próximo. |
+| [TRUNC (num_expr)](#bk_trunc) | Retorna um valor numérico, o valor inteiro mais próximo de toohello truncados. |
+| [SQRT (num_expr)](#bk_sqrt) | Retorna Olá quadrado raiz de saudação especificado expressão numérica. |
+| [SQUARE (num_expr)](#bk_square) | Saudação de retorna quadrada de saudação especificado expressão numérica. |
+| [POWER (num_expr, num_expr)](#bk_power) | Retorna Olá power de saudação especificado expressão numérica toohello valor especificado. |
+| [SIGN (num_expr)](#bk_sign) | Retorna Olá sinal valor (-1, 0, 1) de saudação especificado expressão numérica. |
+| [ACOS (num_expr)](#bk_acos) | Ângulo de saudação retorna, em radianos, cujo cosseno é Olá expressão numérica especificada; também chamado de arco cosseno. |
+| [ASIN (num_expr)](#bk_asin) | Ângulo de saudação retorna, em radianos, cujo seno é hello especificado expressão numérica. Isso também é chamado de arco seno. |
+| [ATAN (num_expr)](#bk_atan) | Ângulo de saudação retorna, em radianos, cuja tangente é hello especificado expressão numérica. Isso também é chamado de arco tangente. |
+| [ATN2 (num_expr)](#bk_atn2) | Retorna Olá ângulo em radianos, entre o eixo x positivo de saudação e raio de saudação do hello toohello de ponto de origem (x, y), onde x e y são valores de saudação do hello duas expressões flutuantes especificadas. |
+| [COS (num_expr)](#bk_cos) | Retorna Olá cosseno trigonométrico Olá especificado o ângulo em radianos, na Olá expressão especificada. |
+| [COT (num_expr)](#bk_cot) | Retorna Olá cotangente trigonométrica Olá especificado o ângulo em radianos, Olá especificada expressão numérica. |
+| [DEGREES (num_expr)](#bk_degrees) | Retorna Olá ângulo correspondente em graus para um ângulo especificado em radianos. |
+| [PI ()](#bk_pi) | Retorna Olá valor constante de PI. |
 | [RADIANS (num_expr)](#bk_radians) | Retorna radianos quando uma expressão numérica é inserida em graus. |
-| [SIN (num_expr)](#bk_sin) | Retorna o seno trigonométrico do ângulo especificado, em radianos, na expressão especificada. |
-| [TAN (num_expr)](#bk_tan) | Retorna a tangente da expressão de entrada, na expressão especificada. |
+| [SIN (num_expr)](#bk_sin) | Retorna Olá seno trigonométrico Olá especificado o ângulo em radianos, na Olá expressão especificada. |
+| [TAN (num_expr)](#bk_tan) | Tangente de saudação retorna da expressão de entrada hello, em Olá expressão especificada. |
 
-Por exemplo, agora você pode executar consultas como as seguintes:
+Por exemplo, agora você pode executar consultas com hello seguinte:
 
 **Consulta**
 
@@ -1437,10 +1437,10 @@ Por exemplo, agora você pode executar consultas como as seguintes:
 
     [4]
 
-A principal diferença entre as funções do Cosmos DB em comparação com o ANSI SQL é que elas são criadas para funcionar bem com os dados de esquemas mistos e sem esquemas. Por exemplo, se você tem um documento em que a propriedade Tamanho está ausente ou tem um valor não numérico, como "desconhecido", o documento é ignorado, em vez de retornar um erro.
+Olá principal diferença entre tooANSI de funções em comparação do banco de dados Cosmos SQL é que eles são projetado toowork bem com dados de esquema sem esquema e misto. Por exemplo, se você tiver um documento em que a propriedade de tamanho hello está ausente ou tem um valor não numérico, como "desconhecido", em seguida, documento hello é ignorado, em vez de retornar um erro.
 
 ### <a name="type-checking-functions"></a>Funções de verificação de tipo
-As funções de verificação de tipo permitem que você verifique o tipo de uma expressão em consultas SQL. As funções de verificação de tipo podem ser usadas para determinar o tipo de propriedades em documentos imediatamente quando ele é desconhecido ou variável. Aqui está uma tabela de funções de verificação de tipo internas com suporte.
+funções de verificação de tipo Hello permitem tipo de saudação toocheck de uma expressão em consultas SQL. Tipo de funções de verificação podem ser usado toodetermine tipo de saudação de propriedades nos documentos imediatamente hello quando é desconhecido ou variável. Aqui está uma tabela de funções de verificação de tipo internas com suporte.
 
 <table>
 <tr>
@@ -1449,40 +1449,40 @@ As funções de verificação de tipo permitem que você verifique o tipo de uma
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_array">IS_ARRAY (expr)</a></td>
-  <td>Retorna um booliano indicando se o tipo do valor é uma matriz.</td>
+  <td>Retorna um valor booleano que indica se o tipo de saudação do valor de saudação é uma matriz.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool">IS_BOOL (expr)</a></td>
-  <td>Retorna um booliano indicando se o tipo do valor é um booliano.</td>
+  <td>Retorna um valor booleano que indica se o tipo de saudação do valor de saudação é um valor booleano.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_null">IS_NULL (expr)</a></td>
-  <td>Retorna um booliano indicando se o tipo do valor é nulo.</td>
+  <td>Retorna um valor booleano que indica se o tipo de saudação do valor de saudação é nulo.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_number">IS_NUMBER (expr)</a></td>
-  <td>Retorna um booliano indicando se o tipo do valor é um número.</td>
+  <td>Retorna um valor booleano que indica se o tipo de saudação do valor de saudação é um número.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_object">IS_OBJECT (expr)</a></td>
-  <td>Retorna um booliano indicando se o tipo do valor é um objeto JSON.</td>
+  <td>Retorna um valor booleano que indica se o tipo de saudação do valor de saudação é um objeto JSON.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_string">IS_STRING (expr)</a></td>
-  <td>Retorna um booliano indicando se o tipo do valor é uma cadeia de caracteres.</td>
+  <td>Retorna um valor booleano que indica se o tipo de saudação do valor de saudação é uma cadeia de caracteres.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_defined">IS_DEFINED (expr)</a></td>
-  <td>Retorna um valor booliano que indica se um valor foi atribuído à propriedade.</td>
+  <td>Retorna um valor booleano que indica se a propriedade de saudação foi atribuída um valor.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive">IS_PRIMITIVE (expr)</a></td>
-  <td>Retorna um valor booliano indicando se o tipo do valor é uma cadeia de caracteres, número, booliano ou nulo.</td>
+  <td>Retorna um valor booleano que indica se tipo de saudação do valor de saudação é cadeia de caracteres, número, booliano ou null.</td>
 </tr>
 
 </table>
 
-Usando essas funções, agora você pode executar consultas como as seguintes:
+Usando essas funções, agora você pode executar consultas com hello seguinte:
 
 **Consulta**
 
@@ -1493,28 +1493,28 @@ Usando essas funções, agora você pode executar consultas como as seguintes:
     [true]
 
 ### <a name="string-functions"></a>Funções de cadeia de caracteres
-As funções escalares a seguir executam uma operação em um valor de cadeia de caracteres de entrada e retornam uma cadeia de caracteres, um valor numérico ou um valor booliano. Aqui temos uma tabela de funções de cadeia de caracteres internas:
+Olá funções escalares a seguir executam uma operação em um valor de cadeia de caracteres de entrada e retornam uma cadeia de caracteres, o valor numérico ou booleano. Aqui temos uma tabela de funções de cadeia de caracteres internas:
 
 | Uso | Descrição |
 | --- | --- |
-| [LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |Retorna o número de caracteres da expressão de cadeia de caracteres especificada |
-| [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |Retorna uma cadeia de caracteres que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres. |
+| [LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |Retorna o número de saudação de caracteres da saudação especificado expressão de cadeia de caracteres |
+| [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |Retorna uma cadeia de caracteres que é o resultado de saudação da concatenação de dois ou mais valores de cadeia de caracteres. |
 | [SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) |Retorna parte de uma expressão de cadeia de caracteres. |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres termina com a segunda |
-| [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres termina com a segunda |
-| [CONTAINS (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres contém a segunda. |
-| [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |Retorna a posição inicial da primeira ocorrência da segunda expressão de cadeia de caracteres dentro da primeira expressão de cadeia de caracteres especificada, ou -1 se a cadeia de caracteres não for encontrada. |
-| [LEFT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) |Retorna a parte esquerda de uma cadeia de caracteres com o número especificado de caracteres. |
-| [RIGHT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) |Retorna a parte direita de uma cadeia de caracteres com o número especificado de caracteres. |
+| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Retorna um valor booleano que indica se primeira expressão de cadeia de caracteres hello termina com hello segundo |
+| [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |Retorna um valor booleano que indica se primeira expressão de cadeia de caracteres hello termina com hello segundo |
+| [CONTAINS (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |Retorna um valor booleano que indica se a primeira expressão de cadeia de caracteres hello contém Olá segundo. |
+| [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |Retorna a saudação iniciando a posição da primeira ocorrência de saudação da segunda expressão de cadeia de caracteres hello na primeira expressão de cadeia de caracteres especificada hello, ou -1 se a cadeia de caracteres de saudação não foi encontrada. |
+| [LEFT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) |Retorna Olá parte esquerda de uma cadeia de caracteres com hello especificado número de caracteres. |
+| [RIGHT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) |Olá retorna parte direita de uma cadeia de caracteres com hello número especificado de caracteres. |
 | [LTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim) |Retorna uma expressão de cadeia de caracteres após remover os espaços em branco iniciais. |
 | [RTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim) |Retorna uma expressão de cadeia de caracteres após truncar todos os espaços em branco finais. |
-| [LOWER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |Retorna uma expressão de cadeia de caracteres depois de converter dados de caracteres maiúsculos em minúsculos. |
-| [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Retorna uma expressão de cadeia de caracteres depois de converter dados de caracteres minúsculos em maiúsculos. |
+| [LOWER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |Retorna uma expressão de cadeia de caracteres após converter caracteres maiusculos toolowercase de dados. |
+| [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Retorna uma expressão de cadeia de caracteres após converter caracteres minúsculos toouppercase de dados. |
 | [REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |Substitui todas as ocorrências de um valor de cadeia de caracteres especificado por outro valor de cadeia de caracteres. |
 | [REPLICATE (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-reference#bk_replicate) |Repete um valor de cadeia de caracteres por um número de vezes especificado. |
-| [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Retorna a ordem inversa de um valor de cadeia de caracteres. |
+| [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Retorna a ordem inversa Olá de um valor de cadeia de caracteres. |
 
-Usando essas funções, agora você pode executar consultas como as descritas a seguir. Por exemplo, você pode retornar o sobrenome em caracteres maiúsculos, da seguinte maneira:
+Usando essas funções, agora você pode executar consultas com hello seguinte. Por exemplo, você pode retornar sobrenome Olá em maiusculas da seguinte maneira:
 
 **Consulta**
 
@@ -1547,7 +1547,7 @@ Ou concatenar cadeias de caracteres, como neste exemplo:
     }]
 
 
-Funções de cadeia de caracteres também podem ser usadas na cláusula WHERE para filtrar os resultados, como no exemplo a seguir:
+Funções de cadeia de caracteres também podem ser usadas em Olá onde os resultados de toofilter cláusula, como no exemplo a seguir de saudação:
 
 **Consulta**
 
@@ -1563,16 +1563,16 @@ Funções de cadeia de caracteres também podem ser usadas na cláusula WHERE pa
     }]
 
 ### <a name="array-functions"></a>Funções de matriz
-As funções escalares a seguir executam uma operação em um valor de matriz de entrada e retornam um valor numérico, booliano ou um valor de matriz. Aqui temos uma tabela de funções de matriz internas:
+Olá funções escalares a seguir executam uma operação em um valor de entrada de matriz e retorno numérico, valor booleano ou de matriz. Aqui temos uma tabela de funções de matriz internas:
 
 | Uso | Descrição |
 | --- | --- |
-| [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Retorna o número de elementos da expressão de matriz especificada. |
-| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |Retorna uma matriz que é o resultado da concatenação de dois ou mais valores de matriz. |
-| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Retorna um valor booliano que indica se a matriz contém o valor especificado. Pode especificar se a correspondência é completa ou parcial. |
+| [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Retorna o número de saudação de elementos da saudação especificado expressão de matriz. |
+| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |Retorna uma matriz que é o resultado de saudação da concatenação de dois ou mais valores de matriz. |
+| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Retorna um valor booleano que indica se a matriz de saudação contém Olá valor especificado. Pode especificar se a correspondência de saudação é completo ou parcial. |
 | [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |Retorna parte de uma expressão de matriz. |
 
-Funções de matriz podem ser usadas para manipular matrizes contidas no JSON. Por exemplo, aqui está uma consulta que retorna todos os documentos nos quais um dos pais é "Robin Wakefield". 
+Funções de matriz podem ser matrizes de toomanipulate usado em JSON. Por exemplo, aqui está uma consulta que retorna todos os documentos em que um dos pais hello "Robin Wakefield". 
 
 **Consulta**
 
@@ -1586,7 +1586,7 @@ Funções de matriz podem ser usadas para manipular matrizes contidas no JSON. P
       "id": "WakefieldFamily"
     }]
 
-Você pode especificar um fragmento parcial para elementos correspondentes dentro da matriz. A consulta a seguir localiza todos os pais com o `givenName` de `Robin`.
+Você pode especificar um fragmento parcial de elementos na matriz de saudação. Olá, consulta a seguir localiza todos os pais com hello `givenName` de `Robin`.
 
 **Consulta**
 
@@ -1601,7 +1601,7 @@ Você pode especificar um fragmento parcial para elementos correspondentes dentr
     }]
 
 
-Aqui está outro exemplo que usa ARRAY_LENGTH para obter o número de filhos por família.
+Aqui está outro exemplo que usa ARRAY_LENGTH tooget Olá número de filhos por família.
 
 **Consulta**
 
@@ -1620,7 +1620,7 @@ Aqui está outro exemplo que usa ARRAY_LENGTH para obter o número de filhos por
     }]
 
 ### <a name="spatial-functions"></a>Funções espaciais
-O Cosmos DB dá suporte às funções internas do OGC (Open Geospatial Consortium) a seguir em consultas geoespaciais. 
+Cosmos banco de dados oferece suporte a saudação funções internas do Open Geospatial Consortium (OGC) para consultar geoespaciais a seguir. 
 
 <table>
 <tr>
@@ -1629,27 +1629,27 @@ O Cosmos DB dá suporte às funções internas do OGC (Open Geospatial Consortiu
 </tr>
 <tr>
   <td>ST_DISTANCE (point_expr, point_expr)</td>
-  <td>Retorna a distância entre as duas expressões de ponto GeoJSON, Polígono ou LineString.</td>
+  <td>Retorna a distância de saudação entre expressões de LineString, Polygon ou ponto GeoJSON Olá dois.</td>
 </tr>
 <tr>
   <td>ST_WITHIN (point_expr, polygon_expr)</td>
-  <td>Retorna uma expressão booliana que indica se o primeiro objeto GeoJSON (Ponto, Polígono ou LineString) está em um segundo objeto GeoJSON (Ponto, Polígono ou LineString).</td>
+  <td>Retorna uma expressão booleana que indica se o objeto de GeoJSON primeiro Olá (ponto, polígono ou LineString) é no objeto de GeoJSON segundo hello (ponto, polígono ou LineString).</td>
 </tr>
 <tr>
   <td>ST_INTERSECTS (spatial_expr, spatial_expr)</td>
-  <td>Retorna uma expressão booliana que indica se os dois objetos GeoJSON especificados (Ponto, Polígono ou LineString) se cruzam.</td>
+  <td>Retorna uma expressão booleana que indica se cruzam Olá dois GeoJSON objetos especificados (ponto, polígono ou LineString).</td>
 </tr>
 <tr>
   <td>ST_ISVALID</td>
-  <td>Retorna um valor Booliano que indica se a expressão especificada de Ponto, Polígono ou LineString GeoJSON é válida.</td>
+  <td>Retorna um valor booliano que indica se a saudação especificado LineString, Polygon ou ponto GeoJSON expressão é válida.</td>
 </tr>
 <tr>
   <td>ST_ISVALIDDETAILED</td>
-  <td>Retorna um valor JSON que contém um valor Booliano caso a expressão especificada de Ponto, Polígono ou LineString GeoJSON é válida e, se for inválida, adicionalmente o motivo como um valor de cadeia de caracteres.</td>
+  <td>Retorna um valor JSON que contém um valor booliano se Olá especificado expressão LineString, Polygon ou ponto GeoJSON é válido e se for inválido, além disso Olá motivo como um valor de cadeia de caracteres.</td>
 </tr>
 </table>
 
-As funções espaciais podem ser usadas para executar consultas de proximidade em consultas espaciais. Por exemplo, veja uma consulta que retorna todos os documentos de família que estejam em um raio de 30 km do local especificado usando a função interna ST_DISTANCE. 
+Funções espaciais podem ser usado tooperform proximidade consultas em relação aos dados espaciais. Por exemplo, aqui está uma consulta que retorna a que família de todos os documentos que está dentro de 30 km de saudação local especificado usando Olá ST_DISTANCE função interna. 
 
 **Consulta**
 
@@ -1663,17 +1663,17 @@ As funções espaciais podem ser usadas para executar consultas de proximidade e
       "id": "WakefieldFamily"
     }]
 
-Para obter detalhes sobre o suporte geoespacial no Cosmos DB, consulte [Trabalhando com os dados geoespaciais no Azure Cosmos DB](geospatial.md). Com isso, encerramos as funções espaciais e a sintaxe SQL do Cosmos DB. Agora vamos dar uma olhada em como o sistema de consultas LINQ funciona e como ele interage com a sintaxe que vimos até agora.
+Para obter detalhes sobre o suporte geoespacial no Cosmos DB, consulte [Trabalhando com os dados geoespaciais no Azure Cosmos DB](geospatial.md). Isso conclui funções espaciais e Olá sintaxe SQL para banco de dados do Cosmos. Agora vamos dar uma olhada em como LINQ consultando funciona e como ele interage com a sintaxe de saudação que vimos até agora.
 
-## <a id="Linq"></a>LINQ para SQL da API do DocumentDB
-O LINQ é um modelo de programação .NET que expressa a computação como consultas em fluxos de objetos. O Cosmos DB oferece uma biblioteca do lado do cliente para fazer interface com o LINQ ao facilitar a conversão entre objetos JSON e .NET e um mapeamento por meio de um subconjunto de consultas LINQ para consultas do Cosmos DB. 
+## <a id="Linq"></a>LINQ tooDocumentDB API SQL
+O LINQ é um modelo de programação .NET que expressa a computação como consultas em fluxos de objetos. Cosmos DB fornece toointerface uma biblioteca de cliente com o LINQ, facilitando a uma conversão entre objetos JSON e .NET e um mapeamento de um subconjunto de LINQ consulta tooCosmos DB de consultas. 
 
-A imagem abaixo mostra a arquitetura do suporte a consultas LINQ usando o Cosmos DB.  Usando o cliente do Cosmos DB, os desenvolvedores podem criar um objeto **IQueryable** que consulta diretamente o provedor de consultas do Cosmos DB que, por sua vez, converte a consulta LINQ em uma consulta do Cosmos DB. A consulta é, então, passada ao servidor do Cosmos DB para recuperar um conjunto de resultados no formato JSON. Os resultados retornados são desserializados em um fluxo de objetos .NET no lado do cliente.
+imagem de saudação abaixo mostra a arquitetura de saudação de dar suporte a consultas LINQ usando o banco de dados do Cosmos.  Usando o cliente de banco de dados do Cosmos hello, os desenvolvedores podem criar um **IQueryable** que diretamente consultas hello provedor de consulta de banco de dados do Cosmos, que converte a consulta LINQ Olá em uma consulta de banco de dados do Cosmos do objeto. consulta de saudação é então passada toohello tooretrieve do servidor de banco de dados do Cosmos um conjunto de resultados no formato JSON. Olá retornou resultados são desserializados em um fluxo de objetos .NET no lado do cliente de saudação.
 
 ![Arquitetura de suporte a consultas LINQ usando a API do DocumentDB – sintaxe SQL, linguagem de consulta JSON, conceitos de banco de dados e consultas SQL][1]
 
 ### <a name="net-and-json-mapping"></a>Mapeamento de .NET e JSON
-O mapeamento entre objetos .NET e documentos JSON é natural - cada campo de membro de dados é mapeado para um objeto JSON, em que o nome do campo é mapeado para a parte “chave” do objeto e a parte do “valor” é mapeada recursivamente para a parte de valor do objeto. Considere o seguinte exemplo: o objeto Família criado é mapeado para o documento JSON conforme mostrado abaixo. E vice-versa, o documento JSON é mapeado para um objeto .NET.
+Olá o mapeamento entre objetos .NET e documentos JSON é natural - cada campo de membro de dados é mapeado tooa objeto JSON, onde é o nome do campo Olá mapeados toohello "chave", parte do objeto de saudação e parte de "valor" hello recursivamente mapeado toohello parte de valor de objeto de saudação. Considere Olá exemplo a seguir: objeto de família Olá criado é documento JSON de toohello mapeado conforme mostrado abaixo. E vice-versa, documento JSON de saudação é objeto do .NET tooa back mapeada.
 
 **Classe C#**
 
@@ -1754,19 +1754,19 @@ O mapeamento entre objetos .NET e documentos JSON é natural - cada campo de mem
 
 
 
-### <a name="linq-to-sql-translation"></a>Tradução de LINQ em SQL
-O provedor de consultas do Cosmos DB realiza um mapeamento de melhor esforço de uma consulta LINQ para uma consulta SQL do Cosmos DB. Na descrição a seguir, presumimos uma familiaridade básica do leitor com o LINQ.
+### <a name="linq-toosql-translation"></a>Conversão de tooSQL LINQ
+provedor de consulta de banco de dados do Cosmos Olá executa um mapeamento de melhor esforço de uma consulta LINQ em uma consulta SQL de banco de dados do Cosmos. Olá descrição a seguir, vamos supor leitor Olá tem uma familiaridade básica do LINQ.
 
-Primeiro, para o sistema de tipos, oferecemos suporte para todos os tipos de JSON primitivos - tipos numéricos, boolianos, cadeia de caracteres e nulo. Somente esses tipos de JSON têm suporte. As expressões escalares são suportadas.
+Primeiro, para o sistema de tipo hello, há suporte para todos os tipos de primitivos JSON – tipos numéricos, booliano, cadeia de caracteres e null. Somente esses tipos de JSON têm suporte. Olá expressões escalares a seguir têm suporte.
 
-* Valores constantes – incluem valores constantes dos tipos de dados primitivos no momento em que a consulta é avaliada.
-* Expressões de índice de propriedade/matriz – essas expressões se referem à propriedade de um objeto ou um elemento de matriz.
+* Valores de constantes – isso inclui valores constantes Olá primitivos de tipos de dados em tempo de Olá Olá consulta é avaliada.
+* Expressões de índice de matriz/propriedade – essas expressões consulte toohello de propriedade de um objeto ou um elemento de matriz.
   
      family.Id;    family.children[0].familyName;    family.children[0].grade;    family.children[n].grade; //n é uma variável int
-* Expressões aritméticas - Incluem expressões aritméticas comuns em valores numéricos e boolianos. Para obter uma lista completa, consulte a especificação da SQL.
+* Expressões aritméticas - Incluem expressões aritméticas comuns em valores numéricos e boolianos. Para a lista completa de hello, consulte toohello SQL specification.
   
      2 * family.children[0].grade;    x + y;
-* Expressão de comparação de cadeias de caracteres - incluem a comparação de um valor de cadeia de caracteres a um valor constante de cadeia de caracteres.  
+* Expressão de comparação de cadeia de caracteres - isso inclui a comparar um valor constante de cadeia de caracteres de toosome de valor de cadeia de caracteres.  
   
      mother.familyName == "Smith";    child.givenName == s; //s é uma variável de cadeia de caracteres
 * Expressão de criação de objeto/matriz - estas expressões retornam um objeto do tipo de valor composto ou tipo anônimo ou uma matriz desses objetos. Esses valores podem ser aninhados.
@@ -1775,27 +1775,27 @@ Primeiro, para o sistema de tipos, oferecemos suporte para todos os tipos de JSO
      novo int[] { 3, child.grade, 5 };
 
 ### <a id="SupportedLinqOperators"></a>Lista de operadores LINQ com suporte
-Aqui está uma lista de operadores LINQ com suporte no provedor LINQ incluídos no SDK do .NET do DocumentDB.
+Aqui está uma lista de operadores LINQ com suporte no provedor LINQ Olá incluídos com hello SDK .NET do DocumentDB.
 
-* **Select**: as projeções são convertidas para SQL SELECT, incluindo a construção de objetos
-* **Em que**: os filtros são convertidos para SQL WHERE e dão suporte à conversão entre && , || e ! para os operadores SQL
-* **SelectMany**: permite o desenrolamento de matrizes à cláusula SQL JOIN. Pode ser usado para encadear/aninhar expressões para filtrar elementos de matriz
-* **OrderBy e OrderByDescending**: são convertidas em ORDER BY de forma crescente/decrescente
+* **Selecione**: projeções traduzem toohello SQL SELECT incluindo construção de objeto
+* **Onde**: filtros traduzir toohello SQL WHERE e suporte a conversão entre & &, | | e! operadores SQL toohello
+* **SelectMany**: permite que o desenrolamento da cláusula de junção SQL toohello de matrizes. Pode ser usado toochain/aninhar expressões toofilter em elementos de matriz
+* **OrderBy e OrderByDescending**: converte tooORDER BY crescente/decrescente
 * Operadores **Count**, **Sum**, **Min**, **Max** e **Average** para agregação e os seus equivalentes assíncronos, **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** e **AverageAsync**.
-* **CompareTo**: é convertido em comparações de intervalo. Normalmente usados para cadeias de caracteres, já que não são comparáveis no .NET
-* **Take**: é convertido em SQL TOP para limitar os resultados de uma consulta
-* **Funções matemáticas**: dão suporte à conversão de Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan e Truncate do .NET nas funções internas do SQL equivalentes.
-* **Funções de cadeia de caracteres**: dão suporte à conversão de Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString e ToUpper do .NET nas funções internas do SQL equivalentes.
-* **Funções de matriz**: dão suporte à conversão de Concat, Contains e Count do .NET nas funções internas do SQL equivalentes.
-* **Funções de extensão geoespacial**: dão suporte à conversão dos métodos stub Distance, Within, IsValid e IsValidDetailed nas funções internas do SQL equivalentes.
-* **Função de Extensão da Função Definida pelo Usuário**: dá suporte à translação do método stub UserDefinedFunctionProvider.Invoke na função definida pelo usuário correspondente.
-* **Diversos**: dá suporte à conversão dos operadores de união e condicional. Pode converter Contains para a Cadeia de caracteres CONTAINS, ARRAY_CONTAINS ou para o SQL IN, dependendo do contexto.
+* **CompareTo**: converte toorange comparações. Normalmente usados para cadeias de caracteres, já que não são comparáveis no .NET
+* **Levar**: converte toohello SQL TOP para limitar os resultados de uma consulta
+* **Funções matemáticas**: dá suporte à conversão do. Abs, Acos, Asin do NET, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, logon, Sin, Sqrt, Tan, Truncate funções internas do toohello equivalentes SQL.
+* **Funções de cadeia de caracteres**: dá suporte à conversão do. Concat, Contains, EndsWith do NET, IndexOf, contagem, ToLower, TrimStart, Replace, inverso, TrimEnd, StartsWith, SubString, ToUpper toohello equivalente SQL funções internas.
+* **Funções de matriz**: dá suporte à conversão do. Concat, Contains e contagem toohello equivalente SQL funções internas do NET.
+* **Funções de extensão geoespaciais**: dá suporte à conversão de métodos de stub distância dentro IsValid e IsValidDetailed toohello equivalente SQL funções internas.
+* **Função de extensão de função definida pelo usuário**: conversão suporta de saudação stub de método UserDefinedFunctionProvider.Invoke toohello correspondente definido pelo usuário função.
+* **Diversos**: dá suporte à conversão de saudação de união e operadores condicionais. É possível converter a tooString contém CONTAINS, ARRAY_CONTAINS ou Olá IN SQL dependendo do contexto.
 
 ### <a name="sql-query-operators"></a>Operadores de consulta SQL
-Aqui, temos alguns exemplos que ilustram como alguns dos operadores de consulta LINQ padrão são convertidos em consultas do Cosmos DB.
+Aqui estão alguns exemplos que ilustram como alguns dos operadores de consulta LINQ padrão Olá são convertidos tooCosmos consultas de banco de dados.
 
 #### <a name="select-operator"></a>Operador Select
-A sintaxe é `input.Select(x => f(x))`, em que `f` é uma expressão escalar.
+sintaxe de saudação é `input.Select(x => f(x))`, onde `f` é uma expressão escalar.
 
 **Expressão lambda do LINQ**
 
@@ -1838,7 +1838,7 @@ A sintaxe é `input.Select(x => f(x))`, em que `f` é uma expressão escalar.
 
 
 #### <a name="selectmany-operator"></a>Operador SelectMany
-A sintaxe é `input.SelectMany(x => f(x))`, em que `f` é uma expressão escalar que retorna um tipo de coleção.
+sintaxe de saudação é `input.SelectMany(x => f(x))`, onde `f` é uma expressão escalar que retorna um tipo de coleção.
 
 **Expressão lambda do LINQ**
 
@@ -1852,7 +1852,7 @@ A sintaxe é `input.SelectMany(x => f(x))`, em que `f` é uma expressão escalar
 
 
 #### <a name="where-operator"></a>Operador Where
-A sintaxe é `input.Where(x => f(x))`, em que `f` é uma expressão escalar que retorna um valor booliano.
+sintaxe de saudação é `input.Where(x => f(x))`, onde `f` é uma expressão escalar, que retorna um valor booliano.
 
 **Expressão lambda do LINQ**
 
@@ -1881,10 +1881,10 @@ A sintaxe é `input.Where(x => f(x))`, em que `f` é uma expressão escalar que 
 
 
 ### <a name="composite-sql-queries"></a>Consultas SQL composta
-Os operadores acima podem ser compostos para formar consultas mais poderosas. Como o Cosmos DB dá suporte a coleções aninhadas, a composição pode ser concatenada ou aninhada.
+Olá acima operadores pode ser composto tooform consultas mais avançadas. Como Cosmos DB dá suporte a coleções aninhadas, composição Olá pode ser concatenada ou aninhada.
 
 #### <a name="concatenation"></a>Concatenação
-A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concatenada pode ser iniciada por uma consulta `SelectMany` opcional, seguida por múltiplos operadores `Select` ou `Where`.
+sintaxe de saudação é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concatenada pode ser iniciada por uma consulta `SelectMany` opcional, seguida por múltiplos operadores `Select` ou `Where`.
 
 **Expressão lambda do LINQ**
 
@@ -1939,9 +1939,9 @@ A sintaxe é `input(.|.SelectMany())(.Select()|.Where())*`. Uma consulta concate
 
 
 #### <a name="nesting"></a>Aninhamento
-A sintaxe é `input.SelectMany(x=>x.Q())`, em que Q é um operador `Select`, `SelectMany` ou `Where`.
+sintaxe de saudação é `input.SelectMany(x=>x.Q())` onde p é um `Select`, `SelectMany`, ou `Where` operador.
 
-Em uma consulta aninhada, a consulta interior é aplicada a cada elemento da coleção externa. Um recurso importante é que a consulta interna pode se referir aos campos dos elementos na coleção exterior, como autojunções.
+Em uma consulta aninhada, consulta interna Olá é tooeach aplicada elemento da coleção externa hello. Um recurso importante é a que consulta interna Olá pode fazer referência a campos toohello de elementos Olá coleção externa de saudação como autojunções.
 
 **Expressão lambda do LINQ**
 
@@ -1983,16 +1983,16 @@ Em uma consulta aninhada, a consulta interior é aplicada a cada elemento da col
 
 
 ## <a id="ExecutingSqlQueries"></a>Execução de consultas SQL
-O Cosmos DB expõe recursos por meio de uma API REST que pode ser chamada por qualquer linguagem que possa fazer solicitações HTTP/HTTPS. Além disso, o Cosmos DB oferece bibliotecas de programação para várias linguagens populares, como .NET, Node.js, JavaScript e Python. A API REST e as diversas bibliotecas suportam a consulta por meio de SQL. O SDK .NET oferece suporte para consultas no LINQ além da SQL.
+O Cosmos DB expõe recursos por meio de uma API REST que pode ser chamada por qualquer linguagem que possa fazer solicitações HTTP/HTTPS. Além disso, o Cosmos DB oferece bibliotecas de programação para várias linguagens populares, como .NET, Node.js, JavaScript e Python. Olá API REST e hello todas as várias bibliotecas, oferecem suporte à consulta por meio do SQL. Olá SDK .NET oferece suporte a LINQ, além de consultar tooSQL.
 
-Os exemplos a seguir mostram como criar uma consulta e enviá-la a uma conta de banco de dados do Cosmos DB.
+Olá seguintes exemplos mostram como toocreate uma consulta e enviá-lo em uma conta de banco de dados do banco de dados do Cosmos.
 
 ### <a id="RestAPI"></a>API REST
-O Cosmos DB oferece um modelo de programação RESTful por HTTP. As contas do banco de dados podem ser provisionadas usando uma assinatura do Azure. O modelo de recurso do Cosmos DB consiste em um conjunto de recursos em uma conta de banco de dados, cada um endereçável usando um URI lógico e estável. Um conjunto de recursos é referido como um feed neste documento. Uma conta do banco de dados é formada por um conjunto de bancos de dados, cada um contendo diversas coleções, cada uma delas, por sua vez, contendo documentos, UDFs e outros tipos de recursos.
+O Cosmos DB oferece um modelo de programação RESTful por HTTP. As contas do banco de dados podem ser provisionadas usando uma assinatura do Azure. modelo de recurso de banco de dados do Cosmos Olá consiste em um conjunto de recursos em uma conta de banco de dados, cada um deles é endereçáveis por meio de um URI de lógico e estável. Um conjunto de recursos é chamado tooas um feed neste documento. Uma conta do banco de dados é formada por um conjunto de bancos de dados, cada um contendo diversas coleções, cada uma delas, por sua vez, contendo documentos, UDFs e outros tipos de recursos.
 
-O modelo de interação básico com esses recursos é por meio dos verbos HTTP GET, PUT, POST e DELETE, com sua interpretação padrão. O verbo POST é usado para criação de um novo recurso, para executar um procedimento armazenado ou para emitir uma consulta do Cosmos DB. As consultas sempre são operações somente leitura, sem efeitos colaterais.
+modelo de interação básica Olá com esses recursos é por meio de verbos Olá HTTP GET, PUT, POST e DELETE com a interpretação padrão. verbo POST Olá é usado para a criação de um novo recurso, para executar um procedimento armazenado ou para emitir uma consulta de banco de dados do Cosmos. As consultas sempre são operações somente leitura, sem efeitos colaterais.
 
-Os exemplos a seguir mostram um POST para uma consulta da API do DocumentDB feita em uma coleção que contém os dois documentos de exemplo que vimos até agora. A consulta tem um filtro simples na propriedade do nome JSON. Observe o uso dos cabeçalhos `x-ms-documentdb-isquery` e Content-Type: `application/query+json` para indicar que a operação é uma consulta.
+Olá exemplos a seguir mostram um POST para uma consulta de API DocumentDB feita em relação a uma coleção que contém dois documentos de exemplo hello que examinamos até o momento. consulta de saudação tem um filtro simples na propriedade de nome hello JSON. Observe o uso de saudação do hello `x-ms-documentdb-isquery` e tipo de conteúdo: `application/query+json` toodenote cabeçalhos que Olá operação é uma consulta.
 
 **Solicitação**
 
@@ -2060,7 +2060,7 @@ Os exemplos a seguir mostram um POST para uma consulta da API do DocumentDB feit
     }
 
 
-O segundo exemplo mostra uma consulta mais complexa que retorna múltiplos resultados da junção.
+Olá segundo exemplo mostra uma consulta mais complexa que retorna vários resultados de junção hello.
 
 **Solicitação**
 
@@ -2114,16 +2114,16 @@ O segundo exemplo mostra uma consulta mais complexa que retorna múltiplos resul
     }
 
 
-Se os resultados de uma consulta não couberem em uma página de resultados, a API REST retornará um token de continuação por meio do cabeçalho de resposta `x-ms-continuation-token` . Os clientes podem paginar os resultados incluindo o cabeçalho nos resultados subsequentes. O número de resultados por página também pode ser controlado por meio do cabeçalho de número `x-ms-max-item-count` . Se a consulta especificada tiver uma função de agregação como `COUNT`, a página de consulta poderá retornar um valor parcialmente agregado na página de resultados. Os clientes devem executar uma segunda agregação nesses resultados para produzir os resultados finais. Por exemplo, a soma das contagens retornadas nas páginas individuais para retornar a contagem total.
+Se os resultados da consulta não podem se ajustar dentro de uma única página de resultados, Olá REST API retorna um token de continuação por meio de saudação `x-ms-continuation-token` cabeçalho de resposta. Os clientes podem pagina resultados, incluindo o cabeçalho de saudação nos resultados subsequentes. número de saudação de resultados por página também pode ser controlado pela Olá `x-ms-max-item-count` cabeçalho do número. Se a consulta especificada Olá tem uma função de agregação como `COUNT`, página Olá da consulta pode retornar um valor agregado parcialmente pela página de saudação de resultados. clientes de saudação deve executar uma agregação de segundo nível sobre esses resultados tooproduce Olá resultados finais, por exemplo, soma contagens de hello retornadas na contagem total de Olá Olá de tooreturn páginas individuais.
 
-Para gerenciar a política de consistência de dados para consultas, use o cabeçalho `x-ms-consistency-level` como todas as solicitações da API REST. Para que haja consistência da sessão, é necessário também ecoar o cabeçalho de cookie `x-ms-session-token` mais recente na solicitação de consulta. A política de indexação da coleção consultada também pode influenciar a consistência dos resultados da consulta. Com as configurações da política de indexação padrão, para as coleções, o índice sempre está atualizado com o conteúdo dos documentos e os resultados das consultas correspondem à consistência escolhida para os dados. Se a política de indexação for relaxada para Lenta, as consultas poderão retornar resultados obsoletos. Para obter mais informações, consulte [Níveis de consistência no Azure Cosmos DB][consistency-levels].
+política de consistência de dados toomanage Olá para consultas, use Olá `x-ms-consistency-level` cabeçalho como todas as solicitações da API REST. Para consistência de sessão, ele é necessário tooalso echo hello mais recente `x-ms-session-token` cabeçalho de Cookie na solicitação de consulta de saudação. Olá política de indexação da coleção consultado também pode influenciar consistência Olá dos resultados da consulta. Com as configurações de política de indexação padrão de saudação, para coleções Olá índice sempre é atual com o conteúdo do documento hello e resultados corresponderem consistência Olá escolhida para dados de consulta. Se Olá política de indexação é reduzida tooLazy, consultas podem retornar resultados atualizados. Para obter mais informações, consulte [Níveis de consistência no Azure Cosmos DB][consistency-levels].
 
-Se a política de indexação configurada na coleção não puder dar suporte à consulta especificada, o servidor do Azure Cosmos DB retornará um erro 400, “Solicitação Inválida”. Este código é retornado para consultas de intervalo em caminhos configurados para pesquisas hash (igualdade), e para caminhos excluídos explicitamente da indexação. O cabeçalho `x-ms-documentdb-query-enable-scan` pode ser especificado para permitir que a consulta faça uma verificação quando um índice estiver indisponível.
+Se a política de indexação Olá configurado na coleção de saudação não oferecer suporte a consulta especificada hello, servidor de banco de dados do Azure Cosmos Olá retorna 400 "solicitação incorreta". Este código é retornado para consultas de intervalo em caminhos configurados para pesquisas hash (igualdade), e para caminhos excluídos explicitamente da indexação. Olá `x-ms-documentdb-query-enable-scan` cabeçalho pode ser especificado tooallow Olá consulta tooperform uma verificação quando um índice não está disponível.
 
-Você pode obter métricas detalhadas na execução da consulta configurando o cabeçalho `x-ms-documentdb-populatequerymetrics` como `True`. Para obter mais informações, consulte [Métricas de consulta SQL para a API do DocumentDB do Azure Cosmos DB](documentdb-sql-query-metrics.md).
+Você pode obter métricas detalhadas na execução da consulta definindo `x-ms-documentdb-populatequerymetrics` cabeçalho muito`True`. Para obter mais informações, consulte [Métricas de consulta SQL para a API do DocumentDB do Azure Cosmos DB](documentdb-sql-query-metrics.md).
 
 ### <a id="DotNetSdk"></a>SDK do C# (.NET)
-O SDK .NET suporta consultas LINQ e SQL. O exemplo a seguir mostra como realizar a consulta de filtro simples mencionada no início deste documento.
+Olá SDK .NET oferece suporte a LINQ e SQL consultando. Olá exemplo a seguir mostra como a consulta de filtro simples Olá tooperform introduzido no início deste documento.
 
     foreach (var family in client.CreateDocumentQuery(collectionLink, 
         "SELECT * FROM Families f WHERE f.id = \"AndersenFamily\""))
@@ -2183,7 +2183,7 @@ Esta amostra compara duas propriedades quanto à igualdade dentro de cada docume
     }
 
 
-A amostra seguinte mostra junções, expressas por meio do LINQ SelectMany.
+Olá próximo exemplo mostra junções, expressadas por meio de LINQ SelectMany.
 
     foreach (var pet in client.CreateDocumentQuery(collectionLink,
           @"SELECT p
@@ -2207,16 +2207,16 @@ A amostra seguinte mostra junções, expressas por meio do LINQ SelectMany.
 
 
 
-O cliente .NET itera automaticamente em todas as páginas dos resultados de pesquisa nos blocos foreach, conforme mostrado acima. As opções de consulta introduzidas na seção da API REST também estão disponíveis no SDK .NET usando as classes `FeedOptions` and `FeedResponse` no método CreateDocumentQuery. O número de páginas pode ser controlado usando a configuração `MaxItemCount` . 
+cliente do .NET Olá automaticamente itera em todas as páginas de saudação dos resultados de consulta em blocos de foreach hello como mostrado acima. consulta Olá introduzidas no hello seção da API REST de opções também estão disponíveis no hello SDK do .NET usando Olá `FeedOptions` e `FeedResponse` classes Olá CreateDocumentQuery método. número de saudação de páginas pode ser controlado usando Olá `MaxItemCount` configuração. 
 
-Você também pode controlar explicitamente paginação criando `IDocumentQueryable` usando o objeto `IQueryable`, lendo os valores` ResponseContinuationToken` e passando-os de volta como `RequestContinuationToken` em `FeedOptions`. `EnableScanInQuery` pode ser configurado para permitir verificações quando não for possível que a política de indexação configurada dê suporte à consulta. Para coleções particionadas, use `PartitionKey` para executar a consulta em uma única partição (embora o Cosmos DB possa extraí-la do texto da consulta) e `EnableCrossPartitionQuery` para executar consultas que talvez precisem ser executadas em várias partições. 
+Explicitamente você pode controlar a paginação criando `IDocumentQueryable` usando Olá `IQueryable` objeto, em seguida, lendo a` ResponseContinuationToken` valores e transmiti-los de volta como `RequestContinuationToken` em `FeedOptions`. `EnableScanInQuery`pode ser o conjunto tooenable verificações quando consulta Olá não pode ser suportada pela política de indexação de saudação configurada. Para as coleções particionadas, você pode usar `PartitionKey` toorun consulta Olá uma única partição (embora Cosmos DB pode extrair esse automaticamente de texto da consulta Olá), e `EnableCrossPartitionQuery` toorun as consultas que talvez seja necessário toobe executadas várias partições. 
 
-Consulte [Amostras do .NET no Azure Cosmos DB](https://github.com/Azure/azure-documentdb-net) para obter mais amostras que contêm consultas. 
+Consulte também[amostras do .NET de banco de dados do Azure Cosmos](https://github.com/Azure/azure-documentdb-net) para obter mais exemplos contêm consultas. 
 
 ### <a id="JavaScriptServerSideApi"></a>API do lado servidor do JavaScript
-O Cosmos DB oferece um modelo de programação para executar a lógica de aplicativos baseados em JavaScript diretamente nas coleções usando procedimentos armazenados e gatilhos. A lógica de JavaScript registrada no nível da coleção pode então emitir operações do banco de dados nas operações dos documentos da coleção determinada. Essas operações são encapsuladas em transações ACID ambiente.
+Cosmos banco de dados fornece um modelo de programação para a execução lógica do aplicativo JavaScript baseado diretamente em coleções de saudação usando procedimentos armazenados e gatilhos. lógica de JavaScript Olá registrada em um nível de coleção pode emitir, em seguida, operações de banco de dados em operações de saudação em documentos Olá de Olá considerando a coleção. Essas operações são encapsuladas em transações ACID ambiente.
 
-O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaScript para realizar consultas de dentro de procedimentos e gatilhos armazenados.
+Olá exemplo a seguir mostra como as consultas de toouse Olá queryDocuments em toomake Olá API JavaScript do servidor interno procedimentos armazenados e gatilhos.
 
     function businessLogic(name, author) {
         var context = getContext();
@@ -2237,10 +2237,10 @@ O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaS
                         if (err) throw new Error(err.message);
     context.getResponse().setBody(matchingDocuments.length);
 
-                        // Replace the author name for all documents that satisfied the query.
+                        // Replace hello author name for all documents that satisfied hello query.
                         for (var i = 0; i < matchingDocuments.length; i++) {
                             matchingDocuments[i].author = "George R. R. Martin";
-                            // we don't need to execute a callback because they are in parallel
+                            // we don't need tooexecute a callback because they are in parallel
                             collectionManager.replaceDocument(matchingDocuments[i]._self,
                                 matchingDocuments[i]);
                         }
@@ -2249,7 +2249,7 @@ O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaS
     }
 
 ## <a id="References"></a>Referências
-1. [Introdução ao Azure Cosmos DB][introduction]
+1. [Introdução tooAzure Cosmos DB][introduction]
 2. [Especificação do SQL no Azure Cosmos DB](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3. [Amostras do .NET no Azure Cosmos DB](https://github.com/Azure/azure-documentdb-net)
 4. [Níveis de consistência do Azure Cosmos DB][consistency-levels]
@@ -2261,7 +2261,7 @@ O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaS
 10. Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11. Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
-13. G. Graefe. Estrutura em cascata para otimização da consulta. IEEE Data Eng. Bull., 18(3): 1995.
+13. G. Graefe. estrutura de cascatas de saudação para otimização da consulta. IEEE Data Eng. Bull., 18(3): 1995.
 
 [1]: ./media/documentdb-sql-query/sql-query1.png
 [introduction]: introduction.md

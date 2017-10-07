@@ -1,6 +1,6 @@
 ---
-title: Fazer logon no Azure a partir da CLI | Microsoft Docs
-description: "Conectar-se à assinatura do Azure a partir da CLI (Interface de Linha de Comando) do Azure para Mac, Linux e Windows"
+title: "aaaLog em tooAzure de saudação CLI | Microsoft Docs"
+description: Conecte-se tooyour assinatura do Azure do hello Azure Interface de linha de comando (CLI do Azure) para Windows, Linux e Mac
 editor: tysonn
 manager: timlt
 documentationcenter: 
@@ -16,38 +16,38 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: rasquill
 "\"/": 
-ms.openlocfilehash: 31efab60690b54faf7992251fcd01e307c4464f2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 42682c00c8dea78b2c624e640379716d1d4d7a2d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="log-in-to-azure-from-the-azure-cli"></a>Faça logon no Azure no Azure CLI
-O Azure CLI é um conjunto de comandos de plataforma cruzada de software livre para trabalhar com recursos do Azure. Este artigo descreve as diferentes maneiras de fornecer as credenciais de conta do Azure para conectar o Azure CLI à sua assinatura do Azure:
+# <a name="log-in-tooazure-from-hello-azure-cli"></a>Faça logon no tooAzure de saudação CLI do Azure
+Olá CLI do Azure é um conjunto de comandos de software livre, multiplataforma para trabalhar com recursos do Azure. Este artigo descreve Olá diferentes maneiras tooprovide tooyour da CLI do Azure seu Olá conta do Azure credenciais tooconnect assinatura do Azure:
 
-* Execute o comando CLI `azure login` para autenticar por meio do Azure Active Directory. Este método fornece acesso a comandos CLI em ambos os [modos de comando](#cli-command-modes). Quando você executa o comando sem opções adicionais, o `azure login` solicitará que você continue efetuando logon interativamente por meio de um portal da Web. Para mais opções de comando do `azure login`, consulte os cenários neste artigo ou digite `azure login --help`.
-* Se você precisar usar comandos CLI do modo do gerenciamento de serviços do Azure (não recomendado para a maioria das implantações novas), é possível baixar e instalar um arquivo de configurações de publicação no seu computador.
+* Executar Olá `azure login` CLI tooauthenticate de comando por meio do Active Directory do Azure. Isso proporciona método acessar comandos tooCLI no [comando modos](#cli-command-modes). Quando você executa o comando Olá sem opções adicionais, `azure login` solicitará que você toocontinue logon interativamente por meio de um portal da web. Para mais `azure login` opções de comando, consulte os cenários de saudação neste artigo ou tipo `azure login --help`.
+* Se você precisar somente comandos da CLI toouse gerenciamento de serviços do Azure modo (não recomendados para implantações mais novas), você pode baixar e instalar um arquivo de configurações de publicação no seu computador.
 
-Se você ainda não tiver instalado a CLI, consulte [Instalar a CLI do Azure](cli-install-nodejs.md). Se você não tiver uma assinatura do Azure, poderá criar uma [conta gratuita](http://azure.microsoft.com/free/) em apenas alguns minutos.
+Se você ainda não instalou Olá CLI, consulte [instalação Olá CLI do Azure](cli-install-nodejs.md). Se você não tiver uma assinatura do Azure, poderá criar uma [conta gratuita](http://azure.microsoft.com/free/) em apenas alguns minutos.
 
 Para obter informações sobre identidades de outra conta e sobre as assinaturas do Azure, confira [Como as assinaturas do Azure como são associadas ao Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="scenario-1-azure-login-with-interactive-login"></a>Cenário 1: logon do azure com logon interativo
-Com certas contas, o CLI exige que você execute `azure login` e, em seguida, continue o processo de logon com um navegador da web por meio de um portal da web, um processo chamado *logon interativo*. Uma razão comum é quando você tem uma conta corporativa ou escolar (também chamada de uma *conta organizacional*) que é configurada para exigir autenticação multifator. Use também o logon interativo com sua conta da Microsoft quando desejar usar comandos do modo de Gerenciador de recursos.
+Certas contas, Olá CLI requer toorun `azure login` e, em seguida, continuar o processo de logon de saudação com um navegador da web por meio de um portal da web, um processo chamado *logon interativo*. Uma razão comum é quando você tem uma conta corporativa ou escolar (também chamado de um *conta organizacional*) que é configurada toorequire a autenticação multifator. Use também o logon interativo com sua conta da Microsoft, quando você deseja toouse comandos de modo de Gerenciador de recursos.
 
-O logon interativo é fácil: digite `azure login` – sem opções – conforme mostrado no exemplo a seguir:
+Logon interativo é fácil: tipo `azure login` – sem opções – conforme mostrado no exemplo a seguir de saudação:
 
 ```
 azure login
 ```                                                                                             
 
-A saída deve ter uma aparência semelhante ao seguinte:
+saída de Hello será algo parecido com hello seguinte:
 
 ```         
 info:    Executing command login
-info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code XXXXXXXXX to authenticate.
+info:    toosign in, use a web browser tooopen hello page http://aka.ms/devicelogin. Enter hello code XXXXXXXXX tooauthenticate.
 ```
-Copie o código oferecido na saída do comando e abra em um navegador a página http://aka.ms/devicelogin ou outra página se especificado. (Você pode abrir um navegador no mesmo computador ou em outro computador ou dispositivo). Digite o código; em seguida, você será solicitado a inserir o nome de usuário e a senha para a identidade que deseja usar. Quando o processo for concluído, o shell de comando concluirá o logon. Ele poderia ser semelhante ao seguinte:
+Copiar código Olá oferecido tooyou na saída do comando hello e abrir um navegador toohttp://aka.ms/devicelogin ou outra página, se especificado. (Você pode abrir um navegador em Olá mesmo computador, ou em outro computador ou dispositivo.) Insira o código de saudação e, em seguida, você tooenter solicitadas Olá username e password para identidade Olá deseja toouse. Quando esse processo for concluído, o shell de comando Olá conclui o logon de saudação. Ele poderia ser semelhante ao seguinte:
 
     info:    Added subscription Visual Studio Ultimate with MSDN
     info:    Added subscription Azure Free Trial
@@ -56,75 +56,75 @@ Copie o código oferecido na saída do comando e abra em um navegador a página 
     info:    login command OK
 
 > [!NOTE]
-> Com o logon interativo, a autenticação e a autorização são executadas com o Azure Active Directory. Se você usar uma identidade de conta da Microsoft, o processo de logon acessará seu domínio padrão do Azure Active Directory. (Se você se inscreveu para obter uma conta gratuita do Azure, o Azure Active Directory criou um domínio padrão para a sua conta).
+> Com o logon interativo, a autenticação e a autorização são executadas com o Azure Active Directory. Se você usar uma identidade de conta da Microsoft, o processo de logon Olá acessa seu domínio do Active Directory do Azure padrão. (Se você se inscreveu para obter uma conta gratuita do Azure, o Azure Active Directory criou um domínio padrão para a sua conta).
 >
 >
 
 ## <a name="scenario-2-azure-login-with-a-username-and-password"></a>Cenário 2: logon do Azure com um nome de usuário e senha
-Use o comando `azure login` com o parâmetro (`-u`) de nome de usuário para autenticação quando você deseja usar uma conta corporativa ou de estudante que não exija autenticação multifator. Você é solicitado na linha de comando para a senha (ou, opcionalmente, pode passar a senha como um parâmetro adicional do comando `azure login`). O exemplo a seguir passa o nome de usuário de uma conta organizacional:
+Saudação de uso `azure login` com nome de usuário da saudação (`-u`) tooauthenticate parâmetro quando você quiser toouse um trabalho ou escola de conta que não exija a autenticação multifator. Você será solicitado na linha de comando Olá senha hello (ou, opcionalmente, você pode passar senha hello como um parâmetro adicional do hello `azure login` comando). Olá, exemplo a seguir passa Olá nome de usuário de uma conta organizacional:
 
     azure login -u myUserName@contoso.onmicrosoft.com
 
-Você será solicitado a inserir sua senha:
+Você solicitado tooenter sua senha:
 
     info:    Executing command login
     Password: *********
 
-O processo de logon é concluído.
+conclui o processo de logon Hello.
 
     info:    Added subscription Visual Studio Ultimate with MSDN
     +
     info:    login command OK
 
-Se essa for a primeira vez fazendo logon com essas credenciais, você será solicitado a verificar se deseja armazenar um token de autenticação no cache. Esse aviso também ocorrerá se você tiver usado anteriormente o comando `azure logout` (descrito mais abaixo no artigo). Para ignorar esse aviso em cenários de automação, execute `azure login` com o parâmetro `-q`.
+Se esse for o primeiro log de tempo com essas credenciais, você deverá tooverify que você deseja toocache um token de autenticação. Esse aviso também ocorre se você tiver usado a saudação `azure logout` comando (descrito posteriormente no artigo Olá). toobypass esse prompt para cenários de automação, execute `azure login` com hello `-q` parâmetro.
 
 ## <a name="scenario-3-azure-login-with-a-service-principal"></a>Cenário 3: logon do Azure com uma entidade de serviço
-Se você criar uma entidade de serviço para um aplicativo do Active Directory e a entidade de serviço tiver permissões em sua assinatura, é possível usar o comando `azure login` para autenticar a entidade de serviço. Dependendo do cenário, você pode fornecer as credenciais da entidade de serviço como parâmetros explícitos do comando `azure login`. Por exemplo, o comando a seguir passa o nome da entidade do serviço e a ID de locatário do Active Directory:
+Se você criar uma entidade de serviço para um aplicativo do Active Directory e entidade de serviço Olá tem permissões em sua assinatura, você pode usar o hello `azure login` entidade de serviço do comando tooauthenticate hello. Dependendo do cenário, você pode fornecer credenciais de saudação da entidade de serviço hello como parâmetros explícitos de saudação `azure login` comando. Por exemplo, hello comando a seguir passa nome principal do serviço hello e ID de locatário do Active Directory:
 
     azure login -u https://www.contoso.org/example --service-principal --tenant myTenantID
 
-Você será solicitado a inserir sua senha. Você também pode fornecer as credenciais por meio de um código de script ou aplicativo CLI ou usar um certificado para autenticar a entidade de serviço de maneira não interativa para cenários de automação. Para obter detalhes e exemplos, confira [Autenticando uma entidade de serviço com o Azure Resource Manager](resource-group-authenticate-service-principal-cli.md).
+Você forem solicitada tooprovide Olá senha. Você também pode fornecer credenciais de saudação por meio de um código de script ou aplicativo CLI ou usar uma entidade de serviço do certificado tooauthenticate Olá não interativamente para cenários de automação. Para obter detalhes e exemplos, confira [Autenticando uma entidade de serviço com o Azure Resource Manager](resource-group-authenticate-service-principal-cli.md).
 
 ## <a name="scenario-4-use-a-publish-settings-file"></a>Cenário 4: usar um arquivo de configurações de publicação
-Se você precisa apenas usar os comandos de CLI do modo Gerenciamento de Serviços do Azure (por exemplo, para implantar VMs do Azure no modelo de implantação clássico), pode se conectar usando um arquivo de configurações de publicação. Esse método instala um certificado no computador local que permite executar tarefas de gerenciamento durante o tempo em que a assinatura e o certificado forem válidos.
+Se você precisar somente comandos da CLI de modo toouse Olá gerenciamento de serviços do Azure (por exemplo, toodeploy VMs do Azure no modelo de implantação clássico Olá), você pode se conectar usando um arquivo de configurações de publicação. Este método instala um certificado no computador local que permite que você tooperform tarefas de gerenciamento para como assinatura hello e certificado Olá são válidos.
 
-* **Para baixar o arquivo de configurações de publicação** para sua conta, certifique-se de que o CLI esteja no modo de Gerenciamento de Serviço digitando `azure config mode asm`. Em seguida, execute o seguinte comando:
+* **Olá toodownload Publicar arquivo de configurações** para sua conta, certifique-se de que Olá CLI está no modo de gerenciamento de serviços, digitando `azure config mode asm`. Em seguida, execute Olá comando a seguir:
 
         azure account download
 
-Isso abre o navegador padrão e solicita que você entre no [portal clássico do Azure](https://manage.windowsazure.com). Depois de entrar, um arquivo `.publishsettings` é baixado. Anote onde esse arquivo está salvo.
+Isso abre o navegador padrão e solicita que você toosign em toohello [portal clássico do Azure](https://manage.windowsazure.com). Depois de entrar, um arquivo `.publishsettings` é baixado. Anote onde esse arquivo está salvo.
 
 > [!NOTE]
-> Se a conta estiver associada a vários locatários do Active Directory do Azure, você deverá selecionar para qual Active Directory você deseja baixar um arquivo de configurações de publicação.
+> Se sua conta estiver associada a vários locatários do Active Directory do Azure, você pode ser solicitado tooselect que o Active Directory que você deseja toodownload as configurações de publicação do arquivo para.
 >
 >
 
-Depois de selecionado por meio da página de download ou acessando o Portal Clássico do Azure, o Active Directory escolhido se torna o padrão usado pelo portal clássico e pela página de download. Depois que um padrão tiver sido estabelecido, você verá o texto `**clique aqui para retornar à página de seleção**` na parte superior da página de download. Use o link fornecido para retornar à página de seleção.
+Uma vez selecionado usando a página de download do hello, ou visitando Olá portal clássico do Azure, hello selecionado do Active Directory torna-se saudação padrão usado pelo portal clássico do hello e página de download. Após o estabelecimento de um padrão, consulte o texto de saudação '**clique aqui a página de seleção de toohello tooreturn**' na parte superior de saudação da página de download de saudação. Use Olá fornecido a página de seleção do link tooreturn toohello.
 
-* **Para importar o arquivo de configurações de publicação**, execute o seguinte comando:
+* **Olá tooimport Publicar arquivo de configurações**, execute hello seguinte comando:
 
-        azure account import <path to your .publishsettings file>
+        azure account import <path tooyour .publishsettings file>
 
 > [!IMPORTANT]
-> Depois de importar as suas configurações de publicação, exclua o arquivo `.publishsettings`. Ele não é mais exigido pelas CLI do Azure e apresenta um risco de segurança já que pode ser usado para obter acesso à sua assinatura.
+> Depois de importar suas configurações de publicação, você deve excluir Olá `.publishsettings` arquivo. Ele não é exigido pela Olá CLI do Azure e apresenta um risco de segurança que pode ser usado toogain acesso tooyour assinatura.
 >
 >
 
 ## <a name="cli-command-modes"></a>Modos de comando da CLI
-A CLI do Azure fornece dois modos de comando para trabalhar com recursos do Azure, com vários conjuntos de comandos:
+Olá CLI do Azure oferece dois modos de comando para trabalhar com recursos do Azure, com vários conjuntos de comandos:
 
-* **Modo do Gerenciador de Recursos** – para trabalhar com recursos do Azure no modelo de implantação do Gerenciador de Recursos. Para definir esse modo, execute `azure config mode arm`.
-* **Modo Gerenciamento de Serviços** – para trabalhar com recursos do Azure no modelo de implantação clássico. Para definir esse modo, execute `azure config mode asm`.
+* **Modo do Gerenciador de recursos** - para trabalhar com recursos do Azure no modelo de implantação do Gerenciador de recursos de saudação. tooset nesse modo, execute `azure config mode arm`.
+* **Modo de gerenciamento de serviço** - para trabalhar com recursos do Azure no modelo de implantação clássico hello. tooset nesse modo, execute `azure config mode asm`.
 
-Quando instalado pela primeira vez, a versão atual do CLI está no modo do Gerenciador de recursos.
+Quando instalado pela primeira vez, Olá versão atual do hello que CLI está no modo do Gerenciador de recursos.
 
 > [!NOTE]
-> O modo do Gerenciador de Recursos e o modo do Gerenciamento de Serviços são mutuamente excludentes. Ou seja, recursos criados em um modo não podem ser gerenciados no outro modo.
+> modo do Gerenciador de recursos de saudação e modo de gerenciamento de serviço são mutuamente exclusivos. Ou seja, os recursos criados no modo não podem ser gerenciados de saudação outro modo.
 >
 >
 
 ## <a name="multiple-subscriptions"></a>Várias assinaturas
-Se você tiver várias assinaturas do Azure, a conexão ao Azure dará acesso a todas as assinaturas associadas às suas credenciais. Uma assinatura é selecionada como padrão e usada pela CLI do Azure durante a realização das operações. Você pode exibir as assinaturas, incluindo a assinatura padrão atual, usando o comando `azure account list`. Esse comando retorna informações semelhantes às seguintes:
+Se você tiver várias assinaturas do Azure, conectar-se tooAzure concede acesso tooall assinaturas associadas com suas credenciais. Uma assinatura é selecionada como padrão hello e usada por Olá CLI do Azure ao executar operações. Você pode exibir assinaturas hello, incluindo assinatura padrão hello, usando Olá `azure account list` comando. Esse comando retorna a seguir toohello semelhante informações:
 
     info:    Executing command account list
     data:    Name              Id                                    Current
@@ -132,36 +132,36 @@ Se você tiver várias assinaturas do Azure, a conexão ao Azure dará acesso a 
     data:    Azure-sub-1       ####################################  true
     data:    Azure-sub-2       ####################################  false
 
-Na lista anterior, a coluna **Atual** indica a assinatura padrão atual como Azure-sub-1. Para alterar a assinatura padrão, use o comando `azure account set` e especifique a assinatura que você deseja que seja a padrão. Por exemplo:
+Em Olá anterior da lista, Olá **atual** coluna indica Olá atual padrão assinatura do Azure-sub-1. assinatura padrão do hello toochange, use Olá `azure account set` de comando e especifique que você deseja que o padrão de saudação toobe de assinatura de saudação. Por exemplo:
 
     azure account set Azure-sub-2
 
-Isso muda a assinatura padrão para o Azure sub-2.
+Isso altera o saudação padrão assinatura tooAzure-sub-2.
 
 > [!NOTE]
-> A alteração da assinatura padrão entra em vigor imediatamente e é uma alteração global. Novos comandos do Azure CLI, executados na mesma instância de linha de comando ou em outra instância, usarão a nova assinatura padrão.
+> Alterando saudação padrão assinatura entra em vigor imediatamente e é uma alteração global; novos comandos de CLI do Azure, se você executá-los de Olá mesma instância de linha de comando ou uma instância diferente, use Olá nova assinatura de padrão.
 >
 >
 
-Se quiser usar uma assinatura não padrão com a CLI do Azure, mas não quiser alterar o padrão atual, você poderá usar a opção `--subscription` do comando e fornecer o nome da assinatura que deseja usar na operação.
+Se você quiser toouse uma assinatura diferente do padrão com hello CLI do Azure, mas não quiser padrão atual do toochange hello, você pode usar o hello `--subscription` opção comando hello e forneça o nome de saudação de assinatura Olá desejar toouse para operação de saudação.
 
-Uma vez conectado à sua assinatura do Azure, você pode começar a usar os comandos da CLI do Azure para trabalhar com recursos do Azure.
+Quando você estiver conectado tooyour assinatura do Azure, começar a usar o hello toowork de comandos de CLI do Azure com recursos do Azure.
 
 ## <a name="storage-of-cli-settings"></a>Armazenamento de configurações da CLI
-Quer você faça logon com o comando `azure login` ou importe as configurações de publicação, os seus logs e perfil CLI serão armazenados em um diretório `.azure` localizado no seu diretório `user`. O diretório `user` está protegido pelo seu sistema operacional. No entanto, é recomendável que você execute etapas adicionais para criptografar seu diretório `user` . Você pode fazer isso das seguintes maneiras:
+Se você fazer logon com hello `azure login` comando ou importar configurações de publicação, o perfil CLI e os logs são armazenados em um `.azure` diretório localizado no seu `user` directory. O diretório `user` está protegido pelo seu sistema operacional. No entanto, recomendamos que você execute etapas adicionais tooencrypt seu `user` directory. Você pode fazer isso no hello maneiras a seguir:
 
-* No Windows, modifique as propriedades do diretório ou use o BitLocker.
-* No Mac, ative o FileVault para o diretório.
-* No Ubuntu, use o recurso de diretório inicial criptografado. Outras distribuições do Linux oferecem recursos semelhantes.
+* No Windows, modificar propriedades de diretório hello ou usar o BitLocker.
+* No Mac, ative o FileVault para diretório de saudação.
+* No Ubuntu, use o recurso de diretório de Home criptografado de saudação. Outras distribuições do Linux oferecem recursos semelhantes.
 
 ## <a name="logging-out"></a>Fazendo logout
-Para fazer logoff, use o seguinte comando:
+toolog out Olá use comandos a seguir:
 
     azure logout -u <username>
 
-Se as assinaturas associadas à conta forem autenticadas apenas com o Active Directory, o logoff excluirá as informações da assinatura do perfil local. No entanto, se um arquivo de configurações de publicação também tiver sido importado para as assinaturas, o logoff excluirá apenas as informações relacionadas ao Active Directory do perfil local.
+Se assinaturas Olá associado conta Olá somente são autenticados com o Active Directory, o logout exclui informações de assinatura de saudação do perfil local hello. No entanto, se um arquivo de configurações de publicação também foi importado para assinaturas de hello, logoff somente informações do perfil local Olá relacionadas à exclusões do Active Directory.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para usar os comandos da CLI do Azure, confira [Comandos da CLI do Azure no modo do Gerenciador de Recursos](virtual-machines/azure-cli-arm-commands.md) e [comandos da CLI do Azure no modo Gerenciamento de Serviços do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* Para saber mais sobre a CLI do Azure, baixar o código-fonte, relatar problemas ou colaborar com o projeto, visite o [Repositório GitHub para a CLI do Azure](https://github.com/azure/azure-xplat-cli).
-* Se tiver problemas ao usar a CLI do Azure ou o Azure, visite os [Fóruns do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
+* toouse comandos de CLI do Azure, consulte [comandos de CLI do Azure no Gerenciador de recursos de modo](virtual-machines/azure-cli-arm-commands.md) e [comandos de CLI do Azure no modo de gerenciamento de serviço](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+* toolearn mais sobre Olá CLI do Azure, baixar o código-fonte, relatar problemas, ou contribuir toohello projeto, visite Olá [repositório GitHub para Olá CLI do Azure](https://github.com/azure/azure-xplat-cli).
+* Se você tiver problemas ao usar o hello CLI do Azure ou o Azure, visite Olá [fóruns do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).

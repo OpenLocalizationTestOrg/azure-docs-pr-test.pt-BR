@@ -1,6 +1,6 @@
 ---
-title: Escalar ou reduzir horizontalmente um cluster do Service Fabric | Microsoft Docs
-description: "Escale ou reduza horizontalmente um cluster do Service Fabric para que ele corresponda à demanda, definindo regras de dimensionamento automático para cada tipo de nó/conjunto de dimensionamento de máquinas virtuais. Adicionar ou remover nós de um cluster do Service Fabric"
+title: "aaaScale uma malha do serviço de cluster ou | Microsoft Docs"
+description: "Dimensione um cluster do Service Fabric in ou out toomatch demanda definindo regras de dimensionamento automático para cada conjunto de escala de máquina do nó Virtual/tipo. Adicionar ou remover nós tooa malha do serviço cluster"
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.openlocfilehash: 32d8fca81c20e77db4ed3aae05d017ccc2ce1be3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 37cfeaf80edc016cf6de017d1c2dc6fbcb8acc2a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Escalar ou reduzir horizontalmente um cluster do Service Fabric usando regras de autoescala
-Os conjuntos de escala de Máquina Virtual são um recurso de Computação do Azure que você pode usar para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Service Fabric está configurado como um conjunto de dimensionamento de máquinas virtuais separado. Cada tipo de nó pode ser escalado ou reduzido horizontalmente de forma independente, ter conjuntos diferentes de portas abertas e métricas de capacidade diferentes. Leia mais sobre isso no documento [Tipos de nó do Service Fabric](service-fabric-cluster-nodetypes.md) . Uma vez que os tipos de nó do Service Fabric no cluster são compostos por conjuntos de dimensionamento de máquinas virtuais no back-end, você precisa configurar regras de dimensionamento automático para cada tipo de nó/conjunto de dimensionamento de máquinas virtuais.
+Conjuntos de escala de máquinas virtuais são um recurso de computação do Azure que você pode usar toodeploy e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Service Fabric está configurado como um conjunto de dimensionamento de máquinas virtuais separado. Cada tipo de nó pode ser escalado ou reduzido horizontalmente de forma independente, ter conjuntos diferentes de portas abertas e métricas de capacidade diferentes. Leia mais sobre isso em Olá [nodetypes Service Fabric](service-fabric-cluster-nodetypes.md) documento. Como tipos de nós do Service Fabric Olá no cluster são feitos de conjuntos de escala de máquinas virtuais em Olá back-end, você precisa tooset as regras de dimensionamento automático para cada conjunto de escala de máquina do nó Virtual/tipo.
 
 > [!NOTE]
-> Sua assinatura precisa ter uma quantidade suficiente de núcleos para adicionar as novas VMs que compõe esse cluster. Atualmente, não há nenhuma validação de modelo. Logo, você receberá uma falha de tempo de implantação se qualquer um dos limites de cota for atingido.
+> Sua assinatura deve ter suficiente tooadd núcleos Olá novas VMs que compõem esse cluster. Não há nenhuma validação de modelo no momento, para que você obtenha uma falha de tempo de implantação, se qualquer um dos limites de cota de saudação são atingidos.
 > 
 > 
 
-## <a name="choose-the-node-typevirtual-machine-scale-set-to-scale"></a>Escolher o tipo de nó/conjunto de dimensionamento de máquinas virtuais a ser dimensionado
-Atualmente, não é possível especificar as regras de dimensionamento automático para os conjuntos de dimensionamento de máquinas virtuais usando o portal, por esse motivo, vamos usar o Azure PowerShell (1.0+) para listar os tipos de nó e, em seguida, adicionar as regras de dimensionamento automático a eles.
+## <a name="choose-hello-node-typevirtual-machine-scale-set-tooscale"></a>Escolha Olá nó tipo/Virtual escala de máquina conjunto tooscale
+No momento, você não toospecify capaz de regras de dimensionamento automático Olá para conjuntos de escala de máquinas virtuais usando o portal de hello, então vamos usar tipos de nós do Azure PowerShell (1.0 +) toolist hello e, em seguida, adicione toothem de regras de dimensionamento automático.
 
-Para obter a lista de conjuntos de dimensionamento de máquinas virtuais que compõem o cluster, execute os seguintes cmdlets:
+lista de saudação tooget da máquina Virtual conjunto de escala que compõem o cluster, execute Olá cmdlets a seguir:
 
 ```powershell
 Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/VirtualMachineScaleSets
@@ -39,78 +39,78 @@ Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/
 Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine scale set name>
 ```
 
-## <a name="set-auto-scale-rules-for-the-node-typevirtual-machine-scale-set"></a>Definir regras de dimensionamento automático para o tipo de nó/conjunto de dimensionamento de máquinas virtuais
-Se o cluster tiver vários tipos de nós, repita este procedimento para cada tipo de nó/conjuntos de dimensionamento de máquinas virtuais que você quiser escalar ou reduzir horizontalmente. Leve em conta o número de nós que você precisa ter antes de configurar o dimensionamento automático. O número mínimo de nós necessários para o tipo de nó primário é controlado pelo nível de confiabilidade escolhido. Leia mais sobre os [níveis de confiabilidade](service-fabric-cluster-capacity.md).
+## <a name="set-auto-scale-rules-for-hello-node-typevirtual-machine-scale-set"></a>Definir regras de dimensionamento automático para o conjunto de escala de máquina do hello nó tipo/Virtual
+Se o cluster tiver vários tipos de nós, repita que isso para cada tipos de nó/escala de máquina Virtual define que você deseja tooscale (entrada ou saída). Considera número Olá da conta de nós que você deve ter antes de configurar o dimensionamento automático. número mínimo de saudação de nós que você deve ter para o tipo de nó primário Olá é orientado por nível de confiabilidade Olá escolhido. Leia mais sobre os [níveis de confiabilidade](service-fabric-cluster-capacity.md).
 
 > [!NOTE]
-> A redução vertical do tipo de nó primário para um número inferior ao mínimo causará a instabilidade ou indisponibilidade do cluster. Isso poderá resultar em perda de dados de seus aplicativos e dos serviços do sistema.
+> Redução tooless de tipo de nó primário Olá que o número mínimo de saudação fazer cluster Olá instável ou colocá-lo para baixo. Isso pode resultar em perda de dados para seus aplicativos e serviços de sistema de saudação.
 > 
 > 
 
-Atualmente, o recurso de escala automática não é controlado pelas cargas que os aplicativos podem relatar ao Service Fabric. Portanto, nesse momento, o dimensionamento automático obtido é meramente controlado pelos contadores de desempenho que são emitidos por cada uma das instâncias do conjunto de dimensionamento de máquinas virtuais.  
+No momento recurso de dimensionamento automático Olá não é orientado por cargas de saudação que seus aplicativos podem relatar tooService malha. Portanto em Olá esse tempo AutoEscala que você obter puramente é orientada por contadores de desempenho de saudação que são emitidas por cada uma das instâncias de conjunto de escala de máquina Virtual de saudação.  
 
-Siga estas instruções [para configurar o dimensionamento automático para cada conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
+Siga estas instruções [tooset o dimensionamento automático para cada conjunto de escala de máquina Virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 > [!NOTE]
-> Em um cenário de redução vertical, a menos que o tipo de nó tenha um nível de durabilidade Gold ou Silver, você precisará chamar o cmdlet [Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/azure/mt125993.aspx) pelo nome de nó apropriado.
+> Em uma escala para baixo do cenário, a menos que o tipo de nó tem um nível de durabilidade de ouro ou prata precisar Olá toocall [cmdlet Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/azure/mt125993.aspx) com o nome de nó apropriado hello.
 > 
 > 
 
-## <a name="manually-add-vms-to-a-node-typevirtual-machine-scale-set"></a>Adicionar as VMs manualmente a um tipo de nó/conjunto de dimensionamento de máquinas virtuais
-Siga os modelos/instruções da [galeria de modelos de Início Rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) para alterar o número de VMs em cada Nodetype. 
+## <a name="manually-add-vms-tooa-node-typevirtual-machine-scale-set"></a>Adicionar manualmente as VMs tooa nó tipo/Virtual conjunto de escalas da máquina
+Siga Olá/instruções de exemplo no hello [Galeria de modelos de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) toochange número de saudação de VMs em cada Nodetype. 
 
 > [!NOTE]
-> O processo de adicionar VMs leva tempo. Portanto, não espere que as adições sejam instantâneas. Sendo assim, planeje adicionar capacidade pontual para permitir mais 10 minutos antes que a capacidade da VM esteja disponível para que as réplicas/instâncias de serviço sejam alocadas.
+> A adição de VMs leva tempo, portanto, não haverá Olá adições toobe instantânea. Para planejar a capacidade de tooadd bem em tempo, tooallow para mais de 10 minutos antes de saudação de capacidade de VM está disponível para réplicas Olá / serviço tooget instâncias colocado.
 > 
 > 
 
-## <a name="manually-remove-vms-from-the-primary-node-typevirtual-machine-scale-set"></a>Remover as VMs manualmente do tipo de nó primário/conjunto de dimensionamento de máquinas virtuais
+## <a name="manually-remove-vms-from-hello-primary-node-typevirtual-machine-scale-set"></a>Remova manualmente as VMs do conjunto de escala de máquina do hello nó primário tipo/Virtual
 > [!NOTE]
-> Os serviços do sistema Service Fabric são executados no tipo de nó Primário do cluster. Deste modo, nunca desligue ou reduza verticalmente o número de instâncias neste tipo de nó para uma quantidade menor do que a camada de confiabilidade garante. Confira [os detalhes sobre os níveis de confiabilidade aqui](service-fabric-cluster-capacity.md). 
+> Serviços de sistema de malha de serviço Olá são executados no tipo de nó primário Olá no cluster. Menor que o nível de confiabilidade Olá garante para nunca deve desligar ou reduzir o número de saudação de instâncias em que tipos de nó. Consulte também[Olá detalhes em níveis de confiabilidade aqui](service-fabric-cluster-capacity.md). 
 > 
 > 
 
-Você precisa executar as etapas a seguir em uma instância VM por vez. Isso permite que os serviços do sistema (e seus serviços com estado) sejam desligados normalmente na instância VM que você estiver removendo e que novas réplicas sejam criadas em outros nós.
+Você precisa tooexecute uma instância VM as etapas a seguir Olá por vez. Isso permite que serviços do sistema hello (e seus serviços com monitoração de estado) toobe desligar normalmente na instância VM de saudação você está removendo e novas réplicas criadas em outros nós.
 
-1. Execute [Disable-ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) com a intenção 'RemoveNode' para desabilitar o nó que você removerá (a instância mais alta deste tipo de nó).
-2. Execute [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) para verificar se o nó realmente foi desabilitado. Caso contrário, aguarde até que o nó seja desabilitado. Não tenha pressa nesta etapa.
-3. Siga os modelos/instruções da [galeria de modelos de Início Rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) para alterar a quantidade de VMs para uma no Nodetype. A instância removida é a instância VM mais alta. 
-4. Repita as etapas 1 a 3 conforme necessário, mas nunca reduza verticalmente o número de instâncias no tipo de nó primário para uma quantidade menor do que a camada de confiabilidade garante. Confira [os detalhes sobre os níveis de confiabilidade aqui](service-fabric-cluster-capacity.md). 
+1. Executar [ServiceFabricNode desabilitar](https://msdn.microsoft.com/library/mt125852.aspx) com nó de saudação do propósito 'RemoveNode' toodisable for tooremove (instância maior Olá nesse tipo de nó).
+2. Executar [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) toomake-se de que esse nó Olá realmente tem transição toodisabled. Caso contrário, aguarde até que o nó hello está desabilitado. Não tenha pressa nesta etapa.
+3. Siga Olá/instruções de exemplo no hello [Galeria de modelos de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) toochange Olá diversas VMs em uma unidade em que Nodetype. Olá instância removida é hello mais alto VM. 
+4. Repita as etapas 1 a 3, conforme necessário, mas nunca reduzir o número de saudação de instâncias no hello tipos de nó principal menor que garante que nível de confiabilidade hello. Consulte também[Olá detalhes em níveis de confiabilidade aqui](service-fabric-cluster-capacity.md). 
 
-## <a name="manually-remove-vms-from-the-non-primary-node-typevirtual-machine-scale-set"></a>Remover as VMs manualmente do tipo de nó não primário/conjunto de dimensionamento de máquinas virtuais
+## <a name="manually-remove-vms-from-hello-non-primary-node-typevirtual-machine-scale-set"></a>Remova manualmente VMs a saudação não primário nó tipo/Virtual conjunto de escalas da máquina
 > [!NOTE]
-> Para um serviço com estado, você precisa de um determinado número de nós que devem estar sempre ativos para manter a disponibilidade e preservar o estado do serviço. No mínimo, é necessário que o número de nós seja igual à contagem de conjunto de réplicas de destino do serviço/partição. 
+> Para um serviço com monitoração de estado, é necessário um determinado número de nós toobe sempre backup toomaintain disponibilidade e preservar o estado do serviço. No hello mínimo, você precisa de número de saudação de nós toohello igual destino réplica Definir contagem de partição de saudação/serviço. 
 > 
 > 
 
-Você precisa executar as seguintes etapas em uma instância VM por vez. Isso permite que os serviços do sistema (e seus serviços com estado) sejam desligados normalmente na instância VM que você estiver removendo e que novas réplicas sejam criadas em outro lugar.
+Você precisa Olá Olá uma instância VM etapas a seguir em vez de executar. Isso permite que serviços do sistema hello (e seus serviços com monitoração de estado) toobe desligar normalmente em Olá instância VM que você está removendo e novas réplicas criada onde else.
 
-1. Execute [Disable-ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) com a intenção 'RemoveNode' para desabilitar o nó que você removerá (a instância mais alta deste tipo de nó).
-2. Execute [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) para verificar se o nó realmente foi desabilitado. Caso contrário, aguarde até que o nó seja desabilitado. Não tenha pressa nesta etapa.
-3. Siga os modelos/instruções da [galeria de modelos de Início Rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) para alterar a quantidade de VMs para uma no Nodetype. Agora, isso removerá a instância VM mais alta. 
-4. Repita as etapas 1 a 3 conforme necessário, mas nunca reduza verticalmente o número de instâncias no tipo de nó primário para uma quantidade menor do que a camada de confiabilidade garante. Confira [os detalhes sobre os níveis de confiabilidade aqui](service-fabric-cluster-capacity.md).
+1. Executar [ServiceFabricNode desabilitar](https://msdn.microsoft.com/library/mt125852.aspx) com nó de saudação do propósito 'RemoveNode' toodisable for tooremove (instância maior Olá nesse tipo de nó).
+2. Executar [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) toomake-se de que esse nó Olá realmente tem transição toodisabled. Se não Aguarde até que o nó hello está desabilitado. Não tenha pressa nesta etapa.
+3. Siga Olá/instruções de exemplo no hello [Galeria de modelos de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) toochange Olá diversas VMs em uma unidade em que Nodetype. Isso removerá instância de VM hello mais alta. 
+4. Repita as etapas 1 a 3, conforme necessário, mas nunca reduzir o número de saudação de instâncias no hello tipos de nó principal menor que garante que nível de confiabilidade hello. Consulte também[Olá detalhes em níveis de confiabilidade aqui](service-fabric-cluster-capacity.md).
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Comportamentos que podem ser observados no Service Fabric Explorer
-Ao escalar verticalmente um cluster, o Service Fabric Explorer refletirá o número de nós (instâncias de conjunto de dimensionamento de máquinas virtuais) que fazem parte do cluster.  No entanto, ao reduzir verticalmente um cluster, você verá o nó removido/instância VM exibida em um estado não íntegro, a menos que você chame o cmdlet [Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/mt125993.aspx) pelo nome de nó apropriado.   
+Quando você expandir uma saudação cluster Service Fabric Explorer refletirá o número de saudação de nós (instâncias do conjunto de escala de máquina Virtual) que fazem parte do cluster de saudação.  No entanto, quando você dimensionar um cluster para baixo, você verá instância VM nó Olá removido exibida em um estado não íntegro, a menos que você chame [ServiceFabricNodeState remover cmd](https://msdn.microsoft.com/library/mt125993.aspx) com o nome de nó apropriado hello.   
 
-Veja a seguir a explicação para esse comportamento.
+Aqui está a explicação Olá para esse comportamento.
 
-Os nós listados no Service Fabric Explorer são um reflexo do que os serviços do sistema do Service Fabric (especificamente, FM) conhecem sobre o número de nós que o cluster tinha/tem. Ao reduzir verticalmente o conjunto de dimensionamento de máquinas virtuais, observe que a VM foi excluída, mas o serviço do sistema do FM ainda acreditará que o nó (mapeado para a VM que foi excluída) voltará. Portanto, o Service Fabric Explorer continua exibindo o nó (embora o estado de integridade possa ser erro ou desconhecido).
+nós listados no Gerenciador do Service Fabric Hello são um reflexo de quais serviços do sistema do Service Fabric hello (FM especificamente) conhece o número de saudação de nós Olá cluster tinha/tem. Quando você escala Olá escala de máquina Virtual definida para baixo, Olá VM foi excluído, mas o serviço do sistema FM ainda considera nó hello (que foi mapeada toohello VM que foi excluída) voltará. Portanto Service Fabric Explorer continua toodisplay nó (embora o estado de integridade Olá pode ser desconhecido ou erro).
 
-Para certificar-se de que um nó será removido quando uma VM for removida, você tem duas opções:
+Toomake ordem-se de que um nó é removido quando uma máquina virtual é removida, você tem duas opções:
 
-1) Escolha um nível de durabilidade Gold ou Silver (disponível em breve) para os tipos de nó no cluster, o que fornece a integração da infraestrutura. Isso, em seguida, removerá automaticamente os nós do estado (FM) dos serviços do sistema ao reduzir verticalmente.
-Confira [os detalhes sobre os níveis de durabilidade aqui](service-fabric-cluster-capacity.md)
+1) Escolha um nível de durabilidade de ouro ou prata (disponível em breve) para tipos de nós de saudação do cluster, que lhe Olá integração de infraestrutura. Que, em seguida, removerá automaticamente nós de saudação do nosso estado do sistema de serviços (FM) quando você reduzir.
+Consulte também[Olá detalhes sobre os níveis de durabilidade aqui](service-fabric-cluster-capacity.md)
 
-2) Depois que a instância VM tiver sido reduzida verticalmente, você precisará chamar o [cmdlet Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/mt125993.aspx).
+2) Depois que a instância VM Olá foi reduzida, você precisa Olá toocall [cmdlet Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/mt125993.aspx).
 
 > [!NOTE]
-> Os clusters de Service Fabric exigem um determinado número de nós que devem estar ativos o tempo todo para manter a disponibilidade e preservar o estado – conhecido como "manter o quórum". Desta forma, em geral, não é seguro desligar todos os computadores no cluster, a menos que você tenha executado primeiro um [backup completo do estado](service-fabric-reliable-services-backup-restore.md).
+> Clusters de malha serviço exigem um determinado número de nós toobe backup em todos os Olá tempo na ordem toomaintain disponibilidade e preservar o estado - tooas chamado "mantêm o quórum." Portanto, é normalmente unsafe tooshut todas as máquinas de saudação em cluster hello, a menos que você tiver executado pela primeira vez um [backup completo do estado do seu](service-fabric-reliable-services-backup-restore.md).
 > 
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-Leia os seguintes artigos para saber também sobre como planejar a capacidade do cluster, atualizar um cluster e particionar os serviços:
+Saudação de leitura após tooalso Saiba mais sobre planejamento de capacidade do cluster, atualizando um cluster e particionamento de serviços:
 
 * [Planejar a capacidade do cluster](service-fabric-cluster-capacity.md)
 * [Atualizações do cluster](service-fabric-cluster-upgrade.md)

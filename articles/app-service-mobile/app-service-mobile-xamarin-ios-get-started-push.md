@@ -1,6 +1,6 @@
 ---
-title: "Adicionar notificações por push a seu aplicativo Xamarin iOS com o Serviço de Aplicativo do Azure"
-description: "Aprenda a usar o Serviço de Aplicativo do Azure para enviar notificações por push para o aplicativo Xamarin.iOS"
+title: "aaaAdd push notificações tooyour xamarin aplicativo com o serviço de aplicativo do Azure"
+description: "Saiba como aplicativo de xamarin tooyour notificações por push de toouse toosend de serviço de aplicativo do Azure"
 services: app-service\mobile
 documentationcenter: xamarin
 author: ggailey777
@@ -14,38 +14,38 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: glenga
-ms.openlocfilehash: bf922e49c4c92d0065817a5dd6c7d10a04737304
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3e6439aee4f3fe0f60b9786d0bbfd74c4f5e52d1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-push-notifications-to-your-xamarinios-app"></a>Adicionar notificações por push a seu aplicativo Xamarin.iOS
+# <a name="add-push-notifications-tooyour-xamarinios-app"></a>Adicionar notificações de push tooyour Xamarin.iOS App
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Visão geral
-Neste tutorial, você adicionará notificações por push ao projeto de [início rápido do Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md) de forma que sempre que um registro for inserido, uma notificação por push seja enviada.
+Neste tutorial, você adiciona toohello de notificações por push [início rápido do xamarin](app-service-mobile-xamarin-ios-get-started.md) de projeto para que uma notificação por push seja enviada toohello dispositivo toda vez que um registro é inserido.
 
-Se você não usar o projeto baixado do início rápido do servidor, deve adicionar o pacote de extensão de notificação por push ao seu projeto. Confira [Trabalhar com o servidor back-end SDK do .NET para os Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) para obter mais informações.
+Se você não usar Olá baixar o projeto de servidor de início rápido, será necessário Olá o pacote de extensão de notificação por push. Consulte [funcionam com o servidor de back-end .NET Olá SDK para aplicativos móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) para obter mais informações.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Conclua o tutorial [Criar um aplicativo Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md) .
-* Um dispositivo físico iOS. Não há suporte para notificações por push pelo simulador do iOS.
+* Olá completa [xamarin quickstart](app-service-mobile-xamarin-ios-get-started.md) tutorial.
+* Um dispositivo físico iOS. Não há suporte para notificações por push pelo simulador de iOS hello.
 
-## <a name="register-the-app-for-push-notifications-on-apples-developer-portal"></a>Registrar o aplicativo nas notificações por push no portal do desenvolvedor da Apple
+## <a name="register-hello-app-for-push-notifications-on-apples-developer-portal"></a>Registrar aplicativo hello para notificações por push no portal do desenvolvedor da Apple
 [!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
-## <a name="configure-your-mobile-app-to-send-push-notifications"></a>Configurar o seu aplicativo móvel para enviar notificações por push
+## <a name="configure-your-mobile-app-toosend-push-notifications"></a>Configurar as notificações de push de toosend de aplicativo móvel
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
-## <a name="update-the-server-project-to-send-push-notifications"></a>Atualizar o projeto de servidor para enviar notificações por push
+## <a name="update-hello-server-project-toosend-push-notifications"></a>Olá servidor projeto toosend push notificações de atualização
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
 ## <a name="configure-your-xamarinios-project"></a>Configure seu projeto do Xamarin.iOS
 [!INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
-## <a name="add-push-notifications-to-your-app"></a>Adicionar notificações de push para seu aplicativo
-1. Em **QSTodoService**, adicione a seguinte propriedade para que o **AppDelegate** possa adquirir o cliente móvel:
+## <a name="add-push-notifications-tooyour-app"></a>Adicionar aplicativo de tooyour de notificações por push
+1. Em **QSTodoService**, adicionar Olá propriedade a seguir para que **AppDelegate** pode adquirir cliente móvel hello:
    
             public MobileServiceClient GetClient {
             get
@@ -57,11 +57,11 @@ Se você não usar o projeto baixado do início rápido do servidor, deve adicio
                 client = value;
             }
         }
-2. Adicione a seguinte declaração `using` ao topo do arquivo **AppDelegate.cs** .
+2. Adicione o seguinte Olá `using` superior de toohello de instrução de saudação **appdelegate. CS** arquivo.
    
         using Microsoft.WindowsAzure.MobileServices;
         using Newtonsoft.Json.Linq;
-3. Em **AppDelegate**, substitua o evento **FinishedLaunching**:
+3. Em **AppDelegate**, substituir Olá **FinishedLaunching** evento:
    
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
@@ -77,7 +77,7 @@ Se você não usar o projeto baixado do início rápido do servidor, deve adicio
    
             return true;
         }
-4. No mesmo arquivo, substitua o evento **RegisteredForRemoteNotifications**. Nesse código, você está se registrando para uma notificação de modelo simples que será enviada em todas as plataformas com suporte do servidor.
+4. Em Olá mesmo arquivo, substitua Olá **RegisteredForRemoteNotifications** eventos. Nesse código, você está registrando para uma notificação de modelo simples que será enviada em todas as plataformas com suporte pelo servidor de saudação.
    
     Para saber mais sobre modelos com os Hubs de Notificação, confira [Modelos](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
@@ -99,7 +99,7 @@ Se você não usar o projeto baixado do início rápido do servidor, deve adicio
         }
 
 
-1. Então substitua o evento **DidReceivedRemoteNotification** :
+1. Em seguida, substituir Olá **DidReceivedRemoteNotification** evento:
    
         public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
@@ -117,18 +117,18 @@ Se você não usar o projeto baixado do início rápido do servidor, deve adicio
             }
         }
 
-Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
+Seu aplicativo agora está atualizada toosupport notificações de envio.
 
 ## <a name="test"></a>Testar notificações por push no seu aplicativo
-1. Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo em um dispositivo compatível com iOS; em seguida, clique em **OK** para aceitar as notificações por push.
+1. Olá pressione **executar** toobuild projeto de saudação e iniciar o aplicativo hello em um dispositivo compatível com iOS e clique em **Okey** tooaccept as notificações de envio.
    
    > [!NOTE]
-   > Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorrerá apenas na primeira vez que o aplicativo for executado.
+   > Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorre apenas Olá Olá aplicativo será executado pela primeira vez.
    > 
    > 
-2. No aplicativo, digite uma tarefa e clique no ícone do sinal de adição (**+**).
-3. Verifique se uma notificação é recebida e clique em **OK** para ignorar a notificação.
-4. Repita a etapa 2 e imediatamente feche o aplicativo e verifique se uma notificação é exibida.
+2. No aplicativo hello, digite uma tarefa e, em seguida, clique em Olá adição (**+**) ícone.
+3. Verifique se que uma notificação é recebida, e clique em **Okey** toodismiss Olá notificação.
+4. Repita a etapa 2 e fechar imediatamente Olá aplicativo e verifique se uma notificação é mostrada.
 
 Este tutorial foi concluído com êxito.
 

@@ -1,6 +1,6 @@
 ---
-title: "Serviço de Aplicativo do Azure e seu impacto sobre os serviços existentes do Azure"
-description: "Explica como o novo Serviço de Aplicativo do Azure e seus recursos afetam os serviços existentes no Azure."
+title: "aaaAzure do serviço de aplicativo e seu impacto sobre os serviços do Azure existentes"
+description: "Explica como Olá novo serviço de aplicativo do Azure e seus recursos afetam os serviços existentes no Azure."
 services: app-service
 documentationcenter: 
 author: yochay
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2016
 ms.author: yochaykk
-ms.openlocfilehash: ed967fda7a216ed49532be54228ebe888cf16b6f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a831a88fee38465e5b0b7c2c2340cf8a0d64c864
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-app-service-and-existing-azure-services"></a>Serviço de Aplicativo do Azure e serviços existentes do Azure
-Este artigo descreve as alterações nos serviços existentes do Azure como parte da alteração para reunir vários serviços do Azure no [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/), uma nova oferta integrada.
+Este artigo descreve Olá alterações tooexisting serviços do Azure como parte da saudação alteração toobring junto vários serviços do Azure em [do serviço de aplicativo do Azure](https://azure.microsoft.com/services/app-service/), uma nova oferta integrada.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="overview"></a>Visão geral
-[Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/) é um serviço de nuvem novo e exclusivo que habilita os desenvolvedores a criar aplicativos Web e móveis para qualquer plataforma e qualquer dispositivo. O Serviço de Aplicativo é uma solução integrada criada para simplificar funções de codificação repetidas, integrar-se a sistemas corporativos e de SaaS e automatizar processos de negócios, além de atender às suas necessidades de segurança, confiabilidade e escalabilidade.
+[Serviço de aplicativo do Azure](https://azure.microsoft.com/services/app-service/) é um serviço de nuvem novos e exclusivos que permite que os desenvolvedores toocreate aplicativos web e móveis para qualquer plataforma e de qualquer dispositivo. Serviço de aplicativo é que uma solução integrada projetada toostreamline repetido funções de codificação, integrar com o enterprise e sistemas de SaaS e automatizar processos de negócios enquanto atende suas necessidades de segurança, confiabilidade e escalabilidade.
 
-O Serviço de Aplicativo reúne os seguintes serviços existentes do Azure - [Sites](https://azure.microsoft.com/services/websites/), [Serviços Móveis](https://azure.microsoft.com/services/mobile-services/) e [Serviços Biztalk](https://azure.microsoft.com/services/biztalk-services/) em um único serviço combinado, enquanto acrescenta novas capacidades avançadas.  O Serviço de Aplicativo permite hospedar os seguintes tipos de aplicativo:
+Serviço de aplicativo reúne saudação do Azure existentes a seguir services - [sites](https://azure.microsoft.com/services/websites/), [serviços móveis](https://azure.microsoft.com/services/mobile-services/), e [serviços Biztalk](https://azure.microsoft.com/services/biztalk-services/) em um único combinado serviço, enquanto adicionando novos recursos eficientes.  Serviço de aplicativo permite que você toohost Olá seguintes tipos de aplicativo:
 
 * Aplicativos Web
 * Aplicativos Móveis
 * Aplicativos de API
 * Aplicativos Lógicos
 
-A tabela a seguir explica como os serviços existentes do Azure são mapeados para o Serviço de Aplicativo e os tipos de aplicativos disponíveis nele.
+Olá, tabela a seguir explica como existente do Azure services mapear tooApp serviço e hello tipos de aplicativo disponíveis dentro dele.
 
 <table>
 <thead>
@@ -49,9 +49,9 @@ A tabela a seguir explica como os serviços existentes do Azure são mapeados pa
 <tr class="odd">
 <td align="left">Websites do Azure</td>
 <td align="left">Aplicativos Web</td>
-<td align="left"><li>Para os Sites do Azure, o Serviço de Aplicativo limita-se estritamente à alteração do nome Sites para Aplicativos Web.
+<td align="left"><li>Para sites do Azure, o serviço de aplicativo é estritamente limitada toochanging Olá nome sites tooWeb aplicativos.
 <p><li>Todas as suas instâncias existentes de Sites agora são Aplicativos Web no Serviço de Aplicativo.</p>
-<p><li>Você pode acessar os sites existentes pelo <a href="http://go.microsoft.com/fwlink/?LinkId=529715">Portal do Azure</a>, onde encontrará todos os sites existentes em <em>Aplicativos Web</em>.</p>
+<p><li>Você pode acessar seus sites existentes por meio de saudação <a href="http://go.microsoft.com/fwlink/?LinkId=529715">Portal do Azure</a>, onde você encontrará todos os sites existentes em <em>aplicativos Web</em>.</p>
 <p><li><em>Plano de hospedagem de Web</em> agora é <em>plano do serviço de aplicativo</em>. Um <em>Plano do Serviço de Aplicativo</em> pode hospedar qualquer tipo do Serviço de Aplicativo, como aplicativos Web, Móveis, Lógicos ou de API.</p>
 <p><li>Os aplicativos Web do Serviço de Aplicativo do Azure têm Disponibilidade Geral.</p>
 <p><li><a href="http://azure.microsoft.com/services/app-service/web/">Saiba mais sobre aplicativos Web</a>.</p></td>
@@ -59,9 +59,9 @@ A tabela a seguir explica como os serviços existentes do Azure são mapeados pa
 <tr class="even">
 <td align="left">Serviços móveis do Azure</td>
 <td align="left">Aplicativos Móveis</td>
-<td align="left"><p><li>Os Serviços Móveis continuam disponíveis como um serviço autônomo e permanecem com suporte completo.</p>
-<p><li>Os Aplicativos Móveis são um tipo de aplicativo do Serviço de Aplicativo, que integram toda a funcionalidade dos Serviços Móveis e muito mais.</p>
-<p><li>É fácil <a href="http://go.microsoft.com/fwlink/?LinkID=724279&clcid=0x409">migrar dos Serviços Móveis para os Aplicativos Móveis</a>.</p>
+<td align="left"><p><li>Serviços móveis continuar toobe disponível como um serviço autônomo e permanecem totalmente suportados.</p>
+<p><li>Aplicativos móveis é um tipo de aplicativo no serviço de aplicativo, que integra a funcionalidade de saudação de serviços móveis e muito mais.</p>
+<p><li>Ele é muito fácil<a href="http://go.microsoft.com/fwlink/?LinkID=724279&clcid=0x409">migrar de serviços móveis tooMobile aplicativos</a>.</p>
 <p><li>Como parte do Serviço de Aplicativo, os Aplicativos Móveis obtêm novos recursos além de Serviços Móveis, como a integração com sistemas de SaaS e locais, slots de preparação, Trabalhos Web, melhores opções de dimensionamento e muito mais.</p>
 <p><li><a href="http://azure.microsoft.com/services/app-service/mobile/">Saiba mais sobre os aplicativos móveis</a>.</p>
 </tr>
@@ -69,7 +69,7 @@ A tabela a seguir explica como os serviços existentes do Azure são mapeados pa
 <td align="left"></td>
 <td align="left">Aplicativos de API</td>
 <td align="left">
-<p><li>Os Aplicativos de API são um novo tipo de aplicativo do Serviço de Aplicativo que permitem que você compile e consuma APIs na nuvem facilmente.</p>
+<p><li>Aplicativos de API é um novo tipo de aplicativo no serviço de aplicativo que permite criar e consumir APIs na nuvem hello.</p>
 <p><li><a href="http://azure.microsoft.com/services/app-service/api/">Saiba mais sobre aplicativos de API</a>.</p></td>
 </tr>
 <tr class="even">
@@ -83,12 +83,12 @@ A tabela a seguir explica como os serviços existentes do Azure são mapeados pa
 <td align="left">Serviços BizTalk do Azure</td>
 <td align="left">Aplicativos de API do BizTalk</td>
 <td align="left">
-<li><p>Os Serviços BizTalk continuam disponíveis como um serviço autônomo e permanecem com suporte completo.</p>
-<li><p>Todos os recursos dos Serviços BizTalk são integrados ao Serviço de Aplicativo como Aplicativos de API, permitindo aos usuários realizar cenários de integração de aplicativos empresariais e integração B2B com qualquer um dos tipos de aplicativos no Serviço de Aplicativo.</p>
-<li><p>Com os Aplicativos Lógicos, agora é possível automatizar processos corporativos usando uma experiência de design visual para criar fluxos de trabalho.</p></td>
+<li><p>Os serviços do BizTalk continuar toobe disponível como um serviço autônomo e permanecem totalmente suportados.</p>
+<li><p>Todos os recursos de saudação dos serviços do BizTalk são integrados ao serviço de aplicativo como aplicativos de API Habilitando usuários tooperform integração de aplicativos empresariais e cenários de integração B2B com nenhum dos tipos de saudação do aplicativo no serviço de aplicativo.</p>
+<li><p>Com a lógica de aplicativos, agora você pode automatizar processos de negócios usando um fluxos de trabalho de toocreate de experiência de design visual.</p></td>
 </tr>
 </tbody>
 </table>
 
-Para saber mais, acesse a documentação do [Serviço de Aplicativo](https://azure.microsoft.com/documentation/services/app-service/).
+toolearn mais, visite [documentação do serviço de aplicativo](https://azure.microsoft.com/documentation/services/app-service/).
 

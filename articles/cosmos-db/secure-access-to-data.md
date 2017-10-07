@@ -1,5 +1,5 @@
 ---
-title: Saiba como proteger o acesso aos dados no Azure Cosmos DB | Microsoft Docs
+title: aaaLearn como toosecure acessar toodata no banco de dados do Azure Cosmos | Microsoft Docs
 description: "Saiba mais sobre os conceitos do controle de acesso no Azure Cosmos DB, incluindo chaves mestras, chaves somente leitura, usuários e permissões."
 services: cosmos-db
 author: mimig1
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: mimig
-ms.openlocfilehash: 383e04f91eec2f465b381ce30f2d6d24c488b731
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: fef7f8e14b488f6ceab0f2aa279a1e99d4416f08
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="securing-access-to-azure-cosmos-db-data"></a>Protegendo o acesso aos dados do Azure Cosmos DB
-Este artigo fornece uma visão geral de como proteger o acesso aos dados armazenados no [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
+# <a name="securing-access-tooazure-cosmos-db-data"></a>Proteção de dados do access tooAzure Cosmos DB
+Este artigo fornece uma visão geral de proteção de acesso toodata armazenado em [banco de dados do Microsoft Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/).
 
-O Azure Cosmos DB usa dois tipos de chaves para autenticar usuários e fornecer acesso aos seus dados e recursos. 
+Banco de dados do Azure Cosmos usa dois tipos de chaves tooauthenticate usuários e fornecer acesso tooits dados e recursos. 
 
 |Tipo de chave|Recursos|
 |---|---|
@@ -34,32 +34,32 @@ O Azure Cosmos DB usa dois tipos de chaves para autenticar usuários e fornecer 
 
 ## <a name="master-keys"></a>Chaves mestras 
 
-As chaves mestras fornecem acesso a todos os recursos administrativos para a conta de banco de dados. Chaves mestras:  
-- Fornecem acesso a contas, a bancos de dados, a usuários e a permissões. 
-- Não podem ser usadas para fornecer acesso granular a documentos e coleções.
-- São criadas durante a criação de uma conta.
+Chaves mestras forneça acesso toohello todos os recursos administrativos do hello para Olá banco de dados. Chaves mestras:  
+- Forneça acesso tooaccounts, bancos de dados, os usuários e permissões. 
+- Não pode ser usado tooprovide acesso granular toocollections e documentos.
+- São criados durante a criação de saudação de uma conta.
 - Podem ser geradas novamente a qualquer momento.
 
-Cada conta é formada por duas Chaves mestras: uma chave primária e uma chave secundária. A finalidade das chaves duplas é para que você possa gerar novamente, ou reverter as chaves, fornecendo acesso contínuo à sua conta e dados. 
+Cada conta é formada por duas Chaves mestras: uma chave primária e uma chave secundária. Olá finalidade chaves duplas é para que você pode gerar novamente ou reverter chaves, fornecendo dados e a conta de acesso contínuo a tooyour. 
 
-Além das duas chaves mestras da conta do Cosmos DB, há duas chaves somente leitura. Essas chaves somente leitura só permitem operações de leitura na conta. As chaves somente leitura não fornecem acesso a recursos com permissões de leitura.
+Em adição toohello duas chaves de mestre para conta de banco de dados do Cosmos hello, há duas chaves somente leitura. Essas chaves somente leitura apenas permitem operações de leitura na conta de saudação. Chaves somente leitura não fornecem acesso a recursos de permissões tooread.
 
-As chaves mestras primária, secundária, somente leitura e de leitura-gravação podem ser recuperadas e geradas novamente usando o Portal do Azure. Para obter instruções, veja [Exibir, copiar e gerar novamente as chaves de acesso](manage-account.md#keys).
+Primária, secundária somente leitura e chaves mestras de leitura / gravação podem ser recuperadas e regeneradas usando Olá portal do Azure. Para obter instruções, veja [Exibir, copiar e gerar novamente as chaves de acesso](manage-account.md#keys).
 
-![Controle de acesso (IAM) no Portal do Azure - demonstrando a segurança do banco de dados NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
+![Controle de acesso (IAM) no portal do Azure - demonstrando a segurança de banco de dados NoSQL de saudação](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
 
-O processo de girar a chave mestra é simples. Navegue até o Portal do Azure para recuperar a chave secundária, depois substitua a chave primária pela chave secundária em seu aplicativo e gire a chave primária no Portal do Azure.
+processo de saudação de girar a chave mestra é simple. Navegue toohello tooretrieve portal do Azure a chave secundária, em seguida, substituir a chave primária com a chave secundária em seu aplicativo e girar a chave primária Olá Olá portal do Azure.
 
-![Rotação de chave mestra no Portal do Azure – demonstrando a segurança do banco de dados NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png)
+![Rotação da chave mestra no portal do Azure - demonstrando a segurança de banco de dados NoSQL de saudação](./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png)
 
-### <a name="code-sample-to-use-a-master-key"></a>Exemplo de código para uso de uma chave mestra
+### <a name="code-sample-toouse-a-master-key"></a>Código de exemplo toouse uma chave mestra
 
-O exemplo de código a seguir ilustra como usar o ponto de extremidade e a chave mestra de uma conta do Cosmos DB para criar uma instância de um DocumentClient e criar um banco de dados. 
+Olá exemplo de código a seguir ilustra como toouse um banco de dados do Cosmos uma DocumentClient tooinstantiate de ponto de extremidade e a chave mestra da conta e criar um banco de dados. 
 
 ```csharp
-//Read the Azure Cosmos DB endpointUrl and authorization keys from config.
-//These values are available from the Azure portal on the Azure Cosmos DB account blade under "Keys".
-//NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
+//Read hello Azure Cosmos DB endpointUrl and authorization keys from config.
+//These values are available from hello Azure portal on hello Azure Cosmos DB account blade under "Keys".
+//NB > Keep these values in a safe and secure location. Together they provide Administrative access tooyour DocDB account.
 
 private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
 private static readonly SecureString authorizationKey = ToSecureString(ConfigurationManager.AppSettings["AuthorizationKey"]);
@@ -78,40 +78,40 @@ Database database = await client.CreateDatabaseAsync(
 
 ## <a name="resource-tokens"></a>Tokens de recurso
 
-Os tokens de recurso fornecem acesso aos recursos do aplicativo em um banco de dados. Tokens de recurso:
-- Fornecem acesso a coleções, chaves de partição, documentos, anexos, procedimentos armazenados, gatilhos e UDFs específicos.
-- São criados quando um [usuário](#users) recebe [permissões](#permissions) para um recurso específico.
+Tokens de recurso fornecem acesso a recursos do aplicativo toohello dentro de um banco de dados. Tokens de recurso:
+- Forneça acesso toospecific coleções, as chaves de partição, documentos, anexos, procedimentos armazenados, gatilhos e UDFs.
+- São criados quando um [usuário](#users) é concedida [permissões](#permissions) tooa determinado recurso.
 - São recriados quando um recurso de permissão recebe uma ação de uma chamada POST, GET ou PUT.
-- Use um token de recurso de hash construído especificamente para o usuário, o recurso e a permissão.
-- São associados a um período de validade personalizável. O intervalo de tempo válido padrão é de uma hora. O tempo de vida do token, no entanto, pode ser especificado explicitamente, até o máximo de cinco horas.
-- Fornecem uma alternativa segura para o fornecimento da chave mestra. 
-- Permitem aos clientes ler, gravar e excluir recursos da conta do Cosmos DB de acordo com as permissões que receberam.
+- Use um token de recurso de hash construído especificamente para o usuário hello, recursos e permissão.
+- São associados a um período de validade personalizável. período de tempo válido saudação padrão é uma hora. Vida útil do token, no entanto, pode ser especificado explicitamente, o máximo de tooa de cinco horas.
+- Forneça uma segurança toogiving alternativo Olá mestre chave. 
+- Habilite clientes tooread, gravação e exclusão de recursos na conta de banco de dados do Cosmos Olá toohello permissões que lhe foi concedidos de acordo com.
 
-Você pode usar um token de recurso (criando usuários e permissões do Cosmos DB) quando desejar fornecer acesso aos recursos de sua conta do Cosmos DB a um cliente que não é confiável para receber a chave mestra.  
+Você pode usar um token de recursos (ao criar usuários de banco de dados do Cosmos e permissões) quando você quiser tooprovide tooresources de acesso no seu banco de dados do Cosmos conta cliente tooa não pode ser confiável com a chave mestra de saudação.  
 
-Os tokens de recurso do Cosmos DB fornecem uma alternativa segura que permite aos clientes ler, gravar e excluir recursos de sua conta do Cosmos DB de acordo com as permissões que você concedeu e sem a necessidade de uma chave mestra ou somente leitura.
+Tokens de recurso do cosmos DB fornecem uma alternativa segura que permite que clientes tooread, gravação e exclusão recursos em sua conta de banco de dados do Cosmos permissões toohello que você concedeu de acordo com e sem necessidade de qualquer um mestre ou chave somente de leitura.
 
-Este é um padrão de design típico no qual tokens de recurso podem ser solicitados, gerados e fornecidos aos clientes:
+Este é um padrão de design típico no qual os tokens de recurso podem ser solicitados, gerados e entregue tooclients:
 
-1. Um serviço de camada intermediária é configurado para atender a um aplicativo móvel de compartilhamento de fotos do usuário. 
-2. O serviço de camada intermediária tem a chave mestra da conta do Cosmos DB.
-3. O aplicativo de fotos é instalado em dispositivos móveis de usuários finais. 
-4. No logon, o aplicativo de fotos estabelece a identidade do usuário com o serviço de camada intermediária. Esse mecanismo de estabelecimento de identidade depende apenas do aplicativo.
-5. Depois que a identidade é estabelecida, o serviço de camada intermediária solicita permissões com base na identidade.
-6. O serviço de camada intermediária envia um token de recurso de volta para o aplicativo móvel.
-7. O aplicativo de telefone pode continuar usando o token de recurso para acessar diretamente recursos do Cosmos DB com as permissões definidas pelo token de recurso e no intervalo permitido por ele. 
-8. Quando o token de recurso expira, as solicitações seguintes recebem uma exceção 401 de não autorizado.  Nesse ponto, o aplicativo móvel restabelece a identidade e solicita um novo token de recurso.
+1. Um serviço de camada intermediária é configurado tooserve fotos do usuário de tooshare um aplicativo móvel. 
+2. serviço de camada intermediária Olá possui a chave mestra de saudação do hello conta de banco de dados do Cosmos.
+3. aplicativo de fotos Hello está instalado em dispositivos móveis do usuário final. 
+4. Em logon, o aplicativo de fotos Olá estabelece identidade de saudação do usuário de saudação com o serviço de camada intermediária Olá. Esse mecanismo de estabelecimento de identidade é puramente toohello aplicativo.
+5. Após o estabelecimento de identidade Olá, solicitações de serviço de nível intermediário de saudação permissões com base na identidade de saudação.
+6. serviço de camada intermediária Olá envia um aplicativo de telefone do recurso token toohello voltar.
+7. aplicativo de telefone Olá pode continuar toouse Olá recurso token toodirectly acessar banco de dados do Cosmos os recursos com permissões de saudação definidas pelo token de recurso Olá e para o intervalo de saudação permitido pelo token de recurso de saudação. 
+8. Quando o token de recurso Olá expira, as solicitações subsequentes recebem uma exceção de 401 não autorizado.  Neste ponto, aplicativo de telefone Olá restabelece identidade hello e solicita um novo token de recurso.
 
     ![Fluxo de trabalho dos tokens de recurso do Azure Cosmos DB](./media/secure-access-to-data/resourcekeyworkflow.png)
 
-A geração e o gerenciamento do token de recurso são manipulados pelas bibliotecas de cliente nativas do Cosmos DB; no entanto, se você usar a REST, deverá construir os cabeçalhos de solicitação/autenticação. Para obter mais informações sobre como criar cabeçalhos de autenticação para a REST, consulte [Controle de Acesso em recursos do Cosmos DB](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources) ou o [código-fonte de nossos SDKs](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
+Gerenciamento e geração de token de recurso é tratado por bibliotecas de cliente Cosmos DB nativo Olá; No entanto, se você usar o REST, você precisa construir cabeçalhos de solicitação/autenticação hello. Para obter mais informações sobre a criação de cabeçalhos de autenticação para REST, consulte [controle de acesso nos recursos de banco de dados do Cosmos](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources) ou hello [código-fonte para nossos SDKs](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js).
 
-Para obter um exemplo de um serviço de camada intermediária usado para gerar, ou tokens de recurso do agente, confira o [aplicativo ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
+Para um exemplo de um serviço de camada intermediária usados toogenerate ou agente de tokens de recurso, consulte Olá [ResourceTokenBroker aplicativo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
 <a id="users"></a>
 
 ## <a name="users"></a>Usuários
-Os usuários do Cosmos DB são associados a um banco de dados do Cosmos DB.  Cada banco de dados pode conter nenhum ou mais usuários do Cosmos DB.  O exemplo de código a seguir mostra como criar um recurso de usuário do Cosmos DB.
+Os usuários do Cosmos DB são associados a um banco de dados do Cosmos DB.  Cada banco de dados pode conter nenhum ou mais usuários do Cosmos DB.  Olá mostra exemplo de código a seguir como toocreate um recurso de usuário de banco de dados do Cosmos.
 
 ```csharp
 //Create a user.
@@ -124,27 +124,27 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 ```
 
 > [!NOTE]
-> Cada usuário do Cosmos DB tem uma propriedade PermissionsLink que pode ser usada para recuperar a lista de [permissões](#permissions) associadas ao usuário.
+> Cada usuário de banco de dados do Cosmos tem uma propriedade PermissionsLink que pode ser usado tooretrieve Olá lista de [permissões](#permissions) associado Olá usuário.
 > 
 > 
 
 <a id="permissions"></a>
 
 ## <a name="permissions"></a>Permissões
-Um recurso de permissão do Cosmos DB é associado a um usuário do Cosmos DB.  Cada usuário pode conter nenhuma ou mais permissões do Cosmos DB.  Um recurso de permissão fornece acesso a um token de segurança de que o usuário precisa ao tentar acessar um recurso de aplicativo específico.
+Um recurso de permissão do Cosmos DB é associado a um usuário do Cosmos DB.  Cada usuário pode conter nenhuma ou mais permissões do Cosmos DB.  Um recurso de permissão fornece o token de segurança do acesso tooa que Olá necessidades dos usuários durante a tentativa de tooaccess um recurso de aplicativo específico.
 Há dois níveis de acesso disponíveis que podem ser fornecidos por um recurso de permissão:
 
-* Tudo: o usuário tem permissão total com relação ao recurso.
-* Leitura: O usuário pode apenas ler o conteúdo do recurso, mas não pode executar operações de gravação, atualização ou exclusão no recurso.
+* All: usuário Olá tem permissão total em recurso hello.
+* Leitura: usuário Olá somente pode ler o conteúdo de saudação do recurso de saudação mas não é possível executar a gravação, atualização ou operações de exclusão no recurso de saudação.
 
 > [!NOTE]
-> Para executar os procedimentos armazenados do Cosmos DB, o usuário deve ter a permissão Tudo na coleção na qual o procedimento armazenado será executado.
+> Em ordem toorun Cosmos DB procedimentos armazenados Olá usuário deve ter Olá todas as permissões na coleção de saudação no qual Olá procedimento armazenado será executado.
 > 
 > 
 
-### <a name="code-sample-to-create-permission"></a>Exemplo de código para criar permissão
+### <a name="code-sample-toocreate-permission"></a>Permissão de toocreate de exemplo de código
 
-O exemplo de código a seguir mostra como criar um recurso de permissão, ler o token de recurso do recurso de permissão e associar as permissões ao [usuário](#users) criado anteriormente.
+Olá exemplo de código a seguir mostra como toocreate um recurso de permissão de leitura Olá token de recurso do recurso de permissão hello e associar permissões Olá Olá [usuário](#users) criado acima.
 
 ```csharp
 // Create a permission.
@@ -159,11 +159,11 @@ docPermission = await client.CreatePermissionAsync(UriFactory.CreateUserUri("db"
 Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
 ```
 
-Se você tiver especificado uma chave de partição para sua coleção, depois a permissão para coleta, os recursos de documento e anexo também deverão incluir o ResourcePartitionKey além do ResourceLink.
+Se você tiver especificado que uma chave de partição para o seu conjunto, em seguida, permissão Olá para recursos de coleção, documentos e anexos também deve incluir Olá ResourcePartitionKey em adição toohello ResourceLink.
 
-### <a name="code-sample-to-read-permissions-for-user"></a>Exemplo de código para permissões de leitura para usuário
+### <a name="code-sample-tooread-permissions-for-user"></a>Permissões de tooread de exemplo de código do usuário
 
-Para obter facilmente todos os recursos de permissão associados a determinado usuário, o Cosmos DB disponibiliza um feed de permissões para cada objeto de usuário.  O trecho de código a seguir mostra como recuperar a permissão associada ao usuário criado acima, construir uma lista de permissões e instanciar um novo DocumentClient em nome do usuário.
+tooeasily obter todos os recursos de permissão associados a um usuário específico, Cosmos DB disponibiliza uma permissão de feed para cada objeto de usuário.  Olá trecho de código a seguir mostra como a permissão de saudação tooretrieve associado Olá usuário criado acima, construir uma lista de permissão e criar uma instância de um novo DocumentClient em nome de usuário de saudação.
 
 ```csharp
 //Read a permission feed.
@@ -180,6 +180,6 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre a segurança do banco de dados do Cosmos DB, consulte [Cosmos DB: Segurança do banco de dados](database-security.md).
-* Para saber mais sobre como gerenciar chaves mestras e chaves somente leitura, consulte [Como gerenciar uma conta do Azure Cosmos DB](manage-account.md#keys).
-* Para saber como construir tokens de autorização do Azure Cosmos DB, consulte [Controle de Acesso em recursos do Azure Cosmos DB](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources).
+* toolearn mais sobre a segurança de banco de dados do banco de dados do Cosmos, consulte [Cosmos DB: segurança de banco de dados](database-security.md).
+* toolearn sobre o gerenciamento de chaves mestres e somente leitura, consulte [como toomanage uma conta de banco de dados do Azure Cosmos](manage-account.md#keys).
+* toolearn como tokens de autorização do banco de dados do Azure Cosmos tooconstruct, consulte [controle de acesso nos recursos de banco de dados do Azure Cosmos](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources).

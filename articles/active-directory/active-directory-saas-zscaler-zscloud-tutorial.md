@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory com o Zscaler ZSCloud | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Zscaler ZSCloud."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e do Zscaler ZSCloud."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,110 +13,110 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 2b6eb113e5725260bc04f50e9218939bf28b1ff0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: af6d5c1994e715cccf959cc9fd3ba998e5b9effa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Tutorial: integração do Azure Active Directory com o Zscaler ZSCloud
 
-Neste tutorial, você aprenderá a integrar o Zscaler ZSCloud com o Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como toointegrate Zscaler ZSCloud com o Azure Active Directory (AD do Azure).
 
-A integração do Zscaler ZSCloud com o Azure AD oferece os seguintes benefícios:
+Integrando o Zscaler ZSCloud com o AD do Azure fornece Olá benefícios a seguir:
 
-- No Azure AD, é possível controlar quem tem acesso ao Zscaler ZSCloud
-- Você pode habilitar os usuários a entrar automaticamente no Zscaler ZSCloud (Logon Único) com as contas do Azure AD
-- Você pode gerenciar suas contas em um única localização: o Portal do Azure
+- Você pode controlar no AD do Azure que tenha acesso tooZscaler ZSCloud
+- Você pode habilitar seu usuários tooautomatically get conectado tooZscaler ZSCloud (logon único) com suas contas do AD do Azure
+- Você pode gerenciar suas contas em um local central - Olá portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com o Zscaler ZSCloud, você precisa dos seguintes itens:
+tooconfigure integração do AD do Azure com o Zscaler ZSCloud, você precisa Olá itens a seguir:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura habilitada para logon único do Zscaler ZSCloud
 
 > [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
 
-1. Adicionando o Zscaler ZSCloud por meio da galeria
+1. Adicionando Zscaler ZSCloud da Galeria de saudação
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-zscaler-zscloud-from-the-gallery"></a>Adicionando o Zscaler ZSCloud por meio da galeria
-Para configurar a integração do Zscaler ZSCloud ao Azure AD, você precisa adicionar o Zscaler ZSCloud da galeria à sua lista de aplicativos SaaS gerenciados.
+## <a name="adding-zscaler-zscloud-from-hello-gallery"></a>Adicionando Zscaler ZSCloud da Galeria de saudação
+integração de saudação tooconfigure do Zscaler ZSCloud no AD do Azure, você precisa tooadd Zscaler ZSCloud na lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
 
-**Para adicionar o Zscaler ZSCloud da galeria, realize as seguintes etapas:**
+**tooadd Zscaler ZSCloud da Galeria hello, execute Olá etapas a seguir:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
 
     ![Aplicativos][3]
 
-4. Na caixa de pesquisa, digite **Zscaler ZSCloud**.
+4. Na caixa de pesquisa hello, digite **Zscaler ZSCloud**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-zscaler-zscloud-tutorial/tutorial_zscalerzscloud_search.png)
 
-5. No painel de resultados, selecione **Zscaler ZSCloud** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+5. No painel de resultados de saudação, selecione **Zscaler ZSCloud**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-zscaler-zscloud-tutorial/tutorial_zscalerzscloud_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o Zscaler ZSCloud, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Zscaler ZSCloud é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Zscaler ZSCloud.
+Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no Zscaler ZSCloud é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no Zscaler ZSCloud precisa toobe estabelecida.
 
-Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** no Zscaler ZSCloud.
+Essa relação de link é estabelecida pela atribuição de valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** no Zscaler ZSCloud.
 
-Para configurar e testar o logon único do Azure AD com o Zscaler ZSCloud, você precisa concluir os seguintes blocos de construção:
+tooconfigure e teste de logon único do AD do Azure com o Zscaler ZSCloud, é necessário Olá toocomplete blocos de construção a seguir:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Definir configurações de proxy](#configuring-proxy-settings)** – para definir as configurações de proxy no Internet Explorer
-2. **[Criação de um usuário de teste do Azure AD](#creating-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Zscaler ZSCloud](#creating-a-zscaler-zscloud-test-user)** – para ter um equivalente de Brenda Fernandes no Zscaler ZSCloud que esteja vinculado à representação de usuário do Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
+2. **[Definir configurações de proxy](#configuring-proxy-settings)**  -configurações de proxy de saudação tooconfigure no Internet Explorer
+2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
+3. **[Criar um usuário de teste do Zscaler ZSCloud](#creating-a-zscaler-zscloud-test-user)**  -toohave um equivalente do Britta Simon no Zscaler ZSCloud é vinculado toohello AD do Azure representação do usuário.
+4. **[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
+5. **[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
-Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único em seu aplicativo Zscaler ZSCloud.
+Nesta seção, você habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo Zscaler ZSCloud.
 
-**Para configurar o logon único do Azure AD com o Zscaler ZSCloud, realize as seguintes etapas:**
+**tooconfigure AD do Azure-logon único com o Zscaler ZSCloud, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, na página de integração de aplicativos do **Zscaler ZSCloud**, clique em **Logon único**.
+1. Em Olá portal do Azure, Olá **Zscaler ZSCloud** página de integração de aplicativos, clique em **o logon único**.
 
     ![Configurar Logon Único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
  
     ![Configurar Logon Único](./media/active-directory-saas-zscaler-zscloud-tutorial/tutorial_zscalerzscloud_samlbase.png)
 
-3. Na seção **URLs e Domínio do Zscaler ZSCloud**, realize as seguintes etapas:
+3. Em Olá **Zscaler ZSCloud domínio e URLs** , execute Olá etapas a seguir:
 
     ![Configurar Logon Único](./media/active-directory-saas-zscaler-zscloud-tutorial/tutorial_zscalerzscloud_url.png)
 
-     Na caixa de texto **URL de Entrada**, digite a URL usada pelos usuários para se conectar ao aplicativo ZScaler ZSCloud.
+     Em Olá **URL de logon** caixa de texto, digite a URL Olá usada por seu usuários em toosign tooyour aplicativo ZScaler ZSCloud.
     
     > [!NOTE] 
-    > Você precisa atualizar esse valor com a URL de Entrada real. Entre em contato com a [equipe de suporte ao cliente do Zscaler ZSCloud](https://support.zscaler.com/hc/articles/210172606-Zscaler-is-Expanding-Its-Zscloud-Global-Footprint) para obter esse valor. 
+    > Você tem tooupdate esse valor com hello URL de logon real. Entre em contato com [equipe de suporte do Zscaler ZSCloud cliente](https://support.zscaler.com/hc/articles/210172606-Zscaler-is-Expanding-Its-Zscloud-Global-Footprint) tooget esse valor. 
  
-4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+4. Em Olá **o certificado de autenticação SAML** seção, clique em **certificado (Base64)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.
 
     ![Configurar Logon Único](./media/active-directory-saas-zscaler-zscloud-tutorial/tutorial_zscalerzscloud_certificate.png) 
 
@@ -124,13 +124,13 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar Logon Único](./media/active-directory-saas-zscaler-zscloud-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Zscaler ZSCloud**, clique em **Configurar Zscaler ZSCloud** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
+6. Em Olá **Zscaler ZSCloud configuração** seção, clique em **configurar Zscaler ZSCloud** tooopen **configurar o logon** janela. Saudação de cópia **Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**
 
     ![Configurar Logon Único](./media/active-directory-saas-zscaler-zscloud-tutorial/tutorial_zscalerzscloud_configure.png) 
 
-7. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa Zscaler ZSCloud como administrador.
+7. Em uma janela do navegador web diferente, faça logon no tooyour site da empresa ZScaler ZSCloud como um administrador.
 
-8. No menu na parte superior, clique em **Administração**.
+8. No menu de saudação na parte superior de saudação, clique em **administração**.
    
     ![Administração](./media/active-directory-saas-zscaler-zscloud-tutorial/ic800206.png "Administração")
 
@@ -138,7 +138,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
             
     ![Gerenciar usuários e autenticação](./media/active-directory-saas-zscaler-zscloud-tutorial/ic800207.png "Gerenciar usuários e autenticação")
 
-10. Na seção **Escolher Opções de Autenticação para a sua Organização** , realize as seguintes etapas:   
+10. Em Olá **escolher opções de autenticação para sua organização** , execute Olá etapas a seguir:   
                 
     ![Autenticação](./media/active-directory-saas-zscaler-zscloud-tutorial/ic800208.png "Autenticação")
    
@@ -146,19 +146,19 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     b. Clique em **Configurar Parâmetros de Logon Único do SAML**.
 
-11. Na página da caixa de diálogo **Configurar Parâmetros de Logon Único do SAML**, execute as seguintes etapas e, em seguida, clique em **Concluído**
+11. Em Olá **configurar parâmetros único do SAML logon** página de diálogo Executar Olá etapas a seguir e, em seguida, clique em **feito**
 
     ![Logon Único](./media/active-directory-saas-zscaler-zscloud-tutorial/ic800209.png "Logon Único")
     
-    a. Cole o valor **URL de serviço de logon único do SAML** na caixa de texto **URL do Portal SAML para o qual os usuários são enviados para autenticação**.
+    a. Saudação de colar **Single Sign-On URL do serviço SAML** valor em Olá **URL de usuários de toowhich do Portal SAML Olá são enviados para autenticação** caixa de texto.
     
-    b. Na caixa de texto **Atributo que contém o Nome de Logon**, digite **NameID**.
+    b. Em Olá **atributo que contém o nome de logon** caixa de texto, tipo **NameID**.
     
-    c. Para carregar seu certificado baixado, clique em **Zscaler pem**.
+    c. tooupload seu certificado baixado, clique em **Zscaler pem**.
     
     d. Selecione **Habilitar Provisionamento Automático do SAML**.
 
-12. Na página de caixa de diálogo **Configurar Autenticação de Usuário** , execute as seguintes etapas:
+12. Em Olá **configurar autenticação de usuário** caixa de diálogo de página, execute Olá etapas a seguir:
 
     ![Administração](./media/active-directory-saas-zscaler-zscloud-tutorial/ic800210.png "Administração")
     
@@ -167,75 +167,75 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     b. Clique em **Ativar Agora**.
 
 ## <a name="configuring-proxy-settings"></a>Definindo as configurações de proxy
-### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Para definir as configurações de proxy no Internet Explorer
+### <a name="tooconfigure-hello-proxy-settings-in-internet-explorer"></a>configurações de proxy de saudação tooconfigure no Internet Explorer
 
 1. Inicie o **Internet Explorer**.
 
-2. Selecione **Opções da Internet** no menu **Ferramentas** para abrir a caixa de diálogo **Opções da Internet**.   
+2. Selecione **opções da Internet** de saudação **ferramentas** menu para abrir Olá **opções da Internet** caixa de diálogo.   
     
      ![Opções da Internet](./media/active-directory-saas-zscaler-zscloud-tutorial/ic769492.png "Opções da Internet")
 
-3. Clique na guia **Conexões** .   
+3. Clique em Olá **conexões** guia.   
   
      ![Conexões](./media/active-directory-saas-zscaler-zscloud-tutorial/ic769493.png "Conexões")
 
-4. Clique em **Configurações da LAN** para abrir a caixa de diálogo **Configurações da LAN**.
+4. Clique em **configurações da LAN** tooopen Olá **configurações da LAN** caixa de diálogo.
 
-5. Na seção Servidor de proxy, execute as seguintes etapas:   
+5. Olá seção do servidor Proxy, execute Olá etapas a seguir:   
    
     ![Servidor proxy](./media/active-directory-saas-zscaler-zscloud-tutorial/ic769494.png "Servidor proxy")
 
     a. Selecione **Usar um servidor proxy para LAN**.
 
-    b. Na caixa de texto Endereço, digite **gateway.zscalerone.net**.
+    b. Na caixa de texto de endereço hello, digite **gateway.zscalerone.net**.
 
-    c. Na caixa de texto Porta, digite **80**.
+    c. Na caixa de texto de porta hello, digite **80**.
 
     d. Selecione **Ignorar servidor proxy para endereços locais**.
 
-    e. Clique em **OK** para fechar a caixa de diálogo **Configurações da Rede Local (LAN)**.
+    e. Clique em **Okey** tooclose Olá **configurações de rede Local (LAN)** caixa de diálogo.
 
-6. Clique em **OK** para fechar a caixa de diálogo **Opções da Internet**.
+6. Clique em **Okey** tooclose Olá **opções da Internet** caixa de diálogo.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
 
 ![Criar um usuário do AD do Azure][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
 
-1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-zscaler-zscloud-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-zscaler-zscloud-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-zscaler-zscloud-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-zscaler-zscloud-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
 
-    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
 
     d. Clique em **Criar**.
 
 ### <a name="creating-a-zscaler-zscloud-test-user"></a>Criar um usuário de teste do Zscaler ZSCloud
 
-Para permitir que os usuários do Azure AD façam logon no ZScaler ZSCloud, eles devem ser provisionados no ZScaler ZSCloud.  
-No caso do Zscaler ZSCloud, o provisionamento é uma tarefa manual.
+toolog de usuários do AD do Azure de tooenable tooZScaler ZSCloud, elas devem ser provisionado tooZScaler ZSCloud.  
+No caso de saudação do ZScaler ZSCloud, o provisionamento é uma tarefa manual.
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Para configurar o provisionamento de usuários, execute as seguintes etapas:
+### <a name="tooconfigure-user-provisioning-perform-hello-following-steps"></a>tooconfigure provisionamento de usuário, execute Olá etapas a seguir:
 
-1. Faça login no seu locatário do **Zscaler** .
+1. Faça logon no tooyour **Zscaler** locatário.
 
 2. Clique em **Administração**.   
    
@@ -245,38 +245,38 @@ No caso do Zscaler ZSCloud, o provisionamento é uma tarefa manual.
         
      ![Adicionar](./media/active-directory-saas-zscaler-zscloud-tutorial/ic781037.png "Adicionar")
 
-4. Na guia **Usuários**, clique em **Adicionar**.
+4. Em Olá **usuários** , clique em **adicionar**.
       
     ![Adicionar](./media/active-directory-saas-zscaler-zscloud-tutorial/ic781037.png "Adicionar")
 
-5. Na seção Adicionar Usuário, execute as seguintes etapas:
+5. Na seção Adicionar usuário do hello, execute Olá etapas a seguir:
         
     ![Adicionar Usuário](./media/active-directory-saas-zscaler-zscloud-tutorial/ic781038.png "Adicionar Usuário")
    
-    a. Digite **UserID**, **Nome de Exibição do Usuário**, **Senha**, **Confirmar Senha** e selecione **Grupos** e o **Departamento** de uma conta válida do AAD que você deseja provisionar.
+    a. Saudação de tipo **UserID**, **nome de exibição do usuário**, **senha**, **Confirmar senha**e, em seguida, selecione **grupos**e hello **departamento** de uma conta válida do AAD você deseja tooprovision.
 
     b. Clique em **Salvar**.
 
 > [!NOTE]
-> É possível usar qualquer outra ferramenta de criação da conta de usuário do Zscaler ZSCloud ou APIs fornecidas pelo Zscaler ZSCloud para provisionar as contas de usuário do AAD.
+> Você pode usar qualquer ferramenta de criação outros ZScaler ZSCloud usuário conta ou APIs fornecidas pelo ZScaler ZSCloud tooprovision contas de usuário do AAD.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assigning-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
 
-Nesta seção, você habilitará a Brenda Fernandes a usar o logon único do Azure através da concessão de acesso ao Zscaler ZSCloud.
+Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooZscaler ZSCloud.
 
 ![Atribuir usuário][200] 
 
-**Para atribuir Brenda Fernandes ao Zscaler ZSCloud, execute as seguintes etapas:**
+**tooassign tooZscaler Britta Simon ZSCloud, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Zscaler ZSCloud**.
+2. Na lista de aplicativos hello, selecione **Zscaler ZSCloud**.
 
     ![Configurar Logon Único](./media/active-directory-saas-zscaler-zscloud-tutorial/tutorial_zscalerzscloud_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
@@ -284,7 +284,7 @@ Nesta seção, você habilitará a Brenda Fernandes a usar o logon único do Azu
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -292,15 +292,15 @@ Nesta seção, você habilitará a Brenda Fernandes a usar o logon único do Azu
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
-Se você quiser testar suas configurações de logon único, abra o Painel de Acesso.
+Se você quiser tootest suas configurações de logon único, abra Olá painel de acesso.
 
-Ao clicar no bloco Zscaler ZSCloud no Painel de Acesso, você deve entrar automaticamente no aplicativo Zscaler ZSCloud.
+Quando você clica em Olá Zscaler ZSCloud lado a lado no painel de acesso de saudação, você deve obter tooyour automaticamente conectado no aplicativo Zscaler ZSCloud.
 
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md). 
+Para obter mais informações sobre Olá painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

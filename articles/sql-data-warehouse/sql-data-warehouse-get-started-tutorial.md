@@ -1,6 +1,6 @@
 ---
-title: "SQL Data Warehouse - introdução ao tutorial | Microsoft Docs"
-description: "Este tutorial ensina como provisionar e carregar dados no SQL Data Warehouse do Azure. Você também aprenderá as noções básicas sobre dimensionamento, pausa e ajuste."
+title: "aaaAzure SQL Data Warehouse - Introdução tutorial | Microsoft Docs"
+description: "Este tutorial ensina como tooprovision e carregar dados no Azure SQL Data Warehouse. Você também aprenderá noções básicas de saudação sobre dimensionamento, pausa e ajuste."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -15,32 +15,32 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 95e14824ba3b705bb909ec983652dd3305b98805
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: edd2a21b0fe49ca8e9792c7c512310339a822c55
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>Introdução ao SQL Data Warehouse
 
-Este tutorial mostra como provisionar e carregar dados no SQL Data Warehouse do Azure. Você também aprenderá as noções básicas sobre dimensionamento, pausa e ajuste. Quando terminar, você estará pronto para consultar e explorar seu data warehouse.
+Este tutorial mostra como tooprovision e carregar dados no Azure SQL Data Warehouse. Você também aprenderá noções básicas de saudação sobre dimensionamento, pausa e ajuste. Quando você terminar, você usará tooquery pronto e explorar seu data warehouse.
 
-**Tempo estimado para conclusão:** este é um tutorial completo com código de exemplo que leva cerca de 30 minutos para concluir assim que os pré-requisitos são atendidos. 
+**Estimado tempo toocomplete:** este é um tutorial de ponta a ponta com o código de exemplo que usa toocomplete cerca de 30 minutos depois que você atingiu os pré-requisitos de saudação. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O tutorial pressupõe que você esteja familiarizado com os conceitos básicos do SQL Data Warehouse. Se você precisar de uma introdução, consulte [O que é SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md) 
+tutorial de saudação pressupõe que você esteja familiarizado com os conceitos básicos do SQL Data Warehouse. Se você precisar de uma introdução, consulte [O que é SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md) 
 
 ### <a name="sign-up-for-microsoft-azure"></a>Inscreva-se no Microsoft Azure
-Se você ainda não tiver uma conta do Microsoft Azure, deverá inscrever-se em uma para usar este serviço. Se já tiver uma conta, você poderá ignorar esta etapa. 
+Se você ainda não tiver uma conta do Microsoft Azure, você precisa toosign para um toouse desse serviço. Se já tiver uma conta, você poderá ignorar esta etapa. 
 
-1. Navegue até as páginas de conta [https://azure.microsoft.com/account/](https://azure.microsoft.com/account/)
+1. Navegar pelas páginas de conta toohello [https://azure.microsoft.com/account/](https://azure.microsoft.com/account/)
 2. Crie uma conta gratuita do Azure ou uma conta de compra.
-3. Siga as instruções
+3. Siga as instruções de saudação
 
 ### <a name="install-appropriate-sql-client-drivers-and-tools"></a>Instalar os devidos drivers e ferramentas do cliente SQL
 
-A maioria das ferramentas do cliente SQL pode conectar o SQL Data Warehouse usando o JDBC, ODBC ou ADO.NET. Devido ao grande número de recursos do T-SQL que oferece suporte ao SQL Data Warehouse, alguns aplicativos cliente não são totalmente compatíveis com o SQL Data Warehouse.
+A maioria das ferramentas de cliente SQL pode se conectar a tooSQL Data Warehouse usando JDBC, ODBC ou ADO.NET. Devido a toohello grande número de recursos de T-SQL que oferece suporte a SQL Data Warehouse, alguns aplicativos cliente não são totalmente compatíveis com o SQL Data Warehouse.
 
 Se você estiver executando um sistema operacional do Windows, recomendamos o uso do [Visual Studio] ou do [SQL Server Management Studio].
 
@@ -50,7 +50,7 @@ Se você estiver executando um sistema operacional do Windows, recomendamos o us
 
 ## <a name="create-a-sql-data-warehouse"></a>Criar um SQL Data Warehouse
 
-Um SQL Data Warehouse é um tipo especial de banco de dados que foi projetado para o processamento extremamente paralelo. O banco de dados é distribuído entre vários nós e processa as consultas em paralelo. SQL Data Warehouse tem um nó de controle que coordena as atividades de todos os nós. Os próprios nós usam o Banco de Dados SQL para gerenciar seus dados.  
+Um SQL Data Warehouse é um tipo especial de banco de dados que foi projetado para o processamento extremamente paralelo. banco de dados de saudação é distribuído em vários nós e processa consultas em paralelo. SQL Data Warehouse tem um nó de controle que orquestra as atividades de saudação de todos os nós de saudação. nós Olá se usam toomanage de banco de dados SQL seus dados.  
 
 > [!NOTE]
 > A criação de um SQL Data Warehouse pode resultar em um novo serviço faturável.  Para obter mais informações, confira [Preços do SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
@@ -58,14 +58,14 @@ Um SQL Data Warehouse é um tipo especial de banco de dados que foi projetado pa
 
 ### <a name="create-a-data-warehouse"></a>Criar um data warehouse
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com).
+1. O logon no hello [portal do Azure](https://portal.azure.com).
 2. Clique em **Novo** > **Bancos de dados** > **SQL Data Warehouse**.
 
     ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png) ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
 
 3. Preencher os detalhes da implantação
 
-    **Nome do banco de dados**: escolha qualquer item que desejar. Se você tiver vários data warehouses, é recomendável que os nomes incluem detalhes, como a região e o ambiente, por exemplo, *mydw-westus-1-test*.
+    **Nome do banco de dados**: escolha qualquer item que desejar. Se você tiver vários depósitos de dados, é recomendável que os nomes de incluem detalhes como região hello, ambiente, por exemplo *westus mydw-teste 1*.
 
     **Assinatura:** sua assinatura do Azure
 
@@ -75,61 +75,61 @@ Um SQL Data Warehouse é um tipo especial de banco de dados que foi projetado pa
 
     **Origem**: banco de dados em branco
 
-    **Servidor**: selecione o servidor que você criou em [Pré-requisitos].
+    **Servidor**: servidor de saudação selecione que você criou na [pré-requisitos].
 
-    **Agrupamento**: mantenha o agrupamento padrão SQL_Latin1_General_CP1_CI_AS.
+    **Agrupamento**: deixe o agrupamento padrão de saudação SQL_Latin1_General_CP1_CI_AS.
 
-    **Selecionar desempenho**: é recomendável iniciar com o 400DWU padrão.
+    **Selecione desempenho**: É recomendável começar com 400DWU de saudação padrão.
 
-4. Escolha **Fixar no painel** ![Fixar no painel](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
+4. Escolha **Pin toodashboard** ![tooDashboard de Pin](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
 
-5. Relaxe e aguarde o data warehouse implantar! É normal que esse processo leve vários minutos. O portal notifica você quando seu data warehouse está pronto para o uso. 
+5. Aguarde e aguarde até que seu toodeploy de depósito de dados! É normal para este processo tootake vários minutos. portal de saudação notifica quando o data warehouse é toouse pronto. 
 
-## <a name="connect-to-sql-data-warehouse"></a>Conectar ao SQL Data Warehouse
+## <a name="connect-toosql-data-warehouse"></a>Conecte-se tooSQL do Data Warehouse
 
-Este tutorial usa o SQL Server Management Studio (SSMS) para conectar o data warehouse. Você pode conectar o SQL Data Warehouse por meio desses conectores com suporte: ADO.NET, JDBC, ODBC e PHP. Lembre-se, a funcionalidade pode ser limitada para as ferramentas sem suporte pela Microsoft.
+Este tutorial usa tooconnect toohello data warehouse de SQL Server Management Studio (SSMS). Você pode se conectar tooSQL Data Warehouse por esses conectores com suporte: ADO.NET, JDBC, ODBC e PHP. Lembre-se, a funcionalidade pode ser limitada para as ferramentas sem suporte pela Microsoft.
 
 
 ### <a name="get-connection-information"></a>Obter informações de conexão
 
-Para conectar seu data warehouse, você precisa conectar-se por meio do SQL Server lógico criado em [Pré-requisitos].
+data warehouse de tooconnect tooyour, você precisa tooconnect por meio de saudação lógico do SQL server criado na [pré-requisitos].
 
-1. Selecione o data warehouse no painel ou procure-o em seus recursos.
+1. Selecione o data warehouse no painel de saudação ou procure-a em seus recursos.
 
     ![Painel do SQL Data Warehouse](./media/sql-data-warehouse-get-started-tutorial/sql-dw-dashboard.png)
 
-2. Localize o nome completo do SQL Server lógico.
+2. Localize o nome completo Olá Olá lógico do SQL server.
 
     ![Selecionar o nome do servidor](./media/sql-data-warehouse-get-started-tutorial/select-server.png)
 
-3. Abra o SSMS e use o gerenciador de objetos para conectar este servidor usando as credenciais de administrador do servidor criadas em [Pré-requisitos]
+3. Abra o SSMS e usar o objeto explorer tooconnect toothis server usando credenciais de administrador de servidor de saudação criado no [pré-requisitos]
 
     ![Conectar com SSMS](./media/sql-data-warehouse-get-started-tutorial/ssms-connect.png)
 
-Se tudo ocorrer corretamente, agora você deverá estar conectado ao SQL Server lógico. Como você conectado como o administrador do servidor, poderá conectar qualquer banco de dados hospedado pelo servidor, incluindo o banco de dados mestre. 
+Se tudo correr corretamente, você deve agora ser tooyour conectado lógica SQL server. Desde que você fez logon como Olá administrador do servidor, você pode se conectar a banco de dados de tooany hospedado pelo servidor de saudação, inclusive o banco de dados mestre hello. 
 
-Há apenas uma conta do administrador do servidor e ela tem a maioria dos privilégios de qualquer usuário. Tenha cuidado para não permitir que muitas pessoas em sua organização saibam a senha do administrador. 
+Há apenas um servidor conta de administrador e tem Olá a maioria dos privilégios de qualquer usuário. Tenha cuidado não tooallow muitas pessoas em sua senha de administrador organização tooknow hello. 
 
-Você também pode ter uma conta do administrador do Azure Active Directory. Não fornecemos os detalhes aqui. Se você quiser saber mais sobre como usar a autenticação do Azure Active Directory, confira [Autenticação do Azure AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication).
+Você também pode ter uma conta do administrador do Azure Active Directory. Não fornecemos detalhes Olá aqui. Se você quiser toolearn mais sobre como usar a autenticação do Active Directory do Azure, consulte [autenticação do Azure AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication).
 
 Em seguida, exploraremos a criação de logons e usuários adicionais.
 
 
 ## <a name="create-a-database-user"></a>Criar um usuário do banco de dados
 
-Nesta etapa, você cria uma conta de usuário para acessar o data warehouse. Também mostramos como dar a esse usuário a capacidade de executar consultas com uma grande quantidade de memória e recursos de CPU.
+Nesta etapa, você criará um tooaccess de conta de usuário o data warehouse. Também mostramos como toogive que toorun de capacidade de saudação do usuário consultas com uma grande quantidade de memória e recursos de CPU.
 
-### <a name="notes-about-resource-classes-for-allocating-resources-to-queries"></a>Observações sobre as classes de recursos para alocar recursos para as consultas
+### <a name="notes-about-resource-classes-for-allocating-resources-tooqueries"></a>Observações sobre classes de recursos para alocar recursos tooqueries
 
-- Para manter seus dados seguros, não use o administrador do servidor para executar consultas em seus bancos de dados de produção. Ele tem a maioria dos privilégios de qualquer usuário e usá-lo para executar operações nos dados do usuário coloca seus dados em risco. Além disso, como o administrador do servidor deve realizar operações de gerenciamento, ele executa operações com apenas uma pequena alocação de memória e recursos de CPU. 
+- tookeep seus dados seguros, não use consultas de toorun de administração de servidor de saudação em seus bancos de dados de produção. Ele tem Olá a maioria dos privilégios de qualquer usuário e usá-lo tooperform operações nos dados de usuário coloca seus dados em risco. Além disso, desde que o administrador do servidor de saudação deve tooperform operações de gerenciamento, ele é executado operações com apenas uma pequena alocação de memória e recursos de CPU. 
 
-- O SQL Data Warehouse usa as funções do banco de dados predefinidas, denominadas classes de recursos, para alocar quantidades diferentes de memória, recursos de CPU e slots de simultaneidade para os usuários. Cada usuário pode pertencer a uma classe de recursos pequena, média, grande ou extragrande. Classe de recursos do usuário determina os recursos que o usuário tem para executar consultas e operações de carregamento.
+- SQL Data Warehouse usa funções de banco de dados predefinido, chamado de classes de recursos, tooallocate diferentes quantidades de memória, os recursos de CPU e toousers de slots de simultaneidade. Cada usuário pode pertencer a classe de recurso de pequeno, médio, grande ou extra grande tooa. Olá classe de recurso do usuário determina Olá recursos Olá usuário tem toorun consultas e operações de carregamento.
 
-- Para otimizar a compactação de dados, o usuário talvez precise usar alocações de recursos grandes ou extragrandes. Leia mais sobre classes de recursos [aqui](./sql-data-warehouse-develop-concurrency.md#resource-classes):
+- Para a compactação de dados ideal, Olá talvez ele tenha tooload com grande ou extra grande alocações. Leia mais sobre classes de recursos [aqui](./sql-data-warehouse-develop-concurrency.md#resource-classes):
 
 ### <a name="create-an-account-that-can-control-a-database"></a>Criar uma conta que pode controlar um banco de dados
 
-Como você está atualmente conectado como o administrador do servidor, tem permissões para criar logons e usuários.
+Como você está conectado no Olá administrador do servidor, você tem permissões toocreate logons e usuários.
 
 1. Usando o SSMS ou outro cliente de consulta, abra uma nova consulta para o **mestre**.
 
@@ -137,62 +137,62 @@ Como você está atualmente conectado como o administrador do servidor, tem perm
 
     ![Nova consulta em Master1](./media/sql-data-warehouse-get-started-tutorial/query-on-master.png)
 
-2. Na janela de consulta, execute este comando T-SQL para criar um logon denominado MedRCLogin e um usuário denominado LoadingUser. Este logon pode conectar o SQL Server lógico.
+2. Na janela de consulta hello, execute este toocreate de comando T-SQL um logon denominado MedRCLogin e um usuário chamado LoadingUser. Este logon pode se conectar a toohello lógica SQL server.
 
     ```sql
     CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
     CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
-3. Agora, consulte o *banco de dados do SQL Data Warehouse*, crie um usuário do banco de dados com base no logon criado para acessar e executar operações no banco de dados.
+3. Consultar agora Olá *banco de dados do SQL Data Warehouse*, crie um usuário de banco de dados com base em Olá logon criado tooaccess e executar operações no banco de dados de saudação.
 
     ```sql
     CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
-4. Dê ao usuário do banco de dados permissões de controle para o banco de dados denominado NYT. 
+4. Atribuir Olá banco de dados usuário controle permissões toohello banco de dados chamado NYT. 
 
     ```sql
-    GRANT CONTROL ON DATABASE::[NYT] to LoadingUser;
+    GRANT CONTROL ON DATABASE::[NYT] tooLoadingUser;
     ```
     > [!NOTE]
-    > Se o nome do banco de dados contiver hifens, coloque-o entre colchetes! 
+    > Se o nome do banco de dados contiver hifens, ser toowrap-se de que ele entre colchetes! 
     >
 
-### <a name="give-the-user-medium-resource-allocations"></a>Conceda ao usuário as alocações de recursos de mídia
+### <a name="give-hello-user-medium-resource-allocations"></a>Dê Olá usuário médio alocações
 
-1. Execute este comando T-SQL para torná-lo um membro da classe de recursos medium, que é denominada mediumrc. 
+1. Execute este toomake de comando T-SQL it um membro da classe de recurso médios hello, que é chamado mediumrc. 
 
     ```sql
     EXEC sp_addrolemember 'mediumrc', 'LoadingUser';
     ```
     > [!NOTE]
-    > Clique [aqui](sql-data-warehouse-develop-concurrency.md#resource-classes) para saber mais sobre simultaneidade e classes de recurso! 
+    > Clique em [aqui](sql-data-warehouse-develop-concurrency.md#resource-classes) toolearn mais sobre classes de simultaneidade e recursos! 
     >
 
-2. Conectar o servidor lógico com as novas credenciais
+2. Conecte-se o servidor lógico toohello com as novas credenciais Olá
 
     ![Fazer logon com o novo logon](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
 
 
 ## <a name="load-data-from-azure-blob-storage"></a>Carregar dados do armazenamento de blob do Azure
 
-Agora, você está pronto para carregar dados em seu data warehouse. Esta etapa mostra como carregar dados do táxi de Nova Iorque em um blob de armazenamento do Azure público. 
+Agora você está dados tooload pronto para o data warehouse. Esta etapa mostra como dados de cab do tooload cidade de Nova York táxi de um armazenamento do Azure público de blob. 
 
-- Uma maneira comum de carregar dados no SQL Data Warehouse é primeiro mover os dados para o armazenamento de blobs do Azure, em seguida, carregá-los em seu data warehouse. Para facilitar entender como carregar, temos dados do táxi de Nova Iorque já hospedados em um blob de armazenamento do Azure público. 
+- Uma maneira comum de dados tooload no SQL Data Warehouse são toofirst mover o armazenamento de blob Olá dados tooAzure e, em seguida, carregá-lo em seu data warehouse. toomake-lo mais fácil toounderstand como tooload, temos Nova York táxi cab dados já está hospedados em um blob de armazenamento do Azure públicos. 
 
-- Para uma referência futura, para saber como obter os dados para o armazenamento de blobs do Azure ou carregá-los diretamente do seu código-fonte no SQL Data Warehouse, consulte a [visão geral do carregamento](sql-data-warehouse-overview-load.md).
+- Para referência futura, toolearn como tooget tooAzure seus dados de blob de armazenamento ou tooload-lo diretamente da fonte no SQL Data Warehouse, consulte Olá [visão geral de carregamento](sql-data-warehouse-overview-load.md).
 
 
 ### <a name="define-external-data"></a>Definir dados externos
 
-1. Crie uma chave mestra. Você só precisa criar uma chave mestra uma vez por banco de dados. 
+1. Crie uma chave mestra. Você só precisa toocreate uma chave mestra de uma vez por banco de dados. 
 
     ```sql
     CREATE MASTER KEY;
     ```
 
-2. Defina o local do blob do Azure que contém os dados do táxi.  
+2. Defina o local de saudação do hello BLOBs do Azure que contém dados de cab táxi Olá.  
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -203,11 +203,11 @@ Agora, você está pronto para carregar dados em seu data warehouse. Esta etapa 
     );
     ```
 
-3. Definir os formatos de arquivo externos
+3. Definir Olá formatos de arquivo externo
 
-    O comando ```CREATE EXTERNAL FILE FORMAT``` é usado para especificar o formato dos arquivos que contêm os dados externos. Eles contêm texto separado por um ou mais caracteres denominados delimitadores. Para demonstrar, os dados do táxi são armazenados como dados descompactados e dados compactados em gzip.
+    Olá ```CREATE EXTERNAL FILE FORMAT``` comando é toospecify usado o formato de arquivos que contêm dados externos hello. Eles contêm texto separado por um ou mais caracteres denominados delimitadores. Para fins de demonstração, os dados de cab do táxi de saudação são armazenados como dados não compactados e dados gzip compactado.
 
-    Execute estes comandos T-SQL para definir dois formatos diferentes: descompactado e compactado.
+    Execute esses comandos do T-SQL toodefine dois formatos diferentes: descompactado e compactado.
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
@@ -238,7 +238,7 @@ Agora, você está pronto para carregar dados em seu data warehouse. Esta etapa 
     ```sql
     CREATE SCHEMA ext;
     ```
-5. Crie as tabelas externas. Essas tabelas fazem referência aos dados colocados no armazenamento de blobs do Azure. Execute os seguintes comandos T-SQL para criar várias tabelas externas que apontam para o blob do Azure definido anteriormente na nossa fonte de dados externa.
+5. Crie hello tabelas externas. Essas tabelas fazem referência aos dados colocados no armazenamento de blobs do Azure. Execute Olá toocreate de comandos T-SQL a seguir várias tabelas externas que toohello de ponto de todos os BLOBs do Azure definimos anteriormente na nossa fonte de dados externa.
 
 ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
@@ -415,11 +415,11 @@ Agora, você está pronto para carregar dados em seu data warehouse. Esta etapa 
     ;
 ```
 
-### <a name="import-the-data-from-azure-blob-storage"></a>Importe os dados do Armazenamento de Blobs do Azure.
+### <a name="import-hello-data-from-azure-blob-storage"></a>Importar dados de saudação do armazenamento de BLOBs do Azure.
 
-O SQL Data Warehouse oferece suporte a uma instrução de chave chamada CREATE TABLE AS SELECT (CTAS). Essa instrução cria uma nova tabela com base nos resultados de uma instrução select. A nova tabela tem as mesmas colunas e tipos de dados que os resultados da instrução select.  Essa é uma forma elegante de importar dados do Armazenamento de Blobs do Azure no SQL Data Warehouse.
+O SQL Data Warehouse oferece suporte a uma instrução de chave chamada CREATE TABLE AS SELECT (CTAS). Essa instrução cria uma nova tabela com base nos resultados de saudação de uma instrução select. Olá nova tabela tem Olá mesmos colunas e tipos de dados, como a instrução select de resultados de saudação do hello.  Isso é um tooimport de maneira elegante de dados do armazenamento de BLOBs do Azure no SQL Data Warehouse.
 
-1. Execute este script para importar seus dados.
+1. Execute este script tooimport seus dados.
 
     ```sql
     CREATE TABLE [dbo].[Date]
@@ -496,7 +496,7 @@ O SQL Data Warehouse oferece suporte a uma instrução de chave chamada CREATE T
 
 2. Exiba os dados enquanto eles são carregados.
 
-   Você está carregando vários GBs de dados e compactando-os em índices columnstore de cluster de alto desempenho. Execute a consulta a seguir que usa DMVs (exibições de gerenciamento dinâmico) para mostrar o status do carregamento. Após iniciar a consulta, pegue um café e alguns biscoitos enquanto o SQL Data Warehouse faz o trabalho pesado.
+   Você está carregando vários GBs de dados e compactando-os em índices columnstore de cluster de alto desempenho. Execute Olá consulta a seguir que usa um status de saudação do gerenciamento dinâmico DMVs (exibições) tooshow de carga hello. Depois de iniciar a consulta hello, pegue um café e um lanche enquanto SQL Data Warehouse faz algum trabalho pesado.
     
     ```sql
     SELECT
@@ -539,51 +539,51 @@ O SQL Data Warehouse oferece suporte a uma instrução de chave chamada CREATE T
 
 ## <a name="improve-query-performance"></a>Melhorar o desempenho da consulta
 
-Há várias maneiras de melhorar o desempenho da consulta e atingir o desempenho de alta velocidade que o SQL Data Warehouse foi projetado para fornecer.  
+Há vários modos tooimprove consulta de desempenho e tooachieve Olá alta velocidade que o SQL Data Warehouse é projetada tooprovide.  
 
-### <a name="see-the-effect-of-scaling-on-query-performance"></a>Ver o efeito do dimensionamento no desempenho da consulta 
+### <a name="see-hello-effect-of-scaling-on-query-performance"></a>Consulte o efeito de saudação do dimensionamento de desempenho de consulta 
 
-Uma maneira de melhorar o desempenho da consulta é dimensionar os recursos alterando o nível de serviço do DWU para o data warehouse. Cada nível de serviço custa mais, mas você pode reduzir ou pausar recursos a qualquer momento. 
+Desempenho de consulta de uma maneira tooimprove é tooscale recursos alterando o nível de serviço DWU Olá para o data warehouse. Cada nível de serviço custa mais, mas você pode reduzir ou pausar recursos a qualquer momento. 
 
 Nesta etapa, você compara o desempenho em suas configurações diferentes de DWU.
 
-Primeiro, vamos reduzir para 100 DWUs para lhe dar uma ideia de como a computação como um nó pode ser executada por conta própria.
+Primeiro, vamos dimensionar dimensionamento Olá para baixo too100 DWU para obter uma ideia de como um nó de computação pode executar por conta própria.
 
-1. Acesse o portal e selecione a instância do SQL Data Warehouse.
+1. Vá toohello portal e selecione seu SQL Data Warehouse.
 
-2. Selecione dimensionar na folha SQL Data Warehouse. 
+2. Selecione escala na folha do hello SQL Data Warehouse. 
 
     ![Dimensionar DW no portal](./media/sql-data-warehouse-get-started-tutorial/scale-dw.png)
 
-3. Reduza a barra de desempenho para 100 DWU e clique em Salvar.
+3. Reduzir o desempenho de saudação barra too100 DWU e clique em Salvar.
 
     ![Dimensionar e salvar](./media/sql-data-warehouse-get-started-tutorial/scale-and-save.png)
 
-4. Aguarde a conclusão da operação de dimensionamento.
+4. Aguarde o toofinish de operação de escala.
 
     > [!NOTE]
-    > Não é possível executar consultas ao alterar a escala. O dimensionamento **elimina** suas consultas em execução no momento. Você poderá reiniciá-las quando a operação for concluída.
+    > Não é possível executar consultas ao alterar a escala de saudação. O dimensionamento **elimina** suas consultas em execução no momento. Você pode reiniciá-los quando Olá operação é concluída.
     >
     
-5. Faça uma operação de verificação nos dados de viagem, selecionando os milhões de entradas principais para todas as colunas. Se está ansioso para continuar rapidamente, fique à vontade para selecionar menos linhas. Anote o tempo necessário para executar esta operação.
+5. Faça uma operação de verificação nos dados de viagem hello, selecionando Olá entradas principais de milhões para todas as colunas de saudação. Se você está adiantado toomove rapidamente, sinta-se livre tooselect menos linhas. Anote Olá tempo toorun esta operação.
 
     ```sql
     SELECT TOP(1000000) * FROM dbo.[Trip]
     ```
-6. Dimensione seu data warehouse de volta para 400 DWUs. Lembre-se de que cada 100 DWU adicionam outro nó de computação ao Azure SQL Data Warehouse.
+6. Dimensionar seu data warehouse too400 DWU de volta. Lembre-se de que cada DWU 100 é adicionar outra tooyour de nó de computação do Azure SQL Data Warehouse.
 
-7. Execute a consulta novamente! Você deve notar uma diferença significativa. 
+7. Execute novamente a consulta de Olá! Você deve notar uma diferença significativa. 
 
     > [!NOTE]
-    > Como a consulta retorna muitos dados, a disponibilidade de largura de banda do computador executando o SSMS pode ser um afunilamento de desempenho. Isso pode resultar em nenhuma melhoria de desempenho!
+    > Como consulta Olá retorna muitos dados, a disponibilidade de largura de banda de saudação da máquina Olá executando o SSMS pode ser um afunilamento de desempenho. Isso pode resultar em nenhuma melhoria de desempenho!
 
 > [!NOTE]
-> Como o SQL Data Warehouse usa processamento paralelo massivo. As consultas que examinam ou executam funções de análise em milhões de linhas experimentam o verdadeira poder do Azure SQL Data Warehouse.
+> Como o SQL Data Warehouse usa processamento paralelo massivo. As consultas que digitalizar ou executam funções analíticas em milhões de linhas sofrer verdadeiro poder saudação do Azure SQL Data Warehouse.
 >
 
-### <a name="see-the-effect-of-statistics-on-query-performance"></a>Ver o efeito da estatísticas no desempenho da consulta
+### <a name="see-hello-effect-of-statistics-on-query-performance"></a>Ver o efeito de saudação de estatísticas sobre o desempenho de consulta
 
-1. Executar uma consulta que une a tabela de Datas à tabela de Viagens
+1. Executar uma consulta de junções Olá tabela de data por viagem Olá
 
     ```sql
     SELECT TOP (1000000) 
@@ -615,10 +615,10 @@ Primeiro, vamos reduzir para 100 DWUs para lhe dar uma ideia de como a computaç
         ON  tr.DateID = dt.DateID
     ```
 
-    Essa consulta demora um pouco porque o SQL Data Warehouse precisa movimentar os dados de forma aleatória antes de executar a junção. As junções não precisam movimentar os dados de forma aleatória se eles forem criados para juntar dados da mesma forma que foram distribuídos. Esse é um assunto mais profundo. 
+    Essa consulta demorada porque o SQL Data Warehouse tem dados tooshuffle antes de executar associação de saudação. Junções não têm dados tooshuffle se forem dados toojoin projetado Olá mesma forma que ele seja distribuído. Esse é um assunto mais profundo. 
 
 2. Estatísticas fazem a diferença. 
-3. Execute esta instrução para criar estatísticas em colunas de junção.
+3. Execute essa instrução de estatísticas de toocreate em colunas de junção hello.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
@@ -628,16 +628,16 @@ Primeiro, vamos reduzir para 100 DWUs para lhe dar uma ideia de como a computaç
     > [!NOTE]
     > O SQL DW não gerencia automaticamente as estatísticas para você. As estatísticas são importantes para o desempenho da consulta, e é altamente recomendável criar e atualizar as estatísticas.
     > 
-    > **Você obterá mais benefícios se tiver estatísticas em colunas envolvidas em junções, colunas usadas na cláusula WHERE e colunas encontradas em GROUP BY.**
+    > **Você obtém maior benefício Olá fazendo com que as estatísticas em colunas envolvidas em relações, colunas usadas em Olá onde cláusula e colunas encontrado no GROUP BY.**
     >
 
-3. Execute novamente a consulta de Pré-requisitos e observe as diferenças de desempenho. Embora as diferenças no desempenho da consulta não sejam tão drásticas quanto o aumento, você deve observar uma aceleração. 
+3. Execute a consulta de saudação de pré-requisitos novamente e observar as diferenças de desempenho. Enquanto não será drásticas quanto o dimensionamento das diferenças de saudação de desempenho de consulta, você deve observar uma velocidade. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora você está pronto para consultar e explorar. Confira nossas melhores práticas recomendadas ou dicas.
+Você agora está pronto tooquery e explora. Confira nossas melhores práticas recomendadas ou dicas.
 
-Se tiver terminado de explorar por hoje, pause a instância! Em produção, você pode obter uma enorme economia pausando e dimensionando para atender às suas necessidades de negócios.
+Se você está explorando por dia hello, torne toopause-se de que sua instância! Em produção, você pode experimentar grande economia, pausa e dimensionamento toomeet suas necessidades de negócios.
 
 ![Pausar](./media/sql-data-warehouse-get-started-tutorial/pause.png)
 
@@ -651,20 +651,20 @@ Se tiver terminado de explorar por hoje, pause a instância! Em produção, voc�
 
 [Dez principais práticas recomendadas para a criação de um Data Warehouse relacional em grande escala][]
 
-[Migrando dados para o Azure SQL Data Warehouse][]
+[Migrando dados tooAzure SQL Data Warehouse][]
 
 [Gerenciamento de simultaneidade e carga de trabalho]: sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example
 [Práticas recomendadas para o Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [Consultar monitoramento]: sql-data-warehouse-manage-monitor.md
 [Dez principais práticas recomendadas para a criação de um Data Warehouse relacional em grande escala]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/
-[Migrando dados para o Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[Migrando dados tooAzure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 
 
 [!INCLUDE [Additional Resources](../../includes/sql-data-warehouse-article-footer.md)]
 
 <!-- Internal Links -->
-[Pré-requisitos]: sql-data-warehouse-get-started-tutorial.md#prerequisites
+[pré-requisitos]: sql-data-warehouse-get-started-tutorial.md#prerequisites
 
 <!--Other Web references-->
 [Visual Studio]: https://www.visualstudio.com/

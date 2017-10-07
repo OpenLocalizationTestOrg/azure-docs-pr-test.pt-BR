@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory com o RealtimeBoard | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o RealtimeBoard."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e RealtimeBoard."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,185 +14,185 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: jeedes
-ms.openlocfilehash: d3ba8cb1f7e1d4332f7912848e8b6902d9acf909
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 76644c9ba643d61a903295dea4d417716a47774a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>Tutorial: Integração do Azure Active Directory com o RealtimeBoard
 
-Neste tutorial, você aprende a integrar o RealtimeBoard ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como toointegrate RealtimeBoard com o Azure Active Directory (AD do Azure).
 
-A integração do RealtimeBoard ao Azure AD oferece os seguintes benefícios:
+Integrando RealtimeBoard com o AD do Azure fornece Olá benefícios a seguir:
 
-- No Azure AD, é possível controlar quem tem acesso ao RealtimeBoard.
-- Você pode permitir que os usuários façam logon automaticamente no RealtimeBoard (Logon Único) com suas contas do Azure AD.
-- Você pode gerenciar suas contas em um único local central – o portal do Azure.
+- Você pode controlar no AD do Azure que tenha acesso tooRealtimeBoard.
+- Você pode habilitar seu usuários tooautomatically get conectado tooRealtimeBoard (logon único) com suas contas do AD do Azure.
+- Você pode gerenciar suas contas em um local central - Olá portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com o RealtimeBoard, você precisará dos seguintes itens:
+tooconfigure integração do AD do Azure com RealtimeBoard, você precisa Olá itens a seguir:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura habilitada para logon único do RealtimeBoard
 
 > [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
 
-1. Adicionando RealtimeBoard pela galeria
+1. Adicionando RealtimeBoard da Galeria de saudação
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-realtimeboard-from-the-gallery"></a>Adicionando RealtimeBoard pela galeria
-Para configurar a integração de RealtimeBoard ao Azure AD, você precisa adicionar RealtimeBoard por meio da galeria à sua lista de aplicativos SaaS gerenciados.
+## <a name="adding-realtimeboard-from-hello-gallery"></a>Adicionando RealtimeBoard da Galeria de saudação
+integração de saudação tooconfigure de RealtimeBoard no AD do Azure, você precisa tooadd RealtimeBoard da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
 
-**Para adicionar o RealtimeBoard pela galeria, execute as seguintes etapas:**
+**tooadd RealtimeBoard da Galeria hello, execute Olá etapas a seguir:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
 
-    ![O botão Azure Active Directory][1]
+    ![botão de Active Directory do Azure Olá][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
 
-    ![A folha Aplicativos empresariais][2]
+    ![folha de aplicativos de empresa Olá][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
 
-    ![O botão Novo aplicativo][3]
+    ![Novo botão de aplicativo Hello][3]
 
-4. Na caixa de pesquisa, digite **RealtimeBoard**, selecione **RealtimeBoard** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa hello, digite **RealtimeBoard**, selecione **RealtimeBoard** no painel de resultados e clique em **adicionar** botão aplicativo hello de tooadd.
 
-    ![RealtimeBoard na lista de resultados](./media/active-directory-saas-realtimeboard-tutorial/tutorial_realtimeboard_addfromgallery.png)
+    ![RealtimeBoard na lista de resultados de saudação](./media/active-directory-saas-realtimeboard-tutorial/tutorial_realtimeboard_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
 Nesta seção, você vai configurar e testar o logon único do Azure AD com o RealtimeBoard com base em um usuário de teste chamado "Brenda Fernandes".
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do RealtimeBoard é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado em RealtimeBoard.
+Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá em RealtimeBoard é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação em RealtimeBoard precisa toobe estabelecida.
 
-No RealtimeBoard, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+RealtimeBoard, atribuir valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
 
-Para configurar e testar o logon único do Azure AD com o RealtimeBoard, você precisa concluir os seguintes blocos de construção:
+tooconfigure e teste de logon único do AD do Azure com RealtimeBoard, é necessário Olá toocomplete blocos de construção a seguir:
 
-1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do RealtimeBoard](#create-a-realtimeboard-test-user)** – para ter um equivalente de Brenda Fernandes no RealtimeBoard que esteja vinculado à representação de usuário do Azure AD.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#create-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
+3. **[Criar um usuário de teste RealtimeBoard](#create-a-realtimeboard-test-user)**  -toohave um equivalente do Britta Simon em RealtimeBoard é toohello vinculado do Azure AD representação do usuário.
+4. **[Atribuir um usuário de teste de saudação do AD do Azure](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
+5. **[Testar o logon único](#test-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo RealtimeBoard.
+Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo RealtimeBoard.
 
-**Para configurar o logon único do Azure AD com o RealtimeBoard, realize as seguintes etapas:**
+**tooconfigure AD do Azure-logon único com RealtimeBoard, execute Olá etapas a seguir:**
 
-1. No portal do Azure, na página de integração de aplicativos do **RealtimeBoard**, clique em **Logon único**.
+1. Em Olá portal do Azure, Olá **RealtimeBoard** página de integração de aplicativos, clique em **o logon único**.
 
     ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
  
     ![Caixa de diálogo Logon único](./media/active-directory-saas-realtimeboard-tutorial/tutorial_realtimeboard_samlbase.png)
 
-3. Na seção **Domínio e URLs do RealtimeBoard**, se você desejar configurar o aplicativo em modo iniciado pelo **IDP**:
+3. Em Olá **RealtimeBoard domínio e URLs** seção, se desejar que o aplicativo hello tooconfigure **IDP** modo iniciado:
 
     ![Informações de logon único em Domínio e URLs do RealtimeBoard](./media/active-directory-saas-realtimeboard-tutorial/tutorial_realtimeboard_url.png)
 
-    Na caixa de texto **Identificador**, digite uma URL como: `https://realtimeboard.com/`
+    Em Olá **identificador** caixa de texto, digite um URL como:`https://realtimeboard.com/`
 
-4. Marque **Mostrar configurações avançadas de URL**, se quiser configurar o aplicativo no modo iniciado em **SP**:
+4. Verificar **Mostrar configurações de URL avançadas**, se desejar que o aplicativo hello tooconfigure **SP** modo iniciado:
 
     ![Configurar Logon Único](./media/active-directory-saas-realtimeboard-tutorial/tutorial_realtimeboard_url2.png)
 
-    Na caixa de texto **URL de Logon**, digite uma URL como: `https://realtimeboard.com/sso/saml`
+    Em Olá **URL de logon** caixa de texto, digite um URL como:`https://realtimeboard.com/sso/saml`
 
-5. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+5. Em Olá **o certificado de autenticação SAML** seção, clique em **Metadata XML** e, em seguida, salve o arquivo de metadados de saudação em seu computador.
 
-    ![O link de download do Certificado](./media/active-directory-saas-realtimeboard-tutorial/tutorial_realtimeboard_certificate.png) 
+    ![link de download de certificado Olá](./media/active-directory-saas-realtimeboard-tutorial/tutorial_realtimeboard_certificate.png) 
 
 6. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-realtimeboard-tutorial/tutorial_general_400.png)
 
-7. Para configurar o logon único no lado do **RealtimeBoard**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte do RealtimeBoard](mailto:support@realtimeboard.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+7. tooconfigure logon único no **RealtimeBoard** lado, você precisa toosend Olá baixado **Metadata XML** muito[a equipe de suporte RealtimeBoard](mailto:support@realtimeboard.com). Eles definidos Olá de toohave essa configuração conexão SSO do SAML definido corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
 
    ![Criar um usuário de teste do Azure AD][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
 
-1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
+1. No hello portal do Azure, no painel esquerdo do hello, clique em Olá **Active Directory do Azure** botão.
 
-    ![O botão Azure Active Directory](./media/active-directory-saas-realtimeboard-tutorial/create_aaduser_01.png)
+    ![botão de Active Directory do Azure Olá](./media/active-directory-saas-realtimeboard-tutorial/create_aaduser_01.png)
 
-2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos**e, em seguida, clique em **todos os usuários**.
 
-    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/active-directory-saas-realtimeboard-tutorial/create_aaduser_02.png)
+    ![Olá "Usuários e grupos" e "Todos os usuários" links](./media/active-directory-saas-realtimeboard-tutorial/create_aaduser_02.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação do hello **todos os usuários** caixa de diálogo.
 
-    ![O botão Adicionar](./media/active-directory-saas-realtimeboard-tutorial/create_aaduser_03.png)
+    ![botão Adicionar de saudação](./media/active-directory-saas-realtimeboard-tutorial/create_aaduser_03.png)
 
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+4. Em Olá **usuário** caixa de diálogo caixa, execute Olá etapas a seguir:
 
-    ![A caixa de diálogo Usuário](./media/active-directory-saas-realtimeboard-tutorial/create_aaduser_04.png)
+    ![caixa de diálogo de usuário Olá](./media/active-directory-saas-realtimeboard-tutorial/create_aaduser_04.png)
 
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
+    a. Em Olá **nome** , digite **BrittaSimon**.
 
-    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
+    b. Em Olá **nome de usuário** caixa tipo hello endereço de email do usuário Britta Simon.
 
-    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+    c. Selecione Olá **Mostrar senha** caixa de seleção e anote o valor de saudação que é exibido no hello **senha** caixa.
 
     d. Clique em **Criar**.
  
 ### <a name="create-a-realtimeboard-test-user"></a>Criar um usuário de teste do RealtimeBoard
 
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no RealtimeBoard. O RealtimeBoard dá suporte ao provisionamento just-in-time, que está habilitado por padrão.
+Olá objetivo desta seção é toocreate um usuário chamado Britta Simon no RealtimeBoard. O RealtimeBoard dá suporte ao provisionamento just-in-time, que está habilitado por padrão.
 
-Não há itens de ação para você nesta seção. Se um usuário ainda não existir no RealtimeBoard, um novo será criado quando você tentar acessar o RealtimeBoard.
+Não há itens de ação para você nesta seção. Se um usuário ainda não existir na RealtimeBoard, um novo será criado quando você tenta tooaccess RealtimeBoard.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
 
-Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao RealtimeBoard.
+Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooRealtimeBoard.
 
-![Atribuir a função de usuário][200] 
+![Atribuir função de usuário Olá][200] 
 
-**Para atribuir Brenda Fernandes ao RealtimeBoard, execute as seguintes etapas:**
+**tooassign Britta Simon tooRealtimeBoard, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, escolha **RealtimeBoard**.
+2. Na lista de aplicativos hello, selecione **RealtimeBoard**.
 
-    ![O link do RealtimeBoard na lista de aplicativos](./media/active-directory-saas-realtimeboard-tutorial/tutorial_realtimeboard_app.png)  
+    ![link de RealtimeBoard Olá na lista de aplicativos Olá](./media/active-directory-saas-realtimeboard-tutorial/tutorial_realtimeboard_app.png)  
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
 
-    ![O link “Usuários e grupos”][202]
+    ![link de "Usuários e grupos" Hello][202]
 
 4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
-    ![O painel Adicionar Atribuição][203]
+    ![Painel de atribuição adicionar Olá][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -200,14 +200,14 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
 
-Ao clicar no bloco do RealtimeBoard no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo do RealtimeBoard.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md). 
+Quando você clica em bloco RealtimeBoard Olá Olá painel de acesso, você deve obter automaticamente assinado em tooyour RealtimeBoard aplicativo.
+Para obter mais informações sobre o painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Validar XML – Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Validar XML com esquemas para o Aplicativo Lógico do Azure e cenários B2B usando o Enterprise Integration Pack"
+title: "aaaValidate XML - os aplicativos lógicos do Azure | Microsoft Docs"
+description: "Validar XML com esquemas para os aplicativos lógicos do Azure e a cenários B2B usando Olá Enterprise Integration Pack"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -14,39 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 8558efffa354cc4bb93820c837077ee997924c95
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 81f662d0ddf908657b54de8af0a75fff55782ef7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="validate-xml-for-enterprise-integration"></a>Validar XML para integração corporativa
 
-Geralmente, em cenários B2B, os parceiros de um contrato devem garantir que as mensagens trocadas entre eles são válidas antes de iniciar o processamento de dados. É possível validar documentos com um esquema predefinido usando o conector de Validação de XML do Enterprise Integration Pack.
+Geralmente em cenários B2B, parceiros de saudação em um contrato devem Certifique-se de que as mensagens de saudação que do exchange que são válidas antes de iniciar o processamento de dados. Você pode validar documentos em um esquema predefinido usando o conector de validação de XML de Olá Olá use em Olá Enterprise Integration Pack.
 
-## <a name="validate-a-document-with-the-xml-validation-connector"></a>Validar um documento com o conector de Validação de XML
+## <a name="validate-a-document-with-hello-xml-validation-connector"></a>Validar um documento com o conector de validação de XML Olá
 
-1. Crie um aplicativo lógico e [vincule-o à sua conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md "Saiba como vincular uma conta de integração a um Aplicativo lógico") que contém o esquema que você deseja usar para validar os dados XML.
+1. Criar um aplicativo lógico, e [vincular Olá aplicativo toohello integração conta](../logic-apps/logic-apps-enterprise-integration-accounts.md "Saiba toolink um aplicativo de conta tooa lógica da integração") que tem o esquema de saudação desejar toouse para validar dados XML.
 
-2. Adicione um gatilho **Solicitação - quando uma solicitação HTTP é recebida** ao seu Aplicativo Lógico.
+2. Adicionar um **solicitar - quando HTTP de uma solicitação é recebida** gatilho tooyour lógica aplicativo.
 
     ![](./media/logic-apps-enterprise-integration-xml/xml-1.png)
 
-3. Para adicionar a ação de **Validação de XML**, escolha **Adicionar uma ação**.
+3. Olá tooadd **validação de XML** ação, escolha **adicionar uma ação**.
 
-4. Para filtrar todas as ações para aquela que você deseja usar, insira *xml* na caixa de pesquisa. Escolha **Validação de XML**.
+4. toofilter todos Olá toohello de ações que você desejar, digite *xml* na caixa de pesquisa de saudação. Escolha **Validação de XML**.
 
     ![](./media/logic-apps-enterprise-integration-xml/xml-2.png)
 
-5. Para especificar o conteúdo XML que você deseja validar, selecione **CONTEÚDO**.
+5. Olá toospecify conteúdo XML que você deseja toovalidate, selecione **conteúdo**.
 
     ![](./media/logic-apps-enterprise-integration-xml/xml-1-5.png)
 
-6. Selecione a marca body como o conteúdo que você deseja validar.
+6. Selecione a marca de corpo de Olá como Olá conteúdo que você deseja toovalidate.
 
     ![](./media/logic-apps-enterprise-integration-xml/xml-3.png)
 
-7. Para especificar o esquema desejado a fim de validar a entrada de *conteúdo* anterior, escolha **NOME DO ESQUEMA**.
+7. esquema de saudação toospecify você deseja toouse para validar a saudação anterior *conteúdo* de entrada, escolha **nome do esquema**.
 
     ![](./media/logic-apps-enterprise-integration-xml/xml-4.png)
 
@@ -54,10 +54,10 @@ Geralmente, em cenários B2B, os parceiros de um contrato devem garantir que as 
 
     ![](./media/logic-apps-enterprise-integration-xml/xml-5.png)
 
-Agora, a configuração do conector de validação foi concluída. Em um aplicativo real, convém armazenar os dados validados em um aplicativo LOB (de linha de negócios), como o SalesForce. Para enviar a saída validada ao Salesforce, adicione uma ação.
+Agora, a configuração do conector de validação foi concluída. Em um aplicativo do mundo real, você poderá toostore dados de saudação validada em um aplicativo da linha de negócios (LOB) como o SalesForce. toosend Olá tooSalesforce saída validado, adicione uma ação.
 
-Para testar a ação de validação, faça uma solicitação ao ponto de extremidade HTTP.
+tootest a ação de validação, criar um ponto de extremidade de toohello HTTP de solicitação.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")   
+[Saiba mais sobre Olá Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o pacote de integração do Enterprise")   
 

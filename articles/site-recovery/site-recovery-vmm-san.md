@@ -1,6 +1,6 @@
 ---
-title: Replicar as VMs do Hyper-V no VMM com SAN usando o Azure Site Recovery | Microsoft Docs
-description: "Este artigo descreve como replicar máquinas virtuais Hyper-V entre dois sites com o Azure Site Recovery usando a replicação SAN."
+title: aaaReplicate VMs Hyper-V no VMM com SAN usando o Azure Site Recovery | Microsoft Docs
+description: "Este artigo descreve como máquinas virtuais de tooreplicate Hyper-V entre dois sites com o Azure Site Recovery usando a replicação SAN."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,46 +14,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: raynew
-ms.openlocfilehash: 3df38802fcdc86e4553253d38c49faff455f873e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cee4ff519a8e9e7f29e17e923a9533fb339634b4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="replicate-hyper-v-vms-in-vmm-clouds-to-a-secondary-site-with-azure-site-recovery-by-using-san"></a>Replicar as VMs do Hyper-V nas nuvens do VMM em um site secundário com o Azure Site Recovery usando a SAN
+# <a name="replicate-hyper-v-vms-in-vmm-clouds-tooa-secondary-site-with-azure-site-recovery-by-using-san"></a>Replicar máquinas virtuais do Hyper-V no site secundário do VMM nuvens tooa com o Azure Site Recovery com SAN
 
 
-Use este artigo se quiser implantar o [Azure Site Recovery](site-recovery-overview.md) para gerenciar a replicação das VMs do Hyper-V (gerenciadas nas nuvens do VMM do System Center) em um site secundário do VMM, usando o Azure Site Recovery no portal clássico. Este cenário não está disponível no novo portal do Azure.
+Use este artigo se você quiser toodeploy [do Azure Site Recovery](site-recovery-overview.md) toomanage replicação de máquinas virtuais do Hyper-V (gerenciados nas nuvens do System Center Virtual Machine Manager) tooa site VMM secundário, usando o Azure Site Recovery no portal clássico do hello. Esse cenário não está disponível no novo portal do Azure de saudação.
 
 
 
-Poste comentários no final deste artigo. Obtenha respostas para perguntas técnicas no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Lança os comentários no final deste artigo hello. Obter respostas a perguntas tootechnical em Olá [Fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="why-replicate-with-san-and-site-recovery"></a>Por que replicar com SAN e Site Recovery?
 
-* A SAN fornece uma solução de replicação no nível corporativo e dimensionável para que um site primário, que contém o Hyper-V com a SAN, possa replicar as LUNs em um site secundário com a SAN. O armazenamento é gerenciado pelo VMM e a replicação e o failover são gerenciados com o Site Recovery.
-* O Site Recovery trabalhou com vários [parceiros de armazenamento SAN](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx) para oferecer a replicação no Fibre Channel e no armazenamento iSCSI.  
-* Use sua infraestrutura SAN existente para proteger os aplicativos críticos implantados nos clusters do Hyper-V. As VMs podem ser replicadas como um grupo para que os aplicativos com N camadas possam sofrer failover consistentemente.
+* SAN fornece uma solução de replicação de nível corporativo e dimensionável para que um site primário que contém Hyper-V com SAN pode replicar o site secundário do tooa LUNs com SAN. O armazenamento é gerenciado pelo VMM e a replicação e o failover são gerenciados com o Site Recovery.
+* Recuperação de site trabalha com vários [parceiros de armazenamento de SAN](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx) tooprovide a replicação entre armazenamento Fibre Channel e iSCSI.  
+* Use seu SAN infraestrutura tooprotect críticos aplicativos existentes implantados em clusters Hyper-V. As VMs podem ser replicadas como um grupo para que os aplicativos com N camadas possam sofrer failover consistentemente.
 * A replicação SAN garante a consistência da replicação nas diferentes camadas de um aplicativo com a replicação síncrona para o RTO e RPO baixos, e a replicação assíncrona para a alta flexibilidade (dependendo das capacidades da matriz de armazenamento).  
-* Você pode gerenciar o armazenamento SAN no fabric do VMM e usar o SMI-S no VMM para descobrir o armazenamento existente.  
+* Você pode gerenciar o armazenamento SAN no hello malha do VMM e use o SMI-S em um armazenamento existente do VMM toodiscover.  
 
 Observe que:
-- A replicação SAN de site a site não está disponível no portal do Azure. Ela só está disponível no portal clássico. Não é possível criar novos cofres no portal clássico. Os cofres existentes podem ser mantidos.
-- Não há suporte para replicação SAN no Azure.
-- Não é possível replicar os VHDXs compartilhados ou as unidades lógicas (LUNs) conectadas diretamente às VMs via iSCSI ou Fibre Channel. Os clusters de convidados podem ser replicados.
+- Replicação do site a site com SAN não está disponível no hello portal do Azure. Só está disponível no portal clássico do hello. Não não possível criar novos cofres no portal clássico do hello. Os cofres existentes podem ser mantidos.
+- Não há suporte para replicação de SAN tooAzure.
+- Você não pode replicar VHDXs compartilhados ou unidades lógicas (LUNs) que estão diretamente conectados tooVMs via iSCSI ou Fibre Channel. Os clusters de convidados podem ser replicados.
 
 
 ## <a name="architecture"></a>Arquitetura
 
 ![Arquitetura de SAN](./media/site-recovery-vmm-san/architecture.png)
 
-- **Azure**: configure um cofre do Site Recovery no portal do Azure.
-- **Armazenamento SAN**: o armazenamento SAN é gerenciado na malha do VMM. Adicione o provedor de armazenamento, crie classificações de armazenamento e configure pools de armazenamento.
-- **VMM e Hyper-V**: recomendamos um servidor VMM em cada site. Configure as nuvens privadas do VMM e coloque os clusters Hyper-V nessas nuvens. Durante a implantação, o Provedor do Azure Site Recovery é instalado em cada servidor do VMM e o servidor é registrado no cofre. O Provedor se comunica com o serviço Site Recovery para gerenciar a replicação, o failover e o failback.
-- **Replicação**: depois de configurar o armazenamento no VMM e configurar a replicação no Site Recovery, a replicação ocorre entre os armazenamentos SAN primário e secundário. Nenhum dado de replicação é enviado ao Site Recovery.
-- **Failover**: habilite o failover no portal do Site Recovery. Não há perda de dados durante o failover porque a replicação é síncrona.
-- **Failback**: para realizar o failback, habilite a replicação inversa para transferir as alterações delta do site secundário para o site primário. Após a conclusão da replicação inversa, execute um failover planejado do secundário para o primário. Esse failover planejado interrompe as VMs de réplica no site secundário e inicializa-as no site primário.
+- **Azure**: configurar um cofre de recuperação de Site no portal do Azure de saudação.
+- **Armazenamento de SAN**: armazenamento SAN é gerenciado no hello malha do VMM. Adicionar provedor de armazenamento hello, crie classificações de armazenamento e configurar pools de armazenamento.
+- **VMM e Hyper-V**: recomendamos um servidor VMM em cada site. Configure as nuvens privadas do VMM e coloque os clusters Hyper-V nessas nuvens. Durante a implantação, Olá provedor Azure Site Recovery está instalado em cada servidor do VMM e servidor hello está registrado no cofre de saudação. Olá provedor se comunica com a replicação de toomanage do serviço de recuperação de Site hello, failover e failback.
+- **Replicação**: depois de configurar o armazenamento no VMM e configurar a replicação na recuperação de Site, a replicação ocorre entre o armazenamento SAN primário e secundário hello. Nenhum dado de replicação é enviado tooSite recuperação.
+- **Failover**: habilitar o failover no portal de recuperação de Site hello. Não há perda de dados durante o failover porque a replicação é síncrona.
+- **Failback**: toofail novamente, habilite as alterações delta na tootransfer replicação inversa do site primário do toohello Olá site secundário. Após a conclusão da replicação inversa, executar um failover planejado de tooprimary secundário. Esse failover planejado para réplica Olá VMs no site secundário hello e inicia no site primário hello.
 
 
 ## <a name="before-you-start"></a>Antes de começar
@@ -61,14 +61,14 @@ Observe que:
 
 **Pré-requisitos** | **Detalhes**
 --- | ---
-**As tabelas** |Você precisa de uma conta do [Microsoft Azure](https://azure.microsoft.com/) . Você pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). [Saiba mais](https://azure.microsoft.com/pricing/details/site-recovery/) sobre os preços da Recuperação de Site. Crie um cofre do Azure Site Recovery para configurar e gerenciar a replicação e o failover.
-**VMM** | Você pode usar um único servidor VMM e replicar entre nuvens diferentes, mas recomendamos ter um VMM no site primário e outro no site secundário. Um VMM pode ser implantado como um servidor físico ou virtual autônomo, ou como um cluster. <br/><br/>O servidor VMM deve estar executando o System Center 2012 R2 ou posterior com as atualizações cumulativas mais recentes.<br/><br/> Você precisa de pelo menos uma nuvem configurada no servidor VMM primário que deseja proteger e uma nuvem configurada no servidor do VMM secundário que deseja usar para failover.<br/><br/> A nuvem de origem precisa conter um ou mais grupos de hosts do VMM.<br/><br/> Todas as nuvens VMM devem ter o perfil de Capacidade do Hyper-V definido.<br/><br/> Para obter mais informações sobre como configurar as nuvens do VMM, consulte [Implantar uma nuvem VM privada](https://technet.microsoft.com/en-us/system-center-docs/vmm/scenario/cloud-overview).
-**Hyper-V** | Você precisa de um ou mais clusters Hyper-V nas nuvens do VMM primárias e secundárias.<br/><br/> O cluster do Hyper-V de origem deve conter uma ou mais VMs.<br/><br/> Os grupos de hosts do VMM nos sites primário e secundário devem conter pelo menos um dos clusters Hyper-V.<br/><br/>Os servidores Hyper-V de host e destino devem estar executando o Windows Server 2012 ou posterior com a função Hyper-V e ter as últimas atualizações instaladas.<br/><br/> Se você estiver executando o Hyper-V em um cluster e tiver um cluster baseado em endereços IP estáticos, o agente do cluster não será criado automaticamente. Você deve configurá-lo manualmente. Para obter mais informações, consulte [Preparando os clusters de hosts para a réplica do Hyper-V](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters).
-**Armazenamento SAN** | Você pode replicar as máquinas virtuais em cluster convidadas com o armazenamento iSCSI ou de canal, ou usando discos rígidos virtuais compartilhados (vhdx).<br/><br/> Você precisa de duas matrizes de SAN: uma no site primário e outra no secundário.<br/><br/> Uma infraestrutura de rede deve ser configurada entre as matrizes. Devem ser configurados o emparelhamento e a replicação. Licenças de replicação devem ser configuradas de acordo com os requisitos de matriz de armazenamento.<br/><br/>Configure uma rede entre os servidores de host Hyper-V e a matriz de armazenamento para que os hosts possam comunicar-se com as LUNs de armazenamento usando o iSCSI ou o Fibre Channel.<br/><br/> Verificar [matrizes de armazenamento com suporte](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx).<br/><br/> Os provedores SMI-S, dos fabricantes da matriz de armazenamento, devem ser instalados e as matrizes de SAN devem ser gerenciadas pelo provedor. Configure o Provedor de acordo com as instruções do fabricante.<br/><br/>Verifique se o provedor SMI-S da matriz está em um servidor que o servidor VMM pode acessar na rede com um endereço IP ou FQDN.<br/><br/> Cada matriz SAN deve ter um ou mais pools de armazenamento disponíveis.<br/><br/> O servidor VMM primário deve gerenciar a matriz primária e o servidor VMM secundário, a matriz secundária.
-**Mapeamento de rede** | Configure o mapeamento de rede para que as máquinas virtuais replicadas sejam colocadas da melhor forma possível nos servidores de host Hyper-V secundários após o failover e que sejam conectadas às redes de VM apropriadas. Se você não configurar a réplica de mapeamento de rede, as VMs não serão conectadas a nenhuma rede após o failover.<br/><br/> Verifique se as redes de VMM estão configuradas corretamente para poder configurar o mapeamento da rede durante a implantação do Site Recovery. No VMM, as VMs no host Hyper-V de origem devem ser conectadas a uma rede de VMs do VMM. Essa rede deve ser vinculada a uma rede lógica que esteja associada à nuvem.<br/><br/> A nuvem de destino deverá ter uma rede VM correspondente, que, por sua vez, deverá estar vinculada a uma rede lógica correspondente associada à nuvem de destino.<br/><br/>.
+**As tabelas** |Você precisa de uma conta do [Microsoft Azure](https://azure.microsoft.com/) . Você pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). [Saiba mais](https://azure.microsoft.com/pricing/details/site-recovery/) sobre os preços da Recuperação de Site. Criar um tooconfigure do cofre Azure Site Recovery e gerenciar replicação e failover.
+**VMM** | Você pode usar um único servidor do VMM e replicar entre nuvens diferentes, mas é recomendável um VMM no site primário hello e um no site secundário hello. Um VMM pode ser implantado como um servidor físico ou virtual autônomo, ou como um cluster. <br/><br/>servidor do VMM Olá deve estar executando o System Center 2012 R2 ou posterior com hello últimas atualizações cumulativas.<br/><br/> Você precisa de pelo menos uma nuvem configurada no servidor VMM primário Olá deseja tooprotect e uma nuvem configurada no servidor do VMM secundário Olá desejar toouse para failover.<br/><br/> nuvem de origem Olá deve conter um ou mais grupos de hosts do VMM.<br/><br/> Todas as nuvens do VMM devem ter o perfil de capacidade do Hyper-V Olá definido.<br/><br/> Para obter mais informações sobre como configurar as nuvens do VMM, consulte [Implantar uma nuvem VM privada](https://technet.microsoft.com/en-us/system-center-docs/vmm/scenario/cloud-overview).
+**Hyper-V** | Você precisa de um ou mais clusters Hyper-V nas nuvens do VMM primárias e secundárias.<br/><br/> cluster de Hyper-V de origem Olá deve conter uma ou mais máquinas virtuais.<br/><br/> grupos de hosts do VMM Olá em sites primários e secundários do hello devem conter pelo menos um dos clusters do Hyper-V hello.<br/><br/>servidores de Hyper-V de host e de destino de saudação devem estar executando o Windows Server 2012 ou posterior com atualizações de mais recentes função e Olá Olá Hyper-V instalado.<br/><br/> Se você estiver executando o Hyper-V em um cluster e tiver um cluster baseado em endereços IP estáticos, o agente do cluster não será criado automaticamente. Você deve configurá-lo manualmente. Para obter mais informações, consulte [Preparando os clusters de hosts para a réplica do Hyper-V](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters).
+**Armazenamento SAN** | Você pode replicar as máquinas virtuais em cluster convidadas com o armazenamento iSCSI ou de canal, ou usando discos rígidos virtuais compartilhados (vhdx).<br/><br/> Você precisa de duas matrizes SAN: um no site primário hello e site secundário de uma saudação em.<br/><br/> Uma infraestrutura de rede deve ser configurada entre matrizes de saudação. Devem ser configurados o emparelhamento e a replicação. As licenças de replicação devem ser configuradas de acordo com requisitos de matriz de armazenamento de saudação.<br/><br/>Configure o sistema de rede entre os servidores de host de saudação Hyper-V e matriz de armazenamento Olá para que os hosts podem se comunicar com os LUNs de armazenamento utilizando iSCSI ou Fibre Channel.<br/><br/> Verificar [matrizes de armazenamento com suporte](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx).<br/><br/> Provedores de SMI-S de fabricantes de matriz de armazenamento devem ser instalados e matrizes de SAN Olá devem ser gerenciados pelo provedor de saudação. Configure Olá provedor acordo toomanufacturer instruções.<br/><br/>Verifique se o provedor de SMI-S da matriz que hello está em um servidor que Olá VMM servidor possa acessar via rede de saudação com um endereço IP ou FQDN.<br/><br/> Cada matriz SAN deve ter um ou mais pools de armazenamento disponíveis.<br/><br/> Olá servidor primário do VMM deve gerenciar a matriz primária hello e Olá servidor secundário do VMM deve gerenciar a matriz secundária hello.
+**Mapeamento de rede** | Configure mapeamento de rede para que as máquinas virtuais replicadas são colocadas idealmente em servidores de host Hyper-V secundários após o failover, e para que sejam conectados tooappropriate redes VM. Se você não configurar o mapeamento de rede, máquinas virtuais de réplica não será conectada tooany rede após o failover.<br/><br/> Verifique se as redes de VMM estão configuradas corretamente para poder configurar o mapeamento da rede durante a implantação do Site Recovery. No VMM, Olá VMs no host de Hyper-V de origem Olá deve ser conectado tooa rede VM do VMM. Essa rede deve ser vinculado tooa rede lógica associada à nuvem hello.<br/><br/> nuvem de destino Olá deve ter uma rede VM correspondente e, por sua vez deve ser vinculado tooa correspondente rede lógica que está associado com a nuvem de destino hello.<br/><br/>.
 
-## <a name="step-1-prepare-the-vmm-infrastructure"></a>Etapa 1: preparar a infraestrutura do VMM
-Para preparar a infraestrutura do VMM, é necessário:
+## <a name="step-1-prepare-hello-vmm-infrastructure"></a>Etapa 1: Preparar a infraestrutura do VMM Olá
+tooprepare sua infraestrutura do VMM, você precisa:
 
 1. verificar as nuvens do VMM;
 2. integrar e classificar o armazenamento de SAN no VMM.
@@ -80,65 +80,65 @@ Para preparar a infraestrutura do VMM, é necessário:
 
 Verifique se suas nuvens do VMM estão configuradas corretamente antes de começar a implantação do Site Recovery.
 
-### <a name="integrate-and-classify-san-storage-in-the-vmm-fabric"></a>Integre e classifique o armazenamento SAN no VMM
+### <a name="integrate-and-classify-san-storage-in-hello-vmm-fabric"></a>Integrar e classificar o armazenamento SAN no hello malha do VMM
 
-1. No console do VMM, vá para **Fabric** > **Armazenamento** > **Adicionar Recursos** > **Dispositivos de Armazenamento**.
-2. No assistente para **Adicionar Dispositivos de Armazenamento**, escolha **Selecionar um tipo de provedor de armazenamento** e selecione **Dispositivos SAN e NAS descobertos e gerenciados por um provedor SMI-S**.
+1. No console do VMM hello, vá muito**malha** > **armazenamento** > **adicionar recursos** > **dedispositivosdearmazenamento**.
+2. Em Olá **adicionar dispositivos de armazenamento** assistente, selecione **selecionar um tipo de provedor de armazenamento** e selecione **dispositivos SAN e NAS descobertos e gerenciados por um provedor de SMI-S**.
 
     ![Tipo de provedor](./media/site-recovery-vmm-san/provider-type.png)
 
-3. Na página **Especificar Protocolo e Endereço do Provedor SMI-S de Armazenamento**, selecione **SMI-S CIMXML** e especifique as configurações para conectar o provedor.
-4. No **Endereço IP do provedor ou FQDN** e **porta TCP/IP**, especifique as configurações para se conectar ao provedor. Você pode usar uma conexão SSL apenas para CIMXML de SMI-S.
+3. Em Olá **especificar protocolo e endereço de provedor de SMI-S de armazenamento de hello** página, selecione **CIMXML SMI-S** e especifique as configurações para o provedor de conexão toohello hello.
+4. Em **endereço IP do provedor ou FQDN** e **porta TCP/IP**, especifique as configurações de saudação para o provedor de conexão toohello. Você pode usar uma conexão SSL apenas para CIMXML de SMI-S.
 
     ![Conexão com o provedor](./media/site-recovery-vmm-san/connect-settings.png)
-5. Em **Executar como conta**, especifique uma conta Executar VMM Como que possa acessar o provedor ou crie uma conta.
-6. Na página **Reunir Informações** , o VMM tenta automaticamente detectar e importar as informações do dispositivo de armazenamento. Para repetir a descoberta, clique em **Examinar Provedor**. Se o processo de descoberta for bem-sucedido, as matrizes de armazenamento, pools de armazenamento, fabricante, modelo e capacidade descobertos serão listados na página.
+5. Em **conta executar como**, especifique uma conta executar como do VMM que pode acessar o provedor hello, ou criar uma conta.
+6. Em Olá **reunir informações** página, o VMM tenta automaticamente toodiscover e importar informações de dispositivo de armazenamento de saudação. descoberta de tooretry, clique em **examinar provedor**. Se o processo de descoberta de saudação for bem-sucedida, Olá descobertos matrizes de armazenamento, pools de armazenamento, fabricante, modelo e capacidade são listados na página de saudação.
 
     ![Descoberta do armazenamento](./media/site-recovery-vmm-san/discover.png)
-7. Em **Selecionar pools de armazenamento para colocar sob gerenciamento e atribuir uma classificação**, selecione os pools de armazenamento que o VMM gerenciará e atribua-os uma classificação. As informações de LUN são importadas dos pools de armazenamento. Crie LUNs com base nos aplicativos que você precisa proteger, seus requisitos de capacidade e requisitos para o que precisa replicar junto.
+7. Em **selecione tooplace de pools de armazenamento sob gerenciamento e atribuir uma classificação**, selecione Olá pools de armazenamento que o VMM gerenciará e atribuí-los uma classificação. Informações de LUN são importadas de pools de armazenamento hello. Criar LUNs com base em aplicativos Olá precisar tooprotect, seus requisitos de capacidade e seus requisitos para o que precisa tooreplicate juntos.
 
     ![Classificação do armazenamento](./media/site-recovery-vmm-san/classify.png)
 
 ### <a name="create-luns-and-allocate-storage"></a>Criar LUNs e alocar armazenamento
 
-Crie LUNs com base nos aplicativos que você precisa proteger, requisitos de capacidade e requisitos para o que precisa replicar junto.
+Criar LUNs com base em aplicativos Olá precisar tooprotect, requisitos de capacidade e seus requisitos para o que precisa tooreplicate juntos.
 
-1. Depois que o armazenamento é exibido na malha do VMM, você pode [provisionar LUNs](https://technet.microsoft.com/en-us/system-center-docs/vmm/manage/manage-storage-host-groups#create-a-lun-in-vmm).
+1. Depois de armazenamento Olá aparece no hello malha do VMM, você poderá [provisionar LUNs](https://technet.microsoft.com/en-us/system-center-docs/vmm/manage/manage-storage-host-groups#create-a-lun-in-vmm).
 
      > [!NOTE]
-     > Não adicione VHDs à VM que está habilitada para replicação nas LUNs. Se as LUNs não estiverem em um grupo de replicação do Site Recovery, elas não serão detectadas pelo Site Recovery.
+     > Não adicione VHDs para Olá VM que são habilitados para replicação tooLUNs. Se as LUNs não estiverem em um grupo de replicação do Site Recovery, elas não serão detectadas pelo Site Recovery.
      >
 
-2. Aloque a capacidade de armazenamento para o cluster de hosts do Hyper-V para que o VMM possa implantar os dados da máquina virtual no armazenamento provisionado:
+2. Aloque o cluster de host Hyper-V do toohello de capacidade de armazenamento para que o VMM possa implantar o armazenamento da máquina virtual dados toohello provisionado:
 
-   * Antes de alocar o armazenamento para o cluster, você precisa alocá-lo para o grupo de hosts do VMM no qual o cluster reside. Para obter mais informações, consulte [Como alocar unidades lógicas de armazenamento para um grupo de hosts no VMM](https://technet.microsoft.com/library/gg610686.aspx) e [Como alocar pools de armazenamento para um grupo de hosts no VMM](https://technet.microsoft.com/library/gg610635.aspx).
-   * Aloque a capacidade de armazenamento para o cluster como descrito em [Como configurar o armazenamento em um cluster de hosts do Hyper-V no VMM](https://technet.microsoft.com/library/gg610692.aspx).
+   * Antes de alocar armazenamento toohello cluster, você precisa tooallocate-grupo de hosts do VMM toohello no qual Olá cluster reside. Para obter mais informações, consulte [como tooa de unidades lógicas de armazenamento tooallocate hospedar o grupo no VMM](https://technet.microsoft.com/library/gg610686.aspx) e [como os pools de armazenamento tooallocate tooa o grupo de hosts no VMM](https://technet.microsoft.com/library/gg610635.aspx).
+   * Alocar armazenamento ao cluster toohello capacidade conforme descrito em [como cluster de armazenamento tooconfigure em um host Hyper-V no VMM](https://technet.microsoft.com/library/gg610692.aspx).
 
     ![Tipo de provedor](./media/site-recovery-vmm-san/provider-type.png)
-3. Em **Especificar Protocolo e Endereço do Provedor de SMI-S de Armazenamento**, selecione **SMI-S CIMXML**. Especifique as configurações para se conectar ao provedor. Você pode usar uma conexão SSL apenas para o CIMXML do SMI-S.
+3. Em **especificar protocolo e endereço de provedor de SMI-S de armazenamento de hello**, selecione **CIMXML SMI-S**. Especifica configurações de Olá para conectar-se o provedor de toohello. Você pode usar uma conexão SSL apenas para o CIMXML do SMI-S.
 
     ![Conexão com o provedor](./media/site-recovery-vmm-san/connect-settings.png)
-4. Em **Executar como conta**, especifique uma conta Executar VMM Como que possa acessar o provedor ou crie uma conta.
-5. Em **Reunir Informações** , o VMM tenta automaticamente detectar e importar as informações do dispositivo de armazenamento. Se você precisar repetir, clique em **Examinar Provedor**. Quando o processo de descoberta é bem-sucedido, as matrizes de armazenamento, os pools de armazenamento, o fabricante, o modelo e a capacidade são listados na página.
+4. Em **conta executar como**, especifique uma conta executar como do VMM que pode acessar o provedor hello, ou criar uma conta.
+5. Em **reunir informações**, o VMM tenta automaticamente toodiscover e importar informações de dispositivo de armazenamento de saudação. Se você precisar tooretry, clique em **examinar provedor**. Quando o processo de descoberta Olá tiver êxito, matrizes de armazenamento hello, capacidade, fabricante, modelo e pools de armazenamento são listados na página de saudação.
 
     ![Descoberta do armazenamento](./media/site-recovery-vmm-san/discover.png)
-7. Em **Selecionar pools de armazenamento para colocar sob gerenciamento e atribuir uma classificação**, selecione os pools de armazenamento que o VMM gerenciará e atribua-os uma classificação. As informações de LUN são importadas dos pools de armazenamento.
+7. Em **selecione tooplace de pools de armazenamento sob gerenciamento e atribuir uma classificação**, selecione Olá pools de armazenamento que o VMM gerenciará e atribuí-los uma classificação. Informações de LUN são importadas de pools de armazenamento hello.
 
     ![Classificação do armazenamento](./media/site-recovery-vmm-san/classify.png)
 
 
 ### <a name="create-replication-groups"></a>Criar grupos de replicação
 
-Crie um grupo de replicação que inclui todas as LUNs que precisarão ser replicadas junto.
+Crie um grupo de replicação que inclui todos os LUNs Olá precisará tooreplicate juntos.
 
-1. No console do VMM, abra a guia **Grupos de Replicação** das propriedades da matriz de armazenamento e clique em **Novo**.
-2. Crie o grupo de replicação.
+1. No console do VMM hello, abra Olá **grupos de replicação** guia de propriedades de matriz de armazenamento hello e clique **novo**.
+2. Crie grupo de replicação de saudação.
 
     ![Grupo de replicação de SAN](./media/site-recovery-vmm-san/rep-group.png)
 
 ### <a name="set-up-networks"></a>Configurar redes
 
-Se você quiser configurar o mapeamento de rede, faça o seguinte:
+Se você quiser que o mapeamento de rede tooconfigure, Olá a seguir:
 
 1. Consulte o mapeamento de rede do Site Recovery.
 2. Prepare redes de VM no VMM:
@@ -149,100 +149,100 @@ Se você quiser configurar o mapeamento de rede, faça o seguinte:
 
 ## <a name="step-2-create-a-vault"></a>Etapa 2: criar um cofre
 
-1. Entre no [portal do Azure](https://portal.azure.com) a partir do servidor VMM que você deseja registrar no cofre.
+1. Entrar toohello [portal do Azure](https://portal.azure.com) do servidor do VMM Olá deseja tooregister no cofre hello.
 2. Expanda os **Serviços de Dados** > **Serviços de Recuperação** e clique em **Cofre do Site Recovery**.
 3. Clique em **Criar Novo** > **Criação Rápida**.
-4. Em **Nome**, digite um nome amigável para identificar o cofre.
-5. Em **Região**, selecione a região geográfica para o cofre. Para verificar as regiões com suporte, consulte os [Detalhes do Preço do Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
+4. Em **nome**, insira um cofre de saudação tooidentify nome amigável.
+5. Em **região**, selecione Olá região geográfica para Olá cofre. regiões de toocheck com suporte, consulte [detalhes de preços do Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. Clique em **Criar cofre**.
 
     ![Novo cofre](./media/site-recovery-vmm-san/create-vault.png)
 
-Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O cofre será listado como **Ativo** na página de **Serviços de Recuperação**.
+Verifique a saudação tooconfirm de barra de status que Olá cofre foi criado com êxito. Olá cofre será listado como **Active** em Olá principal **dos serviços de recuperação** página.
 
-### <a name="register-the-vmm-servers"></a>Registrar os servidores VMM
+### <a name="register-hello-vmm-servers"></a>Registrar servidores do VMM Olá
 
-1. Abra a página **Início Rápido** na página **Serviços de Recuperação**. O Início Rápido também pode ser aberto a qualquer momento escolhendo o ícone.
+1. Olá abrir **início rápido** página Olá **dos serviços de recuperação** página. Início rápido também pode ser aberto a qualquer momento, escolhendo o ícone de saudação.
 
     ![Ícone de Inicialização Rápida](./media/site-recovery-vmm-san/quick-start-icon.png)
-2. Na caixa suspensa, selecione **Entre o site local do Hyper-V usando a replicação de matrizes**.
+2. Na caixa de lista suspensa hello, selecione **entre o Hyper-V usando a replicação de matriz de site local**.
 
-    ![Chave de registro](./media/site-recovery-vmm-san/select-san.png)
-3. Em **Preparar servidores VMM**, baixe a versão mais recente do arquivo de instalação do Provedor do Azure Site Recovery.
-4. Execute esse arquivo no servidor VMM de origem. Se o VMM for implantado em um cluster e você estiver instalando o Provedor pela primeira vez, instale-o em um nó ativo e conclua a instalação para registrar o servidor VMM no cofre. Em seguida, instale o Provedor nos outros nós. Se estiver atualizando o Provedor, você precisará fazer a atualização em todos os nós para que tenham a mesma versão do Provedor.
-5. O instalador verifica os requisitos e solicita permissão para interromper o serviço VMM para iniciar a instalação do Provedor. O serviço será reiniciado automaticamente quando a instalação for finalizada. Em um cluster do VMM, você será solicitado a parar a função Cluster.
-6. No **Microsoft Update**, você pode aceitar as atualizações para que as atualizações do Provedor sejam instaladas de acordo com a política do Microsoft Update.
+    ![Chave de Registro](./media/site-recovery-vmm-san/select-san.png)
+3. Em **servidores VMM preparar**, baixe a versão mais recente Olá Olá provedor Azure Site Recovery do arquivo de instalação.
+4. Execute esse arquivo no servidor do VMM de origem de saudação. Se o VMM for implantado em um cluster e você estiver instalando hello provedor para hello primeira vez, instale Olá provedor em um nó ativo e concluir o servidor do VMM Olá instalação tooregister Olá no cofre hello. Em seguida, instale Olá provedor em Olá outros nós. Se você estiver atualizando Olá provedor, é necessário tooupgrade em todos os nós para que eles têm Olá a mesma versão do provedor.
+5. Olá instalador verifica se os requisitos e solicitações permissão toostop Olá instalação de provedor de toobegin de serviço do VMM. Olá serviço será reiniciado automaticamente quando a instalação for concluída. Em um cluster do VMM, você estará função de Cluster Olá toostop solicitada.
+6. Em **Microsoft Update**, você pode aceitar atualizações e atualizações de provedor serão instaladas de acordo com a política do Microsoft Update tooyour.
 
     ![Atualizações da Microsoft](./media/site-recovery-vmm-san/ms-update.png)
 
-7. Por padrão, o local de instalação do Provedor é <SystemDrive>\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin. Clique em **Instalar** para começar.
+7. Por padrão, o local de instalação de saudação para Olá provedor é <SystemDrive>\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin. Clique em **instalar** toobegin.
 
     ![Local de Instalação](./media/site-recovery-vmm-san/install-location.png)
 
-8. Após a instalação do Provedor, clique em **Registrar** para registrar o servidor VMM no cofre.
+8. Depois de saudação provedor estiver instalada, clique em **registrar** servidor do VMM Olá tooregister no cofre hello.
 
     ![Instalação Concluída](./media/site-recovery-vmm-san/install-complete.png)
 
-9. Em **Conexão de Internet**, especifique como o Provedor conecta a Internet. Selecione **Usar configurações de proxy padrão do sistema** se quiser usar as configurações de conexão com a Internet padrão no servidor.
+9. Em **Conexão de Internet**, especifique como Olá provedor se conecta toohello da Internet. Selecione **usar configurações de proxy do sistema padrão** se quiser que as configurações de conexão de Internet toouse saudação padrão no servidor de saudação.
 
     ![Configurações da Internet](./media/site-recovery-vmm-san/proxy-details.png)
 
-   * Se quiser usar um proxy personalizado, você deverá configurá-lo antes de instalar o Provedor. Quando você definir as configurações personalizadas de proxy, um teste será executado para verificar a conexão proxy.
-   * Se você usar um proxy personalizado ou se seu proxy padrão exigir autenticação, você deverá inserir os detalhes do proxy, incluindo a porta e o endereço.
-   * As URLs devem poder ser acessadas do servidor VMM.
-   * Se você usar um proxy personalizado, uma conta Executar VMM Como (DRAProxyAccount) será criada automaticamente usando as credenciais de proxy especificadas. Configure o servidor proxy para que essa conta possa ser autenticada. Você pode modificar as configurações da conta Executar Como no console do VMM (**Configurações** > **Segurança** > **Contas Executar Como** > **DRAProxyAccount**). Você precisa reiniciar o serviço do VMM para a alteração ter efeito.
-10. Em **Chave de Registro**, selecione a chave que você baixou do portal e copiou para o servidor VMM.
-11. Em **Nome do cofre**, verifique o nome do cofre para o qual o servidor será registrado.
+   * Se você quiser toouse um proxy personalizado, configurá-lo antes de instalar o provedor de saudação. Quando você define as configurações de proxy personalizado, um teste é executado em conexão de proxy Olá toocheck.
+   * Se você usar um proxy personalizado, ou se o proxy padrão requer autenticação, você deve inserir os detalhes de proxy hello, incluindo a porta e endereço de saudação.
+   * Olá necessário que URLs devem ser acessíveis do servidor do VMM hello.
+   * Se você usar um proxy personalizado, uma conta executar como do VMM (DRAProxyAccount) é criada automaticamente usando Olá especificada credenciais de proxy. Configure o servidor de proxy de saudação para que essa conta possa autenticar. Você pode modificar Olá executar como configurações de conta no console do VMM hello (**configurações** > **segurança** > **contas executar como**  >  **DRAProxyAccount**). Você deve reiniciar o serviço do VMM de Olá para Olá alterar tootake efeito.
+10. Em **chave de registro**, selecione chave Olá baixado do servidor do VMM Olá toohello portal e copiado.
+11. Em **nome do cofre**, verificar nome de saudação do cofre Olá quais saudação servidor será registrado.
 
     ![Registros do servidor](./media/site-recovery-vmm-san/vault-creds.png)
-12. A configuração de criptografia é usada apenas para o VMM na replicação do Azure. Você pode ignorá-la.
+12. configuração de criptografia de saudação é usada apenas para replicação de tooAzure do VMM. Você pode ignorá-la.
 
     ![Registros do servidor](./media/site-recovery-vmm-san/encrypt.png)
-13. Em **Nome do servidor**, especifique um nome amigável para identificar o servidor VMM no cofre. Em uma configuração de cluster, especifique o nome de função de cluster do VMM.
-14. Na sincronização dos **Metadados de nuvem inicial**, selecione se você deseja sincronizar os metadados para todas as nuvens no servidor VMM. Esta ação só precisa acontecer uma vez em cada servidor. Se você não quiser sincronizar todas as nuvens, você pode deixar essa configuração desmarcada e sincronizar cada nuvem individualmente nas propriedades da nuvem no console VMM.
+13. Em **nome do servidor**, especifique um servidor do VMM do nome amigável tooidentify Olá no cofre hello. Em uma configuração de cluster, especifique o nome de função de cluster saudação do VMM.
+14. Em **sincronização inicial de metadados de nuvem**, selecione se deseja toosynchronize metadados para todas as nuvens no servidor do VMM hello. Essa ação precisa apenas toohappen uma vez em cada servidor. Se você não quiser toosynchronize todas as nuvens, você pode deixar essa configuração está desmarcada e sincronizar cada nuvem individualmente nas propriedades de nuvem Olá no console do VMM hello.
 
     ![Registros do servidor](./media/site-recovery-vmm-san/friendly-name.png)
 
-15. Clique em **Avançar** para concluir o processo. Após o registro, os metadados do servidor VMM é recuperado pela Recuperação de Site do Azure. O servidor é exibido em **Servidores** > **Servidores VMM** no cofre.
+15. Clique em **próximo** toocomplete processo de saudação. Após o registro, os metadados do servidor do VMM Olá são recuperados pelo Azure Site Recovery. saudação do servidor é exibida no **servidores** > **servidores VMM** no cofre hello.
 
 ### <a name="command-line-installation"></a>Instalação da linha de comando
 
-O Provedor do Azure Site Recovery também pode ser instalado usando a linha de comando a seguir. Esse método pode ser usado para instalar o provedor em um Server Core para o Windows Server 2012 R2.
+Olá provedor Azure Site Recovery também pode ser instalado usando Olá a seguinte linha de comando. Esse método pode ser usado tooinstall provedor de saudação no Server Core para Windows Server 2012 R2.
 
-1. Baixar o arquivo de instalação do provedor e a chave de registro em uma pasta. Por exemplo, C:\ASR.
-2. Pare o serviço do VMM.
-3. Extraia o instalador do Provedor. Execute estes comandos como administrador:
+1. Baixe Olá provedor de arquivo e registro tooa chave pasta de instalação. Por exemplo, C:\ASR.
+2. Pare o serviço VMM hello.
+3. Extraia o instalador do provedor hello. Execute estes comandos como administrador:
 
         C:\Windows\System32> CD C:\ASR
         C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
-4. Instale o Provedor:
+4. Instale Olá provedor:
 
         C:\ASR> setupdr.exe /i
-5. Registre o Provedor:
+5. Registre Olá provedor:
 
         CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-        C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
+        C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of hello server> /Credentials <path of hello credentials file> /EncryptionEnabled <full file name toosave hello encryption certificate>         
 
 Parâmetros:
 
-* **/Credentials**: parâmetro obrigatório para o local no qual o arquivo da chave de registro está localizado.  
-* **/FriendlyName**: parâmetro obrigatório para o nome do servidor do host Hyper-V que aparece no portal do Azure Site Recovery.
-* **/EncryptionEnabled**: parâmetro usado somente ao replicar do VMM para o Azure.
-* **/proxyAddress**: parâmetro opcional que especifica o endereço do servidor proxy.
-* **/proxyport**: parâmetro opcional que especifica a porta do servidor proxy.
-* **/proxyUsername**: parâmetro opcional que especifica o nome de usuário de Proxy (se o proxy exigir autenticação).
-* **/proxyPassword** : parâmetro opcional que especifica a senha para autenticação com o servidor proxy (se o proxy exigir autenticação).
+* **/ Credenciais**: parâmetro obrigatório para o local de saudação em qual Olá arquivo de chave do registro está localizado.  
+* **/ FriendlyName**: parâmetro obrigatório para o nome de saudação do servidor de host de saudação Hyper-V que aparece no portal do Azure Site Recovery hello.
+* **/ EncryptionEnabled**: parâmetro opcional usado somente durante a replicação do VMM tooAzure.
+* **/proxyAddress**: parâmetro opcional que especifica o endereço de saudação do servidor de proxy de saudação.
+* **/proxyPort**: parâmetro opcional que especifica a porta de saudação do servidor de proxy de saudação.
+* **/proxyUsername**: parâmetro opcional que especifica o nome de usuário de proxy de saudação (se o proxy de saudação exige autenticação).
+* **/proxyPassword**: parâmetro opcional que especifica a senha Olá para autenticar com o servidor de proxy de saudação (se o proxy de saudação exige autenticação).
 
 ## <a name="step-3-map-storage-arrays-and-pools"></a>Etapa 3: Mapear as matrizes e pools de armazenamento
 
-Mapeie as matrizes primária e secundária para especificar qual pool de armazenamento secundário recebe os dados de replicação do pool primário. Mapeie o armazenamento antes de configurar a replicação porque as informações de mapeamento são usadas quando você ativa a proteção para grupos de replicação.
+Mapear matrizes primários e secundários toospecify qual pool de armazenamento secundário recebe dados de replicação do pool principal hello. Mapear armazenamento antes de configurar a replicação, porque as informações de mapeamento de saudação são usadas quando você habilita a proteção para grupos de replicação.
 
-Antes de começar, verifique se as nuvens VMM aparecem no cofre. As nuvens são detectadas quando você sincroniza todas as nuvens durante a instalação do Provedor ou quando sincroniza uma nuvem específica no console do VMM.
+Antes de começar, verifique se nuvens do VMM aparecem no cofre hello. As nuvens são detectadas quando você sincronizar todas as nuvens durante a instalação do provedor ou quando você sincronizar uma nuvem específica no console do VMM hello.
 
 1. Clique em **Recursos** > **Armazenamento do Servidor** > **Mapear Matrizes de Origem e Destino**.
     ![Registro do servidor](./media/site-recovery-vmm-san/storage-map.png)
 
-2. Selecione as matrizes de armazenamento no site primário e mapeie-as para armazenar as matrizes no site secundário. Em **Pools de Armazenamento**, selecione um pool de armazenamento de origem e de destino para mapear.
+2. Selecione matrizes de armazenamento Olá no site primário hello e mapeá-los a matrizes de toostorage no site secundário Olá. Em **Pools de armazenamento**, selecione uma fonte e toomap de pool de armazenamento de destino.
 
     ![Registros do servidor](./media/site-recovery-vmm-san/storage-map-pool.png)
 
@@ -250,90 +250,90 @@ Antes de começar, verifique se as nuvens VMM aparecem no cofre. As nuvens são 
 
 Depois dos servidores VMM serem registrados, defina as configurações de proteção da nuvem.
 
-1. Na página **Início Rápido**, clique em **Definir proteção para nuvens VMM**.
-2. Na guia **Itens Protegidos**, selecione a **Configuração** da nuvem.
+1. Em Olá **início rápido** , clique em **configurar a proteção para nuvens do VMM**.
+2. Em Olá **itens protegidos** , selecione a nuvem Olá **configuração**.
 3. Em **Destino**, selecione **VMM**.
-4. Em **Local de destino**, selecione o servidor VMM que gerencia a nuvem que você deseja usar para a recuperação.
-5. Em **Nuvem de destino**, selecione a nuvem de destino que você deseja usar para o failover da VM.
-   * É recomendável selecionar uma nuvem de destino que atende aos requisitos de recuperação para as máquinas virtuais que você protege.
-   * Uma nuvem só pode pertencer a um único par de nuvens - como uma nuvem primária ou de destino.
-6. O Site Recovery verifica se as nuvens têm acesso ao armazenamento SAN e se as matrizes de armazenamento foram mapeadas.
+4. Em **local de destino**, selecione servidor VMM Olá que gerencia Olá nuvem você deseja toouse para recuperação.
+5. Em **nuvem de destino**, selecione Olá destino nuvem você deseja toouse para failover de VM.
+   * É recomendável que você selecione uma nuvem de destino que atenda aos requisitos de recuperação para máquinas virtuais de saudação que proteger.
+   * Uma nuvem pode pertencer somente par de nuvem único tooa – como primária ou uma nuvem de destino.
+6. Recuperação de site verifica se nuvens têm acesso tooSAN armazenamento e que o armazenamento Olá matrizes são mapeadas.
 7. Se a verificação for bem-sucedida, em **Tipo de replicação**, selecione **SAN**.
 
-Depois de salvar as configurações, um trabalho é criado e pode ser monitorado na guia **Trabalhos**. As configurações podem ser modificadas na guia **Configurar**. Se você quiser modificar o local de destino ou a nuvem de destino, deverá remover a configuração da nuvem, em seguida, reconfigurar a nuvem.
+Depois de salvar as configurações de saudação, um trabalho é criado que pode ser monitorado na Olá **trabalhos** guia. As configurações podem ser modificadas no hello **configurar** guia. Se quiser que o local de destino Olá toomodify ou nuvem de destino, deve remover a configuração de nuvem hello e reconfigure a nuvem de saudação.
 
 ## <a name="step-5-enable-network-mapping"></a>Etapa 5: Habilitar o mapeamento de rede
 
-1. Na página **Início Rápido**, clique em **Mapear redes**.
-2. Selecione o servidor VMM de origem e o servidor VMM de destino para os quais as redes serão mapeadas. A lista de redes de origem e suas redes de destino associadas é exibida. Um valor vazio é mostrado para redes que não são mapeadas. Clique no ícone de informações ao lado dos nomes de rede de origem e de destino para exibir as sub-redes de cada rede.
-3. Selecione uma rede em **Rede na origem** e clique em **Mapear**. O serviço detecta as redes VM no servidor de destino e as exibe.
+1. Em Olá **início rápido** , clique em **mapear redes**.
+2. Selecione o servidor do VMM de origem hello e selecione Olá Olá destino VMM server toowhich redes serão mapeadas. Olá lista de redes de origem e suas redes de destino associados é exibida. Um valor vazio é mostrado para redes que não são mapeadas. Clique em Olá informações ícone próximo toohello origem e destino nomes tooview Olá sub-redes de rede para cada rede.
+3. Selecione uma rede em **Rede na origem** e clique em **Mapear**. serviço de saudação detecta Olá redes de VM no servidor de destino hello e os exibe.
 
     ![Arquitetura de SAN](./media/site-recovery-vmm-san/network-map1.png)
-4. Selecione uma das redes VM do servidor VMM de destino.
+4. Selecione uma das redes VM Olá Olá VMM do servidor de destino.
 
     ![Arquitetura de SAN](./media/site-recovery-vmm-san/network-map2.png)
 
-5. Quando você seleciona uma rede de destino, as nuvens protegidas que usam a rede de origem são exibidas. As redes de destino disponíveis também são exibidas. Recomendamos que você selecione uma rede de destino disponível para todas as nuvens que você está usando para replicação.
-6. Clique na marca de seleção para concluir o processo de mapeamento. Um trabalho inicia e acompanha o andamento. Você pode exibi-lo na Guia **Trabalhos** .
+5. Quando você seleciona uma rede de destino, hello nuvens protegidas que usam a rede de origem Olá são exibidas. As redes de destino disponíveis também são exibidas. É recomendável que você selecione uma rede de destino que está disponível tooall nuvens de saudação que você está usando para replicação.
+6. Clique em processo de mapeamento Olá marca de seleção toocomplete hello. Um trabalho inicia e acompanha o andamento. Você pode exibi-lo no hello **trabalhos** guia.
 
 ## <a name="step-6-enable-replication-for-replication-groups"></a>Etapa 6: habilitar a replicação para grupos de replicação
 
-Antes de habilitar a proteção para máquinas virtuais, você precisará habilitar a replicação para grupos de replicação de armazenamento.
+Antes de habilitar a proteção para máquinas virtuais, você precisa tooenable replicação para grupos de replicação de armazenamento.
 
-1. Na página **Propriedades** da nuvem primária no portal do Site Recovery, abra a guia **Máquinas Virtuais** e clique em **Adicionar Grupo de Replicação**.
-2. Selecione um ou mais grupos de replicação do VMM que estão associados com a nuvem, verifique se os conjuntos de origem e de destino e especifique a frequência de replicação.
+1. Em Olá **propriedades** página da nuvem de Olá principal no portal de recuperação de Site hello, abra Olá **máquinas virtuais** guia e clique em **adicionar grupo de replicação**.
+2. Selecione um ou mais VMM grupos de replicação que estão associados com a nuvem hello, verifique matrizes de origem e destino hello e especifique a frequência de replicação hello.
 
-Os provedores do Site Recovery, VMM e SMI-S provisionam as LUNs de armazenamento do site de destino e habilitam a replicação do armazenamento. Se o grupo de replicação já foi replicado, o Site Recovery reutilizará a relação de replicação existente e atualizará as informações.
+Recuperação de site, o VMM e provedores de SMI-S da saudação provisionar LUNs de armazenamento de site de destino do hello e habilitar a replicação de armazenamento. Se o grupo de replicação Olá já estiver replicado, Site Recovery reutiliza o relacionamento de replicação existente hello e atualizações Olá informações.
 
 ## <a name="step-7-enable-protection-for-virtual-machines"></a>Etapa 7: habilitar a proteção para máquinas virtuais
 
 
-Quando um grupo de armazenamento estiver replicando, habilite a proteção das VMs no console do VMM com um dos seguintes métodos:
+Quando um grupo de armazenamento está replicando, habilite a proteção para máquinas virtuais no console do VMM Olá com uma saudação métodos a seguir:
 
-* **Nova máquina virtual**: quando você criar uma nova VM, habilite a replicação e associe a VM ao grupo de replicação.
-  Com essa opção, o VMM usa a colocação inteligente para otimizar o local do armazenamento de VM nas LUN do grupo de replicação. O Site Recovery orquestra a criação de uma VM de sombra no site secundário e aloca a capacidade para que as VMs de réplica possam ser iniciadas após o failover.
-* **Máquina virtual existente**: se uma máquina virtual já estiver implantada no VMM, você poderá habilitar a replicação e executar uma migração de armazenamento para um grupo de replicação. Após a conclusão, o VMM e o Site Recovery detectam a nova VM e começam a gerenciá-la no Site Recovery. Uma VM sombra é criada no site secundário e a capacidade é alocada para que a VM de réplica possa ser iniciada após o failover.
+* **Nova máquina virtual**: quando você cria uma máquina virtual, habilitar a replicação e associar Olá VM com o grupo de replicação hello.
+  Com essa opção, o VMM usa o armazenamento de máquina virtual de saudação do posicionamento inteligente toooptimally local em LUNs Olá Olá do grupo de replicação. Site Recovery coordena a criação de saudação de uma VM no site secundário Olá sombra e aloca a capacidade para que as máquinas virtuais de réplica podem ser iniciados após o failover.
+* **Máquina virtual existente**: se uma máquina virtual já estiver implantada no VMM, você pode habilitar a replicação e executar um grupo de replicação de tooa de migração de armazenamento. Após a conclusão, o VMM e o Site Recovery detectar Olá nova máquina virtual e gerenciá-lo na recuperação de Site. Uma sombra VM é criada no site secundário hello e capacidade alocada para a réplica Olá VM pode ser iniciada após o failover.
 
 ![Habilitar proteção](./media/site-recovery-vmm-san/enable-protect.png)
 
-Depois que as VMs são habilitadas para replicação, elas aparecem no console do Site Recovery. Você pode exibir as propriedades da VM, acompanhar o status e o failover dos grupos de replicação que contêm várias VMs. Na replicação de SAN, todas as VMs associadas a um grupo de replicação devem fazer failover juntas. Isso ocorre porque o failover ocorre na camada de armazenamento pela primeira vez. É importante agrupar seus grupos de replicação corretamente e reunir apenas as VMs associadas.
+Depois que as VMs habilitadas para replicação, aparecem no console de recuperação de Site hello. Você pode exibir as propriedades da VM, acompanhar o status e o failover dos grupos de replicação que contêm várias VMs. Na replicação de SAN, todas as VMs associadas a um grupo de replicação devem fazer failover juntas. Isso ocorre porque o failover ocorre na camada de armazenamento Olá primeiro. É importante toogroup a replicação agrupa corretamente e colocar somente máquinas virtuais associadas juntas.
 
 > [!NOTE]
-> Depois de habilitar a replicação para uma VM, não adicione VHDs às LUNs, a menos que estejam localizadas em um grupo de replicação do Site Recovery. Os VHDs só serão detectados pelo Site Recovery se estiverem localizados em um grupo de replicação do Site Recovery.
+> Depois de habilitar a replicação para uma máquina virtual, não adicione tooLUNs seus VHDs, a menos que eles estão localizados em um grupo de replicação de recuperação de Site. Os VHDs só serão detectados pelo Site Recovery se estiverem localizados em um grupo de replicação do Site Recovery.
 >
 >
 
-Você pode acompanhar o andamento, inclusive a replicação inicial, na guia **Trabalhos**. Após o trabalho de Finalizar Proteção ser executado, a máquina virtual está pronta para failover.
+Você pode acompanhar o andamento, incluindo a replicação inicial hello, em Olá **trabalhos** guia. Após a execução do trabalho finalizar proteção de hello, Olá máquina de virtual está pronta para failover.
 
 ![Trabalho de proteção da máquina virtual](./media/site-recovery-vmm-san/job-props.png)
 
-## <a name="step-8-test-the-deployment"></a>Etapa 8: testar a implantação
+## <a name="step-8-test-hello-deployment"></a>Etapa 8: Testar a implantação de saudação
 
-Teste a implantação para ter certeza de que as VMs realizam failover conforme o esperado. Para isso, crie um plano de recuperação e execute um teste de failover.
+Teste sua toomake implantação-se de que as VMs failover conforme o esperado. toodo isso, crie um plano de recuperação e execute um failover de teste.
 
-1. Na guia **Planos de Recuperação**, clique em **Criar Plano de Recuperação**.
-2. Especifique um nome para o plano de recuperação e selecione os servidores do VMM de origem e destino. O servidor de origem deve ter VMs que são habilitadas para failover e recuperação. Selecione **SAN** para exibir somente as nuvens que estão configuradas para replicação de SAN.
+1. Em Olá **planos de recuperação** , clique em **criar plano de recuperação**.
+2. Especifique um nome para o plano de recuperação de saudação e selecione os servidores VMM de origem e destino. o servidor de origem Olá deve ter VMs habilitadas para failover e recuperação. Selecione **SAN** tooview somente nuvens configuradas para replicação SAN.
 
     ![Criar plano de recuperação](./media/site-recovery-vmm-san/r-plan.png)
 
-3. Em **Selecionar Máquinas Virtuais**, selecione os grupos de replicação. Todas as VMs associadas ao grupo são adicionadas ao plano de recuperação. Essas VMs são adicionadas ao grupo padrão do plano de recuperação (Grupo 1). Você pode adicionar mais grupos, se necessário. Após a replicação, as VMs são numeradas de acordo com a ordem dos grupos do plano de recuperação.
+3. Em **Selecionar Máquinas Virtuais**, selecione os grupos de replicação. Todas as VMs associadas Olá grupo serão adicionadas toohello plano de recuperação. Essas VMs são adicionadas a grupo de padrão de plano de recuperação de toohello (grupo 1). Você pode adicionar mais grupos, se necessário. Após a replicação, VMs são numeradas de acordo com o toohello ordem de grupos do plano de recuperação de saudação.
 
     ![Selecionar máquinas virtuais](./media/site-recovery-vmm-san/r-plan-vm.png)
-4. Depois que um plano de recuperação é criado, ele aparece na lista da guia **Planos de Recuperação** . Selecione o plano e escolha **Failover de Teste**.
-5. Na página **Confirmar Failover de Teste** selecione **Nenhum**. Com essa opção habilitada, as VMs de réplica com failover não serão conectadas a nenhuma rede. Isso testa se as VMs fazem failover como o esperado, mas não testa o ambiente de rede. Para saber mais sobre outras opções de rede, consulte [Failover do Site Recovery](site-recovery-failover.md).
+4. Depois que o plano de recuperação Olá é criado, ele aparece na lista de saudação em Olá **planos de recuperação** guia. Selecione o plano de saudação e escolha **Failover de teste**.
+5. Em Olá **confirmar Failover de teste** página, selecione **nenhum**. Com essa opção habilitada, Olá failover de máquinas virtuais de réplica não será conectada tooany rede. Isso testa que Olá VMs failover conforme o esperado, mas ele não testa o ambiente de rede hello. Para saber mais sobre outras opções de rede, consulte [Failover do Site Recovery](site-recovery-failover.md).
 
     ![Selecionar rede de teste](./media/site-recovery-vmm-san/test-fail1.png)
 
-6. A VM de teste é criada no mesmo host no qual existe uma VM de réplica. Ele não será adicionado na nuvem em que a VM de réplica está localizada.
-2. Após a replicação, a VM de réplica terá um endereço IP diferente da máquina virtual primária. Se você estiver emitindo endereços do DHCP, ele será atualizado automaticamente. Se você não estiver usando o DHCP e quiser os mesmos endereços, precisará executar alguns scripts.
-3. Execute o script para recuperar o endereço IP:
+6. VM de teste de saudação é criado no hello mesmo host como host Olá em qual réplica Olá VM existe. Não será adicionada toohello nuvem na qual Olá VM de réplica está localizada.
+2. Após a replicação, a VM de réplica Olá terá um endereço IP diferente que a máquina virtual primária de saudação. Se você estiver emitindo endereços do DHCP, ele será atualizado automaticamente. Se você não estiver usando DHCP e você desejar Olá mesmo endereços, é necessário toorun alguns scripts.
+3. Execute este endereço IP do script tooretrieve hello:
 
        $vm = Get-SCVirtualMachine -Name <VM_NAME>
        $na = $vm[0].VirtualNetworkAdapters>
        $ip = Get-SCIPAddress -GrantToObjectID $na[0].id
        $ip.address  
 
-4. Execute este script de exemplo para atualizar o DNS. Especifique o endereço IP recuperado.
+4. Execute este script de exemplo tooupdate DNS. Especifique o endereço IP de saudação recuperado.
 
        [string]$Zone,
        [string]$name,
@@ -347,4 +347,4 @@ Teste a implantação para ter certeza de que as VMs realizam failover conforme 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de executar um failover de teste para verificar se seu ambiente está funcionando como o esperado, consulte [Failover do Site Recovery](site-recovery-failover.md) para conhecer os diferentes tipos de failover.
+Depois de executar um toocheck de failover de teste que seu ambiente está funcionando como esperado, consulte [failover de recuperação de Site](site-recovery-failover.md) toolearn sobre os diferentes tipos de failovers.

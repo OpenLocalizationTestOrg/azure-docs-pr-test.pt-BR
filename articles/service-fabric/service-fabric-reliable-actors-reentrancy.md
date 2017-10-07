@@ -1,6 +1,6 @@
 ---
-title: "Reentrada nos microsserviços do Azure baseada em ator | Microsoft Docs"
-description: "Introdução à reentrância para Reliable Actors do Service Fabric"
+title: aaaReentrancy em microservices do Azure baseado em ator | Microsoft Docs
+description: "Introdução tooreentrancy para atores confiável do serviço de malha"
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: 00fcccb379bf1ba3875fbaba57a05b00fa228622
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 61c69bcf0f100e075d19ba155954c05789b71761
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reliable-actors-reentrancy"></a>Reentrância de Reliable Actors
-Por padrão, o tempo de execução do Reliable Actors permite a reentrância baseada no contexto da chamada lógica. Isso possibilita que os atores sejam reentrantes se estiverem na mesma cadeia de contexto de chamada. Por exemplo, se um Ator A envia a mensagem para o Ator B, que envia a mensagem para o Ator C. Como parte do processamento da mensagem no caso de o Ator C chamar o Ator A, a mensagem é reentrante e por isso será permitida. Todas as outras mensagens que fazem parte de um contexto de chamada diferente serão bloqueadas no Ator A até a conclusão do processamento.
+Olá Reliable Actors em tempo de execução, por padrão, permite que chamadas lógicas com base em contexto reentrada. Isso permite reentrante de toobe atores se eles estiverem em Olá mesma chamada de cadeia de contexto. Por exemplo, o ator A envia um tooActor mensagem B, que envia uma mensagem tooActor C. Como parte do processamento de mensagem de saudação, se ator C chama ator A, mensagem de saudação é reentrante, para que ele poderá ser. Todas as outras mensagens que fazem parte de um contexto de chamada diferente serão bloqueadas no Ator A até a conclusão do processamento.
 
-Há duas opções disponíveis para nova entrada de ator definida na enumeração `ActorReentrancyMode` :
+Há duas opções disponíveis para reentrada ator definida no hello `ActorReentrancyMode` enum:
 
 * `LogicalCallContext` (comportamento padrão)
 * `Disallowed` - desabilita a nova entrada
@@ -42,9 +42,9 @@ public enum ActorReentrancyMode
     Disallowed(2)
 }
 ```
-A nova entrada pode ser definida nas configurações de `ActorService`durante o registro. A configuração se aplica a todas as instâncias de ator criadas no serviço de ator.
+A nova entrada pode ser definida nas configurações de `ActorService`durante o registro. configuração de saudação se aplica a instâncias de ator tooall criadas no serviço de ator hello.
 
-O exemplo a seguir mostra um serviço de ator que define o modo de nova entrada como `ActorReentrancyMode.Disallowed`. Nesse caso, se um ator envia uma mensagem reentrante para outro ator, será lançada uma exceção do tipo `FabricException` .
+Olá, exemplo a seguir mostra um serviço de ator que define o modo de reentrada Olá muito`ActorReentrancyMode.Disallowed`. Nesse caso, se um ator envia um ator de tooanother reentrante mensagem, uma exceção do tipo `FabricException` será lançada.
 
 ```csharp
 static class Program
@@ -110,4 +110,4 @@ static class Program
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre a reentrada na [Documentação de referência de API de Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* Saiba mais sobre a reentrada em Olá [documentação de referência de API de ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)

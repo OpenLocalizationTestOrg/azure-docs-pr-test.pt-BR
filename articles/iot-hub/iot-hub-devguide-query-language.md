@@ -1,6 +1,6 @@
 ---
-title: Entender a linguagem de consulta do Hub IoT do Azure | Microsoft Azure
-description: "Guia do desenvolvedor – descrição da linguagem de consulta do Hub IoT semelhante a SQL, usada para recuperar informações sobre dispositivos gêmeos e trabalhos do seu Hub IoT."
+title: "Olá aaaUnderstand linguagem de consulta do Azure IoT Hub | Microsoft Docs"
+description: "Guia do desenvolvedor - descrição da linguagem de consulta do tipo SQL IoT Hub Olá usado tooretrieve informações sobre trabalhos do seu hub IoT e twins do dispositivo."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/17
 ms.author: elioda
-ms.openlocfilehash: a7650104eda58923558892f6f0f6666d16dbce28
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 01a7c8ffdf44c6c27b834739d02c8fef1dd3d3fd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reference---iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Referência – linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens
 
-O Hub IoT fornece uma linguagem avançada semelhante à SQL para recuperação de informações sobre [dispositivos gêmeos][lnk-twins] e [trabalhos][lnk-jobs] e [encaminhamento de mensagens][lnk-devguide-messaging-routes]. Este artigo apresenta:
+IoT Hub informa uma poderosa linguagem SQL tooretrieve sobre [twins dispositivo] [ lnk-twins] e [trabalhos][lnk-jobs]e [roteamento de mensagens][lnk-devguide-messaging-routes]. Este artigo apresenta:
 
-* Uma introdução aos principais recursos da linguagem de consulta do Hub IoT e
-* Uma descrição mais detalhada da linguagem.
+* Uma introdução toohello principais recursos de linguagem de consulta de IoT Hub de hello e
+* Olá descrição detalhada do idioma de saudação.
 
 ## <a name="get-started-with-device-twin-queries"></a>Introdução às consultas com dispositivos gêmeos
-Os [dispositivos gêmeos][lnk-twins] podem conter objetos JSON arbitrários como tags e propriedades. O Hub IoT permite consultar dispositivos gêmeos como um único documento JSON que contém todas as informações do dispositivo gêmeo.
-Por exemplo, suponha que seus dispositivos gêmeos do Hub IoT tenham a seguinte estrutura:
+Os [dispositivos gêmeos][lnk-twins] podem conter objetos JSON arbitrários como tags e propriedades. IoT Hub permite tooquery twins de dispositivo como um único documento JSON que contém todas as informações do dispositivo duas.
+Por exemplo, suponha que seu twins de dispositivo do hub IoT Olá estrutura a seguir:
 
 ```json
 {
@@ -70,8 +70,8 @@ Por exemplo, suponha que seus dispositivos gêmeos do Hub IoT tenham a seguinte 
 }
 ```
 
-O Hub IoT expõe os dispositivos gêmeos como uma coleção de documentos chamada **dispositivos**.
-Então, a consulta a seguir recupera o conjunto completo de dispositivos gêmeos:
+IoT Hub expõe twins de dispositivo hello como uma coleção de documento chamada **dispositivos**.
+Portanto Olá consulta a seguir recupera todo o conjunto de saudação do twins do dispositivo:
 
 ```sql
 SELECT * FROM devices
@@ -80,14 +80,14 @@ SELECT * FROM devices
 > [!NOTE]
 > Os [SDKs do Hub IoT][lnk-hub-sdks] dão suporte à paginação de resultados grandes.
 
-O Hub IoT permite a você recuperar a filtragem de dispositivos gêmeos com condições arbitrárias. Por exemplo,
+IoT Hub permite twins de dispositivo tooretrieve filtragem com condições arbitrárias. Por exemplo,
 
 ```sql
 SELECT * FROM devices
 WHERE tags.location.region = 'US'
 ```
 
-recupera os dispositivos gêmeos com a tag **location.region** definida como **US**.
+recupera Olá twins de dispositivo com hello **location.region** marca definido muito**EUA**.
 Os operadores boolianos e as comparações aritméticas também têm suporte, por exemplo,
 
 ```sql
@@ -96,21 +96,21 @@ WHERE tags.location.region = 'US'
     AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 ```
 
-recupera todos os dispositivos gêmeos localizados nos Estados Unidos configurados para enviar telemetria com menos frequência do que a cada minuto. Como uma conveniência, também é possível usar constantes de matriz com os operadores **IN** e **NIN** (não in). Por exemplo,
+recupera todos os twins dispositivos localizados em Olá nos configurado toosend telemetria menor geralmente a cada minuto. Como uma conveniência, também é possível toouse constantes de matriz com hello **na** e **login** operadores (não em). Por exemplo,
 
 ```sql
 SELECT * FROM devices
 WHERE properties.reported.connectivity IN ['wired', 'wifi']
 ```
 
-recupera todos os dispositivos gêmeos que relataram conectividade WiFi ou com fio. Normalmente, é necessário identificar todos os dispositivos gêmeos que contêm uma propriedade específica. O Hub IoT oferece suporte à função `is_defined()` para essa finalidade. Por exemplo,
+recupera todos os dispositivos gêmeos que relataram conectividade WiFi ou com fio. Ele é geralmente necessário tooidentify todos os twins de dispositivo que contém uma propriedade específica. IoT Hub dá suporte a função hello `is_defined()` para essa finalidade. Por exemplo,
 
 ```SQL
 SELECT * FROM devices
 WHERE is_defined(properties.reported.connectivity)
 ```
 
-recuperou todos os dispositivos gêmeos que definem a propriedade reportada `connectivity`. Consulte a seção [Cláusula WHERE][lnk-query-where] para encontrar a referência completa dos recursos de filtragem.
+recuperar todos os twins de dispositivo que definem Olá `connectivity` relatados de propriedade. Consulte toohello [cláusula WHERE] [ lnk-query-where] seção para referência completa Olá Olá recursos de filtragem.
 
 Também há suporte para agrupamento e agregações. Por exemplo,
 
@@ -121,7 +121,7 @@ FROM devices
 GROUP BY properties.reported.telemetryConfig.status
 ```
 
-retorna a contagem dos dispositivos em cada status de configuração de telemetria.
+Retorna a contagem de saudação de dispositivos de saudação em cada status de configuração de telemetria.
 
 ```json
 [
@@ -140,10 +140,10 @@ retorna a contagem dos dispositivos em cada status de configuração de telemetr
 ]
 ```
 
-O exemplo anterior ilustra uma situação em que três dispositivos relataram a configuração bem-sucedida, dois ainda estão aplicando a configuração e um relatou um erro.
+Olá, exemplo acima ilustra uma situação onde três dispositivos relatado configuração bem-sucedida, dois ainda estiver aplicando a configuração hello e um relatou um erro.
 
 ### <a name="c-example"></a>Exemplo de C#
-A funcionalidade de consulta é exposta pelo [SDK de serviço de C#][lnk-hub-sdks] na classe **RegistryManager**.
+funcionalidade de consulta Olá é exposta pelo Olá [c# SDK do serviço] [ lnk-hub-sdks] em Olá **RegistryManager** classe.
 Aqui está um exemplo de uma consulta simples:
 
 ```csharp
@@ -158,20 +158,20 @@ while (query.HasMoreResults)
 }
 ```
 
-Observe como o objeto **query** é instanciado com um tamanho de página (até 1000) e, em seguida, várias páginas podem ser recuperadas chamando os métodos **GetNextAsTwinAsync** várias vezes.
-Observe que o objeto de consulta expõe vários **Avançar\***, dependendo da opção de desserialização necessária para a consulta, como dispositivos gêmeos ou objetos de trabalho ou JSON simples usado ao utilizar projeções.
+Observe como Olá **consulta** objeto é instanciado com um tamanho de página (até too1000) e, em seguida, várias páginas podem ser recuperadas pela chamada hello **GetNextAsTwinAsync** métodos várias vezes.
+Observe que esse objeto de consulta Olá expõe várias **próximo\***, dependendo de opção de desserialização Olá exigida por consulta hello, como objetos de duas ou trabalho do dispositivo, ou simples toobe JSON usado ao usar projeções.
 
 ### <a name="nodejs-example"></a>Exemplo do Node.js
-A funcionalidade de consulta é exposta pelo [SDK de serviço IoT do Azure para Node.js][lnk-hub-sdks] no objeto **Registry**.
+funcionalidade de consulta Olá é exposta pelo Olá [serviço IoT do Azure SDK para Node.js] [ lnk-hub-sdks] em Olá **registro** objeto.
 Aqui está um exemplo de uma consulta simples:
 
 ```nodejs
 var query = registry.createQuery('SELECT * FROM devices', 100);
 var onResults = function(err, results) {
     if (err) {
-        console.error('Failed to fetch the results: ' + err.message);
+        console.error('Failed toofetch hello results: ' + err.message);
     } else {
-        // Do something with the results
+        // Do something with hello results
         results.forEach(function(twin) {
             console.log(twin.deviceId);
         });
@@ -184,17 +184,17 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-Observe como o objeto **query** é instanciado com um tamanho de página (até 1000) e, em seguida, várias páginas podem ser recuperadas chamando os métodos **nextAsTwin** várias vezes.
-Observe que o objeto de consulta expõe vários **avançar\***, dependendo da opção de desserialização necessária para a consulta, como dispositivos gêmeos ou objetos de trabalho ou JSON simples usado ao utilizar projeções.
+Observe como Olá **consulta** objeto é instanciado com um tamanho de página (até too1000) e, em seguida, várias páginas podem ser recuperadas pela chamada hello **nextAsTwin** métodos várias vezes.
+Observe que esse objeto de consulta Olá expõe várias **próximo\***, dependendo de opção de desserialização Olá exigida por consulta hello, como objetos de duas ou trabalho do dispositivo, ou simples toobe JSON usado ao usar projeções.
 
 ### <a name="limitations"></a>Limitações
 > [!IMPORTANT]
-> Os resultados da consulta podem ter alguns minutos de atraso em relação aos valores mais recentes em dispositivos gêmeos. Ao consultar dispositivos gêmeos individuais por ID, é sempre preferível usar a API de recuperação de dispositivo gêmeo, a qual sempre contém os valores mais recentes e tem limites maiores.
+> Resultados da consulta podem ter alguns minutos de atraso com respeito toohello mais recentes valores no twins do dispositivo. Se consultar twins dispositivo individual por id, sempre é preferível toouse Olá recuperar duas API do dispositivo, que sempre contém valores mais recentes hello e tem limites de limitação superior.
 
 Atualmente, há suporte para as comparações apenas entre tipos primitivos (sem objetos), por exemplo `... WHERE properties.desired.config = properties.reported.config` tem suporte apenas se essas propriedades tiverem valores primitivos.
 
 ## <a name="get-started-with-jobs-queries"></a>Introdução às consultas de trabalhos
-Os [Trabalhos][lnk-jobs] fornecem uma maneira de executar operações em conjuntos de dispositivos. Cada dispositivo gêmeo contém as informações dos trabalhos dos quais ele faz parte em uma coleção chamada **jobs**.
+[Trabalhos] [ lnk-jobs] fornecem uma maneira tooexecute operações em conjuntos de dispositivos. Duas cada dispositivo contém informações de saudação de trabalhos de saudação do qual faz parte de uma coleção chamada **trabalhos**.
 Logicamente,
 
 ```json
@@ -226,23 +226,23 @@ Logicamente,
 }
 ```
 
-Atualmente, essa coleção pode ser consultada como **devices.jobs** na linguagem de consulta do Hub IoT.
+Atualmente, essa coleção é passível de consulta como **devices.jobs** em Olá linguagem de consulta de IoT Hub.
 
 > [!IMPORTANT]
-> Atualmente, a propriedade jobs nunca é retornada ao consultar dispositivos gêmeos (ou seja, consultas que contém “FROM devices”). Ela só pode ser acessada diretamente com consultas usando `FROM devices.jobs`.
+> No momento, a propriedade de trabalhos Olá nunca é retornada ao consultar twins de dispositivo (ou seja, consultas que contém 'de dispositivos'). Ela só pode ser acessada diretamente com consultas usando `FROM devices.jobs`.
 >
 >
 
-Por exemplo, para obter todos os trabalhos (agendados e anteriores) que afetam um único dispositivo, você pode usar a seguinte consulta:
+Por exemplo, tooget todos os trabalhos (últimos e agendados) que afetam um único dispositivo, você pode usar o hello consulta a seguir:
 
 ```sql
 SELECT * FROM devices.jobs
 WHERE devices.jobs.deviceId = 'myDeviceId'
 ```
 
-Observe como essa consulta fornece o status específico do dispositivo (e possivelmente a resposta do método direto) de cada trabalho retornado.
-Também é possível filtrar com condições boolianas arbitrárias em todas as propriedades dos objetos na coleção **devices.jobs**.
-Por exemplo, a consulta a seguir:
+Observe como esta consulta fornece o status de dispositivo específico hello (e possivelmente Olá método direto resposta) de cada trabalho retornado.
+Também é possível toofilter com condições Boolianas arbitrárias em todas as propriedades do objeto no hello **devices.jobs** coleção.
+Olá, por exemplo, a seguinte consulta:
 
 ```sql
 SELECT * FROM devices.jobs
@@ -254,7 +254,7 @@ WHERE devices.jobs.deviceId = 'myDeviceId'
 
 recupera todos os trabalhos de atualização do dispositivo gêmeo concluídos para o dispositivo **myDeviceId** que foram criados depois de setembro de 2016.
 
-Também é possível recuperar os resultados por dispositivo de um único trabalho.
+Também é possível tooretrieve Olá por dispositivo resultados um único trabalho.
 
 ```sql
 SELECT * FROM devices.jobs
@@ -265,18 +265,18 @@ WHERE devices.jobs.jobId = 'myJobId'
 No momento, as consultas em **devices.jobs** não dão suporte a:
 
 * Projeções, portanto, apenas `SELECT *` é possível.
-* Condições que se referem ao dispositivo gêmeo além das propriedades de trabalho (consulte a seção anterior).
+* Condições que fazem referência a duas de dispositivo toohello nas propriedades de toojob de adição (consulte Olá anterior seção).
 * Realização de agregações, tal como count, avg e group by.
 
 ## <a name="get-started-with-device-to-cloud-message-routes-query-expressions"></a>Começar a usar expressões de consulta de rotas de mensagem do dispositivo para a nuvem
 
-Usando as [rotas do dispositivo para nuvem][lnk-devguide-messaging-routes], você pode configurar o Hub IoT para distribuir mensagens de dispositivo para a nuvem para diferentes pontos de extremidade com base em expressões avaliadas em relação a mensagens individuais.
+Usando [rotas de dispositivo para nuvem][lnk-devguide-messaging-routes], você pode configurar o IoT Hub mensagens de dispositivo para nuvem toodispatch toodifferent pontos de extremidade com base em expressões avaliadas em relação a mensagens individuais.
 
-A [condição][lnk-query-expressions] da rota usa a mesma linguagem de consulta que o Hub IoT como condições em consultas gêmeas e de trabalho. Condições de rota são avaliadas no corpo e nos cabeçalhos de mensagem. A expressão de consulta de direcionamento pode envolver somente cabeçalhos de mensagens, apenas o corpo da mensagem ou os cabeçalhos e o corpo da mensagem. O Hub IoT pressupõe que haja um esquema específico para os cabeçalhos e o corpo da mensagem para direcionar mensagens. As seções a seguir descrevem o que é necessário para que o Hub IoT encaminhe corretamente:
+rota de saudação [condição] [ lnk-query-expressions] usa Olá a mesma linguagem de consulta de IoT Hub como condições em duas consultas de trabalho. Condições de rota são avaliadas no corpo e cabeçalhos de mensagem de saudação. A expressão de consulta de roteamento pode envolver somente cabeçalhos das mensagens, apenas Olá corpo da mensagem, ou em cabeçalhos de mensagem e corpo da mensagem. IoT Hub pressupõe um esquema específico para cabeçalhos de saudação e corpo de mensagem em mensagens de ordem de tooroute e Olá seções a seguir descreve o que é necessário para a rota do IoT Hub tooproperly:
 
 ### <a name="routing-on-message-headers"></a>Encaminhamento em cabeçalhos de mensagens
 
-O Hub IoT pressupõe que haja a seguinte representação JSON dos cabeçalhos de mensagem para direcionamento de mensagens:
+IoT Hub assume Olá representação JSON de cabeçalhos de mensagem para roteamento de mensagens a seguir:
 
 ```json
 {
@@ -298,41 +298,41 @@ O Hub IoT pressupõe que haja a seguinte representação JSON dos cabeçalhos de
 }
 ```
 
-As propriedades do sistema de mensagens são fixadas previamente com o símbolo `'$'`.
-As propriedades do usuário sempre serão acessadas com seu nome. Se um nome de propriedade de usuário coincidir com uma propriedade do sistema (como `$to`), a propriedade de usuário será recuperada com a expressão `$to`.
-Você sempre pode acessar a propriedade do sistema usando colchetes `{}`: por exemplo, é possível usar a expressão `{$to}` para acessar a propriedade de sistema `to`. Nomes de propriedade entre colchetes sempre recuperam a propriedade do sistema correspondente.
+Propriedades do sistema de mensagens são prefixadas com hello `'$'` símbolo.
+As propriedades do usuário sempre serão acessadas com seu nome. Se um nome de propriedade do usuário acontece toocoincide com uma propriedade do sistema (como `$to`), propriedade de saudação do usuário será recuperada com hello `$to` expressão.
+Você sempre pode acessar a propriedade do sistema hello usando colchetes `{}`: por exemplo, você pode usar a expressão de saudação `{$to}` tooaccess Olá propriedade sistema `to`. Nomes de propriedade entre colchetes sempre recuperam a propriedade de sistema correspondentes hello.
 
 Lembre-se que os nomes de propriedade não diferenciam maiúsculas de minúsculas.
 
 > [!NOTE]
-> Todas as propriedades de mensagem são cadeias de caracteres. As propriedades do sistema, conforme descrito no [guia do desenvolvedor][lnk-devguide-messaging-format], não estão disponíveis para serem usadas em consultas no momento.
+> Todas as propriedades de mensagem são cadeias de caracteres. Propriedades do sistema, conforme descrito em Olá [guia desenvolvedor][lnk-devguide-messaging-format], não estão atualmente disponível toouse em consultas.
 >
 
-Por exemplo, se você usar uma propriedade `messageType`, poderá querer rotear toda a telemetria para um ponto de extremidade e todos os alertas para outro. Você pode escrever a expressão a seguir para rotear a telemetria:
+Por exemplo, se você usar um `messageType` propriedade, talvez você queira tooroute todos os ponto de extremidade de tooone de telemetria e o ponto de extremidade do todos os alertas tooanother. Você pode escrever Olá telemetria de saudação tooroute expressão a seguir:
 
 ```sql
 messageType = 'telemetry'
 ```
 
-E a expressão a seguir para rotear as mensagens de alerta:
+E Olá mensagens de alerta tooroute Olá expressão a seguir:
 
 ```sql
 messageType = 'alert'
 ```
 
-Também há suporte para expressões e funções boolianas. Esse recurso permite distinguir entre o nível de severidade, por exemplo:
+Também há suporte para expressões e funções boolianas. Esse recurso permite que você toodistinguish entre o nível de gravidade, por exemplo:
 
 ```sql
 messageType = 'alerts' AND as_number(severity) <= 2
 ```
 
-Consulte a seção [Expressão e condições][lnk-query-expressions] para ver a lista completa de funções e operadores com suporte.
+Consulte toohello [expressão e condições] [ lnk-query-expressions] seção para a lista completa de saudação de funções e operadores com suporte.
 
 ### <a name="routing-on-message-bodies"></a>Encaminhamento em corpos de mensagem
 
-O Hub IoT só poderá direcionar com base no conteúdo do corpo da mensagem se o corpo da mensagem estiver corretamente formado em JSON, codificado em UTF-8, UTF-16 ou UTF-32. Você deve definir o tipo de conteúdo da mensagem como `application/json` e a codificação do conteúdo como uma das codificações UTF com suporte nos cabeçalhos da mensagem para permitir que o Hub IoT direcione a mensagem com base no conteúdo do corpo. Se qualquer um dos cabeçalhos não for especificado, o Hub IoT não tentará avaliar qualquer expressão de consulta que envolva o corpo em relação à mensagem. Se a mensagem não for uma mensagem JSON ou se não especificar o tipo de conteúdo e a codificação de conteúdo, você ainda poderá usar o direcionamento de mensagens para direcionar a mensagem com base em cabeçalhos de mensagens.
+IoT Hub só pode rotear com base no corpo da mensagem conteúdo se o corpo da mensagem de saudação está corretamente formado JSON codificado em UTF-8, UTF-16 e UTF-32. Você deve definir o tipo de conteúdo de saudação da mensagem de saudação muito`application/json` e Olá tooone de codificação de conteúdo de saudação suporte UTF codificações em tooallow de cabeçalhos de mensagem de saudação mensagem de saudação do IoT Hub tooroute com base no conteúdo do corpo de saudação. Se qualquer um dos cabeçalhos de saudação não for especificado, IoT Hub não tentará tooevaluate qualquer expressão de consulta que envolvem o corpo de saudação em relação a mensagem de saudação. Se a mensagem não é uma mensagem JSON, ou se a mensagem de saudação não especificar o tipo de conteúdo hello e codificação de conteúdo, você ainda pode usar mensagem de saudação tooroute com base em cabeçalhos de mensagem de saudação de roteamento de mensagens.
 
-Você pode usar `$body` na expressão de consulta para direcionar a mensagem. Você pode usar uma referência de corpo simples, referência de matriz de corpo ou várias referências de corpo na expressão de consulta. A expressão de consulta também pode combinar uma referência de corpo a uma referência de cabeçalho de mensagem. Por exemplo, a seguir estão todas as expressões de consulta válidas:
+Você pode usar `$body` na mensagem de saudação do hello consulta expressão tooroute. Você pode usar uma referência de corpo simples, referência de matriz de corpo ou várias referências de corpo na expressão de consulta hello. A expressão de consulta também pode combinar uma referência de corpo a uma referência de cabeçalho de mensagem. Por exemplo, Olá seguem todas as expressões de consulta válida:
 
 ```sql
 $body.message.Weather.Location.State = 'WA'
@@ -343,7 +343,7 @@ $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
 
 ## <a name="basics-of-an-iot-hub-query"></a>Noções básicas de uma consulta de Hub IoT
-Todas as consultas de Hub IoT são compostas por cláusulas SELECT e FROM cláusulas WHERE e GROUP BY opcionais. Cada consulta é executada em uma coleção de documentos JSON, por exemplo, dispositivos gêmeos. A cláusula FROM indica a coleção de documentos a ser iterada em (**devices** ou **devices.jobs**). Em seguida, o filtro na cláusula WHERE é aplicado. Nas agregações, os resultados desta etapa são agrupados como especificado na cláusula GROUP BY e, para cada grupo, uma linha é gerada conforme especificado na cláusula SELECT.
+Todas as consultas de Hub IoT são compostas por cláusulas SELECT e FROM cláusulas WHERE e GROUP BY opcionais. Cada consulta é executada em uma coleção de documentos JSON, por exemplo, dispositivos gêmeos. cláusula FROM de saudação indica Olá documento coleção toobe iterada em (**dispositivos** ou **devices.jobs**). Em seguida, Olá filtro no hello onde cláusula é aplicada. Com agregações, resultados de saudação desta etapa serão agrupados como Olá especificado na cláusula GROUP BY e, para cada grupo, uma linha é gerada como especificado na cláusula SELECT hello.
 
 ```sql
 SELECT <select_list>
@@ -353,18 +353,18 @@ FROM <from_specification>
 ```
 
 ## <a name="from-clause"></a>Cláusula FROM
-A cláusula **FROM <from_specification>** pode assumir somente dois valores: **FROM devices**, para consultar dispositivos gêmeos, ou **FROM devices.jobs**, para consultar os detalhes de trabalho por dispositivo.
+Olá **de < from_specification >** cláusula pode assumir somente dois valores: **de dispositivos**, tooquery twins do dispositivo, ou **de devices.jobs**, trabalho de tooquery por dispositivo detalhes.
 
 ## <a name="where-clause"></a>Cláusula WHERE
-A cláusula **WHERE <filter_condition>** é opcional. Ela especifica uma ou mais condições que os documentos JSON na coleção FROM devem satisfazer para serem incluídos como parte dos resultados. Todos os documentos JSON devem avaliar as condições especificadas como “true” para ser incluídos no resultado.
+Olá **onde < filter_condition >** cláusula é opcional. Especifica uma ou mais condições que os documentos JSON Olá na coleção de FROM Olá devem atender toobe incluído como parte do resultado de saudação. Qualquer documento JSON deve ser avaliada Olá especificado condições muito "true" toobe incluído no resultado de saudação.
 
-As condições permitidas são descritas na seção [Expressões e condições][lnk-query-expressions].
+Olá permitido condições são descritas na seção [expressões e condições][lnk-query-expressions].
 
 ## <a name="select-clause"></a>Cláusula SELECT
-A cláusula SELECT (**SELECT <select_list>**) é obrigatória e especifica quais valores são recuperados pela consulta. Ela especifica os valores JSON a serem usado para gerar novos objetos JSON.
-Para cada elemento do subconjunto filtrado (e opcionalmente agrupado) da coleção FROM, a fase de projeção gera um novo objeto JSON, construído com os valores especificados na cláusula SELECT.
+cláusula SELECT Hello (**selecione < select_list >**) é obrigatório e especifica quais valores são recuperados da consulta de saudação. Ele especifica Olá JSON valores toobe usado toogenerate novos objetos JSON.
+Para cada elemento de Olá subconjunto filtrado (e, opcionalmente, agrupado) da coleção de FROM hello, a fase de projeção hello gera um novo objeto JSON, construído com valores hello especificados na cláusula SELECT hello.
 
-Veja a seguir a gramática da cláusula SELECT:
+Gramática de saudação da cláusula SELECT Olá é do seguinte:
 
 ```
 SELECT [TOP <max number>] <projection list>
@@ -386,12 +386,12 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-em que **attribute_name** refere-se a qualquer propriedade do documento JSON na coleção FROM. Alguns exemplos de cláusulas SELECT podem ser encontrados na seção [Introdução às consultas de dispositivo gêmeo][lnk-query-getstarted].
+onde **attribute_name** refere-se a propriedade tooany de documento JSON Olá na coleção de FROM hello. Alguns exemplos de cláusulas SELECT podem ser encontrados no hello [guia de Introdução com consultas de duas dispositivo] [ lnk-query-getstarted] seção.
 
 No momento, as cláusulas de seleção diferentes de **SELECT \*** têm suporte apenas em consultas de agregação em dispositivos gêmeos.
 
 ## <a name="group-by-clause"></a>Cláusula GROUP BY
-A cláusula **GROUP BY <group_specification>** é uma etapa opcional que pode ser executada após o filtro especificado na cláusula WHERE e antes da projeção especificada em SELECT. Ela agrupa documentos com base no valor de um atributo. Esses grupos são usados para gerar valores agregados conforme especificado na cláusula SELECT.
+Olá **GROUP BY < group_specification >** cláusula é uma etapa opcional que pode ser executada depois de filtro de saudação especificado em Olá cláusula WHERE e antes de projeção de saudação especificada no hello selecionar. Ela agrupa documentos com base no valor de saudação de um atributo. Esses grupos são usados toogenerate agregado valores conforme especificado na cláusula SELECT hello.
 
 Um exemplo de uma consulta usando GROUP BY é:
 
@@ -402,7 +402,7 @@ FROM devices
 GROUP BY properties.reported.telemetryConfig.status
 ```
 
-A sintaxe formal para GROUP BY é:
+a sintaxe formal Olá para GROUP BY é:
 
 ```
 GROUP BY <group_by_element>
@@ -411,19 +411,19 @@ GROUP BY <group_by_element>
     | < group_by_element > '.' attribute_name
 ```
 
-em que **attribute_name** refere-se a qualquer propriedade do documento JSON na coleção FROM.
+onde **attribute_name** refere-se a propriedade tooany de documento JSON Olá na coleção de FROM hello.
 
-No momento, a cláusula GROUP BY tem suporte apenas ao consultar dispositivos gêmeos.
+Atualmente, a cláusula GROUP BY da saudação só tem suporte ao consultar twins do dispositivo.
 
 ## <a name="expressions-and-conditions"></a>Expressões e condições
 Em um alto nível, uma *expressão*:
 
-* Avalia para uma instância de um tipo JSON (por exemplo, booliano, número, cadeia de caracteres, matriz ou objeto) e
-* É definida pela manipulação de dados provenientes do documento JSON de dispositivo e constantes usando as funções e operadores internos.
+* Avalia tooan instância de um tipo JSON (como booleano, número, cadeia de caracteres, matriz ou objeto), e
+* É definido pela manipulação de dados provenientes do documento JSON de dispositivo hello e constantes usando funções e operadores internos.
 
-*Condições* são expressões que retornam um valor booliano. Qualquer constante diferente de booliana **true** é considerada como **false** (incluindo **null**, **undefined**, qualquer instância de matriz ou objeto, qualquer cadeia de caracteres e claramente o booliano **false**).
+*Condições* são expressões que avaliam tooa booliano. Qualquer constante diferente de booliano **true** é considerado como **false** (incluindo **nulo**, **indefinido**, qualquer instância de objeto ou matriz qualquer cadeia de caracteres e claramente saudação booliano **false**).
 
-A sintaxe de expressões é:
+saudação de sintaxe para expressões é:
 
 ```
 <expression> ::=
@@ -455,15 +455,15 @@ onde:
 
 | Símbolo | Definição |
 | --- | --- |
-| attribute_name | Qualquer propriedade do documento JSON na coleção **FROM**. |
-| binary_operator | Qualquer operador binário listado na seção [Operadores](#operators). |
-| function_name| Qualquer função listada na seção [Funções](#functions). |
+| attribute_name | Qualquer propriedade de documento JSON Olá Olá **FROM** coleção. |
+| binary_operator | Qualquer operador binário listados no hello [operadores](#operators) seção. |
+| function_name| Todas as funções listadas na Olá [funções](#functions) seção. |
 | decimal_literal |Um float expresso em notação decimal. |
-| hexadecimal_literal |Um número expresso pela cadeia de caracteres '0x' seguida por uma cadeia de caracteres de dígitos hexadecimais. |
+| hexadecimal_literal |Um número expresso pela cadeia de caracteres de saudação '0x' seguido por uma cadeia de caracteres de dígitos hexadecimais. |
 | string_literal |Literais de cadeia de caracteres são cadeias de caracteres Unicode representadas por uma sequência de zero ou mais caracteres Unicode ou sequências de escape. As literais de cadeia de caracteres são colocadas entre aspas simples (apóstrofe: ') ou aspas duplas (aspas: "). Escapes permitidos: `\'`, `\"`, `\\`, `\uXXXX` para caracteres Unicode definidos por quatro dígitos hexadecimais. |
 
 ### <a name="operators"></a>Operadores
-Há suporte para os seguintes operadores:
+Olá operadores a seguir têm suporte:
 
 | Família | Operadores |
 | --- | --- |
@@ -472,55 +472,55 @@ Há suporte para os seguintes operadores:
 | Comparação |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>Funções
-Ao consultar gêmeos e trabalhos, a única função com suporte é:
+Ao consultar Olá twins e trabalhos só tem suportada a função é:
 
 | Função | Descrição |
 | -------- | ----------- |
-| IS_DEFINED(propriedade) | Retorna um valor booliano que indica se um valor foi atribuído à propriedade (incluindo `null`). |
+| IS_DEFINED(propriedade) | Retorna um valor booleano que indica se a propriedade de saudação foi atribuída um valor (incluindo `null`). |
 
-Em condições de rotas, há suporte para as seguintes funções matemáticas:
-
-| Função | Descrição |
-| -------- | ----------- |
-| ABS(x) | Retorna o valor absoluto (positivo) da expressão numérica especificada. |
-| EXP(x) | Retorna o valor exponencial da expressão numérica especificada (e^x). |
-| POWER(x,y) | Retorna o valor da expressão especificada para a potência indicada (x^y).|
-| SQUARE(x) | Retorna o quadrado do valor numérico especificado. |
-| CEILING(x) | Retorna o menor valor de número inteiro maior ou igual à expressão numérica especificada. |
-| FLOOR(x) | Retorna o maior inteiro menor ou igual à expressão numérica especificada. |
-| SIGN(x) | Retorna o sinal positivo (+1), zero (0) ou negativo (-1) da expressão numérica especificada.|
-| SQRT(x) | Retorna o quadrado do valor numérico especificado. |
-
-Em condições de rotas, há suporte para as seguintes funções de verificação de tipo e conversão de tipo:
+Em condições de rotas, Olá funções matemáticas a seguir têm suporte:
 
 | Função | Descrição |
 | -------- | ----------- |
-| AS_NUMBER | Converte a cadeia de caracteres de entrada em um número. `noop` se a entrada for um número; `Undefined` se a cadeia de caracteres não representar um número.|
-| IS_ARRAY | Retorna um valor booliano que indica se o tipo da expressão especificada é uma matriz. |
-| IS_BOOL | Retorna um valor booliano que indica se o tipo da expressão especificada é um booliano. |
-| IS_DEFINED | Retorna um valor booliano que indica se um valor foi atribuído à propriedade. |
-| IS_NULL | Retorna um valor booliano que indica se o tipo da expressão especificada é nulo. |
-| IS_NUMBER | Retorna um valor booliano que indica se o tipo da expressão especificada é um número. |
-| IS_OBJECT | Retorna um valor booliano que indica se o tipo da expressão especificada é um objeto JSON. |
-| IS_PRIMITIVE | Retorna um valor booliano que indica se o tipo da expressão especificada é um primitivo (cadeia de caracteres, booliano, numérico ou `null`). |
-| IS_STRING | Retorna um valor booliano que indica se o tipo da expressão especificada é uma cadeia de caracteres. |
+| ABS(x) | Retorna Olá valor absoluto (positivo) da saudação especificado expressão numérica. |
+| EXP(x) | Retorna um valor Olá exponencial de saudação especificado expressão numérica (e ^ x). |
+| POWER(x,y) | Retorna Olá Olá especificado valor toohello da expressão especificada power (x ^ y).|
+| SQUARE(x) | Saudação de retorna quadrada de saudação especificado valor numérico. |
+| CEILING(x) | Retorna Olá menor valor de número inteiro maior ou igual ao Olá expressão numérica especificada. |
+| FLOOR(x) | Retorna Olá maior inteiro menor ou igual a toohello especificado expressão numérica. |
+| SIGN(x) | Retorna Olá positivo (+ 1), zero (0), ou sinal de negativo (-1) de saudação especificado expressão numérica.|
+| SQRT(x) | Saudação de retorna quadrada de saudação especificado valor numérico. |
 
-Em condições de rotas, há suporte para as seguintes funções de cadeias de caracteres:
+Em condições de rotas, Olá Verificando e funções de conversão de tipo a seguir têm suporte:
 
 | Função | Descrição |
 | -------- | ----------- |
-| CONCAT(x, …) | Retorna uma cadeia de caracteres que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres. |
-| LENGTH(x) | Retorna o número de caracteres da expressão de cadeia de caracteres especificada.|
-| LOWER(x) | Retorna uma expressão de cadeia de caracteres depois de converter dados de caracteres maiúsculos em minúsculos. |
-| UPPER(x) | Retorna uma expressão de cadeia de caracteres depois de converter dados de caracteres minúsculos em maiúsculos. |
-| SUBSTRING(cadeia de caracteres, início [, tamanho]) | Retorna parte de uma expressão de cadeia de caracteres começando na posição baseada em zero do caractere especificado e continua até o comprimento especificado ou até o final da cadeia de caracteres. |
-| INDEX_OF (cadeia de caracteres, fragmento) | Retorna a posição inicial da primeira ocorrência da segunda expressão de cadeia de caracteres dentro da primeira expressão de cadeia de caracteres especificada, ou -1 se a cadeia de caracteres não for encontrada.|
-| STARTS_WITH(x, y) | Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres começa com a segunda. |
-| ENDS_WITH(x, y) | Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres termina com a segunda. |
-| CONTAINS(x,y) | Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres contém a segunda. |
+| AS_NUMBER | Converte o número de tooa de cadeia de caracteres de entrada hello. `noop` se a entrada for um número; `Undefined` se a cadeia de caracteres não representar um número.|
+| IS_ARRAY | Retorna um valor booliano que indica se o tipo de saudação de saudação especificado expressão é uma matriz. |
+| IS_BOOL | Retorna um valor booliano que indica se o tipo de saudação de saudação especificado expressão é um valor booleano. |
+| IS_DEFINED | Retorna um valor booleano que indica se a propriedade de saudação foi atribuída um valor. |
+| IS_NULL | Retorna um valor booliano que indica se o tipo de saudação de saudação especificado expressão é nulo. |
+| IS_NUMBER | Retorna um valor booliano que indica se o tipo de saudação de saudação especificado expressão é um número. |
+| IS_OBJECT | Retorna um valor booliano que indica se o tipo de saudação de saudação especificado expressão é um objeto JSON. |
+| IS_PRIMITIVE | Retorna um valor booliano que indica se o tipo de saudação do hello especificado de expressão é um primitivo (cadeia de caracteres, booleano, numérico ou `null`). |
+| IS_STRING | Retorna um valor booliano que indica se o tipo de saudação de saudação especificado expressão é uma cadeia de caracteres. |
+
+Em condições de rotas, Olá funções de cadeia de caracteres a seguir têm suporte:
+
+| Função | Descrição |
+| -------- | ----------- |
+| CONCAT(x, …) | Retorna uma cadeia de caracteres que é o resultado de saudação da concatenação de dois ou mais valores de cadeia de caracteres. |
+| LENGTH(x) | Retorna o número de saudação de caracteres da saudação especificado expressão de cadeia de caracteres.|
+| LOWER(x) | Retorna uma expressão de cadeia de caracteres após converter caracteres maiusculos toolowercase de dados. |
+| UPPER(x) | Retorna uma expressão de cadeia de caracteres após converter caracteres minúsculos toouppercase de dados. |
+| SUBSTRING(cadeia de caracteres, início [, tamanho]) | Retorna parte de uma expressão de cadeia de caracteres começando em Olá especificado a posição do caractere com base em zero e continua toohello especificado comprimento ou toohello final da cadeia de caracteres de saudação. |
+| INDEX_OF (cadeia de caracteres, fragmento) | Retorna a saudação iniciando a posição da primeira ocorrência de saudação da segunda expressão de cadeia de caracteres hello na primeira expressão de cadeia de caracteres especificada hello, ou -1 se a cadeia de caracteres de saudação não foi encontrada.|
+| STARTS_WITH(x, y) | Retorna um valor booleano que indica se primeira expressão de cadeia de caracteres hello começa com hello segundo. |
+| ENDS_WITH(x, y) | Retorna um valor booleano que indica se primeira expressão de cadeia de caracteres hello termina com hello segundo. |
+| CONTAINS(x,y) | Retorna um valor booleano que indica se a primeira expressão de cadeia de caracteres hello contém Olá segundo. |
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba como executar consultas em seus aplicativos usando [SDKs do IoT do Azure][lnk-hub-sdks].
+Saiba como as consultas em seus aplicativos usando tooexecute [SDKs do Azure IoT][lnk-hub-sdks].
 
 [lnk-query-where]: iot-hub-devguide-query-language.md#where-clause
 [lnk-query-expressions]: iot-hub-devguide-query-language.md#expressions-and-conditions

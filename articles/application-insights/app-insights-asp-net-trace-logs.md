@@ -1,5 +1,5 @@
 ---
-title: Explorar os logs de rastreamento do .NET no Application Insights
+title: os logs de rastreamento de .NET aaaExplore no Application Insights
 description: Pesquise logs gerados com Trace, NLog ou Log4Net.
 services: application-insights
 documentationcenter: .net
@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/3/2017
 ms.author: bwren
-ms.openlocfilehash: 68e03bf10167ecde675d62782de7063aea9e81d9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 6bfcd9e5751c3656236d7eb2fc09321740171a70
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Explorar os logs de rastreamento do .NET no Application Insights
-Se você usar NLog, log4Net ou System.Diagnostics.Trace para o rastreamento de diagnóstico em seu aplicativo ASP.NET, os logs poderão ser enviados ao [Azure Application Insights][start], onde será possível explorá-los e pesquisá-los. Os logs serão mesclados à outra telemetria proveniente de seu aplicativo para que você possa identificar os rastreamentos associados ao atendimento de cada solicitação de usuário e correlacioná-los com outros relatórios de eventos e exceções.
+Se você usar NLog, log4Net ou Trace para rastreamento de diagnóstico em seu aplicativo ASP.NET, você pode ter seus logs enviados muito[Azure Application Insights][start], onde você pode explorar e pesquisar -los. Os logs serão mesclados com outros Olá telemetria provenientes de seu aplicativo, para que você possa identificar Olá rastreamentos associados com cada solicitação de usuário de serviço e correlacioná-los com outros eventos e relatórios de exceção.
 
 > [!NOTE]
-> Você precisa do módulo de captura de log? É um adaptador útil para agentes de terceiros, mas se você ainda não usa o NLog, log4Net ou System.Diagnostics.Trace, convém chamar apenas o [TrackTrace() do Application Insights](app-insights-api-custom-events-metrics.md#tracktrace) diretamente.
+> Você precisa de módulo de captura de log Olá? É um adaptador útil para agentes de terceiros, mas se você ainda não usa o NLog, log4Net ou System.Diagnostics.Trace, convém chamar apenas o [TrackTrace() do Application Insights](app-insights-api-custom-events-metrics.md#tracktrace) diretamente.
 >
 >
 
 ## <a name="install-logging-on-your-app"></a>Instalar o log no seu aplicativo
 Instale a estrutura de registros escolhida no seu projeto. Isso deve resultar em uma entrada no app.config ou web.config.
 
-Se você estiver usando System.Diagnostics.Trace, precisará adicionar uma entrada ao web.config:
+Se você estiver usando o Trace, você precisa tooadd um tooweb.config de entrada:
 
 ```XML
 
@@ -47,28 +47,28 @@ Se você estiver usando System.Diagnostics.Trace, precisará adicionar uma entra
      </system.diagnostics>
    </configuration>
 ```
-## <a name="configure-application-insights-to-collect-logs"></a>Configurar o Application Insights para coletar logs
-**[Adicione o Application Insights ao seu projeto](app-insights-asp-net.md)** se ainda não tiver feito isso. Você verá uma opção para incluir o coletor de logs.
+## <a name="configure-application-insights-toocollect-logs"></a>Configurar logs de toocollect Application Insights
+**[Adicionar projeto do Application Insights tooyour](app-insights-asp-net.md)**  se você ainda não tiver feito isso. Você verá um coletor de log opção tooinclude hello.
 
-Ou então **Configure o Application Insights** clicando com o botão direito no seu projeto no Gerenciador de Soluções. Selecione a opção **Configurar a coleta de rastreamento**.
+Ou então **Configure o Application Insights** clicando com o botão direito no seu projeto no Gerenciador de Soluções. Selecione a opção de saudação muito**configurar coleta de rastreamento**.
 
 *Não consegue ver o menu do Application Insights nem a opção de coletor de logs?* Experimente [Solucionar problemas](#troubleshooting).
 
 ## <a name="manual-installation"></a>Instalação manual
-Use este método se o tipo de projeto não tiver suporte no instalador do Application Insights (por exemplo, um projeto de Área de Trabalho do Windows).
+Use este método se o tipo de projeto não é suportado pelo instalador do Application Insights hello (por exemplo um área de trabalho projeto do Windows).
 
-1. Se você planeja usar o log4Net ou NLog, instale-o em seu projeto.
+1. Se você planejar toouse log4Net ou NLog, instalá-lo em seu projeto.
 2. No Gerenciador de Soluções, clique com o botão direito do mouse no seu projeto e escolha **Gerenciar Pacotes NuGet**.
 3. Pesquise “Application Insights”
-4. Selecione o pacote apropriado entre:
+4. Selecione o pacote apropriado Olá - um de:
 
-   * Microsoft.ApplicationInsights.TraceListener (para capturar chamadas do System.Diagnostics.Trace)
-   * Microsoft.ApplicationInsights.EventSourceListener (para capturar EventSource)
-   * Microsoft.ApplicationInsights.EtwListener (para capturar eventos ETW)
+   * Microsoft.ApplicationInsights.TraceListener (toocapture Trace chamadas)
+   * Microsoft.ApplicationInsights.EventSourceListener (toocapture EventSource eventos)
+   * Microsoft.ApplicationInsights.EtwListener (eventos ETW toocapture)
    * Microsoft.ApplicationInsights.NLogTarget
    * Microsoft.ApplicationInsights.Log4NetAppender
 
-O pacote NuGet instala os assemblies necessários e também modifica o app.config ou web.config.
+pacote do NuGet Olá instala os assemblies necessários hello e modifica Web. config ou App. config.
 
 ## <a name="insert-diagnostic-log-calls"></a>Inserir chamadas de log de diagnóstico
 Se você usa System.Diagnostics.Trace, uma chamada típica é semelhante a:
@@ -80,7 +80,7 @@ Se você preferir log4net ou NLog:
     logger.Warn("Slow response - database01");
 
 ## <a name="using-eventsource-events"></a>Usando eventos EventSource
-É possível configurar eventos [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) para que eles sejam enviados para o Application Insights como rastreamentos. Primeiro, instale o pacote NuGet `Microsoft.ApplicationInsights.EventSourceListener`. Depois, edite a seção `TelemetryModules` do arquivo [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
+Você pode configurar [Tracing](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) eventos toobe enviado tooApplication Insights como rastreamentos. Primeiro, instale Olá `Microsoft.ApplicationInsights.EventSourceListener` pacote NuGet. Edite `TelemetryModules` seção Olá [Applicationinsights](app-insights-configuration-with-applicationinsights-config.md) arquivo.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -90,13 +90,13 @@ Se você preferir log4net ou NLog:
     </Add>
 ```
 
-Para cada fonte, você pode definir os seguintes parâmetros:
- * `Name` especifica o nome do EventSource a ser coletado.
- * `Level` especifica o nível de registro em log a ser coletado. Pode ser `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose` ou `Warning`.
- * `Keywords` (opcional) especifica o valor inteiro das combinações de palavras-chave a serem usadas.
+Para cada fonte, você pode definir Olá parâmetros a seguir:
+ * `Name`Especifica o nome de saudação do hello EventSource toocollect.
+ * `Level`Especifica a saudação toocollect nível de log. Pode ser `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose` ou `Warning`.
+ * `Keywords`(Opcional) Especifica o valor de inteiro de saudação do toouse de combinações de palavras-chave.
 
 ## <a name="using-diagnosticsource-events"></a>Usando eventos DiagnosticSource
-É possível configurar eventos [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) para que eles sejam enviados para o Application Insights como rastreamentos. Primeiro, instale o pacote NuGet [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener). Depois, edite a seção `TelemetryModules` do arquivo [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
+Você pode configurar [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) eventos toobe enviado tooApplication Insights como rastreamentos. Primeiro, instale Olá [ `Microsoft.ApplicationInsights.DiagnosticSourceListener` ](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) pacote NuGet. Edite Olá `TelemetryModules` seção Olá [Applicationinsights](app-insights-configuration-with-applicationinsights-config.md) arquivo.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.DiagnsoticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
@@ -106,13 +106,13 @@ Para cada fonte, você pode definir os seguintes parâmetros:
     </Add>
 ```
 
-Para cada DiagnosticSource que você deseja rastrear, adicione uma entrada com o atributo `Name` definido como o nome do seu DiagnosticSource.
+Para cada DiagnosticSource você deseja tootrace, adicione uma entrada com hello `Name` toohello nome do seu DiagnosticSource do conjunto de atributo.
 
 ## <a name="using-etw-events"></a>Usando eventos ETW
-É possível configurar os eventos ETW a serem enviados ao Application Insights como rastreamentos. Primeiro, instale o pacote NuGet `Microsoft.ApplicationInsights.EtwCollector`. Depois, edite a seção `TelemetryModules` do arquivo [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
+Você pode configurar toobe de eventos ETW enviado tooApplication Insights como rastreamentos. Primeiro, instale Olá `Microsoft.ApplicationInsights.EtwCollector` pacote NuGet. Edite `TelemetryModules` seção Olá [Applicationinsights](app-insights-configuration-with-applicationinsights-config.md) arquivo.
 
 > [!NOTE] 
-> Eventos ETW só podem ser coletados se o processo que hospeda o SDK estiver em execução em uma identidade que é membro dos administradores ou "Usuários de log de desempenho".
+> Eventos ETW só podem ser obtidos se Olá Olá de hospedagem de processo SDK está sendo executado sob uma identidade que é um membro de administradores ou "usuários de Log de desempenho".
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule, Microsoft.ApplicationInsights.EtwCollector">
@@ -122,35 +122,35 @@ Para cada DiagnosticSource que você deseja rastrear, adicione uma entrada com o
     </Add>
 ```
 
-Para cada fonte, você pode definir os seguintes parâmetros:
- * `ProviderName` é o nome do provedor de ETW a ser coletado.
- * `ProviderGuid` especifica o GUID do provedor de ETW a ser coletado, pode ser usado em vez de `ProviderName`.
- * `Level` define o nível de registro em log a ser coletado. Pode ser `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose` ou `Warning`.
- * `Keywords` (opcional) define o valor inteiro das combinações de palavras-chave a serem usadas.
+Para cada fonte, você pode definir Olá parâmetros a seguir:
+ * `ProviderName`é o nome de saudação do hello toocollect de provedor ETW.
+ * `ProviderGuid`Especifica a saudação GUID da saudação toocollect de provedor ETW, pode ser usado em vez de `ProviderName`.
+ * `Level`Define Olá toocollect nível de log. Pode ser `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose` ou `Warning`.
+ * `Keywords`(Opcional) define Olá valor inteiro toouse de combinações de palavra-chave.
 
-## <a name="using-the-trace-api-directly"></a>Usando a API de rastreamento diretamente
-Você pode chamar a API de rastreamento do Application Insights diretamente. Os adaptadores de log usam essa API.
+## <a name="using-hello-trace-api-directly"></a>Usando Olá rastreamento API diretamente
+Você pode chamar hello Application Insights rastreamento API diretamente. adaptadores de registro em log Olá usam essa API.
 
 Por exemplo:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
-Uma vantagem de TrackTrace é que você pode colocar dados relativamente compridos na mensagem. Por exemplo, você pode codificar dados POST.
+Uma vantagem de TrackTrace é que você pode colocar dados relativamente longos na mensagem de saudação. Por exemplo, você pode codificar dados POST.
 
-Além disso, você pode adicionar um nível de severidade à mensagem. E, como ocorre com outros casos de telemetria, você pode adicionar valores de propriedade que podem ser usados para ajudar a filtrar ou a pesquisar diferentes conjuntos de rastreamentos. Por exemplo:
+Além disso, você pode adicionar uma mensagem de tooyour nível de severidade. E, como outros telemetria, você pode adicionar valores de propriedade que você pode usar o filtro de toohelp ou pesquisa para diferentes conjuntos de rastreamentos. Por exemplo:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
                    SeverityLevel.Warning,
                    new Dictionary<string,string> { {"database", db.ID} });
 
-Isso permite que você filtre facilmente todas as mensagens de um nível de severidade específico relacionadas a determinado banco de dados na [Pesquisa][diagnostic].
+Isso permitiria que você, em [pesquisa][diagnostic], tooeasily filtrar todas as mensagens de saudação de um nível de severidade específico relacionado tooa determinado banco de dados.
 
 ## <a name="explore-your-logs"></a>Explorar seus logs
 Execute o aplicativo no modo de depuração ou implante-o dinamicamente.
 
-Na folha de visão geral do aplicativo, no [portal do Application Insights][portal], escolha [Search][diagnostic].
+Na folha de visão geral do aplicativo em [portal do Application Insights Olá][portal], escolha [pesquisa][diagnostic].
 
 ![No Application Insights, escolha Pesquisar](./media/app-insights-asp-net-trace-logs/020-diagnostic-search.png)
 
@@ -160,11 +160,11 @@ Por exemplo, você pode:
 
 * Filtrar rastreamentos de log ou itens com propriedades específicas
 * Inspecionar um item específico em detalhes.
-* Localizar outra telemetria relacionada à mesma solicitação de usuário (ou seja, com o mesmo OperationId)
-* Salvar a configuração dessa página como um favorito
+* Localizar outros telemetria relacionados toohello mesma solicitação de usuário (ou seja, com hello mesmo OperationId)
+* Salvar configuração de saudação desta página como um favorito
 
 > [!NOTE]
-> **Amostragem.** Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
+> **Amostragem.** Se seu aplicativo envia um lote de dados e você estiver usando Olá SDK do Application Insights para ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável de saudação pode operar e enviar apenas uma porcentagem da sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
 >
 >
 
@@ -175,30 +175,30 @@ Por exemplo, você pode:
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 ### <a name="how-do-i-do-this-for-java"></a>Como faço isso no Java?
-Use os [adaptadores de log Java](app-insights-java-trace-logs.md).
+Saudação de uso [adaptadores do log de Java](app-insights-java-trace-logs.md).
 
-### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>Não há nenhuma opção do Application Insights no menu de contexto do projeto
-* Verifique se as ferramentas do Application Insights estão instaladas neste computador de desenvolvimento. No menu Ferramentas do Visual Studio, em Extensões e Atualizações, procure pelas Ferramentas do Application Insights. Se não estiver na aba Instalado, abra a guia Online e instale-as.
+### <a name="theres-no-application-insights-option-on-hello-project-context-menu"></a>Não há nenhuma opção Application Insights no menu de contexto do projeto de saudação
+* Verifique se as ferramentas do Application Insights estão instaladas neste computador de desenvolvimento. No menu Ferramentas do Visual Studio, em Extensões e Atualizações, procure pelas Ferramentas do Application Insights. Se não estiver na guia do hello instalado, abra Olá Online guia e instalá-lo.
 * Este pode ser um tipo de projeto sem suporte pelas ferramentas do Application Insights. Use a [instalação manual](#manual-installation).
 
-### <a name="no-log-adapter-option-in-the-configuration-tool"></a>Não há nenhuma opção de adaptador de log na ferramenta de configuração
-* Você precisa instalar primeiro a estrutura de registros.
+### <a name="no-log-adapter-option-in-hello-configuration-tool"></a>Nenhuma opção de adaptador de log na ferramenta de configuração de saudação
+* Você precisa de estrutura de tooinstall Olá log primeiro.
 * Se estiver usando System.Diagnostics.Trace, verifique se você o [configurou no `web.config`](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
-* Você tem a versão mais recente do Application Insights? No menu **Ferramentas** do Visual Studio, escolha **Extensões e Atualizações** e abra a guia **Atualizações**. Se as ferramentas de Análise do Desenvolvedor estiverem presentes, clique para atualizá-las.
+* Você tem a versão mais recente de saudação do Application Insights? No Visual Studio **ferramentas** menu, escolha **extensões e atualizações**e abra hello **atualizações** guia. Se as ferramentas de análise do desenvolvedor está lá, clique em tooupdate-lo.
 
 ### <a name="emptykey"></a>Recebo um erro "Chave de instrumentação não pode ser vazio"
-Parece que você instalou o pacote de Nuget de adaptador para registro em log sem instalar o Application Insights.
+Parece que você instalou Olá log de pacote de Nuget de adaptador sem instalar o Application Insights.
 
-No Gerenciador de Soluções, clique com o botão direito do mouse em `ApplicationInsights.config` e escolha **Atualizar o Application Insights**. Você obterá uma caixa de diálogo que solicita que você entre no Azure e crie um recurso de Application Insights, ou então reutilize um recurso existente. Isso deve corrigir o erro.
+No Gerenciador de Soluções, clique com o botão direito do mouse em `ApplicationInsights.config` e escolha **Atualizar o Application Insights**. Você obterá uma caixa de diálogo que solicita a você toosign no tooAzure e crie um recurso do Application Insights, ou use novamente um existente. Isso deve corrigir o erro.
 
-### <a name="i-can-see-traces-in-diagnostic-search-but-not-the-other-events"></a>Posso ver rastreamentos na pesquisa de diagnóstico, mas não os outros eventos
-Às vezes, pode levar algum tempo para que todos os eventos e solicitações percorram o pipeline.
+### <a name="i-can-see-traces-in-diagnostic-search-but-not-hello-other-events"></a>Eu podem ver rastreamentos em busca de diagnóstico, mas não Olá outros eventos
+Às vezes, pode levar algum tempo para que todos os tooget de eventos e solicitações de saudação por meio do pipeline de saudação.
 
 ### <a name="limits"></a>Que quantidade de dados é mantida?
-Vários fatores afetam a quantidade de dados retidos. Veja a seção de [limites](app-insights-api-custom-events-metrics.md#limits) da página de métricas de eventos do cliente para obter mais informações. 
+Vários fatores afetam a quantidade de saudação de dados retidos. Consulte Olá [limites](app-insights-api-custom-events-metrics.md#limits) seção da página de métricas de evento Olá cliente para obter mais informações. 
 
-### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>Não estou vendo algumas das entradas de log que eu esperava
-Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
+### <a name="im-not-seeing-some-of-hello-log-entries-that-i-expect"></a>Não ver algumas das entradas de log Olá esperados
+Se seu aplicativo envia um lote de dados e você estiver usando Olá SDK do Application Insights para ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável de saudação pode operar e enviar apenas uma porcentagem da sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
 
 ## <a name="add"></a>Próximas etapas
 * [Configurar testes de disponibilidade e capacidade de resposta][availability]

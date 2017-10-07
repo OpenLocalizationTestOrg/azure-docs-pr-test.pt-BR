@@ -1,6 +1,6 @@
 ---
-title: "Carregar arquivos em uma conta dos Serviços de Mídia usando o .NET | Microsoft Docs"
-description: "Saiba como obter o conteúdo de mídia nos serviços de mídia ao criar e carregar ativos."
+title: "arquivos de aaaUpload em uma conta de serviços de mídia usando o .NET | Microsoft Docs"
+description: "Saiba como tooget do conteúdo de mídia nos serviços de mídia criando e carregando ativos."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2017
 ms.author: juliako
-ms.openlocfilehash: ec8c1da633374ba684f6a0a895c542ee76ef73b8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 11c8a359b09efe04b54490fd48ac0cd7c366f8b3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o .NET
 > [!div class="op_single_selector"]
@@ -28,39 +28,39 @@ ms.lasthandoff: 08/29/2017
 > 
 > 
 
-No Serviços de Mídia, você carrega (ou ingere) seus arquivos digitais em um ativo. A entidade **Asset** pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos).  Depois que os arquivos são carregados, o conteúdo é armazenado com segurança na nuvem para processamento adicional e transmissão.
+No Serviços de Mídia, você carrega (ou ingere) seus arquivos digitais em um ativo. Olá **ativo** entidade pode conter vídeo, áudio, imagens, coleções de miniaturas, texto rastreia e legenda codificada arquivos (e Olá metadados sobre esses arquivos.)  Depois que forem carregados arquivos hello, seu conteúdo é armazenado com segurança na nuvem de saudação para processamento adicional e streaming.
 
-Os arquivos no ativo são chamados **Arquivos de Ativo**. A instância de **AssetFile** e o arquivo de mídia real são dois objetos diferentes. A instância de AssetFile contém metadados sobre o arquivo de mídia, enquanto o arquivo de mídia contém o conteúdo de mídia real.
+Olá arquivos no ativo de saudação são chamados **arquivos de ativo**. Olá **AssetFile** instância e o arquivo de mídia real Olá são dois objetos distintos. instância de AssetFile Olá contém metadados sobre o arquivo de mídia Olá, enquanto o arquivo de mídia Olá contém conteúdo de mídia real hello.
 
 > [!NOTE]
-> As seguintes considerações se aplicam:
+> Olá considerações a seguir se aplicam:
 > 
-> * Os serviços de mídia usam o valor da propriedade IAssetFile.Name ao construir URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade **Name** não pode ter quaisquer dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
-> * O comprimento do nome não deve ser maior do que 260 caracteres.
-> * Há um limite no tamanho máximo de arquivo com suporte para o processamento nos Serviços de Mídia. Confira [este](media-services-quotas-and-limitations.md) tópico para obter detalhes sobre a limitação de tamanho de arquivo.
-> * Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
+> * Serviços de mídia usa o valor de saudação do hello IAssetFile.Name propriedade ao criar URLs para Olá streaming de conteúdo (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esse motivo, não é permitida a codificação por porcentagem. Olá valor Olá **nome** propriedade não pode ter qualquer um dos seguintes Olá [%-caracteres reservados codificados](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Além disso, só pode haver um '.' para a extensão de nome de arquivo hello.
+> * comprimento de saudação do nome de saudação não deve ser maior do que 260 caracteres.
+> * Há um limite toohello tamanho máximo com suporte para o processamento de serviços de mídia. Consulte [isso](media-services-quotas-and-limitations.md) tópico para obter detalhes sobre a limitação de tamanho de arquivo hello.
+> * Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Você deve usar Olá Olá a mesma ID de política se você estiver usando sempre mesmo dias acesso permissões, por exemplo, as políticas para localizadores são tooremain desejado no local por um longo período (políticas de carregamento não). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
 > 
 
-Quando você cria ativos, você pode especificar as seguintes opções de criptografia. 
+Ao criar ativos, você pode especificar Olá as opções de criptografia a seguir. 
 
-* **None** - nenhuma criptografia é usada. Esse é o valor padrão. Observe que, ao usar essa opção, seu conteúdo não será protegido quando estiver em trânsito ou em repouso no armazenamento.
-  Se você pretende enviar um MP4 usando o download progressivo, use essa opção. 
+* **None** - nenhuma criptografia é usada. Este é o valor padrão de saudação. Observe que, ao usar essa opção, seu conteúdo não será protegido quando estiver em trânsito ou em repouso no armazenamento.
+  Se você planejar toodeliver um MP4 usando o download progressivo, use essa opção. 
 * **CommonEncryption** - use essa opção se você estiver carregando conteúdo que já foi criptografado e protegido com criptografia comum ou DRM PlayReady (por exemplo, Smooth Streaming protegido com DRM PlayReady).
-* **EnvelopeEncrypted** – use essa opção se você estiver carregando HLS criptografado com AES. Observe que os arquivos devem ter sido codificados e criptografados pelo Gerenciador de Transformação.
-* **StorageEncrypted** - criptografa o conteúdo limpo localmente usando a criptografia AES de 256 bits e, em seguida, carrega-o para o armazenamento do Azure, onde ele é armazenado, criptografado em rest. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um sistema de arquivos criptografado antes da codificação, então opcionalmente criptografados novamente antes do carregamento como um novo ativo de saída. O caso de uso primário para criptografia de armazenamento é quando você deseja proteger seus arquivos de mídia de entrada de alta qualidade com criptografia forte em repouso no disco.
+* **EnvelopeEncrypted** – use essa opção se você estiver carregando HLS criptografado com AES. Observe que arquivos Olá devem ter sido codificados e criptografados pelo Transform Manager.
+* **StorageEncrypted** - criptografa o conteúdo limpo localmente usando a criptografia AES de 256 bits e, em seguida, carrega tooAzure armazenamento onde ele está armazenado criptografado em repouso. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um tooencoding anterior do sistema de arquivos criptografados e, opcionalmente, criptografada novamente toouploading anterior como um novo ativo de saída. caso de uso primário Olá para criptografia de armazenamento é quando você deseja toosecure seus arquivos de mídia de entrada de alta qualidade com criptografia forte em rest no disco.
   
     Os Serviços de Mídia fornecem criptografia para armazenamento em disco para seus ativos, não por conexão, como o DRM (Gerenciador de Direitos Digitais).
   
     Se seu ativo tiver o armazenamento criptografado, você deverá configurar a política de entrega de ativos. Para obter mais informações, consulte [Configurando a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md).
 
-Se você especificar para o ativo a ser criptografado com uma opção **CommonEncrypted** ou uma opção **EnvelopeEncypted**, você precisará associar seu ativo a um **ContentKey**. Para obter mais informações, consulte [Como criar uma ContentKey](media-services-dotnet-create-contentkey.md). 
+Se você especificar para toobe seu ativo criptografado com uma **CommonEncrypted** opção, ou um **EnvelopeEncypted** opção, você precisará tooassociate seu ativo com um **ContentKey**. Para obter mais informações, consulte [como toocreate um ContentKey](media-services-dotnet-create-contentkey.md). 
 
-Se você especificar que o ativo deve ser criptografado com uma opção **StorageEncrypted**, o SDK dos Serviços de Mídia para .NET criará um **StorateEncrypted** **ContentKey** para o ativo.
+Se você especificar para toobe seu ativo criptografado com uma **StorageEncrypted** opção, Olá SDK do Media Services para .NET criará uma **StorateEncrypted** **ContentKey** para seu ativo.
 
-Este tópico mostra como usar o SDK do .NET dos Serviços de Mídia, bem como extensões do SDK do .NET dos Serviços de Mídia para carregar arquivos em um ativo dos Serviços de Mídia.
+Este tópico mostra como os serviços de mídia toouse .NET SDK, bem como arquivos de tooupload de extensões do SDK do Media Services .NET em um ativo de serviços de mídia.
 
 ## <a name="upload-a-single-file-with-media-services-net-sdk"></a>Carregar um único arquivo com o SDK do .NET dos Serviços de Mídia
-O código de exemplo abaixo usa o SDK do .NET para carregar um único arquivo. O AccessPolicy e Localizador são criados e destruídos pela função de Carregamento. 
+código de exemplo Hello abaixo usa tooupload .NET SDK um único arquivo. Olá AccessPolicy e localizador são criados e destruídos pela função de carregamento de saudação. 
 
 
         static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
@@ -86,19 +86,19 @@ O código de exemplo abaixo usa o SDK do .NET para carregar um único arquivo. O
 
 
 ## <a name="upload-multiple-files-with-media-services-net-sdk"></a>Carregar vários arquivos com o SDK do .NET dos Serviços de Mídia
-O código a seguir mostra como criar um ativo e carregar vários arquivos.
+Olá mostrado no código a seguir como toocreate um ativo e carregar vários arquivos.
 
-O código faz o seguinte:
+código de Olá Olá a seguir:
 
-* Cria um ativo vazio usando o método CreateEmptyAsset definido na etapa anterior.
-* Cria uma instância de **AccessPolicy** que define as permissões e a duração do acesso ao ativo.
-* Cria uma instância de **Locator** que fornece acesso ao ativo.
-* Cria uma instância de **BlobTransferClient** . Esse tipo representa um cliente que opera nos blobs do Azure. Neste exemplo, usamos o cliente para monitorar o progresso do carregamento. 
-* Enumere os arquivos no diretório especificado e cria uma instância de **AssetFile** para cada arquivo.
-* Carregue os arquivos para os serviços de mídia usando o método **UploadAsync** . 
+* Cria um ativo vazio usando Olá CreateEmptyAsset método definido na etapa anterior hello.
+* Cria um **AccessPolicy** instância que define permissões de saudação e a duração do ativo de toohello de acesso.
+* Cria um **localizador** instância que fornece o ativo de toohello de acesso.
+* Cria uma instância de **BlobTransferClient** . Esse tipo representa um cliente que opera em Olá que BLOBs do Azure. Neste exemplo, usamos o progresso de carregamento do hello cliente toomonitor hello. 
+* Enumera os arquivos no diretório especificado hello e cria um **AssetFile** instância para cada arquivo.
+* Carregamentos Olá arquivos nos serviços de mídia usando Olá **UploadAsync** método. 
 
 > [!NOTE]
-> Use o método UploadAsync para garantir que as chamadas não estejam bloqueadas e os arquivos sejam carregados em paralelo.
+> Use Olá UploadAsync método tooensure Olá chamadas não estão bloqueando e Olá arquivos são carregados em paralelo.
 > 
 > 
 
@@ -134,13 +134,13 @@ O código faz o seguinte:
                 var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
                 Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                // It is recommended to validate AccestFiles before upload. 
+                // It is recommended toovalidate AccestFiles before upload. 
                 Console.WriteLine("Start uploading of {0}", assetFile.Name);
                 uploadTasks.Add(assetFile.UploadAsync(filePath, blobTransferClient, locator, CancellationToken.None));
             }
 
             Task.WaitAll(uploadTasks.ToArray());
-            Console.WriteLine("Done uploading the files");
+            Console.WriteLine("Done uploading hello files");
 
             blobTransferClient.TransferProgressChanged -= blobTransferClient_TransferProgressChanged;
 
@@ -152,7 +152,7 @@ O código faz o seguinte:
 
     static void  blobTransferClient_TransferProgressChanged(object sender, BlobTransferProgressChangedEventArgs e)
     {
-        if (e.ProgressPercentage > 4) // Avoid startup jitter, as the upload tasks are added.
+        if (e.ProgressPercentage > 4) // Avoid startup jitter, as hello upload tasks are added.
         {
             Console.WriteLine("{0}% upload competed for {1}.", e.ProgressPercentage, e.LocalFile);
         }
@@ -160,28 +160,28 @@ O código faz o seguinte:
 
 
 
-Ao carregar um grande número de ativos, considere o seguinte.
+Ao carregar um grande número de ativos, considere o seguinte de saudação.
 
-* Criar um novo objeto **CloudMediaContext** por thread. A classe **CloudMediaContext** não é thread-safe.
-* Aumente NumberOfConcurrentTransfers do valor padrão de 2 para um valor maior como 5. Configurar essa propriedade afeta todas as instâncias de **CloudMediaContext**. 
-* Mantenha ParallelTransferThreadCount no valor padrão de 10.
+* Criar um novo objeto **CloudMediaContext** por thread. Olá **CloudMediaContext** a classe não é thread-safe.
+* Aumente NumberOfConcurrentTransfers do valor padrão de saudação do valor mais alto de 2 tooa como 5. Configurar essa propriedade afeta todas as instâncias de **CloudMediaContext**. 
+* Manter ParallelTransferThreadCount com seu valor padrão de 10 hello.
 
 ## <a id="ingest_in_bulk"></a>Ingestão de ativos em massa usando o SDK do .NET dos Serviços de Mídia
-O carregamento de grandes arquivos de ativo pode ser um afunilamento durante a criação do ativo. A ingestão de ativos em massa, ou "Ingestão em massa", envolve a dissociação da criação do ativo do processo de carregamento. Para usar uma abordagem de ingestão em massa, crie um manifesto (IngestManifest) que descreve o ativo e seus arquivos associados. Em seguida, use o método de carregamento de sua escolha para carregar os arquivos associados ao contêiner de blob do manifesto. Os serviços de mídia do Microsoft Azure observa o contêiner de blob associado ao manifesto. Depois que um arquivo é carregado para o contêiner de blob, os serviços de mídia do Microsoft Azure concluem a criação do ativo com base na configuração do ativo no manifesto (IngestManifestAsset).
+O carregamento de grandes arquivos de ativo pode ser um afunilamento durante a criação do ativo. Ingestão de ativos em massa ou "Ingestão em massa", envolve separar a criação do ativo do processo de carregamento de saudação. toouse uma abordagem de ingestão em massa, crie um manifesto (IngestManifest) que descreve o ativo de saudação e seus arquivos associados. Em seguida, use o método de carregamento de saudação do contêiner de blob de sua escolha tooupload Olá arquivos associados toohello do manifesto. Serviços de mídia do Microsoft Azure observa o contêiner de blob de saudação associado manifesto hello. Depois de um arquivo carregado toohello contêiner de blob, serviços de mídia do Microsoft Azure conclui a criação do ativo Olá com base na configuração de saudação do ativo Olá no manifesto de saudação (IngestManifestAsset).
 
-Para criar um novo IngestManifest chame o método Criar exposto pela coleção IngestManifests no CloudMediaContext. Esse método criará um novo IngestManifest com o nome manifesto fornecido.
+toocreate um novo IngestManifest chamar o método de criar hello exposto pelo Olá coleta os IngestManifests em Olá CloudMediaContext. Esse método criará um novo IngestManifest com o nome do manifesto Olá que você fornecer.
 
     IIngestManifest manifest = context.IngestManifests.Create(name);
 
-Crie os ativos que serão associados a IngestManifest em massa. Configure as opções de criptografia desejadas no ativo para a ingestão em massa.
+Crie ativos Olá que serão associados em massa de saudação IngestManifest. Configure opções de criptografia de saudação desejada ativo Olá para ingestão em massa.
 
-    // Create the assets that will be associated with this bulk ingest manifest
+    // Create hello assets that will be associated with this bulk ingest manifest
     IAsset destAsset1 = _context.Assets.Create(name + "_asset_1", AssetCreationOptions.None);
     IAsset destAsset2 = _context.Assets.Create(name + "_asset_2", AssetCreationOptions.None);
 
-Um IngestManifestAsset associa um ativo a um IngestManifest em massa para ingestão em massa. Ele também associa os AssetFiles que formarão cada ativo. Para criar um IngestManifestAsset, use o método Criar no contexto do servidor.
+Um IngestManifestAsset associa um ativo a um IngestManifest em massa para ingestão em massa. Ele também associa Olá AssetFiles que comporá cada ativo. toocreate um IngestManifestAsset, use o método de criação de Olá no contexto do servidor de saudação.
 
-O exemplo a seguir demonstra a adição de dois novos IngestManifestAssets que associam os dois ativos criados anteriormente no manifesto de ingestão em massa. Cada IngestManifestAsset associa também um conjunto de arquivos que serão carregados para cada ativo durante a ingestão em massa.  
+Olá exemplo a seguir demonstra adicionando dois novos os IngestManifestAssets que associam os dois ativos de saudação criado anteriormente em massa de toohello ingestmanifest. Cada IngestManifestAsset associa também um conjunto de arquivos que serão carregados para cada ativo durante a ingestão em massa.  
 
     string filename1 = _singleInputMp4Path;
     string filename2 = _primaryFilePath;
@@ -190,7 +190,7 @@ O exemplo a seguir demonstra a adição de dois novos IngestManifestAssets que a
     IIngestManifestAsset bulkAsset1 =  manifest.IngestManifestAssets.Create(destAsset1, new[] { filename1 });
     IIngestManifestAsset bulkAsset2 =  manifest.IngestManifestAssets.Create(destAsset2, new[] { filename2, filename3 });
 
-Você pode usar qualquer aplicativo de cliente de alta velocidade capaz de carregar os arquivos de ativo para o URI do contêiner de armazenamento de blobs fornecido pela propriedade **IIngestManifest.BlobStorageUriForUpload** do IngestManifest. Um serviço de carregamento de alta velocidade notável é [Aspera sob demanda para o aplicativo do Azure](https://datamarket.azure.com/application/2cdbc511-cb12-4715-9871-c7e7fbbb82a6). Você também pode escrever o código para carregar os arquivos de ativos conforme mostrado no exemplo de código a seguir.
+Você pode usar qualquer aplicativo cliente de alta velocidade capaz de carregar o contêiner de armazenamento do blob da arquivos para ativo Olá toohello URI fornecido pelo Olá **IIngestManifest.BlobStorageUriForUpload** propriedade Olá IngestManifest. Um serviço de carregamento de alta velocidade notável é [Aspera sob demanda para o aplicativo do Azure](https://datamarket.azure.com/application/2cdbc511-cb12-4715-9871-c7e7fbbb82a6). Você também pode escrever código de arquivos de ativos de saudação tooupload conforme Olá exemplo de código a seguir.
 
     static void UploadBlobFile(string destBlobURI, string filename)
     {
@@ -215,16 +215,16 @@ Você pode usar qualquer aplicativo de cliente de alta velocidade capaz de carre
         copytask.Start();
     }
 
-O código para carregar os arquivos de ativo para o exemplo usado neste tópico é mostrado no exemplo de código a seguir.
+código de saudação para carregar arquivos de ativo Olá para o exemplo hello usados neste tópico é mostrado no hello exemplo de código a seguir.
 
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename1);
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename2);
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename3);
 
 
-Você pode determinar o progresso da ingestão em massa para todos os ativos associados com um **IngestManifest** sondando a propriedade Estatística do **IngestManifest**. Para atualizar informações sobre o andamento, você deve usar um novo **CloudMediaContext** sempre que sondar a propriedade Estatísticas.
+Você pode determinar o progresso de saudação de ingestão em massa de Olá para todos os ativos associados um **IngestManifest** consultando a propriedade de estatísticas de saudação do hello **IngestManifest**. Em ordem tooupdate informações sobre o andamento, você deve usar um novo **CloudMediaContext** cada vez que você pesquisar propriedades de estatísticas de saudação.
 
-O exemplo a seguir demonstra a sondagem em um IngestManifest pela sua **Id**.
+Olá exemplo a seguir demonstra sondagem um IngestManifest por seu **Id**.
 
     static void MonitorBulkManifest(string manifestID)
     {
@@ -261,7 +261,7 @@ O exemplo a seguir demonstra a sondagem em um IngestManifest pela sua **Id**.
 
 
 ## <a name="upload-files-using-net-sdk-extensions"></a>Carregar arquivos usando as extensões do SDK do .NET
-O exemplo a seguir mostra como carregar um único arquivo usando as extensões do SDK do .NET. Nesse caso, o método **CreateFromFile** é usado, mas a versão assíncrona também está disponível (**CreateFromFileAsync**). O método **CreateFromFile** permite que você especifique o nome do arquivo, a opção de criptografia e um retorno de chamada para relatar o progresso do carregamento do arquivo.
+exemplo Hello abaixo mostra como tooupload um único arquivo usando as extensões do SDK do .NET. Nesse caso Olá **CreateFromFile** método é usado, mas a versão assíncrona Olá também está disponível (**CreateFromFileAsync**). Olá **CreateFromFile** método permite que você especifique o nome do arquivo hello, opção de criptografia e um retorno de chamada de saudação do pedido tooreport carregar progresso do arquivo hello.
 
     static public IAsset UploadFile(string fileName, AssetCreationOptions options)
     {
@@ -278,7 +278,7 @@ O exemplo a seguir mostra como carregar um único arquivo usando as extensões d
         return inputAsset;
     }
 
-O exemplo a seguir chama a função UploadFile e especifica a criptografia de armazenamento como a opção de criação de ativos.  
+Olá exemplo a seguir chama a função UploadFile e especifica a criptografia de armazenamento como a opção de criação de ativos de saudação.  
 
     var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
 
@@ -286,7 +286,7 @@ O exemplo a seguir chama a função UploadFile e especifica a criptografia de ar
 
 Agora você pode codificar seus ativos carregados. Para saber mais, veja [Codificar ativos](media-services-portal-encode.md).
 
-Você também pode usar as Azure Functions para disparar um trabalho de codificação baseado em um arquivo que chega no contêiner configurado. Para obter mais informações, confira [este exemplo](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
+Você também pode usar as funções do Azure tootrigger um trabalho de codificação com base em um arquivo que chegam no contêiner de saudação configurada. Para obter mais informações, confira [este exemplo](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -295,7 +295,7 @@ Você também pode usar as Azure Functions para disparar um trabalho de codifica
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Próxima etapa
-Agora que você carregou um ativo nos Serviços de Mídia, acesse o tópico [Como obter um processador de mídia][How to Get a Media Processor].
+Agora que você carregou um ativo tooMedia serviços, vá toohello [como tooGet um processador de mídia] [ How tooGet a Media Processor] tópico.
 
-[How to Get a Media Processor]: media-services-get-media-processor.md
+[How tooGet a Media Processor]: media-services-get-media-processor.md
 

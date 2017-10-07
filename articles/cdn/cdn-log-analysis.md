@@ -1,5 +1,5 @@
 ---
-title: "Análise de logs da CDN do Azure | Microsoft Docs"
+title: "análise de aaaLog para CDN do Azure | Microsoft Docs"
 description: "O cliente pode habilitar a análise de log para a CDN do Azure."
 services: cdn
 documentationcenter: 
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: v-semcev
-ms.openlocfilehash: 03ff74ae4e40d3f2279caaf4f73e9b4aac6a2ebb
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 56e5a4fec46fd156cf38252732afb4522741d009
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="diagnostics-logs-for-azure-cdn"></a>Logs de Diagnóstico para a CDN do Azure
 
-Depois de habilitar a CDN para seu aplicativo, provavelmente você desejará monitorar o uso da CDN, verificar a integridade da entrega e solucionar possíveis problemas. A CDN do Azure fornece esses recursos com a [Análise de Núcleo de CDN](cdn-analyze-usage-patterns.md) e os [Logs de Diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
+Depois de habilitar CDN para o seu aplicativo, você provavelmente deseja uso da CDN toomonitor Olá, verificar a integridade de saudação de sua entrega e solucionar possíveis problemas. A CDN do Azure fornece esses recursos com a [Análise de Núcleo de CDN](cdn-analyze-usage-patterns.md) e os [Logs de Diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 
 ## <a name="cdn-core-analytics"></a>Análise de Núcleo de CDN
-Como um usuário atual da CDN do Azure com o perfil Verizon Standard ou Premium, você já pode exibir a análise principal no portal suplementar acessível por meio da opção “Gerenciar” do Portal do Azure. 
+Como um usuário atual do Azure CDN Verizon padrão ou perfil de premium, você já está tooview capaz de análise de núcleo no portal suplementar da saudação acessível por meio da opção de "Gerenciar" hello da saudação portal do Azure. 
 
 ## <a name="azure-diagnostic-logs"></a>Logs de Diagnóstico do Azure
 
@@ -35,43 +35,43 @@ Azure Com esse novo recurso, você pode exibir a análise de núcleo e salvá-la
  - Hubs de eventos do Azure
  - [Repositório do OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
- Esse recurso está disponível para todos os pontos de extremidade da CDN que pertencem a perfis da CDN Verizon (Standard e Premium) e Akamai (Standard).
+ Este recurso está disponível para todos os pontos de extremidade CDN pertencentes tooVerizon (Standard e Premium) e perfis de CDN do Akamai (padrão).
 
-Os logs de diagnóstico permitem que você exporte métricas de uso básicas do seu ponto de extremidade da CDN para uma variedade de origens para que possa consumi-las de forma personalizada. Por exemplo, você pode realizar os seguintes tipos de exportação de dados:
+Logs de diagnóstico permitem tooexport métricas de uso básico de sua variedade de tooa de ponto de extremidade CDN de fontes para que você pode consumi-los de forma personalizada. Por exemplo, você pode fazer Olá seguintes tipos de exportação de dados:
 
-- Exportar dados para o Armazenamento de Blobs, exportar para CSV e gerar gráficos no Excel.
-- Exportar dados para hubs de eventos e correlacionar com os dados de outros serviços do Azure.
-- Exportar dados para o Log Analytics e exibir dados no seu próprio espaço de trabalho do OMS
+- Exportar armazenamento tooblob de dados, exportar tooCSV e gerar gráficos no excel.
+- Exportar hubs tooevent de dados e correlacionar com dados de outros serviços do azure.
+- Exportar dados toolog análise e exibir os dados em seu próprio espaço de trabalho do OMS
 
-A figura a seguir mostra uma exibição de Análise de Núcleo de CDN típica nos dados.
+Hello figura a seguir mostra uma exibição de análise de núcleo de CDN típica em dados.
 
 ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/01_OMS-workspace.png)
 
 *Figura 1 – exibição de Análise de Núcleo de CDN*
 
-O passo a passo a seguir revisa o esquema dos dados de análise de núcleo, as etapas envolvidas na habilitação do recurso e entrega deles a vários destinos e consumo desses destinos.
+Olá seguindo as instruções passo a passo passa pelo esquema de saudação do dados de análise de núcleo hello, etapas envolvidas na habilitação do recurso hello e entregá-los toovarious destinos e consumo desses destinos.
 
 ## <a name="enable-logging-with-azure-portal"></a>Habilitar registro em log com o Portal do Azure
 
 > [!NOTE]
-> Os logs de diagnóstico estão **desligados** por padrão. 
+> Olá logs de diagnóstico estão ativados **off** por padrão. 
 
-Siga as etapas abaixo para habilitar o registro em log da Análise de Núcleo de CDN:
+Siga as próximas etapas, Olá tooenable registro em log com a análise de núcleo de CDN:
 
-Entre no [Portal do Azure](http://portal.azure.com). Se você ainda não tiver a CDN habilitada para o fluxo de trabalho, [Habilite a CDN do Azure](cdn-create-new-endpoint.md) antes de continuar.
+Entrar toohello [portal do Azure](http://portal.azure.com). Se você ainda não tiver a CDN habilitada para o fluxo de trabalho, [Habilite a CDN do Azure](cdn-create-new-endpoint.md) antes de continuar.
 
-1. No portal, navegue até **Perfil CDN**.
-2. Selecione um perfil CDN e selecione o ponto de extremidade da CDN do qual você deseja habilitar os **Logs de Diagnóstico**.
+1. No portal de hello, navegue até muito**perfil CDN**.
+2. Selecione um perfil CDN e selecione o ponto de extremidade CDN Olá que você deseja tooenable **Logs de diagnóstico**.
 
     ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/02_Browse-to-Diagnostics-logs.png)
 
-3. Acesse a folha **Logs de Diagnóstico** na seção **Monitoramento** e altere o status para **Ativo**.
+3. Vá muito**Logs de diagnóstico** folha sob **monitoramento** seção, em seguida, alterar o status de saudação muito**em**.
 
     ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/03_Diagnostics-logs-options.png)
 
 ### <a name="enable-logging-with-azure-storage"></a>Habilitar registro em log com o Armazenamento do Azure
     
-Para usar o Armazenamento do Azure é usado para armazenar os logs, selecione **Arquivar em uma conta de armazenamento**, selecione os dias de retenção e clique em **CoreAnalytics** em **Log**.
+logs de saudação toostore do armazenamento do Azure toouse, selecione **tooa conta de armazenamento de arquivos**, selecione os dias de retenção e clique em **CoreAnalytics** em **Log**.
 
 ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/04_Diagnostics-logs-storage.png)
 
@@ -79,13 +79,13 @@ Para usar o Armazenamento do Azure é usado para armazenar os logs, selecione **
 
 ### <a name="logging-with-oms-log-analytics"></a>Registro em log com o OMS Log Analytics
 
-Para usar o OMS Log Analytics para armazenar os logs, siga estas etapas:
+logs de saudação toostore de análise de logs do OMS toouse, siga estas etapas:
 
-1. Da folha **Logs de Diagnóstico** sob **Monitoramento**, selecione **Enviar para o Log Analytics** de 
+1. De saudação **Logs de diagnóstico** folha sob **monitoramento**, selecione **enviar tooLog análise** de 
 
     ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/05_Ready-to-Configure.png)    
 
-2. Configure o registro em log do Log Analytics clicando em configurar. Isso leva você até uma caixa de diálogo em que você pode selecionar um espaço de trabalho anterior ou criar um novo.
+2. Configure o log de análise de Log Olá clicando em configurar. Isso leva tooa caixa de diálogo onde você pode selecionar um espaço de trabalho anterior ou criar um novo.
 
     ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/06_Choose-workspace.png)
 
@@ -93,35 +93,35 @@ Para usar o OMS Log Analytics para armazenar os logs, siga estas etapas:
 
     ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. Em seguida, você deve selecionar um novo nome de espaço de trabalho, uma assinatura existente, um grupo de recursos (novo ou existente), um local e um tipo de preço. Você tem a opção de fixar essa configuração em seu painel. Clique em OK para concluir a configuração.
+4. Em seguida, você deve selecionar um novo nome de espaço de trabalho, uma assinatura existente, um grupo de recursos (novo ou existente), um local e um tipo de preço. Você tem a opção de saudação de Fixar este painel de tooyour de configuração. Clique em configuração de saudação toocomplete Okey.
 
     Em seguida, você verá seu espaço de trabalho com os nomes do grupo de recursos e do Espaço de Trabalho do OMS. Os nomes devem ser exclusivos e podem usar apenas letras, números e hifens. Espaços e sublinhados não são permitidos. 
 
     ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/08_Workspace-resource.png)
 
-5. Em seguida, você recebe uma mensagem curta informando que seu espaço de trabalho foi criado e você retorna à tela de configuração de registro em log. Você pode confirmar o nome do espaço de trabalho do Log Analytics.
+5. Em seguida receber uma mensagem curta informando que seu espaço de trabalho foi criado e você retornará tooyour tela de configuração de log. Você pode confirmar o nome de saudação do seu espaço de trabalho de análise de Log.
 
     ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/09_Return-to-logging.png)
 
-    Depois que você fizer a configuração do Log Analytics, verifique se você também marcou a caixa CoreAnalytics para o registro em log da CDN.
+    Depois de ter definido a configuração de análise de Log hello, certifique-se de que conferir caixa CoreAnalytics Olá log CDN.
 
-6. Se tudo estiver de acordo com sua preferência, clique no botão **Salvar** na parte superior da caixa de diálogo de configuração.
+6. Se tudo estiver tooyour preferência, clique em Olá **salvar** botão na parte superior de saudação da caixa de diálogo de configuração de saudação.
 
     ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/10_Save-me.png)
 
-    O botão **Salvar** não está mais ativo e o botão LIGADO/DESLIGADO está agora LIGADO, mas azul em vez de roxo.
+    Olá **salvar** botão não está mais ativa e que Olá no/fora botão agora é ON, mas azul, em vez de roxo.
 
-7. Se você quiser ver seu novo espaço de trabalho do OMS, vá para o painel do Portal do Azure e clique no nome do seu espaço de trabalho do Log Analytics. Em seguida, você verá seu espaço de trabalho (verifique se o espaço de trabalho do OMS está realçado à esquerda). Clique no bloco do Portal do OMS para ver seu espaço de trabalho no repositório do OMS. 
+7. Se você quiser toosee seu novo espaço de trabalho do OMS, vá tooyour portal do Azure painel, clique em nome de saudação do seu espaço de trabalho de análise de Log. Em seguida, você verá seu espaço de trabalho (certifique-se de que o espaço de trabalho do OMS é realçado Olá esquerda). Clique em Olá Portal do OMS bloco toosee seu espaço de trabalho no repositório do OMS hello. 
 
     ![portal – Logs de diagnóstico](./media/cdn-diagnostics-log/11_OMS-dashboard.png) 
 
-    O repositório do OMS está pronto para registrar dados em log. Para consumir esses dados, você deve usar uma [solução do OMS](#consuming-oms-log-analytics-data), abordada posteriormente neste artigo.
+    O repositório do OMS agora está pronto toolog dados. Em ordem tooconsume dados, você deve usar um [solução do OMS](#consuming-oms-log-analytics-data), coberto neste artigo.
 
 Para obter mais informações sobre os atrasos em dados de log, consulte [aqui](#log-data-delays).
 
 ## <a name="enable-logging-with-powershell"></a>Habilitar o registro em log com o PowerShell
 
-Abaixo está um exemplo de como habilitar e obter Logs de Diagnóstico por meio de cmdlets do Azure PowerShell.
+Abaixo está um exemplo de como tooenable e obter Logs de diagnóstico por meio de Olá Cmdlets do PowerShell do Azure.
 
 ###<a name="enabling-diagnostic-logs-in-a-storage-account"></a>Habilitando os Logs de Diagnóstico em uma conta de armazenamento
 
@@ -132,12 +132,12 @@ Primeiro, faça logon e selecione uma assinatura:
     Select-AzureSubscription -SubscriptionId 
 
 
-Para habilitar os Logs de Diagnóstico em uma Conta de Armazenamento, use este comando:
+tooEnable Logs de diagnóstico em uma conta de armazenamento, use este comando:
 
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
 ```
-Para habilitar os logs de diagnóstico em um espaço de trabalho do OMS, use este comando:
+tooEnable Logs de diagnóstico em um espaço de trabalho do OMS, use este comando:
 
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
@@ -147,24 +147,24 @@ Para habilitar os logs de diagnóstico em um espaço de trabalho do OMS, use est
 
 
 ## <a name="consuming-diagnostics-logs-from-azure-storage"></a>Consumir logs de diagnóstico do Armazenamento do Azure
-Esta seção descreve o esquema da análise de núcleo da CDN, como eles são organizados dentro de uma Conta de Armazenamento do Azure e fornece código de exemplo para baixar os logs em um arquivo CSV.
+Esta seção descreve o esquema de saudação da análise de núcleo CDN hello, como eles são organizados dentro de uma conta de armazenamento do Azure e fornece Olá de toodownload do código de exemplo registra no arquivo CSV de tooa.
 
 ### <a name="using-microsoft-azure-storage-explorer"></a>Usando o Gerenciador de Armazenamento do Microsoft Azure
-Antes de poder acessar os dados da análise principal da Conta de Armazenamento do Azure, primeiro você precisa de uma ferramenta para acessar o conteúdo em uma conta de armazenamento. Embora haja várias ferramentas disponíveis no mercado, a que recomendamos é o Gerenciador de Armazenamento do Microsoft Azure. Você pode baixar a ferramenta [aqui](http://storageexplorer.com/). Depois de baixar e instalar o software, configure-o para usar a mesma Conta de Armazenamento do Azure que foi configurada como um destino para os Logs de Diagnóstico da CDN.
+Antes de poder acessar dados de análise de núcleo de saudação do hello conta de armazenamento do Azure, primeiro é necessário um conteúdo de saudação tooaccess ferramenta em uma conta de armazenamento. Embora várias ferramentas estão disponíveis no mercado Olá, Olá que recomendamos é Olá Microsoft Azure Storage Explorer. Você pode baixar a ferramenta de saudação do [aqui](http://storageexplorer.com/). Depois de baixar e instalar software hello, configure-toouse Olá a mesma conta de armazenamento do Azure que foi configurado como um destino toohello CDN Logs de diagnóstico.
 
 1.  Abra o **Gerenciador de Armazenamento do Microsoft Azure**
-2.  Localize a conta de armazenamento
-3.  Vá para o nó **"Contêineres de Blob"** nessa conta de armazenamento e expanda o nó
-4.  Selecione o contêiner chamado **“insights-logs-coreanalytics”** e clique duas vezes nele
-5.  Os resultados são mostrados no painel da direita começando com o primeiro nível, que se parece com **“resourceId=”**. Continue clicando em todo o caminho até encontrar o arquivo **PT1H.json**. Consulte a observação a seguir para obter a explicação do caminho.
-6.  Cada blob **PT1H.json** representa os logs de análise de uma hora para um ponto de extremidade da CDN específico ou seu domínio personalizado.
-7.  O esquema do conteúdo desse arquivo JSON é descrito na seção Esquema dos logs de análise principal
+2.  Localize a conta de armazenamento Olá
+3.  Vá toohello **"Contêineres de Blob"** nó sob esse armazenamento de conta e expanda o nó Olá
+4.  Contêiner Olá selecione denominado **"insights-logs-coreanalytics"** e clique duas vezes
+5.  Mostrar os resultados de backup em Olá painel direito começando com hello primeiro nível, que se parece com **"resourceId ="**. Continue clicando em todo o caminho de saudação até que você veja o arquivo hello **PT1H.json**. Consulte Olá Observação para obter explicação do caminho Olá seguinte.
+6.  Cada blob **PT1H.json** representa hello logs de análise para uma hora para um ponto de extremidade CDN específico ou seu domínio personalizado.
+7.  esquema de saudação do conteúdo Olá deste arquivo JSON é descrita na seção de saudação esquema de saudação Logs de análise de núcleo
 
 
 > [!NOTE]
 > **Formato de caminho de blob**
 > 
-> Os logs de análise principal são gerados a cada hora. Todos os dados de uma hora são coletados e armazenados em um único Blob do Azure como um conteúdo JSON. O caminho para esse Blob do Azure aparece como se houvesse uma estrutura hierárquica. Isso é porque a ferramenta de Gerenciador de Armazenamento interpreta '/' como um separador de diretório e mostra a hierarquia para sua conveniência. Na verdade, o caminho inteiro representa apenas o nome do blob. Esse nome do blob segue a convenção de nomenclatura abaixo   
+> Os logs de análise principal são gerados a cada hora. Todos os dados de uma hora são coletados e armazenados em um único Blob do Azure como um conteúdo JSON. Olá caminho toothis BLOBs do Azure aparece como se houver uma estrutura hierárquica. Isso é porque a ferramenta de Gerenciador de armazenamento Olá interpreta '/' como um separador de diretório e mostra a hierarquia de saudação para sua conveniência. Na verdade, o caminho inteiro Olá apenas representa o nome de blob de saudação. Esse nome de blob Olá segue Olá seguindo a convenção de nomenclatura 
     
     resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json
 
@@ -172,60 +172,60 @@ Antes de poder acessar os dados da análise principal da Conta de Armazenamento 
 
 |value|Descrição|
 |-------|---------|
-|ID da assinatura    |ID da assinatura do Azure. Esse é o formato de Guid.|
-|Recurso |Nome do Grupo   Nome do grupo de recursos ao qual os recursos da CDN pertencem.|
-|Nome do Perfil |Nome do perfil CDN|
-|Nome do Ponto de Extremidade |Nome do ponto de extremidade da CDN|
-|Ano|  Representação de 4 dígitos do ano, por exemplo, 2017|
-|Mês| Representação de 2 dígitos do número do mês. 01 = janeiro... 12 = dezembro|
-|Dia|   Representação de 2 dígitos do dia do mês|
-|PT1H.json| Arquivo JSON real em que os dados da análise são armazenados|
+|ID da assinatura    |ID da saudação assinatura do Azure. Isso está no formato de Guid de saudação.|
+|Recurso |Nome do grupo de recursos CDN Olá recurso grupo toowhich Olá pertence.|
+|Nome do Perfil |Nome da saudação perfil CDN|
+|Nome do Ponto de Extremidade |Nome do ponto de extremidade CDN da saudação|
+|Ano|  representação de 4 dígitos do ano hello, por exemplo, de 2017|
+|Mês| representação de 2 dígitos do número do mês hello. 01 = janeiro... 12 = dezembro|
+|Dia|   representação de 2 dígitos de dia de saudação do mês de saudação|
+|PT1H.json| Armazenamento de dados de análise de saudação real do arquivo JSON|
 
-### <a name="exporting-the-core-analytics-data-to-a-csv-file"></a>Exportando os dados da análise principal para um arquivo CSV
+### <a name="exporting-hello-core-analytics-data-tooa-csv-file"></a>Exportando Olá dados de análise de núcleo tooa arquivo CSV
 
-Para facilitar o acesso à Análise de Núcleo, fornecemos um código de exemplo para uma ferramenta, que permite baixar os arquivos JSON em um formato de arquivo simples separado por vírgula que pode ser usado para criar facilmente gráficos ou outras agregações.
+toomake it tooaccess fácil Olá Core análise, podemos fornecer um código de exemplo para uma ferramenta que permite fazer o download de arquivos JSON de saudação em um formato de arquivo simples separados por vírgulas, que pode ser usado tooeasily criar gráficos ou outras agregações.
 
-Aqui está como você pode usar a ferramenta:
+Aqui está como você pode usar a ferramenta de saudação:
 
-1.  Visite o link do GitHub: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv )
-2.  Baixar o código
-3.  Siga as instruções para compilar e configurar
-4.  Execute a ferramenta
-5.  O arquivo CSV resultante mostra os dados de análise em uma hierarquia simples.
+1.  Visite o link do github Olá: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv )
+2.  Baixar o código de saudação
+3.  Siga as instruções toocompile e configurar
+4.  Execute a ferramenta de saudação
+5.  Arquivo CSV resultante mostra dados de análise de saudação em uma hierarquia simples simple.
 
 ## <a name="consuming-diagnostics-logs-from-an-oms-log-analytics-repository"></a>Consumir logs de diagnóstico de um repositório do OMS Log Analytics
-O Log Analytics é um serviço no Operations Management Suite (OMS) que monitora seus ambientes na nuvem e locais a fim de manter a disponibilidade e o desempenho. Ele coleta dados gerados pelos recursos em seus ambientes de nuvem e locais e de outras ferramentas de monitoramento para fornecer análise de várias fontes. 
+Análise de log é um serviço no OMS Operations Management Suite () que monitora o toomaintain de ambientes de nuvem e local sua disponibilidade e desempenho. Ele coleta dados gerados pelos recursos em seus ambientes de nuvem e locais e de outras análises de tooprovide ferramentas monitoramento em várias origens. 
 
-Para usar o Log Analytics, você deve [habilitar o registro em log](#enable-logging-with-azure-storage) para o repositório do OMS Log Analytics do Azure, que é discutido anteriormente neste artigo.
+toouse análise de Log, você deve [habilitar registro em log](#enable-logging-with-azure-storage) repositório de análise de Log de OMS do Azure toohello, que é discutido neste artigo.
 
-### <a name="using-the-oms-repository"></a>Usando o repositório do OMS
+### <a name="using-hello-oms-repository"></a>Usando Olá repositório do OMS
 
- O diagrama a seguir mostra a arquitetura das entradas e saídas do repositório:
+ Olá diagrama a seguir mostra a arquitetura de saudação de entradas de saudação e saídas do repositório de saudação:
 
 ![Repositório do OMS Log Analytics](./media/cdn-diagnostics-log/12_Repo-overview.png)
 
 *Figura 3 – Repositório do Log Analytics*
 
-Você pode exibir os dados de várias maneiras usando soluções de gerenciamento. Você pode obter as soluções de gerenciamento do [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
+Você pode exibir dados de saudação em uma variedade de maneiras usando soluções de gerenciamento. Você pode obter as soluções de gerenciamento de saudação [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
 
-Você pode instalar as soluções de gerenciamento do Azure marketplace clicando no link **Obtenha agora** na parte inferior de cada solução.
+Você pode instalar as soluções de gerenciamento do Azure marketplace clicando Olá **obtê-lo agora** link na parte inferior da saudação de cada solução.
 
 ### <a name="adding-an-oms-cdn-management-solution"></a>Adicionar uma solução de gerenciamento de CDN do OMS
 
-Siga estas etapas para adicionar uma solução de gerenciamento:
+Siga essas etapas tooadd uma solução de gerenciamento:
 
-1.   Se ainda não tiver feito isso, entre no Portal do Azure usando a sua assinatura do Azure e vá para o seu painel.
+1.   Se você ainda não fez isso, entre em toohello portal do Azure usando sua assinatura do Azure e vá tooyour painel.
     ![Painel do Azure](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
 
-2. Na folha **Novo** em **Marketplace**, selecione **Monitoramento + gerenciamento**.
+2. Em Olá **novo** folha sob **Marketplace**, selecione **monitoramento + gerenciamento**.
 
     ![Marketplace](./media/cdn-diagnostics-log/14_Marketplace.png)
 
-3. Na folha **Monitoramento + gerenciamento**, clique em **Ver todos**.
+3. Em Olá **monitoramento + gerenciamento** folha, clique em **ver todos os**.
 
     ![Ver tudo](./media/cdn-diagnostics-log/15_See-all.png)
 
-4.  Pesquise pela CDN na caixa de pesquisa.
+4.  Pesquisar CDN na caixa de pesquisa de saudação.
 
     ![Ver tudo](./media/cdn-diagnostics-log/16_Search-for.png)
 
@@ -233,43 +233,43 @@ Siga estas etapas para adicionar uma solução de gerenciamento:
 
     ![Ver tudo](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
-6.  Depois de clicar em **Criar**, você deverá criar um novo espaço de trabalho do OMS ou usar um existente. 
+6.  Depois de clicar em **criar**, você será perguntado toocreate um novo espaço de trabalho do OMS ou use uma existente. 
 
     ![Ver tudo](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
-7.  Selecione o espaço de trabalho que você criou antes. Em seguida, você precisa adicionar uma conta de automação.
+7.  Selecione o espaço de trabalho de saudação criado antes. Em seguida, você precisa tooadd uma conta de automação.
 
     ![Ver tudo](./media/cdn-diagnostics-log/19_Add-automation.png)
 
-8. A tela a seguir mostra o formulário de conta de automação que você deve preencher. 
+8. Olá tela a seguir mostra Olá formulário de conta de automação que deve preencher. 
 
     ![Ver tudo](./media/cdn-diagnostics-log/20_Automation.png)
 
-9. Depois que você criar a conta de automação, você estará pronto para adicionar sua solução. Selecione o botão **Criar** .
+9. Depois que você criou a conta de automação hello, você está pronto tooadd sua solução. Clique em Olá **criar** botão.
 
     ![Ver tudo](./media/cdn-diagnostics-log/21_Ready.png)
 
-10. A solução foi agora adicionada ao espaço de trabalho. Volte para seu painel do Portal do Azure.
+10. Espaço de trabalho tooyour agora foi adicionada ao sua solução. Volte tooyour painel do portal do Azure.
 
     ![Ver tudo](./media/cdn-diagnostics-log/22_Dashboard.png)
 
-    Clique no espaço de trabalho do Log Analytics que você criou para ir para o seu espaço de trabalho. 
+    Clique em espaço de trabalho de análise de Log Olá você criou o espaço de trabalho do toogo tooyour. 
 
-11. Clique no bloco **Portal do OMS** para ver a nova solução no portal do OMS.
+11. Clique em Olá **Portal do OMS** bloco toosee sua nova solução no portal do OMS hello.
 
     ![Ver tudo](./media/cdn-diagnostics-log/23_workspace.png)
 
-12. O portal do OMS deve agora ser semelhante à tela a seguir:
+12. O portal do OMS deve agora ser semelhante Olá tela a seguir:
 
     ![Ver tudo](./media/cdn-diagnostics-log/24_OMS-solution.png)
 
-    Clique em um dos blocos para ver várias exibições nos dados.
+    Clique em uma saudação blocos toosee vários modos de exibição em seus dados.
 
     ![Ver tudo](./media/cdn-diagnostics-log/25_Interior-view.png)
 
-    Você pode rolar à esquerda ou direita para ver mais blocos representando exibições individuais nos dados. 
+    Você pode rolar para a esquerda ou direita toosee mais blocos que representam a exibições individuais em dados saudação. 
 
-    Clicar em um dos blocos lhe fornece mais detalhes sobre seus dados.
+    Clicar em um dos blocos de saudação fornece mais detalhes sobre seus dados.
 
      ![Ver tudo](./media/cdn-diagnostics-log/26_Further-detail.png)
 
@@ -279,11 +279,11 @@ Você pode ver ofertas e camadas de preços para soluções de gerenciamento do 
 
 ### <a name="customizing-views"></a>Personalizando exibições
 
-Você pode personalizar a exibição em seus dados usando o **Designer de Exibição**. Acesse seu espaço de trabalho do OMS e comece a criação clicando no bloco **Designer de Exibição**.
+Você pode personalizar o modo de exibição de Olá em seus dados usando Olá **Designer de exibição**. Vá tooyour espaço de trabalho do OMS e inicia a criação clicando Olá **View Designer** lado a lado.
 
 ![Criador de Modos de Exibição](./media/cdn-diagnostics-log/27_Designer.png)
 
-Você pode arrastar e soltar os tipos de gráficos da esquerda e preencher os detalhes de dados que você deseja analisar à esquerda.
+Você pode arrastar e remova os tipos de gráficos da esquerda hello e preencha Olá detalhes de dados que você deseja tooanalyze em saudação à esquerda.
 
 ![Criador de Modos de Exibição](./media/cdn-diagnostics-log/28_Designer.png)
 
@@ -292,14 +292,14 @@ Você pode arrastar e soltar os tipos de gráficos da esquerda e preencher os de
 
 Atrasos em dados de log da Verizon | Atrasos em dados de log da Akamai
 --- | ---
-Os dados de log de Verizon estão 1 hora atrasados e demoram até 2 horas para começar a aparecer após a conclusão da propagação do ponto de extremidade. | Os dados de log de Akamai estão 24 horas atrasados e demoram até 2 horas para começar a aparecer se tiverem sido criados há mais de 24 horas. Se eles tiverem sido criados recentemente, poderá demorar até 25 horas para os logs começarem a aparecer.
+Dados de log Verizon é 1 hora atrasados e ocupam too2 toostart de horas que aparece após a conclusão da propagação de ponto de extremidade. | Dados de log do Akamai é 24 horas atrasadas e ocupam too2 toostart de horas que aparece se ele foi criado mais de 24 horas atrás. Se tiver sido criado recentemente, pode demorar até too25 horas para Olá logs toostart que aparecem.
 
 ## <a name="diagnostic-log-types-for-cdn-core-analytics"></a>Tipos de log de diagnóstico para análise de núcleo de CDN
 
-Atualmente, oferecemos somente logs de Análise de Núcleo, que contêm as métricas mostrando estatísticas de resposta HTTP e estatísticas de saída como visto nos POPs/bordas da CDN.
+Atualmente, nós oferecemos somente logs de análise de núcleo, que contêm as métricas mostrando estatísticas de resposta HTTP e estatísticas de saída como visto no hello POPs CDN/bordas.
 
 ### <a name="core-analytics-metrics-details"></a>Detalhes das métricas da análise principal
-A tabela a seguir mostra uma lista de métricas disponíveis nos logs de análise de núcleo. Nem todas as métricas estão disponíveis de todos os provedores, embora essas diferenças sejam mínimas. A tabela a seguir também mostra se uma determinada métrica está disponível de um provedor. Observe que as métricas estão disponíveis apenas para os pontos de extremidade da CDN que têm tráfego neles.
+Olá, a tabela a seguir mostra uma lista de métricas disponíveis no hello que logs de análise de núcleo. Nem todas as métricas estão disponíveis de todos os provedores, embora essas diferenças sejam mínimas. Olá, a tabela a seguir também mostra se uma determinada métrica está disponível de um provedor. Observe que as métricas de Olá estão disponíveis para apenas esses pontos de extremidade CDN com tráfego neles.
 
 
 |Métrica                     | Descrição   | Verizon  | Akamai 
@@ -315,10 +315,10 @@ A tabela a seguir mostra uma lista de métricas disponíveis nos logs de anális
 | RequestCountHttpStatus302 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 302              |Não   |Sim   |
 | RequestCountHttpStatus304 |  Contagem de todas as solicitações que resultaram em um código de resposta HTTP 304             |Não   |Sim   |
 | RequestCountHttpStatus404 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 404              |Não   |Sim   |
-| RequestCountCacheHit |Contagem de todas as solicitações que resultaram em uma Ocorrência no Cache. Isso significa que o ativo foi servido diretamente do POP para o cliente.               | Sim  |Não   |
-| RequestCountCacheMiss | Contagem de todas as solicitações que resultaram em uma Perda do Cache. Isso significa que o ativo não foi encontrado no POP mais próximo ao cliente e, portanto, foi recuperado da Origem.              |Sim   | Não  |
-| RequestCountCacheNoCache | Contagem de todas as solicitações para um ativo que são impedidas de serem armazenadas em cache devido a uma configuração do usuário na borda.              |Sim   | Não  |
-| RequestCountCacheUncacheable | Contagem de todas as solicitações para ativos que são impedidas de serem armazenadas em cache pelos cabeçalhos Cache-Control e Expires do ativo, que indicam que não devem ser armazenadas em cache em um POP ou pelo cliente HTTP                |Sim   |Não   |
+| RequestCountCacheHit |Contagem de todas as solicitações que resultaram em uma Ocorrência no Cache. Isso significa que o ativo de saudação foi servido diretamente Olá POP toohello cliente.               | Sim  |Não   |
+| RequestCountCacheMiss | Contagem de todas as solicitações que resultaram em uma Perda do Cache. Isso significa Olá ativo não foi encontrado no cliente de toohello Olá POP mais próximo e, portanto, foi recuperado do hello origem.              |Sim   | Não  |
+| RequestCountCacheNoCache | Contagem de todas as solicitações tooan ativo que impediu que está sendo armazenado em cache devido a configuração do usuário tooa na borda de saudação.              |Sim   | Não  |
+| RequestCountCacheUncacheable | Contagem de todas as solicitações tooassets impediu que está sendo armazenado em cache pelo controle de Cache do ativo Olá e expira cabeçalhos, que indicam que ele deve não ser armazenado em cache pelo cliente Olá HTTP ou um POP                |Sim   |Não   |
 | RequestCountCacheOthers | Contagem de todas as solicitações com o status de cache não cobertas pelos itens acima.              |Sim   | Não  |
 | EgressTotal | Transferência de dados de saída em GB              |Sim   |Sim   |
 | EgressHttpStatus2xx | Transferência de dados de saída* para respostas com códigos de status HTTP 2xx em GB            |Sim   |Não   |
@@ -326,28 +326,28 @@ A tabela a seguir mostra uma lista de métricas disponíveis nos logs de anális
 | EgressHttpStatus4xx | Transferência de dados de saída para respostas com códigos de status HTTP 4xx em GB               |Sim   | Não  |
 | EgressHttpStatus5xx | Transferência de dados de saída para respostas com códigos de status HTTP 5xx em GB               |Sim   |  Não |
 | EgressHttpStatusOthers | Transferência de dados de saída para respostas com outros códigos de status HTTP em GB                |Sim   |Não   |
-| EgressCacheHit |  Transferência de dados de saída para respostas que foram entregues diretamente do cache da CDN nos POPs/Bordas da CDN  |Sim   |  Não |
-| EgressCacheMiss | Transferência de dados de saída de respostas que não foram encontradas no servidor POP mais próximo e foram recuperadas do servidor de origem              |Sim   |  Não |
-| EgressCacheNoCache | Transferência de dados de saída para ativos que são impedidos de serem armazenados em cache devido a uma configuração do usuário na borda.                |Sim   |Não   |
-| EgressCacheUncacheable | Transferência de dados de saída para ativos que são impedidos de serem armazenados em cache pelos cabeçalhos Cache-Control e/ou Expires do ativo, que indicam que não devem ser armazenadas em cache em um POP ou pelo cliente HTTP                    |Sim   | Não  |
+| EgressCacheHit |  Saída de transferência de dados para respostas que foram entregues diretamente do cache CDN Olá em Olá POPs de CDN/bordas  |Sim   |  Não |
+| EgressCacheMiss | Transferência de dados de saída para respostas que não foram encontradas no hello mais próximo servidor POP e recuperadas do servidor de origem Olá              |Sim   |  Não |
+| EgressCacheNoCache | Transferência de dados de saída para ativos que são impedidos de serem armazenados em cache devido a configuração do usuário tooa na borda da saudação.                |Sim   |Não   |
+| EgressCacheUncacheable | Transferência de dados de saída de ativos que são impedidos de serem armazenados em cache por Cache-Control do ativo hello e/ou expira, que indicam que ele deve não ser armazenado em cache em um POP ou pelo cliente Olá HTTP                    |Sim   | Não  |
 | EgressCacheOthers |  Transferências de dados de saída para outros cenários de cache.             |Sim   | Não  |
 
-*Transferência de dados de saída refere-se ao tráfego entregue de servidores POP da CDN para o cliente.
+* Transferência de dados saída refere-se tootraffic entregue do cliente de toohello servidores POPS de CDN.
 
 
-### <a name="schema-of-the-core-analytics-logs"></a>Esquema dos logs de análise principal 
+### <a name="schema-of-hello-core-analytics-logs"></a>Esquema de saudação Logs de análise de núcleo 
 
-Todos os logs são armazenados no formato JSON e cada entrada tem campos de cadeia de caracteres que seguem o esquema abaixo:
+Todos os logs são armazenados no formato JSON e cada entrada tem campos de cadeia de caracteres hello abaixo de esquema a seguir:
 
 ```json
     "records": [
         {
             "time": "2017-04-27T01:00:00",
-            "resourceId": "<ARM Resource Id of the CDN Endpoint>",
+            "resourceId": "<ARM Resource Id of hello CDN Endpoint>",
             "operationName": "Microsoft.Cdn/profiles/endpoints/contentDelivery",
             "category": "CoreAnalytics",
             "properties": {
-                "DomainName": "<Name of the domain for which the statistics is reported>",
+                "DomainName": "<Name of hello domain for which hello statistics is reported>",
                 "RequestCountTotal": integer value,
                 "RequestCountHttpStatus2xx": integer value,
                 "RequestCountHttpStatus3xx": integer value,
@@ -382,7 +382,7 @@ Todos os logs são armazenados no formato JSON e cada entrada tem campos de cade
 }
 ```
 
-Em que ‘time’ representa a hora de início do limite da hora pela qual as estatísticas são relatadas. Quando uma métrica não tem suporte por um provedor de CDN, em vez de um valor double ou integer, haverá um valor null. Esse valor null indica a ausência de uma métrica e isso é diferente de um valor 0. Observe também que haverá um conjunto dessas métricas por domínio configurado no ponto de extremidade.
+Onde 'tempo' de saudação representa a hora de início de saudação do limite de hora Olá para o qual as estatísticas de saudação é relatada. Quando uma métrica não tem suporte por um provedor de CDN, em vez de um valor double ou integer, haverá um valor null. Esse valor nulo indica ausência de saudação de uma métrica, e isso é diferente de um valor de 0. Observe também que haja um conjunto de métricas por domínio configurado no ponto de extremidade de saudação.
 
 Propriedades de exemplo abaixo:
 

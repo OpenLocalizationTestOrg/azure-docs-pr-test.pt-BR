@@ -1,5 +1,5 @@
 ---
-title: "Namespaces emparelhados do Barramento de Serviço do Azure | Microsoft Docs"
+title: aaaAzure Service Bus emparelhado namespaces | Microsoft Docs
 description: "Detalhes e custo de implementação do namespace emparelhado"
 services: service-bus-messaging
 documentationcenter: na
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: sethm
-ms.openlocfilehash: a200ea7937b9f5296c743928a9408897adfba428
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4c44b2b95d2228e1ad8075b52634d88a1593d3b1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Detalhes e implicações de custo da implementação do namespace emparelhado
-O método [PairNamespaceAsync][PairNamespaceAsync], que usa uma instância de [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions], realiza tarefas visíveis em seu nome. Como o uso do recurso envolve considerações sobre o custo, convém entender essas tarefas para que quando isso ocorrer você já saiba do que se trata. A API realiza o seguinte comportamento automático em seu nome:
+Olá [PairNamespaceAsync] [ PairNamespaceAsync] método, usando um [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] da instância, realiza tarefas visíveis em seu nome. Porque há questões de custo ao usar o recurso de Olá, é útil toounderstand as tarefas para que você espera que o comportamento de saudação quando isso acontece. Olá API emprega Olá seguinte comportamento automático em seu nome:
 
 * Criação de filas de pendências.
-* Criação de um objeto [MessageSender][MessageSender] que se comunica com filas ou tópicos.
-* Quando uma entidade de mensagem fica indisponível, ela envia mensagens de ping à entidade para tentar detectar quando a entidade ficará disponível novamente.
-* Opcionalmente, ela cria um conjunto de "propulsores de mensagens" que as movem das filas de pendências para as filas principais.
-* Coordena o fechamento/falha das instâncias primária e secundária de [MessagingFactory][MessagingFactory].
+* Criação de um [MessageSender] [ MessageSender] objeto que se comunica tooqueues ou tópicos.
+* Quando uma entidade de mensagens se tornar indisponível, envia mensagens de ping toohello entidade em uma tentativa de toodetect quando essa entidade estará disponível novamente.
+* Opcionalmente, cria um conjunto de "bombas de mensagens" mover as mensagens de Olá filas de lista de pendências toohello filas principais.
+* Coordena o fechamento/falha de saudação primária e secundária [MessagingFactory] [ MessagingFactory] instâncias.
 
-Em alto nível, o recurso funciona da seguinte maneira: quando a entidade principal está íntegra, não ocorre qualquer alteração de comportamento. Após o término do [FailoverInterval][FailoverInterval] sem que a entidade primária consiga envios bem-sucedidos após um [MessagingException][MessagingException] ou um [TimeoutException][TimeoutException] não transitório, o seguinte comportamento ocorrerá:
+Em um nível alto, o recurso de saudação funciona da seguinte maneira: quando a entidade principal hello está íntegra, nenhuma alteração de comportamento ocorre. Olá quando [FailoverInterval] [ FailoverInterval] decorrer de duração, e entidade principal Olá não vê nenhum envia bem-sucedida após não transitório [MessagingException] [ MessagingException] ou um [TimeoutException][TimeoutException], Olá seguinte comportamento ocorre:
 
-1. As operações de envio para a entidade primária são desabilitadas e o sistema efetua pings na entidade primária até que os pings possam ser entregues com sucesso.
+1. Envie operações toohello primário entidade são desabilitados e os pings de sistema Olá Olá entidade primária até que pings podem ser entregues com êxito.
 2. Uma fila de pendências aleatória é selecionada.
-3. Os objetos [BrokeredMessage][BrokeredMessage] são roteados para a fila da lista de pendências escolhida.
-4. Se uma operação de envio para a fila de pendências escolhida falhar, essa fila será retirada da rotação e uma nova fila será selecionada. Todos os remetentes da instância [MessagingFactory][MessagingFactory] tomam conhecimento da falha.
+3. [BrokeredMessage] [ BrokeredMessage] objetos são roteada toohello escolhido fila de pendências.
+4. Se um toohello de operação de envio escolhida a fila de pendências falhar, essa fila é retirada da rotação hello e uma nova fila é selecionada. Todos os remetentes na Olá [MessagingFactory] [ MessagingFactory] instância saber de falha de saudação.
 
-As figuras a seguir ilustram a sequência. Primeiro, o remetente envia mensagens.
+Olá figuras a seguir descrevem sequência hello. Primeiro, o remetente Olá envia mensagens.
 
 ![Namespaces emparelhados][0]
 
-Após a falha de envio para a fila primária, o remetente começa a enviar mensagens para uma fila de pendências escolhida aleatoriamente. Simultaneamente, ele inicia uma tarefa de ping.
+Após a falha toosend toohello fila primária remetente Olá começa a enviar mensagens tooa escolhido aleatoriamente a fila de pendências. Simultaneamente, ele inicia uma tarefa de ping.
 
 ![Namespaces emparelhados][1]
 
-Neste ponto, as mensagens ainda estão na fila secundária e não foram entregues à fila primária. Quando a fila primária fica íntegra novamente, pelo menos um processo deve estar em execução no sifão. O sifão entrega as mensagens de todas as diversas filas de lista de pendências para as entidades de destino apropriadas (filas e tópicos).
+Nesse ponto, mensagens de saudação ainda estão na fila secundária hello e não tem sido entregue a fila primária toohello. Depois que a fila primária Olá estiver íntegra novamente, pelo menos um processo deve estar executando o sifão hello. Sifão Olá fornece mensagens de saudação Olá todas as pendências de várias entidades de destino adequadas de toohello filas (filas e tópicos).
 
 ![Namespaces emparelhados][2]
 
-O restante deste tópico discute os detalhes específicos de funcionamento dessas partes.
+Olá restante deste tópico aborda detalhes específicos de saudação de como essas partes funcionam.
 
 ## <a name="creation-of-backlog-queues"></a>Criação de filas de pendências
-O objeto [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] passado ao método [PairNamespaceAsync][PairNamespaceAsync] indica o número de filas de lista de pendências que você deseja usar. Em seguida, cada fila de lista de pendências é criada com as seguintes propriedades definidas explicitamente (todos os outros valores são definidos com os valores padrão de [QueueDescription][QueueDescription]):
+Olá [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] objeto passado toohello [PairNamespaceAsync] [ PairNamespaceAsync] método indica Olá número de lista de pendências de filas que você deseja toouse. Cada fila de lista de pendências é criada com hello seguintes propriedades explicitamente definido (todos os outros valores são definidos toohello [QueueDescription] [ QueueDescription] padrões):
 
 | Caminho | [namespace primário]/x-servicebus-transfer/[índice] no qual [índice] é um valor em [0, BacklogQueueCount) |
 | --- | --- |
@@ -63,15 +63,15 @@ O objeto [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespac
 | EnableDeadLetteringOnMessageExpiration |verdadeiro |
 | EnableBatchedOperations |verdadeiro |
 
-Por exemplo, a primeira fila de pendências criada para o namespace **contoso** é chamada de `contoso/x-servicebus-transfer/0`.
+Por exemplo, a primeira fila de lista de pendências Olá criado para o namespace **contoso** chamado `contoso/x-servicebus-transfer/0`.
 
-Durante a criação das filas, primeiro o código verifica se essa fila já existe. Se a fila não existir, ela será criada. O código não limpa as filas de pendência "extras". Especificamente, se o aplicativo com o namespace primário **contoso** solicitar cinco filas de pendência, mas já existir uma fila de pendências com o caminho `contoso/x-servicebus-transfer/7`, essa fila de pendências extra ainda estará presente, mas não será usada. O sistema permite explicitamente a existência de filas de pendência extras que não serão usadas. Como proprietário do namespace, você é responsável por limpar quaisquer filas de pendência não usadas/não desejadas. O motivo dessa decisão é que o Barramento de Serviço não pode saber quais são as finalidades de todas as filas no namespace. Além disso, se houver uma fila com o nome especificado, mas que não atender à suposta [QueueDescription][QueueDescription], você terá seus próprios motivos para alterar o comportamento padrão. Não há garantias para as modificações feitas por seu código nas filas de pendência. Teste suas alterações com cuidado.
+Ao criar filas hello, código de saudação primeiro verifica toosee se essa fila existe. Se a fila de saudação não existir, a fila Olá é criada. Olá código não limpa as filas de lista de pendências "extras". Especificamente, se hello aplicativo hello namespace primário **contoso** solicitar cinco filas de lista de pendências, mas uma fila de lista de pendências com caminho Olá `contoso/x-servicebus-transfer/7` existir, essa fila de pendências extra ainda está presente, mas não é usada. sistema de saudação explicitamente permite tooexist de filas de lista de pendências extras que não deve ser usado. Como proprietário do namespace Olá, você é responsável por limpar as filas de lista de pendências não utilizadas/indesejadas. Olá motivo essa decisão é que o barramento de serviço não é possível saber as finalidades existentes para todas as filas de saudação no seu namespace. Além disso, se uma fila existe com o nome hello, mas não atende Olá assumido [QueueDescription][QueueDescription], e seus motivos são seu próprios para alteração comportamento de padrão de saudação. Não há garantias para filas de lista de pendências de toohello modificações pelo seu código. Faça tootest-se de que as alterações completamente.
 
 ## <a name="custom-messagesender"></a>MessageSender personalizado
-Durante o envio, todas as mensagens passam por um objeto [MessageSender][MessageSender] interno que se comporta normalmente quando tudo funciona e redireciona para a fila de lista de pendências quando as coisas "dão errado". Ao receber uma falha não transitória, um timer é iniciado. Após um período de [TimeSpan][TimeSpan] composto pelo valor da propriedade [FailoverInterval][FailoverInterval], durante o qual nenhuma mensagem é enviada, o failover é acionado. Nesse ponto, acontece o seguinte para cada entidade:
+Ao enviar, todas as mensagens passam por meio de interno [MessageSender] [ MessageSender] objeto que se comporta normalmente quando tudo funciona e redireciona as filas de lista de pendências de toohello quando as coisas "quebra". Ao receber uma falha não transitória, um timer é iniciado. Após um [TimeSpan] [ TimeSpan] período consiste Olá [FailoverInterval] [ FailoverInterval] durante o qual nenhuma mensagem de êxito é enviadas de valor de propriedade , Olá failover for acionado. Neste ponto, hello acontecem estas coisas para cada entidade:
 
-* Uma tarefa de ping é executada a cada [PingPrimaryInterval][PingPrimaryInterval], a fim de verificar se a entidade está disponível. Após o êxito dessa tarefa, todo código do cliente que utiliza a entidade passará imediatamente a enviar novas mensagens ao namespace primário.
-* As solicitações futuras enviadas à mesma entidade de qualquer outro remetente resultarão no envio de [BrokeredMessage][BrokeredMessage] à fila de lista de pendências para sofrer alteração. A alteração remove algumas propriedades do objeto [BrokeredMessage][BrokeredMessage] e as armazena em outro lugar. As propriedades a seguir são limpas e adicionadas com um novo alias, permitindo que o Barramento de Serviço e o SDK processem as mensagens de maneira uniforme:
+* Uma tarefa de ping executa cada [PingPrimaryInterval] [ PingPrimaryInterval] toocheck se Olá entidade está disponível. Se essa tarefa for bem-sucedida, todo o código do cliente que usa a entidade Olá imediatamente começa enviando novo namespace primário toohello de mensagens.
+* As solicitações futuras toosend toothat mesma entidade de quaisquer outros remetentes resultará em Olá [BrokeredMessage] [ BrokeredMessage] enviados toobe modificado toosit na fila de lista de pendências de saudação. modificação de saudação remove algumas propriedades de saudação [BrokeredMessage] [ BrokeredMessage] do objeto e armazená-los em outro lugar. Olá propriedades a seguir são limpas e adicionadas em um novo alias, permitindo que o barramento de serviço e Olá mensagens do SDK tooprocess uniformemente:
 
 | Nome antigo da propriedade | Novo nome da propriedade |
 | --- | --- |
@@ -79,23 +79,23 @@ Durante o envio, todas as mensagens passam por um objeto [MessageSender][Message
 | TimeToLive |x-ms-timetolive |
 | ScheduledEnqueueTimeUtc |x-ms-path |
 
-O caminho de destino original também é armazenado dentro da mensagem como uma propriedade chamada x-ms-path. Esse design permite a coexistência de mensagens para muitas entidades em uma fila de pendências única. As propriedades são convertidas novamente pelo sifão.
+caminho de destino original Olá também é armazenado na mensagem de saudação como uma propriedade chamada x-ms-path. Esse design permite que mensagens para muitos toocoexist de entidades em uma fila única lista de pendências. Propriedades de saudação são traduzidas novamente pelo sifão hello.
 
-O objeto [MessageSender][MessageSender] personalizado poderá enfrentar problemas quando as mensagens se aproximarem do limite de 256 KB e o failover será acionado. O objeto [MessageSender][MessageSender] personalizado armazena as mensagens de todas as filas e tópicos nas filas de lista de pendências. Esse objeto combina mensagens de muitos primários nas filas de pendência. Para lidar com o balanceamento de carga entre vários clientes que não se conhecem, o SDK escolhe aleatoriamente uma fila de lista de pendências para cada [QueueClient][QueueClient] ou [TopicClient][TopicClient] criado no código.
+Olá personalizado [MessageSender] [ MessageSender] objeto pode encontrar problemas quando as mensagens se aproximam limite de 256 KB hello e failover for acionado. Olá personalizado [MessageSender] [ MessageSender] objeto armazena as mensagens para todas as filas e tópicos juntos nas filas de lista de pendências de saudação. Esse objeto combina mensagens de vários principais juntos dentro de filas de lista de pendências de saudação. toohandle balanceamento de carga entre vários clientes que não souber cada outro, Olá SDK aleatoriamente escolhe uma fila de lista de pendências para cada [QueueClient] [ QueueClient] ou [TopicClient] [ TopicClient] criado no código.
 
 ## <a name="pings"></a>Pings
-Uma mensagem de ping é uma [BrokeredMessage][BrokeredMessage] vazia com a propriedade [ContentType][ContentType] definida como application/vnd.ms-servicebus-ping e com um valor de [TimeToLive][TimeToLive] de um segundo. Esse ping tem uma característica especial no Barramento de Serviço: o servidor nunca entrega um ping quando o chamador solicita uma [BrokeredMessage][BrokeredMessage]. Assim, não há a necessidade de aprender como receber e ignorar essas mensagens. Cada entidade (fila ou tópico exclusivo) por instância [MessagingFactory][MessagingFactory] por cliente receberá um ping quando for considerada não disponível. Por padrão, isso ocorre uma vez por minuto. Mensagens de ping são consideradas mensagens normais do Barramento de Serviço e podem resultar em encargos de largura de banda e de mensagens. Assim que os clientes detectam que o sistema está disponível, as mensagens são interrompidas.
+Uma mensagem de ping está vazio [BrokeredMessage] [ BrokeredMessage] com seus [ContentType] [ ContentType] propriedade definida tooapplication/vnd.ms-servicebus-ping e um [TimeToLive] [ TimeToLive] valor de 1 segundo. Esse ping tem uma característica especial no barramento de serviço: servidor de saudação nunca entrega um ping quando qualquer chamador solicita uma [BrokeredMessage][BrokeredMessage]. Assim, você nunca tiver toolearn como tooreceive e ignorar essas mensagens. Cada entidade (fila ou tópico exclusivo) por [MessagingFactory] [ MessagingFactory] instância por cliente executará ping quando eles são considerados toobe não está disponível. Por padrão, isso ocorre uma vez por minuto. Mensagens de ping são consideradas toobe regulares mensagens de barramento de serviço e podem resultar em encargos de largura de banda e mensagens. Assim que os clientes Olá detectam que o sistema hello está disponível, mensagens de saudação pararam.
 
-## <a name="the-syphon"></a>O sifão
-Pelo menos um programa executável no aplicativo deve executar ativamente o sifão. O sifão realiza uma longa recepção de sondagem que dura 15 minutos. Quando todas as entidades estão disponíveis e você tem 10 filas de pendência, o aplicativo que hospeda o sifão chama a operação de recebimento 40 vezes por hora, 960 vezes por dia e 28.800 vezes em 30 dias. Quando o sifão estiver movendo ativamente as mensagens da lista de pendências para a fila primária, cada mensagem sofrerá os seguintes encargos (os encargos padrão para o tamanho da mensagem e a largura de banda são aplicados em todos os estágios):
+## <a name="hello-syphon"></a>Sifão Olá
+Pelo menos um programa executável no aplicativo hello deve estar ativamente executando sifão hello. Olá sifão realiza uma longa recepção de sondagem durante 15 minutos. Quando todas as entidades estão disponíveis e você tem 10 filas de lista de pendências, Olá aplicativo que hospeda a chamadas de sifão Olá Olá receber operação 40 vezes por hora, 960 vezes por dia e 28.800 vezes em 30 dias. Quando o sifão Olá move mensagens ativamente da fila primária do hello pendências toohello, cada mensagem passa por Olá encargos (encargos padrão para o tamanho da mensagem e largura de banda se aplica em todos os estágios) a seguir:
 
-1. Envio à lista de pendências.
-2. Recebimento da lista de pendências.
-3. Envio ao primário.
-4. Recebimento do primário.
+1. Envie a lista de pendências de toohello.
+2. Receba da lista de pendências de saudação.
+3. Envie toohello primário.
+4. Receba Olá primário.
 
 ## <a name="closefault-behavior"></a>Comportamento de fechamento/falha
-Em um aplicativo que hospeda o sifão, quando a [MessagingFactory][MessagingFactory] primária ou secundária falha ou fecha sem que seu parceiro também apresente falha ou seja fechado, sendo que quando o sifão detecta esse estado, ele age. Se a outra [MessagingFactory][MessagingFactory] não for fechada dentro de cinco segundos, o sifão falhará na [MessagingFactory][MessagingFactory] ainda aberta.
+Dentro de um aplicativo que hospeda o sifão hello, uma vez Olá primário ou secundário [MessagingFactory] [ MessagingFactory] falha ou é fechada sem seu parceiro também sendo falha/fechamento e hello sifão detecta esse estado , sifão Olá atua. Se Olá outros [MessagingFactory] [ MessagingFactory] não for fechada dentro de 5 segundos, Olá sifão falha Olá ainda aberta [MessagingFactory] [ MessagingFactory] .
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte [Padrões de sistema de mensagens assíncronas e alta disponibilidade][Asynchronous messaging patterns and high availability] para obter uma discussão detalhada da mensagem assíncrona do Barramento de Serviço. 

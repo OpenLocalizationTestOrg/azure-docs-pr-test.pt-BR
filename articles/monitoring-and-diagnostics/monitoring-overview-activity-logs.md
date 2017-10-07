@@ -1,6 +1,6 @@
 ---
-title: "Visão geral do Log de Atividades do Azure | Microsoft Docs"
-description: "Saiba o que é o Log de Atividades do Azure e como usá-lo para compreender os eventos que ocorrem dentro de sua assinatura do Azure."
+title: "aaaOverview de saudação Log de atividades do Azure | Microsoft Docs"
+description: "Saiba quais hello é do Log de atividades do Azure e como você pode usá-lo toounderstand eventos que ocorrem dentro de sua assinatura do Azure."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,117 +14,117 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: johnkem
-ms.openlocfilehash: 8ff9f73fc0732cd2227b7e0cc1091e04d69014eb
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: cba79b7f6dc0833ef588382e763761fd77d43307
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorar a atividade da assinatura com o Log de Atividades do Azure
-O **Log de Atividades do Azure** é um log de assinatura que fornece informações sobre eventos no nível da assinatura que ocorreram no Azure. Isso inclui um intervalo de dados, de dados operacionais do Azure Resource Manager para atualizações em eventos de Integridade do Serviço. O Log de Atividades era conhecido como "Logs de Auditoria" ou "Logs Operacionais", já que a categoria Administrativa relata eventos de plano de controle de suas assinaturas. Usando o Log de Atividades, você pode determinar 'o que, quem e quando' para quaisquer operações de gravação (PUT, POST, DELETE) executadas nos recursos em sua assinatura. Também é possível compreender o status da operação e outras propriedades relevantes. O Log de Atividades não inclui operações de leitura (GET) ou operações para recursos que usam o modelo Clássico/"RDFE".
+# <a name="monitor-subscription-activity-with-hello-azure-activity-log"></a>Monitorar a atividade de assinatura com hello Log de atividades do Azure
+Olá **o Log de atividades do Azure** é um log de assinatura que fornece informações sobre eventos de nível de assinatura que ocorreram no Azure. Isso inclui um intervalo de dados do Azure Resource Manager dados operacionais tooupdates em eventos de integridade do serviço. Olá Log de atividades era conhecido anteriormente como "Logs de auditoria" ou "Logs operacionais", desde que os eventos de plano de controle de relatórios Olá categoria administrativa para suas assinaturas. Usando hello atividade de Log, você pode determinar Olá ', quem e quando ' para qualquer gravação as operações executadas em recursos de saudação em sua assinatura (PUT, POST, DELETE). Você também pode saber o status de saudação da operação de saudação e outras propriedades relevantes. Olá Log de atividades não inclui operações de leitura (GET) ou de operações para recursos que usam Olá clássico / modelo "RDFE".
 
 ![Logs de Atividade X outros tipos de logs ](./media/monitoring-overview-activity-logs/Activity_Log_vs_other_logs_v5.png)
 
 Figura 1: Logs de Atividade X outros tipos de logs
 
-O Log de Atividades difere dos [Logs de Diagnóstico](monitoring-overview-of-diagnostic-logs.md). Os Logs de Atividade fornecem dados sobre as operações em um recurso externo (o “plano de controle”). Os Logs de Diagnóstico são emitidos por um recurso e fornecem informações sobre a operação do recurso (o “plano de dados”).
+Hello atividade Log difere [Logs de diagnóstico](monitoring-overview-of-diagnostic-logs.md). Logs de atividade fornecem dados sobre operações de saudação em um recurso de saudação fora (hello "plano de controle"). Logs de diagnóstico são emitidos por um recurso e fornecem informações sobre a operação de saudação do recurso (hello "plano de dados").
 
-Você pode recuperar os eventos de seu Log de Atividade usando o Portal do Azure, a CLI, cmdlets do PowerShell e a API REST do Azure Monitor.
+Você pode recuperar eventos de seu Log de atividade usando Olá portal do Azure, CLI, cmdlets do PowerShell e a API de REST do Monitor do Azure.
 
 
 > [!WARNING]
-> O Log de Atividades do Azure é usado principalmente para atividades que ocorrem no Azure Resource Manager. Ele não controla os recursos usando o modelo Clássico/RDFE. Alguns tipos de recursos Clássicos têm um provedor de recursos de proxy no Azure Resource Manager (por exemplo, Microsoft.ClassicCompute). Se você interagir com um tipo de recurso Clássico por meio do Azure Resource Manager usando esses provedores de recursos de proxy, as operações aparecerão no Log de Atividades. Se você interagir com um tipo de recurso clássico no portal Clássico ou fora dos proxies do Azure Resource Manager, suas ações somente serão registradas no Log de Operação. O Log de Operação só pode ser acessado no portal Clássico.
+> Olá Log de atividades do Azure é principalmente para atividades que ocorrem no Gerenciador de recursos do Azure. Não controla de recursos usando o modelo RDFE/clássico hello. Alguns tipos de recursos Clássicos têm um provedor de recursos de proxy no Azure Resource Manager (por exemplo, Microsoft.ClassicCompute). Se você interage com um tipo de recurso por meio do Azure Resource Manager usando esses provedores de recursos de proxy clássico, operações de saudação aparecem na Olá Log de atividades. Se você interagir com um recurso clássico de tipo no portal clássico do hello ou caso contrário fora de proxies do Azure Resource Manager hello, suas ações são apenas gravar na Olá Log da operação. Olá Log da operação é acessível apenas no portal clássico do hello.
 >
 >
 
-Exiba o vídeo de introdução do Log de Atividades a seguir.
+Saudação de exibição Olá vídeo de Introdução ao Log de atividades a seguir.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
 > 
 >
 
-## <a name="categories-in-the-activity-log"></a>Categorias no Log de Atividades
-O Log de Atividades contém várias categorias de dados. Para obter todos os detalhes sobre o esquema dessas categorias, [veja este artigo](monitoring-activity-log-schema.md). Estão incluídos:
-* **Administrativos** -essa categoria contém o registro de todas as operações de criação, atualização, exclusão e ação executadas por meio do Resource Manager. Os exemplos dos tipos de eventos que você vê nessa categoria incluem "criar máquina virtual" e "excluir grupo de segurança". Cada ação tomada por um usuário ou um aplicativo usando o Resource Manager é modelada como uma operação em um tipo de recurso específico. Se o tipo de operação for Gravação, Exclusão ou Ação, os registros do início e do êxito ou falha da operação são registrados na categoria Administrativa. A categoria administrativa também inclui alterações de controle de acesso baseado em função em uma assinatura.
-* **Integridade do Serviço** - essa categoria contém o registro de qualquer incidente de integridade do serviço ocorrido no Azure. Um exemplo do tipo de evento que você vê nessa categoria é "SQL Azure no Leste dos EUA está passando por tempo de inatividade". Os eventos de serviço de integridade são fornecidos em cinco variedades: Ação Necessária, Recuperação Assistida, Incidente, Manutenção, Informações ou Segurança, e só aparecerão se você tiver um recurso na assinatura que seria afetada pelo evento.
-* **Alerta** - esta categoria contém o registro de todas as ativações de alertas do Azure. Um exemplo do tipo de evento que você vê nessa categoria é "% de CPU em myVM foi 80 nos últimos 5 minutos." Uma variedade de sistemas do Azure têm um conceito de alerta – você pode definir uma regra de algum tipo e receber uma notificação quando as condições corresponderem a essa regra. Cada vez que um tipo de alerta com suporte do Azure é 'ativado', ou as condições são atendidas para gerar uma notificação, um registro de ativação também é enviado para essa categoria de Log de Atividades.
-* **Dimensionamento automático** -essa categoria contém o registro de todos os eventos relacionados à operação do mecanismo de dimensionamento automático com base em quaisquer configurações de dimensionamento automático que você definiu na sua assinatura. Um exemplo do tipo de evento que você veria nessa categoria é "Falha na ação de escalar horizontalmente do Dimensionamento Automático". Usando o dimensionamento automático, você pode dimensionar o número de instâncias em um tipo de recurso com suporte com base na hora do dia e/ou dados de carga (métricas) usando uma configuração de dimensionamento automático. Quando as condições de redimensionamento forem atendidas, os eventos iniciados e bem-sucedidos ou com falha serão registrados nessa categoria.
-* **Recomendação** - essa categoria contém eventos de recomendação de certos tipos de recursos, como sites e servidores SQL. Estes eventos oferecem recomendações sobre como utilizar melhor seus recursos. Você só receberá eventos desse tipo se tiver recursos que emitam recomendações.
+## <a name="categories-in-hello-activity-log"></a>Categorias de saudação Log de atividades
+Hello atividade de Log contém várias categorias de dados. Para obter detalhes completos sobre esquemas de saudação dessas categorias, [consulte este artigo](monitoring-activity-log-schema.md). Estão incluídos:
+* **Administrativos** -nesta categoria contém o registro de saudação de todos os criar, operações de atualização, exclusão e a ação executada por meio do Gerenciador de recursos. Exemplos de saudação tipos de eventos que você vê nessa categoria incluem "criar a máquina virtual" e "Excluir grupo de segurança de rede" cada ação tomada por um usuário ou aplicativo usando o Gerenciador de recursos é modelado como uma operação em um tipo de recurso específico. Se o tipo de operação de saudação é gravar, Delete ou ação, registros de saudação do início de saudação e o sucesso ou falha da operação são registradas na categoria administrativa hello. categoria administrativa Olá também inclui qualquer controle de acesso baseado em toorole alterações em uma assinatura.
+* **Integridade do serviço** -nesta categoria contém o registro de saudação de qualquer incidente de integridade do serviço que ocorreram no Azure. Um exemplo de tipo de saudação do evento que você vê nessa categoria é "SQL Azure no Leste dos EUA está passando por tempo de inatividade." Eventos de serviço de integridade são fornecidos em cinco variedades: ação necessária, recuperação assistida, incidente, manutenção, informações ou segurança e só aparecerá se você tiver um recurso na assinatura de saudação que será afetada pelo evento hello.
+* **Alerta** -nesta categoria contém o registro de saudação de todas as ativações de alertas do Azure. Um exemplo desse tipo de saudação do evento que você vê nessa categoria é "% da CPU em myVM 80 para hello nos últimos 5 minutos." Uma variedade de sistemas do Azure têm um conceito de alerta – você pode definir uma regra de algum tipo e receber uma notificação quando as condições corresponderem a essa regra. Cada vez que um tipo de alerta com suporte do Azure 'ativa,' ou condições hello são atendido toogenerate uma notificação, um registro de ativação de saudação também é enviada por push toothis categoria de saudação Log de atividades.
+* **Dimensionamento automático** -nesta categoria contém o registro de saudação de qualquer operação de toohello relacionados de eventos do mecanismo de dimensionamento automático de saudação com base em quaisquer configurações de dimensionamento automático que você definiu na sua assinatura. Um exemplo desse tipo de saudação do evento que você vê nessa categoria é "Escala de dimensionamento automático das ações de falha". Usar o dimensionamento automático, você pode automaticamente expansão ou escala em Olá o número de instâncias em um tipo de recurso com suporte com base na hora do dia e/ou carregar dados (métricas) usando uma configuração de AutoEscala. Quando Olá condições tooscale para cima ou para baixo, início hello e eventos de êxito ou com falhas são registrados nesta categoria.
+* **Recomendação** - essa categoria contém eventos de recomendação de certos tipos de recursos, como sites e servidores SQL. Esses eventos recomendações para como toobetter utilizam os seus recursos. Você só receberá eventos desse tipo se tiver recursos que emitam recomendações.
 * **Política de segurança e integridade de recursos** -essas categorias não contêm eventos; elas estão reservadas para uso futuro.
 
 ## <a name="event-schema-per-category"></a>Esquema de eventos por categoria
-[Veja este artigo para compreender o esquema de evento do Log de Atividades por categoria.](monitoring-activity-log-schema.md)
+[Consulte esse esquema de evento de Log de atividades do artigo toounderstand Olá por categoria.](monitoring-activity-log-schema.md)
 
-## <a name="what-you-can-do-with-the-activity-log"></a>O que você pode fazer com o Log de Atividades
-Veja algumas coisas que você pode fazer com o Log de Atividades:
+## <a name="what-you-can-do-with-hello-activity-log"></a>O que você pode fazer com hello Log de atividades
+Aqui estão algumas das coisas Olá que você pode fazer com hello Log de atividades:
 
 ![Log de Atividades do Azure](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
 
-* Consultar e exibi-lo no **Portal do Azure**.
+* Consultar e exibi-lo no hello **portal do Azure**.
 * [Criar um alerta em um evento do Log de Atividades.](monitoring-activity-log-alerts.md)
-* [Transmiti-lo para um **Hub de Eventos**](monitoring-stream-activity-logs-event-hubs.md) para ingestão por um serviço de terceiro ou solução de análise personalizada, como o PowerBI.
-* Analisá-lo no PowerBI usando o [**Pacote de conteúdo do PowerBI**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
-* [Salvá-lo em uma **Conta de Armazenamento** para inspeção manual ou arquivamento](monitoring-archive-activity-log.md). Você pode especificar o tempo de retenção (em dias) usando o **Perfil de Log**.
+* [Fluxo de tooan **Hub de eventos** ](monitoring-stream-activity-logs-event-hubs.md) para ingestão por um serviço de terceiros ou a solução de análise personalizado, como o Power BI.
+* Analisá-los no Power BI usando Olá [ **pacote de conteúdo do PowerBI**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
+* [Salvá-lo tooa **conta de armazenamento** para fins de arquivamento ou manual inspeção](monitoring-archive-activity-log.md). Você pode especificar o tempo de retenção de saudação (em dias) usando Olá **Log perfil**.
 * Consultar por meio de Cmdlet do PowerShell, da CLI ou da API REST.
 
-## <a name="query-the-activity-log-in-the-azure-portal"></a>Consultar o Log de Atividades no Portal do Azure
-No Portal do Azure, você pode exibir seu Log de Atividades em vários locais:
-* A **folha Log de Atividades**, que pode ser acessada pesquisando Log de Atividades em "Mais Serviços" no painel de navegação esquerdo.
-* A **folha Monitor**, que é exibida por padrão no painel de navegação esquerdo. O Log de Atividades é uma seção dessa folha do Azure Monitor.
-* Qualquer **folha de recursos** do recurso, por exemplo, a folha de configuração de uma máquina virtual. O Log de Atividades é uma das seções na maioria das folhas de recursos, e ao clicar nele os eventos relacionados a esse recurso específico são filtrados automaticamente.
+## <a name="query-hello-activity-log-in-hello-azure-portal"></a>Saudação de consulta Log de atividades no hello portal do Azure
+Dentro de saudação portal do Azure, você pode exibir o Log de atividades em vários locais:
+* Olá **folha do Log de atividades**, que você pode acessar pesquisando Olá Log de atividades em "Mais serviços" no painel de navegação do lado esquerdo de saudação.
+* Olá **folha Monitor**, que é exibido por padrão no painel de navegação do lado esquerdo de saudação. Hello atividade de Log é uma seção desta folha de Monitor do Azure.
+* Qualquer recurso **folha de recursos**, por exemplo, folha de configuração Olá para uma máquina Virtual. Olá Log de atividades é ser uma das seções de saudação na maioria dos blades recursos e clicando nele automaticamente filtra eventos de saudação toothose relacionados ao recurso de toothat específico.
 
-No Portal do Azure, você pode filtrar seu Log de Atividades por estes campos:
-* Intervalo de tempo – A hora de início e de término dos eventos.
-* Categoria – A categoria do evento conforme descrito acima.
+Em Olá portal do Azure, você pode filtrar o Log de atividades por estes campos:
+* Tempo de TimeSpan - Olá início e término para eventos.
+* Categoria - Olá categoria de evento conforme descrito acima.
 * Assinatura – Um ou mais nomes de assinatura do Azure.
 * Grupo de recursos – Um ou mais grupos de recursos nessas assinaturas.
-* Recurso (nome) – O nome de um recurso específico.
-* Tipo de recurso – O tipo de recurso, por exemplo, Microsoft.Compute/virtualmachines.
-* Nome da operação – O nome de uma operação do Azure Resource Manager, por exemplo, Microsoft.SQL/servers/Write.
-* Gravidade – O nível de gravidade do evento (Informativo, Aviso, Erro, Crítico).
-* Evento iniciado por – O "chamador" ou o usuário que realizou a operação.
+* Recurso (nome) - Olá nome de um recurso específico.
+* Tipo de recurso - Olá tipo de recurso, por exemplo, Microsoft.Compute/virtualmachines.
+* Nome da operação - nome de saudação de uma operação do Gerenciador de recursos do Azure, por exemplo, Microsoft.SQL/servers/Write.
+* Severidade - nível de severidade de saudação do evento hello (informação, aviso, erro, crítico).
+* Evento iniciado por - Olá 'chamador' ou o usuário que realizou a operação de saudação.
 * Pesquisa aberta – Isso é uma caixa de pesquisa de texto aberto que procura essa cadeia de caracteres em todos os campos de todos os eventos.
 
-Após a definição de um conjunto de filtros, salve-o como uma consulta que é persistente entre as sessões, se você precisar executar a mesma consulta com os filtros aplicados novamente. Você também pode fixar uma consulta em seu painel do Azure para sempre ficar atento a eventos específicos.
+Quando você definiu um conjunto de filtros, você pode salvá-lo como uma consulta que é persistente entre as sessões, se você alguma vez precisar tooperform Olá mesma consulta com os filtros aplicados novamente no futuro de saudação. Você também pode fixar uma manutenção de tooalways do painel do Azure consulta tooyour olho em eventos específicos.
 
-Clicar em "Aplicar" executa sua consulta e mostrar todos os eventos correspondentes. Clicar em qualquer evento na lista mostra o resumo desse evento, bem como o JSON bruto e completo desse evento.
+Clicar em "Aplicar" executa sua consulta e mostrar todos os eventos correspondentes. Clicar em qualquer evento na lista de saudação mostra Olá resumo do evento, bem como Olá JSON completo bruto de evento.
 
-Para ter ainda mais recursos, você pode clicar no ícone **Pesquisa de Log**, que exibe os dados de seu Log de Atividades na [solução de Análise do Log de Atividades do Log Analytics](../log-analytics/log-analytics-activity.md). A folha Log de Atividades oferece uma experiência básica de filtro/procura nos logs, mas o Log Analytics permite que você dinamize, consulte e visualize os dados de formas mais eficientes.
+Até mesmo mais energia, você pode clicar em Olá **pesquisa de Log** ícone, que exibe os dados de Log de atividades em Olá [solução de análise de Log de atividade de análise de Log](../log-analytics/log-analytics-activity.md). folha de Log de atividades de saudação oferece uma experiência de filtro básico/procurar nos logs, mas habilita a análise de Log toopivot, consultar e visualizar seus dados de forma mais eficiente.
 
-## <a name="export-the-activity-log-with-a-log-profile"></a>Exportar o Log de Atividades com um Perfil de Log
+## <a name="export-hello-activity-log-with-a-log-profile"></a>Exportar hello atividade de Log com um perfil de registro
 Um **Perfil de Log** controla o modo de exportação de seu Log de Atividades. Com um Perfil de Log, você pode configurar:
 
-* Aonde o Log de Atividades deve ser enviado (Conta de Armazenamento ou Hubs de Eventos)
-* Quais categorias de evento (Gravação, Exclusão, Ação) devem ser enviadas. *O significado de "categoria" em Perfis de Log e eventos de Log de Atividades é diferente. No Perfil de Log, "Category" representa o tipo de operação (Gravar, Excluir, Ação). Em um evento do Log de Atividades, a propriedade "category" representa a origem ou o tipo de evento (por exemplo, Administração, Serviço de Integridade, Alerta e muito mais).*
-* Quais regiões (locais) devem ser exportados. Inclua "global", pois muitos eventos no Log de Atividades são eventos globais.
-* Quanto tempo o Log de Atividades deve ser mantido em uma Conta de Armazenamento.
-    - Uma retenção de zero dias significa que os registros serão mantidos indefinidamente. O valor pode ser qualquer quantidade de dias, entre 1 e 2147483647.
-    - Se as políticas de retenção são definidas, mas o armazenamento dos logs em uma Conta de Armazenamento está desabilitado (por exemplo, se apenas as opções Hubs de Eventos ou OMS estão selecionadas), as políticas de retenção não têm nenhum efeito.
-    - As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos.
+* Onde Olá Log de atividades deve ser enviada (conta de armazenamento ou Hubs de eventos)
+* Quais categorias de evento (Gravação, Exclusão, Ação) devem ser enviadas. *significado Hello "category" em perfis de Log e eventos de Log de atividades é diferente. Olá perfil do Log, "Category" representa o tipo de operação de saudação (ação de gravação, exclusão,). Em um evento de Log de atividades, propriedade de 'categoria' hello representa fonte hello ou tipo de evento (por exemplo, administração, ServiceHealth, alerta e muito mais).*
+* Quais regiões (locais) devem ser exportados. Verifique se tooinclude "global", como muitos eventos Olá Log de atividades são eventos globais.
+* Quanto tempo hello atividade de Log deve ser mantido em uma conta de armazenamento.
+    - Uma retenção de zero dias significa que os registros serão mantidos indefinidamente. Caso contrário, o valor de saudação pode ser qualquer número de dias entre 1 e 2147483647.
+    - Se as políticas de retenção são definidas, mas o armazenamento de logs em uma conta de armazenamento está desabilitado (por exemplo, se apenas as opções de Hubs de eventos ou do OMS são selecionadas), políticas de retenção de saudação não têm efeito.
+    - Políticas de retenção são aplicadas por dia, para em Olá final de um dia (UTC), logs de dia de saudação que agora está além da política de retenção de saudação são excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início de saudação do dia Olá hoje hello logs de anteontem Olá seriam excluídas.
 
-Você pode usar uma conta de armazenamento ou um namespace de hub de eventos que não esteja na mesma assinatura para emitir logs. O usuário que define a configuração deve ter o devido acesso RBAC para ambas as assinaturas.
+Você pode usar uma conta de armazenamento ou o namespace de hub de eventos que não está em Olá mesma assinatura conforme Olá um emissor logs. usuário de saudação que configura a configuração de saudação deve ter assinaturas do hello apropriadas RBAC acesso tooboth.
 
-Essas configurações podem ser definidas por meio da opção "Exportar" na folha do Log de Atividades no portal. Elas também podem ser definidas por meio de programação [usando a API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), de cmdlets do PowerShell ou da CLI. Uma assinatura pode ter somente um perfil de log.
+Essas configurações podem ser definidas usando a opção "Export" hello na folha de Log de atividades de saudação no portal de saudação. Também pode ser configurados por meio de programação [usando Olá API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), cmdlets do PowerShell ou CLI. Uma assinatura pode ter somente um perfil de log.
 
-### <a name="configure-log-profiles-using-the-azure-portal"></a>Configurar os perfis de log usando o Portal do Azure
-Você pode transmitir o Log de Atividades para um Hub de Eventos ou armazená-lo em uma Conta de Armazenamento usando a opção "Exportar" no Portal do Azure.
+### <a name="configure-log-profiles-using-hello-azure-portal"></a>Configurar perfis de log usando Olá portal do Azure
+Você pode tooan do Log de atividades de saudação Hub de eventos de fluxo ou armazená-las em uma conta de armazenamento usando a opção de "Exportar" de saudação em Olá portal do Azure.
 
-1. Navegue até a folha **Log de Atividades** usando o menu no lado esquerdo do portal.
+1. Navegue toohello **Log de atividades** folha usando o menu de saudação em Olá esquerda do portal de saudação.
 
-    ![Navegue até o Log de Atividades no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Clique no botão **Exportar** na parte superior da folha.
+    ![Navegue tooActivity Log no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
+2. Clique em Olá **exportar** botão na parte superior de saudação da folha de saudação.
 
     ![Botão Exportar no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. Na folha que aparece, você pode selecionar:  
-  * regiões para as quais você deseja exportar eventos
-  * a conta de armazenamento na qual você deseja salvar os eventos
-  * o número de dias para manter esses eventos no armazenamento. Uma configuração de 0 dias retém os logs para sempre.
-  * o namespace do Barramento de Serviço no qual você deseja que um Hub de Eventos seja criado para transmitir esses eventos.
+3. Na folha de saudação que aparece, você pode selecionar:  
+  * regiões para os quais você gostaria que os eventos de tooexport
+  * Olá toowhich de conta de armazenamento que você gostaria que os eventos de toosave
+  * Olá quantos dias que você deseja tooretain esses eventos no armazenamento. Uma configuração de 0 dias retém logs Olá para sempre.
+  * Olá Namespace de barramento de serviço em que você gostaria que um toobe de Hub de eventos criado para esses eventos de fluxo contínuo.
 
      ![Folha Exportar Log de Atividades](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
-4. Clique em **Salvar** para salvar as configurações. As configurações serão aplicadas imediatamente à sua assinatura.
+4. Clique em **salvar** toosave essas configurações. configurações de saudação imediatamente são ser aplicada tooyour assinatura.
 
-### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Configurar os perfis de log usando Cmdlets do Azure PowerShell
+### <a name="configure-log-profiles-using-hello-azure-powershell-cmdlets"></a>Configurar perfis de log usando Olá Cmdlets do PowerShell do Azure
 #### <a name="get-existing-log-profile"></a>Obter o perfil de log existente
 ```
 Get-AzureRmLogProfile
@@ -138,10 +138,10 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | Propriedade | Obrigatório | Descrição |
 | --- | --- | --- |
 | Nome |Sim |Nome de seu perfil de log. |
-| StorageAccountId |Não |ID de recursos da Conta de Armazenamento na qual o Log de Atividades deve ser salvo. |
-| serviceBusRuleId |Não |ID da Regra de Barramento de Serviço para o namespace do Barramento de Serviço no qual você gostaria que os hubs de eventos fossem criados. É uma cadeia de caracteres com este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Locais |Sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |
-| RetentionInDays |Sim |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs indefinidamente (para sempre). |
+| StorageAccountId |Não |ID do recurso da saudação toowhich da conta de armazenamento hello atividade de Log deve ser salvo. |
+| serviceBusRuleId |Não |ID da regra barramento de serviço para o namespace de barramento de serviço Olá você gostaria que toohave hubs de eventos criados no. É uma cadeia de caracteres com este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
+| Locais |Sim |Lista separada por vírgulas de regiões para o qual você gostaria que os eventos de Log de atividades de toocollect. |
+| RetentionInDays |Sim |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena logs Olá indefinidamente (sempre). |
 | Categorias |Não |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação. |
 
 #### <a name="remove-a-log-profile"></a>Remover um perfil de log
@@ -149,7 +149,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 Remove-AzureRmLogProfile -name my_log_profile
 ```
 
-### <a name="configure-log-profiles-using-the-azure-cross-platform-cli"></a>Configurar os perfis de log usando a CLI de plataforma cruzada do Azure
+### <a name="configure-log-profiles-using-hello-azure-cross-platform-cli"></a>Configurar perfis de log usando Olá CLI de plataforma cruzada do Azure
 #### <a name="get-existing-log-profile"></a>Obter o perfil de log existente
 ```
 azure insights logprofile list
@@ -157,7 +157,7 @@ azure insights logprofile list
 ```
 azure insights logprofile get --name my_log_profile
 ```
-A propriedade `name` deve ser o nome de seu perfil de log.
+Olá `name` propriedade deve ser o nome de saudação do seu perfil do log.
 
 #### <a name="add-a-log-profile"></a>Adicionar um perfil de log
 ```
@@ -167,10 +167,10 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 | Propriedade | Obrigatório | Descrição |
 | --- | --- | --- |
 | name |Sim |Nome de seu perfil de log. |
-| storageId |Não |ID de recursos da Conta de Armazenamento na qual o Log de Atividades deve ser salvo. |
-| serviceBusRuleId |Não |ID da Regra de Barramento de Serviço para o namespace do Barramento de Serviço no qual você gostaria que os hubs de eventos fossem criados. É uma cadeia de caracteres com este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
-| locais |Sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |
-| RetentionInDays |Sim |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs indefinidamente (para sempre). |
+| storageId |Não |ID do recurso da saudação toowhich da conta de armazenamento hello atividade de Log deve ser salvo. |
+| serviceBusRuleId |Não |ID da regra barramento de serviço para o namespace de barramento de serviço Olá você gostaria que toohave hubs de eventos criados no. É uma cadeia de caracteres com este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
+| locais |Sim |Lista separada por vírgulas de regiões para o qual você gostaria que os eventos de Log de atividades de toocollect. |
+| RetentionInDays |Sim |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena logs Olá indefinidamente (sempre). |
 | Categorias |Não |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação. |
 
 #### <a name="remove-a-log-profile"></a>Remover um perfil de log
@@ -179,5 +179,5 @@ azure insights logprofile delete --name my_log_profile
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Saiba mais sobre o Log de Atividades (anteriormente conhecido como Logs de Auditoria)](../azure-resource-manager/resource-group-audit.md)
-* [Transmissão do Log de Atividades do Azure para os Hubs de Eventos](monitoring-stream-activity-logs-event-hubs.md)
+* [Saiba mais sobre hello (anteriormente conhecida como Logs de auditoria) do Log de atividades](../azure-resource-manager/resource-group-audit.md)
+* [Fluxo de tooEvent de Log de atividades do Azure Olá Hubs](monitoring-stream-activity-logs-event-hubs.md)

@@ -1,6 +1,6 @@
 ---
-title: "Associações de armazenamento de filas do Azure Functions | Microsoft Docs"
-description: "Entenda como usar gatilhos e associações do Armazenamento do Azure em Azure Functions."
+title: "associações de armazenamento de fila de funções aaaAzure | Microsoft Docs"
+description: "Entenda como dispara toouse armazenamento do Azure e associações em funções do Azure."
 services: functions
 documentationcenter: na
 author: lindydonna
@@ -16,49 +16,49 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: glenga
-ms.openlocfilehash: e007acd75a2210d54f512e2c6698c90919f0fcd2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 438b4f63e823149072c86fdefa7e15bfd2a2c4df
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-queue-storage-bindings"></a>Associações de Armazenamento de Filas do Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Esse artigo descreve como configurar e codificar associações de armazenamento de filas do Azure no Azure Functions. O Azure Functions dá suporte a associações de gatilho e de saída para filas do Azure. Para os recursos que estão disponíveis em todas as associações, veja [Gatilhos e conceitos de associações do Azure Functions](functions-triggers-bindings.md).
+Este artigo descreve como tooconfigure e o código de associações de armazenamento de fila do Azure em funções do Azure. O Azure Functions dá suporte a associações de gatilho e de saída para filas do Azure. Para os recursos que estão disponíveis em todas as associações, veja [Gatilhos e conceitos de associações do Azure Functions](functions-triggers-bindings.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 <a name="trigger"></a>
 
 ## <a name="queue-storage-trigger"></a>Gatilho de armazenamento de filas
-O gatilho do armazenamento de filas do Azure permite que você monitore um armazenamento de fila para novas mensagens e responda a elas. 
+gatilho de armazenamento de fila do Azure Olá permite toomonitor um armazenamento de fila para novas mensagens e reage toothem. 
 
-Defina um gatilho de fila usando a guia **Integrar** no portal do Functions. O portal cria a seguinte definição na seção **Ligações** de *function.json*:
+Definir um gatilho de fila usando Olá **integrar** no portal de funções hello. Olá, portal cria Olá após a definição no hello **associações** seção *function.json*:
 
 ```json
 {
     "type": "queueTrigger",
     "direction": "in",
-    "name": "<The name used to identify the trigger data in your code>",
-    "queueName": "<Name of queue to poll>",
+    "name": "<hello name used tooidentify hello trigger data in your code>",
+    "queueName": "<Name of queue toopoll>",
     "connection":"<Name of app setting - see below>"
 }
 ```
 
-* A propriedade `connection` deve conter o nome de uma configuração de aplicativo que contenha uma cadeia de conexão de armazenamento. No Portal do Azure, o editor padrão na guia **Integrar** define essa configuração de aplicativo para você ao selecionar uma conta de armazenamento.
+* Olá `connection` propriedade deve conter o nome de saudação de uma configuração de aplicativo que contém uma cadeia de caracteres de conexão de armazenamento. No portal do Azure de Olá, Olá editor padrão no hello **integrar** guia configura essa definição de aplicativo para você quando você seleciona uma conta de armazenamento.
 
-[Configurações adicionais](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) podem ser fornecidas em um arquivo host.json para ajustar ainda mais gatilhos de armazenamento de filas. Por exemplo, você pode alterar o intervalo de sondagem de fila no host.json.
+Configurações adicionais podem ser fornecidas em um [host.json arquivo](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) toofurther ajustar gatilhos de armazenamento de fila. Por exemplo, você pode alterar o intervalo de sondagem de fila de saudação em host.json.
 
 <a name="triggerusage"></a>
 
 ## <a name="using-a-queue-trigger"></a>Usando um gatilho de fila
-Em funções do Node.js, acesse os dados da fila usando `context.bindings.<name>`.
+Em funções do Node. js, acessar Olá fila dados usando `context.bindings.<name>`.
 
 
-Nas funções do .NET, acesse o conteúdo da fila usando um parâmetro de método, como `CloudQueueMessage paramName`. Aqui, `paramName` é o valor especificado na [configuração do gatilho](#trigger). A mensagem da fila pode ser desserializada para qualquer um destes tipos:
+Em funções do .NET, acessar a carga de fila hello usando um parâmetro de método como `CloudQueueMessage paramName`. Aqui, `paramName` é Olá valor especificado em Olá [configuração do disparador](#trigger). mensagem de saudação do fila pode ser desserializado tooany dos seguintes tipos de saudação:
 
-* Objeto POCO. Use se o conteúdo da fila for um objeto JSON. O tempo de execução do Functions desserializa o conteúdo no objeto POCO. 
+* Objeto POCO. Use se a carga de fila de saudação é um objeto JSON. tempo de execução de funções Hello desserializa carga Olá no objeto POCO hello. 
 * `string`
 * `byte[]`
 * [`CloudQueueMessage`]
@@ -66,22 +66,22 @@ Nas funções do .NET, acesse o conteúdo da fila usando um parâmetro de métod
 <a name="meta"></a>
 
 ### <a name="queue-trigger-metadata"></a>Metadados de gatilho de fila
-O gatilho de fila fornece várias propriedades de metadados. Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Os valores têm a mesma semântica que [`CloudQueueMessage`].
+gatilho de fila Olá fornece várias propriedades de metadados. Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. valores de saudação têm Olá mesma semântica [ `CloudQueueMessage` ].
 
 * **QueueTrigger** – conteúdo da fila (se for uma cadeia de caracteres válida)
-* **DequeueCount** – Tipo `int`. O número de vezes que essa mensagem foi removida da fila.
-* **ExpirationTime** – Tipo `DateTimeOffset?`. A hora em que a mensagem expira.
+* **DequeueCount** – Tipo `int`. Olá o número de vezes que esta mensagem foi removida da fila.
+* **ExpirationTime** – Tipo `DateTimeOffset?`. tempo de saudação essa mensagem de saudação expira.
 * **Id** – Tipo `string`. ID da mensagem da fila.
-* **InsertionTime** – Tipo `DateTimeOffset?`. A hora em que a mensagem foi adicionada à fila.
-* **NextVisibleTime** – Tipo `DateTimeOffset?`. A hora em que a mensagem estará visível.
-* **PopReceipt** – Tipo `string`. Recebimento pop da mensagem.
+* **InsertionTime** – Tipo `DateTimeOffset?`. tempo de saudação essa mensagem de saudação foi adicionada toohello fila.
+* **NextVisibleTime** – Tipo `DateTimeOffset?`. tempo de saudação essa mensagem de saudação estará visível.
+* **PopReceipt** – Tipo `string`. recebimento de mensagem de saudação pop.
 
-Confira como usar os metadados de fila no [Exemplo de gatilho](#triggersample).
+Consulte como toouse Olá metadados de fila no [exemplo de gatilho](#triggersample).
 
 <a name="triggersample"></a>
 
 ## <a name="trigger-sample"></a>Exemplo de gatilho
-Suponha que você tem o seguinte function.json, que define um gatilho da fila:
+Suponha que você tenha Olá function.json que define um gatilho de fila a seguir:
 
 ```json
 {
@@ -98,7 +98,7 @@ Suponha que você tem o seguinte function.json, que define um gatilho da fila:
 }
 ```
 
-Confira o exemplo específico a um idioma que recupera e registra os metadados da fila.
+Consulte Olá específico do idioma exemplo que recupera e metadados de fila de logs.
 
 * [C#](#triggercsharp)
 * [Node.js](#triggernodejs)
@@ -160,35 +160,35 @@ module.exports = function (context) {
 ```
 
 ### <a name="handling-poison-queue-messages"></a>Tratamento de mensagens suspeitas na fila
-Quando uma função do gatilho de fila falhar, o Azure Functions repetirá essa função até cinco vezes para uma determinada mensagem da fila, incluindo a primeira tentativa. Se todas as cinco tentativas falharem, o tempo de execução das funções adicionará uma mensagem em um armazenamento de filas chamada *&lt;originalqueuename>-poison*. Você pode gravar uma função para processar as mensagens da fila de mensagens suspeitas registrando-as ou enviando uma notificação de que a atenção manual é necessária. 
+Quando uma função de gatilho de fila falha, funções do Azure repete essa função backup toofive vezes para uma mensagem de determinada fila, incluindo Olá primeiro tente. Se todas as cinco tentativas falharem, tempo de execução de funções hello adiciona uma mensagem tooa fila de armazenamento denominado  *&lt;originalqueuename >-suspeitas*. Você pode escrever uma função tooprocess mensagens da fila de suspeitas Olá registrá-los ou enviar uma notificação que atenção manual é necessária. 
 
-Para tratar mensagens suspeitas manualmente, verifique o `dequeueCount` da mensagem da fila (veja [Metadados de gatilho de fila](#meta)).
+mensagens suspeitas toohandle verificar manualmente, Olá `dequeueCount` de mensagem da fila de saudação (consulte [metadados de gatilho de fila](#meta)).
 
 <a name="output"></a>
 
 ## <a name="queue-storage-output-binding"></a>Associação de saída de armazenamento de filas
-A associação de saída do armazenamento de filas do Azure permite que você escreva mensagens em uma fila. 
+Olá armazenamento de fila do Azure associação permite que a fila tooa toowrite mensagens de saída. 
 
-Defina uma associação de saída de fila usando a guia **Integrar** no portal do Functions. O portal cria a seguinte definição na seção **Ligações** de *function.json*:
+Definir uma fila de associação de saída usando Olá **integrar** no portal de funções hello. Olá, portal cria Olá após a definição no hello **associações** seção *function.json*:
 
 ```json
 {
    "type": "queue",
    "direction": "out",
-   "name": "<The name used to identify the trigger data in your code>",
-   "queueName": "<Name of queue to write to>",
+   "name": "<hello name used tooidentify hello trigger data in your code>",
+   "queueName": "<Name of queue toowrite to>",
    "connection":"<Name of app setting - see below>"
 }
 ```
 
-* A propriedade `connection` deve conter o nome de uma configuração de aplicativo que contenha uma cadeia de conexão de armazenamento. No Portal do Azure, o editor padrão na guia **Integrar** define essa configuração de aplicativo para você ao selecionar uma conta de armazenamento.
+* Olá `connection` propriedade deve conter o nome de saudação de uma configuração de aplicativo que contém uma cadeia de caracteres de conexão de armazenamento. No portal do Azure de Olá, Olá editor padrão no hello **integrar** guia configura essa definição de aplicativo para você quando você seleciona uma conta de armazenamento.
 
 <a name="outputusage"></a>
 
 ## <a name="using-a-queue-output-binding"></a>Usando uma associação de saída da fila
-Nas funções do Node.js, você acessa a fila de saída usando `context.bindings.<name>`.
+Em funções do Node. js, você acessar a fila de saída de hello usando `context.bindings.<name>`.
 
-Em funções do .NET, é possível executar a saída para qualquer um dos seguintes tipos. Quando há um parâmetro de tipo `T`, o `T` deve ser um dos tipos de saída com suporte, como `string` ou um POCO.
+Em funções do .NET, você pode dar saída tooany de saudação tipos a seguir. Quando há um parâmetro de tipo `T`, `T` deve ser um dos tipos de saída de hello com suporte, como `string` ou um POCO.
 
 * `out T` (serializado como JSON)
 * `out string`
@@ -198,12 +198,12 @@ Em funções do .NET, é possível executar a saída para qualquer um dos seguin
 * `IAsyncCollector<T>`
 * [`CloudQueue`](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue)
 
-Você também pode usar o tipo de retorno do método como a associação de saída.
+Você também pode usar o tipo de retorno do método hello como Olá associação de saída.
 
 <a name="outputsample"></a>
 
 ## <a name="queue-output-sample"></a>Amostra de saída da fila
-O *function.json* a seguir define um gatilho de HTTP com uma associação de saída de fila:
+a seguir Olá *function.json* define um gatilho HTTP com uma fila de associação de saída:
 
 ```json
 {
@@ -230,7 +230,7 @@ O *function.json* a seguir define um gatilho de HTTP com uma associação de sa�
 }
 ``` 
 
-Veja a amostra específica do idioma que gera uma mensagem da fila com o conteúdo de HTTP de entrada.
+Consulte o exemplo de específico do idioma de saudação que gera uma mensagem da fila com carga de HTTP de entrada de saudação.
 
 * [C#](#outcsharp)
 * [Node.js](#outnodejs)
@@ -240,7 +240,7 @@ Veja a amostra específica do idioma que gera uma mensagem da fila com o conteú
 ### <a name="queue-output-sample-in-c"></a>Amostra de saída da fila em C# #
 
 ```cs
-// C# example of HTTP trigger binding to a custom POCO, with a queue output binding
+// C# example of HTTP trigger binding tooa custom POCO, with a queue output binding
 public class CustomQueueMessage
 {
     public string PersonName { get; set; }
@@ -253,7 +253,7 @@ public static CustomQueueMessage Run(CustomQueueMessage input, TraceWriter log)
 }
 ```
 
-Para enviar várias mensagens, use um `ICollector`:
+toosend várias mensagens, use uma `ICollector`:
 
 ```cs
 public static void Run(CustomQueueMessage input, ICollector<CustomQueueMessage> myQueueItem, TraceWriter log)
@@ -273,11 +273,11 @@ module.exports = function (context, input) {
 };
 ```
 
-Ou, para enviar várias mensagens,
+Ou, toosend várias mensagens,
 
 ```javascript
 module.exports = function(context) {
-    // Define a message array for the myQueueItem output binding. 
+    // Define a message array for hello myQueueItem output binding. 
     context.bindings.myQueueItem = ["message 1","message 2"];
     context.done();
 };
@@ -285,7 +285,7 @@ module.exports = function(context) {
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter um exemplo de uma função que usa gatilhos de armazenamento de fila e associações, veja [Criar um Azure Function conectado a um serviço do Azure](functions-create-an-azure-connected-function.md).
+Para obter um exemplo de uma função que usa gatilhos de armazenamento de fila e associações, consulte [criar tooan uma função do Azure conectados do serviço do Azure](functions-create-an-azure-connected-function.md).
 
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 

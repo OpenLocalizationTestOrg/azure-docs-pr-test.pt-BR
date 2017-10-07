@@ -1,6 +1,6 @@
 ---
 title: "Bibliotecas de conexão para o Banco de Dados do Azure para PostgreSQL | Microsoft Docs"
-description: "Este artigo descreve várias bibliotecas e vários drivers que os desenvolvedores podem usar ao codificar aplicativos para se conectar e consultar o Banco de Dados do Azure para PostgreSQL."
+description: "Este artigo descreve várias bibliotecas e drivers que os desenvolvedores podem usar ao codificar aplicativos tooconnect e consulta de banco de dados do Azure para PostgreSQL."
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/15/2017
-ms.openlocfilehash: 1f99ef7fefb1ff9d35f564a1f0ad77c8dd64659e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 1f7234499d8abe37f8de9008e3158765b1fb0bde
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Bibliotecas de conexão para o Banco de Dados do Azure para PostgreSQL
-Este tópico lista as bibliotecas e os drivers para uso dos desenvolvedores para programação de aplicativos para se conectar e consultar o Banco de Dados do Azure para PostgreSQL.
+Este tópico lista as bibliotecas e os drivers para uso por desenvolvedores para a programação de aplicativos tooconnect e consulta de banco de dados do Azure para PostgreSQL.
 
 ## <a name="client-interfaces"></a>Interfaces de cliente
-A maioria das bibliotecas de cliente de linguagem para se conectar ao servidor PostgreSQL são projetos externos distribuídos de forma independente. Elas têm suporte nas plataformas Windows, Linux e Mac. Alguns dos drivers de cliente populares estão listados:
+A maioria dos idiomas cliente bibliotecas tooconnect tooPostgreSQL servidor são projetos externos e são distribuídas de maneira independente. Elas têm suporte nas plataformas Windows, Linux e Mac. Alguns dos drivers de cliente populares Olá estão listados:
 
 | **Linguagem** | **Interface do cliente** | **Informações adicionais** | **Baixar** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|
@@ -35,6 +35,6 @@ A maioria das bibliotecas de cliente de linguagem para se conectar ao servidor P
 | C++ | [libpqxx](http://pqxx.org/) | Interface de C++ com novo estilo | [Baixar](http://pqxx.org/download/software/) |
 
 ## <a name="next-steps"></a>Próximas etapas
-Leia estes guias de início rápido para saber como se conectar e consultar o Banco de Dados do Azure para PostgreSQL usando a linguagem de sua escolha:
+Ler esses tutoriais sobre como tooconnect e consulta Azure banco de dados para PostgreSQL usando a linguagem de sua escolha:
 
 [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [.NET (C#)](./connect-csharp.md)

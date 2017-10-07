@@ -1,6 +1,6 @@
 ---
-title: Gerenciar certificados em um cluster do Azure Service Fabric | Microsoft Docs
-description: Descreve como adicionar novos certificados, sobrepor certificados e remover certificados de e para um cluster do Service Fabric.
+title: aaaManage certificados em um cluster do Azure Service Fabric | Microsoft Docs
+description: "Descreve como tooadd novos certificados, o certificado de substituição e remover certificados tooor de um cluster do Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
@@ -14,58 +14,58 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 ms.author: chackdan
-ms.openlocfilehash: c433e8683755e454f9561f094269c3daccf78a62
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8e57bd95dbb800ecc04cf6988047e3abdc2fe56a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Adicionar ou remover certificados para um cluster do Service Fabric no Azure
-É recomendável que você se familiarize com o modo como o Service Fabric usa certificados X.509 e com os [Cenários de segurança do cluster do cluster](service-fabric-cluster-security.md). Você deve entender o que é um certificado de cluster e qual sua finalidade, antes de continuar.
+É recomendável que você se familiarize com como o serviço de malha usa certificados x. 509 e estar familiarizado com hello [cenários de segurança de Cluster](service-fabric-cluster-security.md). Você deve entender o que é um certificado de cluster e qual sua finalidade, antes de continuar.
 
-O Service Fabric permite especificar dois certificados de cluster, um primário e um secundário, quando você configura a segurança do certificado durante a criação do cluster, além de certificados de cliente. Veja a [criação de um cluster do Service Fabric por meio do portal](service-fabric-cluster-creation-via-portal.md) ou a [criação de um cluster do azure por meio do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para obter detalhes sobre a configuração deles no tempo de criação. Se você especificar apenas um certificado de cluster no momento da criação, em seguida, que é usado como o certificado principal. Após a criação do cluster, é possível adicionar um novo certificado como um secundário.
+Segurança do certificado de serviço permite a malha que você especificar que dois cluster certificados, um principal e um secundário, quando você configurar durante a criação do cluster, em certificados de tooclient de adição. Consulte também[criando um cluster do azure por meio do portal](service-fabric-cluster-creation-via-portal.md) ou [criando um cluster do azure por meio do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para obter detalhes sobre a configuração no momento da criação. Se você especificar apenas um certificado de cluster no momento da criação, que será usado como certificado principal hello. Após a criação do cluster, é possível adicionar um novo certificado como um secundário.
 
 > [!NOTE]
-> Para um cluster seguro, você sempre precisará de, pelo menos, um certificado de cluster (primário ou secundário) válido (não revogado ou expirado) implantado; caso contrário, o cluster vai parar de funcionar. Em 90 dias antes que todos os certificados válidos alcancem a expiração, o sistema gera um rastreamento de avisos e também um evento de integridade de aviso no nó. Atualmente, não há nenhum email nem qualquer outra notificação enviada pelo Service Fabric sobre esse tópico. 
+> Para um cluster seguro, sempre precisará de pelo menos um cluster (não revogado e não expirado) válido certificado (primário ou secundário) implantado (se não, Olá cluster parará de funcionar). 90 dias antes de todos os certificados válidos alcançar expiração, sistema hello gera um rastreamento de avisos e também um evento de integridade de aviso no nó de saudação. Atualmente, não há nenhum email nem qualquer outra notificação enviada pelo Service Fabric sobre esse tópico. 
 > 
 > 
 
-## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>Adicionar um certificado de cluster secundário usando o portal
+## <a name="add-a-secondary-cluster-certificate-using-hello-portal"></a>Adicionar um certificado de cluster secundário usando o portal de saudação
 
-Certificado de cluster secundário não pode ser adicionado por meio do portal do Azure. Você precisa usar o Azure powershell para isso. O processo será descrito posteriormente neste documento.
+Certificado de cluster secundário não pode ser adicionado por meio de saudação portal do Azure. Você tem toouse Azure powershell para fazer isso. Olá processo é descrito neste documento.
 
-## <a name="swap-the-cluster-certificates-using-the-portal"></a>Trocar os certificados de cluster usando o portal
+## <a name="swap-hello-cluster-certificates-using-hello-portal"></a>Trocar Olá certificados de cluster usando o portal de saudação
 
-Depois de ter implantado com êxito um certificado de cluster secundário, se você deseja alternar primário e secundário, navegue até a folha de segurança e selecione a opção 'Troca com primário' no menu de contexto para trocar o certificado secundário com o certificado principal.
+Depois de ter implantado com êxito um certificado de cluster secundário, se você quiser tooswap Olá primários e secundários, em seguida, navegue toohello folha de segurança e selecione a opção de 'Troca com primário' de saudação da saudação contexto menu tooswap Olá secundário cert com cert primário da saudação.
 
 ![Trocar o certificado][Delete_Swap_Cert]
 
-## <a name="remove-a-cluster-certificate-using-the-portal"></a>Remover um certificado de cluster usando o portal
+## <a name="remove-a-cluster-certificate-using-hello-portal"></a>Remover um certificado de cluster usando o portal de saudação
 
-Para um cluster seguro, você sempre precisará de, pelo menos, um certificado (primário ou secundário) válido (não revogado ou expirado) implantado; caso contrário, o cluster vai parar de funcionar.
+Para um cluster seguro, sempre será necessário pelo menos um (não revogado e não expirado) certificado válido (primário ou secundário) implantado se não, Olá cluster parará de funcionar.
 
-Para remover um certificado secundário sejam usados para segurança de cluster, navegue até a folha de segurança e selecione a opção 'Excluir' no menu de contexto do certificado secundário.
+tooremove certificado secundário seja usado para segurança de cluster, folha de segurança toohello navegue e selecione Olá 'Delete' opção no menu de contexto de saudação no certificado secundário hello.
 
-Se sua intenção for remover o certificado que está marcado como primário, você precisará trocá-lo com o secundário primeiro e, em seguida, exclua o secundário após a conclusão da atualização.
+Se sua intenção for certificado Olá tooremove está marcado como primário, em seguida, você precisará tooswap com hello secundário primeiro e exclua Olá secundário após a atualização de saudação.
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Adicionar um certificado secundário usando o Powershell do Resource Manager
 
-Estas etapas presumem que você esteja familiarizado com o funcionamento do Resource Manager e tenha implantado, pelo menos, um cluster do Service Fabric usando um modelo do Resource Manager e que o modelo usado para configurar o cluster para uso. Presume-se também que você esteja familiarizado com o uso do JSON.
+Essas etapas pressupõem que estão familiarizados com o funcionamento do Gerenciador de recursos de ter implantado pelo menos um cluster de malha do serviço usando um modelo do Gerenciador de recursos e ter Olá modelo que você usou tooset útil do cluster de saudação. Presume-se também que você esteja familiarizado com o uso do JSON.
 
 > [!NOTE]
-> Se você estiver procurando um modelo de exemplo e parâmetros que você pode usar para acompanhar ou como um ponto de partida, baixe-o deste [repositório Git](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
+> Se você estiver procurando um modelo de exemplo e parâmetros que você pode usar toofollow ao longo ou como um ponto de partida, baixá-lo neste [repositório git](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
 > 
 > 
 
 ### <a name="edit-your-resource-manager-template"></a>Editar o modelo do Resource Manager
 
-Para facilitar o acompanhamento, o exemplo 5-VM-1-NodeTypes-Secure_Step2.JSON contém todas as edições que faremos. o exemplo está disponível no [repositório Git](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample).
+Para facilitar a seguir ao longo, o exemplo 5-VM-1-NodeTypes-Secure_Step2.JSON contém todas as edições de saudação que realizaremos. exemplo Hello está disponível em [repositório git](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample).
 
-**Certifique-se de seguir todas as etapas**
+**Verifique se toofollow todas as etapas de saudação**
 
-**Etapa 1:** Abra o modelo do Resource Manager que foi usado para implantar o cluster. (Se você baixou o exemplo do repositório acima, usar 5-VM-1-NodeTypes-Secure_Step1.JSON para implantar um cluster seguro e, em seguida, abra o modelo).
+**Etapa 1:** abra o modelo do Gerenciador de recursos de saudação usada toodeploy Cluster. (Se você baixou o exemplo hello Olá acima repositório, usar 5-VM-1-NodeTypes-Secure_Step1.JSON toodeploy um cluster seguro e, em seguida, abra o modelo).
 
-**Etapa 2:** adicione **dois novos parâmetros** "secCertificateThumbprint" e "secCertificateUrlValue" do tipo "string" para a seção de parâmetro do modelo. Você pode copiar o trecho de código a seguir e adicioná-lo ao modelo. Dependendo da fonte do seu modelo, você talvez já tenha esses definido, se assim mover para a próxima etapa. 
+**Etapa 2:** adicionar **dois novos parâmetros** "secCertificateThumbprint" e "secCertificateUrlValue" do tipo "cadeia de caracteres" toohello seção de parâmetro do modelo. Você pode copiar Olá trecho de código a seguir e adicione-o modelo toohello. Dependendo da fonte de saudação do seu modelo, você pode já ter definido, caso mover toohello próxima etapa. 
  
 ```JSON
    "secCertificateThumbprint": {
@@ -77,13 +77,13 @@ Para facilitar o acompanhamento, o exemplo 5-VM-1-NodeTypes-Secure_Step2.JSON co
     "secCertificateUrlValue": {
       "type": "string",
       "metadata": {
-        "description": "Refers to the location URL in your key vault where the certificate was uploaded, it is should be in the format of https://<name of the vault>.vault.azure.net:443/secrets/<exact location>"
+        "description": "Refers toohello location URL in your key vault where hello certificate was uploaded, it is should be in hello format of https://<name of hello vault>.vault.azure.net:443/secrets/<exact location>"
       }
     },
 
 ```
 
-**Etapa 3:** faça alterações no recurso **Microsoft.ServiceFabric/clusters** - localize a definição do recurso "Microsoft.ServiceFabric/clusters" em seu modelo. Nas propriedades dessa definição, você encontrará a marcação do JSON “Certificate”, que deve ser parecida com o trecho do JSON a seguir:
+**Etapa 3:** fazer alterações toohello **Microsoft.ServiceFabric/clusters** recurso - Localizar a definição de recurso "Microsoft.ServiceFabric/clusters" hello em seu modelo. Propriedades dessa definição, você encontrará "Certificate" JSON marca, que deve ser algo como Olá trecho JSON a seguir:
 
    
 ```JSON
@@ -96,7 +96,7 @@ Para facilitar o acompanhamento, o exemplo 5-VM-1-NodeTypes-Secure_Step2.JSON co
 
 Adicione uma nova marcação “thumbprintSecondary” e atribua a ela um valor de “[parameters('secCertificateThumbprint')]”.  
 
-Agora a definição de recurso deve ser parecida com a seguinte (dependendo da fonte do modelo, ela poderá não ser exatamente como o trecho abaixo). 
+Agora, a definição de recurso Olá deve ser semelhante Olá seguinte (dependendo de sua fonte de modelo hello, pode não ser exatamente como Olá trecho abaixo). 
 
 ```JSON
       "properties": {
@@ -107,7 +107,7 @@ Agora a definição de recurso deve ser parecida com a seguinte (dependendo da f
      }
 ``` 
 
-Se você quiser **substituir o certificado**, especifique o novo certificado como primário e mover a réplica primária atual como secundário. Isso resulta na substituição do certificado primário atual pelo novo certificado em uma etapa de implantação.
+Se você quiser muito**cert de saudação de substituição**, em seguida, especifique o novo certificado de saudação como primária atual do primário e movendo hello como secundário. Isso resulta na substituição de saudação do seu certificado de novo de toohello atual do certificado primário em uma etapa de implantação.
 
 ```JSON
       "properties": {
@@ -119,13 +119,13 @@ Se você quiser **substituir o certificado**, especifique o novo certificado com
 ``` 
 
 
-**Etapa 4:** faça alterações em **todas as** definições de recurso **Microsoft.Compute/virtualMachineScaleSets** – localize a definição do recurso Microsoft.Compute/virtualMachineScaleSets. Role até "publisher": "Microsoft.Azure.ServiceFabric", em "virtualMachineProfile".
+**Etapa 4:** fazer alterações muito**todos os** Olá **Microsoft.Compute/virtualMachineScaleSets** definições de recursos - Localizar Olá Microsoft.Compute/virtualMachineScaleSets recurso definição. Role toohello "publisher": "Microsoft.Azure.ServiceFabric", em "virtualMachineProfile".
 
-Nas configurações de editor do Service Fabric, você verá algo assim.
+Configurações do publicador da malha Olá serviço, você verá algo assim.
 
 ![Json_Pub_Setting1][Json_Pub_Setting1]
 
-Adicionar novas entradas de cert a ele
+Adicionar Olá novo certificado entradas tooit
 
 ```JSON
                "certificateSecondary": {
@@ -136,11 +136,11 @@ Adicionar novas entradas de cert a ele
 
 ```
 
-As propriedades devem ter esta aparência
+Propriedades de saudação agora devem se parecer com
 
 ![Json_Pub_Setting2][Json_Pub_Setting2]
 
-Se você quiser **substituir o certificado**, especifique o novo certificado como primário e mover a réplica primária atual como secundário. Isso resulta na substituição do certificado atual pelo novo certificado em uma etapa de implantação. 
+Se você quiser muito**cert de saudação de substituição**, em seguida, especifique o novo certificado de saudação como primária atual do primário e movendo hello como secundário. Isso resulta na substituição de saudação do seu certificado de novo de toohello atual do certificado em uma etapa de implantação. 
 
 
 ```JSON
@@ -155,17 +155,17 @@ Se você quiser **substituir o certificado**, especifique o novo certificado com
                   },
 
 ```
-As propriedades devem ter esta aparência
+Propriedades de saudação agora devem se parecer com
 
 ![Json_Pub_Setting3][Json_Pub_Setting3]
 
 
-**Etapa 5:** faça alterações em **todas as** definições do recurso **Microsoft.Compute/virtualMachineScaleSets** - localize a definição do recurso Microsoft.Compute/virtualMachineScaleSets. Role até "vaultCertificates":, em "OSProfile". O resultado deve ser semelhante a este.
+**Etapa 5:** fazer alterações muito**todos os** Olá **Microsoft.Compute/virtualMachineScaleSets** definições de recursos - Localizar Olá Microsoft.Compute/virtualMachineScaleSets recurso definição. Role toohello "vaultCertificates":, em "OSProfile". O resultado deve ser semelhante a este.
 
 
 ![Json_Pub_Setting4][Json_Pub_Setting4]
 
-Adicione o secCertificateUrlValue a ele. use este trecho:
+Adicione Olá secCertificateUrlValue tooit. Use Olá trecho de código a seguir:
 
 ```Json
                   {
@@ -174,35 +174,35 @@ Adicione o secCertificateUrlValue a ele. use este trecho:
                   }
 
 ```
-Agora o Json resultante deve ter esta aparência.
+Agora Olá resultante Json deve ser semelhante isso.
 ![Json_Pub_Setting5][Json_Pub_Setting5]
 
 
 > [!NOTE]
-> Repita as etapas 4 e 5 para todas as definições de recurso Nodetypes/Microsoft.Compute/virtualMachineScaleSets em seu modelo. Se você perder um deles, o certificado será instalado naquele VMSS e você terá resultados imprevisíveis em seu cluster, incluindo o cluster ficar inativo (se você terminar com nenhum certificado válido que o cluster possa usar para segurança. Portanto, verifique, antes de continuar.
+> Certifique-se de que tem repetido as etapas 4 e 5 para todas as definições de recursos de Nodetypes/Microsoft.Compute/virtualMachineScaleSets Olá no modelo. Se você perder um deles, certificado Olá não será instalado em que VMSS e você terá resultados imprevisíveis em seu cluster, incluindo cluster Olá ficar inativo (se você acabará com nenhum certificado válido que nesse cluster Olá pode usar para segurança. Portanto, verifique, antes de continuar.
 > 
 > 
 
 
-### <a name="edit-your-template-file-to-reflect-the-new-parameters-you-added-above"></a>Edite o arquivo de modelo para refletir os novos parâmetros adicionados acima
-Se você estiver usando a amostra do [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) para acompanhar, poderá começar a fazer alterações na amostra 5-VM-1-NodeTypes-Secure.paramters_Step2.JSON 
+### <a name="edit-your-template-file-tooreflect-hello-new-parameters-you-added-above"></a>Editar seu modelo arquivo tooreflect Olá novos parâmetros adicionados acima
+Se você estiver usando o exemplo hello da saudação [repositório git](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) toofollow, você pode iniciar toomake alterações no hello exemplo 5-VM-1-NodeTypes-Secure.paramters_Step2.JSON 
 
-Editar seu parâmetro de modelo do Resource Manager de arquivo, adicione dois novos parâmetros para secCertificateThumbprint e secCertificateUrlValue. 
+Editar seu arquivo de parâmetro de modelo do Gerenciador de recursos, adicione Olá dois novos parâmetros para secCertificateThumbprint e secCertificateUrlValue. 
 
 ```JSON
     "secCertificateThumbprint": {
       "value": "thumbprint value"
     },
     "secCertificateUrlValue": {
-      "value": "Refers to the location URL in your key vault where the certificate was uploaded, it is should be in the format of https://<name of the vault>.vault.azure.net:443/secrets/<exact location>"
+      "value": "Refers toohello location URL in your key vault where hello certificate was uploaded, it is should be in hello format of https://<name of hello vault>.vault.azure.net:443/secrets/<exact location>"
      },
 
 ```
 
-### <a name="deploy-the-template-to-azure"></a>Implantar o modelo no Azure
+### <a name="deploy-hello-template-tooazure"></a>Implantar Olá modelo tooAzure
 
-- Agora você está pronto para implantar o modelo no Azure. Abra um prompt de comando do Azure PS versão 1+.
-- Faça logon em sua Conta do Azure e selecione a assinatura do Azure específica. Essa é uma etapa importante para pessoas que têm acesso a mais de uma assinatura do Azure.
+- Você está agora pronto toodeploy tooAzure seu modelo. Abra um prompt de comando do Azure PS versão 1+.
+- Faça logon no tooyour conta do Azure e selecione a assinatura do azure específico do hello. Essa é uma etapa importante para quem tem acesso toomore que uma assinatura do azure.
 
 ```powershell
 Login-AzureRmAccount
@@ -210,17 +210,17 @@ Select-AzureRmSubscription -SubscriptionId <Subcription ID>
 
 ```
 
-Teste o modelo antes de implantá-lo. Use o mesmo Grupo de Recursos no qual o cluster está atualmente implantado.
+Testar Olá modelo anterior toodeploying-lo. Use Olá mesmo grupo de recursos que o cluster está implantado atualmente.
 
 ```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 
 ```
 
-Implante o modelo no grupo de recursos. Use o mesmo Grupo de Recursos no qual o cluster está atualmente implantado. Execute o comando New-AzureRmResourceGroupDeployment. Você não precisa especificar o modo, já que o valor padrão é **incremental**.
+Implante grupo de recursos de tooyour Olá modelo. Use Olá mesmo grupo de recursos que o cluster está implantado atualmente. Execute Olá AzureRmResourceGroupDeployment novo comando. Modo de saudação toospecify, não é necessário desde que o valor padrão de saudação é **incremental**.
 
 > [!NOTE]
-> Se você definir o Modo como Concluído, será possível excluir inadvertidamente os recursos que não estão no modelo. Portanto, não o use neste cenário.
+> Se você definir o modo tooComplete, você pode excluir por engano recursos que não estão no modelo. Portanto, não o use neste cenário.
 > 
 > 
 
@@ -228,7 +228,7 @@ Implante o modelo no grupo de recursos. Use o mesmo Grupo de Recursos no qual o 
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 ```
 
-Veja um exemplo preenchido do mesmo comando powershell.
+Aqui está um preenchido saída de exemplo de hello mesmo powershell.
 
 ```powershell
 $ResouceGroup2 = "chackosecure5"
@@ -239,17 +239,17 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $ResouceGroup2 -TemplatePa
 
 ```
 
-Após a conclusão da implantação, conecte-se ao cluster usando o novo Certificado e realize algumas consultas. Faça isso se conseguir. Em seguida, você pode excluir o certificado antigo. 
+Após a conclusão da implantação Olá, conecte-se usando o cluster tooyour Olá novo certificado e executar algumas consultas. Se você é capaz de toodo. Em seguida, você pode excluir o certificado antigo hello. 
 
-Se estiver usando um certificado autoassinado, não se esqueça de importá-lo para seu repositório de certificados local TrustedPeople.
+Se você estiver usando um certificado autoassinado, não se esqueça de tooimport-los no repositório de certificados local TrustedPeople.
 
 ```powershell
-######## Set up the certs on your local box
+######## Set up hello certs on your local box
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople -FilePath c:\Mycertificates\chackdanTestCertificate9.pfx -Password (ConvertTo-SecureString -String abcd123 -AsPlainText -Force)
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FilePath c:\Mycertificates\chackdanTestCertificate9.pfx -Password (ConvertTo-SecureString -String abcd123 -AsPlainText -Force)
 
 ```
-Para referência rápida, este é o comando para se conectar a um cluster seguro 
+Para referência rápida aqui é cluster seguro do hello comando tooconnect tooa 
 
 ```powershell
 $ClusterName= "chackosecure5.westus.cloudapp.azure.com:19000"
@@ -263,37 +263,37 @@ Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
     -StoreLocation CurrentUser `
     -StoreName My
 ```
-Para referência rápida, este é o comando para obter a integridade do cluster
+Para referência rápida aqui está a integridade do cluster tooget Olá comando
 
 ```powershell
 Get-ServiceFabricClusterHealth 
 ```
 
-## <a name="deploying-application-certificates-to-the-cluster"></a>Implantar certificados de aplicativo para o cluster.
+## <a name="deploying-application-certificates-toohello-cluster"></a>Implantação de cluster de toohello de certificados do aplicativo.
 
-Você pode usar as mesmas etapas conforme descrito nas etapas 5 acima para que os certificados implantados de um keyvault para os nós. apenas é necessário definir e usar parâmetros diferentes.
+Você pode usar o hello mesmo etapas, conforme descrito nas etapas 5 acima toohave Olá certificados implantados por meio de um toohello keyvault nós. apenas é necessário definir e usar parâmetros diferentes.
 
 
 ## <a name="adding-or-removing-client-certificates"></a>Adicionando ou removendo certificados de cliente
 
-Além de certificados de cluster, você pode adicionar certificados de cliente para realizar operações de gerenciamento em um cluster do Service Fabric.
+No certificado de cluster toohello adição, você pode adicionar operações de gerenciamento de tooperform de certificados de cliente em um cluster do service fabric.
 
-Você pode adicionar dois tipos de certificados de cliente - Admin ou Somente leitura. Eles então podem ser usados para controlar o acesso a operações de administração e operações de consulta no cluster. Por padrão, os certificados de cluster são adicionados à lista de certificados permitida Admin.
+Você pode adicionar dois tipos de certificados de cliente - Admin ou Somente leitura. Em seguida, podem ser usados toocontrol operações de administração de toohello de acesso e operações de consulta no cluster hello. Por padrão, os certificados de cluster de saudação são adicionados toohello administrador certificados lista de permissões.
 
-Você pode especificar qualquer número de certificados de cliente. Cada adição ou exclusão resulta em uma atualização de configuração para o cluster de Service Fabric
+Você pode especificar qualquer número de certificados de cliente. Cada adição ou exclusão resulta em um cluster do configuração update toohello service fabric
 
 
 ### <a name="adding-client-certificates---admin-or-read-only-via-portal"></a>A adição de certificados de cliente - Admin ou somente leitura por meio do portal
 
-1. Navegue até a folha de segurança e selecione o '+ autenticação' botão na parte superior da folha de segurança.
-2. Na folha ‘Adicionar Autenticação’, escolha o 'Tipo de Autenticação' - 'Cliente somente leitura' ou 'cliente Admin'
-3. Agora, escolha o método de autorização. Indica ao Service Fabric se ele precisa buscar esse certificado usando o nome do assunto ou a impressão digital. Em geral, não é uma boa prática de segurança para usar o método de autorização do nome da entidade. 
+1. Navegue toohello folha de segurança e selecione Olá '+ autenticação' botão na parte superior da folha de segurança hello.
+2. Na folha de 'Adicionar autenticação' hello, escolha Olá 'Tipo de autenticação' - 'Cliente somente leitura' ou 'client Admin'
+3. Escolha método de autorização de saudação. Isso indica tooService Fabric se ele deve pesquisar o certificado usando o nome da entidade hello ou impressão digital de saudação. Em geral, não é um método de autorização segurança boa prática toouse Olá do nome da entidade. 
 
 ![Adicionar certificado de cliente][Add_Client_Cert]
 
-### <a name="deletion-of-client-certificates---admin-or-read-only-using-the-portal"></a>Exclusão de certificados de cliente - Admin ou somente leitura usando o portal
+### <a name="deletion-of-client-certificates---admin-or-read-only-using-hello-portal"></a>Exclusão de certificados de cliente - Admin ou somente leitura usando Olá portal
 
-Para remover um certificado secundário sejam usados para segurança de cluster, navegue até a folha de segurança e selecione a opção 'Excluir' no menu de contexto do certificado específico.
+tooremove certificado secundário seja usado para segurança de cluster, folha de segurança toohello navegue e selecione Olá 'Delete' opção no menu de contexto de saudação no certificado específico Olá.
 
 
 

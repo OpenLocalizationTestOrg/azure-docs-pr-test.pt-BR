@@ -1,5 +1,5 @@
 ---
-title: "Perguntas frequentes sobre o Aplicativo Web do Serviço de Aplicativo do Azure no Linux | Microsoft Docs"
+title: "aaaAzure aplicativo de serviço Web aplicativo nas perguntas frequentes sobre o Linux | Microsoft Docs"
 description: "Perguntas frequentes sobre o Aplicativo Web do Serviço de Aplicativo do Azure no Linux."
 keywords: "serviço de aplicativo do azure, aplicativo web, perguntas frequentes, linux, oss"
 services: app-service
@@ -15,57 +15,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 6122f28b35d143ec26a379ae9aa8aee9bdaaff9e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: c7798d9144d936eecdc0e191fc870b0ee0b220c8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-app-service-web-app-on-linux-faq"></a>Perguntas frequentes sobre o Aplicativo Web do Serviço de Aplicativo do Azure no Linux
 
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
 
-Com a liberação do Aplicativo Web no Linux, estamos trabalhando para adicionar recursos e fazer melhorias em nossa plataforma. Estas são algumas perguntas frequentes que nossos clientes têm feito nos últimos meses.
-Caso tenha uma pergunta, comente o artigo e responderemos assim que possível.
+Com a versão de saudação do aplicativo Web no Linux, estamos trabalhando para adicionar recursos e fazer melhorias tooour plataforma. Aqui estão algumas perguntas frequentes (FAQ) que nossos clientes têm solicitado conosco sobre Olá última meses.
+Se você tiver uma pergunta, o comentário sobre o artigo hello e responderemos-lo assim que possível.
 
 ## <a name="built-in-images"></a>Imagens internas
 
-**P:** desejo divida os contêineres de Docker internos que a plataforma oferece. Onde posso encontrar esses arquivos?
+**P:** desejo toofork Olá internos contêineres do Docker que Olá plataforma fornece. Onde posso encontrar esses arquivos?
 
 **R:** É possível encontrar todos os arquivos do Docker no [GitHub](https://github.com/azure-app-service). É possível encontrar todos os contêineres do Docker no [Hub do Docker](https://hub.docker.com/u/appsvc/).
 
-**P:** Quais são os valores esperados para a seção Arquivo de Inicialização quando configuro a pilha de tempo de execução?
+**P:** quais são os valores esperados de saudação para Olá seção do arquivo de inicialização quando configura o pilha de tempo de execução de saudação?
 
-**R:** Para o Node.js, é possível especificar o arquivo de configuração PM2 ou o arquivo de script. Para o .NET Core, especifique o nome da DLL compilada. Para o Ruby, é possível especificar o script Ruby com o qual você deseja inicializar o aplicativo.
+**R:** para Node.Js, especifique o arquivo de configuração Olá PM2 ou o arquivo de script. Para o .NET Core, especifique o nome da DLL compilada. Para Ruby, você pode especificar Olá Ruby script que você deseja tooinitialize seu aplicativo com.
 
 ## <a name="management"></a>Gerenciamento
 
-**P:** O que acontece quando eu pressiono o botão de reinicialização no Portal do Azure?
+**P:** o que acontece quando eu pressionar o botão de reinicialização de saudação em Olá portal do Azure?
 
-**R:** Isso equivale à reinicialização do Docker.
+**R:** isso é Olá equivalente de reinicialização do Docker.
 
-**P:** Posso usar o SSH (Secure Shell) para me conectar à VM (máquina virtual) do contêiner de aplicativo?
+**P:** posso usar o Secure Shell (SSH) tooconnect toohello aplicativo contêiner VM (máquina virtual)?
 
-**R:** Sim, você pode fazer isso por meio do site do SCM; verifique o artigo a seguir para obter mais informações [Suporte de SSH para o Aplicativo Web no Linux](./app-service-linux-ssh-support.md)
+**R:** Sim, você pode fazer que através do site SCM hello, seleção seguinte de saudação do artigo para obter mais informações [suporte SSH para o aplicativo Web no Linux](./app-service-linux-ssh-support.md)
 
-**P:** Quero criar um plano do Serviço de Aplicativo do Linux por meio do SDK ou de um modelo do ARM, como posso fazer isso?
+**P:** desejo toocreate um plano de Linux App Service através do SDK ou um modelo do ARM, como fazer isso?
 
-**R:** Você precisa definir o campo `reserved` do serviço de aplicativo como `true`.
+**R:** necessário Olá tooset `reserved` campo do aplicativo hello serviço muito`true`.
 
 ## <a name="continuous-integrationdeployment"></a>Integração/implantação contínua
 
-**P:** Meu aplicativo Web ainda usa uma imagem de contêiner antiga do Docker depois que atualizei a imagem no Hub do Docker. Há suporte para implantação/integração contínua de contêineres personalizados?
+**P:** meu aplicativo web ainda usa uma imagem de contêiner do Docker antiga depois de atualizar a imagem Olá no Hub do Docker. Há suporte para implantação/integração contínua de contêineres personalizados?
 
-**R:** Para configurar a integração/implantação contínua para o Registro de Contêiner do Azure ou imagens do DockerHub, verifique o artigo [Implantação contínua com o Aplicativo Web do Azure no Linux](./app-service-linux-ci-cd.md). Para registros privados, é possível atualizar o contêiner parando e, em seguida, iniciando o Aplicativo Web. Se preferir, é possível alterar ou adicionar uma configuração de aplicativo fictício para forçar uma atualização do contêiner.
+**R:** tooset integração/implantação contínua para imagens de registro de contêiner do Azure ou DockerHub por seleção Olá artigo a seguir [implantação contínua com o aplicativo Web do Azure no Linux](./app-service-linux-ci-cd.md). Para registros privados, você pode atualizar o contêiner de saudação ao parar e iniciar o seu aplicativo web. Ou você pode alterar ou adicionar um aplicativo fictício configuração tooforce uma atualização do seu contêiner.
 
 **P:** Há suporte para ambientes de preparo?
 
 **R:** Sim.
 
-**P:** Posso usar **implantação da web** implantar meu aplicativo web?
+**P:** posso usar **implantação da web** toodeploy meu aplicativo web?
 
-**R:** Sim, você precisa definir um aplicativo de configuração chamado `WEBSITE_WEBDEPLOY_USE_SCM` para `false`.
+**R:** Sim, você precisa tooset um aplicativo chamada `WEBSITE_WEBDEPLOY_USE_SCM` muito`false`.
 
 ## <a name="language-support"></a>Suporte ao idioma
 
@@ -75,31 +75,31 @@ Caso tenha uma pergunta, comente o artigo e responderemos assim que possível.
 
 **P:** Há suporte para o Criador como um gerenciador de dependências para aplicativos PHP?
 
-**R:** Sim. Durante a implantação de Git, Kudu deve detectar que você está implantando um aplicativo PHP (graças à presença de um arquivo de composer.json) e disparará uma instalação de criador para você.
+**R:** Sim. Durante a implantação de Git, Kudu deve detectar que você está implantando um aplicativo PHP (obrigado a presença de toohello de um arquivo de composer.json) e disparará uma instalação de criador para você.
 
 ## <a name="custom-containers"></a>Contêineres personalizados
 
-**P:** Estou usando meu próprio contêiner personalizado. Meu aplicativo reside no diretório `\home\`, mas não consigo encontrar meus arquivos ao navegar pelo conteúdo usando o [site do SCM](https://github.com/projectkudu/kudu) ou um cliente FTP. Onde estão meus arquivos?
+**P:** Estou usando meu próprio contêiner personalizado. Meu aplicativo reside no hello `\home\` diretório, mas não é possível localizar Meus arquivos quando navegar conteúdo hello usando Olá [site SCM](https://github.com/projectkudu/kudu) ou um cliente de FTP. Onde estão meus arquivos?
 
-**R:** Montamos um compartilhamento SMB no diretório `\home\`. Isso substituirá todo o conteúdo existente nele.
+**R:** montamos uma toohello de compartilhamento SMB `\home\` directory. Isso substituirá todo o conteúdo existente nele.
 
-**P:** Estou usando meu próprio contêiner personalizado. Não quero que a plataforma monte um compartilhamento SMB para o `\home\`.
+**P:** Estou usando meu próprio contêiner personalizado. Não quero Olá plataforma toomount um toohello de compartilhamento SMB `\home\`.
 
-**R:** Você pode fazer isso definindo a configuração de aplicativo `WEBSITES_ENABLE_APP_SERVICE_STORAGE` como `false`.
+**R:** você pode fazer isso por configuração Olá `WEBSITES_ENABLE_APP_SERVICE_STORAGE` aplicativo configuração muito`false`.
 
-**P:** Meu contêiner personalizado demora para iniciar e a plataforma o reinicia antes que ele termine a inicialização.
+**P:** meu contêiner personalizado leva um tempo longo toostart e conclusão contêiner de saudação do hello plataforma reinicialização antes que ele for iniciado.
 
-**R:** Você pode configurar o tempo que a plataforma aguardará antes de reiniciar o contêiner. Isso pode ser feito definindo a configuração de aplicativo `WEBSITES_CONTAINER_START_TIME_LIMIT` para o valor desejado em segundos. O padrão é 230 segundos e o máximo é de 600 segundos.
+**R:** você pode configurar o tempo de saudação plataforma Olá aguardará antes de reiniciar seu contêiner. Isso pode ser feito por configuração Olá `WEBSITES_CONTAINER_START_TIME_LIMIT` toohello de configuração de aplicativo o valor desejado em segundos. padrão de saudação é 230 segundos e Olá máximo é de 600 segundos.
 
-**P:** Qual é o formato da URL do servidor do Registro privado?
+**P:** o que é o formato de saudação para url do servidor de registro privada?
 
-**R:** Você precisa fornecer a URL completa do registro, incluindo `http://` ou `https://`.
+**R:** necessárias tooprovide Olá registro completo url incluindo `http://` ou `https://`.
 
-**P:** Qual é o formato do nome da imagem na opção de Registro privado?
+**P:** o que é o formato de saudação para nome da imagem Olá na opção do registro privada?
 
-**R:** Você precisa adicionar o nome de imagem completo, incluindo a URL do Registro privado (por exemplo, myacr.azurecr.io/dotnet:latest)
+**R:** você precisa de nome de imagem completa Olá tooadd incluindo Olá url de registro particular (por exemplo. myacr.azurecr.io/dotnet:latest)
 
-**P:** que quero expor mais de uma porta em minha imagem de contêiner personalizados. Isso é possível?
+**P:** desejada tooexpose mais de uma porta na minha imagem de contêiner personalizado. Isso é possível?
 
 **R:** No momento, não há suporte para esse recurso.
 
@@ -107,33 +107,33 @@ Caso tenha uma pergunta, comente o artigo e responderemos assim que possível.
 
 **R:** No momento, não há suporte para esse recurso.
 
-**P:** não é possível navegar os processos do meu contêiner personalizado em execução ou de sistema de arquivos do site do SCM. Por que isso acontece?
+**P:** não é possível navegar os processos do meu contêiner personalizado execução ou sistema de arquivos do site SCM Olá. Por que isso acontece?
 
-**R:** O site do SCM é executado em um contêiner separado. Não é possível verificar o sistema de arquivos ou os processos em execução do contêiner de aplicativo.
+**R:** site SCM Olá é executado em um contêiner separado. Não é possível verificar o sistema de arquivos de saudação ou executando processos do contêiner do aplicativo hello.
 
-**P:** Meu contêiner personalizado escuta uma porta diferente da porta 80. Como configurar meu aplicativo para rotear as solicitações para essa porta?
+**P:** meu contêiner personalizado escuta tooa porta diferente da porta 80. Como posso configurar meu aplicativo tooroute Olá solicitações toothat porta?
 
-**R:** Nós temos detecção automática da porta; além disso, é possível especificar uma configuração de aplicativo chamada **WEBSITES_PORT** e fornecer a ela o valor do número da porta esperada. A plataforma estava usando a configuração de aplicativo `PORT` anteriormente, estamos planejando substituir o uso dessa configuração de aplicativo e passar a usar exclusivamente `WEBSITES_PORT`.
+**R:** temos a detecção automática porta, também é possível especificar um aplicativo de chamada **WEBSITES_PORT**e dê a ele valor de saudação do número de porta Olá esperado. Plataforma Olá foi usando previamente `PORT` aplicativo configuração, podemos estiver planejando toodeprecate Olá use essa configuração de aplicativo e mover toousing `WEBSITES_PORT` exclusivamente.
 
-**P:** É necessário implementar o HTTPS no meu contêiner personalizado?
+**P:** necessário tooimplement HTTPS no meu contêiner personalizado.
 
-**R:** Não, a plataforma manipula a terminação HTTPS nos front-ends compartilhados.
+**R:** não, plataforma Olá manipula a terminação HTTPS no front-ends Olá compartilhado.
 
 ## <a name="pricing-and-sla"></a>Preço e SLA
 
-**P:** Qual é o preço durante o uso da visualização pública?
+**P:** o que é Olá preços enquanto você estiver usando a visualização pública Olá?
 
-**R:** Você pagará metade do número de horas em que o aplicativo é executado, com o preço normal do Serviço de Aplicativo do Azure. Isso significa que você obtém um desconto de 50% sobre o preço normal do Serviço de Aplicativo do Azure.
+**R:** você é cobrado pelo número de saudação metade de horas que seu aplicativo é executado, com preços do saudação normal do serviço de aplicativo do Azure. Isso significa que você obtém um desconto de 50% sobre o preço normal do Serviço de Aplicativo do Azure.
 
-## <a name="other"></a>Outros
+## <a name="other"></a>outro
 
-**P:** quais são os caracteres com suporte em nomes de configurações do aplicativo?
+**P:** o que são caracteres hello suportado em nomes de configurações do aplicativo?
 
-**R:** Só é possível usar A-Z, a-z, 0-9 e sublinhado para as configurações do aplicativo.
+**R:** você só pode usar A-Z, a-z, 0-9 e Olá sublinhado para configurações de aplicativo.
 
 **P:** onde solicitar novos recursos?
 
-**R:** É possível enviar sua ideia para o [fórum de comentários dos Aplicativos Web](https://aka.ms/webapps-uservoice). Adicione “[Linux]” ao título de sua ideia.
+**R:** poderá enviar sua ideia no hello [Fórum de comentários de aplicativos Web](https://aka.ms/webapps-uservoice). Adicione "[Linux]" toohello título de sua ideia.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [O que é um Aplicativo Web do Azure no Linux?](app-service-linux-intro.md)

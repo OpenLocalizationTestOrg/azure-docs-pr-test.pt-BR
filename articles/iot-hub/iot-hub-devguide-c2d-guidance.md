@@ -1,6 +1,6 @@
 ---
-title: "Opções da nuvem para o dispositivo do Hub IoT do Azure| Microsoft Docs"
-description: "Guia de desenvolvedor ‑ diretrizes sobre quando usar métodos diretos, propriedades desejadas do dispositivo gêmeo ou mensagens para comunicações da nuvem para o dispositivo."
+title: "Opções de aaaAzure IoT Hub de nuvem para dispositivo | Microsoft Docs"
+description: "Guia do desenvolvedor - orientações sobre quando toouse direciona métodos, propriedades desejadas de duas do dispositivo ou mensagens de nuvem para dispositivo para comunicações de nuvem para dispositivo."
 services: iot-hub
 documentationcenter: 
 author: fsautomata
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: elioda
-ms.openlocfilehash: e6cd4880c9bfcc670bd116d3dd8e5245d70f85cd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bb95445054fa2711e34fc1d928c3665e0246c81c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Diretrizes de comunicações da nuvem para o dispositivo
-O Hub IoT fornece três opções para os aplicativos de dispositivos exporem funcionalidades a um aplicativo de back-end:
+IoT Hub fornece três opções para o aplicativo de back-end do dispositivo aplicativos tooexpose funcionalidade tooa:
 
-* [Direcionar métodos][lnk-methods] para comunicações que exigem confirmação imediata do resultado. Direcionar métodos é muitas vezes usado para controle interativo de dispositivos, como ativar um ventilador.
-* [Propriedades desejadas do gêmeo][lnk-twins], para comandos de longa duração que têm o objetivo de colocar o dispositivo em um determinado estado desejado. Por exemplo, defina o intervalo de envio de telemetria como 30 minutos.
-* [Mensagens da nuvem para o dispositivo ][lnk-c2d], para receber notificações unidirecionais para o aplicativo do dispositivo.
+* [Direcionar métodos] [ lnk-methods] para comunicações que exigem a confirmação imediata do resultado de saudação. Direcionar métodos é muitas vezes usado para controle interativo de dispositivos, como ativar um ventilador.
+* [Propriedades desejado pelo duas] [ lnk-twins] para comandos de longa execução objetivo desejado de dispositivo de saudação do tooput em um determinado estado. Por exemplo, o conjunto Olá telemetria enviar intervalo (minutos) too30.
+* [Mensagens de nuvem para dispositivo] [ lnk-c2d] para o aplicativo de dispositivo toohello notificações unidirecional.
 
-Aqui está uma comparação detalhada das várias opções de comunicação da nuvem para o dispositivo.
+Aqui está uma comparação detalhada das Olá várias opções de comunicação de dispositivo para nuvem.
 
 |  | Métodos diretos | Propriedades desejadas do gêmeo | Mensagens da nuvem para o dispositivo |
 | ---- | ------- | ---------- | ---- |
-| Cenário | Comandos que exigem confirmação imediata, por exemplo, ligar um ventilador. | Comandos de longa duração que têm o objetivo de colocar o dispositivo em um determinado estado desejado. Por exemplo, defina o intervalo de envio de telemetria como 30 minutos. | Notificações unidirecionais para o aplicativo do dispositivo. |
-| Fluxo de dados | Bidirecional. O aplicativo do dispositivo pode responder imediatamente ao método. O back-end da solução recebe o resultado de acordo com o contexto da solicitação. | Unidirecional. O aplicativo do dispositivo recebe uma notificação com a alteração da propriedade. | Unidirecional. O aplicativo do dispositivo recebe a mensagem
-| Durabilidade | Dispositivos desconectados não são contatados. O back-end da solução é notificado de que o dispositivo não está conectado. | Os valores de propriedade são preservados no dispositivo gêmeo. O dispositivo lerá na próxima reconexão. Valores de propriedade são recuperáveis com a [linguagem de consulta do Hub IoT][lnk-query]. | As mensagens podem ser mantidas pelo Hub IoT por até 48 horas. |
+| Cenário | Comandos que exigem confirmação imediata, por exemplo, ligar um ventilador. | Comandos de longa execução se destina a dispositivos de saudação tooput em um determinado estado desejado. Por exemplo, o conjunto Olá telemetria enviar intervalo (minutos) too30. | Aplicativo de dispositivo de toohello notificações unidirecional. |
+| Fluxo de dados | Bidirecional. aplicativo de dispositivo Olá pode responder toohello método imediatamente. back-end de solução Olá recebe o resultado de saudação contextualmente toohello solicitação. | Unidirecional. Olá dispositivo aplicativo recebe uma notificação de alteração de propriedade hello. | Unidirecional. Olá dispositivo aplicativo recebe a mensagem de saudação
+| Durabilidade | Dispositivos desconectados não são contatados. back-end de solução Olá é notificado que o dispositivo Olá não está conectado. | Valores de propriedade são preservados em duas de dispositivo de saudação. O dispositivo lerá na próxima reconexão. Valores de propriedade são recuperáveis com hello [linguagem de consulta de IoT Hub][lnk-query]. | As mensagens podem ser mantidas pelo IoT Hub para backup too48 horas. |
 | Destinos | Dispositivo único usando **deviceId**, ou vários dispositivos usando [jobs][lnk-jobs]. | Dispositivo único usando **deviceId**, ou vários dispositivos usando [jobs][lnk-jobs]. | Dispositivo único por **deviceId**. |
-| Tamanho | Até 8 KB de solicitações e 8 KB de respostas. | O tamanho máximo desejado das propriedades é de 8 KB. | Mensagens de até 64 KB. |
+| Tamanho | As solicitações de too8KB e respostas de 8KB. | O tamanho máximo desejado das propriedades é de 8 KB. | As mensagens de too64KB. |
 | Frequência | Alta. Para saber mais, confira [Limites do Hub IoT][lnk-quotas]. | Média. Para saber mais, confira [Limites do Hub IoT][lnk-quotas]. | Baixa. Para saber mais, confira [Limites do Hub IoT][lnk-quotas]. |
 | Protocolo | Disponível atualmente somente ao usar MQTT. | Disponível atualmente somente ao usar MQTT. | Disponível em todos os protocolos. O dispositivo deve sondar ao usar HTTP. |
 
-Saiba como usar métodos diretos, propriedades desejadas e mensagens da nuvem para o dispositivo nos seguintes tutoriais:
+Saiba como o toouse direcionar os métodos, propriedades desejadas e mensagens de nuvem para dispositivo em Olá tutoriais a seguir:
 
 * [Usar métodos diretos][lnk-methods-tutorial] para método diretos;
-* [Usar as propriedades desejadas para configurar os dispositivos][lnk-twin-properties] para ver as propriedades desejadas do dispositivo gêmeo; 
+* [Usar propriedades desejadas tooconfigure dispositivos][lnk-twin-properties], para duas de dispositivo do desejado, propriedades 
 * [Enviar mensagens da nuvem para o dispositivo][lnk-c2d-tutorial], para mensagens da nuvem para o dispositivo.
 
 [lnk-twins]: iot-hub-devguide-device-twins.md

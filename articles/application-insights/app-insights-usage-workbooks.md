@@ -1,5 +1,5 @@
 ---
-title: Investigar e compartilhar dados de uso com Workbooks interativas no Azure Application Insights | Microsoft Docs
+title: aaaInvestigate e compartilhamento de dados de uso com pastas de trabalho interativas no Azure Application Insights | Documentos da Microsoft
 description: "Análise demográfica dos usuários de seu aplicativo Web."
 services: application-insights
 documentationcenter: 
@@ -12,25 +12,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: bwren
-ms.openlocfilehash: 75028b4fbda43d90f56690a33c7eb624fce049c8
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: bdcebe0f97fdad0a0b301df5950dc09698f5a4dd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="investigate-and-share-usage-data-with-interactive-workbooks-in-application-insights"></a>Investigar e compartilhar dados de uso com pastas de trabalho interativas no Application Insights
 
-As pastas de trabalho combinam as visualizações de dados do [Azure Application Insights](app-insights-overview.md), as [consultas do Analytics](app-insights-analytics.md) e textos em documentos interativos. As pastas de trabalho são editáveis por outros membros da equipe com acesso ao mesmo recurso do Azure. Isso significa que as consultas e os controles usados para criar uma pasta de trabalho estão disponíveis para outras pessoas que estão lendo a pasta de trabalho, facilitando a exploração, extensão e verificação de erros.
+As pastas de trabalho combinam as visualizações de dados do [Azure Application Insights](app-insights-overview.md), as [consultas do Analytics](app-insights-analytics.md) e textos em documentos interativos. Pastas de trabalho são editáveis por outros membros da equipe com acesso toohello mesmo recurso do Azure. Isso significa Olá controles e consultas usado toocreate uma pasta de trabalho são tooother disponível pessoas lendo a pasta de trabalho hello, tornando-os tooexplore fácil, estender e verificar se há erros.
 
 As pastas de trabalho são úteis para cenários como:
 
-* Exploração do uso do aplicativo quando você não sabe as métricas de interesse antecipadamente: números de usuários, taxas de retenção, taxas de conversão, etc. Ao contrário de outras ferramentas de análise de uso do Application Insights, as pastas de trabalho permitem combinar vários tipos de visualizações e análises, tornando-as excelentes para esse tipo de exploração de forma livre.
-* Explicar para sua equipe sobre o desempenho de um recurso recém-liberado, mostrando contagens de usuário para as principais interações e outras métricas.
-* Compartilhar os resultados de um experimento A/B no aplicativo com outros membros de sua equipe. Você pode explicar as metas do experimento com um texto e, depois, mostrar cada métrica de uso e consulta do Analytics usada para avaliar o experimento, junto com textos explicativos claros que indicam se cada métrica estava acima ou abaixo da meta.
-* Relatar o impacto de uma interrupção no uso do aplicativo, combinando dados, explicação de texto e uma discussão das próximas etapas para prevenir interrupções no futuro.
+* Explorando o uso de saudação do seu aplicativo quando não souber com antecedência métricas de saudação de interesse: números de usuários, as taxas de retenção, taxas de conversão, etc. Ao contrário de outras ferramentas de análise de uso do Application Insights, as pastas de trabalho permitem combinar vários tipos de visualizações e análises, tornando-as excelentes para esse tipo de exploração de forma livre.
+* Explicar team tooyour como um recurso recém-lançado está funcionando, por usuário mostra contagens de interações de chave e outras métricas.
+* Compartilhar os resultados de saudação de um A / B experiências em seu aplicativo com outros membros da equipe. Você pode explicar metas Olá para Olá fazer experiências com texto e mostram cada métrica de uso e consulta de análise usado experiência de saudação tooevaluate, junto com as transferências de chamada claras para se cada métrica foi acima ou abaixo do destino.
+* Relatório impacto de saudação de uma interrupção no uso de saudação do seu aplicativo, combinando dados explicação de texto e uma discussão das interrupções de tooprevent etapas Avançar no hello futuras.
 
 > [!NOTE]
-> O recurso do Application Insights deve conter exibições de página ou eventos personalizados para usar as pastas de trabalho. [Saiba como configurar seu aplicativo para coletar exibições de página automaticamente com o SDK do JavaScript do Application Insights](app-insights-javascript.md).
+> O recurso do Application Insights deve conter modos de exibição de página ou pastas de trabalho de toouse eventos personalizados. [Saiba como tooset sua página de toocollect aplicativo exibe automaticamente com hello SDK de JavaScript do Application Insights](app-insights-javascript.md).
 > 
 > 
 
@@ -38,23 +38,23 @@ As pastas de trabalho são úteis para cenários como:
 
 Uma pasta de trabalho é composta por seções: visualizações de uso editáveis de forma independente, gráficos, tabelas, textos ou resultados de consultas do Analytics.
 
-Para editar o conteúdo de uma seção da pasta de trabalho, clique no botão **Editar** abaixo e à direita da seção da pasta de trabalho.
+conteúdo de saudação tooedit de uma seção de pasta de trabalho, clique em Olá **editar** botão abaixo e toohello à direita da seção de pasta de trabalho de saudação.
 
 ![Controles de edição da seção Pastas de Trabalho do Application Insights](./media/app-insights-usage-workbooks/editing-controls.png)
 
-1. Quando terminar de editar uma seção, clique em **Edição Concluída** no canto inferior esquerdo da seção.
+1. Quando você terminar uma seção de edição, clique em **feito editando** na Olá inferior esquerda da seção de saudação.
 
-2. Para criar uma duplicata de uma seção, clique no ícone **Clonar esta seção**. Criar seções duplicadas é uma ótima forma de iterar em uma consulta sem perder as iterações anteriores.
+2. toocreate uma duplicata de uma seção, clique em Olá **clonar nesta seção** ícone. Criando seções duplicadas é um tooiterate tooway grande em uma consulta sem perder iterações anteriores.
 
-3. Para mover uma seção para cima em uma pasta de trabalho, clique no ícone **Mover para cima** ou **Mover para baixo**.
+3. toomove uma seção em uma pasta de trabalho, clique em Olá **mover para cima** ou **mover para baixo** ícone.
 
-4. Para remover uma seção permanentemente, clique no ícone **Remover**.
+4. tooremove uma seção permanentemente, clique em Olá **remover** ícone.
 
 ## <a name="adding-usage-data-visualization-sections"></a>Adicionando seções de visualização de dados de uso
 
-As pastas de trabalho oferecem quatro tipos de visualizações internas de análise de uso. Cada uma delas responde a uma pergunta comum sobre o uso do aplicativo. Para adicionar tabelas e gráficos além dessas quatro seções, adicione seções de consulta do Analytics (veja abaixo).
+As pastas de trabalho oferecem quatro tipos de visualizações internas de análise de uso. Cada responde a uma pergunta comum sobre o uso de saudação do seu aplicativo. tooadd tabelas e gráficos diferentes quatro seções, adicione seções de consulta de análise (veja abaixo).
 
-Para adicionar uma seção Usuários, Sessões, Eventos ou Retenção à pasta de trabalho, use o botão **Adicionar Usuários** ou outro botão correspondente na parte inferior da pasta de trabalho ou na parte inferior de qualquer seção.
+tooadd aos usuários, sessões, eventos ou retenção seção tooyour de pasta de trabalho, use Olá **adicionar usuários** ou outro botão correspondente na parte inferior da saudação da pasta de trabalho hello, ou na parte inferior da saudação de qualquer seção.
 
 ![Seção Usuários no Workbooks](./media/app-insights-usage-workbooks/users-section.png)
 
@@ -64,61 +64,61 @@ As seções **Sessões** respondem à pergunta “Quantas sessões os usuários 
 
 As seções **Eventos** respondem à pergunta “Quantas vezes os usuários exibiram alguma página ou usaram algum recurso de meu site?”
 
-Cada um desses três tipos de seção oferece os mesmos conjuntos de controles e visualizações:
+Cada um desses tipos de três seção oferece Olá mesmos conjuntos de controles e visualizações:
 
 * [Saiba mais sobre como editar as seções Usuários, Sessões e Eventos](app-insights-usage-segmentation.md)
-* Ative/desative o gráfico principal, as grades de histograma, as informações automáticas e as visualizações de usuários de exemplo usando as caixas de seleção **Mostrar Gráfico**, **Mostrar Grade**, **Mostrar Informações** e **Amostra Destes Usuários** na parte superior de cada seção.
+* Alternar de gráfico principal hello, grades de histograma, insights automática e visualizações de usuários de exemplo usando Olá **Mostrar gráfico**, **Mostrar grade de**, **Insights Mostrar**e **De esses usuários de exemplo** caixas de seleção na parte superior de saudação de cada seção.
 
 ![Seção Retenção no Workbooks](./media/app-insights-usage-workbooks/retention-section.png)
 
 As seções **Retenção** respondem à pergunta: “Das pessoas que exibiram alguma página ou usaram algum recurso em um dia ou uma semana, quantas voltaram no dia ou na semana seguinte?”
 
 * [Saiba mais sobre como editar as seções Retenção](app-insights-usage-retention.md)
-* Ative/desative o gráfico opcional Retenção Geral usando a caixa de seleção **Mostrar gráfico de retenção geral** na parte superior da seção.
+* Ativar/desativar Olá opcional retenção geral gráfico usando Olá **Mostrar gráfico de retenção geral** caixa de seleção na parte superior de saudação da seção de saudação.
 
 ## <a name="adding-application-insights-analytics-sections"></a>Adicionando as seções do Analytics do Application Insights
 
 ![Seção do Analytics no Workbooks](./media/app-insights-usage-workbooks/analytics-section.png)
 
-Para adicionar uma seção de consulta do Analytics do Application Insights à pasta de trabalho, use o botão **Adicionar consulta do Analytics** na parte inferior da pasta de trabalho ou na parte inferior de qualquer seção.
+tooadd uma análise do aplicativo Insights consulta seção tooyour pasta de trabalho, use Olá **consulta analítica adicionar** botão na parte inferior da saudação da pasta de trabalho hello, ou na parte inferior da saudação de qualquer seção.
 
-As seções de consulta do Analytics permitem que você adicione consultas arbitrárias dos dados do Application Insights a pastas de trabalho. Essa flexibilidade indica que as seções de consulta do Analytics devem ser a opção para a qual você deve ir para responder a qualquer pergunta sobre seu site que não seja as quatro listadas acima de Usuários, Sessões, Eventos e Retenção, como:
+As seções de consulta do Analytics permitem que você adicione consultas arbitrárias dos dados do Application Insights a pastas de trabalho. Essa flexibilidade mostra seções de consulta de análise devem ser o go-toofor responder perguntas sobre seu site além daquele Olá quatro listados acima para usuários, sessões, eventos e retenção, como:
 
-* Quantas exceções seu site gerou durante o mesmo período como um declínio no uso?
-* Qual foi a distribuição dos tempos de carregamento de página para os usuários que exibiram alguma página?
-* Quantos usuários exibiram algum conjunto de páginas no site, mas não algum outro conjunto de páginas? Isso poderá ser útil para entender se você tiver clusters de usuários que usam diferentes subconjuntos da funcionalidade do site (use o operador `join` com o modificador `kind=leftanti` na linguagem de consulta do Log Analytics).
+* Como muitas exceções foram throw seu site durante a saudação mesmo tempo como uma recusa de uso?
+* Qual foi a distribuição de saudação de tempos de carregamento de página para que os usuários exibindo alguma página?
+* Quantos usuários exibiram algum conjunto de páginas no site, mas não algum outro conjunto de páginas? Isso pode ser útil toounderstand se você tiver clusters de usuários que usam diferentes subconjuntos de funcionalidade do site (use Olá `join` operador com hello `kind=leftanti` modificador Olá linguagem de consulta de análise de Log).
 
-Use a [referência de linguagem de consulta do Log Analytics](https://docs.loganalytics.io/) para saber mais sobre como escrever consultas.
+Saudação de uso [referência de linguagem de consulta de análise de Log](https://docs.loganalytics.io/) toolearn mais sobre a escrita de consultas.
 
 ## <a name="adding-text-and-markdown-sections"></a>Adicionando texto e seções de Markdown
 
-Adicionar cabeçalhos, explicações e comentários às pastas de trabalho ajuda a transformar um conjunto de tabelas e gráficos em uma narrativa. As seções de texto nas pastas de trabalho dão suporte à [sintaxe de Markdown](https://daringfireball.net/projects/markdown/) na formatação de texto, como cabeçalhos, negrito, itálico e listas com marcadores.
+Adicionar títulos, explicações e pastas de trabalho comentários tooyour ajuda a transformar um conjunto de tabelas e gráficos em uma narrativa. Suportam a seções de texto em pastas de trabalho Olá [sintaxe de Markdown](https://daringfireball.net/projects/markdown/) para formatação de texto, como títulos, negrito, itálico e listas com marcadores.
 
-Para adicionar uma seção de texto à pasta de trabalho, use o botão **Adicionar texto** na parte inferior da pasta de trabalho ou na parte inferior de qualquer seção.
+tooadd uma pasta de trabalho de tooyour seção texto, use Olá **adicionar texto** botão na parte inferior da saudação da pasta de trabalho hello, ou na parte inferior da saudação de qualquer seção.
 
 ## <a name="saving-and-sharing-workbooks-with-your-team"></a>Salvando e compartilhando pastas de trabalho com sua equipe
 
-As pastas de trabalho são salvas em um recurso do Application Insights, na seção **Meus Relatórios**, que é particular a você ou na seção **Relatórios Compartilhados**, que é acessível a todos com acesso ao recurso do Application Insights. Para exibir todas as pastas de trabalho no recurso, clique no botão **Abrir** na barra de ações.
+Pastas de trabalho são salvos em um recurso do Application Insights, em Olá **meus relatórios** seção tooyou privada ou em Olá **relatórios compartilhados** seção que é acessível tooeveryone com acesso toohello recurso do Application Insights. tooview todas as pastas de trabalho de saudação no recurso Olá, clique em Olá **abrir** botão na barra de ação de saudação.
 
-Para compartilhar uma pasta de trabalho que atualmente está em **Meus Relatórios**:
+tooshare uma pasta de trabalho está atualmente em **meus relatórios**:
 
-1. Clique em **Abrir** na barra de ações
-2. Clique no botão “...” ao lado da pasta de trabalho que você deseja compartilhar
-3. Clique em **Mover para Relatórios Compartilhados**.
+1. Clique em **abrir** na barra de ação Olá
+2. Clique no botão "…" hello ao lado da pasta de trabalho Olá deseja tooshare
+3. Clique em **mover relatórios tooShared**.
 
-Para compartilhar uma pasta de trabalho com um link ou por email, clique em **Compartilhar** na barra de ações. Tenha em mente que os destinatários do link precisam ter acesso a esse recurso no portal do Azure para exibir a pasta de trabalho. Para fazer edições, os destinatários precisam de, pelo menos, permissões de Colaborador ao recurso.
+tooshare uma pasta de trabalho com um link ou por meio de email, clique em **compartilhamento** na barra de ação de saudação. Tenha em mente que os destinatários do link de saudação precisam acessar o recurso de toothis na pasta de trabalho de saudação do hello tooview portal do Azure. edições toomake, os destinatários precisarão pelo menos permissões de Colaborador para o recurso de saudação.
 
-Para fixar um link em uma pasta de trabalho em um Painel do Azure:
+toopin um tooan de pasta de trabalho do link tooa painel do Azure:
 
-1. Clique em **Abrir** na barra de ações
-2. Clique no botão “...” ao lado da pasta de trabalho que você deseja fixar
-3. Clique em **Fixar no painel**.
-
-## <a name="next-steps"></a>Próximas etapas
+1. Clique em **abrir** na barra de ação Olá
+2. Clique no botão "…" hello ao lado da pasta de trabalho Olá deseja toopin
+3. Clique em **toodashboard Pin**.
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para habilitar as experiências de uso, comece enviando [eventos personalizados](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [exibições de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
-- Se você já envia eventos personalizados ou exibições de página, explore as ferramentas de uso para saber como os usuários utilizam o seu serviço.
+
+## <a name="next-steps"></a>Próximas etapas
+- uso de tooenable experiências, comece a enviar [eventos personalizados](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [exibições de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Se você já enviar eventos personalizados ou modos de exibição de página, explorar Olá uso ferramentas toolearn como os usuários usar seu serviço.
     - [Usuários, Sessões, Eventos](app-insights-usage-segmentation.md)
     - [Funis](usage-funnels.md)
     - [Retenção](app-insights-usage-retention.md)

@@ -1,6 +1,6 @@
 ---
-title: "Gerenciar backups de máquina virtual implantados pelo Resource Manager | Microsoft Docs"
-description: "Saiba como gerenciar e monitorar os backups da máquina virtual implantados pelo Gerenciador de Recursos"
+title: "backups de máquina de virtual implantada para o Gerenciador de recursos de aaaManage | Microsoft Docs"
+description: "Saiba como toomanage e monitor de backups de máquina de virtual implantada para o Gerenciador de recursos"
 services: backup
 documentationcenter: 
 author: trinadhk
@@ -14,80 +14,80 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-ms.openlocfilehash: 35a21cb99ca4bad124a9f764cef9da453e1fe47f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 241fc4b2a29c5cd8b8b0ee8efbf8ba4e96c6a7ea
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gerenciar backups de máquinas virtuais do Azure
 > [!div class="op_single_selector"]
 > * [Gerenciar backups da VM do Azure](backup-azure-manage-vms.md)
-> * [Gerenciar backups da VM Clássica](backup-azure-manage-vms-classic.md)
+> * [Gerenciar backups de VMs clássicas](backup-azure-manage-vms-classic.md)
 >
 >
 
-Este artigo fornece orientações sobre como gerenciar backups de VM e explica as informações sobre alertas de backup disponíveis no painel do portal. As diretrizes neste artigo se aplicam ao uso das VMs com cofres dos Serviços de Recuperação. Este artigo não aborda a criação das máquinas virtuais, nem explica como protegê-las. Para ter instruções elementares sobre como proteger as VMs implantadas pelo Azure Resource Manager no Azure com um cofre dos Serviços de Recuperação, consulte [Primeiro examinar: fazer backup das VMs em um cofre dos Serviços de Recuperação](backup-azure-vms-first-look-arm.md).
+Este artigo fornece orientação sobre como gerenciar backups VM e explica as informações de alertas de backup Olá disponíveis no painel do portal hello. diretrizes de saudação neste artigo se aplicam a toousing VMs com os cofres de serviços de recuperação. Este artigo não aborda a criação de saudação de máquinas virtuais, nem explicam como máquinas virtuais de tooprotect. Para um livro de instruções sobre como proteger VMs do Azure Resource Manager implantados no Azure com um cofre de serviços de recuperação, consulte [primeiro olhar: fazer backup de máquinas virtuais tooa Cofre de serviços de recuperação](backup-azure-vms-first-look-arm.md).
 
 ## <a name="manage-vaults-and-protected-virtual-machines"></a>Gerenciar cofres e máquinas virtuais protegidas
-No portal do Azure, o painel do cofre dos Serviços de Recuperação fornece acesso a informações sobre o cofre, inclusive:
+Olá portal do Azure, painel de Cofre de serviços de recuperação de saudação fornece acesso tooinformation sobre Olá cofre, inclusive:
 
-* o instantâneo de backup mais recente, que também é o ponto de restauração mais recente <br\>
-* política de backup <br\>
+* Olá mais recente backup de instantâneo, que também é o ponto de restauração mais recente hello < br\>
+* Olá a política de backup < br\>
 * tamanho total de todos os instantâneos do backup <br\>
-* número de máquinas virtuais que são protegidas com o cofre <br\>
+* número de máquinas virtuais que são protegidas com o cofre hello < br\>
 
-Muitas tarefas de gerenciamento com um backup da máquina virtual começam abrindo o cofre no painel de controle. No entanto, como os cofres podem ser usados para proteger vários itens (ou várias VMs), para exibir detalhes sobre uma determinada VM, abra o painel do item do cofre. O procedimento a seguir mostra como abrir o *painel do cofre*, em seguida, ir para o *painel do item do cofre*. Há "dicas" em ambos os procedimentos que mostram como adicionar o cofre e o item do cofre ao painel do Azure usando o Pin no comando do painel. Fixar no painel é uma maneira de criar um atalho para o cofre ou o item. Você também pode executar os comandos comuns a partir do atalho.
+Muitas tarefas de gerenciamento com um backup de máquinas virtuais começam com abrindo Olá cofre no painel de saudação. No entanto, como cofres podem ser usado tooprotect tooview detalhes sobre uma determinada VM, abrem vários itens (ou várias VMs), painel de item de cofre hello. Olá procedimento a seguir mostra como Olá tooopen *painel Cofre* e, em seguida, continue toohello *painel Cofre de item*. Há "dicas" nos dois procedimentos que destacam como tooadd Olá cofre e cofre toohello de item do painel do Azure usando o comando de toodashboard Olá Pin. Toodashboard de PIN é uma maneira de criar um cofre do atalho toohello ou item. Você também pode executar comandos comuns do atalho hello.
 
 > [!TIP]
-> Se você tiver vários painéis e folhas abertos, use o controle azul escuro na parte inferior da janela para deslizar o painel do Azure.
+> Se você tiver vários painéis e abrir folhas, use o controle deslizante de azul escuro Olá final Olá Olá Olá de tooslide da janela do painel do Azure e para trás.
 >
 >
 
 ![Exibição completa com controle deslizante](./media/backup-azure-manage-vms/bottom-slider.png)
 
-### <a name="open-a-recovery-services-vault-in-the-dashboard"></a>Abra um cofre dos Serviços de Recuperação no painel:
-1. Entre no [Portal do Azure](https://portal.azure.com/).
-2. No menu Hub, clique em **Procurar** e, na lista de recursos, digite **Serviços de Recuperação**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Clique em **Cofre de Serviços de Recuperação**.
+### <a name="open-a-recovery-services-vault-in-hello-dashboard"></a>Abra um cofre de serviços de recuperação no painel de saudação:
+1. Entrar toohello [portal do Azure](https://portal.azure.com/).
+2. No menu de Hub hello, clique em **procurar** e, na lista de saudação de recursos, digite **dos serviços de recuperação**. Como começar a digitar, Olá filtros de lista com base em sua entrada. Clique em **Cofre dos Serviços de Recuperação**.
 
     ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png) <br/>
 
-    A lista de cofres de Serviços de Recuperação será exibida.
+    saudação de lista de cofres de serviços de recuperação é exibida.
 
     ![Listar cofres de Serviços de Recuperação ](./media/backup-azure-manage-vms/list-o-vaults.png) <br/>
 
    > [!TIP]
-   > Se você fixar um cofre no Painel do Azure, esse cofre ficará imediatamente acessível quando você abrir o portal do Azure. Para fixar um cofre no painel, na lista de cofres, clique com o botão direito no cofre e selecione **Fixar no painel**.
+   > Se você fixar um painel do Azure de toohello do cofre, esse cofre é imediatamente acessível quando você abre Olá portal do Azure. toopin um painel de toohello do cofre, na lista de cofre hello, cofre hello e selecione **toodashboard Pin**.
    >
    >
-3. Na lista de cofres, escolha o cofre para abrir seu painel. Quando você seleciona o cofre, o painel do cofre e a folha **Configurações** são abertos. Na imagem a seguir, o painel **Cofre Contoso** é destacado.
+3. Saudação de cofres, selecione lista Olá cofre tooopen seu painel. Quando você seleciona o cofre hello, painel de cofre hello e Olá **configurações** folha aberta. Em Olá a imagem a seguir, Olá **Contoso cofre** painel é realçado.
 
     ![Abrir o painel do cofre e a folha de Configurações](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
 ### <a name="open-a-vault-item-dashboard"></a>Abra o painel do item do cofre
-No procedimento anterior, você abriu o painel do cofre. Para abrir o painel do item do cofre:
+No procedimento anterior Olá você abriu o painel Cofre de saudação. Painel de item do tooopen Olá cofre:
 
-1. No painel do cofre, no bloco **Itens de Backup**, clique em **Máquinas Virtuais do Azure**.
+1. No painel do cofre hello, em Olá **itens de Backup** lado a lado, clique em **máquinas virtuais do Azure**.
 
     ![Bloco Abrir itens de backup](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-    A folha **Itens de Backup** lista o último trabalho de backup de cada item. Neste exemplo, há uma máquina virtual, demovm-markgal, protegida por esse cofre.  
+    Olá **itens de Backup** Olá último backup trabalho para cada item de lista de folha. Neste exemplo, há uma máquina virtual, demovm-markgal, protegida por esse cofre.  
 
     ![Bloco Itens de backup](./media/backup-azure-manage-vms/backup-items-blade.png)
 
    > [!TIP]
-   > Para facilitar o acesso, você pode fixar um item do cofre no Painel do Azure. Para fixar um item do cofre, na lista de itens do cofre, clique com o botão direito no item e selecione **Fixar no painel**.
+   > Para facilidade de acesso, você pode fixar um item de cofre toohello painel do Azure. toopin um item de cofre, na lista de itens de cofre hello, item de saudação do botão direito do mouse e selecione **toodashboard Pin**.
    >
    >
-2. Na folha **Itens de Backup** , clique no item para abrir o painel do item do cofre.
+2. Em Olá **itens de Backup** folha, clique em Painel de item Olá item tooopen Olá cofre.
 
     ![Bloco Itens de backup](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
-    O painel do item do cofre e sua folha **Configurações** são abertos.
+    Painel de item de cofre Hello e sua **configurações** folha aberta.
 
     ![Painel dos itens de backup com a folha Configurações](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
-    No painel de itens do cofre, você pode executar muitas tarefas de gerenciamento principais, como:
+    No painel de item de cofre hello, você pode executar várias tarefas de gerenciamento de chaves, como:
 
    * alterar as políticas ou criar uma nova política de backup <br\>
    * exibir pontos de restauração e ver seu estado de consistência <br\>
@@ -97,21 +97,21 @@ No procedimento anterior, você abriu o painel do cofre. Para abrir o painel do 
    * excluir os dados do backup (ou ponto de recuperação) <br\>
    * [restaurar discos de backup](backup-azure-arm-restore-vms.md#restore-backed-up-disks)  <br\>
 
-Para os procedimentos a seguir, o ponto de partida é o painel de itens do cofre.
+Olá procedimentos a seguir, Olá ponto de partida é painel de item de cofre hello.
 
 ## <a name="manage-backup-policies"></a>Gerenciar políticas de backup
-1. No [painel de itens do cofre](backup-azure-manage-vms.md#open-a-vault-item-dashboard), clique em **Todas as Configurações** para abrir a folha **Configurações**.
+1. Em Olá [painel Cofre de item](backup-azure-manage-vms.md#open-a-vault-item-dashboard), clique em **todas as configurações** tooopen Olá **configurações** folha.
 
     ![Folha Política de backup](./media/backup-azure-manage-vms/all-settings-button.png)
-2. Na folha **Configurações**, clique em **Política de backup** para abrir essa folha.
+2. Em Olá **configurações** folha, clique em **política de Backup** tooopen folha.
 
-    Na folha, são mostrados os detalhes do intervalo de retenção e da frequência dos backups.
+    Na folha de Olá, Olá retenção e frequência de intervalo detalhes de backup são mostradas.
 
     ![Folha Política de backup](./media/backup-azure-manage-vms/backup-policy-blade.png)
-3. No menu **Escolher política de backup** :
+3. De saudação **escolha a política de backup** menu:
 
-   * Para alterar as políticas, selecione uma política diferente e clique em **Salvar**. A nova política será aplicada imediatamente no cofre. <br\>
-   * Para criar uma política, selecione **Criar Nova**.
+   * políticas de toochange, selecione outra política e clique em **salvar**. nova política de saudação é aplicada imediatamente toohello cofre. <br\>
+   * toocreate uma política, selecione **criar novo**.
 
      ![Backup de máquinas virtuais](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
@@ -120,108 +120,108 @@ Para os procedimentos a seguir, o ponto de partida é o painel de itens do cofre
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 > [!NOTE]
-> Ao gerenciar políticas de backup, certifique-se de seguir as [práticas recomendadas](backup-azure-vms-introduction.md#best-practices) para um desempenho de backup ideal
+> Ao gerenciar políticas de backup, verifique se Olá de toofollow [práticas recomendadas](backup-azure-vms-introduction.md#best-practices) para desempenho ideal de backup
 >
 >
 
 ## <a name="on-demand-backup-of-a-virtual-machine"></a>Backup sob demanda de uma máquina virtual
-Você pode obter um backup sob demanda de uma máquina virtual quando ela estiver configurada para proteção. Se o backup inicial está pendente, o backup sob demanda cria uma cópia completa da máquina virtual no cofre dos Serviços de Recuperação. Se o backup inicial for concluído, um backup sob demanda enviará apenas as alterações do instantâneo anterior para o cofre dos Serviços de Recuperação. Ou seja, os backups subsequentes serão sempre incrementais.
+Você pode obter um backup sob demanda de uma máquina virtual quando ela estiver configurada para proteção. Se o backup de saudação inicial está pendente, o backup por demanda cria uma cópia completa da máquina virtual de saudação em Olá que Cofre de serviços de recuperação. Se o backup de saudação inicial for concluída, um backup sob demanda enviará apenas as alterações do instantâneo anterior hello, toohello Cofre de serviços de recuperação. Ou seja, os backups subsequentes serão sempre incrementais.
 
 > [!NOTE]
-> O intervalo de retenção para um backup sob demanda é o valor de retenção especificado para o ponto de backup Diário na política. Se nenhum ponto de backup Diário for selecionado, o ponto de backup Semanal será usado.
+> período de retenção de saudação para um backup sob demanda é o valor de retenção de saudação especificado para o ponto de backup diário Olá na política de saudação. Se nenhum ponto de backup diário é selecionado, o ponto de backup semanal Olá é usado.
 >
 >
 
-Para inicializar um backup sob demanda de uma máquina virtual:
+backup tootrigger uma demanda de uma máquina virtual:
 
-* No [painel de itens do cofre](backup-azure-manage-vms.md#open-a-vault-item-dashboard), clique em **Fazer backup agora**.
+* Em Olá [painel Cofre de item](backup-azure-manage-vms.md#open-a-vault-item-dashboard), clique em **Backup agora**.
 
     ![Botão Fazer backup agora](./media/backup-azure-manage-vms/backup-now-button.png)
 
-    O portal verificará você deseja iniciar um trabalho de backup sob demanda. Clique em **Sim** para iniciar o trabalho de backup.
+    portal de saudação certifica-se de que você deseja toostart um trabalho de backup sob demanda. Clique em **Sim** trabalho de backup toostart hello.
 
     ![Botão Fazer backup agora](./media/backup-azure-manage-vms/backup-now-check.png)
 
-    O trabalho de backup cria um ponto de recuperação. O intervalo de retenção do ponto de recuperação é o mesmo especificado na política associada à máquina virtual. Para acompanhar o progresso do trabalho, no painel do cofre, clique no bloco **Trabalhos de Backup** .  
+    trabalho de backup Olá cria um ponto de recuperação. período de retenção Olá Olá do ponto de recuperação é Olá mesmo que o período de retenção especificado na diretiva de saudação associada à máquina virtual hello. progresso de saudação tootrack para trabalho hello, no painel do cofre hello, clique em Olá **trabalhos de Backup** lado a lado.  
 
 ## <a name="stop-protecting-virtual-machines"></a>Interromper a proteção de máquinas virtuais
-Se você optar por interromper a proteção de uma máquina virtual, será perguntado se deseja manter os pontos de recuperação. Há duas maneiras de interromper a proteção das máquinas virtuais:
+Se você escolher toostop proteger uma máquina virtual, você será solicitado a se quiser que os pontos de recuperação tooretain hello. Há duas maneiras de máquinas virtuais da proteção toostop:
 
 * parar todos os trabalhos de backup futuros e excluir todos os pontos de recuperação ou
-* parar todos os trabalhos de backup futuros, mas deixar os pontos de recuperação  <br/>
+* parar todos os trabalhos de backup futuros, mas deixar Olá pontos de recuperação <br/>
 
-Há um custo associado a deixar os pontos de recuperação no armazenamento. No entanto, a vantagem de deixar os pontos de recuperação é que você pode restaurar a máquina virtual mais tarde, se desejado. Para obter informações sobre o custo de deixar os pontos de recuperação, confira os [detalhes de preços](https://azure.microsoft.com/pricing/details/backup/). Se você optar por excluir todos os pontos de recuperação, não poderá restaurar a máquina virtual.
+Há um custo associado deixando Olá pontos de recuperação no armazenamento. No entanto, a vantagem de saudação do deixando Olá pontos de recuperação é que você pode restaurar a máquina virtual de hello mais tarde, se desejado. Para obter informações sobre o custo de saudação de deixar Olá pontos de recuperação, consulte Olá [detalhes de preços](https://azure.microsoft.com/pricing/details/backup/). Se você escolher toodelete todos os pontos de recuperação, é possível restaurar a máquina virtual de saudação.
 
-Para interromper a proteção para uma máquina virtual:
+proteção de toostop para uma máquina virtual:
 
-1. No [painel de itens do cofre](backup-azure-manage-vms.md#open-a-vault-item-dashboard), clique em **Interromper backup**.
+1. Em Olá [painel Cofre de item](backup-azure-manage-vms.md#open-a-vault-item-dashboard), clique em **parar backup**.
 
     ![Botão Interromper backup](./media/backup-azure-manage-vms/stop-backup-button.png)
 
-    A folha Interromper Backup é aberta.
+    Abre a folha de parar Backup Hello.
 
     ![Folha Interromper backup](./media/backup-azure-manage-vms/stop-backup-blade.png)
-2. Na folha **Interromper Backup** , escolha se deseja manter ou excluir os dados do backup. A caixa de informações fornece detalhes sobre sua escolha.
+2. Em Olá **parar Backup** folha, escolha se tooretain ou delete Olá dados de backup. caixa de informações de saudação fornece detalhes sobre sua escolha.
 
     ![Parar a proteção](./media/backup-azure-manage-vms/retain-or-delete-option.png)
-3. Se você escolheu manter os dados do backup, vá para a etapa 4. Se escolheu excluir os dados do backup, confirme se deseja interromper os trabalhos de backup e excluir os pontos de recuperação - digite o nome do item.
+3. Se você escolher os dados de backup tooretain hello, ignore toostep 4. Se você escolher os dados de backup toodelete, confirme que você deseja toostop trabalhos de backup hello e excluir pontos de recuperação Olá - nome de saudação do tipo de item de saudação.
 
     ![Interromper verificação](./media/backup-azure-manage-vms/item-verification-box.png)
 
-    Se você não tiver certeza do nome do item, passe o mouse sobre o ponto de exclamação para exibir o nome. Além disso, o nome do item está sob **Interromper Backup** na parte superior da folha.
+    Se você não tiver certeza do nome do item hello, passe o mouse sobre o nome de Olá Olá exclamação tooview. Além disso, o nome de saudação do item de saudação é em **parar Backup** na parte superior de saudação da folha de saudação.
 4. Como opção, forneça um **Motivo** ou **Comentário**.
-5. Para interromper o trabalho de backup para o item atual, clique em ![botão backup parar](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
+5. trabalho de backup toostop Olá para o item atual do hello, clique em ![botão backup parar](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
 
-    Uma mensagem de notificação permite que você conheça os trabalhos de backup que foram interrompidos.
+    Uma mensagem de notificação permite que você saiba os trabalhos de backup Olá foram interrompidos.
 
     ![Confirmar a interrupção da proteção](./media/backup-azure-manage-vms/stop-message.png)
 
 ## <a name="resume-protection-of-a-virtual-machine"></a>Retomar a proteção de uma máquina virtual
-Se a opção **Reter Dados do Backup** foi selecionada quando a proteção da máquina virtual foi interrompida, será possível retomar a proteção. Se a opção **Excluir Dados do Backup** foi escolhida, então, a proteção da máquina virtual não poderá retomar.
+Se hello **reter dados de Backup** opção foi escolhida quando a proteção para a máquina virtual de saudação foi interrompida, é possível tooresume proteção. Se hello **excluir dados de Backup** opção foi escolhida, então não é possível retomar a proteção para a máquina virtual de saudação.
 
-Retomar a proteção da máquina virtual
+tooresume proteção para a máquina virtual de saudação
 
-1. No [painel de itens do cofre](backup-azure-manage-vms.md#open-a-vault-item-dashboard), clique em **Retomar backup**.
+1. Em Olá [painel Cofre de item](backup-azure-manage-vms.md#open-a-vault-item-dashboard), clique em **retomar backup**.
 
     ![Retomar proteção](./media/backup-azure-manage-vms/resume-backup-button.png)
 
-    A folha Política de Backup será aberta.
+    Abre a folha de política de Backup de saudação.
 
    > [!NOTE]
-   > Ao proteger novamente a máquina virtual, você pode escolher uma política diferente da política com a qual a máquina virtual foi inicialmente protegida.
+   > Ao proteger novamente a máquina virtual de hello, você pode escolher uma regra diferente que a política de saudação com a qual a máquina virtual foi inicialmente protegida.
    >
    >
-2. Siga as etapas em [Gerenciar políticas de backup](backup-azure-manage-vms.md#manage-backup-policies), para atribuir a política da máquina virtual.
+2. Siga as etapas de saudação em [gerenciar políticas de backup](backup-azure-manage-vms.md#manage-backup-policies) tooassign política de saudação para a máquina virtual de saudação.
 
-    Depois da política de backup ser aplicada à máquina virtual, você vê a mensagem a seguir.
+    Após a política de backup Olá toohello aplicada virtual machine, você verá a seguinte mensagem de saudação.
 
     ![VM protegida com êxito](./media/backup-azure-manage-vms/success-message.png)
 
-## <a name="delete-backup-data"></a>Excluir Dados do Backup
-Você pode excluir os dados de backup associados a uma máquina virtual durante o trabalho **Interromper backup** a qualquer momento depois que o trabalho de backup é concluído. Pode até mesmo ser benéfico aguardar dias ou semanas antes de excluir os pontos de recuperação. Ao contrário de restaurar os pontos de recuperação, ao excluir os dados do backup, você não pode escolher os pontos de recuperação específicos para excluir. Se você escolher excluir os dados de backup, apagará todos os pontos de recuperação associados ao item.
+## <a name="delete-backup-data"></a>Excluir dados de backup
+Você pode excluir os dados de backup Olá associados a uma máquina virtual durante a saudação **parar backup** trabalho, ou a qualquer momento após Olá o trabalho de backup foi concluída. Ainda pode ser benéfico toowait dias ou semanas antes da exclusão de pontos de recuperação de saudação. Ao contrário de restaurar os pontos de recuperação, ao excluir dados de backup, você não pode escolher toodelete de pontos de recuperação específico. Se você escolher toodelete os dados de backup, você pode excluir todos os pontos de recuperação associados ao item de saudação.
 
-O procedimento a seguir pressupõe que o trabalho de Backup da máquina virtual foi interrompido ou desabilitado. Depois que o trabalho de Backup é desabilitado, as opções **Retomar backup** e **Excluir backup** ficam disponíveis no painel de itens do cofre.
+Olá seguinte princípio de trabalho de Backup Olá para a máquina virtual de saudação foi interrompido ou desabilitado. Depois que o trabalho de Backup Olá estiver desabilitado, Olá **retomar backup** e **excluir backup** opções estão disponíveis no painel de item de cofre hello.
 
 ![Botões para retomar e excluir](./media/backup-azure-manage-vms/resume-delete-buttons.png)
 
-Para excluir os dados de backup em uma máquina virtual com o *Backup desabilitado*:
+dados de backup toodelete em uma máquina virtual com hello *Backup desabilitado*:
 
-1. No [painel de itens do cofre](backup-azure-manage-vms.md#open-a-vault-item-dashboard), clique em **Excluir backup**.
+1. Em Olá [painel Cofre de item](backup-azure-manage-vms.md#open-a-vault-item-dashboard), clique em **excluir backup**.
 
     ![Tipo de VM](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-    A folha **Excluir Dados do Backup** será aberta.
+    Olá **excluir dados de Backup** folha é aberta.
 
     ![Tipo de VM](./media/backup-azure-manage-vms/delete-backup-blade.png)
-2. Você deve digitar o nome do item para confirmar que deseja excluir os pontos de recuperação.
+2. Nome do tipo de saudação de Olá item tooconfirm você deseja que os pontos de recuperação toodelete hello.
 
     ![Interromper verificação](./media/backup-azure-manage-vms/item-verification-box.png)
 
-    Se você não tiver certeza do nome do item, passe o mouse sobre o ponto de exclamação para exibir o nome. Além disso, o nome do item está sob **Excluir Dados do Backup** na parte superior da folha.
+    Se você não tiver certeza do nome do item hello, passe o mouse sobre o nome de Olá Olá exclamação tooview. Além disso, o nome de saudação do item de saudação é em **excluir dados de Backup** na parte superior de saudação da folha de saudação.
 3. Como opção, forneça um **Motivo** ou **Comentário**.
-4. Para excluir os dados de backup para o item atual, clique em ![botão backup parar](./media/backup-azure-manage-vms/delete-button.png)
+4. os dados de backup toodelete Olá para o item atual do hello, clique em ![botão backup parar](./media/backup-azure-manage-vms/delete-button.png)
 
-    Uma mensagem de notificação permite que você conheça os dados do backup que foram excluídos.
+    Uma mensagem de notificação permite que você saiba os dados de backup Olá foi excluídos.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter informações sobre como recriar uma máquina virtual a partir de um ponto de recuperação, verifique [Restaurar VMs do Azure](backup-azure-restore-vms.md). Se você precisar de informações sobre como proteger suas máquinas virtuais, consulte [Primeira consideração: fazer backup das VMs em um cofre dos Serviços de Recuperação](backup-azure-vms-first-look-arm.md). Para obter informações sobre o monitoramento de eventos, confira [Monitorar alertas para backups de máquina virtual do Azure](backup-azure-monitor-vms.md).
+Para obter informações sobre como recriar uma máquina virtual a partir de um ponto de recuperação, verifique [Restaurar VMs do Azure](backup-azure-restore-vms.md). Se você precisar obter informações sobre como proteger suas máquinas virtuais, consulte [primeiro olhar: fazer backup de máquinas virtuais tooa Cofre de serviços de recuperação](backup-azure-vms-first-look-arm.md). Para obter informações sobre o monitoramento de eventos, confira [Monitorar alertas para backups de máquina virtual do Azure](backup-azure-monitor-vms.md).

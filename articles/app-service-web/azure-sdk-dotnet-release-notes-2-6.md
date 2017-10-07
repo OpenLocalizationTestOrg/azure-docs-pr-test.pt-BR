@@ -1,5 +1,5 @@
 ---
-title: "Notas de versão SDK do Azure para .NET 2.6"
+title: "aaaAzure SDK para notas de versão 2.6 .NET"
 description: "Notas de versão SDK do Azure para .NET 2.6"
 services: app-service/web
 documentationcenter: .net
@@ -13,88 +13,88 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 21817b09440fc98a54dc45c9129d104b01fa387d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ac613cf20da4f731fab6f35ccbf6dbeaf18c0ec4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-sdk-for-net-26-release-notes"></a>Notas de versão SDK do Azure para .NET 2.6
-Este documento contém as notas de versão do SDK do Azure para .NET 2.6. 
+Este documento contém notas de versão de saudação do hello Azure SDK versão 2.6 do .NET. 
 
-Com o SDK do Azure 2.6, você pode desenvolver aplicativos de serviço de nuvem (PaaS) visando o .NET 4.5.2 ou .NET 4.6 desde que você instale manualmente o .NET Framework de destino na Função do Serviço de Nuvem. Consulte [Install .NET on a Cloud Service Role (Instalar o .NET em uma Função do Serviço de Nuvem)](http://go.microsoft.com/fwlink/?LinkID=309796).
+Com o SDK 2.6 do Azure, você pode desenvolver aplicativos de serviço de nuvem (PaaS) direcionando a .NET 4.5.2 ou .NET 4.6, desde que você instalar manualmente o destino de saudação do .NET Framework em Olá função de serviço de nuvem. Consulte [Install .NET on a Cloud Service Role (Instalar o .NET em uma Função do Serviço de Nuvem)](http://go.microsoft.com/fwlink/?LinkID=309796).
 
 ## <a name="service-bus-updates"></a>Atualizações do Barramento de Serviço
 * Hubs de Eventos: 
   
   * Agora permite o controle de acesso direcionado ao enviar eventos expondo o ponto de extremidade do editor adicional para Hubs de Eventos.
-  * Mais estabilidade e aperfeiçoamento adicionados ao recurso de Hubs de Eventos.
+  * Estabilidade adicional e a melhoria adicionaram tooEvent recurso de Hubs.
   * Adição do suporte do protocolo Amqp sobre WebSocket para sistemas de mensagens e Hubs de Eventos.
 
 ## <a name="hdinsight-tools-for-visual-studio-updates"></a>Atualizações das Ferramentas do HDInsight para Visual Studio
 * **Aprimoramento do IntelliSense**: sugestão de metadados remotos
   
-    Agora as Ferramentas do HDInsight para Visual Studio dão suporte à obtenção de metadados remotos quando você estiver editando o script do Hive. Por exemplo, você pode digitar **selecione * FROM** e todos os nomes de tabela serão exibidos. Além disso, os nomes das colunas serão mostrados depois de especificar uma tabela.
+    Agora as Ferramentas do HDInsight para Visual Studio dão suporte à obtenção de metadados remotos quando você estiver editando o script do Hive. Por exemplo, você pode digitar **selecione * FROM** e todos os nomes de tabela Olá serão exibidos. Além disso, os nomes de coluna hello serão mostrados depois de especificar uma tabela.
 * **Suporte ao emulador do HDInsight**
   
-    Agora as Ferramentas do HDInsight para Visual Studio dão suporte à conexão ao emulador do HDInsight, para que você possa desenvolver seus scripts do Hive localmente sem introduzir nenhum custo e, em seguida, executar esses scripts junto aos clusters do HDInsight. 
+    Agora ferramentas HDInsight para o suporte do Visual Studio se conectando tooHDInsight emulador, para que você desenvolva seus scripts de Hive localmente sem introduzir qualquer custo, em seguida, execute esses scripts em relação a seus clusters HDInsight. 
   
-    Para obter mais informações, consulte [este manual](http://go.microsoft.com/fwlink/?LinkID=529540&clcid=0x409).
+    Para obter mais informações, consulte muito[esse manual](http://go.microsoft.com/fwlink/?LinkID=529540&clcid=0x409).
 * **Suporte das Ferramentas do HDInsight para Visual Studio a clusters de Hadoop genéricos** (visualização)
   
-    Agora as Ferramentas do HDInsight para Visual Studio dão suporte a clusters de Hadoop genéricos, então você pode usar as Ferramentas do HDInsight para Visual Studio para fazer o seguinte:
+    Agora ferramentas HDInsight para Visual Studio oferecem suporte a clusters de Hadoop genéricos, então você pode usar ferramentas do HDInsight para seguir de saudação do Visual Studio toodo:
   
-  * conectar-se ao seu cluster, 
+  * Conecte-se o cluster de tooyour 
   * criar uma consulta do Hive com o suporte avançado do IntelliSense/preenchimento automático, 
-  * exibir todos os trabalhos no seu cluster com uma interface do usuário intuitiva. 
+  * Exiba todos os trabalhos de saudação em seu cluster com uma interface de usuário intuitiva. 
     
-    Para obter mais informações, consulte [este manual](http://go.microsoft.com/fwlink/?LinkID=529540&clcid=0x409).
+    Para obter mais informações, consulte muito[esse manual](http://go.microsoft.com/fwlink/?LinkID=529540&clcid=0x409).
 
 ## <a name="in-role-cache-updates"></a>Atualizações do Cache na Função
-* O **Cache na Função** foi atualizado para usar o **SDK do Armazenamento do Microsoft Azure** versão 4.3. Até agora, o **Cache na Função** estava usando o SDK do Armazenamento do Azure versão 1.7.
+* **Cache na função** foi atualizada toouse **SDK de armazenamento do Microsoft Azure** versão 4.3. Até agora, Olá **Cache na função** estava usando a versão 1.7 do SDK de armazenamento do Azure.
   
-    Os clientes usando o SDK do Azure 2.5 ou abaixo devem atualizar para o SDK do Azure 2.6 e mudar para a nova versão do SDK do Armazenamento do Azure. 
+    Os clientes usando o SDK do Azure 2.5 ou abaixo deve atualizar tooAzure SDK 2.6 e mover toohello nova versão do SDK de armazenamento do Azure. 
   
-    No momento, a versão 2011-08-18 do Armazenamento do Azure está agendada para ser removida em 1º de agosto de 2016. As migrações de Cache na Função do Azure SDK 2.5 ou versão anterior a 2.6 devem ser concluídas antes deste momento. Para saber mais sobre a desativação do armazenamento do Azure versão 2011-08-18, confira [Atualização sobre a remoção de versão do Serviço de Armazenamento do Microsoft Azure: extensão até 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
+    Esta versão do armazenamento do Azure de tempo 2011-08-18 é agendado toobe removido 1 de agosto de 2016. Quaisquer migrações de Cache na função do Azure SDK 2.5 ou abaixo too2.6 devem ser concluídas neste momento. Para obter mais informações sobre a desativação de saudação do armazenamento do Azure versão 2011-08-18, consulte [serviço de armazenamento do Microsoft Azure versão remoção Update: extensão too2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
 > [!IMPORTANT]
-> Estamos anunciando a desativação de 30 de novembro de 2016, para o Serviço de Cache Gerenciado do Azure e o Cache na Função do Azure. É recomendável que você migre para o Cache Redis do Azure em preparação para essa desativação. Para obter mais informações sobre datas e diretrizes sobre migração, consulte [Qual oferta de Cache do Azure é adequada para mim?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
+> Estamos anunciando Olá 30 de novembro de 2016, desativação para o serviço de Cache gerenciado do Azure e o Cache na função do Azure. É recomendável que você migre tooAzure Cache Redis em preparação para essa desativação. Para obter mais informações sobre datas e diretrizes sobre migração, consulte [Qual oferta de Cache do Azure é adequada para mim?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
 > 
 > 
 
 ## <a name="azure-app-service-tools"></a>Ferramentas do Serviço de Aplicativo do Azure
-Os seguintes itens foram atualizados na versão 2.6 do SDK do Azure.
+Olá itens a seguir foram atualizado na versão Olá SDK 2.6 do Azure.
 
-* Publicação do Azure aprimorada para incluir Aplicativos de API (Interface de Programação de Aplicativo) do Azure como um destino de implantação.
-* Funcionalidade de provisionamento de Aplicativos de API para habilitar os usuários com a funcionalidade de criação e provisionamento de Aplicativo de API.
-* Gerenciador de Servidores alterado para refletir o novo nó de Serviço de Aplicativo, com aplicativos Web, móveis e API agrupados por grupo de recursos.
-* Gesto para adicionar o cliente de Aplicativo de API do Azure adicionado na maioria dos projetos C#, o que permitirá a geração automática de Aplicativos de API habilitados para Swagger em execução em uma assinatura do Azure do usuário.
+* Publicação do Azure aprimorado tooinclude aplicativos de API do Azure como um destino de implantação.
+* Aplicativos de API de provisionamento de usuários de tooenable funcionalidade com a criação de API App e funcionalidade de provisionamento.
+* Server Explorer alterado tooreflect novo serviço de aplicativo nó, com aplicativos Web, móveis e API agrupados por grupo de recursos.
+* Adicionar o gesto de cliente de aplicativo de API do Azure adicionados toomost c# projetos que permite a geração automática de aplicativos de API habilitada Swagger em execução na assinatura do Azure do usuário.
 * As ferramentas de Aplicativos de API e os nós de Serviço de Aplicativo no Gerenciador de Servidores estão disponíveis apenas no Visual Studio 2013. 
 
 ## <a name="azure-resource-manager-tools-updates"></a>Atualizações das ferramentas do gerenciador de recursos do Azure
-As ferramentas do gerenciador de recursos do Azure foram atualizadas para incluir modelos de máquinas virtuais, redes e armazenamento. A experiência de edição do JSON foi atualizada para incluir uma nova exibição de estrutura de tópicos para modelos e a capacidade de editar os modelos usando trechos do JSON. Os modelos implantados do Visual Studio usam um script do PowerShell fornecido com o projeto, portanto, todas as alterações feitas no script serão usadas pelo Visual Studio.
+ferramentas do Gerenciador de recursos do Azure Olá foram atualizados tooinclude modelos de máquinas virtuais, redes e armazenamento. experiência de edição de JSON Olá foi atualizada tooinclude uma nova exibição de estrutura de tópicos para modelos e Olá capacidade tooedit Olá modelos usando trechos de código do JSON. Modelos implantados no Visual Studio usam um script do PowerShell fornecido com o project Olá, para que as alterações feitas toohello script seja usadas pelo Visual Studio.
 
 ## <a name="diagnostics-improvements-for-cloud-services"></a>Aprimoramentos de diagnóstico para Serviços de Nuvem
-O SDK do Azure 2.6 traz de volta o suporte para a coleta de logs de diagnóstico emulador de computação do Azure e a transferência deles para o armazenamento de desenvolvimento. Todos os logs de diagnóstico (incluindo logs de rastreamento de aplicativo, logs de ETW (Rastreamento de Eventos para Windows), contadores de desempenho, logs de infraestrutura e logs de eventos do Windows) gerados quando o aplicativo está em execução no emulador podem ser transferidos para o armazenamento de desenvolvimento para verificar se o log de diagnóstico está funcionando no computador local. 
+2.6 do SDK do Azure recupera o suporte para coletar logs de diagnóstico no emulador de computação do Azure hello e transferi-las toodevelopment armazenamento. Registra qualquer diagnóstico (incluindo os Logs de rastreamento para logs do Windows (ETW), contadores de desempenho, infraestrutura de logs de eventos do windows e de logs de eventos de rastreamento de aplicativo) gerado quando o aplicativo hello está sendo executado no emulador Olá pode ser transferido toodevelopment tooverify de armazenamento que o log de diagnóstico está funcionando no computador local. 
 
-A conta de armazenamento de diagnóstico agora pode ser especificada no arquivo de configuração do serviço (.cscfg), tornando mais fácil o uso de contas de armazenamento de diagnóstico diferentes para ambientes diferentes. Há algumas diferenças notáveis entre como a cadeia de conexão funcionava no SDK do Azure 2.4 e no SDK do Azure 2.6. Para obter mais informações sobre como usar a cadeia de conexão do Armazenamento de diagnóstico e como isso afeta seus projetos, consulte [Configuring Diagnostics for Azure Cloud Services (Configurando o diagnóstico para Serviços de Nuvem do Azure)](http://go.microsoft.com/fwlink/?LinkID=532784).
+Olá conta de armazenamento de diagnóstico agora pode ser especificado no arquivo de configuração (. cscfg) de serviço Olá tornando mais fácil contas de armazenamento de diagnóstico diferentes toouse para ambientes diferentes. Há algumas diferenças importantes entre como cadeia de caracteres de conexão Olá funcionou no SDK 2.4 do Azure e SDK 2.6 do Azure. Para obter mais informações sobre como ver a cadeia de conexão de armazenamento de diagnóstico de saudação toouse e como ele afeta seus projetos [Configurando o diagnóstico do Azure para serviços de nuvem](http://go.microsoft.com/fwlink/?LinkID=532784).
 
 ## <a name="breaking-changes"></a>Alterações de última hora
 ### <a name="azure-resource-manager-tools"></a>Ferramentas do gerenciador de recursos do Azure
-* O tipo de projeto **Projetos de Implantação de Nuvem** disponível no SDK do Azure 2.5 foi renomeado para **Grupo de Recursos do Azure**.
-* **Projetos de Implantação de Nuvem** criado no SDK do Azure 2.5 pode ser usado no 2.6, mas a implantação do modelo no Visual Studio vai falhar. No entanto, a implantação com o script do PowerShell ainda funcionará como anteriormente.  Para obter informações sobre como usar **Projetos de Implantação de Nuvem** na versão 2.6, leia esta [postagem](http://go.microsoft.com/fwlink/?LinkID=534086).
+* Olá **projetos de implantação de nuvem** disponíveis no hello Azure SDK 2.5 foi renomeado muito do tipo de projeto**o grupo de recursos do Azure**.
+* **Projetos de implantação de nuvem** tipo de projetos criados no hello 2.5 do SDK do Azure pode ser usado na versão 2.6 mas haverá falha na implantação de modelo de saudação do Visual Studio. No entanto, a implantação com script do PowerShell de saudação continuarão funcionando como anteriormente.  Para obter informações sobre como toouse **projetos de implantação de nuvem** na versão 2.6 ler este [lançar](http://go.microsoft.com/fwlink/?LinkID=534086).
 
 ## <a name="known-issues"></a>Problemas conhecidos
-* A coleta de logs de diagnóstico no emulador requer um sistema operacional de 64 bits. Os logs de diagnóstico não serão coletados durante a execução em um sistema operacional de 32 bits. Isso não afeta nenhuma outra funcionalidade do emulador. 
+* Coletar logs de diagnóstico no emulador Olá requer um sistema operacional de 64 bits. Os logs de diagnóstico não serão coletados durante a execução em um sistema operacional de 32 bits. Isso não afeta nenhuma outra funcionalidade do emulador. 
 * O SDK do Azure 2.6, lançado, em 29/04/2015, tinha dois problemas: 
   
-  * Não era possível carregar o aplicativo universal no Visual Studio 2015 quando o SDK do Azure SDK 2.6 era instalado no computador.
-  * A depuração de um projeto de serviço de nuvem falhava no Visual Studio 2013 e Visual Studio 2015, e o Visual Studio não responde e falha ao exibir uma caixa de diálogo com a mensagem "Configurando o diagnóstico do emulador".
+  * Não foi possível carregar o aplicativo universal no Visual Studio 2015 quando SDK 2.6 do Azure foi instalado na máquina de saudação.
+  * Depuração de um projeto de serviço de nuvem falhará no Visual Studio 2013 e Visual Studio 2015 onde o Visual Studio não responde e falhar ao exibir uma caixa de diálogo com a mensagem de saudação "Configurando o diagnóstico para o emulador".
     
-    Uma atualização para o SDK do Azure 2.6 foi lançada em 18/05/2015. A versão atualizada é 2.6.30508.1601; ela contém correções para dois problemas descritos acima. Você pode identificar a compilação do SDK no Painel de Controle -> Programas e Recursos -> Ferramentas do Microsoft Azure para Microsoft Visual Studio 2013 – v 2.6. A coluna Versão exibirá o número da versão.
+    Uma atualização tooAzure 2.6 do SDK foi lançado em 18/5/2015. versão de Hello atualizado é 2.6.30508.1601; ele contém correções para dois problemas descritos acima. Você pode identificar compilação Olá Olá SDK no painel de controle -> Programas e recursos -> Ferramentas do Microsoft Azure para Microsoft Visual Studio 2013 – v 2.6. coluna de versão de Hello exibirá o número de compilação de saudação.
     
-    Se você ainda estiver enfrentando os problemas acima, instale a versão mais recente do SDK do Azure 2.6 para [VS 2012](http://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409), [VS 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) ou [VS 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
+    Se você ainda está enfrentando Olá acima problemas, instalar Olá versão mais recente do hello SDK 2.6 do Azure para [VS 2012](http://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409), [VS 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) ou [VS 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
 
 ## <a name="see-also"></a>Consulte também
-[Informações de suporte e de desativação do SDK do Azure para .NET e APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
+[Suporte e informações de desativação de saudação do Azure SDK para .NET e APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 

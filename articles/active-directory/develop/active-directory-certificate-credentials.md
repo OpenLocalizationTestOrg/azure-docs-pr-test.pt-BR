@@ -1,6 +1,6 @@
 ---
-title: Credenciais de certificado no Azure AD | Microsoft Docs
-description: "Este artigo aborda o registro e uso de credenciais de certificado para autenticação do aplicativo"
+title: credenciais aaaCertificate no AD do Azure | Microsoft Docs
+description: "Este artigo aborda registro hello e usar credenciais de certificados para autenticação de aplicativo"
 services: active-directory
 documentationcenter: .net
 author: navyasric
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 08bb5140bb35bbd120aaa506afeab8ad247f81e1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3508803112ac06268d553db86ab74812aa53e455
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenciais de certificado para autenticação do aplicativo
 
-O Azure Active Directory permite que um aplicativo use suas próprias credenciais para autenticação, por exemplo, nos fluxos Concessão de Credenciais de Cliente e Em Nome de do OAuth 2.0.
-Uma forma de credencial que pode ser usada é uma declaração JWT (Token Web JSON) assinada com um certificado que o aplicativo possui.
+Active Directory do Azure permite que um aplicativo toouse suas próprias credenciais para autenticação, por exemplo, no fluxo de concessão de credenciais de cliente OAuth 2.0 hello e Olá em nome de fluxo.
+Uma forma de credencial que pode ser usado é uma declaração de Token(JWT) de Web JSON assinada com um certificado que o aplicativo hello possui.
 
-## <a name="format-of-the-assertion"></a>Formato da asserção
-Para calcular a declaração, provavelmente, você desejará usar uma das muitas bibliotecas [Token Web JSON](https://jwt.io/) no idioma de sua escolha. A informação transferida por token é:
+## <a name="format-of-hello-assertion"></a>Formato da asserção Olá
+declaração de saudação toocompute, provavelmente você desejará toouse uma saudação muitos [JSON Web Token](https://jwt.io/) bibliotecas no idioma de saudação de sua escolha. informações de saudação executadas pelo token de saudação são:
 
 #### <a name="header"></a>Cabeçalho
 
@@ -35,21 +35,21 @@ Para calcular a declaração, provavelmente, você desejará usar uma das muitas
 | --- | --- | --- |
 | `alg` | Deve ser **RS256** |
 | `typ` | Deve ser **JWT** |
-| `x5t` | Deve ser a impressão digital do certificado de x. 509 SHA-1 |
+| `x5t` | Deve ser a impressão digital do certificado de x. 509 SHA-1 Olá |
 
 #### <a name="claims-payload"></a>Declarações (carga)
 
 | Parâmetro |  Comentário |
 | --- | --- | --- |
 | `aud` | Público-alvo: deve ser **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
-| `exp` | Data de expiração: a data de expiração do token. A hora é representada como o número de segundos de 1º de janeiro de 1970 (1970-01-01T0:0:0Z) UTC até a hora em que a validade do token expira.|
-| `iss` | Emissor: deve ser a client_id (Id do aplicativo de serviço do cliente) |
-| `jti` | GUID: a ID de JWT |
-| `nbf` | Não Antes de: a data anterior à qual o token não pode ser usado. A hora é representada como o número de segundos de 1º de janeiro de 1970 (1970-01-01T0:0:0Z) UTC até a hora em que o token foi emitido. |
-| `sub` | Assunto: para `iss`, deve ser o client_id (Id do aplicativo de serviço do cliente) |
+| `exp` | Data de vencimento: data de saudação quando o token de saudação expira. tempo de saudação é representado como número de saudação de segundos de 1º de janeiro de 1970 (1970-01-01T0:0:0Z) UTC até a validade do token de Olá Olá tempo expira.|
+| `iss` | Emissor: deve ser Olá client_id (Id do aplicativo de serviço de saudação do cliente) |
+| `jti` | GUID: Olá ID do JWT |
+| `nbf` | Não antes: Olá data antes da qual Olá token não pode ser usado. tempo de saudação é representado como número de saudação de segundos de 1º de janeiro de 1970 (1970-01-01T0:0:0Z) UTC até Olá tempo Olá token foi emitido. |
+| `sub` | Assunto: para `iss`, deve ser Olá client_id (Id do aplicativo de serviço de saudação do cliente) |
 
 #### <a name="signature"></a>Signature
-A assinatura é calculada aplicando o certificado conforme descrito na [especificação Token Web JSON RFC7519](https://tools.ietf.org/html/rfc7519)
+assinatura de saudação é calculada aplicando certificado hello, conforme descrito em Olá [especificação JSON Web Token RFC7519](https://tools.ietf.org/html/rfc7519)
 
 ### <a name="example-of-a-decoded-jwt-assertion"></a>Exemplo de uma declaração JWT decodificada
 ```
@@ -73,22 +73,22 @@ A assinatura é calculada aplicando o certificado conforme descrito na [especifi
 ```
 
 ### <a name="example-of-an-encoded-jwt-assertion"></a>Exemplo de uma declaração JWT codificada
-A cadeia de caracteres a seguir é um exemplo de asserção codificado. Se você olhar com cuidado, você observe três seções separadas por pontos (.).
-A primeira seção codifica o cabeçalho, o segundo a carga e o último é a assinatura computada com os certificados do conteúdo das duas primeiras seções.
+saudação de cadeia de caracteres a seguir está um exemplo de asserção codificado. Se você olhar com cuidado, você observe três seções separadas por pontos (.).
+primeira seção do Hello codifica cabeçalho hello, Olá segundo Olá de carga, e Olá por último é computada com certificados de saudação do conteúdo de saudação do primeiro duas seções de saudação de assinatura de saudação.
 ```
 "eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJhdWQiOiJodHRwczpcL1wvbG9naW4ubWljcm9zb2Z0b25saW5lLmNvbVwvam1wcmlldXJob3RtYWlsLm9ubWljcm9zb2Z0LmNvbVwvb2F1dGgyXC90b2tlbiIsImV4cCI6MTQ4NDU5MzM0MSwiaXNzIjoiOTdlMGE1YjctZDc0NS00MGI2LTk0ZmUtNWY3N2QzNWM2ZTA1IiwianRpIjoiMjJiM2JiMjYtZTA0Ni00MmRmLTljOTYtNjVkYmQ3MmMxYzgxIiwibmJmIjoxNDg0NTkyNzQxLCJzdWIiOiI5N2UwYTViNy1kNzQ1LTQwYjYtOTRmZS01Zjc3ZDM1YzZlMDUifQ.
 Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
 ### <a name="register-your-certificate-with-azure-ad"></a>Registrar o certificado com o Azure AD
-Para associar as credenciais de certificado com o aplicativo cliente no AD do Azure, você precisa editar o manifesto do aplicativo.
-Com a suspensão de um certificado, você precisa calcular:
-- `$base64Thumbprint`, que é o base64 codificação do certificado Hash
-- `$base64Value`, que é o base64 codificação dos dados brutos do certificado
+credenciais de certificado tooassociate Olá com o aplicativo de cliente hello no AD do Azure, você precisa de manifesto do aplicativo hello tooedit.
+Com a retenção de um certificado, você precisa toocompute:
+- `$base64Thumbprint`, que é Olá codificação base64 do certificado Olá Hash
+- `$base64Value`, que é Olá a codificação base64 de dados brutos do certificado Olá
 
-Você também precisa fornecer um GUID para identificar a chave no manifesto do aplicativo (`$keyId`)
+Você também precisa tooprovide uma chave de saudação do GUID tooidentify no manifesto de aplicativo hello (`$keyId`)
 
-No registro de aplicativo do Azure do aplicativo cliente, abra o manifesto do aplicativo e substitua a propriedade *keyCredentials* pelas novas informações de certificado usando o seguinte esquema:
+No hello o registro do aplicativo do Azure para o aplicativo de cliente hello, abra o manifesto do aplicativo hello e substitua Olá *keyCredentials* propriedade com as novas informações de certificado usando Olá esquema a seguir:
 ```
 "keyCredentials": [
     {
@@ -101,4 +101,4 @@ No registro de aplicativo do Azure do aplicativo cliente, abra o manifesto do ap
 ]
 ```
 
-Salve as edições no manifesto do aplicativo e carregue-o no Azure AD. A propriedade keycredentials tem valores múltiplos, portanto você pode carregar vários certificados de gerenciamento de chave mais avançados.
+Salvar o manifesto do aplicativo hello edições toohello e carregar tooAzure AD. propriedade de keyCredentials de saudação é múltiplos, portanto você pode carregar vários certificados de gerenciamento de chaves mais rico.

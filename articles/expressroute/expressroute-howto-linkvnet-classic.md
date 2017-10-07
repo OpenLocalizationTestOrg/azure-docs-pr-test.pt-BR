@@ -1,6 +1,6 @@
 ---
-title: "Vincular uma rede virtual a um circuito ExpressRoute: PowerShell: clássico: Azure| Microsoft Docs"
-description: "Este documento fornece uma visão geral de como vincular as redes virtuais (VNets) aos circuitos de ExpressRoute usando o modelo de implantação clássico e o PowerShell."
+title: "Vincular um circuito de rota expressa do tooan de rede virtual: PowerShell: clássico: Azure | Microsoft Docs"
+description: "Este documento fornece uma visão geral de como toolink virtual redes circuitos de tooExpressRoute (VNets) usando o modelo de implantação clássico hello e PowerShell."
 services: expressroute
 documentationcenter: na
 author: ganesr
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/28/2017
 ms.author: ganesr
-ms.openlocfilehash: 8df8a4c6ff0897c821e13248e0494b17e1a4992d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6b8a01dcd4bbb9618ec3dd438cf0107538fb2a7a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Conectar uma rede virtual a um circuito do ExpressRoute usando o PowerShell (clássico)
+# <a name="connect-a-virtual-network-tooan-expressroute-circuit-using-powershell-classic"></a>Conecte-se a um circuito de rota expressa do tooan de rede virtual usando o PowerShell (clássico)
 > [!div class="op_single_selector"]
 > * [Portal do Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
@@ -30,7 +30,7 @@ ms.lasthandoff: 08/03/2017
 > * [PowerShell (clássico)](expressroute-howto-linkvnet-classic.md)
 >
 
-Este artigo o ajudará a vincular as redes virtuais (VNets) aos circuitos de Azure ExpressRoute usando o modelo de implantação clássico e o PowerShell. As redes virtuais podem estar na mesma assinatura ou fazer parte de outra assinatura.
+Este artigo o ajudará a vincular circuitos do ExpressRoute tooAzure redes virtuais (VNets) usando o modelo de implantação clássico hello e PowerShell. Redes virtuais podem ser em Olá a mesma assinatura ou pode fazer parte de outra assinatura.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -39,44 +39,44 @@ Este artigo o ajudará a vincular as redes virtuais (VNets) aos circuitos de Azu
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Pré-requisitos de configuração
-1. Você precisa da última versão dos módulos do Azure PowerShell. Baixe os módulos mais recente do PowerShell na seção PowerShell da [página Downloads do Azure](https://azure.microsoft.com/downloads/). Siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para obter orientações passo a passo sobre como configurar o computador para usar os módulos do Azure PowerShell.
-2. Leia os [pré-requisitos](expressroute-prerequisites.md), os [requisitos de roteamento](expressroute-routing.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
+1. Você precisa Olá a versão mais recente dos módulos do PowerShell do Azure hello. Você pode baixar módulos do PowerShell mais recentes de saudação do hello seção PowerShell Olá [página Downloads do Azure](https://azure.microsoft.com/downloads/). Siga as instruções de saudação em [como tooinstall e configurar o Azure PowerShell](/powershell/azure/overview) para obter orientação passo a passo sobre como tooconfigure os módulos do computador toouse hello Azure PowerShell.
+2. Você precisa Olá tooreview [pré-requisitos](expressroute-prerequisites.md), [requisitos de roteamento](expressroute-routing.md), e [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 3. Você deve ter um circuito do ExpressRoute ativo.
-   * Siga as instruções para [criar um circuito do ExpressRoute](expressroute-howto-circuit-classic.md) e para que o provedor de conectividade habilite o circuito.
-   * Verifique se o emparelhamento privado do Azure está configurado para seu circuito. Veja o artigo [Configurar roteamento](expressroute-howto-routing-classic.md) para obter instruções sobre roteamento.
-   * Verifique se o emparelhamento privado do Azure está configurado e se o emparelhamento BGP entre sua rede e a Microsoft está ativo para que você possa habilitar a conectividade de ponta a ponta.
-   * É necessário ter uma rede virtual e um gateway de rede virtual criados e totalmente provisionados. Siga as instruções para [configurar uma rede virtual para o ExpressRoute](expressroute-howto-vnet-portal-classic.md).
+   * Siga as instruções de saudação muito[criar um circuito de rota expressa](expressroute-howto-circuit-classic.md) e ter seu provedor de conectividade habilitar circuito hello.
+   * Verifique se o emparelhamento privado do Azure está configurado para seu circuito. Consulte Olá [Configurar roteamento](expressroute-howto-routing-classic.md) artigo para obter instruções de roteamentos.
+   * Certifique-se de que o emparelhamento particular do Azure está configurado e Olá emparelhamento via protocolo BGP entre sua rede e a Microsoft está ativo para que você pode habilitar a conectividade de ponta a ponta.
+   * É necessário ter uma rede virtual e um gateway de rede virtual criados e totalmente provisionados. Siga as instruções de saudação muito[configurar uma rede virtual para o ExpressRoute](expressroute-howto-vnet-portal-classic.md).
 
-Você pode vincular até 10 redes virtuais a um circuito de ExpressRoute. Todas as redes virtuais devem estar na mesma região geopolítica. É possível vincular um grande número de redes virtuais ao circuito do ExpressRoute ou vincular redes virtuais que estejam em outras regiões geopolíticas se você tiver habilitado o complemento premium do ExpressRoute. Confira as [perguntas frequentes](expressroute-faqs.md) para obter mais detalhes sobre o complemento premium.
+Você pode vincular o too10 redes virtuais tooan circuito de rota expressa. Todas as redes virtuais devem estar em Olá mesma região geopolíticas. Você pode vincular um número maior de redes virtuais tooyour circuito de rota expressa ou vincular redes virtuais que estão em outras regiões geopolíticas se você habilitou o complemento do premium Olá rota expressa. Verificar Olá [perguntas frequentes sobre](expressroute-faqs.md) para obter mais detalhes sobre o complemento do premium Olá.
 
-## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Conectar uma rede virtual na mesma assinatura a um circuito
-Você pode vincular uma rede virtual a um circuito do ExpressRoute usando o cmdlet a seguir. Verifique se o gateway de rede virtual foi criado e se está pronto para vinculação antes de executar o cmdlet.
+## <a name="connect-a-virtual-network-in-hello-same-subscription-tooa-circuit"></a>Conectar uma rede virtual no hello mesmo circuito de tooa de assinatura
+Você pode vincular um circuito de rota expressa do tooan de rede virtual usando Olá cmdlet a seguir. Verifique se esse gateway de rede virtual Olá é criado e está pronto para vinculação antes de executar o cmdlet hello.
 
     New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
     Provisioned
 
-## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Conectar uma rede virtual em uma assinatura diferente a um circuito
-Você pode compartilhar um circuito do ExpressRoute entre várias assinaturas. A figura a seguir mostra um esquema simples de como funciona o compartilhamento de circuitos do ExpressRoute entre várias assinaturas.
+## <a name="connect-a-virtual-network-in-a-different-subscription-tooa-circuit"></a>Conectar uma rede virtual em um circuito de tooa assinatura diferente
+Você pode compartilhar um circuito do ExpressRoute entre várias assinaturas. Olá figura a seguir mostra um esquemático simples de como funciona o compartilhamento para circuitos ExpressRoute entre várias assinaturas.
 
-Cada uma das nuvens menores dentro da nuvem grande é usada para representar assinaturas pertencentes a diferentes departamentos dentro de uma organização. Cada um dos departamentos dentro da organização pode usar sua própria assinatura para implantar seus serviços, mas os departamentos podem compartilhar um único circuito do ExpressRoute para se conectar de volta à respectiva rede local. Um único departamento (neste exemplo: TI) pode ter o circuito do ExpressRoute. Outras assinaturas dentro da organização podem usar o circuito de ExpressRoute.
+Cada uma das nuvens menores de saudação dentro da nuvem grande Olá é toorepresent usadas assinaturas que pertencem a toodifferent departamentos dentro de uma organização. Cada um dos departamentos hello dentro da organização Olá pode usar sua própria assinatura para implantar seus serviços – mas departamentos Olá pode compartilhar uma única rede rota expressa circuito tooconnect tooyour back local. Um único departamento (neste exemplo: IT) pode ter o circuito de rota expressa hello. Outras assinaturas dentro da organização Olá podem usar o circuito de rota expressa hello.
 
 > [!NOTE]
-> As cobranças por conectividade e largura de banda do circuito dedicado serão aplicadas ao proprietário do circuito do ExpressRoute. Todas as redes virtuais compartilham a mesma largura de banda.
+> Encargos de largura de banda e conectividade para o circuito dedicado de saudação será proprietário do circuito de rota expressa toohello aplicado. Todas as redes virtuais compartilham Olá mesma largura de banda.
 > 
 > 
 
 ![Conectividade entre assinaturas](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
 
 ### <a name="administration"></a>Administração
-O *proprietário do circuito* é o administrador/coadministrador da assinatura na qual o circuito do ExpressRoute foi criado. O proprietário do circuito pode autorizar administradores/coadministradores de outras assinaturas, conhecidos como *usuários do circuito*, a usar o circuito dedicado que eles possuem. Os usuários do circuito autorizados a usar o circuito do ExpressRoute da organização podem vincular a rede virtual em sua assinatura ao circuito do ExpressRoute depois que são autorizados.
+Olá *proprietário do circuito* é Olá administrador/coadministrator de assinatura de saudação na qual Olá rota expressa circuito é criado. Olá proprietário do circuito pode autorizar os administradores/coadministrators de outras assinaturas, chamado tooas *circuito usuários*, Olá toouse dedicado circuito que eles possuem. Usuários circuito pode de circuito de rota expressa toouse autorizados Olá organização vincular a rede virtual de saudação em seu toohello assinatura circuito de rota expressa depois que eles são autorizados.
 
-O proprietário do circuito tem a capacidade de modificar e revogar autorizações a qualquer momento. Revogar uma autorização fará com que todos os links sejam excluídos da assinatura cujo acesso foi revogado.
+proprietário do circuito Olá tem autorizações de toomodify e revoke power Olá a qualquer momento. Revogar uma autorização resultará em todos os links sejam excluídos da assinatura Olá cujo acesso foi revogado.
 
 ### <a name="circuit-owner-operations"></a>Operações do proprietário do circuito
 
 **Criando uma autorização**
 
-O proprietário do circuito autoriza os administradores de outras assinaturas a usar o circuito especificado. No exemplo a seguir, o administrador do circuito (TI da Contoso) habilita o administrador de outra assinatura (Desenvolvimento/Teste) a vincular até duas redes virtuais ao circuito. O administrador de TI da Contoso habilita isso especificando a ID da Microsoft de Desenvolvimento/Teste. O cmdlet não envia um email para a ID da Microsoft especificada. O proprietário do circuito precisa notificar explicitamente o outro proprietário da assinatura de que a autorização foi concluída.
+Olá, proprietário do circuito autoriza os administradores de saudação de outras assinaturas toouse Olá especificado circuito. Em Olá exemplo a seguir, administrador de saudação do circuito hello (TI da Contoso) habilita administrador Olá de outro toolink de assinatura (desenvolvimento de teste), o circuito de toohello tootwo redes virtuais. administrador de TI da Contoso Olá permite isso especificando a ID de teste de desenvolvimento Microsoft hello. Olá cmdlet não envia email toohello especificado o ID da Microsoft. proprietário do circuito Olá precisa tooexplicitly notificar Olá outro proprietário da assinatura que Olá autorização é concluído.
 
     New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
 
@@ -88,7 +88,7 @@ O proprietário do circuito autoriza os administradores de outras assinaturas a 
 
 **Examinando autorizações**
 
-O proprietário do circuito pode examinar todas as autorizações emitidas em um circuito específico executando o seguinte cmdlet:
+proprietário do circuito Olá pode revisar todas as autorizações que são emitidas em um circuito específico executando Olá cmdlet a seguir:
 
     Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
 
@@ -113,7 +113,7 @@ O proprietário do circuito pode examinar todas as autorizações emitidas em um
 
 **Atualizando autorizações**
 
-O proprietário do circuito pode modificar autorizações usando o seguinte cmdlet:
+proprietário do circuito Olá pode modificar autorizações usando Olá cmdlet a seguir:
 
     Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
 
@@ -126,7 +126,7 @@ O proprietário do circuito pode modificar autorizações usando o seguinte cmdl
 
 **Excluindo autorizações**
 
-O proprietário do circuito pode revogar/excluir autorizações usando o seguinte cmdlet:
+proprietário do circuito Olá pode revogar/excluir autorizações toohello usuário executando Olá cmdlet a seguir:
 
     Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"
 
@@ -135,7 +135,7 @@ O proprietário do circuito pode revogar/excluir autorizações usando o seguint
 
 **Examinando autorizações**
 
-O usuário do circuito pode examinar autorizações usando o seguinte cmdlet:
+usuários do circuito Olá poderá examinar autorizações usando Olá cmdlet a seguir:
 
     Get-AzureAuthorizedDedicatedCircuit
 
@@ -151,7 +151,7 @@ O usuário do circuito pode examinar autorizações usando o seguinte cmdlet:
 
 **Resgatando autorizações de link**
 
-O usuário de circuito pode executar o seguinte cmdlet para resgatar uma autorização de vínculo:
+usuários do circuito Olá podem executar Olá tooredeem cmdlet a seguir uma autorização de link:
 
     New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1'
 
@@ -159,10 +159,10 @@ O usuário de circuito pode executar o seguinte cmdlet para resgatar uma autoriz
     ----- --------
     Provisioned SalesVNET1
 
-Execute este comando na assinatura recentemente vinculada para a rede virtual:
+Execute este comando em assinatura Olá recentemente vinculado para rede virtual hello:
 
     New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre o ExpressRoute, consulte [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md).
+Para obter mais informações sobre a rota expressa, consulte Olá [perguntas Frequentes do ExpressRoute](expressroute-faqs.md).
 

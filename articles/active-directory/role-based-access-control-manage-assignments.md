@@ -1,6 +1,6 @@
 ---
-title: "Exibir atribuições de acesso a recursos do Azure | Microsoft Docs"
-description: "Exibir e gerenciar todas as atribuições de Controle de Acesso Baseado em Função para um usuário ou grupo no portal do Azure"
+title: "atribuições de acesso de recursos do Azure aaaView | Microsoft Docs"
+description: "Exibir e gerenciar todas as atribuições de controle de acesso baseado em função Olá para qualquer usuário ou grupo no hello portal do Azure"
 services: active-directory
 documentationcenter: 
 author: andredm7
@@ -14,49 +14,49 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: andredm
-ms.openlocfilehash: 72c695d08bdf5de003d51ffb0768184e1e4d00ba
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ec96c9d4b9e2cb4925949b8bac78767bd564c8ed
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Exibir as atribuições de acesso para usuários e grupos no Portal do Azure
+# <a name="view-access-assignments-for-users-and-groups-in-hello-azure-portal"></a>Exibir as atribuições de acesso para usuários e grupos no hello portal do Azure
 > [!div class="op_single_selector"]
 > * [Gerenciar o acesso por usuário ou grupo](role-based-access-control-manage-assignments.md)
 > * [Gerenciar o acesso por recurso](role-based-access-control-configure.md)
 
-Com RBAC (controle de acesso baseado em função) na visualização do Azure AD (Azure Active Directory), você pode gerenciar o acesso aos recursos do Azure. 
+Com controle de acesso baseado em função (RBAC) em hello Azure Active Directory (AD do Azure), você pode gerenciar o acesso tooyour Azure recursos. 
 
-O acesso atribuído com o RBAC é refinado porque há duas maneiras de restringir as permissões:
+Acesso atribuído com RBAC é refinado porque você pode restringir as permissões de saudação de duas maneiras:
 
-* **Escopo:** as atribuições de função RBAC passam para uma assinatura, um grupo de recursos ou um recurso específico. Um usuário que recebe acesso a um recurso único não pode acessar os outros recursos na mesma assinatura.
-* **Função:** dentro do escopo da atribuição, o acesso é reduzido ainda mais com a atribuição de função. Funções podem ser de alto nível, como proprietário, ou específicas, como leitor de máquina virtual.
+* **Escopo:** atribuições de função RBAC são assinatura específica tooa no escopo, o grupo de recursos ou o recurso. Um usuário recebe acesso tooa único recurso não é possível acessar outros recursos Olá mesma assinatura.
+* **Função:** no escopo de saudação de atribuição de saudação, o acesso é reduzido ainda mais atribuindo uma função. Funções podem ser de alto nível, como proprietário, ou específicas, como leitor de máquina virtual.
 
-Funções só podem ser atribuídas de uma assinatura, grupo de recursos ou recurso que seja o escopo da atribuição. Mas você pode exibir todas as atribuições de acesso para determinado usuário ou grupo em um mesmo lugar. Em de cada assinatura, você pode ter até 2.000 atribuições de função. 
+Funções podem ser atribuídas somente de dentro de assinatura Olá, grupo de recursos ou recurso que é Olá escopo de atribuição de saudação. Mas você pode exibir todas as atribuições de acesso de saudação para um determinado usuário ou grupo em um único lugar. Você pode ter até too2000 atribuições de função em cada assinatura. 
 
-Saiba mais sobre como [Usar atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](role-based-access-control-configure.md).
+Obter mais informações sobre como muito[usar os recursos de assinatura do Azure função atribuições toomanage acesso tooyour](role-based-access-control-configure.md).
 
 ## <a name="view-access-assignments"></a>Exibir atribuições de acesso
-Para pesquisar as atribuições de acesso para um único usuário ou grupo, comece em Azure Active Directory no [portal do Azure](http://portal.azure.com).
+toolook backup atribuições de acesso Olá para um único usuário ou grupo, iniciar no Active Directory do Azure no hello [portal do Azure](http://portal.azure.com).
 
-1. Selecione **Azure Active Directory**. Se essa opção não estiver visível na sua lista de navegação, selecione **Mais Serviços** e role para baixo até encontrar **Azure Active Directory**.
+1. Selecione **Azure Active Directory**. Se essa opção não estiver visível na sua lista de navegação, selecione **mais serviços** e, em seguida, role para baixo toofind **Active Directory do Azure**.
 2. Selecione **Usuários e Grupos** e **Todos os usuários** ou **Todos os grupos**. Para este exemplo, vamos focar em usuários individuais.
     ![Gerenciar usuários e grupos no Azure Active Directory – captura de tela](./media/role-based-access-control-manage-assignments/rbac_users_groups.png)
-3. Pesquise o usuário por nome ou nome de usuário.
-4. Selecione **Recursos do Azure** na folha do usuário. Todas as atribuições de acesso para esse usuário são exibidas.
+3. Pesquisa de usuário Olá por nome ou o nome de usuário.
+4. Selecione **recursos do Azure** na folha de usuário hello. Todas as atribuições de acesso Olá para esse usuário são exibidos.
 
-### <a name="read-permissions-to-view-assignments"></a>Permissões de leitura para exibir atribuições
-Essa página mostra apenas as atribuições de acesso que você tem permissão para ler. Por exemplo, você tem acesso de leitura para a assinatura A e vai para a folha de recursos do Azure a fim de verificar as atribuições do usuário. É possível ver as atribuições de acesso dele para a assinatura A, mas não é possível ver que ele também tem acesso a atribuições na assinatura B.
+### <a name="read-permissions-tooview-assignments"></a>Tooview atribuições de permissões de leitura
+Esta página mostra apenas as atribuições de acesso de saudação que você tenha permissão tooread. Por exemplo, você tem acesso de leitura toosubscription A e vá toohello toocheck de folha de recursos do Azure atribuições do usuário. É possível ver as atribuições de acesso dele para a assinatura A, mas não é possível ver que ele também tem acesso a atribuições na assinatura B.
 
 ## <a name="delete-access-assignments"></a>Excluir atribuições de acesso
-Nessa folha, você pode excluir atribuições de acesso que foram atribuídas diretamente a um usuário ou grupo. Se a atribuição de acesso foi herdada de um grupo pai, você precisará ir até o recurso ou a assinatura e gerenciar a atribuição lá.
+Desta folha, você pode excluir atribuições de acesso que foram atribuídas diretamente tooa usuário ou grupo. Se a atribuição de acesso de saudação foi herdada de um grupo pai, você precisa toogo toohello recursos ou assinatura e gerenciar a atribuição de saudação existe.
 
-1. Na lista de todas as atribuições de acesso para um usuário ou grupo, selecione aquela que deseja excluir.
-2. Selecione **Remover** e **Sim** para confirmar.
+1. Na lista de saudação de todas as atribuições de acesso de saudação para um usuário ou grupo, selecione Olá um deseja toodelete.
+2. Selecione **remover** e **Sim** tooconfirm.
     ![Remover atribuição de acesso – captura de tela](./media/role-based-access-control-manage-assignments/delete_assignment.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Introdução ao Controle de Acesso Baseado em Função a fim de [Usar atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](role-based-access-control-configure.md)
-* Confira as [Funções internas do RBAC do Azure](role-based-access-built-in-roles.md)
+* Introdução ao controle de acesso baseado em função muito[usar os recursos de assinatura do Azure função atribuições toomanage acesso tooyour](role-based-access-control-configure.md)
+* Consulte Olá [funções internas de RBAC](role-based-access-built-in-roles.md)
 

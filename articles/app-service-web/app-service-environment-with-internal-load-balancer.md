@@ -1,5 +1,5 @@
 ---
-title: "Como criar e usar um Balanceador de Carga Interna com um Ambiente do Serviço de Aplicativo | Microsoft Docs"
+title: "aaaCreating e usando um balanceador de carga interno com um ambiente de serviço de aplicativo | Microsoft Docs"
 description: Criar e usar um ASE com um ILB
 services: app-service
 documentationcenter: 
@@ -14,126 +14,126 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 9e5a40f18eb9eaf60579af21afc6f05c2d87f4c1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 20799f260993d6e81499408e5b547a2e21430174
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Como usar um Balanceador de Carga Interno com um Ambiente do Serviço do Aplicativo
 
 > [!NOTE] 
-> Este artigo é sobre o Ambiente do Serviço de Aplicativo v1. Há uma versão mais recente do Ambiente de Serviço de Aplicativo que é mais fácil de usar e é executado na infraestrutura mais avançada. Para saber mais sobre a nova versão, comece com [Introdução ao Ambiente do Serviço de Aplicativo](../app-service/app-service-environment/intro.md).
+> Este artigo é sobre Olá v1 do ambiente de serviço de aplicativo. Há uma versão mais recente do hello ambiente de serviço de aplicativo que é mais fácil toouse e é executado na infraestrutura mais avançada. toolearn mais sobre a nova versão de hello começam com hello [Introdução toohello ambiente de serviço de aplicativo](../app-service/app-service-environment/intro.md).
 >
 
-O recurso ASE (Ambiente do Serviço de Aplicativo) é uma opção de serviço Premium do Serviço de Aplicativo do Azure que fornece uma capacidade configuração avançada não disponível em carimbos com vários locatários. Essencialmente, o recurso ASE implanta o Serviço de Aplicativo do Azure em sua VNet (Rede virtual do Azure). Para obter uma maior compreensão dos recursos oferecidos pelos ambientes do serviço de aplicativo, leia a documentação [O que é um ambiente do serviço de aplicativo][WhatisASE]. Se você não conhece os benefícios de operar em uma VNet, leia as [Perguntas frequentes de Rede Virtual do Azure][virtualnetwork]. 
+recurso do ambiente de serviço de aplicativo (ASE) Olá é uma opção de serviço Premium do serviço de aplicativo do Azure que fornece um recurso de configuração avançada que não está disponível em carimbos de multilocatário hello. recurso de ASE Olá essencialmente implanta saudação do serviço de aplicativo do Azure no seu Network(VNet) Virtual do Azure. saudação de leitura toogain uma maior compreensão dos recursos de saudação oferecida pelos ambientes de serviço de aplicativo [o que é um ambiente de serviço de aplicativo] [ WhatisASE] documentação. Se você não souber os benefícios de saudação do operando em uma rede virtual ler Olá [perguntas Frequentes de rede Virtual do Azure][virtualnetwork]. 
 
 ## <a name="overview"></a>Visão geral
-Um ASE pode ser implantado com um ponto de extremidade acessível da internet ou com um endereço IP em sua VNet. Para definir o endereço IP como um endereço de VNet, você precisa implantar seu ASE com um ILB (Balanceador de Carga Interno). Quando seu ASE é configurado com um ILB, você fornece:
+Um ASE pode ser implantado com um ponto de extremidade acessível da internet ou com um endereço IP em sua VNet. Ordem tooset Olá IP endereço tooa endereço de rede virtual é necessário toodeploy seu ASE com um Balancer(ILB) de carga interno. Quando seu ASE é configurado com um ILB, você fornece:
 
-* seu próprio domínio ou subdomínio. Para facilitar, este documento considera o subdomínio, mas você pode configurá-lo de qualquer maneira. 
-* o certificado usado para HTTPS
+* seu próprio domínio ou subdomínio. toomake fácil, que este documento presume um subdomínio, mas você pode configurá-lo de qualquer maneira. 
+* certificado Olá usado para HTTPS
 * Gerenciamento de DNS para o subdomínio. 
 
 Em troca, você pode fazer coisas como:
 
-* hospedar aplicativos de intranet, por exemplo, aplicativos de linha de negócios, com segurança na nuvem, que você acessa por meio de uma VPN de ExpressRoute Site a Site
-* hospedar aplicativos na nuvem que não estão listados em servidores de DNS públicos
+* aplicativos de intranet do host, como aplicativos de negócios, com segurança no hello de linha de nuvem que você acessa por meio de um Site tooSite ou ExpressRoute VPN
+* aplicativos de host na nuvem de saudação que não estão listados em servidores DNS públicos
 * criar aplicativos back-end isolados da internet, aos quais seus aplicativos front-end podem ser integrados com segurança
 
 #### <a name="disabled-functionality"></a>Funcionalidade desabilitada
 Há algumas coisas que você não pode fazer ao usar um ASE com ILB. Entre elas:
 
 * usar IPSSL
-* atribuir IP endereços para aplicativos específicos
-* comprar e usar um certificado com um aplicativo por meio do portal. Obviamente, você ainda pode obter certificados diretamente com uma Autoridade de Certificação e usá-los com seus aplicativos, mas não por meio do Portal do Azure.
+* atribuindo endereços IP toospecific aplicativos
+* comprar e usar um certificado com um aplicativo por meio do portal hello. É claro ainda pode obter certificados diretamente com uma autoridade de certificação e usá-lo com seus aplicativos, mas não por meio de saudação portal do Azure.
 
 ## <a name="creating-an-ilb-ase"></a>Criar um ILB do ASE
-A criação de um ILB do ASE não é muito diferente da criação normal de um ASE. Para conferir uma discussão mais profunda sobre como criar um ASE, leia [Como criar um Ambiente do Serviço de Aplicativo][HowtoCreateASE]. O processo de criação de um ILB do ASE é o mesmo tanto para a criação de uma VNet durante a criação do ASE quanto para a seleção de uma VNet pré-existente. Para criar um ILB do ASE: 
+A criação de um ILB do ASE não é muito diferente da criação normal de um ASE. Para obter uma discussão mais profunda sobre a criação de uma ASE ler [como um ambiente de serviço de aplicativo de tooCreate][HowtoCreateASE]. Olá toocreate de processo é uma ASE ILB Olá mesmo entre criar uma rede virtual durante a criação do ASE ou selecionar uma rede virtual já existente. toocreate uma ASE ILB: 
 
-1. No Portal do Azure, escolha **Novo -> Web + Móvel -> Ambiente do Serviço de Aplicativo**
+1. Em Olá selecione portal do Azure **Novo -> Web + móvel -> ambiente de serviço de aplicativo**
 2. Selecione sua assinatura
 3. Selecione ou crie um grupo de recursos
 4. Selecione ou crie uma VNet
 5. Crie uma sub-rede, se você selecionar uma VNet
-6. Selecione **Rede Virtual/Localização -> Configuração de VNet** e defina o Tipo de VIP como Interno
-7. Forneça um nome de subdomínio (este será o subdomínio usado para aplicativos criados nesse ASE)
+6. Selecione **Virtual/local de rede-> Configuração de rede virtual** e conjunto hello tooInternal do tipo de VIP
+7. Forneça o nome de subdomínio (Isso será subdomínio Olá usado para aplicativos criados neste ASE)
 8. Selecione OK e Criar
 
 ![][1]
 
-Na folha Rede Virtual, há uma opção de Configuração de Rede Virtual. Isso permite a escolha entre um VIP Externo ou um VIP Interno. O padrão é Externo. Se você tiver definido como Externo, seu ASE usará um VIP acessível pela internet. Se você selecionar Interno, seu ASE será configurado com um ILB em um endereço IP em sua VNet. 
+Na folha de rede Virtual hello, há uma opção de configuração de rede virtual. Isso permite a escolha entre um VIP Externo ou um VIP Interno. padrão de saudação é externo. Se você tiver definido tooExternal seu ASE usará um VIP acessível da internet. Se você selecionar Interno, seu ASE será configurado com um ILB em um endereço IP em sua VNet. 
 
-Depois de selecionar Interno, a capacidade de adicionar mais endereços IP ao seu ASE será removida e, em vez disso, você precisará fornecer o subdomínio do ASE. Em um ASE com um VIP Externo, o nome do ASE é usado no subdomínio para aplicativos criados nesse ASE. Se o seu ASE recebeu o nome de ***contosotest*** e seu aplicativo nesse ASE recebeu o nome de ***mytest***, o subdomínio estará no formato ***contosotest.p.azurewebsites.net*** e a URL desse aplicativo será ***mytest.contosotest.p.azurewebsites.net***. Se você definir o Tipo VIP como Interno, o nome de seu ASE não será usado no subdomínio do ASE. Especifique o subdomínio explicitamente. Se o subdomínio era ***contoso.corp.net*** e você criou um aplicativo nesse ASE chamado ***timereporting***, a URL para esse aplicativo seria ***timereporting.contoso.corp.net***.
+Depois de selecionar interno, Olá tooadd de capacidade mais endereços IP tooyour que ASE é removida e em vez disso, você precisa tooprovide subdomínio de saudação do hello ASE. Em uma ASE com hello um VIP externo nome da saudação ASE é usado no subdomínio Olá para aplicativos criados no que ASE. Se seu ASE foi chamado ***contosotest*** e seu aplicativo em que ASE foi chamado ***mytest*** será subdomínio de saudação do formato de saudação ***contosotest.p.azurewebsites.net*** e Olá URL para esse aplicativo seria ***mytest.contosotest.p.azurewebsites.net***. Se você definir Olá tooInternal do tipo de VIP, seu nome ASE não é usado no subdomínio Olá para Olá ASE. Você pode especificar subdomínio Olá explicitamente. Se o subdomínio foi ***contoso.corp.net*** e um aplicativo é feita em que ASE denominado ***timereporting*** hello, em seguida, a URL para que o aplicativo seria ***timereporting.contoso.corp.net***.
 
 ## <a name="apps-in-an-ilb-ase"></a>Aplicativos em um ILB do ASE
-A criação de um aplicativo em um ILB do ASE é igual à criação normal de um aplicativo em um ASE. 
+Criando um aplicativo em uma ASE ILB é Olá igual ao criar um aplicativo em uma ASE normalmente. 
 
-1. No Portal do Azure, escolha **Novo -> Web + Móvel -> Web** ou **Móvel** ou **Aplicativo de API**
+1. Em Olá selecione portal do Azure **Novo -> Web + móvel -> Web** ou **Mobile** ou **API App**
 2. Insira o nome do aplicativo
 3. Escolha a assinatura
 4. Escolha ou crie um grupo de recursos
-5. Selecione ou crie um ASP (Plano do Serviço de Aplicativo). Se está criando um novo ASP, selecione seu ASE como o local e selecione o pool de trabalho no qual você deseja criar o ASP. Ao criar o ASP, selecione seu ASE como o local e o pool de trabalho. Ao especificar o nome do aplicativo, você verá que o subdomínio no nome do aplicativo é substituído pelo subdomínio do ASE. 
-6. Selecione Criar. Você deve marcar a caixa de seleção **Fixar ao painel** se quiser que o aplicativo apareça em seu painel. 
+5. Selecione ou crie um ASP (Plano do Serviço de Aplicativo). Criar um novo ASP, em seguida, selecione seu ASE como Olá local e o pool do trabalhador Olá selecione desejada seu toobe ASP criado no. Quando você cria Olá ASP selecione seu ASE como Olá local e o pool do trabalhador hello. Ao especificar nome de saudação do aplicativo hello em que você verá esse subdomínio Olá nome do aplicativo é substituído pelo subdomínio Olá para seu ASE. 
+6. Selecione Criar. Você deve selecionar Olá **toodashboard Pin** caixa de seleção se desejar Olá tooshow de aplicativo em seu painel. 
 
 ![][2]
 
-Sob o nome do aplicativo, o nome de subdomínio é atualizado para refletir o subdomínio de seu ASE. 
+Em aplicativo de saudação do nome de subdomínio Olá obtém subdomínio de saudação tooreflect atualizada de seu ASE. 
 
 ## <a name="post-ilb-ase-creation-validation"></a>Validação posterior à criação do ILB do ASE
-Um ASE com ILB é ligeiramente diferente do ASE que não tem um ILB. Como já observamos, é necessário gerenciar seu próprio DNS e você também precisa fornecer seu próprio certificado para conexões HTTPS. 
+Uma ASE ILB é ligeiramente diferente de saudação não - ILB ASE. Como já observado é necessário toomanage seu próprio DNS e você também tem tooprovide seu próprio certificado para conexões HTTPS. 
 
-Após a criação de seu ASE, você observará que o subdomínio mostra o subdomínio especificado e há um novo item no menu **Configuração** chamado **Certificado ILB**. O ASE é criado com um certificado autoassinado, o que torna mais fácil testar o HTTPS. O portal informará que você precisa fornecer seu próprio certificado para HTTPS, mas isso é para direcionar a ter um certificado que acompanha seu subdomínio. 
+Depois de criar seu ASE você vai notar esse subdomínio Olá mostra subdomínio Olá especificado e houver um novo item no hello **configuração** menu chamado **ILB certificado**. Olá ASE é criada com um certificado autoassinado que torna mais fácil tootest HTTPS. Olá portal informará que você precisa tooprovide seu próprio certificado para HTTPS, mas se toodrive toohave um certificado que acompanha seu subdomínio. 
 
 ![][3]
 
-Se você está simplesmente experimentando coisas e não souber como criar um certificado, use o aplicativo de console IIS MMC para criar um certificado autoassinado. Após a criação, você poderá exportá-lo como um arquivo .pfx e carregá-lo na interface de usuário do Certificado do ILB. Quando você acessa um site protegido por um certificado autoassinado, seu navegador avisa você de que o site que você está acessando não é seguro devido à incapacidade de validar o certificado. Se você quiser evitar esse aviso, precisará de um certificado devidamente assinado que corresponda ao seu subdomínio e tenha uma cadeia de confiança reconhecida pelo seu navegador.
+Se você está simplesmente experimentando coisas e não sei como toocreate um certificado, você pode usar Olá MMC do IIS toocreate do aplicativo de console a própria assinou o certificado. Depois que ela é criada, você pode exportá-lo como um arquivo. pfx e, em seguida, carregá-lo no hello ILB da interface do usuário de certificado. Quando você acessa um site protegido com um certificado autoassinado, seu navegador fornecerá um aviso que Olá site que você está acessando não é segura devido a certificados de saudação do toohello dificuldades toovalidate. Se você quiser tooavoid esse aviso que é necessário um certificado apropriadamente assinado que corresponde a um subdomínio e tem uma cadeia de confiança que é reconhecida pelo seu navegador.
 
 ![][6]
 
-Se você quiser experimentar o fluxo com seus próprios certificados e testar o acesso HTTP e HTTPS para o seu ASE:
+Se você quiser tootry Olá fluxo com seus próprios certificados e testar ASE tooyour de acesso HTTP e HTTPS:
 
-1. Acesse a interface do usuário do ASE após a criação do ASE em **ASE -> Configurações -> Certificados ILB**
-2. Defina o certificado ILB selecionando o arquivo pfx do certificado e forneça a senha. Esta etapa demora um pouco mais para ser processada, e a mensagem de que uma operação de dimensionamento está em andamento será exibida.
-3. Obtenha o endereço do ILB para seu ASE (**ASE -> Propriedades -> Endereço IP Virtual**)
+1. Vá tooASE da interface do usuário após a criação ASE **ASE -> Configurações -> certificados ILB**
+2. Defina o certificado ILB selecionando o arquivo pfx do certificado e forneça a senha. Esta etapa leva um pouco ao tooprocess e mensagem de saudação do que uma operação de dimensionamento está em andamento será mostrada.
+3. Obter o endereço ILB de saudação para seu ASE (**ASE -> Propriedades -> endereço IP Virtual**)
 4. Crie um aplicativo Web no ASE após a criação 
-5. Crie uma VM se você não tem uma nessa VNET (não na mesma sub-rede que o ASE, ou tudo pode falhar)
-6. Configure o DNS para seu subdomínio. Você pode usar caracteres curinga com o subdomínio em seu DNS ou, se quer realizar alguns testes simples, editar o arquivo host na VM para definir o nome do aplicativo Web como o endereço IP VIP. Se o seu ASE tem o nome de subdomínio .ilbase.com e você colocou o aplicativo Web mytestapp para ter como endereço mytestapp.ilbase.com, defina isso em seu arquivo host. (No Windows, o arquivo host está em C:\Windows\System32\drivers\etc\ )
-7. Use um navegador nessa VM e acesse http://mytestapp.ilbase.com (ou o nome do aplicativo Web com o subdomínio)
-8. Use um navegador nessa VM e acesse https://mytestapp.ilbase.com. Será necessário aceitar a falta de segurança se estiver usando um certificado autoassinado. 
+5. Criar uma máquina virtual se você não tiver um em que VNET (Olá não na mesma sub-rede como Olá ASE ou interrupção de coisas)
+6. Configure o DNS para seu subdomínio. Você pode usar um caractere curinga com o subdomínio no DNS ou se você quiser toodo alguns testes simples, editar o arquivo de hosts de saudação em sua VM tooset nome tooVIP IP endereço do aplicativo web. Se seu ASE tinha o nome de subdomínio hello. ilbase.com e você feitas Olá mytestapp do aplicativo web para que ele seria abordado em mytestapp.ilbase.com e definido que em seu arquivo hosts. (No Windows hello arquivo hosts é em C:\Windows\System32\drivers\etc\)
+7. Use um navegador no VM e vá toohttp://mytestapp.ilbase.com (ou tudo o que é o nome do aplicativo web com o subdomínio)
+8. Use um navegador no VM e vá toohttps://mytestapp.ilbase.com terá tooaccept falta de saudação de segurança se usando um certificado autoassinado. 
 
-O endereço IP de seu ILB está listado em suas Propriedades como o Endereço IP Virtual
+endereço IP de saudação para o ILB está listado em suas propriedades como Olá endereço IP Virtual
 
 ![][4]
 
 ## <a name="using-an-ilb-ase"></a>Como usar um ASE com ILB
 #### <a name="network-security-groups"></a>Grupos de segurança de rede
-Um ASE com ILB permite o isolamento da rede para seus aplicativos, como se os aplicativos não pudessem ser acessados ou não fossem até mesmo conhecidos pela internet. Isso é excelente para hospedar sites de intranet, como aplicativos de linha de negócios. Quando for necessário restringir o acesso ainda mais, você poderá usar os NSGs (Grupos de Segurança de Rede) para controlar o acesso no nível da rede. 
+Um ILB ASE habilita o isolamento da rede para seus aplicativos como os aplicativos Olá não estão acessíveis ou até mesmo conhecidos por Olá da internet. Isso é excelente para hospedar sites de intranet, como aplicativos de linha de negócios. Quando você precisa de acesso toorestrict ainda mais você ainda pode usar acesso de toocontrol Groups(NSGs) de segurança de rede no nível de rede de saudação. 
 
-Se você quiser usar os NSGs para restringir o acesso, precisará fazer com que a comunicação que o ASE precisa para operar não seja interrompida. Embora o acesso HTTP/HTTPS ocorra apenas por meio do ILB usado pelo ASE, o ASE ainda depende do recurso fora da VNet. Para ver qual acesso de rede ainda é necessário, examine as informações no documento sobre [Como controlar o tráfego de entrada para um ambiente do Serviço de Aplicativo][ControlInbound] e o documento sobre [Detalhes da configuração de rede para ambientes do Serviço de Aplicativo com o ExpressRoute][ExpressRoute]. 
+Se você quiser toouse NSGs toofurther restringir o acesso, em seguida, você precisa toomake-se de que você não interrompe a comunicação de saudação que ASE Olá precisa no toooperate de ordem. Embora Olá acesso HTTP/HTTPS é apenas por meio de saudação ILB usado pelo Olá Olá ASE que ASE ainda depende do recurso fora Olá VNet. toosee o acesso à rede é ainda necessário examinar informações de saudação no documento de saudação em [controlando o tráfego de entrada tooan ambiente de serviço de aplicativo] [ ControlInbound] e documento Olá no [rede Detalhes de configuração para ambientes de serviço de aplicativo com o ExpressRoute][ExpressRoute]. 
 
-Para configurar seus NSGs, você precisa saber o endereço IP usado pelo Azure para gerenciar seu ASE. Esse endereço IP também será o endereço IP de saída de seu ASE se ele fizer solicitações da internet. O endereço IP de saída para o ASE permanece estático durante a vida de seu ASE. Se você excluir e recriar seu ASE, você obterá um novo endereço IP. Para localizar esse endereço IP, acesse **Configurações -> Propriedades** e localize o **Endereço IP de Saída**. 
+tooconfigure seus NSGs necessário tooknow Olá IP endereço que é usado pelo Azure toomanage seu ASE. Esse endereço IP também é Olá saído endereço IP de seu ASE, se ele faz solicitações de internet. endereço IP saído Olá para seu ASE permanecerá estático durante saudação de seu ASE. Se você excluir e recriar seu ASE, você obterá um novo endereço IP. toofind esse endereço IP ir muito**Configurações -> propriedades** e localize Olá **endereço de IP de saída**. 
 
 ![][5]
 
 #### <a name="general-ilb-ase-management"></a>Gerenciamento geral do ASE com ILB
-O gerenciamento de um ASE com ILB é basicamente o mesmo que gerenciar um ASE normalmente. Você precisa aumentar seus pools de trabalho para hospedar mais instâncias de ASP e dimensionar os servidores Front-End para lidar com o aumento do tráfego HTTP/HTTPS. Para obter informações gerais sobre como gerenciar a configuração de um ASE, leia o documento sobre [Configurar um ambiente do Serviço de Aplicativo][ASEConfig]. 
+Gerenciando uma ASE ILB é amplamente Olá igual a gerenciar uma ASE normalmente. Você precisa tooscale a sua toohost de pools de trabalho mais instâncias ASP e aumentar os valores de toohandle maior de servidores de Front-End do tráfego HTTP/HTTPS. Para obter informações gerais sobre como gerenciar a configuração de saudação de uma ASE, leia o documento de saudação em [Configurando um ambiente de serviço de aplicativo][ASEConfig]. 
 
-Os itens adicionais de gerenciamento são gerenciamento de certificados e gerenciamento de DNS. Você precisa obter e carregar o certificado usado para HTTPS após a criação do ASE com ILB e substitui-lo antes que expire. Como Azure é proprietário do domínio de base, podemos fornecer certificados para ASEs com um VIP externo. Como o subdomínio usado por um ASE com ILB pode ser qualquer coisa, você precisa fornecer seu próprio certificado para HTTPS. 
+itens de gerenciamento adicional de saudação são o gerenciamento de certificado e o gerenciamento de DNS. Necessário tooobtain carregar Olá certificado usado para HTTPS após a criação de ILB ASE e substituí-lo antes de expirar. Porque o Azure possui o domínio base Olá podemos fornecer certificados para ASs com um VIP externo. Como o subdomínio Olá usado por uma ASE ILB pode ser qualquer coisa, você precisa tooprovide seu próprio certificado para HTTPS. 
 
 #### <a name="dns-configuration"></a>Configuração de DNS
-Ao usar um VIP Externo, o DNS é gerenciado pelo Azure. Qualquer aplicativo criado em seu ASE é automaticamente adicionado ao DNS do Azure, que é um DNS público. Em um ASE com ILB, você precisa gerenciar seu próprio DNS. Para um subdomínio específico, como contoso.corp.net, você precisa criar registros de DNS A que apontem para o endereço ILB para:
+Ao usar uma saudação VIP externo que DNS é gerenciado pelo Azure. Qualquer aplicativo que criou no seu ASE é adicionado automaticamente tooAzure DNS que é um DNS público. Em uma ASE ILB que toomanage seu próprio DNS. Para um subdomínio específico como contoso.corp.net, será preciso toocreate a que endereço ponto tooyour ILB para registros de DNS:
 
     * 
     publicação de ftp *.scm 
 
 
 ## <a name="getting-started"></a>Introdução
-Todos os artigos e os Como fazer para Ambientes de Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes de Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
+Todos os artigos e como-para para ambientes de serviço de aplicativo estão disponíveis no hello [Leiame para ambientes de serviço de aplicativo](../app-service/app-service-app-service-environments-readme.md).
 
-Para se familiarizar com os ambientes de serviço de aplicativo, consulte [Introdução aos ambientes de Serviço de Aplicativo][WhatisASE]
+tooget iniciado com ambientes de serviço de aplicativo, consulte [tooApp Introdução ambientes de serviço][WhatisASE]
 
-Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure][AzureAppService].
+Para obter mais informações sobre a plataforma do serviço de aplicativo do Azure hello, consulte [do serviço de aplicativo do Azure][AzureAppService].
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

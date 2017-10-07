@@ -1,5 +1,5 @@
 ---
-title: "Preços da Central de Segurança | Microsoft Docs"
+title: "preços do Centro de aaaSecurity | Microsoft Docs"
 description: "Este artigo fornece informações sobre os preços para a Central de Segurança do Azure."
 services: security-center
 documentationcenter: na
@@ -14,76 +14,76 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: terrylan
-ms.openlocfilehash: 367b8f38cb9fcf3dc36db83641cb1696710608ef
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 93cc284540114b048b7a960891c0e68553b008be
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-security-center-pricing"></a>Preços da Central de Segurança do Azure
-A Central de Segurança do Azure ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
+Central de segurança do Azure ajuda a evitar, detectar e reagir toothreats com maior visibilidade e controle sobre a segurança de saudação de seus recursos do Azure. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
 ## <a name="pricing-tiers"></a>Tipos de preço
 A Central de Segurança é oferecida em duas camadas:
 
-* A **camada Gratuita** é habilitada automaticamente em todas as assinaturas do Azure. A camada Gratuita fornece visibilidade do estado de segurança de seus recursos do Azure, a política de segurança básica, recomendações de segurança e integração a produtos de segurança e serviços de parceiros.
-* A **camada Padrão** adiciona recursos de detecção avançada de ameaças, inclusive inteligência de ameaças, análise comportamental, detecção de anomalias, incidentes de segurança e relatórios de avaliação de risco. A camada Standard é oferecida gratuitamente nos 60 primeiros dias.
+* Olá **grátis** é habilitado automaticamente em todas as assinaturas do Azure. camada gratuita Olá fornece visibilidade sobre o estado de segurança de saudação de recursos do Azure, política de segurança básicas, as recomendações de segurança e integração com produtos de segurança e serviços de parceiros.
+* Olá **camada padrão** adiciona ameaça avançada recursos de detecção, incluindo inteligência, a análise comportamental, detecção de anomalias, incidentes de segurança de ameaças e relatórios de avaliação de ameaças. camada padrão Olá é oferecida gratuitamente para Olá primeiros 60 dias.
 
-Para obter mais informações, confira a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) da Central de Segurança.
+Para obter mais informações, consulte a Central de segurança Olá [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="try-standard-free-for-60-days"></a>Experimentar a versão Standard gratuitamente por 60 dias
-A camada Standard é oferecida gratuitamente nos 60 primeiros dias. Ao fim dos 60 dias, se você optar por continuar usando o serviço, começaremos a cobrar automaticamente pelo uso.
+camada padrão Olá é oferecida gratuitamente para Olá primeiros 60 dias. No final da saudação de 60 dias, você deve escolher toocontinue usando o serviço de saudação automaticamente começaremos cobrar para uso.
 
-Para obter a camada Standard:
+camada padrão do tooget hello:
 
-1. Selecione o bloco **Política** na folha **Central de Segurança**.
-2. Selecione a assinatura que você deseja atualizar para o Padrão.
-3. Na folha **Política de segurança**, selecione **Camada de preços**.
-4. Na folha **Escolha seu tipo de preços**, selecione **Padrão**.
+1. Selecione Olá **política** bloco Olá **Central de segurança** folha.
+2. Selecione Olá assinatura que você deseja tooupgrade tooStandard.
+3. Em Olá **política de segurança** folha, selecione **preço**.
+4. Em Olá **Escolher tipo de preços** folha, selecione **padrão**.
 5. Clique em **Selecionar**.
 
 
-## <a name="why-upgrade-to-standard"></a>Por que atualizar para Padrão?
-A camada Padrão da Central de Segurança fornece todos os recursos da camada Gratuita, mais a detecção avançada de ameaças. A detecção avançada de ameaças ajuda a identificar ameaças ativas que direcionam os recursos do Azure e fornece as percepções necessárias para que você reaja rapidamente.
+## <a name="why-upgrade-toostandard"></a>Por que atualizar tooStandard?
+Olá a camada padrão da Central de segurança fornece todos os recursos da camada gratuita hello mais detecção de ameaças avançadas. Ameaças avançadas detecção ajuda a identificar ameaças ativas direcionando os recursos do Azure e fornece informações de saudação necessário toorespond rapidamente.
 
-A Central de Segurança emprega análise de segurança avançada, que vai além das abordagens baseadas em assinatura. As inovações em tecnologias de big data e aprendizado de máquina são usadas para avaliar eventos em toda a malha de nuvem, detectando ameaças que seriam impossíveis de identificar usando abordagens manuais e prevendo a evolução de ataques.
+A Central de Segurança emprega análise de segurança avançada, que vai além das abordagens baseadas em assinatura. Soluções de big data e tecnologias de aprendizado de máquina são eventos de tooevaluate usado pela estrutura de nuvem inteira hello – detecção de ameaças que seriam impossível tooidentify usando abordagens manuais e prever a evolução de saudação de ataques.
 
-A análise de segurança fornecida com a camada padrão é:
+Análise de segurança que vêm com a camada de saudação padrão é:
 
-* **Inteligência contra ameaças** - procura atores ruins usando a inteligência contra ameaça e produtos e serviços Microsoft, da unidade de Crimes digitais da Microsoft, do Microsoft Security Response Center e de feeds externos
-* **Análise comportamental** - aplica padrões conhecidos para descobrir os comportamentos mal-intencionados
-* **Detecção de anomalias** - usa estatísticas de criação de perfil para criar uma linha de base histórica. Ela o alertará sobre desvios das linhas de base estabelecidas em conformidade com um vetor de possível ataque
+* **Inteligência de ameaça** -parece para conhecidos atores ruins usando inteligência de ameaça global de produtos e serviços, Microsoft hello Microsoft Digital Crimes Unit, Olá Microsoft Security Response Center e feeds externos
+* **A análise comportamental** -aplica os comportamentos mal-intencionados de toodiscover padrões conhecidos
+* **Detecção de anomalias** -usa estatísticas de criação de perfil toobuild uma linha de base histórica. Ele o alertará sobre desvios das linhas de base estabelecidas em conformidade com o vetor de ataque potencial tooa
 
-Na folha **Alertas de segurança** abaixo, a Central de Segurança detectou um **incidente** de segurança. Um incidente de segurança é uma agregação de todos os alertas de um recurso que se alinham com os padrões da cadeia de desativações. Selecionar o incidente de segurança revela mais detalhes sobre o incidente e lista os alertas relacionados. A seleção de um alerta fornece mais informações sobre essa ocorrência.
+Em Olá **alertas de segurança** folha abaixo, Central de segurança detectou uma segurança **incidente**. Um incidente de segurança é uma agregação de todos os alertas de um recurso que se alinham com os padrões da cadeia de desativações. Incidente de segurança selecionando Olá revela mais detalhes sobre o incidente hello e listas Olá alertas relacionados. A seleção de um alerta fornece mais informações sobre essa ocorrência.
 
 ![Incidente de segurança][2]
 
-O alerta de **Comunicação de rede** abaixo fornece detalhes sobre o alerta. Os detalhes incluem a descrição completa, a gravidade, o estado atual (que, nesse caso, é ignorado, o que significa que o usuário tomou medidas para ignorá-lo), o recurso atacado e as etapas de correção. Também há uma lista de links para os relatórios do Microsoft Threat Intelligence. Esses relatórios podem ser usados para fins de defesa e correções de segurança.
+Olá **comunicação de rede** alerta abaixo fornece detalhes sobre o alerta de saudação. Detalhes incluem sua descrição completa, sua severidade, seu estado atual (que nesse caso é descartado, usuário de saudação do significado tomou a ação toodismiss ele), Olá atacados recursos e etapas de correção. Também é uma lista de links tooMicrosoft que relatórios de inteligência de ameaça. Esses relatórios podem ser usados para fins de defesa e correções de segurança.
 
 ![Detalhes do alerta de segurança][3]
 
 ## <a name="enable-data-collection"></a>Habilitar coleta de dados
-Para habilitar a análise de comportamento de máquina virtual, a coleta de dados deve ser ativada.
+análise de comportamento de máquina virtual tooenable, coleta de dados deve ser ativada.
 
-Para validar se a coleta de dados está habilitada:
+toovalidate que a coleta de dados está habilitada:
 
-1. Selecione o bloco **Política**. A folha **Política de segurança** será aberta, listando as assinaturas do Azure.
+1. Selecione Olá **política** lado a lado. Olá **política de segurança** folha abre, listando as suas assinaturas do Azure.
 2. Selecione uma assinatura.
-3. Se a **Coleta de Dados** for desativada, altere-a para ativada e salve a alteração.
+3. Se **coleta de dados** é desativada, alterá-la tooon e salvar a alteração de saudação.
 
 > [!NOTE]
-> Se você estiver usando a Central de Segurança do Azure Gratuita, você poderá desabilitar a coleta de dados de máquinas virtuais na Política de Segurança. A Coleta de Dados é necessária para as assinaturas na camada Standard.
+> Se você estiver usando livre de Central de segurança do Azure, você pode desativar a coleta de dados de máquinas virtuais em Olá política de segurança. Coleta de dados é necessária para as assinaturas na camada padrão hello.
 >
 >
 
 Confira [Habilitar coleta de dados na Central de Segurança do Azure](security-center-enable-data-collection.md) para obter mais informações.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Neste documento, foram apresentados os preços da Central de Segurança. Para obter mais informações sobre preços, confira a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) da Central de Segurança.
-* Para saber mais sobre os recursos de detecção avançada da Central de Segurança, confira [Recursos de detecção da Central de Segurança do Azure](security-center-detection-capabilities.md).
-* Para saber mais sobre como os dados são gerenciados e protegidos na Central de Segurança do Azure, veja [Segurança de dados da Central de Segurança do Azure](security-center-data-security.md).
-* Se você tiver dúvidas sobre como usar a Central de Segurança, confira as [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md).
-* Se você ainda tiver dúvidas sobre como usar a Central de Segurança ou o Azure, acesse os [fóruns do Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureSecurityCenter&filter=alltypes&sort=lastpostdesc).
+* Neste documento, você foram introduzida toopricing para a Central de segurança. Para obter mais informações sobre preços, consulte a Central de segurança Olá [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+* toolearn mais sobre o Centro de segurança avançada do recursos de detecção, consulte [recursos de detecção do Centro de segurança do Azure](security-center-detection-capabilities.md).
+* toolearn mais sobre como os dados são gerenciados e protegidos na Central de segurança, consulte [segurança de dados da Central de segurança do Azure](security-center-data-security.md).
+* Se você tiver dúvidas sobre como usar a Central de segurança, consulte Olá [perguntas frequentes sobre o Centro de segurança do Azure](security-center-faq.md).
+* Se você ainda tiver dúvidas sobre como usar a Central de segurança ou do Azure, visite Olá [fóruns do Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureSecurityCenter&filter=alltypes&sort=lastpostdesc).
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/standard.png

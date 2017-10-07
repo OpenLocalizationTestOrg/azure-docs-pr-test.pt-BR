@@ -1,6 +1,6 @@
 ---
-title: "Conexão segura a recursos de back-end a partir de um ambiente do Serviço de Aplicativo"
-description: "Saiba como realizar conexão segura a recursos de back-end a partir de um ambiente do Serviço de Aplicativo."
+title: "Conectando-se de aaaSecurely tooBackEnd recursos de um ambiente de serviço de aplicativo"
+description: "Saiba mais sobre como toosecurely conectar toobackend recursos de um ambiente de serviço de aplicativo."
 services: app-service
 documentationcenter: 
 author: stefsch
@@ -14,83 +14,83 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
-ms.openlocfilehash: 0b6d3a47dc429c469b37c2c74f546cfeca580358
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6311d3fc301512ea3c4ed8f14f268f75755aa415
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>Conexão segura a recursos de back-end a partir de um ambiente do Serviço de Aplicativo
+# <a name="securely-connecting-toobackend-resources-from-an-app-service-environment"></a>TooBackend de conectar-se com segurança os recursos de um ambiente de serviço de aplicativo
 ## <a name="overview"></a>Visão geral
-Como um Ambiente do Serviço de Aplicativo sempre é criado **ou** em uma rede virtual do Azure Resource Manager, **ou** em uma [rede virtual][virtualnetwork] do modelo de implantação clássico, as conexões de saída de um Ambiente do Serviço de Aplicativo com outros recursos de back-end podem fluir exclusivamente pela rede virtual.  Com uma alteração recente feita em junho de 2016, os ASEs agora podem ser implantados nas redes virtuais que usam os intervalos de endereço público ou espaços de endereço RFC1918 (ou seja, endereços privados).  
+Como um ambiente de serviço de aplicativo é sempre criado no **ou** uma rede virtual do Azure Resource Manager, **ou** um modelo de implantação clássico [rede virtual] [ virtualnetwork], conexões de saída dos recursos de back-end de tooother ambiente de serviço de aplicativo podem fluir exclusivamente em rede virtual hello.  Com uma alteração recente feita em junho de 2016, os ASEs agora podem ser implantados nas redes virtuais que usam os intervalos de endereço público ou espaços de endereço RFC1918 (ou seja, endereços privados).  
 
-Por exemplo, pode haver um SQL Server em execução em um cluster de máquinas virtuais com a porta 1433 bloqueada.  O ponto de extremidade pode ser ACLd, para permitir apenas acesso de outros recursos na mesma rede virtual.  
+Por exemplo, pode haver um SQL Server em execução em um cluster de máquinas virtuais com a porta 1433 bloqueada.  ponto de extremidade de saudação pode ser ACLd tooonly permitir o acesso de outros recursos na mesma rede virtual de hello.  
 
-Como outro exemplo, pontos de extremidade confidenciais podem ser executados localmente e conectados ao Azure via conexões [Site a Site][SiteToSite] ou do [Azure ExpressRoute][ExpressRoute].  Como resultado, apenas os recursos nas redes virtuais conectadas a túneis Site a Site ou de ExpressRoute poderão acessar pontos de extremidade locais.
+Como outro exemplo, pontos de extremidade confidenciais podem executados no local e ser tooAzure conectado através de um [Site a Site] [ SiteToSite] ou [Azure ExpressRoute] [ ExpressRoute] conexões.  Como resultado, somente os recursos em redes virtuais conectadas toohello Site a Site ou rota expressa túneis será tooaccess capaz de pontos de extremidade de local.
 
-Para todos esses cenários, aplicativos em execução em um ambiente do serviço de aplicativo serão capazes de se conectar com segurança aos diversos servidores e recursos.  Tráfego de saída de aplicativos que são executados em um ambiente do serviço de aplicativo para pontos de extremidade privados na mesma rede virtual (ou conectados à mesma rede virtual) passará apenas pela rede virtual.  O tráfego de saída para pontos de extremidade privados não passará pela Internet pública.
+Para todos esses cenários, aplicativos executados em um ambiente de serviço de aplicativo ser capaz de toosecurely conectará toohello vários servidores e recursos.  Tráfego de saída de aplicativos executados em um ambiente de serviço de aplicativo tooprivate os pontos de extremidade no hello mesma rede virtual (ou conectado toohello mesma rede virtual), será apenas fluxo de rede virtual hello.  O tráfego de saída tooprivate pontos de extremidade de não fluirá sobre Olá Internet pública.
 
-Uma limitação se aplica ao tráfego de saída de um ambiente de Serviço de Aplicativo para pontos de extremidade em uma rede virtual.  Ambientes do Serviço de Aplicativo não podem acessar pontos de extremidade de máquinas virtuais localizados na **mesma** sub-rede que o ambiente do Serviço de Aplicativo.  Isso não deve ser um problema, desde que os ambientes do Serviço de Aplicativo sejam implantados em uma sub-rede reservada para uso exclusivo pelo ambiente do Serviço de Aplicativo.
+Uma limitação se aplica a tráfego de toooutbound de tooendpoints um ambiente de serviço de aplicativo em uma rede virtual.  Ambientes de serviço de aplicativo não pode acessar pontos de extremidade das máquinas virtuais localizadas em Olá **mesmo** sub-rede como Olá ambiente de serviço de aplicativo.  Isso normalmente não deveria um problema como ambientes de serviço de aplicativo são implantados em uma sub-rede reservada para uso exclusivo por Olá ambiente de serviço de aplicativo.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="outbound-connectivity-and-dns-requirements"></a>Requisitos de DNS e conectividade de saída
-Para um Ambiente de Serviço de Aplicativo funcionar corretamente, ele requer acesso de saída a vários pontos de extremidade. Uma lista completa dos pontos de extremidade externos usado por um ASE está na seção "Conectividade de rede necessária" do artigo [Configuração de rede para o ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) .
+Para um ambiente de serviço de aplicativo toofunction corretamente, ele exige pontos de extremidade de toovarious de acesso de saída. É uma lista completa dos pontos de extremidade externos Olá usado por uma ASE em Olá seção "Conectividade de rede necessária" hello [configuração de rede para a rota expressa](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) artigo.
 
-Ambientes de Serviço de Aplicativo exigem uma infraestrutura DNS válida configurada para a rede virtual.  Se por algum motivo, a configuração do DNS for alterada após ter sido criado um Ambiente do Serviço de Aplicativo, os desenvolvedores podem forçar um Ambiente do Serviço de Aplicativo para captar a nova configuração de DNS.  Disparar uma reinicialização do ambiente sem interrupção usando o ícone "Reiniciar" localizado na parte superior da folha de gerenciamento do Ambiente de Serviço de Aplicativo no portal fará com que o ambiente capture a nova configuração de DNS.
+Ambientes de serviço de aplicativo exigem uma infraestrutura DNS válida configurada para a rede virtual hello.  Se para qualquer Olá motivo a configuração do DNS é alterada após ter sido criado um ambiente de serviço de aplicativo, os desenvolvedores podem forçar o toopick um ambiente de serviço de aplicativo nova configuração de DNS Olá.  Disparar uma reinicialização sem interrupção de ambiente usando hello "Reiniciar" localizado na parte superior de saudação do hello ambiente de serviço de aplicativo folha de gerenciamento no portal de saudação fará com que Olá ambiente toopick a nova configuração de DNS hello.
 
-Também é recomendável que todos os servidores DNS personalizados na rede virtual sejam configurados com antecedência antes da criação de um ambiente do Serviço de Aplicativo.  Se a configuração DNS de uma rede virtual for alterada enquanto um Ambiente de Serviço de Aplicativo estiver sendo criado, isso resultará em falha do processo de criação do Ambiente de Serviço de Aplicativo.  Do mesmo modo, se um servidor DNS personalizado existir na outra extremidade de um gateway de VPN e estiver inacessível ou indisponível, o processo de criação do Ambiente do Serviço de Aplicativo também falhará.
+Também é recomendável que todos os servidores DNS personalizados Olá vnet ser configurado antes do tempo anterior toocreating um ambiente de serviço de aplicativo.  Se a configuração do DNS da rede virtual for alterada enquanto um ambiente de serviço de aplicativo está sendo criado, que resultará em falha de processo de criação de ambiente de serviço de aplicativo hello.  Do mesmo modo, se um servidor DNS personalizado existir no hello outra extremidade de um gateway de VPN e o servidor DNS Olá é Olá inacessível ou não estiver disponível, ambiente de serviço de aplicativo, o processo de criação também falharão.
 
-## <a name="connecting-to-a-sql-server"></a>Conectando-se a um SQL Server
+## <a name="connecting-tooa-sql-server"></a>Conectar-se tooa do SQL Server
 Uma configuração comum do SQL Server tem um ponto de extremidade escutando na porta 1433:
 
 ![Ponto de extremidade do SQL Server][SqlServerEndpoint]
 
-Há duas abordagens para restringir o tráfego para esse ponto de extremidade:
+Há duas abordagens para restringir o ponto de extremidade do tráfego toothis:
 
 * [Listas de controle de acesso a redes][NetworkAccessControlLists] (ACLs de rede)
 * [Grupos de segurança de rede][NetworkSecurityGroups]
 
 ## <a name="restricting-access-with-a-network-acl"></a>Restringindo o acesso com uma ACL de rede
-A porta 1433 pode ser protegida usando uma lista de controle de acesso de rede.  O exemplo abaixo coloca endereços de cliente originados dentro de uma rede virtual em lista branca e bloqueia o acesso a todos os outros clientes.
+A porta 1433 pode ser protegida usando uma lista de controle de acesso de rede.  exemplo Hello abaixo brancas cliente endereços provenientes de dentro de uma rede virtual e bloqueia o acesso tooall outros clientes.
 
 ![Exemplo de lista de controle de acesso de rede][NetworkAccessControlListExample]
 
-Quaisquer aplicativos em execução no ambiente de serviço de aplicativo na mesma rede virtual que o SQL Server serão capazes de se conectarem à instância do SQL Server usando o endereço IP **VNet interno** para a máquina virtual do SQL Server.  
+Todos os aplicativos em execução no ambiente de serviço de aplicativo no hello mesma rede virtual como saudação do SQL Server será capaz de tooconnect instância de SQL Server de toohello usando Olá **VNet interno** endereço IP da máquina de virtual saudação do SQL Server.  
 
-A cadeia de conexão de exemplo a seguir faz referência ao SQL Server usando seu endereço IP privado.
+cadeia de conexão de exemplo Hello abaixo referências Olá SQL Server usando seu endereço IP privado.
 
     Server=tcp:10.0.1.6;Database=MyDatabase;User ID=MyUser;Password=PasswordHere;provider=System.Data.SqlClient
 
-Embora a máquina virtual também tenha um ponto de extremidade público, tentativas de conexão usando o endereço IP público serão rejeitadas devido à ACL de rede. 
+Embora a máquina virtual de saudação tem um ponto de extremidade público, as tentativas de conexão usando o endereço IP público de saudação serão rejeitadas devido a ACL de rede hello. 
 
 ## <a name="restricting-access-with-a-network-security-group"></a>Restringindo o acesso com um grupo de segurança de rede
-Uma abordagem alternativa para proteger o acesso é com um grupo de segurança de rede.  Grupos de segurança de rede podem ser aplicados a máquinas virtuais individuais ou a uma sub-rede que contenha as máquinas virtuais.
+Uma abordagem alternativa para proteger o acesso é com um grupo de segurança de rede.  Grupos de segurança de rede podem ser aplicado tooindividual VMs ou sub-rede tooa que contêm máquinas virtuais.
 
-Primeiro é preciso criar um grupo de segurança de rede:
+Primeiro, um grupo de segurança de rede precisa toobe criado:
 
     New-AzureNetworkSecurityGroup -Name "testNSGexample" -Location "South Central US" -Label "Example network security group for an app service environment"
 
-Restringir o acesso apenas ao tráfego VNet interno é muito simples com um grupo de segurança de rede.  As regras padrão em um grupo de segurança de rede somente permitem o acesso a partir de outros clientes de rede na mesma rede virtual.
+Restringir acesso tooonly tráfego interno da rede virtual é muito simple com um grupo de segurança de rede.  regras do saudação padrão em um grupo de segurança de rede somente permitem o acesso de outros clientes de rede em Olá mesma rede virtual.
 
-Como resultado, bloquear o acesso ao SQL Server é tão simples quanto a aplicação de um grupo de segurança de rede com suas regras padrão às máquinas virtuais executando o SQL Server ou então à sub-rede que contém as máquinas virtuais.
+Como resultado, bloqueando acesso tooSQL servidor é tão simple quanto a aplicação de um grupo de segurança de rede com seus padrão regras tooeither Olá máquinas virtuais que executam o SQL Server ou sub-rede Olá que contêm máquinas virtuais de saudação.
 
-O exemplo a seguir aplica a um grupo de segurança de rede à sub-rede que o contém:
+exemplo Hello abaixo se aplica a uma sub-rede que contém toohello de grupo rede segurança:
 
     Get-AzureNetworkSecurityGroup -Name "testNSGExample" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-1'
 
-O resultado final é um conjunto de regras de segurança que bloqueiam o acesso externo, permitindo acesso interno VNet:
+resultado final de saudação é um conjunto de regras de segurança que bloqueiam o acesso externo, permitindo o acesso de rede virtual interno:
 
 ![Regras de segurança de rede padrão][DefaultNetworkSecurityRules]
 
 ## <a name="getting-started"></a>Introdução
-Todos os artigos e os Como fazer para Ambientes de Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes de Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
+Todos os artigos e como-para para ambientes de serviço de aplicativo estão disponíveis no hello [Leiame para ambientes de serviço de aplicativo](../app-service/app-service-app-service-environments-readme.md).
 
-Para começar a usar Ambientes de Serviço de Aplicativo, veja [Introdução ao ambiente de Serviço de Aplicativo][IntroToAppServiceEnvironment]
+tooget iniciado com ambientes de serviço de aplicativo, consulte [Introdução tooApp ambiente de serviço][IntroToAppServiceEnvironment]
 
-Para obter detalhes sobre como controlar o tráfego de entrada para seu Ambiente do Serviço de Aplicativo, confira [Como controlar o tráfego de entrada para um Ambiente do Serviço de Aplicativo][ControlInboundASE]
+Para obter detalhes sobre o ambiente de serviço de aplicativo tooyour de controlar o tráfego de entrada, consulte [controlando o tráfego de entrada tooan ambiente de serviço de aplicativo][ControlInboundASE]
 
-Para saber mais sobre a plataforma de Serviço de Aplicativo do Azure, veja [Serviço de Aplicativo do Azure][AzureAppService].
+Para obter mais informações sobre a plataforma do serviço de aplicativo do Azure hello, consulte [do serviço de aplicativo do Azure][AzureAppService].
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

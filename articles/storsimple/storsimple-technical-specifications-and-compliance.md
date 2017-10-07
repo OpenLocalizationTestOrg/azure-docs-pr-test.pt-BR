@@ -1,6 +1,6 @@
 ---
-title: "Especificações técnicas do StorSimple | Microsoft Docs"
-description: "Descreve as especificações técnicas e as informações de conformidade de padrões normativos para os componentes de hardware do StorSimple."
+title: "Especificações técnicas do aaaStorSimple | Microsoft Docs"
+description: "Descreve as especificações técnicas do hello e informações de conformidade de padrões regulatórios para componentes de hardware do StorSimple hello."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.openlocfilehash: ac1f6fbd40770374f68d0d280fc1cc040e41b1ef
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bb73661105dee7f6020a91f8c4f5abd6583023ca
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Especificações técnicas e conformidade para o dispositivo StorSimple
+# <a name="technical-specifications-and-compliance-for-hello-storsimple-device"></a>Especificações técnicas e conformidade para o dispositivo StorSimple Olá
 ## <a name="overview"></a>Visão geral
-Os componentes de hardware do dispositivo Microsoft Azure StorSimple aderem às especificações técnicas e aos padrões regulatórios descritos neste artigo. As especificações técnicas descrevem os PCMs (Módulos de Alimentação e de Refrigeração), as unidades de disco, a capacidade de armazenamento e os compartimentos. As informações de conformidade abrangem itens como padrões internacionais, segurança e emissões e cabeamento.
+componentes de hardware de saudação do seu dispositivo do Microsoft Azure StorSimple aderem especificações técnicas toohello e padrões regulatórios descritos neste artigo. Especificações técnicas do Hello descrevem compartimentos e capacidade de armazenamento de módulos de energia e resfriamento (PCMs), unidades de disco, Olá. as informações de conformidade Olá abrange coisas como padrões internacionais, segurança e emissões e cabeamento.
 
 ## <a name="power-and-cooling-module-specifications"></a>Especificações do Módulo de Alimentação e de Refrigeração
-O dispositivo StorSimple tem dois PCMs (Módulos de Alimentação e de Refrigeração) compatíveis com SBB e com ventilador duplo de 100-240V. Isso oferece uma configuração de alimentação redundante. Se um PCM falhar, o dispositivo continuará a funcionar normalmente em outro PCM até que o módulo com falha seja substituído.  
+o dispositivo StorSimple Olá tem dois 100-240V ventilador duplo, compatíveis com SBB Power Cooling Modules (PCMs). Isso oferece uma configuração de alimentação redundante. Se um PCM falhar, o dispositivo Olá continua toooperate normalmente em Olá outro PCM até Olá falha de módulo é substituído.  
 
-O compartimento EBOD usa um PCM de 580 W e o compartimento principal usa um PCM de 764 W. As tabelas a seguir listam as especificações técnicas associadas aos PCMs.
+Olá compartimento EBOD usa um PCM de 580 W e o compartimento principal usa um PCM de 764 W. Olá tabelas a seguir lista Olá as especificações técnicas associadas Olá PCMs.
 
 | Especificação | PCM de 580 W (EBOD) | PCM de 764 W (Primário) |
 | --- | --- | --- |
@@ -45,7 +45,7 @@ O compartimento EBOD usa um PCM de 580 W e o compartimento principal usa um PCM 
 | Refrigeração do compartimento |Ventiladores de refrigeração axial com controle de velocidade variável de ventilador |Ventiladores de refrigeração axial com controle de velocidade variável de ventilador |
 
 ## <a name="power-consumption-statistics"></a>Estatísticas de consumo de energia
-A tabela a seguir lista os dados de consumo de energia típicos (os valores reais podem variar desde a publicação) para os diversos modelos do dispositivo StorSimple. 
+Olá, a tabela a seguir lista dados de consumo de energia típico hello (os valores reais podem variar de saudação publicada) do hello vários modelos do dispositivo StorSimple. 
 
 | Condições | 240 V AC | 240 V AC | 240 V AC | 110 V AC | 110 V AC | 110 V AC |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -57,10 +57,10 @@ A tabela a seguir lista os dados de consumo de energia típicos (os valores reai
 |  Ventiladores rápidos, unidades acessando, um PSU ligado um ocioso |2,14 A |0,49 kW |1671,95 BTU/h |4,81 A |0,53 kW |1808,44 BTU/h |
 
 ## <a name="disk-drive-specifications"></a>Especificações da unidade de disco
-Seu dispositivo StorSimple oferece suporte a até 12 unidades de disco SAS (Serial Attached SCSI) fator forma de 3,5 polegadas. As unidades reais podem ser uma combinação de unidades de estado sólido (SSDs) ou de unidades de disco rígido (HDDs), dependendo da configuração do produto. Os 12 slots de unidade de disco estão localizados em uma configuração de 3 a 4 na frente do compartimento. O compartimento EBOD permite armazenamento adicional para outras 12 unidades de disco. Elas sempre serão HDDs.  
+Seu dispositivo StorSimple oferece suporte a unidades de disco SCSI Serial anexado (SAS) do fator de forma de 3,5 polegadas too12. unidades reais Olá podem ser uma mistura de unidades de estado sólido (SSDs) ou unidades de disco rígido (HDDs), dependendo da configuração de produto hello. 12 slots de unidade de disco Olá estão localizados em uma configuração de 3 a 4 na frente do compartimento de saudação. Olá compartimento EBOD possibilita o armazenamento adicional para outro 12 unidades de disco. Elas sempre serão HDDs.  
 
 ## <a name="storage-specifications"></a>Especificações do armazenamento
-Os dispositivos StorSimple têm uma mescla de unidades de disco rígido e de estado sólido para o 8100 e o 8600. A capacidade utilizável total para o 8100 e 8600 é cerca de 15 TB e 38 TB, respectivamente. A tabela a seguir documenta os detalhes da SSD, da HDD e da capacidade de nuvem no contexto da capacidade da solução StorSimple.
+dispositivos de StorSimple Olá tem uma mistura de unidades de disco rígido e unidades de estado sólidas para ambos os Olá 8100 e 8600. Olá total utilizável para Olá 8100 e 8600 são aproximadamente 15 TB e 38 TB respectivamente. Olá a tabela a seguir documenta os detalhes de saudação do SSD, unidade de disco rígido e a capacidade de nuvem no contexto Olá Olá capacidade de solução do StorSimple.
 
 | Modelo/capacidade do dispositivo | 8100 | 8600 |
 | --- | --- | --- |
@@ -74,33 +74,33 @@ Os dispositivos StorSimple têm uma mescla de unidades de disco rígido e de est
 | Capacidade total utilizável* |~ 15 TB |~ 38 TB |
 | Capacidade máxima da solução (incluindo a nuvem) |200 TB |500 TB |
 
-<sup>* </sup>- *A capacidade útil total inclui a capacidade disponível para dados, metadados e buffers.*
+<sup>* </sup>- *capacidade de uso total de saudação inclui capacidade Olá disponível para buffers de dados e metadados.*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Dimensões do compartimento e especificações de peso
-As tabelas a seguir listam as diversas especificações de compartimento para dimensões e peso.  
+Olá, lista de tabelas a seguir Olá diversas especificações do compartimento para dimensões e peso.  
 
 ### <a name="enclosure-dimensions"></a>Dimensões do compartimento
-A tabela a seguir lista as dimensões do compartimento em milímetros e em polegadas.
+Olá tabela a seguir lista as dimensões de saudação do compartimento de saudação em milímetros e polegadas.
 
 | Compartimento | Milímetros | Polegadas |
 | --- | --- | --- |
 | Altura |87,9 |3,46 |
 | Largura do flange de montagem |483 |19,02 |
 | Largura do corpo do compartimento |443 |17,44 |
-| Profundidade do flange de montagem frontal para a extremidade do corpo do compartimento |577 |22,72 |
-| Profundidade do painel de controle para a extremidade mais distante do compartimento |630,5 |24,82 |
-| Profundidade do flange de montagem até a extremidade mais distante do compartimento |603 |23,74 |
+| Profundidade de tooextremity do flange de fixação do corpo do compartimento |577 |22,72 |
+| Profundidade de operações de extremidade distante de toofurthest do compartimento do painel |630,5 |24,82 |
+| Profundidade do flange extremidade distante de toofurthest do compartimento de montagem |603 |23,74 |
 
 ### <a name="enclosure-weight"></a>Peso do compartimento
-Dependendo da configuração, um compartimento primário totalmente carregado pode pesar de 21 a 33 kg e requer duas pessoas para carregá-lo. 
+Dependendo da configuração de saudação, um compartimento principal totalmente carregado pode pesar de 21 kg de too33 e requer dois toohandle de pessoas-lo. 
 
 | Compartimento | Peso |
 | --- | --- |
-| Peso máximo (depende da configuração) |30 kg – 33 kg |
+| Peso máximo (depende da configuração de saudação) |30 kg – 33 kg |
 | Vazio (nenhuma unidade ajustada) |21 – 23 kg |
 
 ## <a name="enclosure-environment-specifications"></a>Especificações do ambiente de compartimento
-Esta seção lista as especificações relacionadas ao ambiente de compartimento. A temperatura, a umidade, a altitude, o choque, a vibração, a orientação, a segurança e a Compatibilidade Eletromagnética (EMC) estão incluídos nesta categoria.  
+Esta seção lista o ambiente de compartimento Olá especificações toohello relacionados. Olá temperatura, umidade, altitude, choque, vibração, orientação, segurança e compatibilidade eletromagnética (EMC) estão incluídos nessa categoria.  
 
 ### <a name="temperature-and-humidity"></a>Temperatura e umidade
 | Compartimento | Faixa de temperatura ambiente | Umidade relativa do ambiente | Umidade máxima da lâmpada |
@@ -111,49 +111,49 @@ Esta seção lista as especificações relacionadas ao ambiente de compartimento
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Fluxo de ar, altitude, choque, vibração, orientação, segurança e EMC
 | Compartimento | Especificações operacionais |
 | --- | --- |
-| Fluxo de ar |O ar do sistema flui da frente para a traseira. O sistema deve ser operado com uma instalação de exaustão traseira de baixa pressão. Pressão traseira criada por portas e obstáculos no rack não devem exceder 5 pascals (medidor de água de 0,5 mm). |
-| Altitude, operacional |-30 metros a 3045 metros (-100 pés a 10.000 pés) com a temperatura operacional máxima reduzida em 5°C acima dos 7000 pés. |
-| Altitude, não operacional |-305 metros a 12.192 metros (-1.000 pés a 40.000 pés) |
+| Fluxo de ar |Fluxo de ar do sistema é toorear frontal. O sistema deve ser operado com uma instalação de exaustão traseira de baixa pressão. Pressão traseira criada por portas e obstáculos no rack não devem exceder 5 pascals (medidor de água de 0,5 mm). |
+| Altitude, operacional |-30 metros too3045 metros (-100 pés too10, 000 pés) com temperatura máxima eliminação classificados por 5 ° C acima de 7.000 pés. |
+| Altitude, não operacional |-305 metros too12, 192 metros (-1.000 pés too40, 000 pés) |
 | Choque, operacional |Seno de 5g 10 ms ½ |
 | Choque, não operacional |Seno de 30g 10 ms ½ |
 | Vibração, operacional |0,21g RMS 5-500 Hz aleatório |
 | Vibração, não operacional |1,04g RMS 2-200 Hz aleatório |
 | Vibração, realocação |Seno de 3g 2-200 Hz |
 | Orientação e montagem |Montagem de rack de 19"(2 unidades EIA) |
-| Trilhos do rack |Para ajustar racks com profundidade mínima de 700 mm (31,50 polegadas) compatíveis com o IEC 297 |
+| Trilhos do rack |racks de profundidade de mínimo de 700 mm (31,50 polegadas) de toofit compatível com a IEC 297 |
 | Segurança e aprovações |CE e UL EN 61000-3, IEC 61000-3, UL 61000-3 |
 | EMC |EN55022 (CISPR - A), FCC A |
 
 ## <a name="international-standards-compliance"></a>Conformidade com padrões internacionais
-O dispositivo Microsoft Azure StorSimple está em conformidade com os seguintes padrões internacionais:  
+Seu dispositivo StorSimple do Microsoft Azure está em conformidade com hello padrões internacionais a seguir:  
 
 * CE - EN 60950 - 1  
-* Relatório CB para IEC 60950-1  
-* UL e cUL para UL 60950-1  
+* CB relatório tooIEC 60950-1  
+* UL e cUL tooUL 60950-1  
 
 ## <a name="safety-compliance"></a>Conformidade de segurança
-O dispositivo Microsoft Azure StorSimple atende às seguintes classificações de segurança:  
+Seu dispositivo do Microsoft Azure StorSimple atende Olá classificações de segurança a seguir:  
 
 * Aprovação do tipo de produto do sistema: UL, cUL, CE  
 * Conformidade de segurança: UL 60950, IEC 60950, EN 60950  
 
 ## <a name="emc-compliance"></a>Conformidade com EMC
-O dispositivo Microsoft Azure StorSimple atende às classificações EMC a seguir.  
+Seu dispositivo do Microsoft Azure StorSimple atende Olá classificações EMC a seguir.  
 
 ### <a name="emissions"></a>Emissões
-O dispositivo é compatível com EMC em relação aos níveis de emissões conduzidas e irradiadas.  
+dispositivo Olá é compatível com a EMC para níveis de emissões conduzidas e irradiadas.  
 
 * Níveis de limite de emissões conduzidas: CFR 47 Parte 15B classe A EN55022 Classe A CISPR Classe A  
 * Níveis de limite de emissões irradiadas: CFR 47 Parte 15B classe A EN55022 Classe A CISPR Classe A   
 
 ### <a name="harmonics-and-flicker"></a>Harmônicas e cintilação
-O dispositivo é compatível com EN61000-3-2/3.  
+dispositivo de saudação está de acordo com o EN61000-3-2/3.  
 
 ### <a name="immunity-limit-levels"></a>Níveis de limite de imunidade
-O dispositivo é compatível com EN55024.  
+dispositivo de saudação está de acordo com o EN55024.  
 
 ## <a name="ac-power-cord-compliance"></a>Conformidade do cabo de alimentação de CA
-O plugue e o conjunto completo do cabo de alimentação devem atender aos padrões adequados ao país em que o dispositivo está sendo usado, e devem ter aprovações de segurança aceitáveis nesse país. As tabelas a seguir listam os padrões para os EUA e a Europa.  
+Olá plug e hello completa montagem dos cabos de alimentação deve atender aos padrões de saudação apropriados para país Olá nos quais Olá dispositivo está sendo usado e eles devem ter as aprovações de segurança que são aceitáveis em que país. tabelas a seguir de saudação padrões de lista de saudação EUA e Europa.  
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>Cabos de alimentação de CA - EUA (devem estar listados no NRTL)
 | Componente | Especificação |
@@ -169,8 +169,8 @@ O plugue e o conjunto completo do cabo de alimentação devem atender aos padrõ
 | Soquete |IEC 320 C-13, 250 V, 10 A |
 
 ## <a name="supported-network-cables"></a>Cabos de rede com suporte
-Para as interfaces de rede 10 GbE, DATA 2 e DATA 3, consulte a [lista de módulos e cabos de rede com suporte](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
+Para interfaces de rede do hello 10 GbE, DATA 2 e 3 de dados, consulte toohello [lista de cabos de rede com suporte e módulos](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora, você está pronto para implantar um dispositivo StorSimple em seu datacenter. Para saber mais, confira [Implantando o dispositivo local](storsimple-deployment-walkthrough-u2.md).  
+Agora você está pronto toodeploy um dispositivo StorSimple em seu data center. Para saber mais, confira [Implantando o dispositivo local](storsimple-deployment-walkthrough-u2.md).  
 

@@ -1,5 +1,5 @@
 ---
-title: "Introdução aos ambientes do Serviço de Aplicativo do Azure"
+title: "ambientes de serviço de aplicativo do aaaIntroduction tooAzure"
 description: "Uma breve visão geral sobre os ambientes do Serviço de Aplicativo do Azure"
 services: app-service
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: e21c4c3e2c212d86a0dbe2211564c2e3a1acf819
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 9261041333cf59374974a039edf89c4983c45cdd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-app-service-environments"></a>Introdução aos ambientes do Serviço de Aplicativo #
+# <a name="introduction-tooapp-service-environments"></a>Ambientes de serviço tooApp de Introdução #
  
 ## <a name="overview"></a>Visão geral ##
 
@@ -33,20 +33,20 @@ Os ASEs (Ambientes do Serviço de Aplicativo) são apropriados para cargas de tr
 
 Os clientes podem criar vários ASEs dentro de uma única região do Azure, bem como entre várias regiões do Azure. Isso torna os ASEs ideais para escalar horizontalmente camadas de aplicativo sem monitoração de estado para dar suporte a cargas de trabalho RPS altas.
 
-Os ASEs são isolados para executar somente aplicativos de um único cliente e sempre são implantados em uma rede virtual. Os clientes têm controle refinado sobre o tráfego de rede de entrada e de saída do aplicativo. Os aplicativos podem estabelecer conexões seguras de alta velocidade por VPNs para recursos corporativos locais.
+ASs são isolado toorunning apenas os aplicativos de um único cliente e sempre são implantados em uma rede virtual. Os clientes têm controle refinado sobre o tráfego de rede de entrada e de saída do aplicativo. Aplicativos podem estabelecer conexões seguras de alta velocidade sobre os recursos corporativos VPNs tooon local.
 
-Todos os artigos e instruções sobre os ASEs estão disponíveis no [LEIAME para Ambientes do Serviço de Aplicativo][ASEReadme]:
+Todos os artigos e como-tooinstructions sobre ASs estão disponíveis em Olá [Leiame para ambientes de serviço de aplicativo][ASEReadme]:
 
-* Os ASEs permitem a hospedagem de aplicativos de grande escala com acesso à rede segura. Para obter mais informações, consulte o [Aprofundamento no AzureCon](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) sobre ASEs.
-* Vários ASEs podem ser usados para escalar horizontalmente. Para obter mais informações, consulte [Como configurar uma marca do aplicativo distribuído geograficamente](https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-geo-distributed-scale/).
-* ASEs podem ser usados para configurar a arquitetura de segurança, conforme mostrado no Aprofundamento no AzureCon. Para ver como a arquitetura de segurança exibida no AzureCon Deep Dive foi configurada, consulte o [artigo sobre a como implementar uma arquitetura de segurança em camadas](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-layered-security) com os ambientes do Serviço de Aplicativo.
+* Os ASEs permitem a hospedagem de aplicativos de grande escala com acesso à rede segura. Para obter mais informações, consulte Olá [mergulho profundo AzureCon](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) em ASs.
+* Vários ASs podem ser usado tooscale horizontalmente. Para obter mais informações, consulte [como tooset backup de um volume de aplicativo distribuído geograficamente](https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-geo-distributed-scale/).
+* ASs podem ser usado tooconfigure arquitetura de segurança, conforme mostrado no hello mergulho profundo AzureCon. toosee como a arquitetura de segurança Olá mostrada no hello mergulho profundo AzureCon foi configurada, consulte Olá [artigo sobre como tooimplement uma arquitetura de segurança em camadas](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-layered-security) com ambientes de serviço de aplicativo.
 * Os aplicativos executados nos ASEs podem ter seu acesso restrito por dispositivos upstream como WAFs (firewalls do aplicativo Web). Para saber mais, confira [Configurar um WAF para ambientes do Serviço de Aplicativo](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-web-application-firewall).
 
 ## <a name="dedicated-environment"></a>Ambiente dedicado ##
 
-Um ASE é dedicado exclusivamente a uma única assinatura e pode hospedar 100 instâncias. O intervalo pode abranger 100 instâncias em um único plano do Serviço de Aplicativo para a 100 planos do Serviço de Aplicativo de instância única e tudo que houver entre essas duas opções.
+É uma ASE dedicado exclusivamente tooa única assinatura e podem hospedar 100 instâncias. intervalo de saudação pode abranger 100 instâncias em um único planos de serviço de aplicativo do serviço de aplicativo plano too100 instância única e todos os aspectos.
 
-Um ASE é composto de funções de trabalho e front-ends. Os front-ends são responsáveis pela terminação HTTP/HTTPS, bem como pelo balanceamento de cargas automático de solicitações do aplicativo em um ASE. Os front-ends são automaticamente adicionados já que os planos de Serviço de Aplicativo no ASE são escalados horizontalmente.
+Um ASE é composto de funções de trabalho e front-ends. Os front-ends são responsáveis pela terminação HTTP/HTTPS, bem como pelo balanceamento de cargas automático de solicitações do aplicativo em um ASE. Front-ends são automaticamente adicionados como Olá planos de serviço de aplicativo no hello ASE são dimensionados.
 
 As funções de trabalho são funções que hospedam aplicativos cliente. As funções de trabalho estão disponíveis em três tamanhos fixos:
 
@@ -54,29 +54,29 @@ As funções de trabalho são funções que hospedam aplicativos cliente. As fun
 * Dois núcleos/7 GB de RAM
 * Quatro núcleos/14 GB de RAM
 
-Os clientes não precisam gerenciar os front-ends e as funções de trabalho. Toda a infraestrutura é adicionada automaticamente cconforme os clientes dimensionam os planos de Serviço do Aplicativo. Como os planos de Serviço de Aplicativo são criados ou dimensionados em um ASE, a infraestrutura necessária é adicionada ou removida conforme necessário.
+Os clientes não precisam trabalhadores e toomanage front-ends. Toda a infraestrutura é adicionada automaticamente cconforme os clientes dimensionam os planos de Serviço do Aplicativo. Como a criação ou expandidos em uma ASE planos do serviço de aplicativo, Olá necessário infraestrutura é adicionada ou removida conforme apropriado.
 
-Existe uma taxa mensal fixa para um ASE que paga pela infraestrutura e não altera com o tamanho do ASE. Além disso, há um custo por núcleo do plano do Serviço do Aplicativo. Todos os aplicativos hospedados no ASE estão em um SKU de preços Isolado. Para obter informações sobre preços de um ASE, consulte a página [Preços do Serviço de Aplicativo][Pricing] e examine as opções disponíveis para ASEs.
+Há uma taxa mensal simples para uma ASE paga a infraestrutura de saudação e não são alterados com tamanho de saudação do hello ASE. Além disso, há um custo por núcleo do plano do Serviço do Aplicativo. Todos os aplicativos hospedados em uma ASE estão em hello isolado preços SKU. Para obter informações sobre preços para uma ASE, consulte Olá [preços do serviço de aplicativo] [ Pricing] página e examine as opções disponíveis de saudação para ASs.
 
 ## <a name="virtual-network-support"></a>Suporte de rede virtual ##
 
-Um ASE pode ser criado apenas em uma rede virtual do Azure Resource Manager. Para saber mais sobre redes virtuais do Azure, consulte [Perguntas frequentes sobre redes virtuais do Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). Um ASE sempre existe em uma rede virtual e mais precisamente, dentro de uma sub-rede de uma rede virtual. Você pode usar os recursos de segurança de redes virtuais para controlar as comunicações de rede de entrada e de saída para seus aplicativos.
+Um ASE pode ser criado apenas em uma rede virtual do Azure Resource Manager. toolearn mais sobre redes virtuais do Azure, consulte Olá [perguntas Frequentes de redes virtuais do Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). Um ASE sempre existe em uma rede virtual e mais precisamente, dentro de uma sub-rede de uma rede virtual. Você pode usar os recursos de segurança de saudação do redes virtuais toocontrol de entrada e saída comunicações para seus aplicativos de rede.
 
 Um ASE pode ser voltado para a Internet com um endereço IP público ou voltado para o interior com apenas um endereço de ILB (balanceador de carga Interno) do Azure.
 
-[Grupos de Segurança de Rede][NSGs] restringem a comunicação de rede de entrada à sub-rede na qual um ASE reside. Você pode usar NSGs para executar aplicativos por trás de dispositivos e serviços upstream, tais como WAFs e provedores SaaS de rede.
+[Grupos de segurança de rede] [ NSGs] restringir a sub-rede de toohello de comunicações de rede de entrada onde uma ASE reside. Você pode usar os NSGs toorun aplicativos atrás de upstream dispositivos e serviços como WAFs e provedores de SaaS de rede.
 
-Aplicativos frequentemente precisam acessar recursos corporativos, como bancos de dados internos e serviços da Web. Se você implantar o ASE em uma rede virtual que tem uma conexão VPN à rede local, os aplicativos no ASE poderão acessar os recursos locais. Essa capacidade é verdadeira independentemente de a VPN ser uma VPN [Site a Site](https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/) ou [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/).
+Aplicativos frequentemente necessário tooaccess a recursos corporativos, como bancos de dados internos e serviços da web. Se você implantar Olá ASE em uma rede virtual que tenha uma rede de local de toohello de conexão VPN, aplicativos Olá Olá ASE podem acessar recursos de locais de saudação. Esse recurso é verdadeiro independentemente de é Olá VPN um [site a site](https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/) ou [rota expressa do Azure](http://azure.microsoft.com/services/expressroute/) VPN.
 
 Para obter mais informações sobre o funcionamento dos ASEs com redes virtuais e redes locais, consulte [Considerações de rede do Ambiente do Serviço de Aplicativo][ASENetwork].
 
 ## <a name="app-service-environment-v1"></a>Ambiente do Serviço de Aplicativo v1 ##
 
-O Ambiente do Serviço de Aplicativo tem duas versões: ASEv1 e ASEv2. As informações anteriores foram baseadas no ASEv2. Esta seção mostra as diferenças entre o ASEv1 e o ASEv2. 
+O Ambiente do Serviço de Aplicativo tem duas versões: ASEv1 e ASEv2. Olá informações anteriores foi baseado em ASEv2. Este mostra seção Olá diferenças entre ASEv1 e ASEv2. 
 
-No ASEv1, você precisa gerenciar todos os recursos manualmente. Isso inclui os front-ends, as funções de trabalho e os endereços IP usados para o SSL baseado em IP. Antes de poder escalar horizontalmente o plano do Serviço de Aplicativo, primeiro você precisa escalar horizontalmente o pool de trabalho no qual você deseja hospedá-lo.
+Em ASEv1, é necessário toomanage todos os recursos de Olá manualmente. Isso inclui front-ends hello, funcionários e endereços IP usados para SSL baseado em IP. Antes de você pode dimensionar seu plano de serviço de aplicativo, você precisa toofirst expandir pool do trabalhador Olá onde você deseja toohost-lo.
 
-O ASEv1 usa um modelo de preço diferente do ASEv2. No ASEv1, você paga por cada núcleo alocado. Isso inclui os núcleos usados para front-ends ou funções de trabalho que não hospedam nenhuma carga de trabalho. No ASEv1, o tamanho máximo de escala padrão de um ASE é de 55 hosts no total. Isso inclui funções de trabalho e front-ends. Uma vantagem do ASEv1 é que ele pode ser implantado em uma rede virtual clássica, bem como em uma rede virtual do Resource Manager. Para saber mais sobre o ASEv1, consulte [Introdução ao Ambiente do Serviço de Aplicativo v1][ASEv1Intro].
+O ASEv1 usa um modelo de preço diferente do ASEv2. No ASEv1, você paga por cada núcleo alocado. Isso inclui os núcleos usados para front-ends ou funções de trabalho que não hospedam nenhuma carga de trabalho. Em ASEv1, tamanho de máximo escala saudação padrão de uma ASE é 55 total de hosts. Isso inclui funções de trabalho e front-ends. Um tooASEv1 de vantagem é que ele pode ser implantado em uma rede virtual clássica e uma rede virtual do Gerenciador de recursos. toolearn mais sobre ASEv1, consulte [introdução do ambiente de serviço de aplicativo v1][ASEv1Intro].
 
 <!--Links-->
 [Intro]: ./intro.md

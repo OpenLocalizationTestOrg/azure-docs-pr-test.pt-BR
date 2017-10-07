@@ -1,6 +1,6 @@
 ---
-title: "Monitorar operações, eventos e contadores para o Balanceador de Carga | Microsoft Docs"
-description: "Saiba como habilitar o registro em log de eventos de alerta e do status da integridade de investigação para o Balanceador de Carga do Azure"
+title: "aaaMonitor operações, eventos e contadores de Balanceador de carga | Microsoft Docs"
+description: Saiba como tooenable eventos de alerta e teste o log de status de integridade para o balanceador de carga do Azure
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -14,56 +14,56 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-ms.openlocfilehash: 638ecd5e02889bd8cb6e7429dfcec335feaac4a3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ac53c2254e06cad780ad6144c5c30f0085d12576
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="log-analytics-for-azure-load-balancer"></a>Análise de log para Balanceador de Carga do Azure
 
-Você pode usar diferentes tipos de log no Azure para gerenciar e solucionar problemas de balanceadores de carga. Alguns desses logs podem ser acessados por meio do portal. Todos os logs podem ser extraídos de um armazenamento de blobs do Azure e exibidos em diferentes ferramentas, como o Excel e o PowerBI. Você pode saber mais sobre os diferentes tipos de logs na lista abaixo.
+Você pode usar diferentes tipos de logs no Azure toomanage e solucionar problemas de balanceadores de carga. Alguns desses logs podem ser acessado por meio do portal hello. Todos os logs podem ser extraídos de um armazenamento de blobs do Azure e exibidos em diferentes ferramentas, como o Excel e o PowerBI. Você pode aprender mais sobre Olá diferentes tipos de logs de lista de saudação abaixo.
 
-* **Logs de auditoria:** é possível usar os [Logs de Auditoria do Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conhecidos como Logs Operacionais) para exibir todas as operações que estão sendo enviadas à(s) sua(s) assinatura(s) do Azure, bem como seu status. Os logs de auditoria são habilitados por padrão e podem ser exibidos no portal do Azure.
-* **Logs de eventos de alerta:** Você pode usar esse log para ver quais alertas foram gerados para o balanceador de carga. O status do balanceador de carga é coletado a cada cinco minutos. Esse log será gravado somente se um evento de alerta do balanceador de carga for gerado.
-* **Logs de investigação de integridade:** Você pode usar esse log para exibir os problemas detectados pelo seu teste de integridade, como o número de instâncias no pool de back-end que não estão recebendo solicitações do balanceador de carga devido a falhas de investigação de integridade. Esse log é gravado quando há uma alteração no status de investigação de integridade.
+* **Logs de auditoria:** você pode usar [os Logs de auditoria do Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conhecido como Logs operacionais) tooview todas as operações que estão sendo enviado tooyour assinaturas do Azure e seu status. Logs de auditoria são habilitados por padrão e podem ser exibidos no portal do Azure de saudação.
+* **Logs de eventos de alerta:** você pode usar este rasied de alertas do log tooview pelo Balanceador de carga de saudação. status de Olá Olá balanceador de carga são coletados a cada cinco minutos. Esse log será gravado somente se um evento de alerta do balanceador de carga for gerado.
+* **Logs de investigação de integridade:** você pode usar esse problemas de tooview log detectado pelo seu teste de integridade, como o número de saudação de instâncias de seu pool de back-end que não estejam recebendo solicitações do balanceador de carga Olá devido a falhas de investigação de integridade. Esse log é gravado toowhen há uma alteração no status de investigação de integridade de saudação.
 
 > [!IMPORTANT]
-> Atualmente, a análise de log funciona somente para balanceadores de carga voltados para a Internet. Os logs estão disponíveis apenas para os recursos implantados no modelo de implantação do Gerenciador de Recursos. Você não pode usar logs para recursos do modelo de implantação clássico. Para saber mais sobre esses modelos de implantação, consulte [Understanding Resource Manager deployment and classic deployment (Noções básicas sobre a implantação do Resource Manager e a implantação clássica)](../azure-resource-manager/resource-manager-deployment-model.md).
+> Atualmente, a análise de log funciona somente para balanceadores de carga voltados para a Internet. Logs só estão disponíveis para os recursos implantados no modelo de implantação do Gerenciador de recursos de saudação. Você não pode usar os logs para recursos no modelo de implantação clássico hello. Para obter mais informações sobre modelos de implantação hello, consulte [Noções básicas sobre o Gerenciador de recursos de implantação e implantação clássica](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="enable-logging"></a>Habilitar o registro em log
 
-O log de auditoria é habilitado automaticamente para todos os recursos do Gerenciador de Recursos. Você precisa habilitar o registro em log da investigação de integridade e de eventos para começar a coletar os dados disponíveis por meio desses logs. Use as etapas a seguir para habilitar o registro em log.
+O log de auditoria é habilitado automaticamente para todos os recursos do Gerenciador de Recursos. Você precisará tooenable eventos e integridade investigação log toostart coletando dados de saudação disponíveis por meio desses logs. Use Olá log de tooenable as etapas a seguir.
 
-Entre no [portal do Azure](http://portal.azure.com). Se você ainda não tiver um balanceador de carga, [crie um](load-balancer-get-started-internet-arm-ps.md) antes de continuar.
+Entrar toohello [portal do Azure](http://portal.azure.com). Se você ainda não tiver um balanceador de carga, [crie um](load-balancer-get-started-internet-arm-ps.md) antes de continuar.
 
-1. No portal, clique em **Procurar**.
+1. No portal de saudação, clique em **procurar**.
 2. Selecione **Balanceadores de carga**.
 
     ![portal - balanceador de carga](./media/load-balancer-monitor-log/load-balancer-browse.png)
 
 3. Selecione um balanceador de carga existente >> **Todas as Configurações**.
-4. No lado direito da caixa de diálogo com o nome do balanceador de carga, role até **Monitoramento**, clique em **Diagnóstico**.
+4. Olá direita da caixa de diálogo de saudação em nome de Olá Olá do balanceador de carga, role muito**monitoramento**, clique em **diagnóstico**.
 
     ![portal - configurações do balanceador de carga](./media/load-balancer-monitor-log/load-balancer-settings.png)
 
-5. No painel **Diagnóstico**, em **Status**, selecione **Ativar**.
+5. Em Olá **diagnóstico** painel, em **Status**, selecione **em**.
 6. Clique em **Conta de Armazenamento**.
-7. Em **LOGS**, selecione uma conta de armazenamento existente ou crie uma nova. Use o controle deslizante para determinar por quantos dias os dados do evento serão mantidos nos logs de eventos. 
+7. Em **LOGS**, selecione uma conta de armazenamento existente ou crie uma nova. Use Olá controle deslizante toodetermine quantos dias a partir da data de evento será armazenada nos logs de eventos de saudação. 
 8. Clique em **Salvar**.
 
     ![Portal – Logs de diagnóstico](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
 > [!NOTE]
-> Os logs de auditoria não exigem uma conta de armazenamento separada. O uso do armazenamento para registro em log de eventos e da investigação de integridade incorrerá em cobranças de serviço.
+> Os logs de auditoria não exigem uma conta de armazenamento separada. Olá uso de armazenamento para integridade e eventos de log de teste incorrerão em encargos de serviço.
 
 ## <a name="audit-log"></a>Log de auditoria
 
-O log de auditoria é gerado por padrão. Os logs são preservados por 90 dias no repositório de Logs de Eventos do Azure. Saiba mais sobre esses logs lendo o artigo [Exibir logs de eventos e de auditoria](../monitoring-and-diagnostics/insights-debugging-with-events.md) .
+log de auditoria de saudação é gerado por padrão. Olá logs são preservados por 90 dias no armazenamento de Logs de eventos do Azure. Saiba mais sobre esses logs lendo Olá [exibir eventos e logs de auditoria](../monitoring-and-diagnostics/insights-debugging-with-events.md) artigo.
 
 ## <a name="alert-event-log"></a>Log de eventos de alerta
 
-Esse log só será gerado se você o tiver habilitado para cada balanceador de carga. Os dados são registrados no formato JSON e armazenados na conta de armazenamento especificada quando você habilitou o registro em log. Segue um exemplo de um evento.
+Esse log só será gerado se você o tiver habilitado para cada balanceador de carga. eventos de saudação são registrados no formato JSON e armazenados na conta de armazenamento Olá especificado quando você habilitou o log de saudação. a seguir Olá é um exemplo de um evento.
 
 ```json
 {
@@ -82,11 +82,11 @@ Esse log só será gerado se você o tiver habilitado para cada balanceador de c
 }
 ```
 
-A saída JSON mostra a propriedade *eventname* , que descreverá o motivo para o balanceador de carga ter criado um alerta. Nesse caso, o alerta gerado foi devido à exaustão da porta TCP causada pelos limites de NAT do IP de origem (SNAT).
+Olá JSON de saída mostra Olá *eventname* propriedade que descreve a razão Olá Olá balanceador de carga criado um alerta. Nesse caso, o alerta Olá gerado venceu esgotamento de porta de tooTCP causado por origem que limita IP NAT (SNAT).
 
 ## <a name="health-probe-log"></a>Log de investigação de integridade
 
-Esse log só será gerado se você o tiver habilitado para cada balanceador de carga, conforme detalhado acima. Os dados são armazenados na conta de armazenamento especificada quando você habilitou o registro em log. Um contêiner denominado 'insights-logs-loadbalancerprobehealthstatus' é criado e os seguintes dados são registrados:
+Esse log só será gerado se você o tiver habilitado para cada balanceador de carga, conforme detalhado acima. Olá dados são armazenados na conta de armazenamento Olá especificado quando você habilitou o log de saudação. Um contêiner denominado 'insights-logs-loadbalancerprobehealthstatus' é criado e Olá dados a seguir é registrada:
 
 ```json
 {
@@ -122,21 +122,21 @@ Esse log só será gerado se você o tiver habilitado para cada balanceador de c
 }
 ```
 
-A saída JSON mostra no campo de propriedades as informações básicas do status da integridade da investigação. A propriedade *dipDownCount* mostra o número total de instâncias no back-end que não estão recebendo tráfego de rede devido à falha nas respostas de investigação.
+a saída JSON Olá mostra no hello propriedades campo Olá informações básicas sobre status de integridade de investigação de saudação. Olá *dipDownCount* propriedade mostra o número total de saudação de instâncias Olá back-end que não estejam recebendo o tráfego de rede devido a respostas de investigação de toofailed.
 
-## <a name="view-and-analyze-the-audit-log"></a>Exibir e analisar o log de auditoria
+## <a name="view-and-analyze-hello-audit-log"></a>Exibir e analisar o log de auditoria de saudação
 
-Você pode exibir e analisar dados do log de auditoria usando qualquer um dos seguintes métodos:
+Você pode exibir e analisar dados de log de auditoria usando qualquer um dos métodos a seguir de saudação:
 
-* **Ferramentas do azure:** recupere informações dos logs de auditoria por meio do Azure PowerShell, a CLI (Interface de Linha de Comando) do Azure, a API REST do Azure ou o portal de visualização do Azure. Instruções passo a passo para cada método são detalhadas no artigo [Operações de auditoria com o Gerenciador de Recursos](../azure-resource-manager/resource-group-audit.md) .
-* **Power BI:** se você ainda não tiver uma conta do [Power BI](https://powerbi.microsoft.com/pricing), será possível experimentar gratuitamente. Usando o [Pacote de conteúdo dos Logs de Auditoria do Azure para Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), é possível analisar seus dados com painéis pré-configurados que ou é possível personalizar as exibições para elas se adequarem aos seus requisitos.
+* **Ferramentas do Azure:** recuperar informações de logs de auditoria Olá por meio do PowerShell do Azure, hello Azure Interface de linha de comando (CLI), Olá API REST do Azure, ou Olá portal de visualização do Azure. Instruções passo a passo para cada método são detalhadas no hello [operações com o Gerenciador de recursos de auditoria](../azure-resource-manager/resource-group-audit.md) artigo.
+* **Power BI:** se você ainda não tiver uma conta do [Power BI](https://powerbi.microsoft.com/pricing), será possível experimentar gratuitamente. Usando Olá [conteúdo de Logs de auditoria do Azure pack para o Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), você pode analisar seus dados com painéis pré-configurados, ou você pode personalizar exibições toosuit seus requisitos.
 
-## <a name="view-and-analyze-the-health-probe-and-event-log"></a>Exibir e analisar o log de eventos de investigação de integridade
+## <a name="view-and-analyze-hello-health-probe-and-event-log"></a>Exibir e analisar a investigação de integridade hello e log de eventos
 
-Você precisa se conectar à sua conta de armazenamento e recuperar as entradas de log JSON para logs de eventos e investigação de integridade. Depois de baixar os arquivos JSON, você pode convertê-los em CSV e exibi-lo no Excel, no PowerBI ou em qualquer outra ferramenta de visualização de dados.
+Você precisa de armazenamento de tooyour tooconnect de conta e recuperar entradas de log Olá JSON para logs de investigação de integridade e eventos. Depois de baixar os arquivos JSON hello, você pode convertê-los tooCSV e view no Excel, Power BI ou qualquer outra ferramenta de visualização de dados.
 
 > [!TIP]
-> Se estiver familiarizado com o Visual Studio e os conceitos básicos de alteração de valores de constantes e variáveis em C#, você poderá usar as [ferramentas de conversor de log](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponíveis no GitHub.
+> Se você estiver familiarizado com os conceitos básicos de alterar valores de constantes e variáveis em c# e o Visual Studio, você pode usar o hello [ferramentas de conversor de log](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponíveis no GitHub.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -1,6 +1,6 @@
 ---
-title: Perguntas frequentes sobre a nova pesquisa de logs do Log Analytics | Microsoft Docs
-description: "Este artigo fornece as perguntas frequentes sobre a atualização do Log Analytics para a nova linguagem de consulta."
+title: "Perguntas frequentes sobre a pesquisa de log nova análise aaaLog | Microsoft Docs"
+description: "Este artigo fornece as perguntas frequentes sobre atualização de saudação de análise de Log toohello nova linguagem de consulta."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -13,32 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/27/2017
 ms.author: bwren
-ms.openlocfilehash: d7bd0d780c265cc15ad09a73ede8c5a886005e37
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b8664c8329fab0547f270793fa13e8cdd06ba637
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Perguntas frequentes e problemas conhecidos sobre a nova pesquisa de logs do Log Analytics
 
-Este artigo inclui as perguntas frequentes e os problemas conhecidos sobre o upgrade do [Log Analytics para a nova linguagem de consulta](log-analytics-log-search-upgrade.md).  Leia o artigo na íntegra antes de tomar a decisão de fazer upgrade de seu espaço de trabalho.
+Este artigo inclui perguntas frequentes e problemas conhecidos sobre atualização de saudação do [toohello de análise de logs nova linguagem de consulta](log-analytics-log-search-upgrade.md).  Você deve ler todo este artigo antes de fazer Olá decisão tooupgrade seu espaço de trabalho.
 
 
 ## <a name="alerts"></a>Alertas
 
-### <a name="question-i-have-a-lot-of-alert-rules-do-i-need-to-create-them-again-in-the-new-language-after-i-upgrade"></a>Pergunta: Tenho várias regras de alerta. É necessário criá-las novamente na nova linguagem depois de atualizar?  
-Não, as regras de alerta são convertidas automaticamente para a nova linguagem de pesquisa durante a atualização.  
+### <a name="question-i-have-a-lot-of-alert-rules-do-i-need-toocreate-them-again-in-hello-new-language-after-i-upgrade"></a>Pergunta: Tenho várias regras de alerta. É necessário toocreate-los novamente em Olá novo idioma depois de atualizar?  
+Não, suas regras de alerta são automaticamente convertidos toohello nova linguagem de pesquisa durante a atualização.  
 
 
 ## <a name="computer-groups"></a>Grupos de computadores
 
-### <a name="question-im-getting-errors-when-trying-to-use-computer-groups--has-their-syntax-changed"></a>Pergunta: Recebo erros ao tentar usar grupos de computadores.  A sintaxe deles mudou?
-Sim, a sintaxe para usar grupos de computadores muda quando o espaço de trabalho é atualizado.  Consulte [Grupos de computadores em pesquisas de logs do Log Analytics](log-analytics-computer-groups.md) para obter detalhes.
+### <a name="question-im-getting-errors-when-trying-toouse-computer-groups--has-their-syntax-changed"></a>Pergunta: Estou recebendo erros durante a tentativa de toouse grupos de computadores.  A sintaxe deles mudou?
+Sim, sintaxe de saudação para usar o computador agrupa as alterações ao seu espaço de trabalho é atualizado.  Consulte [Grupos de computadores em pesquisas de logs do Log Analytics](log-analytics-computer-groups.md) para obter detalhes.
 
 ### <a name="known-issue-groups-imported-from-active-directory"></a>Problema conhecido: grupos importados do Active Directory
-No momento, não é possível criar uma consulta que usa um grupo de computadores importado do Active Directory.  Como uma solução alternativa até que esse problema seja corrigido, crie um novo grupo de computadores usando o grupo do Active Directory importado e, em seguida, use esse novo grupo na consulta.
+No momento, não é possível criar uma consulta que usa um grupo de computadores importado do Active Directory.  Como uma solução alternativa até que esse problema seja corrigido, criar um novo grupo de computadores usando o grupo do Active Directory Olá importado e, em seguida, usar esse novo grupo na consulta.
 
-Uma consulta de exemplo para criar um novo grupo de computadores que inclui um grupo do Active Directory importado é a seguinte:
+Uma consulta de exemplo toocreate um novo grupo de computadores que inclui um grupo do Active Directory importado é da seguinte maneira:
 
     ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "AD Group Name" and TimeGenerated >= ago(24h) | distinct Computer
 
@@ -46,54 +46,54 @@ Uma consulta de exemplo para criar um novo grupo de computadores que inclui um g
 ## <a name="dashboards"></a>Painéis
 
 ### <a name="question-can-i-still-use-dashboards-in-an-upgraded-workspace"></a>Pergunta: Ainda posso usar painéis em um espaço de trabalho atualizado?
-Você pode continuar usando os blocos adicionados ao **Meu Painel** antes do upgrade do espaço de trabalho, mas não pode editar esses blocos nem adicionar novos.  Você pode continuar criando e editando as exibições com o [Designer de Exibição](log-analytics-view-designer.md) e também criar painéis no portal do Azure.
+Você pode continuar toouse qualquer blocos que você adicionou muito**meu painel** antes de seu espaço de trabalho foi atualizado, mas você não pode editar esses blocos ou adicionar novos.  Você pode continuar toocreate e editar modos de exibição com [View Designer](log-analytics-view-designer.md) e também criar painéis no hello portal do Azure.
 
 
 ## <a name="log-searches"></a>Pesquisas de log
 
-### <a name="question-i-have-saved-searches-outside-of-my-upgraded-workspace-can-i-convert-them-to-the-new-search-language-automatically"></a>Pergunta: Tenho pesquisas salvas fora de meu espaço de trabalho atualizado. Posso convertê-las para a nova linguagem de pesquisa automaticamente?
-Você pode usar a ferramenta de conversão de linguagem na página de pesquisa de logs para converter cada uma delas.  Não há nenhum método para converter automaticamente várias pesquisas sem atualizar o espaço de trabalho.
+### <a name="question-i-have-saved-searches-outside-of-my-upgraded-workspace-can-i-convert-them-toohello-new-search-language-automatically"></a>Pergunta: Tenho pesquisas salvas fora de meu espaço de trabalho atualizado. Pode convertê-los toohello nova linguagem de pesquisa automaticamente?
+Você pode usar a ferramenta de conversão de linguagem Olá em tooconvert de página de pesquisa de log de saudação cada um.  Não há nenhuma conversão de tooautomatically método várias pesquisas sem atualizar o espaço de trabalho de saudação.
 
 ### <a name="question-why-are-my-query-results-not-sorted"></a>Pergunta: Por que os resultados de minha consulta não são classificados?
-Os resultados não são classificados por padrão na nova linguagem de consulta.  Use o [operador sort](https://go.microsoft.com/fwlink/?linkid=856079) para classificar os resultados por uma ou mais propriedades.
+Não, os resultados são classificados por padrão na nova linguagem de consulta hello.  Saudação de uso [operador sort](https://go.microsoft.com/fwlink/?linkid=856079) toosort os resultados por uma ou mais propriedades.
 
 ### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>Problema conhecido: os resultados da pesquisa em uma lista podem incluir propriedades sem dados
-Os resultados da pesquisa de logs em uma lista podem exibir propriedades sem dados.  Antes do upgrade, essas propriedades não seriam incluídas.  Esse problema será corrigido para que propriedades vazias não sejam exibidas.
+Os resultados da pesquisa de logs em uma lista podem exibir propriedades sem dados.  Tooupgrade anterior, essas propriedades não serão incluídas.  Esse problema será corrigido para que propriedades vazias não sejam exibidas.
 
 ### <a name="known-issue-selecting-a-value-in-a-chart-doesnt-display-detailed-results"></a>Problema conhecido: a seleção de um valor em um gráfico não exibe resultados detalhados
-Antes do upgrade, ao selecionar um valor em um gráfico, ele retornava uma lista detalhada de registros que correspondiam ao valor selecionado.  Após o upgrade, apenas a única linha resumida é retornada.  Esse problema está sendo investigado no momento.
+Tooupgrade anterior, quando você selecionar um valor em um gráfico, ele retornará uma lista detalhada dos registros de correspondência do valor de saudação selecionada.  Após a atualização, apenas Olá resumidos linha é retornada.  Esse problema está sendo investigado no momento.
 
 ## <a name="log-search-api"></a>API da Pesquisa de Log
 
-### <a name="question-does-the-log-search-api-get-updated-after-i-upgrade"></a>Pergunta: a API da Pesquisa de Logs é atualizada após o upgrade?
-A [API da Pesquisa de Logs](log-analytics-log-search-api.md) ainda não foi atualizada para a nova linguagem de pesquisa.  Continue usando a linguagem de consulta herdada com essa API, mesmo depois de fazer upgrade do espaço de trabalho.  A documentação atualizada estará disponível para a API da Pesquisa de Logs quando ela for atualizada.
+### <a name="question-does-hello-log-search-api-get-updated-after-i-upgrade"></a>Pergunta: Olá API de pesquisa de Log for atualizado depois de atualizar?
+Olá [API de pesquisa de Log](log-analytics-log-search-api.md) ainda não foi atualizado toohello nova linguagem de pesquisa.  Continue a linguagem de consulta herdados Olá toouse com essa API, mesmo depois que você atualizar seu espaço de trabalho.  Documentação atualizada ficarão disponível para Olá API de pesquisa de Log quando ele for atualizado.
 
 
 ## <a name="portals"></a>Portais
 
-### <a name="question-should-i-use-the-new-advanced-analytics-portal-or-keep-using-the-log-search-portal"></a>Pergunta: Devo usar o novo portal de Análise Avançada ou continuar usando o portal da Pesquisa de Logs?
-Veja uma comparação dos dois portais em [Portais para criar e editar consultas de log no Azure Log Analytics](log-analytics-log-search-portals.md).  Cada portal tem diferentes vantagens para que você possa escolher o melhor para seus requisitos.  É comum escrever consultas no portal de Análise Avançada e colá-las em outros lugares, como no Designer de Exibição.  Leia mais sobre os [problemas a serem considerados](log-analytics-log-search-portals.md#advanced-analytics-portal) ao fazer isso.
+### <a name="question-should-i-use-hello-new-advanced-analytics-portal-or-keep-using-hello-log-search-portal"></a>Pergunta: Devo usar Olá novo portal de análise avançada ou continuar a usar o portal de pesquisa de Log Olá?
+Você pode ver uma comparação de portais Olá dois em [portais para a criação e edição de consultas de log no Azure Log Analytics](log-analytics-log-search-portals.md).  Cada um tem vantagens distintas assim você pode escolher Olá uma melhor para suas necessidades.  É consultas comuns de toowrite no portal do Advanced Analytics hello e colá-los em outros lugares, como o Designer de exibição.  Você deve ler sobre [problemas tooconsider](log-analytics-log-search-portals.md#advanced-analytics-portal) quando fazer isso.
 
 
 ## <a name="power-bi"></a>Power BI
 
 ### <a name="question-does-anything-change-with-powerbi-integration"></a>Pergunta: alguma coisa muda com a integração do PowerBI?
-Sim.  Uma vez atualizado o espaço de trabalho, o processo para exportar dados do Log Analytics para o Power BI deixará de funcionar.  Todas as agendas existentes criadas antes da atualização serão desabilitadas.  Após fazer upgrade, o Azure Log Analytics utiliza a mesma plataforma do Application Insights e você usará o mesmo processo para exportar consultas do Log Analytics para o Power BI como no [processo para exportar consultas do Application Insights para o Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).
+Sim.  Depois que seu espaço de trabalho tiver sido atualizado, em seguida, processo Olá para exportar dados de análise de Log tooPower BI deixarão de funcionar.  Todas as agendas existentes criadas antes da atualização serão desabilitadas.  Após a atualização, usa a análise de Log do Azure Olá mesma plataforma como o Application Insights e usar Olá mesmo processo tooPower de consultas de análise de Log tooexport BI como [tooexport de processo de saudação do Application Insights consultas tooPower BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).
 
 ### <a name="known-issue-power-bi-request-size-limit"></a>Problema conhecido: limite de tamanho de solicitação do Power BI
-Atualmente, há um limite de tamanho de 8 MB para uma consulta do Log Analytics que pode ser exportada para o Power BI.  Esse limite será aumentado em breve.
+Atualmente, há um limite de tamanho de 8 MB para uma consulta de análise de Log que pode ser exportado tooPower BI.  Esse limite será aumentado em breve.
 
 
 ##<a name="powershell-cmdlets"></a>Cmdlets do PowerShell
 
-### <a name="question-does-the-log-search-powershell-cmdlet-get-updated-after-i-upgrade"></a>Pergunta: o cmdlet do PowerShell da Pesquisa de Logs é atualizado após o upgrade?
-O [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) ainda não foi atualizado para a nova linguagem de pesquisa.  Continue usando a linguagem de consulta herdada com esse cmdlet, mesmo depois de fazer upgrade do espaço de trabalho.  A documentação atualizada estará disponível para o cmdlet quando ele for atualizado.
+### <a name="question-does-hello-log-search-powershell-cmdlet-get-updated-after-i-upgrade"></a>Pergunta: Cmdlet do PowerShell de pesquisa de Log de saudação for atualizado depois de atualizar?
+Olá [AzureRmOperationalInsightsSearchResults Get](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) ainda não foi atualizado toohello nova linguagem de pesquisa.  Continue a linguagem de consulta herdados Olá toouse com esse cmdlet, mesmo depois que você atualizar seu espaço de trabalho.  Documentação atualizada ficarão disponível para o cmdlet hello quando ele for atualizado.
 
 
 ## <a name="resource-manager-templates"></a>Modelos do Gerenciador de Recursos
 
 ### <a name="question-can-i-create-an-upgraded-workspace-with-a-resource-manager-template"></a>Pergunta: Posso criar um espaço de trabalho atualizado com um modelo do Resource Manager?
-Sim.  Você deve usar a versão de API 2017-03-15-preview e incluir uma seção **recursos** no modelo, como no exemplo a seguir.
+Sim.  Você deve usar uma versão da API de 2017-03-15-visualização e incluir um **recursos** seção em seu modelo, como no exemplo a seguir de saudação.
 
     "resources": [
         {
@@ -117,45 +117,45 @@ Sim.  Você deve usar a versão de API 2017-03-15-preview e incluir uma seção 
 
 ## <a name="solutions"></a>Soluções
 
-### <a name="question-will-my-solutions-continue-to-work"></a>Pergunta: Minhas soluções continuarão funcionando?
-Todas as soluções continuarão funcionando em um espaço de trabalho atualizado, embora seu desempenho melhorará se elas forem convertidas na nova linguagem de consulta.  Há problemas conhecidos com algumas soluções existentes que são descritos nesta seção.
+### <a name="question-will-my-solutions-continue-toowork"></a>Pergunta: Meu soluções continuará toowork?
+Todas as soluções continuará toowork em um espaço de trabalho atualizado, embora seu desempenho melhorará se eles são convertidos toohello nova linguagem de consulta.  Há problemas conhecidos com algumas soluções existentes que são descritos nesta seção.
 
 ### <a name="known-issue-capacity-and-performance-solution"></a>Problema conhecido: solução Capacidade e Desempenho
-Algumas partes da exibição [Capacidade e Desempenho](log-analytics-capacity.md) podem estar vazias.  Uma correção para esse problema estará disponível em breve.
+Algumas das peças Olá Olá [capacidade e desempenho](log-analytics-capacity.md) a exibição pode ser vazia.  Um problema de toothis correção estará disponível em breve.
 
 ### <a name="known-issue-device-health-solution"></a>Problema conhecido: solução Integridade do Dispositivo
-A [solução Integridade do Dispositivo](https://docs.microsoft.com/windows/deployment/update/device-health-monitor) não coletará dados em um espaço de trabalho atualizado.  Uma correção para esse problema estará disponível em breve.
+Olá [solução de integridade do dispositivo](https://docs.microsoft.com/windows/deployment/update/device-health-monitor) não coletará dados em um espaço de trabalho atualizado.  Um problema de toothis correção estará disponível em breve.
 
 ### <a name="known-issue-application-insights-connector"></a>Problema conhecido: conector do Application Insights
-Atualmente, não há suporte para perspectivas na [solução Conector do Application Insights](log-analytics-app-insights-connector.md) em um espaço de trabalho atualizado.  Uma correção para esse problema está atualmente em análise.
+Atualmente, não há suporte para perspectivas na [solução Conector do Application Insights](log-analytics-app-insights-connector.md) em um espaço de trabalho atualizado.  Um problema de toothis correção está atualmente na análise.
 
 ## <a name="upgrade-process"></a>Processo de atualização
 
-### <a name="question-i-have-several-workspaces-can-i-upgrade-all-workspaces-at-the-same-time"></a>Pergunta: Tenho vários espaços de trabalho. Posso atualizar todos os espaços de trabalho ao mesmo tempo?  
-Não.  A atualização se aplica a um único espaço de trabalho por vez. Atualmente não há nenhuma maneira de atualizar vários espaços de trabalho ao mesmo tempo. Observe que outros usuários do espaço de trabalho atualizado também serão afetados.  
+### <a name="question-i-have-several-workspaces-can-i-upgrade-all-workspaces-at-hello-same-time"></a>Pergunta: Tenho vários espaços de trabalho. É possível atualizar todos os espaços de trabalho em Olá simultaneamente?  
+Não.  Atualização se aplica a tooa único espaço de trabalho cada vez. Atualmente não há nenhuma maneira de atualizar vários espaços de trabalho ao mesmo tempo. Observe que outros usuários do espaço de trabalho Olá atualizado serão afetados também.  
 
 ### <a name="question-will-existing-log-data-collected-in-my-workspace-be-modified-if-i-upgrade"></a>Pergunta: os dados de logs existentes coletados em meu espaço de trabalho serão modificados se eu fizer o upgrade?  
-Não. Os dados de log disponíveis para as pesquisas de espaço de trabalho não são afetados pela atualização. Pesquisas salvas, alertas e modos de exibição serão convertidos para a nova linguagem de pesquisa automaticamente.  
+Não. pesquisas de espaço de trabalho do Hello log dados tooyour disponível não é afetado pela atualização de saudação. Pesquisas salvas, alertas e modos de exibição serão convertidas toohello nova linguagem de pesquisa automaticamente.  
 
 ### <a name="question-what-happens-if-i-dont-upgrade-my-workspace"></a>Pergunta: o que acontecerá se eu não fizer o upgrade de meu espaço de trabalho?  
-A pesquisa de logs herdada será preterida nos próximos meses. Os espaços de trabalho que não forem atualizados até lá serão atualizados automaticamente.
+pesquisa de log herdados Hello será substituída em hello em meses. Os espaços de trabalho que não forem atualizados até lá serão atualizados automaticamente.
 
-### <a name="question-i-didnt-choose-to-upgrade-but-my-workspace-has-been-upgraded-anyway-what-happened"></a>Pergunta: Não optei pelo upgrade, mas meu espaço de trabalho foi atualizado mesmo assim! O que aconteceu?  
-Outro administrador deste espaço de trabalho pode ter atualizado o espaço de trabalho. Observe que todos os espaços de trabalho serão atualizados automaticamente quando a nova linguagem alcançar disponibilidade geral.  
+### <a name="question-i-didnt-choose-tooupgrade-but-my-workspace-has-been-upgraded-anyway-what-happened"></a>Pergunta: não escolher tooupgrade, mas o meu espaço de trabalho tiver sido atualizado assim mesmo! O que aconteceu?  
+Outro administrador deste espaço de trabalho foi atualizado com espaço de trabalho de saudação. Observe que todos os espaços de trabalho serão atualizados automaticamente quando a nova linguagem de saudação alcança disponibilidade geral.  
 
-### <a name="question-i-have-upgraded-by-mistake-and-now-need-to-cancel-it-and-restore-everything-back-what-should-i-do"></a>Pergunta: Fiz o upgrade por engano e agora preciso cancelá-lo e restaurar tudo. O que devo fazer?  
-Sem problema.  Criamos um instantâneo do seu espaço de trabalho antes da atualização, então você pode restaurá-lo. Tenha em mente que as pesquisas, os alertas ou os modos de exibição salvos após a atualização serão perdidos.  Para restaurar seu ambiente de espaço de trabalho, siga o procedimento em [Posso voltar atrás depois de fazer o upgrade?](log-analytics-log-search-upgrade.md#can-i-go-back-after-i-upgrade)
+### <a name="question-i-have-upgraded-by-mistake-and-now-need-toocancel-it-and-restore-everything-back-what-should-i-do"></a>Pergunta: atualizou por engano e agora precisa toocancel-lo e tudo o que fazer a restauração. O que devo fazer?  
+Sem problema.  Criamos um instantâneo do seu espaço de trabalho antes da atualização, então você pode restaurá-lo. Tenha em mente que procura, alertas ou exibições que você salvou após atualização hello serão perdida se.  toorestore seu ambiente de espaço de trabalho, no procedimento a seguir Olá [posso depois de atualizar?](log-analytics-log-search-upgrade.md#can-i-go-back-after-i-upgrade)
 
 
 ## <a name="views"></a>Modos de exibição
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>Pergunta: Como fazer para criar uma nova exibição com o Designer de Exibição?
-Antes do upgrade, era possível criar uma nova exibição com o Designer de Exibição por meio de um bloco no painel principal.  Quando o espaço de trabalho é atualizado, esse bloco é removido.  Crie uma nova exibição com o Designer de Exibição no portal do OMS clicando no botão + verde no menu à esquerda.
+Tooupgrade anterior, você pode criar um novo modo de exibição com o Designer de exibição de um bloco no painel principal hello.  Quando o espaço de trabalho é atualizado, esse bloco é removido.  Você pode criar um novo modo de exibição com o Designer de exibição no portal do OMS Olá clicando no botão no menu esquerdo Olá + Olá verde.
 
 ### <a name="known-issue-see-all-option-for-line-charts-in-views-doesnt-result-in-a-line-chart"></a>Problema conhecido: a opção Ver tudo em gráficos de linhas nas exibições não resulta em um gráfico de linhas
-Ao clicar na opção *Ver tudo* na parte inferior de uma parte do gráfico de linhas em uma exibição, você verá uma tabela.  Antes do upgrade, era mostrado um gráfico de linhas.  Esse problema está sendo analisado para uma modificação potencial.
+Quando você clica na Olá *ver todas as* opção na parte inferior de saudação de uma parte do gráfico de linha em uma exibição, você verá uma tabela.  Tooupgrade anterior, você verá um gráfico de linhas.  Esse problema está sendo analisado para uma modificação potencial.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [atualizar seu espaço de trabalho para a nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md).
+- Saiba mais sobre [atualizar seu espaço de trabalho toohello análise de logs nova linguagem de consulta](log-analytics-log-search-upgrade.md).

@@ -1,6 +1,6 @@
 ---
-title: Entender o limite de gastos do Azure | Microsoft Docs
-description: "Descreve como funciona o limite de gastos do Azure e como removê-lo"
+title: limite de gastos do Azure de aaaUnderstand | Microsoft Docs
+description: Descreve como funciona de limite de gastos do Azure e tooremove-lo
 services: 
 documentationcenter: 
 author: genlin
@@ -14,58 +14,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: genli
-ms.openlocfilehash: a2743ef34bde0faabb3afd2ace27acddd59d3d70
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: ed01401a07c3d0e7edebe42fb1482b7b60b1df51
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Entender o limite de gastos do Azure e como removê-lo
+# <a name="understand-azure-spending-limit-and-how-tooremove-it"></a>Entender o limite de gastos do Azure e como tooremove-lo
 
-O limite de gastos do Azure representa o quanto sua assinatura do Azure pode gastar. Todos os novos clientes que se inscreverem para a oferta de avaliação ou para ofertas que incluem créditos durante vários meses, terão um limite de gastos ativado por padrão. O limite de gastos é de $0. Isso não pode ser alterado. O limite de gastos não está disponível para tipos de assinatura como assinaturas pré-pagas e planos de comprometimento. Consulte a [lista completa de ofertas do Azure e a disponibilidade do limite de gastos](https://azure.microsoft.com/support/legal/offer-details/).
+O limite de gastos do Azure representa o quanto sua assinatura do Azure pode gastar. Todos os novos clientes que inscreverem-se para a oferta de avaliação de saudação ou ofertas que inclui os créditos em vários meses têm Olá ativado por padrão de limite de gastos. saudação de limite de gastos é $0. Isso não pode ser alterado. limite de gastos de saudação não está disponível para tipos de assinatura, como assinaturas de pré-pago e panos de compromisso. Consulte Olá [lista completa de ofertas do Azure e a disponibilidade de saudação do limite de gastos de saudação](https://azure.microsoft.com/support/legal/offer-details/).
 
-## <a name="what-happens-when-i-reach-the-spending-limit"></a>O que acontece quando eu alcanço o limite de gastos?
+## <a name="what-happens-when-i-reach-hello-spending-limit"></a>O que acontece quando eu alcançar o limite de gastos de saudação?
 
-Quando seu uso resultar em cobranças que consomem todas as quantias mensais incluídas em sua oferta, os serviços implantados serão desabilitados durante o restante do mês de cobrança. Por exemplo, os Serviços de Nuvem implantados são removidos do ambiente de produção, e suas máquinas virtuais do Azure são interrompidas e desalocadas. Para evitar que seus serviços sejam desabilitados, você pode escolher remover seu limite de gastos. Quando seus serviços forem desabilitados, os dados em suas contas de armazenamento e banco de dados estarão disponíveis como somente leitura para administradores. No início do próximo mês de cobrança, se sua oferta incluir créditos durante vários meses, sua assinatura será habilitada novamente. Depois, você pode reimplantar seus Serviços de Nuvem e ter acesso total às suas contas de armazenamento e bancos de dados.
+Quando seu uso resulta em encargos que utilize Olá quantidade mensal incluída na sua oferta, serviços de saudação implantado estão desabilitados para o restante de saudação do mês de cobrança. Por exemplo, os Serviços de Nuvem implantados são removidos do ambiente de produção, e suas máquinas virtuais do Azure são interrompidas e desalocadas. tooprevent seus serviços sejam desativados, você pode escolher tooremove seu limite de gastos. Quando os serviços estiverem desativados, dados de saudação em suas contas de armazenamento e bancos de dados estão disponíveis em um modo somente leitura para os administradores. Olá começo da saudação próximo mês de cobrança, se sua oferta inclui créditos em vários meses, sua assinatura será habilitada novamente. Em seguida, você pode reimplantar seus serviços de nuvem e tem bancos de dados e contas de armazenamento tooyour acesso completo.
 
-Quando a assinatura de avaliação gratuita atingir o limite de gastos, você poderá reativar a assinatura e [atualizá-la automaticamente para nossa oferta pré-paga padrão](billing-upgrade-azure-subscription.md) em até 90 dias.
+Depois que a assinatura de avaliação gratuita Olá atinge Olá limite de gastos, você pode reabilitar Olá assinatura e que ele seja automaticamente [oferta pré-pagas padrão de atualização tooour](billing-upgrade-azure-subscription.md) dentro de 90 dias.
 
-Você recebe notificações quando atinge o limite de gastos de sua oferta. Faça logon no [Centro de Contas do Azure](https://account.windowsazure.com), selecione **CONTA** e selecione **assinaturas**. Você recebe notificações sobre assinaturas que atingiram o limite de gastos.
+Você recebe notificações quando você atinge o limite de gastos para sua oferta de saudação. Faça logon no toohello [Centro de contas Azure](https://account.windowsazure.com), selecione **conta**e, em seguida, selecione **assinaturas**. Você verá as notificações sobre assinaturas que atingiram o limite de gastos de saudação.
 
 ## <a name="things-you-are-charged-for-even-if-you-have-a-spending-limit-enabled"></a>Coisas pelas quais você é cobrado mesmo que esteja com um limite de gastos habilitado
 
-Alguns serviços do Azure e [compras do Marketplace](https://azure.microsoft.com/marketplace/) podem decorrer em cobranças no método de pagamento (CC) mesmo se um limite de gastos for definido. Os exemplos são licenças do Visual Studio e Azure Active Directory Premium que dão suporte a planos e a maior parte dos serviços de marcas de terceiros vendidos pelo Marketplace.
+Alguns serviços do Azure e [compras no Marketplace](https://azure.microsoft.com/marketplace/) pode incorrer encargos no método de pagamento da saudação (CC) mesmo se um limite de gastos é definido. Os exemplos são licenças do Visual studio, Active Directory do Azure premium, planos de suporte e a maioria dos softwares de terceiros serviços vendidos pela Olá Marketplace com a marca.
 
 
-## <a name="when-not-to-use-the-spending-limit"></a>Quando não usar o limite de gastos
+## <a name="when-not-toouse-hello-spending-limit"></a>Quando não toouse Olá limite de gastos
 
-O limite de gastos pode evitar que você implante ou use determinados serviços da Microsoft e do Marketplace. Esses são os cenários em que você deve remover o limite de gastos na sua assinatura.
+limite de gastos de saudação pode impedir que você implantar ou usar determinados marketplace e serviços da Microsoft. Aqui estão os cenários de saudação onde você deve remover Olá limite de gastos em sua assinatura.
 
-- Você planeja implantar imagens primárias como o Oracle e serviços como o Visual Studio Team Services. Esse cenário fará com que você exceda seu limite de gastos quase imediatamente e sua assinatura será desabilitada.
+- Planejar toodeploy primeiras imagens de terceiros como Oracle e serviços como o Visual Studio Team Services. Este cenário faz com que você tooexceed seu limite de gastos quase imediatamente e faz com que seu toobe assinatura desabilitada.
 
 - Você tem serviços que não podem ser interrompidos.
 
-- Você tem serviços e recursos com configurações como endereços IP virtuais e que não deseja perder. Essa configurações são perdidas quando os serviços e recursos forem desalocados.
+- Serviços e recursos com configurações, como endereços de IP virtual que você não deseja toolose. Essas configurações são perdidas quando Olá serviços e recursos são desalocados.
 
 
-## <a name="remove-the-spending-limit"></a>Remover o limite de gastos
+## <a name="remove-hello-spending-limit"></a>Remover limite de gastos de saudação
 
-Você pode remover o limite de gastos em qualquer momento, contanto que haja um método de pagamento válido associado à sua assinatura. Para ofertas que tem crédito em vários meses, você pode também reabilitar o limite de gastos no começo do seu próximo ciclo de cobrança.
+Você pode remover Olá gastos limite a qualquer momento, como há um método de pagamento válido associado à sua assinatura. Para obter ofertas que tem crédito nos vários meses, você também pode habilitar novamente Olá limite de gastos no início de saudação do seu próximo ciclo de cobrança.
 
-Para remover seu limite de gastos, execute estas etapas:
+tooremove seu limite de gastos, siga estas etapas:
 
-1. Faça logon no [Centro de Contas do Azure](https://account.windowsazure.com).
+1. Faça logon no toohello [Centro de contas Azure](https://account.windowsazure.com).
 
 2. Selecione uma assinatura.
 
-3. Se a assinatura estiver desabilitada devido ao limite de gastos ter sido atingido, clique nessa notificação: "Assinatura alcançou o limite de gastos e foi desabilitada para evitar cobranças." Caso contrário, clique em **Remover limite de gastos** na área **STATUS DA ASSINATURA**.
+3. Se a assinatura de saudação é desabilitada devido toohello limite de gastos seja atingido, clique nesta notificação: "Assinatura atingiu o limite de gastos de saudação e foi desabilitado tooprevent encargos." Caso contrário, clique em **remover limite de gastos** em Olá **STATUS da assinatura** área.
 
 4. Selecione uma opção que é adequada para você.
 
 |Opção|Efeito|
 |-------|-----|
-|Remover o limite de gastos indefinidamente|Remove o limite de gastos sem ativá-lo automaticamente no início do próximo período de cobrança.|
-|Remover limite de gastos para o período de cobrança atual|Remove o limite de gastos para que ele seja ativado automaticamente no início do próximo período de cobrança.|
+|Remover o limite de gastos indefinidamente|Remove o limite de gasto sem ativá-lo automaticamente no início de saudação do hello próximo período de cobrança de saudação.|
+|Remover limite de gastos para Olá atual período de cobrança|Remove o limite de gastos para que ele ativa novamente automaticamente no início de saudação do hello próximo período de cobrança de saudação.|
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
-Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+Se você ainda precisar de Ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) tooget seu problema resolvido rapidamente.

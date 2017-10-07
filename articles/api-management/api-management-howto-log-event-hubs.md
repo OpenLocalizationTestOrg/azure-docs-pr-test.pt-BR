@@ -1,6 +1,6 @@
 ---
-title: Como registrar eventos nos Hubs de Eventos do Azure no Gerenciamento de API do Azure | Microsoft Docs
-description: Saiba como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API do Azure
+title: aaaHow toolog eventos tooAzure Hubs de eventos de gerenciamento de API do Azure | Microsoft Docs
+description: Saiba como toolog eventos tooAzure Hubs de eventos de gerenciamento de API do Azure.
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,92 +14,92 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: a310236179677046ec49930b07cfdffdadc37974
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 09ca65fc48a874467c6662858f7594e9b19fcdb9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API do Azure
-Hub de Eventos do Azure é um serviço de entrada de dados altamente escalonável que pode incluir milhões de eventos por segundo, para que você possa processar e analisar grandes quantidades de dados produzidos por seus aplicativos e dispositivos conectados. Hub de Eventos age como a "porta de entrada” para um pipeline de eventos e depois que os dados são coletados em um hub de eventos, ele pode ser transformado e armazenado usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Hub de Eventos separa a produção de um fluxo de eventos do consumo desses eventos, para que os consumidores de eventos possam acessar os eventos em seu próprio cronograma.
+# <a name="how-toolog-events-tooazure-event-hubs-in-azure-api-management"></a>Como toolog eventos tooAzure Hubs de eventos de gerenciamento de API do Azure
+Hubs de eventos do Azure é um serviço de entrada de dados altamente escalonável que pode acomodar milhões de eventos por segundo, para que você possa processar e analisar Olá grandes quantidades de dados produzidos por seus aplicativos e dispositivos conectados. Hubs de eventos age como hello "porta da frente" para um pipeline de eventos, e depois que os dados são coletados em um hub de eventos que pode ser transformado e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Hubs de eventos separa a produção de hello de um fluxo de eventos do consumo Olá desses eventos, para que os consumidores de evento possam acessar eventos de saudação em suas próprias agendas.
 
-Este artigo é um complemento para o [integrar o Gerenciamento de API do Azure com vídeos dos Hubs de eventos](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) e descreve como registrar eventos de Gerenciamento de API usando Hubs de eventos do Azure.
+Este artigo é um complemento toohello [integrar o gerenciamento de API do Azure com Hubs de eventos](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) vídeo e descreve como eventos de gerenciamento de API toolog usando Hubs de eventos do Azure.
 
 ## <a name="create-an-azure-event-hub"></a>Criar um Hub de Eventos do Azure
-Para criar um novo Hub de Eventos, entre no [portal clássico do Azure](https://manage.windowsazure.com) e clique em **Novo**->**Serviços de Aplicativos**->**Barramento de Serviço**->**Hub de Eventos**->**Criação Rápida**. Insira um nome de Hub de Eventos, uma região, selecione uma assinatura e selecione um namespace. Se você ainda não tiver criado um namespace, poderá criar um inserindo um nome na caixa de texto **Namespace** . Depois que todas as propriedades estiverem configuradas, clique em **Criar um novo Hub de Eventos** para criar o Hub de Eventos.
+toocreate um novo Hub de eventos, entrar toohello [portal clássico do Azure](https://manage.windowsazure.com) e clique em **novo**->**serviços de aplicativos**->**barramento de serviço**  -> **Hub de eventos**->**criação rápida**. Insira um nome de Hub de Eventos, uma região, selecione uma assinatura e selecione um namespace. Se você ainda não criou um namespace você pode criar um, digitando um nome na Olá **Namespace** caixa de texto. Quando todas as propriedades são configuradas, clique em **criar um novo Hub de evento** toocreate Olá Hub de eventos.
 
 ![Criar hub de eventos][create-event-hub]
 
-Em seguida, navegue até a guia **Configurar** do novo Hub de Eventos e crie duas **políticas de acesso compartilhado**. Nomeie a primeira como **Envio** e conceda a ela permissões de **Envio**.
+Em seguida, navegue toohello **configurar** guia para o novo Hub de eventos e criar duas **políticas de acesso compartilhado**. Nome hello primeiro **envio** e dê a ele **enviar** permissões.
 
 ![Política de envio][sending-policy]
 
-Nomeie a segunda como **Recebimento**, conceda a ela permissões de **Escuta** e clique em **Salvar**.
+Nome hello segunda **recebendo**, dê a ele **escutar** permissões e clique em **salvar**.
 
 ![Política de recebimento][receiving-policy]
 
-Cada política de acesso compartilhado permite que aplicativos enviem e recebam eventos de e para o Hub de Eventos. Para acessar as cadeias de conexão dessas políticas, navegue até a guia **Painel** do Hub de Eventos e clique em **Informações de conexão**.
+Cada política de acesso compartilhado permite que aplicativos toosend e receba eventos tooand de saudação Hub de eventos. cadeias de conexão de saudação tooaccess para essas políticas, navegar toohello **painel** guia de saudação Hub de eventos e clique em **informações de Conexão**.
 
 ![Cadeia de conexão][event-hub-dashboard]
 
-A cadeia de conexão de **Envio** é usada ao registrar eventos em log e a cadeia de conexão de **Recebimento** é usada ao baixar eventos do Hub de Eventos.
+Olá **envio** cadeia de caracteres de conexão é usada quando o log de eventos e hello **recebendo** cadeia de caracteres de conexão é usada durante o download de eventos de saudação Hub de eventos.
 
 ![Cadeia de conexão][event-hub-connection-string]
 
 ## <a name="create-an-api-management-logger"></a>Criar um agente de Gerenciamento de API
-Agora que você tem um Hub de Eventos, a próxima etapa será configurar um [Agente](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) no seu serviço de Gerenciamento de API para que ele possa registrar eventos em log para o Hub de Eventos.
+Agora que você tem um Hub de eventos, Olá próxima etapa é tooconfigure uma [agente](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) no seu gerenciamento de API de serviço para que possa registrar eventos toohello Hub de eventos.
 
-Os agentes do Gerenciamento de API são configurados usando a [API REST do Gerenciamento de API](http://aka.ms/smapi). Antes de usar a API REST pela primeira vez, examine os [pré-requisitos](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#Prerequisites) e verifique se você [habilitou o acesso à API REST](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#EnableRESTAPI).
+Agentes de gerenciamento de API são configurados usando Olá [API de REST de gerenciamento de API](http://aka.ms/smapi). Antes de usar o hello API REST para Olá primeira vez, examine Olá [pré-requisitos](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#Prerequisites) e certifique-se de que você tenha [habilitado acesso toohello API REST](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#EnableRESTAPI).
 
-Para criar um agente de log, faça uma solicitação HTTP PUT usando o modelo de URL a seguir.
+toocreate um agente, fazer uma solicitação HTTP PUT usando Olá modelo de URL a seguir.
 
 `https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
 
-* Substitua `{your service}` pelo nome da sua instância do serviço de Gerenciamento de API.
-* Substitua `{new logger name}` pelo nome desejado para o novo agente. Você fará referência a esse nome quando configurar a política [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+* Substituir `{your service}` com o nome de saudação da sua instância do serviço de gerenciamento de API.
+* Substituir `{new logger name}` com o nome desejado para o novo agente hello. Você fará referência a esse nome ao configurar Olá [log-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) política
 
-Adicione os cabeçalhos a seguir à solicitação.
+Adicione Olá cabeçalhos toohello solicitação a seguir.
 
 * Content-Type : application/json
 * Authorization : SharedAccessSignature 58...
-  * Para saber mais sobre como gerar a `SharedAccessSignature` , confira [Autenticação da API REST do Gerenciamento de API do Azure](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication).
+  * Para obter instruções sobre como gerar Olá `SharedAccessSignature` consulte [autenticação de API de REST de gerenciamento do Azure API](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication).
 
-Especifique o corpo da solicitação usando o modelo a seguir.
+Especifique o corpo da solicitação hello usando Olá modelo a seguir.
 
 ```json
 {
   "type" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
-    "name" : "Name of the Event Hub from the Azure Classic Portal",
+    "name" : "Name of hello Event Hub from hello Azure Classic Portal",
     "connectionString" : "Endpoint=Event Hub Sender connection string"
     }
 }
 ```
 
-* `type` deve ser definido como `AzureEventHub`.
-* `description` fornece uma descrição opcional do agente e pode ser uma cadeia de caracteres de comprimento zero, se desejado.
-* `credentials` contém `name` e `connectionString` do seu Hub de Eventos do Azure.
+* `type`deve ser definido muito`AzureEventHub`.
+* `description`Fornece uma descrição opcional do agente de log hello e pode ser uma cadeia de caracteres de comprimento zero, se desejado.
+* `credentials`contém Olá `name` e `connectionString` do seu Hub de eventos do Azure.
 
-Quando você fizer a solicitação, se o agente for criado, um código de status `201 Created` será retornado
+Quando você faz a solicitação hello, se o agente de log de saudação é criado um código de status `201 Created` é retornado.
 
 > [!NOTE]
-> Para outros códigos de retorno possíveis e seus motivos, confira [Criar um agente](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity#PUT). Para saber como executar outras operações, por exemplo, listar, atualizar e excluir, confira a documentação da entidade [Agente](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) .
+> Para outros códigos de retorno possíveis e seus motivos, confira [Criar um agente](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity#PUT). toosee como executar outras operações, como lista, update e delete, consulte Olá [agente](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) documentação de entidade.
 >
 >
 
 ## <a name="configure-log-to-eventhubs-policies"></a>Configurar políticas log-to-eventhubs
-Depois que o agente de log estiver configurado no Gerenciamento de API, você poderá configurar suas políticas log-to-eventhubs para registrar os eventos desejados em log. A política log-to-eventhubs pode ser usada na seção de política de entrada ou na seção de política de saída.
+Quando o agente de log está configurado no gerenciamento de API, você pode configurar os eventos do log-eventhubs políticas toolog Olá desejado. Olá log-eventhubs política pode ser usada em qualquer Olá Olá políticas seção quanto política de entrada.
 
-Para configurar as políticas, entre no [portal do Azure](https://portal.azure.com), navegue até seu serviço de Gerenciamento de API e clique em **portal do Editor** para acessar o portal do editor.
+políticas de tooconfigure, entrar toohello [portal do Azure](https://portal.azure.com), navegue tooyour serviço de gerenciamento de API e clique em **portal do publicador** tooaccess Olá portal do publicador.
 
 ![Portal do editor][publisher-portal]
 
-Clique em **Políticas** no menu do Gerenciamento de API à esquerda, selecione o produto e a API desejados e clique em **Adicionar política**. Neste exemplo, estamos adicionando uma política à **API de Eco** no produto **Unlimited**.
+Clique em **políticas** no menu de gerenciamento de API Olá Olá esquerda, selecione o produto desejado hello e API e clique em **adicionar política**. Neste exemplo, estamos adicionando uma política toohello **Echo API** em Olá **Unlimited** produto.
 
 ![Adicionar política][add-policy]
 
-Posicione o cursor na seção da política `inbound` e clique na política **Registrar no EventHub** para inserir o modelo de instrução da política `log-to-eventhub`.
+Posicione o cursor no hello `inbound` política seção e clique em Olá **Log tooEventHub** Olá de tooinsert política `log-to-eventhub` modelo de política de instrução.
 
 ![Editor de políticas][event-hub-policy]
 
@@ -109,11 +109,11 @@ Posicione o cursor na seção da política `inbound` e clique na política **Reg
 </log-to-eventhub>
 ```
 
-Substitua `logger-id` pelo nome do agente de Gerenciamento de API que você configurou na etapa anterior.
+Substituir `logger-id` com o nome de saudação do agente de gerenciamento de API Olá configurada na etapa anterior hello.
 
-Você pode usar qualquer expressão que retorne uma cadeia de caracteres como o valor do elemento `log-to-eventhub` . Neste exemplo, é registrada em log uma cadeia de caracteres que com a data e hora, o nome do serviço, a ID da solicitação, o endereço IP da solicitação e o nome da operação.
+Você pode usar qualquer expressão que retorna uma cadeia de caracteres como valor Olá Olá `log-to-eventhub` elemento. Neste exemplo, uma cadeia de caracteres que contém a saudação data e hora, nome do serviço, id da solicitação, endereço de ip da solicitação e o nome da operação é registrada.
 
-Clique em **Salvar** para salvar a configuração da política atualizada. Assim que for salva, a política estará ativa e os eventos serão registrados em log para o Hub de Eventos designado.
+Clique em **salvar** toosave Olá atualizados de configuração de política. Assim que ele é salvo Olá diretiva não estiver ativa e os eventos são registrado toohello designado Hub de eventos.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre Hubs de Eventos do Azure

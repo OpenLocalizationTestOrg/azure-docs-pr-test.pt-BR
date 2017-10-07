@@ -1,5 +1,5 @@
 ---
-title: "Endereços IP usados pelo Application Insights | Microsoft Docs"
+title: "endereços de aaaIP usados pelo Application Insights | Microsoft Docs"
 description: "Exceções de firewall de servidor exigidas pelo Application Insights"
 services: application-insights
 documentationcenter: .net
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/11/2017
 ms.author: bwren
-ms.openlocfilehash: 3bb076c63223fc1567c6b7b25c1a513bbc81ed58
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 2c101b8da2ba9594fbff607f4f7551cda80c3c25
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="ip-addresses-used-by-application-insights"></a>Endereços IP usados pelo Application Insights
-O serviço [Azure Application Insights](app-insights-overview.md) usa vários endereços IP. Talvez seja necessário conhecer esses endereços se o aplicativo que você está monitorando estiver hospedado atrás de um firewall.
+Olá [Azure Application Insights](app-insights-overview.md) serviço usa um número de endereços IP. Talvez seja necessário tooknow esses endereços se o aplicativo hello que você está monitorando é hospedado por trás de um firewall.
 
 > [!NOTE]
-> Embora esses endereços sejam estáticos, é possível que seja necessário alterá-los de tempos em tempos.
+> Embora esses endereços são estáticos, é possível que precisaremos toochange de tootime de tempo.
 > 
 > 
 
 ## <a name="outgoing-ports"></a>Portas de saída
-Você precisa abrir algumas portas de saída no firewall do servidor para permitir que o SDK do Application Insights e/ou o Monitor de Status envie dados para o portal:
+É necessário tooopen algumas portas de saída em Olá tooallow de firewall do servidor SDK do Application Insights e/ou o portal do Monitor de Status toosend dados toohello:
 
 | Finalidade | URL | IP | Portas |
 | --- | --- | --- | --- |
@@ -56,7 +56,7 @@ Configuração do Monitor de Status - necessária somente ao fazer alterações.
 | Dados de falha |gate.hockeyapp.net |104.45.136.42 |80, 443 |
 
 ## <a name="availability-tests"></a>Testes de disponibilidade
-Esta é a lista de endereços a partir dos quais [testes da web de disponibilidade](app-insights-monitor-web-app-availability.md) são executados. Se você deseja executar testes da Web em seu aplicativo, mas o servidor Web está restrito a servir clientes específicos, você precisa permitir o tráfego de entrada dos nossos servidores de teste de disponibilidade.
+Esta é a lista Olá de endereços do qual [testes da web de disponibilidade](app-insights-monitor-web-app-availability.md) são executados. Se você deseja toorun web testes no seu aplicativo, mas seu servidor web é restrito tooserving de clientes específicos, em seguida, você terá o tráfego de entrada de toopermit de nossos servidores de teste de disponibilidade.
 
 Abra as portas 80 (http) e 443 (https) para o tráfego de entrada destes endereços (endereços IP são agrupados por local):
 

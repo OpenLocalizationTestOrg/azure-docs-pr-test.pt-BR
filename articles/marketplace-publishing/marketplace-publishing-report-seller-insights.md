@@ -1,6 +1,6 @@
 ---
-title: "Entendendo os relatórios baseados em uso e relatórios de insights do vendedor do Azure Marketplace | Microsoft Docs"
-description: "Como um vendedor no Azure Marketplace, entenda seu relatório baseado em uso, também conhecido como um relatório de insights do vendedor"
+title: "aaaUnderstanding Azure Marketplace relatórios com base em uso e informações do vendedor reporting | Microsoft Docs"
+description: "Como um vendedor de saudação do Azure Marketplace, entender seu relatório com base em uso, também conhecido como um relatório de informações do vendedor"
 services: Azure Marketplace
 documentationcenter: na
 author: v-jeana
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
-ms.openlocfilehash: e098e27e32f7b7ae2009580a430f262aa7225206
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a9aa09a84ddce94acd5b988155b8af98edec766f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="understand-your-seller-insights-report"></a>Entenda o relatório de insights do vendedor
 **O que são os Insights do Vendedor?**
@@ -27,12 +27,12 @@ Todas as editoras de serviços do desenvolvedor com cobrança baseada no uso e V
 
 **O que eu receberei?**
 
-* **Email de boas-vindas:** como uma nova editora, você receberá um email de boas-vindas para notificá-lo de que você irá começar a receber os relatórios mensais de insights do vendedor.
-* **Relatórios de vendas mensais:** se tiver usado, você receberá um segundo email com seus relatórios e instruções sobre como acessar sua senha:
+* **Email de boas-vindas:** como um novo editor, você receberá um email de boas-vindas toonotify é que você comece a receber relatórios mensais do insights Olá vendedor.
+* **Relatórios de vendas mensais:** se você tiver o uso, você receberá um segundo email que contém os relatórios e instruções sobre como tooaccess sua senha:
 
-  * Se você tiver uma VM ou SKU de serviços do desenvolvedor com cobrança baseada em uso, seu relatório mensal mostrará a você detalhes sobre pedidos, uso, mercados e detalhes do cliente de suas ofertas.
-  * Esses arquivos são bloqueados com uma senha que apenas você e a Microsoft sabem para proteger os dados de seus clientes.
-  * A Microsoft não enviará um relatório se nenhuma de suas ofertas tiver gerado uso durante o mês.
+  * Se você tiver uma máquina virtual ou baseada em uso cobrança serviços do desenvolvedor SKU que está gerando o uso, seu relatório mensal mostrará detalhes sobre pedidos de saudação, uso, mercados e detalhes do cliente para suas ofertas.
+  * Relatórios são bloqueados com uma senha que só você e a Microsoft sabem em ordem tooprotect os dados dos clientes.
+  * Microsoft não enviará um relatório se nenhuma das suas ofertas geraram uso durante o mês de saudação.
 
 ## <a name="understand-your-seller-insights-report"></a>Entenda o relatório de insights do vendedor
 **Pedidos por tipo de licença e SKU: guia Pedidos do Marketplace**
@@ -42,7 +42,7 @@ Todas as editoras de serviços do desenvolvedor com cobrança baseada no uso e V
 * As segmentações de dados ajudarão a filtrar o relatório por cada elemento.
 * Um gráfico mostra pedidos mensais por tipo de licença do Azure. Cada barra mostra o total de pedidos para aquele mês, divididos por tipo de licença do Azure.
 * Um gráfico mostra pedidos mensais por SKU. Cada barra mostra os pedidos mensais totais para todas as SKUs, divididos por SKU.
-* Um gráfico mostra a tendência mensal dos pedidos por tipo de licença do Azure e por tipo de licença do Marketplace.
+* Um gráfico mostra a tendência mensal Olá de pedidos por tipo de licença do Azure e o tipo de licença do Azure Marketplace.
 * Um gráfico de pizza exibe os pedidos por tipo de licença do Azure e por tipo de licença do Marketplace.
 * Uma tabela mostra o total de pedidos mensais por tipo de licença do Marketplace, totais mensais e totais acumulados para todos os meses.
 
@@ -54,13 +54,13 @@ Todas as editoras de serviços do desenvolvedor com cobrança baseada no uso e V
 * Você deve selecionar o uso da VM normalizado ou uso bruto.
 * Um gráfico mostra o uso mensal por tipo de licença do Azure. Cada barra mostra o total de uso para aquele mês, dividido por tipo de licença do Azure.
 * Um gráfico mostra o uso mensal por SKU. Cada barra mostra o uso mensal total para todas as SKUs, dividido por SKU.
-* Um gráfico mostra a tendência mensal do uso por tipo de licença do Azure e por tipo de licença do Marketplace.
+* Um gráfico mostra a tendência de saudação mensal de uso por tipo de licença do Azure e o tipo de licença do Marketplace.
 * Um gráfico de pizza exibe o uso por tipo de licença do Azure e por tipo de licença do Marketplace.
 * Uma tabela mostra o total de uso mensal por tipo de licença do Marketplace, totais mensais e totais acumulados para todos os meses.
 
 **Guias Dados do pedido e Dados de uso**
 
-Essas guias fornecem os dados detalhados usados para gerar o relatório.
+Essas guias fornecem Olá detalhada relatório de saudação toogenerate os dados usados.
 
 ![orderdata][4]
 
@@ -70,37 +70,36 @@ Essas guias fornecem os dados detalhados usados para gerar o relatório.
 
 ![customerstab][6]
 
-* Observe a cláusula de confidencialidade.
+* Cláusula de confidencialidade de saudação de observação.
 * Essa guia contém uma lista de clientes por SKU, informações de perfil, data da transação e aceitação do contato promocional.
-* O relatório inclui a contagem de pedidos por SKU e totais.
+* relatório de saudação inclui contagem dos pedidos do SKU e totais.
 
 **Isenção de responsabilidade legal**
 
 ![legal][1]
 
-Leia atentamente a isenção de responsabilidade legal. Se você tiver perguntas ou comentários, clique no link na parte inferior da isenção de responsabilidade para ser encaminhado para a página de suporte do Marketplace.
+Leia com atenção avisos legais hello. Se você tiver perguntas ou comentários, clique em link Olá final Olá Olá isenções toobe roteada toohello página de suporte do Marketplace.
 
 ## <a name="request-a-password-reminder"></a>Solicitar um lembrete da senha
-Navegue para https://publish.windowsazure.com/ e entre com as credenciais da sua conta da Microsoft.
+Navegue toohttps://publish.windowsazure.com/ e entre com suas credenciais de conta da Microsoft.
 ![passwordreminder][7]
 
-Selecione a guia **Editoras** .
-![selectpublisherstab][8]
+Selecione Olá **editores** guia ![selectpublisherstab][8]
 
-Localize a ID do publicador na URL:
+Localize ID do Editor Olá Olá URL:
 
-* Use essa ID como a senha para abrir o arquivo do Excel de informações do vendedor.
+* Use essa ID como Olá senha tooopen o arquivo do Excel insights vendedor.
   Esta será sua senha até outro aviso.
 * É recomendável usar o Microsoft Office 2013 com o Windows como o leitor da pasta de trabalho escolhido.  Alguns usuários relataram problemas ao usar o Microsoft Office para Mac.
 
 ![publisherid][9]
 
 ## <a name="next-steps"></a>Próximas etapas
-Se você tiver perguntas relacionadas a relatórios e insights, entre em contato com nossa equipe de suporte:
+Se você tiver uma pergunta relacionada tooreports e ideias, entre em contato com nossa equipe de suporte:
 
-1. Navegue até as páginas de suporte em https://publish.windowsazure.com/.
-2. Na caixa **Tipo de problema**, selecione **Relatórios e Insights**.
-3. Na caixa **Categoria**, selecione **Perguntas relacionadas a relatórios**.
+1. Navegar pelas páginas de suporte de toohello em https://publish.windowsazure.com/.
+2. Em Olá **tipo de problema** selecione **relatórios e Insights**.
+3. Em Olá **categoria** selecione **perguntas relacionadas tooreports**.
 4. Clique em **Iniciar solicitação**.
    ![sellerinsightsquestions][10]
 

@@ -1,6 +1,6 @@
 ---
-title: "  Publicar conteúdo com o Portal do Azure | Microsoft Docs"
-description: "Este tutorial orienta você pelas etapas de publicar o conteúdo com o portal do Azure."
+title: "AAA\"publicar conteúdo com hello portal do Azure | Microsoft Docs\""
+description: "Este tutorial orienta você pelas etapas de saudação de publicação de conteúdo com hello portal do Azure."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 68a2fbdda0996cf4ba5ea3b09816bf845af756f4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a7a3867a6939b4b9da883176c6cc20c99d6c54e7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="publish-content-with-the-azure-portal"></a>Publicar conteúdo com o portal do Azure
+# <a name="publish-content-with-hello-azure-portal"></a>Publicar o conteúdo com hello portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-publish.md)
 > * [.NET](media-services-deliver-streaming-content.md)
@@ -30,66 +30,66 @@ ms.lasthandoff: 08/29/2017
 
 ## <a name="overview"></a>Visão geral
 > [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
+> toocomplete neste tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
-Para fornecer a seus usuários uma URL que pode ser usada para transmitir ou baixar seu conteúdo, primeiro você precisa "publicar" o ativo criando um localizador. Os localizadores fornecem acesso aos arquivos contidos no ativo. Os Serviços de Mídia oferecem suporte a dois tipos de localizadores: 
+tooprovide o usuário com uma URL que pode ser usado toostream ou baixar o conteúdo, você primeiro precisa muito "Publicar" seu ativo, criando um localizador. Os localizadores fornecem acesso toofiles contidos em Olá ativo. Os Serviços de Mídia oferecem suporte a dois tipos de localizadores: 
 
-* Localizadores de transmissão (OnDemandOrigin), usados para a transmissão adaptável (por exemplo, para transmitir MPEG DASH, HLS ou Smooth Streaming). Para criar um localizador de transmissão, seu ativo deve conter um arquivo .ism. 
+* Transmitindo os localizadores (OnDemandOrigin), usados para streaming adaptável (por exemplo, toostream MPEG DASH, HLS ou Smooth Streaming). toocreate um localizador de transmissão seu ativo deve conter um arquivo. ISM. 
 * Localizadores progressivos (SAS), usados para a entrega de vídeo por meio do download progressivo.
 
-Uma URL de streaming tem o formato a seguir e você pode usá-la para reproduzir ativos de Smooth Streaming.
+Uma URL de streaming tem Olá formato a seguir e você pode usá-lo tooplay ativos do Smooth Streaming.
 
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-Para criar uma URL de streaming de HLS, anexe (format=m3u8-aapl) à URL.
+Acrescentar toobuild uma URL de streaming de HLS (format = m3u8-aapl) toohello URL.
 
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-Para criar uma URL de streaming MPEG DASH, anexe (format=mpd-time-csf) à URL.
+Acrescentar toobuild um MPEG DASH URL de streaming (formato = mpd-tempo-csf) toohello URL.
 
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
-Uma URL SAS tem o seguinte formato.
+Uma URL SAS tem Olá formato a seguir.
 
     {blob container name}/{asset name}/{file name}/{SAS signature}
 
 Para obter mais informações, consulte [Visão geral sobre fornecimento de conteúdo](media-services-deliver-content-overview.md).
 
 > [!NOTE]
-> Se você usou o portal para criar localizadores antes de março de 2015, foram criados localizadores com uma data de validade de dois anos.  
+> Se você usou os localizadores de portal toocreate Olá antes de março de 2015, os localizadores com uma data de validade de dois anos foram criados.  
 > 
 > 
 
-Para atualizar uma data de validade em um localizador, use as APIs [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Observe que, quando você atualiza a data de validade de um localizador SAS, a URL é alterada.
+tooupdate uma data de expiração em um localizador, use [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. Observe que quando você atualizar a data de expiração de saudação de um localizador SAS, Olá URL é alterado.
 
-### <a name="to-use-the-portal-to-publish-an-asset"></a>Para usar o portal para publicar um ativo
-Para usar o portal para publicar um ativo, faça o seguinte:
+### <a name="toouse-hello-portal-toopublish-an-asset"></a>toouse de saudação portal toopublish um ativo
+toouse de saudação portal toopublish um ativo, Olá a seguir:
 
-1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
+1. Em Olá [portal do Azure](https://portal.azure.com/), selecione sua conta de serviços de mídia do Azure.
 2. Selecione **Configurações** > **Ativos**.
-3. Selecione o ativo que você deseja publicar.
-4. Clique no botão **Publicar** .
-5. Selecione o tipo de localizador.
+3. Selecione Olá ativo que você deseja toopublish.
+4. Clique em Olá **publicar** botão.
+5. Selecione o tipo de localizador de saudação.
 6. Pressione **Adicionar**.
    
     ![Publicar](./media/media-services-portal-vod-get-started/media-services-publish1.png)
 
-A URL será adicionada à lista de **URLs Publicadas**.
+Olá URL será adicionado lista toohello de **publicado URLs**.
 
-## <a name="play-content-from-the-portal"></a>Reproduzir conteúdo do portal
-O portal do Azure fornece um player de conteúdo que você pode usar para testar o vídeo.
+## <a name="play-content-from-hello-portal"></a>Reproduzir conteúdo do portal de saudação
+Olá, portal do Azure fornece um player de conteúdo que você pode usar tootest o vídeo.
 
-Clique no vídeo desejado e clique no botão **Reproduzir** .
+Clique em vídeo Olá desejado e clique em Olá **reproduzir** botão.
 
 ![Publicar](./media/media-services-portal-vod-get-started/media-services-play.png)
 
 Algumas considerações se aplicam:
 
-* Verifique se que o vídeo foi publicado.
-* Esse **Media player** reproduz do ponto de extremidade de streaming padrão. Se você quiser reproduzir a partir de um ponto de extremidade da transmissão não padrão, clique para copiar a URL e use outra reprodução. Por exemplo, o [Player dos Serviços de Mídia do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
-* O ponto de extremidade de streaming do qual você estiver transmitindo deverá estar em execução.  
+* Certifique-se de saudação vídeo foi publicada.
+* Isso **Media player** reproduz do ponto de extremidade de streaming de padrão de saudação. Se você quiser tooplay de não-padrão streaming de ponto de extremidade, clique toocopy Olá URL e use outro player. Por exemplo, o [Player dos Serviços de Mídia do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* saudação do qual são de streaming de ponto de extremidade de streaming deve estar em execução.  
 
 ## <a name="next-steps"></a>Próximas etapas
 Examine os roteiros de aprendizagem dos Serviços de Mídia.

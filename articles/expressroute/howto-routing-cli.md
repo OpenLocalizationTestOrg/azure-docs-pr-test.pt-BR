@@ -1,6 +1,6 @@
 ---
-title: 'Como configurar o roteamento de um circuito da ExpressRoute do Azure: CLI | Microsoft Docs'
-description: "Este artigo ajuda a criar e provisionar o emparelhamento público, privado e da Microsoft de um circuito da ExpressRoute. Este artigo também mostra como verificar o status, atualizar ou excluir emparelhamentos de seu circuito."
+title: 'Como tooconfigure roteamento para um circuito de rota expressa do Azure: CLI | Microsoft Docs'
+description: "Este artigo ajuda você a criar e provisionar Olá privado, público e emparelhamento da Microsoft de um circuito de rota expressa. Este artigo também mostra como status de saudação toocheck, atualizar ou excluir emparelhamentos para o seu circuito."
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: anzaman,cherylmc
-ms.openlocfilehash: fbf0bd9a139c22bbd63755f6df445f6596aaccc5
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 33130af050045527cdb316e77821c6d101b6a82a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit-using-cli"></a>Criar e modificar o roteamento de um circuito da ExpressRoute usando CLI
 
-Esse artigo ajuda a criar e gerenciar a configuração de roteamento de um circuito da ExpressRoute no modelo de implantação do Gerenciador de Recursos usando CLI. Você também pode verificar o status, atualizar ou excluir e desprovisionar emparelhamentos de um circuito da ExpressRoute. Se quiser usar um método diferente para trabalhar com seu circuito, selecione um artigo na lista a seguir:
+Este artigo ajuda você a criar e gerenciar a configuração de roteamento para um circuito de rota expressa no modelo de implantação do Gerenciador de recursos do hello usando a CLI. Você também pode verificar status hello, update ou delete e desprovisionar emparelhamentos de um circuito de rota expressa. Se você quiser toouse toowork um método diferente com o circuito, selecione um artigo de saudação lista a seguir:
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](expressroute-howto-routing-portal-resource-manager.md)
@@ -37,41 +37,41 @@ Esse artigo ajuda a criar e gerenciar a configuração de roteamento de um circu
 
 ## <a name="configuration-prerequisites"></a>Pré-requisitos de configuração
 
-* Antes de começar, instale a versão mais recente dos comandos da CLI (2.0 ou posterior). Para saber mais sobre como instalar os comandos do CLI, veja [Instalar a CLI do Azure 2.0](/cli/azure/install-azure-cli).
-* Certifique-se de que você leu as páginas de [pré-requisitos](expressroute-prerequisites.md), [requisitos de roteamento](expressroute-routing.md) e [fluxo de trabalho](expressroute-workflows.md) antes de começar a configuração.
-* Você deve ter um circuito da ExpressRoute ativo. Antes de continuar, siga as instruções para [criar um circuito da ExpressRoute](howto-circuit-cli.md) e para que o circuito seja habilitado pelo provedor de conectividade. O circuito da ExpressRoute deve estar em um estado provisionado e habilitado e para que você possa executar os comandos neste artigo.
+* Antes de começar, instale a versão mais recente Olá de comandos CLI hello (2.0 ou posteriores). Para obter informações sobre como instalar os comandos CLI hello, consulte [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli).
+* Certifique-se de ter revisado Olá [pré-requisitos](expressroute-prerequisites.md), [requisitos de roteamento](expressroute-routing.md), e [fluxo de trabalho](expressroute-workflows.md) páginas antes de começar a configuração.
+* Você deve ter um circuito do ExpressRoute ativo. Siga as instruções de saudação muito[criar um circuito de rota expressa](howto-circuit-cli.md) e ter o circuito Olá habilitado por seu provedor de conectividade antes de continuar. Olá circuito de rota expressa deve estar no estado habilitado e configurado para você comandos de saudação capaz de toorun toobe neste artigo.
 
-Estas instruções se aplicam apenas a circuitos criados com provedores de serviço que oferecem serviços de conectividade de Camada 2. Se você estiver usando um provedor de serviços que oferece serviços gerenciados de Camada 3 (normalmente um IPVPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você.
+Essas instruções se aplicam somente a toocircuits criado com provedores de serviço oferece serviços de conectividade de camada 2. Se você estiver usando um provedor de serviços que ofereça serviços gerenciados de Camada 3 (normalmente um IPVPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você.
 
-Você pode configurar um, dois ou todos os três emparelhamentos (privado e público do Azure e da Microsoft) para um circuito da ExpressRoute. Você pode configurar emparelhamentos em qualquer ordem escolhida. No entanto, você deve concluir a configuração de um emparelhamento por vez.
+Você pode configurar um, dois ou todos os três emparelhamentos (privado e público do Azure e da Microsoft) para um circuito da ExpressRoute. Você pode configurar emparelhamentos em qualquer ordem escolhida. No entanto, você deve garantir que você conclua a configuração de saudação de cada um emparelhamento de cada vez.
 
 ## <a name="azure-private-peering"></a>Emparelhamento privado do Azure
 
-Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de emparelhamento privado do Azure para um circuito do ExpressRoute.
+Esta seção ajuda você a criar, obter, atualizar e excluir Olá configuração emparelhamento particular do Azure para um circuito de rota expressa.
 
-### <a name="to-create-azure-private-peering"></a>Criar um emparelhamento privado do Azure
+### <a name="toocreate-azure-private-peering"></a>toocreate emparelhamento particular do Azure
 
-1. Instale a versão mais recente do CLI do Azure. Você deve usar a versão mais recente do CLI do Azure (Interface de linha de comando). * Leia os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
+1. Instale a versão mais recente de saudação do CLI do Azure. Você deve usar a versão mais recente de saudação do hello Azure Interface de linha de comando (CLI). * hello revisão [pré-requisitos](expressroute-prerequisites.md) e [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 
   ```azurecli
   az login
   ```
 
-  Selecionar a assinatura na qual você deseja criar um circuito da ExpressRoute
+  Selecionar assinatura Olá deseja toocreate circuito de rota expressa
 
   ```azurecli
   az account set --subscription "<subscription ID>"
   ```
-2. Criar um circuito da ExpressRoute. Siga as instruções para criar um [circuito do ExpressRoute](howto-circuit-cli.md) e para que o circuito seja provisionado pelo provedor de conectividade.
+2. Criar um circuito do ExpressRoute. Siga Olá instruções toocreate um [circuito de rota expressa](howto-circuit-cli.md) e fornecidos pelo provedor de conectividade de saudação.
 
-  Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, solicite a ele a habilitação do emparelhamento privado do Azure. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, continue a configuração executando as próximas etapas.
-3. Verifique se o circuito do ExpressRoute está provisionado e habilitado. Use o seguinte exemplo:
+  Se seu provedor de conectividade oferece serviços gerenciados de camada 3, você pode solicitar sua tooenable de provedor de conectividade Azure privado de emparelhamento para você. Nesse caso, você não precisará toofollow instruções listadas nas seções próximas hello. No entanto, se seu provedor de conectividade não gerencia o roteamento para você, depois de criar o circuito, continue a configuração usando as próximas etapas hello.
+3. Verifique toomake de circuito de rota expressa de saudação se ele está configurado e também está habilitado. Use Olá exemplo a seguir:
 
   ```azurecli
   az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
   ```
 
-  A resposta é semelhante ao seguinte exemplo:
+  resposta de saudação é semelhante toohello exemplo a seguir:
 
   ```azurecli
   "allowClassicOperations": false,
@@ -102,21 +102,21 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
   "type": "Microsoft.Network/expressRouteCircuits]
   ```
 
-4. Configure o emparelhamento privado do Azure para o circuito. Verifique se você tem os seguintes itens antes de continuar com as próximas etapas:
+4. Configure o emparelhamento particular do Azure para o circuito de saudação. Certifique-se de que você tenha Olá itens a seguir antes de prosseguir com as próximas etapas hello:
 
-  * Uma sub-rede /30 para o link principal. A sub-rede não deve fazer parte de nenhum espaço de endereçamento reservado para redes virtuais.
-  * Uma sub-rede /30 para o link secundário. A sub-rede não deve fazer parte de nenhum espaço de endereçamento reservado para redes virtuais.
-  * Uma ID válida de VLAN para estabelecer esse emparelhamento. Verifique se nenhum outro emparelhamento no circuito usa a mesma ID de VLAN.
+  * Um /30 sub-rede para o link primário hello. subrede Olá não deve fazer parte de qualquer espaço de endereço reservado para redes virtuais.
+  * Um /30 sub-rede para o link secundário hello. subrede Olá não deve fazer parte de qualquer espaço de endereço reservado para redes virtuais.
+  * Um tooestablish de ID de VLAN válida esse emparelhamento. Certifique-se de que nenhum outro emparelhamento no circuito de saudação usa Olá a mesma ID de VLAN.
   * Número de AS para emparelhamento. Você pode usar um número de AS de 2 e de 4 bytes. Você pode usar um número de AS privado para esse emparelhamento. Não use 65515.
-  * **Opcional –** Um hash MD5 se você optar por usar um.
+  * **Opcional -** um hash MD5 se você escolher toouse um.
 
-  Use o seguinte exemplo para configurar o emparelhamento privado do Azure para seu circuito:
+  Use hello Azure privado de emparelhamento para o circuito de tooconfigure de exemplo a seguir:
 
   ```azurecli
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering
   ```
 
-  Se você optar por usar um hash MD5, use o exemplo a seguir:
+  Se você escolher toouse um hash MD5, use Olá exemplo a seguir:
 
   ```azurecli
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 10.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 10.0.0.4/30 --vlan-id 200 --peering-type AzurePrivatePeering --SharedKey "A1B2C3D4"
@@ -127,15 +127,15 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
   > 
   > 
 
-### <a name="to-view-azure-private-peering-details"></a>Para exibir detalhes sobre o emparelhamento privado do Azure
+### <a name="tooview-azure-private-peering-details"></a>tooview privado emparelhamento detalhes do Azure
 
-Você pode obter detalhes de configuração usando o exemplo a seguir:
+Você pode obter os detalhes de configuração usando Olá exemplo a seguir:
 
 ```azurecli
 az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
 ```
 
-A saída deverá ser semelhante ao seguinte exemplo:
+saudação de saída é similar toohello exemplo a seguir:
 
 ```azurecli
 {
@@ -163,20 +163,20 @@ A saída deverá ser semelhante ao seguinte exemplo:
 }
 ```
 
-### <a name="to-update-azure-private-peering-configuration"></a>Atualizar a configuração de emparelhamento privado do Azure
+### <a name="tooupdate-azure-private-peering-configuration"></a>tooupdate configuração emparelhamento particular do Azure
 
-Você pode atualizar qualquer parte da configuração usando o exemplo a seguir. Neste exemplo, a ID da VLAN do circuito está sendo atualizada de 100 para 500.
+Você pode atualizar qualquer parte da configuração de saudação usando Olá exemplo a seguir. Neste exemplo, Olá VLAN ID de circuito hello está sendo atualizado do too500 100.
 
 ```azurecli
 az network express-route peering update --vlan-id 500 -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
 ```
 
-### <a name="to-delete-azure-private-peering"></a>Excluir um emparelhamento privado do Azure
+### <a name="toodelete-azure-private-peering"></a>toodelete emparelhamento particular do Azure
 
-Você pode remover a configuração de emparelhamento executando o seguinte exemplo:
+Você pode remover a configuração do emparelhamento executando Olá exemplo a seguir:
 
 > [!WARNING]
-> Verifique se todas as redes virtuais estão desvinculadas do circuito do ExpressRoute antes de executar esse exemplo. 
+> Certifique-se de que todas as redes virtuais são desvinculadas do hello circuito de rota expressa antes de executar este exemplo. 
 > 
 > 
 
@@ -186,31 +186,31 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
 
 ## <a name="azure-public-peering"></a>Emparelhamento público do Azure
 
-Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de emparelhamento público do Azure para um circuito do ExpressRoute.
+Esta seção ajuda você a criar, obter, atualizar e excluir Olá a configuração de emparelhamento pública do Azure para um circuito de rota expressa.
 
-### <a name="to-create-azure-public-peering"></a>Criar o emparelhamento público do Azure
+### <a name="toocreate-azure-public-peering"></a>toocreate emparelhamento público do Azure
 
-1. Instale a versão mais recente do CLI do Azure. Você deve usar a versão mais recente do CLI do Azure (Interface de linha de comando). * Leia os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
+1. Instale a versão mais recente de saudação do CLI do Azure. Você deve usar a versão mais recente de saudação do hello Azure Interface de linha de comando (CLI). * hello revisão [pré-requisitos](expressroute-prerequisites.md) e [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 
   ```azurecli
   az login
   ```
 
-  Selecione a assinatura para a qual você deseja criar um circuito do ExpressRoute.
+  Selecione a assinatura de saudação do qual você deseja que o circuito de rota expressa toocreate.
 
   ```azurecli
   az account set --subscription "<subscription ID>"
   ```
-2. Criar um circuito da ExpressRoute.  Siga as instruções para criar um [circuito da ExpressRoute](howto-circuit-cli.md) e para que o circuito seja provisionado pelo provedor de conectividade.
+2. Criar um circuito do ExpressRoute.  Siga Olá instruções toocreate um [circuito de rota expressa](howto-circuit-cli.md) e fornecidos pelo provedor de conectividade de saudação.
 
-  Caso seu provedor de conectividade ofereça serviços gerenciados de Camada 3, você pode solicitar a ele a habilitação do emparelhamento privado do Azure. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, continue a configuração executando as próximas etapas.
-3. Verifique se o circuito do ExpressRoute está provisionado e habilitado. Use o seguinte exemplo:
+  Caso seu provedor de conectividade ofereça serviços gerenciados de Camada 3, você pode solicitar a ele a habilitação do emparelhamento privado do Azure. Nesse caso, você não precisará toofollow instruções listadas nas seções próximas hello. No entanto, se seu provedor de conectividade não gerencia o roteamento para você, depois de criar o circuito, continue a configuração usando as próximas etapas hello.
+3. Verifique tooensure de circuito de rota expressa Olá provisionado e também está habilitado. Use Olá exemplo a seguir:
 
   ```azurecli
   az network express-route list
   ```
 
-  A resposta é semelhante ao seguinte exemplo:
+  resposta de saudação é semelhante toohello exemplo a seguir:
 
   ```azurecli
   "allowClassicOperations": false,
@@ -241,21 +241,21 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
   "type": "Microsoft.Network/expressRouteCircuits]
   ```
 
-4. Configure o emparelhamento público do Azure para o circuito. Verifique se você tem as informações a seguir antes de prosseguir.
+4. Configure o emparelhamento público do Azure para o circuito de saudação. Certifique-se de que você tenha Olá informações a seguir antes de você continuar.
 
-  * Uma sub-rede /30 para o link principal. Precisa ser um prefixo IPv4 público válido.
-  * Uma sub-rede /30 para o link secundário. Precisa ser um prefixo IPv4 público válido.
-  * Uma ID válida de VLAN para estabelecer esse emparelhamento. Verifique se nenhum outro emparelhamento no circuito usa a mesma ID de VLAN.
+  * Um /30 sub-rede para o link primário hello. Precisa ser um prefixo IPv4 público válido.
+  * Um /30 sub-rede para o link secundário hello. Precisa ser um prefixo IPv4 público válido.
+  * Um tooestablish de ID de VLAN válida esse emparelhamento. Certifique-se de que nenhum outro emparelhamento no circuito de saudação usa Olá a mesma ID de VLAN.
   * Número de AS para emparelhamento. Você pode usar um número de AS de 2 e de 4 bytes.
-  * **Opcional -** Um hash MD5 se você optar por usar um.
+  * **Opcional -** um hash MD5 se você escolher toouse um.
 
-  Executar o seguinte exemplo para configurar o emparelhamento público do Azure para seu circuito:
+  Execute hello Azure público de emparelhamento para o circuito de tooconfigure de exemplo a seguir:
 
   ```azurecli
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 12.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 12.0.0.4/30 --vlan-id 200 --peering-type AzurePublicPeering
   ```
 
-  Se você optar por usar um hash MD5, use o exemplo a seguir:
+  Se você escolher toouse um hash MD5, use Olá exemplo a seguir:
 
   ```azurecli
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 12.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 12.0.0.4/30 --vlan-id 200 --peering-type AzurePublicPeering --SharedKey "A1B2C3D4"
@@ -264,15 +264,15 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
   > [!IMPORTANT]
   > Especifique o número de AS como um ASN de emparelhamento, não um ASN de cliente.
 
-### <a name="to-view-azure-public-peering-details"></a>Para exibir detalhes sobre o emparelhamento público do Azure
+### <a name="tooview-azure-public-peering-details"></a>tooview público emparelhamento detalhes do Azure
 
-Você pode obter detalhes de configuração usando o exemplo a seguir:
+Você pode obter os detalhes de configuração usando Olá exemplo a seguir:
 
 ```azurecli
 az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering
 ```
 
-A saída deverá ser semelhante ao seguinte exemplo:
+saudação de saída é similar toohello exemplo a seguir:
 
 ```azurecli
 {
@@ -299,17 +299,17 @@ A saída deverá ser semelhante ao seguinte exemplo:
 }
 ```
 
-### <a name="to-update-azure-public-peering-configuration"></a>Atualizar a configuração de emparelhamento público do Azure
+### <a name="tooupdate-azure-public-peering-configuration"></a>tooupdate configuração de emparelhamento pública do Azure
 
-Você pode atualizar qualquer parte da configuração usando o exemplo a seguir. Neste exemplo, a ID da VLAN do circuito está sendo atualizada de 200 para 600.
+Você pode atualizar qualquer parte da configuração de saudação usando Olá exemplo a seguir. Neste exemplo, Olá VLAN ID de circuito hello está sendo atualizado do too600 200.
 
 ```azurecli
 az network express-route peering update --vlan-id 600 -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering
 ```
 
-### <a name="to-delete-azure-public-peering"></a>Excluir o emparelhamento público do Azure
+### <a name="toodelete-azure-public-peering"></a>toodelete emparelhamento público do Azure
 
-Você pode remover a configuração de emparelhamento executando o seguinte exemplo:
+Você pode remover a configuração do emparelhamento executando Olá exemplo a seguir:
 
 ```azurecli
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering
@@ -317,37 +317,37 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
 
 ## <a name="microsoft-peering"></a>Emparelhamento da Microsoft
 
-Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de emparelhamento da Microsoft para um circuito do ExpressRoute.
+Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de emparelhamento Microsoft hello por um circuito de rota expressa.
 
 > [!IMPORTANT]
-> O emparelhamento da Microsoft de circuitos do ExpressRoute configurados antes de 1º de agosto de 2017 terá todos os prefixos de serviço anunciados através do emparelhamento da Microsoft, mesmo que os filtros de rota não estejam definidos. O emparelhamento da Microsoft de circuitos de ExpressRoute configurados em ou após 1º de agosto de 2017 não terá nenhum prefixo anunciado até que um filtro de rota seja anexado ao circuito. Para obter mais informações, consulte [Configurar um filtro de rota para o emparelhamento da Microsoft](how-to-routefilter-powershell.md).
+> Emparelhamento da Microsoft de circuitos ExpressRoute que foram configurados anterior tooAugust 1, 2017 terá todos os prefixos de serviço anunciados através do emparelhamento da Microsoft hello, mesmo se os filtros de roteamento não estão definidos. Emparelhamento da Microsoft de circuitos de rota expressa configurados em ou após 1 de agosto de 2017 não terá quaisquer prefixos anunciados até que um filtro de rota é anexado toohello circuito. Para obter mais informações, consulte [Configurar um filtro de rota para o emparelhamento da Microsoft](how-to-routefilter-powershell.md).
 > 
 > 
 
-### <a name="to-create-microsoft-peering"></a>Criar emparelhamento da Microsoft
+### <a name="toocreate-microsoft-peering"></a>toocreate emparelhamento da Microsoft
 
-1. Instale a versão mais recente do CLI do Azure. Use a versão mais recente do CLI do Azure (Interface de linha de comando).* Leia os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
+1. Instale a versão mais recente de saudação do CLI do Azure. Versão mais recente de saudação de uso do hello Azure Interface de linha de comando (CLI). * hello revisão [pré-requisitos](expressroute-prerequisites.md) e [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 
   ```azurecli
   az login
   ```
 
-  Selecione a assinatura para a qual você deseja criar um circuito do ExpressRoute.
+  Selecione a assinatura de saudação do qual você deseja que o circuito de rota expressa toocreate.
 
   ```azurecli
   az account set --subscription "<subscription ID>"
   ```
-2. Criar um circuito da ExpressRoute. Siga as instruções para criar um [circuito do ExpressRoute](howto-circuit-cli.md) e para que o circuito seja provisionado pelo provedor de conectividade.
+2. Criar um circuito do ExpressRoute. Siga Olá instruções toocreate um [circuito de rota expressa](howto-circuit-cli.md) e fornecidos pelo provedor de conectividade de saudação.
 
-  Caso seu provedor de conectividade ofereça serviços gerenciados de camada 3, solicite a ele a habilitação do emparelhamento privado do Azure. Nesse caso, não será necessário seguir as instruções listadas nas seções a seguir. No entanto, se o seu provedor de conectividade não gerenciar o roteamento, após a criação do circuito, continue a configuração executando as próximas etapas.
+  Se seu provedor de conectividade oferece serviços gerenciados de camada 3, você pode solicitar sua tooenable de provedor de conectividade Azure privado de emparelhamento para você. Nesse caso, você não precisará toofollow instruções listadas nas seções próximas hello. No entanto, se seu provedor de conectividade não gerencia o roteamento para você, depois de criar o circuito, continue a configuração usando as próximas etapas hello.
 
-3. Verifique se o circuito do ExpressRoute está provisionado e habilitado. Use o seguinte exemplo:
+3. Verifique toomake de circuito de rota expressa de saudação se ele está configurado e também está habilitado. Use Olá exemplo a seguir:
 
   ```azurecli
   az network express-route list
   ```
 
-  A resposta é semelhante ao seguinte exemplo:
+  resposta de saudação é semelhante toohello exemplo a seguir:
 
   ```azurecli
   "allowClassicOperations": false,
@@ -378,32 +378,32 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
   "type": "Microsoft.Network/expressRouteCircuits]
   ```
 
-4. Configurar o emparelhamento da Microsoft para o circuito. Você precisa ter as seguintes informações antes de continuar:
+4. Configure o emparelhamento do circuito de saudação do Microsoft. Certifique-se de que você tenha Olá seguintes informações antes de continuar.
 
-  * Uma sub-rede /30 para o link principal. Este valor deve ser um prefixo IPv4 público válido próprio e registrado em um RIR/IRR.
-  * Uma sub-rede /30 para o link secundário. Este valor deve ser um prefixo IPv4 público válido próprio e registrado em um RIR/IRR.
-  * Uma ID válida de VLAN para estabelecer esse emparelhamento. Verifique se nenhum outro emparelhamento no circuito usa a mesma ID de VLAN.
+  * Um /30 sub-rede para o link primário hello. Este valor deve ser um prefixo IPv4 público válido próprio e registrado em um RIR/IRR.
+  * Um /30 sub-rede para o link secundário hello. Este valor deve ser um prefixo IPv4 público válido próprio e registrado em um RIR/IRR.
+  * Um tooestablish de ID de VLAN válida esse emparelhamento. Certifique-se de que nenhum outro emparelhamento no circuito de saudação usa Olá a mesma ID de VLAN.
   * Número de AS para emparelhamento. Você pode usar um número de AS de 2 e de 4 bytes.
-  * Prefixos anunciados: forneça uma lista com todos os prefixos que você pretende anunciar na sessão BGP. Somente prefixos de endereços IP públicos são aceitos. Caso você planeje enviar um conjunto de prefixos, poderá enviar uma lista separada por vírgulas. Esses prefixos devem ser registrados em seu nome em um RIR/IRR.
-  * **Opcional –** ASN de cliente: se você estiver anunciando prefixos não registrados com o número AS de emparelhamento, especifique o número AS com o qual eles estão registrados.
-  * Nome do registro de roteamento: você pode especificar o RIR/IRR com base no qual o número de AS e os prefixos estão registrados.
-  * **Opcional -** Um hash MD5 se você optar por usar um.
+  * Anunciado prefixos: você deve fornecer uma lista de todos os prefixos planejar tooadvertise sobre a sessão BGP de saudação. Somente prefixos de endereços IP públicos são aceitos. Se você planejar toosend um conjunto de prefixos, você pode enviar uma lista separada por vírgulas. Esses prefixos devem ser registrado tooyou em um RIR / IRR.
+  * **Opcional -** cliente ASN: se você estiver prefixos de anúncios que não são registrado toohello emparelhamento como número, você pode especificar hello como número toowhich, eles são registrados.
+  * Nome de roteamento do registro: Você pode especificar Olá RIR / IRR no qual hello como número e prefixos estão registrados.
+  * **Opcional -** um hash MD5 se você escolher toouse um.
 
-   Execute o exemplo a seguir para configurar o emparelhamento da Microsoft para seu circuito:
+   Execute Olá exemplo tooconfigure emparelhamento da Microsoft para o circuito a seguir:
 
   ```azurecli
   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 123.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 123.0.0.4/30 --vlan-id 300 --peering-type MicrosoftPeering --advertised-public-prefixes 123.1.0.0/24
   ```
 
-### <a name="to-get-microsoft-peering-details"></a>Obter detalhes de emparelhamento da Microsoft
+### <a name="tooget-microsoft-peering-details"></a>tooget detalhes de emparelhamento da Microsoft
 
-Você pode obter detalhes de configuração usando o exemplo a seguir:
+Você pode obter os detalhes de configuração usando Olá exemplo a seguir:
 
 ```azurecli
 az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzureMicrosoftPeering
 ```
 
-A saída deverá ser semelhante ao seguinte exemplo:
+saudação de saída é similar toohello exemplo a seguir:
 
 ```azurecli
 {
@@ -437,17 +437,17 @@ A saída deverá ser semelhante ao seguinte exemplo:
 }
 ```
 
-### <a name="to-update-microsoft-peering-configuration"></a>Atualizar a configuração de emparelhamento da Microsoft
+### <a name="tooupdate-microsoft-peering-configuration"></a>tooupdate configuração de emparelhamento da Microsoft
 
-Você pode atualizar qualquer parte da configuração. Os prefixos anunciados do circuito estão sendo atualizados de 123.1.0.0/24 para 124.1.0.0/24 no exemplo a seguir:
+Você pode atualizar qualquer parte da configuração de saudação. Olá anunciado prefixos de circuito Olá estão sendo atualizados no too124.1.0.0/24 123.1.0.0/24 em Olá exemplo a seguir:
 
 ```azurecli
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroup --peering-type MicrosoftPeering --advertised-public-prefixes 124.1.0.0/24
 ```
 
-### <a name="to-delete-microsoft-peering"></a>Excluir emparelhamento da Microsoft
+### <a name="toodelete-microsoft-peering"></a>toodelete emparelhamento da Microsoft
 
-Você pode remover a configuração de emparelhamento executando o seguinte exemplo:
+Você pode remover a configuração do emparelhamento executando Olá exemplo a seguir:
 
 ```azurecli
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name MicrosoftPeering
@@ -455,7 +455,7 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
 
 ## <a name="next-steps"></a>Próximas etapas
 
-A próxima etapa será [Vincular uma Rede Virtual a um circuito do ExpressRoute](howto-linkvnet-cli.md).
+Próxima etapa, [vincular um circuito de rota expressa do tooan de VNet](howto-linkvnet-cli.md).
 
 * Para saber mais sobre fluxos de trabalho do ExpressRoute, confira [Fluxos de trabalho do ExpressRoute](expressroute-workflows.md).
 * Para obter mais informações sobre o emparelhamento de circuito, veja [Circuitos e domínios de roteamento do ExpressRoute](expressroute-circuit-peerings.md).

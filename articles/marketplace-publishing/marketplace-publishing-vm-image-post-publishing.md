@@ -1,6 +1,6 @@
 ---
-title: "Gerenciando a imagem da sua máquina virtual no Azure Marketplace | Microsoft Docs"
-description: "Guia detalhado sobre como gerenciar a imagem da sua máquina virtual no Azure Marketplace após a publicação inicial"
+title: "aaaManaging sua máquina virtual da imagem no hello Azure Marketplace | Microsoft Docs"
+description: "Guia detalhado sobre como toomanage sua máquina virtual da imagem no hello Azure Marketplace após a publicação inicial"
 services: Azure Marketplace
 documentationcenter: 
 author: HannibalSII
@@ -14,325 +14,325 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
-ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 47a082e686e1248ceacb844d3c0f2f5c33133dab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Guia de pós-produção para ofertas de máquina virtual no Azure Marketplace
-Este artigo explica como você pode atualizar uma oferta de máquina virtual online no Azure Marketplace. Ele orienta você pelo processo de adicionar uma ou mais novas SKUs a uma oferta existente. Também o orienta pelo processo de remoção de uma SKU ou oferta de máquina virtual online do Marketplace.
+# <a name="post-production-guide-for-virtual-machine-offers-in-hello-azure-marketplace"></a>Guia de após a produção para a máquina virtual oferece em hello Azure Marketplace
+Este artigo explica como você pode atualizar uma oferta de máquina virtual ao vivo em hello Azure Marketplace. Ele orienta você pelo processo de saudação da adição de um ou mais novo SKUs tooan oferta existente. Ele também orienta você pelo processo de saudação de remoção de uma oferta de máquina virtual ao vivo ou SKU da saudação Marketplace.
 
-Depois de uma oferta/SKU ser testada no [portal do Azure](http://portal.azure.com), você não poderá alterar as seguintes caixas de texto:
+Depois de um oferta/SKU é testado no hello [portal do Azure](http://portal.azure.com), você não pode alterar Olá caixas de texto a seguir:
 
-* **Identificador de oferta**: no portal de Publicação, vá para **máquinas virtuais** e selecione sua oferta. Em seguida, clique em **IMAGENS DA VM** > **Identificador da oferta**.
-* **Identificador de SKUs**: no portal de Publicação, acesse **máquinas virtuais** e selecione sua oferta. Em seguida, clique em **SKUS** > **Adicionar uma SKU**.
-* **Namespace do Editor:** no portal de Publicação, acesse **máquinas Virtuais** > **Passo a Passo** > **Conte-nos Sobre sua Empresa** (encontrado em "Etapa 2 Registrar sua Empresa") > **Namespace do Editor** > **Namespace**.
+* **Identificador de oferta**: no hello publicação portal, vá muito**máquinas virtuais** e selecione sua oferta. Em seguida, clique em **IMAGENS DA VM** > **Identificador da oferta**.
+* **Identificador de SKU**: no hello publicação portal, vá muito**máquinas virtuais** e selecione sua oferta. Em seguida, clique em **SKUS** > **Adicionar uma SKU**.
+* **Namespace do publicador**: no hello publicação portal, vá muito**máquinas virtuais** > **passo a passo** > **Conte-nos sobre sua empresa** (localizado em "Etapa 2 registrar sua empresa") > **publicador Namespace** > **Namespace**.
 
-Depois que a oferta/SKU estiver listada no [Marketplace](http://azure.microsoft.com/marketplace), você não poderá alterar as seguintes caixas de texto:
+Após Olá oferta/SKU está listado no hello [Marketplace](http://azure.microsoft.com/marketplace), você não pode alterar Olá caixas de texto a seguir:
 
-* **Identificador de oferta**: no portal de Publicação, vá para **máquinas virtuais** e selecione sua oferta. Em seguida, clique em **IMAGENS DA VM** > **Identificador da oferta**.
-* **Identificador de SKUs**: no portal de Publicação, acesse **máquinas virtuais** e selecione sua oferta. Em seguida, clique em **SKUS** > **Adicionar uma SKU**.
-* **Namespace do Editor**: no portal de Publicação, acesse **máquinas Virtuais** > **Passo a Passo** > **Conte-nos Sobre sua Empresa** (encontrado em "Etapa 2 Registrar") **Namespace do Editor** > **Namespace**.
-* **Portas**: no portal de Publicação, acesse **máquinas virtuais** e selecione sua oferta. Em seguida, clique em **IMAGENS DA VM** > **Abrir Portas**.
+* **Identificador de oferta**: no hello publicação portal, vá muito**máquinas virtuais** e selecione sua oferta. Em seguida, clique em **IMAGENS DA VM** > **Identificador da oferta**.
+* **Identificador de SKU**: no hello publicação portal, vá muito**máquinas virtuais** e selecione sua oferta. Em seguida, clique em **SKUS** > **Adicionar uma SKU**.
+* **Namespace do publicador**: no hello publicação portal, vá muito**máquinas virtuais** > **passo a passo** > **Conte-nos sobre sua empresa** (localizado em "Etapa 2 registrar") **Publicador Namespace** > **Namespace**.
+* **Portas**: no hello publicação portal, vá muito**máquinas virtuais** e selecione sua oferta. Em seguida, clique em **IMAGENS DA VM** > **Abrir Portas**.
 * **Alteração de preços das SKUs listadas**
 * **Alteração do modelo de cobrança das SKUs listadas**
 * **Remoção de regiões de cobrança de SKUs listados**
-* **Alteração da contagem de discos de dados dos SKUs listados**
+* **Contagem de SKU (s) listados de disco de dados de alteração de saudação**
 
-## <a name="update-the-technical-details-of-a-sku"></a>Atualizar os detalhes técnicos de uma SKU
-Para adicionar uma nova versão à SKU listada e republicar sua oferta, siga estas etapas:
+## <a name="update-hello-technical-details-of-a-sku"></a>Atualizar detalhes técnicos de saudação de uma SKU
+tooadd um novo toohello de versão listadas SKU e republicar a sua oferta, siga estas etapas:
 
-1. Entre no [Portal de publicação](https://publish.windowsazure.com).
-2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
-3. No menu à esquerda, clique na guia **IMAGENS da VM**.
-4. Na seção **SKUs**, localize a SKU que você deseja atualizar.
-5. Adicionar um novo número de versão à SKU e clique no botão **+**. A nova versão deve estar no formato X.Y.Z, em que X, Y e Z são inteiros. As alterações de versão só devem ser incrementais.
-6. Na caixa **URL do VHD do SO**, adicione o URI da assinatura de acesso compartilhado criado para o VHD do sistema operacional e salve as alterações.
+1. Entrar toohello [publicação portal](https://publish.windowsazure.com).
+2. Vá toohello **máquinas virtuais** guia e selecione sua oferta.
+3. No menu de Olá Olá esquerda, clique em Olá **imagens da VM** guia.
+4. Em Olá **SKUs** seção, localize Olá SKU que você deseja tooupdate.
+5. Adicionar um novo número de versão para Olá SKU e clique em Olá  **+**  botão. versão nova do Hello deve estar em um formato X.Y.Z, onde X, Y e Z são números inteiros. As alterações de versão só devem ser incrementais.
+6. Em Olá **URL do VHD de sistema operacional** caixa, insira a assinatura de acesso compartilhado Olá URI criado para o VHD do sistema operacional hello e salvar alterações de saudação.
 
    > [!IMPORTANT]
-   > Você não pode aumentar/diminuir a contagem de discos de dados de uma SKU listada. Você precisa criar uma nova SKU nesse caso. Para obter diretrizes detalhadas, consulte a seção [Adicionar uma nova SKU em uma oferta listada](#add-a-new-sku-under-a-listed-offer).
+   > Você não pode incrementar/diminuir a contagem de disco de dados de saudação de uma SKU listada. É necessário toocreate um SKU novo nesse caso. Para obter orientações detalhadas, consulte a seção toohello [adicionar um SKU de novo em uma oferta listado](#add-a-new-sku-under-a-listed-offer).
    >
    >
-7. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
-8. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
+7. Vá toohello **publicar** guia e, em seguida, clique em **tooSTAGING PUSH**. Para obter orientações detalhadas sobre como testar sua oferta no ambiente de preparo de hello, consulte [testar sua oferta VM para Olá Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+8. Depois que você testou sua oferta no preparo, acesse toohello **publicar** guia Olá portal de publicação. Clique em **SOLICITAR aprovação tooPUSH tooPRODUCTION** toorepublish sua oferta no hello Marketplace.
 
     ![Imagens da VM](media/marketplace-publishing-vm-image-post-publishing/img01_07.png)
 
-## <a name="update-the-nontechnical-details-of-an-offer-or-a-sku"></a>Atualizar os detalhes não técnicos de uma oferta ou uma SKU
-Você pode atualizar os detalhes não técnicos (marketing, jurídico, suporte, categorias) de sua oferta online ou SKU no Azure Marketplace.
+## <a name="update-hello-nontechnical-details-of-an-offer-or-a-sku"></a>Atualizar os detalhes de não-Olá de uma oferta ou uma SKU
+Você pode atualizar Olá sem conhecimento técnico (marketing, legal, suporte, categorias) detalhes de sua oferta ao vivo ou SKU no hello Marketplace.
 
-### <a name="update-the-offer-description-and-logos"></a>Atualizar a descrição e os logotipos da oferta
-Para atualizar os detalhes da oferta e republicar sua oferta, siga estas etapas:
+### <a name="update-hello-offer-description-and-logos"></a>Descrição da atualização de oferta hello e logotipos
+Olá tooupdate detalhes da oferta e republicar a sua oferta, siga estas etapas:
 
-1. Entre no [Portal de publicação](https://publish.windowsazure.com).
-2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
-3. No menu à esquerda, clique na guia **MARKETING**.
+1. Entrar toohello [publicação portal](https://publish.windowsazure.com).
+2. Vá toohello **máquinas virtuais** guia e selecione sua oferta.
+3. No menu de Olá Olá esquerda, clique em Olá **MARKETING** guia.
 4. Clique em **Inglês (EUA)**.
-5. Clique na guia **DETALHES**. Na seção **Descrição**, atualize o **TÍTULO**, o **RESUMO** e o **RESUMO LONGO** da oferta e salve as alterações.
+5. Clique em Olá **detalhes** guia. Em Olá **descrição** seção, atualização Olá oferta **título**, **resumo**, e **resumo longo** e salvar as alterações de saudação.
 
    > [!NOTE]
-   > Ao atualizar os detalhes da SKU, lembre-se destas restrições: 
-   * Não insira texto duplicado na descrição da oferta e da SKU.
-   * Não insira texto duplicado no título da SKU nem no resumo longo da oferta. 
-   * Não insira texto duplicado no título da SKU nem no resumo da oferta.
+   > Quando você atualiza os detalhes de SKU Olá, esteja ciente dessas restrições: 
+   * Não insira o texto duplicado para descrição da oferta hello e uma descrição de SKU de saudação.
+   * Não insira o texto duplicado para o título SKU de saudação e resumo longo de oferta de saudação. 
+   * Não insira o texto duplicado para o título SKU de saudação e o resumo de oferta de saudação.
    >
    >
 
     ![Detalhes](media/marketplace-publishing-vm-image-post-publishing/img02.1_05.png)
-6. Na seção **LOGOTIPOS** da guia **DETALHES**, atualize os logotipos. Verifique se os logotipos seguem as [diretrizes do Azure Marketplace](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content).
+6. Em Olá **LOGOTIPOS** seção Olá **detalhes** guia, atualize os logotipos da saudação. Certifique-se de logotipos Olá sigam Olá [diretrizes do Azure Marketplace](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content).
 
    > [!NOTE]
-   > O ícone Hero é opcional. Você pode optar por não carregar um ícone Hero. No entanto, depois que o ícone Hero for carregado, não há provisão para excluí-lo do portal de Publicação. Siga as [diretrizes do ícone Hero](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content).
+   > O ícone Hero é opcional. Você pode escolher não tooupload um ícone herói. No entanto, depois que um ícone herói é carregado, não há nenhum toodelete provisão de saudação portal de publicação. Siga Olá [diretrizes de ícone herói](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content).
    >
    >
-7. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
-8. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
+7. Vá toohello **publicar** guia e, em seguida, clique em **tooSTAGING PUSH**. Para obter orientações detalhadas sobre como testar sua oferta no ambiente de preparo de hello, consulte [testar sua oferta VM para Olá Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+8. Depois que você testou sua oferta no preparo, acesse toohello **publicar** guia Olá portal de publicação. Clique em **SOLICITAR aprovação tooPUSH tooPRODUCTION** toorepublish sua oferta no hello Marketplace.
 
     ![Logotipos](media/marketplace-publishing-vm-image-post-publishing/img02.1_08.png)
 
-### <a name="update-the-sku-description"></a>Atualizar a descrição da SKU
-Para atualizar os detalhes da SKU e republicar sua oferta, siga estas etapas:
+### <a name="update-hello-sku-description"></a>Atualizar a descrição do SKU Olá
+Olá tooupdate SKU detalhes e republicar a sua oferta, siga estas etapas:
 
-1. Entre no [Portal de publicação](https://publish.windowsazure.com).
-2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
-3. No menu à esquerda, clique na guia **MARKETING**.
+1. Entrar toohello [publicação portal](https://publish.windowsazure.com).
+2. Vá toohello **máquinas virtuais** guia e selecione sua oferta.
+3. No menu de Olá Olá esquerda, clique em Olá **MARKETING** guia.
 4. Clique em **Inglês (EUA)**.
-5. Clique na guia **PLANOS**. Na seção **SKUs**, atualize o **TÍTULO**, o **RESUMO** e a **DESCRIÇÃO** da SKU e salve as alterações.
+5. Clique em Olá **PLANOS** guia. Em Olá **SKUs** seção, atualize Olá SKU **título**, **resumo**, e **descrição** e salvar as alterações de saudação.
 
    > [!NOTE]
-   > Ao atualizar os detalhes da SKU, lembre-se destas restrições: 
-   * Não insira texto duplicado na descrição da oferta e da SKU. 
-   * Não insira texto duplicado no título da SKU nem no resumo longo da oferta. 
-   * Não insira texto duplicado no título da SKU nem no resumo da oferta.
+   > Quando você atualiza os detalhes de SKU Olá, esteja ciente dessas restrições: 
+   * Não insira o texto duplicado para descrição da oferta hello e uma descrição de SKU de saudação. 
+   * Não insira o texto duplicado para o título SKU de saudação e resumo longo de oferta de saudação. 
+   * Não insira o texto duplicado para o título SKU de saudação e o resumo de oferta de saudação.
    >
    >
-6. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
-7. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
+6. Vá toohello **publicar** guia e, em seguida, clique em **tooSTAGING PUSH**. Para obter orientações detalhadas sobre como testar sua oferta no ambiente de preparo de hello, consulte [testar sua oferta VM para Olá Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+7. Depois que você testou sua oferta no preparo, acesse toohello **publicar** guia Olá portal de publicação. Clique em **SOLICITAR aprovação tooPUSH tooPRODUCTION** toorepublish sua oferta no hello Marketplace.
 
     ![Planos](media/marketplace-publishing-vm-image-post-publishing/img02.2_07.png)
 
 ### <a name="change-existing-links-or-add-new-links"></a>Alterar os links existentes ou adicionar novos links
-Para alterar links existentes ou adicionar novos links e, em seguida, republicar sua oferta, siga estas etapas:
+toochange os links existentes ou adicionar novos links e, em seguida, republicar a sua oferta, siga estas etapas:
 
-1. Entre no [Portal de publicação](https://publish.windowsazure.com).
-2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
-3. No menu à esquerda, clique na guia **MARKETING**.
+1. Entrar toohello [publicação portal](https://publish.windowsazure.com).
+2. Vá toohello **máquinas virtuais** guia e selecione sua oferta.
+3. No menu de Olá Olá esquerda, clique em Olá **MARKETING** guia.
 4. Clique em **Inglês (EUA)**.
-5. Clique na guia **LINKS**.
-6. Para adicionar um novo link, na seção **Links**, clique em **+ADICIONAR LINK**. Na caixa de diálogo **Adicionar Link**, digite o **TÍTULO** e a **URL** do link e salve as alterações. Você pode inserir qualquer link que contenha informações que possam ajudar os clientes.
-7. Para atualizar ou excluir um link existente, selecione o link e clique no botão **Editar** ou no botão **Excluir**.
+5. Clique em Olá **LINKS** guia.
+6. tooadd um novo link, em Olá **Links** seção, clique em **+ adicionar LINK**. Em Olá **Adicionar Link** caixa de diálogo caixa, insira o link Olá **título** e **URL** e salvar as alterações de saudação. Você pode inserir qualquer link que contenha informações que possam ajudar os clientes.
+7. tooupdate ou excluir um link existente, selecione o link de saudação e clique Olá **editar** botão ou hello **excluir** botão.
 
    > [!NOTE]
-   > Verifique se os links inseridos nesta seção estejam funcionando corretamente, pois esses links são validados durante o processo de solicitação de produção.
+   > Certifique-se de que os links de saudação que você inseriu nesta seção estão funcionando corretamente, porque esses links são validados durante o processo de solicitação de produção.
    >
    >
-8. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
-9. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
+8. Vá toohello **publicar** guia e, em seguida, clique em **tooSTAGING PUSH**. Para obter orientações detalhadas sobre como testar sua oferta no ambiente de preparo de hello, consulte [testar sua oferta VM para Olá Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+9. Depois que você testou sua oferta no preparo, acesse toohello **publicar** guia Olá portal de publicação. Clique em **SOLICITAR aprovação tooPUSH tooPRODUCTION** toorepublish sua oferta no hello Marketplace.
 
     ![Links](media/marketplace-publishing-vm-image-post-publishing/img02.3_09-01.png)
 
     ![Adicionar Link](media/marketplace-publishing-vm-image-post-publishing/img02.3-2.png)
 
 ### <a name="change-an-existing-sample-image-or-add-a-new-sample-image"></a>Alterar uma imagem de exemplo existente ou adicionar uma nova imagem de exemplo
-Para alterar uma imagem de exemplo existente ou adicionar novas imagens de exemplo e, em seguida, republicar sua oferta, siga estas etapas:
+toochange uma amostra existente da imagem ou adicionar novas imagens de exemplo e, em seguida, republicar a sua oferta, siga estas etapas:
 
 > [!NOTE]
-> Somente uma imagem de exemplo é exibida no [portal do Azure](https://portal.azure.com).
+> Imagem de apenas uma amostra é exibida na Olá [portal do Azure](https://portal.azure.com).
 >
 >
 
-1. Entre no [Portal de publicação](https://publish.windowsazure.com).
-2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
-3. No menu à esquerda, clique na guia **MARKETING**.
+1. Entrar toohello [publicação portal](https://publish.windowsazure.com).
+2. Vá toohello **máquinas virtuais** guia e selecione sua oferta.
+3. No menu de Olá Olá esquerda, clique em Olá **MARKETING** guia.
 4. Clique em **Inglês (EUA)**.
-5. Clique na guia **IMAGENS DE EXEMPLO**.
-6. Para adicionar uma nova imagem de exemplo, na seção **Exemplo de Imagens**, clique em **CARREGAR UMA NOVA IMAGEM** e salve as alterações.
+5. Clique em Olá **imagens de amostra** guia.
+6. tooadd uma nova imagem de exemplo no hello **imagens de amostra** seção, clique em **carregar A nova imagem** e salvar as alterações de saudação.
 
    > [!NOTE]
    > Incluir uma imagem de exemplo é opcional.
    >
-7. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
-8. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
+7. Vá toohello **publicar** guia e, em seguida, clique em **tooSTAGING PUSH**. Para obter orientações detalhadas sobre como testar sua oferta no ambiente de preparo de hello, consulte [testar sua oferta VM para Olá Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+8. Depois que você testou sua oferta no preparo, acesse toohello **publicar** guia Olá portal de publicação. Clique em **SOLICITAR aprovação tooPUSH tooPRODUCTION** toorepublish sua oferta no hello Marketplace.
 
     ![Exemplo de Imagens](media/marketplace-publishing-vm-image-post-publishing/img02.4_09.png)
 
-### <a name="update-the-legal-content"></a>Atualizar o conteúdo legal
-Para atualizar o conteúdo legal e republicar sua oferta, siga estas etapas:
+### <a name="update-hello-legal-content"></a>Atualizar conteúdo legal Olá
+tooupdate Olá conteúdo legal e republicar a sua oferta, siga estas etapas:
 
-1. Entre no [Portal de publicação](https://publish.windowsazure.com).
-2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
-3. No menu à esquerda, clique na guia **MARKETING**.
+1. Entrar toohello [publicação portal](https://publish.windowsazure.com).
+2. Vá toohello **máquinas virtuais** guia e selecione sua oferta.
+3. No menu de Olá Olá esquerda, clique em Olá **MARKETING** guia.
 4. Clique em **Inglês (EUA)**.
-5. Clique na guia **LEGAL**. Na seção **Legal**, atualize suas políticas/termos de uso. Insira ou cole as políticas/termos na caixa de texto **TERMOS DE USO** e salve as alterações.
-6. O limite de caracteres para os termos de uso legais é de 1 caractere.
-7. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
-8. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
+5. Clique em Olá **legais** guia. Em Olá **legais** seção, atualize suas políticas/termos de uso. Digite ou cole Olá políticas/condições em Olá **os termos de uso** caixa e salvar as alterações de saudação.
+6. limite de caracteres de saudação de termos legais de saudação de uso é 1 milhão de caracteres.
+7. Vá toohello **publicar** guia e, em seguida, clique em **tooSTAGING PUSH**. Para obter orientações detalhadas sobre como testar sua oferta no ambiente de preparo de hello, consulte [testar sua oferta VM para Olá Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+8. Depois que você testou sua oferta no preparo, acesse toohello **publicar** guia Olá portal de publicação. Clique em **SOLICITAR aprovação tooPUSH tooPRODUCTION** toorepublish sua oferta no hello Marketplace.
 
     ![Legal](media/marketplace-publishing-vm-image-post-publishing/img02.5_08.png)
 
-### <a name="update-the-support-information"></a>Atualizar as informações de suporte
-Para atualizar as informações de suporte e republicar sua oferta, siga estas etapas:
+### <a name="update-hello-support-information"></a>Atualizar informações de suporte de saudação
+Olá tooupdate informações de suporte e republicar a sua oferta, siga estas etapas:
 
-1. Entre no [Portal de publicação](https://publish.windowsazure.com).
-2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
-3. No menu à esquerda, clique na guia **SUPORTE**.
-4. Na seção **Contato de Engenharia**, atualize os detalhes de contato de engenharia. Esses detalhes são usados apenas para comunicações internas entre o parceiro e a Microsoft.
-5. Na seção **Atendimento ao Cliente**, atualize os detalhes de contato de suporte e a **URL DE SUPORTE**. Esses detalhes são usados apenas para comunicações internas entre o parceiro e a Microsoft.
+1. Entrar toohello [publicação portal](https://publish.windowsazure.com).
+2. Vá toohello **máquinas virtuais** guia e selecione sua oferta.
+3. No menu de Olá Olá esquerda, clique em Olá **suporte** guia.
+4. Em Olá **entre em contato com engenharia** seção detalhes de contato engenharia atualização hello. Esses detalhes são usados para comunicação interna entre o parceiro de saudação e Microsoft somente.
+5. Em hello **atendimento ao cliente** seção, atualizar detalhes de contato de suporte hello e hello **suporte URL**. Esses detalhes são usados para comunicação interna entre o parceiro de saudação e Microsoft somente.
 
    > [!NOTE]
-   > Se você quiser fornecer suporte apenas por email, insira um número de telefone fictício na seção **Atendimento ao Cliente**. Nesse caso, o email fornecido será usado.
+   > Se você quiser tooprovide apenas o suporte de email, digite um número de telefone fictício no hello **atendimento ao cliente** seção. Nesse caso, Olá email fornecido é usado em vez disso.
    >
    >
-6. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
-7. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
+6. Vá toohello **publicar** guia e, em seguida, clique em **tooSTAGING PUSH**. Para obter orientações detalhadas sobre como testar sua oferta no ambiente de preparo de hello, consulte [testar sua oferta VM para Olá Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+7. Depois que você testou sua oferta no preparo, acesse toohello **publicar** guia Olá portal de publicação. Clique em **SOLICITAR aprovação tooPUSH tooPRODUCTION** toorepublish sua oferta no hello Marketplace.
 
     ![Suporte](media/marketplace-publishing-vm-image-post-publishing/img02.6_07.png)
 
-### <a name="update-the-categories"></a>Atualizar as categorias
-Para atualizar a seção de categorias da oferta e republicar sua oferta, siga estas etapas:
+### <a name="update-hello-categories"></a>Categorias de saudação de atualização
+Olá tooupdate categorias seção para sua oferta e republicam a sua oferta, siga estas etapas:
 
-1. Entre no [Portal de publicação](https://publish.windowsazure.com).
-2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
-3. No menu à esquerda, clique na guia **CATEGORIAS**.
-4. Na seção **Categorias**, atualize as categorias da oferta e salve as alterações. Você pode selecionar até cinco categorias para a galeria do Azure Marketplace.
-5. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
-6. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
+1. Entrar toohello [publicação portal](https://publish.windowsazure.com).
+2. Vá toohello **máquinas virtuais** guia e selecione sua oferta.
+3. No menu de Olá Olá esquerda, clique em Olá **categorias** guia.
+4. Em Olá **categorias** seção, atualizar Olá categorias para sua oferta e salvar as alterações de saudação. Você pode escolher as categorias de toofive para Galeria do Azure Marketplace hello.
+5. Vá toohello **publicar** guia e, em seguida, clique em **tooSTAGING PUSH**. Para obter orientações detalhadas sobre como testar sua oferta no ambiente de preparo de hello, consulte [testar sua oferta VM para Olá Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+6. Depois que você testou sua oferta no preparo, acesse toohello **publicar** guia Olá portal de publicação. Clique em **SOLICITAR aprovação tooPUSH tooPRODUCTION** toorepublish sua oferta no hello Marketplace.
 
     ![Categorias](media/marketplace-publishing-vm-image-post-publishing/img02.7_06.png)
 
 ## <a name="add-a-new-sku-under-a-listed-offer"></a>Adicionar uma nova SKU em uma oferta listada
-Para adicionar uma nova SKU em sua oferta ao vivo, siga estas etapas:
+tooadd um SKU de novo na oferta ao vivo, siga estas etapas:
 
-1. Entre no [Portal de publicação](https://publish.windowsazure.com).
-2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
-3. No menu à esquerda, clique na guia **SKUS**. Em seguida, clique em **Adicionar uma SKU**. 
-4. Na caixa de diálogo, insira um **Identificador de SKU** em letras minúsculas. Marque a caixa de seleção **Modelo de cobrança BYOL (traga sua própria licença)** se desejar publicar a nova SKU com um modelo de cobrança BYOL. Caso contrário, desmarque a caixa de seleção. Clique na marca de escala para criar uma nova SKU. Se você não tiver escolhido o modelo de cobrança BYOL, o modelo de cobrança será definido automaticamente como por hora. Se você quiser obter a avaliação gratuita de 30 dias para o modelo de cobrança por hora, selecione **Um Mês** para **Há uma avaliação gratuita disponível?** Caso contrário, selecione **Sem Avaliação**. (**Há uma avaliação gratuita disponível?**  só aparecerá se você não tiver selecionado BYOL ao criar a nova SKU.)
+1. Entrar toohello [publicação portal](https://publish.windowsazure.com).
+2. Vá toohello **máquinas virtuais** guia e selecione sua oferta.
+3. No menu de Olá Olá esquerda, clique em Olá **SKUS** guia. Em seguida, clique em **Adicionar uma SKU**. 
+4. Na caixa de diálogo hello, insira um **identificador SKU** em minúsculas. Selecione Olá **traga seu próprio modelo de cobrança de licença (BYOL)** caixa de seleção se você quiser toopublish Olá SKU novo com um modelo de cobrança BYOL. Caso contrário, desmarque a caixa de seleção de saudação. Clique em toocreate marca de escala Olá um SKU de novo. Se você não escolheu o modelo de cobrança Olá BYOL, o modelo de cobrança de saudação é definido automaticamente toohourly. Se quiser que a avaliação gratuita de 30 dias de saudação para o modelo de cobrança por hora hello, selecione **um mês** para **é uma avaliação gratuita disponível?** Caso contrário, selecione **Sem Avaliação**. (**é uma avaliação gratuita disponível?**  será exibida apenas se você não selecionou BYOL enquanto criando Olá SKU novo.)
 
    > [!IMPORTANT]
-   > **Ocultar esta SKU do Marketplace porque ela sempre deve ser comprada por meio de um modelo de solução** deverá ser **Sim** *somente* se você for aprovado para publicar um modelo de solução. Caso contrário, essa opção sempre deverá ser marcada como **Não**.
+   > **Ocultar este SKU de saudação Marketplace porque sempre deve ser comprado por meio de um modelo de solução** devem ser **Sim** *somente* se for aprovado para publicação de um modelo de solução. Caso contrário, essa opção sempre deverá ser marcada como **Não**.
    >
    >
-4. No menu à esquerda, clique na guia **IMAGENS DA VM** e descubra a nova SKU que você criou.
-5. Para configurar a nova SKU, consulte [Obter certificação para sua imagem da VM](marketplace-publishing-vm-image-creation.md#5-obtain-certification-for-your-vm-image) para obter diretrizes.
-6. Para adicionar o material de marketing para a nova SKU, consulte [Fornecer conteúdo de marketing do Marketplace](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content).
-7. Para adicionar informações de preços para a nova SKU, consulte [Definir seus preços](marketplace-publishing-push-to-staging.md#step-2-set-your-prices).
-8. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
-9. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
+4. No menu de Olá Olá esquerda, clique em Olá **imagens da VM** guia e descobrir Olá SKU novo que você criou.
+5. tooset até Olá SKU novo, consulte [obter a certificação de sua imagem VM](marketplace-publishing-vm-image-creation.md#5-obtain-certification-for-your-vm-image) para obter orientação.
+6. tooadd material de marketing Olá SKU novo, consulte [Marketplace fornecer conteúdo de marketing](marketplace-publishing-push-to-staging.md#step-1-provide-marketplace-marketing-content).
+7. tooadd informações de preços para Olá SKU novo, consulte [definir preços](marketplace-publishing-push-to-staging.md#step-2-set-your-prices).
+8. Vá toohello **publicar** guia e, em seguida, clique em **tooSTAGING PUSH**. Para obter orientações detalhadas sobre como testar sua oferta no ambiente de preparo de hello, consulte [testar sua oferta VM para Olá Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+9. Depois que você testou sua oferta no preparo, acesse toohello **publicar** guia Olá portal de publicação. Clique em **SOLICITAR aprovação tooPUSH tooPRODUCTION** toorepublish sua oferta no hello Marketplace.
 
     ![SKUs](media/marketplace-publishing-vm-image-post-publishing/img03_09-01.png)
 
     ![Adicionar uma SKU](media/marketplace-publishing-vm-image-post-publishing/img03_09-02.png)
 
-## <a name="change-the-data-disk-count-for-a-listed-sku"></a>Alterar a contagem de discos de dados para uma SKU listada
-Você não pode aumentar/diminuir a contagem de discos de dados de uma SKU listada. Você precisa criar uma nova SKU nesse caso. Para obter diretrizes detalhadas, consulte a seção [Adicionar uma nova SKU em uma oferta listada](#add-a-new-sku-under-a-listed-offer).
+## <a name="change-hello-data-disk-count-for-a-listed-sku"></a>Alterar a contagem do disco de dados Olá para um SKU listado
+Você não pode incrementar/diminuir a contagem de disco de dados de saudação de uma SKU listada. É necessário toocreate um SKU novo nesse caso. Para obter orientações detalhadas, consulte a seção toohello [adicionar um SKU de novo em uma oferta listado](#add-a-new-sku-under-a-listed-offer).
 
-## <a name="delete-a-listed-offer-from-the-marketplace"></a>Excluir uma oferta listada do Marketplace
-É preciso cuidar de vários aspectos no caso de uma solicitação para remover uma oferta online. Para obter diretrizes da equipe de suporte para remover uma oferta listada do Marketplace, siga estas etapas:
+## <a name="delete-a-listed-offer-from-hello-marketplace"></a>Excluir uma oferta listada do hello Marketplace
+Vários aspectos necessário toobe resolvido no caso de saudação de uma solicitação de tooremove uma oferta ao vivo. diretrizes de tooget da saudação suporte team tooremove uma oferta listada da saudação Marketplace, siga estas etapas:
 
-1. Gere um tíquete de suporte na página [Criar um incidente](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=15635&ccsid=635993707583706681).
+1. Gerar um tíquete de suporte Olá [criar um incidente](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=15635&ccsid=635993707583706681) página.
 
 2. Selecione o **Tipo de problema** como **Gerenciando ofertas** e selecione a **Categoria** como **Modificando uma oferta e/ou uma SKU já em produção**.
-3. Envie a solicitação.
+3. Envie solicitação de saudação.
 
-A equipe de suporte orienta você pelo processo de exclusão da oferta/SKU.
+a equipe de suporte Olá orienta você pelo processo de exclusão de oferta/SKU de saudação.
 
 > [!NOTE]
-> Você sempre pode excluir a oferta enquanto ela estiver no status Rascunho (mas não Preparo nem Produção). Na guia **HISTÓRICO**, clique em **DESCARTAR RASCUNHO**.
+> Você sempre pode excluir oferta Olá enquanto ele está em status rascunho (mas não preparo ou produção). Em Olá **histórico** , clique em **Descartar rascunho**.
 >
 >
 
-## <a name="delete-a-listed-sku-from-the-marketplace"></a>Excluir uma SKU listada do Marketplace
-Para excluir uma SKU listada do Marketplace, siga estas etapas:
+## <a name="delete-a-listed-sku-from-hello-marketplace"></a>Excluir um SKU listado do hello Marketplace
+toodelete uma SKU listada do hello Marketplace, siga estas etapas:
 
-1. Entre no [Portal de publicação](https://publish.windowsazure.com).
+1. Entrar toohello [publicação portal](https://publish.windowsazure.com).
 
-2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
-3. No painel à esquerda, clique na guia **SKUS**.
-4. Selecione a SKU que você deseja excluir e, em seguida, clique no botão **Excluir**.
-5. Acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
-6. Depois que a oferta for republicada no Marketplace, a SKU será excluída do Marketplace e do portal do Azure.
+2. Vá toohello **máquinas virtuais** guia e selecione sua oferta.
+3. No painel Olá Olá esquerda, clique em Olá **SKUS** guia.
+4. Selecione Olá SKU que você deseja toodelete e clique em Olá **excluir** botão.
+5. Vá toohello **publicar** guia Olá portal de publicação. Clique em **SOLICITAR aprovação tooPUSH tooPRODUCTION** toorepublish Olá oferta no hello Marketplace.
+6. Após a oferta de saudação é republicada em Olá Marketplace, Olá SKU é excluído do hello Marketplace e Olá portal do Azure.
 
-## <a name="delete-the-current-version-of-a-listed-sku-from-the-marketplace"></a>Excluir a versão atual de uma SKU listada do Marketplace
-Para excluir a versão atual de uma SKU listada do Marketplace, siga estas etapas: 
+## <a name="delete-hello-current-version-of-a-listed-sku-from-hello-marketplace"></a>Excluir a versão atual de saudação de uma SKU listada do hello Marketplace
+versão atual do hello toodelete de uma SKU listada do hello Marketplace, siga estas etapas: 
 
-1. Entre no [Portal de publicação](https://publish.windowsazure.com).
+1. Entrar toohello [publicação portal](https://publish.windowsazure.com).
 
-2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
-3. No menu à esquerda, clique na guia **IMAGENS da VM**.
-4. Selecione o SKU cuja versão atual você deseja excluir e, em seguida, clique no botão **Excluir**.
-5. Acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
-6. Após a oferta ser republicada no Marketplace, a versão atual da SKU listada será excluída do Marketplace e do portal do Azure. A SKU então será revertida para sua versão anterior.
+2. Vá toohello **máquinas virtuais** guia e selecione sua oferta.
+3. No menu de Olá Olá esquerda, clique em Olá **imagens da VM** guia.
+4. Selecione Olá SKU cujo atual versão você deseja toodelete e clique em Olá **excluir** botão.
+5. Vá toohello **publicar** guia Olá portal de publicação. Clique em **SOLICITAR aprovação tooPUSH tooPRODUCTION** toorepublish Olá oferta no hello Marketplace.
+6. Depois de oferta Olá obtém republicada no hello Marketplace, Olá versão atual do hello SKU listado é excluído da saudação Marketplace e Olá portal do Azure. Olá SKU é revertida versão anterior do tooits.
 
-## <a name="revert-the-listing-price-to-production-values"></a>Reverter o preço de listagem para os valores de produção
-Para reverter o preço de listagem para os valores de produção, siga estas etapas:
+## <a name="revert-hello-listing-price-tooproduction-values"></a>Reverter Olá listando os valores de tooproduction de preço
+valores de tooproduction do preço de lista de saudação toorevert, siga estas etapas:
 
-1. Entre no [Portal de publicação](https://publish.windowsazure.com).
-2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
-3. No menu à esquerda, clique na guia **PREÇOS**.
-4. Selecione uma região cujos preços você deseje redefinir.
+1. Entrar toohello [publicação portal](https://publish.windowsazure.com).
+2. Vá toohello **máquinas virtuais** guia e selecione sua oferta.
+3. No menu de Olá Olá esquerda, clique em Olá **preços** guia.
+4. Selecione uma região cujos preços que você deseja tooreset.
 
     ![Regiões de preço](media/marketplace-publishing-vm-image-post-publishing/img08-04.png)
-5. No caso de SKUs com modelo de cobrança por hora, redefina os preços de todos os núcleos, uma vez que estão em produção na região selecionada. Para SKUs com um modelo de cobrança BYOL, disponibilize a SKU na região marcando a caixa de seleção para a SKU na seção **DISPONIBILIDADE DA SKU LICENCIADA EXTERNAMENTE (BYOL)**.
+5. Para SKUs com um modelo de cobrança por hora, redefina preços Olá para todos os núcleos hello como estão na produção para a região selecionada da saudação. Para SKUs com um modelo de cobrança BYOL, verifique Olá SKU disponível na região hello, selecionando a caixa de seleção Olá Olá SKU no hello **EXTERNALLY-LICENSED (BYOL) SKU disponibilidade** seção.
 
     ![Modelos de preços](media/marketplace-publishing-vm-image-post-publishing/img08-05.png)
 6. Clique em **DEFINIR AUTOMATICAMENTE O PREÇO PARA OUTROS MERCADOS COM BASE NOS PREÇOS PARA OS ESTADOS UNIDOS**.
 
    > [!NOTE]
-   > O rótulo do botão pode ser diferente, dependendo da região que você selecionar. Uma vez que selecionamos os Estados Unidos, o rótulo do botão é **DEFINIR AUTOMATICAMENTE O PREÇO PARA OUTROS MERCADOS COM BASE NOS PREÇOS PARA OS ESTADOS UNIDOS**.
+   > rótulo do botão Olá pode ser diferente dependendo da região de saudação que você selecionar. Porque estamos selecionado dos Estados Unidos, botão Olá é rotulado **AUTOPRICE outros MERCADOS com base em ON preços em Estados Unidos**.
    >
    >
 
     ![Preço automático](media/marketplace-publishing-vm-image-post-publishing/img08-06.png)
-7. Na página 1 do assistente de Preço Automático, escolha o mercado de base e clique no botão de **Seta**.
+7. Na página 1 do Assistente de Autoprice hello, escolha o mercado base hello e clique em Olá **seta** botão.
 
     ![Mercado de base](media/marketplace-publishing-vm-image-post-publishing/img08-07.png)
-8. Na página 2, escolha planos e medidores de serviço (núcleos) e clique no botão de **seta**.
+8. Na página 2, escolha planos de serviço e metros (núcleos) e clique em Olá **seta** botão.
 
     ![Planos e medidores de serviço](media/marketplace-publishing-vm-image-post-publishing/img08-08.png)
-9. Na página 3, clique em **Alternar Todos** para selecionar todas as regiões. Outra opção é marcar manualmente as caixas de seleção para regiões específicas. Clique no botão de **seta**.
+9. Na página 3, clique em **ativar/desativar todas as** tooselect todas as regiões. Outra opção é marcar manualmente as caixas de seleção para regiões específicas. Clique em Olá **seta** botão.
 
     ![Escolher mercados](media/marketplace-publishing-vm-image-post-publishing/img08-09.png)
-10. Na página 4, examine as taxas de câmbio e clique em **Concluir**. O assistente redefine os preços de acordo com as suas seleções.
+10. Na página 4, examine as taxas de câmbio hello e clique em **concluir**. Assistente de saudação redefine Olá preços seleções de tooyour de acordo.
 
-11. Na guia **PREÇOS**, clique em **EXIBIR RESUMO E ALTERAÇÕES**.
-    Para **Exibir Versão**, selecione **Rascunho**; para **Comparar com**, selecione **Produção**. Se você não detectar nenhuma diferença de preço, isso significará que o preço foi revertido com êxito para os valores de produção.
+11. Em Olá **preços** , clique em **Exibir resumo e alterações**.
+    Para **Exibir Versão**, selecione **Rascunho**; para **Comparar com**, selecione **Produção**. Se você não percebem nenhuma diferença de preços, preços Olá revertido toohello valores de produção com êxito.
 
     ![Exibir resumo e alterações](media/marketplace-publishing-vm-image-post-publishing/img08-11.png)
-12. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
-13. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
+12. Vá toohello **publicar** guia e, em seguida, clique em **tooSTAGING PUSH**. Para obter orientações detalhadas sobre como testar sua oferta no ambiente de preparo de hello, consulte [testar sua oferta VM para Olá Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+13. Depois que você testou sua oferta no preparo, acesse toohello **publicar** guia Olá portal de publicação. Clique em **SOLICITAR aprovação tooPUSH tooPRODUCTION** toorepublish sua oferta no hello Marketplace.
 
-## <a name="revert-the-billing-model-to-production-values"></a>Reverter o modelo de cobrança para os valores de produção
-Para reverter o modelo de cobrança para os valores de produção, siga estas etapas:
+## <a name="revert-hello-billing-model-tooproduction-values"></a>Reverter Olá valores tooproduction do modelo de cobrança
+toorevert Olá cobrança tooproduction valores do modelo, siga estas etapas:
 
-1. Entre no [Portal de publicação](https://publish.windowsazure.com).
+1. Entrar toohello [publicação portal](https://publish.windowsazure.com).
 
-2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
-3. No menu à esquerda, clique na guia **SKUS**.
-4. Clique o botão **Editar** para reverter o modelo de cobrança. Na janela que se abre, marque ou desmarque a caixa de seleção **Cobrança e licenciamento são feitos externamente ao Azure (também conhecido como Traga sua própria licença)**.
+2. Vá toohello **máquinas virtuais** guia e selecione sua oferta.
+3. No menu de Olá Olá esquerda, clique em Olá **SKUS** guia.
+4. Clique em Olá **editar** modelo de cobrança de saudação do botão toorevert. Na janela de saudação que é aberta, selecione ou desmarque Olá **licenciamento e cobrança é feito externamente do Azure (também conhecido como trazer sua própria licença)** caixa de seleção.
 
     ![Editar cobrança](media/marketplace-publishing-vm-image-post-publishing/img09-04.png)
-5. Siga as etapas em "Reverter o preço de listagem para os valores de produção" neste artigo.
-6. Acesse a guia **PUBLICAR** e, em seguida, clique em **ENVIAR POR PUSH PARA PREPARO**. Para obter diretrizes detalhadas sobre como testar a sua oferta no ambiente de preparo, consulte [Testar sua oferta de VM para o Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
-7. Depois de testar sua oferta no preparo, acesse a guia **PUBLICAR** no portal de Publicação. Clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
+5. Siga as etapas de hello "Olá Revert listando os valores de tooproduction preço" neste artigo.
+6. Vá toohello **publicar** guia e, em seguida, clique em **tooSTAGING PUSH**. Para obter orientações detalhadas sobre como testar sua oferta no ambiente de preparo de hello, consulte [testar sua oferta VM para Olá Marketplace](marketplace-publishing-vm-image-test-in-staging.md).
+7. Depois que você testou sua oferta no preparo, acesse toohello **publicar** guia Olá portal de publicação. Clique em **SOLICITAR aprovação tooPUSH tooPRODUCTION** toorepublish sua oferta no hello Marketplace.
 
-## <a name="revert-the-visibility-setting-of-a-listed-sku-to-the-production-value"></a>Reverter a configuração de visibilidade de uma SKU listada para o valor de produção
-Para reverter a configuração de visibilidade de uma SKU listada para o valor de produção, siga estas etapas:
+## <a name="revert-hello-visibility-setting-of-a-listed-sku-toohello-production-value"></a>Reverter a configuração de visibilidade de saudação de um valor de produção de toohello SKU listado
+configuração de visibilidade de saudação toorevert de um valor de produção de toohello SKU listado, siga estas etapas:
 
-1. Entre no [Portal de publicação](https://publish.windowsazure.com).
+1. Entrar toohello [publicação portal](https://publish.windowsazure.com).
 
-2. Acesse a guia **Máquinas virtuais** e selecione sua oferta.
-3. No menu à esquerda, clique na guia **SKUS**.
-4. Selecione a SKU e reverta a configuração de visibilidade para o valor de produção.
+2. Vá toohello **máquinas virtuais** guia e selecione sua oferta.
+3. No menu de Olá Olá esquerda, clique em Olá **SKUS** guia.
+4. Selecione o SKU e reverter a configuração de visibilidade de saudação do valor do SKU toohello produção de hello.
 
     ![Visibilidade](media/marketplace-publishing-vm-image-post-publishing/img10-04.png)
-5. Depois de concluir as alterações, clique em **SOLICITAR APROVAÇÃO PARA ENVIAR POR PUSH PARA PRODUÇÃO** para republicar sua oferta no Marketplace.
+5. Depois de terminar com alterações hello, clique em **SOLICITAR aprovação tooPUSH tooPRODUCTION** toorepublish sua oferta no hello Marketplace.
 
 ## <a name="see-also"></a>Consulte também
-* [Introdução: publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Introdução: Publicar uma oferta toohello Azure Marketplace](marketplace-publishing-getting-started.md)
 * [Compreender o relatório de pagamento](marketplace-publishing-report-payout.md)
 * [Alterar seu incentivo ao revendedor do Provedor de Soluções na Nuvem](marketplace-publishing-csp-incentive.md)
-* [Solução de problemas comuns de publicação no Marketplace](marketplace-publishing-support-common-issues.md)
+* [Solucionar problemas comuns de publicação no hello Marketplace](marketplace-publishing-support-common-issues.md)
 * [Obtenha suporte como um editor](marketplace-publishing-get-publisher-support.md)
 * [Criar uma imagem da VM local](marketplace-publishing-vm-image-creation-on-premise.md)
-* [Criar uma máquina virtual que executa o Windows no Portal de Visualização do Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Criar uma máquina virtual executando o Windows no portal de visualização do Azure Olá](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

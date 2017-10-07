@@ -1,6 +1,6 @@
 ---
-title: "Ciência de dados usando o Scala e Spark no Azure | Microsoft Docs"
-description: "Como usar o Scala para tarefas de aprendizado de máquina supervisionadas com a MLlib escalonável do Spark e os pacotes de AM do Spark em um cluster Azure HDInsight Spark."
+title: "aaaData ciência usando Scala e Spark no Azure | Microsoft Docs"
+description: "Como toouse Scala para tarefas com de aprendizado de máquina supervisionada Olá Spark MLlib e Spark ML pacotes escalonáveis em um cluster Spark no HDInsight."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;deguhath
-ms.openlocfilehash: b2419f53bdc3236d7de76b89f2a0a76704e85391
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e32ebd0b91417183fe48ee10ebc7929fd9605762
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Ciência de Dados usando o Scala e o Spark no Azure
-Este artigo mostra como usar o Scala para tarefas de aprendizado de máquina supervisionadas com a MLlib escalonável do Spark e os pacotes de AM do Spark em um cluster Azure HDInsight Spark. Ele explica as tarefas que constituem o [Processo Ciência de Dados](http://aka.ms/datascienceprocess): ingestão e exploração de dados, visualização, engenharia de recursos, modelagem e consumo de modelo. Os modelos no artigo incluem regressão logística e linear, florestas aleatórias e GBTs (árvores com aumento de gradiente), além de duas tarefas comuns de aprendizado de máquina supervisionadas:
+Este artigo mostra como toouse Scala para tarefas de aprendizado de máquina supervisionado com hello MLlib escalonável Spark e Spark ML pacotes em um cluster Spark no HDInsight. Orienta você pelas tarefas de saudação que constituem Olá [processo de ciência de dados](http://aka.ms/datascienceprocess): inclusão de dados e exploração, visualização, engenharia de recurso, modelagem e consumo de modelo. modelos Olá artigo Olá incluem Regressão logística e linear, florestas aleatórias e árvores ampliadas gradiente (GBTs), além de tootwo comum supervisionado tarefas de aprendizado de máquina:
 
-* Problema de regressão: previsão do valor da gorjeta (US$) para uma corrida de táxi
+* Problema de regressão: previsão do valor de dica de saudação ($) para uma viagem de táxi
 * Classificação binária: previsão da gorjeta ou não (1/0) para uma corrida de táxi
 
-O processo de modelagem requer treinamento e avaliação em um conjunto de dados de teste e métricas de precisão relevantes. Neste artigo, você pode aprender a armazenar esses modelos no armazenamento de Blobs do Azure e a pontuar e avaliar seu desempenho preditivo. Este artigo também aborda os tópicos mais avançados de como otimizar modelos usando a validação cruzada e limpeza de hiperparâmetro. Os dados usados são uma amostra do conjunto de dados de corridas e tarifas de táxi em Nova York de 2013, disponível no GitHub.
+processo de modelagem de saudação requer treinamento e avaliação em um conjunto de dados de teste e métricas de precisão relevantes. Neste artigo, você pode aprender como toostore esses modelos no armazenamento de BLOBs do Azure e como tooscore e avaliar o desempenho previsível. Este artigo também aborda hello mais avançados tópicos de como toooptimize modelos usando validação cruzada e parâmetro hyper limpeza. dados de saudação usados são um exemplo hello 2013 NYC táxi viagem e passagens do conjunto de dados disponível no GitHub.
 
-[Scala](http://www.scala-lang.org/), uma linguagem baseada na máquina virtual Java, integra conceitos de linguagem funcional e orientada a objetos. Trata-se de uma linguagem escalonável que é bastante adequada ao processamento distribuído na nuvem e executada em clusters Azure Spark.
+[Scala](http://www.scala-lang.org/), um idioma com base na máquina virtual Java com hello, integra conceitos de linguagem funcional e orientada a objeto. É uma linguagem escalonável toodistributed adequado de processamento na nuvem Olá, e é executado no Azure Spark clusters.
 
-[Spark](http://spark.apache.org/) é uma estrutura de processamento paralelo de software livre que dá suporte ao processamento na memória para melhorar o desempenho de aplicativos analíticos de Big Data. O mecanismo de processamento do Spark foi desenvolvido para velocidade, facilidade de uso e análise sofisticada. As funcionalidades de computação distribuídas na memória do Spark fazem dele uma boa escolha para algoritmos iterativos em cálculos de gráfico e aprendizado de máquina. O pacote [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) fornece um conjunto uniforme de APIs de alto nível criadas com base em quadros de dados, que podem ajudar você a criar e ajustar pipelines práticos de aprendizado de máquina. [MLlib](http://spark.apache.org/mllib/) é a biblioteca de aprendizado de máquina escalonável do Spark, que oferece recursos de modelagem para esse ambiente distribuído.
+[Spark](http://spark.apache.org/) é tooboost Olá desempenho de aplicativos de análise de dados grandes do processamento de uma estrutura de processamento paralelo de código-fonte aberto que dá suporte na memória. mecanismo de processamento do Spark Olá é construído para velocidade, facilidade de uso e análise sofisticada. As funcionalidades de computação distribuídas na memória do Spark fazem dele uma boa escolha para algoritmos iterativos em cálculos de gráfico e aprendizado de máquina. Olá [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) pacote fornece um conjunto uniforme de APIs de alto nível criado com base em dados quadros que podem ajudá-lo a criar e ajustar prática pipelines de aprendizado de máquina. [MLlib](http://spark.apache.org/mllib/) é a biblioteca de aprendizado de máquina escalonável do Spark, que oferece recursos de modelagem ambiente distribuído toothis.
 
-[HDInsight Spark](../hdinsight/hdinsight-apache-spark-overview.md) é a oferta do Spark de software livre hospedada no Azure. Ele também inclui suporte para notebooks Scala do Jupyter no cluster Spark, e pode executar consultas interativas do Spark SQL para transformar, filtrar e visualizar dados armazenados no armazenamento de Blobs do Azure. Os trechos de código Scala neste artigo que fornecem as soluções e mostram as plotagens relevantes para visualizar os dados executados em notebooks Jupyter instalados nos clusters Spark. As etapas de modelagem nestes tópicos contêm código que mostra como treinar, avaliar, salvar e consumir cada tipo de modelo.
+[HDInsight Spark](../hdinsight/hdinsight-apache-spark-overview.md) é Olá hospedado no Azure oferta do código-fonte aberto Spark. Também inclui suporte para blocos de anotações do Jupyter Scala no cluster do Spark Olá, e pode executar tootransform Spark SQL de consultas interativas, filtrar e visualizar os dados armazenados no armazenamento de BLOBs do Azure. Olá Scala trechos de código neste artigo que fornecem soluções hello e mostram gráficos relevantes Olá dados de saudação toovisualize executar em blocos de anotações do Jupyter instalados nos clusters do Spark hello. etapas de modelagem Olá nestes tópicos tiver o código que mostra a você como tootrain, avaliar, salvar e consumir cada tipo de modelo.
 
-As etapas de configuração e o código neste artigo são para o Azure HDInsight 3.4 Spark 1.6. No entanto, os códigos neste artigo e no [Notebook Jupyter para Scala](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) são genéricos e devem funcionar em qualquer cluster Spark. As etapas de configuração e gerenciamento do cluster poderão ser ligeiramente diferentes do que é mostrado neste artigo se você não estiver usando o HDInsight Spark.
+etapas de instalação Hello e o código neste artigo são para o Azure HDInsight 3.4 Spark 1.6. No entanto, Olá código neste artigo e Olá [Scala de anotações do Jupyter](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) são genéricos e deve funcionar em qualquer cluster Spark. Olá instalação de cluster e etapas de gerenciamento podem ser ligeiramente diferentes da que é mostrado neste artigo, se você não estiver usando o HDInsight Spark.
 
 > [!NOTE]
-> Para ver um tópico que mostre como usar o Python, em vez do Scala, para concluir as tarefas em um processo completo de Ciência de dados, confira [Visão geral da Ciência de dados usando Spark no Azure HDInsight](machine-learning-data-science-spark-overview.md).
+> Para um tópico que mostra como as tarefas de toocomplete de Python em vez de Scala toouse para um processo de ciência de dados de ponta a ponta, consulte [ciência de dados usando o Spark no Azure HDInsight](machine-learning-data-science-spark-overview.md).
 > 
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Você precisa ter uma assinatura do Azure. Se ainda não tiver uma, [obtenha uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Você precisa de um cluster Azure HDInsight 3.4 Spark 1.6 para concluir os procedimentos a seguir. Para criar um cluster, veja as instruções em [Introdução: criar um Apache Spark no Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Defina o tipo de cluster e a versão no menu **Selecionar Tipo de Cluster** .
+* Você precisa de uma saudação de toocomplete de cluster Azure HDInsight 3.4 Spark 1.6 procedimentos a seguir. toocreate um cluster, consulte as instruções de saudação em [Introdução: criar o Apache Spark no Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Definir tipo de cluster hello e versão em Olá **Selecionar tipo de Cluster** menu.
 
 ![Configuração de tipo de cluster do HDInsight](./media/machine-learning-data-science-process-scala-walkthrough/spark-cluster-on-portal.png)
 
@@ -51,45 +51,45 @@ As etapas de configuração e o código neste artigo são para o Azure HDInsight
 > 
 > 
 
-Para obter uma descrição dos dados da corrida de táxi na cidade de Nova York e obter instruções sobre como executar código em um notebook Jupyter no cluster Spark, confira as seções relevantes de [Visão geral da Ciência de dados usando Spark no Azure HDInsight](machine-learning-data-science-spark-overview.md).  
+Para obter uma descrição de dados de viagem táxi Olá NYC e instruções sobre como tooexecute código de um bloco de anotações do Jupyter no cluster do Spark hello, consulte a seções relevantes Olá [visão geral de ciência de dados usando o Spark no Azure HDInsight](machine-learning-data-science-spark-overview.md).  
 
-## <a name="execute-scala-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Executar código em um notebook Jupyter no cluster Spark
-É possível iniciar o notebook Jupyter no Portal do Azure. Encontre o cluster Spark no painel e clique nele para entrar na página de gerenciamento de seu cluster. Em seguida, clique em **Painéis do Cluster** e clique em **Notebook Jupyter** para abrir o notebook associado ao cluster Spark.
+## <a name="execute-scala-code-from-a-jupyter-notebook-on-hello-spark-cluster"></a>Execute o código de Scala de um bloco de anotações do Jupyter no cluster do Spark Olá
+Você pode iniciar um bloco de anotações do Jupyter de saudação portal do Azure. Localizar o cluster do Spark Olá em seu painel e clique tooenter página de gerenciamento de saudação para seu cluster. Em seguida, clique em **painéis do Cluster**e, em seguida, clique em **Jupyter Notebook** tooopen notebook de saudação associada Olá Spark cluster.
 
 ![Painel do cluster e notebooks Jupyter](./media/machine-learning-data-science-process-scala-walkthrough/spark-jupyter-on-portal.png)
 
-Você também pode acessar blocos de anotações do Jupyter em https://&lt;clustername&gt;.azurehdinsight.net/jupyter. Substitua *clustername* pelo nome do cluster. Você precisa da senha de sua conta de administrador para acessar os notebooks Jupyter.
+Você também pode acessar blocos de anotações do Jupyter em https://&lt;clustername&gt;.azurehdinsight.net/jupyter. Substituir *clustername* com nome de saudação do cluster. Senha de saudação é necessária para o administrador conta tooaccess Olá Jupyter blocos de anotações.
 
-![Acesse os notebooks Jupyter usando o nome do cluster](./media/machine-learning-data-science-process-scala-walkthrough/spark-jupyter-notebook.png)
+![Vá tooJupyter notebooks usando o nome do cluster Olá](./media/machine-learning-data-science-process-scala-walkthrough/spark-jupyter-notebook.png)
 
-Selecione **Scala** para ver um diretório com alguns exemplos de notebooks predefinidos que usam a API PySpark. O notebook Exploration Modeling and Scoring using Scala.ipynb, que contém os exemplos de código para este conjunto de tópicos Spark, está disponível no [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala).
+Selecione **Scala** toosee um diretório com alguns exemplos de blocos de anotações predefinidos Olá que use PySpark API. Olá exploração de modelagem e pontuação usando notebook Scala.ipynb que contém exemplos de código Olá para este conjunto de tópicos do Spark está disponível em [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala).
 
-Você pode carregar o notebook diretamente do GitHub para o servidor do Notebook Jupyter em seu cluster Spark. Na home page do Jupyter, clique no botão **Carregar** . No gerenciador de arquivos, cole a URL do GitHub (conteúdo bruto) do notebook Scala e clique em **Abrir**. O notebook Scala está disponível na seguinte URL:
+Você pode carregar notebook Olá diretamente do GitHub toohello servidor de Jupyter Notebook em seu cluster Spark. Na home page Jupyter, clique em Olá **carregar** botão. No Explorador de arquivos Olá, cole Olá GitHub (conteúdo bruto) URL do bloco de anotações do hello Scala e, em seguida, clique em **abrir**. o bloco de anotações do Hello Scala estará disponível em Olá URL a seguir:
 
 [Exploration-Modeling-and-Scoring-using-Scala.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration-Modeling-and-Scoring-using-Scala.ipynb)
 
 ## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>Configuração: contextos predefinidos de Spark e Hive, palavras mágicas Spark e bibliotecas Spark
 ### <a name="preset-spark-and-hive-contexts"></a>Contextos predefinidos de Spark e Hive
-    # SET THE START TIME
+    # SET hello START TIME
     import java.util.Calendar
     val beginningTime = Calendar.getInstance().getTime()
 
 
-Os kernels Spark fornecidos com os notebooks Jupyter têm contextos predefinidos. Não é necessário definir explicitamente os contextos Spark ou Hive antes de começar a trabalhar com o aplicativo que você está desenvolvendo. Os contextos de predefinição são:
+kernels do Spark Olá que são fornecidos com blocos de anotações do Jupyter tem contextos predefinidos. Você não precisa tooexplicitly conjunto Olá Spark ou Hive contextos antes de começar a trabalhar com o aplicativo hello que você está desenvolvendo. Olá contextos predefinidos são:
 
 * `sc` para SparkContext
 * `sqlContext` para HiveContext
 
 ### <a name="spark-magics"></a>Palavras mágicas do Spark
-O kernel do Spark fornece algumas "palavras mágicas" predefinidas, que são comandos especiais que você pode chamar com `%%`. Dois desses comandos são usados nos exemplos de código a seguir.
+Olá kernel Spark fornece algumas predefinidas "magics", que são comandos especiais que podem ser chamados com `%%`. Dois desses comandos são usados em Olá exemplos de código a seguir.
 
-* `%%local` especifica que o código nas linhas posteriores será executado localmente. Deve ser um código Scala válido.
-* `%%sql -o <variable name>` executa uma consulta do Hive no `sqlContext`. Se o parâmetro `-o` for transmitido, o resultado da consulta será persistido no contexto `%%local` do Scala como um quadro de dados do Spark.
+* `%%local`Especifica que código Olá nas linhas subsequentes será executado localmente. código de saudação deve ser código Scala válido.
+* `%%sql -o <variable name>` executa uma consulta do Hive no `sqlContext`. Se hello `-o` parâmetro for passado, o resultado de saudação de consulta de saudação é mantido no hello `%%local` Scala contexto como um quadro de dados Spark.
 
-Para saber mais sobre os kernels para notebooks Jupyter e as "palavras mágicas" predefinidas chamadas com `%%` (por exemplo, `%%local`) confira [Kernels disponíveis para notebooks Jupyter com clusters do Apache Spark no HDInsight Linux](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Para obter mais informações sobre kernels Olá para blocos de anotações do Jupyter e seus predefinido "magics" que você chamar com `%%` (por exemplo, `%%local`), consulte [Kernels disponíveis para blocos de anotações do Jupyter com HDInsight Spark Linux clusters em HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
 ### <a name="import-libraries"></a>Importar bibliotecas
-Importe o Spark, a MLlib e outras bibliotecas necessárias usando o código a seguir.
+Importar Olá Spark, MLlib e outras bibliotecas que você precisará usando Olá código a seguir.
 
     # IMPORT SPARK AND JAVA LIBRARIES
     import org.apache.spark.sql.SQLContext
@@ -126,37 +126,37 @@ Importe o Spark, a MLlib e outras bibliotecas necessárias usando o código a se
 
 
 ## <a name="data-ingestion"></a>Ingestão de dados
-A primeira etapa no processo de Ciência de dados é ingerir os dados que você deseja analisar. Traga os dados de fontes ou sistemas externos onde eles residem para seu ambiente de modelagem e a exploração de dados. Neste artigo, os dados ingeridos são uma junção de 0,1% do exemplo arquivo sobre gorjeta e tarifa de táxi (armazenado como um arquivo .tsv). O ambiente de exploração e modelagem de dados é Spark. Esta seção contém o código para concluir a seguinte série de tarefas:
+primeira etapa Olá Olá processo de ciência de dados é dados de saudação tooingest que você deseja tooanalyze. Colocar dados saudação de fontes externas ou sistemas onde ele reside em seu ambiente de modelagem e exploração de dados. Neste artigo, você ingestão de dados de saudação são um exemplo de 0,1% que se unidas Olá táxi viagem e passagens do arquivo de (armazenado como um arquivo. tsv). ambiente de modelagem e exploração de dados Olá é Spark. Esta seção contém Olá Olá de toocomplete código série de tarefas a seguir:
 
 1. Definir os caminhos de diretório para o armazenamento de dados e de modelos.
-2. Ler o conjunto de dados (armazenado como um arquivo .tsv).
-3. Definir um esquema para os dados e limpar os dados.
+2. Ler no conjunto de dados entrada hello (armazenado como um arquivo. tsv).
+3. Defina um esquema para dados hello e limpar hello.
 4. Criar um quadro de dados limpo e armazená-lo em cache na memória.
-5. Registrar os dados como uma tabela temporária no SQLContext.
-6. Consultar a tabela e importar os resultados em um quadro de dados.
+5. Registre dados saudação como uma tabela temporária no SQLContext.
+6. Consultar a tabela de saudação e importar resultados de saudação para um quadro de dados.
 
 ### <a name="set-directory-paths-for-storage-locations-in-azure-blob-storage"></a>Definir caminhos de diretório para locais de armazenamento no armazenamento de Blobs do Azure
-O Spark pode ler e gravar no armazenamento de Blobs do Azure. Você pode usar o Spark para processar todos os dados existentes e, depois, armazenar os resultados novamente no armazenamento de Blobs.
+Spark pode ler e gravar tooAzure armazenamento de Blob. Você pode usar Spark tooprocess qualquer um dos seus dados existentes e armazenar os resultados de saudação novamente no armazenamento de Blob.
 
-Para salvar arquivos ou modelos no armazenamento de Blobs, você precisa especificar o caminho corretamente. Faça referência ao contêiner padrão anexado ao cluster Spark usando um caminho que começa com `wasb:///`. Faça referência a outros locais usando `wasb://`.
+modelos de toosave ou arquivos no armazenamento de Blob, você precisará tooproperly especificar caminho hello. Contêiner de padrão de saudação de referência anexado cluster do Spark toohello usando um caminho que começa com `wasb:///`. Faça referência a outros locais usando `wasb://`.
 
-O exemplo de código a seguir especifica o local dos dados de entrada a serem lidos e o caminho para o armazenamento de blobs que é anexado ao cluster Spark no qual o modelo será salvo.
+Hello exemplo de código a seguir especifica local Olá Olá toobe de dados de entrada de leitura e Olá caminho tooBlob armazenamento de cluster do Spark toohello anexado qual modelo Olá será salvo.
 
-    # SET PATHS TO DATA AND MODEL FILE LOCATIONS
+    # SET PATHS tooDATA AND MODEL FILE LOCATIONS
     # INGEST DATA AND SPECIFY HEADERS FOR COLUMNS
     val taxi_train_file = sc.textFile("wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Train.tsv")
     val header = taxi_train_file.first;
 
-    # SET THE MODEL STORAGE DIRECTORY PATH
-    # NOTE THAT THE FINAL BACKSLASH IN THE PATH IS REQUIRED.
+    # SET hello MODEL STORAGE DIRECTORY PATH
+    # NOTE THAT hello FINAL BACKSLASH IN hello PATH IS REQUIRED.
     val modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/";
 
 
-### <a name="import-data-create-an-rdd-and-define-a-data-frame-according-to-the-schema"></a>Importar dados, criar um RDD e definir um quadro de dados de acordo com o esquema
-    # RECORD THE START TIME
+### <a name="import-data-create-an-rdd-and-define-a-data-frame-according-toohello-schema"></a>Importar dados, criar um RDD e definir um quadro de dados de acordo com o esquema de toohello
+    # RECORD hello START TIME
     val starttime = Calendar.getInstance().getTime()
 
-    # DEFINE THE SCHEMA BASED ON THE HEADER OF THE FILE
+    # DEFINE hello SCHEMA BASED ON hello HEADER OF hello FILE
     val sqlContext = new SQLContext(sc)
     val taxi_schema = StructType(
         Array(
@@ -190,7 +190,7 @@ O exemplo de código a seguir especifica o local dos dados de entrada a serem li
             )
         )
 
-    # CAST VARIABLES ACCORDING TO THE SCHEMA
+    # CAST VARIABLES ACCORDING toohello SCHEMA
     val taxi_temp = (taxi_train_file.map(_.split("\t"))
                             .filter((r) => r(0) != "medallion")
                             .map(p => Row(p(0), p(1), p(2),
@@ -213,27 +213,27 @@ O exemplo de código a seguir especifica o local dos dados de entrada a serem li
             .drop(taxi_train_df.col("total_amount")).drop(taxi_train_df.col("tip_class"))
             .filter("passenger_count > 0 and passenger_count < 8 AND payment_type in ('CSH', 'CRD') AND tip_amount >= 0 AND tip_amount < 30 AND fare_amount >= 1 AND fare_amount < 150 AND trip_distance > 0 AND trip_distance < 100 AND trip_time_in_secs > 30 AND trip_time_in_secs < 7200"));
 
-    # CACHE AND MATERIALIZE THE CLEANED DATA FRAME IN MEMORY
+    # CACHE AND MATERIALIZE hello CLEANED DATA FRAME IN MEMORY
     taxi_df_train_cleaned.cache()
     taxi_df_train_cleaned.count()
 
-    # REGISTER THE DATA FRAME AS A TEMPORARY TABLE IN SQLCONTEXT
+    # REGISTER hello DATA FRAME AS A TEMPORARY TABLE IN SQLCONTEXT
     taxi_df_train_cleaned.registerTempTable("taxi_train")
 
-    # GET THE TIME TO RUN THE CELL
+    # GET hello TIME tooRUN hello CELL
     val endtime = Calendar.getInstance().getTime()
     val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+    println("Time taken toorun hello above cell: " + elapsedtime + " seconds.");
 
 
 **Saída:**
 
-Tempo de execução da célula: oito segundos.
+Célula de saudação do tempo toorun: 8 segundos.
 
-### <a name="query-the-table-and-import-results-in-a-data-frame"></a>Consultar a tabela e importar os resultados em um quadro de dados
-Em seguida, consulte a tabela de tarifas, os dados do passageiro e da gorjeta; filtre dados corrompidos e externos e imprima várias linhas.
+### <a name="query-hello-table-and-import-results-in-a-data-frame"></a>Consultar a tabela de saudação e importar resultados de um quadro de dados
+Em seguida, a tabela de saudação de consulta de passagens, passageiro e dados de dica; Filtrar dados corrompidos e distantes; e imprima várias linhas.
 
-    # QUERY THE DATA
+    # QUERY hello DATA
     val sqlStatement = """
         SELECT fare_amount, passenger_count, tip_amount, tipped
         FROM taxi_train
@@ -244,7 +244,7 @@ Em seguida, consulte a tabela de tarifas, os dados do passageiro e da gorjeta; f
     """
     val sqlResultsDF = sqlContext.sql(sqlStatement)
 
-    # SHOW ONLY THE TOP THREE ROWS
+    # SHOW ONLY hello TOP THREE ROWS
     sqlResultsDF.show(3)
 
 **Saída:**
@@ -256,40 +256,40 @@ Em seguida, consulte a tabela de tarifas, os dados do passageiro e da gorjeta; f
 |        10,5 |2,0 |1.0 |1.0 |
 
 ## <a name="data-exploration-and-visualization"></a>Visualização e exploração de dados
-Depois de trazer os dados para o Spark, a próxima etapa no processo de Ciência de dados será obter uma compreensão mais profunda dos dados por meio de exploração e visualização. Nesta seção, você examinará os dados de táxi usando consultas SQL. Depois, importará os resultados em um quadro de dados a fim de plotar as variáveis de destino e os recursos potenciais para inspeção visual usando o recurso de visualização automática do Jupyter.
+Depois de você colocar dados saudação em Spark, Olá próxima etapa no hello processo de ciência de dados é toogain uma compreensão mais profunda dos dados Olá por meio de exploração e visualização. Nesta seção, você pode examinar dados táxi de saudação por meio de consultas do SQL. Em seguida, importar Olá resultados em um tooplot de quadro de dados Olá recursos potenciais para inspeção visual e variáveis de destino usando o recurso de visualização automática de saudação do Jupyter.
 
-### <a name="use-local-and-sql-magic-to-plot-data"></a>Usar local e palavra mágica do SQL para plotar dados
-Por padrão, a saída de qualquer trecho de código executado em um notebook Jupyter é disponibilizada no contexto da sessão que é persistida nos nós de trabalho. Se desejar salvar uma corrida nos nós de trabalho para cada cálculo e, se todos os dados necessários para o cálculo estiverem disponíveis localmente no nó do servidor do Jupyter (que é o nó de cabeçalho), você poderá usar a palavra mágica `%%local` para executar o trecho de código no servidor do Jupyter.
+### <a name="use-local-and-sql-magic-tooplot-data"></a>Usar o local e dados do SQL tooplot magic
+Por padrão, a saída de hello qualquer trecho de código que você executa em um bloco de anotações do Jupyter está disponível no contexto de saudação da sessão de saudação que é mantido em nós de trabalho hello. Se você quiser toosave nós de trabalho de toohello uma viagem para cada cálculo, e se todos os hello dados necessários para a computação está disponível localmente no nó do servidor Olá Jupyter (que é o nó principal Olá), você pode usar o hello `%%local` magic toorun código de saudação trecho de código no servidor do Jupyter hello.
 
-* **Palavra mágica do SQL** (`%%sql`). O kernel HDInsight Spark dá suporte a consultas do HiveQL fáceis e embutidas no SQLContext. O argumento (`-o VARIABLE_NAME`) persiste a saída da consulta SQL como um quadro de dados do Pandas no servidor do Jupyter. Isso significa que ele estará disponível no modo local.
-* `%%local` **palavra mágica**. A palavra mágica `%%local` executa o código localmente no servidor do Jupyter, que é o nó de cabeçalho do cluster HDInsight. Normalmente, você usa a palavra mágica `%%local` em conjunto com a palavra mágica `%%sql` com o parâmetro `-o`. O parâmetro `-o` persistiria a saída da consulta SQL localmente e, em seguida, as palavras mágicas `%%local` disparariam o próximo conjunto de trechos de código para serem executados localmente na saída das consultas SQL que é persistida localmente.
+* **Palavra mágica do SQL** (`%%sql`). Olá kernel HDInsight Spark dá suporte a consultas estilo embutido fácil SQLContext. saudação (`-o VARIABLE_NAME`) argumento persiste saída Olá de consulta do SQL hello como um quadro de dados no servidor do Jupyter Olá Pandas. Isso significa que ele estarão disponível no modo local hello.
+* `%%local` **palavra mágica**. Olá `%%local` magic executa código Olá localmente no servidor do Jupyter hello, que é o nó principal de saudação do cluster do HDInsight hello. Normalmente, você usa `%%local` magic em conjunto com hello `%%sql` magic com hello `-o` parâmetro. Olá `-o` parâmetro persistir Olá saída de hello SQL consulta localmente e, em seguida, `%%local` magic acionaria o próximo conjunto de saudação do toorun de trecho de código localmente contra a saída da saudação de consultas SQL Olá persistido localmente.
 
-### <a name="query-the-data-by-using-sql"></a>Consultar os dados usando SQL
-Essa consulta recupera as corridas de táxi por valor da tarifa, contagem de passageiros e valor da gorjeta.
+### <a name="query-hello-data-by-using-sql"></a>Consultar dados saudação usando SQL
+Essa consulta recupera viagens de táxi Olá pela quantidade de passagens, contagem de passageiro e quantidade de dica.
 
-    # RUN THE SQL QUERY
+    # RUN hello SQL QUERY
     %%sql -q -o sqlResults
     SELECT fare_amount, passenger_count, tip_amount, tipped FROM taxi_train WHERE passenger_count > 0 AND passenger_count < 7 AND fare_amount > 0 AND fare_amount < 200 AND payment_type in ('CSH', 'CRD') AND tip_amount > 0 AND tip_amount < 25
 
-No código a seguir, a palavra mágica `%%local` cria um quadro de dados locais, sqlResults. Você pode usar sqlResults para plotar usando matplotlib.
+Em Olá código a seguir, Olá `%%local` magic cria um quadro de dados local, sqlResults. Você pode usar sqlResults tooplot usando matplotlib.
 
 > [!TIP]
-> A palavra mágica local é usada várias vezes neste artigo. Se o conjunto de dados for grande, obtenha a amostra para criar um quadro de dados que possa se ajustar na memória local.
+> A palavra mágica local é usada várias vezes neste artigo. Se seu conjunto de dados for grande, por favor, exemplo toocreate um quadro de dados que pode caber na memória local.
 > 
 > 
 
-### <a name="plot-the-data"></a>Plotar os dados
-Você poderá plotar usando o código Python quando o quadro de dados estiver no contexto local como um quadro de dados Panda.
+### <a name="plot-hello-data"></a>Plotar dados Olá
+Você pode plotar usando código Python após o quadro de dados Olá no contexto local como um quadro de dados Pandas.
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER
+    # RUN hello CODE LOCALLY ON hello JUPYTER SERVER
     %%local
 
-    # USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES.
-    # CLICK THE TYPE OF PLOT TO GENERATE (LINE, AREA, BAR, ETC.)
+    # USE hello JUPYTER AUTO-PLOTTING FEATURE tooCREATE INTERACTIVE FIGURES.
+    # CLICK hello TYPE OF PLOT tooGENERATE (LINE, AREA, BAR, ETC.)
     sqlResults
 
 
- O kernel do Spark visualiza automaticamente a saída das consultas SQL (HiveQL) depois que você executa o código. Você pode escolher entre vários tipos de visualizações:
+ kernel do Spark Olá automaticamente visualiza saída Olá de consultas SQL (HiveQL) depois de executar código hello. Você pode escolher entre vários tipos de visualizações:
 
 * Tabela
 * Pizza
@@ -297,9 +297,9 @@ Você poderá plotar usando o código Python quando o quadro de dados estiver no
 * Área
 * Barra
 
-Este é o código para plotar os dados:
+Aqui está a dados de Olá Olá código tooplot:
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+    # RUN hello CODE LOCALLY ON hello JUPYTER SERVER AND IMPORT LIBRARIES
     %%local
     import matplotlib.pyplot as plt
     %matplotlib inline
@@ -338,16 +338,16 @@ Este é o código para plotar os dados:
 ![Valor de gorjeta por valor de tarifa](./media/machine-learning-data-science-process-scala-walkthrough/plot-tip-amount-by-fare-amount.png)
 
 ## <a name="create-features-and-transform-features-and-then-prep-data-for-input-into-modeling-functions"></a>Criar recursos, transformar recursos e depois preparar os dados para entrada em funções de modelagem
-Para as funções de modelagem baseadas em árvore no SparkML e na MLlib, você precisa preparar o destino e os recursos usando várias técnicas, como agrupamento, indexação, codificação one-hot e vetorização. Veja os procedimentos desta seção:
+Para funções de modelagem baseado na árvore do Spark ML e MLlib, você tem destino tooprepare e recursos usando uma variedade de técnicas, como agrupamento, indexação, ativa uma codificação e vetorização. Aqui estão Olá toofollow de procedimentos nesta seção:
 
 1. Criar um novo recurso **reunindo** horários em blocos de tempo de tráfego.
-2. Aplicar **indexação e codificação one-hot** em recursos categóricos.
-3. **Criar amostras e dividir o conjunto de dados** em frações de teste e treinamento.
+2. Aplicar **hot uma codificação e indexação** toocategorical recursos.
+3. **Exemplo e dividir o conjunto de dados de Olá** em frações de treinamento e teste.
 4. **Especificar os recursos e a variável de treinamento**e depois criar RDDs (conjuntos de dados distribuídos e resilientes) de ponto de sinalização de entrada para treinamentos de codificação indexada e one-hot, ou quadros de dados.
-5. **Categorizar e vetorizar recursos e destinos** automaticamente para uso como entradas para modelos de aprendizado de máquina.
+5. Automaticamente **categorizar e vectorize recursos e destinos** toouse como entradas para modelos de aprendizado de máquina.
 
 ### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>Criar um novo recurso reunindo horários em blocos de tempo de tráfego
-Este código mostra como criar um novo recurso reunindo horários em blocos de tempo de tráfego e como armazenar em cache o quadro de dados resultante na memória. Quando RDDs e quadros de dados são usados repetidamente, o armazenamento em cache leva a tempos de execução melhores. Da mesma forma, você armazenará os RDDs e os quadros de dados em cache em vários estágios nos procedimentos finais.
+Este código mostra como os buckets de toocreate um novo recurso guardando horas em vez de tráfego e como toocache Olá resultante quadro de dados na memória. Onde os quadros de dados e RDDs forem usados repetidamente, cache leva tooimproved tempos de execução. Da mesma forma, você vai cache quadros de dados e RDDs em vários estágios de saudação procedimentos a seguir.
 
     # CREATE FOUR BUCKETS FOR TRAFFIC TIMES
     val sqlStatement = """
@@ -362,23 +362,23 @@ Este código mostra como criar um novo recurso reunindo horários em blocos de t
     """
     val taxi_df_train_with_newFeatures = sqlContext.sql(sqlStatement)
 
-    # CACHE THE DATA FRAME IN MEMORY AND MATERIALIZE THE DATA FRAME IN MEMORY
+    # CACHE hello DATA FRAME IN MEMORY AND MATERIALIZE hello DATA FRAME IN MEMORY
     taxi_df_train_with_newFeatures.cache()
     taxi_df_train_with_newFeatures.count()
 
 
 ### <a name="indexing-and-one-hot-encoding-of-categorical-features"></a>Indexação e codificação one-hot de recursos categóricos
-As funções de modelagem e previsão de MLlib exigem que recursos com dados de entrada categóricos sejam indexados ou codificados antes do uso. Esta seção mostra a você como indexar ou codificar recursos categóricos para entrada nas funções de modelagem.
+Olá modelagem e prever a funções de MLlib exigem recursos com entrada de dados categóricos toobe indexado ou codificado toouse anterior. Esta seção mostra como tooindex ou codificar recursos categóricos para entrada em Olá funções da modelagem.
 
-Dependendo do modelo, você precisa indexá-lo ou codificá-lo de maneiras diferentes. Por exemplo, modelos de regressão logística e lineares exigem codificação one-hot. Por exemplo, um recurso com três categorias pode ser expandido em três colunas de recurso. Cada coluna conteria 0 ou 1, dependendo da categoria de uma observação. A MLlib fornece a função [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) para executar a codificação one-hot. Esse codificador mapeia uma coluna de índices de rótulo para uma coluna de vetores binários com, no máximo, um valor único. Com essa codificação, os algoritmos que esperam recursos numéricos valiosos, como a regressão logística, são aplicados em recursos categóricos.
+Você precisa tooindex ou codifica seus modelos de maneiras diferentes, dependendo do modelo de saudação. Por exemplo, modelos de regressão logística e lineares exigem codificação one-hot. Por exemplo, um recurso com três categorias pode ser expandido em três colunas de recurso. Cada coluna contém 0 ou 1, dependendo da categoria de saudação de uma observação. MLlib fornece Olá [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) função hot uma codificação. Este codificador mapeia uma coluna da coluna de tooa de índices de rótulo dos vetores de binários no máximo um único um valor. Com essa codificação, os algoritmos que esperam recursos com valores numéricos, como a regressão logística, podem ser aplicada toocategorical recursos.
 
-Aqui, você transforma apenas quatro variáveis para mostrar exemplos, que são cadeias de caracteres. Também é possível indexar outras variáveis, como dia da semana, representadas por valores numéricos, como variáveis categóricas.
+Aqui você transformar exemplos de tooshow apenas quatro variáveis, que são cadeias de caracteres. Também é possível indexar outras variáveis, como dia da semana, representadas por valores numéricos, como variáveis categóricas.
 
-Para indexação, use `StringIndexer()` e para codificação one-hot, use as funções `OneHotEncoder()` da MLlib. Aqui está o código para indexar e codificar recursos categóricos:
+Para indexação, use `StringIndexer()` e para codificação one-hot, use as funções `OneHotEncoder()` da MLlib. Aqui está o hello tooindex de código e codificar recursos categóricos:
 
     # CREATE INDEXES AND ONE-HOT ENCODED VECTORS FOR SEVERAL CATEGORICAL FEATURES
 
-    # RECORD THE START TIME
+    # RECORD hello START TIME
     val starttime = Calendar.getInstance().getTime()
 
     # INDEX AND ENCODE VENDOR_ID
@@ -405,22 +405,22 @@ Para indexação, use `StringIndexer()` e para codificação one-hot, use as fun
     val encoder = new OneHotEncoder().setInputCol("TrafficTimeBinsIndex").setOutputCol("TrafficTimeBinsVec")
     val encodedFinal = encoder.transform(indexed)
 
-    # GET THE TIME TO RUN THE CELL
+    # GET hello TIME tooRUN hello CELL
     val endtime = Calendar.getInstance().getTime()
     val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+    println("Time taken toorun hello above cell: " + elapsedtime + " seconds.");
 
 
 **Saída:**
 
-Tempo de execução da célula: quatro segundos.
+Célula de saudação do tempo toorun: 4 segundos.
 
-### <a name="sample-and-split-the-data-set-into-training-and-test-fractions"></a>Criar amostras e dividir o conjunto de dados em frações de teste e treinamento
-Esse código cria uma amostragem aleatória dos dados (25% neste exemplo). Embora a amostragem não seja necessário para este exemplo, devido ao tamanho do conjunto de dados, o artigo demonstra como é possível obter amostras para que você saiba como usá-lo para seu próprio problema, quando for necessário. Quando as amostras são grandes, isso pode economizar um tempo significativo durante o treinamento de modelos. Em seguida, dividimos o exemplo em uma parte de treinamento (75% neste exemplo) e uma parte de teste (25% neste exemplo) para usar na classificação e na modelagem de regressão.
+### <a name="sample-and-split-hello-data-set-into-training-and-test-fractions"></a>Exemplo e dividir Olá conjunto de dados em frações de treinamento e teste
+Esse código cria uma amostragem aleatória de dados de saudação (25%, neste exemplo). Embora a amostragem não é necessária para este exemplo devido tamanho toohello saudação do conjunto de dados, o artigo de saudação mostra como você pode criar amostra para que você saiba como toouse-lo para seus próprios problemas quando necessário. Quando as amostras são grandes, isso pode economizar um tempo significativo durante o treinamento de modelos. Em seguida, dividir o exemplo hello em uma parte de treinamento (75%, neste exemplo) e um teste parte toouse (25%, neste exemplo) de classificação e modelagem de regressão.
 
-Adicione um número aleatório (entre 0 e 1) à linha de alcance (em uma coluna "rand") que pode ser usado para selecionar partições de validação cruzada durante o treinamento.
+Adicione uma linha de tooeach de número aleatório (entre 0 e 1) (em uma coluna de "rand") que pode ser usado tooselect validação cruzada dobras durante o treinamento.
 
-    # RECORD THE START TIME
+    # RECORD hello START TIME
     val starttime = Calendar.getInstance().getTime()
 
     # SPECIFY SAMPLING AND SPLITTING FRACTIONS
@@ -438,35 +438,35 @@ Adicione um número aleatório (entre 0 e 1) à linha de alcance (em uma coluna 
     # ADD A RANDOM NUMBER FOR CROSS-VALIDATION
     val encodedFinalSampled = encodedFinalSampledTmp.withColumn("rand", generateRandomDouble());
 
-    # SPLIT THE SAMPLED DATA FRAME INTO TRAIN AND TEST, WITH A RANDOM COLUMN ADDED FOR DOING CROSS-VALIDATION (SHOWN LATER)
+    # SPLIT hello SAMPLED DATA FRAME INTO TRAIN AND TEST, WITH A RANDOM COLUMN ADDED FOR DOING CROSS-VALIDATION (SHOWN LATER)
     # INCLUDE A RANDOM COLUMN FOR CREATING CROSS-VALIDATION FOLDS
     val splits = encodedFinalSampled.randomSplit(Array(trainingFraction, testingFraction), seed = seed)
     val trainData = splits(0)
     val testData = splits(1)
 
-    # GET THE TIME TO RUN THE CELL
+    # GET hello TIME tooRUN hello CELL
     val endtime = Calendar.getInstance().getTime()
     val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+    println("Time taken toorun hello above cell: " + elapsedtime + " seconds.");
 
 
 **Saída:**
 
-Tempo de execução da célula: dois segundos.
+Célula de saudação do tempo toorun: 2 segundos.
 
 ### <a name="specify-training-variable-and-features-and-then-create-indexed-or-one-hot-encoded-training-and-testing-input-labeled-point-rdds-or-data-frames"></a>Especificar os recursos e a variável de treinamento, bem como criar treinamentos de codificação indexada e one-hot e entrada de testes denominada RDDs pontuais ou quadros de dados
-Esta seção contém código que mostra como indexar dados de texto categóricos como um tipo de dados de ponto rotulado e codificá-lo para que ele possa ser usado para treinar e testar a regressão logística de MLlib e outros modelos de classificação. Objetos de ponto rotulados são RDDs formatados de uma maneira para que sejam exigidos como dados de entrada pela maioria dos algoritmos de aprendizado de máquina na MLlib. Um [ponto rotulado](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) é um vetor local, denso ou esparso, associado a um rótulo/resposta.
+Esta seção contém código que mostra como tooindex categórica e dados de texto como um rótulo do ponto de tipo de dados, codificação-lo, você pode usar outros modelos de classificação e de teste e tootrain MLlib de regressão logística. Objetos de ponto rotulados são RDDs formatados de uma maneira para que sejam exigidos como dados de entrada pela maioria dos algoritmos de aprendizado de máquina na MLlib. Um [ponto rotulado](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) é um vetor local, denso ou esparso, associado a um rótulo/resposta.
 
-Nesse código, você pode especificar a variável de destino (dependente) e os recursos a serem usados para treinar modelos. Depois, você cria treinamentos de codificação indexada e one-hot e RDDs de ponto de entrada de teste ou quadros de dados.
+Nesse código, você pode especificar variável (dependente) de destino hello e modelos de tootrain Olá recursos toouse. Depois, você cria treinamentos de codificação indexada e one-hot e RDDs de ponto de entrada de teste ou quadros de dados.
 
-    # RECORD THE START TIME
+    # RECORD hello START TIME
     val starttime = Calendar.getInstance().getTime()
 
     # MAP NAMES OF FEATURES AND TARGETS FOR CLASSIFICATION AND REGRESSION PROBLEMS
     val featuresIndOneHot = List("paymentVec", "vendorVec", "rateVec", "TrafficTimeBinsVec", "pickup_hour", "weekday", "passenger_count", "trip_time_in_secs", "trip_distance", "fare_amount").map(encodedFinalSampled.columns.indexOf(_))
     val featuresIndIndex = List("paymentIndex", "vendorIndex", "rateIndex", "TrafficTimeBinsIndex", "pickup_hour", "weekday", "passenger_count", "trip_time_in_secs", "trip_distance", "fare_amount").map(encodedFinalSampled.columns.indexOf(_))
 
-    # SPECIFY THE TARGET FOR CLASSIFICATION ('tipped') AND REGRESSION ('tip_amount') PROBLEMS
+    # SPECIFY hello TARGET FOR CLASSIFICATION ('tipped') AND REGRESSION ('tip_amount') PROBLEMS
     val targetIndBinary = List("tipped").map(encodedFinalSampled.columns.indexOf(_))
     val targetIndRegression = List("tip_amount").map(encodedFinalSampled.columns.indexOf(_))
 
@@ -476,36 +476,36 @@ Nesse código, você pode especificar a variável de destino (dependente) e os r
     val indexedTRAINreg = trainData.rdd.map(r => LabeledPoint(r.getDouble(targetIndRegression(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)))
     val indexedTESTreg = testData.rdd.map(r => LabeledPoint(r.getDouble(targetIndRegression(0).toInt), Vectors.dense(featuresIndIndex.map(r.getDouble(_)).toArray)))
 
-    # CREATE INDEXED DATA FRAMES THAT YOU CAN USE TO TRAIN BY USING SPARK ML FUNCTIONS
+    # CREATE INDEXED DATA FRAMES THAT YOU CAN USE tooTRAIN BY USING SPARK ML FUNCTIONS
     val indexedTRAINbinaryDF = indexedTRAINbinary.toDF()
     val indexedTESTbinaryDF = indexedTESTbinary.toDF()
     val indexedTRAINregDF = indexedTRAINreg.toDF()
     val indexedTESTregDF = indexedTESTreg.toDF()
 
-    # CREATE ONE-HOT ENCODED (VECTORIZED) DATA FRAMES THAT YOU CAN USE TO TRAIN BY USING SPARK ML FUNCTIONS
+    # CREATE ONE-HOT ENCODED (VECTORIZED) DATA FRAMES THAT YOU CAN USE tooTRAIN BY USING SPARK ML FUNCTIONS
     val assemblerOneHot = new VectorAssembler().setInputCols(Array("paymentVec", "vendorVec", "rateVec", "TrafficTimeBinsVec", "pickup_hour", "weekday", "passenger_count", "trip_time_in_secs", "trip_distance", "fare_amount")).setOutputCol("features")
     val OneHotTRAIN = assemblerOneHot.transform(trainData)
     val OneHotTEST = assemblerOneHot.transform(testData)
 
-    # GET THE TIME TO RUN THE CELL
+    # GET hello TIME tooRUN hello CELL
     val endtime = Calendar.getInstance().getTime()
     val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+    println("Time taken toorun hello above cell: " + elapsedtime + " seconds.");
 
 
 **Saída:**
 
-Tempo de execução da célula: quatro segundos.
+Célula de saudação do tempo toorun: 4 segundos.
 
-### <a name="automatically-categorize-and-vectorize-features-and-targets-to-use-as-inputs-for-machine-learning-models"></a>Categorizar e vetorizar recursos e destinos automaticamente para uso como entradas para modelos de aprendizado de máquina
-Use o AM do Spark para categorize o destino e os recursos para uso em funções de modelagem baseadas em árvore. O código conclui duas tarefas:
+### <a name="automatically-categorize-and-vectorize-features-and-targets-toouse-as-inputs-for-machine-learning-models"></a>Categorizar automaticamente e vectorize toouse de recursos e destinos como entradas para modelos de aprendizado de máquina
+Use Spark ML toocategorize toouse de destino e os recursos do hello em funções de modelagem baseado na árvore. código de saudação conclui duas tarefas:
 
-* Cria um destino binário para classificação atribuindo um valor de 0 ou 1 para cada ponto de dados entre 0 e 1 usando um valor de limite de 0,5.
-* Categoriza automaticamente os recursos. Se o número de valores numéricos distintos para qualquer um dos recursos for menor do que 32, esse recurso será categorizado.
+* Cria um destino binário para classificação, atribuindo um valor de 0 ou 1 ponto de dados de tooeach entre 0 e 1 usando um valor de limite de 0,5.
+* Categoriza automaticamente os recursos. Se o número de saudação de valores numéricos distintos para qualquer recurso for menor que 32, esse recurso é categorizado.
 
-Este é o código para essas duas tarefas.
+Este é o código de saudação para essas duas tarefas.
 
-    # CATEGORIZE FEATURES AND BINARIZE THE TARGET FOR THE BINARY CLASSIFICATION PROBLEM
+    # CATEGORIZE FEATURES AND BINARIZE hello TARGET FOR hello BINARY CLASSIFICATION PROBLEM
 
     # TRAIN DATA
     val indexer = new VectorIndexer().setInputCol("features").setOutputCol("featuresCat").setMaxCategories(32)
@@ -520,7 +520,7 @@ Este é o código para essas duas tarefas.
     val binarizer: Binarizer = new Binarizer().setInputCol("label").setOutputCol("labelBin").setThreshold(0.5)
     val indexedTESTwithCatFeatBinTarget = binarizer.transform(indexedTrainwithCatFeat)
 
-    # CATEGORIZE FEATURES FOR THE REGRESSION PROBLEM
+    # CATEGORIZE FEATURES FOR hello REGRESSION PROBLEM
     # CREATE PROPERLY INDEXED AND CATEGORIZED DATA FRAMES FOR TREE-BASED MODELS
 
     # TRAIN DATA
@@ -535,64 +535,64 @@ Este é o código para essas duas tarefas.
 
 
 ## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Modelo de classificação binária: prevê se uma gorjeta será paga ou não
-Nesta seção, você cria três tipos de modelo de classificação binária para prever se uma gorjeta será paga ou não:
+Nesta seção, você deve criar três tipos de toopredict de modelos de classificação binária ou não uma dica deve ser pago:
 
-* Um **modelo de regressão logística`LogisticRegression()` usando a função**  do ML do Spark
-* Um **modelo de classificação de floresta aleatória** usando a função `RandomForestClassifier()` da AM do Spark
-* Um **modelo de classificação de árvore de aumento gradiente** usando a função `GradientBoostedTrees()` da MLlib
+* Um **modelo de regressão logística** usando Olá Spark ML `LogisticRegression()` função
+* Um **modelo de classificação de floresta aleatório** usando Olá Spark ML `RandomForestClassifier()` função
+* Um **modelo de classificação de árvore de ampliação gradiente** usando Olá MLlib `GradientBoostedTrees()` função
 
 ### <a name="create-a-logistic-regression-model"></a>Criar um modelo de regressão logística
-Em seguida, crie um modelo de regressão logística usando a função `LogisticRegression()` da AM do Spark. Crie o código de compilação de modelo usando uma série de etapas:
+Em seguida, crie um modelo de regressão logística usando Olá Spark ML `LogisticRegression()` função. Criar modelo Olá compilar o código em uma série de etapas:
 
-1. **Treinar os dados do modelo** com um conjunto de parâmetros.
-2. **Avaliar o modelo** em um conjunto de dados de teste com métricas.
-3. **Salvar modelo** no armazenamento de Blobs para consumo futuro.
-4. **Pontuar o modelo** em relação aos dados de teste.
-5. **Plotar os resultados** com curvas ROC (característica de operação de recepção).
+1. **Treinar modelo de saudação** dados com um conjunto de parâmetros.
+2. **Avaliar modelo Olá** em um conjunto de dados de teste com métricas.
+3. **Salvar modelo Olá** no armazenamento de Blob para consumo futuro.
+4. **Modelo de saudação de pontuação** em relação aos dados de teste.
+5. **Plotar resultados Olá** com receptor operacional curvas característica (ROC).
 
-Veja o código para esses procedimentos:
+Este é o código de saudação para estes procedimentos:
 
     # CREATE A LOGISTIC REGRESSION MODEL
     val lr = new LogisticRegression().setLabelCol("tipped").setFeaturesCol("features").setMaxIter(10).setRegParam(0.3).setElasticNetParam(0.8)
     val lrModel = lr.fit(OneHotTRAIN)
 
-    # PREDICT ON THE TEST DATA SET
+    # PREDICT ON hello TEST DATA SET
     val predictions = lrModel.transform(OneHotTEST)
 
-    # SELECT `BinaryClassificationEvaluator()` TO COMPUTE THE TEST ERROR
+    # SELECT `BinaryClassificationEvaluator()` tooCOMPUTE hello TEST ERROR
     val evaluator = new BinaryClassificationEvaluator().setLabelCol("tipped").setRawPredictionCol("probability").setMetricName("areaUnderROC")
     val ROC = evaluator.evaluate(predictions)
     println("ROC on test data = " + ROC)
 
-    # SAVE THE MODEL
+    # SAVE hello MODEL
     val datestamp = Calendar.getInstance().getTime().toString.replaceAll(" ", ".").replaceAll(":", "_");
     val modelName = "LogisticRegression__"
     val filename = modelDir.concat(modelName).concat(datestamp)
     lrModel.save(filename);
 
-Carregue, pontue e salve os resultados.
+Carregar, pontuação e salvar os resultados de saudação.
 
-    # RECORD THE START TIME
+    # RECORD hello START TIME
     val starttime = Calendar.getInstance().getTime()
 
-    # LOAD THE SAVED MODEL AND SCORE THE TEST DATA SET
+    # LOAD hello SAVED MODEL AND SCORE hello TEST DATA SET
     val savedModel = org.apache.spark.ml.classification.LogisticRegressionModel.load(filename)
     println(s"Coefficients: ${savedModel.coefficients} Intercept: ${savedModel.intercept}")
 
-    # SCORE THE MODEL ON THE TEST DATA
+    # SCORE hello MODEL ON hello TEST DATA
     val predictions = savedModel.transform(OneHotTEST).select("tipped","probability","rawPrediction")
     predictions.registerTempTable("testResults")
 
-    # SELECT `BinaryClassificationEvaluator()` TO COMPUTE THE TEST ERROR
+    # SELECT `BinaryClassificationEvaluator()` tooCOMPUTE hello TEST ERROR
     val evaluator = new BinaryClassificationEvaluator().setLabelCol("tipped").setRawPredictionCol("probability").setMetricName("areaUnderROC")
     val ROC = evaluator.evaluate(predictions)
 
-    # GET THE TIME TO RUN THE CELL
+    # GET hello TIME tooRUN hello CELL
     val endtime = Calendar.getInstance().getTime()
     val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+    println("Time taken toorun hello above cell: " + elapsedtime + " seconds.");
 
-    # PRINT THE ROC RESULTS
+    # PRINT hello ROC RESULTS
     println("ROC on test data = " + ROC)
 
 
@@ -600,14 +600,14 @@ Carregue, pontue e salve os resultados.
 
 ROC nos dados de teste = 0,9827381497557599
 
-Use o Python em quadros de dados locais Panda para plotar a curva ROC.
+Use o Python no local Pandas dados quadros tooplot Olá ROC em curva.
 
-    # QUERY THE RESULTS
+    # QUERY hello RESULTS
     %%sql -q -o sqlResults
     SELECT tipped, probability from testResults
 
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+    # RUN hello CODE LOCALLY ON hello JUPYTER SERVER AND IMPORT LIBRARIES
     %%local
     %matplotlib inline
     from sklearn.metrics import roc_curve,auc
@@ -615,13 +615,13 @@ Use o Python em quadros de dados locais Panda para plotar a curva ROC.
     sqlResults['probFloat'] = sqlResults.apply(lambda row: row['probability'].values()[0][1], axis=1)
     predictions_pddf = sqlResults[["tipped","probFloat"]]
 
-    # PREDICT THE ROC CURVE
+    # PREDICT hello ROC CURVE
     # predictions_pddf = sqlResults.rename(columns={'_1': 'probability', 'tipped': 'label'})
     prob = predictions_pddf["probFloat"]
     fpr, tpr, thresholds = roc_curve(predictions_pddf['tipped'], prob, pos_label=1);
     roc_auc = auc(fpr, tpr)
 
-    # PLOT THE ROC CURVE
+    # PLOT hello ROC CURVE
     plt.figure(figsize=(5,5))
     plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % roc_auc)
     plt.plot([0, 1], [0, 1], 'k--')
@@ -639,27 +639,27 @@ Use o Python em quadros de dados locais Panda para plotar a curva ROC.
 ![Curva ROC de gorjeta ou não](./media/machine-learning-data-science-process-scala-walkthrough/plot-roc-curve-tip-or-not.png)
 
 ### <a name="create-a-random-forest-classification-model"></a>Criar um modelo de classificação de floresta aleatória
-Em seguida, criamos um modelo de classificação de floresta aleatória usando a função `RandomForestClassifier()` da AM do Spark e avaliamos o modelo nos dados de teste.
+Em seguida, crie um modelo de classificação aleatória de floresta usando Olá Spark ML `RandomForestClassifier()` de função e, em seguida, avaliar o modelo de saudação nos dados de teste.
 
-    # RECORD THE START TIME
+    # RECORD hello START TIME
     val starttime = Calendar.getInstance().getTime()
 
-    # CREATE THE RANDOM FOREST CLASSIFIER MODEL
+    # CREATE hello RANDOM FOREST CLASSIFIER MODEL
     val rf = new RandomForestClassifier().setLabelCol("labelBin").setFeaturesCol("featuresCat").setNumTrees(10).setSeed(1234)
 
-    # FIT THE MODEL
+    # FIT hello MODEL
     val rfModel = rf.fit(indexedTRAINwithCatFeatBinTarget)
     val predictions = rfModel.transform(indexedTESTwithCatFeatBinTarget)
 
-    # EVALUATE THE MODEL
+    # EVALUATE hello MODEL
     val evaluator = new MulticlassClassificationEvaluator().setLabelCol("label").setPredictionCol("prediction").setMetricName("f1")
     val Test_f1Score = evaluator.evaluate(predictions)
     println("F1 score on test data: " + Test_f1Score);
 
-    # GET THE TIME TO RUN THE CELL
+    # GET hello TIME tooRUN hello CELL
     val endtime = Calendar.getInstance().getTime()
     val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+    println("Time taken toorun hello above cell: " + elapsedtime + " seconds.");
 
     # CALCULATE BINARY CLASSIFICATION EVALUATION METRICS
     val evaluator = new BinaryClassificationEvaluator().setLabelCol("label").setRawPredictionCol("probability").setMetricName("areaUnderROC")
@@ -672,30 +672,30 @@ Em seguida, criamos um modelo de classificação de floresta aleatória usando a
 ROC nos dados de teste = 0,9847103571552683
 
 ### <a name="create-a-gbt-classification-model"></a>Criar um modelo de classificação GBT
-Em seguida, criamos um modelo de classificação GBT usando a função `GradientBoostedTrees()` da MLlib e avaliamos o modelo nos dados de teste.
+Em seguida, crie um modelo de classificação GBT por meio do MLlib `GradientBoostedTrees()` de função e, em seguida, avaliar o modelo de saudação nos dados de teste.
 
     # TRAIN A GBT CLASSIFICATION MODEL BY USING MLLIB AND A LABELED POINT
 
-    # RECORD THE START TIME
+    # RECORD hello START TIME
     val starttime = Calendar.getInstance().getTime()
 
-    # DEFINE THE GBT CLASSIFICATION MODEL
+    # DEFINE hello GBT CLASSIFICATION MODEL
     val boostingStrategy = BoostingStrategy.defaultParams("Classification")
     boostingStrategy.numIterations = 20
     boostingStrategy.treeStrategy.numClasses = 2
     boostingStrategy.treeStrategy.maxDepth = 5
     boostingStrategy.treeStrategy.categoricalFeaturesInfo = Map[Int, Int]((0,2),(1,2),(2,6),(3,4))
 
-    # TRAIN THE MODEL
+    # TRAIN hello MODEL
     val gbtModel = GradientBoostedTrees.train(indexedTRAINbinary, boostingStrategy)
 
-    # SAVE THE MODEL IN BLOB STORAGE
+    # SAVE hello MODEL IN BLOB STORAGE
     val datestamp = Calendar.getInstance().getTime().toString.replaceAll(" ", ".").replaceAll(":", "_");
     val modelName = "GBT_Classification__"
     val filename = modelDir.concat(modelName).concat(datestamp)
     gbtModel.save(sc, filename);
 
-    # EVALUATE THE MODEL ON TEST INSTANCES AND THE COMPUTE TEST ERROR
+    # EVALUATE hello MODEL ON TEST INSTANCES AND hello COMPUTE TEST ERROR
     val labelAndPreds = indexedTESTbinary.map { point =>
       val prediction = gbtModel.predict(point.features)
       (point.label, prediction)
@@ -704,7 +704,7 @@ Em seguida, criamos um modelo de classificação GBT usando a função `Gradient
     //println("Learned classification GBT model:\n" + gbtModel.toDebugString)
     println("Test Error = " + testErr)
 
-    # USE BINARY AND MULTICLASS METRICS TO EVALUATE THE MODEL ON THE TEST DATA
+    # USE BINARY AND MULTICLASS METRICS tooEVALUATE hello MODEL ON hello TEST DATA
     val metrics = new MulticlassMetrics(labelAndPreds)
     println(s"Precision: ${metrics.precision}")
     println(s"Recall: ${metrics.recall}")
@@ -714,12 +714,12 @@ Em seguida, criamos um modelo de classificação GBT usando a função `Gradient
     println(s"Area under PR curve: ${metrics.areaUnderPR}")
     println(s"Area under ROC curve: ${metrics.areaUnderROC}")
 
-    # GET THE TIME TO RUN THE CELL
+    # GET hello TIME tooRUN hello CELL
     val endtime = Calendar.getInstance().getTime()
     val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+    println("Time taken toorun hello above cell: " + elapsedtime + " seconds.");
 
-    # PRINT THE ROC METRIC
+    # PRINT hello ROC METRIC
     println(s"Area under ROC curve: ${metrics.areaUnderROC}")
 
 
@@ -728,23 +728,23 @@ Em seguida, criamos um modelo de classificação GBT usando a função `Gradient
 Área sob a curva ROC = 0,9846895479241554
 
 ## <a name="regression-model-predict-tip-amount"></a>Modelo de regressão: prever o valor da gorjeta
-Nesta seção, você criará dois tipos de modelo de regressão para prever o valor da gorjeta:
+Nesta seção, você deve criar dois tipos de valor de dica regressão modelos toopredict hello:
 
-* Um **modelo de regressão linear regularizado** usando a função `LinearRegression()` da AM do Spark. Você salvará o modelo e avaliará o modelo nos dados de teste.
-* Um **modelo de regressão de árvore de aumento gradiente** usando a função `GBTRegressor()` da AM do Spark.
+* Um **modelo de regressão linear regularizada** usando Olá Spark ML `LinearRegression()` função. Você salvar o modelo de saudação e avaliar modelo Olá em dados de teste.
+* Um **Impulsionamento de gradiente modelo de regressão de árvore** usando Olá Spark ML `GBTRegressor()` função.
 
 ### <a name="create-a-regularized-linear-regression-model"></a>Criar um modelo de regressão linear regularizada
-    # RECORD THE START TIME
+    # RECORD hello START TIME
     val starttime = Calendar.getInstance().getTime()
 
-    # CREATE A REGULARIZED LINEAR REGRESSION MODEL BY USING THE SPARK ML FUNCTION AND DATA FRAMES
+    # CREATE A REGULARIZED LINEAR REGRESSION MODEL BY USING hello SPARK ML FUNCTION AND DATA FRAMES
     val lr = new LinearRegression().setLabelCol("tip_amount").setFeaturesCol("features").setMaxIter(10).setRegParam(0.3).setElasticNetParam(0.8)
 
-    # FIT THE MODEL BY USING DATA FRAMES
+    # FIT hello MODEL BY USING DATA FRAMES
     val lrModel = lr.fit(OneHotTRAIN)
     println(s"Coefficients: ${lrModel.coefficients} Intercept: ${lrModel.intercept}")
 
-    # SUMMARIZE THE MODEL OVER THE TRAINING SET AND PRINT METRICS
+    # SUMMARIZE hello MODEL OVER hello TRAINING SET AND PRINT METRICS
     val trainingSummary = lrModel.summary
     println(s"numIterations: ${trainingSummary.totalIterations}")
     println(s"objectiveHistory: ${trainingSummary.objectiveHistory.toList}")
@@ -752,57 +752,57 @@ Nesta seção, você criará dois tipos de modelo de regressão para prever o va
     println(s"RMSE: ${trainingSummary.rootMeanSquaredError}")
     println(s"r2: ${trainingSummary.r2}")
 
-    # SAVE THE MODEL IN AZURE BLOB STORAGE
+    # SAVE hello MODEL IN AZURE BLOB STORAGE
     val datestamp = Calendar.getInstance().getTime().toString.replaceAll(" ", ".").replaceAll(":", "_");
     val modelName = "LinearRegression__"
     val filename = modelDir.concat(modelName).concat(datestamp)
     lrModel.save(filename);
 
-    # PRINT THE COEFFICIENTS
+    # PRINT hello COEFFICIENTS
     println(s"Coefficients: ${lrModel.coefficients} Intercept: ${lrModel.intercept}")
 
-    # SCORE THE MODEL ON TEST DATA
+    # SCORE hello MODEL ON TEST DATA
     val predictions = lrModel.transform(OneHotTEST)
 
-    # EVALUATE THE MODEL ON TEST DATA
+    # EVALUATE hello MODEL ON TEST DATA
     val evaluator = new RegressionEvaluator().setLabelCol("tip_amount").setPredictionCol("prediction").setMetricName("r2")
     val r2 = evaluator.evaluate(predictions)
     println("R-sqr on test data = " + r2)
 
-    # GET THE TIME TO RUN THE CELL
+    # GET hello TIME tooRUN hello CELL
     val endtime = Calendar.getInstance().getTime()
     val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+    println("Time taken toorun hello above cell: " + elapsedtime + " seconds.");
 
 
 **Saída:**
 
-Tempo de execução da célula: 13 segundos.
+Célula de saudação do tempo toorun: 13 segundos.
 
     # LOAD A SAVED LINEAR REGRESSION MODEL FROM BLOB STORAGE AND SCORE A TEST DATA SET
 
-    # RECORD THE START TIME
+    # RECORD hello START TIME
     val starttime = Calendar.getInstance().getTime()
 
     # LOAD A SAVED LINEAR REGRESSION MODEL FROM AZURE BLOB STORAGE
     val savedModel = org.apache.spark.ml.regression.LinearRegressionModel.load(filename)
     println(s"Coefficients: ${savedModel.coefficients} Intercept: ${savedModel.intercept}")
 
-    # SCORE THE MODEL ON TEST DATA
+    # SCORE hello MODEL ON TEST DATA
     val predictions = savedModel.transform(OneHotTEST).select("tip_amount","prediction")
     predictions.registerTempTable("testResults")
 
-    # EVALUATE THE MODEL ON TEST DATA
+    # EVALUATE hello MODEL ON TEST DATA
     val evaluator = new RegressionEvaluator().setLabelCol("tip_amount").setPredictionCol("prediction").setMetricName("r2")
     val r2 = evaluator.evaluate(predictions)
     println("R-sqr on test data = " + r2)
 
-    # GET THE TIME TO RUN THE CELL
+    # GET hello TIME tooRUN hello CELL
     val endtime = Calendar.getInstance().getTime()
     val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+    println("Time taken toorun hello above cell: " + elapsedtime + " seconds.");
 
-    # PRINT THE RESULTS
+    # PRINT hello RESULTS
     println("R-sqr on test data = " + r2)
 
 
@@ -810,35 +810,35 @@ Tempo de execução da célula: 13 segundos.
 
 R-sqr nos dados de teste = 0,5960320470835743
 
-Em seguida, consulte os resultados do teste como um quadro de dados e use AutoVizWidget e matplotlib para visualizá-los.
+Em seguida, consulta Olá resultados de teste como um quadro de dados e usar toovisualize AutoVizWidget e matplotlib-lo.
 
     # RUN A SQL QUERY
     %%sql -q -o sqlResults
     select * from testResults
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER
+    # RUN hello CODE LOCALLY ON hello JUPYTER SERVER
     %%local
 
-    # USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES
-    # CLICK THE TYPE OF PLOT TO GENERATE (LINE, AREA, BAR, AND SO ON)
+    # USE hello JUPYTER AUTO-PLOTTING FEATURE tooCREATE INTERACTIVE FIGURES
+    # CLICK hello TYPE OF PLOT tooGENERATE (LINE, AREA, BAR, AND SO ON)
     sqlResults
 
-O código cria um quadro de dados local da saída da consulta e plota os dados. A palavra mágica `%%local` cria um quadro de dados local, `sqlResults`, que pode ser usado para plotar com matplotlib.
+código de saudação cria um quadro de dados local saudação do resultado da consulta e plota dados saudação. Olá `%%local` mágico cria um quadro de dados local, `sqlResults`, que você pode usar tooplot com matplotlib.
 
 > [!NOTE]
-> Essa palavra mágica do Spark será usada várias vezes neste artigo. Se a quantidade de dados for grande, você deverá obter uma amostra para criar um quadro de dados que se ajuste à memória local.
+> Essa palavra mágica do Spark será usada várias vezes neste artigo. Se a quantidade de saudação de dados for grande, você deve exemplo toocreate um quadro de dados que pode caber na memória local.
 > 
 > 
 
 Crie plotagens usando matplotlib do Python.
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+    # RUN hello CODE LOCALLY ON hello JUPYTER SERVER AND IMPORT LIBRARIES
     %%local
     sqlResults
     %matplotlib inline
     import numpy as np
 
-    # PLOT THE RESULTS
+    # PLOT hello RESULTS
     ax = sqlResults.plot(kind='scatter', figsize = (6,6), x='tip_amount', y='prediction', color='blue', alpha = 0.25, label='Actual vs. predicted');
     fit = np.polyfit(sqlResults['tip_amount'], sqlResults['prediction'], deg=1)
     ax.set_title('Actual vs. Predicted Tip Amounts ($)')
@@ -853,11 +853,11 @@ Crie plotagens usando matplotlib do Python.
 ![Valor da gorjeta: real vs. previsto](./media/machine-learning-data-science-process-scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
 
 ### <a name="create-a-gbt-regression-model"></a>Criar um modelo de regressão GBT
-Crie um modelo de regressão GBT usando a função `GBTRegressor()` da AM do Spark e avalie o modelo nos dados de teste.
+Criar um modelo de regressão GBT usando Olá Spark ML `GBTRegressor()` de função e, em seguida, avaliar o modelo de saudação nos dados de teste.
 
-[GBTs (árvores com aumento gradiente)](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) são conjuntos de árvores de decisão. As GBTs treinam árvores de decisão iterativamente para minimizar uma função de perda. Você pode usar GBTs para regressão e classificação. Elas podem manipular recursos categóricos, não exigem o dimensionamento de recursos e são capazes de capturar não linearidades e interações de recursos. Use-as também em uma configuração de classificação multiclasse.
+[GBTs (árvores com aumento gradiente)](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) são conjuntos de árvores de decisão. Árvores de decisão de treinar GBTs iterativamente toominimize uma função de perda. Você pode usar GBTs para regressão e classificação. Elas podem manipular recursos categóricos, não exigem o dimensionamento de recursos e são capazes de capturar não linearidades e interações de recursos. Use-as também em uma configuração de classificação multiclasse.
 
-    # RECORD THE START TIME
+    # RECORD hello START TIME
     val starttime = Calendar.getInstance().getTime()
 
     # TRAIN A GBT REGRESSION MODEL
@@ -872,12 +872,12 @@ Crie um modelo de regressão GBT usando a função `GBTRegressor()` da AM do Spa
     val Test_R2 = evaluator.evaluate(predictions)
 
 
-    # GET THE TIME TO RUN THE CELL
+    # GET hello TIME tooRUN hello CELL
     val endtime = Calendar.getInstance().getTime()
     val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+    println("Time taken toorun hello above cell: " + elapsedtime + " seconds.");
 
-    # PRINT THE RESULTS
+    # PRINT hello RESULTS
     println("Test R-sqr is: " + Test_R2);
 
 
@@ -888,20 +888,20 @@ R-sqr do teste é: 0,7655383534596654
 ## <a name="advanced-modeling-utilities-for-optimization"></a>Utilitários de modelagem avançada para otimização
 Nesta seção, use utilitários de aprendizado de máquina que os desenvolvedores usam frequentemente para otimização do modelo. Especificamente, você pode otimizar os modelos de AM de três maneiras diferentes usando a limpeza de parâmetro e a validação cruzada:
 
-* Dividir os dados em conjuntos de treinamento e validação, otimizar o modelo usando a limpeza de hiperparâmetro em um conjunto de treinamento e avaliar um conjunto de validação (regressão linear)
-* Otimizar o modelo usando a validação cruzada e a limpeza de hiperparâmetro com a função CrossValidator do SparkML (classificação binária)
-* Otimizar o modelo usando o código personalizado de validação cruzada e limpeza de parâmetro para utilizar qualquer função de aprendizado de máquina e o conjunto de parâmetros (regressão linear)
+* Dividir dados saudação em conjuntos de treinamento e validação, otimizar modelo hello usando a limpeza de parâmetro hyper em um conjunto de treinamento e avaliar em um conjunto de validação (regressão linear)
+* Otimizar o modelo hello usando a validação cruzada e hyper-varredura de parâmetro por meio CrossValidator função do Spark ML (classificação binária)
+* Otimizar modelo hello usando código personalizado de validação cruzada e limpeza de parâmetro toouse qualquer conjunto de função e o parâmetro (regressão linear) de aprendizado de máquina
 
-**Validação cruzada** é uma técnica que avalia quão bem um modelo treinado em um conjunto de dados conhecido será generalizado para prever os recursos dos conjuntos de dados nos quais ele não foi treinado. A ideia geral por trás dessa técnica é que um modelo é treinado em um conjunto de dados conhecidos em e, em seguida, a precisão de suas previsões é testada em relação a um conjunto de dados independente. Uma implementação comum é dividir um conjunto de dados em partições *k*e, em seguida, treinar o modelo em um estilo round-robin em todas, exceto uma das partições.
+**Validação cruzada** é uma técnica que avalia como um modelo treinado em um conjunto conhecido de dados será generalizar toopredict Olá recursos de conjuntos de dados no qual ele não foi treinado. Olá geral ideia essa técnica é que um modelo é treinado em um conjunto de dados de dados conhecidos e, em seguida, hello precisão de suas previsões é testado em relação a um conjunto de dados independente. Uma implementação comum é toodivide um conjunto de dados em *k*-dobra e, em seguida, treinar o modelo de saudação de forma round robin em apenas uma das partições de saudação.
 
-**Otimização do hiperparâmetro** é o problema de escolher um conjunto de hiperparâmetros para um algoritmo de aprendizado, normalmente com o objetivo de otimizar uma medida de desempenho do algoritmo em um conjunto de dados independente. Um hiperparâmetro é um valor que você deve especificar fora do procedimento de treinamento do modelo. As suposições sobre esses valores de hiperparâmetro podem afetar a flexibilidade e a precisão do modelo. As árvores de decisão têm hiperparâmetros, por exemplo, como a profundidade desejada e o número de folhas na árvore. Configure de um termo de penalidade de classificação incorreta para uma SVM (máquina de vetor de suporte).
+**Otimização de Hyper-parâmetro** Olá problema de escolher um conjunto de hyper-parâmetros para um algoritmo de aprendizado, geralmente com a meta de saudação de otimizar uma medida de desempenho do algoritmo Olá em um conjunto de dados independente. Um parâmetro hyper-é um valor que você deve especificar fora Olá procedimento de treinamento de modelo. Suposições sobre valores de parâmetro hyper podem afetar flexibilidade hello e a precisão do modelo de saudação. Árvores de decisão têm hyper-parâmetros, por exemplo, como Olá desejado profundidade e número de folhas na árvore de saudação. Configure de um termo de penalidade de classificação incorreta para uma SVM (máquina de vetor de suporte).
 
-Uma maneira comum de executar a otimização de hiperparâmetro é uma pesquisa de grade, também chamada de **parâmetro de limpeza**. Em uma pesquisa de grade, uma pesquisa detalhada é executada nos valores de um subconjunto especificado do espaço do hiperparâmetro para um algoritmo de aprendizado. A validação cruzada pode fornecer uma métrica de desempenho para classificar os resultados ideais produzidos pelo algoritmo de pesquisa de grade. Se você usar a limpeza de hiperparâmetro para validação cruzada, poderá ajudar a limitar problemas como sobreajuste de um modelo aos dados de treinamento. Dessa forma, o modelo retém a capacidade de aplicar ao conjunto geral de dados do qual os dados de treinamento foram extraídos.
+Uma otimização de hyper-parâmetro de tooperform de maneira comum é toouse uma pesquisa de grade, também chamado de um **varredura de parâmetro**. Em uma pesquisa de grade, uma pesquisa detalhada é executada por meio de valores de saudação de um subconjunto especificado de espaço de parâmetro hyper Olá para um algoritmo de aprendizado. Validação cruzada pode fornecer um toosort de métrica de desempenho os resultados ideais de Olá produzido pelo algoritmo de pesquisa de grade hello. Se você usar a limpeza de hyper-parâmetro de validação cruzada, você pode ajudar a problemas de limite como sobreajuste um tootraining de dados de modelo. Dessa forma, o modelo Olá retém Olá capacidade tooapply toohello conjunto geral de dados do qual Olá dados de treinamento foi extraídos.
 
 ### <a name="optimize-a-linear-regression-model-with-hyper-parameter-sweeping"></a>Otimizar um modelo de regressão linear com a limpeza de hiperparâmetro
-Em seguida, divida os dados em conjuntos de treinamento e validação, use a limpeza de hiperparâmetro em um conjunto de treinamento para otimizar o modelo e avalie um conjunto de validação (regressão linear).
+Em seguida, dividir os dados em conjuntos de treinamento e validação, use hyper-varredura de parâmetro em um treinamento defina toooptimize Olá modelo e avaliar em um conjunto de validação (regressão linear).
 
-    # RECORD THE START TIME
+    # RECORD hello START TIME
     val starttime = Calendar.getInstance().getTime()
 
     # RENAME `tip_amount` AS A LABEL
@@ -910,30 +910,30 @@ Em seguida, divida os dados em conjuntos de treinamento e validação, use a lim
     OneHotTRAINLabeled.cache()
     OneHotTESTLabeled.cache()
 
-    # DEFINE THE ESTIMATOR FUNCTION: `THE LinearRegression()` FUNCTION
+    # DEFINE hello ESTIMATOR FUNCTION: `hello LinearRegression()` FUNCTION
     val lr = new LinearRegression().setLabelCol("label").setFeaturesCol("features").setMaxIter(10)
 
-    # DEFINE THE PARAMETER GRID
+    # DEFINE hello PARAMETER GRID
     val paramGrid = new ParamGridBuilder().addGrid(lr.regParam, Array(0.1, 0.01, 0.001)).addGrid(lr.fitIntercept).addGrid(lr.elasticNetParam, Array(0.1, 0.5, 0.9)).build()
 
-    # DEFINE THE PIPELINE WITH A TRAIN/TEST VALIDATION SPLIT (75% IN THE TRAINING SET), AND THEN THE SPECIFY ESTIMATOR, EVALUATOR, AND PARAMETER GRID
+    # DEFINE hello PIPELINE WITH A TRAIN/TEST VALIDATION SPLIT (75% IN hello TRAINING SET), AND THEN hello SPECIFY ESTIMATOR, EVALUATOR, AND PARAMETER GRID
     val trainPct = 0.75
     val trainValidationSplit = new TrainValidationSplit().setEstimator(lr).setEvaluator(new RegressionEvaluator).setEstimatorParamMaps(paramGrid).setTrainRatio(trainPct)
 
-    # RUN THE TRAIN VALIDATION SPLIT AND CHOOSE THE BEST SET OF PARAMETERS
+    # RUN hello TRAIN VALIDATION SPLIT AND CHOOSE hello BEST SET OF PARAMETERS
     val model = trainValidationSplit.fit(OneHotTRAINLabeled)
 
-    # MAKE PREDICTIONS ON THE TEST DATA BY USING THE MODEL WITH THE COMBINATION OF PARAMETERS THAT PERFORMS THE BEST
+    # MAKE PREDICTIONS ON hello TEST DATA BY USING hello MODEL WITH hello COMBINATION OF PARAMETERS THAT PERFORMS hello BEST
     val testResults = model.transform(OneHotTESTLabeled).select("label", "prediction")
 
     # COMPUTE TEST SET R2
     val evaluator = new RegressionEvaluator().setLabelCol("label").setPredictionCol("prediction").setMetricName("r2")
     val Test_R2 = evaluator.evaluate(testResults)
 
-    # GET THE TIME TO RUN THE CELL
+    # GET hello TIME tooRUN hello CELL
     val endtime = Calendar.getInstance().getTime()
     val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+    println("Time taken toorun hello above cell: " + elapsedtime + " seconds.");
 
     println("Test R-sqr is: " + Test_R2);
 
@@ -942,64 +942,64 @@ Em seguida, divida os dados em conjuntos de treinamento e validação, use a lim
 
 R-sqr do teste é: 0,6226484708501209
 
-### <a name="optimize-the-binary-classification-model-by-using-cross-validation-and-hyper-parameter-sweeping"></a>Otimizar o modelo de classificação binária usando a limpeza de hiperparâmetro e a validação cruzada
-Esta seção mostra como otimizar um modelo de classificação binária usando a limpeza de hiperparâmetro e a validação cruzada. Isso usa a função `CrossValidator` de AM do Spark.
+### <a name="optimize-hello-binary-classification-model-by-using-cross-validation-and-hyper-parameter-sweeping"></a>Otimizar o modelo de classificação binária hello usando a limpeza de validação cruzada e parâmetro hyper
+Esta seção mostra como toooptimize uma classificação binária de modelo usando a validação cruzada e parâmetro hyper limpeza. Isso usa Olá Spark ML `CrossValidator` função.
 
-    # RECORD THE START TIME
+    # RECORD hello START TIME
     val starttime = Calendar.getInstance().getTime()
 
-    # CREATE DATA FRAMES WITH PROPERLY LABELED COLUMNS TO USE WITH THE TRAIN AND TEST SPLIT
+    # CREATE DATA FRAMES WITH PROPERLY LABELED COLUMNS tooUSE WITH hello TRAIN AND TEST SPLIT
     val indexedTRAINwithCatFeatBinTargetRF = indexedTRAINwithCatFeatBinTarget.select("labelBin","featuresCat").withColumnRenamed(existingName="labelBin",newName="label").withColumnRenamed(existingName="featuresCat",newName="features")
     val indexedTESTwithCatFeatBinTargetRF = indexedTESTwithCatFeatBinTarget.select("labelBin","featuresCat").withColumnRenamed(existingName="labelBin",newName="label").withColumnRenamed(existingName="featuresCat",newName="features")
     indexedTRAINwithCatFeatBinTargetRF.cache()
     indexedTESTwithCatFeatBinTargetRF.cache()
 
-    # DEFINE THE ESTIMATOR FUNCTION
+    # DEFINE hello ESTIMATOR FUNCTION
     val rf = new RandomForestClassifier().setLabelCol("label").setFeaturesCol("features").setImpurity("gini").setSeed(1234).setFeatureSubsetStrategy("auto").setMaxBins(32)
 
-    # DEFINE THE PARAMETER GRID
+    # DEFINE hello PARAMETER GRID
     val paramGrid = new ParamGridBuilder().addGrid(rf.maxDepth, Array(4,8)).addGrid(rf.numTrees, Array(5,10)).addGrid(rf.minInstancesPerNode, Array(100,300)).build()
 
-    # SPECIFY THE NUMBER OF FOLDS
+    # SPECIFY hello NUMBER OF FOLDS
     val numFolds = 3
 
-    # DEFINE THE TRAIN/TEST VALIDATION SPLIT (75% IN THE TRAINING SET)
+    # DEFINE hello TRAIN/TEST VALIDATION SPLIT (75% IN hello TRAINING SET)
     val CrossValidator = new CrossValidator().setEstimator(rf).setEvaluator(new BinaryClassificationEvaluator).setEstimatorParamMaps(paramGrid).setNumFolds(numFolds)
 
-    # RUN THE TRAIN VALIDATION SPLIT AND CHOOSE THE BEST SET OF PARAMETERS
+    # RUN hello TRAIN VALIDATION SPLIT AND CHOOSE hello BEST SET OF PARAMETERS
     val model = CrossValidator.fit(indexedTRAINwithCatFeatBinTargetRF)
 
-    # MAKE PREDICTIONS ON THE TEST DATA BY USING THE MODEL WITH THE COMBINATION OF PARAMETERS THAT PERFORMS THE BEST
+    # MAKE PREDICTIONS ON hello TEST DATA BY USING hello MODEL WITH hello COMBINATION OF PARAMETERS THAT PERFORMS hello BEST
     val testResults = model.transform(indexedTESTwithCatFeatBinTargetRF).select("label", "prediction")
 
-    # COMPUTE THE TEST F1 SCORE
+    # COMPUTE hello TEST F1 SCORE
     val evaluator = new MulticlassClassificationEvaluator().setLabelCol("label").setPredictionCol("prediction").setMetricName("f1")
     val Test_f1Score = evaluator.evaluate(testResults)
 
-    # GET THE TIME TO RUN THE CELL
+    # GET hello TIME tooRUN hello CELL
     val endtime = Calendar.getInstance().getTime()
     val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+    println("Time taken toorun hello above cell: " + elapsedtime + " seconds.");
 
 
 **Saída:**
 
-Tempo de execução da célula: 33 segundos.
+Célula de saudação do tempo toorun: 33 segundos.
 
-### <a name="optimize-the-linear-regression-model-by-using-custom-cross-validation-and-parameter-sweeping-code"></a>Otimizar o modelo de regressão linear usando código personalizado de validação cruzada e limpeza de parâmetro
-Em seguida, otimize o modelo usando código personalizado e identifique os melhores parâmetros do modelo usando o critério de precisão mais alta. Em seguida, criamos o modelo final, avaliamos o modelo nos dados de teste e salvamos o modelo no armazenamento de Blobs. Por fim, carregue o modelo, pontue os dados de teste e avalie sua precisão.
+### <a name="optimize-hello-linear-regression-model-by-using-custom-cross-validation-and-parameter-sweeping-code"></a>Otimizar o modelo de regressão linear hello usando código personalizado de validação cruzada e limpeza de parâmetro
+Em seguida, otimizar modelo hello usando código personalizado e identificar os melhores parâmetros de modelo Olá usando o critério de saudação de precisão mais alta. Em seguida, crie o modelo final hello, avaliar modelo Olá em dados de teste e Salvar modelo Olá no armazenamento de Blob. Por fim, carregar modelo hello, classificar dados de teste e avaliar a precisão.
 
-    # RECORD THE START TIME
+    # RECORD hello START TIME
     val starttime = Calendar.getInstance().getTime()
 
-    # DEFINE THE PARAMETER GRID AND THE NUMBER OF FOLDS
+    # DEFINE hello PARAMETER GRID AND hello NUMBER OF FOLDS
     val paramGrid = new ParamGridBuilder().addGrid(rf.maxDepth, Array(5,10)).addGrid(rf.numTrees, Array(10,25,50)).build()
 
     val nFolds = 3
     val numModels = paramGrid.size
     val numParamsinGrid = 2
 
-    # SPECIFY THE NUMBER OF CATEGORIES FOR CATEGORICAL VARIABLES
+    # SPECIFY hello NUMBER OF CATEGORIES FOR CATEGORICAL VARIABLES
     val categoricalFeaturesInfo = Map[Int, Int]((0,2),(1,2),(2,6),(3,4))
 
     var maxDepth = -1
@@ -1015,8 +1015,8 @@ Em seguida, otimize o modelo usando código personalizado e identifique os melho
     val splits = MLUtils.kFold(indexedTRAINbinary, numFolds = nFolds, seed=1234)
 
 
-    # LOOP THROUGH K-FOLDS AND THE PARAMETER GRID TO GET AND IDENTIFY THE BEST PARAMETER SET BY LEVEL OF ACCURACY
-    for (i <- 0 to (nFolds-1)) {
+    # LOOP THROUGH K-FOLDS AND hello PARAMETER GRID tooGET AND IDENTIFY hello BEST PARAMETER SET BY LEVEL OF ACCURACY
+    for (i <- 0 too(nFolds-1)) {
         validateLB = i * h
         validateUB = (i + 1) * h
         val validationCV = trainData.filter($"rand" >= validateLB  && $"rand" < validateUB)
@@ -1026,8 +1026,8 @@ Em seguida, otimize o modelo usando código personalizado e identifique os melho
         validationLabPt.cache()
         trainCVLabPt.cache()
 
-        for (nParamSets <- 0 to (numModels-1)) {
-            for (nParams <- 0 to (numParamsinGrid-1)) {
+        for (nParamSets <- 0 too(numModels-1)) {
+            for (nParams <- 0 too(numParamsinGrid-1)) {
                 param = paramGrid(nParamSets).toSeq(nParams).param.toString.split("__")(1)
                 paramval = paramGrid(nParamSets).toSeq(nParams).value.toString.toInt
                 if (param == "maxDepth") {maxDepth = paramval}
@@ -1049,28 +1049,28 @@ Em seguida, otimize o modelo usando código personalizado e identifique os melho
     }
     val minRMSEindex = RMSE.indexOf(RMSE.min)
 
-    # GET THE BEST PARAMETERS FROM A CROSS-VALIDATION AND PARAMETER SWEEP
+    # GET hello BEST PARAMETERS FROM A CROSS-VALIDATION AND PARAMETER SWEEP
     var best_maxDepth = -1
     var best_numTrees = -1
-    for (nParams <- 0 to (numParamsinGrid-1)) {
+    for (nParams <- 0 too(numParamsinGrid-1)) {
         param = paramGrid(minRMSEindex).toSeq(nParams).param.toString.split("__")(1)
         paramval = paramGrid(minRMSEindex).toSeq(nParams).value.toString.toInt
         if (param == "maxDepth") {best_maxDepth = paramval}
         if (param == "numTrees") {best_numTrees = paramval}
     }
 
-    # CREATE THE BEST MODEL WITH THE BEST PARAMETERS AND A FULL TRAINING DATA SET
+    # CREATE hello BEST MODEL WITH hello BEST PARAMETERS AND A FULL TRAINING DATA SET
     val best_rfModel = RandomForest.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo,
                                                       numTrees=best_numTrees, maxDepth=best_maxDepth,
                                                       featureSubsetStrategy="auto",impurity="variance", maxBins=32)
 
-    # SAVE THE BEST RANDOM FOREST MODEL IN BLOB STORAGE
+    # SAVE hello BEST RANDOM FOREST MODEL IN BLOB STORAGE
     val datestamp = Calendar.getInstance().getTime().toString.replaceAll(" ", ".").replaceAll(":", "_");
     val modelName = "BestCV_RF_Regression__"
     val filename = modelDir.concat(modelName).concat(datestamp)
     best_rfModel.save(sc, filename);
 
-    # PREDICT ON THE TRAINING SET WITH THE BEST MODEL AND THEN EVALUATE
+    # PREDICT ON hello TRAINING SET WITH hello BEST MODEL AND THEN EVALUATE
     val labelAndPreds = indexedTESTreg.map { point =>
                                             val prediction = best_rfModel.predict(point.features)
                                             ( prediction, point.label )
@@ -1079,32 +1079,32 @@ Em seguida, otimize o modelo usando código personalizado e identifique os melho
     val test_rmse = new RegressionMetrics(labelAndPreds).rootMeanSquaredError
     val test_rsqr = new RegressionMetrics(labelAndPreds).r2
 
-    # GET THE TIME TO RUN THE CELL
+    # GET hello TIME tooRUN hello CELL
     val endtime = Calendar.getInstance().getTime()
     val elapsedtime =  ((endtime.getTime() - starttime.getTime())/1000).toString;
-    println("Time taken to run the above cell: " + elapsedtime + " seconds.");
+    println("Time taken toorun hello above cell: " + elapsedtime + " seconds.");
 
 
-    # LOAD THE MODEL
+    # LOAD hello MODEL
     val savedRFModel = RandomForestModel.load(sc, filename)
 
     val labelAndPreds = indexedTESTreg.map { point =>
                                             val prediction = savedRFModel.predict(point.features)
                                             ( prediction, point.label )
                                            }
-    # TEST THE MODEL
+    # TEST hello MODEL
     val test_rmse = new RegressionMetrics(labelAndPreds).rootMeanSquaredError
     val test_rsqr = new RegressionMetrics(labelAndPreds).r2
 
 
 **Saída:**
 
-Tempo de execução da célula: 61 segundos.
+Célula de saudação do tempo toorun: 61 segundos.
 
 ## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>Consumir automaticamente modelos da aprendizado de máquina compilados no Spark com o Scala
-Para obter uma visão geral dos tópicos que explicam as tarefas que compõem o processo de Ciência de dados no Azure, confira [Processo de Ciência de Dados de Equipe](http://aka.ms/datascienceprocess).
+Para obter uma visão geral dos tópicos que orientam você pelas tarefas de saudação que compõem o processo de ciência de dados Olá no Azure, consulte [processo de ciência de dados de equipe](http://aka.ms/datascienceprocess).
 
-[Passo a passo do processo de ciência de dados de equipe](data-science-process-walkthroughs.md) descreve outras orientações de ponta a ponta que demonstram as etapas no Processo de ciência de dados de equipe para cenários específicos. As orientações também mostram como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente.
+[Explicações passo a passo do processo de ciência de dados da equipe](data-science-process-walkthroughs.md) descreve outras orientações de ponta a ponta que demonstram etapas Olá Olá processo de ciência de dados de equipe para cenários específicos. Olá explicações passo a passo também ilustra como toocombine de nuvem e ferramentas no local e serviços em um fluxo de trabalho ou pipeline toocreate um aplicativo inteligente.
 
-[Pontuar modelos de aprendizado de máquina criados no Spark](machine-learning-data-science-spark-model-consumption.md) mostra como usar o código Scala para carregar e pontuar automaticamente novos conjuntos de dados com modelos de aprendizado de máquina compilados no Spark e salvos no armazenamento de Blobs do Azure. Você pode seguir as instruções fornecidas nele e simplesmente substituir o código Python pelo código Scala neste artigo para o consumo automatizado.
+[Pontuação de modelos de aprendizado de máquina criados Spark](machine-learning-data-science-spark-model-consumption.md) mostra como toouse Scala código tooautomatically carregar e pontuação novos conjuntos de dados com modelos de aprendizado de máquina interna do Spark e salva no armazenamento de BLOBs do Azure. Você pode siga instruções Olá fornecidas e simplesmente substitua Olá código Python Scala código neste artigo para consumo automatizado.
 

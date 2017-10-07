@@ -1,6 +1,6 @@
 ---
-title: "Documentação do Azure Data Factory - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba mais sobre como usar o Data Factory para configurar pipelines de dados automatizados para e de origens locais e na nuvem para mover e processar dados para análise."
+title: "aaaAzure documentação da fábrica de dados - tutoriais, referência de API | Microsoft Docs"
+description: "Saiba como toouse tooset de fábrica de dados automatizada dados pipelines tooand do local e na nuvem de fontes de dados de pedidos toomove e processo para análise."
 services: data-factory
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: bf280db3ab7f9a4b3742dafcdbb0fb7c79cc963c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2b785093780a5eb5c23924a9c3c3f5d8675f0f96
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-data-factory-documentation"></a>Documentação do Azure Data Factory
 
-Saiba mais sobre como usar o Data Factory, um serviço de integração de dados na nuvem, para criar armazenamento de dados, serviços de processamento e de movimentação em pipelines de dados automatizados. Os tutoriais e outras documentações mostram como configurar e gerenciar pipelines de dados, bem como mover e transformar dados para análise.
+Saiba como toouse fábrica de dados, um serviço de integração de dados de nuvem, toocompose armazenamento de dados, movimentação e processamento de serviços em pipelines de dados automatizado. A documentação e tutoriais mostram como tooset e gerenciar pipelines de dados, bem como mover e transformar dados para análise.
 
 <ul class="panelContent cardsFTitle">
    <li>

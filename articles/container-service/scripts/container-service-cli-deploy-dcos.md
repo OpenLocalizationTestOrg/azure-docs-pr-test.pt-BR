@@ -1,5 +1,5 @@
 ---
-title: "Exemplo de script da CLI do Azure – criar o Cluster DC/SO do ACS | Microsoft Docs"
+title: aaaAzure exemplo de Script CLI - criar Cluster do ACS DC/sistema operacional | Microsoft Docs
 description: "Exemplo de script da CLI do Azure – criar o Cluster DC/SO do ACS"
 services: container-service
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.openlocfilehash: 4efd7dea04fd3486f875e57737e438c966872dd4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 35213fd615b2145642add908dfc48516c33ff332
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-azure-container-service-dcos-cluster"></a>Criar um cluster de DC/SO do Serviço de Contêiner do Azure
 
@@ -44,7 +44,7 @@ az acs create \
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
-Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
+Execute Olá grupo de recursos do comando tooremove hello, a VM e relacionados com todos os recursos a seguir.
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -52,7 +52,7 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Esse script usa os seguintes comandos para criar a implantação. Cada item em que a tabela contém links para a documentação específica do comando.
+Esse script usa Olá implantação de saudação toocreate comandos a seguir. Cada item na tabela de saudação vincula a documentação específica do toocommand.
 
 | Command | Observações |
 |---|---|
@@ -61,6 +61,6 @@ Esse script usa os seguintes comandos para criar a implantação. Cada item em q
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre Olá CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Exemplos adicionais de script CLI do Serviço de Contêiner do Azure podem ser encontrados na [documentação do Serviço de Contêiner do Azure](../cli-samples.md).
+Exemplos de script CLI de serviço de contêiner do Azure adicionais podem ser encontrados no hello [documentação do serviço de contêiner do Azure](../cli-samples.md).

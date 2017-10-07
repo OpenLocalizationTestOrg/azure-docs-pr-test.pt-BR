@@ -1,12 +1,12 @@
 ---
 title: "Dispositivo simulado e Gateway do IoT do Azure - Lição 4: salvar mensagens | Microsoft Docs"
-description: Salve mensagens da NUC da Intel para o hub IoT, grave-as no Armazenamento de Tabelas do Azure e, em seguida, leia-as na nuvem.
+description: "Salvar mensagens de hub do Intel NUC tooyour IoT, gravá-los tooAzure o armazenamento de tabela e, em seguida, lê-los da nuvem de saudação."
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: "armazenar dados na nuvem, dados armazenados na nuvem, serviço de nuvem de iot"
+keywords: "armazenando dados em nuvem hello, dados armazenados na nuvem, o serviço de nuvem iot"
 ROBOTS: NOINDEX
 redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: ffed0c2e-b092-40e1-9113-8196ec057d67
@@ -17,41 +17,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: c7fc47b07acede28ffe790debca7e38521726011
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 230f2708b62b89c6eed2e238efefc1c4da86e373
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-azure-function-app-and-storage-account"></a>Criar um aplicativo de funções do Azure e uma conta de armazenamento
 
-O Azure Functions é uma solução para executar _funções_ (pequenos trechos de código) com facilidade na nuvem. Um aplicativo de funções do Azure hospeda a execução de suas funções no Azure. 
+As funções do Azure é uma solução para executar facilmente _funções_ (pequenos pedaços de código) na nuvem hello. Um aplicativo de função do Azure hospeda execução Olá das funções no Azure. 
 
 ## <a name="what-you-will-do"></a>O que você fará
 
-- Use um modelo do Azure Resource Manager para criar um aplicativo de funções do Azure e uma conta de Armazenamento do Azure. O aplicativo de funções do Azure escuta os eventos de Hub IoT do Azure, processa as mensagens recebidas e grava-as no armazenamento de Tabelas do Azure.
+- Use um toocreate de modelo do Azure Resource Manager, um aplicativo de função do Azure e uma conta de armazenamento do Azure. aplicativo de função do Azure Olá escuta eventos de hub IoT tooAzure, processa as mensagens de entrada e grava o armazenamento de tabela tooAzure.
 
-Se você tiver problemas, procure as soluções na [página de solução de problemas](iot-hub-gateway-kit-c-sim-troubleshooting.md).
+Se você tiver problemas, procure por soluções em Olá [página de solução de problemas](iot-hub-gateway-kit-c-sim-troubleshooting.md).
 
 
 ## <a name="what-you-will-learn"></a>O que você aprenderá
 
-Nesta lição, você aprenderá a:
+Nesta lição, você aprenderá:
 
-- Como usar o Azure Resource Manager para implantar recursos do Azure.
-- Como usar um aplicativo de funções do Azure para processar mensagens do Hub IoT e gravá-las em uma tabela no armazenamento de Tabelas do Azure.
+- Como toouse toodeploy do Gerenciador de recursos do Azure recursos do Azure.
+- Como toouse do Azure funcionam aplicativo tooprocess mensagens de IoT Hub e gravá-los tooa tabela no armazenamento de tabela do Azure.
 
 ## <a name="what-you-need"></a>O que você precisa
 
-Você deve ter concluído com sucesso as lições anteriores:
+Você deve ter concluído lições anteriores Olá com êxito:
 
 - [Lesson 1: Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md) (Lição 1: Configurar a NUC da Intel como um gateway IoT)
 - [Lesson 2: Get your host computer and Azure IoT hub ready](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md) (Lição 2: Prepare seu computador host e hub do IoT do Azure)
-- [Lição 3: Receber mensagens do dispositivo simulado e ler mensagens de seu Hub IoT](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
+- [Lição 3: Receber mensagens de dispositivo simulado hello e ler mensagens de seu hub IoT](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
 
 ## <a name="open-a-sample-app"></a>Abrir um aplicativo de exemplo
 
-Vá para sua pasta do repositório `iot-hub-c-intel-nuc-gateway-getting-started`, inicialize os arquivos de configuração e, em seguida, abra o projeto de exemplo no código do Visual Studio, executando o seguinte comando:
+Vá tooyour `iot-hub-c-intel-nuc-gateway-getting-started` pasta do repositório, arquivos de configuração de saudação inicializar e projeto de exemplo hello, em seguida, abra no código do Visual Studio executando Olá comando a seguir:
 
 ```bash
 cd Lesson4
@@ -62,29 +62,29 @@ code .
 
 ![estrutura do repositório](media/iot-hub-gateway-kit-lessons/lesson4/arm_template.png)
 
-- O arquivo `arm-template.json` é o modelo do Azure Resource Manager que contém um aplicativo de funções do Azure e uma conta de Armazenamento do Azure.
-- O arquivo `arm-template-param.json` é o arquivo de configuração usado pelo modelo do Azure Resource Manager.
-- A subpasta `ReceiveDeviceMessages` contém o código do Node.js para a função do Azure.
+- Olá `arm-template.json` arquivo é hello Azure Resource Manager modelo que contém um aplicativo de função do Azure e uma conta de armazenamento do Azure.
+- Olá `arm-template-param.json` arquivo é o arquivo de configuração de saudação usado pelo modelo do Azure Resource Manager hello.
+- Olá `ReceiveDeviceMessages` subpasta contém o código de Node. js Olá para Olá função do Azure.
 
 ## <a name="configure-azure-resource-manager-templates-and-create-resources-in-azure"></a>Configurar modelos do Azure Resource Manager e criar recursos no Azure
 
-Atualize o arquivo `arm-template-param.json` no Visual Studio Code.
+Saudação de atualização `arm-template-param.json` arquivo no código do Visual Studio.
 
 ![arm template json](media/iot-hub-gateway-kit-lessons/lesson4/arm_template_param.png)
 
 - Substitua `[your IoT Hub name]` pelo `{my hub name}` especificado na Lição 2.
 
-Depois de atualizar o arquivo `arm-template-param.json`, implante os recursos do Azure executando o seguinte comando:
+Depois de atualizar Olá `arm-template-param.json` de arquivos, implante Olá recursos tooAzure executando Olá comando a seguir:
 
 ```bash
 az group deployment create --template-file arm-template.json --parameters @arm-template-param.json -g iot-gateway
 ```
 
-Use `iot-gateway` como o valor de `{resource group name}` se não tiver alterado o valor na Lição 2.
+Use `iot-gateway` como valor de saudação do `{resource group name}` se você não alterar o valor de saudação na lição 2.
 
 ## <a name="summary"></a>Resumo
 
-Você criou o aplicativo de funções do Azure para processar as mensagens de hub IoT e uma conta de Armazenamento do Azure para armazenar essas mensagens. Agora você pode ler as mensagens enviadas pelo gateway para o hub IoT.
+Você criou seu tooprocess do aplicativo de função do Azure mensagens de hub IoT e o armazenamento do Azure conta toostore essas mensagens. Agora você pode ler as mensagens enviadas pelo hub IoT de tooyour de gateway.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Read messages persisted in Azure Table storage](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md) (Ler as mensagens persistidas no Armazenamento de Tabelas do Azure).

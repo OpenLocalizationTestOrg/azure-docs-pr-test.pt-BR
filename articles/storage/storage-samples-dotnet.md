@@ -1,6 +1,6 @@
 ---
-title: Exemplos do Armazenamento do Azure usando .NET | Microsoft Docs
-description: "Exiba, baixe e execute exemplos de código e aplicativos para o Armazenamento do Azure. Descubra exemplos de introdução a blobs, filas, tabelas e arquivos usando as bibliotecas do cliente de armazenamento do .NET."
+title: exemplos de armazenamento aaaAzure usando .NET | Microsoft Docs
+description: "Exiba, baixe e execute exemplos de código e aplicativos para o Armazenamento do Azure. Descobrir Introdução exemplos para blobs, filas, tabelas e arquivos, usando bibliotecas de cliente de armazenamento Olá .NET."
 services: storage
 documentationcenter: na
 author: seguler
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
-ms.openlocfilehash: d2b6b3d9483f230ad25ae47255a4f28c1a67e064
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9a7055645b0f0658b850f024b8b19ab19840330e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-samples-using-net"></a>Exemplos de Armazenamento do Azure usando .NET
 
 ## <a name="net-sample-index"></a>Exemplo de índice do .NET
 
-A tabela a seguir fornece uma visão geral do nosso repositório de exemplos e os cenários abordados em cada exemplo. Clique nos links para exibir o código de exemplo correspondente no GitHub.
+Hello tabela a seguir fornece uma visão geral dos nossos exemplos de cenários de repositório e hello abordadas em cada exemplo. Clique em Olá links tooview Olá correspondente código de exemplo no GitHub.
 
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Ponto de extremidade</th><th style="font-size:110%">Cenário</th><th style="font-size:110%">Exemplo de código</th></tr></thead><tbody> 
 <tr> 
@@ -197,13 +197,13 @@ A tabela a seguir fornece uma visão geral do nosso repositório de exemplos e o
 
 ## <a name="azure-code-samples-library"></a>Biblioteca de Exemplos de Código do Azure
 
-Para visualizar a biblioteca completa de exemplos, vá para a biblioteca [Exemplos de código do Azure](https://azure.microsoft.com/resources/samples/?service=storage), que contém exemplos para o Armazenamento do Azure que podem ser baixados e executados localmente. A Biblioteca de Exemplo de Código fornece exemplo de código em formato .zip. Como alternativa, você pode navegar e clonar o repositório GitHub para cada exemplo.
+biblioteca de exemplo completo tooview hello, vá toohello [exemplos de código do Azure](https://azure.microsoft.com/resources/samples/?service=storage) biblioteca, que inclui exemplos de armazenamento do Azure que você pode baixar e executar localmente. Olá biblioteca de código de exemplo fornece código de exemplo em formato. zip. Como alternativa, você pode procurar e clonar o repositório do GitHub Olá para cada exemplo.
 
 [!INCLUDE [storage-dotnet-samples-include](../../includes/storage-dotnet-samples-include.md)]
 
 ## <a name="getting-started-guides"></a>Guias de introdução
 
-Confira os guias a seguir se você estiver procurando por instruções sobre como instalar e começar a usar as Bibliotecas de cliente de armazenamento do Azure.
+Check-out Olá guias a seguir se você está procurando obter instruções sobre como tooinstall e introdução a saudação bibliotecas de cliente de armazenamento do Azure.
 
 * [Introdução ao Serviço Blob do Azure no .NET](storage-dotnet-how-to-use-blobs.md)
 * [Introdução ao Serviço Fila do Azure no .NET](storage-dotnet-how-to-use-queues.md)

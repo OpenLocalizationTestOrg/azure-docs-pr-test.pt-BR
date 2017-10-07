@@ -1,5 +1,5 @@
 ---
-title: "Hospedagem de alta densidade no Serviço de Aplicativo do Azure | Microsoft Docs"
+title: "aaaHigh densidade hospedagem no serviço de aplicativo do Azure | Microsoft Docs"
 description: "Hospedagem de alta densidade no Serviço de Aplicativo do Azure"
 author: btardif
 manager: erikre
@@ -14,28 +14,28 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: byvinyal
-ms.openlocfilehash: 459a310a719695f6366470976d857ec2f9d6f4a1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a10cb81ace13ba6992b572a44361061ecf72b266
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="high-density-hosting-on-azure-app-service"></a>Hospedagem de alta densidade no Serviço de Aplicativo do Azure
-Ao usar o Serviço de Aplicativo, o aplicativo será desassociado da capacidade alocada a ele por dois conceitos:
+Ao usar o serviço de aplicativo, o aplicativo é separado da saudação capacidade alocada tooit por dois conceitos:
 
-* **O Aplicativo:** representa o Aplicativo e sua configuração de tempo de execução. Por exemplo, ele inclui a versão do .NET que o tempo de execução deve carregar, as configurações de aplicativo.
-* **O Plano do Serviço de Aplicativo:** define as características de capacidade, o conjunto de recursos disponível e a localidade do aplicativo. Por exemplo, as características podem ser computador grande (quatro núcleos), quatro instâncias, recursos Premium no Leste dos EUA.
+* **Olá aplicativo:** representa o aplicativo hello e sua configuração de tempo de execução. Por exemplo, ele inclui Olá versão do .NET que Olá em tempo de execução devem ser carregadas, as configurações do aplicativo hello.
+* **Olá plano do serviço de aplicativo:** define as características de saudação do capacidade hello, conjunto de recursos disponíveis e localidade do aplicativo hello. Por exemplo, as características podem ser computador grande (quatro núcleos), quatro instâncias, recursos Premium no Leste dos EUA.
 
-Um aplicativo sempre está vinculado a um Plano do Serviço de Aplicativo, mas um Plano do Serviço de Aplicativo pode fornecer capacidade a um ou mais aplicativos.
+Um aplicativo é sempre tooan vinculado plano de serviço de aplicativo, mas um plano de serviço de aplicativo pode fornecer capacidade tooone ou mais aplicativos.
 
-Como resultado, a plataforma fornece flexibilidade para isolar um único aplicativo ou permitir que vários aplicativos compartilhem recursos com um mesmo Plano do Serviço de Aplicativo.
+Como resultado, a plataforma de Olá fornece Olá flexibilidade tooisolate um único aplicativo ou ter vários aplicativos compartilhem recursos compartilhando um plano de serviço de aplicativo.
 
 No entanto, quando vários aplicativos compartilharem um plano do Serviço de Aplicativo, uma instância desse aplicativo será executada em todas as instâncias do plano do Serviço de Aplicativo.
 
 ## <a name="per-app-scaling"></a>Dimensionamento por aplicativo
 *Escala por Aplicativo* é um recurso que pode ser habilitado no nível do plano do Serviço de Aplicativo, sendo posteriormente usado por aplicativo.
 
-O dimensionamento por aplicativo escalona um aplicativo independentemente do plano do Serviço de Aplicativo que o hospeda. Dessa forma, um Plano do Serviço de Aplicativo pode ser dimensionado para 10 instâncias, mas um aplicativo pode ser configurado para usar apenas cinco.
+O dimensionamento por aplicativo escalona um aplicativo independentemente do plano do Serviço de Aplicativo que o hospeda. Dessa forma, um aplicativo de serviço pode ser dimensionado too10 instâncias, mas um aplicativo pode ser definido como toouse apenas cinco.
 
    >[!NOTE]
    >O dimensionamento por aplicativo está disponível somente para planos do Serviço de Aplicativo SKU **Premium**
@@ -43,7 +43,7 @@ O dimensionamento por aplicativo escalona um aplicativo independentemente do pla
 
 ### <a name="per-app-scaling-using-powershell"></a>Dimensionamento por aplicativo usando PowerShell
 
-Você pode criar um plano configurado como um plano de *Dimensionamento por aplicativo* passando o atributo ```-perSiteScaling $true``` para o commandlet ```New-AzureRmAppServicePlan```
+Você pode criar um plano configurado como um *por aplicativo dimensionamento* plano passando Olá ```-perSiteScaling $true``` atributo toohello ```New-AzureRmAppServicePlan``` commandlet
 
 ```
 New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -52,51 +52,51 @@ New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePla
                             -NumberofWorkers 5 -PerSiteScaling $true
 ```
 
-Se você quiser atualizar um Plano de Serviço de Aplicativo existente para usar esse recurso: 
+Se você quiser tooupdate um serviço de aplicativo existente planeje toouse esse recurso: 
 
-- obtenha o plano de destino ```Get-AzureRmAppServicePlan```
-- modifique a propriedade localmente ```$newASP.PerSiteScaling = $true```
-- poste suas alterações no Azure ```Set-AzureRmAppServicePlan``` 
+- obter o plano de destino Olá```Get-AzureRmAppServicePlan```
+- modificando a propriedade de saudação localmente```$newASP.PerSiteScaling = $true```
+- postar sua tooazure voltar de alterações```Set-AzureRmAppServicePlan``` 
 
 ```
-# Get the new App Service Plan and modify the "PerSiteScaling" property.
+# Get hello new App Service Plan and modify hello "PerSiteScaling" property.
 $newASP = Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan
 $newASP
 
-#Modify the local copy to use "PerSiteScaling" property.
+#Modify hello local copy toouse "PerSiteScaling" property.
 $newASP.PerSiteScaling = $true
 $newASP
     
-#Post updated app service plan back to azure
+#Post updated app service plan back tooazure
 Set-AzureRmAppServicePlan $newASP
 ```
 
-No nível do aplicativo, é preciso configurar o número de instâncias que o aplicativo pode usar no plano do serviço de aplicativo.
+No nível do aplicativo hello, precisamos de número de saudação do tooconfigure de instâncias Olá aplicativo pode usar no plano de serviço de aplicativo hello.
 
-No exemplo abaixo, o aplicativo está limitado a duas instâncias, independentemente de para quantas instâncias o plano do serviço de aplicativo subjacente pode ser dimensionado.
+Exemplo hello abaixo, o aplicativo hello é tootwo limitado de instâncias, independentemente de quantas instâncias Olá subjacente aplicativo serviço plano escalas out para.
 
 ```
-# Get the app we want to configure to use "PerSiteScaling"
+# Get hello app we want tooconfigure toouse "PerSiteScaling"
 $newapp = Get-AzureRmWebApp -ResourceGroupName $ResourceGroup -Name $webapp
     
-# Modify the NumberOfWorkers setting to the desired value.
+# Modify hello NumberOfWorkers setting toohello desired value.
 $newapp.SiteConfig.NumberOfWorkers = 2
     
-# Post updated app back to azure
+# Post updated app back tooazure
 Set-AzureRmWebApp $newapp
 ```
 
 > [!IMPORTANT]
-> $newapp.SiteConfig.NumberOfWorkers tem uma forma $newapp.MaxNumberOfWorkers. diferente. O dimensionamento por aplicativo usa $newapp.SiteConfig.NumberOfWorkers para determinar as características de dimensionamento do aplicativo.
+> $newapp.SiteConfig.NumberOfWorkers tem uma forma $newapp.MaxNumberOfWorkers. diferente. Cada aplicativo dimensionamento usa $newapp. Características de escala SiteConfig.NumberOfWorkers toodetermine saudação do aplicativo hello.
 
 ### <a name="per-app-scaling-using-azure-resource-manager"></a>Dimensionamento por aplicativo usando o Azure Resource Manager
 
-O seguinte *modelo do Azure Resource Manager* cria:
+a seguir Olá *modelo do Azure Resource Manager* cria:
 
-- Um Plano de Serviço de Aplicativo que é dimensionado para 10 instâncias
-- Um aplicativo configurado para dimensionar para um máximo de cinco instâncias.
+- Um plano de serviço de aplicativo que é expandido too10 instâncias
+- um aplicativo que tenha configurado tooscale tooa máximo de cinco instâncias.
 
-O Plano do Serviço de Aplicativo está definindo a propriedade **PerSiteCalling** como verdadeira (```"perSiteScaling": true```). O aplicativo está definindo o **número de trabalhadores** a usar como 5 (```"properties": { "numberOfWorkers": "5" }```).
+Olá plano de serviço de aplicativo está definindo Olá **PerSiteScaling** tootrue propriedade ```"perSiteScaling": true```. aplicativo Hello está definindo Olá **número de trabalhadores** toouse too5 ```"properties": { "numberOfWorkers": "5" }```.
 
 ```
 {
@@ -146,19 +146,19 @@ O Plano do Serviço de Aplicativo está definindo a propriedade **PerSiteCalling
 ```
 
 ## <a name="recommended-configuration-for-high-density-hosting"></a>Configuração recomendada para hospedagem de alta densidade
-O dimensionamento por aplicativo é um recurso que está habilitado em regiões globais do Azure e Ambientes do Serviço de Aplicativo. No entanto, a estratégia recomendada é usar Ambientes de Serviço de Aplicativo para aproveitar os recursos avançados e os pools de maior capacidade.  
+O dimensionamento por aplicativo é um recurso que está habilitado em regiões globais do Azure e Ambientes do Serviço de Aplicativo. No entanto, Olá recomendado estratégia é usar os ambientes de serviço de aplicativo tootake de seus recursos avançados e pools de saudação maior de capacidade.  
 
-Siga estas etapas para configurar a hospedagem de alta densidade para seus aplicativos:
+Siga estas etapas tooconfigure alta densidade de hospedagem para seus aplicativos:
 
-1. Configure o Ambiente de Serviço de Aplicativo e escolha um pool de trabalho dedicado ao cenário de hospedagem de alta densidade.
-1. Crie um único plano do Serviço de Aplicativo e o dimensione para usar toda a capacidade disponível no pool de trabalho.
-1. Defina o sinalizador PerSiteCalling como verdadeiro no Plano do Serviço de Aplicativo.
-1. Novos aplicativos são criados e atribuídos a esse Plano do Serviço de Aplicativo com a propriedade **numberOfWorkers** definida como **1**. O uso dessa configuração produz a densidade mais alta possível neste pool de trabalho.
-1. O número de trabalhadores pode ser configurado independentemente por aplicativo, a fim de conceder recursos adicionais conforme necessário. Por exemplo:
-    - Um aplicativo de alto consumo pode definir o **numberOfWorkers** como **3** para ter mais capacidade de processamento para esse aplicativo. 
-    - Os aplicativos de baixo consumo definiriam o **numberOfWorkers** como **1**.
+1. Configurar Olá ambiente de serviço de aplicativo e escolha um pool de trabalho que é dedicado toohello alta densidade do cenário de hospedagem.
+1. Criar um único plano de serviço de aplicativo e dimensioná-lo toouse todos Olá capacidade disponível no pool do trabalhador hello.
+1. Defina Olá PerSiteScaling sinalizador tootrue em Olá plano de serviço de aplicativo.
+1. Novos aplicativos são criados e atribuídos toothat plano de serviço de aplicativo com o **numberOfWorkers** propriedade definida muito**1**. Usando essa configuração gera hello mais alta densidade possíveis neste pool de trabalho.
+1. número de saudação de trabalhos pode ser configurado independentemente por recursos do aplicativo toogrant adicionais conforme necessário. Por exemplo:
+    - Um aplicativo de alto uso pode definir **numberOfWorkers** muito**3** toohave mais capacidade para que o aplicativo de processamento. 
+    - Aplicativos de baixo uso definiria **numberOfWorkers** muito**1**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral detalhada de planos de Serviço de aplicativo do Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md)
-- [Introdução ao ambiente de Serviço de Aplicativo](../app-service-web/app-service-app-service-environment-intro.md)
+- [Introdução tooApp ambiente de serviço](../app-service-web/app-service-app-service-environment-intro.md)

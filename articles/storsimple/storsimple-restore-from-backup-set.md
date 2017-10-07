@@ -1,6 +1,6 @@
 ---
-title: Restaurar um volume do StorSimple de um backup | Microsoft Docs
-description: "Explica como usar a página Catálogo de Backup do serviço StorSimple Manager para restaurar um volume do StorSimple de um conjunto de backup."
+title: aaaRestore um volume StorSimple de backup | Microsoft Docs
+description: "Explica como toouse Olá toorestore de página do Gerenciador do StorSimple serviço Catálogo de Backup a um volume StorSimple um conjunto de backup."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,77 +14,77 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.openlocfilehash: 12484338f5b4d489604d70a657ef0992b6267297
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e0efa74b14603be41af0cfc5400de3c39ab8824e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restaurar um volume do StorSimple de um conjunto de backup
 [!INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
 
 ## <a name="overview"></a>Visão geral
-A página **Catálogo de Backup** exibe todos os conjuntos de backup criados após a realização de backups manuais ou automatizados. Você pode usar esta página para listar todos os backups para uma política de backup ou volume, selecionar ou excluir os backups, ou usar um backup para restaurar ou clonar um volume.
+Olá **catálogo de Backup** página exibe todos os conjuntos de backup de saudação que são criados quando os backups manuais ou automatizados são feitos. Você pode usar todos os backups de saudação de toolist essa página para uma política de backup ou um volume, selecione ou excluir backups, ou usar um backup toorestore ou clonar um volume.
 
  ![Página Catálogo de Backup](./media/storsimple-restore-from-backup-set/HCS_BackupCatalog.png)
 
-Este tutorial explica como usar a página **Catálogo de Backup** para restaurar um volume em seu dispositivo a partir de um conjunto de backup.
+Este tutorial explica como Olá toouse **catálogo de Backup** página toorestore um volume no dispositivo de um conjunto de backup.
 
-## <a name="how-to-use-the-backup-catalog"></a>Como usar o catálogo de backup
-A página **Catálogo de Backup** oferece uma consulta que ajuda a restringir sua seleção de conjuntos de backup. Você pode filtrar os conjuntos de backup recuperados com base nos seguintes parâmetros:
+## <a name="how-toouse-hello-backup-catalog"></a>Como toouse Olá catálogo de backup
+Olá **catálogo de Backup** página fornece uma consulta que ajuda você a toonarrow sua seleção de conjunto de backup. Você pode filtrar Olá conjuntos de backup que são recuperados com base em Olá parâmetros a seguir:
 
-* **Dispositivo** – O dispositivo no qual o conjunto de backup foi criado.
-* **Política** ou **volume** de Backup – A política ou volume de backup associado a este conjunto de backup.
-* **De** e **Para** – O intervalo de datas e horas em que o conjunto de backup foi criado.
+* **Dispositivo** – dispositivo Olá no qual Olá o conjunto de backup foi criado.
+* **Política de backup** ou **volume** – Olá a política de backup ou volume associado a este conjunto de backup.
+* **De** e **para** – Olá intervalo de data e hora quando o conjunto de backup Olá foi criado.
 
-Os conjuntos de backup filtrados são então tabulados com base nos seguintes atributos:
+Olá conjuntos de backup filtrados são então tabulados com base em Olá seguintes atributos:
 
-* **Nome** – O nome da política de backup ou do volume associada a este conjunto de backup.
-* **Tamanho** – O tamanho real do conjunto de backup.
-* **Criado em** – O intervalo de data e hora quando os backups foram criados. 
-* **Tipo** – Conjuntos de Backup podem ser instantâneos locais ou instantâneos de nuvem. Um instantâneo local é um backup de todos os dados do volume armazenadas localmente no dispositivo, enquanto um instantâneo de nuvem refere-se ao backup dos dados do volume que residem na nuvem. Instantâneos locais fornecem acesso mais rápido, enquanto os instantâneos de nuvem são escolhidos para resiliência de dados.
-* **Iniciada por** – Os backups podem ser iniciados de forma automática, de acordo com uma agenda, ou de forma manual por um usuário. (Você pode usar uma política de backup para agendar backups. Como alternativa, você pode usar a opção **Fazer backup** para fazer um backup interativo).
+* **Nome** – hello nome de política de backup hello ou volumes associados ao conjunto de backup hello.
+* **Tamanho** – Olá tamanho real do conjunto de backup hello.
+* **Criado em** – a data de saudação e a hora quando foram criados backups hello. 
+* **Tipo** – Conjuntos de Backup podem ser instantâneos locais ou instantâneos de nuvem. Um instantâneo local é um backup de todos os dados de volume armazenados localmente no dispositivo hello, enquanto um instantâneo de nuvem se refere a toohello backup dos dados de volume que residem na nuvem de saudação. Instantâneos locais fornecem acesso mais rápido, enquanto os instantâneos de nuvem são escolhidos para resiliência de dados.
+* **Iniciado por** – backups Olá podem ser iniciados automaticamente de acordo com o agendamento de tooa ou manualmente por um usuário. (Você pode usar backups de tooschedule uma política de backup. Como alternativa, você pode usar o hello **fazer backup** tootake opção um backup interativo.)
 
-## <a name="how-to-restore-your-storsimple-volume-from-a-backup"></a>Como restaurar o volume StorSimple de um backup
-É possível usar a página **Catálogo de Backup** para restaurar o volume do StorSimple de um backup específico. 
+## <a name="how-toorestore-your-storsimple-volume-from-a-backup"></a>Como toorestore seu volume StorSimple de um backup
+Você pode usar o hello **catálogo de Backup** página toorestore seu volume StorSimple de um backup específico. 
 
 > [!WARNING]
-> A restauração de um backup substituirá os volumes existentes do backup. Isso pode causar a perda de todos os dados gravados depois que o backup tiver sido feito.
+> Restauração de um backup substituirá os volumes existentes de backup Olá Olá. Isso pode causar perda de saudação de todos os dados gravados após Olá backup foi feito.
 > 
 > 
 
-Antes de iniciar uma restauração em um volume, verifique se o volume está offline. Você precisará colocar o volume offline no host primeiro e, em seguida, no dispositivo. Siga as etapas em [Colocar um volume offline](storsimple-manage-volumes.md#take-a-volume-offline). Execute as etapas a seguir para restaurar um volume de um conjunto de backup.
+Antes de iniciar uma restauração em um volume, certifique-se de que o volume de saudação está offline. Será necessário volume de saudação do tootake offline no host Olá primeiro e, em seguida, Olá dispositivo. Siga as etapas de saudação em [colocar um volume offline](storsimple-manage-volumes.md#take-a-volume-offline). Execute Olá seguir etapas toorestore um volume de um conjunto de backup.
 
-### <a name="to-restore-from-a-backup-set"></a>Para restaurar de um conjunto de backup
-1. Na página do serviço Gerenciador do StorSimple, clique na guia **Catálogo de backup** .
+### <a name="toorestore-from-a-backup-set"></a>toorestore um conjunto de backup
+1. Na página de serviço do StorSimple Manager hello, clique em Olá **catálogo de Backup** guia.
    
-    ![Catálogo de Backup](./media/storsimple-restore-from-backup-set/HCS_Restore.png)
+    ![Catálogo de backup](./media/storsimple-restore-from-backup-set/HCS_Restore.png)
 2. Selecione um conjunto de backup desta maneira:
    
-   1. Selecione o dispositivo adequado.
-   2. Na lista suspensa, escolha o volume ou a política de backup para o backup que você deseja selecionar.
-   3. Especifique o intervalo de tempo.
-   4. Clique no ícone de verificação  ![ícone de verificação](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png) para executar esta consulta.
+   1. Selecione dispositivo de saudação apropriado.
+   2. Na lista suspensa de saudação, escolha política de backup ou volume Olá para backup de saudação que você deseja tooselect.
+   3. Especifique o intervalo de tempo de saudação.
+   4. Clique o ícone de verificação Olá ![ícone de verificação](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png) tooexecute esta consulta.
       
-      Os backups associados ao volume ou à política de backup selecionada devem aparecer na lista de conjuntos de backup.
-3. Expanda o conjunto de backup para exibir os volumes associados. Esses volumes devem ficar offline no host e no dispositivo antes que você possa restaurá-los. Siga as etapas em [Colocar um volume offline](storsimple-manage-volumes.md#take-a-volume-offline).
+      Hello backups associados à política de backup ou volume Olá selecionado devem aparecer na lista de saudação de conjuntos de backup.
+3. Expanda Olá conjunto de backup tooview Olá associado volumes. Esses volumes devem ser colocados offline no host hello e no dispositivo antes de restaurá-los. Siga as etapas de saudação em [colocar um volume offline](storsimple-manage-volumes.md#take-a-volume-offline).
    
    > [!IMPORTANT]
-   > Verifique se você colocou os volumes offline primeiro no host antes de colocar os volumes offline no dispositivo. Se você não colocar os volumes offline no host, poderá ocorrer corrupção nos dados.
+   > Certifique-se de que você colocou Olá volumes offline no host Olá primeiro, antes de colocar Olá volumes offline no dispositivo de saudação. Se você não colocar volumes de Olá offline no host hello, isso pode levar potencialmente toodata corrupção.
    > 
    > 
-4. Selecione um conjunto de backup. Clique em **Restaurar** na parte inferior da página.
+4. Selecione um conjunto de backup. Clique em **restaurar** final Olá Olá página.
 5. Será solicitada a sua confirmação. 
    
     ![Página de confirmação](./media/storsimple-restore-from-backup-set/HCS_ConfirmRestore.png)
-6. Examine as informações de restauração e clique no ícone de verificação ![ícone de verificação](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png). Isso iniciará um trabalho de restauração que poderá ser exibido por meio do acesso à página **Trabalhos** . 
-7. Após a conclusão da restauração, você poderá verificar se o conteúdo de seus volumes foi substituído pelos volumes do backup.
+6. Examinar as informações de restauração hello e clique no ícone de verificação Olá ![ícone de verificação](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png). Isso iniciará um trabalho de restauração que você pode exibir acessando Olá **trabalhos** página. 
+7. Após a conclusão da restauração hello, você pode verificar se conteúdo Olá de seus volumes é substituído por volumes de backup hello.
 
 ![Vídeo disponível](./media/storsimple-restore-from-backup-set/Video_icon.png) **Vídeo disponível**
 
-Para assistir a um vídeo que demonstra como você pode usar os recursos de clonagem e restauração no StorSimple para recuperar arquivos excluídos, clique [aqui](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+toowatch um vídeo que demonstra como você pode usar o clone hello e restaurar recursos no StorSimple toorecover excluído arquivos, clique em [aqui](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba como [Gerenciar volumes do StorSimple](storsimple-manage-volumes.md).
-* Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
+* Saiba como muito[StorSimple gerenciar volumes](storsimple-manage-volumes.md).
+* Saiba como muito[use Olá tooadminister do serviço StorSimple Manager seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 

@@ -1,5 +1,5 @@
 ---
-title: "Exemplo de script da CLI do Azure - Criar um aplicativo de função para execução sem servidor | Microsoft Docs"
+title: "aaaAzure exemplo de Script CLI - criar um aplicativo de função de execução sem servidor | Microsoft Docs"
 description: "Exemplo de script da CLI do Azure - Criar um Aplicativo de funções para execução sem servidor"
 services: functions
 documentationcenter: functions
@@ -16,33 +16,33 @@ ms.workload: web
 ms.date: 04/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 37046967bd5ab0d797d1c66690db7200fb4805e2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7ec872b642e50827896a73a9e43bcc87233e15c2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-function-app-for-serverless-execution"></a>Criar um Aplicativo de funções para execução sem servidor
 
-Este exemplo de script cria um Aplicativo de funções do Azure, que é um contêiner para suas funções. O Aplicativo de funções é criado usando o [plano de consumo](../functions-scale.md#consumption-plan), que é ideal para cargas de trabalho sem servidor controladas por evento.
+Este exemplo de script cria um Aplicativo de funções do Azure, que é um contêiner para suas funções. Olá função de aplicativo é criado usando Olá [plano consumo](../functions-scale.md#consumption-plan), que é ideal para cargas de trabalho sem servidor controlada por evento.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se você escolher tooinstall e usa o hello CLI localmente, este tópico requer que você está executando a versão do CLI do Azure Olá 2.0 ou posterior. Executar `az --version` toofind versão de saudação. Se você precisar tooinstall ou atualização, consulte [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de exemplo
 
-Esse script cria um Aplicativo de funções do Azure usando o [plano de consumo](../functions-scale.md#consumption-plan).
+Esse script cria um aplicativo de função do Azure usando Olá [plano consumo](../functions-scale.md#consumption-plan).
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption/create-function-app-consumption.sh "Criar uma função do Azure em um plano de consumo")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption/create-function-app-consumption.sh "Create an Azure Function on a consumption plan")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Cada comando na tabela redireciona para a documentação específica do comando. Este script usa os seguintes comandos:
+Cada comando na documentação específica do toocommand Olá tabela links. Esse script usa Olá comandos a seguir:
 
 | Command | Observações |
 |---|---|
@@ -52,6 +52,6 @@ Cada comando na tabela redireciona para a documentação específica do comando.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre Olá CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Exemplos adicionais de scripts da CLI do Azure Functions podem ser encontrados na [Documentação do Azure Functions](../functions-cli-samples.md).
+Exemplos de script CLI do Azure funções adicionais podem ser encontrados no hello [documentação de funções do Azure](../functions-cli-samples.md).

@@ -1,6 +1,6 @@
 ---
-title: "Runbooks-filho na Automação do Azure | Microsoft Docs"
-description: "Descreve os diferentes métodos para iniciar um runbook na Automação do Azure de outro runbook e compartilhar informações entre eles."
+title: "aaaChild runbooks na automação do Azure | Microsoft Docs"
+description: "Descreve métodos diferentes de saudação para iniciando um runbook na automação do Azure a partir de outro runbook e compartilhar informações entre eles."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,73 +14,73 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: a605d278dbbda9613b91007ea6a7042403a7a6ff
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d3d06818d344b565d53cc4f4705b41dcfcf9a376
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks filhos na Automação do Azure
-É uma prática recomendada na Automação do Azure escrever runbooks reutilizáveis e modulares com uma função distinta que pode ser usada por outros runbooks. Um runbook pai geralmente chamará um ou mais runbooks filhos para executar o recurso necessário. Há duas maneiras de chamar um runbook filho e cada uma tem diferenças marcantes que você deve compreender para que possa determinar qual será melhor para seus diferentes cenários.
+É uma prática recomendada no Azure toowrite reutilizáveis e modulares, os runbooks de automação com uma função discreta que pode ser usado por outros runbooks. Um runbook pai geralmente chamará um ou mais runbooks filho funcionalidade tooperform necessário. Há dois toocall de maneiras um runbook filho e cada uma tem diferenças marcantes que você deve compreender para que você possa determinar qual será a melhor para seus diferentes cenários.
 
 ## <a name="invoking-a-child-runbook-using-inline-execution"></a>Invocar um runbook filho usando a execução embutida
-Para invocar um runbook embutido de outro runbook, use o nome do runbook e forneça valores para os parâmetros exatamente como você faria ao usar uma atividade ou um cmdlet.  Todos os runbooks na mesma conta de automação estão disponíveis para todos os outros para serem usados dessa maneira. O runbook pai aguardará o runbook filho concluir antes de passar para a próxima linha e nenhuma saída é retornada diretamente para o pai.
+tooinvoke um runbook embutido de outro runbook, use nome Olá Olá runbook e forneça valores para os parâmetros exatamente como você usaria uma atividade ou cmdlet.  Olá a todos os runbooks na mesma conta de automação está disponível tooall outros toobe usados dessa maneira. Olá o runbook pai aguardará Olá filho runbook toocomplete antes de mover toohello próxima linha e nenhuma saída é retornada diretamente toohello pai.
 
-Quando você chama um runbook embutido, ele é executado no mesmo trabalho que o runbook pai. Não haverá nenhuma indicação no histórico de trabalho do runbook filho de que ele foi executado. Todas as exceções e fluxos de saída do runbook filho serão associados ao pai. Isso resulta em menos trabalhos e torna mais fácil rastrear e solucionar problemas, já que as exceções geradas pelo runbook filho e por sua saída de fluxo são associadas ao trabalho pai.
+Quando você invoca um runbook embutido, ele é executado no hello mesmo trabalho como Olá o runbook pai. Não haverá nenhuma indicação no histórico do trabalho de saudação do runbook filho Olá que ele foi executado. Todas as exceções e qualquer fluxo de saída do runbook filho de saudação será associados ao pai de saudação. Isso resulta em menos trabalhos e torna mais fácil tootrack e tootroubleshoot desde as exceções geradas pelo runbook filho de saudação e qualquer uma das suas saídas de fluxo são associadas com hello pai trabalho.
 
-Quando um runbook é publicado, todos os runbooks filhos que ele chamar já devem ter sido publicados. Isso ocorre porque a Automação do Azure cria uma associação com os runbooks filhos quando um runbook é compilado. Se não tiverem sido,o runbook pai aparecerá para publicação corretamente, mas poderá gerar uma exceção quando for iniciado. Se isso acontecer, você poderá republicar o runbook pai para referenciar corretamente os runbooks filhos. Você não precisa republicar o runbook pai se algum dos runbooks filhos forem alterados porque a associação terá sido criada.
+Quando um runbook é publicado, todos os runbooks filhos que ele chamar já devem ter sido publicados. Isso ocorre porque a Automação do Azure cria uma associação com os runbooks filhos quando um runbook é compilado. Se não forem, o runbook pai Olá aparecerá toopublish corretamente, mas gerará uma exceção quando ele for iniciado. Se isso acontecer, poderá republicar o runbook pai Olá em ordem tooproperly Referência Olá filho runbooks. Não é necessário o runbook pai toorepublish Olá se qualquer Olá eventuais runbooks filho forem alterados, porque associação Olá já terá sido criada.
 
-Os parâmetros de um runbook filho com chamada embutida podem ser de qualquer tipo de dados, incluindo objetos complexos, e não há nenhuma [serialização JSON](automation-starting-a-runbook.md#runbook-parameters) como quando você inicia o runbook usando o Portal de Gerenciamento do Azure ou o cmdlet Start-AzureRmAutomationRunbook.
+parâmetros de saudação de um runbook filho chamado embutido podem ser qualquer tipo de dados, incluindo objetos complexos e não há nenhum [serialização JSON](automation-starting-a-runbook.md#runbook-parameters) que haja ao iniciar o runbook hello usando Olá Portal de gerenciamento ou com hello Cmdlet Start-AzureRmAutomationRunbook.
 
 ### <a name="runbook-types"></a>Tipos de runbook
 Quais tipos podem chamar um ao outro:
 
 * Um [runbook do PowerShell ](automation-runbook-types.md#powershell-runbooks) e os [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) podem chamar uns aos outros em linha (ambos são baseados no PowerShell).
 * Um [runbook do Fluxo de Trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) e runbooks gráficos do Fluxo de Trabalho do PowerShell podem chamar uns aos outros de forma embutida (ambos são baseados no Fluxo de Trabalho do PowerShell)
-* Os tipos de PowerShell e os tipos de Fluxo de Trabalho do PowerShell não podem chamar uns aos outros de forma embutida e precisam usar Start-AzureRmAutomationRunbook.
+* Olá PowerShell tipos e Olá que tipos de fluxo de trabalho do PowerShell não é possível chamar embutido entre si e deve usar AzureRmAutomationRunbook de início.
 
 Quando a ordem de publicação é importante:
 
-* a ordem de publicação de runbooks é importante apenas para runbooks do Fluxo de Trabalho do PowerShell e runbooks gráficos do Fluxo de Trabalho do PowerShell.
+* Olá publicar ordem de assuntos somente runbooks para runbooks do fluxo de trabalho do PowerShell gráfica e de fluxo de trabalho do PowerShell.
 
-Quando você chama um runbook filho Gráfico ou de Fluxo de Trabalho do PowerShell usando execução embutida, você usa apenas o nome do runbook.  Quando você chamar um runbook filho do PowerShell, você deve precedido seu nome com *.\\*  para especificar que o script está localizado no diretório local. 
+Quando você chamar um runbook filho do gráfico ou fluxo de trabalho do PowerShell usando a execução embutida, você apenas usar nome de saudação do runbook hello.  Quando você chamar um runbook filho do PowerShell, você deve precedido seu nome com *.\\*  toospecify que Olá script está localizado no diretório local de saudação. 
 
 ### <a name="example"></a>Exemplo
-O exemplo a seguir invoca um runbook filho de teste que aceita três parâmetros, um objeto complexo, um número inteiro e um valor booleano. A saída do runbook filho é atribuída a uma variável.  Nesse caso, o runbook filho é um runbook de Fluxo de Trabalho do PowerShell
+saudação de exemplo a seguir invoca um runbook filho de teste que aceita três parâmetros, um objeto complexo, um número inteiro e um valor booleano. saída de saudação do runbook filho de saudação é atribuída tooa variável.  Nesse caso, o runbook filho Olá é um runbook de fluxo de trabalho do PowerShell
 
     $vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
     $output = PSWF-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
 
-A seguir, temos o mesmo exemplo usando um runbook do PowerShell como o filho.
+A seguir é hello mesmo exemplo usando um runbook do PowerShell como filho de saudação.
 
     $vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
     $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 
 
 ## <a name="starting-a-child-runbook-using-cmdlet"></a>Iniciar um runbook filho usando cmdlet
-Você pode usar o cmdlet [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) para iniciar um runbook, como descrito em [Para iniciar um runbook com o Windows PowerShell](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Há dois modos de uso para esse cmdlet.  Em um modo, o cmdlet retorna a ID do trabalho assim que o trabalho filho é criado para o runbook filho.  No outro modo, que você habilita especificando o parâmetro **-wait** , o cmdlet aguarda até que o trabalho filho seja concluído e retorna a saída do runbook filho.
+Você pode usar o hello [início AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) toostart cmdlet um runbook, conforme descrito em [toostart um runbook com o Windows PowerShell](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Há dois modos de uso para esse cmdlet.  No modo, Olá cmdlet retorna id do trabalho Olá assim que o trabalho de filho Olá é criado para o runbook filho hello.  Em Olá outro modo, que permitem especificando Olá **-Aguarde** parâmetro, aguarda até que filho Olá Olá cmdlet trabalho concluído e retornará a saída de saudação do runbook filho de saudação.
 
-O trabalho de um runbook filho iniciado com um cmdlet executará um trabalho separado do runbook pai. Isso resulta em mais trabalhos do que invocar o runbook embutido e torna o acompanhamento mais difícil de rastrear. O pai pode iniciar vários runbooks filhos assincronamente sem esperar a conclusão de cada um. Para a mesma variante de execução paralela que chama runbooks filho embutidos, o runbook pai precisaria usar a [palavra-chave paralela](automation-powershell-workflow.md#parallel-processing).
+trabalho de saudação de um runbook filho iniciado com um cmdlet será executado em um trabalho separado de saudação o runbook pai. Isso resulta em mais trabalhos do que chamar hello runbook embutido e torna mais difícil tootrack. pai de saudação pode iniciar vários runbooks filho assíncrona sem esperar que cada toocomplete. Para esse mesmo tipo de execução paralela chamando os runbooks do hello filho embutido, Olá o runbook pai precisaria Olá toouse [palavra-chave paralela](automation-powershell-workflow.md#parallel-processing).
 
-Parâmetros de um runbook filho iniciados com um cmdlet são fornecidos como uma tabela de hash, conforme descrito em [Parâmetros de Runbook](automation-starting-a-runbook.md#runbook-parameters). Somente tipos de dados simples podem ser usados. Se o runbook tiver um parâmetro com um tipo de dados complexos, ele deve ser chamado embutido.
+Parâmetros de um runbook filho iniciados com um cmdlet são fornecidos como uma tabela de hash, conforme descrito em [Parâmetros de Runbook](automation-starting-a-runbook.md#runbook-parameters). Somente tipos de dados simples podem ser usados. Se o runbook Olá tem um parâmetro com um tipo de dados complexos, em seguida, ele deve ser chamado embutido.
 
 ### <a name="example"></a>Exemplo
-O exemplo a seguir inicia um runbook filho com parâmetros e aguarda a sua conclusão usando o parâmetro Start-AzureRmAutomationRunbook -wait. Depois de concluído, sua saída é coletada do runbook filho.
+Olá exemplo a seguir inicia um runbook filho com parâmetros e, em seguida, aguarda para ele toocomplete usando Olá AzureRmAutomationRunbook início-espera o parâmetro. Depois de concluído, a saída é coletada do runbook filho de saudação.
 
     $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true} 
     $joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResourceGroupName "LabRG" –Parameters $params –wait
 
 
 ## <a name="comparison-of-methods-for-calling-a-child-runbook"></a>Comparação de métodos para chamar um runbook filho
-A tabela a seguir resume as diferenças entre os dois métodos para chamar um runbook de outro runbook.
+Olá tabela a seguir resume as diferenças de saudação entre Olá dois métodos para chamar um runbook de outro runbook.
 
 |  | Embutido | Cmdlet |
 |:--- |:--- |:--- |
-| Trabalho |Os runbooks filhos são executados no mesmo trabalho que o pai. |Um trabalho separado é criado para o runbook filho. |
-| Execução |O runbook pai aguarda a conclusão do runbook filho antes de continuar. |O runbook pai continua imediatamente após o runbook filho ser iniciado *ou* o runbook pai aguarda a conclusão do trabalho filho. |
+| Trabalho |Runbooks filho são executados em hello como pai de saudação do mesmo trabalho. |Um trabalho separado é criado para o runbook filho hello. |
+| Execução |Runbook pai aguarda Olá filho runbook toocomplete antes de continuar. |Runbook pai continua imediatamente após o runbook filho ser iniciado *ou* runbook pai aguarda Olá toofinish de trabalho de filho. |
 | Saída |O runbook pai pode obter saída diretamente do runbook filho. |O runbook pai deve recuperar a saída do trabalho do runbook filho *ou* o runbook pai pode obter a saída diretamente do runbook filho. |
-| Parâmetros |Os valores para os parâmetros de runbook filho são especificados separadamente e podem usar qualquer tipo de dados. |Os valores para os parâmetros de runbook filho devem ser combinados em uma única tabela de hash e somente podem tipos de dados simples, de matriz e de objeto que aproveitem a serialização JSON. |
-| Conta de Automação |O runbook pai somente pode usar o runbook filho na mesma conta de automação. |O runbook pai pode usar runbook filho de qualquer conta de automação da mesma assinatura do Azure e até mesmo de uma assinatura diferente se você tiver uma conexão com ele. |
+| parâmetros |Valores para parâmetros de runbook Olá filho são especificados separadamente e podem usar qualquer tipo de dados. |Valores para o runbook filho Olá parâmetros devem ser combinados em uma única tabela de hash e só podem incluir simples, de matriz e tipos de dados que aproveitam a serialização JSON do objeto. |
+| Conta de Automação |Runbook pai só pode usar o runbook filho Olá mesma conta de automação. |Runbook pai pode usar o runbook filho de qualquer conta de automação de saudação mesma assinatura do Azure e até mesmo uma assinatura diferente se você tiver um tooit de conexão. |
 | Publicação |O runbook filho deve ser publicado antes da publicação do runbook pai. |O runbook filho deve ser publicado antes da inicialização do runbook pai. |
 
 ## <a name="next-steps"></a>Próximas etapas

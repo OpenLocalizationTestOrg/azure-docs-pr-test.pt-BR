@@ -1,6 +1,6 @@
 ---
-title: Hardware para interfaces de 10 GbE do StorSimple | Microsoft Docs
-description: Descreve os transceptores, cabos e switches SPF (small form-factor pluggable) com suporte para interfaces de rede de 10 GbE em seu dispositivo StorSimple.
+title: aaaHardware para interfaces StorSimple 10 GbE | Microsoft Docs
+description: "Descreve Olá suportada fator de forma pequena conectáveis transceptores SFP (), cabos e comutadores Olá 10 GbE para interfaces de rede em seu dispositivo StorSimple."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-ms.openlocfilehash: db03b3cd668bf8e35913872ac4225de6d4d3edd1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3e6769380040ab08d9a57ef7221bf62c6c855137
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple
+# <a name="supported-hardware-for-hello-10-gbe-network-interfaces-on-your-storsimple-device"></a>Hardware com suporte para interfaces de rede Olá 10 GbE no seu dispositivo StorSimple
 ## <a name="overview"></a>Visão geral
 Este artigo dá informações sobre hardware suplementar que funciona com o seu dispositivo Microsoft Azure StorSimple.
 
 ## <a name="list-of-devices-tested-by-microsoft"></a>Lista de dispositivos testados pela Microsoft
-A Microsoft testou os seguintes transceptores de fator forma pequeno conectáveis (SFP), cabos e comutadores, para garantir que funcionem de maneira ideal com dispositivos. As tabelas a seguir serão atualizadas enquanto o novo hardware é testado.
+A Microsoft testou Olá fator de forma pequena conectáveis transceptores SFP (), cabos e comutadores tooensure que funcionem de maneira ideal com os dispositivos a seguir. (Olá tabelas a seguir será atualizado como novo hardware é testado.)
 
 ### <a name="sfp-transceivers"></a>Transceptores SFP +
 | Faça | Modelo |
@@ -47,8 +47,8 @@ A Microsoft testou os seguintes transceptores de fator forma pequeno conectávei
 | 2. |Cisco |N3K-C3048-ZM-F |
 | 3. |Cisco |N5K-C5596UP-FA |
 
-## <a name="list-of-devices-tested-in-the-field"></a>Lista de dispositivos testados em campo
-Esta seção contém a lista dos dispositivos que têm sido implantados com êxito em campo por clientes do StorSimple. Não foram testados pela Microsoft, mas devem funcionar com o dispositivo StorSimple.
+## <a name="list-of-devices-tested-in-hello-field"></a>Lista de dispositivos é testado no campo Olá
+Esta seção contém a lista de saudação de dispositivos que têm foi implantado com êxito no campo Olá pelos clientes do StorSimple. Não foram testados pela Microsoft, mas são provavelmente toowork com seu dispositivo StorSimple.
 
 | Parâmetro | Valor |
 | --- | --- |
@@ -64,10 +64,10 @@ Esta seção contém a lista dos dispositivos que têm sido implantados com êxi
 | StorSimple   versão do software |6.3.9600.17491 |
 
 ## <a name="list-of-devices-tested-by-oem-provider-mellanox"></a>Lista de dispositivos testados pelo provedor de OEM (Mellanox)
-A Mellanox testou os seguintes transceptores de fator forma pequeno conectável (SFP), cabos e comutadores, para garantir que eles funcionem de maneira ideal com interfaces de rede Mellanox, como interfaces de rede 10 GbE em seu dispositivo StorSimple.
+Mellanox testou Olá seguindo o fator de forma pequena conectáveis transceptores SFP (), cabos e comutadores tooensure que funcionem de maneira ideal com interfaces de rede Mellanox como interfaces de rede Olá 10 GbE no seu dispositivo StorSimple.
 
 ### <a name="cables-and-modules-supported-by-mellanox"></a>Cabos e módulos compatíveis com Mellanox
-A tabela a seguir lista os cabos e módulos compatíveis com Mellanox. Não foram testados pela Microsoft, mas devem funcionar com o dispositivo StorSimple.
+Olá tabela a seguir lista cabos hello e módulos suportados pelo Mellanox. Não foram testados pela Microsoft, mas são provavelmente toowork com seu dispositivo StorSimple.
 
 | S. Nº | Velocidade | Modelo | Descrição | Faça |
 | --- | --- | --- | --- | --- |
@@ -78,7 +78,7 @@ A tabela a seguir lista os cabos e módulos compatíveis com Mellanox. Não fora
 | 5. |10 GbE |Cisco SFP-H10GBCU1M |Cabo SFP + Cisco |Cisco |
 | 6. |10 GbE |Cisco SFP-H10GBCU3M |Cabo SFP + Cisco |Cisco |
 | 7. |10 GbE |Cisco SFP-H10GBCU5M |Cabo SFP + Cisco |Cisco |
-| 8. |10 GbE |J9281B HP X242 10G |Conexão direta de cabo de cobre SFP+ a SFP+ 1m |HP |
+| 8. |10 GbE |J9281B HP X242 10G |SFP + tooSFP + 1 milhão cabo direta de cobre anexar |HP |
 | 9. |10 GbE |455883-B21 HP BLc |10Gb SR SFP+ Opt |HP |
 | 10. |10 GbE |455886-B21 HP BLc |10Gb LR SFP+ Opt |HP |
 | 11. |10 GbE |487649-B21 HP BLc |Cabo de cobre SFP+ 0.5m 10GbE |HP |
@@ -97,18 +97,18 @@ A tabela a seguir lista os cabos e módulos compatíveis com Mellanox. Não fora
 | 24. |10 GbE |JD095B HP |X240 10G SFP+ SFP+ cabo 0,65m DAC |HP |
 | 25. |10 GbE |JD096B HP |X240 10G SFP+ SFP+ cabo 1,2m DAC |HP |
 | 26. |10 GbE |JD097B HP |X240 10G SFP+ SFP+ cabo 3m DAD |HP |
-| 27. |10 GbE |MAM1Q00A-QSA Mellanox |Adaptador QSFP a SFP + |Mellanox Technologies |
-| 28. |10 GbE |MC2309124-006 Mt |Cabo de cobre passivo 1x SFP+ To QSFP 10Gb/s 24awg 7m |Mellanox Technologies |
-| 29. |10 GbE |MC2309124-007 Mt |Cabo de cobre passivo 1x SFP+ To QSFP 10Gb/s 24awg 7m |Mellanox Technologies |
-| 30. |10 GbE |MC2309130-003 Mt |Cabo de cobre passivo 1x SFP+ a QSFP 10Gb/s 30awg 3m |Mellanox Technologies |
-| 31. |10 GbE |MC2309130-00A Mt |Cabo de cobre passivo 1x SFP+ a QSFP 10Gb/s 30awg 0.5m |Mellanox Technologies |
+| 27. |10 GbE |MAM1Q00A-QSA Mellanox |QSFP tooSFP + adaptador |Mellanox Technologies |
+| 28. |10 GbE |MC2309124-006 Mt |Passivo cobre cabo 1 x SFP + tooQSFP 10Gb/s 24awg 7m |Mellanox Technologies |
+| 29. |10 GbE |MC2309124-007 Mt |Passivo cobre cabo 1 x SFP + tooQSFP 10Gb/s 24awg 7m |Mellanox Technologies |
+| 30. |10 GbE |MC2309130-003 Mt |Passivo cobre cabo 1 x SFP + tooQSFP 10Gb/s 30awg 3m |Mellanox Technologies |
+| 31. |10 GbE |MC2309130-00A Mt |Passivo cobre cabo 1 x SFP + tooQSFP 10Gb/s 30awg 0,5 m |Mellanox Technologies |
 | 32. |10 GbE |MC3309124-005 Mt |Cabo de cobre passivo 1x SFP+ 10Gb/s 24awg 5m |Mellanox Technologies |
 | 33. |10 GbE |MC3309124-007 Mt |Cabo de cobre passivo 1x SFP+ 10Gb/s 24awg 7m |Mellanox Technologies |
 | 34. |10 GbE |MC3309130-003 Mt |Cabo de cobre passivo 1x SFP+ 10Gb/s 30awg 3m |Mellanox Technologies |
 | 35. |10 GbE |MC3309130-00A Mt |Cabo de cobre passivo 1x SFP+ 10Gb/s 30awg 0,5m |Mellanox Technologies |
 
 ### <a name="switches-supported-by-mellanox"></a>Opções compatíveis com o Mellanox
-A tabela a seguir lista as opções compatíveis com Mellanox. Não foram testados pela Microsoft, mas devem funcionar com o dispositivo StorSimple.
+Olá a tabela a seguir lista Opções de saudação suportadas pelo Mellanox. Não foram testados pela Microsoft, mas são provavelmente toowork com seu dispositivo StorSimple.
 
 | S. Nº | Velocidade | Modelo | Descrição | Faça |
 | --- | --- | --- | --- | --- |

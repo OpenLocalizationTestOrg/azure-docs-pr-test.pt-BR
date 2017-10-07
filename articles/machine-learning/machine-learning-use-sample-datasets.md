@@ -1,6 +1,6 @@
 ---
-title: Usar os conjuntos de dados de exemplo no Machine Learning Studio | Microsoft Docs
-description: "Descrições dos conjuntos de dados usados em modelos de exemplo incluídos no Machine Learning Studio. É possível usar esses conjuntos de dados de exemplo para seus testes."
+title: "conjuntos de dados de exemplo hello de aaaUse no estúdio de aprendizado de máquina | Microsoft Docs"
+description: "Descrições de saudação conjuntos de dados usados em modelos de exemplo incluídos no estúdio de aprendizado de máquina. É possível usar esses conjuntos de dados de exemplo para seus testes."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: dd4a672d419a0f5140ffc006bcf58a9bf1e752f4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c7786478db82d40aaf27c37b3947ded5f042dd70
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Usar os conjuntos de dados de amostra no Azure Machine Learning Studio
+# <a name="use-hello-sample-datasets-in-azure-machine-learning-studio"></a>Usar conjuntos de dados de exemplo hello no estúdio de aprendizado de máquina do Azure
 [top]: #machine-learning-sample-datasets
 
-Ao criar um novo espaço de trabalho no Azure Machine Learning, diversos conjuntos de dados de exemplo e testes são incluídos por padrão. Muitos desses conjuntos de dados de exemplo são usados pelos modelos de exemplo da [Galeria do Azure Cortana Intelligence](http://gallery.cortanaintelligence.com/). Outros são incluídos como exemplos de vários tipos de dados usados no aprendizado de máquina.
+Ao criar um novo espaço de trabalho no Azure Machine Learning, diversos conjuntos de dados de exemplo e testes são incluídos por padrão. Muitos desses conjuntos de dados de exemplo são usados pelos modelos de exemplo hello em Olá [Galeria do Azure Cortana Intelligence](http://gallery.cortanaintelligence.com/). Outros são incluídos como exemplos de vários tipos de dados usados no aprendizado de máquina.
 
-Alguns desses conjuntos de dados estão disponíveis no armazenamento de Blobs do Azure. A tabela a seguir fornece um link direto para esses conjuntos de dados. É possível utilizar esses conjuntos de dados em seus testes usando o módulo [Importar Dados][import-data].
+Alguns desses conjuntos de dados estão disponíveis no armazenamento de Blobs do Azure. Para esses conjuntos de dados, Olá a tabela a seguir fornece um link direto. Você pode usar esses conjuntos de dados em suas experiências usando Olá [importar dados] [ import-data] módulo.
 
-O restante dos conjuntos de dados de exemplo está disponível no espaço de trabalho em **Conjuntos de Dados Salvos**, na paleta de módulo à esquerda da tela do teste, quando você abre ou cria um novo teste no Machine Learning Studio.
-Você pode usar qualquer um desses conjuntos de dados em seu próprio teste arrastando-o para a tela do teste.
+Olá outros esses conjuntos de dados de exemplo estão disponíveis no espaço de trabalho em **conjuntos de dados salvos** na esquerda do hello módulo paleta toohello da tela de experimento hello quando você abrir ou criar um novo teste no estúdio de aprendizado de máquina.
+Você pode usar qualquer um desses conjuntos de dados em sua própria experiência arrastando-a tela de experimento tooyour.
 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -43,26 +43,26 @@ Você pode usar qualquer um desses conjuntos de dados em seu próprio teste arra
 <tr>
   <td valign=top>Conjunto de dados de classificação binária de receita no recenseamento adulto</td>
   <td valign=top>
-Um subconjunto do banco de dados do recenseamento de 1994, usando adultos em fase de trabalho, com idade acima de 16 anos com um índice de receita ajustado de > 100.<p> </p><b>Uso:</b> classificar pessoas usando dados demográficos para prever se uma pessoa recebe acima de 50 mil por ano.<p> </p><b>Pesquisa relacionada:</b> Kohavi, R., Becker, B., (1996). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+Um subconjunto do banco de dados de censo Olá 1994, usando o trabalho adultos idade de saudação de 16 com um índice de renda ajustada > 100.<p> </p><b>Uso:</b> classificar as pessoas que usam dados demográficos toopredict se uma pessoa ganha mais de 50 mil por ano.<p> </p><b>Pesquisa relacionada:</b> Kohavi, R., Becker, B., (1996). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=airport-codes-dataset>
   <td valign=top>Conjunto de dados de códigos do aeroporto</td>
   <td valign=top>
-Códigos de aeroporto dos EUA.<p> </p>Este conjunto de dados contém uma linha para cada aeroporto dos EUA, fornecendo o número de ID do aeroporto e o nome junto com a cidade do local e estado.
+Códigos de aeroporto dos EUA.<p> </p>Este conjunto de dados contém uma linha para cada aeroporto dos EUA, fornecendo o número de identificação do aeroporto de saudação e nome junto com hello local cidade e estado.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Dados de preço de automóvel (Brutos)</td>
   <td valign=top>
-Informações sobre automóveis por marca e modelo, incluindo o preço, recursos como número de cilindradas e MPG, bem como uma pontuação de risco de seguro.<p> </p>A pontuação de risco é inicialmente associada ao preço do automóvel e depois é ajustada quanto ao risco real em um processo conhecido pelos atuários como valor simbólico. Um valor de +3 indica que o automóvel apresenta risco e um valor de -3 indica que ele provavelmente é seguro.<p> </p><b>Uso:</b> prever a pontuação de risco por recursos, usando a regressão ou a classificação multivariada. <p> </p><b>Pesquisa relacionada:</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+Informações sobre automóveis por marca e modelo, incluindo preço hello, recursos, como o número de saudação de cilindros e MPG, bem como uma pontuação de risco de seguros.<p> </p>pontuação de risco Olá inicialmente associado com preço automática e, em seguida, ajustada para risco real em um processo conhecido tooactuaries como symboling. Um valor de + 3 indica que o auto Olá é arriscado, e um valor de -3 que ele provavelmente é seguro.<p> </p><b>Uso:</b> pontuação de risco Olá prever por recursos, usando a classificação de regressão ou multivariada. <p> </p><b>Pesquisa relacionada:</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=bike-rental-uci-dataset>
   <td valign=top>Conjunto de dados UCI de locação de bicicletas</td>
   <td valign=top>
-Conjunto de dados UCI Bike Rental que é baseado em dados reais da empresa Capital Bikeshare que mantém uma rede de aluguel de bicicletas em Washington DC.<p> </p>O conjunto de dados possui uma linha por cada hora de cada dia em 2011 e 2012, no total de 17.379 linhas. O intervalo de aluguéis de bicicletas por hora é de 1 a 977.
+Conjunto de dados UCI Bike Rental que é baseado em dados reais da empresa Capital Bikeshare que mantém uma rede de aluguel de bicicletas em Washington DC.<p> </p>saudação de conjunto de dados tem uma linha para cada hora do dia em 2011 e 2012, para um total de 17,379 linhas. intervalo de saudação de locações de bicicleta por hora é de 1 too977.
 
   </td>
 </tr>
@@ -70,81 +70,81 @@ Conjunto de dados UCI Bike Rental que é baseado em dados reais da empresa Capit
 <tr ID=bill-gates-rgb-image>
   <td valign=top>Imagem RGB de Bil Gates</td>
   <td valign=top>
-Arquivo de imagem publicamente disponível convertido para dados CSV.<p> </p>O código para converter a imagem é fornecido na página de detalhes do modelo <strong>Quantização de cores usando o clustering K-Means</strong>.
+Converter o arquivo de imagem disponível publicamente tooCSV dados.<p> </p>Olá código para converter a imagem de saudação é fornecido no hello <strong>usando clustering K-Means de quantização de cor</strong> página de detalhes do modelo.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Dados de doação de sangue</td>
   <td valign=top>
-Um subconjunto de dados do banco de dados de doadores de sangue do Centro de Serviços de Transfusão de Sangue da Cidade de Hsin-Chu, Taiwan.<p> </p>Os dados do doador incluem os meses desde a última doação e a frequência, ou o número total de doações, data da última doação e a quantidade de sangue doado.<p> </p><b>Uso:</b> o objetivo é prever, por meio de classificação, se o doador doou sangue em março de 2007, em que 1 indica um doador durante o período de meta e 0, um não doador. <p> </p><b>Pesquisa relacionada:</b> Yeh, I.C., (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  <p> </p>Yeh, I-Cheng, Yang, King-Jang, e Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
+Um subconjunto dos dados do banco de dados de doadores de sangue a Olá do hello sangue Transfusion serviço Central do Hsin Chu cidade, Taiwan.<p> </p>Dados de doadores incluem meses Olá desde a última doação) e frequência, ou número total de saudação do doações, tempo desde a última doação e quantidade de sangue doada.<p> </p><b>Uso:</b> meta Olá é toopredict por meio de classificação se Doadores Olá doada sangue em março de 2007, em que 1 indica um patrocinador durante o período de destino hello e 0 um não Doadores. <p> </p><b>Pesquisa relacionada:</b> Yeh, I.C., (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  <p> </p>Yeh, I-Cheng, Yang, King-Jang, e Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
 </tr>
 
 <tr ID=book-reviews-from-amazon>
   <td valign=top>Resenhas de livros da Amazon</td>
   <td valign=top>
-Resenhas de livros na Amazon, obtidas do website amazon.com pelos pesquisadores da University of Pennsylvania (<a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/">sentiment</a>). Consulte o documento de pesquisa "Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification" de John Blitzer, Mark Dredze e Fernando Pereira; Association of Computational Linguistics (ACL), 2007.<p> </p>O conjunto de dados original tem 975 mil resenhas com classificações 1, 2, 3, 4 ou 5. As resenhas foram escritas em inglês e são do período de 1997 a 2007. Esse conjunto de dados foi reduzido para 10 mil resenhas.
+Revisões de livros Amazon, obtido site amazon.com de saudação por pesquisadores da Universidade de janeiro (<a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/">sentimento</a>). Consulte o artigo de pesquisa hello, "biografias, Bollywood, caixas de explosão e liquidificadores: domínio adaptação a classificação de sentimento" John Blitzer, Mark Dredze e Fernando Pereira; Associação de linguística computacional (ACL) 2007.<p> </p>conjunto de dados original Olá tem revisões 975K com classificações 1, 2, 3, 4 ou 5. Olá revisões foram gravadas em inglês e são do hello 1997-2007 do período de tempo. Este conjunto de dados tiver sido convertidos too10K revisões.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Dados de câncer de mama</td>
   <td valign=top>
-Um dos três conjuntos de dados relacionados a câncer fornecidos pelo Instituto de Oncologia que aparece frequentemente na literatura de aprendizado de máquina. Ele combina informações de diagnóstico com recursos de análise de laboratório de aproximadamente 300 amostras de tecido.<p> </p><b>Uso:</b> classificar o tipo de câncer, com base em 9 atributos, alguns dos quais são lineares e outros, categóricos. <p> </p><b>Pesquisa relacionada:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+Um dos três relacionados câncer de conjuntos de dados fornecidos pelo Olá Institute oncológicas que aparece com frequência na literatura de aprendizado de máquina. Ele combina informações de diagnóstico com recursos de análise de laboratório de aproximadamente 300 amostras de tecido.<p> </p><b>Uso:</b> classificar o tipo de saudação do câncer, com base em atributos de 9, alguns dos quais são lineares e alguns são categóricas. <p> </p><b>Pesquisa relacionada:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=breast-cancer-features>
   <td valign=top>Recursos de câncer de mama <td valign=top>
-O conjunto de dados contém informações de 102 mil regiões suspeitas (candidatas) de imagens de raios-X, cada uma descrita por 117 recursos. Os recursos são proprietários e seu significado não será revelado por criadores de conjunto de dados (Siemens Healthcare). 
+saudação de conjunto de dados contém informações de 102K suspeitas regiões (candidatos) de imagens de raio x, cada descrito pelos 117 recursos. recursos de saudação são de propriedade e seu significado não seja revelado por criadores de conjunto de dados da saudação (Siemens saúde). 
   </td>
 </tr>
 
 <tr ID=breast-cancer-info>
   <td valign=top>Informações de Câncer de Mama</td>
   <td valign=top>
-O conjunto de dados contém informações adicionais sobre cada região suspeita da imagem de raio-X. Cada exemplo fornece informações (por exemplo, rótulo, ID de paciente, coordenadas de patch em relação à imagem inteira) sobre o número da linha correspondente no conjunto de dados de recursos de câncer de mama. Cada paciente tem um número de exemplos. Para pacientes que têm um câncer, alguns exemplos são positivos e outros negativos. Para pacientes que não têm câncer, todos os exemplos são negativos. O conjunto de dados tem 102 mil exemplos. O conjunto de dados é tendencioso, 0,6% dos pontos são positivos e o restante é negativo. O conjunto de dados foi disponibilizado pela Siemens Healthcare.
+saudação de conjunto de dados contém informações adicionais para cada região suspeita da imagem de raio x. Cada exemplo fornece informações (por exemplo, rótulo, pacientes ID, as coordenadas da imagem inteira do patch toohello relativo) sobre o número de linha correspondente Olá no conjunto de dados de recursos de câncer de mama hello. Cada paciente tem um número de exemplos. Para pacientes que têm um câncer, alguns exemplos são positivos e outros negativos. Para pacientes que não têm câncer, todos os exemplos são negativos. Olá dataset tem exemplos 102K. saudação de conjunto de dados é mais adequado, 0,6% de pontos de saudação são positivo, negativo rest hello. saudação de conjunto de dados foi disponibilizado por saúde Siemens.
   </td>
 </tr>
 
 <tr ID=crm-appetency-labels-shared>
   <td valign=top>Rótulos de apetência CRM compartilhados</td>
   <td valign=top>
-Rótulos do desafio de previsão de relacionamento com o cliente KDD Cup 2009 (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train_appetency.labels">orange_small_train_appetency.labels</a>).
+Os rótulos de desafio de previsão de relação de cliente Olá KDD Cup 2009 (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train_appetency.labels">orange_small_train_appetency.labels</a>).
   </td>
 </tr>
 
 <tr ID=crm-churn-labels-shared>
   <td valign=top>Rótulos de variação CRM compartilhados</td>
   <td valign=top>
-Rótulos do desafio de previsão de relacionamento com o cliente KDD Cup 2009 (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels">orange_small_train_churn.labels</a>).
+Os rótulos de desafio de previsão de relação de cliente Olá KDD Cup 2009 (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels">orange_small_train_churn.labels</a>).
   </td>
 </tr>
 
 <tr ID=crm-dataset-shared>
   <td valign=top>Conjunto de dados CRM compartilhado</td>
   <td valign=top>
-Estes dados foram obtidos do desafio de previsão de relacionamento com o cliente KDD Cup 2009 (<a href="http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction - orange_small_train.data.zip">orange_small_train.data.zip</a>).<p> </p>Esse conjunto de dados contém 50 mil clientes da empresa francesa de telecomunicações Orange. Cada cliente possui 230 recursos anônimos, dos quais 190 são numéricos e 40 categóricos. Os recursos são muito esparsos.
+Esses dados vêm de desafio de previsão de relação de cliente Olá KDD Cup 2009 (<a href="http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction - orange_small_train.data.zip">orange_small_train.data.zip</a>).<p> </p>saudação de conjunto de dados contém 50 mil clientes de saudação da empresa de telecomunicações francês laranja. Cada cliente possui 230 recursos anônimos, dos quais 190 são numéricos e 40 categóricos. recursos de saudação são muito esparsos.
   </td>
 </tr>
 
 <tr ID=crm-upselling-labels-shared>
   <td valign=top>Rótulos de vendas agregadas CRM compartilhados</td>
   <td valign=top>
-Rótulos do desafio de previsão de relacionamento do cliente KDD Cup 2009 (<a href="http://www.sigkdd.org/site/2009/files/orange_large_train_upselling.labels">orange_large_train_upselling.labels</a>).
+Os rótulos de desafio de previsão de relação de cliente Olá KDD Cup 2009 (<a href="http://www.sigkdd.org/site/2009/files/orange_large_train_upselling.labels">orange_large_train_upselling.labels</a>).
   </td>
 </tr>
 
 <tr>
   <td valign=top>Dados de regressão de eficiência de energia</td>
   <td valign=top>
-Uma coleção de perfis de energia simulados, com base em 12 formatos de construções diferentes. As construções diferem com relação a oito recursos, como área envidraçada, distribuição da área envidraçada e orientação.<p> </p><b>Uso:</b> usar a regressão ou a classificação para prever a classificação de eficiência de energia com base em uma das duas respostas de valor real. Para classificação de multiclasse, a variável da resposta é arredondada para o número inteiro mais próximo. <p> </p><b>Pesquisa relacionada:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+Uma coleção de perfis de energia simulados, com base em 12 formatos de construções diferentes. construções de saudação são diferenciadas por 8 recursos, como glazing área, Olá glazing distribuição área e orientação.<p> </p><b>Uso:</b> usar classificação ou regressão toopredict Olá eficiência de energia com base como uma das duas respostas real com valor de classificação. Para classificação de várias classes, é redondo Olá resposta variável toohello inteiro mais próximo. <p> </p><b>Pesquisa relacionada:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=flight-delays-data>
   <td valign=top>Dados de atrasos de voo</td>
   <td valign=top>
-Dados de desempenho pontual do voo do passageiro obtidos da coleção de dados TranStats do Departamento de Transportes dos EUA (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time</a>).<p> </p>O conjunto de dados abrange o período de abril a outubro de 2013. Antes de ser carregado no Azure Machine Learning Studio, o conjunto de dados foi processado da seguinte maneira:<ul><li>O conjunto de dados foi filtrado para cobrir os 70 aeroportos mais movimentados dos EUA continentais.</li><li>Os voos cancelados foram rotulados como atrasados por mais de 15 minutos</li><li>Voos desviados foram retirados.</li><li>As seguintes colunas foram selecionadas: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Cancelled</li></ul>
+Flight passageiro em tempo de dados de desempenho obtidos Olá TranStats coleta de dados de saudação dos EUA Departamento de Transportes dos EUA (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time</a>).<p> </p>saudação de conjunto de dados abrange Olá período abril – outubro de 2013. Antes de carregar tooAzure estúdio de aprendizado de máquina, conjunto de dados de saudação foi processado da seguinte maneira:<ul><li>saudação de conjunto de dados foi filtrado toocover somente Olá 70 mais ocupados aeroportos continental Olá dos EUA</li><li>Os voos cancelados foram rotulados como atrasados por mais de 15 minutos</li><li>Voos desviados foram retirados.</li><li>Olá colunas a seguir foram selecionadas: ano, mês, DayofMonth, DayOfWeek, da operadora, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, cancelado</li></ul>
 </td>
 </tr>
 
@@ -158,94 +158,94 @@ Registros de pousos e decolagens nos Estados Unidos desde outubro de 2011.<p> </
 <tr>
   <td valign=top>Dados de incêndios florestais</td>
   <td valign=top>
-Contém dados meteorológicos, como índices de temperatura e umidade e velocidade do vento, de uma área no nordeste de Portugal, combinados com registros de incêndios florestais.<p> </p><b>Uso:</b> essa é uma tarefa de regressão difícil, em que o objetivo é prever a área queimada de incêndios florestais. <p> </p><b>Pesquisa relacionada:</b> Cortez, P., & Morais, A. (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  <p> </p>[Cortez and Morais, 2007] P. Cortez and A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. Em J. Neves, M. F. Santos e J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponível em: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
+Contém dados meteorológicos, como índices de temperatura e umidade e velocidade do vento, de uma área no nordeste de Portugal, combinados com registros de incêndios florestais.<p> </p><b>Uso:</b> é uma tarefa difícil de regressão, onde aim Olá Olá toopredict gravado área da floresta acionado. <p> </p><b>Pesquisa relacionada:</b> Cortez, P., & Morais, A. (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  <p> </p>[Cortez and Morais, 2007] P. Cortez and A. Morais. Uma abordagem de mineração de dados tooPredict acionado de floresta usando meteorológicas por dados. Em J. Neves, M. F. Santos e J. Machado Eds., novas tendências em inteligência Artificial, procedimentos de Olá 13 EPIA 2007 - português conferência em inteligência Artificial, dezembro, Guimarães, Portugal páginas 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponível em: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
 </tr>
 
 <tr ID=german-credit-card-uci-dataset>
   <td valign=top>Conjunto de dados do cartão de crédito alemão UCI</td>
   <td valign=top>
-O conjunto de dados UCI Statlog (cartão de crédito alemão) (<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">Statlog+German+Credit+Data</a>), usando o arquivo german.data.<p> </p>O conjunto de dados classifica pessoas, descritas como um conjunto de atributos, como baixos ou altos riscos de crédito. Cada exemplo representa uma pessoa. Há 20 recursos, ambos numéricos e categóricos, e um rótulo binário (o valor de risco de crédito). Entradas de risco de crédito alto têm o rótulo = 2, entradas de risco de crédito baixo têm o rótulo = 1. O custo de classificar incorretamente um exemplo de risco baixo como alto é 1, considerando que o custo de classificar incorretamente um exemplo de risco alto como baixo é 5.
+Olá conjunto de dados UCI Statlog (cartão de crédito alemão) (<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">Statlog + alemão + crédito + dados</a>), usando o arquivo de german.data hello.<p> </p>conjunto de dados Olá classifica pessoas, descritas por um conjunto de atributos, como riscos de crédito baixa ou alta. Cada exemplo representa uma pessoa. Há 20 recursos, numéricos e categóricos e um rótulo de binário (valor de risco de crédito Olá). Entradas de risco de crédito alto têm o rótulo = 2, entradas de risco de crédito baixo têm o rótulo = 1. Olá custo classifique um exemplo de baixo risco como alta é 1, enquanto o custo de saudação do classifique um exemplo de alto risco como baixa é 5.
   </td>
 </tr>
 
 <tr ID=imdb-movie-titles>
   <td valign=top>Títulos de filmes no IMDB</td>
   <td valign=top>
-O conjunto de dados contém informações sobre filmes que foram classificados em tweets do Twitter: ID de filme no IMDB, nome e gênero do filme e ano de produção. Há 17 mil filmes no conjunto de dados. O conjunto de dados foi introduzido no artigo “S. Dooms, T. De Pessemier e L. Martens. MovieTweetings: um conjunto de dados de classificação de filmes coletado do Twitter. Oficina de crowdsourcing and computação humana para sistemas recomendados, CrowdRec em RecSys 2013."
+Olá, conjunto de dados contém informações sobre que foram classificados no Twitter tweets filmes: IMDB ID de filme, o nome do filme, gênero e ano de produção. Há 17K filmes no conjunto de dados de saudação. saudação de conjunto de dados foi introduzido no papel de hello "S. Dooms, T. De Pessemier e L. Martens. MovieTweetings: um conjunto de dados de classificação de filmes coletado do Twitter. Oficina de crowdsourcing and computação humana para sistemas recomendados, CrowdRec em RecSys 2013."
   </td>
 </tr>
 
 <tr>
   <td valign=top>Dados da íris classe dois</td>
   <td valign=top>
-Esse é provavelmente o banco de dados mais conhecido encontrado na literatura de reconhecimento padrão. O conjunto de dados é relativamente pequeno, contendo 50 exemplos de cada medida em pétalas das três variáveis da íris.<p> </p><b>Uso:</b> prever o tipo de íris com base nas medições.  <p> </p><b>Pesquisa relacionada:</b> Fisher, R.A. (1988). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+Essa é talvez Olá toobe do banco de dados mais conhecida encontrado na literatura de reconhecimento de padrão de saudação. saudação de conjunto de dados é relativamente pequeno, que contém 50 exemplos cada medidas pétala de três tipos de íris.<p> </p><b>Uso:</b> prever Olá íris tipo de medidas de saudação.  <p> </p><b>Pesquisa relacionada:</b> Fisher, R.A. (1988). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
 </tr>
 
 <tr ID=movie-tweets>
   <td valign=top>Tweets de Filmes</td>
   <td valign=top>
-O conjunto de dados é uma versão estendida do conjunto de dados de Movie Tweetings. O conjunto de dados tem as classificações de 170 mil de filmes, extraídos de tweets bem estruturados no Twitter. Cada instância representa uma tweet e é uma tupla: ID de usuário, ID de filme IMDB, classificação, carimbo de hora, número de Favoritos para este tweet e número de retweets desse tweet. O conjunto de dados foi disponibilizado por A. Said, S. Dooms, B. Loni e D. Tikk para desafio de sistemas de recomendação 2014.
+saudação de conjunto de dados é uma versão estendida do conjunto de dados de filme Tweetings hello. saudação de conjunto de dados tem as classificações de 170K de filmes, extraídos de tweets bem estruturados no Twitter. Cada instância representa uma tweet e é uma tupla: ID de usuário, ID de filme IMDB, classificação, carimbo de hora, número de Favoritos para este tweet e número de retweets desse tweet. saudação de conjunto de dados foi disponibilizado por diz-A., Dooms S., B. Loni e D. Tikk para sistemas de recomendação de desafio de 2014.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Dados MPG para vários automóveis</td>
   <td valign=top>
-Esse conjunto de dados é uma versão um pouco modificada do conjunto de dados fornecido pela Biblioteca StatLib da Universidade de Carnegie Mellon. O conjunto de dados foi usado na exposição da Associação Estatística Americana de 1983.<p> </p>Os dados listam o consumo de combustível de vários automóveis em milhas por galão, juntamente com informações como o número de cilindros, cilindradas do motor, cavalos de potência, peso total e aceleração.<p> </p><b>Uso:</b> prever a economia de combustível com base em 3 atributos discretos de múltiplos valores e 5 atributos contínuos. <p> </p><b>Pesquisa relacionada:</b> StatLib, Carnegie Mellon University, (1993). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+Este conjunto de dados é uma versão ligeiramente modificada do conjunto de dados Olá fornecida pela biblioteca de StatLib de saudação do Carnegie Mellon University. saudação de conjunto de dados foi usado no hello 1983 American feira estatística de associação.<p> </p>dados de saudação listarem consumo de combustível para vários automóveis no consumo, juntamente com informações, como o número de cilindros, deslocamento de mecanismo, potência, peso total e aceleração de saudação.<p> </p><b>Uso:</b> prever a economia de combustível com base em 3 atributos discretos de múltiplos valores e 5 atributos contínuos. <p> </p><b>Pesquisa relacionada:</b> StatLib, Carnegie Mellon University, (1993). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
 </tr>
 
 <tr>
   <td valign=top>Conjunto de dados de classificação binária de diabetes da população indiana de Pima</td>
   <td valign=top>
-Um subconjunto de dados do Instituto Nacional de Diabetes e o banco de dados de Doenças Digestivas e Renais. O conjunto de dados foi filtrado para se concentrar nas pacientes mulheres com hereditariedade indiana de Pima. Os dados incluem registros médicos como níveis de glicose e insulina, bem como fatores do estilo de vida.<p> </p><b>Uso:</b> prever se o indivíduo tem diabetes (classificação binária). <p> </p><b>Pesquisa relacionada:</b> Sigillito, V. (1990). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml"</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
+Um subconjunto de dados do banco de dados Instituto Nacional de Diabetes e Digestive e piscina infecciosas hello. saudação de conjunto de dados foi filtrado toofocus em feminino pacientes de herança indiano Pima. dados de saudação incluem dados médicos como glicose e níveis de insulin, bem como fatores de estilo de vida.<p> </p><b>Uso:</b> prever se o assunto Olá tem diabetes (classificação binária). <p> </p><b>Pesquisa relacionada:</b> Sigillito, V. (1990). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml"</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
 </tr>
 
 <tr>
   <td valign=top>Dados de consumidores de restaurantes</td>
   <td valign=top>
-Um conjunto de metadados sobre consumidores, incluindo demografia e preferências.<p> </p><b>Uso:</b> use esse conjunto de dados, em combinação com os outros dois conjuntos de dados de restaurantes, para treinar e testar um sistema de recomendação. <p> </p><b>Pesquisa relacionada:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+Um conjunto de metadados sobre consumidores, incluindo demografia e preferências.<p> </p><b>Uso:</b> usar este conjunto de dados, em combinação com hello outros dois restaurante conjuntos de dados, tootrain e testar um sistema de recomendação. <p> </p><b>Pesquisa relacionada:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Dados de recurso de restaurante</td>
   <td valign=top>
-Um conjunto de metadados sobre restaurantes e seus recursos, como tipo de comida, estilo de jantar e localização.<p> </p><b>Uso:</b> use esse conjunto de dados, em combinação com os outros dois conjuntos de dados de restaurantes, para treinar e testar um sistema de recomendação. <p> </p><b>Pesquisa relacionada:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+Um conjunto de metadados sobre restaurantes e seus recursos, como tipo de comida, estilo de jantar e localização.<p> </p><b>Uso:</b> usar este conjunto de dados, em combinação com hello outros dois restaurante conjuntos de dados, tootrain e testar um sistema de recomendação. <p> </p><b>Pesquisa relacionada:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Classificação de restaurantes</td>
   <td valign=top>
-Contém a classificação fornecida por usuários de restaurantes em uma escala de 0 a 2.<p> </p><b>Uso:</b> use esse conjunto de dados, em combinação com os outros dois conjuntos de dados de restaurantes, para treinar e testar um sistema de recomendação. <p> </p><b>Pesquisa relacionada:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+Contém classificações fornecidas pelos usuários toorestaurants em uma escala de 0 too2.<p> </p><b>Uso:</b> usar este conjunto de dados, em combinação com hello outros dois restaurante conjuntos de dados, tootrain e testar um sistema de recomendação. <p> </p><b>Pesquisa relacionada:</b> Bache, K. e Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Conjunto de dados multiclasses de recozimento de aço</td>
   <td valign=top>
-Esse conjunto de dados contém uma série de registros das avaliações de recozimento de aço com atributos físicos (largura, espessura, tipo (bobina, chapa, etc.) dos tipos de aço resultantes.<p> </p><b>Uso:</b> prever um dos dois atributos de classe numérica: resistência ou força. Você também pode analisar correlações entre os atributos.<p> </p>Os graus de aço seguem um padrão definido pela SAE e outras organizações. Você está procurando um “grau” específico (a variável de classe) e deseja entender os valores necessários. <p> </p><b>Pesquisa relacionada:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  <p> </p>Um guia útil para graus de aço pode ser encontrado aqui: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
+Este conjunto de dados contém uma série de registros de aço recozimento avaliações com atributos físicos de saudação (largura, espessura, tipos de tipo (bobina, planilha, etc.) do hello resultante aço.<p> </p><b>Uso:</b> prever um dos dois atributos de classe numérica: resistência ou força. Você também pode analisar correlações entre os atributos.<p> </p>Os graus de aço seguem um padrão definido pela SAE e outras organizações. Está procurando uma determinada 'classificação de (variável de classe Olá) e quiser toounderstand Olá valores necessários. <p> </p><b>Pesquisa relacionada:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  <p> </p>Notas de toosteel um guia útil podem ser encontradas aqui: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 
 <tr>
   <td valign=top>Dados de telescópio</td>
   <td valign=top>
-Registros de explosões de partículas gama de alta energia com ruídos de fundo, ambos simulados usando o processo de Monte Carlo.<p> </p>O objetivo da simulação era melhorar a precisão dos telescópios gama de Cherenkov atmosféricos e em terra, usando métodos estatísticos para diferenciar entre o sinal desejado (expositores de radiação de Cherenkov) e o ruído de fundo (expositores hadrônicos iniciados por raios cósmicos na atmosfera superior).<p> </p>Os dados foram pré-processados para criar um conjunto elíptico com o eixo longo direcionado para o centro da câmera. As características dessa elipse, geralmente chamada de parâmetros de Hillas, estão entre os parâmetros de imagem que podem ser usados para discriminação.<p> </p><b>Uso:</b> prever se a imagem de um chuveiro representa ruído de fundo ou sinal.<p> </p><b>Observações:</b> a precisão da classificação simples não é significativa para esses dados, já que classificar um evento de fundo como sinal é pior do que classificar um evento de sinal como de fundo. Para obter uma comparação dos diferentes classificadores, o gráfico ROC deve ser usado. A probabilidade de aceitar um evento de fundo como sinal deve estar abaixo de um dos seguinte limites: 0,01; 0,02; 0,05; 0,1 ou 0,2.<p> </p>Também, observe que o número de eventos de fundo (h, para expositores hadrônicos) é subestimado, ao passo que nas medições reais, o h ou a classe de ruído representa a maioria dos eventos. <p> </p><b>Pesquisa relacionada:</b> Bock, R.K. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information </td>
+Registros de explosões de partículas gama de alta energia com ruídos de fundo, ambos simulados usando o processo de Monte Carlo.<p> </p>intenção de saudação de simulação de saudação foi tooimprove precisão de saudação com base em zero atmosféricas Cherenkov gama telescopes, usando métodos estatísticos toodifferentiate entre o sinal desejado da saudação (Cherenkov radiação Pancadas de chuva) e ruídos de fundo (hadronic Pancadas de chuva iniciadas por raios cósmicos em Olá superior atmosfera).<p> </p>Olá dados foram toocreate pré-processada um cluster alongado com eixo de tempo de saudação é orientado para o Centro de câmera hello. características de saudação dessa elipse (geralmente chamados de parâmetros Hillas) estão entre parâmetros de imagem de saudação que podem ser usados para distinção.<p> </p><b>Uso:</b> prever se a imagem de um chuveiro representa ruído de fundo ou sinal.<p> </p><b>Observações:</b> a precisão da classificação simples não é significativa para esses dados, já que classificar um evento de fundo como sinal é pior do que classificar um evento de sinal como de fundo. Para comparação de classificadores diferentes gráfico ROC Olá deve ser usado. Olá probabilidade de aceitar um evento de plano de fundo como sinal deve ser abaixo de um Olá limites a seguir: 0,01, 0,02, 0,05, 0,1 ou 0,2.<p> </p>Além disso, observe que o número de saudação de eventos em segundo plano (h, para Pancadas de chuva hadronic) é subestimado, enquanto em medidas reais, Olá h ou ruído classe representa a maioria de saudação de eventos. <p> </p><b>Pesquisa relacionada:</b> Bock, R.K. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information </td>
 </tr>
 
 <tr ID=weather-dataset>
   <td valign=top>Conjunto de dados de clima</td>
   <td valign=top>
-Observações climáticas terrestres de hora em hora da NOAA (<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">dados mesclados de 201304 para 201310</a>).<p> </p>Os dados de clima abrangem observações feitas de estações meteorológica de aeroportos, que abrangem o período de abril a outubro de 2013. Antes de ser carregado no Azure Machine Learning Studio, o conjunto de dados foi processado da seguinte maneira:<ul><li>As IDs da estação meteorológica foram mapeadas para as IDs do aeroporto correspondentes.</li><li>As estações meteorológicas não associadas aos 70 aeroportos mais movimentados foram filtradas e retiradas</li><li>A coluna de Data foi dividida em colunas separadas para Ano, Mês e Dia</li><li>As seguintes colunas foram selecionadas: AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li></ul>
+Observações de Terra com base no tempo por hora de NOAA (<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 too201310">mescladas de dados de too201310 201304</a>).<p> </p>os dados de clima Olá abrange observações feitas do aeroporto clima estações, abrangendo Olá período abril – outubro de 2013. Antes de carregar tooAzure estúdio de aprendizado de máquina, conjunto de dados de saudação foi processado da seguinte maneira:<ul><li>IDs de estação de clima foram mapeadas toocorresponding aeroporto IDs</li><li>Estações de clima não associadas aos aeroportos de mais ocupados 70 Olá foram filtradas</li><li>coluna de data Olá foi dividida em colunas separadas de ano, mês e dia</li><li>Olá colunas a seguir foram selecionadas: AirportID, ano, mês, dia, hora, fuso horário, SkyCondition, visibilidade, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, altímetro</li></ul>
   </td>
 </tr>
 
 <tr ID=wikipedia-sp-500-dataset>
   <td valign=top>Conjunto de dados da SP 500 da Wikipédia</td>
   <td valign=top>
-Os dados foram extraídos do Wikipedia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>), com base em artigos de cada empresa S&P 500, armazenados como dados XML.<p> </p>Antes de ser carregado no Azure Machine Learning Studio, o conjunto de dados foi processado da seguinte maneira:<ul><li>Extraia o conteúdo do texto para cada empresa específica</li><li>Remova a formatação wiki</li><li>Remova caracteres não alfanuméricos</li><li>Converta todo o texto para minúsculas</li><li>Categorias de empresas conhecidas foram adicionadas</li></ul><p> </p>Observe que, para algumas empresas, um artigo não foi encontrado, assim, o número de registros é menor que 500.
+Os dados foram extraídos do Wikipedia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>), com base em artigos de cada empresa S&P 500, armazenados como dados XML.<p> </p>Antes de carregar tooAzure estúdio de aprendizado de máquina, conjunto de dados de saudação foi processado da seguinte maneira:<ul><li>Extraia o conteúdo do texto para cada empresa específica</li><li>Remova a formatação wiki</li><li>Remova caracteres não alfanuméricos</li><li>Converter todos os toolowercase de texto</li><li>Categorias de empresas conhecidas foram adicionadas</li></ul><p> </p>Observe que algumas empresas para um artigo não pôde ser encontrado, portanto, número de saudação de registros é menor que 500.
   </td>
 </tr>
 
@@ -256,28 +256,28 @@ Os dados foram extraídos do Wikipedia (<a href="http://www.wikipedia.org/">http
 <tr ID=direct-marketing>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/direct_marketing.csv">direct_marketing.csv</a></td>
   <td valign=top>
-O conjunto de dados contém os dados do cliente e indicações sobre sua resposta a uma campanha de mala direta. Cada linha representa um cliente. O conjunto de dados contém 9 recursos sobre dados demográficos do usuário e comportamento passado e 3 colunas de rótulo (visita, conversão e gasto).  Visita é uma coluna binária que indica que um cliente visitou após a campanha de marketing, conversão indica que um cliente comprou algo e gasto é a quantidade que foi gasta.  O conjunto de dados foi disponibilizado por Kevin Hillstrom para análises de email MineThatData e desafio de Data Mining.
+saudação de conjunto de dados contém os dados do cliente e indicações sobre sua campanha de mala direta resposta tooa direto. Cada linha representa um cliente. Olá, conjunto de dados contém 9 recursos sobre dados demográficos do usuário e depois do comportamento e 3 colunas de rótulo (visite conversão e o gasto).  Visite é uma coluna binária que indica que um cliente visitado depois hello campanha de marketing, conversão indica que um cliente adquiriu algo e gastar é a quantidade de saudação que foi gasto.  saudação de conjunto de dados foi disponibilizado por Kevin Hillstrom para MineThatData email análise e Data Mining desafio.
   </td>
 </tr>
 
 <tr ID=lyrl2004-tokens-test>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_test.csv">lyrl2004_tokens_test.csv</a></td>
   <td valign=top>
-Recursos de exemplos de teste no conjunto de dados de notícias Reuters RCV1-V2. O conjunto de dados tem 781 mil artigos de notícias juntamente com suas IDs (primeira coluna do conjunto de dados). Cada artigo é marcado, recebe stopwords e é interrompido. O conjunto de dados foi disponibilizado por David. D. Lewis.
+Recursos dos exemplos de teste no conjunto de dados de notícias do hello Reuters RCV1 V2. conjunto de dados de saudação tiver artigos de notícias 781K junto com suas IDs (primeira coluna do conjunto de dados de saudação). Cada artigo é marcado, recebe stopwords e é interrompido. saudação de conjunto de dados foi disponibilizado por David. D. Lewis.
   </td>
 </tr>
 
 <tr ID=lyrl2004-tokens-train>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_train.csv">lyrl2004_tokens_train.csv</a></td>
   <td valign=top>
-Recursos de exemplos de treinamento no conjunto de dados de notícias Reuters RCV1-V2. O conjunto de dados tem 23 mil artigos de notícias juntamente com suas IDs (primeira coluna do conjunto de dados). Cada artigo é marcado, recebe stopwords e é interrompido. O conjunto de dados foi disponibilizado por David. D. Lewis.
+Recursos de exemplos de treinamento no conjunto de dados de notícias do hello Reuters RCV1 V2. conjunto de dados de saudação tiver artigos de notícias 23K junto com suas IDs (primeira coluna do conjunto de dados de saudação). Cada artigo é marcado, recebe stopwords e é interrompido. saudação de conjunto de dados foi disponibilizado por David. D. Lewis.
   </td>
 </tr>
 
 <tr ID=intrusion-detection>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
   <td valign=top>
-Conjunto de dados do Concurso de Ferramentas de Mineração de Dados e Descoberta de Conhecimento KDD Cup 1999 (<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).<p> </p>O conjunto de dados foi baixado e armazenado no Armazenamento de Blobs do Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) e inclui os conjuntos de dados de treinamento e teste. O conjunto de dados de treinamento possui aproximadamente 126K de linhas e 43 colunas, incluindo os rótulos. Três colunas são parte das informações de rótulo e 40 colunas, consistindo de recursos numéricos e de cadeia/categóricos, estão disponíveis para o treinamento do modelo. Os dados de teste possuem aproximadamente 22,5 mil exemplos de teste com as mesmas 43 colunas que nos dados de treinamento.
+Conjunto de dados de saudação KDD Cup 1999 descoberta de conhecimento e concorrência de ferramentas de mineração de dados (<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).<p> </p>saudação de conjunto de dados foi baixado e armazenado no armazenamento de BLOBs do Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) e inclui o treinamento e conjuntos de dados de teste. Olá conjunto de dados de treinamento tem aproximadamente 126 mil linhas e 43 colunas, incluindo rótulos de saudação. Três colunas fazem parte das informações de rótulo hello e 40 colunas, consiste em recursos numéricos e de cadeia de caracteres/categórica, estão disponíveis para treinar o modelo de saudação. dados de teste de saudação tem aproximadamente 22,5 K exemplos com colunas Olá 43 mesmo como dados de treinamento de saudação de teste.
 
   </td>
 </tr>
@@ -285,14 +285,14 @@ Conjunto de dados do Concurso de Ferramentas de Mineração de Dados e Descobert
 <tr ID=rcv1-v2-topics-qrels>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td valign=top>
-As atribuições de tópico para artigos de notícias no conjunto de dados de notícias Reuters RCV1 V2. Um artigo de notícias pode ser atribuído a vários tópicos. O formato de cada linha é "&lt;nome do tópico&gt; &lt;id do documento&gt; 1". O conjunto de dados contém 2,6 milhões de atribuições de tópico. O conjunto de dados foi disponibilizado por David. D. Lewis.
+Atribuições de tópico para artigos de notícias no conjunto de dados de notícias do hello Reuters RCV1 V2. Tooseveral tópicos pode ser atribuído a um artigo de notícias. formato de saudação de cada linha é "&lt;o nome do tópico&gt; &lt;id do documento&gt; 1". saudação de conjunto de dados contém 2.6M atribuições de tópico. saudação de conjunto de dados foi disponibilizado por David. D. Lewis.
   </td>
 </tr>
 
 <tr ID=student-performance>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td valign=top>
-Estes dados vêm do desafio de avaliação de desempenho de aluno do KDD Cup 2010 (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">student performance evaluation</a>). Os dados usados são o conjunto de treinamento Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Conjunto de dados de desafio do KDD Cup 2010 Educational Data Mining Challenge. Encontre-o em <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> ou <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.<p> </p>O conjunto de dados foi baixado e armazenado no Armazenamento de Blobs do Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) e contém os arquivos de log de um sistema de aulas particulares para alunos. Os recursos fornecidos incluem a ID do problema e uma breve descrição dele, a ID do aluno, o carimbo de data/hora e quantas tentativas o aluno fez antes de solucionar o problema da maneira correta. O conjunto de dados original tem 8,9M registros; esse conjunto de dados foi reduzido para as primeiras 100 mil linhas. O conjunto de dados possui 23 colunas separadas por tabulação de vários tipos: numérico, categórico e carimbo de data/hora.
+Esses dados vêm de saudação desafio de avaliação de desempenho KDD Cup 2010 aluno (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">avaliação de desempenho do aluno</a>). dados usados Hello são o conjunto de treinamento Olá Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, r., Ritter, s, Gordon, G.J. & Koedinger, K.R. (2010). Algebra I 2008-2009. Conjunto de dados de desafio do KDD Cup 2010 Educational Data Mining Challenge. Encontre-o em <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> ou <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.<p> </p>saudação de conjunto de dados foi baixado e armazenado no armazenamento de BLOBs do Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) e contém os arquivos de log de um aluno ensino particular de sistema. recursos de Olá fornecido incluem o ID do problema e uma descrição curta, ID do estudante, timestamp, e quantas tentativas de aluno Olá feito antes de solução de problema Olá Olá diretas. conjunto de dados original Olá tem registros 8.9M; Este conjunto de dados foi toohello convertidos primeiro 100 mil linhas. Olá dataset tem 23 colunas separados por tabulação de vários tipos: numeric, categórica e o carimbo de hora.
 
   </td>
 </tr>

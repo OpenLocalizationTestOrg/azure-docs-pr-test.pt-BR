@@ -1,6 +1,6 @@
 ---
-title: "Exemplo de Script CLI do Azure - Criar um aplicativo Web e implantar o código em um ambiente de preparo | Microsoft Docs"
-description: "Exemplo de Script da CLI do Azure - Criar um aplicativo web e implantar o código em um ambiente de preparo"
+title: "aaaAzure exemplo de Script CLI - criar um aplicativo web e implantar código tooa ambiente de preparo | Microsoft Docs"
+description: "Exemplo de Script CLI do Azure - criar um aplicativo web e implantar código tooa ambiente de preparo"
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -16,32 +16,32 @@ ms.topic: sample
 ms.date: 06/19/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d586b50258c32e44f55859aad0a89475e9e4d2eb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cd07f5eda31041effd7b7334f5ecc04e6c1a0514
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-web-app-and-deploy-code-to-a-staging-environment"></a>Criar um aplicativo web e implantar o código em um ambiente de preparo
+# <a name="create-a-web-app-and-deploy-code-tooa-staging-environment"></a>Criar um aplicativo web e implantar código tooa ambiente de preparo
 
-Este script de exemplo cria um aplicativo Web no serviço de aplicativo com um slot de implantação adicional chamado "teste" e, em seguida, implanta um aplicativo de exemplo para o slot de "teste".
+Esse script de exemplo cria um aplicativo web no serviço de aplicativo com um slot de implantação adicional chamado "preparação" e, em seguida, implanta um toohello do aplicativo de exemplo "preparação" slot.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se você escolher tooinstall e usa o hello CLI localmente, este tópico requer que você está executando a versão do CLI do Azure Olá 2.0 ou posterior. Executar `az --version` toofind versão de saudação. Se você precisar tooinstall ou atualização, consulte [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli-interactive[principal](../../../cli_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.sh "Criar um aplicativo web e implantar o código em um ambiente de preparo")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.sh "Create a web app and deploy code tooa staging environment")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
+Esse script usa Olá comandos a seguir. Cada comando na documentação específica do toocommand Olá tabela links.
 
 | Command | Observações |
 |---|---|
@@ -55,6 +55,6 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre Olá CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Os exemplos de script da CLI do Serviço de Aplicativo adicionais podem ser encontrados na [documentação do Serviço de Aplicativo do Azure](../app-service-cli-samples.md).
+Exemplos de script CLI do serviço de aplicativo adicionais podem ser encontrados no hello [documentação do serviço de aplicativo do Azure](../app-service-cli-samples.md).

@@ -1,6 +1,6 @@
 ---
-title: "Criar um balanceador de carga voltado para a Internet - CLI do Azure clássica | Microsoft Docs"
-description: "Saiba como criar um balanceador de carga para a Internet no modelo de implantação clássico usando a CLI do Azure"
+title: "aaaCreate um voltados para Internet carregar balanceador - clássico de CLI do Azure | Microsoft Docs"
+description: "Saiba como toocreate um balanceador de carga voltado para Internet no modelo de implantação clássico usando Olá CLI do Azure"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: da3a908f17ff5c6d3923549a884ecc0a13cb8e9e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e6070cbc574f74bca0cccb960ff192847d6511bc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-cli"></a>Introdução à criação de um balanceador de carga para a Internet (clássico) na CLI do Azure
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-hello-azure-cli"></a>Introdução à criação de uma balanceador de carga (clássico) na Olá CLI do Azure da Internet
 
 > [!div class="op_single_selector"]
 > * [Portal clássico do Azure](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
@@ -31,16 +31,16 @@ ms.lasthandoff: 07/11/2017
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
-> Antes de trabalhar com os recursos do Azure, é importante entender que, no momento, o Azure apresenta dois modelos de implantação: Azure Resource Manager e clássico. Verifique se você entendeu [os modelos e as ferramentas de implantação](../azure-classic-rm.md) antes de trabalhar com qualquer recurso do Azure. Você pode exibir a documentação para ferramentas diferentes clicando nas guias na parte superior deste artigo. Este artigo aborda o modelo de implantação clássico. Também é possível [Saber como criar um balanceador de carga para a Internet usando o Gerenciador de Recursos do Azure](load-balancer-get-started-internet-arm-ps.md).
+> Antes de trabalhar com recursos do Azure, é importante toounderstand que o Azure atualmente tem dois modelos de implantação: Gerenciador de recursos do Azure e clássico. Verifique se você entendeu [os modelos e as ferramentas de implantação](../azure-classic-rm.md) antes de trabalhar com qualquer recurso do Azure. Você pode exibir a documentação de saudação para diferentes ferramentas clicando Olá guias na parte superior da saudação deste artigo. Este artigo aborda o modelo de implantação clássico hello. Você também pode [aprender a usar o Gerenciador de recursos do Azure de Balanceador de carga de toocreate um voltados à Internet de como](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## <a name="step-by-step-creating-an-internet-facing-load-balancer-using-cli"></a>Passo a passo para criação de um balanceador de carga para a Internet usando a CLI
 
-Este guia mostra como criar um balanceador de carga de Internet com base no cenário acima.
+Este guia mostra como toocreate um balanceador de carga de Internet com base no cenário de saudação acima.
 
-1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](../cli-install-nodejs.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
-2. Execute o comando **azure config mode** para alternar para o modo clássico, como mostrado abaixo.
+1. Se você nunca tiver usado a CLI do Azure, consulte [instalar e configurar Olá CLI do Azure](../cli-install-nodejs.md) e siga as instruções de saudação toohello ponto em que você selecione sua conta do Azure e assinatura.
+2. Executar Olá **modo de configuração do azure** tooswitch tooclassic modo de comando, conforme mostrado abaixo.
 
     ```azurecli
     azure config mode asm
@@ -52,12 +52,12 @@ Este guia mostra como criar um balanceador de carga de Internet com base no cen�
 
 ## <a name="create-endpoint-and-load-balancer-set"></a>Criar ponto de extremidade e conjunto de balanceadores de carga
 
-O cenário pressupõe que as máquinas virtuais "web1" e "web2" foram criadas.
-Este guia criará um conjunto de balanceadores de carga usando a porta 80 como porta pública e a porta 80 como porta local. Uma porta de investigação também é configurada na porta 80 e nomeou o conjunto de balanceadores de carga como "lbset".
+cenário de saudação pressupõe máquinas virtuais de hello "web1" e "web2" foi criado.
+Este guia criará um conjunto de balanceadores de carga usando a porta 80 como porta pública e a porta 80 como porta local. Uma porta de investigação também está configurada na porta 80 e balanceador de carga Olá nomeada definida "lbset".
 
 ### <a name="step-1"></a>Etapa 1
 
-Criar o primeiro ponto de extremidade e conjunto de balanceadores de carga usando `azure network vm endpoint create` para a máquina virtual "web1".
+Criar o primeiro ponto de extremidade de saudação e definir o uso do balanceador de carga `azure network vm endpoint create` para a máquina virtual "web1".
 
 ```azurecli
 azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
@@ -65,7 +65,7 @@ azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 
 
 ## <a name="step-2"></a>Etapa 2
 
-Adicione uma segunda máquina virtual "web2" ao conjunto de balanceadores de carga.
+Adicione um segundo conjunto de Balanceador de carga de toohello máquina virtual "web2".
 
 ```azurecli
 azure vm endpoint create web2 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
@@ -73,13 +73,13 @@ azure vm endpoint create web2 80 --local-port 80 --protocol tcp --probe-port 80 
 
 ## <a name="step-3"></a>Etapa 3
 
-Verificar a configuração do balanceador de carga usando `azure vm show` .
+Verificar a configuração de Balanceador de carga de hello usando `azure vm show` .
 
 ```azurecli
 azure vm show web1
 ```
 
-A saída será:
+saída de Hello serão:
 
     data:    DNSName "contoso.cloudapp.net"
     data:    Location "East US"
@@ -125,7 +125,7 @@ A saída será:
 
 ## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>Criar um ponto de extremidade da área de trabalho remota para uma máquina virtual
 
-Você pode criar um ponto de extremidade da área de trabalho remota para encaminhar o tráfego de rede de uma porta pública para uma porta local, para uma máquina virtual específica, usando `azure vm endpoint create`.
+Você pode criar um tráfego de rede do ponto de extremidade da área de trabalho remota tooforward de uma porta local de tooa porta pública para uma máquina virtual específica usando `azure vm endpoint create`.
 
 ```azurecli
 azure vm endpoint create web1 54580 -k 3389
@@ -133,16 +133,16 @@ azure vm endpoint create web1 54580 -k 3389
 
 ## <a name="remove-virtual-machine-from-load-balancer"></a>Remover máquina virtual do balanceador de carga
 
-Você precisa excluir o ponto de extremidade associado ao conjunto de balanceadores de carga da máquina virtual. Depois que o ponto de extremidade é removido, a máquina virtual não pertence mais ao conjunto de balanceadores de carga.
+Você tem toodelete Olá ponto de extremidade associado toohello conjunto de Balanceador de carga da máquina virtual de saudação. Depois que o ponto de extremidade de saudação for removido, máquina virtual de saudação não pertence balanceador de carga toohello definir mais.
 
-Usando o exemplo acima, você pode remover o ponto de extremidade criado para a máquina virtual "web1" do balanceador de carga usando o comando "lbset" `azure vm endpoint delete`.
+Usando o exemplo hello acima, você pode remover ponto de extremidade de saudação criado para a máquina virtual "web1" do balanceador de carga usando o comando hello "lbset" `azure vm endpoint delete`.
 
 ```azurecli
 azure vm endpoint delete web1 tcp-80-80
 ```
 
 > [!NOTE]
-> Você pode explorar mais opções para gerenciar pontos de extremidade usando o comando `azure vm endpoint --help`
+> Você pode explorar mais opções toomanage pontos de extremidade usando o comando Olá`azure vm endpoint --help`
 
 ## <a name="next-steps"></a>Próximas etapas
 

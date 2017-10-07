@@ -1,5 +1,5 @@
 ---
-title: ALM no Azure Machine Learning | Microsoft Docs
+title: "aaaALM no aprendizado de máquina do Azure | Microsoft Docs"
 description: "Aplicar práticas recomendadas do Gerenciamento do Ciclo de Vida do Aplicativo no Azure Machine Learning Studio"
 keywords: "ALM, AML, Azure ML, Gerenciamento do Ciclo de Vida do Aplicativo, Controle de Versão"
 services: machine-learning
@@ -15,88 +15,88 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: haining
-ms.openlocfilehash: 7dc337c5aa03a9a609b4ca5d811442c99c75878f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 99470ff72fea7ab59d9d44f3fded7b9dd49a38c1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Gerenciamento do Ciclo de Vida do Aplicativo no Azure Machine Learning Studio
-O Azure Machine Learning Studio é uma ferramenta para desenvolvimento de testes de aprendizado de máquina que é operacionalizada na plataforma da nuvem no Azure. Ele é parecido com o IDE do Visual Studio e o serviço de nuvem escalável mesclados em uma única plataforma. Você pode incorporar práticas padrão de ALM (Gerenciamento do Ciclo de Vida do Aplicativo), desde controle de versão de vários ativos até a execução implantação automatizada, ao Azure Machine Learning Studio. Este artigo discute algumas das opções e abordagens.
+O estúdio de aprendizado de máquina do Azure é uma ferramenta para desenvolver experiências de aprendizado de máquina que são operacionalizadas na plataforma de nuvem do Azure hello. É como Olá IDE do Visual Studio e mesclados em uma única plataforma de serviço de nuvem escalonáveis. É possível incorporar práticas Application Lifecycle Management (ALM) padrão de controle de versão de implantação e execução de tooautomated ativos vários estúdio de aprendizado de máquina do Azure. Este artigo aborda algumas das opções de saudação e abordagens.
 
 ## <a name="versioning-experiment"></a>Teste de controle de versão
-Há duas maneiras recomendadas de controlar a versão de seus testes. Você pode confiar no histórico de execução interno, ou exportar o teste no formato JavaScript Object Notation (JSON) e gerenciá-lo externamente. Cada abordagem tem seus prós e contras.
+Há dois tooversion de maneiras recomendadas suas experiências. Você pode confiar no histórico de execução interno, ou exportar Olá experimento no formato JavaScript Object Notation (JSON) e gerenciá-lo externamente. Cada abordagem tem seus prós e contras.
 
 ### <a name="experiment-snapshots-using-run-history"></a>Instantâneos de teste usando o Histórico de Execução
-No modelo de execução de teste de aprendizado do Azure Machine Learning Studio, sempre que você clica no botão **Executar** no editor do teste, um instantâneo imutável do teste é enviado ao agendador de trabalho. Você pode exibir essa lista de instantâneos clicando no botão **Histórico de Execução** na barra de comandos, na visualização do editor de teste.
+No modelo de execução de saudação do hello experiência de aprendizado do estúdio de aprendizado de máquina do Azure, sempre que você clicar em Olá **executar** botão no editor de teste de hello, um instantâneo imutável do experimento Olá é enviado toohello Agendador de trabalhos. Você pode exibir essa lista de instantâneos clicando Olá **histórico de execução** botão na barra de comandos de saudação na exibição do editor de teste de saudação.
 
 ![Botão Histórico de Execução](media/machine-learning-version-control/runhistory.png)
 
-Assim, você pode abrir um instantâneo no modo Bloqueado clicando no nome do teste, no momento em que o teste foi enviado para execução e o instantâneo foi tirado. Observe que apenas o primeiro item na lista, que representa o teste atual, está em um estado Editável. Observe também que cada instantâneo pode apresentar diversos estados de Status, incluindo Concluído (Execução parcial), Falha, Falha (Execução parcial) ou Rascunho.
+Você pode, em seguida, instantâneo Olá aberto no modo bloqueado clicando no nome de saudação do experimento Olá na experiência de saudação do tempo Olá foi enviado toorun e Olá instantâneo foi tirado. Observe que apenas Olá primeiro item na lista de saudação, que representa a experiência atual hello, está em um estado editável. Observe também que cada instantâneo pode apresentar diversos estados de Status, incluindo Concluído (Execução parcial), Falha, Falha (Execução parcial) ou Rascunho.
 
 ![Lista do Histórico de Execução](media/machine-learning-version-control/runhistorylist.png)
 
-Depois de aberto, você pode salvar o instantâneo do teste como um novo teste e, depois, modificá-lo. Se o instantâneo do teste contiver ativos, como um modelo treinado, transformação ou conjunto de dados, que têm versões atualizadas, o instantâneo manterá as referências à versão original quando o instantâneo foi tirado. Se você salvar o instantâneo bloqueado como um novo teste, o Azure Machine Learning Studio detectará a existência de uma versão mais recente desses ativos e os atualizará automaticamente no novo experimento.
+Depois que ele foi aberto, você pode salvar Olá instantâneo experiência como uma nova experiência e modificá-lo. Se o instantâneo de teste contém ativos como um modelo treinado, transformação ou conjunto de dados que têm versões atualizadas, o instantâneo Olá retém versão original do hello referências toohello quando Olá instantâneo foi tirado. Se você salvar Olá bloqueado de instantâneo como uma nova experiência, estúdio de aprendizado de máquina do Azure detecta a existência de saudação de uma versão mais recente desses ativos e atualiza automaticamente no experimento novo hello.
 
-Se você excluir o teste, todos os instantâneos desse teste serão excluídos.
+Se você excluir a experiência de hello, todos os instantâneos desse experimento são excluídos.
 
 ### <a name="exportimport-experiment-in-json-format"></a>Importar/exportar teste no formato JSON
-Os instantâneos do histórico de execução mantêm uma versão imutável do teste no Azure Machine Learning Studio sempre que é enviado para execução. Você pode também salvar uma cópia local do teste e selecioná-lo para o seu sistema de controle de origem favorito, como o Team Foundation Server e, posteriormente, recriar um teste desde o arquivo local. Você pode usar os cmdlets do [PowerShell do Azure Machine Learning](http://aka.ms/amlps) [*Export-AmlExperimentGraph*](https://github.com/hning86/azuremlps#export-amlexperimentgraph), e [*Import-AmlExperimentGraph*](https://github.com/hning86/azuremlps#import-amlexperimentgraph) para fazer isso.
+instantâneos de histórico de saudação executar manter uma versão imutável do experimento Olá no estúdio de aprendizado de máquina do Azure sempre que é enviado toorun. Você pode também salvar uma cópia local do experimento hello e check-in do sistema de controle de origem favorito tooyour, como Team Foundation Server e posteriormente criar novamente um experimento do arquivo local. Você pode usar o hello [PowerShell de aprendizado de máquina do Azure](http://aka.ms/amlps) commandlets [ *AmlExperimentGraph de exportação* ](https://github.com/hning86/azuremlps#export-amlexperimentgraph) e [  *Importação AmlExperimentGraph* ](https://github.com/hning86/azuremlps#import-amlexperimentgraph) tooaccomplish que.
 
-O arquivo JSON é uma representação textual do gráfico de teste, que pode incluir referência aos ativos no espaço de trabalho, como um conjunto de dados ou um modelo treinado. Ele não contém uma versão serializada do ativo. Se você tentar importar o documento JSON de volta para o espaço de trabalho, os ativos referenciados já devem existir com as mesmas IDs de ativo referenciadas no teste. Caso contrário você não será capaz de acessar o teste importado.
+arquivo JSON de saudação é uma representação textual do hello experimentar gráfico, que pode incluir uma referência tooassets no espaço de trabalho hello como um conjunto de dados ou um modelo treinado. Ele não contém uma versão serializada de ativo de saudação. Se você tentar documento JSON Olá tooimport novamente no espaço de trabalho hello, ativos Olá referenciada já devem existir com hello mesmo IDs que são referenciados na experiência de saudação do ativo. Caso contrário, não será capaz de tooaccess Olá importado experimento.
 
 ## <a name="versioning-trained-model"></a>Controle de versão do modelo treinado
-Um modelo treinado no Azure Machine Learning é serializado em um formato conhecido como arquivo .iLearner, e é armazenados na conta de Armazenamento de Blobs do Azure associada ao espaço de trabalho. Uma maneira de obter uma cópia do arquivo .iLearner é por meio da API de novos treinamentos. [Este artigo](machine-learning-retrain-models-programmatically.md) explica como funciona a API de novos treinamentos funciona. As etapas de alto nível:
+Um modelo treinado no aprendizado de máquina do Azure é serializado em um formato conhecido como um arquivo .iLearner e é armazenado na conta de armazenamento de BLOBs do Azure Olá associada Olá espaço de trabalho. Uma maneira tooget uma cópia do arquivo de .iLearner Olá é por meio de Olá treinamento API. [Este artigo](machine-learning-retrain-models-programmatically.md) explica como funciona a saudação treinamento API. etapas de alto nível Hello:
 
 1. Configurar seu teste de treinamento.
-2. Adicionar uma porta de saída do serviço Web ao módulo Treinar Modelo, ou ao módulo que produza o modelo treinado, por exemplo, Ajustar Hiperparâmetro de Modelo ou Criar Modelo R.
+2. Adicione um módulo de treinar modelo de toohello de porta de saída de serviço de web ou módulo Olá que gera o modelo treinado hello, como ajustar o modelo Hyperparameter ou criar modelo R.
 3. Executar seu teste de treinamento e, depois, implantá-lo como o serviço Web de treinamento de um modelo.
-4. Chamar o ponto de extremidade BES do serviço Web de treinamento e especificar o nome do arquivo .iLearner desejado e o local da conta de Armazenamento de Blobs onde ele será armazenado.
-5. Coletar o arquivo .iLearner produzido após a conclusão da chamada do BES.
+4. Chame Olá ponto de extremidade BES do serviço de web de treinamento hello e especificar o nome de arquivo hello .iLearner desejado e o local de conta de armazenamento de Blob onde ele será armazenado.
+5. Coleta Olá produzido .iLearner arquivo depois de chamar hello BES termina.
 
-Outra maneira de recuperar o arquivo .iLearner é por meio do cmdlet do PowerShell [*Download-AmlExperimentNodeOutput*](https://github.com/hning86/azuremlps#download-amlexperimentnodeoutput). Isso será mais fácil se você quiser apenas obter uma cópia do arquivo .iLearner sem a necessidade de treinar novamente o modelo programaticamente.
+Outro arquivo .iLearner tooretrieve saudação de forma é por meio de saudação do PowerShell commandlet [ *Download AmlExperimentNodeOutput*](https://github.com/hning86/azuremlps#download-amlexperimentnodeoutput). Isso pode ser mais fácil se você quiser apenas tooget uma cópia da saudação .iLearner arquivo sem modelo de Olá Olá necessidade tooretrain programaticamente.
 
-Depois que você tiver o arquivo .iLearner contendo o modelo treinado, é possível implantar sua própria estratégia de versão. A estratégia pode ser simples como aplicar um prefixo/sufixo como uma convenção de nomenclatura e deixar o arquivo .iLearner no armazenamento do Blob ou copiar/importar o mesmo para o sistema de controle de versão.
+Depois que você tiver Olá .iLearner arquivo que contém o modelo treinado hello, em seguida, você pode usar sua própria estratégia de controle de versão. Olá estratégia pode ser tão simple quanto a aplicação de um versão anterior/sufixo como uma convenção de nomenclatura e deixando apenas o arquivo de .iLearner de saudação no armazenamento de Blob ou copiando/importá-los para o sistema de controle de versão.
 
-Assim, o arquivo .iLearner salvo pode ser usado para pontuação por meio de serviços Web implantados.
+arquivo de .iLearner salvo do Hello, em seguida, pode ser usado para classificar por meio de serviços web implantados.
 
 ## <a name="versioning-web-service"></a>Controle de versão do serviço Web
-Você pode implantar dois tipos de serviços Web a partir de um teste do Azure Machine Learning. O serviço Web clássico está intimamente ligado ao teste e ao espaço de trabalho. O novo serviço Web usa a estrutura do Azure Resource Manager e não está mais ligado ao teste original nem ao espaço de trabalho.
+Você pode implantar dois tipos de serviços Web a partir de um teste do Azure Machine Learning. serviço de web clássico Hello está acoplado ao experimento hello, bem como o espaço de trabalho de saudação. novo serviço de web Hello usa do framework do hello Azure Resource Manager, e ele não é associado experimento original hello ou espaço de trabalho de saudação.
 
 ### <a name="classic-web-service"></a>Serviço Web clássico
-Para controlar a versão de um serviço Web clássico, você pode aproveitar a construção do ponto de extremidade do serviço Web. Este é um fluxo típico:
+tooversion um serviço web clássico, você pode tirar proveito de construção de ponto de extremidade de serviço Olá web. Este é um fluxo típico:
 
 1. De seu teste de previsão, implante um novo serviço Web clássico, que contém um ponto de extremidade padrão.
-2. Crie um novo ponto de extremidade chamado ep2, que expõe a versão atual do teste/modelo treinado.
+2. Criar um novo ponto de extremidade chamado ep2, que exibe a versão atual de saudação do modelo de teste/treinamento hello.
 3. Volte e atualize seu teste de previsão e modelo treinado.
-4. Reimplante o teste de previsão, que atualizará o ponto de extremidade padrão. Mas isso não alterará o ep2.
-5. Crie um ponto de extremidade adicional denominado ep3, que expõe a nova versão do teste e do modelo treinado.
-6. Volte para a etapa 3, se for necessário.
+4. Você reimplantar experiência previsível hello, que, em seguida, irá atualizar o ponto de extremidade saudação padrão. Mas isso não alterará o ep2.
+5. Criar um ponto de extremidade adicional denominado ep3, que expõe a nova versão de saudação do experimento hello e treinado.
+6. Volte toostep 3 se necessário.
 
-Com o tempo, será possível criar vários pontos de extremidade no mesmo serviço Web. Cada ponto de extremidade representa uma cópia pontual do teste contendo a versão pontual do modelo treinado. Em seguida, use a lógica externa para determinar qual ponto de extremidade chamar, o que significa efetivamente a seleção de uma versão do modelo treinado para a execução da pontuação.
+Ao longo do tempo, você pode ter vários pontos de extremidade criados no hello mesmo serviço de web. Cada ponto de extremidade representa uma cópia point-in-time do experimento Olá contendo Olá point-in-time versão treinado hello. Você pode usar lógica externa toodetermine toocall qual ponto de extremidade, o que efetivamente significa selecionar uma versão de hello treinou o modelo para a execução da pontuação de saudação.
 
-Também é possível criar vários pontos de extremidade de serviço Web idênticos e, em seguida, aplicar versões diferentes do arquivo .iLearner ao ponto de extremidade para obter um efeito semelhante. [Este artigo](machine-learning-create-models-and-endpoints-with-powershell.md) explica com mais detalhes sobre como fazer isso.
+Você também pode criar vários pontos de extremidade de serviço de web idênticos e, em seguida, patch versões diferentes do hello .iLearner arquivo toohello ponto de extremidade tooachieve efeito semelhante. [Este artigo](machine-learning-create-models-and-endpoints-with-powershell.md) explica detalhadamente como tooaccomplish que.
 
 ### <a name="new-web-service"></a>Novo serviço Web
-Se você criar um novo serviço Web baseado no Azure Resource Manager, a construção do ponto de extremidade não estará mais disponível. Em vez disso, você pode gerar arquivos WSD (definição de serviço Web), no formato JSON, a partir de seu teste de previsão usando o cmdlet do PowerShell [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) ou usando o cmdlet do PowerShell [*Export-AzureRmMlWebservice*](https://msdn.microsoft.com/library/azure/mt767935.aspx) a partir de um serviço Web baseado no Resource Manager implantado.
+Se você criar um novo serviço web baseado em Gerenciador de recursos do Azure, Olá construção de ponto de extremidade não está mais disponível. Em vez disso, você pode gerar arquivos de definição (WSD) do serviço web, no formato JSON, de sua experiência de previsão usando Olá [AmlWebServiceDefinitionFromExperiment de exportação](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) commandlet PowerShell, ou usando Olá [ *AzureRmMlWebservice de exportação* ](https://msdn.microsoft.com/library/azure/mt767935.aspx) PowerShell commandlet de um serviço web implantado com base no Gerenciador de recursos.
 
-Depois de exportar o arquivo WSD e controlar a versão dele, você também poderá implantar o WSD como um novo serviço Web em um plano de serviço Web diferente, em uma região diferente do Azure. Apenas forneça a configuração apropriada da conta de armazenamento, bem como a nova ID do plano do serviço Web. Para aplicar arquivos de .iLearner diferentes, modifique o arquivo WSD e atualize a referência ao local do modelo treinado, e implante-o como um novo serviço Web.
+Depois de ter hello exportada versão e o arquivo WSD controlá-lo, você também pode implantar Olá WSD como um novo serviço da web em um plano de serviço web diferente em uma região do Azure diferente. Verifique se que você fornecer a conta de armazenamento adequado Olá configuração, bem como Olá web novo ID do plano de serviço. toopatch nos arquivos de .iLearner diferente, você pode modificar o arquivo WSD de saudação e modelo de atualização Olá referência ao local de saudação treinada e implantá-lo como um novo serviço web.
 
 ## <a name="automate-experiment-execution-and-deployment"></a>Automatizar a implantação e a execução do teste
-Um aspecto importante do ALM é ser capaz de automatizar a execução e o processo de implantação do aplicativo. No Azure Machine Learning, você pode fazer isso usando o [módulo do PowerShell](http://aka.ms/amlps). Veja um exemplo das etapas de ponta a ponta relevantes para um processo automatizado padrão de implantação/execução de ALM usando o [módulo do PowerShell do Azure Machine Learning Studio](http://aka.ms/amlps). Cada etapa é vinculada a um ou mais cmdlets do PowerShell que você pode usar para realizar essa etapa.
+Um aspecto importante do ALM é a execução de saudação do toobe tooautomate capaz e processo de implantação de aplicativo hello. No aprendizado de máquina do Azure, você pode fazer isso usando Olá [módulo PowerShell](http://aka.ms/amlps). Aqui está um exemplo de ponta a ponta etapas de processo de implantação/execução ALM automatizada padrão tooa relevantes usando Olá [módulo de aprendizado de máquina do Azure Studio PowerShell](http://aka.ms/amlps). Cada etapa é vinculado tooone ou mais cmdlets do PowerShell que você pode usar tooaccomplish etapa.
 
 1. [Carregar um conjunto de dados](https://github.com/hning86/azuremlps#upload-amldataset).
-2. Copie um teste de treinamento no espaço de trabalho a partir de um [espaço de trabalho](https://github.com/hning86/azuremlps#copy-amlexperiment) ou de uma [Galeria](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery) ou [importe](https://github.com/hning86/azuremlps#import-amlexperimentgraph) um teste [exportado](https://github.com/hning86/azuremlps#export-amlexperimentgraph) do disco local.
-3. [Atualizar o conjunto de dados](https://github.com/hning86/azuremlps#update-amlexperimentuserasset) no teste de treinamento.
-4. [Executar o teste de treinamento](https://github.com/hning86/azuremlps#start-amlexperiment).
-5. [Promover o modelo treinado](https://github.com/hning86/azuremlps#promote-amltrainedmodel).
-6. [Copiar um teste de previsão](https://github.com/hning86/azuremlps#copy-amlexperiment) no espaço de trabalho.
-7. [Atualizar o modelo treinado](https://github.com/hning86/azuremlps#update-amlexperimentuserasset) no teste de previsão.
-8. [Executar o teste de previsão](https://github.com/hning86/azuremlps#start-amlexperiment).
-9. [Implantar um serviço Web](https://github.com/hning86/azuremlps#new-amlwebservice) do teste de previsão.
-10. Testar o ponto de extremidade [RRS](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) ou [BES](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint) do serviço Web.
+2. Copie uma experiência de treinamento no espaço de trabalho de saudação de um [espaço de trabalho](https://github.com/hning86/azuremlps#copy-amlexperiment) ou [galeria](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery), ou [importar](https://github.com/hning86/azuremlps#import-amlexperimentgraph) um [exportado](https://github.com/hning86/azuremlps#export-amlexperimentgraph) experiências de disco local.
+3. [Atualizar o conjunto de dados Olá](https://github.com/hning86/azuremlps#update-amlexperimentuserasset) na experiência de treinamento hello.
+4. [Executar teste de treinamento Olá](https://github.com/hning86/azuremlps#start-amlexperiment).
+5. [Promover treinado Olá](https://github.com/hning86/azuremlps#promote-amltrainedmodel).
+6. [Copiar um experimento previsão](https://github.com/hning86/azuremlps#copy-amlexperiment) no espaço de trabalho de saudação.
+7. [Treinado atualização Olá](https://github.com/hning86/azuremlps#update-amlexperimentuserasset) experimento previsão hello.
+8. [Executar teste de previsão Olá](https://github.com/hning86/azuremlps#start-amlexperiment).
+9. [Implantar um serviço web](https://github.com/hning86/azuremlps#new-amlwebservice) de experiência de previsão hello.
+10. Testar o serviço web de saudação [RRS](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) ou [BES](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint) ponto de extremidade.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Baixe o módulo do [PowerShell do Azure Machine Learning Studio](http://aka.ms/amlps) e comece a automatizar suas tarefas de ALM.
-* Saiba como [criar e gerenciar uma grande quantidade de modelos de ML, usando apenas um único teste](machine-learning-create-models-and-endpoints-with-powershell.md) por meio do PowerShell e da readaptação da API.
+* Baixar Olá [PowerShell de Studio de aprendizado de máquina do Azure](http://aka.ms/amlps) tooautomate módulo e iniciar as tarefas ALM.
+* Saiba como muito[criar e gerenciar um grande número de modelos ML usando apenas uma única experiência](machine-learning-create-models-and-endpoints-with-powershell.md) por meio do PowerShell e a API de treinamento.
 * Saiba mais sobre [como implantar serviços Web do Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).

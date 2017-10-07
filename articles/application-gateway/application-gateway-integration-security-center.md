@@ -1,5 +1,5 @@
 ---
-title: "Integração de Gateway de Aplicativo do com a Central de segurança do Azure | Microsoft Docs"
+title: "aaaApplication integração do Gateway com a Central de segurança do Azure | Microsoft Docs"
 description: "Esta página fornece informações sobre como o Gateway de Aplicativo se integra à Central de segurança do Azure."
 documentationcenter: na
 services: application-gateway
@@ -15,73 +15,73 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: gwallace
-ms.openlocfilehash: 737cdff3140be68cf9d6d396b470dd09c65c52f2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6f6ace105e84c01f525ab02938e81ce040c5c9d9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Visão geral da integração entre o Gateway de Aplicativo e a Central de Segurança do Azure
 
-Saiba como o Gateway de Aplicativo e a Central de segurança ajudam a proteger os recursos do aplicativo Web. O firewall do aplicativo Web do Gateway de aplicativo (WAF) integra-se com a [Central de segurança](../security-center/security-center-intro.md) para fornecer uma visualização perfeita para evitar, detectar e reagir às ameaças a aplicativos Web desprotegidos no seu ambiente.
+Saiba como o Gateway de Aplicativo e a Central de segurança ajudam a proteger os recursos do aplicativo Web. Firewall do aplicativo web do Application gateway (WAF) integra-se com [Central de segurança](../security-center/security-center-intro.md) tooprovide tooprevent uma visualização perfeita, detectar e responder a aplicativos de web toounprotected toothreats em seu ambiente.
 
 ## <a name="overview"></a>Visão geral
 
-O WAF do Gateway de Aplicativo é uma recomendação na Central de segurança para proteger aplicativos Web contra explorações e vulnerabilidades. Recursos da Web que não estão protegidos por WAF são exibidos na central de segurança como recomendações de severidade alta. Recomendações para firewalls de aplicativo Web são mostradas na página **Visão geral** em **Aplicativos**.
+O WAF do Gateway de Aplicativo é uma recomendação na Central de segurança para proteger aplicativos Web contra explorações e vulnerabilidades. Recursos da Web habilitado que não estão protegidos por WAF mostram no Centro de segurança de hello como recomendações de severidade alta. Recomendações para firewalls de aplicativo da web são mostradas em Olá **visão geral** página em **aplicativos**.
 
 ![integração com a central de segurança][1]
 
-Clicando em uma recomendação sobre o firewall do aplicativo Web abre uma nova folha mostrando os detalhes da recomendação.
+Clicando em todas as recomendações sobre o firewall do aplicativo da web abre uma nova folha que mostra os detalhes de saudação do recomendação hello.
 
-## <a name="add-a-web-application-firewall-to-an-existing-resource"></a>Adicionar o firewall do aplicativo Web a um recurso existente
+## <a name="add-a-web-application-firewall-tooan-existing-resource"></a>Adicionar um recurso existente do web aplicativo firewall tooan
 
-Navegue até **Mais serviços** > **Segurança + Identidade** > **Central de Segurança** e na folha **Central de Segurança - Visão geral**, clique em **Aplicativos**. Na folha **Central de Segurança - Aplicativos**, a tabela contém uma lista de aplicativos que a Central de segurança detectou na sua assinatura.
+Navegue muito**mais serviços** > **segurança + identidade** > **Central de segurança** e Olá **Central de segurança - visão geral**  folha, clique em **aplicativos**. Em Olá **Central de segurança - aplicativos** folha, a tabela de saudação contém uma lista de aplicativos que a Central de segurança detectada na sua assinatura.
 
 ![aplicativos Web][3]
 
-Ao clicar em um aplicativo Web com um problema crítico, você obtém a folha **Integridade da segurança do aplicativo**. Na imagem abaixo, está o aplicativo Web que não está protegido por um firewall do aplicativo Web. 
+Ao clicar em um aplicativo web com um problema crítico, você obtém Olá **integridade da segurança do aplicativo** folha. Na imagem de saudação abaixo, Olá aplicativo web que não está protegido por um firewall do aplicativo web. 
 
 ![recursos Web não protegidos][2]
 
-Clique em **Adicionar um firewall do aplicativo Web** em **Recomendações** para abrir a folha **Adicionar um Firewall do aplicativo Web**.
+Clique em **adicionar um firewall do aplicativo web** em **recomendações** tooopen Olá **adicionar um Firewall do aplicativo Web** folha.
 
-Se você não tiver um Gateway de aplicativo existente ou quiser criar um novo, clique em **Criar novo** e na folha **Criar um novo Firewall do aplicativo Web**, clique em **Microsoft - Gateway de Aplicativo**. Isso leva você para as etapas para criar um gateway de aplicativo. Neste ponto, seu aplicativo Web é adicionado como um recurso protegido, agora a Central de segurança controla o que esse recurso está protegido por um firewall do aplicativo Web. Isso não o adiciona como um membro do pool de back-end.
+Se você não tiver um Gateway existente do aplicativo, ou toocreate um novo, clique em **criar novo** e Olá **criar um novo Firewall do aplicativo Web** folha e clique em **Microsoft - Application Gateway**. Isso leva você através de saudação etapas toocreate um application gateway. Neste ponto, seu aplicativo Web é adicionado como um recurso protegido, agora a Central de segurança controla o que esse recurso está protegido por um firewall do aplicativo Web. Isso não o adiciona como um membro do pool de back-end.
 
 Se você tiver um gateway de aplicativo existente, é possível escolhê-lo em **Usar solução existente**
 
 ![folha adicionar firewall do aplicativo Web][4]
 
-Adicionar que um aplicativo Web a um gateway de aplicativo por meio da Central de segurança não adiciona o recurso como um membro do pool de back-end, isso deve ser feito no recurso de gateway de aplicativo diretamente.
+Adicionar que um gateway do aplicativo web aplicativo tooan por meio da Central de segurança não adiciona recursos hello como um membro do pool de back-end, isso deve ser feito no recurso de gateway do aplicativo hello diretamente.
 
-## <a name="add-a-resource-to-an-existing-web-application-firewall"></a>Adicionar um recurso a um firewall do aplicativo Web existente
+## <a name="add-a-resource-tooan-existing-web-application-firewall"></a>Adicionar um recurso tooan web aplicativo de firewall existente
 
-Navegue até **Mais serviços** > **Segurança + Identidade** > **Central de Segurança** e na folha **Central de Segurança - Visão geral**, clique em **Soluções de parceiros**. Gateways de aplicativo com reconhecimento da Central de segurança existentes na folha **Soluções de parceiros**.
+Navegue muito**mais serviços** > **segurança + identidade** > **Central de segurança** e Olá **Central de segurança - visão geral**  folha, clique em **soluções de parceiros**. Mostram gateways de aplicativo com reconhecimento de Central de segurança existentes no hello **soluções de parceiros** folha.
 
 ![soluções de parceiros][7]
 
-Clique em **Vincular aplicativo** para abrir a folha **Vincular aplicativos**, aqui você terá as opções para selecionar os aplicativos existentes. Escolha os aplicativos para serem protegidos e clique em **OK**. Isso não adiciona o aplicativo Web ao pool de back-end do gateway de aplicativo. Isso define os recursos como um recurso protegido para que a Central de segurança possa controlá-lo. Para adicionar o recurso como um membro do pool de back-end, isso deve ser feito no gateway de aplicativo, na folha atual, você pode clicar em **Console de solução** para ser levado ao recurso de gateway de aplicativo onde você pode adicionar o aplicativo Web ao pool de back-end.
+Clique em **aplicativo Link** tooopen Olá **aplicativos de Link** folha, aqui você terá aplicativos existentes do tooselect Olá opções. Escolha Olá tooprotect de aplicativos e clique em **Okey**. Isso não adicionar pool de back-end de toohello de aplicativos da web do hello do gateway de aplicativo hello. Isso define recursos hello como um recurso protegido para a Central de segurança possa controlá-la. recurso de saudação tooadd como um membro do pool de back-end, isso deve ser feito no gateway do aplicativo hello, folha atual Olá você pode clicar em **console de solução** toobe tomada toohello recursos de gateway de aplicativo onde você pode adicionar Olá web pool de back-end do aplicativo toohello.
 
 ![aplicativos de soluções de parceiros][6]
 
 ## <a name="finalize-configuration"></a>Finalizar a configuração
 
-A Central de segurança controla os aplicativos adicionados a um gateway de aplicativo como um recurso protegido.  Ela monitora a integridade desse recurso e garante que ele seja protegido por um gateway de aplicativo. A próxima etapa é adicionar o IP privado, o IP público ou a NIC de sua máquina virtual para o pool de back-end do gateway de aplicativo. Até que isso seja feito, uma recomendação adicional de **Finalizar a proteção do aplicativo** é mostrada até que o recurso seja adicionado.
+Central de segurança monitora aplicativos adicionados tooan gateway de aplicativo como um recurso protegido.  Ele monitora a integridade de saudação deste recurso e garante que ele é protegido por um application gateway. Olá próxima etapa é IP privado de saudação tooadd, IP público ou NIC de seu pool de back-end do toohello de máquina virtual do gateway de aplicativo hello. Até que isso é feito uma recomendação adicional de **finalizar a proteção do aplicativo** é exibido até que o recurso de saudação é adicionado.
 
 ![folha adicionar firewall do aplicativo Web][5]
 
 ## <a name="security-alerts"></a>Alertas de segurança
 
-Na Central de segurança, navegue até **DETECÇÃO** > **Alertas de segurança**.  Aqui você encontra alertas do WAF para seus gateways de aplicativo. Os alertas são divididos pela regra do WAF.
+Em Central de segurança navegue muito**detecção** > **alertas de segurança**.  Aqui você encontra alertas do WAF para seus gateways de aplicativo. Os alertas são divididos pela regra do WAF.
 
 ![alertas de segurança][8]
 
-Clicar em uma regra fornecerá uma lista de alertas para essa regra específica do WAF. Cada alerta mostra detalhes adicionais sobre a descoberta. Os detalhes fornecem um link para o gateway de aplicativo.
+Clicar em uma regra fornecerá uma lista de alertas para essa regra específica do WAF. Cada alerta mostra detalhes adicionais sobre como localizar hello. detalhes de saudação oferecem um gateway de aplicativo de toohello do link.
  
 ![detalhes do alerta][9]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como ativar o firewall de aplicativo Web em um Gateway de Aplicativo existente, visite [Criar ou atualizar um Gateway de Aplicativo do Azure com o firewall de aplicativo Web](application-gateway-web-application-firewall-portal.md#add-web-application-firewall-to-an-existing-application-gateway)
+toolearn como o firewall do aplicativo web tooenable em um gateway existente do aplicativo, visite [criar ou atualizar um Gateway de aplicativo do Azure com firewall do aplicativo web](application-gateway-web-application-firewall-portal.md#add-web-application-firewall-to-an-existing-application-gateway)
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png
 [2]: ./media/application-gateway-integration-security-center/figure2.png

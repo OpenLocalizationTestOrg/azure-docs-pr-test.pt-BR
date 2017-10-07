@@ -1,6 +1,6 @@
 ---
-title: "Proteger sua implantação IoT do Azure | Microsoft Docs"
-description: "Como proteger sua implantação IoT. Inclui diretrizes para proteger o provisionamento e conexões do dispositivo, bem como o acesso ao serviço do Hub IoT."
+title: "aaaSecure sua implantação do Azure IoT | Microsoft Docs"
+description: "Como toosecure sua implantação de IoT. Inclui as diretrizes para proteger o provisionamento do dispositivo, conexões e acesso toohello serviço de IoT Hub."
 services: iot-hub
 documentationcenter: 
 author: YuriDio
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.openlocfilehash: 47a3a2973c2b2c7c104d6c404573801375723182
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0fc71f5ed2747531360eaebbbaab21b1ff268520
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
 ## <a name="see-also"></a>Consulte também
-Para explorar melhor as funcionalidades do Hub IoT, consulte:
+toofurther explorar recursos de saudação do IoT Hub, consulte:
 
 * [Simulando um dispositivo com Azure IoT Edge][lnk-iotedge]
 

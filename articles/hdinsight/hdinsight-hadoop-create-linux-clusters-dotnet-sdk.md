@@ -1,6 +1,6 @@
 ---
-title: "Criar clusters Hadoop usando .NET – Azure HDInsight | Microsoft Docs"
-description: Aprenda a criar clusters Hadoop, HBase, Storm ou Spark no Linux para o HDInsight usando o SDK do .NET para HDInsight.
+title: clusters de Hadoop aaaCreate usando .NET - HDInsight do Azure | Microsoft Docs
+description: "Saiba como clusters de Hadoop, HBase, tempestade ou Spark toocreate no Linux para HDInsight usando Olá HDInsight .NET SDK."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -16,21 +16,21 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/17/2017
 ms.author: jgao
-ms.openlocfilehash: ccd3a0c777510e0694170b2f9acc8da0e7dcde9b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9460b0d27143c97860b3540fcec26851d755aa28
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Criar clusters baseados em Linux no HDInsight usando o SDK do .NET
+# <a name="create-linux-based-clusters-in-hdinsight-using-hello-net-sdk"></a>Criar clusters baseados em Linux em HDInsight usando Olá SDK .NET
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 
-Saiba como criar um cluster Hadoop no cluster Azure HDInsight usando o SDK do .NET.
+Saiba como toocreate um cluster Hadoop no cluster do HDInsight do Azure usando Olá .NET SDK.
 
 > [!IMPORTANT]
-> As etapas neste documento criam um cluster com um nó de trabalho. Se você pretende ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, precisa selecionar um tamanho de nó de cabeçalho com, pelo menos, 8 núcleos e 14 GB de RAM.
+> etapas de saudação neste documento criam um cluster com nó de um trabalho. Se você planeja mais de 32 nós de trabalho, a criação do cluster ou expandindo o cluster Olá após a criação, é necessário tooselect um tamanho de nó principal com pelo menos 8 núcleos e 14GB de ram.
 >
 > Para saber mais sobre tamanhos de nós e custos associados, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -46,8 +46,8 @@ Saiba como criar um cluster Hadoop no cluster Azure HDInsight usando o SDK do .N
 
 1. Abra o Visual Studio 2017.
 2. Crie um novo aplicativo de console do Visual C#.
-3. No menu **Ferramentas**, clique em **Gerenciador de Pacotes NuGet** e, em seguida, clique em **Console do Gerenciador de Pacotes**.
-4. Execute o seguinte comando no console para instalar os pacotes:
+3. De saudação **ferramentas** menu, clique em **NuGet Package Manager**e, em seguida, clique em **Package Manager Console**.
+4. Olá executar comandos em pacotes de saudação do hello console tooinstall a seguir:
 
     ```powershell
     Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
@@ -55,8 +55,8 @@ Saiba como criar um cluster Hadoop no cluster Azure HDInsight usando o SDK do .N
     Install-Package Microsoft.Azure.Management.HDInsight
     ```
 
-    Esses comandos adicionam bibliotecas .NET e referências a elas no projeto atual do Visual Studio.
-5. No Gerenciador de Soluções, clique duas vezes em **Program.cs** para abri-lo, cole o seguinte código e forneça valores para as variáveis:
+    Esses comandos adicionam .NET bibliotecas e referências toothem toohello atual projeto do Visual Studio.
+5. No Gerenciador de soluções, clique duas vezes em **Program.cs** tooopen-la, colar Olá código a seguir e fornecer valores para variáveis de saudação:
 
     ```csharp
     using System;
@@ -77,7 +77,7 @@ Saiba como criar um cluster Hadoop no cluster Azure HDInsight usando o SDK do .N
             private const string SubscriptionId = "<Your Azure Subscription ID>";
             // Replace with your AAD tenant ID if necessary
             private const string TenantId = UserTokenProvider.CommonTenantId; 
-            // This is the GUID for the PowerShell client. Used for interactive logins in this example.
+            // This is hello GUID for hello PowerShell client. Used for interactive logins in this example.
             private const string ClientId = "1950a258-227b-4e31-a9cf-717495945fc2";
 
             private const string ExistingResourceGroupName = "<Enter Resource Group Name>";
@@ -87,7 +87,7 @@ Saiba como criar um cluster Hadoop no cluster Azure HDInsight usando o SDK do .N
 
             private const string NewClusterName = "<Enter HDInsight Cluster Name>";
             private const int NewClusterNumNodes = 2;
-            private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
+            private const string NewClusterLocation = "EAST US 2";     // Must be hello same as hello default Storage account
             private const OSType NewClusterOSType = OSType.Linux;
             private const string NewClusterType = "Hadoop";
             private const string NewClusterVersion = "3.5";
@@ -105,11 +105,11 @@ Saiba como criar um cluster Hadoop no cluster Azure HDInsight usando o SDK do .N
                 WVfu15kKyY8YAiynVbdV51EB0SZaSLdMZkZQ81xi4DDtCZD7qvdtWEFwLa+EHdkd
                 pzO36Mtev5XvseLQqzXzZ6aVBdlXoppGHXkoGHAMNOtEWRXpAUtEccjpATsaZhQR
                 zZdZlzHduhM10ofS4YOYBADt9JohporbQVHM5w6qUhIgyiPo7w==
-                ---- END SSH2 PUBLIC KEY ----"; //replace the public key with your own
+                ---- END SSH2 PUBLIC KEY ----"; //replace hello public key with your own
 
             static void Main(string[] args)
             {
-                System.Console.WriteLine("Creating a cluster.  The process takes 10 to 20 minutes ...");
+                System.Console.WriteLine("Creating a cluster.  hello process takes 10 too20 minutes ...");
 
                 // Authenticate and get a token
                 var authToken = GetTokenCloudCredentials(TenantId, ClientId, SubscriptionId);
@@ -118,7 +118,7 @@ Saiba como criar um cluster Hadoop no cluster Azure HDInsight usando o SDK do .N
                 // Get an HDInsight management client
                 _hdiManagementClient = new HDInsightManagementClient(authToken);
 
-                // Set parameters for the new cluster
+                // Set parameters for hello new cluster
                 var parameters = new ClusterCreateParameters
                 {
                     ClusterSizeInNodes = NewClusterNumNodes,
@@ -127,11 +127,11 @@ Saiba como criar um cluster Hadoop no cluster Azure HDInsight usando o SDK do .N
                     OSType = NewClusterOSType,
                     Version = NewClusterVersion,
 
-                    // Use an Azure storage account as the default storage
+                    // Use an Azure storage account as hello default storage
                     DefaultStorageInfo = new AzureStorageInfo(ExistingStorageName, ExistingStorageKey, ExistingBlobContainer),
 
-                    // Is the cluster type RServer? If so, you can set the EdgeNodeSize.
-                    // Otherwise, the default VM size is used.
+                    // Is hello cluster type RServer? If so, you can set hello EdgeNodeSize.
+                    // Otherwise, hello default VM size is used.
                     //EdgeNodeSize = "Standard_D12_v2",
 
                     Password = NewClusterPassword,
@@ -142,7 +142,7 @@ Saiba como criar um cluster Hadoop no cluster Azure HDInsight usando o SDK do .N
                     //SshPublicKey = NewClusterSshPublicKey
                 };
 
-                // Is the cluster type RServer? If so, add the RStudio configuration option.
+                // Is hello cluster type RServer? If so, add hello RStudio configuration option.
                 /*
                 parameters.Configurations.Add(
                     "rserver",
@@ -153,15 +153,15 @@ Saiba como criar um cluster Hadoop no cluster Azure HDInsight usando o SDK do .N
                 );
                 */
 
-                // Create the cluster
+                // Create hello cluster
                 _hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, parameters);
 
-                System.Console.WriteLine("The cluster has been created. Press ENTER to continue ...");
+                System.Console.WriteLine("hello cluster has been created. Press ENTER toocontinue ...");
                 System.Console.ReadLine();
             }
 
             /// <summary>
-            /// Authenticate to an Azure subscription and retrieve an authentication token
+            /// Authenticate tooan Azure subscription and retrieve an authentication token
             /// </summary>
             static TokenCloudCredentials GetTokenCloudCredentials(string TenantId, string ClientId, string SubscriptionId)
             {
@@ -181,29 +181,29 @@ Saiba como criar um cluster Hadoop no cluster Azure HDInsight usando o SDK do .N
             /// <param name="authToken">An authentication token for your Azure subscription</param>
             static void EnableHDInsight(TokenCloudCredentials authToken)
             {
-                // Create a client for the Resource manager and set the subscription ID
+                // Create a client for hello Resource manager and set hello subscription ID
                 var resourceManagementClient = new ResourceManagementClient(new TokenCredentials(authToken.Token));
                 resourceManagementClient.SubscriptionId = SubscriptionId;
-                // Register the HDInsight provider
+                // Register hello HDInsight provider
                 var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
             }
         }
     }
     ```
 
-6. Substitua os valores de membro de classe.
-7. Pressione **F5** para executar o aplicativo. Uma janela de console deve ser aberta e exibir o status do aplicativo. Você deverá inserir suas credenciais de conta do Azure. Pode levar vários minutos para criar um cluster HDInsight, normalmente em torno de 15.
+6. Substitua valores de membro de classe hello.
+7. Pressione **F5** aplicativo hello de toorun. Uma janela do console deve abrir e exibir o status de saudação do aplicativo hello. Você está tooenter solicitada as credenciais de conta do Azure. Pode levar vários toocreate de minutos um cluster HDInsight, normalmente em torno de 15.
 
 ## <a name="use-bootstrap"></a>Usar a inicialização
 
-Usando a inicialização, você pode definir configurações adicionais durante a criação do cluster.  Para saber mais, confira [Personalizar clusters HDInsight usando a Inicialização](hdinsight-hadoop-customize-cluster-bootstrap.md).
+Usando a inicialização, você pode definir configurações de adição durante a criação de cluster hello.  Para saber mais, confira [Personalizar clusters HDInsight usando a Inicialização](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-Modifique o exemplo em [Criar clusters](#create-clusters) para definir uma configuração de Hive:
+Modificar o exemplo hello em [criar clusters](#create-clusters) tooconfigure uma seção de configuração:
 
 ```csharp
 static void Main(string[] args)
 {
-    System.Console.WriteLine("Creating a cluster.  The process takes 10 to 20 minutes ...");
+    System.Console.WriteLine("Creating a cluster.  hello process takes 10 too20 minutes ...");
 
     // Authenticate and get a token
     var authToken = GetTokenCloudCredentials(TenantId, ClientId, SubscriptionId);
@@ -212,7 +212,7 @@ static void Main(string[] args)
     // Get an HDInsight management client
     _hdiManagementClient = new HDInsightManagementClient(authToken);
 
-    // Set parameters for the new cluster
+    // Set parameters for hello new cluster
     var extendedParameters = new ClusterCreateParametersExtended
     {
         Location = NewClusterLocation,
@@ -281,7 +281,7 @@ static void Main(string[] args)
             {
                 UserName = NewClusterSshUserName,
                 Password = NewClusterSshPassword //,
-                // When use a SSH pulbic key, make sure to remove comments, headers and trailers, and concatenate the key into one line 
+                // When use a SSH pulbic key, make sure tooremove comments, headers and trailers, and concatenate hello key into one line 
                 //SshProfile = new SshProfile
                 //{
                 //    SshPublicKeys = sshPublicKeys
@@ -318,7 +318,7 @@ static void Main(string[] args)
 
     _hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, extendedParameters);
 
-    System.Console.WriteLine("The cluster has been created. Press ENTER to continue ...");
+    System.Console.WriteLine("hello cluster has been created. Press ENTER toocontinue ...");
     System.Console.ReadLine();
 }
 ```
@@ -327,12 +327,12 @@ static void Main(string[] args)
 
 Usando a Ação de Script, você pode definir configurações adicionais durante a criação do cluster.  Para obter mais informações, consulte [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
 
-Modifique o exemplo em [Criar clusters](#create-clusters) para chamar uma Ação de Script para instalar o R:
+Modificar o exemplo hello em [criar clusters](#create-clusters) toocall tooinstall uma ação de Script r:
 
 ```csharp
 static void Main(string[] args)
 {
-    System.Console.WriteLine("Creating a cluster.  The process takes 10 to 20 minutes ...");
+    System.Console.WriteLine("Creating a cluster.  hello process takes 10 too20 minutes ...");
 
     // Authenticate and get a token
     var authToken = GetTokenCloudCredentials(TenantId, ClientId, SubscriptionId);
@@ -341,7 +341,7 @@ static void Main(string[] args)
     // Get an HDInsight management client
     _hdiManagementClient = new HDInsightManagementClient(authToken);
 
-    // Set parameters for the new cluster
+    // Set parameters for hello new cluster
     var parameters = new ClusterCreateParameters
     {
         ClusterSizeInNodes = NewClusterNumNodes,
@@ -366,7 +366,7 @@ static void Main(string[] args)
 
     _hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, parameters);
 
-    System.Console.WriteLine("The cluster has been created. Press ENTER to continue ...");
+    System.Console.WriteLine("hello cluster has been created. Press ENTER toocontinue ...");
     System.Console.ReadLine();
 }
 ```
@@ -376,7 +376,7 @@ static void Main(string[] args)
 Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você criou com êxito um cluster HDInsight, use o seguinte para aprender a trabalhar com o seu cluster. 
+Agora que você criou com êxito um cluster HDInsight, usar Olá toolearn a seguir como toowork com o cluster. 
 
 ### <a name="hadoop-clusters"></a>Clusters do Hadoop
 * [Usar o Hive com o HDInsight](hdinsight-use-hive.md)
@@ -396,8 +396,7 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Criar um aplicativo autônomo usando Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Executar trabalhos remotamente em um cluster do Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](hdinsight-apache-spark-use-bi-tools.md)
-* 
-            [Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark com o aprendizado de máquina: Use Spark nos resultados de inspeção de alimentos HDInsight toopredict](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos de streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
 ### <a name="run-jobs"></a>Executar trabalhos

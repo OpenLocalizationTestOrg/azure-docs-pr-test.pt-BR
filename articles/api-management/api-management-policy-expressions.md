@@ -1,5 +1,5 @@
 ---
-title: "Expressões de política no Gerenciamento de API do Azure | Microsoft Docs"
+title: "expressões de política de gerenciamento de API aaaAzure | Microsoft Docs"
 description: "Saiba mais sobre expressões de política no Gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: d96dde8c74141d000c1f7c5fd9ef624ff5e46953
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 79da0d6ca3963307ec811a33aaac3d63a7abd97d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-management-policy-expressions"></a>Expressões de política de Gerenciamento de API
-A sintaxe de expressões de política é C# 6.0. Cada expressão tem acesso à variável de [contexto](api-management-policy-expressions.md#ContextVariables) fornecida implicitamente e a um [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos do .NET Framework.  
+A sintaxe de expressões de política é C# 6.0. Cada expressão tem acesso toohello fornecido implicitamente [contexto](api-management-policy-expressions.md#ContextVariables) variável e um permitido [subconjunto](api-management-policy-expressions.md#CLRTypes) tipos do .NET Framework.  
   
 > [!NOTE]
->  Para obter mais informações sobre expressões de política, consulte o vídeo [Policy Expressions](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/) (Expressões de política).  
+>  Para obter mais informações sobre expressões de política, consulte Olá [expressões de política](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/) vídeo.  
 >   
->  Para demonstrações da configuração de políticas usando expressões de política, consulte [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Abordagem da Nuvem Episódio 177: Mais Recursos de Gerenciamento de API com Vlad Vinogradsky). Este vídeo contém as seguintes demonstrações de expressão de política.  
+>  Para demonstrações da configuração de políticas usando expressões de política, consulte [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Abordagem da Nuvem Episódio 177: Mais Recursos de Gerenciamento de API com Vlad Vinogradsky). Este vídeo contém Olá demonstrações de expressão de política a seguir.  
 >   
->  -   10:30 – veja como aplicar a política no nível da API para fornecer informações de contexto ao serviço de back-end usando as políticas [Definir parâmetro de cadeia de caracteres de consulta](api-management-transformation-policies.md#SetQueryStringParameter) e [Set HTTP header](api-management-transformation-policies.md#SetHTTPheader) (Definir cabeçalho HTTP). Em 12:10, há uma demonstração de chamada de uma operação no portal do desenvolvedor na qual você pode ver essas políticas em ação.  
-> -   13:50 – veja como usar a política [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) para pré-autorizar o acesso a operações baseadas em declarações de token. Avance para 15:00 para ver as diretivas configuradas no editor de diretiva e, em seguida, 18:50 para uma demonstração de como chamar uma operação do portal do desenvolvedor com e sem o token de autorização necessário.  
-> -   21:00 – veja como usar um rastreamento de [Inspetor de API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) para ver como as políticas são avaliadas e os resultados das avaliações.  
-> -   25:25 – veja como usar expressões de política com as políticas [Obter do cache](api-management-caching-policies.md#GetFromCache) e [Store to cache](api-management-caching-policies.md#StoreToCache) (Armazenar no cache) para configurar a duração do cache de resposta do Gerenciamento de API que corresponde ao cache de resposta do serviço de back-end, conforme especificado pela diretiva `Cache-Control` do serviço de backup.  
-> -   34:30 – veja como executar a filtragem de conteúdo removendo elementos de dados da resposta recebida do serviço de back-end ao usar as políticas [Controlar fluxo](api-management-advanced-policies.md#choose) e [definir corpo](api-management-transformation-policies.md#SetBody). Inicie em 31:50 para uma visão geral da [API da Previsão de Céu Escuro](https://developer.forecast.io/) usada para esta demonstração.  
-> -   Para baixar as instruções de política usadas neste vídeo, consulte o repositório GitHub [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies).  
+>  -   10:30 - consulte como diretiva tooapply Olá API de nível de serviço toosupply contexto informações toohello back-end usando Olá [definir parâmetro de cadeia de caracteres de consulta](api-management-transformation-policies.md#SetQueryStringParameter) e [cabeçalho HTTP definir](api-management-transformation-policies.md#SetHTTPheader) políticas. Em 12:10, há uma demonstração de como chamar uma operação no portal do desenvolvedor Olá onde você pode ver essas políticas no trabalho.  
+> -   13:50 - consulte como Olá toouse [validar JWT](api-management-access-restriction-policies.md#ValidateJWT) política toopre-autorizar toooperations de acesso baseado em declarações de token. Avanço too15:00 toosee políticas de saudação configuradas no editor de diretiva de saudação e, em seguida, too18:50 para ver uma demonstração de como chamar uma operação do portal do desenvolvedor do hello com e sem Olá necessário token de autorização.  
+> -   21:00 - consulte como toouse uma [API Inspetor](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) toosee como as políticas são avaliadas e Olá resultados de avaliações de saudação de rastreamento.  
+> -   25:25 - consulte como expressões de política toouse com hello [obter do cache](api-management-caching-policies.md#GetFromCache) e [repositório toocache](api-management-caching-policies.md#StoreToCache) resposta de gerenciamento de API de tooconfigure políticas duração que corresponde ao Olá cache de resposta de saudação de cache serviço de back-end conforme especificado pelas Olá feito do serviço `Cache-Control` diretiva.  
+> -   34:30 - consulte como conteúdo tooperform filtragem, removendo elementos de dados de resposta Olá recebido do serviço de back-end hello usando Olá [fluxo de controle](api-management-advanced-policies.md#choose) e [definir corpo](api-management-transformation-policies.md#SetBody) políticas. Iniciar em 31:50 toosee uma visão geral de [Olá escuro API de previsão Sky](https://developer.forecast.io/) usado para esta demonstração.  
+> -   declarações de política de saudação toodownload usadas neste vídeo, consulte Olá [api de gerenciamento-exemplos/políticas](https://github.com/Azure/api-management-samples/tree/master/policies) repositório github.  
   
   
 ##  <a name="Syntax"></a> Sintaxe  
@@ -68,13 +68,13 @@ A sintaxe de expressões de política é C# 6.0. Cada expressão tem acesso à v
 ```  
   
 ##  <a name="PolicyExpressionsUsage"></a> Uso  
- Expressões podem ser usadas como valores de atributo ou texto em qualquer uma das [políticas](api-management-policies.md) de Gerenciamento de API, a menos que a referência de política especifique o contrário.  
+ Expressões podem ser usadas como valores de atributo ou texto em qualquer um dos Olá gerenciamento de API [políticas](api-management-policies.md), a menos que a referência de política de saudação especifique o contrário.  
   
 > [!IMPORTANT]
->  Observe que quando você usa expressões de política, há apenas uma verificação limitada de expressões de política quando a política é definida. Como as expressões são executadas em tempo de execução no pipeline de entrada ou saída pelo gateway, quaisquer exceções de tempo de execução geradas por expressões de política resultarão em um erro em tempo de execução na chamada à API.  
+>  Observe que quando você usar expressões de política, há apenas uma verificação limitada de expressões de política hello quando Olá política é definida. Como expressões de saudação são executadas em tempo de execução no pipeline de entrada ou saída Olá pelo gateway hello, as exceções de tempo de execução geradas por expressões de política Olá resultará em um erro em tempo de execução na chamada de API de saudação.  
   
 ##  <a name="CLRTypes"></a> Tipos do .NET framework permitidos em expressões de política  
- A tabela a seguir lista os tipos do .NET Framework e seus membros permitidos em expressões de política.  
+ Olá tabela a seguir lista tipos do .NET Framework hello e seus membros que são permitidos em expressões de política.  
   
 |Tipo CLR|Métodos com suporte|  
 |--------------|-----------------------|  
@@ -168,7 +168,7 @@ A sintaxe de expressões de política é C# 6.0. Cada expressão tem acesso à v
 |System.Xml.XmlNodeType|Todos|  
   
 ##  <a name="ContextVariables"></a> Variável de contexto  
- Uma variável chamada `context` está implicitamente disponível em toda [expressão](api-management-policy-expressions.md#Syntax) de política. Seus membros fornecem informações pertinentes para `\request`. Todos os membros de `context` são somente leitura.  
+ Uma variável chamada `context` está implicitamente disponível em toda [expressão](api-management-policy-expressions.md#Syntax) de política. Seus membros fornecem toohello pertinentes informações `\request`. Todos os Olá `context` membros são somente leitura.  
   
 |Variável de contexto|Valores de métodos, propriedades e parâmetros permitidos|  
 |----------------------|-------------------------------------------------------|  
@@ -179,26 +179,26 @@ A sintaxe de expressões de política é C# 6.0. Cada expressão tem acesso à v
 |context.Operation|Id: string<br /><br /> Method: string<br /><br /> Name: string<br /><br /> UrlTemplate: string|  
 |context.Product|Apis: IEnumerable<IApi\><br /><br /> ApprovalRequired: bool<br /><br /> Groups: IEnumerable<IGroup\><br /><br /> Id: string<br /><br /> Name: string<br /><br /> State: enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|  
 |context.Request|Body: IMessageBody<br /><br /> Certificate: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> Headers: IReadOnlyDictionary<string, string[]><br /><br /> IpAddress: string<br /><br /> MatchedParameters: IReadOnlyDictionary<string, string><br /><br /> Method: string<br /><br /> OriginalUrl:IUrl<br /><br /> Url: IUrl|  
-|string context.Request.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Retorna valores de cabeçalho de solicitação separados por vírgula ou `defaultValue` se o cabeçalho não for encontrado.|  
+|string context.Request.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Valores de cabeçalho de solicitação separados por vírgulas de Retorna ou `defaultValue` se Olá cabeçalho não for encontrado.|  
 |context.Response|Body: IMessageBody<br /><br /> Headers: IReadOnlyDictionary<string, string[]><br /><br /> StatusCode: int<br /><br /> StatusReason: string|  
-|string context.Response.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Retorna valores de cabeçalho de resposta separados por vírgula ou `defaultValue` se o cabeçalho não for encontrado.|  
+|string context.Response.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Retorna valores de cabeçalho de resposta separados por vírgulas ou `defaultValue` se Olá cabeçalho não for encontrado.|  
 |context.Subscription|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> Id: string<br /><br /> Key: string<br /><br /> Name: string<br /><br /> PrimaryKey: string<br /><br /> SecondaryKey: string<br /><br /> StartDate: DateTime?|  
 |context.User|Email: string<br /><br /> FirstName: string<br /><br /> Groups: IEnumerable<IGroup\><br /><br /> Id: string<br /><br /> Identities: IEnumerable<IUserIdentity\><br /><br /> LastName: string<br /><br /> Note: string<br /><br /> RegistrationDate: DateTime|  
 |IApi|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> Protocols: IEnumerable<string\><br /><br /> ServiceUrl: IUrl<br /><br /> SubscriptionKeyParameterNames: ISubscriptionKeyParameterNames|  
 |IGroup|Id: string<br /><br /> Name: string|  
-|IMessageBody|As<T\>(preserveContent: bool = false): em que T: string, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Os métodos `context.Request.Body.As<T>` e `context.Response.Body.As<T>` são usados para a leitura dos corpos de mensagens de solicitação e resposta em um tipo `T` especificado. Por padrão, o método usa o fluxo do corpo de mensagem original e o torna indisponível após seu retorno. Para evitar que o método opere em uma cópia do fluxo do corpo, defina o parâmetro `preserveContent` como `true`. Clique [aqui](api-management-transformation-policies.md#SetBody) para ver um exemplo.|  
+|IMessageBody|As<T\>(preserveContent: bool = false): em que T: string, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Olá `context.Request.Body.As<T>` e `context.Response.Body.As<T>` métodos são usado tooread agências em um tipo especificado de uma mensagem de solicitação e resposta `T`. Por padrão hello corpo de mensagem original do método usa Olá fluxo e reneders indisponível depois que ele retorna. tooavoid que operam em uma cópia do fluxo do corpo hello, Olá conjunto tendo método hello `preserveContent` parâmetro muito`true`. Vá [aqui](api-management-transformation-policies.md#SetBody) toosee um exemplo.|  
 |IUrl|Host: string<br /><br /> Path: string<br /><br /> Port: int<br /><br /> Query: IReadOnlyDictionary<string, string[]><br /><br /> QueryString: string<br /><br /> Scheme: string|  
 |IUserIdentity|Id: string<br /><br /> Provider: string|  
 |ISubscriptionKeyParameterNames|Header: string<br /><br /> Query: string|  
-|string IUrl.Query.GetValueOrDefault(queryParameterName: string, defaultValue: string)|queryParameterName: string<br /><br /> defaultValue: string<br /><br /> Retorna valores de parâmetro de consulta separados por vírgula ou `defaultValue` se o parâmetro não for encontrado.|  
-|T context.Variables.GetValueOrDefault<T\>(variableName: string, defaultValue: T)|variableName: string<br /><br /> defaultValue: T<br /><br /> Retorna o valor da variável convertida para o tipo `T` ou `defaultValue` se a variável não for encontrada.<br /><br /> Esse método gerará uma exceção se o tipo especificado não corresponder ao tipo real da variável retornada.|  
-|BasicAuthCredentials AsBasic(input: this string)|input: string<br /><br /> Se o parâmetro de entrada contiver um valor válido de cabeçalho de solicitação de autorização de Autenticação Básica HTTP, o método retornará um objeto do tipo `BasicAuthCredentials`, caso contrário, o método retornará nulo.|  
-|bool TryParseBasic(input: this string, result: out BasicAuthCredentials)|input: string<br /><br /> result: out BasicAuthCredentials<br /><br /> Se o parâmetro de entrada contiver um valor válido de cabeçalho de solicitação de autorização de Autenticação Básica HTTP, o método retornará `true` e o parâmetro do resultado conterá um valor do tipo `BasicAuthCredentials`, caso contrário, o método retornará `false`.|  
+|string IUrl.Query.GetValueOrDefault(queryParameterName: string, defaultValue: string)|queryParameterName: string<br /><br /> defaultValue: string<br /><br /> Valores de parâmetro de consulta separados por vírgulas de Retorna ou `defaultValue` se o parâmetro hello não foi encontrado.|  
+|T context.Variables.GetValueOrDefault<T\>(variableName: string, defaultValue: T)|variableName: string<br /><br /> defaultValue: T<br /><br /> Retorna o valor da variável cast tootype `T` ou `defaultValue` se Olá variável não foi encontrada.<br /><br /> Este método lança uma exceção se hello tipo especificado não coincide com tipo real de saudação da saudação retornado variável.|  
+|BasicAuthCredentials AsBasic(input: this string)|input: string<br /><br /> Se o parâmetro de entrada hello contém um valor válido de cabeçalho de solicitação de autorização autenticação básica HTTP, o método hello retorna um objeto do tipo `BasicAuthCredentials`; caso contrário, o método hello retorna nulo.|  
+|bool TryParseBasic(input: this string, result: out BasicAuthCredentials)|input: string<br /><br /> result: out BasicAuthCredentials<br /><br /> Se o parâmetro de entrada hello contém um valor válido de cabeçalho de solicitação de autorização autenticação básica HTTP, o método hello retorna `true` e parâmetro de resultado Olá contém um valor do tipo `BasicAuthCredentials`; caso contrário, retorna o método hello `false`.|  
 |BasicAuthCredentials|Password: string<br /><br /> UserId: string|  
-|Jwt AsJwt(input: this string)|input: string<br /><br /> Se o parâmetro de entrada contiver um valor válido de token JWT, o método retornará um objeto do tipo `Jwt`, caso contrário, o método retornará `null`.|  
-|bool TryParseJwt(input: this string, result: out Jwt)|input: string<br /><br /> result: out Jwt<br /><br /> Se o parâmetro de entrada contiver um valor válido de token JWT, o método retornará `true` e o parâmetro de resultado conterá um valor do tipo `Jwt`, caso contrário, o método retornará `false`.|  
+|Jwt AsJwt(input: this string)|input: string<br /><br /> Se o parâmetro de entrada hello contém um valor válido de token JWT, o método hello retorna um objeto do tipo `Jwt`; caso contrário, retorna o método hello `null`.|  
+|bool TryParseJwt(input: this string, result: out Jwt)|input: string<br /><br /> result: out Jwt<br /><br /> Se o parâmetro de entrada hello contém um valor válido de token JWT, o método hello retorna `true` e parâmetro de resultado Olá contém um valor do tipo `Jwt`; caso contrário, retorna o método hello `false`.|  
 |Jwt|Algorithm: string<br /><br /> Audience: IEnumerable<string\><br /><br /> Claims: IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime: DateTime?<br /><br /> Id: string<br /><br /> Issuer: string<br /><br /> NotBefore: DateTime?<br /><br /> Subject: string<br /><br /> Type: string|  
-|string Jwt.Claims.GetValueOrDefault(claimName: string, defaultValue: string)|claimName: string<br /><br /> defaultValue: string<br /><br /> Retorna valores de declaração separados por vírgula ou `defaultValue` se o cabeçalho não for encontrado.|
+|string Jwt.Claims.GetValueOrDefault(claimName: string, defaultValue: string)|claimName: string<br /><br /> defaultValue: string<br /><br /> Retorna valores de declaração separados por vírgula ou `defaultValue` se Olá cabeçalho não for encontrado.|
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como trabalhar com políticas, veja [Políticas em Gerenciamento de API](api-management-howto-policies.md).  

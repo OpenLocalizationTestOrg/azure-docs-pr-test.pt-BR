@@ -1,5 +1,5 @@
 ---
-title: "Integração do SDK do Android do Azure Mobile Engagement"
+title: "aaaAzure integração do Mobile Engagement Android SDK"
 description: "Atualizações e procedimentos mais recentes para o SDK do Android do Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,13 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 35bd92e52b7a02f58620a03156902f9f91be57ae
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4f79936ea0fa6102023dec2b4682032a4a81fa9e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-integrate-engagement-on-android"></a>Como integrar o Engagement ao Android
+# <a name="how-toointegrate-engagement-on-android"></a>Como tooIntegrate contrato no Android
 > [!div class="op_single_selector"]
 > * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -29,20 +29,20 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Este procedimento descreve a maneira mais simples de ativar as funções de Análise e Monitoramento do Engagement em seu aplicativo Android.
+Este procedimento descreve hello mais simples maneira tooactivate contrato análise e monitoramento de funções em seu aplicativo do Android.
 
 > [!IMPORTANT]
 > O nível mínimo de API do Android SDK deve ser 10 ou superior (Android 2.3.3 ou superior).
 > 
 > 
 
-As etapas a seguir são suficientes para ativar o relatório de logs necessário para calcular todas as estatísticas referentes a Usuários, Sessões, Atividades, Falhas e Suporte Técnico. O relatório de logs necessários para calcular outras estatísticas, como Trabalhos, Erros e Eventos deve ser feito manualmente usando a API do Engagement (consulte [Como usar a marcação avançada de API do Mobile Engagement em seu Android](mobile-engagement-android-use-engagement-api.md) já que essas estatísticas são dependentes do aplicativo.
+Olá, as etapas a seguir é que suficientes relatório de saudação tooactivates dos logs necessário toocompute todas as estatísticas sobre usuários, sessões, atividades, falhas e Technicals. Olá relatório dos logs necessário toocompute outras estatísticas como trabalhos, erros e eventos devem ser feitos manualmente usando Olá contrato de API (consulte [como toouse Olá avançado Mobile Engagement marcação API em seu Android](mobile-engagement-android-use-engagement-api.md) desde que eles as estatísticas são depende do aplicativo.
 
-## <a name="embed-the-engagement-sdk-and-service-into-your-android-project"></a>Incorpore o SDK e serviço do Engagement em seu projeto Android
-Baixe o Android SDK [aqui](https://aka.ms/vq9mfn) Obtenha `mobile-engagement-VERSION.jar` e coloque-as na pasta `libs` do seu projeto Android (crie a pasta de bibliotecas se ela ainda não existir).
+## <a name="embed-hello-engagement-sdk-and-service-into-your-android-project"></a>Inserir hello contrato SDK e serviço em seu projeto Android
+Olá de download do SDK do Android [aqui](https://aka.ms/vq9mfn) obter `mobile-engagement-VERSION.jar` e colocá-los em Olá `libs` pasta do seu projeto Android (criar pasta de bibliotecas de saudação se ele ainda não existir).
 
 > [!IMPORTANT]
-> Se você compilar seu pacote de aplicativo com o ProGuard, você precisa manter algumas classes. Você pode usar o seguinte trecho de código de configuração:
+> Se você criar seu pacote de aplicativo com ProGuard, será necessário tookeep algumas classes. Você pode usar o hello trecho de configuração a seguir:
 > 
 > -manter classe pública * extends android.os.IInterface -keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
 > 
@@ -50,40 +50,40 @@ Baixe o Android SDK [aqui](https://aka.ms/vq9mfn) Obtenha `mobile-engagement-VER
 > 
 > 
 
-Especifique a cadeia de conexão do Engagement chamando o método a seguir na atividade de inicializador:
+Especifique a cadeia de caracteres de conexão do contrato, Olá chamada seguinte método na atividade de iniciador hello:
 
             EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
             engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
             EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-A cadeia de conexão para o seu aplicativo é exibida no Portal do Azure.
+cadeia de caracteres de conexão de saudação para seu aplicativo é exibida no Portal do Azure.
 
-* Se estiver faltando, adicione as seguintes permissões do Android (antes da marca `<application>`):
+* Se não, adicionar Olá as seguintes permissões Android (antes Olá `<application>` marca):
   
           <uses-permission android:name="android.permission.INTERNET"/>
           <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-* Adicione a seção a seguir (entre as marcas `<application>` e `</application>`):
+* Adicionar Olá seção a seguir (entre hello `<application>` e `</application>` marcas):
   
           <service
             android:name="com.microsoft.azure.engagement.service.EngagementService"
             android:exported="false"
             android:label="<Your application name>Service"
             android:process=":Engagement"/>
-* Substitua `<Your application name>` pelo nome do seu aplicativo.
+* Alterar `<Your application name>` por nome de saudação do seu aplicativo.
 
 > [!TIP]
-> A chave `android:label` permite que você escolha o nome do serviço do Engagement como ele aparecerá para os usuários finais na tela "Serviços em execução" dos seus respectivos telefones. É recomendável definir esse atributo para `"<Your application name>Service"` (por exemplo, `"AcmeFunGameService"`).
+> Olá `android:label` atributo permite que você toochoose Olá nome da saudação serviço contrato como ele será exibido toohello os usuários finais na tela de "Serviços em execução" hello do seu telefone. É recomendável tooset esse atributo muito`"<Your application name>Service"` (por exemplo, `"AcmeFunGameService"`).
 > 
 > 
 
-Especificar o atributo `android:process` garante que o serviço do Engagement será executado em seu próprio processo (executando o Engagement no mesmo processo que seu aplicativo fará o thread/interface de usuário principal potencialmente menos responsivos).
+Olá especificando `android:process` atributo garante que o serviço de contrato Olá será executado em seu próprio processo (executando o contrato Olá mesmo processo que seu aplicativo fizer o thread principal de interfaces de usuário responsivo potencialmente menor).
 
 > [!NOTE]
-> Qualquer código que você colocar em `Application.onCreate()` e outros retornos de chamada do aplicativo serão executados para todos os processos de seu aplicativo, incluindo o serviço Engagement. Ele pode ter efeitos colaterais indesejados (como alocações desnecessárias e threads no processo do Engagement, serviços ou receptores de difusão duplicados).
+> Qualquer código que você coloca em `Application.onCreate()` e outras chamadas de retorno do aplicativo serão executadas para processos de todos os seus aplicativos, incluindo o serviço de contrato de saudação. Ele pode ter efeitos colaterais indesejáveis (como as alocações de memória desnecessários e threads no processo do contrato hello, duplicados receptores de difusão ou serviços).
 > 
 > 
 
-Se você substituir `Application.onCreate()`, recomenda-se adicionar o seguinte trecho de código no início da sua função `Application.onCreate()`:
+Se você substituir `Application.onCreate()`, é recomendado tooadd Olá seguindo o trecho de código no início de saudação do seu `Application.onCreate()` função:
 
              public void onCreate()
              {
@@ -93,13 +93,13 @@ Se você substituir `Application.onCreate()`, recomenda-se adicionar o seguinte 
                ... Your code...
              }
 
-Você pode fazer a mesma coisa para `Application.onTerminate()`, `Application.onLowMemory()` e `Application.onConfigurationChanged(...)`.
+Você pode fazer Olá para a mesma coisa `Application.onTerminate()`, `Application.onLowMemory()` e `Application.onConfigurationChanged(...)`.
 
-Você também pode estender `EngagementApplication` em vez de ampliar `Application`: o retorno de chamada `Application.onCreate()` faz a verificação do processo e chama `Application.onApplicationProcessCreate()` somente se o processo atual não for aquele que hospeda o serviço do Engagement. As mesmas regras se aplicam para os outros retornos de chamada.
+Você também pode estender `EngagementApplication` em vez de estender `Application`: Olá retorno de chamada `Application.onCreate()` Olá seleção de processo e chamadas `Application.onApplicationProcessCreate()` somente se processo atual Olá for não Olá uma saudação contrato serviço de hospedagem, hello mesmas regras se aplicam para Olá outras chamadas de retorno.
 
 ## <a name="basic-reporting"></a>Relatórios básicos
 ### <a name="recommended-method-overload-your-activity-classes"></a>Método recomendado: sobrecarregar suas classes `Activity`
-Para ativar o relatório de todos os logs exigidos pelo Engagement para calcular os Usuários, Sessões, Atividades, Falhas e Estatísticas técnicas, você só precisa fazer com que todas as suas subclasses `*Activity` herdem classes `Engagement*Activity` correspondentes (por exemplo, se sua atividade herdada estende `ListActivity`, faça com que ela estenda `EngagementListActivity`).
+No relatório de saudação tooactivate de ordem de todos os logs de saudação exigido pelo contrato toocompute usuários, sessões, atividades, falhas e estatísticas técnicas, você tem apenas toomake todos os seus `*Activity` subclasses herdam Olá correspondente `Engagement*Activity` classes (por exemplo, se a sua atividade herdada estende `ListActivity`, verifique se estende `EngagementListActivity`).
 
 **Sem o Engagement :**
 
@@ -136,17 +136,17 @@ Para ativar o relatório de todos os logs exigidos pelo Engagement para calcular
             }
 
 > [!IMPORTANT]
-> Ao usar `EngagementListActivity` ou `EngagementExpandableListActivity`, certifique-se de que qualquer chamada para `requestWindowFeature(...);` seja feita antes da chamada para `super.onCreate(...);`, caso contrário, ocorrerá uma falha.
+> Ao usar `EngagementListActivity` ou `EngagementExpandableListActivity`, certifique-se de que qualquer chamada muito`requestWindowFeature(...);` é feita antes da chamada de saudação muito`super.onCreate(...);`, caso contrário, ocorrerá uma falha.
 > 
 > 
 
-Você pode encontrar essas classes na pasta `src` e copiá-las para seu projeto. As classes também estão no **JavaDoc**.
+Você pode encontrar essas classes no hello `src` pasta e pode copiá-los em seu projeto. classes de saudação também estão em hello **JavaDoc**.
 
 ### <a name="alternate-method-call-startactivity-and-endactivity-manually"></a>Método alternativo: chame `startActivity()` e `endActivity()` manualmente
-Se você não pode ou não quer sobrecarregar as suas classes `Activity`, é possível iniciar suas atividades chamando diretamente os métodos de `EngagementAgent`.
+Se você não pode ou não toooverload seu `Activity` classes, em vez disso, você pode começar e terminar suas atividades chamando `EngagementAgent`do métodos diretamente.
 
 > [!IMPORTANT]
-> O SDK do Android nunca chama o método `endActivity()`, mesmo quando o aplicativo é fechado (no Android, aplicativos nunca são, na verdade, fechados). Dessa forma, é *ALTAMENTE* recomendável chamar o método `startActivity()` no retorno de chamada `onResume` de *TODAS* as suas atividades, e o método `endActivity()` no retorno de chamada `onPause()` de *TODAS* as suas atividades. Essa é a única maneira de certificar-se de que as sessões não serão perdidas. Se ocorrer perda de uma sessão, o serviço Engagement nunca se desconectará do back-end do Engagement (desde que o serviço permaneça conectado enquanto houver uma sessão pendente).
+> Olá Android SDK nunca chama Olá `endActivity()` método, mesmo quando o aplicativo hello é fechado (no Android, aplicativos são, na verdade, nunca fechados). Portanto, é *altamente* recomendado Olá toocall `startActivity()` método hello `onResume` retorno de chamada de *todos os* suas atividades e Olá `endActivity()` método hello `onPause()` retorno de chamada de *todas as* suas atividades. Isso é Olá somente modo toobe-se de que as sessões não serão perdas. Se uma sessão é vazada, Olá serviço contrato nunca se desconectará do back-end de contrato de saudação (como serviço Olá permanece conectado enquanto uma sessão estiver pendente).
 > 
 > 
 
@@ -158,7 +158,7 @@ Aqui está um exemplo:
               protected void onResume()
               {
                 super.onResume();
-                String activityNameOnEngagement = EngagementAgentUtils.buildEngagementActivityName(getClass()); // Uses short class name and removes "Activity" at the end.
+                String activityNameOnEngagement = EngagementAgentUtils.buildEngagementActivityName(getClass()); // Uses short class name and removes "Activity" at hello end.
                 EngagementAgent.getInstance(this).startActivity(this, activityNameOnEngagement, null);
               }
 
@@ -170,54 +170,54 @@ Aqui está um exemplo:
               }
             }
 
-Este exemplo é muito semelhante à classe `EngagementActivity` e suas variantes, cujo código-fonte é fornecido na pasta `src`.
+Este toohello muito semelhantes de exemplo `EngagementActivity` classe e suas variantes, cujo código-fonte é fornecido no hello `src` pasta.
 
 ## <a name="test"></a>Teste
-Agora, verifique se a integração ao executar seu aplicativo móvel em um dispositivo ou emulador e verifique se ele registra uma sessão na guia Monitor.
+Agora, verifique se a integração executando seu aplicativo móvel em um dispositivo ou emulador e verificar que ele registra uma sessão no guia do Monitor de saudação.
 
-As seções a seguir são opcionais.
+próximas seções de saudação são opcionais.
 
 ## <a name="location-reporting"></a>Relatórios de local
-Se quiser que locais sejam informados, você precisa adicionar algumas linhas de configuração (entre as marcas `<application>` e `</application>`).
+Se você quiser toobe locais relatado, você precisa tooadd algumas linhas de configuração (entre hello `<application>` e `</application>` marcas).
 
 ### <a name="lazy-area-location-reporting"></a>Relatórios de local de área lenta
-O relatório de local de área lenta permite relatar o país, a região e a localidade associados aos dispositivos. Esse tipo de relatório de local usa apenas os locais de rede (com base na ID da célula ou WIFI). A área de dispositivo é relatada no máximo uma vez por sessão. O GPS nunca é usado e, portanto, esse tipo de relatório de local tem pouco impacto (ou quase nenhum) sobre a bateria.
+Relatório de local de área lento permite país de saudação tooreport, região e localidade associados toodevices. Esse tipo de relatório de local usa apenas os locais de rede (com base na ID da célula ou WIFI). Olá dispositivo é relatada no máximo uma vez por sessão. Olá GPS nunca é usado e, portanto, esse tipo de relatório local tem poucos (não toosay nenhuma) impacto na bateria hello.
 
-As áreas relatadas são usadas para computar as estatísticas geográficas sobre usuários, sessões, eventos e erros. Elas também podem ser usadas como critério nas campanhas do Reach.
+Relatado áreas são estatísticas de geográfica toocompute usado sobre usuários, sessões, eventos e erros. Elas também podem ser usadas como critério nas campanhas do Reach.
 
-Para habilitar o relatório de localização de área simples, você pode fazer isso usando a configuração mencionada anteriormente neste procedimento:
+local de área lento tooenable reporting, você pode fazer isso usando a configuração de saudação mencionada anteriormente neste procedimento:
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
     engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
     engagementConfiguration.setLazyAreaLocationReport(true);
     EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-Você também precisa adicionar a permissão a seguir, se estiver ausente:
+Você também precisa Olá tooadd permissão a seguir se ausentes:
 
             <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 Ou pode continuar usando ``ACCESS_FINE_LOCATION`` se você já usa em seu aplicativo.
 
 ### <a name="real-time-location-reporting"></a>Relatórios de local em tempo real
-Os relatórios de local em tempo real permitem relatar a latitude e a longitude associados aos dispositivos. Por padrão, esse tipo de relatório local usa apenas os locais de rede (com base na ID da célula ou WIFI) e o relatório estará disponível apenas quando o aplicativo for executado em primeiro plano (ou seja, durante uma sessão).
+Relatório de local em tempo real permite latitude de saudação do tooreport e a longitude associada toodevices. Por padrão, esse tipo de relatório local usa apenas os locais de rede (com base na ID de célula ou Wi-Fi) e reporting Olá somente estará ativo quando o aplicativo hello é executado em primeiro plano (ou seja, durante uma sessão).
 
-Os locais em tempo real *NÃO* são usados para calcular estatísticas. Sua única finalidade é permitir o uso do critério de isolamento geográfico em tempo real \<Reach-Audience-geofencing\> em campanhas de alcance.
+Locais de tempo real são *não* usado toocompute estatísticas. Seu único propósito é o uso de saudação do tooallow de geoinstalação em tempo real \<alcance-público-o isolamento geográfico\> critério de campanhas de alcance.
 
-Para habilitar o relatório local em tempo real, você pode fazer isso usando a configuração mencionada anteriormente neste procedimento:
+local em tempo real tooenable reporting, você pode fazer isso usando a configuração de saudação mencionada anteriormente neste procedimento:
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
     engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
     engagementConfiguration.setRealtimeLocationReport(true);
     EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-Você também precisa adicionar a permissão a seguir, se estiver ausente:
+Você também precisa Olá tooadd permissão a seguir se ausentes:
 
             <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 Ou pode continuar usando ``ACCESS_FINE_LOCATION`` se você já usa em seu aplicativo.
 
 #### <a name="gps-based-reporting"></a>Relatórios com base em GPS
-Por padrão, os relatórios de local em tempo real usam apenas locais com base em rede. Para habilitar o uso do GPS com base em locais (que são muito mais precisos), use o objeto de configuração:
+Por padrão, os relatórios de local em tempo real usam apenas locais com base em rede. uso de saudação do tooenable de GPS baseada em locais (que são muito mais precisas), use o objeto de configuração de saudação:
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
     engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
@@ -225,12 +225,12 @@ Por padrão, os relatórios de local em tempo real usam apenas locais com base e
     engagementConfiguration.setFineRealtimeLocationReport(true);
     EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-Você também precisa adicionar a permissão a seguir, se estiver ausente:
+Você também precisa Olá tooadd permissão a seguir se ausentes:
 
             <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
 #### <a name="background-reporting"></a>Relatório de segundo plano
-Por padrão, os relatórios de local em tempo real ficam ativos apenas quando o aplicativo é executado em primeiro plano (ou seja, durante uma sessão). Para habilitar o relatório também em segundo plano, use o objeto de configuração:
+Por padrão, relatórios de local em tempo real só está ativo quando o aplicativo hello é executado em primeiro plano (ou seja, durante uma sessão). tooenable Olá reporting também no plano de fundo, use o objeto de configuração Olá:
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
     engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
@@ -239,11 +239,11 @@ Por padrão, os relatórios de local em tempo real ficam ativos apenas quando o 
     EngagementAgent.getInstance(this).init(engagementConfiguration);
 
 > [!NOTE]
-> Quando o aplicativo é executado em segundo plano, somente locais baseados em rede são relatados, mesmo se você tiver habilitado o GPS.
+> Quando o aplicativo hello é executado em segundo plano, locais de rede com base somente são relatados, mesmo se você tiver habilitado Olá GPS.
 > 
 > 
 
-O relatório de local de segundo plano será interrompido se o usuário reiniciar o dispositivo; você pode adicionar isso para fazê-lo reiniciar automaticamente no momento de inicialização:
+relatório de local do plano de fundo de saudação será interrompido se o usuário Olá reinicializar seu dispositivo, você pode adicionar esse toomake reiniciar automaticamente durante a inicialização:
 
             <receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
                android:exported="false">
@@ -252,28 +252,28 @@ O relatório de local de segundo plano será interrompido se o usuário reinicia
                </intent-filter>
             </receiver>
 
-Você também precisa adicionar a permissão a seguir, se estiver ausente:
+Você também precisa Olá tooadd permissão a seguir se ausentes:
 
             <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
 ### <a name="android-m-permissions"></a>Permissões do Android M
 A partir do Android M, algumas permissões são gerenciadas em tempo de execução e precisam de aprovação do usuário.
 
-As permissões de tempo de execução serão desativadas por padrão para novas instalações do aplicativo se você selecionar o nível 23 da API do Android. Caso contrário, elas serão ativadas por padrão.
+permissões de tempo de execução de saudação serão desligadas por padrão para novas instalações do aplicativo se você selecionar o nível de API do Android 23. Caso contrário, elas serão ativadas por padrão.
 
-O usuário pode habilitar/desabilitar essas permissões no menu de configurações do dispositivo. A desativação de permissões no menu do sistema interrompe os processos em segundo plano do aplicativo; esse é um comportamento do sistema e não tem nenhum impacto na capacidade de receber push em segundo plano.
+usuário Olá pode habilitar/desabilitar essas permissões no menu de configurações de dispositivo de saudação. A desativação de permissões no menu de sistema interrompe processos em segundo plano do aplicativo hello, este é um comportamento do sistema e não tem nenhum impacto na capacidade tooreceive push no plano de fundo.
 
-No contexto do Mobile Engagement, as permissões que exigem aprovação em tempo de execução são:
+No contexto de saudação do Mobile Engagement, permissões de saudação que precisam de aprovação em tempo de execução são:
 
 * `ACCESS_COARSE_LOCATION`
 * `ACCESS_FINE_LOCATION`
 * `WRITE_EXTERNAL_STORAGE` (somente para direcionamento de nível 23 da API do Android para essa)
 
-O armazenamento externo é usado apenas para o recurso Acessar visão global. Se você acha que pedir essa permissão aos usuários é incômodo, é possível removê-la se a usou somente para o Mobile Engagement, mas isso desabilitará o recurso de visão global.
+armazenamento externo de saudação é usado apenas para o recurso de visão geral de alcance. Se você encontrar pedir que os usuários neste toobe permissão interrupções, você poderá removê-lo se usado somente para o Mobile Engagement, mas ao custo de saudação de desabilitar o recurso de visão geral.
 
-Para os recursos de localização, você deve solicitar permissões para usuário usando uma caixa de diálogo padrão do sistema. Se o usuário aprovar, é necessário pedir a ``EngagementAgent`` para levar em conta essa alteração em tempo real (caso contrário, a alteração será processada na próxima vez que o usuário iniciar o aplicativo).
+Para recursos de local de Olá, você deve solicitar permissões toouser usando uma caixa de diálogo do sistema padrão. Se o usuário Olá aprova, será necessário tootell ``EngagementAgent`` tootake alterar em consideração em tempo real (alteração de saudação caso contrário será processado próximo tempo Olá usuário inicia Olá aplicativo hello).
 
-Aqui está um exemplo de código para usar em uma atividade do seu aplicativo para solicitar permissões e encaminhar o resultado se for positivo para ``EngagementAgent``:
+Aqui está um toouse de exemplo de código em uma atividade de permissões do aplicativo toorequest e resultado Olá forward positivo muito``EngagementAgent``:
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -291,14 +291,14 @@ Aqui está um exemplo de código para usar em uma atividade do seu aplicativo pa
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
       {
         /*
-         * Request location permission, but this won't explain why it is needed to the user.
-         * The standard Android documentation explains with more details how to display a rationale activity to explain the user why the permission is needed in your application.
-         * Putting COARSE vs FINE has no impact here, they are part of the same group for runtime permission management.
+         * Request location permission, but this won't explain why it is needed toohello user.
+         * hello standard Android documentation explains with more details how toodisplay a rationale activity tooexplain hello user why hello permission is needed in your application.
+         * Putting COARSE vs FINE has no impact here, they are part of hello same group for runtime permission management.
          */
         if (checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
           requestPermissions(new String[] { android.Manifest.permission.ACCESS_FINE_LOCATION }, 0);
 
-        /* Only if you want to keep features using external storage */
+        /* Only if you want tookeep features using external storage */
         if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
           requestPermissions(new String[] { android.Manifest.permission.WRITE_EXTERNAL_STORAGE }, 1);
       }
@@ -307,62 +307,62 @@ Aqui está um exemplo de código para usar em uma atividade do seu aplicativo pa
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
     {
-      /* Only a positive location permission update requires engagement agent refresh, hence the request code matching from above function */
+      /* Only a positive location permission update requires engagement agent refresh, hence hello request code matching from above function */
       if (requestCode == 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
         getEngagementAgent().refreshPermissions();
     }
 
 ## <a name="advanced-reporting"></a>Relatórios avançados
-Opcionalmente, se deseja relatar trabalhos, erros e eventos específicos do aplicativo, você precisa usar a API do Engagement por meio dos métodos da classe `EngagementAgent` . Um objeto dessa classe pode ser recuperado chamando o método estático `EngagementAgent.getInstance()` .
+Opcionalmente, se você quiser trabalhos, erros e eventos específicos do aplicativo tooreport, você precisa toouse Olá contrato de API por meio de métodos de saudação do hello `EngagementAgent` classe. Um objeto desta classe pode ser recuperados pela chamada hello `EngagementAgent.getInstance()` método estático.
 
-A API do Engagement permite usar todos os recursos avançados do Engagement e é detalhada em Como usar a API do Engagement em Android (além da documentação técnica da classe `EngagementAgent` ).
+Olá contrato API permite que toouse todos os recursos avançados do contrato e é detalhado no hello como tooUse a API de contrato no Android (bem como na documentação técnica Olá Olá `EngagementAgent` classe).
 
 ## <a name="advanced-configuration-in-androidmanifestxml"></a>Configuração avançada (em Androidmanifest.xml)
 ### <a name="wake-locks"></a>Bloqueios de ativação
-Se quiser ter certeza de que as estatísticas são enviadas em tempo real ao usar Wifi ou quando a tela estiver desligada, adicione a seguinte permissão opcional:
+Se você quiser toobe-se de que as estatísticas são enviadas em tempo real, ao usar o Wi-Fi ou tela hello está desativado, adicione Olá permissão opcional a seguir:
 
             <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
 ### <a name="crash-report"></a>Relatório de falha
-Se você deseja desabilitar relatórios de falha, adicione (entre as marcas `<application>` e `</application>`):
+Se você deseja obter relatórios de falha de toodisable, adicione (entre hello `<application>` e `</application>` marcas):
 
             <meta-data android:name="engagement:reportCrash" android:value="false"/>
 
 ### <a name="burst-threshold"></a>Limite de intermitência
-Por padrão, o serviço Engagement reporta logs em tempo real. Se seu aplicativo reporta logs com muita frequência, é melhor armazenar os logs em buffer e relatá-los todos de uma vez em uma base de tempo normal (isso é chamado de "modo de intermitência"). Para fazer isso, adicione (entre as marcas `<application>` e `</application>`):
+Por padrão, os relatórios de serviço de contrato de saudação logs em tempo real. Se seu aplicativo relatórios logs com muita frequência, é melhor toobuffer Olá logs e tooreport-los todos de uma vez em um base de tempo regulares (Isso é chamado hello "modo de disparo"). toodo assim, adicione (entre hello `<application>` e `</application>` marcas):
 
             <meta-data android:name="engagement:burstThreshold" android:value="{interval between too bursts (in milliseconds)}"/>
 
-O modo de intermitência aumenta ligeiramente a vida útil da bateria, mas tem um impacto no Monitor do Engagement: a duração de todas as sessões e trabalhos será arredondada para o limite de intermitência (portanto, as sessões e trabalhos mais curtos do que o limite de intermitência podem não estar visíveis). É recomendável usar um limite de intermitência não maior que 30.000 (30s).
+Olá modo intermitente ligeiramente aumentar bateria Olá vida mas tem um impacto em Olá contrato Monitor: todas as sessões e trabalhos a duração será arredondado toohello intermitência limite (portanto, sessões e menor do que o limite de disparo Olá pode não estar visível de trabalhos). É recomendável toouse um limite de disparo não mais que 30000 (30 s).
 
 ### <a name="session-timeout"></a>Tempo limite da sessão
-Por padrão, uma sessão é encerrada 10s após o término de sua última atividade (que geralmente ocorre pressionando a tecla Página Inicial ou Voltar, definindo o telefone como ocioso ou indo diretamente para outro aplicativo). Isso é para evitar uma divisão de sessão cada vez que o usuário sair e retornar para o aplicativo rapidamente (o que pode acontecer quando ele pegar uma imagem, verificar uma notificação, etc.). Convém modificar esse parâmetro. Para fazer isso, adicione (entre as marcas `<application>` e `</application>`):
+Por padrão, uma sessão é encerrada por 10 após o término de saudação de sua última atividade (que normalmente ocorre por pressionando Olá Home ou faça a chave, por definição Olá telefone ocioso ou pulando em outro aplicativo). Isso é tooavoid uma divisão de sessão cada usuário em tempo de saudação sair e retornar o aplicativo toohello rapidamente (o que pode acontecer quando ele escolher uma imagem, verifique a notificação, etc.). Talvez você queira toomodify esse parâmetro. toodo assim, adicione (entre hello `<application>` e `</application>` marcas):
 
             <meta-data android:name="engagement:sessionTimeout" android:value="{session timeout (in milliseconds)}"/>
 
 ## <a name="disable-log-reporting"></a>Desabilitar o relatório de log
 ### <a name="using-a-method-call"></a>Usando uma chamada de método
-Se desejar que o Engagement pare de enviar logs, você pode chamar:
+Se você quiser toostop contrato envio de logs, você pode chamar:
 
             EngagementAgent.getInstance(context).setEnabled(false);
 
 Essa chamada é persistente: ela utiliza um arquivo de preferências compartilhado.
 
-Se o Engagement está ativo quando você chama essa função, pode levar um minuto para parar o serviço. No entanto, ele nem sequer abrirá o serviço na próxima vez que você iniciar o aplicativo.
+Se o contrato está ativo, quando você chamar essa função, pode levar 1 minuto para Olá toostop de serviço. No entanto, não é possível abrir serviço Olá Olá todos próxima vez que você iniciar o aplicativo hello.
 
-Você pode habilitar o log de relatórios novamente chamando a mesma função com `true`.
+Você pode habilitar o log de relatórios novamente chamando Olá a mesma função com `true`.
 
 ### <a name="integration-in-your-own-preferenceactivity"></a>Integração em seu próprio `PreferenceActivity`
 Em vez de chamar essa função, você também pode integrar esta configuração diretamente em seu arquivo existente `PreferenceActivity`.
 
-Você pode configurar o Engagement para usar o arquivo de preferências (com o modo desejado) no arquivo `AndroidManifest.xml` com `application meta-data`:
+Você pode configurar contrato toouse suas preferências de arquivo (com modo desejado de saudação) Olá `AndroidManifest.xml` arquivo com `application meta-data`:
 
-* A chave `engagement:agent:settings:name` é usada para definir o nome do arquivo de preferências compartilhado.
-* A chave `engagement:agent:settings:mode` é usada para definir o modo do arquivo de preferências compartilhado. Você deve usar o mesmo modo que em seu `PreferenceActivity`. O modo deve ser passado como um número: se você estiver usando uma combinação de sinalizadores constantes em seu código, verifique o valor total.
+* Olá `engagement:agent:settings:name` chave é usado toodefine Olá nome do arquivo de preferências compartilhadas Olá.
+* Olá `engagement:agent:settings:mode` chave toodefine usado o modo de saudação do arquivo de preferências compartilhadas hello, você deverá usar Olá mesmo modo que no seu `PreferenceActivity`. Olá modo deve ser passado como um número: se você estiver usando uma combinação de sinalizadores constantes em seu código, verifique o valor total de saudação.
 
-O Engagement sempre usa a chave booliana `engagement:key` dentro do arquivo de preferências para gerenciar esta configuração.
+Contrato sempre usar Olá `engagement:key` booliano chave no arquivo de preferências de saudação para gerenciar essa configuração.
 
-O exemplo a seguir de `AndroidManifest.xml` mostra os valores padrão:
+Olá seguindo o exemplo de `AndroidManifest.xml` mostra Olá valores padrão:
 
             <application>
                 [...]
@@ -373,7 +373,7 @@ O exemplo a seguir de `AndroidManifest.xml` mostra os valores padrão:
                   android:name="engagement:agent:settings:mode"
                   android:value="0" />
 
-Em seguida, você pode adicionar um `CheckBoxPreference` em seu layout de preferência como o seguinte:
+Em seguida, você pode adicionar um `CheckBoxPreference` em seu layout de preferência como Olá seguindo um:
 
             <CheckBoxPreference
               android:key="engagement:enabled"

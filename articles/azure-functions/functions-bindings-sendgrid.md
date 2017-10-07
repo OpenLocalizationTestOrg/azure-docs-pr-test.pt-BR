@@ -1,5 +1,5 @@
 ---
-title: "Associações do SendGrid no Azure Functions | Microsoft Docs"
+title: "associações de funções SendGrid aaaAzure | Microsoft Docs"
 description: "Referência de associações do SendGrid no Azure Functions"
 services: functions
 documentationcenter: na
@@ -12,35 +12,35 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/16/2017
 ms.author: rachelap
-ms.openlocfilehash: 445a40a884e648cdb2a57f8ef43bed4f8a3efcf2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 10a3837875eb6ae18e6c789bcf64cc401cf5f26a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Associações do SendGrid no Azure Functions
 
-Este artigo explica como configurar e trabalhar com associações do SendGrid no Azure Functions. Com o SendGrid, é possível usar o Azure Functions para enviar um email personalizado de forma programática.
+Este artigo explica como tooconfigure e trabalhar com associações do SendGrid em funções do Azure. Com SendGrid, você pode usar funções do Azure toosend personalizado email programaticamente.
 
-Este artigo traz informações de referência para desenvolvedores do Azure Functions. Se for novo no Azure Functions, comece com os seguintes recursos:
+Este artigo traz informações de referência para desenvolvedores do Azure Functions. Se você estiver novas funções tooAzure, inicie com hello recursos a seguir:
 
 [Crie seu primeiro Azure Function](functions-create-first-azure-function.md). 
 Referências do desenvolvedor do [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) ou [Node](functions-reference-node.md).
 
 ## <a name="functionjson-for-sendgrid-bindings"></a>function.json para associações do SendGrid
 
-O Azure Functions fornece uma associação de saída para o SendGrid. A associação de saída do SendGrid permite criar e enviar email de forma programática. 
+O Azure Functions fornece uma associação de saída para o SendGrid. Olá SendGrid saída associação permite que você toocreate e enviar emails por meio de programação. 
 
-A associação do SendGrid dá suporte às seguintes propriedades:
+associação de SendGrid Olá dá suporte a saudação propriedades a seguir:
 
-- `name`: obrigatório – o nome da variável usado no código da função da solicitação ou do corpo da solicitação. Esse valor é ```$return``` quando há apenas um valor retornado. 
-- `type`: obrigatório – deve ser definido como “sendGrid”.
-- `direction`: obrigatório – deve ser definido como “out”.
-- `apiKey`: obrigatório – deve ser definido com o nome da chave de API armazenado nas configurações de aplicativo do Aplicativo de Funções.
-- `to`: o endereço de email do destinatário.
-- `from`: o endereço de email do remetente.
-- `subject`: o assunto do email.
-- `text`: o conteúdo do email.
+- `name`: Necessária – o nome de variável Olá usado no código de função para solicitação de saudação ou o corpo da solicitação. Esse valor é ```$return``` quando há apenas um valor retornado. 
+- `type`: Necessária - deve ser definido muito "sendGrid".
+- `direction`: Necessária - deve ser definido muito "out".
+- `apiKey`: Necessária - deve ser o nome de toohello de conjunto de sua chave de API armazenada nas configurações do aplicativo do aplicativo de função hello.
+- `to`: Olá endereço de email do destinatário.
+- `from`: Olá endereço de email do remetente.
+- `subject`: assunto de saudação do email hello.
+- `text`: Olá conteúdo de email.
 
 Exemplo de **function.json**:
 
@@ -65,7 +65,7 @@ Exemplo de **function.json**:
 >
 >
 
-## <a name="c-example-of-the-sendgrid-output-binding"></a>Exemplo do C# da associação de saída do SendGrid
+## <a name="c-example-of-hello-sendgrid-output-binding"></a>Associação de saída de exemplo em c# de saudação SendGrid
 
 ```csharp
 #r "SendGrid"
@@ -92,7 +92,7 @@ public static Mail Run(TraceWriter log, string input, out Mail message)
 }
 ```
 
-## <a name="node-example-of-the-sendgrid-output-binding"></a>Exemplo de nó da associação de saída do SendGrid
+## <a name="node-example-of-hello-sendgrid-output-binding"></a>Exemplo de nó de saudação SendGrid saída de associação
 
 ```javascript
 module.exports = function (context, input) {    
@@ -115,6 +115,6 @@ module.exports = function (context, input) {
 Para obter informações sobre outras associações e outros gatilhos do Azure Functions, consulte 
 - [Referências do desenvolvedor de gatilhos e associações do Azure Functions](functions-triggers-bindings.md)
 
-- [Melhores Práticas para o Azure Functions](functions-best-practices.md) lista algumas melhores práticas para usar ao criar Azure Functions.
+- [Práticas recomendadas para funções do Azure](functions-best-practices.md) lista alguns toouse práticas recomendada durante a criação de funções do Azure.
 
 - [Referência do desenvolvedor do Azure Functions](functions-reference.md) Referência do programador para a codificação de funções e a definição de gatilhos e de associações.

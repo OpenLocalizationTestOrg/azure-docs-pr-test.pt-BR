@@ -1,6 +1,6 @@
 ---
-title: "Usar as extensões de PostgreSQL no Banco de Dados do Azure para PostgreSQL | Microsoft Docs"
-description: "Descreve a capacidade de estender a funcionalidade de seu banco de dados usando as extensões no Banco de Dados para PostgreSQL."
+title: "extensões de PostgreSQL aaaUsing no banco de dados do Azure para PostgreSQL | Microsoft Docs"
+description: "Descreve a funcionalidade de saudação do hello capacidade tooextend do banco de dados usando as extensões no banco de dados do Azure para PostgreSQL."
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -9,22 +9,22 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/29/2017
-ms.openlocfilehash: 755d1cf1a921f6be8f28a4a8ae515db08d904fcd
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: af2462d7a923b934bc0329153be7079ba86e8856
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Extensões de PostgreSQL no Banco de Dados do Azure para PostgreSQL
-O PostgreSQL fornece a capacidade de estender a funcionalidade de seu banco de dados usando as extensões. As extensões permitem o agrupamento de vários objetos SQL relacionadas em um único pacote, e podem ser carregadas ou removidas de seu banco de dados com um único comando. Após o carregamento no banco de dados, as extensões podem funcionar como recursos incorporados. Para saber mais sobre extensões PostgreSQL, consulte [Empacotar objetos relacionados em uma extensão](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
+PostgreSQL fornece a funcionalidade de saudação do hello capacidade tooextend do banco de dados usando as extensões. Extensões permitir várias toobe de objetos SQL relacionada agrupada em um único pacote e podem ser carregadas ou removidas do banco de dados com um único comando. Extensões de uma vez carregadas no banco de dados de saudação podem funcionar como recursos incorporados no. Para saber mais sobre extensões PostgreSQL, consulte [Empacotar objetos relacionados em uma extensão](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
 
-## <a name="how-to-use-postgresql-extensions"></a>Como usar as extensões PostgreSQL?
-As extensões PostgreSQL precisam ser instalados no banco de dados antes de você poder usá-las. Para instalar uma extensão específica, execute o comando [CREATE EXTENSION](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) na ferramenta psql para carregar os objetos empacotados em seu banco de dados.
+## <a name="how-toouse-postgresql-extensions"></a>Como toouse PostgreSQL extensões?
+Extensões de PostgreSQL necessário toobe instalado para seu banco de dados antes de você pode usá-los. tooinstall uma extensão específica, execute o [criar extensão](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) comando psql tooload de ferramenta Olá empacotados objetos no banco de dados.
 
-O Banco de Dados do Azure para PostgreSQL oferece suporte a um subconjunto de extensões de chave, conforme listado aqui. Além daqueles listados, não há suporte para outras extensões. Não é possível criar sua própria extensão com o Banco de Dados do Azure para o serviço PostgreSQL.
+O Banco de Dados do Azure para PostgreSQL oferece suporte a um subconjunto de extensões de chave, conforme listado aqui. Além da saudação daqueles listados, não há suporte para outras extensões. Não é possível criar sua própria extensão com o Banco de Dados do Azure para o serviço PostgreSQL.
 
 ## <a name="extensions-supported-by-azure-database-for-postgresql"></a>Extensões com suporte do Banco de Dados do Azure para PostgreSQL
-As tabelas a seguir listam as extensões PostgreSQL padrão que têm suporte atualmente do Banco de Dados do Azure para PostgreSQL. Você também pode obter essas informações consultando pg\_available\_extensions. 
+lista Olá PostgreSQL extensões padrão que são atualmente suportadas pelo banco de dados do Azure para PostgreSQL tabelas a seguir de saudação. Você também pode obter essas informações consultando pg\_available\_extensions. 
 
 ### <a name="data-types-extensions"></a>Extensões de tipos de dados
 
@@ -39,11 +39,11 @@ As tabelas a seguir listam as extensões PostgreSQL padrão que têm suporte atu
 > [!div class="mx-tableFixed"]
 | **Extensão** | **Descrição** |
 |---|---|
-| [fuzzystrmatch](https://www.postgresql.org/docs/9.6/static/fuzzystrmatch.html) | Fornece várias funções para determinar semelhanças e a distância entre cadeias de caracteres. |
+| [fuzzystrmatch](https://www.postgresql.org/docs/9.6/static/fuzzystrmatch.html) | Fornece várias semelhanças de toodetermine de funções e a distância entre cadeias de caracteres. |
 | [intarray](https://www.postgresql.org/docs/9.6/static/intarray.html) | Fornece funções e operadores para manipular matrizes de inteiros sem nulos. |
 | [pgcrypto](https://www.postgresql.org/docs/9.6/static/pgcrypto.html) | Fornece funções de criptografia |
 | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Gerencia as tabelas particionadas por hora ou ID |
-| [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Fornece funções e operadores para determinar a semelhança de texto alfanumérico, com base na correspondência de trigram |
+| [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Fornece funções e operadores para determinar a similaridade de saudação do texto alfanumérico, com base na correspondência de trigram |
 | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Gerar identificadores universais exclusivos (UUIDs) |
 
 ### <a name="full-text-search-extensions"></a>Extensões de pesquisa de texto completo
@@ -73,10 +73,10 @@ As tabelas a seguir listam as extensões PostgreSQL padrão que têm suporte atu
 > [!div class="mx-tableFixed"]
 | **Extensão** | **Descrição** |
 |---|---|
-| [pg\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | Fornece um meio para examinar o que está acontecendo no cache do buffer compartilhado em tempo real. |
-| [pg\_prewarm](https://www.postgresql.org/docs/9.6/static/pgprewarm.html) | Fornece uma maneira para carregar dados de relação no cache de buffer. |
+| [pg\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | Fornece uma maneira de examinar o que está acontecendo no cache de buffer Olá compartilhado em tempo real. |
+| [pg\_prewarm](https://www.postgresql.org/docs/9.6/static/pgprewarm.html) | Fornece uma maneira tooload relação de dados no cache de buffer de saudação. |
 | [pg\_stat\_statements](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) | Fornece um meio para rastrear as estatísticas de execução de todas as instruções SQL executadas por um servidor. |
-| [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Wrapper de dados externos usado para acessar dados armazenados em servidores PostgreSQL externos |
+| [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Wrapper de dados externo usado tooaccess dados armazenados em servidores PostgreSQL externos |
 
 ### <a name="postgis"></a>PostGIS
 
@@ -84,8 +84,8 @@ As tabelas a seguir listam as extensões PostgreSQL padrão que têm suporte atu
 | **Extensão** | **Descrição** |
 |---|---|
 | [PostGIS](http://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Objetos espaciais e geográficos para PostgreSQL. |
-| address\_standardizer, address\_standardizer\_data\_us | Usado para analisar um endereço em elementos constituintes. Usado para oferecer suporte à etapa de normalização de endereços de geocodificação. |
-| [pgrouting](http://pgrouting.org/) | Estende o banco de dados geoespacial PostGIS/PostgreSQL para fornecer a funcionalidade de roteamento geoespacial. |
+| address\_standardizer, address\_standardizer\_data\_us | Tooparse usado um endereço em elementos constituintes. Usado a etapa de normalização toosupport geocodificação endereço. |
+| [pgrouting](http://pgrouting.org/) | Estende Olá PostGIS / PostgreSQL geoespaciais tooprovide geoespaciais funcionalidade de roteamento de banco de dados. |
 
 ## <a name="next-steps"></a>Próximas etapas
-Não vê uma extensão que você queira usar? Fale conosco. Vote em solicitações existentes ou crie novos comentários e desejos em nosso [Fórum de comentários do cliente](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
+Não vê uma extensão que você gostaria que toouse? Fale conosco. Vote em solicitações existentes ou crie novos comentários e desejos em nosso [Fórum de comentários do cliente](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).

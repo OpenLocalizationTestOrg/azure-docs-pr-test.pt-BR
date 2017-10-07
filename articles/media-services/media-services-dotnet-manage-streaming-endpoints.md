@@ -1,6 +1,6 @@
 ---
-title: Gerenciar pontos de extremidade de streaming com o SDK .NET. | Microsoft Docs
-description: "Este tópico mostra como gerenciar pontos de extremidade de streaming usando o portal do Azure."
+title: aaaManage pontos de extremidade com o SDK .NET de streaming. | Microsoft Docs
+description: "Este tópico mostra como pontos de extremidade de streaming de toomanage com hello portal do Azure."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 2f4f464f8604b6f453d6b50b736c6a3a889a3408
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 30c092a8ebf4e2b2902392f4cf98f46d812ccdbc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Gerenciar pontos de extremidade de streaming com o SDK .NET
 
 >[!NOTE]
->Certifique-se de examinar o tópico [Visão geral](media-services-streaming-endpoints-overview.md). Além disso, revise [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+>Verifique se Olá de tooreview [visão geral](media-services-streaming-endpoints-overview.md) tópico. Além disso, revise [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
 
-O código deste tópico mostra como realizar as seguintes tarefas usando o SDK do .NET dos Serviços de Mídia do Azure:
+código de saudação neste tópico mostra como Olá toodo seguintes tarefas usando Olá SDK do Azure Media Services .NET:
 
-- Examine o ponto de extremidade de streaming padrão.
+- Examine o padrão de saudação ponto de extremidade de streaming.
 - Crie ou adicione um novo ponto de extremidade de streaming.
 
-    Você talvez queira ter vários pontos de extremidade de streaming se planeja ter diferentes CDNs ou um CDN e acesso direto.
+    Convém toohave vários pontos de extremidade de streaming se você planejar toohave CDNs diferentes ou um CDN e acesso direto.
 
     > [!NOTE]
     > Você será cobrado apenas quando seu ponto de extremidade de streaming estiver em estado de execução.
     
-- Atualize o ponto de extremidade de streaming.
+- Atualize Olá ponto de extremidade de streaming.
     
-    Certifique-se de chamar a função Update().
+    Certifique-se de que toocall Olá função Update ().
 
-- Exclua o ponto de extremidade de streaming.
+- Exclua ponto de extremidade de streaming de saudação.
 
     >[!NOTE]
-    >O ponto de extremidade de streaming não pode ser excluído.
+    >padrão de saudação ponto de extremidade de streaming não pode ser excluído.
 
-Para obter informações sobre como dimensionar o ponto de extremidade de streaming, consulte [este](media-services-portal-scale-streaming-endpoints.md) tópico.
+Para obter informações sobre como tooscale Olá ponto de extremidade de streaming, consulte [isso](media-services-portal-scale-streaming-endpoints.md) tópico.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
+Configurar seu ambiente de desenvolvimento e preencher o arquivo App. config de saudação com informações de conexão, conforme descrito em [desenvolvimento de serviços de mídia com o .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="add-code-that-manages-streaming-endpoints"></a>Adicionar o código que gerencia os pontos de extremidade de streaming
     
-Substitua o código de Program.cs pelo código a seguir:
+Substitua o código de saudação em Olá Program.cs com hello código a seguir:
 
     using System;
     using System.Configuration;
@@ -65,7 +65,7 @@ Substitua o código de Program.cs pelo código a seguir:
     {
         class Program
         {
-        // Read values from the App.config file.
+        // Read values from hello App.config file.
         private static readonly string _AADTenantDomain =
         ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =

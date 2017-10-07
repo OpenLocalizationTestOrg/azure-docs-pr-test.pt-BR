@@ -1,6 +1,6 @@
 ---
-title: "Habilitar automaticamente as Configurações de Diagnóstico usando um modelo do Resource Manager | Microsoft Docs"
-description: "Saiba como usar um modelo do Resource Manager para criar configurações de diagnóstico que ajudarão a transmitir seus logs de diagnóstico para os Hubs de Eventos ou armazená-los em uma conta de armazenamento."
+title: "aaaAutomatically Habilitar configurações de diagnóstico usando um modelo do Gerenciador de recursos | Microsoft Docs"
+description: "Saiba como toouse um Gerenciador de recursos de modelo toocreate configurações de diagnóstico que permitirão que você toostream o diagnóstico logs tooEvent Hubs ou armazená-las em uma conta de armazenamento."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,55 +14,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/14/2017
 ms.author: johnkem
-ms.openlocfilehash: dde2435e976bbd14ca35cccc714ea21dcc5817b7
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8f38731107029928029c6d940da7bd076fea5d49
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Habilitar automaticamente as Configurações de Diagnóstico na criação do recurso usando um modelo do Resource Manager
-Neste artigo, mostramos como você pode usar um [Modelo do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para definir as Configurações de Diagnóstico em um recurso quando ele é criado. Isso permite iniciar automaticamente o streaming de seus Logs de Diagnóstico e métricas para os Hubs de Eventos, arquivando-os em uma Conta de Armazenamento ou enviando-os para o Log Analytics quando um recurso é criado.
+Neste artigo, vamos mostrar como você pode usar um [modelo do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) tooconfigure configurações de diagnóstico em um recurso quando ele é criado. Isso permite que você tooautomatically iniciar streaming seu Logs de diagnóstico e métricas tooEvent Hubs, arquivá-los em uma conta de armazenamento ou enviá-los tooLog análise quando um recurso é criado.
 
-O método para habilitar os Logs de Diagnóstico usando um modelo do Resource Manager depende do tipo de recurso.
+método Hello para habilitar Logs de diagnóstico usando um modelo do Gerenciador de recursos depende do tipo de recurso de saudação.
 
 * **Não Computação** (por exemplo, Grupos de Segurança de Rede, Aplicativos Lógicos, Automação) usam as [Configurações de Diagnóstico descritas neste artigo](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
-* **De Computação** (baseados no WAD/LAD) usam o [Arquivo de configuração do WAD/LAD descrito neste artigo](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
+* **Computação** (WAD/LAD base) recursos usam Olá [arquivo de configuração do WAD/LAD descrito neste artigo](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
-Neste artigo, descrevemos como configurar o diagnóstico usando um método.
+Neste artigo, descreveremos como tooconfigure diagnóstico usando um método.
 
-Estas são as etapas básicas:
+etapas básicas de saudação são da seguinte maneira:
 
-1. Crie um modelo como um arquivo JSON que descreve como criar o recurso e habilite o diagnóstico.
-2. [Implantar o modelo usando qualquer método de implantação](../azure-resource-manager/resource-group-template-deploy.md).
+1. Crie um modelo como um arquivo JSON que descreve como toocreate Olá recursos e habilitar o diagnóstico.
+2. [Implante o modelo hello usando qualquer método de implantação](../azure-resource-manager/resource-group-template-deploy.md).
 
-Abaixo, damos um exemplo de arquivo JSON do modelo que você precisa gerar para os recursos de Computação e de Não Computação.
+A seguir, fornecemos um exemplo de modelo Olá arquivo JSON necessário toogenerate de não-computação e recursos de computação.
 
 ## <a name="non-compute-resource-template"></a>Modelo de recursos de Não Computação
-Para os recursos de Não Computação, você precisará fazer duas coisas:
+Para recursos de computação não, você precisará toodo duas coisas:
 
-1. Adicione parâmetros ao blob de parâmetros para o nome da conta de armazenamento, ID de regra do barramento de serviço e/ou ID do espaço de trabalho do Log Analytics do OMS (permitindo o arquivamento dos Logs de Diagnóstico em uma conta de armazenamento, streaming de logs para os Hubs de Eventos e/ou envio de logs para o Log Analytics).
+1. Adicione o blob de parâmetros de toohello de parâmetros para o nome de conta de armazenamento hello, ID de regra de barramento de serviço e/ou ID do espaço de trabalho de análise de logs do OMS (Habilitar arquivamento de Logs de diagnóstico em uma conta de armazenamento, fluxo de logs tooEvent Hubs e/ou envio de logs tooLog análise).
    
     ```json
     "storageAccountName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
+        "description": "Name of hello Storage Account in which Diagnostic Logs should be saved."
       }
     },
     "serviceBusRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+        "description": "Service Bus Rule Id for hello Service Bus Namespace in which hello Event Hub should be created or streamed to."
       }
     },
     "workspaceId":{
       "type": "string",
       "metadata": {
-        "description": "Log Analytics workspace ID for the Log Analytics workspace to which logs will be sent."
+        "description": "Log Analytics workspace ID for hello Log Analytics workspace toowhich logs will be sent."
       }
     }
     ```
-2. Na matriz de recursos do recurso para o qual você deseja habilitar os Logs de Diagnóstico, adicione um recurso do tipo `[resource namespace]/providers/diagnosticSettings`.
+2. Na matriz de recursos de saudação do recurso de saudação do qual você deseja que os Logs de diagnóstico tooenable, adicionar um recurso do tipo `[resource namespace]/providers/diagnosticSettings`.
    
     ```json
     "resources": [
@@ -102,9 +102,9 @@ Para os recursos de Não Computação, você precisará fazer duas coisas:
     ]
     ```
 
-O blob de propriedades da Configuração de Diagnóstico segue [o formato descrito neste artigo](https://msdn.microsoft.com/library/azure/dn931931.aspx). A adição da propriedade `metrics` permitirá também o envio de métricas de recurso para essas mesmas saídas, desde que [o recurso ofereça suporte para as métricas do Azure Monitor](monitoring-supported-metrics.md).
+Olá blob de propriedades para configuração de diagnóstico de saudação segue [formato Olá descrito neste artigo](https://msdn.microsoft.com/library/azure/dn931931.aspx). Olá adicionando `metrics` propriedade permitirá que você mesmo saídas, contanto que toothese de métricas tooalso envio recurso [métricas do Monitor do Azure oferece suporte a recursos de saudação](monitoring-supported-metrics.md).
 
-Aqui temos um exemplo completo que cria um aplicativo lógico e ativa o streaming para Hubs de eventos e o armazenamento em uma conta de armazenamento.
+Aqui está um exemplo completo que cria um aplicativo lógico e ativa streaming tooEvent Hubs e armazenamento em uma conta de armazenamento.
 
 ```json
 
@@ -115,7 +115,7 @@ Aqui temos um exemplo completo que cria um aplicativo lógico e ativa o streamin
     "logicAppName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the Logic App that will be created."
+        "description": "Name of hello Logic App that will be created."
       }
     },
     "testUri": {
@@ -125,19 +125,19 @@ Aqui temos um exemplo completo que cria um aplicativo lógico e ativa o streamin
     "storageAccountName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
+        "description": "Name of hello Storage Account in which Diagnostic Logs should be saved."
       }
     },
     "serviceBusRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+        "description": "Service Bus Rule Id for hello Service Bus Namespace in which hello Event Hub should be created or streamed to."
       }
     },
     "workspaceId": {
       "type": "string",
       "metadata": {
-        "description": "Log Analytics workspace ID for the Log Analytics workspace to which logs will be sent."
+        "description": "Log Analytics workspace ID for hello Log Analytics workspace toowhich logs will be sent."
       }
     }
   },
@@ -224,20 +224,20 @@ Aqui temos um exemplo completo que cria um aplicativo lógico e ativa o streamin
 ```
 
 ## <a name="compute-resource-template"></a>Modelo de recursos de computação
-Para habilitar o diagnóstico em um recurso de Computação, por exemplo uma Máquina Virtual ou cluster do Service Fabric, você precisa:
+Diagnóstico de tooenable em um recurso de computação, por exemplo, uma máquina Virtual ou cluster do Service Fabric, você precisa:
 
-1. Adicionar a extensão de Diagnóstico do Azure à definição do recurso da VM.
+1. Adicione definição de recurso VM extensão toohello do hello diagnóstico do Azure.
 2. Especificar uma conta de armazenamento e/ou hub de eventos como um parâmetro.
-3. Adicionar o conteúdo do arquivo XML WADCfg na propriedade XMLCfg, substituindo todos os caracteres XML corretamente.
+3. Adicione conteúdo de saudação do arquivo WADCfg XML na propriedade de XMLCfg hello, ignorando todos os caracteres XML corretamente.
 
 > [!WARNING]
-> Esta última etapa pode ser difícil de fazer. [Confira este artigo](../virtual-machines/windows/extensions-diagnostics-template.md#diagnostics-configuration-variables) para obter um exemplo que divide o Esquema de Configuração de Diagnóstico em variáveis que são substituídas e formatadas corretamente.
+> Nesta última etapa pode ser difícil tooget direita. [Consulte este artigo](../virtual-machines/windows/extensions-diagnostics-template.md#diagnostics-configuration-variables) para obter um exemplo que divisões Olá esquema de configuração de diagnóstico em variáveis são ignoradas e formatados corretamente.
 > 
 > 
 
-O processo inteiro, incluindo os exemplos, é descrito [neste documento](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Olá todo o processo, incluindo exemplos, é descrito [neste documento](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Saiba mais sobre os Logs de Diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)
-* [Transmitir Logs de Diagnóstico do Azure para os Hubs de Eventos](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Fluxo de Logs de diagnóstico do Azure tooEvent Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 

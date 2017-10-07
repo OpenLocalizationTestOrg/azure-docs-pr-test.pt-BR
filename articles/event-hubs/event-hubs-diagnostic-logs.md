@@ -1,6 +1,6 @@
 ---
-title: "Logs de diagnóstico dos Hubs de Eventos do Azure | Microsoft Docs"
-description: "Saiba como configurar logs de diagnóstico para hub de eventos no Azure."
+title: "logs de diagnóstico de Hubs de eventos aaaAzure | Microsoft Docs"
+description: "Saiba como tooset backup de logs de diagnósticos para os hubs de eventos no Azure."
 keywords: 
 documentationcenter: 
 services: event-hubs
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/27/2017
 ms.author: sethm;babanisa
-ms.openlocfilehash: 09bc62f4918635419d74ef3ae400a41d4ce58b5a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d2054e2e444e715e5077fe2608fe1e009e6c1d84
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Logs de diagnóstico dos Hubs de Eventos
 
 É possível exibir dois tipos de logs para os Hubs de Eventos do Azure:
-* **[Logs de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Esses logs contém informações sobre as operações executadas em um trabalho. Os logs estão sempre habilitados.
-* **[Logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. É possível configurar logs de diagnóstico para ter uma visão mais detalhada de tudo o que acontece com um trabalho. Os logs de diagnóstico abrangem atividades desde o momento em que o trabalho é criado até sua exclusão, incluindo atualizações e atividades que ocorrem durante a execução do trabalho.
+* **[Logs de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Esses logs contém informações sobre as operações executadas em um trabalho. Olá logs são sempre habilitados.
+* **[Logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. É possível configurar logs de diagnóstico para ter uma visão mais detalhada de tudo o que acontece com um trabalho. Atividades de cobertura de logs de diagnóstico de tempo de saudação trabalho Olá é criado até que o trabalho de saudação é excluído, incluindo atualizações e as atividades que ocorrem durante a saudação trabalho está em execução.
 
 ## <a name="turn-on-diagnostic-logs"></a>Ativar logs de diagnóstico
-Os logs de diagnóstico estão desabilitados por padrão. Para habilitar logs de diagnóstico:
+Os logs de diagnóstico estão desabilitados por padrão. logs de diagnóstico tooenable:
 
-1.  No [Portal do Azure](https://portal.azure.com), em **Monitoramento + Gerenciamento**, clique em **Logs de diagnóstico**.
+1.  Em Olá [portal do Azure](https://portal.azure.com), em **monitoramento + gerenciamento**, clique em **logs de diagnóstico**.
 
-    ![Navegação de folha para os logs de diagnóstico](./media/event-hubs-diagnostic-logs/image1.png)
+    ![Logs de toodiagnostic de navegação de folha](./media/event-hubs-diagnostic-logs/image1.png)
 
-2.  Clique no recurso que você deseja monitorar.
+2.  Clique em recurso Olá desejado toomonitor.
 
 3.  Clique em **Ativar diagnóstico**.
 
@@ -42,32 +42,32 @@ Os logs de diagnóstico estão desabilitados por padrão. Para habilitar logs de
 
 4.  Para **Status**, clique em **Ativar**.
 
-    ![Alterar o status dos logs de diagnóstico](./media/event-hubs-diagnostic-logs/image3.png)
+    ![Alterar o status de saudação de logs de diagnóstico](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  Defina o destino de arquivamento desejado, por exemplo, uma conta de armazenamento, um hub de eventos ou o Log Analytics do Azure.
+5.  Destino de arquivo do hello conjunto desejado. Por exemplo, uma conta de armazenamento, um hub de eventos ou análise de logs do Azure.
 
-6.  Salve as novas configurações de diagnóstico.
+6.  Salve Olá novas configurações de diagnóstico.
 
-As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecerão no destino de arquivamento configurado, na folha **Logs de diagnóstico**.
+As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs são exibidos no destino de arquivamento Olá configurado, no hello **logs de diagnóstico** folha.
 
-Para saber mais sobre como configurar um diagnóstico, confira a [visão geral dos logs de diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Para obter mais informações sobre como configurar o diagnóstico, consulte Olá [visão geral dos logs de diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
 ## <a name="diagnostic-logs-categories"></a>Categorias dos logs de diagnóstico
 Os Hubs de Eventos capturam os logs de diagnóstico de duas categorias:
 
-* **ArchiveLogs**: logs relacionados aos arquivos mortos dos Hubs de Eventos, especificamente os logs relacionados a erros de arquivo morto.
-* **OperationalLogs**: informações sobre o que está acontecendo durante a operação dos Hubs de Eventos, especificamente o tipo de operação, incluindo a criação do hub de eventos, os recursos usados e o status da operação.
+* **ArchiveLogs**: logs relacionados a arquivos de Hubs tooEvent, especificamente, registra erros de tooarchive relacionados.
+* **OperationalLogs**: informações sobre o que está acontecendo durante as operações de Hubs de eventos, especificamente, Olá o tipo de operação, incluindo a criação do hub de eventos, os recursos usados e Olá status da operação de saudação.
 
 ## <a name="diagnostic-logs-schema"></a>Esquema de logs de diagnóstico
-Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cada entrada tem campos de cadeia de caracteres que usam o formato descrito nas seções a seguir.
+Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cada entrada tem campos de cadeia de caracteres que usam o formato de saudação descrito nas seções a seguir de saudação.
 
 ### <a name="archive-logs-schema"></a>Esquema dos logs de arquivo morto
 
-As cadeias de caracteres JSON do log de arquivo morto incluem os elementos listados na seguinte tabela:
+Cadeias de caracteres JSON do arquivo log incluem elementos listados na Olá a tabela a seguir:
 
 Nome | Descrição
 ------- | -------
-TaskName | Descrição da tarefa que falhou.
+TaskName | Descrição da tarefa de saudação que falhou.
 ActivityId | ID interna, usada para acompanhamento.
 trackingId | ID interna, usada para acompanhamento.
 resourceId | ID do Recurso do Azure Resource Manager.
@@ -80,7 +80,7 @@ durationInSeconds | Duração da falha.
 Message | Mensagem de erro.
 categoria | ArchiveLogs
 
-O código a seguir é um exemplo de uma cadeia de caracteres JSON do log de arquivo morto:
+Olá código a seguir é um exemplo de um cadeia de caracteres JSON do log de arquivo:
 
 ```json
 {
@@ -94,18 +94,18 @@ O código a seguir é um exemplo de uma cadeia de caracteres JSON do log de arqu
      "startTime": "9/22/2016 5:11:21 AM",
      "failures": 3,
      "durationInSeconds": 360,
-     "message": "Microsoft.WindowsAzure.Storage.StorageException: The remote server returned an error: (404) Not Found. ---> System.Net.WebException: The remote server returned an error: (404) Not Found.\r\n   at Microsoft.WindowsAzure.Storage.Shared.Protocol.HttpResponseParsers.ProcessExpectedStatusCodeNoException[T](HttpStatusCode expectedStatusCode, HttpStatusCode actualStatusCode, T retVal, StorageCommandBase`1 cmd, Exception ex)\r\n   at Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob.<PutBlockImpl>b__3e(RESTCommand`1 cmd, HttpWebResponse resp, Exception ex, OperationContext ctx)\r\n   at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndGetResponse[T](IAsyncResult getResponseResult)\r\n   --- End of inner exception stack trace ---\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.StorageAsyncResult`1.End()\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.AsyncExtensions.<>c__DisplayClass4.<CreateCallbackVoid>b__3(IAsyncResult ar)\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.",
+     "message": "Microsoft.WindowsAzure.Storage.StorageException: hello remote server returned an error: (404) Not Found. ---> System.Net.WebException: hello remote server returned an error: (404) Not Found.\r\n   at Microsoft.WindowsAzure.Storage.Shared.Protocol.HttpResponseParsers.ProcessExpectedStatusCodeNoException[T](HttpStatusCode expectedStatusCode, HttpStatusCode actualStatusCode, T retVal, StorageCommandBase`1 cmd, Exception ex)\r\n   at Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob.<PutBlockImpl>b__3e(RESTCommand`1 cmd, HttpWebResponse resp, Exception ex, OperationContext ctx)\r\n   at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndGetResponse[T](IAsyncResult getResponseResult)\r\n   --- End of inner exception stack trace ---\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.StorageAsyncResult`1.End()\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.AsyncExtensions.<>c__DisplayClass4.<CreateCallbackVoid>b__3(IAsyncResult ar)\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.",
      "category": "ArchiveLogs"
 }
 ```
 
 ### <a name="operational-logs-schema"></a>Esquema de logs operacionais
 
-As cadeias de caracteres JSON do log operacional incluem os elementos listados na seguinte tabela:
+Cadeias de caracteres do log operacional JSON incluem elementos listados na Olá a tabela a seguir:
 
 Nome | Descrição
 ------- | -------
-ActivityId | ID interna, usada para fins de rastreamento.
+ActivityId | ID interna, usadas tootrack finalidade.
 EventName | Nome da operação.  
 resourceId | ID do Recurso do Azure Resource Manager.
 SubscriptionId | ID da assinatura.
@@ -115,7 +115,7 @@ Status | Status da operação.
 Chamador | Chamador da operação (Portal do Azure ou cliente de gerenciamento).
 categoria | OperationalLogs
 
-O código a seguir é um exemplo de uma cadeia de caracteres JSON do log operacional:
+Olá código a seguir é um exemplo de uma cadeia de caracteres do log operacional JSON:
 
 ```json
 Example:
@@ -133,6 +133,6 @@ Example:
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Introdução aos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
+* [Introdução tooEvent Hubs](event-hubs-what-is-event-hubs.md)
 * [Visão geral de API de Hubs de Eventos](event-hubs-api-overview.md)
 * [Introdução aos Hubs de Evento](event-hubs-csharp-ephcs-getstarted.md)

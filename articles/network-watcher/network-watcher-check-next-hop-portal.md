@@ -1,6 +1,6 @@
 ---
-title: "Localizar próximo salto com o Próximo Salto do Observador de Rede do Azure - Portal do Azure | Microsoft Docs"
-description: "Este artigo descreve como você pode encontrar o que é o tipo do próximo salto e o endereço ip com o próximo salto usando o Portal do Azure"
+title: "aaaFind próximo salto com Azure rede Inspetor de próximo salto - portal do Azure | Microsoft Docs"
+description: "Este artigo descreve como descobrir quais saudação do tipo de próximo salto é e endereço ip usando próximo salto Olá portal do Azure"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 5434b7972346821985c459fc4620805adb88676b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b64a2a5275c15aa8bdb10601de4ae1504a9ab551
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-the-portal"></a>Descubra qual o tipo do próximo salto é usando o recurso de próximo salto no Observador de Rede do Azure usando o portal
+# <a name="find-out-what-hello-next-hop-type-is-using-hello-next-hop-capability-in-azure-network-watcher-using-hello-portal"></a>Descobrir que tipo de próximo salto Olá está usando o recurso de próximo salto Olá no Inspetor de rede do Azure usando o portal de saudação
 
 > [!div class="op_single_selector"]
 > - [Portal do Azure](network-watcher-check-next-hop-portal.md)
@@ -29,38 +29,38 @@ ms.lasthandoff: 07/11/2017
 > - [CLI 2.0](network-watcher-check-next-hop-cli.md)
 > - [API REST do Azure](network-watcher-check-next-hop-rest.md)
 
-O Próximo salto é um recurso do Observador de Rede fornece o capacidade de obter o tipo do próximo salto e o endereço IP com base em uma máquina virtual especificada. Esse recurso é útil para determinar se o tráfego deixar uma máquina virtual atravessa um gateway, internet ou redes virtuais para chegar ao seu destino.
+Próximo salto é um recurso do observador de rede que fornece a capacidade de saudação tipo hello de próximo salto e o endereço IP com base em uma máquina virtual especificada. Esse recurso é útil para determinar se o tráfego que deixa uma máquina virtual atravessa um gateway, internet ou redes virtuais tooget tooits destino.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede. O cenário também pressupõe que exista um grupo de recursos com uma máquina virtual válida a ser usada.
+Este cenário pressupõe que você já seguiu etapas Olá [criar um observador de rede](network-watcher-create.md) toocreate um observador de rede. cenário de Olá também pressupõe que um grupo de recursos com uma máquina virtual válida existe toobe usado.
 
 ## <a name="scenario"></a>Cenário
 
-O cenário abordado neste artigo usa o Próximo salto para localizar o tipo do próximo salto e o endereço IP de um recurso. Para saber mais sobre o Próximo Salto, visite [Visão geral do próximo salto](network-watcher-next-hop-overview.md).
+cenário de saudação abordado neste artigo usa toofind de próximo salto tipo hello de próximo salto e o endereço IP de um recurso. toolearn mais sobre o próximo nó, visite [visão geral próximo salto](network-watcher-next-hop-overview.md).
 
 Neste cenário, você:
 
-* Recuperará o próximo salto de uma máquina virtual.
+* Recupere o próximo salto de saudação de uma máquina virtual.
 
 ## <a name="get-next-hop"></a>Obter o próximo salto
 
 ### <a name="step-1"></a>Etapa 1
 
-Navegue até seu recurso Observador de Rede no Portal do Azure.
+Navegue tooyour recurso observador de rede Olá portal do Azure.
 
 ### <a name="step-2"></a>Etapa 2
 
-Clique em **Próximo salto** no painel de navegação, selecione a máquina virtual e a interface de rede, preencha o IP de origem e de destino e clique no botão **Próximo salto**.
+Clique em **do próximo salto** no painel de navegação do hello, Olá selecione máquina de virtual e interface de rede, preencha Olá IP de origem e de destino e, em seguida, clique em Olá **do próximo salto** botão.
 
 > [!NOTE]
-> O próximo salto exige a alocação do recurso de VM para ser executado.
+> Próximo salto requer que o recurso VM hello está alocado toorun.
 
 ![visão geral de obtenção do próximo salto][1]
 
 ### <a name="step-3"></a>Etapa 3
 
-Após a conclusão da tarefa, os resultados serão fornecidos. O endereço IP e o tipo de dispositivo do próximo salto são exibidos. A tabela a seguir mostra os valores retornados disponíveis no portal.
+Após a conclusão da tarefa hello, resultados de saudação são fornecidos. Olá endereço IP e o tipo de próximo salto saudação do dispositivo é, é exibida. Olá tabela a seguir mostra os valores retornados disponíveis Olá no portal de saudação.
 
 **Tipo do próximo salto**
 
@@ -72,13 +72,13 @@ Após a conclusão da tarefa, os resultados serão fornecidos. O endereço IP e 
 * VnetPeering
 * Nenhum
 
-Se uma rota personalizada tiver sido usada para rotear esse tráfego, a UDR (rota definida pelo usuário) também será exibida com os resultados.
+Se uma rota personalizada foi usado tooroute esse tráfego de rota definidas pelo usuário da saudação (UDR) também é exibido com resultados de saudação.
 
 ![resultados da obtenção do próximo salto][2]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Aprenda a analisar as configurações de Grupo de Segurança de Rede por meio de programação visitando [NSG auditoria com o Observador de Rede](network-watcher-nsg-auditing-powershell.md)
+Saiba como tooreview as configurações de grupo de segurança de rede por meio de programação visitando [NSG auditoria com o observador de rede](network-watcher-nsg-auditing-powershell.md)
 
 [1]: ./media/network-watcher-check-next-hop-portal/figure1.png
 [2]: ./media/network-watcher-check-next-hop-portal/figure2.png

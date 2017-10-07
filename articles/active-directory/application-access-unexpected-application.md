@@ -1,6 +1,6 @@
 ---
-title: Aplicativo inesperado em minha lista de aplicativos | Microsoft Docs
-description: "Como ver todos os aplicativos em seu locatário e entender como os aplicativos aparecem na lista Todos os Aplicativos em Aplicativos Empresariais"
+title: aplicativo de aaaUnexpected na minha lista de aplicativos | Microsoft Docs
+description: "Como toosee todos os aplicativos em seu locatário e entender como os aplicativos aparecem na sua lista de todos os aplicativos em aplicativos corporativos"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,113 +13,113 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 0f8136cb066fa6e3e4a8dd06e34b9f866e3916f6
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 2f974046b655bc36a05f002c56511a8a988cd01c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Aplicativo inesperado em minha lista de aplicativos
 
-Este artigo o ajudará a entender como os aplicativos aparecem na lista **Todos os Aplicativos** em **Aplicativos Empresariais**. 
+Este artigo ajuda toounderstand como os aplicativos são exibidos em seu **todos os aplicativos** lista sob **aplicativos empresariais**. 
 
-## <a name="how-to-see-all-applications-in-your-tenant"></a>Como ver todos os aplicativos em seu locatário
+## <a name="how-toosee-all-applications-in-your-tenant"></a>Como toosee todos os aplicativos em seu locatário
 
-Para ver todos os aplicativos em seu locatário, você precisa usar o controle de **Filtro** para exibir **Todos os Aplicativos** na lista **Todos os Aplicativos**. Para fazer isso, siga as etapas abaixo:
+toosee Olá a todos os aplicativos em seu locatário, é necessário Olá toouse **filtro** controlar tooshow **todos os aplicativos** em Olá **todos os aplicativos** lista. toodo isso, execute Olá estas etapas abaixo:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
+1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global** ou **Co-administrador.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
+2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
 
-4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicativos empresariais** no menu de navegação do hello Azure Active Directory à esquerda.
 
-5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **todos os aplicativos** tooview uma lista de todos os seus aplicativos.
 
-6.  Clique para usar o controle de **Filtro** na parte superior do **Lista de Todos os Aplicativos**.
+6.  Clique em Olá use Olá **filtro** controle na parte superior de saudação do hello **lista de todos os aplicativos**.
 
-7.  Na folha **Filtro**, defina a opção **Exibir** como **Todos os Aplicativos.**
+7.  Em Olá **filtro** folha, Olá conjunto **Mostrar** opção muito**todos os aplicativos.**
 
 ## <a name="why-does-a-specific-application-appear-in-my-all-applications-list"></a>Por que um aplicativo específico aparece em minha lista de todos os aplicativos?
 
-Quando filtrada para **Todos os Aplicativos**, a **Lista** **Todos os Aplicativos** mostra todos os objetos de Entidade de Serviço em seu locatário. Objetos de Entidade de Serviço podem aparecer nessa lista de uma várias maneiras:
+Quando filtrada muito**todos os aplicativos**, Olá **todos os aplicativos** **lista** mostra todos os objetos de entidade de serviço no seu locatário. Objetos de Entidade de Serviço podem aparecer nessa lista de uma várias maneiras:
 
-1.  Quando você adiciona qualquer aplicativo da galeria de aplicativos, incluindo:
+1.  Quando você adicionar qualquer aplicativo da Galeria de aplicativo hello, incluindo:
 
    1. **Aplicativos da Galeria do Azure AD** – um aplicativo que foi integrado previamente para logon único com o Azure AD.
 
-   2. **Aplicativos do Proxy de Aplicativo** – um aplicativo em execução em seu ambiente local para o qual você deseja fornecer logon único seguro externamente.
+   2. **Aplicativos de Proxy de aplicativo** – um aplicativo em execução no seu ambiente local que você deseja tooprovide segura de logon único tooexternally.
 
-   3. **Aplicativos desenvolvidos de forma personalizada** – um aplicativo que sua organização deseja desenvolver na Plataforma de Desenvolvimento de Aplicativos do Azure AD, mas que talvez ainda não exista.
+   3. **Aplicativos personalizado** – Olá de um aplicativo que sua organização deseja toodevelop na plataforma de desenvolvimento de aplicativo do Azure AD, mas que talvez ainda não existir.
 
-   4. **Aplicativos inexistentes na Galeria** – traga seus aplicativos! Qualquer link da Web desejado, ou qualquer aplicativo que renderiza um campo de nome de usuário e senha, dá suporte aos protocolos SAML ou OpenID Connect ou dá suporte ao SCIM que você deseja integrar para logon único com o Azure AD.
+   4. **Aplicativos inexistentes na Galeria** – traga seus aplicativos! Qualquer link da web que você deseja, qualquer aplicativo que processa um campo de nome de usuário e senha, oferece suporte a protocolos SAML ou OpenID Connect ou oferece suporte a SCIM que você deseja toointegrate para logon único com o Azure AD.
 
 2.  Ao se inscrever ou entrar em um aplicativo de <sup>terceiros</sup> integrado ao Azure Active Directory. Um exemplo disso é o [Smartsheet](https://app.smartsheet.com/b/home) ou o [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
 
-3.  Ao se inscrever ou adicionar uma licença a um usuário ou grupo para um aplicativo interno, como o [Microsoft Office 365](http://products.office.com/).
+3.  Quando se inscrever ou adicionar um usuário de tooa de licença ou um grupo tooa primeiro aplicativo, como [Microsoft Office 365](http://products.office.com/).
 
-4.  Quando você adiciona um novo registro de aplicativo criando um aplicativo personalizado usando o [Registro de Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration).
+4.  Quando você adiciona um novo registro de aplicativo, criando um aplicativo personalizado usando Olá [registro de aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration).
 
-5.  Quando você adiciona um novo registro de aplicativo criando um aplicativo personalizado usando o [Portal de Registro de Aplicativos V2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration#visit-the-microsoft-app-registration-portal).
+5.  Quando você adiciona um novo registro de aplicativo, criando um aplicativo personalizado usando Olá [Portal de registro de aplicativo v 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration#visit-the-microsoft-app-registration-portal).
 
 6.  Quando você adiciona um aplicativo que está desenvolvendo usando os [Métodos de autenticação do ASP.net](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) ou os [Serviços Conectados](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx) do Visual Studio.
 
-7.  Quando você cria um objeto de entidade de serviço usando o [Módulo do PowerShell do Azure AD](/powershell/azure/install-adv2?view=azureadps-2.0).
+7.  Quando você cria um objeto de entidade de serviço usando Olá [módulo PowerShell do AD do Azure](/powershell/azure/install-adv2?view=azureadps-2.0).
 
-8.  Quando você [dá consentimento a um aplicativo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) como administrador para usar dados em seu locatário.
+8.  Quando você [consentimento de aplicativo tooan](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) como dados de toouse um administrador no seu locatário.
 
-9.  Quando um [usuário dá consentimento para um aplicativo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) usar dados no seu locatário.
+9.  Quando um [tooan aplicativo consentimento do usuário](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) toouse dados em seu locatário.
 
-10. Quando você habilita determinados serviços que armazenam dados em seu locatário. Um exemplo disso é a Redefinição de Senha, que é modelada como uma entidade de serviço para armazenar sua senha de redefinição de senha com segurança.
+10. Quando você habilita determinados serviços que armazenam dados em seu locatário. Um exemplo disso é a redefinição de senha, que é modelada como um toostore principal do serviço sua senha redefinida política com segurança.
 
-Para obter mais detalhes sobre como aplicativos são adicionados ao seu diretório, leia [Como e por que os aplicativos são adicionados ao Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added).
+tooget obter mais detalhes sobre como os aplicativos são adicionados tooyour diretório, leia [como e por que os aplicativos são adicionados tooAzure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added).
 
-## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Quero remover a atribuição de um usuário ou grupo específico para um aplicativo
+## <a name="i-want-tooremove-a-specific-users-or-groups-assignment-tooan-application"></a>Desejo tooremove aplicativos de tooan de atribuição de um usuário específico ou do grupo
 
-Para remover uma atribuição de um usuário ou grupo a um aplicativo, siga as etapas listadas no artigo [Remover uma atribuição de usuário ou grupo de um aplicativo empresarial no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal).
+tooremove um usuário ou grupo atribuição tooan aplicativo, execute as etapas de saudação listadas no hello [remover uma atribuição de usuário ou grupo de um aplicativo de empresa no Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) artigo.
 
-## <a name="i-want-to-disable-all-access-to-an-application-for-every-user"></a>Quero desabilitar todo o acesso a um aplicativo para todos os usuários
+## <a name="i-want-toodisable-all-access-tooan-application-for-every-user"></a>Desejo toodisable todos os aplicativos de tooan de acesso para cada usuário
 
-Para desabilitar todos os logons de usuário em um aplicativo, siga as etapas listadas no artigo [Desabilitar logons de usuário para um aplicativo empresarial no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal).
+toodisable todos os usuário entradas tooan de aplicativos, siga etapas de saudação listadas Olá [desabilitar entradas do usuário para um aplicativo de empresa no Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) artigo.
 
-## <a name="i-want-to-delete-an-application-entirely"></a>Quero excluir um aplicativo completamente
+## <a name="i-want-toodelete-an-application-entirely"></a>Desejo toodelete um aplicativo totalmente
 
-Para **excluir um aplicativo**, siga as instruções abaixo:
+muito**excluir um aplicativo**, siga as instruções de saudação abaixo:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
+1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global** ou **Co-administrador.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
+2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
 
-4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicativos empresariais** no menu de navegação do hello Azure Active Directory à esquerda.
 
-5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **todos os aplicativos** tooview uma lista de todos os seus aplicativos.
 
-  * Se você não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+  * Se você não vir o aplicativo hello você deseja mostrar aqui, use Olá **filtro** controle na parte superior de saudação do hello **lista de todos os aplicativos** e conjunto hello **Mostrar** opção muito **Todos os aplicativos.**
 
-6.  Selecione o aplicativo que deseja excluir.
+6.  Selecione o aplicativo hello deseja toodelete.
 
-7.  Após o aplicativo ser carregado, clique no ícone **Excluir** na folha **Visão Geral** superior do aplicativo.
+7.  Depois que o aplicativo hello carrega, clique em **excluir** ícone do aplicativo de superior hello **visão geral** folha.
 
-## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Quero desabilitar todas as futuras operações de consentimento do usuário para qualquer aplicativo
+## <a name="i-want-toodisable-all-future-user-consent-operations-tooany-application"></a>Desejo toodisable todos os aplicativos do usuário futuras consentimento operações tooany
 
-Desabilitar o consentimento do usuário para todo o seu diretório impede que os usuários finais consintam com qualquer aplicativo. Os administradores ainda podem consentir em nome dos usuários. Para saber mais sobre o consentimento de aplicativos e por que você pode ou não querer fazer isso, leia [Entendendo o consentimento do usuário e do administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+Desabilitando o consentimento do usuário para seu diretório de todo a impedir que usuários finais de consentimento tooany aplicativo. Os administradores ainda podem consentir em nome dos usuários. toolearn mais sobre o aplicativo de consentimento e por que você pode ou não poderá toodo, leitura [usuário conhecimento e consentimento do administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
 
-Para **desabilitar todas as futuras operações de consentimento do usuário no diretório inteiro**, siga as instruções abaixo:
+muito**desabilitar todas as operações de consentimento do usuário futuras em seu diretório inteiro**, siga as instruções de saudação abaixo:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
+2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
 
-3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
 
-4.  Clique em **Usuários e grupos** no menu de navegação.
+4.  Clique em **usuários e grupos** no menu de navegação hello.
 
 5.  Clique em **Configurações de usuário**.
 
-6.  Desabilite todas as futuras operações de consentimento do usuário definindo o controle de alternância **Os usuários podem permitir que os aplicativos acessem seus dados** como **Não** e clique no botão **Salvar**.
+6.  Desabilitar todas as operações de consentimento do usuário futuro por configuração Olá **usuários podem permitir que aplicativos tooaccess seus dados** alternar muito**não** e clique em Olá **salvar** botão.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Gerenciando aplicativos com o Azure Active Directory](active-directory-enable-sso-scenario.md)

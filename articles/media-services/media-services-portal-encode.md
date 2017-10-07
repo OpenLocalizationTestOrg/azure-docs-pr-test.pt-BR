@@ -1,6 +1,6 @@
 ---
-title: Codificar um ativo usando o Media Encoder Standard com o portal do Azure | Microsoft Docs
-description: "Este tutorial guia você pelas etapas de codificação de um ativo usando o Codificador de Mídia Padrão com o portal do Azure."
+title: "aaaEncode um ativo usando o codificador de mídia padrão com hello portal do Azure | Microsoft Docs"
+description: "Este tutorial orienta você pelas etapas de saudação de codificar um ativo usando o codificador de mídia padrão com hello portal do Azure."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,42 +14,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: a299245e285c4caa68988b184799cd6f4d13e080
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0d118bbbe1fa9f4ba0bfa3ea3b10fb541d1d6379
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="encode-an-asset-using-media-encoder-standard-with-the-azure-portal"></a>Codificar um ativo usando o Codificador de Mídia Padrão com o portal do Azure
+# <a name="encode-an-asset-using-media-encoder-standard-with-hello-azure-portal"></a>Codificar um ativo usando o codificador de mídia padrão com hello portal do Azure
 > [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
+> toocomplete neste tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
-Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming com uma taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Os Serviços de Mídia permitem as seguintes tecnologias de streaming de taxa de bits adaptável: HLS (HTTP Live Streaming), Smooth Streaming, MPEG DASH. Para preparar os vídeos para a transmissão da taxa de bits adaptável, você precisa codificar o vídeo de origem em arquivos de múltiplas taxas de bits. Você deve usar o codificador **Media Encoder Standard** para codificar seus vídeos.  
+Ao trabalhar com um dos cenários mais comuns de saudação está entregando uma taxa de bits adaptável streaming tooyour clientes de serviços de mídia do Azure. Serviços de mídia oferece suporte a saudação seguintes tecnologias de streaming de taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH. tooprepare vídeos para streaming de taxa de bits adaptável, você precisa tooencode sua fonte de vídeo em arquivos de várias taxas de bits. Você deve usar o hello **codificador de mídia padrão** tooencode codificador seus vídeos.  
 
-Os Serviços de Mídia também fornecem um empacotamento dinâmico que permite entregar os MP4s de múltiplas taxas de bits nos formatos de streaming MPEG DASH, HLS e Smooth Streaming, sem a necessidade de reempacotá-los nesses formatos de streaming. Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia criarão e fornecerão a resposta apropriada com base nas solicitações de um cliente.
+Serviços de mídia também fornecem empacotamento dinâmico que permite que você toodeliver seus MP4s de múltiplas taxas de bits nos seguintes formatos de streaming de saudação: MPEG DASH, HLS, Smooth Streaming, sem a necessidade de toore-package nesses formatos de fluxo contínuo. Com o empacotamento dinâmico só é necessário toostore e pagamento para arquivos de saudação em único formato de armazenamento e os serviços de mídia criará e enviará a resposta apropriada hello, com base nas solicitações de um cliente.
 
-Para tirar proveito do empacotamento dinâmico, você precisa codificar seu arquivo de origem em um conjunto de arquivos MP4 com múltiplas taxas de bits (as etapas da codificação são demonstradas mais tarde nesta seção).
+tootake proveito do empacotamento dinâmico, você precisa de tooencode seu arquivo de origem em um conjunto de arquivos MP4 com múltiplas taxas de bits (etapas de codificação Olá são demonstradas posteriormente nesta seção).
 
-Para dimensionar o processamento de mídia, consulte [este](media-services-portal-scale-media-processing.md) tópico.
+mídia tooscale processamento, consulte [isso](media-services-portal-scale-media-processing.md) tópico.
 
-## <a name="encode-with-the-azure-portal"></a>Codificar com o portal do Azure
-Esta seção descreve as etapas que você pode seguir para codificar o conteúdo com o Media Encoder Standard.
+## <a name="encode-with-hello-azure-portal"></a>Codificar com hello portal do Azure
+Esta seção descreve Olá etapas tooencode seu conteúdo com o codificador de mídia padrão.
 
-1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
-2. Na janela **Configurações**, selecione **Ativos**.  
-3. Na janela **Ativos** , selecione o ativo que você gostaria de codificar.
-4. Pressione o botão **Codificar** .
-5. Na janela **Codificar um ativo** , selecione o processador "Media Encoder Standard" e uma predefinição. Para saber mais sobre as predefinições, confira [Gerar automaticamente uma escada de taxa de bits](media-services-autogen-bitrate-ladder-with-mes.md) e [Predefinições de tarefa para MES](media-services-mes-presets-overview.md). Se você pretende controlar qual predefinição de codificação é usada, lembre-se disso: é importante selecionar a predefinição mais apropriada para seu vídeo de entrada. Por exemplo, se você souber que o vídeo de entrada tem uma resolução de 1920 x 1080 pixels, poderá usar a predefinição "H264 Múltiplas Taxas de Bits 1080p". Se você tiver um vídeo de baixa resolução (640 x 360), não deverá usar a predefinição "H264 Múltiplas Taxas de Bits 1080p".
+1. Em Olá [portal do Azure](https://portal.azure.com/), selecione sua conta de serviços de mídia do Azure.
+2. Em Olá **configurações** janela, selecione **ativos**.  
+3. Em Olá **ativos** janela, ativo Olá selecione que você gostaria que tooencode.
+4. Olá pressione **Encode** botão.
+5. Em Olá **codificar um ativo** janela, processador "Padrão de codificador de mídia" hello select e uma predefinição. Para saber mais sobre as predefinições, confira [Gerar automaticamente uma escada de taxa de bits](media-services-autogen-bitrate-ladder-with-mes.md) e [Predefinições de tarefa para MES](media-services-mes-presets-overview.md). Se você planejar toocontrol quais predefinição de codificação é usada, lembre-se disso: é importante tooselect Olá predefinição mais apropriado para o vídeo de entrada. Por exemplo, se você souber o vídeo de entrada com uma resolução de 1920 x 1080 pixels, você pode usar hello "H264 taxas de bits múltiplas 1080p" predefinido. Se você tiver um vídeo de baixa resolução (640 x 360), não deverá usar a predefinição "H264 Múltiplas Taxas de Bits 1080p".
    
-   Para facilitar o gerenciamento, você tem a opção de editar o nome do ativo de saída e o nome do trabalho.
+   Para facilitar o gerenciamento, você tem uma opção da edição nome Olá Olá ativo de saída e o nome de saudação do trabalho de saudação.
    
    ![Codificar ativos](./media/media-services-portal-vod-get-started/media-services-encode1.png)
 6. Pressione **Criar**.
 
 ## <a name="next-step"></a>Próxima etapa
-Você pode monitorar o andamento do trabalho de codificação com o portal do Azure, conforme descrito [neste](media-services-portal-check-job-progress.md) artigo.  
+Você pode monitorar o andamento do trabalho codificação com hello portal do Azure, conforme descrito em [isso](media-services-portal-check-job-progress.md) artigo.  
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

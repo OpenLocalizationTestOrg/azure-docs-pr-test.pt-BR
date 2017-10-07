@@ -1,5 +1,5 @@
 ---
-title: "Solucionar problemas de sua configuração de cluster do Service Fabric local | Microsoft Docs"
+title: "aaaTroubleshoot sua instalação local do cluster do Service Fabric | Microsoft Docs"
 description: "Este artigo aborda um conjunto de sugestões para a solução de problemas do cluster de desenvolvimento local"
 services: service-fabric
 documentationcenter: .net
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: mikkelhegn
-ms.openlocfilehash: aa393f884b564cee81fcf75cc2eff895efea9471
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ce36f62a4bc69d2cd5b6c3df4abda6ca88fa84f0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>Solucionar problemas de configuração do cluster de desenvolvimento local
-Se você tiver um problema ao interagir com o cluster de desenvolvimento local do Service Fabric do Azure, examine as sugestões a seguir para ver as possíveis soluções.
+Se você encontrar um problema ao interagir com o cluster de desenvolvimento local do Azure Service Fabric, examine Olá sugestões para possíveis soluções a seguir.
 
 ## <a name="cluster-setup-failures"></a>Falhas de configuração do cluster
 ### <a name="cannot-clean-up-service-fabric-logs"></a>Não é possível limpar os logs da Malha do Serviço
 #### <a name="problem"></a>Problema
-Ao executar o script DevClusterSetup, você vê um erro como este:
+Ao executar o script de DevClusterSetup hello, você vir um erro como este:
 
-    Cannot clean up C:\SfDevCluster\Log fully as references are likely being held to items in it. Please remove those and run this script again.
+    Cannot clean up C:\SfDevCluster\Log fully as references are likely being held tooitems in it. Please remove those and run this script again.
     At line:1 char:1 + .\DevClusterSetup.ps1
     + ~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo : NotSpecified: (:) [Write-Error], WriteErrorException
@@ -36,33 +36,33 @@ Ao executar o script DevClusterSetup, você vê um erro como este:
 
 
 #### <a name="solution"></a>Solução
-Feche a janela atual do PowerShell e inicie uma nova janela como um administrador. Agora você pode executar o script com êxito.
+Feche Olá janela atual do PowerShell e abra uma nova janela do PowerShell como administrador. Agora você deve ser capaz de toosuccessfully executar script hello.
 
 ## <a name="cluster-connection-failures"></a>Falhas de conexão do cluster
 ### <a name="service-fabric-powershell-cmdlets-are-not-recognized-in-azure-powershell"></a>Cmdlets do PowerShell do Service Fabric não são reconhecidos no Azure PowerShell
 #### <a name="problem"></a>Problema
-Se você tentar executar qualquer um dos cmdlets do PowerShell do Service Fabric, como `Connect-ServiceFabricCluster` em uma janela do Azure PowerShell, ele falhará, dizendo que o cmdlet não é reconhecido. A razão para isso é que o Azure PowerShell usa a versão de 32 bits do Windows PowerShell (mesmo em versões de sistema operacional de 64 bits), enquanto os cmdlets do Service Fabric só funcionam em ambientes de 64 bits.
+Se você tentar toorun qualquer Olá cmdlets do PowerShell de malha do serviço, como `Connect-ServiceFabricCluster` em uma janela do PowerShell do Azure, ele falhar, indicando que esse cmdlet Olá não é reconhecido. motivo Olá para isso é que PowerShell do Azure usa a versão de 32 bits de saudação do Windows PowerShell (mesmo em versões de sistema operacional de 64 bits), enquanto Olá cmdlets do Service Fabric só funcionam em ambientes de 64 bits.
 
 #### <a name="solution"></a>Solução
 Sempre execute os cmdlets do Service Fabric diretamente do Windows PowerShell.
 
 > [!NOTE]
-> A versão mais recente do Azure PowerShell não cria um atalho especial, então isso não deverá mais ocorrer.
+> versão mais recente de saudação do PowerShell do Azure não cria um atalho especial, para que isso não deve ocorrer.
 > 
 > 
 
 ### <a name="type-initialization-exception"></a>Exceção de Inicialização de Tipo
 #### <a name="problem"></a>Problema
-Ao conectar-se com o cluster no PowerShell, você vê o erro TypeInitializationException para System.Fabric.Common.AppTrace.
+Quando você se conectar a cluster toohello no PowerShell, você verá o erro Olá TypeInitializationException para System.Fabric.Common.AppTrace.
 
 #### <a name="solution"></a>Solução
 A variável do caminho não foi definida corretamente durante a instalação. Saia do Windows e entre novamente. Isso atualiza o caminho.
 
 ### <a name="cluster-connection-fails-with-object-is-closed"></a>Falha de conexão do cluster com “O objeto está fechado”
 #### <a name="problem"></a>Problema
-Uma chamada para Connect-ServiceFabricCluster falha com um erro parecido com este:
+Uma chamada tooConnect-ServiceFabricCluster falhará com um erro como este:
 
-    Connect-ServiceFabricCluster : The object is closed.
+    Connect-ServiceFabricCluster : hello object is closed.
     At line:1 char:1
     + Connect-ServiceFabricCluster
     + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -70,19 +70,19 @@ Uma chamada para Connect-ServiceFabricCluster falha com um erro parecido com est
     + FullyQualifiedErrorId : CreateClusterConnectionErrorId,Microsoft.ServiceFabric.Powershell.ConnectCluster
 
 #### <a name="solution"></a>Solução
-Feche a janela atual do PowerShell e inicie uma nova janela como um administrador. Agora você pode se conectar com êxito.
+Feche Olá janela atual do PowerShell e abra uma nova janela do PowerShell como administrador. Agora você deve ser capaz de conectar-se toosuccessfully.
 
 ### <a name="fabric-connection-denied-exception"></a>Exceção de Conexão ao Fabric Negada
 #### <a name="problem"></a>Problema
 Ao depurar no Visual Studio, você obtém um erro FabricConnectionDeniedException.
 
 #### <a name="solution"></a>Solução
-Geralmente, esse erro ocorre quando você tenta iniciar um processo de host de serviço manualmente, em vez de permitir que o tempo de execução do Service Fabric inicie-o para você.
+Esse erro normalmente ocorre quando você tentar toostart um processo de host de serviço manualmente, em vez de permitir toostart de tempo de execução do Service Fabric Olá para você.
 
 Verifique se você não possui um projeto de serviço definido como projeto de inicialização na sua solução. Somente projetos de aplicativo da Malha do Serviço devem ser definidos como projetos de inicialização.
 
 > [!TIP]
-> Se, após a instalação, o cluster local começar a se comportar de forma anormal, você poderá redefini-lo usando o aplicativo de bandeja de sistema de gerenciador de cluster local. Isso remove o cluster existente e configura um novo. Observe que todos os aplicativos implantados e os dados associados são removidos.
+> Se, após a instalação, o cluster local começa toobehave anormal, você poderá redefini-lo usando o aplicativo de bandeja de sistema do hello cluster local manager. Isso remove Olá cluster existente e configure um novo. Observe que todos os aplicativos implantados e os dados associados são removidos.
 > 
 > 
 

@@ -1,5 +1,5 @@
 ---
-title: "Configurar alertas de cobrança ou de crédito para assinaturas do Azure | Microsoft Docs"
+title: "aaaSet os alertas de crédito ou de cobrança de assinaturas do Azure | Microsoft Docs"
 description: "Descreve como você pode configurar alertas na sua conta do Azure para que possa evitar surpresas na cobrança."
 keywords: "alerta de crédito, alerta de cobrança"
 services: 
@@ -17,46 +17,46 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: vikdesai
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a1b579fdde831fdc3afa0a2aee4c24890216ed1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 711b9c72c59874792b0e229cdc5ec0fa517c24c1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Configurar alertas de cobrança ou de crédito para assinaturas do Microsoft Azure
-Caso seja o Administrador da Conta de uma assinatura do Azure, você poderá usar o Serviço de Alerta de Cobrança do Azure para criar alertas personalizados de cobrança que ajudam a monitorar e gerenciar a atividade de cobrança de suas contas do Azure.
+Se você estiver Olá administrador da conta para uma assinatura do Azure, você pode usar o hello Azure cobrança serviço Alerta alertas de cobrança toocreate personalizado que ajudam a monitorar e gerenciar a atividade de cobrança para suas contas do Azure.
 
-Esse serviço está no modo preview, de modo que você precisa habilitá-lo primeiro na página Recursos do Preview.
+Esse serviço é na visualização, portanto, você precisa tooenable-lo na página de recursos de visualização de saudação primeiro.
 
-## <a name="set-the-alert-threshold-and-email-recipients"></a>Definir os alertas de limite e destinatários de email
-1. Visite [a página Recursos do Preview](https://account.windowsazure.com/PreviewFeatures) e habilite **Serviço de Alerta de Cobrança**.
+## <a name="set-hello-alert-threshold-and-email-recipients"></a>Definir Olá alertas limite e destinatários de email
+1. Visite [página de recursos de visualização de saudação](https://account.windowsazure.com/PreviewFeatures) e habilitar **serviço de alerta de cobrança**.
 
-1. Depois de receber o email de confirmação de que o serviço de cobrança foi ativado para a sua assinatura, visite [a página Assinaturas](https://account.windowsazure.com/Subscriptions) no portal da conta. Clique na assinatura que você deseja monitorar e, em seguida, clique em **Alertas**.
+1. Após receber a confirmação de email de Olá Olá serviço de cobrança é ativado para sua assinatura, visite [página de assinaturas Olá](https://account.windowsazure.com/Subscriptions) no portal de conta hello. Clique na assinatura Olá você deseja toomonitor e, em seguida, clique em **alertas**.
 
-    ![Captura de tela da exibição de assinaturas do Centro de Contas do Azure, com Alertas realçado][Image1]
+    ![Captura de tela da exibição de assinaturas de saudação do Centro de conta do Azure, com alertas realçado][Image1]
 
-2. Em seguida, clique em **Adicionar Alerta** para criar o primeiro. Você pode configurar até cinco alertas de cobrança por assinatura, com um limite diferente e até dois destinatários de email para cada alerta.
+2. Em seguida, clique em **adicionar alerta** toocreate o primeiro deles. Você pode definir um total de cinco alertas de cobrança por assinatura, com um limite diferente e até tootwo destinatários de email para cada alerta.
 
-    ![Captura de tela da exibição Alertas, na qual é possível adicionar alertas][Image2]
+    ![Captura de tela da saudação exibir alertas, onde você pode adicionar alerta][Image2]
 
-3. Ao adicionar um alerta, você informa um nome exclusivo, escolhe um limite de gastos e escolhe os endereços de email para os quais os alertas serão enviados. Ao configurar o limite, você pode escolher um **Total de cobrança** ou um **Crédito Monetário** na lista **Alerta para**. Para total de cobrança, um alerta é enviado quando o gasto com a assinatura excede o limite. Para crédito monetário, um alerta é enviado quando os créditos monetários reduzem abaixo do limite. Créditos monetários geralmente se aplicam a assinaturas de Avaliação Gratuita e do Visual Studio.
+3. Quando você adiciona um alerta, dê a ele um nome exclusivo, escolha um limite de gasto e escolha Olá endereços de email onde os alertas são enviados. Ao configurar o limite de saudação, você pode escolher um **Total de cobrança** ou um **crédito monetário** de saudação **alerta para** lista. Para um total de cobrança, um alerta é enviado quando o gasto da assinatura excede o limite de saudação. Para um crédito monetário, um alerta é enviado quando os créditos monetários caem abaixo do limite de saudação. Créditos monetários geralmente se aplicam a assinaturas de avaliação e o Visual Studio tooFree.
 
-    ![Captura de tela da exibição de adição de alerta, na qual é possível configurar destinatários][Image3]
+    ![Captura de tela de modo de exibição de alerta de adição de hello, onde você pode configurar os destinatários][Image3]
 
-O Azure é compatível com qualquer endereço de email, mas não verifica se este funciona, por isso, verifique atentamente se digitou corretamente.
+O Azure suporta qualquer endereço de email mas não verifique se o endereço de email Olá funciona, portanto, verifique erros de digitação.
 
 ## <a name="check-on-your-alerts"></a>Verificar os seus alertas
-Depois de configurar os alertas, o Centro de Contas lista e mostra quantos mais você pode configurar. Para cada alerta, você verá a data e a hora de envio, se é um alerta do Total de Cobrança ou de Crédito Monetário e o limite definido. O formato de data e hora é 24 horas - Hora Universal Coordenada (UTC) e a data usa o formato aaaa-mm-dd. Clique no sinal de adição de um alerta na lista para editá-lo ou clique na lixeira para excluí-lo.
+Depois de configurar alertas, Olá Centro de contas lista e mostra quantos mais você pode configurar. Para cada alerta, você pode ver Olá data e hora de envio, se é um alerta do Total de cobrança ou crédito monetário e limite Olá que você configurar. formato de data e hora da saudação é 24 horas Hora Universal coordenada (UTC) e data de saudação é o formato aaaa-mm-dd. Clique Olá além de assiná-lo para um alerta no hello lista tooedit ou Olá Lixeira toodelete-lo.
 
 ## <a name="billing-alerts-for-enterprise-agreement-ea-customers"></a>Alertas de cobrança para clientes do EA (Enterprise Agreement)
-Os clientes do EA podem obter alertas para cada departamento em um registro configurando cotas de gasto. Para começar, confira [Cotas de Gasto por Departamento](https://ea.azure.com/helpdocs/departmentSpendingQuotas) no portal do EA.
+Os clientes do EA podem obter alertas para cada departamento em um registro configurando cotas de gasto. Consulte [departamento gastos cotas](https://ea.azure.com/helpdocs/departmentSpendingQuotas) em tooget portal de EA Olá iniciado.
 
 ## <a name="learn-more-about-azure-cost-management"></a>Saiba mais sobre o gerenciamento de custos do Azure
-- Faça uma estimativa dos custos usando a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/), a [calculadora do custo total de propriedade](https://aka.ms/azure-tco-calculator) e quando você adiciona um serviço.
+- Estimar os custos usando Olá [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/), [custo total de cálculo de propriedade](https://aka.ms/azure-tco-calculator), e quando você adiciona um serviço.
 - [Analise o uso e os custos regularmente no Portal do Azure](billing-getting-started.md#costs).
 - Ative [Recomendações de custo do Assistente do Azure](../advisor/advisor-cost-recommendations.md).
 
-Para saber mais, confira [Orientações sobre o gerenciamento de custos do Azure](billing-getting-started.md).
+mais, consulte toolearn [orientações sobre o gerenciamento de custos do Azure](billing-getting-started.md).
 
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png 
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png

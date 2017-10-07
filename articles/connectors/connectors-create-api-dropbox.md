@@ -1,6 +1,6 @@
 ---
-title: "Conector do Dropbox no Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Crie Aplicativos Lógicos com o serviço de Aplicativo do Azure. Conecte-se ao Dropbox para gerenciar seus arquivos. Você pode executar várias ações, como carregar, atualizar, obter e excluir arquivos no Dropbox."
+title: "conector de aaaDropbox em aplicativos do Azure lógica | Microsoft Docs"
+description: "Crie Aplicativos Lógicos com o serviço de Aplicativo do Azure. Conecte tooDropbox toomanage seus arquivos. Você pode executar várias ações, como carregar, atualizar, obter e excluir arquivos no Dropbox."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
@@ -15,54 +15,54 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 0d09580c60fd620811b539147439d0922839fe7e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1f307477836104c0bc0008341604a1400860987f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-dropbox-connector"></a>Introdução ao conector do Dropbox
-Conecte-se ao Dropbox para gerenciar seus arquivos. Você pode executar várias ações, como carregar, atualizar, obter e excluir arquivos no Dropbox.
+# <a name="get-started-with-hello-dropbox-connector"></a>Introdução ao conector do Dropbox Olá
+Conecte tooDropbox toomanage seus arquivos. Você pode executar várias ações, como carregar, atualizar, obter e excluir arquivos no Dropbox.
 
-Para usar [qualquer conector](apis-list.md), primeiro é preciso criar um aplicativo lógico. Você pode começar [criando um aplicativo lógico agora](../logic-apps/logic-apps-create-a-logic-app.md).
+toouse [qualquer conector](apis-list.md), primeiro é necessário toocreate um aplicativo lógico. Você pode começar [criando um aplicativo lógico agora](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="connect-to-dropbox"></a>Conectar-se ao Dropbox
-Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma *conexão* com o serviço. Uma conexão fornece uma conectividade entre um aplicativo lógico e outro serviço. Por exemplo, para se conectar ao Dropbox, é preciso ter uma *conexão* com o Dropbox. Para criar uma conexão, é preciso fornecer as credenciais normalmente usadas para acessar o serviço ao qual você deseja se conectar. Desse modo, no exemplo do Dropbox, são necessárias as credenciais da sua conta no Dropbox para criar a conexão com o Dropbox. [Saiba mais sobre conexões]()
+## <a name="connect-toodropbox"></a>Conecte-se tooDropbox
+Antes de sua lógica de aplicativo pode acessar qualquer serviço, primeiro é necessário toocreate um *conexão* toohello service. Uma conexão fornece uma conectividade entre um aplicativo lógico e outro serviço. Por exemplo, em ordem tooconnect tooDropbox, primeiro é necessário um Dropbox *conexão*. toocreate uma conexão, você precisaria de credenciais de saudação tooprovide você normalmente usa o serviço de saudação tooaccess para que desejar tooconnect. Assim, no exemplo do Dropbox hello, seria necessário Olá credenciais tooyour conta do Dropbox na ordem toocreate Olá conexão tooDropbox. [Saiba mais sobre conexões]()
 
-### <a name="create-a-connection-to-dropbox"></a>Criar uma conexão com o Dropbox
-> [!INCLUDE [Steps to create a connection to Dropbox](../../includes/connectors-create-api-dropbox.md)]
+### <a name="create-a-connection-toodropbox"></a>Criar uma conexão tooDropbox
+> [!INCLUDE [Steps toocreate a connection tooDropbox](../../includes/connectors-create-api-dropbox.md)]
 > 
 > 
 
 ## <a name="use-a-dropbox-trigger"></a>Usar um gatilho do Dropbox
-Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Um gatilho é um evento que pode ser o fluxo de trabalho do hello toostart usado definido em um aplicativo lógico. [Saiba mais sobre gatilhos](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
-Neste exemplo, usaremos o gatilho **Quando um arquivo é criado**. Quando esse gatilho ocorrer, chamaremos a ação do Dropbox **Obter conteúdo do arquivo usando o caminho**. 
+Neste exemplo, usaremos Olá **quando um arquivo é criado** gatilho. Quando ocorre esse gatilho, chamaremos Olá **obter conteúdo do arquivo usando o caminho** ação Dropbox. 
 
-1. Insira *dropbox* na caixa de pesquisa no designer de Aplicativos Lógicos e selecione o gatilho **Dropbox - Quando um arquivo é criado**.      
+1. Digite *dropbox* na caixa de pesquisa Olá no designer de aplicativos lógicos hello, selecione Olá **Dropbox - quando um arquivo é criado** gatilho.      
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)  
-2. Escolha a pasta na qual você deseja controlar a criação do arquivo. Escolha ... (identificado na caixa vermelha) e navegue até a pasta que deseja selecionar para entrada do gatilho.  
+2. Selecione a pasta de saudação no qual você deseja tootrack criação de arquivos. Selecione... (identificado na caixa Olá vermelho) e procurar toohello pasta tooselect para gatilho de saudação da entrada.  
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
 
 ## <a name="use-a-dropbox-action"></a>Usar uma ação do Dropbox
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Uma ação é uma operação executada pelo fluxo de trabalho Olá definido em um aplicativo lógico. [Saiba mais sobre ações](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
-Agora que o gatilho foi adicionado, siga estas etapas para adicionar uma ação que obterá o novo conteúdo do arquivo.
+Agora que hello gatilho foi adicionado, siga essas etapas tooadd uma ação que receberá o conteúdo do arquivo hello novo.
 
-1. Escolha **+ Nova Etapa** para adicionar a ação que deseja executar quando um novo arquivo for criado.  
+1. Selecione **+ nova etapa** ação de saudação tooadd você gostaria que tootake quando um novo arquivo é criado.  
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
-2. Escolha **Adicionar uma ação**. Isso abre a caixa de pesquisa, na qual é possível procurar qualquer ação que você deseja realizar.  
+2. Escolha **Adicionar uma ação**. Essa caixa de pesquisa de Olá abre onde você pode procurar qualquer ação que você gostaria de tootake.  
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
-3. Insira *dropbox* para pesquisar as ações relacionadas ao Dropbox.  
-4. Escolha **Dropbox - Obter conteúdo do arquivo usando o caminho** como a ação a ser executada quando um novo arquivo for criado na pasta Dropbox selecionada. O bloco de controle de ação é aberto. Será solicitado que você autorize o aplicativo lógico a acessar sua conta no Dropbox, caso não tenha feito isso antes.  
+3. Digite *dropbox* toosearch para tooDropbox de ações relacionadas.  
+4. Selecione **Dropbox - obter conteúdo do arquivo usando o caminho** como Olá tootake ação quando um novo arquivo é criado no hello selecionado pasta Dropbox. bloco de controle de ação de saudação é aberto. Você será solicitado tooauthorize tooaccess de aplicativo sua lógica seu Dropbox conta se você não tiver feito isso anteriormente.  
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)  
-5. Escolha ... (localizado no lado direito do controle **Caminho do Arquivo**) e navegue até o caminho do arquivo que deseja usar. Ou use o token do **caminho do arquivo** para agilizar a criação do aplicativo lógico.  
+5. Selecione... (localizado no lado direito de saudação do hello **caminho do arquivo** controle) e procure o caminho do arquivo toohello você gostaria que toouse. Ou use Olá **caminho do arquivo** token toospeed a sua criação de lógica de aplicativo.  
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)  
-6. Salve seu trabalho e crie um novo arquivo no Dropbox para ativar o fluxo de trabalho.  
+6. Salve seu trabalho e criar um novo arquivo no Dropbox tooactivate seu fluxo de trabalho.  
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/dropbox/).
+Exibir quaisquer gatilhos e ações definidas em swagger Olá e também os limites de saudação [detalhes conector](/connectors/dropbox/).
 
 ## <a name="more-connectors"></a>Mais conectores
-Volte para a [Lista de APIs](apis-list.md).
+Voltar toohello [lista APIs](apis-list.md).

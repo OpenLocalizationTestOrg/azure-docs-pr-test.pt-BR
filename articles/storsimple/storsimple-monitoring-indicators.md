@@ -1,6 +1,6 @@
 ---
-title: Indicadores de monitoramento do StorSimple | Microsoft Docs
-description: Descreve os LEDs e os alarmes usados para monitorar o status do dispositivo StorSimple.
+title: indicadores de monitoramento de aaaStorSimple | Microsoft Docs
+description: "Descreve Olá diodos emissores (LEDs) e alarmes audíveis usados toomonitor Olá status do dispositivo do StorSimple hello."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 0d44f94719bff0cb58b3727050598e55f4774e66
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e690b8f4727272f5fbb8886a594a046f794a1380
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Usar indicadores de monitoramento do StorSimple para gerenciar seu dispositivo
+# <a name="use-storsimple-monitoring-indicators-toomanage-your-device"></a>Usar o seu dispositivo StorSimple toomanage indicadores de monitoramento
 ## <a name="overview"></a>Visão geral
-O seu dispositivo StorSimple inclui diodos emissores de luz (LEDs) e alarmes que você pode usar para monitorar os módulos e o status geral do dispositivo StorSimple. Os indicadores de monitoramento podem ser encontrados nos componentes de hardware do compartimento primário do dispositivo e o do compartimento EBOD. Os indicadores de monitoramento podem ser LEDs ou alarmes audíveis.
+Seu dispositivo StorSimple inclui diodos emissores de (LEDs) e alarmes que você pode usar toomonitor Olá módulos e status geral do dispositivo do StorSimple hello. Olá indicadores de monitoramento pode ser encontrada em componentes de hardware de saudação do compartimento primário do dispositivo hello e compartimento do EBOD hello. Olá indicadores de monitoramento pode ser LEDs ou alarmes audíveis.
 
-Há três estados de LED usados para indicar o status de um módulo: verde, verde intermitente a vermelho-âmbar ou vermelho-âmbar.  
+Há três estados usados tooindicate Olá status do LED de um módulo: verde piscando toored verde-âmbar, ou vermelho-âmbar.  
 
 * LEDs verdes representam o status de funcionamento adequado.  
-* Verde intermitente a vermelho-âmbar representam a presença de condições não críticas que podem exigir a intervenção do usuário.  
-* LEDs vermelho-âmbar indicam que há uma falha crítica presente no módulo.  
+* LEDs toored-âmbar verde piscando representam a presença de saudação de condições não críticas que podem exigir a intervenção do usuário.  
+* LEDs vermelho-âmbar indicam que há uma falha crítica presente dentro do módulo de saudação.  
 
-O restante deste artigo descreve os vários LEDs indicadores de monitoramento, seus locais no dispositivo StorSimple, o status do dispositivo com base em estados do LED e quaisquer alarmes audíveis associados.
+Olá restante deste artigo descreve Olá vários LEDs indicadores de monitoramento, seus locais no dispositivo StorSimple de saudação, status do dispositivo Olá com base em Olá estados de LED e qualquer alarmes audível associado.
 
 ## <a name="front-panel-indicator-leds"></a>LEDs indicadores no painel frontal
-O painel frontal, também conhecido como o *painel de operações* ou *painel ops*, exibe o status da agregação de todos os módulos no sistema. O painel frontal é idêntico no compartimento StorSimple primário e no compartimento EBOD, e é ilustrado abaixo.  
+o painel frontal Hello, também conhecido como Olá *painel de operações* ou *painel ops*, exibe o status agregado de saudação de todos os módulos de saudação no sistema de saudação. painel frontal da saudação é idêntico Olá StorSimple primário e hello compartimento EBOD e é ilustrado abaixo.  
 
    ![Painel frontal do dispositivo][1]
 
-O painel frontal contém os seguintes indicadores:  
+painel frontal Olá contém Olá indicadores a seguir:  
 
 1. Botão silenciar
 2. LED Indicador de energia (verde/vermelho-âmbar)
@@ -45,14 +45,14 @@ O painel frontal contém os seguintes indicadores:
 4. LED indicador de falha lógica (aceso vermelho-âmbar/apagado)
 5. Exibição da ID da unidade  
 
-A principal diferença entre os LEDs do painel frontal do dispositivo e do compartimento EBOD é o **Número de Identificação da Unidade de Sistema** mostrado na tela do LED. A ID de unidade padrão exibida no dispositivo é **00**, enquanto que a ID de unidade padrão exibida no compartimento EBOD é **01**. Isso permite que você possa diferenciar rapidamente entre o dispositivo e o compartimento EBOD quando o dispositivo está ativado. Se o dispositivo estiver desligado, use as informações fornecidas em [Ligar um novo dispositivo](storsimple-turn-device-on-or-off.md#turn-on-a-new-device) para diferenciar o dispositivo do compartimento EBOD.  
+Olá, principal diferença entre o painel frontal Olá LEDs para dispositivo hello e de saudação compartimento EBOD é hello **número de identificação da unidade de sistema** mostrada na tela hello LED. unidade de padrão de saudação ID exibida no dispositivo de saudação é **00**, enquanto Olá ID da unidade padrão exibida no compartimento EBOD de saudação é **01**. Isso permite que você tooquickly diferenciar entre o dispositivo hello e compartimento do EBOD hello quando Olá dispositivo for ativado. Se o dispositivo estiver desativado, use informações de saudação fornecidas no [ativar um novo dispositivo](storsimple-turn-device-on-or-off.md#turn-on-a-new-device) toodifferentiate dispositivo Olá Olá compartimento EBOD.  
 
 ## <a name="front-panel-led-status"></a>Status do LED do painel frontal
-Use a tabela a seguir para identificar o status indicado pelos LEDs no painel frontal do dispositivo ou do compartimento EBOD.  
+Use Olá status da tabela tooidentify Olá indicado pelo Olá LEDs no painel frontal do Olá para dispositivo de saudação ou compartimento do EBOD Olá a seguir.  
 
 | Energia do sistema | Falha do módulo | Falha lógica | Alarme | Status |
 | --- | --- | --- | --- | --- |
-| Vermelho-âmbar |DESATIVADO |DESATIVADO |N/D |Perda de energia CA, operando com energia reserva ou energia CA ativada e os módulos do controlador foram removidos. |
+| Vermelho-âmbar |DESATIVADO |DESATIVADO |N/D |Perda de energia CA, funcionando com energia reserva ou energia CA no e módulos do controlador Olá foram removidos. |
 | Verde |ATIVADO |ATIVADO |N/D |Estado de teste do painel de operações ligado (5s) |
 | Verde |DESATIVADO |DESATIVADO |N/D |Energia ligada, todas as funções em boas condições |
 | Verde |ATIVADO |N/D |LEDs de falha do ventilador, LEDs de falha de PCM |Qualquer falha de PCM, falha do ventilador, temperatura acima ou abaixo do recomendado |
@@ -61,15 +61,15 @@ Use a tabela a seguir para identificar o status indicado pelos LEDs no painel fr
 | Verde |Piscando |N/D |LED de status de módulo no módulo do controlador. LEDs de falha do ventilador, LEDs de falha de PCM |Tipo de módulo controlador desconhecido instalado, falha de barramento I2C, erro de configuração dos dados vitais do produto (VPD) do módulo do controlador |
 
 ## <a name="power-cooling-module-pcm-indicator-leds"></a>LEDs indicadores de refrigeração do módulo de energia (PCM)
-LEDs indicadores de refrigeração do módulo de energia (PCM) podem ser encontrados na parte traseira do compartimento principal ou do compartimento EBOD em cada módulo PCM. Este tópico discute como usar os seguintes LEDs para monitorar o status do seu dispositivo StorSimple.  
+Power resfriamento (PCM) LEDs indicadores do módulo podem ser encontrada em Olá parte traseira do compartimento principal hello ou compartimento EBOD em cada módulo PCM. Este tópico discute como Olá toouse LEDs de status de saudação toomonitor do seu dispositivo StorSimple a seguir.  
 
-* LEDs de PCM para o compartimento principal
-* LEDs de PCM para o compartimento EBOD
+* LEDs de PCM para o compartimento principal Olá
+* LEDs de PCM para Olá compartimento EBOD
 
-## <a name="pcm-leds-for-the-primary-enclosure"></a>LEDs de PCM para o compartimento principal
-O dispositivo StorSimple tem um módulo PCM de 764W com uma bateria adicional. A ilustração a seguir mostra o painel de LED para o dispositivo.  
+## <a name="pcm-leds-for-hello-primary-enclosure"></a>LEDs de PCM para o compartimento principal Olá
+o dispositivo StorSimple Olá tem um módulo PCM 764W com uma bateria adicional. Olá ilustração a seguir mostra painel de LED Olá para dispositivo hello.  
 
-   ![LEDs de PCM no compartimento principal][2]
+   ![LEDs de PCM no compartimento principal Olá][2]
 
 Legenda do LED:
 
@@ -80,12 +80,12 @@ Legenda do LED:
 5. Falha de CC
 6. Bateria boa  
 
-O status do PCM é indicado no painel do LED O painel do LED do PCM do dispositvo possui seis LEDs. Quatro destes LEDs exibem o status da fonte de energia e do ventilador. Os outros dois LEDs indicam o status do módulo da bateria de backup no PCM. Você pode usar as tabelas a seguir para determinar o status do PCM.  
+Painel de LED de status de saudação de saudação que PCM é indicado em hello. Painel de LED PCM Olá dispositivo possui seis LEDs. Quatro destes LEDs exibem o status de Olá de saudação de alimentação e ventilador hello. Olá restantes dois LEDs indica o status de saudação de módulo de bateria de backup Olá Olá PCM. Você pode usar o hello tabelas toodetermine Olá status Olá PCM a seguir.  
 
 ### <a name="pcm-indicator-leds-for-power-supply-and-fan"></a>LEDs indicadores do PCM para a fonte de energia e para o ventilador
 | Status | PCM OK (verde) | Falha de CA (âmbar) | Falha do ventilador (âmbar) | Falha de DC (âmbar) |
 | --- | --- | --- | --- | --- |
-| Sem energia de CA (para o compartimento) |DESATIVADO |DESATIVADO |DESATIVADO |DESATIVADO |
+| Sem energia CA (tooenclosure) |DESATIVADO |DESATIVADO |DESATIVADO |DESATIVADO |
 | Sem energia de CA (somente este PCM) |DESATIVADO |ATIVADO |DESATIVADO |ATIVADO |
 | CA presente PCM ligado - OK |ATIVADO |DESATIVADO |DESATIVADO |DESATIVADO |
 | Falha no PCM (falha do ventilador) |DESATIVADO |DESATIVADO |ATIVADO |N/D |
@@ -94,7 +94,7 @@ O status do PCM é indicado no painel do LED O painel do LED do PCM do dispositv
 | Modo standby |Piscando |DESATIVADO |DESATIVADO |DESATIVADO |
 | Download de firmware do PCM |DESATIVADO |Piscando |Piscando |Piscando |
 
-### <a name="pcm-indicator-leds-for-the-backup-battery"></a>LEDs indicadores do PCM para a bateria de backup
+### <a name="pcm-indicator-leds-for-hello-backup-battery"></a>LEDs do indicador PCM para bateria de backup Olá
 | Status | Bateria boa (verde) | Falha na bateria (âmbar) |
 | --- | --- | --- |
 | Bateria ausente |DESATIVADO |DESATIVADO |
@@ -104,16 +104,16 @@ O status do PCM é indicado no painel do LED O painel do LED do PCM do dispositv
 | Falha “grave” na bateria (não recuperável) |DESATIVADO |ATIVADO |
 | Bateria desarmada |Piscando |DESATIVADO |
 
-## <a name="pcm-leds-for-the-ebod-enclosure"></a>LEDs de PCM para o compartimento EBOD
-O compartimento EBOD possui um PCM de 580W e nenhuma bateria adicional. O painel do PCM para o compartimento EBOD possui LEDs indicadores para as fontes de energia e para o ventilador. A ilustração a seguir mostra estes LEDs.
+## <a name="pcm-leds-for-hello-ebod-enclosure"></a>LEDs de PCM para Olá compartimento EBOD
+Olá compartimento EBOD tem um PCM de 580W e nenhuma bateria adicional. painel PCM Olá Olá compartimento EBOD tem LEDs indicadores somente Olá fontes de alimentação e ventilador hello. Olá ilustração a seguir mostra esses LEDs.
 
-   ![LEDs de PCM no compartimento EBOD][3] 
+   ![LEDs de PCM no compartimento EBOD de saudação][3] 
 
-Você pode usar a tabela a seguir para determinar o status do PCM.  
+Você pode usar o hello após a tabela de status de saudação toodetermine de saudação PCM.  
 
 | Status | PCM OK (verde) | Falha de CA (âmbar) | Falha do ventilador (âmbar) | Falha de DC (âmbar) |
 | --- | --- | --- | --- | --- |
-| Sem energia de CA (para o compartimento) |DESATIVADO |DESATIVADO |DESATIVADO |DESATIVADO |
+| Sem energia CA (tooenclosure) |DESATIVADO |DESATIVADO |DESATIVADO |DESATIVADO |
 | Sem energia de CA (somente este PCM) |DESATIVADO |ATIVADO |DESATIVADO |ATIVADO |
 | CA presente PCM ligado - OK |ATIVADO |DESATIVADO |DESATIVADO |DESATIVADO |
 | Falha no PCM (falha do ventilador) |DESATIVADO |DESATIVADO |ATIVADO |X |
@@ -123,36 +123,36 @@ Você pode usar a tabela a seguir para determinar o status do PCM.
 | Download de firmware do PCM |DESATIVADO |Piscando |Piscando |Piscando |
 
 ## <a name="controller-module-indicator-leds"></a>LEDs indicadores do módulo do controlador
-O dispositivo StorSimple contém LEDs para o controlador primário e para os módulos do controlador EBOD.   
+o dispositivo StorSimple Olá contém LEDs do controlador primário hello e módulos do controlador EBOD hello.   
 
-### <a name="monitoring-leds-for-the-primary-controller"></a>LEDs de monitoramento para o controlador primário.
-A ilustração a seguir ajuda a identificar os LEDs no controlador primário. (Todos os componentes são listados para ajudar na orientação.)  
+### <a name="monitoring-leds-for-hello-primary-controller"></a>LEDs de monitoramento para o controlador primário Olá
+Olá ilustração a seguir ajuda a identificar Olá LEDs no controlador primário hello. (Todos os componentes de saudação são listado tooaid na orientação.)  
 
    ![LEDs de monitoramento - controlador primário][4]
 
-Use a tabela a seguir para determinar se o módulo do controlador está operando corretamente.  
+Use Olá toodetermine tabela a seguir se o módulo do controlador hello está operando corretamente.  
 
 ### <a name="controller-indicator-leds"></a>LEDs indicadores do controlador
 | LED | Descrição |
 | --- | --- |
-| LED de ID (azul) |Indica se o módulo está sendo identificado. Se o LED azul estiver piscando em um controlador em execução, então o controlador é o controlador ativo e o outro é o controlador standby. Para saber mais, consulte [Identificar o controlador ativo no seu dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
-| LED de falha (âmbar) |Indica uma falha no controlador. |
-| LED de OK (verde) |Um verde estável indica que o controlador está OK. Verde piscando indica um erro de configuração de VPD do controlador. |
-| LEDs de atividade de SAS (verde) |Verde estável indica uma conexão sem atividade. Verde piscando indica que a conexão possui atividade em andamento. |
-| LEDs de status de Ethernet |O lado direito indica atividade do link/rede: (verde estável) link ativo, (verde piscando) atividade de rede. O lado esquerdo indica a velocidade da rede: (amarelo) 1000 Mb/s, (verde) 100 Mb/s e (OFF) 10 Mb/s Dependendo do modelo do componente essa luz pode piscar mesmos se a interface de rede não estiver habilitada. |
-| LEDs de POST |Indica se o andamento da inicialização quando o controlador estiver ligado. Se o dispositivo StorSimple falhar durante a inicialização, esse LED ajudará a Microsoft a identificar o ponto no processo de incialização onde ocorreu a falha. |
+| LED de ID (azul) |Indica que o módulo hello está sendo identificado. Se hello LED azul estiver piscando em um controlador em execução, então hello controlador é Olá controlador ativo e hello outro é controlador em espera hello. Para obter mais informações, consulte [identificar controlador ativo do hello em seu dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
+| LED de falha (âmbar) |Indica uma falha no controlador de saudação. |
+| LED de OK (verde) |O verde constante indica que controlador Olá Okey. Verde piscando indica um erro de configuração de VPD do controlador. |
+| LEDs de atividade de SAS (verde) |Verde estável indica uma conexão sem atividade. Verde piscando indica a conexão Olá tem uma atividade em andamento. |
+| LEDs de status de Ethernet |O lado direito indica atividade do link/rede: (verde estável) link ativo, (verde piscando) atividade de rede. O lado esquerdo indica a velocidade da rede: (amarelo) 1000 Mb/s, (verde) 100 Mb/s e (OFF) 10 Mb/s Dependendo do modelo de componente hello, essa luz talvez pisque mesmo se a interface de rede de saudação não está habilitado. |
+| LEDs de POST |Indica o progresso de inicialização hello quando Olá controlador é ligado. Se o dispositivo StorSimple Olá falhar tooboot, este LED ajudará a Microsoft Support identificar Olá ponto no processo de inicialização Olá no qual Olá falha ocorreu. |
 
 > [!IMPORTANT]
-> Se o LED de falha estiver aceso, há um problema com o módulo do controlador que pode ser resolvido através da reinicialização do controlador. Entre em contato com o Suporte da Microsoft se a reinicialização do controlador não resolver esse problema.  
+> Se o LED com falha Olá estiver aceso, há um problema com o módulo do controlador Olá que pode ser resolvido ao reiniciar o controlador de saudação. Entre em contato com Microsoft Support se reiniciar controlador de saudação não resolver este problema.  
 > 
 > 
 
-### <a name="monitoring-leds-for-the-ebod-ebod-enclosure"></a>Monitorando LEDs para o EBOD (compartimento EBOD)
-Cada um dos controladores EBOD de SAS de 6 Gb/s possui LEDs que indicam o seu status conforme mostrado na ilustração a seguir.  
+### <a name="monitoring-leds-for-hello-ebod-ebod-enclosure"></a>LEDs de monitoramento para Olá EBOD (compartimento EBOD)
+Cada um dos Olá 6 Gb/controladores EBOD SAS de s possui LEDs que indicam seu status, conforme mostrado na ilustração a seguir de saudação.  
 
   ![LEDs de monitoramento - compartimento EBOD][5]
 
-Use a tabela a seguir para determinar se o módulo do controlador EBOD está operando normalmente.  
+Use Olá toodetermine tabela a seguir se o módulo do controlador EBOD hello está funcionando normalmente.  
 
 ### <a name="ebod-controller-module-indicator-leds"></a>LEDs indicadores do módulo do controlador EBOD
 | Status | Módulo de E/S OK (verde) | Falha no módulo de E/S (âmbar) | Atividade da porta do host (verde) |
@@ -164,16 +164,16 @@ Use a tabela a seguir para determinar se o módulo do controlador EBOD está ope
 | Conexão externa de porta de host – com atividade |- |- |Piscando |
 | Erro de metadados do módulo do controlador |Piscando |- |- |
 
-## <a name="disk-drive-indicator-leds-for-the-primary-enclosure-and-ebod-enclosure"></a>LEDs indicadores do drive de disco para o compartimento primário e para o compartimento EBOD
-O dispositivo StorSimple possui drives de disco localizados no compartimento primário e no compartimento EBOD. Cada drive de disco contém LEDs de indicador de monitoramento, conforme descrito nesta seção. 
+## <a name="disk-drive-indicator-leds-for-hello-primary-enclosure-and-ebod-enclosure"></a>LEDs do indicador de unidade de disco para o compartimento primário hello e ebod
+o dispositivo StorSimple Olá tem unidades de disco localizadas no compartimento principal hello e compartimento do EBOD hello. Cada drive de disco contém LEDs de indicador de monitoramento, conforme descrito nesta seção. 
 
-Para os drives de disco, o status do drive é indicado por um LED verde e um LED vermelho-âmbar montado na parte da frente de cada módulo portador do drive. A ilustração a seguir mostra estes LEDs.
+Para unidades de disco hello, status da unidade Olá é indicado por um verde LED e um LED amarelo-avermelhado montados na frente de saudação de cada módulo portador de unidade. Olá ilustração a seguir mostra esses LEDs.
 
   ![LEDs de unidade de disco][6]
 
-Use a tabela a seguir para determinar o estado de cada drive de disco que, por sua vez, afeta o status geral do LED do painel frontal.  
+Use Olá estado de saudação toodetermine da tabela de cada unidade de disco, que por sua vez, afeta Olá status do LED do painel frontal geral a seguir.  
 
-### <a name="disk-drive-indicator-leds-for-the-ebod-enclosure"></a>LEDs do indicador do drive de disco para o compartimento EBOD
+### <a name="disk-drive-indicator-leds-for-hello-ebod-enclosure"></a>LEDs do indicador de unidade de disco para Olá compartimento EBOD
 | Status | LED de Atividade OK (verde) | LED de falha (vermelho) | LED do painel de operações associado |
 | --- | --- | --- | --- |
 | Nenhum driver instalado |DESATIVADO |DESATIVADO |Nenhum |
@@ -183,7 +183,7 @@ Use a tabela a seguir para determinar o estado de cada drive de disco que, por s
 | Falha no circuito de controle de energia |DESATIVADO |ATIVADO |Falha no módulo (vermelho) |
 
 ## <a name="audible-alarms"></a>Alarmes audíveis
-Um dispositivo StorSimple contém alarmes audíveis associados com o compartimento primário e com o compartimento EBOD. Um alarme audível é localizando no painel frontal (também chamado de painel de operações) de ambos os compartimentos. O alarme audível indica quando uma condição de falha está presente. As condições a seguir ativarão o alarme:  
+Um dispositivo StorSimple contém alarmes audíveis associados ao compartimento principal hello e compartimento do EBOD hello. Um alarme audível está localizado no painel frontal hello (também conhecido como saudação do painel ops) de ambos os compartimentos. alarme audível Olá indica quando uma condição de falha está presente. Olá seguintes condições ativarão o alarme hello:  
 
 * Falha do ventilador
 * Tensão fora dos limites
@@ -194,26 +194,26 @@ Um dispositivo StorSimple contém alarmes audíveis associados com o compartimen
 * Falha no fornecimento de energia
 * Remoção de um módulo de refrigeração de energia (PCM)  
 
-A tabela a seguir descreve os vários estados de alarme.  
+Olá, tabela a seguir descreve Olá vários estados do alarme.  
 
 ### <a name="alarm-states"></a>Estados de alarme.
 | Estado de alarme | Ação | Ação com o botão de mudo pressionado |
 | --- | --- | --- |
 | S0 |Modo normal: silencioso |Dois bipes |
-| S1 |Modo de falha: 1 segundo ligado/1 segundo desligado |Transição para S2 ou S3 (consulte as observações) |
+| S1 |Modo de falha: 1 segundo ligado/1 segundo desligado |Transição tooS2 ou S3 (consulte as observações) |
 | S2 |Modo lembrete: bipe intermitente |Nenhum |
 | S3 |Modo mudo: silencioso |Nenhum |
 | S4 |Modo de falha crítica: alarme contínuo |Não disponível: mudo não ativo |
 
 > [!NOTE]
-> * No estado de alarme S1, se você não apertar mudo em até 2 minutos, o estado faz uma transição automática para S2 ou S3.  
-> * Os estados de alarme S1 a S4 retornam para S0 após a condição de falha ter sido resolvida.  
+> * No estado de alarme S1, se você não pressionar mudo em 2 minutos, o estado de saudação mudará automaticamente tooS2 ou S3.  
+> * Estados de alarme S1 tooS4 retornar tooS0 depois que a condição de falha de saudação é limpa.  
 > * O estado de falha crítica S4 pode ser inserido a partir de qualquer outro estado.  
 
 
-Você pode silenciar o alarme audível apertando o botão de mudo no painel de operações. Um silenciament automático ocorrerá após dois minutos se o botão de mudo não for manualmente acionado. Quando o alarme estiver mudo, ele continuará a soar através de bipes curtos e intermitentes para indicar que ainda existe um problema. O alarme será silenciado quando todos os problemas forem resolvidos.
+Você pode colocar o alarme audível Olá pressionando o botão Mudo saudação do painel ops hello. O mudo será acionado após dois minutos se o botão Mudo Olá não for operado manualmente. Quando a saudação alarme ficar no mudo, ele continuará toosound com tooindicate breves avisos sonoros intermitentes que ainda há um problema. alarme Olá será silenciado quando todos os problemas de saudação são desmarcados.
 
-A tabela a seguir descreve as várias condições de alarme.
+Olá, tabela a seguir descreve Olá várias condições do alarme.
 
 ### <a name="alarm-conditions"></a>Condições de alarme.
 | Status | Severidade | Alarme | LED do painel de operações |

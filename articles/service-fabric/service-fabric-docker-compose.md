@@ -1,6 +1,6 @@
 ---
-title: "Versão prévia do Docker Compose do Azure Service Fabric"
-description: "O Azure Service Fabric aceita o formato do Docker Compose para facilitar a orquestração dos contêineres existentes usando o Service Fabric. No momento, esse suporte está na versão prévia."
+title: "aaaAzure compor visualização do Service Fabric Docker"
+description: "Malha do Azure do serviço aceita Docker compor formato toomake-lo mais fácil contêineres existentes tooorchestrate usando o Service Fabric. No momento, esse suporte está na versão prévia."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,42 +14,42 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: e05d1a3d6111e3bbc34008226bcd1fdf35935450
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a60d1321fd6ef07b241a98c5ab2b8dfe5d441b53
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="docker-compose-application-support-in-azure-service-fabric-preview"></a>Suporte ao aplicativo Docker Compose no Azure Service Fabric (Versão prévia)
 
-O docker usa o arquivo [docker-compose.yml](https://docs.docker.com/compose) para definir aplicativos de vários contêineres. A fim de facilitar para os clientes familiarizados com o Docker orquestrarem aplicativos de contêiner existentes no Azure Service Fabric, incluímos o suporte da versão prévia para o Docker Compose nativamente na plataforma. O Service Fabric pode aceitar a versão 3 e posteriores de arquivos `docker-compose.yml`. 
+Docker usa Olá [docker compose.yml](https://docs.docker.com/compose) arquivo para definir o contêiner de vários aplicativos. toomake-fácil para os clientes familiarizados com o Docker tooorchestrate contêiner aplicativos existentes no Azure Service Fabric, incluímos suporte para compor Docker visualização nativamente na plataforma de saudação. O Service Fabric pode aceitar a versão 3 e posteriores de arquivos `docker-compose.yml`. 
 
 Como esse suporte está na versão prévia, há suporte para apenas um subconjunto de diretivas do Compose. Por exemplo, não há suporte para atualizações de aplicativo. No entanto, você sempre pode remover e implantar aplicativos em vez de atualizá-los.
 
-Para usar essa versão prévia, crie o cluster com a versão 5.7 ou superior do tempo de execução do Service Fabric por meio do portal do Azure junto com o SDK correspondente. 
+toouse visualizar, criar o cluster com a versão 5.7 ou superior do tempo de execução do Service Fabric Olá por meio de saudação portal do Azure junto com hello correspondente SDK. 
 
 > [!NOTE]
 > Esse recurso está na versão prévia e não tem suporte.
 
 ## <a name="deploy-a-docker-compose-file-on-service-fabric"></a>Implantar um arquivo do Docker Compose no Service Fabric
 
-Os seguintes comandos criam um aplicativo do Service Fabric (chamado `fabric:/TestContainerApp` no exemplo anterior) que você pode monitorar e gerenciar da mesma forma que qualquer outro aplicativo do Service Fabric. Você pode usar o nome do aplicativo especificado para consultas de integridade.
+Olá, comandos a seguir criam um aplicativo de malha do serviço (denominado `fabric:/TestContainerApp` em Olá anterior exemplo), que você pode monitorar e gerenciar como qualquer outro aplicativo de malha do serviço. Você pode usar o nome do aplicativo especificado Olá para consultas de integridade.
 
 ### <a name="use-powershell"></a>Usar o PowerShell
 
-Crie um aplicativo do Compose do Service Fabric por meio de um arquivo docker-compose.yml, executando o seguinte comando no PowerShell:
+Crie um aplicativo de serviço compor de malha de um arquivo de docker compose.yml executando Olá comando do PowerShell a seguir:
 
 ```powershell
 New-ServiceFabricComposeApplication -ApplicationName fabric:/TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
 ```
 
-`RegistryUserName` e `RegistryPassword` se referem ao nome de usuário e senha de registro de contêiner. Depois de concluir o aplicativo, você pode verificar seu status usando o seguinte comando:
+`RegistryUserName`e `RegistryPassword` consulte toohello contêiner do registro username e password. Depois que você tiver concluído o aplicativo hello, você pode verificar seu status usando Olá comando a seguir:
 
 ```powershell
 Get-ServiceFabricComposeApplicationStatus -ApplicationName fabric:/TestContainerApp -GetAllPages
 ```
 
-Para excluir o aplicativo do Compose por meio do PowerShell, use o seguinte comando:
+toodelete Olá compor aplicativos por meio do PowerShell, use Olá comando a seguir:
 
 ```powershell
 Remove-ServiceFabricComposeApplication  -ApplicationName fabric:/TestContainerApp
@@ -57,19 +57,19 @@ Remove-ServiceFabricComposeApplication  -ApplicationName fabric:/TestContainerAp
 
 ### <a name="use-azure-service-fabric-cli-sfctl"></a>Usar a CLI do Azure Service Fabric (sfctl)
 
-Como alternativa, você pode usar o seguinte comando da CLI do Service Fabric:
+Como alternativa, você pode usar o hello CLI de malha do serviço de comando a seguir:
 
 ```azurecli
 sfctl compose create --application-id fabric:/TestContainerApp --compose-file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
 ```
 
-Depois de criar o aplicativo, você pode verificar seu status usando o seguinte comando:
+Depois que você criou um aplicativo hello, você pode verificar seu status usando Olá comando a seguir:
 
 ```azurecli
 sfctl compose status --application-id TestContainerApp [ --timeout ]
 ```
 
-Para excluir o aplicativo do Compose, use o seguinte comando:
+Olá toodelete compor aplicativos, use Olá comando a seguir:
 
 ```azurecli
 sfctl compose remove  --application-id TestContainerApp [ --timeout ]
@@ -77,7 +77,7 @@ sfctl compose remove  --application-id TestContainerApp [ --timeout ]
 
 ## <a name="supported-compose-directives"></a>Diretivas do Compose com suporte
 
-Esta versão prévia dá suporte a um subconjunto das opções de configuração do formato da versão 3 do Compose, incluindo os primitivos a seguir:
+Esta visualização dá suporte a um subconjunto das opções de configuração de saudação do formato de versão 3 redigir hello, incluindo Olá primitivos a seguir:
 
 * Serviços > Implantar > Réplicas
 * Serviços > Implantar > Posicionamento > Restrições
@@ -94,26 +94,26 @@ Esta versão prévia dá suporte a um subconjunto das opções de configuração
 * Serviços > Registro em log > Driver > Opções
 * Volume e Implantar > Volume
 
-Configure o cluster para impor limites de recursos, conforme descrito na [Governança de recursos do Service Fabric](service-fabric-resource-governance.md). Todas as outras diretivas do Docker Compose não têm suporte nessa versão prévia.
+Configurar o cluster Olá para impor limites de recurso, conforme descrito em [governança de recursos de malha do serviço](service-fabric-resource-governance.md). Todas as outras diretivas do Docker Compose não têm suporte nessa versão prévia.
 
 ## <a name="servicednsname-computation"></a>Computação de ServiceDnsName
 
-Se o nome do serviço que você especifica em um arquivo do Compose é um nome de domínio totalmente qualificado (isto é, contem um ponto, [.]), o nome DNS registrado pelo Service Fabric será `<ServiceName>` (incluindo o ponto). Caso contrário, cada segmento de caminho no nome de aplicativo se tornará um rótulo de domínio no nome DNS do serviço com o primeiro segmento de caminho se tornando o rótulo de domínio primário.
+Se o nome do serviço Olá que você especificar em um arquivo de composição é um nome de domínio totalmente qualificado (ou seja, ele contém um ponto [.]), nome DNS Olá registrado pelo Service Fabric é `<ServiceName>` (incluindo ponto Olá). Caso contrário, cada segmento de caminho no nome do aplicativo hello se torna um rótulo de domínio no nome DNS do serviço hello, com hello primeiro segmento de caminho se torne o rótulo de domínio de nível superior de saudação.
 
-Por exemplo, se o nome especificado do aplicativo for `fabric:/SampleApp/MyComposeApp`, `<ServiceName>.MyComposeApp.SampleApp` seria o nome DNS registrado.
+Por exemplo, se Olá especificado o nome do aplicativo é `fabric:/SampleApp/MyComposeApp`, `<ServiceName>.MyComposeApp.SampleApp` seria Olá nome DNS registrado.
 
 ## <a name="differences-between-compose-instance-definition-and-service-fabric-application-model-type-definition"></a>Diferenças entre o modelo de aplicativo do Compose (definição de instância) e do Service Fabric (definição de tipo)
 
 Um arquivo docker-compose.yml descreve um conjunto de contêineres implantável, incluindo suas propriedades e configurações.
-Por exemplo, o arquivo pode conter variáveis de ambiente e portas. Você também pode especificar parâmetros de implantação, como restrições de posicionamento, limites de recursos e nomes DNS, no arquivo docker-compose.yml.
+Por exemplo, o arquivo hello pode conter variáveis de ambiente e portas. Você também pode especificar parâmetros de implantação, como restrições de posicionamento, limites de recursos e nomes DNS, no arquivo de docker compose.yml hello.
 
-O [modelo de aplicativo do Service Fabric](service-fabric-application-model.md) usa tipos de serviço e tipos de aplicativo, em que é possível ter várias instâncias de aplicativo do mesmo tipo. Por exemplo, você pode ter uma instância de aplicativo por cliente. Esse modelo baseado em tipo dá suporte a várias versões do mesmo tipo de aplicativo que é registrado com o tempo de execução.
+Olá [o modelo de aplicativo do Service Fabric](service-fabric-application-model.md) usa tipos de serviço e aplicativo, onde você pode ter muitas instâncias de aplicativo do hello mesmo tipo. Por exemplo, você pode ter uma instância de aplicativo por cliente. Esse modelo baseado em tipo oferece suporte a várias versões do hello mesmo tipo de aplicativo que está registrado com o tempo de execução de saudação.
 
-Por exemplo, o cliente A pode ter um aplicativo instanciado com tipo 1.0 do AppTypeA e o cliente B pode ter outro aplicativo instanciado com o mesmo tipo e versão. Você define os tipos de aplicativos nos manifestos do aplicativo e especifica os parâmetros de nome e implantação do aplicativo ao criar o aplicativo.
+Por exemplo, o cliente pode ter um aplicativo instanciado com tipo 1.0 de AppTypeA e cliente B pode ter outro aplicativo instanciado com hello mesmo tipo e versão. Definir tipos de aplicativo hello nos manifestos de aplicativo hello e você especificar parâmetros de nome e a implantação de aplicativo hello quando você cria o aplicativo hello.
 
-Embora esse modelo ofereça flexibilidade, também estamos planejando dar suporte a um modelo de implantação baseado em instâncias mais simples em que os tipos são implícitos no arquivo de manifesto. Nesse modelo, cada aplicativo obtém seu próprio manifesto independente. Estamos fazendo a versão prévia desse esforço adicionando suporte para o docker-compose.yml, que é um formato de implantação baseado em instância.
+Embora esse modelo oferece flexibilidade, também planejamos toosupport um modelo de implantação mais simples, com base em instância onde os tipos são implícita do arquivo de manifesto hello. Nesse modelo, cada aplicativo obtém seu próprio manifesto independente. Estamos fazendo a versão prévia desse esforço adicionando suporte para o docker-compose.yml, que é um formato de implantação baseado em instância.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Leia sobre o [modelo de aplicativo do Service Fabric](service-fabric-application-model.md)
+* Leia sobre Olá [modelo de aplicativo do Service Fabric](service-fabric-application-model.md)
 * [Introdução à CLI do Service Fabric](service-fabric-cli.md)

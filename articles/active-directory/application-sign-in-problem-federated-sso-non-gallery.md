@@ -1,6 +1,6 @@
 ---
-title: "Problemas ao entrar em um aplicativo inexistente na galeria configurado para logon único federado | Microsoft Docs"
-description: "Diretrizes para os problemas específicos que você pode enfrentar ao entrar em um aplicativo configurado para o logon único federado baseado em SAML com Azure AD"
+title: "logon único aaaProblems entrar no aplicativo de galeria não tooa configurado para federado | Microsoft Docs"
+description: "Diretrizes para problemas específicos hello, que você pode encontrar ao entrar no aplicativo tooan configurado para baseado no SAML federado logon único com o Azure AD"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,189 +13,189 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 3afc7bca878caef424d3fa3c64aa17df0fda7de5
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1243456695c097f404a66fc89893efa2afdaaf22
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemas ao entrar em um aplicativo inexistente na galeria configurado para logon único federado
+# <a name="problems-signing-in-tooa-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemas para entrar no aplicativo de galeria não tooa configurado para logon único federado
 
-Para solucionar o problema é necessário verificar a configuração do aplicativo no Azure AD, conforme a seguir:
+tootroubleshoot seu problema, você precisa de configuração de aplicativo hello tooverify no AD do Azure como segue:
 
--   Você seguiu todas as etapas de configuração do aplicativo na galeria do Azure AD.
+-   Você tiver seguido todas as etapas de configuração de saudação para Olá aplicativo da Galeria de AD do Azure.
 
--   O Identificador e a URL de Resposta configurados no AAD correspondem aos valores esperados no aplicativo
+-   Olá identificador e URL de resposta configurado no AAD correspondem a elas valores esperados no aplicativo hello
 
--   Você atribuiu os usuários para o aplicativo
+-   Você atribuiu usuários toohello aplicativo
 
 ## <a name="application-not-found-in-directory"></a>Aplicativo não encontrado no diretório
 
-*Erro AADSTS70001: aplicativo com o identificador ‘https://contoso.com’ não encontrado no diretório*.
+*Erro AADSTS70001: O aplicativo com identificador 'https://contoso.com' não foi encontrado no diretório Olá*.
 
 **Possível causa**
 
-O atributo que o Emissor envia do aplicativo para o Azure AD na solicitação SAML não corresponde ao valor do Identificador configurado no aplicativo Azure AD.
+atributo de emissor Olá envia de saudação aplicativo tooAzure que AD na solicitação SAML Olá não corresponde o valor de identificador de saudação configurado no aplicativo de saudação do AD do Azure.
 
 **Resolução**
 
-Certifique-se de que o atributo Emissor na solicitação SAML corresponde ao valor do Identificador configurado no Azure AD:
+Verifique se esse atributo de emissor Olá na solicitação SAML Olá correspondentes Olá valor de identificador configurado no AD do Azure:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
+1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global** ou **Co-administrador.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
+2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
 
-4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicativos empresariais** no menu de navegação do hello Azure Active Directory à esquerda.
 
-5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **todos os aplicativos** tooview uma lista de todos os seus aplicativos.
 
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se você não vir o aplicativo hello você deseja mostrar aqui, use Olá **filtro** controle na parte superior de saudação do hello **lista de todos os aplicativos** e conjunto hello **Mostrar** opção muito **Todos os aplicativos.**
 
-6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
+6.  Selecione aplicativo hello deseja tooconfigure-logon único.
 
-7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
+7.  Depois que o aplicativo hello carrega, clique em Olá **o logon único** no menu de navegação à esquerda do aplicativo hello.
 
-8.  <span id="_Hlk477190042" class="anchor"></span>Acesse a seção **Domínio e URLs**. Verifique se o valor na caixa de texto Identificador corresponde ao valor para o valor do identificador exibido no erro.
+8.  <span id="_Hlk477190042" class="anchor"></span>Vá muito**domínio e URLs** seção. Verifique se o valor no hello identificador de caixa de texto é compatível com o valor Olá Olá identificador valor exibido no erro Olá Olá.
 
-Após atualizar o valor do Identificador no Azure AD e correspondê-lo com o valor enviado pelo aplicativo na solicitação SAML, deverá ser possível entrar no aplicativo.
+Depois que você atualizou o valor do identificador Olá no AD do Azure e sua correspondência Olá valor envia por aplicativo hello na solicitação SAML hello, você deve ser capaz de toosign no aplicativo toohello.
 
-## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>O endereço de resposta não corresponde aos endereços de resposta configurados para o aplicativo. 
+## <a name="hello-reply-address-does-not-match-hello-reply-addresses-configured-for-hello-application"></a>endereço de resposta de saudação não coincide com os endereços de resposta de saudação configurados para o aplicativo hello. 
 
-*Erro AADSTS50011: O endereço de resposta 'https://contoso.com' não corresponde aos endereços de resposta configurados para o aplicativo* 
+*Erro AADSTS50011: o endereço de resposta de saudação 'https://contoso.com' não coincide com os endereços de resposta de saudação configurados para o aplicativo hello* 
 
 **Possível causa** 
 
-O valor de AssertionConsumerServiceURL na solicitação SAML não corresponde ao valor da URL de resposta ou ao padrão configurado no Azure AD. O valor de AssertionConsumerServiceURL na solicitação SAML é a URL que você vê no erro. 
+Olá AssertionConsumerServiceURL valor na solicitação SAML Olá não coincide com o padrão configurado no AD do Azure ou valor de URL de resposta de saudação. Olá AssertionConsumerServiceURL valor na solicitação SAML Olá é a URL de saudação consulte erro hello. 
 
 **Resolução** 
 
-Verifique se o valor de AssertionConsumerServiceURL na solicitação SAML corresponde ao valor da URL de resposta configurado no Azure AD. 
+Verifique se esse valor de AssertionConsumerServiceURL Olá na solicitação SAML Olá sua correspondência Olá valor de URL de resposta configurado no AD do Azure. 
  
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.** 
+1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global** ou **Co-administrador.** 
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal. 
+2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello. 
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**. 
+3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item. 
 
-4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory. 
+4.  Clique em **aplicativos empresariais** no menu de navegação do hello Azure Active Directory à esquerda. 
 
-5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos. 
+5.  Clique em **todos os aplicativos** tooview uma lista de todos os seus aplicativos. 
 
-  * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+  * Se você não vir o aplicativo hello você deseja mostrar aqui, use Olá **filtro** controle na parte superior de saudação do hello **lista de todos os aplicativos** e conjunto hello **Mostrar** opção muito **Todos os aplicativos.**
   
-6.  Selecione o aplicativo para o qual deseja configurar o logon único
+6.  Selecionar aplicativo hello deseja tooconfigure-logon único
 
-7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
+7.  Depois que o aplicativo hello carrega, clique em Olá **o logon único** no menu de navegação à esquerda do aplicativo hello.
 
-8.  Acesse a seção **Domínio e URLs**. Verifique ou atualize o valor na caixa de texto URL de Resposta para corresponder ao valor AssertionConsumerServiceURL na solicitação SAML.
+8.  Vá muito**domínio e URLs** seção. Verifique ou atualize o valor de saudação na caixa de texto toomatch Olá AssertionConsumerServiceURL valor na solicitação SAML de saudação do hello URL de resposta.
 
-  * Se você não vir a caixa de texto URL de Resposta, selecione a caixa de seleção **Mostrar configurações de URL avançadas**. 
+  * Se você não vir o texto da URL de resposta de saudação, selecione Olá **Mostrar configurações de URL avançadas** caixa de seleção. 
 
-Após atualizar o valor da URL de Resposta no Azure AD e correspondê-lo com o valor enviado pelo aplicativo na solicitação SAML, deverá ser possível entrar no aplicativo.
+Depois que você atualizou o valor de URL de resposta Olá no AD do Azure e tem correspondência do valor de saudação envia por aplicativo hello em Olá solicitação SAML, você deve ser capaz de toosign no aplicativo toohello.
 
 ## <a name="user-not-assigned-a-role"></a>Usuário não atribuído a uma função
 
-*Erro AADSTS50105: o usuário conectado 'brian@contoso.com' não está atribuído a uma função para o aplicativo*
+*Erro AADSTS50105: Olá usuário conectado 'brian@contoso.com' não está atribuído a função tooa para o aplicativo hello*
 
 **Possível causa**
 
-O usuário não teve acesso concedido para o aplicativo no Azure AD.
+saudação de usuário não recebeu acesso toohello aplicativo no AD do Azure.
 
 **Resolução**
 
-Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas abaixo:
+tooassign um ou mais aplicativos de tooan usuários diretamente, siga as etapas de saudação abaixo:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
+2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
 
-4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicativos empresariais** no menu de navegação do hello Azure Active Directory à esquerda.
 
-5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **todos os aplicativos** tooview uma lista de todos os seus aplicativos.
 
-  * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+  * Se você não vir o aplicativo hello você deseja mostrar aqui, use Olá **filtro** controle na parte superior de saudação do hello **lista de todos os aplicativos** e conjunto hello **Mostrar** opção muito **Todos os aplicativos.**
 
-6.  Na lista, selecione o aplicativo ao qual deseja atribuir um usuário.
+6.  Selecione o aplicativo hello deseja tooassign uma lista de saudação do usuário toofrom.
 
-7.  Após o carregamento do aplicativo, clique em **Usuários e Grupos** no menu de navegação esquerdo do aplicativo.
+7.  Depois que o aplicativo hello carrega, clique em **usuários e grupos** no menu de navegação à esquerda do aplicativo hello.
 
-8.  Clique no botão **Adicionar** na parte superior da lista **Usuários e Grupos** para abrir a folha **Adicionar Atribuição**.
+8.  Clique Olá **adicionar** botão na parte superior Olá **usuários e grupos** Olá de tooopen lista **Adicionar atribuição** folha.
 
-9.  Clique no seletor **Usuários e grupos** da folha **Adicionar Atribuição**.
+9.  Clique em Olá **usuários e grupos** seletor de saudação **Adicionar atribuição** folha.
 
-10. Digite o **nome completo** ou o **endereço de email** do usuário que você deseja atribuir na caixa de pesquisa **Pesquisar por nome ou endereço de email**.
+10. Tipo de saudação **nome completo** ou **endereço de email** do usuário Olá que lhe interessam atribuindo em Olá **pesquisar por nome ou endereço de email** caixa de pesquisa.
 
-11. Passe o mouse sobre o **usuário** na lista para mostrar uma **caixa de seleção**. Clique na caixa de seleção ao lado do logotipo ou da foto de perfil do usuário para adicioná-lo à lista **Selecionado**.
+11. Passe o mouse sobre Olá **usuário** em Olá lista tooreveal um **caixa de seleção**. Clique em tooadd de foto ou logotipo de perfil do Olá caixa de seleção próxima toohello usuário seu usuário toohello **selecionados** lista.
 
-12. **Opcional:** caso queira **adicionar mais de um usuário**, digite outro **nome completo** ou **endereço de email** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e clique na caixa de seleção para adicionar esse usuário à lista **Selecionado**.
+12. **Opcional:** se você gostaria que muito**adicionar mais de um usuário**, tipo em outro **nome completo** ou **endereço de email** em Olá **pesquisar por nome endereço de email ou** caixa de pesquisa e, em seguida, clique em tooadd de caixa de seleção Olá esse usuário toohello **selecionados** lista.
 
-13. Ao concluir a seleção dos usuários, clique no botão **Selecionar** para adicioná-los à lista de usuários e grupos a serem atribuídos ao aplicativo.
+13. Quando você terminar de selecionar usuários, clique em Olá **selecione** botão tooadd-los toohello lista de usuários e grupos toobe atribuído toohello aplicativo.
 
-14. **Opcional:** clique no seletor **Selecionar Função** na folha **Adicionar Atribuição** para selecionar uma função que será atribuída aos usuários selecionados.
+14. **Opcional:** clique Olá **Selecionar função** seletor de saudação **Adicionar atribuição** folha tooselect uma função tooassign toohello usuários selecionados.
 
-15. Clique no botão **Atribuir** para atribuir o aplicativo aos usuários selecionados.
+15. Clique em Olá **atribuir** botão tooassign Olá aplicativo toohello selecionado de usuários.
 
-Após um breve período, os usuários que você selecionou poderão iniciar esses aplicativos usando os métodos descritos na seção de descrição da solução.
+Após um curto período de tempo, usuários de saudação selecionado ser capaz de toolaunch esses aplicativos usando Olá métodos descritos na seção de descrição de solução de saudação.
 
 ## <a name="not-a-valid-saml-request"></a>Não é uma solicitação SAML válida
 
-*Erro AADSTS75005: a solicitação não é uma mensagem de protocolo Saml2 válida.*
+*Erro AADSTS75005: solicitação de Olá não é uma mensagem de protocolo Saml2 válida.*
 
 **Possível causa**
 
-O Azure AD não oferece suporte para a solicitação SAML enviada pelo aplicativo para logon único. Alguns problemas comuns são:
+AD do Azure não oferece suporte a saudação SAML solicitação enviada pelo aplicativo hello para logon único. Alguns problemas comuns são:
 
--   Campos obrigatórios ausentes na solicitação SAML
+-   Faltando campos obrigatórios na solicitação SAML Olá
 
 -   Método codificado de solicitação SAML
 
 **Resolução**
 
-1.  Capturar solicitação SAML. siga o tutorial em [como depurar o logon único baseado em SAML em aplicativos no Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging) para saber mais sobre como capturar a solicitação SAML.
+1.  Capturar solicitação SAML. Siga o tutorial Olá [como toodebug baseado no SAML único logon tooapplications no AD do Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging) toolearn como solicitar toocapture Olá SAML.
 
-2.  Contate o fornecedor do aplicativo e compartilhe:
+2.  Entre em contato com o fornecedor do aplicativo hello e compartilhamento:
 
     -   Solicitação SAML
 
     -   [Requisitos de protocolo SAML de logon único do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)
 
-Eles devem validar que oferecem suporte à implementação do SAML do Azure AD para Logon Único.
+Eles devem validar suporte a implementação do Azure AD SAML Olá para logon único.
 
 ## <a name="no-resource-in-requiredresourceaccess-list"></a>Nenhum recurso na lista requiredResourceAccess
 
-*Erro AADSTS65005: o aplicativo cliente solicitou acesso ao recurso '00000002-0000-0000-c000-000000000000'. Essa solicitação falhou porque o cliente não especificou esse recurso na sua lista requiredResourceAccess*.
+*Erro AADSTS65005: o aplicativo de cliente de saudação solicitou acesso tooresource ' 00000002-0000-0000-c000-000000000000'. A solicitação falhou porque o cliente Olá não especificou esse recurso em sua lista de requiredResourceAccess*.
 
 **Possível causa**
 
-O objeto de aplicativo está corrompido.
+objeto de aplicativo Hello está corrompido.
 
 **Resolução**
 
-Para resolver o problema, remova o aplicativo do diretório. Em seguida, adicione e reconfigurar o aplicativo, siga as etapas abaixo:
+problema de saudação toosolve, remover o aplicativo de saudação do diretório de saudação. Em seguida, adicione e reconfigurar o aplicativo hello, siga as etapas de saudação abaixo:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
+1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global** ou **Co-administrador.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
+2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
 
-4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicativos empresariais** no menu de navegação do hello Azure Active Directory à esquerda.
 
-5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **todos os aplicativos** tooview uma lista de todos os seus aplicativos.
 
-  * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+  * Se você não vir o aplicativo hello você deseja mostrar aqui, use Olá **filtro** controle na parte superior de saudação do hello **lista de todos os aplicativos** e conjunto hello **Mostrar** opção muito **Todos os aplicativos.**
 
-6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
+6.  Selecione aplicativo hello deseja tooconfigure-logon único.
 
-7.  Clique em **Excluir** na parte superior esquerda da folha **Visão Geral** do aplicativo.
+7.  Clique em **excluir** na parte superior esquerda Olá da aplicativo hello **visão geral** folha.
 
-8.  Atualize o Azure AD e Adicione o aplicativo da galeria do Azure AD. Em seguida, Configure novamente o aplicativo.
+8.  Atualizar o AD do Azure e adicionar o aplicativo hello da Galeria do AD do Azure hello. Em seguida, Configure o aplicativo hello novamente.
 
-Após reconfigurar o aplicativo, deverá ser possível entrar no aplicativo.
+Depois de reconfigurar o aplicativo hello, você deve ser capaz de toosign no aplicativo toohello.
 
 ## <a name="certificate-or-key-not-configured"></a>Chave ou certificado não configurado
 
@@ -203,39 +203,39 @@ Erro AADSTS50003: nenhuma chave de assinatura configurada.
 
 **Possível causa**
 
-O objeto de aplicativo está corrompido e o Azure AD não reconhece o certificado configurado para o aplicativo.
+objeto de aplicativo Hello está corrompido e o AD do Azure não reconhece o certificado de saudação configurado para o aplicativo hello.
 
 **Resolução**
 
-Para excluir e criar um novo certificado, siga as etapas abaixo:
+toodelete e criar um novo certificado, execute as etapas de saudação abaixo:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
+1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global** ou **Co-administrador.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
+2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
 
-4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicativos empresariais** no menu de navegação do hello Azure Active Directory à esquerda.
 
-5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **todos os aplicativos** tooview uma lista de todos os seus aplicativos.
 
-  * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+  * Se você não vir o aplicativo hello você deseja mostrar aqui, use Olá **filtro** controle na parte superior de saudação do hello **lista de todos os aplicativos** e conjunto hello **Mostrar** opção muito **Todos os aplicativos.**
 
-6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
+6.  Selecione aplicativo hello deseja tooconfigure-logon único.
 
-7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
+7.  Depois que o aplicativo hello carrega, clique em Olá **o logon único** no menu de navegação à esquerda do aplicativo hello.
 
-8.  clique em **Criar novo certificado** na seção **Certificado de Autenticação SAML**.
+8.  Clique em **criar novo certificado** em Olá **SAML certificado de assinatura** seção.
 
 9.  Selecione a data de validade. Em seguida, clique em **Salvar.**
 
-10. Marque **Tornar o novo certificado ativo** para substituir o certificado ative. Em seguida, clique em **Salvar** na parte superior da folha e aceite para ativar o certificado de substituição.
+10. Verificar **ativar o novo certificado** certificado do active toooverride hello. Em seguida, clique em **salvar** na parte superior de saudação da folha de saudação e aceitar o certificado de substituição tooactivate hello.
 
-11. Na seção **Certificado de Autenticação SAML**, clique em **remover** para remover o certificado **Não Usado**.
+11. Em Olá **o certificado de autenticação SAML** seção, clique em **remover** tooremove Olá **não utilizado** certificado.
 
-## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problema ao personalizar as declarações SAML enviadas para um aplicativo
+## <a name="problem-when-customizing-hello-saml-claims-sent-tooan-application"></a>Problema ao personalizar Olá SAML declarações enviadas tooan aplicativo
 
-Para saber como personalizar as declarações de atributo SAML enviadas para seu aplicativo, consulte [Mapeamento de declarações no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) para obter mais informações.
+toolearn como declarações de atributo toocustomize Olá SAML enviado tooyour aplicativo, consulte [declarações mapeamento no Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) para obter mais informações.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Requisitos de protocolo SAML de logon único do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)

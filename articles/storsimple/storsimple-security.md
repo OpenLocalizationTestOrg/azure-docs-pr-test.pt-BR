@@ -1,6 +1,6 @@
 ---
-title: "Segurança do StorSimple série 8000 | Microsoft Docs"
-description: "Descreve os recursos de segurança e privacidade que protegem o serviço, os dispositivos e os dados do StorSimple no local e na nuvem."
+title: "segurança de série 8000 do aaaStorSimple | Microsoft Docs"
+description: "Descreve Olá recursos de segurança e privacidade que protegem seu serviço, dispositivos e dados locais e na nuvem de saudação do StorSimple."
 services: storsimple
 documentationcenter: NA
 author: SharS
@@ -14,246 +14,246 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/03/2016
 ms.author: v-sharos
-ms.openlocfilehash: 7e526816f1a564ab80113c30d5c9671cb2b7e104
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b9e6c8b3371b4039549972cf507052312ed7cdaa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="storsimple-security-and-data-protection"></a>Proteção de dados e segurança de StorSimple
 ## <a name="overview"></a>Visão geral
-A segurança é uma preocupação importante para qualquer pessoa que esteja adotando uma nova tecnologia, especialmente quando a tecnologia é usada com dados confidenciais ou proprietários. Ao avaliar as diferentes tecnologias, você deve considerar o aumento dos riscos e dos custos para a proteção dos dados. O Microsoft Azure StorSimple fornece uma solução tanto de segurança quanto de privacidade para proteção de dados, ajudando a garantir: 
+A segurança é a principal preocupação para qualquer pessoa que esteja adotando uma nova tecnologia, especialmente quando Olá tecnologia é usada com dados confidenciais ou proprietários. Ao avaliar as diferentes tecnologias, você deve considerar o aumento dos riscos e dos custos para a proteção dos dados. Microsoft Azure StorSimple fornece tanto uma solução de segurança e privacidade para proteção de dados, ajudando tooensure: 
 
 * **Confidencialidade** – somente entidades autorizadas podem exibir seus dados. 
 * **Integridade** – somente entidades autorizadas podem modificar ou excluir seus dados.
 
-A solução Microsoft Azure StorSimple consiste em quatro componentes principais que interagem entre si:
+Olá solução StorSimple do Microsoft Azure consiste em quatro componentes principais que interagem entre si:
 
-* **Serviço do gerenciador do StorSimple hospedado no Microsoft Azure** – O serviço de gerenciamento que você usa para configurar e provisionar o dispositivo StorSimple.
-* **Dispositivo StorSimple** – Um dispositivo físico instalado no datacenter. Todos os hosts e clientes que geram dados conectam-se ao dispositivo StorSimple, e o dispositivo gerencia os dados e move-os na nuvem do Azure conforme apropriado.
-* **Clientes/hosts conectados ao dispositivo** – Os clientes em sua infraestrutura que se conectam ao dispositivo StorSimple e geram dados que precisam ser protegidos.
-* **Armazenamento em nuvem** – O local na nuvem do Azure onde os dados são armazenados.
+* **O serviço StorSimple Manager hospedado no Microsoft Azure** – serviço de gerenciamento de saudação que você use tooconfigure e provisionar Olá dispositivo StorSimple.
+* **Dispositivo StorSimple** – Um dispositivo físico instalado no datacenter. Todos os hosts e clientes que geram dados conectam o dispositivo StorSimple toohello e dispositivo Olá gerencia dados hello e move toohello nuvem do Azure conforme apropriado.
+* **Clientes/hosts conectados toohello dispositivo** – Olá clientes em sua infraestrutura que conecte o dispositivo StorSimple toohello e gerar dados que precisa toobe protegido.
+* **Armazenamento em nuvem** – Olá local Olá nuvem do Azure, onde os dados são armazenados.
 
-As seções a seguir descrevem os recursos de segurança do StorSimple que ajudam a proteger cada um desses componentes e os dados armazenados neles. Também incluem uma lista de perguntas sobre segurança do Microsoft Azure StorSimple e as respostas correspondentes.
+Olá seções a seguir descrevem recursos de segurança de StorSimple Olá que ajudam a proteger cada um desses componentes e os dados de saudação armazenados neles. Ele também inclui uma lista de perguntas sobre segurança do Microsoft Azure StorSimple e respostas correspondentes hello.
 
 ## <a name="storsimple-manager-service-protection"></a>Proteção de serviço do gerenciador do StorSimple
-O Serviço do gerenciador do StorSimple é um serviço de gerenciamento hospedado no Microsoft Azure usado para gerenciar todos os dispositivos StorSimple que sua organização adquiriu. Você pode acessar o serviço do Gerenciador do StorSimple usando suas credenciais organizacionais para fazer logon no Portal clássico do Azure por meio de um navegador da Web. 
+Olá serviço StorSimple Manager é um serviço de gerenciamento hospedado no Microsoft Azure e usado toomanage todos os dispositivos de StorSimple que sua organização adquiriu. Você pode acessar Olá serviço StorSimple Manager usando sua credenciais organizacionais toolog toohello portal clássico do Azure por meio de um navegador da web. 
 
-O acesso ao serviço do Gerenciador do StorSimple requer que a organização tenha uma assinatura do Azure que inclua o StorSimple. Sua assinatura determina os recursos que você pode acessar no portal clássico do Azure. Se sua organização não tiver uma assinatura do Azure e você quiser saber mais sobre ela, consulte [Inscrever-se no Azure como uma organização](../active-directory/sign-up-organization.md). 
+Acesso toohello serviço StorSimple Manager requer que sua organização tem uma assinatura do Azure que inclui o StorSimple. Sua assinatura determina os recursos de saudação que você pode acessar no portal clássico do Azure de saudação. Se sua organização não tiver uma assinatura do Azure e você desejar toolearn mais sobre eles, consulte [inscrever-se no Azure como uma organização](../active-directory/sign-up-organization.md). 
 
-Como o serviço do Gerenciador do StorSimple está hospedado no Azure, ele é protegido pelos recursos de segurança do Azure. Para obter mais informações sobre os recursos de segurança fornecidos pelo Microsoft Azure, acesse a [Central de Confiabilidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
+Como Olá serviço StorSimple Manager é hospedado no Azure, ele é protegido por recursos de segurança do Azure hello. Para obter mais informações sobre recursos de segurança de saudação fornecidos pelo Microsoft Azure, vá toohello [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/).
 
 ## <a name="storsimple-device-protection"></a>Proteção de dispositivos StorSimple
-O dispositivo StorSimple é um dispositivo de armazenamento híbrido local que contém unidades de estado sólido (SSDs) e unidades de disco rígido (HDDs), juntamente com controladores redundantes e recursos de failover automático. Os controladores de gerenciam o armazenamento hierárquico, colocando dados usados no momento (ou mais acessados) no armazenamento local (no dispositivo StorSimple ou servidores locais), ao mesmo tempo movendo dados menos dados para a nuvem.
+o dispositivo StorSimple Olá é um dispositivo de armazenamento híbrido local que contém unidades de estado sólido (SSDs) e unidades de disco rígido (HDDs), juntamente com controladores redundantes e recursos de failover automático. controladores de saudação gerenciam o armazenamento hierárquico, colocando atualmente usados (ou dados quentes) no armazenamento local (em servidores locais ou Olá dispositivo StorSimple), ao mover dados usados com menos frequência toohello na nuvem.
 
-Apenas dispositivos StorSimple autorizados têm permissão para ingressar no serviço do Gerenciador do StorSimple que você criou na sua assinatura do Azure. Para autorizar um dispositivo, registre-o com o serviço do Gerenciador do StorSimple fornecendo a chave de registro. A chave de registro é uma chave aleatória de 128 bits gerada no portal clássico do Azure. 
+Apenas autorizados StorSimple dispositivos são permitidos Olá toojoin o serviço StorSimple Manager que você criou na sua assinatura do Azure. tooauthorize um dispositivo, você deve registrá-lo com hello serviço StorSimple Manager, fornecendo a chave de registro do serviço de saudação. chave de registro do serviço de saudação é uma chave aleatória de 128 bits gerada no hello portal clássico do Azure. 
 
 ![Chave de registro do serviço](./media/storsimple-security/ServiceRegistrationKey.png)
 
-Para saber como obter uma chave de registro do serviço, vá para [Etapa 2: obter a chave de registro do serviço](storsimple-deployment-walkthrough.md#step-2-get-the-service-registration-key).
+toolearn como obter um go chave, de registro de serviço muito[etapa 2: chave de registro de serviço Get hello](storsimple-deployment-walkthrough.md#step-2-get-the-service-registration-key).
 
-A chave de registro de serviço é uma chave longa que contém 100 caracteres. É possível copiar a chave e salvá-la em um arquivo de texto em um local seguro para poder usá-la para autorizar dispositivos adicionais conforme necessário. Se a chave de registro do serviço for perdida depois de registrar o primeiro dispositivo, você pode gerar uma nova chave usando o serviço do Gerenciador do StorSimple. Isso não afetará a operação dos dispositivos existentes. 
+chave de registro do serviço de saudação é uma chave longa que contém a 100 caracteres. Você pode copiar a chave de saudação e salvá-lo em um arquivo de texto em um local seguro para que você pode usá-lo dispositivos adicionais tooauthorize conforme necessário. Se a chave de registro do serviço de saudação for perdida, depois de registrar seu primeiro dispositivo, você pode gerar uma nova chave da saudação serviço StorSimple Manager. Isso não afetará a operação de saudação dos dispositivos existentes. 
 
-Depois que um dispositivo é registrado, ele usa tokens para se comunicar com o Microsoft Azure. A chave de registro de serviço não é usada depois do registro do dispositivo.
+Depois que um dispositivo for registrado, ele usa os tokens toocommunicate com o Microsoft Azure. chave de registro do serviço de saudação não é usado depois do registro do dispositivo.
 
 > [!NOTE]
-> Recomendamos a nova geração da chave de registro do serviço após cada utilização.
+> É recomendável que você regenerar a chave de registro de serviço de saudação após cada uso.
 > 
 > 
 
 ## <a name="protect-your-storsimple-solution-via-passwords"></a>Proteja sua solução StorSimple por meio de senhas
-As senhas são um aspecto importante da segurança do computador e são usadas amplamente na solução StorSimple para ajudar a garantir que os dados fiquem acessíveis apenas para os usuários autorizados. O StorSimple permite que você configure as seguintes senhas:
+Senhas são um aspecto importante da segurança do computador e são utilizadas extensivamente na solução do StorSimple Olá toohelp Certifique-se de que seus dados sejam tooauthorized acessível somente a usuários. StorSimple permite Olá tooconfigure senhas a seguir:
 
 * Senha do administrador de dispositivo do StorSimple
 * Senhas do iniciador e de destino do protocolo CHAP
 * Senha do Gerenciador de instantâneos do StorSimple
 
-### <a name="windows-powershell-for-storsimple-and-the-storsimple-device-administrator-password"></a>Senhas do Windows PowerShell para o StorSimple e do administrador de dispositivo do StorSimple
-O Windows PowerShell para StorSimple é uma interface de linha de comando que você pode usar para gerenciar o dispositivo StorSimple. O Windows PowerShell para StorSimple tem recursos que permitem registrar o dispositivo, configurar a interface de rede no dispositivo, instalar determinados tipos de atualizações, solucionar problemas do dispositivo acessando a sessão de suporte e alterar o estado do dispositivo. Você pode acessar o Windows PowerShell para StorSimple conectando-se ao console serial no dispositivo ou usando o Windows PowerShell remotamente.
+### <a name="windows-powershell-for-storsimple-and-hello-storsimple-device-administrator-password"></a>Windows PowerShell para StorSimple e hello senha de administrador do dispositivo StorSimple
+O Windows PowerShell para StorSimple é uma interface de linha de comando que você pode usar o dispositivo StorSimple toomanage hello. Windows PowerShell para StorSimple possui recursos que permitem a você tooregister seu dispositivo, configurar a interface de rede Olá no seu dispositivo, instalar determinados tipos de atualizações, solucionar problemas de seu dispositivo acessando a sessão de suporte de saudação e alterar o estado do dispositivo Olá . Você pode acessar o Windows PowerShell para StorSimple conexão console serial do toohello no dispositivo de saudação ou usando o Windows PowerShell remotamente.
 
-A comunicação remota do PowerShell pode ser feita por meio de HTTPS ou HTTP. Se o gerenciamento remoto por HTTPS estiver habilitado, você precisará baixar o certificado de gerenciamento remoto do dispositivo e instalá-lo no cliente remoto. Para obter mais informações sobre a comunicação remota do PowerShell, vá para [Conectar remotamente ao seu dispositivo StorSimple](storsimple-remote-connect.md).
+A comunicação remota do PowerShell pode ser feita por meio de HTTPS ou HTTP. Se o gerenciamento remoto via HTTPS estiver habilitado, será necessário gerenciamento remoto do toodownload Olá de certificado do dispositivo hello e instalá-lo no cliente remoto hello. Para obter mais informações sobre comunicação remota do PowerShell, vá muito[se conectar remotamente o dispositivo StorSimple tooyour](storsimple-remote-connect.md).
 
-Depois de usar o Windows PowerShell para StorSimple para se conectar ao dispositivo, forneça a senha de administrador do dispositivo para fazer logon no dispositivo.
+Depois que você usa o Windows PowerShell para StorSimple tooconnect toohello dispositivo, você precisará toolog de senha do administrador do tooprovide Olá dispositivo no dispositivo toohello.
 
 ![Senha do administrador do dispositivo](./media/storsimple-security/DeviceAdminPW.png)
 
-Considere as seguintes práticas recomendadas:
+Lembre-Olá, seguir as práticas recomendadas em mente:
 
-* O gerenciamento remoto está desativado por padrão. Você pode usar o serviço do Gerenciador do StorSimple para habilitá-lo. Como melhor prática de segurança, o acesso remoto deve ser habilitado somente durante o período de tempo realmente necessário.
-* Se você alterar a senha, certifique-se de notificar todos os usuários de acesso remoto para que eles não tenham uma perda de conectividade inesperada.
-* O serviço do Gerenciador do StorSimple não pode recuperar senhas existentes, apenas redefini-las. É recomendável armazenar todas as senhas em um local seguro para não precisar redefinir uma senha se ela for esquecida. Se você precisar redefinir uma senha, certifique-se de notificar todos os usuários antes de fazer isso. 
+* O gerenciamento remoto está desativado por padrão. Você pode usar tooenable de serviço do StorSimple Manager Olá-lo. Como prática recomendada de segurança, acesso remoto deve ser habilitado somente durante a saudação período de tempo que é realmente necessária.
+* Se você alterar a senha de hello, ser toonotify-se de que todos os usuários de acesso remoto para que eles não passem por uma perda de conectividade inesperados.
+* Olá serviço StorSimple Manager não pode recuperar senhas existentes: ele pode apenas reinicializá-las. É recomendável que você armazene todas as senhas em um local seguro para que você não tem tooreset uma senha se ela for esquecida. Se você precisar tooreset uma senha, ser toonotify-se de que todos os usuários antes de fazer isso. 
 
-Você pode acessar a interface do Windows PowerShell usando uma conexão serial com o dispositivo. Você também pode acessá-la remotamente usando HTTP ou HTTPS, o que fornece segurança adicional. HTTPS oferece um nível mais alto de segurança que uma conexão HTTP ou serial. No entanto, para usar HTTPS, você deve primeiro instalar um certificado no computador cliente que acessará o dispositivo. Baixe o certificado de acesso remoto na página de configuração do dispositivo no serviço do Gerenciador do StorSimple. Se o certificado para acesso remoto for perdido, baixe um novo certificado e propague-o a todos os clientes autorizados a usar o gerenciamento remoto.
+Você pode acessar a interface do Windows PowerShell hello usando um dispositivo de toohello conexão serial. Você também pode acessá-la remotamente usando HTTP ou HTTPS, o que fornece segurança adicional. HTTPS oferece um nível mais alto de segurança que uma conexão HTTP ou serial. No entanto, toouse HTTPS, você deve primeiro instalar um certificado no computador cliente Olá que irá acessar o dispositivo de saudação. Você pode baixar o certificado de acesso remoto de saudação na página de configuração de dispositivo Olá no hello serviço StorSimple Manager. Se o certificado de saudação para acesso remoto for perdido, deve baixar um novo certificado e propagá-lo tooall clientes que são o gerenciamento remoto de toouse autorizados.
 
 ### <a name="challenge-handshake-authentication-protocol-chap-initiator-and-target-passwords"></a>Senhas do iniciador e de destino do protocolo CHAP
-O CHAP é um esquema de autenticação usado pelo dispositivo StorSimple para validar a identidade de clientes remotos. A verificação se baseia em uma senha compartilhada. O protocolo CHAP pode ser unidirecional ou bidirecional (mútuo). Com o CHAP unidirecional, o destino (o dispositivo StorSimple) autentica um iniciador (host). O CHAP mútuo ou reverso exige que o destino autentique o iniciador e, em seguida, que o iniciador autentique o destino. O StorSimple pode ser configurado para usar qualquer um dos métodos.
+O CHAP é um esquema de autenticação usado pelo Olá identidade de saudação do StorSimple dispositivo toovalidate de clientes remotos. verificação de saudação baseia-se em uma senha compartilhada. O protocolo CHAP pode ser unidirecional ou bidirecional (mútuo). Com o CHAP unidirecional, o destino de saudação (dispositivo StorSimple do hello) autentica um iniciador (host). CHAP mútuo ou reverso requer que o destino Olá autentique o iniciador de saudação e, em seguida, o iniciador Olá autentique o destino de saudação. O StorSimple pode ser qualquer um dos métodos de toouse configurado.
 
-Esteja ciente do seguinte ao configurar o CHAP:
+Lembre-se do seguinte hello quando você configurar o CHAP:
 
-* O nome de usuário do CHAP deve conter menos de 233 caracteres.
-* A senha do CHAP deve conter entre 12 e 16 caracteres. Tentar usar um nome de usuário ou senha mais longo resultará em falha de autenticação no host do Windows.
-* Você não pode usar a mesma senha para o iniciador do CHAP e o destino do CHAP.
-* Depois de definir a senha, ela pode ser alterada, mas não recuperada. Se a senha for alterada, certifique-se de notificar todos os usuários de acesso remoto para que eles possam se conectar com sucesso ao dispositivo StorSimple.
+* nome de usuário CHAP Olá deve conter menos de 233 caracteres.
+* senha CHAP de saudação deve ter entre 12 e 16 caracteres. Tentativa de toouse um nome de usuário ou a senha mais longo resultará em uma falha de autenticação no host do Windows hello.
+* Você não pode usar o hello mesma senha para o iniciador do CHAP hello e o destino do CHAP hello.
+* Depois de definir senha hello, pode ser alterada, mas ele não pode ser recuperado. Se Olá senha for alterada, ser toonotify-se de que todos os usuários de acesso remoto para que eles podem se conectar com êxito o dispositivo StorSimple toohello.
 
-Para obter mais informações sobre o CHAP e como configurá-lo para sua solução StorSimple, vá para [Configurar CHAP para seu dispositivo StorSimple](storsimple-configure-chap.md).
+Para obter mais informações sobre o protocolo CHAP e como tooconfigure para sua solução do StorSimple saiu muito[configurar o CHAP para seu dispositivo StorSimple](storsimple-configure-chap.md).
 
 ### <a name="storsimple-snapshot-manager-password"></a>Senha do Gerenciador de instantâneos do StorSimple
-O Gerenciador de instantâneos do StorSimple é um snap-in do MMC (Console de Gerenciamento Microsoft) que usa grupos de volume e o serviço de cópias de sombra de volume do Windows para gerar backups consistentes com o aplicativo. Além disso, você pode usar o Gerenciador de instantâneos do StorSimple para criar o clone e agendamentos de backup ou restaurar volumes.
+Gerenciador de instantâneos StorSimple é um snap-in do Console de gerenciamento Microsoft (MMC) que usa grupos de volumes e backups consistentes com o aplicativo do toogenerate Olá serviço de cópias de sombra de Volume do Windows. Além disso, você pode usar o clone e Gerenciador de instantâneos StorSimple toocreate agendas de backup ou restaurar volumes.
 
-Ao configurar um dispositivo para usar o Gerenciador de Instantâneos do StorSimple, forneça a senha do Gerenciador de Instantâneos do StorSimple. Essa senha é definida pela primeira vez no Windows PowerShell para o StorSimple durante o registro. A senha também pode ser definida e alterada usando o serviço do Gerenciador do StorSimple. Essa senha autentica o dispositivo no Gerenciador de Instantâneos StorSimple.
+Quando você configura um toouse dispositivo StorSimple Snapshot Manager, você será senha de Gerenciador de instantâneos StorSimple Olá tooprovide necessária. Essa senha é definida pela primeira vez no Windows PowerShell para o StorSimple durante o registro. senha Olá também pode ser definida e alterada de saudação serviço StorSimple Manager. Essa senha autentica o dispositivo de saudação com o Gerenciador de instantâneos do StorSimple.
 
 ![Senha do Gerenciador de instantâneos do StorSimple](./media/storsimple-security/SnapshotMgrPassword.png)
 
-A senha deve ter de 14 a 15 caracteres e conter três ou mais de uma combinação de letra maiúscula, letra minúscula, caractere numérico e caracteres especiais. Depois de definir a senha do Gerenciador de instantâneos do StorSimple, ela pode ser alterada, mas não recuperada. Se você alterar a senha, certifique-se de notificar todos os usuários remotos.
+senha do StorSimple Snapshot Manager Olá deve ser 14 too15 caracteres e deve conter 3 ou mais de uma combinação de caracteres maiusculo, minúsculo, numérico e especial. Depois de definir a senha do StorSimple Snapshot Manager hello, pode ser alterada, mas ele não pode ser recuperado. Se você alterar a senha de hello, ser toonotify-se de que todos os usuários remotos.
 
-Para obter mais informações sobre o Gerenciador de Instantâneos do StorSimple, acesse [O que é Gerenciador de Instantâneos do StorSimple?](storsimple-what-is-snapshot-manager.md)
+Para obter mais informações sobre o Gerenciador de instantâneos do StorSimple, ir muito[o que é StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 
 ### <a name="password-best-practices"></a>Práticas recomendadas de senha
-É recomendável usar as seguintes diretrizes para ajudar a garantir que as senhas do StorSimple sejam fortes e bem protegidas:
+Recomendamos que você use o seguinte Olá diretrizes toohelp Verifique se StorSimple senhas fortes e bem protegidas:
 
-* Altere suas senhas a cada três meses. A alteração das senhas é imposta anualmente.
-* Use uma senha forte. Para obter mais informações, acesse [Create stronger passwords and protect them (Criar senhas fortes e protegê-las)](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
-* Sempre use senhas diferentes para diferentes mecanismos de acesso; cada uma das senhas especificadas deve ser exclusiva.
-* Não compartilhe senhas com ninguém que não esteja autorizado a acessar o dispositivo StorSimple.
-* Não fale sobre uma senha na frente de outras pessoas nem dê dicas do formato de uma senha.
-* Se você suspeitar que uma conta ou senha foi comprometida, relate o incidente ao departamento de segurança da informação.
+* Altere suas senhas a cada três meses. Alterando senhas Olá é imposta por ano.
+* Use uma senha forte. Para obter mais informações, vá muito[criar senhas de alta segurança e protegê-los](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+* Sempre use senhas diferentes para diferentes mecanismos de acesso; cada uma das senhas de saudação que você especificar deve ser exclusiva.
+* Não compartilhe senhas com alguém que não seja o dispositivo StorSimple autorizado tooaccess hello.
+* Não fale sobre uma senha na frente de outros ou dica em formato de saudação de uma senha.
+* Se você suspeitar de que uma conta ou senha tiver sido comprometida, relatório departamento de segurança de informações de incidentes tooyour hello.
 * Trate todas as senhas como informações sigilosas e confidenciais. 
 
 ## <a name="storsimple-data-protection"></a>Proteção de dados do StorSimple
-Esta seção descreve os recursos de segurança do StorSimple que protegem os dados em trânsito e armazenados.
+Esta seção descreve os recursos de segurança do StorSimple Olá protegem dados em trânsito e dados armazenados.
 
-Conforme descrito em outras seções, as senhas são usadas para autorizar e autenticar os usuários antes que eles possam obter acesso à sua solução do StorSimple. Outra consideração de segurança é proteger os dados contra usuários não autorizados durante a transferência entre sistemas de armazenamento e enquanto estão sendo armazenados. As seções a seguir descrevem os recursos de proteção dos dados fornecidos com o StorSimple.
+Conforme descrito em outras seções, as senhas são usada tooauthorize e autentiquem usuários antes de obterem acesso tooyour StorSimple solução. Outra consideração de segurança é proteger os dados contra usuários não autorizados durante a transferência entre sistemas de armazenamento e enquanto estão sendo armazenados. Olá seções a seguir descrevem recursos de proteção de dados Olá fornecidos com o StorSimple.
 
 > [!NOTE]
-> Eliminação de duplicação fornece proteção adicional para dados armazenados no dispositivo StorSimple e no Armazenamento do Microsoft Azure. Quando ocorre a eliminação de duplicação dos dados, os objetos de dados são armazenados separadamente dos metadados usados para mapeá-los e acessá-los: não há nenhum contexto no nível de armazenamento disponível para reconstruir os dados com base na estrutura de volume, sistema de arquivos ou nome de arquivo.
+> Eliminação de duplicação fornece proteção adicional para dados armazenados no dispositivo do StorSimple hello e no armazenamento do Microsoft Azure. Quando a eliminação de duplicação de dados, objetos de dados de saudação são armazenados separadamente do hello metadados usados toomap e acessá-los: nenhum dado de saudação tooreconstruct contexto de nível de armazenamento disponíveis com base na estrutura de volume, o sistema de arquivos ou o nome do arquivo.
 > 
 > 
 
-## <a name="protect-data-flowing-through-the-service"></a>Proteger dados que fluem através do serviço
-É o objetivo principal do serviço do Gerenciador do StorSimple gerenciar e configurar o dispositivo StorSimple. O serviço do Gerenciador do StorSimple é executado no Microsoft Azure. Você usa o Portal Clássico do Azure para inserir dados de configuração de dispositivo e, em seguida, o Microsoft Azure usa o serviço do Gerenciador do StorSimple para enviar os dados para o dispositivo. O StorSimple usa um sistema de pares de chaves assimétricas para ajudar a garantir que o comprometimento do serviço do Azure não resultará no comprometimento das informações armazenadas. 
+## <a name="protect-data-flowing-through-hello-service"></a>Proteger dados que fluem por meio do serviço de saudação
+finalidade principal Olá Olá serviço StorSimple Manager é toomanage e configurar o dispositivo StorSimple hello. Olá serviço StorSimple Manager é executado no Microsoft Azure. Use Olá dados de configuração de dispositivo tooenter de portal clássico do Azure e Microsoft Azure usa Olá StorSimple Manager serviço toosend Olá toohello o dispositivo de dados. StorSimple usa um sistema de pares de chaves assimétricas toohelp Certifique-se de que um comprometimento de saudação do serviço do Azure não resultará em um comprometimento das informações armazenadas. 
 
 ![Criptografia dos dados em trânsito](./media/storsimple-security/DataEncryption.png)
 
-O sistema de chaves assimétricas ajuda a proteger os dados que fluem através do serviço da seguinte maneira:
+sistema de chaves assimétricas Olá ajuda a proteger dados de saudação que fluem por meio do serviço de saudação da seguinte maneira:
 
-1. Um certificado de criptografia de dados que usa um par de chaves pública e privada assimétricas é gerado no dispositivo e usado para proteger os dados. As chaves são geradas quando o primeiro dispositivo é registrado. 
-2. As chaves do certificado de criptografia de dados são exportadas para um arquivo .pfx (Troca de Informações Pessoais) protegido pela chave de criptografia de dados de serviço, que é uma chave forte de 128 bits gerada aleatoriamente pelo primeiro dispositivo durante o registro.
-3. A chave pública do certificado é disponibilizada para o serviço do Gerenciador do StorSimple e a chave privada permanece com o dispositivo.
-4. Os dados que entram no serviço são criptografados usando a chave pública e descriptografados usando a chave privada armazenada no dispositivo, garantindo que o serviço do Azure não possa descriptografar os dados que fluem para o dispositivo.
+1. Um certificado de criptografia de dados que usa um par de chaves assimétricas público e privado é gerado no dispositivo hello e dados de saudação tooprotect usado. chaves de saudação são geradas quando o primeiro dispositivo de saudação está registrado. 
+2. chaves de certificado de criptografia de dados de saudação são exportadas para um arquivo de troca de informações pessoais (. pfx) que é protegido por Olá serviço dados chave de criptografia, que é uma chave forte de 128 bits aleatoriamente gerada pelo primeiro dispositivo de saudação durante o registro.
+3. a chave pública do certificado de saudação Olá com segurança torna disponível toohello serviço StorSimple Manager e chave privada Olá permanece com dispositivo hello.
+4. Dados de serviço de saudação entrando é criptografado usando Olá chave pública e descriptografados com a chave privada de saudação armazenado no dispositivo hello, garantir que saudação do serviço do Azure não pode descriptografar dados de saudação fluindo toohello dispositivo.
 
-A chave da criptografia de dados do serviço é gerada apenas no primeiro dispositivo registrado com o serviço. Todos os dispositivos subsequentes registrados com o serviço devem usar a mesma chave de criptografia de dados de serviço. 
+chave de criptografia de dados de serviço de saudação é gerado apenas no hello primeiro dispositivo registrado com o serviço de saudação. Todos os dispositivos subsequentes que são registrados com o serviço de saudação devem usar Olá mesma chave de criptografia de dados de serviço. 
 
 > [!IMPORTANT]
-> É muito importante fazer uma cópia dessa chave de criptografia e salvá-la em um local seguro. Uma cópia da chave de criptografia de dados de serviço deve ser armazenada de forma que possa ser acessada por uma pessoa autorizada e facilmente comunicada ao administrador do dispositivo.
+> É muito importante toomake uma cópia da chave de criptografia de dados de serviço hello e salvá-lo em um local seguro. Uma cópia da chave de criptografia de dados de serviço Olá deve ser armazenada de forma que possa ser acessado por uma pessoa autorizada e pode ser facilmente comunicados toohello administrador do dispositivo.
 > 
-> Se a chave de criptografia de dados de serviço for perdida, um profissional de suporte da Microsoft poderá ajudar a recuperá-la, desde que você tenha pelo menos um dispositivo no estado online. É recomendável alterar a chave de criptografia de dados de serviço depois de recuperá-la. Para obter instruções, vá para [Alterar a chave de criptografia de dados do serviço](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
+> Se a chave de criptografia de dados de serviço de saudação for perdida, uma pessoa de suporte da Microsoft pode ajudá-lo tooretrieve ele fornecido que você tenha pelo menos um dispositivo em um estado online. É recomendável que você altere a chave de criptografia de dados de serviço Olá após ele ser recuperado. Para obter instruções, vá muito[alterar chave de criptografia de dados de serviço de saudação](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
 > 
 > 
 
-Você pode alterar a chave de criptografia de dados do serviço e o certificado de criptografia de dados correspondente selecionando a opção **Alterar chave de criptografia de dados do serviço** no painel de serviço. Para garantir que a segurança dos dados não seja comprometida, use um dispositivo StorSimple físico para alterar a chave de criptografia de dados de serviço. Alterar as chaves de criptografia requer que todos os dispositivos sejam atualizados com a nova chave. Portanto, é recomendável que você altere a chave quando todos os dispositivos estiverem online. Se os dispositivos estiverem offline, suas chaves podem ser alteradas em um momento diferente. Os dispositivos com chaves desatualizadas ainda poderão executar backups, mas não poderão restaurar dados até que a chave seja atualizada. Para saber mais, vá para [Usar o painel de serviço do Gerenciador do StorSimple](storsimple-service-dashboard.md).
+Você pode alterar a chave de criptografia de dados de serviço hello e certificado de criptografia de dados correspondente Olá selecionando Olá **alterar chave de criptografia de dados de serviço** opção no painel de serviço hello. tooensure que a segurança de dados não seja comprometida, você deve usar uma físico StorSimple dispositivo toochange Olá serviço dados chave de criptografia. Alterar as chaves de criptografia Olá requer que todos os dispositivos sejam atualizados com a nova chave de saudação. Portanto, recomendamos que você altere a chave de saudação quando todos os dispositivos estão online. Se os dispositivos estiverem offline, suas chaves podem ser alteradas em um momento diferente. dispositivos Olá com chaves desatualizadas ainda será capaz de toorun backups, mas não serão capazes de toorestore dados até que a chave de saudação é atualizada. Para obter mais informações, vá muito[painel de serviço do uso Olá StorSimple Manager](storsimple-service-dashboard.md).
 
-A chave de criptografia de dados de serviço e o certificado de criptografia de dados não expiram. No entanto, recomendamos a alteração anual da chave de criptografia de dados do serviço para ajudar a impedir o comprometimento da chave.
+chave de criptografia de dados de serviço Hello e certificado de criptografia de dados de saudação não expiram. No entanto, recomendamos que você altere a criptografia de dados de serviço Olá chave anualmente toohelp impedir comprometimento da chave.
 
 ## <a name="protect-data-at-rest"></a>Proteger dados em repouso
-O dispositivo StorSimple gerencia dados armazenando-os em camadas localmente e na nuvem, dependendo da frequência de uso. Todos os computadores host conectados ao dispositivo enviam dados para o dispositivo, que então os transfere para a nuvem, conforme apropriado. Os dados são transferidos do dispositivo para a nuvem com segurança pela Internet. Cada dispositivo tem um destino iSCSI que mostra todos os volumes compartilhados naquele dispositivo. Todos os dados são criptografados antes de serem enviados ao armazenamento em nuvem. 
+o dispositivo StorSimple Olá gerencia dados armazenando-o em camadas localmente e na nuvem hello, dependendo da frequência de uso. Todas as máquinas que estão conectados toohello dispositivo enviar dados toohello dispositivo, que move dados toohello na nuvem, conforme apropriado de host. Dados são transferidos da saudação dispositivo toohello nuvem com segurança pela Olá da Internet. Cada dispositivo tem um destino iSCSI que mostra todos os volumes compartilhados naquele dispositivo. Todos os dados são criptografados antes de serem enviado toocloud armazenamento. 
 
 ![Chave de criptografia de armazenamento em nuvem](./media/storsimple-security/CloudStorageEncryption.png)
 
-Para ajudar a garantir a segurança e a integridade dos dados movidos para a nuvem, o StorSimple permite definir chaves de criptografia de armazenamento em nuvem da seguinte maneira:
+toohelp garantir a segurança de saudação e integridade dos dados movidos nuvem toohello, StorSimple permite que você toodefine chaves de criptografia de armazenamento de nuvem da seguinte maneira:
 
-* Especifique a chave de criptografia de armazenamento em nuvem ao criar um contêiner de volume. A chave não pode ser modificada nem adicionada posteriormente. 
-* Todos os volumes em um contêiner de volume compartilham a mesma chave de criptografia. Se você quiser uma forma diferente de criptografia para um volume específico, é recomendável criar um novo contêiner de volume para hospedar esse volume.
-* Ao inserir a chave de criptografia de armazenamento em nuvem no serviço do Gerenciador do StorSimple, ela criptografada usando a parte pública da chave de criptografia de dados de serviço e, em seguida, enviada para o dispositivo.
-* A chave de criptografia de armazenamento em nuvem não é armazenada em qualquer lugar no serviço e é conhecida apenas para o dispositivo.
-* Especificar uma chave de criptografia de armazenamento em nuvem é opcional. Você pode enviar dados que foram criptografados no host para o dispositivo.
+* Você especificar a chave de criptografia de armazenamento de nuvem hello quando você cria um contêiner de volume. chave de saudação não pode ser modificado ou adicionado mais tarde. 
+* Todos os volumes em um compartilhamento de contêiner de volume Olá a mesma chave de criptografia. Se você quiser uma forma diferente de criptografia para um volume específico, é recomendável que você crie um novo toohost de contêiner de volume nesse volume.
+* Quando você insere a chave de criptografia de armazenamento de nuvem Olá no hello serviço StorSimple Manager, chave de saudação é criptografada usando Olá a parte pública da chave de criptografia de dados de serviço hello e, em seguida, enviada toohello dispositivo.
+* chave de criptografia de armazenamento de nuvem Olá não é armazenado em qualquer lugar no serviço de saudação e é conhecido apenas toohello dispositivo.
+* Especificar uma chave de criptografia de armazenamento em nuvem é opcional. Você pode enviar dados que foram criptografados no dispositivo de toohello Olá host.
 
 ### <a name="additional-security-best-practices"></a>Práticas recomendadas de segurança adicionais
-* Dividir o tráfego: isolar a rede SAN do iSCSI do tráfego do usuário em uma LAN corporativa implantando uma rede totalmente separada e usando VLANs em que o isolamento físico não é uma opção. Uma rede dedicada para o armazenamento iSCSI garantirá a segurança e o desempenho de seus dados essenciais aos negócios. Misturar o tráfego de armazenamento e o de usuário em uma LAN corporativa não é recomendado e pode aumentar a latência e causar falhas de rede.
-* Para a segurança de rede do lado do host, use as interfaces de rede que dão suporte a TOE (TCP/IP Offload Engine). O TOE reduz a carga de CPU processando TCP no adaptador de rede.
+* Dividir o tráfego: isolar a rede SAN do iSCSI do tráfego do usuário em uma LAN corporativa implantando uma rede totalmente separada e usando VLANs em que o isolamento físico não é uma opção. Uma rede dedicada para o armazenamento iSCSI garantirá segurança hello e o desempenho de seus dados essenciais aos negócios. Misturar o tráfego de armazenamento e o de usuário em uma LAN corporativa não é recomendado e pode aumentar a latência e causar falhas de rede.
+* Para a segurança de rede do lado do host, use as interfaces de rede que dão suporte a TOE (TCP/IP Offload Engine). TOE reduz a carga de CPU processando TCP no adaptador de rede de saudação.
 
 ## <a name="protect-data-via-storage-accounts"></a>Proteger dados por meio de contas de armazenamento
-Cada assinatura do Microsoft Azure pode criar uma ou mais contas de armazenamento. (Uma conta de armazenamento fornece um namespace exclusivo para trabalhar com dados armazenados na nuvem do Azure.) O acesso a uma conta de armazenamento é controlado pela assinatura e pelas chaves de acesso associadas àquela conta de armazenamento. 
+Cada assinatura do Microsoft Azure pode criar uma ou mais contas de armazenamento. (Uma conta de armazenamento fornece um namespace exclusivo para trabalhar com dados armazenados na nuvem do Azure do hello.) Conta de armazenamento tooa acesso é controlada pelas chaves de assinatura e de acesso de saudação associadas à conta de armazenamento. 
 
-Quando você cria uma conta de armazenamento, o Microsoft Azure gera duas chaves de acesso de armazenamento de 512 bits, uma das quais é usada para autenticação quando o dispositivo StorSimple acessa a conta de armazenamento. Observe que apenas uma dessas chaves está em uso. A outra chave é mantida em reserva, permitindo alternar as chaves periodicamente. Para alternar as chaves, ative a chave secundária e, em seguida, exclua a chave primária. Você pode criar uma nova chave para uso durante o próximo rodízio. (Por motivos de segurança, muitos data centers exigem a rotação de chaves.) 
+Quando você cria uma conta de armazenamento, o Microsoft Azure gera duas chaves de acesso de armazenamento de 512 bits, um dos quais é usado para autenticação quando o dispositivo StorSimple Olá acessa a conta de armazenamento hello. Observe que apenas uma dessas chaves está em uso. Olá outra chave é mantida em reserva, permitindo que você toorotate Olá chaves periodicamente. toorotate chaves, que ativa de chave secundária hello e chave primária de saudação de exclusão. Em seguida, você pode criar uma nova chave para uso durante o próximo rodízio de saudação. (Por motivos de segurança, muitos data centers exigem a rotação de chaves.) 
 
 Recomendamos seguir estas práticas recomendadas para a rotação de chaves:
 
-* Alterne as chaves da conta de armazenamento regularmente para ajudar a garantir que sua conta de armazenamento não seja acessada por usuários não autorizados.
-* Periodicamente, o administrador do Azure deve alterar ou gerar uma nova chave primária ou secundária usando a seção de armazenamento do Portal clássico do Azure para acessar diretamente a conta de armazenamento.
+* Você deve girar chaves conta de armazenamento regularmente toohelp Certifique-se de que sua conta de armazenamento não é acessada por usuários não autorizados.
+* Periodicamente, o administrador do Azure deve alterar ou regenerar chave primária ou secundária de saudação usando a seção de armazenamento de saudação do hello conta de armazenamento do Azure toodirectly portal clássico acesso hello.
 
 ## <a name="protect-data-via-encryption"></a>Proteger dados por meio de criptografia
-O StorSimple usa os seguintes algoritmos de criptografia para proteger os dados armazenados ou em trânsito entre os componentes da solução StorSimple.
+StorSimple usa Olá seguintes algoritmos de criptografia tooprotect dados armazenados em ou transportados entre componentes de saudação da sua solução StorSimple.
 
 | Algoritmo | Comprimento da chave | Aplicativos/protocolos/comentários |
 | --- | --- | --- |
-| RSA |2.048 |A RSA PKCS 1 v1.5 é usada pelo Portal clássico do Azure para criptografar dados de configuração enviados para o dispositivo: por exemplo, credenciais da conta de armazenamento, configuração do dispositivo StorSimple e chaves de criptografia de armazenamento em nuvem. |
-| AES |256 |O AES com CBC é usado para criptografar a parte pública da chave de criptografia de dados de serviço antes de ela ser enviada para o Portal clássico do Azure por meio do dispositivo StorSimple. Também é usado pelo dispositivo StorSimple para criptografar os dados antes sejam enviados para a conta de armazenamento em nuvem. |
+| RSA |2.048 |O RSA PKCS 1 v 1.5 é usado pelo Olá dados de configuração de tooencrypt de portal clássico do Azure que são enviados toohello dispositivo: por exemplo, armazenamento de credenciais, a configuração do dispositivo StorSimple, da conta e chaves de criptografia de armazenamento em nuvem. |
+| AES |256 |AES com CBC é usado tooencrypt parte pública do hello da chave de criptografia de dados de serviço de saudação antes de serem enviado do dispositivo do StorSimple Olá toohello portal clássico do Azure. Ele também é usado por Olá StorSimple dispositivo tooencrypt de dados antes de dados saudação são enviados toohello conta de armazenamento de nuvem. |
 
 ## <a name="storsimple-virtual-device-security"></a>Segurança do dispositivo virtual StorSimple
 [!INCLUDE [storsimple virtual device security](../../includes/storsimple-virtual-device-security.md)]
 
 ## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
-A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azure StorSimple.
+Olá seguem algumas perguntas e respostas sobre segurança e o Microsoft Azure StorSimple.
 
 **P:** Meu serviço está comprometido. Qual deve ser minhas próximas etapas?
 
-**R:** Você deve alterar imediatamente a chave de criptografia de dados de serviço e as chaves de conta de armazenamento para a conta de armazenamento que está sendo usada para dados em camadas. Para obter instruções, vá para: 
+**R:** você deve alterar chave de criptografia de dados de serviço hello e chaves de conta de armazenamento Olá Olá conta de armazenamento que está sendo usado para colocar dados imediatamente. Para obter instruções, vá para: 
 
-* [Alterar a chave de criptografia de dados do serviço](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Alterar a chave de criptografia de dados de serviço Olá](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 * [Rotação de chave de contas de armazenamento](storsimple-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
-**P:** Eu tenho um dispositivo StorSimple novo que está solicitando a chave de registro. Como recuperá-la?
+**P:** tiver um dispositivo StorSimple novo que está solicitando a chave de registro do serviço de saudação. Como recuperá-la?
 
-**R:** Esta chave foi criada quando você criou o serviço StorSimple Manager. Quando você usa o serviço Gerenciador do StorSimple para se conectar ao dispositivo, pode usar a página de início rápido do serviço para exibir ou gerar nova chave de registro. A geração de uma nova chave de registro do serviço não afetará os dispositivos registrados existentes. Para obter instruções, vá para:
+**R:** essa chave foi criada quando você criou pela primeira vez o serviço StorSimple Manager hello. Quando você usa um dispositivo de toohello tooconnect do serviço de Gerenciador de StorSimple Olá, você pode usar o hello tooview de página de início rápido de serviço ou a chave de registro de serviço Olá regenerar. Gerar uma nova chave de registro de serviço não afetarão os dispositivos registrados existentes hello. Para obter instruções, vá para:
 
-* [Exibir ou gerar novamente a chave de registro](storsimple-service-dashboard.md#view-or-regenerate-the-service-registration-key)
+* [Exibir ou regenerar a chave de registro de serviço Olá](storsimple-service-dashboard.md#view-or-regenerate-the-service-registration-key)
 
 **P:** Perdi minha chave de criptografia de dados de serviço. O que devo fazer?
 
-**R:** Entre em contato com o Suporte da Microsoft. Eles podem fazer logon em uma sessão de suporte no seu dispositivo e ajudar você a recuperar a chave (contanto que pelo menos um dispositivo esteja online). Imediatamente depois de obter a chave de criptografia de dados de serviço, você deve alterá-la para garantir que a nova chave seja conhecida apenas por você. Para obter instruções, vá para:
+**R:** Entre em contato com o Suporte da Microsoft. Eles podem fazer logon tooa a sessão de suporte no seu dispositivo e ajudar você a recuperar chave hello (desde que pelo menos um dispositivo está online). Imediatamente depois de obter a chave de criptografia de dados de serviço hello, você deve alterá-la tooensure essa nova chave de saudação é conhecido apenas tooyou. Para obter instruções, vá para:
 
-* [Alterar a chave de criptografia de dados do serviço](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Alterar a chave de criptografia de dados de serviço Olá](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 
-**P:** Autorizei um dispositivo para uma alteração de chave de criptografia de dados de serviço, mas ele não iniciou o processo de alteração da chave. O que devo fazer?
+**P:** autorizei um dispositivo para uma alteração de chave de criptografia de dados serviço, mas não foi iniciado o processo de alteração de chave hello. O que devo fazer?
 
-**R:** Se o tempo limite tiver expirado, você terá de autorizar novamente o dispositivo para alteração da chave de criptografia de dados do serviço e reiniciar o processo.
+**R:** se Olá período de tempo limite tiver expirado, será necessário tooreauthorize dispositivo de saudação para alteração de criptografia de dados chave serviço hello e iniciar o processo de saudação novamente.
 
-**P:** Alterei a chave de criptografia de dados do serviço, mas não consegui atualizar outros dispositivos em quatro horas. É necessário iniciar novamente?
+**P:** alterei a chave de criptografia de dados de serviço hello, mas não foi possível tooupdate Olá outros dispositivos em 4 horas. É necessário toostart novamente?
 
-**R:** O período de quatro horas é apenas para iniciar a alteração. Depois de iniciar o processo de atualização no dispositivo StorSimple autorizado, a autorização será válida até que todos os dispositivos sejam atualizados.
+**R:** Olá o período de tempo de 4 horas é apenas para iniciar a alteração de saudação. Depois de iniciar o processo de atualização de saudação em Olá autorizado dispositivo StorSimple, autorização Olá é válida até que todos os dispositivos sejam atualizados.
 
-**P:** Nosso administrador StorSimple saiu da empresa. O que devo fazer?
+**P:** nosso administrador StorSimple saiu da empresa de saudação. O que devo fazer?
 
-**R:** Altere e redefina as senhas que permitem o acesso ao dispositivo StorSimple e altere a chave de criptografia de dados do serviço para garantir que as novas informações não sejam conhecidas por pessoal não autorizado. Para obter instruções, vá para:
+**R:** altere e redefina Olá senhas que permitem acessar toohello o dispositivo StorSimple e alterar Olá serviço dados criptografia chave tooensure que novas informações de saudação não são conhecidas toounauthorized pessoal. Para obter instruções, vá para:
 
-* [Usar o serviço StorSimple Manager para alterar suas senhas StorSimple](storsimple-change-passwords.md)
-* [Alterar a chave de criptografia de dados do serviço](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Usar toochange de serviço do StorSimple Manager Olá suas senhas de storsimple](storsimple-change-passwords.md)
+* [Alterar a chave de criptografia de dados de serviço Olá](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 * [Configure o CHAP para o seu dispositivo StorSimple](storsimple-configure-chap.md)
 
-**P:** Desejo fornecer a senha do StorSimple Snapshot Manager para um host que está se conectando ao dispositivo StorSimple, mas a senha não está disponível. O que posso fazer?
+**P:** tooprovide Olá StorSimple Snapshot Manager senha tooa host que está se conectando o dispositivo StorSimple toohello desejado, mas Olá senha não está disponível. O que posso fazer?
 
-**R:** Se você tiver esquecido a senha, deverá criar uma nova. Em seguida, informe todos os usuários existentes de que a senha foi alterada e eles devem atualizar seus clientes para usar a nova senha. Para obter instruções, vá para:
+**R:** se você tiver esquecido a senha de saudação, você deve criar um novo. Em seguida, certifique-se de que tooinform todos os usuários existentes que Olá senha foi alterada e que eles devem atualizar seu clientes toouse Olá nova senha. Para obter instruções, vá para:
 
-* [Alterar a senha do StorSimple Snapshot Manager](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)
+* [Alterar a senha do StorSimple Snapshot Manager Olá](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)
 * [Autenticar um dispositivo](storsimple-snapshot-manager-manage-devices.md#authenticate-a-device)
 
-**P:** O certificado para o acesso remoto ao Windows PowerShell para StorSimple foi alterado no dispositivo. Como atualizar meus clientes de acesso remoto?
+**P:** certificado Olá para toohello de acesso remoto do Windows PowerShell para StorSimple foi alterado no dispositivo de saudação. Como atualizar meus clientes de acesso remoto?
 
-**R:** Você pode baixar o novo certificado do serviço StorSimple Manager e depois fornecê-lo para ser instalado no repositório de certificados de clientes de acesso remoto. Para obter instruções, vá para:
+**R:** você pode baixar o novo certificado de saudação do hello serviço StorSimple Manager e depois fornecê-la toobe instalado no repositório de certificados de saudação de seus clientes de acesso remoto. Para obter instruções, vá para:
 
 * [Certificado de importação de cmdlet](https://technet.microsoft.com/library/hh848630.aspx)
 
-**P:** Meus dados ficarão protegidos se o serviço StorSimple Manager estiver comprometido?
+**P:** meus dados ficarão protegidos se Olá serviço StorSimple Manager estiver comprometido?
 
-**R:** Os dados de configuração de serviço são sempre criptografados com a chave pública quando exibidos em um navegador da Web. Como o serviço não tem acesso à chave privada, o serviço não poderá ver os dados. Se o serviço de gerenciador do StorSimple estiver comprometido, há haverá impacto, pois não há nenhuma chave armazenada no serviço de gerenciador do StorSimple.
+**R:** Os dados de configuração de serviço são sempre criptografados com a chave pública quando exibidos em um navegador da Web. Porque o serviço de saudação não tem chave privada do acesso toohello, serviço Olá não poderá ser capaz de toosee todos os dados. Se Olá serviço StorSimple Manager estiver comprometido, há nenhum impacto, pois não há nenhuma chave armazenada no hello serviço StorSimple Manager.
 
-**P:** Se alguém obtiver acesso ao certificado de criptografia de dados, meus dados serão comprometidos?
+**P:** se alguém obtiver o certificado de criptografia de dados do access toohello, serão meus dados ficarão comprometidos?
 
-**R:** O Microsoft Azure armazena a chave de criptografia de dados do cliente (arquivo. pfx) em um formato criptografado. Como o arquivo .pfx é criptografada e o serviço StorSimple não tem a chave de criptografia de dados de serviço para descriptografar o arquivo .pfx, o simples acesso ao arquivo .pfx não vai expor nenhum segredo.
+**R:** Microsoft Azure armazena a chave de criptografia de dados do cliente da saudação (arquivo. pfx) em um formato criptografado. Arquivo. pfx de saudação é criptografado e Olá serviço StorSimple tem Olá serviço dados criptografia toodecrypt chave Olá arquivo.pfx, simplesmente obter o arquivo. pfx do access toohello não expõe nenhum segredo.
 
 **P:** O que acontece se uma entidade governamental solicitar meus dados à Microsoft?
 
-**R:** Como todos os dados são criptografados no serviço e a chave privada é mantida com o dispositivo, a entidade governamental deverá solicitar os dados ao cliente. 
+**R:** porque todos os dados de saudação são criptografados no serviço hello e Olá chave privada é mantida com dispositivo hello, hello governamental entidade deve solicitar ao cliente Olá dados saudação. 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Implantar o dispositivo StorSimple](storsimple-deployment-walkthrough.md).

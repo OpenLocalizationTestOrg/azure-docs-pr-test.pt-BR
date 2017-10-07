@@ -1,6 +1,6 @@
 ---
-title: "Protocolos de Autenticação do Azure Active Directory | Microsoft Docs"
-description: "Uma visão geral dos protocolos de autenticação suportados pelo Azure Active Directory (AD)"
+title: "Protocolos de autenticação do Active Directory de aaaAzure | Microsoft Docs"
+description: "Uma visão geral da saudação protocolos de autenticação com suporte pelo Azure AD (Active Directory)"
 documentationcenter: dev-center-name
 author: priyamohanram
 services: active-directory
@@ -15,24 +15,24 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: 91416669281aa8eeef5916db008f9b0cbcbf77e2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1584efa83d30746075e970b8523c3abdccd34859
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # Protocolos de autenticação do Azure Active Directory
-O Azure Active Directory (AD do Azure) oferece suporte a vários dos protocolos de autenticação e autorização mais usados. Os tópicos nesta seção descrevem os protocolos suportados e sua implementação no Azure AD. Os tópicos incluem uma revisão dos tipos de declarações com suporte, uma introdução ao uso de metadados de federação, documentação detalhada de referência dos protocolos OAuth 2.0. e SAML 2.0 e uma seção de solução de problemas.
+Azure Active Directory (AD do Azure) suporta vários dos protocolos de autenticação e autorização hello mais amplamente usado. Olá tópicos nesta seção descrevem Olá suporte para protocolos e sua implantação no AD do Azure. tópicos de saudação incluíram uma revisão dos tipos de declaração com suporte, um uso de toohello introdução de metadados de federação, detalhado OAuth 2.0. e SAML 2.0 e uma seção de solução de problemas.
 
 ## Artigos e referência dos protocolos de autenticação
-* [Informações importantes sobre substituição de chave de assinatura no Azure AD](active-directory-signing-key-rollover.md) – Saiba mais sobre a cadência de substituição de chave de assinatura no Azure AD, as alterações que você pode fazer para atualizar a chave automaticamente e discussões sobre como atualizar os cenários mais comuns do aplicativo.
-* [Token Suportado e Tipos de Declaração](active-directory-token-and-claims.md) - Saiba mais sobre as declarações nos tokens que o Azure AD emite.
-* [Metadados de federação](active-directory-federation-metadata.md) - Saiba como localizar e interpretar os documentos de metadados que o Azure AD gera.
-* [OAuth 2.0 no Azure AD](active-directory-protocols-oauth-code.md) - Saiba mais sobre a implementação do OAuth 2.0 no Azure AD.
-* [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) - Saiba como usar o OAuth 2.0, um protocolo de autorização para autenticação.
-* [Serviço para Chamadas de Serviço com Credenciais do Cliente](active-directory-protocols-oauth-service-to-service.md) – Saiba como utilizar o fluxo de concessão de credenciais de cliente OAuth 2.0 para chamadas de serviços.
-* [Serviço para Chamadas de Serviço com Fluxo Em Nome De](active-directory-protocols-oauth-on-behalf-of.md) – Saiba como utilizar o fluxo de Em Nome De OAuth 2.0 para chamadas de serviços.
-* [Referência de protocolo SAML](active-directory-saml-protocol-reference.md) - Saiba mais sobre os perfis de logon único e logout único SAML do Azure AD.
+* [Importantes informações sobre assinatura de substituição de chave no AD do Azure](active-directory-signing-key-rollover.md) – Saiba mais sobre a substituição das chaves, alterações que você pode tornar a chave de saudação tooupdate automaticamente e discussões sobre como tooupdate Olá cenários mais comuns do aplicativo de assinatura do AD do Azure.
+* [Suporte para tipos de declaração e Token](active-directory-token-and-claims.md) -Saiba mais sobre Olá declarações nos tokens de saudação que emitem o AD do Azure.
+* [Metadados de Federação](active-directory-federation-metadata.md) -Saiba como toofind e interpretar os documentos de metadados de saudação do AD do Azure gera.
+* [OAuth 2.0 no AD do Azure](active-directory-protocols-oauth-code.md) -Saiba mais sobre a implementação de saudação do OAuth 2.0 no AD do Azure.
+* [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) -Saiba como toouse OAuth 2.0, um protocolo de autorização para autenticação.
+* [Chamadas de tooService com as credenciais do cliente de serviço](active-directory-protocols-oauth-service-to-service.md) -Saiba como fluxo para chamadas de tooservice do serviço de concessão de credenciais de cliente toouse OAuth 2.0.
+* [Chamadas de tooService com o nome do fluxo de serviço](active-directory-protocols-oauth-on-behalf-of.md) -Saiba como chama toouse fluxo do nome do OAuth 2.0 para tooservice de serviço.
+* [Referência de protocolo do SAML](active-directory-saml-protocol-reference.md) -Saiba mais sobre perfis de logon único do SAML e saída únicos de saudação do AD do Azure.
 
 ## Consulte também
 [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md)

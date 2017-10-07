@@ -1,6 +1,6 @@
 ---
-title: "Criar uma investigação personalizada - Gateway de Aplicativo do Azure - PowerShell | Microsoft Docs"
-description: "Saiba como criar uma investigação personalizada para o Gateway de Aplicativo usando o PowerShell no Gerenciador de Recursos"
+title: "aaaCreate um personalizado investigação - Gateway de aplicativo do Azure - PowerShell | Microsoft Docs"
+description: Saiba como toocreate um personalizado teste para o Application Gateway usando o PowerShell no Gerenciador de recursos
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: gwallace
-ms.openlocfilehash: b54fe5267d87a41eb9e81d5d1dc9b1b16c5c5e88
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 44c9ffa75401d6d0db023e66fa82c701fb0cf8bc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Criar uma investigação personalizada para o Gateway de Aplicativo do Azure usando o PowerShell do Azure Resource Manager
 
@@ -28,10 +28,10 @@ ms.lasthandoff: 07/11/2017
 > * [PowerShell do Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
-Neste artigo, você adiciona uma investigação personalizada a um gateway de aplicativo existente com o PowerShell. As investigações personalizadas são úteis para aplicativos que tenham uma página de verificação de integridade específica ou para aplicativos que não forneçam uma resposta bem-sucedida no aplicativo Web padrão.
+Neste artigo, você deve adicionar um gateway de aplicativo existente do investigação personalizada tooan com o PowerShell. Testes personalizados são úteis para aplicativos que têm uma página de verificação de integridade específicas ou para aplicativos que não fornecem uma resposta bem-sucedida no aplicativo de web saudação padrão.
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../azure-resource-manager/resource-manager-deployment-model.md).  Este artigo aborda usando o modelo de implantação do Gerenciador de Recursos, que a Microsoft recomenda para a maioria das novas implantações em vez de do [modelo de implantação clássico](application-gateway-create-probe-classic-ps.md).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../azure-resource-manager/resource-manager-deployment-model.md).  Este artigo aborda usando o modelo de implantação do hello Gerenciador de recursos, a Microsoft recomenda para a maioria das novas implantações em vez da saudação [modelo de implantação clássico](application-gateway-create-probe-classic-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -39,19 +39,19 @@ Neste artigo, você adiciona uma investigação personalizada a um gateway de ap
 
 ### <a name="sign-in-and-create-resource-group"></a>Entrar e criar grupo de recursos
 
-1. Use `Login-AzureRmAccount` para autenticar.
+1. Use `Login-AzureRmAccount` tooauthenticate.
 
   ```powershell
   Login-AzureRmAccount
   ```
 
-1. Obter as assinaturas da conta.
+1. Obter assinaturas Olá para conta de saudação.
 
   ```powershell
   Get-AzureRmSubscription
   ```
 
-1. Escolha quais das suas assinaturas do Azure deseja usar.
+1. Escolha qual toouse suas assinaturas do Azure.
 
   ```powershell
   Select-AzureRmSubscription -Subscriptionid '{subscriptionGuid}'
@@ -63,46 +63,46 @@ Neste artigo, você adiciona uma investigação personalizada a um gateway de ap
   New-AzureRmResourceGroup -Name appgw-rg -Location 'West US'
   ```
 
-O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Esse local é usado como o local padrão para os recursos do grupo de recursos em questão. Verifique se todos os comandos para criar um gateway de aplicativo usam o mesmo grupo de recursos.
+O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Esse local é usado como o local padrão de saudação para recursos desse grupo de recursos. Certifique-se de que todos os comandos toocreate uma saudação de uso de gateway de aplicativo mesmo grupo de recursos.
 
-No exemplo anterior, criamos um grupo de recursos denominado **appgw-RG** no local **Oeste dos EUA**.
+Em Olá anterior de exemplo, criamos um grupo de recursos chamado **appgw RG** no local **Oeste dos EUA**.
 
 ### <a name="create-a-virtual-network-and-a-subnet"></a>Criar uma rede virtual e uma sub-rede
 
-O exemplo a seguir cria uma rede virtual e uma sub-rede para o gateway de aplicativo. O gateway de aplicativo requer sua própria sub-rede para uso. Por esse motivo, a sub-rede criada para o gateway de aplicativo deve ser menor que o espaço de endereço do VNET para possibilitar que outras sub-redes sejam criadas e usadas.
+Olá exemplo a seguir cria uma rede virtual e uma sub-rede para o gateway de aplicativo hello. O gateway de aplicativo requer sua própria sub-rede para uso. Por esse motivo, sub-rede Olá criado para o gateway de aplicativo hello deve ser menor que o espaço de endereço de saudação do hello VNET tooallow para toobe outras sub-redes criado e usado.
 
 ```powershell
-# Assign the address range 10.0.0.0/24 to a subnet variable to be used to create a virtual network.
+# Assign hello address range 10.0.0.0/24 tooa subnet variable toobe used toocreate a virtual network.
 $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
-# Create a virtual network named appgwvnet in resource group appgw-rg for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24.
+# Create a virtual network named appgwvnet in resource group appgw-rg for hello West US region using hello prefix 10.0.0.0/16 with subnet 10.0.0.0/24.
 $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-# Assign a subnet variable for the next steps, which create an application gateway.
+# Assign a subnet variable for hello next steps, which create an application gateway.
 $subnet = $vnet.Subnets[0]
 ```
 
-### <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Criar um endereço IP público para a configuração de front-end
+### <a name="create-a-public-ip-address-for-hello-front-end-configuration"></a>Criar um endereço IP público para a configuração de front-end Olá
 
-Crie um recurso IP público **publicIP01** no grupo de recursos **appgw-rg** para a região Oeste dos EUA. Este exemplo usa um endereço IP público para o endereço IP front-end do gateway de aplicativo.  Como o gateway de aplicativo exige que o endereço IP público tenha um nome DNS criado dinamicamente, o `-DomainNameLabel` não pode ser especificado durante a criação do endereço IP público.
+Criar um recurso IP público **publicIP01** no grupo de recursos **appgw rg** para região Oeste dos EUA de saudação. Este exemplo usa um endereço IP público para o endereço IP front-end de saudação do gateway de aplicativo hello.  Gateway de aplicativo requer Olá pública IP endereço toohave um nome DNS criado dinamicamente, portanto, Olá `-DomainNameLabel` não pode ser especificado durante a criação de saudação do endereço IP público de saudação.
 
 ```powershell
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location 'West US' -AllocationMethod Dynamic
 ```
 
-### <a name="create-an-application-gateway"></a>Criar um gateway de aplicativo
+### <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
 
-Configure todos os itens de configuração antes de criar o gateway de aplicativo. O exemplo a seguir cria os itens de configuração necessários para um recurso de gateway de aplicativo.
+Você pode configurar todos os itens de configuração antes de criar o gateway de aplicativo hello. Olá exemplo a seguir cria Olá itens de configuração que são necessárias para um recurso do application gateway.
 
 | **Componente** | **Descrição** |
 |---|---|
 | **Configuração de IP do gateway** | Uma configuração de IP para um gateway de aplicativo.|
-| **Pool de back-end** | Um pool de endereços IP, FQDNs ou NICs que são para os servidores de aplicativos que hospedam o aplicativo Web|
-| **Investigação de integridade** | Uma investigação personalizada usada para monitorar a integridade dos membros do pool de back-end|
-| **Configurações HTTP** | Uma coleção de configurações, inclusive porta, protocolo, afinidade baseada em cookie, investigação e tempo limite.  Essas configurações determinam como o tráfego é roteado para os membros do pool de back-end|
-| **Porta de front-end** | A porta em que o gateway de aplicativo escuta tráfego|
+| **Pool de back-end** | Um pool de endereços IP, FQDN ou NICs toohello servidores de aplicativos que hospedam o aplicativo da web hello|
+| **Investigação de integridade** | Uma investigação personalizada usada toomonitor integridade de saudação de membros do pool de back-end Olá|
+| **Configurações HTTP** | Uma coleção de configurações, inclusive porta, protocolo, afinidade baseada em cookie, investigação e tempo limite.  Essas configurações determinam como o tráfego é roteado toohello membros do pool de back-end|
+| **Porta de front-end** | porta Olá Olá gateway aplicativo ouve o tráfego em|
 | **Ouvinte** | Uma combinação de um protocolo, configuração de IP front-end e porta front-end. É o que escuta solicitações de entrada.
-|**Regra**| Roteia o tráfego para o back-end apropriado com base em configurações de HTTP.|
+|**Regra**| Rotas Olá tráfego toohello apropriado back-end com base nas configurações de HTTP.|
 
 ```powershell
 # Creates a application gateway Frontend IP configuration named gatewayIP01
@@ -114,67 +114,67 @@ $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPA
 # Creates a probe that will check health at http://contoso.com/path/path.htm
 $probe = New-AzureRmApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName 'contoso.com' -Path '/path/path.htm' -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
-# Creates the backend http settings to be used. This component references the $probe created in the previous command.
+# Creates hello backend http settings toobe used. This component references hello $probe created in hello previous command.
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 80
 
-# Creates a frontend port for the application gateway to listen on port 80 that will be used by the listener.
+# Creates a frontend port for hello application gateway toolisten on port 80 that will be used by hello listener.
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01 -Port 80
 
-# Creates a frontend IP configuration. This associates the $publicip variable defined previously with the front-end IP that will be used by the listener.
+# Creates a frontend IP configuration. This associates hello $publicip variable defined previously with hello front-end IP that will be used by hello listener.
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
-# Creates the listener. The listener is a combination of protocol and the frontend IP configuration $fipconfig and frontend port $fp created in previous steps.
+# Creates hello listener. hello listener is a combination of protocol and hello frontend IP configuration $fipconfig and frontend port $fp created in previous steps.
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
-# Creates the rule that routes traffic to the backend pools.  In this example we create a basic rule that uses the previous defined http settings and backend address pool.  It also associates the listener to the rule
+# Creates hello rule that routes traffic toohello backend pools.  In this example we create a basic rule that uses hello previous defined http settings and backend address pool.  It also associates hello listener toohello rule
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
-# Sets the SKU of the application gateway, in this example we create a small standard application gateway with 2 instances.
+# Sets hello SKU of hello application gateway, in this example we create a small standard application gateway with 2 instances.
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
-# The final step creates the application gateway with all the previously defined components.
+# hello final step creates hello application gateway with all hello previously defined components.
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location 'West US' -BackendAddressPools $pool -Probes $probe -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
-## <a name="add-a-probe-to-an-existing-application-gateway"></a>Adicionar uma investigação a um Application Gateway existente
+## <a name="add-a-probe-tooan-existing-application-gateway"></a>Adicionar um gateway de aplicativo existente do teste tooan
 
-O trecho de código a seguir adiciona uma investigação a um gateway de aplicativo existente.
+Olá trecho de código a seguir adiciona um gateway de aplicativo investigação tooan existente.
 
 ```powershell
-# Load the application gateway resource into a PowerShell variable by using Get-AzureRmApplicationGateway.
+# Load hello application gateway resource into a PowerShell variable by using Get-AzureRmApplicationGateway.
 $getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
-# Create the probe object that will check health at http://contoso.com/path/path.htm
+# Create hello probe object that will check health at http://contoso.com/path/path.htm
 $getgw = Add-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName 'contoso.com' -Path '/path/custompath.htm' -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
-# Set the backend HTTP settings to use the new probe
+# Set hello backend HTTP settings toouse hello new probe
 $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 120
 
-# Save the application gateway with the configuration changes
+# Save hello application gateway with hello configuration changes
 Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 ```
 
 ## <a name="remove-a-probe-from-an-existing-application-gateway"></a>Remover uma investigação de um Application Gateway existente
 
-O trecho de código a seguir remove uma investigação de um gateway de aplicativo existente.
+Olá trecho de código a seguir remove um teste de um gateway existente do aplicativo.
 
 ```powershell
-# Load the application gateway resource into a PowerShell variable by using Get-AzureRmApplicationGateway.
+# Load hello application gateway resource into a PowerShell variable by using Get-AzureRmApplicationGateway.
 $getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
-# Remove the probe from the application gateway configuration object
+# Remove hello probe from hello application gateway configuration object
 $getgw = Remove-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name $getgw.Probes.name
 
-# Set the backend HTTP settings to remove the reference to the probe. The backend http settings now use the default probe
+# Set hello backend HTTP settings tooremove hello reference toohello probe. hello backend http settings now use hello default probe
 $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
 
-# Save the application gateway with the configuration changes
+# Save hello application gateway with hello configuration changes
 Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 ```
 
-## <a name="get-application-gateway-dns-name"></a>Obter um nome DNS de gateway de aplicativo
+## <a name="get-application-gateway-dns-name"></a>Obter um nome DNS de Gateway de Aplicativo
 
-Depois de criar o gateway, a próxima etapa será configurar o front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. Para garantir que os usuários finais possam alcançar o gateway de aplicativo, um registro CNAME pode ser usado para apontar para o ponto de extremidade público do gateway de aplicativo. [Configurando um nome de domínio personalizado no Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para isso, recupere detalhes do Gateway de Aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress anexado ao Gateway de Aplicativo. O nome DNS do Gateway de Aplicativo deve ser usado para criar um registro CNAME que aponta os dois aplicativos Web para esse nome DNS. O uso de registros A não é recomendável, pois o VIP pode mudar na reinicialização do gateway de aplicativo.
+Depois de criar o gateway hello, Olá próxima etapa é tooconfigure Olá front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. os usuários finais de tooensure pode pressionar o gateway de aplicativo hello pode ser usado um registro CNAME toopoint toohello ponto de extremidade público do gateway de aplicativo hello. [Configurando um nome de domínio personalizado no Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). toodo, detalhes de recuperar de gateway de aplicativo hello e seu nome de IP/DNS associado usando Olá PublicIPAddress elemento toohello anexado application gateway. nome DNS do gateway do aplicativo Hello deve ser usado toocreate um registro CNAME, qual nome DNS pontos Olá duas web aplicativos toothis. uso de saudação de registros de um não é recomendável porque Olá VIP pode ser alterado na reinicialização do application gateway.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
@@ -204,5 +204,5 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como configurar o descarregamento de SSL ao visitar [Configurar descarregamento de SSL](application-gateway-ssl-arm.md)
+Saiba o descarregamento de SSL tooconfigure visitando: [configurar descarregamento de SSL](application-gateway-ssl-arm.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Metadados de OpenAPI no Azure Functions | Microsoft Docs
+title: "metadados de aaaOpenAPI em funções do Azure | Microsoft Docs"
 description: "Visão geral do suporte OpenAPI em Azure Functions"
 services: functions
 documentationcenter: 
@@ -14,41 +14,41 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: e426e56bcac30c740e86d620dadf291fe31e3e10
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fff8f14110469a002a6c9dca03f641672003a3a1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Suporte aos metadados de OpenAPI 2.0 no Azure Functions (versão prévia)
-O suporte aos metadados de OpenAPI 2.0 (conhecido antes como Swagger) no Azure Functions é um recurso de visualização que você pode usar para gravar uma definição de OpenAPI 2.0 dentro de um aplicativo de funções. Depois, você pode hospedar esse arquivo usando o aplicativo de funções.
+OpenAPI 2.0 (anteriormente conhecida como Swagger) suporte a metadados em funções do Azure é um recurso de visualização que você pode usar a definição de toowrite um 2.0 OpenAPI dentro de um aplicativo de função. Em seguida, você pode hospedar esse arquivo usando o aplicativo de função hello.
 
-[Metadados de OpenAPI](http://swagger.io/) permitem que uma função que hospeda uma API REST seja consumida por vários outros softwares. Entre esses softwares estão as ofertas da Microsoft como o PowerApps e o [recurso de Aplicativos de API do Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service-api/app-service-api-dotnet-get-started#a-idcodegena-generate-client-code-for-the-data-tier), ferramentas de desenvolvedor de terceiros, como [Postman](https://www.getpostman.com/docs/importing_swagger) e [muitos outros pacotes](http://swagger.io/tools/).
+[Metadados OpenAPI](http://swagger.io/) permite que uma função que está hospedando uma API REST toobe consumidos por uma ampla variedade de outros softwares. Este software inclui a ofertas da Microsoft como o PowerApps e hello [recurso de aplicativos de API do serviço de aplicativo do Azure](https://docs.microsoft.com/azure/app-service-api/app-service-api-dotnet-get-started#a-idcodegena-generate-client-code-for-the-data-tier), ferramentas de desenvolvedor de terceiros, como [carteiro](https://www.getpostman.com/docs/importing_swagger), e [muitos pacotes mais](http://swagger.io/tools/).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 >[!TIP]
->É recomendável iniciar com o [tutorial de introdução](./functions-api-definition-getting-started.md) e, em seguida, retornar a este documento para saber mais sobre recursos específicos.
+>É recomendável começar com hello [tutorial de Introdução](./functions-api-definition-getting-started.md) e, em seguida, retornar toothis documento toolearn mais sobre recursos específicos.
 
 ## <a name="enable"></a>Habilitar o suporte à definição de OpenAPI
-Você pode definir todas as configurações de OpenAPI na página **Definição de API** nos **Recursos da plataforma** de seu aplicativo de funções.
+Você pode configurar todas as configurações de OpenAPI em Olá **de definição de API** página em seu aplicativo de função **recursos de plataforma**.
 
-Para habilitar a geração de uma definição de OpenAPI hospedada e uma definição de início rápido, defina **Origem de definição da API** para **Função (Versão prévia)**. **URL Externa** permite que sua função use uma definição de OpenAPI que é hospedada em outro lugar.
+geração de saudação tooenable de uma definição de OpenAPI hospedada e uma definição de início rápido, defina **origem de definição de API** muito**função (visualização)**. **URL externa** permite que sua função toouse uma definição de OpenAPI tem hospedado em outro lugar.
 
 ## <a name="generate-definition"></a>Gerar um esqueleto de Swagger dos metadados de sua função
-Um modelo pode ajudar você a começar a gravar sua primeira definição de OpenAPI. O recurso de modelo de definição cria uma definição de OpenAPI esparsa usando todos os metadados no arquivo function.json para cada uma de suas funções de gatilho HTTP. Você precisará preencher mais informações sobre sua API na [especificação de OpenAPI](http://swagger.io/specification/), como modelos de solicitação e resposta.
+Um modelo pode ajudar você a começar a gravar sua primeira definição de OpenAPI. recurso de modelo de definição de saudação cria uma definição de OpenAPI esparsa usando todos os metadados de saudação no arquivo de function.json Olá para cada uma das suas funções de gatilho HTTP. Você precisará toofill em mais informações sobre a API de saudação [OpenAPI especificação](http://swagger.io/specification/), como modelos de solicitação e resposta.
 
-Para obter instruções passo a passo, confira este [tutorial de introdução](./functions-api-definition-getting-started.md).
+Para obter instruções passo a passo, consulte Olá [tutorial de Introdução](./functions-api-definition-getting-started.md).
 
 ### <a name="templates"></a>Modelos disponíveis
 
 |Nome| Descrição |
 |:-----|:-----|
-|Definição gerada|Uma definição de OpenAPI com a quantidade máxima de informações que podem ser inferidas de metadados existentes da função.|
+|Definição gerada|Uma definição de OpenAPI com o número máximo de saudação de informações que podem ser inferidos de metadados existentes da função hello.|
 
-### <a name="quickstart-details"></a>Metadados incluídos na definição gerada
+### <a name="quickstart-details"></a>Metadados incluídos na definição de saudação gerada
 
-A tabela a seguir representa as configurações do Portal do Azure e dados correspondentes no function.json conforme ele são mapeados para o esqueleto de Swagger gerado.
+Olá representa da tabela a seguir Olá configurações do portal do Azure e os dados correspondentes no function.json conforme é mapeada toohello gerado Swagger esqueleto.
 
 |Swagger.json|Interface do usuário do portal|Function.json|
 |:----|:-----|:-----|
@@ -58,26 +58,26 @@ A tabela a seguir representa as configurações do Portal do Azure e dados corre
 |[Segurança](http://swagger.io/specification/#security-scheme-object-112)|**Chaves**|*Não presente*|
 |operationID*|**Rota + Verbos permitidos**|Rota + verbos permitidos|
 
-\*A ID da operação só é necessário para a integração com PowerApps e Flow.
+\*ID da operação Olá é necessária apenas para integração com o PowerApps e fluxo.
 > [!NOTE]
-> A extensão x-ms-summary fornece um nome de exibição nos Aplicativos Lógicos, PowerApps e Flow.
+> extensão de x-ms-resumo de saudação fornece um nome para exibição no fluxo de aplicativos lógicos e PowerApps.
 >
-> Para saber mais, confira [Personalizar sua definição de Swagger para PowerApps](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/).
+> mais, consulte toolearn [personalizar sua definição de Swagger PowerApps](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/).
 
-## <a name="CICD"></a>Usar o CI/CD para configurar uma definição de API
+## <a name="CICD"></a>Use CI/CD tooset uma API definição
 
- Você deve habilitar a hospedagem de definição de API no portal antes de habilitar o controle de código-fonte para modificar sua definição da API do controle do código-fonte. Siga estas instruções:
+ Você deve habilitar API definição hospedagem no portal de saudação antes de habilitar toomodify de controle do código-fonte sua definição de API de controle de origem. Siga estas instruções:
 
-1. Navegue até **Definição de API (prévia)** em suas configurações de aplicativo de funções.
-  1. Definir **Origem de definição de API** como **Função**.
-  1. Clique em **Gerar modelo de definição de API** e depois em **Salvar** para criar uma definição de modelo a fim de modificar posteriormente.
+1. Procurar muito**de definição de API (visualização)** em suas configurações de aplicativo de função.
+  1. Definir **origem de definição de API** muito**função**.
+  1. Clique em **modelo de definição de API gerar** e **salvar** toocreate uma definição de modelo para modificar posteriormente.
   1. Anote a URL e a chave de definição da API.
 1. [Configurar a integração contínua/implantação contínua(CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements).
 2. Modifique o swagger.json no controle do código-fonte em \site\wwwroot\.azurefunctions\swagger\swagger.json.
 
-Agora, as alterações em swagger.json em seu repositório são hospedadas por seu aplicativo de funções na URL e chave de definição de API que você anotou na etapa 1.c.
+Agora, as alterações tooswagger.json no seu repositório são hospedados por seu aplicativo de função na URL de definição de saudação API e chave que você anotou na etapa 1.c.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Tutorial de introdução](functions-api-definition-getting-started.md). Experimente o nosso passo a passo para exibir uma definição de OpenAPI em ação.
-* [Repositório do GitHub do Azure Functions](https://github.com/Azure/Azure-Functions/). Confira o repositório Funções para fornecer comentários sobre a versão prévia de suporte de definição de API. Execute o GitHub para qualquer coisa que você gostaria de ver atualizada.
+* [Tutorial de introdução](functions-api-definition-getting-started.md). Tente toosee nosso passo a passo uma definição de OpenAPI em ação.
+* [Repositório do GitHub do Azure Functions](https://github.com/Azure/Azure-Functions/). Check-out Olá funções repositório toogive nos comentários sobre a visualização de suporte de definição de saudação API. Torne um problema do GitHub para qualquer coisa que você deseja toosee atualizado.
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md). Saiba mais sobre a codificação de funções e definição de gatilhos e associações.

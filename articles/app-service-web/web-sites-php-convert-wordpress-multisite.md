@@ -1,6 +1,6 @@
 ---
-title: "Converter WordPress em Multissite no Serviço de Aplicativo do Azure"
-description: "Saiba como selecionar um aplicativo Web WordPress existente criado por meio da galeria no Azure e convertê-lo em Multissite WordPress"
+title: "aaaConvert WordPress tooMultisite no serviço de aplicativo do Azure"
+description: "Saiba como tootake um aplicativo web de WordPress existente criado por meio da Galeria de saudação do Azure e convertê-la tooWordPress multissite"
 services: app-service\web
 documentationcenter: php
 author: rmcmurray
@@ -14,118 +14,118 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 4a15fb5e97d2ca57e5883c07651c372c54021c92
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1153f0a8043de875f081704cd0a124776758878c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="convert-wordpress-to-multisite-in-azure-app-service"></a>Converter WordPress em Multissite no Serviço de Aplicativo do Azure
+# <a name="convert-wordpress-toomultisite-in-azure-app-service"></a>Converter WordPress tooMultisite no serviço de aplicativo do Azure
 ## <a name="overview"></a>Visão geral
 *Por [Ben Lobaugh][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]*
 
-Neste tutorial, você aprenderá converter um aplicativo Web do WordPress criado por meio da galeria no Azure em uma instalação multissite do WordPress. Além disso, você aprenderá a atribuir um domínio personalizado para cada um dos subsites dentro de sua instalação.
+Neste tutorial, você aprenderá como tootake um aplicativo web de WordPress existente criado por meio da Galeria de saudação do Azure e converter em um multissite WordPress instalar. Além disso, você aprenderá como tooassign tooeach um domínio personalizado da saudação subsites dentro de sua instalação.
 
-Presume-se que você tem uma instalação existente do WordPress. Se você não fizer isso, siga as orientações apresentadas no [criar um site do WordPress da galeria no Azure][website-from-gallery].
+Presume-se que você tem uma instalação existente do WordPress. Se você não fizer isso, siga orientação Olá fornecida [criar um site de WordPress da Galeria de saudação no Azure][website-from-gallery].
 
-Convertendo um WordPress existente instalar único site multissite geralmente é bastante simple e muitas das etapas iniciais são provenientes diretamente o [Criar uma rede][wordpress-codex-create-a-network] página no [WordPress Codex](http://codex.wordpress.org).
+Convertendo um WordPress existente tooMultisite de instalação de site único geralmente é bastante simple e muitas das etapas iniciais Olá aqui são fornecidos diretamente da saudação [criar uma rede] [ wordpress-codex-create-a-network] página Olá [WordPress código](http://codex.wordpress.org).
 
 Vamos começar.
 
 ## <a name="allow-multisite"></a>Permitir que o multissite
-Primeiro você precisa habilitar o Multissite por meio do arquivo `wp-config.php` com a constante **WP\_ALLOW\_MULTISITE**. Há dois métodos para editar os arquivos do seu aplicativo Web: a primeira é por meio de FTP e o segundo é por meio do Git. Se você não estiver familiarizado com a instalação de qualquer um desses métodos, consulte os seguintes tutoriais:
+É necessário primeiro tooenable multissite por meio de saudação `wp-config.php` arquivo com hello **WP\_permitir\_MULTISSITE** constante. Há dois tooedit de métodos os arquivos de aplicativo da web: Olá primeiro é por meio de saudação segundo pelo Git e FTP. Se você estiver familiarizado com o toosetup qualquer um desses métodos, consulte toohello tutoriais a seguir:
 
 * [Site do PHP com o MySQL e FTP][website-w-mysql-and-ftp-ftp-setup]
 * [Site do PHP com o MySQL e Git][website-w-mysql-and-git-git-setup]
 
-Abra o arquivo `wp-config.php` com o editor da sua escolha e adicione o seguinte acima da linha `/* That's all, stop editing! Happy blogging. */`.
+Olá abrir `wp-config.php` arquivo com o editor de saudação de sua escolha e adicione a seguinte Olá acima Olá `/* That's all, stop editing! Happy blogging. */` linha.
 
     /* Multisite */
 
     define( 'WP_ALLOW_MULTISITE', true );
 
-Certifique-se de salvá-lo e carregá-lo de volta para o servidor!
+Arquivo de saudação toosave-se de que e carregue-o servidor toohello back!
 
 ## <a name="network-setup"></a>Configuração de rede
-Faça logon na área *wp-admin* de seu aplicativo Web e você verá um novo item no menu **Ferramentas**, chamado **Configuração de Rede**. Clique em **o programa de instalação de rede** e preencha os detalhes da sua rede.
+Faça logon no toohello *wp-admin* área de seu aplicativo web e você verá um novo item sob Olá **ferramentas** menu chamado **configuração de rede**. Clique em **configuração de rede** e preencha os detalhes de saudação da sua rede.
 
 ![Tela de configuração de rede][wordpress-network-setup]
 
-Este tutorial usa a *subdiretórios* site esquema porque ele sempre deve funcionar, e vão configurar domínios personalizados para cada subsite posteriormente no tutorial. No entanto, deve ser possível configurar uma instalação de subdomínio se você mapear adequadamente um domínio por meio do [Portal do Azure](https://portal.azure.com) e do DNS curinga de configuração.
+Este tutorial usa Olá *subdiretórios* site esquema porque ele sempre deve funcionar e vão configurar domínios personalizados para cada subsite posteriormente no tutorial de saudação. No entanto, ele deve ser possível toosetup um subdomínio instalar se você mapear um domínio por meio de saudação [Portal do Azure](https://portal.azure.com) e instalação curinga DNS corretamente.
 
-Para obter mais informações sobre o subdomínio vs subpasta configurações Consulte o [Tipos de rede multissite][wordpress-codex-types-of-networks] artigo sobre o WordPress Codex.
+Para obter mais informações sobre o subdomínio vs subpasta configurações Consulte Olá [tipos de rede multissite] [ wordpress-codex-types-of-networks] artigo Olá WordPress código.
 
-## <a name="enable-the-network"></a>Ativar a rede
-A rede agora está configurada no banco de dados, mas há uma etapa restante para habilitar a funcionalidade de rede. Finalize as configurações `wp-config.php` e verifique se `web.config` roteia corretamente cada site.
+## <a name="enable-hello-network"></a>Habilitar Olá rede
+rede Olá agora está configurado no banco de dados hello, mas não há um restantes etapa tooenable Olá funcionalidade de rede. Finalizar Olá `wp-config.php` configurações e certifique-se de `web.config` corretamente roteia cada site.
 
-Depois que você clicar no botão **Instalar** na página *Configuração de Rede*, o WordPress tentará atualizar os arquivos `wp-config.php` e `web.config`. No entanto, você sempre deve verificar os arquivos para garantir que as atualizações foram bem-sucedidas. Caso contrário, esta tela apresentará as atualizações necessárias. Editar e salvar os arquivos.
+Depois de clicar em Olá **instalar** botão Olá *configuração de rede* página, WordPress tentará Olá tooupdate `wp-config.php` e `web.config` arquivos. No entanto, você sempre deve verificar Olá arquivos tooensure Olá atualizações foram bem-sucedidas. Caso contrário, esta tela apresentará as atualizações necessárias hello. Editar e salvar arquivos hello.
 
-Depois de fazer essas atualizações, você precisará fazer logoff e depois fazer logon no painel wp-admin.
+Depois de fazer essas atualizações, você precisará toolog-out e o log novamente no painel de administração de pt hello.
 
-Agora deve haver um menu adicional na barra de administrador com o rótulo **Meus Sites**. Esse menu permite que você controle sua nova rede através do painel **Administrador de rede**.
+Agora deve haver um menu adicional na barra de admin Olá rotulada **Meus Sites**. Esse menu permite que você toocontrol sua nova rede por meio de saudação **administrador de rede** painel.
 
 ## <a name="adding-custom-domains"></a>Adicionando domínios personalizados
-O [Mapeamento de domínio do WordPress MU][wordpress-plugin-wordpress-mu-domain-mapping] plug-in facilita adicionar domínios personalizados para qualquer site na sua rede. O plug-in funcionar corretamente, é necessário fazer algumas configurações adicionais no Portal e também em seu registrador de domínio.
+Olá [mapeamento de domínio do WordPress MU] [ wordpress-plugin-wordpress-mu-domain-mapping] plug-in transforma em um site de tooany muito fácil tooadd domínios personalizados na sua rede. Para Olá plug-in toooperate corretamente, é necessário toodo alguma configuração adicional no hello Portal e também em seu registrador de domínio.
 
-## <a name="enable-domain-mapping-to-the-web-app"></a>Habilitar o mapeamento de domínio para o aplicativo Web
-O **Gratuito** [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) não dá suporte a adição de domínios personalizados para aplicativos Web. Você precisará mudar para o modo **Compartilhado** ou **Padrão**. Para fazer isso:
+## <a name="enable-domain-mapping-toohello-web-app"></a>Habilitar o aplicativo web do domínio mapeamento toohello
+Olá **livre** [do serviço de aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) plano de modo não oferece suporte para a adição de domínios personalizados tooWeb aplicativos. Você precisará tooswitch muito**compartilhado** ou **padrão** modo. toodo isso:
 
-* Faça logon no Portal do Azure e localize seu aplicativo Web. 
-* Clique na guia **Escalar verticalmente** em **Configurações**.
+* Faça logon no Portal do Azure de toohello e localize seu aplicativo web. 
+* Clique em Olá **expandir** guia **configurações**.
 * Em **Geral**, selecione *COMPARTILHADO* ou *STANDARD*
 * Clique em **Salvar**
 
-Você pode receber uma mensagem pedindo-lhe para verificar a alteração e confirmar que o seu aplicativo Web agora pode incorrer em custos, dependendo do uso e de outras configurações definidas por você.
+Você pode receber uma mensagem solicitando que você alterar de saudação tooverify e confirmar seu aplicativo web agora pode incorrer em um custo, dependendo do uso e Olá outra configuração que você definir.
 
-Demora alguns segundos para processar as novas configurações, agora é um bom momento para iniciar a configuração do domínio.
+Levará alguns segundos tooprocess Olá novas configurações, agora é um bom momento toostart ao configurar seu domínio.
 
 ## <a name="verify-your-domain"></a>Verifique se seu domínio
-Para que os Aplicativos Web do Azure lhe permitam mapear um domínio para o site, primeiro você precisa verificar se tem autorização para mapear tal domínio. Para fazer isso, você deve adicionar um novo registro CNAME para sua entrada DNS.
+Antes de aplicativos Web do Azure permitirá que você toomap um site de toohello do domínio, você primeiro precisa tooverify se você possui Olá autorização toomap Olá domínio. toodo, portanto, você deve adicionar uma nova entrada DNS de tooyour registro CNAME.
 
-* Efetuar login no Gerenciador de DNS do seu domínio
+* Faça logon no Gerenciador de DNS do domínio tooyour
 * Criar um novo CNAME *awverify*
-* Aponte o *awverify* para *awverify.YOUR_DOMAIN.azurewebsites.net*
+* Ponto *awverify* muito*awverify. YOUR_DOMAIN.azurewebsites.NET*
 
-Levará algum tempo para que as alterações DNS entrar em vigor, portanto, se estas etapas não funcionar imediatamente, uma xícara de café, e em seguida, volte e tente novamente.
+Ele pode levar algum tempo para Olá DNS alterações toogo em vigor, portanto, se Olá etapas a seguir não funciona imediatamente, fazer uma xícara de café, em seguida, volte e tente novamente.
 
-## <a name="add-the-domain-to-the-web-app"></a>Adicionar o nome de domínio ao aplicativo Web
-Voltar ao seu aplicativo Web por meio do Portal do Azure, clique em **Configurações** e, em seguida, clique em **Domínios personalizados e SSL**.
+## <a name="add-hello-domain-toohello-web-app"></a>Adicionar o aplicativo web do hello domínio toohello
+Aplicativo web de retorno tooyour por meio de saudação Portal do Azure, clique em **configurações**e, em seguida, clique em **domínios personalizados e SSL**.
 
-Quando as *Configurações de SSL* forem exibidas, você verá os campos onde digitará todos os domínios que você deseja atribuir ao seu aplicativo Web. Se um domínio não estiver listado aqui, ela não estará disponível para mapeamento dentro de WordPress, independentemente de como o domínio DNS é o programa de instalação.
+Olá quando *configurações de SSL* são exibidos, você verá campos Olá onde você digitará todos os domínios de saudação que você deseja que o aplicativo de web tooyour tooassign. Se um domínio não estiver listado aqui, ele não estará disponível para o mapeamento de dentro do WordPress, independentemente de como o domínio Olá DNS está configurado.
 
 ![Caixa de diálogo domínios personalizados gerenciar][wordpress-manage-domains]
 
-Depois de digitar seu domínio na caixa de texto, o Azure verificará o registro CNAME que você criou anteriormente. Se o DNS não tiver sido propagado totalmente, um indicador vermelho será exibido. Se tiver êxito, você verá uma marca de seleção verde. 
+Depois de digitar seu domínio na caixa de texto de saudação, o Azure verificará Olá registro CNAME que você criou anteriormente. Se Olá DNS não foi totalmente propagada, um indicador vermelho será exibido. Se tiver êxito, você verá uma marca de seleção verde. 
 
-Anote o endereço IP listado na parte inferior da caixa de diálogo. Será necessário configurar o registro para o seu domínio.
+Anote Olá que endereço IP listado na parte inferior da saudação da caixa de diálogo de saudação. Você precisará este Olá toosetup um registro para o seu domínio.
 
-## <a name="setup-the-domain-a-record"></a>Configurar o domínio de um registro
-Se as outras etapas forem bem-sucedidas, agora você pode atribuir o domínio a seu aplicativo Web do Azure por meio de um registro A DNS. 
+## <a name="setup-hello-domain-a-record"></a>Configurar o registro de um domínio Olá
+Se hello a outras etapas foram bem-sucedidas, agora você pode atribuir a aplicativo da web do Azure tooyour Olá domínio por meio de um registro A do DNS. 
 
-É importante observar aqui que aplicativos Web do Azure aceitam registros CNAME e A; no entanto, você *deve* usar um registro para habilitar o mapeamento de domínio correto. Um CNAME não pode ser encaminhado para outro CNAME, que é o Azure criada para você com YOUR_DOMAIN.azurewebsites.net.
+É importante toonote aqui aplicativos web do Azure aceitam CNAME e registros, porém você *deve* usar um mapeamento de domínio adequado tooenable registro A. Um CNAME não pode ser encaminhado tooanother CNAME, que é o Azure criado para você com YOUR_DOMAIN.azurewebsites.net.
 
-Usando o endereço IP da etapa anterior, volte para o Gerenciador de DNS e configurar o registro para apontar para esse IP.
+Usando o endereço IP de saudação da etapa anterior hello, retorne tooyour Gerenciador de DNS e Olá instalação um IP de toothat toopoint registro.
 
-## <a name="install-and-setup-the-plugin"></a>Instalar e configurar o plug-in
-Atualmente, o multissite do WordPress não tem um método interno para mapear domínios personalizados. No entanto, há um plug-in chamado [Mapeamento de domínio do WordPress MU][wordpress-plugin-wordpress-mu-domain-mapping] que adiciona a funcionalidade para você. Login à parte de seu site do administrador de rede e instalar o **mapeamento de domínio do WordPress MU** plug-in.
+## <a name="install-and-setup-hello-plugin"></a>Instalar e configurar o plug-in de saudação
+WordPress multissite atualmente não tem um método interno toomap os domínios personalizados. No entanto, há um plug-in chamado [mapeamento de domínio do WordPress MU] [ wordpress-plugin-wordpress-mu-domain-mapping] que adiciona funcionalidade Olá para você. Fazer login toohello parte de administrador de rede do seu site e instalar Olá **mapeamento de domínio do WordPress MU** plug-in.
 
-Após instalar e ativar o plug-in, visite **Configurações** > **mapeamento de domínio** para configurar o plug-in. Na primeira caixa de texto, *endereço IP do servidor*, insira o endereço de IP é usada para configurar o registro para o domínio. Defina qualquer *opções de domínio* você desejo (os padrões geralmente são bem) e clique em **salvar**
+Depois de instalar e ativar o plug-in hello, visite **configurações** > **domínio mapeamento** tooconfigure Olá plugin. Na primeira caixa de texto de saudação, *endereço IP do servidor*, endereço IP usado toosetup de entrada hello Olá um registro para o domínio de saudação. Defina qualquer *opções de domínio* desejados (Olá padrões geralmente são permitidos) e clique em **salvar**.
 
-## <a name="map-the-domain"></a>Mapa de domínio
-Visite o **painel** para o site que deseja mapear o domínio. Clique em **Ferramentas** > **Mapeamento de domínio** e digite o novo domínio na caixa de texto e clique em **Adicionar**.
+## <a name="map-hello-domain"></a>Domínio de saudação do mapa
+Visite Olá **painel** para o site de saudação desejar domínio Olá toomap. Clique em **ferramentas** > **domínio mapeamento** e tipo hello novo domínio na caixa de texto de saudação e clique em **adicionar**.
 
-Por padrão, o novo domínio será regravado no domínio do site gerado automaticamente. Se você deseja ter todo o tráfego enviado para o novo domínio, seleção de *o domínio primário para este blog* caixa antes de salvar. Você pode adicionar um número ilimitado de domínios em um site, mas apenas um pode ser o principal.
+Por padrão, Olá novo será reconfigurado toohello gerado automaticamente site domínio. Se você quiser toohave todo o tráfego enviado toohello novo domínio, marque Olá *domínio primário para este blog* caixa antes de salvar. Você pode adicionar um número ilimitado de site de tooa de domínios, mas apenas um pode ser primário.
 
 ## <a name="do-it-again"></a>Fazê-lo novamente
-Aplicativos Web do Azure permitem que você adicione um número ilimitado de domínios a um aplicativo Web. Para adicionar outro domínio, você precisará executar as seções **Verifique se seu domínio** e **Configurar registro do domínio A** para cada domínio.    
+Os aplicativos Web do Azure permitem que você tooadd um número ilimitado de aplicativo de web tooa domínios. tooadd outro domínio, você precisará Olá tooexecute **verificar seu domínio** e **configurar o registro de domínio A saudação** seções para cada domínio.    
 
 > [!NOTE]
-> Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você quiser tooget iniciado com o serviço de aplicativo do Azure antes de se inscrever para uma conta do Azure, vá muito[tente do serviço de aplicativo](https://azure.microsoft.com/try/app-service/), onde você pode criar imediatamente um aplicativo web de curta duração starter no serviço de aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
 ## <a name="whats-changed"></a>O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para um guia toohello alteração de sites tooApp serviço consulte: [do serviço de aplicativo do Azure e seu impacto sobre os serviços do Azure existente](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [ben-lobaugh]: http://ben.lobaugh.net
 [ms-open-tech]: http://msopentech.com

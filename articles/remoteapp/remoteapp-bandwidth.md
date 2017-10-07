@@ -1,6 +1,6 @@
 ---
-title: Estimar o uso de largura de banda de rede do Azure RemoteApp | Microsoft Docs
-description: "Saiba mais sobre os requisitos de largura de banda de rede para as coleções e aplicativos do Azure RemoteApp."
+title: aaaEstimate uso de largura de banda de rede do Azure RemoteApp | Microsoft Docs
+description: "Saiba mais sobre os requisitos de largura de banda de rede Olá para seus aplicativos e coleções do RemoteApp do Azure."
 services: remoteapp
 documentationcenter: 
 author: msmbaldwin
@@ -13,34 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 16b4ba974742d004ea02e3f83e522b9c43f2ef40
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 675ee82f26ddb46a3bb3e0ee95ed397e4064e45f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="estimate-azure-remoteapp-network-bandwidth-usage"></a>Estimar o uso de largura de banda de rede do Azure RemoteApp
 > [!IMPORTANT]
-> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Saudação de leitura [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
-O Azure RemoteApp usa o RDP (protocolo RDP) para a comunicação entre aplicativos em execução na nuvem do Azure e seus usuários. Este artigo fornece algumas diretrizes básicas que você pode usar para calcular esse uso da rede e potencialmente avaliar o uso de largura de banda de rede por usuário do Azure RemoteApp.
+O Azure RemoteApp usa Olá toocommunicate de protocolo de área de trabalho remota (RDP) entre os aplicativos em execução no hello nuvem do Azure e seus usuários. Este artigo fornece algumas diretrizes básicas você pode usar tooestimate que o uso de rede e potencialmente avaliar o uso de largura de banda de rede por usuário do Azure RemoteApp.
 
-Estimar o uso de largura de banda por usuário é muito complexo e exige executar vários aplicativos simultaneamente em cenários multitarefa, nos quais os aplicativos podem afetar o desempenho uns dos outros com base em sua demanda de largura de banda de rede. Até mesmo o tipo de cliente de Área de Trabalho Remota (como o cliente Mac versus cliente HTML5) pode levar a resultados diferentes de largura de banda. Para ajudá-lo a superar essas complicações, dividiremos os cenários de uso em várias das categorias comuns para imitar cenários reais. (Em que o cenário real é, obviamente, uma mistura de categorias e difere por usuário.)
+Estimar o uso de largura de banda por usuário é muito complexo e exige executar vários aplicativos simultaneamente em cenários multitarefa, nos quais os aplicativos podem afetar o desempenho uns dos outros com base em sua demanda de largura de banda de rede. Tipo de mesmo saudação do cliente de área de trabalho remota (como o cliente Mac versus cliente HTML5) pode levar a resultados de largura de banda de toodifferent. toohelp que você trabalhar com essas complicações, podemos quebrar cenários de uso de saudação em vários cenários do hello comuns categorias tooreplicate reais. (Onde o cenário do mundo real Olá é, logicamente, uma combinação de categorias e difere pelo usuário.)
 
-Antes de nos aprofundarmos mais - Observe que podemos presumir que o RDP fornece uma experiência boa a excelente para a maioria dos cenários de uso em redes com latência abaixo de 120 ms e largura de banda superior a 5 MB - isso é baseado na capacidade do RDP de se ajustar dinamicamente usando a largura de banda de rede disponível e a largura de banda estimada que o aplicativo precisa. Este artigo vai além daqueles "cenários de mais uso" para observar a borda, em que os cenários começam a desenrolar e experiência do usuário começa a degradar-se.
+Antes de ir adiante - Observe que estamos supondo RDP fornece uma experiência tooexcellent BOM na maioria dos cenários de uso em redes com latência abaixo de 120 ms e largura de banda com mais de 5 MBs - isso se baseia na toodynamically de capacidade do RDP ajustar usando rede disponível Olá largura de banda e hello estimado necessidades de largura de banda do aplicativo. Este artigo vai além daquelas toolook de "maioria dos cenários de uso" na borda hello, onde cenários começam toounwind e toodegrade começa a experiência do usuário.
 
-Agora, confira os artigos a seguir para obter detalhes, incluindo fatores a considerar, recomendações de linha de base e o que não incluímos em nossas estimativas.
+Agora, confira Olá artigos para obter detalhes hello, incluindo tooconsider fatores, recomendações de linha de base e o que não incluímos em nossas estimativas a seguir.
 
 * [Como a largura de banda de rede e a qualidade da experiência funcionam juntas?](remoteapp-bandwidthexperience.md)
 * [Testando o uso da largura de banda de sua rede com alguns cenários comuns](remoteapp-bandwidthtests.md)
-* [Diretrizes rápidas se você não tiver o tempo nem capacidade para teste](remoteapp-bandwidthguidelines.md)
+* [Diretrizes rápidas se você não tiver tootest de tempo ou a capacidade de saudação](remoteapp-bandwidthguidelines.md)
 
 ## <a name="what-are-we-not-including"></a>O que não estamos incluindo?
-Ao examinar os testes propostos e nossas recomendações gerais (e reconhecidamente genéricas), lembre-se de que há vários fatores que nós não consideramos. Por exemplo, as complicações de experiência de usuário fornecidas pela natureza assimétrica da largura de banda de upload vs. download. A natureza assimétrica da maioria das redes Wi-Fi afetará, adicionalmente, o desempenho e a percepção da experiência do usuário. Para cenários interativos, o tráfego downstream pode ter uma prioridade menor do que o upstream, que pode aumentar o número de quadros de vídeos ou áudio perdidos e, portanto, afetar a percepção da experiência de streaming pelo usuário. Você pode executar seus próprios testes para ver o que é bom para sua rede e caso de uso específico.
+Ao examinar Olá proposto testes e nossas recomendações gerais (e reconhecidamente genéricas), lembre-se de que há vários fatores que não considerada. Por exemplo, Olá complicações de experiência do usuário fornecidas por natureza assimétrica de saudação de carregamento vs. de largura de banda de download. Além disso terá impacto sobre a natureza assimétrica Olá da maioria das redes Wi-Fi desempenho hello e percepção de experiência do usuário de saudação. Para cenários interativos tráfego downstream Olá pode ter uma prioridade inferior a saudação upstream, que pode aumentar o número de saudação de quadros de vídeo ou áudio perdidos e, portanto, afetar a percepção do usuário de saudação do hello experiência de fluxo contínuo. Você pode executar seu próprio toosee experiências o que é bom para sua rede e o caso de uso específico.
 
-Embora, discutamos o redirecionamento de dispositivo, podemos não levar em consideração o impacto de largura de banda do tráfego de rede causado por dispositivos conectados, como armazenamento, impressoras, scanners, câmeras Web e outros dispositivos USB. O efeito desses dispositivos geralmente aumenta as necessidades de largura de banda em picos temporariamente e desaparece quando a tarefa for concluída. Mas se feito com frequência, essa demanda de largura de banda poderá ser bastante perceptível.
+Embora, abordamos o redirecionamento do dispositivo, nós não continha em impacto de largura de banda consideração Olá Olá de tráfego de rede causado pelos dispositivos conectados, como armazenamento, impressoras, scanners, câmeras da web e outros dispositivos USB. Olá desses dispositivos geralmente picos de necessidades de largura de banda Olá temporariamente e o efeito desaparece quando Olá tarefa seja concluída. Mas se feito com frequência, essa demanda de largura de banda poderá ser bastante perceptível.
 
-Também não discutimos como um usuário pode afetar outros usuários na mesma rede. Por exemplo, um usuário consumindo 4K vídeo em uma rede de 100 MB/s pode afetar significativamente outros usuários na mesma rede tentando fazer a mesma tarefa. Infelizmente, torna-se progressivamente mais difícil determinar o impacto de uso simultâneo para fornecer uma recomendação comum ou totalmente abrangente sobre o desempenho do sistema durante a agregação. Tudo o que podemos dizer é que a tecnologia de protocolo subjacente fará o melhor uso da largura de banda de rede disponível, mas ela tem suas limitações.
+Também não é abordada como um usuário pode afetar outros usuários no hello mesma rede. Por exemplo, um usuário consumindo 4K vídeo em uma rede de 100 MB/s significativamente pode afetar outros usuários na mesma rede tentar toodo Olá a mesma tarefa. Infelizmente obtém impacto de saudação toodetermine progressivamente mais difícil de uso simultâneo toogive uma recomendação que abranja tudo ou comuns sobre o desempenho do sistema Olá na agregação. Tudo o que podemos dizer é que Olá tecnologia de protocolo de base tornará melhor o uso de largura de banda de rede disponível Olá Olá, mas ele tem suas limitações.
 

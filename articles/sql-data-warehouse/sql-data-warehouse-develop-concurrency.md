@@ -1,5 +1,5 @@
 ---
-title: Gerenciamento de simultaneidade e carga de trabalho no SQL Data Warehouse | Microsoft Docs
+title: gerenciamento de aaaConcurrency e carga de trabalho no SQL Data Warehouse | Microsoft Docs
 description: "Compreender o gerenciamento de simultaneidade e carga de trabalho no SQL Data Warehouse do Azure para desenvolvimento de soluções."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,24 +15,24 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 08/23/2017
 ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: eaf2d43286dbaa52ada1430fbb7ce1e37f41c0d4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7f7e77aa687760252aed16573b609817ed9111c3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>Gerenciamento de simultaneidade e carga de trabalho no SQL Data Warehouse
-Para oferecer um desempenho previsível em escala, o SQL Data Warehouse do Microsoft Azure ajuda a controlar os níveis de simultaneidade e as alocações de recursos como priorização de CPU e memória. Este artigo apresenta os conceitos de gerenciamento de simultaneidade e carga de trabalho, explicando como os dois recursos foram implementados e como controlá-los no data warehouse. O gerenciamento de carga de trabalho do SQL Data Warehouse destina-se a ajudá-lo a dar suporte a ambientes com vários usuários. Ele não se destina a cargas de trabalho com vários locatários.
+um desempenho previsível em grande escala, Microsoft Azure SQL Data Warehouse toodeliver ajuda a controlar os níveis de simultaneidade e alocações de recursos como priorização de CPU e memória. Este artigo apresenta os conceitos de toohello de gerenciamento de simultaneidade e a carga de trabalho, explicando como ambos os recursos foram implementados e como você pode controlá-los no data warehouse. Gerenciamento de carga de trabalho do SQL Data Warehouse é pretendido toohelp você oferece suporte a ambientes de vários usuários. Ele não se destina a cargas de trabalho com vários locatários.
 
 ## <a name="concurrency-limits"></a>Limites de simultaneidade
-O SQL Data Warehouse permite até 1.024 conexões simultâneas. Todas as 1.024 conexões podem enviar consultas ao mesmo tempo. No entanto, para otimizar a taxa de transferência, o SQL Data Warehouse pode enfileirar algumas consultas para garantir que cada consulta receba uma concessão de memória mínima. O enfileiramento ocorre no tempo de execução de consulta. Ao enfileirar consultas quando os limites de simultaneidade são atingidos, o SQL Data Warehouse pode aumentar a taxa de transferência total, garantindo que as consultas ativas obtenham acesso aos recursos de memória muito necessários.  
+SQL Data Warehouse permite que até too1, 024 conexões simultâneas. Todas as 1.024 conexões podem enviar consultas ao mesmo tempo. No entanto, taxa de transferência toooptimize, SQL Data Warehouse pode enfileirar tooensure algumas consultas que cada consulta recebe uma concessão de memória mínima. O enfileiramento ocorre no tempo de execução de consulta. Por consultas de enfileiramento de mensagens quando simultaneidade limites são atingidos, o SQL Data Warehouse pode aumentar a taxa de transferência total, garantindo que consultas ativas obtenham acesso toocritically necessários recursos de memória.  
 
-Os limites de simultaneidade são regidos por dois conceitos: *consultas simultâneas* e *slots de simultaneidade*. Para a execução de uma consulta, ela deve ser executada tanto no limite de simultaneidade de consulta quanto na alocação de slot de simultaneidade.
+Os limites de simultaneidade são regidos por dois conceitos: *consultas simultâneas* e *slots de simultaneidade*. Para tooexecute uma consulta, ele deve executar dentro do limite de simultaneidade de consultas hello e alocação de slot de simultaneidade hello.
 
-* As consultas simultâneas são as consultas em execução ao mesmo tempo. O SQL Data Warehouse dá suporte a até 32 consultas simultâneas em tamanhos maiores de DWU.
-* Os slots de simultaneidade são alocados com base em DWU. Cada DWU 100 fornece quatro slots de simultaneidade. Por exemplo, um DW100 aloca quatro slots de simultaneidade e um DW1000 aloca 40. Cada consulta consome um ou mais slots de simultaneidade, dependendo da [classe de recurso](#resource-classes) da consulta. As consultas em execução na classe de recurso smallrc consomem um slot de simultaneidade. As consultas em execução em uma classe de recurso superior consomem mais slots de simultaneidade.
+* Consultas simultâneas são consultas de saudação em execução a saudação mesmo tempo. SQL Data Warehouse dá suporte para até too32 de consultas simultâneas em Olá DWU maiores.
+* Os slots de simultaneidade são alocados com base em DWU. Cada DWU 100 fornece quatro slots de simultaneidade. Por exemplo, um DW100 aloca quatro slots de simultaneidade e um DW1000 aloca 40. Cada consulta consome um ou mais simultaneidade slots, dependentes Olá [classe de recurso](#resource-classes) de consulta de saudação. Consultas em execução na classe de recurso de smallrc Olá consumam um slot de simultaneidade. As consultas em execução em uma classe de recurso superior consomem mais slots de simultaneidade.
 
-A tabela a seguir descreve os limites das consultas simultâneas e dos slots de simultaneidade em vários tamanhos de DWU.
+Olá tabela a seguir descreve limites Olá para consultas simultâneas e slots de simultaneidade em Olá vários tamanhos DWU.
 
 ### <a name="concurrency-limits"></a>Limites de simultaneidade
 | DWU | Máximo de consultas simultâneas | Slots de simultaneidade alocados |
@@ -50,21 +50,21 @@ A tabela a seguir descreve os limites das consultas simultâneas e dos slots de 
 | DW3000 |32 |120 |
 | DW6000 |32 |240 |
 
-Quando um desses limites for atingido, novas consultas serão enfileiradas e executadas em uma base de primeira a entrar, primeira a sair.  Conforme uma consulta for concluída e o número de consultas e slots ficar abaixo dos limites, as consultas em fila serão lançadas. 
+Quando um desses limites for atingido, novas consultas serão enfileiradas e executadas em uma base de primeira a entrar, primeira a sair.  Como um consultas for concluído e número de saudação de consultas e slots cai abaixo limites hello, consultas em fila são liberadas. 
 
 > [!NOTE]  
-> *Select* em execução exclusivamente nas DMVs (exibições de gerenciamento dinâmico) ou nas exibições de catálogo não são regidas por nenhum dos limites de simultaneidade. Você pode monitorar o sistema independentemente do número de consultas em execução nele.
+> *Selecione* consultas executando exclusivamente em exibições de gerenciamento dinâmico (DMVs) ou exibições do catálogo não são regidas por qualquer um dos limites de simultaneidade hello. Você pode monitorar o sistema hello, independentemente do número de saudação de consultas em execução nele.
 > 
 > 
 
 ## <a name="resource-classes"></a>Classes de recursos
-As classes de recurso ajudam a controlar a alocação de memória e os ciclos de CPU fornecidos para uma consulta. Você pode atribuir dois tipos de classes de recurso para um usuário na forma de funções de banco de dados. Os dois tipos de classes de recurso são os seguintes:
-1. Classes de recursos dinâmicos (**smallrc, mediumrc, largerc, xlargerc**) alocam uma quantidade variável de memória dependendo da DWU. Isso significa que quando você escala verticalmente para uma maior DWU, as consultas automaticamente recebem mais memória. 
-2. Classes de recursos estáticos (**staticrc10, staticrc20, staticrc30, staticrc40, staticrc50, staticrc60, staticrc70, staticrc80**) alocam a mesma quantidade de memória, independentemente da DWU atual (desde que o DWU em si tenha memória suficiente). Isso significa que em DWUs maiores, você pode executar mais consultas em cada classe de recursos simultaneamente.
+Classes de recursos ajudam a controlar dado consulta de tooa de ciclos de CPU e alocação de memória. Você pode atribuir dois tipos de usuário de tooa de classes de recurso na forma de saudação de funções de banco de dados. Olá dois tipos de classes de recurso são da seguinte maneira:
+1. Classes de recursos dinâmicos (**smallrc, mediumrc, largerc, xlargerc**) alocar uma variável quantidade de memória dependendo Olá DWU atual. Isso significa que, quando você escala verticalmente tooa DWU maior, suas consultas obtém automaticamente mais memória. 
+2. Classes de recursos estáticos (**staticrc10, staticrc20, staticrc30, staticrc40, staticrc50, staticrc60, staticrc70, staticrc80**) alocar Olá Olá a mesma quantidade de memória, independentemente do DWU atual (desde que Olá DWU em si tem memória suficiente). Isso significa que em DWUs maiores, você pode executar mais consultas em cada classe de recursos simultaneamente.
 
-Os usuários em **smallrc** e **staticrc10** recebem uma quantidade menor de memória e podem tirar proveito da simultaneidade superior. Por outro lado, os usuários atribuídos a **xlargerc** ou **staticrc80** recebem grandes quantidades de memória e, assim, um número menor dessas consultas pode ser executado simultaneamente.
+Os usuários em **smallrc** e **staticrc10** recebem uma quantidade menor de memória e podem tirar proveito da simultaneidade superior. Em contraste, os usuários atribuídos muito**xlargerc** ou **staticrc80** recebem grandes quantidades de memória, e, portanto, menos suas consultas podem ser executados simultaneamente.
 
-Por padrão, cada usuário é um membro da pequena classe de recursos, **smallrc**. O procedimento `sp_addrolemember` é usado para aumentar a classe de recurso e `sp_droprolemember` é usado para diminuir a classe de recurso. Por exemplo, este comando aumentaria a classe de recursos de loaduser para **largerc**:
+Por padrão, cada usuário é um membro da classe do recurso pequeno hello, **smallrc**. Olá procedimento `sp_addrolemember` é usado a classe de recurso tooincrease hello e `sp_droprolemember` é usada a classe de recurso de saudação toodecrease. Por exemplo, este comando poderia aumentar a classe de recurso de saudação do loaduser muito**largerc**:
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser'
@@ -73,24 +73,24 @@ EXEC sp_addrolemember 'largerc', 'loaduser'
 
 ### <a name="queries-that-do-not-honor-resource-classes"></a>Consultas que não consideram classes de recursos
 
-Existem alguns tipos de consultas que não se beneficiam de uma alocação de memória maior. O sistema ignora a alocação de classe de recurso e sempre executa essas consultas na classe de recurso pequena. Se essas consultas são sempre executadas na classe de recurso pequena, elas podem ser executadas quando os slots de simultaneidade estão sob pressão e não consomem mais slots do que o necessário. Consulte as [exceções de classe de recurso](#query-exceptions-to-concurrency-limits) para obter mais informações.
+Existem alguns tipos de consultas que não se beneficiam de uma alocação de memória maior. sistema Olá ignora a alocação de classe de recurso e sempre executa essas consultas na classe de recursos pequeno Olá em vez disso. Se essas consultas sempre em execução na classe de recursos pequeno hello, eles podem executar quando os slots de simultaneidade estão sob pressão e não consomem mais slots que o necessário. Consulte as [exceções de classe de recurso](#query-exceptions-to-concurrency-limits) para obter mais informações.
 
 ## <a name="details-on-resource-class-assignment"></a>Detalhes sobre a atribuição de classe de recursos
 
 
 Mais alguns detalhes sobre classes de recurso:
 
-* *Alter role* é necessária para alterar a classe de recurso de um usuário.
-* Embora seja possível adicionar um usuário a uma ou mais das classes de recursos mais altas, as classes de recursos dinâmicos têm prioridade sobre as classes de recursos estáticos. Ou seja, se um usuário for atribuído a **mediumrc** (dinâmico) e **staticrc80** (estático), **mediumrc** é a classe de recursos que será respeitada.
- * Quando um usuário é atribuído a mais de uma classe de recursos em um tipo de classe de recursos específico (mais de uma classe de recursos dinâmicos ou mais de uma classe de recursos estáticos), a classe de recursos mais alta é respeitada. Ou seja, se um usuário for atribuído a mediumrc e largerc, a classe de recurso mais elevada (largerc) será respeitada. E se um usuário for atribuído a **staticrc20** e **statirc80**, **staticrc80** será respeitada.
-* A classe de recurso do usuário administrativo do sistema não pode ser alterada.
+* *Alterar função* é necessária a permissão toochange classe de recurso de saudação de um usuário.
+* Embora você pode adicionar um usuário tooone ou mais classes superiores de recurso Olá, classes de recursos dinâmicos têm precedência sobre classes de recursos estáticos. Ou seja, se um usuário é atribuído tooboth **mediumrc**(dinâmico) e **staticrc80**(estático), **mediumrc** é a classe de recurso de saudação que é cumprido.
+ * Quando um usuário é atribuído toomore que a classe de um recurso em um tipo de classe de recurso específico (mais de uma classe de recurso dinâmico ou mais de uma classe de recurso estático), a classe de recurso hello mais alto é cumprido. Ou seja, se um usuário é atribuído largerc e tooboth mediumrc, classe de recurso superior hello (largerc) é cumprido. E se um usuário é atribuído tooboth **staticrc20** e **statirc80**, **staticrc80** é respeitada.
+* classe de recurso de saudação do usuário administrativo do sistema Olá não pode ser alterado.
 
 Para obter um exemplo detalhado, consulte [Alterando o exemplo de classe de recurso de usuário](#changing-user-resource-class-example).
 
 ## <a name="memory-allocation"></a>Alocação de memória
-Há prós e contras quanto ao aumento da classe de recurso do usuário. O aumento de uma classe de recurso para um usuário concede às suas consultas acesso a mais memória, o que pode significar que as consultas serão executadas mais rapidamente.  No entanto, classes de recursos superiores também reduzem o número de consultas simultâneas que podem ser executadas. Essa é a compensação entre alocar grandes quantidades de memória para uma única consulta ou permitir que outras consultas, que também precisam de alocações de memória, sejam executadas simultaneamente. Se um usuário receber alocações de memória altas para uma consulta, outros usuários não terão acesso a essa mesma memória para executar uma consulta.
+Há prós e contras tooincreasing classe de recurso do usuário. Aumentando a uma classe de recurso para um usuário, fornece suas consultas de memória toomore, que pode significar que executar consultas mais rapidamente.  No entanto, o classes superiores de recurso também reduzem o número de saudação de consultas simultâneas que podem ser executados. Essa é a compensação de saudação entre a alocação de grandes quantidades de consulta única de tooa de memória ou permitindo que outras consultas, que também precisam de alocações de memória, toorun simultaneamente. Se um usuário receber alta alocações de memória para uma consulta, outros usuários não terão acesso toothat mesmo memória toorun uma consulta.
 
-A tabela a seguir mapeia a memória alocada para cada distribuição por DWU e classe de recurso.
+Olá, a tabela a seguir mapeia memória Olá alocada distribuição tooeach pela classe DWU e recursos.
 
 ### <a name="memory-allocations-per-distribution-for-dynamic-resource-classes-mb"></a>Alocações de memória por distribuição de classes de recursos dinâmicos (MB)
 | DWU | smallrc | mediumrc | largerc | xlargerc |
@@ -108,7 +108,7 @@ A tabela a seguir mapeia a memória alocada para cada distribuição por DWU e c
 | DW3000 |100 |1.600 |3.200 |6.400 |
 | DW6000 |100 |3.200 |6.400 |12.800 |
 
-A tabela a seguir mapeia a memória alocada para cada distribuição por DWU e classe de recursos estáticos. Observe que as classes de recursos superiores têm sua memória reduzida para atender os limites de DWU globais.
+Olá, a tabela a seguir mapeia memória Olá alocada distribuição tooeach por DWU e classe de recurso estático. Observe que as classes superiores de recurso Olá tem sua memória reduzido limites DWU toohonor Olá global.
 
 ### <a name="memory-allocations-per-distribution-for-static-resource-classes-mb"></a>Alocações de memória por distribuição de classes de recursos estáticos (MB)
 | DWU | staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
@@ -126,7 +126,7 @@ A tabela a seguir mapeia a memória alocada para cada distribuição por DWU e c
 | DW3000 |100 |200 |400 |800 |1.600 |3.200 |6.400 |6.400 |
 | DW6000 |100 |200 |400 |800 |1.600 |3.200 |6.400 |12.800 |
 
-Na tabela anterior, você pode ver que uma consulta em execução em um DW2000 na classe de recursos **xlargerc** teria acesso a 6.400 MB de memória dentro de cada um dos 60 bancos de dados distribuídos.  Há 60 distribuições no SQL Data Warehouse. Portanto, para calcular a alocação de memória total para uma consulta em uma determinada classe de recurso, os valores acima devem ser multiplicados por 60.
+Olá anterior da tabela, você pode ver que uma consulta em execução em um DW2000 no hello **xlargerc** classe de recurso teria acesso too6, 400 MB de memória em cada banco de dados distribuído 60 de saudação.  Há 60 distribuições no SQL Data Warehouse. Portanto, alocação de memória total toocalculate Olá para uma consulta em uma classe de recurso fornecido, Olá acima valores deve ser multiplicada por 60.
 
 ### <a name="memory-allocations-system-wide-gb"></a>Alocações de memória em todo o sistema (GB)
 | DWU | smallrc | mediumrc | largerc | xlargerc |
@@ -144,12 +144,12 @@ Na tabela anterior, você pode ver que uma consulta em execução em um DW2000 n
 | DW3000 |6 |94 |188 |375 |
 | DW6000 |6 |188 |375 |750 |
 
-Nesta tabela com as alocações de memória de todo o sistema, você pode ver que uma consulta em execução em um DW2000 na classe de recurso xlargerc recebe a alocação de um total de 375 GB de memória (6.400 MB * 60 distribuições / 1.024 para converter em GB) por todo o SQL Data Warehouse.
+Essa tabela de alocações de memória do sistema, você pode ver que uma consulta em execução em um DW2000 na classe de recurso de xlargerc Olá é alocada um total de 375 GB de memória (distribuições 6.400 MB * 60 / 1.024 tooconvert tooGB) sobre a totalidade saudação do Data Warehouse do SQL.
 
-O mesmo cálculo se aplica a classes de recursos estáticos.
+Olá mesmo cálculo se aplica toostatic classes de recursos.
  
 ## <a name="concurrency-slot-consumption"></a>Consumo de slot de simultaneidade  
-O SQL Data Warehouse concede mais memória para consultas em execução em classes de recursos mais elevadas. A memória é um recurso fixo.  Portanto, quanto mais memória for alocada por consulta, menos consultas simultâneas poderão ser executadas. A tabela a seguir reitera todos os conceitos anteriores em uma única exibição que mostra o número de slots de simultaneidade disponíveis por DWU, bem como os slots consumidos por cada classe de recurso.  
+SQL Data Warehouse concede mais tooqueries de memória em execução em classes superiores de recurso. A memória é um recurso fixo.  Portanto, hello mais memória alocada por consulta, Olá menos consultas simultâneas podem executar. Olá tabela a seguir reitera todos os conceitos de saudação anterior em uma única exibição que mostra o número de saudação de slots de simultaneidade disponíveis por DWU e slots de saudação consumidos por cada classe de recurso.  
 
 ### <a name="allocation-and-consumption-of-concurrency-slots-for-dynamic-resource-classes"></a>Alocação e consumo de slots de simultaneidade para classes de recursos dinâmicos  
 | DWU | Máximo de consultas simultâneas | Slots de simultaneidade alocados | Slots usados pelo smallrc | Slots usados pelo mediumrc | Slots usados pelo largerc | Slots usados pelo xlargerc |
@@ -183,50 +183,50 @@ O SQL Data Warehouse concede mais memória para consultas em execução em class
 | DW3000 | 32| 120| 1| 2| 4| 8| 16| 32| 64| 64|
 | DW6000 | 32| 240| 1| 2| 4| 8| 16| 32| 64| 128|
 
-Nestas tabelas, você pode ver que um SQL Data Warehouse em execução como DW1000 aloca uma quantidade máxima de 32 consultas simultâneas e um total de 40 slots de simultaneidade. Se todos os usuários estivessem em execução no smallrc, seriam permitidas 32 consultas simultâneas, pois cada consulta consumiria um slot de simultaneidade. Se todos os usuários em um DW1000 estivessem em execução na mediumrc, cada consulta receberia a alocação de 800 MB por distribuição de uma alocação de memória total de 47 GB por consulta e a simultaneidade seria limitada a cinco usuários (40 slots de simultaneidade/oito slots por usuário mediumrc).
+Nestas tabelas, você pode ver que um SQL Data Warehouse em execução como DW1000 aloca uma quantidade máxima de 32 consultas simultâneas e um total de 40 slots de simultaneidade. Se todos os usuários estivessem em execução no smallrc, seriam permitidas 32 consultas simultâneas, pois cada consulta consumiria um slot de simultaneidade. Se todos os usuários em um DW1000 estavam em execução no mediumrc, cada consulta seria alocada 800 MB por distribuição de uma alocação de memória total de 47 GB por consulta, simultaneidade seria too5 limitado de usuários (40 slots de simultaneidade slots de 8 por usuário mediumrc /).
 
 ## <a name="selecting-proper-resource-class"></a>Selecionando a classe de recursos apropriada  
-Uma prática recomendada é atribuir usuários permanentemente a uma classe de recurso em vez de alterar suas classes de recurso. Por exemplo, cargas para tabelas columnstore clusterizadas cria índices de qualidade superiores quando mais memória é alocada. Para garantir que as cargas tenham acesso a mais memória, crie um usuário especificamente para o carregamento de dados e atribua esse usuário permanentemente a uma classe de recurso mais elevada.
-Há algumas melhores práticas a serem seguidas aqui. Como mencionado acima, o SQL DW dá suporte a dois tipos de classes de recursos: classes de recursos estáticos e classes de recursos dinâmicos.
+Uma prática recomendada é a classe de recurso do toopermanently atribuir usuários tooa em vez de alterar suas classes de recursos. Por exemplo, tabelas de columnstore cargas tooclustered criam índices de alta qualidade quando mais memória alocada. tooensure que carrega tem acesso toohigher memória, cria um usuário especificamente para carregar dados e atribui permanentemente esta classe de recursos do usuário tooa superior.
+Há algumas toofollow práticas recomendada aqui. Como mencionado acima, o SQL DW dá suporte a dois tipos de classes de recursos: classes de recursos estáticos e classes de recursos dinâmicos.
 ### <a name="loading-best-practices"></a>Melhores práticas de carregamento
-1.  Se as expectativas forem de carregamentos com uma quantidade de dados regular, uma classe de recursos estáticos é uma boa opção. Posteriormente, ao escalar verticalmente para obter mais capacidade de computação, o data warehouse poderá executar consultas mais simultâneas de imediato, uma vez que o usuário do carregamento não consome mais memória.
-2.  Se as expectativas forem de carregamentos maiores em algumas ocasiões, uma classe de recursos dinâmicos será uma boa opção. Posteriormente, ao escalar verticalmente para obter mais capacidade de computação, o usuário do carregamento obterá mais memória de pronto, permitindo assim que o carregamento seja realizado mais rápido.
+1.  Se as expectativas de saudação carrega com quantidade regular de dados, uma classe de recurso estático é uma boa opção. Posteriormente, quando o dimensionamento das tooget mais potência computacional, data warehouse de saudação será capaz de toorun simultâneo mais consultas out-of-the-box, como usuário de carga Olá não consome mais memória.
+2.  Se as expectativas de saudação maiores cargas em algumas ocasiões, uma classe de recurso dinâmico é uma boa opção. Posteriormente, quando o dimensionamento das tooget mais potência computacional, Olá carga usuário receberá mais memória out-of-the-box, permitindo, portanto, Olá carga tooperform mais rapidamente.
 
-A memória necessária para processar cargas com eficiência depende da natureza da tabela carregada e da quantidade de dados processada. Por exemplo, carregar dados em tabelas CCI requer memória para permitir que os rowgroups CCI atinjam o nível ideal. Para obter mais detalhes, consulte os Índices columnstore – diretrizes de carregamento de dados.
+Olá memória necessária tooprocess cargas com eficiência depende Olá natureza da tabela de saudação carregada e quantidade de saudação de dados processados. Por exemplo, carregar dados em tabelas CCI requer que algumas rowgroups CCI toolet memória alcançar ideais. Para obter mais detalhes, consulte índices de Columnstore Olá - diretrizes de carregamento de dados.
 
-Como uma melhor prática, é recomendável usar pelo menos 200 MB de memória para os carregamentos.
+Como prática recomendada, aconselhamos que você toouse pelo menos 200MB de memória para cargas.
 
 ### <a name="querying-best-practices"></a>Melhores práticas de consulta
-As consultas têm requisitos diferentes dependendo de sua complexidade. Aumentar a memória por consulta ou aumentar a simultaneidade são duas formas válidas para aumentar a produtividade geral dependendo das necessidades da consulta.
-1.  Se as expectativas forem consultas complexas e regulares (por exemplo, para gerar relatórios diários e semanais) e não precisarem aproveitar a simultaneidade, uma classe de recursos dinâmicos será uma boa opção. Se o sistema tiver mais dados a serem processados, escalar verticalmente o data warehouse fornecerá automaticamente mais memória para o usuário executando a consulta.
-2.  Se as expectativas forem padrões de simultaneidade variáveis ou cotidianas (por exemplo, se o banco de dados for consultado por meio de uma interface do usuário Web amplamente acessível), uma classe de recursos estáticos será uma boa opção. Posteriormente, ao escalar verticalmente para o data warehouse, o usuário associado à classe de recursos estáticos automaticamente poderá executar mais consultas simultâneas.
+As consultas têm requisitos diferentes dependendo de sua complexidade. Aumentar a memória por consulta ou aumentar a simultaneidade de saudação são ambas as maneiras válidas tooaugment produtividade geral dependendo das necessidades de consulta hello.
+1.  Se expectativas Olá são consultas complexas, regulares (toogenerate, por exemplo, relatórios de diários e semanais) e não é necessário tootake vantagem de simultaneidade, uma classe de recurso dinâmico é uma boa opção. Se o sistema Olá tem mais tooprocess de dados, expansão do data warehouse de saudação, portanto, fornecerá automaticamente usuário de toohello mais memória execução de consulta de saudação.
+2.  Se as expectativas de saudação são padrões de simultaneidade diurnal ou variável (por exemplo se o banco de dados de saudação é consultado por meio de uma interface amplamente acessível da web), uma classe de recurso estático é uma boa opção. Posteriormente, ao aumento toodata warehouse, usuário Olá associado à classe de recurso estático hello serão automaticamente ser capaz de toorun consultas mais simultâneas.
 
-Selecionar a concessão de memória apropriada dependendo da necessidade de sua consulta não é simples, uma vez que depende de muitos fatores, como a quantidade de dados consultada, a natureza dos esquemas de tabela e vários predicados de união, seleção e agrupamento. Do ponto de vista geral, alocar mais memória permitirá que consultas sejam concluídas mais rapidamente, mas reduzirá a simultaneidade geral. Se a simultaneidade não for um problema, a alocação excessiva de memória não será prejudicial. Para ajustar a taxa de transferência, a tentativa de vários tipos de classes de recursos pode ser necessária.
+Selecionando concessão de memória apropriada dependendo da necessidade de saudação da consulta é incomum, pois ele depende de muitos fatores, como quantidade de saudação de dados consultados, natureza Olá esquemas de tabela hello e vários junção, seleção e predicados de grupo. Alocar mais memória permitirá consultas toocomplete mais rápido do ponto de vista geral, mas reduziria Olá simultaneidade geral. Se a simultaneidade não for um problema, a alocação excessiva de memória não será prejudicial. taxa de transferência toofine ajustar, tentativa de vários tipos de classes de recursos pode ser necessária.
 
-Você pode usar o procedimento armazenado a seguir para descobrir a concessão de memória e a simultaneidade por classe de recursos em um determinado SLO e a melhor classe de recursos mais próxima para operações de CCI de uso intenso da memória em uma tabela CCI não particionada em uma determinada classe de recursos:
+Você pode usar o seguinte Olá armazenados procedimento toofigure limite de concessão de memória e simultaneidade por classe de recurso a uma determinada SLO e hello mais próximo melhor recurso classe para memória intensiva CCI operações de tabela CCI não particionada em uma classe de recurso específico:
 
 #### <a name="description"></a>Descrição:  
-Aqui está a finalidade deste procedimento armazenado:  
-1. Ajudar o usuário a descobrir a simultaneidade e a concessão de memória por classe de recursos em um determinado SLO. O usuário precisa fornecer NULL para o esquema e tablename para isso, conforme mostrado no exemplo a seguir.  
-2. Ajudar o usuário a descobrir a melhor classe de recursos mais próxima para operações de CCI de uso intenso de memória (carregar, copiar tabela, recompilar índice etc.) na tabela CCI não particionada em uma determinada classe de recursos. O procedimento armazenado usa o esquema da tabela para descobrir a concessão de memória necessária para isso.
+Aqui está a finalidade de saudação deste procedimento armazenado:  
+1. toohelp usuário descobrir concessão de memória e simultaneidade por classe de recurso em um determinado SLO. Usuário precisa tooprovide NULL para o esquema e tablename isso conforme mostrado no exemplo hello abaixo.  
+2. usuário toohelp descobrir hello mais próxima melhor classe de recurso para Olá memória intensed operações CCI (carga de tabela de cópia, recriar o índice, etc.) em uma tabela CCI não particionada em uma classe de recurso específico. Olá armazenado proc usa toofind de esquema de tabela out Olá concessão de memória necessária para isso.
 
 #### <a name="dependencies--restrictions"></a>Dependências e restrições:
-- Esse procedimento armazenado não foi projetado para calcular os requisitos de memória para a tabela CCI particionada.    
-- Esse procedimento armazenado não considera os requisitos de memória para a parte SELECT de CTAS/INSERT-SELECT e pressupõe que sejam um simples SELECT.
-- Esse procedimento armazenado usa uma tabela temporária para que possa ser usada na sessão em que esse procedimento armazenado foi criado.    
-- Esse procedimento armazenado depende das ofertas atuais (por exemplo, a configuração de hardware, a configuração DMS) e se qualquer uma delas for alterada, esse procedimento armazenado não funcionará corretamente.  
+- Esse procedimento armazenado não é um requisito de memória toocalculate projetado para a tabela particionada cci.    
+- Esse procedimento armazenado não tem um requisito de memória em consideração para a parte SELECT Olá de inserção/CTAS-SELECT e pressupõe que ele toobe SELECT simples.
+- Esse procedimento armazenado usa uma tabela temporária para que isso pode ser usado na sessão Olá onde esse procedimento armazenado foi criado.    
+- Esse procedimento armazenado depende de ofertas de saudação atual (por exemplo, a configuração de hardware, a configuração DMS) e se qualquer um dos que for alterado, em seguida, esse procedimento armazenado não funcionará corretamente.  
 - Esse procedimento armazenado depende do limite de simultaneidade oferecidos existente e se isso mudar, o procedimento armazenado não funcionará corretamente.  
 - Esse procedimento armazenado depende das ofertas de classe de recursos existentes e se isso mudar, o procedimento armazenado não funcionará corretamente.  
 
 >  [!NOTE]  
->  Se nenhuma saída aparecer após a execução do procedimento armazenado com parâmetros fornecidos, isso poderá ser consequência de dois problemas. <br />1. Um parâmetro de DW contém o valor inválido de SLO <br />2. OU não há nenhuma classe de recurso correspondente para a operação CCI se o nome de tabela tiver sido fornecido. <br />Por exemplo, no DW100, a concessão de memória mais alta disponível é 400 MB e se o esquema de tabela for grande o suficiente para atravessar o requisito de 400 MB.
+>  Se nenhuma saída aparecer após a execução do procedimento armazenado com parâmetros fornecidos, isso poderá ser consequência de dois problemas. <br />1. Um parâmetro de DW contém o valor inválido de SLO <br />2. OU não há nenhuma classe de recurso correspondente para a operação CCI se o nome de tabela tiver sido fornecido. <br />Por exemplo, em DW100, concessão de memória mais alto disponível é de 400MB e se o esquema de tabela for grande o suficiente toocross Olá requisito de 400MB.
       
 #### <a name="usage-example"></a>Exemplo de uso:
 Sintaxe:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`  
-1. @DWU: Forneça um parâmetro NULL para extrair a DWU atual do BD do DW ou forneça uma DWU compatível na forma de 'DW100'
-2. @SCHEMA_NAME: Forneça um nome de esquema da tabela
-3. @TABLE_NAME: Forneça um nome de tabela dos juros
+1. @DWU:Forneça um tooextract de parâmetro NULL Olá DWU atual do BD de DW do hello ou fornecer qualquer suporte DWU na forma de saudação de 'DW100'
+2. @SCHEMA_NAME:Forneça um nome de esquema da tabela de saudação
+3. @TABLE_NAME:Forneça um nome de tabela de interesse Olá
 
 Exemplos executando esse procedimento armazenado:  
 ```sql  
@@ -236,10 +236,10 @@ EXEC dbo.prc_workload_management_by_DWU 'DW6000', NULL, NULL;
 EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;  
 ```
 
-A Table1 usada nos exemplos acima pode ser criado como abaixo:  
+Table1 usado em Olá acima exemplos pôde ser criado como abaixo:  
 `CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
 
-#### <a name="heres-the-stored-procedure-definition"></a>Aqui está a definição do procedimento armazenado:
+#### <a name="heres-hello-stored-procedure-definition"></a>Aqui está a definição do procedimento armazenada de saudação:
 ```sql  
 -------------------------------------------------------------------------------
 -- Dropping prc_workload_management_by_DWU procedure if it exists.
@@ -259,7 +259,7 @@ CREATE PROCEDURE dbo.prc_workload_management_by_DWU
 AS
 IF @DWU IS NULL
 BEGIN
--- Selecting proper DWU for the current DB if not specified.
+-- Selecting proper DWU for hello current DB if not specified.
 SET @DWU = (
   SELECT 'DW'+CAST(COUNT(*)*100 AS VARCHAR(10))
   FROM sys.dm_pdw_nodes
@@ -271,7 +271,7 @@ SET @DWU_NUM = CAST (SUBSTRING(@DWU, 3, LEN(@DWU)-2) AS INT)
 
 -- Raise error if either schema name or table name is supplied but not both them supplied
 --IF ((@SCHEMA_NAME IS NOT NULL AND @TABLE_NAME IS NULL) OR (@TABLE_NAME IS NULL AND @SCHEMA_NAME IS NOT NULL))
---     RAISEERROR('User need to supply either both Schema Name and Table Name or none of them')
+--     RAISEERROR('User need toosupply either both Schema Name and Table Name or none of them')
        
 -- Dropping temp table if exists.
 IF OBJECT_ID('tempdb..#ref') IS NOT NULL
@@ -279,7 +279,7 @@ BEGIN
   DROP TABLE #ref;
 END
 
--- Creating ref. temptable (CTAS) to hold mapping info.
+-- Creating ref. temptable (CTAS) toohold mapping info.
 -- CREATE TABLE #ref
 CREATE TABLE #ref
 WITH (DISTRIBUTION = ROUND_ROBIN)
@@ -316,7 +316,7 @@ AS
   UNION ALL
     SELECT 'DW6000', 32, 240, 1, 32, 64, 128, 1, 2, 4, 8, 16, 32, 64, 128
 )
--- Creating workload mapping to their corresponding slot consumption and default memory grant.
+-- Creating workload mapping tootheir corresponding slot consumption and default memory grant.
 ,map
 AS
 (
@@ -554,11 +554,11 @@ GO
 ```
 
 ## <a name="query-importance"></a>Importância da consulta
-O SQL Data Warehouse implementa classes de recursos usando grupos de carga de trabalho. Há um total de oito grupos de carga de trabalho que controlam o comportamento das classes de recurso entre os vários tamanhos de DWU. Para qualquer DWU, o SQL Data Warehouse usa somente quatro dos oito grupos de carga de trabalho. Isso faz sentido, pois cada grupo de carga de trabalho é atribuído a uma das quatro classes de recurso: smallrc, mediumrc, largerc ou xlargerc. A importância de entender esses grupos de carga de trabalho é que alguns deles são definidos com *importância*maior. A importância é usada para agendamento de CPU. As consultas executadas com importância alta obterão três vezes mais ciclos de CPU do que aquelas com importância média. Portanto, os mapeamentos de slot de simultaneidade também determinam a prioridade da CPU. Quando uma consulta consome 16 ou mais slots, ela é executada com alta importância.
+O SQL Data Warehouse implementa classes de recursos usando grupos de carga de trabalho. Há um total de oito grupos de cargas de trabalho que controlam o comportamento de Olá Olá de classes de recurso entre Olá vários tamanhos DWU. Para qualquer DWU SQL Data Warehouse usa apenas quatro das oito grupos de cargas de trabalho hello. Isso faz sentido porque é atribuída a cada grupo de carga de trabalho tooone de quatro classes de recursos: smallrc, mediumrc, largerc, ou xlargerc. Olá importância de Noções básicas sobre grupos de carga de trabalho de saudação é que alguns desses grupos de carga de trabalho estão definidos toohigher *importância*. A importância é usada para agendamento de CPU. As consultas executadas com importância alta obterão três vezes mais ciclos de CPU do que aquelas com importância média. Portanto, os mapeamentos de slot de simultaneidade também determinam a prioridade da CPU. Quando uma consulta consome 16 ou mais slots, ela é executada com alta importância.
 
-A tabela a seguir mostra os mapeamentos de importância para cada grupo de carga de trabalho.
+Olá, tabela a seguir mostra Olá mapeamentos de importância para cada grupo de carga de trabalho.
 
-### <a name="workload-group-mappings-to-concurrency-slots-and-importance"></a>Mapeamentos de grupo de carga de trabalho para slots de simultaneidade e importância
+### <a name="workload-group-mappings-tooconcurrency-slots-and-importance"></a>Importância e slots de tooconcurrency de mapeamentos de grupo de carga de trabalho
 | Grupos de carga de trabalho | Mapeamento do slot de simultaneidade | MB / Distribuição | Mapeamento de importância |
 |:--- |:---:|:---:|:--- |
 | SloDWGroupC00 |1 |100 |Média |
@@ -570,9 +570,9 @@ A tabela a seguir mostra os mapeamentos de importância para cada grupo de carga
 | SloDWGroupC06 |64 |6.400 |Alto |
 | SloDWGroupC07 |128 |12.800 |Alto |
 
-Da tabela **Alocação e consumo de slots de simultaneidade** , podemos ver que um DW500 usa um, quatro, oito ou 16 slots de simultaneidade para smallrc, mediumrc, largerc e xlargerc, respectivamente. Você pode procurar esses valores na tabela anterior para localizar a importância de cada classe de recurso.
+De saudação **alocação e o consumo de slots de simultaneidade** gráfico, você pode ver que uma DW500 usa 1, 4, 8 ou slots de simultaneidade 16 para smallrc, mediumrc, largerc e xlargerc, respectivamente. Você pode procurar esses valores em Olá anterior a importância de saudação toofind gráfico para cada classe de recurso.
 
-### <a name="dw500-mapping-of-resource-classes-to-importance"></a>Mapeamento do DW500 para obter a importância das classes de recurso
+### <a name="dw500-mapping-of-resource-classes-tooimportance"></a>Mapeamento de DW500 de tooimportance de classes de recursos
 | classe de recurso | Grupo de carga de trabalho | Slots de simultaneidade usados | MB / Distribuição | importância |
 |:--- |:--- |:---:|:---:|:--- |
 | smallrc |SloDWGroupC00 |1 |100 |Média |
@@ -588,7 +588,7 @@ Da tabela **Alocação e consumo de slots de simultaneidade** , podemos ver que 
 | staticrc70 |SloDWGroupC03 |16 |1.600 |Alto |
 | staticrc80 |SloDWGroupC03 |16 |1.600 |Alto |
 
-Você pode usar a seguinte consulta DMV para examinar as diferenças na alocação de recurso de memória em detalhes da perspectiva do administrador de recursos ou para analisar o uso ativo e histórico dos grupos de carga de trabalho ao solucionar problemas.
+Você pode usar o hello toolook de consulta DMV em diferenças Olá na alocação de recursos de memória em detalhes da perspectiva de saudação do administrador de recursos de saudação ou tooanalyze ativo e históricos o uso de grupos de cargas de trabalho Olá a seguir ao solucionar o problema.
 
 ```sql
 WITH rg
@@ -637,9 +637,9 @@ ORDER BY
 ```
 
 ## <a name="queries-that-honor-concurrency-limits"></a>Consultas que respeitam os limites de simultaneidade
-A maioria das consultas é governada pelas classes de recurso. Essas consultas devem se ajustar tanto aos limites de consultas de simultaneidade quanto aos de slots de simultaneidade. Um usuário não pode optar por excluir uma consulta do modelo de slot de simultaneidade.
+A maioria das consultas é governada pelas classes de recurso. Essas consultas devem se ajustar dentro de consultas simultâneas hello e limites de slot de simultaneidade. Um usuário não pode escolher tooexclude uma consulta de modelo de slot Olá simultaneidade.
 
-Para reiterar, as instruções a seguir respeitam as classes de recurso:
+tooreiterate, hello instruções a seguir consideram classes de recursos:
 
 * INSERT-SELECT
 * UPDATE
@@ -652,12 +652,12 @@ Para reiterar, as instruções a seguir respeitam as classes de recurso:
 * CREATE CLUSTERED COLUMNSTORE INDEX
 * CREATE TABLE AS SELECT (CTAS)
 * Carregamento de dados
-* Operações de movimentação de dados realizadas pelo Serviço de Movimentação de Dados (DMS)
+* Operações de movimentação de dados realizadas por Olá serviço de movimentação de dados (DMS)
 
-## <a name="query-exceptions-to-concurrency-limits"></a>Exceções de consulta para limites de simultaneidade
-Algumas consultas não respeitam a classe de recurso à qual o usuário é atribuído. Essas exceções para os limites de simultaneidade são feitas quando os recursos de memória necessários para um determinado comando estão baixos, geralmente porque o comando é uma operação de metadados. O objetivo dessas exceções é evitar alocações de memória maiores para consultas que jamais precisarão delas. Nesses casos, a classe de recurso padrão pequena (smallrc) sempre é usada, independentemente da classe de recurso real atribuída ao usuário. Por exemplo, `CREATE LOGIN` sempre será executado em smallrc. Os recursos necessários para atender essa operação são muito baixos, portanto, não faz sentido incluir a consulta no modelo de slot de simultaneidade.  Essas consultas também não são limitadas pelo limite de simultaneidade de 32 usuários, um número ilimitado dessas consultas pode ser executado até o limite de sessão de 1.024 sessões.
+## <a name="query-exceptions-tooconcurrency-limits"></a>Limites de tooconcurrency de exceções de consulta
+Algumas consultas não consideram recurso Olá classe toowhich Olá usuário é atribuído. Esses limites de simultaneidade toohello exceções são feitas quando recursos de memória de saudação necessários para um determinado comando estão baixos, geralmente porque o comando Olá é uma operação de metadados. Olá objetivo essas exceções é tooavoid alocações de memória maior para consultas que nunca precisam delas. Nesses casos, o padrão de saudação classe do recurso pequeno (smallrc) é sempre usado, independentemente da classe de recurso real Olá atribuído toohello usuário. Por exemplo, `CREATE LOGIN` sempre será executado em smallrc. Olá recursos necessários toofulfill essa operação são muito baixo, portanto, não faz consultas de saudação tooinclude sentido no modelo de slot de simultaneidade de saudação.  Essas consultas também não são limitadas por limite de simultaneidade de usuário Olá 32, um número ilimitado dessas consultas pode executar o limite de sessão toohello de 1.024 sessões.
 
-As instruções a seguir não respeitam classes de recursos:
+Olá instruções a seguir não consideram classes de recursos:
 
 * CREATE ou DROP TABLE
 * ALTER TABLE ... SWITCH, SPLIT ou MERGE PARTITION
@@ -683,7 +683,7 @@ Removed as these two are not confirmed / supported under SQLDW
 -->
 
 ##  <a name="changing-user-resource-class-example"></a> Alterar um exemplo de classe de recursos de usuário
-1. **Criar logon:** abra uma conexão com o banco de dados **mestre** no SQL Server hospedando seu banco de dados do SQL Data Warehouse e execute os comandos a seguir.
+1. **Criar logon:** abrir uma conexão tooyour **mestre** banco de dados SQL server Olá que hospeda seu banco de dados do SQL Data Warehouse e executar Olá comandos a seguir.
    
     ```sql
     CREATE LOGIN newperson WITH PASSWORD = 'mypassword';
@@ -691,37 +691,37 @@ Removed as these two are not confirmed / supported under SQLDW
     ```
    
    > [!NOTE]
-   > É uma boa ideia criar um usuário no banco de dados mestre para os usuários do Azure SQL Data Warehouse. A criação de um usuário mestre permite que um usuário faça logon usando ferramentas, como o SSMS, sem especificar um nome de banco de dados.  Ela também permite que o usuário utilize o pesquisador de objetos para exibir todos os bancos de dados em um SQL Server.  Para obter mais detalhes sobre como criar e gerenciar usuários, consulte [Proteger um banco de dados no SQL Data Warehouse][Secure a database in SQL Data Warehouse].
+   > É uma boa ideia toocreate um usuário no banco de dados mestre para usuários do Azure SQL Data Warehouse hello. Criando um usuário em mestre permite que um toologin de usuário usando ferramentas como o SSMS sem especificar um nome de banco de dados.  Ele também permite que toouse Olá objeto explorer tooview todos os bancos de dados em um SQL server.  Para obter mais detalhes sobre como criar e gerenciar usuários, consulte [Proteger um banco de dados no SQL Data Warehouse][Secure a database in SQL Data Warehouse].
    > 
    > 
-2. **Criar um usuário do SQL Data Warehouse:** abra uma conexão com o banco de dados **SQL Data Warehouse** e execute o comando a seguir.
+2. **Criar usuário do SQL Data Warehouse:** abrir uma conexão toohello **SQL Data Warehouse** banco de dados e executar Olá comando a seguir.
    
     ```sql
     CREATE USER newperson FOR LOGIN newperson;
     ```
-3. **Conceder permissões:** o exemplo a seguir concede `CONTROL` no banco de dados **SQL Data Warehouse**. `CONTROL` no nível do banco de dados é o equivalente de db_owner no SQL Server.
+3. **Conceder permissões:** Olá seguinte exemplo concede `CONTROL` em Olá **SQL Data Warehouse** banco de dados. `CONTROL`em Olá nível de banco de dados é Olá equivalente de db_owner no SQL Server.
    
     ```sql
-    GRANT CONTROL ON DATABASE::MySQLDW to newperson;
+    GRANT CONTROL ON DATABASE::MySQLDW toonewperson;
     ```
-4. **Aumentar a classe do recurso:** use a consulta a seguir para adicionar um usuário a uma função de gerenciamento de carga de trabalho maior.
+4. **Aumentar a classe de recurso:** tooadd de consulta a seguir de saudação Use uma função de gerenciamento de carga de trabalho mais alto do usuário tooa.
    
     ```sql
     EXEC sp_addrolemember 'largerc', 'newperson'
     ```
-5. **Diminuir a classe de recurso:** use a consulta a seguir para remover um usuário de uma função de gerenciamento de carga de trabalho.
+5. **Diminuir a classe de recurso:** consulta a seguir do uso Olá tooremove um usuário de uma função de gerenciamento de carga de trabalho.
    
     ```sql
     EXEC sp_droprolemember 'largerc', 'newperson';
     ```
    
    > [!NOTE]
-   > Não é possível remover um usuário de smallrc.
+   > Não é possível tooremove de smallrc um usuário.
    > 
    > 
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Detecção de consulta enfileirada e outros DMVs
-Você pode usar o DMV `sys.dm_pdw_exec_requests` para identificar consultas que estão aguardando em uma fila de simultaneidade. As consultas que estão aguardando um slot de simultaneidade terão um status de **suspensas**.
+Você pode usar o hello `sys.dm_pdw_exec_requests` as consultas DMV tooidentify que estão aguardando na fila de simultaneidade. As consultas que estão aguardando um slot de simultaneidade terão um status de **suspensas**.
 
 ```sql
 SELECT      r.[request_id]                 AS Request_ID
@@ -742,7 +742,7 @@ WHERE   ro.[type_desc]      = 'DATABASE_ROLE'
 AND     ro.[is_fixed_role]  = 0;
 ```
 
-A consulta a seguir mostra a qual função cada usuário está atribuído.
+saudação de consulta a seguir mostra qual função de cada usuário é atribuído.
 
 ```sql
 SELECT     r.name AS role_principal_name
@@ -753,14 +753,14 @@ JOIN    sys.database_principals AS m            ON rm.member_principal_id    = m
 WHERE    r.name IN ('mediumrc','largerc', 'xlargerc');
 ```
 
-O SQL Data Warehouse tem os seguintes tipos de espera:
+SQL Data Warehouse tem Olá seguintes tipos de espera:
 
-* **LocalQueriesConcurrencyResourceType**: consultas que ficam fora da estrutura de slot de simultaneidade. Consultas DMV e funções de sistema, como `SELECT @@VERSION` , são exemplos de consultas de locais.
-* **UserConcurrencyResourceType**: consultas que ficam dentro da estrutura de slot de simultaneidade. Consultas em tabelas do usuário final representam exemplos que usariam esse tipo de recurso.
+* **LocalQueriesConcurrencyResourceType**: consultas que ficam fora do framework de slot de simultaneidade hello. Consultas DMV e funções de sistema, como `SELECT @@VERSION` , são exemplos de consultas de locais.
+* **UserConcurrencyResourceType**: consultas que ficam dentro do framework de slot de simultaneidade hello. Consultas em tabelas do usuário final representam exemplos que usariam esse tipo de recurso.
 * **DmsConcurrencyResourceType**: esperas resultantes de operações de movimentação de dados.
-* **BackupConcurrencyResourceType**: essa espera indica que está sendo feito backup de um banco de dados. O valor máximo para esse tipo de recurso é 1. Se vários backups foram solicitados ao mesmo tempo, os outros serão colocados em fila.
+* **BackupConcurrencyResourceType**: essa espera indica que está sendo feito backup de um banco de dados. saudação de valor máximo para esse tipo de recurso é 1. Se vários backups foram solicitados em Olá simultaneamente, Olá outros colocará em fila.
 
-O DMV `sys.dm_pdw_waits` pode ser usado para ver quais recursos uma solicitação está aguardando.
+Olá `sys.dm_pdw_waits` DMV pode ser usado toosee os recursos que uma solicitação está aguardando.
 
 ```sql
 SELECT  w.[wait_id]
@@ -796,7 +796,7 @@ JOIN    sys.dm_pdw_exec_requests r  ON w.[request_id] = r.[request_id]
 WHERE    w.[session_id] <> SESSION_ID();
 ```
 
-O DMV `sys.dm_pdw_resource_waits` mostra apenas as esperas de recursos consumidas por determinada consulta. O tempo de espera do recurso mede apenas o tempo de espera dos recursos a serem fornecidos, não o tempo de espera do sinal, que é o tempo necessário para o SQL Server subjacente agendar a consulta para a CPU.
+Olá `sys.dm_pdw_resource_waits` DMV mostra apenas Olá esperas de recurso consumidas por uma determinada consulta. Tempo de espera de recursos só mede o tempo de saudação aguardando toobe de recursos fornecido, conforme toosignal contrário aguardar o tempo, o que é o tempo de saudação que leva para Olá base SQL servidores tooschedule Olá consulta para CPU hello.
 
 ```sql
 SELECT  [session_id]
@@ -814,7 +814,7 @@ FROM    sys.dm_pdw_resource_waits
 WHERE    [session_id] <> SESSION_ID();
 ```
 
-O DMV `sys.dm_pdw_wait_stats` pode ser usado para análise de tendências históricas de espera.
+Olá `sys.dm_pdw_wait_stats` DMV pode ser usada para análise de tendências históricas de esperas.
 
 ```sql
 SELECT    w.[pdw_node_id]
@@ -828,13 +828,13 @@ FROM    sys.dm_pdw_wait_stats w;
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre como gerenciar usuários de banco de dados e segurança, confira [Proteger um banco de dados no SQL Data Warehouse][Secure a database in SQL Data Warehouse]. Para obter mais informações sobre como classes de recurso maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [Recriando índices para melhorar a qualidade de segmento].
+Para obter mais informações sobre como gerenciar usuários de banco de dados e segurança, confira [Proteger um banco de dados no SQL Data Warehouse][Secure a database in SQL Data Warehouse]. Para obter mais informações sobre classes de recursos como maiores podem melhorar a qualidade do índice columnstore clusterizado, consulte [recriação de qualidade de segmento tooimprove índices].
 
 <!--Image references-->
 
 <!--Article references-->
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
-[Recriando índices para melhorar a qualidade de segmento]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[recriação de qualidade de segmento tooimprove índices]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->

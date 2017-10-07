@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Connect: Autenticação de passagem – atualização de agentes de autenticação de versão prévia | Microsoft Docs"
-description: "Este artigo descreve como atualizar sua configuração da Autenticação de passagem do Azure AD (Azure Active Directory)."
+description: "Este artigo descreve como tooupgrade sua configuração de autenticação de passagem do Azure Active Directory (AD do Azure)."
 services: active-directory
 keywords: "Autenticação de Passagem do Azure AD Connect, instalar o Active Directory, componentes necessários para o Azure AD, SSO, Logon único"
 documentationcenter: 
@@ -14,75 +14,75 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: billmath
-ms.openlocfilehash: 940cb4466ef5d730c42d04d0107f6901f55eb155
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 1695326b182278944e9f1584da72b18862b6ef27
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Autenticação de passagem do Azure Active Directory: atualização de agentes de autenticação de versão prévia
 
 ## <a name="overview"></a>Visão geral
 
-Este artigo é para clientes que usam a Autenticação de passagem do Azure AD por meio da versão prévia. Nós recentemente atualizamos (e remodelamos) o software do Agente de autenticação. Você precisa atualizar _manualmente_ os Agentes de autenticação da versão prévia instalados nos seus servidores locais. Esta atualização manual é uma ação que deve ser realizada uma única vez. Todas as atualizações futuras dos Agentes de autenticação serão automáticas. Os motivos para atualizar são os seguintes:
+Este artigo é para clientes que usam a Autenticação de passagem do Azure AD por meio da versão prévia. Podemos Olá recentemente atualizado (e copiada) software de agente de autenticação. Você precisa de visualização de atualização too_manually_ autenticação agentes instalados nos servidores locais. Esta atualização manual é uma ação que deve ser realizada uma única vez. Todas as atualizações futuras tooAuthentication agentes são automáticos. Olá motivos tooupgrade são da seguinte maneira:
 
-- As versões prévias dos Agentes de autenticação não receberão mais correções de segurança ou de bugs.
--   As versões prévias dos Agentes de autenticação não podem ser instaladas em servidores adicionais para obter alta disponibilidade.
+- versões de visualização de saudação de agentes de autenticação não receberão qualquer ainda mais a segurança ou correções de bugs.
+-   versões de visualização de saudação de agentes de autenticação não podem ser instaladas em servidores adicionais, para alta disponibilidade.
 
 ## <a name="check-versions-of-your-authentication-agents"></a>Verificar as versões dos seus Agentes de autenticação
 
 ### <a name="step-1-check-where-your-authentication-agents-are-installed"></a>Etapa 1: verificar o local em que os Agentes de autenticação estão instalados
 
-Siga essas etapas para verificar o local em que os Agentes de autenticação estão instalados:
+Siga estas etapas toocheck onde os agentes de autenticação estão instalados:
 
-1. Entre no [centro de administração do Azure Active Directory](https://aad.portal.azure.com) com as credenciais do Administrador Global do seu locatário.
-2. Selecione **Azure Active Directory** na navegação à esquerda.
+1. Entrar toohello [Centro de administração do Active Directory do Azure](https://aad.portal.azure.com) com credenciais de Administrador Global de saudação para seu locatário.
+2. Selecione **Active Directory do Azure** na navegação esquerda hello.
 3. Selecione **Azure AD Connect**. 
-4. Selecione **Autenticação de passagem**. Essa folha lista os servidores em que os Agentes de autenticação estão instalados.
+4. Selecione **Autenticação de passagem**. Esta folha lista servidores de saudação onde os agentes de autenticação estão instalados.
 
 ![Centro de administração do Azure Active Directory - folha Autenticação de Passagem](./media/active-directory-aadconnect-pass-through-authentication/pta8.png)
 
-### <a name="step-2-check-the-versions-of-your-authentication-agents"></a>Etapa 2: verificar as versões dos seus Agentes de autenticação
+### <a name="step-2-check-hello-versions-of-your-authentication-agents"></a>Etapa 2: Verificar as versões de saudação do seus agentes de autenticação
 
-Para verificar as versões dos seus Agentes de autenticação em cada servidor identificado na etapa anterior, siga estas instruções:
+versões de saudação toocheck de seus agentes de autenticação, em cada servidor identificado na saudação anterior da etapa, siga estas instruções:
 
-1. Acesse **Painel de controle -> Programas -> Programas e recursos** no servidor local.
-2. Se houver uma entrada para "**Agente de autenticação do Microsoft Azure AD Connect**", você não precisará realizar nenhuma ação nesse servidor.
-3. Se houver uma entrada para "**Conector de Proxy de Aplicativo do Microsoft Azure AD**", versões 1.5.132.0 ou anteriores, você precisará atualizar manualmente nesse servidor.
+1. Vá muito**painel de controle -> Programas -> Programas e recursos** no servidor de local de saudação.
+2. Se houver uma entrada para "**agente do Microsoft Azure AD Connect autenticação**", você não precisa tootake qualquer ação nesse servidor.
+3. Se houver uma entrada para "**conector de Proxy de aplicativo do Microsoft Azure AD**", versões 1.5.132.0 ou anterior, você precisa toomanually atualização neste servidor.
 
 ![Versão prévia do Agente de autenticação](./media/active-directory-aadconnect-pass-through-authentication/pta6.png)
 
-## <a name="best-practices-to-follow-before-starting-the-upgrade"></a>Melhores práticas a serem seguidas antes de iniciar a atualização
+## <a name="best-practices-toofollow-before-starting-hello-upgrade"></a>Práticas recomendadas toofollow antes de iniciar a atualização de saudação
 
-Antes de atualizar, verifique se você tem os seguintes itens no lugar:
+Antes de atualizar, certifique-se de que você tenha Olá itens no local a seguir:
 
-1. **Criar conta Administrador Global somente de nuvem**: não atualize sem ter uma conta Administrador Global somente de nuvem para ser usada em situações de emergência em que seus Agentes de Autenticação de passagem não estejam funcionando adequadamente. Saiba mais sobre [adicionar uma conta de Administrador Global somente de nuvem](../active-directory-users-create-azure-portal.md). A realização dessa etapa é fundamental e garante que você não ficará bloqueado do seu locatário.
-2.  **Garantir a alta disponibilidade**: se não concluído anteriormente, instale um segundo Agente de autenticação autônomo para fornecer alta disponibilidade para solicitações de conexão, usando essas [instruções](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+1. **Criar conta de Administrador Global somente em nuvem**: não atualizar sem a necessidade de toouse uma conta de Administrador Global somente em nuvem em situações de emergência onde os agentes de autenticação de passagem não estão funcionando adequadamente. Saiba mais sobre [adicionar uma conta de Administrador Global somente de nuvem](../active-directory-users-create-azure-portal.md). A realização dessa etapa é fundamental e garante que você não ficará bloqueado do seu locatário.
+2.  **Garantir a alta disponibilidade**: se não concluído anteriormente, instale um segundo autônomo agente de autenticação tooprovide alta disponibilidade para solicitações de entrada, usando esses [instruções](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
-## <a name="upgrading-the-authentication-agent-on-your-azure-ad-connect-server"></a>Atualizando o Agente de autenticação no servidor do Azure AD Connect
+## <a name="upgrading-hello-authentication-agent-on-your-azure-ad-connect-server"></a>Atualizando Olá agente de autenticação no servidor do Azure AD Connect
 
-Você precisa atualizar o Azure AD Connect antes de atualizar o Agente de autenticação no mesmo servidor. Siga estas etapas em seus servidores primários e de preparo do Azure AD Connect:
+Você precisa atualizar do Azure AD Connect antes de atualizar Olá agente de autenticação em Olá mesmo servidor. Siga estas etapas em seus servidores primários e de preparo do Azure AD Connect:
 
-1. **Atualizar o Azure AD Connect**: siga esse [artigo](./active-directory-aadconnect-upgrade-previous-version.md) e atualize para a versão mais recente do Azure AD Connect.
-2. **Desinstalar a versão prévia do Agente de autenticação**: baixe [este script do PowerShell](https://aka.ms/rmpreviewagent) e execute-o como um Administrador no servidor.
-3. **Baixe a versão mais recente do Agente de Autenticação (versões 1.5.193.0 ou posteriores)**: entre no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) com as credenciais de Administrador Global do seu locatário. Selecione **Azure Active Directory -> Azure AD Connect -> Autenticação de passagem -> Baixar agente**. Aceite os termos de serviço e baixe a versão mais recente do Agente de autenticação.
-4. **Instalar a versão mais recente do Agente de autenticação**: execute o executável baixado na Etapa 3. Forneça as suas credenciais de Administrador Global do locatário quando solicitado.
-5. **Verificar se a versão mais recente foi instalada**: conforme mostrado antes, acesse **Painel de controle -> Programas -> Programas e recursos** e verifique se há uma entrada para "**Agente de autenticação do Microsoft Azure AD Connect**".
-
->[!NOTE]
->Se você verificar a folha Autenticação de Passagem no [centro de administração do Azure Active Directory](https://aad.portal.azure.com) após a conclusão das etapas anteriores, verá duas entradas do Agente de Autenticação por servidor - uma entrada mostrando o Agente de Autenticação como **Ativo** e o outro como **Inativo**. Isso é _esperado_. A entrada **Inativo** é descartada automaticamente depois de alguns dias.
-
-## <a name="upgrading-the-authentication-agent-on-other-servers"></a>Atualizar o Agente de autenticação em outros servidores
-
-Siga estas etapas para atualizar os Agentes de autenticação em outros servidores (em que o Azure AD Connect não está instalado):
-
-1. **Desinstalar a versão prévia do Agente de autenticação**: baixe [este script do PowerShell](https://aka.ms/rmpreviewagent) e execute-o como um Administrador no servidor.
-2. **Baixe a versão mais recente do Agente de Autenticação (versões 1.5.193.0 ou posteriores)**: entre no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) com as credenciais de Administrador Global do seu locatário. Selecione **Azure Active Directory -> Azure AD Connect -> Autenticação de passagem -> Baixar agente**. Aceite os termos do serviço e baixe a versão mais recente.
-3. **Instalar a versão mais recente do Agente de autenticação**: execute o executável baixado na Etapa 2. Forneça as suas credenciais de Administrador Global do locatário quando solicitado.
-4. **Verificar se a versão mais recente foi instalada**: conforme mostrado antes, acesse **Painel de controle -> Programas -> Programas e recursos** e verifique se há uma entrada chamada "**Agente de autenticação do Microsoft Azure AD Connect**".
+1. **Atualização do Azure AD Connect**: siga essa [artigo](./active-directory-aadconnect-upgrade-previous-version.md) e toohello mais recente do Azure AD Connect versão de atualização.
+2. **Desinstalar a versão de visualização de saudação do hello agente de autenticação**: baixar [este script do PowerShell](https://aka.ms/rmpreviewagent) e executá-lo como um administrador no servidor de saudação.
+3. **Baixar a versão mais recente Olá de saudação agente de autenticação (versões 1.5.193.0 ou posterior)**: entrar toohello [Centro de administração do Active Directory do Azure](https://aad.portal.azure.com) com credenciais de Administrador Global do locatário. Selecione **Azure Active Directory -> Azure AD Connect -> Autenticação de passagem -> Baixar agente**. Aceite os termos de saudação do serviço e baixar a versão mais recente Olá de saudação agente de autenticação.
+4. **Instale a versão mais recente Olá de saudação agente de autenticação**: executar Olá executável baixado na etapa 3. Forneça as suas credenciais de Administrador Global do locatário quando solicitado.
+5. **Verificar a versão mais recente Olá foi instalado**: conforme mostrado antes, vá muito**painel de controle -> Programas -> Programas e recursos** e verifique se há uma entrada para "**Microsoft Azure AD Connect Agente de autenticação**".
 
 >[!NOTE]
->Se você verificar a folha Autenticação de Passagem no [centro de administração do Azure Active Directory](https://aad.portal.azure.com) após a conclusão das etapas anteriores, verá duas entradas do Agente de Autenticação por servidor - uma entrada mostrando o Agente de Autenticação como **Ativo** e o outro como **Inativo**. Isso é _esperado_. A entrada **Inativo** é descartada automaticamente depois de alguns dias.
+>Se você marcar a folha de autenticação de passagem de saudação no hello [Centro de administração do Active Directory do Azure](https://aad.portal.azure.com) depois de concluir Olá etapas anteriores, você verá duas entradas de agente de autenticação por servidor - uma entrada mostrando Olá Agente de autenticação como **Active** e Olá outros como **inativo**. Isso é _esperado_. Olá **inativo** entrada é descartada automaticamente depois de alguns dias.
+
+## <a name="upgrading-hello-authentication-agent-on-other-servers"></a>Atualizando Olá agente de autenticação em outros servidores
+
+Siga essas etapas tooupgrade agentes de autenticação em outros servidores (onde o Azure AD Connect não está instalado):
+
+1. **Desinstalar a versão de visualização de saudação do hello agente de autenticação**: baixar [este script do PowerShell](https://aka.ms/rmpreviewagent) e executá-lo como um administrador no servidor de saudação.
+2. **Baixar a versão mais recente Olá de saudação agente de autenticação (versões 1.5.193.0 ou posterior)**: entrar toohello [Centro de administração do Active Directory do Azure](https://aad.portal.azure.com) com credenciais de Administrador Global do locatário. Selecione **Azure Active Directory -> Azure AD Connect -> Autenticação de passagem -> Baixar agente**. Aceite os termos de saudação do serviço e baixar a versão mais recente do hello.
+3. **Instale a versão mais recente Olá de saudação agente de autenticação**: executar Olá executável baixado na etapa 2. Forneça as suas credenciais de Administrador Global do locatário quando solicitado.
+4. **Verificar a versão mais recente Olá foi instalado**: conforme mostrado antes, vá muito**painel de controle -> Programas -> Programas e recursos** e verifique se há uma entrada chamada **Microsoft Azure AD Connect Agente de autenticação**.
+
+>[!NOTE]
+>Se você marcar a folha de autenticação de passagem de saudação no hello [Centro de administração do Active Directory do Azure](https://aad.portal.azure.com) depois de concluir Olá etapas anteriores, você verá duas entradas de agente de autenticação por servidor - uma entrada mostrando Olá Agente de autenticação como **Active** e Olá outros como **inativo**. Isso é _esperado_. Olá **inativo** entrada é descartada automaticamente depois de alguns dias.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [**Solução de problemas**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) – Saiba como resolver problemas comuns do recurso.
+- [**Solucionar problemas de** ](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) -Saiba como tooresolve comum problemas com o recurso de saudação.

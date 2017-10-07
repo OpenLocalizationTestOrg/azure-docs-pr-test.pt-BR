@@ -1,6 +1,6 @@
 ---
-title: "Usar ações de solicitação e resposta | Microsoft Docs"
-description: "Visão geral do gatilho e da ação da solicitação e da resposta em um aplicativo lógico do Azure"
+title: "ações de solicitação e resposta aaaUse | Microsoft Docs"
+description: "Visão geral de gatilho de solicitação e resposta hello e ação em um aplicativo do Azure lógica"
 services: 
 documentationcenter: 
 author: jeffhollan
@@ -15,84 +15,84 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: e45b07d709927af64cfba28dfb0d8ee9cb8893b3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 24c378cc12d5f3f65116d5e59278236186a99662
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-request-and-response-components"></a>Introdução aos componentes de solicitação e resposta
-Com os componentes de solicitação e resposta em um aplicativo lógico, você pode responder em tempo real a eventos.
+# <a name="get-started-with-hello-request-and-response-components"></a>Começar com os componentes de solicitação e resposta Olá
+Com componentes Olá de solicitação e resposta em um aplicativo da lógica, você pode responder em tempo real tooevents.
 
 Por exemplo, você pode:
 
-* Responder a uma solicitação HTTP com dados de um banco de dados local por meio de um aplicativo lógico.
+* Responda tooan solicitação HTTP com dados de um banco de dados no local por meio de um aplicativo lógico.
 * Dispare um aplicativo lógico de um evento de webhook externo.
 * Chamar um aplicativo lógico com uma ação de solicitação e resposta de dentro de outro aplicativo lógico.
 
-Para começar a usar as ações de solicitação e resposta em um aplicativo lógico, confira [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+tooget iniciado usando ações de solicitação e resposta de saudação em um aplicativo de lógica, consulte [criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="use-the-http-request-trigger"></a>Usar o gatilho de Solicitação HTTP
-Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](connectors-overview.md).
+## <a name="use-hello-http-request-trigger"></a>Use Olá gatilho de solicitação HTTP
+Um gatilho é um evento que pode ser usado toostart Olá fluxo de trabalho é definido em um aplicativo lógico. [Saiba mais sobre gatilhos](connectors-overview.md).
 
-Veja uma sequência de exemplo de como configurar uma solicitação HTTP no Designer de Aplicativo Lógico.
+Aqui está uma sequência de exemplo de como tooset um HTTP solicitar em Olá Designer de lógica do aplicativo.
 
-1. Adicione o gatilho **Solicitação — quando uma solicitação HTTP é recebida** no seu aplicativo lógico. Como opção, você pode fornecer um esquema JSON (usando uma ferramenta como [JSONSchema.net](http://jsonschema.net)) para o corpo da solicitação. Isso permite que o designer gere tokens para propriedades na solicitação HTTP.
-2. Adicione outra ação para que seja possível salvar o aplicativo lógico.
-3. Depois de salvar o aplicativo lógico, você pode obter a URL da solicitação HTTP do cartão de solicitação.
-4. Um HTTP POST (você pode usar uma ferramenta como [Postman](https://www.getpostman.com/)) para a URL que dispara o aplicativo lógico.
+1. Adicionar gatilho Olá **solicitar - quando HTTP de uma solicitação é recebida** em seu aplicativo de lógica. Opcionalmente, você pode fornecer um esquema JSON (usando uma ferramenta como [JSONSchema.net](http://jsonschema.net)) para o corpo da solicitação hello. Isso permite que os tokens de designer toogenerate Olá para as propriedades na solicitação HTTP de saudação.
+2. Adicione outra ação para que você pode salvar o aplicativo de lógica de saudação.
+3. Depois de salvar o aplicativo de lógica de hello, você pode obter URL de solicitação HTTP de saudação do cartão de solicitação de saudação.
+4. Um HTTP POST (você pode usar uma ferramenta como [carteiro](https://www.getpostman.com/)) gatilhos de URL toohello Olá aplicativo lógico.
 
 > [!NOTE]
-> Se você não definir uma ação de resposta, uma resposta `202 ACCEPTED` será retornada imediatamente ao chamador. Você pode usar a ação de resposta para personalizar uma resposta.
+> Se você não definir uma ação de resposta, um `202 ACCEPTED` resposta é retornada imediatamente toohello chamador. Você pode usar o hello resposta ação toocustomize uma resposta.
 > 
 > 
 
 ![Gatilho de resposta](./media/connectors-native-reqres/using-trigger.png)
 
-## <a name="use-the-http-response-action"></a>Usar a ação de Resposta HTTP
-A ação de Resposta HTTP só será válida quando usada em um fluxo de trabalho disparado por uma solicitação HTTP. Se você não definir uma ação de resposta, uma resposta `202 ACCEPTED` será retornada imediatamente ao chamador.  Você pode adicionar uma ação de resposta a qualquer etapa do fluxo de trabalho. O aplicativo lógico só mantém a solicitação de entrada aberta por um minuto para uma resposta.  Após um minuto, se nenhuma resposta for enviada do fluxo de trabalho (e se existir uma ação de resposta na definição), um `504 GATEWAY TIMEOUT` será retornado ao chamador.
+## <a name="use-hello-http-response-action"></a>Use Olá ação de resposta HTTP
+Olá ação de resposta HTTP só é válida quando você usá-lo em um fluxo de trabalho que é disparado por uma solicitação HTTP. Se você não definir uma ação de resposta, um `202 ACCEPTED` resposta é retornada imediatamente toohello chamador.  Você pode adicionar uma ação de resposta em qualquer etapa do fluxo de trabalho de saudação. Olá lógica aplicativo mantém apenas solicitação de entrada hello aberto por um minuto por uma resposta.  Após um minuto, se nenhuma resposta foi enviada do fluxo de trabalho da saudação (e existe uma ação de resposta na definição de saudação), um `504 GATEWAY TIMEOUT` é retornado toohello chamador.
 
-Veja como adicionar uma ação de Resposta HTTP:
+Aqui está como tooadd uma ação de resposta HTTP:
 
-1. Selecione o botão **Nova Etapa** .
+1. Selecione Olá **nova etapa** botão.
 2. Escolha **Adicionar uma ação**.
-3. Na caixa de pesquisa de ação, digite **resposta** para listar a ação de Resposta.
+3. Na caixa de pesquisa de ação hello, digite **resposta** Olá toolist ação de resposta.
    
-    ![Selecionar a ação de resposta](./media/connectors-native-reqres/using-action-1.png)
-4. Adicione todos os parâmetros necessários para a mensagem de resposta HTTP.
+    ![Selecione a ação de resposta Olá](./media/connectors-native-reqres/using-action-1.png)
+4. Adicione quaisquer parâmetros que são necessários para a mensagem de resposta HTTP hello.
    
-    ![Concluir a ação de resposta](./media/connectors-native-reqres/using-action-2.png)
-5. Clique no canto superior esquerdo da barra de ferramentas para salvar e seu aplicativo lógico será salvo e publicado (ativado).
+    ![Ação de resposta Olá concluída](./media/connectors-native-reqres/using-action-2.png)
+5. Clique o canto superior esquerdo de saudação de saudação da barra de ferramentas toosave e sua lógica aplicativo salvará os dois e publicar (Ativar).
 
 ## <a name="request-trigger"></a>Gatilho de solicitação
-Veja os detalhes do gatilho com suporte deste conector. Há um único gatilho de solicitação.
+Aqui estão os detalhes de saudação disparador Olá que oferece suporte a esse conector. Há um único gatilho de solicitação.
 
 | Gatilho | Descrição |
 | --- | --- |
 | Solicitação |Ocorre quando uma solicitação HTTP é recebida |
 
 ## <a name="response-action"></a>Ação de resposta
-Veja os detalhes da ação com suporte deste conector. Há uma única ação de resposta que pode ser usada apenas quando acompanhada por um gatilho de solicitação.
+Aqui estão os detalhes de saudação para ação Olá que oferece suporte a esse conector. Há uma única ação de resposta que pode ser usada apenas quando acompanhada por um gatilho de solicitação.
 
 | Ação | Descrição |
 | --- | --- |
-| resposta |Retorna uma resposta à solicitação HTTP correlacionada |
+| Resposta |Retorna que uma resposta toohello correlacionado a solicitação HTTP |
 
 ### <a name="trigger-and-action-details"></a>Detalhes de gatilho e da ação
-As tabelas a seguir descrevem os campos de entrada para o gatilho e a ação e os detalhes de saída correspondentes.
+Olá tabelas a seguir descrevem os campos de entrada hello para Olá trigger e action e Olá detalhes de saída correspondente.
 
 #### <a name="request-trigger"></a>Gatilho de solicitação
-A seguir, um campo de entrada para o gatilho de uma solicitação HTTP de entrada.
+a seguir Olá é um campo de entrada para o disparador de saudação de uma solicitação HTTP de entrada.
 
 | Nome de exibição | Nome da propriedade | Descrição |
 | --- | --- | --- |
-| Esquema JSON |schema |O esquema JSON do corpo da solicitação HTTP |
+| Esquema JSON |schema |esquema JSON Olá Olá HTTP do corpo da solicitação |
 
 <br>
 
 **Detalhes de saída**
 
-A seguir, os detalhes de saída para a solicitação.
+Olá seguem detalhes de saída de solicitação de saudação.
 
 | Nome da propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
@@ -100,14 +100,14 @@ A seguir, os detalhes de saída para a solicitação.
 | Corpo |objeto |Objeto da solicitação |
 
 #### <a name="response-action"></a>Ação de resposta
-Estes são os campos de entrada da ação de Resposta HTTP. Um * significa que é um campo obrigatório.
+Olá seguem campos de entrada para Olá ação de resposta HTTP. Um * significa que é um campo obrigatório.
 
 | Nome de exibição | Nome da propriedade | Descrição |
 | --- | --- | --- |
-| Código de status* |statusCode |O código de status HTTP |
-| Cabeçalhos |Cabeçalhos |Um objeto JSON de cabeçalhos de resposta a serem incluídos |
-| Corpo |Corpo |O corpo da resposta |
+| Código de status* |statusCode |Olá, código de status HTTP |
+| Cabeçalhos |headers |Um objeto JSON de qualquer tooinclude de cabeçalhos de resposta |
+| Corpo |body |corpo da resposta Olá |
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora, experimente a plataforma e [crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
+Agora, experimente a plataforma hello e [criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Você pode explorar Olá outros conectores disponíveis em aplicativos lógicos examinando nosso [lista APIs](apis-list.md).
 

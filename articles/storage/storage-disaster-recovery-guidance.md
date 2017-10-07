@@ -1,6 +1,6 @@
 ---
-title: "O que fazer caso ocorra uma interrupção de Armazenamento do Azure | Microsoft Docs"
-description: "O que fazer caso ocorra uma interrupção de Armazenamento do Azure"
+title: "toodo aaaWhat no evento de saudação de uma interrupção de armazenamento do Azure | Microsoft Docs"
+description: "Quais toodo no evento de saudação de uma interrupção de armazenamento do Azure"
 services: storage
 documentationcenter: .net
 author: robinsh
@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: robinsh
-ms.openlocfilehash: 83ab487f382eb84aa64b927bdf5560eec5cbbd6d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ee7eb71311c6e453dc078ec3566267ee0c2f444a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>O que fazer se uma interrupção no Armazenamento do Azure ocorrer
-Na Microsoft, trabalhamos muito para garantir que nossos serviços estejam sempre disponíveis. Às vezes, forças além do nosso controle nos afetam de formas que causam interrupções de serviço não planejadas em uma ou mais regiões. Para ajudá-lo a lidar com essas ocorrências raras, fornecemos as seguintes diretrizes de alto nível para serviços de Armazenamento do Azure.
+# <a name="what-toodo-if-an-azure-storage-outage-occurs"></a>Quais toodo se ocorrer uma interrupção de armazenamento do Azure
+Na Microsoft, trabalhamos toomake rígido se que nossos serviços estão sempre disponíveis. Às vezes, forças além do nosso controle nos afetam de formas que causam interrupções de serviço não planejadas em uma ou mais regiões. toohelp tratar essas ocorrências raras, fornecemos Olá seguindo as instruções de alto nível para serviços de armazenamento do Azure.
 
-## <a name="how-to-prepare"></a>Como se preparar
-É essencial para todos os clientes preparar seu próprio plano de recuperação de desastre. O esforço para se recuperar de uma interrupção de armazenamento geralmente envolve a equipe de operações e procedimentos automatizados para reativar os aplicativos em um estado funcional. Consulte a documentação do Azure abaixo para compilar seu próprio plano de recuperação de desastre:
+## <a name="how-tooprepare"></a>Como tooprepare
+É essencial para cada cliente tooprepare seu próprio plano de recuperação de desastres. Olá esforço toorecover uma queda de armazenamento normalmente envolve a equipe de operações e procedimentos automatizados na ordem tooreactivate seus aplicativos em um estado de funcionamento. Consulte toohello documentação do Azure abaixo toobuild seu próprio plano de recuperação de desastres:
 
 * [Recuperação de desastre e alta disponibilidade para aplicativos do Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 * [Orientações técnicas de resiliência do Azure](../resiliency/resiliency-technical-guidance.md)
@@ -32,41 +32,41 @@ Na Microsoft, trabalhamos muito para garantir que nossos serviços estejam sempr
 * [Replicação de Armazenamento do Azure](storage-redundancy.md)
 * [Serviço de Backup do Azure](https://azure.microsoft.com/services/backup/)
 
-## <a name="how-to-detect"></a>Como detectar
-A maneira recomendada de determinar o status de serviço do Azure é assinar o [Painel de Integridade do Serviço do Azure](https://azure.microsoft.com/status/).
+## <a name="how-toodetect"></a>Como toodetect
+Olá recomendado Olá toodetermine de maneira status do serviço do Azure é toosubscribe toohello [painel de integridade do serviço Azure](https://azure.microsoft.com/status/).
 
-## <a name="what-to-do-if-a-storage-outage-occurs"></a>O que fazer se uma interrupção no Armazenamento ocorrer
-Se um ou mais serviços de Armazenamento estão indisponíveis no momento em uma ou mais regiões, há duas opções a serem consideradas. Se você quiser acesso imediato a seus dados, considere a Opção 2.
+## <a name="what-toodo-if-a-storage-outage-occurs"></a>Quais toodo se ocorrer uma interrupção de armazenamento
+Se um ou mais serviços de armazenamento estão disponíveis no momento em uma ou mais regiões, há duas opções para você tooconsider. Se desejar que os dados de tooyour acesso imediato, considere a opção 2.
 
 ### <a name="option-1-wait-for-recovery"></a>Opção 1: aguardar a recuperação
-Nesse caso, nenhuma ação sua é necessária. Estamos trabalhando cuidadosamente para restaurar a disponibilidade do serviço do Azure. Você pode ver o status atual do serviço no nosso [Painel de Integridade do Serviço do Azure](https://azure.microsoft.com/status/).
+Nesse caso, nenhuma ação sua é necessária. Estamos trabalhando cuidadosamente disponibilidade de serviço do Azure Olá toorestore. Você pode monitorar o status de serviço Olá Olá [painel de integridade do serviço Azure](https://azure.microsoft.com/status/).
 
 ### <a name="option-2-copy-data-from-secondary"></a>Opção 2: copiar os dados do secundário
-Se você escolheu [RA-GRS (armazenamento com redundância geográfica de acesso de leitura)](storage-redundancy.md#read-access-geo-redundant-storage) (recomendado) para suas contas de armazenamento, você terá acesso de leitura aos dados da região secundária. Você pode usar ferramentas como [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) e [biblioteca de Movimentação de Dados do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) para copiar dados da região secundária para outra conta de armazenamento em uma região não afetada e, em seguida, apontar os aplicativos para essa conta de armazenamento para disponibilidade de leitura e gravação.
+Se você escolheu [armazenamento com redundância geográfica com acesso de leitura (RA-GRS)](storage-redundancy.md#read-access-geo-redundant-storage) (recomendado) para suas contas de armazenamento, você terá acesso de leitura tooyour dados da região secundária hello. Você pode usar ferramentas como [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md)e hello [biblioteca de movimentação de dados do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) toocopy dados da região de saudação secundária em outra conta de armazenamento em uma região unimpacted e aponte seu armazenamento de toothat aplicativos de conta para leitura e gravação de disponibilidade.
 
-## <a name="what-to-expect-if-a-storage-failover-occurs"></a>O que esperar se ocorrer um failover de Armazenamento
+## <a name="what-tooexpect-if-a-storage-failover-occurs"></a>Quais tooexpect se ocorrer um failover de armazenamento
 Se você tiver escolhido [GRS (armazenamento com redundância geográfica)](storage-redundancy.md#geo-redundant-storage) ou [RA-GRS (armazenamento com redundância geográfica de acesso de leitura)](storage-redundancy.md#read-access-geo-redundant-storage) (recomendado), o Armazenamento do Azure mantém seus dados duráveis em duas regiões (primária e secundária). Em ambas as regiões, o Armazenamento do Azure mantém constantemente várias réplicas de seus dados.
 
-Quando um desastre regional afeta sua região primária, primeiro tentaremos restaurar o serviço nessa região. Dependendo da natureza do desastre e seus impactos, em algumas ocasiões raras não será possível restaurar a região primária. Nesse ponto, executaremos um failover geográfico. A replicação de dados entre regiões é um processo assíncrono que pode envolver um atraso, portanto, é possível que as alterações que ainda não foram replicadas para a região secundária sejam perdidas. Você pode consultar o ["Horário da última sincronização" da sua conta de armazenamento](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) para obter detalhes sobre o status da replicação.
+Quando um desastre regional afeta sua região primária, tentaremos primeiro serviço de saudação toorestore nessa região. Depende da natureza Olá desastres hello e seus impactos, em algumas situações raras talvez não seja região primária do toorestore capaz de saudação. Nesse ponto, executaremos um failover geográfico. replicação de dados entre regiões Olá é um processo assíncrono que pode envolver um atraso, portanto, é possível que as alterações que ainda não foram replicadas região secundária toohello pode ser perdido. Você pode consultar Olá ["Hora da última sincronização" da sua conta de armazenamento](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) tooget detalhes sobre o status de replicação de saudação.
 
-Alguns pontos sobre a experiência de failover geográfico de armazenamento:
+Alguns pontos sobre Olá experiência de failover geográfico de armazenamento:
 
-* O failover geográfico de armazenamento somente será disparado pela equipe do Armazenamento do Azure – não é necessária nenhuma ação do cliente.
-* Os pontos de extremidade de serviço armazenamento existente para blobs, tabelas, filas e arquivos permanecerão os mesmos após o failover; a entrada DNS precisa ser atualizada para alternar da região primária para a região secundária.
-* Antes e durante o failover geográfico, você não terá acesso de gravação à conta de armazenamento devido ao impacto do desastre, mas você poderá ler por meio do secundário se sua conta de armazenamento tiver sido configurada como RA-GRS.
-* Quando o failover geográfico for concluído e as alterações DNS propagadas, o acesso de leitura e gravação à sua conta de armazenamento será retomado. Isso indica o que costumava ser seu ponto de extremidade secundário. 
-* Observe que você terá acesso de gravação se tiver GRS ou RA-GRS configurado para a conta de armazenamento. 
-* Você pode consultar ["Horário do Último Failover Geográfico" da sua conta de armazenamento](https://msdn.microsoft.com/library/azure/ee460802.aspx) para obter mais detalhes.
-* Após o failover, sua conta de armazenamento estará em funcionamento total, mas em um status "degradado", pois costuma ficar hospedada em uma região autônoma sem replicação geográfica possível. Para reduzir esse risco, podemos restaurar a região primária original e, em seguida, fazer um failback geográfico para restaurar o estado original. Se a região primária original for irrecuperável, alocaremos outra região secundária.
-  Para obter mais detalhes sobre a infraestrutura de replicação geográfica de Armazenamento do Azure, consulte o artigo no blog da equipe de Armazenamento sobre [Opções de Redundância e RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
+* Somente failover geográfico do armazenamento será disparado pela equipe de armazenamento do Azure hello – não é necessária nenhuma ação do cliente.
+* O serviço de armazenamento existente, pontos de extremidade para blobs, tabelas, filas e arquivos permanecerão Olá mesmo após o failover de saudação; Olá entrada DNS será necessário tooswitch toobe atualizado da região secundária do toohello Olá região primária.
+* Antes e durante a saudação failover geográfico, você não terá acesso de gravação tooyour conta de armazenamento devido toohello impacto do desastre Olá mas você pode ler de saudação secundária se sua conta de armazenamento tiver sido configurada como RA-GRS.
+* Conta de armazenamento de acesso de leitura e gravação tooyour será retomada quando failover geográfico Olá foi concluído e Olá propagadas de alterações DNS, Isso indica toobe toowhat usado seu ponto de extremidade secundário. 
+* Observe que você terá acesso de gravação se você tiver o GRS ou RA-GRS configurado para a conta de armazenamento hello. 
+* Você pode consultar ["Último geográfica tempo de Failover" da sua conta de armazenamento](https://msdn.microsoft.com/library/azure/ee460802.aspx) tooget mais detalhes.
+* Após o failover hello, sua conta de armazenamento será totalmente funcional, mas em um estado "degradado", como ela é realmente hospedada em uma região autônomo com nenhuma possíveis de replicação geográfica. toomitigate risco, vamos restaurar região primária original do hello e, em seguida, fazer um failback geográfica toorestore Olá original estado. Se a região primária original de saudação é irrecuperável, podemos alocará outra região secundária.
+  Para obter mais detalhes sobre a infraestrutura de saudação de replicação geográfica de armazenamento do Azure, consulte toohello artigo no blog da equipe de armazenamento Olá sobre [opções de redundância e RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 ## <a name="best-practices-for-protecting-your-data"></a>Melhores Práticas para proteger seus dados
-Há algumas abordagens recomendadas para fazer backup de seus dados de armazenamento regularmente.
+Há alguns tooback abordagens recomendadas backup de seus dados de armazenamento regularmente.
 
-* Discos VM – Use o [serviço de Backup do Azure](https://azure.microsoft.com/services/backup/) para fazer backup dos discos VM usados pelas máquinas virtuais do Azure.
-* Blobs de bloco – crie um [instantâneo](https://msdn.microsoft.com/library/azure/hh488361.aspx) de cada blob de blocos ou copie os blobs para outra conta de armazenamento em outra região usando o [AzCopy](storage-use-azcopy.md), o [Azure PowerShell](storage-powershell-guide-full.md) ou a [biblioteca de Movimentação de Dados do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
-* Tabelas – Use [AzCopy](storage-use-azcopy.md) para exportar os dados da tabela para outra conta de armazenamento em outra região.
-* Arquivos – use [AzCopy](storage-use-azcopy.md) ou [Azure PowerShell](storage-powershell-guide-full.md) para copiar os arquivos para outra conta de armazenamento em outra região.
+* Discos de VM – Olá Use [serviço de Backup do Azure](https://azure.microsoft.com/services/backup/) tooback os discos VM Olá usados por suas máquinas virtuais do Azure.
+* Os blobs de bloco – criar um [instantâneo](https://msdn.microsoft.com/library/azure/hh488361.aspx) de cada blob de bloco ou copie a conta de armazenamento Olá blobs tooanother em outra região usando [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), ou hello [ Biblioteca de movimentação de dados do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
+* Usar tabelas – [AzCopy](storage-use-azcopy.md) tooexport dados da tabela Olá em outra conta de armazenamento em outra região.
+* Usar arquivos – [AzCopy](storage-use-azcopy.md) ou [Azure PowerShell](storage-powershell-guide-full.md) toocopy conta de armazenamento tooanother arquivos em outra região.
 
-Para obter informações sobre como criar aplicativos que se beneficiam do recurso RA-GRS, confira [Criação de aplicativos altamente disponíveis usando o Armazenamento de RA-GRS](storage-designing-ha-apps-with-ragrs.md)
+Para obter informações sobre como criar aplicativos que se beneficiam do recurso Olá RA-GRS, faça check-out [criação altamente disponível de aplicativos usando o armazenamento de RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 

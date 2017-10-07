@@ -1,5 +1,5 @@
 ---
-title: "Tipo de preço no Banco de Dados do Azure para PostgreSQL"
+title: "AAA \"As camadas de preços do Azure banco de dados PostgreSQL\""
 description: "Tipo de preço no Banco de Dados do Azure para PostgreSQL"
 services: postgresql
 author: kamathsun
@@ -10,37 +10,37 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: article
 ms.date: 05/31/2017
-ms.openlocfilehash: 59ac187e50527517c402a5cc2aa871717dde5650
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f10389dd2ad1ff04e83b02786a407c10140a007b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Opções e desempenho do Banco de Dados do Azure para PostgreSQL: Compreenda o que está disponível em cada tipo de serviço
-Quando você cria um banco de dados do Azure para o servidor PostgreSQL, você decide três principais opções para configurar os recursos alocados para o servidor. Essas opções afetam o desempenho e dimensionamento do servidor.
-- Camada de preços
+Quando você cria um banco de dados do Azure para o servidor PostgreSQL, você decide três opções principais recursos de saudação tooconfigure alocados para o servidor. Essas opções afetam o desempenho de saudação e a escala do servidor de saudação.
+- Tipo de preço 
 - Unidades de computação
 - Armazenamento (GB)
 
-Cada tipo de preço tem um intervalo de níveis de desempenho (Unidades de Computação) à sua escolha, dependendo dos requisitos de cargas de trabalho. Os níveis de desempenho mais elevados fornecem recursos adicionais, projetados para oferecer uma taxa de transferência crescente. Você pode alterar o nível de desempenho do servidor dentro de uma tipo de preço praticamente sem tempo de inatividade do aplicativo.
+Cada camada de preços tem um intervalo de desempenho toochoose de níveis (unidades de computação), dependendo dos requisitos de cargas de trabalho. Níveis mais altos de desempenho fornecem recursos adicionais para seu servidor toodeliver projetado maior taxa de transferência. Você pode alterar o nível de desempenho do servidor de saudação dentro de uma camada de preços praticamente sem tempo de inatividade do aplicativo.
 
 > [!IMPORTANT]
-> Enquanto o serviço estiver em visualização pública, não há um contrato de nível de serviço (SLA) garantido.
+> Enquanto o serviço hello está em visualização pública, não há um contrato de nível de serviço (SLA) garantida.
 
-Dentro de um banco de dados do Azure para o servidor MySQL, você pode ter um ou mais bancos de dados. Você pode optar por criar um banco de dados por servidor para utilizar todos os recursos ou criar vários bancos de dados para compartilhar os recursos. 
+Dentro de um banco de dados do Azure para o servidor MySQL, você pode ter um ou mais bancos de dados. Você pode aceitar toocreate um único banco de dados por servidor tooutilize todos os recursos de hello, ou criar tooshare de bancos de dados de vários recursos hello. 
 
 ## <a name="choose-a-pricing-tier"></a>Escolher um tipo de preço
 Enquanto estiver no modo visualização, o Banco de Dados do Azure para PostgreSQL oferece apenas as faixas de preço Básico e Padrão. Faixa Premium não está disponível, mas estará disponível em breve. 
 
-A tabela a seguir fornece exemplos das faixas de preço mais adequadas para cargas de trabalho de aplicativos diferentes.
+Olá tabela a seguir fornece exemplos de saudação camadas melhor adequadas para cargas de trabalho de aplicativo diferente de preços.
 
-| Camada de preços | Cargas de trabalho de destino |
+| Tipo de preço  | Cargas de trabalho de destino |
 | :----------- | :----------------|
 | Basic | Mais adequada para cargas de trabalho pequenas que exigem computação e armazenamento escalonáveis sem garantia de IOPS. Os exemplos incluem servidores usados para desenvolvimento ou teste ou aplicativos de pequena escala usados com pouca frequência. |
-| Standard | A opção para aplicativos de nuvem que precisam de IOPS com alta taxa de transferência. Entre os exemplos incluem aplicativos analíticos ou da Web. |
-| Premium | Ideal para cargas de trabalho que precisam de baixa latência para transações e IO. Fornece o melhor suporte para muitos usuários simultâneos. Aplicável a bancos de dados que oferecem suporte a aplicativos de missão crítica.<br />A faixa de preço Premium não está disponível no modo visualização. |
+| Standard | Olá toooption de ir para a nuvem garantem a aplicativos que precisam de IOPS com alta taxa de transferência. Entre os exemplos incluem aplicativos analíticos ou da Web. |
+| Premium | Ideal para cargas de trabalho que precisam de baixa latência para transações e IO. Fornece suporte de melhor Olá para muitos usuários simultâneos. Toodatabases aplicável que oferecem suporte a aplicativos de missão crítica.<br />de preço Premium Olá não está disponível na visualização. |
 
-Para decidir sobre uma faixa de preço, comece determinando se sua carga de trabalho precisa de garantia de IOPS. Nesse caso, use a faixa de preços Padrão.
+toodecide sobre preço de uma camada, primeira inicialização determinando se sua carga de trabalho precisa de uma garantia IOPS. Nesse caso, use a faixa de preços Padrão.
 
 | **Recursos do tipo de preço** | **Básico** | **Standard** |
 | :------------------------ | :-------- | :----------- |
@@ -50,15 +50,15 @@ Para decidir sobre uma faixa de preço, comece determinando se sua carga de trab
 | IOPS de armazenamento máximo | N/D  | 3.000 | 
 | Período de retenção do backup de banco de dados | 7 dias | 35 dias | 
 
-Durante o período de visualização, você não pode alterar o tipo de preço depois que o servidor for criado. No futuro, será possível atualizar ou fazer downgrade de um tipo de preço para outro.
+Durante o período de visualização Olá, você não pode alterar o tipo de preço após a criação do servidor de saudação. Olá futuras, ele é ser possível tooupgrade ou fazer o downgrade de um servidor de uma camada de tooanother da camada de preços.
 
-## <a name="understand-the-price"></a>Entender o preço
-Ao criar um novo Banco de dados do Azure para PostgreSQL dentro do [Portal do Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer), clique na folha de **Tipo de preço** e o custo mensal será mostrado com base nas opções que você selecionou. Se você não tem uma assinatura do Azure, use a calculadora de preços do Azure para obter um preço estimado. Acesse o site da [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/) e, em seguida, clique em **Adicionar itens**, expanda a categoria **Bancos de dados** e escolha **Banco de dados do Azure para PostgreSQL** para personalizar as opções.
+## <a name="understand-hello-price"></a>Entender o preço Olá
+Quando você cria um novo banco de dados do Azure para PostgreSQL dentro Olá [Portal do Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer), clique em Olá **preço** folha e Olá custo mensal aparecerá com base nas opções de saudação selecionado. Se você não tiver uma assinatura do Azure, use Olá tooget de Calculadora de preços do Azure um preço estimado. Visite Olá [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/) site, em seguida, clique em **adicionar itens**, expanda Olá **bancos de dados** categoria e escolha **banco de dados do Azure para PostgreSQL** toocustomize opções de saudação.
 
 ## <a name="choose-a-performance-level-compute-units"></a>Escolher um nível de desempenho (Unidades de Computação)
-Depois de determinar a faixa de preços para seu banco de dados do Azure para o servidor PostgreSQL, você está pronto para determinar o nível de desempenho, selecionando o número de unidades de computação necessário. As Unidades de Computação 200 e 400 costumam ser um bom ponto de partida para aplicativos que exigem maior simultaneidade de usuários para suas cargas de trabalho de análise ou da Web e podem ser ajustadas incrementalmente conforme a necessidade. 
+Depois de ter determinado Olá camada de preços para seu banco de dados do Azure para o servidor PostgreSQL, você está pronto toodetermine nível de desempenho de saudação selecionando Olá número de unidades de computação necessária. As Unidades de Computação 200 e 400 costumam ser um bom ponto de partida para aplicativos que exigem maior simultaneidade de usuários para suas cargas de trabalho de análise ou da Web e podem ser ajustadas incrementalmente conforme a necessidade. 
 
-Unidades de computação são uma medida de taxa de transferência de processamento da CPU que possuem disponibilidade garantida para um único Banco de Dados do Azure para o servidor PostgreSQL. Uma unidade de computação é uma medida combinada de recursos de CPU e memória.  Para saber mais, veja [Explicação sobre Unidades de Computação](concepts-compute-unit-and-storage.md)
+Computação unidades são uma medida de taxa de transferência de processamento de CPU que tem a garantia tooa disponível toobe única de banco de dados do Azure para servidor PostgreSQL. Uma unidade de computação é uma medida combinada de recursos de CPU e memória.  Para saber mais, veja [Explicação sobre Unidades de Computação](concepts-compute-unit-and-storage.md)
 
 ### <a name="basic-pricing-tier-performance-levels"></a>Níveis de desempenho da faixa de preço Básico:
 
@@ -78,29 +78,29 @@ Unidades de computação são uma medida de taxa de transferência de processame
 | IOPS máximo provisionado do servidor | 3.000 IOPS | 3.000 IOPS | 3.000 IOPS | 3.000 IOPS |
 | IOPS máximo provisionado do servidor por GB | 3 IOPS fixos por GB | 3 IOPS fixos por GB | 3 IOPS fixos por GB | 3 IOPS fixos por GB |
 
-\* Tamanho máximo de armazenamento do servidor refere-se ao tamanho máximo de armazenamento provisionado para o servidor.
+\*Tamanho máximo de armazenamento do servidor se refere a tamanho de máximo de armazenamento provisionado de toohello para o servidor.
 
 ## <a name="storage"></a>Armazenamento 
-A configuração de armazenamento define a quantidade de capacidade de armazenamento disponível para um banco de dados do Azure para o servidor PostgreSQL. O armazenamento usado pelo serviço inclui os arquivos de banco de dados, logs de transação e os logs do servidor PostgreSQL. Considere o tamanho de armazenamento necessário para hospedar os bancos de dados e os requisitos de desempenho (IOPS) ao selecionar a configuração de armazenamento.
+configuração de armazenamento de saudação define a quantidade de saudação do armazenamento capacidade disponível tooan banco de dados para o servidor PostgreSQL. armazenamento de saudação usada pelo serviço de saudação inclui arquivos de banco de dados hello, logs de transações e logs do servidor PostgreSQL hello. Considere o tamanho de saudação do armazenamento necessário toohost seus bancos de dados e Olá requisitos de desempenho (IOPS) ao selecionar a configuração de armazenamento de saudação.
 
-Algumas capacidades de armazenamento estão incluídas no mínimo com cada tipo de preço, indicadas na tabela anterior como "Tamanho dos armazenamentos incluídos." Capacidade de armazenamento adicional pode ser adicionada quando o servidor é criado, em incrementos de 125 GB até o máximo permitido de armazenamento. A capacidade de armazenamento adicional pode ser configurada independentemente da configuração de Unidades de Computação. O preço altera com base na quantidade de armazenamento selecionado.
+Alguma capacidade de armazenamento está incluída no mínimo com cada tipo de preço, indicado na saudação anterior tabela como "Tamanho do armazenamento incluídos". Capacidade de armazenamento adicionais pode ser adicionada ao servidor de saudação é criado, em incrementos de 125 GB, o máximo de armazenamento permitido toohello. capacidade de armazenamento adicional Olá pode ser configurada independentemente da configuração de unidades de computação hello. alterações de preço de saudação com base na quantidade de saudação de armazenamento selecionada.
 
-A configuração de IOPS em cada nível de desempenho está relacionada à faixa de preços e o tamanho de armazenamento escolhido. A faixa Básico não oferece garantia de IOPS. Na faixa de preços Padrão, o IOPS dimensiona proporcionalmente ao tamanho máximo de armazenamento em uma taxa fixa de 3:1. O armazenamento incluído de 125 GB garante 375 IOPS provisionados, cada um com um tamanho de E/S de 256 KB. Você pode escolher armazenamento adicional máximo de 1 TB, para garantir 3.000 IOPS provisionados.
+configuração de IOPS de saudação em cada nível de desempenho relacionado toohello tipo de preço e tamanho de armazenamento Olá escolhido. A faixa Básico não oferece garantia de IOPS. Dentro da faixa de preços padrão Olá, a saudação IOPS dimensionar proporcionalmente toomaximum tamanho de armazenamento em uma taxa fixa de 3:1. armazenamento de saudação incluído de garantia de 125 GB para 375 provisionados IOPS, cada um com um tamanho de e/s de backup too256 KB. Você pode escolher o armazenamento adicional a too1 TB máximo, tooguarantee 3.000 provisionado IOPS.
 
-Monitorar o gráfico de métricas no Portal do Azure ou gravar comandos de CLI do Azure para medir o consumo de armazenamento e IOPS. Métricas relevantes para monitorar são o Limite de armazenamento, Porcentagem de armazenamento, Armazenamento usado e porcentagem de IO.
+Monitore o gráfico de métricas Olá Olá Azure portal ou gravação CLI do Azure comandos toomeasure Olá consumo de armazenamento e IOPS. Toomonitor relevante de métricas são o limite de armazenamento, porcentagem de armazenamento, armazenamento usado e porcentagem de e/s.
 
 >[!IMPORTANT]
-> Enquanto estiver no modo de visualização, escolha a quantidade de armazenamento no momento em que o servidor é criado. Ainda não há suporte para a alteração do tamanho de armazenamento em um servidor existente. 
+> Enquanto estiver no modo de visualização, escolha a quantidade de saudação do armazenamento em tempo de saudação quando o servidor de saudação é criado. Ainda não há suporte para a alteração de tamanho de armazenamento de saudação em um servidor existente. 
 
 ## <a name="scaling-a-server-up-or-down"></a>Aumentar ou diminuir um único servidor
-Inicialmente, você escolher o nível de desempenho e a faixa de preços quando você cria o banco de dados do Azure para PostgreSQL. Posteriormente, você pode dimensionar as Unidades de Computação para cima ou para baixo dinamicamente, dentro do intervalo da mesma faixa de preços. No portal do Azure, deslize as Unidades de Computação na folha de faixa de preços do servidor ou script, como no exemplo a seguir: [Monitorar e escalar um único servidor PostgreSQL usando a CLI do Azure](scripts/sample-scale-server-up-or-down.md)
+Inicialmente, você escolhe Olá nível de desempenho e da camada de preços, quando você cria o banco de dados do Azure para PostgreSQL. Posteriormente, você pode dimensionar Olá unidades de computação para cima ou para baixo dinamicamente, dentro do intervalo de saudação do hello mesmo preço. Olá portal do Azure, deslize Olá unidades de computação na folha de camada de preços do servidor de saudação ou script-lo seguindo este exemplo: [monitorar e escala de um único servidor PostgreSQL usando a CLI do Azure](scripts/sample-scale-server-up-or-down.md)
 
-Dimensionamento das Unidades de Computação é feito independentemente do tamanho máximo de armazenamento que você escolheu.
+Saudação de computação unidades de escala é feito independentemente do tamanho de armazenamento máximo Olá escolhido.
 
-A alteração da faixa de serviço e/ou nível de desempenho de um banco de dados cria uma réplica do banco de dados original com o novo nível de desempenho e então faz a transição das conexões para réplica. Nenhum dado será perdido durante esse processo. Nenhum dado é perdido durante esse processo, mas durante o breve momento em que realizamos a transição para a réplica, conexões com o banco de dados são desabilitadas, então algumas transações em andamento podem ser revertidas. Essa janela varia, mas é em média inferior a quatro segundos e, em mais de 99% dos casos, de menos de 30 segundos. Se houver grandes números de transações em andamento no momento em que as conexões estiverem desabilitadas, esta janela poderá ser maior.
+Em segundo plano hello, alterar o nível de desempenho de saudação do banco de dados cria uma réplica de banco de dados original Olá no novo nível de desempenho hello e alterna conexões toohello réplica. Nenhum dado será perdido durante esse processo. Durante a saudação breve momento em que podemos passar toohello réplica, toohello de conexões de banco de dados estão desabilitadas, portanto, algumas transações em trânsito podem ser revertidas. Essa janela varia, mas é em média inferior a quatro segundos e, em mais de 99% dos casos, de menos de 30 segundos. Se houver grandes números de transações em trânsito em conexões de momento Olá estão desabilitados, esta janela pode ser maior.
 
-A duração de todo o processo de expansão depende da faixa de preço e tamanho do servidor antes e após a alteração. Por exemplo, um servidor que esteja alterando as Unidades de Computação no tipo de preço Standard deverá concluir dentro de alguns minutos. As novas propriedades do servidor não serão aplicadas até que as alterações sejam concluídas.
+duração de saudação do processo de escala inteiro Olá depende do tamanho hello e camada de preços do servidor de saudação antes e depois alterar hello. Por exemplo, um servidor que está sendo alterado unidades de computação na faixa de preços padrão hello, deverá ser concluída dentro de alguns minutos. novas propriedades de servidor Olá Olá não são aplicadas até Olá alterações forem concluídas.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para obter mais informações, consulte [Explicando Unidades de Computação](concepts-compute-unit-and-storage.md)
-- Aprenda a [Monitorar e escalar um único servidor PostgreSQL usando a CLI do Azure](scripts/sample-scale-server-up-or-down.md)
+- Saiba como muito[monitorar e escala de um único servidor PostgreSQL usando a CLI do Azure](scripts/sample-scale-server-up-or-down.md)

@@ -1,6 +1,6 @@
 ---
-title: "Elemento de interface do usuário UserNameTextBox de aplicativo gerenciado do Azure | Microsoft Docs"
-description: "Descreve o elemento Microsoft.Common.UserNameTextBox da interface do usuário para aplicativos gerenciados do Azure"
+title: "elemento de interface do usuário UserNameTextBox de aplicativo gerenciado aaaAzure | Microsoft Docs"
+description: "Descreve Olá elemento Microsoft.Compute.UserNameTextBox da interface do usuário para aplicativos gerenciados do Azure"
 services: azure-resource-manager
 documentationcenter: na
 author: tabrezm
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
-ms.openlocfilehash: c90be5a0ed3aadda81d7ec9b5388a96472f69af0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 33092014e804c4aabd56ba49144d9cd4d6a5fd1e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Elemento de interface do usuário Microsoft.Compute.UserNameTextBox
 Um controle de caixa de texto com validação interna para nomes de usuário do Windows e do Linux. Use esse elemento ao [criar um Aplicativo Gerenciado do Azure](managed-application-publishing.md).
@@ -36,7 +36,7 @@ Um controle de caixa de texto com validação interna para nomes de usuário do 
   "constraints": {
     "required": true,
     "regex": "^[a-z0-9A-Z]{1,30}$",
-    "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+    "validationMessage": "Only alphanumeric characters are allowed, and hello value must be 1-30 characters long."
   },
   "osPlatform": "Windows",
   "visible": true
@@ -44,12 +44,12 @@ Um controle de caixa de texto com validação interna para nomes de usuário do 
 ```
 
 ## <a name="remarks"></a>Comentários
-- Se `constraints.required` é definido como **true**, a caixa de texto deve conter um valor a ser validado com êxito. O valor padrão é **true**.
+- Se `constraints.required` está definido muito**true**, em seguida, a caixa de texto de saudação deve conter um valor toovalidate com êxito. valor padrão de saudação é **true**.
 - `osPlatform` deve ser especificada e pode ser **Windows** ou **Linux**.
-- `constraints.regex` é um padrão de expressão regular JavaScript. Se especificado, o valor da caixa de texto deve corresponder ao padrão para validar com êxito. O valor padrão é **null**.
-- `constraints.validationMessage` é uma cadeia de caracteres a ser exibida quando o valor da caixa de texto falha a validação especificada por `constraints.regex`. Se não for especificado, as mensagens de validação internas da caixa de texto serão usadas. O valor padrão é **null**.
-- Este elemento tem validação interna com base no valor especificado para `osPlatform`. A validação interna pode ser usada juntamente com uma expressão regular personalizada.
-Se um valor para `constraints.regex` for especificado, as validações internas e personalizadas serão disparadas.
+- `constraints.regex` é um padrão de expressão regular JavaScript. Se especificado, em seguida, valor da caixa de texto de saudação deve corresponder saudação padrão toovalidate com êxito. O valor padrão é **null**.
+- `constraints.validationMessage`é uma cadeia de caracteres toodisplay quando o valor da caixa de texto de saudação Falha na validação de saudação especificada pelo `constraints.regex`. Se não for especificado, Olá validação interna da caixa de texto, as mensagens são usadas. valor padrão de saudação é **nulo**.
+- Este elemento tem validação interna que é baseada no valor de saudação especificado para `osPlatform`. validação interna Olá pode ser usada junto com uma expressão regular personalizada.
+Se um valor para `constraints.regex` for especificado, ambos Olá internas e personalizadas validações são disparadas.
 
 ## <a name="sample-output"></a>Saída de exemplo
 ```json
@@ -57,6 +57,6 @@ Se um valor para `constraints.regex` for especificado, as validações internas 
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados do Azure](managed-application-overview.md).
-* Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* Para aplicativos de toomanaged uma introdução, consulte [visão geral de aplicativos gerenciados do Azure](managed-application-overview.md).
+* Para definições de interface do usuário de toocreating uma introdução, consulte [guia de Introdução ao CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de interface do usuário, consulte [Elementos de CreateUiDefinition](managed-application-createuidefinition-elements.md).

@@ -1,6 +1,6 @@
 ---
-title: "Solução de Análise do Azure SQL no Log Analytics | Microsoft Docs"
-description: "A solução de Análise do Azure SQL ajuda a gerenciar os bancos de dados do Azure SQL."
+title: "aaaAzure solução de análise do SQL na análise de Log | Microsoft Docs"
+description: "Olá solução de análise do SQL Azure ajuda a gerenciar seus bancos de dados do SQL Azure."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -14,61 +14,61 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.openlocfilehash: cab45cc6dd621eb4a95ef5f1842ec38c25e980b6
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: fe228bb3cb3f9d578a84707c3917f02fbeb8a627
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorar o Banco de Dados SQL do Azure usando a Análise do Azure SQL (Visualização) no Log Analytics
 
 ![Símbolo da Análise de SQL do Azure](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
-A solução Análise de SQL do Azure do Azure Log Analytics coleta e visualiza métricas de desempenho importantes do SQL Azure. Usando as métricas que coleta com a solução, você pode criar alertas e regras de monitoramentos personalizadas. E você pode monitorar o Banco de Dados SQL e métricas de pool elástico em várias assinaturas do Azure e pools elásticos e visualizá-los. A solução também ajuda a identificar problemas em cada camada da pilha do aplicativo.  Ele usa [métricas de Diagnóstico do Azure](log-analytics-azure-storage.md) junto com modos de exibição de Log Analytics para apresentar dados sobre todos os bancos de dados do Azure SQL e pools elásticos em um único espaço de trabalho de Log Analytics.
+Olá solução de análise do SQL Azure no Azure Log Analytics coleta e visualiza as métricas importantes de desempenho do SQL Azure. Usando métricas Olá coletados com solução hello, você pode criar regras personalizadas de monitoramentos e alertas. E você pode monitorar o Banco de Dados SQL e métricas de pool elástico em várias assinaturas do Azure e pools elásticos e visualizá-los. Olá solução também ajuda a tooidentify problemas em cada camada da pilha de seu aplicativo.  Ele usa [métricas de diagnóstico do Azure](log-analytics-azure-storage.md) junto com a análise de Log exibições toopresent dados sobre todos os bancos de dados SQL do Azure e pools Elásticos em um único espaço de trabalho de análise de Log.
 
-Atualmente, essa solução de visualização dá suporte a até 5.000 Bancos de Dados do Azure SQL e 150.000 Pools Elásticos por espaço de trabalho.
+No momento, esta solução visualização dá suporte para até too150, 000 bancos de dados do SQL do Azure e 5.000 Pools Elásticos de SQL por espaço de trabalho.
 
-A solução Análise de SQL do Azure, assim como outras disponíveis para o Log Analytics, ajuda você a monitorar e receber notificações sobre a integridade dos recursos do Azure – neste caso, o Banco de Dados SQL do Azure. O Banco de Dados SQL do Microsoft Azure é um serviço de banco de dados relacional escalonável que fornece recursos semelhantes aos recursos familiares do SQL Server para aplicativos em execução na nuvem do Azure. O Log Analytics ajuda a coletar, correlacionar e visualizar dados estruturados e não estruturados.
+Olá solução de análise do SQL Azure, como outros disponíveis para análise de Log ajuda a monitorar e receber notificações sobre integridade de saudação de seus recursos do Azure – nesse caso, o banco de dados do SQL Azure. Banco de dados SQL do Microsoft Azure é um serviço de banco de dados relacional escalonável que fornece familiar tooapplications de recursos de tipo de SQL Server em execução no hello nuvem do Azure. Análise de log ajuda a toocollect, correlacionar e visualizar dados estruturados e não estruturados.
 
 ## <a name="connected-sources"></a>Fontes conectadas
 
-A solução Análise de SQL do Azure não usa agentes para se conectar ao serviço Log Analytics.
+Olá solução de análise do SQL Azure não usa agentes tooconnect toohello serviço de análise de Log.
 
-A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução.
+Olá, a tabela a seguir descreve Olá conectado fontes que são suportadas por essa solução.
 
 | Fonte Conectada | Suporte | Descrição |
 | --- | --- | --- |
-| [Agentes do Windows](log-analytics-windows-agents.md) | Não | Agentes diretos do Windows não são usados pela solução. |
-| [Agentes do Linux](log-analytics-linux-agents.md) | Não | Agentes do Linux diretos não são usados pela solução. |
-| [Grupo de gerenciamento do SCOM](log-analytics-om-agents.md) | Não | Uma conexão direta do agente do SCOM ao Log Analytics não é usada pela solução. |
-| [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | O Log Analytics não lê os dados pré-existentes de uma conta de armazenamento. |
-| [Diagnóstico do Azure](log-analytics-azure-storage.md) | Sim | Os dados de métricas do Azure são enviados para o Log Analytics diretamente pelo Azure. |
+| [Agentes do Windows](log-analytics-windows-agents.md) | Não | Direcione os agentes não são usados pela solução de saudação do Windows. |
+| [Agentes do Linux](log-analytics-linux-agents.md) | Não | Direcione os agentes não são usados pela solução de saudação do Linux. |
+| [Grupo de gerenciamento do SCOM](log-analytics-om-agents.md) | Não | Uma conexão direta de saudação SCOM agente tooLog Analytics não é usada pela solução de saudação. |
+| [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | Análise de log não lê dados saudação de uma conta de armazenamento. |
+| [Diagnóstico do Azure](log-analytics-azure-storage.md) | Sim | Dados de métrica do Azure são enviados tooLog análise diretamente pelo Azure. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure. Se não tiver uma, você poderá criá-la [grátis](https://azure.microsoft.com/free/).
 - Um espaço de trabalho do Log Analytics. Você pode usar um existente ou pode [criar um novo](log-analytics-get-started.md) para começar a usar essa solução.
-- Habilite o Diagnóstico do Azure para os bancos de dados do Azure SQL e pools elásticos e [configure-os para enviar os dados para o Log Analytics](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
+- Habilitar o diagnóstico do Azure para seus bancos de dados SQL do Azure e pools Elásticos e [configurá-las toosend tooLog seus dados análise](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
 
 ## <a name="configuration"></a>Configuração
 
-Realize as etapas a seguir para adicionar a solução Análise de SQL do Azure ao seu espaço de trabalho.
+Execute Olá etapas tooadd Olá análise do SQL Azure solução tooyour espaço de trabalho a seguir.
 
-1. Adicione a solução de análise do SQL do Azure do [marketplace do Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) ou usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).
-2. No portal do Azure, clique em **Novo** (o símbolo +) e, na lista de recursos, selecione **Monitoramento + Gerenciamento**.  
+1. Adicionar espaço de trabalho do hello análise do SQL Azure solução tooyour em [do Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview) ou usando o processo de saudação descrito em [soluções de análise de Log adicionar da Galeria de soluções de saudação](log-analytics-add-solutions.md).
+2. No portal do Azure de Olá, clique em **novo** (Olá símbolo de +), na lista de saudação de recursos, selecione **monitoramento + gerenciamento**.  
     ![Monitoramento + Gerenciamento](./media/log-analytics-azure-sql/monitoring-management.png)
-3. Na lista **Monitoramento + Gerenciamento**, clique em **Ver todos**.
-4. Na lista **Recomendado**, clique em **Mais** e, na nova lista, localize **Análise do Azure SQL (Visualização)** e selecione-a.  
+3. Em Olá **monitoramento + gerenciamento** lista, clique em **ver todos os**.
+4. Em Olá **recomendado** lista, clique em **mais** e, em seguida, na lista de novos hello, localize **análise do SQL Azure (visualização)** e, em seguida, selecione-o.  
     ![Solução de Análise do Azure SQL](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. Na folha **Análise do Azure SQL (Visualização)**, clique em **Criar**.  
+5. Em Olá **análise do SQL Azure (visualização)** folha, clique em **criar**.  
     ![Criar](./media/log-analytics-azure-sql/portal-create.png)
-6. Na folha **Criar nova solução**, selecione o espaço de trabalho ao qual você deseja adicionar a solução e clique em **Criar**.  
-    ![adicionar ao espaço de trabalho](./media/log-analytics-azure-sql/add-to-workspace.png)
+6. Em Olá **criar nova solução** folha, no espaço de trabalho Olá selecione que você deseja tooadd Olá solução tooand e clique em **criar**.  
+    ![Adicionar tooworkspace](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
-### <a name="to-configure-multiple-azure-subscriptions"></a>Para configurar várias assinaturas do Azure
+### <a name="tooconfigure-multiple-azure-subscriptions"></a>tooconfigure várias assinaturas do Azure
 
-Para dar suporte a várias assinaturas, use o script do PowerShell de [Habilitar log de métricas de recursos do Azure usando o PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/). Forneça a ID de recurso do espaço de trabalho como um parâmetro ao executar o script para enviar dados de diagnóstico de recursos em uma assinatura do Azure a um espaço de trabalho em outra assinatura do Azure.
+toosupport várias assinaturas, use o script do PowerShell de saudação do [log de métricas de recursos de habilitar o Azure usando o PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/). Fornece Olá ID de recurso de espaço de trabalho como um parâmetro ao executar dados de diagnóstico Olá script toosend de recursos no espaço de trabalho de tooa de uma assinatura do Azure em outra assinatura do Azure.
 
 **Exemplo**
 
@@ -80,27 +80,27 @@ PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/oms/providers/microsoft.o
 PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 ```
 
-## <a name="using-the-solution"></a>Usando a solução
+## <a name="using-hello-solution"></a>Usando a solução de saudação
 
-Quando você adiciona a solução ao espaço de trabalho, o bloco de Análise do Azure SQL é adicionado ao espaço de trabalho e aparece na Visão geral. O bloco mostra o número de bancos de dados do Azure SQL e pools elásticos do Azure SQL aos quais a solução está conectada.
+Quando você adiciona o espaço de trabalho do hello solução tooyour, Olá bloco de análise do SQL Azure é adicionado tooyour espaço de trabalho, e ele aparece na visão geral. bloco Olá mostra o número de saudação de bancos de dados SQL do Azure e pools Elásticos do SQL Azure conectado à solução de saudação.
 
 ![Bloco de Análise do SQL Azure](./media/log-analytics-azure-sql/azure-sql-sol-tile.png)
 
 ### <a name="viewing-azure-sql-analytics-data"></a>Exibindo dados da Análise de SQL do Azure
 
-Clique no bloco **Análise de SQL do Azure** para abrir o painel da Análise de SQL do Azure. O painel inclui as folhas definidas abaixo. Cada folha lista até 15 recursos (assinatura, servidor, pool elástico e banco de dados). Clique em um dos recursos para abrir o painel do recurso específico. Pool elástico ou Banco de dados contém os gráficos com as métricas de um recurso selecionado. Clique em um gráfico para abrir a caixa de diálogo Pesquisa de Logs.
+Clique em Olá **análise do SQL Azure** o painel de controle do bloco tooopen Olá análise do SQL Azure. Painel de saudação inclui folhas Olá definidas abaixo. Cada folha lista os recursos de too15 (assinatura, server, pool Elástico e banco de dados). Clique em qualquer painel da saudação tooopen Olá recursos para o recurso específico. Banco de dados ou Pool Elástico contém gráficos-Olá com métricas para um recurso selecionado. Clique em uma caixa de diálogo de pesquisa de Log de saudação do tooopen de gráfico.
 
 | Folha | Descrição |
 |---|---|
 | Assinaturas | Lista de assinaturas com o número de servidores, pools e bancos de dados conectados. |
 | Servidores | Lista de servidores com o número de pools e bancos de dados conectados. |
-| Pools elásticos | Lista de pools elásticos conectados com GBs e eDTUs máximos no período observado. |
-|Bancos de dados | Lista de bancos de dados conectados com GBs e DTUs máximos no período observado.|
+| Pools elásticos | Lista de pools Elásticos conectados com máximo GB e eDTU em Olá observado período. |
+|Bancos de dados | Lista de bancos de dados conectados com GB e DTU máximo em Olá observado período.|
 
 
 ### <a name="analyze-data-and-create-alerts"></a>Analisar dados e criar alertas
 
-Você pode criar facilmente alertas com os dados provenientes de recursos de Banco de Dados SQL do Azure. Aqui estão algumas das consultas de [pesquisa de logs](log-analytics-log-searches.md) úteis que você pode usar para alertas:
+Facilmente, você pode criar alertas com dados Olá provenientes de recursos do Azure SQL Database. Aqui estão algumas das consultas de [pesquisa de logs](log-analytics-log-searches.md) úteis que você pode usar para alertas:
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
@@ -117,40 +117,40 @@ Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/DATABASES/"* Me
 Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource interval 5minutes
 ```
 
-Você pode usar essas consultas com base no alerta para alertar sobre limites específicos para o Banco de Dados SQL do Azure e pools elásticos. Para configurar um alerta para seu espaço de trabalho OMS:
+Você pode usar essas consultas com base no alerta tooalert em limites específicos para o banco de dados do SQL Azure e pools elásticos. tooconfigure um alerta para seu espaço de trabalho do OMS:
 
-#### <a name="to-configure-an-alert-for-your-workspace"></a>Para configurar um alerta para seu espaço de trabalho
+#### <a name="tooconfigure-an-alert-for-your-workspace"></a>tooconfigure um alerta para seu espaço de trabalho
 
-1. Acesse o [portal do OMS](http://mms.microsoft.com/) e entre.
-2. Abra o espaço de trabalho que você configurou para a solução.
-3. Na página Visão geral, clique no bloco **Análise do Azure SQL (Visualização)**.
-4. Execute uma das consultas de exemplo.
+1. Vá toohello [portal do OMS](http://mms.microsoft.com/) e entrar.
+2. Abra o espaço de trabalho de saudação que você configurou para solução de saudação.
+3. Na página de visão geral de saudação, clique em Olá **análise do SQL Azure (visualização)** lado a lado.
+4. Execute uma das consultas de exemplo hello.
 5. Na Pesquisa de Log, clique em **Alerta**.  
 ![criar alerta na pesquisa](./media/log-analytics-azure-sql/create-alert01.png)
-6. Na página **Adicionar Regra de Alerta**, defina as propriedades adequadas e os limites específicos que você deseja e clique em **Salvar**.  
+6. Em Olá **Adicionar regra de alerta** página, defina propriedades adequadas hello e Olá limites específicos que você deseja e, em seguida, clique em **salvar**.  
 ![adicionar regra de alerta](./media/log-analytics-azure-sql/create-alert02.png)
 
 ### <a name="act-on-azure-sql-analytics-data"></a>Tomar decisões com base em dados da Análise de SQL do Azure
 
-Por exemplo, uma das consultas mais úteis que você pode executar é comparar a utilização de DTU para todos os Pools Elásticos do Azure SQL em todas as suas assinaturas do Azure. A DTU (Unidade de Taxa de Transferência de Banco de Dados) fornece uma maneira de descrever a capacidade relativa de um nível de desempenho de pools e bancos de dados Basic, Standard e Premium. DTUs são baseadas em uma medida combinada de CPU, memória, leituras e gravações. À medida que as DTUs aumentam, aumenta a capacidade oferecida pelo nível de desempenho. Por exemplo, um nível de desempenho com cinco DTUs tem cinco vezes mais energia do que um nível de desempenho com uma DTU. Uma cota de DTU máxima aplica-se a cada servidor e pool elástico.
+Por exemplo, uma das consultas de hello mais úteis que você pode executar é toocompare utilização de DTU Olá para todos os Pools de Elástico do SQL Azure em todas as suas assinaturas do Azure. Unidade de taxa de transferência de banco de dados (DTU) fornece uma maneira toodescribe Olá a capacidade relativa de um nível de desempenho de pools e os bancos de dados Basic, Standard e Premium. DTUs são baseadas em uma medida combinada de CPU, memória, leituras e gravações. Quando as DTUs aumentam, Olá capacidade oferecida pelo aumento de nível de desempenho de saudação. Por exemplo, um nível de desempenho com cinco DTUs tem cinco vezes mais energia do que um nível de desempenho com uma DTU. Uma cota DTU máxima aplica-se o pool de servidor e elástica tooeach.
 
-Executando a consulta de Pesquisa de Log a seguir, você pode saber facilmente se está subutilizando ou sobreutilizando os pools elásticos do SQL Azure.
+Executando Olá consulta de pesquisa de Log a seguir, você pode dizer facilmente se você subutilização ou mais utilizar os pools Elásticos do SQL Azure.
 
 ```
 Type=AzureMetrics ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource | display LineChart
 ```
 
 >[!NOTE]
-> Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
+> Se seu espaço de trabalho tiver sido atualizado toohello [linguagem de consulta de análise de Log novo](log-analytics-log-search-upgrade.md), então Olá acima consulta alteraria toohello a seguir.
 >
 >`search in (AzureMetrics) isnotempty(ResourceId) and "/ELASTICPOOLS/" and MetricName == "dtu_consumption_percent" | summarize AggregatedValue = avg(Average) by bin(TimeGenerated, 1h), Resource | render timechart`
 
-No exemplo a seguir, você pode ver que um pool elástico tem alto uso de quase 100% de DTU, enquanto outros têm pouca utilização. Você pode investigar mais para solucionar possíveis alterações recentes no ambiente usando os logs de atividade do Azure.
+Saudação de exemplo a seguir, você pode ver um pool Elástico tem um alto uso quase 100% enquanto outros têm muito pouca utilização DTU. Você pode investigar mais tootroubleshoot recentes alterações em potencial em seu ambiente usando logs de atividades do Azure.
 
 ![Resultados de pesquisa de log - alta utilização](./media/log-analytics-azure-sql/log-search-high-util.png)
 
 ## <a name="see-also"></a>Consulte também
 
-- Usar [Pesquisas de Log](log-analytics-log-searches.md) no Log Analytics para exibir dados detalhados do Azure SQL.
+- Use [pesquisas de Log](log-analytics-log-searches.md) no tooview de análise de Log detalhado de dados do SQL Azure.
 - [Criar seus próprios painéis](log-analytics-dashboards.md) mostrando os dados do Azure SQL.
 - [Criar alertas](log-analytics-alerts.md) quando ocorrerem eventos específicos do Azure SQL.

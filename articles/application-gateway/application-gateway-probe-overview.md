@@ -1,6 +1,6 @@
 ---
-title: "Visão geral do monitoramento de integridade do Gateway de Aplicativo do Azure | Microsoft Docs"
-description: Saiba mais sobre os recursos de monitoramento do Application Gateway do Azure
+title: "aaaHealth visão geral do monitoramento para o Gateway de aplicativo do Azure | Microsoft Docs"
+description: "Saiba mais sobre Olá monitoramento de recursos no Azure Application Gateway"
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -15,30 +15,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: gwallace
-ms.openlocfilehash: 899115d213e626f17e58c2e5f01313f760f9e7f4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5091d80394a354ff849ce7ccee8cc9d2fd0456db
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Visão geral do monitoramento de integridade do Gateway de Aplicativo
 
-Por padrão, o Gateway de Aplicativo do Azure monitora a integridade de todos os recursos em seu pool de back-end e remove automaticamente qualquer recurso do pool que não for considerado íntegro. O Gateway de Aplicativo continua monitorando as instâncias não íntegras e as adiciona de volta ao pool de back-end íntegro depois que elas se tornarem disponíveis e responderem a investigações de integridade. O Gateway de Aplicativo envia as investigações de integridade na mesma porta que é definida nas configurações de HTTP do back-end. A configuração assegura que a investigação teste a mesma porta que os clientes usariam para se conectar ao back-end.
+Gateway de aplicativo do Azure por padrão monitora a integridade de saudação de todos os recursos em seu pool de back-end e automaticamente remove qualquer recurso considerado não íntegro do pool de saudação. Application Gateway continua instâncias não íntegras do toomonitor hello e os adiciona fazer toohello Íntegro pool de back-end quando estiverem disponíveis e responder toohealth testes. Gateway de aplicativo envia Olá investigações de integridade com hello mesma porta que é definida nas configurações de HTTP de back-end de saudação. Essa configuração garante que teste hello está testando Olá a mesma porta que os clientes usarão back-end do tooconnect toohello.
 
 ![exemplo de investigação de gateway de aplicativo][1]
 
-Além de usar o monitoramento da investigação de integridade padrão, você também pode personalizar a investigação de integridade para atender às necessidades do seu aplicativo. Neste artigo, serão abordadas as investigações de integridade padrão e personalizadas.
+Em adição toousing padrão investigação monitoramento de integridade, você também pode personalizar toosuit de investigação de integridade Olá requisitos do seu aplicativo. Neste artigo, serão abordadas as investigações de integridade padrão e personalizadas.
 
 > [!NOTE]
-> Se houver um NSG na sub-rede do Gateway de Aplicativo, os intervalos de porta 65503 a 65534 deverão ser abertos na sub-rede do Gateway de Aplicativo para o tráfego de entrada. Essas portas são necessárias para que a API de integridade do back-end funcione.
+> Se houver um NSG na sub-rede de Gateway do aplicativo, intervalos de porta 65503 65534 devem ser abertos na sub-rede de Gateway do aplicativo hello para tráfego de entrada. Essas portas são necessárias para Olá toowork de API de integridade de back-end.
 
 ## <a name="default-health-probe"></a>Investigação de integridade padrão
 
-Um Application Gateway configura automaticamente uma investigação de integridade padrão quando você não define nenhuma configuração de investigação personalizada. O comportamento de monitoramento funciona fazendo uma solicitação HTTP para os endereços IP configurados para o pool de back-end. Para investigações padrão, se as configurações de HTTP de back-end estão configuradas para HTTPS, a investigação também usa HTTPS para testar a integridade dos back-ends.
+Um Application Gateway configura automaticamente uma investigação de integridade padrão quando você não define nenhuma configuração de investigação personalizada. Olá monitoramento de comportamento funciona fazendo que um IP de toohello de solicitação HTTP endereços configurado para o pool de back-end do hello. Para investigações de padrão se as configurações de http de back-end de saudação são configuradas para HTTPS, investigação Olá usa HTTPS como integridade bem tootest de back-ends hello.
 
-Por exemplo: configure seu Application Gateway para usar os servidores de back-end, A, B e C para receber o tráfego de rede HTTP na porta 80. O monitoramento de integridade padrão testa os três servidores a cada 30 segundos para receber uma de HTTP íntegra. Uma resposta de HTTP íntegra tem um [código de status](https://msdn.microsoft.com/library/aa287675.aspx) entre 200 e 399.
+Por exemplo: configurar o application gateway toouse servidores back-end A, B e C tooreceive HTTP tráfego de rede na porta 80. o monitoramento de integridade de padrão de saudação testa três servidores de saudação cada 30 segundos por uma resposta HTTP íntegro. Uma resposta de HTTP íntegra tem um [código de status](https://msdn.microsoft.com/library/aa287675.aspx) entre 200 e 399.
 
-Se a verificação de investigação padrão falhar para o servidor A, o Application Gateway o remove do seu pool de back-end e o tráfego de rede para de fluir para este servidor. A investigação padrão ainda continua a verificar o servidor A a cada 30 segundos. Quando o Servidor A responde com êxito a uma solicitação de uma investigação de integridade, ela é adicionada de volta como íntegro ao pool de back-end e o tráfego começa a fluir para esse servidor novamente.
+Se a verificação de investigação de padrão de saudação falhar para o servidor, o gateway de aplicativo hello remove do seu pool de back-end e interrupção do servidor toothis de fluxo de tráfego de rede. investigação de padrão de saudação ainda continua toocheck para servidor de a cada 30 segundos. Quando o servidor responde com êxito tooone solicitação de um teste de integridade padrão, ele é adicionado novamente como pool de back-end toohello íntegro e começar a tráfego fluir toohello server novamente.
 
 ### <a name="default-health-probe-settings"></a>Configurações da investigação de integridade padrão
 
@@ -47,36 +47,36 @@ Se a verificação de investigação padrão falhar para o servidor A, o Applica
 | URL de investigação |http://127.0.0.1:\<porta\>/ |Caminho da URL |
 | Intervalo |30 |Intervalo da investigação em segundos |
 | Tempo limite |30 |Tempo limite da investigação em segundos |
-| Limite não íntegro |3 |Contagem de repetições da investigação. O servidor de back-end é marcado após a contagem de falhas de investigação consecutivas atingir o limite de não íntegro. |
+| Limite não íntegro |3 |Contagem de repetições da investigação. servidor de back-end Hello está marcado para baixo depois contagem de falhas de investigação consecutivas Olá atinge o limite não íntegro hello. |
 
 > [!NOTE]
-> A porta é a mesma das configurações de HTTP de back-end.
+> Olá porta é Olá mesma porta, como configurações de HTTP de back-end de saudação.
 
-A investigação padrão examina apenas http://127.0.0.1:\<port\> para determinar o status de integridade. Se precisar configurar a investigação de integridade para ir para uma URL personalizada ou modificar outras configurações, você deverá usar investigações personalizadas, conforme descrito nas etapas a seguir:
+investigação de padrão de saudação examina somente http://127.0.0.1:\<porta\> toodetermine status de integridade. Se você precisa tooconfigure Olá integridade investigação toogo tooa URL personalizada ou modifique outras configurações, você deve usar testes personalizados conforme descrito em Olá etapas a seguir:
 
 ## <a name="custom-health-probe"></a>Investigação de integridade personalizada
 
-Investigações personalizadas permitem que você tenha um controle mais granular sobre o monitoramento de integridade. Ao usar investigações personalizadas, você pode configurar o intervalo de investigação, a URL e o caminho a testar e quantas respostas com falha devem ser aceitas antes de marcar a instância do pool de back-end como não íntegra.
+Testes personalizados permitem que você toohave um controle mais granular sobre o monitoramento de integridade de saudação. Ao usar testes personalizados, você pode configurar o intervalo de sondagem Olá Olá tootest de URL e o caminho e quantos tooaccept de respostas com falha antes de marcar a instância de pool de back-end hello como não íntegro.
 
 ### <a name="custom-health-probe-settings"></a>Configurações da investigação de integridade personalizada
 
-A tabela a seguir fornece definições para as propriedades de uma investigação de integridade personalizada.
+Olá tabela a seguir fornece definições para as propriedades de saudação de um teste de integridade personalizado.
 
 | Propriedades da investigação | Descrição |
 | --- | --- |
-| Name |O nome da investigação. Este é o nome usado para se referir à investigação nas configurações de HTTP de back-end. |
-| Protocolo |O protocolo usado para enviar a investigação. A investigação usa o protocolo definido nas configurações de HTTP do back-end |
-| Host |O nome do host para enviar a investigação. Aplicável somente quando vários sites são configurados no Application Gateway; do contrário, use '127.0.0.1'. Este valor é diferente do nome do host de VM. |
-| Caminho |O caminho relativo da investigação. Um caminho válido começa com '/'. |
-| Intervalo |Intervalo de investigação em segundos. Este valor é o intervalo de tempo entre duas investigações consecutivas. |
-| Tempo limite |Tempo limite da investigação em segundos. Se uma resposta válida não for recebida dentro desse período de tempo limite, a investigação será marcada como com falha.  |
-| Limite não íntegro |Contagem de repetições da investigação. O servidor de back-end é marcado após a contagem de falhas de investigação consecutivas atingir o limite de não íntegro. |
+| Nome |Nome do teste de saudação. Esse nome é usado toorefer toohello investigação em configurações de HTTP de back-end. |
+| Protocolo |Protocolo usado toosend investigação de saudação. investigação de saudação usa o protocolo de saudação definido nas configurações de HTTP de back-end de saudação |
+| Host |Investigação de saudação do toosend do nome de host. Aplicável somente quando vários sites são configurados no Gateway de Aplicativo; do contrário, use '127.0.0.1'. Este valor é diferente do nome do host de VM. |
+| Caminho |Caminho relativo da investigação de saudação. caminho válido Olá começa com '/'. |
+| Intervalo |Intervalo de investigação em segundos. Esse valor é o intervalo de tempo de saudação entre duas investigações consecutivos. |
+| Tempo limite |Tempo limite da investigação em segundos. Se uma resposta válida não for recebida dentro desse período de tempo limite, investigação hello está marcada como falha.  |
+| Limite não íntegro |Contagem de repetições da investigação. servidor de back-end Hello está marcado para baixo depois contagem de falhas de investigação consecutivas Olá atinge o limite não íntegro hello. |
 
 > [!IMPORTANT]
-> Se o Gateway de Aplicativo estiver configurado para um único site, por padrão, o nome do Host deverá ser especificado como '127.0.0.1', a menos que seja configurado de outra forma na investigação personalizada.
-> Para referência, uma investigação personalizada é enviada para \<protocol\>://\<host\>:\<port\>\<path\>. A porta usada será a mesma definida nas configurações de HTTP do back-end.
+> Se o Gateway do aplicativo está configurado para um único site, por saudação padrão Host nome deve ser especificado como '127.0.0.1', a menos que o contrário configurada na investigação personalizada.
+> Para referência uma investigação personalizada é enviada muito\<protocolo\>://\<host\>:\<porta\>\<caminho\>. Olá porta usada será Olá mesma porta, conforme definido nas configurações de HTTP de back-end de saudação.
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois de aprender sobre o monitoramento de integridade do Gateway de Aplicativo, você poderá configurar uma [investigação de integridade personalizada](application-gateway-create-probe-portal.md) no portal do Azure ou uma [investigação de integridade personalizada](application-gateway-create-probe-ps.md) usando o PowerShell e o modelo de implantação do Azure Resource Manager.
+Depois de conhecer o monitoramento de integridade do Application Gateway, você pode configurar um [investigação de integridade personalizado](application-gateway-create-probe-portal.md) em Olá portal do Azure ou um [investigação de integridade personalizado](application-gateway-create-probe-ps.md) usando o PowerShell e hello Azure Resource Manager modelo de implantação.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png

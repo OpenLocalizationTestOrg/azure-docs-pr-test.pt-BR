@@ -1,6 +1,6 @@
 ---
-title: Implantar VMs Linux em uma rede existente com a CLI do Azure 1.0 | Microsoft Docs
-description: Como implantar uma VM Linux em uma Rede Virtual existente usando a CLI do Azure 1.0
+title: aaaDeploy VMs do Linux em uma rede existente com o Azure CLI 1.0 | Microsoft Docs
+description: "Como toodeploy uma VM do Linux em uma rede Virtual existente usando Olá 1.0 da CLI do Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -15,34 +15,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 767a3f7cadba6b1e71e5a8f5995a9db090e419dd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e660f1563d386efc7788bd236f8b067145ea09bb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-deploy-a-linux-virtual-machine-into-an-existing-azure-virtual-network-with-the-azure-cli-10"></a>Como implantar uma máquina virtual Linux em uma Rede Virtual do Azure com a CLI do Azure 1.0
+# <a name="how-toodeploy-a-linux-virtual-machine-into-an-existing-azure-virtual-network-with-hello-azure-cli-10"></a>Como toodeploy uma máquina virtual do Linux em uma rede Virtual do Azure existente com hello 1.0 da CLI do Azure
 
-Este artigo mostra como usar a CLI do Azure 1.0 para implantar uma VM (máquina virtual) em uma VNet (Rede Virtual) existente. Esses requisitos são:
+Este artigo mostra como toouse 1.0 da CLI do Azure toodeploy uma máquina virtual (VM) em uma rede Virtual existente (VNet). requisitos de saudação são:
 
 - [uma conta do Azure](https://azure.microsoft.com/pricing/free-trial/)
 - [arquivos de chave SSH pública e privada](mac-create-ssh-keys.md)
 
 
-## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
-Você pode concluir a tarefa usando uma das seguintes versões da CLI:
+## <a name="cli-versions-toocomplete-hello-task"></a>Tarefa de saudação do CLI versões toocomplete
+Você pode concluir a tarefa hello usando uma saudação versões da CLI a seguir:
 
-- [CLI 1.0 do Azure](#quick-commands) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos (este artigo)
-- [CLI 2.0 do Azure](deploy-linux-vm-into-existing-vnet-using-cli.md) – nossa última geração de CLI para o modelo de implantação de gerenciamento de recursos
+- [1.0 de CLI do Azure](#quick-commands) – nosso CLI para Olá clássico e o recurso de gerenciamento modelos de implantação (Este artigo)
+- [2.0 do CLI do Azure](deploy-linux-vm-into-existing-vnet-using-cli.md) -nossa próxima geração CLI para o modelo de implantação do gerenciamento de recursos de saudação
 
 
 ## <a name="quick-commands"></a>Comandos rápidos
 
-Se você precisar executar a tarefa rapidamente, a seção a seguir fornecerá detalhes dos comandos necessários. Mais informações detalhadas e contexto para cada etapa podem ser encontrados no restante do documento, [começando aqui](deploy-linux-vm-into-existing-vnet-using-cli.md#detailed-walkthrough).
+Se você precisar tooquickly realizar tarefa hello, Olá seção a seguir fornece detalhes sobre comandos Olá necessários. Obter mais informações e o contexto para cada etapa pode ser encontrada restante de saudação do documento hello, [Iniciar aqui](deploy-linux-vm-into-existing-vnet-using-cli.md#detailed-walkthrough).
 
 Pré-requisitos: Grupo de Recursos, VNet, NSG com SSH de entrada e Sub-rede. Substitua os exemplos por suas próprias configurações.
 
-### <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>Implantar a VM na infra-estrutura de rede virtual
+### <a name="deploy-hello-vm-into-hello-virtual-network-infrastructure"></a>Implantar Olá VM na infraestrutura de rede virtual Olá
 
 ```azurecli
 azure vm create myVM \
@@ -61,19 +61,19 @@ azure vm create myVM \
 
 ## <a name="detailed-walkthrough"></a>Passo a passo detalhado
 
-Os ativos do Azure como VNets e grupos de segurança de rede devem ser recursos estáticos e de longa duração que raramente são implantados. Após a implantação de uma VNET, ela pode ser reutilizada por novas implantações sem nenhum efeito negativo sobre a infraestrutura. Pense em uma rede virtual como sendo um comutador de rede tradicionais de hardware. Você não precisaria definir uma nova chave de hardware com cada implantação. Com uma VNET configurada corretamente, você pode continuar implantando novos servidores nela repetidamente e com pouca ou nenhuma alteração necessária durante a vida útil da VNET.
+Olá VNets, como ativos do Azure e grupos de segurança de rede devem ser estáticos e vida útil longa recursos que raramente são implantados. Quando uma rede virtual tiver sido implantada, ele pode ser reutilizado por novas implantações sem nenhuma infraestrutura de toohello efeitos adversos. Pense em uma rede virtual como sendo um comutador de rede tradicionais de hardware. Você não precisará tooconfigure alternar de um novo hardware com cada implantação. Com uma rede virtual configurada corretamente, você pode continuar toodeploy novos servidores para essa rede virtual repetidamente com poucas, se houver, alterações necessárias sobre a vida útil de saudação do hello VNet.
 
-## <a name="create-the-resource-group"></a>Criar o grupo de recursos
+## <a name="create-hello-resource-group"></a>Criar grupo de recursos de saudação
 
-Primeiro, crie um grupo de recursos para organizar tudo o que você criou neste passo a passo. Para obter mais informações sobre os grupos de recursos, consulte [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
+Primeiro, crie um tooorganize do grupo de recursos tudo que você cria neste passo a passo. Para obter mais informações sobre os grupos de recursos, consulte [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
 
 ```azurecli
 azure group create myResourceGroup --location eastus
 ```
 
-## <a name="create-the-vnet"></a>Criar a VNET
+## <a name="create-hello-vnet"></a>Criar hello VNet
 
-A primeira etapa é criar uma VNET na qual as VMs serão iniciadas. A VNET contém uma sub-rede para este passo a passo. Para obter mais informações sobre as VNETs do Azure, consulte [Criar uma rede virtual usando a CLI do Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md)
+Olá primeira etapa é toobuild toolaunch uma rede virtual Olá VMs em. Olá VNet contém uma sub-rede para este passo a passo. Para obter mais informações sobre VNets do Azure, consulte [criar uma rede virtual usando Olá CLI do Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md)
 
 ```azurecli
 azure network vnet create myVNet \
@@ -82,9 +82,9 @@ azure network vnet create myVNet \
     --location eastus
 ```
 
-## <a name="create-the-network-security-group"></a>Crie o grupo de segurança de rede
+## <a name="create-hello-network-security-group"></a>Criar grupo de segurança de rede Olá
 
-A Sub-rede é criada por trás de um grupo de segurança de rede existente, portanto, crie o grupo de segurança de rede antes da sub-rede. Os grupos de segurança de rede do Azure são equivalentes a um firewall na camada de rede. Para saber mais sobre os grupos de segurança de rede do Azure, confira [Como criar grupos de segurança de rede na CLI do Azure](../../virtual-network/virtual-networks-create-nsg-arm-cli.md)
+subrede Olá baseia-se atrás de um grupo de segurança de rede existente para criar grupos de segurança de rede Olá antes de sub-rede hello. Grupos de segurança de rede do Azure são equivalentes tooa firewall na camada de rede hello. Para obter mais informações sobre os grupos de segurança de rede do Azure, consulte [como os grupos de segurança de rede toocreate em Olá CLI do Azure](../../virtual-network/virtual-networks-create-nsg-arm-cli.md)
 
 ```azurecli
 azure network nsg create myNetworkSecurityGroup \
@@ -94,7 +94,7 @@ azure network nsg create myNetworkSecurityGroup \
 
 ## <a name="add-an-inbound-ssh-allow-rule"></a>Adicionar uma regra de permissão de SSH de entrada
 
-A VM precisa de acesso da Internet e, portanto, é necessária uma regra permitindo que o tráfego da porta 22 de entrada passe pela rede para a porta 22 na VM.
+Olá VM precisa ter acesso de saudação à internet para que uma regra que permite a porta de entrada 22 tráfego toobe passado Olá rede tooport 22 na Olá VM é necessária.
 
 ```azurecli
 azure network nsg rule create inboundSSH \
@@ -110,9 +110,9 @@ azure network nsg rule create inboundSSH \
     --destination-port-range 22
 ```
 
-## <a name="add-a-subnet-to-the-vnet"></a>Adicionar uma sub-rede à VNET
+## <a name="add-a-subnet-toohello-vnet"></a>Adicionar toohello uma sub-rede VNet
 
-As VMs na VNET devem estar localizadas em uma sub-rede. Cada VNET pode ter várias sub-redes. Crie a sub-rede e associe ao grupo de segurança de rede.
+VMs em redes de saudação devem estar localizadas em uma sub-rede. Cada VNET pode ter várias sub-redes. Criar uma sub-rede hello e associar ao grupo de segurança de rede hello.
 
 ```azurecli
 azure network vnet subnet create mySubNet \
@@ -122,12 +122,12 @@ azure network vnet subnet create mySubNet \
     --network-security-group-name myNetworkSecurityGroup
 ```
 
-Agora, a sub-rede é adicionada à VNet e associada à regra e ao grupo de segurança de rede.
+Olá sub-rede agora é adicionado em Olá VNet e associado à regra e o grupo de segurança de rede de saudação.
 
 
-## <a name="add-a-vnic-to-the-subnet"></a>Adicionar uma VNic à sub-rede
+## <a name="add-a-vnic-toohello-subnet"></a>Adicionar uma sub-rede de toohello VNic
 
-As VNics (placas de rede virtual) são importantes uma vez que você pode reutilizá-las, conectando-as a VMs diferentes. Essa abordagem mantém a VNic como um recurso estático, enquanto as VMs podem ser temporárias. Crie uma VNic e associe-a à sub-rede criada na etapa anterior.
+Placas de rede virtual (VNics) são importantes para você pode reutilizá-los, conectando-os toodifferent VMs. Essa abordagem mantém Olá VNic como um recurso estático enquanto Olá VMs pode ser temporário. Crie uma VNic e associá-lo a sub-rede Olá criado na etapa anterior hello.
 
 ```azurecli
 azure network nic create myVNic \
@@ -137,11 +137,11 @@ azure network nic create myVNic \
     --subnet-name mySubNet
 ```
 
-## <a name="deploy-the-vm-into-the-vnet-and-nsg"></a>Implantar a VM na VNET e no NSG
+## <a name="deploy-hello-vm-into-hello-vnet-and-nsg"></a>Implantar hello VM em Olá VNet e NSG
 
-Agora você tem uma VNet e uma sub-rede dentro dessa VNet e um grupo de segurança de rede agindo para proteger a sub-rede bloqueando todo o tráfego de entrada, exceto pela porta 22 para o SSH. Agora a VM pode ser implantada nessa infraestrutura de rede existente.
+Agora você tem uma rede virtual e sub-rede dentro dessa rede virtual e um grupo de segurança de rede atuando subrede tooprotect Olá bloqueando todo o tráfego de entrada exceto 22 de porta para o SSH. Olá VM agora pode ser implantado nessa infraestrutura de rede existente.
 
-Usando a CLI do Azure e o comando `azure vm create`, a VM do Linux é implantada no Grupo de Recursos do Azure, na VNET, na Sub-rede e na VNic existentes. Para obter mais informações sobre como usar a CLI para implantar uma VM completa, consulte [Criar um ambiente completo do Linux usando a CLI do Azure](create-cli-complete.md)
+Usando Olá CLI do Azure e Olá `azure vm create` comando, Olá VM do Linux é implantado toohello grupo de recursos do Azure, redes, sub-rede e VNic existentes. Para obter mais informações sobre como usar o hello CLI toodeploy uma VM completa, consulte [criar um ambiente completo do Linux usando Olá CLI do Azure](create-cli-complete.md)
 
 ```azurecli
 azure vm create myVM \
@@ -157,10 +157,10 @@ azure vm create myVM \
     --nic-name myVNic
 ```
 
-Ao usar sinalizadores da CLI para chamar os recursos existentes, você instrui o Azure a implantar a VM na rede existente. Depois que uma VNET e uma sub-rede forem implantadas, elas poderão ser mantidas como recursos estáticos ou permanentes na região do Azure.  
+Usando Olá CLI sinalizadores de toocall recursos existentes, você instruir Olá toodeploy Azure VM dentro da rede existente hello. Depois que uma VNET e uma sub-rede forem implantadas, elas poderão ser mantidas como recursos estáticos ou permanentes na região do Azure.  
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Usar um modelo do Azure Resource Manager para criar uma implantação específica](../windows/cli-deploy-templates.md)
+* [Usar um modelo de Gerenciador de recursos do Azure toocreate uma implantação específica](../windows/cli-deploy-templates.md)
 * [Criar seu próprio ambiente personalizado para uma VM do Linux usando os comandos da CLI do Azure diretamente](create-cli-complete.md)
 * [Criar uma VM do Linux no Azure usando modelos](create-ssh-secured-vm-from-template.md)

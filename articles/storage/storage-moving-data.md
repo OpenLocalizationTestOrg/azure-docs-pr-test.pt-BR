@@ -1,6 +1,6 @@
 ---
-title: Mover grandes quantidades dados do/para armazenamento em nuvem no Azure | Microsoft Docs
-description: "Uma visão geral dos diferentes métodos para mover dados para dentro e para fora do Armazenamento do Azure."
+title: aaaMoving grandes quantidades de dados para/do armazenamento em nuvem no Azure | Microsoft Docs
+description: "Uma visão geral dos métodos diferentes Olá para tooand movimentação de dados do armazenamento do Azure."
 services: storage
 documentationcenter: 
 author: JarrettRenshaw
@@ -14,66 +14,66 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: 538a43e549f47709616dd93e7eab9c8cb7d99dc6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8f7105fea7c2d28ba9954898743070d338f46a37
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="moving-data-to-and-from-azure-storage"></a>Movendo dados para dentro e para fora do Armazenamento do Azure
-Se você quiser mover dados locais para o Armazenamento do Azure (ou vice-versa), há várias maneiras de fazer isso. A melhor abordagem para você dependerá do seu cenário. Este artigo fornece uma visão geral rápida de diferentes cenários e ofertas apropriadas para cada um.
+# <a name="moving-data-tooand-from-azure-storage"></a>Movendo dados tooand do armazenamento do Azure
+Se você quiser toomove local dados tooAzure armazenamento (ou vice-versa), há uma variedade de maneiras toodo isso. abordagem de saudação que funciona melhor para você depende de seu cenário. Este artigo fornece uma visão geral rápida de diferentes cenários e ofertas apropriadas para cada um.
 
 ## <a name="building-applications"></a>Criando aplicativos
-Se você estiver criando um aplicativo, o desenvolvimento na API REST ou em uma das muitas de nossas bibliotecas de cliente é uma excelente maneira de mover dados para dentro e para fora do Armazenamento do Azure.
+Se você estiver criando um aplicativo, o desenvolvimento em relação a saudação API REST ou uma das muitas bibliotecas de cliente é tooand de dados de toomove uma ótima maneira de armazenamento do Azure.
 
-O Armazenamento do Azure fornece ricas bibliotecas de cliente para .NET, iOS, Java, Android, UWP (Plataforma Universal do Windows), Xamarin, C++, Node.JS, PHP, Ruby e Python. As bibliotecas de cliente oferecem recursos avançados, como lógica de recuperação, registro em log e carregamentos paralelos. Você também pode desenvolver diretamente na API REST, que pode ser chamada por qualquer linguagem que faça solicitações HTTP/HTTPS.
+O Armazenamento do Azure fornece ricas bibliotecas de cliente para .NET, iOS, Java, Android, UWP (Plataforma Universal do Windows), Xamarin, C++, Node.JS, PHP, Ruby e Python. bibliotecas de cliente Olá oferecem recursos avançados, como a lógica de repetição, registro em log e carregamentos paralelos. Você também pode desenvolver diretamente em Olá API REST, que podem ser chamados por qualquer linguagem que faz solicitações HTTP/HTTPS.
 
-Confira [Introdução ao Armazenamento de Blobs do Azure](storage-dotnet-how-to-use-blobs.md) para saber mais.
+Consulte [Introdução ao armazenamento de BLOBs do Azure](storage-dotnet-how-to-use-blobs.md) toolearn mais.
 
-Além disso, nós também oferecemos a [Biblioteca de movimentação de dados do Armazenamento do Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement) que é uma biblioteca projetada para a cópia de alto desempenho dos dados do Azure e para ele. Consulte nossa [documentação](https://github.com/Azure/azure-storage-net-data-movement) da Biblioteca de movimentação de dados para saber mais. 
+Além disso, também oferecemos Olá [biblioteca de movimentação de dados de armazenamento do Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement) que é uma biblioteca projetada para alto desempenho cópia dos dados tooand do Azure. Consulte tooour biblioteca de movimentação de dados [documentação](https://github.com/Azure/azure-storage-net-data-movement) toolearn mais. 
 
 ## <a name="quickly-viewinginteracting-with-your-data"></a>Exibindo/interagindo rapidamente com seus dados
-Se você quiser uma maneira fácil de exibir os dados do Armazenamento do Azure e, ao mesmo, a capacidade de carregá-los e baixá-los, considere usar um Gerenciador de Armazenamento do Azure.
+Se você quiser uma maneira fácil tooview seus dados de armazenamento do Azure enquanto também tem tooupload de capacidade de saudação e baixar seus dados, considere usar um Gerenciador de armazenamento do Azure.
 
-Confira nossa lista de [Gerenciadores de Armazenamento do Azure](storage-explorers.md) para saber mais.
+Check-out de nossa lista de [gerenciadores de armazenamento do Azure](storage-explorers.md) toolearn mais.
 
 ## <a name="system-administration"></a>Administração do Sistema
-Se você se sentir mais à vontade com um utilitário de linha de comando (por exemplo, Administradores de Sistema), veja algumas das opções a serem consideradas:
+Se você exige ou mais confortável com um utilitário de linha de comando (por exemplo, os administradores do sistema), aqui estão algumas opções para você tooconsider:
 
 ### <a name="azcopy"></a>AzCopy
-O AzCopy é um utilitário de linha de comando do Windows desenvolvido para cópia de dados de alto desempenho para dentro e para fora do Armazenamento do Azure. Você também pode copiar dados em uma conta de armazenamento ou entre diferentes contas de armazenamento.
+AzCopy é um utilitário de linha de comando do Windows desenvolvido para alto desempenho cópia dos dados tooand do armazenamento do Azure. Você também pode copiar dados em uma conta de armazenamento ou entre diferentes contas de armazenamento.
 
-Confira [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md) para saber mais.
+Consulte [transferir dados com o utilitário de linha de comando AzCopy de hello](storage-use-azcopy.md) toolearn mais.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 O Azure PowerShell é um módulo que fornece cmdlets para gerenciar serviços no Azure. Trata-se de uma linguagem de scripts e shell de linha de comando baseada em tarefas projetada especialmente para administração do sistema.
 
-Confira [Usando o Azure PowerShell com o Armazenamento do Azure](storage-powershell-guide-full.md) para saber mais.
+Consulte [usando o PowerShell do Azure com o armazenamento do Azure](storage-powershell-guide-full.md) toolearn mais.
 
 ### <a name="azure-cli"></a>CLI do Azure
 A CLI do Azure fornece um conjunto de comandos entre plataformas de software livre para trabalhar com os serviços do Azure. A CLI do Azure está disponível no Windows, OSX e Linux.
 
-Confira [Usando a CLI do Azure com o Armazenamento do Azure](storage-azure-cli.md) para saber mais.
+Consulte [hello usando a CLI do Azure com o armazenamento do Azure](storage-azure-cli.md) toolearn mais.
 
 ## <a name="moving-large-amounts-of-data-with-a-slow-network"></a>Mover grandes quantidades de dados com uma rede lenta
-Um dos maiores desafios associados à movimentação de grandes quantidades de dados é o tempo de transferência. Se você deseja introduzir dados no Armazenamento do Azure ou extrair dados dele sem se preocupar com os custos de rede ou em escrever código, a Importação/Exportação do Azure é a solução adequada.
+Um dos maiores desafios de saudação associados à movimentação de grandes quantidades de dados é o tempo de transferência de saudação. Se você quiser tooget dados de/para o armazenamento do Azure sem se preocupar com os custos de redes ou escrever código, importação/exportação do Azure é uma solução apropriada.
 
-Confira [Importação/exportação do Azure](storage-import-export-service.md) para saber mais.
+Consulte [importação/exportação do Azure](storage-import-export-service.md) toolearn mais.
 
 ## <a name="backing-up-your-data"></a>Fazendo backup dos dados
-Se você simplesmente precisa fazer backup dos dados no Armazenamento do Azure, o Backup do Azure é a melhor opção. Trata-se de uma solução potente para fazer backup de dados locais e de VMs do Azure.
+Se você simplesmente precisa toobackup tooAzure seus dados armazenamento, Backup do Azure é Olá toogo de maneira. Trata-se de uma solução potente para fazer backup de dados locais e de VMs do Azure.
 
-Confira [Backup do Azure](../backup/backup-introduction-to-azure-backup.md) para saber mais.
+Consulte [Backup do Azure](../backup/backup-introduction-to-azure-backup.md) toolearn mais.
 
-## <a name="accessing-your-data-on-premises-and-from-the-cloud"></a>Acessando dados locais e na nuvem
-Se você precisar de uma solução para acessar seus dados locais e na nuvem, considere usar a solução de armazenamento de nuvem híbrida do Azure, StorSimple. Essa solução consiste em um dispositivo StorSimple físico que, de maneira inteligente, armazena dados usados com frequência em SSDs, dados usados ocasionalmente em HDDs e dados inativos/de backup/de arquivamento no Armazenamento do Azure.
+## <a name="accessing-your-data-on-premises-and-from-hello-cloud"></a>Acessando seus dados locais e de nuvem Olá
+Se você precisar de uma solução para acessar seus dados locais e de nuvem hello, você deve considerar usar a solução de armazenamento de nuvem de híbrido do Azure, StorSimple. Essa solução consiste em um dispositivo StorSimple físico que, de maneira inteligente, armazena dados usados com frequência em SSDs, dados usados ocasionalmente em HDDs e dados inativos/de backup/de arquivamento no Armazenamento do Azure.
 
-Confira [StorSimple](../storsimple/storsimple-overview.md) para saber mais.
+Consulte [StorSimple](../storsimple/storsimple-overview.md) toolearn mais.
 
 ## <a name="recovering-your-data"></a>Recuperando dados
-Quando houver cargas de trabalho e aplicativos locais, você precisará de uma solução que permita aos negócios continuar em execução no caso de um desastre. O Azure Site Recovery cuida da replicação, do failover e da recuperação de máquinas virtuais e servidores físicos. Os dados replicados são armazenados no Armazenamento do Azure, permitindo que você elimine a necessidade de um datacenter local secundário.
+Quando você tem aplicativos e cargas de trabalho local, você precisará de uma solução que permita seu toocontinue de negócios em execução no evento de saudação de um desastre. O Azure Site Recovery cuida da replicação, do failover e da recuperação de máquinas virtuais e servidores físicos. Dados replicados são armazenados no armazenamento do Azure, permitindo que você tooeliminate Olá necessário para um datacenter local secundário.
 
-Confira [Azure Site Recovery](../site-recovery/site-recovery-overview.md) para saber mais.
+Consulte [do Azure Site Recovery](../site-recovery/site-recovery-overview.md) toolearn mais.
 ### <a name="moving-data-faq"></a>Perguntas frequentes sobre a movimentação de dados:
-## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>Posso migrar VHDs de uma região para outra sem copiar?
-A única maneira de copiar VHDs entre regiões é copiando os dados entre as contas de armazenamento em cada região. Você pode usar o AZCopy para isso. Confira Transferir dados com o Utilitário de Linha de Comando AzCopy para saber mais. Para grandes quantidades de dados, também é possível Importar/Exportar do Azure. Confira [Importação/exportação do Azure](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) para saber mais.
+## <a name="can-i-migrate-vhds-from-one-region-tooanother-without-copying"></a>Posso migrar VHDs de um tooanother de região sem copiar?
+Olá, somente modo toocopy VHDs entre região é dados de saudação toocopy entre contas de armazenamento em cada região. Você pode usar o AZCopy para isso. Consulte a transferência de dados com mais de toolearn o utilitário de linha de comando AzCopy hello. Para grandes quantidades de dados, também é possível Importar/Exportar do Azure. Consulte [importação/exportação do Azure](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) toolearn mais.

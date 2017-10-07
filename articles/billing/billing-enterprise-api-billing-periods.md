@@ -1,6 +1,6 @@
 ---
-title: "APIs Enterprise de cobrança do Azure – períodos de cobrança | Microsoft Docs"
-description: "Saiba mais sobre as APIs de Relatório que permitem a clientes Enterprise do Azure efetuar pull dos dados de consumo de modo programático."
+title: "aaaAzure cobrança Enterprise APIs - períodos de cobrança | Microsoft Docs"
+description: "Saiba mais sobre Olá APIs de relatórios que permitem que os dados de consumo do Azure Enterprise clientes toopull programaticamente."
 services: 
 documentationcenter: 
 author: aedwin
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: c6880b79189e0683387a7aafbd6fa4805b3b42ef
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d4e17f25b22729a7f213306fb019ee0dbeca87ff
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reporting-apis-for-enterprise-customers---billing-periods"></a>APIs de Relatórios para clientes Enterprise – Períodos de Cobrança
 
-A API Períodos de Cobrança retorna uma lista de períodos de cobrança que têm dados de consumo para o Registro especificado em ordem cronológica inversa. Cada período contém uma propriedade que aponta para a rota da API dos quatro conjuntos de dados: BalanceSummary, UsageDetails, Encargos do Marketplace e PriceSheet. Se o período não tiver dados, a propriedade correspondente será nula. 
+Olá cobrança períodos API retorna uma lista de cobrança períodos com dados de consumo para Olá especificado registro em ordem cronológica inversa. Cada período contém uma propriedade apontando toohello rota de API para Olá quatro conjuntos de dados - BalanceSummary, UsageDetails, Marktplace encargos e PriceSheet. Se o período de saudação não tiver dados, propriedade correspondente Olá é nula. 
 
 
 ##<a name="request"></a>Solicitação 
-As propriedades de cabeçalho comuns que precisam ser adicionadas são especificadas [aqui](billing-enterprise-api.md). 
+Propriedades de cabeçalho comuns que precisam toobe adicionado são especificadas [aqui](billing-enterprise-api.md). 
 
 |Método | URI da solicitação|
 |-|-|
 |GET| https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingperiods|
 
 > [!Note]
-> Para usar a versão de visualização da API, substitua a v2 pela v1 na URL anterior.
+> versão de visualização de saudação toouse da API, substitua v2 v1 no hello acima URL.
 >
 
 ## <a name="response"></a>Resposta
@@ -59,13 +59,13 @@ As propriedades de cabeçalho comuns que precisam ser adicionadas são especific
 
 |Nome da Propriedade| Tipo| Descrição
 |-|-|-|
-|billingPeriodId| string| A ID exclusiva que representa um determinado período de cobrança|
-|billingStart| datetime| Cadeia de caracteres ISO 8601 que representa a data de início do período|
-|billingEnd| datetime| Cadeia de caracteres ISO 8601 que representa a data de término do período|
-|balanceSummary| string| O caminho da URL que encaminha para os dados de resumo de saldo para este período|
-|usageDetails| string| O caminho da URL que encaminha para os dados de detalhes de uso para este período|
-|marketplaceCharges| string| O caminho da URL que encaminha para os dados de cobranças do Marketplace para este período|
-|priceSheet| string| O caminho da URL que encaminha para os dados PriceSheet para este período|
+|billingPeriodId| string| Olá Id exclusiva que representa um determinado período de cobrança|
+|billingStart| datetime| Cadeia de caracteres ISO 8601 que representa a data de início do período de saudação|
+|billingEnd| datetime| Cadeia de caracteres ISO 8601 que representa a data de término do período de saudação|
+|balanceSummary| string| caminho de URL de saudação que encaminha os dados de resumo de saldo de toohello para esse período|
+|usageDetails| string| caminho de URL de saudação que roteia toohello dados de detalhes de uso para esse período|
+|marketplaceCharges| string| caminho da URL Olá que encaminha dados de encargos do Marketplace toohello para esse período|
+|priceSheet| string| caminho de URL de saudação que roteia toohello PriceSheet dados para esse período|
 
 <br/>
 ## <a name="see-also"></a>Consulte também

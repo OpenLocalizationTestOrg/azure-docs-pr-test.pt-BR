@@ -1,6 +1,6 @@
 ---
-title: "Resource Manager e implantação clássica| Microsoft Docs"
-description: "Descreve as diferenças entre o modelo de implantação do Gerenciador de Recursos e o modelo de implantação clássica (ou do Gerenciamento de Serviços)."
+title: "aaaResource Gerenciador e implantação clássica | Microsoft Docs"
+description: "Descreve o modelo de implantação do hello diferenças entre o modelo de implantação do Gerenciador de recursos de saudação e Olá clássico (ou gerenciamento de serviço)."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,55 +14,55 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: 060680fd4a7ce6e0cde406cc4a8f6f3a21d3c588
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fbf1959991b100547a459bf88a29c0afbc8592e8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager vs. Implantação clássica: compreenda os modelos de implantação e o estado dos seus recursos
-Neste tópico, você aprende sobre o Azure Resource Manager e os modelos de implantação clássicos, o estado dos seus recursos e porque eles foram implantados com um modelo ou outro. O Gerenciador de Recursos e os modelos de implantação clássicos representam duas maneiras de implantar e gerenciar soluções do Azure. Você trabalha com eles através de dois conjuntos diferentes de API e os recursos implantados podem conter diferenças importantes. Os dois modelos não são totalmente compatíveis entre si. Este tópico descreve essas diferenças.
+# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-hello-state-of-your-resources"></a>Azure Resource Manager versus implantação clássica: entender os modelos de implantação e Olá estado de seus recursos
+Neste tópico, você aprenderá sobre o Gerenciador de recursos do Azure e modelos de implantação clássico, estado de saudação de seus recursos, e por que os recursos foram implantados com uma ou Olá outros. Olá Gerenciador de recursos e modelos de implantação clássico representam duas diferentes maneiras de implantar e gerenciar suas soluções do Azure. Trabalhar com eles por meio de dois conjuntos diferentes de API e recursos de saudação implantado podem conter diferenças importantes. Olá dois modelos não são totalmente compatíveis entre si. Este tópico descreve essas diferenças.
 
-Para simplificar a implantação e o gerenciamento de recursos, a Microsoft recomenda o uso do Gerenciador de Recursos para todos os novos recursos. Se possível, a Microsoft recomenda que você reimplante os recursos existentes por meio do Gerenciador de Recursos.
+implantação de saudação toosimplify e gerenciamento de recursos, a Microsoft recomenda que você use o Gerenciador de recursos para todos os novos recursos. Se possível, a Microsoft recomenda que você reimplante os recursos existentes por meio do Gerenciador de Recursos.
 
-Se você for um usuário novo do Resource Manager, convém primeiro examinar a terminologia definida no [Visão geral do Azure Resource Manager](resource-group-overview.md).
+Se você for novo tooResource Manager, convém terminologia de saudação de revisão toofirst definida no hello [visão geral do Gerenciador de recursos do Azure](resource-group-overview.md).
 
-## <a name="history-of-the-deployment-models"></a>História dos modelos de implantação
-Originalmente, o Azure fornecia o modelo de implantação clássico. Nesse modelo, cada recurso existia independentemente; não havia uma maneira de agrupar recursos relacionados. Em vez disso, era necessário controlar manualmente quais recursos compunham sua solução ou aplicativo, e lembrar-se de gerenciá-los em uma abordagem coordenada. Para implantar uma solução, você precisava criar cada recurso individualmente por meio do portal clássico ou criar um script que implantava todos os recursos na ordem correta. Para excluir uma solução, você precisava excluir cada recurso individualmente. Não era possível aplicar e atualizar facilmente políticas de controle de acesso para recursos relacionados. Por fim, você não podia aplicar marcas aos recursos para rotulá-los com os termos que ajudariam a monitorar seus recursos e gerenciar a cobrança.
+## <a name="history-of-hello-deployment-models"></a>Histórico de modelos de implantação de saudação
+Somente o modelo de implantação clássico Olá originalmente fornecido pelo Azure. Nesse modelo, cada recurso existia independentemente; havia uma maneira toogroup recursos relacionados juntos. Em vez disso, você precisava toomanually controlar quais recursos constituídos de seu aplicativo ou solução e lembre-se de toomanage-los em uma abordagem de coordenada. toodeploy uma solução, você precisava tooeither criar cada recurso individualmente por meio do portal clássico do hello ou criar um script que todos os recursos de saudação na ordem correta, Olá implantados. toodelete uma solução, você precisava toodelete cada recurso individualmente. Não era possível aplicar e atualizar facilmente políticas de controle de acesso para recursos relacionados. Por fim, você não pode aplicar marcas tooresources toolabel-los com os termos que ajudarão-lo a monitoram seus recursos e gerenciar cobrança.
 
-Em 2014, o Azure introduziu o Resource Manager, que adicionou o conceito de um grupo de recursos. Um grupo de recursos é um contêiner de recursos que compartilham um ciclo de vida comum. O modelo de implantação do Gerenciador de Recursos fornece vários benefícios:
+No 2014, o Azure introduziu o Gerenciador de recursos, que adicionado o conceito de saudação de um grupo de recursos. Um grupo de recursos é um contêiner de recursos que compartilham um ciclo de vida comum. modelo de implantação do Gerenciador de recursos de saudação oferece várias vantagens:
 
-* Você pode implantar, gerenciar e monitorar todos os serviços da sua solução como um grupo, em vez de tratá-los individualmente.
+* Você pode implantar, gerenciar e monitorar todos os serviços de saudação para sua solução como um grupo, em vez de manipular esses serviços individualmente.
 * Você pode implantar a solução repetidamente em todo seu ciclo de vida e com a confiança de que seus recursos serão implantados em um estado consistente.
-* Você pode aplicar o controle de acesso a todos os recursos em seu grupo de recursos, e essas políticas são aplicadas automaticamente aos novos recursos adicionados ao grupo de recursos.
-* Você pode aplicar marcas aos recursos para organizar de modo lógico todos os recursos em sua assinatura.
-* Você pode usar a notação JSON (JavaScript Object Notation) para definir a infraestrutura de sua solução. O arquivo JSON é conhecido como um modelo do Resource Manager.
-* Você pode definir as dependências entre os recursos para que eles sejam implantados na ordem correta.
+* Você pode aplicar os recursos de tooall de controle de acesso em seu grupo de recursos, e essas políticas são aplicadas automaticamente quando novos recursos são adicionados toohello grupo de recursos.
+* Você pode aplicar marcas tooresources toologically organizar todos os recursos de saudação em sua assinatura.
+* Você pode usar a infraestrutura de saudação toodefine notação JSON (JavaScript Object) para sua solução. arquivo JSON de saudação é conhecido como um modelo do Gerenciador de recursos.
+* Você pode definir dependências de saudação entre os recursos para que eles são implantados na ordem correta, Olá.
 
-Quando o Gerenciador de Recursos foi adicionado, todos os recursos foram adicionados retroativamente aos grupos de recursos padrão. Se você criar um recurso por meio da implantação clássica agora, ele será criado automaticamente em um grupo de recursos padrão para esse serviço, mesmo que você não tenha especificado esse grupo de recursos na implantação. No entanto, existir apenas em um grupo de recursos não significa que o recurso tenha sido convertido no modelo do Gerenciador de Recursos. Vamos examinar como cada serviço lida com os modelos de implantação na próxima seção. 
+Quando o Gerenciador de recursos foi adicionado, todos os recursos retroativamente foram adicionados toodefault grupos de recursos. Se você criar um recurso por meio de implantação clássico agora, o recurso de saudação é criado automaticamente dentro de um grupo de recursos padrão para esse serviço, mesmo que você não especificar esse grupo de recursos na implantação. No entanto, apenas existentes em um grupo de recursos não significa que o recurso Olá foi modelo do Gerenciador de recursos de toohello convertido. Vamos examinar como a cada serviço lida com dois modelos de implantação Olá na próxima seção, Olá. 
 
-## <a name="understand-support-for-the-models"></a>Noções básicas do suporte aos modelos
-Ao decidir-se sobre qual modelo de implantação usar para seus recursos, há três cenários que você deve considerar:
+## <a name="understand-support-for-hello-models"></a>Entender o suporte para modelos de saudação
+Ao decidir qual toouse do modelo de implantação para os seus recursos, há três cenários toobe atento:
 
-1. O serviço oferece suporte ao Resource Manager e fornece um único tipo.
-2. O serviço oferece suporte ao Resource Manager, mas fornece dois tipos - um para o Resource Manager e outro para o clássico. Esse cenário aplica-se somente a máquinas virtuais, contas de armazenamento e redes virtuais.
-3. O serviço não oferece suporte ao Resource Manager.
+1. serviço de saudação dá suporte ao Gerenciador de recursos e fornece um único tipo.
+2. Olá serviço dá suporte ao Gerenciador de recursos, mas fornece dois tipos - uma para o Gerenciador de recursos e outra para clássico. Esta situação se aplica apenas toovirtual máquinas, as contas de armazenamento e redes virtuais.
+3. serviço de saudação não oferece suporte para o Gerenciador de recursos.
 
-Para descobrir se um serviço dá ou não suporte ao Resource Manager, consulte [Provedores e tipos de recursos](resource-manager-supported-services.md).
+toodiscover se um serviço oferece suporte ao Gerenciador de recursos, consulte [provedores de recursos e tipos de](resource-manager-supported-services.md).
 
-Se o serviço que você quer usar não der suporte ao Resource Manager, continue usando a implantação clássica.
+Se o serviço Olá desejar toouse não oferece suporte para Gerenciador de recursos, você deve continuar usando a implantação clássica.
 
-Se o serviço oferecer suporte ao Resource Manager e **não** for uma máquina virtual, conta de armazenamento ou rede virtual, você poderá usar o Resource Manager sem qualquer complicação.
+Se o serviço Olá dá suporte ao Gerenciador de recursos e **não** uma máquina virtual, a conta de armazenamento ou a rede virtual, você pode usar o Gerenciador de recursos sem qualquer complicações.
 
-Para máquinas virtuais, contas de armazenamento e redes virtuais, se o recurso tiver sido criado por meio da implantação clássica, você deverá continuar operando nele no modo clássico. Se a máquina virtual, conta de armazenamento ou rede virtual tiver sido criada por meio da implantação do Resource Manager, você deve continuar usando operações do Resource Manager. Essa distinção pode ficar confusa quando sua assinatura contiver uma mistura de recursos criada por meio do Resource Manager e da implantação clássica. Essa combinação de recursos pode gerar resultados inesperados, pois os recursos não oferecem suporte às mesmas operações.
+Para máquinas virtuais, contas de armazenamento e redes virtuais, se o recurso de saudação foi criado por meio de implantação clássico, você deve continuar toooperate nela por meio de operações clássicas. Se a máquina virtual de saudação, a conta de armazenamento ou a rede virtual foi criada por meio do Gerenciador de recursos de implantação, você deve continuar usando o Gerenciador de recursos de operações. Essa distinção pode ficar confusa quando sua assinatura contiver uma mistura de recursos criada por meio do Resource Manager e da implantação clássica. Essa combinação de recursos pode criar resultados inesperados porque não dão suporte a recursos de Olá Olá mesmas operações.
 
-Em alguns casos, um comando do Gerenciador de Recursos pode recuperar informações sobre um recurso criado por meio da implantação clássica ou pode executar uma tarefa administrativa como mover um recurso clássico para outro grupo de recursos. Porém, esses casos não devem dar a impressão de que o tipo oferece suporte a operações do Gerenciador de Recursos. Por exemplo, suponhamos que você tenha um grupo de recursos que contenha uma máquina virtual que foi criada com implantação clássica. Se você executar o seguinte comando do PowerShell no Resource Manager:
+Em alguns casos, um comando do Gerenciador de recursos pode recuperar informações sobre um recurso criado por meio de implantação clássico ou pode executar uma tarefa administrativa como mover um grupo de recursos de tooanother recurso clássico. No entanto, esses casos não devem dar a impressão de saudação tipo hello dá suporte a operações do Gerenciador de recursos. Por exemplo, suponhamos que você tenha um grupo de recursos que contenha uma máquina virtual que foi criada com implantação clássica. Se você executar Olá comando do PowerShell do Gerenciador de recursos a seguir:
 
 ```powershell
 Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
 ```
 
-Retorna a máquina virtual:
+Ele retorna a máquina virtual de saudação:
 
 ```powershell
 Name              : ExampleClassicVM
@@ -74,61 +74,61 @@ Location          : westus
 SubscriptionId    : {guid}
 ```
 
-No entanto, o cmdlet do Resource Manager **Get-AzureRmVM** retorna apenas as máquinas virtuais implantadas por meio do Gerenciador de Recursos. O comando a seguir não retorna a máquina virtual criada por meio da implantação clássica.
+No entanto, Olá cmdlet do Gerenciador de recursos de **Get-AzureRmVM** retorna apenas as máquinas virtuais implantadas por meio do Gerenciador de recursos. Olá comando a seguir não retorna Olá máquina de virtual criada por meio de implantação clássico.
 
 ```powershell
 Get-AzureRmVM -ResourceGroupName ExampleGroup
 ```
 
-Somente os recursos criados por meio do Gerenciador de Recursos oferecem suporte a marcas. Não é possível aplicar marcas a recursos clássicos.
+Somente os recursos criados por meio do Gerenciador de Recursos oferecem suporte a marcas. Você não pode aplicar marcas tooclassic recursos.
 
 ## <a name="resource-manager-characteristics"></a>Características do Gerenciador de Recursos
-Para ajudá-lo a entender os dois modelos, vamos analisar as características dos tipos de Resource Manager:
+toohelp entender Olá dois modelos, vamos analisar as características de saudação dos tipos de Gerenciador de recursos:
 
-* Criado por meio do [Portal do Azure](https://portal.azure.com/).
+* Criado por meio de saudação [portal do Azure](https://portal.azure.com/).
   
      ![Portal do Azure](./media/resource-manager-deployment-model/portal.png)
   
-     Para os recursos Computação, Armazenamento e Rede, você tem a opção de usar a implantação Gerenciador de Recursos ou Clássica. Selecione **Gerenciador de Recursos**.
+     Para computação, armazenamento e recursos de rede, você tem opção de saudação do uso de implantação do Gerenciador de recursos ou clássico. Selecione **Gerenciador de Recursos**.
   
      ![Implantação do Gerenciador de Recursos](./media/resource-manager-deployment-model/select-resource-manager.png)
-* Criado com a versão para Resource Manager dos cmdlets do Azure PowerShell. Esses comandos têm o formato *Verb-AzureRmNoun*.
+* Criado com a versão do Gerenciador de recursos de saudação do hello cmdlets do PowerShell do Azure. Esses comandos têm o formato de saudação *AzureRmNoun verbo*.
 
   ```powershell
   New-AzureRmResourceGroupDeployment
   ```
 
-* Criado por meio da [API REST do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) para operações REST.
-* Criado por meio de comandos da CLI do Azure executados no modo **arm** .
+* Criado por meio de saudação [API de REST do Gerenciador de recursos do Azure](https://docs.microsoft.com/rest/api/resources/) para operações REST.
+* Criado por meio de comandos de CLI do Azure executados em Olá **arm** modo.
   
   ```azurecli
   azure config mode arm
   azure group deployment create
   ```
 
-* O tipo de recurso não inclui **(classic)** no nome. A imagem a seguir mostra o tipo como **Conta de armazenamento**.
+* não inclui o tipo de recurso Olá **(clássico)** em nome de saudação. Olá, imagem a seguir mostra o tipo de saudação como **conta de armazenamento**.
   
     ![aplicativo web](./media/resource-manager-deployment-model/resource-manager-type.png)
 
 ## <a name="classic-deployment-characteristics"></a>Características da implantação clássica
-Você também pode conhecer o modelo de implantação clássica como o modelo do Gerenciamento de Serviços.
+Você também pode saber o modelo de implantação clássico hello como modelo de gerenciamento de serviço de saudação.
 
-Os recursos criados no modelo de implantação clássica compartilham as seguintes características:
+Recursos criados em Olá implantação clássica modelo compartilhamento Olá características a seguir:
 
-* Criado por meio do [Portal Clássico](https://manage.windowsazure.com)
+* Criado por meio de saudação [portal clássico](https://manage.windowsazure.com)
   
      ![Portal Clássico](./media/resource-manager-deployment-model/classic-portal.png)
   
-     Ou pelo portal do Azure, e depois você deve especificar a implantação **Clássica** (para Computação, Armazenamento e Rede).
+     Ou, Olá portal do Azure e você especificar **clássico** implantação (de computação, armazenamento e rede).
   
      ![Implantação Clássica](./media/resource-manager-deployment-model/select-classic.png)
-* Criado por meio da versão de Gerenciamento de Serviço dos cmdlets do Azure PowerShell. Esses nomes de comandos têm o formato *Verb-AzureNoun*.
+* Criado por meio da versão de gerenciamento de serviços de saudação do hello cmdlets do PowerShell do Azure. Esses nomes de comando tem o formato de saudação *AzureNoun verbo*.
 
   ```powershell
   New-AzureVM
   ```
 
-* Criado por meio da [API REST do Gerenciamento de Serviços](https://msdn.microsoft.com/library/azure/ee460799.aspx) para operações REST.
+* Criado por meio de saudação [API de REST de gerenciamento de serviço](https://msdn.microsoft.com/library/azure/ee460799.aspx) para operações REST.
 * Criado por meio de comandos da CLI do Azure executados no modo **asm** .
 
   ```azurecli
@@ -136,85 +136,85 @@ Os recursos criados no modelo de implantação clássica compartilham as seguint
   azure vm create
   ```
    
-* O tipo de recurso inclui **(classic)** no nome. A imagem a seguir mostra o tipo como **Conta de armazenamento (clássica)**.
+* tipo de recurso de saudação inclui **(clássico)** em nome de saudação. Olá, imagem a seguir mostra o tipo de saudação como **conta de armazenamento (clássico)**.
   
     ![tipo clássico](./media/resource-manager-deployment-model/classic-type.png)
 
-Você pode usar o Portal do Azure para gerenciar recursos que foram criados por meio da implantação clássica.
+Você pode usar os recursos de toomanage portal do Azure de saudação que foram criados por meio de implantação clássico.
 
 ## <a name="changes-for-compute-network-and-storage"></a>Alterações de computação, rede e armazenamento
-O diagrama a seguir exibe os recursos de computação, rede e armazenamento implantados por meio do Gerenciador de Recursos.
+Olá diagrama a seguir exibe os recursos de computação, rede e armazenamento implantados por meio do Gerenciador de recursos.
 
 ![Arquitetura do Resource Manager](./media/resource-manager-deployment-model/arm_arch3.png)
 
-Observe as seguintes relações entre os recursos:
+Saudação de observação a seguir relações entre os recursos de saudação:
 
-* Todos os recursos existem dentro de um grupo de recursos.
-* A máquina virtual depende de uma conta de armazenamento específica definida no provedor de recursos de Armazenamento para armazenar seus discos no armazenamento de blobs (obrigatório).
-* A máquina virtual faz referência a uma NIC específica definida no provedor de recursos de Rede (obrigatório) e um conjunto de disponibilidade definido no provedor de recursos de Computação (opcional).
-* A NIC faz referência ao endereço IP atribuído à máquina virtual (obrigatório), à sub-rede da rede virtual para a máquina virtual (obrigatório) e a um Grupo de Segurança de Rede (opcional).
-* A sub-rede em uma rede virtual faz referência a um Grupo de Segurança de Rede (opcional).
-* A instância do balanceador de carga faz referência ao pool de back-end dos endereços IP que incluem a NIC de uma máquina virtual (opcional) e faz referência a um endereço IP público ou privado de um balanceador de carga (opcional).
+* Todos os recursos de saudação existirem dentro de um grupo de recursos.
+* máquina virtual de saudação depende de uma conta de armazenamento específico definida em toostore de provedor de recursos de armazenamento Olá seus discos no blob de armazenamento (obrigatório).
+* máquina virtual de saudação faz referência a uma NIC específica definida no provedor de recursos de rede hello (obrigatório) e um conjunto definido no provedor de recursos de computação de saudação (opcional) de disponibilidade.
+* Olá NIC referências Olá máquina virtual atribuído o endereço IP (obrigatório), sub-rede Olá da rede virtual de saudação para máquina virtual de saudação (obrigatório) e tooa grupo de segurança de rede (opcional).
+* subrede Olá em uma rede virtual faz referência a um grupo de segurança de rede (opcional).
+* instância de Balanceador de carga Olá referencia o pool de back-end de saudação de endereços IP que incluem hello NIC de uma máquina virtual (opcional) e faz referência a um endereço balanceador de carga público ou privado IP (opcional).
 
-Aqui estão os componentes e suas relações para a implantação clássica:
+Aqui estão Olá componentes e suas relações de implantação clássico:
 
 ![arquitetura clássica](./media/resource-manager-deployment-model/arm_arch1.png)
 
-A solução clássica para hospedar uma máquina virtual inclui:
+a solução clássico Olá para hospedar uma máquina virtual inclui:
 
-* Um serviço de nuvem necessário que atua como contêiner para hospedar máquinas virtuais (computação). Máquinas virtuais são fornecidas automaticamente com uma placa de interface de rede (NIC) e um endereço IP atribuído pelo Azure. Além disso, o serviço de nuvem contém uma instância do balanceador externo de carga, um endereço IP público e pontos de extremidade padrão para permitir o tráfego do PowerShell remoto e de área de trabalho remota para máquinas virtuais baseadas em Windows e tráfego Secure Shell (SSH) para máquinas virtuais baseadas em Linux.
-* Uma conta de armazenamento necessária que armazena os VHDs em uma máquina virtual, incluindo sistema operacional e discos de dados temporários e adicionais (armazenamento).
-* Uma rede virtual opcional que atua como um contêiner adicional no qual você pode criar uma estrutura de sub-redes e designar a sub-rede na qual a máquina virtual está localizada (rede).
+* Um serviço de nuvem necessário que atua como contêiner para hospedar máquinas virtuais (computação). Máquinas virtuais são fornecidas automaticamente com uma placa de interface de rede (NIC) e um endereço IP atribuído pelo Azure. Além disso, o serviço de nuvem Olá contém uma instância do balanceador de carga externo, um endereço IP público e pontos de extremidade tooallow remoto remoto e área de trabalho do PowerShell tráfego padrão para máquinas virtuais baseadas em Windows e tráfego do Secure Shell (SSH) para baseados em Linux máquinas virtuais.
+* Uma conta de armazenamento necessária que armazena hello VHDs para uma máquina virtual, incluindo sistema operacional de hello, discos de dados temporários e adicionais (armazenamento).
+* Uma rede virtual opcional que atua como um recipiente adicional, no qual você pode criar uma estrutura de sub-redes e designar sub-rede Olá no qual Olá máquina virtual está localizada (rede).
 
-A tabela a seguir descreve as alterações na forma como interagem os provedores de recursos de Computação, Rede e Armazenamento:
+Olá a tabela a seguir descreve as alterações em como os provedores de recursos de computação, rede e armazenamento interagem:
 
 | Item | Clássico | Gerenciador de Recursos |
 | --- | --- | --- |
-| Serviço de Nuvem para Máquinas Virtuais |O Serviço de Nuvem era um contêiner para manter as máquinas virtuais que precisavam de Disponibilidade da plataforma e Balanceamento de Carga. |O Serviço de Nuvem não é mais um objeto necessário para criar uma Máquina Virtual usando o novo modelo. |
-| Redes Virtuais |Uma rede virtual é opcional para a máquina virtual. Se for incluída, a rede virtual não pode ser implantada com o Gerenciador de Recursos. |A máquina virtual requer uma rede virtual que foi implantada com o Gerenciador de Recursos. |
-| Contas de armazenamento |A máquina virtual necessita de uma conta de armazenamento que armazena os VHDs do sistema operacional e discos de dados temporários e adicionais. |A máquina virtual requer uma conta de armazenamento para armazenar seus discos no armazenamento de blobs. |
-| Conjuntos de Disponibilidade |A disponibilidade para a plataforma era indicada por meio da configuração do mesmo "AvailabilitySetName" nas Máquinas Virtuais. A contagem máxima de domínios de falha era 2. |O Conjunto de Disponibilidade é um recurso exposto pelo Provedor Microsoft.Compute. Máquinas Virtuais que exigem alta disponibilidade devem ser incluídas no Conjunto de Disponibilidade. A contagem máxima de domínios de falha agora é 3. |
-| Grupos de afinidade |Grupos de Afinidade eram necessários para criar Redes Virtuais. No entanto, com a introdução de Redes Virtuais Regionais, isso não é mais necessário. |Para simplificar, o conceito de Grupos de Afinidade não existe nas APIs expostas por meio do Gerenciador de Recursos do Azure. |
-| Balanceamento de Carga |A criação de um Serviço de Nuvem fornece um balanceador de carga implícito para as Máquinas Virtuais implantadas. |O Balanceador de Carga é um recurso exposto pelo provedor Microsoft.Network. A interface de rede principal das Máquinas Virtuais que precisam ter o balanceamento de carga deve fazer referência ao balanceador de carga. Os Balanceadores de Carga podem ser internos ou externos. Uma instância do balanceador de carga faz referência ao pool de back-end dos endereços IP que incluem a NIC de uma máquina virtual (opcional) e faz referência a um endereço IP público ou privado de um balanceador de carga (opcional). [Leia mais.](../virtual-network/resource-groups-networking.md) |
-| Endereço IP Virtual |Os Serviços de Nuvem obtém um VIP (Endereço IP Virtual) padrão quando uma VM for adicionada a um serviço de nuvem. O Endereço IP Virtual é o endereço associado ao balanceador de carga implícito. |O Endereço IP público é um recurso exposto pelo provedor Microsoft.Network. O Endereço IP público pode ser Estático (Reservado) ou Dinâmico. IPs Públicos Dinâmicos podem ser atribuídos a um Balanceador de Carga. IPs Públicos podem ser protegidos usando Grupos de Segurança. |
-| Endereço IP Reservado |Você pode reservar um endereço IP no Azure e associá-lo a um Serviço de Nuvem para garantir que o Endereço IP seja temporário. |O Endereço IP Público pode ser criado no modo "Estático" e oferece a mesma funcionalidade de um "Endereço IP Reservado". IPs Públicos Estáticos só podem ser atribuídos a um Balanceador de carga no momento. |
-| Endereço IP Público (PIP) por VM |Endereços IP Públicos também podem ser associados diretamente a uma VM. |O Endereço IP público é um recurso exposto pelo provedor Microsoft.Network. O Endereço IP público pode ser Estático (Reservado) ou Dinâmico. No entanto, apenas IPs Públicos dinâmicos podem ser atribuídos a uma Interface de Rede para obter um IP Público por VM no momento. |
-| Pontos de extremidade |Pontos de Extremidade de Entrada precisam ser configurados em uma Máquina Virtual para que seja aberta a conectividade para determinadas portas. Um dos modos comuns de se conectar a máquinas virtuais, realizado com a configuração de pontos de extremidade de entrada. |Regras NAT de Entrada podem ser configuradas em Balanceadores de Carga para obter a mesma capacidade de habilitar pontos de extremidade em portas específicas para conectar-se às VMs. |
-| Nome DNS |Um serviço de nuvem teria um Nome DNS exclusivo implícito. Por exemplo: `mycoffeeshop.cloudapp.net`. |Os nomes DNS são parâmetros opcionais que podem ser especificados em um recurso de Endereço IP Público. O FQDN está no seguinte formato – `<domainlabel>.<region>.cloudapp.azure.com`. |
-| Interfaces de Rede |A Interface de Rede Primária e Secundária e suas propriedades foram definidas como a configuração de rede de uma Máquina virtual. |A Interface de Rede é um recurso exposto pelo Provedor Microsoft.Network. O ciclo de vida da Interface de Rede não está vinculado a uma Máquina Virtual. Faz referência ao endereço IP atribuído à máquina virtual (obrigatório), à sub-rede da rede virtual para a máquina virtual (obrigatório) e a um Grupo de Segurança de Rede (opcional). |
+| Serviço de Nuvem para Máquinas Virtuais |Serviço de nuvem foi um recipiente de máquinas virtuais Olá necessário disponibilidade da plataforma hello e balanceamento de carga. |Serviço de nuvem não é mais um objeto necessário para a criação de uma máquina Virtual usando o novo modelo de saudação. |
+| Redes Virtuais |Uma rede virtual é opcional para a máquina virtual de saudação. Se for incluído, a rede virtual Olá não pode ser implantado com o Gerenciador de recursos. |A máquina virtual requer uma rede virtual que foi implantada com o Gerenciador de Recursos. |
+| Contas de armazenamento |máquina virtual de saudação requer uma conta de armazenamento que armazena Olá VHDs para o sistema operacional de hello, discos de dados temporários e adicionais. |Olá máquina virtual requer um toostore de conta de armazenamento seus discos no armazenamento de blob |
+| Conjuntos de Disponibilidade |Plataforma de toohello de disponibilidade foi indicada Configurando hello "AvailabilitySetName" mesmo em Olá máquinas virtuais. contagem máxima de saudação de domínios de falha era 2. |O Conjunto de Disponibilidade é um recurso exposto pelo Provedor Microsoft.Compute. Máquinas virtuais que requerem alta disponibilidade deve ser incluídas no conjunto de disponibilidade de saudação. contagem máxima de domínios de falha de saudação agora é 3. |
+| Grupos de afinidade |Grupos de Afinidade eram necessários para criar Redes Virtuais. No entanto, com a introdução de saudação de redes virtuais regionais, que não foi necessário mais. |toosimplify, o conceito de grupos de afinidade de saudação não existe no hello APIs expostas por meio do Gerenciador de recursos do Azure. |
+| Balanceamento de Carga |Criação de um serviço de nuvem fornece um balanceador de carga implícita para Olá máquinas virtuais implantadas. |Olá balanceador de carga é um recurso exposto pelo provedor do Microsoft. Network hello. interface de rede primária Olá Olá máquinas virtuais que precisa de balanceamento de carga toobe deve fazer referência balanceador de carga de saudação. Os Balanceadores de Carga podem ser internos ou externos. Uma instância do balanceador de carga referencia o pool de back-end de saudação de endereços IP que incluem hello NIC de uma máquina virtual (opcional) e faz referência a um endereço balanceador de carga público ou privado IP (opcional). [Leia mais.](../virtual-network/resource-groups-networking.md) |
+| Endereço IP Virtual |Serviços de nuvem obtém um padrão VIP (endereço IP Virtual) quando uma máquina virtual é adicionada tooa serviço de nuvem. Olá endereço IP Virtual é o endereço de saudação associado ao balanceador de carga implícita de saudação. |Endereço IP público é um recurso exposto pelo provedor do Microsoft. Network hello. O Endereço IP público pode ser Estático (Reservado) ou Dinâmico. IPs públicos dinâmicos podem ser atribuídos tooa balanceador de carga. IPs Públicos podem ser protegidos usando Grupos de Segurança. |
+| Endereço IP Reservado |Você pode reservar um endereço IP no Azure e associe-o com um tooensure de serviço de nuvem que Olá endereço IP é fixa. |Endereço IP público que pode ser criado no modo "Estático" e ele oferece Olá mesmo recurso como um "endereço de IP reservado". IPs públicos estáticos só pode ser atribuída tooa balanceador de carga no momento. |
+| Endereço IP Público (PIP) por VM |Endereços IP públicos também pode ser associado tooa VM diretamente. |Endereço IP público é um recurso exposto pelo provedor do Microsoft. Network hello. O Endereço IP público pode ser Estático (Reservado) ou Dinâmico. No entanto, apenas os IPs públicos dinâmicos pode ser atribuído tooa tooget de Interface de rede um IP público por VM agora. |
+| Pontos de extremidade |Pontos de extremidade de entrada necessário toobe configurado em uma máquina Virtual toobe abrir a conectividade para determinadas portas. Um dos modos de saudação comuns de se conectar a máquinas toovirtual feitas Configurando pontos de extremidade de entrada. |Regras de NAT de entrada pode ser configuradas em balanceadores de carga tooachieve Olá a mesma funcionalidade de habilitar pontos de extremidade em portas específicas para a conexão toohello VMs. |
+| Nome DNS |Um serviço de nuvem teria um Nome DNS exclusivo implícito. Por exemplo: `mycoffeeshop.cloudapp.net`. |Os nomes DNS são parâmetros opcionais que podem ser especificados em um recurso de Endereço IP Público. Olá FQDN é seguir Olá formato - `<domainlabel>.<region>.cloudapp.azure.com`. |
+| Interfaces de Rede |A Interface de Rede Primária e Secundária e suas propriedades foram definidas como a configuração de rede de uma Máquina virtual. |A Interface de Rede é um recurso exposto pelo Provedor Microsoft.Network. ciclo de vida Olá Olá que interface de rede não está ligado tooa Máquina Virtual. Ele faz referência endereço IP atribuído da máquina de virtual Olá (obrigatório), sub-rede Olá da rede virtual de saudação para máquina virtual de saudação (obrigatório) e tooa grupo de segurança de rede (opcional). |
 
-Para obter informações sobre como conectar redes virtuais de diferentes modelos de implantação, consulte [Conectar redes virtuais de diferentes modelos de implantação no portal](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
+toolearn sobre como conectar redes virtuais de diferentes modelos de implantação, consulte [conectar redes virtuais de diferentes modelos de implantação no portal de saudação](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
-## <a name="migrate-from-classic-to-resource-manager"></a>Migrar do clássico para o Gerenciador de Recursos
-Se você estiver pronto para migrar seus recursos da implantação clássica para a implantação do Resource Manager, consulte:
+## <a name="migrate-from-classic-tooresource-manager"></a>Migração de clássico tooResource Manager
+Se você estiver pronto toomigrate seus recursos de implantação clássico tooResource deployment Manager, consulte:
 
-1. [Análise técnica aprofundada sobre a migração com suporte da plataforma do clássico para o Azure Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
-2. [Platform supported migration of IaaS resources from Classic to Azure Resource Manager (Migração de recursos de IaaS com suporte da plataforma do Clássico para o Azure Resource Manager)](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
-3. [Migrar recursos de IaaS do Clássico para o Azure Resource Manager usando o Azure PowerShell](../virtual-machines/windows/migration-classic-resource-manager-ps.md)
-4. [Migrar recursos de IaaS do modelo clássico para o Azure Resource Manager usando a CLI do Azure](../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
+1. [Técnico mergulho profundo na plataforma suportada migração de clássico tooAzure Gerenciador de recursos](../virtual-machines/windows/migration-classic-resource-manager-deep-dive.md)
+2. [Migração de recursos de IaaS de clássico tooAzure Gerenciador de recursos de suporte de plataforma](../virtual-machines/windows/migration-classic-resource-manager-overview.md)
+3. [Migrar recursos de IaaS de tooAzure clássico Gerenciador de recursos usando o PowerShell do Azure](../virtual-machines/windows/migration-classic-resource-manager-ps.md)
+4. [Migrar recursos de IaaS de tooAzure clássico Gerenciador de recursos usando a CLI do Azure](../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
-**Posso criar uma máquina virtual usando o Azure Resource Manager para implantar em uma rede virtual que foi criada usando a implantação clássica?**
+**Posso criar uma máquina virtual usando o Gerenciador de recursos do Azure toodeploy em uma rede virtual criada usando a implantação clássica?**
 
-Não há suporte para isso. Não é possível usar o Azure Resource Manager para implantar uma máquina virtual em uma rede virtual que foi criada usando a implantação clássica.
+Não há suporte para isso. Você não pode usar o Gerenciador de recursos do Azure toodeploy uma máquina virtual em uma rede virtual que foi criada usando a implantação clássica.
 
-**Posso criar uma máquina virtual usando o Azure Resource Manager por meio de uma imagem do usuário criada usando as APIs de Gerenciamento de Serviços do Azure?**
+**Posso criar uma máquina virtual usando hello Azure Resource Manager de uma imagem de usuário que foi criada usando Olá APIs de gerenciamento de serviço do Azure?**
 
-Não há suporte para isso. No entanto, você pode copiar os arquivos VHD de uma conta de armazenamento criada usando as APIs de Gerenciamento de Serviços e adicioná-los a uma nova conta criada por meio do Azure Resource Manager.
+Não há suporte para isso. No entanto, você pode copiar arquivos VHD de saudação de uma conta de armazenamento que foi criada usando Olá APIs de gerenciamento de serviços e adicioná-los tooa nova conta criada por meio do Gerenciador de recursos do Azure.
 
-**Qual é o impacto sobre a cota da minha assinatura?**
+**Qual é o impacto de saudação cota Olá para minha assinatura?**
 
-As cotas para as máquinas virtuais, redes virtuais e contas de armazenamento criadas por meio do Azure Resource Manager são separadas das outras cotas. Cada assinatura obtém cotas para criar os recursos usando as novas APIs. Você pode ler mais sobre as cotas adicionais [aqui](../azure-subscription-service-limits.md).
+cotas de saudação para máquinas virtuais de hello, redes virtuais e contas de armazenamento criadas por meio de saudação do Azure Resource Manager são independentes das outras cotas. Cada assinatura obtém cotas toocreate Olá recursos usando Olá novas APIs. Você pode ler mais sobre cotas adicionais Olá [aqui](../azure-subscription-service-limits.md).
 
-**Posso continuar a usar meus scripts automatizados para o provisionamento de máquinas virtuais, redes virtuais e contas de armazenamento por meio das APIs do Gerenciador de Recursos?**
+**Posso continuar toouse meus scripts automatizados para o provisionamento de máquinas virtuais, redes virtuais e contas de armazenamento por meio de APIs do Gerenciador de recursos de saudação?**
 
-Todos os scripts e a automação que você criou continuam a funcionar nas máquinas virtuais e redes virtuais existentes criadas no modo de Gerenciamento de serviço do Azure. No entanto, os scripts devem ser atualizados para usar o novo esquema para criar os mesmos recursos por meio do modo do Gerenciador de Recursos.
+Todos os scripts criados e automação Olá continuam toowork Olá máquinas de virtuais existentes, redes virtuais criadas no modo de gerenciamento de serviços do Azure hello. No entanto, os scripts de saudação têm toobe toouse atualizado Olá novo esquema para a criação de saudação mesmos recursos por meio do modo do Gerenciador de recursos de saudação.
 
 **Onde posso encontrar exemplos de modelos do Gerenciador de Recursos do Azure?**
 
 Um conjunto abrangente de modelos iniciais pode ser encontrado em [Modelos de início rápido do Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para ver um passo a passo da criação do modelo que define uma máquina virtual, uma conta de armazenamento e uma rede virtual, confira [Passo a passo do modelo do Resource Manager](resource-manager-template-walkthrough.md).
-* Para ver os comandos para implantar um modelo, veja [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
+* toowalk por meio da criação de saudação do modelo que define uma máquina virtual, conta de armazenamento e rede virtual, consulte [passo a passo do Gerenciador de recursos modelo](resource-manager-template-walkthrough.md).
+* comandos de saudação toosee para implantar um modelo, consulte [implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
 

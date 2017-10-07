@@ -1,6 +1,6 @@
 ---
-title: "Saiba mais sobre as versões mais recentes de SO convidado do Azure | Microsoft Docs"
-description: "As últimas notícias de versão e a compatibilidade do SDK para o SO convidado dos serviços de nuvem do Azure."
+title: "aaaLearn sobre Olá versões mais recentes do sistema operacional de convidado do Azure | Microsoft Docs"
+description: "Olá notícias mais recentes de versão e compatibilidade do SDK para o sistema operacional convidado de serviços de nuvem do Azure."
 services: cloud-services
 documentationcenter: na
 author: raiye
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 8/24/2017
 ms.author: raiye
-ms.openlocfilehash: a4439346817df9223c032abc1405a7cf9cbe780b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7274f5a68a32ce91bdede77e1443cdb8053c07ea
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
-Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar seu caminho de atualização antes que um SO convidado seja desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][Azure Guest OS Update Settings], não é essencial ler esta página.
+Fornece informações atualizadas sobre Olá que versões do sistema operacional de convidado do mais recente do Azure para serviços de nuvem. Essas informações ajudam a planejar seu caminho de atualização antes que um SO convidado seja desabilitado. Se você configurar sua funções toouse *automático* atualizações do sistema operacional convidado conforme descrito em [configurações de atualização do sistema operacional de convidado do Azure][Azure Guest OS Update Settings], não é essencial ler esta página.
 
 > [!IMPORTANT]
-> Esta página se aplica às funções de trabalho e da Web dos Serviços de Nuvem, que são executados em um SO convidado. Ela **não se aplica** a Máquinas Virtuais IaaS.
+> Esta página se aplica a tooCloud funções dos serviços web e de trabalho, que são executados em um sistema operacional convidado. Ele faz **não aplicar** tooIaaS máquinas virtuais.
 >
 >
 
 
 > [!NOTE]
-> O RSS Feed foi preterido recentemente. Fique atento a atualizações em um novo feed em breve!
+> Olá RSS Feed recentemente foi preterido. Fique atento a atualizações em um novo feed em breve!
 >
 >
 
-Não está certo quanto ao que é o SO convidado ou como as versões do SO convidado funcionam? Leia [esta](#how-it-works) seção.
+Certeza sobre quais Olá é de sistema operacional convidado ou hello como o sistema operacional convidado versões trabalho? Leia [esta](#how-it-works) seção.
 
 ## <a name="news-updates"></a>Notícias atualizadas
 
@@ -57,7 +57,7 @@ A distribuição do SO convidado de junho começa dia 16 de junho e está projet
 Talvez o SO convidado tenha sido lançado.
 
 ###### <a name="may-17-2017"></a>**17 de maio de 2017**
-Devido a um bug de segurança, estamos desabilitando os seguintes Lançamentos do Sistema Operacional de dezembro de 2016 e janeiro de 2017 que não têm a [correção] do portal: WA-GUEST-OS-5.4_201612-01, WA-GUEST-OS-4.39_201612-01, WA-GUEST-OS-3.46_201612-01, WA-GUEST-OS-2.59_201701-01
+Devido a erro de segurança tooa, podemos estiver desabilitando Olá após dezembro de 2016 e de janeiro de 2017 versões do sistema operacional que não têm Olá [corrigir] do portal de saudação: WA-convidado-OS-5.4_201612-01, WA-convidado-OS-4.39_201612-01, WA-convidado-OS-3.46_ 201612-01, WA-GUEST-OS-2.59_201701-01
 
 ###### <a name="may-12-2017"></a>**12 de maio de 2017**
 A distribuição do SO convidado de maio começa dia 12 de maio e está projetada para ser lançada em 13 de junho.
@@ -69,7 +69,7 @@ A distribuição do SO convidado de abril começa dia 18 de abril e está projet
 A distribuição do SO convidado de março começou em 14 de março de 2017, sendo lançada em 10 de abril de 2017.
 
 ###### <a name="january-10-2017"></a>**10 de janeiro de 2017**
-O SO convidado de janeiro contém patches que afetam apenas o família 2 do SO (Windows 2008 Server R2). Portanto, lançamos apenas a imagem da Família de Sistemas Operacionais 2 (WA-GUEST-OS-2.59_201701-01) para este mês. Para todas as outras famílias de sistemas operacionais, o sistema operacional de dezembro (201612-01) permanece como a versão mais recente.
+saudação de sistema operacional convidado contém correções que afetam somente a família de sistemas operacionais 2 (Windows 2008 Server R2). Lançamos, portanto, somente a imagem de saudação OS família 2 (WA-GUEST-OS-2.59_201701-01) deste mês. Para todas as outras famílias de sistema operacional, Olá SO dezembro (201612 - 01) permanece hello mais recente.
 
 
 ## <a name="releases"></a>Lançamentos
@@ -79,9 +79,9 @@ O SO convidado de janeiro contém patches que afetam apenas o família 2 do SO (
 .NET Framework instalado: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 > [!NOTE]
-> As datas com * estão sujeitas a alterações.
+> Datas com um * são toochange de assunto.
 >
-> A senha de RDP para a Família do sistema operacional 5 deverá ter um mínimo de 10 caracteres.
+> Olá senha RDP para 5 de família do sistema operacional deve ter um mínimo de 10 caracteres.
 >
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
@@ -102,7 +102,7 @@ O SO convidado de janeiro contém patches que afetam apenas o família 2 do SO (
 É compatível com .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
-> As datas com * estão sujeitas a alterações
+> Datas com um * são toochange de assunto
 >
 >
 
@@ -128,7 +128,7 @@ O SO convidado de janeiro contém patches que afetam apenas o família 2 do SO (
 É compatível com .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
-> As datas com * estão sujeitas a alterações
+> Datas com um * são toochange de assunto
 >
 >
 
@@ -154,7 +154,7 @@ O SO convidado de janeiro contém patches que afetam apenas o família 2 do SO (
 Dá suporte a .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
-> As datas com * estão sujeitas a alterações
+> Datas com um * são toochange de assunto
 >
 >
 
@@ -177,10 +177,10 @@ Dá suporte a .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 
 ## <a name="msrc-patch-updates"></a>Atualizações de patch do MSRC
-A lista de patches incluídos em cada lançamento mensal de SO convidado está disponível [aqui][patches].
+Olá lista de patches que são incluídas com cada versão de sistema operacional convidado mensal está disponível [aqui][patches].
 
 ## <a name="sdk-support"></a>Suporte a SDK
-Embora a [política de desativação do SDK do Azure][retire policy sdk] indique que somente as versões acima da 2.2 têm suporte, as famílias de SO convidado específicas permitem que você use as versões anteriores. Você sempre deve usar o SDK mais recente com suporte.
+Olá, embora [política de desativação de saudação do SDK do Azure] [ retire policy sdk] indica que somente versões acima 2.2 são suportados e específico famílias do SO convidado permitem toouse versões anteriores. Você sempre deve usar o hello mais recente com suporte a SDK.
 
 | Família do SO convidado | Versões compatíveis do SDK |
 | --- | --- |
@@ -191,45 +191,45 @@ Embora a [política de desativação do SDK do Azure][retire policy sdk] indique
 | 1 |Versão 1.0+ |
 
 ## <a name="guest-os-release-information"></a>Informações de versão do SO convidado
-Existem três datas que são importantes para as versões de SO Convidado: data de **lançamento**, data de **desabilitação** e data de **validade**. Um SO convidado será considerado disponível quando estiver no Portal e puder ser selecionado como o SO convidado de destino. Quando um SO convidado alcança a data de **desabilitação**, ele é removido do Azure. No entanto, qualquer Serviço de Nuvem direcionado àquele SO convidado ainda funcionará normalmente.
+Há três datas importantes tooGuest OS libera: **versão** data, **desabilitado** data, e **validade** Data. Um sistema operacional convidado é considerado disponível quando ele estiver em Olá Portal e pode ser selecionado como destino Olá sistema operacional convidado. Quando um sistema operacional convidado atinge Olá **desabilitado** data, ele será removido do Azure. No entanto, qualquer Serviço de Nuvem direcionado àquele SO convidado ainda funcionará normalmente.
 
-A janela entre a data de **desabilitação** e a de **validade** fornece um buffer para que você faça a transição facilmente de um SO convidado para um mais recente. Se você estiver usando *automático* como o SO Convidado, sempre estará na versão mais recente e não precisará se preocupar com sua validade.
+janela Olá entre hello **desabilitado** data e hello **validade** data fornece uma transição de tooeasily de buffer de tooone em um sistema operacional convidado mais recente. Se você estiver usando *automáticas* como o sistema operacional convidado, você sempre será na versão mais recente do hello e você não tiver tooworry sobre ele expirar.
 
-Quando a data de **validade** vence, qualquer Serviço de nuvem que ainda esteja usando o SO convidado é interrompido, excluído ou forçado a atualizar. Você pode ler mais sobre a política de desativação [aqui][retirepolicy].
+Olá quando **validade** data passa, qualquer serviço de nuvem usar ainda que o sistema operacional convidado será interrompido, excluído ou forçado tooupgrade. Você pode ler mais sobre a política de desativação Olá [aqui][retirepolicy].
 
 ## <a name="guest-os-family-version-explanation"></a>Família do SO convidado, explicação de versão
-As famílias de SO convidado são baseadas em versões lançadas do Microsoft Windows Server. O SO convidado é o sistema operacional subjacente sobre o qual os Serviços de Nuvem do Azure são executados. Cada SO convidado tem uma família, uma versão e um número de lançamento.
+famílias de sistema operacional convidado Olá são baseadas em versões do Microsoft Windows Server. saudação de sistema operacional convidado é sistema operacional subjacente Olá que os serviços de nuvem do Azure é executado em. Cada SO convidado tem uma família, uma versão e um número de lançamento.
 
 * **Guest OS family**  
   Uma versão do sistema operacional Windows Server na qual o SO Convidado se baseia. Por exemplo, a *família 3* baseia-se no Windows Server 2012.
 * **Versão do SO Convidado**  
-  Específica de uma imagem da família de SO convidado mais os patches relevantes do [MSRC (Microsoft Security Response Center)][msrc] disponíveis na data em que a nova versão do SO convidado é produzida. Nem todos os patches estarão necessariamente incluídos.
+  Imagem específica tooa família do SO convidado mais relevantes [Microsoft Security Response Center (MSRC)] [ msrc] patches que estão disponíveis em Olá data Olá nova versão do SO convidado é produzida. Nem todos os patches estarão necessariamente incluídos.
 
     Os números começam em 0 e são incrementados em 1 cada vez que um novo conjunto de atualizações é adicionado. Os zeros à direita são mostrados apenas se forem importantes. Ou seja, a versão 2.10 é uma versão diferente e muito posterior à versão 2.1.
 * **Versão do SO convidado**  
-  Um relançamento de uma versão do SO Convidado. Um relançamento ocorre quando a Microsoft encontra, durante os testes, problemas que exigem alterações. A versão mais recente sempre substitui quaisquer lançamentos anteriores, públicos ou não. O portal do Azure só permitirá que os usuários escolham o lançamento mais recente de uma determinada versão. Implantações executadas em uma versão anterior geralmente não sofrem atualização forçada, o que depende da gravidade do bug.
+  Um relançamento de uma versão do SO Convidado. Um relançamento ocorre quando a Microsoft encontra, durante os testes, problemas que exigem alterações. Olá versão mais recente sempre substitui qualquer anterior libera, público ou não. Olá portal do Azure só permitirá que os usuários a versão mais recente do toopick Olá para uma determinada versão. Implantações em execução em uma versão anterior geralmente não são atualizadas à força dependendo da gravidade de saudação do bug hello.
 
-No exemplo abaixo, 2 é a família, 12 é a versão e "rel2" é o lançamento.
+O exemplo hello abaixo, 2 é uma família de saudação, 12 é a versão de hello e "rel2" é a versão de saudação.
 
 **Versão de SO convidado** - 2.12 rel2
 
 **Cadeia de caracteres de configuração para essa versão** - WA-GUEST-OS-2.12_201208-02
 
-A cadeia de caracteres de configuração para um SO convidado tem inseridas nela essas mesmas informações, junto com uma data mostrando quais patches MSRC foram considerados para esse lançamento. Neste exemplo, os patches do MSRC gerados para Windows Server 2008 R2 até (e incluindo) agosto de 2012 foram considerados para inclusão. Apenas os patches que se aplicam especificamente a essa versão do Windows Server são incluídos. Por exemplo, se um patch de MSRC se aplica ao Microsoft Office, ele não será incluído porque esse produto não faz parte da imagem base do Windows Server.
+cadeia de caracteres de configuração de saudação para um sistema operacional convidado tem essas mesmas informações inseridas nela, junto com uma data mostrando quais patches MSRC foram considerados para essa versão. Neste exemplo, os patches do MSRC produzidos para Windows Server 2008 R2 backup tooand incluindo agosto de 2012 foram considerados para inclusão. Apenas os patches que se aplicam especificamente a versão toothat do Windows Server são incluídos. Por exemplo, se um patch do MSRC se aplicar tooMicrosoft Office, ele não será incluído porque esse produto não faz parte da imagem base do Windows Server hello.
 
 ## <a name="guest-os-system-update-process"></a>Processo de atualização de sistema do SO convidado
-Esta página contém informações sobre as próximas versões do SO convidado. Os clientes indicaram que desejam saber quando um lançamento ocorre, porque suas funções de serviço de nuvem reinicializarão se elas estiverem definidas para atualização "Automática". Lançamentos de SO convidado normalmente ocorrem pelo menos cinco (5) dias após o lançamento da atualização do MSRC, que por sua vez ocorre na segunda terça-feira de cada mês. As novas versões incluem todos os patches do MSRC relevantes para cada família de SOs convidados.
+Esta página contém informações sobre as próximas versões do SO convidado. Os clientes indicaram que desejam tooknow quando uma versão ocorrerá porque suas funções de serviço de nuvem reinicializarão se estiverem definidos atualização muito "automática". Versões do SO convidado normalmente ocorrem pelo menos cinco (5) dias após hello MSRC versão de atualização que ocorre em Olá segunda terça-feira de cada mês. Novas versões incluem todos os Olá relevantes patches do MSRC para cada família de sistema operacional convidado.
 
-O Microsoft Azure está constantemente lançando atualizações. O SO convidado é apenas uma atualização desse tipo no pipeline. Uma versão pode ser afetada por um número muito grande de fatores para que se possa listá-los aqui. Além disso, o Azure é executado em literalmente centenas de milhares de computadores. Isso significa que é impossível fornecer uma data e hora exatas em que a função (ou funções) será reinicializada. Estamos trabalhando em um plano para limitar ou programar as reinicializações.
+O Microsoft Azure está constantemente lançando atualizações. saudação de sistema operacional convidado é apenas uma atualização no pipeline de saudação. Uma versão pode ser afetada por muitos fatores muito numerosos toolist aqui. Além disso, o Azure é executado em literalmente centenas de milhares de computadores. Isso significa que é impossível toogive uma data e hora exatas quando sua função será reinicializada. Estamos trabalhando em um plano toolimit ou programar as reinicializações.
 
-Quando um novo lançamento do SO convidado é realizado, pode levar tempo para que ele se propague totalmente pelo Azure. Como os serviços são atualizados para o novo SO convidado, eles são reinicializados respeitando os domínios de atualização. Os serviços nos quais está definido o uso de atualizações "Automáticas" receberão um lançamento primeiro. Após a atualização, você verá a nova versão do SO convidado listada para seu serviço no portal do Azure. Relançamentos podem ocorrer durante esse período. Algumas versões podem ser implantadas por longos períodos de tempo e reinicializações de atualização automática podem não ocorrer por muitas semanas após a data de lançamento oficial. A partir do momento em que um SO convidado está disponível você pode escolher explicitamente essa versão a partir do portal ou em seu arquivo de configuração.
+Quando uma nova versão de hello que SO convidado é publicado, pode levar tempo toofully propagação no Azure. Como os serviços são atualizado toohello novo sistema operacional convidado, eles são reinicializada para respeitar os domínios de atualização. Conjunto de serviços toouse atualizações "Automáticas" receberão uma versão primeiro. Após atualização Olá, você verá a nova versão de sistema operacional convidado Olá listada para seu serviço em Olá portal do Azure. Relançamentos podem ocorrer durante esse período. Algumas versões podem ser implantadas por longos períodos de tempo e reinicializações de atualização automática não podem ocorrer por muitas semanas após a data de lançamento oficial hello. Quando um sistema operacional convidado estiver disponível, você pode escolher explicitamente essa versão do portal de saudação ou no arquivo de configuração.
 
-Para uma grande variedade de informações valiosas sobre reinicializações e indicações para mais detalhes técnicos sobre atualizações de SO de host e convidados, consulte a postagem no blog do MSDN intitulada [Instância de Função reinicia devido a atualizações do SO][restarts].
+Para uma grande quantidade de informações valiosas sobre reinicializações e ponteiros toomore informações detalhes técnicos de Host de sistema operacional convidado e atualizações, consulte Olá MSDN postagem em blog intitulada [função reinicializações de instância devido atualizações de tooOS] [ restarts].
 
-Se você atualizar manualmente o SO convidado, veja [Política de desativação do SO convidado][retirepolicy] para obter informações adicionais.
+Se você atualizar manualmente o sistema operacional convidado, consulte Olá [política de desativação do sistema operacional convidado] [ retirepolicy] para obter informações adicionais.
 
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Política de suporte e desativação do SO convidado
-A política de suporte e desativação do SO convidado é explicada [aqui][retirepolicy].
+Olá política de suporte e desativação do sistema operacional convidado é explicado [aqui][retirepolicy].
 
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
@@ -249,4 +249,4 @@ A política de suporte e desativação do SO convidado é explicada [aqui][retir
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[correção]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+[corrigir]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx

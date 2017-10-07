@@ -1,6 +1,6 @@
 ---
-title: "Alta disponibilidade e recuperação de desastres do Hub IoT do Azure | Microsoft Docs"
-description: "Descreve os recursos do Hub IoT e do Azure que ajudam a criar soluções IoT do Azure altamente disponíveis habilitadas para recuperação de desastre."
+title: "IoT Hub alta disponibilidade e recuperação de desastres de aaaAzure | Microsoft Docs"
+description: "Descreve recursos hello Azure e o IoT Hub que ajudam você a toobuild soluções altamente disponíveis de Azure IoT com recursos de recuperação de desastres."
 services: iot-hub
 documentationcenter: 
 author: fsautomata
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
 ms.author: elioda
-ms.openlocfilehash: 76c3187549e1821908263c30e394db26ee6f75e6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 74e1fa1682258819ffb3fd84eb79e42fc6e4120f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Alta disponibilidade e recuperação de desastres do Hub IoT
-Por ser um serviço do Azure, o Hub IoT fornece alta disponibilidade (HA) com redundâncias no nível de região do Azure, sem a necessidade de qualquer trabalho adicional da solução. A plataforma Microsoft Azure também inclui recursos para ajudá-lo a criar soluções com recursos de DR (recuperação de desastres) ou disponibilidade entre regiões. se quiser fornecer alta disponibilidade global entre regiões para dispositivos ou usuários você deve projetar e preparar suas soluções para aproveitar a vantagem desses recursos de DR do Azure. O artigo [Orientação Técnica de Continuidade de Negócios do Azure](../resiliency/resiliency-technical-guidance.md) descreve os recursos internos do Azure para recuperação de desastres e continuidade de negócios. O documento [Recuperação de desastres e alta disponibilidade para aplicativos do Azure][Disaster recovery and high availability for Azure applications] fornece uma orientação de arquitetura sobre estratégias para que os aplicativos do Azure obtenham alta disponibilidade e recuperação de desastres.
+Como um serviço do Azure, o IoT Hub fornece alta disponibilidade (HA) usando redundâncias no nível de região do Azure hello, sem qualquer trabalho adicional exigido pela solução de saudação. plataforma do Microsoft Azure Olá também inclui recursos toohelp criar soluções com recursos de recuperação de desastres ou disponibilidade entre regiões. Se você quiser tooprovide global, alta disponibilidade entre regiões para dispositivos ou usuários, criar e preparar suas soluções tootake aproveitar esses recursos de recuperação de desastres do Azure. artigo Olá [orientação técnica de continuidade de negócios do Azure](../resiliency/resiliency-technical-guidance.md) descreve recursos internos Olá no Azure para continuidade de negócios e recuperação de desastres. Olá [recuperação de desastres e alta disponibilidade para aplicativos do Azure] [ Disaster recovery and high availability for Azure applications] paper fornece diretrizes de arquitetura sobre estratégias para aplicativos do Azure tooachieve alta disponibilidade e recuperação de desastres.
 
 ## <a name="azure-iot-hub-dr"></a>DR do Hub IoT do Azure
-Além de HA entre regiões, o Hub IoT implementa mecanismos de failover para recuperação de desastres que não exigem intervenção do usuário. A DR do Hub IoT é iniciada automaticamente e tem um RTO (objetivo de tempo de recuperação) de 2 a 26 horas e os RPOs (objetivos de ponto de recuperação) a seguir.
+Além disso toointra região HA, IoT Hub implementa mecanismos de failover para a recuperação de desastres que não exigem nenhuma intervenção do usuário hello. Recuperação de desastres de Hub IoT é iniciada automaticamente e tem um objetivo de tempo de recuperação (RTO) de 26 de 2 horas e Olá objetivos de ponto de recuperação (RPOs) a seguir.
 
 | Funcionalidade | RPO |
 | --- | --- |
@@ -36,18 +36,18 @@ Além de HA entre regiões, o Hub IoT implementa mecanismos de failover para rec
 | Fila de comentários da nuvem para o dispositivo |Todas as mensagens não lidas são perdidas |
 
 ## <a name="regional-failover-with-iot-hub"></a>Failover regional com o Hub IoT
-Um tratamento completo das topologias de implantação em soluções de IoT está fora do escopo deste artigo. O artigo discute o modelo de implantação de *failover regional* para fins de alta disponibilidade e recuperação de desastres.
+Um tratamento completo das topologias de implantação em soluções de IoT está fora do escopo deste artigo hello. Olá artigo Olá *failover regional* modelo de implantação para a finalidade de saudação de alta disponibilidade e recuperação de desastres.
 
-Em um modelo de failover regional, a back-end da solução é executado principalmente em um datacenter local e um secundário Hub IoT e back-end secundários são implantados em outro local do datacenter. Se o Hub IoT no datacenter primário sofre uma interrupção ou a conectividade de rede do dispositivo para o datacenter primário for interrompida. Os dispositivos usarão um ponto de extremidade de serviço secundário sempre que o gateway primário não puder ser alcançado. Com um recurso de failover entre regiões, é possível melhorar a disponibilidade da solução ultrapassando a alta disponibilidade de uma única região.
+Em um modelo de failover regional, Olá solução back end executa principalmente em um datacenter local e um hub IoT secundário e um back-end são implantados em outro local do datacenter. Se o hub IoT de saudação no datacenter primário Olá sofre uma interrupção ou conectividade de rede de saudação do data center principal do hello dispositivo toohello é interrompida. Dispositivos usam um ponto de extremidade de serviço secundário, sempre que o gateway primário de saudação não pode ser alcançado. Com um recurso de failover entre regiões, disponibilidade de solução de saudação pode ser melhorada além de alta disponibilidade saudação de uma única região.
 
-Em um alto nível, para implementar um modelo de failover regional com o Hub IoT, você precisa do seguinte:
+Em um nível alto, tooimplement um modelo de failover regional com o IoT Hub, você precisa seguir hello:
 
-* **Um Hub IoT secundário e lógica de roteamento do dispositivo**- no caso de uma interrupção do serviço em sua região primária, os dispositivos deverão iniciar a conexão com a região secundária. Com base na natureza consciente do estado da maioria dos serviços envolvidos, é comum os administradores de solução acionarem o processo de failover entre regiões. A melhor maneira de comunicar o novo ponto de extremidade para os dispositivos, enquanto mantém o controle do processo, é fazer com que eles verifiquem regularmente um serviço de *concierge* para o ponto de extremidade ativo atual. O serviço de concierge pode ser um aplicativo Web que é replicado e acessível usando técnicas de redirecionamento de DNS (por exemplo, usando o [Gerenciador de Tráfego do Azure][Azure Traffic Manager]).
-* **Replicação do registro de identidade** - Para ser utilizável, o Hub IoT secundário deverá conter todas as identidades de dispositivo que possam se conectar à solução. A solução deve manter backups replicados geograficamente das identidades do dispositivo e carregá-los no Hub IoT secundário antes de mudar o ponto de extremidade ativo para os dispositivos. A funcionalidade de exportação de identidade do dispositivo do Hub IoT é útil neste contexto. Para saber mais, confira [Guia do desenvolvedor do Hub IoT ‑ Registro de identidade][IoT Hub developer guide - identity registry].
-* **Mesclando a lógica** - quando a região primária ficar disponível novamente, o estado e os dados criados no site secundário deverão ser migrados de volta para a região primária. Esse estado e dados estão relacionados principalmente às identidades de dispositivo e aos metadados do aplicativo, que deverão ser mesclados ao Hub IoT primário e com todos os outros armazenamentos específicos do aplicativo na região primária. Para simplificar essa etapa, você deve usar operações idempotentes. Operações idempotentes minimizam os efeitos colaterais da distribuição eventual e consistente de eventos e também de duplicatas ou a entrega de eventos fora de ordem. Além disso, a lógica do aplicativo deve ser projetada para tolerar possíveis inconsistências ou situações "ligeiramente" fora do estado dos dados. Essa situação pode ocorrer devido ao tempo adicional necessário para que o sistema seja “corrigido” com base nos objetivos de ponto de recuperação (RPO).
+* **Um hub IoT e o dispositivo de roteamento lógica secundário**: no caso de saudação de uma interrupção do serviço em sua região primária, dispositivos devem iniciar conexão região secundária do tooyour. Considerando a natureza de reconhecimento de estado de saudação da maioria dos serviços envolvidos, é comum para o processo de failover entre região solução administradores tootrigger hello. Olá melhor maneira toocommunicate Olá novo ponto de extremidade toodevices, mantendo o controle do processo de saudação é toohave-los regularmente um *assistente* serviço para Olá active ponto de extremidade atual. Olá Assistente serviço pode ser um aplicativo web que é replicado e mantido acessível usando técnicas de redirecionamento de DNS (por exemplo, usando [Azure Traffic Manager][Azure Traffic Manager]).
+* **Replicação de registro de identidade** -toobe utilizável, o hub IoT secundário de saudação deve conter todas as identidades de dispositivo que podem se conectar a solução toohello. Olá solução deve manter backups replicados geograficamente de identidades de dispositivo e carregá-los toohello secundário IoT hub antes de alternar ponto de extremidade ativo para dispositivos Olá Olá. funcionalidade de exportação de identidade de dispositivo de saudação do IoT Hub é útil neste contexto. Para saber mais, confira [Guia do desenvolvedor do Hub IoT ‑ Registro de identidade][IoT Hub developer guide - identity registry].
+* **Mesclando lógica** - quando região primária Olá fica disponível novamente, todos Olá estado e dados que foram criados no site secundário Olá devem ser região primária toohello back migrados. Esse estado e os dados relacionado principalmente toodevice identidades e metadados de aplicativo, que devem ser mesclados com o hub IoT principal de saudação e qualquer outra loja na região primária Olá específicas do aplicativo. toosimplify nesta etapa, você deve usar operações idempotentes. Operações de idempotente minimizar Olá efeitos colaterais de saudação eventual consistente a distribuição de eventos e de duplicatas ou fora de ordem entrega de eventos. Além disso, a lógica do aplicativo hello deve ser projetado tootolerate possíveis inconsistências ou "ligeiramente" fora do estado de data. Essa situação pode ocorrer devido a toohello mais tempo que leva para o sistema de saudação muito "reparar" com base nos objetivos de ponto de recuperação (RPO).
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre o Hub IoT do Azure, siga estes links:
+Siga essas toolearn links mais sobre Azure IoT Hub:
 
 * [Introdução aos Hubs IoT (Tutorial)][lnk-get-started]
 * [O que é o Hub IoT do Azure?][What is Azure IoT Hub?]

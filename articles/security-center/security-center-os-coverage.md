@@ -1,5 +1,5 @@
 ---
-title: "Plataformas com suporte na Central de Segurança do Azure | Microsoft Docs"
+title: "plataformas aaaSupported na Central de segurança do Azure | Microsoft Docs"
 description: "Este documento fornece uma lista de sistemas operacionais Windows e Linux com suporte na Central de Segurança do Azure."
 services: security-center
 documentationcenter: na
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: terrylan
-ms.openlocfilehash: c33e132037d95fa92fd59a8243a9a8a351ae0224
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f73e04970749271fc9d75836f4f468b0a4953f9e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Plataformas com suporte na Central de Segurança do Azure
-O monitoramento e as recomendações de estado de segurança estão disponíveis para VMs (máquinas virtuais) criadas usando os modelos de implantação clássico e do Resource Manager.
+Monitoramento de estado de segurança e as recomendações estão disponíveis para máquinas virtuais (VMs) criadas usando Olá clássico e modelos de implantação do Gerenciador de recursos.
 
 > [!NOTE]
-> Saiba mais sobre os [modelos de implantação clássica e do Gerenciador de Recursos](../azure-classic-rm.md) para recursos do Azure.
+> Saiba mais sobre Olá [clássico e modelos de implantação do Gerenciador de recursos](../azure-classic-rm.md) para recursos do Azure.
 >
 >
 
@@ -60,11 +60,11 @@ Sistemas operacionais Linux com suporte:
 >
 
 ## <a name="vms-and-cloud-services"></a>VMs e Serviços de Nuvem
-Também há suporte para VMs em execução em um serviço de nuvem. Apenas serviços de nuvem da Web e funções de trabalho em execução em slots de produção são monitorados. Para saber mais sobre o serviço de nuvem, confira [Visão geral dos Serviços de Nuvem](../cloud-services/cloud-services-choose-me.md).
+Também há suporte para VMs em execução em um serviço de nuvem. Apenas serviços de nuvem da Web e funções de trabalho em execução em slots de produção são monitorados. toolearn mais sobre o serviço de nuvem, consulte [visão geral dos serviços de nuvem](../cloud-services/cloud-services-choose-me.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Guia de Operações e Planejamento da Central de Segurança do Azure](security-center-planning-and-operations-guide.md) – saiba como planejar e entender as considerações de design para adotar a Central de Segurança do Azure
+- [Planejamento da Central de segurança do Azure e guia de operações](security-center-planning-and-operations-guide.md) — Saiba como tooplan e entender a Central de segurança do hello design considerações tooadopt do Azure
 - [Alertas de segurança por tipo na Central de segurança do Azure](https://docs.microsoft.com/en-us/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis) – Saiba mais sobre a análise comportamental da máquina virtual e análise de memória de despejo de memória na Central de Segurança
-- [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço
+- [Perguntas frequentes sobre o Centro de segurança do Azure](security-center-faq.md) — localizar perguntas frequentes sobre como usar o serviço de saudação
 - [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure

@@ -1,6 +1,6 @@
 ---
-title: Migrar VMs para o Resource Manager usando a CLI do Azure | Microsoft Docs
-description: "Este artigo apresenta a migração de recursos com suporte da plataforma do modelo clássico para o Azure Resource Manager usando a CLI do Azure"
+title: aaaMigrate VMs tooResource Manager usando a CLI do Azure | Microsoft Docs
+description: "Este artigo o orienta por meio da migração de suporte de plataforma de saudação de recursos de tooAzure clássico Gerenciador de recursos usando a CLI do Azure"
 services: virtual-machines-linux
 documentationcenter: 
 author: singhkays
@@ -15,177 +15,177 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: a63d758570b09b37b8e51c639267f729521d9ae0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0b11f4bb1b4658b3e88bf7629147ed953b678556
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrar recursos de IaaS do modelo clássico para o Azure Resource Manager usando a CLI do Azure
-Estas etapas mostram como usar a CLI (interface de linha de comando) do Azure para migrar recursos de IaaS (infraestrutura como serviço) do modelo de implantação clássico para o modelo de implantação do Azure Resource Manager. O artigo exige a [CLI do Azure](../../cli-install-nodejs.md).
+# <a name="migrate-iaas-resources-from-classic-tooazure-resource-manager-by-using-azure-cli"></a>Migrar recursos de IaaS de tooAzure clássico Gerenciador de recursos usando a CLI do Azure
+Estas etapas mostram como toouse interface de linha de comando (CLI) do Azure comandos toomigrate infraestrutura como um recurso de serviço (IaaS) do modelo de implantação do hello implantação clássica modelo toohello Gerenciador de recursos do Azure. artigo Olá requer Olá [CLI do Azure](../../cli-install-nodejs.md).
 
 > [!NOTE]
-> Todas as operações descritas aqui são idempotentes. Caso você tenha algum problema que não seja um recurso sem suporte ou um erro de configuração, recomendamos que repita a operação de preparação, anulação ou confirmação. Em seguida, a plataforma repetirá a ação.
+> Todas as operações de saudação descritas aqui são idempotentes. Se você tiver um problema que não seja um recurso sem suporte ou um erro de configuração, é recomendável que você repita Olá preparar, anular ou confirmar a operação. plataforma de saudação tente novamente a ação de saudação.
 > 
 > 
 
 <br>
-Este é um fluxograma para identificar a ordem em que as etapas precisam ser executadas durante um processo de migração
+Aqui está uma ordem de saudação do fluxograma tooidentify nos quais etapas precisam toobe executado durante o processo de migração
 
-![Screenshot that shows the migration steps](../windows/media/migration-classic-resource-manager/migration-flow.png)
+![Captura de tela que mostra as etapas de migração de saudação](../windows/media/migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="step-1-prepare-for-migration"></a>Etapa 1: preparar para a migração
-Veja a seguir algumas das práticas que recomendamos durante a avaliação de migração dos recursos de IaaS do modelo clássico para o Gerenciador de Recursos:
+Aqui estão algumas práticas recomendadas que recomendamos durante a avaliação de migração de recursos de IaaS do clássico tooResource Manager:
 
-* Leia a [lista de recursos ou de configurações sem suporte](../windows/migration-classic-resource-manager-overview.md). Caso você tenha máquinas virtuais que usam recursos ou configurações sem suporte, recomendamos que aguarde até que o suporte para o recurso/configuração seja anunciado. Como alternativa, é possível remover esse recurso ou mudar a configuração para habilitar a migração, caso ela atenda às suas necessidades.
-* Se você tiver scripts automatizados que implantam sua infraestrutura e aplicativos atualmente, tente criar uma configuração de teste semelhante usando esses scripts para migração. Você também pode configurar ambientes de exemplo usando o portal do Azure.
+* Leia Olá [lista de configurações sem suporte ou recursos](../windows/migration-classic-resource-manager-overview.md). Se você tiver máquinas virtuais que usam recursos ou configurações sem suporte, é recomendável que você aguarde toobe de suporte de configuração do recurso Olá anunciada. Como alternativa, você pode remover esse recurso ou sai migração configuração tooenable se ele atende às suas necessidades.
+* Se você tiver automatizado scripts que implantar a infraestrutura e os aplicativos de hoje, tente toocreate uma configuração de teste semelhante usando esses scripts para a migração. Como alternativa, você pode configurar ambientes de exemplo usando Olá portal do Azure.
 
 > [!IMPORTANT]
-> Atualmente não ha suporte para Gateways de Aplicativo para a migração do clássico para o Resource Manager. Para migrar uma rede virtual clássica com um Gateway de Aplicativo, remova o gateway antes de executar uma operação de Preparação para mover a rede. Depois de concluir a migração, reconecte o gateway no Azure Resource Manager. 
+> Os Gateways de aplicativos não têm suporte atualmente para a migração de clássico tooResource Manager. toomigrate uma rede virtual clássica com um gateway de aplicativo, remova gateway Olá antes de executar uma rede Olá de toomove de operação de preparação. Depois de concluir a migração de hello, reconecte gateway Olá no Gerenciador de recursos do Azure. 
 >
->Não é possível migrar automaticamente gateways de ExpressRoute conectando-se a circuitos de ExpressRoute em outra assinatura. Nesses casos, remova o gateway de ExpressRoute, migre a rede virtual e recrie o gateway. Confira [Migrar circuitos de ExpressRoute e redes virtuais associadas do modelo de implantação clássico para o Resource Manager](../../expressroute/expressroute-migration-classic-resource-manager.md) para obter mais informações.
+>Gateways de rota expressa conectando tooExpressRoute circuitos em outra assinatura não podem ser migrados automaticamente. Nesses casos, remover o gateway de rota expressa hello, migrar a rede virtual hello e recrie o gateway hello. Consulte [ExpressRoute migrar circuitos e associadas a redes virtuais do modelo de implantação do Gerenciador de recursos de toohello clássico de Olá](../../expressroute/expressroute-migration-classic-resource-manager.md) para obter mais informações.
 > 
 > 
 
-## <a name="step-2-set-your-subscription-and-register-the-provider"></a>Etapa 2: Definir sua assinatura e registrar o provedor
-Para cenários de migração, é necessário instalar seu ambiente tanto para o modelo clássico quanto para o Gerenciador de Recursos. [Instale a CLI do Azure](../../cli-install-nodejs.md) e [selecione sua assinatura](../../xplat-cli-connect.md).
+## <a name="step-2-set-your-subscription-and-register-hello-provider"></a>Etapa 2: Definir sua assinatura e registrar o provedor de saudação
+Para cenários de migração, você precisa tooset seu ambiente para ambos os clássico e o Gerenciador de recursos. [Instale a CLI do Azure](../../cli-install-nodejs.md) e [selecione sua assinatura](../../xplat-cli-connect.md).
 
-Entre em sua conta.
+Conta de logon tooyour.
 
     azure login
 
-Selecione a assinatura do Azure usando o seguinte comando.
+Selecione Olá assinatura do Azure usando o comando a seguir de saudação.
 
     azure account set "<azure-subscription-name>"
 
 > [!NOTE]
-> O registro é uma etapa única, mas é preciso executá-lo uma vez antes de tentar a migração. Sem o registro, você verá a seguinte mensagem de erro 
+> O registro é uma hora de uma etapa mas precisa toobe feito uma vez antes de tentar a migração. Sem registrar, você verá Olá a seguinte mensagem de erro 
 > 
 > *BadRequest: a assinatura não está registrada para migração.* 
 > 
 > 
 
-Registre-se no provedor de recursos de migração usando o comando a seguir. Observe que, em alguns casos, esse comando atinge o tempo limite. No entanto, o registro será bem-sucedido.
+Registrar com o provedor de recursos de migração de saudação usando o comando a seguir de saudação. Observe que, em alguns casos, esse comando atinge o tempo limite. No entanto, o registro de saudação será bem-sucedida.
 
     azure provider register Microsoft.ClassicInfrastructureMigrate
 
-Aguarde cinco minutos para concluir o registro. É possível verificar o status da aprovação usando o comando a seguir. Verifique se RegistrationState é `Registered` antes de continuar.
+Aguarde cinco minutos para Olá toofinish de registro. Você pode verificar o status de saudação de aprovação de saudação usando o comando a seguir de saudação. Verifique se RegistrationState é `Registered` antes de continuar.
 
     azure provider show Microsoft.ClassicInfrastructureMigrate
 
-Agora mude a CLI para o modo `asm` .
+Agora, alterne CLI toohello `asm` modo.
 
     azure config mode asm
 
-## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet"></a>Etapa 3: Verifique se você tem uma quantidade suficiente de núcleos de Máquina Virtual do Azure Resource Manager na região do Azure de sua implantação atual ou VNET
-Nesta etapa, você precisará alternar para o modo `arm` . Faça isso com o seguinte comando.
+## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-hello-azure-region-of-your-current-deployment-or-vnet"></a>Etapa 3: Verifique se que você tem suficiente núcleos de máquina Virtual do Azure Resource Manager no hello região do Azure de sua implantação atual ou a rede virtual
+Para esta etapa será necessário tooswitch muito`arm` modo. Fazer isso com o comando a seguir de saudação.
 
 ```
 azure config mode arm
 ```
 
-Você pode usar o seguinte comando da CLI para verificar a quantidade atual de núcleos no Azure Resource Manager. Para saber mais sobre cotas de núcleos, veja [Limites e o Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
+Você pode usar o hello CLI comando toocheck Olá quantidade atual de núcleos que você tem no Gerenciador de recursos do Azure a seguir. toolearn mais sobre cotas de core, consulte [limites e hello Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"
 ```
 
-Quando você terminar de verificar esta etapa, volte para o modo `asm` .
+Quando terminar de verificar se esta etapa, você pode alternar de volta muito`asm` modo.
 
     azure config mode asm
 
 
 ## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>Etapa 4: Opção 1 – Migrar máquinas virtuais em um serviço de nuvem
-Obtenha a lista de serviços de nuvem usando o comando a seguir e escolha o serviço de nuvem que deseja migrar. Observe que, se as VMs no serviço de nuvem estiverem em uma rede virtual ou se tiverem funções web/de trabalho, você receberá uma mensagem de erro.
+Obter uma lista de serviços de nuvem usando o comando a seguir de saudação e, em seguida, escolha Olá serviço em nuvem que você deseja toomigrate hello. Observe que se Olá VMs no serviço de nuvem Olá está em uma rede virtual ou se eles têm funções web/de trabalho, você receberá uma mensagem de erro.
 
     azure service list
 
-Execute a comando a seguir para obter o nome da implantação do serviço de nuvem por meio da saída detalhada. Na maioria dos casos, o nome da implantação é igual ao nome do serviço de nuvem.
+Olá execução após o nome da implantação do comando tooget Olá Olá serviço de nuvem de saída detalhada hello. Na maioria dos casos, nome da implantação Olá é Olá igual ao nome do serviço de nuvem hello.
 
     azure service show <serviceName> -vv
 
-Primeiro, valide se você pode migrar o serviço de nuvem usando os seguintes comandos:
+Primeiro, valide se você pode migrar o serviço de nuvem hello usando Olá comandos a seguir:
 
 ```shell
 azure service deployment validate-migration <serviceName> <deploymentName> new "" "" ""
 ```
 
-Prepare as máquinas virtuais no serviço de nuvem para migração. Você tem duas opções entre as quais escolher.
+Prepare Olá VMs no serviço de nuvem Olá para migração. Você tem dois toochoose de opções do.
 
-Se quiser migrar as máquinas virtuais em uma rede virtual criada por plataforma, use o comando a seguir.
+Se você quiser toomigrate Olá VMs tooa criado plataforma rede virtual, use Olá comando a seguir.
 
     azure service deployment prepare-migration <serviceName> <deploymentName> new "" "" ""
 
-Se quiser migrar para uma rede virtual existente no modelo de implantação do Gerenciador de Recursos, use o comando a seguir.
+Se você quiser tooan toomigrate existentes de rede virtual no modelo de implantação do Gerenciador de recursos de hello, use Olá comando a seguir.
 
     azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> <subnetName> <vnetName>
 
-Após uma operação de preparação bem-sucedida, você poderá examinar a saída detalhada para obter o estado de migração das VMs e assegurar que as elas estejam no estado `Prepared` .
+Depois de preparar Olá operação for bem-sucedida, você pode examinar o estado de migração de Olá Olá saída detalhada tooget de saudação VMs e certifique-se de que eles estejam em Olá `Prepared` estado.
 
     azure vm show <vmName> -vv
 
-Verifique a configuração dos recursos preparados usando a CLI ou o portal do Azure. Se você não estiver pronto para a migração e desejar voltar para o estado anterior, use o comando a seguir.
+Verifique a configuração de saudação para Olá preparado recursos usando a CLI ou Olá portal do Azure. Se você não está pronto para migração e desejar toogo toohello back antigo estado, use Olá comando a seguir.
 
     azure service deployment abort-migration <serviceName> <deploymentName>
 
-Se a configuração preparada estiver correta, será possível continuar e confirmar os recursos usando o comando a seguir.
+Se configuração preparada Olá parece bom, você pode Avançar e confirmar recursos hello usando o comando a seguir de saudação.
 
     azure service deployment commit-migration <serviceName> <deploymentName>
 
 
 
 ## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>Etapa 4: Opção 2 – Migrar máquinas virtuais em uma rede virtual
-Selecione a rede virtual que você deseja migrar. Observe que, se a rede virtual contiver funções web/de trabalho ou VMs com configurações sem suporte, você receberá uma mensagem de erro de validação.
+Escolha Olá rede virtual que você deseja toomigrate. Observe que, se a rede virtual Olá contém funções web/de trabalho ou máquinas virtuais com configurações sem suporte, você obterá uma mensagem de erro de validação.
 
-Obtenha todas as redes virtuais na assinatura usando o comando a seguir.
+Obter todas as redes virtuais de saudação na assinatura de saudação usando o comando a seguir de saudação.
 
     azure network vnet list
 
-A saída será parecida com esta:
+saída de Hello será parecida com isto:
 
-![Captura de tela da linha de comando com o nome inteiro da rede virtual realçado.](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
+![Captura de tela hello da linha de comando com o nome de toda a rede virtual Olá realçado.](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
-No exemplo acima, **virtualNetworkName** é o nome inteiro **“Grupo classicubuntu16 classicubuntu16”**.
+Em Olá exemplo acima, Olá **virtualNetworkName** é o nome completo da saudação **"Grupo classicubuntu16 classicubuntu16"**.
 
-Primeiro, valide se você pode migrar a rede virtual usando o seguinte comando:
+Primeiro, valide se migrar Olá rede virtual usando o comando a seguir de saudação:
 
 ```shell
 azure network vnet validate-migration <virtualNetworkName>
 ```
 
-Prepare a rede virtual de sua preferência para migração usando o comando a seguir.
+Prepare a rede virtual Olá de sua escolha para a migração usando o comando a seguir de saudação.
 
     azure network vnet prepare-migration <virtualNetworkName>
 
-Verifique a configuração para as máquinas virtuais preparadas usando a CLI ou o portal do Azure. Se você não estiver pronto para a migração e desejar voltar para o estado anterior, use o comando a seguir.
+Verifique a configuração de saudação para Olá preparado máquinas virtuais usando a CLI ou Olá portal do Azure. Se você não está pronto para migração e desejar toogo toohello back antigo estado, use Olá comando a seguir.
 
     azure network vnet abort-migration <virtualNetworkName>
 
-Se a configuração preparada estiver correta, será possível continuar e confirmar os recursos usando o comando a seguir.
+Se configuração preparada Olá parece bom, você pode Avançar e confirmar recursos hello usando o comando a seguir de saudação.
 
     azure network vnet commit-migration <virtualNetworkName>
 
 ## <a name="step-5-migrate-a-storage-account"></a>Etapa 5: Migrar uma conta de armazenamento
-Depois de concluir a migração das máquinas virtuais, recomendamos a migração da conta de armazenamento.
+Quando terminar de migração de máquinas virtuais Olá, é recomendável que migrar a conta de armazenamento hello.
 
-Prepare a conta de armazenamento para migração usando o comando a seguir
+Preparar a conta de armazenamento Olá para a migração usando o comando a seguir de saudação
 
     azure storage account prepare-migration <storageAccountName>
 
-Verifique a configuração da conta de armazenamento preparada usando a CLI ou o Portal do Azure. Se você não estiver pronto para a migração e desejar voltar para o estado anterior, use o comando a seguir.
+Verifique a configuração de saudação para Olá preparado conta de armazenamento usando a CLI ou Olá portal do Azure. Se você não está pronto para migração e desejar toogo toohello back antigo estado, use Olá comando a seguir.
 
     azure storage account abort-migration <storageAccountName>
 
-Se a configuração preparada estiver correta, será possível continuar e confirmar os recursos usando o comando a seguir.
+Se configuração preparada Olá parece bom, você pode Avançar e confirmar recursos hello usando o comando a seguir de saudação.
 
     azure storage account commit-migration <storageAccountName>
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Visão geral da migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Análise técnica aprofundada sobre a migração com suporte da plataforma do clássico para o Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Planejamento para a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Usar o PowerShell para migrar recursos de IaaS do clássico para o Azure Resource Manager](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Ferramentas da comunidade para ajudar com a migração de recursos de IaaS do clássico para o Azure Resource Manager](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Visão geral da plataforma suportada migração de recursos de IaaS de tooAzure clássico Gerenciador de recursos](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Técnico mergulho profundo na plataforma suportada migração de clássico tooAzure Gerenciador de recursos](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Planejando a migração de recursos de IaaS de tooAzure clássico Gerenciador de recursos](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Usar recursos de IaaS PowerShell toomigrate de tooAzure clássico Gerenciador de recursos](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Ferramentas de comunidade para ajudar com a migração de recursos de IaaS de tooAzure clássico Gerenciador de recursos](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Examinar os erros de migração mais comuns](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Confira as perguntas mais frequentes sobre a migração de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Saudação de revisão mais perguntas frequentes sobre migração de recursos de IaaS do clássico tooAzure Gerenciador de recursos](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

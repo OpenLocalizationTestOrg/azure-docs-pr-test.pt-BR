@@ -1,6 +1,6 @@
 ---
-title: Conectar-se ao Banco de Dados do Azure para PostgreSQL do Node.js | Microsoft Docs
-description: "Este guia de início rápido fornece um exemplo de código Node.js que você pode usar para se conectar e consultar dados do Banco de Dados do Azure para PostgreSQL."
+title: Conecte-se tooAzure banco de dados para PostgreSQL do Node. js | Microsoft Docs
+description: "Este guia de início rápido fornece um exemplo de código Node. js, você pode usar tooconnect e consultar dados do banco de dados PostgreSQL."
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
@@ -11,17 +11,17 @@ ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/23/2017
-ms.openlocfilehash: f6c98833c73b70bcf1f8ca53596a34f09807b276
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9b269d72068ecc24bcf3fb447a2efeda512c698c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-database-for-postgresql-use-nodejs-to-connect-and-query-data"></a>Banco de dados do Azure para PostgreSQL: usar Node.js para se conectar e consultar dados
-Este guia de início rápido demonstra como se conectar a um Banco de Dados do Azure para PostgreSQL usando [Node.js](https://nodejs.org/). Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. As etapas neste artigo pressupõem que você esteja familiarizado com o desenvolvimento usando o Node.js e que começou recentemente a trabalhar com o Banco de Dados do Azure para PostgreSQL.
+# <a name="azure-database-for-postgresql-use-nodejs-tooconnect-and-query-data"></a>Banco de dados do Azure para PostgreSQL: Use Node. js tooconnect e consultar dados
+Este guia de início rápido demonstra como tooconnect tooan Azure banco de dados para usar PostgreSQL [Node.js](https://nodejs.org/). Ele mostra como toouse tooquery de instruções SQL, inserir, atualizar e excluir dados no banco de dados de saudação. Olá etapas neste artigo presumem que você esteja familiarizado com o desenvolvimento usando o Node. js, e que você é novo tooworking com o banco de dados do Azure para PostgreSQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este guia de início rápido usa os recursos criados em um destes guias como ponto de partida:
+Este guia de início rápido usa recursos de saudação criados em qualquer um desses guias como um ponto de partida:
 - [Criar Banco de dados - Portal](quickstart-create-server-database-portal.md)
 - [Criar Banco de dados - CLI](quickstart-create-server-database-azure-cli.md)
 
@@ -31,34 +31,34 @@ Você também precisará:
 ## <a name="install-pg-client"></a>Instalar o cliente pg
 Instalar [pg](https://www.npmjs.com/package/pg), que é um cliente PostgreSQL para Node.js.
 
-Para fazer isso, execute o npm (gerenciador de pacotes de nó) para JavaScript na linha de comando para instalar o cliente pg.
+toodo assim, executar o Gerenciador de pacote de nó hello (npm) para JavaScript de seu cliente de pg de saudação de tooinstall de linha de comando.
 ```bash
 npm install pg
 ```
 
-Verifique a instalação listando os pacotes instalados.
+Verificar a instalação de saudação listando pacotes Olá instalados.
 ```bash
 npm list
 ```
 
 ## <a name="get-connection-information"></a>Obter informações de conexão
-Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para PostgreSQL. Você precisa das credenciais de logon e do nome do servidor totalmente qualificado.
+Obter Olá conexão informações necessárias tooconnect toohello banco de dados PostgreSQL. Você precisa Olá credenciais de logon e de nome totalmente qualificado do servidor.
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. No menu à esquerda no Portal do Azure, clique em **Todos os recursos** e pesquise pelo servidor que você acabou de criar.
-3. Clique no nome do servidor.
-4. Selecione a página **Visão geral** do servidor. Anote o **Nome do servidor** e o **Nome de logon de administrador do servidor**.
+1. Faça logon no toohello [portal do Azure](https://portal.azure.com/).
+2. No menu esquerdo de saudação no portal do Azure, clique em **todos os recursos** e procure o servidor de saudação que você acabou de criar.
+3. Clique em nome do servidor de saudação.
+4. Servidor de saudação selecione **visão geral** página. Anote Olá **nome do servidor** e **nome de logon do administrador de servidor**.
  ![Banco de Dados do Azure para PostgreSQL – Logon de administrador do servidor](./media/connect-nodejs/1-connection-string.png)
-5. Se você se esquecer das informações de logon do servidor, navegue até a página **Visão Geral** para exibir o nome de logon do Administrador do servidor e, se necessário, redefinir a senha.
+5. Se você esquecer suas informações de logon de servidor, navegue toohello **visão geral** página nome de logon de administrador de servidor do tooview hello e, se necessário, Redefinir senha hello.
 
-## <a name="running-the-javascript-code-in-nodejs"></a>Executar o código JavaScript no Node.js
-Você pode iniciar o shell bash Node.js ou o prompt de comando do Windows digitando `node` e executar o exemplo de código JavaScript interativamente copiando-o e colando-o no prompt. Como alternativa, você pode salvar o código JavaScript em um arquivo de texto e iniciar `node filename.js` com o nome do arquivo como um parâmetro para executá-lo.
+## <a name="running-hello-javascript-code-in-nodejs"></a>Executando o código JavaScript Olá no Node. js
+Você pode iniciar o Node. js do prompt de comando Olá bash shell ou windows digitando `node`, execute o código de JavaScript de exemplo hello interativamente por cópia e colando-o no prompt de saudação. Como alternativa, você pode salvar o código JavaScript Olá em um arquivo de texto e iniciar `node filename.js` com o nome de arquivo hello como um parâmetro toorun-lo.
 
 ## <a name="connect-create-table-and-insert-data"></a>Conectar-se, criar tabela e inserir dados
-Use o código a seguir para se conectar e carregar os dados usando instruções SQL **CREATE TABLE** e **INSERT INTO**.
-O objeto [pg. Client](https://github.com/brianc/node-postgres/wiki/Client) é usado para se comunicar com o servidor PostgreSQL. A função [pg. Client.Connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) é usada para estabelecer conexão com o servidor. A função [pg.Client.Query()](https://github.com/brianc/node-postgres/wiki/Query) é usada para executar a consulta SQL no banco de dados PostgreSQL. 
+A seguir use Olá tooconnect de código e carregar Olá dados usando **CREATE TABLE** e **INSERT INTO** instruções SQL.
+Olá [pg. Cliente](https://github.com/brianc/node-postgres/wiki/Client) objeto é toointerface usado com o servidor do hello PostgreSQL. Olá [pg. Client.Connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) função é servidor de toohello tooestablish usado Olá conexão. Olá [pg. Client.Query()](https://github.com/brianc/node-postgres/wiki/Query) função é a consulta SQL Olá tooexecute usado no banco de dados PostgreSQL. 
 
-Substitua os parâmetros host, dbname, user e password pelos valores que você especificou ao criar o servidor e o banco de dados.
+Substitua os valores hello que você especificou quando criou o banco de dados e servidor de saudação host hello, dbname, usuário e parâmetros de senha.
 
 ```javascript
 const pg = require('pg');
@@ -107,9 +107,9 @@ function queryDatabase() {
 ```
 
 ## <a name="read-data"></a>Ler dados
-Use o código a seguir para conectar-se e ler os dados usando uma instrução SQL **SELECT**. O objeto [pg. Client](https://github.com/brianc/node-postgres/wiki/Client) é usado para se comunicar com o servidor PostgreSQL. A função [pg. Client.Connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) é usada para estabelecer conexão com o servidor. A função [pg.Client.Query()](https://github.com/brianc/node-postgres/wiki/Query) é usada para executar a consulta SQL no banco de dados PostgreSQL. 
+A seguir use Olá código tooconnect e ler Olá dados usando um **selecione** instrução SQL. Olá [pg. Cliente](https://github.com/brianc/node-postgres/wiki/Client) objeto é toointerface usado com o servidor do hello PostgreSQL. Olá [pg. Client.Connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) função é servidor de toohello tooestablish usado Olá conexão. Olá [pg. Client.Query()](https://github.com/brianc/node-postgres/wiki/Query) função é a consulta SQL Olá tooexecute usado no banco de dados PostgreSQL. 
 
-Substitua os parâmetros host, dbname, user e password pelos valores que você especificou ao criar o servidor e o banco de dados. 
+Substitua os valores hello que você especificou quando criou o banco de dados e servidor de saudação host hello, dbname, usuário e parâmetros de senha. 
 
 ```javascript
 const pg = require('pg');
@@ -134,7 +134,7 @@ client.connect(err => {
 
 function queryDatabase() {
   
-    console.log(`Running query to PostgreSQL server: ${config.host}`);
+    console.log(`Running query tooPostgreSQL server: ${config.host}`);
 
     const query = 'SELECT * FROM inventory;';
 
@@ -155,9 +155,9 @@ function queryDatabase() {
 ```
 
 ## <a name="update-data"></a>Atualizar dados
-Use o código a seguir para conectar-se e ler os dados usando uma instrução SQL **UPDATE**. O objeto [pg. Client](https://github.com/brianc/node-postgres/wiki/Client) é usado para se comunicar com o servidor PostgreSQL. A função [pg. Client.Connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) é usada para estabelecer conexão com o servidor. A função [pg.Client.Query()](https://github.com/brianc/node-postgres/wiki/Query) é usada para executar a consulta SQL no banco de dados PostgreSQL. 
+A seguir use Olá código tooconnect e ler Olá dados usando um **atualização** instrução SQL. Olá [pg. Cliente](https://github.com/brianc/node-postgres/wiki/Client) objeto é toointerface usado com o servidor do hello PostgreSQL. Olá [pg. Client.Connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) função é servidor de toohello tooestablish usado Olá conexão. Olá [pg. Client.Query()](https://github.com/brianc/node-postgres/wiki/Query) função é a consulta SQL Olá tooexecute usado no banco de dados PostgreSQL. 
 
-Substitua os parâmetros host, dbname, user e password pelos valores que você especificou ao criar o servidor e o banco de dados. 
+Substitua os valores hello que você especificou quando criou o banco de dados e servidor de saudação host hello, dbname, usuário e parâmetros de senha. 
 
 ```javascript
 const pg = require('pg');
@@ -202,9 +202,9 @@ function queryDatabase() {
 ```
 
 ## <a name="delete-data"></a>Excluir dados
-Use o código a seguir para conectar-se e ler os dados usando uma instrução SQL **DELETE**. O objeto [pg. Client](https://github.com/brianc/node-postgres/wiki/Client) é usado para se comunicar com o servidor PostgreSQL. A função [pg. Client.Connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) é usada para estabelecer conexão com o servidor. A função [pg.Client.Query()](https://github.com/brianc/node-postgres/wiki/Query) é usada para executar a consulta SQL no banco de dados PostgreSQL. 
+A seguir use Olá código tooconnect e ler Olá dados usando um **excluir** instrução SQL. Olá [pg. Cliente](https://github.com/brianc/node-postgres/wiki/Client) objeto é toointerface usado com o servidor do hello PostgreSQL. Olá [pg. Client.Connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) função é servidor de toohello tooestablish usado Olá conexão. Olá [pg. Client.Query()](https://github.com/brianc/node-postgres/wiki/Query) função é a consulta SQL Olá tooexecute usado no banco de dados PostgreSQL. 
 
-Substitua os parâmetros host, dbname, user e password pelos valores que você especificou ao criar o servidor e o banco de dados. 
+Substitua os valores hello que você especificou quando criou o banco de dados e servidor de saudação host hello, dbname, usuário e parâmetros de senha. 
 
 ```javascript
 const pg = require('pg');

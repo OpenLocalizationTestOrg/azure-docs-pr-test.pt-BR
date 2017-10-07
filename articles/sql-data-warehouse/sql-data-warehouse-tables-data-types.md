@@ -1,6 +1,6 @@
 ---
-title: "Orientação sobre tipos de dados - SQL Data Warehouse do Azure | Microsoft Docs"
-description: "Recomendações para definir os tipos de dados que são compatíveis com o SQL Data Warehouse."
+title: "tipos de aaaData orientação - Azure SQL Data Warehouse | Microsoft Docs"
+description: "Recomendações de tipos de dados de toodefine que são compatíveis com o SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: shivaniguptamsft
@@ -15,29 +15,29 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 06/02/2017
 ms.author: shigu;barbkess
-ms.openlocfilehash: 5c24c71af16bd9851d9caf15fecfa4bb76f5f77e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a2f7a394feb73d273b25101735b00eb12db2b292
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>Orientação para definição de tipos de dados para as tabelas no SQL Data Warehouse
-Use estas recomendações para definir os tipos de dados de tabela que são compatíveis com o SQL Data Warehouse. Além da compatibilidade, minimizar o tamanho dos tipos de dados melhora o desempenho da consulta.
+Use esses tipos de dados de tabela de toodefine recomendações que são compatíveis com o SQL Data Warehouse. Além disso toocompatibility, minimizando o tamanho de saudação de tipos de dados melhora o desempenho da consulta.
 
-O SQL Data Warehouse oferece suporte aos tipos comuns de dados usados. Para obter uma lista dos tipos de dados com suporte, consulte [tipos de dados](/sql/docs/t-sql/statements/create-table-azure-sql-data-warehouse.md#datatypes) na instrução CREATE TABLE. 
+SQL Data Warehouse oferece suporte a tipos de dados hello mais comumente usada. Para obter uma lista dos tipos de dados de saudação com suporte, consulte [tipos de dados](/sql/docs/t-sql/statements/create-table-azure-sql-data-warehouse.md#datatypes) no hello instrução CREATE TABLE. 
 
 
 ## <a name="minimize-row-length"></a>Minimizar o tamanho da linha
-Minimizar o tamanho dos tipos de dados reduz o tamanho da linha, o que leva a um desempenho de consulta melhor. Use o menor tipo de dados que funcione para seus dados. 
+Minimizar o tamanho de saudação de tipos de dados reduz o comprimento da linha hello, que aumenta o desempenho da consulta toobetter. Use Olá menor tipo de dados que funciona para seus dados. 
 
-- Evite definir as colunas de caractere como um tamanho padrão grande. Por exemplo, se o maior valor for 25 caracteres, defina a coluna como VARCHAR(25). 
+- Evite definir as colunas de caractere como um tamanho padrão grande. Por exemplo, se o valor mais longo de saudação é de 25 caracteres, defina a coluna como varchar (25). 
 - Evite usar [NVARCHAR][NVARCHAR] quando precisar somente de VARCHAR.
 - Quando possível, use NVARCHAR(4000) ou VARCHAR(8000) em vez de NVARCHAR(MAX) ou VARCHAR(MAX).
 
-Se estiver usando o Polybase para carregar as tabelas, o tamanho definido da linha da tabela não pode exceder 1 MB. Quando uma linha com dados de tamanho variável exceder 1 MB, você poderá carregar a linha com BCP, mas não com PolyBase.
+Se você estiver usando o Polybase tooload suas tabelas, o comprimento de saudação definido Olá da linha de tabela não pode exceder 1 MB. Quando uma linha com dados de comprimento variável excede 1 MB, você pode carregar a linha hello BCP, mas não com o PolyBase.
 
 ## <a name="identify-unsupported-data-types"></a>Identificar tipos de dados sem suporte
-Se você estiver migrando o banco de dados de outro banco de dados SQL, poderá encontrar alguns tipos de dados que não têm suporte no SQL Data Warehouse. Use esta consulta para descobrir os tipos de dados sem suporte em seu esquema SQL existente.
+Se você estiver migrando o banco de dados de outro banco de dados SQL, poderá encontrar alguns tipos de dados que não têm suporte no SQL Data Warehouse. Use esta consulta os tipos de dados toodiscover sem suporte em seu esquema existente do SQL.
 
 ```sql
 SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]
@@ -51,7 +51,7 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
 
 ## <a name="unsupported-data-types"></a>Usar soluções alternativas para os tipos de dados sem suporte
 
-A lista a seguir mostra os tipos de dados para os quais o SQL Data Warehouse não dá suporte e fornece alternativas que você pode usar no lugar dos tipos de dados sem suporte.
+Hello lista a seguir mostra Olá tipos de dados que não oferece suporte a SQL Data Warehouse e alternativas permite que você pode usar em vez da saudação sem suporte a tipos de dados.
 
 | Tipos de dados sem suporte | Solução alternativa |
 | --- | --- |
@@ -62,15 +62,15 @@ A lista a seguir mostra os tipos de dados para os quais o SQL Data Warehouse nã
 | [text][ntext,text,image] |[varchar][varchar] |
 | [ntext][ntext,text,image] |[nvarchar][nvarchar] |
 | [sql_variant][sql_variant] |Divida a coluna em várias colunas fortemente tipadas. |
-| [table][table] |Converta em tabelas temporárias. |
-| [timestamp][timestamp] |Retrabalhe o código para usar [datetime2][datetime2] e a função `CURRENT_TIMESTAMP`.  Somente as constantes são suportados como padrões, portanto, current_timestamp não pode ser definida como uma restrição padrão. Se precisar migrar os valores de versão de linha de uma coluna tipada com o carimbo de data/hora, use [BINARY][BINARY](8) ou [VARBINARY][BINARY](8) para os valores de versão de linha NOT NULL ou NULL. |
+| [table][table] |Converta tabelas tootemporary. |
+| [timestamp][timestamp] |Refazer código toouse [datetime2] [ datetime2] e `CURRENT_TIMESTAMP` função.  Somente as constantes são suportados como padrões, portanto, current_timestamp não pode ser definida como uma restrição padrão. Se você precisar toomigrate valores de versão de linha de uma coluna com tipo de carimbo de hora, em seguida, use [binário][BINARY](8) ou [VARBINARY][BINARY](8) para NOT NULL ou Valores de versão de linha de NULL. |
 | [xml][xml] |[varchar][varchar] |
-| [Tipos definidos pelo usuário][user defined types] |Converta para o tipo de dados nativo quando possível. |
+| [Tipos definidos pelo usuário][user defined types] |Converta o tipo de dados nativo toohello voltar quando possível. |
 | valores padrão | Os valores padrão dão suporte somente a literais e constantes.  Não há suporte para expressões ou funções não determinísticas como `GETDATE()` ou `CURRENT_TIMESTAMP`. |
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações, consulte:
+toolearn mais, consulte:
 
 - [Práticas recomendadas do SQL Data Warehouse][SQL Data Warehouse Best Practices]
 - [Visão geral da tabela][Overview]

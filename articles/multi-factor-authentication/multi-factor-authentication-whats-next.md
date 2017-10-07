@@ -1,6 +1,6 @@
 ---
-title: Configurar o Azure MFA| Microsoft Docs
-description: "Esta é a página da Autenticação Multifator do Azure que descreve o que fazer depois com o MFA.  Isso inclui relatórios, alerta de fraude, desvio único, mensagens de voz personalizadas, cache, senhas de ips e aplicativos confiáveis."
+title: aaaConfigure MFA do Azure | Microsoft Docs
+description: "Esta é hello Azure multi-factor authentication página que descreve quais toodo lado com MFA.  Isso inclui relatórios, alerta de fraude, desvio único, mensagens de voz personalizadas, cache, senhas de ips e aplicativos confiáveis."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -14,230 +14,230 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: kgremban
-ms.openlocfilehash: a470a8bc70365a1891fc57efc6d2d4391162fd17
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7f6d0b0975a2c1da2de9b52e978b84475c79b218
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar a Autenticação Multifator do Azure
-Este artigo ajuda a gerenciar o Autenticação Multifator do Azure, agora que tudo está funcionando.  Ele aborda diversos tópicos que ajudarão você a aproveitar ao máximo a Autenticação Multifator do Azure.  Alguns desses recursos não estão disponíveis em todas as versões da Autenticação Multifator do Azure.
+Este artigo ajuda a gerenciar o Autenticação Multifator do Azure, agora que tudo está funcionando.  Ele abrange vários tópicos que ajudarão a saudação tooget mais fora do Azure multi-Factor Authentication.  Alguns desses recursos não estão disponíveis em todas as versões da Autenticação Multifator do Azure.
 
 | Recurso | Descrição | 
 |:--- |:--- |
-| [Alerta de fraude](#fraud-alert) |O alerta de fraude pode ser instalado e configurado para que os usuários possam relatar tentativas fraudulentas de acessar seus recursos. |
-| [Desvio único](#one-time-bypass) |Um desvio único permite que um usuário se autentique uma única vez ao "desviar" a autenticação multifator. |
-| [Mensagens de voz personalizadas](#custom-voice-messages) |As mensagens de voz personalizadas permitem que você use suas próprias gravações ou saudações com a autenticação multifator. |
-| [Cache](#caching-in-azure-multi-factor-authentication) |O cache permite que você defina um momento específico período para que tentativas de autenticação subsequentes tenham êxito automaticamente. |
-| [IPs Confiáveis](#trusted-ips) |Os administradores de um locatário gerenciado ou federado podem usar os IPs Confiáveis para ignorar a verificação em duas etapas de usuários que se conectam pela intranet local da empresa. |
-| [Senhas de aplicativo](#app-passwords) |A senha de aplicativo permite que um aplicativo que não tenha reconhecimento de MFA possa se desviar da autenticação multifator e continuar trabalhando. |
-| [Lembrar da Autenticação Multifator para dispositivos e navegadores lembrados](#remember-multi-factor-authentication-for-devices-that-users-trust) |Permite lembrar dispositivos por um número de dias específico após a entrada bem-sucedida de um usuário usando o MFA. |
-| [Métodos de verificação selecionáveis](#selectable-verification-methods) |Permite que você escolha os métodos de autenticação disponíveis para os usuários usarem. |
+| [Alerta de fraude](#fraud-alert) |Alerta de fraude pode ser definida e configurada para que os usuários podem relatar tentativas fraudulentas tooaccess seus recursos. |
+| [Desvio único](#one-time-bypass) |Um bypass avulso permite tooauthenticate um usuário uma vez por "Ignorar" autenticação multifator. |
+| [Mensagens de voz personalizadas](#custom-voice-messages) |Mensagens de voz personalizadas permitem que você toouse sua própria gravações ou saudações com autenticação multifator. |
+| [Cache](#caching-in-azure-multi-factor-authentication) |O cache permite que você tooset um período de tempo específico para que as tentativas de autenticação subsequentes tenha êxito automaticamente. |
+| [IPs Confiáveis](#trusted-ips) |Os administradores de um locatário gerenciado ou federado podem usar IPs confiáveis toobypass verificacao de usuários que entram da intranet local da empresa hello. |
+| [Senhas de aplicativo](#app-passwords) |Uma senha de aplicativo permite que um aplicativo que não seja a autenticação multifator toobypass com reconhecimento de MFA e continuar trabalhando. |
+| [Lembrar da Autenticação Multifator para dispositivos e navegadores lembrados](#remember-multi-factor-authentication-for-devices-that-users-trust) |Permite que você tooremember dispositivos para um determinado número de dias depois que um usuário entrou com êxito usando o MFA. |
+| [Métodos de verificação selecionáveis](#selectable-verification-methods) |Permite que você toochoose métodos de autenticação de saudação que estão disponíveis para usuários toouse. |
 
-## <a name="access-the-azure-mfa-management-portal"></a>Acesse o Portal de Gerenciamento do Azure MFA
+## <a name="access-hello-azure-mfa-management-portal"></a>Acessar o Portal de gerenciamento de MFA de saudação
 
-Os recursos abordados neste artigo são configurados no Portal de Gerenciamento da Autenticação Multifator. Há duas maneiras de acessar o Portal de Gerenciamento do MFA no portal clássico do Azure. A primeira é usando um provedor de autenticação multifator. A segunda é por configurações do serviço MFA. 
+recursos de saudação abordados neste artigo são configurados no Portal de gerenciamento do Azure multi-Factor Authentication da saudação. Há duas maneiras tooaccess Olá portal de gerenciamento de MFA por meio de saudação portal clássico do Azure. Olá primeiro é por meio do gerenciamento de um provedor de autenticação multifator. Olá segundo é por meio de configurações do serviço MFA de saudação. 
 
 ### <a name="use-an-auth-provider"></a>Usar um provedor de autenticação
 
-Se você usar um provedor de autenticação multifator para uma MFA com base em consumo, utilize este método para acessar o portal de gerenciamento.
+Se você usar um provedor de autenticação multifator para MFA com base em consumo, use este portal de gerenciamento do método tooaccess hello.
 
-Para acessar o Portal de Gerenciamento do MFA usando um provedor de autorização multifator do Azure, acesse o portal clássico do Azure como administrador e selecione a opção Active Directory. Clique na guia **Provedores de Autenticação Multifator**, selecione o diretório e clique no botão **Gerenciar** na parte inferior.
+tooaccess Olá Portal de gerenciamento de MFA por meio de um provedor de autenticação multifator do Azure, entrar Olá portal clássico do Azure como um administrador e a opção do Active Directory Olá select. Clique em Olá **provedores de autenticação multifator** guia, selecione seu diretório e clique em Olá **gerenciar** botão na parte inferior da saudação.
 
-### <a name="use-the-mfa-service-settings-page"></a>Usar a página Configurações do Serviço do MFA 
+### <a name="use-hello-mfa-service-settings-page"></a>Use a página de configurações do serviço de MFA de saudação 
 
-Se você tiver uma licença de provedor de autenticação multifator ou o Azure MFA, Azure AD Premium ou Enterprise Mobility + Security, use este método para acessar a página de configurações do serviço MFA.
+Se você tiver um provedor de autenticação multifator ou um Azure MFA, o Azure AD Premium, ou Enterprise Mobility + licença de segurança, use esta página de configurações do método tooaccess Olá MFA serviço.
 
-Para acessar o Portal de Gerenciamento do MFA pela página Configurações do Serviço MFA, acesse o portal clássico do Azure como administrador e selecione a opção Active Directory. Clique em seu diretório e depois na guia **Configurar** . Na seção da autenticação multifator, escolha **Gerenciar configurações de serviço**. Na parte inferior da página Configurações do Serviço do MFA, clique no link **Ir para o portal** .
+tooaccess Olá Portal de gerenciamento de MFA por meio da página de configurações do serviço de MFA, o logon no portal clássico do Azure como um administrador de saudação do hello e selecione opção do Active Directory hello. Clique no diretório e, em seguida, clique em Olá **configurar** guia. Na seção de autenticação multifator hello, selecione **gerenciar configurações de serviço**. Na parte inferior de saudação da página de configurações do serviço de MFA de saudação, clique em Olá **Go toohello portal** link.
 
 
 ## <a name="fraud-alert"></a>Alerta de fraude
-O alerta de fraude pode ser instalado e configurado para que os usuários possam relatar tentativas fraudulentas de acessar seus recursos.  Os usuários podem relatar fraude com o aplicativo móvel ou pelo telefone.
+Alerta de fraude pode ser definida e configurada para que os usuários podem relatar tentativas fraudulentas tooaccess seus recursos.  Os usuários podem relatar fraude com aplicativo móvel hello ou por meio de seu telefone.
 
 ### <a name="set-up-fraud-alert"></a>Configurar o alerta de fraude
-1. Navegue até o Portal de Gerenciamento do MFA de acordo com as instruções na parte superior desta página.
-2. No Portal de Gerenciamento da Autenticação Multifator do Azure, clique em **Configurações** na seção Configurar.
-3. Na seção Alerta de Fraude da página Configurações, maque a caixa de seleção **Permitir que os usuários enviem alertas de fraudes**.
-4. Selecione **Salvar** para salvar suas alterações. 
+1. Navegue toohello Portal de gerenciamento de MFA por instruções de saudação na parte superior da saudação desta página.
+2. No Portal de gerenciamento do Azure multi-Factor Authentication do hello, clique em **configurações** na seção Configuração de saudação.
+3. Em Olá alerta de fraude seção da página de configurações de saudação, verifique Olá **permitem que os usuários alertas de fraudes toosubmit** caixa de seleção.
+4. Selecione **salvar** tooapply suas alterações. 
 
 ### <a name="configuration-options"></a>Opções de configuração
 
 - **Bloquear usuário quando fraude for relatada** - se de um usuário relatar uma fraude, sua conta será bloqueada.
-- **Código para relatar fraude durante a saudação inicial** - os usuários normalmente pressionam # para confirmar a verificação em duas etapas. Se quiserem relatar uma fraude, eles devem inserir um código antes de pressionar #. Esse código é **0** por padrão, mas você pode personalizá-lo.
+- **Código tooReport fraude durante a saudação inicial** -os usuários normalmente pressionam verificação do # tooconfirm em duas etapas. Se desejar tooreport fraude, eles inserir um código antes de pressionar #. Esse código é **0** por padrão, mas você pode personalizá-lo.
 
 > [!NOTE]
-> As saudações de voz padrão da Microsoft instruem os usuários a pressionar 0# para enviar um alerta de fraude. Se você quiser usar um código diferente de 0, deverá gravar e carregar suas próprias saudações de voz personalizadas com instruções apropriadas.
+> Saudações de voz padrão da Microsoft, instrua os usuários toopress 0# toosubmit um alerta de fraude. Se você quiser toouse um código diferente de 0, você deve registrar e carregar seus próprio saudações de voz personalizadas com as instruções apropriadas.
 
 ![Opções de alerta de fraude - captura de tela](./media/multi-factor-authentication-whats-next/fraud.png)
 
 ### <a name="how-users-report-fraud"></a>Como os usuários podem relatar fraudes 
-O alerta de fraude pode ser informado de duas maneiras.  Seja por meio do aplicativo móvel ou telefone.  
+O alerta de fraude pode ser informado de duas maneiras.  Um por meio de aplicativos móveis hello ou telefone hello.  
 
-#### <a name="report-fraud-with-the-mobile-app"></a>Relatar fraudes com o aplicativo móvel
-1. Quando você receber uma verificação em seu telefone, selecione-a para iniciar o aplicativo Microsoft Authenticator.
-2. Selecione **Negar** na notificação. 
+#### <a name="report-fraud-with-hello-mobile-app"></a>Relatar fraude com aplicativo móvel Olá
+1. Quando uma verificação é enviada tooyour telefone, selecione tooopen Olá Microsoft Authenticator aplicativo.
+2. Selecione **Deny** na notificação de saudação. 
 3. Clique em **Relatar fraude**.
-4. Feche o aplicativo.
+4. Aplicativo hello fechar.
 
 #### <a name="report-fraud-with-a-phone"></a>Relatar fraude com um telefone
-1. Ao receber uma chamada de verificação em seu telefone, atenda-a.  
-2. Para relatar fraudes, insira o código de fraude (o padrão é 0) e, em seguida, pressione #. Você será notificado de que um alerta de fraude foi enviado.
-3. Encerre a chamada.
+1. Quando uma chamada de verificação chega tooyour telefone, atenda-o.  
+2. tooreport fraude, insira o código de fraude hello (o padrão é 0) e, em seguida, Olá sinal #. Você será notificado de que um alerta de fraude foi enviado.
+3. Encerrar a chamada de saudação.
 
 ### <a name="view-fraud-reports"></a>Exibir relatórios de fraude
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
-2. Selecione Active Directory à esquerda.
-3. Na parte de cima, selecione **Provedores de autenticação multifator**. Isso trará uma lista de seus provedores de autenticação multifator.
-4. Selecione o provedor de autenticação multifator e clique em **Gerenciar** na parte inferior da página. O Portal de Gerenciamento da Autenticação Multifator do Azure é aberto.
-5. No Portal de Gerenciamento da Autenticação Multifator do Azure, em Exibir um relatório, clique em **Alerta de fraude**.
-6. Especifique o intervalo de datas em que você deseja exibir no relatório. Também é possível especificar nomes de usuários, números de telefone e o status de usuários.
-7. Clique em **Executar**. Isso abre um relatório de alertas de fraude. Você também pode clicar em **Exportar para CSV** se quiser exportar o relatório.
+1. Entrar toohello [portal clássico do Azure](https://manage.windowsazure.com).
+2. Olá esquerda, selecione Active Directory.
+3. Em select top Olá **provedores de autenticação multifator**. Isso trará uma lista de seus provedores de autenticação multifator.
+4. Selecione o provedor de autenticação multifator e clique em **gerenciar** final Olá Olá página. Olá Portal de gerenciamento do Azure multi-Factor Authentication é aberto.
+5. No hello Azure multi-Factor Authentication Portal de gerenciamento, em Exibir um relatório, clique em **alerta de fraude**.
+6. Especifique o intervalo de datas de saudação que você deseja tooview no relatório de saudação. Você também pode especificar nomes de usuário, números de telefone e status de saudação do usuário.
+7. Clique em **Executar**. Isso abre um relatório de alertas de fraude. Clique em **exportar tooCSV** se desejar que o relatório de saudação tooexport.
 
 ## <a name="one-time-bypass"></a>Desvio único
-Um bypass avulso permite que um usuário se autentique uma única vez ao sem executar uma verificação em duas etapas. O bypass é temporário e expira após um número de segundos especificado. Quando o aplicativo móvel ou o telefone não estiver recebendo notificações ou chamadas telefônicas, você poderá habilitar um bypass avulso para que o usuário possa acessar o recurso desejado.
+Um bypass avulso permite que um usuário tooauthenticate uma única vez sem realizar a verificação em duas etapas. Olá bypass é temporário e expira após um número especificado de segundos. Em situações em que aplicativo móvel hello ou telefone não está recebendo uma notificação ou chamada telefônica, você pode habilitar um desvio único para que usuário Olá possa acessar recursos de saudação desejado.
 
 ### <a name="create-a-one-time-bypass"></a>Criar um bypass avulso
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
-2. Navegue até o Portal de Gerenciamento do MFA de acordo com as instruções na parte superior desta página.
-3. No Portal de Gerenciamento da Autenticação Multifator do Azure, se você vir o nome do locatário ou do provedor de MFA do Azure à esquerda com um **+** ao lado dele, clique no **+** para ver grupos os diferentes grupos de replicação do Servidor MFA e o grupo Padrão do Azure. Selecione o grupo apropriado.
+1. Entrar toohello [portal clássico do Azure](https://manage.windowsazure.com).
+2. Navegue toohello Portal de gerenciamento de MFA por instruções de saudação na parte superior da saudação desta página.
+3. No hello Portal de gerenciamento do Azure multi-Factor Authentication, se você vir o nome de saudação do seu locatário ou o provedor do Azure MFA no hello esquerda com um  **+**  tooit Avançar, clique em Olá  **+**  Consulte diferentes grupos de replicação do servidor MFA e o grupo de saudação padrão do Azure. Selecione grupo apropriado hello.
 4. Em Administração do Usuário, clique em **Bypass Avulso**.
-5. Na página de Bypass Único, clique em **Novo Bypass Único**.
+5. Na página de Bypass avulso hello, clique em **novo desvio único**.
 
   ![Nuvem](./media/multi-factor-authentication-whats-next/create1.png)
 
-6. Forneça o nome do usuário, o número de segundos da duração do bypass e o motivo do bypass. Clique em **Bypass**.
-7. Como o limite de tempo começa a contar imediatamente, o usuário precisa entrar antes que o bypass avulso expire. 
+6. Insira o nome de usuário de saudação, o número de Olá de segundos que Olá bypass será existe e Olá motivo para ignorar hello. Clique em **Bypass**.
+7. Olá tempo limite entra em vigor imediatamente, portanto usuário Olá toosign necessidades em antes de saudação avulsa bypass expira. 
 
-### <a name="view-the-one-time-bypass-report"></a>Para exibir o relatório de bypass avulso
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
-2. Selecione Active Directory à esquerda.
-3. Na parte de cima, selecione **Provedores de autenticação multifator**. Isso trará uma lista de seus provedores de autenticação multifator.
-4. Selecione o provedor de autenticação multifator e clique em **Gerenciar** na parte inferior da página. O Portal de Gerenciamento da Autenticação Multifator do Azure é aberto.
-5. No Portal de Gerenciamento da Autenticação Multifator do Azure, à esquerda, em Exibir um relatório, clique em **Bypass Avulso**.
-6. Especifique o intervalo de datas em que você deseja exibir no relatório. Também é possível especificar nomes de usuários, números de telefone e o status de usuários.
-7. Clique em **Executar**. Isso abre um relatório de bypasses. Você também pode clicar em **Exportar para CSV** se quiser exportar o relatório.
+### <a name="view-hello-one-time-bypass-report"></a>Saudação de exibição única ignorar o relatório
+1. Entrar toohello [portal clássico do Azure](https://manage.windowsazure.com).
+2. Olá esquerda, selecione Active Directory.
+3. Em select top Olá **provedores de autenticação multifator**. Isso trará uma lista de seus provedores de autenticação multifator.
+4. Selecione o provedor de autenticação multifator e clique em **gerenciar** final Olá Olá página. Olá Portal de gerenciamento do Azure multi-Factor Authentication é aberto.
+5. No Portal de gerenciamento do Azure multi-Factor Authentication de Olá Olá esquerda, em Exibir um relatório, clique em **Bypass avulso**.
+6. Especifique o intervalo de datas de saudação que você deseja tooview no relatório de saudação. Você também pode especificar nomes de usuário, números de telefone e status de saudação do usuário.
+7. Clique em **Executar**. Isso abre um relatório de bypasses. Clique em **exportar tooCSV** se desejar que o relatório de saudação tooexport.
 
 ## <a name="custom-voice-messages"></a>Mensagens de voz personalizadas
-As mensagens de voz personalizadas permitem que você use suas próprias gravações ou saudações com a verificação em duas etapas. Elas podem ser usadas com os registros da Microsoft ou para substituí-los.
+Mensagens de voz personalizadas permitem que você toouse sua própria gravações ou saudações de verificação em duas etapas. Elas podem ser usadas em registros da Microsoft hello adição tooor tooreplace.
 
-Antes de começar, esteja ciente das seguintes informações:
+Antes de começar a estar ciente do seguinte hello:
 
-* Os formatos de arquivo compatíveis são .wav e .mp3.
-* O limite de tamanho de arquivo é de 5 MB.
-* As mensagens de autenticação devem ter menos de 20 segundos. Se forem mais longas, a verificação pode falhar, porque o usuário não terá tempo de responder antes do fim da mensagem, pois a verificação expira.
+* formatos de arquivo Hello com suporte são. wav e. mp3.
+* limite de tamanho de arquivo Hello é 5 MB.
+* As mensagens de autenticação devem ter menos de 20 segundos. Nada mais do que isso poderia causar Olá verificação toofail porque o usuário Olá pode não responder antes Olá mensagem concluído, provocando Olá verificação tootime-out.
 
 ### <a name="set-up-a-custom-message"></a>Configurar uma mensagem personalizada
 
-Há duas etapas para criar uma mensagem personalizada. Primeiro, carregue a mensagem e, em seguida, ative-a para seus usuários.
+Há dois toocreating de partes de sua mensagem personalizada. Primeiro, você carrega a mensagem de saudação e, em seguida, ligá-lo para seus usuários.
 
-Para carregar uma mensagem personalizada:
+tooupload sua mensagem personalizada:
 
-1. Crie uma mensagem de voz personalizada usando um dos formatos de arquivo compatíveis.
-2. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
-3. Navegue até o Portal de Gerenciamento do MFA de acordo com as instruções na parte superior desta página.
-4. No Portal de Gerenciamento da Autenticação Multifator do Azure, clique em **Mensagens de Voz** na seção Configurar.
-5. Na página Configurar: Mensagens de Voz, clique em **Nova Mensagem de Voz**.
+1. Crie uma mensagem de voz personalizada usando um dos formatos de arquivo hello com suporte.
+2. Entrar toohello [portal clássico do Azure](https://manage.windowsazure.com).
+3. Navegue toohello Portal de gerenciamento de MFA por instruções de saudação na parte superior da saudação desta página.
+4. No Portal de gerenciamento do Azure multi-Factor Authentication do hello, clique em **mensagens de voz** na seção Configuração de saudação.
+5. Em Olá configurar: página de mensagens de voz, clique em **nova mensagem de voz**.
    ![Nuvem](./media/multi-factor-authentication-whats-next/custom1.png)
-6. Na página Configurar: Novas Mensagens de Voz, clique em **Gerenciar Arquivos de Som**.
+6. Em Olá configurar: página novas mensagens de voz, clique em **gerenciar arquivos de som**.
    ![Nuvem](./media/multi-factor-authentication-whats-next/custom2.png)
-7. Na página Configurar: Arquivos de Som, clique em **Carregar Arquivo de Som**.
+7. Em Olá configurar: página arquivos de som, clique em **carregar arquivo de som**.
    ![Nuvem](./media/multi-factor-authentication-whats-next/custom3.png)
-8. Na página Configurar: Carregar Arquivo de Som, clique em **Procurar** e navegue até a mensagem de voz e clique em **Abrir**.
+8. Em Olá configurar: carregar o arquivo de som, clique em **procurar** e navegue tooyour mensagem de voz, clique em **abrir**.
 9. Adicione uma Descrição e clique em **Carregar**.
-10. Quando isso for concluído, uma mensagem confirmará que carregou com êxito o arquivo.
+10. Depois que isso for concluído, uma mensagem confirmará que você carregou com êxito arquivo hello.
 
-Para ativar a mensagem para seus usuários:
+mensagem de saudação tooturn em para seus usuários:
 
-1. À esquerda, clique em **Mensagens de Voz**.
-2. Na seção Mensagens de voz, clique em **Nova mensagem de voz**.
-3. No menu suspenso Idioma, selecione um idioma.
-4. Se esta mensagem for para um aplicativo específico, especifique-o na caixa de Aplicativo.
-5. No menu suspenso Tipo de Mensagem, selecione o tipo de mensagem que será substituído pela nova mensagem personalizada.
-6. No menu suspenso Arquivo de Som, selecione o arquivo de som que você carregou na primeira parte.
+1. Olá esquerda, clique em **mensagens de voz**.
+2. Em Olá seção de mensagens de voz, clique em **nova mensagem de voz**.
+3. De Olá suspenso idioma, selecione um idioma.
+4. Se essa mensagem for para um aplicativo específico, especifique-o na caixa de saudação do aplicativo.
+5. Na lista suspensa tipo de mensagem de saudação, selecione toobe de tipo de mensagem hello substituído com sua nova mensagem personalizada.
+6. De Olá suspensa do arquivo de som, selecione o arquivo de som de saudação que você carregou na primeira parte do hello.
 7. Clique em **Criar**. Uma mensagem confirma que você criou com êxito uma mensagem de voz.
     ![Nuvem](./media/multi-factor-authentication-whats-next/custom5.png)</center>
 
 ## <a name="caching-in-azure-multi-factor-authentication"></a>Cache na Autenticação Multifator do Azure
-O cache permite que você defina um período específico para que as próximas tentativas de autenticação subsequentes nesse período automaticamente tenham êxito. Isso é usado principalmente quando os sistemas locais, como VPN, enviam várias solicitações de verificação enquanto a primeira solicitação ainda está em andamento. Esse recurso permite que as próximas solicitações automaticamente tenham êxito depois que o usuário concluir a primeira verificação em andamento. 
+O cache permite que você tooset um período de tempo específico para que as tentativas de autenticação subsequentes dentro desse período de tempo tenha êxito automaticamente. Isso é usado principalmente quando os sistemas locais, como VPN enviam várias solicitações de verificação durante a primeira solicitação de saudação ainda está em andamento. Isso permite Olá solicitações subsequentes toosucceed automaticamente após usuário Olá concluído com êxito a verificação primeiro Olá em andamento. 
 
-Observe que o cache não deve ser usado para acessar o Azure AD.
+O cache não é pretendido toobe usado para entradas tooAzure AD.
 
 ### <a name="set-up-caching"></a>Configurar o cache 
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
-2. Navegue até o Portal de Gerenciamento do MFA de acordo com as instruções na parte superior desta página.
-3. No Portal de Gerenciamento da Autenticação Multifator do Azure, clique em **Cache** na seção Configurar.
-4. Na página Configurar cache, clique em **Novo cache**.
-5. Selecione o tipo de Cache e os segundos de cache. Clique em **Criar**.
+1. Entrar toohello [portal clássico do Azure](https://manage.windowsazure.com).
+2. Navegue toohello Portal de gerenciamento de MFA por instruções de saudação na parte superior da saudação desta página.
+3. No Portal de gerenciamento do Azure multi-Factor Authentication do hello, clique em **cache** na seção Configuração de saudação.
+4. Na saudação Configurar página cache, clique em **novo Cache**.
+5. Selecione o tipo de Cache hello e segundos de cache de saudação. Clique em **Criar**.
 
 <center>![Nuvem](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
 ## <a name="trusted-ips"></a>IPs confiáveis
-Os administradores de um locatário gerenciado ou federado podem usar este recurso do Azure MFA para ignorar a verificação em duas etapas de usuários que fizerem logon pela intranet local da empresa. Esse recurso está disponível na versão completa da Autenticação Multifator do Azure, não na versão gratuita para administradores. Para saber como obter a versão completa da Autenticação Multifator do Azure, consulte [Autenticação Multifator do Azure](multi-factor-authentication.md).
+IPs confiáveis é um recurso do Azure MFA que os administradores de um locatário gerenciado ou federado podem usar toobypass verificacao para usuários que estão entrando pela intranet local da empresa hello. Este recurso está disponível com a versão completa de saudação do Azure multi-Factor Authentication, não Olá versão gratuita para administradores. Para obter detalhes sobre como tooget Olá versão completa do Azure multi-Factor Authentication, consulte [Azure multi-Factor Authentication](multi-factor-authentication.md).
 
 | Tipo de locatário do Azure AD | Opções disponíveis de IPs confiáveis |
 |:--- |:--- |
-| Gerenciada |<li>Intervalos de endereços IP específicos – os administradores podem definir um intervalo de endereços IP que tem permissão para ignorar a autenticação multifator de usuários que se conectam pela intranet da empresa.</li> |
-| Federado |<li>Todos os usuários federados - todos os usuários federados que estiverem fazendo logon de dentro da organização ignorarão a verificação em duas etapas usando uma declaração emitida pelo AD FS.</li><br><li>Intervalos de endereços IP específicos – os administradores podem definir um intervalo de endereços IP que tem permissão para ignorar a autenticação multifator de usuários que se conectam pela intranet da empresa. |
+| Gerenciada |<li>Intervalos de endereços IP específicos – os administradores podem especificar um intervalo de endereços IP que podem ignorar a verificação em duas etapas para usuários que estão entrando pela intranet da empresa hello.</li> |
+| Federado |<li>Todos os usuários federados - todos os usuários federados que estão entrando de dentro de saudação organização vai ignorar a verificação em duas etapas usando uma declaração emitida pelo AD FS.</li><br><li>Intervalos de endereços IP específicos – os administradores podem especificar um intervalo de endereços IP que podem ignorar a verificação em duas etapas para usuários que estão entrando pela intranet da empresa hello. |
 
-Esse desvio só funciona dentro da intranet da empresa. Por exemplo, se você selecionou a opção Todos os usuários federados e um usuário fizer logon de fora da intranet da empresa, esse usuário precisará se autenticar com a verificação em duas etapas, mesmo se apresentar uma declaração do AD FS. 
+Esse desvio só funciona dentro da intranet da empresa. Por exemplo, se você selecionou usuários federados tudo, e um usuário entra intranet da empresa Olá fora, esse usuário tem tooauthenticate verificação em duas etapas usando o mesmo que o usuário Olá apresenta uma declaração do AD FS. 
 
 **Experiência do usuário final dentro da rede corporativa:**
 
 Quando o recurso IPs confiáveis estiver desabilitado, será necessário utilizar a verificação em duas etapas para fluxos de navegador e senhas de aplicativo para antigos aplicativos clientes avançados. 
 
-Quando o recurso IPs confiáveis estiver habilitado, a verificação em duas etapas *não* será necessária para fluxos de navegador e as senhas de aplicativo *não* serão necessárias para antigos aplicativos clientes avançados, desde que o usuário não tenha criado uma senha de aplicativo. Se uma senha de aplicativo for usada, ela será necessária. 
+Quando IPs confiáveis estiver habilitado, a verificação em duas etapas é *não* necessárias para fluxos de navegador e as senhas de aplicativo são *não* necessário para aplicativos de cliente avançado mais antigos, desde que hello usuário não já criou um senha do aplicativo. Se uma senha de aplicativo for usada, ela será necessária. 
 
 **Experiência do usuário final fora da rede corporativa:**
 
 Não importa se o recurso IPs confiáveis está habilitado ou não, será necessário utilizar a verificação em duas etapas para fluxos de navegador e senhas de aplicativo para antigos aplicativos clientes avançados. 
 
-### <a name="to-enable-trusted-ips"></a>Para habilitar IPs confiáveis
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
-2. Navegue até a página de configurações do serviço MFA de acordo com as instruções fornecidas no início deste artigo.
-3. Na página Configurações do Serviço, em IPs Confiáveis, há duas opções:
+### <a name="tooenable-trusted-ips"></a>tooenable IPs confiáveis
+1. Entrar toohello [portal clássico do Azure](https://manage.windowsazure.com).
+2. Navegue a página de configurações do serviço de MFA toohello por instruções Olá início Olá deste artigo.
+3. Na página de configurações do serviço de hello, em IPs confiáveis, você tem duas opções:
    
-   * **Para solicitações de usuários federados originárias da minha intranet** – marque a caixa de seleção. Todos os usuários federados que estiverem fazendo logon de dentro da organização ignorarão a verificação em duas etapas usando uma declaração emitida pelo AD FS.
-   * **Para solicitações de um intervalo específico de IPs públicos** – insira os endereços IP nas caixas fornecidas usando a notação CIDR. Por exemplo: xxx.xxx.xxx.0/24 para endereços IP no intervalo xxx.xxx.xxx.1 – xxx.xxx.xxx.254, ou xxx.xxx.xxx.xxx/32 para um único endereço IP. Você pode inserir até 50 intervalos de endereços IP. Os usuários que acessam desses endereços IP ignoram verificação em duas etapas.
+   * **Para solicitações de usuários federados provenientes da minha intranet** – caixa de saudação da seleção. Todos os usuários federados que estão fazendo logon rede corporativa Olá vão ignorar a verificação em duas etapas usando uma declaração emitida pelo AD FS.
+   * **Para solicitações de um intervalo específico de IPs públicos** – digite os endereços IP de saudação na caixa de texto de saudação fornecida usando a notação CIDR. Por exemplo: xxx.xxx.xxx.0/24 para endereços IP da saudação intervalo xxx.xxx.xxx.1 – xxx.xxx.xxx. 254 ou xxx.xxx.xxx.xxx/32 para um único endereço IP. Você pode inserir até too50 os intervalos de endereços IP. Os usuários que acessam desses endereços IP ignoram verificação em duas etapas.
 4. Clique em **Salvar**.
-5. Depois que as atualizações forem aplicadas, clique em **Fechar**.
+5. Depois de saudação atualizações foram aplicadas, clique em **fechar**.
 
 ![IPs confiáveis](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
 ## <a name="app-passwords"></a>Senhas de aplicativo
-Alguns aplicativos, como o Office 2010 ou anterior e o Apple Mail, não oferecem suporte à verificação em duas etapas. Eles não estão configurados para aceitar uma segunda verificação. Para usar esses aplicativos, você precisará usar as "senhas de aplicativo" no lugar de sua senha tradicional. A senha de aplicativo permite que um aplicativo ignore a verificação em duas etapas e continue funcionando.
+Alguns aplicativos, como o Office 2010 ou anterior e o Apple Mail, não oferecem suporte à verificação em duas etapas. Eles não são tooaccept configurado uma verificação de segundo. toouse esses aplicativos, você precisa toouse "senhas de aplicativo" no lugar de sua senha tradicional. senha de aplicativo Hello permite Olá aplicativo toobypass verificação em duas etapas e continuar trabalhando.
 
 > [!NOTE]
-> Autenticação moderna para os clientes do Office 2013
+> Autenticação moderna para Olá clientes do Office 2013
 > 
-> Os clientes do Office 2013 (incluindo o Outlook) e mais recente são compatíveis com protocolos da autenticação moderna e podem ser usados com a verificação em duas etapas. Depois de habilitada, não será mais necessário fornecer as senhas de aplicativo para esses clientes.  Para saber mais, veja [Anúncio da visualização pública da autenticação moderna do Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> Clientes do Office 2013 (incluindo Outlook) e protocolos de autenticação moderna de suporte mais recentes e pode ser habilitado toowork com verificação em duas etapas. Depois de habilitada, não será mais necessário fornecer as senhas de aplicativo para esses clientes.  Para saber mais, veja [Anúncio da visualização pública da autenticação moderna do Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
-### <a name="important-things-to-know-about-app-passwords"></a>Coisas importantes a saber sobre senhas de aplicativo
-Veja a seguir uma lista de importante das coisas que você deve saber sobre senhas de aplicativo.
+### <a name="important-things-tooknow-about-app-passwords"></a>Tooknow coisas importantes sobre senhas de aplicativo
+a seguir Olá é uma lista importante de coisas que você deve saber sobre senhas de aplicativo.
 
-* As senhas de aplicativo só precisam ser fornecidas uma vez por aplicativo. Os usuários não precisam decorá-las e fornecê-las toda vez.
-* A senha real é gerada automaticamente e não é fornecida pelo usuário. Isso acontece porque a senha gerada automaticamente é mais difícil para um invasor adivinhar e é mais segura.
+* As senhas de aplicativo só será necessário toobe inserida uma vez por aplicativo. Os usuários não tem controle tookeep deles e inseri-las toda vez.
+* senha real Olá é gerada automaticamente e não é fornecida pelo usuário hello. Isso ocorre porque a senha gerada automaticamente Olá é mais difícil para um invasor tooguess e é mais segura.
 * Há um limite de 40 senhas por usuário. 
-* Os aplicativos que armazenam senhas em cache e a usam em cenários locais podem começar a falhar, pois a senha do aplicativo não será conhecida fora da ID organizacional. Um exemplo é o de emails do Exchange que estão no local, mas o email arquivado está na nuvem. A mesma senha não funciona.
-* Assim que a autenticação multifator é habilitada na conta de um usuário, as senhas do aplicativo podem ser usadas com a maioria dos clientes sem navegador, como Outlook e Lync, mas as ações administrativas não podem ser executadas usando senhas do aplicativo por meio de aplicativos sem navegador, como o Windows PowerShell, mesmo se o usuário tiver uma conta administrativa.  Quando você criar uma conta de serviço, atribua a ela uma senha forte para executar scripts do PowerShell e não habilite essa conta para a verificação em duas etapas.
+* Aplicativos que armazena em cache as senhas e uso em cenários locais pode começar a falhar, pois a senha de aplicativo hello não é conhecida fora de id organizacional hello. Um exemplo é emails do Exchange que estão no local, mas Olá arquivado ficam na nuvem Olá. Olá a mesma senha não funciona.
+* Assim que a autenticação multifator é habilitada na conta de um usuário, as senhas do aplicativo podem ser usadas com a maioria dos clientes sem navegador, como Outlook e Lync, mas as ações administrativas não podem ser executadas usando senhas do aplicativo por meio de aplicativos sem navegador, como o Windows PowerShell, mesmo se o usuário tiver uma conta administrativa.  Certifique-se de criar uma conta de serviço com scripts do PowerShell de toorun uma senha forte e não habilitar essa conta para verificação em duas etapas.
 
 > [!WARNING]
-> As senhas de aplicativo não funcionam em ambientes híbridos onde os clientes se comunicam com pontos de extremidade de descoberta automática local e na nuvem. Isso ocorre porque as senhas de domínio são necessárias para autenticar no local e as senhas de aplicativo são necessárias para autenticar com a nuvem.
+> As senhas de aplicativo não funcionam em ambientes híbridos onde os clientes se comunicam com pontos de extremidade de descoberta automática local e na nuvem. Isso ocorre porque senhas do domínio são necessários tooauthenticate local e as senhas de aplicativo são necessário tooauthenticate com a nuvem de saudação.
 
 ### <a name="naming-guidance-for-app-passwords"></a>Nomeando orientação para senhas de aplicativo
-Os nomes das senhas de aplicativo devem refletir o dispositivo no qual as senhas serão usadas. Por exemplo, se você tiver um laptop com aplicativos que não são navegadores, como Outlook, Word e Excel, basta criar uma senha de aplicativo chamada Laptop e usar essa senha em todos esses aplicativos. Em seguida, crie outra senha de aplicativo chamada Desktop para os mesmos aplicativos em um computador desktop. 
+Nomes de senha de aplicativo reflitam Olá dispositivo no qual eles são usados. Por exemplo, se você tiver um laptop com aplicativos que não são navegadores, como Outlook, Word e Excel, basta criar uma senha de aplicativo chamada Laptop e usar essa senha em todos esses aplicativos. Em seguida, crie outra senha de aplicativo chamada área de trabalho para Olá mesmos aplicativos em seu computador desktop. 
 
 A Microsoft recomenda criar uma senha de aplicativo por dispositivo, e não uma senha de aplicativo por aplicativo.
 
 ### <a name="federated-sso-app-passwords"></a>Senhas de aplicativo federado (SSO)
-O Azure AD oferece suporte à federação (logon único) com os Serviços de Domínio do Active Directory Domain Services (AD DS) locais do Windows Server. Se sua organização for federada com o Azure AD e você quiser usar a Autenticação Multifator do Azure, é importante saber o seguinte sobre as senhas de aplicativo. Esta seção se aplica apenas aos clientes federados.
+O Azure AD oferece suporte à federação (logon único) com os Serviços de Domínio do Active Directory Domain Services (AD DS) locais do Windows Server. Se sua organização for federada com o Azure AD e vai toobe usando o Azure multi-Factor Authentication, então Olá seguintes informações sobre senhas de aplicativo são importantes para você. Esta seção se aplica somente a clientes toofederated (SSO).
 
 * As senhas de aplicativo são verificadas Azure AD e, portanto, ignoram a federação. A federação só é usada ativamente na configuração das senhas de aplicativo.
-* Para usuários federados (SSO), nós nunca consultamos o Provedor de Identidade (IdP), diferentemente do fluxo passivo. As senhas são armazenadas na ID organizacional. Se o usuário sair da empresa, essa informação deve ir para a ID organizacional usando o DirSync em tempo real. A desabilitação/exclusão da conta pode levar até 3 horas para sincronizar, atrasando a desabilitação/exclusão da Senha de aplicativo no Azure AD.
+* Para os usuários federados (SSO), nunca vamos toohello provedor de identidade (IdP), ao contrário do fluxo passivo hello. Olá senhas são armazenadas na id organizacional hello. Se o usuário Olá deixa a empresa hello, essas informações tem tooflow tooorganizational id usando o DirSync em tempo real. Desabilitar/excluir a conta pode levar até toothree horas toosync, atrasando o desabilitar/excluir da senha do aplicativo no AD do Azure.
 * As configurações do Controle de Acesso do Cliente local não são consideradas pela senha de aplicativo.
 * Nenhum recurso de registro de autenticação/auditoria local está disponível para a Senha de aplicativo.
-* Alguns projetos arquitetônicos avançados podem exigir o uso de uma combinação de nome de usuário e senhas da organização e senhas de aplicativo com a verificação em duas etapas em clientes, dependendo de onde eles são autenticados. Para clientes que fazem a autenticação em uma infraestrutura local, você usaria um nome de usuário e senha organizacional. Para clientes que se autenticam no Azure AD, você usaria a senha de aplicativo.
+* Alguns projetos arquitetônicos avançados podem exigir o uso de uma combinação de nome de usuário e senhas da organização e senhas de aplicativo com a verificação em duas etapas em clientes, dependendo de onde eles são autenticados. Para clientes que fazem a autenticação em uma infraestrutura local, você usaria um nome de usuário e senha organizacional. Para clientes que autenticam no Azure AD, você usaria a senha de aplicativo hello.
 
-  Por exemplo, suponha que você tenha uma arquitetura que consiste no seguinte:
+  Por exemplo, suponha que você tem uma arquitetura que consiste Olá seguinte:
 
   * Você está federando sua instância local do Active Directory com o Azure AD
   * Você está usando o Exchange online
@@ -246,47 +246,47 @@ O Azure AD oferece suporte à federação (logon único) com os Serviços de Dom
 
   ![Prova](./media/multi-factor-authentication-whats-next/federated.png)
 
-  Nesses casos, você deve fazer o seguinte:
+  Nesses casos, você deve fazer a seguir hello:
 
-  * Ao entrar no Lync, use o nome de usuário e a senha de suas organizações.
-  * Ao tentar acessar o catálogo de endereços por meio de um cliente Outlook que se conecte ao Exchange online, use uma senha de aplicativo.
+  * Quando a assinatura-no tooLync, use o nome de usuário e a senha de sua organização.
+  * Durante a tentativa de catálogo de endereços de saudação tooaccess por meio de um cliente do Outlook que se conecta tooExchange online, use uma senha de aplicativo.
 
 ### <a name="allow-app-password-creation"></a>Permitir a criação de senha de aplicativo
-Por padrão, os usuários não podem criar senhas de aplicativo. Esse recurso deve ser ativado. Para permitir que os usuários criem senhas de aplicativo, faça o seguinte:
+Por padrão, os usuários não podem criar senhas de aplicativo. Esse recurso deve ser ativado. usuários tooallow Olá senhas de aplicativo toocreate de capacidade, use Olá procedimento a seguir:
 
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
-2. Navegue até a página de configurações do serviço MFA de acordo com as instruções fornecidas no início deste artigo.
-3. Selecione o botão de opção ao lado de **Permitir que usuários criem senhas de aplicativo para entrarem em aplicativos que não são navegadores**.
+1. Entrar toohello [portal clássico do Azure](https://manage.windowsazure.com).
+2. Navegue a página de configurações do serviço de MFA toohello por instruções Olá início Olá deste artigo.
+3. Selecione o botão de opção de saudação Avançar muito**permitem que os usuários toocreate aplicativo senhas toosign em aplicativos sem navegador**.
 
 ![Criar senhas de aplicativo](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
 ### <a name="create-app-passwords"></a>Criar senhas de aplicativo
-Os usuários podem criar senhas de aplicativo durante o registro inicial. Essa opção é oferecida a eles ao final do processo de registro, permitindo que eles criem senhas de aplicativo.
+Os usuários podem criar senhas de aplicativo durante o registro inicial. É fornecida uma opção final Olá Olá do processo de registro que permite que eles toocreate senhas de aplicativo.
 
-Os usuários também podem criar senhas de aplicativo após o registro alterando suas configurações no Portal do Azure ou no portal do Office 365. Para obter mais informações e etapas detalhadas para os usuários, consulte [O que são senhas de aplicativo na Autenticação Multifator do Azure](./end-user/multi-factor-authentication-end-user-app-passwords.md).
+Usuários também podem criar senhas de aplicativo após o registro alterando suas configurações de saudação do Azure portal ou hello portal do Office 365. Para obter mais informações e etapas detalhadas para os usuários, consulte [O que são senhas de aplicativo na Autenticação Multifator do Azure](./end-user/multi-factor-authentication-end-user-app-passwords.md).
 
 ## <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>Lembrar a autenticação multifator em dispositivos de confiança dos usuários
-Lembrar Autenticação Multifator para dispositivos e navegadores de confiança dos usuários é um recurso gratuito para todos os usuários do MFA. Ele permite fornecer aos usuários a opção de ignorar o MFA para um número de dias específico após a entrada bem-sucedida usando o MFA. Isso pode melhorar a usabilidade, pois minimiza o número de vezes que um usuário executa a verificação em duas etapas no mesmo dispositivo.
+Lembrar Autenticação Multifator para dispositivos e navegadores de confiança dos usuários é um recurso gratuito para todos os usuários do MFA. Ele permite toogive opção de saudação de usuários MFA tooby passa para um determinado número de dias depois de executar um bem-sucedida entrar usando o MFA. Isso pode aumentar a usabilidade, minimizando o número de saudação de vezes que um usuário pode executar a verificação em duas etapas em Olá mesmo dispositivo.
 
-No entanto, se um dispositivo ou a conta for comprometido, lembrar a autenticação multifator em dispositivos confiáveis pode colocar sua segurança em risco. Caso uma conta corporativa seja comprometida ou um dispositivo confiável seja perdido ou roubado, você deve [restaurar a Autenticação Multifator em todos os dispositivos](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user). Essa ação revoga o status de confiável de todos os dispositivos, e o usuário precisará executar a verificação em duas etapas novamente. Você também pode instruir seus usuários a restaurar o MFA em seus próprios dispositivos com as instruções em [Gerenciar as configurações de verificação em duas etapas](./end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)
+No entanto, se um dispositivo ou a conta for comprometido, lembrar a autenticação multifator em dispositivos confiáveis pode colocar sua segurança em risco. Caso uma conta corporativa seja comprometida ou um dispositivo confiável seja perdido ou roubado, você deve [restaurar a Autenticação Multifator em todos os dispositivos](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user). Essa ação revoga Olá confiável status de todos os dispositivos e usuário Olá é necessário tooperform verificacao novamente. Você também pode instruir o toorestore usuários MFA em seus próprios dispositivos com instruções de saudação em [gerenciar as configurações de verificação em duas etapas](./end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)
 
 ### <a name="how-it-works"></a>Como ele funciona
 
-Lembre-se que a autenticação multifator funciona com a definição de um cookie persistente no navegador quando um usuário seleciona a caixa "Não perguntar novamente por **X** dias" ao entrar. O usuário não será solicitado a fornecer o MFA novamente neste navegador até que o cookie expire. Se o usuário abrir um navegador diferente no mesmo dispositivo ou limpar os cookies, ele será solicitado a verificar novamente. 
+Lembre-se a autenticação multifator funciona definindo um cookie persistente no navegador hello quando verifica se um usuário hello "não pergunte novamente por **X** dias" caixa na entrada. Olá usuário não será avisado para MFA novamente do que o navegador até Olá cookie expira. Se o usuário Olá abre um navegador diferente em Olá mesmo dispositivo ou limpa seus cookies, eles são solicitado tooverify novamente. 
 
-A caixa de seleção "Não perguntar novamente por **X** dias" não é exibida em aplicativos que não usam navegador, independentemente de eles suportarem a autenticação moderna ou não. Esses aplicativos usam tokens de atualização que fornecem novos tokens de acesso a cada hora. Quando um token de atualização é validado, o Azure AD verifica se a última verificação de duas etapas foi realizada dentro do número de dias configurado. 
+Olá "não pergunte novamente por **X** dias" caixa de seleção não é mostrada em aplicativos sem navegador, ou não suporte a autenticação moderna. Esses aplicativos usam tokens de atualização que fornecem novos tokens de acesso a cada hora. Quando um token de atualização for validado, verificações de AD do Azure que Olá última verificação de tempo de duas etapas foi executada foi no número de saudação configurado de dias. 
 
-Portanto, lembrar o MFA em dispositivos confiáveis reduz o número de autenticações em aplicativos Web (que normalmente solicitam sempre), mas aumenta o número de autenticações para clientes de autenticação moderna (que normalmente solicita a cada 90 dias).
+Portanto, lembre-se de MFA em dispositivos confiáveis reduz o número de Olá de autenticações em aplicativos web (que normalmente solicitar sempre), mas aumenta Olá número de autenticações para clientes de autenticação moderna (que normalmente solicitar a cada 90 dias).
 
 > [!NOTE]
->Esse recurso não é compatível com o recurso "Manter-me conectado" do AD FS quando os usuários executam uma verificação em duas etapas para o AD FS por meio do Servidor MFA do Azure ou uma solução MFA de terceiros. Se os usuários selecionarem "Manter-me conectado" no AD FS e também marcarem seus dispositivos como confiáveis para o MFA, eles não poderão verificar depois que o número de dias de "Lembrar do MFA" expirar. O Azure AD solicita uma nova verificação em duas etapas, mas o AD FS retorna um token com a declaração e a data originais do MFA em vez de realizar a verificação em duas etapas novamente. Isso define um loop de verificação entre o Azure AD e AD FS. 
+>Este recurso não é compatível com o recurso de "Mantenha-me conectado" hello do AD FS quando os usuários executam a verificação em duas etapas para o AD FS por meio do servidor Azure MFA de saudação ou uma solução MFA de terceiros. Se seus usuários Selecione "Mantenha-me conectado" no AD FS e também marcar seus dispositivos como confiável para MFA, eles não será tooverify capaz depois Olá número "Lembre-se de MFA" de dias expira. AD do Azure solicita uma verificação de novo em duas etapas, mas o AD FS retorna um token de declaração MFA original hello e a data em vez de executar novamente a verificação em duas etapas. Isso define um loop de verificação entre o Azure AD e AD FS. 
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Habilitar a opção Lembrar autenticação multifator
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
-2. Navegue até a página de configurações do serviço MFA de acordo com as instruções fornecidas no início deste artigo.
-3. Na página Configurações do Serviço, em Gerenciar configurações do dispositivo do usuário, marque a caixa de seleção **Permitir que os usuários lembrem a autenticação multifator em dispositivos que eles confiam**.
+1. Entrar toohello [portal clássico do Azure](https://manage.windowsazure.com).
+2. Navegue a página de configurações do serviço de MFA toohello por instruções Olá início Olá deste artigo.
+3. Na página de configurações de serviço do hello, em Gerenciar configurações de dispositivo de usuário, verifique Olá **permitir que os usuários tooremember a autenticação multifator em dispositivos que eles confiam** caixa.
    ![Lembrar dispositivos](./media/multi-factor-authentication-whats-next/remember.png)
-4. Defina o número de dias que os dispositivos confiáveis podem ignorar a verificação em duas etapas. O padrão é 14 dias.
+4. Definir Olá número de dias que você deseja tooallow Olá confiável dispositivos toobypass verificacao. padrão de saudação é de 14 dias.
 5. Clique em **Salvar**.
 6. Clique em **fechar**
 
@@ -297,21 +297,21 @@ Depois de habilitar esse recurso, os usuários poderão marcar um dispositivo co
 ![Não perguntar novamente - captura de tela](./media/multi-factor-authentication-whats-next/trusted.png)
 
 ## <a name="selectable-verification-methods"></a>Métodos de verificação selecionáveis
-Você pode escolher quais métodos de verificação estarão disponíveis para os usuários. A tabela a seguir fornece uma visão geral de cada método.
+Você pode escolher quais métodos de verificação estarão disponíveis para os usuários. Olá tabela a seguir fornece uma visão geral de cada método.
 
-Quando os usuários registram suas contas na MFA, eles escolhem o método de verificação preferido das opções que você habilitou. As diretrizes para o processo de registro são abordadas em [Configurar minha conta para verificação em duas etapas](multi-factor-authentication-end-user-first-time.md)
+Quando os usuários registram suas contas para MFA, escolham seu método preferido de verificação sem opções Olá ativado. diretrizes de saudação para seu processo de registro é abordado em [configurar minha conta para verificação em duas etapas](multi-factor-authentication-end-user-first-time.md)
 
 | Método | Descrição |
 |:--- |:--- |
-| Ligue para o telefone |Faz uma chamada de voz automatizada para o usuário. O usuário atende à chamada e pressiona # no teclado do telefone para autenticar. Esse número de telefone não está sincronizado com o Active Directory local. |
-| Mensagem de texto para telefone |Envia para o usuário uma mensagem de texto que contém um código de verificação. O usuário é solicitado a responder à mensagem de texto com o código de verificação ou a inserir o código de verificação na interface de entrada. |
-| Notificação pelo aplicativo móvel |Envia uma notificação por push para o telefone ou o dispositivo registrado. O usuário vê a notificação e seleciona **Verificar** para concluir a verificação. <br>O aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-| Código de verificação de aplicativo móvel |O aplicativo Microsoft Authenticator gera um novo código de verificação OATH a cada 30 segundos. O usuário digita o código de verificação na interface de acesso.<br>O aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| Chamar toophone |Faz uma chamada de voz automatizada para o usuário. saudação de respostas do usuário Olá chamada e pressiona # no tooauthenticate de teclado do telefone hello. O número de telefone não é sincronizado do local de tooon Active Directory. |
+| Toophone de mensagem de texto |Envia para o usuário uma mensagem de texto que contém um código de verificação. usuário de saudação é solicitada tooeither toohello texto a mensagem de resposta com o código de verificação de saudação ou código de verificação tooenter Olá Olá logon na interface. |
+| Notificação pelo aplicativo móvel |Envia um telefone de tooyour de notificação por push ou um dispositivo registrado. Olá usuário exibições notificação hello e seleciona **verificar** toocomplete verificação. <br>Olá Microsoft Authenticator aplicativo está disponível para [do Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| Código de verificação de aplicativo móvel |aplicativo do Microsoft Authenticator Hello gera um novo código de verificação de OATH cada trinta segundos. usuário de saudação insere esse código de verificação Olá logon na interface.<br>Olá Microsoft Authenticator aplicativo está disponível para [do Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
-### <a name="how-to-enabledisable-authentication-methods"></a>Como habilitar/desabilitar métodos de autenticação
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
-2. Navegue até a página de configurações do serviço MFA de acordo com as instruções fornecidas no início deste artigo.
-3. Na página Configurações do Serviço, em Opções de verificação, marque/desmarque as opções que deseja usar.
+### <a name="how-tooenabledisable-authentication-methods"></a>Como os métodos de autenticação tooenable/desabilitar
+1. Entrar toohello [portal clássico do Azure](https://manage.windowsazure.com).
+2. Navegue a página de configurações do serviço de MFA toohello por instruções Olá início Olá deste artigo.
+3. Na página de configurações do serviço de hello, em Opções de verificação, marque/desmarque opções Olá desejar toouse.
    ![Opções de verificação](./media/multi-factor-authentication-whats-next/authmethods.png)
 4. Clique em **Salvar**.
 5. Clique em **fechar**

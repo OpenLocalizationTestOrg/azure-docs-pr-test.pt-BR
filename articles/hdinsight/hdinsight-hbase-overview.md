@@ -1,6 +1,6 @@
 ---
-title: "O que é o HBase no Azure HDInsight? | Microsoft Docs"
-description: "Uma introdução ao Apache HBase no HDInsight, uma compilação de banco de dados NoSQL no Hadoop. Aprenda sobre casos de uso e compare HBase com outros clusters Hadoop."
+title: "aaaWhat está HBase em HDInsight do Azure? | Microsoft Docs"
+description: "Uma introdução tooApache HBase em HDInsight, um banco de dados NoSQL compilação no Hadoop. Saiba mais sobre os casos de uso e comparar clusters de Hadoop tooother HBase."
 keywords: "bigtable, nosql, o que é o hbase, apache hbase, hbase, visão geral do habase,"
 services: hdinsight
 documentationcenter: 
@@ -17,38 +17,38 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: jgao
-ms.openlocfilehash: 6823633bfdb07ce649083804ba211709519cb6da
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0d28378d07b1a168e38748548578be11310d2228
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="what-is-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-hadoop"></a>O que é HBase em HDInsight: um banco de dados NoSQL que fornece capacidades semelhantes a BigTable para Hadoop
 O Apache HBase é um banco de dados NoSQL de código-fonte aberto, que é compilado no Hadoop e modelado com base em Google BigTable. O HBase fornece acesso aleatório e uma coerência forte para grandes quantidades de dados não estruturados e semiestruturados em um banco de dados sem esquema, organizado por famílias de colunas.
 
-Os dados são armazenados nas linhas de uma tabela e os dados contidos nas linhas são agrupados por famílias de colunas. O HBase é um banco de dados sem esquema, no aspecto de que nem as colunas nem os tipos de dados armazenados nelas precisam ser definidos antes de serem utilizados. O código-fonte aberto é dimensionado linearmente para lidar com petabytes de dados em milhares de nós. Ele pode fazer uso da redundância de dados, do processamento em lote e de outros recursos que são fornecidos por aplicativos distribuídos no ecossistema do Hadoop.
+Dados são armazenados nas linhas de saudação de uma tabela e dados dentro de uma linha são agrupados por família de coluna. HBase é um banco de dados schemaless no sentido de saudação nem Olá colunas nem o tipo de saudação dos dados armazenados nelas necessário toobe definido antes de usá-los. código do código-fonte aberto Olá escala linearmente toohandle petabytes de dados em milhares de nós. Ele pode contar com redundância de dados, processamento em lotes e outros recursos que são fornecidos por aplicativos distribuídos no ecossistema do Hadoop hello.
 
 ## <a name="how-is-hbase-implemented-in-azure-hdinsight"></a>Como o HBase é implementado no Azure HDInsight?
-O HBase do HDInsight é oferecido como um cluster gerenciado integrado ao ambiente do Azure. Os clusters são configurados para armazenar dados diretamente no [Armazenamento do Azure](./hdinsight-hadoop-use-blob-storage.md) ou [Azure Data Lake Store](./hdinsight-hadoop-use-data-lake-store.md), que proporciona baixa latência e maior flexibilidade para escolhas relacionadas a desempenho e custos. Isso permite que os clientes criem sites interativos que trabalham com grandes conjuntos de dados, de modo a criar serviços que armazenam dados de sensor e telemetria de milhões de pontos de extremidade e analisar esses dados por meio de trabalhos do Hadoop. O HBase e o Hadoop são bons pontos iniciais para projetos de big data no Azure e, especificamente, podem possibilitar que aplicativos em tempo real trabalhem com grandes conjuntos de dados.
+HDInsight HBase é oferecido como um cluster gerenciado é integrado ao ambiente do Azure de saudação. clusters de saudação são configurados toostore dados diretamente no [armazenamento do Azure](./hdinsight-hadoop-use-blob-storage.md) ou [repositório Azure Data Lake](./hdinsight-hadoop-use-data-lake-store.md), que fornece baixa latência e maior elasticidade de opções de desempenho e custo. Isso permite que os clientes toobuild sites interativos que trabalhar com grandes conjuntos de dados, serviços de toobuild que armazenam dados de telemetria e o sensor de milhões de pontos de extremidade e tooanalyze esses dados com trabalhos de Hadoop. HBase e Hadoop são bons pontos de partida para o projeto de dados grande no Azure. em particular, eles podem permitir que aplicativos em tempo real toowork com grandes conjuntos de dados.
 
-A implementação do HDInsight utiliza a arquitetura de expansão do HBase para fornecer o compartilhamento automático de tabelas, uma sólida consistência para leituras e gravações e failover automático. O desempenho é aprimorado pelo cache na memória para leituras e streaming de alta produtividade para gravações. O cluster do HBase pode ser criado dentro da rede virtual. Para obter detalhes, confira [Criar clusters HDInsight na Rede Virtual do Azure][hbase-provision-vnet].
+a implementação de HDInsight Olá aproveita a arquitetura de expansão de saudação do HBase tooprovide automática fragmentação de tabelas, consistência forte para leituras e gravações e o failover automático. O desempenho é aprimorado pelo cache na memória para leituras e streaming de alta produtividade para gravações. O cluster do HBase pode ser criado dentro da rede virtual. Para obter detalhes, confira [Criar clusters HDInsight na Rede Virtual do Azure][hbase-provision-vnet].
 
 ## <a name="how-is-data-managed-in-hdinsight-hbase"></a>Como os dados no HBase do HDInsight são gerenciados?
-Os dados podem ser gerenciados no HBase usando os comandos `create`, `get`, `put` e `scan` do shell do HBase. Os dados são gravados no banco de dados usando `put` e lidos usando `get`. O comando `scan` é utilizado para obter dados de múltiplas linhas em uma tabela. Os dados também podem ser gerenciados utilizando a API C# do HBase, que oferece uma biblioteca de cliente sobre a API REST do HBase. Um banco de dados HBase também pode ser consultado usando o Hive. Para ver uma introdução a esses modelos de programação, consulte [Get started using HBase with Hadoop in HDInsight][hbase-get-started] (Introdução ao uso do HBase com Hadoop no HDInsight). Também estão disponíveis coprocessadores, que permitem o processamento de dados em nós que hospedam o banco de dados.
+Dados podem ser gerenciados no HBase usando Olá `create`, `get`, `put`, e `scan` comandos de saudação shell do HBase. Dados são gravados toohello banco de dados usando `put` e ler usando `get`. Olá `scan` comando é usado tooobtain dados de várias linhas em uma tabela. Dados também podem ser gerenciados usando Olá HBase c# API, que fornece uma biblioteca de cliente sobre Olá API REST do HBase. Um banco de dados HBase também pode ser consultado usando o Hive. Para um toothese Introdução modelos de programação, consulte [iniciar o uso do HBase com Hadoop no HDInsight][hbase-get-started]. Processadores colegas também estão disponíveis, que permite o processamento de dados em nós de saudação desse banco de dados de saudação do host.
 
 > [!NOTE]
 > Não há suporte para thrift pelo HBase no HDInsight.
 >
 
 ## <a name="scenarios-use-cases-for-hbase"></a>Cenários: casos de uso para o HBase
-O caso de uso canônico para o qual o BigTable (e, por extensão, o HBase) foi criado era a pesquisa na Web. Os mecanismos de pesquisa criam índices que mapeiam termos nas páginas da web que os contêm. Mas há muitos outros casos de uso aos quais o HBase se ajusta, muitos dos quais são descritos nesta seção.
+Olá caso de uso canônico para o qual BigTable (e, por extensão, HBase) foi criado foi pesquisa na web. Mecanismos de pesquisa cria índices que mapeiam as páginas da web do termos toohello que os contém. Mas há muitos outros casos de uso aos quais o HBase se ajusta, muitos dos quais são descritos nesta seção.
 
 * Repositório de valor-chave
   
-    O HBase pode ser usado como um repositório de valor-chave e é adequado para gerenciar sistemas de mensagens. O Facebook utiliza o HBase para seu sistema de mensagens, e ele é ideal para armazenar e gerenciar comunicações pela Internet. O WebTable utiliza o HBase para pesquisar e gerenciar tabelas extraídas de páginas da Web.
+    O HBase pode ser usado como um repositório de valor-chave e é adequado para gerenciar sistemas de mensagens. O Facebook utiliza o HBase para seu sistema de mensagens, e ele é ideal para armazenar e gerenciar comunicações pela Internet. WebTable usa toosearch HBase para e gerenciar tabelas que são extraídas das páginas da Web.
 * Dados de sensor
   
-    O HBase é útil para capturar dados que são coletados gradativamente de várias fontes. Isso inclui análise de dados sociais, séries temporais, manter painéis interativos atualizados com tendências e contadores e gerenciar sistemas de logs de auditorias. Os exemplos incluem o terminal de comerciantes Bloomberg e o OpenTSDB (Open Time Series Database), que armazena e oferece acesso a métricas coletadas sobre a integridade dos sistemas de servidores.
+    O HBase é útil para capturar dados que são coletados gradativamente de várias fontes. Isso inclui análise de dados sociais, séries temporais, manter painéis interativos atualizados com tendências e contadores e gerenciar sistemas de logs de auditorias. Os exemplos incluem Bloomberg Traders terminal e Olá tempo série banco de dados aberto (OpenTSDB), que armazena e fornece acesso toometrics coletados sobre integridade de saudação do sistemas de servidor.
 * Consulta em tempo real
   
     [Phoenix](http://phoenix.apache.org/) é um mecanismo de consulta SQL para o HBase no Apache. Ele é acessado como um driver JDBC e permite consultar e gerenciar tabelas do HBase utilizando o SQL.
@@ -61,7 +61,7 @@ O caso de uso canônico para o qual o BigTable (e, por extensão, o HBase) foi c
 * [Criar clusters do HDInsight na Rede Virtual do Azure][hbase-provision-vnet]
 * [Configurar a replicação do HBase no HDInsight](hdinsight-hbase-replication.md)
 * [Analisar dados de sentimento no Twitter com o HBase no HDInsight][hbase-twitter-sentiment]
-* [Utilizar o Maven para compilar aplicativos Java que usam o HBase com o HDInsight (Hadoop)][hbase-build-java-maven]
+* [Usar Maven toobuild Java aplicativos que usam HBase com HDInsight (Hadoop)][hbase-build-java-maven]
 
 ## <a name="see-also"></a>Consulte também
 * [HBase no Apache](https://hbase.apache.org/)

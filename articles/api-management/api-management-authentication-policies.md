@@ -1,6 +1,6 @@
 ---
-title: "Políticas de autenticação de Gerenciamento de API do Azure | Microsoft Docs"
-description: "Saiba mais sobre as políticas de autenticação disponíveis para uso no Gerenciamento de API do Azure."
+title: "políticas de autenticação de gerenciamento de API aaaAzure | Microsoft Docs"
+description: "Saiba mais sobre as políticas de autenticação Olá disponíveis para uso no gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 63ef20a56ab7721f9ecc7025d05963cc4b0c27a0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ce93cced66cb67520e97c7c15f3685bffb08e1f5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-management-authentication-policies"></a>Políticas de autenticação de Gerenciamento de API
-Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
+Este tópico fornece uma referência para Olá políticas de gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="AuthenticationPolicies"></a> Políticas de autenticação  
   
@@ -30,7 +30,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 -   [Autenticar com o certificado de cliente](api-management-authentication-policies.md#ClientCertificate) - Autenticar com um serviço de back-end usando certificados de cliente.  
   
 ##  <a name="Basic"></a> Autenticar com o Basic  
- Use a política `authentication-basic` para autenticar com um serviço de back-end usando a autenticação do Basic. Essa política define efetivamente o cabeçalho de autorização HTTP para o valor correspondente às credenciais fornecidas na política.  
+ Saudação de uso `authentication-basic` tooauthenticate de política com um serviço de back-end usando a autenticação básica. Essa política define efetivamente toohello de cabeçalho de autorização HTTP Olá valor correspondente toohello as credenciais fornecidas na política de saudação.  
   
 ### <a name="policy-statement"></a>Declaração de política  
   
@@ -54,18 +54,18 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |Nome|Descrição|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|Nome de Usuário|Especifica o nome de usuário da credencial do Basic.|Sim|N/D|  
-|Senha|Especifica a senha da credencial do Basic.|Sim|N/D|  
+|Nome de Usuário|Especifica o nome de usuário de saudação da credencial básica hello.|Sim|N/D|  
+|Senha|Especifica a senha de saudação da credencial básica hello.|Sim|N/D|  
   
 ### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+ Essa política pode ser usada em Olá após diretiva [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
--   **Seções de política:** entrada  
+-   **Seções de política:** de entrada  
   
 -   **Escopos de política:** API  
   
 ##  <a name="ClientCertificate"></a> Autenticar com o certificado de cliente  
- Use a política `authentication-certificate` para autenticar com um serviço de back-end usando um certificado de cliente. O certificado precisa ser [instalado no Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=511599) primeiro e é identificado por sua impressão digital.  
+ Saudação de uso `authentication-certificate` tooauthenticate de política com um serviço de back-end usando certificados de cliente. certificado Olá precisa toobe [instalado no gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=511599) primeiro e é identificado por sua impressão digital.  
   
 ### <a name="policy-statement"></a>Declaração de política  
   
@@ -89,12 +89,12 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |Nome|Descrição|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|impressão digital|A impressão digital do certificado do cliente.|Sim|N/D|  
+|impressão digital|Olá a impressão digital do certificado de cliente hello.|Sim|N/D|  
   
 ### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+ Essa política pode ser usada em Olá após diretiva [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
--   **Seções de política:** entrada  
+-   **Seções de política:** de entrada  
   
 -   **Escopos de política:** API  
   

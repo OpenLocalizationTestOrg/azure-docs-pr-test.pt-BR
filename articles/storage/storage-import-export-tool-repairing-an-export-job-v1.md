@@ -1,6 +1,6 @@
 ---
-title: "Reparando um trabalho de exportação do serviço de Importação/Exportação do Azure — v1 | Microsoft Docs"
-description: "Saiba como reparar um trabalho de exportação criado e executado usando o serviço de Importação/Exportação do Azure."
+title: "aaaRepairing um trabalho de exportação de importação/exportação do Azure - v1 | Microsoft Docs"
+description: "Saiba como toorepair um trabalho de exportação foi criado e executado usando Olá importação/exportação do Azure service."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,55 +14,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 30ca0f8d06cb1927c19e66035ff485db0fc09e5a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 96c674fc7c697c37882fb2980c340303896ac6c8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="repairing-an-export-job"></a>Reparação de um trabalho de exportação
-Após a conclusão de um trabalho de exportação, você poderá executar a Ferramenta de Importação/Exportação do Microsoft Azure local para:  
+Depois que um trabalho de exportação for concluída, você pode executar Olá, ferramenta de importação/exportação do Microsoft Azure local para:  
   
-1.  Baixar todos os arquivos que o serviço de Importação/Exportação do Azure não conseguiu exportar.  
+1.  Baixe os arquivos que o serviço de importação/exportação do Azure Olá foi tooexport não é possível.  
   
-2.  Validar se os arquivos na unidade foram exportados corretamente.  
+2.  Valide arquivos Olá na unidade Olá foram exportados corretamente.  
   
-Você deve ter conectividade com o Armazenamento do Azure para usar essa funcionalidade.  
+Você deve ter conectividade tooAzure armazenamento toouse essa funcionalidade.  
   
-O comando para reparar um trabalho de importação é **RepairExport**.
+saudação de comando para reparar um trabalho de importação é **RepairExport**.
 
 ## <a name="repairexport-parameters"></a>Parâmetros de RepairExport
 
-Os seguintes parâmetros podem ser especificados com **RepairExport**:  
+Olá parâmetros a seguir podem ser especificados com **RepairExport**:  
   
 |Parâmetro|Descrição|  
 |---------------|-----------------|  
-|**/r:<RepairFile\>**|Obrigatório. Caminho até o arquivo de reparo, que controla o progresso do reparo e permite que você retome um reparo interrompido. Cada unidade deve ter um, e somente um, arquivo de reparo. Ao iniciar o reparo de uma determinada unidade, você passará no caminho até um arquivo de reparo que ainda não existe. Para retomar um reparo interrompido, você deve passar no nome de um arquivo de reparo existente. O arquivo de reparo que corresponde à unidade de destino deve sempre ser especificado.|  
-|**/logdir:<LogDirectory\>**|Opcional. O diretório de log. Os arquivos de log detalhados serão gravados nesse diretório. Se nenhum diretório de log for especificado, o diretório atual será usado como o diretório de log.|  
-|**/d:<TargetDirectory\>**|Obrigatório. O diretório a ser validado e reparado. Normalmente é o diretório raiz da unidade de exportação, mas também pode ser um compartilhamento de arquivos de rede que contém uma cópia dos arquivos exportados.|  
-|**/bk:<BitLockerKey\>**|Opcional. Você deve especificar a chave do BitLocker se quiser que a ferramenta desbloqueie uma unidade criptografada na qual os arquivos exportados foram armazenados.|  
-|**/sn:<StorageAccountName\>**|Obrigatório. O nome da conta de armazenamento do trabalho de exportação.|  
-|**/sk:<StorageAccountKey\>**|**Necessário** somente se uma SAS do contêiner não for especificada. A chave de conta da conta de armazenamento do trabalho de exportação.|  
-|**/csas:<ContainerSas\>**|**Necessário** somente se a chave da conta de armazenamento não for especificada. O SAS do contêiner para acessar os blobs associados ao trabalho de exportação.|  
-|**/CopyLogFile:<DriveCopyLogFile\>**|Obrigatório. O caminho até o arquivo de log de cópia da unidade. O arquivo é gerado pelo serviço de Importação/Exportação do Windows Azure e pode ser baixado do armazenamento de blobs associado ao trabalho. O arquivo de log de cópia contém informações sobre blobs com falha ou arquivos que devem ser reparados.|  
-|**/ManifestFile:<DriveManifestFile\>**|Opcional. O caminho até o arquivo de manifesto da unidade de exportação. Esse arquivo é gerado pelo serviço de Importação/Exportação do Windows Azure e armazenado na unidade de exportação e, opcionalmente, em um blob na conta de armazenamento associada ao trabalho.<br /><br /> O conteúdo dos arquivos na unidade de exportação será verificado com os hashes MD5 contidos nesse arquivo. Todos os arquivos determinados como corrompidos serão baixados e reescritos nos diretórios de destino.|  
+|**/r:<RepairFile\>**|Obrigatório. Arquivo de reparo do toohello de caminho, que controla o progresso de saudação de reparo do hello e permite que você tooresume um reparo interrompido. Cada unidade deve ter um, e somente um, arquivo de reparo. Quando você inicia um reparo para uma determinada unidade, passará no hello caminho tooa arquivo de reparo que ainda não existe. tooresume um reparo interrompido, você deve passar no nome de saudação de um arquivo de reparo existente. unidade de destino do Hello reparo arquivo correspondente toohello sempre deve ser especificada.|  
+|**/logdir:<LogDirectory\>**|Opcional. diretório de log Hello. Arquivos de log detalhados serão gravados toothis directory. Se nenhum diretório de log for especificado, diretório atual Olá será usado como diretório de log hello.|  
+|**/d:<TargetDirectory\>**|Obrigatório. Olá diretório toovalidate e reparo. Isso geralmente é o diretório raiz de saudação da unidade de exportação hello, mas pode também ser um compartilhamento de arquivos de rede que contém uma cópia dos arquivos hello exportada.|  
+|**/bk:<BitLockerKey\>**|Opcional. Você deve especificar a chave do BitLocker Olá se você quiser Olá ferramenta toounlock uma unidade criptografada onde hello exportada arquivos são armazenados.|  
+|**/sn:<StorageAccountName\>**|Obrigatório. trabalho de exportação de nome de Olá Olá da conta de armazenamento para hello.|  
+|**/sk:<StorageAccountKey\>**|**Necessário** somente se uma SAS do contêiner não for especificada. trabalho de exportação da chave da conta Olá para conta de armazenamento Olá Olá.|  
+|**/csas:<ContainerSas\>**|**Necessário** se e somente se Olá chave de conta de armazenamento não for especificada. Olá SAS do contêiner para acessar blobs Olá associados ao trabalho de exportação de saudação.|  
+|**/CopyLogFile:<DriveCopyLogFile\>**|Obrigatório. Olá caminho toohello unidade copiar arquivo do log. arquivo Hello é gerado pelo Olá serviço de importação/exportação do Windows Azure e pode ser baixado do armazenamento de blob Olá associado ao trabalho hello. arquivo de log de cópia Olá contém informações sobre blobs com falha ou arquivos que são toobe reparado.|  
+|**/ManifestFile:<DriveManifestFile\>**|Opcional. arquivo de manifesto da unidade de exportação toohello caminho Hello. Esse arquivo é gerado pelo serviço de importação/exportação do Windows Azure hello e armazenado na unidade de exportação hello e, opcionalmente em um blob na conta de armazenamento Olá associado ao trabalho hello.<br /><br /> Olá conteúdo Olá arquivos na unidade de exportação Olá será verificado com hello os hashes MD5 contidos nesse arquivo. Todos os arquivos que são determinado toobe corrompido será baixado e reescrito toohello diretórios de destino.|  
   
-## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Usando o modo RepairExport para corrigir exportações com falha  
-Você pode usar a Ferramenta de Importação/Exportação do Azure para baixar arquivos cuja exportação falhou. O arquivo de log da cópia conterá uma lista de arquivos que não foram exportados devido a alguma falha.  
+## <a name="using-repairexport-mode-toocorrect-failed-exports"></a>Usando RepairExport modo toocorrect falha exportações  
+Você pode usar arquivos toodownload do hello ferramenta de importação/exportação do Azure que falha tooexport. arquivo de log de cópia Olá conterá uma lista dos arquivos que não tooexport.  
   
-As causas das falhas de exportação incluem as seguintes possibilidades:  
+as causas das falhas de exportação Olá incluem hello seguintes possibilidades:  
   
 -   Unidades danificadas  
   
--   A chave da conta de armazenamento mudou durante o processo de transferência  
+-   chave de conta de armazenamento Olá alterado durante o processo de transferência Olá  
   
-Para executar a ferramenta no modo **RepairExport**, primeiro você precisa conectar a unidade que contém os arquivos exportados ao seu computador. Em seguida, execute a Ferramenta de Importação/Exportação do Azure, especificando o caminho até essa unidade com o parâmetro `/d`. Você também precisa especificar o caminho até arquivo de log de cópia da unidade que você baixou. O exemplo de linha de comando abaixo executa a ferramenta para reparar todos os arquivos que não foram exportados devido a alguma falha:  
+ferramenta de saudação toorun **RepairExport** modo, você primeiro precisa de unidade de saudação tooconnect contendo Olá arquivos exportados tooyour computador. Em seguida, execute Olá, ferramenta de importação/exportação do Azure, especificando Olá caminho toothat unidade com hello `/d` parâmetro. Também é necessário o arquivo de log de cópia da unidade do toohello caminho Olá toospecify que você baixou. Hello seguinte exemplo de linha de comando abaixo executa Olá ferramenta toorepair todos os arquivos que falharam tooexport:  
   
 ```  
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log  
 ```  
   
-Veja a seguir um exemplo de um arquivo de log de cópia mostrando que um bloco no blob falhou durante a exportação:  
+a seguir Olá é um exemplo de um arquivo de log de cópia que mostra um bloco em Olá blob falhado tooexport:  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -81,20 +81,20 @@ Veja a seguir um exemplo de um arquivo de log de cópia mostrando que um bloco n
 </DriveLog>  
 ```  
   
-O arquivo de log da cópia indica que ocorreu uma falha enquanto o serviço de Importação/Exportação do Windows Azure baixava um dos blocos de blob para o arquivo na unidade de exportação. Os outros componentes do arquivo foram baixados com êxito, e o tamanho do arquivo foi definido corretamente. Nesse caso, a ferramenta abrirá o arquivo na unidade, baixará o bloco da conta de armazenamento e o gravará no intervalo de arquivos, a partir do deslocamento 65536 com comprimento 65536.  
+arquivo de log de cópia Olá indica que ocorreu uma falha enquanto Olá serviço de importação/exportação do Windows Azure baixava um dos arquivos de toohello blocos do blob Olá na unidade de exportação de saudação. Olá outros componentes do arquivo hello baixado com êxito e tamanho do arquivo hello foi definido corretamente. Nesse caso, ferramenta Olá abrir arquivo hello na unidade hello, baixar bloco Olá Olá da conta de armazenamento e grave-o intervalo de arquivo toohello partir do deslocamento 65536 com comprimento 65536.  
   
-## <a name="using-repairexport-to-validate-drive-contents"></a>Usando o RepairExport para validar o conteúdo da unidade  
-Você também pode usar a Importação/Exportação do Azure com a opção **RepairExport** para validar se o conteúdo na unidade está correto. O arquivo de manifesto em cada unidade de exportação contém MD5s para o conteúdo da unidade.  
+## <a name="using-repairexport-toovalidate-drive-contents"></a>Usando RepairExport toovalidate conteúdo da unidade  
+Você também pode usar a importação/exportação do Azure com hello **RepairExport** opção toovalidate Olá conteúdo na unidade hello está correto. arquivo de manifesto de saudação em cada unidade de exportação contém MD5s para conteúdo de saudação da unidade de saudação.  
   
-O serviço de Importação/Exportação do Azure também pode salvar os arquivos de manifesto em uma conta de armazenamento durante o processo de exportação. O local dos arquivos de manifesto está disponível por meio da operação [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) após a conclusão do trabalho. Consulte [Formato de arquivo de manifesto do serviço de Importação/Exportação](storage-import-export-file-format-metadata-and-properties.md) para saber mais sobre o formato de um arquivo de manifesto da unidade.  
+Olá serviço de importação/exportação do Azure também pode salvar os arquivos de manifesto Olá tooa conta de armazenamento durante o processo de exportação hello. Hello local dos arquivos de manifesto hello está disponível por meio de saudação [obter trabalho](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operação quando o trabalho Olá tiver sido concluído. Consulte [formato do arquivo de manifesto do serviço de importação/exportação](storage-import-export-file-format-metadata-and-properties.md) para obter mais informações sobre o formato de saudação de um arquivo de manifesto da unidade.  
   
-O seguinte exemplo mostra como executar a Ferramenta de Importação/Exportação do Azure com os parâmetros **/ManifestFile** e **/CopyLogFile**:  
+Olá exemplo a seguir mostra como toorun Olá ferramenta de importação/exportação do Azure com hello **/ManifestFile** e **/CopyLogFile** parâmetros:  
   
 ```  
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log /ManifestFile:G:\9WM35C3U.manifest  
 ```  
   
-Veja a seguir um exemplo de um arquivo de manifesto:  
+Olá seguinte é um exemplo de um arquivo de manifesto:  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -131,7 +131,7 @@ Veja a seguir um exemplo de um arquivo de manifesto:
 </DriveManifest>  
 ``` 
   
-Depois de concluir o processo de reparo, a ferramenta lerá cada arquivo referenciado no arquivo de manifesto e verificará a integridade do arquivo com os hashes MD5. No caso do manifesto acima, ele percorrerá os seguintes componentes.  
+Depois de terminar processo de reparo Olá, ferramenta Olá lerá cada arquivo referenciado no arquivo de manifesto hello e verificar a integridade do arquivo hello com hashes MD5 de saudação. Para o manifesto Olá acima, ele percorrerá Olá componentes a seguir.  
 
 ```  
 G:\pictures\city\redmond.jpg, offset 0, length 3584  
@@ -153,12 +153,12 @@ G:\pictures\wild\canyon.jpg, offset 8163, length 2721
 G:\pictures\wild\canyon.jpg.properties  
 ```
 
-Qualquer componente que falhar na verificação será baixado pela ferramenta e reescrito no mesmo arquivo na unidade.  
+Qualquer componente com falha de verificação de saudação será baixado pela ferramenta hello e reescrito toohello mesmo arquivo na unidade de saudação.  
   
 ## <a name="next-steps"></a>Próximas etapas
  
-* [Configurando a Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-setup-v1.md)   
+* [Configurando Olá ferramenta de importação/exportação do Azure](storage-import-export-tool-setup-v1.md)   
 * [Preparação de discos rígidos para um trabalho de importação](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Revisão do status do trabalho com arquivos de log de cópia](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Reparação de um trabalho de importação](storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Solucionando problemas da Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-troubleshooting-v1.md)
+* [Olá, ferramenta de importação/exportação do Azure de solução de problemas](storage-import-export-tool-troubleshooting-v1.md)

@@ -1,6 +1,6 @@
 ---
-title: Grupos de computadores em pesquisas de log do Log Analytics | Microsoft Docs
-description: "Os grupos de computadores no Log Analytics permitem analisar pesquisas de log para um conjunto específico de computadores.  Este artigo descreve os diferentes métodos que você pode usar para criar grupos de computadores e como usá-los em uma pesquisa de log."
+title: "pesquisas de log aaaComputer grupos na análise de Log | Microsoft Docs"
+description: "Grupos de computadores na análise de Log permitem que você tooscope log pesquisas tooa determinado conjunto de computadores.  Este artigo descreve métodos diferentes hello, você pode usar grupos de computadores toocreate e como toouse-los em um log de pesquisa."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -14,39 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: bwren
-ms.openlocfilehash: a2ddc932343d54963a378ee27dc962a790326b2a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7dafea9829e541f5582a1d855fafb82aa4d94430
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Grupos de computadores em pesquisas de log do Log Analytics
 
 >[!NOTE]
-> Este artigo descreve o uso de Grupos de Computadores utilizando a linguagem de consulta do Log Analytics atual.    Se o espaço de trabalho foi atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), então, os Grupos de Computadores funcionarão de forma diferente.  Anotações são fornecidas neste artigo com a sintaxe e o comportamento diferentes para a nova linguagem de consulta.  
+> Este artigo descreve o uso de saudação de grupos de computadores usando linguagem de consulta de Log Anayltics atual hello.    Se seu espaço de trabalho tiver sido atualizado toohello [linguagem de consulta de nova análise de Log](log-analytics-log-search-upgrade.md), em seguida, grupos de computadores funcionam de forma diferente.  Anotações são fornecidas neste artigo com sintaxe diferente da saudação e comportamento Olá nova linguagem de consulta.  
 
 
-Os grupos de computadores no Log Analytics permitem analisar [pesquisas de log](log-analytics-log-searches.md) para um conjunto específico de computadores.  Cada grupo é preenchido com computadores usando uma consulta que você define ou importando grupos de fontes diferentes.  Quando o grupo é incluído em uma pesquisa de log, os resultados são limitados aos registros que correspondem os computadores do grupo.
+Grupos de computadores na análise de Log permitem tooscope [pesquisas de log](log-analytics-log-searches.md) tooa determinado conjunto de computadores.  Cada grupo é preenchido com computadores usando uma consulta que você define ou importando grupos de fontes diferentes.  Quando hello está incluído em uma pesquisa de log, resultados Olá são limitados toorecords que correspondem a computadores de saudação do grupo de saudação.
 
 ## <a name="creating-a-computer-group"></a>Criando um grupo de computadores
-Você pode criar um grupo de computadores no Log Analytics usando qualquer um dos métodos na tabela a seguir.  Detalhes sobre cada método são fornecidos nas seções a seguir. 
+Você pode criar um grupo de computadores na análise de Log usando qualquer um dos métodos de saudação em Olá a tabela a seguir.  Detalhes sobre cada método são fornecidos nas seções de saudação abaixo. 
 
 | Método | Descrição |
 |:--- |:--- |
-| Pesquisa de log |Crie uma pesquisa de log que retorna uma lista de computadores e salva os resultados como um grupo de computadores. |
-| API da Pesquisa de Log |Use a API da Pesquisa de Log para criar um grupo de computadores programaticamente com base nos resultados de uma pesquisa de log. |
-| Active Directory |Verifique automaticamente a associação de grupo dos computadores de agente que são membros de um domínio do Active Directory e crie um grupo no Log Analytics para cada grupo de segurança. |
+| Pesquisa de log |Criar uma pesquisa de log que retorna uma lista de computadores e salvar os resultados de saudação como um grupo de computadores. |
+| API da Pesquisa de Log |Use Olá API de pesquisa de Log tooprogrammatically criar um grupo de computadores com base nos resultados de saudação de uma pesquisa de log. |
+| Active Directory |Verificar automaticamente a associação de grupo de saudação de todos os computadores agente que são membros de um domínio do Active Directory e criar um grupo em análise de Log para cada grupo de segurança. |
 | WSUS |Verifique servidores ou clientes de WSUS para direcionar grupos e criar um grupo no Log Analytics para cada um. |
 
 ### <a name="log-search"></a>Pesquisa de log
-Grupos de computadores criados por meio de uma Pesquisa de Logs contém todos os computadores retornados por uma consulta de pesquisa que você definir.  Essa consulta é executada sempre que o grupo de computadores é utilizado para que qualquer alteração desde que o grupo foi criado seja refletida.
+Grupos de computadores criados a partir de uma pesquisa de Log contêm todos os computadores hello retornadas por uma consulta de pesquisa que você definir.  Essa consulta é executada sempre que o grupo de computadores Olá é usado para que as alterações desde que foi criado o grupo de saudação seja refletido.
 
-Use o procedimento a seguir para criar um grupo de computadores de uma pesquisa de log.
+Use Olá seguindo o procedimento toocreate um grupo de computadores de uma pesquisa de log.
 
-1. [Crie uma pesquisa de log](log-analytics-log-searches.md) que retorna uma lista de computadores.  A pesquisa deve retornar um conjunto distinto de computadores usando algo como **Computador distinto** ou **medir contagem() por Computador** na consulta.  
-2. Clique no botão **Salvar** na parte superior da tela.
-3. Selecione **Sim** para **Salvar esta consulta como um grupo de computadores**.
-4. Digite um **Nome** e uma **Categoria** para o grupo.  Se uma pesquisa com o mesmo nome e categoria já existir, você será solicitado a substituí-la.  Você pode ter várias pesquisas com o mesmo nome em categorias diferentes. 
+1. [Crie uma pesquisa de log](log-analytics-log-searches.md) que retorna uma lista de computadores.  Olá pesquisa deve retornar um conjunto distinto de computadores usando algo como **computador distinto** ou **contagem pelo computador de medida** na consulta de saudação.  
+2. Clique em Olá **salvar** botão na parte superior de saudação da tela hello.
+3. Selecione **Sim** muito**salvar essa consulta como um grupo de computadores**.
+4. Digite um **nome** e um **categoria** para grupo de saudação.  Se uma pesquisa com hello mesmo nome e categoria já existir, será solicitada toooverwrite-lo.  Você pode ter várias pesquisas com o mesmo nome em categorias diferentes de saudação. 
 
 A seguir, temos pesquisas de exemplo que você pode salvar como um grupo de computadores.
 
@@ -54,72 +54,72 @@ A seguir, temos pesquisas de exemplo que você pode salvar como um grupo de comp
     Computer=*srv* | measure count() by Computer
 
 >[!NOTE]
-> Se o espaço de trabalho foi atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), então, as seguintes alterações serão feitas no procedimento para criar um novo grupo de computadores.
+> Se o seu espaço de trabalho tiver sido atualizado toohello [linguagem de consulta de análise de Log novo](log-analytics-log-search-upgrade.md) hello, as seguintes alterações serão feitas toohello procedimento toocreate um novo grupo de computadores.
 >  
-> - A consulta para criar um grupo de computadores deve incluir `distinct Computer`.  A seguir, é apresentado um exemplo de uma consulta para criar um grupo de computadores.<br>`Heartbeat | where Computer contains "srv" `
-> - Ao criar um novo grupo de computadores, você deverá especificar um alias além do nome.  Você utilizará o alias ao usar o grupo de computadores em uma consulta, conforme descrito abaixo.  
+> - Olá toocreate de consulta deve incluir um grupo de computadores `distinct Computer`.  A seguir está um exemplo de uma consulta de toocreate um grupo de computadores.<br>`Heartbeat | where Computer contains "srv" `
+> - Quando você cria um novo grupo de computadores, você deve especificar um alias no nome de toohello de adição.  Use o alias de saudação ao usar o grupo de computadores de saudação em uma consulta conforme descrito abaixo.  
 
 ### <a name="log-search-api"></a>API da Pesquisa de Log
-Grupos de computadores criados com a API da Pesquisa de Log são iguais a pesquisas criadas com uma Pesquisa de Log.
+Grupos de computadores criados com hello API de pesquisa de Log são Olá mesmo como pesquisas criadas com uma pesquisa de Log.
 
-Para obter detalhes sobre como criar um grupo de computadores usando a API da Pesquisa de Log, consulte [Grupos de computadores na API REST de pesquisa de log do Log Analytics](log-analytics-log-search-api.md#computer-groups).
+Para obter detalhes sobre como criar um grupo de computadores usando a API de pesquisa de Log de saudação consulte [API REST de pesquisa de grupos de computadores no log de análise de Log](log-analytics-log-search-api.md#computer-groups).
 
 ### <a name="active-directory"></a>Active Directory
-Ao configurar o Log Analytics para importar associações de grupo do Active Directory, ele analisa a associação de grupo de todos os computadores associados ao domínio com o agente do OMS.  Um grupo de computadores é criado no Log Analytics para cada grupo de segurança no Active Directory, e cada computador é adicionado aos grupos de computadores que correspondem aos grupos de segurança de que são membros.  Essa associação é atualizada continuamente a cada 4 horas.  
+Ao configurar associações de grupo do Active Directory de tooimport de análise de Log, ele analisa a associação de grupo de saudação de todos os computadores com o agente do OMS Olá ingressado no domínio.  Um grupo de computadores é criado na análise de Log para cada grupo de segurança no Active Directory, e cada computador é adicionado a grupos de computadores toohello correspondentes forem membros de grupos de segurança de toohello.  Essa associação é atualizada continuamente a cada 4 horas.  
 
-Configure o Log Analytics para importar grupos de segurança do Active Directory do menu **Grupos de Computadores** nas **Configurações** do Log Analytics.  Selecione **Automação** e **Importe as associações de grupo do Active Directory dos computadores**.  Não é necessária nenhuma configuração.
+Configurar grupos de segurança de Active Directory de tooimport de análise de Log da saudação **grupos de computadores** menu na análise de Log **configurações**.  Selecione **Automação** e **Importe as associações de grupo do Active Directory dos computadores**.  Não é necessária nenhuma configuração.
 
 ![Grupos de computadores do Active Directory](media/log-analytics-computer-groups/configure-activedirectory.png)
 
-Quando os grupos são importados, o menu lista o número de computadores com a associação de grupo detectada e o número de grupos importados.  Você pode clicar em qualquer um desses links para retornar os registros de **ComputerGroup** com essas informações.
+Quando grupos importados, hello menu listas Olá número de computadores com associação de grupo detectados e Olá número de grupos importados.  Você pode clicar em qualquer um dos Olá de tooreturn links **ComputerGroup** registros com essas informações.
 
 ### <a name="windows-server-update-service"></a>Serviços de Atualização do Windows Server
-Ao configurar o Log Analytics para importar associações de grupo do WSUS, ele analisa a associação de grupo de destino de todos os computadores com o agente do OMS.  Se você estiver utilizando o direcionamento do lado do cliente, qualquer computador que estiver conectado ao OMS e fizer parte de qualquer grupo de direcionamento do WSUS terá sua associação de grupo importada para o Log Analytics. Se você estiver usando o direcionamento do lado do servidor, o agente do OMS deverá ser instalado no servidor do WSUS para que as informações de associação do grupo sejam importadas ao OMS.  Essa associação é atualizada continuamente a cada 4 horas. 
+Quando você configurar as associações de grupo tooimport de análise de Log do WSUS, ele analisa Olá direcionando membros do grupo de todos os computadores com o agente do OMS Olá.  Se você estiver usando o cliente direcionamento, qualquer computador que está conectado tooOMS e faz parte de qualquer WSUS direcionamento grupos de sua associação de grupo importou tooLog análise. Se você estiver usando o servidor direcionamento, Olá agente do OMS deve ser instalado em Olá WSUS servidor Olá toobe de informações de associação de grupo importado tooOMS.  Essa associação é atualizada continuamente a cada 4 horas. 
 
-Configure o Log Analytics para importar grupos de segurança do Active Directory do menu **Grupos de Computadores** nas **Configurações** do Log Analytics.  Selecione **Active Directory** e **Importe as associações de grupo do Active Directory dos computadores**.  Não é necessária nenhuma configuração.
+Configurar grupos de segurança de Active Directory de tooimport de análise de Log da saudação **grupos de computadores** menu na análise de Log **configurações**.  Selecione **Active Directory** e **Importe as associações de grupo do Active Directory dos computadores**.  Não é necessária nenhuma configuração.
 
 ![Grupos de computadores do Active Directory](media/log-analytics-computer-groups/configure-wsus.png)
 
-Quando os grupos são importados, o menu lista o número de computadores com a associação de grupo detectada e o número de grupos importados.  Você pode clicar em qualquer um desses links para retornar os registros de **ComputerGroup** com essas informações.
+Quando grupos importados, hello menu listas Olá número de computadores com associação de grupo detectados e Olá número de grupos importados.  Você pode clicar em qualquer um dos Olá de tooreturn links **ComputerGroup** registros com essas informações.
 
 ## <a name="managing-computer-groups"></a>Gerenciando grupos de computadores
-Você pode exibir grupos de computadores que foram criados por meio de uma pesquisa de log ou da API da Pesquisa de Log do menu **Grupos de Computadores** nas **Configurações** do Log Analytics.  Clique no **x** na coluna **Remover** para excluir o grupo de computadores.  Clique no ícone **Exibir membros** para que um grupo execute a pesquisa de log do grupo que retorna seus membros. 
+Você pode exibir grupos de computadores que foram criados a partir de uma pesquisa de log ou Olá API de pesquisa de Log de saudação **grupos de computadores** menu na análise de Log **configurações**.  Clique em Olá **x** em Olá **remover** grupo de computadores coluna toodelete hello.  Clique em Olá **exibir membros** ícone de pesquisa de log de um grupo toorun Olá grupo que retorna a seus membros. 
 
 ![Grupos de computadores salvados](media/log-analytics-computer-groups/configure-saved.png)
 
-Para modificar o grupo, crie um novo grupo com a mesma **Categoria** e o **Nome** para substituir o grupo original.
+Olá toomodify grupo, crie um novo grupo com hello mesmo **categoria** e **nome** grupo original do toooverwrite hello.
 
 ## <a name="using-a-computer-group-in-a-log-search"></a>Usando um grupo de computadores em uma pesquisa de log
-Use a seguinte sintaxe para se referir a um grupo de computadores em uma pesquisa de log.  Especificar a **Categoria** será opcional e necessário somente se você tiver grupos de computadores com o mesmo nome em diferentes categorias. 
+Usar o hello grupo de computadores sintaxe toorefer tooa em uma pesquisa de log a seguir.  Olá especificando **categoria** é opcional e somente necessário se você tiver grupos de computadores com o mesmo nome em categorias diferentes de saudação. 
 
     $ComputerGroups[Category: Name]
 
-Quando uma pesquisa é executada, os membros dos grupos de computadores incluídos na pesquisa são resolvidos primeiro.  Se o grupo for baseado em uma pesquisa de logs, a pesquisa será executada para retornar apenas os membros do grupo antes de executar a pesquisa de logs de nível superior.
+Quando uma pesquisa é executada, membros de saudação de quaisquer grupos de computadores incluídos na pesquisa de saudação são resolvidos primeiro.  Se o grupo de saudação baseia-se em uma pesquisa de log, que a pesquisa é executada tooreturn membros de saudação do grupo de saudação antes de executar a pesquisa de log de nível superior de saudação.
 
-Grupos de computadores normalmente são usados com a cláusula **IN** na pesquisa de logs, como no exemplo a seguir:
+Grupos de computadores são usados normalmente com hello **IN** cláusula na pesquisa de log hello como Olá exemplo a seguir:
 
     Type=UpdateSummary Computer IN $ComputerGroups[My Computer Group]
 
 >[!NOTE]
-> Se o espaço de trabalho foi atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), então, você utilizará um grupo de Computador em uma consulta tratando seu alias como uma função, como no exemplo a seguir:
+> Se seu espaço de trabalho tiver sido atualizado toohello [linguagem de consulta de nova análise de Log](log-analytics-log-search-upgrade.md), em seguida, usar um grupo de computadores em uma consulta tratando seu alias como uma função como Olá exemplo a seguir:
 > 
 >  `UpdateSummary | where Computer IN (MyComputerGroup)`
 
 ## <a name="computer-group-records"></a>Registros de grupo de computadores
-Um registro é criado no repositório do OMS para cada associação do grupo do computadores criada no Active Directory ou no WSUS.  Esses registros de desempenho têm um tipo de **ComputerGroup** e têm as propriedades na tabela a seguir.  Registros não são criados para grupos de computadores com base em pesquisas de log.
+Um registro é criado no repositório do OMS Olá para cada associação de grupo do computador criado a partir do Active Directory ou do WSUS.  Esses registros têm um tipo de **ComputerGroup** e têm propriedades de saudação em Olá a tabela a seguir.  Registros não são criados para grupos de computadores com base em pesquisas de log.
 
 | Propriedade | Descrição |
 |:--- |:--- |
 | Tipo |*ComputerGroup* |
 | SourceSystem |*SourceSystem* |
-| Computador |Nome do computador membro. |
-| Agrupar |Nome do grupo. |
-| GroupFullName |Caminho completo para o grupo, incluindo a fonte e o nome da fonte. |
+| Computador |Nome do computador do membro hello. |
+| Agrupar |Nome do grupo de saudação. |
+| GroupFullName |Grupo de toohello de caminho completo incluindo fonte hello e o nome da fonte. |
 | GroupSource |Fonte da qual o grupo foi coletado. <br><br>Active Directory<br>WSUS<br>WSUSClientTargeting |
-| GroupSourceName |Nome da origem da qual o grupo foi coletado.  Para o Active Directory, este é o nome de domínio. |
-| ManagementGroupName |Nome do grupo de gerenciamento de agentes do SCOM.  Para outros agentes, ele é AOI-\<ID do espaço de trabalho\> |
-| TimeGenerated |Data e hora em que o grupo de computadores foi criado ou atualizado. |
+| GroupSourceName |Nome da fonte Olá Olá grupo de foram coletado do.  Para o Active Directory, esse é o nome de domínio de saudação. |
+| ManagementGroupName |Nome do grupo de gerenciamento de saudação para agentes SCOM.  Para outros agentes, ele é AOI-\<ID do espaço de trabalho\> |
+| TimeGenerated |Grupo de computadores de data e hora Olá foi criado ou atualizado. |
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções.  
+* Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) dados de saudação tooanalyze coletados de fontes de dados e soluções.  
 

@@ -1,6 +1,6 @@
 ---
-title: Agendar trabalhos com o Hub IoT do Azure (.NET/Node) | Microsoft Docs
-description: "Como agendar um trabalho do Hub IoT do Azure para invocar um método direto em vários dispositivos. Use o SDK do dispositivo IoT do Azure para Node.js para implementar os aplicativos de dispositivo e o SDK do serviço do IoT do Azure para .NET para implementar um aplicativo de serviço que executa o trabalho."
+title: "trabalhos de aaaSchedule com o Azure IoT Hub (.NET/nó) | Microsoft Docs"
+description: "Como tooschedule um Azure IoT Hub trabalho tooinvoke um método direto em vários dispositivos. Você pode usar dispositivo IoT do Azure de saudação SDK para aplicativos de dispositivos do Node. js tooimplement Olá simulado e hello serviço IoT do Azure SDK para .NET tooimplement um trabalho de saudação de toorun de aplicativo de serviço."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: juanpere
-ms.openlocfilehash: a8f4f34aa99c4a9966957cac213ec9170de80a46
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f6148b67129dde4580bfe9ccceafd6400fbc5976
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="schedule-and-broadcast-jobs-netnodejs"></a>Agendar e difundir trabalhos (.NET/Node.js)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
-Use o Hub IoT do Azure para agendar e controlar os trabalhos que atualizam milhões de dispositivos. Use trabalhos para:
+Use trabalhos Azure IoT Hub tooschedule e rastrear que atualizam milhões de dispositivos. Use trabalhos para:
 
 * Atualizar as propriedades desejadas
 * Marcas de atualização
 * Chamar métodos diretos
 
-Um trabalho encapsula uma dessas ações e controla a execução em um conjunto de dispositivos definido por uma consulta de dispositivo gêmeo. Por exemplo, um aplicativo de back-end pode usar um trabalho para invocar um método direto em 10.000 dispositivos que reinicie os dispositivos. Você especifica o conjunto de dispositivos com uma consulta de dispositivo gêmeo e agenda o trabalho para execução futura. O trabalho controla o andamento conforme cada um dos dispositivos recebe e executa o método direto de reinicialização.
+Um trabalho envolve uma dessas ações e rastreia Olá execução em um conjunto de dispositivos que é definido por uma consulta de duas do dispositivo. Por exemplo, um aplicativo de back-end pode usar um trabalho tooinvoke um método direto em 10.000 dispositivos que reinicia dispositivos hello. Você especifica o conjunto de saudação de dispositivos com uma consulta de duas do dispositivo e agenda Olá trabalho toorun no futuro. Olá trabalho rastreia progresso como cada um dos dispositivos de saudação receber e executar o método direto de reinicialização hello.
 
-Para saber mais sobre cada uma dessas capacidades, consulte:
+toolearn mais sobre cada um desses recursos, consulte:
 
-* Dispositivo gêmeo e propriedades: [Introdução os dispositivos gêmeos][lnk-get-started-twin] e [Tutorial: Como usar as propriedades do dispositivo gêmeo][lnk-twin-props]
+* Duas do dispositivo e propriedades: [Introdução ao twins dispositivo] [ lnk-get-started-twin] e [Tutorial: como dispositivo toouse macros propriedades][lnk-twin-props]
 * Métodos diretos: [Guia do desenvolvedor do Hub IoT – métodos diretos][lnk-dev-methods] e [Tutorial: Usar métodos diretos][lnk-c2d-methods]
 
 Este tutorial mostra como:
 
-* Criar um aplicativo de dispositivo que implemente um método chamado **lockDoor** que possa ser chamado pelo aplicativo de back-end. O aplicativo de dispositivo também recebe as alterações de propriedade desejadas do aplicativo de back-end.
-* Criar um aplicativo de back-end que gere um trabalho para chamar o método direto **lockDoor** em vários dispositivos. Outro trabalho envia as atualizações de propriedade desejadas para vários dispositivos.
+* Criar um aplicativo de dispositivo que implementa um método chamado **lockDoor** que pode ser chamado pelo aplicativo de back-end de saudação. aplicativo de dispositivo Olá também recebe alterações de propriedade desejados do aplicativo de back-end de saudação.
+* Criar um aplicativo de back-end que cria uma saudação do trabalho toocall **lockDoor** método direto em vários dispositivos. Outro trabalho envia toomultiple dispositivos de atualizações de propriedade desejados.
 
-Ao final deste tutorial, você terá um aplicativo de dispositivo de console Node.js e um aplicativo de back-end do console .NET (C#):
+No final da saudação deste tutorial, você tem um aplicativo de dispositivo do console Node. js e um aplicativo de back-end do console .NET (c#):
 
-**simDevice.js** que se conecta ao seu hub IoT, implementa o método direto **lockDoor** e manipula as alterações de propriedade desejadas.
+**simDevice.js** que se conecta tooyour IoT hub, implementa Olá **lockDoor** direcionar o método e manipula desejado alterações de propriedade.
 
-**ScheduleJob** que usa trabalhos para chamar o método direto **lockDoor** e atualizar as propriedades desejada do dispositivo gêmeo em vários dispositivos.
+**ScheduleJob** que usa a saudação de toocall trabalhos **lockDoor** direta duas de dispositivo de saudação do método e atualização desejado propriedades em vários dispositivos.
 
-Para concluir este tutorial, você precisará do seguinte:
+toocomplete neste tutorial, você precisa Olá a seguir:
 
 * Visual Studio 2015 ou Visual Studio 2017.
-* Node.js versão 0.12.x ou posterior. O artigo [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
+* Node.js versão 0.12.x ou posterior. artigo Olá [preparar seu ambiente de desenvolvimento] [ lnk-dev-setup] descreve como tooinstall Node. js para este tutorial no Windows ou Linux.
 * Uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -60,30 +60,30 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-sending-device-twin-updates"></a>Agendar trabalhos para chamar um método direto e enviar atualizações ao dispositivo gêmeo
 
-Nesta seção, você cria um aplicativo de console .NET (usando C#) que usa trabalhos para chamar o método direto **lockDoor** e enviar as atualizações de propriedade desejadas para vários dispositivos.
+Nesta seção, você cria um console aplicativo .NET (usando o c#) que usa a saudação de toocall trabalhos **lockDoor** método direto e enviar toomultiple dispositivos de atualizações de propriedade desejados.
 
-1. No Visual Studio, adicione um projeto da Área de Trabalho Clássica do Windows no Visual C# à solução atual usando o modelo de projeto **Aplicativo do Console** . Nomeie o projeto como **ScheduleJob**.
+1. No Visual Studio, adicione uma solução do Visual C# Windows clássico Desktop projeto toohello atual usando Olá **aplicativo de Console** modelo de projeto. Projeto de saudação do nome **ScheduleJob**.
 
     ![Novo projeto da Área de Trabalho Clássica do Windows no Visual C#][img-createapp]
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ScheduleJob** e, em seguida, clique em **Gerenciar Pacotes NuGet...**.
-1. Na janela **Gerenciador de Pacotes Nuget**, selecione **Procurar**, procure **microsoft.azure.devices**, selecione **Instalar** para instalar o pacote **Microsoft.Azure.Devices** e aceite os termos de uso. Esta etapa baixa, instala e adiciona uma referência ao pacote NuGet do [SDK do serviço IoT do Azure][lnk-nuget-service-sdk] e suas dependências.
+1. No Gerenciador de soluções, clique com botão direito Olá **ScheduleJob** do projeto e, em seguida, clique em **gerenciar pacotes NuGet...** .
+1. Em Olá **NuGet Package Manager** janela, selecione **procurar**, procure **microsoft.azure.devices**, selecione **instalar** tooinstall Olá **Microsoft.Azure.Devices** empacotar e aceitar os termos de uso do hello. Esta etapa baixa, instala e adiciona uma referência toohello [SDK do serviço de Azure IoT] [ lnk-nuget-service-sdk] NuGet pacote e suas dependências.
 
     ![Janela do Gerenciador de Pacotes NuGet][img-servicenuget]
-1. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
+1. Adicione o seguinte Olá `using` instruções na parte superior de saudação do hello **Program.cs** arquivo:
     
     ```csharp
     using Microsoft.Azure.Devices;
     using Microsoft.Azure.Devices.Shared;
     ```
 
-1. Adicione a instrução `using` a seguir caso ela não esteja presente nas instruções padrão.
+1. Adicione o seguinte Olá `using` instrução se não estiver presente em instruções de padrão de saudação.
 
     ```csharp
     using System.Threading.Tasks;
     ```
 
-1. Adicione os seguintes campos à classe **Program** . Substitua o espaço reservado pela cadeia de conexão do Hub IoT criado na seção anterior.
+1. Adicionar Olá toohello campos a seguir **programa** classe. Substitua o espaço reservado de saudação com hello cadeia de caracteres de conexão de IoT Hub hub Olá que você criou na seção anterior hello.
 
     ```csharp
     static string connString = "{iot hub connection string}";
@@ -91,7 +91,7 @@ Nesta seção, você cria um aplicativo de console .NET (usando C#) que usa trab
     static JobClient jobClient;
     ```
 
-1. Adicione o seguinte método à classe **Programa** :
+1. Adicionar Olá após o método toohello **programa** classe:
 
     ```csharp
     public static async Task MonitorJob(string jobId)
@@ -106,7 +106,7 @@ Nesta seção, você cria um aplicativo de console .NET (usando C#) que usa trab
     }
     ```
 
-1. Adicione o seguinte método à classe **Programa** :
+1. Adicionar Olá após o método toohello **programa** classe:
 
     ```csharp
     public static async Task StartMethodJob(string jobId)
@@ -123,7 +123,7 @@ Nesta seção, você cria um aplicativo de console .NET (usando C#) que usa trab
     }
     ```
 
-1. Adicione o seguinte método à classe **Programa** :
+1. Adicionar Olá após o método toohello **programa** classe:
 
     ```csharp
     public static async Task StartTwinUpdateJob(string jobId)
@@ -143,7 +143,7 @@ Nesta seção, você cria um aplicativo de console .NET (usando C#) que usa trab
     }
     ```
 
-1. Por fim, adicione as seguintes linhas ao método **Main** :
+1. Finalmente, adicione Olá toohello linhas a seguir **principal** método:
 
     ```csharp
     jobClient = JobClient.CreateFromConnectionString(connString);
@@ -152,38 +152,38 @@ Nesta seção, você cria um aplicativo de console .NET (usando C#) que usa trab
 
     StartMethodJob(methodJobId);
     MonitorJob(methodJobId).Wait();
-    Console.WriteLine("Press ENTER to run the next job.");
+    Console.WriteLine("Press ENTER toorun hello next job.");
     Console.ReadLine();
 
     string twinUpdateJobId = Guid.NewGuid().ToString();
 
     StartTwinUpdateJob(twinUpdateJobId);
     MonitorJob(twinUpdateJobId).Wait();
-    Console.WriteLine("Press ENTER to exit.");
+    Console.WriteLine("Press ENTER tooexit.");
     Console.ReadLine();
     ```
 
-1. No Gerenciador de Soluções, abra **Definir projetos de StartUp...** e verifique se a **Ação** para o projeto **ScheduleJob** é **Iniciar**. Compilar a solução.
+1. Olá Gerenciador de soluções, abra o hello **projetos de inicialização definido...**  e certifique-se de saudação **ação** para **ScheduleJob** projeto é **iniciar**. Compile a solução de saudação.
 
 ## <a name="create-a-simulated-device-app"></a>Criar um aplicativo de dispositivo simulado
 
-Nesta seção, você cria um aplicativo de console do Node.js que responde a um método direto chamado pela nuvem, que dispara uma reinicialização de dispositivo simulado e usa propriedades relatadas para habilitar consultas em dispositivos gêmeos e identificar os dispositivos e quando eles foram reiniciados pela última vez.
+Nesta seção, você cria um aplicativo de console Node. js que responde tooa método direto chamado pela nuvem hello, o que dispara uma reinicialização do dispositivo simulado e usa Olá relatado propriedades tooenable dispositivos duas consultas tooidentify dispositivos e quando eles reiniciado pela última vez.
 
-1. Crie uma nova pasta vazia denominada **simDevice**.  Na pasta **simDevice**, crie um arquivo package.json usando o comando a seguir no seu prompt de comando.  Aceite todos os padrões:
+1. Crie uma nova pasta vazia denominada **simDevice**.  Em Olá **simDevice** pasta, crie um arquivo Package. JSON usando Olá comando no prompt de comando a seguir.  Aceite todos os padrões de saudação:
 
     ```cmd/sh
     npm init
     ```
 
-1. No prompt de comando, na pasta **simDevice**, execute o seguinte comando para instalar o pacote **azure-iot-device** e os pacotes **azure-iot-device-mqtt**:
+1. O prompt de comando no hello **simDevice** pasta, execute Olá Olá de tooinstall de comando a seguir **dispositivo de iot do azure** e **azure iot-dispositivo mqtt** pacotes:
 
     ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. Usando um editor de texto, crie um novo arquivo **SimDevice.js** na pasta **simDevice**.
+1. Usando um editor de texto, crie um novo **simDevice.js** arquivo hello **simDevice** pasta.
 
-1. Adicione as seguintes instruções "require" no início do arquivo **simDevice.js**:
+1. Adicionar instruções no início de saudação do hello seguinte Olá 'requer' **simDevice.js** arquivo:
 
     ```nodejs
     'use strict';
@@ -192,24 +192,24 @@ Nesta seção, você cria um aplicativo de console do Node.js que responde a um 
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-1. Adicione uma variável **connectionString** e use-a para criar um **Cliente** do dispositivo. Lembre-se de substituir os espaços reservados pelos valores apropriados para sua instalação.
+1. Adicionar um **connectionString** variável e use-toocreate uma **cliente** instância. Verifique os espaços reservados de saudação tooreplace-se de que a instalação de tooyour apropriado de valores.
 
     ```nodejs
     var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
-1. Adicione a seguinte função para manipular o método **lockDoor**.
+1. Adicionar Olá Olá de toohandle de função a seguir **lockDoor** método.
 
     ```nodejs
     var onLockDoor = function(request, response) {
    
-        // Respond the cloud app for the direct method
+        // Respond hello cloud app for hello direct method
         response.send(200, function(err) {
             if (!err) {
                 console.error('An error occured when sending a method response:\n' + err.toString());
             } else {
-                console.log('Response to method \'' + request.methodName + '\' sent successfully.');
+                console.log('Response toomethod \'' + request.methodName + '\' sent successfully.');
             }
         });
    
@@ -217,47 +217,47 @@ Nesta seção, você cria um aplicativo de console do Node.js que responde a um 
     };
     ```
 
-1. Adicione o seguinte código para registrar o manipulador do método **lockDoor**.
+1. Adicionar Olá após código tooregister Olá manipulador Olá **lockDoor** método.
 
     ```nodejs
     client.open(function(err) {
         if (err) {
-            console.error('Could not connect to IotHub client.');
+            console.error('Could not connect tooIotHub client.');
         }  else {
-            console.log('Client connected to IoT Hub.  Waiting for lockDoor direct method.');
+            console.log('Client connected tooIoT Hub.  Waiting for lockDoor direct method.');
             client.onDeviceMethod('lockDoor', onLockDoor);
         }
     });
     ```
 
-1. Salve e feche o arquivo **simDevice.js**.
+1. Salve e feche o hello **simDevice.js** arquivo.
 
 > [!NOTE]
-> Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), como sugerido no artigo [Tratamento de falhas transitórias][lnk-transient-faults] do MSDN.
+> coisas tookeep simples, este tutorial não implementa nenhuma política de repetição. No código de produção, você deve implementar políticas de repetição (por exemplo, uma retirada exponencial), conforme sugerido no artigo do MSDN Olá [tratamento de falhas transitórias][lnk-transient-faults].
 
-## <a name="run-the-apps"></a>Executar os aplicativos
+## <a name="run-hello-apps"></a>Executar aplicativos Olá
 
-Agora você está pronto para executar os aplicativos.
+Agora você está pronto toorun Olá aplicativos.
 
-1. No prompt de comando, na pasta **simDevice**, execute o seguinte comando para começar a escutar o método direto de reinicialização.
+1. No prompt de comando de saudação de saudação **simDevice** pasta, execute Olá toobegin comando escuta para o método direto de reinicialização Olá a seguir.
 
     ```cmd/sh
     node simDevice.js
     ```
 
-1. Execute o aplicativo de console do C# **ScheduleJob** clicando com o botão direito do mouse no projeto **ScheduleJob** e selecionando **Depurar** e **Iniciar nova instância**.
+1. Aplicativo de console Olá execução c# **ScheduleJob** clicando em Olá **ScheduleJob** projeto, selecionando **depurar** e **iniciar nova instância**.
 
-1. Você verá a saída do dispositivo e dos aplicativos back-end.
+1. Você verá a saída de saudação do dispositivo e aplicativos de back-end.
 
-    ![Executar os aplicativos para agendar trabalhos][img-schedulejobs]
+    ![Executar aplicativos de saudação tooschedule trabalhos][img-schedulejobs]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você usou um trabalho para agendar um método direto para um dispositivo e a atualização das propriedades do twin do dispositivo.
+Neste tutorial, você usou um trabalho tooschedule um dispositivo de tooa método direto e atualização de saudação das propriedades do duas do dispositivo hello.
 
-Para continuar com a introdução ao Hub IoT e aos padrões de gerenciamento de dispositivos como atualização de firmware remota aérea, leia: [Tutorial: Como fazer uma atualização de firmware][lnk-fwupdate].
+toocontinue guia de Introdução com padrões de gerenciamento de IoT Hub e o dispositivo como remoto pela atualização de firmware ar hello, leia [Tutorial: como toodo um atualização do firmware][lnk-fwupdate].
 
-Para continuar a introdução ao Hub IoT, consulte [Introdução ao IoT Edge][lnk-iot-edge].
+toocontinue guia de Introdução ao IoT Hub, consulte [guia de Introdução com borda IoT][lnk-iot-edge].
 
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-node-schedule-jobs/servicesdknuget.png

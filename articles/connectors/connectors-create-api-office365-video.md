@@ -1,6 +1,6 @@
 ---
-title: "Usar o conector de Vídeo do Office 365 em seus Aplicativos Lógicos | Microsoft Docs"
-description: "Começar a usar o conector de Vídeo do Office 365 nos seus aplicativos lógicos do serviço de aplicativo do Microsoft Azure"
+title: "conector de vídeo do Office 365 Olá aaaUse em seus aplicativos lógicos | Microsoft Docs"
+description: "Começar a usar o conector de vídeo do Office 365 Olá em seus aplicativos de lógica de serviço de aplicativo do Microsoft Azure"
 services: 
 documentationcenter: 
 author: MandiOhlinger
@@ -15,33 +15,33 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: f0e3613d4a3fd5478787c0365eb7a0bcde886c81
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6e0a4b658d166d1cf8096d50f4bf2d502053aa43
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-office365-video-connector"></a>Introdução ao conector de Vídeo do Office365
-Conecte-se ao Vídeo do Office 365 para obter informações sobre um vídeo do Office 365, obter uma lista de vídeos e muito mais. Com o Vídeo do Office 365, é possível:
+# <a name="get-started-with-hello-office365-video-connector"></a>Introdução ao conector de vídeo Office365 Olá
+Conectar tooOffice 365 vídeo tooget informações sobre um vídeo do Office 365, obter uma lista de vídeos e muito mais. Com o Vídeo do Office 365, é possível:
 
-* Criar seu fluxo de negócios baseado nos dados obtidos do Vídeo do Office 365. 
-* Usar ações que verificam o status do portal do vídeo, obter uma lista de todos os vídeos em um canal e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, é possível usar o conector da Pesquisa do Bing para pesquisar vídeos do Office 365 e usar o conector do Vídeo do Office 365 para obter informações sobre determinado vídeo. Se o vídeo atender às suas necessidades, você poderá postá-lo no Facebook. 
+* Crie o fluxo de negócios com base em dados Olá que obter de vídeo do Office 365. 
+* Use as ações que verificar o status de portal vídeo hello, obter uma lista de todos os vídeo em um canal e muito mais. Essas ações obtém uma resposta e saída de hello tornar disponível para outras ações. Por exemplo, você pode usar Olá toosearch de conector de pesquisa do Bing para vídeos do Office 365 e usar Olá Office 365 conector de vídeo tooget informações sobre esse vídeo. Se Olá vídeo atende às suas necessidades, você poderá postar este vídeo no Facebook. 
 
 É possível começar criando um aplicativo lógico agora. Consulte [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="create-a-connection-to-office365-video-connector"></a>Criar uma conexão com o conector do Vídeo do Office 365
-Ao adicionar esse conector aos seus aplicativos lógicos, é necessário entrar em sua conta de Vídeo do Office 365 e permitir que os aplicativos lógicos se conectem à sua conta.
+## <a name="create-a-connection-toooffice365-video-connector"></a>Criar um conector de vídeo de tooOffice365 de conexão
+Quando você adiciona esse conector tooyour os aplicativos lógicos, você deve entrar-no Office 365 vídeo de tooyour de conta e permitir que os aplicativos lógicos tooconnect tooyour conta.
 
-> [!INCLUDE [Steps to create a connection to Office 365 Video](../../includes/connectors-create-api-office365video.md)]
+> [!INCLUDE [Steps toocreate a connection tooOffice 365 Video](../../includes/connectors-create-api-office365video.md)]
 > 
 > 
 
-Depois de criar a conexão, insira as propriedades do vídeo do Office 365, como o nome de locatário ou a ID do canal. 
+Depois de criar conexão hello, inserir propriedades de vídeo Olá Office 365, como nome do locatário hello ou ID do canal 
 
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/office365videoconnector/).
+Exibir quaisquer gatilhos e ações definidas em swagger Olá e também os limites de saudação [detalhes conector](/connectors/office365videoconnector/).
 
 ## <a name="more-connectors"></a>Mais conectores
-Volte para a [Lista de APIs](apis-list.md).
+Voltar toohello [lista APIs](apis-list.md).

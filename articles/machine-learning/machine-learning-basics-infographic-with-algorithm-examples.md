@@ -1,6 +1,6 @@
 ---
 title: "Infográfico: conceitos básicos do Machine Learning - exemplos do algoritmo | Microsoft Docs"
-description: "Uma visão geral fácil de compreender dos conceitos básicos de aprendizado de máquina inclui exemplos de algoritmo. O infográfico baixável aborda a maioria das perguntas sobre o aprendizado de máquina."
+description: "Uma visão geral fácil de compreender dos conceitos básicos de aprendizado de máquina inclui exemplos de algoritmo. infográfico baixável Olá abrange a maioria das perguntas de aprendizado de máquina."
 keywords: "conceitos básicos de aprendizado de máquina, exemplos de algoritmo, aprendizado de máquina para iniciantes, perguntas sobre aprendizado de máquina, algoritmos populares, infográfico de algoritmo"
 services: machine-learning
 documentationcenter: 
@@ -15,30 +15,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: garye
-ms.openlocfilehash: 03d5b53f63fddb95f369e2673f4c3430d50d6614
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a703021454fde76f770b2f6c8420b9ba2488d768
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infográfico baixável: Conceitos básicos de aprendizado de máquina com exemplos de algoritmo
-Baixe esta visão geral de fácil compreensão com um infográfico de noções básicas de aprendizado de máquina para saber mais sobre algoritmos populares usados para responder a perguntas comuns sobre aprendizado de máquina. Exemplos de algoritmo ajudam o iniciante no aprendizado de máquina a compreender quais algoritmos usar e para que eles são usados.
+Baixe esta visão geral de fácil de entender infográfico de toolearn Noções básicas sobre perguntas de aprendizado de máquina populares algoritmos usados tooanswer comuns de aprendizado de máquina. Exemplos de algoritmo compreender iniciante de aprendizado de máquina Olá toouse quais algoritmos e que eles são usados.
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Algoritmos populares no Machine Learning Studio
+[Azure Machine Learning Studio](https://studio.azureml.net/) vem com uma grande biblioteca de algoritmos para análise preditiva. Olá infográfico identifica quatro famílias populares de algoritmos de regressão, detecção de anomalias, agrupamento e classificação - e fornece links exemplos tooworking o [Cortana Intelligence galeria](https://gallery.cortanaintelligence.com/). Olá galeria contém experiências de exemplo e tutoriais que demonstram como esses algoritmos podem ser aplicados em muitas soluções do mundo real.
 
-            [Azure Machine Learning Studio](https://studio.azureml.net/) vem com uma grande biblioteca de algoritmos para análise preditiva. O infográfico identifica quatro famílias populares de algoritmos – regressão, detecção de anomalias, clustering e classificação – e fornece links para exemplos em funcionamento na [Galeria do Cortana Intelligence](https://gallery.cortanaintelligence.com/). A Galeria contém testes de exemplo e tutoriais que demonstram como esses algoritmos podem ser aplicados a muitas soluções do mundo real.
-
-## <a name="download-the-infographic-with-algorithm-examples"></a>Baixe o infográfico com exemplos de algoritmo
-**[Baixe: infográfico dos conceitos básicos de aprendizado de máquina com exemplos de algoritmo (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
+## <a name="download-hello-infographic-with-algorithm-examples"></a>Baixar infográfico Olá com exemplos de algoritmo
+**[Download: Infográfico dos conceitos básicos de aprendizado de máquina com exemplos de tooalgorithm links (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
 ![Infográfico: Conceitos básicos de aprendizado de máquina com exemplos de algoritmo. Algoritmos populares. Aprendizado de máquina para iniciantes.](./media/machine-learning-basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
 
 ## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Mais ajuda com algoritmos para usuários iniciantes e avançados
-* Para obter uma discussão mais detalhada sobre os diferentes tipos de algoritmos de aprendizado de máquina, como eles são usados e como escolher o correto para sua solução, confira [Como escolher algoritmos para o Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
-* Para obter uma lista por categoria de todos os algoritmos de aprendizado de máquina disponíveis no Machine Learning Studio, consulte [Inicializar Modelo][initialize-model] na Ajuda de Algoritmo e Módulo do Machine Learning Studio.
+* Para obter uma discussão mais profunda de tipos diferentes de saudação de algoritmos de aprendizado de máquina, como eles são usados e como toochoose Olá uma apropriada para sua solução, consulte [como toochoose algoritmos de aprendizado de máquina do Microsoft Azure](machine-learning-algorithm-choice.md).
+* Para obter uma lista por categoria de todos os Olá máquina algoritmos de aprendizado disponíveis no estúdio de aprendizado de máquina, consulte [inicializar modelo] [ initialize-model] em hello algoritmo Studio de aprendizado de máquina e a Ajuda do módulo.
 * Para obter uma lista completa em ordem alfabética dos algoritmos e módulos no Machine Learning Studio, consulte a [Lista de A-Z de módulos do Machine Learning Studio][a-z-list] na Ajuda de módulo e algoritmo do Machine Learning Studio.
-* Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Machine Learning Studio, consulte [Diagrama de visão geral dos recursos do Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
-* Para ter uma visão geral da Galeria do Cortana Intelligence e dos diversos recursos gerados pela comunidade disponíveis nela, consulte [Compartilhar e descobrir recursos na Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+* toodownload e imprimir um diagrama que fornece uma visão geral dos recursos de saudação do estúdio de aprendizado de máquina, consulte [diagrama de visão geral dos recursos do estúdio de aprendizado de máquina do Azure](machine-learning-studio-overview-diagram.md).
+* Para obter uma visão geral de bom dia Cortana Intelligence galeria e hello diversos recursos gerado pela comunidade disponíveis, consulte [compartilhamento e descobrir recursos na Olá Cortana Intelligence galeria](machine-learning-gallery-how-to-use-contribute-publish.md).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

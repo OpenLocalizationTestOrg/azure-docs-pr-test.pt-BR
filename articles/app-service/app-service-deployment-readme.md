@@ -1,6 +1,6 @@
 ---
-title: "Implantando aplicativos no Serviço de Aplicativo do Azure"
-description: "Saiba como implantar aplicativos para o trabalho do Serviço de Aplicativo"
+title: "aaaDeploying tooAzure de aplicativos do serviço de aplicativo"
+description: "Saiba como tooDeploy aplicativos tooApp serviço funcionam"
 keywords: "serviço de aplicativo do azure, serviço de aplicativo, implantando, implantação"
 services: app-service
 documentationcenter: 
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 347e8b5177eac8e08ab0dea701b736b86d23904a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 925341e12daf3cb05b25199f5c5218e82f062f70
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-app-service-deployment-overview"></a>Visão geral da implantação do Serviço de Aplicativo do Azure
-O Serviço de Aplicativo do Azure fornece um recurso avançado e integrado definido para dar suporte à criação de fluxos de trabalho de implantação flexível e poderosa. A implantação de aplicativos pode aproveitar opções que incluem publicação de controle do código-fonte local ou integração contínua, WebDeploy e FTP. O método recomendado para implantação do aplicativo de produção é a alternância do slot de implantação. Os slots de implantação representam ambientes de preparo e integração associados a aplicativos de produção. Os slots de implantação podem ser configurados e depender de tráfego da Web para validação, e o tráfego pode ser alternado sob demanda para implantação na produção sem a necessidade de tempo de inatividade e aquecimento automatizado. As etapas de um fluxo de trabalho de implantação podem ser automatizadas facilmente por meio de produtos de gerenciamento de versão, como o Visual Studio Release Management. Isso é útil para coordenar com outros recursos da solução (por exemplo, armazenamento de dados), recorrência e replicação em várias unidades de implantação. 
+Serviço de aplicativo do Azure fornece uma ampla e toosupport criando fluxos de trabalho de implantação poderoso e flexível de conjunto de recursos integrados. A implantação de aplicativos pode aproveitar opções que incluem publicação de controle do código-fonte local ou integração contínua, WebDeploy e FTP. Olá recomendado o método de implantação de aplicativos de produção é troca de slot de implantação. Os slots de implantação representam ambientes de preparo e integração associados a aplicativos de produção. Slots de implantação podem ser configurados e direcionados com tráfego da web para validação e tráfego pode ser trocado sob demanda para implantação tooproduction sem nenhum tempo de inatividade e automatizado de aquecimento. etapas de saudação de um fluxo de trabalho de implantação podem ser automatizadas facilmente por meio de produtos de gerenciamento de versão, como gerenciamento de versão do Visual Studio. Isso é útil para coordenar com outros recursos da solução (por exemplo, armazenamento de dados), recorrência e replicação em várias unidades de implantação. 
 
 [!INCLUDE [app-service-blueprint-deployment](../../includes/app-service-blueprint-deployment.md)]
 

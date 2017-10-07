@@ -1,6 +1,6 @@
 ---
-title: Enviar a imagem do Docker por push para o registro privado do Azure | Microsoft Docs
-description: "Envie e obtenha imagens do Docker para um registro de contêiner privado no Azure usando a CLI do Docker"
+title: aaaPush Docker imagem tooprivate do registro do Azure | Microsoft Docs
+description: "Enviar por push e pull Docker registro de contêiner privado tooa imagens no Azure usando Olá CLI do Docker"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -17,102 +17,102 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 07d4d72e94eda02e8594dfddb0e911eb0e63012d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a81a6f4bfcb23642a89ac7631348d40e2f4911a8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Envie sua primeira imagem para um registro de contêiner privado do Docker usando a CLI do Docker
-Um registro de contêiner do Azure armazena e gerencia imagens de contêiner privadas do [Docker](http://hub.docker.com), de forma semelhante a como o [Docker Hub](https://hub.docker.com/) armazena imagens públicas do Docker. Você usa a [Interface de Linha de Comando do Docker](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) para [logon](https://docs.docker.com/engine/reference/commandline/login/), [push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/) e outras operações no registro de contêiner.
+# <a name="push-your-first-image-tooa-private-docker-container-registry-using-hello-docker-cli"></a>Enviar por push o seu primeiro imagem tooa privada Docker registro de contêiner usando Olá CLI do Docker
+Um registro de contêiner do Azure armazena e gerencia privado [Docker](http://hub.docker.com) imagens de contêiner, semelhante toohello maneira [Docker Hub](https://hub.docker.com/) armazena imagens públicas do Docker. Use Olá [Interface de linha de comando do Docker](https://docs.docker.com/engine/reference/commandline/cli/) (CLI do Docker) para [login](https://docs.docker.com/engine/reference/commandline/login/), [push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/)e outras operações em seu contêiner Registro.
 
-Para obter mais informações e conceitos, consulte [visão geral](container-registry-intro.md)
+Para obter mais informações e conceitos, consulte [Olá visão geral](container-registry-intro.md)
 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Registro de Contêiner do Azure** - crie um registro de contêiner em sua assinatura do Azure. Por exemplo, use o [Portal do Azure](container-registry-get-started-portal.md) ou a [CLI do Azure 2.0](container-registry-get-started-azure-cli.md).
-* **CLI do Docker** - para configurar o computador local como um host Docker e acessar os comandos da CLI do Docker, instale o [Docker Engine](https://docs.docker.com/engine/installation/).
+* **Registro de Contêiner do Azure** - crie um registro de contêiner em sua assinatura do Azure. Por exemplo, usar Olá [portal do Azure](container-registry-get-started-portal.md) ou hello [Azure CLI 2.0](container-registry-get-started-azure-cli.md).
+* **CLI do docker** -tooset do computador local como um host e acesso Olá CLI do Docker comandos do Docker, instalar [mecanismo do Docker](https://docs.docker.com/engine/installation/).
 
-## <a name="log-in-to-a-registry"></a>Fazer logon em um registro
-Execute `docker login` para fazer logon em seu registro de contêiner as [credenciais de registro](container-registry-authentication.md).
+## <a name="log-in-tooa-registry"></a>Faça logon no registro tooa
+Executar `docker login` toolog tooyour registro de contêiner com o [credenciais de registro](container-registry-authentication.md).
 
-O seguinte exemplo passa a ID e senha de uma [entidade de serviço](../active-directory/active-directory-application-objects.md) do Azure Active Directory. Por exemplo, você pode atribuir uma entidade de serviço ao registro para um cenário de automação.
+Olá exemplo a seguir passa Olá ID e a senha de um Active Directory do Azure [entidade de serviço](../active-directory/active-directory-application-objects.md). Por exemplo, você pode ter atribuído um registro de tooyour principal do serviço para um cenário de automação.
 
 ```
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
 ```
 
 > [!TIP]
-> Especifique o nome totalmente qualificado do registro (todo em minúsculas). Neste exemplo, é `myregistry.azurecr.io`.
+> Verifique o nome de registro totalmente qualificado de Olá de toospecify se (todas as minúsculas). Neste exemplo, é `myregistry.azurecr.io`.
 
-## <a name="steps-to-pull-and-push-an-image"></a>Etapas para enviar e receber uma imagem
-O exemplo a seguir baixa a imagem de Nginx do registro do Hub do Docker público, marca-a para o registro de contêiner do Azure privado, envia-a por push ao registro e a extrai novamente.
+## <a name="steps-toopull-and-push-an-image"></a>Etapas toopull e enviar por push uma imagem
+Olá seguir exemplo downloads Olá imagem Nginx de registro de Hub do Docker público hello, marcas de registro do contêiner do Azure privado, push tooyour registro, em seguida, extrair novamente.
 
-**1. Obtenha a imagem oficial do Docker para Nginx**
+**1. Pull imagem oficial do Docker Olá para Nginx**
 
-Primeiro, extraia a imagem Nginx pública para seu computador local.
+Primeiro pull Olá pública Nginx imagem tooyour computador local.
 
 ```
 docker pull nginx
 ```
-**2. Iniciar o contêiner Nginx**
+**2. Inicie o contêiner de Nginx Olá**
 
-O comando a seguir inicia o contêiner Nginx local de forma interativa na porta 8080, permitindo que você veja a saída de Nginx. Remove o contêiner em execução, uma vez interrompido.
+Olá comando a seguir inicia Olá local Nginx contêiner interativamente na porta 8080, permitindo que você saída toosee Nginx. Ele remove Olá executando contêiner uma vez interrompida.
 
 ```
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Navegue até [http://localhost:8080/](http://localhost:8080) para exibir o contêiner em execução. Você verá uma tela semelhante ao exemplo a seguir.
+Procurar muito[http://localhost:8080](http://localhost:8080) tooview Olá executando o contêiner. Você verá um toohello semelhante de tela a seguir um.
 
 ![Nginx no computador local](./media/container-registry-get-started-docker-cli/nginx.png)
 
-Para interromper o contêiner em execução, pressione [CTRL]+[C].
+toostop Olá contêiner em execução, pressione [CTRL] + [C].
 
-**3. Criar um alias da imagem no registro**
+**3. Criar um alias de imagem Olá no registro**
 
-O comando a seguir cria um alias da imagem, com um caminho totalmente qualificado para o registro. Este exemplo especifica o namespace `samples` para evitar confusão na raiz do registro.
+Olá comando a seguir cria um alias de imagem hello, com um registro de tooyour caminho totalmente qualificado. Este exemplo especifica Olá `samples` namespace tooavoid desordem na raiz de saudação do registro hello.
 
 ```
 docker tag nginx myregistry.azurecr.io/samples/nginx
 ```  
 
-**4. Envie a imagem para o registro**
+**4. Push Olá imagem tooyour registro**
 
 ```
 docker push myregistry.azurecr.io/samples/nginx
 ```
 
-**5. Obtenha a imagem do registro**
+**5. Baixe a imagem de saudação do registro**
 
 ```
 docker pull myregistry.azurecr.io/samples/nginx
 ```
 
-**6. Iniciar o contêiner Nginx no registro**
+**6. Inicie o contêiner de Nginx de saudação do registro**
 
 ```
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-Navegue até [http://localhost:8080/](http://localhost:8080) para exibir o contêiner em execução.
+Procurar muito[http://localhost:8080](http://localhost:8080) tooview Olá executando o contêiner.
 
-Para interromper o contêiner em execução, pressione [CTRL]+[C].
+toostop Olá contêiner em execução, pressione [CTRL] + [C].
 
-**7. (Opcional) Remover a imagem**
+**7. (Opcional) Remover imagem Olá**
 
 ```
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
 ##<a name="concurrent-limits"></a>Limites simultâneos
-Em alguns cenários, a execução simultânea de chamadas pode resultar em erros. A tabela abaixo contém os limites de chamadas simultâneas com operações "Push" e "Pull" no registro do contêiner do Azure:
+Em alguns cenários, a execução simultânea de chamadas pode resultar em erros. Olá, a tabela a seguir contém os limites de saudação de chamadas simultâneas com operações de "Push" e "Pull" no registro de contêiner do Azure:
 
 | Operação  | Limite                                  |
 | ---------- | -------------------------------------- |
-| PULL       | Até 10 pulls simultâneos por registro |
-| PUSH       | Até 5 pushes simultâneos por registro |
+| PULL       | Backup too10 simultâneos recebe por registro |
+| PUSH       | Backup too5 simultâneos envia por registro |
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que conhece os fundamentos, você está pronto para começar a usar o registro! Por exemplo, inicie a implantação de imagens de contêiner para um cluster de [Serviço de Contêiner do Azure](https://azure.microsoft.com/documentation/services/container-service/).
+Agora que você sabe os fundamentos de saudação, você está pronto toostart usando seu registro! Por exemplo, iniciar a implantação de contêiner imagens tooan [serviço de contêiner do Azure](https://azure.microsoft.com/documentation/services/container-service/) cluster.

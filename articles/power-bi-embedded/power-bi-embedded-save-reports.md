@@ -1,6 +1,6 @@
 ---
-title: "Salvar relatórios no Azure Power BI Embedded | Microsoft Docs"
-description: "Saiba como salvar relatórios no Power BI Embedded. Isso requer as permissões apropriadas para trabalhar com êxito."
+title: "relatórios de aaaSave no Azure Power BI inserido | Microsoft Docs"
+description: "Saiba como toosave relatórios no Power BI inserido. Isso requer permissões apropriadas na ordem toowork com êxito."
 services: power-bi-embedded
 documentationcenter: 
 author: guyinacube
@@ -15,36 +15,36 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/11/2017
 ms.author: asaxton
-ms.openlocfilehash: ad895004cc2972f2ded81566186325a16d401151
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 984537ce1ce1afc787d6c6c9f61ae8d6226d1171
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="save-reports-in-power-bi-embedded"></a>Salvar relatórios no Power BI Embedded
 
-Saiba como salvar relatórios no Power BI Embedded. Isso requer as permissões apropriadas para trabalhar com êxito.
+Saiba como toosave relatórios no Power BI inserido. Isso requer permissões apropriadas na ordem toowork com êxito.
 
-No Power BI Embedded, você pode editar os relatórios existentes e salvá-los. Você também pode criar um novo relatório e salvar como um novo relatório para criar um.
+No Power BI Embedded, você pode editar os relatórios existentes e salvá-los. Você também pode criar um novo relatório e salve como um novo toocreate de relatório um.
 
-Para salvar um relatório, você precisa primeiro criar um token para o relatório específico com os escopos certos:
+Em ordem toosave um relatório é necessário primeiro toocreate um token para relatório específico de saudação com escopos de saudação à direita:
 
-* Para habilitar salvar, o escopo Report.ReadWrite é necessário
-* Para habilitar salvar como, os escopos Report.Read e Workspace.Report.Copy são necessários
-* Para habilitar as ações salvar e salvar como, os escopos Report.ReadWrite e Workspace.Report.Copy são necessários
+* tooenable salvar Report.ReadWrite escopo é necessária
+* tooenable Salvar como, Report.Read e Workspace.Report.Copy escopos são necessários
+* tooenable salvar e salvar como, Report.ReadWrite e Workspace.Report.Copy são é necessário
 
-Para habilitar os botões de salvar/salvar como certos no menu Arquivo, respectivamente, você precisa fornecer a permissão certa na configuração ao inserir o relatório:
+Respectivamente na saudação de tooenable ordem direita salvar ou salvar como botões no menu Arquivo, você precisa tooprovide Olá direita permissão na configuração de inserção de saudação quando você incorporar Olá relatório:
 
 * models.Permissions.ReadWrite
 * models.Permissions.Copy
 * models.Permissions.All
 
 > [!NOTE]
-> O token de acesso também precisa dos escopos apropriados. Para obter mais informações, consulte [Escopos](power-bi-embedded-app-token-flow.md#scopes).
+> O token de acesso também precisa de escopos apropriado hello. Para obter mais informações, consulte [Escopos](power-bi-embedded-app-token-flow.md#scopes).
 
 ## <a name="embed-report-in-edit-mode"></a>Inserir o relatório no modo de edição
 
-Digamos que você deseja inserir um relatório em modo de edição dentro de seu aplicativo, portanto, basta passar as propriedades certas na configuração de inserção e chamar powerbi.embed(). Você precisará fornecer permissões e um viewMode para ver os botões salvar e salvar como em modo de edição. Para saber mais, confira [Detalhes de configuração do servidor de inserção](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
+Vamos supor que você queira tooEmbed um relatório no modo de edição dentro de seu aplicativo, toodo então apenas passar propriedades do direito de saudação na configuração de inserção e chame powerbi.embed(). Você precisará toosupply permissões e um viewMode em Olá toosee de ordem salvar e salve como botões quando no modo de edição. Para saber mais, confira [Detalhes de configuração do servidor de inserção](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
 
 Por exemplo, no JavaScript:
 
@@ -54,7 +54,7 @@ Por exemplo, no JavaScript:
     // Get models. Models, it contains enums that can be used.
     var models = window['powerbi-client'].models;
 
-    // Embed configuration used to describe the what and how to embed.
+    // Embed configuration used toodescribe hello what and how tooembed.
     // This object is used when calling powerbi.embed.
     // This also includes settings and options such as filters.
     // You can find more information at https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details.
@@ -71,10 +71,10 @@ Por exemplo, no JavaScript:
         }
     };
 
-    // Get a reference to the embedded report HTML element
+    // Get a reference toohello embedded report HTML element
     var reportContainer = $('#reportContainer')[0];
 
-    // Embed the report and display it within the div container.
+    // Embed hello report and display it within hello div container.
     var report = powerbi.embed(reportContainer, config);
 ```
 
@@ -82,10 +82,10 @@ Agora, um relatório será inserido em seu aplicativo no modo de edição.
 
 ## <a name="save-report"></a>Salvar relatório
 
-Depois de inserir o relatório no modo de edição com o token e permissões certos, você pode salvar o relatório do menu Arquivo ou do JavaScript:
+Depois que o modo com hello token à direita e permissões de edição de relatório de saudação Embbeding em você pode salvar o relatório de Olá menu arquivo hello ou de javascript:
 
 ```
- // Get a reference to the embedded report.
+ // Get a reference toohello embedded report.
     report = powerbi.get(reportContainer);
 
  // Save report
@@ -95,7 +95,7 @@ Depois de inserir o relatório no modo de edição com o token e permissões cer
 ## <a name="save-as"></a>Salvar como
 
 ```
-// Get a reference to the embedded report.
+// Get a reference toohello embedded report.
     report = powerbi.get(reportContainer);
     
     var saveAsParameters = {
@@ -107,9 +107,9 @@ Depois de inserir o relatório no modo de edição com o token e permissões cer
 ```
 
 > [!IMPORTANT]
-> Um novo relatório é criado somente depois do uso de *salvar como*. Depois de salvar, a tela ainda mostra o antigo relatório no modo de edição e não o novo relatório. Você precisará inserir o novo relatório que foi criado. Isso requer um novo token de acesso, já que eles são criados por relatório.
+> Um novo relatório é criado somente depois do uso de *salvar como*. Depois de salvar hello, tela hello ainda mostra relatório antigo Olá Editar modo e não hello novo relatório. Você precisará tooembed Olá novo relatório que foi criado. Isso requer um novo token de acesso, já que eles são criados por relatório.
 
-Em seguida, você precisará carregar o novo relatório após um *salvar como*. Isso é semelhante à inserção de qualquer relatório.
+Em seguida, você precisará tooload Olá novo relatório após um *Salvar como*. Isso é semelhante tooembedding qualquer relatório.
 
 ```
 <div id="reportContainer"></div>
@@ -120,7 +120,7 @@ var embedConfiguration = {
         reportId: '5dac7a4a-4452-46b3-99f6-a25915e0fe54',
     };
     
-    // Grab the reference to the div HTML element that will host the report
+    // Grab hello reference toohello div HTML element that will host hello report
     var reportContainer = $('#reportContainer')[0];
 
     // Embed report
@@ -135,5 +135,5 @@ var embedConfiguration = {
 [Autenticando e autorizando com o Power BI Embedded](power-bi-embedded-app-token-flow.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Amostra de inserção de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
-Mais perguntas? [Experimentar a comunidade do Power BI](http://community.powerbi.com/)
+Mais perguntas? [Tente Olá comunidade do Power BI](http://community.powerbi.com/)
 

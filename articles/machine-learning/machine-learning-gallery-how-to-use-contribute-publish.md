@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Gallery | Microsoft Docs
-description: "Compartilhe e descubra soluções de análise e muito mais na Galeria do Cortana Intelligence. Aprenda com os outros e faça suas próprias contribuições à comunidade."
+title: "Galeria de inteligência de aaaCortana | Microsoft Docs"
+description: "Compartilhar e descobrir recursos de análise e muito mais no hello Cortana Intelligence Galeria. Aprender com outros usuários e fazer suas próprias contribuições da comunidade de toohello."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,82 +14,82 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 9a62ada405344207126cdc9fddc92b4c8601bc04
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2a976cda99ac55660f725dca7f7e34b821d62ad8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="share-and-discover-resources-in-the-cortana-intelligence-gallery"></a>Compartilhar e descobrir soluções na Galeria do Cortana Intelligence
+# <a name="share-and-discover-resources-in-hello-cortana-intelligence-gallery"></a>Compartilhar e descobrir recursos na Olá Cortana Intelligence Galeria
 [!INCLUDE [gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 <!-- separating these 2 includes -->
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="what-can-i-find-in-the-gallery"></a>O que posso encontrar na Galeria?
-A Cortana Intelligence Gallery contém uma variedade de recursos que você pode usar para desenvolver suas próprias soluções de análise.
+## <a name="what-can-i-find-in-hello-gallery"></a>O que pode encontrar no hello Galeria?
+Olá Cortana Intelligence galeria contém uma variedade de recursos que você pode usar toodevelop suas próprias soluções de análise.
 
-* **[Testes](machine-learning-gallery-experiments.md)** -a Galeria contém uma grande variedade de testes que foram desenvolvidos no Azure Machine Learning Studio. Eles variam de testes de verificação de conceito rápidos que demonstram uma técnica de aprendizado de máquina específica a soluções totalmente desenvolvidas para problemas de aprendizado de máquina complexos.
+* **[Experiências](machine-learning-gallery-experiments.md)**  -Olá galeria contém uma grande variedade de experiências que foram desenvolvidos no estúdio de aprendizado de máquina do Azure. Elas variam de rápida prova de conceito experiências que demonstram uma técnica de aprendizado de máquina específica desenvolvidos toofully soluções para problemas de aprendizado de máquina complexas.
 * **[Notebooks Jupyter](machine-learning-gallery-jupyter-notebooks.md)** – os notebooks Jupyter incluem código, visualizações de dados e documentação em uma única tela interativa.
-  Os notebooks na Galeria fornecem tutoriais e explicações detalhadas de técnicas e soluções avançadas de aprendizado de máquina.
+  Blocos de anotações em Olá Galeria fornecem explicações detalhadas sobre técnicas e as soluções de aprendizado de máquina avançada e tutoriais.
 
 <!--
-- **[Machine Learning APIs](https://machine-learning-gallery-apis.md)** - An experiment developed in Azure Machine Learning can be launched as a web service so that the analytics model can be accessed by others through a set of REST APIs. A variety of these APIs are available in the Gallery, such as a product recommendation engine or cloud-based face and speech recognition.
+- **[Machine Learning APIs](https://machine-learning-gallery-apis.md)** - An experiment developed in Azure Machine Learning can be launched as a web service so that hello analytics model can be accessed by others through a set of REST APIs. A variety of these APIs are available in hello Gallery, such as a product recommendation engine or cloud-based face and speech recognition.
 -->
 
-* **[Soluções](machine-learning-gallery-solutions.md)** – crie rapidamente Soluções do Cortana Intelligence por meio de soluções pré-configuradas, arquiteturas de referência e padrões de design. Crie as suas próprias usando as instruções incluídas ou com um parceiro em destaque.
-* **[Tutoriais](machine-learning-gallery-tutorials.md)** – vários tutoriais estão disponíveis para você percorrer conceitos e tecnologias de aprendizado de máquina ou para descrever métodos avançados para solucionar vários problemas de aprendizado de máquina.
+* **[Soluções](machine-learning-gallery-solutions.md)** – crie rapidamente Soluções do Cortana Intelligence por meio de soluções pré-configuradas, arquiteturas de referência e padrões de design. Torná-los sua próprias instruções Olá incluído ou com um destaque parceiro.
+* **[Tutoriais](machine-learning-gallery-tutorials.md)**  -vários tutoriais são toowalk disponível por meio de tecnologias de aprendizado de máquina e conceitos ou toodescribe avançadas métodos para resolver vários problemas de aprendizado de máquina.
 
 Esses recursos básicos da Galeria podem ser agrupados logicamente em duas maneiras diferentes:
 
-* **[Coleções](machine-learning-gallery-collections.md)** – uma coleção permite agrupar testes, APIs e outros itens da Galeria que abordam uma solução ou um conceito específico.
-* **[Setores](machine-learning-gallery-industries.md)** – a seção Setores da Galeria reúne diversos recursos que são específicos para setores como varejo, fabricação, bancário e saúde.
+* **[Coleções](machine-learning-gallery-collections.md)**  - uma coleção permite que você toogroup juntos experiências, APIs, e outros Galeria itens esse endereço de uma solução específica ou conceito.
+* **[Setores](machine-learning-gallery-industries.md)**  -Olá seção setores Olá Galeria reúne vários recursos que são específicos toosuch setores como varejo, produção, transações bancárias e saúde.
 
-Por fim, **[Competições](machine-learning-gallery-competitions.md)** oferecem uma oportunidade empolgante de concorrer com a comunidade de cientistas de dados para resolver problemas complexos usando o Cortana Intelligence Suite.
+Por fim,  **[competições](machine-learning-gallery-competitions.md)**  fornecem uma toocompete oportunidade interessantes com a comunidade de saudação do scientsts de dados toosolve problemas complexos usando o pacote de inteligência do Cortana.
 
 ![Página Inicial da Galeria do Cortana Intelligence](media/machine-learning-gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
 ## <a name="discover-and-learn"></a>Descobrir e aprender
-Qualquer pessoa pode pesquisar e procurar os tipos diferentes de recurso na Galeria que foram fornecidos pela Microsoft e pela comunidade de análises avançadas.
-Use-os para obter uma vantagem inicial na solução de problemas de análise de seus próprios dados.
-Você também pode baixar os experimentos e notebooks Jupyter para seu próprio espaço de trabalho do Machine Learning Studio.
+Qualquer pessoa pode procurar e pesquisar tipos diferentes de saudação de recursos no hello Galeria que contribuíram pela Microsoft e Olá comunidade de análise avançada.
+Use esses toolearn mais e obter um ponto de partida para a solução de problemas de análise de seus próprios dados.
+Você também pode baixar Jupyter notebooks tooyour próprio estúdio de aprendizado de máquina espaço de trabalho e experiências.
 
-Você pode localizar facilmente soluções populares e publicadas recentemente na galeria ou pode pesquisar por nome, marcas, algoritmos e outros atributos.
-Clique em **Procurar tudo** no cabeçalho da Galeria, selecione refinamentos de pesquisa na parte esquerda da página e insira termos de pesquisa na parte superior.
+Você pode localizar facilmente recursos populares e recentemente publicados na Galeria de hello, ou você pode pesquisar por nome, marcas, algoritmos e outros atributos.
+Clique em **Procurar tudo** em Olá cabeçalho da galeria e selecione os refinamentos de pesquisa esquerda Olá da página de saudação e insira termos de pesquisa na parte superior da saudação.
 
-Veja contribuições de um autor específico clicando no nome do autor de dentro de um dos blocos:
+Exibir contribuições de um determinado autor, clicando no nome do autor da saudação em qualquer um dos blocos de saudação:
 
 ![Ver contribuições do autor](media/machine-learning-gallery-how-to-use-contribute-publish/view-by-author.png)
 
-Você pode comentar, fornecer comentários ou fazer perguntas por meio da seção de comentários em cada página de recurso.
-Você pode até compartilhar um recursos de interesse com amigos ou colegas usando os recursos de compartilhamento do LinkedIn ou do Twitter.
-Você também pode enviar links por email para esses recursos e convidar outros usuários a ver as páginas.
+Você pode comentar, fornecer comentários ou fazer perguntas por meio da seção de comentários de saudação em cada página do recurso.
+Você ainda pode compartilhar um recurso de interesse com amigos ou colegas usando Olá compartilham recursos do LinkedIn ou Twitter.
+Você também pode email links toothese recursos tooinvite outras páginas de saudação do tooview de usuários.
 
 ![Compartilhar este item com amigos](media/machine-learning-gallery-how-to-use-contribute-publish/comment-and-share.png)
 
-## <a name="contribute-to-the-gallery"></a>Contribuir para a galeria
-Quando você entra, vira um membro da comunidade da Galeria. Isso permite a você contribuir com seus próprios itens de galeria, para que outras pessoas possam se beneficiar das soluções descobertas.
+## <a name="contribute-toohello-gallery"></a>Contribuir toohello Galeria
+Ao fazer o logon se tornar um membro da comunidade de galeria hello. Isso permite que você toocontribute que sua própria Galeria de itens para que outras pessoas podem se beneficiar das soluções de Olá que você descobriu.
 
-À medida que outras pessoas encontrem sua contribuição na galeria, você pode seguir o número de exibições e downloads de sua contribuição:
+À medida que outras pessoas em sua contribuição na Galeria de Olá, você pode seguir o número de saudação de modos de exibição e downloads de sua contribuição:
 
 ![Compartilhar este item com amigos](media/machine-learning-gallery-how-to-use-contribute-publish/view-and-download-counts.png)
 
-Os usuários também podem adicionar comentários e compartilhar sua contribuição com outros membros da comunidade de ciência de dados.
+Os usuários também podem adicionar comentários e compartilhar sua contribuição com outros membros da comunidade de ciência de dados hello.
 Você pode fazer logon com uma ferramenta discussão, como o Disqus e receber notificações de comentários em suas contribuições.
 
 ![Siga os comentários do usuário](media/machine-learning-gallery-how-to-use-contribute-publish/follow-comments.png)
 
-Você pode contribuir com os seguintes itens na Galeria – siga estes links para obter mais informações:
+Você pode contribuir seguinte Olá itens de galeria toohello - siga estes links para obter mais informações:
 
 * **[Coleções](machine-learning-gallery-collections.md#contribute)**
 * **[Experimentos](machine-learning-gallery-experiments.md#contribute)**
 * **[Tutoriais](machine-learning-gallery-tutorials.md#contribute)**
 
-## <a name="we-want-to-hear-from-you"></a>Queremos ouvir você!
-Queremos que a Galeria seja orientada por nossos usuários e para nossos usuários. Use o smiley à direita para nos dizer o que você adora ou odeia na Galeria.  
+## <a name="we-want-toohear-from-you"></a>Queremos toohear de você!
+Queremos Olá Galeria toobe orientada por nossos usuários e para nossos usuários. Use Olá feliz em tootell direita Olá nos quais você adora ou gostam sobre Olá Galeria.  
 
 ![Comentários](./media/machine-learning-gallery-how-to-use-contribute-publish/feedback.png)
 
-**[LEVE-ME À GALERIA >>](http://gallery.cortanaintelligence.com)**
+**[LEVAR ME toohello GALERIA >>](http://gallery.cortanaintelligence.com)**
 

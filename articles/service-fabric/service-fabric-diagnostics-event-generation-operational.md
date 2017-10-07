@@ -1,6 +1,6 @@
 ---
-title: Canal operacional do Azure Service Fabric | Microsoft Docs
-description: Lista abrangente dos logs gerados no canal operacional dos clusters do Azure Service Fabric.
+title: aaaAzure Service Fabric operacional Channel | Microsoft Docs
+description: Lista abrangente dos logs gerados em clusters de canal operacionais do Azure Service Fabric hello.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: dekapur
-ms.openlocfilehash: 934719868ab9968db352db2b440014d35dbc0274
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: 358782420ed62b202d6a89fe0f200b5ef0384c9c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="operational-channel"></a>Canal operacional 
 
-O canal operacional consiste em logs de ações de alto nível executadas pelo Service Fabric nos nós e no cluster. Quando o “Diagnóstico” está habilitado em um cluster, o agente do Diagnóstico do Azure é implantado no cluster e, por padrão, é configurado para ler os logs do canal Operacional. Leia mais sobre como configurar o [agente do Diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md) para modificar a configuração de diagnóstico do cluster, a fim de obter mais logs ou contadores de desempenho. 
+canal operacional Olá consiste em logs de alto nível ações executadas pelo serviço de malha em seus nós e o cluster. Quando "diagnóstico" está habilitado para um cluster, Olá agente de diagnóstico do Azure é implantado em seu cluster e é por padrão configurado tooread em logs do canal operacional hello. Leia mais sobre como configurar Olá [agente de diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md) toomodify configuração de diagnóstico de saudação do toopick seu cluster mais logs ou contadores de desempenho. 
 
 ## <a name="operational-channel-logs"></a>Logs do canal operacional 
 
-Esta é uma lista abrangente dos logs fornecidos pelo Service Fabric no canal operacional. 
+Aqui está uma lista abrangente dos logs fornecidos pela malha do serviço no canal operacional hello. 
 
 | EventId | Nome | Origem (Tarefa) | Nível |
 | --- | --- | --- | --- |
@@ -56,6 +56,6 @@ Esta é uma lista abrangente dos logs fornecidos pelo Service Fabric no canal op
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre a [geração de eventos geral no nível de plataforma](service-fabric-diagnostics-event-generation-infra.md) do Service Fabric
-* Modificando a configuração do [Diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md) para coletar mais logs
-* [Configurando o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) para ver os logs do Canal operacional
+* Saiba mais sobre geral [geração de eventos no nível de plataforma Olá](service-fabric-diagnostics-event-generation-infra.md) na malha do serviço
+* Modificando o [diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md) configuração toocollect mais logs
+* [Configurar o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) toosee o canal operacional logs

@@ -1,5 +1,5 @@
 ---
-title: "Amostra de script da CLI do Azure – Criar uma conta do Lote | Microsoft Docs"
+title: aaaAzure exemplo de Script CLI - criar uma conta de lote | Microsoft Docs
 description: "Amostra de script da CLI do Azure – Criar uma conta do Lote"
 services: batch
 documentationcenter: 
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.openlocfilehash: 698978fd717091c49a1375e222f46f4325431223
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 62b640eebbafdd1081822a638fd0720121ef067a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-batch-account-with-the-azure-cli"></a>Criar uma conta do Lote com a CLI do Azure
+# <a name="create-a-batch-account-with-hello-azure-cli"></a>Crie uma conta de lote com hello CLI do Azure
 
-Esse script cria uma conta do Lote do Azure e mostra como várias propriedades da conta podem ser consultadas e atualizadas.
+Esse script cria uma conta de lote do Azure e mostra como várias propriedades de conta Olá podem ser consultadas e atualizadas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Instale a CLI do Azure usando as instruções fornecidas no [Guia de instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) se ainda não tiver feito isso.
+Instalar Olá CLI do Azure com instruções Olá no hello [guia de instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli), se você ainda não tiver feito isso.
 
 ## <a name="batch-account-sample-script"></a>Script de exemplo de conta do Lote
 
-Quando você cria uma conta do Lote, os nós de computação dessa conta são atribuídos internamente, por padrão, pelo serviço de Lote. Nós de computação alocados estarão sujeitos a uma cota de núcleo separada e a conta poderá ser autenticada por meio de credenciais de Chave Compartilhada ou um token do Azure Active Directory.
+Quando você criar uma conta de lote, por padrão os nós de computação são atribuídos internamente pelo serviço de lote de saudação. Nós de computação alocado será cota de núcleos separado do assunto tooa e conta Olá pode ser autenticada por meio de credenciais de chave compartilhada ou um token Dirctory ativa do Azure.
 
-[!code-azurecli[principal](../../../cli_scripts/batch/create-account/create-account.sh "Criar Conta")]
+[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
 
 ## <a name="batch-account-using-user-subscription-sample-script"></a>Conta do Lote usando o script de exemplo de assinatura de usuário
 
-Você também pode optar por fazer com que o Lote crie seus nós de computação na sua própria assinatura do Azure.
-Contas que alocam nós de computação em sua assinatura devem ser autenticadas por meio de um token do Azure Active Directory e os nós de computação distribuídos contarão para a sua cota de assinatura. Para criar uma conta nesse modo, uma pessoa deve especificar uma referência do Key Vault ao criar a conta.
+Você também pode optar por toohave lote criar seus nós de computação em sua própria assinatura do Azure.
+Contas que alocam computação nós em sua assinatura devem ser autenticadas por meio de um token do Active Directory do Azure e nós de computação Olá alocados contará até sua cota de assinatura. toocreate uma conta nesse modo, um deve especificar uma referência de Cofre de chaves ao criar conta de saudação.
 
-[!code-azurecli[principal](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "Criar Conta Usando a Assinatura do Usuário")]
+[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "Create Account using User Subscription")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação
 
-Depois de executar qualquer um dos scripts de exemplo acima, execute o comando a seguir para remover o grupo de recursos e todos os recursos relacionados (incluindo contas do Lote, contas de Armazenamento do Azure e cofres de chaves do Azure).
+Depois de executar qualquer uma das Olá acima scripts de exemplo, execute Olá tooremove de comando a seguir, o grupo de recursos e recursos de todos os relacionados (inclusive contas em lotes, contas de armazenamento do Azure e cofres de chaves do Azure).
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -51,23 +51,23 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos para criar um grupo de recursos, uma conta do Lote e todos os recursos relacionados. Cada comando na tabela redireciona para a documentação específica do comando.
+Esse script usa Olá comandos toocreate um grupo de recursos, a conta de lote e relacionados todos os recursos a seguir. Cada comando na tabela Olá vincula a documentação específica do toocommand.
 
 | Command | Observações |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az batch account create](https://docs.microsoft.com/cli/azure/batch/account#create) | Cria a conta do Lote.  |
-| [az batch account set](https://docs.microsoft.com/cli/azure/batch/account#set) | Atualiza as propriedades da conta do Lote.  |
-| [az batch account show](https://docs.microsoft.com/cli/azure/batch/account#show) | Recupera os detalhes da conta do Lote especificada.  |
-| [az batch account keys list](https://docs.microsoft.com/cli/azure/batch/account/keys#list) | Recupera as chaves de acesso da conta do Lote especificada.  |
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | Autentica na conta do Lote especificada para interação adicional com a CLI.  |
+| [az batch account create](https://docs.microsoft.com/cli/azure/batch/account#create) | Cria a conta do lote hello.  |
+| [az batch account set](https://docs.microsoft.com/cli/azure/batch/account#set) | Atualiza as propriedades da conta do lote de saudação.  |
+| [az batch account show](https://docs.microsoft.com/cli/azure/batch/account#show) | Recupera detalhes de saudação especificado conta do lote.  |
+| [az batch account keys list](https://docs.microsoft.com/cli/azure/batch/account/keys#list) | Chaves de acesso de saudação recupera de saudação especificado conta do lote.  |
+| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | Se autentica no hello especificado conta para obter interação de CLI do lote.  |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) | Cria uma conta de armazenamento. |
 | [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#create) | Cria um cofre de chave. |
-| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#set-policy) | Atualize a política de segurança do cofre de chaves especificado. |
+| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#set-policy) | Atualize a política de segurança de saudação do Cofre de chaves especificado hello. |
 | [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre Olá CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
-As amostras de script da CLI do Lote adicionais podem ser encontrados na [documentação do Lote do Azure](../batch-cli-samples.md).
+Exemplos de script em lotes CLI adicionais podem ser encontrados no hello [documentação CLI de lote do Azure](../batch-cli-samples.md).

@@ -1,6 +1,6 @@
 ---
-title: "Configurar um nome de domínio personalizado nos Serviços de Nuvem | Microsoft Docs"
-description: "Saiba como expor seus dados ou seu aplicativo do Azure em um domínio personalizado definindo as configurações de DNS."
+title: "aaaConfigure um nome de domínio personalizado em serviços de nuvem | Microsoft Docs"
+description: "Saiba como tooexpose seu aplicativo do Azure ou os dados em um domínio personalizado, definindo configurações de DNS."
 services: cloud-services
 documentationcenter: .net
 author: Thraka
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 9f872fd5119042945356225a80331da18f3a6d99
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 71e553a73b40a8d0512b4d40173500561841772c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurando um nome de domínio personalizado para um serviço de nuvem do Azure
 > [!div class="op_single_selector"]
@@ -27,131 +27,131 @@ ms.lasthandoff: 08/29/2017
 > 
 > 
 
-Quando você cria um Serviço de Nuvem, o Azure o atribui a um subdomínio do cloudapp.net. Por exemplo, se o Serviço de Nuvem for denominado "contoso", os usuários poderão acessar seu aplicativo usando uma URL como http://contoso.cloudapp.net. O Azure também fornece um endereço IP virtual.
+Quando você cria um serviço de nuvem, o Azure atribui a ele tooa subdomínio de cloudapp.net. Por exemplo, se seu serviço de nuvem é denominado "contoso", os usuários serão ser capaz de tooaccess seu aplicativo em uma URL como http://contoso.cloudapp.net. O Azure também fornece um endereço IP virtual.
 
-No entanto, você também pode expor sua aplicação em seu próprio nome de domínio, como contoso.com. Este artigo explica como reservar ou configurar um nome de domínio personalizado para funções Web do Serviço de Nuvem.
+No entanto, você também pode expor sua aplicação em seu próprio nome de domínio, como contoso.com. Este artigo explica como tooreserve ou configurar um nome de domínio personalizado para funções de web do serviço de nuvem.
 
-Você já entendeu o que são os registros CNAME e A? [Pule a explicação](#add-a-cname-record-for-your-custom-domain).
+Você já entendeu o que são os registros CNAME e A? [Salto após Olá explicação](#add-a-cname-record-for-your-custom-domain).
 
 > [!NOTE]
-> Agilize o trabalho! Use o [passo a passo guiado](http://support.microsoft.com/kb/2990804)do Azure. Ele torna rápido a associação de um nome de domínio personalizado E a proteção da comunicação (SSL) com os Serviços de Nuvem do Azure.
+> Agilize o trabalho! Saudação de uso do Azure [orientada passo a passo](http://support.microsoft.com/kb/2990804). Ele torna rápido a associação de um nome de domínio personalizado E a proteção da comunicação (SSL) com os Serviços de Nuvem do Azure.
 > 
 > 
 
 <p/>
 
 > [!NOTE]
-> Os procedimentos nesta tarefa se aplicam aos Serviços de Nuvem do Azure. Para os Serviços de Aplicativos, veja [isto](../app-service-web/web-sites-custom-domain-name.md). Para as contas de armazenamento, veja [isto](../storage/blobs/storage-custom-domain-name.md).
+> procedimentos de saudação nesta tarefa aplicam tooAzure serviços de nuvem. Para os Serviços de Aplicativos, veja [isto](../app-service-web/web-sites-custom-domain-name.md). Para as contas de armazenamento, veja [isto](../storage/blobs/storage-custom-domain-name.md).
 > 
 > 
 
 ## <a name="understand-cname-and-a-records"></a>Entenda os registros CNAME e A
-Os registros CNAME (ou registros de alias) e A permitem que você associe um nome de domínio a um servidor específico (ou serviço neste caso), de qualquer forma, cada um deles funciona de modo diferente. Quando você usa registros com serviços de nuvem do Azure, precisa fazer algumas considerações específicas antes de decidir qual deles usar.
+CNAME (ou registros de alias) e registros de ambos permitem que você tooassociate um nome de domínio com um servidor específico (ou serviço nesse caso,) porém eles funcionam de forma diferente. Também há algumas considerações específicas ao usar registros com os serviços de nuvem do Azure que você deve considerar antes de decidir quais toouse.
 
 ### <a name="cname-or-alias-record"></a>Registro CNAME ou de alias
-Um registro CNAME mapeia um domínio *específico*, como **contoso.com** ou **www.contoso.com**, para um nome de domínio geral. Neste caso, o nome de domínio geral é o nome de domínio **[myapp].cloudapp.net** do seu aplicativo hospedado no Azure. Uma vez criado, o CNAME cria um alias para **[myapp].cloudapp.net**. A entrada CNAME determinará o endereço IP do seu serviço **[myapp].cloudapp.net** automaticamente, portanto, se o endereço IP do serviço de nuvem for alterado, você não precisará tomar nenhuma ação.
+Um registro CNAME mapeia um *específico* domínio, como **contoso.com** ou **www.contoso.com**, nome de domínio canônico tooa. Nesse caso, o nome de domínio canônico Olá é hello **.cloudapp [myapp] .net** nome de domínio do seu Azure hospedado aplicativo. Depois de criado, Olá CNAME cria um alias para Olá **.cloudapp [myapp] .net**. Olá entrada CNAME resolverá toohello endereço IP do seu **.cloudapp [myapp] .net** serviço automaticamente, para que se mudar de endereço IP Olá Olá do serviço de nuvem, você não tem tootake qualquer ação.
 
 > [!NOTE]
-> Alguns registradores de domínio só permitem mapear subdomínios ao usar um registro CNAME, como www.contoso.com, e não nomes de raiz, como contoso.com. Para obter mais informações sobre os registros CNAME, consulte a documentação fornecida por seu registrador, [a entrada da Wikipédia sobre o registro CNAME](http://en.wikipedia.org/wiki/CNAME_record) ou o documento [Nomes de Domínio IETF - Implementação e Especificação](http://tools.ietf.org/html/rfc1035).
+> Alguns registradores de domínio permitem subdomínios toomap ao usar um registro CNAME, como www.contoso.com e não nomes de raiz, como contoso.com. Para obter mais informações sobre os registros CNAME, consulte a documentação de saudação fornecida por seu registrador [Olá entrada da Wikipedia no registro CNAME](http://en.wikipedia.org/wiki/CNAME_record), ou hello [nomes de domínio IETF - implementação e especificação](http://tools.ietf.org/html/rfc1035) documento.
 > 
 > 
 
 ### <a name="a-record"></a>Registro A
-Um registro A mapeia um domínio, como **contoso.com** ou **www.contoso.com** *ou um domínio curinga*, como **\*.contoso.com**, para um endereço IP. No caso de um serviço de nuvem do Azure, o IP virtual do serviço. Portanto, o principal benefício de um registro A em relação ao registro CNAME é que você pode ter uma entrada que usa um caractere curinga, como \***.contoso.com**, que lidaria com as solicitações de vários subdomínios, como **mail.contoso.com**, **login.contoso.com** ou **www.contoso.com**.
+Um registro mapeia um domínio, como **contoso.com** ou **www.contoso.com**, *ou um domínio curinga* como  **\*. contoso.com**, endereço IP tooan. No caso de saudação de um serviço de nuvem do Azure, Olá IP virtual do serviço de saudação. Portanto Olá principal benefício de um registro em um registro CNAME é que você pode ter uma entrada que usa um caractere curinga, como \* **. contoso.com**, que poderia tratar as solicitações de vários subdomínios como  **mail.contoso.com**, **login.contoso.com**, ou **www.contso.com**.
 
 > [!NOTE]
-> Uma vez que um registro A é mapeado para um endereço IP estático, não é possível resolver automaticamente as alterações ao endereço IP do seu serviço de nuvem. O endereço IP usado pelo seu serviço de nuvem é alocado na primeira vez que você implantar em um slot vazio (produção ou preparo.) Se você excluir a implantação para o slot, o endereço IP será liberado pelo Azure e quaisquer implantações futuras no slot poderão receber um novo endereço IP.
+> Como um registro é mapeado tooa endereço IP, ele automaticamente não puder resolver o endereço IP de toohello alterações do seu serviço de nuvem. Olá alocar endereço IP usado pelo serviço de nuvem é Olá primeira vez que você implantar tooan o slot vazio (produção ou preparo.) Se você excluir a implantação de saudação slot hello, endereço IP de saudação é liberado pelo Azure e qualquer intervalo de toohello implantações futuras pode receber um novo endereço IP.
 > 
-> Convenientemente, o endereço IP do slot de uma determinada implantação (de produção ou de preparo) é mantido durante a troca entre implantações de preparo e de produção ou durante a execução de uma atualização in-loco de uma implantação existente. Para saber mais sobre a execução dessas ações, consulte [Como gerenciar serviços de nuvem](cloud-services-how-to-manage.md).
+> Convenientemente, endereço IP de saudação de um slot de implantação especificada (produção ou preparo) é mantido durante a troca entre o preparo e implantações de produção ou executar uma atualização in-loco de uma implantação existente. Para obter mais informações sobre como executar essas ações, consulte [como serviços em nuvem toomanage](cloud-services-how-to-manage.md).
 > 
 > 
 
 ## <a name="add-a-cname-record-for-your-custom-domain"></a>Adicionar um registro CNAME para seu domínio personalizado
-Para criar um registro CNAME, você deve adicionar uma nova entrada na tabela DNS para seu domínio personalizado usando as ferramentas fornecidas pelo seu registrador. Cada registrador tem um método semelhante, mas ligeiramente diferente para especificar um registro CNAME, mas os conceitos são os mesmos.
+toocreate um registro CNAME, você deve adicionar uma nova entrada na tabela DNS Olá para seu domínio personalizado usando ferramentas de Olá fornecidas por seu registrador. Cada registro tem um método semelhante, mas um pouco diferentes de especificar um registro CNAME, mas Olá conceitos são Olá mesmo.
 
-1. Use um dos seguintes métodos para localizar o nome de domínio **.cloudapp.net** atribuído ao seu serviço de nuvem.
+1. Use uma saudação de toofind esses métodos **. cloudapp.net** nome de domínio atribuído tooyour serviço de nuvem.
    
-   * Faça logon no [portal clássico do Azure], selecione seu serviço de nuvem, selecione **Painel** e localize a entrada **URL do Site** na seção de **visualização rápida**.
+   * Logon toohello [portal clássico do Azure], selecione seu serviço de nuvem, selecione **painel**e, em seguida, localize Olá **URL do Site** entrada hello **visão rápida**  seção.
      
-       ![seção rapidamente mostrando a URL do site][csurl]
+       ![seção visão rápida mostra a URL do site Olá][csurl]
      
        **OR**  
-   * Instale e configure o [Azure Powershell](/powershell/azure/overview)e use o seguinte comando:
+   * Instalar e configurar [Azure Powershell](/powershell/azure/overview), e, em seguida, use Olá comando a seguir:
      
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
        ```
      
-     Salve o nome de domínio usado na URL retornada por qualquer método, pois você precisará dele durante a criação de um registro CNAME.
-2. Faça logon no site do registrador de DNS e acesse a página de gerenciamento de DNS. Procure links ou áreas do site rotuladas como **Nome de Domínio**, **DNS** ou **Gerenciamento do Servidor de Nome**.
-3. Agora, encontre onde você pode selecionar ou inserir registros CNAME. Você pode ter que selecionar o tipo de registro de uma lista suspensa ou acessar uma página de configurações avançadas. Você deve procurar as palavras **CNAME**, **Alias** ou **Subdomínios**.
-4. Você também deverá fornecer um alias do domínio ou subdomínio para CNAME, como **www** se quiser criar um alias para **www.customdomain.com**. Se você deseja criar um alias para o domínio raiz, ele pode estar listado como o símbolo '**@**' nas ferramentas de DNS do registrador.
+     Salve o nome de domínio Olá usado na URL de saudação retornado por qualquer método, pois você precisará dele durante a criação de um registro CNAME.
+2. Faça logon no site do registrador DNS tooyour e vá para a página toohello para gerenciar DNS. Procure links ou áreas do site de saudação rotulados como **nome de domínio**, **DNS**, ou **nome do servidor de gerenciamento**.
+3. Agora, encontre onde você pode selecionar ou inserir registros CNAME. Você pode ter o registro de saudação tooselect digite uma lista suspensa ou vá tooan página de configurações avançadas. Você deve procurar palavras Olá **CNAME**, **Alias**, ou **subdomínios**.
+4. Você também deve fornecer Olá domínio ou subdomínio alias para Olá CNAME, tais como **www** se você quiser que um alias para toocreate **www.customdomain.com**. Se você quiser toocreate um alias para o domínio raiz da saudação, ele pode estar listado como Olá '**@**' símbolo em Ferramentas DNS do registrador.
 5. Em seguida, você deve fornecer um nome do host canônico, que, neste caso, é o domínio **cloudapp.net** do seu aplicativo.
 
-Por exemplo, o seguinte registro CNAME encaminha todo o tráfego de **www.contoso.com** para **contoso.cloudapp.net**, o nome de domínio personalizado do seu aplicativo implantado:
+Por exemplo, a saudação após o registro CNAME encaminha todo o tráfego de **www.contoso.com** muito**contoso.cloudapp.net**, nome de domínio personalizado de saudação do seu aplicativo implantado:
 
 | Alias/Nome do host/Subdomínio | Domínio canônico |
 | --- | --- |
 | www |contoso.cloudapp.net |
 
-Um visitante de **www.contoso.com** nunca verá o host verdadeiro (contoso.cloudapp.net) e, portanto, o processo de encaminhamento será invisível ao usuário final.
+Um visitante de **www.contoso.com** nunca verá host true da saudação (contoso.cloudapp.net), Olá processo de encaminhamento é o usuário final de toothe invisível.
 
 > [!NOTE]
-> O exemplo acima aplica-se somente ao tráfego no subdomínio **www** . Uma vez que não é possível usar caracteres curinga com registros CNAME, você deve criar um CNAME para cada domínio/subdomínio. Se você quiser direcionar o tráfego a partir dos subdomínios, como \*.contoso.com, para o endereço cloudapp.net, poderá configurar uma entrada **Redirecionamento da URL** ou **Encaminhamento da URL** em suas configurações DNS, ou criar um registro A.
+> Olá exemplo acima se aplica apenas tootraffic em Olá **www** subdomínio. Uma vez que não é possível usar caracteres curinga com registros CNAME, você deve criar um CNAME para cada domínio/subdomínio. Se você quiser toodirect tráfego de subdomínios, tais como \*. contoso.com, tooyour cloudapp.net endereço, você pode configurar um **redirecionamento de URL** ou **URL Forward** entrada em suas configurações de DNS, ou Crie um registro.
 > 
 > 
 
 ## <a name="add-an-a-record-for-your-custom-domain"></a>Adicionar um registro A ao seu domínio personalizado
-Para criar um registro, primeiro você deve encontrar o endereço IP do seu serviço em nuvem. Então, em seguida, adicione uma nova entrada na tabela DNS para seu domínio personalizado usando as ferramentas fornecidas pelo seu registrador. Cada registrador tem um método semelhante, mas ligeiramente diferente para especificar um registro A, mas os conceitos são os mesmos.
+toocreate um um registro, você deve primeiro localizar endereço IP virtual de saudação do seu serviço de nuvem. Em seguida, adicione uma nova entrada na tabela DNS Olá para seu domínio personalizado usando ferramentas de Olá fornecidas por seu registrador. Cada registro tem um método semelhante, mas um pouco diferentes de especificar um registro, mas Olá conceitos são Olá mesmo.
 
-1. Use um dos seguintes métodos para obter o endereço IP do seu serviço de nuvem.
+1. Use um dos seguinte métodos tooget Olá endereço IP de seu serviço de nuvem de saudação.
    
-   * Faça logon no [portal clássico do Azure], selecione seu serviço de nuvem, selecione **Painel** e localize a entrada do **endereço IP Virtual Público (VIP)** na seção de **visualização rápida**.
+   * logon toohello [portal clássico do Azure], selecione seu serviço de nuvem, selecione **painel**e, em seguida, localize Olá **endereço IP Virtual público (VIP)** entrada hello **visão rápida** seção.
      
-       ![seção rapidamente mostrando a VIP][vip]
+       ![seção visão rápida mostrando Olá VIP][vip]
      
        **OR**  
-   * Instale e configure o [Azure Powershell](/powershell/azure/overview)e use o seguinte comando:
+   * Instalar e configurar [Azure Powershell](/powershell/azure/overview), e, em seguida, use Olá comando a seguir:
      
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
        ```
      
-     Se você tiver vários pontos de extremidade associados ao seu serviço de nuvem, você receberá várias linhas que contém o endereço IP, mas tudo deve exibir o mesmo endereço.
+     Se você tiver vários pontos de extremidade associados ao seu serviço de nuvem, você receberá várias linhas que contém o endereço IP de saudação, mas todos devem exibir hello mesmo endereço.
      
-     Salve o endereço IP, pois você precisará dele durante a criação de um registro.
-2. Faça logon no site do registrador de DNS e acesse a página de gerenciamento de DNS. Procure links ou áreas do site rotuladas como **Nome de Domínio**, **DNS** ou **Gerenciamento do Servidor de Nome**.
-3. Agora, encontre onde você pode selecionar ou inserir registros A. Você pode ter que selecionar o tipo de registro de uma lista suspensa ou acessar uma página de configurações avançadas.
-4. Selecione ou digite o domínio ou subdomínio que usará este registro A. Por exemplo, selecione **www** se você quiser criar um alias para **www.customdomain.com**. Se você quiser criar uma entrada curinga para todos os subdomínios, digite '__*__'. Isso cobrirá todos os subdomínios, como **mail.customdomain.com**, **login.customdomain.com** e **www.customdomain.com**.
+     Salve endereço IP hello, pois você precisará dele durante a criação de um registro.
+2. Faça logon no site do registrador DNS tooyour e vá para a página toohello para gerenciar DNS. Procure links ou áreas do site de saudação rotulados como **nome de domínio**, **DNS**, ou **nome do servidor de gerenciamento**.
+3. Agora, encontre onde você pode selecionar ou inserir registros A. Você pode ter o registro de saudação tooselect digite uma lista suspensa ou vá tooan página de configurações avançadas.
+4. Selecione ou digite o domínio de saudação ou subdomínio que usará esse registro. Por exemplo, selecione **www** se você quiser que um alias para toocreate **www.customdomain.com**. Se você quiser toocreate uma entrada de curinga para todos os subdomínios, insira '__*__'. Isso cobrirá todos os subdomínios, como **mail.customdomain.com**, **login.customdomain.com** e **www.customdomain.com**.
    
-    Se você deseja criar um registro A para o domínio raiz, ele pode estar listado como o símbolo '**@**' nas ferramentas de DNS do registrador.
-5. Digite o endereço IP do seu serviço de nuvem no campo fornecido. Isto associa a entrada de domínio usada no registro A com o endereço IP da sua implantação do serviço de nuvem.
+    Se você quiser toocreate um um registro para o domínio raiz da saudação, ele pode estar listado como Olá '**@**' símbolo em Ferramentas DNS do registrador.
+5. Digite o endereço IP de saudação do seu serviço de nuvem no Olá fornecido campo. Isso associa a entrada de domínio Olá usada no registro Olá com o endereço IP de saudação da sua implantação do serviço de nuvem.
 
-Por exemplo, o seguinte registro A encaminha todo o tráfego de **contoso.com** para **137.135.70.239**, o endereço IP do seu aplicativo implantado:
+Por exemplo, a saudação um registro a seguir encaminha todo o tráfego de **contoso.com** muito**137.135.70.239**, Olá o endereço IP do seu aplicativo implantado:
 
 | Nome do host/Subdomínio | Endereço IP |
 | --- | --- |
 | @ |137.135.70.239 |
 
-Este exemplo demonstra como criar um registro A para o domínio raiz. Se você desejar criar uma entrada curinga para abranger todos os subdomínios, você digitaria '__*__' como o subdomínio.
+Este exemplo demonstra como criar um registro a para o domínio raiz da saudação. Se você quiser toocreate toocover de entrada um curinga todos os subdomínios, insira '__*__' como o subdomínio hello.
 
 > [!WARNING]
-> Endereços IP no Azure são dinâmicos por padrão. Você provavelmente desejará usar um [endereço IP reservado](../virtual-network/virtual-networks-reserved-public-ip.md) para garantir que seu endereço IP não seja alterado.
+> Endereços IP no Azure são dinâmicos por padrão. Você provavelmente desejará toouse um [do endereço IP reservado](../virtual-network/virtual-networks-reserved-public-ip.md) tooensure que seu endereço IP não é alterado.
 > 
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Como gerenciar serviços de nuvem](cloud-services-how-to-manage.md)
-* [Como mapear o conteúdo da CDN para um domínio personalizado](../cdn/cdn-map-content-to-custom-domain.md)
+* [Como os serviços de nuvem tooManage](cloud-services-how-to-manage.md)
+* [Como tooMap conteúdo CDN tooa domínio personalizado](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configuração geral do serviço de nuvem](cloud-services-how-to-configure.md).
-* Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy.md).
+* Saiba como muito[implantar um serviço de nuvem](cloud-services-how-to-create-deploy.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate.md).
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
 [Expose Your Data on a Custom Domain]: #access-data
 [VIP swaps]: http://msdn.microsoft.com/library/ee517253.aspx
-[Create a CNAME record that associates the subdomain with the storage account]: #create-cname
+[Create a CNAME record that associates hello subdomain with hello storage account]: #create-cname
 [portal clássico do Azure]: https://manage.windowsazure.com
 [Validate Custom Domain dialog box]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
 [vip]: ./media/cloud-services-custom-domain-name/csvip.png
