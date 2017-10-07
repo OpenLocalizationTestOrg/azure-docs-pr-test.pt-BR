@@ -1,6 +1,6 @@
 ---
 title: "Dispositivo SensorTag e Gateway do IoT do Azure - Lição 2: obter ferramentas (Windows) | Microsoft Docs"
-description: Instale as ferramentas e o software no computador host executando o Windows, crie um Hub IoT e registre seu dispositivo no Hub IoT.
+description: "Instalar as ferramentas de saudação e software Olá no computador host executando o Windows, crie um hub IoT e registrar seu dispositivo no hub IoT de saudação."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,112 +17,112 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 0d8ba03df63d0b8657a9e275fc636e806c66b683
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3b30b60a0115413394992061a88dde4cd442ac19
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-the-tools-windows-7-and-later"></a><span data-ttu-id="058da-104">Obter as ferramentas do Azure (Windows 7 e superior)</span><span class="sxs-lookup"><span data-stu-id="058da-104">Get the tools (Windows 7 and later)</span></span>
+# <a name="get-hello-tools-windows-7-and-later"></a><span data-ttu-id="0452c-104">Obter ferramentas hello (Windows 7 e posterior)</span><span class="sxs-lookup"><span data-stu-id="0452c-104">Get hello tools (Windows 7 and later)</span></span>
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="058da-105">Windows 7 ou superior</span><span class="sxs-lookup"><span data-stu-id="058da-105">Windows 7 or later</span></span>](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
-> * [<span data-ttu-id="058da-106">Ubuntu 16.04</span><span class="sxs-lookup"><span data-stu-id="058da-106">Ubuntu 16.04</span></span>](iot-hub-gateway-kit-c-lesson2-get-the-tools-ubuntu.md)
-> * [<span data-ttu-id="058da-107">macOS 10.10</span><span class="sxs-lookup"><span data-stu-id="058da-107">macOS 10.10</span></span>](iot-hub-gateway-kit-c-lesson2-get-the-tools-mac.md)
+> * [<span data-ttu-id="0452c-105">Windows 7 ou superior</span><span class="sxs-lookup"><span data-stu-id="0452c-105">Windows 7 or later</span></span>](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
+> * [<span data-ttu-id="0452c-106">Ubuntu 16.04</span><span class="sxs-lookup"><span data-stu-id="0452c-106">Ubuntu 16.04</span></span>](iot-hub-gateway-kit-c-lesson2-get-the-tools-ubuntu.md)
+> * [<span data-ttu-id="0452c-107">macOS 10.10</span><span class="sxs-lookup"><span data-stu-id="0452c-107">macOS 10.10</span></span>](iot-hub-gateway-kit-c-lesson2-get-the-tools-mac.md)
 
-## <a name="what-you-will-do"></a><span data-ttu-id="058da-108">O que você fará</span><span class="sxs-lookup"><span data-stu-id="058da-108">What you will do</span></span>
+## <a name="what-you-will-do"></a><span data-ttu-id="0452c-108">O que você fará</span><span class="sxs-lookup"><span data-stu-id="0452c-108">What you will do</span></span>
 
-- <span data-ttu-id="058da-109">Instalar o Git, Node.js, o Gulp e o Python.</span><span class="sxs-lookup"><span data-stu-id="058da-109">Install Git, Node.js, Gulp, Python.</span></span>
-- <span data-ttu-id="058da-110">Instalar a interface de linha de comando do Azure (CLI do Azure).</span><span class="sxs-lookup"><span data-stu-id="058da-110">Install the Azure command-line interface (Azure CLI).</span></span> 
+- <span data-ttu-id="0452c-109">Instalar o Git, Node.js, o Gulp e o Python.</span><span class="sxs-lookup"><span data-stu-id="0452c-109">Install Git, Node.js, Gulp, Python.</span></span>
+- <span data-ttu-id="0452c-110">Instale hello Azure interface de linha de comando (CLI do Azure).</span><span class="sxs-lookup"><span data-stu-id="0452c-110">Install hello Azure command-line interface (Azure CLI).</span></span> 
 
-<span data-ttu-id="058da-111">Se você tiver problemas, procure as soluções na [página de solução de problemas](iot-hub-gateway-kit-c-troubleshooting.md).</span><span class="sxs-lookup"><span data-stu-id="058da-111">If you have any problems, look for solutions on the [troubleshooting page](iot-hub-gateway-kit-c-troubleshooting.md).</span></span>
+<span data-ttu-id="0452c-111">Se você tiver problemas, procure por soluções em Olá [página de solução de problemas](iot-hub-gateway-kit-c-troubleshooting.md).</span><span class="sxs-lookup"><span data-stu-id="0452c-111">If you have any problems, look for solutions on hello [troubleshooting page](iot-hub-gateway-kit-c-troubleshooting.md).</span></span>
 
-## <a name="what-you-will-learn"></a><span data-ttu-id="058da-112">O que você aprenderá</span><span class="sxs-lookup"><span data-stu-id="058da-112">What you will learn</span></span>
+## <a name="what-you-will-learn"></a><span data-ttu-id="0452c-112">O que você aprenderá</span><span class="sxs-lookup"><span data-stu-id="0452c-112">What you will learn</span></span>
 
-<span data-ttu-id="058da-113">Nesta lição, você aprenderá a:</span><span class="sxs-lookup"><span data-stu-id="058da-113">In this lesson, you will learn:</span></span>
+<span data-ttu-id="0452c-113">Nesta lição, você aprenderá:</span><span class="sxs-lookup"><span data-stu-id="0452c-113">In this lesson, you will learn:</span></span>
 
-- <span data-ttu-id="058da-114">Como instalar o [Git](https://git-scm.com/) e o [Node.js](https://nodejs.org/en/).</span><span class="sxs-lookup"><span data-stu-id="058da-114">How to install [Git](https://git-scm.com/) and [Node.js](https://nodejs.org/en/).</span></span>
-  - <span data-ttu-id="058da-115">O Git é um sistema de controle de versão distribuída de software livre.</span><span class="sxs-lookup"><span data-stu-id="058da-115">Git is an open source distributed version control system.</span></span> <span data-ttu-id="058da-116">O aplicativo de exemplo para esta lição está armazenado em Git.</span><span class="sxs-lookup"><span data-stu-id="058da-116">The sample application for this lesson is stored on Git.</span></span>
-  - <span data-ttu-id="058da-117">O Node.js é um tempo de execução de JavaScript com um avançado ecossistema de pacote.</span><span class="sxs-lookup"><span data-stu-id="058da-117">Node.js is a JavaScript runtime with a rich package ecosystem.</span></span>
-- <span data-ttu-id="058da-118">Como usar o [NPM](https://www.npmjs.com/) para instalar ferramentas de desenvolvimento do Node.js.</span><span class="sxs-lookup"><span data-stu-id="058da-118">How to use [NPM](https://www.npmjs.com/) to install Node.js development tools.</span></span>
-  - <span data-ttu-id="058da-119">A versão mínima necessária do Node.js é a 4.5 LTS.</span><span class="sxs-lookup"><span data-stu-id="058da-119">The minimum required version of Node.js is 4.5 LTS.</span></span>
-  - <span data-ttu-id="058da-120">O NPM é um dos gerenciadores de pacote para o Node.js.</span><span class="sxs-lookup"><span data-stu-id="058da-120">NPM is one of the package managers for Node.js.</span></span>
-- <span data-ttu-id="058da-121">Como instalar o Visual Studio Code.</span><span class="sxs-lookup"><span data-stu-id="058da-121">How to install Visual Studio Code.</span></span>
-  - <span data-ttu-id="058da-122">O Visual Studio Code é um editor de código-fonte de plataforma cruzada leve mas poderoso para Windows, Linux e macOS.</span><span class="sxs-lookup"><span data-stu-id="058da-122">Visual Studio Code is a cross platform, lightweight but powerful source code editor for Windows, Linux, and macOS.</span></span> <span data-ttu-id="058da-123">Ele tem excelente suporte para depuração, controle Git incorporado, realce de sintaxe, preenchimento de código inteligente, trechos de código e também refatoração de código.</span><span class="sxs-lookup"><span data-stu-id="058da-123">It has great support for debugging, embedded Git control, syntax highlighting, intelligent code completion, snippets, and code refactoring as well.</span></span>
-- <span data-ttu-id="058da-124">Como instalar o Python.</span><span class="sxs-lookup"><span data-stu-id="058da-124">How to install Python.</span></span>
-  - <span data-ttu-id="058da-125">Python é uma linguagem de programação para fins gerais amplamente utilizada, de alto nível, interpretada e dinâmica.</span><span class="sxs-lookup"><span data-stu-id="058da-125">Python is a widely used high-level, general-purpose, interpreted and dynamic programming language.</span></span>
-- <span data-ttu-id="058da-126">Como instalar a CLI do Azure.</span><span class="sxs-lookup"><span data-stu-id="058da-126">How to install the Azure CLI.</span></span>
-  - <span data-ttu-id="058da-127">A CLI do Azure fornece uma experiência de linha de comando multiplataforma do Azure.</span><span class="sxs-lookup"><span data-stu-id="058da-127">The Azure CLI provides a multiplatform command-line experience for Azure.</span></span> <span data-ttu-id="058da-128">Você trabalha diretamente de uma linha de comando para provisionar e gerenciar recursos.</span><span class="sxs-lookup"><span data-stu-id="058da-128">You work directly from a command line to provision and manage resources.</span></span>
-- <span data-ttu-id="058da-129">Como usar a CLI do Azure para criar um Hub IoT.</span><span class="sxs-lookup"><span data-stu-id="058da-129">How to use the Azure CLI to create an IoT hub.</span></span>
+- <span data-ttu-id="0452c-114">Como tooinstall [Git](https://git-scm.com/) e [Node.js](https://nodejs.org/en/).</span><span class="sxs-lookup"><span data-stu-id="0452c-114">How tooinstall [Git](https://git-scm.com/) and [Node.js](https://nodejs.org/en/).</span></span>
+  - <span data-ttu-id="0452c-115">O Git é um sistema de controle de versão distribuída de software livre.</span><span class="sxs-lookup"><span data-stu-id="0452c-115">Git is an open source distributed version control system.</span></span> <span data-ttu-id="0452c-116">aplicativo de exemplo Hello desta lição é armazenado no Git.</span><span class="sxs-lookup"><span data-stu-id="0452c-116">hello sample application for this lesson is stored on Git.</span></span>
+  - <span data-ttu-id="0452c-117">O Node.js é um tempo de execução de JavaScript com um avançado ecossistema de pacote.</span><span class="sxs-lookup"><span data-stu-id="0452c-117">Node.js is a JavaScript runtime with a rich package ecosystem.</span></span>
+- <span data-ttu-id="0452c-118">Como toouse [NPM](https://www.npmjs.com/) ferramentas de desenvolvimento tooinstall Node. js.</span><span class="sxs-lookup"><span data-stu-id="0452c-118">How toouse [NPM](https://www.npmjs.com/) tooinstall Node.js development tools.</span></span>
+  - <span data-ttu-id="0452c-119">versão mínima necessária de saudação do Node. js é 4.5 LTS.</span><span class="sxs-lookup"><span data-stu-id="0452c-119">hello minimum required version of Node.js is 4.5 LTS.</span></span>
+  - <span data-ttu-id="0452c-120">NPM é um dos gerenciadores de pacotes de saudação para Node. js.</span><span class="sxs-lookup"><span data-stu-id="0452c-120">NPM is one of hello package managers for Node.js.</span></span>
+- <span data-ttu-id="0452c-121">Como tooinstall Visual Studio Code.</span><span class="sxs-lookup"><span data-stu-id="0452c-121">How tooinstall Visual Studio Code.</span></span>
+  - <span data-ttu-id="0452c-122">O Visual Studio Code é um editor de código-fonte de plataforma cruzada leve mas poderoso para Windows, Linux e macOS.</span><span class="sxs-lookup"><span data-stu-id="0452c-122">Visual Studio Code is a cross platform, lightweight but powerful source code editor for Windows, Linux, and macOS.</span></span> <span data-ttu-id="0452c-123">Ele tem excelente suporte para depuração, controle Git incorporado, realce de sintaxe, preenchimento de código inteligente, trechos de código e também refatoração de código.</span><span class="sxs-lookup"><span data-stu-id="0452c-123">It has great support for debugging, embedded Git control, syntax highlighting, intelligent code completion, snippets, and code refactoring as well.</span></span>
+- <span data-ttu-id="0452c-124">Como tooinstall Python.</span><span class="sxs-lookup"><span data-stu-id="0452c-124">How tooinstall Python.</span></span>
+  - <span data-ttu-id="0452c-125">Python é uma linguagem de programação para fins gerais amplamente utilizada, de alto nível, interpretada e dinâmica.</span><span class="sxs-lookup"><span data-stu-id="0452c-125">Python is a widely used high-level, general-purpose, interpreted and dynamic programming language.</span></span>
+- <span data-ttu-id="0452c-126">Como tooinstall Olá CLI do Azure.</span><span class="sxs-lookup"><span data-stu-id="0452c-126">How tooinstall hello Azure CLI.</span></span>
+  - <span data-ttu-id="0452c-127">Olá CLI do Azure fornece uma experiência de linha de comando em várias plataformas para o Azure.</span><span class="sxs-lookup"><span data-stu-id="0452c-127">hello Azure CLI provides a multiplatform command-line experience for Azure.</span></span> <span data-ttu-id="0452c-128">Trabalhar diretamente de uma linha de comando tooprovision e gerenciar recursos.</span><span class="sxs-lookup"><span data-stu-id="0452c-128">You work directly from a command line tooprovision and manage resources.</span></span>
+- <span data-ttu-id="0452c-129">Como toouse Olá toocreate CLI do Azure com um hub IoT.</span><span class="sxs-lookup"><span data-stu-id="0452c-129">How toouse hello Azure CLI toocreate an IoT hub.</span></span>
 
-## <a name="what-you-need"></a><span data-ttu-id="058da-130">O que você precisa</span><span class="sxs-lookup"><span data-stu-id="058da-130">What you need</span></span>
+## <a name="what-you-need"></a><span data-ttu-id="0452c-130">O que você precisa</span><span class="sxs-lookup"><span data-stu-id="0452c-130">What you need</span></span>
 
-- <span data-ttu-id="058da-131">Uma conexão com a Internet para baixar as ferramentas e o software.</span><span class="sxs-lookup"><span data-stu-id="058da-131">An Internet connection to download the tools and software.</span></span>
-- <span data-ttu-id="058da-132">Um computador com Windows.</span><span class="sxs-lookup"><span data-stu-id="058da-132">A Windows computer.</span></span>
+- <span data-ttu-id="0452c-131">Um toodownload de conexão de Internet Olá ferramentas e software.</span><span class="sxs-lookup"><span data-stu-id="0452c-131">An Internet connection toodownload hello tools and software.</span></span>
+- <span data-ttu-id="0452c-132">Um computador com Windows.</span><span class="sxs-lookup"><span data-stu-id="0452c-132">A Windows computer.</span></span>
 
-## <a name="install-git-and-nodejs"></a><span data-ttu-id="058da-133">Instalar o Git e o Node.js</span><span class="sxs-lookup"><span data-stu-id="058da-133">Install Git and Node.js</span></span>
+## <a name="install-git-and-nodejs"></a><span data-ttu-id="0452c-133">Instalar o Git e o Node.js</span><span class="sxs-lookup"><span data-stu-id="0452c-133">Install Git and Node.js</span></span>
 
-<span data-ttu-id="058da-134">Clique nos links a seguir para baixar e instalar o Git e o Node.js LTS para Windows.</span><span class="sxs-lookup"><span data-stu-id="058da-134">Click the following links to download and install Git and Node.js LTS for Windows.</span></span>
+<span data-ttu-id="0452c-134">Clique Olá toodownload links a seguir e instale o Git e LTS Node. js para Windows.</span><span class="sxs-lookup"><span data-stu-id="0452c-134">Click hello following links toodownload and install Git and Node.js LTS for Windows.</span></span>
 
-- [<span data-ttu-id="058da-135">Obtenha o Git para Windows</span><span class="sxs-lookup"><span data-stu-id="058da-135">Get Git for Windows</span></span>](https://git-scm.com/download/win/)
-- [<span data-ttu-id="058da-136">Obtenha o Node.js LTS para o Windows</span><span class="sxs-lookup"><span data-stu-id="058da-136">Get Node.js LTS for Windows</span></span>](https://nodejs.org/en/)
+- [<span data-ttu-id="0452c-135">Obtenha o Git para Windows</span><span class="sxs-lookup"><span data-stu-id="0452c-135">Get Git for Windows</span></span>](https://git-scm.com/download/win/)
+- [<span data-ttu-id="0452c-136">Obtenha o Node.js LTS para o Windows</span><span class="sxs-lookup"><span data-stu-id="0452c-136">Get Node.js LTS for Windows</span></span>](https://nodejs.org/en/)
 
-## <a name="install-nodejs-development-tools"></a><span data-ttu-id="058da-137">Instalar ferramentas de desenvolvimento do Node.js</span><span class="sxs-lookup"><span data-stu-id="058da-137">Install Node.js development tools</span></span>
+## <a name="install-nodejs-development-tools"></a><span data-ttu-id="0452c-137">Instalar ferramentas de desenvolvimento do Node.js</span><span class="sxs-lookup"><span data-stu-id="0452c-137">Install Node.js development tools</span></span>
 
-<span data-ttu-id="058da-138">Você usa o [gulp.js](http://gulpjs.com/) para automatizar a implantação e execução de scripts.</span><span class="sxs-lookup"><span data-stu-id="058da-138">You use [gulp.js](http://gulpjs.com/) to automate deployment and execution of scripts.</span></span>
+<span data-ttu-id="0452c-138">Você usa [gulp.js](http://gulpjs.com/) tooautomate implantação e execução de scripts.</span><span class="sxs-lookup"><span data-stu-id="0452c-138">You use [gulp.js](http://gulpjs.com/) tooautomate deployment and execution of scripts.</span></span>
 
-<span data-ttu-id="058da-139">Pressione `Windows + R`, digite `cmd` e pressione `Enter` para abrir uma janela do prompt de comando como administrador e execute o seguinte comando:</span><span class="sxs-lookup"><span data-stu-id="058da-139">Press `Windows + R`, type `cmd` and press `Enter` to open a Command Prompt window, and then run the following command:</span></span>
+<span data-ttu-id="0452c-139">Pressione `Windows + R`, tipo `cmd` e pressione `Enter` tooopen uma janela de Prompt de comando, e, em seguida, Olá executar comando a seguir:</span><span class="sxs-lookup"><span data-stu-id="0452c-139">Press `Windows + R`, type `cmd` and press `Enter` tooopen a Command Prompt window, and then run hello following command:</span></span>
 
 ```cmd
 npm install -g gulp
 ```
 
-<span data-ttu-id="058da-140">Se você tiver problemas com a instalação, consulte o [guia de solução de problemas](iot-hub-gateway-kit-c-troubleshooting.md) para obter soluções para problemas comuns.</span><span class="sxs-lookup"><span data-stu-id="058da-140">If you experience issues with the installation, see the [troubleshooting guide](iot-hub-gateway-kit-c-troubleshooting.md) for solutions to common problems.</span></span>
+<span data-ttu-id="0452c-140">Se você tiver problemas com a instalação do hello, consulte Olá [guia de solução de problemas](iot-hub-gateway-kit-c-troubleshooting.md) para problemas de toocommon de soluções.</span><span class="sxs-lookup"><span data-stu-id="0452c-140">If you experience issues with hello installation, see hello [troubleshooting guide](iot-hub-gateway-kit-c-troubleshooting.md) for solutions toocommon problems.</span></span>
 
 > [!Note]
-> <span data-ttu-id="058da-141">Nó, NPM e Gulp são necessários para executar os scripts de automação desenvolvidos no Node.js.</span><span class="sxs-lookup"><span data-stu-id="058da-141">Node, NPM and Gulp are required to run automation scripts developed in Node.js.</span></span>
+> <span data-ttu-id="0452c-141">Nó, NPM e Gulp são scripts de automação toorun necessário desenvolvidos no Node. js.</span><span class="sxs-lookup"><span data-stu-id="0452c-141">Node, NPM and Gulp are required toorun automation scripts developed in Node.js.</span></span>
 
-## <a name="install-python"></a><span data-ttu-id="058da-142">Instalar o Python</span><span class="sxs-lookup"><span data-stu-id="058da-142">Install Python</span></span>
+## <a name="install-python"></a><span data-ttu-id="0452c-142">Instalar o Python</span><span class="sxs-lookup"><span data-stu-id="0452c-142">Install Python</span></span>
 
-<span data-ttu-id="058da-143">Você pode escolher entre Python 2.7, 3.4 ou 3.5.</span><span class="sxs-lookup"><span data-stu-id="058da-143">You can choose from Python 2.7, 3.4 or 3.5.</span></span> <span data-ttu-id="058da-144">Neste tutorial, usamos o Python 2.7.</span><span class="sxs-lookup"><span data-stu-id="058da-144">In this tutorial, we use Python 2.7.</span></span> <span data-ttu-id="058da-145">Se você já tiver instalado o Python, vá para a próxima seção.</span><span class="sxs-lookup"><span data-stu-id="058da-145">If you've already installed python, go to the next section.</span></span>
+<span data-ttu-id="0452c-143">Você pode escolher entre Python 2.7, 3.4 ou 3.5.</span><span class="sxs-lookup"><span data-stu-id="0452c-143">You can choose from Python 2.7, 3.4 or 3.5.</span></span> <span data-ttu-id="0452c-144">Neste tutorial, usamos o Python 2.7.</span><span class="sxs-lookup"><span data-stu-id="0452c-144">In this tutorial, we use Python 2.7.</span></span> <span data-ttu-id="0452c-145">Se você já tiver instalado o python, vá toohello próxima seção.</span><span class="sxs-lookup"><span data-stu-id="0452c-145">If you've already installed python, go toohello next section.</span></span>
 
-[<span data-ttu-id="058da-146">Obter o Python para Windows</span><span class="sxs-lookup"><span data-stu-id="058da-146">Get Python for Windows</span></span>](https://www.python.org/downloads/)
+[<span data-ttu-id="0452c-146">Obter o Python para Windows</span><span class="sxs-lookup"><span data-stu-id="0452c-146">Get Python for Windows</span></span>](https://www.python.org/downloads/)
 
-<span data-ttu-id="058da-147">Você também precisa adicionar o caminho das pastas em que Python.exe e pip.exe estão instalados na variável de ambiente `PATH` do sistema.</span><span class="sxs-lookup"><span data-stu-id="058da-147">You also need to add the path of the folders where Python.exe and pip.exe are installed to the system `PATH` environment variable.</span></span> <span data-ttu-id="058da-148">Por padrão, python.exe é instalado em `C:\Python27` e pip.exe é instalado em `C:\Python27\Scripts`.</span><span class="sxs-lookup"><span data-stu-id="058da-148">By default, python.exe is installed in `C:\Python27` and pip.exe is installed in `C:\Python27\Scripts`.</span></span>
+<span data-ttu-id="0452c-147">Você também precisa de caminho de saudação tooadd pastas Olá onde Python.exe e pip.exe estão instalados toohello sistema `PATH` variável de ambiente.</span><span class="sxs-lookup"><span data-stu-id="0452c-147">You also need tooadd hello path of hello folders where Python.exe and pip.exe are installed toohello system `PATH` environment variable.</span></span> <span data-ttu-id="0452c-148">Por padrão, python.exe é instalado em `C:\Python27` e pip.exe é instalado em `C:\Python27\Scripts`.</span><span class="sxs-lookup"><span data-stu-id="0452c-148">By default, python.exe is installed in `C:\Python27` and pip.exe is installed in `C:\Python27\Scripts`.</span></span>
 
-## <a name="install-the-azure-cli"></a><span data-ttu-id="058da-149">Instalar a CLI do Azure</span><span class="sxs-lookup"><span data-stu-id="058da-149">Install the Azure CLI</span></span>
+## <a name="install-hello-azure-cli"></a><span data-ttu-id="0452c-149">Instalar Olá CLI do Azure</span><span class="sxs-lookup"><span data-stu-id="0452c-149">Install hello Azure CLI</span></span>
 
-<span data-ttu-id="058da-150">Para instalar a CLI do Azure, siga estas etapas:</span><span class="sxs-lookup"><span data-stu-id="058da-150">To install the Azure CLI, follow these steps:</span></span>
+<span data-ttu-id="0452c-150">Olá tooinstall CLI do Azure, siga estas etapas:</span><span class="sxs-lookup"><span data-stu-id="0452c-150">tooinstall hello Azure CLI, follow these steps:</span></span>
 
-1. <span data-ttu-id="058da-151">Abra uma janela de Prompt de comando como administrador.</span><span class="sxs-lookup"><span data-stu-id="058da-151">Open a Command Prompt window as an administrator.</span></span>
+1. <span data-ttu-id="0452c-151">Abra uma janela de Prompt de comando como administrador.</span><span class="sxs-lookup"><span data-stu-id="0452c-151">Open a Command Prompt window as an administrator.</span></span>
 
-2. <span data-ttu-id="058da-152">Instale a CLI do Azure executando os seguintes comandos:</span><span class="sxs-lookup"><span data-stu-id="058da-152">Install the Azure CLI by running the following commands:</span></span>
+2. <span data-ttu-id="0452c-152">Instale Olá CLI do Azure executando Olá comandos a seguir:</span><span class="sxs-lookup"><span data-stu-id="0452c-152">Install hello Azure CLI by running hello following commands:</span></span>
 
    ```cmd
    pip install --upgrade azure-cli
    pip install --upgrade azure-cli-iot
    ```
 
-   <span data-ttu-id="058da-153">A instalação pode levar 5 minutos.</span><span class="sxs-lookup"><span data-stu-id="058da-153">The installation might take 5 minutes.</span></span>
+   <span data-ttu-id="0452c-153">instalação de saudação pode levar 5 minutos.</span><span class="sxs-lookup"><span data-stu-id="0452c-153">hello installation might take 5 minutes.</span></span>
 
-3. <span data-ttu-id="058da-154">Verifique a instalação executando o comando a seguir:</span><span class="sxs-lookup"><span data-stu-id="058da-154">Verify the installation by running the following command:</span></span>
+3. <span data-ttu-id="0452c-154">Verificar a instalação de saudação executando Olá comando a seguir:</span><span class="sxs-lookup"><span data-stu-id="0452c-154">Verify hello installation by running hello following command:</span></span>
 
    ```cmd
    az iot -h
    ```
 
-   <span data-ttu-id="058da-155">Se a instalação for bem-sucedida, você verá a seguinte saída.</span><span class="sxs-lookup"><span data-stu-id="058da-155">You should see the following output if the installation is successful.</span></span>
+   <span data-ttu-id="0452c-155">Você verá a seguinte Olá saída se a instalação de saudação foi bem-sucedida.</span><span class="sxs-lookup"><span data-stu-id="0452c-155">You should see hello following output if hello installation is successful.</span></span>
 
    ![Verificar a instalação da CLI do Azure](media/iot-hub-gateway-kit-lessons/lesson2/az_iot_help_win.png)
 
-## <a name="install-visual-studio-code"></a><span data-ttu-id="058da-157">Instalar o Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="058da-157">Install Visual Studio Code</span></span>
+## <a name="install-visual-studio-code"></a><span data-ttu-id="0452c-157">Instalar o Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="0452c-157">Install Visual Studio Code</span></span>
 
-<span data-ttu-id="058da-158">Use o código do Visual Studio posteriormente no tutorial para editar arquivos de configuração.</span><span class="sxs-lookup"><span data-stu-id="058da-158">You use Visual Studio Code later in the tutorial to edit configuration files.</span></span>
+<span data-ttu-id="0452c-158">Usar código do Visual Studio posteriormente em arquivos de configuração do hello tooedit tutorial.</span><span class="sxs-lookup"><span data-stu-id="0452c-158">You use Visual Studio Code later in hello tutorial tooedit configuration files.</span></span>
 
-<span data-ttu-id="058da-159">[Baixe](https://code.visualstudio.com/docs/setup/windows) e instale o Visual Studio Code.</span><span class="sxs-lookup"><span data-stu-id="058da-159">[Download](https://code.visualstudio.com/docs/setup/windows) and install Visual Studio Code.</span></span>
+<span data-ttu-id="0452c-159">[Baixe](https://code.visualstudio.com/docs/setup/windows) e instale o Visual Studio Code.</span><span class="sxs-lookup"><span data-stu-id="0452c-159">[Download](https://code.visualstudio.com/docs/setup/windows) and install Visual Studio Code.</span></span>
 
-## <a name="summary"></a><span data-ttu-id="058da-160">Resumo</span><span class="sxs-lookup"><span data-stu-id="058da-160">Summary</span></span>
+## <a name="summary"></a><span data-ttu-id="0452c-160">Resumo</span><span class="sxs-lookup"><span data-stu-id="0452c-160">Summary</span></span>
 
-<span data-ttu-id="058da-161">Você instalou todos os softwares e as ferramentas necessárias no computador host.</span><span class="sxs-lookup"><span data-stu-id="058da-161">You've installed all the required tools and software on your host computer.</span></span> <span data-ttu-id="058da-162">A próxima tarefa é usar a CLI do Azure para criar um hub IoT e registrar seu dispositivo no seu hub IoT.</span><span class="sxs-lookup"><span data-stu-id="058da-162">Your next task is to use the Azure CLI to create an IoT hub and register your device in your IoT hub.</span></span>
+<span data-ttu-id="0452c-161">Instalar todas as ferramentas de saudação necessárias e software no computador host.</span><span class="sxs-lookup"><span data-stu-id="0452c-161">You've installed all hello required tools and software on your host computer.</span></span> <span data-ttu-id="0452c-162">A próxima tarefa é toouse Olá CLI do Azure toocreate um hub IoT e registrar seu dispositivo em seu hub IoT.</span><span class="sxs-lookup"><span data-stu-id="0452c-162">Your next task is toouse hello Azure CLI toocreate an IoT hub and register your device in your IoT hub.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="058da-163">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="058da-163">Next steps</span></span>
-[<span data-ttu-id="058da-164">Criar um Hub IoT e registrar seu dispositivo</span><span class="sxs-lookup"><span data-stu-id="058da-164">Create an IoT hub and register your device</span></span>](iot-hub-gateway-kit-c-lesson2-register-device.md)
+## <a name="next-steps"></a><span data-ttu-id="0452c-163">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="0452c-163">Next steps</span></span>
+[<span data-ttu-id="0452c-164">Criar um Hub IoT e registrar seu dispositivo</span><span class="sxs-lookup"><span data-stu-id="0452c-164">Create an IoT hub and register your device</span></span>](iot-hub-gateway-kit-c-lesson2-register-device.md)

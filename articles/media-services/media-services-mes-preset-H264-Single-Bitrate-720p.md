@@ -1,6 +1,6 @@
 ---
-title: "Predefinição do Media Encoder Standard H264 Taxa de Bits Única 720p - Azure | Microsoft Docs"
-description: "O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxa de Bits Única 720p**."
+title: "taxa de bits aaaH264 única 720p predefinição padrão de codificador de mídia - Azure | Microsoft Docs"
+description: "tópico de saudação fornece uma visão geral de saudação * * H264 taxas de bits única 720 p * * predefinição de tarefa."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 5ca683db654a5adda6e15e1761579c7e81438417
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 38229713b4c88cd78acbd597870bfa144f10ae1f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="h264-single-bitrate-720p"></a><span data-ttu-id="ba1e0-103">H264 Taxa de Bits Única 720p</span><span class="sxs-lookup"><span data-stu-id="ba1e0-103">H264 Single Bitrate 720p</span></span>
-<span data-ttu-id="ba1e0-104">`Media Encoder Standard` define um conjunto de predefinições de codificação que pode ser usado ao criar trabalhos de codificação.</span><span class="sxs-lookup"><span data-stu-id="ba1e0-104">`Media Encoder Standard` defines a set of encoding presets you can use when creating encoding jobs.</span></span> <span data-ttu-id="ba1e0-105">Você pode usar um `preset name` para especificar em qual formato deseja codificar o arquivo de mídia.</span><span class="sxs-lookup"><span data-stu-id="ba1e0-105">You can either use a `preset name` to specify into which format you would like to encode your media file.</span></span> <span data-ttu-id="ba1e0-106">Ou, pode criar suas próprias predefinições com base em JSON ou XML (usando a codificação UTF-8 ou UTF-16).</span><span class="sxs-lookup"><span data-stu-id="ba1e0-106">Or, you can create your own JSON or XML-based presets (using UTF-8 or UTF-16 encoding.</span></span> <span data-ttu-id="ba1e0-107">Em seguida, você passaria a predefinição personalizada ao codificador.</span><span class="sxs-lookup"><span data-stu-id="ba1e0-107">You would then pass the custom preset to the encoder.</span></span> <span data-ttu-id="ba1e0-108">Para obter a lista de todos os nomes de predefinição com suporte por este codificador `Media Encoder Standard`, consulte [Predefinições de tarefa para o Media Encoder Standard](media-services-mes-presets-overview.md).</span><span class="sxs-lookup"><span data-stu-id="ba1e0-108">For the list of all the preset names supported by this `Media Encoder Standard` encoder, see [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).</span></span>  
+# <a name="h264-single-bitrate-720p"></a><span data-ttu-id="4cdba-103">H264 Taxa de Bits Única 720p</span><span class="sxs-lookup"><span data-stu-id="4cdba-103">H264 Single Bitrate 720p</span></span>
+<span data-ttu-id="4cdba-104">`Media Encoder Standard` define um conjunto de predefinições de codificação que pode ser usado ao criar trabalhos de codificação.</span><span class="sxs-lookup"><span data-stu-id="4cdba-104">`Media Encoder Standard` defines a set of encoding presets you can use when creating encoding jobs.</span></span> <span data-ttu-id="4cdba-105">Você pode usar um `preset name` toospecify em qual formato você deseja que tooencode seu arquivo de mídia.</span><span class="sxs-lookup"><span data-stu-id="4cdba-105">You can either use a `preset name` toospecify into which format you would like tooencode your media file.</span></span> <span data-ttu-id="4cdba-106">Ou, pode criar suas próprias predefinições com base em JSON ou XML (usando a codificação UTF-8 ou UTF-16).</span><span class="sxs-lookup"><span data-stu-id="4cdba-106">Or, you can create your own JSON or XML-based presets (using UTF-8 or UTF-16 encoding.</span></span> <span data-ttu-id="4cdba-107">Em seguida, transmita codificador do hello toohello predefinição personalizada.</span><span class="sxs-lookup"><span data-stu-id="4cdba-107">You would then pass hello custom preset toohello encoder.</span></span> <span data-ttu-id="4cdba-108">Para obter lista de saudação de saudação todos os predefinição nomes compatíveis com esta `Media Encoder Standard` codificador, consulte [predefinições de tarefa para o codificador de mídia padrão](media-services-mes-presets-overview.md).</span><span class="sxs-lookup"><span data-stu-id="4cdba-108">For hello list of all hello preset names supported by this `Media Encoder Standard` encoder, see [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).</span></span>  
   
- <span data-ttu-id="ba1e0-109">Este tópico mostra a predefinição `H264 Single Bitrate 720p` no formato XML e JSON.</span><span class="sxs-lookup"><span data-stu-id="ba1e0-109">This topic shows the `H264 Single Bitrate 720p` preset in XML and JSON format.</span></span>  
+ <span data-ttu-id="4cdba-109">Este tópico mostra Olá `H264 Single Bitrate 720p` predefinido no formato XML e JSON.</span><span class="sxs-lookup"><span data-stu-id="4cdba-109">This topic shows hello `H264 Single Bitrate 720p` preset in XML and JSON format.</span></span>  
   
- <span data-ttu-id="ba1e0-110">Essa predefinição produz um único arquivo MP4 com uma taxa de bits de 4500 kbps e áudio AAC estéreo.</span><span class="sxs-lookup"><span data-stu-id="ba1e0-110">This preset produces a single MP4 file with a bitrate of 4500 kbps, and stereo AAC audio.</span></span> <span data-ttu-id="ba1e0-111">Para obter informações detalhadas sobre o perfil, taxa de bits, taxa de amostragem etc. dessa predefinição, examine o XML ou JSON definido abaixo.</span><span class="sxs-lookup"><span data-stu-id="ba1e0-111">For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine the XML or JSON defined below.</span></span> <span data-ttu-id="ba1e0-112">Para obter explicações sobre o significado de cada elemento nessas predefinições, e os valores válidos para cada elemento, veja o tópico [Esquema do Media Encoder Standard](media-services-mes-schema.md).</span><span class="sxs-lookup"><span data-stu-id="ba1e0-112">For explanations of what each element in these presets means, and the valid values for each element, see the [Media Encoder Standard schema](media-services-mes-schema.md) topic.</span></span>  
+ <span data-ttu-id="4cdba-110">Essa predefinição produz um único arquivo MP4 com uma taxa de bits de 4500 kbps e áudio AAC estéreo.</span><span class="sxs-lookup"><span data-stu-id="4cdba-110">This preset produces a single MP4 file with a bitrate of 4500 kbps, and stereo AAC audio.</span></span> <span data-ttu-id="4cdba-111">Para obter informações detalhadas sobre o perfil, taxa de bits, taxa de amostragem etc. Isso predefinido, examine Olá XML ou JSON definido abaixo.</span><span class="sxs-lookup"><span data-stu-id="4cdba-111">For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine hello XML or JSON defined below.</span></span> <span data-ttu-id="4cdba-112">Para obter explicações de que cada elemento nessas significa predefinições, e os valores válidos Olá para cada elemento, consulte Olá [esquema padrão do Media Encoder](media-services-mes-schema.md) tópico.</span><span class="sxs-lookup"><span data-stu-id="4cdba-112">For explanations of what each element in these presets means, and hello valid values for each element, see hello [Media Encoder Standard schema](media-services-mes-schema.md) topic.</span></span>  
   
- <span data-ttu-id="ba1e0-113">XML</span><span class="sxs-lookup"><span data-stu-id="ba1e0-113">XML</span></span>  
+ <span data-ttu-id="4cdba-113">XML</span><span class="sxs-lookup"><span data-stu-id="4cdba-113">XML</span></span>  
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
@@ -70,7 +70,7 @@ ms.lasthandoff: 08/29/2017
 </Preset>  
 ```  
   
- <span data-ttu-id="ba1e0-114">JSON</span><span class="sxs-lookup"><span data-stu-id="ba1e0-114">JSON</span></span>  
+ <span data-ttu-id="4cdba-114">JSON</span><span class="sxs-lookup"><span data-stu-id="4cdba-114">JSON</span></span>  
   
 ```  
 {  

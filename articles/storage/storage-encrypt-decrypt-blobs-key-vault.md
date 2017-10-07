@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Criptografar e descriptografar blobs no Armazenamento do Azure usando o Azure Key Vault | Microsoft Docs'
-description: Como criptografar e descriptografar um blob usando a criptografia do lado do cliente para o Armazenamento do Microsoft Azure com o Azure Key Vault.
+description: Como tooencrypt e descriptografar um blob usando a criptografia do lado do cliente de armazenamento do Microsoft Azure com o Cofre de chaves do Azure.
 services: storage
 documentationcenter: 
 author: adhurwit
@@ -14,67 +14,67 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 01/23/2017
 ms.author: adhurwit
-ms.openlocfilehash: 0c33742a0212e670072a947a2d2ab8304c77b973
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3eb64f104f378dd09ef295c94e03167655883391
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a><span data-ttu-id="a8ec6-103">Tutorial: criptografar e descriptografar blobs no Armazenamento do Microsoft Azure usando o Cofre da Chave do Azure</span><span class="sxs-lookup"><span data-stu-id="a8ec6-103">Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault</span></span>
-## <a name="introduction"></a><span data-ttu-id="a8ec6-104">Introdução</span><span class="sxs-lookup"><span data-stu-id="a8ec6-104">Introduction</span></span>
-<span data-ttu-id="a8ec6-105">Este tutorial aborda como aproveitar a criptografia de armazenamento do cliente com o Cofre da Chave do Azure.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-105">This tutorial covers how to make use of client-side storage encryption with Azure Key Vault.</span></span> <span data-ttu-id="a8ec6-106">Ele explica como criptografar e descriptografar um blob em um aplicativo de console usando essas tecnologias.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-106">It walks you through how to encrypt and decrypt a blob in a console application using these technologies.</span></span>
+# <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a><span data-ttu-id="02cef-103">Tutorial: criptografar e descriptografar blobs no Armazenamento do Microsoft Azure usando o Cofre da Chave do Azure</span><span class="sxs-lookup"><span data-stu-id="02cef-103">Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault</span></span>
+## <a name="introduction"></a><span data-ttu-id="02cef-104">Introdução</span><span class="sxs-lookup"><span data-stu-id="02cef-104">Introduction</span></span>
+<span data-ttu-id="02cef-105">Este tutorial aborda como toomake o uso de criptografia de armazenamento do cliente com o Cofre de chaves do Azure.</span><span class="sxs-lookup"><span data-stu-id="02cef-105">This tutorial covers how toomake use of client-side storage encryption with Azure Key Vault.</span></span> <span data-ttu-id="02cef-106">Ele orienta como tooencrypt e descriptografar um blob em um aplicativo de console usando essas tecnologias.</span><span class="sxs-lookup"><span data-stu-id="02cef-106">It walks you through how tooencrypt and decrypt a blob in a console application using these technologies.</span></span>
 
-<span data-ttu-id="a8ec6-107">**Tempo estimado para conclusão:** 20 minutos</span><span class="sxs-lookup"><span data-stu-id="a8ec6-107">**Estimated time to complete:** 20 minutes</span></span>
+<span data-ttu-id="02cef-107">**Estimado tempo toocomplete:** 20 minutos</span><span class="sxs-lookup"><span data-stu-id="02cef-107">**Estimated time toocomplete:** 20 minutes</span></span>
 
-<span data-ttu-id="a8ec6-108">Para obter informações gerais sobre o Cofre de Chaves do Azure, consulte [O que é o Cofre de Chaves do Azure?](../key-vault/key-vault-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="a8ec6-108">For overview information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-whatis.md).</span></span>
+<span data-ttu-id="02cef-108">Para obter informações gerais sobre o Cofre de Chaves do Azure, consulte [O que é o Cofre de Chaves do Azure?](../key-vault/key-vault-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="02cef-108">For overview information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-whatis.md).</span></span>
 
-<span data-ttu-id="a8ec6-109">Para obter informações gerais sobre a criptografia de cliente do armazenamento do Azure, consulte [Criptografia do lado do cliente e Cofre de Chaves do Azure para o Armazenamento do Microsoft Azure](storage-client-side-encryption.md).</span><span class="sxs-lookup"><span data-stu-id="a8ec6-109">For overview information about client-side encryption for Azure Storage, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](storage-client-side-encryption.md).</span></span>
+<span data-ttu-id="02cef-109">Para obter informações gerais sobre a criptografia de cliente do armazenamento do Azure, consulte [Criptografia do lado do cliente e Cofre de Chaves do Azure para o Armazenamento do Microsoft Azure](storage-client-side-encryption.md).</span><span class="sxs-lookup"><span data-stu-id="02cef-109">For overview information about client-side encryption for Azure Storage, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](storage-client-side-encryption.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="a8ec6-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="a8ec6-110">Prerequisites</span></span>
-<span data-ttu-id="a8ec6-111">Para concluir este tutorial, você precisará do seguinte:</span><span class="sxs-lookup"><span data-stu-id="a8ec6-111">To complete this tutorial, you must have the following:</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="02cef-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="02cef-110">Prerequisites</span></span>
+<span data-ttu-id="02cef-111">toocomplete neste tutorial, você deve ter Olá a seguir:</span><span class="sxs-lookup"><span data-stu-id="02cef-111">toocomplete this tutorial, you must have hello following:</span></span>
 
-* <span data-ttu-id="a8ec6-112">Uma conta de armazenamento do Azure</span><span class="sxs-lookup"><span data-stu-id="a8ec6-112">An Azure Storage account</span></span>
-* <span data-ttu-id="a8ec6-113">Visual Studio 2013 ou posterior.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-113">Visual Studio 2013 or later</span></span>
-* <span data-ttu-id="a8ec6-114">Azure PowerShell</span><span class="sxs-lookup"><span data-stu-id="a8ec6-114">Azure PowerShell</span></span>
+* <span data-ttu-id="02cef-112">Uma conta de armazenamento do Azure</span><span class="sxs-lookup"><span data-stu-id="02cef-112">An Azure Storage account</span></span>
+* <span data-ttu-id="02cef-113">Visual Studio 2013 ou posterior.</span><span class="sxs-lookup"><span data-stu-id="02cef-113">Visual Studio 2013 or later</span></span>
+* <span data-ttu-id="02cef-114">Azure PowerShell</span><span class="sxs-lookup"><span data-stu-id="02cef-114">Azure PowerShell</span></span>
 
-## <a name="overview-of-client-side-encryption"></a><span data-ttu-id="a8ec6-115">Visão geral da criptografia do lado do cliente</span><span class="sxs-lookup"><span data-stu-id="a8ec6-115">Overview of client-side encryption</span></span>
-<span data-ttu-id="a8ec6-116">Para obter uma visão geral da criptografia do lado do cliente do Armazenamento do Azure, consulte [Criptografia do lado do cliente e o Cofre de Chaves do Azure para o Armazenamento do Microsoft Azure](storage-client-side-encryption.md)</span><span class="sxs-lookup"><span data-stu-id="a8ec6-116">For an overview of client-side encryption for Azure Storage, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](storage-client-side-encryption.md)</span></span>
+## <a name="overview-of-client-side-encryption"></a><span data-ttu-id="02cef-115">Visão geral da criptografia do lado do cliente</span><span class="sxs-lookup"><span data-stu-id="02cef-115">Overview of client-side encryption</span></span>
+<span data-ttu-id="02cef-116">Para obter uma visão geral da criptografia do lado do cliente do Armazenamento do Azure, consulte [Criptografia do lado do cliente e o Cofre de Chaves do Azure para o Armazenamento do Microsoft Azure](storage-client-side-encryption.md)</span><span class="sxs-lookup"><span data-stu-id="02cef-116">For an overview of client-side encryption for Azure Storage, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](storage-client-side-encryption.md)</span></span>
 
-<span data-ttu-id="a8ec6-117">Aqui está uma breve descrição de como funciona a criptografia do lado do cliente:</span><span class="sxs-lookup"><span data-stu-id="a8ec6-117">Here is a brief description of how client side encryption works:</span></span>
+<span data-ttu-id="02cef-117">Aqui está uma breve descrição de como funciona a criptografia do lado do cliente:</span><span class="sxs-lookup"><span data-stu-id="02cef-117">Here is a brief description of how client side encryption works:</span></span>
 
-1. <span data-ttu-id="a8ec6-118">O SDK do cliente do Armazenamento do Azure gera uma CEK (chave de criptografia de conteúdo) que é uma chave simétrica de uso único.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-118">The Azure Storage client SDK generates a content encryption key (CEK), which is a one-time-use symmetric key.</span></span>
-2. <span data-ttu-id="a8ec6-119">Os dados do cliente são criptografados usando essa CEK.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-119">Customer data is encrypted using this CEK.</span></span>
-3. <span data-ttu-id="a8ec6-120">O CEK é empacotada (criptografada) usando o KEK (Chave de Criptografia de Chave).</span><span class="sxs-lookup"><span data-stu-id="a8ec6-120">The CEK is then wrapped (encrypted) using the key encryption key (KEK).</span></span> <span data-ttu-id="a8ec6-121">A KEK é identificada por um identificador de chave e pode ser um par de chaves assimétricas ou uma chave simétrica, podendo ser gerenciada localmente ou armazenada no Cofre da Chave do Azure.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-121">The KEK is identified by a key identifier and can be an asymmetric key pair or a symmetric key and can be managed locally or stored in Azure Key Vault.</span></span> <span data-ttu-id="a8ec6-122">O cliente de Armazenamento, por si só, nunca tem acesso à KEK.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-122">The Storage client itself never has access to the KEK.</span></span> <span data-ttu-id="a8ec6-123">Ele simplesmente chama o algoritmo de quebra de chave fornecido pelo Cofre da Chave.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-123">It just invokes the key wrapping algorithm that is provided by Key Vault.</span></span> <span data-ttu-id="a8ec6-124">Os clientes podem escolher usar provedores personalizados para desempacotamento/quebra da chave, se desejado.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-124">Customers can choose to use custom providers for key wrapping/unwrapping if they want.</span></span>
-4. <span data-ttu-id="a8ec6-125">Os dados criptografados, em seguida, são carregados para o serviço de Armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-125">The encrypted data is then uploaded to the Azure Storage service.</span></span>
+1. <span data-ttu-id="02cef-118">SDK de cliente de armazenamento do Azure Hello gera uma chave de criptografia do conteúdo (CEK), que é uma chave simétrica do uso de uma vez.</span><span class="sxs-lookup"><span data-stu-id="02cef-118">hello Azure Storage client SDK generates a content encryption key (CEK), which is a one-time-use symmetric key.</span></span>
+2. <span data-ttu-id="02cef-119">Os dados do cliente são criptografados usando essa CEK.</span><span class="sxs-lookup"><span data-stu-id="02cef-119">Customer data is encrypted using this CEK.</span></span>
+3. <span data-ttu-id="02cef-120">Olá CEK é fornecida (criptografada) usando a chave de criptografia de chave da saudação (KEK).</span><span class="sxs-lookup"><span data-stu-id="02cef-120">hello CEK is then wrapped (encrypted) using hello key encryption key (KEK).</span></span> <span data-ttu-id="02cef-121">Olá KEK é identificada por um identificador de chave e pode ser um par de chaves assimétricas ou uma chave simétrica e podem ser gerenciado localmente ou armazenada no cofre de chaves do Azure.</span><span class="sxs-lookup"><span data-stu-id="02cef-121">hello KEK is identified by a key identifier and can be an asymmetric key pair or a symmetric key and can be managed locally or stored in Azure Key Vault.</span></span> <span data-ttu-id="02cef-122">cliente de armazenamento Olá próprio nunca tem acesso toohello KEK.</span><span class="sxs-lookup"><span data-stu-id="02cef-122">hello Storage client itself never has access toohello KEK.</span></span> <span data-ttu-id="02cef-123">Ele apenas invoca o algoritmo de chave encapsulamento Olá fornecida pelo Cofre de chaves.</span><span class="sxs-lookup"><span data-stu-id="02cef-123">It just invokes hello key wrapping algorithm that is provided by Key Vault.</span></span> <span data-ttu-id="02cef-124">Os clientes podem escolher provedores personalizados de toouse chave encapsulamento/desencapsulamento se desejarem.</span><span class="sxs-lookup"><span data-stu-id="02cef-124">Customers can choose toouse custom providers for key wrapping/unwrapping if they want.</span></span>
+4. <span data-ttu-id="02cef-125">Olá os dados criptografados são, em seguida, carregar toohello serviço de armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="02cef-125">hello encrypted data is then uploaded toohello Azure Storage service.</span></span>
 
-## <a name="set-up-your-azure-key-vault"></a><span data-ttu-id="a8ec6-126">Configure o seu Cofre da Chave do Azure</span><span class="sxs-lookup"><span data-stu-id="a8ec6-126">Set up your Azure Key Vault</span></span>
-<span data-ttu-id="a8ec6-127">Para continuar com este tutorial, você precisa realizar as etapas a seguir, que são descritas no tutorial: [Introdução ao Cofre de Chaves do Azure](../key-vault/key-vault-get-started.md):</span><span class="sxs-lookup"><span data-stu-id="a8ec6-127">In order to proceed with this tutorial, you need to do the following steps, which are outlined in the tutorial  [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md):</span></span>
+## <a name="set-up-your-azure-key-vault"></a><span data-ttu-id="02cef-126">Configure o seu Cofre da Chave do Azure</span><span class="sxs-lookup"><span data-stu-id="02cef-126">Set up your Azure Key Vault</span></span>
+<span data-ttu-id="02cef-127">Na ordem tooproceed com este tutorial, você precisa Olá toodo etapas, que são descritas no tutorial Olá [Introdução ao Azure Key Vault](../key-vault/key-vault-get-started.md):</span><span class="sxs-lookup"><span data-stu-id="02cef-127">In order tooproceed with this tutorial, you need toodo hello following steps, which are outlined in hello tutorial  [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md):</span></span>
 
-* <span data-ttu-id="a8ec6-128">Crie um cofre da chave.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-128">Create a key vault.</span></span>
-* <span data-ttu-id="a8ec6-129">Adicionar uma chave ou segredo ao cofre da chave.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-129">Add a key or secret to the key vault.</span></span>
-* <span data-ttu-id="a8ec6-130">Registre um aplicativo com o Active Directory do Azure.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-130">Register an application with Azure Active Directory.</span></span>
-* <span data-ttu-id="a8ec6-131">Autorize o aplicativo a usar a chave ou segredo.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-131">Authorize the application to use the key or secret.</span></span>
+* <span data-ttu-id="02cef-128">Crie um cofre da chave.</span><span class="sxs-lookup"><span data-stu-id="02cef-128">Create a key vault.</span></span>
+* <span data-ttu-id="02cef-129">Adicione uma chave ou segredo toohello Cofre de chaves.</span><span class="sxs-lookup"><span data-stu-id="02cef-129">Add a key or secret toohello key vault.</span></span>
+* <span data-ttu-id="02cef-130">Registre um aplicativo com o Active Directory do Azure.</span><span class="sxs-lookup"><span data-stu-id="02cef-130">Register an application with Azure Active Directory.</span></span>
+* <span data-ttu-id="02cef-131">Autorize Olá aplicativo toouse Olá chave ou segredo.</span><span class="sxs-lookup"><span data-stu-id="02cef-131">Authorize hello application toouse hello key or secret.</span></span>
 
-<span data-ttu-id="a8ec6-132">Anote o ClientID e ClientSecret que foram gerados ao registrar um aplicativo com o Active Directory do Azure.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-132">Make note of the ClientID and ClientSecret that were generated when registering an application with Azure Active Directory.</span></span>
+<span data-ttu-id="02cef-132">Verifique a nota da saudação ClientID e ClientSecret que foram gerados ao registrar um aplicativo com o Active Directory do Azure.</span><span class="sxs-lookup"><span data-stu-id="02cef-132">Make note of hello ClientID and ClientSecret that were generated when registering an application with Azure Active Directory.</span></span>
 
-<span data-ttu-id="a8ec6-133">Crie ambas as chaves no cofre da chave.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-133">Create both keys in the key vault.</span></span> <span data-ttu-id="a8ec6-134">Vamos supor pelo restante do tutorial que você tenha usado os seguintes nomes: ContosoKeyVault e TestRSAKey1.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-134">We assume for the rest of the tutorial that you have used the following names: ContosoKeyVault and TestRSAKey1.</span></span>
+<span data-ttu-id="02cef-133">Crie as chaves no cofre de chaves hello.</span><span class="sxs-lookup"><span data-stu-id="02cef-133">Create both keys in hello key vault.</span></span> <span data-ttu-id="02cef-134">Vamos supor restante de saudação do tutorial de saudação que você usou Olá nomes a seguir: ContosoKeyVault e TestRSAKey1.</span><span class="sxs-lookup"><span data-stu-id="02cef-134">We assume for hello rest of hello tutorial that you have used hello following names: ContosoKeyVault and TestRSAKey1.</span></span>
 
-## <a name="create-a-console-application-with-packages-and-appsettings"></a><span data-ttu-id="a8ec6-135">Criar um aplicativo de console com pacotes e AppSettings</span><span class="sxs-lookup"><span data-stu-id="a8ec6-135">Create a console application with packages and AppSettings</span></span>
-<span data-ttu-id="a8ec6-136">No Visual Studio, crie um novo aplicativo de console.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-136">In Visual Studio, create a new console application.</span></span>
+## <a name="create-a-console-application-with-packages-and-appsettings"></a><span data-ttu-id="02cef-135">Criar um aplicativo de console com pacotes e AppSettings</span><span class="sxs-lookup"><span data-stu-id="02cef-135">Create a console application with packages and AppSettings</span></span>
+<span data-ttu-id="02cef-136">No Visual Studio, crie um novo aplicativo de console.</span><span class="sxs-lookup"><span data-stu-id="02cef-136">In Visual Studio, create a new console application.</span></span>
 
-<span data-ttu-id="a8ec6-137">Adicione pacotes nuget necessários no Console do Gerenciador de Pacotes.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-137">Add necessary nuget packages in the Package Manager Console.</span></span>
+<span data-ttu-id="02cef-137">Adicione pacotes nuget necessárias no hello Package Manager Console.</span><span class="sxs-lookup"><span data-stu-id="02cef-137">Add necessary nuget packages in hello Package Manager Console.</span></span>
 
 ```
 Install-Package WindowsAzure.Storage
 
-// This is the latest stable release for ADAL.
+// This is hello latest stable release for ADAL.
 Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
 
 Install-Package Microsoft.Azure.KeyVault
 Install-Package Microsoft.Azure.KeyVault.Extensions
 ```
 
-<span data-ttu-id="a8ec6-138">Adicione AppSettings a App.Config.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-138">Add AppSettings to the App.Config.</span></span>
+<span data-ttu-id="02cef-138">Adicione toohello AppSettings App. config.</span><span class="sxs-lookup"><span data-stu-id="02cef-138">Add AppSettings toohello App.Config.</span></span>
 
 ```xml
 <appSettings>
@@ -86,7 +86,7 @@ Install-Package Microsoft.Azure.KeyVault.Extensions
 </appSettings>
 ```
 
-<span data-ttu-id="a8ec6-139">Adicione as seguintes instruções `using` e certifique-se de adicionar uma referência a System.Configuration ao projeto.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-139">Add the following `using` statements and make sure to add a reference to System.Configuration to the project.</span></span>
+<span data-ttu-id="02cef-139">Adicione o seguinte Olá `using` instruções e certifique-se de que tooadd um projeto de toohello de tooSystem.Configuration de referência.</span><span class="sxs-lookup"><span data-stu-id="02cef-139">Add hello following `using` statements and make sure tooadd a reference tooSystem.Configuration toohello project.</span></span>
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -99,8 +99,8 @@ using System.Threading;
 using System.IO;
 ```
 
-## <a name="add-a-method-to-get-a-token-to-your-console-application"></a><span data-ttu-id="a8ec6-140">Adicione um método para obter um token para o aplicativo de console</span><span class="sxs-lookup"><span data-stu-id="a8ec6-140">Add a method to get a token to your console application</span></span>
-<span data-ttu-id="a8ec6-141">O método a seguir é usado pelas classes do Cofre da Chave que precisam ser autenticadas para acessar seu cofre da chave.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-141">The following method is used by Key Vault classes that need to authenticate for access to your key vault.</span></span>
+## <a name="add-a-method-tooget-a-token-tooyour-console-application"></a><span data-ttu-id="02cef-140">Adicionar um método tooget um aplicativo de console tooyour token</span><span class="sxs-lookup"><span data-stu-id="02cef-140">Add a method tooget a token tooyour console application</span></span>
+<span data-ttu-id="02cef-141">Olá método a seguir é usado pelas classes de Cofre de chaves que precisam tooauthenticate para Cofre de chaves de tooyour de acesso.</span><span class="sxs-lookup"><span data-stu-id="02cef-141">hello following method is used by Key Vault classes that need tooauthenticate for access tooyour key vault.</span></span>
 
 ```csharp
 private async static Task<string> GetToken(string authority, string resource, string scope)
@@ -112,17 +112,17 @@ private async static Task<string> GetToken(string authority, string resource, st
     AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
 
     if (result == null)
-        throw new InvalidOperationException("Failed to obtain the JWT token");
+        throw new InvalidOperationException("Failed tooobtain hello JWT token");
 
     return result.AccessToken;
 }
 ```
 
-## <a name="access-storage-and-key-vault-in-your-program"></a><span data-ttu-id="a8ec6-142">Acessar o Armazenamento e o Cofre da Chave em seu programa</span><span class="sxs-lookup"><span data-stu-id="a8ec6-142">Access Storage and Key Vault in your program</span></span>
-<span data-ttu-id="a8ec6-143">Na função Main, adicione o código a seguir.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-143">In the Main function, add the following code.</span></span>
+## <a name="access-storage-and-key-vault-in-your-program"></a><span data-ttu-id="02cef-142">Acessar o Armazenamento e o Cofre da Chave em seu programa</span><span class="sxs-lookup"><span data-stu-id="02cef-142">Access Storage and Key Vault in your program</span></span>
+<span data-ttu-id="02cef-143">Olá função Main, adiciona Olá código a seguir.</span><span class="sxs-lookup"><span data-stu-id="02cef-143">In hello Main function, add hello following code.</span></span>
 
 ```csharp
-// This is standard code to interact with Blob storage.
+// This is standard code toointeract with Blob storage.
 StorageCredentials creds = new StorageCredentials(
     ConfigurationManager.AppSettings["accountName"],
        ConfigurationManager.AppSettings["accountKey"]);
@@ -131,61 +131,61 @@ CloudBlobClient client = account.CreateCloudBlobClient();
 CloudBlobContainer contain = client.GetContainerReference(ConfigurationManager.AppSettings["container"]);
 contain.CreateIfNotExists();
 
-// The Resolver object is used to interact with Key Vault for Azure Storage.
-// This is where the GetToken method from above is used.
+// hello Resolver object is used toointeract with Key Vault for Azure Storage.
+// This is where hello GetToken method from above is used.
 KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 ```
 
 > [!NOTE]
-> <span data-ttu-id="a8ec6-144">Modelos de Objetos de Chave de Cofre</span><span class="sxs-lookup"><span data-stu-id="a8ec6-144">Key Vault Object Models</span></span>
+> <span data-ttu-id="02cef-144">Modelos de Objetos de Chave de Cofre</span><span class="sxs-lookup"><span data-stu-id="02cef-144">Key Vault Object Models</span></span>
 > 
-> <span data-ttu-id="a8ec6-145">É importante entender que há realmente dois Chave de Cofre modelos de objeto estar atento: uma baseada na API REST (namespace KeyVault) e a outra é uma extensão para criptografia do lado do cliente.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-145">It is important to understand that there are actually two Key Vault object models to be aware of: one is based on the REST API (KeyVault namespace) and the other is an extension for client-side encryption.</span></span>
+> <span data-ttu-id="02cef-145">É importante toounderstand que há, na verdade, os dois objetos de Cofre de chaves modelos toobe atento: um é baseado em Olá API REST (namespace KeyVault) e outros Olá é uma extensão para a criptografia do lado do cliente.</span><span class="sxs-lookup"><span data-stu-id="02cef-145">It is important toounderstand that there are actually two Key Vault object models toobe aware of: one is based on hello REST API (KeyVault namespace) and hello other is an extension for client-side encryption.</span></span>
 > 
-> <span data-ttu-id="a8ec6-146">O Cliente do Cofre da Chave interage com a API REST e compreende JSON Web chaves e segredos para os dois tipos de coisas que estão contidos no Cofre da Chave.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-146">The Key Vault Client interacts with the REST API and understands JSON Web Keys and secrets for the two kinds of things that are contained in Key Vault.</span></span>
+> <span data-ttu-id="02cef-146">Olá chave cofre cliente interage com hello API REST e entenda JSON Web chaves e segredos para dois tipos de saudação de coisas que estão contidos no cofre de chaves.</span><span class="sxs-lookup"><span data-stu-id="02cef-146">hello Key Vault Client interacts with hello REST API and understands JSON Web Keys and secrets for hello two kinds of things that are contained in Key Vault.</span></span>
 > 
-> <span data-ttu-id="a8ec6-147">As Extensões de Chave de Cofre são classes que parecem criados especificamente para a criptografia de cliente no Armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-147">The Key Vault Extensions are classes that seem specifically created for client-side encryption in Azure Storage.</span></span> <span data-ttu-id="a8ec6-148">Eles contêm uma interface para chaves (IKey) e classes com base no conceito de um Resolvedor de Chave.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-148">They contain an interface for keys (IKey) and classes based on the concept of a Key Resolver.</span></span> <span data-ttu-id="a8ec6-149">Há duas implementações de IKey que você precisa saber: RSAKey e SymmetricKey.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-149">There are two implementations of IKey that you need to know: RSAKey and SymmetricKey.</span></span> <span data-ttu-id="a8ec6-150">Agora que eles aconteçam coincidir com as coisas que estão contidas em um Cofre da Chave, mas agora são classes independentes (para a chave e o segredo recuperada pelo cliente Cofre da Chave não implementam IKey).</span><span class="sxs-lookup"><span data-stu-id="a8ec6-150">Now they happen to coincide with the things that are contained in a Key Vault, but at this point they are independent classes (so the Key and Secret retrieved by the Key Vault Client do not implement IKey).</span></span>
+> <span data-ttu-id="02cef-147">Extensões de Cofre de chave Olá são classes que parecem especificamente criadas para a criptografia do lado do cliente no armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="02cef-147">hello Key Vault Extensions are classes that seem specifically created for client-side encryption in Azure Storage.</span></span> <span data-ttu-id="02cef-148">Elas contêm uma interface para chaves (IKey) e classes com base no conceito de saudação de um resolvedor de chave.</span><span class="sxs-lookup"><span data-stu-id="02cef-148">They contain an interface for keys (IKey) and classes based on hello concept of a Key Resolver.</span></span> <span data-ttu-id="02cef-149">Há duas implementações do IKey que você precisa tooknow: RSAKey e SymmetricKey.</span><span class="sxs-lookup"><span data-stu-id="02cef-149">There are two implementations of IKey that you need tooknow: RSAKey and SymmetricKey.</span></span> <span data-ttu-id="02cef-150">Agora que ocorram toocoincide itens Olá que estão contidos em um cofre de chaves, mas agora são independentes classes (forma Olá chave e o segredo recuperada por Olá cliente de Cofre de chave não implementam IKey).</span><span class="sxs-lookup"><span data-stu-id="02cef-150">Now they happen toocoincide with hello things that are contained in a Key Vault, but at this point they are independent classes (so hello Key and Secret retrieved by hello Key Vault Client do not implement IKey).</span></span>
 > 
 > 
 
-## <a name="encrypt-blob-and-upload"></a><span data-ttu-id="a8ec6-151">Criptografar o blob e carregar</span><span class="sxs-lookup"><span data-stu-id="a8ec6-151">Encrypt blob and upload</span></span>
-<span data-ttu-id="a8ec6-152">Adicione o seguinte código para criptografar um blob e carregá-lo à sua conta de armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-152">Add the following code to encrypt a blob and upload it to your Azure storage account.</span></span> <span data-ttu-id="a8ec6-153">O método **ResolveKeyAsync** usado retorna uma IKey.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-153">The **ResolveKeyAsync** method that is used returns an IKey.</span></span>
+## <a name="encrypt-blob-and-upload"></a><span data-ttu-id="02cef-151">Criptografar o blob e carregar</span><span class="sxs-lookup"><span data-stu-id="02cef-151">Encrypt blob and upload</span></span>
+<span data-ttu-id="02cef-152">Adicione a seguinte Olá tooencrypt um blob de código e carregá-lo tooyour conta de armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="02cef-152">Add hello following code tooencrypt a blob and upload it tooyour Azure storage account.</span></span> <span data-ttu-id="02cef-153">Olá **ResolveKeyAsync** método retorna um IKey.</span><span class="sxs-lookup"><span data-stu-id="02cef-153">hello **ResolveKeyAsync** method that is used returns an IKey.</span></span>
 
 ```csharp
-// Retrieve the key that you created previously.
-// The IKey that is returned here is an RsaKey.
-// Remember that we used the names contosokeyvault and testrsakey1.
+// Retrieve hello key that you created previously.
+// hello IKey that is returned here is an RsaKey.
+// Remember that we used hello names contosokeyvault and testrsakey1.
 var rsa = cloudResolver.ResolveKeyAsync("https://contosokeyvault.vault.azure.net/keys/TestRSAKey1", CancellationToken.None).GetAwaiter().GetResult();
 
-// Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy.
+// Now you simply use hello RSA key tooencrypt by setting it in hello BlobEncryptionPolicy.
 BlobEncryptionPolicy policy = new BlobEncryptionPolicy(rsa, null);
 BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
 
 // Reference a block blob.
 CloudBlockBlob blob = contain.GetBlockBlobReference("MyFile.txt");
 
-// Upload using the UploadFromStream method.
+// Upload using hello UploadFromStream method.
 using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
     blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
 
-<span data-ttu-id="a8ec6-154">A seguir está uma captura de tela do [Portal Clássico do Azure](https://manage.windowsazure.com) de um blob que foi criptografado usando a criptografia de cliente com uma chave armazenada no Cofre de Chaves.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-154">Following is a screenshot from the [Azure Classic Portal](https://manage.windowsazure.com) for a blob that has been encrypted by using client-side encryption with a key stored in Key Vault.</span></span> <span data-ttu-id="a8ec6-155">A propriedade **KeyId** é a URI para a chave no Cofre de Chaves que atua como a KEK.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-155">The **KeyId** property is the URI for the key in Key Vault that acts as the KEK.</span></span> <span data-ttu-id="a8ec6-156">A propriedade **EncryptedKey** contém a versão criptografada da CEK.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-156">The **EncryptedKey** property contains the encrypted version of the CEK.</span></span>
+<span data-ttu-id="02cef-154">A seguir está uma captura de tela de saudação [Portal clássico do Azure](https://manage.windowsazure.com) para um blob que foi criptografado usando a criptografia do lado do cliente com uma chave armazenada no cofre de chaves.</span><span class="sxs-lookup"><span data-stu-id="02cef-154">Following is a screenshot from hello [Azure Classic Portal](https://manage.windowsazure.com) for a blob that has been encrypted by using client-side encryption with a key stored in Key Vault.</span></span> <span data-ttu-id="02cef-155">Olá **KeyId** propriedade é hello URI para a chave de saudação no cofre de chaves que atua como Olá KEK.</span><span class="sxs-lookup"><span data-stu-id="02cef-155">hello **KeyId** property is hello URI for hello key in Key Vault that acts as hello KEK.</span></span> <span data-ttu-id="02cef-156">Olá **EncryptedKey** propriedade contém a versão criptografada Olá Olá CEK.</span><span class="sxs-lookup"><span data-stu-id="02cef-156">hello **EncryptedKey** property contains hello encrypted version of hello CEK.</span></span>
 
 ![Captura de tela mostrando os metadados de Blob que inclui metadados de criptografia](./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png)
 
 > [!NOTE]
-> <span data-ttu-id="a8ec6-158">Se você examinar o construtor BlobEncryptionPolicy, você verá que ele pode aceitar uma chave e/ou um resolvedor.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-158">If you look at the BlobEncryptionPolicy constructor, you will see that it can accept a key and/or a resolver.</span></span> <span data-ttu-id="a8ec6-159">Lembre-se de que agora, você não pode usar um resolvedor para criptografia porque atualmente não dá suporte a uma chave padrão.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-159">Be aware that right now you cannot use a resolver for encryption because it does not currently support a default key.</span></span>
+> <span data-ttu-id="02cef-158">Se você observar o construtor de BlobEncryptionPolicy hello, você verá que ele pode aceitar uma chave e/ou um resolvedor.</span><span class="sxs-lookup"><span data-stu-id="02cef-158">If you look at hello BlobEncryptionPolicy constructor, you will see that it can accept a key and/or a resolver.</span></span> <span data-ttu-id="02cef-159">Lembre-se de que agora, você não pode usar um resolvedor para criptografia porque atualmente não dá suporte a uma chave padrão.</span><span class="sxs-lookup"><span data-stu-id="02cef-159">Be aware that right now you cannot use a resolver for encryption because it does not currently support a default key.</span></span>
 > 
 > 
 
-## <a name="decrypt-blob-and-download"></a><span data-ttu-id="a8ec6-160">Descriptografar o blob e baixar</span><span class="sxs-lookup"><span data-stu-id="a8ec6-160">Decrypt blob and download</span></span>
-<span data-ttu-id="a8ec6-161">Descriptografia é quando o uso das classes de resolvedor realmente fazem sentido.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-161">Decryption is really when using the Resolver classes make sense.</span></span> <span data-ttu-id="a8ec6-162">A ID da chave usada para criptografia é associada ao blob em seus metadados, portanto, não há motivo para recuperar a chave e lembre-se a associação entre a chave e o blob.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-162">The ID of the key used for encryption is associated with the blob in its metadata, so there is no reason for you to retrieve the key and remember the association between key and blob.</span></span> <span data-ttu-id="a8ec6-163">Você precisa certificar-se de que a chave permanece no Cofre da Chave.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-163">You just have to make sure that the key remains in Key Vault.</span></span>   
+## <a name="decrypt-blob-and-download"></a><span data-ttu-id="02cef-160">Descriptografar o blob e baixar</span><span class="sxs-lookup"><span data-stu-id="02cef-160">Decrypt blob and download</span></span>
+<span data-ttu-id="02cef-161">Descriptografia é realmente quando usando Olá resolvedor classes fazem sentido.</span><span class="sxs-lookup"><span data-stu-id="02cef-161">Decryption is really when using hello Resolver classes make sense.</span></span> <span data-ttu-id="02cef-162">ID de saudação do hello chave usada para criptografia está associado ao blob Olá em seus metadados, portanto não há nenhum motivo para a chave Olá tooretrieve e lembre-se de associação de saudação entre chave e o blob.</span><span class="sxs-lookup"><span data-stu-id="02cef-162">hello ID of hello key used for encryption is associated with hello blob in its metadata, so there is no reason for you tooretrieve hello key and remember hello association between key and blob.</span></span> <span data-ttu-id="02cef-163">Você tem apenas toomake se que essa chave Olá permanece no cofre de chaves.</span><span class="sxs-lookup"><span data-stu-id="02cef-163">You just have toomake sure that hello key remains in Key Vault.</span></span>   
 
-<span data-ttu-id="a8ec6-164">A chave privada de uma Chave RSA permanece no Cofre da Chave de modo que, para a descriptografia ocorrer, a Chave Criptografada dos metadados do blob que contêm a CEK é enviada ao Cofre da Chave para descriptografia.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-164">The private key of an RSA Key remains in Key Vault, so for decryption to occur, the Encrypted Key from the blob metadata that contains the CEK is sent to Key Vault for decryption.</span></span>
+<span data-ttu-id="02cef-164">chave privada de saudação do permanece chave RSA no cofre de chaves, então para descriptografia toooccur, Olá a chave criptografada da saudação metadados de blob que contém Olá CEK é enviada tooKey cofre para descriptografia.</span><span class="sxs-lookup"><span data-stu-id="02cef-164">hello private key of an RSA Key remains in Key Vault, so for decryption toooccur, hello Encrypted Key from hello blob metadata that contains hello CEK is sent tooKey Vault for decryption.</span></span>
 
-<span data-ttu-id="a8ec6-165">Adicione o seguinte para descriptografar o blob que você acabou de carregar.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-165">Add the following to decrypt the blob that you just uploaded.</span></span>
+<span data-ttu-id="02cef-165">Adicione Olá seguindo o blob de saudação toodecrypt que você acabou de ser carregado.</span><span class="sxs-lookup"><span data-stu-id="02cef-165">Add hello following toodecrypt hello blob that you just uploaded.</span></span>
 
 ```csharp
-// In this case, we will not pass a key and only pass the resolver because
+// In this case, we will not pass a key and only pass hello resolver because
 // this policy will only be used for downloading / decrypting.
 BlobEncryptionPolicy policy = new BlobEncryptionPolicy(null, cloudResolver);
 BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
@@ -195,45 +195,45 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 ```
 
 > [!NOTE]
-> <span data-ttu-id="a8ec6-166">Existem alguns outros tipos de resolvedores para facilitar o gerenciamento de chaves, incluindo: AggregateKeyResolver e CachingKeyResolver.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-166">There are a couple of other kinds of resolvers to make key management easier, including: AggregateKeyResolver and CachingKeyResolver.</span></span>
+> <span data-ttu-id="02cef-166">Há alguns outros tipos de gerenciamento de chaves resolvedores toomake mais fácil, incluindo: AggregateKeyResolver e CachingKeyResolver.</span><span class="sxs-lookup"><span data-stu-id="02cef-166">There are a couple of other kinds of resolvers toomake key management easier, including: AggregateKeyResolver and CachingKeyResolver.</span></span>
 > 
 > 
 
-## <a name="use-key-vault-secrets"></a><span data-ttu-id="a8ec6-167">Usar os segredos do Cofre da Chave</span><span class="sxs-lookup"><span data-stu-id="a8ec6-167">Use Key Vault secrets</span></span>
-<span data-ttu-id="a8ec6-168">A maneira de usar um segredo com criptografia do lado do cliente é por meio da classe SymmetricKey, dado que um segredo é essencialmente uma chave simétrica.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-168">The way to use a secret with client-side encryption is via the SymmetricKey class because a secret is essentially a symmetric key.</span></span> <span data-ttu-id="a8ec6-169">Mas, conforme observado anteriormente, um segredo no Cofre da Chave não é mapeado com exatidão para uma SymmetricKey.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-169">But, as noted above, a secret in Key Vault does not map exactly to a SymmetricKey.</span></span> <span data-ttu-id="a8ec6-170">Há algumas coisas que deve compreender:</span><span class="sxs-lookup"><span data-stu-id="a8ec6-170">There are a few things to understand:</span></span>
+## <a name="use-key-vault-secrets"></a><span data-ttu-id="02cef-167">Usar os segredos do Cofre da Chave</span><span class="sxs-lookup"><span data-stu-id="02cef-167">Use Key Vault secrets</span></span>
+<span data-ttu-id="02cef-168">Olá maneira toouse um segredo com criptografia do lado do cliente é por meio de saudação SymmetricKey classe como um segredo é essencialmente uma chave simétrica.</span><span class="sxs-lookup"><span data-stu-id="02cef-168">hello way toouse a secret with client-side encryption is via hello SymmetricKey class because a secret is essentially a symmetric key.</span></span> <span data-ttu-id="02cef-169">Mas, conforme observado acima, um segredo no cofre de chaves não mapeia exatamente tooa SymmetricKey.</span><span class="sxs-lookup"><span data-stu-id="02cef-169">But, as noted above, a secret in Key Vault does not map exactly tooa SymmetricKey.</span></span> <span data-ttu-id="02cef-170">Há alguns toounderstand de coisas:</span><span class="sxs-lookup"><span data-stu-id="02cef-170">There are a few things toounderstand:</span></span>
 
-* <span data-ttu-id="a8ec6-171">A chave em uma SymmetricKey deve ter um comprimento fixo: 192, 128, 256, 384 ou 512 bits.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-171">The key in a SymmetricKey has to be a fixed length: 128, 192, 256, 384, or 512 bits.</span></span>
-* <span data-ttu-id="a8ec6-172">A chave em uma SymmetricKey deve ser codificado em Base64.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-172">The key in a SymmetricKey should be Base64 encoded.</span></span>
-* <span data-ttu-id="a8ec6-173">Um segredo do Cofre da Chave que será usado como uma SymmetricKey deve ter um tipo de conteúdo de "application/octet-stream" no Cofre da Chave.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-173">A Key Vault secret that will be used as a SymmetricKey needs to have a Content Type of "application/octet-stream" in Key Vault.</span></span>
+* <span data-ttu-id="02cef-171">chave de saudação em um SymmetricKey tem toobe um comprimento fixo: 128, 192, 256, 384 ou 512 bits.</span><span class="sxs-lookup"><span data-stu-id="02cef-171">hello key in a SymmetricKey has toobe a fixed length: 128, 192, 256, 384, or 512 bits.</span></span>
+* <span data-ttu-id="02cef-172">chave de saudação em um SymmetricKey deve ser codificada em Base64.</span><span class="sxs-lookup"><span data-stu-id="02cef-172">hello key in a SymmetricKey should be Base64 encoded.</span></span>
+* <span data-ttu-id="02cef-173">Precisa de um segredo do Cofre de chaves que será usado como um SymmetricKey toohave um tipo de conteúdo de "application/octet-stream" no cofre de chaves.</span><span class="sxs-lookup"><span data-stu-id="02cef-173">A Key Vault secret that will be used as a SymmetricKey needs toohave a Content Type of "application/octet-stream" in Key Vault.</span></span>
 
-<span data-ttu-id="a8ec6-174">Aqui está um exemplo no PowerShell sobre a criação de um segredo no Cofre da Chave que pode ser usado como uma SymmetricKey.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-174">Here is an example in PowerShell of creating a secret in Key Vault that can be used as a SymmetricKey.</span></span>
-<span data-ttu-id="a8ec6-175">Observe que o valor codificado, $key, serve apenas para demonstração.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-175">Please note that the hard coded value, $key, is for demonstration purpose only.</span></span> <span data-ttu-id="a8ec6-176">Em seu próprio código, você desejará gerar essa chave.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-176">In your own code you'll want to generate this key.</span></span>
+<span data-ttu-id="02cef-174">Aqui está um exemplo no PowerShell sobre a criação de um segredo no Cofre da Chave que pode ser usado como uma SymmetricKey.</span><span class="sxs-lookup"><span data-stu-id="02cef-174">Here is an example in PowerShell of creating a secret in Key Vault that can be used as a SymmetricKey.</span></span>
+<span data-ttu-id="02cef-175">Observe que o valor de saudação rígido codificada, $key, é apenas a fins de demonstração.</span><span class="sxs-lookup"><span data-stu-id="02cef-175">Please note that hello hard coded value, $key, is for demonstration purpose only.</span></span> <span data-ttu-id="02cef-176">Em seu próprio código convém toogenerate essa chave.</span><span class="sxs-lookup"><span data-stu-id="02cef-176">In your own code you'll want toogenerate this key.</span></span>
 
 ```csharp
 // Here we are making a 128-bit key so we have 16 characters.
-//     The characters are in the ASCII range of UTF8 so they are
+//     hello characters are in hello ASCII range of UTF8 so they are
 //    each 1 byte. 16 x 8 = 128.
 $key = "qwertyuiopasdfgh"
 $b = [System.Text.Encoding]::UTF8.GetBytes($key)
 $enc = [System.Convert]::ToBase64String($b)
 $secretvalue = ConvertTo-SecureString $enc -AsPlainText -Force
 
-// Substitute the VaultName and Name in this command.
+// Substitute hello VaultName and Name in this command.
 $secret = Set-AzureKeyVaultSecret -VaultName 'ContoseKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
 ```
 
-<span data-ttu-id="a8ec6-177">Em seu aplicativo de console, você pode usar a mesma chamada como antes, para recuperar esse segredo como uma SymmetricKey.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-177">In your console application, you can use the same call as before to retrieve this secret as a SymmetricKey.</span></span>
+<span data-ttu-id="02cef-177">Em seu aplicativo de console, você pode usar o hello mesma chamada anterior tooretrieve nesse secreta como um SymmetricKey.</span><span class="sxs-lookup"><span data-stu-id="02cef-177">In your console application, you can use hello same call as before tooretrieve this secret as a SymmetricKey.</span></span>
 
 ```csharp
 SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
     "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
     CancellationToken.None).GetAwaiter().GetResult();
 ```
-<span data-ttu-id="a8ec6-178">É isso.</span><span class="sxs-lookup"><span data-stu-id="a8ec6-178">That's it.</span></span> <span data-ttu-id="a8ec6-179">Aproveite!</span><span class="sxs-lookup"><span data-stu-id="a8ec6-179">Enjoy!</span></span>
+<span data-ttu-id="02cef-178">É isso.</span><span class="sxs-lookup"><span data-stu-id="02cef-178">That's it.</span></span> <span data-ttu-id="02cef-179">Aproveite!</span><span class="sxs-lookup"><span data-stu-id="02cef-179">Enjoy!</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="a8ec6-180">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="a8ec6-180">Next steps</span></span>
-<span data-ttu-id="a8ec6-181">Para obter mais informações sobre como usar o Armazenamento do Microsoft Azure com C#, consulte [Biblioteca de cliente de Armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).</span><span class="sxs-lookup"><span data-stu-id="a8ec6-181">For more information about using Microsoft Azure Storage with C#, see [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="02cef-180">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="02cef-180">Next steps</span></span>
+<span data-ttu-id="02cef-181">Para obter mais informações sobre como usar o Armazenamento do Microsoft Azure com C#, consulte [Biblioteca de cliente de Armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).</span><span class="sxs-lookup"><span data-stu-id="02cef-181">For more information about using Microsoft Azure Storage with C#, see [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).</span></span>
 
-<span data-ttu-id="a8ec6-182">Para obter mais informações sobre a API REST do Blob, consulte [API REST do Serviço Blob](https://msdn.microsoft.com/library/azure/dd135733.aspx).</span><span class="sxs-lookup"><span data-stu-id="a8ec6-182">For more information about the Blob REST API, see [Blob Service REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx).</span></span>
+<span data-ttu-id="02cef-182">Para obter mais informações sobre Olá API REST do Blob, consulte [API REST do serviço Blob](https://msdn.microsoft.com/library/azure/dd135733.aspx).</span><span class="sxs-lookup"><span data-stu-id="02cef-182">For more information about hello Blob REST API, see [Blob Service REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx).</span></span>
 
-<span data-ttu-id="a8ec6-183">Para obter as informações mais recentes sobre o Armazenamento do Microsoft Azure, vá para o [Blog da equipe de Armazenamento do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/).</span><span class="sxs-lookup"><span data-stu-id="a8ec6-183">For the latest information on Microsoft Azure Storage, go to the [Microsoft Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).</span></span>
+<span data-ttu-id="02cef-183">Para obter informações mais recentes do hello no armazenamento do Microsoft Azure, vá toohello [Blog da equipe de armazenamento do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/).</span><span class="sxs-lookup"><span data-stu-id="02cef-183">For hello latest information on Microsoft Azure Storage, go toohello [Microsoft Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).</span></span>

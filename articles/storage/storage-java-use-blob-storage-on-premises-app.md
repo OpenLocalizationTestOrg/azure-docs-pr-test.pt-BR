@@ -1,6 +1,6 @@
 ---
-title: Aplicativo local com armazenamento de blobs (Java) | Microsoft Docs
-description: "Saiba como criar um aplicativo de console que carrega uma imagem para o Azure e a exibe no navegador. Amostras de código em Java."
+title: aplicativo de aaaOn local com armazenamento de blob (Java) | Microsoft Docs
+description: "Saiba como toocreate um aplicativo de console que carrega uma imagem tooAzure e, em seguida, exibe Olá imagem em seu navegador. Amostras de código em Java."
 services: storage
 documentationcenter: java
 author: mmacy
@@ -14,29 +14,29 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: marsma
-ms.openlocfilehash: a172b881fa38a69f4510df94f5797b7a56940c52
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ed8eb4c1045691c25abe94bf6c1b18b797adc3e3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="on-premises-application-with-blob-storage"></a><span data-ttu-id="93d9a-104">Aplicativo local com armazenamento de blob</span><span class="sxs-lookup"><span data-stu-id="93d9a-104">On-premises application with blob storage</span></span>
-## <a name="overview"></a><span data-ttu-id="93d9a-105">Visão geral</span><span class="sxs-lookup"><span data-stu-id="93d9a-105">Overview</span></span>
-<span data-ttu-id="93d9a-106">O exemplo a seguir mostra como você pode usar o armazenamento do Azure paraarmazenar imagens no Azure.</span><span class="sxs-lookup"><span data-stu-id="93d9a-106">The following example shows you how you can use Azure storage to store images in Azure.</span></span> <span data-ttu-id="93d9a-107">O código deste arquivo é de um aplicativo de console que carrega uma imagem para o Azure e cria um arquivo HTML que exibe a imagem no seu navegador.</span><span class="sxs-lookup"><span data-stu-id="93d9a-107">The code in this article is for a console application that uploads an image to Azure, and then creates an HTML file that displays the image in your browser.</span></span>
+# <a name="on-premises-application-with-blob-storage"></a><span data-ttu-id="92148-104">Aplicativo local com armazenamento de blob</span><span class="sxs-lookup"><span data-stu-id="92148-104">On-premises application with blob storage</span></span>
+## <a name="overview"></a><span data-ttu-id="92148-105">Visão geral</span><span class="sxs-lookup"><span data-stu-id="92148-105">Overview</span></span>
+<span data-ttu-id="92148-106">Olá exemplo a seguir mostra como você pode usar o armazenamento do Azure para armazenar imagens no Azure.</span><span class="sxs-lookup"><span data-stu-id="92148-106">hello following example shows you how you can use Azure storage to store images in Azure.</span></span> <span data-ttu-id="92148-107">código de saudação neste artigo é para um aplicativo de console que carrega uma imagem tooAzure e, em seguida, cria um arquivo HTML que exibe a imagem de saudação em seu navegador.</span><span class="sxs-lookup"><span data-stu-id="92148-107">hello code in this article is for a console application that uploads an image tooAzure, and then creates an HTML file that displays hello image in your browser.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="93d9a-108">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="93d9a-108">Prerequisites</span></span>
-* <span data-ttu-id="93d9a-109">Um JDK (Java Developer Kit) versão 1.6 ou posterior deve estar instalado.</span><span class="sxs-lookup"><span data-stu-id="93d9a-109">A Java Developer Kit (JDK), version 1.6 or later, is installed.</span></span>
-* <span data-ttu-id="93d9a-110">O SDK do Azure deve estar instalado.</span><span class="sxs-lookup"><span data-stu-id="93d9a-110">The Azure SDK is installed.</span></span>
-* <span data-ttu-id="93d9a-111">O JAR das bibliotecas do Azure para Java e todos os JARs de dependência aplicáveis devem estar instalados e no caminho de compilação usado por seu compilador Java.</span><span class="sxs-lookup"><span data-stu-id="93d9a-111">The JAR for the Azure Libraries for Java, and any applicable dependency JARs, are installed and are in the build path used by your Java compiler.</span></span> <span data-ttu-id="93d9a-112">Para saber mais sobre como instalar as bibliotecas do Azure para Java, consulte [Baixar o SDK do Azure para Java](../java-download-azure-sdk.md).</span><span class="sxs-lookup"><span data-stu-id="93d9a-112">For information about installing the Azure Libraries for Java, see [Download the Azure SDK for Java](../java-download-azure-sdk.md).</span></span>
-* <span data-ttu-id="93d9a-113">Uma conta de armazenamento do Azure deve ter sido configurada.</span><span class="sxs-lookup"><span data-stu-id="93d9a-113">An Azure storage account has been set up.</span></span> <span data-ttu-id="93d9a-114">O nome e a chave da conta de armazenamento serão usados pelo código deste artigo.</span><span class="sxs-lookup"><span data-stu-id="93d9a-114">The account name and account key for the storage account will be used by the code in this article.</span></span> <span data-ttu-id="93d9a-115">Consulte [Como criar uma Conta de Armazenamento](storage-create-storage-account.md#create-a-storage-account) para obter informações sobre como criar uma conta de armazenamento e [Exibir e copiar chaves de acesso de armazenamento](storage-create-storage-account.md#view-and-copy-storage-access-keys) para obter informações sobre como recuperar a chave de conta.</span><span class="sxs-lookup"><span data-stu-id="93d9a-115">See [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account) for information about creating a storage account, and [View and copy storage access keys](storage-create-storage-account.md#view-and-copy-storage-access-keys) for information about retrieving the account key.</span></span>
-* <span data-ttu-id="93d9a-116">Você criou um arquivo de imagem local armazenado no caminho c:\\myimages\\image1.jpg.</span><span class="sxs-lookup"><span data-stu-id="93d9a-116">You have created a local image file named stored at the path c:\\myimages\\image1.jpg.</span></span> <span data-ttu-id="93d9a-117">Como alternativa, modifique o construtor **FileInputStream** no exemplo para usar um caminho de imagem e um nome de arquivo diferentes.</span><span class="sxs-lookup"><span data-stu-id="93d9a-117">Alternatively, modify the **FileInputStream** constructor in the example to use a different image path and file name.</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="92148-108">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="92148-108">Prerequisites</span></span>
+* <span data-ttu-id="92148-109">Um JDK (Java Developer Kit) versão 1.6 ou posterior deve estar instalado.</span><span class="sxs-lookup"><span data-stu-id="92148-109">A Java Developer Kit (JDK), version 1.6 or later, is installed.</span></span>
+* <span data-ttu-id="92148-110">Olá SDK do Azure está instalado.</span><span class="sxs-lookup"><span data-stu-id="92148-110">hello Azure SDK is installed.</span></span>
+* <span data-ttu-id="92148-111">Olá JAR para bibliotecas do hello Azure para Java e JARs qualquer dependência aplicável, são instalados e estão no caminho de compilação de saudação usado pelo seu compilador Java.</span><span class="sxs-lookup"><span data-stu-id="92148-111">hello JAR for hello Azure Libraries for Java, and any applicable dependency JARs, are installed and are in hello build path used by your Java compiler.</span></span> <span data-ttu-id="92148-112">Para obter informações sobre como instalar Olá bibliotecas do Azure para Java, consulte [Download Olá SDK do Azure para Java](../java-download-azure-sdk.md).</span><span class="sxs-lookup"><span data-stu-id="92148-112">For information about installing hello Azure Libraries for Java, see [Download hello Azure SDK for Java](../java-download-azure-sdk.md).</span></span>
+* <span data-ttu-id="92148-113">Uma conta de armazenamento do Azure deve ter sido configurada.</span><span class="sxs-lookup"><span data-stu-id="92148-113">An Azure storage account has been set up.</span></span> <span data-ttu-id="92148-114">Olá nome da conta e chave de conta para conta de armazenamento Olá serão usados pelo código Olá neste artigo.</span><span class="sxs-lookup"><span data-stu-id="92148-114">hello account name and account key for hello storage account will be used by hello code in this article.</span></span> <span data-ttu-id="92148-115">Consulte [como tooCreate uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account) para obter informações sobre como criar uma conta de armazenamento e [exibir e copiar chaves de acesso de armazenamento](storage-create-storage-account.md#view-and-copy-storage-access-keys) para obter informações sobre a recuperação de chave da conta hello.</span><span class="sxs-lookup"><span data-stu-id="92148-115">See [How tooCreate a Storage Account](storage-create-storage-account.md#create-a-storage-account) for information about creating a storage account, and [View and copy storage access keys](storage-create-storage-account.md#view-and-copy-storage-access-keys) for information about retrieving hello account key.</span></span>
+* <span data-ttu-id="92148-116">Você criou um arquivo de imagem local chamado armazenados no hello path c:\\myimages\\image1.jpg.</span><span class="sxs-lookup"><span data-stu-id="92148-116">You have created a local image file named stored at hello path c:\\myimages\\image1.jpg.</span></span> <span data-ttu-id="92148-117">Como alternativa, modifique o **FileInputStream** construtor no exemplo de hello toouse um nome de arquivo e caminho de imagem diferente.</span><span class="sxs-lookup"><span data-stu-id="92148-117">Alternatively, modify the **FileInputStream** constructor in hello example toouse a different image path and file name.</span></span>
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="to-use-azure-blob-storage-to-upload-a-file"></a><span data-ttu-id="93d9a-118">Para usar o armazenamento de blobs do Azure para carregar um arquivo</span><span class="sxs-lookup"><span data-stu-id="93d9a-118">To use Azure blob storage to upload a file</span></span>
-<span data-ttu-id="93d9a-119">Um procedimento passo a passo é apresentado aqui.</span><span class="sxs-lookup"><span data-stu-id="93d9a-119">A step-by-step procedure is presented here.</span></span> <span data-ttu-id="93d9a-120">Se você quiser pular, todo o código será apresentado mais tarde neste artigo.</span><span class="sxs-lookup"><span data-stu-id="93d9a-120">If you'd like to skip ahead, the entire code is presented later in this article.</span></span>
+## <a name="toouse-azure-blob-storage-tooupload-a-file"></a><span data-ttu-id="92148-118">tooupload de armazenamento de BLOBs do Azure toouse um arquivo</span><span class="sxs-lookup"><span data-stu-id="92148-118">toouse Azure blob storage tooupload a file</span></span>
+<span data-ttu-id="92148-119">Um procedimento passo a passo é apresentado aqui.</span><span class="sxs-lookup"><span data-stu-id="92148-119">A step-by-step procedure is presented here.</span></span> <span data-ttu-id="92148-120">Se você quiser tooskip em frente, todo código de saudação será apresentado mais adiante neste artigo.</span><span class="sxs-lookup"><span data-stu-id="92148-120">If you'd like tooskip ahead, hello entire code is presented later in this article.</span></span>
 
-<span data-ttu-id="93d9a-121">Inicie o código incluindo as importações das principais classes de armazenamento do Azure, as classes de cliente do blob do Azure, as classes de E/S de Java e a classe **URISyntaxException** .</span><span class="sxs-lookup"><span data-stu-id="93d9a-121">Begin the code by including imports for the Azure core storage classes, the Azure blob client classes, the Java IO classes, and the **URISyntaxException** class.</span></span>
+<span data-ttu-id="92148-121">Iniciar código hello, incluindo imports para classes de armazenamento do Azure core hello, classes de cliente de BLOBs do Azure hello, classes de e/s de Java hello e Olá **URISyntaxException** classe.</span><span class="sxs-lookup"><span data-stu-id="92148-121">Begin hello code by including imports for hello Azure core storage classes, hello Azure blob client classes, hello Java IO classes, and hello **URISyntaxException** class.</span></span>
 
 ```java
 import com.microsoft.azure.storage.*;
@@ -45,13 +45,13 @@ import java.io.*;
 import java.net.URISyntaxException;
 ```
 
-<span data-ttu-id="93d9a-122">Declare uma classe chamada **StorageSample** e inclua o colchete de abertura, **{**.</span><span class="sxs-lookup"><span data-stu-id="93d9a-122">Declare a class named **StorageSample**, and include the open bracket, **{**.</span></span>
+<span data-ttu-id="92148-122">Declare uma classe denominada **StorageSample**e incluir o colchete hello, **{**.</span><span class="sxs-lookup"><span data-stu-id="92148-122">Declare a class named **StorageSample**, and include hello open bracket, **{**.</span></span>
 
 ```java
 public class StorageSample {
 ```
 
-<span data-ttu-id="93d9a-123">Na classe **StorageSample** , declare uma variável de cadeia de caracteres que conterá o protocolo de ponto de extremidade padrão, o nome da sua conta de armazenamento e a sua chave de acesso de armazenamento, conforme especificado na conta de armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="93d9a-123">Within the **StorageSample** class, declare a string variable that will contain the default endpoint protocol, your storage account name, and your storage access key, as specified in your Azure storage account.</span></span> <span data-ttu-id="93d9a-124">Substitua os valores dos espaços reservados **nome\_da\_conta** e **chave\_da\_conta** pelo nome da sua conta e por sua chave de conta, respectivamente.</span><span class="sxs-lookup"><span data-stu-id="93d9a-124">Replace the placeholder values **your\_account\_name** and **your\_account\_key** with your own account name and account key, respectively.</span></span>
+<span data-ttu-id="92148-123">Dentro de saudação **StorageSample** classe, declare uma variável de cadeia de caracteres que irá conter o protocolo de ponto de extremidade saudação padrão, o nome da sua conta de armazenamento e sua chave de acesso de armazenamento, conforme especificado na conta de armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="92148-123">Within hello **StorageSample** class, declare a string variable that will contain hello default endpoint protocol, your storage account name, and your storage access key, as specified in your Azure storage account.</span></span> <span data-ttu-id="92148-124">Substituir valores de espaço reservado de saudação **sua\_conta\_nome** e **sua\_conta\_chave** com seu próprio nome de conta e chave de conta respectivamente.</span><span class="sxs-lookup"><span data-stu-id="92148-124">Replace hello placeholder values **your\_account\_name** and **your\_account\_key** with your own account name and account key, respectively.</span></span>
 
 ```java
 public static final String storageConnectionString =
@@ -60,7 +60,7 @@ public static final String storageConnectionString =
     "AccountKey=your_account_name";
 ```
 
-<span data-ttu-id="93d9a-125">Adicione sua declaração para **main**, inclua um bloco **try** e inclua os colchetes de abertura necessários, **{**.</span><span class="sxs-lookup"><span data-stu-id="93d9a-125">Add in your declaration for **main**, include a **try** block, and include the necessary open brackets, **{**.</span></span>
+<span data-ttu-id="92148-125">Adicionar na sua declaração de **principal**, incluem uma **tente** bloquear e incluem hello necessário abrir colchetes **{**.</span><span class="sxs-lookup"><span data-stu-id="92148-125">Add in your declaration for **main**, include a **try** block, and include hello necessary open brackets, **{**.</span></span>
 
 ```java
     public static void main(String[] args)
@@ -69,12 +69,12 @@ public static final String storageConnectionString =
         {
 ```
 
-<span data-ttu-id="93d9a-126">Declare as variáveis do tipo a seguir (as descrições são sobre como elas são usadas neste exemplo):</span><span class="sxs-lookup"><span data-stu-id="93d9a-126">Declare variables of the following type (the descriptions are for how they are used in this example):</span></span>
+<span data-ttu-id="92148-126">Declare variáveis de hello (Olá são descrições de como eles são usados neste exemplo) de tipo a seguir:</span><span class="sxs-lookup"><span data-stu-id="92148-126">Declare variables of hello following type (hello descriptions are for how they are used in this example):</span></span>
 
-* <span data-ttu-id="93d9a-127">**CloudStorageAccount**: usada para inicializar o objeto de conta com o nome e a chave da sua conta de armazenamento do Azure e para criar o objeto de cliente do blob.</span><span class="sxs-lookup"><span data-stu-id="93d9a-127">**CloudStorageAccount**: Used to initialize the account object with your Azure storage account name and key, and to create the blob client object.</span></span>
-* <span data-ttu-id="93d9a-128">**CloudBlobClient**: usada para acessar o serviço Blob.</span><span class="sxs-lookup"><span data-stu-id="93d9a-128">**CloudBlobClient**: Used to access the blob service.</span></span>
-* <span data-ttu-id="93d9a-129">**CloudBlobContainer**: usada para criar um contêiner de blobs, listar os blobs no contêiner e excluir o contêiner.</span><span class="sxs-lookup"><span data-stu-id="93d9a-129">**CloudBlobContainer**: Used to create a blob container, list the blobs in the container, and delete the container.</span></span>
-* <span data-ttu-id="93d9a-130">**CloudBlockBlob**: usada para carregar um arquivo de imagem local para o contêiner.</span><span class="sxs-lookup"><span data-stu-id="93d9a-130">**CloudBlockBlob**: Used to upload a local image file to the container.</span></span>
+* <span data-ttu-id="92148-127">**CloudStorageAccount**: tooinitialize usado Olá conta objeto com o nome da conta de armazenamento do Azure e a chave e o toocreate o objeto de cliente do blob.</span><span class="sxs-lookup"><span data-stu-id="92148-127">**CloudStorageAccount**: Used tooinitialize hello account object with your Azure storage account name and key, and toocreate the blob client object.</span></span>
+* <span data-ttu-id="92148-128">**CloudBlobClient**: usado tooaccess Olá blob serviço.</span><span class="sxs-lookup"><span data-stu-id="92148-128">**CloudBlobClient**: Used tooaccess hello blob service.</span></span>
+* <span data-ttu-id="92148-129">**CloudBlobContainer**: toocreate usado um contêiner de blob, listar os blobs em Olá contêineres e delete hello.</span><span class="sxs-lookup"><span data-stu-id="92148-129">**CloudBlobContainer**: Used toocreate a blob container, list the blobs in hello container, and delete hello container.</span></span>
+* <span data-ttu-id="92148-130">**CloudBlockBlob**: tooupload usado um contêiner de toothe do arquivo de imagem local.</span><span class="sxs-lookup"><span data-stu-id="92148-130">**CloudBlockBlob**: Used tooupload a local image file toothe container.</span></span>
 
 <!-- -->
 
@@ -85,80 +85,80 @@ public static final String storageConnectionString =
     CloudBlockBlob blob;
 ```
 
-<span data-ttu-id="93d9a-131">Atribua um valor à variável **account** .</span><span class="sxs-lookup"><span data-stu-id="93d9a-131">Assign a value to the **account** variable.</span></span>
+<span data-ttu-id="92148-131">Atribuir um valor toohello **conta** variável.</span><span class="sxs-lookup"><span data-stu-id="92148-131">Assign a value toohello **account** variable.</span></span>
 
 ```java
 account = CloudStorageAccount.parse(storageConnectionString);
 ```
 
-<span data-ttu-id="93d9a-132">Atribua um valor à variável **serviceClient** .</span><span class="sxs-lookup"><span data-stu-id="93d9a-132">Assign a value to the **serviceClient** variable.</span></span>
+<span data-ttu-id="92148-132">Atribuir um valor toohello **serviceClient** variável.</span><span class="sxs-lookup"><span data-stu-id="92148-132">Assign a value toohello **serviceClient** variable.</span></span>
 
 ```java
 serviceClient = account.createCloudBlobClient();
 ```
 
-<span data-ttu-id="93d9a-133">Atribua um valor à variável **container** .</span><span class="sxs-lookup"><span data-stu-id="93d9a-133">Assign a value to the **container** variable.</span></span> <span data-ttu-id="93d9a-134">Obteremos uma referência para um contêiner chamado **gettingstarted**.</span><span class="sxs-lookup"><span data-stu-id="93d9a-134">We'll get a reference to a container named **gettingstarted**.</span></span>
+<span data-ttu-id="92148-133">Atribuir um valor toohello **contêiner** variável.</span><span class="sxs-lookup"><span data-stu-id="92148-133">Assign a value toohello **container** variable.</span></span> <span data-ttu-id="92148-134">Teremos um contêiner de tooa de referência chamado **gettingstarted**.</span><span class="sxs-lookup"><span data-stu-id="92148-134">We'll get a reference tooa container named **gettingstarted**.</span></span>
 
 ```java
 // Container name must be lower case.
 container = serviceClient.getContainerReference("gettingstarted");
 ```
 
-<span data-ttu-id="93d9a-135">Crie o contêiner.</span><span class="sxs-lookup"><span data-stu-id="93d9a-135">Create the container.</span></span> <span data-ttu-id="93d9a-136">Esse método criará o contêiner se ele ainda não existir (e retornará **true**).</span><span class="sxs-lookup"><span data-stu-id="93d9a-136">This method will create the container if it doesn't exist (and return **true**).</span></span> <span data-ttu-id="93d9a-137">Se o contêiner existir, retornará **false**.</span><span class="sxs-lookup"><span data-stu-id="93d9a-137">If the container does exist, it will return **false**.</span></span> <span data-ttu-id="93d9a-138">Uma alternativa para **createIfNotExists** é o método **create** (que retornará um erro se o contêiner já existir).</span><span class="sxs-lookup"><span data-stu-id="93d9a-138">An alternative to **createIfNotExists** is the **create** method (which will return an error if the container already exists).</span></span>
+<span data-ttu-id="92148-135">Crie contêiner de saudação.</span><span class="sxs-lookup"><span data-stu-id="92148-135">Create hello container.</span></span> <span data-ttu-id="92148-136">Esse método criará o contêiner de saudação se ele não existir (e retornar **true**).</span><span class="sxs-lookup"><span data-stu-id="92148-136">This method will create hello container if it doesn't exist (and return **true**).</span></span> <span data-ttu-id="92148-137">Se o contêiner de saudação existir, ele retornará **false**.</span><span class="sxs-lookup"><span data-stu-id="92148-137">If hello container does exist, it will return **false**.</span></span> <span data-ttu-id="92148-138">Uma alternativa muito**createIfNotExists** é hello **criar** método (que será retornado um erro se já existir um contêiner de saudação).</span><span class="sxs-lookup"><span data-stu-id="92148-138">An alternative too**createIfNotExists** is hello **create** method (which will return an error if hello container already exists).</span></span>
 
 ```java
 container.createIfNotExists();
 ```
 
-<span data-ttu-id="93d9a-139">Definir acesso anônimo para o contêiner.</span><span class="sxs-lookup"><span data-stu-id="93d9a-139">Set anonymous access for the container.</span></span>
+<span data-ttu-id="92148-139">Defina o acesso anônimo para o contêiner de saudação.</span><span class="sxs-lookup"><span data-stu-id="92148-139">Set anonymous access for hello container.</span></span>
 
 ```java
-// Set anonymous access on the container.
+// Set anonymous access on hello container.
 BlobContainerPermissions containerPermissions;
 containerPermissions = new BlobContainerPermissions();
 containerPermissions.setPublicAccess(BlobContainerPublicAccessType.CONTAINER);
 container.uploadPermissions(containerPermissions);
 ```
 
-<span data-ttu-id="93d9a-140">Obtenha uma referência para o blob de blocos, que representará o blob no armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="93d9a-140">Get a reference to the block blob, which will represent the blob in Azure storage.</span></span>
+<span data-ttu-id="92148-140">Obter um blob de bloco de toohello de referência, que representará o blob Olá no armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="92148-140">Get a reference toohello block blob, which will represent hello blob in Azure storage.</span></span>
 
 ```java
 blob = container.getBlockBlobReference("image1.jpg");
 ```
 
-<span data-ttu-id="93d9a-141">Use o construtor **File** para obter uma referência para o arquivo criado localmente que será carregado.</span><span class="sxs-lookup"><span data-stu-id="93d9a-141">Use the **File** constructor to get a reference to the locally created file that you will upload.</span></span> <span data-ttu-id="93d9a-142">Certifique-se de criar esse arquivo antes de executar o código.</span><span class="sxs-lookup"><span data-stu-id="93d9a-142">Ensure you have created this file before running the code.</span></span>
+<span data-ttu-id="92148-141">Saudação de uso **arquivo** construtor tooget um arquivo de toohello criado localmente de referência que você fará o upload.</span><span class="sxs-lookup"><span data-stu-id="92148-141">Use hello **File** constructor tooget a reference toohello locally created file that you will upload.</span></span> <span data-ttu-id="92148-142">Certifique-se de que você criou esse arquivo antes de executar código hello.</span><span class="sxs-lookup"><span data-stu-id="92148-142">Ensure you have created this file before running hello code.</span></span>
 
 ```java
 File fileReference = new File ("c:\\myimages\\image1.jpg");
 ```
 
-<span data-ttu-id="93d9a-143">Carregue o arquivo local por meio de uma chamada para o método **CloudBlockBlob.upload** .</span><span class="sxs-lookup"><span data-stu-id="93d9a-143">Upload the local file through a call to the **CloudBlockBlob.upload** method.</span></span> <span data-ttu-id="93d9a-144">O primeiro parâmetro do método **CloudBlockBlob.upload** é um objeto **FileInputStream** que representa o arquivo local que será carregado para o armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="93d9a-144">The first parameter to the **CloudBlockBlob.upload** method is a **FileInputStream** object that represents the local file that will be uploaded to Azure storage.</span></span> <span data-ttu-id="93d9a-145">O segundo parâmetro é o tamanho, em bytes, do arquivo.</span><span class="sxs-lookup"><span data-stu-id="93d9a-145">The second parameter is the size, in bytes, of the file.</span></span>
+<span data-ttu-id="92148-143">Carregar arquivo de saudação local por meio de uma chamada toohello **CloudBlockBlob.upload** método.</span><span class="sxs-lookup"><span data-stu-id="92148-143">Upload hello local file through a call toohello **CloudBlockBlob.upload** method.</span></span> <span data-ttu-id="92148-144">Olá toohello do primeiro parâmetro **CloudBlockBlob.upload** método é um **FileInputStream** representa Olá local arquivo que será carregado tooAzure armazenamento do objeto.</span><span class="sxs-lookup"><span data-stu-id="92148-144">hello first parameter toohello **CloudBlockBlob.upload** method is a **FileInputStream** object that represents hello local file that will be uploaded tooAzure storage.</span></span> <span data-ttu-id="92148-145">Olá segundo parâmetro é o tamanho de hello, em bytes, do arquivo hello.</span><span class="sxs-lookup"><span data-stu-id="92148-145">hello second parameter is hello size, in bytes, of hello file.</span></span>
 
 ```java
 blob.upload(new FileInputStream(fileReference), fileReference.length());
 ```
 
-<span data-ttu-id="93d9a-146">Chame uma função auxiliar denominada **MakeHTMLPage** para fazer uma página HTML básica que contém um elemento **&lt;image&gt;** com a origem definida para o blob que agora está em sua conta de armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="93d9a-146">Call a helper function named **MakeHTMLPage**, to make a basic HTML page that contains an **&lt;image&gt;** element with the source set to the blob that is now in your Azure storage account.</span></span> <span data-ttu-id="93d9a-147">O código de **MakeHTMLPage** será discutido posteriormente neste artigo.</span><span class="sxs-lookup"><span data-stu-id="93d9a-147">The code for **MakeHTMLPage** will be discussed later in this article.</span></span>
+<span data-ttu-id="92148-146">Chamar uma função auxiliar chamada **MakeHTMLPage**, página toomake básica de HTML que contém um  **&lt;imagem&gt;**  elemento com o blob toohello de conjunto de origem de saudação que agora está no seu Azure conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="92148-146">Call a helper function named **MakeHTMLPage**, toomake a basic HTML page that contains an **&lt;image&gt;** element with hello source set toohello blob that is now in your Azure storage account.</span></span> <span data-ttu-id="92148-147">Olá código para **MakeHTMLPage** será discutido neste artigo.</span><span class="sxs-lookup"><span data-stu-id="92148-147">hello code for **MakeHTMLPage** will be discussed later in this article.</span></span>
 
 ```java
 MakeHTMLPage(container);
 ```
 
-<span data-ttu-id="93d9a-148">Imprima uma mensagem de status e informações sobre a página HTML criada.</span><span class="sxs-lookup"><span data-stu-id="93d9a-148">Print out a status message and information about the created HTML page.</span></span>
+<span data-ttu-id="92148-148">Imprima uma mensagem de status e informações sobre Olá criado página HTML.</span><span class="sxs-lookup"><span data-stu-id="92148-148">Print out a status message and information about hello created HTML page.</span></span>
 
 ```java
 System.out.println("Processing complete.");
-System.out.println("Open index.html to see the images stored in your storage account.");
+System.out.println("Open index.html toosee hello images stored in your storage account.");
 ```
 
-<span data-ttu-id="93d9a-149">Feche o bloco **try** inserindo um colchete de fechamento: **}**</span><span class="sxs-lookup"><span data-stu-id="93d9a-149">Close the **try** block by inserting a close bracket: **}**</span></span>
+<span data-ttu-id="92148-149">Olá fechar **tente** bloco inserindo um colchete de fechamento: **}**</span><span class="sxs-lookup"><span data-stu-id="92148-149">Close hello **try** block by inserting a close bracket: **}**</span></span>
 
-<span data-ttu-id="93d9a-150">Utilize as seguintes exceções:</span><span class="sxs-lookup"><span data-stu-id="93d9a-150">Handle the following exceptions:</span></span>
+<span data-ttu-id="92148-150">Saudação de identificador exceções a seguir:</span><span class="sxs-lookup"><span data-stu-id="92148-150">Handle hello following exceptions:</span></span>
 
-* <span data-ttu-id="93d9a-151">**FileNotFoundException**: pode ser gerada pelos construtores **FileInputStream** ou **FileOutputStream**.</span><span class="sxs-lookup"><span data-stu-id="93d9a-151">**FileNotFoundException**: Can be thrown by the **FileInputStream** or **FileOutputStream** constructors.</span></span>
-* <span data-ttu-id="93d9a-152">**StorageException**: pode ser gerada pela biblioteca de armazenamento de cliente do Azure.</span><span class="sxs-lookup"><span data-stu-id="93d9a-152">**StorageException**: Can be thrown by the Azure client storage library.</span></span>
-* <span data-ttu-id="93d9a-153">**URISyntaxException**: pode ser gerada pelo método **ListBlobItem.getUri**.</span><span class="sxs-lookup"><span data-stu-id="93d9a-153">**URISyntaxException**: Can be thrown by the **ListBlobItem.getUri** method.</span></span>
-* <span data-ttu-id="93d9a-154">**Exception**: manipulação de exceção genérica.</span><span class="sxs-lookup"><span data-stu-id="93d9a-154">**Exception**: Generic exception handling.</span></span>
+* <span data-ttu-id="92148-151">**FileNotFoundException**: pode ser gerada pelo Olá **FileInputStream** ou **FileOutputStream** construtores.</span><span class="sxs-lookup"><span data-stu-id="92148-151">**FileNotFoundException**: Can be thrown by hello **FileInputStream** or **FileOutputStream** constructors.</span></span>
+* <span data-ttu-id="92148-152">**StorageException**: pode ser gerada pela biblioteca de armazenamento do Azure cliente hello.</span><span class="sxs-lookup"><span data-stu-id="92148-152">**StorageException**: Can be thrown by hello Azure client storage library.</span></span>
+* <span data-ttu-id="92148-153">**URISyntaxException**: pode ser gerada pelo Olá **ListBlobItem.getUri** método.</span><span class="sxs-lookup"><span data-stu-id="92148-153">**URISyntaxException**: Can be thrown by hello **ListBlobItem.getUri** method.</span></span>
+* <span data-ttu-id="92148-154">**Exception**: manipulação de exceção genérica.</span><span class="sxs-lookup"><span data-stu-id="92148-154">**Exception**: Generic exception handling.</span></span>
 
 <!-- -->
 
@@ -189,23 +189,23 @@ catch (Exception e)
 }
 ```
 
-<span data-ttu-id="93d9a-155">Feche **main** inserindo um colchete de fechamento: **}**</span><span class="sxs-lookup"><span data-stu-id="93d9a-155">Close **main** by inserting a close bracket: **}**</span></span>
+<span data-ttu-id="92148-155">Feche **main** inserindo um colchete de fechamento: **}**</span><span class="sxs-lookup"><span data-stu-id="92148-155">Close **main** by inserting a close bracket: **}**</span></span>
 
-<span data-ttu-id="93d9a-156">Crie um método chamado **MakeHTMLPage** para criar uma página HTML básica.</span><span class="sxs-lookup"><span data-stu-id="93d9a-156">Create a method named **MakeHTMLPage** to create a basic HTML page.</span></span> <span data-ttu-id="93d9a-157">Esse método tem um parâmetro do tipo **CloudBlobContainer**, que será usado para iterar pela lista de blobs carregados.</span><span class="sxs-lookup"><span data-stu-id="93d9a-157">This method has a parameter of type **CloudBlobContainer**, which will be used to iterate through the list of uploaded blobs.</span></span> <span data-ttu-id="93d9a-158">Esse método gerará exceções do tipo **FileNotFoundException**, que podem ser geradas pelo construtor **FileOutputStream** e **URISyntaxException**, que podem ser geradas pelo método **ListBlobItem.getUri**.</span><span class="sxs-lookup"><span data-stu-id="93d9a-158">This method will throw exceptions of type **FileNotFoundException**, which can be thrown by the **FileOutputStream** constructor, and **URISyntaxException**, which can be thrown by the **ListBlobItem.getUri** method.</span></span> <span data-ttu-id="93d9a-159">Inclua o colchete de abertura, **{**.</span><span class="sxs-lookup"><span data-stu-id="93d9a-159">Include the opening bracket, **{**.</span></span>
+<span data-ttu-id="92148-156">Crie um método chamado **MakeHTMLPage** toocreate uma HTML básico de página.</span><span class="sxs-lookup"><span data-stu-id="92148-156">Create a method named **MakeHTMLPage** toocreate a basic HTML page.</span></span> <span data-ttu-id="92148-157">Esse método tem um parâmetro de tipo **CloudBlobContainer**, que será usado tooiterate lista Olá de blobs carregados.</span><span class="sxs-lookup"><span data-stu-id="92148-157">This method has a parameter of type **CloudBlobContainer**, which will be used tooiterate through hello list of uploaded blobs.</span></span> <span data-ttu-id="92148-158">Esse método lançará exceções do tipo **FileNotFoundException**, que pode ser gerado pelo Olá **FileOutputStream** construtor, e **URISyntaxException**, que pode lançada pelo Olá **ListBlobItem.getUri** método.</span><span class="sxs-lookup"><span data-stu-id="92148-158">This method will throw exceptions of type **FileNotFoundException**, which can be thrown by hello **FileOutputStream** constructor, and **URISyntaxException**, which can be thrown by hello **ListBlobItem.getUri** method.</span></span> <span data-ttu-id="92148-159">Inclua o colchete de abertura, **{**.</span><span class="sxs-lookup"><span data-stu-id="92148-159">Include the opening bracket, **{**.</span></span>
 
 ```java
 public static void MakeHTMLPage(CloudBlobContainer container) throws FileNotFoundException, URISyntaxException
 {
 ```
 
-<span data-ttu-id="93d9a-160">Crie um arquivo local chamado **index.html**.</span><span class="sxs-lookup"><span data-stu-id="93d9a-160">Create a local file named **index.html**.</span></span>
+<span data-ttu-id="92148-160">Crie um arquivo local chamado **index.html**.</span><span class="sxs-lookup"><span data-stu-id="92148-160">Create a local file named **index.html**.</span></span>
 
 ```java
 PrintStream stream;
 stream = new PrintStream(new FileOutputStream("index.html"));
 ```
 
-<span data-ttu-id="93d9a-161">Escreva no arquivo local, adicionando os elementos **&lt;html&gt;**, **&lt;header&gt;** e **&lt;body&gt;**.</span><span class="sxs-lookup"><span data-stu-id="93d9a-161">Write to the local file, adding in the **&lt;html&gt;**, **&lt;header&gt;**, and **&lt;body&gt;** elements.</span></span>
+<span data-ttu-id="92148-161">Gravar o arquivo local toohello, adicionando no hello  **&lt;html&gt;**,  **&lt;cabeçalho&gt;**, e  **&lt;corpo&gt;**  elementos.</span><span class="sxs-lookup"><span data-stu-id="92148-161">Write toohello local file, adding in hello **&lt;html&gt;**, **&lt;header&gt;**, and **&lt;body&gt;** elements.</span></span>
 
 ```java
 stream.println("<html>");
@@ -213,37 +213,37 @@ stream.println("<header/>");
 stream.println("<body>");
 ```
 
-<span data-ttu-id="93d9a-162">Itere pela lista de blobs carregados.</span><span class="sxs-lookup"><span data-stu-id="93d9a-162">Iterate through the list of uploaded blobs.</span></span> <span data-ttu-id="93d9a-163">Para cada blob, na página HTML crie um elemento **&lt;img&gt;** que tenha seu atributo **src** enviado para o URI do blob, conforme ele existe em sua conta de armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="93d9a-163">For each blob, in the HTML page create an **&lt;img&gt;** element that has its **src** attribute sent to the URI of the blob as it exists in your Azure storage account.</span></span>
-<span data-ttu-id="93d9a-164">Embora tenha adicionado apenas uma imagem neste exemplo, se você adicionar mais imagens, este código iteraria todos eles.</span><span class="sxs-lookup"><span data-stu-id="93d9a-164">Although you added only one image in this sample, if you added more, this code would iterate all of them.</span></span>
+<span data-ttu-id="92148-162">Itere a lista de saudação de blobs carregados.</span><span class="sxs-lookup"><span data-stu-id="92148-162">Iterate through hello list of uploaded blobs.</span></span> <span data-ttu-id="92148-163">Para cada blob no hello HTML da página, crie um  **&lt;img&gt;**  elemento que tem seu **src** atributo enviado à saudação do URI do blob hello, conforme exibido na sua conta de armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="92148-163">For each blob, in hello HTML page create an **&lt;img&gt;** element that has its **src** attribute sent to hello URI of hello blob as it exists in your Azure storage account.</span></span>
+<span data-ttu-id="92148-164">Embora tenha adicionado apenas uma imagem neste exemplo, se você adicionar mais imagens, este código iteraria todos eles.</span><span class="sxs-lookup"><span data-stu-id="92148-164">Although you added only one image in this sample, if you added more, this code would iterate all of them.</span></span>
 
-<span data-ttu-id="93d9a-165">Para simplificar, este exemplo assume que cada blob carregado é uma imagem.</span><span class="sxs-lookup"><span data-stu-id="93d9a-165">For simplicity, this example assumes each uploaded blob is an image.</span></span> <span data-ttu-id="93d9a-166">Se você tiver atualizado blobs que não sejam imagens, ou blobs de páginas, em vez de blobs de blocos, ajuste o código conforme o necessário.</span><span class="sxs-lookup"><span data-stu-id="93d9a-166">If you've updated blobs other than images, or page blobs instead of block blobs, adjust the code as needed.</span></span>
+<span data-ttu-id="92148-165">Para simplificar, este exemplo assume que cada blob carregado é uma imagem.</span><span class="sxs-lookup"><span data-stu-id="92148-165">For simplicity, this example assumes each uploaded blob is an image.</span></span> <span data-ttu-id="92148-166">Se você atualizou blobs diferentes imagens ou blobs de página em vez de blobs de bloco, ajuste o código de saudação conforme necessário.</span><span class="sxs-lookup"><span data-stu-id="92148-166">If you've updated blobs other than images, or page blobs instead of block blobs, adjust hello code as needed.</span></span>
 
 ```java
-// Enumerate the uploaded blobs.
+// Enumerate hello uploaded blobs.
 for (ListBlobItem blobItem : container.listBlobs()) {
-// List each blob as an <img> element in the HTML body.
+// List each blob as an <img> element in hello HTML body.
 stream.println("<img src='" + blobItem.getUri() + "'/><br/>");
 }
 ```
 
-<span data-ttu-id="93d9a-167">Feche os elementos **&lt;body&gt;** e **&lt;html&gt;**.</span><span class="sxs-lookup"><span data-stu-id="93d9a-167">Close the **&lt;body&gt;** element and the **&lt;html&gt;** element.</span></span>
+<span data-ttu-id="92148-167">Olá fechar  **&lt;corpo&gt;**  elemento e hello  **&lt;html&gt;**  elemento.</span><span class="sxs-lookup"><span data-stu-id="92148-167">Close hello **&lt;body&gt;** element and hello **&lt;html&gt;** element.</span></span>
 
 ```java
 stream.println("</body>");
 stream.println("</html>");
 ```
 
-<span data-ttu-id="93d9a-168">Feche o arquivo local.</span><span class="sxs-lookup"><span data-stu-id="93d9a-168">Close the local file.</span></span>
+<span data-ttu-id="92148-168">Arquivo de local de saudação fechar.</span><span class="sxs-lookup"><span data-stu-id="92148-168">Close hello local file.</span></span>
 
 ```java
 stream.close();
 ```
 
-<span data-ttu-id="93d9a-169">Feche **MakeHTMLPage** inserindo um colchete de fechamento: **}**</span><span class="sxs-lookup"><span data-stu-id="93d9a-169">Close **MakeHTMLPage** by inserting a close bracket: **}**</span></span>
+<span data-ttu-id="92148-169">Feche **MakeHTMLPage** inserindo um colchete de fechamento: **}**</span><span class="sxs-lookup"><span data-stu-id="92148-169">Close **MakeHTMLPage** by inserting a close bracket: **}**</span></span>
 
-<span data-ttu-id="93d9a-170">Feche **StorageSample** inserindo um colchete de fechamento: **}**</span><span class="sxs-lookup"><span data-stu-id="93d9a-170">Close **StorageSample** by inserting a close bracket: **}**</span></span>
+<span data-ttu-id="92148-170">Feche **StorageSample** inserindo um colchete de fechamento: **}**</span><span class="sxs-lookup"><span data-stu-id="92148-170">Close **StorageSample** by inserting a close bracket: **}**</span></span>
 
-<span data-ttu-id="93d9a-171">A seguir está o código completo deste exemplo.</span><span class="sxs-lookup"><span data-stu-id="93d9a-171">The following is the complete code for this example.</span></span> <span data-ttu-id="93d9a-172">Modifique os valores dos espaços reservados **nome\_da\_conta** e **chave\_da\_conta** para usar o nome da sua conta e a sua chave de conta, respectivamente.</span><span class="sxs-lookup"><span data-stu-id="93d9a-172">Remember to modify the placeholder values **your\_account\_name** and **your\_account\_key** to use your account name and account key, respectively.</span></span>
+<span data-ttu-id="92148-171">a seguir Olá é código completo de saudação para este exemplo.</span><span class="sxs-lookup"><span data-stu-id="92148-171">hello following is hello complete code for this example.</span></span> <span data-ttu-id="92148-172">Lembre-se de valores de espaço reservado de saudação toomodify **sua\_conta\_nome** e **sua\_conta\_chave** toouse seu nome de conta e a conta chave, respectivamente.</span><span class="sxs-lookup"><span data-stu-id="92148-172">Remember toomodify hello placeholder values **your\_account\_name** and **your\_account\_key** toouse your account name and account key, respectively.</span></span>
 
 ```java
 import com.microsoft.azure.storage.*;
@@ -251,9 +251,9 @@ import com.microsoft.azure.storage.blob.*;
 import java.io.*;
 import java.net.URISyntaxException;
 
-// Create an image, c:\myimages\image1.jpg, prior to running this sample.
-// Alternatively, change the value used by the FileInputStream constructor
-// to use a different image path and file that you have already created.
+// Create an image, c:\myimages\image1.jpg, prior toorunning this sample.
+// Alternatively, change hello value used by hello FileInputStream constructor
+// toouse a different image path and file that you have already created.
 public class StorageSample {
 
     public static final String storageConnectionString =
@@ -274,7 +274,7 @@ public class StorageSample {
             container = serviceClient.getContainerReference("gettingstarted");
             container.createIfNotExists();
 
-            // Set anonymous access on the container.
+            // Set anonymous access on hello container.
             BlobContainerPermissions containerPermissions;
             containerPermissions = new BlobContainerPermissions();
             containerPermissions.setPublicAccess(BlobContainerPublicAccessType.CONTAINER);
@@ -286,12 +286,12 @@ public class StorageSample {
             File fileReference = new File("c:\\myimages\\image1.jpg");
             blob.upload(new FileInputStream(fileReference), fileReference.length());
 
-            // At this point the image is uploaded.
-            // Next, create an HTML page that lists all of the uploaded images.
+            // At this point hello image is uploaded.
+            // Next, create an HTML page that lists all of hello uploaded images.
             MakeHTMLPage(container);
 
             System.out.println("Processing complete.");
-            System.out.println("Open index.html to see the images stored in your storage account.");
+            System.out.println("Open index.html toosee hello images stored in your storage account.");
 
         } catch (FileNotFoundException fileNotFoundException) {
             System.out.print("FileNotFoundException encountered: ");
@@ -312,46 +312,46 @@ public class StorageSample {
         }
     }
 
-    // Create an HTML page that can be used to display the uploaded images.
-    // This example assumes all of the blobs are for images.
+    // Create an HTML page that can be used toodisplay hello uploaded images.
+    // This example assumes all of hello blobs are for images.
     public static void MakeHTMLPage(CloudBlobContainer container) throws FileNotFoundException, URISyntaxException
     {
         PrintStream stream;
         stream = new PrintStream(new FileOutputStream("index.html"));
 
-        // Create the opening <html>, <header>, and <body> elements.
+        // Create hello opening <html>, <header>, and <body> elements.
         stream.println("<html>");
         stream.println("<header/>");
         stream.println("<body>");
 
-        // Enumerate the uploaded blobs.
+        // Enumerate hello uploaded blobs.
         for (ListBlobItem blobItem : container.listBlobs()) {
-            // List each blob as an <img> element in the HTML body.
+            // List each blob as an <img> element in hello HTML body.
             stream.println("<img src='" + blobItem.getUri() + "'/><br/>");
         }
 
         stream.println("</body>");
 
-        // Complete the <html> element and close the file.
+        // Complete hello <html> element and close hello file.
         stream.println("</html>");
         stream.close();
     }
 }
 ```
 
-<span data-ttu-id="93d9a-173">Além de carregar o arquivo de imagem local para o armazenamento do Azure, esse código de exemplo cria um arquivo local chamado namedindex.html, que você pode abrir no navegador para ver a sua imagem carregada.</span><span class="sxs-lookup"><span data-stu-id="93d9a-173">In addition to uploading your local image file to Azure storage, the example code creates a local file namedindex.html, which you can open in your browser to see your uploaded image.</span></span>
+<span data-ttu-id="92148-173">Adição toouploading seu armazenamento de tooAzure do arquivo de imagem local, o código de exemplo hello cria namedindex.html um arquivo local, que pode ser aberto no seu navegador toosee sua imagem carregada.</span><span class="sxs-lookup"><span data-stu-id="92148-173">In addition toouploading your local image file tooAzure storage, hello example code creates a local file namedindex.html, which you can open in your browser toosee your uploaded image.</span></span>
 
-<span data-ttu-id="93d9a-174">Como o código contém o nome e a chave da sua conta, certifique-se de que seu código-fonte seja seguro.</span><span class="sxs-lookup"><span data-stu-id="93d9a-174">Because the code contains your account name and account key, ensure that your source code is secure.</span></span>
+<span data-ttu-id="92148-174">Como código Olá contém o nome da conta e chave de conta, certifique-se de que seu código-fonte é seguro.</span><span class="sxs-lookup"><span data-stu-id="92148-174">Because hello code contains your account name and account key, ensure that your source code is secure.</span></span>
 
-## <a name="to-delete-a-container"></a><span data-ttu-id="93d9a-175">Para excluir um contêiner</span><span class="sxs-lookup"><span data-stu-id="93d9a-175">To delete a container</span></span>
-<span data-ttu-id="93d9a-176">Como você é cobrado pelo armazenamento, talvez queira excluir o contêiner **gettingstarted** após concluir os testes com este exemplo.</span><span class="sxs-lookup"><span data-stu-id="93d9a-176">Because you are charged for storage, you may want to delete the **gettingstarted** container after you are done experimenting with this example.</span></span> <span data-ttu-id="93d9a-177">Para excluir um contêiner, use o método **CloudBlobContainer.delete** .</span><span class="sxs-lookup"><span data-stu-id="93d9a-177">To delete a container, use the **CloudBlobContainer.delete** method.</span></span>
+## <a name="toodelete-a-container"></a><span data-ttu-id="92148-175">toodelete um contêiner</span><span class="sxs-lookup"><span data-stu-id="92148-175">toodelete a container</span></span>
+<span data-ttu-id="92148-176">Como você é cobrado para armazenamento, você pode querer toodelete o **gettingstarted** contêiner depois que você experimentar este exemplo.</span><span class="sxs-lookup"><span data-stu-id="92148-176">Because you are charged for storage, you may want toodelete the **gettingstarted** container after you are done experimenting with this example.</span></span> <span data-ttu-id="92148-177">toodelete um contêiner, use Olá **CloudBlobContainer.delete** método.</span><span class="sxs-lookup"><span data-stu-id="92148-177">toodelete a container, use hello **CloudBlobContainer.delete** method.</span></span>
 
 ```java
 container = serviceClient.getContainerReference("gettingstarted");
 container.delete();
 ```
 
-<span data-ttu-id="93d9a-178">Para chamar o método**CloudBlobContainer.delete**, o processo de inicializar objetos **CloudStorageAccount**, **ClodBlobClient** e **CloudBlobContainer** é o mesmo mostrado para o método **createIfNotExist**.</span><span class="sxs-lookup"><span data-stu-id="93d9a-178">To call the **CloudBlobContainer.delete** method, the process of initializing **CloudStorageAccount**, **ClodBlobClient**, and **CloudBlobContainer** objects is the same as shown for the **createIfNotExist** method.</span></span> <span data-ttu-id="93d9a-179">A seguir é fornecido um exemplo completo que exclui o contêiner chamado **gettingstarted**.</span><span class="sxs-lookup"><span data-stu-id="93d9a-179">The following is a complete example that deletes the container named **gettingstarted**.</span></span>
+<span data-ttu-id="92148-178">Olá toocall **CloudBlobContainer.delete** método, o processo de saudação de inicialização **CloudStorageAccount**, **ClodBlobClient**, e  **CloudBlobContainer** objetos é Olá mesmo mostrado para o **createIfNotExist** método.</span><span class="sxs-lookup"><span data-stu-id="92148-178">toocall hello **CloudBlobContainer.delete** method, hello process of initializing **CloudStorageAccount**, **ClodBlobClient**, and **CloudBlobContainer** objects is hello same as shown for the **createIfNotExist** method.</span></span> <span data-ttu-id="92148-179">Olá, a seguir é um exemplo completo que exclusões Olá contêiner nomeado **gettingstarted**.</span><span class="sxs-lookup"><span data-stu-id="92148-179">hello following is a complete example that deletes hello container named **gettingstarted**.</span></span>
 
 ```java
 import com.microsoft.azure.storage.*;
@@ -397,13 +397,13 @@ public class DeleteContainer {
 }
 ```
 
-<span data-ttu-id="93d9a-180">Para obter uma visão geral de outras classes e outros métodos de armazenamento de blobs, consulte [Como usar o Armazenamento de Blobs do Java](storage-java-how-to-use-blob-storage.md).</span><span class="sxs-lookup"><span data-stu-id="93d9a-180">For an overview of other blob storage classes and methods, see [How to use Blob storage from Java](storage-java-how-to-use-blob-storage.md).</span></span>
+<span data-ttu-id="92148-180">Para obter uma visão geral de outros métodos e classes de armazenamento de blob, consulte [como toouse armazenamento de Blob do Java](storage-java-how-to-use-blob-storage.md).</span><span class="sxs-lookup"><span data-stu-id="92148-180">For an overview of other blob storage classes and methods, see [How toouse Blob storage from Java](storage-java-how-to-use-blob-storage.md).</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="93d9a-181">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="93d9a-181">Next steps</span></span>
-<span data-ttu-id="93d9a-182">Siga estes links para saber mais sobre as tarefas mais complexas de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="93d9a-182">Follow these links to learn more about more complex storage tasks.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="92148-181">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="92148-181">Next steps</span></span>
+<span data-ttu-id="92148-182">Siga essas toolearn links mais informações sobre tarefas mais complexas de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="92148-182">Follow these links toolearn more about more complex storage tasks.</span></span>
 
-* [<span data-ttu-id="93d9a-183">SDK de Armazenamento do Azure para Java</span><span class="sxs-lookup"><span data-stu-id="93d9a-183">Azure Storage SDK for Java</span></span>](https://github.com/azure/azure-storage-java)
-* [<span data-ttu-id="93d9a-184">Referência de SDK do Cliente de Armazenamento do Azure</span><span class="sxs-lookup"><span data-stu-id="93d9a-184">Azure Storage Client SDK Reference</span></span>](http://dl.windowsazure.com/storage/javadoc/)
-* [<span data-ttu-id="93d9a-185">API REST de serviços de armazenamento do Azure</span><span class="sxs-lookup"><span data-stu-id="93d9a-185">Azure Storage Services REST API</span></span>](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [<span data-ttu-id="93d9a-186">Blog da equipe de Armazenamento do Azure</span><span class="sxs-lookup"><span data-stu-id="93d9a-186">Azure Storage Team Blog</span></span>](http://blogs.msdn.com/b/windowsazurestorage/)
+* [<span data-ttu-id="92148-183">SDK de Armazenamento do Azure para Java</span><span class="sxs-lookup"><span data-stu-id="92148-183">Azure Storage SDK for Java</span></span>](https://github.com/azure/azure-storage-java)
+* [<span data-ttu-id="92148-184">Referência de SDK do Cliente de Armazenamento do Azure</span><span class="sxs-lookup"><span data-stu-id="92148-184">Azure Storage Client SDK Reference</span></span>](http://dl.windowsazure.com/storage/javadoc/)
+* [<span data-ttu-id="92148-185">API REST de serviços de armazenamento do Azure</span><span class="sxs-lookup"><span data-stu-id="92148-185">Azure Storage Services REST API</span></span>](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+* [<span data-ttu-id="92148-186">Blog da equipe de Armazenamento do Azure</span><span class="sxs-lookup"><span data-stu-id="92148-186">Azure Storage Team Blog</span></span>](http://blogs.msdn.com/b/windowsazurestorage/)
 

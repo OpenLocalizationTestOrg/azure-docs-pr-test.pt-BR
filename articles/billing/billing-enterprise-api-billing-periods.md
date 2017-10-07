@@ -1,6 +1,6 @@
 ---
-title: "APIs Enterprise de cobrança do Azure – períodos de cobrança | Microsoft Docs"
-description: "Saiba mais sobre as APIs de Relatório que permitem a clientes Enterprise do Azure efetuar pull dos dados de consumo de modo programático."
+title: "aaaAzure cobrança Enterprise APIs - períodos de cobrança | Microsoft Docs"
+description: "Saiba mais sobre Olá APIs de relatórios que permitem que os dados de consumo do Azure Enterprise clientes toopull programaticamente."
 services: 
 documentationcenter: 
 author: aedwin
@@ -15,29 +15,29 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: c6880b79189e0683387a7aafbd6fa4805b3b42ef
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d4e17f25b22729a7f213306fb019ee0dbeca87ff
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="reporting-apis-for-enterprise-customers---billing-periods"></a><span data-ttu-id="82dd1-103">APIs de Relatórios para clientes Enterprise – Períodos de Cobrança</span><span class="sxs-lookup"><span data-stu-id="82dd1-103">Reporting APIs for Enterprise customers - Billing Periods</span></span>
+# <a name="reporting-apis-for-enterprise-customers---billing-periods"></a><span data-ttu-id="c6e16-103">APIs de Relatórios para clientes Enterprise – Períodos de Cobrança</span><span class="sxs-lookup"><span data-stu-id="c6e16-103">Reporting APIs for Enterprise customers - Billing Periods</span></span>
 
-<span data-ttu-id="82dd1-104">A API Períodos de Cobrança retorna uma lista de períodos de cobrança que têm dados de consumo para o Registro especificado em ordem cronológica inversa.</span><span class="sxs-lookup"><span data-stu-id="82dd1-104">The Billing Periods API returns a list of billing periods that have consumption data for the specified Enrollment in reverse chronological order.</span></span> <span data-ttu-id="82dd1-105">Cada período contém uma propriedade que aponta para a rota da API dos quatro conjuntos de dados: BalanceSummary, UsageDetails, Encargos do Marketplace e PriceSheet.</span><span class="sxs-lookup"><span data-stu-id="82dd1-105">Each Period contains a property pointing to the API route for the four sets of data - BalanceSummary, UsageDetails, Marktplace Charges, and PriceSheet.</span></span> <span data-ttu-id="82dd1-106">Se o período não tiver dados, a propriedade correspondente será nula.</span><span class="sxs-lookup"><span data-stu-id="82dd1-106">If the period does not have data, the corresponding property is null.</span></span> 
+<span data-ttu-id="c6e16-104">Olá cobrança períodos API retorna uma lista de cobrança períodos com dados de consumo para Olá especificado registro em ordem cronológica inversa.</span><span class="sxs-lookup"><span data-stu-id="c6e16-104">hello Billing Periods API returns a list of billing periods that have consumption data for hello specified Enrollment in reverse chronological order.</span></span> <span data-ttu-id="c6e16-105">Cada período contém uma propriedade apontando toohello rota de API para Olá quatro conjuntos de dados - BalanceSummary, UsageDetails, Marktplace encargos e PriceSheet.</span><span class="sxs-lookup"><span data-stu-id="c6e16-105">Each Period contains a property pointing toohello API route for hello four sets of data - BalanceSummary, UsageDetails, Marktplace Charges, and PriceSheet.</span></span> <span data-ttu-id="c6e16-106">Se o período de saudação não tiver dados, propriedade correspondente Olá é nula.</span><span class="sxs-lookup"><span data-stu-id="c6e16-106">If hello period does not have data, hello corresponding property is null.</span></span> 
 
 
-##<a name="request"></a><span data-ttu-id="82dd1-107">Solicitação</span><span class="sxs-lookup"><span data-stu-id="82dd1-107">Request</span></span> 
-<span data-ttu-id="82dd1-108">As propriedades de cabeçalho comuns que precisam ser adicionadas são especificadas [aqui](billing-enterprise-api.md).</span><span class="sxs-lookup"><span data-stu-id="82dd1-108">Common header properties that need to be added are specified [here](billing-enterprise-api.md).</span></span> 
+##<a name="request"></a><span data-ttu-id="c6e16-107">Solicitação</span><span class="sxs-lookup"><span data-stu-id="c6e16-107">Request</span></span> 
+<span data-ttu-id="c6e16-108">Propriedades de cabeçalho comuns que precisam toobe adicionado são especificadas [aqui](billing-enterprise-api.md).</span><span class="sxs-lookup"><span data-stu-id="c6e16-108">Common header properties that need toobe added are specified [here](billing-enterprise-api.md).</span></span> 
 
-|<span data-ttu-id="82dd1-109">Método</span><span class="sxs-lookup"><span data-stu-id="82dd1-109">Method</span></span> | <span data-ttu-id="82dd1-110">URI da solicitação</span><span class="sxs-lookup"><span data-stu-id="82dd1-110">Request URI</span></span>|
+|<span data-ttu-id="c6e16-109">Método</span><span class="sxs-lookup"><span data-stu-id="c6e16-109">Method</span></span> | <span data-ttu-id="c6e16-110">URI da solicitação</span><span class="sxs-lookup"><span data-stu-id="c6e16-110">Request URI</span></span>|
 |-|-|
-|<span data-ttu-id="82dd1-111">GET</span><span class="sxs-lookup"><span data-stu-id="82dd1-111">GET</span></span>| <span data-ttu-id="82dd1-112">https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingperiods</span><span class="sxs-lookup"><span data-stu-id="82dd1-112">https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingperiods</span></span>|
+|<span data-ttu-id="c6e16-111">GET</span><span class="sxs-lookup"><span data-stu-id="c6e16-111">GET</span></span>| <span data-ttu-id="c6e16-112">https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingperiods</span><span class="sxs-lookup"><span data-stu-id="c6e16-112">https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingperiods</span></span>|
 
 > [!Note]
-> <span data-ttu-id="82dd1-113">Para usar a versão de visualização da API, substitua a v2 pela v1 na URL anterior.</span><span class="sxs-lookup"><span data-stu-id="82dd1-113">To use the preview version of API, replace v2 with v1 in the above URL.</span></span>
+> <span data-ttu-id="c6e16-113">versão de visualização de saudação toouse da API, substitua v2 v1 no hello acima URL.</span><span class="sxs-lookup"><span data-stu-id="c6e16-113">toouse hello preview version of API, replace v2 with v1 in hello above URL.</span></span>
 >
 
-## <a name="response"></a><span data-ttu-id="82dd1-114">Resposta</span><span class="sxs-lookup"><span data-stu-id="82dd1-114">Response</span></span>
+## <a name="response"></a><span data-ttu-id="c6e16-114">Resposta</span><span class="sxs-lookup"><span data-stu-id="c6e16-114">Response</span></span>
  
     
     
@@ -55,25 +55,25 @@ ms.lasthandoff: 08/03/2017
       ]
     
 
-<span data-ttu-id="82dd1-115">**Definições da propriedade de resposta**</span><span class="sxs-lookup"><span data-stu-id="82dd1-115">**Response property definitions**</span></span>
+<span data-ttu-id="c6e16-115">**Definições da propriedade de resposta**</span><span class="sxs-lookup"><span data-stu-id="c6e16-115">**Response property definitions**</span></span>
 
-|<span data-ttu-id="82dd1-116">Nome da Propriedade</span><span class="sxs-lookup"><span data-stu-id="82dd1-116">Property Name</span></span>| <span data-ttu-id="82dd1-117">Tipo</span><span class="sxs-lookup"><span data-stu-id="82dd1-117">Type</span></span>| <span data-ttu-id="82dd1-118">Descrição</span><span class="sxs-lookup"><span data-stu-id="82dd1-118">Description</span></span>
+|<span data-ttu-id="c6e16-116">Nome da Propriedade</span><span class="sxs-lookup"><span data-stu-id="c6e16-116">Property Name</span></span>| <span data-ttu-id="c6e16-117">Tipo</span><span class="sxs-lookup"><span data-stu-id="c6e16-117">Type</span></span>| <span data-ttu-id="c6e16-118">Descrição</span><span class="sxs-lookup"><span data-stu-id="c6e16-118">Description</span></span>
 |-|-|-|
-|<span data-ttu-id="82dd1-119">billingPeriodId</span><span class="sxs-lookup"><span data-stu-id="82dd1-119">billingPeriodId</span></span>| <span data-ttu-id="82dd1-120">string</span><span class="sxs-lookup"><span data-stu-id="82dd1-120">string</span></span>| <span data-ttu-id="82dd1-121">A ID exclusiva que representa um determinado período de cobrança</span><span class="sxs-lookup"><span data-stu-id="82dd1-121">The unique Id that represents a particular Billing period</span></span>|
-|<span data-ttu-id="82dd1-122">billingStart</span><span class="sxs-lookup"><span data-stu-id="82dd1-122">billingStart</span></span>| <span data-ttu-id="82dd1-123">datetime</span><span class="sxs-lookup"><span data-stu-id="82dd1-123">datetime</span></span>| <span data-ttu-id="82dd1-124">Cadeia de caracteres ISO 8601 que representa a data de início do período</span><span class="sxs-lookup"><span data-stu-id="82dd1-124">ISO 8601 string representing the period start date</span></span>|
-|<span data-ttu-id="82dd1-125">billingEnd</span><span class="sxs-lookup"><span data-stu-id="82dd1-125">billingEnd</span></span>| <span data-ttu-id="82dd1-126">datetime</span><span class="sxs-lookup"><span data-stu-id="82dd1-126">datetime</span></span>| <span data-ttu-id="82dd1-127">Cadeia de caracteres ISO 8601 que representa a data de término do período</span><span class="sxs-lookup"><span data-stu-id="82dd1-127">ISO 8601 string representing the period end date</span></span>|
-|<span data-ttu-id="82dd1-128">balanceSummary</span><span class="sxs-lookup"><span data-stu-id="82dd1-128">balanceSummary</span></span>| <span data-ttu-id="82dd1-129">string</span><span class="sxs-lookup"><span data-stu-id="82dd1-129">string</span></span>| <span data-ttu-id="82dd1-130">O caminho da URL que encaminha para os dados de resumo de saldo para este período</span><span class="sxs-lookup"><span data-stu-id="82dd1-130">The URL path that routes to the Balance Summary data for this period</span></span>|
-|<span data-ttu-id="82dd1-131">usageDetails</span><span class="sxs-lookup"><span data-stu-id="82dd1-131">usageDetails</span></span>| <span data-ttu-id="82dd1-132">string</span><span class="sxs-lookup"><span data-stu-id="82dd1-132">string</span></span>| <span data-ttu-id="82dd1-133">O caminho da URL que encaminha para os dados de detalhes de uso para este período</span><span class="sxs-lookup"><span data-stu-id="82dd1-133">The URL path that routes to the Usage Details data for this period</span></span>|
-|<span data-ttu-id="82dd1-134">marketplaceCharges</span><span class="sxs-lookup"><span data-stu-id="82dd1-134">marketplaceCharges</span></span>| <span data-ttu-id="82dd1-135">string</span><span class="sxs-lookup"><span data-stu-id="82dd1-135">string</span></span>| <span data-ttu-id="82dd1-136">O caminho da URL que encaminha para os dados de cobranças do Marketplace para este período</span><span class="sxs-lookup"><span data-stu-id="82dd1-136">The URL path that routes to the Marketplace Charges data for this period</span></span>|
-|<span data-ttu-id="82dd1-137">priceSheet</span><span class="sxs-lookup"><span data-stu-id="82dd1-137">priceSheet</span></span>| <span data-ttu-id="82dd1-138">string</span><span class="sxs-lookup"><span data-stu-id="82dd1-138">string</span></span>| <span data-ttu-id="82dd1-139">O caminho da URL que encaminha para os dados PriceSheet para este período</span><span class="sxs-lookup"><span data-stu-id="82dd1-139">The URL path that routes to the PriceSheet data for this period</span></span>|
+|<span data-ttu-id="c6e16-119">billingPeriodId</span><span class="sxs-lookup"><span data-stu-id="c6e16-119">billingPeriodId</span></span>| <span data-ttu-id="c6e16-120">string</span><span class="sxs-lookup"><span data-stu-id="c6e16-120">string</span></span>| <span data-ttu-id="c6e16-121">Olá Id exclusiva que representa um determinado período de cobrança</span><span class="sxs-lookup"><span data-stu-id="c6e16-121">hello unique Id that represents a particular Billing period</span></span>|
+|<span data-ttu-id="c6e16-122">billingStart</span><span class="sxs-lookup"><span data-stu-id="c6e16-122">billingStart</span></span>| <span data-ttu-id="c6e16-123">datetime</span><span class="sxs-lookup"><span data-stu-id="c6e16-123">datetime</span></span>| <span data-ttu-id="c6e16-124">Cadeia de caracteres ISO 8601 que representa a data de início do período de saudação</span><span class="sxs-lookup"><span data-stu-id="c6e16-124">ISO 8601 string representing hello period start date</span></span>|
+|<span data-ttu-id="c6e16-125">billingEnd</span><span class="sxs-lookup"><span data-stu-id="c6e16-125">billingEnd</span></span>| <span data-ttu-id="c6e16-126">datetime</span><span class="sxs-lookup"><span data-stu-id="c6e16-126">datetime</span></span>| <span data-ttu-id="c6e16-127">Cadeia de caracteres ISO 8601 que representa a data de término do período de saudação</span><span class="sxs-lookup"><span data-stu-id="c6e16-127">ISO 8601 string representing hello period end date</span></span>|
+|<span data-ttu-id="c6e16-128">balanceSummary</span><span class="sxs-lookup"><span data-stu-id="c6e16-128">balanceSummary</span></span>| <span data-ttu-id="c6e16-129">string</span><span class="sxs-lookup"><span data-stu-id="c6e16-129">string</span></span>| <span data-ttu-id="c6e16-130">caminho de URL de saudação que encaminha os dados de resumo de saldo de toohello para esse período</span><span class="sxs-lookup"><span data-stu-id="c6e16-130">hello URL path that routes toohello Balance Summary data for this period</span></span>|
+|<span data-ttu-id="c6e16-131">usageDetails</span><span class="sxs-lookup"><span data-stu-id="c6e16-131">usageDetails</span></span>| <span data-ttu-id="c6e16-132">string</span><span class="sxs-lookup"><span data-stu-id="c6e16-132">string</span></span>| <span data-ttu-id="c6e16-133">caminho de URL de saudação que roteia toohello dados de detalhes de uso para esse período</span><span class="sxs-lookup"><span data-stu-id="c6e16-133">hello URL path that routes toohello Usage Details data for this period</span></span>|
+|<span data-ttu-id="c6e16-134">marketplaceCharges</span><span class="sxs-lookup"><span data-stu-id="c6e16-134">marketplaceCharges</span></span>| <span data-ttu-id="c6e16-135">string</span><span class="sxs-lookup"><span data-stu-id="c6e16-135">string</span></span>| <span data-ttu-id="c6e16-136">caminho da URL Olá que encaminha dados de encargos do Marketplace toohello para esse período</span><span class="sxs-lookup"><span data-stu-id="c6e16-136">hello URL path that routes toohello Marketplace Charges data for this period</span></span>|
+|<span data-ttu-id="c6e16-137">priceSheet</span><span class="sxs-lookup"><span data-stu-id="c6e16-137">priceSheet</span></span>| <span data-ttu-id="c6e16-138">string</span><span class="sxs-lookup"><span data-stu-id="c6e16-138">string</span></span>| <span data-ttu-id="c6e16-139">caminho de URL de saudação que roteia toohello PriceSheet dados para esse período</span><span class="sxs-lookup"><span data-stu-id="c6e16-139">hello URL path that routes toohello PriceSheet data for this period</span></span>|
 
 <br/>
-## <a name="see-also"></a><span data-ttu-id="82dd1-140">Consulte também</span><span class="sxs-lookup"><span data-stu-id="82dd1-140">See also</span></span>
+## <a name="see-also"></a><span data-ttu-id="c6e16-140">Consulte também</span><span class="sxs-lookup"><span data-stu-id="c6e16-140">See also</span></span>
 
-* [<span data-ttu-id="82dd1-141">API de saldo e resumo</span><span class="sxs-lookup"><span data-stu-id="82dd1-141">Balance and Summary API</span></span>](billing-enterprise-api-balance-summary.md)
+* [<span data-ttu-id="c6e16-141">API de saldo e resumo</span><span class="sxs-lookup"><span data-stu-id="c6e16-141">Balance and Summary API</span></span>](billing-enterprise-api-balance-summary.md)
 
-* [<span data-ttu-id="82dd1-142">API de detalhes do uso</span><span class="sxs-lookup"><span data-stu-id="82dd1-142">Usage Detail API</span></span>](billing-enterprise-api-usage-detail.md) 
+* [<span data-ttu-id="c6e16-142">API de detalhes do uso</span><span class="sxs-lookup"><span data-stu-id="c6e16-142">Usage Detail API</span></span>](billing-enterprise-api-usage-detail.md) 
 
-* [<span data-ttu-id="82dd1-143">API do custo de armazenamento do Marketplace</span><span class="sxs-lookup"><span data-stu-id="82dd1-143">Marketplace Store Charge API</span></span>](billing-enterprise-api-marketplace-storecharge.md) 
+* [<span data-ttu-id="c6e16-143">API do custo de armazenamento do Marketplace</span><span class="sxs-lookup"><span data-stu-id="c6e16-143">Marketplace Store Charge API</span></span>](billing-enterprise-api-marketplace-storecharge.md) 
 
-* [<span data-ttu-id="82dd1-144">API da folha de preço</span><span class="sxs-lookup"><span data-stu-id="82dd1-144">Price Sheet API</span></span>](billing-enterprise-api-pricesheet.md)
+* [<span data-ttu-id="c6e16-144">API da folha de preço</span><span class="sxs-lookup"><span data-stu-id="c6e16-144">Price Sheet API</span></span>](billing-enterprise-api-pricesheet.md)

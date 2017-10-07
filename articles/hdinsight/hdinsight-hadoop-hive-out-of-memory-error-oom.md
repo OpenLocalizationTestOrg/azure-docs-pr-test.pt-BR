@@ -1,6 +1,6 @@
 ---
-title: "Corrigir um erro de Hive sem memória no Azure HDInsight | Microsoft Docs"
-description: "Corrija um erro Hive sem memória no HDInsight. O cenário de cliente é uma consulta em várias tabelas grandes."
+title: "aaaFix um Hive fora do erro de memória no Azure HDInsight | Microsoft Docs"
+description: "Corrija um erro Hive sem memória no HDInsight. cenário de saudação do cliente é uma consulta em várias tabelas grandes."
 keywords: "erro de memória insuficiente, OOM, configurações do Hive"
 services: hdinsight
 documentationcenter: 
@@ -16,19 +16,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/17/2017
 ms.author: jgao
-ms.openlocfilehash: da1247070ade11f78b505524f5e970e18eb16d10
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 00a12969322c1e74434ba6593ffd098f342edd84
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a><span data-ttu-id="73f7f-105">Corrigir um erro Hive sem memória no Azure HDInsight</span><span class="sxs-lookup"><span data-stu-id="73f7f-105">Fix a Hive out of memory error in Azure HDInsight</span></span>
+# <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a><span data-ttu-id="e17b9-105">Corrigir um erro Hive sem memória no Azure HDInsight</span><span class="sxs-lookup"><span data-stu-id="e17b9-105">Fix a Hive out of memory error in Azure HDInsight</span></span>
 
-<span data-ttu-id="73f7f-106">Saiba como corrigir um erro Hive sem memória quando processar tabelas grandes definindo as configurações de memória do Hive.</span><span class="sxs-lookup"><span data-stu-id="73f7f-106">Learn how to fix a Hive out of memory error when process large tables by configuring Hive memory settings.</span></span>
+<span data-ttu-id="e17b9-106">Saiba como toofix um Hive erro de memória insuficiente quando processar grandes tabelas, definindo configurações de memória de Hive.</span><span class="sxs-lookup"><span data-stu-id="e17b9-106">Learn how toofix a Hive out of memory error when process large tables by configuring Hive memory settings.</span></span>
 
-## <a name="run-hive-query-against-large-tables"></a><span data-ttu-id="73f7f-107">Executar a consulta do Hive em tabelas grandes</span><span class="sxs-lookup"><span data-stu-id="73f7f-107">Run Hive query against large tables</span></span>
+## <a name="run-hive-query-against-large-tables"></a><span data-ttu-id="e17b9-107">Executar a consulta do Hive em tabelas grandes</span><span class="sxs-lookup"><span data-stu-id="e17b9-107">Run Hive query against large tables</span></span>
 
-<span data-ttu-id="73f7f-108">Um cliente executou uma consulta do Hive:</span><span class="sxs-lookup"><span data-stu-id="73f7f-108">A customer ran a Hive query:</span></span>
+<span data-ttu-id="e17b9-108">Um cliente executou uma consulta do Hive:</span><span class="sxs-lookup"><span data-stu-id="e17b9-108">A customer ran a Hive query:</span></span>
 
     SELECT
         COUNT (T1.COLUMN1) as DisplayColumn1,
@@ -46,18 +46,18 @@ ms.lasthandoff: 08/29/2017
         …
         …
 
-<span data-ttu-id="73f7f-109">Algumas nuances desta consulta:</span><span class="sxs-lookup"><span data-stu-id="73f7f-109">Some nuances of this query:</span></span>
+<span data-ttu-id="e17b9-109">Algumas nuances desta consulta:</span><span class="sxs-lookup"><span data-stu-id="e17b9-109">Some nuances of this query:</span></span>
 
-* <span data-ttu-id="73f7f-110">T1 é um alias para uma grande tabela, TABLE1, com vários tipos de coluna STRING.</span><span class="sxs-lookup"><span data-stu-id="73f7f-110">T1 is an alias to a big table, TABLE1, which has lots of STRING column types.</span></span>
-* <span data-ttu-id="73f7f-111">Outras tabelas não são tão grandes, mas têm muitas colunas.</span><span class="sxs-lookup"><span data-stu-id="73f7f-111">Other tables are not that big but do have many columns.</span></span>
-* <span data-ttu-id="73f7f-112">Todas as tabelas estão associadas umas às outras, em alguns casos com várias colunas em TABLE 1 e em outras.</span><span class="sxs-lookup"><span data-stu-id="73f7f-112">All tables are joining each other, in some cases with multiple columns in TABLE1 and others.</span></span>
+* <span data-ttu-id="e17b9-110">T1 é uma alias tooa grande tabela, TABLE1, que tem vários tipos de coluna de cadeia de caracteres.</span><span class="sxs-lookup"><span data-stu-id="e17b9-110">T1 is an alias tooa big table, TABLE1, which has lots of STRING column types.</span></span>
+* <span data-ttu-id="e17b9-111">Outras tabelas não são tão grandes, mas têm muitas colunas.</span><span class="sxs-lookup"><span data-stu-id="e17b9-111">Other tables are not that big but do have many columns.</span></span>
+* <span data-ttu-id="e17b9-112">Todas as tabelas estão associadas umas às outras, em alguns casos com várias colunas em TABLE 1 e em outras.</span><span class="sxs-lookup"><span data-stu-id="e17b9-112">All tables are joining each other, in some cases with multiple columns in TABLE1 and others.</span></span>
 
-<span data-ttu-id="73f7f-113">A consulta do Hive demorou 26 minutos para ser concluída em um cluster HDInsight A3 de 24 nós.</span><span class="sxs-lookup"><span data-stu-id="73f7f-113">The Hive query took 26 minutes to finish on a 24 node A3 HDInsight cluster.</span></span> <span data-ttu-id="73f7f-114">O cliente percebeu as seguintes mensagens de aviso:</span><span class="sxs-lookup"><span data-stu-id="73f7f-114">The customer noticed the following warning messages:</span></span>
+<span data-ttu-id="e17b9-113">consulta de Hive Olá levou toofinish 26 minutos em um cluster do HDInsight A3 24 nó.</span><span class="sxs-lookup"><span data-stu-id="e17b9-113">hello Hive query took 26 minutes toofinish on a 24 node A3 HDInsight cluster.</span></span> <span data-ttu-id="e17b9-114">Olá cliente observado Olá mensagens de aviso a seguir:</span><span class="sxs-lookup"><span data-stu-id="e17b9-114">hello customer noticed hello following warning messages:</span></span>
 
     Warning: Map Join MAPJOIN[428][bigTable=?] in task 'Stage-21:MAPRED' is a cross product
     Warning: Shuffle Join JOIN[8][tables = [t1933775, t1932766]] in Stage 'Stage-4:MAPRED' is a cross product
 
-<span data-ttu-id="73f7f-115">Usando o mecanismo de execução Tez.</span><span class="sxs-lookup"><span data-stu-id="73f7f-115">By using the Tez execution engine.</span></span> <span data-ttu-id="73f7f-116">A mesma consulta foi executada por 15 minutos e depois lançou o seguinte erro:</span><span class="sxs-lookup"><span data-stu-id="73f7f-116">The same query ran for 15 minutes, and then threw the following error:</span></span>
+<span data-ttu-id="e17b9-115">Usando o mecanismo de execução Tez hello.</span><span class="sxs-lookup"><span data-stu-id="e17b9-115">By using hello Tez execution engine.</span></span> <span data-ttu-id="e17b9-116">Olá a mesma consulta foi executado por 15 minutos e, em seguida, lançou Olá erro a seguir:</span><span class="sxs-lookup"><span data-stu-id="e17b9-116">hello same query ran for 15 minutes, and then threw hello following error:</span></span>
 
     Status: Failed
     Vertex failed, vertexName=Map 5, vertexId=vertex_1443634917922_0008_1_05, diagnostics=[Task failed, taskId=task_1443634917922_0008_1_05_000006, diagnostics=[TaskAttempt 0 failed, info=[Error: Failure while running task:java.lang.RuntimeException: java.lang.OutOfMemoryError: Java heap space
@@ -83,45 +83,45 @@ ms.lasthandoff: 08/29/2017
         at java.lang.Thread.run(Thread.java:745)
     Caused by: java.lang.OutOfMemoryError: Java heap space
 
-<span data-ttu-id="73f7f-117">O erro permanece ao usar uma máquina virtual maior (por exemplo, D12).</span><span class="sxs-lookup"><span data-stu-id="73f7f-117">The error remains when using a bigger virtual machine (for example, D12).</span></span>
+<span data-ttu-id="e17b9-117">Erro de saudação permanece quando usar uma máquina virtual de maior (por exemplo, D12).</span><span class="sxs-lookup"><span data-stu-id="e17b9-117">hello error remains when using a bigger virtual machine (for example, D12).</span></span>
 
 
-## <a name="debug-the-out-of-memory-error"></a><span data-ttu-id="73f7f-118">Depurar o erro de memória insuficiente</span><span class="sxs-lookup"><span data-stu-id="73f7f-118">Debug the out of memory error</span></span>
+## <a name="debug-hello-out-of-memory-error"></a><span data-ttu-id="e17b9-118">Depurar Olá erro de memória insuficiente</span><span class="sxs-lookup"><span data-stu-id="e17b9-118">Debug hello out of memory error</span></span>
 
-<span data-ttu-id="73f7f-119">Nosso suporte e as equipes de engenharia juntos descobriram que um dos problemas que causou o erro de memória insuficiente era um [problema conhecido descrito no Apache JIRA](https://issues.apache.org/jira/browse/HIVE-8306):</span><span class="sxs-lookup"><span data-stu-id="73f7f-119">Our support and engineering teams together found one of the issues causing the out of memory error was a [known issue described in the Apache JIRA](https://issues.apache.org/jira/browse/HIVE-8306):</span></span>
+<span data-ttu-id="e17b9-119">Nosso suporte e as equipes de engenharia juntos encontrado um dos problemas de saudação causando Olá erro de memória insuficiente foi um [conhecido problema descrito no hello Apache JIRA](https://issues.apache.org/jira/browse/HIVE-8306):</span><span class="sxs-lookup"><span data-stu-id="e17b9-119">Our support and engineering teams together found one of hello issues causing hello out of memory error was a [known issue described in hello Apache JIRA](https://issues.apache.org/jira/browse/HIVE-8306):</span></span>
 
-    When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum  of tables sizes in the map join is less than noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation doesnt take into account the overhead introduced by different HashTable implementation as results if the sum of input sizes is smaller than the noconditionaltask size by a small margin queries will hit OOM.
+    When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if hello sum  of tables sizes in hello map join is less than noconditionaltask.size hello plan would generate a Map join, hello issue with this is that hello calculation doesnt take into account hello overhead introduced by different HashTable implementation as results if hello sum of input sizes is smaller than hello noconditionaltask size by a small margin queries will hit OOM.
 
-<span data-ttu-id="73f7f-120">O **hive.auto.convert.join.noconditionaltask** no arquivo hive-site.xml estava definido como **true**:</span><span class="sxs-lookup"><span data-stu-id="73f7f-120">The **hive.auto.convert.join.noconditionaltask** in the hive-site.xml file was set to **true**:</span></span>
+<span data-ttu-id="e17b9-120">Olá **hive.auto.convert.join.noconditionaltask** Olá hive-site.XML arquivo foi definido muito**true**:</span><span class="sxs-lookup"><span data-stu-id="e17b9-120">hello **hive.auto.convert.join.noconditionaltask** in hello hive-site.xml file was set too**true**:</span></span>
 
     <property>
         <name>hive.auto.convert.join.noconditionaltask</name>
         <value>true</value>
         <description>
-              Whether Hive enables the optimization about converting common join into mapjoin based on the input file size.
-              If this parameter is on, and the sum of size for n-1 of the tables/partitions for a n-way join is smaller than the
-              specified size, the join is directly converted to a mapjoin (there is no conditional task).
+              Whether Hive enables hello optimization about converting common join into mapjoin based on hello input file size.
+              If this parameter is on, and hello sum of size for n-1 of hello tables/partitions for a n-way join is smaller than the
+              specified size, hello join is directly converted tooa mapjoin (there is no conditional task).
         </description>
       </property>
 
-<span data-ttu-id="73f7f-121">É provável que junção de mapa tenha sido a causa do erro de falta de memória do Java Heap Space.</span><span class="sxs-lookup"><span data-stu-id="73f7f-121">It is likely map join was the cause of the Java Heap Space our of memory error.</span></span> <span data-ttu-id="73f7f-122">Conforme explicado na postagem no blog [Configurações de memória Yarn do Hadoop no HDInsight](http://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), quando o mecanismo de execução Tez é usado, o espaço heap usado realmente pertence ao contêiner Tez.</span><span class="sxs-lookup"><span data-stu-id="73f7f-122">As explained in the blog post [Hadoop Yarn memory settings in HDInsight](http://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), when Tez execution engine is used the heap space used actually belongs to the Tez container.</span></span> <span data-ttu-id="73f7f-123">Confira a imagem a seguir que descreve a memória do contêiner Tez.</span><span class="sxs-lookup"><span data-stu-id="73f7f-123">See the following image describing the Tez container memory.</span></span>
+<span data-ttu-id="e17b9-121">É provável junção mapa foi causa Olá Olá espaço de pilha Java nosso erro de memória.</span><span class="sxs-lookup"><span data-stu-id="e17b9-121">It is likely map join was hello cause of hello Java Heap Space our of memory error.</span></span> <span data-ttu-id="e17b9-122">Conforme explicado na postagem de blog Olá [as configurações de memória de Hadoop Yarn no HDInsight](http://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), quando Tez mecanismo de execução é o espaço de heap de saudação usado usado pertence, na verdade, toohello Tez contêiner.</span><span class="sxs-lookup"><span data-stu-id="e17b9-122">As explained in hello blog post [Hadoop Yarn memory settings in HDInsight](http://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), when Tez execution engine is used hello heap space used actually belongs toohello Tez container.</span></span> <span data-ttu-id="e17b9-123">Consulte Olá memória de contêiner para imagem descrevendo Olá Tez a seguir.</span><span class="sxs-lookup"><span data-stu-id="e17b9-123">See hello following image describing hello Tez container memory.</span></span>
 
 ![Diagrama de memória de contêiner Tez: erro de falta de memória do Hive](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 
-<span data-ttu-id="73f7f-125">Como sugere a postagem no blog, as duas configurações de memória a seguir definem a memória de contêiner para o heap: **hive.tez.container.size** e **hive.tez.java.opts**.</span><span class="sxs-lookup"><span data-stu-id="73f7f-125">As the blog post suggests, the following two memory settings define the container memory for the heap: **hive.tez.container.size** and **hive.tez.java.opts**.</span></span> <span data-ttu-id="73f7f-126">Em nossa experiência, a exceção de falta de memória não significa que o tamanho do contêiner seja muito pequeno.</span><span class="sxs-lookup"><span data-stu-id="73f7f-126">From our experience, the out of memory exception does not mean the container size is too small.</span></span> <span data-ttu-id="73f7f-127">Isso significa que o tamanho do heap de Java (hive.tez.java.opts) é muito pequeno.</span><span class="sxs-lookup"><span data-stu-id="73f7f-127">It means the Java heap size (hive.tez.java.opts) is too small.</span></span> <span data-ttu-id="73f7f-128">Portanto, sempre que você vir falta de memória, poderá tentar aumentar **hive.tez.java.opts**.</span><span class="sxs-lookup"><span data-stu-id="73f7f-128">So whenever you see out of memory, you can try to increase **hive.tez.java.opts**.</span></span> <span data-ttu-id="73f7f-129">Se necessário, pode ser que você precise aumentar **hive.tez.container.size**.</span><span class="sxs-lookup"><span data-stu-id="73f7f-129">If needed you might have to increase **hive.tez.container.size**.</span></span> <span data-ttu-id="73f7f-130">A configuração **java.opts** deve ser aproximadamente 80% do **container.size**.</span><span class="sxs-lookup"><span data-stu-id="73f7f-130">The **java.opts** setting should be around 80% of **container.size**.</span></span>
+<span data-ttu-id="e17b9-125">Como sugere a postagem do blog Olá, Olá duas configurações de memória a seguir define memória de contêiner Olá heap Olá: **hive.tez.container.size** e **hive.tez.java.opts**.</span><span class="sxs-lookup"><span data-stu-id="e17b9-125">As hello blog post suggests, hello following two memory settings define hello container memory for hello heap: **hive.tez.container.size** and **hive.tez.java.opts**.</span></span> <span data-ttu-id="e17b9-126">Nossa experiência, Olá exceção de memória não significa Olá tamanho de contêiner é muito pequeno.</span><span class="sxs-lookup"><span data-stu-id="e17b9-126">From our experience, hello out of memory exception does not mean hello container size is too small.</span></span> <span data-ttu-id="e17b9-127">Isso significa Olá tamanho do heap do Java (hive.tez.java.opts) é muito pequeno.</span><span class="sxs-lookup"><span data-stu-id="e17b9-127">It means hello Java heap size (hive.tez.java.opts) is too small.</span></span> <span data-ttu-id="e17b9-128">Para que sempre que houver memória insuficiente, você pode tentar tooincrease **hive.tez.java.opts**.</span><span class="sxs-lookup"><span data-stu-id="e17b9-128">So whenever you see out of memory, you can try tooincrease **hive.tez.java.opts**.</span></span> <span data-ttu-id="e17b9-129">Se necessário você pode ter tooincrease **hive.tez.container.size**.</span><span class="sxs-lookup"><span data-stu-id="e17b9-129">If needed you might have tooincrease **hive.tez.container.size**.</span></span> <span data-ttu-id="e17b9-130">Olá **java.opts** configuração deve ser aproximadamente 80% da **container.size**.</span><span class="sxs-lookup"><span data-stu-id="e17b9-130">hello **java.opts** setting should be around 80% of **container.size**.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="73f7f-131">A configuração **hive.tez.java.opts** deve ser menor que **hive.tez.container.size**.</span><span class="sxs-lookup"><span data-stu-id="73f7f-131">The setting **hive.tez.java.opts** must always be smaller than **hive.tez.container.size**.</span></span>
+> <span data-ttu-id="e17b9-131">configuração de saudação **hive.tez.java.opts** sempre deve ser menor do que **hive.tez.container.size**.</span><span class="sxs-lookup"><span data-stu-id="e17b9-131">hello setting **hive.tez.java.opts** must always be smaller than **hive.tez.container.size**.</span></span>
 > 
 > 
 
-<span data-ttu-id="73f7f-132">Como uma máquina D12 tem 28 GB de memória, decidimos usar um tamanho de contêiner de 10 GB (10240 MB) e atribuir 80% para java.opts:</span><span class="sxs-lookup"><span data-stu-id="73f7f-132">Because a D12 machine has 28GB memory, we decided to use a container size of 10GB (10240MB) and assign 80% to java.opts:</span></span>
+<span data-ttu-id="e17b9-132">Como uma máquina D12 tem 28GB de memória, é decidido toouse um tamanho de contêiner de 10GB (10240MB) e atribuir a 80% toojava.opts:</span><span class="sxs-lookup"><span data-stu-id="e17b9-132">Because a D12 machine has 28GB memory, we decided toouse a container size of 10GB (10240MB) and assign 80% toojava.opts:</span></span>
 
     SET hive.tez.container.size=10240
     SET hive.tez.java.opts=-Xmx8192m
 
-<span data-ttu-id="73f7f-133">Com as novas configurações, a consulta foi executada com êxito em menos de dez minutos.</span><span class="sxs-lookup"><span data-stu-id="73f7f-133">With the new settings, the query successfully ran in under 10 minutes.</span></span>
+<span data-ttu-id="e17b9-133">Com as novas configurações de saudação, consulta Olá executou com êxito em menos de 10 minutos.</span><span class="sxs-lookup"><span data-stu-id="e17b9-133">With hello new settings, hello query successfully ran in under 10 minutes.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="73f7f-134">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="73f7f-134">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="e17b9-134">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="e17b9-134">Next steps</span></span>
 
-<span data-ttu-id="73f7f-135">O recebimento de um erro de memória insuficiente não significa necessariamente que o tamanho do contêiner é muito pequeno.</span><span class="sxs-lookup"><span data-stu-id="73f7f-135">Getting an OOM error doesn't necessarily mean the container size is too small.</span></span> <span data-ttu-id="73f7f-136">Em vez disso, você deve definir as configurações de memória para que o tamanho do heap seja aumentado para pelo menos 80% do tamanho da memória do contêiner.</span><span class="sxs-lookup"><span data-stu-id="73f7f-136">Instead, you should configure the memory settings so that the heap size is increased and is at least 80% of the container memory size.</span></span> <span data-ttu-id="73f7f-137">Para otimizar consultas do Hive, consulte [Otimizar consultas do Hive para Hadoop no HDInsight](hdinsight-hadoop-optimize-hive-query.md).</span><span class="sxs-lookup"><span data-stu-id="73f7f-137">For optimizing Hive queries, see [Optimize Hive queries for Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md).</span></span>
+<span data-ttu-id="e17b9-135">Recebendo uma mensagem de erro OOM não significa necessariamente Olá tamanho de contêiner é muito pequeno.</span><span class="sxs-lookup"><span data-stu-id="e17b9-135">Getting an OOM error doesn't necessarily mean hello container size is too small.</span></span> <span data-ttu-id="e17b9-136">Em vez disso, você deve configurar as configurações de memória Olá para que o tamanho de heap Olá é aumentado e é pelo menos 80% do tamanho de memória do contêiner de saudação.</span><span class="sxs-lookup"><span data-stu-id="e17b9-136">Instead, you should configure hello memory settings so that hello heap size is increased and is at least 80% of hello container memory size.</span></span> <span data-ttu-id="e17b9-137">Para otimizar consultas do Hive, consulte [Otimizar consultas do Hive para Hadoop no HDInsight](hdinsight-hadoop-optimize-hive-query.md).</span><span class="sxs-lookup"><span data-stu-id="e17b9-137">For optimizing Hive queries, see [Optimize Hive queries for Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md).</span></span>

@@ -1,6 +1,6 @@
 ---
-title: "Documentação do Gerenciador de Tráfego do Azure - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba como gerenciar o tráfego de entrada para desempenho ideal do aplicativo. A Documentação mostra como distribuir o tráfego para pontos de extremidade de serviço do Azure ou externo."
+title: "aaaAzure documentação do Traffic Manager - tutoriais, referência de API | Microsoft Docs"
+description: "Saiba como tráfego de entrada de toomanage para melhor desempenho dos aplicativos. Documentação mostra como toodistribute tráfego tooAzure ou pontos de extremidade de serviço externo."
 services: traffic-manager
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 5ba8a589e319928365dbdc5fb6b2295119de77ea
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bb547f220186c8db9020bcd61a7e4c4d47838107
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="traffic-manager-documentation"></a>Documentação do Gerenciador de Tráfego
 
-Saiba como usar o Gerenciador de Tráfego para rotear o tráfego de entrada para confiabilidade e melhor desempenho dos aplicativos. Tutoriais, referências de API e outras documentações mostram como gerenciar o tráfego para pontos de extremidade de serviço do Azure ou externo.
+Saiba como toouse Traffic Manager tooroute entrada de tráfego de confiabilidade e desempenho ideal do aplicativo. Tutoriais, referências de API e outras documentações mostram como toomanage tráfego tooAzure ou pontos de extremidade de serviço externo.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -88,7 +88,7 @@ Saiba como usar o Gerenciador de Tráfego para rotear o tráfego de entrada para
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução ao gerenciamento de pontos de extremidade do Gerenciador de Tráfego usando o Portal do Azure</h3>
+                        <h3>Gerenciar pontos de extremidade do Gerenciador de tráfego usando Olá portal do Azure</h3>
                     </div>
                 </div>
             </div>

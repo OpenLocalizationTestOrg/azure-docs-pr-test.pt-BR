@@ -1,12 +1,12 @@
 ---
 title: "Dispositivo simulado e Gateway do IoT do Azure - Lição 4: salvar mensagens | Microsoft Docs"
-description: Salve mensagens da NUC da Intel para o hub IoT, grave-as no Armazenamento de Tabelas do Azure e, em seguida, leia-as na nuvem.
+description: "Salvar mensagens de hub do Intel NUC tooyour IoT, gravá-los tooAzure o armazenamento de tabela e, em seguida, lê-los da nuvem de saudação."
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: "armazenar dados na nuvem, dados armazenados na nuvem, serviço de nuvem de iot"
+keywords: "armazenando dados em nuvem hello, dados armazenados na nuvem, o serviço de nuvem iot"
 ROBOTS: NOINDEX
 redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: ffed0c2e-b092-40e1-9113-8196ec057d67
@@ -17,41 +17,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: c7fc47b07acede28ffe790debca7e38521726011
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 230f2708b62b89c6eed2e238efefc1c4da86e373
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-an-azure-function-app-and-storage-account"></a><span data-ttu-id="cb822-104">Criar um aplicativo de funções do Azure e uma conta de armazenamento</span><span class="sxs-lookup"><span data-stu-id="cb822-104">Create an Azure function app and storage account</span></span>
+# <a name="create-an-azure-function-app-and-storage-account"></a><span data-ttu-id="fd36f-104">Criar um aplicativo de funções do Azure e uma conta de armazenamento</span><span class="sxs-lookup"><span data-stu-id="fd36f-104">Create an Azure function app and storage account</span></span>
 
-<span data-ttu-id="cb822-105">O Azure Functions é uma solução para executar _funções_ (pequenos trechos de código) com facilidade na nuvem.</span><span class="sxs-lookup"><span data-stu-id="cb822-105">Azure Functions is a solution for easily running _functions_ (small pieces of code) in the cloud.</span></span> <span data-ttu-id="cb822-106">Um aplicativo de funções do Azure hospeda a execução de suas funções no Azure.</span><span class="sxs-lookup"><span data-stu-id="cb822-106">An Azure function app hosts the execution of your functions in Azure.</span></span> 
+<span data-ttu-id="fd36f-105">As funções do Azure é uma solução para executar facilmente _funções_ (pequenos pedaços de código) na nuvem hello.</span><span class="sxs-lookup"><span data-stu-id="fd36f-105">Azure Functions is a solution for easily running _functions_ (small pieces of code) in hello cloud.</span></span> <span data-ttu-id="fd36f-106">Um aplicativo de função do Azure hospeda execução Olá das funções no Azure.</span><span class="sxs-lookup"><span data-stu-id="fd36f-106">An Azure function app hosts hello execution of your functions in Azure.</span></span> 
 
-## <a name="what-you-will-do"></a><span data-ttu-id="cb822-107">O que você fará</span><span class="sxs-lookup"><span data-stu-id="cb822-107">What you will do</span></span>
+## <a name="what-you-will-do"></a><span data-ttu-id="fd36f-107">O que você fará</span><span class="sxs-lookup"><span data-stu-id="fd36f-107">What you will do</span></span>
 
-- <span data-ttu-id="cb822-108">Use um modelo do Azure Resource Manager para criar um aplicativo de funções do Azure e uma conta de Armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="cb822-108">Use an Azure Resource Manager template to create an Azure function app and an Azure storage account.</span></span> <span data-ttu-id="cb822-109">O aplicativo de funções do Azure escuta os eventos de Hub IoT do Azure, processa as mensagens recebidas e grava-as no armazenamento de Tabelas do Azure.</span><span class="sxs-lookup"><span data-stu-id="cb822-109">The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure Table storage.</span></span>
+- <span data-ttu-id="fd36f-108">Use um toocreate de modelo do Azure Resource Manager, um aplicativo de função do Azure e uma conta de armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="fd36f-108">Use an Azure Resource Manager template toocreate an Azure function app and an Azure storage account.</span></span> <span data-ttu-id="fd36f-109">aplicativo de função do Azure Olá escuta eventos de hub IoT tooAzure, processa as mensagens de entrada e grava o armazenamento de tabela tooAzure.</span><span class="sxs-lookup"><span data-stu-id="fd36f-109">hello Azure function app listens tooAzure IoT hub events, processes incoming messages, and writes them tooAzure Table storage.</span></span>
 
-<span data-ttu-id="cb822-110">Se você tiver problemas, procure as soluções na [página de solução de problemas](iot-hub-gateway-kit-c-sim-troubleshooting.md).</span><span class="sxs-lookup"><span data-stu-id="cb822-110">If you have any problems, look for solutions on the [troubleshooting page](iot-hub-gateway-kit-c-sim-troubleshooting.md).</span></span>
+<span data-ttu-id="fd36f-110">Se você tiver problemas, procure por soluções em Olá [página de solução de problemas](iot-hub-gateway-kit-c-sim-troubleshooting.md).</span><span class="sxs-lookup"><span data-stu-id="fd36f-110">If you have any problems, look for solutions on hello [troubleshooting page](iot-hub-gateway-kit-c-sim-troubleshooting.md).</span></span>
 
 
-## <a name="what-you-will-learn"></a><span data-ttu-id="cb822-111">O que você aprenderá</span><span class="sxs-lookup"><span data-stu-id="cb822-111">What you will learn</span></span>
+## <a name="what-you-will-learn"></a><span data-ttu-id="fd36f-111">O que você aprenderá</span><span class="sxs-lookup"><span data-stu-id="fd36f-111">What you will learn</span></span>
 
-<span data-ttu-id="cb822-112">Nesta lição, você aprenderá a:</span><span class="sxs-lookup"><span data-stu-id="cb822-112">In this lesson, you will learn:</span></span>
+<span data-ttu-id="fd36f-112">Nesta lição, você aprenderá:</span><span class="sxs-lookup"><span data-stu-id="fd36f-112">In this lesson, you will learn:</span></span>
 
-- <span data-ttu-id="cb822-113">Como usar o Azure Resource Manager para implantar recursos do Azure.</span><span class="sxs-lookup"><span data-stu-id="cb822-113">How to use Azure Resource Manager to deploy Azure resources.</span></span>
-- <span data-ttu-id="cb822-114">Como usar um aplicativo de funções do Azure para processar mensagens do Hub IoT e gravá-las em uma tabela no armazenamento de Tabelas do Azure.</span><span class="sxs-lookup"><span data-stu-id="cb822-114">How to use an Azure function app to process IoT Hub messages and write them to a table in Azure Table storage.</span></span>
+- <span data-ttu-id="fd36f-113">Como toouse toodeploy do Gerenciador de recursos do Azure recursos do Azure.</span><span class="sxs-lookup"><span data-stu-id="fd36f-113">How toouse Azure Resource Manager toodeploy Azure resources.</span></span>
+- <span data-ttu-id="fd36f-114">Como toouse do Azure funcionam aplicativo tooprocess mensagens de IoT Hub e gravá-los tooa tabela no armazenamento de tabela do Azure.</span><span class="sxs-lookup"><span data-stu-id="fd36f-114">How toouse an Azure function app tooprocess IoT Hub messages and write them tooa table in Azure Table storage.</span></span>
 
-## <a name="what-you-need"></a><span data-ttu-id="cb822-115">O que você precisa</span><span class="sxs-lookup"><span data-stu-id="cb822-115">What you need</span></span>
+## <a name="what-you-need"></a><span data-ttu-id="fd36f-115">O que você precisa</span><span class="sxs-lookup"><span data-stu-id="fd36f-115">What you need</span></span>
 
-<span data-ttu-id="cb822-116">Você deve ter concluído com sucesso as lições anteriores:</span><span class="sxs-lookup"><span data-stu-id="cb822-116">You must have successfully completed the previous lessons:</span></span>
+<span data-ttu-id="fd36f-116">Você deve ter concluído lições anteriores Olá com êxito:</span><span class="sxs-lookup"><span data-stu-id="fd36f-116">You must have successfully completed hello previous lessons:</span></span>
 
-- <span data-ttu-id="cb822-117">[Lesson 1: Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md) (Lição 1: Configurar a NUC da Intel como um gateway IoT)</span><span class="sxs-lookup"><span data-stu-id="cb822-117">[Lesson 1: Set up your Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)</span></span>
-- <span data-ttu-id="cb822-118">[Lesson 2: Get your host computer and Azure IoT hub ready](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md) (Lição 2: Prepare seu computador host e hub do IoT do Azure)</span><span class="sxs-lookup"><span data-stu-id="cb822-118">[Lesson 2: Get your host computer and Azure IoT hub ready](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)</span></span>
-- [<span data-ttu-id="cb822-119">Lição 3: Receber mensagens do dispositivo simulado e ler mensagens de seu Hub IoT</span><span class="sxs-lookup"><span data-stu-id="cb822-119">Lesson 3: Receive messages from the simulated device and read messages from your IoT hub</span></span>](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
+- <span data-ttu-id="fd36f-117">[Lesson 1: Set up Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md) (Lição 1: Configurar a NUC da Intel como um gateway IoT)</span><span class="sxs-lookup"><span data-stu-id="fd36f-117">[Lesson 1: Set up your Intel NUC as an IoT gateway](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)</span></span>
+- <span data-ttu-id="fd36f-118">[Lesson 2: Get your host computer and Azure IoT hub ready](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md) (Lição 2: Prepare seu computador host e hub do IoT do Azure)</span><span class="sxs-lookup"><span data-stu-id="fd36f-118">[Lesson 2: Get your host computer and Azure IoT hub ready](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)</span></span>
+- [<span data-ttu-id="fd36f-119">Lição 3: Receber mensagens de dispositivo simulado hello e ler mensagens de seu hub IoT</span><span class="sxs-lookup"><span data-stu-id="fd36f-119">Lesson 3: Receive messages from hello simulated device and read messages from your IoT hub</span></span>](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
 
-## <a name="open-a-sample-app"></a><span data-ttu-id="cb822-120">Abrir um aplicativo de exemplo</span><span class="sxs-lookup"><span data-stu-id="cb822-120">Open a sample app</span></span>
+## <a name="open-a-sample-app"></a><span data-ttu-id="fd36f-120">Abrir um aplicativo de exemplo</span><span class="sxs-lookup"><span data-stu-id="fd36f-120">Open a sample app</span></span>
 
-<span data-ttu-id="cb822-121">Vá para sua pasta do repositório `iot-hub-c-intel-nuc-gateway-getting-started`, inicialize os arquivos de configuração e, em seguida, abra o projeto de exemplo no código do Visual Studio, executando o seguinte comando:</span><span class="sxs-lookup"><span data-stu-id="cb822-121">Go to your `iot-hub-c-intel-nuc-gateway-getting-started` repo folder, initialize the configuration files, and then open the sample project in Visual Studio Code by running the following command:</span></span>
+<span data-ttu-id="fd36f-121">Vá tooyour `iot-hub-c-intel-nuc-gateway-getting-started` pasta do repositório, arquivos de configuração de saudação inicializar e projeto de exemplo hello, em seguida, abra no código do Visual Studio executando Olá comando a seguir:</span><span class="sxs-lookup"><span data-stu-id="fd36f-121">Go tooyour `iot-hub-c-intel-nuc-gateway-getting-started` repo folder, initialize hello configuration files, and then open hello sample project in Visual Studio Code by running hello following command:</span></span>
 
 ```bash
 cd Lesson4
@@ -62,29 +62,29 @@ code .
 
 ![estrutura do repositório](media/iot-hub-gateway-kit-lessons/lesson4/arm_template.png)
 
-- <span data-ttu-id="cb822-123">O arquivo `arm-template.json` é o modelo do Azure Resource Manager que contém um aplicativo de funções do Azure e uma conta de Armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="cb822-123">The `arm-template.json` file is the Azure Resource Manager template that contains an Azure function app and an Azure storage account.</span></span>
-- <span data-ttu-id="cb822-124">O arquivo `arm-template-param.json` é o arquivo de configuração usado pelo modelo do Azure Resource Manager.</span><span class="sxs-lookup"><span data-stu-id="cb822-124">The `arm-template-param.json` file is the configuration file used by the Azure Resource Manager template.</span></span>
-- <span data-ttu-id="cb822-125">A subpasta `ReceiveDeviceMessages` contém o código do Node.js para a função do Azure.</span><span class="sxs-lookup"><span data-stu-id="cb822-125">The `ReceiveDeviceMessages` subfolder contains the Node.js code for the Azure function.</span></span>
+- <span data-ttu-id="fd36f-123">Olá `arm-template.json` arquivo é hello Azure Resource Manager modelo que contém um aplicativo de função do Azure e uma conta de armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="fd36f-123">hello `arm-template.json` file is hello Azure Resource Manager template that contains an Azure function app and an Azure storage account.</span></span>
+- <span data-ttu-id="fd36f-124">Olá `arm-template-param.json` arquivo é o arquivo de configuração de saudação usado pelo modelo do Azure Resource Manager hello.</span><span class="sxs-lookup"><span data-stu-id="fd36f-124">hello `arm-template-param.json` file is hello configuration file used by hello Azure Resource Manager template.</span></span>
+- <span data-ttu-id="fd36f-125">Olá `ReceiveDeviceMessages` subpasta contém o código de Node. js Olá para Olá função do Azure.</span><span class="sxs-lookup"><span data-stu-id="fd36f-125">hello `ReceiveDeviceMessages` subfolder contains hello Node.js code for hello Azure function.</span></span>
 
-## <a name="configure-azure-resource-manager-templates-and-create-resources-in-azure"></a><span data-ttu-id="cb822-126">Configurar modelos do Azure Resource Manager e criar recursos no Azure</span><span class="sxs-lookup"><span data-stu-id="cb822-126">Configure Azure Resource Manager templates and create resources in Azure</span></span>
+## <a name="configure-azure-resource-manager-templates-and-create-resources-in-azure"></a><span data-ttu-id="fd36f-126">Configurar modelos do Azure Resource Manager e criar recursos no Azure</span><span class="sxs-lookup"><span data-stu-id="fd36f-126">Configure Azure Resource Manager templates and create resources in Azure</span></span>
 
-<span data-ttu-id="cb822-127">Atualize o arquivo `arm-template-param.json` no Visual Studio Code.</span><span class="sxs-lookup"><span data-stu-id="cb822-127">Update the `arm-template-param.json` file in Visual Studio Code.</span></span>
+<span data-ttu-id="fd36f-127">Saudação de atualização `arm-template-param.json` arquivo no código do Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="fd36f-127">Update hello `arm-template-param.json` file in Visual Studio Code.</span></span>
 
 ![arm template json](media/iot-hub-gateway-kit-lessons/lesson4/arm_template_param.png)
 
-- <span data-ttu-id="cb822-129">Substitua `[your IoT Hub name]` pelo `{my hub name}` especificado na Lição 2.</span><span class="sxs-lookup"><span data-stu-id="cb822-129">Replace `[your IoT Hub name]` with `{my hub name}` that you specified in Lesson 2.</span></span>
+- <span data-ttu-id="fd36f-129">Substitua `[your IoT Hub name]` pelo `{my hub name}` especificado na Lição 2.</span><span class="sxs-lookup"><span data-stu-id="fd36f-129">Replace `[your IoT Hub name]` with `{my hub name}` that you specified in Lesson 2.</span></span>
 
-<span data-ttu-id="cb822-130">Depois de atualizar o arquivo `arm-template-param.json`, implante os recursos do Azure executando o seguinte comando:</span><span class="sxs-lookup"><span data-stu-id="cb822-130">After you update the `arm-template-param.json` file, deploy the resources to Azure by running the following command:</span></span>
+<span data-ttu-id="fd36f-130">Depois de atualizar Olá `arm-template-param.json` de arquivos, implante Olá recursos tooAzure executando Olá comando a seguir:</span><span class="sxs-lookup"><span data-stu-id="fd36f-130">After you update hello `arm-template-param.json` file, deploy hello resources tooAzure by running hello following command:</span></span>
 
 ```bash
 az group deployment create --template-file arm-template.json --parameters @arm-template-param.json -g iot-gateway
 ```
 
-<span data-ttu-id="cb822-131">Use `iot-gateway` como o valor de `{resource group name}` se não tiver alterado o valor na Lição 2.</span><span class="sxs-lookup"><span data-stu-id="cb822-131">Use `iot-gateway` as the value of `{resource group name}` if you didn't change the value in Lesson 2.</span></span>
+<span data-ttu-id="fd36f-131">Use `iot-gateway` como valor de saudação do `{resource group name}` se você não alterar o valor de saudação na lição 2.</span><span class="sxs-lookup"><span data-stu-id="fd36f-131">Use `iot-gateway` as hello value of `{resource group name}` if you didn't change hello value in Lesson 2.</span></span>
 
-## <a name="summary"></a><span data-ttu-id="cb822-132">Resumo</span><span class="sxs-lookup"><span data-stu-id="cb822-132">Summary</span></span>
+## <a name="summary"></a><span data-ttu-id="fd36f-132">Resumo</span><span class="sxs-lookup"><span data-stu-id="fd36f-132">Summary</span></span>
 
-<span data-ttu-id="cb822-133">Você criou o aplicativo de funções do Azure para processar as mensagens de hub IoT e uma conta de Armazenamento do Azure para armazenar essas mensagens.</span><span class="sxs-lookup"><span data-stu-id="cb822-133">You've created your Azure function app to process IoT hub messages and an Azure storage account to store these messages.</span></span> <span data-ttu-id="cb822-134">Agora você pode ler as mensagens enviadas pelo gateway para o hub IoT.</span><span class="sxs-lookup"><span data-stu-id="cb822-134">You can now read messages that are sent by your gateway to your IoT hub.</span></span>
+<span data-ttu-id="fd36f-133">Você criou seu tooprocess do aplicativo de função do Azure mensagens de hub IoT e o armazenamento do Azure conta toostore essas mensagens.</span><span class="sxs-lookup"><span data-stu-id="fd36f-133">You've created your Azure function app tooprocess IoT hub messages and an Azure storage account toostore these messages.</span></span> <span data-ttu-id="fd36f-134">Agora você pode ler as mensagens enviadas pelo hub IoT de tooyour de gateway.</span><span class="sxs-lookup"><span data-stu-id="fd36f-134">You can now read messages that are sent by your gateway tooyour IoT hub.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="cb822-135">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="cb822-135">Next steps</span></span>
-<span data-ttu-id="cb822-136">[Read messages persisted in Azure Table storage](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md) (Ler as mensagens persistidas no Armazenamento de Tabelas do Azure).</span><span class="sxs-lookup"><span data-stu-id="cb822-136">[Read messages persisted in Azure Storage](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="fd36f-135">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="fd36f-135">Next steps</span></span>
+<span data-ttu-id="fd36f-136">[Read messages persisted in Azure Table storage](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md) (Ler as mensagens persistidas no Armazenamento de Tabelas do Azure).</span><span class="sxs-lookup"><span data-stu-id="fd36f-136">[Read messages persisted in Azure Storage](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md).</span></span>

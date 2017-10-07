@@ -1,6 +1,6 @@
 ---
-title: Implantar o modelo do Azure com o token SAS e a CLI do Azure | Microsoft Docs
-description: "Use o Azure Resource Manager e a CLI do Azure para implantar recursos para o Azure de um modelo que é protegido com o token SAS."
+title: aaaDeploy modelo do Azure com o token SAS e a CLI do Azure | Microsoft Docs
+description: "Use o Gerenciador de recursos do Azure e a CLI do Azure toodeploy tooAzure de recursos de um modelo que está protegido com token SAS."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: 22387aadd8f53a65efb76a29a9403c46a2c25954
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 59c64616d6e1f5e456d88a72854d0ed99e1bdc0d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-cli"></a><span data-ttu-id="f8f1d-103">Implantar o modelo particular do Resource Manager com a CLI do Azure e o token SAS</span><span class="sxs-lookup"><span data-stu-id="f8f1d-103">Deploy private Resource Manager template with SAS token and Azure CLI</span></span>
+# <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-cli"></a><span data-ttu-id="85b76-103">Implantar o modelo particular do Resource Manager com a CLI do Azure e o token SAS</span><span class="sxs-lookup"><span data-stu-id="85b76-103">Deploy private Resource Manager template with SAS token and Azure CLI</span></span>
 
-<span data-ttu-id="f8f1d-104">Quando seu modelo reside em uma conta de armazenamento, você pode restringir o acesso a ele e fornecer um token de SAS (Assinatura de Acesso Compartilhado) durante a implantação.</span><span class="sxs-lookup"><span data-stu-id="f8f1d-104">When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.</span></span> <span data-ttu-id="f8f1d-105">Este tópico explica como usar o Azure PowerShell com modelos do Resource Manager para fornecer um token SAS durante a implantação.</span><span class="sxs-lookup"><span data-stu-id="f8f1d-105">This topic explains how to use Azure PowerShell with Resource Manager templates to provide a SAS token during deployment.</span></span> 
+<span data-ttu-id="85b76-104">Quando o modelo estiver em uma conta de armazenamento, você pode restringir o modelo de toohello de acesso e fornecer um token de assinatura (SAS) de acesso compartilhado durante a implantação.</span><span class="sxs-lookup"><span data-stu-id="85b76-104">When your template resides in a storage account, you can restrict access toohello template and provide a shared access signature (SAS) token during deployment.</span></span> <span data-ttu-id="85b76-105">Este tópico explica como toouse PowerShell do Azure com o Gerenciador de recursos modelos tooprovide um token SAS durante a implantação.</span><span class="sxs-lookup"><span data-stu-id="85b76-105">This topic explains how toouse Azure PowerShell with Resource Manager templates tooprovide a SAS token during deployment.</span></span> 
 
-## <a name="add-private-template-to-storage-account"></a><span data-ttu-id="f8f1d-106">Adicionar modelo privado à conta de armazenamento</span><span class="sxs-lookup"><span data-stu-id="f8f1d-106">Add private template to storage account</span></span>
+## <a name="add-private-template-toostorage-account"></a><span data-ttu-id="85b76-106">Adicionar modelo particular toostorage conta</span><span class="sxs-lookup"><span data-stu-id="85b76-106">Add private template toostorage account</span></span>
 
-<span data-ttu-id="f8f1d-107">Você pode adicionar seus modelos a uma conta de armazenamento e vinculá-los durante a implantação com um token SAS.</span><span class="sxs-lookup"><span data-stu-id="f8f1d-107">You can add your templates to a storage account and link to them during deployment with a SAS token.</span></span>
+<span data-ttu-id="85b76-107">Você pode adicionar sua conta de armazenamento tooa modelos e vincular toothem durante a implantação com um token SAS.</span><span class="sxs-lookup"><span data-stu-id="85b76-107">You can add your templates tooa storage account and link toothem during deployment with a SAS token.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="f8f1d-108">Seguindo as etapas abaixo, o blob que contém o modelo fica acessível somente para o proprietário da conta.</span><span class="sxs-lookup"><span data-stu-id="f8f1d-108">By following the steps below, the blob containing the template is accessible to only the account owner.</span></span> <span data-ttu-id="f8f1d-109">No entanto, quando você cria um token SAS para o blob, o blob fica acessível para qualquer pessoa com o URI.</span><span class="sxs-lookup"><span data-stu-id="f8f1d-109">However, when you create a SAS token for the blob, the blob is accessible to anyone with that URI.</span></span> <span data-ttu-id="f8f1d-110">Se outro usuário interceptar o URI, esse usuário será capaz de acessar o modelo.</span><span class="sxs-lookup"><span data-stu-id="f8f1d-110">If another user intercepts the URI, that user is able to access the template.</span></span> <span data-ttu-id="f8f1d-111">Usar um token SAS é uma boa maneira de limitar o acesso aos seus modelos, mas você não deve incluir dados confidenciais como senhas diretamente no modelo.</span><span class="sxs-lookup"><span data-stu-id="f8f1d-111">Using a SAS token is a good way of limiting access to your templates, but you should not include sensitive data like passwords directly in the template.</span></span>
+> <span data-ttu-id="85b76-108">Seguindo as etapas de saudação abaixo, o blob de saudação que contém o modelo de saudação é proprietário da conta Olá tooonly acessível.</span><span class="sxs-lookup"><span data-stu-id="85b76-108">By following hello steps below, hello blob containing hello template is accessible tooonly hello account owner.</span></span> <span data-ttu-id="85b76-109">No entanto, quando você cria um token SAS para blob hello, blob Olá é tooanyone acessível com esse URI.</span><span class="sxs-lookup"><span data-stu-id="85b76-109">However, when you create a SAS token for hello blob, hello blob is accessible tooanyone with that URI.</span></span> <span data-ttu-id="85b76-110">Se outro usuário interceptar Olá URI, esse usuário será capaz de tooaccess modelo de saudação.</span><span class="sxs-lookup"><span data-stu-id="85b76-110">If another user intercepts hello URI, that user is able tooaccess hello template.</span></span> <span data-ttu-id="85b76-111">Usar um token SAS é uma boa maneira de limitar o acesso tooyour modelos, mas você não deve incluir dados confidenciais, como senhas diretamente no modelo de saudação.</span><span class="sxs-lookup"><span data-stu-id="85b76-111">Using a SAS token is a good way of limiting access tooyour templates, but you should not include sensitive data like passwords directly in hello template.</span></span>
 > 
 > 
 
-<span data-ttu-id="f8f1d-112">O seguinte exemplo configura um contêiner de conta de armazenamento privado e carrega um modelo:</span><span class="sxs-lookup"><span data-stu-id="f8f1d-112">The following example sets up a private storage account container and uploads a template:</span></span>
+<span data-ttu-id="85b76-112">Olá exemplo a seguir configura um contêiner de conta de armazenamento privado e carrega um modelo:</span><span class="sxs-lookup"><span data-stu-id="85b76-112">hello following example sets up a private storage account container and uploads a template:</span></span>
    
 ```azurecli
 az group create --name "ManageGroup" --location "South Central US"
@@ -58,8 +58,8 @@ az storage blob upload \
     --connection-string $connection
 ```
 
-### <a name="provide-sas-token-during-deployment"></a><span data-ttu-id="f8f1d-113">Forneça um token SAS durante a implantação</span><span class="sxs-lookup"><span data-stu-id="f8f1d-113">Provide SAS token during deployment</span></span>
-<span data-ttu-id="f8f1d-114">Para implantar um modelo privado em uma conta de armazenamento, gere um token SAS e inclua-o no URI para o modelo.</span><span class="sxs-lookup"><span data-stu-id="f8f1d-114">To deploy a private template in a storage account, generate a SAS token and include it in the URI for the template.</span></span> <span data-ttu-id="f8f1d-115">Defina a hora de vencimento de forma a permitir que haja tempo suficiente para concluir a implantação.</span><span class="sxs-lookup"><span data-stu-id="f8f1d-115">Set the expiry time to allow enough time to complete the deployment.</span></span>
+### <a name="provide-sas-token-during-deployment"></a><span data-ttu-id="85b76-113">Forneça um token SAS durante a implantação</span><span class="sxs-lookup"><span data-stu-id="85b76-113">Provide SAS token during deployment</span></span>
+<span data-ttu-id="85b76-114">toodeploy um modelo particular em uma conta de armazenamento, gerar um token SAS e incluí-lo em hello URI para o modelo de saudação.</span><span class="sxs-lookup"><span data-stu-id="85b76-114">toodeploy a private template in a storage account, generate a SAS token and include it in hello URI for hello template.</span></span> <span data-ttu-id="85b76-115">Defina tooallow de tempo de expiração Olá suficiente implantação toocomplete hello.</span><span class="sxs-lookup"><span data-stu-id="85b76-115">Set hello expiry time tooallow enough time toocomplete hello deployment.</span></span>
    
 ```azurecli
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
@@ -82,10 +82,10 @@ url=$(az storage blob url \
 az group deployment create --resource-group ExampleGroup --template-uri $url?$token
 ```
 
-<span data-ttu-id="f8f1d-116">Para ver um exemplo de como usar um token SAS com modelos vinculados, consulte [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).</span><span class="sxs-lookup"><span data-stu-id="f8f1d-116">For an example of using a SAS token with linked templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).</span></span>
+<span data-ttu-id="85b76-116">Para ver um exemplo de como usar um token SAS com modelos vinculados, consulte [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).</span><span class="sxs-lookup"><span data-stu-id="85b76-116">For an example of using a SAS token with linked templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="f8f1d-117">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="f8f1d-117">Next steps</span></span>
-* <span data-ttu-id="f8f1d-118">Para obter uma introdução à implantação de modelos, veja [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](resource-group-template-deploy-cli.md).</span><span class="sxs-lookup"><span data-stu-id="f8f1d-118">For an introduction to deploying templates, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy-cli.md).</span></span>
-* <span data-ttu-id="f8f1d-119">Para um script de exemplo completo que implanta um modelo, veja [Implantar o script de modelo do Resource Manager](resource-manager-samples-cli-deploy.md)</span><span class="sxs-lookup"><span data-stu-id="f8f1d-119">For a complete sample script that deploys a template, see [Deploy Resource Manager template script](resource-manager-samples-cli-deploy.md)</span></span>
-* <span data-ttu-id="f8f1d-120">Para definir os parâmetros no modelo, consulte [Criando modelos](resource-group-authoring-templates.md#parameters).</span><span class="sxs-lookup"><span data-stu-id="f8f1d-120">To define parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).</span></span>
-* <span data-ttu-id="f8f1d-121">Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).</span><span class="sxs-lookup"><span data-stu-id="f8f1d-121">For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="85b76-117">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="85b76-117">Next steps</span></span>
+* <span data-ttu-id="85b76-118">Para modelos de toodeploying uma introdução, consulte [implantar recursos com modelos do Gerenciador de recursos e o Azure PowerShell](resource-group-template-deploy-cli.md).</span><span class="sxs-lookup"><span data-stu-id="85b76-118">For an introduction toodeploying templates, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy-cli.md).</span></span>
+* <span data-ttu-id="85b76-119">Para um script de exemplo completo que implanta um modelo, veja [Implantar o script de modelo do Resource Manager](resource-manager-samples-cli-deploy.md)</span><span class="sxs-lookup"><span data-stu-id="85b76-119">For a complete sample script that deploys a template, see [Deploy Resource Manager template script](resource-manager-samples-cli-deploy.md)</span></span>
+* <span data-ttu-id="85b76-120">parâmetros de toodefine no modelo, consulte [criar modelos](resource-group-authoring-templates.md#parameters).</span><span class="sxs-lookup"><span data-stu-id="85b76-120">toodefine parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).</span></span>
+* <span data-ttu-id="85b76-121">Para obter diretrizes sobre como as empresas podem usar o Gerenciador de recursos tooeffectively gerenciar assinaturas, consulte [scaffold enterprise do Azure - controle de assinatura prescritivas](resource-manager-subscription-governance.md).</span><span class="sxs-lookup"><span data-stu-id="85b76-121">For guidance on how enterprises can use Resource Manager tooeffectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).</span></span>

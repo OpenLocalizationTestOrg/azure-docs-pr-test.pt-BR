@@ -1,0 +1,110 @@
+---
+title: "aaaScenario - criar um painel de informações do cliente com o Azure sem servidor | Microsoft Docs"
+description: "Um exemplo de como você pode criar um cliente do painel toomanage comentários, dados sociais e muito mais com os aplicativos lógicos do Azure e funções do Azure."
+keywords: 
+services: logic-apps
+author: jeffhollan
+manager: anneta
+editor: 
+documentationcenter: 
+ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/29/2017
+ms.author: jehollan
+ms.openlocfilehash: db175e895e37aa795a9c34bf4d65566bf68f8c37
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/06/2017
+---
+# <a name="create-a-real-time-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a><span data-ttu-id="3dddb-103">Criação de um painel de informações do cliente em tempo real com aplicativos lógicos do Azure e funções do Azure</span><span class="sxs-lookup"><span data-stu-id="3dddb-103">Create a real-time customer insights dashboard with Azure Logic Apps and Azure Functions</span></span>
+
+<span data-ttu-id="3dddb-104">As ferramentas do Azure sem servidor fornecem recursos avançados tooquickly crie e hospede aplicativos em nuvem Olá, sem que seja toothink sobre infra-estrutura.</span><span class="sxs-lookup"><span data-stu-id="3dddb-104">Azure Serverless tools provide powerful capabilities tooquickly build and host applications in hello cloud, without having toothink about infrastructure.</span></span>  <span data-ttu-id="3dddb-105">Nesse cenário, podemos criar um painel tootrigger nos comentários dos clientes, analisar comentários com o aprendizado de máquina e publicar informações de uma fonte como o Power BI ou o Azure Data Lake.</span><span class="sxs-lookup"><span data-stu-id="3dddb-105">In this scenario, we will create a dashboard tootrigger on customer feedback, analyze feedback with machine learning, and publish insights a source like Power BI or Azure Data Lake.</span></span>
+
+## <a name="overview-of-hello-scenario-and-tools-used"></a><span data-ttu-id="3dddb-106">Visão geral do cenário de saudação e ferramentas usadas</span><span class="sxs-lookup"><span data-stu-id="3dddb-106">Overview of hello scenario and tools used</span></span>
+
+<span data-ttu-id="3dddb-107">Em ordem tooimplement essa solução, estenderemos componentes-chave Olá dois dos aplicativos sem servidor no Azure: [funções do Azure](https://azure.microsoft.com/services/functions/) e [aplicativos do Azure lógica](https://azure.microsoft.com/services/logic-apps/).</span><span class="sxs-lookup"><span data-stu-id="3dddb-107">In order tooimplement this solution, we will leverage hello two key components of serverless apps in Azure: [Azure Functions](https://azure.microsoft.com/services/functions/) and [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).</span></span>
+
+<span data-ttu-id="3dddb-108">Lógica de aplicativos é um mecanismo de fluxo de trabalho sem servidor na nuvem hello.</span><span class="sxs-lookup"><span data-stu-id="3dddb-108">Logic Apps is a serverless workflow engine in hello cloud.</span></span>  <span data-ttu-id="3dddb-109">Ele fornece orquestração em componentes sem servidor e também conecta 100 serviços tooover e APIs.</span><span class="sxs-lookup"><span data-stu-id="3dddb-109">It provides orchestration across serverless components, and also connects tooover 100 services and APIs.</span></span>  <span data-ttu-id="3dddb-110">Para este cenário, vamos criar um tootrigger de aplicativo lógica nos comentários dos clientes.</span><span class="sxs-lookup"><span data-stu-id="3dddb-110">For this scenario, we will create a logic app tootrigger on feedback from customers.</span></span>  <span data-ttu-id="3dddb-111">Alguns dos conectores de saudação que podem ajudá-lo reagindo toocustomer comentários incluem Outlook.com, Office 365, pesquisa Monkey, Twitter e uma solicitação HTTP [de um formulário web](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/).</span><span class="sxs-lookup"><span data-stu-id="3dddb-111">Some of hello connectors that can assist in reacting toocustomer feedback include Outlook.com, Office 365, Survey Monkey, Twitter, and an HTTP Request [from a web form](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/).</span></span>  <span data-ttu-id="3dddb-112">Olá fluxo de trabalho abaixo, podemos irá monitorar um hashtag no Twitter.</span><span class="sxs-lookup"><span data-stu-id="3dddb-112">For hello workflow below, we will monitor a hashtag on Twitter.</span></span>
+
+<span data-ttu-id="3dddb-113">As funções fornecem serverless computação em nuvem hello.</span><span class="sxs-lookup"><span data-stu-id="3dddb-113">Functions provide serverless compute in hello cloud.</span></span>  <span data-ttu-id="3dddb-114">Nesse cenário, usaremos funções do Azure tooflag tweets de clientes com base em uma série de palavras-chave predefinidas.</span><span class="sxs-lookup"><span data-stu-id="3dddb-114">In this scenario, we will use Azure Functions tooflag tweets from customers based on a series of pre-defined key words.</span></span>
+
+<span data-ttu-id="3dddb-115">pode ser a solução inteira Olá [criados no Visual Studio](logic-apps-deploy-from-vs.md) e [implantado como parte de um modelo de recurso](logic-apps-create-deploy-template.md).</span><span class="sxs-lookup"><span data-stu-id="3dddb-115">hello entire solution can be [build in Visual Studio](logic-apps-deploy-from-vs.md) and [deployed as part of a resource template](logic-apps-create-deploy-template.md).</span></span>  <span data-ttu-id="3dddb-116">Também há vídeo passo a passo do cenário de saudação [no Channel 9](http://aka.ms/logicappsdemo).</span><span class="sxs-lookup"><span data-stu-id="3dddb-116">There is also video walkthrough of hello scenario [on Channel 9](http://aka.ms/logicappsdemo).</span></span>
+
+## <a name="build-hello-logic-app-tootrigger-on-customer-data"></a><span data-ttu-id="3dddb-117">Criar hello lógica aplicativo tootrigger em dados de clientes</span><span class="sxs-lookup"><span data-stu-id="3dddb-117">Build hello logic app tootrigger on customer data</span></span>
+
+<span data-ttu-id="3dddb-118">Depois de [criando um aplicativo lógico](logic-apps-create-a-logic-app.md) no Visual Studio ou Olá portal do Azure:</span><span class="sxs-lookup"><span data-stu-id="3dddb-118">After [creating a logic app](logic-apps-create-a-logic-app.md) in Visual Studio or hello Azure portal:</span></span>
+
+1. <span data-ttu-id="3dddb-119">Adicione um gatilho para **novos tweets** do Twitter</span><span class="sxs-lookup"><span data-stu-id="3dddb-119">Add a trigger for **On New Tweets** from Twitter</span></span>
+2. <span data-ttu-id="3dddb-120">Configure Olá gatilho toolisten tootweets em uma palavra-chave ou hashtag.</span><span class="sxs-lookup"><span data-stu-id="3dddb-120">Configure hello trigger toolisten tootweets on a keyword or hashtag.</span></span>
+
+   > [!NOTE]
+   > <span data-ttu-id="3dddb-121">propriedade de recorrência Olá no disparador Olá determinará a frequência Olá lógica aplicativo verifica novos itens no disparador de sondagem</span><span class="sxs-lookup"><span data-stu-id="3dddb-121">hello recurrence property on hello trigger will determine how frequently hello logic app checks for new items on polling-based triggers</span></span>
+
+   ![Exemplo de gatilho do Twitter][1]
+
+<span data-ttu-id="3dddb-123">Agora, este aplicativo será acionado em todos os tweets novos.</span><span class="sxs-lookup"><span data-stu-id="3dddb-123">This app will now fire on all new tweets.</span></span>  <span data-ttu-id="3dddb-124">Em seguida, podemos levar dados tweet e compreender melhor sentimento Olá expressado.</span><span class="sxs-lookup"><span data-stu-id="3dddb-124">We can then take that tweet data and understand more of hello sentiment expressed.</span></span>  <span data-ttu-id="3dddb-125">Para isso, usamos Olá [serviço cognitivas Azure](https://azure.microsoft.com/services/cognitive-services/) toodetect sentimento do texto.</span><span class="sxs-lookup"><span data-stu-id="3dddb-125">For this we use hello [Azure Cognitive Service](https://azure.microsoft.com/services/cognitive-services/) toodetect sentiment of text.</span></span>
+
+1. <span data-ttu-id="3dddb-126">Clique em **Nova Etapa**</span><span class="sxs-lookup"><span data-stu-id="3dddb-126">Click **New Step**</span></span>
+1. <span data-ttu-id="3dddb-127">Selecione ou procure Olá **análises de texto** conector</span><span class="sxs-lookup"><span data-stu-id="3dddb-127">Select or search for hello **Text Analytics** connector</span></span>
+1. <span data-ttu-id="3dddb-128">Selecione Olá **detectar sentimento** operação</span><span class="sxs-lookup"><span data-stu-id="3dddb-128">Select hello **Detect Sentiment** operation</span></span>
+1. <span data-ttu-id="3dddb-129">Se solicitado, forneça uma chave de serviços Cognitivos válida para o serviço de análise do texto de saudação</span><span class="sxs-lookup"><span data-stu-id="3dddb-129">If prompted, provide a valid Cognitive Services key for hello Text Analytics service</span></span>
+1. <span data-ttu-id="3dddb-130">Adicionar Olá **texto escrito** como Olá tooanalyze de texto.</span><span class="sxs-lookup"><span data-stu-id="3dddb-130">Add hello **Tweet Text** as hello text tooanalyze.</span></span>
+
+<span data-ttu-id="3dddb-131">Agora que temos Olá tweet dados e insights tweet hello, um número de outros conectores pode ser relevante:</span><span class="sxs-lookup"><span data-stu-id="3dddb-131">Now that we have hello tweet data, and insights on hello tweet, a number of other connectors may be relevant:</span></span>
+* <span data-ttu-id="3dddb-132">Power BI - adicionar linhas tooStreaming conjunto de dados: tweets de exibição em tempo real em um painel do Power BI.</span><span class="sxs-lookup"><span data-stu-id="3dddb-132">Power BI - Add Rows tooStreaming Dataset: View tweets real time on a Power BI dashboard.</span></span>
+* <span data-ttu-id="3dddb-133">Azure Data Lake - anexar o arquivo: Adicionar cliente dados tooan Azure Data Lake dataset tooinclude em trabalhos de análise.</span><span class="sxs-lookup"><span data-stu-id="3dddb-133">Azure Data Lake - Append file: Add customer data tooan Azure Data Lake dataset tooinclude in analytics jobs.</span></span>
+* <span data-ttu-id="3dddb-134">SQL - Adicionar linhas: armazenar dados em um banco de dados para recuperação posterior.</span><span class="sxs-lookup"><span data-stu-id="3dddb-134">SQL - Add rows: Store data in a database for later retrieval.</span></span>
+* <span data-ttu-id="3dddb-135">Slack - Envia a mensagem: um canal do Slack quando um comentário negativo requer ações de alerta.</span><span class="sxs-lookup"><span data-stu-id="3dddb-135">Slack - Send message: Alert a slack channel on negative feedback that requires actions.</span></span>
+
+<span data-ttu-id="3dddb-136">Uma função do Azure também pode ser usado toodo computação personalizada mais sobre os dados de saudação.</span><span class="sxs-lookup"><span data-stu-id="3dddb-136">An Azure Function can also be used toodo more custom compute on top of hello data.</span></span>
+
+## <a name="enriching-hello-data-with-an-azure-function"></a><span data-ttu-id="3dddb-137">Enriquecer Olá dados com uma função do Azure</span><span class="sxs-lookup"><span data-stu-id="3dddb-137">Enriching hello data with an Azure Function</span></span>
+
+<span data-ttu-id="3dddb-138">Antes, podemos criar uma função, é preciso toohave um aplicativo de função em nossa assinatura do Azure.</span><span class="sxs-lookup"><span data-stu-id="3dddb-138">Before we can create a function, we need toohave a function app in our Azure subscription.</span></span>  <span data-ttu-id="3dddb-139">Detalhes sobre a criação de uma função do Azure no portal de saudação podem [ser encontradas aqui](../azure-functions/functions-create-first-azure-function-azure-portal.md)</span><span class="sxs-lookup"><span data-stu-id="3dddb-139">Details on creating an Azure Function in hello portal can [be found here](../azure-functions/functions-create-first-azure-function-azure-portal.md)</span></span>
+
+<span data-ttu-id="3dddb-140">Para uma toobe função chamado diretamente de um aplicativo lógico, ele precisa toohave um HTTP disparar a associação.</span><span class="sxs-lookup"><span data-stu-id="3dddb-140">For a function toobe called directly from a logic app, it needs toohave an HTTP trigger binding.</span></span>  <span data-ttu-id="3dddb-141">É recomendável usar Olá **HttpTrigger** modelo.</span><span class="sxs-lookup"><span data-stu-id="3dddb-141">We recommend using hello **HttpTrigger** template.</span></span>
+
+<span data-ttu-id="3dddb-142">Nesse cenário, o corpo de solicitação de saudação do hello Azure função seria texto escrito de saudação.</span><span class="sxs-lookup"><span data-stu-id="3dddb-142">In this scenario, hello request body of hello Azure Function would be hello tweet text.</span></span>  <span data-ttu-id="3dddb-143">No código de função hello, simplesmente defina a lógica em se o texto do hello tweet contém uma palavra-chave ou frase.</span><span class="sxs-lookup"><span data-stu-id="3dddb-143">In hello function code, simply define logic on if hello tweet text contains a key word or phrase.</span></span>  <span data-ttu-id="3dddb-144">função Hello próprio poderia ser mantida como simples ou complexa, conforme necessário para o cenário de saudação.</span><span class="sxs-lookup"><span data-stu-id="3dddb-144">hello function itself could be kept as simple or complex as needed for hello scenario.</span></span>
+
+<span data-ttu-id="3dddb-145">Final de saudação de função hello, simplesmente retorne um aplicativo de lógica de toohello de resposta com alguns dados.</span><span class="sxs-lookup"><span data-stu-id="3dddb-145">At hello end of hello function, simply return a response toohello logic app with some data.</span></span>  <span data-ttu-id="3dddb-146">Isso pode ser um valor booliano simples (por exemplo, `containsKeyword`), ou um objeto complexo.</span><span class="sxs-lookup"><span data-stu-id="3dddb-146">This could be a simple boolean value (e.g. `containsKeyword`), or a complex object.</span></span>
+
+![Etapa de função do Azure configurada][2]
+
+> [!TIP]
+> <span data-ttu-id="3dddb-148">Ao acessar uma resposta complexa de uma função em um aplicativo da lógica, use a ação de analisar o JSON de saudação.</span><span class="sxs-lookup"><span data-stu-id="3dddb-148">When accessing a complex response from a function in a logic app, use hello Parse JSON action.</span></span>
+
+<span data-ttu-id="3dddb-149">Depois que a função hello for salvo, podem ser adicionada em Olá lógica aplicativo criado acima.</span><span class="sxs-lookup"><span data-stu-id="3dddb-149">Once hello function is saved, it can be added into hello logic app created above.</span></span>  <span data-ttu-id="3dddb-150">No aplicativo de lógica de saudação:</span><span class="sxs-lookup"><span data-stu-id="3dddb-150">In hello logic app:</span></span>
+
+1. <span data-ttu-id="3dddb-151">Clique em tooadd um **nova etapa**</span><span class="sxs-lookup"><span data-stu-id="3dddb-151">Click tooadd a **New Step**</span></span>
+1. <span data-ttu-id="3dddb-152">Selecione Olá **funções do Azure** conector</span><span class="sxs-lookup"><span data-stu-id="3dddb-152">Select hello **Azure Functions** connector</span></span>
+1. <span data-ttu-id="3dddb-153">Selecione toochoose uma função existente e procurar função toohello criada</span><span class="sxs-lookup"><span data-stu-id="3dddb-153">Select toochoose an existing function, and browse toohello function created</span></span>
+1. <span data-ttu-id="3dddb-154">Enviar em Olá **texto escrito** para Olá **corpo da solicitação**</span><span class="sxs-lookup"><span data-stu-id="3dddb-154">Send in hello **Tweet Text** for hello **Request Body**</span></span>
+
+## <a name="running-and-monitoring-hello-solution"></a><span data-ttu-id="3dddb-155">Executando e Olá solução de monitoramento</span><span class="sxs-lookup"><span data-stu-id="3dddb-155">Running and monitoring hello solution</span></span>
+
+<span data-ttu-id="3dddb-156">Um dos benefícios de saudação de orquestrações sem servidor de aplicativos lógicos de criação é depuração avançada hello e recursos de monitoramento.</span><span class="sxs-lookup"><span data-stu-id="3dddb-156">One of hello benefits of authoring serverless orchestrations in Logic Apps is hello rich debug and monitoring capabilities.</span></span>  <span data-ttu-id="3dddb-157">Qualquer execução (atual ou histórica) pode ser exibida no Visual Studio, Olá portal do Azure, ou por meio de hello API REST e SDKs.</span><span class="sxs-lookup"><span data-stu-id="3dddb-157">Any run (current or historic) can be viewed from within Visual Studio, hello Azure portal, or via hello REST API and SDKs.</span></span>
+
+<span data-ttu-id="3dddb-158">Um dos tootest de maneiras mais fácil Olá um lógica de aplicativo está usando Olá **executar** botão no designer de saudação.</span><span class="sxs-lookup"><span data-stu-id="3dddb-158">One of hello easiest ways tootest a logic app is using hello **Run** button in hello designer.</span></span>  <span data-ttu-id="3dddb-159">Clicando em **executar** continuará gatilho de saudação toopoll 5 segundos até que um evento é detectado e fornecer uma exibição ao vivo à medida que avança Olá executar.</span><span class="sxs-lookup"><span data-stu-id="3dddb-159">Clicking **Run** will continue toopoll hello trigger every 5 seconds until an event is detected, and give a live view as hello run progresses.</span></span>
+
+<span data-ttu-id="3dddb-160">Históricos de execução anteriores podem ser exibidos na folha de visão geral de saudação em Olá portal do Azure ou usando Olá Visual Studio Cloud Explorer.</span><span class="sxs-lookup"><span data-stu-id="3dddb-160">Previous run histories can be viewed on hello Overview blade in hello Azure portal, or using hello Visual Studio Cloud Explorer.</span></span>
+
+## <a name="creating-a-deployment-template-for-automated-deployments"></a><span data-ttu-id="3dddb-161">Criação de um modelo de implantação para implantações automatizadas</span><span class="sxs-lookup"><span data-stu-id="3dddb-161">Creating a deployment template for automated deployments</span></span>
+
+<span data-ttu-id="3dddb-162">Depois que uma solução foi desenvolvida, podem ser capturado e implantado por meio de um modelo de implantação do Azure tooany região do Azure no Olá, mundo.</span><span class="sxs-lookup"><span data-stu-id="3dddb-162">Once a solution has been developed, it can be captured and deployed via an Azure deployment template tooany Azure region in hello world.</span></span>  <span data-ttu-id="3dddb-163">Isso é útil para ambos os parâmetros de modificação para versões diferentes deste fluxo de trabalho, e também para a integração dessa solução em um pipeline de compilação e versão.</span><span class="sxs-lookup"><span data-stu-id="3dddb-163">This is useful for both modifying parameters for different versions of this workflow, but also for integrating this solution in a build and release pipeline.</span></span>  <span data-ttu-id="3dddb-164">Detalhes sobre como criar um modelo de implantação podem ser encontrados [neste artigo](logic-apps-create-deploy-template.md).</span><span class="sxs-lookup"><span data-stu-id="3dddb-164">Details on creating a deployment template can be found [in this article](logic-apps-create-deploy-template.md).</span></span>
+
+<span data-ttu-id="3dddb-165">As funções do Azure também podem ser incorporadas no modelo de implantação Olá - para a solução inteira Olá com todas as dependências que possa ser gerenciada como um único modelo.</span><span class="sxs-lookup"><span data-stu-id="3dddb-165">Azure Functions can also be incorporated in hello deployment template - so hello entire solution with all dependencies can be managed as a single template.</span></span>  <span data-ttu-id="3dddb-166">Um exemplo de um modelo de implantação de função pode ser encontrado na Olá [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).</span><span class="sxs-lookup"><span data-stu-id="3dddb-166">An example of a function deployment template can be found in hello [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="3dddb-167">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="3dddb-167">Next steps</span></span>
+
+* [<span data-ttu-id="3dddb-168">Confira outros exemplos e cenários de aplicativos lógicos do Azure</span><span class="sxs-lookup"><span data-stu-id="3dddb-168">See other examples and scenarios for Azure Logic Apps</span></span>](logic-apps-examples-and-scenarios.md)
+* [<span data-ttu-id="3dddb-169">Assista a um vídeo passo a passo sobre como criar essa solução de ponta a ponta</span><span class="sxs-lookup"><span data-stu-id="3dddb-169">Watch a video walkthrough on creating this solution end-to-end</span></span>](http://aka.ms/logicappsdemo)
+* [<span data-ttu-id="3dddb-170">Saiba como toohandle e capturar exceções em um aplicativo de lógica</span><span class="sxs-lookup"><span data-stu-id="3dddb-170">Learn how toohandle and catch exceptions within a logic app</span></span>](logic-apps-exception-handling.md)
+
+<!-- Image References -->
+[1]: ./media/logic-apps-scenario-social-serverless/twitter.png
+[2]: ./media/logic-apps-scenario-social-serverless/function.png

@@ -1,6 +1,6 @@
 ---
-title: "Documentação do Azure Site Recovery - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba mais sobre como configurar a recuperação de desastre de nuvem e continuidade de negócios para servidores físicos e máquinas virtuais ao implantar e gerenciar a replicação."
+title: "aaaAzure documentação de recuperação de Site - tutoriais, referência de API | Microsoft Docs"
+description: "Saiba como tooset a nuvem desastres recuperação e continuidade de negócios para servidores físicos e máquinas virtuais, implantando e gerenciando a replicação."
 services: site-recovery
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 06/05/2017
 ms.author: carolz
-ms.openlocfilehash: ef7a25de4536cfd54331e1bce7d22f351768585c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 08c295488f2e9058922a495ffac24ee96f33fbda
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="site-recovery-documentation"></a>Documentação do Site Recovery
 
-Saiba como usar o Site Recovery para contribuir com a continuidade dos negócios e a estratégia de recuperação de desastre para manter os aplicativos e as cargas de trabalho disponíveis durante o tempo de inatividade. Outros artigos e tutoriais mostram como planejar, implantar e gerenciar a replicação, o failover e a recuperação de computadores locais e VMs do Azure.
+Saiba como toouse recuperação de Site toocontribute tooyour business desastre e continuidade estratégia de recuperação, tookeep aplicativos e cargas de trabalho disponíveis durante o tempo de inatividade. Outros artigos e tutoriais mostram como tooplan, implantar e gerenciar a replicação hello, failover e recuperação de computadores locais e VMs do Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -88,7 +88,7 @@ Saiba como usar o Site Recovery para contribuir com a continuidade dos negócios
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução à replicação de máquinas virtuais do Hyper-V para o Azure (sem VMM)</h3>
+                        <h3>Introdução à replicação de máquinas virtuais do Hyper-V tooAzure (sem VMM)</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Saiba como usar o Site Recovery para contribuir com a continuidade dos negócios
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução à replicação de máquinas virtuais do Hyper-V em nuvens do VMM para Azure</h3>
+                        <h3>Introdução à replicação de máquinas virtuais do Hyper-V no VMM nuvens tooAzure</h3>
                     </div>
                 </div>
             </div>

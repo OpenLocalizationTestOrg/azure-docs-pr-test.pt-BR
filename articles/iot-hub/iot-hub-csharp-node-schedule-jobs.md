@@ -1,6 +1,6 @@
 ---
-title: Agendar trabalhos com o Hub IoT do Azure (.NET/Node) | Microsoft Docs
-description: "Como agendar um trabalho do Hub IoT do Azure para invocar um método direto em vários dispositivos. Use o SDK do dispositivo IoT do Azure para Node.js para implementar os aplicativos de dispositivo e o SDK do serviço do IoT do Azure para .NET para implementar um aplicativo de serviço que executa o trabalho."
+title: "trabalhos de aaaSchedule com o Azure IoT Hub (.NET/nó) | Microsoft Docs"
+description: "Como tooschedule um Azure IoT Hub trabalho tooinvoke um método direto em vários dispositivos. Você pode usar dispositivo IoT do Azure de saudação SDK para aplicativos de dispositivos do Node. js tooimplement Olá simulado e hello serviço IoT do Azure SDK para .NET tooimplement um trabalho de saudação de toorun de aplicativo de serviço."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -14,76 +14,76 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: juanpere
-ms.openlocfilehash: a8f4f34aa99c4a9966957cac213ec9170de80a46
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f6148b67129dde4580bfe9ccceafd6400fbc5976
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="schedule-and-broadcast-jobs-netnodejs"></a><span data-ttu-id="a7446-104">Agendar e difundir trabalhos (.NET/Node.js)</span><span class="sxs-lookup"><span data-stu-id="a7446-104">Schedule and broadcast jobs (.NET/Node.js)</span></span>
+# <a name="schedule-and-broadcast-jobs-netnodejs"></a><span data-ttu-id="51bcd-104">Agendar e difundir trabalhos (.NET/Node.js)</span><span class="sxs-lookup"><span data-stu-id="51bcd-104">Schedule and broadcast jobs (.NET/Node.js)</span></span>
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
-<span data-ttu-id="a7446-105">Use o Hub IoT do Azure para agendar e controlar os trabalhos que atualizam milhões de dispositivos.</span><span class="sxs-lookup"><span data-stu-id="a7446-105">Use Azure IoT Hub to schedule and track jobs that update millions of devices.</span></span> <span data-ttu-id="a7446-106">Use trabalhos para:</span><span class="sxs-lookup"><span data-stu-id="a7446-106">Use jobs to:</span></span>
+<span data-ttu-id="51bcd-105">Use trabalhos Azure IoT Hub tooschedule e rastrear que atualizam milhões de dispositivos.</span><span class="sxs-lookup"><span data-stu-id="51bcd-105">Use Azure IoT Hub tooschedule and track jobs that update millions of devices.</span></span> <span data-ttu-id="51bcd-106">Use trabalhos para:</span><span class="sxs-lookup"><span data-stu-id="51bcd-106">Use jobs to:</span></span>
 
-* <span data-ttu-id="a7446-107">Atualizar as propriedades desejadas</span><span class="sxs-lookup"><span data-stu-id="a7446-107">Update desired properties</span></span>
-* <span data-ttu-id="a7446-108">Marcas de atualização</span><span class="sxs-lookup"><span data-stu-id="a7446-108">Update tags</span></span>
-* <span data-ttu-id="a7446-109">Chamar métodos diretos</span><span class="sxs-lookup"><span data-stu-id="a7446-109">Invoke direct methods</span></span>
+* <span data-ttu-id="51bcd-107">Atualizar as propriedades desejadas</span><span class="sxs-lookup"><span data-stu-id="51bcd-107">Update desired properties</span></span>
+* <span data-ttu-id="51bcd-108">Marcas de atualização</span><span class="sxs-lookup"><span data-stu-id="51bcd-108">Update tags</span></span>
+* <span data-ttu-id="51bcd-109">Chamar métodos diretos</span><span class="sxs-lookup"><span data-stu-id="51bcd-109">Invoke direct methods</span></span>
 
-<span data-ttu-id="a7446-110">Um trabalho encapsula uma dessas ações e controla a execução em um conjunto de dispositivos definido por uma consulta de dispositivo gêmeo.</span><span class="sxs-lookup"><span data-stu-id="a7446-110">A job wraps one of these actions and tracks the execution against a set of devices that is defined by a device twin query.</span></span> <span data-ttu-id="a7446-111">Por exemplo, um aplicativo de back-end pode usar um trabalho para invocar um método direto em 10.000 dispositivos que reinicie os dispositivos.</span><span class="sxs-lookup"><span data-stu-id="a7446-111">For example, a back-end app can use a job to invoke a direct method on 10,000 devices that reboots the devices.</span></span> <span data-ttu-id="a7446-112">Você especifica o conjunto de dispositivos com uma consulta de dispositivo gêmeo e agenda o trabalho para execução futura.</span><span class="sxs-lookup"><span data-stu-id="a7446-112">You specify the set of devices with a device twin query and schedule the job to run at a future time.</span></span> <span data-ttu-id="a7446-113">O trabalho controla o andamento conforme cada um dos dispositivos recebe e executa o método direto de reinicialização.</span><span class="sxs-lookup"><span data-stu-id="a7446-113">The job tracks progress as each of the devices receive and execute the reboot direct method.</span></span>
+<span data-ttu-id="51bcd-110">Um trabalho envolve uma dessas ações e rastreia Olá execução em um conjunto de dispositivos que é definido por uma consulta de duas do dispositivo.</span><span class="sxs-lookup"><span data-stu-id="51bcd-110">A job wraps one of these actions and tracks hello execution against a set of devices that is defined by a device twin query.</span></span> <span data-ttu-id="51bcd-111">Por exemplo, um aplicativo de back-end pode usar um trabalho tooinvoke um método direto em 10.000 dispositivos que reinicia dispositivos hello.</span><span class="sxs-lookup"><span data-stu-id="51bcd-111">For example, a back-end app can use a job tooinvoke a direct method on 10,000 devices that reboots hello devices.</span></span> <span data-ttu-id="51bcd-112">Você especifica o conjunto de saudação de dispositivos com uma consulta de duas do dispositivo e agenda Olá trabalho toorun no futuro.</span><span class="sxs-lookup"><span data-stu-id="51bcd-112">You specify hello set of devices with a device twin query and schedule hello job toorun at a future time.</span></span> <span data-ttu-id="51bcd-113">Olá trabalho rastreia progresso como cada um dos dispositivos de saudação receber e executar o método direto de reinicialização hello.</span><span class="sxs-lookup"><span data-stu-id="51bcd-113">hello job tracks progress as each of hello devices receive and execute hello reboot direct method.</span></span>
 
-<span data-ttu-id="a7446-114">Para saber mais sobre cada uma dessas capacidades, consulte:</span><span class="sxs-lookup"><span data-stu-id="a7446-114">To learn more about each of these capabilities, see:</span></span>
+<span data-ttu-id="51bcd-114">toolearn mais sobre cada um desses recursos, consulte:</span><span class="sxs-lookup"><span data-stu-id="51bcd-114">toolearn more about each of these capabilities, see:</span></span>
 
-* <span data-ttu-id="a7446-115">Dispositivo gêmeo e propriedades: [Introdução os dispositivos gêmeos][lnk-get-started-twin] e [Tutorial: Como usar as propriedades do dispositivo gêmeo][lnk-twin-props]</span><span class="sxs-lookup"><span data-stu-id="a7446-115">Device twin and properties: [Get started with device twins][lnk-get-started-twin] and [Tutorial: How to use device twin properties][lnk-twin-props]</span></span>
-* <span data-ttu-id="a7446-116">Métodos diretos: [Guia do desenvolvedor do Hub IoT – métodos diretos][lnk-dev-methods] e [Tutorial: Usar métodos diretos][lnk-c2d-methods]</span><span class="sxs-lookup"><span data-stu-id="a7446-116">Direct methods: [IoT Hub developer guide - direct methods][lnk-dev-methods] and [Tutorial: Use direct methods][lnk-c2d-methods]</span></span>
+* <span data-ttu-id="51bcd-115">Duas do dispositivo e propriedades: [Introdução ao twins dispositivo] [ lnk-get-started-twin] e [Tutorial: como dispositivo toouse macros propriedades][lnk-twin-props]</span><span class="sxs-lookup"><span data-stu-id="51bcd-115">Device twin and properties: [Get started with device twins][lnk-get-started-twin] and [Tutorial: How toouse device twin properties][lnk-twin-props]</span></span>
+* <span data-ttu-id="51bcd-116">Métodos diretos: [Guia do desenvolvedor do Hub IoT – métodos diretos][lnk-dev-methods] e [Tutorial: Usar métodos diretos][lnk-c2d-methods]</span><span class="sxs-lookup"><span data-stu-id="51bcd-116">Direct methods: [IoT Hub developer guide - direct methods][lnk-dev-methods] and [Tutorial: Use direct methods][lnk-c2d-methods]</span></span>
 
-<span data-ttu-id="a7446-117">Este tutorial mostra como:</span><span class="sxs-lookup"><span data-stu-id="a7446-117">This tutorial shows you how to:</span></span>
+<span data-ttu-id="51bcd-117">Este tutorial mostra como:</span><span class="sxs-lookup"><span data-stu-id="51bcd-117">This tutorial shows you how to:</span></span>
 
-* <span data-ttu-id="a7446-118">Criar um aplicativo de dispositivo que implemente um método chamado **lockDoor** que possa ser chamado pelo aplicativo de back-end.</span><span class="sxs-lookup"><span data-stu-id="a7446-118">Create a device app that implements a direct method called **lockDoor** that can be called by the back-end app.</span></span> <span data-ttu-id="a7446-119">O aplicativo de dispositivo também recebe as alterações de propriedade desejadas do aplicativo de back-end.</span><span class="sxs-lookup"><span data-stu-id="a7446-119">The device app also receives desired property changes from the back-end app.</span></span>
-* <span data-ttu-id="a7446-120">Criar um aplicativo de back-end que gere um trabalho para chamar o método direto **lockDoor** em vários dispositivos.</span><span class="sxs-lookup"><span data-stu-id="a7446-120">Create a back-end app that creates a job to call the **lockDoor** direct method on multiple devices.</span></span> <span data-ttu-id="a7446-121">Outro trabalho envia as atualizações de propriedade desejadas para vários dispositivos.</span><span class="sxs-lookup"><span data-stu-id="a7446-121">Another job sends desired property updates to multiple devices.</span></span>
+* <span data-ttu-id="51bcd-118">Criar um aplicativo de dispositivo que implementa um método chamado **lockDoor** que pode ser chamado pelo aplicativo de back-end de saudação.</span><span class="sxs-lookup"><span data-stu-id="51bcd-118">Create a device app that implements a direct method called **lockDoor** that can be called by hello back-end app.</span></span> <span data-ttu-id="51bcd-119">aplicativo de dispositivo Olá também recebe alterações de propriedade desejados do aplicativo de back-end de saudação.</span><span class="sxs-lookup"><span data-stu-id="51bcd-119">hello device app also receives desired property changes from hello back-end app.</span></span>
+* <span data-ttu-id="51bcd-120">Criar um aplicativo de back-end que cria uma saudação do trabalho toocall **lockDoor** método direto em vários dispositivos.</span><span class="sxs-lookup"><span data-stu-id="51bcd-120">Create a back-end app that creates a job toocall hello **lockDoor** direct method on multiple devices.</span></span> <span data-ttu-id="51bcd-121">Outro trabalho envia toomultiple dispositivos de atualizações de propriedade desejados.</span><span class="sxs-lookup"><span data-stu-id="51bcd-121">Another job sends desired property updates toomultiple devices.</span></span>
 
-<span data-ttu-id="a7446-122">Ao final deste tutorial, você terá um aplicativo de dispositivo de console Node.js e um aplicativo de back-end do console .NET (C#):</span><span class="sxs-lookup"><span data-stu-id="a7446-122">At the end of this tutorial, you have a Node.js console device app and a .NET (C#) console back-end app:</span></span>
+<span data-ttu-id="51bcd-122">No final da saudação deste tutorial, você tem um aplicativo de dispositivo do console Node. js e um aplicativo de back-end do console .NET (c#):</span><span class="sxs-lookup"><span data-stu-id="51bcd-122">At hello end of this tutorial, you have a Node.js console device app and a .NET (C#) console back-end app:</span></span>
 
-<span data-ttu-id="a7446-123">**simDevice.js** que se conecta ao seu hub IoT, implementa o método direto **lockDoor** e manipula as alterações de propriedade desejadas.</span><span class="sxs-lookup"><span data-stu-id="a7446-123">**simDevice.js** that connects to your IoT hub, implements the **lockDoor** direct method, and handles desired property changes.</span></span>
+<span data-ttu-id="51bcd-123">**simDevice.js** que se conecta tooyour IoT hub, implementa Olá **lockDoor** direcionar o método e manipula desejado alterações de propriedade.</span><span class="sxs-lookup"><span data-stu-id="51bcd-123">**simDevice.js** that connects tooyour IoT hub, implements hello **lockDoor** direct method, and handles desired property changes.</span></span>
 
-<span data-ttu-id="a7446-124">**ScheduleJob** que usa trabalhos para chamar o método direto **lockDoor** e atualizar as propriedades desejada do dispositivo gêmeo em vários dispositivos.</span><span class="sxs-lookup"><span data-stu-id="a7446-124">**ScheduleJob** that uses jobs to call the **lockDoor** direct method and update the device twin desired properties on multiple devices.</span></span>
+<span data-ttu-id="51bcd-124">**ScheduleJob** que usa a saudação de toocall trabalhos **lockDoor** direta duas de dispositivo de saudação do método e atualização desejado propriedades em vários dispositivos.</span><span class="sxs-lookup"><span data-stu-id="51bcd-124">**ScheduleJob** that uses jobs toocall hello **lockDoor** direct method and update hello device twin desired properties on multiple devices.</span></span>
 
-<span data-ttu-id="a7446-125">Para concluir este tutorial, você precisará do seguinte:</span><span class="sxs-lookup"><span data-stu-id="a7446-125">To complete this tutorial, you need the following:</span></span>
+<span data-ttu-id="51bcd-125">toocomplete neste tutorial, você precisa Olá a seguir:</span><span class="sxs-lookup"><span data-stu-id="51bcd-125">toocomplete this tutorial, you need hello following:</span></span>
 
-* <span data-ttu-id="a7446-126">Visual Studio 2015 ou Visual Studio 2017.</span><span class="sxs-lookup"><span data-stu-id="a7446-126">Visual Studio 2015 or Visual Studio 2017.</span></span>
-* <span data-ttu-id="a7446-127">Node.js versão 0.12.x ou posterior.</span><span class="sxs-lookup"><span data-stu-id="a7446-127">Node.js version 0.12.x or later.</span></span> <span data-ttu-id="a7446-128">O artigo [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Node.js para este tutorial no Windows ou no Linux.</span><span class="sxs-lookup"><span data-stu-id="a7446-128">The article [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.</span></span>
-* <span data-ttu-id="a7446-129">Uma conta ativa do Azure.</span><span class="sxs-lookup"><span data-stu-id="a7446-129">An active Azure account.</span></span> <span data-ttu-id="a7446-130">Se não tiver uma conta, você poderá criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.</span><span class="sxs-lookup"><span data-stu-id="a7446-130">If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.</span></span>
+* <span data-ttu-id="51bcd-126">Visual Studio 2015 ou Visual Studio 2017.</span><span class="sxs-lookup"><span data-stu-id="51bcd-126">Visual Studio 2015 or Visual Studio 2017.</span></span>
+* <span data-ttu-id="51bcd-127">Node.js versão 0.12.x ou posterior.</span><span class="sxs-lookup"><span data-stu-id="51bcd-127">Node.js version 0.12.x or later.</span></span> <span data-ttu-id="51bcd-128">artigo Olá [preparar seu ambiente de desenvolvimento] [ lnk-dev-setup] descreve como tooinstall Node. js para este tutorial no Windows ou Linux.</span><span class="sxs-lookup"><span data-stu-id="51bcd-128">hello article [Prepare your development environment][lnk-dev-setup] describes how tooinstall Node.js for this tutorial on either Windows or Linux.</span></span>
+* <span data-ttu-id="51bcd-129">Uma conta ativa do Azure.</span><span class="sxs-lookup"><span data-stu-id="51bcd-129">An active Azure account.</span></span> <span data-ttu-id="51bcd-130">Se não tiver uma conta, você poderá criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.</span><span class="sxs-lookup"><span data-stu-id="51bcd-130">If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.</span></span>
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="schedule-jobs-for-calling-a-direct-method-and-sending-device-twin-updates"></a><span data-ttu-id="a7446-131">Agendar trabalhos para chamar um método direto e enviar atualizações ao dispositivo gêmeo</span><span class="sxs-lookup"><span data-stu-id="a7446-131">Schedule jobs for calling a direct method and sending device twin updates</span></span>
+## <a name="schedule-jobs-for-calling-a-direct-method-and-sending-device-twin-updates"></a><span data-ttu-id="51bcd-131">Agendar trabalhos para chamar um método direto e enviar atualizações ao dispositivo gêmeo</span><span class="sxs-lookup"><span data-stu-id="51bcd-131">Schedule jobs for calling a direct method and sending device twin updates</span></span>
 
-<span data-ttu-id="a7446-132">Nesta seção, você cria um aplicativo de console .NET (usando C#) que usa trabalhos para chamar o método direto **lockDoor** e enviar as atualizações de propriedade desejadas para vários dispositivos.</span><span class="sxs-lookup"><span data-stu-id="a7446-132">In this section, you create a .NET console app (using C#) that uses jobs to call the **lockDoor** direct method and send desired property updates to multiple devices.</span></span>
+<span data-ttu-id="51bcd-132">Nesta seção, você cria um console aplicativo .NET (usando o c#) que usa a saudação de toocall trabalhos **lockDoor** método direto e enviar toomultiple dispositivos de atualizações de propriedade desejados.</span><span class="sxs-lookup"><span data-stu-id="51bcd-132">In this section, you create a .NET console app (using C#) that uses jobs toocall hello **lockDoor** direct method and send desired property updates toomultiple devices.</span></span>
 
-1. <span data-ttu-id="a7446-133">No Visual Studio, adicione um projeto da Área de Trabalho Clássica do Windows no Visual C# à solução atual usando o modelo de projeto **Aplicativo do Console** .</span><span class="sxs-lookup"><span data-stu-id="a7446-133">In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template.</span></span> <span data-ttu-id="a7446-134">Nomeie o projeto como **ScheduleJob**.</span><span class="sxs-lookup"><span data-stu-id="a7446-134">Name the project **ScheduleJob**.</span></span>
+1. <span data-ttu-id="51bcd-133">No Visual Studio, adicione uma solução do Visual C# Windows clássico Desktop projeto toohello atual usando Olá **aplicativo de Console** modelo de projeto.</span><span class="sxs-lookup"><span data-stu-id="51bcd-133">In Visual Studio, add a Visual C# Windows Classic Desktop project toohello current solution by using hello **Console Application** project template.</span></span> <span data-ttu-id="51bcd-134">Projeto de saudação do nome **ScheduleJob**.</span><span class="sxs-lookup"><span data-stu-id="51bcd-134">Name hello project **ScheduleJob**.</span></span>
 
     ![Novo projeto da Área de Trabalho Clássica do Windows no Visual C#][img-createapp]
 
-1. <span data-ttu-id="a7446-136">No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ScheduleJob** e, em seguida, clique em **Gerenciar Pacotes NuGet...**.</span><span class="sxs-lookup"><span data-stu-id="a7446-136">In Solution Explorer, right-click the **ScheduleJob** project, and then click **Manage NuGet Packages...**.</span></span>
-1. <span data-ttu-id="a7446-137">Na janela **Gerenciador de Pacotes Nuget**, selecione **Procurar**, procure **microsoft.azure.devices**, selecione **Instalar** para instalar o pacote **Microsoft.Azure.Devices** e aceite os termos de uso.</span><span class="sxs-lookup"><span data-stu-id="a7446-137">In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use.</span></span> <span data-ttu-id="a7446-138">Esta etapa baixa, instala e adiciona uma referência ao pacote NuGet do [SDK do serviço IoT do Azure][lnk-nuget-service-sdk] e suas dependências.</span><span class="sxs-lookup"><span data-stu-id="a7446-138">This step downloads, installs, and adds a reference to the [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.</span></span>
+1. <span data-ttu-id="51bcd-136">No Gerenciador de soluções, clique com botão direito Olá **ScheduleJob** do projeto e, em seguida, clique em **gerenciar pacotes NuGet...** .</span><span class="sxs-lookup"><span data-stu-id="51bcd-136">In Solution Explorer, right-click hello **ScheduleJob** project, and then click **Manage NuGet Packages...**.</span></span>
+1. <span data-ttu-id="51bcd-137">Em Olá **NuGet Package Manager** janela, selecione **procurar**, procure **microsoft.azure.devices**, selecione **instalar** tooinstall Olá **Microsoft.Azure.Devices** empacotar e aceitar os termos de uso do hello.</span><span class="sxs-lookup"><span data-stu-id="51bcd-137">In hello **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** tooinstall hello **Microsoft.Azure.Devices** package, and accept hello terms of use.</span></span> <span data-ttu-id="51bcd-138">Esta etapa baixa, instala e adiciona uma referência toohello [SDK do serviço de Azure IoT] [ lnk-nuget-service-sdk] NuGet pacote e suas dependências.</span><span class="sxs-lookup"><span data-stu-id="51bcd-138">This step downloads, installs, and adds a reference toohello [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.</span></span>
 
     ![Janela do Gerenciador de Pacotes NuGet][img-servicenuget]
-1. <span data-ttu-id="a7446-140">Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :</span><span class="sxs-lookup"><span data-stu-id="a7446-140">Add the following `using` statements at the top of the **Program.cs** file:</span></span>
+1. <span data-ttu-id="51bcd-140">Adicione o seguinte Olá `using` instruções na parte superior de saudação do hello **Program.cs** arquivo:</span><span class="sxs-lookup"><span data-stu-id="51bcd-140">Add hello following `using` statements at hello top of hello **Program.cs** file:</span></span>
     
     ```csharp
     using Microsoft.Azure.Devices;
     using Microsoft.Azure.Devices.Shared;
     ```
 
-1. <span data-ttu-id="a7446-141">Adicione a instrução `using` a seguir caso ela não esteja presente nas instruções padrão.</span><span class="sxs-lookup"><span data-stu-id="a7446-141">Add the following `using` statement if not already present in the default statements.</span></span>
+1. <span data-ttu-id="51bcd-141">Adicione o seguinte Olá `using` instrução se não estiver presente em instruções de padrão de saudação.</span><span class="sxs-lookup"><span data-stu-id="51bcd-141">Add hello following `using` statement if not already present in hello default statements.</span></span>
 
     ```csharp
     using System.Threading.Tasks;
     ```
 
-1. <span data-ttu-id="a7446-142">Adicione os seguintes campos à classe **Program** .</span><span class="sxs-lookup"><span data-stu-id="a7446-142">Add the following fields to the **Program** class.</span></span> <span data-ttu-id="a7446-143">Substitua o espaço reservado pela cadeia de conexão do Hub IoT criado na seção anterior.</span><span class="sxs-lookup"><span data-stu-id="a7446-143">Replace the placeholder with the IoT Hub connection string for the hub that you created in the previous section.</span></span>
+1. <span data-ttu-id="51bcd-142">Adicionar Olá toohello campos a seguir **programa** classe.</span><span class="sxs-lookup"><span data-stu-id="51bcd-142">Add hello following fields toohello **Program** class.</span></span> <span data-ttu-id="51bcd-143">Substitua o espaço reservado de saudação com hello cadeia de caracteres de conexão de IoT Hub hub Olá que você criou na seção anterior hello.</span><span class="sxs-lookup"><span data-stu-id="51bcd-143">Replace hello placeholder with hello IoT Hub connection string for hello hub that you created in hello previous section.</span></span>
 
     ```csharp
     static string connString = "{iot hub connection string}";
@@ -91,7 +91,7 @@ ms.lasthandoff: 08/03/2017
     static JobClient jobClient;
     ```
 
-1. <span data-ttu-id="a7446-144">Adicione o seguinte método à classe **Programa** :</span><span class="sxs-lookup"><span data-stu-id="a7446-144">Add the following method to the **Program** class:</span></span>
+1. <span data-ttu-id="51bcd-144">Adicionar Olá após o método toohello **programa** classe:</span><span class="sxs-lookup"><span data-stu-id="51bcd-144">Add hello following method toohello **Program** class:</span></span>
 
     ```csharp
     public static async Task MonitorJob(string jobId)
@@ -106,7 +106,7 @@ ms.lasthandoff: 08/03/2017
     }
     ```
 
-1. <span data-ttu-id="a7446-145">Adicione o seguinte método à classe **Programa** :</span><span class="sxs-lookup"><span data-stu-id="a7446-145">Add the following method to the **Program** class:</span></span>
+1. <span data-ttu-id="51bcd-145">Adicionar Olá após o método toohello **programa** classe:</span><span class="sxs-lookup"><span data-stu-id="51bcd-145">Add hello following method toohello **Program** class:</span></span>
 
     ```csharp
     public static async Task StartMethodJob(string jobId)
@@ -123,7 +123,7 @@ ms.lasthandoff: 08/03/2017
     }
     ```
 
-1. <span data-ttu-id="a7446-146">Adicione o seguinte método à classe **Programa** :</span><span class="sxs-lookup"><span data-stu-id="a7446-146">Add the following method to the **Program** class:</span></span>
+1. <span data-ttu-id="51bcd-146">Adicionar Olá após o método toohello **programa** classe:</span><span class="sxs-lookup"><span data-stu-id="51bcd-146">Add hello following method toohello **Program** class:</span></span>
 
     ```csharp
     public static async Task StartTwinUpdateJob(string jobId)
@@ -143,7 +143,7 @@ ms.lasthandoff: 08/03/2017
     }
     ```
 
-1. <span data-ttu-id="a7446-147">Por fim, adicione as seguintes linhas ao método **Main** :</span><span class="sxs-lookup"><span data-stu-id="a7446-147">Finally, add the following lines to the **Main** method:</span></span>
+1. <span data-ttu-id="51bcd-147">Finalmente, adicione Olá toohello linhas a seguir **principal** método:</span><span class="sxs-lookup"><span data-stu-id="51bcd-147">Finally, add hello following lines toohello **Main** method:</span></span>
 
     ```csharp
     jobClient = JobClient.CreateFromConnectionString(connString);
@@ -152,38 +152,38 @@ ms.lasthandoff: 08/03/2017
 
     StartMethodJob(methodJobId);
     MonitorJob(methodJobId).Wait();
-    Console.WriteLine("Press ENTER to run the next job.");
+    Console.WriteLine("Press ENTER toorun hello next job.");
     Console.ReadLine();
 
     string twinUpdateJobId = Guid.NewGuid().ToString();
 
     StartTwinUpdateJob(twinUpdateJobId);
     MonitorJob(twinUpdateJobId).Wait();
-    Console.WriteLine("Press ENTER to exit.");
+    Console.WriteLine("Press ENTER tooexit.");
     Console.ReadLine();
     ```
 
-1. <span data-ttu-id="a7446-148">No Gerenciador de Soluções, abra **Definir projetos de StartUp...** e verifique se a **Ação** para o projeto **ScheduleJob** é **Iniciar**.</span><span class="sxs-lookup"><span data-stu-id="a7446-148">In the Solution Explorer, open the **Set StartUp projects...** and make sure the **Action** for **ScheduleJob** project is **Start**.</span></span> <span data-ttu-id="a7446-149">Compilar a solução.</span><span class="sxs-lookup"><span data-stu-id="a7446-149">Build the solution.</span></span>
+1. <span data-ttu-id="51bcd-148">Olá Gerenciador de soluções, abra o hello **projetos de inicialização definido...**  e certifique-se de saudação **ação** para **ScheduleJob** projeto é **iniciar**.</span><span class="sxs-lookup"><span data-stu-id="51bcd-148">In hello Solution Explorer, open hello **Set StartUp projects...** and make sure hello **Action** for **ScheduleJob** project is **Start**.</span></span> <span data-ttu-id="51bcd-149">Compile a solução de saudação.</span><span class="sxs-lookup"><span data-stu-id="51bcd-149">Build hello solution.</span></span>
 
-## <a name="create-a-simulated-device-app"></a><span data-ttu-id="a7446-150">Criar um aplicativo de dispositivo simulado</span><span class="sxs-lookup"><span data-stu-id="a7446-150">Create a simulated device app</span></span>
+## <a name="create-a-simulated-device-app"></a><span data-ttu-id="51bcd-150">Criar um aplicativo de dispositivo simulado</span><span class="sxs-lookup"><span data-stu-id="51bcd-150">Create a simulated device app</span></span>
 
-<span data-ttu-id="a7446-151">Nesta seção, você cria um aplicativo de console do Node.js que responde a um método direto chamado pela nuvem, que dispara uma reinicialização de dispositivo simulado e usa propriedades relatadas para habilitar consultas em dispositivos gêmeos e identificar os dispositivos e quando eles foram reiniciados pela última vez.</span><span class="sxs-lookup"><span data-stu-id="a7446-151">In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device reboot and uses the reported properties to enable device twin queries to identify devices and when they last rebooted.</span></span>
+<span data-ttu-id="51bcd-151">Nesta seção, você cria um aplicativo de console Node. js que responde tooa método direto chamado pela nuvem hello, o que dispara uma reinicialização do dispositivo simulado e usa Olá relatado propriedades tooenable dispositivos duas consultas tooidentify dispositivos e quando eles reiniciado pela última vez.</span><span class="sxs-lookup"><span data-stu-id="51bcd-151">In this section, you create a Node.js console app that responds tooa direct method called by hello cloud, which triggers a simulated device reboot and uses hello reported properties tooenable device twin queries tooidentify devices and when they last rebooted.</span></span>
 
-1. <span data-ttu-id="a7446-152">Crie uma nova pasta vazia denominada **simDevice**.</span><span class="sxs-lookup"><span data-stu-id="a7446-152">Create a new empty folder called **simDevice**.</span></span>  <span data-ttu-id="a7446-153">Na pasta **simDevice**, crie um arquivo package.json usando o comando a seguir no seu prompt de comando.</span><span class="sxs-lookup"><span data-stu-id="a7446-153">In the **simDevice** folder, create a package.json file using the following command at your command prompt.</span></span>  <span data-ttu-id="a7446-154">Aceite todos os padrões:</span><span class="sxs-lookup"><span data-stu-id="a7446-154">Accept all the defaults:</span></span>
+1. <span data-ttu-id="51bcd-152">Crie uma nova pasta vazia denominada **simDevice**.</span><span class="sxs-lookup"><span data-stu-id="51bcd-152">Create a new empty folder called **simDevice**.</span></span>  <span data-ttu-id="51bcd-153">Em Olá **simDevice** pasta, crie um arquivo Package. JSON usando Olá comando no prompt de comando a seguir.</span><span class="sxs-lookup"><span data-stu-id="51bcd-153">In hello **simDevice** folder, create a package.json file using hello following command at your command prompt.</span></span>  <span data-ttu-id="51bcd-154">Aceite todos os padrões de saudação:</span><span class="sxs-lookup"><span data-stu-id="51bcd-154">Accept all hello defaults:</span></span>
 
     ```cmd/sh
     npm init
     ```
 
-1. <span data-ttu-id="a7446-155">No prompt de comando, na pasta **simDevice**, execute o seguinte comando para instalar o pacote **azure-iot-device** e os pacotes **azure-iot-device-mqtt**:</span><span class="sxs-lookup"><span data-stu-id="a7446-155">At your command prompt in the **simDevice** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** packages:</span></span>
+1. <span data-ttu-id="51bcd-155">O prompt de comando no hello **simDevice** pasta, execute Olá Olá de tooinstall de comando a seguir **dispositivo de iot do azure** e **azure iot-dispositivo mqtt** pacotes:</span><span class="sxs-lookup"><span data-stu-id="51bcd-155">At your command prompt in hello **simDevice** folder, run hello following command tooinstall hello **azure-iot-device** and **azure-iot-device-mqtt** packages:</span></span>
 
     ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. <span data-ttu-id="a7446-156">Usando um editor de texto, crie um novo arquivo **SimDevice.js** na pasta **simDevice**.</span><span class="sxs-lookup"><span data-stu-id="a7446-156">Using a text editor, create a new **simDevice.js** file in the **simDevice** folder.</span></span>
+1. <span data-ttu-id="51bcd-156">Usando um editor de texto, crie um novo **simDevice.js** arquivo hello **simDevice** pasta.</span><span class="sxs-lookup"><span data-stu-id="51bcd-156">Using a text editor, create a new **simDevice.js** file in hello **simDevice** folder.</span></span>
 
-1. <span data-ttu-id="a7446-157">Adicione as seguintes instruções "require" no início do arquivo **simDevice.js**:</span><span class="sxs-lookup"><span data-stu-id="a7446-157">Add the following 'require' statements at the start of the **simDevice.js** file:</span></span>
+1. <span data-ttu-id="51bcd-157">Adicionar instruções no início de saudação do hello seguinte Olá 'requer' **simDevice.js** arquivo:</span><span class="sxs-lookup"><span data-stu-id="51bcd-157">Add hello following 'require' statements at hello start of hello **simDevice.js** file:</span></span>
 
     ```nodejs
     'use strict';
@@ -192,24 +192,24 @@ ms.lasthandoff: 08/03/2017
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-1. <span data-ttu-id="a7446-158">Adicione uma variável **connectionString** e use-a para criar um **Cliente** do dispositivo.</span><span class="sxs-lookup"><span data-stu-id="a7446-158">Add a **connectionString** variable and use it to create a **Client** instance.</span></span> <span data-ttu-id="a7446-159">Lembre-se de substituir os espaços reservados pelos valores apropriados para sua instalação.</span><span class="sxs-lookup"><span data-stu-id="a7446-159">Make sure to replace the placeholders with values appropriate to your setup.</span></span>
+1. <span data-ttu-id="51bcd-158">Adicionar um **connectionString** variável e use-toocreate uma **cliente** instância.</span><span class="sxs-lookup"><span data-stu-id="51bcd-158">Add a **connectionString** variable and use it toocreate a **Client** instance.</span></span> <span data-ttu-id="51bcd-159">Verifique os espaços reservados de saudação tooreplace-se de que a instalação de tooyour apropriado de valores.</span><span class="sxs-lookup"><span data-stu-id="51bcd-159">Make sure tooreplace hello placeholders with values appropriate tooyour setup.</span></span>
 
     ```nodejs
     var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
-1. <span data-ttu-id="a7446-160">Adicione a seguinte função para manipular o método **lockDoor**.</span><span class="sxs-lookup"><span data-stu-id="a7446-160">Add the following function to handle the **lockDoor** method.</span></span>
+1. <span data-ttu-id="51bcd-160">Adicionar Olá Olá de toohandle de função a seguir **lockDoor** método.</span><span class="sxs-lookup"><span data-stu-id="51bcd-160">Add hello following function toohandle hello **lockDoor** method.</span></span>
 
     ```nodejs
     var onLockDoor = function(request, response) {
    
-        // Respond the cloud app for the direct method
+        // Respond hello cloud app for hello direct method
         response.send(200, function(err) {
             if (!err) {
                 console.error('An error occured when sending a method response:\n' + err.toString());
             } else {
-                console.log('Response to method \'' + request.methodName + '\' sent successfully.');
+                console.log('Response toomethod \'' + request.methodName + '\' sent successfully.');
             }
         });
    
@@ -217,47 +217,47 @@ ms.lasthandoff: 08/03/2017
     };
     ```
 
-1. <span data-ttu-id="a7446-161">Adicione o seguinte código para registrar o manipulador do método **lockDoor**.</span><span class="sxs-lookup"><span data-stu-id="a7446-161">Add the following code to register the handler for the **lockDoor** method.</span></span>
+1. <span data-ttu-id="51bcd-161">Adicionar Olá após código tooregister Olá manipulador Olá **lockDoor** método.</span><span class="sxs-lookup"><span data-stu-id="51bcd-161">Add hello following code tooregister hello handler for hello **lockDoor** method.</span></span>
 
     ```nodejs
     client.open(function(err) {
         if (err) {
-            console.error('Could not connect to IotHub client.');
+            console.error('Could not connect tooIotHub client.');
         }  else {
-            console.log('Client connected to IoT Hub.  Waiting for lockDoor direct method.');
+            console.log('Client connected tooIoT Hub.  Waiting for lockDoor direct method.');
             client.onDeviceMethod('lockDoor', onLockDoor);
         }
     });
     ```
 
-1. <span data-ttu-id="a7446-162">Salve e feche o arquivo **simDevice.js**.</span><span class="sxs-lookup"><span data-stu-id="a7446-162">Save and close the **simDevice.js** file.</span></span>
+1. <span data-ttu-id="51bcd-162">Salve e feche o hello **simDevice.js** arquivo.</span><span class="sxs-lookup"><span data-stu-id="51bcd-162">Save and close hello **simDevice.js** file.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="a7446-163">Para simplificar, este tutorial não implementa nenhuma política de repetição.</span><span class="sxs-lookup"><span data-stu-id="a7446-163">To keep things simple, this tutorial does not implement any retry policy.</span></span> <span data-ttu-id="a7446-164">No código de produção, implemente políticas de repetição (como uma retirada exponencial), como sugerido no artigo [Tratamento de falhas transitórias][lnk-transient-faults] do MSDN.</span><span class="sxs-lookup"><span data-stu-id="a7446-164">In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].</span></span>
+> <span data-ttu-id="51bcd-163">coisas tookeep simples, este tutorial não implementa nenhuma política de repetição.</span><span class="sxs-lookup"><span data-stu-id="51bcd-163">tookeep things simple, this tutorial does not implement any retry policy.</span></span> <span data-ttu-id="51bcd-164">No código de produção, você deve implementar políticas de repetição (por exemplo, uma retirada exponencial), conforme sugerido no artigo do MSDN Olá [tratamento de falhas transitórias][lnk-transient-faults].</span><span class="sxs-lookup"><span data-stu-id="51bcd-164">In production code, you should implement retry policies (such as an exponential backoff), as suggested in hello MSDN article [Transient Fault Handling][lnk-transient-faults].</span></span>
 
-## <a name="run-the-apps"></a><span data-ttu-id="a7446-165">Executar os aplicativos</span><span class="sxs-lookup"><span data-stu-id="a7446-165">Run the apps</span></span>
+## <a name="run-hello-apps"></a><span data-ttu-id="51bcd-165">Executar aplicativos Olá</span><span class="sxs-lookup"><span data-stu-id="51bcd-165">Run hello apps</span></span>
 
-<span data-ttu-id="a7446-166">Agora você está pronto para executar os aplicativos.</span><span class="sxs-lookup"><span data-stu-id="a7446-166">You are now ready to run the apps.</span></span>
+<span data-ttu-id="51bcd-166">Agora você está pronto toorun Olá aplicativos.</span><span class="sxs-lookup"><span data-stu-id="51bcd-166">You are now ready toorun hello apps.</span></span>
 
-1. <span data-ttu-id="a7446-167">No prompt de comando, na pasta **simDevice**, execute o seguinte comando para começar a escutar o método direto de reinicialização.</span><span class="sxs-lookup"><span data-stu-id="a7446-167">At the command prompt in the **simDevice** folder, run the following command to begin listening for the reboot direct method.</span></span>
+1. <span data-ttu-id="51bcd-167">No prompt de comando de saudação de saudação **simDevice** pasta, execute Olá toobegin comando escuta para o método direto de reinicialização Olá a seguir.</span><span class="sxs-lookup"><span data-stu-id="51bcd-167">At hello command prompt in hello **simDevice** folder, run hello following command toobegin listening for hello reboot direct method.</span></span>
 
     ```cmd/sh
     node simDevice.js
     ```
 
-1. <span data-ttu-id="a7446-168">Execute o aplicativo de console do C# **ScheduleJob** clicando com o botão direito do mouse no projeto **ScheduleJob** e selecionando **Depurar** e **Iniciar nova instância**.</span><span class="sxs-lookup"><span data-stu-id="a7446-168">Run the C# console app **ScheduleJob** by right-clicking on the **ScheduleJob** project, then selecting **Debug** and **Start new instance**.</span></span>
+1. <span data-ttu-id="51bcd-168">Aplicativo de console Olá execução c# **ScheduleJob** clicando em Olá **ScheduleJob** projeto, selecionando **depurar** e **iniciar nova instância**.</span><span class="sxs-lookup"><span data-stu-id="51bcd-168">Run hello C# console app **ScheduleJob** by right-clicking on hello **ScheduleJob** project, then selecting **Debug** and **Start new instance**.</span></span>
 
-1. <span data-ttu-id="a7446-169">Você verá a saída do dispositivo e dos aplicativos back-end.</span><span class="sxs-lookup"><span data-stu-id="a7446-169">You see the output from both device and back-end apps.</span></span>
+1. <span data-ttu-id="51bcd-169">Você verá a saída de saudação do dispositivo e aplicativos de back-end.</span><span class="sxs-lookup"><span data-stu-id="51bcd-169">You see hello output from both device and back-end apps.</span></span>
 
-    ![Executar os aplicativos para agendar trabalhos][img-schedulejobs]
+    ![Executar aplicativos de saudação tooschedule trabalhos][img-schedulejobs]
 
-## <a name="next-steps"></a><span data-ttu-id="a7446-171">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="a7446-171">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="51bcd-171">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="51bcd-171">Next steps</span></span>
 
-<span data-ttu-id="a7446-172">Neste tutorial, você usou um trabalho para agendar um método direto para um dispositivo e a atualização das propriedades do twin do dispositivo.</span><span class="sxs-lookup"><span data-stu-id="a7446-172">In this tutorial, you used a job to schedule a direct method to a device and the update of the device twin's properties.</span></span>
+<span data-ttu-id="51bcd-172">Neste tutorial, você usou um trabalho tooschedule um dispositivo de tooa método direto e atualização de saudação das propriedades do duas do dispositivo hello.</span><span class="sxs-lookup"><span data-stu-id="51bcd-172">In this tutorial, you used a job tooschedule a direct method tooa device and hello update of hello device twin's properties.</span></span>
 
-<span data-ttu-id="a7446-173">Para continuar com a introdução ao Hub IoT e aos padrões de gerenciamento de dispositivos como atualização de firmware remota aérea, leia: [Tutorial: Como fazer uma atualização de firmware][lnk-fwupdate].</span><span class="sxs-lookup"><span data-stu-id="a7446-173">To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, read [Tutorial: How to do a firmware update][lnk-fwupdate].</span></span>
+<span data-ttu-id="51bcd-173">toocontinue guia de Introdução com padrões de gerenciamento de IoT Hub e o dispositivo como remoto pela atualização de firmware ar hello, leia [Tutorial: como toodo um atualização do firmware][lnk-fwupdate].</span><span class="sxs-lookup"><span data-stu-id="51bcd-173">toocontinue getting started with IoT Hub and device management patterns such as remote over hello air firmware update, read [Tutorial: How toodo a firmware update][lnk-fwupdate].</span></span>
 
-<span data-ttu-id="a7446-174">Para continuar a introdução ao Hub IoT, consulte [Introdução ao IoT Edge][lnk-iot-edge].</span><span class="sxs-lookup"><span data-stu-id="a7446-174">To continue getting started with IoT Hub, see [Getting started with IoT Edge][lnk-iot-edge].</span></span>
+<span data-ttu-id="51bcd-174">toocontinue guia de Introdução ao IoT Hub, consulte [guia de Introdução com borda IoT][lnk-iot-edge].</span><span class="sxs-lookup"><span data-stu-id="51bcd-174">toocontinue getting started with IoT Hub, see [Getting started with IoT Edge][lnk-iot-edge].</span></span>
 
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-node-schedule-jobs/servicesdknuget.png

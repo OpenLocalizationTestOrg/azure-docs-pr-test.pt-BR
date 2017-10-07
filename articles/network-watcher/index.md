@@ -1,15 +1,15 @@
 ---
 layout: LandingPage
-description: "Saiba como usar o Observador de Rede para monitorar e diagnosticar as condições a um nível de rede."
-ms.openlocfilehash: 3c390494f5e86eb82a3011b962217798feff5ca2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+description: "Saiba como toouse observador de rede toomonitor e diagnosticar as condições em um nível de rede."
+ms.openlocfilehash: 6c5fcdb2e5095eaceb759e45ae3d35875a0c3fc7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-network-watcher-documentation"></a>Documentação do Observador de Rede do Azure
 
-Aprenda a usar o Observador de Rede, um serviço que permite o monitoramento e diagnósticos de condições em um nível de cenário de rede. Tutoriais, referências de API e outras documentações mostram-lhe como pode obter ideias sobre a sua Rede do Azure com ferramentas como a captura de pacotes, topologia, entre outras.
+Saiba como toouse observador de rede, um serviço que permite que você toomonitor e diagnostica as condições em um nível do cenário de rede. Tutoriais, referências de API e outras documentações mostram como muito ganho de informações em sua rede do Azure com ferramentas como a captura de pacote, topologia e muito mais.
 
 <ul class="panelContent cardsFTitle">
     <li>

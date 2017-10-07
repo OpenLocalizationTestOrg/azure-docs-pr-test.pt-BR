@@ -11,7 +11,7 @@
 ## [Criar sua primeira VM](devtest-lab-create-first-vm.md)
 ## [Definir políticas iniciais](devtest-lab-get-started-with-lab-policies.md)
 
-# Guias de instruções
+# Como tooguides
 ## Usar VMs em um laboratório
 ### [Criar VMs](devtest-lab-add-vm.md)
 ### [Criar VM declarável](devtest-lab-add-claimable-vm.md)
@@ -20,7 +20,7 @@
 ## Usar ambientes em um laboratório
 ### [Criar um ambiente](devtest-lab-create-environment-from-arm.md)
 
-## Proteger o acesso aos laboratórios
+## TooLabs de acesso seguro
 ### [Adicionar proprietários e usuários do laboratório](devtest-lab-add-devtest-user.md)
 ### [Personalizar permissões com funções personalizadas](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
 
@@ -33,7 +33,7 @@
 
 ## Gerenciar imagens personalizadas
 ### [Criar uma imagem personalizada a partir de uma VM](devtest-lab-create-custom-image-from-vm-using-portal.md)
-### [Criar uma imagem personalizada de um VHD usando o portal do Azure](devtest-lab-create-template.md)
+### [Criar imagem personalizada do VHD usando Olá portal do Azure](devtest-lab-create-template.md)
 ### [Criar uma imagem personalizada de um VHD usando o PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
 ### [Carregar o arquivo VHD usando AzCopy](devtest-lab-upload-vhd-using-azcopy.md)
 ### [Carregar o arquivo VHD usando o PowerShell](devtest-lab-upload-vhd-using-powershell.md)

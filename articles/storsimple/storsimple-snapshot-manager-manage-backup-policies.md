@@ -1,6 +1,6 @@
 ---
-title: "Políticas de backup do StorSimple Snapshot Manager | Microsoft Docs"
-description: "Descreve como usar o snap-in StorSimple Snapshot Manager MMC para criar e gerenciar as políticas de backup que controlam os backups agendados."
+title: "políticas de backup de instantâneo Manager aaaStorSimple | Microsoft Docs"
+description: "Descreve como toouse Olá MMC Gerenciador de instantâneos StorSimple snap-in toocreate e gerenciar políticas de backup Olá que controlam os backups agendados."
 services: storsimple
 documentationcenter: NA
 author: SharS
@@ -14,82 +14,82 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: 218c89e403673c16c72da95aa2c1d685bbed5a86
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c2ae75a8d0568090add6018da18de73eb56e6590
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a><span data-ttu-id="91d05-103">Usar o StorSimple Snapshot Manager para criar e gerenciar políticas de backup</span><span class="sxs-lookup"><span data-stu-id="91d05-103">Use StorSimple Snapshot Manager to create and manage backup policies</span></span>
-## <a name="overview"></a><span data-ttu-id="91d05-104">Visão geral</span><span class="sxs-lookup"><span data-stu-id="91d05-104">Overview</span></span>
-<span data-ttu-id="91d05-105">Uma política de backup cria um cronograma para o backup de dados de volumes localmente ou na nuvem.</span><span class="sxs-lookup"><span data-stu-id="91d05-105">A backup policy creates a schedule for backing up volume data locally or in the cloud.</span></span> <span data-ttu-id="91d05-106">Quando cria uma política de backup, você também pode especificar uma política de retenção.</span><span class="sxs-lookup"><span data-stu-id="91d05-106">When you create a backup policy, you can also specify a retention policy.</span></span> <span data-ttu-id="91d05-107">(Você pode manter no máximo 64 instantâneos). Para obter mais informações sobre políticas de backup, consulte [Tipos de Backup](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies) na [StorSimple série 8000: uma solução de nuvem híbrida](storsimple-overview.md).</span><span class="sxs-lookup"><span data-stu-id="91d05-107">(You can retain a maximum of 64 snapshots.) For more information about backup policies, see [Backup types](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies) in [StorSimple 8000 series: a hybrid cloud solution](storsimple-overview.md).</span></span>
+# <a name="use-storsimple-snapshot-manager-toocreate-and-manage-backup-policies"></a><span data-ttu-id="574ad-103">Use o Gerenciador de instantâneos StorSimple toocreate e gerenciar políticas de backup</span><span class="sxs-lookup"><span data-stu-id="574ad-103">Use StorSimple Snapshot Manager toocreate and manage backup policies</span></span>
+## <a name="overview"></a><span data-ttu-id="574ad-104">Visão geral</span><span class="sxs-lookup"><span data-stu-id="574ad-104">Overview</span></span>
+<span data-ttu-id="574ad-105">Uma política de backup cria uma agenda de backup de dados de volume localmente ou na nuvem hello.</span><span class="sxs-lookup"><span data-stu-id="574ad-105">A backup policy creates a schedule for backing up volume data locally or in hello cloud.</span></span> <span data-ttu-id="574ad-106">Quando cria uma política de backup, você também pode especificar uma política de retenção.</span><span class="sxs-lookup"><span data-stu-id="574ad-106">When you create a backup policy, you can also specify a retention policy.</span></span> <span data-ttu-id="574ad-107">(Você pode manter no máximo 64 instantâneos). Para obter mais informações sobre políticas de backup, consulte [Tipos de Backup](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies) na [StorSimple série 8000: uma solução de nuvem híbrida](storsimple-overview.md).</span><span class="sxs-lookup"><span data-stu-id="574ad-107">(You can retain a maximum of 64 snapshots.) For more information about backup policies, see [Backup types](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies) in [StorSimple 8000 series: a hybrid cloud solution](storsimple-overview.md).</span></span>
 
-<span data-ttu-id="91d05-108">Este tutorial explica como:</span><span class="sxs-lookup"><span data-stu-id="91d05-108">This tutorial explains how to:</span></span>
+<span data-ttu-id="574ad-108">Este tutorial explica como:</span><span class="sxs-lookup"><span data-stu-id="574ad-108">This tutorial explains how to:</span></span>
 
-* <span data-ttu-id="91d05-109">Criar uma política de backup</span><span class="sxs-lookup"><span data-stu-id="91d05-109">Create a backup policy</span></span>
-* <span data-ttu-id="91d05-110">Editar uma política de backup</span><span class="sxs-lookup"><span data-stu-id="91d05-110">Edit a backup policy</span></span>
-* <span data-ttu-id="91d05-111">Excluir uma política de backup</span><span class="sxs-lookup"><span data-stu-id="91d05-111">Delete a backup policy</span></span>
+* <span data-ttu-id="574ad-109">Criar uma política de backup</span><span class="sxs-lookup"><span data-stu-id="574ad-109">Create a backup policy</span></span>
+* <span data-ttu-id="574ad-110">Editar uma política de backup</span><span class="sxs-lookup"><span data-stu-id="574ad-110">Edit a backup policy</span></span>
+* <span data-ttu-id="574ad-111">Excluir uma política de backup</span><span class="sxs-lookup"><span data-stu-id="574ad-111">Delete a backup policy</span></span>
 
-## <a name="create-a-backup-policy"></a><span data-ttu-id="91d05-112">Criar uma política de backup</span><span class="sxs-lookup"><span data-stu-id="91d05-112">Create a backup policy</span></span>
-<span data-ttu-id="91d05-113">Use o procedimento a seguir para criar uma nova política de backup.</span><span class="sxs-lookup"><span data-stu-id="91d05-113">Use the following procedure to create a new backup policy.</span></span>
+## <a name="create-a-backup-policy"></a><span data-ttu-id="574ad-112">Criar uma política de backup</span><span class="sxs-lookup"><span data-stu-id="574ad-112">Create a backup policy</span></span>
+<span data-ttu-id="574ad-113">Use Olá seguindo o procedimento toocreate uma nova política de backup.</span><span class="sxs-lookup"><span data-stu-id="574ad-113">Use hello following procedure toocreate a new backup policy.</span></span>
 
-#### <a name="to-create-a-backup-policy"></a><span data-ttu-id="91d05-114">Para criar uma política de backup</span><span class="sxs-lookup"><span data-stu-id="91d05-114">To create a backup policy</span></span>
-1. <span data-ttu-id="91d05-115">Clique no ícone da área de trabalho para iniciar o StorSimple Snapshot Manager.</span><span class="sxs-lookup"><span data-stu-id="91d05-115">Click the desktop icon to start StorSimple Snapshot Manager.</span></span>
-2. <span data-ttu-id="91d05-116">No painel **Escopo**, clique com o botão direito em **Políticas de Backup** e clique em **Criar Política de Backup**.</span><span class="sxs-lookup"><span data-stu-id="91d05-116">In the **Scope** pane, right-click **Backup Policies**, and click **Create Backup Policy**.</span></span>
+#### <a name="toocreate-a-backup-policy"></a><span data-ttu-id="574ad-114">toocreate uma política de backup</span><span class="sxs-lookup"><span data-stu-id="574ad-114">toocreate a backup policy</span></span>
+1. <span data-ttu-id="574ad-115">Clique em Olá ícone da área de trabalho toostart StorSimple Snapshot Manager.</span><span class="sxs-lookup"><span data-stu-id="574ad-115">Click hello desktop icon toostart StorSimple Snapshot Manager.</span></span>
+2. <span data-ttu-id="574ad-116">Em Olá **escopo** painel, clique com botão direito **políticas de Backup**e clique em **Criar política de Backup**.</span><span class="sxs-lookup"><span data-stu-id="574ad-116">In hello **Scope** pane, right-click **Backup Policies**, and click **Create Backup Policy**.</span></span>
 
     ![Criar uma política de backup](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_BU_policy.png)
 
-    <span data-ttu-id="91d05-118">A caixa de diálogo **Criar uma Política** é exibida.</span><span class="sxs-lookup"><span data-stu-id="91d05-118">The **Create a Policy** dialog box appears.</span></span>
+    <span data-ttu-id="574ad-118">Olá **criar uma política de** caixa de diálogo é exibida.</span><span class="sxs-lookup"><span data-stu-id="574ad-118">hello **Create a Policy** dialog box appears.</span></span>
 
     ![Criar uma Política - guia Geral](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_general.png)
-3. <span data-ttu-id="91d05-120">Na guia **Geral** , preencha as seguintes informações:</span><span class="sxs-lookup"><span data-stu-id="91d05-120">On the **General** tab, complete the following information:</span></span>
+3. <span data-ttu-id="574ad-120">Em Olá **geral** guia, Olá completa informações a seguir:</span><span class="sxs-lookup"><span data-stu-id="574ad-120">On hello **General** tab, complete hello following information:</span></span>
 
-   1. <span data-ttu-id="91d05-121">Na caixa de texto **Nome** , digite um nome para a política.</span><span class="sxs-lookup"><span data-stu-id="91d05-121">In the **Name** text box, type a name for the policy.</span></span>
-   2. <span data-ttu-id="91d05-122">Na caixa de texto **Grupo de Volumes** , digite o nome do grupo de volumes associado à política.</span><span class="sxs-lookup"><span data-stu-id="91d05-122">In the **Volume group** text box, type the name of the volume group associated with the policy.</span></span>
-   3. <span data-ttu-id="91d05-123">Selecione **Instantâneo Local** ou **Instantâneo em Nuvem**.</span><span class="sxs-lookup"><span data-stu-id="91d05-123">Select either **Local Snapshot** or **Cloud Snapshot**.</span></span>
-   4. <span data-ttu-id="91d05-124">Selecione o número de instantâneos a serem retidos.</span><span class="sxs-lookup"><span data-stu-id="91d05-124">Select the number of snapshots to retain.</span></span> <span data-ttu-id="91d05-125">Se você selecionar **Todos**, 64 instantâneos serão retidos (máximo).</span><span class="sxs-lookup"><span data-stu-id="91d05-125">If you select **All**, 64 snapshots will be retained (the maximum).</span></span>
-4. <span data-ttu-id="91d05-126">Clique na guia **Agenda** .</span><span class="sxs-lookup"><span data-stu-id="91d05-126">Click the **Schedule** tab.</span></span>
+   1. <span data-ttu-id="574ad-121">Em Olá **nome** caixa de texto, digite um nome para a política de saudação.</span><span class="sxs-lookup"><span data-stu-id="574ad-121">In hello **Name** text box, type a name for hello policy.</span></span>
+   2. <span data-ttu-id="574ad-122">Em Olá **grupo de volumes** caixa de texto, digite o nome de Olá Olá do grupo de volume associado à política de saudação.</span><span class="sxs-lookup"><span data-stu-id="574ad-122">In hello **Volume group** text box, type hello name of hello volume group associated with hello policy.</span></span>
+   3. <span data-ttu-id="574ad-123">Selecione **Instantâneo Local** ou **Instantâneo em Nuvem**.</span><span class="sxs-lookup"><span data-stu-id="574ad-123">Select either **Local Snapshot** or **Cloud Snapshot**.</span></span>
+   4. <span data-ttu-id="574ad-124">Selecione o número de saudação do tooretain de instantâneos.</span><span class="sxs-lookup"><span data-stu-id="574ad-124">Select hello number of snapshots tooretain.</span></span> <span data-ttu-id="574ad-125">Se você selecionar **todos os**, 64 instantâneos serão retidos (máximo de saudação).</span><span class="sxs-lookup"><span data-stu-id="574ad-125">If you select **All**, 64 snapshots will be retained (hello maximum).</span></span>
+4. <span data-ttu-id="574ad-126">Clique em Olá **agenda** guia.</span><span class="sxs-lookup"><span data-stu-id="574ad-126">Click hello **Schedule** tab.</span></span>
 
     ![Criar uma política - guia Agenda](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_schedule.png)
-5. <span data-ttu-id="91d05-128">Na guia **Agenda** , preencha as seguintes informações:</span><span class="sxs-lookup"><span data-stu-id="91d05-128">On the **Schedule** tab, complete the following information:</span></span>
+5. <span data-ttu-id="574ad-128">Em Olá **agenda** guia, Olá completa informações a seguir:</span><span class="sxs-lookup"><span data-stu-id="574ad-128">On hello **Schedule** tab, complete hello following information:</span></span>
 
-   1. <span data-ttu-id="91d05-129">Marque a caixa de seleção **Habilitar** para agendar o próximo backup.</span><span class="sxs-lookup"><span data-stu-id="91d05-129">Click the **Enable** check box to schedule the next backup.</span></span>
-   2. <span data-ttu-id="91d05-130">Nas **Configurações**, selecione **Uma vez**, **Diariamente**, **Semanalmente** ou **Mensalmente**.</span><span class="sxs-lookup"><span data-stu-id="91d05-130">Under **Settings**, select **One time**, **Daily**, **Weekly**, or **Monthly**.</span></span>
-   3. <span data-ttu-id="91d05-131">Na caixa de texto **Iniciar** , clique no ícone de calendário e selecione uma data de início.</span><span class="sxs-lookup"><span data-stu-id="91d05-131">In the **Start** text box, click the calendar icon and select a start date.</span></span>
-   4. <span data-ttu-id="91d05-132">Em **Configurações Avançadas**, você pode definir cronogramas opcionais de repetição e uma data de término.</span><span class="sxs-lookup"><span data-stu-id="91d05-132">Under **Advanced Settings**, you can set optional repeat schedules and an end date.</span></span>
-   5. <span data-ttu-id="91d05-133">Clique em **OK**.</span><span class="sxs-lookup"><span data-stu-id="91d05-133">Click **OK**.</span></span>
+   1. <span data-ttu-id="574ad-129">Clique em Olá **habilitar** próximo backup de caixa de seleção tooschedule hello.</span><span class="sxs-lookup"><span data-stu-id="574ad-129">Click hello **Enable** check box tooschedule hello next backup.</span></span>
+   2. <span data-ttu-id="574ad-130">Nas **Configurações**, selecione **Uma vez**, **Diariamente**, **Semanalmente** ou **Mensalmente**.</span><span class="sxs-lookup"><span data-stu-id="574ad-130">Under **Settings**, select **One time**, **Daily**, **Weekly**, or **Monthly**.</span></span>
+   3. <span data-ttu-id="574ad-131">Em Olá **iniciar** caixa de texto, clique o ícone de calendário hello e selecione uma data de início.</span><span class="sxs-lookup"><span data-stu-id="574ad-131">In hello **Start** text box, click hello calendar icon and select a start date.</span></span>
+   4. <span data-ttu-id="574ad-132">Em **Configurações Avançadas**, você pode definir cronogramas opcionais de repetição e uma data de término.</span><span class="sxs-lookup"><span data-stu-id="574ad-132">Under **Advanced Settings**, you can set optional repeat schedules and an end date.</span></span>
+   5. <span data-ttu-id="574ad-133">Clique em **OK**.</span><span class="sxs-lookup"><span data-stu-id="574ad-133">Click **OK**.</span></span>
 
-<span data-ttu-id="91d05-134">Após você criar uma política de backup, as seguintes informações aparecem no painel **Resultados** :</span><span class="sxs-lookup"><span data-stu-id="91d05-134">After you create a backup policy, the following information appears in the **Results** pane:</span></span>
+<span data-ttu-id="574ad-134">Depois de criar uma política de backup, Olá informações a seguir aparece no hello **resultados** painel:</span><span class="sxs-lookup"><span data-stu-id="574ad-134">After you create a backup policy, hello following information appears in hello **Results** pane:</span></span>
 
-* <span data-ttu-id="91d05-135">**Nome** – o nome da política de backup.</span><span class="sxs-lookup"><span data-stu-id="91d05-135">**Name** – the name of backup policy.</span></span>
-* <span data-ttu-id="91d05-136">**Tipo** – instantâneo local ou instantâneo de nuvem.</span><span class="sxs-lookup"><span data-stu-id="91d05-136">**Type** – local snapshot or cloud snapshot.</span></span>
-* <span data-ttu-id="91d05-137">**Grupo de Volumes** – o grupo de volumes associado à política.</span><span class="sxs-lookup"><span data-stu-id="91d05-137">**Volume Group** – the volume group associated with the policy.</span></span>
-* <span data-ttu-id="91d05-138">**Retenção** – o número de instantâneos retidos; o máximo é 64.</span><span class="sxs-lookup"><span data-stu-id="91d05-138">**Retention** – the number of snapshots retained; the maximum is 64.</span></span>
-* <span data-ttu-id="91d05-139">**Criado** – a data em que esta política foi criada.</span><span class="sxs-lookup"><span data-stu-id="91d05-139">**Created** – the date that this policy was created.</span></span>
-* <span data-ttu-id="91d05-140">**Habilitado** – se a política está em vigor: **Verdadeiro** indica que está em vigor; **Falso** indica que não está.</span><span class="sxs-lookup"><span data-stu-id="91d05-140">**Enabled** – whether the policy is currently in effect: **True** indicates that it is in effect; **False** indicates that it is not in effect.</span></span>
+* <span data-ttu-id="574ad-135">**Nome** – hello nome da política de backup.</span><span class="sxs-lookup"><span data-stu-id="574ad-135">**Name** – hello name of backup policy.</span></span>
+* <span data-ttu-id="574ad-136">**Tipo** – instantâneo local ou instantâneo de nuvem.</span><span class="sxs-lookup"><span data-stu-id="574ad-136">**Type** – local snapshot or cloud snapshot.</span></span>
+* <span data-ttu-id="574ad-137">**Grupo de volume** – hello associado à política de saudação do grupo de volumes.</span><span class="sxs-lookup"><span data-stu-id="574ad-137">**Volume Group** – hello volume group associated with hello policy.</span></span>
+* <span data-ttu-id="574ad-138">**Retenção** – hello número de instantâneos retidos; Olá máximo é 64.</span><span class="sxs-lookup"><span data-stu-id="574ad-138">**Retention** – hello number of snapshots retained; hello maximum is 64.</span></span>
+* <span data-ttu-id="574ad-139">**Criada** – data de saudação que esta política foi criada.</span><span class="sxs-lookup"><span data-stu-id="574ad-139">**Created** – hello date that this policy was created.</span></span>
+* <span data-ttu-id="574ad-140">**Habilitado** – se a política de saudação está atualmente em vigor: **True** indica que ele está em vigor; **False** indica que ele não está em vigor.</span><span class="sxs-lookup"><span data-stu-id="574ad-140">**Enabled** – whether hello policy is currently in effect: **True** indicates that it is in effect; **False** indicates that it is not in effect.</span></span>
 
-## <a name="edit-a-backup-policy"></a><span data-ttu-id="91d05-141">Editar uma política de backup</span><span class="sxs-lookup"><span data-stu-id="91d05-141">Edit a backup policy</span></span>
-<span data-ttu-id="91d05-142">Use o procedimento a seguir para editar uma política de backup existente.</span><span class="sxs-lookup"><span data-stu-id="91d05-142">Use the following procedure to edit an existing backup policy.</span></span>
+## <a name="edit-a-backup-policy"></a><span data-ttu-id="574ad-141">Editar uma política de backup</span><span class="sxs-lookup"><span data-stu-id="574ad-141">Edit a backup policy</span></span>
+<span data-ttu-id="574ad-142">Use Olá seguindo o procedimento tooedit uma política de backup existente.</span><span class="sxs-lookup"><span data-stu-id="574ad-142">Use hello following procedure tooedit an existing backup policy.</span></span>
 
-#### <a name="to-edit-a-backup-policy"></a><span data-ttu-id="91d05-143">Para editar uma política de backup</span><span class="sxs-lookup"><span data-stu-id="91d05-143">To edit a backup policy</span></span>
-1. <span data-ttu-id="91d05-144">Clique no ícone da área de trabalho para iniciar o StorSimple Snapshot Manager.</span><span class="sxs-lookup"><span data-stu-id="91d05-144">Click the desktop icon to start StorSimple Snapshot Manager.</span></span>
-2. <span data-ttu-id="91d05-145">No painel **Escopo**, clique no nó **Políticas de Backup**.</span><span class="sxs-lookup"><span data-stu-id="91d05-145">In the **Scope** pane, click the **Backup Policies** node.</span></span> <span data-ttu-id="91d05-146">Todas as políticas de backup aparecem no painel **Resultados** .</span><span class="sxs-lookup"><span data-stu-id="91d05-146">All the backup policies appear in the **Results** pane.</span></span>
-3. <span data-ttu-id="91d05-147">Clique com o botão direito na política que você deseja editar e clique em **Editar**.</span><span class="sxs-lookup"><span data-stu-id="91d05-147">Right-click the policy that you want to edit, and then click **Edit**.</span></span>
+#### <a name="tooedit-a-backup-policy"></a><span data-ttu-id="574ad-143">tooedit uma política de backup</span><span class="sxs-lookup"><span data-stu-id="574ad-143">tooedit a backup policy</span></span>
+1. <span data-ttu-id="574ad-144">Clique em Olá ícone da área de trabalho toostart StorSimple Snapshot Manager.</span><span class="sxs-lookup"><span data-stu-id="574ad-144">Click hello desktop icon toostart StorSimple Snapshot Manager.</span></span>
+2. <span data-ttu-id="574ad-145">Em Olá **escopo** painel, clique em Olá **políticas de Backup** nó.</span><span class="sxs-lookup"><span data-stu-id="574ad-145">In hello **Scope** pane, click hello **Backup Policies** node.</span></span> <span data-ttu-id="574ad-146">Todas as políticas de backup Olá aparecem no hello **resultados** painel.</span><span class="sxs-lookup"><span data-stu-id="574ad-146">All hello backup policies appear in hello **Results** pane.</span></span>
+3. <span data-ttu-id="574ad-147">Clique com botão direito política Olá que você deseja tooedit e, em seguida, clique em **editar**.</span><span class="sxs-lookup"><span data-stu-id="574ad-147">Right-click hello policy that you want tooedit, and then click **Edit**.</span></span>
 
     ![Editar uma política de backup](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Edit_BU_policy.png)
-4. <span data-ttu-id="91d05-149">Quando a janela **Criar uma Política** for exibida, insira suas alterações e clique em **OK**.</span><span class="sxs-lookup"><span data-stu-id="91d05-149">When the **Create a Policy** window appears, enter your changes, and then click **OK**.</span></span>
+4. <span data-ttu-id="574ad-149">Olá quando **criar uma política de** janela for exibida, insira suas alterações e, em seguida, clique em **Okey**.</span><span class="sxs-lookup"><span data-stu-id="574ad-149">When hello **Create a Policy** window appears, enter your changes, and then click **OK**.</span></span>
 
-## <a name="delete-a-backup-policy"></a><span data-ttu-id="91d05-150">Excluir uma política de backup</span><span class="sxs-lookup"><span data-stu-id="91d05-150">Delete a backup policy</span></span>
-<span data-ttu-id="91d05-151">Use o procedimento a seguir para excluir uma política de backup.</span><span class="sxs-lookup"><span data-stu-id="91d05-151">Use the following procedure to delete a backup policy.</span></span>
+## <a name="delete-a-backup-policy"></a><span data-ttu-id="574ad-150">Excluir uma política de backup</span><span class="sxs-lookup"><span data-stu-id="574ad-150">Delete a backup policy</span></span>
+<span data-ttu-id="574ad-151">Use Olá seguindo o procedimento toodelete uma política de backup.</span><span class="sxs-lookup"><span data-stu-id="574ad-151">Use hello following procedure toodelete a backup policy.</span></span>
 
-#### <a name="to-delete-a-backup-policy"></a><span data-ttu-id="91d05-152">Para excluir uma política de backup</span><span class="sxs-lookup"><span data-stu-id="91d05-152">To delete a backup policy</span></span>
-1. <span data-ttu-id="91d05-153">Clique no ícone da área de trabalho para iniciar o StorSimple Snapshot Manager.</span><span class="sxs-lookup"><span data-stu-id="91d05-153">Click the desktop icon to start StorSimple Snapshot Manager.</span></span>
-2. <span data-ttu-id="91d05-154">No painel **Escopo**, clique no nó **Políticas de Backup**.</span><span class="sxs-lookup"><span data-stu-id="91d05-154">In the **Scope** pane, click the **Backup Policies** node.</span></span> <span data-ttu-id="91d05-155">Todas as políticas de backup aparecem no painel **Resultados** .</span><span class="sxs-lookup"><span data-stu-id="91d05-155">All the backup policies appear in the **Results** pane.</span></span>
-3. <span data-ttu-id="91d05-156">Clique com o botão direito do mouse na política de backup que você deseja excluir e clique em **Excluir**.</span><span class="sxs-lookup"><span data-stu-id="91d05-156">Right-click the backup policy that you want to delete, and then click **Delete**.</span></span>
-4. <span data-ttu-id="91d05-157">Quando a mensagem de confirmação aparecer, clique em **Sim**.</span><span class="sxs-lookup"><span data-stu-id="91d05-157">When the confirmation message appears, click **Yes**.</span></span>
+#### <a name="toodelete-a-backup-policy"></a><span data-ttu-id="574ad-152">toodelete uma política de backup</span><span class="sxs-lookup"><span data-stu-id="574ad-152">toodelete a backup policy</span></span>
+1. <span data-ttu-id="574ad-153">Clique em Olá ícone da área de trabalho toostart StorSimple Snapshot Manager.</span><span class="sxs-lookup"><span data-stu-id="574ad-153">Click hello desktop icon toostart StorSimple Snapshot Manager.</span></span>
+2. <span data-ttu-id="574ad-154">Em Olá **escopo** painel, clique em Olá **políticas de Backup** nó.</span><span class="sxs-lookup"><span data-stu-id="574ad-154">In hello **Scope** pane, click hello **Backup Policies** node.</span></span> <span data-ttu-id="574ad-155">Todas as políticas de backup Olá aparecem no hello **resultados** painel.</span><span class="sxs-lookup"><span data-stu-id="574ad-155">All hello backup policies appear in hello **Results** pane.</span></span>
+3. <span data-ttu-id="574ad-156">Clique com botão direito a política de backup Olá que você deseja toodelete e, em seguida, clique em **excluir**.</span><span class="sxs-lookup"><span data-stu-id="574ad-156">Right-click hello backup policy that you want toodelete, and then click **Delete**.</span></span>
+4. <span data-ttu-id="574ad-157">Quando aparece a mensagem de confirmação de saudação, clique em **Sim**.</span><span class="sxs-lookup"><span data-stu-id="574ad-157">When hello confirmation message appears, click **Yes**.</span></span>
 
     ![Excluir confirmação da política de backup](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
 
-## <a name="next-steps"></a><span data-ttu-id="91d05-159">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="91d05-159">Next steps</span></span>
-* <span data-ttu-id="91d05-160">Saiba como [usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).</span><span class="sxs-lookup"><span data-stu-id="91d05-160">Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).</span></span>
-* <span data-ttu-id="91d05-161">Saiba como [Usar o StorSimple Snapshot Manager para exibir e gerenciar trabalhos de backup](storsimple-snapshot-manager-manage-backup-jobs.md).</span><span class="sxs-lookup"><span data-stu-id="91d05-161">Learn how to [use StorSimple Snapshot Manager to view and manage backup jobs](storsimple-snapshot-manager-manage-backup-jobs.md).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="574ad-159">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="574ad-159">Next steps</span></span>
+* <span data-ttu-id="574ad-160">Saiba como muito[usar o Gerenciador de instantâneos StorSimple tooadminister sua solução StorSimple](storsimple-snapshot-manager-admin.md).</span><span class="sxs-lookup"><span data-stu-id="574ad-160">Learn how too[use StorSimple Snapshot Manager tooadminister your StorSimple solution](storsimple-snapshot-manager-admin.md).</span></span>
+* <span data-ttu-id="574ad-161">Saiba como muito[usar Gerenciador de instantâneos StorSimple tooview e gerenciar trabalhos de backup](storsimple-snapshot-manager-manage-backup-jobs.md).</span><span class="sxs-lookup"><span data-stu-id="574ad-161">Learn how too[use StorSimple Snapshot Manager tooview and manage backup jobs](storsimple-snapshot-manager-manage-backup-jobs.md).</span></span>

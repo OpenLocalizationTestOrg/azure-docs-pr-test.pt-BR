@@ -1,6 +1,6 @@
 ---
-title: "Como colocar em contêineres os microsserviços do Azure Service Fabric (versão prévia)"
-description: "O Azure Service Fabric adicionou novas funcionalidades para colocar em contêineres seus microsserviços do Service Fabric. Esse recurso está atualmente na visualização."
+title: "aaaHow toocontainerize microservices sua malha de serviço do Azure (visualização)"
+description: "Malha do Azure do serviço foi adicionado novo toocontainerize de funcionalidade microservices sua malha de serviço. Esse recurso está atualmente na visualização."
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/04/2017
 ms.author: anmola
-ms.openlocfilehash: 6f8ad0bad8d1ae861e6b72f7e1a32ab0675813c2
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 6edaff73c0828707c7fa736669ba8084663d31ed
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-containerize-your-service-fabric-reliable-services-and-reliable-actors-preview"></a><span data-ttu-id="97634-104">Como colocar em contêineres seus Reliable Services e Reliable Actors do Service Fabric (versão prévia)</span><span class="sxs-lookup"><span data-stu-id="97634-104">How to containerize your Service Fabric Reliable Services and Reliable Actors (Preview)</span></span>
+# <a name="how-toocontainerize-your-service-fabric-reliable-services-and-reliable-actors-preview"></a><span data-ttu-id="6b9fe-104">Como toocontainerize seu confiável de malha do serviço serviços e agentes confiável (visualização)</span><span class="sxs-lookup"><span data-stu-id="6b9fe-104">How toocontainerize your Service Fabric Reliable Services and Reliable Actors (Preview)</span></span>
 
-<span data-ttu-id="97634-105">O Service Fabric oferece suporte a colocação em contêineres de microsserviços do Service Fabric (serviços baseados em Reliable Services e Reliable Actors).</span><span class="sxs-lookup"><span data-stu-id="97634-105">Service Fabric supports containerizing Service Fabric microservices (Reliable Services, and Reliable Actor based services).</span></span> <span data-ttu-id="97634-106">Para saber mais, confira [contêineres do Service Fabric](service-fabric-containers-overview.md).</span><span class="sxs-lookup"><span data-stu-id="97634-106">For more information, see [service fabric containers](service-fabric-containers-overview.md).</span></span>
+<span data-ttu-id="6b9fe-105">O Service Fabric oferece suporte a colocação em contêineres de microsserviços do Service Fabric (serviços baseados em Reliable Services e Reliable Actors).</span><span class="sxs-lookup"><span data-stu-id="6b9fe-105">Service Fabric supports containerizing Service Fabric microservices (Reliable Services, and Reliable Actor based services).</span></span> <span data-ttu-id="6b9fe-106">Para saber mais, confira [contêineres do Service Fabric](service-fabric-containers-overview.md).</span><span class="sxs-lookup"><span data-stu-id="6b9fe-106">For more information, see [service fabric containers](service-fabric-containers-overview.md).</span></span>
 
 
- <span data-ttu-id="97634-107">Este recurso está em versão prévia, e este artigo fornece as várias etapas para executar seu serviço dentro de um contêiner.</span><span class="sxs-lookup"><span data-stu-id="97634-107">This feature is in preview and this article provides the various steps to get your service running inside a container.</span></span>  
+ <span data-ttu-id="6b9fe-107">Este recurso está em visualização e este artigo fornece Olá tooget de várias etapas em seu serviço está em execução dentro de um contêiner.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-107">This feature is in preview and this article provides hello various steps tooget your service running inside a container.</span></span>  
 
 > [!NOTE]
-> <span data-ttu-id="97634-108">Esse recurso está na versão prévia e não tem suporte.</span><span class="sxs-lookup"><span data-stu-id="97634-108">This feature is in preview and is not supported in production.</span></span> <span data-ttu-id="97634-109">Atualmente, esse recurso só funciona para Windows.</span><span class="sxs-lookup"><span data-stu-id="97634-109">Currently this feature only works for Windows.</span></span>
+> <span data-ttu-id="6b9fe-108">Esse recurso está na versão prévia e não tem suporte.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-108">This feature is in preview and is not supported in production.</span></span> <span data-ttu-id="6b9fe-109">Atualmente, esse recurso só funciona para Windows.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-109">Currently this feature only works for Windows.</span></span>
 
-## <a name="steps-to-containerize-your-service-fabric-application"></a><span data-ttu-id="97634-110">Etapas para colocar seu aplicativo do Service Fabric em contêineres</span><span class="sxs-lookup"><span data-stu-id="97634-110">Steps to containerize your Service Fabric Application</span></span>
+## <a name="steps-toocontainerize-your-service-fabric-application"></a><span data-ttu-id="6b9fe-110">Etapas toocontainerize seu aplicativo de malha do serviço</span><span class="sxs-lookup"><span data-stu-id="6b9fe-110">Steps toocontainerize your Service Fabric Application</span></span>
 
-1. <span data-ttu-id="97634-111">Abra seu aplicativo do Service Fabric no Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="97634-111">Open your Service Fabric application in Visual Studio.</span></span>
+1. <span data-ttu-id="6b9fe-111">Abra seu aplicativo do Service Fabric no Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-111">Open your Service Fabric application in Visual Studio.</span></span>
 
-2. <span data-ttu-id="97634-112">Adicione a classe [SFBinaryLoader.cs](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/code/SFBinaryLoaderForContainers/SFBinaryLoader.cs) ao seu projeto.</span><span class="sxs-lookup"><span data-stu-id="97634-112">Add class [SFBinaryLoader.cs](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/code/SFBinaryLoaderForContainers/SFBinaryLoader.cs) to your project.</span></span> <span data-ttu-id="97634-113">O código nessa classe é um auxiliar para carregar corretamente os binários de tempo de execução do Service Fabric dentro de seu aplicativo durante a execução dentro de um contêiner.</span><span class="sxs-lookup"><span data-stu-id="97634-113">The code in this class is a helper to correctly load the Service Fabric runtime binaries inside your application when running inside a container.</span></span>
+2. <span data-ttu-id="6b9fe-112">Adicionar classe [SFBinaryLoader.cs](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/code/SFBinaryLoaderForContainers/SFBinaryLoader.cs) tooyour projeto.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-112">Add class [SFBinaryLoader.cs](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/code/SFBinaryLoaderForContainers/SFBinaryLoader.cs) tooyour project.</span></span> <span data-ttu-id="6b9fe-113">Olá código essa classe é um binários de tempo de execução do auxiliar toocorrectly carga Olá Service Fabric dentro de seu aplicativo durante a execução dentro de um contêiner.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-113">hello code in this class is a helper toocorrectly load hello Service Fabric runtime binaries inside your application when running inside a container.</span></span>
 
-3. <span data-ttu-id="97634-114">Para cada pacote de código que você quer colocar em contêineres, inicialize o carregador no ponto de entrada do programa.</span><span class="sxs-lookup"><span data-stu-id="97634-114">For each code package you would like to containerize, initialize the loader at the program entry point.</span></span> <span data-ttu-id="97634-115">Adicione o construtor estático mostrado no trecho de código a seguir ao seu arquivo de ponto de entrada do programa.</span><span class="sxs-lookup"><span data-stu-id="97634-115">Add the static constructor shown in the following code snippet to your program entry point file.</span></span>
+3. <span data-ttu-id="6b9fe-114">Para cada pacote de código que deseja toocontainerize, inicializar o carregador de saudação no ponto de entrada de programa hello.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-114">For each code package you would like toocontainerize, initialize hello loader at hello program entry point.</span></span> <span data-ttu-id="6b9fe-115">Adicione um construtor estático de Olá Olá arquivo de ponto de entrada do programa de tooyour de trecho código a seguir mostrado.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-115">Add hello static constructor shown in hello following code snippet tooyour program entry point file.</span></span>
 
   ```csharp
   namespace MyApplication
@@ -49,41 +49,41 @@ ms.lasthandoff: 08/18/2017
           }
 
           /// <summary>
-          /// This is the entry point of the service host process.
+          /// This is hello entry point of hello service host process.
           /// </summary>
           private static void Main()
           {
   ```
 
-4. <span data-ttu-id="97634-116">Compilar e [empacotar](service-fabric-package-apps.md#Package-App) seu projeto.</span><span class="sxs-lookup"><span data-stu-id="97634-116">Build and [package](service-fabric-package-apps.md#Package-App) your project.</span></span> <span data-ttu-id="97634-117">Para compilar e criar um pacote, clique com o botão direito do mouse no projeto de aplicativo no Gerenciador de Soluções e escolha o comando **Empacotar**.</span><span class="sxs-lookup"><span data-stu-id="97634-117">To build and create a package, right-click the application project in Solution Explorer and choose the **Package** command.</span></span>
+4. <span data-ttu-id="6b9fe-116">Compilar e [empacotar](service-fabric-package-apps.md#Package-App) seu projeto.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-116">Build and [package](service-fabric-package-apps.md#Package-App) your project.</span></span> <span data-ttu-id="6b9fe-117">toobuild e criar um pacote, clique com botão direito Olá aplicativo no Gerenciador de soluções e escolha Olá **pacote** comando.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-117">toobuild and create a package, right-click hello application project in Solution Explorer and choose hello **Package** command.</span></span>
 
-5. <span data-ttu-id="97634-118">Para cada pacote de códigos que você precisa colocar em contêineres, execute o script do PowerShell [CreateDockerPackage.ps1](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/scripts/CodePackageToDockerPackage/CreateDockerPackage.ps1).</span><span class="sxs-lookup"><span data-stu-id="97634-118">For every code package you need to containerize, run the PowerShell script [CreateDockerPackage.ps1](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/scripts/CodePackageToDockerPackage/CreateDockerPackage.ps1).</span></span> <span data-ttu-id="97634-119">A utilização é o seguinte:</span><span class="sxs-lookup"><span data-stu-id="97634-119">The usage is as follows:</span></span>
+5. <span data-ttu-id="6b9fe-118">Para cada pacote de código, você precisa toocontainerize, Olá executar script do PowerShell [CreateDockerPackage.ps1](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/scripts/CodePackageToDockerPackage/CreateDockerPackage.ps1).</span><span class="sxs-lookup"><span data-stu-id="6b9fe-118">For every code package you need toocontainerize, run hello PowerShell script [CreateDockerPackage.ps1](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/scripts/CodePackageToDockerPackage/CreateDockerPackage.ps1).</span></span> <span data-ttu-id="6b9fe-119">uso de saudação é o seguinte:</span><span class="sxs-lookup"><span data-stu-id="6b9fe-119">hello usage is as follows:</span></span>
   ```powershell
-    $codePackagePath = 'Path to the code package to containerize.'
-    $dockerPackageOutputDirectoryPath = 'Output path for the generated docker folder.'
-    $applicationExeName = 'Name of the ode package executable.'
+    $codePackagePath = 'Path toohello code package toocontainerize.'
+    $dockerPackageOutputDirectoryPath = 'Output path for hello generated docker folder.'
+    $applicationExeName = 'Name of hello ode package executable.'
     CreateDockerPackage.ps1 -CodePackageDirectoryPath $codePackagePath -DockerPackageOutputDirectoryPath $dockerPackageOutputDirectoryPath -ApplicationExeName $applicationExeName
  ```
-  <span data-ttu-id="97634-120">O script cria uma pasta com artefatos do Docker em $dockerPackageOutputDirectoryPath.</span><span class="sxs-lookup"><span data-stu-id="97634-120">The script creates a folder with Docker artifacts at $dockerPackageOutputDirectoryPath.</span></span> <span data-ttu-id="97634-121">Modifique o Dockerfile gerado para expor as portas, executar scripts de configuração etc. com base em suas necessidades.</span><span class="sxs-lookup"><span data-stu-id="97634-121">Modify the generated Dockerfile to expose any ports, run setup scripts etc. based on your needs.</span></span>
+  <span data-ttu-id="6b9fe-120">script Hello cria uma pasta com artefatos de Docker em $dockerPackageOutputDirectoryPath.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-120">hello script creates a folder with Docker artifacts at $dockerPackageOutputDirectoryPath.</span></span> <span data-ttu-id="6b9fe-121">Modificar Olá gerado Dockerfile tooexpose todas as portas, executadas scripts de instalação etc. com base em suas necessidades.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-121">Modify hello generated Dockerfile tooexpose any ports, run setup scripts etc. based on your needs.</span></span>
 
-6. <span data-ttu-id="97634-122">Em seguida você precisa [compilar](service-fabric-get-started-containers.md#Build-Containers) e [enviar por push](service-fabric-get-started-containers.md#Push-Containers) seu pacote de contêineres do Docker ao seu repositório.</span><span class="sxs-lookup"><span data-stu-id="97634-122">Next you need to [build](service-fabric-get-started-containers.md#Build-Containers) and [push](service-fabric-get-started-containers.md#Push-Containers) your Docker container package to your repository.</span></span>
+6. <span data-ttu-id="6b9fe-122">Em seguida você precisa muito[criar](service-fabric-get-started-containers.md#Build-Containers) e [push](service-fabric-get-started-containers.md#Push-Containers) seu repositório de tooyour do pacote de contêiner do Docker.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-122">Next you need too[build](service-fabric-get-started-containers.md#Build-Containers) and [push](service-fabric-get-started-containers.md#Push-Containers) your Docker container package tooyour repository.</span></span>
 
-7. <span data-ttu-id="97634-123">Modifique o ApplicationManifest.xml e ServiceManifest.xml a fim de adicionar a imagem de contêiner, informações do repositório, autenticação do registro e mapeamento de porta ao host.</span><span class="sxs-lookup"><span data-stu-id="97634-123">Modify the ApplicationManifest.xml and ServiceManifest.xml to add your container image, repository information, registry authentication, and port-to-host mapping.</span></span> <span data-ttu-id="97634-124">Para modificar os manifestos, confira [Criar um aplicativo de contêiner do Azure Service Fabric](service-fabric-get-started-containers.md).</span><span class="sxs-lookup"><span data-stu-id="97634-124">For modifying the manifests, see [Create an Azure Service Fabric container application](service-fabric-get-started-containers.md).</span></span> <span data-ttu-id="97634-125">A definição de pacote de códigos no manifesto do serviço precisa ser substituída pela imagem de contêiner correspondente.</span><span class="sxs-lookup"><span data-stu-id="97634-125">The code package definition in the service manifest needs to be replaced with corresponding container image.</span></span> <span data-ttu-id="97634-126">Altere o Ponto de Entrada para um tipo de ContainerHost.</span><span class="sxs-lookup"><span data-stu-id="97634-126">Make sure to change the EntryPoint to a ContainerHost type.</span></span>
+7. <span data-ttu-id="6b9fe-123">Modificar hello ApplicationManifest.xml e ServiceManifest.xml tooadd sua imagem de contêiner, informações do repositório, a autenticação do registro e mapeamento de porta para o host.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-123">Modify hello ApplicationManifest.xml and ServiceManifest.xml tooadd your container image, repository information, registry authentication, and port-to-host mapping.</span></span> <span data-ttu-id="6b9fe-124">Para modificar os manifestos hello, consulte [criar um aplicativo de contêiner do Azure Service Fabric](service-fabric-get-started-containers.md).</span><span class="sxs-lookup"><span data-stu-id="6b9fe-124">For modifying hello manifests, see [Create an Azure Service Fabric container application](service-fabric-get-started-containers.md).</span></span> <span data-ttu-id="6b9fe-125">definição de pacote de código Olá no hello serviço necessidades manifesto toobe substituído com a imagem de contêiner correspondente.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-125">hello code package definition in hello service manifest needs toobe replaced with corresponding container image.</span></span> <span data-ttu-id="6b9fe-126">Certifique-se de que toochange Olá EntryPoint tooa ContainerHost tipo.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-126">Make sure toochange hello EntryPoint tooa ContainerHost type.</span></span>
 
   ```xml
 <!-- Code package is your service executable. -->
 <CodePackage Name="Code" Version="1.0.0">
   <EntryPoint>
-    <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
+    <!-- Follow this link for more information about deploying Windows containers tooService Fabric: https://aka.ms/sfguestcontainers -->
     <ContainerHost>
       <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
     </ContainerHost>
   </EntryPoint>
-  <!-- Pass environment variables to your container: -->    
+  <!-- Pass environment variables tooyour container: -->    
 </CodePackage>
   ```
 
-8. <span data-ttu-id="97634-127">Adicione o mapeamento de porta ao host para seu replicador e ponto de extremidade de serviço.</span><span class="sxs-lookup"><span data-stu-id="97634-127">Add the port-to-host mapping for your replicator and service endpoint.</span></span> <span data-ttu-id="97634-128">Como essas duas portas são atribuídas em tempo de execução pelo Service Fabric, o ContainerPort é definido como zero para usar a porta atribuída para mapeamento.</span><span class="sxs-lookup"><span data-stu-id="97634-128">Since both these ports are assigned at runtime by Service Fabric, the ContainerPort is set to zero to use the assigned port for mapping.</span></span>
+8. <span data-ttu-id="6b9fe-127">Adicione mapeamento de porta para o host Olá para o replicador e o ponto de extremidade de serviço.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-127">Add hello port-to-host mapping for your replicator and service endpoint.</span></span> <span data-ttu-id="6b9fe-128">Como ambas as essas portas são atribuídas em tempo de execução pela malha do serviço, Olá ContainerPort é definido toozero toouse Olá atribuído a porta para mapeamento.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-128">Since both these ports are assigned at runtime by Service Fabric, hello ContainerPort is set toozero toouse hello assigned port for mapping.</span></span>
 
  ```xml
 <Policies>
@@ -94,7 +94,7 @@ ms.lasthandoff: 08/18/2017
 </Policies>
  ```
 
-9. <span data-ttu-id="97634-129">Para testar esse aplicativo, você precisa implantá-lo em um cluster que esteja executando a versão 5.7 ou superior.</span><span class="sxs-lookup"><span data-stu-id="97634-129">To test this application, you need to deploy it to a cluster that is running version 5.7 or higher.</span></span> <span data-ttu-id="97634-130">Além disso, você precisa editar e atualizar as configurações de cluster para habilitar esse recurso de visualização.</span><span class="sxs-lookup"><span data-stu-id="97634-130">In addition, you need to edit and update the cluster settings to enable this preview feature.</span></span> <span data-ttu-id="97634-131">Execute as etapas neste [artigo](service-fabric-cluster-fabric-settings.md) para adicionar a configuração mostrada a seguir.</span><span class="sxs-lookup"><span data-stu-id="97634-131">Follow the steps in this [article](service-fabric-cluster-fabric-settings.md) to add the setting shown next.</span></span>
+9. <span data-ttu-id="6b9fe-129">tootest este aplicativo, você precisa toodeploy-tooa cluster que está executando a versão 5.7 ou superior.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-129">tootest this application, you need toodeploy it tooa cluster that is running version 5.7 or higher.</span></span> <span data-ttu-id="6b9fe-130">Além disso, você precisa tooedit e atualizar tooenable de configurações de cluster Olá esse recurso de visualização.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-130">In addition, you need tooedit and update hello cluster settings tooenable this preview feature.</span></span> <span data-ttu-id="6b9fe-131">Siga as etapas de saudação neste [artigo](service-fabric-cluster-fabric-settings.md) configuração de saudação tooadd mostrada a seguir.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-131">Follow hello steps in this [article](service-fabric-cluster-fabric-settings.md) tooadd hello setting shown next.</span></span>
 ```
       {
         "name": "Hosting",
@@ -106,10 +106,10 @@ ms.lasthandoff: 08/18/2017
         ]
       }
 ```
-10. <span data-ttu-id="97634-132">Depois, [implante](service-fabric-deploy-remove-applications.md) o pacote de aplicativos editado nesse cluster.</span><span class="sxs-lookup"><span data-stu-id="97634-132">Next [deploy](service-fabric-deploy-remove-applications.md) the edited application package to this cluster.</span></span>
+10. <span data-ttu-id="6b9fe-132">Próxima [implantar](service-fabric-deploy-remove-applications.md) Olá editado cluster de toothis do pacote de aplicativo.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-132">Next [deploy](service-fabric-deploy-remove-applications.md) hello edited application package toothis cluster.</span></span>
 
-<span data-ttu-id="97634-133">Agora você deve ter um aplicativo do Service Fabric em contêineres executando seu cluster.</span><span class="sxs-lookup"><span data-stu-id="97634-133">You should now have a containerized Service Fabric application running your cluster.</span></span>
+<span data-ttu-id="6b9fe-133">Agora você deve ter um aplicativo do Service Fabric em contêineres executando seu cluster.</span><span class="sxs-lookup"><span data-stu-id="6b9fe-133">You should now have a containerized Service Fabric application running your cluster.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="97634-134">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="97634-134">Next steps</span></span>
-* <span data-ttu-id="97634-135">Saiba mais sobre como executar [contêineres no Service Fabric](service-fabric-get-started-containers.md).</span><span class="sxs-lookup"><span data-stu-id="97634-135">Learn more about running [containers on Service Fabric](service-fabric-get-started-containers.md).</span></span>
-* <span data-ttu-id="97634-136">Leia mais sobre o [ciclo de vida do aplicativo](service-fabric-application-lifecycle.md) do Service Fabric.</span><span class="sxs-lookup"><span data-stu-id="97634-136">Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="6b9fe-134">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="6b9fe-134">Next steps</span></span>
+* <span data-ttu-id="6b9fe-135">Saiba mais sobre como executar [contêineres no Service Fabric](service-fabric-get-started-containers.md).</span><span class="sxs-lookup"><span data-stu-id="6b9fe-135">Learn more about running [containers on Service Fabric](service-fabric-get-started-containers.md).</span></span>
+* <span data-ttu-id="6b9fe-136">Saiba mais sobre Olá Service Fabric [ciclo de vida do aplicativo](service-fabric-application-lifecycle.md).</span><span class="sxs-lookup"><span data-stu-id="6b9fe-136">Learn about hello Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).</span></span>

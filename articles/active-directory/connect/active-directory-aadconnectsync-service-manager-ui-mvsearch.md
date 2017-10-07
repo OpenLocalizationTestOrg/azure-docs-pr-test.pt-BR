@@ -1,6 +1,6 @@
 ---
-title: A Pesquisa de Metaverso no Synchronization Service Manager para o Azure AD Connect | Microsoft Docs
-description: Entenda como usar a guia Pesquisa de Metaverso no Synchronization Service Manager para o Azure AD Connect.
+title: "Pesquisa do Azure AD Connect sincronização Service Manager metaverso de aaaThe | Microsoft Docs"
+description: "Entenda Olá guia pesquisa de metaverso Olá Synchronization Service Manager para conexão do AD do Azure."
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: faf66f19ab1fe5c38273b22c1ff8aeff4d26f1ea
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 5cc115344255ecbb3d13d11eaa4bbe95bdbefe22
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="sync-service-manager-metaverse-search"></a><span data-ttu-id="97225-103">Pesquisa de Metaverso do Synchronization Service Manager</span><span class="sxs-lookup"><span data-stu-id="97225-103">Sync Service Manager Metaverse Search</span></span>
+# <a name="sync-service-manager-metaverse-search"></a><span data-ttu-id="d1bb0-103">Pesquisa de Metaverso do Synchronization Service Manager</span><span class="sxs-lookup"><span data-stu-id="d1bb0-103">Sync Service Manager Metaverse Search</span></span>
 
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvsearch.png)
 
-<span data-ttu-id="97225-105">A guia Pesquisa de Metaverso é útil para solucionar problemas relacionados a dados.</span><span class="sxs-lookup"><span data-stu-id="97225-105">The metaverse search tab is useful for troubleshooting data-related problems.</span></span> <span data-ttu-id="97225-106">Na metade superior, é possível criar uma consulta com base em uma combinação de atributos.</span><span class="sxs-lookup"><span data-stu-id="97225-106">In the top half, you can create a query based on a combination of attributes.</span></span> <span data-ttu-id="97225-107">Quando estiver satisfeito com a consulta, clique em **Pesquisar**.</span><span class="sxs-lookup"><span data-stu-id="97225-107">When you are satisfied with your query, click **Search**.</span></span> <span data-ttu-id="97225-108">O resultado é visível na grade inferior.</span><span class="sxs-lookup"><span data-stu-id="97225-108">The result is visible in the bottom grid.</span></span> <span data-ttu-id="97225-109">É possível selecionar quais colunas devem estar visíveis com **Configurações de Coluna**.</span><span class="sxs-lookup"><span data-stu-id="97225-109">You can select which columns should be visible with **Column Settings**.</span></span>
+<span data-ttu-id="d1bb0-105">Guia de pesquisa de metaverso Olá é útil para solucionar problemas relacionados a dados.</span><span class="sxs-lookup"><span data-stu-id="d1bb0-105">hello metaverse search tab is useful for troubleshooting data-related problems.</span></span> <span data-ttu-id="d1bb0-106">Na metade superior do hello, você pode criar uma consulta com base em uma combinação de atributos.</span><span class="sxs-lookup"><span data-stu-id="d1bb0-106">In hello top half, you can create a query based on a combination of attributes.</span></span> <span data-ttu-id="d1bb0-107">Quando estiver satisfeito com a consulta, clique em **Pesquisar**.</span><span class="sxs-lookup"><span data-stu-id="d1bb0-107">When you are satisfied with your query, click **Search**.</span></span> <span data-ttu-id="d1bb0-108">resultado de saudação é visível na grade inferior de saudação.</span><span class="sxs-lookup"><span data-stu-id="d1bb0-108">hello result is visible in hello bottom grid.</span></span> <span data-ttu-id="d1bb0-109">É possível selecionar quais colunas devem estar visíveis com **Configurações de Coluna**.</span><span class="sxs-lookup"><span data-stu-id="d1bb0-109">You can select which columns should be visible with **Column Settings**.</span></span>
 
-<span data-ttu-id="97225-110">Nos resultados da pesquisa, selecione um objeto e **Propriedades** para ver as [propriedades de objeto do metaverso](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md#metaverse-object-properties).</span><span class="sxs-lookup"><span data-stu-id="97225-110">In the search results, select an object and **Properties** to see the [metaverse object properties](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md#metaverse-object-properties).</span></span>
+<span data-ttu-id="d1bb0-110">Nos resultados da pesquisa hello, selecione um objeto e **propriedades** toosee Olá [propriedades de objeto do metaverso](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md#metaverse-object-properties).</span><span class="sxs-lookup"><span data-stu-id="d1bb0-110">In hello search results, select an object and **Properties** toosee hello [metaverse object properties](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md#metaverse-object-properties).</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="97225-111">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="97225-111">Next steps</span></span>
-<span data-ttu-id="97225-112">Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .</span><span class="sxs-lookup"><span data-stu-id="97225-112">Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="d1bb0-111">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="d1bb0-111">Next steps</span></span>
+<span data-ttu-id="d1bb0-112">Saiba mais sobre Olá [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) configuração.</span><span class="sxs-lookup"><span data-stu-id="d1bb0-112">Learn more about hello [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.</span></span>
 
-<span data-ttu-id="97225-113">Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).</span><span class="sxs-lookup"><span data-stu-id="97225-113">Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).</span></span>
+<span data-ttu-id="d1bb0-113">Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).</span><span class="sxs-lookup"><span data-stu-id="d1bb0-113">Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).</span></span>

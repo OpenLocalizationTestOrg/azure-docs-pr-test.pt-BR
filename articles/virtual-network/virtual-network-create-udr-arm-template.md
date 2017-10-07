@@ -1,6 +1,6 @@
 ---
-title: "Controlar o roteamento e as soluções de virtualização no Azure – modelo | Microsoft Docs"
-description: Saiba como controlar o roteamento e os dispositivos virtuais usando um modelo do Azure Resource Manager.
+title: aaaControl dispositivos de roteamento e virtual no Azure - modelo | Microsoft Docs
+description: Saiba como dispositivos de roteamento e virtual de toocontrol usando um modelo do Gerenciador de recursos do Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,30 +15,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-ms.openlocfilehash: b2c962d5449d18b51cfd84b0e1992695b54d1c48
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 781340593541784d2d9772d310c041ad4a5c3101
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-user-defined-routes-udr-using-a-template"></a><span data-ttu-id="bca22-103">Criar UDR (Rotas Definidas pelo Usuário) usando um modelo</span><span class="sxs-lookup"><span data-stu-id="bca22-103">Create User-Defined Routes (UDR) using a template</span></span>
+# <a name="create-user-defined-routes-udr-using-a-template"></a><span data-ttu-id="f93f0-103">Criar UDR (Rotas Definidas pelo Usuário) usando um modelo</span><span class="sxs-lookup"><span data-stu-id="f93f0-103">Create User-Defined Routes (UDR) using a template</span></span>
 
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="bca22-104">PowerShell</span><span class="sxs-lookup"><span data-stu-id="bca22-104">PowerShell</span></span>](virtual-network-create-udr-arm-ps.md)
-> * [<span data-ttu-id="bca22-105">CLI do Azure</span><span class="sxs-lookup"><span data-stu-id="bca22-105">Azure CLI</span></span>](virtual-network-create-udr-arm-cli.md)
-> * [<span data-ttu-id="bca22-106">Modelo</span><span class="sxs-lookup"><span data-stu-id="bca22-106">Template</span></span>](virtual-network-create-udr-arm-template.md)
-> * [<span data-ttu-id="bca22-107">PowerShell (Clássico)</span><span class="sxs-lookup"><span data-stu-id="bca22-107">PowerShell (Classic)</span></span>](virtual-network-create-udr-classic-ps.md)
-> * [<span data-ttu-id="bca22-108">CLI (Clássica)</span><span class="sxs-lookup"><span data-stu-id="bca22-108">CLI (Classic)</span></span>](virtual-network-create-udr-classic-cli.md)
+> * [<span data-ttu-id="f93f0-104">PowerShell</span><span class="sxs-lookup"><span data-stu-id="f93f0-104">PowerShell</span></span>](virtual-network-create-udr-arm-ps.md)
+> * [<span data-ttu-id="f93f0-105">CLI do Azure</span><span class="sxs-lookup"><span data-stu-id="f93f0-105">Azure CLI</span></span>](virtual-network-create-udr-arm-cli.md)
+> * [<span data-ttu-id="f93f0-106">Modelo</span><span class="sxs-lookup"><span data-stu-id="f93f0-106">Template</span></span>](virtual-network-create-udr-arm-template.md)
+> * [<span data-ttu-id="f93f0-107">PowerShell (Clássico)</span><span class="sxs-lookup"><span data-stu-id="f93f0-107">PowerShell (Classic)</span></span>](virtual-network-create-udr-classic-ps.md)
+> * [<span data-ttu-id="f93f0-108">CLI (Clássica)</span><span class="sxs-lookup"><span data-stu-id="f93f0-108">CLI (Classic)</span></span>](virtual-network-create-udr-classic-cli.md)
 
 > [!IMPORTANT]
-> <span data-ttu-id="bca22-109">Antes de trabalhar com os recursos do Azure, é importante entender que, no momento, o Azure apresenta dois modelos de implantação: Azure Resource Manager e clássico.</span><span class="sxs-lookup"><span data-stu-id="bca22-109">Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic.</span></span> <span data-ttu-id="bca22-110">Verifique se você entendeu [os modelos e as ferramentas de implantação](../azure-resource-manager/resource-manager-deployment-model.md) antes de trabalhar com qualquer recurso do Azure.</span><span class="sxs-lookup"><span data-stu-id="bca22-110">Make sure you understand [deployment models and tools](../azure-resource-manager/resource-manager-deployment-model.md) before you work with any Azure resource.</span></span> <span data-ttu-id="bca22-111">Você pode exibir a documentação para ferramentas diferentes clicando nas guias na parte superior deste artigo.</span><span class="sxs-lookup"><span data-stu-id="bca22-111">You can view the documentation for different tools by clicking the tabs at the top of this article.</span></span> <span data-ttu-id="bca22-112">Este artigo aborda o modelo de implantação do Gerenciador de Recursos.</span><span class="sxs-lookup"><span data-stu-id="bca22-112">This article covers the Resource Manager deployment model.</span></span> 
+> <span data-ttu-id="f93f0-109">Antes de trabalhar com recursos do Azure, é importante toounderstand que o Azure atualmente tem dois modelos de implantação: Gerenciador de recursos do Azure e clássico.</span><span class="sxs-lookup"><span data-stu-id="f93f0-109">Before you work with Azure resources, it's important toounderstand that Azure currently has two deployment models: Azure Resource Manager and classic.</span></span> <span data-ttu-id="f93f0-110">Verifique se você entendeu [os modelos e as ferramentas de implantação](../azure-resource-manager/resource-manager-deployment-model.md) antes de trabalhar com qualquer recurso do Azure.</span><span class="sxs-lookup"><span data-stu-id="f93f0-110">Make sure you understand [deployment models and tools](../azure-resource-manager/resource-manager-deployment-model.md) before you work with any Azure resource.</span></span> <span data-ttu-id="f93f0-111">Você pode exibir a documentação de saudação para diferentes ferramentas clicando Olá guias na parte superior da saudação deste artigo.</span><span class="sxs-lookup"><span data-stu-id="f93f0-111">You can view hello documentation for different tools by clicking hello tabs at hello top of this article.</span></span> <span data-ttu-id="f93f0-112">Este artigo aborda o modelo de implantação do Gerenciador de recursos de saudação.</span><span class="sxs-lookup"><span data-stu-id="f93f0-112">This article covers hello Resource Manager deployment model.</span></span> 
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
-## <a name="udr-resources-in-a-template-file"></a><span data-ttu-id="bca22-113">Recursos de UDR em um arquivo de modelo</span><span class="sxs-lookup"><span data-stu-id="bca22-113">UDR resources in a template file</span></span>
-<span data-ttu-id="bca22-114">Você pode exibir e baixar o [modelo de exemplo](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR).</span><span class="sxs-lookup"><span data-stu-id="bca22-114">You can view and download the [sample template](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR).</span></span>
+## <a name="udr-resources-in-a-template-file"></a><span data-ttu-id="f93f0-113">Recursos de UDR em um arquivo de modelo</span><span class="sxs-lookup"><span data-stu-id="f93f0-113">UDR resources in a template file</span></span>
+<span data-ttu-id="f93f0-114">Você pode exibir e baixar Olá [modelo](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR).</span><span class="sxs-lookup"><span data-stu-id="f93f0-114">You can view and download hello [sample template](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR).</span></span>
 
-<span data-ttu-id="bca22-115">A seção a seguir mostra a definição de UDR de front-end no arquivo **azuredeploy-vnet-nsg-udr.json** para o cenário:</span><span class="sxs-lookup"><span data-stu-id="bca22-115">The following section shows the definition of the front-end UDR in the **azuredeploy-vnet-nsg-udr.json** file for the scenario:</span></span>
+<span data-ttu-id="f93f0-115">Olá, seção a seguir mostra a definição de saudação de saudação UDR front-end no hello **azuredeploy-vnet nsg udr.json** arquivo para o cenário de saudação:</span><span class="sxs-lookup"><span data-stu-id="f93f0-115">hello following section shows hello definition of hello front-end UDR in hello **azuredeploy-vnet-nsg-udr.json** file for hello scenario:</span></span>
 
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/routeTables",
@@ -59,7 +59,7 @@ ms.lasthandoff: 07/11/2017
         }
       ]
 
-<span data-ttu-id="bca22-116">Para associar a UDR à sub-rede de front-end, você precisa alterar a definição de sub-rede no modelo e usar a ID de referência para o UDR.</span><span class="sxs-lookup"><span data-stu-id="bca22-116">To associate the UDR to the front-end subnet, you have to change the subnet definition in the template, and use the reference id for the UDR.</span></span>
+<span data-ttu-id="f93f0-116">tooassociate Olá UDR toohello front-end subrede, você tem a definição de subrede Olá toochange no modelo hello e use Olá id de referência Olá UDR.</span><span class="sxs-lookup"><span data-stu-id="f93f0-116">tooassociate hello UDR toohello front-end subnet, you have toochange hello subnet definition in hello template, and use hello reference id for hello UDR.</span></span>
 
     "subnets": [
         "name": "[parameters('frontEndSubnetName')]",
@@ -73,9 +73,9 @@ ms.lasthandoff: 07/11/2017
           }
         },
 
-<span data-ttu-id="bca22-117">Observe o mesmo sendo feito para NSG back-end e a sub-rede back-end no modelo.</span><span class="sxs-lookup"><span data-stu-id="bca22-117">Notice the same being done for the back-end NSG and the back-end subnet in the template.</span></span>
+<span data-ttu-id="f93f0-117">Observe Olá mesmo sendo feita para Olá back-end NSG e hello sub-rede back-end no modelo de saudação.</span><span class="sxs-lookup"><span data-stu-id="f93f0-117">Notice hello same being done for hello back-end NSG and hello back-end subnet in hello template.</span></span>
 
-<span data-ttu-id="bca22-118">Você também precisa garantir que a VM **FW1** tenha a propriedade de encaminhamento de IP habilitada na NIC que será usada para receber e encaminhar pacotes.</span><span class="sxs-lookup"><span data-stu-id="bca22-118">You also need to ensure that the **FW1** VM has the IP forwarding property enabled on the NIC that will be used to receive and forward packets.</span></span> <span data-ttu-id="bca22-119">A seção a seguir mostra a definição de NIC para FW1 no arquivo azuredeploy-nsg-udr.json com base no cenário acima.</span><span class="sxs-lookup"><span data-stu-id="bca22-119">The section below shows the definition of the NIC for FW1 in the azuredeploy-nsg-udr.json file, based on the scenario above.</span></span>
+<span data-ttu-id="f93f0-118">Você também precisa tooensure que Olá **FW1** VM tem propriedade ativada Olá NIC que será usado tooreceive e encaminhar pacotes de encaminhamento de IP hello.</span><span class="sxs-lookup"><span data-stu-id="f93f0-118">You also need tooensure that hello **FW1** VM has hello IP forwarding property enabled on hello NIC that will be used tooreceive and forward packets.</span></span> <span data-ttu-id="f93f0-119">seção de saudação abaixo mostra definição de saudação do hello NIC para FW1 no arquivo de azuredeploy-nsg-udr.json hello, com base no cenário de saudação acima.</span><span class="sxs-lookup"><span data-stu-id="f93f0-119">hello section below shows hello definition of hello NIC for FW1 in hello azuredeploy-nsg-udr.json file, based on hello scenario above.</span></span>
 
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/networkInterfaces",
@@ -111,17 +111,17 @@ ms.lasthandoff: 07/11/2017
       "count": "[parameters('fwCount')]"
     }
 
-## <a name="deploy-the-template-by-using-click-to-deploy"></a><span data-ttu-id="bca22-120">Implantar o modelo usando o clique para implantar</span><span class="sxs-lookup"><span data-stu-id="bca22-120">Deploy the template by using click to deploy</span></span>
-<span data-ttu-id="bca22-121">O modelo de exemplo disponível no repositório público usa um arquivo de parâmetro que contém os valores padrão usados para gerar o cenário descrito acima.</span><span class="sxs-lookup"><span data-stu-id="bca22-121">The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above.</span></span> <span data-ttu-id="bca22-122">Para implantar esse modelo usando a opção de clique para implantar, acesse [este link](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), clique em **Implantar no Azure**, substitua os valores de parâmetro padrão, se necessário, e siga as instruções no portal.</span><span class="sxs-lookup"><span data-stu-id="bca22-122">To deploy this template using click to deploy, follow [this link](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.</span></span>
+## <a name="deploy-hello-template-by-using-click-toodeploy"></a><span data-ttu-id="f93f0-120">Implantar o modelo de saudação usando clique toodeploy</span><span class="sxs-lookup"><span data-stu-id="f93f0-120">Deploy hello template by using click toodeploy</span></span>
+<span data-ttu-id="f93f0-121">Olá modelo de exemplo disponível no repositório público Olá usa um arquivo de parâmetro que contém cenário saudação padrão valores usados toogenerate Olá descrito acima.</span><span class="sxs-lookup"><span data-stu-id="f93f0-121">hello sample template available in hello public repository uses a parameter file containing hello default values used toogenerate hello scenario described above.</span></span> <span data-ttu-id="f93f0-122">toodeploy usando esse modelo clique toodeploy, execute [este link](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), clique em **implantar tooAzure**, substitua os valores de parâmetro de padrão de saudação se necessário e siga as instruções de saudação no portal de saudação.</span><span class="sxs-lookup"><span data-stu-id="f93f0-122">toodeploy this template using click toodeploy, follow [this link](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), click **Deploy tooAzure**, replace hello default parameter values if necessary, and follow hello instructions in hello portal.</span></span>
 
-1. <span data-ttu-id="bca22-123">Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](/powershell/azure/overview) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.</span><span class="sxs-lookup"><span data-stu-id="bca22-123">If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](/powershell/azure/overview) and follow the instructions all the way to the end to sign into Azure and select your subscription.</span></span>
-2. <span data-ttu-id="bca22-124">Execute o seguinte comando para criar um grupo de recursos:</span><span class="sxs-lookup"><span data-stu-id="bca22-124">Run the following command to create a resource group:</span></span>
+1. <span data-ttu-id="f93f0-123">Se você nunca usou o Azure PowerShell, consulte [como tooInstall e configurar o Azure PowerShell](/powershell/azure/overview) e siga as instruções Olá todos os toohello de maneira Olá terminar toosign no Azure e selecione sua assinatura.</span><span class="sxs-lookup"><span data-stu-id="f93f0-123">If you have never used Azure PowerShell, see [How tooInstall and Configure Azure PowerShell](/powershell/azure/overview) and follow hello instructions all hello way toohello end toosign into Azure and select your subscription.</span></span>
+2. <span data-ttu-id="f93f0-124">Execute Olá toocreate de comando a seguir em um grupo de recursos:</span><span class="sxs-lookup"><span data-stu-id="f93f0-124">Run hello following command toocreate a resource group:</span></span>
 
     ```powershell
     New-AzureRmResourceGroup -Name TestRG -Location westus
     ```
 
-3. <span data-ttu-id="bca22-125">Execute o seguinte comando para implantar o modelo:</span><span class="sxs-lookup"><span data-stu-id="bca22-125">Run the following command to deploy the template:</span></span>
+3. <span data-ttu-id="f93f0-125">Execute Olá modelo de saudação do comando toodeploy a seguir:</span><span class="sxs-lookup"><span data-stu-id="f93f0-125">Run hello following command toodeploy hello template:</span></span>
 
     ```powershell
     New-AzureRmResourceGroupDeployment -Name DeployUDR -ResourceGroupName TestRG `
@@ -129,7 +129,7 @@ ms.lasthandoff: 07/11/2017
         -TemplateParameterUri https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json
     ```
 
-    <span data-ttu-id="bca22-126">Saída esperada:</span><span class="sxs-lookup"><span data-stu-id="bca22-126">Expected output:</span></span>
+    <span data-ttu-id="f93f0-126">Saída esperada:</span><span class="sxs-lookup"><span data-stu-id="f93f0-126">Expected output:</span></span>
    
         ResourceGroupName : TestRG
         Location          : westus
@@ -171,22 +171,22 @@ ms.lasthandoff: 07/11/2017
 
         ResourceId        : /subscriptions/[Subscription Id]/resourceGroups/TestRG
 
-## <a name="deploy-the-template-by-using-the-azure-cli"></a><span data-ttu-id="bca22-127">Implantar o modelo usando a CLI do Microsoft Azure</span><span class="sxs-lookup"><span data-stu-id="bca22-127">Deploy the template by using the Azure CLI</span></span>
+## <a name="deploy-hello-template-by-using-hello-azure-cli"></a><span data-ttu-id="f93f0-127">Implantar o modelo hello usando Olá CLI do Azure</span><span class="sxs-lookup"><span data-stu-id="f93f0-127">Deploy hello template by using hello Azure CLI</span></span>
 
-<span data-ttu-id="bca22-128">Para implantar o modelo ARM usando a CLI do Azure, siga as etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="bca22-128">To deploy the ARM template by using the Azure CLI, complete the following steps:</span></span>
+<span data-ttu-id="f93f0-128">modelo do ARM toodeploy hello usando Olá CLI do Azure, Olá concluir as etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="f93f0-128">toodeploy hello ARM template by using hello Azure CLI, complete hello following steps:</span></span>
 
-1. <span data-ttu-id="bca22-129">Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](../cli-install-nodejs.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.</span><span class="sxs-lookup"><span data-stu-id="bca22-129">If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.</span></span>
-2. <span data-ttu-id="bca22-130">Execute o comando a seguir para alternar para o modo do Gerenciador de Recursos:</span><span class="sxs-lookup"><span data-stu-id="bca22-130">Run the following command to switch to Resource Manager mode:</span></span>
+1. <span data-ttu-id="f93f0-129">Se você nunca tiver usado a CLI do Azure, consulte [instalar e configurar Olá CLI do Azure](../cli-install-nodejs.md) e siga as instruções de saudação toohello ponto em que você selecione sua conta do Azure e assinatura.</span><span class="sxs-lookup"><span data-stu-id="f93f0-129">If you have never used Azure CLI, see [Install and Configure hello Azure CLI](../cli-install-nodejs.md) and follow hello instructions up toohello point where you select your Azure account and subscription.</span></span>
+2. <span data-ttu-id="f93f0-130">Execute Olá modo do Gerenciador de tooResource de tooswitch de comando a seguir:</span><span class="sxs-lookup"><span data-stu-id="f93f0-130">Run hello following command tooswitch tooResource Manager mode:</span></span>
 
     ```azurecli
     azure config mode arm
     ```
 
-    <span data-ttu-id="bca22-131">Este é o resultado esperado para o comando descrito acima:</span><span class="sxs-lookup"><span data-stu-id="bca22-131">Here is the expected output for the command above:</span></span>
+    <span data-ttu-id="f93f0-131">Aqui está a saída Olá esperado para o comando de saudação acima:</span><span class="sxs-lookup"><span data-stu-id="f93f0-131">Here is hello expected output for hello command above:</span></span>
 
         info:    New mode is arm
 
-3. <span data-ttu-id="bca22-132">No seu navegador, navegue até **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie o conteúdo do arquivo json e cole em um novo arquivo em seu computador.</span><span class="sxs-lookup"><span data-stu-id="bca22-132">From your browser, navigate to **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copy the contents of the json file, and paste into a new file in your computer.</span></span> <span data-ttu-id="bca22-133">Para esse cenário, você deve copiar o valores abaixo em um arquivo chamado **c:\udr\azuredeploy.parameters.json**.</span><span class="sxs-lookup"><span data-stu-id="bca22-133">For this scenario, you would be copying the values below to a file named **c:\udr\azuredeploy.parameters.json**.</span></span>
+3. <span data-ttu-id="f93f0-132">Em seu navegador, navegue muito**https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie o conteúdo de saudação do arquivo json de saudação e colar em um novo arquivo em seu computador.</span><span class="sxs-lookup"><span data-stu-id="f93f0-132">From your browser, navigate too**https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copy hello contents of hello json file, and paste into a new file in your computer.</span></span> <span data-ttu-id="f93f0-133">Para este cenário, deve copiar valores hello abaixo arquivo tooa chamado **c:\udr\azuredeploy.parameters.json**.</span><span class="sxs-lookup"><span data-stu-id="f93f0-133">For this scenario, you would be copying hello values below tooa file named **c:\udr\azuredeploy.parameters.json**.</span></span>
 
     ```json
         {
@@ -206,13 +206,13 @@ ms.lasthandoff: 07/11/2017
         }
     ```
 
-4. <span data-ttu-id="bca22-134">Execute o comando a seguir para implantar a nova VNet usando os arquivos de modelo e parâmetro que você baixou e modificou acima:</span><span class="sxs-lookup"><span data-stu-id="bca22-134">Run the following command to deploy the new VNet by using the template and parameter files you downloaded and modified above:</span></span>
+4. <span data-ttu-id="f93f0-134">Execute Olá toodeploy Olá nova rede virtual usando Olá arquivos de modelo e o parâmetro baixado e modificado acima de comando a seguir:</span><span class="sxs-lookup"><span data-stu-id="f93f0-134">Run hello following command toodeploy hello new VNet by using hello template and parameter files you downloaded and modified above:</span></span>
 
     ```azurecli
     azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'
     ```
 
-    <span data-ttu-id="bca22-135">Saída esperada:</span><span class="sxs-lookup"><span data-stu-id="bca22-135">Expected output:</span></span>
+    <span data-ttu-id="f93f0-135">Saída esperada:</span><span class="sxs-lookup"><span data-stu-id="f93f0-135">Expected output:</span></span>
    
         info:    Executing command group create
         info:    Getting resource group TestRG
@@ -229,17 +229,17 @@ ms.lasthandoff: 07/11/2017
         data:    
         info:    group create command OK
 
-5. <span data-ttu-id="bca22-136">Execute o comando a seguir para exibir os recursos criados no novo grupo de recursos:</span><span class="sxs-lookup"><span data-stu-id="bca22-136">Run the following command to view the resources created in the new resource group:</span></span>
+5. <span data-ttu-id="f93f0-136">Execute Olá recursos de Olá tooview de comando criados no novo grupo de recursos Olá a seguir:</span><span class="sxs-lookup"><span data-stu-id="f93f0-136">Run hello following command tooview hello resources created in hello new resource group:</span></span>
 
     ```azurecli
     azure group show TestRG
     ```
 
-    <span data-ttu-id="bca22-137">Resultado esperado:</span><span class="sxs-lookup"><span data-stu-id="bca22-137">Expected result:</span></span>
+    <span data-ttu-id="f93f0-137">Resultado esperado:</span><span class="sxs-lookup"><span data-stu-id="f93f0-137">Expected result:</span></span>
 
             info:    Executing command group show
             info:    Listing resource groups
-            info:    Listing resources for the group
+            info:    Listing resources for hello group
             data:    Id:                  /subscriptions/[Subscription Id]/resourceGroups/TestRG
             data:    Name:                TestRG
             data:    Location:            westus
@@ -404,5 +404,5 @@ ms.lasthandoff: 07/11/2017
             info:    group show command OK
 
 > [!TIP]
-> <span data-ttu-id="bca22-138">Se você não encontrar todos os recursos, execute o comando `azure group deployment show` para garantir que o estado de provisionamento da implantação seja *Êxito*.</span><span class="sxs-lookup"><span data-stu-id="bca22-138">If you do not see all the resources, run the `azure group deployment show` command to ensure the provisioning state of the deployment is *Succeded*.</span></span>
+> <span data-ttu-id="f93f0-138">Se você não vir todos os recursos de Olá, execute Olá `azure group deployment show` saudação do comando tooensure estado de provisionamento da implantação de saudação é *realizada com êxito*.</span><span class="sxs-lookup"><span data-stu-id="f93f0-138">If you do not see all hello resources, run hello `azure group deployment show` command tooensure hello provisioning state of hello deployment is *Succeded*.</span></span>
 > 

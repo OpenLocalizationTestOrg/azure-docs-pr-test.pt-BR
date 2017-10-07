@@ -1,6 +1,6 @@
 ---
-title: "Limites de serviços do Cofre de Chaves do Azure | Microsoft Docs"
-description: "Saiba mais sobre os limites de serviço do Cofre da Chave do Azure."
+title: "Limites de serviço de Cofre de chave de aaaAzure | Microsoft Docs"
+description: "Saiba mais sobre limites de serviço Olá para o Cofre de chaves do Azure."
 documentationcenter: dev-center-name
 services: key-vault
 author: cabailey
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/05/2017
 ms.author: ambapat
-ms.openlocfilehash: b34c67ecc1bd50157ded790948ac7b88a5807ddb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ebd78281f2428790486c928e5a6415cf479a6439
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-key-vault-service-limits"></a><span data-ttu-id="d5f84-103">Limites de serviços do Azure Key Vault</span><span class="sxs-lookup"><span data-stu-id="d5f84-103">Azure Key Vault service limits</span></span>
-<span data-ttu-id="d5f84-104">Esses são os limites de serviço para o Azure Key Vault.</span><span class="sxs-lookup"><span data-stu-id="d5f84-104">Here are the service limits for Azure Key Vault.</span></span>
+# <a name="azure-key-vault-service-limits"></a><span data-ttu-id="20266-103">Limites de serviços do Azure Key Vault</span><span class="sxs-lookup"><span data-stu-id="20266-103">Azure Key Vault service limits</span></span>
+<span data-ttu-id="20266-104">Aqui estão os limites de serviço Olá para o Cofre de chaves do Azure.</span><span class="sxs-lookup"><span data-stu-id="20266-104">Here are hello service limits for Azure Key Vault.</span></span>
 
 [!INCLUDE [key-vault-limits](../../includes/key-vault-limits.md)]
 

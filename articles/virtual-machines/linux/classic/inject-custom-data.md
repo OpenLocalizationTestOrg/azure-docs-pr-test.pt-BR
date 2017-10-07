@@ -1,6 +1,6 @@
 ---
-title: Injetar dados em VMs do Linux no Azure | Microsoft Docs
-description: "Este tópico descreve como injetar dados personalizados em uma máquina virtual do Azure quando a instância é criada e como localizar os dados personalizados no Windows ou Linux."
+title: aaaInject dados em VMs do Linux no Azure | Microsoft Docs
+description: "Este tópico descreve como tooinject dados personalizados do Azure virtual máquina quando Olá instância é criada e como toolocate Olá dados personalizados no Windows ou Linux."
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2016
 ms.author: rasquill
-ms.openlocfilehash: 8dd04c26f10950b13fe0689a96b3e12250715019
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a3197e06a8d367eab6336577e5cfb6d2d6858441
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="injecting-custom-data-into-an-azure-virtual-machine"></a><span data-ttu-id="09471-103">Injetando dados personalizados em uma máquina virtual do Azure</span><span class="sxs-lookup"><span data-stu-id="09471-103">Injecting custom data into an Azure virtual machine</span></span>
+# <a name="injecting-custom-data-into-an-azure-virtual-machine"></a><span data-ttu-id="79453-103">Injetando dados personalizados em uma máquina virtual do Azure</span><span class="sxs-lookup"><span data-stu-id="79453-103">Injecting custom data into an Azure virtual machine</span></span>
 > [!IMPORTANT] 
-> <span data-ttu-id="09471-104">O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="09471-104">Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md).</span></span> <span data-ttu-id="09471-105">Este artigo aborda o uso do modelo de implantação Clássica.</span><span class="sxs-lookup"><span data-stu-id="09471-105">This article covers using the Classic deployment model.</span></span> <span data-ttu-id="09471-106">A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.</span><span class="sxs-lookup"><span data-stu-id="09471-106">Microsoft recommends that most new deployments use the Resource Manager model.</span></span> <span data-ttu-id="09471-107">Para obter informações sobre como usar a Extensão de Script personalizado com o modelo do Resource Manager, veja [aqui](../extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="09471-107">For information about using the Custom Script Extension with the Resource Manager model, see [here](../extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span></span>
+> <span data-ttu-id="79453-104">O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="79453-104">Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md).</span></span> <span data-ttu-id="79453-105">Este artigo aborda usando o modelo de implantação clássico hello.</span><span class="sxs-lookup"><span data-stu-id="79453-105">This article covers using hello Classic deployment model.</span></span> <span data-ttu-id="79453-106">A Microsoft recomenda que mais novas implantações de usam o modelo do Gerenciador de recursos de saudação.</span><span class="sxs-lookup"><span data-stu-id="79453-106">Microsoft recommends that most new deployments use hello Resource Manager model.</span></span> <span data-ttu-id="79453-107">Para obter informações sobre como usar o hello extensão de Script personalizado com o modelo do Gerenciador de recursos de saudação, consulte [aqui](../extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="79453-107">For information about using hello Custom Script Extension with hello Resource Manager model, see [here](../extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span></span>
 
 [!INCLUDE [virtual-machines-common-classic-inject-custom-data](../../../../includes/virtual-machines-common-classic-inject-custom-data.md)]
 

@@ -8,7 +8,7 @@
 # Tutoriais
 ## Implantar um aplicativo .NET
 ### [1-Criar um aplicativo .NET](service-fabric-tutorial-create-dotnet-app.md)
-### [2-Implantar o aplicativo](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+### [2 - implantar o aplicativo hello](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 ### [3-Configurar CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 ## Deslocar e comparar um aplicativo
@@ -79,7 +79,7 @@
 
 ## Gerenciar aplicativos
 ### [Visão geral](service-fabric-application-lifecycle.md)
-### [A configuração ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
+### [configuração de ImageStoreConnectionString de saudação](service-fabric-image-store-connection-string.md)
 ### Atualização de aplicativo
 #### [Visão geral](service-fabric-application-upgrade.md)
 #### [Configuração](service-fabric-visualstudio-configure-upgrade.md)
@@ -121,7 +121,7 @@
 ### [Diagnóstico em Reliable Services com estado](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnósticos em Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 
-# Guias de instruções
+# Como tooGuides
 ## Configurar seu ambiente de desenvolvimento
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
@@ -185,7 +185,7 @@
 #### [Definir as configurações da comunicação](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [Configurar ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
-### [Migrar o antigo aplicativo Java para dar suporte a Maven](service-fabric-migrate-old-javaapp-to-use-maven.md)
+### [Migrar o antigo aplicativo Java toosupport Maven](service-fabric-migrate-old-javaapp-to-use-maven.md)
 
 ### [Configurar o proxy reverso para comunicação segura](service-fabric-reverseproxy-configure-secure-communication.md)
 
@@ -214,7 +214,7 @@
 
 ## Migrar dos Serviços de Nuvem
 ### [Comparar os Serviços de Nuvem com o Service Fabric](service-fabric-cloud-services-migration-differences.md)
-### [Migrar para o Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+### [Migrar tooService malha](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
 ### [Práticas recomendadas](/azure/architecture/service-fabric/migrate-from-cloud-services)
 
 ## Gerenciar ciclo de vida do aplicativo
@@ -239,7 +239,7 @@
 ##### [Como usar as ações de teste](service-fabric-testability-actions.md)
 ##### [Durante cargas de trabalho](service-fabric-testability-workload-tests.md)
 ##### [Como usar os cenários de teste](service-fabric-testability-scenarios.md)
-##### [Usando as APIs de transição do nó](service-fabric-node-transition-apis.md)
+##### [Usando transição de nó Olá APIs](service-fabric-node-transition-apis.md)
 #### [Fazer teste de carga em seu aplicativo](service-fabric-vso-load-test.md)
 
 ### Configurar a integração contínua
@@ -258,7 +258,7 @@
 #### [Atualizar](service-fabric-cluster-upgrade.md)
 #### [Definir controle de acesso](service-fabric-cluster-security-roles.md)
 #### [Configurar](service-fabric-cluster-fabric-settings.md)
-#### [Abrir uma porta no balanceador de carga](create-load-balancer-rule.md)
+#### [Abrir uma porta no balanceador de carga Olá](create-load-balancer-rule.md)
 #### [Gerenciar certificados de cluster](service-fabric-cluster-security-update-certs-azure.md)
 #### [Excluir](service-fabric-cluster-delete.md)
 
@@ -269,14 +269,14 @@
 ##### [Criar localmente](service-fabric-cluster-creation-for-windows-server.md)
 ##### [Proteger usando certificados](service-fabric-windows-cluster-x509-security.md)  
 ##### [Proteger usando a segurança do Windows](service-fabric-windows-cluster-windows-security.md)
-##### [Conteúdos do pacote autônomo](service-fabric-cluster-standalone-package-contents.md)
+##### [Conteúdo do pacote do hello autônomo](service-fabric-cluster-standalone-package-contents.md)
 #### [Escala](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Definir controle de acesso](service-fabric-cluster-security-roles.md)
 #### [Configurar](service-fabric-cluster-manifest.md)
 #### [Atualizar](service-fabric-cluster-upgrade-windows-server.md)
 
 ### [Visualizar um cluster](service-fabric-visualizing-your-cluster.md)
-### [Conectar-se a um cluster seguro](service-fabric-connect-to-secure-cluster.md)
+### [Conecte-se o cluster seguro tooa](service-fabric-connect-to-secure-cluster.md)
 
 ### [Gerenciar um cluster usando a CLI do Service Fabric](service-fabric-cli.md)
 ### [Nós de cluster de patch](service-fabric-patch-orchestration-application.md)
