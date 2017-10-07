@@ -42,7 +42,7 @@
 ## Configurar
 ### As tabelas
 #### [Criador de perfil](app-insights-profiler.md)
-#### [Habilitar o criador de perfil](enable-profiler-cloud-services.md)
+#### [Habilitar Olá criador de perfil](enable-profiler-cloud-services.md)
 #### [Diagnostics](app-insights-azure-diagnostics.md)
 #### [Versões prévias](app-insights-previews.md)
 
@@ -130,7 +130,7 @@
 ## Exportação
 ### [Exportação contínua](app-insights-export-telemetry.md)
 ### [Exportar modelo de dados](app-insights-export-data-model.md)
-### [Exportar para o Power BI](app-insights-export-power-bi.md)
+### [Exportar tooPower BI](app-insights-export-power-bi.md)
 
 ## Segurança
 ### [Coleta de dados, retenção e armazenamento](app-insights-data-retention-privacy.md)

@@ -1,5 +1,5 @@
 ---
-title: "Introdução ao iOS no Azure AD v2 – Configurar (ARP)| Microsoft Docs"
+title: "aaaAzure AD v2 iOS guia de Introdução - configurar ARP () | Microsoft Docs"
 description: Como aplicativos iOS (Swift) podem chamar uma API que exige tokens de acesso pelo ponto de extremidade do Azure Active Directory v2
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,28 +13,28 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
-ms.openlocfilehash: 50cb4a2803b6aebe8b39ec9fb02da2293c1065fa
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e5087e13160243d808b1d02771fa66fb332cfad6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-## <a name="add-the-applications-registration-information-to-your-app"></a><span data-ttu-id="1c9e5-103">Adicionar as informações de registro do aplicativo ao aplicativo</span><span class="sxs-lookup"><span data-stu-id="1c9e5-103">Add the application’s registration information to your app</span></span>
+## <a name="add-hello-applications-registration-information-tooyour-app"></a><span data-ttu-id="73bda-103">Adicionar aplicativo de tooyour de informações de registro do aplicativo hello</span><span class="sxs-lookup"><span data-stu-id="73bda-103">Add hello application’s registration information tooyour app</span></span>
 
-<span data-ttu-id="1c9e5-104">Nesta etapa, você precisa adicionar a ID do Aplicativo ao projeto:</span><span class="sxs-lookup"><span data-stu-id="1c9e5-104">In this step, you need to add the Application Id to your project:</span></span>
+<span data-ttu-id="73bda-104">Nesta etapa, você precisa de projeto de tooyour tooadd Olá Id do aplicativo:</span><span class="sxs-lookup"><span data-stu-id="73bda-104">In this step, you need tooadd hello Application Id tooyour project:</span></span>
 
-1.  <span data-ttu-id="1c9e5-105">Em `ViewController.swift`, substitua a linha que começa com "`let kClientID`" por:</span><span class="sxs-lookup"><span data-stu-id="1c9e5-105">In `ViewController.swift`, replace the line starting with '`let kClientID`' with:</span></span>
+1.  <span data-ttu-id="73bda-105">Em `ViewController.swift`, substitua a linha hello começando com '`let kClientID`' com:</span><span class="sxs-lookup"><span data-stu-id="73bda-105">In `ViewController.swift`, replace hello line starting with '`let kClientID`' with:</span></span>
 ```swift
-let kClientID = "[Enter the application Id here]"
+let kClientID = "[Enter hello application Id here]"
 ```
 <!-- Workaround for Docs conversion bug -->
 <ol start="2">
 <li>
-<span data-ttu-id="1c9e5-106">Pressione CTRL e clique em <code>Info.plist</code> para abrir o menu contextual e, em seguida, clique em: <code>Open As</code> > <code>Source Code</code>
-</span><span class="sxs-lookup"><span data-stu-id="1c9e5-106">Control+click <code>Info.plist</code> to bring up the contextual menu, and then click: <code>Open As</code> > <code>Source Code</code>
+<span data-ttu-id="73bda-106">CTRL + clique <code>Info.plist</code> toobring até o menu contextual hello e, em seguida, clique em: <code>Open As</code>> <code>Source Code</code>
+</span><span class="sxs-lookup"><span data-stu-id="73bda-106">Control+click <code>Info.plist</code> toobring up hello contextual menu, and then click: <code>Open As</code> > <code>Source Code</code>
 </span></span></li>
 <li>
-<span data-ttu-id="1c9e5-107">No nó raiz <code>dict</code>, adicione o seguinte:</span><span class="sxs-lookup"><span data-stu-id="1c9e5-107">Under the <code>dict</code> root node, add the following:</span></span>
+<span data-ttu-id="73bda-107">Em Olá <code>dict</code> nó raiz, adicione o seguinte hello:</span><span class="sxs-lookup"><span data-stu-id="73bda-107">Under hello <code>dict</code> root node, add hello following:</span></span>
 </li>
 </ol>
 
@@ -48,7 +48,7 @@ let kClientID = "[Enter the application Id here]"
         <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
         <key>CFBundleURLSchemes</key>
         <array>
-            <string>msal[Enter the application Id here]</string>
+            <string>msal[Enter hello application Id here]</string>
             <string>auth</string>
         </array>
     </dict>

@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory B2C: como modificar a inscrição em políticas personalizadas e configurar um provedor autodeclarado"
-description: "Um passo a passo sobre como adicionar declarações para inscrição e configurar a entrada do usuário"
+description: "Um passo a passo sobre como adicionar declarações toosign backup e configurar a entrada do usuário Olá"
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja
@@ -14,30 +14,30 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/29/2017
 ms.author: joroja
-ms.openlocfilehash: 64b9d904d7d070052e125b479f4719d208c9ff85
-ms.sourcegitcommit: b0af2a2cf44101a1b1ff41bd2ad795eaef29612a
+ms.openlocfilehash: c31d737263fef3e771bdf451b809b0ca522c8fe0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a><span data-ttu-id="fa126-103">Azure Active Directory B2C: como modificar a inscrição para adicionar novas declarações e configurar a entrada do usuário.</span><span class="sxs-lookup"><span data-stu-id="fa126-103">Azure Active Directory B2C: Modify sign up to add new claims and configure user input.</span></span>
+# <a name="azure-active-directory-b2c-modify-sign-up-tooadd-new-claims-and-configure-user-input"></a><span data-ttu-id="f96d2-103">B2C de diretório ativo do Azure: Modificar tooadd novas declarações de inscrição e configure a entrada do usuário.</span><span class="sxs-lookup"><span data-stu-id="f96d2-103">Azure Active Directory B2C: Modify sign up tooadd new claims and configure user input.</span></span>
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-<span data-ttu-id="fa126-104">Neste artigo, você adicionará uma nova entrada de usuário fornecido (uma declaração) para seu percurso do usuário para inscrição.</span><span class="sxs-lookup"><span data-stu-id="fa126-104">In this article, you will add a new user provided entry (a claim) to your signup user journey.</span></span>  <span data-ttu-id="fa126-105">Você configurará a entrada como uma lista suspensa e a definirá se for necessário.</span><span class="sxs-lookup"><span data-stu-id="fa126-105">You will configure the entry as a dropdown, and define if it is required.</span></span>
+<span data-ttu-id="f96d2-104">Neste artigo, você adicionará uma novo fornecida pelo usuário (uma declaração) de entrada tooyour inscrição usuário jornada.</span><span class="sxs-lookup"><span data-stu-id="f96d2-104">In this article, you will add a new user provided entry (a claim) tooyour signup user journey.</span></span>  <span data-ttu-id="f96d2-105">Você configurará entrada hello como uma lista suspensa e definir se é necessário.</span><span class="sxs-lookup"><span data-stu-id="f96d2-105">You will configure hello entry as a dropdown, and define if it is required.</span></span>
 
-<span data-ttu-id="fa126-106">Editado por Sipi para disparar a entrega de teste.</span><span class="sxs-lookup"><span data-stu-id="fa126-106">Edited by Sipi to trigger test handoff.</span></span>
+<span data-ttu-id="f96d2-106">Editado por Sipi tootrigger teste entrega.</span><span class="sxs-lookup"><span data-stu-id="f96d2-106">Edited by Sipi tootrigger test handoff.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="fa126-107">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="fa126-107">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="f96d2-107">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="f96d2-107">Prerequisites</span></span>
 
-* <span data-ttu-id="fa126-108">Conclua as etapas no artigo [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).</span><span class="sxs-lookup"><span data-stu-id="fa126-108">Complete the steps in the article [Getting Started with Custom Policies](active-directory-b2c-get-started-custom.md).</span></span>  <span data-ttu-id="fa126-109">Teste o percurso do usuário para entrada/inscrição para fazer uma inscrição e uma conta local nova antes de continuar.</span><span class="sxs-lookup"><span data-stu-id="fa126-109">Test the signup/signin user journey to signup a new local account before proceeding.</span></span>
-
-
-<span data-ttu-id="fa126-110">A coleta de dados inicial de seus usuários é obtida por meio de inscrição/entrada.</span><span class="sxs-lookup"><span data-stu-id="fa126-110">Gathering initial data from your users is achieved via signup/signin.</span></span>  <span data-ttu-id="fa126-111">Declarações adicionais podem ser obtidas posteriormente por meio de percursos do usuário de edição de perfil.</span><span class="sxs-lookup"><span data-stu-id="fa126-111">Additional claims can be gathered later via profile edit user journeys.</span></span> <span data-ttu-id="fa126-112">Toda vez que o Azure AD B2C reúne informações diretamente do usuário de forma interativa, o Identity Experience Framework usa seu `selfasserted provider`.</span><span class="sxs-lookup"><span data-stu-id="fa126-112">Anytime Azure AD B2C gathers information directly from the user interactively, the Identity Experience Framework uses its `selfasserted provider`.</span></span> <span data-ttu-id="fa126-113">As etapas a seguir se aplicam sempre que esse provedor é usado.</span><span class="sxs-lookup"><span data-stu-id="fa126-113">The steps below apply anytime this provider is used.</span></span>
+* <span data-ttu-id="f96d2-108">Olá concluído as etapas no artigo de saudação [guia de Introdução com as políticas personalizadas](active-directory-b2c-get-started-custom.md).</span><span class="sxs-lookup"><span data-stu-id="f96d2-108">Complete hello steps in hello article [Getting Started with Custom Policies](active-directory-b2c-get-started-custom.md).</span></span>  <span data-ttu-id="f96d2-109">Teste toosignup jornada de usuário de inscrição/signin Olá uma nova conta local antes de continuar.</span><span class="sxs-lookup"><span data-stu-id="f96d2-109">Test hello signup/signin user journey toosignup a new local account before proceeding.</span></span>
 
 
-## <a name="define-the-claim-its-display-name-and-the-user-input-type"></a><span data-ttu-id="fa126-114">Definir a declaração, seu nome de exibição e o tipo de entrada do usuário</span><span class="sxs-lookup"><span data-stu-id="fa126-114">Define the claim, its display name and the user input type</span></span>
-<span data-ttu-id="fa126-115">Permite perguntar ao usuário sobre a cidade dele.</span><span class="sxs-lookup"><span data-stu-id="fa126-115">Lets ask the user for their city.</span></span>  <span data-ttu-id="fa126-116">Adicione o seguinte elemento para o elemento `<ClaimsSchema>` no arquivo de política de TrustFrameWorkExtensions:</span><span class="sxs-lookup"><span data-stu-id="fa126-116">Add the following element to the `<ClaimsSchema>` element in the TrustFrameWorkExtensions policy file:</span></span>
+<span data-ttu-id="f96d2-110">A coleta de dados inicial de seus usuários é obtida por meio de inscrição/entrada.</span><span class="sxs-lookup"><span data-stu-id="f96d2-110">Gathering initial data from your users is achieved via signup/signin.</span></span>  <span data-ttu-id="f96d2-111">Declarações adicionais podem ser obtidas posteriormente por meio de percursos do usuário de edição de perfil.</span><span class="sxs-lookup"><span data-stu-id="f96d2-111">Additional claims can be gathered later via profile edit user journeys.</span></span> <span data-ttu-id="f96d2-112">Sempre que o Azure AD B2C reúne informações diretamente do usuário Olá interativamente, Olá identidade experiência Framework usa seu `selfasserted provider`.</span><span class="sxs-lookup"><span data-stu-id="f96d2-112">Anytime Azure AD B2C gathers information directly from hello user interactively, hello Identity Experience Framework uses its `selfasserted provider`.</span></span> <span data-ttu-id="f96d2-113">Olá estas etapas se aplicam a qualquer momento, esse provedor é usado.</span><span class="sxs-lookup"><span data-stu-id="f96d2-113">hello steps below apply anytime this provider is used.</span></span>
+
+
+## <a name="define-hello-claim-its-display-name-and-hello-user-input-type"></a><span data-ttu-id="f96d2-114">Definir Olá declaração, seu nome de exibição e Olá tipo de entrada do usuário</span><span class="sxs-lookup"><span data-stu-id="f96d2-114">Define hello claim, its display name and hello user input type</span></span>
+<span data-ttu-id="f96d2-115">Permite solicitar Olá usuário seu cidade.</span><span class="sxs-lookup"><span data-stu-id="f96d2-115">Lets ask hello user for their city.</span></span>  <span data-ttu-id="f96d2-116">Adicionar Olá após o elemento toohello `<ClaimsSchema>` elemento no arquivo de política de TrustFrameWorkExtensions hello:</span><span class="sxs-lookup"><span data-stu-id="f96d2-116">Add hello following element toohello `<ClaimsSchema>` element in hello TrustFrameWorkExtensions policy file:</span></span>
 
 ```xml
 <ClaimType Id="city">
@@ -47,13 +47,13 @@ ms.lasthandoff: 09/28/2017
   <UserInputType>TextBox</UserInputType>
 </ClaimType>
 ```
-<span data-ttu-id="fa126-117">Existem outras opções que você pode fazer aqui para personalizar a declaração.</span><span class="sxs-lookup"><span data-stu-id="fa126-117">There are additional choices you can make here to customize the claim.</span></span>  <span data-ttu-id="fa126-118">Para um esquema completo, consulte o **Guia de Referência Técnica do Identity Experience Framework**.</span><span class="sxs-lookup"><span data-stu-id="fa126-118">For a full schema, refer to the **Identity Experience Framework Technical Reference Guide**.</span></span>  <span data-ttu-id="fa126-119">Este guia será publicado em breve na seção de referência.</span><span class="sxs-lookup"><span data-stu-id="fa126-119">This guide will be published soon in the reference section.</span></span>
+<span data-ttu-id="f96d2-117">Há opções adicionais que você pode fazer aqui toocustomize Olá de declaração.</span><span class="sxs-lookup"><span data-stu-id="f96d2-117">There are additional choices you can make here toocustomize hello claim.</span></span>  <span data-ttu-id="f96d2-118">Para um esquema completo, consulte toohello **guia de referência técnica do identidade experiência Framework**.</span><span class="sxs-lookup"><span data-stu-id="f96d2-118">For a full schema, refer toohello **Identity Experience Framework Technical Reference Guide**.</span></span>  <span data-ttu-id="f96d2-119">Este guia será publicado em breve na seção de referência de saudação.</span><span class="sxs-lookup"><span data-stu-id="f96d2-119">This guide will be published soon in hello reference section.</span></span>
 
-* <span data-ttu-id="fa126-120">`<DisplayName>` é uma cadeia de caracteres que define o *rótulo* voltado para o usuário</span><span class="sxs-lookup"><span data-stu-id="fa126-120">`<DisplayName>` is a string that defines the user-facing *label*</span></span>
+* <span data-ttu-id="f96d2-120">`<DisplayName>`é uma cadeia de caracteres que define voltadas para o usuário Olá *rótulo*</span><span class="sxs-lookup"><span data-stu-id="f96d2-120">`<DisplayName>` is a string that defines hello user-facing *label*</span></span>
 
-* <span data-ttu-id="fa126-121">`<UserHelpText>` ajuda o usuário a entender o que é necessário</span><span class="sxs-lookup"><span data-stu-id="fa126-121">`<UserHelpText>` helps the user understand what is required</span></span>
+* <span data-ttu-id="f96d2-121">`<UserHelpText>`Ajuda o usuário a saudação entender o que é necessário</span><span class="sxs-lookup"><span data-stu-id="f96d2-121">`<UserHelpText>` helps hello user understand what is required</span></span>
 
-* <span data-ttu-id="fa126-122">`<UserInputType>` tem as quatro opções a seguir destacadas abaixo:</span><span class="sxs-lookup"><span data-stu-id="fa126-122">`<UserInputType>` has the following four options highlighted below:</span></span>
+* <span data-ttu-id="f96d2-122">`<UserInputType>`Olá seguintes quatro opções realçou abaixo:</span><span class="sxs-lookup"><span data-stu-id="f96d2-122">`<UserInputType>` has hello following four options highlighted below:</span></span>
     * `TextBox`
 ```xml
 <ClaimType Id="city">
@@ -64,7 +64,7 @@ ms.lasthandoff: 09/28/2017
 </ClaimType>
 ```
 
-    * <span data-ttu-id="fa126-123">`RadioSingleSelectduration` – Impõe uma única seleção.</span><span class="sxs-lookup"><span data-stu-id="fa126-123">`RadioSingleSelectduration` - Enforces a single selection.</span></span>
+    * <span data-ttu-id="f96d2-123">`RadioSingleSelectduration` – Impõe uma única seleção.</span><span class="sxs-lookup"><span data-stu-id="f96d2-123">`RadioSingleSelectduration` - Enforces a single selection.</span></span>
 ```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
@@ -78,7 +78,7 @@ ms.lasthandoff: 09/28/2017
 </ClaimType>
 ```
 
-    * <span data-ttu-id="fa126-124">`DropdownSingleSelect` – Permite a seleção de um único valor válido.</span><span class="sxs-lookup"><span data-stu-id="fa126-124">`DropdownSingleSelect` - Allows the selection of only valid value.</span></span>
+    * <span data-ttu-id="f96d2-124">`DropdownSingleSelect`-Permite a seleção de saudação do único valor válido.</span><span class="sxs-lookup"><span data-stu-id="f96d2-124">`DropdownSingleSelect` - Allows hello selection of only valid value.</span></span>
 
 ![Captura de tela da opção de lista suspensa](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 09/28/2017
 ```
 
 
-* <span data-ttu-id="fa126-126">`CheckboxMultiSelect` Permite a seleção de um ou mais valores.</span><span class="sxs-lookup"><span data-stu-id="fa126-126">`CheckboxMultiSelect` Allows for the selection of one or more values.</span></span>
+* <span data-ttu-id="f96d2-126">`CheckboxMultiSelect`Permite a seleção de saudação de um ou mais valores.</span><span class="sxs-lookup"><span data-stu-id="f96d2-126">`CheckboxMultiSelect` Allows for hello selection of one or more values.</span></span>
 
 ![Captura de tela de opção com seleção múltipla](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
@@ -115,9 +115,9 @@ ms.lasthandoff: 09/28/2017
 </ClaimType>
 ```
 
-## <a name="add-the-claim-to-the-sign-upsign-in-user-journey"></a><span data-ttu-id="fa126-128">Adicione a declaração ao percurso do usuário de entrada/inscrição</span><span class="sxs-lookup"><span data-stu-id="fa126-128">Add the claim to the sign up/sign in user journey</span></span>
+## <a name="add-hello-claim-toohello-sign-upsign-in-user-journey"></a><span data-ttu-id="f96d2-128">Adicionar Olá declaração toohello sign up/entrar jornada de usuário</span><span class="sxs-lookup"><span data-stu-id="f96d2-128">Add hello claim toohello sign up/sign in user journey</span></span>
 
-1. <span data-ttu-id="fa126-129">Adicione a declaração como um `<OutputClaim ClaimTypeReferenceId="city"/>` ao TechnicalProfile `LocalAccountSignUpWithLogonEmail` (encontrado no arquivo de política de TrustFrameworkBase).</span><span class="sxs-lookup"><span data-stu-id="fa126-129">Add the claim as an `<OutputClaim ClaimTypeReferenceId="city"/>` to the TechnicalProfile `LocalAccountSignUpWithLogonEmail` (found in the TrustFrameworkBase policy file).</span></span>  <span data-ttu-id="fa126-130">Observe que este TechnicalProfile usa o SelfAssertedAttributeProvider.</span><span class="sxs-lookup"><span data-stu-id="fa126-130">Note this TechnicalProfile uses the SelfAssertedAttributeProvider.</span></span>
+1. <span data-ttu-id="f96d2-129">Adicione a declaração hello como um `<OutputClaim ClaimTypeReferenceId="city"/>` toohello TechnicalProfile `LocalAccountSignUpWithLogonEmail` (encontrado no arquivo de política de TrustFrameworkBase Olá).</span><span class="sxs-lookup"><span data-stu-id="f96d2-129">Add hello claim as an `<OutputClaim ClaimTypeReferenceId="city"/>` toohello TechnicalProfile `LocalAccountSignUpWithLogonEmail` (found in hello TrustFrameworkBase policy file).</span></span>  <span data-ttu-id="f96d2-130">Observe que este TechnicalProfile usa Olá SelfAssertedAttributeProvider.</span><span class="sxs-lookup"><span data-stu-id="f96d2-130">Note this TechnicalProfile uses hello SelfAssertedAttributeProvider.</span></span>
 
   ```xml
   <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -142,7 +142,7 @@ ms.lasthandoff: 09/28/2017
       <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
       <OutputClaim ClaimTypeReferenceId="authenticationSource" />
       <OutputClaim ClaimTypeReferenceId="newUser" />
-      <!-- Optional claims, to be collected from the user -->
+      <!-- Optional claims, toobe collected from hello user -->
       <OutputClaim ClaimTypeReferenceId="givenName" />
       <OutputClaim ClaimTypeReferenceId="surName" />
       <OutputClaim ClaimTypeReferenceId="city"/>
@@ -154,7 +154,7 @@ ms.lasthandoff: 09/28/2017
   </TechnicalProfile>
   ```
 
-2. <span data-ttu-id="fa126-131">Adicione a declaração para o AAD-UserWriteUsingLogonEmail como um `<PersistedClaim ClaimTypeReferenceId="city" />` para gravar a declaração para o diretório do AAD depois de coletar do usuário.</span><span class="sxs-lookup"><span data-stu-id="fa126-131">Add the claim to the AAD-UserWriteUsingLogonEmail as a `<PersistedClaim ClaimTypeReferenceId="city" />` to write the claim to the AAD directory after collecting it from the user.</span></span> <span data-ttu-id="fa126-132">Você pode ignorar esta etapa se você preferir não manter a declaração no diretório para uso futuro.</span><span class="sxs-lookup"><span data-stu-id="fa126-132">You may skip this step if you prefer not to persist the claim in the directory for future use.</span></span>
+2. <span data-ttu-id="f96d2-131">Adicionar Olá declaração toohello UserWriteUsingLogonEmail AAD como uma `<PersistedClaim ClaimTypeReferenceId="city" />` diretório do AAD toowrite Olá declaração toohello após coletá-lo do usuário hello.</span><span class="sxs-lookup"><span data-stu-id="f96d2-131">Add hello claim toohello AAD-UserWriteUsingLogonEmail as a `<PersistedClaim ClaimTypeReferenceId="city" />` toowrite hello claim toohello AAD directory after collecting it from hello user.</span></span> <span data-ttu-id="f96d2-132">Você pode ignorar esta etapa se você preferir não toopersist Olá declaração no diretório Olá para uso futuro.</span><span class="sxs-lookup"><span data-stu-id="f96d2-132">You may skip this step if you prefer not toopersist hello claim in hello directory for future use.</span></span>
 
   ```xml
   <!-- Technical profiles for local accounts -->
@@ -190,14 +190,14 @@ ms.lasthandoff: 09/28/2017
   </TechnicalProfile>
   ```
 
-3. <span data-ttu-id="fa126-133">Adicione a declaração do TechnicalProfile, que lê do diretório quando um usuário faz logon como um `<OutputClaim ClaimTypeReferenceId="city" />`</span><span class="sxs-lookup"><span data-stu-id="fa126-133">Add the claim to the TechnicalProfile that reads from the directory when a user logs in as an `<OutputClaim ClaimTypeReferenceId="city" />`</span></span>
+3. <span data-ttu-id="f96d2-133">Adicionar Olá declaração toohello TechnicalProfile que lê do diretório hello quando um usuário fizer logon como um`<OutputClaim ClaimTypeReferenceId="city" />`</span><span class="sxs-lookup"><span data-stu-id="f96d2-133">Add hello claim toohello TechnicalProfile that reads from hello directory when a user logs in as an `<OutputClaim ClaimTypeReferenceId="city" />`</span></span>
 
   ```xml
   <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
     <Metadata>
       <Item Key="Operation">Read</Item>
       <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
-      <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for the provided user ID.</Item>
+      <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for hello provided user ID.</Item>
     </Metadata>
     <IncludeInSso>false</IncludeInSso>
     <InputClaims>
@@ -218,7 +218,7 @@ ms.lasthandoff: 09/28/2017
   </TechnicalProfile>
   ```
 
-4. <span data-ttu-id="fa126-134">Adicione `<OutputClaim ClaimTypeReferenceId="city" />` ao arquivo de política RP SignUporSignIn.xml para que essa declaração seja enviada para o aplicativo no token após um percurso do usuário bem-sucedido.</span><span class="sxs-lookup"><span data-stu-id="fa126-134">Add the `<OutputClaim ClaimTypeReferenceId="city" />` to the RP policy file SignUporSignIn.xml so this claim is sent to the application in the token after a successful user journey.</span></span>
+4. <span data-ttu-id="f96d2-134">Adicionar Olá `<OutputClaim ClaimTypeReferenceId="city" />` arquivo de política RP toohello SignUporSignIn.xml para esta declaração é enviada toohello aplicativo no token Olá após uma viagem de usuário bem-sucedida.</span><span class="sxs-lookup"><span data-stu-id="f96d2-134">Add hello `<OutputClaim ClaimTypeReferenceId="city" />` toohello RP policy file SignUporSignIn.xml so this claim is sent toohello application in hello token after a successful user journey.</span></span>
 
   ```xml
   <RelyingParty>
@@ -240,17 +240,17 @@ ms.lasthandoff: 09/28/2017
   </RelyingParty>
   ```
 
-## <a name="test-the-custom-policy-using-run-now"></a><span data-ttu-id="fa126-135">Testar a política personalizada usando a opção “Executar Agora”</span><span class="sxs-lookup"><span data-stu-id="fa126-135">Test the custom policy using "Run Now"</span></span>
+## <a name="test-hello-custom-policy-using-run-now"></a><span data-ttu-id="f96d2-135">Testar a política personalizada do hello usando "Executar agora"</span><span class="sxs-lookup"><span data-stu-id="f96d2-135">Test hello custom policy using "Run Now"</span></span>
 
-1. <span data-ttu-id="fa126-136">Abra a **Folha B2C do Azure AD** e navegue até **Identity Experience Framework > Políticas personalizadas**.</span><span class="sxs-lookup"><span data-stu-id="fa126-136">Open the **Azure AD B2C Blade** and navigate to **Identity Experience Framework > Custom policies**.</span></span>
-2. <span data-ttu-id="fa126-137">Selecione a política personalizada carregada e clique no botão **Executar agora**.</span><span class="sxs-lookup"><span data-stu-id="fa126-137">Select the custom policy that you uploaded, and click the **Run now** button.</span></span>
-3. <span data-ttu-id="fa126-138">Você deverá conseguir se inscrever usando um endereço de email.</span><span class="sxs-lookup"><span data-stu-id="fa126-138">You should be able to sign up using an email address.</span></span>
+1. <span data-ttu-id="f96d2-136">Olá abrir **folha do Azure AD B2C** e navegue muito**identidade experiência Framework > políticas personalizadas**.</span><span class="sxs-lookup"><span data-stu-id="f96d2-136">Open hello **Azure AD B2C Blade** and navigate too**Identity Experience Framework > Custom policies**.</span></span>
+2. <span data-ttu-id="f96d2-137">Selecione Olá política personalizada que você carregou e, em seguida, clique em Olá **executar agora** botão.</span><span class="sxs-lookup"><span data-stu-id="f96d2-137">Select hello custom policy that you uploaded, and click hello **Run now** button.</span></span>
+3. <span data-ttu-id="f96d2-138">Você deve ser capaz de toosign usando um endereço de email.</span><span class="sxs-lookup"><span data-stu-id="f96d2-138">You should be able toosign up using an email address.</span></span>
 
-<span data-ttu-id="fa126-139">A tela de inscrição no modo de teste deve ser semelhante a esta:</span><span class="sxs-lookup"><span data-stu-id="fa126-139">The signup screen in test mode should look similar to this:</span></span>
+<span data-ttu-id="f96d2-139">tela de inscrição Hello no modo de teste deve ser toothis semelhante:</span><span class="sxs-lookup"><span data-stu-id="f96d2-139">hello signup screen in test mode should look similar toothis:</span></span>
 
 ![Captura de tela da opção de inscrição modificada](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
 
-  <span data-ttu-id="fa126-141">O token de volta para seu aplicativo incluirá a declaração `city` conforme mostrado abaixo</span><span class="sxs-lookup"><span data-stu-id="fa126-141">The token back to your application will now include the `city` claim as shown below</span></span>
+  <span data-ttu-id="f96d2-141">Olá token tooyour back aplicativo agora incluirá Olá `city` conforme mostrado abaixo de declaração</span><span class="sxs-lookup"><span data-stu-id="f96d2-141">hello token back tooyour application will now include hello `city` claim as shown below</span></span>
 ```json
 {
   "exp": 1493596822,
@@ -271,18 +271,18 @@ ms.lasthandoff: 09/28/2017
 }
 ```
 
-## <a name="optional-remove-email-verification-from-signup-journey"></a><span data-ttu-id="fa126-142">Opcional: Remoção da verificação de email do percurso de inscrição</span><span class="sxs-lookup"><span data-stu-id="fa126-142">Optional: Remove email verification from signup journey</span></span>
+## <a name="optional-remove-email-verification-from-signup-journey"></a><span data-ttu-id="f96d2-142">Opcional: Remoção da verificação de email do percurso de inscrição</span><span class="sxs-lookup"><span data-stu-id="f96d2-142">Optional: Remove email verification from signup journey</span></span>
 
-<span data-ttu-id="fa126-143">Para ignorar a verificação de email, o autor da política pode optar por remover `PartnerClaimType="Verified.Email"`.</span><span class="sxs-lookup"><span data-stu-id="fa126-143">To skip email verification, the policy author can choose to remove `PartnerClaimType="Verified.Email"`.</span></span> <span data-ttu-id="fa126-144">O endereço de email será necessário, mas não verificado, a menos que "Required" = true seja removido.</span><span class="sxs-lookup"><span data-stu-id="fa126-144">The email address will be required but not verified, unless “Required” = true is removed.</span></span>  <span data-ttu-id="fa126-145">Considere cuidadosamente se esta opção é adequada para seus casos de uso!</span><span class="sxs-lookup"><span data-stu-id="fa126-145">Carefully consider if this option is right for your use cases!</span></span>
+<span data-ttu-id="f96d2-143">verificação de email tooskip, autor da política Olá pode escolher tooremove `PartnerClaimType="Verified.Email"`.</span><span class="sxs-lookup"><span data-stu-id="f96d2-143">tooskip email verification, hello policy author can choose tooremove `PartnerClaimType="Verified.Email"`.</span></span> <span data-ttu-id="f96d2-144">Olá endereço de email serão necessárias, mas não verificado, a menos que "Necessário" = true é removido.</span><span class="sxs-lookup"><span data-stu-id="f96d2-144">hello email address will be required but not verified, unless “Required” = true is removed.</span></span>  <span data-ttu-id="f96d2-145">Considere cuidadosamente se esta opção é adequada para seus casos de uso!</span><span class="sxs-lookup"><span data-stu-id="f96d2-145">Carefully consider if this option is right for your use cases!</span></span>
 
-<span data-ttu-id="fa126-146">Verificar email está habilitado por padrão no `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` no arquivo de política TrustFrameworkBase no pacote starter:</span><span class="sxs-lookup"><span data-stu-id="fa126-146">Verified email is enabled by default in the `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` in the TrustFrameworkBase policy file in the starter pack:</span></span>
+<span data-ttu-id="f96d2-146">Verificar email é habilitado por padrão no hello `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` no arquivo de política de TrustFrameworkBase Olá no pacote de inicializador de saudação:</span><span class="sxs-lookup"><span data-stu-id="f96d2-146">Verified email is enabled by default in hello `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">` in hello TrustFrameworkBase policy file in hello starter pack:</span></span>
 ```xml
 <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="fa126-147">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="fa126-147">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="f96d2-147">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="f96d2-147">Next steps</span></span>
 
-<span data-ttu-id="fa126-148">Adicione a nova declaração aos fluxos para logons de conta social alterando os TechnicalProfiles listados abaixo.</span><span class="sxs-lookup"><span data-stu-id="fa126-148">Add the new claim to the flows for social account logins by changing the TechnicalProfiles listed below.</span></span> <span data-ttu-id="fa126-149">Eles são usados por logons de conta social/federados para gravar e ler os dados do usuário usando o alternativeSecurityId como o localizador.</span><span class="sxs-lookup"><span data-stu-id="fa126-149">These are used by social/federated account logins to write and read the user data using the alternativeSecurityId as the locator.</span></span>
+<span data-ttu-id="f96d2-148">Adicione Olá novos declaração toohello fluxos para logons de conta social alterando Olá TechnicalProfiles listados abaixo.</span><span class="sxs-lookup"><span data-stu-id="f96d2-148">Add hello new claim toohello flows for social account logins by changing hello TechnicalProfiles listed below.</span></span> <span data-ttu-id="f96d2-149">Esses são usados por conta social/federado logons toowrite e ler dados do usuário hello usando alternativeSecurityId Olá Olá localizador.</span><span class="sxs-lookup"><span data-stu-id="f96d2-149">These are used by social/federated account logins toowrite and read hello user data using hello alternativeSecurityId as hello locator.</span></span>
 ```xml
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">

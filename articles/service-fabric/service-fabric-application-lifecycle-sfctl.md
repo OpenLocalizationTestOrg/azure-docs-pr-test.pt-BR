@@ -1,6 +1,6 @@
 ---
-title: Gerenciar aplicativos do Azure Service Fabric usando a CLI do Azure Service Fabric
-description: Saiba como implantar e remover aplicativos de um cluster do Azure Service Fabric usando a CLI do Azure Service Fabric
+title: aplicativos do Azure Service Fabric aaaManage usando a CLI do Azure Service Fabric
+description: Saiba como toodeploy e remova os aplicativos do Service Fabric do Azure de cluster usando a CLI do Azure Service Fabric
 services: service-fabric
 author: samedder
 manager: timlt
@@ -8,163 +8,163 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: edwardsa
-ms.openlocfilehash: c3a2eb3e6e54f952ef963bb2a0292d9ad7b53bc5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d9f98cee1d70f71a2aab68ff556956619910e4fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a><span data-ttu-id="d9dcf-103">Gerenciar um aplicativo do Azure Service Fabric usando a CLI do Azure Service Fabric</span><span class="sxs-lookup"><span data-stu-id="d9dcf-103">Manage an Azure Service Fabric application by using Azure Service Fabric CLI</span></span>
+# <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a><span data-ttu-id="495b4-103">Gerenciar um aplicativo do Azure Service Fabric usando a CLI do Azure Service Fabric</span><span class="sxs-lookup"><span data-stu-id="495b4-103">Manage an Azure Service Fabric application by using Azure Service Fabric CLI</span></span>
 
-<span data-ttu-id="d9dcf-104">Saiba como criar e excluir os aplicativos que estão em execução em um cluster do Azure Service Fabric.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-104">Learn how to create and delete applications that are running in an Azure Service Fabric cluster.</span></span>
+<span data-ttu-id="495b4-104">Saiba como toocreate e exclua os aplicativos em execução em um cluster do Azure Service Fabric.</span><span class="sxs-lookup"><span data-stu-id="495b4-104">Learn how toocreate and delete applications that are running in an Azure Service Fabric cluster.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="d9dcf-105">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="d9dcf-105">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="495b4-105">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="495b4-105">Prerequisites</span></span>
 
-* <span data-ttu-id="d9dcf-106">Implantar a CLI do Service Fabric.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-106">Install Service Fabric CLI.</span></span> <span data-ttu-id="d9dcf-107">Em seguida, selecione o cluster do Service Fabric.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-107">Then, select your Service Fabric cluster.</span></span> <span data-ttu-id="d9dcf-108">Para obter mais informações, consulte [Introdução à CLI do Service Fabric](service-fabric-cli.md).</span><span class="sxs-lookup"><span data-stu-id="d9dcf-108">For more information, see [Get started with Service Fabric CLI](service-fabric-cli.md).</span></span>
+* <span data-ttu-id="495b4-106">Implantar a CLI do Service Fabric.</span><span class="sxs-lookup"><span data-stu-id="495b4-106">Install Service Fabric CLI.</span></span> <span data-ttu-id="495b4-107">Em seguida, selecione o cluster do Service Fabric.</span><span class="sxs-lookup"><span data-stu-id="495b4-107">Then, select your Service Fabric cluster.</span></span> <span data-ttu-id="495b4-108">Para obter mais informações, consulte [Introdução à CLI do Service Fabric](service-fabric-cli.md).</span><span class="sxs-lookup"><span data-stu-id="495b4-108">For more information, see [Get started with Service Fabric CLI](service-fabric-cli.md).</span></span>
 
-* <span data-ttu-id="d9dcf-109">Tenha um pacote de aplicativos do Service Fabric pronto para ser implantado.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-109">Have a Service Fabric application package ready to be deployed.</span></span> <span data-ttu-id="d9dcf-110">Para obter mais informações sobre como criar e empacotar um aplicativo, leia sobre o [modelo de aplicativo do Service Fabric](service-fabric-application-model.md).</span><span class="sxs-lookup"><span data-stu-id="d9dcf-110">For more information about how to author and package an application, read about the [Service Fabric application model](service-fabric-application-model.md).</span></span>
+* <span data-ttu-id="495b4-109">Ter uma malha de serviço aplicativo pacote pronto toobe implantado.</span><span class="sxs-lookup"><span data-stu-id="495b4-109">Have a Service Fabric application package ready toobe deployed.</span></span> <span data-ttu-id="495b4-110">Para obter mais informações sobre como tooauthor e pacote de um aplicativo, leia sobre Olá [o modelo de aplicativo do Service Fabric](service-fabric-application-model.md).</span><span class="sxs-lookup"><span data-stu-id="495b4-110">For more information about how tooauthor and package an application, read about hello [Service Fabric application model](service-fabric-application-model.md).</span></span>
 
-## <a name="overview"></a><span data-ttu-id="d9dcf-111">Visão geral</span><span class="sxs-lookup"><span data-stu-id="d9dcf-111">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="495b4-111">Visão geral</span><span class="sxs-lookup"><span data-stu-id="495b4-111">Overview</span></span>
 
-<span data-ttu-id="d9dcf-112">Para implantar um novo aplicativo, execute estas etapas:</span><span class="sxs-lookup"><span data-stu-id="d9dcf-112">To deploy a new application, complete these steps:</span></span>
+<span data-ttu-id="495b4-112">toodeploy um novo aplicativo, execute estas etapas:</span><span class="sxs-lookup"><span data-stu-id="495b4-112">toodeploy a new application, complete these steps:</span></span>
 
-1. <span data-ttu-id="d9dcf-113">Faça upload de um pacote de aplicativos no repositório de imagens do Service Fabric.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-113">Upload an application package to the Service Fabric image store.</span></span>
-2. <span data-ttu-id="d9dcf-114">Provisione um tipo de aplicativo.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-114">Provision an application type.</span></span>
-3. <span data-ttu-id="d9dcf-115">Especifique e crie um aplicativo.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-115">Specify and create an application.</span></span>
-4. <span data-ttu-id="d9dcf-116">Especifique e crie serviços.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-116">Specify and create services.</span></span>
+1. <span data-ttu-id="495b4-113">Carregar um repositório de imagem do aplicativo pacote toohello Service Fabric.</span><span class="sxs-lookup"><span data-stu-id="495b4-113">Upload an application package toohello Service Fabric image store.</span></span>
+2. <span data-ttu-id="495b4-114">Provisione um tipo de aplicativo.</span><span class="sxs-lookup"><span data-stu-id="495b4-114">Provision an application type.</span></span>
+3. <span data-ttu-id="495b4-115">Especifique e crie um aplicativo.</span><span class="sxs-lookup"><span data-stu-id="495b4-115">Specify and create an application.</span></span>
+4. <span data-ttu-id="495b4-116">Especifique e crie serviços.</span><span class="sxs-lookup"><span data-stu-id="495b4-116">Specify and create services.</span></span>
 
-<span data-ttu-id="d9dcf-117">Para remover um aplicativo existente, execute estas etapas:</span><span class="sxs-lookup"><span data-stu-id="d9dcf-117">To remove an existing application, complete these steps:</span></span>
+<span data-ttu-id="495b4-117">tooremove um aplicativo existente, execute estas etapas:</span><span class="sxs-lookup"><span data-stu-id="495b4-117">tooremove an existing application, complete these steps:</span></span>
 
-1. <span data-ttu-id="d9dcf-118">Exclua o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-118">Delete the application.</span></span>
-2. <span data-ttu-id="d9dcf-119">Desprovisione o tipo de aplicativo associado.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-119">Unprovision the associated application type.</span></span>
-3. <span data-ttu-id="d9dcf-120">Exclua o conteúdo do repositório de imagens.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-120">Delete the image store content.</span></span>
+1. <span data-ttu-id="495b4-118">Exclua aplicativo hello.</span><span class="sxs-lookup"><span data-stu-id="495b4-118">Delete hello application.</span></span>
+2. <span data-ttu-id="495b4-119">Olá desconfiguração associados tipo de aplicativo.</span><span class="sxs-lookup"><span data-stu-id="495b4-119">Unprovision hello associated application type.</span></span>
+3. <span data-ttu-id="495b4-120">Exclua conteúdo do repositório de imagem de saudação.</span><span class="sxs-lookup"><span data-stu-id="495b4-120">Delete hello image store content.</span></span>
 
-## <a name="deploy-a-new-application"></a><span data-ttu-id="d9dcf-121">Implantar um novo aplicativo</span><span class="sxs-lookup"><span data-stu-id="d9dcf-121">Deploy a new application</span></span>
+## <a name="deploy-a-new-application"></a><span data-ttu-id="495b4-121">Implantar um novo aplicativo</span><span class="sxs-lookup"><span data-stu-id="495b4-121">Deploy a new application</span></span>
 
-<span data-ttu-id="d9dcf-122">Para implantar um novo aplicativo, execute as seguintes tarefas:</span><span class="sxs-lookup"><span data-stu-id="d9dcf-122">To deploy a new application, complete the following tasks:</span></span>
+<span data-ttu-id="495b4-122">toodeploy um novo aplicativo, completo Olá tarefas a seguir:</span><span class="sxs-lookup"><span data-stu-id="495b4-122">toodeploy a new application, complete hello following tasks:</span></span>
 
-### <a name="upload-a-new-application-package-to-the-image-store"></a><span data-ttu-id="d9dcf-123">Carregar um novo pacote de aplicativos no repositório de imagens</span><span class="sxs-lookup"><span data-stu-id="d9dcf-123">Upload a new application package to the image store</span></span>
+### <a name="upload-a-new-application-package-toohello-image-store"></a><span data-ttu-id="495b4-123">Carregar um novo repositório de imagem de toohello de pacote de aplicativo</span><span class="sxs-lookup"><span data-stu-id="495b4-123">Upload a new application package toohello image store</span></span>
 
-<span data-ttu-id="d9dcf-124">Antes de criar um aplicativo, carregue o pacote de aplicativos no repositório de imagens do Service Fabric.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-124">Before you create an application, upload the application package to the Service Fabric image store.</span></span>
+<span data-ttu-id="495b4-124">Antes de criar um aplicativo, carregue o repositório de imagens do hello aplicativo pacote toohello Service Fabric.</span><span class="sxs-lookup"><span data-stu-id="495b4-124">Before you create an application, upload hello application package toohello Service Fabric image store.</span></span>
 
-<span data-ttu-id="d9dcf-125">Por exemplo, se o seu pacote de aplicativos está no diretório `app_package_dir`, use os seguintes comandos para carregar o diretório:</span><span class="sxs-lookup"><span data-stu-id="d9dcf-125">For example, if your application package is in the `app_package_dir` directory, use the following commands to upload the directory:</span></span>
+<span data-ttu-id="495b4-125">Por exemplo, se o seu pacote de aplicativo está em Olá `app_package_dir` diretório, use Olá diretório de saudação tooupload comandos a seguir:</span><span class="sxs-lookup"><span data-stu-id="495b4-125">For example, if your application package is in hello `app_package_dir` directory, use hello following commands tooupload hello directory:</span></span>
 
 ```azurecli
 sfctl application upload --path ~/app_package_dir
 ```
 
-<span data-ttu-id="d9dcf-126">Para pacotes de aplicativos grandes, especifique a opção `--show-progress` para exibir o progresso do upload.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-126">For large application packages, you can specify the `--show-progress` option to display the progress of the upload.</span></span>
+<span data-ttu-id="495b4-126">Para grandes pacotes de aplicativos, você pode especificar Olá `--show-progress` opção toodisplay progresso de saudação do carregamento de saudação.</span><span class="sxs-lookup"><span data-stu-id="495b4-126">For large application packages, you can specify hello `--show-progress` option toodisplay hello progress of hello upload.</span></span>
 
-### <a name="provision-the-application-type"></a><span data-ttu-id="d9dcf-127">Provisionar o tipo de aplicativo</span><span class="sxs-lookup"><span data-stu-id="d9dcf-127">Provision the application type</span></span>
+### <a name="provision-hello-application-type"></a><span data-ttu-id="495b4-127">Tipo de aplicativo hello provisão</span><span class="sxs-lookup"><span data-stu-id="495b4-127">Provision hello application type</span></span>
 
-<span data-ttu-id="d9dcf-128">Quando o upload for concluído, provisione o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-128">When the upload is finished, provision the application.</span></span> <span data-ttu-id="d9dcf-129">Para provisionar o aplicativo, use o seguinte comando:</span><span class="sxs-lookup"><span data-stu-id="d9dcf-129">To provision the application, use the following command:</span></span>
+<span data-ttu-id="495b4-128">Quando terminar de carregar Olá, provisione o aplicativo hello.</span><span class="sxs-lookup"><span data-stu-id="495b4-128">When hello upload is finished, provision hello application.</span></span> <span data-ttu-id="495b4-129">aplicativo de hello tooprovision, use Olá comando a seguir:</span><span class="sxs-lookup"><span data-stu-id="495b4-129">tooprovision hello application, use hello following command:</span></span>
 
 ```azurecli
 sfctl application provision --application-type-build-path app_package_dir
 ```
 
-<span data-ttu-id="d9dcf-130">O valor de `application-type-build-path` é o nome do diretório em que você carregou o pacote de aplicativos.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-130">The value for `application-type-build-path` is the name of the directory where you uploaded your application package.</span></span>
+<span data-ttu-id="495b4-130">Olá valor `application-type-build-path` é Olá nome do diretório de saudação em que você carregou o pacote de aplicativo.</span><span class="sxs-lookup"><span data-stu-id="495b4-130">hello value for `application-type-build-path` is hello name of hello directory where you uploaded your application package.</span></span>
 
-### <a name="create-an-application-from-an-application-type"></a><span data-ttu-id="d9dcf-131">Criar um aplicativo com base em um tipo de aplicativo</span><span class="sxs-lookup"><span data-stu-id="d9dcf-131">Create an application from an application type</span></span>
+### <a name="create-an-application-from-an-application-type"></a><span data-ttu-id="495b4-131">Criar um aplicativo com base em um tipo de aplicativo</span><span class="sxs-lookup"><span data-stu-id="495b4-131">Create an application from an application type</span></span>
 
-<span data-ttu-id="d9dcf-132">Depois de provisionar o aplicativo, use o seguinte comando para nomear e criar seu aplicativo:</span><span class="sxs-lookup"><span data-stu-id="d9dcf-132">After you provision the application, use the following command to name and create your application:</span></span>
+<span data-ttu-id="495b4-132">Depois de provisionar o aplicativo hello, use Olá tooname de comando a seguir e crie seu aplicativo:</span><span class="sxs-lookup"><span data-stu-id="495b4-132">After you provision hello application, use hello following command tooname and create your application:</span></span>
 
 ```azurecli
 sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app-version 1.0
 ```
 
-<span data-ttu-id="d9dcf-133">`app-name` é o nome que você deseja usar para a instância do aplicativo.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-133">`app-name` is the name that you want to use for the application instance.</span></span> <span data-ttu-id="d9dcf-134">Você pode obter parâmetros adicionais no manifesto do aplicativo provisionado anteriormente.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-134">You can get additional parameters from the previously provisioned application manifest.</span></span>
+<span data-ttu-id="495b4-133">`app-name`é o nome de saudação que você deseja toouse para instância do aplicativo hello.</span><span class="sxs-lookup"><span data-stu-id="495b4-133">`app-name` is hello name that you want toouse for hello application instance.</span></span> <span data-ttu-id="495b4-134">Você pode obter parâmetros adicionais no manifesto do aplicativo provisionado anteriormente.</span><span class="sxs-lookup"><span data-stu-id="495b4-134">You can get additional parameters from the previously provisioned application manifest.</span></span>
 
-<span data-ttu-id="d9dcf-135">O nome do aplicativo deve começar com o prefixo `fabric:/`.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-135">The application name must start with the prefix `fabric:/`.</span></span>
+<span data-ttu-id="495b4-135">nome do aplicativo Hello deve começar com o prefixo Olá `fabric:/`.</span><span class="sxs-lookup"><span data-stu-id="495b4-135">hello application name must start with hello prefix `fabric:/`.</span></span>
 
-### <a name="create-services-for-the-new-application"></a><span data-ttu-id="d9dcf-136">Criar serviços para o novo aplicativo</span><span class="sxs-lookup"><span data-stu-id="d9dcf-136">Create services for the new application</span></span>
+### <a name="create-services-for-hello-new-application"></a><span data-ttu-id="495b4-136">Criar serviços para o novo aplicativo de saudação</span><span class="sxs-lookup"><span data-stu-id="495b4-136">Create services for hello new application</span></span>
 
-<span data-ttu-id="d9dcf-137">Depois de criar um aplicativo, crie serviços com base no aplicativo.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-137">After you have created an application, create services from the application.</span></span> <span data-ttu-id="d9dcf-138">No exemplo a seguir, criamos um novo serviço sem estado com base em nosso aplicativo.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-138">In the following example, we create a new stateless service from our application.</span></span> <span data-ttu-id="d9dcf-139">Os serviços que podem ser criados por meio de um aplicativo estão definidos em um manifesto do serviço dentro do pacote de aplicativos provisionado anteriormente.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-139">The services that you can create from an application are defined in a service manifest in the previously provisioned application package.</span></span>
+<span data-ttu-id="495b4-137">Depois de criar um aplicativo, crie serviços de aplicativo hello.</span><span class="sxs-lookup"><span data-stu-id="495b4-137">After you have created an application, create services from hello application.</span></span> <span data-ttu-id="495b4-138">Saudação de exemplo a seguir, criamos um novo serviço sem monitoração de estado do nosso aplicativo.</span><span class="sxs-lookup"><span data-stu-id="495b4-138">In hello following example, we create a new stateless service from our application.</span></span> <span data-ttu-id="495b4-139">Serviços de saudação que você pode criar a partir de um aplicativo são definidos em um manifesto de serviço no pacote de aplicativo provisionado anteriormente hello.</span><span class="sxs-lookup"><span data-stu-id="495b4-139">hello services that you can create from an application are defined in a service manifest in hello previously provisioned application package.</span></span>
 
 ```azurecli
 sfctl service create --app-id TestApp --name fabric:/TestApp/TestSvc --service-type TestServiceType \
 --stateless --instance-count 1 --singleton-scheme
 ```
 
-## <a name="verify-application-deployment-and-health"></a><span data-ttu-id="d9dcf-140">Verificar a integridade e a implantação do aplicativo</span><span class="sxs-lookup"><span data-stu-id="d9dcf-140">Verify application deployment and health</span></span>
+## <a name="verify-application-deployment-and-health"></a><span data-ttu-id="495b4-140">Verificar a integridade e a implantação do aplicativo</span><span class="sxs-lookup"><span data-stu-id="495b4-140">Verify application deployment and health</span></span>
 
-<span data-ttu-id="d9dcf-141">Para verificar a integridade de todos os componentes, use os seguintes comandos de integridade:</span><span class="sxs-lookup"><span data-stu-id="d9dcf-141">To verify everything is healthy, use the following health commands:</span></span>
+<span data-ttu-id="495b4-141">tooverify tudo está íntegro, use Olá comandos de integridade a seguir:</span><span class="sxs-lookup"><span data-stu-id="495b4-141">tooverify everything is healthy, use hello following health commands:</span></span>
 
 ```azurecli
 sfctl application list
 sfctl service list --application-id TestApp
 ```
 
-<span data-ttu-id="d9dcf-142">Para verificar se o serviço está íntegro, use comandos semelhantes para recuperar a integridade do serviço e do aplicativo:</span><span class="sxs-lookup"><span data-stu-id="d9dcf-142">To verify that the service is healthy, use similar commands to retrieve the health of both the service and the application:</span></span>
+<span data-ttu-id="495b4-142">tooverify que serviço Olá esteja íntegro, use semelhante integridade de saudação tooretrieve de comandos do serviço de saudação e do aplicativo:</span><span class="sxs-lookup"><span data-stu-id="495b4-142">tooverify that hello service is healthy, use similar commands tooretrieve hello health of both hello service and the application:</span></span>
 
 ```azurecli
 sfctl application health --application-id TestApp
 sfctl service health --service-id TestApp/TestSvc
 ```
 
-<span data-ttu-id="d9dcf-143">Os serviços e aplicativos íntegros têm um valor `HealthState` igual a `Ok`.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-143">Healthy services and applications have a `HealthState` value of `Ok`.</span></span>
+<span data-ttu-id="495b4-143">Os serviços e aplicativos íntegros têm um valor `HealthState` igual a `Ok`.</span><span class="sxs-lookup"><span data-stu-id="495b4-143">Healthy services and applications have a `HealthState` value of `Ok`.</span></span>
 
-## <a name="remove-an-existing-application"></a><span data-ttu-id="d9dcf-144">Remover um aplicativo existente</span><span class="sxs-lookup"><span data-stu-id="d9dcf-144">Remove an existing application</span></span>
+## <a name="remove-an-existing-application"></a><span data-ttu-id="495b4-144">Remover um aplicativo existente</span><span class="sxs-lookup"><span data-stu-id="495b4-144">Remove an existing application</span></span>
 
-<span data-ttu-id="d9dcf-145">Para remover um aplicativo, execute as seguintes tarefas:</span><span class="sxs-lookup"><span data-stu-id="d9dcf-145">To remove an application, complete the following tasks:</span></span>
+<span data-ttu-id="495b4-145">tooremove um aplicativo hello concluir tarefas a seguir:</span><span class="sxs-lookup"><span data-stu-id="495b4-145">tooremove an application, complete hello following tasks:</span></span>
 
-### <a name="delete-the-application"></a><span data-ttu-id="d9dcf-146">Excluir o aplicativo</span><span class="sxs-lookup"><span data-stu-id="d9dcf-146">Delete the application</span></span>
+### <a name="delete-hello-application"></a><span data-ttu-id="495b4-146">Excluir aplicativo hello</span><span class="sxs-lookup"><span data-stu-id="495b4-146">Delete hello application</span></span>
 
-<span data-ttu-id="d9dcf-147">Para excluir o aplicativo, use o seguinte comando:</span><span class="sxs-lookup"><span data-stu-id="d9dcf-147">To delete the application, use the following command:</span></span>
+<span data-ttu-id="495b4-147">aplicativo de hello toodelete, use Olá comando a seguir:</span><span class="sxs-lookup"><span data-stu-id="495b4-147">toodelete hello application, use hello following command:</span></span>
 
 ```azurecli
 sfctl application delete --application-id TestEdApp
 ```
 
-### <a name="unprovision-the-application-type"></a><span data-ttu-id="d9dcf-148">Desprovisionar o tipo de aplicativo</span><span class="sxs-lookup"><span data-stu-id="d9dcf-148">Unprovision the application type</span></span>
+### <a name="unprovision-hello-application-type"></a><span data-ttu-id="495b4-148">Desconfigurar o tipo de aplicativo hello</span><span class="sxs-lookup"><span data-stu-id="495b4-148">Unprovision hello application type</span></span>
 
-<span data-ttu-id="d9dcf-149">Depois de excluir o aplicativo, você pode desprovisionar o tipo de aplicativo se ele não for mais necessário.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-149">After you delete the application, you can unprovision the application type if you no longer need it.</span></span> <span data-ttu-id="d9dcf-150">Para desprovisionar o tipo de aplicativo, use o seguinte comando:</span><span class="sxs-lookup"><span data-stu-id="d9dcf-150">To unprovision the application type, use the following command:</span></span>
+<span data-ttu-id="495b4-149">Depois de excluir o aplicativo hello, você pode desconfigurar o tipo de aplicativo hello se você não precisar mais dela.</span><span class="sxs-lookup"><span data-stu-id="495b4-149">After you delete hello application, you can unprovision hello application type if you no longer need it.</span></span> <span data-ttu-id="495b4-150">tipo de aplicativo toounprovision hello, use Olá comando a seguir:</span><span class="sxs-lookup"><span data-stu-id="495b4-150">toounprovision hello application type, use hello following command:</span></span>
 
 ```azurecli
 sfctl application unprovision --application-type-name TestAppTye --application-type-version 1.0
 ```
 
-<span data-ttu-id="d9dcf-151">O nome e a versão do tipo devem corresponder ao nome e à versão no manifesto do aplicativo provisionado anteriormente.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-151">The type name and type version must match the name and version in the previously provisioned application manifest.</span></span>
+<span data-ttu-id="495b4-151">versão de nome e o tipo do tipo Hello deve coincidir nome hello e versão no manifesto de aplicativo provisionado anteriormente hello.</span><span class="sxs-lookup"><span data-stu-id="495b4-151">hello type name and type version must match hello name and version in hello previously provisioned application manifest.</span></span>
 
-### <a name="delete-the-application-package"></a><span data-ttu-id="d9dcf-152">Excluir o pacote de aplicativos</span><span class="sxs-lookup"><span data-stu-id="d9dcf-152">Delete the application package</span></span>
+### <a name="delete-hello-application-package"></a><span data-ttu-id="495b4-152">Excluir o pacote de aplicativo hello</span><span class="sxs-lookup"><span data-stu-id="495b4-152">Delete hello application package</span></span>
 
-<span data-ttu-id="d9dcf-153">Depois de haver desprovisionado o tipo de aplicativo, você pode excluir o pacote de aplicativos do repositório de imagens, caso ele não seja mais necessário.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-153">After you have unprovisioned the application type, you can delete the application package from the image store if you no longer need it.</span></span> <span data-ttu-id="d9dcf-154">A exclusão de pacotes de aplicativos ajuda a recuperar o espaço em disco.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-154">Deleting application packages helps reclaim disk space.</span></span> 
+<span data-ttu-id="495b4-153">Após cancelou o provisionamento de tipo de aplicativo hello, você pode excluir o pacote de aplicativo hello saudação do repositório de imagens se você não precisar mais dela.</span><span class="sxs-lookup"><span data-stu-id="495b4-153">After you have unprovisioned hello application type, you can delete hello application package from hello image store if you no longer need it.</span></span> <span data-ttu-id="495b4-154">A exclusão de pacotes de aplicativos ajuda a recuperar o espaço em disco.</span><span class="sxs-lookup"><span data-stu-id="495b4-154">Deleting application packages helps reclaim disk space.</span></span> 
 
-<span data-ttu-id="d9dcf-155">Para excluir o pacote de aplicativos do repositório de imagens, use o seguinte comando:</span><span class="sxs-lookup"><span data-stu-id="d9dcf-155">To delete the application package from the image store, use the following command:</span></span>
+<span data-ttu-id="495b4-155">pacote de aplicativo toodelete Olá Olá do repositório de imagens, use Olá comando a seguir:</span><span class="sxs-lookup"><span data-stu-id="495b4-155">toodelete hello application package from hello image store, use hello following command:</span></span>
 
 ```azurecli
 sfctl store delete --content-path app_package_dir
 ```
 
-<span data-ttu-id="d9dcf-156">`content-path` deve ser o nome do diretório que você carregou ao criar o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-156">`content-path` must be the name of the directory that you uploaded when you created the application.</span></span>
+<span data-ttu-id="495b4-156">`content-path`deve ser o nome de saudação do diretório Olá carregado quando você criou o aplicativo hello.</span><span class="sxs-lookup"><span data-stu-id="495b4-156">`content-path` must be hello name of hello directory that you uploaded when you created hello application.</span></span>
 
-## <a name="upgrade-application"></a><span data-ttu-id="d9dcf-157">Atualizar aplicativo</span><span class="sxs-lookup"><span data-stu-id="d9dcf-157">Upgrade application</span></span>
+## <a name="upgrade-application"></a><span data-ttu-id="495b4-157">Atualizar aplicativo</span><span class="sxs-lookup"><span data-stu-id="495b4-157">Upgrade application</span></span>
 
-<span data-ttu-id="d9dcf-158">Após criar seu aplicativo, você pode repetir o mesmo conjunto de etapas para provisionar uma segunda versão do aplicativo.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-158">After creating your application, you can repeat the same set of steps to provision a second version of your application.</span></span> <span data-ttu-id="d9dcf-159">Em seguida, com uma atualização do aplicativo do Service Fabric, você pode fazer a transição para executar a segunda versão do aplicativo.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-159">Then, with a Service Fabric application upgrade you can transition to running the second version of the application.</span></span> <span data-ttu-id="d9dcf-160">Para obter mais informações, consulte a documentação sobre [Atualizações de aplicativo do Service Fabric](service-fabric-application-upgrade.md).</span><span class="sxs-lookup"><span data-stu-id="d9dcf-160">For more information, see the documentation on [Service Fabric application upgrades](service-fabric-application-upgrade.md).</span></span>
+<span data-ttu-id="495b4-158">Depois de criar seu aplicativo, você pode repetir Olá mesmo conjunto de etapas tooprovision uma segunda versão do seu aplicativo.</span><span class="sxs-lookup"><span data-stu-id="495b4-158">After creating your application, you can repeat hello same set of steps tooprovision a second version of your application.</span></span> <span data-ttu-id="495b4-159">Em seguida, com uma atualização de aplicativo do Service Fabric transição toorunning Olá segunda versão do aplicativo hello.</span><span class="sxs-lookup"><span data-stu-id="495b4-159">Then, with a Service Fabric application upgrade you can transition toorunning hello second version of hello application.</span></span> <span data-ttu-id="495b4-160">Para obter mais informações, consulte a documentação do hello em [atualizações de aplicativo do Service Fabric](service-fabric-application-upgrade.md).</span><span class="sxs-lookup"><span data-stu-id="495b4-160">For more information, see hello documentation on [Service Fabric application upgrades](service-fabric-application-upgrade.md).</span></span>
 
-<span data-ttu-id="d9dcf-161">Para realizar uma atualização, primeiro provisione a próxima versão do aplicativo usando os mesmos comandos que antes:</span><span class="sxs-lookup"><span data-stu-id="d9dcf-161">To perform an upgrade, first provision the next version of the application using the same commands as before:</span></span>
+<span data-ttu-id="495b4-161">tooperform uma atualização, primeiro provisionar Olá próxima versão do aplicativo usando a saudação Olá comandos mesmo de antes:</span><span class="sxs-lookup"><span data-stu-id="495b4-161">tooperform an upgrade, first provision hello next version of hello application using hello same commands as before:</span></span>
 
 ```azurecli
 sfctl application upload --path ~/app_package_dir_2
 sfctl application provision --application-type-build-path app_package_dir_2
 ```
 
-<span data-ttu-id="d9dcf-162">Em seguida, é recomendável realizar uma atualização automática monitorada. Inicie a atualização executando o seguinte comando:</span><span class="sxs-lookup"><span data-stu-id="d9dcf-162">It is recommended then to perform a monitored automatic upgrade, launch the upgrade by running the following command:</span></span>
+<span data-ttu-id="495b4-162">É recomendável tooperform uma atualização automática monitorada, reinicie a atualização Olá executando o comando a seguir de saudação:</span><span class="sxs-lookup"><span data-stu-id="495b4-162">It is recommended then tooperform a monitored automatic upgrade, launch hello upgrade by running hello following command:</span></span>
 
 ```azurecli
 sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"test\":\"value\"}" --mode Monitored
 ```
 
-<span data-ttu-id="d9dcf-163">As atualizações substituem os parâmetros existentes por qualquer conjunto especificado.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-163">Upgrades override existing parameters with whatever set is specified.</span></span> <span data-ttu-id="d9dcf-164">Parâmetros do aplicativo devem ser transmitidos como argumentos para o comando de atualização, se necessário.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-164">Application parameters should be passed as arguments to the upgrade command, if necessary.</span></span> <span data-ttu-id="d9dcf-165">Parâmetros do aplicativo devem ser codificados como um objeto JSON.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-165">Application parameters should be encoded as a JSON object.</span></span>
+<span data-ttu-id="495b4-163">As atualizações substituem os parâmetros existentes por qualquer conjunto especificado.</span><span class="sxs-lookup"><span data-stu-id="495b4-163">Upgrades override existing parameters with whatever set is specified.</span></span> <span data-ttu-id="495b4-164">Parâmetros do aplicativo devem ser passados como um comando de atualização de toohello de argumentos, se necessário.</span><span class="sxs-lookup"><span data-stu-id="495b4-164">Application parameters should be passed as arguments toohello upgrade command, if necessary.</span></span> <span data-ttu-id="495b4-165">Parâmetros do aplicativo devem ser codificados como um objeto JSON.</span><span class="sxs-lookup"><span data-stu-id="495b4-165">Application parameters should be encoded as a JSON object.</span></span>
 
-<span data-ttu-id="d9dcf-166">Para recuperar parâmetros especificados anteriormente, você pode usar o comando `sfctl application info`.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-166">To retrieve any parameters previously specified, you can use the `sfctl application info` command.</span></span>
+<span data-ttu-id="495b4-166">tooretrieve todos os parâmetros especificados anteriormente, você pode usar o hello `sfctl application info` comando.</span><span class="sxs-lookup"><span data-stu-id="495b4-166">tooretrieve any parameters previously specified, you can use hello `sfctl application info` command.</span></span>
 
-<span data-ttu-id="d9dcf-167">Quando uma atualização de aplicativo estiver em andamento, o status poderá ser recuperado usando o comando `sfctl application upgrade-status`.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-167">When an application upgrade is in progress, the status can be retrieved using the `sfctl application upgrade-status` command.</span></span>
+<span data-ttu-id="495b4-167">Quando uma atualização do aplicativo está em andamento, o status de saudação podem ser recuperados usando o `sfctl application upgrade-status` comando.</span><span class="sxs-lookup"><span data-stu-id="495b4-167">When an application upgrade is in progress, hello status can be retrieved using the `sfctl application upgrade-status` command.</span></span>
 
-<span data-ttu-id="d9dcf-168">Por fim, se uma atualização estiver em andamento e precisar ser cancelada, você poderá usar `sfctl application upgrade-rollback` para reverter a atualização.</span><span class="sxs-lookup"><span data-stu-id="d9dcf-168">Finally, if an upgrade is in progress and needs to be canceled, you can use the `sfctl application upgrade-rollback` to roll back the upgrade.</span></span>
+<span data-ttu-id="495b4-168">Finalmente, se uma atualização está em andamento e precisa toobe cancelada, você pode usar Olá `sfctl application upgrade-rollback` tooroll volta Olá atualização.</span><span class="sxs-lookup"><span data-stu-id="495b4-168">Finally, if an upgrade is in progress and needs toobe canceled, you can use hello `sfctl application upgrade-rollback` tooroll back hello upgrade.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="d9dcf-169">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="d9dcf-169">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="495b4-169">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="495b4-169">Next steps</span></span>
 
-* [<span data-ttu-id="d9dcf-170">Noções básicas do Service Fabric</span><span class="sxs-lookup"><span data-stu-id="d9dcf-170">Service Fabric CLI basics</span></span>](service-fabric-cli.md)
-* [<span data-ttu-id="d9dcf-171">Introdução ao Service Fabric no Linux</span><span class="sxs-lookup"><span data-stu-id="d9dcf-171">Getting started with Service Fabric on Linux</span></span>](service-fabric-get-started-linux.md)
-* [<span data-ttu-id="d9dcf-172">Iniciar uma atualização de aplicativo do Service Fabric</span><span class="sxs-lookup"><span data-stu-id="d9dcf-172">Launching a Service Fabric application upgrade</span></span>](service-fabric-application-upgrade.md)
+* [<span data-ttu-id="495b4-170">Noções básicas do Service Fabric</span><span class="sxs-lookup"><span data-stu-id="495b4-170">Service Fabric CLI basics</span></span>](service-fabric-cli.md)
+* [<span data-ttu-id="495b4-171">Introdução ao Service Fabric no Linux</span><span class="sxs-lookup"><span data-stu-id="495b4-171">Getting started with Service Fabric on Linux</span></span>](service-fabric-get-started-linux.md)
+* [<span data-ttu-id="495b4-172">Iniciar uma atualização de aplicativo do Service Fabric</span><span class="sxs-lookup"><span data-stu-id="495b4-172">Launching a Service Fabric application upgrade</span></span>](service-fabric-application-upgrade.md)

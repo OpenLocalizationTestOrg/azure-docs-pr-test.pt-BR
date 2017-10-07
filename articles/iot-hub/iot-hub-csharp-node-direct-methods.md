@@ -1,6 +1,6 @@
 ---
-title: "Usar métodos diretos do Hub IoT do Azure (.NET/Node) | Microsoft Docs"
-description: "Como usar os métodos diretos do Hub IoT do Azure. Use o SDK do dispositivo IoT do Azure para Node.js para implementar um aplicativo de dispositivo simulado que inclui um método direto e o SDK do serviço do Azure IoT para .NET para implementar um aplicativo de serviço que invoca o método direto."
+title: "aaaUse Azure IoT Hub direcionar métodos (.NET/nó) | Microsoft Docs"
+description: "Como toouse Azure IoT Hub direta métodos. Você usar o dispositivo de IoT do Azure de saudação SDK para Node.js tooimplement um aplicativo de dispositivo simulado que inclui um método direto e hello serviço IoT do Azure SDK para .NET tooimplement um aplicativo de serviço que invoca o método direto hello."
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -14,50 +14,50 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/10/2017
 ms.author: nberdy
-ms.openlocfilehash: ad705789a153381e21b2ccb05d4e0c17f78671fd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f566f939be840eb308b00ffa4e05c4e5b3fefb39
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-direct-methods-netnode"></a><span data-ttu-id="fc8fa-104">Usar métodos diretos para (.NET/Node)</span><span class="sxs-lookup"><span data-stu-id="fc8fa-104">Use direct methods (.NET/Node)</span></span>
+# <a name="use-direct-methods-netnode"></a><span data-ttu-id="d4424-104">Usar métodos diretos para (.NET/Node)</span><span class="sxs-lookup"><span data-stu-id="d4424-104">Use direct methods (.NET/Node)</span></span>
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
-<span data-ttu-id="fc8fa-105">Neste tutorial, vamos desenvolver um .NET e um aplicativo de console do Node.js:</span><span class="sxs-lookup"><span data-stu-id="fc8fa-105">In this tutorial, we are going to develop a .NET and a Node.js console app:</span></span>
+<span data-ttu-id="d4424-105">Neste tutorial, vamos toodevelop .NET e um aplicativo de console Node. js:</span><span class="sxs-lookup"><span data-stu-id="d4424-105">In this tutorial, we are going toodevelop a .NET and a Node.js console app:</span></span>
 
-* <span data-ttu-id="fc8fa-106">**CallMethodOnDevice.sln**, um aplicativo de back-end .NET que chama um método no aplicativo do dispositivo simulado e exibe a resposta.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-106">**CallMethodOnDevice.sln**, a .NET back-end app, which calls a method in the simulated device app and displays the response.</span></span>
-* <span data-ttu-id="fc8fa-107">**SimulatedDevice.js**, um aplicativo Node.js que simula um dispositivo que se conecta ao seu Hub IoT com a identidade do dispositivo criada anteriormente e responde ao método chamado pela nuvem.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-107">**SimulatedDevice.js**, a Node.js app, which simulates a device connecting to your IoT hub with the device identity created earlier, and responds to the method called by the cloud.</span></span>
+* <span data-ttu-id="d4424-106">**CallMethodOnDevice.sln**, um aplicativo de back-end .NET, que chama um método no aplicativo do dispositivo simulado hello e exibe a resposta de saudação.</span><span class="sxs-lookup"><span data-stu-id="d4424-106">**CallMethodOnDevice.sln**, a .NET back-end app, which calls a method in hello simulated device app and displays hello response.</span></span>
+* <span data-ttu-id="d4424-107">**SimulatedDevice.js**, um aplicativo Node. js, que simula um dispositivo conectado tooyour IoT hub com a identidade do dispositivo Olá criada anteriormente e responde toohello método chamado pela nuvem hello.</span><span class="sxs-lookup"><span data-stu-id="d4424-107">**SimulatedDevice.js**, a Node.js app, which simulates a device connecting tooyour IoT hub with hello device identity created earlier, and responds toohello method called by hello cloud.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="fc8fa-108">O artigo [SDKs de IoT do Azure][lnk-hub-sdks] fornece informações sobre os SDKs de IoT do Azure que você pode usar para criar aplicativos executados em dispositivos e no back-end da solução.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-108">The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both applications to run on devices and your solution back end.</span></span>
+> <span data-ttu-id="d4424-108">artigo Olá [SDKs do Azure IoT] [ lnk-hub-sdks] fornece informações sobre Olá SDKs IoT do Azure que você pode usar toobuild toorun ambos os aplicativos em dispositivos e o back-end da solução.</span><span class="sxs-lookup"><span data-stu-id="d4424-108">hello article [Azure IoT SDKs][lnk-hub-sdks] provides information about hello Azure IoT SDKs that you can use toobuild both applications toorun on devices and your solution back end.</span></span>
 > 
 > 
 
-<span data-ttu-id="fc8fa-109">Para concluir este tutorial, você precisará:</span><span class="sxs-lookup"><span data-stu-id="fc8fa-109">To complete this tutorial, you need:</span></span>
+<span data-ttu-id="d4424-109">toocomplete neste tutorial, você precisa:</span><span class="sxs-lookup"><span data-stu-id="d4424-109">toocomplete this tutorial, you need:</span></span>
 
-* <span data-ttu-id="fc8fa-110">Visual Studio 2015 ou Visual Studio 2017.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-110">Visual Studio 2015 or Visual Studio 2017.</span></span>
-* <span data-ttu-id="fc8fa-111">Node.js versão 0.10.x ou posterior.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-111">Node.js version 0.10.x or later.</span></span>
-* <span data-ttu-id="fc8fa-112">Uma conta ativa do Azure.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-112">An active Azure account.</span></span> <span data-ttu-id="fc8fa-113">(Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)</span><span class="sxs-lookup"><span data-stu-id="fc8fa-113">(If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)</span></span>
+* <span data-ttu-id="d4424-110">Visual Studio 2015 ou Visual Studio 2017.</span><span class="sxs-lookup"><span data-stu-id="d4424-110">Visual Studio 2015 or Visual Studio 2017.</span></span>
+* <span data-ttu-id="d4424-111">Node.js versão 0.10.x ou posterior.</span><span class="sxs-lookup"><span data-stu-id="d4424-111">Node.js version 0.10.x or later.</span></span>
+* <span data-ttu-id="d4424-112">Uma conta ativa do Azure.</span><span class="sxs-lookup"><span data-stu-id="d4424-112">An active Azure account.</span></span> <span data-ttu-id="d4424-113">(Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)</span><span class="sxs-lookup"><span data-stu-id="d4424-113">(If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)</span></span>
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="create-a-simulated-device-app"></a><span data-ttu-id="fc8fa-114">Criar um aplicativo de dispositivo simulado</span><span class="sxs-lookup"><span data-stu-id="fc8fa-114">Create a simulated device app</span></span>
-<span data-ttu-id="fc8fa-115">Nesta seção, você cria um aplicativo de console do Node.js que responde a um método chamado pelo back-end da solução.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-115">In this section, you create a Node.js console app that responds to a method called by the solution back end.</span></span>
+## <a name="create-a-simulated-device-app"></a><span data-ttu-id="d4424-114">Criar um aplicativo de dispositivo simulado</span><span class="sxs-lookup"><span data-stu-id="d4424-114">Create a simulated device app</span></span>
+<span data-ttu-id="d4424-115">Nesta seção, você deve criar um aplicativo de console Node. js que responde tooa método chamado pela solução de saudação volta final.</span><span class="sxs-lookup"><span data-stu-id="d4424-115">In this section, you create a Node.js console app that responds tooa method called by hello solution back end.</span></span>
 
-1. <span data-ttu-id="fc8fa-116">Crie uma nova pasta vazia denominada **simulateddevice**.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-116">Create a new empty folder called **simulateddevice**.</span></span> <span data-ttu-id="fc8fa-117">Na pasta **simulateddevice** , crie um arquivo package.json usando o comando a seguir no prompt de comando.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-117">In the **simulateddevice** folder, create a package.json file using the following command at your command prompt.</span></span> <span data-ttu-id="fc8fa-118">Aceite todos os padrões:</span><span class="sxs-lookup"><span data-stu-id="fc8fa-118">Accept all the defaults:</span></span>
+1. <span data-ttu-id="d4424-116">Crie uma nova pasta vazia denominada **simulateddevice**.</span><span class="sxs-lookup"><span data-stu-id="d4424-116">Create a new empty folder called **simulateddevice**.</span></span> <span data-ttu-id="d4424-117">Em Olá **simulateddevice** pasta, crie um arquivo Package. JSON usando Olá comando no prompt de comando a seguir.</span><span class="sxs-lookup"><span data-stu-id="d4424-117">In hello **simulateddevice** folder, create a package.json file using hello following command at your command prompt.</span></span> <span data-ttu-id="d4424-118">Aceite todos os padrões de saudação:</span><span class="sxs-lookup"><span data-stu-id="d4424-118">Accept all hello defaults:</span></span>
    
     ```
     npm init
     ```
-2. <span data-ttu-id="fc8fa-119">No prompt de comando, na pasta **simulateddevice**, execute o seguinte comando para instalar o pacote **azure-iot-device** e pacotes **azure-iot-device-mqtt**:</span><span class="sxs-lookup"><span data-stu-id="fc8fa-119">At your command prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** packages:</span></span>
+2. <span data-ttu-id="d4424-119">O prompt de comando no hello **simulateddevice** pasta, execute Olá Olá de tooinstall de comando a seguir **dispositivo de iot do azure** e **azure iot-dispositivo mqtt** pacotes:</span><span class="sxs-lookup"><span data-stu-id="d4424-119">At your command prompt in hello **simulateddevice** folder, run hello following command tooinstall hello **azure-iot-device** and **azure-iot-device-mqtt** packages:</span></span>
    
     ```
         npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. <span data-ttu-id="fc8fa-120">Usando um editor de texto, crie um arquivo na pasta **simulateddevice** e coloque o nome **SimulatedDevice.js**.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-120">Using a text editor, create a file in the **simulateddevice** folder and name it **SimulatedDevice.js**.</span></span>
-4. <span data-ttu-id="fc8fa-121">Adicione as seguintes instruções `require` no início do arquivo **SimulatedDevice.js** :</span><span class="sxs-lookup"><span data-stu-id="fc8fa-121">Add the following `require` statements at the start of the **SimulatedDevice.js** file:</span></span>
+3. <span data-ttu-id="d4424-120">Usando um editor de texto, crie um arquivo no hello **simulateddevice** pasta e nomeie-o **SimulatedDevice.js**.</span><span class="sxs-lookup"><span data-stu-id="d4424-120">Using a text editor, create a file in hello **simulateddevice** folder and name it **SimulatedDevice.js**.</span></span>
+4. <span data-ttu-id="d4424-121">Adicione o seguinte Olá `require` instruções no hello início da saudação **SimulatedDevice.js** arquivo:</span><span class="sxs-lookup"><span data-stu-id="d4424-121">Add hello following `require` statements at hello start of hello **SimulatedDevice.js** file:</span></span>
    
     ```
     'use strict';
@@ -65,28 +65,28 @@ ms.lasthandoff: 07/11/2017
     var Mqtt = require('azure-iot-device-mqtt').Mqtt;
     var DeviceClient = require('azure-iot-device').Client;
     ```
-5. <span data-ttu-id="fc8fa-122">Adicione uma variável **connectionString** e use-a para criar uma instância **DeviceClient**.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-122">Add a **connectionString** variable and use it to create a **DeviceClient** instance.</span></span> <span data-ttu-id="fc8fa-123">Substitua **{cadeia de conexão do dispositivo}** pela cadeia de conexão de dispositivo gerada na seção *Criar uma identidade de dispositivo*:</span><span class="sxs-lookup"><span data-stu-id="fc8fa-123">Replace **{device connection string}** with the device connection string you generated in the *Create a device identity* section:</span></span>
+5. <span data-ttu-id="d4424-122">Adicionar um **connectionString** variável e use-toocreate uma **DeviceClient** instância.</span><span class="sxs-lookup"><span data-stu-id="d4424-122">Add a **connectionString** variable and use it toocreate a **DeviceClient** instance.</span></span> <span data-ttu-id="d4424-123">Substituir **{string de conexão do dispositivo}** com a cadeia de conexão de dispositivo Olá gerado na Olá *criar uma identidade de dispositivo* seção:</span><span class="sxs-lookup"><span data-stu-id="d4424-123">Replace **{device connection string}** with hello device connection string you generated in hello *Create a device identity* section:</span></span>
    
     ```
     var connectionString = '{device connection string}';
     var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
     ```
-6. <span data-ttu-id="fc8fa-124">Adicione a seguinte função para implementar o método direto no dispositivo:</span><span class="sxs-lookup"><span data-stu-id="fc8fa-124">Add the following function to implement the direct method on the device:</span></span>
+6. <span data-ttu-id="d4424-124">Adicione Olá seguinte função tooimplement Olá ao método direto no dispositivo hello:</span><span class="sxs-lookup"><span data-stu-id="d4424-124">Add hello following function tooimplement hello direct method on hello device:</span></span>
    
     ```
     function onWriteLine(request, response) {
         console.log(request.payload);
    
-        response.send(200, 'Input was written to log.', function(err) {
+        response.send(200, 'Input was written toolog.', function(err) {
             if(err) {
                 console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
-                console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
+                console.log('Response toomethod \'' + request.methodName + '\' sent successfully.' );
             }
         });
     }
     ```
-7. <span data-ttu-id="fc8fa-125">Abra a conexão com o Hub IoT e inicialize o ouvinte do método:</span><span class="sxs-lookup"><span data-stu-id="fc8fa-125">Open the connection to your IoT hub and initialize the method listener:</span></span>
+7. <span data-ttu-id="d4424-125">Abra o hub IoT do hello conexão tooyour e inicializar o ouvinte de método hello:</span><span class="sxs-lookup"><span data-stu-id="d4424-125">Open hello connection tooyour IoT hub and initialize hello method listener:</span></span>
    
     ```
     client.open(function(err) {
@@ -98,38 +98,38 @@ ms.lasthandoff: 07/11/2017
         }
     });
     ```
-8. <span data-ttu-id="fc8fa-126">Salve e feche o arquivo **SimulatedDevice.js** .</span><span class="sxs-lookup"><span data-stu-id="fc8fa-126">Save and close the **SimulatedDevice.js** file.</span></span>
+8. <span data-ttu-id="d4424-126">Salve e feche o hello **SimulatedDevice.js** arquivo.</span><span class="sxs-lookup"><span data-stu-id="d4424-126">Save and close hello **SimulatedDevice.js** file.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="fc8fa-127">Para simplificar, este tutorial não implementa nenhuma política de repetição.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-127">To keep things simple, this tutorial does not implement any retry policy.</span></span> <span data-ttu-id="fc8fa-128">No código de produção, você deve implementar políticas de repetição (tais como tentar conexão novamente), conforme sugerido no artigo do MSDN [Tratamento de Falhas Transitórias][lnk-transient-faults].</span><span class="sxs-lookup"><span data-stu-id="fc8fa-128">In production code, you should implement retry policies (such as connection retry), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].</span></span>
+> <span data-ttu-id="d4424-127">coisas tookeep simples, este tutorial não implementa nenhuma política de repetição.</span><span class="sxs-lookup"><span data-stu-id="d4424-127">tookeep things simple, this tutorial does not implement any retry policy.</span></span> <span data-ttu-id="d4424-128">No código de produção, você deve implementar políticas de repetição (como tentativas de conexão), conforme sugerido no artigo do MSDN Olá [tratamento de falhas transitórias][lnk-transient-faults].</span><span class="sxs-lookup"><span data-stu-id="d4424-128">In production code, you should implement retry policies (such as connection retry), as suggested in hello MSDN article [Transient Fault Handling][lnk-transient-faults].</span></span>
 > 
 > 
 
-## <a name="call-a-direct-method-on-a-device"></a><span data-ttu-id="fc8fa-129">Chama um método direto em um dispositivo</span><span class="sxs-lookup"><span data-stu-id="fc8fa-129">Call a direct method on a device</span></span>
-<span data-ttu-id="fc8fa-130">Nesta seção, você cria um aplicativo de console do .NET que chama um método no dispositivo simulado e, em seguida, exibe a resposta.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-130">In this section, you create a .NET console app that calls a method in the simulated device app and then displays the response.</span></span>
+## <a name="call-a-direct-method-on-a-device"></a><span data-ttu-id="d4424-129">Chama um método direto em um dispositivo</span><span class="sxs-lookup"><span data-stu-id="d4424-129">Call a direct method on a device</span></span>
+<span data-ttu-id="d4424-130">Nesta seção, você deve criar um aplicativo de console .NET que chama um método no aplicativo do dispositivo simulado hello e, em seguida, exibe a resposta de saudação.</span><span class="sxs-lookup"><span data-stu-id="d4424-130">In this section, you create a .NET console app that calls a method in hello simulated device app and then displays hello response.</span></span>
 
-1. <span data-ttu-id="fc8fa-131">No Visual Studio, adicione um projeto da Área de Trabalho Clássica do Windows no Visual C# à solução atual usando o modelo de projeto **Aplicativo do Console** .</span><span class="sxs-lookup"><span data-stu-id="fc8fa-131">In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template.</span></span> <span data-ttu-id="fc8fa-132">Verifique se a versão do .NET Framework é 4.5.1 ou posterior.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-132">Make sure the .NET Framework version is 4.5.1 or later.</span></span> <span data-ttu-id="fc8fa-133">Nomeie o projeto como **CallMethodOnDevice**.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-133">Name the project **CallMethodOnDevice**.</span></span>
+1. <span data-ttu-id="d4424-131">No Visual Studio, adicione uma solução do Visual C# Windows clássico Desktop projeto toohello atual usando Olá **aplicativo de Console** modelo de projeto.</span><span class="sxs-lookup"><span data-stu-id="d4424-131">In Visual Studio, add a Visual C# Windows Classic Desktop project toohello current solution by using hello **Console Application** project template.</span></span> <span data-ttu-id="d4424-132">Certifique-se de versão do .NET Framework Olá é 4.5.1 ou posterior.</span><span class="sxs-lookup"><span data-stu-id="d4424-132">Make sure hello .NET Framework version is 4.5.1 or later.</span></span> <span data-ttu-id="d4424-133">Projeto de saudação do nome **CallMethodOnDevice**.</span><span class="sxs-lookup"><span data-stu-id="d4424-133">Name hello project **CallMethodOnDevice**.</span></span>
    
     ![Novo projeto da Área de Trabalho Clássica do Windows no Visual C#][10]
-2. <span data-ttu-id="fc8fa-135">No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **CallMethodOnDevice** e clique em **Gerenciar Pacotes NuGet...**.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-135">In Solution Explorer, right-click the **CallMethodOnDevice** project, and then click **Manage NuGet Packages...**.</span></span>
-3. <span data-ttu-id="fc8fa-136">Na janela **Gerenciador de Pacotes Nuget**, selecione **Procurar**, procure **microsoft.azure.devices**, selecione **Instalar** para instalar o pacote **Microsoft.Azure.Devices** e aceite os termos de uso.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-136">In the **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use.</span></span> <span data-ttu-id="fc8fa-137">O procedimento baixa, instala e adiciona uma referência ao [pacote Nuget do SDK do Dispositivo IoT do Azure][lnk-nuget-service-sdk] e suas dependências.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-137">This procedure downloads, installs, and adds a reference to the [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.</span></span>
+2. <span data-ttu-id="d4424-135">No Gerenciador de soluções, clique com botão direito Olá **CallMethodOnDevice** do projeto e, em seguida, clique em **gerenciar pacotes NuGet...** .</span><span class="sxs-lookup"><span data-stu-id="d4424-135">In Solution Explorer, right-click hello **CallMethodOnDevice** project, and then click **Manage NuGet Packages...**.</span></span>
+3. <span data-ttu-id="d4424-136">Em Olá **NuGet Package Manager** janela, selecione **procurar**, procure **microsoft.azure.devices**, selecione **instalar** tooinstall Olá **Microsoft.Azure.Devices** empacotar e aceitar os termos de uso do hello.</span><span class="sxs-lookup"><span data-stu-id="d4424-136">In hello **NuGet Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** tooinstall hello **Microsoft.Azure.Devices** package, and accept hello terms of use.</span></span> <span data-ttu-id="d4424-137">Este procedimento faz o download, instala e adiciona uma referência toohello [SDK do serviço de Azure IoT] [ lnk-nuget-service-sdk] NuGet pacote e suas dependências.</span><span class="sxs-lookup"><span data-stu-id="d4424-137">This procedure downloads, installs, and adds a reference toohello [Azure IoT service SDK][lnk-nuget-service-sdk] NuGet package and its dependencies.</span></span>
    
     ![Janela do Gerenciador de Pacotes NuGet][11]
 
-4. <span data-ttu-id="fc8fa-139">Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :</span><span class="sxs-lookup"><span data-stu-id="fc8fa-139">Add the following `using` statements at the top of the **Program.cs** file:</span></span>
+4. <span data-ttu-id="d4424-139">Adicione o seguinte Olá `using` instruções na parte superior de saudação do hello **Program.cs** arquivo:</span><span class="sxs-lookup"><span data-stu-id="d4424-139">Add hello following `using` statements at hello top of hello **Program.cs** file:</span></span>
    
         using System.Threading.Tasks;
         using Microsoft.Azure.Devices;
-5. <span data-ttu-id="fc8fa-140">Adicione os seguintes campos à classe **Program** .</span><span class="sxs-lookup"><span data-stu-id="fc8fa-140">Add the following fields to the **Program** class.</span></span> <span data-ttu-id="fc8fa-141">Substitua o valor do espaço reservado pela cadeia de conexão do Hub IoT criado na seção anterior.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-141">Replace the placeholder value with the IoT Hub connection string for the hub that you created in the previous section.</span></span>
+5. <span data-ttu-id="d4424-140">Adicionar Olá toohello campos a seguir **programa** classe.</span><span class="sxs-lookup"><span data-stu-id="d4424-140">Add hello following fields toohello **Program** class.</span></span> <span data-ttu-id="d4424-141">Substitua o valor de espaço reservado Olá Olá cadeia de caracteres de conexão de IoT Hub hub Olá que você criou na seção anterior hello.</span><span class="sxs-lookup"><span data-stu-id="d4424-141">Replace hello placeholder value with hello IoT Hub connection string for hello hub that you created in hello previous section.</span></span>
    
         static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
-6. <span data-ttu-id="fc8fa-142">Adicione o seguinte método à classe **Programa** :</span><span class="sxs-lookup"><span data-stu-id="fc8fa-142">Add the following method to the **Program** class:</span></span>
+6. <span data-ttu-id="d4424-142">Adicionar Olá após o método toohello **programa** classe:</span><span class="sxs-lookup"><span data-stu-id="d4424-142">Add hello following method toohello **Program** class:</span></span>
    
         private static async Task InvokeMethod()
         {
             var methodInvocation = new CloudToDeviceMethod("writeLine") { ResponseTimeout = TimeSpan.FromSeconds(30) };
-            methodInvocation.SetPayloadJson("'a line to be written'");
+            methodInvocation.SetPayloadJson("'a line toobe written'");
 
             var response = await serviceClient.InvokeDeviceMethodAsync("myDeviceId", methodInvocation);
 
@@ -137,41 +137,41 @@ ms.lasthandoff: 07/11/2017
             Console.WriteLine(response.GetPayloadAsJson());
         }
    
-    <span data-ttu-id="fc8fa-143">Este método invoca um método direto com o nome `writeLine` no dispositivo `myDeviceId`.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-143">This method invokes a direct method with name `writeLine` on the `myDeviceId` device.</span></span> <span data-ttu-id="fc8fa-144">Em seguida, ele grava a resposta fornecida pelo dispositivo no console.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-144">Then, it writes the response provided by the device on the console.</span></span> <span data-ttu-id="fc8fa-145">Observe como é possível especificar um valor de tempo limite para a resposta do dispositivo.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-145">Note how it is possible to specify a timeout value for the device to respond.</span></span>
-7. <span data-ttu-id="fc8fa-146">Por fim, adicione as seguintes linhas ao método **Main** :</span><span class="sxs-lookup"><span data-stu-id="fc8fa-146">Finally, add the following lines to the **Main** method:</span></span>
+    <span data-ttu-id="d4424-143">Este método invoca um método direto com o nome `writeLine` em Olá `myDeviceId` dispositivo.</span><span class="sxs-lookup"><span data-stu-id="d4424-143">This method invokes a direct method with name `writeLine` on hello `myDeviceId` device.</span></span> <span data-ttu-id="d4424-144">Em seguida, ele grava resposta Olá fornecida pelo dispositivo Olá no console de saudação.</span><span class="sxs-lookup"><span data-stu-id="d4424-144">Then, it writes hello response provided by hello device on hello console.</span></span> <span data-ttu-id="d4424-145">Observe como é possível toospecify um valor de tempo limite para Olá dispositivo toorespond.</span><span class="sxs-lookup"><span data-stu-id="d4424-145">Note how it is possible toospecify a timeout value for hello device toorespond.</span></span>
+7. <span data-ttu-id="d4424-146">Finalmente, adicione Olá toohello linhas a seguir **principal** método:</span><span class="sxs-lookup"><span data-stu-id="d4424-146">Finally, add hello following lines toohello **Main** method:</span></span>
    
         serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
         InvokeMethod().Wait();
-        Console.WriteLine("Press Enter to exit.");
+        Console.WriteLine("Press Enter tooexit.");
         Console.ReadLine();
 
-## <a name="run-the-applications"></a><span data-ttu-id="fc8fa-147">Executar os aplicativos</span><span class="sxs-lookup"><span data-stu-id="fc8fa-147">Run the applications</span></span>
-<span data-ttu-id="fc8fa-148">Agora você está pronto para executar os aplicativos.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-148">You are now ready to run the applications.</span></span>
+## <a name="run-hello-applications"></a><span data-ttu-id="d4424-147">Executar aplicativos Olá</span><span class="sxs-lookup"><span data-stu-id="d4424-147">Run hello applications</span></span>
+<span data-ttu-id="d4424-148">Agora você está pronto toorun aplicativos de saudação.</span><span class="sxs-lookup"><span data-stu-id="d4424-148">You are now ready toorun hello applications.</span></span>
 
-1. <span data-ttu-id="fc8fa-149">No Visual Studio, no Gerenciador de Soluções, clique com o botão direito na solução e clique em **Definir Projetos de Inicialização...**.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-149">In the Visual Studio Solution Explorer, right-click your solution, and then click **Set StartUp Projects...**.</span></span> <span data-ttu-id="fc8fa-150">Selecione **Único projeto de inicialização**e, em seguida, selecione o projeto **CallMethodOnDevice** no menu suspenso.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-150">Select **Single startup project**, and then select the **CallMethodOnDevice** project in the dropdown menu.</span></span>
+1. <span data-ttu-id="d4424-149">Olá Gerenciador de soluções do Visual Studio, com o botão direito sua solução e clique em **definir projetos de inicialização...** . Selecione **único projeto de inicialização**e, em seguida, selecione Olá **CallMethodOnDevice** projeto no menu suspenso de saudação.</span><span class="sxs-lookup"><span data-stu-id="d4424-149">In hello Visual Studio Solution Explorer, right-click your solution, and then click **Set StartUp Projects...**. Select **Single startup project**, and then select hello **CallMethodOnDevice** project in hello dropdown menu.</span></span>
 
-2. <span data-ttu-id="fc8fa-151">Em um prompt de comando, na pasta **simulateddevice**, execute o seguinte comando para iniciar a escuta de chamadas de método de seu Hub IoT:</span><span class="sxs-lookup"><span data-stu-id="fc8fa-151">At a command prompt in the **simulateddevice** folder, run the following command to start listening for method calls from your IoT Hub:</span></span>
+2. <span data-ttu-id="d4424-150">Em um prompt de comando no hello **simulateddevice** pasta, execute Olá escutando chamadas de método do seu IoT Hub de toostart de comando a seguir:</span><span class="sxs-lookup"><span data-stu-id="d4424-150">At a command prompt in hello **simulateddevice** folder, run hello following command toostart listening for method calls from your IoT Hub:</span></span>
    
     ```
     node SimulatedDevice.js
     ```
-   <span data-ttu-id="fc8fa-152">Aguarde a abertura do dispositivo simulado: ![][7]</span><span class="sxs-lookup"><span data-stu-id="fc8fa-152">Wait for the simulated device to open:  ![][7]</span></span>
-3. <span data-ttu-id="fc8fa-153">Agora que o dispositivo está conectado e aguardando chamadas de método, execute o aplicativo **CallMethodOnDevice** .NET para chamar o método no aplicativo do dispositivo simulado.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-153">Now that the device is connected and waiting for method invocations, run the .NET **CallMethodOnDevice** app to invoke the method in the simulated device app.</span></span> <span data-ttu-id="fc8fa-154">Você deve ver a resposta do dispositivo escrita no console.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-154">You should see the device response written in the console.</span></span>
+   <span data-ttu-id="d4424-151">Aguarde Olá simulado tooopen de dispositivo:![][7]</span><span class="sxs-lookup"><span data-stu-id="d4424-151">Wait for hello simulated device tooopen:  ![][7]</span></span>
+3. <span data-ttu-id="d4424-152">Agora esse dispositivo hello está conectado e esperando para invocações de método, execute Olá .NET **CallMethodOnDevice** método do aplicativo tooinvoke hello no aplicativo do dispositivo simulado hello.</span><span class="sxs-lookup"><span data-stu-id="d4424-152">Now that hello device is connected and waiting for method invocations, run hello .NET **CallMethodOnDevice** app tooinvoke hello method in hello simulated device app.</span></span> <span data-ttu-id="d4424-153">Você deve ver a resposta do dispositivo Olá gravada no console de saudação.</span><span class="sxs-lookup"><span data-stu-id="d4424-153">You should see hello device response written in hello console.</span></span>
    
     ![][8]
-4. <span data-ttu-id="fc8fa-155">O dispositivo reage ao método imprimindo esta mensagem:</span><span class="sxs-lookup"><span data-stu-id="fc8fa-155">The device then reacts to the method by printing this message:</span></span>
+4. <span data-ttu-id="d4424-154">dispositivo Hello, em seguida, reage toohello método imprimindo esta mensagem:</span><span class="sxs-lookup"><span data-stu-id="d4424-154">hello device then reacts toohello method by printing this message:</span></span>
    
     ![][9]
 
-## <a name="next-steps"></a><span data-ttu-id="fc8fa-156">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="fc8fa-156">Next steps</span></span>
-<span data-ttu-id="fc8fa-157">Neste tutorial, você configurou um novo hub IoT no portal do Azure e depois criou uma identidade do dispositivo no Registro de identidade do Hub IoT.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-157">In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry.</span></span> <span data-ttu-id="fc8fa-158">Você usou essa identidade do dispositivo para habilitar o aplicativo do dispositivo simulado para reagir aos métodos invocados pela nuvem.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-158">You used this device identity to enable the simulated device app to react to methods invoked by the cloud.</span></span> <span data-ttu-id="fc8fa-159">Você também criou um aplicativo que invoca métodos no dispositivo e exibe a resposta do dispositivo.</span><span class="sxs-lookup"><span data-stu-id="fc8fa-159">You also created an app that invokes methods on the device and displays the response from the device.</span></span> 
+## <a name="next-steps"></a><span data-ttu-id="d4424-155">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="d4424-155">Next steps</span></span>
+<span data-ttu-id="d4424-156">Neste tutorial, configurado um novo hub IoT no hello portal do Azure e, em seguida, criou uma identidade de dispositivo no registro de identidade do hub de IoT hello.</span><span class="sxs-lookup"><span data-stu-id="d4424-156">In this tutorial, you configured a new IoT hub in hello Azure portal, and then created a device identity in hello IoT hub's identity registry.</span></span> <span data-ttu-id="d4424-157">Você usou esse dispositivo identidade tooenable Olá simulado dispositivo aplicativo tooreact toomethods invocado pela nuvem hello.</span><span class="sxs-lookup"><span data-stu-id="d4424-157">You used this device identity tooenable hello simulated device app tooreact toomethods invoked by hello cloud.</span></span> <span data-ttu-id="d4424-158">Você também criou um aplicativo que chama métodos no dispositivo hello e exibe a resposta de saudação do dispositivo de saudação.</span><span class="sxs-lookup"><span data-stu-id="d4424-158">You also created an app that invokes methods on hello device and displays hello response from hello device.</span></span> 
 
-<span data-ttu-id="fc8fa-160">Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, confira:</span><span class="sxs-lookup"><span data-stu-id="fc8fa-160">To continue getting started with IoT Hub and to explore other IoT scenarios, see:</span></span>
+<span data-ttu-id="d4424-159">toocontinue guia de Introdução com o IoT Hub e tooexplore outros cenários de IoT, consulte:</span><span class="sxs-lookup"><span data-stu-id="d4424-159">toocontinue getting started with IoT Hub and tooexplore other IoT scenarios, see:</span></span>
 
-* <span data-ttu-id="fc8fa-161">[Introdução ao Hub IoT]</span><span class="sxs-lookup"><span data-stu-id="fc8fa-161">[Get started with IoT Hub]</span></span>
-* <span data-ttu-id="fc8fa-162">[Agendar trabalhos em vários dispositivos][lnk-devguide-jobs]</span><span class="sxs-lookup"><span data-stu-id="fc8fa-162">[Schedule jobs on multiple devices][lnk-devguide-jobs]</span></span>
+* <span data-ttu-id="d4424-160">[Introdução ao Hub IoT]</span><span class="sxs-lookup"><span data-stu-id="d4424-160">[Get started with IoT Hub]</span></span>
+* <span data-ttu-id="d4424-161">[Agendar trabalhos em vários dispositivos][lnk-devguide-jobs]</span><span class="sxs-lookup"><span data-stu-id="d4424-161">[Schedule jobs on multiple devices][lnk-devguide-jobs]</span></span>
 
-<span data-ttu-id="fc8fa-163">Para saber como estender sua solução de IoT e agendar chamadas de método em vários dispositivos, confira o tutorial [Agendar e difundir trabalhos][lnk-tutorial-jobs].</span><span class="sxs-lookup"><span data-stu-id="fc8fa-163">To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.</span></span>
+<span data-ttu-id="d4424-162">toolearn como tooextend seu método de solução e agenda IoT chama em vários dispositivos, consulte Olá [agenda e trabalhos de difusão] [ lnk-tutorial-jobs] tutorial.</span><span class="sxs-lookup"><span data-stu-id="d4424-162">toolearn how tooextend your IoT solution and schedule method calls on multiple devices, see hello [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.</span></span>
 
 <!-- Images. -->
 [7]: ./media/iot-hub-csharp-node-direct-methods/run-simulated-device.png
@@ -198,4 +198,4 @@ ms.lasthandoff: 07/11/2017
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
-<span data-ttu-id="fc8fa-164">[Introdução ao Hub IoT]: iot-hub-node-node-getstarted.md</span><span class="sxs-lookup"><span data-stu-id="fc8fa-164">[Get started with IoT Hub]: iot-hub-node-node-getstarted.md</span></span>
+[Introdução ao Hub IoT]: iot-hub-node-node-getstarted.md

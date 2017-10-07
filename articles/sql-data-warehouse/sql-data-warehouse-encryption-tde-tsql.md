@@ -1,5 +1,5 @@
 ---
-title: Transparent Data Encryption no SQL Data Warehouse (T-SQL) | Microsoft Docs
+title: aaaTransparent a criptografia de dados no Data Warehouse do SQL (T-SQL) | Microsoft Docs
 description: TDE (Transparent Data Encryption) no SQL Data Warehouse (T-SQL)
 services: sql-data-warehouse
 documentationcenter: 
@@ -15,54 +15,54 @@ ms.topic: article
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 74c9032aababdce91ed617cd7a4c628915b42504
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3894431c76f14b217f3a6b9a42dbf2f4d216bad6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-transparent-data-encryption-tde"></a><span data-ttu-id="e1cda-103">Introdução ao Transparent Data Encryption (TDE)</span><span class="sxs-lookup"><span data-stu-id="e1cda-103">Get started with Transparent Data Encryption (TDE)</span></span>
+# <a name="get-started-with-transparent-data-encryption-tde"></a><span data-ttu-id="a1b27-103">Introdução ao Transparent Data Encryption (TDE)</span><span class="sxs-lookup"><span data-stu-id="a1b27-103">Get started with Transparent Data Encryption (TDE)</span></span>
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="e1cda-104">Visão Geral da Segurança</span><span class="sxs-lookup"><span data-stu-id="e1cda-104">Security Overview</span></span>](sql-data-warehouse-overview-manage-security.md)
-> * [<span data-ttu-id="e1cda-105">Autenticação</span><span class="sxs-lookup"><span data-stu-id="e1cda-105">Authentication</span></span>](sql-data-warehouse-authentication.md)
-> * [<span data-ttu-id="e1cda-106">Criptografia (Portal)</span><span class="sxs-lookup"><span data-stu-id="e1cda-106">Encryption (Portal)</span></span>](sql-data-warehouse-encryption-tde.md)
-> * [<span data-ttu-id="e1cda-107">Criptografia (T-SQL)</span><span class="sxs-lookup"><span data-stu-id="e1cda-107">Encryption (T-SQL)</span></span>](sql-data-warehouse-encryption-tde-tsql.md)
+> * [<span data-ttu-id="a1b27-104">Visão Geral da Segurança</span><span class="sxs-lookup"><span data-stu-id="a1b27-104">Security Overview</span></span>](sql-data-warehouse-overview-manage-security.md)
+> * [<span data-ttu-id="a1b27-105">Autenticação</span><span class="sxs-lookup"><span data-stu-id="a1b27-105">Authentication</span></span>](sql-data-warehouse-authentication.md)
+> * [<span data-ttu-id="a1b27-106">Criptografia (Portal)</span><span class="sxs-lookup"><span data-stu-id="a1b27-106">Encryption (Portal)</span></span>](sql-data-warehouse-encryption-tde.md)
+> * [<span data-ttu-id="a1b27-107">Criptografia (T-SQL)</span><span class="sxs-lookup"><span data-stu-id="a1b27-107">Encryption (T-SQL)</span></span>](sql-data-warehouse-encryption-tde-tsql.md)
 > 
 > 
 
-## <a name="required-permssions"></a><span data-ttu-id="e1cda-108">Permissões necessárias</span><span class="sxs-lookup"><span data-stu-id="e1cda-108">Required Permssions</span></span>
-<span data-ttu-id="e1cda-109">Para habilitar a TDE (Transparent Data Encryption), você deve ser um administrador ou um membro da função dbmanager.</span><span class="sxs-lookup"><span data-stu-id="e1cda-109">To enable Transparent Data Encryption (TDE), you must be an administrator or a member of the dbmanager role.</span></span>
+## <a name="required-permssions"></a><span data-ttu-id="a1b27-108">Permissões necessárias</span><span class="sxs-lookup"><span data-stu-id="a1b27-108">Required Permssions</span></span>
+<span data-ttu-id="a1b27-109">tooenable criptografia de dados transparente (TDE), você deve ser um administrador ou um membro da função dbmanager de saudação.</span><span class="sxs-lookup"><span data-stu-id="a1b27-109">tooenable Transparent Data Encryption (TDE), you must be an administrator or a member of hello dbmanager role.</span></span>
 
-## <a name="enabling-encryption"></a><span data-ttu-id="e1cda-110">Habilitando a criptografia</span><span class="sxs-lookup"><span data-stu-id="e1cda-110">Enabling Encryption</span></span>
-<span data-ttu-id="e1cda-111">Siga estas etapas para habilitar a TDE para um SQL Data Warehouse:</span><span class="sxs-lookup"><span data-stu-id="e1cda-111">Follow these steps to enable TDE for a SQL Data Warehouse:</span></span>
+## <a name="enabling-encryption"></a><span data-ttu-id="a1b27-110">Habilitando a criptografia</span><span class="sxs-lookup"><span data-stu-id="a1b27-110">Enabling Encryption</span></span>
+<span data-ttu-id="a1b27-111">Siga essas etapas tooenable TDE para um SQL Data Warehouse:</span><span class="sxs-lookup"><span data-stu-id="a1b27-111">Follow these steps tooenable TDE for a SQL Data Warehouse:</span></span>
 
-1. <span data-ttu-id="e1cda-112">Conecte ao banco de dados *mestre* no servidor que está hospedando o banco de dados que usa um logon de administrador ou de um membro da função **dbmanager** no banco de dados mestre</span><span class="sxs-lookup"><span data-stu-id="e1cda-112">Connect to the *master* database on the server hosting the database using a login that is an administrator or a member of the **dbmanager** role in the master database</span></span>
-2. <span data-ttu-id="e1cda-113">Execute a instrução a seguir para criptografar o banco de dados.</span><span class="sxs-lookup"><span data-stu-id="e1cda-113">Execute the following statement to encrypt the database.</span></span>
+1. <span data-ttu-id="a1b27-112">Conecte-se toohello *mestre* banco de dados no servidor de saudação hospeda Olá banco de dados usando um logon que seja um administrador ou um membro da saudação **dbmanager** função no banco de dados mestre Olá</span><span class="sxs-lookup"><span data-stu-id="a1b27-112">Connect toohello *master* database on hello server hosting hello database using a login that is an administrator or a member of hello **dbmanager** role in hello master database</span></span>
+2. <span data-ttu-id="a1b27-113">Execute Olá banco de dados de saudação de tooencrypt instrução a seguir.</span><span class="sxs-lookup"><span data-stu-id="a1b27-113">Execute hello following statement tooencrypt hello database.</span></span>
 
 ```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
-## <a name="disabling-encryption"></a><span data-ttu-id="e1cda-114">Desabilitando a criptografia</span><span class="sxs-lookup"><span data-stu-id="e1cda-114">Disabling Encryption</span></span>
-<span data-ttu-id="e1cda-115">Siga estas etapas para desabilitar a TDE para um SQL Data Warehouse:</span><span class="sxs-lookup"><span data-stu-id="e1cda-115">Follow these steps to disable TDE for a SQL Data Warehouse:</span></span>
+## <a name="disabling-encryption"></a><span data-ttu-id="a1b27-114">Desabilitando a criptografia</span><span class="sxs-lookup"><span data-stu-id="a1b27-114">Disabling Encryption</span></span>
+<span data-ttu-id="a1b27-115">Siga essas etapas toodisable TDE para um SQL Data Warehouse:</span><span class="sxs-lookup"><span data-stu-id="a1b27-115">Follow these steps toodisable TDE for a SQL Data Warehouse:</span></span>
 
-1. <span data-ttu-id="e1cda-116">Conecte-se ao banco de dados *mestre* que usa um logon de administrador ou de um membro da função **dbmanager** no banco de dados mestre</span><span class="sxs-lookup"><span data-stu-id="e1cda-116">Connect to the *master* database using a login that is an administrator or a member of the **dbmanager** role in the master database</span></span>
-2. <span data-ttu-id="e1cda-117">Execute a instrução a seguir para criptografar o banco de dados.</span><span class="sxs-lookup"><span data-stu-id="e1cda-117">Execute the following statement to encrypt the database.</span></span>
+1. <span data-ttu-id="a1b27-116">Conecte-se toohello *mestre* banco de dados usando um logon que seja um administrador ou um membro da saudação **dbmanager** função no banco de dados mestre Olá</span><span class="sxs-lookup"><span data-stu-id="a1b27-116">Connect toohello *master* database using a login that is an administrator or a member of hello **dbmanager** role in hello master database</span></span>
+2. <span data-ttu-id="a1b27-117">Execute Olá banco de dados de saudação de tooencrypt instrução a seguir.</span><span class="sxs-lookup"><span data-stu-id="a1b27-117">Execute hello following statement tooencrypt hello database.</span></span>
 
 ```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
 > [!NOTE]
-> <span data-ttu-id="e1cda-118">Um SQL Data Warehouse em pausa deve ser retomado antes das mudanças nas configurações da TDE.</span><span class="sxs-lookup"><span data-stu-id="e1cda-118">A paused SQL Data Warehouse must be resumed before making changes to the TDE settings.</span></span>
+> <span data-ttu-id="a1b27-118">Um SQL Data Warehouse em pausa deve ser reiniciado antes de fazer alterações em configurações de TDE toohello.</span><span class="sxs-lookup"><span data-stu-id="a1b27-118">A paused SQL Data Warehouse must be resumed before making changes toohello TDE settings.</span></span>
 > 
 > 
 
-## <a name="verifying-encryption"></a><span data-ttu-id="e1cda-119">Verificando a criptografia</span><span class="sxs-lookup"><span data-stu-id="e1cda-119">Verifying Encryption</span></span>
-<span data-ttu-id="e1cda-120">Para verificar o status de criptografia para um SQL Data Warehouse, siga estas etapas:</span><span class="sxs-lookup"><span data-stu-id="e1cda-120">To verify encryption status for a SQL Data Warehouse, follow the steps below:</span></span>
+## <a name="verifying-encryption"></a><span data-ttu-id="a1b27-119">Verificando a criptografia</span><span class="sxs-lookup"><span data-stu-id="a1b27-119">Verifying Encryption</span></span>
+<span data-ttu-id="a1b27-120">status da criptografia tooverify para um SQL Data Warehouse, siga as etapas de saudação abaixo:</span><span class="sxs-lookup"><span data-stu-id="a1b27-120">tooverify encryption status for a SQL Data Warehouse, follow hello steps below:</span></span>
 
-1. <span data-ttu-id="e1cda-121">Conecte-se ao banco de dados *mestre* ou de instância que usa um logon de administrador ou de um membro da função **dbmanager** no banco de dados mestre</span><span class="sxs-lookup"><span data-stu-id="e1cda-121">Connect to the *master* or instance database using a login that is an administrator or a member of the **dbmanager** role in the master database</span></span>
-2. <span data-ttu-id="e1cda-122">Execute a instrução a seguir para criptografar o banco de dados.</span><span class="sxs-lookup"><span data-stu-id="e1cda-122">Execute the following statement to encrypt the database.</span></span>
+1. <span data-ttu-id="a1b27-121">Conecte-se toohello *mestre* ou instância de banco de dados usando um logon que seja um administrador ou um membro da saudação **dbmanager** função no banco de dados mestre Olá</span><span class="sxs-lookup"><span data-stu-id="a1b27-121">Connect toohello *master* or instance database using a login that is an administrator or a member of hello **dbmanager** role in hello master database</span></span>
+2. <span data-ttu-id="a1b27-122">Execute Olá banco de dados de saudação de tooencrypt instrução a seguir.</span><span class="sxs-lookup"><span data-stu-id="a1b27-122">Execute hello following statement tooencrypt hello database.</span></span>
 
 ```sql
 SELECT
@@ -72,11 +72,11 @@ FROM
     sys.databases;
 ```
 
-<span data-ttu-id="e1cda-123">Um resultado de ```1``` indica um banco de dados criptografado, ```0``` indica um banco de dados não criptografado.</span><span class="sxs-lookup"><span data-stu-id="e1cda-123">A result of ```1``` indicates an encrypted database, ```0``` indicates a non-encrypted database.</span></span>
+<span data-ttu-id="a1b27-123">Um resultado de ```1``` indica um banco de dados criptografado, ```0``` indica um banco de dados não criptografado.</span><span class="sxs-lookup"><span data-stu-id="a1b27-123">A result of ```1``` indicates an encrypted database, ```0``` indicates a non-encrypted database.</span></span>
 
-## <a name="encryption-dmvs"></a><span data-ttu-id="e1cda-124">DMVs de criptografia</span><span class="sxs-lookup"><span data-stu-id="e1cda-124">Encryption DMVs</span></span>
-* <span data-ttu-id="e1cda-125">[sys.databases][sys.databases]</span><span class="sxs-lookup"><span data-stu-id="e1cda-125">[sys.databases][sys.databases]</span></span> 
-* <span data-ttu-id="e1cda-126">[sys.dm_pdw_nodes_database_encryption_keys][sys.dm_pdw_nodes_database_encryption_keys]</span><span class="sxs-lookup"><span data-stu-id="e1cda-126">[sys.dm_pdw_nodes_database_encryption_keys][sys.dm_pdw_nodes_database_encryption_keys]</span></span>
+## <a name="encryption-dmvs"></a><span data-ttu-id="a1b27-124">DMVs de criptografia</span><span class="sxs-lookup"><span data-stu-id="a1b27-124">Encryption DMVs</span></span>
+* <span data-ttu-id="a1b27-125">[sys.databases][sys.databases]</span><span class="sxs-lookup"><span data-stu-id="a1b27-125">[sys.databases][sys.databases]</span></span> 
+* <span data-ttu-id="a1b27-126">[sys.dm_pdw_nodes_database_encryption_keys][sys.dm_pdw_nodes_database_encryption_keys]</span><span class="sxs-lookup"><span data-stu-id="a1b27-126">[sys.dm_pdw_nodes_database_encryption_keys][sys.dm_pdw_nodes_database_encryption_keys]</span></span>
 
 <!--Anchors-->
 [Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx

@@ -1,6 +1,6 @@
 ---
-title: "Configurar um cofre para replicação de VM do Azure entre regiões com o Azure Site Recovery | Microsoft Docs"
-description: "Resume as etapas necessárias para configurar um cofre para replicação do Azure entre regiões do Azure utilizando o Azure Site Recovery"
+title: "aaaSet um cofre para VM do Azure repliction entre regiões com o Azure Site Recovery | Microsoft Docs"
+description: "Resume as etapas de saudação necessário tooset um cofre para a replicação entre regiões do Azure usando o Azure Site Recovery do Azure"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.openlocfilehash: e03d17992ee0b12049636e40188950bcc4a6f31e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 9959c59c7ea57114763f13bf060404ddd267ba80
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="step-4-set-up-a-vault-for-azure-to-azure-replication"></a><span data-ttu-id="56300-103">Etapa 4: configurar um cofre para replicação de Azure para Azure</span><span class="sxs-lookup"><span data-stu-id="56300-103">Step 4: Set up a vault for Azure to Azure replication</span></span>
+# <a name="step-4-set-up-a-vault-for-azure-tooazure-replication"></a><span data-ttu-id="88e34-103">Etapa 4: Configurar um cofre para replicação tooAzure do Azure</span><span class="sxs-lookup"><span data-stu-id="88e34-103">Step 4: Set up a vault for Azure tooAzure replication</span></span>
 
-<span data-ttu-id="56300-104">Após [planejar as redes](azure-to-azure-walkthrough-network.md), utilize este artigo para configurar um cofre para VMs (máquinas virtuais) do Azure replicando para outra região do Azure, utilizando o serviço do [Azure Site Recovery](site-recovery-overview.md) no portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="56300-104">After [planning networks](azure-to-azure-walkthrough-network.md), use this article to set up a vault, for Azure virtual machines (VMs) replicating to another Azure region, using the [Azure Site Recovery](site-recovery-overview.md) service in the Azure portal.</span></span>
+<span data-ttu-id="88e34-104">Depois de [Planejando redes](azure-to-azure-walkthrough-network.md), use este tooset artigo um cofre, para máquinas virtuais (VMs) do Azure replicando tooanother região do Azure, usando Olá [Azure Site Recovery](site-recovery-overview.md) serviço Olá portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="88e34-104">After [planning networks](azure-to-azure-walkthrough-network.md), use this article tooset up a vault, for Azure virtual machines (VMs) replicating tooanother Azure region, using hello [Azure Site Recovery](site-recovery-overview.md) service in hello Azure portal.</span></span>
 
-- <span data-ttu-id="56300-105">Ao concluir o artigo, você deverá ter um cofre dos Serviços de Recuperação configurado.</span><span class="sxs-lookup"><span data-stu-id="56300-105">When you finish the article, you should have a Recovery Services vault set up.</span></span>
-- <span data-ttu-id="56300-106">Publique eventuais comentários no final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).</span><span class="sxs-lookup"><span data-stu-id="56300-106">Post any comments at the bottom of this article, or ask questions in the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).</span></span>
+- <span data-ttu-id="88e34-105">Quando você terminar de artigo hello, você deve ter um cofre de serviços de recuperação configurado.</span><span class="sxs-lookup"><span data-stu-id="88e34-105">When you finish hello article, you should have a Recovery Services vault set up.</span></span>
+- <span data-ttu-id="88e34-106">Lançar os comentários na parte inferior da saudação deste artigo, ou fazer perguntas no hello [Fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).</span><span class="sxs-lookup"><span data-stu-id="88e34-106">Post any comments at hello bottom of this article, or ask questions in hello [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).</span></span>
 
 
 
 >[!NOTE]
 >
-> <span data-ttu-id="56300-107">Atualmente, a replicação de VM do Azure está em versão prévia.</span><span class="sxs-lookup"><span data-stu-id="56300-107">Azure VM replication is currently in preview.</span></span>
+> <span data-ttu-id="88e34-107">Atualmente, a replicação de VM do Azure está em versão prévia.</span><span class="sxs-lookup"><span data-stu-id="88e34-107">Azure VM replication is currently in preview.</span></span>
 
 
 
 
-## <a name="create-a-vault"></a><span data-ttu-id="56300-108">Criar um cofre</span><span class="sxs-lookup"><span data-stu-id="56300-108">Create a vault</span></span>
+## <a name="create-a-vault"></a><span data-ttu-id="88e34-108">Criar um cofre</span><span class="sxs-lookup"><span data-stu-id="88e34-108">Create a vault</span></span>
 
 [!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
 
 >[!NOTE]
 >
-> <span data-ttu-id="56300-109">É recomendável que você crie o cofre de serviços de recuperação no local onde você deseja suas VMs para replicar.</span><span class="sxs-lookup"><span data-stu-id="56300-109">We recommend that you create the Recovery Services vault in the location where you want your VMs to replicate.</span></span> <span data-ttu-id="56300-110">Por exemplo, se o local de destino é centro dos EUA, crie o cofre no **centro dos EUA**.</span><span class="sxs-lookup"><span data-stu-id="56300-110">For example, if your target location is the central US, create the vault in **Central US**.</span></span>
+> <span data-ttu-id="88e34-109">É recomendável que você crie Olá Cofre de serviços de recuperação no local de saudação onde você deseja que seu tooreplicate VMs.</span><span class="sxs-lookup"><span data-stu-id="88e34-109">We recommend that you create hello Recovery Services vault in hello location where you want your VMs tooreplicate.</span></span> <span data-ttu-id="88e34-110">Por exemplo, se o local de destino é hello central nos, criar hello cofre no **centro dos EUA**.</span><span class="sxs-lookup"><span data-stu-id="88e34-110">For example, if your target location is hello central US, create hello vault in **Central US**.</span></span>
 
 
-## <a name="next-steps"></a><span data-ttu-id="56300-111">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="56300-111">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="88e34-111">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="88e34-111">Next steps</span></span>
 
-<span data-ttu-id="56300-112">Acesse a [Etapa 5: habilitar a replicação](azure-to-azure-walkthrough-enable-replication.md)</span><span class="sxs-lookup"><span data-stu-id="56300-112">Go to [Step 5: Enable replication](azure-to-azure-walkthrough-enable-replication.md)</span></span>
+<span data-ttu-id="88e34-112">Vá muito[etapa 5: habilitar a replicação](azure-to-azure-walkthrough-enable-replication.md)</span><span class="sxs-lookup"><span data-stu-id="88e34-112">Go too[Step 5: Enable replication](azure-to-azure-walkthrough-enable-replication.md)</span></span>

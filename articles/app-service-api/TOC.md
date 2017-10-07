@@ -48,20 +48,20 @@
 ### [Personalizar o Swashbuckle](app-service-api-dotnet-swashbuckle-customize.md)
 
 ### Trabalhos da Web
-#### [O que é o SDK do Azure WebJobs](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [O que é Olá SDK do Azure WebJobs](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Criar um WebJob do .NET no Serviço de Aplicativo do Azure](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Como usar o armazenamento de blobs do Azure com o SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Como usar o barramento de serviço do Azure com o SDK de Trabalhos Web](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Como usar o armazenamento de tabela do Azure com o SDK de Trabalhos Web](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Como toouse Azure blob storage com hello SDK do WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Como o armazenamento com hello SDK do WebJobs de fila toouse do Azure](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Como toouse de barramento de serviço do Azure com hello SDK do WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Como o armazenamento com hello SDK do WebJobs de tabela toouse do Azure](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ### Ambiente do Serviço de Aplicativo
 #### [Criar um aplicativo Web em um Ambiente de Serviço de Aplicativo](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Como criar um ASE ILB usando modelos do Azure Resource Manager](../app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Como tooCreate uma modelos ILB ASE usando o Azure Resource Manager](../app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Usar um balanceador de carga interno](../app-service-web/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## [Implantar](../app-service/app-service-deployment-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Implantar no Serviço de Aplicativo](../app-service-web/web-sites-deploy.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+### [Implantar o serviço de tooApp](../app-service-web/web-sites-deploy.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Implantação de sincronização da nuvem](../app-service-web/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Implantação contínua](../app-service-web/app-service-continuous-deployment.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Ambientes de preparo](../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -93,7 +93,7 @@
 ### [Ambiente do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Configurar](../app-service-web/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Definições de configuração personalizadas](../app-service-web/app-service-app-service-environment-custom-settings.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Como controlar o tráfego de entrada](../app-service-web/app-service-app-service-environment-control-inbound-traffic.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Como o tráfego de entrada toocontrol](../app-service-web/app-service-app-service-environment-control-inbound-traffic.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Visão geral de arquitetura de rede](../app-service-web/app-service-app-service-environment-network-architecture-overview.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Detalhes de configuração de rede com o ExpressRoute](../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
@@ -118,12 +118,12 @@
 ### Proteger um Ambiente de Serviço de Aplicativo
 #### [Configurar um firewall de aplicativo Web](../app-service-web/app-service-app-service-environment-web-application-firewall.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Implementar uma arquitetura de segurança em camadas](../app-service-web/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Conectar-se a recursos de back-end com segurança](../app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Uma conexão segura tooBackend recursos](../app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## Backup
 ### [Fazer backup de seu aplicativo no Azure](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Restaurar um aplicativo no Azure](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Usar REST para fazer backup e restaurar apps do Serviço de Aplicativo](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+### [Usar o REST tooback e restaurar aplicativos de serviço de aplicativo](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## [Monitorar](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Habilitar o registro em log de diagnóstico](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -144,12 +144,12 @@
 
 ## Integração
 ### [Acessar recursos locais usando conexões híbridas](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Como enviar emails usando o SendGrid com o Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Exportar para o PowerApps e para o Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+### [Como toosend de email usando o SendGrid com o Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+### [Exportar tooPowerApps e Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## Solucionar problemas
 ### [Habilitar o registro em log de diagnóstico](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Logs de streaming e o console](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+### [Os logs de streaming e console Olá](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Solucionar problemas usando o Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 # Recursos

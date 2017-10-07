@@ -1,6 +1,6 @@
 ---
-title: SDK do .NET de Gerenciamento para Stream Analytics do Azure | Microsoft Docs
-description: "Comece com o SDK .NET do Azure Stream Analytics Management. Saiba como configurar e executar trabalhos de análise. Criar um projeto, entradas, saídas e transformações."
+title: aaaManagement .NET SDK para o Azure Stream Analytics | Microsoft Docs
+description: "Comece com o SDK .NET do Azure Stream Analytics Management. Saiba como tooset up e executar trabalhos de análise. Criar um projeto, entradas, saídas e transformações."
 keywords: ".NET SDK, API de análise"
 services: stream-analytics
 documentationcenter: 
@@ -15,53 +15,53 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/06/2017
 ms.author: jeffstok
-ms.openlocfilehash: f9aa812e6e82cc0f72d0cd1fe63058e53f794775
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 507c11938bc5bf2249a2e41f6bcc076db8ead3f6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a><span data-ttu-id="66fea-106">SDK .NET de gerenciamento: configurar e executar trabalhos de análise usando a API do Azure Stream Analytics para .NET</span><span class="sxs-lookup"><span data-stu-id="66fea-106">Management .NET SDK: Set up and run analytics jobs using the Azure Stream Analytics API for .NET</span></span>
-<span data-ttu-id="66fea-107">Saiba como configurar e executar trabalhos de análise usando a API do Stream Analytics para .NET usando o SDK do .NET de Gerenciamento.</span><span class="sxs-lookup"><span data-stu-id="66fea-107">Learn how to set up and run analytics jobs using the Stream Analytics API for .NET using the Management .NET SDK.</span></span> <span data-ttu-id="66fea-108">Configurar um projeto, criar fontes de entrada e saídas, transformações e iniciar e parar trabalhos.</span><span class="sxs-lookup"><span data-stu-id="66fea-108">Set up a project, create input and output sources, transformations, and start and stop jobs.</span></span> <span data-ttu-id="66fea-109">Seus trabalhos de análise, você pode transmitir dados de armazenamento de Blob ou de um hub de eventos.</span><span class="sxs-lookup"><span data-stu-id="66fea-109">For your analytics jobs, you can stream data from Blob storage or from an event hub.</span></span>
+# <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-hello-azure-stream-analytics-api-for-net"></a><span data-ttu-id="94d4f-106">Gerenciamento de SDK .NET: Configurar e executar trabalhos de análise usando Olá API de análise de fluxo do Azure para .NET</span><span class="sxs-lookup"><span data-stu-id="94d4f-106">Management .NET SDK: Set up and run analytics jobs using hello Azure Stream Analytics API for .NET</span></span>
+<span data-ttu-id="94d4f-107">Saiba como tooset backup e trabalhos de análise de execução usando Olá API de análise de fluxo para .NET usando Olá SDK .NET de gerenciamento.</span><span class="sxs-lookup"><span data-stu-id="94d4f-107">Learn how tooset up and run analytics jobs using hello Stream Analytics API for .NET using hello Management .NET SDK.</span></span> <span data-ttu-id="94d4f-108">Configurar um projeto, criar fontes de entrada e saídas, transformações e iniciar e parar trabalhos.</span><span class="sxs-lookup"><span data-stu-id="94d4f-108">Set up a project, create input and output sources, transformations, and start and stop jobs.</span></span> <span data-ttu-id="94d4f-109">Seus trabalhos de análise, você pode transmitir dados de armazenamento de Blob ou de um hub de eventos.</span><span class="sxs-lookup"><span data-stu-id="94d4f-109">For your analytics jobs, you can stream data from Blob storage or from an event hub.</span></span>
 
-<span data-ttu-id="66fea-110">Consulte a [Documentação de referência de gerenciamento da API do Stream Analytics para .NET](https://msdn.microsoft.com/library/azure/dn889315.aspx).</span><span class="sxs-lookup"><span data-stu-id="66fea-110">See the [management reference documentation for the Stream Analytics API for .NET](https://msdn.microsoft.com/library/azure/dn889315.aspx).</span></span>
+<span data-ttu-id="94d4f-110">Consulte Olá [documentação de referência de gerenciamento para Olá API de análise de fluxo para .NET](https://msdn.microsoft.com/library/azure/dn889315.aspx).</span><span class="sxs-lookup"><span data-stu-id="94d4f-110">See hello [management reference documentation for hello Stream Analytics API for .NET](https://msdn.microsoft.com/library/azure/dn889315.aspx).</span></span>
 
-<span data-ttu-id="66fea-111">O Azure Stream Analytics é um serviço completamente gerenciado que oferece baixa latência, alta disponibilidade e processamento escalonável de eventos complexos por streaming de dados na nuvem.</span><span class="sxs-lookup"><span data-stu-id="66fea-111">Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable, complex event processing over streaming data in the cloud.</span></span> <span data-ttu-id="66fea-112">O Stream Analytics permite que os clientes configurem trabalhos de streaming para analisar fluxos de dados e realizem análise quase em tempo real.</span><span class="sxs-lookup"><span data-stu-id="66fea-112">Stream Analytics enables customers to set up streaming jobs to analyze data streams, and allows them to drive near real-time analytics.</span></span>  
+<span data-ttu-id="94d4f-111">Análise de fluxo do Azure é um serviço totalmente gerenciado fornecendo processamento de eventos de baixa latência, altamente disponível, escalonável e complexas ao longo do fluxo de dados na nuvem hello.</span><span class="sxs-lookup"><span data-stu-id="94d4f-111">Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable, complex event processing over streaming data in hello cloud.</span></span> <span data-ttu-id="94d4f-112">Análise de fluxo permite que os clientes tooset o streaming de fluxos de dados de tooanalyze trabalhos e permite que toodrive próximo a análise em tempo real.</span><span class="sxs-lookup"><span data-stu-id="94d4f-112">Stream Analytics enables customers tooset up streaming jobs tooanalyze data streams, and allows them toodrive near real-time analytics.</span></span>  
 
 > [!NOTE]
-> <span data-ttu-id="66fea-113">Atualizamos o código de exemplo neste artigo com a versão v2.x do SDK do .NET de Gerenciamento do Stream Analytics do Azure.</span><span class="sxs-lookup"><span data-stu-id="66fea-113">We have updated the sample code in this article with Azure Stream Analytics Management .NET SDK v2.x version.</span></span> <span data-ttu-id="66fea-114">Para código de exemplo usando a versão herdada (1.x) do SDK, consulte [Usar o SDK do .NET de Gerenciamento v1.x para Stream Analytics](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).</span><span class="sxs-lookup"><span data-stu-id="66fea-114">For sample code using the uses lagecy (1.x) SDK version, please see [Use the Management .NET SDK v1.x for Stream Analytics](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).</span></span>
+> <span data-ttu-id="94d4f-113">Atualizamos o código de exemplo hello neste artigo com a versão do SDK do .NET do Azure Stream Analytics gerenciamento v2. x.</span><span class="sxs-lookup"><span data-stu-id="94d4f-113">We have updated hello sample code in this article with Azure Stream Analytics Management .NET SDK v2.x version.</span></span> <span data-ttu-id="94d4f-114">Para exemplo de código usando Olá usa a versão do SDK lagecy (1. x), consulte [usar v1. x do hello SDK .NET de gerenciamento de análise de fluxo](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).</span><span class="sxs-lookup"><span data-stu-id="94d4f-114">For sample code using hello uses lagecy (1.x) SDK version, please see [Use hello Management .NET SDK v1.x for Stream Analytics](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="66fea-115">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="66fea-115">Prerequisites</span></span>
-<span data-ttu-id="66fea-116">Antes de começar este artigo, você deve ter o seguinte:</span><span class="sxs-lookup"><span data-stu-id="66fea-116">Before you begin this article, you must have the following:</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="94d4f-115">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="94d4f-115">Prerequisites</span></span>
+<span data-ttu-id="94d4f-116">Antes de começar este artigo, você deve ter o seguinte hello:</span><span class="sxs-lookup"><span data-stu-id="94d4f-116">Before you begin this article, you must have hello following:</span></span>
 
-* <span data-ttu-id="66fea-117">Instale o Visual Studio 2017 ou 2015.</span><span class="sxs-lookup"><span data-stu-id="66fea-117">Install Visual Studio 2017 or 2015.</span></span>
-* <span data-ttu-id="66fea-118">Baixe e instale o [Azure .NET SDK](https://azure.microsoft.com/downloads/).</span><span class="sxs-lookup"><span data-stu-id="66fea-118">Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/).</span></span>
-* <span data-ttu-id="66fea-119">Crie um grupo de recursos do Azure em sua assinatura.</span><span class="sxs-lookup"><span data-stu-id="66fea-119">Create an Azure Resource Group in your subscription.</span></span> <span data-ttu-id="66fea-120">O seguinte é um exemplo de script do PowerShell do Azure.</span><span class="sxs-lookup"><span data-stu-id="66fea-120">The following is a sample Azure PowerShell script.</span></span> <span data-ttu-id="66fea-121">Para obter mais informações sobre o PowerShell do Azure, consulte [Instalar e configurar o PowerShell do Azure](/powershell/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="66fea-121">For Azure PowerShell information, see [Install and configure Azure PowerShell](/powershell/azure/overview);</span></span>  
+* <span data-ttu-id="94d4f-117">Instale o Visual Studio 2017 ou 2015.</span><span class="sxs-lookup"><span data-stu-id="94d4f-117">Install Visual Studio 2017 or 2015.</span></span>
+* <span data-ttu-id="94d4f-118">Baixe e instale o [Azure .NET SDK](https://azure.microsoft.com/downloads/).</span><span class="sxs-lookup"><span data-stu-id="94d4f-118">Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/).</span></span>
+* <span data-ttu-id="94d4f-119">Crie um grupo de recursos do Azure em sua assinatura.</span><span class="sxs-lookup"><span data-stu-id="94d4f-119">Create an Azure Resource Group in your subscription.</span></span> <span data-ttu-id="94d4f-120">a seguir Olá é um exemplo de script do PowerShell do Azure.</span><span class="sxs-lookup"><span data-stu-id="94d4f-120">hello following is a sample Azure PowerShell script.</span></span> <span data-ttu-id="94d4f-121">Para obter mais informações sobre o PowerShell do Azure, consulte [Instalar e configurar o PowerShell do Azure](/powershell/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="94d4f-121">For Azure PowerShell information, see [Install and configure Azure PowerShell](/powershell/azure/overview);</span></span>  
 
-        # Log in to your Azure account
+        # Log in tooyour Azure account
         Add-AzureAccount
 
-        # Select the Azure subscription you want to use to create the resource group
+        # Select hello Azure subscription you want toouse toocreate hello resource group
         Select-AzureSubscription -SubscriptionName <subscription name>
 
-            # If Stream Analytics has not been registered to the subscription, remove the remark symbol (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
+            # If Stream Analytics has not been registered toohello subscription, remove hello remark symbol (#) toorun hello Register-AzureRMProvider cmdlet tooregister hello provider namespace
             #Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
         # Create an Azure resource group
         New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 
-* <span data-ttu-id="66fea-122">Configure uma origem de entrada e o destino de saída para usar.</span><span class="sxs-lookup"><span data-stu-id="66fea-122">Set up an input source and output target to use.</span></span> <span data-ttu-id="66fea-123">Para obter mais instruções, consulte [Adicionar Entradas](stream-analytics-add-inputs.md) para configurar uma entrada de exemplo e [Adicionar Saídas](stream-analytics-add-outputs.md) para configurar uma saída de exemplo.</span><span class="sxs-lookup"><span data-stu-id="66fea-123">For further instructions see [Add Inputs](stream-analytics-add-inputs.md) to set up a sample input and [Add Outputs](stream-analytics-add-outputs.md) to set up a sample output.</span></span>
+* <span data-ttu-id="94d4f-122">Configurar uma fonte de entrada e saída toouse de destino.</span><span class="sxs-lookup"><span data-stu-id="94d4f-122">Set up an input source and output target toouse.</span></span> <span data-ttu-id="94d4f-123">Para obter mais instruções, consulte [adicionar entradas](stream-analytics-add-inputs.md) tooset uma entrada de exemplo e [adicionar saídas](stream-analytics-add-outputs.md) tooset a uma saída de exemplo.</span><span class="sxs-lookup"><span data-stu-id="94d4f-123">For further instructions see [Add Inputs](stream-analytics-add-inputs.md) tooset up a sample input and [Add Outputs](stream-analytics-add-outputs.md) tooset up a sample output.</span></span>
 
-## <a name="set-up-a-project"></a><span data-ttu-id="66fea-124">Configurar um projeto</span><span class="sxs-lookup"><span data-stu-id="66fea-124">Set up a project</span></span>
-<span data-ttu-id="66fea-125">Para criar um trabalho de análise, use a API do Stream Analytics para .NET. Primeiro, configure seu projeto.</span><span class="sxs-lookup"><span data-stu-id="66fea-125">To create an analytics job use the Stream Analytics API for .NET, first set up your project.</span></span>
+## <a name="set-up-a-project"></a><span data-ttu-id="94d4f-124">Configurar um projeto</span><span class="sxs-lookup"><span data-stu-id="94d4f-124">Set up a project</span></span>
+<span data-ttu-id="94d4f-125">toocreate um trabalho de análise use Olá API de análise de fluxo para .NET, primeiro configure seu projeto.</span><span class="sxs-lookup"><span data-stu-id="94d4f-125">toocreate an analytics job use hello Stream Analytics API for .NET, first set up your project.</span></span>
 
-1. <span data-ttu-id="66fea-126">Crie um aplicativo de console do Visual Studio C# .NET.</span><span class="sxs-lookup"><span data-stu-id="66fea-126">Create a Visual Studio C# .NET console application.</span></span>
-2. <span data-ttu-id="66fea-127">No Console do Gerenciador de pacotes, execute os seguintes comandos para instalar os pacotes do NuGet.</span><span class="sxs-lookup"><span data-stu-id="66fea-127">In the Package Manager Console, run the following commands to install the NuGet packages.</span></span> <span data-ttu-id="66fea-128">O primeiro é o SDK .NET do Azure Stream Analytics Management.</span><span class="sxs-lookup"><span data-stu-id="66fea-128">The first one is the Azure Stream Analytics Management .NET SDK.</span></span> <span data-ttu-id="66fea-129">A segunda é para autenticação de cliente do Azure.</span><span class="sxs-lookup"><span data-stu-id="66fea-129">The second one is for Azure client authentication.</span></span>
+1. <span data-ttu-id="94d4f-126">Crie um aplicativo de console do Visual Studio C# .NET.</span><span class="sxs-lookup"><span data-stu-id="94d4f-126">Create a Visual Studio C# .NET console application.</span></span>
+2. <span data-ttu-id="94d4f-127">Olá Package Manager Console, seguinte Olá execução comandos de pacotes do NuGet Olá tooinstall.</span><span class="sxs-lookup"><span data-stu-id="94d4f-127">In hello Package Manager Console, run hello following commands tooinstall hello NuGet packages.</span></span> <span data-ttu-id="94d4f-128">Olá primeiro um é hello gerenciamento .NET SDK do Azure Stream Analytics.</span><span class="sxs-lookup"><span data-stu-id="94d4f-128">hello first one is hello Azure Stream Analytics Management .NET SDK.</span></span> <span data-ttu-id="94d4f-129">Olá segundo é para autenticação de cliente do Azure.</span><span class="sxs-lookup"><span data-stu-id="94d4f-129">hello second one is for Azure client authentication.</span></span>
    
         Install-Package Microsoft.Azure.Management.StreamAnalytics -Version 2.0.0
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Version 2.3.1
-3. <span data-ttu-id="66fea-130">Adicione a seguinte seção **appSettings** ao arquivo App.config.</span><span class="sxs-lookup"><span data-stu-id="66fea-130">Add the following **appSettings** section to the App.config file:</span></span>
+3. <span data-ttu-id="94d4f-130">Adicione o seguinte Olá **appSettings** arquivo App. config da seção toohello:</span><span class="sxs-lookup"><span data-stu-id="94d4f-130">Add hello following **appSettings** section toohello App.config file:</span></span>
    
         <appSettings>
           <add key="ClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
@@ -70,15 +70,15 @@ ms.lasthandoff: 08/29/2017
           <add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
         </appSettings>
 
-    <span data-ttu-id="66fea-131">Substitua os valores por **SubscriptionId** e **ActiveDirectoryTenantId** por suas IDs de assinatura e locatário do Azure.</span><span class="sxs-lookup"><span data-stu-id="66fea-131">Replace values for **SubscriptionId** and **ActiveDirectoryTenantId** with your Azure subscription and tenant IDs.</span></span> <span data-ttu-id="66fea-132">Você pode obter esses valores executando o seguinte cmdlet do PowerShell do Azure:</span><span class="sxs-lookup"><span data-stu-id="66fea-132">You can get these values by running the following Azure PowerShell cmdlet:</span></span>
+    <span data-ttu-id="94d4f-131">Substitua os valores por **SubscriptionId** e **ActiveDirectoryTenantId** por suas IDs de assinatura e locatário do Azure.</span><span class="sxs-lookup"><span data-stu-id="94d4f-131">Replace values for **SubscriptionId** and **ActiveDirectoryTenantId** with your Azure subscription and tenant IDs.</span></span> <span data-ttu-id="94d4f-132">Você pode obter esses valores executando hello Azure PowerShell cmdlet a seguir:</span><span class="sxs-lookup"><span data-stu-id="94d4f-132">You can get these values by running hello following Azure PowerShell cmdlet:</span></span>
 
         Get-AzureAccount
 
-4. <span data-ttu-id="66fea-133">Adicione a seguinte referência em seu arquivo .csproj:</span><span class="sxs-lookup"><span data-stu-id="66fea-133">Add the following reference in your .csproj file:</span></span>
+4. <span data-ttu-id="94d4f-133">Adicione Olá referência em seu arquivo. csproj a seguir:</span><span class="sxs-lookup"><span data-stu-id="94d4f-133">Add hello following reference in your .csproj file:</span></span>
 
         <Reference Include="System.Configuration" />
 
-5. <span data-ttu-id="66fea-134">Adicione as seguintes declarações **using** ao arquivo de origem (Program.cs) no projeto.</span><span class="sxs-lookup"><span data-stu-id="66fea-134">Add the following **using** statements to the source file (Program.cs) in the project:</span></span>
+5. <span data-ttu-id="94d4f-134">Adicione o seguinte Olá **usando** arquivo de origem toohello instruções (Program.cs) no projeto de saudação:</span><span class="sxs-lookup"><span data-stu-id="94d4f-134">Add hello following **using** statements toohello source file (Program.cs) in hello project:</span></span>
    
         using System;
         using System.Collections.Generic;
@@ -90,7 +90,7 @@ ms.lasthandoff: 08/29/2017
         using Microsoft.Azure.Management.StreamAnalytics.Models;
         using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Rest;
-6. <span data-ttu-id="66fea-135">Adicione um método auxiliar de autenticação:</span><span class="sxs-lookup"><span data-stu-id="66fea-135">Add an authentication helper method:</span></span>
+6. <span data-ttu-id="94d4f-135">Adicione um método auxiliar de autenticação:</span><span class="sxs-lookup"><span data-stu-id="94d4f-135">Add an authentication helper method:</span></span>
 
    ```
    private static async Task<ServiceClientCredentials> GetCredentials()
@@ -102,10 +102,10 @@ ms.lasthandoff: 08/29/2017
     }
    ```
 
-## <a name="create-a-stream-analytics-management-client"></a><span data-ttu-id="66fea-136">Crie um cliente de gerenciamento do Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="66fea-136">Create a Stream Analytics management client</span></span>
-<span data-ttu-id="66fea-137">Um objeto **StreamAnalyticsManagementClient** permite que você gerencie o trabalho e os componentes de trabalho, como entrada, saída e transformação.</span><span class="sxs-lookup"><span data-stu-id="66fea-137">A **StreamAnalyticsManagementClient** object allows you to manage the job and the job components, such as input, output, and transformation.</span></span>
+## <a name="create-a-stream-analytics-management-client"></a><span data-ttu-id="94d4f-136">Crie um cliente de gerenciamento do Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="94d4f-136">Create a Stream Analytics management client</span></span>
+<span data-ttu-id="94d4f-137">Um **StreamAnalyticsManagementClient** objeto permite que você toomanage Olá trabalho e hello trabalho componentes, como entrada, saída e transformação.</span><span class="sxs-lookup"><span data-stu-id="94d4f-137">A **StreamAnalyticsManagementClient** object allows you toomanage hello job and hello job components, such as input, output, and transformation.</span></span>
 
-<span data-ttu-id="66fea-138">Adicione o seguinte código ao início do método **Main** :</span><span class="sxs-lookup"><span data-stu-id="66fea-138">Add the following code to the beginning of the **Main** method:</span></span>
+<span data-ttu-id="94d4f-138">Adicionar Olá após o início do código toohello de saudação **principal** método:</span><span class="sxs-lookup"><span data-stu-id="94d4f-138">Add hello following code toohello beginning of hello **Main** method:</span></span>
 
    ```
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
@@ -126,14 +126,14 @@ ms.lasthandoff: 08/29/2017
     };
    ```
 
-<span data-ttu-id="66fea-139">O valor da variável **resourceGroupName** deve ser igual ao nome do grupo de recursos que você criou ou escolheu nas etapas de pré-requisito.</span><span class="sxs-lookup"><span data-stu-id="66fea-139">The **resourceGroupName** variable's value should be the same as the name of the resource group you created or picked in the prerequisite steps.</span></span>
+<span data-ttu-id="94d4f-139">Olá **resourceGroupName** valor da variável deve ser Olá igual ao nome de saudação do recurso de saudação de grupo é criado ou separados em etapas de pré-requisito hello.</span><span class="sxs-lookup"><span data-stu-id="94d4f-139">hello **resourceGroupName** variable's value should be hello same as hello name of hello resource group you created or picked in hello prerequisite steps.</span></span>
 
-<span data-ttu-id="66fea-140">Para automatizar o aspecto de apresentação de credencial da criação do trabalho, consulte [Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-authenticate-service-principal.md).</span><span class="sxs-lookup"><span data-stu-id="66fea-140">To automate the credential presentation aspect of job creation, refer to [Authenticating a service principal with Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).</span></span>
+<span data-ttu-id="94d4f-140">proporção de apresentação de credencial tooautomate Olá da criação de trabalho, consulte muito[autenticar uma entidade de serviço com o Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).</span><span class="sxs-lookup"><span data-stu-id="94d4f-140">tooautomate hello credential presentation aspect of job creation, refer too[Authenticating a service principal with Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).</span></span>
 
-<span data-ttu-id="66fea-141">As seções restantes deste artigo pressupõem que esse código esteja no início do método **Main** .</span><span class="sxs-lookup"><span data-stu-id="66fea-141">The remaining sections of this article assume that this code is at the beginning of the **Main** method.</span></span>
+<span data-ttu-id="94d4f-141">Olá seções restantes deste artigo presumem que este código seja no início de saudação do hello **principal** método.</span><span class="sxs-lookup"><span data-stu-id="94d4f-141">hello remaining sections of this article assume that this code is at hello beginning of hello **Main** method.</span></span>
 
-## <a name="create-a-stream-analytics-job"></a><span data-ttu-id="66fea-142">Criar um trabalho de Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="66fea-142">Create a Stream Analytics job</span></span>
-<span data-ttu-id="66fea-143">O código a seguir cria um trabalho do Stream Analytics sob o grupo de recursos que você definiu.</span><span class="sxs-lookup"><span data-stu-id="66fea-143">The following code creates a Stream Analytics job under the resource group that you have defined.</span></span> <span data-ttu-id="66fea-144">Você adicionará entrada, saída e transformação ao trabalho mais tarde.</span><span class="sxs-lookup"><span data-stu-id="66fea-144">You will add an input, output, and transformation to the job later.</span></span>
+## <a name="create-a-stream-analytics-job"></a><span data-ttu-id="94d4f-142">Criar um trabalho de Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="94d4f-142">Create a Stream Analytics job</span></span>
+<span data-ttu-id="94d4f-143">Olá código a seguir cria um trabalho do Stream Analytics no grupo de recursos de saudação que você definiu.</span><span class="sxs-lookup"><span data-stu-id="94d4f-143">hello following code creates a Stream Analytics job under hello resource group that you have defined.</span></span> <span data-ttu-id="94d4f-144">Você adicionará um trabalho de entrada, saída e transformação toohello mais tarde.</span><span class="sxs-lookup"><span data-stu-id="94d4f-144">You will add an input, output, and transformation toohello job later.</span></span>
 
    ```
    // Create a streaming job
@@ -159,8 +159,8 @@ ms.lasthandoff: 08/29/2017
    StreamingJob createStreamingJobResult = streamAnalyticsManagementClient.StreamingJobs.CreateOrReplace(streamingJob, resourceGroupName, streamingJobName);
    ```
 
-## <a name="create-a-stream-analytics-input-source"></a><span data-ttu-id="66fea-145">Criar uma fonte de entrada do Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="66fea-145">Create a Stream Analytics input source</span></span>
-<span data-ttu-id="66fea-146">O código a seguir cria uma fonte de entrada do Stream Analytics com o tipo de fonte de entrada de blob e serialização de CSV.</span><span class="sxs-lookup"><span data-stu-id="66fea-146">The following code creates a Stream Analytics input source with the blob input source type and CSV serialization.</span></span> <span data-ttu-id="66fea-147">Para criar uma fonte de entrada de hub de eventos, use **EventHubStreamInputDataSource** em vez de **BlobStreamInputDataSource**.</span><span class="sxs-lookup"><span data-stu-id="66fea-147">To create an event hub input source, use **EventHubStreamInputDataSource** instead of **BlobStreamInputDataSource**.</span></span> <span data-ttu-id="66fea-148">Da mesma forma, você pode personalizar o tipo de serialização da fonte de entrada.</span><span class="sxs-lookup"><span data-stu-id="66fea-148">Similarly, you can customize the serialization type of the input source.</span></span>
+## <a name="create-a-stream-analytics-input-source"></a><span data-ttu-id="94d4f-145">Criar uma fonte de entrada do Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="94d4f-145">Create a Stream Analytics input source</span></span>
+<span data-ttu-id="94d4f-146">Olá código a seguir cria uma fonte de entrada de análise de fluxo com o tipo de fonte de entrada de blob hello e serialização de CSV.</span><span class="sxs-lookup"><span data-stu-id="94d4f-146">hello following code creates a Stream Analytics input source with hello blob input source type and CSV serialization.</span></span> <span data-ttu-id="94d4f-147">toocreate uma fonte de entrada de hub de evento, use **EventHubStreamInputDataSource** em vez de **BlobStreamInputDataSource**.</span><span class="sxs-lookup"><span data-stu-id="94d4f-147">toocreate an event hub input source, use **EventHubStreamInputDataSource** instead of **BlobStreamInputDataSource**.</span></span> <span data-ttu-id="94d4f-148">Da mesma forma, você pode personalizar o tipo de serialização Olá Olá da fonte de entrada.</span><span class="sxs-lookup"><span data-stu-id="94d4f-148">Similarly, you can customize hello serialization type of hello input source.</span></span>
 
    ```
    // Create an input
@@ -192,20 +192,20 @@ ms.lasthandoff: 08/29/2017
    Input createInputResult = streamAnalyticsManagementClient.Inputs.CreateOrReplace(input, resourceGroupName, streamingJobName, inputName);
    ```
 
-<span data-ttu-id="66fea-149">As fontes de entrada de armazenamento de Blob ou de um hub de eventos estão ligadas a um trabalho específico.</span><span class="sxs-lookup"><span data-stu-id="66fea-149">Input sources, whether from Blob storage or an event hub, are tied to a specific job.</span></span> <span data-ttu-id="66fea-150">Para usar a mesma fonte de entrada para trabalhos diferentes, chame o método novamente e especifique um nome de trabalho diferente.</span><span class="sxs-lookup"><span data-stu-id="66fea-150">To use the same input source for different jobs, you must call the method again and specify a different job name.</span></span>
+<span data-ttu-id="94d4f-149">Fontes de entrada, do armazenamento de Blob ou de um hub de eventos são específicas de trabalho tooa associado.</span><span class="sxs-lookup"><span data-stu-id="94d4f-149">Input sources, whether from Blob storage or an event hub, are tied tooa specific job.</span></span> <span data-ttu-id="94d4f-150">toouse Olá a mesma fonte de entrada para tarefas diferentes, você deve chamar o método hello novamente e especifique um nome de trabalho diferente.</span><span class="sxs-lookup"><span data-stu-id="94d4f-150">toouse hello same input source for different jobs, you must call hello method again and specify a different job name.</span></span>
 
-## <a name="test-a-stream-analytics-input-source"></a><span data-ttu-id="66fea-151">Testar uma fonte de entrada do Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="66fea-151">Test a Stream Analytics input source</span></span>
-<span data-ttu-id="66fea-152">O método **TestConnection** testa se o trabalho do Stream Analytics é capaz de se conectar à fonte de entrada, bem como outros aspectos específicos para o tipo de fonte de entrada.</span><span class="sxs-lookup"><span data-stu-id="66fea-152">The **TestConnection** method tests whether the Stream Analytics job is able to connect to the input source as well as other aspects specific to the input source type.</span></span> <span data-ttu-id="66fea-153">Por exemplo, em que na fonte de entrada de blob criada em uma etapa anterior, o método verificará se o nome da conta de armazenamento e o par de chaves podem ser usados para conectar-se à conta de armazenamento, bem como verificará se o contêiner especificado existe.</span><span class="sxs-lookup"><span data-stu-id="66fea-153">For example, in the blob input source you created in an earlier step, the method will check that the Storage account name and key pair can be used to connect to the Storage account as well as check that the specified container exists.</span></span>
+## <a name="test-a-stream-analytics-input-source"></a><span data-ttu-id="94d4f-151">Testar uma fonte de entrada do Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="94d4f-151">Test a Stream Analytics input source</span></span>
+<span data-ttu-id="94d4f-152">Olá **TestConnection** se o trabalho de análise de fluxo de saudação é capaz de tooconnect toohello entrada origem, bem como outros toohello de aspectos específicos de testes de método de tipo de fonte de entrada.</span><span class="sxs-lookup"><span data-stu-id="94d4f-152">hello **TestConnection** method tests whether hello Stream Analytics job is able tooconnect toohello input source as well as other aspects specific toohello input source type.</span></span> <span data-ttu-id="94d4f-153">Por exemplo, na fonte de entrada de blob Olá criados em uma etapa anterior, método hello verificará que o nome de conta de armazenamento hello e par de chaves pode ser usado tooconnect toohello conta de armazenamento, bem como verificar que contêiner Olá especificado existe.</span><span class="sxs-lookup"><span data-stu-id="94d4f-153">For example, in hello blob input source you created in an earlier step, hello method will check that hello Storage account name and key pair can be used tooconnect toohello Storage account as well as check that hello specified container exists.</span></span>
 
    ```
-   // Test the connection to the input
+   // Test hello connection toohello input
    ResourceTestStatus testInputResult = streamAnalyticsManagementClient.Inputs.Test(resourceGroupName, streamingJobName, inputName);
    ```
 
-## <a name="create-a-stream-analytics-output-target"></a><span data-ttu-id="66fea-154">Criar um destino de saída do Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="66fea-154">Create a Stream Analytics output target</span></span>
-<span data-ttu-id="66fea-155">Criar um destino de saída é muito semelhante a criar uma fonte de entrada do Stream Analytics.</span><span class="sxs-lookup"><span data-stu-id="66fea-155">Creating an output target is very similar to creating a Stream Analytics input source.</span></span> <span data-ttu-id="66fea-156">Como as fontes de entrada, os destinos de saída são vinculados a trabalho específico.</span><span class="sxs-lookup"><span data-stu-id="66fea-156">Like input sources, output targets are tied to a specific job.</span></span> <span data-ttu-id="66fea-157">Para usar o mesmo destino de saída para diferentes trabalhos, chame o método novamente e especifique um nome de trabalho diferente.</span><span class="sxs-lookup"><span data-stu-id="66fea-157">To use the same output target for different jobs, you must call the method again and specify a different job name.</span></span>
+## <a name="create-a-stream-analytics-output-target"></a><span data-ttu-id="94d4f-154">Criar um destino de saída do Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="94d4f-154">Create a Stream Analytics output target</span></span>
+<span data-ttu-id="94d4f-155">Criar um destino de saída é muito semelhante toocreating uma fonte de entrada de análise de fluxo.</span><span class="sxs-lookup"><span data-stu-id="94d4f-155">Creating an output target is very similar toocreating a Stream Analytics input source.</span></span> <span data-ttu-id="94d4f-156">Como fontes de entrada, os destinos de saída são trabalho específico tooa associado.</span><span class="sxs-lookup"><span data-stu-id="94d4f-156">Like input sources, output targets are tied tooa specific job.</span></span> <span data-ttu-id="94d4f-157">toouse Olá mesmo destino de saída para trabalhos de diferentes, você deve chamar o método hello novamente e especifique um nome de trabalho diferente.</span><span class="sxs-lookup"><span data-stu-id="94d4f-157">toouse hello same output target for different jobs, you must call hello method again and specify a different job name.</span></span>
 
-<span data-ttu-id="66fea-158">O código a seguir cria um destino de saída (Banco de Dados SQL do Azure).</span><span class="sxs-lookup"><span data-stu-id="66fea-158">The following code creates an output target (Azure SQL database).</span></span> <span data-ttu-id="66fea-159">Você pode personalizar o tipo de dados de destino de saída e/ou o tipo de serialização.</span><span class="sxs-lookup"><span data-stu-id="66fea-159">You can customize the output target's data type and/or serialization type.</span></span>
+<span data-ttu-id="94d4f-158">saudação de código a seguir cria um destino de saída (banco de dados do SQL Azure).</span><span class="sxs-lookup"><span data-stu-id="94d4f-158">hello following code creates an output target (Azure SQL database).</span></span> <span data-ttu-id="94d4f-159">Você pode personalizar o tipo de dados de destino da saída de hello e/ou tipo de serialização.</span><span class="sxs-lookup"><span data-stu-id="94d4f-159">You can customize hello output target's data type and/or serialization type.</span></span>
 
    ```
    // Create an output
@@ -223,33 +223,33 @@ ms.lasthandoff: 08/29/2017
    Output createOutputResult = streamAnalyticsManagementClient.Outputs.CreateOrReplace(output, resourceGroupName, streamingJobName, outputName);
    ```
 
-## <a name="test-a-stream-analytics-output-target"></a><span data-ttu-id="66fea-160">Testar um destino de saída do Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="66fea-160">Test a Stream Analytics output target</span></span>
-<span data-ttu-id="66fea-161">Um destino de saída do Stream Analytics também tem um método **TestConnection** para conexões de teste.</span><span class="sxs-lookup"><span data-stu-id="66fea-161">A Stream Analytics output target also has the **TestConnection** method for testing connections.</span></span>
+## <a name="test-a-stream-analytics-output-target"></a><span data-ttu-id="94d4f-160">Testar um destino de saída do Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="94d4f-160">Test a Stream Analytics output target</span></span>
+<span data-ttu-id="94d4f-161">Um destino de análise de fluxo de saída também tem Olá **TestConnection** método para conexões de teste.</span><span class="sxs-lookup"><span data-stu-id="94d4f-161">A Stream Analytics output target also has hello **TestConnection** method for testing connections.</span></span>
 
    ```
-   // Test the connection to the output
+   // Test hello connection toohello output
    ResourceTestStatus testOutputResult = streamAnalyticsManagementClient.Outputs.Test(resourceGroupName, streamingJobName, outputName);
    ```
 
-## <a name="create-a-stream-analytics-transformation"></a><span data-ttu-id="66fea-162">Criar uma transformação do Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="66fea-162">Create a Stream Analytics transformation</span></span>
-<span data-ttu-id="66fea-163">O código a seguir cria uma transformação do Stream Analytics com a consulta "selecionar * da entrada" e especifica para alocar uma unidade de streaming para o trabalho do Stream Analytics.</span><span class="sxs-lookup"><span data-stu-id="66fea-163">The following code creates a Stream Analytics transformation with the query "select * from Input" and specifies to allocate one streaming unit for the Stream Analytics job.</span></span> <span data-ttu-id="66fea-164">Para obter mais informações sobre o ajuste de unidades de streaming, consulte Dimensionar trabalhos do [Escalonar trabalhos de Análise de fluxo do Azure](stream-analytics-scale-jobs.md).</span><span class="sxs-lookup"><span data-stu-id="66fea-164">For more information on adjusting streaming units, see [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md).</span></span>
+## <a name="create-a-stream-analytics-transformation"></a><span data-ttu-id="94d4f-162">Criar uma transformação do Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="94d4f-162">Create a Stream Analytics transformation</span></span>
+<span data-ttu-id="94d4f-163">Olá código a seguir cria uma transformação de análise de fluxo com consulta hello "Selecione * de entrada" e especifica tooallocate uma unidade de streaming para o trabalho de análise de fluxo de saudação.</span><span class="sxs-lookup"><span data-stu-id="94d4f-163">hello following code creates a Stream Analytics transformation with hello query "select * from Input" and specifies tooallocate one streaming unit for hello Stream Analytics job.</span></span> <span data-ttu-id="94d4f-164">Para obter mais informações sobre o ajuste de unidades de streaming, consulte Dimensionar trabalhos do [Escalonar trabalhos de Análise de fluxo do Azure](stream-analytics-scale-jobs.md).</span><span class="sxs-lookup"><span data-stu-id="94d4f-164">For more information on adjusting streaming units, see [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md).</span></span>
 
    ```
    // Create a transformation
    Transformation transformation = new Transformation()
    {
-       Query = "Select Id, Name from <your input name>", // '<your input name>' should be replaced with the value you put for the 'inputName' variable above or in a previous step
+       Query = "Select Id, Name from <your input name>", // '<your input name>' should be replaced with hello value you put for hello 'inputName' variable above or in a previous step
        StreamingUnits = 1
    };
    Transformation createTransformationResult = streamAnalyticsManagementClient.Transformations.CreateOrReplace(transformation, resourceGroupName, streamingJobName, transformationName);
    ```
 
-<span data-ttu-id="66fea-165">Como entrada e saída, uma transformação também está vinculada ao trabalho de Stream Analytics específico sob o qual foi criada.</span><span class="sxs-lookup"><span data-stu-id="66fea-165">Like input and output, a transformation is also tied to the specific Stream Analytics job it was created under.</span></span>
+<span data-ttu-id="94d4f-165">Como entrada e saída, uma transformação é também trabalho do Stream Analytics específico toohello associado em que foi criado.</span><span class="sxs-lookup"><span data-stu-id="94d4f-165">Like input and output, a transformation is also tied toohello specific Stream Analytics job it was created under.</span></span>
 
-## <a name="start-a-stream-analytics-job"></a><span data-ttu-id="66fea-166">Iniciar um trabalho do Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="66fea-166">Start a Stream Analytics job</span></span>
-<span data-ttu-id="66fea-167">Depois de criar um trabalho do Stream Analytics e suas entradas, saídas e transformação, você pode iniciar o trabalho chamando o método **Iniciar** .</span><span class="sxs-lookup"><span data-stu-id="66fea-167">After creating a Stream Analytics job and its input(s), output(s), and transformation, you can start the job by calling the **Start** method.</span></span>
+## <a name="start-a-stream-analytics-job"></a><span data-ttu-id="94d4f-166">Iniciar um trabalho do Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="94d4f-166">Start a Stream Analytics job</span></span>
+<span data-ttu-id="94d4f-167">Depois de criar um trabalho de análise de fluxo e suas entradas, saídas e transformação, você pode iniciar trabalho Olá Olá chamada **iniciar** método.</span><span class="sxs-lookup"><span data-stu-id="94d4f-167">After creating a Stream Analytics job and its input(s), output(s), and transformation, you can start hello job by calling hello **Start** method.</span></span>
 
-<span data-ttu-id="66fea-168">O código de exemplo a seguir inicia um trabalho do Stream Analytics com uma hora de início de saída personalizada definida para 12 de dezembro de 2012, 12h12min12 UTC:</span><span class="sxs-lookup"><span data-stu-id="66fea-168">The following sample code starts a Stream Analytics job with a custom output start time set to December 12, 2012, 12:12:12 UTC:</span></span>
+<span data-ttu-id="94d4f-168">Olá, código de exemplo a seguir inicia um trabalho de análise de fluxo com uma saída personalizada start time conjunto tooDecember 12, 2012, 12:12:12 UTC:</span><span class="sxs-lookup"><span data-stu-id="94d4f-168">hello following sample code starts a Stream Analytics job with a custom output start time set tooDecember 12, 2012, 12:12:12 UTC:</span></span>
 
    ```
    // Start a streaming job
@@ -261,34 +261,34 @@ ms.lasthandoff: 08/29/2017
    streamAnalyticsManagementClient.StreamingJobs.Start(resourceGroupName, streamingJobName, startStreamingJobParameters);
    ```
 
-## <a name="stop-a-stream-analytics-job"></a><span data-ttu-id="66fea-169">Interromper um trabalho do Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="66fea-169">Stop a Stream Analytics job</span></span>
-<span data-ttu-id="66fea-170">Você pode interromper um trabalho do Stream Analytics em execução chamando o método **Parar** .</span><span class="sxs-lookup"><span data-stu-id="66fea-170">You can stop a running Stream Analytics job by calling the **Stop** method.</span></span>
+## <a name="stop-a-stream-analytics-job"></a><span data-ttu-id="94d4f-169">Interromper um trabalho do Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="94d4f-169">Stop a Stream Analytics job</span></span>
+<span data-ttu-id="94d4f-170">Você pode interromper um trabalho de análise de fluxo em execução, Olá chamada **parar** método.</span><span class="sxs-lookup"><span data-stu-id="94d4f-170">You can stop a running Stream Analytics job by calling hello **Stop** method.</span></span>
 
    ```
    // Stop a streaming job
    streamAnalyticsManagementClient.StreamingJobs.Stop(resourceGroupName, streamingJobName);
    ```
 
-## <a name="delete-a-stream-analytics-job"></a><span data-ttu-id="66fea-171">Excluir um trabalho do Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="66fea-171">Delete a Stream Analytics job</span></span>
-<span data-ttu-id="66fea-172">O método **Excluir** excluirá o trabalho, bem como os sub-recursos subjacentes, incluindo entradas, saídas e transformação do trabalho.</span><span class="sxs-lookup"><span data-stu-id="66fea-172">The **Delete** method will delete the job as well as the underlying sub-resources, including input(s), output(s), and transformation of the job.</span></span>
+## <a name="delete-a-stream-analytics-job"></a><span data-ttu-id="94d4f-171">Excluir um trabalho do Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="94d4f-171">Delete a Stream Analytics job</span></span>
+<span data-ttu-id="94d4f-172">Olá **excluir** método irá excluir trabalho hello, bem como Olá subjacente sub-recursos, inclusive entradas, saídas e transformação de trabalho hello.</span><span class="sxs-lookup"><span data-stu-id="94d4f-172">hello **Delete** method will delete hello job as well as hello underlying sub-resources, including input(s), output(s), and transformation of hello job.</span></span>
 
    ```
    // Delete a streaming job
    streamAnalyticsManagementClient.StreamingJobs.Delete(resourceGroupName, streamingJobName);
    ```
 
-## <a name="get-support"></a><span data-ttu-id="66fea-173">Obtenha suporte</span><span class="sxs-lookup"><span data-stu-id="66fea-173">Get support</span></span>
-<span data-ttu-id="66fea-174">Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)</span><span class="sxs-lookup"><span data-stu-id="66fea-174">For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).</span></span>
+## <a name="get-support"></a><span data-ttu-id="94d4f-173">Obtenha suporte</span><span class="sxs-lookup"><span data-stu-id="94d4f-173">Get support</span></span>
+<span data-ttu-id="94d4f-174">Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)</span><span class="sxs-lookup"><span data-stu-id="94d4f-174">For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="66fea-175">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="66fea-175">Next steps</span></span>
-<span data-ttu-id="66fea-176">Você aprendeu as noções básicas do uso de um SDK do .NET para criar e executar trabalhos de análise.</span><span class="sxs-lookup"><span data-stu-id="66fea-176">You've learned the basics of using a .NET SDK to create and run analytics jobs.</span></span> <span data-ttu-id="66fea-177">Para saber mais, consulte os seguintes:</span><span class="sxs-lookup"><span data-stu-id="66fea-177">To learn more, see the following:</span></span>
+## <a name="next-steps"></a><span data-ttu-id="94d4f-175">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="94d4f-175">Next steps</span></span>
+<span data-ttu-id="94d4f-176">Você aprendeu Noções básicas de saudação do uso de um SDK .NET toocreate e executar trabalhos de análise.</span><span class="sxs-lookup"><span data-stu-id="94d4f-176">You've learned hello basics of using a .NET SDK toocreate and run analytics jobs.</span></span> <span data-ttu-id="94d4f-177">toolearn mais, consulte o seguinte hello:</span><span class="sxs-lookup"><span data-stu-id="94d4f-177">toolearn more, see hello following:</span></span>
 
-* [<span data-ttu-id="66fea-178">Introdução ao Stream Analytics do Azure</span><span class="sxs-lookup"><span data-stu-id="66fea-178">Introduction to Azure Stream Analytics</span></span>](stream-analytics-introduction.md)
-* [<span data-ttu-id="66fea-179">Introdução ao uso do Stream Analytics do Azure</span><span class="sxs-lookup"><span data-stu-id="66fea-179">Get started using Azure Stream Analytics</span></span>](stream-analytics-real-time-fraud-detection.md)
-* [<span data-ttu-id="66fea-180">Dimensionar trabalhos do Stream Analytics do Azure</span><span class="sxs-lookup"><span data-stu-id="66fea-180">Scale Azure Stream Analytics jobs</span></span>](stream-analytics-scale-jobs.md)
-* <span data-ttu-id="66fea-181">[SDK .NET do Azure Stream Analytics Management](https://msdn.microsoft.com/library/azure/dn889315.aspx)</span><span class="sxs-lookup"><span data-stu-id="66fea-181">[Azure Stream Analytics Management .NET SDK](https://msdn.microsoft.com/library/azure/dn889315.aspx).</span></span>
-* [<span data-ttu-id="66fea-182">Referência de Linguagem de Consulta do Stream Analytics do Azure</span><span class="sxs-lookup"><span data-stu-id="66fea-182">Azure Stream Analytics Query Language Reference</span></span>](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [<span data-ttu-id="66fea-183">Referência da API REST do Gerenciamento do Azure Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="66fea-183">Azure Stream Analytics Management REST API Reference</span></span>](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [<span data-ttu-id="94d4f-178">Introdução tooAzure Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="94d4f-178">Introduction tooAzure Stream Analytics</span></span>](stream-analytics-introduction.md)
+* [<span data-ttu-id="94d4f-179">Introdução ao uso do Stream Analytics do Azure</span><span class="sxs-lookup"><span data-stu-id="94d4f-179">Get started using Azure Stream Analytics</span></span>](stream-analytics-real-time-fraud-detection.md)
+* [<span data-ttu-id="94d4f-180">Dimensionar trabalhos do Stream Analytics do Azure</span><span class="sxs-lookup"><span data-stu-id="94d4f-180">Scale Azure Stream Analytics jobs</span></span>](stream-analytics-scale-jobs.md)
+* <span data-ttu-id="94d4f-181">[SDK .NET do Azure Stream Analytics Management](https://msdn.microsoft.com/library/azure/dn889315.aspx)</span><span class="sxs-lookup"><span data-stu-id="94d4f-181">[Azure Stream Analytics Management .NET SDK](https://msdn.microsoft.com/library/azure/dn889315.aspx).</span></span>
+* [<span data-ttu-id="94d4f-182">Referência de Linguagem de Consulta do Stream Analytics do Azure</span><span class="sxs-lookup"><span data-stu-id="94d4f-182">Azure Stream Analytics Query Language Reference</span></span>](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [<span data-ttu-id="94d4f-183">Referência da API REST do Gerenciamento do Azure Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="94d4f-183">Azure Stream Analytics Management REST API Reference</span></span>](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png

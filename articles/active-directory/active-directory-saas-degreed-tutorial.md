@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory ao Degreed | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Degreed."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Degreed."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,206 +13,206 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: ea96edb25e2d7199981ff126bf4b2a3d93c6840a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: decb553a6c5fa253ddf16b0f03336ab9366a8b4e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-degreed"></a><span data-ttu-id="ab8df-103">Tutorial: integração do Azure Active Directory com o Degreed</span><span class="sxs-lookup"><span data-stu-id="ab8df-103">Tutorial: Azure Active Directory integration with Degreed</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-degreed"></a><span data-ttu-id="10c7b-103">Tutorial: integração do Azure Active Directory com o Degreed</span><span class="sxs-lookup"><span data-stu-id="10c7b-103">Tutorial: Azure Active Directory integration with Degreed</span></span>
 
-<span data-ttu-id="ab8df-104">Neste tutorial, você aprende a integrar o Degreed ao Azure AD (Azure Active Directory).</span><span class="sxs-lookup"><span data-stu-id="ab8df-104">In this tutorial, you learn how to integrate Degreed with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="10c7b-104">Neste tutorial, você aprenderá como toointegrate Degreed com o Azure Active Directory (AD do Azure).</span><span class="sxs-lookup"><span data-stu-id="10c7b-104">In this tutorial, you learn how toointegrate Degreed with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="ab8df-105">A integração do Degreed ao Azure AD oferece os seguintes benefícios:</span><span class="sxs-lookup"><span data-stu-id="ab8df-105">Integrating Degreed with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="10c7b-105">Integrando Degreed com o AD do Azure fornece Olá benefícios a seguir:</span><span class="sxs-lookup"><span data-stu-id="10c7b-105">Integrating Degreed with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="ab8df-106">No Azure AD, é possível controlar  quem tem acesso ao Degreed</span><span class="sxs-lookup"><span data-stu-id="ab8df-106">You can control in Azure AD who has access to Degreed</span></span>
-- <span data-ttu-id="ab8df-107">Você pode permitir que usuários façam logon automaticamente no Degreed (Logon Único) com as respectivas contas do Azure AD</span><span class="sxs-lookup"><span data-stu-id="ab8df-107">You can enable your users to automatically get signed-on to Degreed (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="ab8df-108">Você pode gerenciar suas contas em um única localização: o Portal do Azure</span><span class="sxs-lookup"><span data-stu-id="ab8df-108">You can manage your accounts in one central location - the Azure portal</span></span>
+- <span data-ttu-id="10c7b-106">Você pode controlar no AD do Azure que tenha acesso tooDegreed</span><span class="sxs-lookup"><span data-stu-id="10c7b-106">You can control in Azure AD who has access tooDegreed</span></span>
+- <span data-ttu-id="10c7b-107">Você pode habilitar seu usuários tooautomatically get conectado tooDegreed (logon único) com suas contas do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="10c7b-107">You can enable your users tooautomatically get signed-on tooDegreed (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="10c7b-108">Você pode gerenciar suas contas em um local central - Olá portal do Azure</span><span class="sxs-lookup"><span data-stu-id="10c7b-108">You can manage your accounts in one central location - hello Azure portal</span></span>
 
-<span data-ttu-id="ab8df-109">Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="ab8df-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="10c7b-109">Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="10c7b-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="ab8df-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="ab8df-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="10c7b-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="10c7b-110">Prerequisites</span></span>
 
-<span data-ttu-id="ab8df-111">Para configurar a integração do Azure AD com o Degreed, você precisa dos seguintes itens:</span><span class="sxs-lookup"><span data-stu-id="ab8df-111">To configure Azure AD integration with Degreed, you need the following items:</span></span>
+<span data-ttu-id="10c7b-111">tooconfigure integração do AD do Azure com Degreed, você precisa Olá itens a seguir:</span><span class="sxs-lookup"><span data-stu-id="10c7b-111">tooconfigure Azure AD integration with Degreed, you need hello following items:</span></span>
 
-- <span data-ttu-id="ab8df-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="ab8df-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="ab8df-113">Uma assinatura habilitada para logon único do Degreed</span><span class="sxs-lookup"><span data-stu-id="ab8df-113">A Degreed single-sign on enabled subscription</span></span>
+- <span data-ttu-id="10c7b-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="10c7b-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="10c7b-113">Uma assinatura habilitada para logon único do Degreed</span><span class="sxs-lookup"><span data-stu-id="10c7b-113">A Degreed single-sign on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="ab8df-114">Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="ab8df-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="10c7b-114">Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="10c7b-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="ab8df-115">Para testar as etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="ab8df-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="10c7b-115">tootest Olá etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="10c7b-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="ab8df-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="ab8df-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="ab8df-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="ab8df-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="10c7b-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="10c7b-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="10c7b-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="10c7b-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="ab8df-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="ab8df-118">Scenario description</span></span>
-<span data-ttu-id="ab8df-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="ab8df-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="ab8df-120">O cenário descrito neste tutorial consiste em dois blocos de construção principais:</span><span class="sxs-lookup"><span data-stu-id="ab8df-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="10c7b-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="10c7b-118">Scenario description</span></span>
+<span data-ttu-id="10c7b-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="10c7b-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="10c7b-120">cenário de saudação descrito neste tutorial consiste em dois elementos básicos:</span><span class="sxs-lookup"><span data-stu-id="10c7b-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="ab8df-121">Adição do Degreed a partir da galeria</span><span class="sxs-lookup"><span data-stu-id="ab8df-121">Adding Degreed from the gallery</span></span>
-2. <span data-ttu-id="ab8df-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="ab8df-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="10c7b-121">Adicionando Degreed da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="10c7b-121">Adding Degreed from hello gallery</span></span>
+2. <span data-ttu-id="10c7b-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="10c7b-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-degreed-from-the-gallery"></a><span data-ttu-id="ab8df-123">Adição do Degreed a partir da galeria</span><span class="sxs-lookup"><span data-stu-id="ab8df-123">Adding Degreed from the gallery</span></span>
-<span data-ttu-id="ab8df-124">Para configurar a integração do Degreed ao Azure AD, você precisa adicionar o Degreed por meio da galeria à sua lista de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="ab8df-124">To configure the integration of Degreed into Azure AD, you need to add Degreed from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-degreed-from-hello-gallery"></a><span data-ttu-id="10c7b-123">Adicionando Degreed da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="10c7b-123">Adding Degreed from hello gallery</span></span>
+<span data-ttu-id="10c7b-124">integração de saudação tooconfigure de Degreed no AD do Azure, você precisa tooadd Degreed da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="10c7b-124">tooconfigure hello integration of Degreed into Azure AD, you need tooadd Degreed from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="ab8df-125">**Para adicionar o Degreed da galeria, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="ab8df-125">**To add Degreed from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="10c7b-125">**tooadd Degreed da Galeria hello, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="10c7b-125">**tooadd Degreed from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="ab8df-126">No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="ab8df-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="10c7b-126">Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="10c7b-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Active Directory][1]
 
-2. <span data-ttu-id="ab8df-128">Navegue até **aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="ab8df-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="ab8df-129">Em seguida, vá para **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="ab8df-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="10c7b-128">Navegue muito**aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="10c7b-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="10c7b-129">Em seguida, acesse muito**todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="10c7b-129">Then go too**All applications**.</span></span>
 
     ![Aplicativos][2]
     
-3. <span data-ttu-id="ab8df-131">Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.</span><span class="sxs-lookup"><span data-stu-id="ab8df-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="10c7b-131">tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="10c7b-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
     ![Aplicativos][3]
 
-4. <span data-ttu-id="ab8df-133">Na caixa de pesquisa, digite **Degreed**.</span><span class="sxs-lookup"><span data-stu-id="ab8df-133">In the search box, type **Degreed**.</span></span>
+4. <span data-ttu-id="10c7b-133">Na caixa de pesquisa hello, digite **Degreed**.</span><span class="sxs-lookup"><span data-stu-id="10c7b-133">In hello search box, type **Degreed**.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_search.png)
 
-5. <span data-ttu-id="ab8df-135">No painel de resultados, selecione **Degreed** e clique no botão **Adicionar** para adicionar o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="ab8df-135">In the results panel, select **Degreed**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="10c7b-135">No painel de resultados de saudação, selecione **Degreed**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.</span><span class="sxs-lookup"><span data-stu-id="10c7b-135">In hello results panel, select **Degreed**, and then click **Add** button tooadd hello application.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="ab8df-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="ab8df-137">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="ab8df-138">Nesta seção, você configurará e testará o logon único do Azure AD com o Degreed com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="ab8df-138">In this section, you configure and test Azure AD single sign-on with Degreed based on a test user called "Britta Simon."</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="10c7b-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="10c7b-137">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="10c7b-138">Nesta seção, você configurará e testará o logon único do Azure AD com o Degreed com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="10c7b-138">In this section, you configure and test Azure AD single sign-on with Degreed based on a test user called "Britta Simon."</span></span>
 
-<span data-ttu-id="ab8df-139">Para que o logon único funcione, o Azure AD precisa saber qual usuário do Degreed é equivalente a um usuário do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="ab8df-139">For single sign-on to work, Azure AD needs to know what the counterpart user in Degreed is to a user in Azure AD.</span></span> <span data-ttu-id="ab8df-140">Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Degreed.</span><span class="sxs-lookup"><span data-stu-id="ab8df-140">In other words, a link relationship between an Azure AD user and the related user in Degreed needs to be established.</span></span>
+<span data-ttu-id="10c7b-139">Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá em Degreed é tooa usuário no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="10c7b-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in Degreed is tooa user in Azure AD.</span></span> <span data-ttu-id="10c7b-140">Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação em Degreed precisa toobe estabelecida.</span><span class="sxs-lookup"><span data-stu-id="10c7b-140">In other words, a link relationship between an Azure AD user and hello related user in Degreed needs toobe established.</span></span>
 
-<span data-ttu-id="ab8df-141">No Degreed, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.</span><span class="sxs-lookup"><span data-stu-id="ab8df-141">In Degreed, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="10c7b-141">Degreed, atribuir valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.</span><span class="sxs-lookup"><span data-stu-id="10c7b-141">In Degreed, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="ab8df-142">Para configurar e testar o logon único do Azure AD com o Degreed, você precisará concluir os seguintes blocos de construção:</span><span class="sxs-lookup"><span data-stu-id="ab8df-142">To configure and test Azure AD single sign-on with Degreed, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="10c7b-142">tooconfigure e teste de logon único do AD do Azure com Degreed, é necessário Olá toocomplete blocos de construção a seguir:</span><span class="sxs-lookup"><span data-stu-id="10c7b-142">tooconfigure and test Azure AD single sign-on with Degreed, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="ab8df-143">**[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários para usar esse recurso.</span><span class="sxs-lookup"><span data-stu-id="ab8df-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="ab8df-144">**[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="ab8df-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="ab8df-145">**[Como criar um usuário de teste do Degreed](#creating-a-degreed-test-user)** – para ter um equivalente de Brenda Fernandes no Degreed que esteja vinculado à representação do usuário no Azure AD.</span><span class="sxs-lookup"><span data-stu-id="ab8df-145">**[Creating a Degreed test user](#creating-a-degreed-test-user)** - to have a counterpart of Britta Simon in Degreed that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="ab8df-146">**[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="ab8df-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="ab8df-147">**[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.</span><span class="sxs-lookup"><span data-stu-id="ab8df-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="10c7b-143">**[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.</span><span class="sxs-lookup"><span data-stu-id="10c7b-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="10c7b-144">**[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="10c7b-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="10c7b-145">**[Criar um usuário de teste Degreed](#creating-a-degreed-test-user)**  -toohave um equivalente do Britta Simon em Degreed é toohello vinculado do Azure AD representação do usuário.</span><span class="sxs-lookup"><span data-stu-id="10c7b-145">**[Creating a Degreed test user](#creating-a-degreed-test-user)** - toohave a counterpart of Britta Simon in Degreed that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="10c7b-146">**[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.</span><span class="sxs-lookup"><span data-stu-id="10c7b-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="10c7b-147">**[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.</span><span class="sxs-lookup"><span data-stu-id="10c7b-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="ab8df-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="ab8df-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="10c7b-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="10c7b-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="ab8df-149">Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo Degreed.</span><span class="sxs-lookup"><span data-stu-id="ab8df-149">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Degreed application.</span></span>
+<span data-ttu-id="10c7b-149">Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único em seu aplicativo Degreed.</span><span class="sxs-lookup"><span data-stu-id="10c7b-149">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your Degreed application.</span></span>
 
-<span data-ttu-id="ab8df-150">**Para configurar o logon único do Azure AD com o Degreed, realize as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="ab8df-150">**To configure Azure AD single sign-on with Degreed, perform the following steps:**</span></span>
+<span data-ttu-id="10c7b-150">**tooconfigure AD do Azure-logon único com Degreed, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="10c7b-150">**tooconfigure Azure AD single sign-on with Degreed, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="ab8df-151">No portal do Azure, na página de integração de aplicativos do **Degreed**, clique em **Logon único**.</span><span class="sxs-lookup"><span data-stu-id="ab8df-151">In the Azure portal, on the **Degreed** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="10c7b-151">Em Olá portal do Azure, Olá **Degreed** página de integração de aplicativos, clique em **o logon único**.</span><span class="sxs-lookup"><span data-stu-id="10c7b-151">In hello Azure portal, on hello **Degreed** application integration page, click **Single sign-on**.</span></span>
 
     ![Configurar Logon Único][4]
 
-2. <span data-ttu-id="ab8df-153">Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.</span><span class="sxs-lookup"><span data-stu-id="ab8df-153">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="10c7b-153">Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.</span><span class="sxs-lookup"><span data-stu-id="10c7b-153">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Configurar Logon Único](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_samlbase.png)
 
-3. <span data-ttu-id="ab8df-155">Na seção **URLs e Domínio do Degreed**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="ab8df-155">On the **Degreed Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="10c7b-155">Em Olá **Degreed de domínio e URLs** , execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="10c7b-155">On hello **Degreed Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_url.png)
 
-    <span data-ttu-id="ab8df-157">a.</span><span class="sxs-lookup"><span data-stu-id="ab8df-157">a.</span></span> <span data-ttu-id="ab8df-158">Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://degreed.com/?orgsso=<company code>`</span><span class="sxs-lookup"><span data-stu-id="ab8df-158">In the **Sign-on URL** textbox, type a URL using the following pattern: `https://degreed.com/?orgsso=<company code>`</span></span>
+    <span data-ttu-id="10c7b-157">a.</span><span class="sxs-lookup"><span data-stu-id="10c7b-157">a.</span></span> <span data-ttu-id="10c7b-158">Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://degreed.com/?orgsso=<company code>`</span><span class="sxs-lookup"><span data-stu-id="10c7b-158">In hello **Sign-on URL** textbox, type a URL using hello following pattern: `https://degreed.com/?orgsso=<company code>`</span></span>
 
-    <span data-ttu-id="ab8df-159">b.</span><span class="sxs-lookup"><span data-stu-id="ab8df-159">b.</span></span> <span data-ttu-id="ab8df-160">Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://degreed.com/<instancename>`</span><span class="sxs-lookup"><span data-stu-id="ab8df-160">In the **Identifier** textbox, type a URL using the following pattern: `https://degreed.com/<instancename>`</span></span>
+    <span data-ttu-id="10c7b-159">b.</span><span class="sxs-lookup"><span data-stu-id="10c7b-159">b.</span></span> <span data-ttu-id="10c7b-160">Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://degreed.com/<instancename>`</span><span class="sxs-lookup"><span data-stu-id="10c7b-160">In hello **Identifier** textbox, type a URL using hello following pattern: `https://degreed.com/<instancename>`</span></span>
 
     > [!NOTE] 
-    > <span data-ttu-id="ab8df-161">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="ab8df-161">These values are not real.</span></span> <span data-ttu-id="ab8df-162">Atualize esses valores com a URL de Entrada e o Identificador reais.</span><span class="sxs-lookup"><span data-stu-id="ab8df-162">Update these values with the actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="ab8df-163">Contate a [equipe de suporte ao cliente do Degreed](mailTo:admin@degreed.com) para obter esses valores.</span><span class="sxs-lookup"><span data-stu-id="ab8df-163">Contact [Degreed Client support team](mailTo:admin@degreed.com) to get these values.</span></span> 
+    > <span data-ttu-id="10c7b-161">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="10c7b-161">These values are not real.</span></span> <span data-ttu-id="10c7b-162">Atualizar esses valores com hello real URL de logon e o identificador.</span><span class="sxs-lookup"><span data-stu-id="10c7b-162">Update these values with hello actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="10c7b-163">Entre em contato com [equipe de suporte do cliente Degreed](mailTo:admin@degreed.com) tooget esses valores.</span><span class="sxs-lookup"><span data-stu-id="10c7b-163">Contact [Degreed Client support team](mailTo:admin@degreed.com) tooget these values.</span></span> 
  
 
 
-4. <span data-ttu-id="ab8df-164">Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.</span><span class="sxs-lookup"><span data-stu-id="ab8df-164">On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.</span></span>
+4. <span data-ttu-id="10c7b-164">Em Olá **o certificado de autenticação SAML** seção, clique em **Metadata XML** e, em seguida, salve o arquivo de metadados de saudação em seu computador.</span><span class="sxs-lookup"><span data-stu-id="10c7b-164">On hello **SAML Signing Certificate** section, click **Metadata XML** and then save hello metadata file on your computer.</span></span>
 
-    ![Configurar o logon único](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_certificate.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_certificate.png) 
 
-5. <span data-ttu-id="ab8df-166">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="ab8df-166">Click **Save** button.</span></span>
+5. <span data-ttu-id="10c7b-166">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="10c7b-166">Click **Save** button.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-degreed-tutorial/tutorial_general_400.png)
 
-6. <span data-ttu-id="ab8df-168">Para configurar o logon único no lado do **Degreed**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte do Degreed](mailTo:admin@degreed.com).</span><span class="sxs-lookup"><span data-stu-id="ab8df-168">To configure single sign-on on **Degreed** side, you need to send the downloaded **Metadata XML** to [Degreed support team](mailTo:admin@degreed.com).</span></span> <span data-ttu-id="ab8df-169">Eles definem essa configuração para ter a conexão de SSO do SAML definida corretamente em ambos os lados.</span><span class="sxs-lookup"><span data-stu-id="ab8df-169">They set this setting to have the SAML SSO connection set properly on both sides.</span></span>
+6. <span data-ttu-id="10c7b-168">tooconfigure logon único no **Degreed** lado, você precisa toosend Olá baixado **Metadata XML** muito[a equipe de suporte Degreed](mailTo:admin@degreed.com).</span><span class="sxs-lookup"><span data-stu-id="10c7b-168">tooconfigure single sign-on on **Degreed** side, you need toosend hello downloaded **Metadata XML** too[Degreed support team](mailTo:admin@degreed.com).</span></span> <span data-ttu-id="10c7b-169">Eles definidos Olá de toohave essa configuração conexão SSO do SAML definido corretamente em ambos os lados.</span><span class="sxs-lookup"><span data-stu-id="10c7b-169">They set this setting toohave hello SAML SSO connection set properly on both sides.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="ab8df-170">É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!</span><span class="sxs-lookup"><span data-stu-id="ab8df-170">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="ab8df-171">Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior.</span><span class="sxs-lookup"><span data-stu-id="ab8df-171">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="ab8df-172">Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="ab8df-172">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="10c7b-170">Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!</span><span class="sxs-lookup"><span data-stu-id="10c7b-170">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="10c7b-171">Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação.</span><span class="sxs-lookup"><span data-stu-id="10c7b-171">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="10c7b-172">Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="10c7b-172">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="ab8df-173">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="ab8df-173">Creating an Azure AD test user</span></span>
-<span data-ttu-id="ab8df-174">O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="ab8df-174">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="10c7b-173">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="10c7b-173">Creating an Azure AD test user</span></span>
+<span data-ttu-id="10c7b-174">Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="10c7b-174">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Criar um usuário do AD do Azure][100]
 
-<span data-ttu-id="ab8df-176">**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="ab8df-176">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="10c7b-176">**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="10c7b-176">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="ab8df-177">No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="ab8df-177">In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="10c7b-177">Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="10c7b-177">In hello **Azure portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-degreed-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="ab8df-179">Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="ab8df-179">To display the list of users, go to **Users and groups** and click **All users**.</span></span>
+2. <span data-ttu-id="10c7b-179">lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.</span><span class="sxs-lookup"><span data-stu-id="10c7b-179">toodisplay hello list of users, go too**Users and groups** and click **All users**.</span></span>
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-degreed-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="ab8df-181">Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="ab8df-181">To open the **User** dialog, click **Add** on the top of the dialog.</span></span>
+3. <span data-ttu-id="10c7b-181">Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.</span><span class="sxs-lookup"><span data-stu-id="10c7b-181">tooopen hello **User** dialog, click **Add** on hello top of hello dialog.</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-degreed-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="ab8df-183">Na página do diálogo **Usuário**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="ab8df-183">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="10c7b-183">Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="10c7b-183">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-degreed-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="ab8df-185">a.</span><span class="sxs-lookup"><span data-stu-id="ab8df-185">a.</span></span> <span data-ttu-id="ab8df-186">Na caixa de texto **Nome**, digite **Brenda Fernandes**.</span><span class="sxs-lookup"><span data-stu-id="ab8df-186">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="10c7b-185">a.</span><span class="sxs-lookup"><span data-stu-id="10c7b-185">a.</span></span> <span data-ttu-id="10c7b-186">Em Olá **nome** caixa de texto, tipo **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="10c7b-186">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="ab8df-187">b.</span><span class="sxs-lookup"><span data-stu-id="ab8df-187">b.</span></span> <span data-ttu-id="ab8df-188">Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="ab8df-188">In the **User name** textbox, type the **email address** of BrittaSimon.</span></span>
+    <span data-ttu-id="10c7b-187">b.</span><span class="sxs-lookup"><span data-stu-id="10c7b-187">b.</span></span> <span data-ttu-id="10c7b-188">Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.</span><span class="sxs-lookup"><span data-stu-id="10c7b-188">In hello **User name** textbox, type hello **email address** of BrittaSimon.</span></span>
 
-    <span data-ttu-id="ab8df-189">c.</span><span class="sxs-lookup"><span data-stu-id="ab8df-189">c.</span></span> <span data-ttu-id="ab8df-190">Selecione **Mostrar senha** e anote o valor de **senha**.</span><span class="sxs-lookup"><span data-stu-id="ab8df-190">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="10c7b-189">c.</span><span class="sxs-lookup"><span data-stu-id="10c7b-189">c.</span></span> <span data-ttu-id="10c7b-190">Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.</span><span class="sxs-lookup"><span data-stu-id="10c7b-190">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="ab8df-191">d.</span><span class="sxs-lookup"><span data-stu-id="ab8df-191">d.</span></span> <span data-ttu-id="ab8df-192">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="ab8df-192">Click **Create**.</span></span>
+    <span data-ttu-id="10c7b-191">d.</span><span class="sxs-lookup"><span data-stu-id="10c7b-191">d.</span></span> <span data-ttu-id="10c7b-192">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="10c7b-192">Click **Create**.</span></span>
  
-### <a name="creating-a-degreed-test-user"></a><span data-ttu-id="ab8df-193">Criar um usuário de teste do Degreed</span><span class="sxs-lookup"><span data-stu-id="ab8df-193">Creating a Degreed test user</span></span>
+### <a name="creating-a-degreed-test-user"></a><span data-ttu-id="10c7b-193">Criar um usuário de teste do Degreed</span><span class="sxs-lookup"><span data-stu-id="10c7b-193">Creating a Degreed test user</span></span>
 
-<span data-ttu-id="ab8df-194">O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Degreed.</span><span class="sxs-lookup"><span data-stu-id="ab8df-194">The objective of this section is to create a user called Britta Simon in Degreed.</span></span> <span data-ttu-id="ab8df-195">O Degreed dá suporte ao provisionamento just-in-time, que está habilitado por padrão.</span><span class="sxs-lookup"><span data-stu-id="ab8df-195">Degreed supports just-in-time provisioning, which is by default enabled.</span></span>
+<span data-ttu-id="10c7b-194">Olá objetivo desta seção é toocreate um usuário chamado Britta Simon no Degreed.</span><span class="sxs-lookup"><span data-stu-id="10c7b-194">hello objective of this section is toocreate a user called Britta Simon in Degreed.</span></span> <span data-ttu-id="10c7b-195">O Degreed dá suporte ao provisionamento just-in-time, que está habilitado por padrão.</span><span class="sxs-lookup"><span data-stu-id="10c7b-195">Degreed supports just-in-time provisioning, which is by default enabled.</span></span>
 
-<span data-ttu-id="ab8df-196">Não há itens de ação para você nesta seção.</span><span class="sxs-lookup"><span data-stu-id="ab8df-196">There is no action item for you in this section.</span></span> <span data-ttu-id="ab8df-197">Um novo usuário será criado durante uma tentativa de acessar o Degreed, caso ele ainda não exista.</span><span class="sxs-lookup"><span data-stu-id="ab8df-197">A new user is created during an attempt to access Degreed if it doesn't exist yet.</span></span>
+<span data-ttu-id="10c7b-196">Não há itens de ação para você nesta seção.</span><span class="sxs-lookup"><span data-stu-id="10c7b-196">There is no action item for you in this section.</span></span> <span data-ttu-id="10c7b-197">Um novo usuário é criado durante uma tentativa tooaccess Degreed se ele ainda não existir.</span><span class="sxs-lookup"><span data-stu-id="10c7b-197">A new user is created during an attempt tooaccess Degreed if it doesn't exist yet.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="ab8df-198">Se você precisar criar um usuário manualmente, entre em contato com a [equipe de suporte do Degreed](mailTo:admin@degreed.com).</span><span class="sxs-lookup"><span data-stu-id="ab8df-198">If you need to create a user manually, you need to contact the [Degreed support team](mailTo:admin@degreed.com).</span></span>
+> <span data-ttu-id="10c7b-198">Se você precisar toocreate um usuário manualmente, você precisa Olá toocontact [a equipe de suporte Degreed](mailTo:admin@degreed.com).</span><span class="sxs-lookup"><span data-stu-id="10c7b-198">If you need toocreate a user manually, you need toocontact hello [Degreed support team](mailTo:admin@degreed.com).</span></span>
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="ab8df-199">Atribuição do usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="ab8df-199">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="10c7b-199">Atribuir um usuário de teste de saudação do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="10c7b-199">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="ab8df-200">Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Degreed.</span><span class="sxs-lookup"><span data-stu-id="ab8df-200">In this section, you enable Britta Simon to use Azure single sign-on by granting access to Degreed.</span></span>
+<span data-ttu-id="10c7b-200">Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooDegreed.</span><span class="sxs-lookup"><span data-stu-id="10c7b-200">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooDegreed.</span></span>
 
 ![Atribuir usuário][200] 
 
-<span data-ttu-id="ab8df-202">**Para atribuir Brenda Fernandes ao Degreed, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="ab8df-202">**To assign Britta Simon to Degreed, perform the following steps:**</span></span>
+<span data-ttu-id="10c7b-202">**tooassign Britta Simon tooDegreed, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="10c7b-202">**tooassign Britta Simon tooDegreed, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="ab8df-203">No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="ab8df-203">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="10c7b-203">No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="10c7b-203">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Atribuir usuário][201] 
 
-2. <span data-ttu-id="ab8df-205">Na lista de aplicativos, selecione **Degreed**.</span><span class="sxs-lookup"><span data-stu-id="ab8df-205">In the applications list, select **Degreed**.</span></span>
+2. <span data-ttu-id="10c7b-205">Na lista de aplicativos hello, selecione **Degreed**.</span><span class="sxs-lookup"><span data-stu-id="10c7b-205">In hello applications list, select **Degreed**.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_app.png) 
 
-3. <span data-ttu-id="ab8df-207">No menu à esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="ab8df-207">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="10c7b-207">No menu Olá Olá esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="10c7b-207">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Atribuir usuário][202] 
 
-4. <span data-ttu-id="ab8df-209">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="ab8df-209">Click **Add** button.</span></span> <span data-ttu-id="ab8df-210">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="ab8df-210">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="10c7b-209">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="10c7b-209">Click **Add** button.</span></span> <span data-ttu-id="10c7b-210">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="10c7b-210">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Atribuir usuário][203]
 
-5. <span data-ttu-id="ab8df-212">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="ab8df-212">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="10c7b-212">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.</span><span class="sxs-lookup"><span data-stu-id="10c7b-212">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="ab8df-213">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="ab8df-213">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="10c7b-213">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="10c7b-213">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="ab8df-214">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="ab8df-214">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="10c7b-214">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="10c7b-214">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="ab8df-215">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="ab8df-215">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="10c7b-215">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="10c7b-215">Testing single sign-on</span></span>
 
-<span data-ttu-id="ab8df-216">Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.</span><span class="sxs-lookup"><span data-stu-id="ab8df-216">In this section, you test your Azure AD single sign-on configuration using the Access Panel.</span></span>
+<span data-ttu-id="10c7b-216">Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.</span><span class="sxs-lookup"><span data-stu-id="10c7b-216">In this section, you test your Azure AD single sign-on configuration using hello Access Panel.</span></span>
 
-<span data-ttu-id="ab8df-217">Quando você clica no bloco Degreed no Painel de Acesso, você deve ser conectado automaticamente ao seu aplicativo Degreed.</span><span class="sxs-lookup"><span data-stu-id="ab8df-217">When you click the Degreed tile in the Access Panel, you should get automatically signed-on to your Degreed application.</span></span>
-<span data-ttu-id="ab8df-218">Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="ab8df-218">For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
+<span data-ttu-id="10c7b-217">Quando você clica em bloco Degreed Olá em Olá painel de acesso, você deverá obter o aplicativo Degreed tooyour automaticamente conectado em.</span><span class="sxs-lookup"><span data-stu-id="10c7b-217">When you click hello Degreed tile in hello Access Panel, you should get automatically signed-on tooyour Degreed application.</span></span>
+<span data-ttu-id="10c7b-218">Para obter mais informações sobre Olá painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="10c7b-218">For more information about hello Access Panel, see [Introduction toohello Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
 
-## <a name="additional-resources"></a><span data-ttu-id="ab8df-219">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="ab8df-219">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="10c7b-219">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="10c7b-219">Additional resources</span></span>
 
-* [<span data-ttu-id="ab8df-220">Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="ab8df-220">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="ab8df-221">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="ab8df-221">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="10c7b-220">Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="10c7b-220">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="10c7b-221">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="10c7b-221">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->

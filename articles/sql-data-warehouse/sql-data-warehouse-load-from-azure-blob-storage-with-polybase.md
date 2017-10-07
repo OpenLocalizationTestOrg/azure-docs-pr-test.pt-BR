@@ -1,6 +1,6 @@
 ---
-title: Carregar do blob do Azure para o Azure data warehouse | Microsoft Docs
-description: "Aprenda a usar o PolyBase para carregar dados do armazenamento de blobs do Azure no SQL Data Warehouse. Carregue algumas tabelas de dados públicos no esquema do Data Warehouse de Varejo da Contoso."
+title: aaaLoad do data warehouse de BLOBs do Azure tooAzure | Microsoft Docs
+description: "Saiba como toouse tooload dados do Azure blob storage no SQL Data Warehouse. Carregar algumas tabelas de dados públicos no esquema de Data Warehouse da Contoso varejo hello."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -15,50 +15,50 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 2859c1144f72fd685af89f83024df1409902ab0c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4b4978ccefa4d55ff5c89fba84c5e705422ddbb7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="load-data-from-azure-blob-storage-into-sql-data-warehouse-polybase"></a><span data-ttu-id="aa20a-104">Carregar dados do armazenamento de blobs do Azure no SQL Data Warehouse (PolyBase)</span><span class="sxs-lookup"><span data-stu-id="aa20a-104">Load data from Azure blob storage into SQL Data Warehouse (PolyBase)</span></span>
+# <a name="load-data-from-azure-blob-storage-into-sql-data-warehouse-polybase"></a><span data-ttu-id="1ad13-104">Carregar dados do armazenamento de blobs do Azure no SQL Data Warehouse (PolyBase)</span><span class="sxs-lookup"><span data-stu-id="1ad13-104">Load data from Azure blob storage into SQL Data Warehouse (PolyBase)</span></span>
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="aa20a-105">Fábrica de dados</span><span class="sxs-lookup"><span data-stu-id="aa20a-105">Data Factory</span></span>](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
-> * [<span data-ttu-id="aa20a-106">PolyBase</span><span class="sxs-lookup"><span data-stu-id="aa20a-106">PolyBase</span></span>](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+> * [<span data-ttu-id="1ad13-105">Fábrica de dados</span><span class="sxs-lookup"><span data-stu-id="1ad13-105">Data Factory</span></span>](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
+> * [<span data-ttu-id="1ad13-106">PolyBase</span><span class="sxs-lookup"><span data-stu-id="1ad13-106">PolyBase</span></span>](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 > 
 > 
 
-<span data-ttu-id="aa20a-107">Usar comandos do PolyBase e T-SQL para carregar dados do armazenamento de blobs do Azure no SQL Data Warehouse do Azure.</span><span class="sxs-lookup"><span data-stu-id="aa20a-107">Use PolyBase and T-SQL commands to load data from Azure blob storage into Azure SQL Data Warehouse.</span></span> 
+<span data-ttu-id="1ad13-107">Use o PolyBase T-SQL comandos tooload dados e do armazenamento de BLOBs do Azure no Azure SQL Data Warehouse.</span><span class="sxs-lookup"><span data-stu-id="1ad13-107">Use PolyBase and T-SQL commands tooload data from Azure blob storage into Azure SQL Data Warehouse.</span></span> 
 
-<span data-ttu-id="aa20a-108">Para simplificar, este tutorial carrega duas tabelas em um Blob de Armazenamento do Azure público para o esquema do Data Warehouse de Varejo da Contoso.</span><span class="sxs-lookup"><span data-stu-id="aa20a-108">To keep it simple, this tutorial loads two tables from a public Azure Storage Blob into the Contoso Retail Data Warehouse schema.</span></span> <span data-ttu-id="aa20a-109">Para carregar o conjunto de dados completo, execute o exemplo [Carregar o Contoso Retail Data Warehouse completo][Load the full Contoso Retail Data Warehouse] pelo repositório de Exemplos do Microsoft SQL Server.</span><span class="sxs-lookup"><span data-stu-id="aa20a-109">To load the full data set, run the example [Load the full Contoso Retail Data Warehouse][Load the full Contoso Retail Data Warehouse] from the Microsoft SQL Server Samples repository.</span></span>
+<span data-ttu-id="1ad13-108">tookeep ele simples, este tutorial carrega duas tabelas de um Blob de armazenamento público do Azure no esquema de Data Warehouse da Contoso varejo hello.</span><span class="sxs-lookup"><span data-stu-id="1ad13-108">tookeep it simple, this tutorial loads two tables from a public Azure Storage Blob into hello Contoso Retail Data Warehouse schema.</span></span> <span data-ttu-id="1ad13-109">tooload Olá conjunto de dados completo, execute o exemplo hello [carga Olá total do Data Warehouse Contoso varejo] [ Load hello full Contoso Retail Data Warehouse] do repositório do Microsoft SQL Server Samples hello.</span><span class="sxs-lookup"><span data-stu-id="1ad13-109">tooload hello full data set, run hello example [Load hello full Contoso Retail Data Warehouse][Load hello full Contoso Retail Data Warehouse] from hello Microsoft SQL Server Samples repository.</span></span>
 
-<span data-ttu-id="aa20a-110">Neste tutorial, você irá:</span><span class="sxs-lookup"><span data-stu-id="aa20a-110">In this tutorial you will:</span></span>
+<span data-ttu-id="1ad13-110">Neste tutorial, você irá:</span><span class="sxs-lookup"><span data-stu-id="1ad13-110">In this tutorial you will:</span></span>
 
-1. <span data-ttu-id="aa20a-111">Configurar PolyBase para carregar do armazenamento de blobs do Azure</span><span class="sxs-lookup"><span data-stu-id="aa20a-111">Configure PolyBase to load from Azure blob storage</span></span>
-2. <span data-ttu-id="aa20a-112">Carregar dados públicos em seu banco de dados</span><span class="sxs-lookup"><span data-stu-id="aa20a-112">Load public data into your database</span></span>
-3. <span data-ttu-id="aa20a-113">Execute otimizações após o carregamento ser concluído.</span><span class="sxs-lookup"><span data-stu-id="aa20a-113">Perform optimizations after the load is finished.</span></span>
+1. <span data-ttu-id="1ad13-111">Configurar o PolyBase tooload do armazenamento de BLOBs do Azure</span><span class="sxs-lookup"><span data-stu-id="1ad13-111">Configure PolyBase tooload from Azure blob storage</span></span>
+2. <span data-ttu-id="1ad13-112">Carregar dados públicos em seu banco de dados</span><span class="sxs-lookup"><span data-stu-id="1ad13-112">Load public data into your database</span></span>
+3. <span data-ttu-id="1ad13-113">Execute otimizações após a conclusão da carga de saudação.</span><span class="sxs-lookup"><span data-stu-id="1ad13-113">Perform optimizations after hello load is finished.</span></span>
 
-## <a name="before-you-begin"></a><span data-ttu-id="aa20a-114">Antes de começar</span><span class="sxs-lookup"><span data-stu-id="aa20a-114">Before you begin</span></span>
-<span data-ttu-id="aa20a-115">Para executar este tutorial, você precisa de uma conta do Azure que já tenha um banco de dados do SQL Data Warehouse.</span><span class="sxs-lookup"><span data-stu-id="aa20a-115">To run this tutorial, you need an Azure account that already has a SQL Data Warehouse database.</span></span> <span data-ttu-id="aa20a-116">Se você ainda não tiver uma, confira [Criar um SQL Data Warehouse][Create a SQL Data Warehouse].</span><span class="sxs-lookup"><span data-stu-id="aa20a-116">If you don't already have this, see [Create a SQL Data Warehouse][Create a SQL Data Warehouse].</span></span>
+## <a name="before-you-begin"></a><span data-ttu-id="1ad13-114">Antes de começar</span><span class="sxs-lookup"><span data-stu-id="1ad13-114">Before you begin</span></span>
+<span data-ttu-id="1ad13-115">toorun neste tutorial, você precisa de uma conta do Azure que já tenha um banco de dados do SQL Data Warehouse.</span><span class="sxs-lookup"><span data-stu-id="1ad13-115">toorun this tutorial, you need an Azure account that already has a SQL Data Warehouse database.</span></span> <span data-ttu-id="1ad13-116">Se você ainda não tiver uma, confira [Criar um SQL Data Warehouse][Create a SQL Data Warehouse].</span><span class="sxs-lookup"><span data-stu-id="1ad13-116">If you don't already have this, see [Create a SQL Data Warehouse][Create a SQL Data Warehouse].</span></span>
 
-## <a name="1-configure-the-data-source"></a><span data-ttu-id="aa20a-117">1. Configurar a fonte de dados</span><span class="sxs-lookup"><span data-stu-id="aa20a-117">1. Configure the data source</span></span>
-<span data-ttu-id="aa20a-118">O PolyBase usa objetos externos do T-SQL para definir o local e os atributos dos dados externos.</span><span class="sxs-lookup"><span data-stu-id="aa20a-118">PolyBase uses T-SQL external objects to define the location and attributes of the external data.</span></span> <span data-ttu-id="aa20a-119">As definições de objeto externo são armazenadas no SQL Data Warehouse.</span><span class="sxs-lookup"><span data-stu-id="aa20a-119">The external object definitions are stored in SQL Data Warehouse.</span></span> <span data-ttu-id="aa20a-120">Os dados em si são armazenados externamente.</span><span class="sxs-lookup"><span data-stu-id="aa20a-120">The data itself is stored externally.</span></span>
+## <a name="1-configure-hello-data-source"></a><span data-ttu-id="1ad13-117">1. Configurar fonte de dados de saudação</span><span class="sxs-lookup"><span data-stu-id="1ad13-117">1. Configure hello data source</span></span>
+<span data-ttu-id="1ad13-118">PolyBase usa o local do T-SQL objetos externos toodefine hello e atributos de dados externos de saudação.</span><span class="sxs-lookup"><span data-stu-id="1ad13-118">PolyBase uses T-SQL external objects toodefine hello location and attributes of hello external data.</span></span> <span data-ttu-id="1ad13-119">definições de objeto externo Olá são armazenadas no SQL Data Warehouse.</span><span class="sxs-lookup"><span data-stu-id="1ad13-119">hello external object definitions are stored in SQL Data Warehouse.</span></span> <span data-ttu-id="1ad13-120">dados de saudação em si são armazenados externamente.</span><span class="sxs-lookup"><span data-stu-id="1ad13-120">hello data itself is stored externally.</span></span>
 
-### <a name="11-create-a-credential"></a><span data-ttu-id="aa20a-121">1.1.</span><span class="sxs-lookup"><span data-stu-id="aa20a-121">1.1.</span></span> <span data-ttu-id="aa20a-122">Criar uma credencial</span><span class="sxs-lookup"><span data-stu-id="aa20a-122">Create a credential</span></span>
-<span data-ttu-id="aa20a-123">**Ignore esta etapa** se você estiver carregando os dados públicos da Contoso.</span><span class="sxs-lookup"><span data-stu-id="aa20a-123">**Skip this step** if you are loading the Contoso public data.</span></span> <span data-ttu-id="aa20a-124">Você não precisa proteger o acesso aos dados públicos, pois eles já estão acessíveis a qualquer pessoa.</span><span class="sxs-lookup"><span data-stu-id="aa20a-124">You don't need secure access to the public data since it is already accessible to anyone.</span></span>
+### <a name="11-create-a-credential"></a><span data-ttu-id="1ad13-121">1.1.</span><span class="sxs-lookup"><span data-stu-id="1ad13-121">1.1.</span></span> <span data-ttu-id="1ad13-122">Criar uma credencial</span><span class="sxs-lookup"><span data-stu-id="1ad13-122">Create a credential</span></span>
+<span data-ttu-id="1ad13-123">**Ignore esta etapa** se você estiver carregando dados públicos do hello Contoso.</span><span class="sxs-lookup"><span data-stu-id="1ad13-123">**Skip this step** if you are loading hello Contoso public data.</span></span> <span data-ttu-id="1ad13-124">Você não precisa acesso seguro toohello pública dados porque ela já está tooanyone acessível.</span><span class="sxs-lookup"><span data-stu-id="1ad13-124">You don't need secure access toohello public data since it is already accessible tooanyone.</span></span>
 
-<span data-ttu-id="aa20a-125">**Não ignore esta etapa** se você estiver usando este tutorial como um modelo para carregar seus próprios dados.</span><span class="sxs-lookup"><span data-stu-id="aa20a-125">**Don't skip this step** if you are using this tutorial as a template for loading your own data.</span></span> <span data-ttu-id="aa20a-126">Para acessar dados por meio de uma credencial, use o seguinte script para criar uma credencial com escopo de banco de dados e, em seguida, usá-lo ao definir o local da fonte de dados.</span><span class="sxs-lookup"><span data-stu-id="aa20a-126">To access data through a credential, use the following script to create a database-scoped credential, and then use it when defining the location of the data source.</span></span>
+<span data-ttu-id="1ad13-125">**Não ignore esta etapa** se você estiver usando este tutorial como um modelo para carregar seus próprios dados.</span><span class="sxs-lookup"><span data-stu-id="1ad13-125">**Don't skip this step** if you are using this tutorial as a template for loading your own data.</span></span> <span data-ttu-id="1ad13-126">dados tooaccess por meio de uma credencial, use Olá a seguir credencial toocreate um escopo do banco de dados de script e, em seguida, usá-lo ao definir o local de Olá Olá da fonte de dados.</span><span class="sxs-lookup"><span data-stu-id="1ad13-126">tooaccess data through a credential, use hello following script toocreate a database-scoped credential, and then use it when defining hello location of hello data source.</span></span>
 
 ```sql
 -- A: Create a master key.
 -- Only necessary if one does not already exist.
--- Required to encrypt the credential secret in the next step.
+-- Required tooencrypt hello credential secret in hello next step.
 
 CREATE MASTER KEY;
 
 
 -- B: Create a database scoped credential
--- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
+-- IDENTITY: Provide any string, it is not used for authentication tooAzure storage.
 -- SECRET: Provide your Azure storage account key.
 
 
@@ -70,9 +70,9 @@ WITH
 
 
 -- C: Create an external data source
--- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure blob storage.
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs tooaccess data in Azure blob storage.
 -- LOCATION: Provide Azure storage account name and blob container name.
--- CREDENTIAL: Provide the credential created in the previous step.
+-- CREDENTIAL: Provide hello credential created in hello previous step.
 
 CREATE EXTERNAL DATA SOURCE AzureStorage
 WITH (
@@ -82,10 +82,10 @@ WITH (
 );
 ```
 
-<span data-ttu-id="aa20a-127">Pule para a etapa 2.</span><span class="sxs-lookup"><span data-stu-id="aa20a-127">Skip to step 2.</span></span>
+<span data-ttu-id="1ad13-127">Ignore toostep 2.</span><span class="sxs-lookup"><span data-stu-id="1ad13-127">Skip toostep 2.</span></span>
 
-### <a name="12-create-the-external-data-source"></a><span data-ttu-id="aa20a-128">1.2.</span><span class="sxs-lookup"><span data-stu-id="aa20a-128">1.2.</span></span> <span data-ttu-id="aa20a-129">Criar a fonte de dados externa</span><span class="sxs-lookup"><span data-stu-id="aa20a-129">Create the external data source</span></span>
-<span data-ttu-id="aa20a-130">Use este comando [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] para armazenar o local dos dados e o tipo de dados.</span><span class="sxs-lookup"><span data-stu-id="aa20a-130">Use this [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] command to store the location of the data, and the type of data.</span></span> 
+### <a name="12-create-hello-external-data-source"></a><span data-ttu-id="1ad13-128">1.2.</span><span class="sxs-lookup"><span data-stu-id="1ad13-128">1.2.</span></span> <span data-ttu-id="1ad13-129">Criar fonte de dados externa Olá</span><span class="sxs-lookup"><span data-stu-id="1ad13-129">Create hello external data source</span></span>
+<span data-ttu-id="1ad13-130">Use este [CREATE EXTERNAL DATA SOURCE] [ CREATE EXTERNAL DATA SOURCE] comando toostore local de saudação de Olá dados e tipo de saudação de dados.</span><span class="sxs-lookup"><span data-stu-id="1ad13-130">Use this [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] command toostore hello location of hello data, and hello type of data.</span></span> 
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -97,12 +97,12 @@ WITH
 ```
 
 > [!IMPORTANT]
-> <span data-ttu-id="aa20a-131">Se você optar por tornar seus contêineres do armazenamento de blobs do Azure públicos, tenha em mente que, como proprietário dos dados, você será responsável por encargos de saída de dados quando os dados deixarem o datacenter.</span><span class="sxs-lookup"><span data-stu-id="aa20a-131">If you choose to make your azure blob storage containers public, remember that as the data owner you will be charged for data egress charges when data leaves the data center.</span></span> 
+> <span data-ttu-id="1ad13-131">Se você escolher toomake seu público de contêineres de armazenamento de BLOBs do azure, lembre-se de que como o proprietário dos dados Olá você será cobrado para dados de encargos de saída quando os dados saem Datacenter hello.</span><span class="sxs-lookup"><span data-stu-id="1ad13-131">If you choose toomake your azure blob storage containers public, remember that as hello data owner you will be charged for data egress charges when data leaves hello data center.</span></span> 
 > 
 > 
 
-## <a name="2-configure-data-format"></a><span data-ttu-id="aa20a-132">2. Configurar o formato de dados</span><span class="sxs-lookup"><span data-stu-id="aa20a-132">2. Configure data format</span></span>
-<span data-ttu-id="aa20a-133">Os dados são armazenados em arquivos de texto no armazenamento de blobs do Azure e cada campo é separado por um delimitador.</span><span class="sxs-lookup"><span data-stu-id="aa20a-133">The data is stored in text files in Azure blob storage, and each field is separated with a delimiter.</span></span> <span data-ttu-id="aa20a-134">Execute este comando [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] para especificar o formato dos dados nos arquivos de texto.</span><span class="sxs-lookup"><span data-stu-id="aa20a-134">Run this [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] command to specify the format of the data in the text files.</span></span> <span data-ttu-id="aa20a-135">Os dados da Contoso são descompactados e delimitados por barra vertical.</span><span class="sxs-lookup"><span data-stu-id="aa20a-135">The Contoso data is uncompressed and pipe delimited.</span></span>
+## <a name="2-configure-data-format"></a><span data-ttu-id="1ad13-132">2. Configurar o formato de dados</span><span class="sxs-lookup"><span data-stu-id="1ad13-132">2. Configure data format</span></span>
+<span data-ttu-id="1ad13-133">Olá dados são armazenados em arquivos de texto no armazenamento de BLOBs do Azure, e cada campo é separado com um delimitador.</span><span class="sxs-lookup"><span data-stu-id="1ad13-133">hello data is stored in text files in Azure blob storage, and each field is separated with a delimiter.</span></span> <span data-ttu-id="1ad13-134">Executar este [CREATE EXTERNAL FILE FORMAT] [ CREATE EXTERNAL FILE FORMAT] formato de saudação do comando toospecify de dados de saudação em arquivos de texto de saudação.</span><span class="sxs-lookup"><span data-stu-id="1ad13-134">Run this [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] command toospecify hello format of hello data in hello text files.</span></span> <span data-ttu-id="1ad13-135">Olá Contoso dados é compactado e delimitado por pipe.</span><span class="sxs-lookup"><span data-stu-id="1ad13-135">hello Contoso data is uncompressed and pipe delimited.</span></span>
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -116,21 +116,21 @@ WITH
 );
 ``` 
 
-## <a name="3-create-the-external-tables"></a><span data-ttu-id="aa20a-136">3. Criar as tabelas externas</span><span class="sxs-lookup"><span data-stu-id="aa20a-136">3. Create the external tables</span></span>
-<span data-ttu-id="aa20a-137">Agora que você especificou o formato do arquivo e da fonte de dados, você está pronto para criar as tabelas externas.</span><span class="sxs-lookup"><span data-stu-id="aa20a-137">Now that you have specified the data source and file format, you are ready to create the external tables.</span></span> 
+## <a name="3-create-hello-external-tables"></a><span data-ttu-id="1ad13-136">3. Criar tabelas externas de saudação</span><span class="sxs-lookup"><span data-stu-id="1ad13-136">3. Create hello external tables</span></span>
+<span data-ttu-id="1ad13-137">Agora que você especificou o formato de origem e o arquivo de dados hello, você está tabelas externas de saudação toocreate pronto.</span><span class="sxs-lookup"><span data-stu-id="1ad13-137">Now that you have specified hello data source and file format, you are ready toocreate hello external tables.</span></span> 
 
-### <a name="31-create-a-schema-for-the-data"></a><span data-ttu-id="aa20a-138">3.1.</span><span class="sxs-lookup"><span data-stu-id="aa20a-138">3.1.</span></span> <span data-ttu-id="aa20a-139">Crie um esquema para os dados.</span><span class="sxs-lookup"><span data-stu-id="aa20a-139">Create a schema for the data.</span></span>
-<span data-ttu-id="aa20a-140">Para criar um local para armazenar os dados da Contoso no banco de dados, crie um esquema.</span><span class="sxs-lookup"><span data-stu-id="aa20a-140">To create a place to store the Contoso data in your database, create a schema.</span></span>
+### <a name="31-create-a-schema-for-hello-data"></a><span data-ttu-id="1ad13-138">3.1.</span><span class="sxs-lookup"><span data-stu-id="1ad13-138">3.1.</span></span> <span data-ttu-id="1ad13-139">Crie um esquema para dados de saudação.</span><span class="sxs-lookup"><span data-stu-id="1ad13-139">Create a schema for hello data.</span></span>
+<span data-ttu-id="1ad13-140">toocreate uma saudação de toostore local Contoso dados no banco de dados, criar um esquema.</span><span class="sxs-lookup"><span data-stu-id="1ad13-140">toocreate a place toostore hello Contoso data in your database, create a schema.</span></span>
 
 ```sql
 CREATE SCHEMA [asb]
 GO
 ```
 
-### <a name="32-create-the-external-tables"></a><span data-ttu-id="aa20a-141">3.2.</span><span class="sxs-lookup"><span data-stu-id="aa20a-141">3.2.</span></span> <span data-ttu-id="aa20a-142">Crie as tabelas externas.</span><span class="sxs-lookup"><span data-stu-id="aa20a-142">Create the external tables.</span></span>
-<span data-ttu-id="aa20a-143">Execute este script para criar as tabelas externas DimProduct e FactOnlineSales.</span><span class="sxs-lookup"><span data-stu-id="aa20a-143">Run this script to create the DimProduct and FactOnlineSales external tables.</span></span> <span data-ttu-id="aa20a-144">Tudo o que estamos fazendo aqui é definir nomes de coluna e tipos de dados e associá-los ao local e ao formato dos arquivos de armazenamento de blobs do Azure.</span><span class="sxs-lookup"><span data-stu-id="aa20a-144">All we are doing here is defining column names and data types, and binding them to the location and format of the Azure blob storage files.</span></span> <span data-ttu-id="aa20a-145">A definição é armazenada no SQL Data Warehouse e os dados ainda estão no Blob de Armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="aa20a-145">The definition is stored in SQL Data Warehouse and the data is still in the Azure Storage Blob.</span></span>
+### <a name="32-create-hello-external-tables"></a><span data-ttu-id="1ad13-141">3.2.</span><span class="sxs-lookup"><span data-stu-id="1ad13-141">3.2.</span></span> <span data-ttu-id="1ad13-142">Crie hello tabelas externas.</span><span class="sxs-lookup"><span data-stu-id="1ad13-142">Create hello external tables.</span></span>
+<span data-ttu-id="1ad13-143">Execute este Olá toocreate de script DimProduct e FactOnlineSales tabelas externas.</span><span class="sxs-lookup"><span data-stu-id="1ad13-143">Run this script toocreate hello DimProduct and FactOnlineSales external tables.</span></span> <span data-ttu-id="1ad13-144">Tudo o que estamos fazendo aqui é definir nomes de coluna e tipos de dados e associá-los toohello local e o formato de arquivos de armazenamento de BLOBs do Azure hello.</span><span class="sxs-lookup"><span data-stu-id="1ad13-144">All we are doing here is defining column names and data types, and binding them toohello location and format of hello Azure blob storage files.</span></span> <span data-ttu-id="1ad13-145">Olá definição é armazenada no SQL Data Warehouse e dados saudação ainda estão em Olá Blob de armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="1ad13-145">hello definition is stored in SQL Data Warehouse and hello data is still in hello Azure Storage Blob.</span></span>
 
-<span data-ttu-id="aa20a-146">O parâmetro **LOCATION** é a pasta sob a pasta raiz no Azure Storage Blob.</span><span class="sxs-lookup"><span data-stu-id="aa20a-146">The  **LOCATION** parameter is the folder under the root folder in the Azure Storage Blob.</span></span> <span data-ttu-id="aa20a-147">Cada tabela é em uma pasta diferente.</span><span class="sxs-lookup"><span data-stu-id="aa20a-147">Each table is in a different folder.</span></span>
+<span data-ttu-id="1ad13-146">Olá **local** parâmetro é a pasta de saudação na pasta raiz de saudação em Olá Blob de armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="1ad13-146">hello  **LOCATION** parameter is hello folder under hello root folder in hello Azure Storage Blob.</span></span> <span data-ttu-id="1ad13-147">Cada tabela é em uma pasta diferente.</span><span class="sxs-lookup"><span data-stu-id="1ad13-147">Each table is in a different folder.</span></span>
 
 ```sql
 
@@ -215,23 +215,23 @@ WITH
 ;
 ```
 
-## <a name="4-load-the-data"></a><span data-ttu-id="aa20a-148">4. Carregar os dados</span><span class="sxs-lookup"><span data-stu-id="aa20a-148">4. Load the data</span></span>
-<span data-ttu-id="aa20a-149">Há diferentes maneiras de acessar dados externos.</span><span class="sxs-lookup"><span data-stu-id="aa20a-149">There's different ways to access external data.</span></span>  <span data-ttu-id="aa20a-150">Você pode consultar dados diretamente da tabela externa, carregar os dados nas novas tabelas de banco de dados ou adicionar dados externos às tabelas de banco de dados existentes.</span><span class="sxs-lookup"><span data-stu-id="aa20a-150">You can query data directly from the external table, load the data into new database tables, or add external data to existing database tables.</span></span>  
+## <a name="4-load-hello-data"></a><span data-ttu-id="1ad13-148">4. Carregar dados de saudação</span><span class="sxs-lookup"><span data-stu-id="1ad13-148">4. Load hello data</span></span>
+<span data-ttu-id="1ad13-149">Não há dados externos de tooaccess de maneiras diferentes.</span><span class="sxs-lookup"><span data-stu-id="1ad13-149">There's different ways tooaccess external data.</span></span>  <span data-ttu-id="1ad13-150">Você pode consultar dados diretamente da tabela externa hello, carregar dados saudação em novas tabelas de banco de dados ou adicionar tabelas de banco de dados de tooexisting dados externos.</span><span class="sxs-lookup"><span data-stu-id="1ad13-150">You can query data directly from hello external table, load hello data into new database tables, or add external data tooexisting database tables.</span></span>  
 
-### <a name="41-create-a-new-schema"></a><span data-ttu-id="aa20a-151">4.1.</span><span class="sxs-lookup"><span data-stu-id="aa20a-151">4.1.</span></span> <span data-ttu-id="aa20a-152">Criar um novo esquema</span><span class="sxs-lookup"><span data-stu-id="aa20a-152">Create a new schema</span></span>
-<span data-ttu-id="aa20a-153">O CTAS cria uma nova tabela que contém dados.</span><span class="sxs-lookup"><span data-stu-id="aa20a-153">CTAS creates a new table that contains data.</span></span>  <span data-ttu-id="aa20a-154">Primeiro, crie um esquema para os dados da Contoso.</span><span class="sxs-lookup"><span data-stu-id="aa20a-154">First, create a schema for the contoso data.</span></span>
+### <a name="41-create-a-new-schema"></a><span data-ttu-id="1ad13-151">4.1.</span><span class="sxs-lookup"><span data-stu-id="1ad13-151">4.1.</span></span> <span data-ttu-id="1ad13-152">Criar um novo esquema</span><span class="sxs-lookup"><span data-stu-id="1ad13-152">Create a new schema</span></span>
+<span data-ttu-id="1ad13-153">O CTAS cria uma nova tabela que contém dados.</span><span class="sxs-lookup"><span data-stu-id="1ad13-153">CTAS creates a new table that contains data.</span></span>  <span data-ttu-id="1ad13-154">Primeiro, crie um esquema para dados de contoso saudação.</span><span class="sxs-lookup"><span data-stu-id="1ad13-154">First, create a schema for hello contoso data.</span></span>
 
 ```sql
 CREATE SCHEMA [cso]
 GO
 ```
 
-### <a name="42-load-the-data-into-new-tables"></a><span data-ttu-id="aa20a-155">4.2.</span><span class="sxs-lookup"><span data-stu-id="aa20a-155">4.2.</span></span> <span data-ttu-id="aa20a-156">Carregar os dados em novas tabelas</span><span class="sxs-lookup"><span data-stu-id="aa20a-156">Load the data into new tables</span></span>
-<span data-ttu-id="aa20a-157">Para carregar dados de um armazenamento de blobs do Azure e salvá-los em uma tabela no banco de dados, use a instrução [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)].</span><span class="sxs-lookup"><span data-stu-id="aa20a-157">To load data from Azure blob storage and save it in a table inside of your database, use the [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement.</span></span> <span data-ttu-id="aa20a-158">Carregamento com CTAS utiliza as tabelas externas fortemente tipadas que você acabou de criar. Para carregar os dados em novas tabelas, use uma instrução [CTAS][CTAS] por tabela.</span><span class="sxs-lookup"><span data-stu-id="aa20a-158">Loading with CTAS leverages the strongly typed external tables you have just created.To load the data into new tables, use one [CTAS][CTAS] statement per table.</span></span> 
+### <a name="42-load-hello-data-into-new-tables"></a><span data-ttu-id="1ad13-155">4.2.</span><span class="sxs-lookup"><span data-stu-id="1ad13-155">4.2.</span></span> <span data-ttu-id="1ad13-156">Saudação de carregar dados em novas tabelas</span><span class="sxs-lookup"><span data-stu-id="1ad13-156">Load hello data into new tables</span></span>
+<span data-ttu-id="1ad13-157">armazenamento de blob de dados de tooload do Azure e salvá-lo em uma tabela dentro de seu banco de dados, use Olá [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instrução.</span><span class="sxs-lookup"><span data-stu-id="1ad13-157">tooload data from Azure blob storage and save it in a table inside of your database, use hello [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement.</span></span> <span data-ttu-id="1ad13-158">Carregando com CTAS aproveita Olá fortemente tipados tabelas externas, você tem apenas created.tooload Olá dados em novas tabelas, use um [CTAS] [ CTAS] instrução por tabela.</span><span class="sxs-lookup"><span data-stu-id="1ad13-158">Loading with CTAS leverages hello strongly typed external tables you have just created.tooload hello data into new tables, use one [CTAS][CTAS] statement per table.</span></span> 
  
-<span data-ttu-id="aa20a-159">O CTAS cria uma nova tabela e a preenche com os resultados de uma instrução select.</span><span class="sxs-lookup"><span data-stu-id="aa20a-159">CTAS creates a new table and populates it with the results of a select statement.</span></span> <span data-ttu-id="aa20a-160">CTAS define a nova tabela para ter as mesmas colunas e tipos de dados como os resultados da instrução select.</span><span class="sxs-lookup"><span data-stu-id="aa20a-160">CTAS defines the new table to have the same columns and data types as the results of the select statement.</span></span> <span data-ttu-id="aa20a-161">Se você selecionar todas as colunas de uma tabela externa, a nova tabela será uma réplica das colunas e dos tipos de dados na tabela externa.</span><span class="sxs-lookup"><span data-stu-id="aa20a-161">If you select all the columns from an external table, the new table will be a replica of the columns and data types in the external table.</span></span>
+<span data-ttu-id="1ad13-159">CTAS cria uma nova tabela e a popula com resultados de saudação de uma instrução select.</span><span class="sxs-lookup"><span data-stu-id="1ad13-159">CTAS creates a new table and populates it with hello results of a select statement.</span></span> <span data-ttu-id="1ad13-160">CTAS define Olá nova tabela toohave Olá mesmos colunas e tipos de dados, como a instrução select de resultados de saudação do hello.</span><span class="sxs-lookup"><span data-stu-id="1ad13-160">CTAS defines hello new table toohave hello same columns and data types as hello results of hello select statement.</span></span> <span data-ttu-id="1ad13-161">Se você selecionar todas as colunas de saudação de uma tabela externa, nova tabela de saudação será uma réplica de colunas de saudação e tipos de dados na tabela externa hello.</span><span class="sxs-lookup"><span data-stu-id="1ad13-161">If you select all hello columns from an external table, hello new table will be a replica of hello columns and data types in hello external table.</span></span>
 
-<span data-ttu-id="aa20a-162">Neste exemplo, criamos a dimensão e a tabela de fatos como tabela distribuídas de hash.</span><span class="sxs-lookup"><span data-stu-id="aa20a-162">In this example, we create both the dimension and the fact table as hash distributed tables.</span></span> 
+<span data-ttu-id="1ad13-162">Neste exemplo, podemos criar dimensão de saudação e a tabela de fatos hello como distribuídas tabelas de hash.</span><span class="sxs-lookup"><span data-stu-id="1ad13-162">In this example, we create both hello dimension and hello fact table as hash distributed tables.</span></span> 
 
 ```sql
 SELECT GETDATE();
@@ -241,20 +241,20 @@ CREATE TABLE [cso].[DimProduct]            WITH (DISTRIBUTION = HASH([ProductKey
 CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey]  ) ) AS SELECT * FROM [asb].[FactOnlineSales]        OPTION (LABEL = 'CTAS : Load [cso].[FactOnlineSales]        ');
 ```
 
-### <a name="43-track-the-load-progress"></a><span data-ttu-id="aa20a-163">4.3 Acompanhar o progresso do carregamento</span><span class="sxs-lookup"><span data-stu-id="aa20a-163">4.3 Track the load progress</span></span>
-<span data-ttu-id="aa20a-164">Você pode acompanhar o progresso do carregamento usando as DMVs (exibições de gerenciamento dinâmico).</span><span class="sxs-lookup"><span data-stu-id="aa20a-164">You can track the progress of your load using dynamic management views (DMVs).</span></span> 
+### <a name="43-track-hello-load-progress"></a><span data-ttu-id="1ad13-163">4.3 acompanhar o progresso de carregamento de saudação</span><span class="sxs-lookup"><span data-stu-id="1ad13-163">4.3 Track hello load progress</span></span>
+<span data-ttu-id="1ad13-164">Você pode acompanhar o progresso de saudação de sua carga usando exibições de gerenciamento dinâmico (DMVs).</span><span class="sxs-lookup"><span data-stu-id="1ad13-164">You can track hello progress of your load using dynamic management views (DMVs).</span></span> 
 
 ```sql
--- To see all requests
+-- toosee all requests
 SELECT * FROM sys.dm_pdw_exec_requests;
 
--- To see a particular request identified by its label
+-- toosee a particular request identified by its label
 SELECT * FROM sys.dm_pdw_exec_requests as r
 WHERE r.[label] = 'CTAS : Load [cso].[DimProduct]             '
       OR r.[label] = 'CTAS : Load [cso].[FactOnlineSales]        '
 ;
 
--- To track bytes and files
+-- tootrack bytes and files
 SELECT
     r.command,
     s.request_id,
@@ -277,10 +277,10 @@ ORDER BY
     gb_processed desc;
 ```
 
-## <a name="5-optimize-columnstore-compression"></a><span data-ttu-id="aa20a-165">5. Otimizar a compactação columnstore</span><span class="sxs-lookup"><span data-stu-id="aa20a-165">5. Optimize columnstore compression</span></span>
-<span data-ttu-id="aa20a-166">Por padrão, o SQL Data Warehouse armazena a tabela como um índice columnstore clusterizado.</span><span class="sxs-lookup"><span data-stu-id="aa20a-166">By default, SQL Data Warehouse stores the table as a clustered columnstore index.</span></span> <span data-ttu-id="aa20a-167">Após a conclusão do carregamento, algumas das linhas de dados não podem ser compactadas no columnstore.</span><span class="sxs-lookup"><span data-stu-id="aa20a-167">After a load completes, some of the data rows might not be compressed into the columnstore.</span></span>  <span data-ttu-id="aa20a-168">Há várias razões para isso acontecer.</span><span class="sxs-lookup"><span data-stu-id="aa20a-168">There's a variety of reasons why this can happen.</span></span> <span data-ttu-id="aa20a-169">Para obter mais informações, confira [gerenciar índices columnstore][manage columnstore indexes].</span><span class="sxs-lookup"><span data-stu-id="aa20a-169">To learn more, see [manage columnstore indexes][manage columnstore indexes].</span></span>
+## <a name="5-optimize-columnstore-compression"></a><span data-ttu-id="1ad13-165">5. Otimizar a compactação columnstore</span><span class="sxs-lookup"><span data-stu-id="1ad13-165">5. Optimize columnstore compression</span></span>
+<span data-ttu-id="1ad13-166">Por padrão, o SQL Data Warehouse armazena tabela hello como um índice columnstore clusterizado.</span><span class="sxs-lookup"><span data-stu-id="1ad13-166">By default, SQL Data Warehouse stores hello table as a clustered columnstore index.</span></span> <span data-ttu-id="1ad13-167">Após a conclusão de uma carga, algumas das linhas de dados de saudação não podem ser compactadas no Olá columnstore.</span><span class="sxs-lookup"><span data-stu-id="1ad13-167">After a load completes, some of hello data rows might not be compressed into hello columnstore.</span></span>  <span data-ttu-id="1ad13-168">Há várias razões para isso acontecer.</span><span class="sxs-lookup"><span data-stu-id="1ad13-168">There's a variety of reasons why this can happen.</span></span> <span data-ttu-id="1ad13-169">mais, consulte toolearn [gerenciar índices de columnstore][manage columnstore indexes].</span><span class="sxs-lookup"><span data-stu-id="1ad13-169">toolearn more, see [manage columnstore indexes][manage columnstore indexes].</span></span>
 
-<span data-ttu-id="aa20a-170">Para otimizar o desempenho da consulta e a compactação columnstore após um carregamento, recrie a tabela para forçar o índice columnstore a compactar todas as linhas.</span><span class="sxs-lookup"><span data-stu-id="aa20a-170">To optimize query performance and columnstore compression after a load, rebuild the table to force the columnstore index to compress all the rows.</span></span> 
+<span data-ttu-id="1ad13-170">consulta de toooptimize desempenho e compactação columnstore depois de uma carga recriar Olá tabela tooforce Olá columnstore index toocompress todas as linhas de saudação.</span><span class="sxs-lookup"><span data-stu-id="1ad13-170">toooptimize query performance and columnstore compression after a load, rebuild hello table tooforce hello columnstore index toocompress all hello rows.</span></span> 
 
 ```sql
 SELECT GETDATE();
@@ -290,14 +290,14 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-<span data-ttu-id="aa20a-171">Para obter mais informações sobre como manter os índices columnstore, confira o artigo [gerenciar índices columnstore][manage columnstore indexes].</span><span class="sxs-lookup"><span data-stu-id="aa20a-171">For more information on maintaining columnstore indexes, see the [manage columnstore indexes][manage columnstore indexes] article.</span></span>
+<span data-ttu-id="1ad13-171">Para obter mais informações sobre como manter os índices columnstore, consulte Olá [gerenciar índices de columnstore] [ manage columnstore indexes] artigo.</span><span class="sxs-lookup"><span data-stu-id="1ad13-171">For more information on maintaining columnstore indexes, see hello [manage columnstore indexes][manage columnstore indexes] article.</span></span>
 
-## <a name="6-optimize-statistics"></a><span data-ttu-id="aa20a-172">6. Otimizar estatísticas</span><span class="sxs-lookup"><span data-stu-id="aa20a-172">6. Optimize statistics</span></span>
-<span data-ttu-id="aa20a-173">É melhor criar estatísticas de coluna única imediatamente após um carregamento.</span><span class="sxs-lookup"><span data-stu-id="aa20a-173">It is best to create single-column statistics immediately after a load.</span></span> <span data-ttu-id="aa20a-174">Há algumas opções de estatísticas.</span><span class="sxs-lookup"><span data-stu-id="aa20a-174">There are some choices for statistics.</span></span> <span data-ttu-id="aa20a-175">Por exemplo, se você criar estatísticas de coluna única em todas as colunas, poderá levar muito tempo para recompilar todas as estatísticas.</span><span class="sxs-lookup"><span data-stu-id="aa20a-175">For example, if you create single-column statistics on every column it might take a long time to rebuild all the statistics.</span></span> <span data-ttu-id="aa20a-176">Se você souber que determinadas colunas não estarão em predicados de consulta, você poderá ignorar a criação de estatísticas nessas colunas.</span><span class="sxs-lookup"><span data-stu-id="aa20a-176">If you know certain columns are not going to be in query predicates, you can skip creating statistics on those columns.</span></span>
+## <a name="6-optimize-statistics"></a><span data-ttu-id="1ad13-172">6. Otimizar estatísticas</span><span class="sxs-lookup"><span data-stu-id="1ad13-172">6. Optimize statistics</span></span>
+<span data-ttu-id="1ad13-173">É melhor estatísticas de coluna única toocreate imediatamente após uma carga.</span><span class="sxs-lookup"><span data-stu-id="1ad13-173">It is best toocreate single-column statistics immediately after a load.</span></span> <span data-ttu-id="1ad13-174">Há algumas opções de estatísticas.</span><span class="sxs-lookup"><span data-stu-id="1ad13-174">There are some choices for statistics.</span></span> <span data-ttu-id="1ad13-175">Por exemplo, se você criar estatísticas de coluna única em todas as colunas pode levar um longo tempo toorebuild todas as estatísticas de saudação.</span><span class="sxs-lookup"><span data-stu-id="1ad13-175">For example, if you create single-column statistics on every column it might take a long time toorebuild all hello statistics.</span></span> <span data-ttu-id="1ad13-176">Se você souber que determinadas colunas não serão toobe em predicados de consulta, você pode ignorar a criação de estatísticas nessas colunas.</span><span class="sxs-lookup"><span data-stu-id="1ad13-176">If you know certain columns are not going toobe in query predicates, you can skip creating statistics on those columns.</span></span>
 
-<span data-ttu-id="aa20a-177">Se você decidir criar estatísticas com uma coluna em cada coluna de cada tabela, poderá usar o exemplo de código do procedimento armazenado `prc_sqldw_create_stats` no artigo [estatísticas][statistics].</span><span class="sxs-lookup"><span data-stu-id="aa20a-177">If you decide to create single-column statistics on every column of every table, you can use the stored procedure code sample `prc_sqldw_create_stats` in the [statistics][statistics] article.</span></span>
+<span data-ttu-id="1ad13-177">Se você decidir toocreate estatísticas de coluna única em todas as colunas de cada tabela, você pode usar o exemplo de código do procedimento armazenado hello `prc_sqldw_create_stats` em Olá [estatísticas] [ statistics] artigo.</span><span class="sxs-lookup"><span data-stu-id="1ad13-177">If you decide toocreate single-column statistics on every column of every table, you can use hello stored procedure code sample `prc_sqldw_create_stats` in hello [statistics][statistics] article.</span></span>
 
-<span data-ttu-id="aa20a-178">O exemplo a seguir é um bom ponto de partida para a criação de estatísticas.</span><span class="sxs-lookup"><span data-stu-id="aa20a-178">The following example is a good starting point for creating statistics.</span></span> <span data-ttu-id="aa20a-179">Ele cria estatísticas de coluna única em cada coluna na tabela de dimensões e em cada coluna de junção das tabelas de fatos.</span><span class="sxs-lookup"><span data-stu-id="aa20a-179">It creates single-column statistics on each column in the dimension table, and on each joining column in the fact tables.</span></span> <span data-ttu-id="aa20a-180">Você poderá adicionar estatísticas de coluna única ou múltipla às colunas de tabelas de fatos posteriormente.</span><span class="sxs-lookup"><span data-stu-id="aa20a-180">You can always add single or multi-column statistics to other fact table columns later on.</span></span>
+<span data-ttu-id="1ad13-178">saudação de exemplo a seguir é um bom ponto de partida para a criação de estatísticas.</span><span class="sxs-lookup"><span data-stu-id="1ad13-178">hello following example is a good starting point for creating statistics.</span></span> <span data-ttu-id="1ad13-179">Cria estatísticas de coluna única em cada coluna na tabela de dimensões hello e em cada coluna de junção em tabelas de fatos hello.</span><span class="sxs-lookup"><span data-stu-id="1ad13-179">It creates single-column statistics on each column in hello dimension table, and on each joining column in hello fact tables.</span></span> <span data-ttu-id="1ad13-180">Você sempre poderá adicionar colunas de tabela de fatos única ou várias colunas de estatísticas tooother posteriormente.</span><span class="sxs-lookup"><span data-stu-id="1ad13-180">You can always add single or multi-column statistics tooother fact table columns later on.</span></span>
 
 ```sql
 CREATE STATISTICS [stat_cso_DimProduct_AvailableForSaleDate] ON [cso].[DimProduct]([AvailableForSaleDate]);
@@ -341,10 +341,10 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_PromotionKey] ON [cso].[FactOnlineSa
 CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]([StoreKey]);
 ```
 
-## <a name="achievement-unlocked"></a><span data-ttu-id="aa20a-181">Missão cumprida!</span><span class="sxs-lookup"><span data-stu-id="aa20a-181">Achievement unlocked!</span></span>
-<span data-ttu-id="aa20a-182">Você carregou com êxito os dados públicos no SQL Data Warehouse do Azure.</span><span class="sxs-lookup"><span data-stu-id="aa20a-182">You have successfully loaded public data into Azure SQL Data Warehouse.</span></span> <span data-ttu-id="aa20a-183">Bom trabalho!</span><span class="sxs-lookup"><span data-stu-id="aa20a-183">Great job!</span></span>
+## <a name="achievement-unlocked"></a><span data-ttu-id="1ad13-181">Missão cumprida!</span><span class="sxs-lookup"><span data-stu-id="1ad13-181">Achievement unlocked!</span></span>
+<span data-ttu-id="1ad13-182">Você carregou com êxito os dados públicos no SQL Data Warehouse do Azure.</span><span class="sxs-lookup"><span data-stu-id="1ad13-182">You have successfully loaded public data into Azure SQL Data Warehouse.</span></span> <span data-ttu-id="1ad13-183">Bom trabalho!</span><span class="sxs-lookup"><span data-stu-id="1ad13-183">Great job!</span></span>
 
-<span data-ttu-id="aa20a-184">Agora você pode começar a consultar as tabelas usando consultas, como mostrado a seguir:</span><span class="sxs-lookup"><span data-stu-id="aa20a-184">You can now start querying the tables using queries like the following:</span></span>
+<span data-ttu-id="1ad13-184">Agora você pode começar a consultar tabelas hello usando consultas como Olá a seguir:</span><span class="sxs-lookup"><span data-stu-id="1ad13-184">You can now start querying hello tables using queries like hello following:</span></span>
 
 ```sql
 SELECT  SUM(f.[SalesAmount]) AS [sales_by_brand_amount]
@@ -354,8 +354,8 @@ JOIN    [cso].[DimProduct]      AS p ON f.[ProductKey] = p.[ProductKey]
 GROUP BY p.[BrandName]
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="aa20a-185">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="aa20a-185">Next steps</span></span>
-<span data-ttu-id="aa20a-186">Para carregar todos os dados do Contoso Retail Data Warehouse, use o script em Para obter mais dicas de desenvolvimento, confira [Visão geral de desenvolvimento do SQL Data Warehouse][SQL Data Warehouse development overview].</span><span class="sxs-lookup"><span data-stu-id="aa20a-186">To load the full Contoso Retail Data Warehouse data, use the script in For more development tips, see [SQL Data Warehouse development overview][SQL Data Warehouse development overview].</span></span>
+## <a name="next-steps"></a><span data-ttu-id="1ad13-185">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="1ad13-185">Next steps</span></span>
+<span data-ttu-id="1ad13-186">dados de Data Warehouse da Contoso comercial completos saudação de tooload, usar script hello para obter mais dicas de desenvolvimento, consulte [visão geral do desenvolvimento de SQL Data Warehouse][SQL Data Warehouse development overview].</span><span class="sxs-lookup"><span data-stu-id="1ad13-186">tooload hello full Contoso Retail Data Warehouse data, use hello script in For more development tips, see [SQL Data Warehouse development overview][SQL Data Warehouse development overview].</span></span>
 
 <!--Image references-->
 
@@ -377,4 +377,4 @@ GROUP BY p.[BrandName]
 
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
-[Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
+[Load hello full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md

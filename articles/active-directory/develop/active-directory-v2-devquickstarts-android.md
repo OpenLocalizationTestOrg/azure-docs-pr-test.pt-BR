@@ -1,6 +1,6 @@
 ---
-title: Aplicativo Android v2.0 do Azure Active Directory | Microsoft Docs
-description: "Como criar um aplicativo Android que conecte usuários com a conta pessoal e as contas corporativas ou de estudante da Microsoft e as chamadas à API do Graph usando bibliotecas de terceiros."
+title: aplicativo do Android aaaAzure do Active Directory v 2.0 | Microsoft Docs
+description: "Como um aplicativo do Android que conecta os usuários com pessoais conta da Microsoft e trabalho ou escolares e chamadas de toobuild Olá API do Graph usando bibliotecas de terceiros."
 services: active-directory
 documentationcenter: 
 author: danieldobalian
@@ -15,58 +15,58 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: c0a5a818c61f7af7ff04bf890b54e8364f3b21b1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1dd40bd3bcea28c629abce09abaed66b38774162
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a><span data-ttu-id="79978-103">Adicionar entrada a um aplicativo Android usando uma biblioteca de terceiros com a API do Graph usando o ponto de extremidade v2.0</span><span class="sxs-lookup"><span data-stu-id="79978-103">Add sign-in to an Android app using a third-party library with Graph API using the v2.0 endpoint</span></span>
-<span data-ttu-id="79978-104">A plataforma de identidade da Microsoft usa padrões abertos, como OAuth2 e OpenID Connect.</span><span class="sxs-lookup"><span data-stu-id="79978-104">The Microsoft identity platform uses open standards such as OAuth2 and OpenID Connect.</span></span> <span data-ttu-id="79978-105">Os desenvolvedores podem usar qualquer biblioteca desejada para integrar aos nossos serviços.</span><span class="sxs-lookup"><span data-stu-id="79978-105">Developers can use any library they want to integrate with our services.</span></span> <span data-ttu-id="79978-106">Para ajudar os desenvolvedores a usar nossa plataforma com outras bibliotecas, escrevemos alguns guias passo a passo como este para demonstrar como configurar bibliotecas de terceiros que se conectam à plataforma de identidade da Microsoft.</span><span class="sxs-lookup"><span data-stu-id="79978-106">To help developers use our platform with other libraries, we've written a few walkthroughs like this one to demonstrate how to configure third-party libraries to connect to the Microsoft identity platform.</span></span> <span data-ttu-id="79978-107">A maioria das bibliotecas que implementa [a especificação RFC6749 do OAuth2](https://tools.ietf.org/html/rfc6749) pode se conectar à plataforma de identidade da Microsoft.</span><span class="sxs-lookup"><span data-stu-id="79978-107">Most libraries that implement [the RFC6749 OAuth2 spec](https://tools.ietf.org/html/rfc6749) can connect to the Microsoft identity platform.</span></span>
+# <a name="add-sign-in-tooan-android-app-using-a-third-party-library-with-graph-api-using-hello-v20-endpoint"></a><span data-ttu-id="bced9-103">Adicionar aplicativo do Android tooan entrar usando uma biblioteca de terceiros com a API do Graph usando o ponto de extremidade do hello v 2.0</span><span class="sxs-lookup"><span data-stu-id="bced9-103">Add sign-in tooan Android app using a third-party library with Graph API using hello v2.0 endpoint</span></span>
+<span data-ttu-id="bced9-104">plataforma de identidade do Microsoft Hello usa padrões abertos como OAuth2 e OpenID Connect.</span><span class="sxs-lookup"><span data-stu-id="bced9-104">hello Microsoft identity platform uses open standards such as OAuth2 and OpenID Connect.</span></span> <span data-ttu-id="bced9-105">Os desenvolvedores podem usar qualquer biblioteca quiserem toointegrate com nossos serviços.</span><span class="sxs-lookup"><span data-stu-id="bced9-105">Developers can use any library they want toointegrate with our services.</span></span> <span data-ttu-id="bced9-106">os desenvolvedores de toohelp usar nossa plataforma com outras bibliotecas, escrevemos algumas instruções passo a passo como esse um toodemonstrate como plataforma de identidade da Microsoft tooconnect toohello tooconfigure bibliotecas de terceiros.</span><span class="sxs-lookup"><span data-stu-id="bced9-106">toohelp developers use our platform with other libraries, we've written a few walkthroughs like this one toodemonstrate how tooconfigure third-party libraries tooconnect toohello Microsoft identity platform.</span></span> <span data-ttu-id="bced9-107">A maioria das bibliotecas que implementam [especificação Olá RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749) pode se conectar a plataforma de identidade do Microsoft toohello.</span><span class="sxs-lookup"><span data-stu-id="bced9-107">Most libraries that implement [hello RFC6749 OAuth2 spec](https://tools.ietf.org/html/rfc6749) can connect toohello Microsoft identity platform.</span></span>
 
-<span data-ttu-id="79978-108">Com o aplicativo que esse passo a passo cria, os usuários podem entrar na respectiva organização e pesquisar a si mesmos na organização usando a API do Graph.</span><span class="sxs-lookup"><span data-stu-id="79978-108">With the application that this walkthrough creates, users can sign in to their organization and then search for themselves in their organization by using the Graph API.</span></span>
+<span data-ttu-id="bced9-108">Com o aplicativo hello que cria este passo a passo, os usuários podem entrar na organização tootheir e pesquisar por si mesmos em sua organização usando Olá API do Graph.</span><span class="sxs-lookup"><span data-stu-id="bced9-108">With hello application that this walkthrough creates, users can sign in tootheir organization and then search for themselves in their organization by using hello Graph API.</span></span>
 
-<span data-ttu-id="79978-109">Se ainda não conhece o OAuth2 ou o OpenID Connect, grande parte desta configuração de exemplo pode não fazer muito sentido para você.</span><span class="sxs-lookup"><span data-stu-id="79978-109">If you're new to OAuth2 or OpenID Connect, much of this sample configuration may not make sense to you.</span></span> <span data-ttu-id="79978-110">É recomendável ler o artigo [Protocolos 2.0 – Fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols-oauth-code.md) para obter mais informações.</span><span class="sxs-lookup"><span data-stu-id="79978-110">We recommend that you read [2.0 Protocols - OAuth 2.0 Authorization Code Flow](active-directory-v2-protocols-oauth-code.md) for background.</span></span>
-
-> [!NOTE]
-> <span data-ttu-id="79978-111">Alguns recursos da nossa plataforma que possuem uma expressão nos padrões OAuth2 ou OpenID Connect, como o Acesso Condicional e o gerenciamento de políticas do Intune, exigem que você use nossas Bibliotecas de Identidade do Microsoft Azure de software livre.</span><span class="sxs-lookup"><span data-stu-id="79978-111">Some features of our platform that do have an expression in the OAuth2 or OpenID Connect standards, such as Conditional Access and Intune policy management, require you to use our open source Microsoft Azure Identity Libraries.</span></span>
-> 
-> 
-
-<span data-ttu-id="79978-112">O ponto de extremidade v2.0 não dá suporte a todos os cenários e recursos do Azure Active Directory.</span><span class="sxs-lookup"><span data-stu-id="79978-112">The v2.0 endpoint does not support all Azure Active Directory scenarios and features.</span></span>
+<span data-ttu-id="bced9-109">Se você for novo tooOAuth2 ou OpenID Connect, muito dessa configuração de exemplo pode não fazer sentido tooyou.</span><span class="sxs-lookup"><span data-stu-id="bced9-109">If you're new tooOAuth2 or OpenID Connect, much of this sample configuration may not make sense tooyou.</span></span> <span data-ttu-id="bced9-110">É recomendável ler o artigo [Protocolos 2.0 – Fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols-oauth-code.md) para obter mais informações.</span><span class="sxs-lookup"><span data-stu-id="bced9-110">We recommend that you read [2.0 Protocols - OAuth 2.0 Authorization Code Flow](active-directory-v2-protocols-oauth-code.md) for background.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="79978-113">Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).</span><span class="sxs-lookup"><span data-stu-id="79978-113">To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).</span></span>
+> <span data-ttu-id="bced9-111">Alguns recursos de nossa plataforma que têm uma expressão em Olá OAuth2 ou padrões de OpenID Connect, como acesso condicional e gerenciamento de política do Intune, exigem você toouse nosso código-fonte aberto bibliotecas de identidade do Microsoft Azure.</span><span class="sxs-lookup"><span data-stu-id="bced9-111">Some features of our platform that do have an expression in hello OAuth2 or OpenID Connect standards, such as Conditional Access and Intune policy management, require you toouse our open source Microsoft Azure Identity Libraries.</span></span>
 > 
 > 
 
-## <a name="download-the-code-from-github"></a><span data-ttu-id="79978-114">Baixar o código do GitHub</span><span class="sxs-lookup"><span data-stu-id="79978-114">Download the code from GitHub</span></span>
-<span data-ttu-id="79978-115">O código para este tutorial é mantido [no GitHub](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2).</span><span class="sxs-lookup"><span data-stu-id="79978-115">The code for this tutorial is maintained [on GitHub](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2).</span></span>  <span data-ttu-id="79978-116">Para acompanhar, você pode [baixar o esqueleto do aplicativo como um .zip](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2/archive/skeleton.zip) ou clonar o esqueleto:</span><span class="sxs-lookup"><span data-stu-id="79978-116">To follow along, you can  [download the app's skeleton as a .zip](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2/archive/skeleton.zip) or clone the skeleton:</span></span>
+<span data-ttu-id="bced9-112">o ponto de extremidade do Hello v 2.0 não oferece suporte a todos os recursos e cenários de Active Directory do Azure.</span><span class="sxs-lookup"><span data-stu-id="bced9-112">hello v2.0 endpoint does not support all Azure Active Directory scenarios and features.</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="bced9-113">toodetermine se você deve usar o ponto de extremidade de v 2.0 hello, leia sobre [limitações v 2.0](active-directory-v2-limitations.md).</span><span class="sxs-lookup"><span data-stu-id="bced9-113">toodetermine if you should use hello v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).</span></span>
+> 
+> 
+
+## <a name="download-hello-code-from-github"></a><span data-ttu-id="bced9-114">Baixar o código de saudação do GitHub</span><span class="sxs-lookup"><span data-stu-id="bced9-114">Download hello code from GitHub</span></span>
+<span data-ttu-id="bced9-115">código de saudação para este tutorial é mantido [no GitHub](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2).</span><span class="sxs-lookup"><span data-stu-id="bced9-115">hello code for this tutorial is maintained [on GitHub](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2).</span></span>  <span data-ttu-id="bced9-116">toofollow ao longo, você pode [baixar o esqueleto do aplicativo hello como. zip](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2/archive/skeleton.zip) ou esqueleto de saudação do clone:</span><span class="sxs-lookup"><span data-stu-id="bced9-116">toofollow along, you can  [download hello app's skeleton as a .zip](https://github.com/Azure-Samples/active-directory-android-native-oidcandroidlib-v2/archive/skeleton.zip) or clone hello skeleton:</span></span>
 
 ```
 git clone --branch skeleton git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git
 ```
 
-<span data-ttu-id="79978-117">Você também pode apenas baixar o exemplo e começar imediatamente:</span><span class="sxs-lookup"><span data-stu-id="79978-117">You can also just download the sample and get started right away:</span></span>
+<span data-ttu-id="bced9-117">Você também pode baixar o exemplo hello e começar imediatamente:</span><span class="sxs-lookup"><span data-stu-id="bced9-117">You can also just download hello sample and get started right away:</span></span>
 
 ```
 git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.git
 ```
 
-## <a name="register-an-app"></a><span data-ttu-id="79978-118">Registrar um aplicativo</span><span class="sxs-lookup"><span data-stu-id="79978-118">Register an app</span></span>
-<span data-ttu-id="79978-119">Crie um novo aplicativo no [Portal de registro de aplicativos](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou siga as etapas detalhadas em [Como registrar um aplicativo com o ponto de extremidade v 2.0](active-directory-v2-app-registration.md).</span><span class="sxs-lookup"><span data-stu-id="79978-119">Create a new app at the [Application registration portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), or follow the detailed steps at [How to register an app with the v2.0 endpoint](active-directory-v2-app-registration.md).</span></span>  <span data-ttu-id="79978-120">Não se esqueça de:</span><span class="sxs-lookup"><span data-stu-id="79978-120">Make sure to:</span></span>
+## <a name="register-an-app"></a><span data-ttu-id="bced9-118">Registrar um aplicativo</span><span class="sxs-lookup"><span data-stu-id="bced9-118">Register an app</span></span>
+<span data-ttu-id="bced9-119">Criar um novo aplicativo no hello [portal de registro de aplicativo](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), ou siga Olá etapas detalhadas em [como tooregister um aplicativo com o ponto de extremidade do hello v 2.0](active-directory-v2-app-registration.md).</span><span class="sxs-lookup"><span data-stu-id="bced9-119">Create a new app at hello [Application registration portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), or follow hello detailed steps at [How tooregister an app with hello v2.0 endpoint](active-directory-v2-app-registration.md).</span></span>  <span data-ttu-id="bced9-120">Não se esqueça de:</span><span class="sxs-lookup"><span data-stu-id="bced9-120">Make sure to:</span></span>
 
-* <span data-ttu-id="79978-121">Copiar a **ID do Aplicativo** atribuída ao seu aplicativo, pois você precisará dela em breve.</span><span class="sxs-lookup"><span data-stu-id="79978-121">Copy the **Application Id** that's assigned to your app because you'll need it soon.</span></span>
-* <span data-ttu-id="79978-122">Adicione a plataforma **Móvel** de seu aplicativo.</span><span class="sxs-lookup"><span data-stu-id="79978-122">Add the **Mobile** platform for your app.</span></span>
+* <span data-ttu-id="bced9-121">Saudação de cópia **Id do aplicativo** que é atribuído tooyour aplicativo porque você precisará dele em breve.</span><span class="sxs-lookup"><span data-stu-id="bced9-121">Copy hello **Application Id** that's assigned tooyour app because you'll need it soon.</span></span>
+* <span data-ttu-id="bced9-122">Adicionar Olá **Mobile** plataforma para seu aplicativo.</span><span class="sxs-lookup"><span data-stu-id="bced9-122">Add hello **Mobile** platform for your app.</span></span>
 
-> <span data-ttu-id="79978-123">Observação: o portal de registro de aplicativo fornece um valor de **URI de redirecionamento** .</span><span class="sxs-lookup"><span data-stu-id="79978-123">Note: The Application registration portal provides a **Redirect URI** value.</span></span> <span data-ttu-id="79978-124">No entanto, neste exemplo, você deve usar o valor padrão de `https://login.microsoftonline.com/common/oauth2/nativeclient`.</span><span class="sxs-lookup"><span data-stu-id="79978-124">However, in this example you must use the default value of `https://login.microsoftonline.com/common/oauth2/nativeclient`.</span></span>
+> <span data-ttu-id="bced9-123">Observação: o portal de registro de aplicativo hello fornece um **URI de redirecionamento** valor.</span><span class="sxs-lookup"><span data-stu-id="bced9-123">Note: hello Application registration portal provides a **Redirect URI** value.</span></span> <span data-ttu-id="bced9-124">No entanto, neste exemplo você deve usar o valor padrão Olá `https://login.microsoftonline.com/common/oauth2/nativeclient`.</span><span class="sxs-lookup"><span data-stu-id="bced9-124">However, in this example you must use hello default value of `https://login.microsoftonline.com/common/oauth2/nativeclient`.</span></span>
 > 
 > 
 
-## <a name="download-the-nxoauth2-third-party-library-and-create-a-workspace"></a><span data-ttu-id="79978-125">Baixar a biblioteca de terceiros NXOAuth2 e criar um espaço de trabalho</span><span class="sxs-lookup"><span data-stu-id="79978-125">Download the NXOAuth2 third-party library and create a workspace</span></span>
-<span data-ttu-id="79978-126">Para este passo a passo, você usará a OIDCAndroidLib do GitHub, que é uma biblioteca OAuth2 com base no código do OpenID Connect do Google.</span><span class="sxs-lookup"><span data-stu-id="79978-126">For this walkthrough, you will use the OIDCAndroidLib from GitHub, which is an OAuth2 library based on the OpenID Connect code of Google.</span></span> <span data-ttu-id="79978-127">Ela implementa o perfil de aplicativo nativo e dá suporte ao ponto de extremidade de autorização do usuário.</span><span class="sxs-lookup"><span data-stu-id="79978-127">It implements the native application profile and supports the authorization endpoint of the user.</span></span> <span data-ttu-id="79978-128">Isso é tudo de que você precisa para a integração à plataforma de identidade da Microsoft.</span><span class="sxs-lookup"><span data-stu-id="79978-128">These are all the things that you'll need to integrate with the Microsoft identity platform.</span></span>
+## <a name="download-hello-nxoauth2-third-party-library-and-create-a-workspace"></a><span data-ttu-id="bced9-125">Baixar a biblioteca de terceiros NXOAuth2 hello e criar um espaço de trabalho</span><span class="sxs-lookup"><span data-stu-id="bced9-125">Download hello NXOAuth2 third-party library and create a workspace</span></span>
+<span data-ttu-id="bced9-126">Para este passo a passo, você usará Olá OIDCAndroidLib do GitHub, que é uma biblioteca de OAuth2 com base em Olá código OpenID Connect do Google.</span><span class="sxs-lookup"><span data-stu-id="bced9-126">For this walkthrough, you will use hello OIDCAndroidLib from GitHub, which is an OAuth2 library based on hello OpenID Connect code of Google.</span></span> <span data-ttu-id="bced9-127">Ele implementa um perfil de aplicativo nativo hello e dá suporte ao ponto de extremidade de autorização de saudação do usuário hello.</span><span class="sxs-lookup"><span data-stu-id="bced9-127">It implements hello native application profile and supports hello authorization endpoint of hello user.</span></span> <span data-ttu-id="bced9-128">Essas são todas as coisas hello, você precisará toointegrate com a plataforma de identidade Microsoft hello.</span><span class="sxs-lookup"><span data-stu-id="bced9-128">These are all hello things that you'll need toointegrate with hello Microsoft identity platform.</span></span>
 
-<span data-ttu-id="79978-129">Clone o repositório OIDCAndroidLib em seu computador.</span><span class="sxs-lookup"><span data-stu-id="79978-129">Clone the OIDCAndroidLib repo to your computer.</span></span>
+<span data-ttu-id="bced9-129">Clone um computador de tooyour Olá OIDCAndroidLib repositório.</span><span class="sxs-lookup"><span data-stu-id="bced9-129">Clone hello OIDCAndroidLib repo tooyour computer.</span></span>
 
 ```
 git@github.com:kalemontes/OIDCAndroidLib.git
@@ -74,71 +74,71 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 
 ![androidStudio](../media/active-directory-android-native-oidcandroidlib-v2/emotes-url.png)
 
-## <a name="set-up-your-android-studio-environment"></a><span data-ttu-id="79978-131">Configurar o ambiente do Android Studio</span><span class="sxs-lookup"><span data-stu-id="79978-131">Set up your Android Studio environment</span></span>
-1. <span data-ttu-id="79978-132">Crie um novo projeto do Android Studio e aceite os padrões do assistente.</span><span class="sxs-lookup"><span data-stu-id="79978-132">Create a new Android Studio project and accept the defaults in the wizard.</span></span>
+## <a name="set-up-your-android-studio-environment"></a><span data-ttu-id="bced9-131">Configurar o ambiente do Android Studio</span><span class="sxs-lookup"><span data-stu-id="bced9-131">Set up your Android Studio environment</span></span>
+1. <span data-ttu-id="bced9-132">Criar um novo projeto do Android Studio e aceite os padrões de saudação no Assistente de saudação.</span><span class="sxs-lookup"><span data-stu-id="bced9-132">Create a new Android Studio project and accept hello defaults in hello wizard.</span></span>
    
     ![Criar novo projeto no Android Studio](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample1.PNG)
    
     ![Dispositivos Android de destino](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample2.PNG)
    
-    ![Adicionar uma atividade ao celular](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample3.PNG)
-2. <span data-ttu-id="79978-136">Para configurar os módulos de projeto, mova o repositório clonado para o local do projeto.</span><span class="sxs-lookup"><span data-stu-id="79978-136">To set up your project modules, move the cloned repo to the project location.</span></span> <span data-ttu-id="79978-137">Você também pode criar o projeto e cloná-lo diretamente no local do projeto.</span><span class="sxs-lookup"><span data-stu-id="79978-137">You can also create the project and then clone it directly to the project location.</span></span>
+    ![Adicionar uma atividade toomobile](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample3.PNG)
+2. <span data-ttu-id="bced9-136">tooset seus módulos de projeto, mover Olá clonado repositório toohello projeto local.</span><span class="sxs-lookup"><span data-stu-id="bced9-136">tooset up your project modules, move hello cloned repo toohello project location.</span></span> <span data-ttu-id="bced9-137">Você também pode criar projeto hello e, em seguida, clone-a diretamente toohello local do projeto.</span><span class="sxs-lookup"><span data-stu-id="bced9-137">You can also create hello project and then clone it directly toohello project location.</span></span>
    
     ![Módulos do projeto](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample4_1.PNG)
-3. <span data-ttu-id="79978-139">Abra as configurações de módulos do projeto usando o menu de contexto ou usando o atalho Ctrl+Alt+Maj+S.</span><span class="sxs-lookup"><span data-stu-id="79978-139">Open the project modules settings by using the context menu or by using the Ctrl+Alt+Maj+S shortcut.</span></span>
+3. <span data-ttu-id="bced9-139">Abra as configurações de módulos de projeto de saudação usando o menu de contexto de saudação ou usando o atalho do hello Ctrl + Alt + lin + S.</span><span class="sxs-lookup"><span data-stu-id="bced9-139">Open hello project modules settings by using hello context menu or by using hello Ctrl+Alt+Maj+S shortcut.</span></span>
    
     ![Configurações dos módulos do projeto](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample4.PNG)
-4. <span data-ttu-id="79978-141">Remova o módulo de aplicativo padrão, pois você quer apenas as configurações de contêiner do projeto.</span><span class="sxs-lookup"><span data-stu-id="79978-141">Remove the default app module because you only want the project container settings.</span></span>
+4. <span data-ttu-id="bced9-141">Remova o módulo de aplicativo padrão Olá porque desejar somente as configurações de contêiner de projeto hello.</span><span class="sxs-lookup"><span data-stu-id="bced9-141">Remove hello default app module because you only want hello project container settings.</span></span>
    
-    ![O módulo de aplicativo padrão](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample5.PNG)
-5. <span data-ttu-id="79978-143">Importe os módulos do repositório clonado para o projeto atual.</span><span class="sxs-lookup"><span data-stu-id="79978-143">Import modules from the cloned repo to the current project.</span></span>
+    ![módulo de aplicativo Hello padrão](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample5.PNG)
+5. <span data-ttu-id="bced9-143">Importar os módulos de projeto atual do toohello Olá repositório clonado.</span><span class="sxs-lookup"><span data-stu-id="bced9-143">Import modules from hello cloned repo toohello current project.</span></span>
    
-    <span data-ttu-id="79978-144">![Importar o projeto de gradle](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG) ![criar a nova página de módulo](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)</span><span class="sxs-lookup"><span data-stu-id="79978-144">![Import gradle project](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG) ![Create new module page](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)</span></span>
-6. <span data-ttu-id="79978-145">Repita essas etapas para o módulo `oidlib-sample` .</span><span class="sxs-lookup"><span data-stu-id="79978-145">Repeat these steps for the `oidlib-sample` module.</span></span>
-7. <span data-ttu-id="79978-146">Verifique as dependências de oidclib no módulo `oidlib-sample` .</span><span class="sxs-lookup"><span data-stu-id="79978-146">Check the oidclib dependencies on the `oidlib-sample` module.</span></span>
+    <span data-ttu-id="bced9-144">![Importar o projeto de gradle](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG) ![criar a nova página de módulo](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)</span><span class="sxs-lookup"><span data-stu-id="bced9-144">![Import gradle project](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG) ![Create new module page](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)</span></span>
+6. <span data-ttu-id="bced9-145">Repita essas etapas para Olá `oidlib-sample` módulo.</span><span class="sxs-lookup"><span data-stu-id="bced9-145">Repeat these steps for hello `oidlib-sample` module.</span></span>
+7. <span data-ttu-id="bced9-146">Verificar dependências oidclib Olá Olá `oidlib-sample` módulo.</span><span class="sxs-lookup"><span data-stu-id="bced9-146">Check hello oidclib dependencies on hello `oidlib-sample` module.</span></span>
    
-    ![dependências de oidclib no módulo de exemplo oidlib](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample8.PNG)
-8. <span data-ttu-id="79978-148">Clique em **OK** e aguarde a sincronização do gradle.</span><span class="sxs-lookup"><span data-stu-id="79978-148">Click **OK** and wait for gradle sync.</span></span>
+    ![dependências de oidclib no módulo de oidlib exemplo hello](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample8.PNG)
+8. <span data-ttu-id="bced9-148">Clique em **OK** e aguarde a sincronização do gradle.</span><span class="sxs-lookup"><span data-stu-id="bced9-148">Click **OK** and wait for gradle sync.</span></span>
    
-    <span data-ttu-id="79978-149">O settings.gradle deve se parecer com este:</span><span class="sxs-lookup"><span data-stu-id="79978-149">Your settings.gradle should look like:</span></span>
+    <span data-ttu-id="bced9-149">O settings.gradle deve se parecer com este:</span><span class="sxs-lookup"><span data-stu-id="bced9-149">Your settings.gradle should look like:</span></span>
    
     ![Captura de tela de settings.gradle](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample8_1.PNG)
-9. <span data-ttu-id="79978-151">Crie o aplicativo de exemplo para garantir que o exemplo seja executado corretamente.</span><span class="sxs-lookup"><span data-stu-id="79978-151">Build the sample app to make sure that the sample running correctly.</span></span>
+9. <span data-ttu-id="bced9-151">Criar toomake de aplicativo de exemplo de hello-se de que esse exemplo hello sendo executado corretamente.</span><span class="sxs-lookup"><span data-stu-id="bced9-151">Build hello sample app toomake sure that hello sample running correctly.</span></span>
    
-    <span data-ttu-id="79978-152">Você ainda não poderá usá-lo com o Azure Active Directory.</span><span class="sxs-lookup"><span data-stu-id="79978-152">You won't be able to use this with Azure Active Directory yet.</span></span> <span data-ttu-id="79978-153">Você precisará configurar alguns pontos de extremidade primeiro.</span><span class="sxs-lookup"><span data-stu-id="79978-153">We'll need to configure some endpoints first.</span></span> <span data-ttu-id="79978-154">Isso é para garantir que você não tenha problemas no Android Studio antes de começar a personalizar o aplicativo de exemplo.</span><span class="sxs-lookup"><span data-stu-id="79978-154">This is to ensure you don't have an Android Studio issues before we start customizing the sample app.</span></span>
-10. <span data-ttu-id="79978-155">Compile e execute `oidlib-sample` como o destino no Android Studio.</span><span class="sxs-lookup"><span data-stu-id="79978-155">Build and run `oidlib-sample` as the target in Android Studio.</span></span>
+    <span data-ttu-id="bced9-152">Você não será capaz de toouse isso com o Azure Active Directory ainda.</span><span class="sxs-lookup"><span data-stu-id="bced9-152">You won't be able toouse this with Azure Active Directory yet.</span></span> <span data-ttu-id="bced9-153">Vamos precisar tooconfigure alguns pontos de extremidade primeiro.</span><span class="sxs-lookup"><span data-stu-id="bced9-153">We'll need tooconfigure some endpoints first.</span></span> <span data-ttu-id="bced9-154">Isso é tooensure você não tiver um problemas de Android Studio antes de começar a personalizar o aplicativo de exemplo hello.</span><span class="sxs-lookup"><span data-stu-id="bced9-154">This is tooensure you don't have an Android Studio issues before we start customizing hello sample app.</span></span>
+10. <span data-ttu-id="bced9-155">Compilar e executar `oidlib-sample` como destino Olá no Android Studio.</span><span class="sxs-lookup"><span data-stu-id="bced9-155">Build and run `oidlib-sample` as hello target in Android Studio.</span></span>
     
     ![Progresso da criação do exemplo oidlib](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample9.png)
-11. <span data-ttu-id="79978-157">Exclua o diretório `app ` que foi deixado durante a remoção do módulo do projeto, já que o Android Studio não o exclui por segurança.</span><span class="sxs-lookup"><span data-stu-id="79978-157">Delete the `app ` directory that was left when you removed the module from the project because Android Studio doesn't delete it for safety.</span></span>
+11. <span data-ttu-id="bced9-157">Excluir Olá `app ` diretório que foi deixado quando módulo Olá é removido do projeto Olá porque Android Studio não excluí-la para segurança.</span><span class="sxs-lookup"><span data-stu-id="bced9-157">Delete hello `app ` directory that was left when you removed hello module from hello project because Android Studio doesn't delete it for safety.</span></span>
     
-    ![Estrutura do arquivo que inclui o diretório de aplicativo](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample12.PNG)
-12. <span data-ttu-id="79978-159">Abra o menu **Editar Configurações** para remover a configuração de execução que também foi deixada quando você removeu o módulo do projeto.</span><span class="sxs-lookup"><span data-stu-id="79978-159">Open the **Edit Configurations** menu to remove the run configuration that was also left when you removed the module from the project.</span></span>
+    ![Estrutura do arquivo que contém o diretório de aplicativo hello](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample12.PNG)
+12. <span data-ttu-id="bced9-159">Olá abrir **editar configurações** configuração Olá executado do menu tooremove que também foi deixada quando removido o módulo de saudação do projeto de saudação.</span><span class="sxs-lookup"><span data-stu-id="bced9-159">Open hello **Edit Configurations** menu tooremove hello run configuration that was also left when you removed hello module from hello project.</span></span>
     
-    <span data-ttu-id="79978-160">![Menu Editar configurações](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample10.PNG)
-    ![Executar configuração do aplicativo](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample11.PNG)</span><span class="sxs-lookup"><span data-stu-id="79978-160">![Edit configurations menu](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample10.PNG)
+    <span data-ttu-id="bced9-160">![Menu Editar configurações](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample10.PNG)
+    ![Executar configuração do aplicativo](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample11.PNG)</span><span class="sxs-lookup"><span data-stu-id="bced9-160">![Edit configurations menu](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample10.PNG)
 ![Run configuration of app](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample11.PNG)</span></span>
 
-## <a name="configure-the-endpoints-of-the-sample"></a><span data-ttu-id="79978-161">Configurar os pontos de extremidade do exemplo</span><span class="sxs-lookup"><span data-stu-id="79978-161">Configure the endpoints of the sample</span></span>
-<span data-ttu-id="79978-162">Agora que `oidlib-sample` está em execução com êxito, vamos editar alguns pontos de extremidade para que isso funcione com o Azure Active Directory.</span><span class="sxs-lookup"><span data-stu-id="79978-162">Now that you have the `oidlib-sample` running successfully, let's edit some endpoints to get this working with Azure Active Directory.</span></span>
+## <a name="configure-hello-endpoints-of-hello-sample"></a><span data-ttu-id="bced9-161">Configurar pontos de extremidade de saudação do exemplo hello</span><span class="sxs-lookup"><span data-stu-id="bced9-161">Configure hello endpoints of hello sample</span></span>
+<span data-ttu-id="bced9-162">Agora que você tem Olá `oidlib-sample` em execução com êxito, vamos Editar tooget alguns pontos de extremidade isso funcionar com o Active Directory do Azure.</span><span class="sxs-lookup"><span data-stu-id="bced9-162">Now that you have hello `oidlib-sample` running successfully, let's edit some endpoints tooget this working with Azure Active Directory.</span></span>
 
-### <a name="configure-your-client-by-editing-the-oidcclientconfxml-file"></a><span data-ttu-id="79978-163">Configurar o cliente editando o arquivo oidc_clientconf.xml</span><span class="sxs-lookup"><span data-stu-id="79978-163">Configure your client by editing the oidc_clientconf.xml file</span></span>
-1. <span data-ttu-id="79978-164">Já que você está usando somente fluxos do OAuth2 para obter um token e chamar a API do Graph, defina o cliente somente para OAuth2.</span><span class="sxs-lookup"><span data-stu-id="79978-164">Because you are using OAuth2 flows only to get a token and call the Graph API, set the client to do OAuth2 only.</span></span> <span data-ttu-id="79978-165">O OIDC aparecerá em um exemplo mais adiante.</span><span class="sxs-lookup"><span data-stu-id="79978-165">OIDC will come in a later example.</span></span>
+### <a name="configure-your-client-by-editing-hello-oidcclientconfxml-file"></a><span data-ttu-id="bced9-163">Configurar o cliente editando o arquivo de oidc_clientconf.xml Olá</span><span class="sxs-lookup"><span data-stu-id="bced9-163">Configure your client by editing hello oidc_clientconf.xml file</span></span>
+1. <span data-ttu-id="bced9-164">Porque você está usando OAuth2 de fluxos apenas tooget um token e chamar hello API do Graph, defina Olá cliente toodo OAuth2 somente.</span><span class="sxs-lookup"><span data-stu-id="bced9-164">Because you are using OAuth2 flows only tooget a token and call hello Graph API, set hello client toodo OAuth2 only.</span></span> <span data-ttu-id="bced9-165">O OIDC aparecerá em um exemplo mais adiante.</span><span class="sxs-lookup"><span data-stu-id="bced9-165">OIDC will come in a later example.</span></span>
    
     ```xml
         <bool name="oidc_oauth2only">true</bool>
     ```
-2. <span data-ttu-id="79978-166">Configure a ID de cliente que você recebeu do portal de registro.</span><span class="sxs-lookup"><span data-stu-id="79978-166">Configure your client ID that you received from the registration portal.</span></span>
+2. <span data-ttu-id="bced9-166">Configure sua ID de cliente que você recebeu do portal de registro de saudação.</span><span class="sxs-lookup"><span data-stu-id="bced9-166">Configure your client ID that you received from hello registration portal.</span></span>
    
     ```xml
         <string name="oidc_clientId">86172f9d-a1ae-4348-aafa-7b3e5d1b36f5</string>
         <string name="oidc_clientSecret"></string>
     ```
-3. <span data-ttu-id="79978-167">Configure o URI de redirecionamento com o exemplo abaixo.</span><span class="sxs-lookup"><span data-stu-id="79978-167">Configure your redirect URI with the one below.</span></span>
+3. <span data-ttu-id="bced9-167">Configure o URI de redirecionamento com hello um abaixo.</span><span class="sxs-lookup"><span data-stu-id="bced9-167">Configure your redirect URI with hello one below.</span></span>
    
     ```xml
         <string name="oidc_redirectUrl">https://login.microsoftonline.com/common/oauth2/nativeclient</string>
     ```
-4. <span data-ttu-id="79978-168">Configure os escopos de que você precisa para acessar a API do Graph.</span><span class="sxs-lookup"><span data-stu-id="79978-168">Configure your scopes that you need in order to access the Graph API.</span></span>
+4. <span data-ttu-id="bced9-168">Configure os escopos que você precisa em ordem tooaccess Olá API do Graph.</span><span class="sxs-lookup"><span data-stu-id="bced9-168">Configure your scopes that you need in order tooaccess hello Graph API.</span></span>
    
     ```xml
         <string-array name="oidc_scopes">
@@ -148,13 +148,13 @@ git@github.com:kalemontes/OIDCAndroidLib.git
         </string-array>
     ```
 
-<span data-ttu-id="79978-169">O valor `User.Read` em `oidc_scopes` permite que você leia o perfil básico do usuário conectado.</span><span class="sxs-lookup"><span data-stu-id="79978-169">The `User.Read` value in `oidc_scopes` allows you to read the basic profile the signed in user.</span></span>
-<span data-ttu-id="79978-170">É possível saber mais sobre todos os escopos disponíveis em [Escopos de permissão do Microsoft Graph](https://graph.microsoft.io/docs/authorization/permission_scopes).</span><span class="sxs-lookup"><span data-stu-id="79978-170">You can learn more about all the available scopes at [Microsoft Graph permission scopes](https://graph.microsoft.io/docs/authorization/permission_scopes).</span></span>
+<span data-ttu-id="bced9-169">Olá `User.Read` valor em `oidc_scopes` permite que você tooread Olá perfil básico Olá usuário conectado.</span><span class="sxs-lookup"><span data-stu-id="bced9-169">hello `User.Read` value in `oidc_scopes` allows you tooread hello basic profile hello signed in user.</span></span>
+<span data-ttu-id="bced9-170">Você pode aprender mais sobre todos os escopos disponíveis de saudação em [escopos de permissão do Microsoft Graph](https://graph.microsoft.io/docs/authorization/permission_scopes).</span><span class="sxs-lookup"><span data-stu-id="bced9-170">You can learn more about all hello available scopes at [Microsoft Graph permission scopes](https://graph.microsoft.io/docs/authorization/permission_scopes).</span></span>
 
-<span data-ttu-id="79978-171">Se você quiser explicações sobre `openid` ou `offline_access` como escopos no OpenID Connect, confira [Protocolos v2.0 – Fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols-oauth-code.md).</span><span class="sxs-lookup"><span data-stu-id="79978-171">If you'd like explanations about `openid` or `offline_access` as scopes in OpenID Connect, see [2.0 Protocols - OAuth 2.0 Authorization Code Flow](active-directory-v2-protocols-oauth-code.md).</span></span>
+<span data-ttu-id="bced9-171">Se você quiser explicações sobre `openid` ou `offline_access` como escopos no OpenID Connect, confira [Protocolos v2.0 – Fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols-oauth-code.md).</span><span class="sxs-lookup"><span data-stu-id="bced9-171">If you'd like explanations about `openid` or `offline_access` as scopes in OpenID Connect, see [2.0 Protocols - OAuth 2.0 Authorization Code Flow](active-directory-v2-protocols-oauth-code.md).</span></span>
 
-### <a name="configure-your-client-endpoints-by-editing-the-oidcendpointsxml-file"></a><span data-ttu-id="79978-172">Configurar pontos de extremidade do cliente editando o oidc_endpoints.xml</span><span class="sxs-lookup"><span data-stu-id="79978-172">Configure your client endpoints by editing the oidc_endpoints.xml file</span></span>
-* <span data-ttu-id="79978-173">Abra o arquivo `oidc_endpoints.xml` e faça estas alterações:</span><span class="sxs-lookup"><span data-stu-id="79978-173">Open the `oidc_endpoints.xml` file and make the following changes:</span></span>
+### <a name="configure-your-client-endpoints-by-editing-hello-oidcendpointsxml-file"></a><span data-ttu-id="bced9-172">Configurar seus pontos de extremidade do cliente, editando o arquivo de oidc_endpoints.xml Olá</span><span class="sxs-lookup"><span data-stu-id="bced9-172">Configure your client endpoints by editing hello oidc_endpoints.xml file</span></span>
+* <span data-ttu-id="bced9-173">Olá abrir `oidc_endpoints.xml` de arquivo e fazer Olá as seguintes alterações:</span><span class="sxs-lookup"><span data-stu-id="bced9-173">Open hello `oidc_endpoints.xml` file and make hello following changes:</span></span>
   
     ```xml
     <!-- Stores OpenID Connect provider endpoints. -->
@@ -166,27 +166,27 @@ git@github.com:kalemontes/OIDCAndroidLib.git
     </resources>
     ```
 
-<span data-ttu-id="79978-174">Esses pontos de extremidade nunca deverão ser alterados se você estiver usando o OAuth2 como seu protocolo.</span><span class="sxs-lookup"><span data-stu-id="79978-174">These endpoints should never change if you are using OAuth2 as your protocol.</span></span>
+<span data-ttu-id="bced9-174">Esses pontos de extremidade nunca deverão ser alterados se você estiver usando o OAuth2 como seu protocolo.</span><span class="sxs-lookup"><span data-stu-id="bced9-174">These endpoints should never change if you are using OAuth2 as your protocol.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="79978-175">Os pontos de extremidade de `userInfoEndpoint` e `revocationEndpoint` atualmente não têm suporte do Azure Active Directory.</span><span class="sxs-lookup"><span data-stu-id="79978-175">The endpoints for `userInfoEndpoint` and `revocationEndpoint` are currently not supported by Azure Active Directory.</span></span> <span data-ttu-id="79978-176">Se deixá-los com o valor padrão de example.com, você será lembrado que eles não estão disponíveis no exemplo :-)</span><span class="sxs-lookup"><span data-stu-id="79978-176">If you leave these with the default example.com value, you will be reminded that they are not available in the sample :-)</span></span>
+> <span data-ttu-id="bced9-175">Olá pontos de extremidade para `userInfoEndpoint` e `revocationEndpoint` atualmente não são suportados pelo Active Directory do Azure.</span><span class="sxs-lookup"><span data-stu-id="bced9-175">hello endpoints for `userInfoEndpoint` and `revocationEndpoint` are currently not supported by Azure Active Directory.</span></span> <span data-ttu-id="bced9-176">Se você deixar esses recursos com valor de example.com saudação padrão, você será lembrado que eles não estão disponíveis no exemplo hello :-)</span><span class="sxs-lookup"><span data-stu-id="bced9-176">If you leave these with hello default example.com value, you will be reminded that they are not available in hello sample :-)</span></span>
 > 
 > 
 
-## <a name="configure-a-graph-api-call"></a><span data-ttu-id="79978-177">Configurar uma chamada à API do Graph</span><span class="sxs-lookup"><span data-stu-id="79978-177">Configure a Graph API call</span></span>
-* <span data-ttu-id="79978-178">Abra o arquivo `HomeActivity.java` e faça estas alterações:</span><span class="sxs-lookup"><span data-stu-id="79978-178">Open the `HomeActivity.java` file and make the following changes:</span></span>
+## <a name="configure-a-graph-api-call"></a><span data-ttu-id="bced9-177">Configurar uma chamada à API do Graph</span><span class="sxs-lookup"><span data-stu-id="bced9-177">Configure a Graph API call</span></span>
+* <span data-ttu-id="bced9-178">Olá abrir `HomeActivity.java` de arquivo e fazer Olá as seguintes alterações:</span><span class="sxs-lookup"><span data-stu-id="bced9-178">Open hello `HomeActivity.java` file and make hello following changes:</span></span>
   
     ```Java
        //TODO: set your protected resource url
         private static final String protectedResUrl = "https://graph.microsoft.com/v1.0/me/";
     ```
 
-<span data-ttu-id="79978-179">Aqui, uma chamada simples à API do Graph retorna nossas informações.</span><span class="sxs-lookup"><span data-stu-id="79978-179">Here a simple Graph API call returns our information.</span></span>
+<span data-ttu-id="bced9-179">Aqui, uma chamada simples à API do Graph retorna nossas informações.</span><span class="sxs-lookup"><span data-stu-id="bced9-179">Here a simple Graph API call returns our information.</span></span>
 
-<span data-ttu-id="79978-180">Essas são todas as alterações que você precisa fazer.</span><span class="sxs-lookup"><span data-stu-id="79978-180">Those are all the changes that you need to do.</span></span> <span data-ttu-id="79978-181">Execute o aplicativo `oidlib-sample` e clique em **Entrar**.</span><span class="sxs-lookup"><span data-stu-id="79978-181">Run the `oidlib-sample` application, and click **Sign in**.</span></span>
+<span data-ttu-id="bced9-180">Essas são todas as alterações de saudação que você precisa toodo.</span><span class="sxs-lookup"><span data-stu-id="bced9-180">Those are all hello changes that you need toodo.</span></span> <span data-ttu-id="bced9-181">Executar Olá `oidlib-sample` aplicativo e clique em **entrar**.</span><span class="sxs-lookup"><span data-stu-id="bced9-181">Run hello `oidlib-sample` application, and click **Sign in**.</span></span>
 
-<span data-ttu-id="79978-182">Depois da autenticação bem-sucedida, escolha o botão **Solicitar Recurso Protegido** para testar sua chamada à API do Graph.</span><span class="sxs-lookup"><span data-stu-id="79978-182">After you've successfully authenticated, select the **Request Protected Resource** button to test your call to the Graph API.</span></span>
+<span data-ttu-id="bced9-182">Depois que você foi autenticado com êxito, selecione Olá **solicitar o recurso protegido** botão tootest toohello sua chamada de API do Graph.</span><span class="sxs-lookup"><span data-stu-id="bced9-182">After you've successfully authenticated, select hello **Request Protected Resource** button tootest your call toohello Graph API.</span></span>
 
-## <a name="get-security-updates-for-our-product"></a><span data-ttu-id="79978-183">Obter atualizações de segurança para nosso produto</span><span class="sxs-lookup"><span data-stu-id="79978-183">Get security updates for our product</span></span>
-<span data-ttu-id="79978-184">É recomendável obter notificações sobre incidentes de segurança visitando a página [Segurança TechCenter](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.</span><span class="sxs-lookup"><span data-stu-id="79978-184">We encourage you to get notifications about security incidents by visiting the [Security TechCenter](https://technet.microsoft.com/security/dd252948) and subscribing to Security Advisory Alerts.</span></span>
+## <a name="get-security-updates-for-our-product"></a><span data-ttu-id="bced9-183">Obter atualizações de segurança para nosso produto</span><span class="sxs-lookup"><span data-stu-id="bced9-183">Get security updates for our product</span></span>
+<span data-ttu-id="bced9-184">Recomendamos que você tooget notificações sobre incidentes de segurança visitando Olá [TechCenter de segurança](https://technet.microsoft.com/security/dd252948) e assinando tooSecurity alertas de aviso.</span><span class="sxs-lookup"><span data-stu-id="bced9-184">We encourage you tooget notifications about security incidents by visiting hello [Security TechCenter](https://technet.microsoft.com/security/dd252948) and subscribing tooSecurity Advisory Alerts.</span></span>
 

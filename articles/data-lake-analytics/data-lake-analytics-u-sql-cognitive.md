@@ -1,6 +1,6 @@
 ---
-title: Usando recursos cognitivos do U-SQL no Azure Data Lake Analytics | Microsoft Docs
-description: "Saiba como usar a inteligência de recursos Cognitivos no U-SQL"
+title: "recursos de U-SQL cognitivas aaaUsing na análise do Azure Data Lake | Microsoft Docs"
+description: "Saiba como toouse Olá inteligência dos recursos cognitivas U-SQL"
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: f77329f9838d6e824afa7234de90f62257a004de
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2c9ac71f490e929070fa0e72b93c3ffdb1ab243b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-get-started-with-the-cognitive-capabilities-of-u-sql"></a><span data-ttu-id="5e472-103">Tutorial: introdução aos recursos Cognitivos do U-SQL</span><span class="sxs-lookup"><span data-stu-id="5e472-103">Tutorial: Get started with the Cognitive capabilities of U-SQL</span></span>
+# <a name="tutorial-get-started-with-hello-cognitive-capabilities-of-u-sql"></a><span data-ttu-id="0096a-103">Tutorial: Introdução com recursos cognitivas Olá U-SQL</span><span class="sxs-lookup"><span data-stu-id="0096a-103">Tutorial: Get started with hello Cognitive capabilities of U-SQL</span></span>
 
-<span data-ttu-id="5e472-104">Os recursos cognitivos para o U-SQL permitem aos desenvolvedores colocar inteligência em seus programas de Big Data.</span><span class="sxs-lookup"><span data-stu-id="5e472-104">Cognitive capabilities for U-SQL enable developers to use put intelligence in their big data programs.</span></span> <span data-ttu-id="5e472-105">O processo geral de maneira simples:</span><span class="sxs-lookup"><span data-stu-id="5e472-105">The overall process in simple:</span></span>
+<span data-ttu-id="0096a-104">Recursos cognitivos para U-SQL permitem que os desenvolvedores toouse colocar inteligência de seus programas de grandes dados.</span><span class="sxs-lookup"><span data-stu-id="0096a-104">Cognitive capabilities for U-SQL enable developers toouse put intelligence in their big data programs.</span></span> <span data-ttu-id="0096a-105">Olá processo geral de simples:</span><span class="sxs-lookup"><span data-stu-id="0096a-105">hello overall process in simple:</span></span>
 
-* <span data-ttu-id="5e472-106">Usar a instrução REFERENCE ASSEMBLY para habilitar os recursos cognitivos para o Script U-SQL</span><span class="sxs-lookup"><span data-stu-id="5e472-106">Use the REFERENCE ASSEMBLY statement to enable the cognitive features for the U-SQL Script</span></span>
-* <span data-ttu-id="5e472-107">Chame a operação PROCESS para usar os recursos Cognitivos</span><span class="sxs-lookup"><span data-stu-id="5e472-107">Call the PROCESS operation to use the Cognitive capabilities</span></span> 
+* <span data-ttu-id="0096a-106">Usar recursos cognitivos do hello de tooenable de instrução do hello referência de ASSEMBLY para Olá Script U-SQL</span><span class="sxs-lookup"><span data-stu-id="0096a-106">Use hello REFERENCE ASSEMBLY statement tooenable hello cognitive features for hello U-SQL Script</span></span>
+* <span data-ttu-id="0096a-107">Chamar a operação de processo de saudação recursos cognitivas de saudação toouse</span><span class="sxs-lookup"><span data-stu-id="0096a-107">Call hello PROCESS operation toouse hello Cognitive capabilities</span></span> 
 
-## <a name="imaging-scenarios"></a><span data-ttu-id="5e472-108">Imaginando cenários</span><span class="sxs-lookup"><span data-stu-id="5e472-108">Imaging scenarios</span></span>
+## <a name="imaging-scenarios"></a><span data-ttu-id="0096a-108">Imaginando cenários</span><span class="sxs-lookup"><span data-stu-id="0096a-108">Imaging scenarios</span></span>
 
-### <a name="example-image-tagging"></a><span data-ttu-id="5e472-109">Exemplo: marcação de imagem</span><span class="sxs-lookup"><span data-stu-id="5e472-109">Example: Image tagging</span></span>
+### <a name="example-image-tagging"></a><span data-ttu-id="0096a-109">Exemplo: marcação de imagem</span><span class="sxs-lookup"><span data-stu-id="0096a-109">Example: Image tagging</span></span>
 
-<span data-ttu-id="5e472-110">O exemplo a seguir mostra um uso de ponta a ponta dos recursos de geração de imagens para detectar objetos nas imagens.</span><span class="sxs-lookup"><span data-stu-id="5e472-110">The following example shows an end-to-end use of the imaging capabilities to detect objects in images.</span></span>
+<span data-ttu-id="0096a-110">saudação de exemplo a seguir mostra um uso de ponta a ponta de saudação objetos de toodetect recursos nas imagens de geração de imagens.</span><span class="sxs-lookup"><span data-stu-id="0096a-110">hello following example shows an end-to-end use of hello imaging capabilities toodetect objects in images.</span></span>
 
     REFERENCE ASSEMBLY ImageCommon;
     REFERENCE ASSEMBLY FaceSdk;
@@ -44,7 +44,7 @@ ms.lasthandoff: 07/11/2017
         FROM @"/images/{FileName:*}.jpg"
         USING new Cognition.Vision.ImageExtractor();
 
-    // Extract the number of objects on each image and tag them 
+    // Extract hello number of objects on each image and tag them 
     @objects =
         PROCESS @imgs 
         PRODUCE FileName,
@@ -54,7 +54,7 @@ ms.lasthandoff: 07/11/2017
         USING new Cognition.Vision.ImageTagger();
 
 
-### <a name="extract-emotions-from-human-faces"></a><span data-ttu-id="5e472-111">Extrair emoções de faces humanas</span><span class="sxs-lookup"><span data-stu-id="5e472-111">Extract emotions from human faces</span></span> 
+### <a name="extract-emotions-from-human-faces"></a><span data-ttu-id="0096a-111">Extrair emoções de faces humanas</span><span class="sxs-lookup"><span data-stu-id="0096a-111">Extract emotions from human faces</span></span> 
 
     @emotions =
         PROCESS @imgs
@@ -64,7 +64,7 @@ ms.lasthandoff: 07/11/2017
         READONLY FileName
         USING new Cognition.Vision.EmotionAnalyzer();
 
-### <a name="estimate-age-and-gender-for-human-faces"></a><span data-ttu-id="5e472-112">Estimar a idade e o sexo de faces humanas</span><span class="sxs-lookup"><span data-stu-id="5e472-112">Estimate age and gender for human faces</span></span>
+### <a name="estimate-age-and-gender-for-human-faces"></a><span data-ttu-id="0096a-112">Estimar a idade e o sexo de faces humanas</span><span class="sxs-lookup"><span data-stu-id="0096a-112">Estimate age and gender for human faces</span></span>
 
     @faces = 
             PROCESS @imgs
@@ -75,7 +75,7 @@ ms.lasthandoff: 07/11/2017
             READONLY FileName
             USING new Cognition.Vision.FaceDetector();
 
-### <a name="detect-text-in-images-ocr"></a><span data-ttu-id="5e472-113">Detectar texto em imagens (OCR)</span><span class="sxs-lookup"><span data-stu-id="5e472-113">Detect text in Images (OCR)</span></span>
+### <a name="detect-text-in-images-ocr"></a><span data-ttu-id="0096a-113">Detectar texto em imagens (OCR)</span><span class="sxs-lookup"><span data-stu-id="0096a-113">Detect text in Images (OCR)</span></span>
 
     @ocrs =
             PROCESS @imgs
@@ -84,11 +84,11 @@ ms.lasthandoff: 07/11/2017
             READONLY FileName
             USING new Cognition.Vision.OcrExtractor();
 
-## <a name="text-scenarios"></a><span data-ttu-id="5e472-114">Cenários de texto</span><span class="sxs-lookup"><span data-stu-id="5e472-114">Text scenarios</span></span>
+## <a name="text-scenarios"></a><span data-ttu-id="0096a-114">Cenários de texto</span><span class="sxs-lookup"><span data-stu-id="0096a-114">Text scenarios</span></span>
 
-### <a name="input-data"></a><span data-ttu-id="5e472-115">Dados de entrada</span><span class="sxs-lookup"><span data-stu-id="5e472-115">Input data</span></span>
+### <a name="input-data"></a><span data-ttu-id="0096a-115">Dados de entrada</span><span class="sxs-lookup"><span data-stu-id="0096a-115">Input data</span></span>
 
-<span data-ttu-id="5e472-116">Suponha que temos uma entrada que consiste em "Guerra e Paz" de Leo Tolstóy.</span><span class="sxs-lookup"><span data-stu-id="5e472-116">Assume that we have an input that consists of “War and Peace” by Leo Tolstoy.</span></span>
+<span data-ttu-id="0096a-116">Suponha que temos uma entrada que consiste em "Guerra e Paz" de Leo Tolstóy.</span><span class="sxs-lookup"><span data-stu-id="0096a-116">Assume that we have an input that consists of “War and Peace” by Leo Tolstoy.</span></span>
 
     REFERENCE ASSEMBLY [TextCommon];
     REFERENCE ASSEMBLY [TextSentiment];
@@ -103,7 +103,7 @@ ms.lasthandoff: 07/11/2017
         FROM @"/usqlext/samples/cognition/war_and_peace.csv"
         USING Extractors.Csv();
 
-### <a name="extract-key-phrases-for-each-paragraph"></a><span data-ttu-id="5e472-117">Extraia frases-chave de cada parágrafo</span><span class="sxs-lookup"><span data-stu-id="5e472-117">Extract key phrases for each paragraph</span></span>
+### <a name="extract-key-phrases-for-each-paragraph"></a><span data-ttu-id="0096a-117">Extraia frases-chave de cada parágrafo</span><span class="sxs-lookup"><span data-stu-id="0096a-117">Extract key phrases for each paragraph</span></span>
 
     @keyphrase =
         PROCESS @WarAndPeace
@@ -120,7 +120,7 @@ ms.lasthandoff: 07/11/2017
                 Text
         USING new Cognition.Text.KeyPhraseExtractor();
 
-    // Tokenize the key phrases.
+    // Tokenize hello key phrases.
     @kpsplits =
         SELECT No,
             Year,
@@ -132,7 +132,7 @@ ms.lasthandoff: 07/11/2017
             CROSS APPLY
                 new Cognition.Text.Splitter("KeyPhrase") AS T(KeyPhrase);
     
-### <a name="perform-sentiment-analysis-on-each-paragraph"></a><span data-ttu-id="5e472-118">Executar análise de sentimento em cada parágrafo</span><span class="sxs-lookup"><span data-stu-id="5e472-118">Perform sentiment analysis on each paragraph</span></span>
+### <a name="perform-sentiment-analysis-on-each-paragraph"></a><span data-ttu-id="0096a-118">Executar análise de sentimento em cada parágrafo</span><span class="sxs-lookup"><span data-stu-id="0096a-118">Perform sentiment analysis on each paragraph</span></span>
 
     @sentiment =
         PROCESS @WarAndPeace
