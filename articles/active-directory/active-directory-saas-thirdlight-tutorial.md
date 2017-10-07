@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory com o ThirdLight | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o ThirdLight."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e ThirdLight."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,233 +13,233 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: ee7710cfea3a13907c0cc940a98c875bf83607a9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a510e514f6a8c4e89220b9a6f6db29668b451b61
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a><span data-ttu-id="c837e-103">Tutorial: integração do Azure Active Directory com o ThirdLight</span><span class="sxs-lookup"><span data-stu-id="c837e-103">Tutorial: Azure Active Directory integration with ThirdLight</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a><span data-ttu-id="13ac7-103">Tutorial: integração do Azure Active Directory com o ThirdLight</span><span class="sxs-lookup"><span data-stu-id="13ac7-103">Tutorial: Azure Active Directory integration with ThirdLight</span></span>
 
-<span data-ttu-id="c837e-104">Neste tutorial, você aprenderá como integrar o ThirdLight com o Azure AD (Azure Active Directory).</span><span class="sxs-lookup"><span data-stu-id="c837e-104">In this tutorial, you learn how to integrate ThirdLight with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="13ac7-104">Neste tutorial, você aprenderá como toointegrate ThirdLight com o Azure Active Directory (AD do Azure).</span><span class="sxs-lookup"><span data-stu-id="13ac7-104">In this tutorial, you learn how toointegrate ThirdLight with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="c837e-105">A integração do ThirdLight com o Azure AD oferece os seguintes benefícios:</span><span class="sxs-lookup"><span data-stu-id="c837e-105">Integrating ThirdLight with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="13ac7-105">Integrando ThirdLight com o AD do Azure fornece Olá benefícios a seguir:</span><span class="sxs-lookup"><span data-stu-id="13ac7-105">Integrating ThirdLight with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="c837e-106">No Azure AD, é possível controlar quem tem acesso ao ThirdLight</span><span class="sxs-lookup"><span data-stu-id="c837e-106">You can control in Azure AD who has access to ThirdLight</span></span>
-- <span data-ttu-id="c837e-107">Você pode habilitar os usuários a entrarem automaticamente no ThirdLight (Logon Único) com suas contas do Azure AD</span><span class="sxs-lookup"><span data-stu-id="c837e-107">You can enable your users to automatically get signed-on to ThirdLight (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="c837e-108">Você pode gerenciar suas contas em um única localização: o Portal do Azure</span><span class="sxs-lookup"><span data-stu-id="c837e-108">You can manage your accounts in one central location - the Azure portal</span></span>
+- <span data-ttu-id="13ac7-106">Você pode controlar no AD do Azure que tenha acesso tooThirdLight</span><span class="sxs-lookup"><span data-stu-id="13ac7-106">You can control in Azure AD who has access tooThirdLight</span></span>
+- <span data-ttu-id="13ac7-107">Você pode habilitar seu usuários tooautomatically get conectado tooThirdLight (logon único) com suas contas do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="13ac7-107">You can enable your users tooautomatically get signed-on tooThirdLight (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="13ac7-108">Você pode gerenciar suas contas em um local central - Olá portal do Azure</span><span class="sxs-lookup"><span data-stu-id="13ac7-108">You can manage your accounts in one central location - hello Azure portal</span></span>
 
-<span data-ttu-id="c837e-109">Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="c837e-109">If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="13ac7-109">Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="13ac7-109">If you want tooknow more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="c837e-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="c837e-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="13ac7-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="13ac7-110">Prerequisites</span></span>
 
-<span data-ttu-id="c837e-111">Para configurar a integração do Azure AD com o ThirdLight, você precisará dos seguintes itens:</span><span class="sxs-lookup"><span data-stu-id="c837e-111">To configure Azure AD integration with ThirdLight, you need the following items:</span></span>
+<span data-ttu-id="13ac7-111">tooconfigure integração do AD do Azure com ThirdLight, você precisa Olá itens a seguir:</span><span class="sxs-lookup"><span data-stu-id="13ac7-111">tooconfigure Azure AD integration with ThirdLight, you need hello following items:</span></span>
 
-- <span data-ttu-id="c837e-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="c837e-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="c837e-113">Uma assinatura habilitada para logon único do ThirdLight</span><span class="sxs-lookup"><span data-stu-id="c837e-113">A ThirdLight single-sign on enabled subscription</span></span>
+- <span data-ttu-id="13ac7-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="13ac7-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="13ac7-113">Uma assinatura habilitada para logon único do ThirdLight</span><span class="sxs-lookup"><span data-stu-id="13ac7-113">A ThirdLight single-sign on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="c837e-114">Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="c837e-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="13ac7-114">Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="13ac7-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="c837e-115">Para testar as etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="c837e-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="13ac7-115">tootest Olá etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="13ac7-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="c837e-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="c837e-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="c837e-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="c837e-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="13ac7-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="13ac7-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="13ac7-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="13ac7-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="c837e-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="c837e-118">Scenario description</span></span>
-<span data-ttu-id="c837e-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="c837e-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="c837e-120">O cenário descrito neste tutorial consiste em dois blocos de construção principais:</span><span class="sxs-lookup"><span data-stu-id="c837e-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="13ac7-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="13ac7-118">Scenario description</span></span>
+<span data-ttu-id="13ac7-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="13ac7-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="13ac7-120">cenário de saudação descrito neste tutorial consiste em dois elementos básicos:</span><span class="sxs-lookup"><span data-stu-id="13ac7-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="c837e-121">Adicionando o ThirdLight da Galeria</span><span class="sxs-lookup"><span data-stu-id="c837e-121">Adding ThirdLight from the gallery</span></span>
-2. <span data-ttu-id="c837e-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="c837e-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="13ac7-121">Adicionando ThirdLight da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="13ac7-121">Adding ThirdLight from hello gallery</span></span>
+2. <span data-ttu-id="13ac7-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="13ac7-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-thirdlight-from-the-gallery"></a><span data-ttu-id="c837e-123">Adicionando o ThirdLight da Galeria</span><span class="sxs-lookup"><span data-stu-id="c837e-123">Adding ThirdLight from the gallery</span></span>
-<span data-ttu-id="c837e-124">Para configurar a integração do ThirdLight ao Azure AD, você precisará adicionar o ThirdLight da galeria à sua lista de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="c837e-124">To configure the integration of ThirdLight into Azure AD, you need to add ThirdLight from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-thirdlight-from-hello-gallery"></a><span data-ttu-id="13ac7-123">Adicionando ThirdLight da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="13ac7-123">Adding ThirdLight from hello gallery</span></span>
+<span data-ttu-id="13ac7-124">integração de saudação tooconfigure de ThirdLight no AD do Azure, você precisa tooadd ThirdLight da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="13ac7-124">tooconfigure hello integration of ThirdLight into Azure AD, you need tooadd ThirdLight from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="c837e-125">**Para adicionar o ThirdLight da galeria, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="c837e-125">**To add ThirdLight from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="13ac7-125">**tooadd ThirdLight da Galeria hello, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="13ac7-125">**tooadd ThirdLight from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="c837e-126">No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="c837e-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="13ac7-126">Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="13ac7-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Active Directory][1]
 
-2. <span data-ttu-id="c837e-128">Navegue até **aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="c837e-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="c837e-129">Em seguida, vá para **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="c837e-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="13ac7-128">Navegue muito**aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="13ac7-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="13ac7-129">Em seguida, acesse muito**todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="13ac7-129">Then go too**All applications**.</span></span>
 
     ![Aplicativos][2]
     
-3. <span data-ttu-id="c837e-131">Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.</span><span class="sxs-lookup"><span data-stu-id="c837e-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="13ac7-131">tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="13ac7-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
     ![Aplicativos][3]
 
-4. <span data-ttu-id="c837e-133">Na caixa de pesquisa, digite **ThirdLight**.</span><span class="sxs-lookup"><span data-stu-id="c837e-133">In the search box, type **ThirdLight**.</span></span>
+4. <span data-ttu-id="13ac7-133">Na caixa de pesquisa hello, digite **ThirdLight**.</span><span class="sxs-lookup"><span data-stu-id="13ac7-133">In hello search box, type **ThirdLight**.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-thirdlight-tutorial/tutorial_thirdlight_search.png)
 
-5. <span data-ttu-id="c837e-135">No painel de resultados, selecione **ThirdLight** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="c837e-135">In the results panel, select **ThirdLight**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="13ac7-135">No painel de resultados de saudação, selecione **ThirdLight**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.</span><span class="sxs-lookup"><span data-stu-id="13ac7-135">In hello results panel, select **ThirdLight**, and then click **Add** button tooadd hello application.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-thirdlight-tutorial/tutorial_thirdlight_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="c837e-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="c837e-137">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="c837e-138">Nesta seção, você configurará e testará o logon único do Azure AD com o ThirdLight, com base em uma usuária de teste chamada "Brenda Fernandes".</span><span class="sxs-lookup"><span data-stu-id="c837e-138">In this section, you configure and test Azure AD single sign-on with ThirdLight based on a test user called "Britta Simon."</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="13ac7-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="13ac7-137">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="13ac7-138">Nesta seção, você configurará e testará o logon único do Azure AD com o ThirdLight, com base em uma usuária de teste chamada "Brenda Fernandes".</span><span class="sxs-lookup"><span data-stu-id="13ac7-138">In this section, you configure and test Azure AD single sign-on with ThirdLight based on a test user called "Britta Simon."</span></span>
 
-<span data-ttu-id="c837e-139">Para que o logon único funcione, o Azure AD precisa saber qual usuário do ThirdLight é equivalente a um usuário no Azure AD.</span><span class="sxs-lookup"><span data-stu-id="c837e-139">For single sign-on to work, Azure AD needs to know what the counterpart user in ThirdLight is to a user in Azure AD.</span></span> <span data-ttu-id="c837e-140">Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no ThirdLight.</span><span class="sxs-lookup"><span data-stu-id="c837e-140">In other words, a link relationship between an Azure AD user and the related user in ThirdLight needs to be established.</span></span>
+<span data-ttu-id="13ac7-139">Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá em ThirdLight é tooa usuário no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="13ac7-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in ThirdLight is tooa user in Azure AD.</span></span> <span data-ttu-id="13ac7-140">Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação em ThirdLight precisa toobe estabelecida.</span><span class="sxs-lookup"><span data-stu-id="13ac7-140">In other words, a link relationship between an Azure AD user and hello related user in ThirdLight needs toobe established.</span></span>
 
-<span data-ttu-id="c837e-141">Essa relação de vínculo é estabelecida por meio da atribuição do valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** no ThirdLight.</span><span class="sxs-lookup"><span data-stu-id="c837e-141">This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in ThirdLight.</span></span>
+<span data-ttu-id="13ac7-141">Essa relação de link é estabelecida pela atribuição de valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **nome de usuário** em ThirdLight.</span><span class="sxs-lookup"><span data-stu-id="13ac7-141">This link relationship is established by assigning hello value of hello **user name** in Azure AD as hello value of hello **Username** in ThirdLight.</span></span>
 
-<span data-ttu-id="c837e-142">Para configurar e testar o logon único do Azure AD com o ThirdLight, você precisará concluir os seguintes blocos de construção:</span><span class="sxs-lookup"><span data-stu-id="c837e-142">To configure and test Azure AD single sign-on with ThirdLight, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="13ac7-142">tooconfigure e teste de logon único do AD do Azure com ThirdLight, é necessário Olá toocomplete blocos de construção a seguir:</span><span class="sxs-lookup"><span data-stu-id="13ac7-142">tooconfigure and test Azure AD single sign-on with ThirdLight, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="c837e-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.</span><span class="sxs-lookup"><span data-stu-id="c837e-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="c837e-144">**[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="c837e-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="c837e-145">**[Criação de um usuário de teste do ThirdLight](#creating-a-thirdlight-test-user)** – para ter um equivalente de Brenda Fernandes no ThirdLight que seja vinculado à representação de usuário do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="c837e-145">**[Creating a ThirdLight test user](#creating-a-thirdlight-test-user)** - to have a counterpart of Britta Simon in ThirdLight that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="c837e-146">**[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="c837e-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="c837e-147">**[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.</span><span class="sxs-lookup"><span data-stu-id="c837e-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="13ac7-143">**[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.</span><span class="sxs-lookup"><span data-stu-id="13ac7-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="13ac7-144">**[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="13ac7-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="13ac7-145">**[Criar um usuário de teste ThirdLight](#creating-a-thirdlight-test-user)**  -toohave um equivalente do Britta Simon em ThirdLight é toohello vinculado do Azure AD representação do usuário.</span><span class="sxs-lookup"><span data-stu-id="13ac7-145">**[Creating a ThirdLight test user](#creating-a-thirdlight-test-user)** - toohave a counterpart of Britta Simon in ThirdLight that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="13ac7-146">**[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.</span><span class="sxs-lookup"><span data-stu-id="13ac7-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="13ac7-147">**[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.</span><span class="sxs-lookup"><span data-stu-id="13ac7-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="c837e-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="c837e-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="13ac7-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="13ac7-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="c837e-149">Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e configura o logon único em seu aplicativo ThirdLight.</span><span class="sxs-lookup"><span data-stu-id="c837e-149">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your ThirdLight application.</span></span>
+<span data-ttu-id="13ac7-149">Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo ThirdLight.</span><span class="sxs-lookup"><span data-stu-id="13ac7-149">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your ThirdLight application.</span></span>
 
-<span data-ttu-id="c837e-150">**Para configurar o logon único do Azure AD com o ThirdLight, realize as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="c837e-150">**To configure Azure AD single sign-on with ThirdLight, perform the following steps:**</span></span>
+<span data-ttu-id="13ac7-150">**tooconfigure AD do Azure-logon único com ThirdLight, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="13ac7-150">**tooconfigure Azure AD single sign-on with ThirdLight, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="c837e-151">No Portal do Azure, na página de integração de aplicativos do **ThirdLight**, clique em **Logon único**.</span><span class="sxs-lookup"><span data-stu-id="c837e-151">In the Azure portal, on the **ThirdLight** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="13ac7-151">Em Olá portal do Azure, Olá **ThirdLight** página de integração de aplicativos, clique em **o logon único**.</span><span class="sxs-lookup"><span data-stu-id="13ac7-151">In hello Azure portal, on hello **ThirdLight** application integration page, click **Single sign-on**.</span></span>
 
     ![Configurar Logon Único][4]
 
-2. <span data-ttu-id="c837e-153">Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.</span><span class="sxs-lookup"><span data-stu-id="c837e-153">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="13ac7-153">Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.</span><span class="sxs-lookup"><span data-stu-id="13ac7-153">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Configurar Logon Único](./media/active-directory-saas-thirdlight-tutorial/tutorial_thirdlight_samlbase.png)
 
-3. <span data-ttu-id="c837e-155">Na seção **URLs e Domínio do ThirdLight**, realize as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="c837e-155">On the **ThirdLight Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="13ac7-155">Em Olá **ThirdLight domínio e URLs** , execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="13ac7-155">On hello **ThirdLight Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-thirdlight-tutorial/tutorial_thirdlight_url.png)
 
-    <span data-ttu-id="c837e-157">a.</span><span class="sxs-lookup"><span data-stu-id="c837e-157">a.</span></span> <span data-ttu-id="c837e-158">Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.thirdlight.com/`</span><span class="sxs-lookup"><span data-stu-id="c837e-158">In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.thirdlight.com/`</span></span>
+    <span data-ttu-id="13ac7-157">a.</span><span class="sxs-lookup"><span data-stu-id="13ac7-157">a.</span></span> <span data-ttu-id="13ac7-158">Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<subdomain>.thirdlight.com/`</span><span class="sxs-lookup"><span data-stu-id="13ac7-158">In hello **Sign-on URL** textbox, type a URL using hello following pattern: `https://<subdomain>.thirdlight.com/`</span></span>
 
-    <span data-ttu-id="c837e-159">b.</span><span class="sxs-lookup"><span data-stu-id="c837e-159">b.</span></span> <span data-ttu-id="c837e-160">Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.thirdlight.com/saml/sp`</span><span class="sxs-lookup"><span data-stu-id="c837e-160">In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.thirdlight.com/saml/sp`</span></span>
+    <span data-ttu-id="13ac7-159">b.</span><span class="sxs-lookup"><span data-stu-id="13ac7-159">b.</span></span> <span data-ttu-id="13ac7-160">Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<subdomain>.thirdlight.com/saml/sp`</span><span class="sxs-lookup"><span data-stu-id="13ac7-160">In hello **Identifier** textbox, type a URL using hello following pattern: `https://<subdomain>.thirdlight.com/saml/sp`</span></span>
 
     > [!NOTE] 
-    > <span data-ttu-id="c837e-161">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="c837e-161">These values are not real.</span></span> <span data-ttu-id="c837e-162">Atualize esses valores com a URL de Entrada e o Identificador reais.</span><span class="sxs-lookup"><span data-stu-id="c837e-162">Update these values with the actual Sign-On URL and Identiifer.</span></span> <span data-ttu-id="c837e-163">Contate a [equipe de suporte ao cliente do ThirdLight](https://www.thirdlight.com/support) para obter esses valores.</span><span class="sxs-lookup"><span data-stu-id="c837e-163">Contact [ThirdLight Client support team](https://www.thirdlight.com/support) to get these values.</span></span> 
+    > <span data-ttu-id="13ac7-161">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="13ac7-161">These values are not real.</span></span> <span data-ttu-id="13ac7-162">Atualizar esses valores com hello real URL de logon e Identiifer.</span><span class="sxs-lookup"><span data-stu-id="13ac7-162">Update these values with hello actual Sign-On URL and Identiifer.</span></span> <span data-ttu-id="13ac7-163">Entre em contato com [equipe de suporte do cliente ThirdLight](https://www.thirdlight.com/support) tooget esses valores.</span><span class="sxs-lookup"><span data-stu-id="13ac7-163">Contact [ThirdLight Client support team](https://www.thirdlight.com/support) tooget these values.</span></span> 
  
-4. <span data-ttu-id="c837e-164">Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo XML em seu computador.</span><span class="sxs-lookup"><span data-stu-id="c837e-164">On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.</span></span>
+4. <span data-ttu-id="13ac7-164">Em Olá **o certificado de autenticação SAML** seção, clique em **Metadata XML** e, em seguida, salve o arquivo XML de saudação em seu computador.</span><span class="sxs-lookup"><span data-stu-id="13ac7-164">On hello **SAML Signing Certificate** section, click **Metadata XML** and then save hello XML file on your computer.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-thirdlight-tutorial/tutorial_thirdlight_certificate.png) 
 
-5. <span data-ttu-id="c837e-166">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="c837e-166">Click **Save** button.</span></span>
+5. <span data-ttu-id="13ac7-166">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="13ac7-166">Click **Save** button.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-thirdlight-tutorial/tutorial_general_400.png)
 
-6. <span data-ttu-id="c837e-168">Em outra janela do navegador da Web, faça logon em seu site de empresa ThirdLight como um administrador.</span><span class="sxs-lookup"><span data-stu-id="c837e-168">In a different web browser window, log in to your ThirdLight company site as an administrator.</span></span>
+6. <span data-ttu-id="13ac7-168">Em uma janela de navegador web diferente, faça logon no site da empresa ThirdLight tooyour como um administrador.</span><span class="sxs-lookup"><span data-stu-id="13ac7-168">In a different web browser window, log in tooyour ThirdLight company site as an administrator.</span></span>
 
-7. <span data-ttu-id="c837e-169">Vá para **Configuração \> Administração do Sistema** e clique em **SAML2**.</span><span class="sxs-lookup"><span data-stu-id="c837e-169">Go to **Configuration \> System Administration**, and then click **SAML2**.</span></span>
+7. <span data-ttu-id="13ac7-169">Vá muito**configuração \> administração do sistema**e, em seguida, clique em **SAML2**.</span><span class="sxs-lookup"><span data-stu-id="13ac7-169">Go too**Configuration \> System Administration**, and then click **SAML2**.</span></span>
    
-    <span data-ttu-id="c837e-170">![Administração do Sistema](./media/active-directory-saas-thirdlight-tutorial/ic805843.png "Administração do Sistema")</span><span class="sxs-lookup"><span data-stu-id="c837e-170">![System Administration](./media/active-directory-saas-thirdlight-tutorial/ic805843.png "System Administration")</span></span>
+    <span data-ttu-id="13ac7-170">![Administração do Sistema](./media/active-directory-saas-thirdlight-tutorial/ic805843.png "Administração do Sistema")</span><span class="sxs-lookup"><span data-stu-id="13ac7-170">![System Administration](./media/active-directory-saas-thirdlight-tutorial/ic805843.png "System Administration")</span></span>
 
-8. <span data-ttu-id="c837e-171">Na seção de configuração do SAML2, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="c837e-171">In the SAML2 configuration section, perform the following steps:</span></span>
+8. <span data-ttu-id="13ac7-171">Na seção de configuração Olá SAML2, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="13ac7-171">In hello SAML2 configuration section, perform hello following steps:</span></span>
    
-    <span data-ttu-id="c837e-172">![Logon Único do SAML](./media/active-directory-saas-thirdlight-tutorial/ic805844.png "Logon Único do SAML")</span><span class="sxs-lookup"><span data-stu-id="c837e-172">![SAML Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/ic805844.png "SAML Single Sign-On")</span></span>   
+    <span data-ttu-id="13ac7-172">![Logon Único do SAML](./media/active-directory-saas-thirdlight-tutorial/ic805844.png "Logon Único do SAML")</span><span class="sxs-lookup"><span data-stu-id="13ac7-172">![SAML Single Sign-On](./media/active-directory-saas-thirdlight-tutorial/ic805844.png "SAML Single Sign-On")</span></span>   
 
-     <span data-ttu-id="c837e-173">a.</span><span class="sxs-lookup"><span data-stu-id="c837e-173">a.</span></span> <span data-ttu-id="c837e-174">Selecione **Habilitar Logon Único do SAML2**.</span><span class="sxs-lookup"><span data-stu-id="c837e-174">Select **Enable SAML2 Single Sign-On**.</span></span>
+     <span data-ttu-id="13ac7-173">a.</span><span class="sxs-lookup"><span data-stu-id="13ac7-173">a.</span></span> <span data-ttu-id="13ac7-174">Selecione **Habilitar Logon Único do SAML2**.</span><span class="sxs-lookup"><span data-stu-id="13ac7-174">Select **Enable SAML2 Single Sign-On**.</span></span>
  
-     <span data-ttu-id="c837e-175">b.</span><span class="sxs-lookup"><span data-stu-id="c837e-175">b.</span></span> <span data-ttu-id="c837e-176">Como **Fonte de metadados do IdP**, selecione **Carregar Metadados do IdP do XML**.</span><span class="sxs-lookup"><span data-stu-id="c837e-176">As **Source for IdP Metadata**, select **Load IdP Metadata from XML**.</span></span>
+     <span data-ttu-id="13ac7-175">b.</span><span class="sxs-lookup"><span data-stu-id="13ac7-175">b.</span></span> <span data-ttu-id="13ac7-176">Como **Fonte de metadados do IdP**, selecione **Carregar Metadados do IdP do XML**.</span><span class="sxs-lookup"><span data-stu-id="13ac7-176">As **Source for IdP Metadata**, select **Load IdP Metadata from XML**.</span></span>
  
-     <span data-ttu-id="c837e-177">c.</span><span class="sxs-lookup"><span data-stu-id="c837e-177">c.</span></span> <span data-ttu-id="c837e-178">Abra o arquivo de metadados baixado, copie o conteúdo e cole-o na caixa de texto **XML de Metadados do IdP** .</span><span class="sxs-lookup"><span data-stu-id="c837e-178">Open the downloaded metadata file, copy the content, and then paste it into the **IdP Metadata XML** textbox.</span></span> 
+     <span data-ttu-id="13ac7-177">c.</span><span class="sxs-lookup"><span data-stu-id="13ac7-177">c.</span></span> <span data-ttu-id="13ac7-178">Abrir o arquivo de metadados de saudação baixado, copie o conteúdo de hello e, em seguida, cole-o em Olá **XML de metadados IdP** caixa de texto.</span><span class="sxs-lookup"><span data-stu-id="13ac7-178">Open hello downloaded metadata file, copy hello content, and then paste it into hello **IdP Metadata XML** textbox.</span></span> 
      
-     <span data-ttu-id="c837e-179">d.</span><span class="sxs-lookup"><span data-stu-id="c837e-179">d.</span></span> <span data-ttu-id="c837e-180">Clique em **Salvar configurações do SAML2**.</span><span class="sxs-lookup"><span data-stu-id="c837e-180">Click **Save SAML2 settings**.</span></span>
+     <span data-ttu-id="13ac7-179">d.</span><span class="sxs-lookup"><span data-stu-id="13ac7-179">d.</span></span> <span data-ttu-id="13ac7-180">Clique em **Salvar configurações do SAML2**.</span><span class="sxs-lookup"><span data-stu-id="13ac7-180">Click **Save SAML2 settings**.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="c837e-181">É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!</span><span class="sxs-lookup"><span data-stu-id="c837e-181">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="c837e-182">Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior.</span><span class="sxs-lookup"><span data-stu-id="c837e-182">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="c837e-183">Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="c837e-183">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="13ac7-181">Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!</span><span class="sxs-lookup"><span data-stu-id="13ac7-181">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="13ac7-182">Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação.</span><span class="sxs-lookup"><span data-stu-id="13ac7-182">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="13ac7-183">Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="13ac7-183">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="c837e-184">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="c837e-184">Creating an Azure AD test user</span></span>
-<span data-ttu-id="c837e-185">O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="c837e-185">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="13ac7-184">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="13ac7-184">Creating an Azure AD test user</span></span>
+<span data-ttu-id="13ac7-185">Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="13ac7-185">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Criar um usuário do AD do Azure][100]
 
-<span data-ttu-id="c837e-187">**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="c837e-187">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="13ac7-187">**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="13ac7-187">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="c837e-188">No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="c837e-188">In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="13ac7-188">Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="13ac7-188">In hello **Azure portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-thirdlight-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="c837e-190">Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="c837e-190">To display the list of users, go to **Users and groups** and click **All users**.</span></span>
+2. <span data-ttu-id="13ac7-190">lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.</span><span class="sxs-lookup"><span data-stu-id="13ac7-190">toodisplay hello list of users, go too**Users and groups** and click **All users**.</span></span>
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-thirdlight-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="c837e-192">Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="c837e-192">To open the **User** dialog, click **Add** on the top of the dialog.</span></span>
+3. <span data-ttu-id="13ac7-192">Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.</span><span class="sxs-lookup"><span data-stu-id="13ac7-192">tooopen hello **User** dialog, click **Add** on hello top of hello dialog.</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-thirdlight-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="c837e-194">Na página do diálogo **Usuário**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="c837e-194">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="13ac7-194">Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="13ac7-194">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-thirdlight-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="c837e-196">a.</span><span class="sxs-lookup"><span data-stu-id="c837e-196">a.</span></span> <span data-ttu-id="c837e-197">Na caixa de texto **Nome**, digite **Brenda Fernandes**.</span><span class="sxs-lookup"><span data-stu-id="c837e-197">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="13ac7-196">a.</span><span class="sxs-lookup"><span data-stu-id="13ac7-196">a.</span></span> <span data-ttu-id="13ac7-197">Em Olá **nome** caixa de texto, tipo **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="13ac7-197">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="c837e-198">b.</span><span class="sxs-lookup"><span data-stu-id="c837e-198">b.</span></span> <span data-ttu-id="c837e-199">Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="c837e-199">In the **User name** textbox, type the **email address** of Britta Simon.</span></span>
+    <span data-ttu-id="13ac7-198">b.</span><span class="sxs-lookup"><span data-stu-id="13ac7-198">b.</span></span> <span data-ttu-id="13ac7-199">Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="13ac7-199">In hello **User name** textbox, type hello **email address** of Britta Simon.</span></span>
 
-    <span data-ttu-id="c837e-200">c.</span><span class="sxs-lookup"><span data-stu-id="c837e-200">c.</span></span> <span data-ttu-id="c837e-201">Selecione **Mostrar senha** e anote o valor de **senha**.</span><span class="sxs-lookup"><span data-stu-id="c837e-201">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="13ac7-200">c.</span><span class="sxs-lookup"><span data-stu-id="13ac7-200">c.</span></span> <span data-ttu-id="13ac7-201">Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.</span><span class="sxs-lookup"><span data-stu-id="13ac7-201">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="c837e-202">d.</span><span class="sxs-lookup"><span data-stu-id="c837e-202">d.</span></span> <span data-ttu-id="c837e-203">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="c837e-203">Click **Create**.</span></span>
+    <span data-ttu-id="13ac7-202">d.</span><span class="sxs-lookup"><span data-stu-id="13ac7-202">d.</span></span> <span data-ttu-id="13ac7-203">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="13ac7-203">Click **Create**.</span></span>
  
-### <a name="creating-a-thirdlight-test-user"></a><span data-ttu-id="c837e-204">Criação de um usuário de teste do ThirdLight</span><span class="sxs-lookup"><span data-stu-id="c837e-204">Creating a ThirdLight test user</span></span>
+### <a name="creating-a-thirdlight-test-user"></a><span data-ttu-id="13ac7-204">Criação de um usuário de teste do ThirdLight</span><span class="sxs-lookup"><span data-stu-id="13ac7-204">Creating a ThirdLight test user</span></span>
 
-<span data-ttu-id="c837e-205">Para permitir que os usuários do Azure AD façam logon no ThirdLight, eles devem ser provisionados no ThirdLight.</span><span class="sxs-lookup"><span data-stu-id="c837e-205">To enable Azure AD users to log in to ThirdLight, they must be provisioned into ThirdLight.</span></span>  
-<span data-ttu-id="c837e-206">No caso do ThirdLight, o provisionamento é uma tarefa manual.</span><span class="sxs-lookup"><span data-stu-id="c837e-206">In the case of ThirdLight, provisioning is a manual task.</span></span>
+<span data-ttu-id="13ac7-205">tooenable AD do Azure usuários toolog em tooThirdLight, eles devem ser provisionados no ThirdLight.</span><span class="sxs-lookup"><span data-stu-id="13ac7-205">tooenable Azure AD users toolog in tooThirdLight, they must be provisioned into ThirdLight.</span></span>  
+<span data-ttu-id="13ac7-206">No caso de saudação de ThirdLight, o provisionamento é uma tarefa manual.</span><span class="sxs-lookup"><span data-stu-id="13ac7-206">In hello case of ThirdLight, provisioning is a manual task.</span></span>
 
-<span data-ttu-id="c837e-207">**Para provisionar uma conta de usuário, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="c837e-207">**To provision a user account, perform the following steps:**</span></span>
+<span data-ttu-id="13ac7-207">**tooprovision uma conta de usuário, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="13ac7-207">**tooprovision a user account, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="c837e-208">Faça logon em seu site de empresa do **ThirdLight** como um administrador.</span><span class="sxs-lookup"><span data-stu-id="c837e-208">Log in to your **ThirdLight** company site as an administrator.</span></span>
+1. <span data-ttu-id="13ac7-208">Faça logon no tooyour **ThirdLight** site da empresa como um administrador.</span><span class="sxs-lookup"><span data-stu-id="13ac7-208">Log in tooyour **ThirdLight** company site as an administrator.</span></span>
 
-2. <span data-ttu-id="c837e-209">Vá para a guia **Usuários** .</span><span class="sxs-lookup"><span data-stu-id="c837e-209">Go to **Users** tab.</span></span>
+2. <span data-ttu-id="13ac7-209">Vá muito**usuários** guia.</span><span class="sxs-lookup"><span data-stu-id="13ac7-209">Go too**Users** tab.</span></span>
 
-3. <span data-ttu-id="c837e-210">Selecione **Usuários e Grupos**.</span><span class="sxs-lookup"><span data-stu-id="c837e-210">Select **Users and Groups**.</span></span>
+3. <span data-ttu-id="13ac7-210">Selecione **Usuários e Grupos**.</span><span class="sxs-lookup"><span data-stu-id="13ac7-210">Select **Users and Groups**.</span></span>
 
-4. <span data-ttu-id="c837e-211">Clique no botão **Adicionar novo Usuário** .</span><span class="sxs-lookup"><span data-stu-id="c837e-211">Click **Add new User** button.</span></span>
+4. <span data-ttu-id="13ac7-211">Clique no botão **Adicionar novo Usuário** .</span><span class="sxs-lookup"><span data-stu-id="13ac7-211">Click **Add new User** button.</span></span>
 
-5. <span data-ttu-id="c837e-212">Digite os valores de **Nome de usuário, Nome ou Descrição, Email, Escolher uma Predefinição ou Grupo de Novos Membros** de uma conta válida do AAD que você deseja provisionar.</span><span class="sxs-lookup"><span data-stu-id="c837e-212">Enter **the Username, Name or Description, Email, Choose a Preset or Group of New Members** of a valid AAD account you want to provision.</span></span>
+5. <span data-ttu-id="13ac7-212">Digite **hello nome de usuário, nome ou descrição, Email, escolha uma predefinição ou grupo dos novos membros** de uma conta válida do AAD você deseja tooprovision.</span><span class="sxs-lookup"><span data-stu-id="13ac7-212">Enter **hello Username, Name or Description, Email, Choose a Preset or Group of New Members** of a valid AAD account you want tooprovision.</span></span>
 
-6. <span data-ttu-id="c837e-213">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="c837e-213">Click **Create**.</span></span>
+6. <span data-ttu-id="13ac7-213">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="13ac7-213">Click **Create**.</span></span>
 
 >[!NOTE]
-><span data-ttu-id="c837e-214">É possível usar qualquer outra ferramenta de criação da conta de usuário do Thirdlight ou as APIs fornecidas pelo Thirdlight para provisionar as contas de usuário do AAD.</span><span class="sxs-lookup"><span data-stu-id="c837e-214">You can use any other Thirdlight user account creation tools or APIs provided by Thirdlight to provision AAD user accounts.</span></span> 
+><span data-ttu-id="13ac7-214">Você pode usar qualquer ferramenta de criação outros Thirdlight usuário conta ou APIs fornecidas pelo Thirdlight tooprovision contas de usuário do AAD.</span><span class="sxs-lookup"><span data-stu-id="13ac7-214">You can use any other Thirdlight user account creation tools or APIs provided by Thirdlight tooprovision AAD user accounts.</span></span> 
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="c837e-215">Atribuição do usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="c837e-215">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="13ac7-215">Atribuir um usuário de teste de saudação do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="13ac7-215">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="c837e-216">Nesta seção, você habilita a Brenda Fernandes a usar o logon único do Azure através da concessão de acesso ao ThirdLight.</span><span class="sxs-lookup"><span data-stu-id="c837e-216">In this section, you enable Britta Simon to use Azure single sign-on by granting access to ThirdLight.</span></span>
+<span data-ttu-id="13ac7-216">Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooThirdLight.</span><span class="sxs-lookup"><span data-stu-id="13ac7-216">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooThirdLight.</span></span>
 
 ![Atribuir usuário][200] 
 
-<span data-ttu-id="c837e-218">**Para atribuir Brenda Fernandes ao ThirdLight, realize as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="c837e-218">**To assign Britta Simon to ThirdLight, perform the following steps:**</span></span>
+<span data-ttu-id="13ac7-218">**tooassign Britta Simon tooThirdLight, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="13ac7-218">**tooassign Britta Simon tooThirdLight, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="c837e-219">No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="c837e-219">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="13ac7-219">No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="13ac7-219">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Atribuir usuário][201] 
 
-2. <span data-ttu-id="c837e-221">Na lista de aplicativos, selecione **ThirdLight**.</span><span class="sxs-lookup"><span data-stu-id="c837e-221">In the applications list, select **ThirdLight**.</span></span>
+2. <span data-ttu-id="13ac7-221">Na lista de aplicativos hello, selecione **ThirdLight**.</span><span class="sxs-lookup"><span data-stu-id="13ac7-221">In hello applications list, select **ThirdLight**.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-thirdlight-tutorial/tutorial_thirdlight_app.png) 
 
-3. <span data-ttu-id="c837e-223">No menu à esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="c837e-223">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="13ac7-223">No menu Olá Olá esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="13ac7-223">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Atribuir usuário][202] 
 
-4. <span data-ttu-id="c837e-225">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="c837e-225">Click **Add** button.</span></span> <span data-ttu-id="c837e-226">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="c837e-226">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="13ac7-225">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="13ac7-225">Click **Add** button.</span></span> <span data-ttu-id="13ac7-226">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="13ac7-226">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Atribuir usuário][203]
 
-5. <span data-ttu-id="c837e-228">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="c837e-228">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="13ac7-228">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.</span><span class="sxs-lookup"><span data-stu-id="13ac7-228">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="c837e-229">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="c837e-229">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="13ac7-229">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="13ac7-229">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="c837e-230">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="c837e-230">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="13ac7-230">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="13ac7-230">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="c837e-231">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="c837e-231">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="13ac7-231">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="13ac7-231">Testing single sign-on</span></span>
 
-<span data-ttu-id="c837e-232">Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.</span><span class="sxs-lookup"><span data-stu-id="c837e-232">In this section, you test your Azure AD single sign-on configuration using the Access Panel.</span></span>
+<span data-ttu-id="13ac7-232">Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.</span><span class="sxs-lookup"><span data-stu-id="13ac7-232">In this section, you test your Azure AD single sign-on configuration using hello Access Panel.</span></span>
 
-<span data-ttu-id="c837e-233">Ao clicar no bloco ThirdLight no Painel de Acesso, você deve ser conectado automaticamente ao aplicativo ThirdLight.</span><span class="sxs-lookup"><span data-stu-id="c837e-233">When you click the ThirdLight tile in the Access Panel, you should get automatically signed-on to your ThirdLight application.</span></span>
-<span data-ttu-id="c837e-234">Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="c837e-234">For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
+<span data-ttu-id="13ac7-233">Quando você clica em bloco ThirdLight Olá Olá painel de acesso, você deve obter automaticamente assinado em tooyour ThirdLight aplicativo.</span><span class="sxs-lookup"><span data-stu-id="13ac7-233">When you click hello ThirdLight tile in hello Access Panel, you should get automatically signed-on tooyour ThirdLight application.</span></span>
+<span data-ttu-id="13ac7-234">Para obter mais informações sobre Olá painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="13ac7-234">For more information about hello Access Panel, see [Introduction toohello Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
 
-## <a name="additional-resources"></a><span data-ttu-id="c837e-235">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="c837e-235">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="13ac7-235">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="13ac7-235">Additional resources</span></span>
 
-* [<span data-ttu-id="c837e-236">Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="c837e-236">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="c837e-237">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="c837e-237">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="13ac7-236">Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="13ac7-236">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="13ac7-237">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="13ac7-237">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 

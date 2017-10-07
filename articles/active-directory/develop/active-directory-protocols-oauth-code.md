@@ -1,6 +1,6 @@
 ---
-title: "Noções básicas sobre o fluxo do código de autorização do OAuth 2.0 no Azure AD | Microsoft Docs"
-description: "Este artigo descreve como usar mensagens HTTP para autorizar o acesso a aplicativos Web e a APIs da Web em seu locatário usando o Azure Active Directory e o OAuth 2.0."
+title: "Olá aaaUnderstand fluxo de código de autorização OAuth 2.0 no AD do Azure | Microsoft Docs"
+description: "Este artigo descreve como toouse HTTP mensagens tooauthorize acessar tooweb aplicativos e APIs da web em seu locatário usando o Azure Active Directory e OAuth 2.0."
 services: active-directory
 documentationcenter: .net
 author: dstrockis
@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 35132eae4d6a7f85b19a7a49ad4034e795d7df13
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4a6fe67d786a5fcb87d1059c2e94ba0c88d26cd3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# Autorizar o acesso aos aplicativos Web usando o OAuth 2.0 e o Azure Active Directory
-O Azure AD (Azure Active Directory) usa o OAuth 2.0 para permitir que você autorize o acesso a aplicativos Web e APIs da Web em seu locatário do Azure AD. Este guia independe do idioma e descreve como enviar e receber mensagens HTTP sem usar qualquer uma das nossas bibliotecas de software livre.
+# Autorizar o acesso tooweb aplicativos usando OAuth 2.0 e o Active Directory do Azure
+Azure Active Directory (AD do Azure) usa OAuth 2.0 tooenable tooauthorize acesso tooweb aplicativos e APIs da web em seu locatário do AD do Azure. Este guia é independente de linguagem e descreve como toosend e receber mensagens HTTP sem usar qualquer uma das nossas bibliotecas de código-fonte aberto.
 
-O fluxo do código de autorização do OAuth 2.0 é descrito na [seção 4.1 da especificação do OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.1). Ele é usado para realizar a autenticação e a autorização na maioria dos tipos de aplicativo, incluindo aplicativos Web e aplicativos originalmente instalados.
+Olá fluxo de código de autorização do OAuth 2.0 é descrita em [seção 4.1 da especificação de saudação OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.1). É usado tooperform autenticação e autorização na maioria dos tipos de aplicativo, incluindo aplicativos web e aplicativos instalados nativamente.
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
 ## Fluxo de autorização do OAuth 2.0
-Em um alto nível, todo o fluxo de autorização de um aplicativo é semelhante a:
+Em um nível alto, o fluxo de autorização inteiro Olá para um aplicativo é um pouco semelhante a:
 
 ![Fluxo do código de autenticação do OAuth](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## Solicitar um código de autorização
-O fluxo do código de autorização começa com o cliente direcionando o usuário para o ponto de extremidade `/authorize` . Nessa solicitação, o cliente indica as permissões que precisa adquirir do usuário: Você pode obter os pontos de extremidade do OAuth 2.0 da página do seu aplicativo no Portal Clássico do Azure, no botão **Exibir Pontos de Extremidade** na gaveta inferior.
+fluxo de código de autorização Olá começa com o cliente Olá direcionando Olá usuário toohello `/authorize` ponto de extremidade. Nessa solicitação, o cliente de Olá indica Olá permissões tooacquire do usuário hello. Você pode obter pontos de extremidade Olá OAuth 2.0 na página do seu aplicativo no Portal clássico do Azure, em Olá **exibir pontos de extremidade** botão na gaveta inferior de saudação.
 
 ```
 // Line breaks for legibility only
@@ -50,23 +50,23 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| locatário |obrigatório |O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo.  Os valores permitidos são identificadores de locatário, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para tokens independentes de locatário |
-| client_id |obrigatório |A ID de aplicativo atribuída ao seu aplicativo quando você o registra no Azure AD. Você pode encontrá-la no Portal do Azure. Clique em **Active Directory**, clique no diretório, escolha o aplicativo e clique em **Configurar** |
-| response_type |obrigatório |Deve incluir `code` para o fluxo do código de autorização. |
-| redirect_uri |recomendável |O redirect_uri do seu aplicativo, onde as respostas de autenticação podem ser enviadas e recebidas pelo aplicativo.  Ele deve corresponder exatamente a um dos redirect_uris que você registrou no portal, com exceção de que ele deve ser codificado por url.  Para aplicativos nativos e móveis, você deve usar o valor padrão de `urn:ietf:wg:oauth:2.0:oob`. |
-| response_mode |recomendável |Especifica o método que deve ser usado para enviar o token resultante de volta ao aplicativo.  Pode ser `query` ou `form_post`. |
-| state |recomendável |Um valor incluído na solicitação que também retorna na resposta do token. Um valor exclusivo gerado aleatoriamente que normalmente é usado para [impedir ataques de solicitação intersite forjada](http://tools.ietf.org/html/rfc6749#section-10.12).  O estado também é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
-| recurso |opcional |O URI de ID do Aplicativo da API Web (recurso seguro). Para localizar o URI da ID do Aplicativo de API Web, no Portal do Azure, clique em **Active Directory**, clique no diretório, clique no aplicativo e em **Configurar**. |
-| prompt |opcional |Indique o tipo de interação do usuário necessária.<p> Os valores válidos são: <p> *logon*: o usuário deve ser solicitado a autenticar novamente. <p> *consentimento*: consentimento do usuário foi concedido, mas precisa ser atualizado. O usuário deve ser solicitado a consentir. <p> *admin_consent*: o administrador deve ser solicitado a consentir em nome de todos os usuários em sua organização |
-| login_hint |opcional |Pode ser usado para preencher previamente o campo de nome de usuário/endereço de email da página de entrada do usuário, se você souber o nome de usuário com antecedência.  Geralmente, os aplicativos usam esse parâmetro durante a reautenticação, após já terem extraído o nome de usuário de uma entrada anterior usando a declaração `preferred_username`. |
-| domain_hint |opcional |Fornece uma dica sobre o locatário ou domínio que o usuário deve usar para entrar. O valor de domain_hint é um domínio registrado para o locatário. Se o locatário for federado para um diretório local, o AAD redirecionará para o servidor de federação do locatário especificado. |
+| locatário |obrigatório |Olá `{tenant}` valor no caminho de saudação da solicitação Olá pode ser usado toocontrol quem pode entrar no aplicativo hello.  Olá valores permitidos são identificadores de locatário, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para tokens independente de locatário |
+| client_id |obrigatório |Olá Id de aplicativo atribuído tooyour aplicativo ao registrar com o Azure AD. Você pode encontrar isso na Olá Portal do Azure. Clique em **do Active Directory**, clique em diretório hello, escolha o aplicativo hello e clique em **configurar** |
+| response_type |obrigatório |Deve incluir `code` para fluxo de código de autorização de saudação. |
+| redirect_uri |recomendável |Olá redirect_uri do seu aplicativo, onde as respostas de autenticação podem ser enviadas e recebidas pelo seu aplicativo.  Ele deve corresponder exatamente uma saudação redirect_uris que você registrou no portal de hello, exceto que ele deve ser codificados de url.  Para aplicativos nativos e móveis, você deve usar o valor padrão Olá `urn:ietf:wg:oauth:2.0:oob`. |
+| response_mode |recomendável |Especifica o método hello que deve ser usado toosend Olá resultante token tooyour back aplicativo.  Pode ser `query` ou `form_post`. |
+| state |recomendável |Um valor incluído na solicitação de saudação que também é retornada na resposta de token hello. Um valor exclusivo gerado aleatoriamente que normalmente é usado para [impedir ataques de solicitação intersite forjada](http://tools.ietf.org/html/rfc6749#section-10.12).  estado de saudação também é usado tooencode informações sobre o estado do usuário Olá no aplicativo hello antes de solicitação de autenticação hello, como página hello ou exibição que estavam no. |
+| recurso |opcional |Olá URI de ID do aplicativo de saudação API web (recurso seguro). Olá toofind URI de ID do aplicativo de saudação API da web, em Olá Portal do Azure, clique em **do Active Directory**, clique em diretório hello, clique em aplicativo hello e, em seguida, clique em **configurar**. |
+| prompt |opcional |Indique o tipo de saudação da interação do usuário é necessária.<p> Os valores válidos são: <p> *logon*: usuário Olá deve ser tooreauthenticate solicitada. <p> *consentimento*: consentimento do usuário tiver recebido, mas precisa toobe atualizado. usuário Olá deve ser tooconsent solicitada. <p> *admin_consent*: um administrador deve ser tooconsent solicitada em nome de todos os usuários em sua organização |
+| login_hint |opcional |Pode ser o campo de endereço de email/nome de usuário usado toopre preenchimento Olá de saudação página de entrada de usuário Olá, se você souber o nome de usuário antecipadamente.  Aplicativos geralmente usam esse parâmetro durante a reautenticação, já ter extraído Olá nome de usuário de uma entrada anterior usando Olá `preferred_username` de declaração. |
+| domain_hint |opcional |Fornece uma dica sobre o locatário hello ou domínio que Olá usuário deve usar toosign no. valor Olá Olá domain_hint é um domínio registrado para o locatário hello. Se locatário Olá é o diretório de local de tooan federado, AAD redirecionará toohello servidor de Federação do locatário especificado. |
 
 > [!NOTE]
-> Se o usuário fizer parte de uma organização, um administrador da organização poderá consentir ou recusar em nome do usuário ou permitir que o usuário consinta. O usuário terá a opção de consentir apenas quando o administrador permitir.
+> Se o usuário Olá faz parte de uma organização, um administrador da organização Olá pode consentimento recusar em nome do usuário de saudação ou permitir Olá tooconsent de usuário. Olá usuário recebe Olá opção tooconsent somente quando o administrador o hello permite.
 >
 >
 
-Neste ponto, o usuário é solicitado a inserir suas credenciais e consentir as permissões indicadas no parâmetro de consulta `scope`. Depois que o usuário é autenticado e recebe a permissão de consentimento, o Azure AD envia uma resposta ao seu aplicativo no endereço `redirect_uri` em sua solicitação.
+Neste ponto, o usuário Olá é solicitado tooenter suas credenciais e permissões do consentimento toohello indicado no hello `scope` parâmetro de consulta. Depois que o usuário Olá autentica e concede consentimento, o AD do Azure envia um aplicativo de tooyour de resposta em Olá `redirect_uri` endereço em sua solicitação.
 
 ### Resposta bem-sucedida
 Uma resposta bem-sucedida se parece com esta:
@@ -78,13 +78,13 @@ Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLE
 
 | Parâmetro | Descrição |
 | --- | --- |
-| admin_consent |O valor será True se um administrador tiver consentido um prompt de solicitação de consentimento. |
-| código |O código de autorização solicitado pelo aplicativo. O aplicativo pode usar o código de autorização para solicitar um token de acesso para o recurso de destino. |
-| session_state |Um valor exclusivo que identifica a sessão de usuário atual. Esse valor é um GUID, mas deve ser tratado como um valor opaco que é transmitido sem verificação. |
-| state |Se um parâmetro de estado estiver incluído na solicitação, o mesmo valor deverá aparecer na resposta. É uma boa prática fazer o aplicativo verificar se os valores de estado na solicitação e na resposta são idênticos antes de usar a resposta. Isso ajuda a detectar [ataques de CSRF (Solicitação Intersite Forjada)](https://tools.ietf.org/html/rfc6749#section-10.12) contra o cliente. |
+| admin_consent |valor de saudação será True se um administrador tiver consentido tooa prompt de solicitação de consentimento. |
+| código |código de autorização de Olá Olá aplicativo solicitado. aplicativo Hello pode usar toorequest de código de autorização de saudação um token de acesso do recurso de destino hello. |
+| session_state |Um valor exclusivo que identifica a sessão atual do usuário hello. Esse valor é um GUID, mas deve ser tratado como um valor opaco que é transmitido sem verificação. |
+| state |Se um parâmetro de estado é incluído na solicitação hello, hello mesmo valor deve aparecer na resposta de saudação. É uma boa prática para Olá tooverify de aplicativo que os valores de estado Olá Olá solicitação e resposta são idênticos antes de usar a resposta de saudação. Isso ajuda a toodetect [ataques de falsificação de solicitação entre sites (CSRF)](https://tools.ietf.org/html/rfc6749#section-10.12) no cliente de saudação. |
 
 ### Resposta de erro
-As respostas de erro também podem ser enviadas ao `redirect_uri` para que o aplicativo possa tratá-las adequadamente.
+Respostas de erro também podem ser enviadas toohello `redirect_uri` para que o aplicativo hello possa tratá-los corretamente.
 
 ```
 GET http://localhost:12345/?
@@ -94,25 +94,25 @@ error=access_denied
 
 | Parâmetro | Descrição |
 | --- | --- |
-| error |Um valor de código de erro definido na Seção 5.2 da [Estrutura de Autorização OAuth 2.0](http://tools.ietf.org/html/rfc6749). A tabela a seguir descreve os códigos de erro retornados pelo Azure AD. |
-| error_description |Uma descrição mais detalhada do erro. Esta mensagem não se destina a ser amigável para o usuário final. |
-| state |O valor de estado é um valor não reutilizado gerado aleatoriamente que é enviado na solicitação e retornado na resposta para evitar ataques de CSRF (solicitação intersite forjada). |
+| error |Um valor de código de erro definido na seção 5.2 da saudação [estrutura de autorização do OAuth 2.0](http://tools.ietf.org/html/rfc6749). tabela próxima Olá descreve códigos de erro de saudação do AD do Azure retorna. |
+| error_description |Uma descrição mais detalhada do erro de saudação. Esta mensagem não se destina toobe amigável de usuário final. |
+| state |valor de estado de saudação é um valor não reutilizado gerado aleatoriamente que é enviado na solicitação hello e retornado na Olá resposta tooprevent solicitação intersite forjada (CSRF) ataques. |
 
 #### Códigos de erro para erros de ponto de extremidade de autorização
-A tabela a seguir descreve os vários códigos de erro que podem ser retornados no parâmetro `error` da resposta de erro.
+Olá, tabela a seguir descreve Olá vários códigos de erro que podem ser retornados em Olá `error` parâmetro da resposta de erro hello.
 
 | Código do Erro | Descrição | Ação do Cliente |
 | --- | --- | --- |
-| invalid_request |Erro de protocolo, como um parâmetro obrigatório ausente. |Corrija e reenvie a solicitação. Esse é um erro de desenvolvimento que, normalmente, é capturado durante os testes iniciais. |
-| unauthorized_client |O aplicativo cliente não tem permissão para solicitar um código de autorização. |Isso geralmente ocorre quando o aplicativo cliente não está registrado no Azure AD ou não é adicionado ao locatário do Azure AD do usuário. O aplicativo pode solicitar que o usuário instale o aplicativo e o adicione ao Azure AD. |
-| access_denied |Consentimento negado pelo proprietário do recurso |O aplicativo cliente pode notificar o usuário de que não pode continuar, a menos que o usuário consinta. |
-| unsupported_response_type |O servidor de autorização não dá suporta ao tipo de resposta na solicitação. |Corrija e reenvie a solicitação. Esse é um erro de desenvolvimento que, normalmente, é capturado durante os testes iniciais. |
-| server_error |O servidor encontrou um erro inesperado. |Tente novamente a solicitação. Esses erros podem resultar de condições temporárias. O aplicativo cliente pode explicar ao usuário que sua resposta está atrasada devido a um erro temporário. |
-| temporarily_unavailable |O servidor está temporariamente muito ocupado para tratar da solicitação. |Tente novamente a solicitação. O aplicativo cliente pode explicar para o usuário que sua resposta está atrasada devido a uma condição temporária. |
-| invalid_resource |O recurso de destino é inválido porque não existe, o Azure AD não consegue encontrá-lo ou ele não está configurado corretamente. |Isso indica que o recurso, se ele existe, não foi configurado no locatário. O aplicativo pode solicitar que o usuário instale o aplicativo e o adicione ao Azure AD. |
+| invalid_request |Erro de protocolo, como um parâmetro obrigatório ausente. |Corrija e reenvie a solicitação de saudação. Esse é um erro de desenvolvimento que, normalmente, é capturado durante os testes iniciais. |
+| unauthorized_client |Olá aplicativo cliente não é permitido toorequest um código de autorização. |Isso geralmente ocorre quando o aplicativo de cliente hello não está registrado no AD do Azure ou não será adicionado o locatário do AD do Azure toohello do usuário. aplicativo Hello pode solicitar o usuário Olá com instruções para instalar o aplicativo hello e adicioná-lo tooAzure AD. |
+| access_denied |Consentimento negado pelo proprietário do recurso |aplicativo de cliente Hello pode notificar o usuário de saudação que ele não pode continuar a menos que o consentimento do usuário hello. |
+| unsupported_response_type |servidor de autorização de saudação não oferece suporte a tipo de resposta de saudação na solicitação de saudação. |Corrija e reenvie a solicitação de saudação. Esse é um erro de desenvolvimento que, normalmente, é capturado durante os testes iniciais. |
+| server_error |servidor de saudação encontrou um erro inesperado. |Repita a solicitação de saudação. Esses erros podem resultar de condições temporárias. aplicativo de cliente Hello pode explicar toohello usuário que sua resposta está atrasada devido a erro temporário tooa. |
+| temporarily_unavailable |servidor de saudação está temporariamente solicitação de saudação toohandle muito ocupado. |Repita a solicitação de saudação. aplicativo de cliente Hello pode explicar toohello usuário que sua resposta está atrasada devido a condição temporária tooa. |
+| invalid_resource |o recurso de destino Olá é inválido porque não existe, o AD do Azure não encontrou ou não está configurado corretamente. |Isso indica que o recurso hello, se ele existir, não foi configurado no locatário hello. aplicativo Hello pode solicitar o usuário Olá com instruções para instalar o aplicativo hello e adicioná-lo tooAzure AD. |
 
-## Usar o código de autorização para solicitar um token de acesso
-Agora que você já adquiriu um código de autorização e recebeu permissão do usuário, poderá resgatar o código de um token de acesso para o recurso desejado ao enviar uma solicitação POST para o ponto de extremidade `/token` :
+## Use toorequest código de autorização Olá um token de acesso
+Agora que você tiver adquirido um código de autorização e ter permissão concedida pelo usuário hello, você pode resgatar o código de saudação para um recurso de token toohello desejado de acesso, enviando um toohello de solicitação POST `/token` ponto de extremidade:
 
 ```
 // Line breaks for legibility only
@@ -132,20 +132,20 @@ grant_type=authorization_code
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| locatário |obrigatório |O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo.  Os valores permitidos são identificadores de locatário, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para tokens independentes de locatário |
-| client_id |obrigatório |A ID de aplicativo atribuída ao seu aplicativo quando você o registra no Azure AD. Você poderá encontrá-la no Portal Clássico do Azure. Clique em **Active Directory**, clique no diretório, escolha o aplicativo e clique em **Configurar** |
-| grant_type |obrigatório |Deve ser `authorization_code` para o fluxo do código de autorização. |
-| código |obrigatório |O `authorization_code` que você adquiriu na seção anterior |
-| redirect_uri |obrigatório |O mesmo valor `redirect_uri` usado para adquirir o `authorization_code`. |
-| client_secret |obrigatório para aplicativos Web |O segredo do aplicativo que você criou no portal de registro do aplicativo para seu aplicativo.  Ele não deve ser usado em um aplicativo nativo, pois client_secrets não podem ser armazenados de modo confiável em dispositivos.  Ele é obrigatório para aplicativos Web e APIs Web, que têm a capacidade de armazenar o `client_secret` com segurança no servidor. |
-| recurso |necessário se especificado na solicitação de código de autorização, caso contrário, é opcional |O URI de ID do Aplicativo da API Web (recurso seguro). |
+| locatário |obrigatório |Olá `{tenant}` valor no caminho de saudação da solicitação Olá pode ser usado toocontrol quem pode entrar no aplicativo hello.  Olá valores permitidos são identificadores de locatário, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para tokens independente de locatário |
+| client_id |obrigatório |Olá Id de aplicativo atribuído tooyour aplicativo ao registrar com o Azure AD. Você pode encontrar isso na Olá Portal clássico do Azure. Clique em **do Active Directory**, clique em diretório hello, escolha o aplicativo hello e clique em **configurar** |
+| grant_type |obrigatório |Deve ser `authorization_code` para fluxo de código de autorização de saudação. |
+| código |obrigatório |Olá `authorization_code` que você copiou na seção anterior Olá |
+| redirect_uri |obrigatório |Olá mesmo `redirect_uri` valor que foi usado tooacquire Olá `authorization_code`. |
+| client_secret |obrigatório para aplicativos Web |segredo do aplicativo Hello que você criou no portal de registro de aplicativo hello para seu aplicativo.  Ele não deve ser usado em um aplicativo nativo, pois client_secrets não podem ser armazenados de modo confiável em dispositivos.  Ele é necessário para aplicativos web e APIs, que têm Olá Olá de toostore de capacidade da web `client_secret` com segurança no lado do servidor de saudação. |
+| recurso |necessário se especificado na solicitação de código de autorização, caso contrário, é opcional |Olá URI de ID do aplicativo de saudação API web (recurso seguro). |
 
-Para localizar o URI de ID do Aplicativo, no Portal de Gerenciamento do Azure, clique em **Active Directory**, clique no diretório, clique no aplicativo e em **Configurar**.
+Olá toofind URI de ID do aplicativo no hello Portal de gerenciamento do Azure, clique em **do Active Directory**, clique em diretório hello, clique em aplicativo hello e, em seguida, clique em **configurar**.
 
 ### Resposta bem-sucedida
-O Azure AD retorna um token de acesso após uma resposta bem-sucedida. Para minimizar as chamadas de rede do aplicativo cliente e sua latência associada, o aplicativo cliente deve armazenar em cache os tokens de acesso durante o tempo de vida do token especificado na resposta do OAuth 2.0. Para determinar o tempo de vida do token, use os valores de parâmetro `expires_in` ou `expires_on`.
+O Azure AD retorna um token de acesso após uma resposta bem-sucedida. chamadas de rede de toominimize do aplicativo de cliente hello e sua latência associada, aplicativo de cliente hello deve armazenar em cache os tokens de acesso para Olá vida útil do token que é especificado no hello resposta OAuth 2.0. toodetermine Olá vida útil do token, use o hello `expires_in` ou `expires_on` valores de parâmetro.
 
-Se um recurso da API Web retornar um código de erro `invalid_token` , isso poderá indicar que o recurso determinou que o token expirou. Se as horas de relógio do cliente e do recurso forem diferentes (conhecido como "diferença de horário"), o recurso poderá considerar o token expirado antes que o token seja removido do cache do cliente. Se isso ocorrer, remova o token do cache, mesmo se ele ainda estiver dentro de seu tempo de vida calculado.
+Se um recurso da API web retorna um `invalid_token` código de erro, isso pode indicar que o recurso de saudação determinou que Olá token tiver expirado. Se horas dos relógios do cliente e o recurso Olá são diferentes (conhecido como "diferença de horário"), recursos de saudação considere toobe token Olá expirou antes do hello token seja removido do cache do cliente de saudação. Se isso ocorrer, desmarque o token de saudação do cache Olá, mesmo se ele ainda estiver dentro de seu tempo de vida calculado.
 
 Uma resposta bem-sucedida se parece com esta:
 
@@ -165,17 +165,17 @@ Uma resposta bem-sucedida se parece com esta:
 
 | Parâmetro | Descrição |
 | --- | --- |
-| access_token |O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, como uma API Web. |
-| token_type |Indica o valor do tipo de token. O único tipo com suporte do Azure AD é Portador Para saber mais sobre os tokens de portador, confira [Estrutura de autorização do OAuth 2.0: uso do token de portador (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
-| expires_in |Por quanto tempo o token de acesso é válido (em segundos). |
-| expires_on |A hora de expiração do token de acesso. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. Esse valor é usado para determinar o tempo de vida de tokens em cache. |
-| recurso |O URI de ID do Aplicativo da API Web (recurso seguro). |
-| scope |As permissões de representação concedidas ao aplicativo cliente. A permissão padrão é `user_impersonation`. O proprietário do recurso protegido pode registrar valores adicionais no AD do Azure. |
-| refresh_token |Um token de atualização do OAuth 2.0. O aplicativo pode usar esse token para adquirir tokens de acesso adicionais depois que o token de acesso atual expira.  Os tokens de atualização têm longa duração e podem ser usados para reter acesso a recursos por períodos estendidos. |
-| id_token |Um JWT (Token Web JSON) não assinado. O aplicativo pode decodificar com base64Url os segmentos desse token para solicitar informações sobre o usuário que se conectou. O aplicativo pode armazenar em cache os valores e exibi-los, mas não deve depender deles para qualquer autorização ou limites de segurança. |
+| access_token |token de acesso solicitado Hello. Olá aplicativo pode usar este toohello tooauthenticate token protegido de recurso, como uma API da web. |
+| token_type |Indica o valor do tipo de token de saudação. Olá digite somente do AD do Azure suporta é portador. Para saber mais sobre os tokens de portador, confira [Estrutura de autorização do OAuth 2.0: uso do token de portador (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
+| expires_in |Quanto tempo o token de acesso de saudação é válido (em segundos). |
+| expires_on |tempo de saudação quando o token de acesso de saudação expira. Data de saudação é representada como número de saudação de segundos de 1970-01-01T0:0:0Z UTC até o tempo de expiração de saudação. Esse valor é usado toodetermine o tempo de vida de Olá de tokens em cache. |
+| recurso |Olá URI de ID do aplicativo de saudação API web (recurso seguro). |
+| scope |Permissões de representação concedidas toohello aplicativo de cliente. permissão de padrão de saudação é `user_impersonation`. proprietário de saudação do hello protegido recursos pode registrar valores adicionais no AD do Azure. |
+| refresh_token |Um token de atualização do OAuth 2.0. Olá aplicativo pode usar esse token tooacquire os tokens de acesso adicionais após a expiração do token de acesso atual hello.  Atualizar tokens são de vida longa e pode ser usado tooretain acesso tooresources por longos períodos de tempo. |
+| id_token |Um JWT (Token Web JSON) não assinado. Olá aplicativo pode base64Url decodificar segmentos Olá dessas informações de token toorequest sobre o usuário Olá conectado. Olá aplicativo pode armazenar em cache os valores hello e exibi-las, mas ele não deve confiar neles para qualquer autorização ou limites de segurança. |
 
 ### Declarações de token JWT
-O token JWT no valor do parâmetro `id_token` pode ser decodificado para as seguintes declarações:
+token JWT de saudação no valor Olá Olá `id_token` parâmetro pode ser decodificado para Olá declarações a seguir:
 
 ```
 {
@@ -199,35 +199,35 @@ O token JWT no valor do parâmetro `id_token` pode ser decodificado para as segu
 }.
 ```
 
-Para saber mais sobre os tokens Web JSON, confira a [especificação de rascunho IETF JWT](http://go.microsoft.com/fwlink/?LinkId=392344). Para saber mais sobre os tipos de token e declaração, leia [Tipos de token e de declaração com suporte](active-directory-token-and-claims.md)
+Para obter mais informações sobre tokens da web JSON, consulte Olá [especificação de rascunho JWT IETF](http://go.microsoft.com/fwlink/?LinkId=392344). Para obter mais informações sobre tipos de token hello e declarações, leia [tipos de declaração e Token com suporte](active-directory-token-and-claims.md)
 
-O parâmetro `id_token` inclui os seguintes tipos de declaração:
+Olá `id_token` inclui o parâmetro hello tipos de declaração a seguir:
 
 | Tipo de declaração | Descrição |
 | --- | --- |
-| aud |Público-alvo do token. Quando o token é emitido para um aplicativo cliente, o público-alvo será o `client_id` do cliente. |
-| exp |Hora de expiração. A hora em que o token expira. Para que o token seja válido, a data/hora atual deve ser menor ou igual ao valor `exp` . A hora é representada como o número de segundos de 1º de janeiro de 1970 (1970-01-01T0:0:0Z) UTC até a hora em que o token foi emitido. |
-| family_name |Sobrenome do usuário. O aplicativo pode exibir esse valor. |
-| given_name |Nome do usuário. O aplicativo pode exibir esse valor. |
-| iat |Hora da emissão. A hora em que o JWT foi emitido. A hora é representada como o número de segundos de 1º de janeiro de 1970 (1970-01-01T0:0:0Z) UTC até a hora em que o token foi emitido. |
-| iss |Identifica o emissor do token |
-| nbf |Não antes de. A hora em que o token entra em vigor. Para que o token seja válido, a data/hora atual deve ser maior ou igual ao valor de Nbf. A hora é representada como o número de segundos de 1º de janeiro de 1970 (1970-01-01T0:0:0Z) UTC até a hora em que o token foi emitido. |
-| oid |O identificador (ID) do objeto do usuário no Azure AD. |
-| sub |Identificador do assunto do token. Este é um identificador persistente e imutável para o usuário descrito pelo token. Use esse valor na lógica de cache. |
-| tid |O identificador (ID) do locatário do Azure AD que emitiu o token. |
-| unique_name |Um identificador exclusivo que pode ser exibido para o usuário. Geralmente é um nome de usuário principal (UPN). |
-| upn |Nome UPN do usuário. |
-| ver |Versão. A versão do token JWT, normalmente 1.0. |
+| aud |Público-alvo do token de saudação. Quando o token de saudação é emitido tooa aplicativo de cliente, público Olá é hello `client_id` do cliente de saudação. |
+| exp |Hora de expiração. tempo de saudação quando o token de saudação expira. Para Olá token toobe válido, Olá data/hora atual deve ser menor ou igual toohello `exp` valor. tempo de saudação é representado como número de saudação de segundos de 1º de janeiro de 1970 (1970-01-01T0:0:0Z) UTC até Olá tempo Olá token foi emitido. |
+| family_name |Sobrenome do usuário. aplicativo Hello pode exibir esse valor. |
+| given_name |Nome do usuário. aplicativo Hello pode exibir esse valor. |
+| iat |Hora da emissão. tempo de saudação quando Olá JWT foi emitido. tempo de saudação é representado como número de saudação de segundos de 1º de janeiro de 1970 (1970-01-01T0:0:0Z) UTC até Olá tempo Olá token foi emitido. |
+| iss |Identifica o emissor do token Olá |
+| nbf |Não antes de. tempo de saudação quando Olá token entrou em vigor. Para Olá token toobe válido, Olá data/hora atual deve ser toohello maior que ou igual Nbf valor. tempo de saudação é representado como número de saudação de segundos de 1º de janeiro de 1970 (1970-01-01T0:0:0Z) UTC até Olá tempo Olá token foi emitido. |
+| oid |Identificador de objeto (ID) do objeto de usuário de saudação no AD do Azure. |
+| sub |Identificador do assunto do token. Este é um identificador persistente e imutável para o usuário Olá Olá token descreve. Use esse valor na lógica de cache. |
+| tid |Identificador (ID) do locatário de saudação do AD do Azure que emitiu o token de saudação do locatário. |
+| unique_name |Um identificador exclusivo para o que pode ser exibido toohello usuário. Geralmente é um nome de usuário principal (UPN). |
+| upn |Nome principal do usuário hello. |
+| ver |Versão. versão de saudação do token JWT hello, normalmente 1.0. |
 
 ### Resposta de erro
-Os erros de ponto de extremidade de emissão de token são códigos de erro HTTP, pois o cliente chama o ponto de extremidade de emissão de token diretamente. Além do código de status HTTP, o ponto de extremidade de emissão de token do Azure AD também retorna um documento JSON com objetos que descrevem o erro.
+erros de ponto de extremidade de emissão de tokens de saudação são códigos de erro HTTP, como chamadas de cliente Olá Olá ponto de extremidade de emissão de tokens diretamente. Além disso toohello HTTP de código de status, o ponto de extremidade de emissão de token de AD do Azure Olá também retorna um documento JSON com objetos que descrevem o erro hello.
 
 Uma resposta de erro de exemplo se parece com esta:
 
 ```
 {
   "error": "invalid_grant",
-  "error_description": "AADSTS70002: Error validating credentials. AADSTS70008: The provided authorization code or refresh token is expired. Send a new interactive authorization request for this user and resource.\r\nTrace ID: 3939d04c-d7ba-42bf-9cb7-1e5854cdce9e\r\nCorrelation ID: a8125194-2dc8-4078-90ba-7b6592a7f231\r\nTimestamp: 2016-04-11 18:00:12Z",
+  "error_description": "AADSTS70002: Error validating credentials. AADSTS70008: hello provided authorization code or refresh token is expired. Send a new interactive authorization request for this user and resource.\r\nTrace ID: 3939d04c-d7ba-42bf-9cb7-1e5854cdce9e\r\nCorrelation ID: a8125194-2dc8-4078-90ba-7b6592a7f231\r\nTimestamp: 2016-04-11 18:00:12Z",
   "error_codes": [
     70002,
     70008
@@ -239,37 +239,37 @@ Uma resposta de erro de exemplo se parece com esta:
 ```
 | Parâmetro | Descrição |
 | --- | --- |
-| error |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
-| error_description |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
+| error |Uma cadeia de código de erro que pode ser usados tooclassify tipos de erros que ocorrem e pode ser usado tooreact tooerrors. |
+| error_description |Uma mensagem de erro específicas que um desenvolvedor pode ajudar a identificar a causa de saudação de um erro de autenticação. |
 | error_codes |Uma lista de códigos de erro específicos do STS que pode ajudar no diagnóstico. |
-| timestamp |A hora na qual o erro ocorreu. |
-| trace_id |Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico. |
-| correlation_id |Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico entre os componentes. |
+| timestamp |tempo de saudação na qual ocorreu o erro de saudação. |
+| trace_id |Um identificador exclusivo para a solicitação de saudação que pode ajudar no diagnóstico. |
+| correlation_id |Um identificador exclusivo para a solicitação de saudação que pode ajudar no diagnóstico em componentes. |
 
 #### Códigos de status HTTP
-A tabela a seguir lista os códigos de status HTTP que o ponto de extremidade de emissão de token retorna. Em alguns casos, o código de erro é suficiente para descrever a resposta, mas se houver erros, você precisará analisar o documento JSON complementar e examinar seu código de erro.
+Olá, tabela a seguir lista os códigos de status Olá HTTP Olá retorna de ponto de extremidade de emissão de token. Em alguns casos, o código de erro de saudação é suficiente resposta de saudação toodescribe, mas se houver erros, você precisa Olá tooparse que acompanha o JSON de documento e examine o código de erro.
 
 | Código HTTP | Descrição |
 | --- | --- |
-| 400 |Código HTTP padrão. Usado na maioria dos casos e, normalmente, é devido a uma solicitação malformada. Corrija e reenvie a solicitação. |
-| 401 |Falha na autenticação. Por exemplo, a solicitação não tem o parâmetro client_secret. |
-| 403 |Falha na autorização. Por exemplo, o usuário não tem permissão para acessar o recurso. |
-| 500 |Erro interno no serviço. Tente novamente a solicitação. |
+| 400 |Código HTTP padrão. Usado na maioria dos casos e geralmente é devido a solicitação malformada tooa. Corrija e reenvie a solicitação de saudação. |
+| 401 |Falha na autenticação. Por exemplo, solicitação de saudação é Olá client_secret parâmetro ausente. |
+| 403 |Falha na autorização. Por exemplo, usuário Olá não tem recursos de saudação tooaccess permissão. |
+| 500 |Erro interno no serviço de saudação. Repita a solicitação de saudação. |
 
 #### Códigos de erro para erros de ponto de extremidade de token
 | Código do Erro | Descrição | Ação do Cliente |
 | --- | --- | --- |
-| invalid_request |Erro de protocolo, como um parâmetro obrigatório ausente. |Corrija e reenvie a solicitação |
-| invalid_grant |O código de autorização é inválido ou expirou. |Tente uma nova solicitação para o `/authorize` ponto de extremidade |
-| unauthorized_client |O cliente autenticado não está autorizado a usar esse tipo de concessão de autorização. |Isso geralmente ocorre quando o aplicativo cliente não está registrado no Azure AD ou não é adicionado ao locatário do Azure AD do usuário. O aplicativo pode solicitar que o usuário instale o aplicativo e o adicione ao Azure AD. |
-| invalid_client |Falha na autenticação de cliente. |As credenciais do cliente não são válidas. Para corrigi-las, o administrador do aplicativo atualiza as credenciais. |
-| unsupported_grant_type |O servidor de autorização não dá suporte ao tipo de concessão de autorização. |Altere o tipo de concessão na solicitação. Esse tipo de erro deve ocorrer somente durante o desenvolvimento e ser detectado durante os testes iniciais. |
-| invalid_resource |O recurso de destino é inválido porque não existe, o Azure AD não consegue encontrá-lo ou ele não está configurado corretamente. |Isso indica que o recurso, se ele existe, não foi configurado no locatário. O aplicativo pode solicitar que o usuário instale o aplicativo e o adicione ao Azure AD. |
-| interaction_required |A solicitação requer interação do usuário. Por exemplo, é necessária uma etapa de autenticação adicional. | Em vez de uma solicitação não interativa, tente novamente com uma solicitação de autorização interativa para o mesmo recurso. |
-| temporarily_unavailable |O servidor está temporariamente muito ocupado para tratar da solicitação. |Tente novamente a solicitação. O aplicativo cliente pode explicar para o usuário que sua resposta está atrasada devido a uma condição temporária. |
+| invalid_request |Erro de protocolo, como um parâmetro obrigatório ausente. |Corrija e reenvie a solicitação de saudação |
+| invalid_grant |código de autorização de saudação é inválido ou expirou. |Tente um novo toohello de solicitação `/authorize` ponto de extremidade |
+| unauthorized_client |Olá cliente autenticado não está autorizado toouse essa autorização conceder tipo. |Isso geralmente ocorre quando o aplicativo de cliente hello não está registrado no AD do Azure ou não será adicionado o locatário do AD do Azure toohello do usuário. aplicativo Hello pode solicitar o usuário Olá com instruções para instalar o aplicativo hello e adicioná-lo tooAzure AD. |
+| invalid_client |Falha na autenticação de cliente. |as credenciais do cliente Olá não são válidas. toofix, o administrador do aplicativo hello atualiza credenciais hello. |
+| unsupported_grant_type |servidor de autorização de saudação não dá suporte para o tipo de concessão de autorização de saudação. |Saudação de alteração conceder tipo na solicitação de saudação. Esse tipo de erro deve ocorrer somente durante o desenvolvimento e ser detectado durante os testes iniciais. |
+| invalid_resource |o recurso de destino Olá é inválido porque não existe, o AD do Azure não encontrou ou não está configurado corretamente. |Isso indica que o recurso hello, se ele existir, não foi configurado no locatário hello. aplicativo Hello pode solicitar o usuário Olá com instruções para instalar o aplicativo hello e adicioná-lo tooAzure AD. |
+| interaction_required |solicitação de saudação requer interação do usuário. Por exemplo, é necessária uma etapa de autenticação adicional. | Em vez de uma solicitação não interativo, tente novamente com uma solicitação de autorização interativa para Olá mesmo recurso. |
+| temporarily_unavailable |servidor de saudação está temporariamente solicitação de saudação toohandle muito ocupado. |Repita a solicitação de saudação. aplicativo de cliente Hello pode explicar toohello usuário que sua resposta está atrasada devido a condição temporária tooa. |
 
-## Usar o token de acesso para acessar o recurso
-Agora que você já adquiriu com êxito um `access_token`, você pode usar o token em solicitações para APIs Web incluindo-o no cabeçalho `Authorization`. A especificação [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) explica como usar os tokens de portador em solicitações HTTP para acessar recursos protegidos.
+## Usar Olá acesso tooaccess token Olá recurso
+Agora que você tenha adquirido com êxito um `access_token`, você pode usar o token Olá em solicitações tooWeb APIs, incluindo-o em Olá `Authorization` cabeçalho. Olá [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) especificação explica como os tokens de portador toouse no tooaccess de solicitações HTTP de recursos protegidos.
 
 ### Solicitação de exemplo
 ```
@@ -279,41 +279,41 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ### Resposta de erro
-Recursos protegidos que implementam RFC 6750 emitem códigos de status HTTP. Se a solicitação não tem credenciais de autenticação ou o token está ausente, a resposta inclui um cabeçalho `WWW-Authenticate` . Quando uma solicitação falha, o servidor de recursos responde com o código de status HTTP e um código de erro.
+Recursos protegidos que implementam RFC 6750 emitem códigos de status HTTP. Se a solicitação de saudação não tem credenciais de autenticação ou está faltando o token, resposta de Olá Olá inclui um `WWW-Authenticate` cabeçalho. Quando uma solicitação falhar, o servidor de saudação do recurso responde com código de status HTTP hello e um código de erro.
 
-Este é um exemplo de uma resposta malsucedida quando a solicitação do cliente não inclui o token de portador:
+a seguir Olá é um exemplo de uma resposta bem-sucedida quando a solicitação de saudação do cliente inclui um token de portador hello:
 
 ```
 HTTP/1.1 401 Unauthorized
-WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="The access token is missing.",
+WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="hello access token is missing.",
 ```
 
 #### Parâmetros de erro
 | Parâmetro | Descrição |
 | --- | --- |
-| authorization_uri |O URI (ponto de extremidade físico) do servidor de autorização. Esse valor também é usado como uma chave de pesquisa para obter mais informações sobre o servidor de um ponto de extremidade de descoberta. <p><p> O cliente deve validar que o servidor de autorização é confiável. Quando o recurso é protegido pelo Azure AD, é suficiente confirmar que a URL começa com https://login.microsoftonline.com ou com outro nome do host a que o Azure AD dá suporte. Um recurso específico de locatário sempre deve retornar um URI de autorização específico de locatário. |
-| error |Um valor de código de erro definido na Seção 5.2 da [Estrutura de Autorização OAuth 2.0](http://tools.ietf.org/html/rfc6749). |
-| error_description |Uma descrição mais detalhada do erro. Esta mensagem não se destina a ser amigável para o usuário final. |
-| resource_id |Retorna o identificador exclusivo do recurso. O aplicativo cliente pode usar esse identificador como o valor do parâmetro `resource` ao solicitar um token para o recurso. <p><p> É importante para o aplicativo cliente verificar esse valor, caso contrário, um serviço mal-intencionado poderá induzir um ataque de **elevação de privilégios** <p><p> A estratégia recomendada para evitar um ataque é verificar se `resource_id` corresponde à base da URL da API Web que está sendo acessada. Por exemplo, se https://service.contoso.com/data estiver sendo acessado, `resource_id` poderá ser htttps://service.contoso.com/. O aplicativo cliente deverá rejeitar um `resource_id` que não comece com a URL base, a menos que haja uma maneira alternativa confiável para verificar a ID. |
+| authorization_uri |Olá URI (ponto de extremidade físico) do servidor de autorização de saudação. Esse valor também é usado como uma pesquisa de chave tooget para obter mais informações sobre o servidor de saudação de um ponto de extremidade de descoberta. <p><p> cliente Olá deve validar esse Olá servidor de autorização é confiável. Quando o recurso de saudação é protegido pelo AD do Azure, é suficiente tooverify que Olá URL começa com https://login.microsoftonline.com ou outro nome de host que oferece suporte ao AD do Azure. Um recurso específico de locatário sempre deve retornar um URI de autorização específico de locatário. |
+| error |Um valor de código de erro definido na seção 5.2 da saudação [estrutura de autorização do OAuth 2.0](http://tools.ietf.org/html/rfc6749). |
+| error_description |Uma descrição mais detalhada do erro de saudação. Esta mensagem não se destina toobe amigável de usuário final. |
+| resource_id |Retorna Olá identificador exclusivo do recurso de saudação. aplicativo de cliente Hello pode usar esse identificador como valor de saudação do hello `resource` parâmetro quando ele solicita um token para o recurso de saudação. <p><p> É importante para Olá tooverify do aplicativo cliente esse valor, caso contrário, um serviço mal-intencionado pode ser capaz de tooinduce um **elevação de privilégios** ataque <p><p> Olá recomendado estratégia para evitar um ataque é tooverify Olá `resource_id` correspondências Olá Olá web API URL base que está sendo acessado. Por exemplo, se estiver sendo acessado https://service.contoso.com/data, Olá `resource_id` pode ser htttps://service.contoso.com/. aplicativo de cliente Hello deve rejeitar um `resource_id` que não começam com hello URL de base a menos que haja uma id de saudação de tooverify de maneira confiável alternativa. |
 
 #### Códigos de erro de esquema de portador
-A especificação RFC 6750 define os erros a seguir para recursos que usam o cabeçalho WWW-Authenticate e o esquema de Portador na resposta.
+Olá especificação RFC 6750 define Olá para recursos que usam o cabeçalho WWW-Authenticate de saudação e o esquema portador na resposta Olá os erros a seguir.
 
 | Código de status HTTP | Código do Erro | Descrição | Ação do Cliente |
 | --- | --- | --- | --- |
-| 400 |invalid_request |A solicitação não está bem formada. Por exemplo, pode estar sem um parâmetro ou usando o mesmo parâmetro duas vezes. |Corrija o erro e repita a solicitação. Esse tipo de erro deve ocorrer somente durante o desenvolvimento e deve ser detectado nos testes iniciais. |
-| 401 |invalid_token |O token de acesso está ausente, é inválido ou foi revogado. O valor do parâmetro error_description fornece detalhes adicionais. |Solicite um novo token do servidor de autorização. Se o novo token falhar, isso indicará que ocorreu um erro inesperado. Envie uma mensagem de erro ao usuário e tente novamente após intervalos aleatórios. |
-| 403 |insufficient_scope |O token de acesso não tem as permissões de representação necessárias para acessar o recurso. |Envie uma nova solicitação de autorização ao ponto de extremidade de autorização. Se a resposta contiver o parâmetro de escopo, use o valor de escopo na solicitação para o recurso. |
-| 403 |insufficient_access |A entidade do token não tem as permissões necessárias para acessar o recurso. |Solicite que o usuário use uma conta diferente ou solicite permissões para o recurso especificado. |
+| 400 |invalid_request |solicitação de saudação não está bem formada. Por exemplo, ele pode estar faltando um parâmetro ou usando Olá mesmo parâmetro duas vezes. |Corrija o erro de saudação e repita a solicitação de saudação. Esse tipo de erro deve ocorrer somente durante o desenvolvimento e deve ser detectado nos testes iniciais. |
+| 401 |invalid_token |o token de acesso Hello está ausente, inválido ou foi revogado. valor de saudação do parâmetro de error_description Olá fornece detalhes adicionais. |Solicite um novo token de saudação do servidor de autorização. Se o novo token de saudação falhar, um erro inesperado ocorreu. Enviar um usuário de toohello de mensagem de erro e tente novamente após intervalos aleatórios. |
+| 403 |insufficient_scope |token de acesso de saudação não contém o recurso de saudação do hello representação permissões tooaccess necessária. |Envie um novo ponto de extremidade autorização autorização solicitação toohello. Se resposta Olá contém o parâmetro de escopo Olá, use o valor do escopo Olá no recurso de toohello de solicitação de saudação. |
+| 403 |insufficient_access |assunto de saudação do token de saudação não tem permissões de saudação que sejam necessárias tooaccess saudação do recurso. |Olá Avisar usuário toouse uma conta diferente ou toorequest permissões toohello o recurso especificado. |
 
-## Atualização dos tokens de acesso
-Os Tokens de Acesso têm curta duração e deverão ser atualizados depois de expirados para continuarem acessando recursos. Você pode atualizar o `access_token` ao enviar outra solicitação `POST` ao ponto de extremidade `/token`, mas dessa vez fornecendo o `refresh_token` em vez do `code`.
+## Atualizando os tokens de acesso Olá
+Tokens de acesso são de curta duração e devem ser atualizados depois que eles expiram toocontinue acessar recursos. Você pode atualizar Olá `access_token` enviando outra `POST` solicitação toohello `/token` ponto de extremidade, mas desta vez fornecendo Olá `refresh_token` em vez da saudação `code`.
 
-Os tokens de atualização não têm um tempo de vida especificado. Normalmente, os tempos de vida de tokens de atualização são relativamente longos. No entanto, em alguns casos, os tokens de atualização expiram, são revogados ou não têm privilégios suficientes para a ação desejada. Seu aplicativo precisa esperar e tratar os erros retornados pelo ponto de extremidade de emissão de token corretamente.
+Os tokens de atualização não têm um tempo de vida especificado. Normalmente, os tempos de vida de saudação de tokens de atualização serão relativamente longos. No entanto, em alguns casos, tokens de atualização expirarem, são revogados ou não tem privilégios suficientes para a ação de saudação desejada. Seu aplicativo precisa tooexpect e o manipulador de erros retornados pelo ponto de extremidade de emissão de token Olá corretamente.
 
-Quando você receber uma resposta com um erro de token de atualização, descarte o token de atualização atual e solicite um novo código de autorização ou um token de acesso. Em particular, quando usar um token de atualização no fluxo de Concessão de Código de Autorização, se você receber uma resposta com os códigos de erro `interaction_required` ou `invalid_grant`, descarte o token de atualização e solicite um novo código de autorização.
+Quando você receber uma resposta com um erro de token de atualização, descarte Olá token de atualização atual e solicite um novo código de autorização ou token de acesso. Em particular, quando usando uma atualização de token em Olá fluxo de concessão de código de autorização, se você receber uma resposta com hello `interaction_required` ou `invalid_grant` códigos de erro, descarte o token de atualização hello e solicite um novo código de autorização.
 
-Uma solicitação de exemplo para o ponto de extremidade **específico do locatário** (você também pode usar o ponto de extremidade **comum**) para obter um novo token de acesso usando um token de atualização que tem esta aparência:
+Um toohello de solicitação de exemplo **específico do locatário** ponto de extremidade (você também pode usar o hello **comuns** ponto de extremidade) tooget um novo token de acesso usando um token de atualização tem esta aparência:
 
 ```
 // Line breaks for legibility only
@@ -344,13 +344,13 @@ Uma resposta de token bem-sucedida se parecerá com esta:
 ```
 | Parâmetro | Descrição |
 | --- | --- |
-| token_type |O tipo de token. O único valor com suporte é **portador**. |
-| expires_in |O tempo de vida restante do token em segundos. Um valor típico é 3600 (uma hora). |
-| expires_on |A data e a hora em que o token expira. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. |
-| recurso |Identifica o recurso protegido que pode ser acessado pelo token de acesso. |
-| scope |As permissões de representação concedidas ao aplicativo cliente nativo. A permissão padrão é **user_impersonation**. O proprietário do recurso de destino pode registrar valores alternativos no Azure AD. |
-| access_token |O novo token de acesso solicitado. |
-| refresh_token |Um novo refresh_token do OAuth 2.0 que pode ser usado para solicitar novos tokens de acesso quando um expirar nesta resposta. |
+| token_type |tipo de token Hello. valor de saudação só tem suportada é **portador**. |
+| expires_in |Olá restante do tempo de vida do token de saudação em segundos. Um valor típico é 3600 (uma hora). |
+| expires_on |Data de saudação e a hora em que o token de saudação expira. Data de saudação é representada como número de saudação de segundos de 1970-01-01T0:0:0Z UTC até o tempo de expiração de saudação. |
+| recurso |Identifica Olá protegidos recurso esse token de acesso de saudação pode ser usado tooaccess. |
+| scope |Permissões de representação concedidas toohello aplicativo de cliente nativo. permissão de padrão de saudação é **user_impersonation**. proprietário de saudação do recurso de destino Olá pode registrar valores alternativos no AD do Azure. |
+| access_token |Olá novo token de acesso que foi solicitado. |
+| refresh_token |Um novo refresh_token de OAuth 2.0 que pode ser usado toorequest novos tokens de acesso quando Olá nesta resposta expira. |
 
 ### Resposta de erro
 Uma resposta de erro de exemplo se parece com esta:
@@ -358,7 +358,7 @@ Uma resposta de erro de exemplo se parece com esta:
 ```
 {
   "error": "invalid_resource",
-  "error_description": "AADSTS50001: The application named https://foo.microsoft.com/mail.read was not found in the tenant named 295e01fc-0c56-4ac3-ac57-5d0ed568f872.  This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant.  You might have sent your authentication request to the wrong tenant.\r\nTrace ID: ef1f89f6-a14f-49de-9868-61bd4072f0a9\r\nCorrelation ID: b6908274-2c58-4e91-aea9-1f6b9c99347c\r\nTimestamp: 2016-04-11 18:59:01Z",
+  "error_description": "AADSTS50001: hello application named https://foo.microsoft.com/mail.read was not found in hello tenant named 295e01fc-0c56-4ac3-ac57-5d0ed568f872.  This can happen if hello application has not been installed by hello administrator of hello tenant or consented tooby any user in hello tenant.  You might have sent your authentication request toohello wrong tenant.\r\nTrace ID: ef1f89f6-a14f-49de-9868-61bd4072f0a9\r\nCorrelation ID: b6908274-2c58-4e91-aea9-1f6b9c99347c\r\nTimestamp: 2016-04-11 18:59:01Z",
   "error_codes": [
     50001
   ],
@@ -370,11 +370,11 @@ Uma resposta de erro de exemplo se parece com esta:
 
 | Parâmetro | Descrição |
 | --- | --- |
-| error |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
-| error_description |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
+| error |Uma cadeia de código de erro que pode ser usados tooclassify tipos de erros que ocorrem e pode ser usado tooreact tooerrors. |
+| error_description |Uma mensagem de erro específicas que um desenvolvedor pode ajudar a identificar a causa de saudação de um erro de autenticação. |
 | error_codes |Uma lista de códigos de erro específicos do STS que pode ajudar no diagnóstico. |
-| timestamp |A hora na qual o erro ocorreu. |
-| trace_id |Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico. |
-| correlation_id |Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico entre os componentes. |
+| timestamp |tempo de saudação na qual ocorreu o erro de saudação. |
+| trace_id |Um identificador exclusivo para a solicitação de saudação que pode ajudar no diagnóstico. |
+| correlation_id |Um identificador exclusivo para a solicitação de saudação que pode ajudar no diagnóstico em componentes. |
 
-Para obter uma descrição dos códigos de erro e a ação recomendada do cliente, veja [Códigos de erro para erros de ponto de extremidade de token](#error-codes-for-token-endpoint-errors).
+Para obter uma descrição dos códigos de erro hello e Olá cliente ação recomendada, consulte [códigos de erro para erros de ponto de extremidade token](#error-codes-for-token-endpoint-errors).

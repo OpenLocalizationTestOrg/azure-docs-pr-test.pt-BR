@@ -1,6 +1,6 @@
 ---
-title: Gerenciar os membros de um grupo no Azure Active Directory | Microsoft Docs
-description: "Como adicionar ou remover usuários e dispositivos de um grupo no Azure Active Directory"
+title: "membros de saudação aaaManage para um grupo no Active Directory do Azure | Microsoft Docs"
+description: "Como tooadd ou remover usuários e dispositivos de um grupo no Active Directory do Azure"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -15,42 +15,42 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 044e88f95712e1cc5b5532f5492c78d711a8d858
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4cb16ee63828003da251423a04736f7174dd4896
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a><span data-ttu-id="6cf8a-103">Gerenciar associação de grupo de usuários em seu locatário do Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="6cf8a-103">Manage group membership for users in your Azure Active Directory tenant</span></span>
-<span data-ttu-id="6cf8a-104">Este artigo explica como gerenciar os membros de um grupo no Azure AD (Azure Active Directory).</span><span class="sxs-lookup"><span data-stu-id="6cf8a-104">This article explains how to manage the members for a group in Azure Active Directory (Azure AD).</span></span>
+# <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a><span data-ttu-id="d49e1-103">Gerenciar associação de grupo de usuários em seu locatário do Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="d49e1-103">Manage group membership for users in your Azure Active Directory tenant</span></span>
+<span data-ttu-id="d49e1-104">Este artigo explica como toomanage Olá membros de um grupo no Azure Active Directory (AD do Azure).</span><span class="sxs-lookup"><span data-stu-id="d49e1-104">This article explains how toomanage hello members for a group in Azure Active Directory (Azure AD).</span></span>
 
-## <a name="how-do-i-find-the-members-and-manage-them"></a><span data-ttu-id="6cf8a-105">Como localizo os membros e os gerencio?</span><span class="sxs-lookup"><span data-stu-id="6cf8a-105">How do I find the members and manage them?</span></span>
-1. <span data-ttu-id="6cf8a-106">Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.</span><span class="sxs-lookup"><span data-stu-id="6cf8a-106">Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.</span></span>
-2. <span data-ttu-id="6cf8a-107">Escolha **Mais serviços**, insira **Usuários e grupos** na caixa de texto e selecione **Enter**.</span><span class="sxs-lookup"><span data-stu-id="6cf8a-107">Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.</span></span>
+## <a name="how-do-i-find-hello-members-and-manage-them"></a><span data-ttu-id="d49e1-105">Como localizar membros hello e gerenciá-los?</span><span class="sxs-lookup"><span data-stu-id="d49e1-105">How do I find hello members and manage them?</span></span>
+1. <span data-ttu-id="d49e1-106">Entrar toohello [portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global para o diretório de saudação.</span><span class="sxs-lookup"><span data-stu-id="d49e1-106">Sign in toohello [Azure portal](https://portal.azure.com) with an account that's a global admin for hello directory.</span></span>
+2. <span data-ttu-id="d49e1-107">Selecione **mais serviços**, digite **usuários e grupos** Olá caixa de texto e, em seguida, selecione **Enter**.</span><span class="sxs-lookup"><span data-stu-id="d49e1-107">Select **More services**, enter **Users and groups** in hello text box, and then select **Enter**.</span></span>
 
    ![Abrir o gerenciamento de usuários](./media/active-directory-groups-members-azure-portal/search-user-management.png)
-3. <span data-ttu-id="6cf8a-109">Na folha **Usuários e grupos**, escolha **Todos os grupos**.</span><span class="sxs-lookup"><span data-stu-id="6cf8a-109">On the **Users and groups** blade, select **All groups**.</span></span>
+3. <span data-ttu-id="d49e1-109">Em Olá **usuários e grupos** folha, selecione **todos os grupos de**.</span><span class="sxs-lookup"><span data-stu-id="d49e1-109">On hello **Users and groups** blade, select **All groups**.</span></span>
 
-   ![Abrir a folha de grupos](./media/active-directory-groups-members-azure-portal/view-groups-blade.png)
-4. <span data-ttu-id="6cf8a-111">Na folha **Usuários e grupos - Todos os grupos** , escolha um grupo.</span><span class="sxs-lookup"><span data-stu-id="6cf8a-111">On the **Users and groups - All groups** blade, select a group.</span></span>
-5. <span data-ttu-id="6cf8a-112">Na folha **Grupo – *nomedogrupo*** , selecione **Membros**.</span><span class="sxs-lookup"><span data-stu-id="6cf8a-112">On the **Group - *groupname*** blade, select **Members**.</span></span>
+   ![Folha de grupos de saudação de abertura](./media/active-directory-groups-members-azure-portal/view-groups-blade.png)
+4. <span data-ttu-id="d49e1-111">Em Olá **usuários e grupos - todos os grupos** folha, selecione um grupo.</span><span class="sxs-lookup"><span data-stu-id="d49e1-111">On hello **Users and groups - All groups** blade, select a group.</span></span>
+5. <span data-ttu-id="d49e1-112">Em Olá **grupo - *groupname***  folha, selecione **membros**.</span><span class="sxs-lookup"><span data-stu-id="d49e1-112">On hello **Group - *groupname*** blade, select **Members**.</span></span>
 
-   ![Abrir a folha Membros](./media/active-directory-groups-members-azure-portal/view-group-members.png)
-6. <span data-ttu-id="6cf8a-114">Para adicionar membros ao grupo, na folha **Grupo - Membros**, selecione **Adicionar Membros**.</span><span class="sxs-lookup"><span data-stu-id="6cf8a-114">To add members to the group, on the **Group - Members** blade, select **Add Members**.</span></span>
+   ![Folha de membros de saudação de abertura](./media/active-directory-groups-members-azure-portal/view-group-members.png)
+6. <span data-ttu-id="d49e1-114">tooadd membros toohello grupo Olá **grupo - membros** folha, selecione **adicionar membros**.</span><span class="sxs-lookup"><span data-stu-id="d49e1-114">tooadd members toohello group, on hello **Group - Members** blade, select **Add Members**.</span></span>
 
    ![Comando Adicionar Membros](./media/active-directory-groups-members-azure-portal/add-group-members-command.png)
-7. <span data-ttu-id="6cf8a-116">Na folha **Membros**, escolha um ou mais usuários ou dispositivos para adicionar ao grupo e escolha o botão **Selecionar** na parte inferior da folha para adicioná-los ao grupo.</span><span class="sxs-lookup"><span data-stu-id="6cf8a-116">On the **Members** blade, select one or more users or devices to add to the group and select the **Select** button at the bottom of the blade to add them to the group.</span></span> <span data-ttu-id="6cf8a-117">A caixa **Usuário** filtra a exibição com base na correspondência de sua entrada com qualquer parte de um nome de usuário ou dispositivo.</span><span class="sxs-lookup"><span data-stu-id="6cf8a-117">The **User** box filters the display based on matching your entry to any part of a user or device name.</span></span> <span data-ttu-id="6cf8a-118">Caracteres curinga não são aceitos nessa caixa.</span><span class="sxs-lookup"><span data-stu-id="6cf8a-118">No wildcard characters are accepted in that box.</span></span>
-8. <span data-ttu-id="6cf8a-119">Para remover membros do grupo, na folha **Grupo - Membros** , escolha um membro.</span><span class="sxs-lookup"><span data-stu-id="6cf8a-119">To remove members from the group, on the **Group - Members** blade, select a member.</span></span>
-9. <span data-ttu-id="6cf8a-120">Na folha ***membername***, selecione o comando **Remover** e confirme sua escolha no prompt.</span><span class="sxs-lookup"><span data-stu-id="6cf8a-120">On the ***membername*** blade, select the **Remove** command, and confirm your choice at the prompt.</span></span>
+7. <span data-ttu-id="d49e1-116">Em Olá **membros** folha, selecione um ou mais usuários ou dispositivos de grupo de toohello de tooadd e selecione Olá **selecione** botão na parte inferior de saudação do hello folha tooadd-los toohello grupo.</span><span class="sxs-lookup"><span data-stu-id="d49e1-116">On hello **Members** blade, select one or more users or devices tooadd toohello group and select hello **Select** button at hello bottom of hello blade tooadd them toohello group.</span></span> <span data-ttu-id="d49e1-117">Olá **usuário** caixa filtra Olá com base na correspondência de sua parte de tooany de entrada de um nome de usuário ou dispositivo de exibição.</span><span class="sxs-lookup"><span data-stu-id="d49e1-117">hello **User** box filters hello display based on matching your entry tooany part of a user or device name.</span></span> <span data-ttu-id="d49e1-118">Caracteres curinga não são aceitos nessa caixa.</span><span class="sxs-lookup"><span data-stu-id="d49e1-118">No wildcard characters are accepted in that box.</span></span>
+8. <span data-ttu-id="d49e1-119">os membros do grupo Olá Olá tooremove **grupo - membros** folha, selecione um membro.</span><span class="sxs-lookup"><span data-stu-id="d49e1-119">tooremove members from hello group, on hello **Group - Members** blade, select a member.</span></span>
+9. <span data-ttu-id="d49e1-120">Em Olá ***membername*** folha, selecione Olá **remover** de comando e confirme sua escolha no prompt de saudação.</span><span class="sxs-lookup"><span data-stu-id="d49e1-120">On hello ***membername*** blade, select hello **Remove** command, and confirm your choice at hello prompt.</span></span>
 
    ![Comando Remover Membros](./media/active-directory-groups-members-azure-portal/remove-group-members-command.png)
-10. <span data-ttu-id="6cf8a-122">Quando terminar de alterar os membros do grupo, escolha **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="6cf8a-122">When you finish changing members for the group, select **Save**.</span></span>
+10. <span data-ttu-id="d49e1-122">Quando terminar de alterar os membros do grupo de saudação, selecione **salvar**.</span><span class="sxs-lookup"><span data-stu-id="d49e1-122">When you finish changing members for hello group, select **Save**.</span></span>
 
-## <a name="additional-information"></a><span data-ttu-id="6cf8a-123">Informações adicionais</span><span class="sxs-lookup"><span data-stu-id="6cf8a-123">Additional information</span></span>
-<span data-ttu-id="6cf8a-124">Esses artigos fornecem mais informações sobre o Active Directory do Azure.</span><span class="sxs-lookup"><span data-stu-id="6cf8a-124">These articles provide additional information on Azure Active Directory.</span></span>
+## <a name="additional-information"></a><span data-ttu-id="d49e1-123">Informações adicionais</span><span class="sxs-lookup"><span data-stu-id="d49e1-123">Additional information</span></span>
+<span data-ttu-id="d49e1-124">Esses artigos fornecem mais informações sobre o Active Directory do Azure.</span><span class="sxs-lookup"><span data-stu-id="d49e1-124">These articles provide additional information on Azure Active Directory.</span></span>
 
-* [<span data-ttu-id="6cf8a-125">Ver grupos existentes</span><span class="sxs-lookup"><span data-stu-id="6cf8a-125">See existing groups</span></span>](active-directory-groups-view-azure-portal.md)
-* [<span data-ttu-id="6cf8a-126">Criar um novo grupo e adicionando membros</span><span class="sxs-lookup"><span data-stu-id="6cf8a-126">Create a new group and adding members</span></span>](active-directory-groups-create-azure-portal.md)
-* [<span data-ttu-id="6cf8a-127">Gerenciar configurações de um grupo</span><span class="sxs-lookup"><span data-stu-id="6cf8a-127">Manage settings of a group</span></span>](active-directory-groups-settings-azure-portal.md)
-* [<span data-ttu-id="6cf8a-128">Gerenciar associações de um grupo</span><span class="sxs-lookup"><span data-stu-id="6cf8a-128">Manage memberships of a group</span></span>](active-directory-groups-membership-azure-portal.md)
-* [<span data-ttu-id="6cf8a-129">Gerenciar regras dinâmicas para usuários em um grupo</span><span class="sxs-lookup"><span data-stu-id="6cf8a-129">Manage dynamic rules for users in a group</span></span>](active-directory-groups-dynamic-membership-azure-portal.md)
+* [<span data-ttu-id="d49e1-125">Ver grupos existentes</span><span class="sxs-lookup"><span data-stu-id="d49e1-125">See existing groups</span></span>](active-directory-groups-view-azure-portal.md)
+* [<span data-ttu-id="d49e1-126">Criar um novo grupo e adicionando membros</span><span class="sxs-lookup"><span data-stu-id="d49e1-126">Create a new group and adding members</span></span>](active-directory-groups-create-azure-portal.md)
+* [<span data-ttu-id="d49e1-127">Gerenciar configurações de um grupo</span><span class="sxs-lookup"><span data-stu-id="d49e1-127">Manage settings of a group</span></span>](active-directory-groups-settings-azure-portal.md)
+* [<span data-ttu-id="d49e1-128">Gerenciar associações de um grupo</span><span class="sxs-lookup"><span data-stu-id="d49e1-128">Manage memberships of a group</span></span>](active-directory-groups-membership-azure-portal.md)
+* [<span data-ttu-id="d49e1-129">Gerenciar regras dinâmicas para usuários em um grupo</span><span class="sxs-lookup"><span data-stu-id="d49e1-129">Manage dynamic rules for users in a group</span></span>](active-directory-groups-dynamic-membership-azure-portal.md)

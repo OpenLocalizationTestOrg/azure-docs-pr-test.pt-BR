@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory ao &frankly | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o &frankly."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e & francamente."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,203 +13,203 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: ea18a9f9bff258337a3de6d7703b4c548efa37df
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 92677b6fcd8609ca31f82a30e85c7010b7bb3351
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-frankly"></a><span data-ttu-id="1c88c-103">Tutorial: integração do Azure Active Directory ao &frankly</span><span class="sxs-lookup"><span data-stu-id="1c88c-103">Tutorial: Azure Active Directory integration with &frankly</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-frankly"></a><span data-ttu-id="0d23e-103">Tutorial: integração do Azure Active Directory ao &frankly</span><span class="sxs-lookup"><span data-stu-id="0d23e-103">Tutorial: Azure Active Directory integration with &frankly</span></span>
 
-<span data-ttu-id="1c88c-104">Neste tutorial, você aprende a integrar o &frankly ao Azure AD (Azure Active Directory).</span><span class="sxs-lookup"><span data-stu-id="1c88c-104">In this tutorial, you learn how to integrate &frankly with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="0d23e-104">Neste tutorial, você aprenderá como toointegrate & francamente com o Azure Active Directory (AD do Azure).</span><span class="sxs-lookup"><span data-stu-id="0d23e-104">In this tutorial, you learn how toointegrate &frankly with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="1c88c-105">A integração do &frankly ao Azure AD oferece os seguintes benefícios:</span><span class="sxs-lookup"><span data-stu-id="1c88c-105">Integrating &frankly with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="0d23e-105">Integrando & francamente com o Azure AD fornece Olá benefícios a seguir:</span><span class="sxs-lookup"><span data-stu-id="0d23e-105">Integrating &frankly with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="1c88c-106">No Azure AD, é possível controlar quem tem acesso ao &frankly</span><span class="sxs-lookup"><span data-stu-id="1c88c-106">You can control in Azure AD who has access to &frankly</span></span>
-- <span data-ttu-id="1c88c-107">Você pode permitir que seus usuários façam logon automaticamente no &frankly (Logon único) com as contas do Azure AD</span><span class="sxs-lookup"><span data-stu-id="1c88c-107">You can enable your users to automatically get signed-on to &frankly (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="1c88c-108">Você pode gerenciar suas contas em um única localização: o Portal do Azure</span><span class="sxs-lookup"><span data-stu-id="1c88c-108">You can manage your accounts in one central location - the Azure portal</span></span>
+- <span data-ttu-id="0d23e-106">Você pode controlar no AD do Azure que tenha acesso muito & francamente</span><span class="sxs-lookup"><span data-stu-id="0d23e-106">You can control in Azure AD who has access too&frankly</span></span>
+- <span data-ttu-id="0d23e-107">Você pode permitir que os usuários tooautomatically obter conectado muito & francamente (logon único) com suas contas do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="0d23e-107">You can enable your users tooautomatically get signed-on too&frankly (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="0d23e-108">Você pode gerenciar suas contas em um local central - Olá portal do Azure</span><span class="sxs-lookup"><span data-stu-id="0d23e-108">You can manage your accounts in one central location - hello Azure portal</span></span>
 
-<span data-ttu-id="1c88c-109">Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="1c88c-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="0d23e-109">Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="0d23e-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="1c88c-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="1c88c-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="0d23e-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="0d23e-110">Prerequisites</span></span>
 
-<span data-ttu-id="1c88c-111">Para configurar a integração do Azure AD ao &frankly, você precisará dos seguintes itens:</span><span class="sxs-lookup"><span data-stu-id="1c88c-111">To configure Azure AD integration with &frankly, you need the following items:</span></span>
+<span data-ttu-id="0d23e-111">integração do AD do Azure tooconfigure com & Francamente, você precisa Olá itens a seguir:</span><span class="sxs-lookup"><span data-stu-id="0d23e-111">tooconfigure Azure AD integration with &frankly, you need hello following items:</span></span>
 
-- <span data-ttu-id="1c88c-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="1c88c-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="1c88c-113">Uma assinatura do &frankly habilitada para logon único</span><span class="sxs-lookup"><span data-stu-id="1c88c-113">A &frankly single-sign on enabled subscription</span></span>
+- <span data-ttu-id="0d23e-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="0d23e-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="0d23e-113">Uma assinatura do &frankly habilitada para logon único</span><span class="sxs-lookup"><span data-stu-id="0d23e-113">A &frankly single-sign on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="1c88c-114">Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="1c88c-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="0d23e-114">Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="0d23e-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="1c88c-115">Para testar as etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="1c88c-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="0d23e-115">tootest Olá etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="0d23e-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="1c88c-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="1c88c-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="1c88c-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="1c88c-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="0d23e-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="0d23e-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="0d23e-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="0d23e-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="1c88c-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="1c88c-118">Scenario description</span></span>
-<span data-ttu-id="1c88c-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="1c88c-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="1c88c-120">O cenário descrito neste tutorial consiste em dois blocos de construção principais:</span><span class="sxs-lookup"><span data-stu-id="1c88c-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="0d23e-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="0d23e-118">Scenario description</span></span>
+<span data-ttu-id="0d23e-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="0d23e-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="0d23e-120">cenário de saudação descrito neste tutorial consiste em dois elementos básicos:</span><span class="sxs-lookup"><span data-stu-id="0d23e-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="1c88c-121">Adicionando &frankly da galeria</span><span class="sxs-lookup"><span data-stu-id="1c88c-121">Adding &frankly from the gallery</span></span>
-2. <span data-ttu-id="1c88c-122">configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="1c88c-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="0d23e-121">Adicionar & francamente da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="0d23e-121">Adding &frankly from hello gallery</span></span>
+2. <span data-ttu-id="0d23e-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="0d23e-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-frankly-from-the-gallery"></a><span data-ttu-id="1c88c-123">Adicionando &frankly da galeria</span><span class="sxs-lookup"><span data-stu-id="1c88c-123">Adding &frankly from the gallery</span></span>
-<span data-ttu-id="1c88c-124">Para configurar a integração do &frankly ao Azure AD, você precisa adicionar o &frankly da galeria à sua lista de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="1c88c-124">To configure the integration of &frankly into Azure AD, you need to add &frankly from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-frankly-from-hello-gallery"></a><span data-ttu-id="0d23e-123">Adicionar & francamente da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="0d23e-123">Adding &frankly from hello gallery</span></span>
+<span data-ttu-id="0d23e-124">integração de saudação tooconfigure de & francamente no AD do Azure, você precisa tooadd & francamente da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="0d23e-124">tooconfigure hello integration of &frankly into Azure AD, you need tooadd &frankly from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="1c88c-125">**Para adicionar o &frankly da galeria, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="1c88c-125">**To add &frankly from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="0d23e-125">**tooadd & francamente da Galeria de hello, executar Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="0d23e-125">**tooadd &frankly from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="1c88c-126">No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="1c88c-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="0d23e-126">Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="0d23e-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Active Directory][1]
 
-2. <span data-ttu-id="1c88c-128">Navegue até **aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="1c88c-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="1c88c-129">Em seguida, vá para **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="1c88c-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="0d23e-128">Navegue muito**aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="0d23e-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="0d23e-129">Em seguida, acesse muito**todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="0d23e-129">Then go too**All applications**.</span></span>
 
     ![Aplicativos][2]
     
-3. <span data-ttu-id="1c88c-131">Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.</span><span class="sxs-lookup"><span data-stu-id="1c88c-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="0d23e-131">tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="0d23e-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
     ![Aplicativos][3]
 
-4. <span data-ttu-id="1c88c-133">Na caixa de pesquisa, digite **&frankly**.</span><span class="sxs-lookup"><span data-stu-id="1c88c-133">In the search box, type **&frankly**.</span></span>
+4. <span data-ttu-id="0d23e-133">Na caixa de pesquisa hello, digite **& francamente**.</span><span class="sxs-lookup"><span data-stu-id="0d23e-133">In hello search box, type **&frankly**.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_search.png)
 
-5. <span data-ttu-id="1c88c-135">No painel de resultados, selecione **&frankly** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="1c88c-135">In the results panel, select **&frankly**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="0d23e-135">No painel de resultados de saudação, selecione **& francamente**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.</span><span class="sxs-lookup"><span data-stu-id="0d23e-135">In hello results panel, select **&frankly**, and then click **Add** button tooadd hello application.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="1c88c-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="1c88c-137">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="1c88c-138">Nesta seção, você configura e testa o logon único do Azure AD com o &frankly, com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="1c88c-138">In this section, you configure and test Azure AD single sign-on with &frankly based on a test user called "Britta Simon."</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="0d23e-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="0d23e-137">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="0d23e-138">Nesta seção, você configura e testa o logon único do Azure AD com o &frankly, com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="0d23e-138">In this section, you configure and test Azure AD single sign-on with &frankly based on a test user called "Britta Simon."</span></span>
 
-<span data-ttu-id="1c88c-139">Para que o logon único funcione, o Azure AD precisa saber qual usuário do &frankly é equivalente a um usuário do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="1c88c-139">For single sign-on to work, Azure AD needs to know what the counterpart user in &frankly is to a user in Azure AD.</span></span> <span data-ttu-id="1c88c-140">Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do &frankly.</span><span class="sxs-lookup"><span data-stu-id="1c88c-140">In other words, a link relationship between an Azure AD user and the related user in &frankly needs to be established.</span></span>
+<span data-ttu-id="0d23e-139">Para toowork de logon único, o AD do Azure precisa tooknow qual Olá usuário correspondente no & francamente é tooa usuário no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="0d23e-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in &frankly is tooa user in Azure AD.</span></span> <span data-ttu-id="0d23e-140">Em outras palavras, uma relação de link entre um usuário do AD do Azure e Olá relacionados no & usuário francamente necessidades toobe estabelecida.</span><span class="sxs-lookup"><span data-stu-id="0d23e-140">In other words, a link relationship between an Azure AD user and hello related user in &frankly needs toobe established.</span></span>
 
-<span data-ttu-id="1c88c-141">No &frankly, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.</span><span class="sxs-lookup"><span data-stu-id="1c88c-141">In &frankly, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="0d23e-141">No & Francamente, atribuir o valor de saudação do hello **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.</span><span class="sxs-lookup"><span data-stu-id="0d23e-141">In &frankly, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="1c88c-142">Para configurar e testar o logon único do Azure AD com o &frankly, você precisa concluir os seguintes blocos de construção:</span><span class="sxs-lookup"><span data-stu-id="1c88c-142">To configure and test Azure AD single sign-on with &frankly, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="0d23e-142">tooconfigure e teste de logon único do AD do Azure com & Francamente, você precisa Olá toocomplete blocos de construção a seguir:</span><span class="sxs-lookup"><span data-stu-id="0d23e-142">tooconfigure and test Azure AD single sign-on with &frankly, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="1c88c-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.</span><span class="sxs-lookup"><span data-stu-id="1c88c-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="1c88c-144">**[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="1c88c-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="1c88c-145">**[Criando um usuário de teste do &frankly](#creating-a-frankly-test-user)** – para ter um equivalente de Brenda Fernandes no &frankly que esteja vinculado à representação de usuário do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="1c88c-145">**[Creating a &frankly test user](#creating-a-frankly-test-user)** - to have a counterpart of Britta Simon in &frankly that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="1c88c-146">**[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="1c88c-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="1c88c-147">**[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.</span><span class="sxs-lookup"><span data-stu-id="1c88c-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="0d23e-143">**[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.</span><span class="sxs-lookup"><span data-stu-id="0d23e-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="0d23e-144">**[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="0d23e-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="0d23e-145">**[Criar um & francamente usuário de teste](#creating-a-frankly-test-user)**  -toohave um equivalente de Britta Simon no & francamente que é vinculado toohello representação do AD do Azure do usuário.</span><span class="sxs-lookup"><span data-stu-id="0d23e-145">**[Creating a &frankly test user](#creating-a-frankly-test-user)** - toohave a counterpart of Britta Simon in &frankly that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="0d23e-146">**[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.</span><span class="sxs-lookup"><span data-stu-id="0d23e-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="0d23e-147">**[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.</span><span class="sxs-lookup"><span data-stu-id="0d23e-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="1c88c-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="1c88c-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="0d23e-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="0d23e-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="1c88c-149">Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo &frankly.</span><span class="sxs-lookup"><span data-stu-id="1c88c-149">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your &frankly application.</span></span>
+<span data-ttu-id="0d23e-149">Nesta seção, você pode habilitar AD do Azure-logon único no hello portal do Azure e configurar o logon único no seu & francamente aplicativo.</span><span class="sxs-lookup"><span data-stu-id="0d23e-149">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your &frankly application.</span></span>
 
-<span data-ttu-id="1c88c-150">**Para configurar o logon único do Azure AD com o Namely, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="1c88c-150">**To configure Azure AD single sign-on with &frankly, perform the following steps:**</span></span>
+<span data-ttu-id="0d23e-150">**tooconfigure AD do Azure único logon com & Francamente, executar Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="0d23e-150">**tooconfigure Azure AD single sign-on with &frankly, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="1c88c-151">No portal do Azure, na página de integração do aplicativo do **&frankly**, clique em **Logon único**.</span><span class="sxs-lookup"><span data-stu-id="1c88c-151">In the Azure portal, on the **&frankly** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="0d23e-151">Em Olá portal do Azure, Olá **& francamente** página de integração de aplicativos, clique em **o logon único**.</span><span class="sxs-lookup"><span data-stu-id="0d23e-151">In hello Azure portal, on hello **&frankly** application integration page, click **Single sign-on**.</span></span>
 
     ![Configurar Logon Único][4]
 
-2. <span data-ttu-id="1c88c-153">Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.</span><span class="sxs-lookup"><span data-stu-id="1c88c-153">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="0d23e-153">Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.</span><span class="sxs-lookup"><span data-stu-id="0d23e-153">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Configurar Logon Único](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_samlbase.png)
 
-3. <span data-ttu-id="1c88c-155">Na seção **Domínio e URLs do &frankly**, se desejar configurar o aplicativo no modo iniciado pelo **IDP**:</span><span class="sxs-lookup"><span data-stu-id="1c88c-155">On the **&frankly Domain and URLs** section, If you wish to configure the application in **IDP** initiated mode:</span></span>
+3. <span data-ttu-id="0d23e-155">Em Olá **& francamente URLs e domínio** seção, se desejar que o aplicativo hello tooconfigure **IDP** modo iniciado:</span><span class="sxs-lookup"><span data-stu-id="0d23e-155">On hello **&frankly Domain and URLs** section, If you wish tooconfigure hello application in **IDP** initiated mode:</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_url.png)
 
-    <span data-ttu-id="1c88c-157">a.</span><span class="sxs-lookup"><span data-stu-id="1c88c-157">a.</span></span> <span data-ttu-id="1c88c-158">Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`</span><span class="sxs-lookup"><span data-stu-id="1c88c-158">In the **Identifier** textbox, type a URL using the following pattern: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`</span></span>
+    <span data-ttu-id="0d23e-157">a.</span><span class="sxs-lookup"><span data-stu-id="0d23e-157">a.</span></span> <span data-ttu-id="0d23e-158">Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`</span><span class="sxs-lookup"><span data-stu-id="0d23e-158">In hello **Identifier** textbox, type a URL using hello following pattern: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`</span></span>
 
-    <span data-ttu-id="1c88c-159">b.</span><span class="sxs-lookup"><span data-stu-id="1c88c-159">b.</span></span> <span data-ttu-id="1c88c-160">Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/saml2-acs.php/<tenant id>`</span><span class="sxs-lookup"><span data-stu-id="1c88c-160">In the **Reply URL** textbox, type a URL using the following pattern: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/saml2-acs.php/<tenant id>`</span></span>
+    <span data-ttu-id="0d23e-159">b.</span><span class="sxs-lookup"><span data-stu-id="0d23e-159">b.</span></span> <span data-ttu-id="0d23e-160">Em Olá **URL de resposta** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/saml2-acs.php/<tenant id>`</span><span class="sxs-lookup"><span data-stu-id="0d23e-160">In hello **Reply URL** textbox, type a URL using hello following pattern: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/saml2-acs.php/<tenant id>`</span></span>
 
-4. <span data-ttu-id="1c88c-161">Marque **Mostrar configurações de URL avançadas**.</span><span class="sxs-lookup"><span data-stu-id="1c88c-161">Check **Show advanced URL settings**.</span></span> <span data-ttu-id="1c88c-162">Se quiser configurar o aplicativo no modo iniciado em **SP**:</span><span class="sxs-lookup"><span data-stu-id="1c88c-162">If you wish to configure the application in **SP** initiated mode:</span></span>
+4. <span data-ttu-id="0d23e-161">Marque **Mostrar configurações de URL avançadas**.</span><span class="sxs-lookup"><span data-stu-id="0d23e-161">Check **Show advanced URL settings**.</span></span> <span data-ttu-id="0d23e-162">Se desejar que o aplicativo hello tooconfigure **SP** modo iniciado:</span><span class="sxs-lookup"><span data-stu-id="0d23e-162">If you wish tooconfigure hello application in **SP** initiated mode:</span></span>
 
-    ![Configurar o logon único](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_url1.png)
+    ![Configurar Logon Único](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_url1.png)
 
-    <span data-ttu-id="1c88c-164">Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`</span><span class="sxs-lookup"><span data-stu-id="1c88c-164">In the **Sign-on URL** textbox, type a URL using the following pattern: `https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`</span></span>
+    <span data-ttu-id="0d23e-164">Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`</span><span class="sxs-lookup"><span data-stu-id="0d23e-164">In hello **Sign-on URL** textbox, type a URL using hello following pattern: `https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`</span></span>
     > [!NOTE] 
-    > <span data-ttu-id="1c88c-165">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="1c88c-165">These values are not real.</span></span> <span data-ttu-id="1c88c-166">Atualize esses valores com o Identificador, o Logon e a URL de Resposta reais.</span><span class="sxs-lookup"><span data-stu-id="1c88c-166">Update these values with the actual Identifier, Sign-on, and Reply URL.</span></span> <span data-ttu-id="1c88c-167">Contate a [equipe de suporte do &frankly](mailto:help@andfrankly.com) para obter esses valores.</span><span class="sxs-lookup"><span data-stu-id="1c88c-167">Contact [andfrankly support team](mailto:help@andfrankly.com) to get these values.</span></span>
+    > <span data-ttu-id="0d23e-165">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="0d23e-165">These values are not real.</span></span> <span data-ttu-id="0d23e-166">Atualizar esses valores com hello identificador real, logon e a URL de resposta.</span><span class="sxs-lookup"><span data-stu-id="0d23e-166">Update these values with hello actual Identifier, Sign-on, and Reply URL.</span></span> <span data-ttu-id="0d23e-167">Entre em contato com [andfrankly a equipe de suporte](mailto:help@andfrankly.com) tooget esses valores.</span><span class="sxs-lookup"><span data-stu-id="0d23e-167">Contact [andfrankly support team](mailto:help@andfrankly.com) tooget these values.</span></span>
 
-5. <span data-ttu-id="1c88c-168">Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.</span><span class="sxs-lookup"><span data-stu-id="1c88c-168">On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.</span></span>
+5. <span data-ttu-id="0d23e-168">Em Olá **o certificado de autenticação SAML** seção, clique em **Metadata XML** e, em seguida, salve o arquivo de metadados de saudação em seu computador.</span><span class="sxs-lookup"><span data-stu-id="0d23e-168">On hello **SAML Signing Certificate** section, click **Metadata XML** and then save hello metadata file on your computer.</span></span>
 
-    ![Configurar o logon único](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_certificate.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_certificate.png) 
 
-6. <span data-ttu-id="1c88c-170">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="1c88c-170">Click **Save** button.</span></span>
+6. <span data-ttu-id="0d23e-170">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="0d23e-170">Click **Save** button.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-andfrankly-tutorial/tutorial_general_400.png)
 
-7. <span data-ttu-id="1c88c-172">Para configurar o logon único no lado do **&frankly**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do &frankly](mailto:help@andfrankly.com).</span><span class="sxs-lookup"><span data-stu-id="1c88c-172">To configure single sign-on on **&frankly** side, you need to send the downloaded **Metadata XML** to [andfrankly support team](mailto:help@andfrankly.com).</span></span> 
+7. <span data-ttu-id="0d23e-172">tooconfigure logon único no **& francamente** lado, você precisa toosend Olá baixado **Metadata XML** muito[a equipe de suporte andfrankly](mailto:help@andfrankly.com).</span><span class="sxs-lookup"><span data-stu-id="0d23e-172">tooconfigure single sign-on on **&frankly** side, you need toosend hello downloaded **Metadata XML** too[andfrankly support team](mailto:help@andfrankly.com).</span></span> 
 
 > [!TIP]
-> <span data-ttu-id="1c88c-173">É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!</span><span class="sxs-lookup"><span data-stu-id="1c88c-173">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="1c88c-174">Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior.</span><span class="sxs-lookup"><span data-stu-id="1c88c-174">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="1c88c-175">Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="1c88c-175">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="0d23e-173">Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!</span><span class="sxs-lookup"><span data-stu-id="0d23e-173">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="0d23e-174">Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação.</span><span class="sxs-lookup"><span data-stu-id="0d23e-174">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="0d23e-175">Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="0d23e-175">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="1c88c-176">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="1c88c-176">Creating an Azure AD test user</span></span>
-<span data-ttu-id="1c88c-177">O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="1c88c-177">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="0d23e-176">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="0d23e-176">Creating an Azure AD test user</span></span>
+<span data-ttu-id="0d23e-177">Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="0d23e-177">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Criar um usuário do AD do Azure][100]
 
-<span data-ttu-id="1c88c-179">**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="1c88c-179">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="0d23e-179">**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="0d23e-179">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="1c88c-180">No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="1c88c-180">In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="0d23e-180">Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="0d23e-180">In hello **Azure portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="1c88c-182">Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="1c88c-182">To display the list of users, go to **Users and groups** and click **All users**.</span></span>
+2. <span data-ttu-id="0d23e-182">lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.</span><span class="sxs-lookup"><span data-stu-id="0d23e-182">toodisplay hello list of users, go too**Users and groups** and click **All users**.</span></span>
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="1c88c-184">Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="1c88c-184">To open the **User** dialog, click **Add** on the top of the dialog.</span></span>
+3. <span data-ttu-id="0d23e-184">Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.</span><span class="sxs-lookup"><span data-stu-id="0d23e-184">tooopen hello **User** dialog, click **Add** on hello top of hello dialog.</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="1c88c-186">Na página do diálogo **Usuário**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="1c88c-186">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="0d23e-186">Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="0d23e-186">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-andfrankly-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="1c88c-188">a.</span><span class="sxs-lookup"><span data-stu-id="1c88c-188">a.</span></span> <span data-ttu-id="1c88c-189">Na caixa de texto **Nome**, digite **Brenda Fernandes**.</span><span class="sxs-lookup"><span data-stu-id="1c88c-189">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="0d23e-188">a.</span><span class="sxs-lookup"><span data-stu-id="0d23e-188">a.</span></span> <span data-ttu-id="0d23e-189">Em Olá **nome** caixa de texto, tipo **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="0d23e-189">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="1c88c-190">b.</span><span class="sxs-lookup"><span data-stu-id="1c88c-190">b.</span></span> <span data-ttu-id="1c88c-191">Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="1c88c-191">In the **User name** textbox, type the **email address** of BrittaSimon.</span></span>
+    <span data-ttu-id="0d23e-190">b.</span><span class="sxs-lookup"><span data-stu-id="0d23e-190">b.</span></span> <span data-ttu-id="0d23e-191">Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.</span><span class="sxs-lookup"><span data-stu-id="0d23e-191">In hello **User name** textbox, type hello **email address** of BrittaSimon.</span></span>
 
-    <span data-ttu-id="1c88c-192">c.</span><span class="sxs-lookup"><span data-stu-id="1c88c-192">c.</span></span> <span data-ttu-id="1c88c-193">Selecione **Mostrar senha** e anote o valor de **senha**.</span><span class="sxs-lookup"><span data-stu-id="1c88c-193">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="0d23e-192">c.</span><span class="sxs-lookup"><span data-stu-id="0d23e-192">c.</span></span> <span data-ttu-id="0d23e-193">Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.</span><span class="sxs-lookup"><span data-stu-id="0d23e-193">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="1c88c-194">d.</span><span class="sxs-lookup"><span data-stu-id="1c88c-194">d.</span></span> <span data-ttu-id="1c88c-195">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="1c88c-195">Click **Create**.</span></span>
+    <span data-ttu-id="0d23e-194">d.</span><span class="sxs-lookup"><span data-stu-id="0d23e-194">d.</span></span> <span data-ttu-id="0d23e-195">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="0d23e-195">Click **Create**.</span></span>
  
-### <a name="creating-a-frankly-test-user"></a><span data-ttu-id="1c88c-196">Criar um usuário de teste do &frankly</span><span class="sxs-lookup"><span data-stu-id="1c88c-196">Creating a &frankly test user</span></span>
+### <a name="creating-a-frankly-test-user"></a><span data-ttu-id="0d23e-196">Criar um usuário de teste do &frankly</span><span class="sxs-lookup"><span data-stu-id="0d23e-196">Creating a &frankly test user</span></span>
 
-<span data-ttu-id="1c88c-197">Nesta seção, você criará uma usuária chamado Brenda Fernandes no &frankly.</span><span class="sxs-lookup"><span data-stu-id="1c88c-197">In this section, you create a user called Britta Simon in &frankly.</span></span> <span data-ttu-id="1c88c-198">Trabalhe com a [equipe de suporte do &frankly](mailto:help@andfrankly.com) para adicionar os usuários à plataforma &frankly.</span><span class="sxs-lookup"><span data-stu-id="1c88c-198">Work with  [andfrankly support team](mailto:help@andfrankly.com) to add the users in the &frankly platform.</span></span>
+<span data-ttu-id="0d23e-197">Nesta seção, você criará uma usuária chamado Brenda Fernandes no &frankly.</span><span class="sxs-lookup"><span data-stu-id="0d23e-197">In this section, you create a user called Britta Simon in &frankly.</span></span> <span data-ttu-id="0d23e-198">Trabalhar com [andfrankly a equipe de suporte](mailto:help@andfrankly.com) tooadd usuários de Olá Olá & francamente plataforma.</span><span class="sxs-lookup"><span data-stu-id="0d23e-198">Work with  [andfrankly support team](mailto:help@andfrankly.com) tooadd hello users in hello &frankly platform.</span></span>
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="1c88c-199">Atribuição do usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="1c88c-199">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="0d23e-199">Atribuir um usuário de teste de saudação do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="0d23e-199">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="1c88c-200">Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao &frankly.</span><span class="sxs-lookup"><span data-stu-id="1c88c-200">In this section, you enable Britta Simon to use Azure single sign-on by granting access to &frankly.</span></span>
+<span data-ttu-id="0d23e-200">Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso muito & francamente.</span><span class="sxs-lookup"><span data-stu-id="0d23e-200">In this section, you enable Britta Simon toouse Azure single sign-on by granting access too&frankly.</span></span>
 
 ![Atribuir usuário][200] 
 
-<span data-ttu-id="1c88c-202">**Para atribuir Brenda Fernandes ao &frankly, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="1c88c-202">**To assign Britta Simon to &frankly, perform the following steps:**</span></span>
+<span data-ttu-id="0d23e-202">**tooassign Britta Simon muito & Francamente, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="0d23e-202">**tooassign Britta Simon too&frankly, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="1c88c-203">No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="1c88c-203">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="0d23e-203">No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="0d23e-203">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Atribuir usuário][201] 
 
-2. <span data-ttu-id="1c88c-205">Na lista de aplicativos, escolha **&frankly**.</span><span class="sxs-lookup"><span data-stu-id="1c88c-205">In the applications list, select **&frankly**.</span></span>
+2. <span data-ttu-id="0d23e-205">Na lista de aplicativos hello, selecione **& francamente**.</span><span class="sxs-lookup"><span data-stu-id="0d23e-205">In hello applications list, select **&frankly**.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_app.png) 
 
-3. <span data-ttu-id="1c88c-207">No menu à esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="1c88c-207">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="0d23e-207">No menu Olá Olá esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="0d23e-207">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Atribuir usuário][202] 
 
-4. <span data-ttu-id="1c88c-209">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="1c88c-209">Click **Add** button.</span></span> <span data-ttu-id="1c88c-210">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="1c88c-210">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="0d23e-209">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="0d23e-209">Click **Add** button.</span></span> <span data-ttu-id="0d23e-210">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="0d23e-210">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Atribuir usuário][203]
 
-5. <span data-ttu-id="1c88c-212">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="1c88c-212">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="0d23e-212">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.</span><span class="sxs-lookup"><span data-stu-id="0d23e-212">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="1c88c-213">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="1c88c-213">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="0d23e-213">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="0d23e-213">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="1c88c-214">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="1c88c-214">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="0d23e-214">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="0d23e-214">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="1c88c-215">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="1c88c-215">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="0d23e-215">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="0d23e-215">Testing single sign-on</span></span>
 
-<span data-ttu-id="1c88c-216">O objetivo desta seção é testar sua configuração de SSO do Azure AD usando o Painel de Acesso.</span><span class="sxs-lookup"><span data-stu-id="1c88c-216">The objective of this section is to test your Azure AD SSO configuration using the Access Panel.</span></span>
+<span data-ttu-id="0d23e-216">Olá o objetivo desta seção é tootest Olá a sua configuração de SSO do AD do Azure usando o painel de acesso.</span><span class="sxs-lookup"><span data-stu-id="0d23e-216">hello objective of this section is tootest your Azure AD SSO configuration using hello Access Panel.</span></span>
 
-<span data-ttu-id="1c88c-217">Quando você clicar no bloco &frankly no Painel de Acesso, deverá ser automaticamente conectado ao aplicativo &frankly</span><span class="sxs-lookup"><span data-stu-id="1c88c-217">When you click the &frankly tile in the Access Panel, you should get automatically signed-on to your &frankly application</span></span>
+<span data-ttu-id="0d23e-217">Quando você clique Olá & francamente bloco no painel de acesso de saudação, você deve obter automaticamente assinado em tooyour & francamente aplicativo</span><span class="sxs-lookup"><span data-stu-id="0d23e-217">When you click hello &frankly tile in hello Access Panel, you should get automatically signed-on tooyour &frankly application</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="1c88c-218">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="1c88c-218">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="0d23e-218">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="0d23e-218">Additional resources</span></span>
 
-* [<span data-ttu-id="1c88c-219">Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="1c88c-219">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="1c88c-220">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="1c88c-220">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="0d23e-219">Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="0d23e-219">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="0d23e-220">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="0d23e-220">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 
 

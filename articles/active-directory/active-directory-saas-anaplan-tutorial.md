@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory ao Anaplan | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Anaplan."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Anaplan."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,204 +13,204 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jeedes
-ms.openlocfilehash: c2ecfd5f066ed3bd10f74f935de2f2b80057329f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 38eb210d090e7aa720060680259124e941e30541
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-anaplan"></a><span data-ttu-id="43d24-103">Tutorial: Integração do Azure Active Directory ao Anaplan</span><span class="sxs-lookup"><span data-stu-id="43d24-103">Tutorial: Azure Active Directory integration with Anaplan</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-anaplan"></a><span data-ttu-id="80ee2-103">Tutorial: Integração do Azure Active Directory ao Anaplan</span><span class="sxs-lookup"><span data-stu-id="80ee2-103">Tutorial: Azure Active Directory integration with Anaplan</span></span>
 
-<span data-ttu-id="43d24-104">Neste tutorial, você aprende a integrar o Anaplan ao Azure AD (Azure Active Directory).</span><span class="sxs-lookup"><span data-stu-id="43d24-104">In this tutorial, you learn how to integrate Anaplan with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="80ee2-104">Neste tutorial, você aprenderá como toointegrate Anaplan com o Azure Active Directory (AD do Azure).</span><span class="sxs-lookup"><span data-stu-id="80ee2-104">In this tutorial, you learn how toointegrate Anaplan with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="43d24-105">A integração do Anaplan ao Azure AD oferece os seguintes benefícios:</span><span class="sxs-lookup"><span data-stu-id="43d24-105">Integrating Anaplan with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="80ee2-105">Integrando Anaplan com o AD do Azure fornece Olá benefícios a seguir:</span><span class="sxs-lookup"><span data-stu-id="80ee2-105">Integrating Anaplan with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="43d24-106">Você pode controlar no Azure AD quem terá acesso ao Anaplan</span><span class="sxs-lookup"><span data-stu-id="43d24-106">You can control in Azure AD who has access to Anaplan</span></span>
-- <span data-ttu-id="43d24-107">Você pode permitir que seus usuários faça logon automaticamente no Anaplan (logon único) com suas contas do Azure AD</span><span class="sxs-lookup"><span data-stu-id="43d24-107">You can enable your users to automatically get signed-on to Anaplan (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="43d24-108">Você pode gerenciar suas contas em um única localização: o Portal do Azure</span><span class="sxs-lookup"><span data-stu-id="43d24-108">You can manage your accounts in one central location - the Azure portal</span></span>
+- <span data-ttu-id="80ee2-106">Você pode controlar no AD do Azure que tenha acesso tooAnaplan</span><span class="sxs-lookup"><span data-stu-id="80ee2-106">You can control in Azure AD who has access tooAnaplan</span></span>
+- <span data-ttu-id="80ee2-107">Você pode habilitar seu usuários tooautomatically get conectado tooAnaplan (logon único) com suas contas do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="80ee2-107">You can enable your users tooautomatically get signed-on tooAnaplan (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="80ee2-108">Você pode gerenciar suas contas em um local central - Olá portal do Azure</span><span class="sxs-lookup"><span data-stu-id="80ee2-108">You can manage your accounts in one central location - hello Azure portal</span></span>
 
-<span data-ttu-id="43d24-109">Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="43d24-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="80ee2-109">Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="80ee2-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="43d24-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="43d24-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="80ee2-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="80ee2-110">Prerequisites</span></span>
 
-<span data-ttu-id="43d24-111">Para configurar a integração do Azure AD ao Anaplan, você precisará dos seguintes itens:</span><span class="sxs-lookup"><span data-stu-id="43d24-111">To configure Azure AD integration with Anaplan, you need the following items:</span></span>
+<span data-ttu-id="80ee2-111">tooconfigure integração do AD do Azure com Anaplan, você precisa Olá itens a seguir:</span><span class="sxs-lookup"><span data-stu-id="80ee2-111">tooconfigure Azure AD integration with Anaplan, you need hello following items:</span></span>
 
-- <span data-ttu-id="43d24-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="43d24-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="43d24-113">Uma assinatura habilitada para logon único do Anaplan</span><span class="sxs-lookup"><span data-stu-id="43d24-113">An Anaplan single-sign on enabled subscription</span></span>
+- <span data-ttu-id="80ee2-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="80ee2-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="80ee2-113">Uma assinatura habilitada para logon único do Anaplan</span><span class="sxs-lookup"><span data-stu-id="80ee2-113">An Anaplan single-sign on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="43d24-114">Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="43d24-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="80ee2-114">Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="80ee2-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="43d24-115">Para testar as etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="43d24-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="80ee2-115">tootest Olá etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="80ee2-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="43d24-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="43d24-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="43d24-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="43d24-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="80ee2-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="80ee2-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="80ee2-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="80ee2-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="43d24-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="43d24-118">Scenario description</span></span>
-<span data-ttu-id="43d24-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="43d24-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="43d24-120">O cenário descrito neste tutorial consiste em dois blocos de construção principais:</span><span class="sxs-lookup"><span data-stu-id="43d24-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="80ee2-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="80ee2-118">Scenario description</span></span>
+<span data-ttu-id="80ee2-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="80ee2-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="80ee2-120">cenário de saudação descrito neste tutorial consiste em dois elementos básicos:</span><span class="sxs-lookup"><span data-stu-id="80ee2-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="43d24-121">Adicionar Anaplan da galeria</span><span class="sxs-lookup"><span data-stu-id="43d24-121">Adding Anaplan from the gallery</span></span>
-2. <span data-ttu-id="43d24-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="43d24-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="80ee2-121">Adicionando Anaplan da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="80ee2-121">Adding Anaplan from hello gallery</span></span>
+2. <span data-ttu-id="80ee2-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="80ee2-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-anaplan-from-the-gallery"></a><span data-ttu-id="43d24-123">Adicionar Anaplan da galeria</span><span class="sxs-lookup"><span data-stu-id="43d24-123">Adding Anaplan from the gallery</span></span>
-<span data-ttu-id="43d24-124">Para configurar a integração do Anaplan ao Azure AD, você precisará adicionar o Anaplan da galeria à sua lista de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="43d24-124">To configure the integration of Anaplan into Azure AD, you need to add Anaplan from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-anaplan-from-hello-gallery"></a><span data-ttu-id="80ee2-123">Adicionando Anaplan da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="80ee2-123">Adding Anaplan from hello gallery</span></span>
+<span data-ttu-id="80ee2-124">integração de saudação tooconfigure de Anaplan no AD do Azure, você precisa tooadd Anaplan da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="80ee2-124">tooconfigure hello integration of Anaplan into Azure AD, you need tooadd Anaplan from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="43d24-125">**Para adicionar o Anaplan da galeria, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="43d24-125">**To add Anaplan from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="80ee2-125">**tooadd Anaplan da Galeria hello, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="80ee2-125">**tooadd Anaplan from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="43d24-126">No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="43d24-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="80ee2-126">Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="80ee2-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Active Directory][1]
 
-2. <span data-ttu-id="43d24-128">Navegue até **aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="43d24-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="43d24-129">Em seguida, vá para **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="43d24-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="80ee2-128">Navegue muito**aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="80ee2-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="80ee2-129">Em seguida, acesse muito**todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="80ee2-129">Then go too**All applications**.</span></span>
 
     ![Aplicativos][2]
     
-3. <span data-ttu-id="43d24-131">Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.</span><span class="sxs-lookup"><span data-stu-id="43d24-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="80ee2-131">tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="80ee2-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
     ![Aplicativos][3]
 
-4. <span data-ttu-id="43d24-133">Na caixa de pesquisa, digite **Anaplan**.</span><span class="sxs-lookup"><span data-stu-id="43d24-133">In the search box, type **Anaplan**.</span></span>
+4. <span data-ttu-id="80ee2-133">Na caixa de pesquisa hello, digite **Anaplan**.</span><span class="sxs-lookup"><span data-stu-id="80ee2-133">In hello search box, type **Anaplan**.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-anaplan-tutorial/tutorial_anaplan_search.png)
 
-5. <span data-ttu-id="43d24-135">No painel de resultados, selecione **Anaplan** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="43d24-135">In the results panel, select **Anaplan**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="80ee2-135">No painel de resultados de saudação, selecione **Anaplan**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.</span><span class="sxs-lookup"><span data-stu-id="80ee2-135">In hello results panel, select **Anaplan**, and then click **Add** button tooadd hello application.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-anaplan-tutorial/tutorial_anaplan_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="43d24-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="43d24-137">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="43d24-138">Nesta seção, você configura e testa o logon único do Azure AD com o Anaplan, com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="43d24-138">In this section, you configure and test Azure AD single sign-on with Anaplan based on a test user called "Britta Simon."</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="80ee2-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="80ee2-137">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="80ee2-138">Nesta seção, você configura e testa o logon único do Azure AD com o Anaplan, com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="80ee2-138">In this section, you configure and test Azure AD single sign-on with Anaplan based on a test user called "Britta Simon."</span></span>
 
-<span data-ttu-id="43d24-139">Para que o logon único funcione, o Azure AD precisa saber qual usuário do Anaplan é equivalente a um usuário do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="43d24-139">For single sign-on to work, Azure AD needs to know what the counterpart user in Anaplan is to a user in Azure AD.</span></span> <span data-ttu-id="43d24-140">Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado do Anaplan.</span><span class="sxs-lookup"><span data-stu-id="43d24-140">In other words, a link relationship between an Azure AD user and the related user in Anaplan needs to be established.</span></span>
+<span data-ttu-id="80ee2-139">Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá em Anaplan é tooa usuário no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="80ee2-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in Anaplan is tooa user in Azure AD.</span></span> <span data-ttu-id="80ee2-140">Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação em Anaplan precisa toobe estabelecida.</span><span class="sxs-lookup"><span data-stu-id="80ee2-140">In other words, a link relationship between an Azure AD user and hello related user in Anaplan needs toobe established.</span></span>
 
-<span data-ttu-id="43d24-141">No Anaplan, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.</span><span class="sxs-lookup"><span data-stu-id="43d24-141">In Anaplan, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="80ee2-141">Anaplan, atribuir valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.</span><span class="sxs-lookup"><span data-stu-id="80ee2-141">In Anaplan, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="43d24-142">Para configurar e testar o logon único do Azure AD com o Anaplan, você precisa concluir os seguintes blocos de construção:</span><span class="sxs-lookup"><span data-stu-id="43d24-142">To configure and test Azure AD single sign-on with Anaplan, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="80ee2-142">tooconfigure e teste de logon único do AD do Azure com Anaplan, é necessário Olá toocomplete blocos de construção a seguir:</span><span class="sxs-lookup"><span data-stu-id="80ee2-142">tooconfigure and test Azure AD single sign-on with Anaplan, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="43d24-143">**[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.</span><span class="sxs-lookup"><span data-stu-id="43d24-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="43d24-144">**[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="43d24-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="43d24-145">**[Criando um usuário de teste do Anaplan](#creating-an-anaplan-test-user)** – para ter um equivalente de Brenda Fernandes no Anaplan que esteja vinculado à representação de usuário do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="43d24-145">**[Creating an Anaplan test user](#creating-an-anaplan-test-user)** - to have a counterpart of Britta Simon in Anaplan that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="43d24-146">**[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="43d24-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="43d24-147">**[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.</span><span class="sxs-lookup"><span data-stu-id="43d24-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="80ee2-143">**[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.</span><span class="sxs-lookup"><span data-stu-id="80ee2-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="80ee2-144">**[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="80ee2-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="80ee2-145">**[Criar um usuário de teste Anaplan](#creating-an-anaplan-test-user)**  -toohave um equivalente do Britta Simon em Anaplan é toohello vinculado do Azure AD representação do usuário.</span><span class="sxs-lookup"><span data-stu-id="80ee2-145">**[Creating an Anaplan test user](#creating-an-anaplan-test-user)** - toohave a counterpart of Britta Simon in Anaplan that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="80ee2-146">**[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.</span><span class="sxs-lookup"><span data-stu-id="80ee2-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="80ee2-147">**[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.</span><span class="sxs-lookup"><span data-stu-id="80ee2-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="43d24-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="43d24-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="80ee2-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="80ee2-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="43d24-149">Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo Anaplan.</span><span class="sxs-lookup"><span data-stu-id="43d24-149">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Anaplan application.</span></span>
+<span data-ttu-id="80ee2-149">Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo Anaplan.</span><span class="sxs-lookup"><span data-stu-id="80ee2-149">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your Anaplan application.</span></span>
 
-<span data-ttu-id="43d24-150">**Para configurar o logon único do Azure AD com o Anaplan, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="43d24-150">**To configure Azure AD single sign-on with Anaplan, perform the following steps:**</span></span>
+<span data-ttu-id="80ee2-150">**tooconfigure AD do Azure-logon único com Anaplan, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="80ee2-150">**tooconfigure Azure AD single sign-on with Anaplan, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="43d24-151">No portal do Azure, na página de integração do aplicativo do **Anaplan**, clique em **Logon único**.</span><span class="sxs-lookup"><span data-stu-id="43d24-151">In the Azure portal, on the **Anaplan** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="80ee2-151">Em Olá portal do Azure, Olá **Anaplan** página de integração de aplicativos, clique em **o logon único**.</span><span class="sxs-lookup"><span data-stu-id="80ee2-151">In hello Azure portal, on hello **Anaplan** application integration page, click **Single sign-on**.</span></span>
 
     ![Configurar Logon Único][4]
 
-2. <span data-ttu-id="43d24-153">Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.</span><span class="sxs-lookup"><span data-stu-id="43d24-153">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="80ee2-153">Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.</span><span class="sxs-lookup"><span data-stu-id="80ee2-153">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Configurar Logon Único](./media/active-directory-saas-anaplan-tutorial/tutorial_anaplan_samlbase.png)
 
-3. <span data-ttu-id="43d24-155">Na seção **Domínio e URLs do Anaplan**, realize as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="43d24-155">On the **Anaplan Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="80ee2-155">Em Olá **Anaplan domínio e URLs** , execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="80ee2-155">On hello **Anaplan Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-anaplan-tutorial/tutorial_anaplan_url.png)
 
-    <span data-ttu-id="43d24-157">a.</span><span class="sxs-lookup"><span data-stu-id="43d24-157">a.</span></span> <span data-ttu-id="43d24-158">Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://sdp.anaplan.com/frontdoor/saml/<tenant name>`</span><span class="sxs-lookup"><span data-stu-id="43d24-158">In the **Sign-on URL** textbox, type a URL using the following pattern: `https://sdp.anaplan.com/frontdoor/saml/<tenant name>`</span></span>
+    <span data-ttu-id="80ee2-157">a.</span><span class="sxs-lookup"><span data-stu-id="80ee2-157">a.</span></span> <span data-ttu-id="80ee2-158">Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://sdp.anaplan.com/frontdoor/saml/<tenant name>`</span><span class="sxs-lookup"><span data-stu-id="80ee2-158">In hello **Sign-on URL** textbox, type a URL using hello following pattern: `https://sdp.anaplan.com/frontdoor/saml/<tenant name>`</span></span>
 
-    <span data-ttu-id="43d24-159">b.</span><span class="sxs-lookup"><span data-stu-id="43d24-159">b.</span></span> <span data-ttu-id="43d24-160">Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.anaplan.com`</span><span class="sxs-lookup"><span data-stu-id="43d24-160">In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.anaplan.com`</span></span>
+    <span data-ttu-id="80ee2-159">b.</span><span class="sxs-lookup"><span data-stu-id="80ee2-159">b.</span></span> <span data-ttu-id="80ee2-160">Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<subdomain>.anaplan.com`</span><span class="sxs-lookup"><span data-stu-id="80ee2-160">In hello **Identifier** textbox, type a URL using hello following pattern: `https://<subdomain>.anaplan.com`</span></span>
 
     > [!NOTE] 
-    > <span data-ttu-id="43d24-161">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="43d24-161">These values are not real.</span></span> <span data-ttu-id="43d24-162">Atualize esses valores com a URL de Entrada e o Identificador reais.</span><span class="sxs-lookup"><span data-stu-id="43d24-162">Update these values with the actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="43d24-163">Contate a [equipe de suporte ao Cliente do Anaplan](mailto:support@anaplan.com) para obter esses valores.</span><span class="sxs-lookup"><span data-stu-id="43d24-163">Contact [Anaplan Client support team](mailto:support@anaplan.com) to get these values.</span></span> 
+    > <span data-ttu-id="80ee2-161">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="80ee2-161">These values are not real.</span></span> <span data-ttu-id="80ee2-162">Atualizar esses valores com hello real URL de logon e o identificador.</span><span class="sxs-lookup"><span data-stu-id="80ee2-162">Update these values with hello actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="80ee2-163">Entre em contato com [equipe de suporte do cliente Anaplan](mailto:support@anaplan.com) tooget esses valores.</span><span class="sxs-lookup"><span data-stu-id="80ee2-163">Contact [Anaplan Client support team](mailto:support@anaplan.com) tooget these values.</span></span> 
  
-4. <span data-ttu-id="43d24-164">Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.</span><span class="sxs-lookup"><span data-stu-id="43d24-164">On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.</span></span>
+4. <span data-ttu-id="80ee2-164">Em Olá **o certificado de autenticação SAML** seção, clique em **Metadata XML** e, em seguida, salve o arquivo de metadados de saudação em seu computador.</span><span class="sxs-lookup"><span data-stu-id="80ee2-164">On hello **SAML Signing Certificate** section, click **Metadata XML** and then save hello metadata file on your computer.</span></span>
 
-    ![Configurar o logon único](./media/active-directory-saas-anaplan-tutorial/tutorial_anaplan_certificate.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-anaplan-tutorial/tutorial_anaplan_certificate.png) 
 
-5. <span data-ttu-id="43d24-166">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="43d24-166">Click **Save** button.</span></span>
+5. <span data-ttu-id="80ee2-166">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="80ee2-166">Click **Save** button.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-anaplan-tutorial/tutorial_general_400.png)
 
-6. <span data-ttu-id="43d24-168">Na seção **Configuração do Anaplan**, clique em **Configurar o Anaplan** para abrir a janela **Configurar logon**.</span><span class="sxs-lookup"><span data-stu-id="43d24-168">On the **Anaplan Configuration** section, click **Configure Anaplan** to open **Configure sign-on** window.</span></span> <span data-ttu-id="43d24-169">Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**</span><span class="sxs-lookup"><span data-stu-id="43d24-169">Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**</span></span>
+6. <span data-ttu-id="80ee2-168">Em Olá **Anaplan configuração** seção, clique em **configurar Anaplan** tooopen **configurar o logon** janela.</span><span class="sxs-lookup"><span data-stu-id="80ee2-168">On hello **Anaplan Configuration** section, click **Configure Anaplan** tooopen **Configure sign-on** window.</span></span> <span data-ttu-id="80ee2-169">Saudação de cópia **URL de logout, ID de entidade de SAML e Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**</span><span class="sxs-lookup"><span data-stu-id="80ee2-169">Copy hello **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from hello **Quick Reference section.**</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-anaplan-tutorial/tutorial_anaplan_configure.png) 
 
-7. <span data-ttu-id="43d24-171">Para configurar o logon único no lado do **Anaplan**, é necessário enviar o **XML de Metadados** baixado, a **ID da Entidade SAML**, a **URL do Serviço de Logon Único SAML** e a **URL de Saída** para a [equipe de suporte do Anaplan](mailto:support@anaplan.com).</span><span class="sxs-lookup"><span data-stu-id="43d24-171">To configure single sign-on on **Anaplan** side, you need to send the downloaded **Metadata XML**, **SAML Entity ID**, **SAML Single Sign-On Service URL** and **Sign-Out URL**   to [Anaplan support team](mailto:support@anaplan.com).</span></span> <span data-ttu-id="43d24-172">Eles definem essa configuração para ter a conexão de SSO do SAML definida corretamente em ambos os lados.</span><span class="sxs-lookup"><span data-stu-id="43d24-172">They set this setting to have the SAML SSO connection set properly on both sides.</span></span>
+7. <span data-ttu-id="80ee2-171">tooconfigure logon único no **Anaplan** lado, você precisa toosend Olá baixado **Metadata XML**, **ID da entidade SAML**, **Single Sign-On URL do serviço SAML**  e **URL de logout** muito[a equipe de suporte Anaplan](mailto:support@anaplan.com).</span><span class="sxs-lookup"><span data-stu-id="80ee2-171">tooconfigure single sign-on on **Anaplan** side, you need toosend hello downloaded **Metadata XML**, **SAML Entity ID**, **SAML Single Sign-On Service URL** and **Sign-Out URL**   too[Anaplan support team](mailto:support@anaplan.com).</span></span> <span data-ttu-id="80ee2-172">Eles definidos Olá de toohave essa configuração conexão SSO do SAML definido corretamente em ambos os lados.</span><span class="sxs-lookup"><span data-stu-id="80ee2-172">They set this setting toohave hello SAML SSO connection set properly on both sides.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="43d24-173">É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!</span><span class="sxs-lookup"><span data-stu-id="43d24-173">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="43d24-174">Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior.</span><span class="sxs-lookup"><span data-stu-id="43d24-174">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="43d24-175">Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="43d24-175">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="80ee2-173">Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!</span><span class="sxs-lookup"><span data-stu-id="80ee2-173">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="80ee2-174">Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação.</span><span class="sxs-lookup"><span data-stu-id="80ee2-174">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="80ee2-175">Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="80ee2-175">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="43d24-176">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="43d24-176">Creating an Azure AD test user</span></span>
-<span data-ttu-id="43d24-177">O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="43d24-177">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="80ee2-176">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="80ee2-176">Creating an Azure AD test user</span></span>
+<span data-ttu-id="80ee2-177">Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="80ee2-177">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Criar um usuário do AD do Azure][100]
 
-<span data-ttu-id="43d24-179">**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="43d24-179">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="80ee2-179">**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="80ee2-179">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="43d24-180">No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="43d24-180">In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="80ee2-180">Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="80ee2-180">In hello **Azure portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-anaplan-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="43d24-182">Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="43d24-182">To display the list of users, go to **Users and groups** and click **All users**.</span></span>
+2. <span data-ttu-id="80ee2-182">lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.</span><span class="sxs-lookup"><span data-stu-id="80ee2-182">toodisplay hello list of users, go too**Users and groups** and click **All users**.</span></span>
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-anaplan-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="43d24-184">Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="43d24-184">To open the **User** dialog, click **Add** on the top of the dialog.</span></span>
+3. <span data-ttu-id="80ee2-184">Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.</span><span class="sxs-lookup"><span data-stu-id="80ee2-184">tooopen hello **User** dialog, click **Add** on hello top of hello dialog.</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-anaplan-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="43d24-186">Na página do diálogo **Usuário**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="43d24-186">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="80ee2-186">Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="80ee2-186">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-anaplan-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="43d24-188">a.</span><span class="sxs-lookup"><span data-stu-id="43d24-188">a.</span></span> <span data-ttu-id="43d24-189">Na caixa de texto **Nome**, digite **Brenda Fernandes**.</span><span class="sxs-lookup"><span data-stu-id="43d24-189">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="80ee2-188">a.</span><span class="sxs-lookup"><span data-stu-id="80ee2-188">a.</span></span> <span data-ttu-id="80ee2-189">Em Olá **nome** caixa de texto, tipo **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="80ee2-189">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="43d24-190">b.</span><span class="sxs-lookup"><span data-stu-id="43d24-190">b.</span></span> <span data-ttu-id="43d24-191">Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="43d24-191">In the **User name** textbox, type the **email address** of BrittaSimon.</span></span>
+    <span data-ttu-id="80ee2-190">b.</span><span class="sxs-lookup"><span data-stu-id="80ee2-190">b.</span></span> <span data-ttu-id="80ee2-191">Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.</span><span class="sxs-lookup"><span data-stu-id="80ee2-191">In hello **User name** textbox, type hello **email address** of BrittaSimon.</span></span>
 
-    <span data-ttu-id="43d24-192">c.</span><span class="sxs-lookup"><span data-stu-id="43d24-192">c.</span></span> <span data-ttu-id="43d24-193">Selecione **Mostrar senha** e anote o valor de **senha**.</span><span class="sxs-lookup"><span data-stu-id="43d24-193">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="80ee2-192">c.</span><span class="sxs-lookup"><span data-stu-id="80ee2-192">c.</span></span> <span data-ttu-id="80ee2-193">Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.</span><span class="sxs-lookup"><span data-stu-id="80ee2-193">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="43d24-194">d.</span><span class="sxs-lookup"><span data-stu-id="43d24-194">d.</span></span> <span data-ttu-id="43d24-195">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="43d24-195">Click **Create**.</span></span>
+    <span data-ttu-id="80ee2-194">d.</span><span class="sxs-lookup"><span data-stu-id="80ee2-194">d.</span></span> <span data-ttu-id="80ee2-195">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="80ee2-195">Click **Create**.</span></span>
  
-### <a name="creating-an-anaplan-test-user"></a><span data-ttu-id="43d24-196">Criando um usuário de teste do Anaplan</span><span class="sxs-lookup"><span data-stu-id="43d24-196">Creating an Anaplan test user</span></span>
+### <a name="creating-an-anaplan-test-user"></a><span data-ttu-id="80ee2-196">Criando um usuário de teste do Anaplan</span><span class="sxs-lookup"><span data-stu-id="80ee2-196">Creating an Anaplan test user</span></span>
 
-<span data-ttu-id="43d24-197">Nesta seção, você criará uma usuária chamada Brenda Fernandes no Anaplan.</span><span class="sxs-lookup"><span data-stu-id="43d24-197">In this section, you create a user called Britta Simon in Anaplan.</span></span> <span data-ttu-id="43d24-198">Trabalhe com a [equipe de suporte da Anaplan](mailto:support@anaplan.com) para adicionar os usuários à plataforma Anaplan.</span><span class="sxs-lookup"><span data-stu-id="43d24-198">Please work with [Anaplan support team](mailto:support@anaplan.com) to add the users in the Anaplan platform.</span></span>
+<span data-ttu-id="80ee2-197">Nesta seção, você criará uma usuária chamada Brenda Fernandes no Anaplan.</span><span class="sxs-lookup"><span data-stu-id="80ee2-197">In this section, you create a user called Britta Simon in Anaplan.</span></span> <span data-ttu-id="80ee2-198">Trabalhe com [Anaplan a equipe de suporte](mailto:support@anaplan.com) tooadd usuários de saudação na plataforma de Anaplan hello.</span><span class="sxs-lookup"><span data-stu-id="80ee2-198">Please work with [Anaplan support team](mailto:support@anaplan.com) tooadd hello users in hello Anaplan platform.</span></span>
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="43d24-199">Atribuição do usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="43d24-199">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="80ee2-199">Atribuir um usuário de teste de saudação do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="80ee2-199">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="43d24-200">Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Anaplan.</span><span class="sxs-lookup"><span data-stu-id="43d24-200">In this section, you enable Britta Simon to use Azure single sign-on by granting access to Anaplan.</span></span>
+<span data-ttu-id="80ee2-200">Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooAnaplan.</span><span class="sxs-lookup"><span data-stu-id="80ee2-200">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooAnaplan.</span></span>
 
 ![Atribuir usuário][200] 
 
-<span data-ttu-id="43d24-202">**Para atribuir Brenda Fernandes ao Anaplan, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="43d24-202">**To assign Britta Simon to Anaplan, perform the following steps:**</span></span>
+<span data-ttu-id="80ee2-202">**tooassign Britta Simon tooAnaplan, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="80ee2-202">**tooassign Britta Simon tooAnaplan, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="43d24-203">No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="43d24-203">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="80ee2-203">No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="80ee2-203">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Atribuir usuário][201] 
 
-2. <span data-ttu-id="43d24-205">Na lista de aplicativos, escolha **Anaplan**.</span><span class="sxs-lookup"><span data-stu-id="43d24-205">In the applications list, select **Anaplan**.</span></span>
+2. <span data-ttu-id="80ee2-205">Na lista de aplicativos hello, selecione **Anaplan**.</span><span class="sxs-lookup"><span data-stu-id="80ee2-205">In hello applications list, select **Anaplan**.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-anaplan-tutorial/tutorial_anaplan_app.png) 
 
-3. <span data-ttu-id="43d24-207">No menu à esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="43d24-207">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="80ee2-207">No menu Olá Olá esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="80ee2-207">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Atribuir usuário][202] 
 
-4. <span data-ttu-id="43d24-209">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="43d24-209">Click **Add** button.</span></span> <span data-ttu-id="43d24-210">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="43d24-210">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="80ee2-209">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="80ee2-209">Click **Add** button.</span></span> <span data-ttu-id="80ee2-210">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="80ee2-210">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Atribuir usuário][203]
 
-5. <span data-ttu-id="43d24-212">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="43d24-212">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="80ee2-212">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.</span><span class="sxs-lookup"><span data-stu-id="80ee2-212">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="43d24-213">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="43d24-213">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="80ee2-213">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="80ee2-213">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="43d24-214">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="43d24-214">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="80ee2-214">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="80ee2-214">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="43d24-215">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="43d24-215">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="80ee2-215">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="80ee2-215">Testing single sign-on</span></span>
 
-<span data-ttu-id="43d24-216">Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.</span><span class="sxs-lookup"><span data-stu-id="43d24-216">In this section, you test your Azure AD single sign-on configuration using the Access Panel.</span></span>
+<span data-ttu-id="80ee2-216">Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.</span><span class="sxs-lookup"><span data-stu-id="80ee2-216">In this section, you test your Azure AD single sign-on configuration using hello Access Panel.</span></span>
 
-<span data-ttu-id="43d24-217">Ao clicar no bloco do Anaplan no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo Anaplan.</span><span class="sxs-lookup"><span data-stu-id="43d24-217">When you click the Anaplan tile in the Access Panel, you should get automatically signed-on to your Anaplan application.</span></span>
+<span data-ttu-id="80ee2-217">Quando você clica em bloco Anaplan Olá Olá painel de acesso, você deve obter automaticamente assinado em tooyour Anaplan aplicativo.</span><span class="sxs-lookup"><span data-stu-id="80ee2-217">When you click hello Anaplan tile in hello Access Panel, you should get automatically signed-on tooyour Anaplan application.</span></span>
 
-<span data-ttu-id="43d24-218">Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="43d24-218">For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
+<span data-ttu-id="80ee2-218">Para obter mais informações sobre Olá painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="80ee2-218">For more information about hello Access Panel, see [Introduction toohello Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
 
-## <a name="additional-resources"></a><span data-ttu-id="43d24-219">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="43d24-219">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="80ee2-219">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="80ee2-219">Additional resources</span></span>
 
-* [<span data-ttu-id="43d24-220">Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="43d24-220">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="43d24-221">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="43d24-221">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="80ee2-220">Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="80ee2-220">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="80ee2-221">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="80ee2-221">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
