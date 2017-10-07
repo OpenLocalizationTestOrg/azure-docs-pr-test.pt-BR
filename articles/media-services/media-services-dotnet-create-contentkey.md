@@ -1,6 +1,6 @@
 ---
-title: Criar ContentKeys com .NET
-description: "Saiba como criar chaves de conteúdo que fornecem acesso seguro aos ativos."
+title: aaaCreate ContentKeys com .NET
+description: "Saiba como chaves de conteúdo toocreate que fornecem seguro acessam tooAssets."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 3280a6fcde59bae360da7cb9fea4bb649f984e43
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 35909c64e8393e228be75c464a034ffc40122952
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-contentkeys-with-net"></a><span data-ttu-id="a8c10-103">Criar ContentKeys com .NET</span><span class="sxs-lookup"><span data-stu-id="a8c10-103">Create ContentKeys with .NET</span></span>
+# <a name="create-contentkeys-with-net"></a><span data-ttu-id="81b3a-103">Criar ContentKeys com .NET</span><span class="sxs-lookup"><span data-stu-id="81b3a-103">Create ContentKeys with .NET</span></span>
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="a8c10-104">REST</span><span class="sxs-lookup"><span data-stu-id="a8c10-104">REST</span></span>](media-services-rest-create-contentkey.md)
-> * [<span data-ttu-id="a8c10-105">.NET</span><span class="sxs-lookup"><span data-stu-id="a8c10-105">.NET</span></span>](media-services-dotnet-create-contentkey.md)
+> * [<span data-ttu-id="81b3a-104">REST</span><span class="sxs-lookup"><span data-stu-id="81b3a-104">REST</span></span>](media-services-rest-create-contentkey.md)
+> * [<span data-ttu-id="81b3a-105">.NET</span><span class="sxs-lookup"><span data-stu-id="81b3a-105">.NET</span></span>](media-services-dotnet-create-contentkey.md)
 > 
 > 
 
-<span data-ttu-id="a8c10-106">Os serviços de mídia permitem que você crie ativos e forneça ativos criptografados.</span><span class="sxs-lookup"><span data-stu-id="a8c10-106">Media Services enables you to create and deliver encrypted assets.</span></span> <span data-ttu-id="a8c10-107">Uma **ContentKey** fornece acesso seguro aos seus **ativos**.</span><span class="sxs-lookup"><span data-stu-id="a8c10-107">A **ContentKey** provides secure access to your **Asset**s.</span></span> 
+<span data-ttu-id="81b3a-106">Serviços de mídia permitem toocreate e entregar ativos criptografados.</span><span class="sxs-lookup"><span data-stu-id="81b3a-106">Media Services enables you toocreate and deliver encrypted assets.</span></span> <span data-ttu-id="81b3a-107">Um **ContentKey** fornece acesso seguro tooyour **ativo**s.</span><span class="sxs-lookup"><span data-stu-id="81b3a-107">A **ContentKey** provides secure access tooyour **Asset**s.</span></span> 
 
-<span data-ttu-id="a8c10-108">Ao criar um novo ativo (por exemplo, antes de [carregar arquivos](media-services-dotnet-upload-files.md)), você pode especificar as seguintes opções de criptografia: **StorageEncrypted**, **CommonEncryptionProtected** ou **EnvelopeEncryptionProtected**.</span><span class="sxs-lookup"><span data-stu-id="a8c10-108">When you create a new asset (for example, before you [upload files](media-services-dotnet-upload-files.md)), you can specify the following encryption options: **StorageEncrypted**, **CommonEncryptionProtected**, or **EnvelopeEncryptionProtected**.</span></span> 
+<span data-ttu-id="81b3a-108">Quando você cria um novo ativo (por exemplo, antes de você [carregar arquivos](media-services-dotnet-upload-files.md)), você pode especificar Olá as opções de criptografia a seguir: **StorageEncrypted**, **CommonEncryptionProtected**, ou **EnvelopeEncryptionProtected**.</span><span class="sxs-lookup"><span data-stu-id="81b3a-108">When you create a new asset (for example, before you [upload files](media-services-dotnet-upload-files.md)), you can specify hello following encryption options: **StorageEncrypted**, **CommonEncryptionProtected**, or **EnvelopeEncryptionProtected**.</span></span> 
 
-<span data-ttu-id="a8c10-109">Quando você fornece ativos para seus clientes, é possível [configurar para que os ativos sejam criptografados dinamicamente](media-services-dotnet-configure-asset-delivery-policy.md) com uma das duas criptografias a seguir: **DynamicEnvelopeEncryption** ou **DynamicCommonEncryption**.</span><span class="sxs-lookup"><span data-stu-id="a8c10-109">When you deliver assets to your clients, you can [configure for assets to be dynamically encrypted](media-services-dotnet-configure-asset-delivery-policy.md) with one of the following two encryptions: **DynamicEnvelopeEncryption** or **DynamicCommonEncryption**.</span></span>
+<span data-ttu-id="81b3a-109">Quando você entregar ativos tooyour clientes, você pode [configurar para toobe ativos criptografado dinamicamente](media-services-dotnet-configure-asset-delivery-policy.md) com uma saudação dois criptografias a seguir: **DynamicEnvelopeEncryption** ou  **DynamicCommonEncryption**.</span><span class="sxs-lookup"><span data-stu-id="81b3a-109">When you deliver assets tooyour clients, you can [configure for assets toobe dynamically encrypted](media-services-dotnet-configure-asset-delivery-policy.md) with one of hello following two encryptions: **DynamicEnvelopeEncryption** or **DynamicCommonEncryption**.</span></span>
 
-<span data-ttu-id="a8c10-110">Os ativos criptografados precisam ser associados a **ContentKey**s.</span><span class="sxs-lookup"><span data-stu-id="a8c10-110">Encrypted assets have to be associated with **ContentKey**s.</span></span> <span data-ttu-id="a8c10-111">Este artigo descreve como criar uma chave de conteúdo.</span><span class="sxs-lookup"><span data-stu-id="a8c10-111">This article describes how to create a content key.</span></span>
+<span data-ttu-id="81b3a-110">Ativos criptografados têm toobe associado **ContentKey**s.</span><span class="sxs-lookup"><span data-stu-id="81b3a-110">Encrypted assets have toobe associated with **ContentKey**s.</span></span> <span data-ttu-id="81b3a-111">Este artigo descreve como toocreate uma chave de conteúdo.</span><span class="sxs-lookup"><span data-stu-id="81b3a-111">This article describes how toocreate a content key.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="a8c10-112">Ao criar um novo ativo **StorageEncrypted** usando o SDK do .NET dos Serviços de Mídia, a **ContentKey** é automaticamente criada e vinculada ao ativo.</span><span class="sxs-lookup"><span data-stu-id="a8c10-112">When creating a new **StorageEncrypted** asset using the Media Services .NET SDK , the **ContentKey** is automatically created and linked with the asset.</span></span>
+> <span data-ttu-id="81b3a-112">Ao criar um novo **StorageEncrypted** ativo usando Olá SDK do Media Services .NET hello **ContentKey** é automaticamente criado e vinculado com ativo hello.</span><span class="sxs-lookup"><span data-stu-id="81b3a-112">When creating a new **StorageEncrypted** asset using hello Media Services .NET SDK , hello **ContentKey** is automatically created and linked with hello asset.</span></span>
 > 
 > 
 
-## <a name="contentkeytype"></a><span data-ttu-id="a8c10-113">ContentKeyType</span><span class="sxs-lookup"><span data-stu-id="a8c10-113">ContentKeyType</span></span>
-<span data-ttu-id="a8c10-114">Um dos valores que você deve definir ao criar um conteúdo da chave é o tipo de chave de conteúdo.</span><span class="sxs-lookup"><span data-stu-id="a8c10-114">One of the values that you must set when create a content key is the content key type.</span></span> <span data-ttu-id="a8c10-115">Escolha um dos seguintes valores.</span><span class="sxs-lookup"><span data-stu-id="a8c10-115">Choose from one of the following values.</span></span> 
+## <a name="contentkeytype"></a><span data-ttu-id="81b3a-113">ContentKeyType</span><span class="sxs-lookup"><span data-stu-id="81b3a-113">ContentKeyType</span></span>
+<span data-ttu-id="81b3a-114">Um dos valores de saudação que você deve definir quando criar um conteúdo de chave é o tipo de chave de conteúdo de saudação.</span><span class="sxs-lookup"><span data-stu-id="81b3a-114">One of hello values that you must set when create a content key is hello content key type.</span></span> <span data-ttu-id="81b3a-115">Escolha uma saudação valores a seguir.</span><span class="sxs-lookup"><span data-stu-id="81b3a-115">Choose from one of hello following values.</span></span> 
 
     public enum ContentKeyType
     {
         /// <summary>
         /// Specifies a content key for common encryption.
         /// </summary>
-        /// <remarks>This is the default value.</remarks>
+        /// <remarks>This is hello default value.</remarks>
         CommonEncryption = 0,
 
         /// <summary>
@@ -67,8 +67,8 @@ ms.lasthandoff: 08/29/2017
         EnvelopeEncryption = 4
     }
 
-## <span data-ttu-id="a8c10-116"><a id="envelope_contentkey"></a>Criar um tipo de envelope de ContentKey</span><span class="sxs-lookup"><span data-stu-id="a8c10-116"><a id="envelope_contentkey"></a>Create envelope type ContentKey</span></span>
-<span data-ttu-id="a8c10-117">O trecho de código a seguir cria uma chave de conteúdo do tipo de criptografia de envelope.</span><span class="sxs-lookup"><span data-stu-id="a8c10-117">The following code snippet creates a content key of the envelope encryption type.</span></span> <span data-ttu-id="a8c10-118">Em seguida, associa a chave com o ativo especificado.</span><span class="sxs-lookup"><span data-stu-id="a8c10-118">It then associates the key with the specified asset.</span></span>
+## <span data-ttu-id="81b3a-116"><a id="envelope_contentkey"></a>Criar um tipo de envelope de ContentKey</span><span class="sxs-lookup"><span data-stu-id="81b3a-116"><a id="envelope_contentkey"></a>Create envelope type ContentKey</span></span>
+<span data-ttu-id="81b3a-117">Olá trecho de código a seguir cria uma chave de conteúdo do tipo de criptografia de envelope hello.</span><span class="sxs-lookup"><span data-stu-id="81b3a-117">hello following code snippet creates a content key of hello envelope encryption type.</span></span> <span data-ttu-id="81b3a-118">Em seguida, associa chave Olá com ativo especificado hello.</span><span class="sxs-lookup"><span data-stu-id="81b3a-118">It then associates hello key with hello specified asset.</span></span>
 
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
     {
@@ -98,14 +98,14 @@ ms.lasthandoff: 08/29/2017
         return randomBytes;
     }
 
-<span data-ttu-id="a8c10-119">chamada</span><span class="sxs-lookup"><span data-stu-id="a8c10-119">call</span></span>
+<span data-ttu-id="81b3a-119">chamada</span><span class="sxs-lookup"><span data-stu-id="81b3a-119">call</span></span>
 
     IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
 
 
 
-## <span data-ttu-id="a8c10-120"><a id="common_contentkey"></a>Criar um tipo comum de ContentKey</span><span class="sxs-lookup"><span data-stu-id="a8c10-120"><a id="common_contentkey"></a>Create common type ContentKey</span></span>
-<span data-ttu-id="a8c10-121">O trecho de código a seguir cria uma chave de conteúdo do tipo de criptografia comum.</span><span class="sxs-lookup"><span data-stu-id="a8c10-121">The following code snippet creates a content key of the common encryption type.</span></span> <span data-ttu-id="a8c10-122">Em seguida, associa a chave com o ativo especificado.</span><span class="sxs-lookup"><span data-stu-id="a8c10-122">It then associates the key with the specified asset.</span></span>
+## <span data-ttu-id="81b3a-120"><a id="common_contentkey"></a>Criar um tipo comum de ContentKey</span><span class="sxs-lookup"><span data-stu-id="81b3a-120"><a id="common_contentkey"></a>Create common type ContentKey</span></span>
+<span data-ttu-id="81b3a-121">Hello trecho de código a seguir cria uma chave de conteúdo Olá comuns do tipo de criptografia.</span><span class="sxs-lookup"><span data-stu-id="81b3a-121">hello following code snippet creates a content key of hello common encryption type.</span></span> <span data-ttu-id="81b3a-122">Em seguida, associa chave Olá com ativo especificado hello.</span><span class="sxs-lookup"><span data-stu-id="81b3a-122">It then associates hello key with hello specified asset.</span></span>
 
     static public IContentKey CreateCommonTypeContentKey(IAsset asset)
     {
@@ -119,7 +119,7 @@ ms.lasthandoff: 08/29/2017
                                 "ContentKey",
                                 ContentKeyType.CommonEncryption);
 
-        // Associate the key with the asset.
+        // Associate hello key with hello asset.
         asset.ContentKeys.Add(key);
 
         return key;
@@ -137,14 +137,14 @@ ms.lasthandoff: 08/29/2017
 
         return returnValue;
     }
-<span data-ttu-id="a8c10-123">chamada</span><span class="sxs-lookup"><span data-stu-id="a8c10-123">call</span></span>
+<span data-ttu-id="81b3a-123">chamada</span><span class="sxs-lookup"><span data-stu-id="81b3a-123">call</span></span>
 
     IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
 
 
-## <a name="media-services-learning-paths"></a><span data-ttu-id="a8c10-124">Roteiros de aprendizagem dos Serviços de Mídia</span><span class="sxs-lookup"><span data-stu-id="a8c10-124">Media Services learning paths</span></span>
+## <a name="media-services-learning-paths"></a><span data-ttu-id="81b3a-124">Roteiros de aprendizagem dos Serviços de Mídia</span><span class="sxs-lookup"><span data-stu-id="81b3a-124">Media Services learning paths</span></span>
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a><span data-ttu-id="a8c10-125">Fornecer comentários</span><span class="sxs-lookup"><span data-stu-id="a8c10-125">Provide feedback</span></span>
+## <a name="provide-feedback"></a><span data-ttu-id="81b3a-125">Fornecer comentários</span><span class="sxs-lookup"><span data-stu-id="81b3a-125">Provide feedback</span></span>
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 

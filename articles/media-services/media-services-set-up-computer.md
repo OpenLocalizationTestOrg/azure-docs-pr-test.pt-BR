@@ -1,5 +1,5 @@
 ---
-title: "Configurar o ambiente de desenvolvimento dos Serviços de Mídia do Azure | Microsoft Docs"
+title: "aaaSet seu ambiente de desenvolvimento de serviços de mídia do Azure | Microsoft Docs"
 description: "Configure seu ambiente para desenvolvimento com os Serviços de Mídia do Azure"
 services: media-services
 documentationcenter: 
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: juliako
-ms.openlocfilehash: 9144407ed530921904458a7249473eaea26c66b3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 5637b0c872a76490dcccde5466bfc91c2ba56f31
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="set-up-your-media-services-development-environment"></a><span data-ttu-id="6f94e-103">Configurar o ambiente de desenvolvimento dos Serviços de Mídia</span><span class="sxs-lookup"><span data-stu-id="6f94e-103">Set up your Media Services development environment</span></span>
+# <a name="set-up-your-media-services-development-environment"></a><span data-ttu-id="cffda-103">Configurar o ambiente de desenvolvimento dos Serviços de Mídia</span><span class="sxs-lookup"><span data-stu-id="cffda-103">Set up your Media Services development environment</span></span>
 
-<span data-ttu-id="6f94e-104">As etapas a seguir descrevem os pré-requisitos necessários para o desenvolvimento com os Serviços de Mídia do Azure.</span><span class="sxs-lookup"><span data-stu-id="6f94e-104">The following steps describe prerequisites required for developing with Azure Media Services.</span></span>
+<span data-ttu-id="cffda-104">Olá, etapas a seguir descrevem os pré-requisitos necessários para o desenvolvimento com serviços de mídia do Azure.</span><span class="sxs-lookup"><span data-stu-id="cffda-104">hello following steps describe prerequisites required for developing with Azure Media Services.</span></span>
 
-## <a name="create-a-media-services-account"></a><span data-ttu-id="6f94e-105">Criar uma conta de Serviços de Mídia</span><span class="sxs-lookup"><span data-stu-id="6f94e-105">Create a Media Services account</span></span>
-<span data-ttu-id="6f94e-106">Use o portal do Azure, o SDK do .NET ou a API REST para criar uma conta dos Serviços de Mídia do Azure.</span><span class="sxs-lookup"><span data-stu-id="6f94e-106">Use the Azure portal, the .NET SDK, or the REST API to create an Azure Media Services account.</span></span>
+## <a name="create-a-media-services-account"></a><span data-ttu-id="cffda-105">Criar uma conta de Serviços de Mídia</span><span class="sxs-lookup"><span data-stu-id="cffda-105">Create a Media Services account</span></span>
+<span data-ttu-id="cffda-106">Usar Olá portal do Azure, Olá SDK .NET ou Olá API REST toocreate uma conta de serviços de mídia do Azure.</span><span class="sxs-lookup"><span data-stu-id="cffda-106">Use hello Azure portal, hello .NET SDK, or hello REST API toocreate an Azure Media Services account.</span></span>
 
 <a id="setup_dev_env"></a>
 
-## <a name="set-up-the-development-environment"></a><span data-ttu-id="6f94e-107">Configurar o ambiente de desenvolvimento</span><span class="sxs-lookup"><span data-stu-id="6f94e-107">Set up the development environment</span></span>
+## <a name="set-up-hello-development-environment"></a><span data-ttu-id="cffda-107">Configurar o ambiente de desenvolvimento Olá</span><span class="sxs-lookup"><span data-stu-id="cffda-107">Set up hello development environment</span></span>
 
-<span data-ttu-id="6f94e-108">Para configurar o ambiente de desenvolvimento do .NET, confira [este](media-services-dotnet-how-to-use.md) tópico.</span><span class="sxs-lookup"><span data-stu-id="6f94e-108">To set up .NET dev environment, see [this](media-services-dotnet-how-to-use.md) topic.</span></span>  
+<span data-ttu-id="cffda-108">tooset o ambiente de desenvolvimento .NET, consulte [isso](media-services-dotnet-how-to-use.md) tópico.</span><span class="sxs-lookup"><span data-stu-id="cffda-108">tooset up .NET dev environment, see [this](media-services-dotnet-how-to-use.md) topic.</span></span>  
 
-<span data-ttu-id="6f94e-109">Para configurar o ambiente de desenvolvimento do REST, confira [este](media-services-rest-how-to-use.md) tópico.</span><span class="sxs-lookup"><span data-stu-id="6f94e-109">To set up REST dev environment, see [this](media-services-rest-how-to-use.md) topic.</span></span>  
+<span data-ttu-id="cffda-109">tooset o ambiente de desenvolvimento REST, consulte [isso](media-services-rest-how-to-use.md) tópico.</span><span class="sxs-lookup"><span data-stu-id="cffda-109">tooset up REST dev environment, see [this](media-services-rest-how-to-use.md) topic.</span></span>  
 
 <a id="connect"></a>
 
-## <a name="connect-programmatically"></a><span data-ttu-id="6f94e-110">Conectar-se por meio de programação</span><span class="sxs-lookup"><span data-stu-id="6f94e-110">Connect programmatically</span></span>
+## <a name="connect-programmatically"></a><span data-ttu-id="cffda-110">Conectar-se por meio de programação</span><span class="sxs-lookup"><span data-stu-id="cffda-110">Connect programmatically</span></span>
 
-<span data-ttu-id="6f94e-111">Para conectar-se à API dos Serviços de Mídia do Azure, veja [acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md).</span><span class="sxs-lookup"><span data-stu-id="6f94e-111">To connect to the Azure Media Services API, see [access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).</span></span>  
+<span data-ttu-id="cffda-111">tooconnect toohello API de serviços de mídia do Azure, consulte [Olá acesso API de serviços de mídia do Azure com a autenticação do AD do Azure](media-services-use-aad-auth-to-access-ams-api.md).</span><span class="sxs-lookup"><span data-stu-id="cffda-111">tooconnect toohello Azure Media Services API, see [access hello Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).</span></span>  
 
-## <a name="next-steps-azure-media-services-learning-paths"></a><span data-ttu-id="6f94e-112">Próximas etapas: Roteiros de aprendizagem dos Serviços de Mídia do Azure</span><span class="sxs-lookup"><span data-stu-id="6f94e-112">Next steps: Azure Media Services learning paths</span></span>
+## <a name="next-steps-azure-media-services-learning-paths"></a><span data-ttu-id="cffda-112">Próximas etapas: Roteiros de aprendizagem dos Serviços de Mídia do Azure</span><span class="sxs-lookup"><span data-stu-id="cffda-112">Next steps: Azure Media Services learning paths</span></span>
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a><span data-ttu-id="6f94e-113">Fornecer comentários</span><span class="sxs-lookup"><span data-stu-id="6f94e-113">Provide feedback</span></span>
+## <a name="provide-feedback"></a><span data-ttu-id="cffda-113">Fornecer comentários</span><span class="sxs-lookup"><span data-stu-id="cffda-113">Provide feedback</span></span>
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 

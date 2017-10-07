@@ -1,6 +1,6 @@
 ---
-title: Como usar o Armazenamento de Blobs do Azure (armazenamento de objeto) do Java | Microsoft Docs
-description: "Armazene dados não estruturados na nuvem com o armazenamento de blobs do Azure (armazenamento de objeto)."
+title: aaaHow toouse o armazenamento de BLOBs do Azure (armazenamento de objeto) do Java | Microsoft Docs
+description: "Armazene dados não estruturados em nuvem Olá com armazenamento de BLOBs do Azure (armazenamento de objeto)."
 services: storage
 documentationcenter: java
 author: mmacy
@@ -14,24 +14,24 @@ ms.devlang: java
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-ms.openlocfilehash: e4de1bc57adf668f383d1fbaf4a721a61576d2a0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a905d318abdaa7538ec3f6b53b5186b965b8b86e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-blob-storage-from-java"></a><span data-ttu-id="da535-103">Como usar o Armazenamento de Blob do Java</span><span class="sxs-lookup"><span data-stu-id="da535-103">How to use Blob storage from Java</span></span>
+# <a name="how-toouse-blob-storage-from-java"></a><span data-ttu-id="2d011-103">Como toouse armazenamento de Blob do Java</span><span class="sxs-lookup"><span data-stu-id="2d011-103">How toouse Blob storage from Java</span></span>
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
-## <a name="overview"></a><span data-ttu-id="da535-104">Visão geral</span><span class="sxs-lookup"><span data-stu-id="da535-104">Overview</span></span>
-<span data-ttu-id="da535-105">O Armazenamento de Blobs do Azure é um serviço que armazena dados não estruturados na nuvem como objetos/blobs.</span><span class="sxs-lookup"><span data-stu-id="da535-105">Azure Blob storage is a service that stores unstructured data in the cloud as objects/blobs.</span></span> <span data-ttu-id="da535-106">O Armazenamento de Blobs pode conter qualquer tipo de texto ou de dados binários, como um documento, um arquivo de mídia ou um instalador de aplicativo.</span><span class="sxs-lookup"><span data-stu-id="da535-106">Blob storage can store any type of text or binary data, such as a document, media file, or application installer.</span></span> <span data-ttu-id="da535-107">O Armazenamento de Blobs também é chamado de armazenamento de objeto.</span><span class="sxs-lookup"><span data-stu-id="da535-107">Blob storage is also referred to as object storage.</span></span>
+## <a name="overview"></a><span data-ttu-id="2d011-104">Visão geral</span><span class="sxs-lookup"><span data-stu-id="2d011-104">Overview</span></span>
+<span data-ttu-id="2d011-105">Armazenamento de BLOBs do Azure é um serviço que armazena dados não estruturados em nuvem hello como objetos/blobs.</span><span class="sxs-lookup"><span data-stu-id="2d011-105">Azure Blob storage is a service that stores unstructured data in hello cloud as objects/blobs.</span></span> <span data-ttu-id="2d011-106">O Armazenamento de Blobs pode conter qualquer tipo de texto ou de dados binários, como um documento, um arquivo de mídia ou um instalador de aplicativo.</span><span class="sxs-lookup"><span data-stu-id="2d011-106">Blob storage can store any type of text or binary data, such as a document, media file, or application installer.</span></span> <span data-ttu-id="2d011-107">Armazenamento de blob também é chamado tooas armazenamento de objeto.</span><span class="sxs-lookup"><span data-stu-id="2d011-107">Blob storage is also referred tooas object storage.</span></span>
 
-<span data-ttu-id="da535-108">Este artigo mostra como executar cenários comuns usando o armazenamento de Blob do Microsoft Azure.</span><span class="sxs-lookup"><span data-stu-id="da535-108">This article will show you how to perform common scenarios using the Microsoft Azure Blob storage.</span></span> <span data-ttu-id="da535-109">As amostras são escritas em Java e usam o [SDK de Armazenamento do Azure para Java][Azure Storage SDK for Java].</span><span class="sxs-lookup"><span data-stu-id="da535-109">The samples are written in Java and use the [Azure Storage SDK for Java][Azure Storage SDK for Java].</span></span> <span data-ttu-id="da535-110">Os cenários abrangidos incluem **carregamento**, **listagem**, **download** e **exclusão** de blobs.</span><span class="sxs-lookup"><span data-stu-id="da535-110">The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs.</span></span> <span data-ttu-id="da535-111">Para obter mais informações sobre blobs, consulte a seção [Próximas etapas](#Next-Steps) .</span><span class="sxs-lookup"><span data-stu-id="da535-111">For more information on blobs, see the [Next Steps](#Next-Steps) section.</span></span>
+<span data-ttu-id="2d011-108">Este artigo mostra como tooperform cenários comuns usando Olá armazenamento de BLOBs do Microsoft Azure.</span><span class="sxs-lookup"><span data-stu-id="2d011-108">This article will show you how tooperform common scenarios using hello Microsoft Azure Blob storage.</span></span> <span data-ttu-id="2d011-109">exemplos de saudação são escritos em Java e usam Olá [SDK de armazenamento do Azure para Java][Azure Storage SDK for Java].</span><span class="sxs-lookup"><span data-stu-id="2d011-109">hello samples are written in Java and use hello [Azure Storage SDK for Java][Azure Storage SDK for Java].</span></span> <span data-ttu-id="2d011-110">Olá cenários abordados incluem **Carregando**, **listando**, **baixando**, e **excluindo** blobs.</span><span class="sxs-lookup"><span data-stu-id="2d011-110">hello scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs.</span></span> <span data-ttu-id="2d011-111">Para obter mais informações sobre blobs, consulte Olá [próximas etapas](#Next-Steps) seção.</span><span class="sxs-lookup"><span data-stu-id="2d011-111">For more information on blobs, see hello [Next Steps](#Next-Steps) section.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="da535-112">Um SDK está disponível para os desenvolvedores que usam o Armazenamento do Azure em dispositivos Android.</span><span class="sxs-lookup"><span data-stu-id="da535-112">An SDK is available for developers who are using Azure Storage on Android devices.</span></span> <span data-ttu-id="da535-113">Para obter mais informações, consulte [Azure Storage SDK for Android][Azure Storage SDK for Android] (SDK de Armazenamento do Azure para Android).</span><span class="sxs-lookup"><span data-stu-id="da535-113">For more information, see the [Azure Storage SDK for Android][Azure Storage SDK for Android].</span></span>
+> <span data-ttu-id="2d011-112">Um SDK está disponível para os desenvolvedores que usam o Armazenamento do Azure em dispositivos Android.</span><span class="sxs-lookup"><span data-stu-id="2d011-112">An SDK is available for developers who are using Azure Storage on Android devices.</span></span> <span data-ttu-id="2d011-113">Para obter mais informações, consulte Olá [SDK de armazenamento do Azure para Android][Azure Storage SDK for Android].</span><span class="sxs-lookup"><span data-stu-id="2d011-113">For more information, see hello [Azure Storage SDK for Android][Azure Storage SDK for Android].</span></span>
 >
 >
 
@@ -39,32 +39,32 @@ ms.lasthandoff: 08/29/2017
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## <a name="create-a-java-application"></a><span data-ttu-id="da535-114">Criar um aplicativo Java</span><span class="sxs-lookup"><span data-stu-id="da535-114">Create a Java application</span></span>
-<span data-ttu-id="da535-115">Neste artigo, você usará os recursos de armazenamento que podem ser executados em um aplicativo Java localmente ou no código em execução em uma função web ou de trabalho do Azure.</span><span class="sxs-lookup"><span data-stu-id="da535-115">In this article, you will use storage features which can be run within a Java application locally, or in code running within a web role or worker role in Azure.</span></span>
+## <a name="create-a-java-application"></a><span data-ttu-id="2d011-114">Criar um aplicativo Java</span><span class="sxs-lookup"><span data-stu-id="2d011-114">Create a Java application</span></span>
+<span data-ttu-id="2d011-115">Neste artigo, você usará os recursos de armazenamento que podem ser executados em um aplicativo Java localmente ou no código em execução em uma função web ou de trabalho do Azure.</span><span class="sxs-lookup"><span data-stu-id="2d011-115">In this article, you will use storage features which can be run within a Java application locally, or in code running within a web role or worker role in Azure.</span></span>
 
-<span data-ttu-id="da535-116">Para isso, você precisará instalar o JDK (Java Development Kit) e criar uma conta de armazenamento do Azure na sua assinatura do Azure.</span><span class="sxs-lookup"><span data-stu-id="da535-116">To do so, you will need to install the Java Development Kit (JDK) and create an Azure Storage account in your Azure subscription.</span></span> <span data-ttu-id="da535-117">Depois disso, você precisará verificar se o sistema de desenvolvimento atende aos requisitos mínimos e às dependências listadas no repositório [Microsoft Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK de Armazenamento do Microsoft Azure para Java) no GitHub.</span><span class="sxs-lookup"><span data-stu-id="da535-117">Once you have done so, you will need to verify that your development system meets the minimum requirements and dependencies which are listed in the [Azure Storage SDK for Java][Azure Storage SDK for Java] repository on GitHub.</span></span> <span data-ttu-id="da535-118">Se o seu sistema atender a esses requisitos, você poderá seguir as instruções para baixar e instalar as Bibliotecas de Armazenamento do Azure para Java em seu sistema por meio desse repositório.</span><span class="sxs-lookup"><span data-stu-id="da535-118">If your system meets those requirements, you can follow the instructions for downloading and installing the Azure Storage Libraries for Java on your system from that repository.</span></span> <span data-ttu-id="da535-119">Depois de concluir essas tarefas, você poderá criar um aplicativo Java que usa os exemplos neste artigo.</span><span class="sxs-lookup"><span data-stu-id="da535-119">Once you have completed those tasks, you will be able to create a Java application which uses the examples in this article.</span></span>
+<span data-ttu-id="2d011-116">toodo assim, você precisará tooinstall Olá Java Development Kit (JDK) e criar uma conta de armazenamento do Azure em sua assinatura do Azure.</span><span class="sxs-lookup"><span data-stu-id="2d011-116">toodo so, you will need tooinstall hello Java Development Kit (JDK) and create an Azure Storage account in your Azure subscription.</span></span> <span data-ttu-id="2d011-117">Depois de você ter feito isso, você precisará tooverify seu sistema de desenvolvimento atende aos requisitos mínimos de saudação e dependências que são listadas no hello [SDK de armazenamento do Azure para Java] [ Azure Storage SDK for Java] repositório no GitHub.</span><span class="sxs-lookup"><span data-stu-id="2d011-117">Once you have done so, you will need tooverify that your development system meets hello minimum requirements and dependencies which are listed in hello [Azure Storage SDK for Java][Azure Storage SDK for Java] repository on GitHub.</span></span> <span data-ttu-id="2d011-118">Se seu sistema atende a esses requisitos, você pode seguir as instruções de saudação para baixar e instalar Olá bibliotecas de armazenamento do Azure para Java em seu sistema desse repositório.</span><span class="sxs-lookup"><span data-stu-id="2d011-118">If your system meets those requirements, you can follow hello instructions for downloading and installing hello Azure Storage Libraries for Java on your system from that repository.</span></span> <span data-ttu-id="2d011-119">Depois de concluir essas tarefas, será possível toocreate um aplicativo Java que usa exemplos Olá neste artigo.</span><span class="sxs-lookup"><span data-stu-id="2d011-119">Once you have completed those tasks, you will be able toocreate a Java application which uses hello examples in this article.</span></span>
 
-## <a name="configure-your-application-to-access-blob-storage"></a><span data-ttu-id="da535-120">Configurar seu aplicativo para acessar o armazenamento de blobs</span><span class="sxs-lookup"><span data-stu-id="da535-120">Configure your application to access Blob storage</span></span>
-<span data-ttu-id="da535-121">Adicione as seguintes instruções de importação à parte superior do arquivo Java no qual deseja usar as APIs de Armazenamento do Azure para acessar blobs.</span><span class="sxs-lookup"><span data-stu-id="da535-121">Add the following import statements to the top of the Java file where you want to use the Azure Storage APIs to access blobs.</span></span>
+## <a name="configure-your-application-tooaccess-blob-storage"></a><span data-ttu-id="2d011-120">Configurar seu aplicativo tooaccess armazenamento de Blob</span><span class="sxs-lookup"><span data-stu-id="2d011-120">Configure your application tooaccess Blob storage</span></span>
+<span data-ttu-id="2d011-121">Adicione Olá após a importação instruções toohello superior do arquivo de Java Olá onde você deseja que os blobs de tooaccess toouse Olá APIs de armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="2d011-121">Add hello following import statements toohello top of hello Java file where you want toouse hello Azure Storage APIs tooaccess blobs.</span></span>
 
 ```java
-// Include the following imports to use blob APIs.
+// Include hello following imports toouse blob APIs.
 import com.microsoft.azure.storage.*;
 import com.microsoft.azure.storage.blob.*;
 ```
 
-## <a name="set-up-an-azure-storage-connection-string"></a><span data-ttu-id="da535-122">Configurar uma cadeia de conexão de Armazenamento do Azure</span><span class="sxs-lookup"><span data-stu-id="da535-122">Set up an Azure Storage connection string</span></span>
-<span data-ttu-id="da535-123">Um cliente de Armazenamento do Azure usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais para acessar serviços de gerenciamento de dados.</span><span class="sxs-lookup"><span data-stu-id="da535-123">An Azure Storage client uses a storage connection string to store endpoints and credentials for accessing data management services.</span></span> <span data-ttu-id="da535-124">Ao executar um aplicativo cliente, é necessário fornecer a cadeia de conexão de armazenamento no formato a seguir, usando o nome de sua conta de armazenamento e a tecla de Acesso primário da conta de armazenamento listada no [portal do Azure](https://portal.azure.com) para os valores *AccountName* e *AccountKey*.</span><span class="sxs-lookup"><span data-stu-id="da535-124">When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the [Azure portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values.</span></span> <span data-ttu-id="da535-125">O exemplo a seguir mostra como é possível declarar um campo estático para armazenar a cadeia de conexão.</span><span class="sxs-lookup"><span data-stu-id="da535-125">The following example shows how you can declare a static field to hold the connection string.</span></span>
+## <a name="set-up-an-azure-storage-connection-string"></a><span data-ttu-id="2d011-122">Configurar uma cadeia de conexão de Armazenamento do Azure</span><span class="sxs-lookup"><span data-stu-id="2d011-122">Set up an Azure Storage connection string</span></span>
+<span data-ttu-id="2d011-123">Um cliente de armazenamento do Azure usa um pontos de extremidade de toostore de cadeia de caracteres de conexão de armazenamento e as credenciais para acessar os serviços de gerenciamento de dados.</span><span class="sxs-lookup"><span data-stu-id="2d011-123">An Azure Storage client uses a storage connection string toostore endpoints and credentials for accessing data management services.</span></span> <span data-ttu-id="2d011-124">Quando em execução em um aplicativo cliente, deve fornecer a cadeia de conexão de armazenamento Olá no formato a seguir, usando o nome de saudação da sua conta de armazenamento de saudação e Olá chave de acesso primária para conta de armazenamento Olá listada no hello [portal do Azure](https://portal.azure.com)para Olá *AccountName* e *AccountKey* valores.</span><span class="sxs-lookup"><span data-stu-id="2d011-124">When running in a client application, you must provide hello storage connection string in hello following format, using hello name of your storage account and hello Primary access key for hello storage account listed in hello [Azure portal](https://portal.azure.com) for hello *AccountName* and *AccountKey* values.</span></span> <span data-ttu-id="2d011-125">Olá exemplo a seguir mostra como você pode declarar uma cadeia de caracteres de conexão do campo estático toohold hello.</span><span class="sxs-lookup"><span data-stu-id="2d011-125">hello following example shows how you can declare a static field toohold hello connection string.</span></span>
 
 ```java
-// Define the connection-string with your values
+// Define hello connection-string with your values
 public static final String storageConnectionString =
     "DefaultEndpointsProtocol=http;" +
     "AccountName=your_storage_account;" +
     "AccountKey=your_storage_account_key";
 ```
 
-<span data-ttu-id="da535-126">Em um aplicativo que esteja sendo executado em uma função no Microsoft Azure, essa cadeia pode ser armazenada no arquivo de configuração do serviço, *ServiceConfiguration.cscfg*, podendo ser acessada com uma chamada para o método **RoleEnvironment.getConfigurationSettings** .</span><span class="sxs-lookup"><span data-stu-id="da535-126">In an application running within a role in Microsoft Azure, this string can be stored in the service configuration file, *ServiceConfiguration.cscfg*, and can be accessed with a call to the **RoleEnvironment.getConfigurationSettings** method.</span></span> <span data-ttu-id="da535-127">O exemplo a seguir obtém a cadeia de conexão de um elemento **Setting** chamado *StorageConnectionString* no arquivo de configuração de serviço.</span><span class="sxs-lookup"><span data-stu-id="da535-127">The following example gets the connection string from a **Setting** element named *StorageConnectionString* in the service configuration file.</span></span>
+<span data-ttu-id="2d011-126">Em um aplicativo em execução dentro de uma função no Microsoft Azure, essa cadeia de caracteres pode ser armazenada no arquivo de configuração do serviço hello, *ServiceConfiguration*e pode ser acessado com uma chamada toohello  **RoleEnvironment.getConfigurationSettings** método.</span><span class="sxs-lookup"><span data-stu-id="2d011-126">In an application running within a role in Microsoft Azure, this string can be stored in hello service configuration file, *ServiceConfiguration.cscfg*, and can be accessed with a call toohello **RoleEnvironment.getConfigurationSettings** method.</span></span> <span data-ttu-id="2d011-127">Olá, exemplo a seguir obtém Olá cadeia de caracteres de conexão de um **configuração** elemento chamado *StorageConnectionString* no arquivo de configuração do serviço de saudação.</span><span class="sxs-lookup"><span data-stu-id="2d011-127">hello following example gets hello connection string from a **Setting** element named *StorageConnectionString* in hello service configuration file.</span></span>
 
 ```java
 // Retrieve storage account from connection-string.
@@ -72,19 +72,19 @@ String storageConnectionString =
     RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 ```
 
-<span data-ttu-id="da535-128">Os exemplos abaixo pressupõem que você usou um desses dois métodos para obter a cadeia de conexão do armazenamento.</span><span class="sxs-lookup"><span data-stu-id="da535-128">The following samples assume that you have used one of these two methods to get the storage connection string.</span></span>
+<span data-ttu-id="2d011-128">Olá exemplos a seguir pressupõem que você usou uma cadeia de conexão de armazenamento esses dois métodos tooget hello.</span><span class="sxs-lookup"><span data-stu-id="2d011-128">hello following samples assume that you have used one of these two methods tooget hello storage connection string.</span></span>
 
-## <a name="create-a-container"></a><span data-ttu-id="da535-129">Criar um contêiner</span><span class="sxs-lookup"><span data-stu-id="da535-129">Create a container</span></span>
-<span data-ttu-id="da535-130">Um objeto **CloudBlobClient** permite que você obtenha os objetos de referência para os contêineres e blobs.</span><span class="sxs-lookup"><span data-stu-id="da535-130">A **CloudBlobClient** object lets you get reference objects for containers and blobs.</span></span> <span data-ttu-id="da535-131">O código a seguir cria um objeto **CloudBlobClient** .</span><span class="sxs-lookup"><span data-stu-id="da535-131">The following code creates a **CloudBlobClient** object.</span></span>
+## <a name="create-a-container"></a><span data-ttu-id="2d011-129">Criar um contêiner</span><span class="sxs-lookup"><span data-stu-id="2d011-129">Create a container</span></span>
+<span data-ttu-id="2d011-130">Um objeto **CloudBlobClient** permite que você obtenha os objetos de referência para os contêineres e blobs.</span><span class="sxs-lookup"><span data-stu-id="2d011-130">A **CloudBlobClient** object lets you get reference objects for containers and blobs.</span></span> <span data-ttu-id="2d011-131">Olá código a seguir cria um **CloudBlobClient** objeto.</span><span class="sxs-lookup"><span data-stu-id="2d011-131">hello following code creates a **CloudBlobClient** object.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="da535-132">Existem outras maneiras de criar objetos **CloudStorageAccount**. Para obter mais informações, confira **CloudStorageAccount** na [Referência de SDK do cliente de armazenamento do Azure].</span><span class="sxs-lookup"><span data-stu-id="da535-132">There are additional ways to create **CloudStorageAccount** objects; for more information, see **CloudStorageAccount** in the [Azure Storage Client SDK Reference].</span></span>
+> <span data-ttu-id="2d011-132">Existem outras maneiras toocreate **CloudStorageAccount** objetos; para obter mais informações, consulte **CloudStorageAccount** em Olá [referência de SDK do cliente de armazenamento do Azure].</span><span class="sxs-lookup"><span data-stu-id="2d011-132">There are additional ways toocreate **CloudStorageAccount** objects; for more information, see **CloudStorageAccount** in hello [Azure Storage Client SDK Reference].</span></span>
 >
 >
 
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
-<span data-ttu-id="da535-133">Use o objeto **CloudBlobClient** para obter uma referência ao contêiner que deseja usar.</span><span class="sxs-lookup"><span data-stu-id="da535-133">Use the **CloudBlobClient** object to get a reference to the container you want to use.</span></span> <span data-ttu-id="da535-134">Se o contêiner não existir, será possível criá-lo com o método **createIfNotExists** ; caso contrário, ele retornará o contêiner existente.</span><span class="sxs-lookup"><span data-stu-id="da535-134">You can create the container if it doesn't exist with the **createIfNotExists** method, which will otherwise return the existing container.</span></span> <span data-ttu-id="da535-135">Por padrão, o novo contêiner é particular; portanto, você deve especificar sua chave de acesso de armazenamento (como anteriormente) para baixar blobs desse contêiner.</span><span class="sxs-lookup"><span data-stu-id="da535-135">By default, the new container is private, so you must specify your storage access key (as you did earlier) to download blobs from this container.</span></span>
+<span data-ttu-id="2d011-133">Saudação de uso **CloudBlobClient** tooget um contêiner de toohello de referência que você deseja toouse do objeto.</span><span class="sxs-lookup"><span data-stu-id="2d011-133">Use hello **CloudBlobClient** object tooget a reference toohello container you want toouse.</span></span> <span data-ttu-id="2d011-134">Você pode criar o contêiner de saudação se ele não existir com hello **createIfNotExists** método, caso contrário, retornará o contêiner existente hello.</span><span class="sxs-lookup"><span data-stu-id="2d011-134">You can create hello container if it doesn't exist with hello **createIfNotExists** method, which will otherwise return hello existing container.</span></span> <span data-ttu-id="2d011-135">Por padrão, novo contêiner de saudação é privado, portanto, você deve especificar sua chave de acesso de armazenamento (como feito anteriormente) blobs toodownload desse contêiner.</span><span class="sxs-lookup"><span data-stu-id="2d011-135">By default, hello new container is private, so you must specify your storage access key (as you did earlier) toodownload blobs from this container.</span></span>
 
 ```java
 try
@@ -92,39 +92,39 @@ try
     // Retrieve storage account from connection-string.
     CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
-    // Create the blob client.
+    // Create hello blob client.
     CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-    // Get a reference to a container.
-    // The container name must be lower case
+    // Get a reference tooa container.
+    // hello container name must be lower case
     CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 
-    // Create the container if it does not exist.
+    // Create hello container if it does not exist.
     container.createIfNotExists();
 }
 catch (Exception e)
 {
-    // Output the stack trace.
+    // Output hello stack trace.
     e.printStackTrace();
 }
 ```
 
-### <a name="optional-configure-a-container-for-public-access"></a><span data-ttu-id="da535-136">Opcional: configurar um contêiner para acesso público</span><span class="sxs-lookup"><span data-stu-id="da535-136">Optional: Configure a container for public access</span></span>
-<span data-ttu-id="da535-137">Por padrão, as permissões de um contêiner são configuradas para acesso privado, mas você pode configurar facilmente as permissões de um contêiner para permitir acesso público somente leitura a todos os usuários na Internet:</span><span class="sxs-lookup"><span data-stu-id="da535-137">A container's permissions are configured for private access by default, but you can easily configure a container's permissions to allow public, read-only access for all users on the Internet:</span></span>
+### <a name="optional-configure-a-container-for-public-access"></a><span data-ttu-id="2d011-136">Opcional: configurar um contêiner para acesso público</span><span class="sxs-lookup"><span data-stu-id="2d011-136">Optional: Configure a container for public access</span></span>
+<span data-ttu-id="2d011-137">Permissões do contêiner são configuradas para acesso privado por padrão, mas você pode facilmente configurar permissões tooallow pública, somente leitura acesso um contêiner para todos os usuários em Olá Internet:</span><span class="sxs-lookup"><span data-stu-id="2d011-137">A container's permissions are configured for private access by default, but you can easily configure a container's permissions tooallow public, read-only access for all users on hello Internet:</span></span>
 
 ```java
 // Create a permissions object.
 BlobContainerPermissions containerPermissions = new BlobContainerPermissions();
 
-// Include public access in the permissions object.
+// Include public access in hello permissions object.
 containerPermissions.setPublicAccess(BlobContainerPublicAccessType.CONTAINER);
 
-// Set the permissions on the container.
+// Set hello permissions on hello container.
 container.uploadPermissions(containerPermissions);
 ```
 
-## <a name="upload-a-blob-into-a-container"></a><span data-ttu-id="da535-138">Carregar um blob em um contêiner</span><span class="sxs-lookup"><span data-stu-id="da535-138">Upload a blob into a container</span></span>
-<span data-ttu-id="da535-139">Para carregar um arquivo em um blob, obtenha uma referência de contêiner e use-a para obter uma referência de blob.</span><span class="sxs-lookup"><span data-stu-id="da535-139">To upload a file to a blob, get a container reference and use it to get a blob reference.</span></span> <span data-ttu-id="da535-140">Depois de obter uma referência do blob, é possível carregar qualquer fluxo chamando o upload na referência de blob.</span><span class="sxs-lookup"><span data-stu-id="da535-140">Once you have a blob reference, you can upload any stream by calling upload on the blob reference.</span></span> <span data-ttu-id="da535-141">Essa operação criará o blob, se ele não existir, ou o substituirá, se ele já existir.</span><span class="sxs-lookup"><span data-stu-id="da535-141">This operation will create the blob if it doesn't exist, or overwrite it if it does.</span></span> <span data-ttu-id="da535-142">O exemplo de código a seguir mostra isso e pressupõe que o contêiner já foi criado.</span><span class="sxs-lookup"><span data-stu-id="da535-142">The following code sample shows this, and assumes that the container has already been created.</span></span>
+## <a name="upload-a-blob-into-a-container"></a><span data-ttu-id="2d011-138">Carregar um blob em um contêiner</span><span class="sxs-lookup"><span data-stu-id="2d011-138">Upload a blob into a container</span></span>
+<span data-ttu-id="2d011-139">tooupload um blob de tooa de arquivo, obtenha uma referência de contêiner e usá-lo tooget uma referência de blob.</span><span class="sxs-lookup"><span data-stu-id="2d011-139">tooupload a file tooa blob, get a container reference and use it tooget a blob reference.</span></span> <span data-ttu-id="2d011-140">Quando você tem uma referência de blob, você pode carregar qualquer fluxo chamando o carregamento em referência de blob hello.</span><span class="sxs-lookup"><span data-stu-id="2d011-140">Once you have a blob reference, you can upload any stream by calling upload on hello blob reference.</span></span> <span data-ttu-id="2d011-141">Esta operação criará blob Olá se ele não existe ou substituí-lo se ele faz.</span><span class="sxs-lookup"><span data-stu-id="2d011-141">This operation will create hello blob if it doesn't exist, or overwrite it if it does.</span></span> <span data-ttu-id="2d011-142">saudação de exemplo de código a seguir mostra esse e supõe que esse contêiner Olá já foi criado.</span><span class="sxs-lookup"><span data-stu-id="2d011-142">hello following code sample shows this, and assumes that hello container has already been created.</span></span>
 
 ```java
 try
@@ -132,29 +132,29 @@ try
     // Retrieve storage account from connection-string.
     CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
-    // Create the blob client.
+    // Create hello blob client.
     CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-    // Retrieve reference to a previously created container.
+    // Retrieve reference tooa previously created container.
     CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 
-    // Define the path to a local file.
+    // Define hello path tooa local file.
     final String filePath = "C:\\myimages\\myimage.jpg";
 
-    // Create or overwrite the "myimage.jpg" blob with contents from a local file.
+    // Create or overwrite hello "myimage.jpg" blob with contents from a local file.
     CloudBlockBlob blob = container.getBlockBlobReference("myimage.jpg");
     File source = new File(filePath);
     blob.upload(new FileInputStream(source), source.length());
 }
 catch (Exception e)
 {
-    // Output the stack trace.
+    // Output hello stack trace.
     e.printStackTrace();
 }
 ```
 
-## <a name="list-the-blobs-in-a-container"></a><span data-ttu-id="da535-143">Listar os blobs em um contêiner</span><span class="sxs-lookup"><span data-stu-id="da535-143">List the blobs in a container</span></span>
-<span data-ttu-id="da535-144">Para listar os blobs em um contêiner, primeiro obtenha uma referência do contêiner como a que você obteve para carregar um blob.</span><span class="sxs-lookup"><span data-stu-id="da535-144">To list the blobs in a container, first get a container reference like you did to upload a blob.</span></span> <span data-ttu-id="da535-145">É possível usar o método **listBlobs** do contêiner com um loop **for**.</span><span class="sxs-lookup"><span data-stu-id="da535-145">You can use the container's **listBlobs** method with a **for** loop.</span></span> <span data-ttu-id="da535-146">O código a seguir gera a saída do Uri de cada blob em um contêiner para o console.</span><span class="sxs-lookup"><span data-stu-id="da535-146">The following code outputs the Uri of each blob in a container to the console.</span></span>
+## <a name="list-hello-blobs-in-a-container"></a><span data-ttu-id="2d011-143">Saudação de listar blobs em um contêiner</span><span class="sxs-lookup"><span data-stu-id="2d011-143">List hello blobs in a container</span></span>
+<span data-ttu-id="2d011-144">blobs de saudação toolist em um contêiner, primeiro obtenha uma referência de contêiner como você fez tooupload um blob.</span><span class="sxs-lookup"><span data-stu-id="2d011-144">toolist hello blobs in a container, first get a container reference like you did tooupload a blob.</span></span> <span data-ttu-id="2d011-145">Você pode usar o contêiner de saudação **listBlobs** método com um **para** loop.</span><span class="sxs-lookup"><span data-stu-id="2d011-145">You can use hello container's **listBlobs** method with a **for** loop.</span></span> <span data-ttu-id="2d011-146">Olá código a seguir gera Olá Uri de cada blob em um console de toohello do contêiner.</span><span class="sxs-lookup"><span data-stu-id="2d011-146">hello following code outputs hello Uri of each blob in a container toohello console.</span></span>
 
 ```java
 try
@@ -162,32 +162,32 @@ try
     // Retrieve storage account from connection-string.
     CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
-    // Create the blob client.
+    // Create hello blob client.
     CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-    // Retrieve reference to a previously created container.
+    // Retrieve reference tooa previously created container.
     CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 
-    // Loop over blobs within the container and output the URI to each of them.
+    // Loop over blobs within hello container and output hello URI tooeach of them.
     for (ListBlobItem blobItem : container.listBlobs()) {
         System.out.println(blobItem.getUri());
     }
 }
 catch (Exception e)
 {
-    // Output the stack trace.
+    // Output hello stack trace.
     e.printStackTrace();
 }
 ```
 
-<span data-ttu-id="da535-147">Lembre-se de que você pode nomear blobs com informações de caminho em seus nomes.</span><span class="sxs-lookup"><span data-stu-id="da535-147">Note that you can name blobs with path information in their names.</span></span> <span data-ttu-id="da535-148">Isso cria uma estrutura de diretório virtual que você pode organizar e percorrer como faria com um sistema de arquivos tradicional.</span><span class="sxs-lookup"><span data-stu-id="da535-148">This creates a virtual directory structure that you can organize and traverse as you would a traditional file system.</span></span> <span data-ttu-id="da535-149">Observe que a estrutura do diretório é virtual apenas - os somente os recursos disponíveis no armazenamento de Blob são contêineres e blobs.</span><span class="sxs-lookup"><span data-stu-id="da535-149">Note that the directory structure is virtual only - the only resources available in Blob storage are containers and blobs.</span></span> <span data-ttu-id="da535-150">No entanto, a biblioteca de cliente oferece um objeto **CloudBlobDirectory** para fazer referência a um diretório virtual e simplificar o processo de trabalhar com blobs que são organizados dessa forma.</span><span class="sxs-lookup"><span data-stu-id="da535-150">However, the client library offers a **CloudBlobDirectory** object to refer to a virtual directory and simplify the process of working with blobs that are organized in this way.</span></span>
+<span data-ttu-id="2d011-147">Lembre-se de que você pode nomear blobs com informações de caminho em seus nomes.</span><span class="sxs-lookup"><span data-stu-id="2d011-147">Note that you can name blobs with path information in their names.</span></span> <span data-ttu-id="2d011-148">Isso cria uma estrutura de diretório virtual que você pode organizar e percorrer como faria com um sistema de arquivos tradicional.</span><span class="sxs-lookup"><span data-stu-id="2d011-148">This creates a virtual directory structure that you can organize and traverse as you would a traditional file system.</span></span> <span data-ttu-id="2d011-149">Observe que a estrutura de diretórios Olá só é virtual - Olá somente os recursos disponíveis no armazenamento de Blob são contêineres e blobs.</span><span class="sxs-lookup"><span data-stu-id="2d011-149">Note that hello directory structure is virtual only - hello only resources available in Blob storage are containers and blobs.</span></span> <span data-ttu-id="2d011-150">No entanto, a biblioteca de saudação do cliente oferece uma **CloudBlobDirectory** objeto de diretório virtual do toorefer tooa e simplificar o processo de saudação do trabalho com blobs são organizados dessa maneira.</span><span class="sxs-lookup"><span data-stu-id="2d011-150">However, hello client library offers a **CloudBlobDirectory** object toorefer tooa virtual directory and simplify hello process of working with blobs that are organized in this way.</span></span>
 
-<span data-ttu-id="da535-151">Por exemplo, você pode ter um contêiner denominado “photos”, no qual poderia carregar os blobs “rootphoto1”, “2010/photo1”, “2010/photo2” e “2011/photo1”.</span><span class="sxs-lookup"><span data-stu-id="da535-151">For example, you could have a container named "photos", in which you might upload blobs named "rootphoto1", "2010/photo1", "2010/photo2", and "2011/photo1".</span></span> <span data-ttu-id="da535-152">Isso criaria os diretórios virtuais "2010" e "2011" no contêiner “photos".</span><span class="sxs-lookup"><span data-stu-id="da535-152">This would create the virtual directories "2010" and "2011" within the "photos" container.</span></span> <span data-ttu-id="da535-153">Quando você chamar **listBlobs** no contêiner "photos", a coleção retornada conterá os objetos **CloudBlobDirectory** e **CloudBlob** que representam os diretórios e os blobs contidos no nível superior.</span><span class="sxs-lookup"><span data-stu-id="da535-153">When you call **listBlobs** on the "photos" container, the collection returned will contain **CloudBlobDirectory** and **CloudBlob** objects representing the directories and blobs contained at the top level.</span></span> <span data-ttu-id="da535-154">Nesse caso, os diretórios “2010” e “2011”, bem como “rootphoto1” de photo, seriam retornados.</span><span class="sxs-lookup"><span data-stu-id="da535-154">In this case, directories "2010" and "2011", as well as photo "rootphoto1" would be returned.</span></span> <span data-ttu-id="da535-155">É possível usar o operador **instanceof** para distinguir esses objetos.</span><span class="sxs-lookup"><span data-stu-id="da535-155">You can use the **instanceof** operator to distinguish these objects.</span></span>
+<span data-ttu-id="2d011-151">Por exemplo, você pode ter um contêiner denominado “photos”, no qual poderia carregar os blobs “rootphoto1”, “2010/photo1”, “2010/photo2” e “2011/photo1”.</span><span class="sxs-lookup"><span data-stu-id="2d011-151">For example, you could have a container named "photos", in which you might upload blobs named "rootphoto1", "2010/photo1", "2010/photo2", and "2011/photo1".</span></span> <span data-ttu-id="2d011-152">Isso criaria Olá diretórios virtuais dentro do contêiner do "fotos" hello "2011" e "2010".</span><span class="sxs-lookup"><span data-stu-id="2d011-152">This would create hello virtual directories "2010" and "2011" within hello "photos" container.</span></span> <span data-ttu-id="2d011-153">Quando você chama **listBlobs** no contêiner do "fotos" Olá, coleção Olá retornada conterá **CloudBlobDirectory** e **CloudBlob** objetos que representam Olá diretórios e blobs presentes no nível superior de saudação.</span><span class="sxs-lookup"><span data-stu-id="2d011-153">When you call **listBlobs** on hello "photos" container, hello collection returned will contain **CloudBlobDirectory** and **CloudBlob** objects representing hello directories and blobs contained at hello top level.</span></span> <span data-ttu-id="2d011-154">Nesse caso, os diretórios “2010” e “2011”, bem como “rootphoto1” de photo, seriam retornados.</span><span class="sxs-lookup"><span data-stu-id="2d011-154">In this case, directories "2010" and "2011", as well as photo "rootphoto1" would be returned.</span></span> <span data-ttu-id="2d011-155">Você pode usar o hello **instanceof** toodistinguish operador esses objetos.</span><span class="sxs-lookup"><span data-stu-id="2d011-155">You can use hello **instanceof** operator toodistinguish these objects.</span></span>
 
-<span data-ttu-id="da535-156">Como alternativa, você pode transmitir parâmetros para o método **listBlobs** com o parâmetro **useFlatBlobListing** definido como true.</span><span class="sxs-lookup"><span data-stu-id="da535-156">Optionally, you can pass in parameters to the **listBlobs** method with the **useFlatBlobListing** parameter set to true.</span></span> <span data-ttu-id="da535-157">Isso resultará no retorno de cada blob, independentemente do diretório.</span><span class="sxs-lookup"><span data-stu-id="da535-157">This will result in every blob being returned, regardless of directory.</span></span> <span data-ttu-id="da535-158">Para obter mais informações, veja **CloudBlobContainer.listBlobs** na [Referência de SDK do cliente de armazenamento do Azure].</span><span class="sxs-lookup"><span data-stu-id="da535-158">For more information, see **CloudBlobContainer.listBlobs** in the [Azure Storage Client SDK Reference].</span></span>
+<span data-ttu-id="2d011-156">Opcionalmente, você pode passar parâmetros toohello **listBlobs** método com hello **useFlatBlobListing** parâmetro definido tootrue.</span><span class="sxs-lookup"><span data-stu-id="2d011-156">Optionally, you can pass in parameters toohello **listBlobs** method with hello **useFlatBlobListing** parameter set tootrue.</span></span> <span data-ttu-id="2d011-157">Isso resultará no retorno de cada blob, independentemente do diretório.</span><span class="sxs-lookup"><span data-stu-id="2d011-157">This will result in every blob being returned, regardless of directory.</span></span> <span data-ttu-id="2d011-158">Para obter mais informações, consulte **Cloudblobcontainer** em Olá [referência de SDK do cliente de armazenamento do Azure].</span><span class="sxs-lookup"><span data-stu-id="2d011-158">For more information, see **CloudBlobContainer.listBlobs** in hello [Azure Storage Client SDK Reference].</span></span>
 
-## <a name="download-a-blob"></a><span data-ttu-id="da535-159">Baixar um blob</span><span class="sxs-lookup"><span data-stu-id="da535-159">Download a blob</span></span>
-<span data-ttu-id="da535-160">Para baixar blobs, siga as mesmas etapas utilizadas para carregar um blob, a fim de obter uma referência do blob.</span><span class="sxs-lookup"><span data-stu-id="da535-160">To download blobs, follow the same steps as you did for uploading a blob in order to get a blob reference.</span></span> <span data-ttu-id="da535-161">No exemplo de carregamento, você chamou o carregamento no objeto do blob.</span><span class="sxs-lookup"><span data-stu-id="da535-161">In the uploading example, you called upload on the blob object.</span></span> <span data-ttu-id="da535-162">No exemplo a seguir, chame o download para transferir o conteúdo do blob para um objeto do fluxo, como um **FileOutputStream** que pode ser usado para persistir o blob ao arquivo local.</span><span class="sxs-lookup"><span data-stu-id="da535-162">In the following example, call download to transfer the blob contents to a stream object such as a **FileOutputStream** that you can use to persist the blob to a local file.</span></span>
+## <a name="download-a-blob"></a><span data-ttu-id="2d011-159">Baixar um blob</span><span class="sxs-lookup"><span data-stu-id="2d011-159">Download a blob</span></span>
+<span data-ttu-id="2d011-160">blobs toodownload, siga Olá mesmo as etapas de como você fez para carregar um blob em ordem tooget uma referência de blob.</span><span class="sxs-lookup"><span data-stu-id="2d011-160">toodownload blobs, follow hello same steps as you did for uploading a blob in order tooget a blob reference.</span></span> <span data-ttu-id="2d011-161">Em Olá carregamento de exemplo, você chamou o carregamento no objeto de blob hello.</span><span class="sxs-lookup"><span data-stu-id="2d011-161">In hello uploading example, you called upload on hello blob object.</span></span> <span data-ttu-id="2d011-162">Olá exemplo a seguir, chamar download tootransfer Olá conteúdo tooa fluxo objeto blob como um **FileOutputStream** que você pode usar o arquivo do local de tooa toopersist Olá blob.</span><span class="sxs-lookup"><span data-stu-id="2d011-162">In hello following example, call download tootransfer hello blob contents tooa stream object such as a **FileOutputStream** that you can use toopersist hello blob tooa local file.</span></span>
 
 ```java
 try
@@ -195,17 +195,17 @@ try
     // Retrieve storage account from connection-string.
     CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
-    // Create the blob client.
+    // Create hello blob client.
     CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-    // Retrieve reference to a previously created container.
+    // Retrieve reference tooa previously created container.
     CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 
-    // Loop through each blob item in the container.
+    // Loop through each blob item in hello container.
     for (ListBlobItem blobItem : container.listBlobs()) {
-        // If the item is a blob, not a virtual directory.
+        // If hello item is a blob, not a virtual directory.
         if (blobItem instanceof CloudBlob) {
-            // Download the item and save it to a file with the same name.
+            // Download hello item and save it tooa file with hello same name.
             CloudBlob blob = (CloudBlob) blobItem;
             blob.download(new FileOutputStream("C:\\mydownloads\\" + blob.getName()));
         }
@@ -213,13 +213,13 @@ try
 }
 catch (Exception e)
 {
-    // Output the stack trace.
+    // Output hello stack trace.
     e.printStackTrace();
 }
 ```
 
-## <a name="delete-a-blob"></a><span data-ttu-id="da535-163">Excluir um blob</span><span class="sxs-lookup"><span data-stu-id="da535-163">Delete a blob</span></span>
-<span data-ttu-id="da535-164">Para excluir um blob, obtenha uma referência do blob e chame **deleteIfExists**.</span><span class="sxs-lookup"><span data-stu-id="da535-164">To delete a blob, get a blob reference, and call **deleteIfExists**.</span></span>
+## <a name="delete-a-blob"></a><span data-ttu-id="2d011-163">Excluir um blob</span><span class="sxs-lookup"><span data-stu-id="2d011-163">Delete a blob</span></span>
+<span data-ttu-id="2d011-164">toodelete um blob, obter um blob de referência e, em seguida, chamar **deleteIfExists**.</span><span class="sxs-lookup"><span data-stu-id="2d011-164">toodelete a blob, get a blob reference, and call **deleteIfExists**.</span></span>
 
 ```java
 try
@@ -227,27 +227,27 @@ try
     // Retrieve storage account from connection-string.
     CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
-    // Create the blob client.
+    // Create hello blob client.
     CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-    // Retrieve reference to a previously created container.
+    // Retrieve reference tooa previously created container.
     CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 
-    // Retrieve reference to a blob named "myimage.jpg".
+    // Retrieve reference tooa blob named "myimage.jpg".
     CloudBlockBlob blob = container.getBlockBlobReference("myimage.jpg");
 
-    // Delete the blob.
+    // Delete hello blob.
     blob.deleteIfExists();
 }
 catch (Exception e)
 {
-    // Output the stack trace.
+    // Output hello stack trace.
     e.printStackTrace();
 }
 ```
 
-## <a name="delete-a-blob-container"></a><span data-ttu-id="da535-165">Excluir um contêiner de blob</span><span class="sxs-lookup"><span data-stu-id="da535-165">Delete a blob container</span></span>
-<span data-ttu-id="da535-166">Por fim, para excluir um contêiner de blob, obtenha uma referência do contêiner de blob e chame **deleteIfExists**.</span><span class="sxs-lookup"><span data-stu-id="da535-166">Finally, to delete a blob container, get a blob container reference, and call **deleteIfExists**.</span></span>
+## <a name="delete-a-blob-container"></a><span data-ttu-id="2d011-165">Excluir um contêiner de blob</span><span class="sxs-lookup"><span data-stu-id="2d011-165">Delete a blob container</span></span>
+<span data-ttu-id="2d011-166">Por fim, toodelete um contêiner de blob, obter um blob de referência de contêiner e chame **deleteIfExists**.</span><span class="sxs-lookup"><span data-stu-id="2d011-166">Finally, toodelete a blob container, get a blob container reference, and call **deleteIfExists**.</span></span>
 
 ```java
 try
@@ -255,35 +255,35 @@ try
     // Retrieve storage account from connection-string.
     CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
 
-    // Create the blob client.
+    // Create hello blob client.
     CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 
-    // Retrieve reference to a previously created container.
+    // Retrieve reference tooa previously created container.
     CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 
-    // Delete the blob container.
+    // Delete hello blob container.
     container.deleteIfExists();
 }
 catch (Exception e)
 {
-    // Output the stack trace.
+    // Output hello stack trace.
     e.printStackTrace();
 }
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="da535-167">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="da535-167">Next steps</span></span>
-<span data-ttu-id="da535-168">Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.</span><span class="sxs-lookup"><span data-stu-id="da535-168">Now that you've learned the basics of Blob storage, follow these links to learn about more complex storage tasks.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="2d011-167">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="2d011-167">Next steps</span></span>
+<span data-ttu-id="2d011-168">Agora que você aprendeu as Noções básicas de saudação do armazenamento de Blob, siga essas toolearn links sobre tarefas mais complexas de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="2d011-168">Now that you've learned hello basics of Blob storage, follow these links toolearn about more complex storage tasks.</span></span>
 
-* <span data-ttu-id="da535-169">[Microsoft Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK de Armazenamento do Microsoft Azure para Java)</span><span class="sxs-lookup"><span data-stu-id="da535-169">[Azure Storage SDK for Java][Azure Storage SDK for Java]</span></span>
-* <span data-ttu-id="da535-170">[Referência de SDK do cliente de armazenamento do Azure][Referência de SDK do cliente de armazenamento do Azure]</span><span class="sxs-lookup"><span data-stu-id="da535-170">[Azure Storage Client SDK Reference][Azure Storage Client SDK Reference]</span></span>
-* <span data-ttu-id="da535-171">[Azure Storage REST API Reference][Azure Storage REST API] (Referência de API REST do Armazenamento do Azure)</span><span class="sxs-lookup"><span data-stu-id="da535-171">[Azure Storage REST API][Azure Storage REST API]</span></span>
-* <span data-ttu-id="da535-172">[Microsoft Azure Storage Team Blog][Azure Storage Team Blog] (Blog da equipe de Armazenamento do Microsoft Azure)</span><span class="sxs-lookup"><span data-stu-id="da535-172">[Azure Storage Team Blog][Azure Storage Team Blog]</span></span>
+* <span data-ttu-id="2d011-169">[Microsoft Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK de Armazenamento do Microsoft Azure para Java)</span><span class="sxs-lookup"><span data-stu-id="2d011-169">[Azure Storage SDK for Java][Azure Storage SDK for Java]</span></span>
+* <span data-ttu-id="2d011-170">[referência de SDK do cliente de armazenamento do Azure][referência de SDK do cliente de armazenamento do Azure]</span><span class="sxs-lookup"><span data-stu-id="2d011-170">[Azure Storage Client SDK Reference][Azure Storage Client SDK Reference]</span></span>
+* <span data-ttu-id="2d011-171">[Azure Storage REST API Reference][Azure Storage REST API] (Referência de API REST do Armazenamento do Azure)</span><span class="sxs-lookup"><span data-stu-id="2d011-171">[Azure Storage REST API][Azure Storage REST API]</span></span>
+* <span data-ttu-id="2d011-172">[Microsoft Azure Storage Team Blog][Azure Storage Team Blog] (Blog da equipe de Armazenamento do Microsoft Azure)</span><span class="sxs-lookup"><span data-stu-id="2d011-172">[Azure Storage Team Blog][Azure Storage Team Blog]</span></span>
 
-<span data-ttu-id="da535-173">Para saber mais, consulte também [Azure para desenvolvedores Java](/java/azure).</span><span class="sxs-lookup"><span data-stu-id="da535-173">For more information, see also [Azure for Java developers](/java/azure).</span></span>
+<span data-ttu-id="2d011-173">Para saber mais, consulte também [Azure para desenvolvedores Java](/java/azure).</span><span class="sxs-lookup"><span data-stu-id="2d011-173">For more information, see also [Azure for Java developers](/java/azure).</span></span>
 
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[Referência de SDK do cliente de armazenamento do Azure]: http://dl.windowsazure.com/storage/javadoc/
+[referência de SDK do cliente de armazenamento do Azure]: http://dl.windowsazure.com/storage/javadoc/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

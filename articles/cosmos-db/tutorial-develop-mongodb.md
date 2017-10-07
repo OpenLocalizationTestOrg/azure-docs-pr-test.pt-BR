@@ -1,6 +1,6 @@
 ---
-title: Usar a API do Azure Cosmos DB para MongoDB para compilar um aplicativo Web | Microsoft Docs
-description: Um tutorial do Azure Cosmos DB que cria um aplicativo Web de banco de dados online usando a API do MongoDB.
+title: API da aaaUse Azure Cosmos banco de dados para o MongoDB toobuild um aplicativo web | Microsoft Docs
+description: "Um tutorial do banco de dados do Azure Cosmos que cria um aplicativo web do banco de dados online usando a API de saudação para o MongoDB."
 keywords: exemplos do mongodb
 services: cosmos-db
 author: AndrewHoh
@@ -16,51 +16,51 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: ff277c7f88359cd977424f2e0958c69e2547a2af
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6dfa7fef49fc53ea2fcfcfbad3b3fcf97ac18e94
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-cosmos-db-connect-to-a-mongodb-app-using-net"></a><span data-ttu-id="44acb-104">Azure Cosmos DB: Conectar-se a um aplicativo do MongoDB usando .NET</span><span class="sxs-lookup"><span data-stu-id="44acb-104">Azure Cosmos DB: Connect to a MongoDB app using .NET</span></span>
+# <a name="azure-cosmos-db-connect-tooa-mongodb-app-using-net"></a><span data-ttu-id="53ccf-104">Cosmos do Azure DB: Conecte-se tooa MongoDB aplicativo usando o .NET</span><span class="sxs-lookup"><span data-stu-id="53ccf-104">Azure Cosmos DB: Connect tooa MongoDB app using .NET</span></span>
 
-<span data-ttu-id="44acb-105">O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft.</span><span class="sxs-lookup"><span data-stu-id="44acb-105">Azure Cosmos DB is Microsoft’s globally distributed multi-model database service.</span></span> <span data-ttu-id="44acb-106">É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB.</span><span class="sxs-lookup"><span data-stu-id="44acb-106">You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.</span></span> 
+<span data-ttu-id="53ccf-105">O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft.</span><span class="sxs-lookup"><span data-stu-id="53ccf-105">Azure Cosmos DB is Microsoft’s globally distributed multi-model database service.</span></span> <span data-ttu-id="53ccf-106">Você pode criar e consultar documentos, chave/valor e bancos de dados do gráfico, que se beneficiar de distribuição global hello e recursos de escala horizontal no núcleo de saudação do banco de dados do Azure Cosmos rapidamente.</span><span class="sxs-lookup"><span data-stu-id="53ccf-106">You can quickly create and query document, key/value, and graph databases, all of which benefit from hello global distribution and horizontal scale capabilities at hello core of Azure Cosmos DB.</span></span> 
 
-<span data-ttu-id="44acb-107">Este tutorial demonstra como criar uma conta do Azure Cosmos DB usando o Portal do Azure e como criar um banco de dados e coleção para armazenar dados usando a [API do MongoDB](mongodb-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="44acb-107">This tutorial demonstrates how to create an Azure Cosmos DB account using the Azure portal, and how to create a database and collection to store data using the [MongoDB API](mongodb-introduction.md).</span></span> 
+<span data-ttu-id="53ccf-107">Este tutorial demonstra como toocreate uma conta de banco de dados do Azure Cosmos usando Olá portal do Azure e como toocreate um banco de dados e coleta de dados de toostore usando Olá [MongoDB API](mongodb-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="53ccf-107">This tutorial demonstrates how toocreate an Azure Cosmos DB account using hello Azure portal, and how toocreate a database and collection toostore data using hello [MongoDB API](mongodb-introduction.md).</span></span> 
 
-<span data-ttu-id="44acb-108">Este tutorial cobre as seguintes tarefas:</span><span class="sxs-lookup"><span data-stu-id="44acb-108">This tutorial covers the following tasks:</span></span>
+<span data-ttu-id="53ccf-108">Este tutorial aborda Olá tarefas a seguir:</span><span class="sxs-lookup"><span data-stu-id="53ccf-108">This tutorial covers hello following tasks:</span></span>
 
 > [!div class="checklist"]
-> * <span data-ttu-id="44acb-109">Criar uma conta do Azure Cosmos DB</span><span class="sxs-lookup"><span data-stu-id="44acb-109">Create an Azure Cosmos DB account</span></span> 
-> * <span data-ttu-id="44acb-110">Atualizar sua cadeia de conexão</span><span class="sxs-lookup"><span data-stu-id="44acb-110">Update your connection string</span></span>
-> * <span data-ttu-id="44acb-111">Criar um aplicativo do MongoDB em uma máquina virtual</span><span class="sxs-lookup"><span data-stu-id="44acb-111">Create a MongoDB app on a virtual machine</span></span> 
+> * <span data-ttu-id="53ccf-109">Criar uma conta do Azure Cosmos DB</span><span class="sxs-lookup"><span data-stu-id="53ccf-109">Create an Azure Cosmos DB account</span></span> 
+> * <span data-ttu-id="53ccf-110">Atualizar sua cadeia de conexão</span><span class="sxs-lookup"><span data-stu-id="53ccf-110">Update your connection string</span></span>
+> * <span data-ttu-id="53ccf-111">Criar um aplicativo do MongoDB em uma máquina virtual</span><span class="sxs-lookup"><span data-stu-id="53ccf-111">Create a MongoDB app on a virtual machine</span></span> 
 
 
-## <a name="create-a-database-account"></a><span data-ttu-id="44acb-112">Crie uma conta de banco de dados</span><span class="sxs-lookup"><span data-stu-id="44acb-112">Create a database account</span></span>
+## <a name="create-a-database-account"></a><span data-ttu-id="53ccf-112">Criar uma conta de banco de dados</span><span class="sxs-lookup"><span data-stu-id="53ccf-112">Create a database account</span></span>
 
-<span data-ttu-id="44acb-113">Vamos começar criando uma conta do Azure Cosmos DB no portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="44acb-113">Let's start by creating an Azure Cosmos DB account in the Azure portal.</span></span>  
+<span data-ttu-id="53ccf-113">Vamos começar criando uma conta de banco de dados do Azure Cosmos em Olá portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="53ccf-113">Let's start by creating an Azure Cosmos DB account in hello Azure portal.</span></span>  
 
 > [!TIP]
-> * <span data-ttu-id="44acb-114">Já tem uma conta do Azure Cosmos DB?</span><span class="sxs-lookup"><span data-stu-id="44acb-114">Already have an Azure Cosmos DB account?</span></span> <span data-ttu-id="44acb-115">Nesse caso, pule para [Configurar sua solução do Visual Studio](#SetupVS)</span><span class="sxs-lookup"><span data-stu-id="44acb-115">If so, skip ahead to [Set up your Visual Studio solution](#SetupVS)</span></span>
-> * <span data-ttu-id="44acb-116">Você tinha uma conta do Azure DocumentDB?</span><span class="sxs-lookup"><span data-stu-id="44acb-116">Did you have an Azure DocumentDB account?</span></span> <span data-ttu-id="44acb-117">Se sua conta agora é uma conta do Azure Cosmos DB, você pode pular para [Configurar sua solução do Visual Studio](#SetupVS).</span><span class="sxs-lookup"><span data-stu-id="44acb-117">If so, your account is now an Azure Cosmos DB account and you can skip ahead to [Set up your Visual Studio solution](#SetupVS).</span></span>  
-> * <span data-ttu-id="44acb-118">Se estiver usando o Emulador do Azure Cosmos DB, execute as etapas em [Emulador do Azure Cosmos DB](local-emulator.md) para configurar o emulador e pule para [Configurar sua solução do Visual Studio](#SetupVS).</span><span class="sxs-lookup"><span data-stu-id="44acb-118">If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to setup the emulator and skip ahead to [Set up your Visual Studio Solution](#SetupVS).</span></span> 
+> * <span data-ttu-id="53ccf-114">Já tem uma conta do Azure Cosmos DB?</span><span class="sxs-lookup"><span data-stu-id="53ccf-114">Already have an Azure Cosmos DB account?</span></span> <span data-ttu-id="53ccf-115">Nesse caso, pular muito[configurar sua solução do Visual Studio](#SetupVS)</span><span class="sxs-lookup"><span data-stu-id="53ccf-115">If so, skip ahead too[Set up your Visual Studio solution](#SetupVS)</span></span>
+> * <span data-ttu-id="53ccf-116">Você tinha uma conta do Azure DocumentDB?</span><span class="sxs-lookup"><span data-stu-id="53ccf-116">Did you have an Azure DocumentDB account?</span></span> <span data-ttu-id="53ccf-117">Se assim, sua conta agora é uma conta de banco de dados do Azure Cosmos e poderá pular muito[configurar sua solução do Visual Studio](#SetupVS).</span><span class="sxs-lookup"><span data-stu-id="53ccf-117">If so, your account is now an Azure Cosmos DB account and you can skip ahead too[Set up your Visual Studio solution](#SetupVS).</span></span>  
+> * <span data-ttu-id="53ccf-118">Se você estiver usando hello Azure Cosmos DB emulador, siga as etapas de saudação em [emulador de banco de dados do Azure Cosmos](local-emulator.md) toosetup Olá emulador e pular muito[configurar sua solução do Visual Studio](#SetupVS).</span><span class="sxs-lookup"><span data-stu-id="53ccf-118">If you are using hello Azure Cosmos DB Emulator, please follow hello steps at [Azure Cosmos DB Emulator](local-emulator.md) toosetup hello emulator and skip ahead too[Set up your Visual Studio Solution](#SetupVS).</span></span> 
 >
 >
 
 [!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-## <a name="update-your-connection-string"></a><span data-ttu-id="44acb-119">Atualizar sua cadeia de conexão</span><span class="sxs-lookup"><span data-stu-id="44acb-119">Update your connection string</span></span>
+## <a name="update-your-connection-string"></a><span data-ttu-id="53ccf-119">Atualizar sua cadeia de conexão</span><span class="sxs-lookup"><span data-stu-id="53ccf-119">Update your connection string</span></span>
 
-1. <span data-ttu-id="44acb-120">No Portal do Azure, na página **Azure Cosmos DB**, selecione a API para a conta do MongoDB.</span><span class="sxs-lookup"><span data-stu-id="44acb-120">In the Azure portal, in the **Azure Cosmos DB** page, select the API for MongoDB account.</span></span> 
-2. <span data-ttu-id="44acb-121">Na barra esquerda da folha da conta, clique em **Início rápido**.</span><span class="sxs-lookup"><span data-stu-id="44acb-121">In the left bar of the account blade, click **Quick start**.</span></span> 
-3. <span data-ttu-id="44acb-122">Escolha sua plataforma (*driver do .NET*, *driver do Node.js*, *Shell do MongoDB*, *driver do Java*, *driver do Python*).</span><span class="sxs-lookup"><span data-stu-id="44acb-122">Choose your platform (*.NET driver*, *Node.js driver*, *MongoDB Shell*, *Java driver*, *Python driver*).</span></span> <span data-ttu-id="44acb-123">Caso não veja seu driver ou ferramenta na lista, não se preocupe, pois documentamos continuamente mais trechos de código de conexão.</span><span class="sxs-lookup"><span data-stu-id="44acb-123">If you don't see your driver or tool listed, don't worry, we continuously document more connection code snippets.</span></span> 
-4. <span data-ttu-id="44acb-124">Copie e cole o trecho de código no seu aplicativo MongoDB e você estará pronto para seguir adiante.</span><span class="sxs-lookup"><span data-stu-id="44acb-124">Copy and paste the code snippet into your MongoDB app, and you are ready to go.</span></span>
+1. <span data-ttu-id="53ccf-120">Em Olá portal do Azure, na Olá **banco de dados do Azure Cosmos** , selecione Olá API para a conta do MongoDB.</span><span class="sxs-lookup"><span data-stu-id="53ccf-120">In hello Azure portal, in hello **Azure Cosmos DB** page, select hello API for MongoDB account.</span></span> 
+2. <span data-ttu-id="53ccf-121">Na barra à esquerda de Olá da folha de conta hello, clique **início rápido**.</span><span class="sxs-lookup"><span data-stu-id="53ccf-121">In hello left bar of hello account blade, click **Quick start**.</span></span> 
+3. <span data-ttu-id="53ccf-122">Escolha sua plataforma (*driver do .NET*, *driver do Node.js*, *Shell do MongoDB*, *driver do Java*, *driver do Python*).</span><span class="sxs-lookup"><span data-stu-id="53ccf-122">Choose your platform (*.NET driver*, *Node.js driver*, *MongoDB Shell*, *Java driver*, *Python driver*).</span></span> <span data-ttu-id="53ccf-123">Caso não veja seu driver ou ferramenta na lista, não se preocupe, pois documentamos continuamente mais trechos de código de conexão.</span><span class="sxs-lookup"><span data-stu-id="53ccf-123">If you don't see your driver or tool listed, don't worry, we continuously document more connection code snippets.</span></span> 
+4. <span data-ttu-id="53ccf-124">Copie e cole o trecho de código Olá em seu aplicativo do MongoDB, e você está pronto toogo.</span><span class="sxs-lookup"><span data-stu-id="53ccf-124">Copy and paste hello code snippet into your MongoDB app, and you are ready toogo.</span></span>
 
-## <a name="set-up-your-mongodb-app"></a><span data-ttu-id="44acb-125">Configurar seu aplicativo MongoDB</span><span class="sxs-lookup"><span data-stu-id="44acb-125">Set up your MongoDB app</span></span>
+## <a name="set-up-your-mongodb-app"></a><span data-ttu-id="53ccf-125">Configurar seu aplicativo MongoDB</span><span class="sxs-lookup"><span data-stu-id="53ccf-125">Set up your MongoDB app</span></span>
 
-<span data-ttu-id="44acb-126">Você pode usar o tutorial [Criar um aplicativo Web do Azure que se conecte ao MongoDB em execução em uma máquina virtual](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md), com modificação mínima, para configurar rapidamente um aplicativo MongoDB (localmente ou publicado em um aplicativo Web do Azure) que se conecte a uma conta da API do MongoDB.</span><span class="sxs-lookup"><span data-stu-id="44acb-126">You can use the [Create a web app in Azure that connects to MongoDB running on a virtual machine](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md) tutorial, with minimal modification, to quickly setup a MongoDB application (either locally or published to an Azure web app) that connects to an API for MongoDB account.</span></span>  
+<span data-ttu-id="53ccf-126">Você pode usar o hello [criar um aplicativo web no Azure que se conecta tooMongoDB em execução em uma máquina virtual](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md) tutorial com a modificação mínimo, a instalação tooquickly um aplicativo do MongoDB (seja localmente ou aplicativo da web do Azure de tooan publicados) que conecta-se tooan API para a conta do MongoDB.</span><span class="sxs-lookup"><span data-stu-id="53ccf-126">You can use hello [Create a web app in Azure that connects tooMongoDB running on a virtual machine](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md) tutorial, with minimal modification, tooquickly setup a MongoDB application (either locally or published tooan Azure web app) that connects tooan API for MongoDB account.</span></span>  
 
-1. <span data-ttu-id="44acb-127">Siga o tutorial, com uma modificação.</span><span class="sxs-lookup"><span data-stu-id="44acb-127">Follow the tutorial, with one modification.</span></span>  <span data-ttu-id="44acb-128">Substitua o código Dal.cs por este:</span><span class="sxs-lookup"><span data-stu-id="44acb-128">Replace the Dal.cs code with this:</span></span>
+1. <span data-ttu-id="53ccf-127">Siga o tutorial hello, com uma modificação.</span><span class="sxs-lookup"><span data-stu-id="53ccf-127">Follow hello tutorial, with one modification.</span></span>  <span data-ttu-id="53ccf-128">Substitua o código de Dal.cs de saudação com isso:</span><span class="sxs-lookup"><span data-stu-id="53ccf-128">Replace hello Dal.cs code with this:</span></span>
 
     ```csharp   
     using System;
@@ -80,7 +80,7 @@ ms.lasthandoff: 08/03/2017
             //private MongoServer mongoServer = null;
             private bool disposed = false;
    
-            // To do: update the connection string with the DNS name
+            // toodo: update hello connection string with hello DNS name
             // or IP address of your server. 
             //For example, "mongodb://testlinux.cloudapp.net
             private string connectionString = "mongodb://localhost:27017";
@@ -89,7 +89,7 @@ ms.lasthandoff: 08/03/2017
             private string password = "<your password>";
    
             // This sample uses a database named "Tasks" and a 
-            //collection named "TasksList".  The database and collection 
+            //collection named "TasksList".  hello database and collection 
             //will be automatically created if they don't already exist.
             private string dbName = "Tasks";
             private string collectionName = "TasksList";
@@ -99,7 +99,7 @@ ms.lasthandoff: 08/03/2017
             {
             }
    
-            // Gets all Task items from the MongoDB server.        
+            // Gets all Task items from hello MongoDB server.        
             public List<MyTask> GetAllTasks()
             {
                 try
@@ -113,7 +113,7 @@ ms.lasthandoff: 08/03/2017
                 }
             }
    
-            // Creates a Task and inserts it into the collection in MongoDB.
+            // Creates a Task and inserts it into hello collection in MongoDB.
             public void CreateTask(MyTask task)
             {
                 var collection = GetTasksCollectionForEdit();
@@ -195,7 +195,7 @@ ms.lasthandoff: 08/03/2017
     }
     ```
 
-2. <span data-ttu-id="44acb-129">Modifique as seguintes variáveis no arquivo Dal.cs de acordo com as configurações da sua conta na página Chaves do Portal do Azure:</span><span class="sxs-lookup"><span data-stu-id="44acb-129">Modify the following variables in the Dal.cs file per your account settings from the Keys page in the Azure portal:</span></span>
+2. <span data-ttu-id="53ccf-129">Modificar Olá variáveis no arquivo de Dal.cs Olá por suas configurações de conta a seguir na página de chaves de saudação em Olá portal do Azure:</span><span class="sxs-lookup"><span data-stu-id="53ccf-129">Modify hello following variables in hello Dal.cs file per your account settings from hello Keys page in hello Azure portal:</span></span>
 
     ```csharp   
     private string userName = "<your user name>";
@@ -203,26 +203,26 @@ ms.lasthandoff: 08/03/2017
     private string password = "<your password>";
     ```
 
-3. <span data-ttu-id="44acb-130">Use o aplicativo!</span><span class="sxs-lookup"><span data-stu-id="44acb-130">Use the app!</span></span>
+3. <span data-ttu-id="53ccf-130">Usar o aplicativo hello!</span><span class="sxs-lookup"><span data-stu-id="53ccf-130">Use hello app!</span></span>
 
-## <a name="clean-up-resources"></a><span data-ttu-id="44acb-131">Limpar recursos</span><span class="sxs-lookup"><span data-stu-id="44acb-131">Clean up resources</span></span>
+## <a name="clean-up-resources"></a><span data-ttu-id="53ccf-131">Limpar recursos</span><span class="sxs-lookup"><span data-stu-id="53ccf-131">Clean up resources</span></span>
 
-<span data-ttu-id="44acb-132">Se você não continuar usando este aplicativo, siga as seguintes etapas para excluir todos os recursos criados neste tutorial no portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="44acb-132">If you're not going to continue to use this app, use the following steps to delete all resources created by this tutorial in the Azure portal.</span></span> 
+<span data-ttu-id="53ccf-132">Se você não vai toocontinue toouse esse aplicativo, use Olá seguindo as etapas toodelete todos os recursos criados por esse tutorial Olá portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="53ccf-132">If you're not going toocontinue toouse this app, use hello following steps toodelete all resources created by this tutorial in hello Azure portal.</span></span> 
 
-1. <span data-ttu-id="44acb-133">No menu à esquerda no portal do Azure, clique em **Grupos de recursos** e depois clique no nome do recurso criado.</span><span class="sxs-lookup"><span data-stu-id="44acb-133">From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created.</span></span> 
-2. <span data-ttu-id="44acb-134">Em sua página de grupo de recursos, clique em **Excluir**, digite o nome do recurso para excluir na caixa de texto e depois clique em **Excluir**.</span><span class="sxs-lookup"><span data-stu-id="44acb-134">On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.</span></span>
+1. <span data-ttu-id="53ccf-133">No menu esquerdo de saudação do hello portal do Azure, clique em **grupos de recursos** e clique em nome de saudação do recurso de saudação criado por você.</span><span class="sxs-lookup"><span data-stu-id="53ccf-133">From hello left-hand menu in hello Azure portal, click **Resource groups** and then click hello name of hello resource you created.</span></span> 
+2. <span data-ttu-id="53ccf-134">Na sua página de grupo de recursos, clique em **excluir**, digite o nome de saudação do hello recurso toodelete na caixa de texto de saudação e, em seguida, clique em **excluir**.</span><span class="sxs-lookup"><span data-stu-id="53ccf-134">On your resource group page, click **Delete**, type hello name of hello resource toodelete in hello text box, and then click **Delete**.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="44acb-135">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="44acb-135">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="53ccf-135">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="53ccf-135">Next steps</span></span>
 
-<span data-ttu-id="44acb-136">Neste tutorial, você fez o seguinte:</span><span class="sxs-lookup"><span data-stu-id="44acb-136">In this tutorial, you've done the following:</span></span>
+<span data-ttu-id="53ccf-136">Neste tutorial, você fez a seguir hello:</span><span class="sxs-lookup"><span data-stu-id="53ccf-136">In this tutorial, you've done hello following:</span></span>
 
 > [!div class="checklist"]
-> * <span data-ttu-id="44acb-137">Criar uma conta do Azure Cosmos DB</span><span class="sxs-lookup"><span data-stu-id="44acb-137">Create an Azure Cosmos DB account</span></span> 
-> * <span data-ttu-id="44acb-138">Atualizar sua cadeia de conexão</span><span class="sxs-lookup"><span data-stu-id="44acb-138">Update your connection string</span></span>
-> * <span data-ttu-id="44acb-139">Criar um aplicativo do MongoDB em uma máquina virtual</span><span class="sxs-lookup"><span data-stu-id="44acb-139">Create a MongoDB app on a virtual machine</span></span>
+> * <span data-ttu-id="53ccf-137">Criar uma conta do Azure Cosmos DB</span><span class="sxs-lookup"><span data-stu-id="53ccf-137">Create an Azure Cosmos DB account</span></span> 
+> * <span data-ttu-id="53ccf-138">Atualizar sua cadeia de conexão</span><span class="sxs-lookup"><span data-stu-id="53ccf-138">Update your connection string</span></span>
+> * <span data-ttu-id="53ccf-139">Criar um aplicativo do MongoDB em uma máquina virtual</span><span class="sxs-lookup"><span data-stu-id="53ccf-139">Create a MongoDB app on a virtual machine</span></span>
 
-<span data-ttu-id="44acb-140">Você pode prosseguir para o próximo tutorial e importar seus dados do MongoDB para o Azure Cosmos DB.</span><span class="sxs-lookup"><span data-stu-id="44acb-140">You can proceed to the next tutorial and import your MongoDB data to Azure Cosmos DB.</span></span>  
+<span data-ttu-id="53ccf-140">Você pode continuar toohello tutorial de Avançar e importar sua tooAzure de dados do MongoDB Cosmos DB.</span><span class="sxs-lookup"><span data-stu-id="53ccf-140">You can proceed toohello next tutorial and import your MongoDB data tooAzure Cosmos DB.</span></span>  
 
 > [!div class="nextstepaction"]
-> [<span data-ttu-id="44acb-141">Importar dados do MongoDB no Azure Cosmos DB</span><span class="sxs-lookup"><span data-stu-id="44acb-141">Import MongoDB data into Azure Cosmos DB</span></span>](mongodb-migrate.md)
+> [<span data-ttu-id="53ccf-141">Importar dados do MongoDB no BD Cosmos do Azure</span><span class="sxs-lookup"><span data-stu-id="53ccf-141">Import MongoDB data into Azure Cosmos DB</span></span>](mongodb-migrate.md)
 

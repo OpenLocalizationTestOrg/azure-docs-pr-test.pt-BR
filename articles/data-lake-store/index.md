@@ -1,6 +1,6 @@
 ---
-title: "Documentação do Azure Data Lake Store - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba mais sobre como configurar, gerenciar e acessar um repositório data lake compatível com o Hadoop hiperescala para análise em dados de qualquer tamanho, tipo e velocidade de ingestão."
+title: "aaaAzure documentação do repositório Data Lake - tutoriais, referência de API | Microsoft Docs"
+description: "Saiba como tooset, gerenciar e acessar um repositório de lake hyper-escala de dados compatível com o Hadoop para análise de dados de qualquer velocidade de ingestão, tipo e tamanho."
 services: data-lake-store
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 473cb9709421f853cb78853b54682adb3e48d372
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8a4730472b7811f022991bffc6dde7bb1be6458e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="data-lake-store-documentation"></a>Documentação do Data Lake Store
 
-Saiba mais sobre como usar o Data Lake Store para criar um repositório compatível com o Hadoop hiperescala para análise em dados de qualquer tamanho, tipo e velocidade de ingestão. Os tutoriais, as referências de API e outras documentações mostram como configurar, gerenciar e acessar um repositório data lake para análise operacional e exploratória.
+Saiba como toouse repositório Data Lake toocreate hyper-escala, o repositório de Hadoop compatível para análise em dados de qualquer tamanho, o tipo e a inclusão de velocidade. Tutoriais, referências de API e outras documentações mostram como tooset, gerenciar e acessar um repositório de lake dados para análise operacional e exploratória.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ Saiba mais sobre como usar o Data Lake Store para criar um repositório compatí
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução ao Azure Data Lake Store usando o Portal do Azure</h3>
+                        <h3>Introdução ao repositório Azure Data Lake usando Olá portal do Azure</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Saiba mais sobre como usar o Data Lake Store para criar um repositório compatí
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução ao Azure Data Lake Store usando a CLI do Azure</h3>
+                        <h3>Introdução ao repositório Azure Data Lake usando Olá CLI do Azure</h3>
                     </div>
                 </div>
             </div>

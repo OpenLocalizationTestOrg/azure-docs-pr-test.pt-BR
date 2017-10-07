@@ -1,15 +1,15 @@
 ---
 layout: LandingPage
-title: "Documentação de sistema de mensagens do Barramento de Serviço"
-description: "Saiba como configurar mensagens que se conectam a aplicativos e serviços entre ambientes de nuvem e locais."
-ms.openlocfilehash: 559bbabe07ae50b2cc83fad5e867c23c9272d6ab
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+title: "aaaService documentação do barramento de mensagens"
+description: "Saiba como tooset mensagens que se conecta aplicativos e serviços entre locais e ambientes de nuvem."
+ms.openlocfilehash: ea8c58b6e954cc0d53c3eed1f761b1d1e3984e66
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-bus-messaging-documentation"></a>Documentação de sistema de mensagens do Barramento de Serviço
-O serviço de mensagens oferece entrega de informações confiável como um mecanismo de comunicação orientado ou de terceiros.
+serviço de mensagens de saudação fornece entrega confiável de informações como um mecanismo de comunicação orientadas ou de terceiros.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -59,7 +59,7 @@ O serviço de mensagens oferece entrega de informações confiável como um meca
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Criar um namespace usando o portal</h3>
+                        <h3>Criar um namespace usando o portal de saudação</h3>
                     </div>
                 </div>
             </div>

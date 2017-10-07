@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao Armazenamento de filas do Azure | Microsoft Docs"
-description: "Introdução ao Armazenamento de filas do Azure"
+title: aaaIntroduction tooAzure armazenamento de fila | Microsoft Docs
+description: "Introdução tooAzure armazenamento de fila"
 services: storage
 documentationcenter: 
 author: robinsh
@@ -14,43 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: robinsh
-ms.openlocfilehash: 4db7552a1b76c89151405c55c8682abbb5326bb6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 669effedff7beedde8a119c350a2a70edafedcf0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-queues"></a><span data-ttu-id="eef17-103">Introdução às Filas</span><span class="sxs-lookup"><span data-stu-id="eef17-103">Introduction to Queues</span></span>
+# <a name="introduction-tooqueues"></a><span data-ttu-id="c3ff2-103">Introdução tooQueues</span><span class="sxs-lookup"><span data-stu-id="c3ff2-103">Introduction tooQueues</span></span>
 
-<span data-ttu-id="eef17-104">O armazenamento de filas do Azure é um serviço para armazenamento de um grande número de mensagens que podem ser acessadas de qualquer lugar do mundo por meio de chamadas autenticadas usando HTTP ou HTTPS.</span><span class="sxs-lookup"><span data-stu-id="eef17-104">Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS.</span></span> <span data-ttu-id="eef17-105">Uma única mensagem de fila pode ter até 64 KB de tamanho e uma fila pode conter milhões de mensagens, até o limite de capacidade total de uma conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="eef17-105">A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account.</span></span>
+<span data-ttu-id="c3ff2-104">Armazenamento de fila do Azure é um serviço para armazenar grandes quantidades de mensagens que podem ser acessadas de qualquer lugar Olá, mundo por meio de chamadas autenticadas usando HTTP ou HTTPS.</span><span class="sxs-lookup"><span data-stu-id="c3ff2-104">Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in hello world via authenticated calls using HTTP or HTTPS.</span></span> <span data-ttu-id="c3ff2-105">Uma mensagem da fila única pode ser o too64 KB de tamanho e uma fila pode conter milhões de mensagens, o limite de capacidade total de toohello de uma conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="c3ff2-105">A single queue message can be up too64 KB in size, and a queue can contain millions of messages, up toohello total capacity limit of a storage account.</span></span>
 
-## <a name="common-uses"></a><span data-ttu-id="eef17-106">Usos comuns</span><span class="sxs-lookup"><span data-stu-id="eef17-106">Common uses</span></span>
+## <a name="common-uses"></a><span data-ttu-id="c3ff2-106">Usos comuns</span><span class="sxs-lookup"><span data-stu-id="c3ff2-106">Common uses</span></span>
 
-<span data-ttu-id="eef17-107">Usos comuns de Armazenamento de filas incluem:</span><span class="sxs-lookup"><span data-stu-id="eef17-107">Common uses of Queue storage include:</span></span>
+<span data-ttu-id="c3ff2-107">Usos comuns de Armazenamento de filas incluem:</span><span class="sxs-lookup"><span data-stu-id="c3ff2-107">Common uses of Queue storage include:</span></span>
 
-* <span data-ttu-id="eef17-108">Criar uma lista de pendências de trabalho para processar de maneira assíncrona</span><span class="sxs-lookup"><span data-stu-id="eef17-108">Creating a backlog of work to process asynchronously</span></span>
-* <span data-ttu-id="eef17-109">Transmitir mensagens de uma função Web do Azure para uma função de Trabalho do Azure</span><span class="sxs-lookup"><span data-stu-id="eef17-109">Passing messages from an Azure web role to an Azure worker role</span></span>
+* <span data-ttu-id="c3ff2-108">Criando uma lista de pendências de trabalho tooprocess assincronamente</span><span class="sxs-lookup"><span data-stu-id="c3ff2-108">Creating a backlog of work tooprocess asynchronously</span></span>
+* <span data-ttu-id="c3ff2-109">Transmissão de mensagens de uma função de trabalho do Azure de tooan de função web do Azure</span><span class="sxs-lookup"><span data-stu-id="c3ff2-109">Passing messages from an Azure web role tooan Azure worker role</span></span>
 
-## <a name="queue-service-concepts"></a><span data-ttu-id="eef17-110">Conceitos do serviço Fila</span><span class="sxs-lookup"><span data-stu-id="eef17-110">Queue service concepts</span></span>
+## <a name="queue-service-concepts"></a><span data-ttu-id="c3ff2-110">Conceitos do serviço Fila</span><span class="sxs-lookup"><span data-stu-id="c3ff2-110">Queue service concepts</span></span>
 
-<span data-ttu-id="eef17-111">O serviço Fila contém os seguintes componentes:</span><span class="sxs-lookup"><span data-stu-id="eef17-111">The Queue service contains the following components:</span></span>
+<span data-ttu-id="c3ff2-111">Olá serviço fila contém Olá componentes a seguir:</span><span class="sxs-lookup"><span data-stu-id="c3ff2-111">hello Queue service contains hello following components:</span></span>
 
 ![Conceitos de fila](./media/storage-queues-introduction/queue1.png)
 
-* <span data-ttu-id="eef17-113">**Formato da URL:** as filas são acessadas usando o seguinte formato de URL:</span><span class="sxs-lookup"><span data-stu-id="eef17-113">**URL format:** Queues are addressable using the following URL format:</span></span>   
-    <span data-ttu-id="eef17-114">http://`<storage account>`.queue.core.windows.net/`<queue>`</span><span class="sxs-lookup"><span data-stu-id="eef17-114">http://`<storage account>`.queue.core.windows.net/`<queue>`</span></span> 
+* <span data-ttu-id="c3ff2-113">**Formato de URL:** filas são acessadas usando Olá formato de URL a seguir:</span><span class="sxs-lookup"><span data-stu-id="c3ff2-113">**URL format:** Queues are addressable using hello following URL format:</span></span>   
+    <span data-ttu-id="c3ff2-114">http://`<storage account>`.queue.core.windows.net/`<queue>`</span><span class="sxs-lookup"><span data-stu-id="c3ff2-114">http://`<storage account>`.queue.core.windows.net/`<queue>`</span></span> 
   
-    <span data-ttu-id="eef17-115">A URL a seguir endereça um fila no diagrama:</span><span class="sxs-lookup"><span data-stu-id="eef17-115">The following URL addresses a queue in the diagram:</span></span>  
+    <span data-ttu-id="c3ff2-115">Olá URL a seguir aborda uma fila no diagrama de saudação:</span><span class="sxs-lookup"><span data-stu-id="c3ff2-115">hello following URL addresses a queue in hello diagram:</span></span>  
   
     `http://myaccount.queue.core.windows.net/images-to-download`
 
-* <span data-ttu-id="eef17-116">**Conta de armazenamento:** todo o acesso ao Armazenamento do Azure é feito por meio de uma conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="eef17-116">**Storage account:** All access to Azure Storage is done through a storage account.</span></span> <span data-ttu-id="eef17-117">Consulte [Escalabilidade e Metas de Desempenho do Armazenamento do Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) para obter detalhes sobre a capacidade da conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="eef17-117">See [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) for details about storage account capacity.</span></span>
+* <span data-ttu-id="c3ff2-116">**Conta de armazenamento:** todos os acessos tooAzure armazenamento é feito por meio de uma conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="c3ff2-116">**Storage account:** All access tooAzure Storage is done through a storage account.</span></span> <span data-ttu-id="c3ff2-117">Consulte [Escalabilidade e Metas de Desempenho do Armazenamento do Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) para obter detalhes sobre a capacidade da conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="c3ff2-117">See [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) for details about storage account capacity.</span></span>
 
-* <span data-ttu-id="eef17-118">**Fila:** uma fila contém um conjunto de mensagens.</span><span class="sxs-lookup"><span data-stu-id="eef17-118">**Queue:** A queue contains a set of messages.</span></span> <span data-ttu-id="eef17-119">Todas as mensagens devem estar em uma fila.</span><span class="sxs-lookup"><span data-stu-id="eef17-119">All messages must be in a queue.</span></span> <span data-ttu-id="eef17-120">Observe que o nome da fila deve estar em letras minúsculas.</span><span class="sxs-lookup"><span data-stu-id="eef17-120">Note that the queue name must be all lowercase.</span></span> <span data-ttu-id="eef17-121">Para saber mais sobre filas de nomenclatura, confira [Nomenclatura de filas e metadados](https://msdn.microsoft.com/library/azure/dd179349.aspx).</span><span class="sxs-lookup"><span data-stu-id="eef17-121">For information on naming queues, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).</span></span>
+* <span data-ttu-id="c3ff2-118">**Fila:** uma fila contém um conjunto de mensagens.</span><span class="sxs-lookup"><span data-stu-id="c3ff2-118">**Queue:** A queue contains a set of messages.</span></span> <span data-ttu-id="c3ff2-119">Todas as mensagens devem estar em uma fila.</span><span class="sxs-lookup"><span data-stu-id="c3ff2-119">All messages must be in a queue.</span></span> <span data-ttu-id="c3ff2-120">Observe que nome de fila Olá deve ser todas minúscula.</span><span class="sxs-lookup"><span data-stu-id="c3ff2-120">Note that hello queue name must be all lowercase.</span></span> <span data-ttu-id="c3ff2-121">Para saber mais sobre filas de nomenclatura, confira [Nomenclatura de filas e metadados](https://msdn.microsoft.com/library/azure/dd179349.aspx).</span><span class="sxs-lookup"><span data-stu-id="c3ff2-121">For information on naming queues, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).</span></span>
 
-* <span data-ttu-id="eef17-122">**Mensagem:** uma mensagem, em qualquer formato, de até 64 KB.</span><span class="sxs-lookup"><span data-stu-id="eef17-122">**Message:** A message, in any format, of up to 64 KB.</span></span> <span data-ttu-id="eef17-123">O tempo máximo que uma mensagem pode ficar na fila é de sete dias.</span><span class="sxs-lookup"><span data-stu-id="eef17-123">The maximum time that a message can remain in the queue is seven days.</span></span>
+* <span data-ttu-id="c3ff2-122">**Mensagem:** A mensagem, em qualquer formato de backup too64 KB.</span><span class="sxs-lookup"><span data-stu-id="c3ff2-122">**Message:** A message, in any format, of up too64 KB.</span></span> <span data-ttu-id="c3ff2-123">tempo máximo de saudação que uma mensagem pode permanecer na fila de saudação é de sete dias.</span><span class="sxs-lookup"><span data-stu-id="c3ff2-123">hello maximum time that a message can remain in hello queue is seven days.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="eef17-124">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="eef17-124">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="c3ff2-124">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="c3ff2-124">Next steps</span></span>
 
-* [<span data-ttu-id="eef17-125">Criar uma conta de armazenamento</span><span class="sxs-lookup"><span data-stu-id="eef17-125">Create a storage account</span></span>](../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
-* [<span data-ttu-id="eef17-126">Introdução às filas usando .NET</span><span class="sxs-lookup"><span data-stu-id="eef17-126">Getting started with Queues using .NET</span></span>](storage-dotnet-how-to-use-queues.md)
+* [<span data-ttu-id="c3ff2-125">Criar uma conta de armazenamento</span><span class="sxs-lookup"><span data-stu-id="c3ff2-125">Create a storage account</span></span>](../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+* [<span data-ttu-id="c3ff2-126">Introdução às filas usando .NET</span><span class="sxs-lookup"><span data-stu-id="c3ff2-126">Getting started with Queues using .NET</span></span>](storage-dotnet-how-to-use-queues.md)
