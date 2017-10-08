@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory com o CompetencyIQ | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o CompetencyIQ."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e CompetencyIQ."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,204 +13,204 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: ad3cec3de9034ddab2161952620d31540ae51978
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c032884b092da85684e24e98f75371475e09322d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-competencyiq"></a><span data-ttu-id="a6835-103">Tutorial: integração do Azure Active Directory com o CompetencyIQ</span><span class="sxs-lookup"><span data-stu-id="a6835-103">Tutorial: Azure Active Directory integration with CompetencyIQ</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-competencyiq"></a><span data-ttu-id="0673d-103">Tutorial: integração do Azure Active Directory com o CompetencyIQ</span><span class="sxs-lookup"><span data-stu-id="0673d-103">Tutorial: Azure Active Directory integration with CompetencyIQ</span></span>
 
-<span data-ttu-id="a6835-104">Neste tutorial, você aprenderá a integrar o CompetencyIQ ao Azure AD (Azure Active Directory).</span><span class="sxs-lookup"><span data-stu-id="a6835-104">In this tutorial, you learn how to integrate CompetencyIQ with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="0673d-104">Neste tutorial, você aprenderá como toointegrate CompetencyIQ com o Azure Active Directory (AD do Azure).</span><span class="sxs-lookup"><span data-stu-id="0673d-104">In this tutorial, you learn how toointegrate CompetencyIQ with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="a6835-105">A integração do CompetencyIQ ao Azure AD oferece os seguintes benefícios:</span><span class="sxs-lookup"><span data-stu-id="a6835-105">Integrating CompetencyIQ with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="0673d-105">Integrando CompetencyIQ com o AD do Azure fornece Olá benefícios a seguir:</span><span class="sxs-lookup"><span data-stu-id="0673d-105">Integrating CompetencyIQ with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="a6835-106">No Azure AD, é possível controlar quem tem acesso ao CompetencyIQ</span><span class="sxs-lookup"><span data-stu-id="a6835-106">You can control in Azure AD who has access to CompetencyIQ</span></span>
-- <span data-ttu-id="a6835-107">Você pode permitir que seus usuários façam logon automaticamente no CompetencyIQ (Logon Único) com suas contas do Azure AD</span><span class="sxs-lookup"><span data-stu-id="a6835-107">You can enable your users to automatically get signed-on to CompetencyIQ (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="a6835-108">Você pode gerenciar suas contas em um única localização: o Portal do Azure</span><span class="sxs-lookup"><span data-stu-id="a6835-108">You can manage your accounts in one central location - the Azure portal</span></span>
+- <span data-ttu-id="0673d-106">Você pode controlar no AD do Azure que tenha acesso tooCompetencyIQ</span><span class="sxs-lookup"><span data-stu-id="0673d-106">You can control in Azure AD who has access tooCompetencyIQ</span></span>
+- <span data-ttu-id="0673d-107">Você pode habilitar seu usuários tooautomatically get conectado tooCompetencyIQ (logon único) com suas contas do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="0673d-107">You can enable your users tooautomatically get signed-on tooCompetencyIQ (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="0673d-108">Você pode gerenciar suas contas em um local central - Olá portal do Azure</span><span class="sxs-lookup"><span data-stu-id="0673d-108">You can manage your accounts in one central location - hello Azure portal</span></span>
 
-<span data-ttu-id="a6835-109">Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="a6835-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="0673d-109">Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="0673d-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="a6835-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="a6835-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="0673d-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="0673d-110">Prerequisites</span></span>
 
-<span data-ttu-id="a6835-111">Para configurar a integração do Azure AD ao CompetencyIQ, você precisará dos seguintes itens:</span><span class="sxs-lookup"><span data-stu-id="a6835-111">To configure Azure AD integration with CompetencyIQ, you need the following items:</span></span>
+<span data-ttu-id="0673d-111">tooconfigure integração do AD do Azure com CompetencyIQ, você precisa Olá itens a seguir:</span><span class="sxs-lookup"><span data-stu-id="0673d-111">tooconfigure Azure AD integration with CompetencyIQ, you need hello following items:</span></span>
 
-- <span data-ttu-id="a6835-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="a6835-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="a6835-113">Uma assinatura habilitada para logon único do CompetencyIQ</span><span class="sxs-lookup"><span data-stu-id="a6835-113">A CompetencyIQ single sign-on enabled subscription</span></span>
+- <span data-ttu-id="0673d-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="0673d-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="0673d-113">Uma assinatura habilitada para logon único do CompetencyIQ</span><span class="sxs-lookup"><span data-stu-id="0673d-113">A CompetencyIQ single sign-on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="a6835-114">Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="a6835-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="0673d-114">Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="0673d-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="a6835-115">Para testar as etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="a6835-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="0673d-115">tootest Olá etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="0673d-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="a6835-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="a6835-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="a6835-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="a6835-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="0673d-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="0673d-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="0673d-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="0673d-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="a6835-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="a6835-118">Scenario description</span></span>
-<span data-ttu-id="a6835-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="a6835-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="a6835-120">O cenário descrito neste tutorial consiste em dois blocos de construção principais:</span><span class="sxs-lookup"><span data-stu-id="a6835-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="0673d-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="0673d-118">Scenario description</span></span>
+<span data-ttu-id="0673d-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="0673d-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="0673d-120">cenário de saudação descrito neste tutorial consiste em dois elementos básicos:</span><span class="sxs-lookup"><span data-stu-id="0673d-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="a6835-121">Como adicionar o CompetencyIQ por meio da galeria</span><span class="sxs-lookup"><span data-stu-id="a6835-121">Adding CompetencyIQ from the gallery</span></span>
-2. <span data-ttu-id="a6835-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="a6835-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="0673d-121">Adicionando CompetencyIQ da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="0673d-121">Adding CompetencyIQ from hello gallery</span></span>
+2. <span data-ttu-id="0673d-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="0673d-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-competencyiq-from-the-gallery"></a><span data-ttu-id="a6835-123">Como adicionar o CompetencyIQ por meio da galeria</span><span class="sxs-lookup"><span data-stu-id="a6835-123">Adding CompetencyIQ from the gallery</span></span>
-<span data-ttu-id="a6835-124">Para configurar a integração do CompetencyIQ ao Azure AD, você precisa adicionar o CompetencyIQ, por meio da galeria, à sua lista de aplicativos de SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="a6835-124">To configure the integration of CompetencyIQ into Azure AD, you need to add CompetencyIQ from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-competencyiq-from-hello-gallery"></a><span data-ttu-id="0673d-123">Adicionando CompetencyIQ da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="0673d-123">Adding CompetencyIQ from hello gallery</span></span>
+<span data-ttu-id="0673d-124">integração de saudação tooconfigure de CompetencyIQ no AD do Azure, você precisa tooadd CompetencyIQ da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="0673d-124">tooconfigure hello integration of CompetencyIQ into Azure AD, you need tooadd CompetencyIQ from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="a6835-125">**Para adicionar o CompetencyIQ por meio da galeria, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="a6835-125">**To add CompetencyIQ from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="0673d-125">**tooadd CompetencyIQ da Galeria hello, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="0673d-125">**tooadd CompetencyIQ from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="a6835-126">No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="a6835-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="0673d-126">Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="0673d-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Active Directory][1]
 
-2. <span data-ttu-id="a6835-128">Navegue até **aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="a6835-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="a6835-129">Em seguida, vá para **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="a6835-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="0673d-128">Navegue muito**aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="0673d-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="0673d-129">Em seguida, acesse muito**todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="0673d-129">Then go too**All applications**.</span></span>
 
     ![Aplicativos][2]
     
-3. <span data-ttu-id="a6835-131">Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.</span><span class="sxs-lookup"><span data-stu-id="a6835-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="0673d-131">tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="0673d-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
     ![Aplicativos][3]
 
-4. <span data-ttu-id="a6835-133">Na caixa de pesquisa, digite **CompetencyIQ**.</span><span class="sxs-lookup"><span data-stu-id="a6835-133">In the search box, type **CompetencyIQ**.</span></span>
+4. <span data-ttu-id="0673d-133">Na caixa de pesquisa hello, digite **CompetencyIQ**.</span><span class="sxs-lookup"><span data-stu-id="0673d-133">In hello search box, type **CompetencyIQ**.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-competencyiq-tutorial/tutorial_competencyiq_search.png)
 
-5. <span data-ttu-id="a6835-135">No painel de resultados, selecione **CompetencyIQ** e clique no botão **Adicionar** para adicionar o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="a6835-135">In the results panel, select **CompetencyIQ**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="0673d-135">No painel de resultados de saudação, selecione **CompetencyIQ**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.</span><span class="sxs-lookup"><span data-stu-id="0673d-135">In hello results panel, select **CompetencyIQ**, and then click **Add** button tooadd hello application.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-competencyiq-tutorial/tutorial_competencyiq_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="a6835-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="a6835-137">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="a6835-138">Nesta seção, você configurará e testará o logon único do Azure AD com o CompetencyIQ, com base em um usuário de teste chamado "Brenda Fernandes".</span><span class="sxs-lookup"><span data-stu-id="a6835-138">In this section, you configure and test Azure AD single sign-on with CompetencyIQ based on a test user called "Britta Simon."</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="0673d-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="0673d-137">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="0673d-138">Nesta seção, você configurará e testará o logon único do Azure AD com o CompetencyIQ, com base em um usuário de teste chamado "Brenda Fernandes".</span><span class="sxs-lookup"><span data-stu-id="0673d-138">In this section, you configure and test Azure AD single sign-on with CompetencyIQ based on a test user called "Britta Simon."</span></span>
 
-<span data-ttu-id="a6835-139">Para que o logon único funcione, o Azure AD precisa saber qual usuário do CompetencyIQ é equivalente a um usuário do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="a6835-139">For single sign-on to work, Azure AD needs to know what the counterpart user in CompetencyIQ is to a user in Azure AD.</span></span> <span data-ttu-id="a6835-140">Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do CompetencyIQ.</span><span class="sxs-lookup"><span data-stu-id="a6835-140">In other words, a link relationship between an Azure AD user and the related user in CompetencyIQ needs to be established.</span></span>
+<span data-ttu-id="0673d-139">Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá em CompetencyIQ é tooa usuário no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="0673d-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in CompetencyIQ is tooa user in Azure AD.</span></span> <span data-ttu-id="0673d-140">Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação em CompetencyIQ precisa toobe estabelecida.</span><span class="sxs-lookup"><span data-stu-id="0673d-140">In other words, a link relationship between an Azure AD user and hello related user in CompetencyIQ needs toobe established.</span></span>
 
-<span data-ttu-id="a6835-141">No CompetencyIQ, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.</span><span class="sxs-lookup"><span data-stu-id="a6835-141">In CompetencyIQ, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="0673d-141">CompetencyIQ, atribuir valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.</span><span class="sxs-lookup"><span data-stu-id="0673d-141">In CompetencyIQ, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="a6835-142">Para configurar e testar o logon único do Azure AD com o CompetencyIQ, você precisará concluir os seguintes blocos de construção:</span><span class="sxs-lookup"><span data-stu-id="a6835-142">To configure and test Azure AD single sign-on with CompetencyIQ, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="0673d-142">tooconfigure e teste de logon único do AD do Azure com CompetencyIQ, é necessário Olá toocomplete blocos de construção a seguir:</span><span class="sxs-lookup"><span data-stu-id="0673d-142">tooconfigure and test Azure AD single sign-on with CompetencyIQ, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="a6835-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.</span><span class="sxs-lookup"><span data-stu-id="a6835-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="a6835-144">**[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="a6835-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="a6835-145">**[Criação de um usuário de teste do CompetencyIQ](#creating-a-competencyiq-test-user)**: para ter um equivalente de Brenda Fernandes no CompetencyIQ que esteja vinculado à representação do usuário no Azure AD.</span><span class="sxs-lookup"><span data-stu-id="a6835-145">**[Creating a CompetencyIQ test user](#creating-a-competencyiq-test-user)** - to have a counterpart of Britta Simon in CompetencyIQ that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="a6835-146">**[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="a6835-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="a6835-147">**[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.</span><span class="sxs-lookup"><span data-stu-id="a6835-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="0673d-143">**[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.</span><span class="sxs-lookup"><span data-stu-id="0673d-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="0673d-144">**[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="0673d-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="0673d-145">**[Criar um usuário de teste CompetencyIQ](#creating-a-competencyiq-test-user)**  -toohave um equivalente do Britta Simon em CompetencyIQ é toohello vinculado do Azure AD representação do usuário.</span><span class="sxs-lookup"><span data-stu-id="0673d-145">**[Creating a CompetencyIQ test user](#creating-a-competencyiq-test-user)** - toohave a counterpart of Britta Simon in CompetencyIQ that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="0673d-146">**[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.</span><span class="sxs-lookup"><span data-stu-id="0673d-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="0673d-147">**[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.</span><span class="sxs-lookup"><span data-stu-id="0673d-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="a6835-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="a6835-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="0673d-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="0673d-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="a6835-149">Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure e configurar o logon único em seu aplicativo CompetencyIQ.</span><span class="sxs-lookup"><span data-stu-id="a6835-149">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your CompetencyIQ application.</span></span>
+<span data-ttu-id="0673d-149">Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo CompetencyIQ.</span><span class="sxs-lookup"><span data-stu-id="0673d-149">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your CompetencyIQ application.</span></span>
 
-<span data-ttu-id="a6835-150">**Para configurar o logon único do Azure AD com o CompetencyIQ, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="a6835-150">**To configure Azure AD single sign-on with CompetencyIQ, perform the following steps:**</span></span>
+<span data-ttu-id="0673d-150">**tooconfigure AD do Azure-logon único com CompetencyIQ, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="0673d-150">**tooconfigure Azure AD single sign-on with CompetencyIQ, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="a6835-151">No portal do Azure, na página de integração do aplicativo **CompetencyIQ**, clique em **Logon único**.</span><span class="sxs-lookup"><span data-stu-id="a6835-151">In the Azure portal, on the **CompetencyIQ** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="0673d-151">Em Olá portal do Azure, Olá **CompetencyIQ** página de integração de aplicativos, clique em **o logon único**.</span><span class="sxs-lookup"><span data-stu-id="0673d-151">In hello Azure portal, on hello **CompetencyIQ** application integration page, click **Single sign-on**.</span></span>
 
     ![Configurar Logon Único][4]
 
-2. <span data-ttu-id="a6835-153">Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.</span><span class="sxs-lookup"><span data-stu-id="a6835-153">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="0673d-153">Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.</span><span class="sxs-lookup"><span data-stu-id="0673d-153">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Configurar Logon Único](./media/active-directory-saas-competencyiq-tutorial/tutorial_competencyiq_samlbase.png)
 
-3. <span data-ttu-id="a6835-155">Na seção **URLs e Domínio do CompetencyIQ**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="a6835-155">On the **CompetencyIQ Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="0673d-155">Em Olá **CompetencyIQ domínio e URLs** , execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="0673d-155">On hello **CompetencyIQ Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-competencyiq-tutorial/tutorial_competencyiq_url1.png)
 
-    <span data-ttu-id="a6835-157">a.</span><span class="sxs-lookup"><span data-stu-id="a6835-157">a.</span></span> <span data-ttu-id="a6835-158">Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<customer>.competencyiq.com/`</span><span class="sxs-lookup"><span data-stu-id="a6835-158">In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<customer>.competencyiq.com/`</span></span>
+    <span data-ttu-id="0673d-157">a.</span><span class="sxs-lookup"><span data-stu-id="0673d-157">a.</span></span> <span data-ttu-id="0673d-158">Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<customer>.competencyiq.com/`</span><span class="sxs-lookup"><span data-stu-id="0673d-158">In hello **Sign-on URL** textbox, type a URL using hello following pattern: `https://<customer>.competencyiq.com/`</span></span>
     
-    <span data-ttu-id="a6835-159">b.</span><span class="sxs-lookup"><span data-stu-id="a6835-159">b.</span></span> <span data-ttu-id="a6835-160">Na caixa de texto **Identificador**, digite a URL: `https://www.competencyiq.com/`</span><span class="sxs-lookup"><span data-stu-id="a6835-160">In the **Identifier** textbox, type the URL: `https://www.competencyiq.com/`</span></span>
+    <span data-ttu-id="0673d-159">b.</span><span class="sxs-lookup"><span data-stu-id="0673d-159">b.</span></span> <span data-ttu-id="0673d-160">Em Olá **identificador** caixa de texto, digite a URL de saudação:`https://www.competencyiq.com/`</span><span class="sxs-lookup"><span data-stu-id="0673d-160">In hello **Identifier** textbox, type hello URL: `https://www.competencyiq.com/`</span></span>
 
     > [!NOTE] 
-    > <span data-ttu-id="a6835-161">O valor de URL de Logon é não real para atualizar isso com a URL de logon real.</span><span class="sxs-lookup"><span data-stu-id="a6835-161">The Sign-on URL value is not real so update this with actual Sign-On URL.</span></span> <span data-ttu-id="a6835-162">Entre em contato com a [equipe de suporte do cliente CompetencyIQ](https://www.competencyiq.com/) para obter isso.</span><span class="sxs-lookup"><span data-stu-id="a6835-162">Contact [CompetencyIQ Client support team](https://www.competencyiq.com/) to get this.</span></span> 
+    > <span data-ttu-id="0673d-161">valor de URL Olá logon é não real para atualizar esse com URL de logon real.</span><span class="sxs-lookup"><span data-stu-id="0673d-161">hello Sign-on URL value is not real so update this with actual Sign-On URL.</span></span> <span data-ttu-id="0673d-162">Entre em contato com [equipe de suporte do cliente CompetencyIQ](https://www.competencyiq.com/) tooget isso.</span><span class="sxs-lookup"><span data-stu-id="0673d-162">Contact [CompetencyIQ Client support team](https://www.competencyiq.com/) tooget this.</span></span> 
  
-4. <span data-ttu-id="a6835-163">Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.</span><span class="sxs-lookup"><span data-stu-id="a6835-163">On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.</span></span>
+4. <span data-ttu-id="0673d-163">Em Olá **o certificado de autenticação SAML** seção, clique em **Metadata XML** e, em seguida, salve o arquivo de metadados de saudação em seu computador.</span><span class="sxs-lookup"><span data-stu-id="0673d-163">On hello **SAML Signing Certificate** section, click **Metadata XML** and then save hello metadata file on your computer.</span></span>
 
-    ![Configurar o logon único](./media/active-directory-saas-competencyiq-tutorial/tutorial_competencyiq_certificate.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-competencyiq-tutorial/tutorial_competencyiq_certificate.png) 
 
-5. <span data-ttu-id="a6835-165">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="a6835-165">Click **Save** button.</span></span>
+5. <span data-ttu-id="0673d-165">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="0673d-165">Click **Save** button.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-competencyiq-tutorial/tutorial_general_400.png)
 
-6. <span data-ttu-id="a6835-167">Na seção **Configuração do CompetencyIQ**, clique em **Configurar o CompetencyIQ** para abrir a janela **Configurar logon**.</span><span class="sxs-lookup"><span data-stu-id="a6835-167">On the **CompetencyIQ Configuration** section, click **Configure CompetencyIQ** to open **Configure sign-on** window.</span></span> <span data-ttu-id="a6835-168">Copie a **ID da Entidade SAML** e a **URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**</span><span class="sxs-lookup"><span data-stu-id="a6835-168">Copy the **SAML Entity ID**, and **SAML Single Sign-On Service URL** from the **Quick Reference section.**</span></span>
+6. <span data-ttu-id="0673d-167">Em Olá **CompetencyIQ configuração** seção, clique em **configurar CompetencyIQ** tooopen **configurar o logon** janela.</span><span class="sxs-lookup"><span data-stu-id="0673d-167">On hello **CompetencyIQ Configuration** section, click **Configure CompetencyIQ** tooopen **Configure sign-on** window.</span></span> <span data-ttu-id="0673d-168">Saudação de cópia **ID da entidade SAML**, e **Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**</span><span class="sxs-lookup"><span data-stu-id="0673d-168">Copy hello **SAML Entity ID**, and **SAML Single Sign-On Service URL** from hello **Quick Reference section.**</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-competencyiq-tutorial/tutorial_competencyiq_configure.png) 
 
-7. <span data-ttu-id="a6835-170">Para configurar logon único no lado do **CompetencyIQ**, é necessário enviar o **XML de Metadados**, a **ID da Entidade SAML** e a **URL do Serviço de Logon Único SAML** baixados para a [equipe de suporte do CompetencyIQ](https://www.competencyiq.com/).</span><span class="sxs-lookup"><span data-stu-id="a6835-170">To configure single sign-on on **CompetencyIQ** side, you need to send the downloaded **Metadata XML**, **SAML Entity ID** and **SAML Single Sign-On Service URL** to [CompetencyIQ support team](https://www.competencyiq.com/).</span></span> <span data-ttu-id="a6835-171">Eles definem essa configuração para ter a conexão de SSO do SAML definida corretamente em ambos os lados.</span><span class="sxs-lookup"><span data-stu-id="a6835-171">They set this setting to have the SAML SSO connection set properly on both sides.</span></span>
+7. <span data-ttu-id="0673d-170">tooconfigure logon único no **CompetencyIQ** lado, você precisa toosend Olá baixado **Metadata XML**, **ID da entidade SAML** e **logon único SAML URL do serviço** muito[a equipe de suporte CompetencyIQ](https://www.competencyiq.com/).</span><span class="sxs-lookup"><span data-stu-id="0673d-170">tooconfigure single sign-on on **CompetencyIQ** side, you need toosend hello downloaded **Metadata XML**, **SAML Entity ID** and **SAML Single Sign-On Service URL** too[CompetencyIQ support team](https://www.competencyiq.com/).</span></span> <span data-ttu-id="0673d-171">Eles definidos Olá de toohave essa configuração conexão SSO do SAML definido corretamente em ambos os lados.</span><span class="sxs-lookup"><span data-stu-id="0673d-171">They set this setting toohave hello SAML SSO connection set properly on both sides.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="a6835-172">É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!</span><span class="sxs-lookup"><span data-stu-id="a6835-172">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="a6835-173">Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior.</span><span class="sxs-lookup"><span data-stu-id="a6835-173">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="a6835-174">Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="a6835-174">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="0673d-172">Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!</span><span class="sxs-lookup"><span data-stu-id="0673d-172">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="0673d-173">Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação.</span><span class="sxs-lookup"><span data-stu-id="0673d-173">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="0673d-174">Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="0673d-174">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 > 
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="a6835-175">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="a6835-175">Creating an Azure AD test user</span></span>
-<span data-ttu-id="a6835-176">O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="a6835-176">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="0673d-175">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="0673d-175">Creating an Azure AD test user</span></span>
+<span data-ttu-id="0673d-176">Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="0673d-176">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Criar um usuário do AD do Azure][100]
 
-<span data-ttu-id="a6835-178">**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="a6835-178">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="0673d-178">**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="0673d-178">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="a6835-179">No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="a6835-179">In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="0673d-179">Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="0673d-179">In hello **Azure portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-competencyiq-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="a6835-181">Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="a6835-181">To display the list of users, go to **Users and groups** and click **All users**.</span></span>
+2. <span data-ttu-id="0673d-181">lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.</span><span class="sxs-lookup"><span data-stu-id="0673d-181">toodisplay hello list of users, go too**Users and groups** and click **All users**.</span></span>
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-competencyiq-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="a6835-183">Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="a6835-183">To open the **User** dialog, click **Add** on the top of the dialog.</span></span>
+3. <span data-ttu-id="0673d-183">Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.</span><span class="sxs-lookup"><span data-stu-id="0673d-183">tooopen hello **User** dialog, click **Add** on hello top of hello dialog.</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-competencyiq-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="a6835-185">Na página do diálogo **Usuário**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="a6835-185">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="0673d-185">Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="0673d-185">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-competencyiq-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="a6835-187">a.</span><span class="sxs-lookup"><span data-stu-id="a6835-187">a.</span></span> <span data-ttu-id="a6835-188">Na caixa de texto **Nome**, digite **Brenda Fernandes**.</span><span class="sxs-lookup"><span data-stu-id="a6835-188">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="0673d-187">a.</span><span class="sxs-lookup"><span data-stu-id="0673d-187">a.</span></span> <span data-ttu-id="0673d-188">Em Olá **nome** caixa de texto, tipo **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="0673d-188">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="a6835-189">b.</span><span class="sxs-lookup"><span data-stu-id="a6835-189">b.</span></span> <span data-ttu-id="a6835-190">Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="a6835-190">In the **User name** textbox, type the **email address** of BrittaSimon.</span></span>
+    <span data-ttu-id="0673d-189">b.</span><span class="sxs-lookup"><span data-stu-id="0673d-189">b.</span></span> <span data-ttu-id="0673d-190">Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.</span><span class="sxs-lookup"><span data-stu-id="0673d-190">In hello **User name** textbox, type hello **email address** of BrittaSimon.</span></span>
 
-    <span data-ttu-id="a6835-191">c.</span><span class="sxs-lookup"><span data-stu-id="a6835-191">c.</span></span> <span data-ttu-id="a6835-192">Selecione **Mostrar senha** e anote o valor de **senha**.</span><span class="sxs-lookup"><span data-stu-id="a6835-192">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="0673d-191">c.</span><span class="sxs-lookup"><span data-stu-id="0673d-191">c.</span></span> <span data-ttu-id="0673d-192">Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.</span><span class="sxs-lookup"><span data-stu-id="0673d-192">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="a6835-193">d.</span><span class="sxs-lookup"><span data-stu-id="a6835-193">d.</span></span> <span data-ttu-id="a6835-194">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="a6835-194">Click **Create**.</span></span>
+    <span data-ttu-id="0673d-193">d.</span><span class="sxs-lookup"><span data-stu-id="0673d-193">d.</span></span> <span data-ttu-id="0673d-194">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="0673d-194">Click **Create**.</span></span>
  
-### <a name="creating-a-competencyiq-test-user"></a><span data-ttu-id="a6835-195">Criação de um usuário de teste do CompetencyIQ</span><span class="sxs-lookup"><span data-stu-id="a6835-195">Creating a CompetencyIQ test user</span></span>
+### <a name="creating-a-competencyiq-test-user"></a><span data-ttu-id="0673d-195">Criação de um usuário de teste do CompetencyIQ</span><span class="sxs-lookup"><span data-stu-id="0673d-195">Creating a CompetencyIQ test user</span></span>
 
-<span data-ttu-id="a6835-196">Para permitir que os usuários do Azure AD façam logon no CompetencyIQ, eles devem ser provisionados no CompetencyIQ.</span><span class="sxs-lookup"><span data-stu-id="a6835-196">To enable Azure AD users to log in to CompetencyIQ, they must be provisioned into CompetencyIQ.</span></span> <span data-ttu-id="a6835-197">Entre em contato com [a equipe de suporte do CompetencyIQ](https://www.competencyiq.com/) para criar usuários no aplicativo.</span><span class="sxs-lookup"><span data-stu-id="a6835-197">Contact [CompetencyIQ support team](https://www.competencyiq.com/) to create users in the application.</span></span>
+<span data-ttu-id="0673d-196">tooenable AD do Azure usuários toolog em tooCompetencyIQ, eles devem ser provisionados no CompetencyIQ.</span><span class="sxs-lookup"><span data-stu-id="0673d-196">tooenable Azure AD users toolog in tooCompetencyIQ, they must be provisioned into CompetencyIQ.</span></span> <span data-ttu-id="0673d-197">Entre em contato com [CompetencyIQ a equipe de suporte](https://www.competencyiq.com/) toocreate usuários no aplicativo hello.</span><span class="sxs-lookup"><span data-stu-id="0673d-197">Contact [CompetencyIQ support team](https://www.competencyiq.com/) toocreate users in hello application.</span></span>
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="a6835-198">Atribuição do usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="a6835-198">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="0673d-198">Atribuir um usuário de teste de saudação do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="0673d-198">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="a6835-199">Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure, ao conceder acesso ao CompetencyIQ.</span><span class="sxs-lookup"><span data-stu-id="a6835-199">In this section, you enable Britta Simon to use Azure single sign-on by granting access to CompetencyIQ.</span></span>
+<span data-ttu-id="0673d-199">Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooCompetencyIQ.</span><span class="sxs-lookup"><span data-stu-id="0673d-199">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooCompetencyIQ.</span></span>
 
 ![Atribuir usuário][200] 
 
-<span data-ttu-id="a6835-201">**Para atribuir Brenda Fernandes ao CompetencyIQ, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="a6835-201">**To assign Britta Simon to CompetencyIQ, perform the following steps:**</span></span>
+<span data-ttu-id="0673d-201">**tooassign Britta Simon tooCompetencyIQ, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="0673d-201">**tooassign Britta Simon tooCompetencyIQ, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="a6835-202">No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="a6835-202">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="0673d-202">No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="0673d-202">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Atribuir usuário][201] 
 
-2. <span data-ttu-id="a6835-204">Na lista de aplicativos, selecione **CompetencyIQ**.</span><span class="sxs-lookup"><span data-stu-id="a6835-204">In the applications list, select **CompetencyIQ**.</span></span>
+2. <span data-ttu-id="0673d-204">Na lista de aplicativos hello, selecione **CompetencyIQ**.</span><span class="sxs-lookup"><span data-stu-id="0673d-204">In hello applications list, select **CompetencyIQ**.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-competencyiq-tutorial/tutorial_competencyiq_app.png) 
 
-3. <span data-ttu-id="a6835-206">No menu à esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="a6835-206">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="0673d-206">No menu Olá Olá esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="0673d-206">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Atribuir usuário][202] 
 
-4. <span data-ttu-id="a6835-208">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="a6835-208">Click **Add** button.</span></span> <span data-ttu-id="a6835-209">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="a6835-209">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="0673d-208">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="0673d-208">Click **Add** button.</span></span> <span data-ttu-id="0673d-209">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="0673d-209">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Atribuir usuário][203]
 
-5. <span data-ttu-id="a6835-211">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="a6835-211">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="0673d-211">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.</span><span class="sxs-lookup"><span data-stu-id="0673d-211">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="a6835-212">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="a6835-212">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="0673d-212">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="0673d-212">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="a6835-213">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="a6835-213">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="0673d-213">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="0673d-213">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="a6835-214">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="a6835-214">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="0673d-214">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="0673d-214">Testing single sign-on</span></span>
 
-<span data-ttu-id="a6835-215">Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.</span><span class="sxs-lookup"><span data-stu-id="a6835-215">In this section, you test your Azure AD single sign-on configuration using the Access Panel.</span></span>
+<span data-ttu-id="0673d-215">Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.</span><span class="sxs-lookup"><span data-stu-id="0673d-215">In this section, you test your Azure AD single sign-on configuration using hello Access Panel.</span></span>
 
-<span data-ttu-id="a6835-216">Ao clicar no bloco CompetencyIQ no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo.</span><span class="sxs-lookup"><span data-stu-id="a6835-216">When you click the CompetencyIQ tile in the Access Panel, you should get automatically logged into the application.</span></span>
-<span data-ttu-id="a6835-217">Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="a6835-217">For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
+<span data-ttu-id="0673d-216">Quando você clica em bloco CompetencyIQ Olá Olá painel de acesso, você deve obter automaticamente conectado ao aplicativo hello.</span><span class="sxs-lookup"><span data-stu-id="0673d-216">When you click hello CompetencyIQ tile in hello Access Panel, you should get automatically logged into hello application.</span></span>
+<span data-ttu-id="0673d-217">Para obter mais informações sobre Olá painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="0673d-217">For more information about hello Access Panel, see [Introduction toohello Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
 
-## <a name="additional-resources"></a><span data-ttu-id="a6835-218">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="a6835-218">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="0673d-218">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="0673d-218">Additional resources</span></span>
 
-* [<span data-ttu-id="a6835-219">Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="a6835-219">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="a6835-220">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="a6835-220">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="0673d-219">Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="0673d-219">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="0673d-220">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="0673d-220">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 
 

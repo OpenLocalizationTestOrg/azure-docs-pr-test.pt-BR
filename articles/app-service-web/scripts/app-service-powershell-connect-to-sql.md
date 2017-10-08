@@ -1,6 +1,6 @@
 ---
-title: Exemplo de script do Azure PowerShell - Conectar um aplicativo Web a um Banco de Dados SQL | Microsoft Docs
-description: Exemplo de script do Azure PowerShell - Conectar um aplicativo Web a um Banco de Dados SQL
+title: aaaAzure exemplo de Script do PowerShell - se conectar a um banco de dados SQL de tooa do aplicativo de web | Microsoft Docs
+description: Script do PowerShell do Azure de exemplo - conectar a um banco de dados SQL de tooa do aplicativo de web
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -16,46 +16,46 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 5312bf6b81d1cc48490b71c3f77323cca23e1559
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8f80b940378d020cbcaec2c1bbc28bae1a3ef35a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-a-web-app-to-a-sql-database"></a><span data-ttu-id="0d9cd-103">Conectar um aplicativo Web a um Banco de Dados SQL</span><span class="sxs-lookup"><span data-stu-id="0d9cd-103">Connect a web app to a SQL database</span></span>
+# <a name="connect-a-web-app-tooa-sql-database"></a><span data-ttu-id="918df-103">Conectar a um banco de dados SQL de tooa do aplicativo de web</span><span class="sxs-lookup"><span data-stu-id="918df-103">Connect a web app tooa SQL database</span></span>
 
-<span data-ttu-id="0d9cd-104">Nesse cenário, você aprenderá como criar um Banco de Dados SQL do Azure e um aplicativo Web.</span><span class="sxs-lookup"><span data-stu-id="0d9cd-104">In this scenario you will learn how to create an Azure SQL database and an Azure web app.</span></span> <span data-ttu-id="0d9cd-105">Em seguida, você vinculará o Banco de Dados SQL ao aplicativo Web usando configurações do aplicativo.</span><span class="sxs-lookup"><span data-stu-id="0d9cd-105">Then you will link the SQL database to the web app using app settings.</span></span>
+<span data-ttu-id="918df-104">Nesse cenário, você aprenderá como toocreate um banco de dados do SQL Azure e um Azure aplicativo da web.</span><span class="sxs-lookup"><span data-stu-id="918df-104">In this scenario you will learn how toocreate an Azure SQL database and an Azure web app.</span></span> <span data-ttu-id="918df-105">Em seguida, você vinculará aplicativo hello SQL banco de dados toohello web usando configurações do aplicativo.</span><span class="sxs-lookup"><span data-stu-id="918df-105">Then you will link hello SQL database toohello web app using app settings.</span></span>
 
-<span data-ttu-id="0d9cd-106">Se necessário, instale o Azure PowerShell usando a instrução encontrada no [guia do Azure PowerShell](/powershell/azure/overview) e, em seguida, execute `Login-AzureRmAccount` para criar uma conexão com o Azure.</span><span class="sxs-lookup"><span data-stu-id="0d9cd-106">If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Login-AzureRmAccount` to create a connection with Azure.</span></span>
+<span data-ttu-id="918df-106">Se necessário, instale Olá PowerShell do Azure usando a instrução Olá encontrado no hello [guia do PowerShell do Azure](/powershell/azure/overview)e, em seguida, execute `Login-AzureRmAccount` toocreate uma conexão com o Azure.</span><span class="sxs-lookup"><span data-stu-id="918df-106">If needed, install hello Azure PowerShell using hello instruction found in hello [Azure PowerShell guide](/powershell/azure/overview), and then run `Login-AzureRmAccount` toocreate a connection with Azure.</span></span>
 
-## <a name="sample-script"></a><span data-ttu-id="0d9cd-107">Script de exemplo</span><span class="sxs-lookup"><span data-stu-id="0d9cd-107">Sample script</span></span>
+## <a name="sample-script"></a><span data-ttu-id="918df-107">Script de exemplo</span><span class="sxs-lookup"><span data-stu-id="918df-107">Sample script</span></span>
 
-<span data-ttu-id="0d9cd-108">[!code-powershell[principal](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Conectar um aplicativo Web a um Banco de Dados SQL")]</span><span class="sxs-lookup"><span data-stu-id="0d9cd-108">[!code-powershell[main](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Connect a web app to a SQL database")]</span></span>
+[!code-powershell[main](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Connect a web app tooa SQL database")]
 
-## <a name="clean-up-deployment"></a><span data-ttu-id="0d9cd-109">Limpar implantação</span><span class="sxs-lookup"><span data-stu-id="0d9cd-109">Clean up deployment</span></span> 
+## <a name="clean-up-deployment"></a><span data-ttu-id="918df-108">Limpar implantação</span><span class="sxs-lookup"><span data-stu-id="918df-108">Clean up deployment</span></span> 
 
-<span data-ttu-id="0d9cd-110">Após a execução da amostra de script, o comando a seguir pode ser usado para remover o grupo de recursos, o aplicativo Web e todos os recursos relacionados.</span><span class="sxs-lookup"><span data-stu-id="0d9cd-110">After the script sample has been run, the following command can be used to remove the resource group, web app, and all related resources.</span></span>
+<span data-ttu-id="918df-109">Após a execução do exemplo de script hello, Olá comando a seguir pode ser usado tooremove grupo de recursos de saudação, aplicativo web e recursos todos relacionados.</span><span class="sxs-lookup"><span data-stu-id="918df-109">After hello script sample has been run, hello following command can be used tooremove hello resource group, web app, and all related resources.</span></span>
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="script-explanation"></a><span data-ttu-id="0d9cd-111">Explicação sobre o script</span><span class="sxs-lookup"><span data-stu-id="0d9cd-111">Script explanation</span></span>
+## <a name="script-explanation"></a><span data-ttu-id="918df-110">Explicação sobre o script</span><span class="sxs-lookup"><span data-stu-id="918df-110">Script explanation</span></span>
 
-<span data-ttu-id="0d9cd-112">Este script usa os seguintes comandos.</span><span class="sxs-lookup"><span data-stu-id="0d9cd-112">This script uses the following commands.</span></span> <span data-ttu-id="0d9cd-113">Cada comando na tabela redireciona para a documentação específica do comando.</span><span class="sxs-lookup"><span data-stu-id="0d9cd-113">Each command in the table links to command specific documentation.</span></span>
+<span data-ttu-id="918df-111">Esse script usa Olá comandos a seguir.</span><span class="sxs-lookup"><span data-stu-id="918df-111">This script uses hello following commands.</span></span> <span data-ttu-id="918df-112">Cada comando na documentação específica do toocommand Olá tabela links.</span><span class="sxs-lookup"><span data-stu-id="918df-112">Each command in hello table links toocommand specific documentation.</span></span>
 
-| <span data-ttu-id="0d9cd-114">Command</span><span class="sxs-lookup"><span data-stu-id="0d9cd-114">Command</span></span> | <span data-ttu-id="0d9cd-115">Observações</span><span class="sxs-lookup"><span data-stu-id="0d9cd-115">Notes</span></span> |
+| <span data-ttu-id="918df-113">Command</span><span class="sxs-lookup"><span data-stu-id="918df-113">Command</span></span> | <span data-ttu-id="918df-114">Observações</span><span class="sxs-lookup"><span data-stu-id="918df-114">Notes</span></span> |
 |---|---|
-| [<span data-ttu-id="0d9cd-116">New-AzureRmResourceGroup</span><span class="sxs-lookup"><span data-stu-id="0d9cd-116">New-AzureRmResourceGroup</span></span>](/powershell/module/azurerm.resources/new-azurermresourcegroup) | <span data-ttu-id="0d9cd-117">Cria um grupo de recursos no qual todos os recursos são armazenados.</span><span class="sxs-lookup"><span data-stu-id="0d9cd-117">Creates a resource group in which all resources are stored.</span></span> |
-| [<span data-ttu-id="0d9cd-118">New-AzureRmAppServicePlan</span><span class="sxs-lookup"><span data-stu-id="0d9cd-118">New-AzureRmAppServicePlan</span></span>](/powershell/module/azurerm.websites/new-azurermappserviceplan) | <span data-ttu-id="0d9cd-119">Cria um Plano do Serviço de Aplicativo.</span><span class="sxs-lookup"><span data-stu-id="0d9cd-119">Creates an App Service plan.</span></span> |
-| [<span data-ttu-id="0d9cd-120">New-AzureRmWebApp</span><span class="sxs-lookup"><span data-stu-id="0d9cd-120">New-AzureRmWebApp</span></span>](/powershell/module/azurerm.websites/new-azurermwebapp) | <span data-ttu-id="0d9cd-121">Cria um aplicativo web.</span><span class="sxs-lookup"><span data-stu-id="0d9cd-121">Creates a web app.</span></span> |
-| [<span data-ttu-id="0d9cd-122">New-AzureRMSQLServer</span><span class="sxs-lookup"><span data-stu-id="0d9cd-122">New-AzureRMSQLServer</span></span>](/powershell/module/azurerm.sql/new-azurermsqlserver) | <span data-ttu-id="0d9cd-123">Cria um servidor de Banco de Dados SQL.</span><span class="sxs-lookup"><span data-stu-id="0d9cd-123">Creates a SQL Database server.</span></span> |
-| [<span data-ttu-id="0d9cd-124">New-AzureRmSqlServerFirewallRule</span><span class="sxs-lookup"><span data-stu-id="0d9cd-124">New-AzureRmSqlServerFirewallRule</span></span>](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) | <span data-ttu-id="0d9cd-125">Cria uma regra de firewall para um servidor do Banco de Dados SQL.</span><span class="sxs-lookup"><span data-stu-id="0d9cd-125">Creates a firewall rule for a SQL Database server.</span></span> |
-| [<span data-ttu-id="0d9cd-126">New-AzureRMSQLDatabase</span><span class="sxs-lookup"><span data-stu-id="0d9cd-126">New-AzureRMSQLDatabase</span></span>](/powershell/module/azurerm.sql/new-azurermsqldatabase) | <span data-ttu-id="0d9cd-127">Cria um banco de dados ou um banco de dados elástico.</span><span class="sxs-lookup"><span data-stu-id="0d9cd-127">Creates a database or an elastic database.</span></span> |
-| [<span data-ttu-id="0d9cd-128">Set-AzureRmWebApp</span><span class="sxs-lookup"><span data-stu-id="0d9cd-128">Set-AzureRmWebApp</span></span>](/powershell/module/azurerm.websites/set-azurermwebapp) | <span data-ttu-id="0d9cd-129">Modifica a configuração de um aplicativo Web.</span><span class="sxs-lookup"><span data-stu-id="0d9cd-129">Modifies a web app's configuration.</span></span> |
+| [<span data-ttu-id="918df-115">New-AzureRmResourceGroup</span><span class="sxs-lookup"><span data-stu-id="918df-115">New-AzureRmResourceGroup</span></span>](/powershell/module/azurerm.resources/new-azurermresourcegroup) | <span data-ttu-id="918df-116">Cria um grupo de recursos no qual todos os recursos são armazenados.</span><span class="sxs-lookup"><span data-stu-id="918df-116">Creates a resource group in which all resources are stored.</span></span> |
+| [<span data-ttu-id="918df-117">New-AzureRmAppServicePlan</span><span class="sxs-lookup"><span data-stu-id="918df-117">New-AzureRmAppServicePlan</span></span>](/powershell/module/azurerm.websites/new-azurermappserviceplan) | <span data-ttu-id="918df-118">Cria um Plano do Serviço de Aplicativo.</span><span class="sxs-lookup"><span data-stu-id="918df-118">Creates an App Service plan.</span></span> |
+| [<span data-ttu-id="918df-119">New-AzureRmWebApp</span><span class="sxs-lookup"><span data-stu-id="918df-119">New-AzureRmWebApp</span></span>](/powershell/module/azurerm.websites/new-azurermwebapp) | <span data-ttu-id="918df-120">Cria um aplicativo web.</span><span class="sxs-lookup"><span data-stu-id="918df-120">Creates a web app.</span></span> |
+| [<span data-ttu-id="918df-121">New-AzureRMSQLServer</span><span class="sxs-lookup"><span data-stu-id="918df-121">New-AzureRMSQLServer</span></span>](/powershell/module/azurerm.sql/new-azurermsqlserver) | <span data-ttu-id="918df-122">Cria um servidor de Banco de Dados SQL.</span><span class="sxs-lookup"><span data-stu-id="918df-122">Creates a SQL Database server.</span></span> |
+| [<span data-ttu-id="918df-123">New-AzureRmSqlServerFirewallRule</span><span class="sxs-lookup"><span data-stu-id="918df-123">New-AzureRmSqlServerFirewallRule</span></span>](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) | <span data-ttu-id="918df-124">Cria uma regra de firewall para um servidor do Banco de Dados SQL.</span><span class="sxs-lookup"><span data-stu-id="918df-124">Creates a firewall rule for a SQL Database server.</span></span> |
+| [<span data-ttu-id="918df-125">New-AzureRMSQLDatabase</span><span class="sxs-lookup"><span data-stu-id="918df-125">New-AzureRMSQLDatabase</span></span>](/powershell/module/azurerm.sql/new-azurermsqldatabase) | <span data-ttu-id="918df-126">Cria um banco de dados ou um banco de dados elástico.</span><span class="sxs-lookup"><span data-stu-id="918df-126">Creates a database or an elastic database.</span></span> |
+| [<span data-ttu-id="918df-127">Set-AzureRmWebApp</span><span class="sxs-lookup"><span data-stu-id="918df-127">Set-AzureRmWebApp</span></span>](/powershell/module/azurerm.websites/set-azurermwebapp) | <span data-ttu-id="918df-128">Modifica a configuração de um aplicativo Web.</span><span class="sxs-lookup"><span data-stu-id="918df-128">Modifies a web app's configuration.</span></span> |
 
-## <a name="next-steps"></a><span data-ttu-id="0d9cd-130">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="0d9cd-130">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="918df-129">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="918df-129">Next steps</span></span>
 
-<span data-ttu-id="0d9cd-131">Para saber mais sobre o módulo do Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="0d9cd-131">For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).</span></span>
+<span data-ttu-id="918df-130">Para obter mais informações sobre o módulo do PowerShell do Azure hello, consulte [documentação do Azure PowerShell](/powershell/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="918df-130">For more information on hello Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).</span></span>
 
-<span data-ttu-id="0d9cd-132">Exemplos adicionais do Azure PowerShell para Aplicativos Web do Serviço de Aplicativo do Azure podem ser encontrados nos [exemplos do Azure PowerShell](../app-service-powershell-samples.md).</span><span class="sxs-lookup"><span data-stu-id="0d9cd-132">Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../app-service-powershell-samples.md).</span></span>
+<span data-ttu-id="918df-131">Exemplos adicionais do Powershell do Azure para aplicativos de Web do serviço de aplicativo do Azure podem ser encontrados no hello [exemplos do PowerShell do Azure](../app-service-powershell-samples.md).</span><span class="sxs-lookup"><span data-stu-id="918df-131">Additional Azure Powershell samples for Azure App Service Web Apps can be found in hello [Azure PowerShell samples](../app-service-powershell-samples.md).</span></span>

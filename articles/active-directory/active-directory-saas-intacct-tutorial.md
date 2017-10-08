@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory com o Intacct | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Intacct."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Intacct."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,252 +13,252 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: c203b192b9da0d280cbd7f6c123219242ee4a3d1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3500039615166c2f61fb408d85bb82dfaefba134
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-intacct"></a><span data-ttu-id="bcf98-103">Tutorial: Integração do Active Directory do Azure com o Intacct</span><span class="sxs-lookup"><span data-stu-id="bcf98-103">Tutorial: Azure Active Directory integration with Intacct</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-intacct"></a><span data-ttu-id="2f148-103">Tutorial: Integração do Active Directory do Azure com o Intacct</span><span class="sxs-lookup"><span data-stu-id="2f148-103">Tutorial: Azure Active Directory integration with Intacct</span></span>
 
-<span data-ttu-id="bcf98-104">Neste tutorial, você aprenderá como integrar o Intacct ao Azure AD (Azure Active Directory).</span><span class="sxs-lookup"><span data-stu-id="bcf98-104">In this tutorial, you learn how to integrate Intacct with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="2f148-104">Neste tutorial, você aprenderá como toointegrate Intacct com o Azure Active Directory (AD do Azure).</span><span class="sxs-lookup"><span data-stu-id="2f148-104">In this tutorial, you learn how toointegrate Intacct with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="bcf98-105">A integração do Intacct ao Azure AD oferece os seguintes benefícios:</span><span class="sxs-lookup"><span data-stu-id="bcf98-105">Integrating Intacct with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="2f148-105">Integrando o Intacct com o AD do Azure fornece Olá benefícios a seguir:</span><span class="sxs-lookup"><span data-stu-id="2f148-105">Integrating Intacct with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="bcf98-106">Você pode controlar no Azure AD quem terá acesso ao Intacct</span><span class="sxs-lookup"><span data-stu-id="bcf98-106">You can control in Azure AD who has access to Intacct</span></span>
-- <span data-ttu-id="bcf98-107">Você pode permitir que seus usuários entrem automaticamente no Intacct (Logon Único) com suas contas do Azure AD</span><span class="sxs-lookup"><span data-stu-id="bcf98-107">You can enable your users to automatically get signed-on to Intacct (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="bcf98-108">Você pode gerenciar suas contas em um única localização: o Portal do Azure</span><span class="sxs-lookup"><span data-stu-id="bcf98-108">You can manage your accounts in one central location - the Azure portal</span></span>
+- <span data-ttu-id="2f148-106">Você pode controlar no AD do Azure que tenha acesso tooIntacct</span><span class="sxs-lookup"><span data-stu-id="2f148-106">You can control in Azure AD who has access tooIntacct</span></span>
+- <span data-ttu-id="2f148-107">Você pode habilitar seu usuários tooautomatically get conectado tooIntacct (logon único) com suas contas do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="2f148-107">You can enable your users tooautomatically get signed-on tooIntacct (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="2f148-108">Você pode gerenciar suas contas em um local central - Olá portal do Azure</span><span class="sxs-lookup"><span data-stu-id="2f148-108">You can manage your accounts in one central location - hello Azure portal</span></span>
 
-<span data-ttu-id="bcf98-109">Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="bcf98-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="2f148-109">Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="2f148-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="bcf98-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="bcf98-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="2f148-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="2f148-110">Prerequisites</span></span>
 
-<span data-ttu-id="bcf98-111">Para configurar a integração do Azure AD ao Intacct, você precisa dos seguintes itens:</span><span class="sxs-lookup"><span data-stu-id="bcf98-111">To configure Azure AD integration with Intacct, you need the following items:</span></span>
+<span data-ttu-id="2f148-111">tooconfigure integração do AD do Azure com Intacct, você precisa Olá itens a seguir:</span><span class="sxs-lookup"><span data-stu-id="2f148-111">tooconfigure Azure AD integration with Intacct, you need hello following items:</span></span>
 
-- <span data-ttu-id="bcf98-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="bcf98-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="bcf98-113">Uma assinatura habilitada para logon único do Intacct</span><span class="sxs-lookup"><span data-stu-id="bcf98-113">An Intacct single sign-on enabled subscription</span></span>
+- <span data-ttu-id="2f148-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="2f148-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="2f148-113">Uma assinatura habilitada para logon único do Intacct</span><span class="sxs-lookup"><span data-stu-id="2f148-113">An Intacct single sign-on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="bcf98-114">Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="bcf98-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="2f148-114">Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="2f148-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="bcf98-115">Para testar as etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="bcf98-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="2f148-115">tootest Olá etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="2f148-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="bcf98-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="bcf98-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="bcf98-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="bcf98-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="2f148-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="2f148-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="2f148-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="2f148-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="bcf98-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="bcf98-118">Scenario description</span></span>
-<span data-ttu-id="bcf98-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="bcf98-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="bcf98-120">O cenário descrito neste tutorial consiste em dois blocos de construção principais:</span><span class="sxs-lookup"><span data-stu-id="bcf98-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="2f148-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="2f148-118">Scenario description</span></span>
+<span data-ttu-id="2f148-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="2f148-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="2f148-120">cenário de saudação descrito neste tutorial consiste em dois elementos básicos:</span><span class="sxs-lookup"><span data-stu-id="2f148-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="bcf98-121">Como adicionar o Intacct da galeria</span><span class="sxs-lookup"><span data-stu-id="bcf98-121">Adding Intacct from the gallery</span></span>
-2. <span data-ttu-id="bcf98-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="bcf98-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="2f148-121">Adicionando Intacct da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="2f148-121">Adding Intacct from hello gallery</span></span>
+2. <span data-ttu-id="2f148-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="2f148-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-intacct-from-the-gallery"></a><span data-ttu-id="bcf98-123">Como adicionar o Intacct da galeria</span><span class="sxs-lookup"><span data-stu-id="bcf98-123">Adding Intacct from the gallery</span></span>
-<span data-ttu-id="bcf98-124">Para configurar a integração do Intacct ao Azure AD, você precisa adicionar o Intacct por meio da galeria à sua lista de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="bcf98-124">To configure the integration of Intacct into Azure AD, you need to add Intacct from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-intacct-from-hello-gallery"></a><span data-ttu-id="2f148-123">Adicionando Intacct da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="2f148-123">Adding Intacct from hello gallery</span></span>
+<span data-ttu-id="2f148-124">integração de saudação tooconfigure do Intacct no AD do Azure, você precisa tooadd Intacct da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="2f148-124">tooconfigure hello integration of Intacct into Azure AD, you need tooadd Intacct from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="bcf98-125">**Para adicionar o Intacct por meio da galeria, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="bcf98-125">**To add Intacct from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="2f148-125">**tooadd Intacct da Galeria hello, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="2f148-125">**tooadd Intacct from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="bcf98-126">No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="2f148-126">Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="2f148-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Active Directory][1]
 
-2. <span data-ttu-id="bcf98-128">Navegue até **aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="bcf98-129">Em seguida, vá para **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="2f148-128">Navegue muito**aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="2f148-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="2f148-129">Em seguida, acesse muito**todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="2f148-129">Then go too**All applications**.</span></span>
 
     ![Aplicativos][2]
     
-3. <span data-ttu-id="bcf98-131">Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.</span><span class="sxs-lookup"><span data-stu-id="bcf98-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="2f148-131">tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="2f148-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
     ![Aplicativos][3]
 
-4. <span data-ttu-id="bcf98-133">Na caixa de pesquisa, digite **Intacct**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-133">In the search box, type **Intacct**.</span></span>
+4. <span data-ttu-id="2f148-133">Na caixa de pesquisa hello, digite **Intacct**.</span><span class="sxs-lookup"><span data-stu-id="2f148-133">In hello search box, type **Intacct**.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_search.png)
 
-5. <span data-ttu-id="bcf98-135">No painel de resultados, selecione **Intacct** e clique no botão **Adicionar** para adicionar o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="bcf98-135">In the results panel, select **Intacct**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="2f148-135">No painel de resultados de saudação, selecione **Intacct**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.</span><span class="sxs-lookup"><span data-stu-id="2f148-135">In hello results panel, select **Intacct**, and then click **Add** button tooadd hello application.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="bcf98-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="bcf98-137">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="bcf98-138">Nesta seção, você configurará e testará o logon único do Azure AD com o Intacct, com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="bcf98-138">In this section, you configure and test Azure AD single sign-on with Intacct based on a test user called "Britta Simon".</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="2f148-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="2f148-137">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="2f148-138">Nesta seção, você configurará e testará o logon único do Azure AD com o Intacct, com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="2f148-138">In this section, you configure and test Azure AD single sign-on with Intacct based on a test user called "Britta Simon".</span></span>
 
-<span data-ttu-id="bcf98-139">Para que o logon único funcione, o Azure AD precisa saber qual usuário do Intacct é equivalente a um usuário do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="bcf98-139">For single sign-on to work, Azure AD needs to know what the counterpart user in Intacct is to a user in Azure AD.</span></span> <span data-ttu-id="bcf98-140">Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Intacct.</span><span class="sxs-lookup"><span data-stu-id="bcf98-140">In other words, a link relationship between an Azure AD user and the related user in Intacct needs to be established.</span></span>
+<span data-ttu-id="2f148-139">Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no Intacct é tooa usuário no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="2f148-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in Intacct is tooa user in Azure AD.</span></span> <span data-ttu-id="2f148-140">Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no Intacct precisa toobe estabelecida.</span><span class="sxs-lookup"><span data-stu-id="2f148-140">In other words, a link relationship between an Azure AD user and hello related user in Intacct needs toobe established.</span></span>
 
-<span data-ttu-id="bcf98-141">No Intacct, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.</span><span class="sxs-lookup"><span data-stu-id="bcf98-141">In Intacct, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="2f148-141">No Intacct, atribuir o valor de saudação do hello **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.</span><span class="sxs-lookup"><span data-stu-id="2f148-141">In Intacct, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="bcf98-142">Para configurar e testar o logon único do Azure AD com o Intacct, você precisa concluir os seguintes blocos de construção:</span><span class="sxs-lookup"><span data-stu-id="bcf98-142">To configure and test Azure AD single sign-on with Intacct, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="2f148-142">tooconfigure e teste de logon único do AD do Azure com Intacct, é necessário Olá toocomplete blocos de construção a seguir:</span><span class="sxs-lookup"><span data-stu-id="2f148-142">tooconfigure and test Azure AD single sign-on with Intacct, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="bcf98-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.</span><span class="sxs-lookup"><span data-stu-id="bcf98-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="bcf98-144">**[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="bcf98-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="bcf98-145">**[Criação de um usuário de teste do Intacct](#creating-an-intacct-test-user)**: para ter um equivalente de Brenda Fernandes no Intacct, que esteja vinculado à representação do usuário no Azure AD.</span><span class="sxs-lookup"><span data-stu-id="bcf98-145">**[Creating an Intacct test user](#creating-an-intacct-test-user)** - to have a counterpart of Britta Simon in Intacct that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="bcf98-146">**[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="bcf98-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="bcf98-147">**[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.</span><span class="sxs-lookup"><span data-stu-id="bcf98-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="2f148-143">**[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.</span><span class="sxs-lookup"><span data-stu-id="2f148-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="2f148-144">**[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="2f148-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="2f148-145">**[Criar um usuário de teste do Intacct](#creating-an-intacct-test-user)**  -toohave um equivalente do Britta Simon no Intacct é vinculado toohello AD do Azure representação do usuário.</span><span class="sxs-lookup"><span data-stu-id="2f148-145">**[Creating an Intacct test user](#creating-an-intacct-test-user)** - toohave a counterpart of Britta Simon in Intacct that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="2f148-146">**[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.</span><span class="sxs-lookup"><span data-stu-id="2f148-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="2f148-147">**[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.</span><span class="sxs-lookup"><span data-stu-id="2f148-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="bcf98-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="bcf98-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="2f148-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="2f148-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="bcf98-149">Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e configura o logon único em seu aplicativo Intacct.</span><span class="sxs-lookup"><span data-stu-id="bcf98-149">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Intacct application.</span></span>
+<span data-ttu-id="2f148-149">Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo Intacct.</span><span class="sxs-lookup"><span data-stu-id="2f148-149">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your Intacct application.</span></span>
 
-<span data-ttu-id="bcf98-150">**Para configurar o logon único do Azure AD com o Intacct, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="bcf98-150">**To configure Azure AD single sign-on with Intacct, perform the following steps:**</span></span>
+<span data-ttu-id="2f148-150">**tooconfigure AD do Azure-logon único com Intacct, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="2f148-150">**tooconfigure Azure AD single sign-on with Intacct, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="bcf98-151">No Portal do Azure, na página de integração de aplicativos do **Intacct**, clique em **Logon único**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-151">In the Azure portal, on the **Intacct** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="2f148-151">Em Olá portal do Azure, Olá **Intacct** página de integração de aplicativos, clique em **o logon único**.</span><span class="sxs-lookup"><span data-stu-id="2f148-151">In hello Azure portal, on hello **Intacct** application integration page, click **Single sign-on**.</span></span>
 
     ![Configurar Logon Único][4]
 
-2. <span data-ttu-id="bcf98-153">Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.</span><span class="sxs-lookup"><span data-stu-id="bcf98-153">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="2f148-153">Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.</span><span class="sxs-lookup"><span data-stu-id="2f148-153">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Configurar Logon Único](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_samlbase.png)
 
-3. <span data-ttu-id="bcf98-155">Na seção **URLs e Domínio do Intacct**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="bcf98-155">On the **Intacct Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="2f148-155">Em Olá **Intacct domínio e URLs** , execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="2f148-155">On hello **Intacct Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_url.png)
 
-    <span data-ttu-id="bcf98-157">Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão:</span><span class="sxs-lookup"><span data-stu-id="bcf98-157">In the **Reply URL** textbox, type a URL using the following pattern:</span></span>
+    <span data-ttu-id="2f148-157">Em Olá **URL de resposta** caixa de texto, digite um URL usando o saudação padrão a seguir:</span><span class="sxs-lookup"><span data-stu-id="2f148-157">In hello **Reply URL** textbox, type a URL using hello following pattern:</span></span>
     | |
     |--|
     | `https://<companyname>.intacct.com/ia/acct/sso_response.phtml`|
     | `https://www.intacct.com/ia/acct/sso_response.phtml` |
 
     > [!NOTE] 
-    > <span data-ttu-id="bcf98-158">Esse valor não é real.</span><span class="sxs-lookup"><span data-stu-id="bcf98-158">This value is not real.</span></span> <span data-ttu-id="bcf98-159">Atualize esse valor com a URL de Resposta real.</span><span class="sxs-lookup"><span data-stu-id="bcf98-159">Update this value with the actual Reply URL.</span></span> <span data-ttu-id="bcf98-160">Entre em contato com a [equipe de suporte do Intacct](https://us.intacct.com/support) para obter este valor.</span><span class="sxs-lookup"><span data-stu-id="bcf98-160">Contact [Intacct support team](https://us.intacct.com/support) to get this value.</span></span>
+    > <span data-ttu-id="2f148-158">Esse valor não é real.</span><span class="sxs-lookup"><span data-stu-id="2f148-158">This value is not real.</span></span> <span data-ttu-id="2f148-159">Atualize esse valor com hello URL de resposta real.</span><span class="sxs-lookup"><span data-stu-id="2f148-159">Update this value with hello actual Reply URL.</span></span> <span data-ttu-id="2f148-160">Entre em contato com [equipe de suporte do Intacct](https://us.intacct.com/support) tooget esse valor.</span><span class="sxs-lookup"><span data-stu-id="2f148-160">Contact [Intacct support team](https://us.intacct.com/support) tooget this value.</span></span>
 
-4. <span data-ttu-id="bcf98-161">Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.</span><span class="sxs-lookup"><span data-stu-id="bcf98-161">On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.</span></span>
+4. <span data-ttu-id="2f148-161">Em Olá **o certificado de autenticação SAML** seção, clique em **Certificate(Base64)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.</span><span class="sxs-lookup"><span data-stu-id="2f148-161">On hello **SAML Signing Certificate** section, click **Certificate(Base64)** and then save hello certificate file on your computer.</span></span>
 
-    ![Configurar o logon único](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_certificate.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_certificate.png) 
 
-5. <span data-ttu-id="bcf98-163">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="bcf98-163">Click **Save** button.</span></span>
+5. <span data-ttu-id="2f148-163">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="2f148-163">Click **Save** button.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-intacct-tutorial/tutorial_general_400.png)
 
-6. <span data-ttu-id="bcf98-165">Na seção **Configuração do Intacct**, clique em **Configurar o Intacct** para abrir a janela **Configurar logon**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-165">On the **Intacct Configuration** section, click **Configure Intacct** to open **Configure sign-on** window.</span></span> <span data-ttu-id="bcf98-166">Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**</span><span class="sxs-lookup"><span data-stu-id="bcf98-166">Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**</span></span>
+6. <span data-ttu-id="2f148-165">Em Olá **Intacct configuração** seção, clique em **configurar Intacct** tooopen **configurar o logon** janela.</span><span class="sxs-lookup"><span data-stu-id="2f148-165">On hello **Intacct Configuration** section, click **Configure Intacct** tooopen **Configure sign-on** window.</span></span> <span data-ttu-id="2f148-166">Saudação de cópia **ID da entidade SAML e Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**</span><span class="sxs-lookup"><span data-stu-id="2f148-166">Copy hello **SAML Entity ID and SAML Single Sign-On Service URL** from hello **Quick Reference section.**</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_configure.png) 
 
-7. <span data-ttu-id="bcf98-168">Em outra janela do navegador da Web, entre em seu site de empresa do Intacct como administrador.</span><span class="sxs-lookup"><span data-stu-id="bcf98-168">In a different web browser window, sign in to your Intacct company site as an administrator.</span></span>
+7. <span data-ttu-id="2f148-168">Em uma janela de navegador web diferente, entre no site da empresa Intacct tooyour como um administrador.</span><span class="sxs-lookup"><span data-stu-id="2f148-168">In a different web browser window, sign in tooyour Intacct company site as an administrator.</span></span>
 
-8. <span data-ttu-id="bcf98-169">Clique na guia **Empresa** e em **Informações da Empresa**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-169">Click the **Company** tab, and then click **Company Info**.</span></span>
+8. <span data-ttu-id="2f148-169">Clique em Olá **empresa** guia e, em seguida, clique em **informações sobre a empresa**.</span><span class="sxs-lookup"><span data-stu-id="2f148-169">Click hello **Company** tab, and then click **Company Info**.</span></span>
 
-    <span data-ttu-id="bcf98-170">![Empresa](./media/active-directory-saas-intacct-tutorial/ic790037.png "Empresa")</span><span class="sxs-lookup"><span data-stu-id="bcf98-170">![Company](./media/active-directory-saas-intacct-tutorial/ic790037.png "Company")</span></span>
+    <span data-ttu-id="2f148-170">![Empresa](./media/active-directory-saas-intacct-tutorial/ic790037.png "Empresa")</span><span class="sxs-lookup"><span data-stu-id="2f148-170">![Company](./media/active-directory-saas-intacct-tutorial/ic790037.png "Company")</span></span>
 
-9. <span data-ttu-id="bcf98-171">Clique na guia **Segurança** e em **Editar**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-171">Click the **Security** tab, and then click **Edit**.</span></span>
+9. <span data-ttu-id="2f148-171">Clique em Olá **segurança** guia e, em seguida, clique em **editar**.</span><span class="sxs-lookup"><span data-stu-id="2f148-171">Click hello **Security** tab, and then click **Edit**.</span></span>
 
-    <span data-ttu-id="bcf98-172">![Segurança](./media/active-directory-saas-intacct-tutorial/ic790038.png "Segurança")</span><span class="sxs-lookup"><span data-stu-id="bcf98-172">![Security](./media/active-directory-saas-intacct-tutorial/ic790038.png "Security")</span></span>
+    <span data-ttu-id="2f148-172">![Segurança](./media/active-directory-saas-intacct-tutorial/ic790038.png "Segurança")</span><span class="sxs-lookup"><span data-stu-id="2f148-172">![Security](./media/active-directory-saas-intacct-tutorial/ic790038.png "Security")</span></span>
 
-10. <span data-ttu-id="bcf98-173">Na seção **SSO (logon único)** , realize as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="bcf98-173">In the **Single sign on (SSO)** section, perform the following steps:</span></span>
+10. <span data-ttu-id="2f148-173">Em Olá **(SSO) do logon único** , execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="2f148-173">In hello **Single sign on (SSO)** section, perform hello following steps:</span></span>
 
-    <span data-ttu-id="bcf98-174">![Logon único](./media/active-directory-saas-intacct-tutorial/ic790039.png "logon único")</span><span class="sxs-lookup"><span data-stu-id="bcf98-174">![Single sign on](./media/active-directory-saas-intacct-tutorial/ic790039.png "single sign on")</span></span>
+    <span data-ttu-id="2f148-174">![Logon único](./media/active-directory-saas-intacct-tutorial/ic790039.png "logon único")</span><span class="sxs-lookup"><span data-stu-id="2f148-174">![Single sign on](./media/active-directory-saas-intacct-tutorial/ic790039.png "single sign on")</span></span>
 
-    <span data-ttu-id="bcf98-175">a.</span><span class="sxs-lookup"><span data-stu-id="bcf98-175">a.</span></span> <span data-ttu-id="bcf98-176">Selecione **Habilitar logon único**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-176">Select **Enable single sign on**.</span></span>
+    <span data-ttu-id="2f148-175">a.</span><span class="sxs-lookup"><span data-stu-id="2f148-175">a.</span></span> <span data-ttu-id="2f148-176">Selecione **Habilitar logon único**.</span><span class="sxs-lookup"><span data-stu-id="2f148-176">Select **Enable single sign on**.</span></span>
 
-    <span data-ttu-id="bcf98-177">b.</span><span class="sxs-lookup"><span data-stu-id="bcf98-177">b.</span></span> <span data-ttu-id="bcf98-178">Para **Tipo de provedor de identidade**, selecione **SAML 2.0**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-178">As **Identity provider type**, select **SAML 2.0**.</span></span>
+    <span data-ttu-id="2f148-177">b.</span><span class="sxs-lookup"><span data-stu-id="2f148-177">b.</span></span> <span data-ttu-id="2f148-178">Para **Tipo de provedor de identidade**, selecione **SAML 2.0**.</span><span class="sxs-lookup"><span data-stu-id="2f148-178">As **Identity provider type**, select **SAML 2.0**.</span></span>
 
-    <span data-ttu-id="bcf98-179">c.</span><span class="sxs-lookup"><span data-stu-id="bcf98-179">c.</span></span> <span data-ttu-id="bcf98-180">Na caixa de texto **URL do Emissor**, cole o valor da **ID de Entidade do SAML** que você copiou do Portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="bcf98-180">In **Issuer URL** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal.</span></span>
+    <span data-ttu-id="2f148-179">c.</span><span class="sxs-lookup"><span data-stu-id="2f148-179">c.</span></span> <span data-ttu-id="2f148-180">Em **URL do emissor** caixa de texto valor Olá colar **ID da entidade SAML** que você copiou do portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="2f148-180">In **Issuer URL** textbox, paste hello value of **SAML Entity ID** which you have copied from Azure portal.</span></span>
    
-    <span data-ttu-id="bcf98-181">d.</span><span class="sxs-lookup"><span data-stu-id="bcf98-181">d.</span></span> <span data-ttu-id="bcf98-182">Na caixa de texto **URL de Logon**, cole o valor da **URL de Serviço de Logon Único do SAML** que você copiou do Portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="bcf98-182">In **Login URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.</span></span>
+    <span data-ttu-id="2f148-181">d.</span><span class="sxs-lookup"><span data-stu-id="2f148-181">d.</span></span> <span data-ttu-id="2f148-182">Em **URL de logon** caixa de texto valor Olá colar **Single Sign-On URL do serviço SAML** que você copiou do portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="2f148-182">In **Login URL** textbox, paste hello value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.</span></span>
 
-    <span data-ttu-id="bcf98-183">e.</span><span class="sxs-lookup"><span data-stu-id="bcf98-183">e.</span></span> <span data-ttu-id="bcf98-184">Abra seu certificado codificado em **Base 64** no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa **Certificado**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-184">Open your **base-64** encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Certificate** box.</span></span>
+    <span data-ttu-id="2f148-183">e.</span><span class="sxs-lookup"><span data-stu-id="2f148-183">e.</span></span> <span data-ttu-id="2f148-184">Abra seu **base 64** codificado certificado no bloco de notas, Olá de copiar conteúdo dele para sua área de transferência e, em seguida, cole-o toohello **certificado** caixa.</span><span class="sxs-lookup"><span data-stu-id="2f148-184">Open your **base-64** encoded certificate in notepad, copy hello content of it into your clipboard, and then paste it toohello **Certificate** box.</span></span>
    
-    <span data-ttu-id="bcf98-185">f.</span><span class="sxs-lookup"><span data-stu-id="bcf98-185">f.</span></span> <span data-ttu-id="bcf98-186">Clique em **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-186">Click **Save**.</span></span>
+    <span data-ttu-id="2f148-185">f.</span><span class="sxs-lookup"><span data-stu-id="2f148-185">f.</span></span> <span data-ttu-id="2f148-186">Clique em **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="2f148-186">Click **Save**.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="bcf98-187">É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!</span><span class="sxs-lookup"><span data-stu-id="bcf98-187">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="bcf98-188">Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior.</span><span class="sxs-lookup"><span data-stu-id="bcf98-188">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="bcf98-189">Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="bcf98-189">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="2f148-187">Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!</span><span class="sxs-lookup"><span data-stu-id="2f148-187">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="2f148-188">Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação.</span><span class="sxs-lookup"><span data-stu-id="2f148-188">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="2f148-189">Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="2f148-189">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 > 
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="bcf98-190">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="bcf98-190">Creating an Azure AD test user</span></span>
-<span data-ttu-id="bcf98-191">O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="bcf98-191">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="2f148-190">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="2f148-190">Creating an Azure AD test user</span></span>
+<span data-ttu-id="2f148-191">Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="2f148-191">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Criar um usuário do AD do Azure][100]
 
-<span data-ttu-id="bcf98-193">**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="bcf98-193">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="2f148-193">**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="2f148-193">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="bcf98-194">No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-194">In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="2f148-194">Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="2f148-194">In hello **Azure portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intacct-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="bcf98-196">Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="bcf98-196">To display the list of users, go to **Users and groups** and click **All users**.</span></span>
+2. <span data-ttu-id="2f148-196">lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.</span><span class="sxs-lookup"><span data-stu-id="2f148-196">toodisplay hello list of users, go too**Users and groups** and click **All users**.</span></span>
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intacct-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="bcf98-198">Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="bcf98-198">To open the **User** dialog, click **Add** on the top of the dialog.</span></span>
+3. <span data-ttu-id="2f148-198">Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.</span><span class="sxs-lookup"><span data-stu-id="2f148-198">tooopen hello **User** dialog, click **Add** on hello top of hello dialog.</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intacct-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="bcf98-200">Na página do diálogo **Usuário**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="bcf98-200">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="2f148-200">Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="2f148-200">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-intacct-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="bcf98-202">a.</span><span class="sxs-lookup"><span data-stu-id="bcf98-202">a.</span></span> <span data-ttu-id="bcf98-203">Na caixa de texto **Nome**, digite **Brenda Fernandes**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-203">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="2f148-202">a.</span><span class="sxs-lookup"><span data-stu-id="2f148-202">a.</span></span> <span data-ttu-id="2f148-203">Em Olá **nome** caixa de texto, tipo **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="2f148-203">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="bcf98-204">b.</span><span class="sxs-lookup"><span data-stu-id="bcf98-204">b.</span></span> <span data-ttu-id="bcf98-205">Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="bcf98-205">In the **User name** textbox, type the **email address** of BrittaSimon.</span></span>
+    <span data-ttu-id="2f148-204">b.</span><span class="sxs-lookup"><span data-stu-id="2f148-204">b.</span></span> <span data-ttu-id="2f148-205">Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.</span><span class="sxs-lookup"><span data-stu-id="2f148-205">In hello **User name** textbox, type hello **email address** of BrittaSimon.</span></span>
 
-    <span data-ttu-id="bcf98-206">c.</span><span class="sxs-lookup"><span data-stu-id="bcf98-206">c.</span></span> <span data-ttu-id="bcf98-207">Selecione **Mostrar senha** e anote o valor de **senha**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-207">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="2f148-206">c.</span><span class="sxs-lookup"><span data-stu-id="2f148-206">c.</span></span> <span data-ttu-id="2f148-207">Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.</span><span class="sxs-lookup"><span data-stu-id="2f148-207">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="bcf98-208">d.</span><span class="sxs-lookup"><span data-stu-id="bcf98-208">d.</span></span> <span data-ttu-id="bcf98-209">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-209">Click **Create**.</span></span>
+    <span data-ttu-id="2f148-208">d.</span><span class="sxs-lookup"><span data-stu-id="2f148-208">d.</span></span> <span data-ttu-id="2f148-209">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="2f148-209">Click **Create**.</span></span>
  
-### <a name="creating-an-intacct-test-user"></a><span data-ttu-id="bcf98-210">Criação de um usuário de teste do Intacct</span><span class="sxs-lookup"><span data-stu-id="bcf98-210">Creating an Intacct test user</span></span>
+### <a name="creating-an-intacct-test-user"></a><span data-ttu-id="2f148-210">Criação de um usuário de teste do Intacct</span><span class="sxs-lookup"><span data-stu-id="2f148-210">Creating an Intacct test user</span></span>
 
-<span data-ttu-id="bcf98-211">Para configurar os usuários do Azure AD para que possam entrar no Intacct, eles devem ser provisionados no Intacct.</span><span class="sxs-lookup"><span data-stu-id="bcf98-211">To set up Azure AD users so they can sign in to Intacct, they must be provisioned into Intacct.</span></span> <span data-ttu-id="bcf98-212">Para o Intacct, o provisionamento é uma tarefa manual.</span><span class="sxs-lookup"><span data-stu-id="bcf98-212">For Intacct, provisioning is a manual task.</span></span>
+<span data-ttu-id="2f148-211">tooset os usuários do AD do Azure para que possam entrar em tooIntacct, eles devem ser provisionados no Intacct.</span><span class="sxs-lookup"><span data-stu-id="2f148-211">tooset up Azure AD users so they can sign in tooIntacct, they must be provisioned into Intacct.</span></span> <span data-ttu-id="2f148-212">Para o Intacct, o provisionamento é uma tarefa manual.</span><span class="sxs-lookup"><span data-stu-id="2f148-212">For Intacct, provisioning is a manual task.</span></span>
 
-<span data-ttu-id="bcf98-213">**Para provisionar contas de usuário, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="bcf98-213">**To provision user accounts, perform the following steps:**</span></span>
+<span data-ttu-id="2f148-213">**contas de usuário tooprovision, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="2f148-213">**tooprovision user accounts, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="bcf98-214">Entre em seu locatário do **Intacct**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-214">Sign in to your **Intacct** tenant.</span></span>
+1. <span data-ttu-id="2f148-214">Entrar tooyour **Intacct** locatário.</span><span class="sxs-lookup"><span data-stu-id="2f148-214">Sign in tooyour **Intacct** tenant.</span></span>
 
-2. <span data-ttu-id="bcf98-215">Clique na guia **Empresa** e em **Usuários**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-215">Click the **Company** tab, and then click **Users**.</span></span>
+2. <span data-ttu-id="2f148-215">Clique em Olá **empresa** guia e, em seguida, clique em **usuários**.</span><span class="sxs-lookup"><span data-stu-id="2f148-215">Click hello **Company** tab, and then click **Users**.</span></span>
 
-    <span data-ttu-id="bcf98-216">![Usuários](./media/active-directory-saas-intacct-tutorial/ic790041.png "Usuários")</span><span class="sxs-lookup"><span data-stu-id="bcf98-216">![Users](./media/active-directory-saas-intacct-tutorial/ic790041.png "Users")</span></span>
-3. <span data-ttu-id="bcf98-217">Clique na guia **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-217">Click the **Add** tab.</span></span>
+    <span data-ttu-id="2f148-216">![Usuários](./media/active-directory-saas-intacct-tutorial/ic790041.png "Usuários")</span><span class="sxs-lookup"><span data-stu-id="2f148-216">![Users](./media/active-directory-saas-intacct-tutorial/ic790041.png "Users")</span></span>
+3. <span data-ttu-id="2f148-217">Clique em Olá **adicionar** guia.</span><span class="sxs-lookup"><span data-stu-id="2f148-217">Click hello **Add** tab.</span></span>
 
-    <span data-ttu-id="bcf98-218">![Adicionar](./media/active-directory-saas-intacct-tutorial/ic790042.png "Adicionar")</span><span class="sxs-lookup"><span data-stu-id="bcf98-218">![Add](./media/active-directory-saas-intacct-tutorial/ic790042.png "Add")</span></span>
-4. <span data-ttu-id="bcf98-219">Na seção **Informações do Usuário** , realize as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="bcf98-219">In the **User Information** section, perform the following steps:</span></span>
+    <span data-ttu-id="2f148-218">![Adicionar](./media/active-directory-saas-intacct-tutorial/ic790042.png "Adicionar")</span><span class="sxs-lookup"><span data-stu-id="2f148-218">![Add](./media/active-directory-saas-intacct-tutorial/ic790042.png "Add")</span></span>
+4. <span data-ttu-id="2f148-219">Em Olá **informações do usuário** , execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="2f148-219">In hello **User Information** section, perform hello following steps:</span></span>
 
-    <span data-ttu-id="bcf98-220">![Informações do Usuário](./media/active-directory-saas-intacct-tutorial/ic790043.png "informações do Usuário")</span><span class="sxs-lookup"><span data-stu-id="bcf98-220">![User Information](./media/active-directory-saas-intacct-tutorial/ic790043.png "User Information")</span></span>
+    <span data-ttu-id="2f148-220">![Informações do Usuário](./media/active-directory-saas-intacct-tutorial/ic790043.png "informações do Usuário")</span><span class="sxs-lookup"><span data-stu-id="2f148-220">![User Information](./media/active-directory-saas-intacct-tutorial/ic790043.png "User Information")</span></span>
 
-    <span data-ttu-id="bcf98-221">a.</span><span class="sxs-lookup"><span data-stu-id="bcf98-221">a.</span></span> <span data-ttu-id="bcf98-222">Insira a **ID de Usuário**, o **Sobrenome**, o **Nome**, o **Endereço de email**, o **Título** e o **Telefone** de uma conta do Azure AD que você deseja provisionar na seção **Informações do Usuário**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-222">Enter the **User ID**, the **Last name**, **First name**, the **Email address**, the **Title**, and the **Phone** of an Azure AD account that you want to provision into the **User Information** section.</span></span>
+    <span data-ttu-id="2f148-221">a.</span><span class="sxs-lookup"><span data-stu-id="2f148-221">a.</span></span> <span data-ttu-id="2f148-222">Digite hello **ID de usuário**, Olá **Sobrenome**, **nome**, Olá **endereço de Email**, Olá **título**, e hello **Phone** de uma conta do AD do Azure que você deseja tooprovision em Olá **informações do usuário** seção.</span><span class="sxs-lookup"><span data-stu-id="2f148-222">Enter hello **User ID**, hello **Last name**, **First name**, hello **Email address**, hello **Title**, and hello **Phone** of an Azure AD account that you want tooprovision into hello **User Information** section.</span></span>
 
-    <span data-ttu-id="bcf98-223">b.</span><span class="sxs-lookup"><span data-stu-id="bcf98-223">b.</span></span> <span data-ttu-id="bcf98-224">Selecione os **privilégios de Administrador** de uma conta do Azure AD que você deseja provisionar.</span><span class="sxs-lookup"><span data-stu-id="bcf98-224">Select the **Admin privileges** of an Azure AD account that you want to provision.</span></span>
+    <span data-ttu-id="2f148-223">b.</span><span class="sxs-lookup"><span data-stu-id="2f148-223">b.</span></span> <span data-ttu-id="2f148-224">Selecione Olá **privilégios de administrador** de uma conta do AD do Azure que você deseja tooprovision.</span><span class="sxs-lookup"><span data-stu-id="2f148-224">Select hello **Admin privileges** of an Azure AD account that you want tooprovision.</span></span>
    
-    <span data-ttu-id="bcf98-225">c.</span><span class="sxs-lookup"><span data-stu-id="bcf98-225">c.</span></span> <span data-ttu-id="bcf98-226">Clique em **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-226">Click **Save**.</span></span> <span data-ttu-id="bcf98-227">O titular da conta do Azure AD receberá um email e um link para confirmar sua conta antes de se tornar ativo.</span><span class="sxs-lookup"><span data-stu-id="bcf98-227">The Azure AD account holder receives an email and follows a link to confirm their account before it becomes active.</span></span>
+    <span data-ttu-id="2f148-225">c.</span><span class="sxs-lookup"><span data-stu-id="2f148-225">c.</span></span> <span data-ttu-id="2f148-226">Clique em **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="2f148-226">Click **Save**.</span></span> <span data-ttu-id="2f148-227">proprietário de conta do AD do Azure Olá recebe um email e segue um link tooconfirm sua conta antes de se tornar ativa.</span><span class="sxs-lookup"><span data-stu-id="2f148-227">hello Azure AD account holder receives an email and follows a link tooconfirm their account before it becomes active.</span></span>
 
 >[!NOTE]
-><span data-ttu-id="bcf98-228">Para provisionar as contas de usuário do Azure AD, é possível usar qualquer outra ferramenta de criação da conta de usuário do Intacct ou APIs fornecidas pelo Intacct.</span><span class="sxs-lookup"><span data-stu-id="bcf98-228">To provision Azure AD user accounts, you can use other Intacct user account creation tools or APIs that are provided by Intacct.</span></span>
+><span data-ttu-id="2f148-228">contas de usuário do AD do Azure tooprovision, você pode usar outras ferramentas de criação de conta de usuário do Intacct ou APIs fornecidas pela Intacct.</span><span class="sxs-lookup"><span data-stu-id="2f148-228">tooprovision Azure AD user accounts, you can use other Intacct user account creation tools or APIs that are provided by Intacct.</span></span>
         
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="bcf98-229">Atribuição do usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="bcf98-229">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="2f148-229">Atribuir um usuário de teste de saudação do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="2f148-229">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="bcf98-230">Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure ao conceder acesso ao Intacct.</span><span class="sxs-lookup"><span data-stu-id="bcf98-230">In this section, you enable Britta Simon to use Azure single sign-on by granting access to Intacct.</span></span>
+<span data-ttu-id="2f148-230">Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooIntacct.</span><span class="sxs-lookup"><span data-stu-id="2f148-230">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooIntacct.</span></span>
 
 ![Atribuir usuário][200] 
 
-<span data-ttu-id="bcf98-232">**Para atribuir Brenda Fernandes ao Intacct, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="bcf98-232">**To assign Britta Simon to Intacct, perform the following steps:**</span></span>
+<span data-ttu-id="2f148-232">**tooassign Britta Simon tooIntacct, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="2f148-232">**tooassign Britta Simon tooIntacct, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="bcf98-233">No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-233">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="2f148-233">No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="2f148-233">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Atribuir usuário][201] 
 
-2. <span data-ttu-id="bcf98-235">Na lista de aplicativos, selecione **Intacct**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-235">In the applications list, select **Intacct**.</span></span>
+2. <span data-ttu-id="2f148-235">Na lista de aplicativos hello, selecione **Intacct**.</span><span class="sxs-lookup"><span data-stu-id="2f148-235">In hello applications list, select **Intacct**.</span></span>
 
-    ![Configurar o logon único](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_app.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-intacct-tutorial/tutorial_intacct_app.png) 
 
-3. <span data-ttu-id="bcf98-237">No menu à esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-237">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="2f148-237">No menu Olá Olá esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="2f148-237">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Atribuir usuário][202] 
 
-4. <span data-ttu-id="bcf98-239">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="bcf98-239">Click **Add** button.</span></span> <span data-ttu-id="bcf98-240">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="bcf98-240">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="2f148-239">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="2f148-239">Click **Add** button.</span></span> <span data-ttu-id="2f148-240">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="2f148-240">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Atribuir usuário][203]
 
-5. <span data-ttu-id="bcf98-242">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="bcf98-242">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="2f148-242">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.</span><span class="sxs-lookup"><span data-stu-id="2f148-242">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="bcf98-243">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="bcf98-243">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="2f148-243">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="2f148-243">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="bcf98-244">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="bcf98-244">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="2f148-244">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="2f148-244">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="bcf98-245">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="bcf98-245">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="2f148-245">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="2f148-245">Testing single sign-on</span></span>
 
-<span data-ttu-id="bcf98-246">Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.</span><span class="sxs-lookup"><span data-stu-id="bcf98-246">In this section, you test your Azure AD single sign-on configuration by using the Access Panel.</span></span>
+<span data-ttu-id="2f148-246">Nesta seção, você pode testar a AD do Azure única configuração de logon usando o painel de acesso de saudação.</span><span class="sxs-lookup"><span data-stu-id="2f148-246">In this section, you test your Azure AD single sign-on configuration by using hello Access Panel.</span></span>
 
-<span data-ttu-id="bcf98-247">Ao clicar no bloco Intacct no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Intacct.</span><span class="sxs-lookup"><span data-stu-id="bcf98-247">When you click the Intacct tile in the Access Panel, you should be automatically signed in to your Intacct application.</span></span>
+<span data-ttu-id="2f148-247">Quando você clica em bloco Intacct Olá Olá painel de acesso, você deve ser conectado automaticamente tooyour Intacct aplicativo.</span><span class="sxs-lookup"><span data-stu-id="2f148-247">When you click hello Intacct tile in hello Access Panel, you should be automatically signed in tooyour Intacct application.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="bcf98-248">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="bcf98-248">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="2f148-248">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="2f148-248">Additional resources</span></span>
 
-* [<span data-ttu-id="bcf98-249">Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="bcf98-249">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="bcf98-250">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="bcf98-250">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="2f148-249">Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="2f148-249">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="2f148-250">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="2f148-250">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 

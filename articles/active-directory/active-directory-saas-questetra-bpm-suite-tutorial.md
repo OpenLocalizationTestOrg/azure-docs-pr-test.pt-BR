@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory com o Questetra BPM Suite | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Active Directory do Azure e o Questetra BPM Suite."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Questetra BPM Suite."
 services: active-directory
 documentationcenter: 
 author: jeevansd
@@ -14,263 +14,263 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 7ae75446c9d19ce15a82caa9604658a528ab9941
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4907e3b5751cd79f994fbd2ebcb7faec4eac34e9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a><span data-ttu-id="99b2b-103">Tutorial: Integração do Active Directory do Azure com o Questetra BPM Suite</span><span class="sxs-lookup"><span data-stu-id="99b2b-103">Tutorial: Azure Active Directory integration with Questetra BPM Suite</span></span>
-<span data-ttu-id="99b2b-104">O objetivo desse tutorial é mostrar como integrar o Questetra BPM Suite ao Azure AD (Azure Active Directory).</span><span class="sxs-lookup"><span data-stu-id="99b2b-104">The objective of this tutorial is to show you how to integrate Questetra BPM Suite with Azure Active Directory (Azure AD).</span></span>  
-<span data-ttu-id="99b2b-105">A integração do Questetra BPM Suite ao Azure AD oferece os seguintes benefícios:</span><span class="sxs-lookup"><span data-stu-id="99b2b-105">Integrating Questetra BPM Suite with Azure AD provides you with the following benefits:</span></span> 
+# <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a><span data-ttu-id="84bf7-103">Tutorial: Integração do Active Directory do Azure com o Questetra BPM Suite</span><span class="sxs-lookup"><span data-stu-id="84bf7-103">Tutorial: Azure Active Directory integration with Questetra BPM Suite</span></span>
+<span data-ttu-id="84bf7-104">Olá objetivo deste tutorial é tooshow você como toointegrate Questetra BPM Suite com o Azure Active Directory (AD do Azure).</span><span class="sxs-lookup"><span data-stu-id="84bf7-104">hello objective of this tutorial is tooshow you how toointegrate Questetra BPM Suite with Azure Active Directory (Azure AD).</span></span>  
+<span data-ttu-id="84bf7-105">Pacote de BPM Questetra integrando o AD do Azure fornece Olá benefícios a seguir:</span><span class="sxs-lookup"><span data-stu-id="84bf7-105">Integrating Questetra BPM Suite with Azure AD provides you with hello following benefits:</span></span> 
 
-* <span data-ttu-id="99b2b-106">Você pode controlar, no AD do Azure, quem tem acesso ao Questetra BPM Suite</span><span class="sxs-lookup"><span data-stu-id="99b2b-106">You can control in Azure AD who has access to Questetra BPM Suite</span></span> 
-* <span data-ttu-id="99b2b-107">Você pode habilitar seus usuários a fazerem logon automaticamente no Questetra BPM Suite (logon único) com suas contas do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="99b2b-107">You can enable your users to automatically get signed-on to Questetra BPM Suite (Single Sign-On) with their Azure AD accounts</span></span>
-* <span data-ttu-id="99b2b-108">Gerenciar suas contas em um único local: o Portal clássico do Azure</span><span class="sxs-lookup"><span data-stu-id="99b2b-108">You can manage your accounts in one central location - the Azure classic portal</span></span>
+* <span data-ttu-id="84bf7-106">Você pode controlar no AD do Azure que tenha acesso tooQuestetra BPM Suite</span><span class="sxs-lookup"><span data-stu-id="84bf7-106">You can control in Azure AD who has access tooQuestetra BPM Suite</span></span> 
+* <span data-ttu-id="84bf7-107">Você pode habilitar seu usuários tooautomatically get conectado tooQuestetra BPM Suite (logon único) com suas contas do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="84bf7-107">You can enable your users tooautomatically get signed-on tooQuestetra BPM Suite (Single Sign-On) with their Azure AD accounts</span></span>
+* <span data-ttu-id="84bf7-108">Você pode gerenciar suas contas em um local central - Olá portal clássico do Azure</span><span class="sxs-lookup"><span data-stu-id="84bf7-108">You can manage your accounts in one central location - hello Azure classic portal</span></span>
 
-<span data-ttu-id="99b2b-109">Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="99b2b-109">If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="84bf7-109">Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="84bf7-109">If you want tooknow more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="99b2b-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="99b2b-110">Prerequisites</span></span>
-<span data-ttu-id="99b2b-111">Para configurar a integração do AD do Azure com o Questetra BPM Suite, você precisa dos seguintes itens:</span><span class="sxs-lookup"><span data-stu-id="99b2b-111">To configure Azure AD integration with Questetra BPM Suite, you need the following items:</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="84bf7-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="84bf7-110">Prerequisites</span></span>
+<span data-ttu-id="84bf7-111">tooconfigure integração do AD do Azure com Questetra BPM Suite, você precisa Olá itens a seguir:</span><span class="sxs-lookup"><span data-stu-id="84bf7-111">tooconfigure Azure AD integration with Questetra BPM Suite, you need hello following items:</span></span>
 
-* <span data-ttu-id="99b2b-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="99b2b-112">An Azure AD subscription</span></span>
-* <span data-ttu-id="99b2b-113">Uma assinatura habilitada para logon único do [Questetra BPM Suite](https://senbon-imadegawa-988.questetra.net/)</span><span class="sxs-lookup"><span data-stu-id="99b2b-113">An [Questetra BPM Suite](https://senbon-imadegawa-988.questetra.net/) single-sign on enabled subscription</span></span>
+* <span data-ttu-id="84bf7-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="84bf7-112">An Azure AD subscription</span></span>
+* <span data-ttu-id="84bf7-113">Uma assinatura habilitada para logon único do [Questetra BPM Suite](https://senbon-imadegawa-988.questetra.net/)</span><span class="sxs-lookup"><span data-stu-id="84bf7-113">An [Questetra BPM Suite](https://senbon-imadegawa-988.questetra.net/) single-sign on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="99b2b-114">Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="99b2b-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="84bf7-114">Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="84bf7-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 > 
 > 
 
-<span data-ttu-id="99b2b-115">Para testar as etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="99b2b-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="84bf7-115">tootest Olá etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="84bf7-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-* <span data-ttu-id="99b2b-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="99b2b-116">You should not use your production environment, unless this is necessary.</span></span>
-* <span data-ttu-id="99b2b-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="99b2b-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span> 
+* <span data-ttu-id="84bf7-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="84bf7-116">You should not use your production environment, unless this is necessary.</span></span>
+* <span data-ttu-id="84bf7-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="84bf7-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span> 
 
-## <a name="scenario-description"></a><span data-ttu-id="99b2b-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="99b2b-118">Scenario Description</span></span>
-<span data-ttu-id="99b2b-119">O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="99b2b-119">The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.</span></span>  
-<span data-ttu-id="99b2b-120">O cenário descrito neste tutorial consiste em três blocos de construção principais:</span><span class="sxs-lookup"><span data-stu-id="99b2b-120">The scenario outlined in this tutorial consists of three main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="84bf7-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="84bf7-118">Scenario Description</span></span>
+<span data-ttu-id="84bf7-119">Olá objetivo deste tutorial é tooenable tootest logon único do AD do Azure em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="84bf7-119">hello objective of this tutorial is tooenable you tootest Azure AD single sign-on in a test environment.</span></span>  
+<span data-ttu-id="84bf7-120">cenário de saudação descrito neste tutorial consiste em três principais blocos de construção:</span><span class="sxs-lookup"><span data-stu-id="84bf7-120">hello scenario outlined in this tutorial consists of three main building blocks:</span></span>
 
-1. <span data-ttu-id="99b2b-121">Adicionar um Questetra BPM Suite da galeria</span><span class="sxs-lookup"><span data-stu-id="99b2b-121">Adding Questetra BPM Suite from the gallery</span></span> 
-2. <span data-ttu-id="99b2b-122">Configurar e testar o logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="99b2b-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="84bf7-121">Adicionar pacote de BPM Questetra da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="84bf7-121">Adding Questetra BPM Suite from hello gallery</span></span> 
+2. <span data-ttu-id="84bf7-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="84bf7-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-questetra-bpm-suite-from-the-gallery"></a><span data-ttu-id="99b2b-123">Adicionar um Questetra BPM Suite da galeria</span><span class="sxs-lookup"><span data-stu-id="99b2b-123">Adding Questetra BPM Suite from the gallery</span></span>
-<span data-ttu-id="99b2b-124">Para configurar a integração do Questetra BPM Suite com o AD do Azure, você precisa adicionar o Questetra BPM Suite, por meio da galeria, à sua lista de aplicativos de SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="99b2b-124">To configure the integration of Questetra BPM Suite into Azure AD, you need to add Questetra BPM Suite from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-questetra-bpm-suite-from-hello-gallery"></a><span data-ttu-id="84bf7-123">Adicionar pacote de BPM Questetra da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="84bf7-123">Adding Questetra BPM Suite from hello gallery</span></span>
+<span data-ttu-id="84bf7-124">integração de saudação tooconfigure do pacote de BPM Questetra no AD do Azure, você precisa tooadd Questetra BPM Suite da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="84bf7-124">tooconfigure hello integration of Questetra BPM Suite into Azure AD, you need tooadd Questetra BPM Suite from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="99b2b-125">**Para adicionar o Questetra BPM Suite por meio da galeria, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="99b2b-125">**To add Questetra BPM Suite from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="84bf7-125">**tooadd Questetra BPM Suite da Galeria hello, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="84bf7-125">**tooadd Questetra BPM Suite from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="99b2b-126">No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-126">In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.</span></span> 
+1. <span data-ttu-id="84bf7-126">Em Olá **portal clássico do Azure**, em Olá painel de navegação esquerdo, clique em **do Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-126">In hello **Azure classic portal**, on hello left navigation pane, click **Active Directory**.</span></span> 
    
     ![Active Directory][1]
 
-2. <span data-ttu-id="99b2b-128">Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.</span><span class="sxs-lookup"><span data-stu-id="99b2b-128">From the **Directory** list, select the directory for which you want to enable directory integration.</span></span>
+2. <span data-ttu-id="84bf7-128">De saudação **diretório** lista, pasta de Olá select para o qual você deseja tooenable integração de diretório.</span><span class="sxs-lookup"><span data-stu-id="84bf7-128">From hello **Directory** list, select hello directory for which you want tooenable directory integration.</span></span>
 
-3. <span data-ttu-id="99b2b-129">Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.</span><span class="sxs-lookup"><span data-stu-id="99b2b-129">To open the applications view, in the directory view, click **Applications** in the top menu.</span></span>
+3. <span data-ttu-id="84bf7-129">Clique em exibição de aplicativos tooopen hello, no modo de exibição de diretório Olá, **aplicativos** no menu superior hello.</span><span class="sxs-lookup"><span data-stu-id="84bf7-129">tooopen hello applications view, in hello directory view, click **Applications** in hello top menu.</span></span>
    
     ![Aplicativos][2]
 
-4. <span data-ttu-id="99b2b-131">Clique em **Adicionar** na parte inferior da página.</span><span class="sxs-lookup"><span data-stu-id="99b2b-131">Click **Add** at the bottom of the page.</span></span>
+4. <span data-ttu-id="84bf7-131">Clique em **adicionar** final Olá Olá página.</span><span class="sxs-lookup"><span data-stu-id="84bf7-131">Click **Add** at hello bottom of hello page.</span></span>
    
     ![Aplicativos][3]
 
-5. <span data-ttu-id="99b2b-133">Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-133">On the **What do you want to do** dialog, click **Add an application from the gallery**.</span></span>
+5. <span data-ttu-id="84bf7-133">Em Olá **o que fazer você deseja toodo** caixa de diálogo, clique em **adicionar um aplicativo da Galeria Olá**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-133">On hello **What do you want toodo** dialog, click **Add an application from hello gallery**.</span></span>
    
     ![Aplicativos][4]
 
-6. <span data-ttu-id="99b2b-135">Na caixa de pesquisa, digite **Questetra BPM Suite**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-135">In the search box, type **Questetra BPM Suite**.</span></span>
+6. <span data-ttu-id="84bf7-135">Na caixa de pesquisa hello, digite **Questetra BPM Suite**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-135">In hello search box, type **Questetra BPM Suite**.</span></span>
    
     ![Aplicativos][5]
 
-7. <span data-ttu-id="99b2b-137">No painel de resultados, selecione **Questetra BPM Suite** e clique em **Concluir** para adicionar o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="99b2b-137">In the results pane, select **Questetra BPM Suite**, and then click **Complete** to add the application.</span></span>
+7. <span data-ttu-id="84bf7-137">No painel de resultados de saudação, selecione **Questetra BPM Suite**e, em seguida, clique em **concluir** aplicativo hello de tooadd.</span><span class="sxs-lookup"><span data-stu-id="84bf7-137">In hello results pane, select **Questetra BPM Suite**, and then click **Complete** tooadd hello application.</span></span>
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="99b2b-138">configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="99b2b-138">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="99b2b-139">O objetivo desta seção é mostrar como configurar e testar logon único do AD do Azure com o Questetra BPM Suite, com base em um usuário de teste chamado "Britta Simon".</span><span class="sxs-lookup"><span data-stu-id="99b2b-139">The objective of this section is to show you how to configure and test Azure AD single sign-on with Questetra BPM Suite based on a test user called "Britta Simon".</span></span>
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="84bf7-138">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="84bf7-138">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="84bf7-139">Olá o objetivo desta seção é tooshow como tooconfigure e teste de logon único do AD do Azure com o pacote de BPM Questetra com base em um usuário de teste chamado "Britta Simon".</span><span class="sxs-lookup"><span data-stu-id="84bf7-139">hello objective of this section is tooshow you how tooconfigure and test Azure AD single sign-on with Questetra BPM Suite based on a test user called "Britta Simon".</span></span>
 
-<span data-ttu-id="99b2b-140">Para que o logon único funcione, o Azure AD precisa saber qual usuário do Questetra BPM Suite é equivalente a um usuário do AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="99b2b-140">For single sign-on to work, Azure AD needs to know what the counterpart user in Questetra BPM Suite to an user in Azure AD is.</span></span> <span data-ttu-id="99b2b-141">Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do AD do Azure e o usuário relacionado do Questetra BPM Suite.</span><span class="sxs-lookup"><span data-stu-id="99b2b-141">In other words, a link relationship between an Azure AD user and the related user in Questetra BPM Suite needs to be established.</span></span>  
-<span data-ttu-id="99b2b-142">Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** no Questetra BPM Suite.</span><span class="sxs-lookup"><span data-stu-id="99b2b-142">This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Questetra BPM Suite.</span></span>
+<span data-ttu-id="84bf7-140">Para toowork de logon único, o AD do Azure precisa tooknow é que usuário de contraparte saudação do usuário do pacote de BPM Questetra tooan no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="84bf7-140">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in Questetra BPM Suite tooan user in Azure AD is.</span></span> <span data-ttu-id="84bf7-141">Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no pacote de BPM Questetra precisa toobe estabelecida.</span><span class="sxs-lookup"><span data-stu-id="84bf7-141">In other words, a link relationship between an Azure AD user and hello related user in Questetra BPM Suite needs toobe established.</span></span>  
+<span data-ttu-id="84bf7-142">Essa relação de link é estabelecida pela atribuição de valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** no pacote de BPM Questetra.</span><span class="sxs-lookup"><span data-stu-id="84bf7-142">This link relationship is established by assigning hello value of hello **user name** in Azure AD as hello value of hello **Username** in Questetra BPM Suite.</span></span>
 
-<span data-ttu-id="99b2b-143">Para configurar e testar o logon único do AD do Azure com o Questetra BPM Suite, você precisa concluir os seguintes blocos de construção:</span><span class="sxs-lookup"><span data-stu-id="99b2b-143">To configure and test Azure AD single sign-on with Questetra BPM Suite, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="84bf7-143">tooconfigure e teste de logon único do AD do Azure com Questetra BPM Suite, você precisa Olá toocomplete blocos de construção a seguir:</span><span class="sxs-lookup"><span data-stu-id="84bf7-143">tooconfigure and test Azure AD single sign-on with Questetra BPM Suite, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="99b2b-144">**[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** - para habilitar seus usuários para usar esse recurso.</span><span class="sxs-lookup"><span data-stu-id="99b2b-144">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="99b2b-145">**[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="99b2b-145">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="99b2b-146">**[Criar um usuário de teste do Questetra BPM Suite](#creating-a-questetra-bpm-suite-test-user)** - para ter um equivalente de Britta Simon no Questetra BPM Suite que esteja vinculado à representação dela no Azure AD.</span><span class="sxs-lookup"><span data-stu-id="99b2b-146">**[Creating a Questetra BPM Suite test user](#creating-a-questetra-bpm-suite-test-user)** - to have a counterpart of Britta Simon in Questetra BPM Suite that is linked to the Azure AD representation of her.</span></span>
-4. <span data-ttu-id="99b2b-147">**[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="99b2b-147">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="99b2b-148">**[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.</span><span class="sxs-lookup"><span data-stu-id="99b2b-148">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="84bf7-144">**[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)**  -tooenable toouse seus usuários esse recurso.</span><span class="sxs-lookup"><span data-stu-id="84bf7-144">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="84bf7-145">**[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="84bf7-145">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="84bf7-146">**[Criar um usuário de teste do pacote de BPM Questetra](#creating-a-questetra-bpm-suite-test-user)**  -toohave um equivalente do Britta Simon no pacote de BPM Questetra que é a representação toohello vinculado do Azure AD de seus.</span><span class="sxs-lookup"><span data-stu-id="84bf7-146">**[Creating a Questetra BPM Suite test user](#creating-a-questetra-bpm-suite-test-user)** - toohave a counterpart of Britta Simon in Questetra BPM Suite that is linked toohello Azure AD representation of her.</span></span>
+4. <span data-ttu-id="84bf7-147">**[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.</span><span class="sxs-lookup"><span data-stu-id="84bf7-147">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="84bf7-148">**[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.</span><span class="sxs-lookup"><span data-stu-id="84bf7-148">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="99b2b-149">Configuração do logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="99b2b-149">Configuring Azure AD Single Sign-On</span></span>
-<span data-ttu-id="99b2b-150">O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure e configurar o logon único em seu aplicativo do Questetra BPM Suite.</span><span class="sxs-lookup"><span data-stu-id="99b2b-150">The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Questetra BPM Suite application.</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="84bf7-149">Configuração do logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="84bf7-149">Configuring Azure AD Single Sign-On</span></span>
+<span data-ttu-id="84bf7-150">Olá objetivo desta seção é tooenable AD do Azure-logon único no hello portal clássico do Azure e tooconfigure logon único no aplicativo Questetra BPM Suite.</span><span class="sxs-lookup"><span data-stu-id="84bf7-150">hello objective of this section is tooenable Azure AD single sign-on in hello Azure classic portal and tooconfigure single sign-on in your Questetra BPM Suite application.</span></span>
 
-<span data-ttu-id="99b2b-151">**Para configurar o logon único do AD do Azure com o Questetra BPM Suite, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="99b2b-151">**To configure Azure AD single sign-on with Questetra BPM Suite, perform the following steps:**</span></span>
+<span data-ttu-id="84bf7-151">**tooconfigure logon único do AD do Azure com o pacote de BPM Questetra, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="84bf7-151">**tooconfigure Azure AD single sign-on with Questetra BPM Suite, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="99b2b-152">No portal clássico do Azure, na página de integração de aplicativos do **Questetra BPM Suite**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-152">In the Azure classic portal, on the **Questetra BPM Suite** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.</span></span>
+1. <span data-ttu-id="84bf7-152">Em Olá portal clássico do Azure, em Olá **Questetra BPM Suite** página de integração de aplicativos, clique em **configurar logon único** tooopen Olá **configurar logon único**  caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="84bf7-152">In hello Azure classic portal, on hello **Questetra BPM Suite** application integration page, click **Configure single sign-on** tooopen hello **Configure Single Sign-On**  dialog.</span></span>
    
-    ![Configurar o logon único][8]
+    ![Configurar Logon Único][8]
 
-2. <span data-ttu-id="99b2b-154">Na página **Como você deseja que os usuários façam logon no Questetra BPM Suite**, selecione **Logon Único do Azure AD** e clique em **Avançar**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-154">On the **How would you like users to sign on to Questetra BPM Suite** page, select **Azure AD Single Sign-On**, and then click **Next**.</span></span>
+2. <span data-ttu-id="84bf7-154">Em Olá **como você gostaria usuários toosign em tooQuestetra BPM Suite** página, selecione **do Azure AD Single Sign-On**e, em seguida, clique em **próximo**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-154">On hello **How would you like users toosign on tooQuestetra BPM Suite** page, select **Azure AD Single Sign-On**, and then click **Next**.</span></span>
    
     ![Logon Único do AD do Azure][9]
 
-3. <span data-ttu-id="99b2b-156">Em outra janela do navegador da Web, faça logon em seu site de empresa **Questetra BPM Suite** como administrador.</span><span class="sxs-lookup"><span data-stu-id="99b2b-156">In a different web browser window, log into your **Questetra BPM Suite** company site as an administrator.</span></span>
+3. <span data-ttu-id="84bf7-156">Em outra janela do navegador da Web, faça logon em seu site de empresa **Questetra BPM Suite** como administrador.</span><span class="sxs-lookup"><span data-stu-id="84bf7-156">In a different web browser window, log into your **Questetra BPM Suite** company site as an administrator.</span></span>
 
-4. <span data-ttu-id="99b2b-157">No menu na parte superior, clique em **Configurações do Sistema**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-157">In the menu on the top, click **System Settings**.</span></span> 
+4. <span data-ttu-id="84bf7-157">No menu de saudação na parte superior de saudação, clique em **configurações do sistema**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-157">In hello menu on hello top, click **System Settings**.</span></span> 
    
     ![Logon Único do AD do Azure][10]
 
-5. <span data-ttu-id="99b2b-159">Para abrir a página **SingleSignOnSAML**, clique em **SSO (SAML)**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-159">To open the **SingleSignOnSAML** page, click **SSO (SAML)**.</span></span> 
+5. <span data-ttu-id="84bf7-159">Olá tooopen **SingleSignOnSAML** , clique em **SSO (SAML)**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-159">tooopen hello **SingleSignOnSAML** page, click **SSO (SAML)**.</span></span> 
    
     ![Logon Único do AD do Azure][11]
 
-6. <span data-ttu-id="99b2b-161">No portal clássico do Azure, na página de diálogo **Definir Configurações de Aplicativo** , execute estas etapas:</span><span class="sxs-lookup"><span data-stu-id="99b2b-161">In the Azure classic portal, on the **Configure App Settings** dialog page, perform the following steps:</span></span> 
+6. <span data-ttu-id="84bf7-161">Em Olá portal clássico do Azure, em Olá **definir configurações de aplicativo** caixa de diálogo de página, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="84bf7-161">In hello Azure classic portal, on hello **Configure App Settings** dialog page, perform hello following steps:</span></span> 
    
-    ![Definir Configurações de Aplicativo][13]
+    ![Definir configurações de aplicativo][13]
    
-    <span data-ttu-id="99b2b-163">a.</span><span class="sxs-lookup"><span data-stu-id="99b2b-163">a.</span></span> <span data-ttu-id="99b2b-164">No site de empresa do **Questetra BPM Suite**, na seção Informações do SP, copie a **URL de ACS** e cole-a na caixa de texto **URL de Entrada**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-164">On you **Questetra BPM Suite** company site, in the SP Information section, copy the **ACS URL**, and then paste it into the **Sign On URL** textbox.</span></span>
+    <span data-ttu-id="84bf7-163">a.</span><span class="sxs-lookup"><span data-stu-id="84bf7-163">a.</span></span> <span data-ttu-id="84bf7-164">Você **Questetra BPM Suite** Olá seção SP informações do site de empresa, Olá cópia **URL do ACS**e, em seguida, cole-Olá **URL de logon** caixa de texto.</span><span class="sxs-lookup"><span data-stu-id="84bf7-164">On you **Questetra BPM Suite** company site, in hello SP Information section, copy hello **ACS URL**, and then paste it into hello **Sign On URL** textbox.</span></span>
    
-    <span data-ttu-id="99b2b-165">b.</span><span class="sxs-lookup"><span data-stu-id="99b2b-165">b.</span></span> <span data-ttu-id="99b2b-166">No site de empresa do **Questetra BPM Suite**, na seção Informações do SP, copie a **ID de Entidade** e cole-a na caixa de texto **URL do Emissor**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-166">On you **Questetra BPM Suite** company site, in the SP Information section, copy the **Entity ID**, and then paste it into the **Issuer URL** textbox.</span></span>
+    <span data-ttu-id="84bf7-165">b.</span><span class="sxs-lookup"><span data-stu-id="84bf7-165">b.</span></span> <span data-ttu-id="84bf7-166">Você **Questetra BPM Suite** Olá seção SP informações do site de empresa, Olá cópia **ID da entidade**e, em seguida, cole-Olá **URL do emissor** caixa de texto.</span><span class="sxs-lookup"><span data-stu-id="84bf7-166">On you **Questetra BPM Suite** company site, in hello SP Information section, copy hello **Entity ID**, and then paste it into hello **Issuer URL** textbox.</span></span>
    
-    <span data-ttu-id="99b2b-167">c.</span><span class="sxs-lookup"><span data-stu-id="99b2b-167">c.</span></span> <span data-ttu-id="99b2b-168">No site de empresa do **Questetra BPM Suite**, na seção Informações do SP, copie a **URL de ACS** e cole-a na caixa de texto **URL de Resposta**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-168">On you **Questetra BPM Suite** company site, in the SP Information section, copy the **ACS URL**, and then paste it into the **Reply URL** textbox.</span></span>
+    <span data-ttu-id="84bf7-167">c.</span><span class="sxs-lookup"><span data-stu-id="84bf7-167">c.</span></span> <span data-ttu-id="84bf7-168">Você **Questetra BPM Suite** Olá seção SP informações do site de empresa, Olá cópia **URL do ACS**e, em seguida, cole-Olá **URL de resposta** caixa de texto.</span><span class="sxs-lookup"><span data-stu-id="84bf7-168">On you **Questetra BPM Suite** company site, in hello SP Information section, copy hello **ACS URL**, and then paste it into hello **Reply URL** textbox.</span></span>
    
-    <span data-ttu-id="99b2b-169">d.</span><span class="sxs-lookup"><span data-stu-id="99b2b-169">d.</span></span> <span data-ttu-id="99b2b-170">Clique em **Avançar**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-170">Click **Next**.</span></span>
+    <span data-ttu-id="84bf7-169">d.</span><span class="sxs-lookup"><span data-stu-id="84bf7-169">d.</span></span> <span data-ttu-id="84bf7-170">Clique em **Avançar**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-170">Click **Next**.</span></span>
 
-7. <span data-ttu-id="99b2b-171">Na página **Configurar logon único no Questetra BPM Suite**, clique em **Baixar certificado** e salve o arquivo de certificado localmente no computador.</span><span class="sxs-lookup"><span data-stu-id="99b2b-171">On the **Configure single sign-on at Questetra BPM Suite** page, click **Download certificate**, and then save the certificate file locally on your computer.</span></span>
+7. <span data-ttu-id="84bf7-171">Em Olá **configurar logon único no pacote de BPM Questetra** , clique em **Download certificado**e, em seguida, salve o arquivo de certificado de saudação localmente no seu computador.</span><span class="sxs-lookup"><span data-stu-id="84bf7-171">On hello **Configure single sign-on at Questetra BPM Suite** page, click **Download certificate**, and then save hello certificate file locally on your computer.</span></span>
    
-    ![Configurar o logon único][14]
+    ![Configurar Logon Único][14]
 
-8. <span data-ttu-id="99b2b-173">No seu site da empresa **Questetra BPM Suite** , execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="99b2b-173">On you **Questetra BPM Suite** company site, perform the following steps:</span></span> 
+8. <span data-ttu-id="84bf7-173">Você **Questetra BPM Suite** site da empresa, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="84bf7-173">On you **Questetra BPM Suite** company site, perform hello following steps:</span></span> 
    
     ![Configurar Logon Único][15]
    
-    <span data-ttu-id="99b2b-175">a.</span><span class="sxs-lookup"><span data-stu-id="99b2b-175">a.</span></span> <span data-ttu-id="99b2b-176">Selecione **Habilitar Logon Único**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-176">Select **Enable Single Sign-On**.</span></span>
+    <span data-ttu-id="84bf7-175">a.</span><span class="sxs-lookup"><span data-stu-id="84bf7-175">a.</span></span> <span data-ttu-id="84bf7-176">Selecione **Habilitar Logon Único**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-176">Select **Enable Single Sign-On**.</span></span>
    
-    <span data-ttu-id="99b2b-177">b.</span><span class="sxs-lookup"><span data-stu-id="99b2b-177">b.</span></span> <span data-ttu-id="99b2b-178">No portal clássico do Azure, copie o valor da **URL do Emissor** e cole-o na caixa de texto **ID de Entidade**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-178">On the Azure classic portal, copy the **Issuer URL** value, and then paste it into the **Entity ID** textbox.</span></span>
+    <span data-ttu-id="84bf7-177">b.</span><span class="sxs-lookup"><span data-stu-id="84bf7-177">b.</span></span> <span data-ttu-id="84bf7-178">No hello portal clássico do Azure, copie Olá **URL do emissor** valor e, em seguida, cole-o em Olá **ID da entidade** caixa de texto.</span><span class="sxs-lookup"><span data-stu-id="84bf7-178">On hello Azure classic portal, copy hello **Issuer URL** value, and then paste it into hello **Entity ID** textbox.</span></span>
    
-    <span data-ttu-id="99b2b-179">c.</span><span class="sxs-lookup"><span data-stu-id="99b2b-179">c.</span></span> <span data-ttu-id="99b2b-180">No portal clássico do Azure, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL da página de conexão**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-180">On the Azure classic portal, copy the **Single Sign-On Service URL** value, and then paste it into the **Sign-in page URL** textbox.</span></span>
+    <span data-ttu-id="84bf7-179">c.</span><span class="sxs-lookup"><span data-stu-id="84bf7-179">c.</span></span> <span data-ttu-id="84bf7-180">No hello portal clássico do Azure, copie Olá **o URL de serviço de logon único** valor e, em seguida, cole-o em Olá **URL da página de entrada** caixa de texto.</span><span class="sxs-lookup"><span data-stu-id="84bf7-180">On hello Azure classic portal, copy hello **Single Sign-On Service URL** value, and then paste it into hello **Sign-in page URL** textbox.</span></span>
    
-    <span data-ttu-id="99b2b-181">d.</span><span class="sxs-lookup"><span data-stu-id="99b2b-181">d.</span></span> <span data-ttu-id="99b2b-182">No portal clássico do Azure, copie o valor da **URL do Serviço de Saída Único** e cole-o na caixa de texto **URL da página de saída**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-182">On the Azure classic portal, copy the **Single Sign-Out Service URL** value, and then paste it into the **Sign-out page URL** textbox.</span></span>
+    <span data-ttu-id="84bf7-181">d.</span><span class="sxs-lookup"><span data-stu-id="84bf7-181">d.</span></span> <span data-ttu-id="84bf7-182">No hello portal clássico do Azure, copie Olá **URL do serviço de logon único** valor e, em seguida, cole-o em Olá **URL da página de logout** caixa de texto.</span><span class="sxs-lookup"><span data-stu-id="84bf7-182">On hello Azure classic portal, copy hello **Single Sign-Out Service URL** value, and then paste it into hello **Sign-out page URL** textbox.</span></span>
    
-    <span data-ttu-id="99b2b-183">e.</span><span class="sxs-lookup"><span data-stu-id="99b2b-183">e.</span></span> <span data-ttu-id="99b2b-184">Na caixa de texto **Formato da NameID**, digite **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-184">In the **NameID format** textbox, type **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.</span></span>
+    <span data-ttu-id="84bf7-183">e.</span><span class="sxs-lookup"><span data-stu-id="84bf7-183">e.</span></span> <span data-ttu-id="84bf7-184">Em Olá **formato NameID** caixa de texto, tipo **urn: oasis: nomes: tc: SAML: 1.1 nameid-format: emailAddress**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-184">In hello **NameID format** textbox, type **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.</span></span>
 
-    <span data-ttu-id="99b2b-185">f.</span><span class="sxs-lookup"><span data-stu-id="99b2b-185">f.</span></span> <span data-ttu-id="99b2b-186">Crie um arquivo codificado em base 64 usando o certificado baixado.</span><span class="sxs-lookup"><span data-stu-id="99b2b-186">Create a base-64 encoded file from your downloaded certificate.</span></span> 
+    <span data-ttu-id="84bf7-185">f.</span><span class="sxs-lookup"><span data-stu-id="84bf7-185">f.</span></span> <span data-ttu-id="84bf7-186">Crie um arquivo codificado em base 64 usando o certificado baixado.</span><span class="sxs-lookup"><span data-stu-id="84bf7-186">Create a base-64 encoded file from your downloaded certificate.</span></span> 
 
     >[!TIP] 
-    ><span data-ttu-id="99b2b-187">Para obter mais detalhes, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).</span><span class="sxs-lookup"><span data-stu-id="99b2b-187">For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).</span></span>
+    ><span data-ttu-id="84bf7-187">Para obter mais detalhes, consulte [como tooconvert um binário de certificado em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).</span><span class="sxs-lookup"><span data-stu-id="84bf7-187">For more details, see [How tooconvert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).</span></span>
 
-    <span data-ttu-id="99b2b-188">g.</span><span class="sxs-lookup"><span data-stu-id="99b2b-188">g.</span></span> <span data-ttu-id="99b2b-189">Abra seu certificado codificado em base-64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado de validação** .</span><span class="sxs-lookup"><span data-stu-id="99b2b-189">Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it into the **Validation certificate** textbox.</span></span> 
+    <span data-ttu-id="84bf7-188">g.</span><span class="sxs-lookup"><span data-stu-id="84bf7-188">g.</span></span> <span data-ttu-id="84bf7-189">Abra seu certificado codificado em base 64 no bloco de notas, Olá de copiar conteúdo dele para sua área de transferência e, em seguida, cole-Olá **certificado de validação** caixa de texto.</span><span class="sxs-lookup"><span data-stu-id="84bf7-189">Open your base-64 encoded certificate in notepad, copy hello content of it into your clipboard, and then paste it into hello **Validation certificate** textbox.</span></span> 
 
-    <span data-ttu-id="99b2b-190">h.</span><span class="sxs-lookup"><span data-stu-id="99b2b-190">h.</span></span> <span data-ttu-id="99b2b-191">Clique em **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-191">Click **Save**.</span></span>
+    <span data-ttu-id="84bf7-190">h.</span><span class="sxs-lookup"><span data-stu-id="84bf7-190">h.</span></span> <span data-ttu-id="84bf7-191">Clique em **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-191">Click **Save**.</span></span>
 
-1. <span data-ttu-id="99b2b-192">No portal clássico do Azure, selecione a confirmação de configuração de logon único e clique em **Avançar**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-192">On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.</span></span> 
+1. <span data-ttu-id="84bf7-192">Em Olá portal clássico do Azure, selecione a confirmação de configuração de logon único do hello e, em seguida, clique em **próximo**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-192">On hello Azure classic portal, select hello single sign-on configuration confirmation, and then click **Next**.</span></span> 
    
     ![O que é o Azure AD Connect][17]
 
-2. <span data-ttu-id="99b2b-194">Na página **Confirmação de logon único**, clique em **Concluir**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-194">On the **Single sign-on confirmation** page, click **Complete**.</span></span>  
+2. <span data-ttu-id="84bf7-194">Em Olá **único logon confirmação** , clique em **concluir**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-194">On hello **Single sign-on confirmation** page, click **Complete**.</span></span>  
    
     ![O que é o Azure AD Connect][18]
 
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="99b2b-196">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="99b2b-196">Creating an Azure AD test user</span></span>
-<span data-ttu-id="99b2b-197">O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="99b2b-197">The objective of this section is to create a test user in the Azure classic portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="84bf7-196">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="84bf7-196">Creating an Azure AD test user</span></span>
+<span data-ttu-id="84bf7-197">Olá objetivo desta seção é toocreate um usuário de teste no hello portal clássico do Azure chamado Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="84bf7-197">hello objective of this section is toocreate a test user in hello Azure classic portal called Britta Simon.</span></span>
 
-<span data-ttu-id="99b2b-198">**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="99b2b-198">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="84bf7-198">**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="84bf7-198">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="99b2b-199">No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-199">In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.</span></span>
+1. <span data-ttu-id="84bf7-199">Em Olá **portal clássico do Azure**, em Olá painel de navegação esquerdo, clique em **do Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-199">In hello **Azure classic portal**, on hello left navigation pane, click **Active Directory**.</span></span>
    
     ![Criar um usuário de teste do AD do Azure][100] 
 
-2. <span data-ttu-id="99b2b-201">Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.</span><span class="sxs-lookup"><span data-stu-id="99b2b-201">From the **Directory** list, select the directory for which you want to enable directory integration.</span></span>
+2. <span data-ttu-id="84bf7-201">De saudação **diretório** lista, pasta de Olá select para o qual você deseja tooenable integração de diretório.</span><span class="sxs-lookup"><span data-stu-id="84bf7-201">From hello **Directory** list, select hello directory for which you want tooenable directory integration.</span></span>
 
-3. <span data-ttu-id="99b2b-202">Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-202">To display the list of users, in the menu on the top, click **Users**.</span></span>
+3. <span data-ttu-id="84bf7-202">lista de saudação toodisplay de usuários, no menu de saudação na parte superior do hello, clique em **usuários**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-202">toodisplay hello list of users, in hello menu on hello top, click **Users**.</span></span>
    
     ![Criar um usuário de teste do AD do Azure][101] 
 
-4. <span data-ttu-id="99b2b-204">Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-204">To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.</span></span> 
+4. <span data-ttu-id="84bf7-204">Olá tooopen **adicionar usuário** caixa de diálogo, na barra de ferramentas Olá inferior hello, clique em **adicionar usuário**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-204">tooopen hello **Add User** dialog, in hello toolbar on hello bottom, click **Add User**.</span></span> 
    
     ![Criar um usuário de teste do AD do Azure][102] 
 
-5. <span data-ttu-id="99b2b-206">Na página do diálogo **Conte-nos sobre este usuário** , execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="99b2b-206">On the **Tell us about this user** dialog page, perform the following steps:</span></span>
+5. <span data-ttu-id="84bf7-206">Em Olá **Conte-nos sobre este usuário** caixa de diálogo de página, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="84bf7-206">On hello **Tell us about this user** dialog page, perform hello following steps:</span></span>
    
     ![Criar um usuário de teste do AD do Azure][103]
    
-    <span data-ttu-id="99b2b-208">a.</span><span class="sxs-lookup"><span data-stu-id="99b2b-208">a.</span></span> <span data-ttu-id="99b2b-209">Em **Tipo de Usuário**, selecione **Novo usuário na organização**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-209">As **Type Of User**, select **New user in your organization**.</span></span>
+    <span data-ttu-id="84bf7-208">a.</span><span class="sxs-lookup"><span data-stu-id="84bf7-208">a.</span></span> <span data-ttu-id="84bf7-209">Em **Tipo de Usuário**, selecione **Novo usuário na organização**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-209">As **Type Of User**, select **New user in your organization**.</span></span>
    
-    <span data-ttu-id="99b2b-210">b.</span><span class="sxs-lookup"><span data-stu-id="99b2b-210">b.</span></span> <span data-ttu-id="99b2b-211">Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-211">In the User Name **textbox**, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="84bf7-210">b.</span><span class="sxs-lookup"><span data-stu-id="84bf7-210">b.</span></span> <span data-ttu-id="84bf7-211">Em nome de usuário de saudação **textbox**, tipo **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-211">In hello User Name **textbox**, type **BrittaSimon**.</span></span>
    
-    <span data-ttu-id="99b2b-212">c.</span><span class="sxs-lookup"><span data-stu-id="99b2b-212">c.</span></span> <span data-ttu-id="99b2b-213">Clique em Avançar.</span><span class="sxs-lookup"><span data-stu-id="99b2b-213">Click Next.</span></span>
+    <span data-ttu-id="84bf7-212">c.</span><span class="sxs-lookup"><span data-stu-id="84bf7-212">c.</span></span> <span data-ttu-id="84bf7-213">Clique em Avançar.</span><span class="sxs-lookup"><span data-stu-id="84bf7-213">Click Next.</span></span>
 
-6. <span data-ttu-id="99b2b-214">Na página da caixa de diálogo **Perfil do Usuário** , execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="99b2b-214">On the **User Profile** dialog page, perform the following steps:</span></span> 
+6. <span data-ttu-id="84bf7-214">Em Olá **perfil de usuário** caixa de diálogo de página, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="84bf7-214">On hello **User Profile** dialog page, perform hello following steps:</span></span> 
    
     ![Criar um usuário de teste do AD do Azure][104] 
    
-    <span data-ttu-id="99b2b-216">a.</span><span class="sxs-lookup"><span data-stu-id="99b2b-216">a.</span></span> <span data-ttu-id="99b2b-217">Na caixa de texto **Nome**, digite **Brenda**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-217">In the **First Name** textbox, type **Britta**.</span></span> 
+    <span data-ttu-id="84bf7-216">a.</span><span class="sxs-lookup"><span data-stu-id="84bf7-216">a.</span></span> <span data-ttu-id="84bf7-217">Em Olá **nome** caixa de texto, tipo **Britta**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-217">In hello **First Name** textbox, type **Britta**.</span></span> 
    
-    <span data-ttu-id="99b2b-218">b.</span><span class="sxs-lookup"><span data-stu-id="99b2b-218">b.</span></span> <span data-ttu-id="99b2b-219">Na caixa de texto **Sobrenome**, digite **Fernandes**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-219">In the **Last Name** textbox, type, **Simon**.</span></span>
+    <span data-ttu-id="84bf7-218">b.</span><span class="sxs-lookup"><span data-stu-id="84bf7-218">b.</span></span> <span data-ttu-id="84bf7-219">Em Olá **Sobrenome** caixa de texto, tipo, **Simon**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-219">In hello **Last Name** textbox, type, **Simon**.</span></span>
    
-    <span data-ttu-id="99b2b-220">c.</span><span class="sxs-lookup"><span data-stu-id="99b2b-220">c.</span></span> <span data-ttu-id="99b2b-221">Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-221">In the **Display Name** textbox, type **Britta Simon**.</span></span>
+    <span data-ttu-id="84bf7-220">c.</span><span class="sxs-lookup"><span data-stu-id="84bf7-220">c.</span></span> <span data-ttu-id="84bf7-221">Em Olá **nome de exibição** caixa de texto, tipo **Britta Simon**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-221">In hello **Display Name** textbox, type **Britta Simon**.</span></span>
    
-    <span data-ttu-id="99b2b-222">d.</span><span class="sxs-lookup"><span data-stu-id="99b2b-222">d.</span></span> <span data-ttu-id="99b2b-223">Na lista **Função**, selecione **Usuário**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-223">In the **Role** list, select **User**.</span></span>
+    <span data-ttu-id="84bf7-222">d.</span><span class="sxs-lookup"><span data-stu-id="84bf7-222">d.</span></span> <span data-ttu-id="84bf7-223">Em Olá **função** lista, selecione **usuário**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-223">In hello **Role** list, select **User**.</span></span>
    
-    <span data-ttu-id="99b2b-224">e.</span><span class="sxs-lookup"><span data-stu-id="99b2b-224">e.</span></span> <span data-ttu-id="99b2b-225">Clique em **Avançar**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-225">Click **Next**.</span></span>
+    <span data-ttu-id="84bf7-224">e.</span><span class="sxs-lookup"><span data-stu-id="84bf7-224">e.</span></span> <span data-ttu-id="84bf7-225">Clique em **Avançar**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-225">Click **Next**.</span></span>
 
-7. <span data-ttu-id="99b2b-226">Na página de diálogo **Obter senha temporária**, clique em **criar**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-226">On the **Get temporary password** dialog page, click **create**.</span></span>
+7. <span data-ttu-id="84bf7-226">Em Olá **obter senha temporária** página da caixa de diálogo, clique em **criar**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-226">On hello **Get temporary password** dialog page, click **create**.</span></span>
    
     ![Criar um usuário de teste do AD do Azure][105]  
 
-8. <span data-ttu-id="99b2b-228">Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="99b2b-228">On the **Get temporary password** dialog page, perform the following steps:</span></span>
+8. <span data-ttu-id="84bf7-228">Em Olá **obter senha temporária** caixa de diálogo de página, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="84bf7-228">On hello **Get temporary password** dialog page, perform hello following steps:</span></span>
    
     ![Criar um usuário de teste do AD do Azure][106]   
    
-    <span data-ttu-id="99b2b-230">a.</span><span class="sxs-lookup"><span data-stu-id="99b2b-230">a.</span></span> <span data-ttu-id="99b2b-231">Anote o valor da **Nova Senha**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-231">Write down the value of the **New Password**.</span></span>
+    <span data-ttu-id="84bf7-230">a.</span><span class="sxs-lookup"><span data-stu-id="84bf7-230">a.</span></span> <span data-ttu-id="84bf7-231">Anote o valor Olá Olá **nova senha**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-231">Write down hello value of hello **New Password**.</span></span>
    
-    <span data-ttu-id="99b2b-232">b.</span><span class="sxs-lookup"><span data-stu-id="99b2b-232">b.</span></span> <span data-ttu-id="99b2b-233">Clique em **Concluído**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-233">Click **Complete**.</span></span>   
+    <span data-ttu-id="84bf7-232">b.</span><span class="sxs-lookup"><span data-stu-id="84bf7-232">b.</span></span> <span data-ttu-id="84bf7-233">Clique em **Concluído**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-233">Click **Complete**.</span></span>   
 
-### <a name="creating-a-questetra-bpm-suite-test-user"></a><span data-ttu-id="99b2b-234">Criar um usuário de teste do Questetra BPM Suite</span><span class="sxs-lookup"><span data-stu-id="99b2b-234">Creating a Questetra BPM Suite test user</span></span>
-<span data-ttu-id="99b2b-235">O objetivo desta seção é criar um usuário chamado Britta Simon no Questetra BPM Suite.</span><span class="sxs-lookup"><span data-stu-id="99b2b-235">The objective of this section is to create a user called Britta Simon in Questetra BPM Suite.</span></span>
+### <a name="creating-a-questetra-bpm-suite-test-user"></a><span data-ttu-id="84bf7-234">Criar um usuário de teste do Questetra BPM Suite</span><span class="sxs-lookup"><span data-stu-id="84bf7-234">Creating a Questetra BPM Suite test user</span></span>
+<span data-ttu-id="84bf7-235">Olá o objetivo desta seção é toocreate um usuário chamado Britta Simon no pacote de BPM Questetra.</span><span class="sxs-lookup"><span data-stu-id="84bf7-235">hello objective of this section is toocreate a user called Britta Simon in Questetra BPM Suite.</span></span>
 
-<span data-ttu-id="99b2b-236">**Para criar um usuário chamado Brenda Fernandes no Questetra BPM Suite, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="99b2b-236">**To create a user called Britta Simon in Questetra BPM Suite, perform the following steps:**</span></span>
+<span data-ttu-id="84bf7-236">**toocreate um usuário chamado Britta Simon no pacote de BPM Questetra, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="84bf7-236">**toocreate a user called Britta Simon in Questetra BPM Suite, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="99b2b-237">Faça logon no site da sua empresa do Questetra BPM Suite como um administrador.</span><span class="sxs-lookup"><span data-stu-id="99b2b-237">Sign-on to your Questetra BPM Suite company site as an administrator.</span></span>
-2. <span data-ttu-id="99b2b-238">Vá para **Configurações do Sistema > Lista de Usuários > Novo Usuário**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-238">Go to **System Settings > User List > New User**.</span></span> 
-3. <span data-ttu-id="99b2b-239">Na caixa de diálogo Novo Usuário, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="99b2b-239">On the New User dialog, perform the following steps:</span></span> 
+1. <span data-ttu-id="84bf7-237">Site de empresa de Questetra BPM Suite tooyour logon como administrador.</span><span class="sxs-lookup"><span data-stu-id="84bf7-237">Sign-on tooyour Questetra BPM Suite company site as an administrator.</span></span>
+2. <span data-ttu-id="84bf7-238">Vá muito**configurações do sistema > lista de usuários > novo usuário**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-238">Go too**System Settings > User List > New User**.</span></span> 
+3. <span data-ttu-id="84bf7-239">Na caixa de diálogo de novo usuário hello, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="84bf7-239">On hello New User dialog, perform hello following steps:</span></span> 
    
     ![Criar um usuário de teste][300] 
    
-    <span data-ttu-id="99b2b-241">a.</span><span class="sxs-lookup"><span data-stu-id="99b2b-241">a.</span></span> <span data-ttu-id="99b2b-242">Na caixa de texto **Nome** , digite o nome de usuário Britta no Azure AD.</span><span class="sxs-lookup"><span data-stu-id="99b2b-242">In the **Name** textbox, type Britta's user name in Azure AD.</span></span>
+    <span data-ttu-id="84bf7-241">a.</span><span class="sxs-lookup"><span data-stu-id="84bf7-241">a.</span></span> <span data-ttu-id="84bf7-242">Em Olá **nome** caixa de texto, digite o nome de usuário de Britta no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="84bf7-242">In hello **Name** textbox, type Britta's user name in Azure AD.</span></span>
    
-    <span data-ttu-id="99b2b-243">b.</span><span class="sxs-lookup"><span data-stu-id="99b2b-243">b.</span></span> <span data-ttu-id="99b2b-244">Na caixa de texto **Email** , digite o nome de usuário Britta no Azure AD.</span><span class="sxs-lookup"><span data-stu-id="99b2b-244">In the **Email** textbox, type Britta's user name in Azure AD.</span></span>
+    <span data-ttu-id="84bf7-243">b.</span><span class="sxs-lookup"><span data-stu-id="84bf7-243">b.</span></span> <span data-ttu-id="84bf7-244">Em Olá **Email** caixa de texto, digite o nome de usuário de Britta no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="84bf7-244">In hello **Email** textbox, type Britta's user name in Azure AD.</span></span>
    
-    <span data-ttu-id="99b2b-245">c.</span><span class="sxs-lookup"><span data-stu-id="99b2b-245">c.</span></span> <span data-ttu-id="99b2b-246">Na caixa de texto **Senha** , digite uma senha.</span><span class="sxs-lookup"><span data-stu-id="99b2b-246">In the **Password** textbox, type a password.</span></span>
+    <span data-ttu-id="84bf7-245">c.</span><span class="sxs-lookup"><span data-stu-id="84bf7-245">c.</span></span> <span data-ttu-id="84bf7-246">Em Olá **senha** caixa de texto, digite uma senha.</span><span class="sxs-lookup"><span data-stu-id="84bf7-246">In hello **Password** textbox, type a password.</span></span>
 
-4. <span data-ttu-id="99b2b-247">Clique em **Adicionar novo usuário**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-247">Click **Add new user**.</span></span>
+4. <span data-ttu-id="84bf7-247">Clique em **Adicionar novo usuário**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-247">Click **Add new user**.</span></span>
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="99b2b-248">Atribuição do usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="99b2b-248">Assigning the Azure AD test user</span></span>
-<span data-ttu-id="99b2b-249">O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do Azure, concedendo a ela acesso ao Questetra BPM Suite.</span><span class="sxs-lookup"><span data-stu-id="99b2b-249">The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Questetra BPM Suite.</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="84bf7-248">Atribuir um usuário de teste de saudação do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="84bf7-248">Assigning hello Azure AD test user</span></span>
+<span data-ttu-id="84bf7-249">Olá objetivo desta seção é tooenabling Britta Simon toouse logon único do Azure concedendo tooQuestetra seu acesso BPM Suite.</span><span class="sxs-lookup"><span data-stu-id="84bf7-249">hello objective of this section is tooenabling Britta Simon toouse Azure single sign-on by granting her access tooQuestetra BPM Suite.</span></span>
 
 ![O que é o Azure AD Connect][200]
 
-<span data-ttu-id="99b2b-251">**Para atribuir Britta Simon ao Questetra BPM Suite, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="99b2b-251">**To assign Britta Simon to Questetra BPM Suite, perform the following steps:**</span></span>
+<span data-ttu-id="84bf7-251">**tooassign Britta Simon tooQuestetra BPM Suite, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="84bf7-251">**tooassign Britta Simon tooQuestetra BPM Suite, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="99b2b-252">No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior.</span><span class="sxs-lookup"><span data-stu-id="99b2b-252">On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.</span></span>
+1. <span data-ttu-id="84bf7-252">No hello Azure portal clássico, exibição de aplicativos tooopen hello, no modo de exibição de diretório hello, clique em **aplicativos** no menu superior hello.</span><span class="sxs-lookup"><span data-stu-id="84bf7-252">On hello Azure classic portal, tooopen hello applications view, in hello directory view, click **Applications** in hello top menu.</span></span>
    
     ![O que é o Azure AD Connect][201]
-2. <span data-ttu-id="99b2b-254">Na lista de aplicativos, selecione **Questetra BPM Suite**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-254">In the applications list, select **Questetra BPM Suite**.</span></span>
+2. <span data-ttu-id="84bf7-254">Na lista de aplicativos hello, selecione **Questetra BPM Suite**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-254">In hello applications list, select **Questetra BPM Suite**.</span></span>
    
     ![O que é o Azure AD Connect][205]
-3. <span data-ttu-id="99b2b-256">No menu na parte superior, clique em **Usuários**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-256">In the menu on the top, click **Users**.</span></span>
+3. <span data-ttu-id="84bf7-256">No menu de saudação na parte superior de saudação, clique em **usuários**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-256">In hello menu on hello top, click **Users**.</span></span>
    
     ![O que é o Azure AD Connect][202]
-4. <span data-ttu-id="99b2b-258">Na lista de usuários, selecione **Brenda Fernandes**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-258">In the Users list, select **Britta Simon**.</span></span>
+4. <span data-ttu-id="84bf7-258">Na lista de usuários hello, selecione **Britta Simon**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-258">In hello Users list, select **Britta Simon**.</span></span>
    
     ![O que é o Azure AD Connect][203]
-5. <span data-ttu-id="99b2b-260">Na barra de ferramentas na parte inferior, clique em **Atribuir**.</span><span class="sxs-lookup"><span data-stu-id="99b2b-260">In the toolbar on the bottom, click **Assign**.</span></span>
+5. <span data-ttu-id="84bf7-260">Na barra de ferramentas de saudação na parte inferior do hello, clique em **atribuir**.</span><span class="sxs-lookup"><span data-stu-id="84bf7-260">In hello toolbar on hello bottom, click **Assign**.</span></span>
    
     ![O que é o Azure AD Connect][204]
 
-### <a name="testing-single-sign-on"></a><span data-ttu-id="99b2b-262">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="99b2b-262">Testing Single Sign-On</span></span>
-<span data-ttu-id="99b2b-263">O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.</span><span class="sxs-lookup"><span data-stu-id="99b2b-263">The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.</span></span>  
-<span data-ttu-id="99b2b-264">Quando clica no bloco Questetra BPM Suite no Painel de Acesso, você deve fazer logon automaticamente no seu aplicativo Questetra BPM Suite.</span><span class="sxs-lookup"><span data-stu-id="99b2b-264">When you click the Questetra BPM Suite tile in the Access Panel, you should get automatically signed-on to your Questetra BPM Suite application.</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="84bf7-262">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="84bf7-262">Testing Single Sign-On</span></span>
+<span data-ttu-id="84bf7-263">Olá o objetivo desta seção é tootest sua configuração de logon único do AD do Azure usando Olá painel de acesso.</span><span class="sxs-lookup"><span data-stu-id="84bf7-263">hello objective of this section is tootest your Azure AD single sign-on configuration using hello Access Panel.</span></span>  
+<span data-ttu-id="84bf7-264">Quando você clica em bloco Questetra BPM Suite Olá Olá painel de acesso, você deve obter um aplicativo do pacote de BPM Questetra tooyour automaticamente conectado em.</span><span class="sxs-lookup"><span data-stu-id="84bf7-264">When you click hello Questetra BPM Suite tile in hello Access Panel, you should get automatically signed-on tooyour Questetra BPM Suite application.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="99b2b-265">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="99b2b-265">Additional Resources</span></span>
-* [<span data-ttu-id="99b2b-266">Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="99b2b-266">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="99b2b-267">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="99b2b-267">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+## <a name="additional-resources"></a><span data-ttu-id="84bf7-265">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="84bf7-265">Additional Resources</span></span>
+* [<span data-ttu-id="84bf7-266">Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="84bf7-266">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="84bf7-267">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="84bf7-267">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_general_01.png

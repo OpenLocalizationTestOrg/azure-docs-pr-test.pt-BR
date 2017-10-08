@@ -1,6 +1,6 @@
 ---
-title: Modelos de API no Gerenciamento de API do Azure | Microsoft Docs
-description: "Saiba como personalizar o conteúdo das páginas de API no portal do desenvolvedor do Gerenciamento de API do Azure."
+title: modelos de aaaAPI no gerenciamento de API do Azure | Microsoft Docs
+description: "Saiba como toocustomize Olá conteúdo das páginas de saudação API no portal do desenvolvedor Olá no gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 3802868470f0f74cd1f895a00195259861ea16f8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fdfa76167cfaf3b23b22d6321904f34da077fecb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="api-templates-in-azure-api-management"></a><span data-ttu-id="7bea3-103">Modelos de API no Gerenciamento de API do Azure</span><span class="sxs-lookup"><span data-stu-id="7bea3-103">API templates in Azure API Management</span></span>
-<span data-ttu-id="7bea3-104">O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configura o respectivo conteúdo.</span><span class="sxs-lookup"><span data-stu-id="7bea3-104">Azure API Management provides you the ability to customize the content of developer portal pages using a set of templates that configure their content.</span></span> <span data-ttu-id="7bea3-105">Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como o [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), bem como um conjunto fornecido de [Recursos de cadeia de caracteres](api-management-template-resources.md#strings), [Recursos do Glyph](api-management-template-resources.md#glyphs) e [Controles de página](api-management-page-controls.md) localizados, você tem grande flexibilidade para configurar o conteúdo das páginas, conforme a necessidade, usando esses modelos.</span><span class="sxs-lookup"><span data-stu-id="7bea3-105">Using [DotLiquid](http://dotliquidmarkup.org/) syntax and the editor of your choice, such as [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), and a provided set of localized [String resources](api-management-template-resources.md#strings), [Glyph resources](api-management-template-resources.md#glyphs), and [Page controls](api-management-page-controls.md), you have great flexibility to configure the content of the pages as you see fit using these templates.</span></span>  
+# <a name="api-templates-in-azure-api-management"></a><span data-ttu-id="78e1a-103">Modelos de API no Gerenciamento de API do Azure</span><span class="sxs-lookup"><span data-stu-id="78e1a-103">API templates in Azure API Management</span></span>
+<span data-ttu-id="78e1a-104">Gerenciamento de API do Azure fornece que Olá conteúdo de saudação toocustomize capacidade de páginas de portal do desenvolvedor usando um conjunto de modelos que configurar seu conteúdo.</span><span class="sxs-lookup"><span data-stu-id="78e1a-104">Azure API Management provides you hello ability toocustomize hello content of developer portal pages using a set of templates that configure their content.</span></span> <span data-ttu-id="78e1a-105">Usando [DotLiquid](http://dotliquidmarkup.org/) sintaxe e hello editor de sua escolha, como [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de localizadas [recursos de cadeia de caracteres](api-management-template-resources.md#strings), [ Recursos de glifo](api-management-template-resources.md#glyphs), e [página controles](api-management-page-controls.md), você tiver um grande flexibilidade tooconfigure Olá conteúdo das páginas hello como desejar usar esses modelos.</span><span class="sxs-lookup"><span data-stu-id="78e1a-105">Using [DotLiquid](http://dotliquidmarkup.org/) syntax and hello editor of your choice, such as [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), and a provided set of localized [String resources](api-management-template-resources.md#strings), [Glyph resources](api-management-template-resources.md#glyphs), and [Page controls](api-management-page-controls.md), you have great flexibility tooconfigure hello content of hello pages as you see fit using these templates.</span></span>  
   
- <span data-ttu-id="7bea3-106">Os modelos desta seção permitem personalizar o conteúdo das páginas de API no portal do desenvolvedor.</span><span class="sxs-lookup"><span data-stu-id="7bea3-106">The templates in this section allow you to customize the content of the API pages in the developer portal.</span></span>  
+ <span data-ttu-id="78e1a-106">Olá modelos nesta seção permitem toocustomize conteúdo de saudação de páginas de API Olá no portal do desenvolvedor hello.</span><span class="sxs-lookup"><span data-stu-id="78e1a-106">hello templates in this section allow you toocustomize hello content of hello API pages in hello developer portal.</span></span>  
   
--   [<span data-ttu-id="7bea3-107">Lista de APIs</span><span class="sxs-lookup"><span data-stu-id="7bea3-107">API list</span></span>](#APIList)  
--   [<span data-ttu-id="7bea3-108">Operação</span><span class="sxs-lookup"><span data-stu-id="7bea3-108">Operation</span></span>](#Product)  
--   [<span data-ttu-id="7bea3-109">Exemplos de código</span><span class="sxs-lookup"><span data-stu-id="7bea3-109">Code samples</span></span>](#CodeSamples)  
-    -   [<span data-ttu-id="7bea3-110">Curl</span><span class="sxs-lookup"><span data-stu-id="7bea3-110">Curl</span></span>](#Curl)  
-    -   [<span data-ttu-id="7bea3-111">C#</span><span class="sxs-lookup"><span data-stu-id="7bea3-111">C#</span></span>](#CSharp)  
-    -   [<span data-ttu-id="7bea3-112">Java</span><span class="sxs-lookup"><span data-stu-id="7bea3-112">Java</span></span>](#Stub)  
-    -   [<span data-ttu-id="7bea3-113">JavaScript</span><span class="sxs-lookup"><span data-stu-id="7bea3-113">JavaScript</span></span>](#JavaScript)  
-    -   [<span data-ttu-id="7bea3-114">Objective C</span><span class="sxs-lookup"><span data-stu-id="7bea3-114">Objective C</span></span>](#ObjectiveC)  
-    -   [<span data-ttu-id="7bea3-115">PHP</span><span class="sxs-lookup"><span data-stu-id="7bea3-115">PHP</span></span>](#PHP)  
-    -   [<span data-ttu-id="7bea3-116">Python</span><span class="sxs-lookup"><span data-stu-id="7bea3-116">Python</span></span>](#Python)  
-    -   [<span data-ttu-id="7bea3-117">Ruby</span><span class="sxs-lookup"><span data-stu-id="7bea3-117">Ruby</span></span>](#Ruby)  
+-   [<span data-ttu-id="78e1a-107">Lista de APIs</span><span class="sxs-lookup"><span data-stu-id="78e1a-107">API list</span></span>](#APIList)  
+-   [<span data-ttu-id="78e1a-108">Operação</span><span class="sxs-lookup"><span data-stu-id="78e1a-108">Operation</span></span>](#Product)  
+-   [<span data-ttu-id="78e1a-109">Exemplos de código</span><span class="sxs-lookup"><span data-stu-id="78e1a-109">Code samples</span></span>](#CodeSamples)  
+    -   [<span data-ttu-id="78e1a-110">Curl</span><span class="sxs-lookup"><span data-stu-id="78e1a-110">Curl</span></span>](#Curl)  
+    -   [<span data-ttu-id="78e1a-111">C#</span><span class="sxs-lookup"><span data-stu-id="78e1a-111">C#</span></span>](#CSharp)  
+    -   [<span data-ttu-id="78e1a-112">Java</span><span class="sxs-lookup"><span data-stu-id="78e1a-112">Java</span></span>](#Stub)  
+    -   [<span data-ttu-id="78e1a-113">JavaScript</span><span class="sxs-lookup"><span data-stu-id="78e1a-113">JavaScript</span></span>](#JavaScript)  
+    -   [<span data-ttu-id="78e1a-114">Objective C</span><span class="sxs-lookup"><span data-stu-id="78e1a-114">Objective C</span></span>](#ObjectiveC)  
+    -   [<span data-ttu-id="78e1a-115">PHP</span><span class="sxs-lookup"><span data-stu-id="78e1a-115">PHP</span></span>](#PHP)  
+    -   [<span data-ttu-id="78e1a-116">Python</span><span class="sxs-lookup"><span data-stu-id="78e1a-116">Python</span></span>](#Python)  
+    -   [<span data-ttu-id="78e1a-117">Ruby</span><span class="sxs-lookup"><span data-stu-id="78e1a-117">Ruby</span></span>](#Ruby)  
 
 > [!NOTE]
->  <span data-ttu-id="7bea3-118">Os modelos de amostra padrão estão incluídos na documentação a seguir, mas estão sujeitos à alteração devido a melhorias contínuas.</span><span class="sxs-lookup"><span data-stu-id="7bea3-118">Sample default templates are included in the following documentation, but are subject to change due to continuous improvements.</span></span> <span data-ttu-id="7bea3-119">Você pode exibir os modelos padrão em tempo real no portal do desenvolvedor, navegando até os modelos individuais desejados.</span><span class="sxs-lookup"><span data-stu-id="7bea3-119">You can view the live default templates in the developer portal by navigating to the desired individual templates.</span></span> <span data-ttu-id="7bea3-120">Para saber mais sobre como trabalhar com modelos, confira [Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).</span><span class="sxs-lookup"><span data-stu-id="7bea3-120">For more information about working with templates, see [How to customize the API Management developer portal using templates](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).</span></span>  
+>  <span data-ttu-id="78e1a-118">Modelos de padrão de exemplo estão incluídos no hello documentação a seguir, mas são toochange assunto devido a melhorias toocontinuous.</span><span class="sxs-lookup"><span data-stu-id="78e1a-118">Sample default templates are included in hello following documentation, but are subject toochange due toocontinuous improvements.</span></span> <span data-ttu-id="78e1a-119">Você pode exibir modelos do saudação padrão em tempo real no portal do desenvolvedor Olá navegando modelos individuais toohello desejado.</span><span class="sxs-lookup"><span data-stu-id="78e1a-119">You can view hello live default templates in hello developer portal by navigating toohello desired individual templates.</span></span> <span data-ttu-id="78e1a-120">Para obter mais informações sobre como trabalhar com modelos, consulte [como toocustomize Olá portal do desenvolvedor do gerenciamento de API usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).</span><span class="sxs-lookup"><span data-stu-id="78e1a-120">For more information about working with templates, see [How toocustomize hello API Management developer portal using templates](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).</span></span>  
   
-##  <span data-ttu-id="7bea3-121"><a name="APIList"></a> Lista de APIs</span><span class="sxs-lookup"><span data-stu-id="7bea3-121"><a name="APIList"></a> API list</span></span>  
- <span data-ttu-id="7bea3-122">O modelo **Lista de APIs** possibilita personalizar o corpo da página de lista de APIs no portal do desenvolvedor.</span><span class="sxs-lookup"><span data-stu-id="7bea3-122">The **API list** template allows you to customize the body of the API list page in the developer portal.</span></span>  
+##  <span data-ttu-id="78e1a-121"><a name="APIList"></a> Lista de APIs</span><span class="sxs-lookup"><span data-stu-id="78e1a-121"><a name="APIList"></a> API list</span></span>  
+ <span data-ttu-id="78e1a-122">Olá **lista API** modelo permite toocustomize corpo de saudação da página de lista de saudação API no portal do desenvolvedor hello.</span><span class="sxs-lookup"><span data-stu-id="78e1a-122">hello **API list** template allows you toocustomize hello body of hello API list page in hello developer portal.</span></span>  
   
- <span data-ttu-id="7bea3-123">![Lista de APIs no portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Modelo Lista de APIs no portal do desenvolvedor de APIM")</span><span class="sxs-lookup"><span data-stu-id="7bea3-123">![Developer Portal API List](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "APIM Developer Portal Templates API List")</span></span>  
+ <span data-ttu-id="78e1a-123">![Lista de APIs no portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Modelo Lista de APIs no portal do desenvolvedor de APIM")</span><span class="sxs-lookup"><span data-stu-id="78e1a-123">![Developer Portal API List](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "APIM Developer Portal Templates API List")</span></span>  
   
-### <a name="default-template"></a><span data-ttu-id="7bea3-124">Modelo padrão</span><span class="sxs-lookup"><span data-stu-id="7bea3-124">Default template</span></span>  
+### <a name="default-template"></a><span data-ttu-id="78e1a-124">Modelo padrão</span><span class="sxs-lookup"><span data-stu-id="78e1a-124">Default template</span></span>  
   
 ```xml  
 <search-control></search-control>  
@@ -75,20 +75,20 @@ ms.lasthandoff: 07/11/2017
 </div>  
 ```  
   
-### <a name="controls"></a><span data-ttu-id="7bea3-125">Controles</span><span class="sxs-lookup"><span data-stu-id="7bea3-125">Controls</span></span>  
- <span data-ttu-id="7bea3-126">O modelo `API list` pode usar os seguintes [controles de página](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="7bea3-126">The `API list` template may use the following [page controls](api-management-page-controls.md).</span></span>  
+### <a name="controls"></a><span data-ttu-id="78e1a-125">Controles</span><span class="sxs-lookup"><span data-stu-id="78e1a-125">Controls</span></span>  
+ <span data-ttu-id="78e1a-126">Olá `API list` modelo pode usar a seguinte Olá [página controles](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="78e1a-126">hello `API list` template may use hello following [page controls](api-management-page-controls.md).</span></span>  
   
--   [<span data-ttu-id="7bea3-127">paging-control</span><span class="sxs-lookup"><span data-stu-id="7bea3-127">paging-control</span></span>](api-management-page-controls.md#paging-control)  
+-   [<span data-ttu-id="78e1a-127">paging-control</span><span class="sxs-lookup"><span data-stu-id="78e1a-127">paging-control</span></span>](api-management-page-controls.md#paging-control)  
   
--   [<span data-ttu-id="7bea3-128">search-control</span><span class="sxs-lookup"><span data-stu-id="7bea3-128">search-control</span></span>](api-management-page-controls.md#search-control)  
+-   [<span data-ttu-id="78e1a-128">search-control</span><span class="sxs-lookup"><span data-stu-id="78e1a-128">search-control</span></span>](api-management-page-controls.md#search-control)  
   
-### <a name="data-model"></a><span data-ttu-id="7bea3-129">Modelo de dados</span><span class="sxs-lookup"><span data-stu-id="7bea3-129">Data model</span></span>  
+### <a name="data-model"></a><span data-ttu-id="78e1a-129">Modelo de dados</span><span class="sxs-lookup"><span data-stu-id="78e1a-129">Data model</span></span>  
   
-|<span data-ttu-id="7bea3-130">Propriedade</span><span class="sxs-lookup"><span data-stu-id="7bea3-130">Property</span></span>|<span data-ttu-id="7bea3-131">Tipo</span><span class="sxs-lookup"><span data-stu-id="7bea3-131">Type</span></span>|<span data-ttu-id="7bea3-132">Descrição</span><span class="sxs-lookup"><span data-stu-id="7bea3-132">Description</span></span>|  
+|<span data-ttu-id="78e1a-130">Propriedade</span><span class="sxs-lookup"><span data-stu-id="78e1a-130">Property</span></span>|<span data-ttu-id="78e1a-131">Tipo</span><span class="sxs-lookup"><span data-stu-id="78e1a-131">Type</span></span>|<span data-ttu-id="78e1a-132">Descrição</span><span class="sxs-lookup"><span data-stu-id="78e1a-132">Description</span></span>|  
 |--------------|----------|-----------------|  
-|<span data-ttu-id="7bea3-133">apis</span><span class="sxs-lookup"><span data-stu-id="7bea3-133">apis</span></span>|<span data-ttu-id="7bea3-134">Coleção de entidades de [Resumo da API](api-management-template-data-model-reference.md#APISummary).</span><span class="sxs-lookup"><span data-stu-id="7bea3-134">Collection of [API summary](api-management-template-data-model-reference.md#APISummary) entities.</span></span>|<span data-ttu-id="7bea3-135">As APIs visíveis para o usuário atual.</span><span class="sxs-lookup"><span data-stu-id="7bea3-135">The APIs visible to the current user.</span></span>|  
+|<span data-ttu-id="78e1a-133">apis</span><span class="sxs-lookup"><span data-stu-id="78e1a-133">apis</span></span>|<span data-ttu-id="78e1a-134">Coleção de entidades de [Resumo da API](api-management-template-data-model-reference.md#APISummary).</span><span class="sxs-lookup"><span data-stu-id="78e1a-134">Collection of [API summary](api-management-template-data-model-reference.md#APISummary) entities.</span></span>|<span data-ttu-id="78e1a-135">usuário atual do Hello APIs toohello visível.</span><span class="sxs-lookup"><span data-stu-id="78e1a-135">hello APIs visible toohello current user.</span></span>|  
   
-### <a name="sample-template-data"></a><span data-ttu-id="7bea3-136">Amostra de dados do modelo</span><span class="sxs-lookup"><span data-stu-id="7bea3-136">Sample template data</span></span>  
+### <a name="sample-template-data"></a><span data-ttu-id="78e1a-136">Amostra de dados do modelo</span><span class="sxs-lookup"><span data-stu-id="78e1a-136">Sample template data</span></span>  
   
 ```json  
 {  
@@ -108,12 +108,12 @@ ms.lasthandoff: 07/11/2017
 }  
 ```  
   
-##  <span data-ttu-id="7bea3-137"><a name="Product"></a> Operação</span><span class="sxs-lookup"><span data-stu-id="7bea3-137"><a name="Product"></a> Operation</span></span>  
- <span data-ttu-id="7bea3-138">O modelo **Operação** permite personalizar o corpo da página de operação no portal do desenvolvedor.</span><span class="sxs-lookup"><span data-stu-id="7bea3-138">The **Operation** template allows you to customize the body of the operation page in the developer portal.</span></span>  
+##  <span data-ttu-id="78e1a-137"><a name="Product"></a> Operação</span><span class="sxs-lookup"><span data-stu-id="78e1a-137"><a name="Product"></a> Operation</span></span>  
+ <span data-ttu-id="78e1a-138">Olá **operação** modelo permite toocustomize corpo de saudação da página de operação Olá no portal do desenvolvedor hello.</span><span class="sxs-lookup"><span data-stu-id="78e1a-138">hello **Operation** template allows you toocustomize hello body of hello operation page in hello developer portal.</span></span>  
   
- <span data-ttu-id="7bea3-139">![Página de operação do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Página de operação de modelos do portal do desenvolvedor de APIM")</span><span class="sxs-lookup"><span data-stu-id="7bea3-139">![Developer Portal Operation page](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "APIM Developer Portal templates Operation page")</span></span>  
+ <span data-ttu-id="78e1a-139">![Página de operação do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Página de operação de modelos do portal do desenvolvedor de APIM")</span><span class="sxs-lookup"><span data-stu-id="78e1a-139">![Developer Portal Operation page](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "APIM Developer Portal templates Operation page")</span></span>  
   
-### <a name="default-template"></a><span data-ttu-id="7bea3-140">Modelo padrão</span><span class="sxs-lookup"><span data-stu-id="7bea3-140">Default template</span></span>  
+### <a name="default-template"></a><span data-ttu-id="78e1a-140">Modelo padrão</span><span class="sxs-lookup"><span data-stu-id="78e1a-140">Default template</span></span>  
   
 ```xml  
 <h2>{{api.name}}</h2>  
@@ -334,24 +334,24 @@ ms.lasthandoff: 07/11/2017
 </div>  
 ```  
   
-### <a name="controls"></a><span data-ttu-id="7bea3-141">Controles</span><span class="sxs-lookup"><span data-stu-id="7bea3-141">Controls</span></span>  
- <span data-ttu-id="7bea3-142">O modelo `Operation` não permite o uso de quaisquer [controles de página](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="7bea3-142">The `Operation` template does not allow the use of any [page controls](api-management-page-controls.md).</span></span>  
+### <a name="controls"></a><span data-ttu-id="78e1a-141">Controles</span><span class="sxs-lookup"><span data-stu-id="78e1a-141">Controls</span></span>  
+ <span data-ttu-id="78e1a-142">Olá `Operation` modelo não permite o uso de saudação de qualquer [página controles](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="78e1a-142">hello `Operation` template does not allow hello use of any [page controls](api-management-page-controls.md).</span></span>  
   
-### <a name="data-model"></a><span data-ttu-id="7bea3-143">Modelo de dados</span><span class="sxs-lookup"><span data-stu-id="7bea3-143">Data model</span></span>  
+### <a name="data-model"></a><span data-ttu-id="78e1a-143">Modelo de dados</span><span class="sxs-lookup"><span data-stu-id="78e1a-143">Data model</span></span>  
   
-|<span data-ttu-id="7bea3-144">Propriedade</span><span class="sxs-lookup"><span data-stu-id="7bea3-144">Property</span></span>|<span data-ttu-id="7bea3-145">Tipo</span><span class="sxs-lookup"><span data-stu-id="7bea3-145">Type</span></span>|<span data-ttu-id="7bea3-146">Descrição</span><span class="sxs-lookup"><span data-stu-id="7bea3-146">Description</span></span>|  
+|<span data-ttu-id="78e1a-144">Propriedade</span><span class="sxs-lookup"><span data-stu-id="78e1a-144">Property</span></span>|<span data-ttu-id="78e1a-145">Tipo</span><span class="sxs-lookup"><span data-stu-id="78e1a-145">Type</span></span>|<span data-ttu-id="78e1a-146">Descrição</span><span class="sxs-lookup"><span data-stu-id="78e1a-146">Description</span></span>|  
 |--------------|----------|-----------------|  
-|<span data-ttu-id="7bea3-147">apiId</span><span class="sxs-lookup"><span data-stu-id="7bea3-147">apiId</span></span>|<span data-ttu-id="7bea3-148">string</span><span class="sxs-lookup"><span data-stu-id="7bea3-148">string</span></span>|<span data-ttu-id="7bea3-149">A ID da API atual.</span><span class="sxs-lookup"><span data-stu-id="7bea3-149">The id of the current API.</span></span>|  
-|<span data-ttu-id="7bea3-150">apiName</span><span class="sxs-lookup"><span data-stu-id="7bea3-150">apiName</span></span>|<span data-ttu-id="7bea3-151">string</span><span class="sxs-lookup"><span data-stu-id="7bea3-151">string</span></span>|<span data-ttu-id="7bea3-152">O nome da API.</span><span class="sxs-lookup"><span data-stu-id="7bea3-152">The name of the API.</span></span>|  
-|<span data-ttu-id="7bea3-153">apiDescription</span><span class="sxs-lookup"><span data-stu-id="7bea3-153">apiDescription</span></span>|<span data-ttu-id="7bea3-154">string</span><span class="sxs-lookup"><span data-stu-id="7bea3-154">string</span></span>|<span data-ttu-id="7bea3-155">Uma descrição para a API.</span><span class="sxs-lookup"><span data-stu-id="7bea3-155">A description of the API.</span></span>|  
-|<span data-ttu-id="7bea3-156">api</span><span class="sxs-lookup"><span data-stu-id="7bea3-156">api</span></span>|<span data-ttu-id="7bea3-157">Entidade [Resumo da API](api-management-template-data-model-reference.md#APISummary).</span><span class="sxs-lookup"><span data-stu-id="7bea3-157">[API summary](api-management-template-data-model-reference.md#APISummary) entity.</span></span>|<span data-ttu-id="7bea3-158">A API atual.</span><span class="sxs-lookup"><span data-stu-id="7bea3-158">The current API.</span></span>|  
-|<span data-ttu-id="7bea3-159">operation</span><span class="sxs-lookup"><span data-stu-id="7bea3-159">operation</span></span>|[<span data-ttu-id="7bea3-160">Operação</span><span class="sxs-lookup"><span data-stu-id="7bea3-160">Operation</span></span>](api-management-template-data-model-reference.md#Operation)|<span data-ttu-id="7bea3-161">A operação atualmente exibida.</span><span class="sxs-lookup"><span data-stu-id="7bea3-161">The currently displayed operation.</span></span>|  
-|<span data-ttu-id="7bea3-162">sampleUrl</span><span class="sxs-lookup"><span data-stu-id="7bea3-162">sampleUrl</span></span>|<span data-ttu-id="7bea3-163">string</span><span class="sxs-lookup"><span data-stu-id="7bea3-163">string</span></span>|<span data-ttu-id="7bea3-164">A URL para a operação atual.</span><span class="sxs-lookup"><span data-stu-id="7bea3-164">The URL for the current operation.</span></span>|  
-|<span data-ttu-id="7bea3-165">operationMenu</span><span class="sxs-lookup"><span data-stu-id="7bea3-165">operationMenu</span></span>|[<span data-ttu-id="7bea3-166">Menu Operação</span><span class="sxs-lookup"><span data-stu-id="7bea3-166">Operation menu</span></span>](api-management-template-data-model-reference.md#Menu)|<span data-ttu-id="7bea3-167">Um menu de operações para esta API.</span><span class="sxs-lookup"><span data-stu-id="7bea3-167">A menu of operations for this API.</span></span>|  
-|<span data-ttu-id="7bea3-168">consoleUrl</span><span class="sxs-lookup"><span data-stu-id="7bea3-168">consoleUrl</span></span>|<span data-ttu-id="7bea3-169">URI</span><span class="sxs-lookup"><span data-stu-id="7bea3-169">URI</span></span>|<span data-ttu-id="7bea3-170">O URI para o botão **Experimente**.</span><span class="sxs-lookup"><span data-stu-id="7bea3-170">The URI for the **Try it** button.</span></span>|  
-|<span data-ttu-id="7bea3-171">amostras</span><span class="sxs-lookup"><span data-stu-id="7bea3-171">samples</span></span>|<span data-ttu-id="7bea3-172">Coleção de entidades de [Exemplo de código](api-management-template-data-model-reference.md#Sample).</span><span class="sxs-lookup"><span data-stu-id="7bea3-172">Collection of [Code sample](api-management-template-data-model-reference.md#Sample) entities.</span></span>|<span data-ttu-id="7bea3-173">Os exemplos de código para a operação atual.</span><span class="sxs-lookup"><span data-stu-id="7bea3-173">The code samples for the current operation..</span></span>|  
+|<span data-ttu-id="78e1a-147">apiId</span><span class="sxs-lookup"><span data-stu-id="78e1a-147">apiId</span></span>|<span data-ttu-id="78e1a-148">string</span><span class="sxs-lookup"><span data-stu-id="78e1a-148">string</span></span>|<span data-ttu-id="78e1a-149">id de saudação da API de saudação atual.</span><span class="sxs-lookup"><span data-stu-id="78e1a-149">hello id of hello current API.</span></span>|  
+|<span data-ttu-id="78e1a-150">apiName</span><span class="sxs-lookup"><span data-stu-id="78e1a-150">apiName</span></span>|<span data-ttu-id="78e1a-151">string</span><span class="sxs-lookup"><span data-stu-id="78e1a-151">string</span></span>|<span data-ttu-id="78e1a-152">nome de saudação do hello API.</span><span class="sxs-lookup"><span data-stu-id="78e1a-152">hello name of hello API.</span></span>|  
+|<span data-ttu-id="78e1a-153">apiDescription</span><span class="sxs-lookup"><span data-stu-id="78e1a-153">apiDescription</span></span>|<span data-ttu-id="78e1a-154">string</span><span class="sxs-lookup"><span data-stu-id="78e1a-154">string</span></span>|<span data-ttu-id="78e1a-155">Uma descrição da saudação API.</span><span class="sxs-lookup"><span data-stu-id="78e1a-155">A description of hello API.</span></span>|  
+|<span data-ttu-id="78e1a-156">api</span><span class="sxs-lookup"><span data-stu-id="78e1a-156">api</span></span>|<span data-ttu-id="78e1a-157">Entidade [Resumo da API](api-management-template-data-model-reference.md#APISummary).</span><span class="sxs-lookup"><span data-stu-id="78e1a-157">[API summary](api-management-template-data-model-reference.md#APISummary) entity.</span></span>|<span data-ttu-id="78e1a-158">saudação API atual.</span><span class="sxs-lookup"><span data-stu-id="78e1a-158">hello current API.</span></span>|  
+|<span data-ttu-id="78e1a-159">operation</span><span class="sxs-lookup"><span data-stu-id="78e1a-159">operation</span></span>|[<span data-ttu-id="78e1a-160">Operação</span><span class="sxs-lookup"><span data-stu-id="78e1a-160">Operation</span></span>](api-management-template-data-model-reference.md#Operation)|<span data-ttu-id="78e1a-161">operação de saudação exibida atualmente.</span><span class="sxs-lookup"><span data-stu-id="78e1a-161">hello currently displayed operation.</span></span>|  
+|<span data-ttu-id="78e1a-162">sampleUrl</span><span class="sxs-lookup"><span data-stu-id="78e1a-162">sampleUrl</span></span>|<span data-ttu-id="78e1a-163">string</span><span class="sxs-lookup"><span data-stu-id="78e1a-163">string</span></span>|<span data-ttu-id="78e1a-164">Olá URL para a operação atual de saudação.</span><span class="sxs-lookup"><span data-stu-id="78e1a-164">hello URL for hello current operation.</span></span>|  
+|<span data-ttu-id="78e1a-165">operationMenu</span><span class="sxs-lookup"><span data-stu-id="78e1a-165">operationMenu</span></span>|[<span data-ttu-id="78e1a-166">Menu Operação</span><span class="sxs-lookup"><span data-stu-id="78e1a-166">Operation menu</span></span>](api-management-template-data-model-reference.md#Menu)|<span data-ttu-id="78e1a-167">Um menu de operações para esta API.</span><span class="sxs-lookup"><span data-stu-id="78e1a-167">A menu of operations for this API.</span></span>|  
+|<span data-ttu-id="78e1a-168">consoleUrl</span><span class="sxs-lookup"><span data-stu-id="78e1a-168">consoleUrl</span></span>|<span data-ttu-id="78e1a-169">URI</span><span class="sxs-lookup"><span data-stu-id="78e1a-169">URI</span></span>|<span data-ttu-id="78e1a-170">Olá URI para Olá **Experimente** botão.</span><span class="sxs-lookup"><span data-stu-id="78e1a-170">hello URI for hello **Try it** button.</span></span>|  
+|<span data-ttu-id="78e1a-171">amostras</span><span class="sxs-lookup"><span data-stu-id="78e1a-171">samples</span></span>|<span data-ttu-id="78e1a-172">Coleção de entidades de [Exemplo de código](api-management-template-data-model-reference.md#Sample).</span><span class="sxs-lookup"><span data-stu-id="78e1a-172">Collection of [Code sample](api-management-template-data-model-reference.md#Sample) entities.</span></span>|<span data-ttu-id="78e1a-173">Olá exemplos de código para a operação atual de saudação...</span><span class="sxs-lookup"><span data-stu-id="78e1a-173">hello code samples for hello current operation..</span></span>|  
   
-### <a name="sample-template-data"></a><span data-ttu-id="7bea3-174">Amostra de dados do modelo</span><span class="sxs-lookup"><span data-stu-id="7bea3-174">Sample template data</span></span>  
+### <a name="sample-template-data"></a><span data-ttu-id="78e1a-174">Amostra de dados do modelo</span><span class="sxs-lookup"><span data-stu-id="78e1a-174">Sample template data</span></span>  
   
 ```json  
 {  
@@ -376,7 +376,7 @@ ms.lasthandoff: 07/11/2017
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -456,7 +456,7 @@ ms.lasthandoff: 07/11/2017
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -480,7 +480,7 @@ ms.lasthandoff: 07/11/2017
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -504,7 +504,7 @@ ms.lasthandoff: 07/11/2017
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -528,7 +528,7 @@ ms.lasthandoff: 07/11/2017
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -552,7 +552,7 @@ ms.lasthandoff: 07/11/2017
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -576,7 +576,7 @@ ms.lasthandoff: 07/11/2017
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -600,7 +600,7 @@ ms.lasthandoff: 07/11/2017
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -624,7 +624,7 @@ ms.lasthandoff: 07/11/2017
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -638,31 +638,31 @@ ms.lasthandoff: 07/11/2017
 }  
 ```  
   
-##  <span data-ttu-id="7bea3-175"><a name="CodeSamples"></a> Exemplos de código</span><span class="sxs-lookup"><span data-stu-id="7bea3-175"><a name="CodeSamples"></a> Code samples</span></span>  
- <span data-ttu-id="7bea3-176">Os modelos a seguir permitem que você personalize o corpo dos exemplos de código individuais na página de operação.</span><span class="sxs-lookup"><span data-stu-id="7bea3-176">The following templates allow you to customize the body of the individual code samples on the operation page.</span></span>  
+##  <span data-ttu-id="78e1a-175"><a name="CodeSamples"></a> Exemplos de código</span><span class="sxs-lookup"><span data-stu-id="78e1a-175"><a name="CodeSamples"></a> Code samples</span></span>  
+ <span data-ttu-id="78e1a-176">Olá modelos a seguir permitem que você toocustomize corpo de saudação dos exemplos de código individuais de saudação na página de operação de saudação.</span><span class="sxs-lookup"><span data-stu-id="78e1a-176">hello following templates allow you toocustomize hello body of hello individual code samples on hello operation page.</span></span>  
   
- <span data-ttu-id="7bea3-177">![Exemplos de código de modelos do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Exemplos de código de modelos do portal do desenvolvedor de APIM")</span><span class="sxs-lookup"><span data-stu-id="7bea3-177">![Developer Portal Templates Code samples](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "APIM Developer Portal Templates Code samples")</span></span>  
+ <span data-ttu-id="78e1a-177">![Exemplos de código de modelos do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Exemplos de código de modelos do portal do desenvolvedor de APIM")</span><span class="sxs-lookup"><span data-stu-id="78e1a-177">![Developer Portal Templates Code samples](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "APIM Developer Portal Templates Code samples")</span></span>  
   
--   [<span data-ttu-id="7bea3-178">Curl</span><span class="sxs-lookup"><span data-stu-id="7bea3-178">Curl</span></span>](#Curl)  
+-   [<span data-ttu-id="78e1a-178">Curl</span><span class="sxs-lookup"><span data-stu-id="78e1a-178">Curl</span></span>](#Curl)  
   
--   [<span data-ttu-id="7bea3-179">C#</span><span class="sxs-lookup"><span data-stu-id="7bea3-179">C#</span></span>](#CSharp)  
+-   [<span data-ttu-id="78e1a-179">C#</span><span class="sxs-lookup"><span data-stu-id="78e1a-179">C#</span></span>](#CSharp)  
   
--   [<span data-ttu-id="7bea3-180">Java</span><span class="sxs-lookup"><span data-stu-id="7bea3-180">Java</span></span>](#Stub)  
+-   [<span data-ttu-id="78e1a-180">Java</span><span class="sxs-lookup"><span data-stu-id="78e1a-180">Java</span></span>](#Stub)  
   
--   [<span data-ttu-id="7bea3-181">JavaScript</span><span class="sxs-lookup"><span data-stu-id="7bea3-181">JavaScript</span></span>](#JavaScript)  
+-   [<span data-ttu-id="78e1a-181">JavaScript</span><span class="sxs-lookup"><span data-stu-id="78e1a-181">JavaScript</span></span>](#JavaScript)  
   
--   [<span data-ttu-id="7bea3-182">Objective C</span><span class="sxs-lookup"><span data-stu-id="7bea3-182">Objective C</span></span>](#ObjectiveC)  
+-   [<span data-ttu-id="78e1a-182">Objective C</span><span class="sxs-lookup"><span data-stu-id="78e1a-182">Objective C</span></span>](#ObjectiveC)  
   
--   [<span data-ttu-id="7bea3-183">PHP</span><span class="sxs-lookup"><span data-stu-id="7bea3-183">PHP</span></span>](#PHP)  
+-   [<span data-ttu-id="78e1a-183">PHP</span><span class="sxs-lookup"><span data-stu-id="78e1a-183">PHP</span></span>](#PHP)  
   
--   [<span data-ttu-id="7bea3-184">Python</span><span class="sxs-lookup"><span data-stu-id="7bea3-184">Python</span></span>](#Python)  
+-   [<span data-ttu-id="78e1a-184">Python</span><span class="sxs-lookup"><span data-stu-id="78e1a-184">Python</span></span>](#Python)  
   
--   [<span data-ttu-id="7bea3-185">Ruby</span><span class="sxs-lookup"><span data-stu-id="7bea3-185">Ruby</span></span>](#Ruby)  
+-   [<span data-ttu-id="78e1a-185">Ruby</span><span class="sxs-lookup"><span data-stu-id="78e1a-185">Ruby</span></span>](#Ruby)  
   
-###  <span data-ttu-id="7bea3-186"><a name="Curl"></a> Curl</span><span class="sxs-lookup"><span data-stu-id="7bea3-186"><a name="Curl"></a> Curl</span></span>  
- <span data-ttu-id="7bea3-187">O modelo **DocumentationSamplesCurl** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.</span><span class="sxs-lookup"><span data-stu-id="7bea3-187">The **DocumentationSamplesCurl** template allows you to customize that code sample in the code samples section of the operation page.</span></span>  
+###  <span data-ttu-id="78e1a-186"><a name="Curl"></a> Curl</span><span class="sxs-lookup"><span data-stu-id="78e1a-186"><a name="Curl"></a> Curl</span></span>  
+ <span data-ttu-id="78e1a-187">Olá **DocumentationSamplesCurl** modelo permite que você toocustomize que o código de exemplo na seção de exemplos de código de saudação da página de operação de saudação.</span><span class="sxs-lookup"><span data-stu-id="78e1a-187">hello **DocumentationSamplesCurl** template allows you toocustomize that code sample in hello code samples section of hello operation page.</span></span>  
   
-#### <a name="default-template"></a><span data-ttu-id="7bea3-188">Modelo padrão</span><span class="sxs-lookup"><span data-stu-id="7bea3-188">Default template</span></span>  
+#### <a name="default-template"></a><span data-ttu-id="78e1a-188">Modelo padrão</span><span class="sxs-lookup"><span data-stu-id="78e1a-188">Default template</span></span>  
   
 ```xml  
 @ECHO OFF  
@@ -677,13 +677,13 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
   
 ```  
   
-#### <a name="controls"></a><span data-ttu-id="7bea3-189">Controles</span><span class="sxs-lookup"><span data-stu-id="7bea3-189">Controls</span></span>  
- <span data-ttu-id="7bea3-190">Os modelos de exemplo de código não permitem o uso de quaisquer [controles de página](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="7bea3-190">The code sample templates do not allow the use of any [page controls](api-management-page-controls.md).</span></span>  
+#### <a name="controls"></a><span data-ttu-id="78e1a-189">Controles</span><span class="sxs-lookup"><span data-stu-id="78e1a-189">Controls</span></span>  
+ <span data-ttu-id="78e1a-190">Olá modelos de exemplo de código não permitem usar Olá qualquer [página controles](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="78e1a-190">hello code sample templates do not allow hello use of any [page controls](api-management-page-controls.md).</span></span>  
   
-#### <a name="data-model"></a><span data-ttu-id="7bea3-191">Modelo de dados</span><span class="sxs-lookup"><span data-stu-id="7bea3-191">Data model</span></span>  
- <span data-ttu-id="7bea3-192">Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).</span><span class="sxs-lookup"><span data-stu-id="7bea3-192">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
+#### <a name="data-model"></a><span data-ttu-id="78e1a-191">Modelo de dados</span><span class="sxs-lookup"><span data-stu-id="78e1a-191">Data model</span></span>  
+ <span data-ttu-id="78e1a-192">Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).</span><span class="sxs-lookup"><span data-stu-id="78e1a-192">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
   
-#### <a name="sample-template-data"></a><span data-ttu-id="7bea3-193">Amostra de dados do modelo</span><span class="sxs-lookup"><span data-stu-id="7bea3-193">Sample template data</span></span>  
+#### <a name="sample-template-data"></a><span data-ttu-id="78e1a-193">Amostra de dados do modelo</span><span class="sxs-lookup"><span data-stu-id="78e1a-193">Sample template data</span></span>  
   
 ```json  
 {  
@@ -700,7 +700,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -712,10 +712,10 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-###  <span data-ttu-id="7bea3-194"><a name="CSharp"></a> C#</span><span class="sxs-lookup"><span data-stu-id="7bea3-194"><a name="CSharp"></a> C#</span></span>  
- <span data-ttu-id="7bea3-195">O modelo **DocumentationSamplesCsharp** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.</span><span class="sxs-lookup"><span data-stu-id="7bea3-195">The **DocumentationSamplesCsharp** template allows you to customize that code sample in the code samples section of the operation page.</span></span>  
+###  <span data-ttu-id="78e1a-194"><a name="CSharp"></a> C#</span><span class="sxs-lookup"><span data-stu-id="78e1a-194"><a name="CSharp"></a> C#</span></span>  
+ <span data-ttu-id="78e1a-195">Olá **DocumentationSamplesCsharp** modelo permite que você toocustomize que o código de exemplo na seção de exemplos de código de saudação da página de operação de saudação.</span><span class="sxs-lookup"><span data-stu-id="78e1a-195">hello **DocumentationSamplesCsharp** template allows you toocustomize that code sample in hello code samples section of hello operation page.</span></span>  
   
-#### <a name="default-template"></a><span data-ttu-id="7bea3-196">Modelo padrão</span><span class="sxs-lookup"><span data-stu-id="7bea3-196">Default template</span></span>  
+#### <a name="default-template"></a><span data-ttu-id="78e1a-196">Modelo padrão</span><span class="sxs-lookup"><span data-stu-id="78e1a-196">Default template</span></span>  
   
 ```xml  
 using System;  
@@ -731,7 +731,7 @@ namespace CSHttpClientSample
         static void Main()  
         {  
             MakeRequest();  
-            Console.WriteLine("Hit ENTER to exit...");  
+            Console.WriteLine("Hit ENTER tooexit...");  
             Console.ReadLine();  
         }  
   
@@ -856,13 +856,13 @@ namespace CSHttpClientSample
 }     
 ```  
   
-#### <a name="controls"></a><span data-ttu-id="7bea3-197">Controles</span><span class="sxs-lookup"><span data-stu-id="7bea3-197">Controls</span></span>  
- <span data-ttu-id="7bea3-198">Os modelos de exemplo de código não permitem o uso de quaisquer [controles de página](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="7bea3-198">The code sample templates do not allow the use of any [page controls](api-management-page-controls.md).</span></span>  
+#### <a name="controls"></a><span data-ttu-id="78e1a-197">Controles</span><span class="sxs-lookup"><span data-stu-id="78e1a-197">Controls</span></span>  
+ <span data-ttu-id="78e1a-198">Olá modelos de exemplo de código não permitem usar Olá qualquer [página controles](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="78e1a-198">hello code sample templates do not allow hello use of any [page controls](api-management-page-controls.md).</span></span>  
   
-#### <a name="data-model"></a><span data-ttu-id="7bea3-199">Modelo de dados</span><span class="sxs-lookup"><span data-stu-id="7bea3-199">Data model</span></span>  
- <span data-ttu-id="7bea3-200">Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).</span><span class="sxs-lookup"><span data-stu-id="7bea3-200">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
+#### <a name="data-model"></a><span data-ttu-id="78e1a-199">Modelo de dados</span><span class="sxs-lookup"><span data-stu-id="78e1a-199">Data model</span></span>  
+ <span data-ttu-id="78e1a-200">Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).</span><span class="sxs-lookup"><span data-stu-id="78e1a-200">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
   
-#### <a name="sample-template-data"></a><span data-ttu-id="7bea3-201">Amostra de dados do modelo</span><span class="sxs-lookup"><span data-stu-id="7bea3-201">Sample template data</span></span>  
+#### <a name="sample-template-data"></a><span data-ttu-id="78e1a-201">Amostra de dados do modelo</span><span class="sxs-lookup"><span data-stu-id="78e1a-201">Sample template data</span></span>  
   
 ```json  
 {  
@@ -879,7 +879,7 @@ namespace CSHttpClientSample
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -891,13 +891,13 @@ namespace CSHttpClientSample
 }  
 ```  
   
-###  <span data-ttu-id="7bea3-202"><a name="Stub"></a> Java</span><span class="sxs-lookup"><span data-stu-id="7bea3-202"><a name="Stub"></a> Java</span></span>  
- <span data-ttu-id="7bea3-203">O modelo **DocumentationSamplesJava** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.</span><span class="sxs-lookup"><span data-stu-id="7bea3-203">The **DocumentationSamplesJava** template allows you to customize that code sample in the code samples section of the operation page.</span></span>  
+###  <span data-ttu-id="78e1a-202"><a name="Stub"></a> Java</span><span class="sxs-lookup"><span data-stu-id="78e1a-202"><a name="Stub"></a> Java</span></span>  
+ <span data-ttu-id="78e1a-203">Olá **DocumentationSamplesJava** modelo permite que você toocustomize que o código de exemplo na seção de exemplos de código de saudação da página de operação de saudação.</span><span class="sxs-lookup"><span data-stu-id="78e1a-203">hello **DocumentationSamplesJava** template allows you toocustomize that code sample in hello code samples section of hello operation page.</span></span>  
   
-#### <a name="default-template"></a><span data-ttu-id="7bea3-204">Modelo padrão</span><span class="sxs-lookup"><span data-stu-id="7bea3-204">Default template</span></span>  
+#### <a name="default-template"></a><span data-ttu-id="78e1a-204">Modelo padrão</span><span class="sxs-lookup"><span data-stu-id="78e1a-204">Default template</span></span>  
   
 ```xml  
-// // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
+// // This sample uses hello Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
 import java.net.URI;  
 import org.apache.http.HttpEntity;  
 import org.apache.http.HttpResponse;  
@@ -952,13 +952,13 @@ public class JavaSample
   
 ```  
   
-#### <a name="controls"></a><span data-ttu-id="7bea3-205">Controles</span><span class="sxs-lookup"><span data-stu-id="7bea3-205">Controls</span></span>  
- <span data-ttu-id="7bea3-206">Os modelos de exemplo de código não permitem o uso de quaisquer [controles de página](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="7bea3-206">The code sample templates do not allow the use of any [page controls](api-management-page-controls.md).</span></span>  
+#### <a name="controls"></a><span data-ttu-id="78e1a-205">Controles</span><span class="sxs-lookup"><span data-stu-id="78e1a-205">Controls</span></span>  
+ <span data-ttu-id="78e1a-206">Olá modelos de exemplo de código não permitem usar Olá qualquer [página controles](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="78e1a-206">hello code sample templates do not allow hello use of any [page controls](api-management-page-controls.md).</span></span>  
   
-#### <a name="data-model"></a><span data-ttu-id="7bea3-207">Modelo de dados</span><span class="sxs-lookup"><span data-stu-id="7bea3-207">Data model</span></span>  
- <span data-ttu-id="7bea3-208">Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).</span><span class="sxs-lookup"><span data-stu-id="7bea3-208">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
+#### <a name="data-model"></a><span data-ttu-id="78e1a-207">Modelo de dados</span><span class="sxs-lookup"><span data-stu-id="78e1a-207">Data model</span></span>  
+ <span data-ttu-id="78e1a-208">Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).</span><span class="sxs-lookup"><span data-stu-id="78e1a-208">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
   
-#### <a name="sample-template-data"></a><span data-ttu-id="7bea3-209">Amostra de dados do modelo</span><span class="sxs-lookup"><span data-stu-id="7bea3-209">Sample template data</span></span>  
+#### <a name="sample-template-data"></a><span data-ttu-id="78e1a-209">Amostra de dados do modelo</span><span class="sxs-lookup"><span data-stu-id="78e1a-209">Sample template data</span></span>  
   
 ```json  
 {  
@@ -975,7 +975,7 @@ public class JavaSample
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -987,10 +987,10 @@ public class JavaSample
 }  
 ```  
   
-###  <span data-ttu-id="7bea3-210"><a name="JavaScript"></a> JavaScript</span><span class="sxs-lookup"><span data-stu-id="7bea3-210"><a name="JavaScript"></a> JavaScript</span></span>  
- <span data-ttu-id="7bea3-211">O modelo **DocumentationSamplesJs** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.</span><span class="sxs-lookup"><span data-stu-id="7bea3-211">The **DocumentationSamplesJs** template allows you to customize that code sample in the code samples section of the operation page.</span></span>  
+###  <span data-ttu-id="78e1a-210"><a name="JavaScript"></a> JavaScript</span><span class="sxs-lookup"><span data-stu-id="78e1a-210"><a name="JavaScript"></a> JavaScript</span></span>  
+ <span data-ttu-id="78e1a-211">Olá **DocumentationSamplesJs** modelo permite que você toocustomize que o código de exemplo na seção de exemplos de código de saudação da página de operação de saudação.</span><span class="sxs-lookup"><span data-stu-id="78e1a-211">hello **DocumentationSamplesJs** template allows you toocustomize that code sample in hello code samples section of hello operation page.</span></span>  
   
-#### <a name="default-template"></a><span data-ttu-id="7bea3-212">Modelo padrão</span><span class="sxs-lookup"><span data-stu-id="7bea3-212">Default template</span></span>  
+#### <a name="default-template"></a><span data-ttu-id="78e1a-212">Modelo padrão</span><span class="sxs-lookup"><span data-stu-id="78e1a-212">Default template</span></span>  
   
 ```xml  
 <!DOCTYPE html>  
@@ -1041,13 +1041,13 @@ public class JavaSample
   
 ```  
   
-#### <a name="controls"></a><span data-ttu-id="7bea3-213">Controles</span><span class="sxs-lookup"><span data-stu-id="7bea3-213">Controls</span></span>  
- <span data-ttu-id="7bea3-214">Os modelos de exemplo de código não permitem o uso de quaisquer [controles de página](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="7bea3-214">The code sample templates do not allow the use of any [page controls](api-management-page-controls.md).</span></span>  
+#### <a name="controls"></a><span data-ttu-id="78e1a-213">Controles</span><span class="sxs-lookup"><span data-stu-id="78e1a-213">Controls</span></span>  
+ <span data-ttu-id="78e1a-214">Olá modelos de exemplo de código não permitem usar Olá qualquer [página controles](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="78e1a-214">hello code sample templates do not allow hello use of any [page controls](api-management-page-controls.md).</span></span>  
   
-#### <a name="data-model"></a><span data-ttu-id="7bea3-215">Modelo de dados</span><span class="sxs-lookup"><span data-stu-id="7bea3-215">Data model</span></span>  
- <span data-ttu-id="7bea3-216">Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).</span><span class="sxs-lookup"><span data-stu-id="7bea3-216">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
+#### <a name="data-model"></a><span data-ttu-id="78e1a-215">Modelo de dados</span><span class="sxs-lookup"><span data-stu-id="78e1a-215">Data model</span></span>  
+ <span data-ttu-id="78e1a-216">Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).</span><span class="sxs-lookup"><span data-stu-id="78e1a-216">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
   
-#### <a name="sample-template-data"></a><span data-ttu-id="7bea3-217">Amostra de dados do modelo</span><span class="sxs-lookup"><span data-stu-id="7bea3-217">Sample template data</span></span>  
+#### <a name="sample-template-data"></a><span data-ttu-id="78e1a-217">Amostra de dados do modelo</span><span class="sxs-lookup"><span data-stu-id="78e1a-217">Sample template data</span></span>  
   
 ```json  
 {  
@@ -1064,7 +1064,7 @@ public class JavaSample
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1076,10 +1076,10 @@ public class JavaSample
 }  
 ```  
   
-###  <span data-ttu-id="7bea3-218"><a name="ObjectiveC"></a> Objective C</span><span class="sxs-lookup"><span data-stu-id="7bea3-218"><a name="ObjectiveC"></a> Objective C</span></span>  
- <span data-ttu-id="7bea3-219">O modelo **DocumentationSamplesObjc** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.</span><span class="sxs-lookup"><span data-stu-id="7bea3-219">The **DocumentationSamplesObjc** template allows you to customize that code sample in the code samples section of the operation page.</span></span>  
+###  <span data-ttu-id="78e1a-218"><a name="ObjectiveC"></a> Objective C</span><span class="sxs-lookup"><span data-stu-id="78e1a-218"><a name="ObjectiveC"></a> Objective C</span></span>  
+ <span data-ttu-id="78e1a-219">Olá **DocumentationSamplesObjc** modelo permite que você toocustomize que o código de exemplo na seção de exemplos de código de saudação da página de operação de saudação.</span><span class="sxs-lookup"><span data-stu-id="78e1a-219">hello **DocumentationSamplesObjc** template allows you toocustomize that code sample in hello code samples section of hello operation page.</span></span>  
   
-#### <a name="default-template"></a><span data-ttu-id="7bea3-220">Modelo padrão</span><span class="sxs-lookup"><span data-stu-id="7bea3-220">Default template</span></span>  
+#### <a name="default-template"></a><span data-ttu-id="78e1a-220">Modelo padrão</span><span class="sxs-lookup"><span data-stu-id="78e1a-220">Default template</span></span>  
   
 ```xml  
 #import <Foundation/Foundation.h>  
@@ -1153,13 +1153,13 @@ int main(int argc, const char * argv[])
   
 ```  
   
-#### <a name="controls"></a><span data-ttu-id="7bea3-221">Controles</span><span class="sxs-lookup"><span data-stu-id="7bea3-221">Controls</span></span>  
- <span data-ttu-id="7bea3-222">Os modelos de exemplo de código não permitem o uso de quaisquer [controles de página](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="7bea3-222">The code sample templates do not allow the use of any [page controls](api-management-page-controls.md).</span></span>  
+#### <a name="controls"></a><span data-ttu-id="78e1a-221">Controles</span><span class="sxs-lookup"><span data-stu-id="78e1a-221">Controls</span></span>  
+ <span data-ttu-id="78e1a-222">Olá modelos de exemplo de código não permitem usar Olá qualquer [página controles](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="78e1a-222">hello code sample templates do not allow hello use of any [page controls](api-management-page-controls.md).</span></span>  
   
-#### <a name="data-model"></a><span data-ttu-id="7bea3-223">Modelo de dados</span><span class="sxs-lookup"><span data-stu-id="7bea3-223">Data model</span></span>  
- <span data-ttu-id="7bea3-224">Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).</span><span class="sxs-lookup"><span data-stu-id="7bea3-224">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
+#### <a name="data-model"></a><span data-ttu-id="78e1a-223">Modelo de dados</span><span class="sxs-lookup"><span data-stu-id="78e1a-223">Data model</span></span>  
+ <span data-ttu-id="78e1a-224">Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).</span><span class="sxs-lookup"><span data-stu-id="78e1a-224">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
   
-#### <a name="sample-template-data"></a><span data-ttu-id="7bea3-225">Amostra de dados do modelo</span><span class="sxs-lookup"><span data-stu-id="7bea3-225">Sample template data</span></span>  
+#### <a name="sample-template-data"></a><span data-ttu-id="78e1a-225">Amostra de dados do modelo</span><span class="sxs-lookup"><span data-stu-id="78e1a-225">Sample template data</span></span>  
   
 ```json  
 {  
@@ -1176,7 +1176,7 @@ int main(int argc, const char * argv[])
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1188,14 +1188,14 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-###  <span data-ttu-id="7bea3-226"><a name="PHP"></a> PHP</span><span class="sxs-lookup"><span data-stu-id="7bea3-226"><a name="PHP"></a> PHP</span></span>  
- <span data-ttu-id="7bea3-227">O modelo **DocumentationSamplesPhp** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.</span><span class="sxs-lookup"><span data-stu-id="7bea3-227">The **DocumentationSamplesPhp** template allows you to customize that code sample in the code samples section of the operation page.</span></span>  
+###  <span data-ttu-id="78e1a-226"><a name="PHP"></a> PHP</span><span class="sxs-lookup"><span data-stu-id="78e1a-226"><a name="PHP"></a> PHP</span></span>  
+ <span data-ttu-id="78e1a-227">Olá **DocumentationSamplesPhp** modelo permite que você toocustomize que o código de exemplo na seção de exemplos de código de saudação da página de operação de saudação.</span><span class="sxs-lookup"><span data-stu-id="78e1a-227">hello **DocumentationSamplesPhp** template allows you toocustomize that code sample in hello code samples section of hello operation page.</span></span>  
   
-#### <a name="default-template"></a><span data-ttu-id="7bea3-228">Modelo padrão</span><span class="sxs-lookup"><span data-stu-id="7bea3-228">Default template</span></span>  
+#### <a name="default-template"></a><span data-ttu-id="78e1a-228">Modelo padrão</span><span class="sxs-lookup"><span data-stu-id="78e1a-228">Default template</span></span>  
   
 ```xml  
 <?php  
-// This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
+// This sample uses hello Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
 require_once 'HTTP/Request2.php';  
   
 $request = new Http_Request2('{{scheme}}://{{host}}{{path}}');  
@@ -1243,13 +1243,13 @@ catch (HttpException $ex)
 ?>  
 ```  
   
-#### <a name="controls"></a><span data-ttu-id="7bea3-229">Controles</span><span class="sxs-lookup"><span data-stu-id="7bea3-229">Controls</span></span>  
- <span data-ttu-id="7bea3-230">Os modelos de exemplo de código não permitem o uso de quaisquer [controles de página](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="7bea3-230">The code sample templates do not allow the use of any [page controls](api-management-page-controls.md).</span></span>  
+#### <a name="controls"></a><span data-ttu-id="78e1a-229">Controles</span><span class="sxs-lookup"><span data-stu-id="78e1a-229">Controls</span></span>  
+ <span data-ttu-id="78e1a-230">Olá modelos de exemplo de código não permitem usar Olá qualquer [página controles](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="78e1a-230">hello code sample templates do not allow hello use of any [page controls](api-management-page-controls.md).</span></span>  
   
-#### <a name="data-model"></a><span data-ttu-id="7bea3-231">Modelo de dados</span><span class="sxs-lookup"><span data-stu-id="7bea3-231">Data model</span></span>  
- <span data-ttu-id="7bea3-232">Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).</span><span class="sxs-lookup"><span data-stu-id="7bea3-232">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
+#### <a name="data-model"></a><span data-ttu-id="78e1a-231">Modelo de dados</span><span class="sxs-lookup"><span data-stu-id="78e1a-231">Data model</span></span>  
+ <span data-ttu-id="78e1a-232">Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).</span><span class="sxs-lookup"><span data-stu-id="78e1a-232">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
   
-#### <a name="sample-template-data"></a><span data-ttu-id="7bea3-233">Amostra de dados do modelo</span><span class="sxs-lookup"><span data-stu-id="7bea3-233">Sample template data</span></span>  
+#### <a name="sample-template-data"></a><span data-ttu-id="78e1a-233">Amostra de dados do modelo</span><span class="sxs-lookup"><span data-stu-id="78e1a-233">Sample template data</span></span>  
   
 ```json  
 {  
@@ -1266,7 +1266,7 @@ catch (HttpException $ex)
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1278,10 +1278,10 @@ catch (HttpException $ex)
 }  
 ```  
   
-###  <span data-ttu-id="7bea3-234"><a name="Python"></a> Python</span><span class="sxs-lookup"><span data-stu-id="7bea3-234"><a name="Python"></a> Python</span></span>  
- <span data-ttu-id="7bea3-235">O modelo **DocumentationSamplesPython** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.</span><span class="sxs-lookup"><span data-stu-id="7bea3-235">The **DocumentationSamplesPython** template allows you to customize that code sample in the code samples section of the operation page.</span></span>  
+###  <span data-ttu-id="78e1a-234"><a name="Python"></a> Python</span><span class="sxs-lookup"><span data-stu-id="78e1a-234"><a name="Python"></a> Python</span></span>  
+ <span data-ttu-id="78e1a-235">Olá **DocumentationSamplesPython** modelo permite que você toocustomize que o código de exemplo na seção de exemplos de código de saudação da página de operação de saudação.</span><span class="sxs-lookup"><span data-stu-id="78e1a-235">hello **DocumentationSamplesPython** template allows you toocustomize that code sample in hello code samples section of hello operation page.</span></span>  
   
-#### <a name="default-template"></a><span data-ttu-id="7bea3-236">Modelo padrão</span><span class="sxs-lookup"><span data-stu-id="7bea3-236">Default template</span></span>  
+#### <a name="default-template"></a><span data-ttu-id="78e1a-236">Modelo padrão</span><span class="sxs-lookup"><span data-stu-id="78e1a-236">Default template</span></span>  
   
 ```xml  
 ########### Python 2.7 #############  
@@ -1361,13 +1361,13 @@ except Exception as e:
 ####################################  
 ```  
   
-#### <a name="controls"></a><span data-ttu-id="7bea3-237">Controles</span><span class="sxs-lookup"><span data-stu-id="7bea3-237">Controls</span></span>  
- <span data-ttu-id="7bea3-238">Os modelos de exemplo de código não permitem o uso de quaisquer [controles de página](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="7bea3-238">The code sample templates do not allow the use of any [page controls](api-management-page-controls.md).</span></span>  
+#### <a name="controls"></a><span data-ttu-id="78e1a-237">Controles</span><span class="sxs-lookup"><span data-stu-id="78e1a-237">Controls</span></span>  
+ <span data-ttu-id="78e1a-238">Olá modelos de exemplo de código não permitem usar Olá qualquer [página controles](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="78e1a-238">hello code sample templates do not allow hello use of any [page controls](api-management-page-controls.md).</span></span>  
   
-#### <a name="data-model"></a><span data-ttu-id="7bea3-239">Modelo de dados</span><span class="sxs-lookup"><span data-stu-id="7bea3-239">Data model</span></span>  
- <span data-ttu-id="7bea3-240">Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).</span><span class="sxs-lookup"><span data-stu-id="7bea3-240">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
+#### <a name="data-model"></a><span data-ttu-id="78e1a-239">Modelo de dados</span><span class="sxs-lookup"><span data-stu-id="78e1a-239">Data model</span></span>  
+ <span data-ttu-id="78e1a-240">Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).</span><span class="sxs-lookup"><span data-stu-id="78e1a-240">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
   
-#### <a name="sample-template-data"></a><span data-ttu-id="7bea3-241">Amostra de dados do modelo</span><span class="sxs-lookup"><span data-stu-id="7bea3-241">Sample template data</span></span>  
+#### <a name="sample-template-data"></a><span data-ttu-id="78e1a-241">Amostra de dados do modelo</span><span class="sxs-lookup"><span data-stu-id="78e1a-241">Sample template data</span></span>  
   
 ```json  
 {  
@@ -1384,7 +1384,7 @@ except Exception as e:
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1396,10 +1396,10 @@ except Exception as e:
 }  
 ```  
   
-###  <span data-ttu-id="7bea3-242"><a name="Ruby"></a> Ruby</span><span class="sxs-lookup"><span data-stu-id="7bea3-242"><a name="Ruby"></a> Ruby</span></span>  
- <span data-ttu-id="7bea3-243">O modelo **DocumentationSamplesRuby** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.</span><span class="sxs-lookup"><span data-stu-id="7bea3-243">The **DocumentationSamplesRuby** template allows you to customize that code sample in the code samples section of the operation page.</span></span>  
+###  <span data-ttu-id="78e1a-242"><a name="Ruby"></a> Ruby</span><span class="sxs-lookup"><span data-stu-id="78e1a-242"><a name="Ruby"></a> Ruby</span></span>  
+ <span data-ttu-id="78e1a-243">Olá **DocumentationSamplesRuby** modelo permite que você toocustomize que o código de exemplo na seção de exemplos de código de saudação da página de operação de saudação.</span><span class="sxs-lookup"><span data-stu-id="78e1a-243">hello **DocumentationSamplesRuby** template allows you toocustomize that code sample in hello code samples section of hello operation page.</span></span>  
   
-#### <a name="default-template"></a><span data-ttu-id="7bea3-244">Modelo padrão</span><span class="sxs-lookup"><span data-stu-id="7bea3-244">Default template</span></span>  
+#### <a name="default-template"></a><span data-ttu-id="78e1a-244">Modelo padrão</span><span class="sxs-lookup"><span data-stu-id="78e1a-244">Default template</span></span>  
   
 ```xml  
 require 'net/http'  
@@ -1432,13 +1432,13 @@ puts response.body
   
 ```  
   
-#### <a name="controls"></a><span data-ttu-id="7bea3-245">Controles</span><span class="sxs-lookup"><span data-stu-id="7bea3-245">Controls</span></span>  
- <span data-ttu-id="7bea3-246">Os modelos de exemplo de código não permitem o uso de quaisquer [controles de página](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="7bea3-246">The code sample templates do not allow the use of any [page controls](api-management-page-controls.md).</span></span>  
+#### <a name="controls"></a><span data-ttu-id="78e1a-245">Controles</span><span class="sxs-lookup"><span data-stu-id="78e1a-245">Controls</span></span>  
+ <span data-ttu-id="78e1a-246">Olá modelos de exemplo de código não permitem usar Olá qualquer [página controles](api-management-page-controls.md).</span><span class="sxs-lookup"><span data-stu-id="78e1a-246">hello code sample templates do not allow hello use of any [page controls](api-management-page-controls.md).</span></span>  
   
-#### <a name="data-model"></a><span data-ttu-id="7bea3-247">Modelo de dados</span><span class="sxs-lookup"><span data-stu-id="7bea3-247">Data model</span></span>  
- <span data-ttu-id="7bea3-248">Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).</span><span class="sxs-lookup"><span data-stu-id="7bea3-248">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
+#### <a name="data-model"></a><span data-ttu-id="78e1a-247">Modelo de dados</span><span class="sxs-lookup"><span data-stu-id="78e1a-247">Data model</span></span>  
+ <span data-ttu-id="78e1a-248">Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).</span><span class="sxs-lookup"><span data-stu-id="78e1a-248">[Code sample](api-management-template-data-model-reference.md#Sample) entity.</span></span>  
   
-#### <a name="sample-template-data"></a><span data-ttu-id="7bea3-249">Amostra de dados do modelo</span><span class="sxs-lookup"><span data-stu-id="7bea3-249">Sample template data</span></span>  
+#### <a name="sample-template-data"></a><span data-ttu-id="78e1a-249">Amostra de dados do modelo</span><span class="sxs-lookup"><span data-stu-id="78e1a-249">Sample template data</span></span>  
   
 ```json  
 {  
@@ -1455,7 +1455,7 @@ puts response.body
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1467,5 +1467,5 @@ puts response.body
 }  
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="7bea3-250">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="7bea3-250">Next steps</span></span>
-<span data-ttu-id="7bea3-251">Para saber mais sobre como trabalhar com modelos, confira [Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos](api-management-developer-portal-templates.md).</span><span class="sxs-lookup"><span data-stu-id="7bea3-251">For more information about working with templates, see [How to customize the API Management developer portal using templates](api-management-developer-portal-templates.md).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="78e1a-250">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="78e1a-250">Next steps</span></span>
+<span data-ttu-id="78e1a-251">Para obter mais informações sobre como trabalhar com modelos, consulte [como toocustomize Olá portal do desenvolvedor do gerenciamento de API usando modelos](api-management-developer-portal-templates.md).</span><span class="sxs-lookup"><span data-stu-id="78e1a-251">For more information about working with templates, see [How toocustomize hello API Management developer portal using templates](api-management-developer-portal-templates.md).</span></span>

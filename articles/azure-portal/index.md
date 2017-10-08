@@ -1,6 +1,6 @@
 ---
-title: "Documentação do portal do Azure - Tutoriais, Referência da API | Microsoft Docs"
-description: "Saiba como implantar e gerenciar recursos no portal do Azure. Tutoriais, referências de API e outras documentações."
+title: "aaaAzure portal documentação - tutoriais, referência de API | Microsoft Docs"
+description: "Saiba como toodeploy e gerenciar recursos no hello portal do Azure. Tutoriais, referências de API e outras documentações."
 services: 
 documentationcenter: 
 author: squillace
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2017
 ms.author: tysonn
-ms.openlocfilehash: d9145591f768f2d5a8e55f28b0764b31e2ee452b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 10dbec2bab5c5f1de29a3125aeeb33f80d722282
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-portal-documentation"></a>Documentação do portal do Azure
-Saiba mais sobre as funcionalidades que você pode usar para implantar recursos no portal do Azure. Os tutoriais, referências da API e outra documentação mostram como implantar, gerenciar e monitorar os recursos do Azure.
+Saiba mais sobre os recursos de saudação que você pode usar recursos toodeploy Olá portal do Azure. Tutoriais, referências de API e outras documentações mostram como toodeploy, gerenciar e monitorar recursos do Azure.

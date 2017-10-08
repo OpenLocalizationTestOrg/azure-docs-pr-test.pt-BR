@@ -1,6 +1,6 @@
 ---
-title: "Criar uma Função do Azure que se conecta a um Azure Cosmos DB | Microsoft Docs"
-description: "Exemplo de script da CLI do Azure – Criar uma Função do Azure que se conecta a um BD do Azure Cosmos"
+title: "aaaCreate uma função do Azure que se conecta tooan banco de dados do Azure Cosmos | Microsoft Docs"
+description: "Script CLI do Azure de exemplo - criar uma função do Azure que se conecta tooan Azure Cosmos DB"
 services: functions
 documentationcenter: functions
 author: rachelappel
@@ -16,52 +16,52 @@ ms.workload:
 ms.date: 04/20/2017
 ms.author: rachelap
 ms.custom: mvc
-ms.openlocfilehash: ba7e934f71824493f29b001cea6dd1c567ef3414
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0fbc1ebec2dfd480e0cf3ca64f9febcec8af9a04
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a><span data-ttu-id="24ce7-103">Criar um Azure Function que se conecta a um Banco de Dados Cosmo do Azure</span><span class="sxs-lookup"><span data-stu-id="24ce7-103">Create an Azure Function that connects to an Azure Cosmos DB</span></span>
+# <a name="create-an-azure-function-that-connects-tooan-azure-cosmos-db"></a><span data-ttu-id="d11cd-103">Criar uma função do Azure que se conecta tooan Azure Cosmos DB</span><span class="sxs-lookup"><span data-stu-id="d11cd-103">Create an Azure Function that connects tooan Azure Cosmos DB</span></span>
 
-<span data-ttu-id="24ce7-104">Este exemplo de script cria um Aplicativo de funções do Azure e se conecta a um banco de dados do Banco de Dados Cosmos do Azure.</span><span class="sxs-lookup"><span data-stu-id="24ce7-104">This sample script creates an Azure Function App and connects to an Azure Cosmos DB database.</span></span>
+<span data-ttu-id="d11cd-104">Esse script de exemplo cria um aplicativo de função do Azure e conecta-se o banco de dados de banco de dados do Azure Cosmos tooan.</span><span class="sxs-lookup"><span data-stu-id="d11cd-104">This sample script creates an Azure Function App and connects tooan Azure Cosmos DB database.</span></span>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-<span data-ttu-id="24ce7-105">Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior.</span><span class="sxs-lookup"><span data-stu-id="24ce7-105">If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later.</span></span> <span data-ttu-id="24ce7-106">Execute `az --version` para encontrar a versão.</span><span class="sxs-lookup"><span data-stu-id="24ce7-106">Run `az --version` to find the version.</span></span> <span data-ttu-id="24ce7-107">Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).</span><span class="sxs-lookup"><span data-stu-id="24ce7-107">If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).</span></span> 
+<span data-ttu-id="d11cd-105">Se você escolher tooinstall e usa o hello CLI localmente, este tópico requer que você está executando a versão do CLI do Azure Olá 2.0 ou posterior.</span><span class="sxs-lookup"><span data-stu-id="d11cd-105">If you choose tooinstall and use hello CLI locally, this topic requires that you are running hello Azure CLI version 2.0 or later.</span></span> <span data-ttu-id="d11cd-106">Executar `az --version` toofind versão de saudação.</span><span class="sxs-lookup"><span data-stu-id="d11cd-106">Run `az --version` toofind hello version.</span></span> <span data-ttu-id="d11cd-107">Se você precisar tooinstall ou atualização, consulte [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).</span><span class="sxs-lookup"><span data-stu-id="d11cd-107">If you need tooinstall or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).</span></span> 
 
-## <a name="sample-script"></a><span data-ttu-id="24ce7-108">Script de exemplo</span><span class="sxs-lookup"><span data-stu-id="24ce7-108">Sample script</span></span>
+## <a name="sample-script"></a><span data-ttu-id="d11cd-108">Script de exemplo</span><span class="sxs-lookup"><span data-stu-id="d11cd-108">Sample script</span></span>
 
-<span data-ttu-id="24ce7-109">Este exemplo cria um Aplicativo de funções do Azure e adiciona uma chave de acesso e um ponto de extremidade de BD do Cosmos para configurações do aplicativo.</span><span class="sxs-lookup"><span data-stu-id="24ce7-109">This sample creates an Azure Function app and adds a Cosmos DB endpoint and access key to app settings.</span></span>
+<span data-ttu-id="d11cd-109">Este exemplo cria um aplicativo de função do Azure e adiciona uma configuração de chave tooapp Cosmos DB ponto de extremidade e acesso.</span><span class="sxs-lookup"><span data-stu-id="d11cd-109">This sample creates an Azure Function app and adds a Cosmos DB endpoint and access key tooapp settings.</span></span>
 
-<span data-ttu-id="24ce7-110">[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-cosmos-db/create-function-app-connect-to-cosmos-db.sh "Criar um Azure Function que se conecta a um Banco de Dados Cosmo do Azure")]</span><span class="sxs-lookup"><span data-stu-id="24ce7-110">[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-cosmos-db/create-function-app-connect-to-cosmos-db.sh "Create an Azure Function that connects to an Azure Cosmos DB")]</span></span>
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-cosmos-db/create-function-app-connect-to-cosmos-db.sh "Create an Azure Function that connects tooan Azure Cosmos DB")]
 
-## <a name="clean-up-deployment"></a><span data-ttu-id="24ce7-111">Limpar implantação</span><span class="sxs-lookup"><span data-stu-id="24ce7-111">Clean up deployment</span></span>
+## <a name="clean-up-deployment"></a><span data-ttu-id="d11cd-110">Limpar implantação</span><span class="sxs-lookup"><span data-stu-id="d11cd-110">Clean up deployment</span></span>
 
-<span data-ttu-id="24ce7-112">Após executar o exemplo de script, o comando a seguir pode ser usado para remover o grupo de recursos e todos os recursos relacionados.</span><span class="sxs-lookup"><span data-stu-id="24ce7-112">After the script sample has been run, the follow command can be used to remove the resource group and all related resources.</span></span>
+<span data-ttu-id="d11cd-111">Após a execução do exemplo de script hello, Olá acompanhamento pode ser usado tooremove grupo de recursos de saudação e todos os recursos relacionados.</span><span class="sxs-lookup"><span data-stu-id="d11cd-111">After hello script sample has been run, hello follow command can be used tooremove hello resource group and all related resources.</span></span>
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a><span data-ttu-id="24ce7-113">Explicação sobre o script</span><span class="sxs-lookup"><span data-stu-id="24ce7-113">Script explanation</span></span>
+## <a name="script-explanation"></a><span data-ttu-id="d11cd-112">Explicação sobre o script</span><span class="sxs-lookup"><span data-stu-id="d11cd-112">Script explanation</span></span>
 
-<span data-ttu-id="24ce7-114">Este script usa os seguintes comandos.</span><span class="sxs-lookup"><span data-stu-id="24ce7-114">This script uses the following commands.</span></span> <span data-ttu-id="24ce7-115">Cada comando na tabela redireciona para a documentação específica do comando.</span><span class="sxs-lookup"><span data-stu-id="24ce7-115">Each command in the table links to command specific documentation.</span></span>
+<span data-ttu-id="d11cd-113">Esse script usa Olá comandos a seguir.</span><span class="sxs-lookup"><span data-stu-id="d11cd-113">This script uses hello following commands.</span></span> <span data-ttu-id="d11cd-114">Cada comando na documentação específica do toocommand Olá tabela links.</span><span class="sxs-lookup"><span data-stu-id="d11cd-114">Each command in hello table links toocommand specific documentation.</span></span>
 
-| <span data-ttu-id="24ce7-116">Command</span><span class="sxs-lookup"><span data-stu-id="24ce7-116">Command</span></span> | <span data-ttu-id="24ce7-117">Observações</span><span class="sxs-lookup"><span data-stu-id="24ce7-117">Notes</span></span> |
+| <span data-ttu-id="d11cd-115">Command</span><span class="sxs-lookup"><span data-stu-id="d11cd-115">Command</span></span> | <span data-ttu-id="d11cd-116">Observações</span><span class="sxs-lookup"><span data-stu-id="d11cd-116">Notes</span></span> |
 |---|---|
-| [<span data-ttu-id="24ce7-118">az login</span><span class="sxs-lookup"><span data-stu-id="24ce7-118">az login</span></span>](https://docs.microsoft.com/cli/azure/#login) | <span data-ttu-id="24ce7-119">Logon no Azure.</span><span class="sxs-lookup"><span data-stu-id="24ce7-119">Login to Azure.</span></span> |
-| [<span data-ttu-id="24ce7-120">az group create</span><span class="sxs-lookup"><span data-stu-id="24ce7-120">az group create</span></span>](https://docs.microsoft.com/cli/azure/group#create) | <span data-ttu-id="24ce7-121">Criar um grupo de recursos com local</span><span class="sxs-lookup"><span data-stu-id="24ce7-121">Create a resource group with location</span></span> |
-| [<span data-ttu-id="24ce7-122">az storage account create</span><span class="sxs-lookup"><span data-stu-id="24ce7-122">az storage account create</span></span>](https://docs.microsoft.com/cli/azure/storage/account) | <span data-ttu-id="24ce7-123">Criar uma conta de armazenamento</span><span class="sxs-lookup"><span data-stu-id="24ce7-123">Create a storage account</span></span> |
-| [<span data-ttu-id="24ce7-124">az functionapp create</span><span class="sxs-lookup"><span data-stu-id="24ce7-124">az functionapp create</span></span>](https://docs.microsoft.com/cli/azure/functionapp#create) | <span data-ttu-id="24ce7-125">Criar um novo aplicativo de funções</span><span class="sxs-lookup"><span data-stu-id="24ce7-125">Create a new function app</span></span> |
-| [<span data-ttu-id="24ce7-126">az documentdb create</span><span class="sxs-lookup"><span data-stu-id="24ce7-126">az documentdb create</span></span>](https://docs.microsoft.com/cli/azure/documentdb#create) | <span data-ttu-id="24ce7-127">Criar banco de dados do documentdb</span><span class="sxs-lookup"><span data-stu-id="24ce7-127">Create documentdb database</span></span> |
-| [<span data-ttu-id="24ce7-128">az group delete</span><span class="sxs-lookup"><span data-stu-id="24ce7-128">az group delete</span></span>](https://docs.microsoft.com/cli/azure/group#delete) | <span data-ttu-id="24ce7-129">Limpar</span><span class="sxs-lookup"><span data-stu-id="24ce7-129">Clean up</span></span> |
+| [<span data-ttu-id="d11cd-117">az login</span><span class="sxs-lookup"><span data-stu-id="d11cd-117">az login</span></span>](https://docs.microsoft.com/cli/azure/#login) | <span data-ttu-id="d11cd-118">TooAzure de logon.</span><span class="sxs-lookup"><span data-stu-id="d11cd-118">Login tooAzure.</span></span> |
+| [<span data-ttu-id="d11cd-119">az group create</span><span class="sxs-lookup"><span data-stu-id="d11cd-119">az group create</span></span>](https://docs.microsoft.com/cli/azure/group#create) | <span data-ttu-id="d11cd-120">Criar um grupo de recursos com local</span><span class="sxs-lookup"><span data-stu-id="d11cd-120">Create a resource group with location</span></span> |
+| [<span data-ttu-id="d11cd-121">az storage account create</span><span class="sxs-lookup"><span data-stu-id="d11cd-121">az storage account create</span></span>](https://docs.microsoft.com/cli/azure/storage/account) | <span data-ttu-id="d11cd-122">Criar uma conta de armazenamento</span><span class="sxs-lookup"><span data-stu-id="d11cd-122">Create a storage account</span></span> |
+| [<span data-ttu-id="d11cd-123">az functionapp create</span><span class="sxs-lookup"><span data-stu-id="d11cd-123">az functionapp create</span></span>](https://docs.microsoft.com/cli/azure/functionapp#create) | <span data-ttu-id="d11cd-124">Criar um novo aplicativo de funções</span><span class="sxs-lookup"><span data-stu-id="d11cd-124">Create a new function app</span></span> |
+| [<span data-ttu-id="d11cd-125">az documentdb create</span><span class="sxs-lookup"><span data-stu-id="d11cd-125">az documentdb create</span></span>](https://docs.microsoft.com/cli/azure/documentdb#create) | <span data-ttu-id="d11cd-126">Criar banco de dados do documentdb</span><span class="sxs-lookup"><span data-stu-id="d11cd-126">Create documentdb database</span></span> |
+| [<span data-ttu-id="d11cd-127">az group delete</span><span class="sxs-lookup"><span data-stu-id="d11cd-127">az group delete</span></span>](https://docs.microsoft.com/cli/azure/group#delete) | <span data-ttu-id="d11cd-128">Limpar</span><span class="sxs-lookup"><span data-stu-id="d11cd-128">Clean up</span></span> |
 
-## <a name="next-steps"></a><span data-ttu-id="24ce7-130">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="24ce7-130">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="d11cd-129">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="d11cd-129">Next steps</span></span>
 
-<span data-ttu-id="24ce7-131">Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="24ce7-131">For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).</span></span>
+<span data-ttu-id="d11cd-130">Para obter mais informações sobre Olá CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="d11cd-130">For more information on hello Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).</span></span>
 
-<span data-ttu-id="24ce7-132">Exemplos adicionais de scripts da CLI do Azure Functions podem ser encontrados na [Documentação do Azure Functions](../functions-cli-samples.md).</span><span class="sxs-lookup"><span data-stu-id="24ce7-132">Additional Azure Functions CLI script samples can be found in the [Azure Functions documentation](../functions-cli-samples.md).</span></span>
+<span data-ttu-id="d11cd-131">Exemplos de script CLI do Azure funções adicionais podem ser encontrados no hello [documentação de funções do Azure](../functions-cli-samples.md).</span><span class="sxs-lookup"><span data-stu-id="d11cd-131">Additional Azure Functions CLI script samples can be found in hello [Azure Functions documentation](../functions-cli-samples.md).</span></span>
 
 
 

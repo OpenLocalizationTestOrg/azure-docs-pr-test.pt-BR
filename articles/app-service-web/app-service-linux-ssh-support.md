@@ -1,5 +1,5 @@
 ---
-title: "Suporte de SSH para o Aplicativo Web do Serviço de Aplicativo do Azure no Linux | Microsoft Docs"
+title: "suporte a aaaSSH Azure serviço de aplicativo Web App no Linux | Microsoft Docs"
 description: Saiba como usar SSH com o Aplicativo Web do Azure no Linux.
 keywords: "serviço de aplicativo do azure, aplicativo web, linux, oss"
 services: app-service
@@ -15,51 +15,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: feee7a5c91d213a6b0bfdaf264a4da4d9e79cbe7
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e00be6d4631e8936a2a8bc106da1fc06237a4b39
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="ssh-support-for-azure-web-app-on-linux"></a><span data-ttu-id="b44d5-104">Suporte de SSH para o Aplicativo Web do Azure no Linux</span><span class="sxs-lookup"><span data-stu-id="b44d5-104">SSH support for Azure Web App on Linux</span></span>
+# <a name="ssh-support-for-azure-web-app-on-linux"></a><span data-ttu-id="cd799-104">Suporte de SSH para o Aplicativo Web do Azure no Linux</span><span class="sxs-lookup"><span data-stu-id="cd799-104">SSH support for Azure Web App on Linux</span></span>
 
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
-## <a name="overview"></a><span data-ttu-id="b44d5-105">Visão geral</span><span class="sxs-lookup"><span data-stu-id="b44d5-105">Overview</span></span>
+## <a name="overview"></a><span data-ttu-id="cd799-105">Visão geral</span><span class="sxs-lookup"><span data-stu-id="cd799-105">Overview</span></span>
 
-<span data-ttu-id="b44d5-106">O [SSH (Secure Shell)](https://en.wikipedia.org/wiki/Secure_Shell) é um protocolo de rede criptográfico para usar serviços de rede de forma segura.</span><span class="sxs-lookup"><span data-stu-id="b44d5-106">[Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) is a cryptographic network protocol for using network services securely.</span></span> <span data-ttu-id="b44d5-107">Ele é usado com maior frequência para fazer logon em um sistema remotamente com segurança em uma linha de comando, bem como para executar comandos administrativos remotamente.</span><span class="sxs-lookup"><span data-stu-id="b44d5-107">It is most commonly used to log into a system remotely securely from a command-line and execute administrative commands remotely.</span></span>
+<span data-ttu-id="cd799-106">O [SSH (Secure Shell)](https://en.wikipedia.org/wiki/Secure_Shell) é um protocolo de rede criptográfico para usar serviços de rede de forma segura.</span><span class="sxs-lookup"><span data-stu-id="cd799-106">[Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) is a cryptographic network protocol for using network services securely.</span></span> <span data-ttu-id="cd799-107">É toolog mais comumente usado em um sistema remotamente com segurança de uma linha de comando e executar comandos administrativos remotamente.</span><span class="sxs-lookup"><span data-stu-id="cd799-107">It is most commonly used toolog into a system remotely securely from a command-line and execute administrative commands remotely.</span></span>
 
-<span data-ttu-id="b44d5-108">O Aplicativo Web no Linux fornece suporte de SSH no contêiner de aplicativo com cada uma das imagens internas do Docker usadas para a Pilha em Tempo de Execução de novos aplicativos Web.</span><span class="sxs-lookup"><span data-stu-id="b44d5-108">Web App on Linux provides SSH support into the app container with each of the built-in Docker images used for the Runtime Stack of new web apps.</span></span> 
+<span data-ttu-id="cd799-108">Web App no Linux fornece suporte SSH no contêiner do aplicativo hello com cada uma das imagens do Docker internas Olá usadas para Olá pilha de tempo de execução de novos aplicativos web.</span><span class="sxs-lookup"><span data-stu-id="cd799-108">Web App on Linux provides SSH support into hello app container with each of hello built-in Docker images used for hello Runtime Stack of new web apps.</span></span> 
 
 ![Pilhas de tempo de execução](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
-<span data-ttu-id="b44d5-110">Você também pode usar SSH com suas imagens personalizadas do Docker incluindo o servidor SSH como parte da imagem e configurando-o conforme descrito neste tópico.</span><span class="sxs-lookup"><span data-stu-id="b44d5-110">You can also use SSH with your custom Docker images by including the SSH server as part of the image and configuring it as described in this topic.</span></span>
+<span data-ttu-id="cd799-110">Você também pode usar SSH com as imagens do Docker personalizadas, incluindo o servidor SSH hello como parte da imagem hello e configurá-lo, conforme descrito neste tópico.</span><span class="sxs-lookup"><span data-stu-id="cd799-110">You can also use SSH with your custom Docker images by including hello SSH server as part of hello image and configuring it as described in this topic.</span></span>
 
 
 
-## <a name="making-a-client-connection"></a><span data-ttu-id="b44d5-111">Estabelecendo uma conexão de cliente</span><span class="sxs-lookup"><span data-stu-id="b44d5-111">Making a client connection</span></span>
+## <a name="making-a-client-connection"></a><span data-ttu-id="cd799-111">Estabelecendo uma conexão de cliente</span><span class="sxs-lookup"><span data-stu-id="cd799-111">Making a client connection</span></span>
 
-<span data-ttu-id="b44d5-112">Para estabelecer uma conexão de cliente SSH, o site principal deve ser iniciado.</span><span class="sxs-lookup"><span data-stu-id="b44d5-112">To make an SSH client connection, the main site must be started.</span></span> 
+<span data-ttu-id="cd799-112">toomake uma conexão de cliente SSH, o site principal Olá deve ser iniciado.</span><span class="sxs-lookup"><span data-stu-id="cd799-112">toomake an SSH client connection, hello main site must be started.</span></span> 
 
-<span data-ttu-id="b44d5-113">Cole o ponto de extremidade de SCM (gerenciamento de controle do código-fonte) de seu aplicativo Web no navegador usando o seguinte formato:</span><span class="sxs-lookup"><span data-stu-id="b44d5-113">Paste the Source Control Management (SCM) endpoint for your web app into your browser using the following form:</span></span>
+<span data-ttu-id="cd799-113">Cole o ponto de extremidade de gerenciamento de controle de origem (SCM) de saudação para seu aplicativo web no seu navegador usando Olá formulário a seguir:</span><span class="sxs-lookup"><span data-stu-id="cd799-113">Paste hello Source Control Management (SCM) endpoint for your web app into your browser using hello following form:</span></span>
 
         https://<your sitename>.scm.azurewebsites.net/webssh/host
 
-<span data-ttu-id="b44d5-114">Se ainda não estiver autenticado, você precisará se autenticar usando sua assinatura do Azure para se conectar.</span><span class="sxs-lookup"><span data-stu-id="b44d5-114">If you are not already authenticated, you are required to authenticate with your Azure subscription to connect.</span></span>
+<span data-ttu-id="cd799-114">Se você não estiver autenticado, será necessário tooauthenticate com sua assinatura do Azure tooconnect.</span><span class="sxs-lookup"><span data-stu-id="cd799-114">If you are not already authenticated, you are required tooauthenticate with your Azure subscription tooconnect.</span></span>
 
 ![Conexão SSH](./media/app-service-linux-ssh-support/app-service-linux-ssh-connection.png)
 
 
-## <a name="ssh-support-with-custom-docker-images"></a><span data-ttu-id="b44d5-116">Suporte de SSH com imagens personalizadas do Docker</span><span class="sxs-lookup"><span data-stu-id="b44d5-116">SSH support with custom Docker images</span></span>
+## <a name="ssh-support-with-custom-docker-images"></a><span data-ttu-id="cd799-116">Suporte de SSH com imagens personalizadas do Docker</span><span class="sxs-lookup"><span data-stu-id="cd799-116">SSH support with custom Docker images</span></span>
 
-<span data-ttu-id="b44d5-117">Para que uma imagem personalizada do Docker dê suporte à comunicação SSH entre o contêiner e o cliente no portal do Azure, execute as seguintes etapas para a imagem do Docker.</span><span class="sxs-lookup"><span data-stu-id="b44d5-117">In order for a custom Docker image to support SSH communication between the container and the client in the Azure portal, perform the following steps for your Docker image.</span></span> 
+<span data-ttu-id="cd799-117">Em ordem para uma personalizado Docker imagem toosupport SSH comunicação entre o contêiner de saudação e cliente Olá Olá portal do Azure, execute Olá seguindo as etapas para a imagem do Docker.</span><span class="sxs-lookup"><span data-stu-id="cd799-117">In order for a custom Docker image toosupport SSH communication between hello container and hello client in hello Azure portal, perform hello following steps for your Docker image.</span></span> 
 
-<span data-ttu-id="b44d5-118">Essas etapas são mostradas no repositório do Serviço de Aplicativo do Azure como exemplo [aqui](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).</span><span class="sxs-lookup"><span data-stu-id="b44d5-118">These steps are are shown in the Azure App Service repository as an example [here](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).</span></span>
+<span data-ttu-id="cd799-118">Essas etapas são mostrados na Olá repositório do serviço de aplicativo do Azure como um exemplo [aqui](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).</span><span class="sxs-lookup"><span data-stu-id="cd799-118">These steps are are shown in hello Azure App Service repository as an example [here](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).</span></span>
 
-1. <span data-ttu-id="b44d5-119">Inclua a instalação `openssh-server` na [instrução `RUN`](https://docs.docker.com/engine/reference/builder/#run) no Dockerfile para sua imagem e defina a senha da conta raiz como `"Docker!"`.</span><span class="sxs-lookup"><span data-stu-id="b44d5-119">Include the `openssh-server` installation in [`RUN` instruction](https://docs.docker.com/engine/reference/builder/#run) in the Dockerfile for your image and set the password for the root account to `"Docker!"`.</span></span> 
+1. <span data-ttu-id="cd799-119">Incluir Olá `openssh-server` instalação [ `RUN` instrução](https://docs.docker.com/engine/reference/builder/#run) em hello Dockerfile para sua imagem e definir a senha de saudação para conta de raiz de saudação muito`"Docker!"`.</span><span class="sxs-lookup"><span data-stu-id="cd799-119">Include hello `openssh-server` installation in [`RUN` instruction](https://docs.docker.com/engine/reference/builder/#run) in hello Dockerfile for your image and set hello password for hello root account too`"Docker!"`.</span></span> 
 
     > [!NOTE] 
-    > <span data-ttu-id="b44d5-120">Essa configuração não permite conexões externas com o contêiner.</span><span class="sxs-lookup"><span data-stu-id="b44d5-120">This configuration does not allow external connections to the container.</span></span> <span data-ttu-id="b44d5-121">O SSH só pode ser acessado por meio do site do Kudu/SCM, que é autenticado usando as credenciais de publicação.</span><span class="sxs-lookup"><span data-stu-id="b44d5-121">SSH can only be accessed via the Kudu / SCM Site, which is authenticated using the publishing credentials.</span></span>
+    > <span data-ttu-id="cd799-120">Essa configuração não permite que o contêiner de toohello conexões externas.</span><span class="sxs-lookup"><span data-stu-id="cd799-120">This configuration does not allow external connections toohello container.</span></span> <span data-ttu-id="cd799-121">SSH só pode ser acessado por meio de saudação Kudu / Site de SCM, que é autenticado usando Olá credenciais de publicação.</span><span class="sxs-lookup"><span data-stu-id="cd799-121">SSH can only be accessed via hello Kudu / SCM Site, which is authenticated using hello publishing credentials.</span></span>
 
     ```docker
     # ------------------------
@@ -70,32 +70,32 @@ ms.lasthandoff: 08/29/2017
       && echo "root:Docker!" | chpasswd
     ``` 
 
-2. <span data-ttu-id="b44d5-122">Adicione uma [instrução `COPY`](https://docs.docker.com/engine/reference/builder/#copy) ao Dockerfile para copiar um arquivo [sshd_config](http://man.openbsd.org/sshd_config) para o diretório */etc/ssh/*.</span><span class="sxs-lookup"><span data-stu-id="b44d5-122">Add a [`COPY` instruction](https://docs.docker.com/engine/reference/builder/#copy) to the Dockerfile to copy a [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory.</span></span> <span data-ttu-id="b44d5-123">Seu arquivo de configuração deve ser baseado em nosso arquivo sshd_config no repositório Azure-App-Service do GitHub [aqui](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).</span><span class="sxs-lookup"><span data-stu-id="b44d5-123">Your configuration file should be based on our sshd_config file in the Azure-App-Service GitHub repository [here](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).</span></span>
+2. <span data-ttu-id="cd799-122">Adicionar um [ `COPY` instrução](https://docs.docker.com/engine/reference/builder/#copy) toohello Dockerfile toocopy um [sshd_config](http://man.openbsd.org/sshd_config) arquivo toohello */etc/ssh/* directory.</span><span class="sxs-lookup"><span data-stu-id="cd799-122">Add a [`COPY` instruction](https://docs.docker.com/engine/reference/builder/#copy) toohello Dockerfile toocopy a [sshd_config](http://man.openbsd.org/sshd_config) file toohello */etc/ssh/* directory.</span></span> <span data-ttu-id="cd799-123">O arquivo de configuração deve ser baseado em nosso arquivo sshd_config no repositório do GitHub do serviço de aplicativo do Azure Olá [aqui](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).</span><span class="sxs-lookup"><span data-stu-id="cd799-123">Your configuration file should be based on our sshd_config file in hello Azure-App-Service GitHub repository [here](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).</span></span>
 
     > [!NOTE] 
-    > <span data-ttu-id="b44d5-124">O arquivo *sshd_config* deve incluir o seguinte ou a conexão falhará:</span><span class="sxs-lookup"><span data-stu-id="b44d5-124">The *sshd_config* file must include the following or the connection fails:</span></span> 
-    > * <span data-ttu-id="b44d5-125">`Ciphers` deve incluir pelo menos um dos itens a seguir: `aes128-cbc,3des-cbc,aes256-cbc`.</span><span class="sxs-lookup"><span data-stu-id="b44d5-125">`Ciphers` must include at least one of the following: `aes128-cbc,3des-cbc,aes256-cbc`.</span></span>
-    > * <span data-ttu-id="b44d5-126">`MACs` deve incluir pelo menos um dos itens a seguir: `hmac-sha1,hmac-sha1-96`.</span><span class="sxs-lookup"><span data-stu-id="b44d5-126">`MACs` must include at least one of the following: `hmac-sha1,hmac-sha1-96`.</span></span>
+    > <span data-ttu-id="cd799-124">Olá *sshd_config* arquivo deve incluir o seguinte hello ou falha de conexão hello:</span><span class="sxs-lookup"><span data-stu-id="cd799-124">hello *sshd_config* file must include hello following or hello connection fails:</span></span> 
+    > * <span data-ttu-id="cd799-125">`Ciphers`deve incluir pelo menos um dos seguintes Olá: `aes128-cbc,3des-cbc,aes256-cbc`.</span><span class="sxs-lookup"><span data-stu-id="cd799-125">`Ciphers` must include at least one of hello following: `aes128-cbc,3des-cbc,aes256-cbc`.</span></span>
+    > * <span data-ttu-id="cd799-126">`MACs`deve incluir pelo menos um dos seguintes Olá: `hmac-sha1,hmac-sha1-96`.</span><span class="sxs-lookup"><span data-stu-id="cd799-126">`MACs` must include at least one of hello following: `hmac-sha1,hmac-sha1-96`.</span></span>
 
     ```docker
     COPY sshd_config /etc/ssh/
     ```
 
 
-3. <span data-ttu-id="b44d5-127">Inclua a porta 2222 na [instrução `EXPOSE`](https://docs.docker.com/engine/reference/builder/#expose) para o Dockerfile.</span><span class="sxs-lookup"><span data-stu-id="b44d5-127">Include port 2222 in the [`EXPOSE` instruction](https://docs.docker.com/engine/reference/builder/#expose) for the Dockerfile.</span></span> <span data-ttu-id="b44d5-128">Embora a senha raiz seja conhecida, a porta 2222 não pode ser acessada da Internet.</span><span class="sxs-lookup"><span data-stu-id="b44d5-128">Although the root password is known, port 2222 cannot be accessed from the internet.</span></span> <span data-ttu-id="b44d5-129">Ela é uma porta interna que pode ser acessada somente por contêineres dentro da rede ponte de uma rede virtual privada.</span><span class="sxs-lookup"><span data-stu-id="b44d5-129">It is an internal only port accessible only by containers within the bridge network of a private virtual network.</span></span>
+3. <span data-ttu-id="cd799-127">Incluir porta 2222 na Olá [ `EXPOSE` instrução](https://docs.docker.com/engine/reference/builder/#expose) para Olá Dockerfile.</span><span class="sxs-lookup"><span data-stu-id="cd799-127">Include port 2222 in hello [`EXPOSE` instruction](https://docs.docker.com/engine/reference/builder/#expose) for hello Dockerfile.</span></span> <span data-ttu-id="cd799-128">Embora a senha de raiz de saudação for conhecida, porta 2222 não pode ser acessada de saudação à internet.</span><span class="sxs-lookup"><span data-stu-id="cd799-128">Although hello root password is known, port 2222 cannot be accessed from hello internet.</span></span> <span data-ttu-id="cd799-129">É uma única porta interna acessível somente por contêineres dentro da rede de ponte de saudação de uma rede virtual privada.</span><span class="sxs-lookup"><span data-stu-id="cd799-129">It is an internal only port accessible only by containers within hello bridge network of a private virtual network.</span></span>
 
     ```docker
     EXPOSE 2222 80
     ```
 
-4. <span data-ttu-id="b44d5-130">Certifique-se de iniciar o serviço SSH.</span><span class="sxs-lookup"><span data-stu-id="b44d5-130">Make sure to start the ssh service.</span></span> <span data-ttu-id="b44d5-131">Este exemplo [aqui](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) usa um script shell no diretório */bin*.</span><span class="sxs-lookup"><span data-stu-id="b44d5-131">The example [here](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) uses a shell script in */bin* directory.</span></span>
+4. <span data-ttu-id="cd799-130">Certifique-se de toostart Olá ssh de serviço.</span><span class="sxs-lookup"><span data-stu-id="cd799-130">Make sure toostart hello ssh service.</span></span> <span data-ttu-id="cd799-131">exemplo Hello [aqui](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) usa um script de shell em */bin* directory.</span><span class="sxs-lookup"><span data-stu-id="cd799-131">hello example [here](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) uses a shell script in */bin* directory.</span></span>
 
     ```bash
     #!/bin/bash
     service ssh start
     ```
 
-    <span data-ttu-id="b44d5-132">O Dockerfile usa a [instrução `CMD`](https://docs.docker.com/engine/reference/builder/#cmd) para executar o script.</span><span class="sxs-lookup"><span data-stu-id="b44d5-132">The Dockerfile uses the [`CMD` instruction](https://docs.docker.com/engine/reference/builder/#cmd) to run the script.</span></span>
+    <span data-ttu-id="cd799-132">Olá Dockerfile usa Olá [ `CMD` instrução](https://docs.docker.com/engine/reference/builder/#cmd) toorun script de saudação.</span><span class="sxs-lookup"><span data-stu-id="cd799-132">hello Dockerfile uses hello [`CMD` instruction](https://docs.docker.com/engine/reference/builder/#cmd) toorun hello script.</span></span>
 
     ```docker
     COPY init_container.sh /bin/
@@ -107,12 +107,12 @@ ms.lasthandoff: 08/29/2017
 
 
 
-## <a name="next-steps"></a><span data-ttu-id="b44d5-133">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="b44d5-133">Next steps</span></span>
-<span data-ttu-id="b44d5-134">Consulte os links a seguir para obter mais informações sobre o Aplicativo Web no Linux.</span><span class="sxs-lookup"><span data-stu-id="b44d5-134">See the following links for more information regarding Web App on Linux.</span></span> <span data-ttu-id="b44d5-135">Você pode postar perguntas e problemas no [nosso fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).</span><span class="sxs-lookup"><span data-stu-id="b44d5-135">You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="cd799-133">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="cd799-133">Next steps</span></span>
+<span data-ttu-id="cd799-134">Consulte Olá seguindo os links para obter mais informações sobre o aplicativo Web no Linux.</span><span class="sxs-lookup"><span data-stu-id="cd799-134">See hello following links for more information regarding Web App on Linux.</span></span> <span data-ttu-id="cd799-135">Você pode postar perguntas e problemas no [nosso fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).</span><span class="sxs-lookup"><span data-stu-id="cd799-135">You can post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).</span></span>
 
-* [<span data-ttu-id="b44d5-136">Como usar uma imagem personalizada do Docker para o Aplicativo Web do Azure no Linux</span><span class="sxs-lookup"><span data-stu-id="b44d5-136">How to use a custom Docker image for Azure Web App on Linux</span></span>](app-service-linux-using-custom-docker-image.md)
-* [<span data-ttu-id="b44d5-137">Usando a configuração de PM2 para Node.js no Aplicativo Web do Azure no Linux</span><span class="sxs-lookup"><span data-stu-id="b44d5-137">Using PM2 Configuration for Node.js in Azure Web App on Linux</span></span>](app-service-linux-using-nodejs-pm2.md)
-* [<span data-ttu-id="b44d5-138">Usando o .NET Core no Aplicativo Web do Azure no Linux</span><span class="sxs-lookup"><span data-stu-id="b44d5-138">Using .NET Core in Azure Web App on Linux</span></span>](app-service-linux-using-dotnetcore.md)
-* [<span data-ttu-id="b44d5-139">Usando Ruby no Aplicativo Web do Azure no Linux</span><span class="sxs-lookup"><span data-stu-id="b44d5-139">Using Ruby in Azure Web App on Linux</span></span>](app-service-linux-ruby-get-started.md)
-* [<span data-ttu-id="b44d5-140">Perguntas frequentes sobre o Aplicativo Web do Serviço de Aplicativo do Azure no Linux</span><span class="sxs-lookup"><span data-stu-id="b44d5-140">Azure App Service Web App on Linux FAQ</span></span>](app-service-linux-faq.md)
+* [<span data-ttu-id="cd799-136">Como toouse um Docker personalizado da imagem para o aplicativo Web do Azure no Linux</span><span class="sxs-lookup"><span data-stu-id="cd799-136">How toouse a custom Docker image for Azure Web App on Linux</span></span>](app-service-linux-using-custom-docker-image.md)
+* [<span data-ttu-id="cd799-137">Usando a configuração de PM2 para Node.js no Aplicativo Web do Azure no Linux</span><span class="sxs-lookup"><span data-stu-id="cd799-137">Using PM2 Configuration for Node.js in Azure Web App on Linux</span></span>](app-service-linux-using-nodejs-pm2.md)
+* [<span data-ttu-id="cd799-138">Usando o .NET Core no Aplicativo Web do Azure no Linux</span><span class="sxs-lookup"><span data-stu-id="cd799-138">Using .NET Core in Azure Web App on Linux</span></span>](app-service-linux-using-dotnetcore.md)
+* [<span data-ttu-id="cd799-139">Usando Ruby no Aplicativo Web do Azure no Linux</span><span class="sxs-lookup"><span data-stu-id="cd799-139">Using Ruby in Azure Web App on Linux</span></span>](app-service-linux-ruby-get-started.md)
+* [<span data-ttu-id="cd799-140">Perguntas frequentes sobre o Aplicativo Web do Serviço de Aplicativo do Azure no Linux</span><span class="sxs-lookup"><span data-stu-id="cd799-140">Azure App Service Web App on Linux FAQ</span></span>](app-service-linux-faq.md)
 

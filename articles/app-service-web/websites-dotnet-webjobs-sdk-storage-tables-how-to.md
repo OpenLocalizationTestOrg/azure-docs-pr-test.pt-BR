@@ -1,6 +1,6 @@
 ---
-title: Como usar o armazenamento de tabela do Azure com o SDK de Trabalhos Web
-description: Saiba como usar o armazenamento de tabela do Azure com o SDK de Trabalhos Web. Crie tabelas, adicione entidades a tabelas e leia tabelas existentes.
+title: aaaHow toouse armazenamento de tabela do Azure com hello SDK do WebJobs
+description: Saiba como o armazenamento com hello SDK do WebJobs de tabela toouse do Azure. Criar tabelas, adicionar entidades tootables e ler as tabelas existentes.
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
@@ -14,24 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: glenga
-ms.openlocfilehash: 13cfc788c14d714df7022ce003d34691cf73d121
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8e28c69df4a934646add9e50c6de28e76dca1636
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-azure-table-storage-with-the-webjobs-sdk"></a><span data-ttu-id="f131a-104">Como usar o armazenamento de tabela do Azure com o SDK de Trabalhos Web</span><span class="sxs-lookup"><span data-stu-id="f131a-104">How to use Azure table storage with the WebJobs SDK</span></span>
-## <a name="overview"></a><span data-ttu-id="f131a-105">Visão geral</span><span class="sxs-lookup"><span data-stu-id="f131a-105">Overview</span></span>
-<span data-ttu-id="f131a-106">Este guia fornece exemplos de código em C# que mostram como ler e gravar tabelas de armazenamento do Azure usando o [SDK de Trabalhos Web](websites-dotnet-webjobs-sdk.md) versão 1.x.</span><span class="sxs-lookup"><span data-stu-id="f131a-106">This guide provides C# code samples that show how to read and write Azure storage tables by using [WebJobs SDK](websites-dotnet-webjobs-sdk.md) version 1.x.</span></span>
+# <a name="how-toouse-azure-table-storage-with-hello-webjobs-sdk"></a><span data-ttu-id="765ff-104">Como o armazenamento com hello SDK do WebJobs de tabela toouse do Azure</span><span class="sxs-lookup"><span data-stu-id="765ff-104">How toouse Azure table storage with hello WebJobs SDK</span></span>
+## <a name="overview"></a><span data-ttu-id="765ff-105">Visão geral</span><span class="sxs-lookup"><span data-stu-id="765ff-105">Overview</span></span>
+<span data-ttu-id="765ff-106">Este guia fornece exemplos de código do c# que mostra como tooread e gravação de armazenamento do Azure tabelas usando [SDK do WebJobs](websites-dotnet-webjobs-sdk.md) versão 1. x.</span><span class="sxs-lookup"><span data-stu-id="765ff-106">This guide provides C# code samples that show how tooread and write Azure storage tables by using [WebJobs SDK](websites-dotnet-webjobs-sdk.md) version 1.x.</span></span>
 
-<span data-ttu-id="f131a-107">Este guia pressupõe que você sabe [como criar um projeto WebJob no Visual Studio com cadeias de conexão que apontam para sua conta de armazenamento](websites-dotnet-webjobs-sdk-get-started.md) ou para [várias contas de armazenamento](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).</span><span class="sxs-lookup"><span data-stu-id="f131a-107">The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](websites-dotnet-webjobs-sdk-get-started.md) or to [multiple storage accounts](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).</span></span>
+<span data-ttu-id="765ff-107">Guia de saudação pressupõe que você sabe [como toocreate um projeto do WebJob no Visual Studio com conexão cadeias de caracteres essa conta de armazenamento de ponto tooyour](websites-dotnet-webjobs-sdk-get-started.md) ou muito[várias contas de armazenamento](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).</span><span class="sxs-lookup"><span data-stu-id="765ff-107">hello guide assumes you know [how toocreate a WebJob project in Visual Studio with connection strings that point tooyour storage account](websites-dotnet-webjobs-sdk-get-started.md) or too[multiple storage accounts](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).</span></span>
 
-<span data-ttu-id="f131a-108">Alguns dos trechos de código mostram o atributo `Table` usado nas funções que são [chamadas manualmente](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), ou seja, que não usam um dos atributos de acionamento.</span><span class="sxs-lookup"><span data-stu-id="f131a-108">Some of the code snippets show the `Table` attribute used in functions that are [called manually](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), that is, not by using one of the trigger attributes.</span></span> 
+<span data-ttu-id="765ff-108">Alguns dos trechos de código Olá mostram Olá `Table` atributo usado em funções que são [chamado manualmente](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), ou seja, não usando um dos atributos de gatilho hello.</span><span class="sxs-lookup"><span data-stu-id="765ff-108">Some of hello code snippets show hello `Table` attribute used in functions that are [called manually](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), that is, not by using one of hello trigger attributes.</span></span> 
 
-## <span data-ttu-id="f131a-109"><a id="ingress"></a> Como adicionar entidades a uma tabela</span><span class="sxs-lookup"><span data-stu-id="f131a-109"><a id="ingress"></a> How to add entities to a table</span></span>
-<span data-ttu-id="f131a-110">Para adicionar entidades em uma tabela, use o atributo `Table` com um parâmetro `ICollector<T>` ou `IAsyncCollector<T>`, no qual `T` especifica o esquema das entidades que você deseja adicionar.</span><span class="sxs-lookup"><span data-stu-id="f131a-110">To add entities to a table, use the `Table` attribute with an `ICollector<T>` or `IAsyncCollector<T>` parameter where `T` specifies the schema of the entities you want to add.</span></span> <span data-ttu-id="f131a-111">O construtor de atributo tem um parâmetro de cadeia que especifica o nome da tabela.</span><span class="sxs-lookup"><span data-stu-id="f131a-111">The attribute constructor takes a string parameter that specifies the name of the table.</span></span> 
+## <span data-ttu-id="765ff-109"><a id="ingress"></a>Como tabela de tooa de entidades de tooadd</span><span class="sxs-lookup"><span data-stu-id="765ff-109"><a id="ingress"></a> How tooadd entities tooa table</span></span>
+<span data-ttu-id="765ff-110">tabela de tooa tooadd entidades, use Olá `Table` atributo com um `ICollector<T>` ou `IAsyncCollector<T>` parâmetro onde `T` Especifica o esquema de saudação de entidades Olá deseja tooadd.</span><span class="sxs-lookup"><span data-stu-id="765ff-110">tooadd entities tooa table, use hello `Table` attribute with an `ICollector<T>` or `IAsyncCollector<T>` parameter where `T` specifies hello schema of hello entities you want tooadd.</span></span> <span data-ttu-id="765ff-111">o construtor de atributo Olá leva um parâmetro de cadeia de caracteres que especifica o nome de saudação da tabela de saudação.</span><span class="sxs-lookup"><span data-stu-id="765ff-111">hello attribute constructor takes a string parameter that specifies hello name of hello table.</span></span> 
 
-<span data-ttu-id="f131a-112">O exemplo de código a seguir adiciona entidades `Person` em uma tabela nomeada *entrada*.</span><span class="sxs-lookup"><span data-stu-id="f131a-112">The following code sample adds `Person` entities to a table named *Ingress*.</span></span>
+<span data-ttu-id="765ff-112">Olá exemplo de código a seguir adiciona `Person` tabela tooa de entidades denominada *entrada*.</span><span class="sxs-lookup"><span data-stu-id="765ff-112">hello following code sample adds `Person` entities tooa table named *Ingress*.</span></span>
 
         [NoAutomaticTrigger]
         public static void IngressDemo(
@@ -48,7 +48,7 @@ ms.lasthandoff: 08/29/2017
             }
         }
 
-<span data-ttu-id="f131a-113">Geralmente, o tipo que você usa com `ICollector` deriva de `TableEntity` ou implementa `ITableEntity`,  mas ele não precisa fazer isso.</span><span class="sxs-lookup"><span data-stu-id="f131a-113">Typically the type you use with `ICollector` derives from `TableEntity` or implements `ITableEntity`, but it doesn't have to.</span></span> <span data-ttu-id="f131a-114">Qualquer uma das seguintes classes `Person` funciona com o código mostrado no método `Ingress` anterior.</span><span class="sxs-lookup"><span data-stu-id="f131a-114">Either of the following `Person` classes work with the code shown in the preceding `Ingress` method.</span></span>
+<span data-ttu-id="765ff-113">Olá normalmente tipo usado com `ICollector` deriva `TableEntity` ou implementa `ITableEntity`, mas ele não precisa.</span><span class="sxs-lookup"><span data-stu-id="765ff-113">Typically hello type you use with `ICollector` derives from `TableEntity` or implements `ITableEntity`, but it doesn't have to.</span></span> <span data-ttu-id="765ff-114">Olá seguinte `Person` classes de trabalho com o código de Olá Olá anterior mostrado `Ingress` método.</span><span class="sxs-lookup"><span data-stu-id="765ff-114">Either of hello following `Person` classes work with hello code shown in hello preceding `Ingress` method.</span></span>
 
         public class Person : TableEntity
         {
@@ -62,25 +62,25 @@ ms.lasthandoff: 08/29/2017
             public string Name { get; set; }
         }
 
-<span data-ttu-id="f131a-115">Para trabalhar diretamente com a API de armazenamento do Azure, você pode adicionar um parâmetro `CloudStorageAccount` à assinatura do método.</span><span class="sxs-lookup"><span data-stu-id="f131a-115">If you want to work directly with the Azure storage API, you can add a `CloudStorageAccount` parameter to the method signature.</span></span>
+<span data-ttu-id="765ff-115">Se você desejar toowork diretamente com hello API de armazenamento do Azure, você pode adicionar um `CloudStorageAccount` a assinatura do método toohello parâmetro.</span><span class="sxs-lookup"><span data-stu-id="765ff-115">If you want toowork directly with hello Azure storage API, you can add a `CloudStorageAccount` parameter toohello method signature.</span></span>
 
-## <span data-ttu-id="f131a-116"><a id="monitor"></a> Monitoramento em tempo real</span><span class="sxs-lookup"><span data-stu-id="f131a-116"><a id="monitor"></a> Real-time monitoring</span></span>
-<span data-ttu-id="f131a-117">Como as funções de entrada de dados geralmente processam grandes volumes de dados, o painel do SDK de Trabalhos Web fornece dados de monitoramento em tempo real.</span><span class="sxs-lookup"><span data-stu-id="f131a-117">Because data ingress functions often process large volumes of data, the WebJobs SDK dashboard provides real-time monitoring data.</span></span> <span data-ttu-id="f131a-118">A seção **Log de Invocação** informa se a função ainda está em execução.</span><span class="sxs-lookup"><span data-stu-id="f131a-118">The **Invocation Log** section tells you if the function is still running.</span></span>
+## <span data-ttu-id="765ff-116"><a id="monitor"></a> Monitoramento em tempo real</span><span class="sxs-lookup"><span data-stu-id="765ff-116"><a id="monitor"></a> Real-time monitoring</span></span>
+<span data-ttu-id="765ff-117">Como as funções de entrada de dados geralmente processam grandes volumes de dados, Olá painel do SDK do WebJobs fornece dados de monitoramento em tempo real.</span><span class="sxs-lookup"><span data-stu-id="765ff-117">Because data ingress functions often process large volumes of data, hello WebJobs SDK dashboard provides real-time monitoring data.</span></span> <span data-ttu-id="765ff-118">Olá **invocação Log** seção informa se a função hello ainda em execução.</span><span class="sxs-lookup"><span data-stu-id="765ff-118">hello **Invocation Log** section tells you if hello function is still running.</span></span>
 
 ![Função de entrada em execução](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressrunning.png)
 
-<span data-ttu-id="f131a-120">A página **Detalhes de Invocação** relata o progresso da função (número de entidades gravadas) enquanto ela está em execução e lhe dá a oportunidade de anulá-la.</span><span class="sxs-lookup"><span data-stu-id="f131a-120">The **Invocation Details** page reports the function's progress (number of entities written) while it's running and gives you an opportunity to abort it.</span></span> 
+<span data-ttu-id="765ff-120">Olá **detalhes de invocação** página relatórios Olá andamento da função (número de entidades gravados) enquanto está em execução e fornece uma oportunidade tooabort-lo.</span><span class="sxs-lookup"><span data-stu-id="765ff-120">hello **Invocation Details** page reports hello function's progress (number of entities written) while it's running and gives you an opportunity tooabort it.</span></span> 
 
 ![Função de entrada em execução](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressprogress.png)
 
-<span data-ttu-id="f131a-122">Quando a função é concluída, a página **Detalhes de Invocação** relata o número de linhas gravadas.</span><span class="sxs-lookup"><span data-stu-id="f131a-122">When the function finishes, the **Invocation Details** page reports the number of rows written.</span></span>
+<span data-ttu-id="765ff-122">Quando função hello termina, hello **detalhes de invocação** página relata o número de saudação de linhas gravadas.</span><span class="sxs-lookup"><span data-stu-id="765ff-122">When hello function finishes, hello **Invocation Details** page reports hello number of rows written.</span></span>
 
 ![Função de entrada concluída](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingresssuccess.png)
 
-## <span data-ttu-id="f131a-124"><a id="multiple"></a> Como ler várias entidades de uma tabela</span><span class="sxs-lookup"><span data-stu-id="f131a-124"><a id="multiple"></a> How to read multiple entities from a table</span></span>
-<span data-ttu-id="f131a-125">Para ler uma tabela, use o atributo `Table` com um parâmetro `IQueryable<T>`, em que tipo `T` deriva de `TableEntity` ou implementa `ITableEntity`.</span><span class="sxs-lookup"><span data-stu-id="f131a-125">To read a table, use the `Table` attribute with an `IQueryable<T>` parameter where type `T` derives from `TableEntity` or implements `ITableEntity`.</span></span>
+## <span data-ttu-id="765ff-124"><a id="multiple"></a>Como tooread várias entidades de uma tabela</span><span class="sxs-lookup"><span data-stu-id="765ff-124"><a id="multiple"></a> How tooread multiple entities from a table</span></span>
+<span data-ttu-id="765ff-125">tooread uma tabela, use Olá `Table` atributo com um `IQueryable<T>` parâmetro onde digitar `T` deriva `TableEntity` ou implementa `ITableEntity`.</span><span class="sxs-lookup"><span data-stu-id="765ff-125">tooread a table, use hello `Table` attribute with an `IQueryable<T>` parameter where type `T` derives from `TableEntity` or implements `ITableEntity`.</span></span>
 
-<span data-ttu-id="f131a-126">O seguinte exemplo de código lê e registra em log todas as linhas da tabela `Ingress`:</span><span class="sxs-lookup"><span data-stu-id="f131a-126">The following code sample reads and logs all rows from the `Ingress` table:</span></span>
+<span data-ttu-id="765ff-126">Olá exemplo de código a seguir lê e registra em log todas as linhas de saudação `Ingress` tabela:</span><span class="sxs-lookup"><span data-stu-id="765ff-126">hello following code sample reads and logs all rows from hello `Ingress` table:</span></span>
 
         public static void ReadTable(
             [Table("Ingress")] IQueryable<Person> tableBinding,
@@ -94,10 +94,10 @@ ms.lasthandoff: 08/29/2017
             }
         }
 
-### <span data-ttu-id="f131a-127"><a id="readone"></a> Como ler uma única entidade de uma tabela</span><span class="sxs-lookup"><span data-stu-id="f131a-127"><a id="readone"></a> How to read a single entity from a table</span></span>
-<span data-ttu-id="f131a-128">Há um construtor de atributo `Table` com dois parâmetros adicionais que permite especificar a chave de partição e a chave de linha quando você deseja associar a uma entidade de tabela única.</span><span class="sxs-lookup"><span data-stu-id="f131a-128">There is a `Table` attribute constructor with two additional parameters that let you specify the partition key and row key when you want to bind to a single table entity.</span></span>
+### <span data-ttu-id="765ff-127"><a id="readone"></a>Como tooread uma única entidade de uma tabela</span><span class="sxs-lookup"><span data-stu-id="765ff-127"><a id="readone"></a> How tooread a single entity from a table</span></span>
+<span data-ttu-id="765ff-128">Há um `Table` construtor de atributos com dois parâmetros adicionais que permitem que você especifique a chave de partição hello e chave de linha quando desejar toobind tooa tabela única entidade.</span><span class="sxs-lookup"><span data-stu-id="765ff-128">There is a `Table` attribute constructor with two additional parameters that let you specify hello partition key and row key when you want toobind tooa single table entity.</span></span>
 
-<span data-ttu-id="f131a-129">O seguinte exemplo de código lê uma linha de tabela para uma entidade `Person` com base nos valores de chave de partição e chave de linha recebidos em uma mensagem de fila:</span><span class="sxs-lookup"><span data-stu-id="f131a-129">The following code sample reads a table row for a `Person` entity based on partition key and row key values received in a queue message:</span></span>  
+<span data-ttu-id="765ff-129">Olá, exemplo de código a seguir lê uma linha de tabela para um `Person` entidade com base em partição chave e a linha de valores de chave recebidos em uma mensagem da fila:</span><span class="sxs-lookup"><span data-stu-id="765ff-129">hello following code sample reads a table row for a `Person` entity based on partition key and row key values received in a queue message:</span></span>  
 
         public static void ReadTableEntity(
             [QueueTrigger("inputqueue")] Person personInQueue,
@@ -117,12 +117,12 @@ ms.lasthandoff: 08/29/2017
         }
 
 
-<span data-ttu-id="f131a-130">A classe `Person` nesse exemplo não precisa implementar `ITableEntity`.</span><span class="sxs-lookup"><span data-stu-id="f131a-130">The `Person` class in this example does not have to implement `ITableEntity`.</span></span>
+<span data-ttu-id="765ff-130">Olá `Person` classe neste exemplo não tem tooimplement `ITableEntity`.</span><span class="sxs-lookup"><span data-stu-id="765ff-130">hello `Person` class in this example does not have tooimplement `ITableEntity`.</span></span>
 
-## <span data-ttu-id="f131a-131"><a id="storageapi"></a> Como usar a API de Armazenamento .NET diretamente para trabalhar com uma tabela</span><span class="sxs-lookup"><span data-stu-id="f131a-131"><a id="storageapi"></a> How to use the .NET Storage API directly to work with a table</span></span>
-<span data-ttu-id="f131a-132">Você também pode usar o atributo `Table` com um objeto `CloudTable` para ter mais flexibilidade ao trabalhar com uma tabela.</span><span class="sxs-lookup"><span data-stu-id="f131a-132">You can also use the `Table` attribute with a `CloudTable` object for more flexibility in working with a table.</span></span>
+## <span data-ttu-id="765ff-131"><a id="storageapi"></a>Como toouse Olá API de armazenamento .NET diretamente toowork com uma tabela</span><span class="sxs-lookup"><span data-stu-id="765ff-131"><a id="storageapi"></a> How toouse hello .NET Storage API directly toowork with a table</span></span>
+<span data-ttu-id="765ff-132">Você também pode usar o hello `Table` atributo com um `CloudTable` objeto mais flexibilidade ao trabalhar com uma tabela.</span><span class="sxs-lookup"><span data-stu-id="765ff-132">You can also use hello `Table` attribute with a `CloudTable` object for more flexibility in working with a table.</span></span>
 
-<span data-ttu-id="f131a-133">A seguinte amostra de código usa um objeto `CloudTable` para adicionar uma única entidade de *entrada* à tabela.</span><span class="sxs-lookup"><span data-stu-id="f131a-133">The following code sample uses a `CloudTable` object to add a single entity to the *Ingress* table.</span></span> 
+<span data-ttu-id="765ff-133">exemplo de código a seguir Olá um `CloudTable` tooadd toohello uma única entidade do objeto *entrada* tabela.</span><span class="sxs-lookup"><span data-stu-id="765ff-133">hello following code sample uses a `CloudTable` object tooadd a single entity toohello *Ingress* table.</span></span> 
 
         public static void UseStorageAPI(
             [Table("Ingress")] CloudTable tableBinding,
@@ -138,22 +138,22 @@ ms.lasthandoff: 08/29/2017
             tableBinding.Execute(insertOperation);
         }
 
-<span data-ttu-id="f131a-134">Para obter mais informações sobre como usar o objeto `CloudTable` , consulte [Como usar o Armazenamento de Tabela do .NET](../cosmos-db/table-storage-how-to-use-dotnet.md).</span><span class="sxs-lookup"><span data-stu-id="f131a-134">For more information about how to use the `CloudTable` object, see [How to use Table Storage from .NET](../cosmos-db/table-storage-how-to-use-dotnet.md).</span></span> 
+<span data-ttu-id="765ff-134">Para obter mais informações sobre como Olá toouse `CloudTable` de objeto, consulte [como toouse o armazenamento de tabela do .NET](../cosmos-db/table-storage-how-to-use-dotnet.md).</span><span class="sxs-lookup"><span data-stu-id="765ff-134">For more information about how toouse hello `CloudTable` object, see [How toouse Table Storage from .NET](../cosmos-db/table-storage-how-to-use-dotnet.md).</span></span> 
 
-## <span data-ttu-id="f131a-135"><a id="queues"></a>Tópicos relacionados abordados no artigo de instruções sobre filas</span><span class="sxs-lookup"><span data-stu-id="f131a-135"><a id="queues"></a>Related topics covered by the queues how-to article</span></span>
-<span data-ttu-id="f131a-136">Para obter informações sobre como lidar com o processamento de tabelas acionado por uma mensagem da fila ou para cenários do SDK de Trabalhos Web não específicos do processamento de tabelas, consulte [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).</span><span class="sxs-lookup"><span data-stu-id="f131a-136">For information about how to handle table processing triggered by a queue message, or for WebJobs SDK scenarios not specific to table processing, see [How to use Azure queue storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).</span></span> 
+## <span data-ttu-id="765ff-135"><a id="queues"></a>Tópicos relacionados cobertos por filas de saudação como-tooarticle</span><span class="sxs-lookup"><span data-stu-id="765ff-135"><a id="queues"></a>Related topics covered by hello queues how-tooarticle</span></span>
+<span data-ttu-id="765ff-136">Para obter informações sobre como processamento de tabela toohandle disparada por uma mensagem da fila, ou para WebJobs cenários do SDK não específicas tootable processamento, consulte [como toouse Azure fila de armazenamento com hello SDK do WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).</span><span class="sxs-lookup"><span data-stu-id="765ff-136">For information about how toohandle table processing triggered by a queue message, or for WebJobs SDK scenarios not specific tootable processing, see [How toouse Azure queue storage with hello WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).</span></span> 
 
-<span data-ttu-id="f131a-137">Os tópicos abordados nesse artigo incluem o seguinte:</span><span class="sxs-lookup"><span data-stu-id="f131a-137">Topics covered in that article include the following:</span></span>
+<span data-ttu-id="765ff-137">Os tópicos abordados nesse artigo incluem o seguinte hello:</span><span class="sxs-lookup"><span data-stu-id="765ff-137">Topics covered in that article include hello following:</span></span>
 
-* <span data-ttu-id="f131a-138">Funções assíncronas</span><span class="sxs-lookup"><span data-stu-id="f131a-138">Async functions</span></span>
-* <span data-ttu-id="f131a-139">Várias instâncias</span><span class="sxs-lookup"><span data-stu-id="f131a-139">Multiple instances</span></span>
-* <span data-ttu-id="f131a-140">Desligamento normal</span><span class="sxs-lookup"><span data-stu-id="f131a-140">Graceful shutdown</span></span>
-* <span data-ttu-id="f131a-141">Usar atributos do SDK de Trabalhos Web no corpo de uma função</span><span class="sxs-lookup"><span data-stu-id="f131a-141">Use WebJobs SDK attributes in the body of a function</span></span>
-* <span data-ttu-id="f131a-142">Definir as cadeias de conexão do SDK no código</span><span class="sxs-lookup"><span data-stu-id="f131a-142">Set the SDK connection strings in code</span></span>
-* <span data-ttu-id="f131a-143">Definir valores para parâmetros do construtor do SDK WebJobs no código</span><span class="sxs-lookup"><span data-stu-id="f131a-143">Set values for WebJobs SDK constructor parameters in code</span></span>
-* <span data-ttu-id="f131a-144">Disparar uma função manualmente</span><span class="sxs-lookup"><span data-stu-id="f131a-144">Trigger a function manually</span></span>
-* <span data-ttu-id="f131a-145">Gravar logs</span><span class="sxs-lookup"><span data-stu-id="f131a-145">Write logs</span></span>
+* <span data-ttu-id="765ff-138">Funções assíncronas</span><span class="sxs-lookup"><span data-stu-id="765ff-138">Async functions</span></span>
+* <span data-ttu-id="765ff-139">Várias instâncias</span><span class="sxs-lookup"><span data-stu-id="765ff-139">Multiple instances</span></span>
+* <span data-ttu-id="765ff-140">Desligamento normal</span><span class="sxs-lookup"><span data-stu-id="765ff-140">Graceful shutdown</span></span>
+* <span data-ttu-id="765ff-141">Usar atributos de SDK do WebJobs no corpo de saudação de uma função</span><span class="sxs-lookup"><span data-stu-id="765ff-141">Use WebJobs SDK attributes in hello body of a function</span></span>
+* <span data-ttu-id="765ff-142">Cadeias de conexão do conjunto Olá SDK no código</span><span class="sxs-lookup"><span data-stu-id="765ff-142">Set hello SDK connection strings in code</span></span>
+* <span data-ttu-id="765ff-143">Definir valores para parâmetros do construtor do SDK WebJobs no código</span><span class="sxs-lookup"><span data-stu-id="765ff-143">Set values for WebJobs SDK constructor parameters in code</span></span>
+* <span data-ttu-id="765ff-144">Disparar uma função manualmente</span><span class="sxs-lookup"><span data-stu-id="765ff-144">Trigger a function manually</span></span>
+* <span data-ttu-id="765ff-145">Gravar logs</span><span class="sxs-lookup"><span data-stu-id="765ff-145">Write logs</span></span>
 
-## <span data-ttu-id="f131a-146"><a id="nextsteps"></a> Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="f131a-146"><a id="nextsteps"></a> Next steps</span></span>
-<span data-ttu-id="f131a-147">Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com tabelas do Azure.</span><span class="sxs-lookup"><span data-stu-id="f131a-147">This guide has provided code samples that show how to handle common scenarios for working with Azure tables.</span></span> <span data-ttu-id="f131a-148">Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).</span><span class="sxs-lookup"><span data-stu-id="f131a-148">For more information about how to use Azure WebJobs and the WebJobs SDK, see [Azure WebJobs Recommended Resources](http://go.microsoft.com/fwlink/?linkid=390226).</span></span>
+## <span data-ttu-id="765ff-146"><a id="nextsteps"></a> Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="765ff-146"><a id="nextsteps"></a> Next steps</span></span>
+<span data-ttu-id="765ff-147">Este guia fornece código exemplos que mostram como os cenários comuns de toohandle para trabalhar com tabelas do Azure.</span><span class="sxs-lookup"><span data-stu-id="765ff-147">This guide has provided code samples that show how toohandle common scenarios for working with Azure tables.</span></span> <span data-ttu-id="765ff-148">Para obter mais informações sobre como toouse WebJobs do Azure e hello WebJobs SDK, consulte [recursos recomendada do Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).</span><span class="sxs-lookup"><span data-stu-id="765ff-148">For more information about how toouse Azure WebJobs and hello WebJobs SDK, see [Azure WebJobs Recommended Resources](http://go.microsoft.com/fwlink/?linkid=390226).</span></span>
 

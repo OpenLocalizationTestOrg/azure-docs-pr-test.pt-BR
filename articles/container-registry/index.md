@@ -1,6 +1,6 @@
 ---
-title: "Documentação do Registro de Contêiner do Azure - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba mais sobre como criar e manter registros de contêiner para armazenar suas imagens de implantação com um serviço gerenciado de registro do Docker. Tutoriais, referência de API e muito mais."
+title: "aaaAzure documentação de registro do contêiner - tutoriais, referência de API | Microsoft Docs"
+description: "Saiba como toocreate e manter o contêiner registros toostore sua implantação de imagens com um serviço de registro de Docker gerenciado. Tutoriais, referência de API e muito mais."
 services: container-registry
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 3962f34170cf3a19fe51b2f90b49fa21e01fc6cc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d759eb2b00b59797cfdf8ce3b4071317a574c2b8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-container-registry-documentation"></a>Documentação do Registro de Contêiner do Azure
 
-Saiba mais sobre como usar o Registro de Contêiner para armazenar e gerenciar imagens para todos os tipos de implantação de contêiner. Os tutoriais, a referência da API REST e outras documentações mostram como criar e manter registros de contêiner com este serviço gerenciado de registro do Docker.
+Saiba como toouse toostore de registro de contêiner e gerenciar imagens de todos os tipos de implantações de contêiner. Tutoriais, referência da API REST e outras documentações mostram como toocreate e manter gerenciados de registros de contêiner com esse serviço de registro do Docker.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -52,7 +52,7 @@ Saiba mais sobre como usar o Registro de Contêiner para armazenar e gerenciar i
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução à criação de um Registro com o portal</h3>
+                        <h3>Começar a criar um registro com o portal de saudação</h3>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@ Saiba mais sobre como usar o Registro de Contêiner para armazenar e gerenciar i
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução à criação de um Registro com a CLI</h3>
+                        <h3>Começar a criar um registro com hello CLI</h3>
                     </div>
                 </div>
             </div>

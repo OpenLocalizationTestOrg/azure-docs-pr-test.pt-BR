@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao SDK da CDN do Azure para Node.js | Microsoft Docs"
-description: Aprenda a escrever aplicativos do Node.js para gerenciar a CDN do Azure.
+title: aaaGet iniciado com hello Azure CDN SDK para Node.js | Microsoft Docs
+description: Saiba como toowrite Node. js aplicativos toomanage CDN do Azure.
 services: cdn
 documentationcenter: nodejs
 author: zhangmanling
@@ -14,47 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 46ae8cd9775432d126cbde856c1fb06ea319297e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6c805e5fb8e0b471e8b248cb2f4b29efd6c85940
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-azure-cdn-development"></a><span data-ttu-id="3ea10-103">Introdução ao desenvolvimento de CDN do Azure</span><span class="sxs-lookup"><span data-stu-id="3ea10-103">Get started with Azure CDN development</span></span>
+# <a name="get-started-with-azure-cdn-development"></a><span data-ttu-id="6074b-103">Introdução ao desenvolvimento de CDN do Azure</span><span class="sxs-lookup"><span data-stu-id="6074b-103">Get started with Azure CDN development</span></span>
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="3ea10-104">Node.js</span><span class="sxs-lookup"><span data-stu-id="3ea10-104">Node.js</span></span>](cdn-app-dev-node.md)
-> * [<span data-ttu-id="3ea10-105">.NET</span><span class="sxs-lookup"><span data-stu-id="3ea10-105">.NET</span></span>](cdn-app-dev-net.md)
+> * [<span data-ttu-id="6074b-104">Node.js</span><span class="sxs-lookup"><span data-stu-id="6074b-104">Node.js</span></span>](cdn-app-dev-node.md)
+> * [<span data-ttu-id="6074b-105">.NET</span><span class="sxs-lookup"><span data-stu-id="6074b-105">.NET</span></span>](cdn-app-dev-net.md)
 > 
 > 
 
-<span data-ttu-id="3ea10-106">Você pode usar o [SDK da CDN do Azure para Node.js](https://www.npmjs.com/package/azure-arm-cdn) para automatizar a criação e o gerenciamento de pontos de extremidade e perfis de CDN.</span><span class="sxs-lookup"><span data-stu-id="3ea10-106">You can use the [Azure CDN SDK for Node.js](https://www.npmjs.com/package/azure-arm-cdn) to automate creation and management of CDN profiles and endpoints.</span></span>  <span data-ttu-id="3ea10-107">Este tutorial o orienta na criação de um aplicativo de console simples do Node.js, que demonstra várias operações disponíveis.</span><span class="sxs-lookup"><span data-stu-id="3ea10-107">This tutorial walks through the creation of a simple Node.js console application that demonstrates several of the available operations.</span></span>  <span data-ttu-id="3ea10-108">Este tutorial não se destina a descrever em detalhes todos os aspectos do SDK da CDN do Azure para Node.js.</span><span class="sxs-lookup"><span data-stu-id="3ea10-108">This tutorial is not intended to describe all aspects of the Azure CDN SDK for Node.js in detail.</span></span>
+<span data-ttu-id="6074b-106">Você pode usar o hello [Azure CDN SDK para Node.js](https://www.npmjs.com/package/azure-arm-cdn) tooautomate criação e gerenciamento de perfis CDN e os pontos de extremidade.</span><span class="sxs-lookup"><span data-stu-id="6074b-106">You can use hello [Azure CDN SDK for Node.js](https://www.npmjs.com/package/azure-arm-cdn) tooautomate creation and management of CDN profiles and endpoints.</span></span>  <span data-ttu-id="6074b-107">Este tutorial orienta a criação de um aplicativo de console simples Node. js que demonstra várias operações disponíveis Olá Olá.</span><span class="sxs-lookup"><span data-stu-id="6074b-107">This tutorial walks through hello creation of a simple Node.js console application that demonstrates several of hello available operations.</span></span>  <span data-ttu-id="6074b-108">Este tutorial destina-se não se destina toodescribe todos os aspectos de saudação do SDK do Azure CDN Node. js em detalhes.</span><span class="sxs-lookup"><span data-stu-id="6074b-108">This tutorial is not intended toodescribe all aspects of hello Azure CDN SDK for Node.js in detail.</span></span>
 
-<span data-ttu-id="3ea10-109">Para concluir este tutorial, você já deve ter o [Node.js](http://www.nodejs.org) **4.x.x** ou posterior instalado e configurado.</span><span class="sxs-lookup"><span data-stu-id="3ea10-109">To complete this tutorial, you should already have [Node.js](http://www.nodejs.org) **4.x.x** or higher installed and configured.</span></span>  <span data-ttu-id="3ea10-110">Você pode usar qualquer editor de texto que desejar para criar o aplicativo do Node.js.</span><span class="sxs-lookup"><span data-stu-id="3ea10-110">You can use any text editor you want to create your Node.js application.</span></span>  <span data-ttu-id="3ea10-111">Para escrever este tutorial, usei o [Visual Studio Code](https://code.visualstudio.com).</span><span class="sxs-lookup"><span data-stu-id="3ea10-111">To write this tutorial, I used [Visual Studio Code](https://code.visualstudio.com).</span></span>  
+<span data-ttu-id="6074b-109">toocomplete neste tutorial, você já deve ter [Node.js](http://www.nodejs.org) **4** ou superior instalado e configurado.</span><span class="sxs-lookup"><span data-stu-id="6074b-109">toocomplete this tutorial, you should already have [Node.js](http://www.nodejs.org) **4.x.x** or higher installed and configured.</span></span>  <span data-ttu-id="6074b-110">Você pode usar qualquer editor de texto que você deseja toocreate seu aplicativo Node. js.</span><span class="sxs-lookup"><span data-stu-id="6074b-110">You can use any text editor you want toocreate your Node.js application.</span></span>  <span data-ttu-id="6074b-111">toowrite neste tutorial, usei [código do Visual Studio](https://code.visualstudio.com).</span><span class="sxs-lookup"><span data-stu-id="6074b-111">toowrite this tutorial, I used [Visual Studio Code](https://code.visualstudio.com).</span></span>  
 
 > [!TIP]
-> <span data-ttu-id="3ea10-112">O [projeto concluído deste tutorial](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) está disponível para download no MSDN.</span><span class="sxs-lookup"><span data-stu-id="3ea10-112">The [completed project from this tutorial](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) is available for download on MSDN.</span></span>
+> <span data-ttu-id="6074b-112">Olá [projeto concluído deste tutorial](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) está disponível para download no MSDN.</span><span class="sxs-lookup"><span data-stu-id="6074b-112">hello [completed project from this tutorial](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) is available for download on MSDN.</span></span>
 > 
 > 
 
 [!INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
-## <a name="create-your-project-and-add-npm-dependencies"></a><span data-ttu-id="3ea10-113">Criar o projeto e adicionar dependências de NPM</span><span class="sxs-lookup"><span data-stu-id="3ea10-113">Create your project and add NPM dependencies</span></span>
-<span data-ttu-id="3ea10-114">Agora que criamos um grupo de recursos para nossos perfis CDN e demos permissão para o nosso aplicativo Azure AD gerenciar os perfis CDN e os pontos de extremidade neste grupo, podemos começar a criação do nosso aplicativo.</span><span class="sxs-lookup"><span data-stu-id="3ea10-114">Now that we've created a resource group for our CDN profiles and given our Azure AD application permission to manage CDN profiles and endpoints within that group, we can start creating our application.</span></span>
+## <a name="create-your-project-and-add-npm-dependencies"></a><span data-ttu-id="6074b-113">Criar o projeto e adicionar dependências de NPM</span><span class="sxs-lookup"><span data-stu-id="6074b-113">Create your project and add NPM dependencies</span></span>
+<span data-ttu-id="6074b-114">Agora que podemos criar um grupo de recursos para os perfis CDN e considerando nossa perfis de CDN do Azure AD aplicativos permissão toomanage e pontos de extremidade dentro desse grupo, podemos começar criando o nosso aplicativo.</span><span class="sxs-lookup"><span data-stu-id="6074b-114">Now that we've created a resource group for our CDN profiles and given our Azure AD application permission toomanage CDN profiles and endpoints within that group, we can start creating our application.</span></span>
 
-<span data-ttu-id="3ea10-115">Crie uma pasta para armazenar o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="3ea10-115">Create a folder to store your application.</span></span>  <span data-ttu-id="3ea10-116">Em um console com as ferramentas do Node.js no caminho atual, defina o local atual para essa nova pasta e inicialize o projeto executando:</span><span class="sxs-lookup"><span data-stu-id="3ea10-116">From a console with the Node.js tools in your current path, set your current location to this new folder and initialize your project by executing:</span></span>
+<span data-ttu-id="6074b-115">Crie uma pasta toostore seu aplicativo.</span><span class="sxs-lookup"><span data-stu-id="6074b-115">Create a folder toostore your application.</span></span>  <span data-ttu-id="6074b-116">Em um console com as ferramentas de Node. js Olá no caminho atual, definir a nova pasta de toothis seu local atual e inicializar o projeto por meio da execução:</span><span class="sxs-lookup"><span data-stu-id="6074b-116">From a console with hello Node.js tools in your current path, set your current location toothis new folder and initialize your project by executing:</span></span>
 
     npm init
 
-<span data-ttu-id="3ea10-117">Em seguida, será apresentada uma série de perguntas para inicializar o projeto.</span><span class="sxs-lookup"><span data-stu-id="3ea10-117">You will then be presented a series of questions to initialize your project.</span></span>  <span data-ttu-id="3ea10-118">Para o **ponto de entrada**, este tutorial usa *app.js*.</span><span class="sxs-lookup"><span data-stu-id="3ea10-118">For **entry point**, this tutorial uses *app.js*.</span></span>  <span data-ttu-id="3ea10-119">Você pode ver minhas outras opções no exemplo a seguir.</span><span class="sxs-lookup"><span data-stu-id="3ea10-119">You can see my other choices in the following example.</span></span>
+<span data-ttu-id="6074b-117">Em seguida, será apresentada uma série de perguntas tooinitialize seu projeto.</span><span class="sxs-lookup"><span data-stu-id="6074b-117">You will then be presented a series of questions tooinitialize your project.</span></span>  <span data-ttu-id="6074b-118">Para o **ponto de entrada**, este tutorial usa *app.js*.</span><span class="sxs-lookup"><span data-stu-id="6074b-118">For **entry point**, this tutorial uses *app.js*.</span></span>  <span data-ttu-id="6074b-119">Você pode ver meu outras opções Olá exemplo a seguir.</span><span class="sxs-lookup"><span data-stu-id="6074b-119">You can see my other choices in hello following example.</span></span>
 
 ![Saída de NPM init](./media/cdn-app-dev-node/cdn-npm-init.png)
 
-<span data-ttu-id="3ea10-121">Agora, o projeto é inicializado com um arquivo *packages.json* .</span><span class="sxs-lookup"><span data-stu-id="3ea10-121">Our project is now initialized with a *packages.json* file.</span></span>  <span data-ttu-id="3ea10-122">Nosso projeto usará algumas bibliotecas do Azure contidas em pacotes NPM.</span><span class="sxs-lookup"><span data-stu-id="3ea10-122">Our project is going to use some Azure libraries contained in NPM packages.</span></span>  <span data-ttu-id="3ea10-123">Usaremos a Execução do Cliente do Azure para Node.js (ms-rest-azure) e a Biblioteca de Clientes de CDN do Azure para Node.js (azure-arm-cd).</span><span class="sxs-lookup"><span data-stu-id="3ea10-123">We'll use the Azure Client Runtime for Node.js (ms-rest-azure) and the Azure CDN Client Library for Node.js (azure-arm-cd).</span></span>  <span data-ttu-id="3ea10-124">Vamos adicioná-los ao projeto como dependências.</span><span class="sxs-lookup"><span data-stu-id="3ea10-124">Let's add those to the project as dependencies.</span></span>
+<span data-ttu-id="6074b-121">Agora, o projeto é inicializado com um arquivo *packages.json* .</span><span class="sxs-lookup"><span data-stu-id="6074b-121">Our project is now initialized with a *packages.json* file.</span></span>  <span data-ttu-id="6074b-122">Nosso projeto vai toouse algumas bibliotecas do Azure contidas em pacotes do NPM.</span><span class="sxs-lookup"><span data-stu-id="6074b-122">Our project is going toouse some Azure libraries contained in NPM packages.</span></span>  <span data-ttu-id="6074b-123">Vamos usar Olá tempo de execução do cliente do Azure para Node.js (ms-rest-azure) e hello biblioteca de cliente do Azure CDN para Node.js (azure-arm cd).</span><span class="sxs-lookup"><span data-stu-id="6074b-123">We'll use hello Azure Client Runtime for Node.js (ms-rest-azure) and hello Azure CDN Client Library for Node.js (azure-arm-cd).</span></span>  <span data-ttu-id="6074b-124">Vamos adicionar esses projeto toohello como dependências.</span><span class="sxs-lookup"><span data-stu-id="6074b-124">Let's add those toohello project as dependencies.</span></span>
 
     npm install --save ms-rest-azure
     npm install --save azure-arm-cdn
 
-<span data-ttu-id="3ea10-125">Depois dos pacotes terminarem de ser instalados, o arquivo *package.json* deverá ser semelhante a este exemplo (os números de versão podem diferir):</span><span class="sxs-lookup"><span data-stu-id="3ea10-125">After the packages are done installing, the *package.json* file should look similar to this example (version numbers may differ):</span></span>
+<span data-ttu-id="6074b-125">Depois de terminar de pacotes de saudação instalando, hello *Package. JSON* arquivo deve parecer semelhante toothis exemplo (versão números podem ser diferentes):</span><span class="sxs-lookup"><span data-stu-id="6074b-125">After hello packages are done installing, hello *package.json* file should look similar toothis example (version numbers may differ):</span></span>
 
 ``` json
 {
@@ -74,18 +74,18 @@ ms.lasthandoff: 07/11/2017
 }
 ```
 
-<span data-ttu-id="3ea10-126">Finalmente, usando o editor de texto, crie um arquivo de texto em branco e salve-o na raiz da pasta do projeto como *app.js*.</span><span class="sxs-lookup"><span data-stu-id="3ea10-126">Finally, using your text editor, create a blank text file and save it in the root of our project folder as *app.js*.</span></span>  <span data-ttu-id="3ea10-127">Agora estamos prontos para começar a escrever o código.</span><span class="sxs-lookup"><span data-stu-id="3ea10-127">We're now ready to begin writing code.</span></span>
+<span data-ttu-id="6074b-126">Finalmente, usando seu editor de texto, crie um arquivo de texto em branco e salvá-lo na raiz de saudação da nossa pasta de projeto como *app.js*.</span><span class="sxs-lookup"><span data-stu-id="6074b-126">Finally, using your text editor, create a blank text file and save it in hello root of our project folder as *app.js*.</span></span>  <span data-ttu-id="6074b-127">Agora estamos pronto toobegin escrever código.</span><span class="sxs-lookup"><span data-stu-id="6074b-127">We're now ready toobegin writing code.</span></span>
 
-## <a name="requires-constants-authentication-and-structure"></a><span data-ttu-id="3ea10-128">Requisitos, constantes, autenticação e estrutura</span><span class="sxs-lookup"><span data-stu-id="3ea10-128">Requires, constants, authentication, and structure</span></span>
-<span data-ttu-id="3ea10-129">Com *app.js* aberto no editor, vamos escrever a estrutura básica do programa.</span><span class="sxs-lookup"><span data-stu-id="3ea10-129">With *app.js* open in our editor, let's get the basic structure of our program written.</span></span>
+## <a name="requires-constants-authentication-and-structure"></a><span data-ttu-id="6074b-128">Requisitos, constantes, autenticação e estrutura</span><span class="sxs-lookup"><span data-stu-id="6074b-128">Requires, constants, authentication, and structure</span></span>
+<span data-ttu-id="6074b-129">Com *app.js* abra no nosso editor, vamos estrutura básica de saudação de nosso programa gravado.</span><span class="sxs-lookup"><span data-stu-id="6074b-129">With *app.js* open in our editor, let's get hello basic structure of our program written.</span></span>
 
-1. <span data-ttu-id="3ea10-130">Adicione os "requisitos" para os pacotes de NPM na parte superior com o seguinte:</span><span class="sxs-lookup"><span data-stu-id="3ea10-130">Add the "requires" for our NPM packages at the top with the following:</span></span>
+1. <span data-ttu-id="6074b-130">Adicione hello "requer" para nossos pacotes NPM na parte superior da saudação com os seguintes hello:</span><span class="sxs-lookup"><span data-stu-id="6074b-130">Add hello "requires" for our NPM packages at hello top with hello following:</span></span>
    
     ``` javascript
     var msRestAzure = require('ms-rest-azure');
     var cdnManagementClient = require('azure-arm-cdn');
     ```
-2. <span data-ttu-id="3ea10-131">Precisamos definir algumas constantes que serão usadas nos nossos métodos.</span><span class="sxs-lookup"><span data-stu-id="3ea10-131">We need to define some constants our methods will use.</span></span>  <span data-ttu-id="3ea10-132">Adicione o seguinte.</span><span class="sxs-lookup"><span data-stu-id="3ea10-132">Add the following.</span></span>  <span data-ttu-id="3ea10-133">Substitua os espaços reservados, inclusive os **&lt;sinais maior e menor que&gt;**, por seus próprios valores, conforme necessário.</span><span class="sxs-lookup"><span data-stu-id="3ea10-133">Be sure to replace the placeholders, including the **&lt;angle brackets&gt;**, with your own values as needed.</span></span>
+2. <span data-ttu-id="6074b-131">Precisamos toodefine algumas constantes que nossos métodos usará.</span><span class="sxs-lookup"><span data-stu-id="6074b-131">We need toodefine some constants our methods will use.</span></span>  <span data-ttu-id="6074b-132">Adicione o seguinte de saudação.</span><span class="sxs-lookup"><span data-stu-id="6074b-132">Add hello following.</span></span>  <span data-ttu-id="6074b-133">Ser tooreplace se espaços reservados hello, incluindo Olá  **&lt;colchetes angulares&gt;**, com seus próprios valores conforme necessário.</span><span class="sxs-lookup"><span data-stu-id="6074b-133">Be sure tooreplace hello placeholders, including hello **&lt;angle brackets&gt;**, with your own values as needed.</span></span>
    
     ``` javascript
     //Tenant app constants
@@ -98,17 +98,17 @@ ms.lasthandoff: 07/11/2017
     const resourceGroupName = "CdnConsoleTutorial";
     const resourceLocation = "<YOUR PREFERRED AZURE LOCATION, SUCH AS Central US>";
     ```
-3. <span data-ttu-id="3ea10-134">Em seguida, instanciaremos o cliente de gerenciamento de CDN e forneceremos as credenciais.</span><span class="sxs-lookup"><span data-stu-id="3ea10-134">Next, we'll instantiate the CDN management client and give it our credentials.</span></span>
+3. <span data-ttu-id="6074b-134">Em seguida, vamos criar uma instância de cliente de gerenciamento de CDN hello e dê a ele credenciais.</span><span class="sxs-lookup"><span data-stu-id="6074b-134">Next, we'll instantiate hello CDN management client and give it our credentials.</span></span>
    
     ``` javascript
     var credentials = new msRestAzure.ApplicationTokenCredentials(clientId, tenantId, clientSecret);
     var cdnClient = new cdnManagementClient(credentials, subscriptionId);
     ```
    
-    <span data-ttu-id="3ea10-135">Se você estiver usando a autenticação de usuário individual, essas duas linhas terão uma aparência ligeiramente diferente.</span><span class="sxs-lookup"><span data-stu-id="3ea10-135">If you are using individual user authentication, these two lines will look slightly different.</span></span>
+    <span data-ttu-id="6074b-135">Se você estiver usando a autenticação de usuário individual, essas duas linhas terão uma aparência ligeiramente diferente.</span><span class="sxs-lookup"><span data-stu-id="6074b-135">If you are using individual user authentication, these two lines will look slightly different.</span></span>
    
    > [!IMPORTANT]
-   > <span data-ttu-id="3ea10-136">Use este exemplo de código somente se optar pela autenticação de usuário individual, em vez de uma entidade de serviço.</span><span class="sxs-lookup"><span data-stu-id="3ea10-136">Only use this code sample if you are choosing to have individual user authentication instead of a service principal.</span></span>  <span data-ttu-id="3ea10-137">Tenha muito cuidado para proteger suas credenciais de usuário individuais e mantê-las secretas.</span><span class="sxs-lookup"><span data-stu-id="3ea10-137">Be careful to guard your individual user credentials and keep them secret.</span></span>
+   > <span data-ttu-id="6074b-136">Somente use esse exemplo de código se você está escolhendo toohave autenticação de usuário individual em vez de uma entidade de serviço.</span><span class="sxs-lookup"><span data-stu-id="6074b-136">Only use this code sample if you are choosing toohave individual user authentication instead of a service principal.</span></span>  <span data-ttu-id="6074b-137">Ser tooguard cuidado suas credenciais de usuário individual e mantê-los segredo.</span><span class="sxs-lookup"><span data-stu-id="6074b-137">Be careful tooguard your individual user credentials and keep them secret.</span></span>
    > 
    > 
    
@@ -118,8 +118,8 @@ ms.lasthandoff: 07/11/2017
     var cdnClient = new cdnManagementClient(credentials, subscriptionId);
     ```
    
-    <span data-ttu-id="3ea10-138">Substitua os itens nos **&lt;sinais maior e menor que&gt;** pelas informações corretas.</span><span class="sxs-lookup"><span data-stu-id="3ea10-138">Be sure to replace the items in **&lt;angle brackets&gt;** with the correct information.</span></span>  <span data-ttu-id="3ea10-139">Para `<redirect URI>`, use o URI de redirecionamento que você inseriu quando registrou o aplicativo no Azure AD.</span><span class="sxs-lookup"><span data-stu-id="3ea10-139">For `<redirect URI>`, use the redirect URI you entered when you registered the application in Azure AD.</span></span>
-4. <span data-ttu-id="3ea10-140">O aplicativo de console do Node.js usará alguns parâmetros da linha de comando.</span><span class="sxs-lookup"><span data-stu-id="3ea10-140">Our Node.js console application is going to take some command-line parameters.</span></span>  <span data-ttu-id="3ea10-141">Validaremos que pelo menos um parâmetro foi passado.</span><span class="sxs-lookup"><span data-stu-id="3ea10-141">Let's validate that at least one parameter was passed.</span></span>
+    <span data-ttu-id="6074b-138">Ter tooreplace-se de que os itens de saudação no  **&lt;colchetes angulares&gt;**  com hello informações corretas.</span><span class="sxs-lookup"><span data-stu-id="6074b-138">Be sure tooreplace hello items in **&lt;angle brackets&gt;** with hello correct information.</span></span>  <span data-ttu-id="6074b-139">Para `<redirect URI>`, use o redirecionamento de saudação URI que você inseriu quando registrou o aplicativo hello no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="6074b-139">For `<redirect URI>`, use hello redirect URI you entered when you registered hello application in Azure AD.</span></span>
+4. <span data-ttu-id="6074b-140">Nosso aplicativo de console Node. js será tootake alguns parâmetros de linha de comando.</span><span class="sxs-lookup"><span data-stu-id="6074b-140">Our Node.js console application is going tootake some command-line parameters.</span></span>  <span data-ttu-id="6074b-141">Validaremos que pelo menos um parâmetro foi passado.</span><span class="sxs-lookup"><span data-stu-id="6074b-141">Let's validate that at least one parameter was passed.</span></span>
    
    ```javascript
    //Collect command-line parameters
@@ -133,7 +133,7 @@ ms.lasthandoff: 07/11/2017
        process.exit(1);
    }
    ```
-5. <span data-ttu-id="3ea10-142">Isso nos leva para a parte principal do programa, na qual fazemos a ramificação para outras funções com base nos parâmetros passados.</span><span class="sxs-lookup"><span data-stu-id="3ea10-142">That brings us to the main part of our program, where we branch off to other functions based on what parameters were passed.</span></span>
+5. <span data-ttu-id="6074b-142">Chegamos toohello principal parte de nosso programa, onde podemos ramificam tooother funções com base em quais parâmetros foram passados.</span><span class="sxs-lookup"><span data-stu-id="6074b-142">That brings us toohello main part of our program, where we branch off tooother functions based on what parameters were passed.</span></span>
    
     ```javascript
     switch(parms[0].toLowerCase())
@@ -159,7 +159,7 @@ ms.lasthandoff: 07/11/2017
             process.exit(1);
     }
     ```
-6. <span data-ttu-id="3ea10-143">Em vários locais no programa, é necessário verificar se o número correto de parâmetros foi passado e exibir ajuda se eles não estiverem corretos.</span><span class="sxs-lookup"><span data-stu-id="3ea10-143">At several places in our program, we'll need to make sure the right number of parameters were passed in and display some help if they don't look correct.</span></span>  <span data-ttu-id="3ea10-144">Vamos criar funções para fazer isso.</span><span class="sxs-lookup"><span data-stu-id="3ea10-144">Let's create functions to do that.</span></span>
+6. <span data-ttu-id="6074b-143">Em vários locais em nosso programa, vamos precisar toomake-se de que o número correto de saudação de parâmetros foram passado e exibe ajuda se eles não tiverem corretos.</span><span class="sxs-lookup"><span data-stu-id="6074b-143">At several places in our program, we'll need toomake sure hello right number of parameters were passed in and display some help if they don't look correct.</span></span>  <span data-ttu-id="6074b-144">Vamos criar funções toodo que.</span><span class="sxs-lookup"><span data-stu-id="6074b-144">Let's create functions toodo that.</span></span>
    
    ```javascript
    function requireParms(parmCount) {
@@ -197,7 +197,7 @@ ms.lasthandoff: 07/11/2017
        }
    }
    ```
-7. <span data-ttu-id="3ea10-145">Finalmente, as funções que usaremos no cliente de gerenciamento de CDN são assíncronas, assim, precisam de um método de retorno de chamada quando são concluídas.</span><span class="sxs-lookup"><span data-stu-id="3ea10-145">Finally, the functions we'll be using on the CDN management client are asynchronous, so they need a method to call back when they're done.</span></span>  <span data-ttu-id="3ea10-146">Vamos criar um que possa exibir a saída do cliente de gerenciamento de CDN (se houver) e sair do programa normalmente.</span><span class="sxs-lookup"><span data-stu-id="3ea10-146">Let's make one that can display the output from the CDN management client (if any) and exit the program gracefully.</span></span>
+7. <span data-ttu-id="6074b-145">Por fim, funções hello que será usado no cliente de gerenciamento de CDN Olá são assíncronas, assim, precisam de um método toocall quando ele terminar.</span><span class="sxs-lookup"><span data-stu-id="6074b-145">Finally, hello functions we'll be using on hello CDN management client are asynchronous, so they need a method toocall back when they're done.</span></span>  <span data-ttu-id="6074b-146">Vamos fazer um que pode exibir a saída de saudação do cliente de gerenciamento de CDN hello (se houver) e sair de saudação normalmente.</span><span class="sxs-lookup"><span data-stu-id="6074b-146">Let's make one that can display hello output from hello CDN management client (if any) and exit hello program gracefully.</span></span>
    
     ```javascript
     function callback(err, result, request, response) {
@@ -211,10 +211,10 @@ ms.lasthandoff: 07/11/2017
     }
     ```
 
-<span data-ttu-id="3ea10-147">Agora que a estrutura básica do programa foi escrita, devemos criar as funções chamadas com base em nossos parâmetros.</span><span class="sxs-lookup"><span data-stu-id="3ea10-147">Now that the basic structure of our program is written, we should create the functions called based on our parameters.</span></span>
+<span data-ttu-id="6074b-147">Agora que a estrutura básica de saudação do programa é gravada, podemos deve criar funções de saudação chamadas com base em nossos parâmetros.</span><span class="sxs-lookup"><span data-stu-id="6074b-147">Now that hello basic structure of our program is written, we should create hello functions called based on our parameters.</span></span>
 
-## <a name="list-cdn-profiles-and-endpoints"></a><span data-ttu-id="3ea10-148">Relacione os perfis CDN e os pontos de extremidade</span><span class="sxs-lookup"><span data-stu-id="3ea10-148">List CDN profiles and endpoints</span></span>
-<span data-ttu-id="3ea10-149">Vamos começar com o código para listar os perfis e os pontos de extremidade existentes.</span><span class="sxs-lookup"><span data-stu-id="3ea10-149">Let's start with code to list our existing profiles and endpoints.</span></span>  <span data-ttu-id="3ea10-150">Os comentários do código fornecem a sintaxe esperada para que saibamos onde fica cada parâmetro.</span><span class="sxs-lookup"><span data-stu-id="3ea10-150">My code comments provide the expected syntax so we know where each parameter goes.</span></span>
+## <a name="list-cdn-profiles-and-endpoints"></a><span data-ttu-id="6074b-148">Relacione os perfis CDN e os pontos de extremidade</span><span class="sxs-lookup"><span data-stu-id="6074b-148">List CDN profiles and endpoints</span></span>
+<span data-ttu-id="6074b-149">Vamos começar com toolist código nossos perfis existentes e os pontos de extremidade.</span><span class="sxs-lookup"><span data-stu-id="6074b-149">Let's start with code toolist our existing profiles and endpoints.</span></span>  <span data-ttu-id="6074b-150">Comentários de código fornecem uma sintaxe Olá esperado para sabermos onde vai cada parâmetro.</span><span class="sxs-lookup"><span data-stu-id="6074b-150">My code comments provide hello expected syntax so we know where each parameter goes.</span></span>
 
 ```javascript
 // list profiles
@@ -241,8 +241,8 @@ function cdnList(){
 }
 ```
 
-## <a name="create-cdn-profiles-and-endpoints"></a><span data-ttu-id="3ea10-151">Criar perfis CDN e pontos de extremidade</span><span class="sxs-lookup"><span data-stu-id="3ea10-151">Create CDN profiles and endpoints</span></span>
-<span data-ttu-id="3ea10-152">Em seguida, escreveremos as funções para criar perfis e pontos de extremidade.</span><span class="sxs-lookup"><span data-stu-id="3ea10-152">Next, we'll write the functions to create profiles and endpoints.</span></span>
+## <a name="create-cdn-profiles-and-endpoints"></a><span data-ttu-id="6074b-151">Criar perfis CDN e pontos de extremidade</span><span class="sxs-lookup"><span data-stu-id="6074b-151">Create CDN profiles and endpoints</span></span>
+<span data-ttu-id="6074b-152">Em seguida, vamos gravar perfis de toocreate funções hello e de pontos de extremidade.</span><span class="sxs-lookup"><span data-stu-id="6074b-152">Next, we'll write hello functions toocreate profiles and endpoints.</span></span>
 
 ```javascript
 function cdnCreate() {
@@ -293,8 +293,8 @@ function cdnCreateEndpoint() {
 }
 ```
 
-## <a name="purge-an-endpoint"></a><span data-ttu-id="3ea10-153">Limpar um ponto de extremidade</span><span class="sxs-lookup"><span data-stu-id="3ea10-153">Purge an endpoint</span></span>
-<span data-ttu-id="3ea10-154">Supondo que o ponto de extremidade tenha sido criado, uma tarefa comum que convém executar no programa é limpar o conteúdo no ponto de extremidade.</span><span class="sxs-lookup"><span data-stu-id="3ea10-154">Assuming the endpoint has been created, one common task that we might want to perform in our program is purging content in our endpoint.</span></span>
+## <a name="purge-an-endpoint"></a><span data-ttu-id="6074b-153">Limpar um ponto de extremidade</span><span class="sxs-lookup"><span data-stu-id="6074b-153">Purge an endpoint</span></span>
+<span data-ttu-id="6074b-154">Supondo que o ponto de extremidade de saudação foi criado, uma tarefa comum que que talvez desejemos tooperform em nosso programa está limpando conteúdo no ponto de extremidade.</span><span class="sxs-lookup"><span data-stu-id="6074b-154">Assuming hello endpoint has been created, one common task that we might want tooperform in our program is purging content in our endpoint.</span></span>
 
 ```javascript
 // purge <profile name> <endpoint name> <path>
@@ -306,8 +306,8 @@ function cdnPurge() {
 }
 ```
 
-## <a name="delete-cdn-profiles-and-endpoints"></a><span data-ttu-id="3ea10-155">Excluir perfis CDN e pontos de extremidade</span><span class="sxs-lookup"><span data-stu-id="3ea10-155">Delete CDN profiles and endpoints</span></span>
-<span data-ttu-id="3ea10-156">A última função que incluiremos exclui pontos de extremidade e perfis.</span><span class="sxs-lookup"><span data-stu-id="3ea10-156">The last function we will include deletes endpoints and profiles.</span></span>
+## <a name="delete-cdn-profiles-and-endpoints"></a><span data-ttu-id="6074b-155">Excluir perfis CDN e pontos de extremidade</span><span class="sxs-lookup"><span data-stu-id="6074b-155">Delete CDN profiles and endpoints</span></span>
+<span data-ttu-id="6074b-156">função last Hello, que incluiremos exclui perfis e pontos de extremidade.</span><span class="sxs-lookup"><span data-stu-id="6074b-156">hello last function we will include deletes endpoints and profiles.</span></span>
 
 ```javascript
 function cdnDelete() {
@@ -335,36 +335,36 @@ function cdnDelete() {
 }
 ```
 
-## <a name="running-the-program"></a><span data-ttu-id="3ea10-157">Executando o programa</span><span class="sxs-lookup"><span data-stu-id="3ea10-157">Running the program</span></span>
-<span data-ttu-id="3ea10-158">Agora podemos executar o programa do Node.js usando o depurador que preferirmos ou no console.</span><span class="sxs-lookup"><span data-stu-id="3ea10-158">We can now execute our Node.js program using our favorite debugger or at the console.</span></span>
+## <a name="running-hello-program"></a><span data-ttu-id="6074b-157">Programa de saudação em execução</span><span class="sxs-lookup"><span data-stu-id="6074b-157">Running hello program</span></span>
+<span data-ttu-id="6074b-158">Agora podemos executar nosso programa Node. js usando nosso depurador favorito ou no console de saudação.</span><span class="sxs-lookup"><span data-stu-id="6074b-158">We can now execute our Node.js program using our favorite debugger or at hello console.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="3ea10-159">Se você estiver usando o Código do Visual Studio como depurador, precisará configurar o ambiente para passar os parâmetros da linha de comando.</span><span class="sxs-lookup"><span data-stu-id="3ea10-159">If you're using Visual Studio Code as your debugger, you'll need to set up your environment to pass in the command-line parameters.</span></span>  <span data-ttu-id="3ea10-160">O Código do Visual Studio faz isso no arquivo **lanuch.json** .</span><span class="sxs-lookup"><span data-stu-id="3ea10-160">Visual Studio Code does this in the **lanuch.json** file.</span></span>  <span data-ttu-id="3ea10-161">Procure uma propriedade denominada **args** e adicione uma matriz de valores da cadeia de caracteres aos parâmetros, para que seja semelhante a isto: `"args": ["list", "profiles"]`.</span><span class="sxs-lookup"><span data-stu-id="3ea10-161">Look for a property named **args** and add an array of string values for your parameters, so that it looks similar to this:  `"args": ["list", "profiles"]`.</span></span>
+> <span data-ttu-id="6074b-159">Se você estiver usando o código do Visual Studio como o depurador, você precisará tooset backup toopass seu ambiente nos parâmetros de linha de comando hello.</span><span class="sxs-lookup"><span data-stu-id="6074b-159">If you're using Visual Studio Code as your debugger, you'll need tooset up your environment toopass in hello command-line parameters.</span></span>  <span data-ttu-id="6074b-160">Código do Visual Studio faz isso de saudação **lanuch.json** arquivo.</span><span class="sxs-lookup"><span data-stu-id="6074b-160">Visual Studio Code does this in hello **lanuch.json** file.</span></span>  <span data-ttu-id="6074b-161">Procure uma propriedade chamada **args** e adicione uma matriz de valores de cadeia de caracteres para seus parâmetros, para que ele se parece semelhante toothis: `"args": ["list", "profiles"]`.</span><span class="sxs-lookup"><span data-stu-id="6074b-161">Look for a property named **args** and add an array of string values for your parameters, so that it looks similar toothis:  `"args": ["list", "profiles"]`.</span></span>
 > 
 > 
 
-<span data-ttu-id="3ea10-162">Vamos começar listando os perfis.</span><span class="sxs-lookup"><span data-stu-id="3ea10-162">Let's start by listing our profiles.</span></span>
+<span data-ttu-id="6074b-162">Vamos começar listando os perfis.</span><span class="sxs-lookup"><span data-stu-id="6074b-162">Let's start by listing our profiles.</span></span>
 
 ![Listar perfis](./media/cdn-app-dev-node/cdn-list-profiles.png)
 
-<span data-ttu-id="3ea10-164">Obtivemos uma matriz vazia.</span><span class="sxs-lookup"><span data-stu-id="3ea10-164">We got back an empty array.</span></span>  <span data-ttu-id="3ea10-165">Como não há perfis no grupo de recursos, isso é esperado.</span><span class="sxs-lookup"><span data-stu-id="3ea10-165">Since we don't have any profiles in our resource group, that's expected.</span></span>  <span data-ttu-id="3ea10-166">Vamos criar um perfil agora.</span><span class="sxs-lookup"><span data-stu-id="3ea10-166">Let's create a profile now.</span></span>
+<span data-ttu-id="6074b-164">Obtivemos uma matriz vazia.</span><span class="sxs-lookup"><span data-stu-id="6074b-164">We got back an empty array.</span></span>  <span data-ttu-id="6074b-165">Como não há perfis no grupo de recursos, isso é esperado.</span><span class="sxs-lookup"><span data-stu-id="6074b-165">Since we don't have any profiles in our resource group, that's expected.</span></span>  <span data-ttu-id="6074b-166">Vamos criar um perfil agora.</span><span class="sxs-lookup"><span data-stu-id="6074b-166">Let's create a profile now.</span></span>
 
 ![Criar perfil](./media/cdn-app-dev-node/cdn-create-profile.png)
 
-<span data-ttu-id="3ea10-168">Agora, vamos adicionar um ponto de extremidade.</span><span class="sxs-lookup"><span data-stu-id="3ea10-168">Now, let's add an endpoint.</span></span>
+<span data-ttu-id="6074b-168">Agora, vamos adicionar um ponto de extremidade.</span><span class="sxs-lookup"><span data-stu-id="6074b-168">Now, let's add an endpoint.</span></span>
 
 ![Criar ponto de extremidade](./media/cdn-app-dev-node/cdn-create-endpoint.png)
 
-<span data-ttu-id="3ea10-170">Por fim, vamos excluir o perfil.</span><span class="sxs-lookup"><span data-stu-id="3ea10-170">Finally, let's delete our profile.</span></span>
+<span data-ttu-id="6074b-170">Por fim, vamos excluir o perfil.</span><span class="sxs-lookup"><span data-stu-id="6074b-170">Finally, let's delete our profile.</span></span>
 
 ![Excluir perfil](./media/cdn-app-dev-node/cdn-delete-profile.png)
 
-## <a name="next-steps"></a><span data-ttu-id="3ea10-172">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="3ea10-172">Next Steps</span></span>
-<span data-ttu-id="3ea10-173">Para ver o projeto concluído desse passo a passo, [baixe o exemplo](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).</span><span class="sxs-lookup"><span data-stu-id="3ea10-173">To see the completed project from this walkthrough, [download the sample](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="6074b-172">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="6074b-172">Next Steps</span></span>
+<span data-ttu-id="6074b-173">projeto de saudação concluída toosee deste passo a passo, [baixar exemplo hello](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).</span><span class="sxs-lookup"><span data-stu-id="6074b-173">toosee hello completed project from this walkthrough, [download hello sample](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).</span></span>
 
-<span data-ttu-id="3ea10-174">Para ver a referência do SDK da CDN do Azure para Node.js, exiba a [referência](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).</span><span class="sxs-lookup"><span data-stu-id="3ea10-174">To see the reference for the Azure CDN SDK for Node.js, view the [reference](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).</span></span>
+<span data-ttu-id="6074b-174">referência de saudação toosee para hello Azure CDN SDK para Node.js, Olá de exibição [referência](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).</span><span class="sxs-lookup"><span data-stu-id="6074b-174">toosee hello reference for hello Azure CDN SDK for Node.js, view hello [reference](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).</span></span>
 
-<span data-ttu-id="3ea10-175">Para localizar documentação adicional sobre o SDK do Azure para Node.js, exiba a [referência completa](http://azure.github.io/azure-sdk-for-node/).</span><span class="sxs-lookup"><span data-stu-id="3ea10-175">To find additional documentation on the Azure SDK for Node.js, view the [full reference](http://azure.github.io/azure-sdk-for-node/).</span></span>
+<span data-ttu-id="6074b-175">toofind obter documentação adicional sobre hello Azure SDK para Node.js, Olá exibição [completo referência](http://azure.github.io/azure-sdk-for-node/).</span><span class="sxs-lookup"><span data-stu-id="6074b-175">toofind additional documentation on hello Azure SDK for Node.js, view hello [full reference](http://azure.github.io/azure-sdk-for-node/).</span></span>
 
-<span data-ttu-id="3ea10-176">Gerencie seus recursos CDN com o [PowerShell](cdn-manage-powershell.md).</span><span class="sxs-lookup"><span data-stu-id="3ea10-176">Manage your CDN resources with [PowerShell](cdn-manage-powershell.md).</span></span>
+<span data-ttu-id="6074b-176">Gerencie seus recursos CDN com o [PowerShell](cdn-manage-powershell.md).</span><span class="sxs-lookup"><span data-stu-id="6074b-176">Manage your CDN resources with [PowerShell](cdn-manage-powershell.md).</span></span>
 

@@ -1,6 +1,6 @@
 ---
-title: "Documentação do Backup do Azure - Tutoriais, Referência de API | Microsoft Docs"
-description: "Use a documentação de backup para aprender como fazer o backup para a nuvem. Confira tutoriais e vídeos para o aplicativo, servidor Windows e o backup da máquina virtual do Azure."
+title: "aaaAzure documentação de Backup - tutoriais, referência de API | Microsoft Docs"
+description: "Use Backup documentação toolearn como tooback backup toohello de nuvem. Confira tutoriais e vídeos para o aplicativo, servidor Windows e o backup da máquina virtual do Azure."
 services: backup
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 3d8b07dc9903a48f6481ceda1922479cc7cd9ef6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 648c83a3ecdc4770859fbea0cc5af9ac2d1fdfd2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="backup-documentation"></a>Documentação de backup
 
-Saiba como usar o Backup do Azure na nuvem para proteger os dados para retenção de longo prazo e recuperação. Tutoriais, vídeos e outras documentações mostram como fazer backup de dados, aplicativos, servidores Windows e máquinas virtuais do Azure.
+Saiba como toouse Backup do Azure no hello da nuvem tooprotect para retenção de longo prazo e recuperação. A documentação, vídeos e tutoriais mostram como tooback backup de dados, aplicativos, servidores do Windows e máquinas virtuais do Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>

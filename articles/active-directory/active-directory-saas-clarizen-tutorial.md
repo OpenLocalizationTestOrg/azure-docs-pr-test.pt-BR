@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory ao Clarizen | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Active Directory do Azure e o Clarizen."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Clarizen."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,237 +13,237 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 574c6877bddac8be7d6d541bfabbdc10f6be3101
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f24ccda3b90e5df9a203a444dfda905043b30276
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clarizen"></a><span data-ttu-id="f26dc-103">Tutorial: integração do Active Directory do Azure ao Clarizen</span><span class="sxs-lookup"><span data-stu-id="f26dc-103">Tutorial: Azure Active Directory integration with Clarizen</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-clarizen"></a><span data-ttu-id="04d3f-103">Tutorial: integração do Active Directory do Azure ao Clarizen</span><span class="sxs-lookup"><span data-stu-id="04d3f-103">Tutorial: Azure Active Directory integration with Clarizen</span></span>
 
-<span data-ttu-id="f26dc-104">Neste tutorial, você aprenderá a integrar o Azure AD (Azure Active Directory) ao Clarizen.</span><span class="sxs-lookup"><span data-stu-id="f26dc-104">In this tutorial, you learn how to integrate Azure Active Directory (Azure AD) with Clarizen.</span></span> <span data-ttu-id="f26dc-105">Essa integração oferece os seguintes benefícios:</span><span class="sxs-lookup"><span data-stu-id="f26dc-105">This integration gives you the following benefits:</span></span>
+<span data-ttu-id="04d3f-104">Neste tutorial, você aprenderá como toointegrate do Azure Active Directory (AD do Azure) com o Clarizen.</span><span class="sxs-lookup"><span data-stu-id="04d3f-104">In this tutorial, you learn how toointegrate Azure Active Directory (Azure AD) with Clarizen.</span></span> <span data-ttu-id="04d3f-105">Isso proporciona integração Olá seguintes benefícios:</span><span class="sxs-lookup"><span data-stu-id="04d3f-105">This integration gives you hello following benefits:</span></span>
 
-- <span data-ttu-id="f26dc-106">No Azure AD, é possível controlar quem tem acesso ao Clarizen.</span><span class="sxs-lookup"><span data-stu-id="f26dc-106">You can control, in Azure AD, who has access to Clarizen.</span></span>
-- <span data-ttu-id="f26dc-107">Você pode permitir que seus usuários entrem automaticamente no Clarizen (logon único) com suas contas do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="f26dc-107">You can enable your users to be automatically signed in to Clarizen (single sign-on) with their Azure AD accounts.</span></span>
-- <span data-ttu-id="f26dc-108">Você pode gerenciar suas contas em um único local, o portal clássico do Azure.</span><span class="sxs-lookup"><span data-stu-id="f26dc-108">You can manage your accounts in one central location, the Azure portal.</span></span>
+- <span data-ttu-id="04d3f-106">Você pode controlar, no AD do Azure, que tem acesso tooClarizen.</span><span class="sxs-lookup"><span data-stu-id="04d3f-106">You can control, in Azure AD, who has access tooClarizen.</span></span>
+- <span data-ttu-id="04d3f-107">Você pode habilitar o toobe de usuários conectado automaticamente tooClarizen (logon único) com suas contas do AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="04d3f-107">You can enable your users toobe automatically signed in tooClarizen (single sign-on) with their Azure AD accounts.</span></span>
+- <span data-ttu-id="04d3f-108">Você pode gerenciar suas contas em um local central, Olá portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="04d3f-108">You can manage your accounts in one central location, hello Azure portal.</span></span>
 
-<span data-ttu-id="f26dc-109">O cenário deste tutorial consiste em duas tarefas principais:</span><span class="sxs-lookup"><span data-stu-id="f26dc-109">The scenario in this tutorial consists of two main tasks:</span></span>
+<span data-ttu-id="04d3f-109">cenário de saudação neste tutorial consiste em duas tarefas principais:</span><span class="sxs-lookup"><span data-stu-id="04d3f-109">hello scenario in this tutorial consists of two main tasks:</span></span>
 
-1. <span data-ttu-id="f26dc-110">Adicione o Clarizen da galeria.</span><span class="sxs-lookup"><span data-stu-id="f26dc-110">Add Clarizen from the gallery.</span></span>
-2. <span data-ttu-id="f26dc-111">Configurar e testar logon único do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="f26dc-111">Configure and test Azure AD single sign-on.</span></span>
+1. <span data-ttu-id="04d3f-110">Adicione Clarizen da Galeria de saudação.</span><span class="sxs-lookup"><span data-stu-id="04d3f-110">Add Clarizen from hello gallery.</span></span>
+2. <span data-ttu-id="04d3f-111">Configurar e testar logon único do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="04d3f-111">Configure and test Azure AD single sign-on.</span></span>
 
-<span data-ttu-id="f26dc-112">Para conhecer mais detalhadamente a integração de aplicativos de SaaS (software como serviço) ao Azure AD, consulte [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="f26dc-112">If you want more details about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="04d3f-112">Para conhecer mais detalhadamente a integração de aplicativos de SaaS (software como serviço) ao Azure AD, consulte [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="04d3f-112">If you want more details about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="f26dc-113">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="f26dc-113">Prerequisites</span></span>
-<span data-ttu-id="f26dc-114">Para configurar a integração do Azure AD ao Clarizen, você precisará dos seguintes itens:</span><span class="sxs-lookup"><span data-stu-id="f26dc-114">To configure Azure AD integration with Clarizen, you need the following items:</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="04d3f-113">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="04d3f-113">Prerequisites</span></span>
+<span data-ttu-id="04d3f-114">tooconfigure integração do AD do Azure com o Clarizen, você precisa Olá itens a seguir:</span><span class="sxs-lookup"><span data-stu-id="04d3f-114">tooconfigure Azure AD integration with Clarizen, you need hello following items:</span></span>
 
-- <span data-ttu-id="f26dc-115">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="f26dc-115">An Azure AD subscription</span></span>
-- <span data-ttu-id="f26dc-116">Uma assinatura de Clarizen está habilitada para logon único</span><span class="sxs-lookup"><span data-stu-id="f26dc-116">A Clarizen subscription that's enabled for single sign-on</span></span>
+- <span data-ttu-id="04d3f-115">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="04d3f-115">An Azure AD subscription</span></span>
+- <span data-ttu-id="04d3f-116">Uma assinatura de Clarizen está habilitada para logon único</span><span class="sxs-lookup"><span data-stu-id="04d3f-116">A Clarizen subscription that's enabled for single sign-on</span></span>
 
-<span data-ttu-id="f26dc-117">Para testar as etapas neste tutorial, siga estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="f26dc-117">To test the steps in this tutorial, follow these recommendations:</span></span>
+<span data-ttu-id="04d3f-117">etapas de saudação tootest neste tutorial, siga estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="04d3f-117">tootest hello steps in this tutorial, follow these recommendations:</span></span>
 
-- <span data-ttu-id="f26dc-118">Teste o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="f26dc-118">Test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="f26dc-119">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="f26dc-119">Don't use your production environment, unless this is necessary.</span></span>
-- <span data-ttu-id="f26dc-120">Se não tiver um ambiente de teste do Azure AD, você poderá [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="f26dc-120">If you don't have an Azure AD test environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="04d3f-118">Teste o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="04d3f-118">Test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="04d3f-119">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="04d3f-119">Don't use your production environment, unless this is necessary.</span></span>
+- <span data-ttu-id="04d3f-120">Se não tiver um ambiente de teste do Azure AD, você poderá [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="04d3f-120">If you don't have an Azure AD test environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="add-clarizen-from-the-gallery"></a><span data-ttu-id="f26dc-121">Adicionar o Clarizen da galeria</span><span class="sxs-lookup"><span data-stu-id="f26dc-121">Add Clarizen from the gallery</span></span>
-<span data-ttu-id="f26dc-122">Para configurar a integração do Clarizen ao Azure AD, adicione o Clarizen da galeria à sua lista de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="f26dc-122">To configure the integration of Clarizen into Azure AD, add Clarizen from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="add-clarizen-from-hello-gallery"></a><span data-ttu-id="04d3f-121">Adicionar Clarizen da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="04d3f-121">Add Clarizen from hello gallery</span></span>
+<span data-ttu-id="04d3f-122">integração de saudação do tooconfigure do Clarizen no AD do Azure, adicione Clarizen da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="04d3f-122">tooconfigure hello integration of Clarizen into Azure AD, add Clarizen from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-1. <span data-ttu-id="f26dc-123">No [portal do Azure](https://portal.azure.com), no painel esquerdo, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-123">In the [Azure portal](https://portal.azure.com), in the left pane, click the **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="04d3f-123">Em Olá [portal do Azure](https://portal.azure.com), no painel esquerdo de hello, clique Olá **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="04d3f-123">In hello [Azure portal](https://portal.azure.com), in hello left pane, click hello **Azure Active Directory** icon.</span></span>
 
     ![Ícone do Azure Active Directory][1]
 
-2. <span data-ttu-id="f26dc-125">Clique em **Aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-125">Click **Enterprise applications**.</span></span> <span data-ttu-id="f26dc-126">Em seguida, clique em **Todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-126">Then click **All applications**.</span></span>
+2. <span data-ttu-id="04d3f-125">Clique em **Aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-125">Click **Enterprise applications**.</span></span> <span data-ttu-id="04d3f-126">Em seguida, clique em **Todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-126">Then click **All applications**.</span></span>
 
     ![Clicar em "Aplicativos corporativos" e em "Todos os aplicativos"][2]
 
-3. <span data-ttu-id="f26dc-128">Clique no botão **Adicionar** na parte superior da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="f26dc-128">Click the **Add** button at the top of the dialog box.</span></span>
+3. <span data-ttu-id="04d3f-128">Clique em Olá **adicionar** botão na parte superior de Olá Olá da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="04d3f-128">Click hello **Add** button at hello top of hello dialog box.</span></span>
 
-    ![O botão “Adicionar”][3]
+    ![botão de "Adicionar" Hello][3]
 
-4. <span data-ttu-id="f26dc-130">Na caixa de pesquisa, digite **Clarizen**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-130">In the search box, type **Clarizen**.</span></span>
+4. <span data-ttu-id="04d3f-130">Na caixa de pesquisa hello, digite **Clarizen**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-130">In hello search box, type **Clarizen**.</span></span>
 
-    ![Digitar "Clarizen" na caixa de pesquisa](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_000.png)
+    ![Digitar "Clarizen" na caixa de pesquisa de saudação](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_000.png)
 
-5. <span data-ttu-id="f26dc-132">No painel de resultados, selecione **Clarizen** e clique em **Adicionar** para adicionar o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="f26dc-132">In the results pane, select **Clarizen**, and then click **Add** to add the application.</span></span>
+5. <span data-ttu-id="04d3f-132">No painel de resultados de saudação, selecione **Clarizen**e, em seguida, clique em **adicionar** aplicativo hello de tooadd.</span><span class="sxs-lookup"><span data-stu-id="04d3f-132">In hello results pane, select **Clarizen**, and then click **Add** tooadd hello application.</span></span>
 
-    ![Selecionar o Clarizen no painel de resultados](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_0001.png)
+    ![Selecionando Clarizen no painel de resultados de saudação](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_0001.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a><span data-ttu-id="f26dc-134">Configurar e testar logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="f26dc-134">Configure and test Azure AD single sign-on</span></span>
-<span data-ttu-id="f26dc-135">Nas seções a seguir, você configurará e testará o logon único do Azure AD com o Clarizen, com base no usuário de teste Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="f26dc-135">In the following sections, you configure and test Azure AD single sign-on with Clarizen based on the test user Britta Simon.</span></span>
+## <a name="configure-and-test-azure-ad-single-sign-on"></a><span data-ttu-id="04d3f-134">Configurar e testar logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="04d3f-134">Configure and test Azure AD single sign-on</span></span>
+<span data-ttu-id="04d3f-135">Em Olá seções a seguir, configurar e testar o logon único do AD do Azure com o Clarizen com base no usuário de teste Olá Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="04d3f-135">In hello following sections, you configure and test Azure AD single sign-on with Clarizen based on hello test user Britta Simon.</span></span>
 
-<span data-ttu-id="f26dc-136">Para que o logon único funcione, o Azure AD precisa saber qual usuário do Clarizen é equivalente a um usuário do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="f26dc-136">For single sign-on to work, Azure AD needs to know what the counterpart user in Clarizen is to a user in Azure AD.</span></span> <span data-ttu-id="f26dc-137">Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Clarizen.</span><span class="sxs-lookup"><span data-stu-id="f26dc-137">In other words, a link relationship between an Azure AD user and the related user in Clarizen needs to be established.</span></span> <span data-ttu-id="f26dc-138">Você estabelece essa relação de vínculo atribuindo o valor de **nome de usuário** no Azure AD como o valor de **Nome de usuário** no Clarizen.</span><span class="sxs-lookup"><span data-stu-id="f26dc-138">You establish this link relationship by assigning the value of **user name** in Azure AD as the value of **Username** in Clarizen.</span></span>
+<span data-ttu-id="04d3f-136">Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no Clarizen é tooa usuário no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="04d3f-136">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in Clarizen is tooa user in Azure AD.</span></span> <span data-ttu-id="04d3f-137">Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no Clarizen precisa toobe estabelecida.</span><span class="sxs-lookup"><span data-stu-id="04d3f-137">In other words, a link relationship between an Azure AD user and hello related user in Clarizen needs toobe established.</span></span> <span data-ttu-id="04d3f-138">Estabelecer essa relação de link atribuindo o valor de saudação do **nome de usuário** no AD do Azure como valor de saudação do **Username** no Clarizen.</span><span class="sxs-lookup"><span data-stu-id="04d3f-138">You establish this link relationship by assigning hello value of **user name** in Azure AD as hello value of **Username** in Clarizen.</span></span>
 
-<span data-ttu-id="f26dc-139">Para configurar e testar o logon único do Azure AD com o Clarizen, você precisará concluir os seguintes blocos de construção:</span><span class="sxs-lookup"><span data-stu-id="f26dc-139">To configure and test Azure AD single sign-on with Clarizen, complete the following building blocks:</span></span>
+<span data-ttu-id="04d3f-139">tooconfigure e teste de logon único do AD do Azure com o Clarizen, Olá completa blocos de construção a seguir:</span><span class="sxs-lookup"><span data-stu-id="04d3f-139">tooconfigure and test Azure AD single sign-on with Clarizen, complete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="f26dc-140">**[Configure o logon único do Azure AD](#configure-azure-ad-single-sign-on)** para permitir que seus usuários usem esse recurso.</span><span class="sxs-lookup"><span data-stu-id="f26dc-140">**[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="f26dc-141">**[Crie um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="f26dc-141">**[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="f26dc-142">**[Criar um usuário de teste do Clarizen](#create-a-clarizen-test-user)**: para ter um equivalente de Brenda Fernandes no Clarizen que esteja vinculado à representação dela no Azure AD.</span><span class="sxs-lookup"><span data-stu-id="f26dc-142">**[Create a Clarizen test user](#create-a-clarizen-test-user)** to have a counterpart of Britta Simon in Clarizen that is linked to the Azure AD representation of her.</span></span>
-4. <span data-ttu-id="f26dc-143">**[Atribua o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** para permitir que Brenda Fernandes use o logon único do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="f26dc-143">**[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="f26dc-144">**[Teste o logon único](#test-single-sign-on)** para verificar se a configuração funciona.</span><span class="sxs-lookup"><span data-stu-id="f26dc-144">**[Test single sign-on](#test-single-sign-on)** to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="04d3f-140">**[Configurar o logon único do AD do Azure](#configure-azure-ad-single-sign-on)**  tooenable toouse seus usuários esse recurso.</span><span class="sxs-lookup"><span data-stu-id="04d3f-140">**[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="04d3f-141">**[Criar um usuário de teste do AD do Azure](#create-an-azure-ad-test-user)**  tootest logon único do AD do Azure com Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="04d3f-141">**[Create an Azure AD test user](#create-an-azure-ad-test-user)** tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="04d3f-142">**[Criar um usuário de teste do Clarizen](#create-a-clarizen-test-user)**  toohave um equivalente do Britta Simon no Clarizen é a representação toohello vinculado do Azure AD dela.</span><span class="sxs-lookup"><span data-stu-id="04d3f-142">**[Create a Clarizen test user](#create-a-clarizen-test-user)** toohave a counterpart of Britta Simon in Clarizen that is linked toohello Azure AD representation of her.</span></span>
+4. <span data-ttu-id="04d3f-143">**[Atribuir um usuário de teste de saudação do AD do Azure](#assign-the-azure-ad-test-user)**  tooenable Britta Simon toouse AD do Azure-logon único.</span><span class="sxs-lookup"><span data-stu-id="04d3f-143">**[Assign hello Azure AD test user](#assign-the-azure-ad-test-user)** tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="04d3f-144">**[Testar o logon único](#test-single-sign-on)**  tooverify Olá se os trabalhos de configuração.</span><span class="sxs-lookup"><span data-stu-id="04d3f-144">**[Test single sign-on](#test-single-sign-on)** tooverify whether hello configuration works.</span></span>
 
-### <a name="configure-azure-ad-single-sign-on"></a><span data-ttu-id="f26dc-145">Configurar o logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="f26dc-145">Configure Azure AD single sign-on</span></span>
-<span data-ttu-id="f26dc-146">Habilite o logon único do Azure AD no portal do Azure e configura o logon único em seu aplicativo Clarizen.</span><span class="sxs-lookup"><span data-stu-id="f26dc-146">Enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Clarizen application.</span></span>
+### <a name="configure-azure-ad-single-sign-on"></a><span data-ttu-id="04d3f-145">Configurar o logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="04d3f-145">Configure Azure AD single sign-on</span></span>
+<span data-ttu-id="04d3f-146">Habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo Clarizen.</span><span class="sxs-lookup"><span data-stu-id="04d3f-146">Enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your Clarizen application.</span></span>
 
-1. <span data-ttu-id="f26dc-147">No portal do Azure, na página de integração do aplicativo **Clarizen**, clique em **Logon único**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-147">In the Azure portal, on the **Clarizen** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="04d3f-147">Em Olá portal do Azure, Olá **Clarizen** página de integração de aplicativos, clique em **o logon único**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-147">In hello Azure portal, on hello **Clarizen** application integration page, click **Single sign-on**.</span></span>
 
     ![Clicar em "Logon único"][4]
 
-2. <span data-ttu-id="f26dc-149">Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.</span><span class="sxs-lookup"><span data-stu-id="f26dc-149">In the **Single sign-on** dialog box, for **Mode**, select **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="04d3f-149">Em Olá **o logon único** caixa de diálogo para **modo**, selecione **baseado no SAML logon** tooenable-logon único.</span><span class="sxs-lookup"><span data-stu-id="04d3f-149">In hello **Single sign-on** dialog box, for **Mode**, select **SAML-based Sign-on** tooenable single sign-on.</span></span>
 
     ![Selecionar "Logon único baseado em SAML"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_01.png)
 
-3. <span data-ttu-id="f26dc-151">Na seção **URLs e Domínio do Clarizen**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="f26dc-151">In the **Clarizen Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="04d3f-151">Em Olá **Clarizen domínio e URLs** , execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="04d3f-151">In hello **Clarizen Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Caixas de URL de resposta e o identificador](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_02.png)
 
-    <span data-ttu-id="f26dc-153">a.</span><span class="sxs-lookup"><span data-stu-id="f26dc-153">a.</span></span> <span data-ttu-id="f26dc-154">Na caixa **Identificador**, digite o valor como: **Clarizen**</span><span class="sxs-lookup"><span data-stu-id="f26dc-154">In the **Identifier** box, type the value as: **Clarizen**</span></span>
+    <span data-ttu-id="04d3f-153">a.</span><span class="sxs-lookup"><span data-stu-id="04d3f-153">a.</span></span> <span data-ttu-id="04d3f-154">Em Olá **identificador** caixa, o valor do tipo hello como: **Clarizen**</span><span class="sxs-lookup"><span data-stu-id="04d3f-154">In hello **Identifier** box, type hello value as: **Clarizen**</span></span>
 
-    <span data-ttu-id="f26dc-155">b.</span><span class="sxs-lookup"><span data-stu-id="f26dc-155">b.</span></span> <span data-ttu-id="f26dc-156">Na caixa **URL de Resposta**, digite uma URL usando o seguinte padrão: **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**</span><span class="sxs-lookup"><span data-stu-id="f26dc-156">In the **Reply URL** box, type a URL by using the following pattern: **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**</span></span>
+    <span data-ttu-id="04d3f-155">b.</span><span class="sxs-lookup"><span data-stu-id="04d3f-155">b.</span></span> <span data-ttu-id="04d3f-156">Em Olá **URL de resposta** , digite uma URL usando o saudação padrão a seguir: **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**</span><span class="sxs-lookup"><span data-stu-id="04d3f-156">In hello **Reply URL** box, type a URL by using hello following pattern: **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**</span></span>
 
     > [!NOTE]
-    > <span data-ttu-id="f26dc-157">Esses não são os valores reais.</span><span class="sxs-lookup"><span data-stu-id="f26dc-157">These are not the real values.</span></span> <span data-ttu-id="f26dc-158">Você precisa usar o identificador real e a URL de resposta.</span><span class="sxs-lookup"><span data-stu-id="f26dc-158">You have to use the actual identifier and reply URL.</span></span> <span data-ttu-id="f26dc-159">Aqui, sugerimos que você use o valor exclusivo de uma cadeia de caracteres como o identificador.</span><span class="sxs-lookup"><span data-stu-id="f26dc-159">Here we suggest that you use the unique value of a string as the identifier.</span></span> <span data-ttu-id="f26dc-160">Para obter os valores reais, entre em contato com a [equipe de suporte do Clarizen](https://success.clarizen.com/hc/en-us/requests/new).</span><span class="sxs-lookup"><span data-stu-id="f26dc-160">To get the actual values, contact the [Clarizen support team](https://success.clarizen.com/hc/en-us/requests/new).</span></span>
+    > <span data-ttu-id="04d3f-157">Eles não são valores reais de saudação.</span><span class="sxs-lookup"><span data-stu-id="04d3f-157">These are not hello real values.</span></span> <span data-ttu-id="04d3f-158">Você tem toouse Olá real identificador e URL de resposta.</span><span class="sxs-lookup"><span data-stu-id="04d3f-158">You have toouse hello actual identifier and reply URL.</span></span> <span data-ttu-id="04d3f-159">Aqui, sugerimos que você use o valor exclusivo de saudação de uma cadeia de caracteres como Olá identificador.</span><span class="sxs-lookup"><span data-stu-id="04d3f-159">Here we suggest that you use hello unique value of a string as hello identifier.</span></span> <span data-ttu-id="04d3f-160">tooget Olá valores reais, Olá contato [equipe de suporte do Clarizen](https://success.clarizen.com/hc/en-us/requests/new).</span><span class="sxs-lookup"><span data-stu-id="04d3f-160">tooget hello actual values, contact hello [Clarizen support team](https://success.clarizen.com/hc/en-us/requests/new).</span></span>
 
-4. <span data-ttu-id="f26dc-161">Sobre o **certificado de autenticação SAML** seção, clique em **criar novo certificado**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-161">On the **SAML Signing Certificate** section, click **Create new certificate**.</span></span>
+4. <span data-ttu-id="04d3f-161">Em Olá **o certificado de autenticação SAML** seção, clique em **criar novo certificado**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-161">On hello **SAML Signing Certificate** section, click **Create new certificate**.</span></span>
 
     ![Clicar em "Criar novo certificado"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_03.png)  
 
-5. <span data-ttu-id="f26dc-163">Na caixa de diálogo **Criar um Novo Certificado**, clique no ícone de calendário e selecione uma data de expiração.</span><span class="sxs-lookup"><span data-stu-id="f26dc-163">In the **Create New Certificate** dialog box, click the calendar icon and select an expiry date.</span></span> <span data-ttu-id="f26dc-164">Em seguida, clique em **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-164">Then click **Save**.</span></span>
+5. <span data-ttu-id="04d3f-163">Em Olá **criar um novo certificado** caixa de diálogo, clique o ícone de calendário hello e selecione uma data de expiração.</span><span class="sxs-lookup"><span data-stu-id="04d3f-163">In hello **Create New Certificate** dialog box, click hello calendar icon and select an expiry date.</span></span> <span data-ttu-id="04d3f-164">Em seguida, clique em **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-164">Then click **Save**.</span></span>
 
     ![Selecionar e salvar uma data de expiração](./media/active-directory-saas-clarizen-tutorial/tutorial_general_300.png)
 
-6. <span data-ttu-id="f26dc-166">Na seção **Certificado de Autenticação SAML**, selecione **Ativar o novo certificado** e clique em **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-166">In the **SAML Signing Certificate** section, select **Make new certificate active**, and then click **Save**.</span></span>
+6. <span data-ttu-id="04d3f-166">Em Olá **o certificado de autenticação SAML** seção, selecione **ativar o novo certificado**e, em seguida, clique em **salvar**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-166">In hello **SAML Signing Certificate** section, select **Make new certificate active**, and then click **Save**.</span></span>
 
-    ![Marcar a caixa de seleção para ativar o novo certificado](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_04.png)
+    ![Marcar Olá a caixa de seleção para tornar o novo certificado de saudação ativo](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_04.png)
 
-7. <span data-ttu-id="f26dc-168">Na caixa de diálogo **Certificado de substituição**, clique em **OK**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-168">In the **Rollover certificate** dialog box, click **OK**.</span></span>
+7. <span data-ttu-id="04d3f-168">Em Olá **certificado de substituição** caixa de diálogo, clique em **Okey**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-168">In hello **Rollover certificate** dialog box, click **OK**.</span></span>
 
-    ![Clicar em "OK" para confirmar que você deseja ativar o certificado](./media/active-directory-saas-clarizen-tutorial/tutorial_general_400.png)
+    ![Clicar em "Okey" tooconfirm que você deseja toomake Olá certificado active](./media/active-directory-saas-clarizen-tutorial/tutorial_general_400.png)
 
-8. <span data-ttu-id="f26dc-170">Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e salve o arquivo do certificado em seu computador.</span><span class="sxs-lookup"><span data-stu-id="f26dc-170">In the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.</span></span>
+8. <span data-ttu-id="04d3f-170">Em Olá **o certificado de autenticação SAML** seção, clique em **certificado (Base64)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.</span><span class="sxs-lookup"><span data-stu-id="04d3f-170">In hello **SAML Signing Certificate** section, click **Certificate (Base64)** and then save hello certificate file on your computer.</span></span>
 
-    ![Clicar em "Certificado (Base64)" para iniciar o download](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_05.png)
+    ![Clique em download de saudação toostart "Certificate (Base64)"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_05.png)
 
-9. <span data-ttu-id="f26dc-172">Na seção **Configuração do Clarizen**, clique em **Configurar o Clarizen** para abrir a janela **Configurar logon**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-172">In the **Clarizen Configuration** section, click **Configure Clarizen** to open the **Configure sign-on** window.</span></span>
+9. <span data-ttu-id="04d3f-172">Em Olá **Clarizen configuração** seção, clique em **configurar Clarizen** tooopen Olá **configurar o logon** janela.</span><span class="sxs-lookup"><span data-stu-id="04d3f-172">In hello **Clarizen Configuration** section, click **Configure Clarizen** tooopen hello **Configure sign-on** window.</span></span>
 
     ![Clicar em "Configurar Clarizen"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_06.png)
 
     ![Janela "Configurar o logon", incluindo URLs e arquivos](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_07.png)
 
-10. <span data-ttu-id="f26dc-175">Em outra janela do navegador da Web, entre em seu site de empresa do Clarizen como administrador.</span><span class="sxs-lookup"><span data-stu-id="f26dc-175">In a different web browser window, sign in to your Clarizen company site as an administrator.</span></span>
+10. <span data-ttu-id="04d3f-175">Em uma janela de navegador web diferente, entre no site da empresa Clarizen tooyour como um administrador.</span><span class="sxs-lookup"><span data-stu-id="04d3f-175">In a different web browser window, sign in tooyour Clarizen company site as an administrator.</span></span>
 
-11. <span data-ttu-id="f26dc-176">Clique no nome de usuário e em **Configurações**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-176">Click your username, and then click **Settings**.</span></span>
+11. <span data-ttu-id="04d3f-176">Clique no nome de usuário e em **Configurações**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-176">Click your username, and then click **Settings**.</span></span>
 
-    <span data-ttu-id="f26dc-177">![Clicar em "Configurações" em seu nome de usuário](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_001.png "Configurações")</span><span class="sxs-lookup"><span data-stu-id="f26dc-177">![Clicking "Settings" under your username](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_001.png "Settings")</span></span>
+    <span data-ttu-id="04d3f-177">![Clicar em "Configurações" em seu nome de usuário](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_001.png "Configurações")</span><span class="sxs-lookup"><span data-stu-id="04d3f-177">![Clicking "Settings" under your username](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_001.png "Settings")</span></span>
 
-12. <span data-ttu-id="f26dc-178">Clique na guia **Configurações Globais**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-178">Click the **Global Settings** tab.</span></span> <span data-ttu-id="f26dc-179">Em seguida, próximo a **Autenticação Federada**, clique em **editar**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-179">Then, next to **Federated Authentication**, click **edit**.</span></span>
+12. <span data-ttu-id="04d3f-178">Clique em Olá **configurações globais** guia. Em seguida, Avançar muito**autenticação federada**, clique em **editar**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-178">Click hello **Global Settings** tab. Then, next too**Federated Authentication**, click **edit**.</span></span>
 
-    <span data-ttu-id="f26dc-180">![Guia "Configurações Globais"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_002.png "Configurações Globais")</span><span class="sxs-lookup"><span data-stu-id="f26dc-180">!["Global Settings" tab](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_002.png "Global Settings")</span></span>
+    <span data-ttu-id="04d3f-179">![Guia "Configurações Globais"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_002.png "Configurações Globais")</span><span class="sxs-lookup"><span data-stu-id="04d3f-179">!["Global Settings" tab](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_002.png "Global Settings")</span></span>
 
-13. <span data-ttu-id="f26dc-181">Na caixa de diálogo **Autenticação Federada**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="f26dc-181">In the **Federated Authentication** dialog box, perform the following steps:</span></span>
+13. <span data-ttu-id="04d3f-180">Em Olá **autenticação federada** caixa de diálogo caixa, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="04d3f-180">In hello **Federated Authentication** dialog box, perform hello following steps:</span></span>
 
-    <span data-ttu-id="f26dc-182">![Caixa de diálogo "Autenticação Federada"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_003.png "Autenticação Federada")</span><span class="sxs-lookup"><span data-stu-id="f26dc-182">!["Federated Authentication" dialog box](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_003.png "Federated Authentication")</span></span>
+    <span data-ttu-id="04d3f-181">![Caixa de diálogo "Autenticação Federada"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_003.png "Autenticação Federada")</span><span class="sxs-lookup"><span data-stu-id="04d3f-181">!["Federated Authentication" dialog box](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_003.png "Federated Authentication")</span></span>
 
-    <span data-ttu-id="f26dc-183">a.</span><span class="sxs-lookup"><span data-stu-id="f26dc-183">a.</span></span> <span data-ttu-id="f26dc-184">Selecione **Habilitar Autenticação Federada**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-184">Select **Enable Federated Authentication**.</span></span>
+    <span data-ttu-id="04d3f-182">a.</span><span class="sxs-lookup"><span data-stu-id="04d3f-182">a.</span></span> <span data-ttu-id="04d3f-183">Selecione **Habilitar Autenticação Federada**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-183">Select **Enable Federated Authentication**.</span></span>
 
-    <span data-ttu-id="f26dc-185">b.</span><span class="sxs-lookup"><span data-stu-id="f26dc-185">b.</span></span> <span data-ttu-id="f26dc-186">Clique em **Carregar** para carregar o certificado baixado.</span><span class="sxs-lookup"><span data-stu-id="f26dc-186">Click **Upload** to upload your downloaded certificate.</span></span>
+    <span data-ttu-id="04d3f-184">b.</span><span class="sxs-lookup"><span data-stu-id="04d3f-184">b.</span></span> <span data-ttu-id="04d3f-185">Clique em **carregar** tooupload seu certificado baixado.</span><span class="sxs-lookup"><span data-stu-id="04d3f-185">Click **Upload** tooupload your downloaded certificate.</span></span>
 
-    <span data-ttu-id="f26dc-187">c.</span><span class="sxs-lookup"><span data-stu-id="f26dc-187">c.</span></span> <span data-ttu-id="f26dc-188">Na caixa de texto **URL de Entrada**, insira o valor da **URL de Serviço de Logon Único SAML** do assistente de configuração de aplicativo do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="f26dc-188">In the **Sign-in URL** box, enter the value of **SAML Single Sign-On Service URL** from the Azure AD application configuration window.</span></span>
+    <span data-ttu-id="04d3f-186">c.</span><span class="sxs-lookup"><span data-stu-id="04d3f-186">c.</span></span> <span data-ttu-id="04d3f-187">Em Olá **URL de entrada** , digite o valor de saudação do **Single Sign-On URL do serviço SAML** da janela de configuração de aplicativo de saudação do AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="04d3f-187">In hello **Sign-in URL** box, enter hello value of **SAML Single Sign-On Service URL** from hello Azure AD application configuration window.</span></span>
 
-    <span data-ttu-id="f26dc-189">d.</span><span class="sxs-lookup"><span data-stu-id="f26dc-189">d.</span></span> <span data-ttu-id="f26dc-190">Na caixa de texto **URL de Saída**, insira o valor da **URL de Saída** do assistente de configuração de aplicativo do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="f26dc-190">In the **Sign-out URL** box, enter the value of **Sign-Out URL** from the Azure AD application configuration window.</span></span>
+    <span data-ttu-id="04d3f-188">d.</span><span class="sxs-lookup"><span data-stu-id="04d3f-188">d.</span></span> <span data-ttu-id="04d3f-189">Em Olá **URL de logout** , digite o valor de saudação do **URL de logout** da janela de configuração de aplicativo de saudação do AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="04d3f-189">In hello **Sign-out URL** box, enter hello value of **Sign-Out URL** from hello Azure AD application configuration window.</span></span>
 
-    <span data-ttu-id="f26dc-191">e.</span><span class="sxs-lookup"><span data-stu-id="f26dc-191">e.</span></span> <span data-ttu-id="f26dc-192">Selecione **Usar POST**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-192">Select **Use POST**.</span></span>
+    <span data-ttu-id="04d3f-190">e.</span><span class="sxs-lookup"><span data-stu-id="04d3f-190">e.</span></span> <span data-ttu-id="04d3f-191">Selecione **Usar POST**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-191">Select **Use POST**.</span></span>
 
-    <span data-ttu-id="f26dc-193">f.</span><span class="sxs-lookup"><span data-stu-id="f26dc-193">f.</span></span> <span data-ttu-id="f26dc-194">Clique em **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-194">Click **Save**.</span></span>
+    <span data-ttu-id="04d3f-192">f.</span><span class="sxs-lookup"><span data-stu-id="04d3f-192">f.</span></span> <span data-ttu-id="04d3f-193">Clique em **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-193">Click **Save**.</span></span>
 
-### <a name="create-an-azure-ad-test-user"></a><span data-ttu-id="f26dc-195">Criar um usuário de teste do Azure AD</span><span class="sxs-lookup"><span data-stu-id="f26dc-195">Create an Azure AD test user</span></span>
-<span data-ttu-id="f26dc-196">No portal do Azure, crie um usuário de teste chamado Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="f26dc-196">In the Azure portal, create a test user called Britta Simon.</span></span>
+### <a name="create-an-azure-ad-test-user"></a><span data-ttu-id="04d3f-194">Criar um usuário de teste do Azure AD</span><span class="sxs-lookup"><span data-stu-id="04d3f-194">Create an Azure AD test user</span></span>
+<span data-ttu-id="04d3f-195">No portal do Azure de Olá, crie um usuário de teste chamado Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="04d3f-195">In hello Azure portal, create a test user called Britta Simon.</span></span>
 
-![Nome e endereço de email do usuário de teste do Azure AD][100]
+![Nome e endereço de email do usuário de teste de saudação do AD do Azure][100]
 
-1. <span data-ttu-id="f26dc-198">No portal do Azure, no painel esquerdo, clique no ícone do **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-198">In the Azure portal, in the left pane, click the **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="04d3f-197">No hello portal do Azure, no painel esquerdo do hello, clique em Olá **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="04d3f-197">In hello Azure portal, in hello left pane, click hello **Azure Active Directory** icon.</span></span>
 
     ![Ícone do Azure Active Directory](./media/active-directory-saas-clarizen-tutorial/create_aaduser_01.png)
 
-2. <span data-ttu-id="f26dc-200">Clique em **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="f26dc-200">Click **Users and groups**, and then click **All users** to display the list of users.</span></span>
+2. <span data-ttu-id="04d3f-199">Clique em **usuários e grupos**e, em seguida, clique em **todos os usuários** toodisplay lista de saudação de usuários.</span><span class="sxs-lookup"><span data-stu-id="04d3f-199">Click **Users and groups**, and then click **All users** toodisplay hello list of users.</span></span>
 
     ![Clicar em "Usuários e grupos" e "Todos os usuários"](./media/active-directory-saas-clarizen-tutorial/create_aaduser_02.png)
 
-3. <span data-ttu-id="f26dc-202">Na parte superior da caixa de diálogo, clique em **Adicionar** para abrir a caixa de diálogo **Usuário**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-202">At the top of the dialog box, click **Add** to open the **User** dialog box.</span></span>
+3. <span data-ttu-id="04d3f-201">Na parte superior de Olá Olá da caixa de diálogo, clique em **adicionar** tooopen Olá **usuário** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="04d3f-201">At hello top of hello dialog box, click **Add** tooopen hello **User** dialog box.</span></span>
 
-    ![O botão “Adicionar”](./media/active-directory-saas-clarizen-tutorial/create_aaduser_03.png)
+    ![botão de "Adicionar" Hello](./media/active-directory-saas-clarizen-tutorial/create_aaduser_03.png)
 
-4. <span data-ttu-id="f26dc-204">Na caixa de diálogo **Usuário**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="f26dc-204">In the **User** dialog box, perform the following steps:</span></span>
+4. <span data-ttu-id="04d3f-203">Em Olá **usuário** caixa de diálogo caixa, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="04d3f-203">In hello **User** dialog box, perform hello following steps:</span></span>
 
     ![Caixa de diálogo "Usuário" com o nome, p endereço de email e a senha preenchidos](./media/active-directory-saas-clarizen-tutorial/create_aaduser_04.png)
 
-    <span data-ttu-id="f26dc-206">a.</span><span class="sxs-lookup"><span data-stu-id="f26dc-206">a.</span></span> <span data-ttu-id="f26dc-207">Na caixa **Nome**, digite **BrendaFernandes**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-207">In the **Name** box, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="04d3f-205">a.</span><span class="sxs-lookup"><span data-stu-id="04d3f-205">a.</span></span> <span data-ttu-id="04d3f-206">Em Olá **nome** , digite **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-206">In hello **Name** box, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="f26dc-208">b.</span><span class="sxs-lookup"><span data-stu-id="f26dc-208">b.</span></span> <span data-ttu-id="f26dc-209">Na caixa **Nome de usuário**, digite o endereço de email da conta de Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="f26dc-209">In the **User name** box, type the email address of the Britta Simon account.</span></span>
+    <span data-ttu-id="04d3f-207">b.</span><span class="sxs-lookup"><span data-stu-id="04d3f-207">b.</span></span> <span data-ttu-id="04d3f-208">Em Olá **nome de usuário** caixa de endereço de email do tipo hello de saudação conta Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="04d3f-208">In hello **User name** box, type hello email address of hello Britta Simon account.</span></span>
 
-    <span data-ttu-id="f26dc-210">c.</span><span class="sxs-lookup"><span data-stu-id="f26dc-210">c.</span></span> <span data-ttu-id="f26dc-211">Selecione **Mostrar Senha** e anote o valor de **Senha**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-211">Select **Show Password** and write down the value of **Password**.</span></span>
+    <span data-ttu-id="04d3f-209">c.</span><span class="sxs-lookup"><span data-stu-id="04d3f-209">c.</span></span> <span data-ttu-id="04d3f-210">Selecione **Mostrar senha** e anote o valor de saudação do **senha**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-210">Select **Show Password** and write down hello value of **Password**.</span></span>
 
-    <span data-ttu-id="f26dc-212">d.</span><span class="sxs-lookup"><span data-stu-id="f26dc-212">d.</span></span> <span data-ttu-id="f26dc-213">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-213">Click **Create**.</span></span>
+    <span data-ttu-id="04d3f-211">d.</span><span class="sxs-lookup"><span data-stu-id="04d3f-211">d.</span></span> <span data-ttu-id="04d3f-212">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-212">Click **Create**.</span></span>
 
-### <a name="create-a-clarizen-test-user"></a><span data-ttu-id="f26dc-214">Criar um usuário de teste do Clarizen</span><span class="sxs-lookup"><span data-stu-id="f26dc-214">Create a Clarizen test user</span></span>
-<span data-ttu-id="f26dc-215">Para permitir que os usuários do Azure AD entrem no Clarizen, você deverá provisionar contas de usuário.</span><span class="sxs-lookup"><span data-stu-id="f26dc-215">To enable Azure AD users to sign in to Clarizen, you must provision user accounts.</span></span> <span data-ttu-id="f26dc-216">No caso do Clarizen, o provisionamento é uma tarefa manual.</span><span class="sxs-lookup"><span data-stu-id="f26dc-216">In the case of Clarizen, provisioning is a manual task.</span></span>
+### <a name="create-a-clarizen-test-user"></a><span data-ttu-id="04d3f-213">Criar um usuário de teste do Clarizen</span><span class="sxs-lookup"><span data-stu-id="04d3f-213">Create a Clarizen test user</span></span>
+<span data-ttu-id="04d3f-214">tooenable a toosign de usuários do AD do Azure no tooClarizen, você deverá provisionar contas de usuário.</span><span class="sxs-lookup"><span data-stu-id="04d3f-214">tooenable Azure AD users toosign in tooClarizen, you must provision user accounts.</span></span> <span data-ttu-id="04d3f-215">No caso de saudação do Clarizen, o provisionamento é uma tarefa manual.</span><span class="sxs-lookup"><span data-stu-id="04d3f-215">In hello case of Clarizen, provisioning is a manual task.</span></span>
 
-1. <span data-ttu-id="f26dc-217">Entre em seu site de empresa do Clarizen como administrador.</span><span class="sxs-lookup"><span data-stu-id="f26dc-217">Sign in to your Clarizen company site as an administrator.</span></span>
+1. <span data-ttu-id="04d3f-216">Entre no tooyour Clarizen site da empresa como um administrador.</span><span class="sxs-lookup"><span data-stu-id="04d3f-216">Sign in tooyour Clarizen company site as an administrator.</span></span>
 
-2. <span data-ttu-id="f26dc-218">Clique em **Pessoas**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-218">Click **People**.</span></span>
+2. <span data-ttu-id="04d3f-217">Clique em **Pessoas**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-217">Click **People**.</span></span>
 
-    <span data-ttu-id="f26dc-219">![Clicar em "Pessoas"](./media/active-directory-saas-clarizen-tutorial/create_aaduser_001.png "Pessoas")</span><span class="sxs-lookup"><span data-stu-id="f26dc-219">![Clicking "People"](./media/active-directory-saas-clarizen-tutorial/create_aaduser_001.png "People")</span></span>
+    <span data-ttu-id="04d3f-218">![Clicar em "Pessoas"](./media/active-directory-saas-clarizen-tutorial/create_aaduser_001.png "Pessoas")</span><span class="sxs-lookup"><span data-stu-id="04d3f-218">![Clicking "People"](./media/active-directory-saas-clarizen-tutorial/create_aaduser_001.png "People")</span></span>
 
-3. <span data-ttu-id="f26dc-220">Clique em **Convidar Usuário**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-220">Click **Invite User**.</span></span>
+3. <span data-ttu-id="04d3f-219">Clique em **Convidar Usuário**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-219">Click **Invite User**.</span></span>
 
-    <span data-ttu-id="f26dc-221">![Botão "Convidar Usuário"](./media/active-directory-saas-clarizen-tutorial/create_aaduser_002.png "Convidar Usuários")</span><span class="sxs-lookup"><span data-stu-id="f26dc-221">!["Invite User" button](./media/active-directory-saas-clarizen-tutorial/create_aaduser_002.png "Invite Users")</span></span>
+    <span data-ttu-id="04d3f-220">![Botão "Convidar Usuário"](./media/active-directory-saas-clarizen-tutorial/create_aaduser_002.png "Convidar Usuários")</span><span class="sxs-lookup"><span data-stu-id="04d3f-220">!["Invite User" button](./media/active-directory-saas-clarizen-tutorial/create_aaduser_002.png "Invite Users")</span></span>
 
-4. <span data-ttu-id="f26dc-222">Na página **Convidar Pessoas**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="f26dc-222">In the **Invite People** dialog box, perform the following steps:</span></span>
+4. <span data-ttu-id="04d3f-221">Em Olá **convidar pessoas** caixa de diálogo caixa, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="04d3f-221">In hello **Invite People** dialog box, perform hello following steps:</span></span>
 
-    <span data-ttu-id="f26dc-223">![Caixa de diálogo "Convidar Pessoas"](./media/active-directory-saas-clarizen-tutorial/create_aaduser_003.png "Convidar Pessoas")</span><span class="sxs-lookup"><span data-stu-id="f26dc-223">!["Invite People" dialog box](./media/active-directory-saas-clarizen-tutorial/create_aaduser_003.png "Invite People")</span></span>
+    <span data-ttu-id="04d3f-222">![Caixa de diálogo "Convidar Pessoas"](./media/active-directory-saas-clarizen-tutorial/create_aaduser_003.png "Convidar Pessoas")</span><span class="sxs-lookup"><span data-stu-id="04d3f-222">!["Invite People" dialog box](./media/active-directory-saas-clarizen-tutorial/create_aaduser_003.png "Invite People")</span></span>
 
-    <span data-ttu-id="f26dc-224">a.</span><span class="sxs-lookup"><span data-stu-id="f26dc-224">a.</span></span> <span data-ttu-id="f26dc-225">Na caixa **Email**, digite o endereço de email da conta de Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="f26dc-225">In the **Email** box, type the email address of the Britta Simon account.</span></span>
+    <span data-ttu-id="04d3f-223">a.</span><span class="sxs-lookup"><span data-stu-id="04d3f-223">a.</span></span> <span data-ttu-id="04d3f-224">Em Olá **Email** caixa de endereço de email do tipo hello de saudação conta Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="04d3f-224">In hello **Email** box, type hello email address of hello Britta Simon account.</span></span>
 
-    <span data-ttu-id="f26dc-226">b.</span><span class="sxs-lookup"><span data-stu-id="f26dc-226">b.</span></span> <span data-ttu-id="f26dc-227">Clique em **Convidar**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-227">Click **Invite**.</span></span>
+    <span data-ttu-id="04d3f-225">b.</span><span class="sxs-lookup"><span data-stu-id="04d3f-225">b.</span></span> <span data-ttu-id="04d3f-226">Clique em **Convidar**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-226">Click **Invite**.</span></span>
 
     > [!NOTE]
-    > <span data-ttu-id="f26dc-228">O titular da conta do Active Directory do Azure receberá um email e seguirá um link para confirmar a conta antes que ela se torne ativa.</span><span class="sxs-lookup"><span data-stu-id="f26dc-228">The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active.</span></span>
+    > <span data-ttu-id="04d3f-227">proprietário de conta do Active Directory do Azure Olá será receberá um email e execute tooconfirm um link em sua conta antes de se tornar ativa.</span><span class="sxs-lookup"><span data-stu-id="04d3f-227">hello Azure Active Directory account holder will receive an email and follow a link tooconfirm their account before it becomes active.</span></span>
 
-### <a name="assign-the-azure-ad-test-user"></a><span data-ttu-id="f26dc-229">Atribuir o usuário de teste do Azure AD</span><span class="sxs-lookup"><span data-stu-id="f26dc-229">Assign the Azure AD test user</span></span>
-<span data-ttu-id="f26dc-230">Permita que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao Clarizen.</span><span class="sxs-lookup"><span data-stu-id="f26dc-230">Enable Britta Simon to use Azure single sign-on by granting her access to Clarizen.</span></span>
+### <a name="assign-hello-azure-ad-test-user"></a><span data-ttu-id="04d3f-228">Atribuir um usuário de teste de saudação do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="04d3f-228">Assign hello Azure AD test user</span></span>
+<span data-ttu-id="04d3f-229">Habilite Britta Simon toouse logon único do Azure, concedendo tooClarizen seu acesso.</span><span class="sxs-lookup"><span data-stu-id="04d3f-229">Enable Britta Simon toouse Azure single sign-on by granting her access tooClarizen.</span></span>
 
 ![Usuário de teste atribuído][200]
 
-1. <span data-ttu-id="f26dc-232">No portal do Azure, abra a exibição de aplicativos, navegue até a exibição de diretório, clique em **Aplicativos empresariais** e então clique em **Todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-232">In the Azure portal, open the applications view, browse to the directory view, click **Enterprise applications**, and then click **All applications**.</span></span>
+1. <span data-ttu-id="04d3f-231">No portal do Azure de Olá, abrir modo de exibição de aplicativos de saudação, toohello directory modo de navegação, clique em **aplicativos empresariais**e, em seguida, clique em **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-231">In hello Azure portal, open hello applications view, browse toohello directory view, click **Enterprise applications**, and then click **All applications**.</span></span>
 
     ![Clicar em "Aplicativos corporativos" e em "Todos os aplicativos"][201]
 
-2. <span data-ttu-id="f26dc-234">Na lista de aplicativos, selecione **Clarizen**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-234">In the applications list, select **Clarizen**.</span></span>
+2. <span data-ttu-id="04d3f-233">Na lista de aplicativos hello, selecione **Clarizen**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-233">In hello applications list, select **Clarizen**.</span></span>
 
-    ![Selecionar Clarizen na lista](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_50.png)
+    ![Selecionando Clarizen na lista de saudação](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_50.png)
 
-3. <span data-ttu-id="f26dc-236">No painel esquerdo, clique em **Usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-236">In the left pane, click **Users and groups**.</span></span>
+3. <span data-ttu-id="04d3f-235">No painel esquerdo do hello, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-235">In hello left pane, click **Users and groups**.</span></span>
 
     ![Clicar em “Usuário e grupos”][202]
 
-4. <span data-ttu-id="f26dc-238">Clique no botão **Adicionar** .</span><span class="sxs-lookup"><span data-stu-id="f26dc-238">Click the **Add** button.</span></span> <span data-ttu-id="f26dc-239">Em seguida, na caixa de diálogo **Adicionar Atribuição**, selecione **Usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-239">Then, in the **Add Assignment** dialog box, select **Users and groups**.</span></span>
+4. <span data-ttu-id="04d3f-237">Clique em Olá **adicionar** botão.</span><span class="sxs-lookup"><span data-stu-id="04d3f-237">Click hello **Add** button.</span></span> <span data-ttu-id="04d3f-238">Em seguida, no hello **Adicionar atribuição** caixa de diálogo, selecione **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="04d3f-238">Then, in hello **Add Assignment** dialog box, select **Users and groups**.</span></span>
 
-    ![O botão "Adicionar" e a caixa de diálogo "Adicionar Atribuição"][203]
+    ![botão de "Adicionar" Hello e caixa de diálogo "Adicionar atribuição" hello][203]
 
-5. <span data-ttu-id="f26dc-241">Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="f26dc-241">In the **Users and groups** dialog box, select **Britta Simon** in the list of users.</span></span>
+5. <span data-ttu-id="04d3f-240">Em Olá **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de saudação de usuários.</span><span class="sxs-lookup"><span data-stu-id="04d3f-240">In hello **Users and groups** dialog box, select **Britta Simon** in hello list of users.</span></span>
 
-6. <span data-ttu-id="f26dc-242">Na caixa de diálogo **Usuários e grupos**, clique no botão **Selecionar**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-242">In the **Users and groups** dialog box, click the **Select** button.</span></span>
+6. <span data-ttu-id="04d3f-241">Em Olá **usuários e grupos** caixa de diálogo, clique em Olá **selecione** botão.</span><span class="sxs-lookup"><span data-stu-id="04d3f-241">In hello **Users and groups** dialog box, click hello **Select** button.</span></span>
 
-7. <span data-ttu-id="f26dc-243">Na caixa de diálogo **Adicionar Atribuição**, clique no botão **Atribuir**.</span><span class="sxs-lookup"><span data-stu-id="f26dc-243">In the **Add Assignment** dialog box, click the **Assign** button.</span></span>
+7. <span data-ttu-id="04d3f-242">Em Olá **Adicionar atribuição** caixa de diálogo, clique em Olá **atribuir** botão.</span><span class="sxs-lookup"><span data-stu-id="04d3f-242">In hello **Add Assignment** dialog box, click hello **Assign** button.</span></span>
 
-### <a name="test-single-sign-on"></a><span data-ttu-id="f26dc-244">Testar logon único</span><span class="sxs-lookup"><span data-stu-id="f26dc-244">Test single sign-on</span></span>
-<span data-ttu-id="f26dc-245">Teste sua configuração de logon único do Azure AD usando o Painel de Acesso.</span><span class="sxs-lookup"><span data-stu-id="f26dc-245">Test your Azure AD single sign-on configuration by using the Access Panel.</span></span>
+### <a name="test-single-sign-on"></a><span data-ttu-id="04d3f-243">Testar logon único</span><span class="sxs-lookup"><span data-stu-id="04d3f-243">Test single sign-on</span></span>
+<span data-ttu-id="04d3f-244">Teste sua configuração do Azure AD único logon usando Olá painel de acesso.</span><span class="sxs-lookup"><span data-stu-id="04d3f-244">Test your Azure AD single sign-on configuration by using hello Access Panel.</span></span>
 
-<span data-ttu-id="f26dc-246">Ao clicar no bloco do Clarizen no Painel de Acesso, você deve ser conectado automaticamente ao aplicativo do Clarizen.</span><span class="sxs-lookup"><span data-stu-id="f26dc-246">When you click the Clarizen tile in the Access Panel, you should be automatically signed in to your Clarizen application.</span></span>
+<span data-ttu-id="04d3f-245">Quando você clica em bloco Clarizen Olá Olá painel de acesso, você deve ser conectado automaticamente tooyour aplicativo Clarizen.</span><span class="sxs-lookup"><span data-stu-id="04d3f-245">When you click hello Clarizen tile in hello Access Panel, you should be automatically signed in tooyour Clarizen application.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="f26dc-247">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="f26dc-247">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="04d3f-246">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="04d3f-246">Additional resources</span></span>
 
-* [<span data-ttu-id="f26dc-248">Lista de tutoriais sobre como integrar aplicativos SaaS ao Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="f26dc-248">List of tutorials on how to integrate SaaS apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="f26dc-249">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="f26dc-249">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="04d3f-247">Lista de tutoriais sobre como aplicativos de SaaS toointegrate com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="04d3f-247">List of tutorials on how toointegrate SaaS apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="04d3f-248">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="04d3f-248">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 

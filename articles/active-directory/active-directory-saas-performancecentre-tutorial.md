@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory ao PerformanceCentre | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Active Directory do Azure e o PerformanceCentre."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e PerformanceCentre."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,244 +13,244 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: e86adaf4bd9b4752f2aece8207a8a423ec5590a6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 19781c0087093a67c70dc90072cf1a119bb2ade0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a><span data-ttu-id="31c67-103">Tutorial: Integração do Active Directory do Azure com o PerformanceCentre</span><span class="sxs-lookup"><span data-stu-id="31c67-103">Tutorial: Azure Active Directory integration with PerformanceCentre</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a><span data-ttu-id="0bb1b-103">Tutorial: Integração do Active Directory do Azure com o PerformanceCentre</span><span class="sxs-lookup"><span data-stu-id="0bb1b-103">Tutorial: Azure Active Directory integration with PerformanceCentre</span></span>
 
-<span data-ttu-id="31c67-104">Neste tutorial, você aprenderá a integrar o PerformanceCentre ao Azure AD (Azure Active Directory).</span><span class="sxs-lookup"><span data-stu-id="31c67-104">In this tutorial, you learn how to integrate PerformanceCentre with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="0bb1b-104">Neste tutorial, você aprenderá como toointegrate PerformanceCentre com o Azure Active Directory (AD do Azure).</span><span class="sxs-lookup"><span data-stu-id="0bb1b-104">In this tutorial, you learn how toointegrate PerformanceCentre with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="31c67-105">A integração do PerformanceCentre ao Azure AD proporciona os seguintes benefícios:</span><span class="sxs-lookup"><span data-stu-id="31c67-105">Integrating PerformanceCentre with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="0bb1b-105">Integrando PerformanceCentre com o AD do Azure fornece Olá benefícios a seguir:</span><span class="sxs-lookup"><span data-stu-id="0bb1b-105">Integrating PerformanceCentre with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="31c67-106">No AD do Azure, você pode controlar quem tem acesso ao PerformanceCentre</span><span class="sxs-lookup"><span data-stu-id="31c67-106">You can control in Azure AD who has access to PerformanceCentre</span></span>
-- <span data-ttu-id="31c67-107">Você pode permitir que seus usuários façam logon automaticamente no PerformanceCentre (logon único) com suas contas do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="31c67-107">You can enable your users to automatically get signed-on to PerformanceCentre (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="31c67-108">Você pode gerenciar suas contas em um única localização: o Portal do Azure</span><span class="sxs-lookup"><span data-stu-id="31c67-108">You can manage your accounts in one central location - the Azure portal</span></span>
+- <span data-ttu-id="0bb1b-106">Você pode controlar no AD do Azure que tenha acesso tooPerformanceCentre</span><span class="sxs-lookup"><span data-stu-id="0bb1b-106">You can control in Azure AD who has access tooPerformanceCentre</span></span>
+- <span data-ttu-id="0bb1b-107">Você pode habilitar seu usuários tooautomatically get conectado tooPerformanceCentre (logon único) com suas contas do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="0bb1b-107">You can enable your users tooautomatically get signed-on tooPerformanceCentre (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="0bb1b-108">Você pode gerenciar suas contas em um local central - Olá portal do Azure</span><span class="sxs-lookup"><span data-stu-id="0bb1b-108">You can manage your accounts in one central location - hello Azure portal</span></span>
 
-<span data-ttu-id="31c67-109">Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="31c67-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="0bb1b-109">Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="0bb1b-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="31c67-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="31c67-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="0bb1b-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="0bb1b-110">Prerequisites</span></span>
 
-<span data-ttu-id="31c67-111">Para configurar a integração do AD do Azure com o PerformanceCentre, você precisará dos seguintes itens:</span><span class="sxs-lookup"><span data-stu-id="31c67-111">To configure Azure AD integration with PerformanceCentre, you need the following items:</span></span>
+<span data-ttu-id="0bb1b-111">tooconfigure integração do AD do Azure com PerformanceCentre, você precisa Olá itens a seguir:</span><span class="sxs-lookup"><span data-stu-id="0bb1b-111">tooconfigure Azure AD integration with PerformanceCentre, you need hello following items:</span></span>
 
-- <span data-ttu-id="31c67-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="31c67-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="31c67-113">Uma assinatura do PerformanceCentre com logon único habilitado</span><span class="sxs-lookup"><span data-stu-id="31c67-113">A PerformanceCentre single sign-on enabled subscription</span></span>
+- <span data-ttu-id="0bb1b-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="0bb1b-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="0bb1b-113">Uma assinatura do PerformanceCentre com logon único habilitado</span><span class="sxs-lookup"><span data-stu-id="0bb1b-113">A PerformanceCentre single sign-on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="31c67-114">Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="31c67-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="0bb1b-114">Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="31c67-115">Para testar as etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="31c67-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="0bb1b-115">tootest Olá etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="0bb1b-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="31c67-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="31c67-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="31c67-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="31c67-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="0bb1b-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="0bb1b-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="0bb1b-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="31c67-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="31c67-118">Scenario description</span></span>
-<span data-ttu-id="31c67-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="31c67-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="31c67-120">O cenário descrito neste tutorial consiste em dois blocos de construção principais:</span><span class="sxs-lookup"><span data-stu-id="31c67-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="0bb1b-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="0bb1b-118">Scenario description</span></span>
+<span data-ttu-id="0bb1b-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="0bb1b-120">cenário de saudação descrito neste tutorial consiste em dois elementos básicos:</span><span class="sxs-lookup"><span data-stu-id="0bb1b-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="31c67-121">Adicionando o PerformanceCentre da galeria</span><span class="sxs-lookup"><span data-stu-id="31c67-121">Adding PerformanceCentre from the gallery</span></span>
-2. <span data-ttu-id="31c67-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="31c67-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="0bb1b-121">Adicionando PerformanceCentre da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="0bb1b-121">Adding PerformanceCentre from hello gallery</span></span>
+2. <span data-ttu-id="0bb1b-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="0bb1b-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-performancecentre-from-the-gallery"></a><span data-ttu-id="31c67-123">Adicionando o PerformanceCentre da galeria</span><span class="sxs-lookup"><span data-stu-id="31c67-123">Adding PerformanceCentre from the gallery</span></span>
-<span data-ttu-id="31c67-124">Para configurar a integração do PerformanceCentre ao AD do Azure, você precisará adicionar o PerformanceCentre da galeria à sua lista de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="31c67-124">To configure the integration of PerformanceCentre into Azure AD, you need to add PerformanceCentre from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-performancecentre-from-hello-gallery"></a><span data-ttu-id="0bb1b-123">Adicionando PerformanceCentre da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="0bb1b-123">Adding PerformanceCentre from hello gallery</span></span>
+<span data-ttu-id="0bb1b-124">integração de saudação tooconfigure de PerformanceCentre no AD do Azure, você precisa tooadd PerformanceCentre da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-124">tooconfigure hello integration of PerformanceCentre into Azure AD, you need tooadd PerformanceCentre from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="31c67-125">**Para adicionar o PerformanceCentre da galeria, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="31c67-125">**To add PerformanceCentre from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="0bb1b-125">**tooadd PerformanceCentre da Galeria hello, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="0bb1b-125">**tooadd PerformanceCentre from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="31c67-126">No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="31c67-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="0bb1b-126">Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Active Directory][1]
 
-2. <span data-ttu-id="31c67-128">Navegue até **aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="31c67-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="31c67-129">Em seguida, vá para **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="31c67-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="0bb1b-128">Navegue muito**aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="0bb1b-129">Em seguida, acesse muito**todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-129">Then go too**All applications**.</span></span>
 
     ![Aplicativos][2]
     
-3. <span data-ttu-id="31c67-131">Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.</span><span class="sxs-lookup"><span data-stu-id="31c67-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="0bb1b-131">tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
     ![Aplicativos][3]
 
-4. <span data-ttu-id="31c67-133">Na caixa de pesquisa, digite **PerformanceCentre**.</span><span class="sxs-lookup"><span data-stu-id="31c67-133">In the search box, type **PerformanceCentre**.</span></span>
+4. <span data-ttu-id="0bb1b-133">Na caixa de pesquisa hello, digite **PerformanceCentre**.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-133">In hello search box, type **PerformanceCentre**.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_search.png)
 
-5. <span data-ttu-id="31c67-135">No painel de resultados, selecione **PerformanceCentre** e clique no botão **Adicionar** para adicionar o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="31c67-135">In the results panel, select **PerformanceCentre**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="0bb1b-135">No painel de resultados de saudação, selecione **PerformanceCentre**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-135">In hello results panel, select **PerformanceCentre**, and then click **Add** button tooadd hello application.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="31c67-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="31c67-137">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="31c67-138">Nesta seção, você configurará e testará o logon único do Azure AD com o PerformanceCentre, com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="31c67-138">In this section, you configure and test Azure AD single sign-on with PerformanceCentre based on a test user called "Britta Simon".</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="0bb1b-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="0bb1b-137">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="0bb1b-138">Nesta seção, você configurará e testará o logon único do Azure AD com o PerformanceCentre, com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-138">In this section, you configure and test Azure AD single sign-on with PerformanceCentre based on a test user called "Britta Simon".</span></span>
 
-<span data-ttu-id="31c67-139">Para que o logon único funcione, o Azure AD precisa saber qual usuário do PerformanceCentre é equivalente a um usuário do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="31c67-139">For single sign-on to work, Azure AD needs to know what the counterpart user in PerformanceCentre is to a user in Azure AD.</span></span> <span data-ttu-id="31c67-140">Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do PerformanceCentre.</span><span class="sxs-lookup"><span data-stu-id="31c67-140">In other words, a link relationship between an Azure AD user and the related user in PerformanceCentre needs to be established.</span></span>
+<span data-ttu-id="0bb1b-139">Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá em PerformanceCentre é tooa usuário no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in PerformanceCentre is tooa user in Azure AD.</span></span> <span data-ttu-id="0bb1b-140">Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação em PerformanceCentre precisa toobe estabelecida.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-140">In other words, a link relationship between an Azure AD user and hello related user in PerformanceCentre needs toobe established.</span></span>
 
-<span data-ttu-id="31c67-141">No PerformanceCentre, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.</span><span class="sxs-lookup"><span data-stu-id="31c67-141">In PerformanceCentre, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="0bb1b-141">PerformanceCentre, atribuir valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-141">In PerformanceCentre, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="31c67-142">Para configurar e testar o logon único do AD do Azure com o PerformanceCentre, você precisará concluir os seguintes blocos de construção:</span><span class="sxs-lookup"><span data-stu-id="31c67-142">To configure and test Azure AD single sign-on with PerformanceCentre, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="0bb1b-142">tooconfigure e teste de logon único do AD do Azure com PerformanceCentre, é necessário Olá toocomplete blocos de construção a seguir:</span><span class="sxs-lookup"><span data-stu-id="0bb1b-142">tooconfigure and test Azure AD single sign-on with PerformanceCentre, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="31c67-143">**[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.</span><span class="sxs-lookup"><span data-stu-id="31c67-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="31c67-144">**[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="31c67-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="31c67-145">**[Criação de um usuário de teste do PerformanceCentre](#creating-a-performancecentre-test-user)** – para ter um equivalente de Brenda Fernandes no PerformanceCentre que esteja vinculado à representação do usuário no Azure AD.</span><span class="sxs-lookup"><span data-stu-id="31c67-145">**[Creating a PerformanceCentre test user](#creating-a-performancecentre-test-user)** - to have a counterpart of Britta Simon in PerformanceCentre that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="31c67-146">**[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="31c67-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="31c67-147">**[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.</span><span class="sxs-lookup"><span data-stu-id="31c67-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="0bb1b-143">**[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="0bb1b-144">**[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="0bb1b-145">**[Criar um usuário de teste PerformanceCentre](#creating-a-performancecentre-test-user)**  -toohave um equivalente do Britta Simon em PerformanceCentre é toohello vinculado do Azure AD representação do usuário.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-145">**[Creating a PerformanceCentre test user](#creating-a-performancecentre-test-user)** - toohave a counterpart of Britta Simon in PerformanceCentre that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="0bb1b-146">**[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="0bb1b-147">**[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="31c67-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="31c67-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="0bb1b-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="0bb1b-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="31c67-149">Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e configura o logon único em seu aplicativo PerformanceCentre.</span><span class="sxs-lookup"><span data-stu-id="31c67-149">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your PerformanceCentre application.</span></span>
+<span data-ttu-id="0bb1b-149">Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo PerformanceCentre.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-149">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your PerformanceCentre application.</span></span>
 
-<span data-ttu-id="31c67-150">**Para configurar o logon único do AD do Azure com o PerformanceCentre, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="31c67-150">**To configure Azure AD single sign-on with PerformanceCentre, perform the following steps:**</span></span>
+<span data-ttu-id="0bb1b-150">**tooconfigure AD do Azure-logon único com PerformanceCentre, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="0bb1b-150">**tooconfigure Azure AD single sign-on with PerformanceCentre, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="31c67-151">No Portal do Azure, na página de integração de aplicativos do **PerformanceCentre**, clique em **Logon único**.</span><span class="sxs-lookup"><span data-stu-id="31c67-151">In the Azure portal, on the **PerformanceCentre** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="0bb1b-151">Em Olá portal do Azure, Olá **PerformanceCentre** página de integração de aplicativos, clique em **o logon único**.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-151">In hello Azure portal, on hello **PerformanceCentre** application integration page, click **Single sign-on**.</span></span>
 
     ![Configurar Logon Único][4]
 
-2. <span data-ttu-id="31c67-153">Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.</span><span class="sxs-lookup"><span data-stu-id="31c67-153">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="0bb1b-153">Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-153">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Configurar Logon Único](./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_samlbase.png)
 
-3. <span data-ttu-id="31c67-155">Na seção **URLs e Domínio do PerformanceCentre**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="31c67-155">On the **PerformanceCentre Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="0bb1b-155">Em Olá **PerformanceCentre domínio e URLs** , execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="0bb1b-155">On hello **PerformanceCentre Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_url.png)
 
-    <span data-ttu-id="31c67-157">a.</span><span class="sxs-lookup"><span data-stu-id="31c67-157">a.</span></span> <span data-ttu-id="31c67-158">Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `http://companyname.performancecentre.com/saml/SSO`</span><span class="sxs-lookup"><span data-stu-id="31c67-158">In the **Sign-on URL** textbox, type a URL using the following pattern: `http://companyname.performancecentre.com/saml/SSO`</span></span>
+    <span data-ttu-id="0bb1b-157">a.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-157">a.</span></span> <span data-ttu-id="0bb1b-158">Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`http://companyname.performancecentre.com/saml/SSO`</span><span class="sxs-lookup"><span data-stu-id="0bb1b-158">In hello **Sign-on URL** textbox, type a URL using hello following pattern: `http://companyname.performancecentre.com/saml/SSO`</span></span>
 
-    <span data-ttu-id="31c67-159">b.</span><span class="sxs-lookup"><span data-stu-id="31c67-159">b.</span></span> <span data-ttu-id="31c67-160">Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `http://companyname.performancecentre.com`</span><span class="sxs-lookup"><span data-stu-id="31c67-160">In the **Identifier** textbox, type a URL using the following pattern: `http://companyname.performancecentre.com`</span></span>
+    <span data-ttu-id="0bb1b-159">b.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-159">b.</span></span> <span data-ttu-id="0bb1b-160">Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:`http://companyname.performancecentre.com`</span><span class="sxs-lookup"><span data-stu-id="0bb1b-160">In hello **Identifier** textbox, type a URL using hello following pattern: `http://companyname.performancecentre.com`</span></span>
 
     > [!NOTE] 
-    > <span data-ttu-id="31c67-161">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="31c67-161">These values are not real.</span></span> <span data-ttu-id="31c67-162">Atualize esses valores com a URL de Entrada e o Identificador reais.</span><span class="sxs-lookup"><span data-stu-id="31c67-162">Update these values with the actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="31c67-163">Entre em contato com a [equipe de suporte ao cliente do PerformanceCentre](https://www.performancecentre.com/contact-us/) para obter esses valores.</span><span class="sxs-lookup"><span data-stu-id="31c67-163">Contact [PerformanceCentre Client support team](https://www.performancecentre.com/contact-us/) to get these values.</span></span> 
+    > <span data-ttu-id="0bb1b-161">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-161">These values are not real.</span></span> <span data-ttu-id="0bb1b-162">Atualizar esses valores com hello real URL de logon e o identificador.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-162">Update these values with hello actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="0bb1b-163">Entre em contato com [equipe de suporte do cliente PerformanceCentre](https://www.performancecentre.com/contact-us/) tooget esses valores.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-163">Contact [PerformanceCentre Client support team](https://www.performancecentre.com/contact-us/) tooget these values.</span></span> 
 
-4. <span data-ttu-id="31c67-164">Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.</span><span class="sxs-lookup"><span data-stu-id="31c67-164">On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.</span></span>
+4. <span data-ttu-id="0bb1b-164">Em Olá **o certificado de autenticação SAML** seção, clique em **Metadata XML** e, em seguida, salve o arquivo de metadados de saudação em seu computador.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-164">On hello **SAML Signing Certificate** section, click **Metadata XML** and then save hello metadata file on your computer.</span></span>
 
-    ![Configurar o logon único](./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_certificate.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_certificate.png) 
 
-5. <span data-ttu-id="31c67-166">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="31c67-166">Click **Save** button.</span></span>
+5. <span data-ttu-id="0bb1b-166">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="0bb1b-166">Click **Save** button.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-performancecentre-tutorial/tutorial_general_400.png)
 
-6. <span data-ttu-id="31c67-168">Na seção **Configuração do PerformanceCentre**, clique em **Configurar o PerformanceCentre** para abrir a janela **Configurar logon**.</span><span class="sxs-lookup"><span data-stu-id="31c67-168">On the **PerformanceCentre Configuration** section, click **Configure PerformanceCentre** to open **Configure sign-on** window.</span></span> <span data-ttu-id="31c67-169">Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único do SAML** da **seção de Referência Rápida.**</span><span class="sxs-lookup"><span data-stu-id="31c67-169">Copy the **SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**</span></span>
+6. <span data-ttu-id="0bb1b-168">Em Olá **PerformanceCentre configuração** seção, clique em **configurar PerformanceCentre** tooopen **configurar o logon** janela.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-168">On hello **PerformanceCentre Configuration** section, click **Configure PerformanceCentre** tooopen **Configure sign-on** window.</span></span> <span data-ttu-id="0bb1b-169">Saudação de cópia **ID da entidade SAML e Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**</span><span class="sxs-lookup"><span data-stu-id="0bb1b-169">Copy hello **SAML Entity ID, and SAML Single Sign-On Service URL** from hello **Quick Reference section.**</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_configure.png) 
 
-7. <span data-ttu-id="31c67-171">Faça logon no site da empresa **PerformanceCentre** como administrador.</span><span class="sxs-lookup"><span data-stu-id="31c67-171">Sign-on to your **PerformanceCentre** company site as administrator.</span></span>
+7. <span data-ttu-id="0bb1b-171">Logon tooyour **PerformanceCentre** site da empresa como administrador.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-171">Sign-on tooyour **PerformanceCentre** company site as administrator.</span></span>
 
-8. <span data-ttu-id="31c67-172">Na guia à esquerda, clique em **Configurar**.</span><span class="sxs-lookup"><span data-stu-id="31c67-172">In the tab on the left side, click **Configure**.</span></span>
+8. <span data-ttu-id="0bb1b-172">Na guia Olá no lado esquerdo do hello, clique em **configurar**.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-172">In hello tab on hello left side, click **Configure**.</span></span>
    
     ![Logon Único do AD do Azure][10]
 
-9. <span data-ttu-id="31c67-174">Na guia à esquerda, clique em **Diversos** e em **Logon Único**.</span><span class="sxs-lookup"><span data-stu-id="31c67-174">In the tab on the left side, click **Miscellaneous**, and then click **Single Sign On**.</span></span>
+9. <span data-ttu-id="0bb1b-174">Na guia Olá no lado esquerdo do hello, clique em **diversos**e, em seguida, clique em **Single Sign On**.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-174">In hello tab on hello left side, click **Miscellaneous**, and then click **Single Sign On**.</span></span>
    
     ![Logon Único do AD do Azure][11]
 
-10. <span data-ttu-id="31c67-176">Para o **Protocolo**, escolha **SAML**.</span><span class="sxs-lookup"><span data-stu-id="31c67-176">As **Protocol**, select **SAML**.</span></span>
+10. <span data-ttu-id="0bb1b-176">Para o **Protocolo**, escolha **SAML**.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-176">As **Protocol**, select **SAML**.</span></span>
    
     ![Logon Único do AD do Azure][12]
 
-11. <span data-ttu-id="31c67-178">Abra o arquivo de metadados baixado no bloco de notas, copie o conteúdo e cole-o na caixa de texto **Metadados do Provedor de Identidade** e clique em **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="31c67-178">Open your downloaded metadata file in notepad, copy the content, paste it into the **Identity Provider Metadata** textbox, and then click **Save**.</span></span>
+11. <span data-ttu-id="0bb1b-178">Abra o arquivo de metadados baixado no bloco de notas, copie Olá conteúdo, cole-o em Olá **metadados do provedor de identidade** caixa de texto e, em seguida, clique em **salvar**.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-178">Open your downloaded metadata file in notepad, copy hello content, paste it into hello **Identity Provider Metadata** textbox, and then click **Save**.</span></span>
    
     ![Logon Único do AD do Azure][13]
 
-12. <span data-ttu-id="31c67-180">Verifique se os valores para **URL Base da Entidade** e **URL da ID da Entidade** estão corretos.</span><span class="sxs-lookup"><span data-stu-id="31c67-180">Verify that the values for the **Entity Base URL** and **Entity ID URL** are correct.</span></span>
+12. <span data-ttu-id="0bb1b-180">Verifique se que valores Olá Olá **URL de base de dados de entidade** e **URL de ID de entidade** estão corretas.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-180">Verify that hello values for hello **Entity Base URL** and **Entity ID URL** are correct.</span></span>
     
      ![Logon Único do AD do Azure][14]
 
 > [!TIP]
-> <span data-ttu-id="31c67-182">É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!</span><span class="sxs-lookup"><span data-stu-id="31c67-182">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="31c67-183">Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior.</span><span class="sxs-lookup"><span data-stu-id="31c67-183">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="31c67-184">Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="31c67-184">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="0bb1b-182">Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!</span><span class="sxs-lookup"><span data-stu-id="0bb1b-182">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="0bb1b-183">Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-183">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="0bb1b-184">Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="0bb1b-184">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 > 
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="31c67-185">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="31c67-185">Creating an Azure AD test user</span></span>
-<span data-ttu-id="31c67-186">O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="31c67-186">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="0bb1b-185">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="0bb1b-185">Creating an Azure AD test user</span></span>
+<span data-ttu-id="0bb1b-186">Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-186">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Criar um usuário do AD do Azure][100]
 
-<span data-ttu-id="31c67-188">**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="31c67-188">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="0bb1b-188">**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="0bb1b-188">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="31c67-189">No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="31c67-189">In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="0bb1b-189">Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-189">In hello **Azure portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="31c67-191">Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="31c67-191">To display the list of users, go to **Users and groups** and click **All users**.</span></span>
+2. <span data-ttu-id="0bb1b-191">lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-191">toodisplay hello list of users, go too**Users and groups** and click **All users**.</span></span>
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="31c67-193">Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="31c67-193">To open the **User** dialog, click **Add** on the top of the dialog.</span></span>
+3. <span data-ttu-id="0bb1b-193">Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-193">tooopen hello **User** dialog, click **Add** on hello top of hello dialog.</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="31c67-195">Na página do diálogo **Usuário**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="31c67-195">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="0bb1b-195">Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="0bb1b-195">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="31c67-197">a.</span><span class="sxs-lookup"><span data-stu-id="31c67-197">a.</span></span> <span data-ttu-id="31c67-198">Na caixa de texto **Nome**, digite **Brenda Fernandes**.</span><span class="sxs-lookup"><span data-stu-id="31c67-198">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="0bb1b-197">a.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-197">a.</span></span> <span data-ttu-id="0bb1b-198">Em Olá **nome** caixa de texto, tipo **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-198">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="31c67-199">b.</span><span class="sxs-lookup"><span data-stu-id="31c67-199">b.</span></span> <span data-ttu-id="31c67-200">Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="31c67-200">In the **User name** textbox, type the **email address** of BrittaSimon.</span></span>
+    <span data-ttu-id="0bb1b-199">b.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-199">b.</span></span> <span data-ttu-id="0bb1b-200">Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-200">In hello **User name** textbox, type hello **email address** of BrittaSimon.</span></span>
 
-    <span data-ttu-id="31c67-201">c.</span><span class="sxs-lookup"><span data-stu-id="31c67-201">c.</span></span> <span data-ttu-id="31c67-202">Selecione **Mostrar senha** e anote o valor de **senha**.</span><span class="sxs-lookup"><span data-stu-id="31c67-202">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="0bb1b-201">c.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-201">c.</span></span> <span data-ttu-id="0bb1b-202">Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-202">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="31c67-203">d.</span><span class="sxs-lookup"><span data-stu-id="31c67-203">d.</span></span> <span data-ttu-id="31c67-204">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="31c67-204">Click **Create**.</span></span>
+    <span data-ttu-id="0bb1b-203">d.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-203">d.</span></span> <span data-ttu-id="0bb1b-204">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-204">Click **Create**.</span></span>
  
-### <a name="creating-a-performancecentre-test-user"></a><span data-ttu-id="31c67-205">Criar um usuário de teste do PerformanceCentre</span><span class="sxs-lookup"><span data-stu-id="31c67-205">Creating a PerformanceCentre test user</span></span>
+### <a name="creating-a-performancecentre-test-user"></a><span data-ttu-id="0bb1b-205">Criar um usuário de teste do PerformanceCentre</span><span class="sxs-lookup"><span data-stu-id="0bb1b-205">Creating a PerformanceCentre test user</span></span>
 
-<span data-ttu-id="31c67-206">O objetivo desta seção é criar um usuário chamado Brenda Fernandes no PerformanceCentre.</span><span class="sxs-lookup"><span data-stu-id="31c67-206">The objective of this section is to create a user called Britta Simon in PerformanceCentre.</span></span>
+<span data-ttu-id="0bb1b-206">Olá objetivo desta seção é toocreate um usuário chamado Britta Simon no PerformanceCentre.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-206">hello objective of this section is toocreate a user called Britta Simon in PerformanceCentre.</span></span>
 
-<span data-ttu-id="31c67-207">**Para criar um usuário chamado Brenda Fernandes no PerformanceCentre, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="31c67-207">**To create a user called Britta Simon in PerformanceCentre, perform the following steps:**</span></span>
+<span data-ttu-id="0bb1b-207">**toocreate um usuário chamado Britta Simon no PerformanceCentre, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="0bb1b-207">**toocreate a user called Britta Simon in PerformanceCentre, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="31c67-208">Faça logon no site da empresa PerformanceCentre como administrador.</span><span class="sxs-lookup"><span data-stu-id="31c67-208">Sign on to your PerformanceCentre company site as administrator.</span></span>
+1. <span data-ttu-id="0bb1b-208">Faça logon no tooyour PerformanceCentre site da empresa como administrador.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-208">Sign on tooyour PerformanceCentre company site as administrator.</span></span>
 
-2. <span data-ttu-id="31c67-209">No menu à esquerda, clique em **Inter-relacionado**, e clique em **Criar Participante**.</span><span class="sxs-lookup"><span data-stu-id="31c67-209">In the menu on the left, click **Interrelate**, and then click **Create Participant**.</span></span>
+2. <span data-ttu-id="0bb1b-209">No menu Olá Olá esquerda, clique em **Interrelate**e, em seguida, clique em **criar participante**.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-209">In hello menu on hello left, click **Interrelate**, and then click **Create Participant**.</span></span>
    
     ![Criar Usuário][400]
 
-3. <span data-ttu-id="31c67-211">No diálogo **Inter-relacionado – Criar Participante** , execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="31c67-211">On the **Interrelate - Create Participant** dialog, perform the following steps:</span></span>
+3. <span data-ttu-id="0bb1b-211">Em Olá **se inter-relacionam - criar o participante** caixa de diálogo, executar Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="0bb1b-211">On hello **Interrelate - Create Participant** dialog, perform hello following steps:</span></span>
    
     ![Criar Usuário][401]
     
-    <span data-ttu-id="31c67-213">a.</span><span class="sxs-lookup"><span data-stu-id="31c67-213">a.</span></span> <span data-ttu-id="31c67-214">Digite os atributos necessários para Brenda Fernandes nas caixas de texto relacionadas.</span><span class="sxs-lookup"><span data-stu-id="31c67-214">Type the required attributes for Britta Simon into related textboxes.</span></span>
+    <span data-ttu-id="0bb1b-213">a.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-213">a.</span></span> <span data-ttu-id="0bb1b-214">Saudação de tipo atributos necessários para Britta Simon nas caixas de texto relacionadas.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-214">Type hello required attributes for Britta Simon into related textboxes.</span></span>
     
     >[!IMPORTANT]
-    ><span data-ttu-id="31c67-215">O atributo Nome de Usuário de Brenda no PerformanceCentre deve ser igual ao Nome de Usuário no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="31c67-215">Britta's User Name attribute in PerformanceCentre must be the same as the User Name in Azure AD.</span></span>
+    ><span data-ttu-id="0bb1b-215">Nome de usuário de Britta atributo PerformanceCentre deve ser Olá mesmo Olá nome de usuário no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-215">Britta's User Name attribute in PerformanceCentre must be hello same as hello User Name in Azure AD.</span></span>
     
-    <span data-ttu-id="31c67-216">b.</span><span class="sxs-lookup"><span data-stu-id="31c67-216">b.</span></span> <span data-ttu-id="31c67-217">Selecione **Administrador Cliente** como **Escolher Função**.</span><span class="sxs-lookup"><span data-stu-id="31c67-217">Select **Client Administrator** as **Choose Role**.</span></span>
+    <span data-ttu-id="0bb1b-216">b.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-216">b.</span></span> <span data-ttu-id="0bb1b-217">Selecione **Administrador Cliente** como **Escolher Função**.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-217">Select **Client Administrator** as **Choose Role**.</span></span>
     
-    <span data-ttu-id="31c67-218">c.</span><span class="sxs-lookup"><span data-stu-id="31c67-218">c.</span></span> <span data-ttu-id="31c67-219">Clique em **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="31c67-219">Click **Save**.</span></span> 
+    <span data-ttu-id="0bb1b-218">c.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-218">c.</span></span> <span data-ttu-id="0bb1b-219">Clique em **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-219">Click **Save**.</span></span> 
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="31c67-220">Atribuição do usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="31c67-220">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="0bb1b-220">Atribuir um usuário de teste de saudação do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="0bb1b-220">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="31c67-221">Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao PerformanceCentre.</span><span class="sxs-lookup"><span data-stu-id="31c67-221">In this section, you enable Britta Simon to use Azure single sign-on by granting access to PerformanceCentre.</span></span>
+<span data-ttu-id="0bb1b-221">Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooPerformanceCentre.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-221">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooPerformanceCentre.</span></span>
 
 ![Atribuir usuário][200] 
 
-<span data-ttu-id="31c67-223">**Para atribuir Brenda Fernandes ao PerformanceCentre, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="31c67-223">**To assign Britta Simon to PerformanceCentre, perform the following steps:**</span></span>
+<span data-ttu-id="0bb1b-223">**tooassign Britta Simon tooPerformanceCentre, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="0bb1b-223">**tooassign Britta Simon tooPerformanceCentre, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="31c67-224">No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="31c67-224">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="0bb1b-224">No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-224">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Atribuir usuário][201] 
 
-2. <span data-ttu-id="31c67-226">Na lista de aplicativos, escolha **PerformanceCentre**.</span><span class="sxs-lookup"><span data-stu-id="31c67-226">In the applications list, select **PerformanceCentre**.</span></span>
+2. <span data-ttu-id="0bb1b-226">Na lista de aplicativos hello, selecione **PerformanceCentre**.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-226">In hello applications list, select **PerformanceCentre**.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_app.png) 
 
-3. <span data-ttu-id="31c67-228">No menu à esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="31c67-228">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="0bb1b-228">No menu Olá Olá esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-228">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Atribuir usuário][202] 
 
-4. <span data-ttu-id="31c67-230">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="31c67-230">Click **Add** button.</span></span> <span data-ttu-id="31c67-231">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="31c67-231">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="0bb1b-230">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-230">Click **Add** button.</span></span> <span data-ttu-id="0bb1b-231">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-231">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Atribuir usuário][203]
 
-5. <span data-ttu-id="31c67-233">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="31c67-233">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="0bb1b-233">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-233">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="31c67-234">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="31c67-234">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="0bb1b-234">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-234">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="31c67-235">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="31c67-235">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="0bb1b-235">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-235">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="31c67-236">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="31c67-236">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="0bb1b-236">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="0bb1b-236">Testing single sign-on</span></span>
 
-<span data-ttu-id="31c67-237">O objetivo desta seção é testar sua configuração de SSO do Azure AD usando o Painel de Acesso.</span><span class="sxs-lookup"><span data-stu-id="31c67-237">The objective of this section is to test your Azure AD SSO configuration using the Access Panel.</span></span>  
+<span data-ttu-id="0bb1b-237">Olá o objetivo desta seção é tootest Olá a sua configuração de SSO do AD do Azure usando o painel de acesso.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-237">hello objective of this section is tootest your Azure AD SSO configuration using hello Access Panel.</span></span>  
 
-<span data-ttu-id="31c67-238">Quando clica no bloco PerformanceCentre no Painel de Acesso, você deve ser conectado automaticamente ao seu aplicativo do PerformanceCentre.</span><span class="sxs-lookup"><span data-stu-id="31c67-238">When you click the PerformanceCentre tile in the Access Panel, you should get automatically signed-on to your PerformanceCentre application.</span></span>
+<span data-ttu-id="0bb1b-238">Quando você clica em bloco PerformanceCentre Olá Olá painel de acesso, você deve obter automaticamente assinado em tooyour PerformanceCentre aplicativo.</span><span class="sxs-lookup"><span data-stu-id="0bb1b-238">When you click hello PerformanceCentre tile in hello Access Panel, you should get automatically signed-on tooyour PerformanceCentre application.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="31c67-239">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="31c67-239">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="0bb1b-239">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="0bb1b-239">Additional resources</span></span>
 
-* [<span data-ttu-id="31c67-240">Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="31c67-240">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="31c67-241">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="31c67-241">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="0bb1b-240">Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="0bb1b-240">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="0bb1b-241">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="0bb1b-241">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
 

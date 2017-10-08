@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory com Abintegro | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Abintegro."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Abintegro."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,199 +13,199 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: a2a3c1a7a338ee1cb35dd08176ad3bb5f3cdc319
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 54e2865860940cab0c0ef31a496f42dd55b0e907
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-abintegro"></a><span data-ttu-id="1236a-103">Tutorial: Integração do Active Directory do Azure ao Abintegro</span><span class="sxs-lookup"><span data-stu-id="1236a-103">Tutorial: Azure Active Directory integration with Abintegro</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-abintegro"></a><span data-ttu-id="24087-103">Tutorial: Integração do Active Directory do Azure ao Abintegro</span><span class="sxs-lookup"><span data-stu-id="24087-103">Tutorial: Azure Active Directory integration with Abintegro</span></span>
 
-<span data-ttu-id="1236a-104">Neste tutorial, você aprenderá a integrar o Abintegro ao Azure AD (Azure Active Directory).</span><span class="sxs-lookup"><span data-stu-id="1236a-104">In this tutorial, you learn how to integrate Abintegro with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="24087-104">Neste tutorial, você aprenderá como toointegrate Abintegro com o Azure Active Directory (AD do Azure).</span><span class="sxs-lookup"><span data-stu-id="24087-104">In this tutorial, you learn how toointegrate Abintegro with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="1236a-105">A integração do Abintegro ao Azure AD oferece os seguintes benefícios:</span><span class="sxs-lookup"><span data-stu-id="1236a-105">Integrating Abintegro with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="24087-105">Integrando Abintegro com o AD do Azure fornece Olá benefícios a seguir:</span><span class="sxs-lookup"><span data-stu-id="24087-105">Integrating Abintegro with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="1236a-106">No Azure AD, é possível controlar quem tem acesso ao Abintegro</span><span class="sxs-lookup"><span data-stu-id="1236a-106">You can control in Azure AD who has access to Abintegro</span></span>
-- <span data-ttu-id="1236a-107">Você pode permitir que seus usuários façam logon automaticamente no Abintegro (Logon Único) com suas contas do Azure AD</span><span class="sxs-lookup"><span data-stu-id="1236a-107">You can enable your users to automatically get signed-on to Abintegro (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="1236a-108">Você pode gerenciar suas contas em um única localização: o Portal do Azure</span><span class="sxs-lookup"><span data-stu-id="1236a-108">You can manage your accounts in one central location - the Azure portal</span></span>
+- <span data-ttu-id="24087-106">Você pode controlar no AD do Azure que tenha acesso tooAbintegro</span><span class="sxs-lookup"><span data-stu-id="24087-106">You can control in Azure AD who has access tooAbintegro</span></span>
+- <span data-ttu-id="24087-107">Você pode habilitar seu usuários tooautomatically get conectado tooAbintegro (logon único) com suas contas do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="24087-107">You can enable your users tooautomatically get signed-on tooAbintegro (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="24087-108">Você pode gerenciar suas contas em um local central - Olá portal do Azure</span><span class="sxs-lookup"><span data-stu-id="24087-108">You can manage your accounts in one central location - hello Azure portal</span></span>
 
-<span data-ttu-id="1236a-109">Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="1236a-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="24087-109">Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="24087-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="1236a-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="1236a-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="24087-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="24087-110">Prerequisites</span></span>
 
-<span data-ttu-id="1236a-111">Para configurar a integração do Azure AD ao Abintegro, você precisará dos seguintes itens:</span><span class="sxs-lookup"><span data-stu-id="1236a-111">To configure Azure AD integration with Abintegro, you need the following items:</span></span>
+<span data-ttu-id="24087-111">tooconfigure integração do AD do Azure com Abintegro, você precisa Olá itens a seguir:</span><span class="sxs-lookup"><span data-stu-id="24087-111">tooconfigure Azure AD integration with Abintegro, you need hello following items:</span></span>
 
-- <span data-ttu-id="1236a-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="1236a-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="1236a-113">Uma assinatura habilitada para logon único do Abintegro</span><span class="sxs-lookup"><span data-stu-id="1236a-113">An Abintegro single-sign on enabled subscription</span></span>
+- <span data-ttu-id="24087-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="24087-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="24087-113">Uma assinatura habilitada para logon único do Abintegro</span><span class="sxs-lookup"><span data-stu-id="24087-113">An Abintegro single-sign on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="1236a-114">Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="1236a-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="24087-114">Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="24087-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="1236a-115">Para testar as etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="1236a-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="24087-115">tootest Olá etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="24087-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="1236a-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="1236a-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="1236a-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="1236a-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="24087-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="24087-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="24087-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="24087-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="1236a-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="1236a-118">Scenario description</span></span>
-<span data-ttu-id="1236a-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="1236a-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="1236a-120">O cenário descrito neste tutorial consiste em dois blocos de construção principais:</span><span class="sxs-lookup"><span data-stu-id="1236a-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="24087-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="24087-118">Scenario description</span></span>
+<span data-ttu-id="24087-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="24087-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="24087-120">cenário de saudação descrito neste tutorial consiste em dois elementos básicos:</span><span class="sxs-lookup"><span data-stu-id="24087-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="1236a-121">Como adicionar o Abintegro da galeria</span><span class="sxs-lookup"><span data-stu-id="1236a-121">Adding Abintegro from the gallery</span></span>
-2. <span data-ttu-id="1236a-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="1236a-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="24087-121">Adicionando Abintegro da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="24087-121">Adding Abintegro from hello gallery</span></span>
+2. <span data-ttu-id="24087-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="24087-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-abintegro-from-the-gallery"></a><span data-ttu-id="1236a-123">Como adicionar o Abintegro da galeria</span><span class="sxs-lookup"><span data-stu-id="1236a-123">Adding Abintegro from the gallery</span></span>
-<span data-ttu-id="1236a-124">Para configurar a integração do Abintegro ao Azure AD, você precisará adicionar o Abintegro da galeria à sua lista de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="1236a-124">To configure the integration of Abintegro into Azure AD, you need to add Abintegro from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-abintegro-from-hello-gallery"></a><span data-ttu-id="24087-123">Adicionando Abintegro da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="24087-123">Adding Abintegro from hello gallery</span></span>
+<span data-ttu-id="24087-124">integração de saudação tooconfigure do Abintegro no AD do Azure, você precisa tooadd Abintegro da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="24087-124">tooconfigure hello integration of Abintegro into Azure AD, you need tooadd Abintegro from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="1236a-125">**Para adicionar o Abintegro da galeria, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="1236a-125">**To add Abintegro from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="24087-125">**tooadd Abintegro da Galeria hello, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="24087-125">**tooadd Abintegro from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="1236a-126">No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="1236a-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="24087-126">Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="24087-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Active Directory][1]
 
-2. <span data-ttu-id="1236a-128">Navegue até **aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="1236a-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="1236a-129">Em seguida, vá para **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="1236a-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="24087-128">Navegue muito**aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="24087-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="24087-129">Em seguida, acesse muito**todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="24087-129">Then go too**All applications**.</span></span>
 
     ![Aplicativos][2]
     
-3. <span data-ttu-id="1236a-131">Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.</span><span class="sxs-lookup"><span data-stu-id="1236a-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="24087-131">tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="24087-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
     ![Aplicativos][3]
 
-4. <span data-ttu-id="1236a-133">Na caixa de pesquisa, digite **Abintegro**.</span><span class="sxs-lookup"><span data-stu-id="1236a-133">In the search box, type **Abintegro**.</span></span>
+4. <span data-ttu-id="24087-133">Na caixa de pesquisa hello, digite **Abintegro**.</span><span class="sxs-lookup"><span data-stu-id="24087-133">In hello search box, type **Abintegro**.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-abintegro-tutorial/tutorial_abintegro_search.png)
 
-5. <span data-ttu-id="1236a-135">No painel de resultados, selecione **Abintegro** e clique no botão **Adicionar** para adicionar o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="1236a-135">In the results panel, select **Abintegro**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="24087-135">No painel de resultados de saudação, selecione **Abintegro**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.</span><span class="sxs-lookup"><span data-stu-id="24087-135">In hello results panel, select **Abintegro**, and then click **Add** button tooadd hello application.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-abintegro-tutorial/tutorial_abintegro_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="1236a-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="1236a-137">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="1236a-138">Nesta seção, você configurará e testará o logon único do Azure AD com o Abintegro, com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="1236a-138">In this section, you configure and test Azure AD single sign-on with Abintegro based on a test user called "Britta Simon."</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="24087-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="24087-137">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="24087-138">Nesta seção, você configurará e testará o logon único do Azure AD com o Abintegro, com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="24087-138">In this section, you configure and test Azure AD single sign-on with Abintegro based on a test user called "Britta Simon."</span></span>
 
-<span data-ttu-id="1236a-139">Para que o logon único funcione, o Azure AD precisa saber qual usuário do Abintegro é equivalente a um usuário do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="1236a-139">For single sign-on to work, Azure AD needs to know what the counterpart user in Abintegro is to a user in Azure AD.</span></span> <span data-ttu-id="1236a-140">Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Abintegro.</span><span class="sxs-lookup"><span data-stu-id="1236a-140">In other words, a link relationship between an Azure AD user and the related user in Abintegro needs to be established.</span></span>
+<span data-ttu-id="24087-139">Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no Abintegro é tooa usuário no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="24087-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in Abintegro is tooa user in Azure AD.</span></span> <span data-ttu-id="24087-140">Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no Abintegro precisa toobe estabelecida.</span><span class="sxs-lookup"><span data-stu-id="24087-140">In other words, a link relationship between an Azure AD user and hello related user in Abintegro needs toobe established.</span></span>
 
-<span data-ttu-id="1236a-141">No Abintegro, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.</span><span class="sxs-lookup"><span data-stu-id="1236a-141">In Abintegro, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="24087-141">No Abintegro, atribuir o valor de saudação do hello **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.</span><span class="sxs-lookup"><span data-stu-id="24087-141">In Abintegro, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="1236a-142">Para configurar e testar o logon único do Azure AD com o Abintegro, você precisa concluir os seguintes blocos de construção:</span><span class="sxs-lookup"><span data-stu-id="1236a-142">To configure and test Azure AD single sign-on with Abintegro, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="24087-142">tooconfigure e teste de logon único do AD do Azure com Abintegro, é necessário Olá toocomplete blocos de construção a seguir:</span><span class="sxs-lookup"><span data-stu-id="24087-142">tooconfigure and test Azure AD single sign-on with Abintegro, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="1236a-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.</span><span class="sxs-lookup"><span data-stu-id="1236a-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="1236a-144">**[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="1236a-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="1236a-145">**[Criação um usuário de teste do Abintegro](#creating-an-abintegro-test-user)** – para ter um equivalente de Brenda Fernandes no Abintegro que esteja vinculado à representação do usuário no Azure AD.</span><span class="sxs-lookup"><span data-stu-id="1236a-145">**[Creating an Abintegro test user](#creating-an-abintegro-test-user)** - to have a counterpart of Britta Simon in Abintegro that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="1236a-146">**[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="1236a-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="1236a-147">**[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.</span><span class="sxs-lookup"><span data-stu-id="1236a-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="24087-143">**[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.</span><span class="sxs-lookup"><span data-stu-id="24087-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="24087-144">**[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="24087-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="24087-145">**[Criar um usuário de teste Abintegro](#creating-an-abintegro-test-user)**  -toohave um equivalente do Britta Simon no Abintegro é vinculado toohello AD do Azure representação do usuário.</span><span class="sxs-lookup"><span data-stu-id="24087-145">**[Creating an Abintegro test user](#creating-an-abintegro-test-user)** - toohave a counterpart of Britta Simon in Abintegro that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="24087-146">**[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.</span><span class="sxs-lookup"><span data-stu-id="24087-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="24087-147">**[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.</span><span class="sxs-lookup"><span data-stu-id="24087-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="1236a-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="1236a-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="24087-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="24087-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="1236a-149">Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e configura o logon único no aplicativo Abintegro.</span><span class="sxs-lookup"><span data-stu-id="1236a-149">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Abintegro application.</span></span>
+<span data-ttu-id="24087-149">Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo Abintegro.</span><span class="sxs-lookup"><span data-stu-id="24087-149">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your Abintegro application.</span></span>
 
-<span data-ttu-id="1236a-150">**Para configurar o logon único do Azure AD com o Abintegro, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="1236a-150">**To configure Azure AD single sign-on with Abintegro, perform the following steps:**</span></span>
+<span data-ttu-id="24087-150">**tooconfigure AD do Azure-logon único com Abintegro, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="24087-150">**tooconfigure Azure AD single sign-on with Abintegro, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="1236a-151">No Portal do Azure, na página de integração de aplicativos do **Abintegro**, clique em **Logon único**.</span><span class="sxs-lookup"><span data-stu-id="1236a-151">In the Azure portal, on the **Abintegro** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="24087-151">Em Olá portal do Azure, Olá **Abintegro** página de integração de aplicativos, clique em **o logon único**.</span><span class="sxs-lookup"><span data-stu-id="24087-151">In hello Azure portal, on hello **Abintegro** application integration page, click **Single sign-on**.</span></span>
 
     ![Configurar Logon Único][4]
 
-2. <span data-ttu-id="1236a-153">Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.</span><span class="sxs-lookup"><span data-stu-id="1236a-153">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="24087-153">Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.</span><span class="sxs-lookup"><span data-stu-id="24087-153">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Configurar Logon Único](./media/active-directory-saas-abintegro-tutorial/tutorial_abintegro_samlbase.png)
 
-3. <span data-ttu-id="1236a-155">Na seção **Domínio e URLs do Abintegro**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="1236a-155">On the **Abintegro Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="24087-155">Em Olá **Abintegro domínio e URLs** , execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="24087-155">On hello **Abintegro Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-abintegro-tutorial/tutorial_abintegro_url.png)
 
-    <span data-ttu-id="1236a-157">Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://dev.abintegro.com/Shibboleth.sso/Login?entityID=<Issuer>&target=https://dev.abintegro.com/secure/`</span><span class="sxs-lookup"><span data-stu-id="1236a-157">In the **Sign-on URL** textbox, type a URL using the following pattern: `https://dev.abintegro.com/Shibboleth.sso/Login?entityID=<Issuer>&target=https://dev.abintegro.com/secure/`</span></span>
+    <span data-ttu-id="24087-157">Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://dev.abintegro.com/Shibboleth.sso/Login?entityID=<Issuer>&target=https://dev.abintegro.com/secure/`</span><span class="sxs-lookup"><span data-stu-id="24087-157">In hello **Sign-on URL** textbox, type a URL using hello following pattern: `https://dev.abintegro.com/Shibboleth.sso/Login?entityID=<Issuer>&target=https://dev.abintegro.com/secure/`</span></span>
 
     > [!NOTE] 
-    > <span data-ttu-id="1236a-158">Esse valor não é real.</span><span class="sxs-lookup"><span data-stu-id="1236a-158">This value is not real.</span></span> <span data-ttu-id="1236a-159">Atualize esse valor com a URL de Entrada real.</span><span class="sxs-lookup"><span data-stu-id="1236a-159">Update this value with the actual Sign-On URL.</span></span> <span data-ttu-id="1236a-160">Para obter esse valor, entre em contato com a [equipe de suporte do cliente Abintegro](mailto:support@abintegro.com).</span><span class="sxs-lookup"><span data-stu-id="1236a-160">Contact [Abintegro Client support team](mailto:support@abintegro.com) to get this value.</span></span> 
+    > <span data-ttu-id="24087-158">Esse valor não é real.</span><span class="sxs-lookup"><span data-stu-id="24087-158">This value is not real.</span></span> <span data-ttu-id="24087-159">Atualize esse valor com hello URL de logon real.</span><span class="sxs-lookup"><span data-stu-id="24087-159">Update this value with hello actual Sign-On URL.</span></span> <span data-ttu-id="24087-160">Entre em contato com [a equipe de suporte Abintegro cliente](mailto:support@abintegro.com) tooget esse valor.</span><span class="sxs-lookup"><span data-stu-id="24087-160">Contact [Abintegro Client support team](mailto:support@abintegro.com) tooget this value.</span></span> 
  
-4. <span data-ttu-id="1236a-161">Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.</span><span class="sxs-lookup"><span data-stu-id="1236a-161">On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.</span></span>
+4. <span data-ttu-id="24087-161">Em Olá **o certificado de autenticação SAML** seção, clique em **Metadata XML** e, em seguida, salve o arquivo de metadados de saudação em seu computador.</span><span class="sxs-lookup"><span data-stu-id="24087-161">On hello **SAML Signing Certificate** section, click **Metadata XML** and then save hello metadata file on your computer.</span></span>
 
-    ![Configurar o logon único](./media/active-directory-saas-abintegro-tutorial/tutorial_abintegro_certificate.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-abintegro-tutorial/tutorial_abintegro_certificate.png) 
 
-5. <span data-ttu-id="1236a-163">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="1236a-163">Click **Save** button.</span></span>
+5. <span data-ttu-id="24087-163">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="24087-163">Click **Save** button.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-abintegro-tutorial/tutorial_general_400.png)
 
-6. <span data-ttu-id="1236a-165">Para configurar o logon único no lado do **Abintegro**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte do Abintegro](mailto:support@abintegro.com).</span><span class="sxs-lookup"><span data-stu-id="1236a-165">To configure single sign-on on **Abintegro** side, you need to send the downloaded **Metadata XML** to [Abintegro support team](mailto:support@abintegro.com).</span></span> <span data-ttu-id="1236a-166">Eles definem essa configuração para ter a conexão de SSO do SAML definida corretamente em ambos os lados.</span><span class="sxs-lookup"><span data-stu-id="1236a-166">They set this setting to have the SAML SSO connection set properly on both sides.</span></span>
+6. <span data-ttu-id="24087-165">tooconfigure logon único no **Abintegro** lado, você precisa toosend Olá baixado **Metadata XML** muito[a equipe de suporte Abintegro](mailto:support@abintegro.com).</span><span class="sxs-lookup"><span data-stu-id="24087-165">tooconfigure single sign-on on **Abintegro** side, you need toosend hello downloaded **Metadata XML** too[Abintegro support team](mailto:support@abintegro.com).</span></span> <span data-ttu-id="24087-166">Eles definidos Olá de toohave essa configuração conexão SSO do SAML definido corretamente em ambos os lados.</span><span class="sxs-lookup"><span data-stu-id="24087-166">They set this setting toohave hello SAML SSO connection set properly on both sides.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="1236a-167">É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!</span><span class="sxs-lookup"><span data-stu-id="1236a-167">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="1236a-168">Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior.</span><span class="sxs-lookup"><span data-stu-id="1236a-168">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="1236a-169">Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="1236a-169">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="24087-167">Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!</span><span class="sxs-lookup"><span data-stu-id="24087-167">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="24087-168">Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação.</span><span class="sxs-lookup"><span data-stu-id="24087-168">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="24087-169">Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="24087-169">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="1236a-170">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="1236a-170">Creating an Azure AD test user</span></span>
-<span data-ttu-id="1236a-171">O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="1236a-171">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="24087-170">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="24087-170">Creating an Azure AD test user</span></span>
+<span data-ttu-id="24087-171">Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="24087-171">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Criar um usuário do AD do Azure][100]
 
-<span data-ttu-id="1236a-173">**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="1236a-173">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="24087-173">**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="24087-173">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="1236a-174">No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="1236a-174">In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="24087-174">Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="24087-174">In hello **Azure portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-abintegro-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="1236a-176">Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="1236a-176">To display the list of users, go to **Users and groups** and click **All users**.</span></span>
+2. <span data-ttu-id="24087-176">lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.</span><span class="sxs-lookup"><span data-stu-id="24087-176">toodisplay hello list of users, go too**Users and groups** and click **All users**.</span></span>
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-abintegro-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="1236a-178">Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="1236a-178">To open the **User** dialog, click **Add** on the top of the dialog.</span></span>
+3. <span data-ttu-id="24087-178">Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.</span><span class="sxs-lookup"><span data-stu-id="24087-178">tooopen hello **User** dialog, click **Add** on hello top of hello dialog.</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-abintegro-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="1236a-180">Na página do diálogo **Usuário**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="1236a-180">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="24087-180">Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="24087-180">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-abintegro-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="1236a-182">a.</span><span class="sxs-lookup"><span data-stu-id="1236a-182">a.</span></span> <span data-ttu-id="1236a-183">Na caixa de texto **Nome**, digite **Brenda Fernandes**.</span><span class="sxs-lookup"><span data-stu-id="1236a-183">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="24087-182">a.</span><span class="sxs-lookup"><span data-stu-id="24087-182">a.</span></span> <span data-ttu-id="24087-183">Em Olá **nome** caixa de texto, tipo **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="24087-183">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="1236a-184">b.</span><span class="sxs-lookup"><span data-stu-id="1236a-184">b.</span></span> <span data-ttu-id="1236a-185">Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="1236a-185">In the **User name** textbox, type the **email address** of BrittaSimon.</span></span>
+    <span data-ttu-id="24087-184">b.</span><span class="sxs-lookup"><span data-stu-id="24087-184">b.</span></span> <span data-ttu-id="24087-185">Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.</span><span class="sxs-lookup"><span data-stu-id="24087-185">In hello **User name** textbox, type hello **email address** of BrittaSimon.</span></span>
 
-    <span data-ttu-id="1236a-186">c.</span><span class="sxs-lookup"><span data-stu-id="1236a-186">c.</span></span> <span data-ttu-id="1236a-187">Selecione **Mostrar senha** e anote o valor de **senha**.</span><span class="sxs-lookup"><span data-stu-id="1236a-187">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="24087-186">c.</span><span class="sxs-lookup"><span data-stu-id="24087-186">c.</span></span> <span data-ttu-id="24087-187">Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.</span><span class="sxs-lookup"><span data-stu-id="24087-187">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="1236a-188">d.</span><span class="sxs-lookup"><span data-stu-id="1236a-188">d.</span></span> <span data-ttu-id="1236a-189">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="1236a-189">Click **Create**.</span></span>
+    <span data-ttu-id="24087-188">d.</span><span class="sxs-lookup"><span data-stu-id="24087-188">d.</span></span> <span data-ttu-id="24087-189">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="24087-189">Click **Create**.</span></span>
  
-### <a name="creating-an-abintegro-test-user"></a><span data-ttu-id="1236a-190">Criação de um usuário de teste Abintegro</span><span class="sxs-lookup"><span data-stu-id="1236a-190">Creating an Abintegro test user</span></span>
+### <a name="creating-an-abintegro-test-user"></a><span data-ttu-id="24087-190">Criação de um usuário de teste Abintegro</span><span class="sxs-lookup"><span data-stu-id="24087-190">Creating an Abintegro test user</span></span>
 
-<span data-ttu-id="1236a-191">Não há nenhum item de ação para a configuração de provisionamento de usuário para o Abintegro.</span><span class="sxs-lookup"><span data-stu-id="1236a-191">There is no action item for you to configure user provisioning to Abintegro.</span></span> <span data-ttu-id="1236a-192">Quando um usuário atribuído tenta fazer logon no Abintegro usando o painel de acesso, o Abintegro verifica se o usuário existe.</span><span class="sxs-lookup"><span data-stu-id="1236a-192">When an assigned user tries to log into Abintegro using the access panel, Abintegro checks whether the user exists.</span></span>
+<span data-ttu-id="24087-191">Não há nenhum item de ação para você tooconfigure provisionamento de usuário tooAbintegro.</span><span class="sxs-lookup"><span data-stu-id="24087-191">There is no action item for you tooconfigure user provisioning tooAbintegro.</span></span> <span data-ttu-id="24087-192">Quando um usuário atribuído tenta toolog no Abintegro usando o painel de acesso hello, Abintegro verifica se o usuário Olá existe.</span><span class="sxs-lookup"><span data-stu-id="24087-192">When an assigned user tries toolog into Abintegro using hello access panel, Abintegro checks whether hello user exists.</span></span>
   
-<span data-ttu-id="1236a-193">Se ainda não houver conta de usuário disponível, ela será criada automaticamente pelo Abintegro.</span><span class="sxs-lookup"><span data-stu-id="1236a-193">If there is no user account available yet, it is automatically created by Abintegro.</span></span>
+<span data-ttu-id="24087-193">Se ainda não houver conta de usuário disponível, ela será criada automaticamente pelo Abintegro.</span><span class="sxs-lookup"><span data-stu-id="24087-193">If there is no user account available yet, it is automatically created by Abintegro.</span></span>
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="1236a-194">Atribuição do usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="1236a-194">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="24087-194">Atribuir um usuário de teste de saudação do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="24087-194">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="1236a-195">Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao Abintegro.</span><span class="sxs-lookup"><span data-stu-id="1236a-195">In this section, you enable Britta Simon to use Azure single sign-on by granting access to Abintegro.</span></span>
+<span data-ttu-id="24087-195">Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooAbintegro.</span><span class="sxs-lookup"><span data-stu-id="24087-195">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooAbintegro.</span></span>
 
 ![Atribuir usuário][200] 
 
-<span data-ttu-id="1236a-197">**Para atribuir Brenda Fernandes ao Abintegro, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="1236a-197">**To assign Britta Simon to Abintegro, perform the following steps:**</span></span>
+<span data-ttu-id="24087-197">**tooassign Britta Simon tooAbintegro, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="24087-197">**tooassign Britta Simon tooAbintegro, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="1236a-198">No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="1236a-198">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="24087-198">No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="24087-198">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Atribuir usuário][201] 
 
-2. <span data-ttu-id="1236a-200">Na lista de aplicativos, escolha **Abintegro**.</span><span class="sxs-lookup"><span data-stu-id="1236a-200">In the applications list, select **Abintegro**.</span></span>
+2. <span data-ttu-id="24087-200">Na lista de aplicativos hello, selecione **Abintegro**.</span><span class="sxs-lookup"><span data-stu-id="24087-200">In hello applications list, select **Abintegro**.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-abintegro-tutorial/tutorial_abintegro_app.png) 
 
-3. <span data-ttu-id="1236a-202">No menu à esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="1236a-202">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="24087-202">No menu Olá Olá esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="24087-202">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Atribuir usuário][202] 
 
-4. <span data-ttu-id="1236a-204">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="1236a-204">Click **Add** button.</span></span> <span data-ttu-id="1236a-205">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="1236a-205">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="24087-204">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="24087-204">Click **Add** button.</span></span> <span data-ttu-id="24087-205">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="24087-205">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Atribuir usuário][203]
 
-5. <span data-ttu-id="1236a-207">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="1236a-207">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="24087-207">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.</span><span class="sxs-lookup"><span data-stu-id="24087-207">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="1236a-208">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="1236a-208">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="24087-208">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="24087-208">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="1236a-209">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="1236a-209">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="24087-209">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="24087-209">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="1236a-210">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="1236a-210">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="24087-210">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="24087-210">Testing single sign-on</span></span>
 
-<span data-ttu-id="1236a-211">Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.</span><span class="sxs-lookup"><span data-stu-id="1236a-211">In this section, you test your Azure AD single sign-on configuration using the Access Panel.</span></span>
+<span data-ttu-id="24087-211">Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.</span><span class="sxs-lookup"><span data-stu-id="24087-211">In this section, you test your Azure AD single sign-on configuration using hello Access Panel.</span></span>
 
-<span data-ttu-id="1236a-212">Ao clicar no bloco Abintegro no Painel de Acesso, você deve obter a página de logon do aplicativo Abintegro.</span><span class="sxs-lookup"><span data-stu-id="1236a-212">When you click the Abintegro tile in the Access Panel, you should get login page of Abintegro application.</span></span>
-<span data-ttu-id="1236a-213">Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="1236a-213">For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
+<span data-ttu-id="24087-212">Quando você clica em bloco Abintegro Olá Olá painel de acesso, você deve obter a página de logon do aplicativo Abintegro.</span><span class="sxs-lookup"><span data-stu-id="24087-212">When you click hello Abintegro tile in hello Access Panel, you should get login page of Abintegro application.</span></span>
+<span data-ttu-id="24087-213">Para obter mais informações sobre Olá painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="24087-213">For more information about hello Access Panel, see [Introduction toohello Access Panel](active-directory-saas-access-panel-introduction.md).</span></span> 
 
-## <a name="additional-resources"></a><span data-ttu-id="1236a-214">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="1236a-214">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="24087-214">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="24087-214">Additional resources</span></span>
 
-* [<span data-ttu-id="1236a-215">Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="1236a-215">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="1236a-216">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="1236a-216">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="24087-215">Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="24087-215">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="24087-216">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="24087-216">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 
 

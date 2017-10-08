@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory com Sciforma | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Sciforma."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Sciforma."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,201 +13,201 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 4a04f5b2b5ccb33dddefc063a89118d87a11ebf5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fca6237196061355e38d431e958964a45246f965
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sciforma"></a><span data-ttu-id="10a51-103">Tutorial: integração do Azure Active Directory com o Sciforma</span><span class="sxs-lookup"><span data-stu-id="10a51-103">Tutorial: Azure Active Directory integration with Sciforma</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-sciforma"></a><span data-ttu-id="a1feb-103">Tutorial: integração do Azure Active Directory com o Sciforma</span><span class="sxs-lookup"><span data-stu-id="a1feb-103">Tutorial: Azure Active Directory integration with Sciforma</span></span>
 
-<span data-ttu-id="10a51-104">Neste tutorial, você aprenderá a integrar o Sciforma ao Azure AD (Azure Active Directory).</span><span class="sxs-lookup"><span data-stu-id="10a51-104">In this tutorial, you learn how to integrate Sciforma with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="a1feb-104">Neste tutorial, você aprenderá como toointegrate Sciforma com o Azure Active Directory (AD do Azure).</span><span class="sxs-lookup"><span data-stu-id="a1feb-104">In this tutorial, you learn how toointegrate Sciforma with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="10a51-105">A integração do Sciforma ao Azure AD oferece os seguintes benefícios:</span><span class="sxs-lookup"><span data-stu-id="10a51-105">Integrating Sciforma with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="a1feb-105">Integrando o Sciforma com o AD do Azure fornece Olá benefícios a seguir:</span><span class="sxs-lookup"><span data-stu-id="a1feb-105">Integrating Sciforma with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="10a51-106">Você pode controlar no Azure AD quem tem acesso ao Sciforma</span><span class="sxs-lookup"><span data-stu-id="10a51-106">You can control in Azure AD who has access to Sciforma</span></span>
-- <span data-ttu-id="10a51-107">Você pode habilitar os usuários para logon automático no Sciforma (Logon Único) com suas contas do Azure AD</span><span class="sxs-lookup"><span data-stu-id="10a51-107">You can enable your users to automatically get signed-on to Sciforma (Single Sign-On) with their Azure AD accounts</span></span>
-- <span data-ttu-id="10a51-108">Você pode gerenciar suas contas em um única localização: o Portal do Azure</span><span class="sxs-lookup"><span data-stu-id="10a51-108">You can manage your accounts in one central location - the Azure portal</span></span>
+- <span data-ttu-id="a1feb-106">Você pode controlar no AD do Azure que tenha acesso tooSciforma</span><span class="sxs-lookup"><span data-stu-id="a1feb-106">You can control in Azure AD who has access tooSciforma</span></span>
+- <span data-ttu-id="a1feb-107">Você pode habilitar seu usuários tooautomatically get conectado tooSciforma (logon único) com suas contas do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="a1feb-107">You can enable your users tooautomatically get signed-on tooSciforma (Single Sign-On) with their Azure AD accounts</span></span>
+- <span data-ttu-id="a1feb-108">Você pode gerenciar suas contas em um local central - Olá portal do Azure</span><span class="sxs-lookup"><span data-stu-id="a1feb-108">You can manage your accounts in one central location - hello Azure portal</span></span>
 
-<span data-ttu-id="10a51-109">Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="10a51-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="a1feb-109">Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="a1feb-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="10a51-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="10a51-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="a1feb-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="a1feb-110">Prerequisites</span></span>
 
-<span data-ttu-id="10a51-111">Para configurar a integração do Azure AD ao Sciforma, você precisa dos seguintes itens:</span><span class="sxs-lookup"><span data-stu-id="10a51-111">To configure Azure AD integration with Sciforma, you need the following items:</span></span>
+<span data-ttu-id="a1feb-111">tooconfigure integração do AD do Azure com Sciforma, você precisa Olá itens a seguir:</span><span class="sxs-lookup"><span data-stu-id="a1feb-111">tooconfigure Azure AD integration with Sciforma, you need hello following items:</span></span>
 
-- <span data-ttu-id="10a51-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="10a51-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="10a51-113">Uma assinatura do Sciforma habilitada para logon único</span><span class="sxs-lookup"><span data-stu-id="10a51-113">A Sciforma single-sign on enabled subscription</span></span>
+- <span data-ttu-id="a1feb-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="a1feb-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="a1feb-113">Uma assinatura do Sciforma habilitada para logon único</span><span class="sxs-lookup"><span data-stu-id="a1feb-113">A Sciforma single-sign on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="10a51-114">Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="10a51-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="a1feb-114">Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="a1feb-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="10a51-115">Para testar as etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="10a51-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="a1feb-115">tootest Olá etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="a1feb-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="10a51-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="10a51-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="10a51-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="10a51-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="a1feb-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="a1feb-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="a1feb-117">Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="a1feb-117">If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="10a51-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="10a51-118">Scenario description</span></span>
-<span data-ttu-id="10a51-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="10a51-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="10a51-120">O cenário descrito neste tutorial consiste em dois blocos de construção principais:</span><span class="sxs-lookup"><span data-stu-id="10a51-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="a1feb-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="a1feb-118">Scenario description</span></span>
+<span data-ttu-id="a1feb-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="a1feb-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="a1feb-120">cenário de saudação descrito neste tutorial consiste em dois elementos básicos:</span><span class="sxs-lookup"><span data-stu-id="a1feb-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="10a51-121">Adicionar Sciforma da galeria</span><span class="sxs-lookup"><span data-stu-id="10a51-121">Adding Sciforma from the gallery</span></span>
-2. <span data-ttu-id="10a51-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="10a51-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="a1feb-121">Adicionando Sciforma da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="a1feb-121">Adding Sciforma from hello gallery</span></span>
+2. <span data-ttu-id="a1feb-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="a1feb-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-sciforma-from-the-gallery"></a><span data-ttu-id="10a51-123">Adicionar Sciforma da galeria</span><span class="sxs-lookup"><span data-stu-id="10a51-123">Adding Sciforma from the gallery</span></span>
-<span data-ttu-id="10a51-124">Para configurar a integração do Sciforma ao Azure AD, você precisará adicionar o Sciforma da galeria à sua lista de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="10a51-124">To configure the integration of Sciforma into Azure AD, you need to add Sciforma from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-sciforma-from-hello-gallery"></a><span data-ttu-id="a1feb-123">Adicionando Sciforma da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="a1feb-123">Adding Sciforma from hello gallery</span></span>
+<span data-ttu-id="a1feb-124">integração de saudação tooconfigure do Sciforma no AD do Azure, você precisa tooadd Sciforma da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="a1feb-124">tooconfigure hello integration of Sciforma into Azure AD, you need tooadd Sciforma from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="10a51-125">**Para adicionar o Sciforma da galeria, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="10a51-125">**To add Sciforma from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="a1feb-125">**tooadd Sciforma da Galeria hello, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="a1feb-125">**tooadd Sciforma from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="10a51-126">No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="10a51-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="a1feb-126">Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="a1feb-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
     ![Active Directory][1]
 
-2. <span data-ttu-id="10a51-128">Navegue até **aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="10a51-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="10a51-129">Em seguida, vá para **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="10a51-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="a1feb-128">Navegue muito**aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="a1feb-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="a1feb-129">Em seguida, acesse muito**todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="a1feb-129">Then go too**All applications**.</span></span>
 
     ![Aplicativos][2]
     
-3. <span data-ttu-id="10a51-131">Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.</span><span class="sxs-lookup"><span data-stu-id="10a51-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="a1feb-131">tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="a1feb-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
     ![Aplicativos][3]
 
-4. <span data-ttu-id="10a51-133">Na caixa de pesquisa, digite **Sciforma**.</span><span class="sxs-lookup"><span data-stu-id="10a51-133">In the search box, type **Sciforma**.</span></span>
+4. <span data-ttu-id="a1feb-133">Na caixa de pesquisa hello, digite **Sciforma**.</span><span class="sxs-lookup"><span data-stu-id="a1feb-133">In hello search box, type **Sciforma**.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sciforma-tutorial/tutorial_sciforma_search.png)
 
-5. <span data-ttu-id="10a51-135">No painel de resultados, selecione **Sciforma** e clique no botão **Adicionar** para adicionar o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="10a51-135">In the results panel, select **Sciforma**, and then click **Add** button to add the application.</span></span>
+5. <span data-ttu-id="a1feb-135">No painel de resultados de saudação, selecione **Sciforma**e, em seguida, clique em **adicionar** botão aplicativo hello de tooadd.</span><span class="sxs-lookup"><span data-stu-id="a1feb-135">In hello results panel, select **Sciforma**, and then click **Add** button tooadd hello application.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sciforma-tutorial/tutorial_sciforma_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="10a51-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="10a51-137">Configuring and testing Azure AD single sign-on</span></span>
-<span data-ttu-id="10a51-138">Nesta seção, você configurará e testará o logon único do Azure AD com o Sciforma, com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="10a51-138">In this section, you configure and test Azure AD single sign-on with Sciforma based on a test user called "Britta Simon."</span></span>
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a><span data-ttu-id="a1feb-137">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="a1feb-137">Configuring and testing Azure AD single sign-on</span></span>
+<span data-ttu-id="a1feb-138">Nesta seção, você configurará e testará o logon único do Azure AD com o Sciforma, com base em um usuário de teste chamado “Brenda Fernandes”.</span><span class="sxs-lookup"><span data-stu-id="a1feb-138">In this section, you configure and test Azure AD single sign-on with Sciforma based on a test user called "Britta Simon."</span></span>
 
-<span data-ttu-id="10a51-139">Para que o logon único funcione, o Azure AD precisa saber qual usuário do Sciforma é equivalente a um usuário do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="10a51-139">For single sign-on to work, Azure AD needs to know what the counterpart user in Sciforma is to a user in Azure AD.</span></span> <span data-ttu-id="10a51-140">Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Sciforma.</span><span class="sxs-lookup"><span data-stu-id="10a51-140">In other words, a link relationship between an Azure AD user and the related user in Sciforma needs to be established.</span></span>
+<span data-ttu-id="a1feb-139">Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no Sciforma é tooa usuário no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="a1feb-139">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in Sciforma is tooa user in Azure AD.</span></span> <span data-ttu-id="a1feb-140">Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no Sciforma precisa toobe estabelecida.</span><span class="sxs-lookup"><span data-stu-id="a1feb-140">In other words, a link relationship between an Azure AD user and hello related user in Sciforma needs toobe established.</span></span>
 
-<span data-ttu-id="10a51-141">No Sciforma, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.</span><span class="sxs-lookup"><span data-stu-id="10a51-141">In Sciforma, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="a1feb-141">No Sciforma, atribuir o valor de saudação do hello **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.</span><span class="sxs-lookup"><span data-stu-id="a1feb-141">In Sciforma, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="10a51-142">Para configurar e testar o logon único do Azure AD com o Sciforma, você precisará concluir os seguintes blocos de construção:</span><span class="sxs-lookup"><span data-stu-id="10a51-142">To configure and test Azure AD single sign-on with Sciforma, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="a1feb-142">tooconfigure e teste de logon único do AD do Azure com Sciforma, é necessário Olá toocomplete blocos de construção a seguir:</span><span class="sxs-lookup"><span data-stu-id="a1feb-142">tooconfigure and test Azure AD single sign-on with Sciforma, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="10a51-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.</span><span class="sxs-lookup"><span data-stu-id="10a51-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="10a51-144">**[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="10a51-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="10a51-145">**[Criação de um usuário de teste do Sciforma](#creating-a-sciforma-test-user)** – para ter um equivalente de Brenda Fernandes no Sciforma que esteja vinculado à representação do usuário no Azure AD.</span><span class="sxs-lookup"><span data-stu-id="10a51-145">**[Creating a Sciforma test user](#creating-a-sciforma-test-user)** - to have a counterpart of Britta Simon in Sciforma that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="10a51-146">**[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="10a51-146">**[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="10a51-147">**[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.</span><span class="sxs-lookup"><span data-stu-id="10a51-147">**[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="a1feb-143">**[Configurando o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.</span><span class="sxs-lookup"><span data-stu-id="a1feb-143">**[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="a1feb-144">**[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="a1feb-144">**[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="a1feb-145">**[Criar um usuário de teste do Sciforma](#creating-a-sciforma-test-user)**  -toohave um equivalente do Britta Simon no Sciforma é vinculado toohello AD do Azure representação do usuário.</span><span class="sxs-lookup"><span data-stu-id="a1feb-145">**[Creating a Sciforma test user](#creating-a-sciforma-test-user)** - toohave a counterpart of Britta Simon in Sciforma that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="a1feb-146">**[Usuário de teste de saudação do AD do Azure atribuindo](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.</span><span class="sxs-lookup"><span data-stu-id="a1feb-146">**[Assigning hello Azure AD test user](#assigning-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="a1feb-147">**[Teste o logon único](#testing-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.</span><span class="sxs-lookup"><span data-stu-id="a1feb-147">**[Testing Single Sign-On](#testing-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="10a51-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="10a51-148">Configuring Azure AD single sign-on</span></span>
+### <a name="configuring-azure-ad-single-sign-on"></a><span data-ttu-id="a1feb-148">Configuração do logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="a1feb-148">Configuring Azure AD single sign-on</span></span>
 
-<span data-ttu-id="10a51-149">Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo Sciforma.</span><span class="sxs-lookup"><span data-stu-id="10a51-149">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Sciforma application.</span></span>
+<span data-ttu-id="a1feb-149">Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo Sciforma.</span><span class="sxs-lookup"><span data-stu-id="a1feb-149">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your Sciforma application.</span></span>
 
-<span data-ttu-id="10a51-150">**Para configurar o logon único do Azure AD com o Sciforma, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="10a51-150">**To configure Azure AD single sign-on with Sciforma, perform the following steps:**</span></span>
+<span data-ttu-id="a1feb-150">**tooconfigure AD do Azure-logon único com Sciforma, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="a1feb-150">**tooconfigure Azure AD single sign-on with Sciforma, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="10a51-151">No portal do Azure, na página de integração de aplicativos do **Sciforma**, clique em **Logon único**.</span><span class="sxs-lookup"><span data-stu-id="10a51-151">In the Azure portal, on the **Sciforma** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="a1feb-151">Em Olá portal do Azure, Olá **Sciforma** página de integração de aplicativos, clique em **o logon único**.</span><span class="sxs-lookup"><span data-stu-id="a1feb-151">In hello Azure portal, on hello **Sciforma** application integration page, click **Single sign-on**.</span></span>
 
     ![Configurar Logon Único][4]
 
-2. <span data-ttu-id="10a51-153">Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.</span><span class="sxs-lookup"><span data-stu-id="10a51-153">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="a1feb-153">Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.</span><span class="sxs-lookup"><span data-stu-id="a1feb-153">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Configurar Logon Único](./media/active-directory-saas-sciforma-tutorial/tutorial_sciforma_samlbase.png)
 
-3. <span data-ttu-id="10a51-155">Na seção **URLs e Domínio do Sciforma**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="10a51-155">On the **Sciforma Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="a1feb-155">Em Olá **Sciforma domínio e URLs** , execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="a1feb-155">On hello **Sciforma Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-sciforma-tutorial/tutorial_sciforma_url.png)
 
-    <span data-ttu-id="10a51-157">a.</span><span class="sxs-lookup"><span data-stu-id="10a51-157">a.</span></span> <span data-ttu-id="10a51-158">Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.sciforma.net/sciforma/main.html`</span><span class="sxs-lookup"><span data-stu-id="10a51-158">In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.sciforma.net/sciforma/main.html`</span></span>
+    <span data-ttu-id="a1feb-157">a.</span><span class="sxs-lookup"><span data-stu-id="a1feb-157">a.</span></span> <span data-ttu-id="a1feb-158">Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<subdomain>.sciforma.net/sciforma/main.html`</span><span class="sxs-lookup"><span data-stu-id="a1feb-158">In hello **Sign-on URL** textbox, type a URL using hello following pattern: `https://<subdomain>.sciforma.net/sciforma/main.html`</span></span>
 
-    <span data-ttu-id="10a51-159">b.</span><span class="sxs-lookup"><span data-stu-id="10a51-159">b.</span></span> <span data-ttu-id="10a51-160">Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.sciforma.net/sciforma/saml`</span><span class="sxs-lookup"><span data-stu-id="10a51-160">In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.sciforma.net/sciforma/saml`</span></span>
+    <span data-ttu-id="a1feb-159">b.</span><span class="sxs-lookup"><span data-stu-id="a1feb-159">b.</span></span> <span data-ttu-id="a1feb-160">Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<subdomain>.sciforma.net/sciforma/saml`</span><span class="sxs-lookup"><span data-stu-id="a1feb-160">In hello **Identifier** textbox, type a URL using hello following pattern: `https://<subdomain>.sciforma.net/sciforma/saml`</span></span>
 
     > [!NOTE] 
-    > <span data-ttu-id="10a51-161">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="10a51-161">These values are not real.</span></span> <span data-ttu-id="10a51-162">Atualize esses valores com a URL de Entrada e o Identificador reais.</span><span class="sxs-lookup"><span data-stu-id="10a51-162">Update these values with the actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="10a51-163">Contate a [equipe de suporte do Cliente Sciforma](http://www.sciforma.com/company/contact_us) para obter esses valores.</span><span class="sxs-lookup"><span data-stu-id="10a51-163">Contact [Sciforma Client support team](http://www.sciforma.com/company/contact_us) to get these values.</span></span> 
+    > <span data-ttu-id="a1feb-161">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="a1feb-161">These values are not real.</span></span> <span data-ttu-id="a1feb-162">Atualizar esses valores com hello real URL de logon e o identificador.</span><span class="sxs-lookup"><span data-stu-id="a1feb-162">Update these values with hello actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="a1feb-163">Entre em contato com [equipe de suporte do Sciforma cliente](http://www.sciforma.com/company/contact_us) tooget esses valores.</span><span class="sxs-lookup"><span data-stu-id="a1feb-163">Contact [Sciforma Client support team](http://www.sciforma.com/company/contact_us) tooget these values.</span></span> 
  
 
 
-4. <span data-ttu-id="10a51-164">Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.</span><span class="sxs-lookup"><span data-stu-id="10a51-164">On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.</span></span>
+4. <span data-ttu-id="a1feb-164">Em Olá **o certificado de autenticação SAML** seção, clique em **Metadata XML** e, em seguida, salve o arquivo de metadados de saudação em seu computador.</span><span class="sxs-lookup"><span data-stu-id="a1feb-164">On hello **SAML Signing Certificate** section, click **Metadata XML** and then save hello metadata file on your computer.</span></span>
 
-    ![Configurar o logon único](./media/active-directory-saas-sciforma-tutorial/tutorial_sciforma_certificate.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-sciforma-tutorial/tutorial_sciforma_certificate.png) 
 
-5. <span data-ttu-id="10a51-166">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="10a51-166">Click **Save** button.</span></span>
+5. <span data-ttu-id="a1feb-166">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="a1feb-166">Click **Save** button.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-sciforma-tutorial/tutorial_general_400.png)
 
-6. <span data-ttu-id="10a51-168">Para configurar o logon único no lado do **Sciforma**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte do Sciforma](http://www.sciforma.com/company/contact_us).</span><span class="sxs-lookup"><span data-stu-id="10a51-168">To configure single sign-on on **Sciforma** side, you need to send the downloaded **Metadata XML** to [Sciforma support team](http://www.sciforma.com/company/contact_us).</span></span>
+6. <span data-ttu-id="a1feb-168">tooconfigure logon único no **Sciforma** lado, você precisa toosend Olá baixado **Metadata XML** muito[equipe de suporte do Sciforma](http://www.sciforma.com/company/contact_us).</span><span class="sxs-lookup"><span data-stu-id="a1feb-168">tooconfigure single sign-on on **Sciforma** side, you need toosend hello downloaded **Metadata XML** too[Sciforma support team](http://www.sciforma.com/company/contact_us).</span></span>
 
 > [!TIP]
-> <span data-ttu-id="10a51-169">É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!</span><span class="sxs-lookup"><span data-stu-id="10a51-169">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="10a51-170">Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior.</span><span class="sxs-lookup"><span data-stu-id="10a51-170">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="10a51-171">Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="10a51-171">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="a1feb-169">Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!</span><span class="sxs-lookup"><span data-stu-id="a1feb-169">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="a1feb-170">Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação.</span><span class="sxs-lookup"><span data-stu-id="a1feb-170">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="a1feb-171">Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="a1feb-171">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 > 
 
-### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="10a51-172">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="10a51-172">Creating an Azure AD test user</span></span>
-<span data-ttu-id="10a51-173">O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="10a51-173">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+### <a name="creating-an-azure-ad-test-user"></a><span data-ttu-id="a1feb-172">Criação de um usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="a1feb-172">Creating an Azure AD test user</span></span>
+<span data-ttu-id="a1feb-173">Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="a1feb-173">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Criar um usuário do AD do Azure][100]
 
-<span data-ttu-id="10a51-175">**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="10a51-175">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="a1feb-175">**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="a1feb-175">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="10a51-176">No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="10a51-176">In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.</span></span>
+1. <span data-ttu-id="a1feb-176">Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="a1feb-176">In hello **Azure portal**, on hello left navigation pane, click **Azure Active Directory** icon.</span></span>
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sciforma-tutorial/create_aaduser_01.png) 
 
-2. <span data-ttu-id="10a51-178">Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="10a51-178">To display the list of users, go to **Users and groups** and click **All users**.</span></span>
+2. <span data-ttu-id="a1feb-178">lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.</span><span class="sxs-lookup"><span data-stu-id="a1feb-178">toodisplay hello list of users, go too**Users and groups** and click **All users**.</span></span>
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sciforma-tutorial/create_aaduser_02.png) 
 
-3. <span data-ttu-id="10a51-180">Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="10a51-180">To open the **User** dialog, click **Add** on the top of the dialog.</span></span>
+3. <span data-ttu-id="a1feb-180">Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.</span><span class="sxs-lookup"><span data-stu-id="a1feb-180">tooopen hello **User** dialog, click **Add** on hello top of hello dialog.</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sciforma-tutorial/create_aaduser_03.png) 
 
-4. <span data-ttu-id="10a51-182">Na página do diálogo **Usuário**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="10a51-182">On the **User** dialog page, perform the following steps:</span></span>
+4. <span data-ttu-id="a1feb-182">Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="a1feb-182">On hello **User** dialog page, perform hello following steps:</span></span>
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sciforma-tutorial/create_aaduser_04.png) 
 
-    <span data-ttu-id="10a51-184">a.</span><span class="sxs-lookup"><span data-stu-id="10a51-184">a.</span></span> <span data-ttu-id="10a51-185">Na caixa de texto **Nome**, digite **Brenda Fernandes**.</span><span class="sxs-lookup"><span data-stu-id="10a51-185">In the **Name** textbox, type **BrittaSimon**.</span></span>
+    <span data-ttu-id="a1feb-184">a.</span><span class="sxs-lookup"><span data-stu-id="a1feb-184">a.</span></span> <span data-ttu-id="a1feb-185">Em Olá **nome** caixa de texto, tipo **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="a1feb-185">In hello **Name** textbox, type **BrittaSimon**.</span></span>
 
-    <span data-ttu-id="10a51-186">b.</span><span class="sxs-lookup"><span data-stu-id="10a51-186">b.</span></span> <span data-ttu-id="10a51-187">Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="10a51-187">In the **User name** textbox, type the **email address** of BrittaSimon.</span></span>
+    <span data-ttu-id="a1feb-186">b.</span><span class="sxs-lookup"><span data-stu-id="a1feb-186">b.</span></span> <span data-ttu-id="a1feb-187">Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.</span><span class="sxs-lookup"><span data-stu-id="a1feb-187">In hello **User name** textbox, type hello **email address** of BrittaSimon.</span></span>
 
-    <span data-ttu-id="10a51-188">c.</span><span class="sxs-lookup"><span data-stu-id="10a51-188">c.</span></span> <span data-ttu-id="10a51-189">Selecione **Mostrar senha** e anote o valor de **senha**.</span><span class="sxs-lookup"><span data-stu-id="10a51-189">Select **Show Password** and write down the value of the **Password**.</span></span>
+    <span data-ttu-id="a1feb-188">c.</span><span class="sxs-lookup"><span data-stu-id="a1feb-188">c.</span></span> <span data-ttu-id="a1feb-189">Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.</span><span class="sxs-lookup"><span data-stu-id="a1feb-189">Select **Show Password** and write down hello value of hello **Password**.</span></span>
 
-    <span data-ttu-id="10a51-190">d.</span><span class="sxs-lookup"><span data-stu-id="10a51-190">d.</span></span> <span data-ttu-id="10a51-191">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="10a51-191">Click **Create**.</span></span>
+    <span data-ttu-id="a1feb-190">d.</span><span class="sxs-lookup"><span data-stu-id="a1feb-190">d.</span></span> <span data-ttu-id="a1feb-191">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="a1feb-191">Click **Create**.</span></span>
  
-### <a name="creating-a-sciforma-test-user"></a><span data-ttu-id="10a51-192">Criar um usuário de teste do Sciforma</span><span class="sxs-lookup"><span data-stu-id="10a51-192">Creating a Sciforma test user</span></span>
+### <a name="creating-a-sciforma-test-user"></a><span data-ttu-id="a1feb-192">Criar um usuário de teste do Sciforma</span><span class="sxs-lookup"><span data-stu-id="a1feb-192">Creating a Sciforma test user</span></span>
 
-<span data-ttu-id="10a51-193">Não há nenhum item de ação para a configuração de provisionamento de usuário para o Sciforma.</span><span class="sxs-lookup"><span data-stu-id="10a51-193">There is no action item for you to configure user provisioning to Sciforma.</span></span> <span data-ttu-id="10a51-194">Quando um usuário atribuído tentar fazer logon no Sciforma usando o painel de acesso, o Sciforma verificará se o usuário existe.</span><span class="sxs-lookup"><span data-stu-id="10a51-194">When an assigned user tries to log in to Sciforma using the access panel, Sciforma checks whether the user exists.</span></span>  
+<span data-ttu-id="a1feb-193">Não há nenhum item de ação para você tooconfigure provisionamento de usuário tooSciforma.</span><span class="sxs-lookup"><span data-stu-id="a1feb-193">There is no action item for you tooconfigure user provisioning tooSciforma.</span></span> <span data-ttu-id="a1feb-194">Quando um usuário atribuído tenta toolog em tooSciforma usando o painel de acesso hello, o Sciforma verifica se o usuário Olá existe.</span><span class="sxs-lookup"><span data-stu-id="a1feb-194">When an assigned user tries toolog in tooSciforma using hello access panel, Sciforma checks whether hello user exists.</span></span>  
 
-* <span data-ttu-id="10a51-195">Se ainda não houver uma conta de usuário disponível, ela será automaticamente criada pelo Sciforma.</span><span class="sxs-lookup"><span data-stu-id="10a51-195">If there is no user account available yet, it is automatically created by Sciforma.</span></span>
+* <span data-ttu-id="a1feb-195">Se ainda não houver uma conta de usuário disponível, ela será automaticamente criada pelo Sciforma.</span><span class="sxs-lookup"><span data-stu-id="a1feb-195">If there is no user account available yet, it is automatically created by Sciforma.</span></span>
 
-### <a name="assigning-the-azure-ad-test-user"></a><span data-ttu-id="10a51-196">Atribuição do usuário de teste do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="10a51-196">Assigning the Azure AD test user</span></span>
+### <a name="assigning-hello-azure-ad-test-user"></a><span data-ttu-id="a1feb-196">Atribuir um usuário de teste de saudação do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="a1feb-196">Assigning hello Azure AD test user</span></span>
 
-<span data-ttu-id="10a51-197">Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Sciforma.</span><span class="sxs-lookup"><span data-stu-id="10a51-197">In this section, you enable Britta Simon to use Azure single sign-on by granting access to Sciforma.</span></span>
+<span data-ttu-id="a1feb-197">Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooSciforma.</span><span class="sxs-lookup"><span data-stu-id="a1feb-197">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooSciforma.</span></span>
 
 ![Atribuir usuário][200] 
 
-<span data-ttu-id="10a51-199">**Para atribuir Brenda Fernandes ao Sciforma, realize as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="10a51-199">**To assign Britta Simon to Sciforma, perform the following steps:**</span></span>
+<span data-ttu-id="a1feb-199">**tooassign Britta Simon tooSciforma, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="a1feb-199">**tooassign Britta Simon tooSciforma, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="10a51-200">No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="10a51-200">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="a1feb-200">No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="a1feb-200">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Atribuir usuário][201] 
 
-2. <span data-ttu-id="10a51-202">Na lista de aplicativos, selecione **Sciforma**.</span><span class="sxs-lookup"><span data-stu-id="10a51-202">In the applications list, select **Sciforma**.</span></span>
+2. <span data-ttu-id="a1feb-202">Na lista de aplicativos hello, selecione **Sciforma**.</span><span class="sxs-lookup"><span data-stu-id="a1feb-202">In hello applications list, select **Sciforma**.</span></span>
 
     ![Configurar Logon Único](./media/active-directory-saas-sciforma-tutorial/tutorial_sciforma_app.png) 
 
-3. <span data-ttu-id="10a51-204">No menu à esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="10a51-204">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="a1feb-204">No menu Olá Olá esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="a1feb-204">In hello menu on hello left, click **Users and groups**.</span></span>
 
     ![Atribuir usuário][202] 
 
-4. <span data-ttu-id="10a51-206">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="10a51-206">Click **Add** button.</span></span> <span data-ttu-id="10a51-207">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="10a51-207">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="a1feb-206">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="a1feb-206">Click **Add** button.</span></span> <span data-ttu-id="a1feb-207">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="a1feb-207">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
     ![Atribuir usuário][203]
 
-5. <span data-ttu-id="10a51-209">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="10a51-209">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="a1feb-209">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.</span><span class="sxs-lookup"><span data-stu-id="a1feb-209">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="10a51-210">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="10a51-210">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="a1feb-210">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="a1feb-210">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="10a51-211">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="10a51-211">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="a1feb-211">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="a1feb-211">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="testing-single-sign-on"></a><span data-ttu-id="10a51-212">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="10a51-212">Testing single sign-on</span></span>
+### <a name="testing-single-sign-on"></a><span data-ttu-id="a1feb-212">Teste do logon único</span><span class="sxs-lookup"><span data-stu-id="a1feb-212">Testing single sign-on</span></span>
 
-<span data-ttu-id="10a51-213">Se você quiser testar suas configurações de logon único, abra o Painel de Acesso.</span><span class="sxs-lookup"><span data-stu-id="10a51-213">If you want to test your single sign-on settings, open the Access Panel.</span></span> <span data-ttu-id="10a51-214">Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="10a51-214">For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).</span></span>
+<span data-ttu-id="a1feb-213">Se você quiser tootest suas configurações de logon único, abra Olá painel de acesso.</span><span class="sxs-lookup"><span data-stu-id="a1feb-213">If you want tootest your single sign-on settings, open hello Access Panel.</span></span> <span data-ttu-id="a1feb-214">Para obter mais informações sobre Olá painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md).</span><span class="sxs-lookup"><span data-stu-id="a1feb-214">For more information about hello Access Panel, see [Introduction toohello Access Panel](active-directory-saas-access-panel-introduction.md).</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="10a51-215">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="10a51-215">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="a1feb-215">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="a1feb-215">Additional resources</span></span>
 
-* [<span data-ttu-id="10a51-216">Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="10a51-216">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="10a51-217">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="10a51-217">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="a1feb-216">Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="a1feb-216">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="a1feb-217">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="a1feb-217">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 
 

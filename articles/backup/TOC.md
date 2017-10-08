@@ -14,26 +14,26 @@
 ### Instalar ou atualizar
 #### [Preparar cargas de trabalho do Servidor de Backup do Azure no portal do Azure](backup-azure-microsoft-azure-backup.md)
 #### [Preparar cargas de trabalho do Servidor de Backup do Azure no portal clássico](backup-azure-microsoft-azure-backup-classic.md)
-#### [Adicionar armazenamento ao Servidor de Backup do Azure](backup-mabs-add-storage.md)
-#### [Atualizar Servidor de Backup do Azure para v.2](backup-mabs-upgrade-to-v2.md)
+#### [Adicionar armazenamento tooAzure fazer Backup do servidor](backup-mabs-add-storage.md)
+#### [Atualizar o servidor de Backup do Azure toov.2](backup-mabs-upgrade-to-v2.md)
 #### [Instalação autônoma do Servidor de Backup do Azure](backup-mabs-unattended-install.md)
 ### Proteger as cargas de trabalho
-#### [Usar o Servidor de Backup do Azure para fazer backup de um servidor do VMware](backup-azure-backup-server-vmware.md)
-#### [Usar o Servidor de Backup do Azure para fazer backup do Exchange](backup-azure-exchange-mabs.md)
-#### [Usar o Servidor de Backup do Azure para fazer backup de um farm do SharePoint](backup-azure-backup-sharepoint-mabs.md)
-#### [Usar o Servidor de Backup do Azure para fazer backup do SQL](backup-azure-sql-mabs.md)
+#### [Usar o Azure Backup Server tooback um servidor VMware](backup-azure-backup-server-vmware.md)
+#### [Usar o Azure Backup Server tooback o Exchange](backup-azure-exchange-mabs.md)
+#### [Usar o Azure Backup Server tooback a um farm do SharePoint](backup-azure-backup-sharepoint-mabs.md)
+#### [Usar o Azure Backup Server tooback SQL](backup-azure-sql-mabs.md)
 #### [Proteger o estado do sistema e recuperação bare-metal](backup-mabs-system-state-and-bmr.md)
 ### [Recuperar dados de outro Servidor de Backup do Azure](backup-azure-alternate-dpm-server.md)
 
 ## VMs do Azure
-### Preparar a VM
+### Preparar Olá VM
 #### [Preparar as máquinas virtuais implantadas pelo Resource Manager](backup-azure-arm-vms-prepare.md)
 #### [Backups consistentes do aplicativo das VMs Linux](backup-azure-linux-app-consistent.md)
 #### [Preparar máquinas virtuais do Azure](backup-azure-vms-prepare.md)
 ### Planejar seu ambiente
 #### [Planejar a infraestrutura de backup de VMs](backup-azure-vms-introduction.md)
 ### Fazer backup de VMs
-#### [Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de Recuperação](backup-azure-arm-vms.md)
+#### [Fazer backup de máquinas virtuais do Azure cofre dos serviços de recuperação de tooa](backup-azure-arm-vms.md)
 #### [Fazer backup de máquinas virtuais criptografadas](backup-azure-vms-encryption.md)
 #### [Fazer backup de máquinas virtuais do Azure](backup-azure-vms.md)
 ### Gerenciar e monitorar VMs
@@ -55,10 +55,10 @@
 ## Data Protection Manager
 ### [Preparar as cargas de trabalho do DPM no portal do Azure](backup-azure-dpm-introduction.md)
 ### [Preparar as cargas de trabalho do DPM no portal clássico](backup-azure-dpm-introduction-classic.md)
-### [Usar o DPM do System Center para fazer backup de um servidor do Exchange](backup-azure-backup-exchange-server.md)
-### [Recuperar dados em um servidor DPM alternativo](backup-azure-alternate-dpm-server.md)
-### [Usar o DPM para fazer backup de cargas de trabalho do SQL Server](backup-azure-backup-sql.md)
-### [Usar o DPM para fazer backup de um farm do SharePoint](backup-azure-backup-sharepoint.md)
+### [Usar o System Center DPM tooback o Exchange server](backup-azure-backup-exchange-server.md)
+### [Recuperar o servidor DPM alternativo de tooan dados](backup-azure-alternate-dpm-server.md)
+### [Usar o DPM tooback cargas de trabalho do SQL Server](backup-azure-backup-sql.md)
+### [Usar o DPM tooback a um farm do SharePoint](backup-azure-backup-sharepoint.md)
 
 ## Usar o PowerShell
 ### [VMs do Azure no portal do Azure](backup-azure-vms-automation.md)
@@ -77,23 +77,23 @@
 ## Windows Server
 ### [Fazer backup de pastas e arquivos do Windows Server](backup-configure-vault.md)
 ### [Fazer backup do Estado do Sistema do Windows Server](backup-azure-system-state.md)
-### [Recuperar arquivos do Azure para o Windows Server](backup-azure-restore-windows-server.md)
+### [Recuperar arquivos do servidor de tooWindows do Azure](backup-azure-restore-windows-server.md)
 ### [Restaurar o Estado do Sistema do Windows Server](backup-azure-restore-system-state.md)
 ### [Monitorar e gerenciar cofres dos Serviços de Recuperação](backup-azure-manage-windows-server.md)
-### Recuperação e backup usando o portal clássico
-#### [Windows Server usando o modelo de implantação clássico](backup-configure-vault-classic.md)
-#### [Gerenciar cofres de Backup usando o modelo de implantação clássico](backup-azure-manage-windows-server-classic.md)
-#### [Recuperar arquivos em um Windows Server usando o modelo de implantação clássico](backup-azure-restore-windows-server-classic.md)
+### Fazer backup e restaurar usando o portal clássico Olá
+#### [Windows Server usando o modelo de implantação clássico Olá](backup-configure-vault-classic.md)
+#### [Gerenciar os cofres de Backup usando o modelo de implantação clássico Olá](backup-azure-manage-windows-server-classic.md)
+#### [Recuperar arquivos tooa Windows Server usando o modelo de implantação clássico Olá](backup-azure-restore-windows-server-classic.md)
 
 ## Cofre dos Serviços de Recuperação
 ### [Visão geral de cofres de Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md)
-### [Atualizando um cofre de Backup para um cofre de Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md)
+### [Atualizando um cofre de serviços de tooRecovery de Cofre de Backup](backup-azure-upgrade-backup-to-recovery-services.md)
 ### [Excluir um cofre dos Serviços de Recuperação](backup-azure-delete-vault.md)
 
 ## Solucionar problemas
 ### [Problemas de backup de VM do Azure no portal do Azure](backup-azure-vms-troubleshoot.md)
 ### [Problemas de backup de VM do Azure no portal clássico](backup-azure-vms-troubleshoot-classic.md)
-### [Falha no backup de VM do Azure: não foi possível se comunicar com o agente de VM para o status do instantâneo - a subtarefa da VM atingiu o tempo limite](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
+### [Falha no Backup de VM do Azure: não foi possível se comunicar com o agente de VM Olá para status do snapshot - subtarefa de VM do instantâneo atingiu o tempo limite](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Lentidão de backup de arquivos e pastas no Backup do Azure](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 ### [Solucionar problemas de Servidor de Backup do Azure](backup-azure-mabs-troubleshoot.md)
 

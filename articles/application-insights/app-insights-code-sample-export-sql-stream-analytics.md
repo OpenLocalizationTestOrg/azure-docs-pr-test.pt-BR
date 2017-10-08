@@ -1,6 +1,6 @@
 ---
-title: Exportar para o SQL do Azure Application Insights | Microsoft Docs
-description: Exportar dados continuamente do Application Insights para o SQL usando o Stream Analytics
+title: Exportar tooSQL do Azure Application Insights | Microsoft Docs
+description: "Exporte continuamente tooSQL de dados do Application Insights usando a análise de fluxo."
 services: application-insights
 documentationcenter: 
 author: noamben
@@ -13,89 +13,89 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: bwren
-ms.openlocfilehash: d51e80509ffb63cef0d01133a2295d58757d5b1a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 58b579499113751a088dc7e66cbec71529773322
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a><span data-ttu-id="d3c6e-103">Passo a passo: exportar para SQL do Application Insights usando o Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="d3c6e-103">Walkthrough: Export to SQL from Application Insights using Stream Analytics</span></span>
-<span data-ttu-id="d3c6e-104">Este artigo mostra como mover os dados de telemetria do [Azure Application Insights][start] em um banco de dados SQL do Azure usando [Exportação Contínua][export] e [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).</span><span class="sxs-lookup"><span data-stu-id="d3c6e-104">This article shows how to move your telemetry data from [Azure Application Insights][start] into an Azure SQL database by using [Continuous Export][export] and [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).</span></span> 
+# <a name="walkthrough-export-toosql-from-application-insights-using-stream-analytics"></a><span data-ttu-id="1a7db-103">Passo a passo: Exportar tooSQL do Application Insights usando a análise de fluxo</span><span class="sxs-lookup"><span data-stu-id="1a7db-103">Walkthrough: Export tooSQL from Application Insights using Stream Analytics</span></span>
+<span data-ttu-id="1a7db-104">Este artigo mostra como toomove seus dados de telemetria de [Azure Application Insights] [ start] em um banco de dados do SQL Azure usando [exportação contínua] [ export] e [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).</span><span class="sxs-lookup"><span data-stu-id="1a7db-104">This article shows how toomove your telemetry data from [Azure Application Insights][start] into an Azure SQL database by using [Continuous Export][export] and [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).</span></span> 
 
-<span data-ttu-id="d3c6e-105">A exportação contínua move os dados de telemetria no Armazenamento do Azure no formato JSON.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-105">Continuous export moves your telemetry data into Azure Storage in JSON format.</span></span> <span data-ttu-id="d3c6e-106">Vamos analisar objetos JSON usando o Azure Stream Analytics e criando linhas em uma tabela de banco de dados.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-106">We'll parse the JSON objects using Azure Stream Analytics and create rows in a database table.</span></span>
+<span data-ttu-id="1a7db-105">A exportação contínua move os dados de telemetria no Armazenamento do Azure no formato JSON.</span><span class="sxs-lookup"><span data-stu-id="1a7db-105">Continuous export moves your telemetry data into Azure Storage in JSON format.</span></span> <span data-ttu-id="1a7db-106">Vamos analisar objetos JSON hello usando o Azure Stream Analytics e criar linhas em uma tabela de banco de dados.</span><span class="sxs-lookup"><span data-stu-id="1a7db-106">We'll parse hello JSON objects using Azure Stream Analytics and create rows in a database table.</span></span>
 
-<span data-ttu-id="d3c6e-107">(Normalmente, a Exportação Contínua é a maneira de fazer sua própria análise da telemetria enviada pelos seus aplicativos ao Application Insights.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-107">(More generally, Continuous Export is the way to do your own analysis of the telemetry your apps send to Application Insights.</span></span> <span data-ttu-id="d3c6e-108">Você pode adaptar este exemplo de código para fazer outras coisas com a telemetria exportada, como agregação de dados).</span><span class="sxs-lookup"><span data-stu-id="d3c6e-108">You could adapt this code sample to do other things with the exported telemetry, such as aggregation of data.)</span></span>
+<span data-ttu-id="1a7db-107">(Mais geralmente, a exportação contínua é Olá maneira toodo sua própria análise de telemetria Olá seus aplicativos enviar tooApplication Insights.</span><span class="sxs-lookup"><span data-stu-id="1a7db-107">(More generally, Continuous Export is hello way toodo your own analysis of hello telemetry your apps send tooApplication Insights.</span></span> <span data-ttu-id="1a7db-108">Você pode adaptar este toodo de exemplo de código outras coisas com a telemetria hello exportada, como agregação de dados.)</span><span class="sxs-lookup"><span data-stu-id="1a7db-108">You could adapt this code sample toodo other things with hello exported telemetry, such as aggregation of data.)</span></span>
 
-<span data-ttu-id="d3c6e-109">Vamos começar supondo que você já tenha o aplicativo que você deseja monitorar.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-109">We'll start with the assumption that you already have the app you want to monitor.</span></span>
+<span data-ttu-id="1a7db-109">Vamos começar com a suposição de saudação que você já tenha Olá aplicativo deseja toomonitor.</span><span class="sxs-lookup"><span data-stu-id="1a7db-109">We'll start with hello assumption that you already have hello app you want toomonitor.</span></span>
 
-<span data-ttu-id="d3c6e-110">Neste exemplo, usaremos os dados de exibição de página, mas o mesmo padrão pode ser facilmente ampliado para outros tipos de dados como exceções e eventos personalizados.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-110">In this example, we will be using the page view data, but the same pattern can easily be extended to other data types such as custom events and exceptions.</span></span> 
+<span data-ttu-id="1a7db-110">Neste exemplo, vamos usar dados de exibição de página hello, mas hello mesmo padrão pode ser facilmente estendido tooother tipos de dados como exceções e eventos personalizados.</span><span class="sxs-lookup"><span data-stu-id="1a7db-110">In this example, we will be using hello page view data, but hello same pattern can easily be extended tooother data types such as custom events and exceptions.</span></span> 
 
-## <a name="add-application-insights-to-your-application"></a><span data-ttu-id="d3c6e-111">Adicione o Application Insights ao seu aplicativo</span><span class="sxs-lookup"><span data-stu-id="d3c6e-111">Add Application Insights to your application</span></span>
-<span data-ttu-id="d3c6e-112">Introdução:</span><span class="sxs-lookup"><span data-stu-id="d3c6e-112">To get started:</span></span>
+## <a name="add-application-insights-tooyour-application"></a><span data-ttu-id="1a7db-111">Adicionar Application Insights tooyour aplicativo</span><span class="sxs-lookup"><span data-stu-id="1a7db-111">Add Application Insights tooyour application</span></span>
+<span data-ttu-id="1a7db-112">tooget iniciado:</span><span class="sxs-lookup"><span data-stu-id="1a7db-112">tooget started:</span></span>
 
-1. <span data-ttu-id="d3c6e-113">[Configurar o Application Insights para sua página da Web](app-insights-javascript.md).</span><span class="sxs-lookup"><span data-stu-id="d3c6e-113">[Set up Application Insights for your web pages](app-insights-javascript.md).</span></span> 
+1. <span data-ttu-id="1a7db-113">[Configurar o Application Insights para sua página da Web](app-insights-javascript.md).</span><span class="sxs-lookup"><span data-stu-id="1a7db-113">[Set up Application Insights for your web pages](app-insights-javascript.md).</span></span> 
    
-    <span data-ttu-id="d3c6e-114">(Neste exemplo, vamos nos concentrar no processamento de dados de exibição de página de navegadores do cliente, mas você também pode configurar o Application Insights do lado do servidor do seu aplicativo [Java](app-insights-java-get-started.md) ou [ASP.NET](app-insights-asp-net.md) e processar telemetrias de solicitações, dependências e outras telemetrias do servidor.)</span><span class="sxs-lookup"><span data-stu-id="d3c6e-114">(In this example, we'll focus on processing page view data from the client browsers, but you could also set up Application Insights for the server side of your [Java](app-insights-java-get-started.md) or [ASP.NET](app-insights-asp-net.md) app and process request, dependency and other server telemetry.)</span></span>
-2. <span data-ttu-id="d3c6e-115">Publicar seu aplicativo e observar os dados de telemetria que aparecem em seu recurso Application Insights.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-115">Publish your app, and watch telemetry data appearing in your Application Insights resource.</span></span>
+    <span data-ttu-id="1a7db-114">(Neste exemplo, vamos nos concentrar no processamento de dados de exibição de página de navegadores de saudação do cliente, mas você pode também definir o Application Insights para o lado do servidor de saudação do seu [Java](app-insights-java-get-started.md) ou [ASP.NET](app-insights-asp-net.md) aplicativo e o processo de solicitação dependência e outra telemetria de servidor.)</span><span class="sxs-lookup"><span data-stu-id="1a7db-114">(In this example, we'll focus on processing page view data from hello client browsers, but you could also set up Application Insights for hello server side of your [Java](app-insights-java-get-started.md) or [ASP.NET](app-insights-asp-net.md) app and process request, dependency and other server telemetry.)</span></span>
+2. <span data-ttu-id="1a7db-115">Publicar seu aplicativo e observar os dados de telemetria que aparecem em seu recurso Application Insights.</span><span class="sxs-lookup"><span data-stu-id="1a7db-115">Publish your app, and watch telemetry data appearing in your Application Insights resource.</span></span>
 
-## <a name="create-storage-in-azure"></a><span data-ttu-id="d3c6e-116">Criar armazenamento no Azure</span><span class="sxs-lookup"><span data-stu-id="d3c6e-116">Create storage in Azure</span></span>
-<span data-ttu-id="d3c6e-117">Exportação contínua sempre gera dados para uma conta de armazenamento do Azure, por isso você precisa primeiro criar o armazenamento.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-117">Continuous export always outputs data to an Azure Storage account, so you need to create the storage first.</span></span>
+## <a name="create-storage-in-azure"></a><span data-ttu-id="1a7db-116">Criar armazenamento no Azure</span><span class="sxs-lookup"><span data-stu-id="1a7db-116">Create storage in Azure</span></span>
+<span data-ttu-id="1a7db-117">A exportação contínua sempre gera conta de armazenamento do Azure tooan dados, portanto você precisa de armazenamento de saudação toocreate primeiro.</span><span class="sxs-lookup"><span data-stu-id="1a7db-117">Continuous export always outputs data tooan Azure Storage account, so you need toocreate hello storage first.</span></span>
 
-1. <span data-ttu-id="d3c6e-118">Crie uma conta de armazenamento na sua assinatura do [Portal do Azure][portal].</span><span class="sxs-lookup"><span data-stu-id="d3c6e-118">Create a storage account in your subscription in the [Azure portal][portal].</span></span>
+1. <span data-ttu-id="1a7db-118">Criar uma conta de armazenamento em sua assinatura no hello [portal do Azure][portal].</span><span class="sxs-lookup"><span data-stu-id="1a7db-118">Create a storage account in your subscription in hello [Azure portal][portal].</span></span>
    
     ![No portal do Azure, escolha Novo, Dados e Armazenamento.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
-2. <span data-ttu-id="d3c6e-122">Criar um contêiner</span><span class="sxs-lookup"><span data-stu-id="d3c6e-122">Create a container</span></span>
+2. <span data-ttu-id="1a7db-122">Criar um contêiner</span><span class="sxs-lookup"><span data-stu-id="1a7db-122">Create a container</span></span>
    
-    ![No novo armazenamento, selecione Contêineres, clique no bloco Contêineres e, em seguida, Adicionar](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
-3. <span data-ttu-id="d3c6e-124">Copie a chave de acesso de armazenamento</span><span class="sxs-lookup"><span data-stu-id="d3c6e-124">Copy the storage access key</span></span>
+    ![No novo armazenamento de hello, selecionar contêineres, clique em bloco de contêineres hello e, em seguida, adicionar](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
+3. <span data-ttu-id="1a7db-124">Copie a chave de acesso de armazenamento Olá</span><span class="sxs-lookup"><span data-stu-id="1a7db-124">Copy hello storage access key</span></span>
    
-    <span data-ttu-id="d3c6e-125">Você precisará dela em breve para configurar a entrada para o serviço do Stream Analytics.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-125">You'll need it soon to set up the input to the stream analytics service.</span></span>
+    <span data-ttu-id="1a7db-125">Você precisará dele em breve tooset o serviço de análise de fluxo de entrada toohello hello.</span><span class="sxs-lookup"><span data-stu-id="1a7db-125">You'll need it soon tooset up hello input toohello stream analytics service.</span></span>
    
-    ![No armazenamento, abra Configurações, Chaves e faça uma cópia da Chave de Acesso Primária](./media/app-insights-code-sample-export-sql-stream-analytics/21-storage-key.png)
+    ![No armazenamento Olá, abra configurações, chaves e faça uma cópia da saudação chave de acesso primária](./media/app-insights-code-sample-export-sql-stream-analytics/21-storage-key.png)
 
-## <a name="start-continuous-export-to-azure-storage"></a><span data-ttu-id="d3c6e-127">Iniciar exportação contínua no armazenamento do Azure</span><span class="sxs-lookup"><span data-stu-id="d3c6e-127">Start continuous export to Azure storage</span></span>
-1. <span data-ttu-id="d3c6e-128">No portal do Azure, navegue até o recurso do Application Insights que você criou para seu aplicativo.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-128">In the Azure portal, browse to the Application Insights resource you created for your application.</span></span>
+## <a name="start-continuous-export-tooazure-storage"></a><span data-ttu-id="1a7db-127">Iniciar a exportação contínua tooAzure armazenamento</span><span class="sxs-lookup"><span data-stu-id="1a7db-127">Start continuous export tooAzure storage</span></span>
+1. <span data-ttu-id="1a7db-128">Na Olá portal do Azure, procure o recurso do Application Insights toohello criado para o seu aplicativo.</span><span class="sxs-lookup"><span data-stu-id="1a7db-128">In hello Azure portal, browse toohello Application Insights resource you created for your application.</span></span>
    
     ![Selecione Navegar, Application Insights e o nome do seu projeto.](./media/app-insights-code-sample-export-sql-stream-analytics/060-browse.png)
-2. <span data-ttu-id="d3c6e-130">Crie uma exportação contínua.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-130">Create a continuous export.</span></span>
+2. <span data-ttu-id="1a7db-130">Crie uma exportação contínua.</span><span class="sxs-lookup"><span data-stu-id="1a7db-130">Create a continuous export.</span></span>
    
     ![Escolha as Configurações, Exportação Contínua e Adicionar](./media/app-insights-code-sample-export-sql-stream-analytics/070-export.png)
 
-    <span data-ttu-id="d3c6e-132">Selecione a conta de armazenamento criada anteriormente:</span><span class="sxs-lookup"><span data-stu-id="d3c6e-132">Select the storage account you created earlier:</span></span>
+    <span data-ttu-id="1a7db-132">Selecione a conta de armazenamento de saudação criado anteriormente:</span><span class="sxs-lookup"><span data-stu-id="1a7db-132">Select hello storage account you created earlier:</span></span>
 
-    ![Definir o destino de exportação](./media/app-insights-code-sample-export-sql-stream-analytics/080-add.png)
+    ![Definir o destino de exportação de saudação](./media/app-insights-code-sample-export-sql-stream-analytics/080-add.png)
 
-    <span data-ttu-id="d3c6e-134">Defina os tipos de eventos que você deseja ver:</span><span class="sxs-lookup"><span data-stu-id="d3c6e-134">Set the event types you want to see:</span></span>
+    <span data-ttu-id="1a7db-134">Defina tipos de evento de saudação desejado toosee:</span><span class="sxs-lookup"><span data-stu-id="1a7db-134">Set hello event types you want toosee:</span></span>
 
     ![Escolher os tipos de evento](./media/app-insights-code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. <span data-ttu-id="d3c6e-136">Deixe que alguns dados sejam acumulados.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-136">Let some data accumulate.</span></span> <span data-ttu-id="d3c6e-137">Agora relaxe e deixe as pessoas usarem seu aplicativo por um tempo.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-137">Sit back and let people use your application for a while.</span></span> <span data-ttu-id="d3c6e-138">A telemetria chegará e você verá os gráficos estatísticos no [gerenciador de métricas](app-insights-metrics-explorer.md) e eventos individuais na [pesquisa de diagnóstico](app-insights-diagnostic-search.md).</span><span class="sxs-lookup"><span data-stu-id="d3c6e-138">Telemetry will come in and you'll see statistical charts in [metric explorer](app-insights-metrics-explorer.md) and individual events in [diagnostic search](app-insights-diagnostic-search.md).</span></span> 
+1. <span data-ttu-id="1a7db-136">Deixe que alguns dados sejam acumulados.</span><span class="sxs-lookup"><span data-stu-id="1a7db-136">Let some data accumulate.</span></span> <span data-ttu-id="1a7db-137">Agora relaxe e deixe as pessoas usarem seu aplicativo por um tempo.</span><span class="sxs-lookup"><span data-stu-id="1a7db-137">Sit back and let people use your application for a while.</span></span> <span data-ttu-id="1a7db-138">A telemetria chegará e você verá os gráficos estatísticos no [gerenciador de métricas](app-insights-metrics-explorer.md) e eventos individuais na [pesquisa de diagnóstico](app-insights-diagnostic-search.md).</span><span class="sxs-lookup"><span data-stu-id="1a7db-138">Telemetry will come in and you'll see statistical charts in [metric explorer](app-insights-metrics-explorer.md) and individual events in [diagnostic search](app-insights-diagnostic-search.md).</span></span> 
    
-    <span data-ttu-id="d3c6e-139">E, além disso, os dados serão exportados para seu armazenamento.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-139">And also, the data will export to your storage.</span></span> 
-2. <span data-ttu-id="d3c6e-140">Inspecione os dados exportados no portal – escolha **Procurar**, selecione sua conta de armazenamento e depois **Contêineres** – ou no Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-140">Inspect the exported data, either in the portal - choose **Browse**, select your storage account, and then **Containers** - or in Visual Studio.</span></span> <span data-ttu-id="d3c6e-141">No Visual Studio, escolha **Exibir/Cloud Explorer**e abra Azure/Armazenamento.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-141">In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage.</span></span> <span data-ttu-id="d3c6e-142">(Se você não tiver essa opção de menu, precisará instalar o Azure SDK: abra o diálogo Novo Projeto e abra Visual C#/Nuvem/Obter Microsoft Azure SDK para .NET.)</span><span class="sxs-lookup"><span data-stu-id="d3c6e-142">(If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)</span></span>
+    <span data-ttu-id="1a7db-139">E, além disso, dados de saudação exportará tooyour armazenamento.</span><span class="sxs-lookup"><span data-stu-id="1a7db-139">And also, hello data will export tooyour storage.</span></span> 
+2. <span data-ttu-id="1a7db-140">Inspecionar dados hello exportada, no portal de saudação - escolha **procurar**, selecione sua conta de armazenamento e, em seguida, **contêineres** - ou no Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="1a7db-140">Inspect hello exported data, either in hello portal - choose **Browse**, select your storage account, and then **Containers** - or in Visual Studio.</span></span> <span data-ttu-id="1a7db-141">No Visual Studio, escolha **Exibir/Cloud Explorer**e abra Azure/Armazenamento.</span><span class="sxs-lookup"><span data-stu-id="1a7db-141">In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage.</span></span> <span data-ttu-id="1a7db-142">(Se você não tiver essa opção de menu, você precisa tooinstall Olá SDK do Azure: Abrir caixa de diálogo de novo projeto hello e abra o Visual C# / nuvem / obter o Microsoft Azure SDK para .NET.)</span><span class="sxs-lookup"><span data-stu-id="1a7db-142">(If you don't have this menu option, you need tooinstall hello Azure SDK: Open hello New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)</span></span>
    
     ![No Visual Studio, abra o Navegador do Servidor, Azure e Armazenamento](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
    
-    <span data-ttu-id="d3c6e-144">Anote a parte comum do nome do caminho, que deriva do nome do aplicativo e da chave de instrumentação.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-144">Make a note of the common part of the path name, which is derived from the application name and instrumentation key.</span></span> 
+    <span data-ttu-id="1a7db-144">Anote a parte comum Olá Olá do nome do caminho, que é derivada da chave de nome e a instrumentação do aplicativo hello.</span><span class="sxs-lookup"><span data-stu-id="1a7db-144">Make a note of hello common part of hello path name, which is derived from hello application name and instrumentation key.</span></span> 
 
-<span data-ttu-id="d3c6e-145">Os eventos são gravados em arquivos blob formato JSON.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-145">The events are written to blob files in JSON format.</span></span> <span data-ttu-id="d3c6e-146">Cada arquivo pode conter um ou mais eventos.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-146">Each file may contain one or more events.</span></span> <span data-ttu-id="d3c6e-147">Portanto, gostaríamos de escrever um código para ler os dados de evento e filtrar os campos desejados.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-147">So we'd like to read the event data and filter out the fields we want.</span></span> <span data-ttu-id="d3c6e-148">Podemos fazer todos os tipos de coisas com os dados, mas nosso plano para hoje é escrever um código para mover os dados para um banco de dados SQL.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-148">There are all kinds of things we could do with the data, but our plan today is to use Stream Analytics to move the data to a SQL database.</span></span> <span data-ttu-id="d3c6e-149">Isso nos permitirá executar diversas consultas interessantes.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-149">That will make it easy to run lots of interesting queries.</span></span>
+<span data-ttu-id="1a7db-145">eventos de saudação são gravados tooblob arquivos no formato JSON.</span><span class="sxs-lookup"><span data-stu-id="1a7db-145">hello events are written tooblob files in JSON format.</span></span> <span data-ttu-id="1a7db-146">Cada arquivo pode conter um ou mais eventos.</span><span class="sxs-lookup"><span data-stu-id="1a7db-146">Each file may contain one or more events.</span></span> <span data-ttu-id="1a7db-147">Portanto, gostaríamos de dados de evento de saudação tooread e filtrar campos Olá que desejamos.</span><span class="sxs-lookup"><span data-stu-id="1a7db-147">So we'd like tooread hello event data and filter out hello fields we want.</span></span> <span data-ttu-id="1a7db-148">Todos os tipos de coisas que podemos fazer com dados hello, mas nosso plano de hoje é toouse do Stream Analytics toomove Olá dados tooa banco de dados SQL.</span><span class="sxs-lookup"><span data-stu-id="1a7db-148">There are all kinds of things we could do with hello data, but our plan today is toouse Stream Analytics toomove hello data tooa SQL database.</span></span> <span data-ttu-id="1a7db-149">Que será mais fácil toorun muitas consultas interessantes.</span><span class="sxs-lookup"><span data-stu-id="1a7db-149">That will make it easy toorun lots of interesting queries.</span></span>
 
-## <a name="create-an-azure-sql-database"></a><span data-ttu-id="d3c6e-150">Criar um Banco de Dados SQL do Azure</span><span class="sxs-lookup"><span data-stu-id="d3c6e-150">Create an Azure SQL Database</span></span>
-<span data-ttu-id="d3c6e-151">Mais uma vez, na sua assinatura no [portal do Azure][portal], crie o banco de dados (e um novo servidor, a menos que você já tenha um) onde você vai gravar os dados.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-151">Once again starting from your subscription in [Azure portal][portal], create the database (and a new server, unless you've already got one) to which you'll write the data.</span></span>
+## <a name="create-an-azure-sql-database"></a><span data-ttu-id="1a7db-150">Criar um Banco de Dados SQL do Azure</span><span class="sxs-lookup"><span data-stu-id="1a7db-150">Create an Azure SQL Database</span></span>
+<span data-ttu-id="1a7db-151">Mais uma vez desde a sua assinatura no [portal do Azure][portal], criar banco de dados de saudação (e um novo servidor, a menos que você já tem um) toowhich você escreverá dados saudação.</span><span class="sxs-lookup"><span data-stu-id="1a7db-151">Once again starting from your subscription in [Azure portal][portal], create hello database (and a new server, unless you've already got one) toowhich you'll write hello data.</span></span>
 
 ![Novo, Dados, SQL](./media/app-insights-code-sample-export-sql-stream-analytics/090-sql.png)
 
-<span data-ttu-id="d3c6e-153">Verifique se o servidor de banco de dados permite o acesso aos serviços do Azure:</span><span class="sxs-lookup"><span data-stu-id="d3c6e-153">Make sure that the database server allows access to Azure services:</span></span>
+<span data-ttu-id="1a7db-153">Verifique se que esse servidor de banco de dados de saudação permite acesso tooAzure serviços:</span><span class="sxs-lookup"><span data-stu-id="1a7db-153">Make sure that hello database server allows access tooAzure services:</span></span>
 
-![Navegar, Servidores, seu servidor, Configurações, Firewall, Permitir Acesso ao Azure](./media/app-insights-code-sample-export-sql-stream-analytics/100-sqlaccess.png)
+![Procurar, servidores, seu servidor, configurações, Firewall, permitir o acesso tooAzure](./media/app-insights-code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
-## <a name="create-a-table-in-azure-sql-db"></a><span data-ttu-id="d3c6e-155">Criar uma tabela no banco de dados do Azure SQL</span><span class="sxs-lookup"><span data-stu-id="d3c6e-155">Create a table in Azure SQL DB</span></span>
-<span data-ttu-id="d3c6e-156">Conecte-se ao banco de dados criado na seção anterior com sua ferramenta de gerenciamento preferida.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-156">Connect to the database created in the previous section with your preferred management tool.</span></span> <span data-ttu-id="d3c6e-157">Neste passo a passo, usaremos as SSMS ( [Ferramentas de Gerenciamento do SQL Server](https://msdn.microsoft.com/ms174173.aspx) ).</span><span class="sxs-lookup"><span data-stu-id="d3c6e-157">In this walkthrough, we will be using [SQL Server Management Tools](https://msdn.microsoft.com/ms174173.aspx) (SSMS).</span></span>
+## <a name="create-a-table-in-azure-sql-db"></a><span data-ttu-id="1a7db-155">Criar uma tabela no banco de dados do Azure SQL</span><span class="sxs-lookup"><span data-stu-id="1a7db-155">Create a table in Azure SQL DB</span></span>
+<span data-ttu-id="1a7db-156">Conecte-se toohello de banco de dados criado na seção anterior de saudação com sua ferramenta de gerenciamento preferenciais.</span><span class="sxs-lookup"><span data-stu-id="1a7db-156">Connect toohello database created in hello previous section with your preferred management tool.</span></span> <span data-ttu-id="1a7db-157">Neste passo a passo, usaremos as SSMS ( [Ferramentas de Gerenciamento do SQL Server](https://msdn.microsoft.com/ms174173.aspx) ).</span><span class="sxs-lookup"><span data-stu-id="1a7db-157">In this walkthrough, we will be using [SQL Server Management Tools](https://msdn.microsoft.com/ms174173.aspx) (SSMS).</span></span>
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/31-sql-table.png)
 
-<span data-ttu-id="d3c6e-158">Crie uma nova consulta e execute o T-SQL a seguir:</span><span class="sxs-lookup"><span data-stu-id="d3c6e-158">Create a new query, and execute the following T-SQL:</span></span>
+<span data-ttu-id="1a7db-158">Criar uma nova consulta e execute Olá T-SQL a seguir:</span><span class="sxs-lookup"><span data-stu-id="1a7db-158">Create a new query, and execute hello following T-SQL:</span></span>
 
 ```SQL
 
@@ -137,64 +137,64 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/34-create-table.png)
 
-<span data-ttu-id="d3c6e-159">Neste exemplo, estamos usando dados de modos de exibição de página.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-159">In this sample, we are using data from page views.</span></span> <span data-ttu-id="d3c6e-160">Para ver os outros dados disponíveis, inspecione a saída JSON e veja o [modelo de exportação de dados](app-insights-export-data-model.md).</span><span class="sxs-lookup"><span data-stu-id="d3c6e-160">To see the other data available, inspect your JSON output, and see the [export data model](app-insights-export-data-model.md).</span></span>
+<span data-ttu-id="1a7db-159">Neste exemplo, estamos usando dados de modos de exibição de página.</span><span class="sxs-lookup"><span data-stu-id="1a7db-159">In this sample, we are using data from page views.</span></span> <span data-ttu-id="1a7db-160">toosee Olá outros dados disponíveis, inspecione a saída JSON e consulte Olá [exportar modelo de dados](app-insights-export-data-model.md).</span><span class="sxs-lookup"><span data-stu-id="1a7db-160">toosee hello other data available, inspect your JSON output, and see hello [export data model](app-insights-export-data-model.md).</span></span>
 
-## <a name="create-an-azure-stream-analytics-instance"></a><span data-ttu-id="d3c6e-161">Criar uma instância do Azure Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="d3c6e-161">Create an Azure Stream Analytics instance</span></span>
-<span data-ttu-id="d3c6e-162">No [Portal do Azure Clássico](https://manage.windowsazure.com/), selecione o serviço do Azure Stream Analytics e crie um novo trabalho do Stream Analytics:</span><span class="sxs-lookup"><span data-stu-id="d3c6e-162">From the [Classic Azure Portal](https://manage.windowsazure.com/), select the Azure Stream Analytics service, and create a new Stream Analytics job:</span></span>
+## <a name="create-an-azure-stream-analytics-instance"></a><span data-ttu-id="1a7db-161">Criar uma instância do Azure Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="1a7db-161">Create an Azure Stream Analytics instance</span></span>
+<span data-ttu-id="1a7db-162">De saudação [Portal clássico do Azure](https://manage.windowsazure.com/), selecione o serviço do Azure Stream Analytics hello e criar um novo trabalho de análise de fluxo:</span><span class="sxs-lookup"><span data-stu-id="1a7db-162">From hello [Classic Azure Portal](https://manage.windowsazure.com/), select hello Azure Stream Analytics service, and create a new Stream Analytics job:</span></span>
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/37-create-stream-analytics.png)
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/38-create-stream-analytics-form.png)
 
-<span data-ttu-id="d3c6e-163">Quando o novo trabalho for criado, expanda seus detalhes:</span><span class="sxs-lookup"><span data-stu-id="d3c6e-163">When the new job is created, expand its details:</span></span>
+<span data-ttu-id="1a7db-163">Quando o novo trabalho de saudação é criado, expanda os detalhes:</span><span class="sxs-lookup"><span data-stu-id="1a7db-163">When hello new job is created, expand its details:</span></span>
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/41-sa-job.png)
 
-#### <a name="set-blob-location"></a><span data-ttu-id="d3c6e-164">Definir local de blob</span><span class="sxs-lookup"><span data-stu-id="d3c6e-164">Set blob location</span></span>
-<span data-ttu-id="d3c6e-165">Defina a entrada do seu blob de Exportação Contínua:</span><span class="sxs-lookup"><span data-stu-id="d3c6e-165">Set it to take input from your Continuous Export blob:</span></span>
+#### <a name="set-blob-location"></a><span data-ttu-id="1a7db-164">Definir local de blob</span><span class="sxs-lookup"><span data-stu-id="1a7db-164">Set blob location</span></span>
+<span data-ttu-id="1a7db-165">Defina-a entrada tootake do seu blob de exportação contínua:</span><span class="sxs-lookup"><span data-stu-id="1a7db-165">Set it tootake input from your Continuous Export blob:</span></span>
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/42-sa-wizard1.png)
 
-<span data-ttu-id="d3c6e-166">Agora, você precisará da Chave de Acesso Primária da sua Conta de Armazenamento, previamente anotada.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-166">Now you'll need the Primary Access Key from your Storage Account, which you noted earlier.</span></span> <span data-ttu-id="d3c6e-167">Defina isso como a chave da conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-167">Set this as the Storage Account Key.</span></span>
+<span data-ttu-id="1a7db-166">Agora, você precisará Olá chave de acesso primário da conta de armazenamento, que você anotou anteriormente.</span><span class="sxs-lookup"><span data-stu-id="1a7db-166">Now you'll need hello Primary Access Key from your Storage Account, which you noted earlier.</span></span> <span data-ttu-id="1a7db-167">Defina como Olá chave da conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="1a7db-167">Set this as hello Storage Account Key.</span></span>
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/46-sa-wizard2.png)
 
-#### <a name="set-path-prefix-pattern"></a><span data-ttu-id="d3c6e-168">Definir padrão de prefixo de caminho</span><span class="sxs-lookup"><span data-stu-id="d3c6e-168">Set path prefix pattern</span></span>
+#### <a name="set-path-prefix-pattern"></a><span data-ttu-id="1a7db-168">Definir padrão de prefixo de caminho</span><span class="sxs-lookup"><span data-stu-id="1a7db-168">Set path prefix pattern</span></span>
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-<span data-ttu-id="d3c6e-169">Defina o Formato de Data como **AAAA-MM-DD** (com **traços**).</span><span class="sxs-lookup"><span data-stu-id="d3c6e-169">Be sure to set the Date Format to **YYYY-MM-DD** (with **dashes**).</span></span>
+<span data-ttu-id="1a7db-169">Também ser Olá de tooset-se de que o formato de data**AAAA-MM-DD** (com **traços**).</span><span class="sxs-lookup"><span data-stu-id="1a7db-169">Be sure tooset hello Date Format too**YYYY-MM-DD** (with **dashes**).</span></span>
 
-<span data-ttu-id="d3c6e-170">O Padrão de Prefixo de Caminho especifica como o Stream Analytics encontra os arquivos de entrada no armazenamento.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-170">The Path Prefix Pattern specifies how Stream Analytics finds the input files in the storage.</span></span> <span data-ttu-id="d3c6e-171">Você precisa configurá-lo para corresponder à maneira como a Exportação Contínua armazena os dados.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-171">You need to set it to correspond to how Continuous Export stores the data.</span></span> <span data-ttu-id="d3c6e-172">Defina-o assim:</span><span class="sxs-lookup"><span data-stu-id="d3c6e-172">Set it like this:</span></span>
+<span data-ttu-id="1a7db-170">saudação padrão de prefixo de caminho Especifica como o Stream Analytics localiza arquivos de entrada hello no armazenamento de saudação.</span><span class="sxs-lookup"><span data-stu-id="1a7db-170">hello Path Prefix Pattern specifies how Stream Analytics finds hello input files in hello storage.</span></span> <span data-ttu-id="1a7db-171">Você precisa tooset-toohow toocorrespond exportação contínua armazena dados saudação.</span><span class="sxs-lookup"><span data-stu-id="1a7db-171">You need tooset it toocorrespond toohow Continuous Export stores hello data.</span></span> <span data-ttu-id="1a7db-172">Defina-o assim:</span><span class="sxs-lookup"><span data-stu-id="1a7db-172">Set it like this:</span></span>
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
-<span data-ttu-id="d3c6e-173">Neste exemplo:</span><span class="sxs-lookup"><span data-stu-id="d3c6e-173">In this example:</span></span>
+<span data-ttu-id="1a7db-173">Neste exemplo:</span><span class="sxs-lookup"><span data-stu-id="1a7db-173">In this example:</span></span>
 
-* <span data-ttu-id="d3c6e-174">`webapplication27` é o nome do recurso do Application Insights, **todo em minúsculas**.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-174">`webapplication27` is the name of the Application Insights resource, **all in lower case**.</span></span> 
-* <span data-ttu-id="d3c6e-175">`1234...` é a chave de instrumentação do recurso do Application Insights **com traços removidos**.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-175">`1234...` is the instrumentation key of the Application Insights resource **with dashes removed**.</span></span> 
-* <span data-ttu-id="d3c6e-176">`PageViews` é o tipo de dados que desejamos analisar.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-176">`PageViews` is the type of data we want to analyze.</span></span> <span data-ttu-id="d3c6e-177">Os tipos disponíveis dependem do filtro definido na Exportação Contínua.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-177">The available types depend on the filter you set in Continuous Export.</span></span> <span data-ttu-id="d3c6e-178">Examine os dados exportados para ver os outros tipos disponíveis e veja o [modelo de exportação de dados](app-insights-export-data-model.md).</span><span class="sxs-lookup"><span data-stu-id="d3c6e-178">Examine the exported data to see the other available types, and see the [export data model](app-insights-export-data-model.md).</span></span>
-* <span data-ttu-id="d3c6e-179">`/{date}/{time}` um padrão escrito literalmente.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-179">`/{date}/{time}` is a pattern written literally.</span></span>
+* <span data-ttu-id="1a7db-174">`webapplication27`é o nome de saudação de saudação recurso do Application Insights, **em letras minúsculas**.</span><span class="sxs-lookup"><span data-stu-id="1a7db-174">`webapplication27` is hello name of hello Application Insights resource, **all in lower case**.</span></span> 
+* <span data-ttu-id="1a7db-175">`1234...`é a chave de instrumentação de saudação de saudação recurso do Application Insights **traços removido**.</span><span class="sxs-lookup"><span data-stu-id="1a7db-175">`1234...` is hello instrumentation key of hello Application Insights resource **with dashes removed**.</span></span> 
+* <span data-ttu-id="1a7db-176">`PageViews`Olá tipo de dados que desejamos tooanalyze.</span><span class="sxs-lookup"><span data-stu-id="1a7db-176">`PageViews` is hello type of data we want tooanalyze.</span></span> <span data-ttu-id="1a7db-177">tipos disponíveis de saudação dependem de filtro Olá definido na exportação contínua.</span><span class="sxs-lookup"><span data-stu-id="1a7db-177">hello available types depend on hello filter you set in Continuous Export.</span></span> <span data-ttu-id="1a7db-178">Examinar outros tipos disponíveis de Olá Olá de toosee dados exportados e consulte Olá [exportar modelo de dados](app-insights-export-data-model.md).</span><span class="sxs-lookup"><span data-stu-id="1a7db-178">Examine hello exported data toosee hello other available types, and see hello [export data model](app-insights-export-data-model.md).</span></span>
+* <span data-ttu-id="1a7db-179">`/{date}/{time}` um padrão escrito literalmente.</span><span class="sxs-lookup"><span data-stu-id="1a7db-179">`/{date}/{time}` is a pattern written literally.</span></span>
 
-<span data-ttu-id="d3c6e-180">Para obter o nome e iKey do seu recurso do Application Insights, abra Essentials na sua página de visão geral ou abra as Configurações.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-180">To get the name and iKey of your Application Insights resource, open Essentials on its overview page, or open Settings.</span></span>
+<span data-ttu-id="1a7db-180">nome de saudação tooget iKey do recurso do Application Insights, abrir Essentials na sua página de visão geral e abra as configurações.</span><span class="sxs-lookup"><span data-stu-id="1a7db-180">tooget hello name and iKey of your Application Insights resource, open Essentials on its overview page, or open Settings.</span></span>
 
-#### <a name="finish-initial-setup"></a><span data-ttu-id="d3c6e-181">Concluir a configuração inicial</span><span class="sxs-lookup"><span data-stu-id="d3c6e-181">Finish initial setup</span></span>
-<span data-ttu-id="d3c6e-182">Confirme o formato de serialização:</span><span class="sxs-lookup"><span data-stu-id="d3c6e-182">Confirm the serialization format:</span></span>
+#### <a name="finish-initial-setup"></a><span data-ttu-id="1a7db-181">Concluir a configuração inicial</span><span class="sxs-lookup"><span data-stu-id="1a7db-181">Finish initial setup</span></span>
+<span data-ttu-id="1a7db-182">Confirme o formato de serialização hello:</span><span class="sxs-lookup"><span data-stu-id="1a7db-182">Confirm hello serialization format:</span></span>
 
 ![Confirme e feche o assistente](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
 
-<span data-ttu-id="d3c6e-184">Feche o assistente e aguarde até que a instalação seja concluída.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-184">Close the wizard and wait for the setup to complete.</span></span>
+<span data-ttu-id="1a7db-184">Fechar o Assistente de saudação e aguarde Olá toocomplete de instalação.</span><span class="sxs-lookup"><span data-stu-id="1a7db-184">Close hello wizard and wait for hello setup toocomplete.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="d3c6e-185">Use a função Amostra para verificar se configurou corretamente o caminho de entrada.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-185">Use the Sample function to check that you have set the input path correctly.</span></span> <span data-ttu-id="d3c6e-186">Se ele falhar: verifique se há dados no armazenamento para o intervalo de tempo de amostra que você escolheu.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-186">If it fails: Check that there is data in the storage for the sample time range you chose.</span></span> <span data-ttu-id="d3c6e-187">Edite a definição de entrada e verifique se definiu corretamente a conta de armazenamento, o prefixo de caminho e o formato de data.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-187">Edit the input definition and check you set the storage account, path prefix and date format correctly.</span></span>
+> <span data-ttu-id="1a7db-185">Use Olá toocheck de função de exemplo que você definiu o caminho de entrada hello corretamente.</span><span class="sxs-lookup"><span data-stu-id="1a7db-185">Use hello Sample function toocheck that you have set hello input path correctly.</span></span> <span data-ttu-id="1a7db-186">Se ele falhar: verificar se há dados no armazenamento de saudação para intervalo de tempo do exemplo hello escolhido.</span><span class="sxs-lookup"><span data-stu-id="1a7db-186">If it fails: Check that there is data in hello storage for hello sample time range you chose.</span></span> <span data-ttu-id="1a7db-187">Editar definição de entrada hello e verificar definir Olá conta de armazenamento, o prefixo de caminho e formato de data corretamente.</span><span class="sxs-lookup"><span data-stu-id="1a7db-187">Edit hello input definition and check you set hello storage account, path prefix and date format correctly.</span></span>
 > 
 > 
 
-## <a name="set-query"></a><span data-ttu-id="d3c6e-188">Definir a consulta</span><span class="sxs-lookup"><span data-stu-id="d3c6e-188">Set query</span></span>
-<span data-ttu-id="d3c6e-189">Abra a seção de consulta:</span><span class="sxs-lookup"><span data-stu-id="d3c6e-189">Open the query section:</span></span>
+## <a name="set-query"></a><span data-ttu-id="1a7db-188">Definir a consulta</span><span class="sxs-lookup"><span data-stu-id="1a7db-188">Set query</span></span>
+<span data-ttu-id="1a7db-189">Abra a seção de consulta hello:</span><span class="sxs-lookup"><span data-stu-id="1a7db-189">Open hello query section:</span></span>
 
 ![No Stream Analytics, selecione Consulta](./media/app-insights-code-sample-export-sql-stream-analytics/51-query.png)
 
-<span data-ttu-id="d3c6e-191">Substitua a consulta padrão por:</span><span class="sxs-lookup"><span data-stu-id="d3c6e-191">Replace the default query with:</span></span>
+<span data-ttu-id="1a7db-191">Substitua a consulta de padrão de saudação com:</span><span class="sxs-lookup"><span data-stu-id="1a7db-191">Replace hello default query with:</span></span>
 
 ```SQL
 
@@ -232,39 +232,39 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ```
 
-<span data-ttu-id="d3c6e-192">Observe que as primeiras propriedades são específicas aos dados de exibição da página.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-192">Notice that the first few properties are specific to page view data.</span></span> <span data-ttu-id="d3c6e-193">Exportações de outros tipos de telemetria terão propriedades diferentes.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-193">Exports of other telemetry types will have different properties.</span></span> <span data-ttu-id="d3c6e-194">[Referência de modelo de dados detalhados para os tipos de propriedades e valores.](app-insights-export-data-model.md)</span><span class="sxs-lookup"><span data-stu-id="d3c6e-194">See the [detailed data model reference for the property types and values.](app-insights-export-data-model.md)</span></span>
+<span data-ttu-id="1a7db-192">Observe que primeiro Olá algumas propriedades são dados de exibição toopage específico.</span><span class="sxs-lookup"><span data-stu-id="1a7db-192">Notice that hello first few properties are specific toopage view data.</span></span> <span data-ttu-id="1a7db-193">Exportações de outros tipos de telemetria terão propriedades diferentes.</span><span class="sxs-lookup"><span data-stu-id="1a7db-193">Exports of other telemetry types will have different properties.</span></span> <span data-ttu-id="1a7db-194">Consulte Olá [detalhadas de referência de modelo de dados para tipos de propriedade hello e valores.](app-insights-export-data-model.md)</span><span class="sxs-lookup"><span data-stu-id="1a7db-194">See hello [detailed data model reference for hello property types and values.](app-insights-export-data-model.md)</span></span>
 
-## <a name="set-up-output-to-database"></a><span data-ttu-id="d3c6e-195">Configurar a saída para o banco de dados</span><span class="sxs-lookup"><span data-stu-id="d3c6e-195">Set up output to database</span></span>
-<span data-ttu-id="d3c6e-196">Selecione SQL como a saída.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-196">Select SQL as the output.</span></span>
+## <a name="set-up-output-toodatabase"></a><span data-ttu-id="1a7db-195">Configurar a saída toodatabase</span><span class="sxs-lookup"><span data-stu-id="1a7db-195">Set up output toodatabase</span></span>
+<span data-ttu-id="1a7db-196">Selecione SQL como saída de hello.</span><span class="sxs-lookup"><span data-stu-id="1a7db-196">Select SQL as hello output.</span></span>
 
 ![No Stream Analytics, selecione Saídas](./media/app-insights-code-sample-export-sql-stream-analytics/53-store.png)
 
-<span data-ttu-id="d3c6e-198">Especifique o Banco de Dados SQL.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-198">Specify the SQL database.</span></span>
+<span data-ttu-id="1a7db-198">Especifique o banco de dados SQL hello.</span><span class="sxs-lookup"><span data-stu-id="1a7db-198">Specify hello SQL database.</span></span>
 
-![Preencha os detalhes do seu banco de dados](./media/app-insights-code-sample-export-sql-stream-analytics/55-output.png)
+![Preencha os detalhes de saudação do banco de dados](./media/app-insights-code-sample-export-sql-stream-analytics/55-output.png)
 
-<span data-ttu-id="d3c6e-200">Feche o assistente e aguarde uma notificação de que a saída foi configurada.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-200">Close the wizard and wait for a notification that the output has been set up.</span></span>
+<span data-ttu-id="1a7db-200">Feche o Assistente de saudação e aguarde até que uma notificação de que a saída de hello foi configurada.</span><span class="sxs-lookup"><span data-stu-id="1a7db-200">Close hello wizard and wait for a notification that hello output has been set up.</span></span>
 
-## <a name="start-processing"></a><span data-ttu-id="d3c6e-201">Iniciar o processamento</span><span class="sxs-lookup"><span data-stu-id="d3c6e-201">Start processing</span></span>
-<span data-ttu-id="d3c6e-202">Inicie o trabalho na barra de ação:</span><span class="sxs-lookup"><span data-stu-id="d3c6e-202">Start the job from the action bar:</span></span>
+## <a name="start-processing"></a><span data-ttu-id="1a7db-201">Iniciar o processamento</span><span class="sxs-lookup"><span data-stu-id="1a7db-201">Start processing</span></span>
+<span data-ttu-id="1a7db-202">Inicie o trabalho de saudação da barra de ação hello:</span><span class="sxs-lookup"><span data-stu-id="1a7db-202">Start hello job from hello action bar:</span></span>
 
 ![No Stream Analytics, clique em Iniciar](./media/app-insights-code-sample-export-sql-stream-analytics/61-start.png)
 
-<span data-ttu-id="d3c6e-204">Você pode optar por iniciar o processamento de dados neste momento ou iniciar com dados anteriores.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-204">You can choose whether to start processing the data starting from now, or to start with earlier data.</span></span> <span data-ttu-id="d3c6e-205">O último é útil se você tiver Exportação Contínua já em execução por um tempo.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-205">The latter is useful if you have had Continuous Export already running for a while.</span></span>
+<span data-ttu-id="1a7db-204">Você pode escolher se o processamento toostart Olá dados a partir de agora, ou toostart com dados anteriores.</span><span class="sxs-lookup"><span data-stu-id="1a7db-204">You can choose whether toostart processing hello data starting from now, or toostart with earlier data.</span></span> <span data-ttu-id="1a7db-205">Olá este último será útil se você teve a exportação contínua já em execução por algum tempo.</span><span class="sxs-lookup"><span data-stu-id="1a7db-205">hello latter is useful if you have had Continuous Export already running for a while.</span></span>
 
 ![No Stream Analytics, clique em Iniciar](./media/app-insights-code-sample-export-sql-stream-analytics/63-start.png)
 
-<span data-ttu-id="d3c6e-207">Depois de alguns minutos, volte para as Ferramentas de Gerenciamento do SQL Server e observe os dados entrando.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-207">After a few minutes, go back to SQL Server Management Tools and watch the data flowing in.</span></span> <span data-ttu-id="d3c6e-208">Por exemplo, use uma consulta como esta:</span><span class="sxs-lookup"><span data-stu-id="d3c6e-208">For example, use a query like this:</span></span>
+<span data-ttu-id="1a7db-207">Depois de alguns minutos, volte tooSQL ferramentas de gerenciamento de servidor e observe Olá dados fluindo em.</span><span class="sxs-lookup"><span data-stu-id="1a7db-207">After a few minutes, go back tooSQL Server Management Tools and watch hello data flowing in.</span></span> <span data-ttu-id="1a7db-208">Por exemplo, use uma consulta como esta:</span><span class="sxs-lookup"><span data-stu-id="1a7db-208">For example, use a query like this:</span></span>
 
     SELECT TOP 100 *
     FROM [dbo].[PageViewsTable]
 
 
-## <a name="related-articles"></a><span data-ttu-id="d3c6e-209">Artigos relacionados</span><span class="sxs-lookup"><span data-stu-id="d3c6e-209">Related articles</span></span>
-* [<span data-ttu-id="d3c6e-210">Exportar para Power BI usando o Stream Analytics</span><span class="sxs-lookup"><span data-stu-id="d3c6e-210">Export to PowerBI using Stream Analytics</span></span>](app-insights-export-power-bi.md)
-* [<span data-ttu-id="d3c6e-211">Referência de modelo de dados detalhados para os tipos de propriedades e valores.</span><span class="sxs-lookup"><span data-stu-id="d3c6e-211">Detailed data model reference for the property types and values.</span></span>](app-insights-export-data-model.md)
-* [<span data-ttu-id="d3c6e-212">Exportação Contínua no Application Insights</span><span class="sxs-lookup"><span data-stu-id="d3c6e-212">Continuous Export in Application Insights</span></span>](app-insights-export-telemetry.md)
-* [<span data-ttu-id="d3c6e-213">Application Insights</span><span class="sxs-lookup"><span data-stu-id="d3c6e-213">Application Insights</span></span>](https://azure.microsoft.com/services/application-insights/)
+## <a name="related-articles"></a><span data-ttu-id="1a7db-209">Artigos relacionados</span><span class="sxs-lookup"><span data-stu-id="1a7db-209">Related articles</span></span>
+* [<span data-ttu-id="1a7db-210">Exportar tooPowerBI usando a análise de fluxo</span><span class="sxs-lookup"><span data-stu-id="1a7db-210">Export tooPowerBI using Stream Analytics</span></span>](app-insights-export-power-bi.md)
+* [<span data-ttu-id="1a7db-211">Referência de tipos de propriedade hello e valores do modelo de dados detalhados.</span><span class="sxs-lookup"><span data-stu-id="1a7db-211">Detailed data model reference for hello property types and values.</span></span>](app-insights-export-data-model.md)
+* [<span data-ttu-id="1a7db-212">Exportação Contínua no Application Insights</span><span class="sxs-lookup"><span data-stu-id="1a7db-212">Continuous Export in Application Insights</span></span>](app-insights-export-telemetry.md)
+* [<span data-ttu-id="1a7db-213">Application Insights</span><span class="sxs-lookup"><span data-stu-id="1a7db-213">Application Insights</span></span>](https://azure.microsoft.com/services/application-insights/)
 
 <!--Link references-->
 
