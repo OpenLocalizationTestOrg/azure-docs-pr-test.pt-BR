@@ -1,6 +1,6 @@
 ---
-title: "Implantar a extensão do Painel de Acesso do Azure do IE usando um GPO | Microsoft Docs"
-description: "Como usar a política de grupo para implantar o complemento do Internet Explorer para o portal de meus aplicativos."
+title: "Extensão do painel de acesso do Azure para o IE usando um GPO de aaaDeploy | Microsoft Docs"
+description: "Como toouse agrupar complemento do política toodeploy saudação do Internet Explorer para o portal de meus aplicativos hello."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,153 +15,153 @@ ms.date: 08/02/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b402ae326ab34ec71ad9de966e22be00045fee3e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 926f15950bbe81d2fbfe1b0b856470da40880d7d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Como implantar a Extensão do Painel de Acesso no Internet Explorer usando a Política de Grupo
-Este tutorial mostra como usar a política de grupo para instalar remotamente a extensão do Painel de Acesso para o Internet Explorer nos computadores dos usuários. Essa extensão é necessária para os usuários do Internet Explorer que precisam entrar em aplicativos configurados usando o [logon único baseado em senha](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
+# <a name="how-toodeploy-hello-access-panel-extension-for-internet-explorer-using-group-policy"></a>Como tooDeploy Olá extensão do painel de acesso do Internet Explorer usando a diretiva de grupo
+Este tutorial mostra como toouse tooremotely de política de grupo instalar extensão do painel de acesso de saudação do Internet Explorer em computadores de seus usuários. Essa extensão é necessária para usuários do Internet Explorer que precisam de toosign em aplicativos que são configurados usando [com base em senha de logon único](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
 
-É recomendável que administradores automatizem a implantação dessa extensão. Caso contrário, os usuários terão de baixar e instalar a extensão por conta própria, o que poderá causar erros do usuário e que exigirá permissões de administrador. Este tutorial apresenta um método de automatização de implantações de software usando a política de grupo. [Saiba mais sobre a política de grupo.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
+É recomendável que administradores automatizarem a implantação de saudação da extensão. Caso contrário, os usuários têm toodownload e instalarem extensão Olá por conta própria, que é toouser propensas a erros e requer permissões de administrador. Este tutorial apresenta um método de automatização de implantações de software usando a política de grupo. [Saiba mais sobre a política de grupo.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
 
-A extensão do Painel de Acesso também está disponível para o [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) e o [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998) e nenhum deles exige permissões de administrador para instalar.
+Olá extensão do painel de acesso também está disponível para [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) e [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998), nenhum deles exigem tooinstall de permissões de administrador.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Você configurou os [Serviços de Domínio do Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)e os computadores dos usuários ingressaram no domínio.
-* Você deve ter a permissão "Editar configurações" para editar o GPO (Objeto de Política de Grupo). Por padrão, os membros dos grupos de segurança a seguir têm esta permissão: Administradores de Domínio, Administradores de Empresa e Proprietários Criadores de Política de Grupo. [Saiba mais.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
+* Você configurou o [serviços de domínio do Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), e você tiver ingressado domínio de tooyour máquinas dos usuários.
+* Você deve ter hello "Editar configurações de" permissão tooedit Olá objeto de política de grupo (GPO). Por padrão, membros da saudação grupos de segurança a seguir têm essa permissão: os administradores de domínio, administradores de empresa e proprietários de criadores de diretiva de grupo. [Saiba mais.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
-## <a name="step-1-create-the-distribution-point"></a>Etapa 1: Criar o ponto de distribuição
-Primeiro, você deve colocar o pacote do instalador em um local de rede que possa ser acessado pelos computadores nos quais você deseja instalar remotamente a extensão. Para fazer isso, siga estas etapas:
+## <a name="step-1-create-hello-distribution-point"></a>Etapa 1: Criar um ponto de distribuição de saudação
+Primeiro, você deve colocar o pacote do instalador Olá em um local de rede que pode ser acessado por máquinas de saudação que desejar extensão de saudação do tooremotely instalar em. toodo isso, siga estas etapas:
 
-1. Faça logon no servidor como um administrador
-2. Na janela **Gerenciador do Servidor**, vá para **Arquivos e Serviços de Armazenamento**.
+1. Faça logon no servidor toohello como um administrador
+2. Em Olá **Gerenciador do servidor** janela, ir muito**arquivos e serviços de armazenamento**.
    
     ![Abrir Serviços de Arquivo e Armazenamento](./media/active-directory-saas-ie-group-policy/files-services.png)
-3. Vá para a guia **Compartilhamentos** . Em seguida, clique em **Tarefas** > **Novo Compartilhamento...**
+3. Vá toohello **compartilhamentos** guia. Em seguida, clique em **Tarefas** > **Novo Compartilhamento...**
    
     ![Abrir Serviços de Arquivo e Armazenamento](./media/active-directory-saas-ie-group-policy/shares.png)
-4. Conclua o **Assistente de Novo Compartilhamento** e defina permissões para garantir que ele possa ser acessado dos computadores dos usuários. [Saiba mais sobre compartilhamentos.](https://technet.microsoft.com/library/cc753175.aspx)
-5. Baixe o seguinte pacote do Microsoft Windows Installer (arquivo .msi): [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi)
-6. Copie o pacote do instalador para um local desejado no compartilhamento.
+4. Olá completa **Assistente de novo compartilhamento** e tooensure do conjunto de permissões que ele possa ser acessado de computadores dos usuários. [Saiba mais sobre compartilhamentos.](https://technet.microsoft.com/library/cc753175.aspx)
+5. Baixar Olá pacote do Microsoft Windows Installer (arquivo. msi) a seguir: [Extension.msi do painel de acesso](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi)
+6. Copie o local de tooa desejado no compartilhamento de saudação do pacote hello instalador.
    
-    ![Copie o arquivo .msi para o compartilhamento.](./media/active-directory-saas-ie-group-policy/copy-package.png)
-7. Verifique se os computadores do cliente podem acessar o pacote do instalador desde o compartilhamento. 
+    ![Copie o compartilhamento de toohello de arquivo hello. msi.](./media/active-directory-saas-ie-group-policy/copy-package.png)
+7. Verifique se as máquinas cliente tooaccess capaz de pacote do instalador de saudação do compartilhamento de saudação. 
 
-## <a name="step-2-create-the-group-policy-object"></a>Etapa 2: Criar o Objeto de Política de Grupo
-1. Faça logon no servidor que hospeda sua instalação dos Serviços de Domínio do Active Directory (AD DS).
-2. No Gerenciador do Servidor, vá para **Ferramentas** > **Gerenciamento de Política de Grupo**.
+## <a name="step-2-create-hello-group-policy-object"></a>Etapa 2: Criar hello objeto de diretiva de grupo
+1. Faça logon no servidor de toohello que hospeda sua instalação de serviços de domínio Active Directory (AD DS).
+2. No Gerenciador do servidor de saudação, vá muito**ferramentas** > **Group Policy Management**.
    
-    ![Vá para Ferramentas > Gerenciamento de Política de Grupo](./media/active-directory-saas-ie-group-policy/tools-gpm.png)
-3. No painel esquerdo da janela **Gerenciamento de Política de Grupo** , exiba sua hierarquia de UO (unidade organizacional) e determine em qual escopo você gostaria de aplicar a política de grupo. Por exemplo, você poderá optar por escolher uma UO pequena a ser implantada para alguns usuários para teste ou poderá escolher uma UO de nível superior a ser implantada em toda a sua organização.
+    ![Vá tooTools > Gerenciamento de diretiva de grupo](./media/active-directory-saas-ie-group-policy/tools-gpm.png)
+3. No painel esquerdo de saudação do hello **Group Policy Management** janela, exibir sua hierarquia de unidade organizacional (UO) e determinar em qual escopo você gostaria que a política de grupo tooapply hello. Por exemplo, você pode decidir toopick um pequeno toodeploy tooa da UO poucos usuários de teste, ou você pode escolher uma nível superior OU toodeploy tooyour toda a organização.
    
    > [!NOTE]
-   > Se você quiser criar ou editar suas Unidades Organizacionais (UOs), volte para o Gerenciador do Servidor e vá para **Ferramentas** > **Usuários e Computadores do Active Directory**.
+   > Se você deseja toocreate ou editar suas unidades organizacionais (UOs), alternar toohello back Gerenciador do servidor e vá muito**ferramentas** > **computadores e usuários do Active Directory**.
    > 
    > 
 4. Depois de selecionar uma UO, clique com o botão direito do mouse nela e selecione **Criar um GPO neste domínio e vinculá-lo aqui...**
    
     ![Criar um novo GPO](./media/active-directory-saas-ie-group-policy/create-gpo.png)
-5. No prompt **Novo GPO** , digite um nome para o novo Objeto de Política de Grupo.
+5. Em Olá **novo GPO** prompt, digite um nome para Olá novo objeto de diretiva de grupo.
    
-    ![Dar um nome ao novo GPO](./media/active-directory-saas-ie-group-policy/name-gpo.png)
-6. Clique com o botão direito do mouse no Objeto de Política de Grupo criado e selecione **Editar**.
+    ![Nome hello novo GPO](./media/active-directory-saas-ie-group-policy/name-gpo.png)
+6. Com o botão direito Olá objeto de política de grupo que você criou e selecione **editar**.
    
-    ![Editar o novo GPO](./media/active-directory-saas-ie-group-policy/edit-gpo.png)
+    ![Editar saudação novo GPO](./media/active-directory-saas-ie-group-policy/edit-gpo.png)
 
-## <a name="step-3-assign-the-installation-package"></a>Etapa 3: Atribuir o pacote de instalação
-1. Determine se você deseja implantar a extensão com base na **Configuração do Computador** ou na **Configuração do Usuário**. Ao usar a [configuração do computador](https://technet.microsoft.com/library/cc736413%28v=ws.10%29.aspx), a extensão será instalada no computador, independentemente dos usuários que fizerem logon. Com a [configuração do usuário](https://technet.microsoft.com/library/cc781953%28v=ws.10%29.aspx), os usuários têm a extensão instalada para eles, independentemente dos computadores em que eles fizerem logon.
-2. No painel esquerdo da janela **Editor de Gerenciamento de Política de Grupo** , vá para qualquer um dos seguintes caminhos de pasta, dependendo do tipo de configuração escolhida:
+## <a name="step-3-assign-hello-installation-package"></a>Etapa 3: Atribuir Olá pacote de instalação
+1. Determinar se você gostaria que a extensão de saudação toodeploy com base em **configuração do computador** ou **configuração do usuário**. Ao usar [configuração do computador](https://technet.microsoft.com/library/cc736413%28v=ws.10%29.aspx), extensão hello está instalado no computador de hello, independentemente de qual os usuários fazem logon tooit. Com [configuração do usuário](https://technet.microsoft.com/library/cc781953%28v=ws.10%29.aspx), os usuários têm a extensão de saudação instalado para eles, independentemente de quais computadores fazem logon.
+2. No painel esquerdo de saudação do hello **Editor de gerenciamento de política de grupo** janela, vá tooeither de saudação caminhos de pastas, dependendo do tipo de configuração que você escolheu a seguir:
    
    * `Computer Configuration/Policies/Software Settings/`
    * `User Configuration/Policies/Software Settings/`
 3. Clique com o botão direito do mouse em **Instalação do software** e selecione **Novo** > **Pacote...**
    
     ![Criar um novo pacote de instalação de software](./media/active-directory-saas-ie-group-policy/new-package.png)
-4. Vá para a pasta compartilhada que contém o pacote do instalador da [Etapa 1: Criar o ponto de distribuição](#step-1-create-the-distribution-point), selecione o arquivo .msi e clique em **Abrir**.
+4. Vá toohello pasta compartilhada que contém o pacote do instalador de saudação do [etapa 1: criar um ponto de distribuição de saudação](#step-1-create-the-distribution-point), selecione o arquivo. msi de saudação e clique em **abrir**.
    
    > [!IMPORTANT]
-   > Se o compartilhamento estiver localizado no mesmo servidor, verifique se você está acessando o .msi por meio do caminho do arquivo de rede, em vez do caminho do arquivo local.
+   > Se Olá compartilhamento esteja localizado no mesmo servidor, verifique se você está acessando o. msi de saudação por meio do caminho do arquivo de rede hello, em vez de caminho do arquivo local hello.
    > 
    > 
    
-    ![Selecione o pacote de instalação na pasta compartilhada.](./media/active-directory-saas-ie-group-policy/select-package.png)
-5. No prompt **Implantar Software**, selecione **Atribuído** para o método de implantação. Em seguida, clique em **OK**.
+    ![Selecione o pacote de instalação de saudação da pasta compartilhada hello.](./media/active-directory-saas-ie-group-policy/select-package.png)
+5. Em Olá **implantar Software** prompt, selecione **atribuído** para o método de implantação. Em seguida, clique em **OK**.
    
     ![Selecione Atribuído e clique em OK.](./media/active-directory-saas-ie-group-policy/deployment-method.png)
 
-Agora a extensão está implantada na UO que você selecionou. [Saiba mais sobre a instalação do Software de Política de Grupo.](https://technet.microsoft.com/library/cc738858%28v=ws.10%29.aspx)
+extensão de saudação agora está implantado toohello UO que você selecionou. [Saiba mais sobre a instalação do Software de Política de Grupo.](https://technet.microsoft.com/library/cc738858%28v=ws.10%29.aspx)
 
-## <a name="step-4-auto-enable-the-extension-for-internet-explorer"></a>Etapa 4: Habilitar automaticamente a extensão do Internet Explorer
-Além da execução do instalador, todas as extensões do Internet Explorer deverão ser habilitadas explicitamente antes de serem usadas. Siga as etapas abaixo para habilitar a Extensão do Painel de Acesso usando a política de grupo:
+## <a name="step-4-auto-enable-hello-extension-for-internet-explorer"></a>Etapa 4: Saudação de ativação automática extensão para o Internet Explorer
+Além disso toorunning Olá installer, todas as extensões para o Internet Explorer deve ser explicitamente ativado antes de ser usada. Siga as etapas de saudação abaixo tooenable Olá extensão do painel de acesso usando a política de grupo:
 
-1. Na janela **Editor de Gerenciamento de Política de Grupo** , vá para um dos caminhos a seguir, dependendo do tipo de configuração escolhida na [Etapa 3: Atribuir o pacote de instalação](#step-3-assign-the-installation-package):
+1. Em Olá **Editor de gerenciamento de política de grupo** janela, vá tooeither de saudação seguintes caminhos, dependendo do tipo de configuração que você escolheu na [etapa 3: atribuir Olá pacote de instalação](#step-3-assign-the-installation-package):
    
    * `Computer Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
 2. Clique com o botão direito do mouse em **Lista de Complementos** e selecione **Editar**.
     ![Edite a Lista de Complementos.](./media/active-directory-saas-ie-group-policy/edit-add-on-list.png)
-3. Na janela **Lista de Complementos**, selecione **Habilitado**. Em seguida, na seção **Opções**, clique em **Mostrar...**.
+3. Em Olá **lista de complementos** janela, selecione **habilitado**. Em seguida, em Olá **opções** seção, clique em **Mostrar...** .
    
     ![Clique em Habilitar e clique em Mostrar...](./media/active-directory-saas-ie-group-policy/edit-add-on-list-window.png)
-4. Na janela **Mostrar Conteúdo** , execute as seguintes etapas:
+4. Em Olá **Mostrar conteúdo** janela, executar Olá etapas a seguir:
    
-   1. Na primeira coluna (o campo **Nome do Valor**), copie e cole a seguinte ID de Classe: `{030E9A3F-7B18-4122-9A60-B87235E4F59E}`
-   2. Na segunda coluna (o campo **Valor**), digite o seguinte valor: `1`
-   3. Clique em **OK** para fechar a janela **Mostrar Conteúdo**.
+   1. Para a coluna primeiro hello (Olá **nome do valor** campo), copiar e colar Olá identificação de classe a seguir:`{030E9A3F-7B18-4122-9A60-B87235E4F59E}`
+   2. Segunda coluna de hello (Olá **valor** campo), tipo no seguinte valor de saudação:`1`
+   3. Clique em **Okey** tooclose Olá **Mostrar conteúdo** janela.
       
-      ![Preencha os valores como especificado acima.](./media/active-directory-saas-ie-group-policy/show-contents.png)
-5. Clique em **OK** para aplicar as alterações e fechar a janela **Lista de Complementos**.
+      ![Preencha os valores hello especificados acima.](./media/active-directory-saas-ie-group-policy/show-contents.png)
+5. Clique em **Okey** tooapply suas alterações e fechar Olá **lista de complementos** janela.
 
-Agora a extensão deverá estar habilitada para os computadores na UO selecionada. [Saiba mais sobre como usar a política de grupo para habilitar ou desabilitar complementos do Internet Explorer.](https://technet.microsoft.com/library/dn454941.aspx)
+Olá extensão deve agora ser habilitada para máquinas Olá Olá selecionado UO. [Saiba mais sobre como usar tooenable de diretiva de grupo ou desabilite complementos do Internet Explorer.](https://technet.microsoft.com/library/dn454941.aspx)
 
 ## <a name="step-5-optional-disable-remember-password-prompt"></a>Etapa 5 (opcional): Desabilitar o prompt "Lembrar senha"
-Quando os usuários entram em sites que usam a extensão do painel de acesso, o Internet Explorer mostra o seguinte prompt perguntando "Deseja armazenar sua senha?"
+Quando usando Olá extensão do painel de acesso de usuários entrar toowebsites, Internet Explorer pode mostrar a seguir Olá prompt perguntando "deseja toostore sua senha?"
 
 ![](./media/active-directory-saas-ie-group-policy/remember-password-prompt.png)
 
-Se você quiser impedir que os usuários vejam esse prompt, siga as etapas abaixo para impedir o preenchimento automático de lembrar senhas:
+Se você desejar tooprevent que os usuários vejam esse prompt, siga as etapas de saudação abaixo tooprevent preenchimento automático de senhas reconheçam:
 
-1. Na janela **Editor de gerenciamento de política de grupo** , vá para o caminho listado abaixo. Essa configuração só está disponível em **Configuração do usuário**.
+1. Em Olá **Editor de gerenciamento de política de grupo** janela, vá toohello caminho listado abaixo. Essa configuração só está disponível em **Configuração do usuário**.
    
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/`
-2. Localize a configuração denominada **Ativar o recurso de preenchimento automático para nomes de usuário e senhas em formulários**.
+2. Localizar configuração Olá denominada **ativar o recurso de preenchimento automático de saudação para nomes de usuário e senhas em formulários**.
    
    > [!NOTE]
-   > Versões anteriores do Active Directory podem listar essa configuração com o nome **Não permitir o preenchimento automático para salvar senhas**. Essa configuração é diferente da configuração descrita neste tutorial.
+   > Versões anteriores do Active Directory podem listar essa configuração com o nome da saudação **não permitir senha de preenchimento automático toosave**. configuração Olá para essa configuração é diferente da saudação configuração descrito neste tutorial.
    > 
    > 
    
-    ![Lembre-se de examinar isso em Configurações do usuário.](./media/active-directory-saas-ie-group-policy/disable-auto-complete.png)
-3. Clique com o botão direito na configuração acima e selecione **Editar**.
-4. Na janela **Ativar o recurso de preenchimento automático para nomes de usuário e senhas em formulários**, selecione **Desabilitado**.
+    ![Lembre-se toolook para isso em configurações de usuário.](./media/active-directory-saas-ie-group-policy/disable-auto-complete.png)
+3. Olá acima configuração clique com botão direito e selecione **editar**.
+4. Na janela de saudação intitulada **ativar o recurso de preenchimento automático de saudação para nomes de usuário e senhas em formulários**, selecione **desabilitado**.
    
     ![Selecione Desabilitar](./media/active-directory-saas-ie-group-policy/disable-passwords.png)
-5. Clique em **OK** para aplicar essas alterações e fechar a janela.
+5. Clique em **Okey** tooapply essas alterações e a janela de saudação fechar.
 
-Os usuários não poderão mais armazenar suas credenciais ou usar o preenchimento automático para acessar as credenciais armazenadas anteriormente. No entanto, essa política permite que os usuários continuem a usar o preenchimento automático para outros tipos de campos de formulário, como campos de pesquisa.
+Usuários não serão ser capaz de toostore suas credenciais ou usar credenciais de preenchimento automático tooaccess armazenado anteriormente. No entanto, essa política permitem que os usuários toocontinue toouse preenchimento automático para outros tipos de campos de formulário, como campos de pesquisa.
 
 > [!WARNING]
-> Se essa política for ativada depois que os usuários tiverem escolhido armazenar algumas credenciais, essa política *não* limpará as credenciais que já foram armazenadas.
+> Se essa política está habilitada depois que os usuários escolheu toostore algumas credenciais, a política será *não* Limpar credenciais Olá que já foram armazenadas.
 > 
 > 
 
-## <a name="step-6-testing-the-deployment"></a>Etapa 6: Testar a implantação
-Siga as etapas abaixo para verificar se a implantação da extensão obteve êxito:
+## <a name="step-6-testing-hello-deployment"></a>Etapa 6: Teste implantação
+Siga as etapas de saudação abaixo tooverify se Olá extensão implantação foi bem-sucedida:
 
-1. Se você implantou usando **Configuração do computador**, faça logon em um computador cliente que pertence à UO que você selecionou na [Etapa 2: Criar o objeto de política de grupo](#step-2-create-the-group-policy-object). Se você implantou usando **Configuração do usuário**, certifique-se de conectar-se como um usuário que pertence a essa UO.
-2. As alterações da política de grupo podem demorar algumas entradas para serem totalmente atualizadas no computador. Para forçar a atualização, abra um **Prompt de comando** e execute o seguinte comando: `gpupdate /force`
-3. Reinicie o computador para que a instalação ocorra. A inicialização poderá demorar consideravelmente mais do que o normal durante a instalação da extensão.
-4. Depois de reiniciar, abra o **Internet Explorer**. No canto superior direito da janela, clique em **Ferramentas** (ícone de engrenagem) e, em seguida, selecione **Gerenciar complementos**.
+1. Se você implantou usando **configuração do computador**, logon em um computador cliente que pertence a toohello UO que você selecionou na [etapa 2: criar hello GPO](#step-2-create-the-group-policy-object). Se você implantou usando **configuração do usuário**, verifique se toosign em como um usuário que pertence a toothat UO.
+2. Pode levar alguns sinal ins Olá de diretiva de grupo altera toofully atualização com esse computador. atualização do tooforce hello, abra um **Prompt de comando** janela e execução hello comando a seguir:`gpupdate /force`
+3. Você deve reiniciar a máquina Olá para local de tootake instalação Olá. Inicialização pode levar consideravelmente mais tempo do que o normal ao extensão Olá instala.
+4. Depois de reiniciar, abra o **Internet Explorer**. No hello canto direito superior da janela de saudação, clique em **ferramentas** (ícone de engrenagem Olá) e, em seguida, selecione **gerenciar complementos**.
    
-    ![Vá para Ferramentas > Gerenciar Complementos](./media/active-directory-saas-ie-group-policy/manage-add-ons.png)
-5. Na janela **Gerenciar Complementos**, verifique se a **Extensão do Painel de Acesso** foi instalada e se seu **Status** foi definido como **Habilitado**.
+    ![Vá tooTools > Gerenciar complementos](./media/active-directory-saas-ie-group-policy/manage-add-ons.png)
+5. Em Olá **gerenciar complementos** janela, verifique se esse Olá **extensão do painel de acesso** foi instalado e que seu **Status** foi definido muito**habilitado**.
    
-    ![Verifique se a Extensão do Painel de Acesso está instalada e habilitada.](./media/active-directory-saas-ie-group-policy/verify-install.png)
+    ![Verifique se esse Olá extensão do painel de acesso está instalado e habilitado.](./media/active-directory-saas-ie-group-policy/verify-install.png)
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 * [Acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md)
-* [Solucionando problemas da extensão do painel de acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md)
+* [Solução de problemas Olá extensão do painel de acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md)
 

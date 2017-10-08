@@ -1,6 +1,6 @@
 ---
-title: "Guia de capacidade de suporte e política de desativação para SO convidado do Azure | Microsoft Docs"
-description: "Fornece informações sobre a que a Microsoft dará suporte como relação ao sistema operacional convidado do Azure usado pelos Serviços de Nuvem."
+title: "Guia de política de aaaSupportability e desativação para o sistema operacional de convidado do Azure | Microsoft Docs"
+description: "Fornece informações sobre o que a Microsoft dará suporte em relação ao toohello sistema operacional de convidado do Azure usado pelos serviços de nuvem."
 services: cloud-services
 documentationcenter: na
 author: raiye
@@ -14,68 +14,68 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 5/26/2017
 ms.author: raiye
-ms.openlocfilehash: 488a6e144b16c57c137e60b918ee68c78db1a54f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6a86c42ac95d12bbf116d900b7afb26fc3fe34e6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Capacidade de suporte e política de desativação do SO convidado do Azure
-As informações nesta página se relacionam ao sistema operacional convidado do Azure[(SO Convidado)](cloud-services-guestos-update-matrix.md)para serviços de nuvem funções web e de trabalho (PaaS). Não se aplicam às Máquinas Virtuais (IaaS).
+informações de saudação nesta página referem-se toohello sistema de operacional de convidado do Azure ([sistema operacional convidado](cloud-services-guestos-update-matrix.md)) para funções dos serviços de nuvem web e de trabalho (PaaS). Não é aplicável a máquinas de tooVirtual (IaaS).
 
-A Microsoft tem uma [política de suporte para o SO convidado](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq)publicada. A página que você está lendo agora descreve como a política é implementada.
+A Microsoft tem uma publicação [política de suporte para o sistema operacional convidado de saudação](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq). página Olá que você está lendo agora descreve como Olá política é implementada.
 
-A política é
+Olá política é
 
-1. A Microsoft dará suporte **a pelo menos as duas famílias mais recentes do SO convidado**. Quando uma família for desativada, os clientes terão 12 meses a partir da data de desativação oficial para atualizar para uma família dos sistemas operacionais convidados com suporte mais recente.
-2. A Microsoft dará suporte **a pelo menos as duas versões mais recentes das famílias de SOs convidados com suporte**.
-3. A Microsoft dará suporte a **pelo menos as duas versões mais recentes do SDK do Azure**. Quando uma versão do SDK for desativada, os clientes terão 12 meses a partir da data de desativação oficial para atualizar para uma versão mais recente.
+1. A Microsoft oferecerá suporte **Olá pelo menos duas famílias mais recentes do sistema operacional convidado de saudação**. Quando uma família for desativada, os clientes têm 12 meses a partir Olá desativação oficial data tooupdate tooa mais recente com suporte família do SO convidado.
+2. A Microsoft oferecerá suporte **Olá pelo menos duas versões mais recentes das famílias de sistema operacional convidado Olá suportada**.
+3. A Microsoft oferecerá suporte **Olá pelo menos duas versões mais recentes do SDK do Azure de saudação**. Quando uma versão de hello que SDK está desativado, os clientes terão 12 meses a partir Olá desativação oficial data tooupdate tooa mais recente versão.
 
-Às vezes, pode haver suporte para mais de duas famílias ou versões. Informações de suporte oficiais do SO convidado serão exibidas na [Matriz de compatibilidade do SDK e lançamentos do SO convidado do Azure](cloud-services-guestos-update-matrix.md).
+Às vezes, pode haver suporte para mais de duas famílias ou versões. Informações oficiais de suporte de sistema operacional convidado serão exibidos na Olá [versões de sistema operacional convidado do Azure e matriz de compatibilidade do SDK](cloud-services-guestos-update-matrix.md).
 
 ## <a name="when-a-guest-os-family-or-version-is-retired"></a>Quando uma família ou versão de sistemas operacionais convidados for desativada
-Uma nova **família** de SOs convidados é introduzida algum tempo após o lançamento de uma nova versão oficial do sistema operacional Windows Server. Sempre que uma nova família de sistemas operacionais convidados é introduzida, a Microsoft desativa a família mais antiga do sistema operacional convidado.
+Um novo sistema operacional convidado **família** foi introduzido em algum momento após o lançamento da saudação de uma nova versão oficial do sistema de operacional de servidor do Windows hello. Sempre que uma nova família de sistema operacional convidado for introduzida, Microsoft desativará a família de sistemas operacionais convidados mais antiga hello.
 
-As novas **versões** do SO convidado são lançadas a cada mês para incorporar as atualizações mais recentes do MSRC. Devido às atualizações regulares mensais, uma versão do sistema operacional convidado é desabilitada normalmente 60 dias após seu lançamento. Essa atividade mantém pelo menos duas versões de sistema operacional convidado para cada família disponíveis para uso.
+Novo sistema operacional convidado **versões** são lançadas a cada mês tooincorporate Olá MSRC atualizações. Devido a saudação atualizações regulares mensais, uma versão de sistema operacional convidado é desabilitada normalmente 60 dias após seu lançamento. Essa atividade mantém pelo menos duas versões de sistema operacional convidado para cada família disponíveis para uso.
 
 ### <a name="process-during-a-guest-os-family-retirement"></a>Processo durante a desativação de uma família de sistemas operacionais convidados
-Depois que a desativação é anunciada, os clientes têm um período de "transição" de 12 meses antes de a família mais antiga ser oficialmente removida do serviço. Esse período de transição pode ser estendido a critério da Microsoft. As atualizações serão postadas na [Matriz de compatibilidade do SDK e lançamentos do SO convidado do Azure](cloud-services-guestos-update-matrix.md).
+Depois de saudação retirada é anunciada, os clientes têm um período de 12 meses "transição" antes de família mais antiga Olá seja oficialmente removida do serviço. Esse período de transição pode ser estendido a critério da saudação da Microsoft. As atualizações serão postadas Olá [versões de sistema operacional convidado do Azure e matriz de compatibilidade do SDK](cloud-services-guestos-update-matrix.md).
 
-Um processo gradual de desativação se iniciará em seis (6) meses no período de transição. Durante esse tempo:
+Um processo gradual de desativação será iniciado seis (6) meses no período de transição de saudação. Durante esse tempo:
 
-1. A Microsoft notificará os clientes da desativação.
-2. A versão mais recente do SDK do Azure não dará suporte à família do sistema operacional convidado desativada.
-3. Novas implantações e reimplantações dos Serviços de Nuvem não serão permitidas na família desativada
+1. A Microsoft notificará os clientes da desativação de saudação.
+2. versão mais recente de saudação do hello Azure SDK não oferecerá suporte a família do SO convidado Olá obsoleto.
+3. Novas implantações e reimplantações dos serviços de nuvem não serão permitidas na família Olá desativado
 
-A Microsoft continuará a apresentar a nova versão do sistema operacional convidado incorporando as atualizações mais recentes do MSRC até o último dia do período de transição, conhecido como "data de expiração". Na data de expiração, os Serviços de Nuvem ainda em execução não terão mais suporte no SLA do Azure. A Microsoft pode impor a atualização, excluir ou interromper os serviços após essa data.
+A Microsoft continuará toointroduce nova versão do SO convidado incorporar as atualizações mais recentes de MSRC Olá até Olá último dia do período de transição hello, conhecido como hello "data de validade". Data de expiração hello, serviços de nuvem ainda em execução terão suporte no hello SLA do Azure. A Microsoft tem Olá critério tooforce atualizar, excluir ou interromper os serviços após essa data.
 
 ### <a name="process-during-a-guest-os-version-retirement"></a>Processo durante a desativação de uma versão do SO convidado
-Se os clientes definirem o SO convidado para atualizar automaticamente, nunca precisarão se preocupar em lidar com as versões de sistema operacional convidado. Eles sempre usarão a versão mais recente do sistema operacional convidado.
+Se os clientes definirem a atualização do sistema operacional convidado tooautomatically, eles nunca terem tooworry sobre como lidar com as versões de sistema operacional convidado. Eles estarão sempre com versão de sistema operacional convidado mais recente da saudação.
 
-Versões do SO convidado são lançadas a cada mês. Devido aos lançamentos regulares, cada versão tem uma vida útil fixa.
+Versões do SO convidado são lançadas a cada mês. Devido à taxa de saudação lançamentos regulares, cada versão tem um tempo fixo.
 
-Aos 60 dias da vida útil, uma versão é "*desabilitada*". "Desabilitada" significa que a versão é removida do portal. A versão não pode mais ser definida no arquivo de configuração CSCFG. As implantações existentes são mantidas em execução. Mas novas implantações e atualizações de código e a configuração para as implantações existentes não serão permitidas.
+Em 60 dias de vida hello, há uma versão "*desabilitado*". "Desabilitado" significa que a versão Olá é removida do portal de saudação. versão Olá não pode ser definido no arquivo de configuração CSCFG hello. As implantações existentes são mantidas em execução. Mas o código e configuração de implantações de tooexisting de atualizações e novas implantações não serão permitidas.
 
-Depois de se tornar "desabilitada" por algum tempo, a versão SO Convidado "*expira*" e todas as instalações que ainda estiverem executando essa versão terão a atualização forçada e serão definidas para atualizarem automaticamente o SO Convidado no futuro. A expiração é feita em lotes, de modo que o período de tempo de desativação da validade pode variar.
+Algum tempo depois de se tornar "desabilitada" hello versão do SO convidado "*expira*" e todas as instalações que ainda estiverem executando essa versão serão forçosamente atualizadas e definir tooautomatically Olá de atualização de sistema operacional convidado em Olá futuras. Expiração é feita em lotes para que o período de saudação de tempo de desativação tooexpiration pode variar.
 
-Esses períodos podem ser mais longos, a critério da Microsoft, para facilitar as transições do cliente. Quaisquer alterações serão comunicadas na [Matriz de compatibilidade do SDK e lançamentos do SO convidado do Azure](cloud-services-guestos-update-matrix.md).
+Esses períodos podem ser feitos mais nas transições do cliente de tooease critério da Microsoft. As alterações serão comunicadas Olá [versões de sistema operacional convidado do Azure e matriz de compatibilidade do SDK](cloud-services-guestos-update-matrix.md).
 
 ### <a name="notifications-during-retirement"></a>Notificações durante a desativação
-* **Desativação de família** <br>A Microsoft usará postagens de blog e notificação no portal. Os clientes que ainda estiverem usando uma família desativada do sistema operacional convidado serão notificados por meio de comunicação direta (email, mensagens do portal, telefonema) para administradores de serviço atribuídos. Todas as alterações serão postadas nessa página e o RSS feed será listado no início desta página.
-* **Desativação de versão** <br>Todas as alterações, e as datas nas quais ocorreram, serão postadas nessa página, e o feed RSS será listado no início desta página, incluindo as datas de lançamento, desabilitação e expiração. Os administradores de serviços receberão emails se tiverem implantações em execução em uma família ou versão do SO convidado desabilitada. O intervalo desses emails pode variar. Geralmente, eles são enviados pelo menos um mês antes da desabilitação, embora esse intervalo não seja um SLA oficial.
+* **Desativação de família** <br>A Microsoft usará postagens de blog e notificação no portal. Os clientes que ainda estejam usando uma família desativada do sistema operacional convidado serão notificados por meio de administradores de serviço tooassigned comunicação direta (email, mensagens do portal, telefonema). Todas as alterações serão postadas toothis página e hello RSS feed listado no início de saudação desta página.
+* **Desativação de versão** <br>Todas as alterações e datas Olá ocorrerem serão lançadas toothis página e hello RSS feed listado no início de saudação desta página, incluindo a versão, desabilitado e expiração. Os administradores de serviços receberão emails se tiverem implantações em execução em uma família ou versão do SO convidado desabilitada. tempo de saudação de emails pode variar. Geralmente, eles são enviados pelo menos um mês antes da desabilitação, embora esse intervalo não seja um SLA oficial.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
-**Como posso reduzir os impactos da migração?**
+**Como posso reduzir os impactos de saudação da migração?**
 
 Recomendamos o uso da família mais recente do sistema operacional convidado para criar seus Serviços de Nuvem.
 
-1. Comece cedo a planejar a migração para uma família mais recente.
-2. Configure implantações de teste temporárias para testar seu serviço de nuvem em execução na nova família.
-3. Defina a versão do SO convidado para **Automática** (osVersion=* no arquivo [.cscfg](cloud-services-model-and-package.md#cscfg) ) para que a migração para novas versões de SO convidado ocorra automaticamente.
+1. Começar a planejar sua família mais recente do tooa de migração no início.
+2. Configure tootest de implantações de teste temporárias seu serviço de nuvem em execução na nova família de saudação.
+3. Definir a versão do sistema operacional convidado muito**automático** (osVersion = * no hello [. cscfg](cloud-services-model-and-package.md#cscfg) arquivo) para versões do SO convidado Olá migração toonew ocorra automaticamente.
 
-**E se meu aplicativo Web exigir uma integração mais profunda com o sistema operacional?**
+**E se meu aplicativo web exige uma integração mais profunda com hello sistema operacional?**
 
-Se a arquitetura do aplicativo Web depender de recursos subjacentes do sistema operacional, use os recursos de suporte de plataforma como [tarefas de inicialização](cloud-services-startup-tasks.md) ou outros mecanismos de extensibilidade. Como alternativa, você também pode usar [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS - Infraestrutura como serviço), em que você é responsável por manter o sistema operacional subjacente.
+Se a arquitetura do aplicativo web depende de recursos subjacentes do sistema operacional de hello, usar os recursos de plataforma com suporte, como [tarefas de inicialização](cloud-services-startup-tasks.md) ou outros mecanismos de extensibilidade. Como alternativa, você também pode usar [máquinas virtuais do Azure](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS-infraestrutura como serviço), em que você é responsável por manter Olá subjacente do sistema operacional.
 
 ## <a name="next-steps"></a>Próximas etapas
-Examine as últimas [versões do SO convidado](cloud-services-guestos-update-matrix.md).
+Saudação de revisão mais recente [versões de sistema operacional convidado](cloud-services-guestos-update-matrix.md).

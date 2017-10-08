@@ -1,6 +1,6 @@
 ---
-title: "Ações e NotActions – controle de acesso baseado em função (RBAC) do Azure | Microsoft Docs"
-description: "Este tópico descreve as funções internas para o RBAC (controle de acesso baseado em função). As funções são adicionadas continuamente, portanto, verifique a atualização da documentação."
+title: "aaaActions e NotActions - Azure baseado em função (RBAC) de controle de acesso | Microsoft Docs"
+description: "Este tópico descreve Olá criado nas funções de controle de acesso baseado em função (RBAC). funções Hello são adicionadas continuamente, portanto seleção Olá documentação atualização."
 services: active-directory
 documentationcenter: 
 author: andredm7
@@ -16,35 +16,35 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a5de00793621cfdecea887c53a22d482a25d1b8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0a4ef9923fe05ec38e968534951911eaa4440b88
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções internas para o controle de acesso baseado em função do Azure
-O RBAC (Controle de Acesso baseado em função do Azure) é fornecido com as seguintes funções internas que podem ser atribuídas a usuários, grupos e serviços. Você não pode modificar as definições de funções internas. No entanto, você pode criar [Funções personalizadas no RBAC do Azure](role-based-access-control-custom-roles.md) para atender às necessidades específicas de sua organização.
+Controle de acesso do Azure baseado em função (RBAC) vem com hello funções internas que podem ser atribuídas toousers, grupos e serviços a seguir. Você não pode modificar as definições de saudação de funções internas. No entanto, você pode criar [funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md) toofit Olá necessidades da sua organização.
 
 ## <a name="roles-in-azure"></a>Funções no Azure
-A tabela a seguir fornece breves descrições das funções internas. Clique no nome da função para ver sua lista detalhada de **ações** e de **não ações**. A propriedade das **ações** especifica as ações permitidas em recursos do Azure. As cadeias de caracteres da ação podem usar caracteres curingas. A propriedade das **não ações** especifica as ações excluídas das ações permitidas.
+Olá tabela a seguir fornece descrições breves de saudação funções internas. Clique em Olá função nome toosee Olá lista detalhada de **ações** e **notactions** para função hello. Olá **ações** propriedade especifica Olá ações permitida em recursos do Azure. As cadeias de caracteres da ação podem usar caracteres curingas. Olá **notactions** propriedade especifica as ações de saudação que são excluídas da saudação ações permitida.
 
-A ação define o tipo das operações que você pode executar em um determinado tipo de recurso. Por exemplo:
-- **Gravar** permite que você execute operações PUT, POST, PATCH e DELETE.
-- **Ler** permite que você execute operações GET.
+ação de saudação define o tipo das operações que você pode executar em um tipo de recurso específico. Por exemplo:
+- **Gravar** permite que você tooperform PUT, POST, PATCH e operações de exclusão.
+- **Leitura** permite operações GET de tooperform.
 
-Este artigo aborda apenas as diferentes funções que existem atualmente. Quando atribui uma função a um usuário, no entanto, você pode limitar mais as ações permitidas definindo um escopo. Isso será útil se você quiser tornar alguém um colaborador do site, mas apenas para um grupo de recursos.
+Este artigo aborda apenas funções diferentes de saudação que existem hoje. Quando você atribuir uma função tooa usuário, no entanto, você pode limitar Olá permitido ações adicionais ao definir um escopo. Isso é útil se você quiser toomake alguém um colaborador de site, mas apenas para um grupo de recursos.
 
 > [!NOTE]
-> As definições de função do Azure estão em constante evolução. Este artigo é mantido tão atualizado quanto possível, mas você sempre poderá encontrar as últimas definições de funções no Azure PowerShell. Use o cmdlet [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) para listar todas as funções atuais. Você pode se aprofundar em uma função específica usando `(get-azurermroledefinition "<role name>").actions` ou `(get-azurermroledefinition "<role name>").notactions` conforme aplicável. Use [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) para listar operações de provedores de recursos do Azure específicos.
+> definições de função do Azure Olá estão em constante evolução. Este artigo é mantido como backup toodate possível, mas você sempre pode encontrar as definições de funções mais recentes de saudação no Azure PowerShell. Saudação de uso [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) toolist cmdlet todas as funções atuais. Aprofunde-se no uso da função específica de tooa `(get-azurermroledefinition "<role name>").actions` ou `(get-azurermroledefinition "<role name>").notactions` conforme aplicável. Use [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) operações toolist de provedores de recursos do Azure específico.
 
 
 | Nome da função | Descrição |
 | --- | --- |
-| [Colaborador de serviço de gerenciamento de API](#api-management-service-contributor) |Poder gerenciar o serviço de gerenciamento da API e as APIs |
-| [Função do operador de serviço de gerenciamento da API](#api-management-service-operator-role) | Poder gerenciar o serviço de gerenciamento da API, mas não as APIs propriamente ditas |
-| [Função do leitor do serviço de gerenciamento da API](#api-management-service-reader-role) | Acesso somente leitura ao serviço de gerenciamento da API e às APIs |
+| [Colaborador de serviço de gerenciamento de API](#api-management-service-contributor) |Pode gerenciar o serviço de gerenciamento de API e hello APIs |
+| [Função do operador de serviço de gerenciamento da API](#api-management-service-operator-role) | Pode gerenciar o serviço de gerenciamento de API, mas não Olá APIs próprios |
+| [Função do leitor do serviço de gerenciamento da API](#api-management-service-reader-role) | Serviço de gerenciamento do acesso somente leitura tooAPI e APIs |
 | [Colaborador de componente do Application Insights](#application-insights-component-contributor) |Pode gerenciar os componentes do Application Insights |
-| [Operador de automação](#automation-operator) |Capaz de iniciar, parar, suspender e reiniciar trabalhos |
+| [Operador de automação](#automation-operator) |Capaz de toostart, parar, suspender e reiniciar trabalhos |
 | [Colaborador de Backup](#backup-contributor) | Pode gerenciar o backup no cofre dos Serviços de Recuperação |
 | [Operador de Backup](#backup-operator) | Pode gerenciar o backup, exceto a remoção de backup, no cofre dos Serviços de Recuperação |
 | [Leitor de Backup](#backup-reader) | Pode exibir todos os serviços de gerenciamento de backup  |
@@ -73,20 +73,20 @@ Este artigo aborda apenas as diferentes funções que existem atualmente. Quando
 | [Operador do Site Recovery](#site-recovery-operator) | Pode gerenciar operações de failover e failback do Site Recovery no cofre dos Serviços de Recuperação |
 | [Leitor do Site Recovery](#site-recovery-reader) | Pode exibir todas as operações de gerenciamento do Site Recovery  |
 | [Colaborador do banco de dados SQL](#sql-db-contributor) |Pode gerenciar bancos de dados SQL, mas não suas políticas relacionadas à segurança |
-| [Gerenciador de Segurança do SQL](#sql-security-manager) |Pode gerenciar políticas relacionadas à segurança de servidores e bancos de dados SQL |
+| [Gerenciador de Segurança do SQL](#sql-security-manager) |Pode gerenciar políticas de saudação relacionadas à segurança de servidores SQL e bancos de dados |
 | [Colaborador do SQL Server](#sql-server-contributor) |Pode gerenciar bancos de dados e servidores SQL, mas não suas políticas relacionadas à segurança |
 | [Colaborador da conta de armazenamento clássica](#classic-storage-account-contributor) |Pode gerenciar contas de armazenamento clássicas |
 | [Colaborador da Conta de Armazenamento](#storage-account-contributor) |Pode gerenciar contas de armazenamento |
 | [Colaborador de solicitação de suporte](#support-request-contributor) | Pode criar e gerenciar solicitações de suporte |
-| [Administrador de Acesso do Usuário](#user-access-administrator) |Pode gerenciar o acesso do usuário aos recursos do Azure |
-| [Colaborador de Máquina Virtual Clássica](#classic-virtual-machine-contributor) |Pode gerenciar máquinas virtuais clássicas, mas não a rede virtual ou a conta de armazenamento à qual estão conectadas |
-| [Colaborador de Máquina Virtual](#virtual-machine-contributor) |Pode gerenciar máquinas virtuais, mas não a rede virtual ou a conta de armazenamento à qual estão conectadas |
+| [Administrador de Acesso do Usuário](#user-access-administrator) |Pode gerenciar os recursos de tooAzure de acesso do usuário |
+| [Colaborador de Máquina Virtual Clássica](#classic-virtual-machine-contributor) |Pode gerenciar máquinas virtuais clássicas, mas a rede virtual não hello ou toowhich de conta de armazenamento que estão conectados |
+| [Colaborador de Máquina Virtual](#virtual-machine-contributor) |Pode gerenciar máquinas virtuais, mas não Olá virtual rede ou armazenamento conta toowhich que estão conectados |
 | [Colaborador de rede clássica](#classic-network-contributor) |Pode gerenciar redes virtuais clássicas e IPs reservados |
 | [Colaborador do Plano de Web](#web-plan-contributor) |Pode gerenciar planos da Web |
-| [Colaborador do Site](#website-contributor) |Pode gerenciar sites, mas não os planos da Web ao quais eles estão conectados |
+| [Colaborador do Site](#website-contributor) |Pode gerenciar sites, mas não Olá web planos toowhich estão conectados |
 
 ## <a name="role-permissions"></a>Permissões de função
-As tabelas a seguir descrevem as permissões específicas fornecidas a cada função. Isso pode incluir **Ações** que concedem permissões e **Não Ações** que as restringem.
+Olá, tabelas a seguir descrevem as permissões específicas de saudação tooeach função. Isso pode incluir **Ações** que concedem permissões e **Não Ações** que as restringem.
 
 ### <a name="api-management-service-contributor"></a>Colaborador de serviço de gerenciamento de API
 Pode gerenciar os serviços de gerenciamento de API
@@ -96,7 +96,7 @@ Pode gerenciar os serviços de gerenciamento de API
 | Microsoft.ApiManagement/Service/* |Criar e gerenciar o serviço de gerenciamento da API |
 | Microsoft.Authorization/*/read |Ler autorização |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler funções e atribuições de função |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
@@ -107,16 +107,16 @@ Pode gerenciar os serviços de gerenciamento de API
 | **Ações** |  |
 | --- | --- |
 | Microsoft.ApiManagement/Service/*/read | Ler instâncias do serviço de gerenciamento da API |
-| Microsoft.ApiManagement/Service/backup/action | Fazer backup do Serviço de Gerenciamento de API para o contêiner especificado em uma conta de armazenamento fornecida pelo usuário |
+| Microsoft.ApiManagement/Service/backup/action | Fazer backup de contêiner especificado do serviço de gerenciamento de API toohello em um conta de armazenamento de fornecida pelo usuário |
 | Microsoft.ApiManagement/Service/delete | Excluir uma instância do Serviço de Gerenciamento de API |
 | Microsoft.ApiManagement/Service/managedeployments/action | Alterar SKU/unidades; adicionar ou remover implantações regionais do Serviço de Gerenciamento de API |
 | Microsoft.ApiManagement/Service/read | Ler metadados de uma instância do Serviço de Gerenciamento de API |
-| Microsoft.ApiManagement/Service/restore/action | Restaurar o Serviço de Gerenciamento de API do contêiner especificado em uma conta de armazenamento fornecida pelo usuário |
+| Microsoft.ApiManagement/Service/restore/action | Restaurar o serviço de gerenciamento de API do contêiner de saudação especificado em um conta de armazenamento de fornecida pelo usuário |
 | Microsoft.ApiManagement/Service/updatehostname/action | Configurar, atualizar ou remover nomes de domínio personalizado para um Serviço de Gerenciamento de API |
 | Microsoft.ApiManagement/Service/write | Criar uma nova instância do Serviço de Gerenciamento de API |
 | Microsoft.Authorization/*/read |Ler autorização |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler funções e atribuições de função |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
@@ -130,7 +130,7 @@ Pode gerenciar os serviços de gerenciamento de API
 | Microsoft.ApiManagement/Service/read | Ler metadados de uma instância do Serviço de Gerenciamento de API |
 | Microsoft.Authorization/*/read |Ler autorização |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler funções e atribuições de função |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
@@ -144,13 +144,13 @@ Pode gerenciar os componentes do Application Insights
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
 | Microsoft.Insights/components/* |Criar e gerenciar componentes do Insights |
 | Microsoft.Insights/webtests/* |Criar e gerenciar testes da Web |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
 ### <a name="automation-operator"></a>Operador de automação
-Capaz de iniciar, parar, suspender e reiniciar trabalhos
+Capaz de toostart, parar, suspender e reiniciar trabalhos
 
 | **Ações** |  |
 | --- | --- |
@@ -168,13 +168,13 @@ Capaz de iniciar, parar, suspender e reiniciar trabalhos
 | Microsoft.Automation/automationAccounts/schedules/read |Ler agendamentos de conta de automação |
 | Microsoft.Automation/automationAccounts/schedules/write |Gravar agendamentos de conta de automação |
 | Microsoft.Insights/components/* |Criar e gerenciar componentes do Insights |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
 ### <a name="backup-contributor"></a>Colaborador de Backup
-Pode gerenciar todas as ações de gerenciamento de backup, exceto criar o cofre de Serviços de Recuperação e fornecer acesso a outras pessoas
+Pode gerenciar todas as ações de gerenciamento de backup, exceto criar Cofre de serviços de recuperação e fornecendo acesso tooothers
 
 | **Ações** | |
 | --- | --- |
@@ -183,14 +183,14 @@ Pode gerenciar todas as ações de gerenciamento de backup, exceto criar o cofre
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | Criar e gerenciar contêineres de backup em malhas de backup do cofre de Serviços de Recuperação |
 | Microsoft.RecoveryServices/Vaults/backupJobs/* | Criar e gerenciar trabalhos de backup |
 | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabalhos de backup para uma planilha do Excel |
-| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Criar e gerenciar metadados relacionados ao gerenciamento de backup |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Criar e gerenciar os meta dados relacionados a gerenciamento de toobackup |
 | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Criar e gerenciar os Resultados das operações de gerenciamento de backup |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Criar e gerenciar políticas de backup |
 | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Criar e gerenciar itens para backup |
 | Microsoft.RecoveryServices/Vaults/backupProtectedItems/* | Criar e gerenciar itens submetidos a backup |
 | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/* | Criar e gerenciar contêineres que armazenam itens de backup |
-| Microsoft.RecoveryServices/Vaults/certificates/* | Criar e gerenciar certificados relacionados a backup em um cofre de Serviços de Recuperação |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Criar e gerenciar informações estendidas relacionadas ao cofre |
+| Microsoft.RecoveryServices/Vaults/certificates/* | Criar e gerenciar certificados toobackup relacionados no cofre de serviços de recuperação |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Criar e gerenciar informações estendidas relacionadas toovault |
 | Microsoft.RecoveryServices/Vaults/read | Ler cofres dos Serviços de Recuperação |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Gerenciar operações de descoberta para buscar contêineres recém-criados |
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Criar e gerenciar identidades registradas |
@@ -201,7 +201,7 @@ Pode gerenciar todas as ações de gerenciamento de backup, exceto criar o cofre
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
 ### <a name="backup-operator"></a>Operador de Backup
-Pode gerenciar todas as ações de gerenciamento de backup, exceto a criação de cofres, removendo backups e fornecendo acesso a outras pessoas
+Pode gerenciar todas as ações de gerenciamento de backup, exceto criar cofres, removendo o backup e fornecendo acesso tooothers
 
 | **Ações** | |
 | --- | --- |
@@ -218,21 +218,21 @@ Pode gerenciar todas as ações de gerenciamento de backup, exceto a criação d
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Ler contêineres que armazenam o item de backup |
 | Microsoft.RecoveryServices/Vaults/backupJobs/* | Criar e gerenciar trabalhos de backup |
 | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabalhos de backup para uma planilha do Excel |
-| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Ler metadados relacionados ao gerenciamento de backup |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Leitura de metadados relacionados ao gerenciamento de toobackup |
 | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Criar e gerenciar os Resultados das operações de gerenciamento de backup |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Ler resultados de operações executadas em políticas de backup |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Ler políticas de backup |
 | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Criar e gerenciar itens para backup |
 | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Ler itens submetidos a backup |
 | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Ler contêineres submetidos a backup que armazenam itens de backup |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Ler informações estendidas relacionadas ao cofre |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/write | Gravar informações estendidas relacionadas ao cofre |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Informações de leitura estendida relacionados toovault |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/write | Informações de gravação estendida relacionados toovault |
 | Microsoft.RecoveryServices/Vaults/read | Ler cofres dos Serviços de Recuperação |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Gerenciar operações de descoberta para buscar contêineres recém-criados |
-| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Ler resultados de operações executadas em itens registrados do cofre |
-| Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Ler itens registrados do cofre |
-| Microsoft.RecoveryServices/Vaults/registeredIdentities/write | Gravar itens registrados no cofre |
-| Microsoft.RecoveryServices/Vaults/usages/read | Ler o uso do cofre de Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Resultados de leitura da operação executada nos itens registrados do cofre Olá |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Ler itens registrados do cofre Olá |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/write | Gravar toovault itens registrados |
+| Microsoft.RecoveryServices/Vaults/usages/read | Uso de saudação que Cofre de serviços de recuperação de leitura |
 | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Ler grupos de recursos |
 | Microsoft.Storage/storageAccounts/read | Ler contas de armazenamento |
@@ -252,18 +252,18 @@ Pode monitorar o gerenciamento de backup em um cofre de Serviços de Recuperaç�
 | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read  | Ler resultados de trabalhos de backup |
 | Microsoft.RecoveryServices/Vaults/backupJobs/read  | Ler os trabalhos de backup |
 | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabalhos de backup para uma planilha do Excel |
-| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read  | Ler metadados relacionados ao gerenciamento de backup |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read  | Leitura de metadados relacionados ao gerenciamento de toobackup |
 | Microsoft.RecoveryServices/Vaults/backupOperationResults/read  | Ler resultados de operações de gerenciamento de backup |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read  | Ler resultados de operações executadas em políticas de backup |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/read  | Ler políticas de backup |
 | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read  |  Ler itens submetidos a backup |
 | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read  | Ler contêineres submetidos a backup que armazenam itens de backup |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Ler informações estendidas relacionadas ao cofre |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Informações de leitura estendida relacionados toovault |
 | Microsoft.RecoveryServices/Vaults/read  | Ler cofres dos Serviços de Recuperação |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read  | Ler o resultado de uma operação de descoberta para buscar contêineres recém-criados |
-| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Ler resultados de operações executadas em itens registrados do cofre |
-| Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Ler itens registrados do cofre |
-| Microsoft.RecoveryServices/Vaults/usages/read  |  Ler o uso do cofre de Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Resultados de leitura da operação executada nos itens registrados do cofre Olá |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Ler itens registrados do cofre Olá |
+| Microsoft.RecoveryServices/Vaults/usages/read  |  Uso de saudação que Cofre de serviços de recuperação de leitura |
 
 ### <a name="billing-reader"></a>Leitor de cobrança
 Pode exibir todas as informações de Cobranças
@@ -282,7 +282,7 @@ Pode gerenciar os serviços BizTalk
 | Microsoft.Authorization/*/read |Ler funções e atribuições de função |
 | Microsoft.BizTalkServices/BizTalk/* |Criar e gerenciar serviços BizTalk |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
@@ -294,7 +294,7 @@ Pode gerenciar bancos de dados MySQL ClearDB
 | --- | --- |
 | Microsoft.Authorization/*/read |Ler funções e atribuições de função |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
@@ -320,7 +320,7 @@ Criar e gerenciar data factories e recursos filho dentro deles.
 | Microsoft.Authorization/*/read |Ler funções e atribuições de função |
 | Microsoft.DataFactory/dataFactories/* |Criar e gerenciar data factories e recursos filho dentro deles. |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
@@ -331,13 +331,13 @@ Pode exibir tudo e se conectar a máquinas virtuais, iniciá-las, reiniciá-las 
 | **Ações** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Ler funções e atribuições de função |
-| Microsoft.Compute/availabilitySets/read |Ler as propriedades de conjuntos de disponibilidade |
-| Microsoft.Compute/virtualMachines/*/read |Ler as propriedades de uma máquina virtual (tamanhos de VM, status de tempo de execução, extensões de VM etc.) |
+| Microsoft.Compute/availabilitySets/read |Ler propriedades de saudação de conjuntos de disponibilidade |
+| Microsoft.Compute/virtualMachines/*/read |Ler propriedades de saudação de uma máquina virtual (tamanhos de VM, em tempo de execução, as extensões de VM, etc.) |
 | Microsoft.Compute/virtualMachines/deallocate/action |Desalocar máquinas virtuais |
-| Microsoft.Compute/virtualMachines/read |Ler as propriedades de uma máquina virtual |
+| Microsoft.Compute/virtualMachines/read |Saudação de ler propriedades de uma máquina virtual |
 | Microsoft.Compute/virtualMachines/restart/action |Reiniciar máquinas virtuais |
 | Microsoft.Compute/virtualMachines/start/action |Iniciar máquinas virtuais |
-| Microsoft.DevTestLab/*/read |Ler as propriedades de um laboratório |
+| Microsoft.DevTestLab/*/read |Ler propriedades de saudação de um laboratório |
 | Microsoft.DevTestLab/labs/createEnvironment/action |Criar um ambiente de laboratório |
 | Microsoft.DevTestLab/labs/formulas/delete |Excluir fórmulas |
 | Microsoft.DevTestLab/labs/formulas/read |Ler fórmulas |
@@ -345,11 +345,11 @@ Pode exibir tudo e se conectar a máquinas virtuais, iniciá-las, reiniciá-las 
 | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action |Avaliar políticas de laboratório |
 | Microsoft.Network/loadBalancers/backendAddressPools/join/action |Unir um pool de endereços de back-end de balanceador de carga |
 | Microsoft.Network/loadBalancers/inboundNatRules/join/action |Unir uma regra de NAT de entrada de balanceadores de carga |
-| Microsoft.Network/networkInterfaces/*/read |Ler as propriedades de uma interface de rede (por exemplo, todos os balanceadores de carga dos quais o adaptador de rede faz parte) |
-| Microsoft.Network/networkInterfaces/join/action |Unir uma Máquina Virtual a uma interface de rede |
+| Microsoft.Network/networkInterfaces/*/read |Ler propriedades de saudação de uma interface de rede (por exemplo, todos os balanceadores de carga de saudação essa interface de rede Olá é parte de) |
+| Microsoft.Network/networkInterfaces/join/action |Ingressar em uma interface de rede de tooa da máquina Virtual |
 | Microsoft.Network/networkInterfaces/read |Ler interfaces de rede |
 | Microsoft.Network/networkInterfaces/write |Gravar interfaces de rede |
-| Microsoft.Network/publicIPAddresses/*/read |Ler as propriedades de um endereço IP público |
+| Microsoft.Network/publicIPAddresses/*/read |Ler propriedades de saudação de um endereço IP público |
 | Microsoft.Network/publicIPAddresses/join/action |Unir um endereço IP público |
 | Microsoft.Network/publicIPAddresses/read |Ler endereços IP públicos de rede |
 | Microsoft.Network/virtualNetworks/subnets/join/action |Unir uma rede virtual |
@@ -366,7 +366,7 @@ Pode gerenciar zonas e registros DNS.
 | Microsoft.Authorization/\*/read |Ler funções e atribuições de função |
 | Microsoft.Insights/alertRules/\* |Criar e gerenciar regras de alerta |
 | Microsoft.Network/dnsZones/\* |Criar e gerenciar zonas e registros DNS |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Leitura Olá integridade de recursos de saudação |
 | Microsoft.Resources/deployments/\* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/\* |Criar e gerenciar tíquetes de suporte |
@@ -379,7 +379,7 @@ Pode gerenciar contas do Azure Cosmos DB
 | Microsoft.Authorization/*/read |Ler funções e atribuições de função |
 | Microsoft.DocumentDb/databaseAccounts/* |Criar e gerenciar contas do DocumentDB |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
@@ -392,7 +392,7 @@ Pode gerenciar contas do Intelligent Systems
 | Microsoft.Authorization/*/read |Ler funções e atribuições de função |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
 | Microsoft.IntelligentSystems/accounts/* |Criar e gerenciar contas do Sistemas Inteligentes |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
@@ -415,11 +415,11 @@ Pode ler todos os dados de monitoramento e editar configurações de monitoramen
 | Microsoft.Insights/AlertRules/* |Leitura/gravação/exclusão de regras de alerta. |
 | Microsoft.Insights/components/* |Leia/grave/exclua componentes do Application Insights. |
 | Microsoft.Insights/DiagnosticSettings/* |Leitura/gravação/exclusão de configurações de diagnóstico. |
-| Microsoft.Insights/eventtypes/* |Listar eventos do Log de atividades (eventos de gerenciamento) em um assinatura. Essa permissão é aplicável ao acesso programático e ao portal para o Log de atividades. |
-| Microsoft.Insights/LogDefinitions/* |Essa permissão é necessária para usuários que precisam de acesso aos Logs de atividade por meio do portal. Liste as categorias de log no Log de Atividades. |
+| Microsoft.Insights/eventtypes/* |Listar eventos do Log de atividades (eventos de gerenciamento) em um assinatura. Essa permissão é aplicável tooboth acesso programático e portal toohello Log de atividades. |
+| Microsoft.Insights/LogDefinitions/* |Essa permissão é necessária para os usuários que precisam acessar os Logs de tooActivity por meio do portal de saudação. Liste as categorias de log no Log de Atividades. |
 | Microsoft.Insights/MetricDefinitions/* |Ler definições de métricas (lista de tipos de métrica disponíveis para um recurso). |
 | Microsoft.Insights/Metrics/* |Ler as métricas para um recurso. |
-| Microsoft.Insights/Register/Action |Registre o provedor do Microsoft.Insights. |
+| Microsoft.Insights/Register/Action |Registre o provedor de Insights hello. |
 | Microsoft.Insights/webtests/* |Leia/grave/exclua testes da Web do Application Insights. |
 | Microsoft.OperationalInsights/workspaces/intelligencepacks/* |Leia/grave/exclua pacotes de solução do Log Analytics. |
 | Microsoft.OperationalInsights/workspaces/savedSearches/* |Leia/grave/exclua pesquisas salvas do Log Analytics. |
@@ -435,7 +435,7 @@ Pode gerenciar todos os recursos de rede
 | Microsoft.Authorization/*/read |Ler funções e atribuições de função |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
 | Microsoft.Network/* |Criar e gerenciar redes |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
@@ -447,7 +447,7 @@ Pode gerenciar contas e aplicativos de Gerenciamento de Desempenho do Aplicativo
 | --- | --- |
 | Microsoft.Authorization/*/read |Ler funções e atribuições de função |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
@@ -475,7 +475,7 @@ Pode gerenciar caches Redis
 | Microsoft.Authorization/*/read |Ler funções e atribuições de função |
 | Microsoft.Cache/redis/* |Criar e gerenciar caches Redis |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
@@ -487,7 +487,7 @@ Pode gerenciar coleções de trabalhos do agendador
 | --- | --- |
 | Microsoft.Authorization/*/read |Ler funções e atribuições de função |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Scheduler/jobcollections/* |Criar e gerenciar coleções de trabalhos |
@@ -500,7 +500,7 @@ Pode gerenciar serviços de pesquisa
 | --- | --- |
 | Microsoft.Authorization/*/read |Ler funções e atribuições de função |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Search/searchServices/* |Criar e gerenciar serviços de pesquisa |
@@ -516,23 +516,23 @@ Pode gerenciar componentes de segurança, políticas de segurança e máquinas v
 | Microsoft.ClassicCompute/virtualMachines/*/write |Gravar configuração para máquinas virtuais |
 | Microsoft.ClassicNetwork/*/read |Ler informações de configuração sobre a rede clássica |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Security/* |Criar e gerenciar políticas e componentes de segurança |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
 ### <a name="site-recovery-contributor"></a>Colaborador do Site Recovery
-Pode gerenciar todas as ações de gerenciamento do Site Recovery, exceto criar o cofre de Serviços de Recuperação e atribuir direitos de acesso a outros usuários
+Pode gerenciar todas as ações de gerenciamento de recuperação de Site, exceto criar Cofre de serviços de recuperação e atribuição tooother os usuários com direitos de acesso
 
 | **Ações** | |
 | --- | --- |
 | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
 | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta |
 | Microsoft.Network/virtualNetworks/read | Ler redes virtuais |
-| Microsoft.RecoveryServices/Vaults/certificates/write | Atualiza o certificado de credencial de cofre |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Criar e gerenciar informações estendidas relacionadas ao cofre |
-| Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Obter os alertas para o cofre dos Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/certificates/write | Certificado de credencial de Cofre de saudação de atualizações |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Criar e gerenciar informações estendidas relacionadas toovault |
+| Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Ler alertas para o Cofre de serviços de recuperação de saudação |
 | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read  | Ler a configuração de notificação do cofre dos Serviços de Recuperação |
 | Microsoft.RecoveryServices/Vaults/read | Ler cofres dos Serviços de Recuperação |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read | Gerenciar operações de descoberta para buscar contêineres recém-criados |
@@ -546,22 +546,22 @@ Pode gerenciar todas as ações de gerenciamento do Site Recovery, exceto criar 
 | Microsoft.RecoveryServices/Vaults/storageConfig/* | Criar e gerenciar a configuração de armazenamento do cofre de Serviços de Recuperação |
 | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Ler informações de token do cofre de Serviços de Recuperação |
 | Microsoft.RecoveryServices/Vaults/usages/read | Ler os detalhes de uso de um cofre de Serviços de Recuperação |
-| Microsoft.ResourceHealth/availabilityStatuses/read | Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Ler grupos de recursos |
 | Microsoft.Storage/storageAccounts/read | Ler contas de armazenamento |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
 ### <a name="site-recovery-operator"></a>Operador do Site Recovery
-Pode fazer failover e failback, mas pode não executar outras ações de gerenciamento do Site Recovery nem atribuir acesso a outros usuários
+Failover e Failback, mas pode não executar outras ações de gerenciamento de recuperação de Site nem atribuir acesso de usuários tooother
 
 | **Ações** | |
 | --- | --- |
 | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
 | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta |
 | Microsoft.Network/virtualNetworks/read | Ler redes virtuais |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Ler informações estendidas relacionadas ao cofre |
-| Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Obter os alertas para o cofre dos Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Informações de leitura estendida relacionados toovault |
+| Microsoft.RecoveryServices/Vaults/monitoringAlerts/*  | Ler alertas para o Cofre de serviços de recuperação de saudação |
 | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read  | Ler a configuração de notificação do cofre dos Serviços de Recuperação |
 | Microsoft.RecoveryServices/Vaults/read | Ler cofres dos Serviços de Recuperação |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read | Gerenciar operações de descoberta para buscar contêineres recém-criados |
@@ -569,7 +569,7 @@ Pode fazer failover e failback, mas pode não executar outras ações de gerenci
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Ler contêineres registrados para um recurso |
 | Microsoft.RecoveryServices/vaults/replicationAlertSettings/read | Ler definições de alerta de replicação |
 | Microsoft.RecoveryServices/vaults/replicationEvents/read | Ler eventos de replicação |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/checkConsistency/action | Verificar a consistência das malhas |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/checkConsistency/action | Verificação de consistência de malhas de saudação do |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/read | Ler malhas de replicação |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ reassociateGateway/action | Reassociar o gateway de replicação |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/renewcertificate/action | Renovar o certificado de malha de replicação |
@@ -587,7 +587,7 @@ Pode fazer failover e failback, mas pode não executar outras ações de gerenci
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailover/action | Iniciar o failover de teste de um item protegido |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ testFailoverCleanup/action | Iniciar a limpeza de um failover de teste |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ unplannedFailover/action | Iniciar o failover não planejado de um item protegido |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ updateMobilityService/action | Atualizar o Serviço de mobilidade |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/ updateMobilityService/action | Atualizar serviço de mobilidade Olá |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read | Ler mapeamentos de contêiner de proteção |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/read | Ler provedores de Serviços de Recuperação |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/refreshProvider/action | Atualizar o provedor de Serviços de Recuperação |
@@ -606,7 +606,7 @@ Pode fazer failover e failback, mas pode não executar outras ações de gerenci
 | Microsoft.RecoveryServices/Vaults/storageConfig/read | Ler a configuração de armazenamento de um cofre de Serviços de Recuperação |
 | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Ler informações de token do cofre de Serviços de Recuperação |
 | Microsoft.RecoveryServices/Vaults/usages/read | Ler os detalhes de uso de um cofre de Serviços de Recuperação |
-| Microsoft.ResourceHealth/availabilityStatuses/read | Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read | Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Ler grupos de recursos |
 | Microsoft.Storage/storageAccounts/read | Ler contas de armazenamento |
@@ -618,8 +618,8 @@ Pode monitorar o status do Site Recovery no cofre de Serviços de Recuperação 
 | **Ações** | |
 | --- | --- |
 | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
-| Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Ler informações estendidas relacionadas ao cofre |
-| Microsoft.RecoveryServices/Vaults/monitoringAlerts/read  | Obter os alertas para o cofre dos Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Informações de leitura estendida relacionados toovault |
+| Microsoft.RecoveryServices/Vaults/monitoringAlerts/read  | Ler alertas para o Cofre de serviços de recuperação de saudação |
 | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/ notificationConfiguration/read  | Ler a configuração de notificação do cofre dos Serviços de Recuperação |
 | Microsoft.RecoveryServices/Vaults/read  | Ler cofres dos Serviços de Recuperação |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/read  | Gerenciar operações de descoberta para buscar contêineres recém-criados |
@@ -654,7 +654,7 @@ Pode gerenciar bancos de dados SQL, mas não suas políticas relacionadas à seg
 | --- | --- |
 | Microsoft.Authorization/*/read |Ler funções e atribuições de função |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Sql/servers/databases/* |Criar e gerenciar bancos de dados SQL |
@@ -672,13 +672,13 @@ Pode gerenciar bancos de dados SQL, mas não suas políticas relacionadas à seg
 | Microsoft.Sql/servers/databases/securityMetrics/* |Não é possível editar métricas de segurança |
 
 ### <a name="sql-security-manager"></a>Gerenciador de Segurança do SQL
-Pode gerenciar políticas relacionadas à segurança de servidores e bancos de dados SQL
+Pode gerenciar políticas de saudação relacionadas à segurança de servidores SQL e bancos de dados
 
 | **Ações** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Ler autorização da Microsoft |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta do Insights |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Sql/servers/auditingPolicies/* |Criar e gerenciar políticas de auditoria do servidor SQL |
@@ -705,7 +705,7 @@ Pode gerenciar servidores e bancos de dados SQL, mas não as políticas relacion
 | --- | --- |
 | Microsoft.Authorization/*/read |Ler autorização |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta do Insights |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Sql/servers/* |Criar e gerenciar servidores SQL |
@@ -732,27 +732,27 @@ Pode gerenciar contas de armazenamento clássicas
 | Microsoft.Authorization/*/read |Ler autorização |
 | Microsoft.ClassicStorage/storageAccounts/* |Criar e gerenciar contas de armazenamento |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta do Insights |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
 ### <a name="storage-account-contributor"></a>Colaborador da Conta de Armazenamento
-Pode gerenciar contas de armazenamento, mas não acessá-las.
+Pode gerenciar contas de armazenamento, mas não acessar toothem.
 
 | **Ações** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Ler todas as autorizações |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta do Insights |
 | Microsoft.Insights/diagnosticSettings/* |Gerenciar configurações de diagnóstico |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Storage/storageAccounts/* |Criar e gerenciar contas de armazenamento |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
 ### <a name="support-request-contributor"></a>Colaborador de solicitação de suporte
-Pode criar e gerenciar os tíquetes de suporte no escopo de assinatura
+Crie e gerencie os tíquetes de suporte no escopo de assinatura Olá
 
 | **Ações** |  |
 | --- | --- |
@@ -761,7 +761,7 @@ Pode criar e gerenciar os tíquetes de suporte no escopo de assinatura
 | Microsoft.Resources/subscriptions/resourceGroups/read | Ler funções e atribuições de função |
 
 ### <a name="user-access-administrator"></a>Administrador de Acesso do Usuário
-Pode gerenciar o acesso do usuário aos recursos do Azure
+Pode gerenciar os recursos de tooAzure de acesso do usuário
 
 | **Ações** |  |
 | --- | --- |
@@ -770,7 +770,7 @@ Pode gerenciar o acesso do usuário aos recursos do Azure
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
 ### <a name="classic-virtual-machine-contributor"></a>Colaborador de Máquina Virtual Clássica
-Pode gerenciar máquinas virtuais clássicas, mas não a rede virtual ou a conta de armazenamento à qual estão conectadas
+Pode gerenciar máquinas virtuais clássicas, mas não rede virtual hello ou toowhich de conta de armazenamento que estão conectados
 
 | **Ações** |  |
 | --- | --- |
@@ -787,13 +787,13 @@ Pode gerenciar máquinas virtuais clássicas, mas não a rede virtual ou a conta
 | Microsoft.ClassicStorage/storageAccounts/listKeys/action |Listar chaves da conta de armazenamento |
 | Microsoft.ClassicStorage/storageAccounts/read |Ler contas de armazenamento clássico |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta do Insights |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
 ### <a name="virtual-machine-contributor"></a>Colaborador de Máquina Virtual
-Pode gerenciar máquinas virtuais, mas não a rede virtual ou a conta de armazenamento à qual estão conectadas
+Pode gerenciar máquinas virtuais, mas não Olá virtual rede ou armazenamento conta toowhich que estão conectados
 
 | **Ações** |  |
 | --- | --- |
@@ -816,7 +816,7 @@ Pode gerenciar máquinas virtuais, mas não a rede virtual ou a conta de armazen
 | Microsoft.Network/publicIPAddresses/read |Ler endereços IP públicos de rede |
 | Microsoft.Network/virtualNetworks/read |Ler redes virtuais |
 | Microsoft.Network/virtualNetworks/subnets/join/action |Unir sub-redes de rede virtual |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Storage/storageAccounts/listKeys/action |Listar chaves da conta de armazenamento |
@@ -831,7 +831,7 @@ Pode gerenciar redes virtuais clássicas e IPs reservados
 | Microsoft.Authorization/*/read |Ler autorização |
 | Microsoft.ClassicNetwork/* |Criar e gerenciar redes clássicas |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta do Insights |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
@@ -843,32 +843,32 @@ Pode gerenciar planos da Web
 | --- | --- |
 | Microsoft.Authorization/*/read |Ler autorização |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta do Insights |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 | Microsoft.Web/serverFarms/* |Criar e gerenciar farms de servidores |
 
 ### <a name="website-contributor"></a>Colaborador do Site
-Pode gerenciar sites, mas não os planos da Web ao quais eles estão conectados
+Pode gerenciar sites, mas não Olá web planos toowhich estão conectados
 
 | **Ações** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Ler autorização |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta do Insights |
 | Microsoft.Insights/components/* |Criar e gerenciar componentes do Insights |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Integridade de recursos de saudação de leitura |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 | Microsoft.Web/certificates/* |Criar e gerenciar certificados de site da Web |
-| Microsoft.Web/listSitesAssignedToHostName/read |Ler sites atribuídos a um nome de host |
+| Microsoft.Web/listSitesAssignedToHostName/read |Sites de leitura atribuídos um nome de host tooa |
 | Microsoft.Web/serverFarms/join/action |Unir farms de servidores |
 | Microsoft.Web/serverFarms/read |Ler farms de servidores |
-| Microsoft.Web/sites/* |Criar e gerenciar sites (a criação de sites também requer permissões de gravação para o Plano do Serviço de Aplicativo associado) |
+| Microsoft.Web/sites/* |Criar e gerenciar sites (criação do site também requer toohello de permissões de gravação associados plano do serviço de aplicativo) |
 
-## <a name="see-also"></a>Confira também
-* [Controle de Acesso Baseado em Função](role-based-access-control-configure.md): introdução ao RBAC no portal do Azure.
-* [Funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md): aprenda a criar funções personalizadas para atender às suas necessidades de acesso.
+## <a name="see-also"></a>Consulte também
+* [Controle de acesso baseado em função](role-based-access-control-configure.md): Introdução ao RBAC em Olá portal do Azure.
+* [Funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md): Saiba como toocreate funções personalizadas toofit sua necessidades de acesso.
 * [Criar um relatório de histórico de alterações de acesso](role-based-access-control-access-change-history-report.md): mantenha o controle das alterações de atribuições de função no RBAC.
 * [Solução de problemas de Controle de Acesso Baseado em Função](role-based-access-control-troubleshooting.md): obtenha sugestões para corrigir problemas comuns.

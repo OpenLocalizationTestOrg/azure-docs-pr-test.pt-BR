@@ -1,6 +1,6 @@
 ---
-title: "Entrega contínua com o Git e o Visual Studio Team Services no Azure | Microsoft Docs"
-description: "Saiba como configurar seus projetos de equipe do Visual Studio Team Services para usarem o Git para serem compilados e implantados automaticamente no recurso Aplicativo Web no Serviço de Aplicativo do Azure ou nos serviços de nuvem."
+title: entrega de aaaContinuous com Git e do Visual Studio Team Services no Azure | Microsoft Docs
+description: "Saiba como tooconfigure o Visual Studio Team Services projetos da equipe toouse Git tooautomatically criar e implantar o recurso de aplicativo Web toohello nos serviços de nuvem ou do serviço de aplicativo do Azure."
 services: cloud-services
 documentationcenter: .net
 author: mlearned
@@ -14,178 +14,178 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: mlearned
-ms.openlocfilehash: f4f5f231536bc381d17898ff2c592be821168a65
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 936c42194f45be55597a77f9a3a6deb4480ed94b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="continuous-delivery-to-azure-using-visual-studio-team-services-and-git"></a>Entrega contínua no Azure usando Visual Studio Team Services e Git
-Você pode usar os projetos de equipe do Visual Studio Team Services para hospedar um repositório Git para seu código-fonte, e compilar e implantá-lo automaticamente em aplicativos Web ou serviços de nuvem do Azure sempre que enviar por push uma confirmação ao repositório.
+# <a name="continuous-delivery-tooazure-using-visual-studio-team-services-and-git"></a>Fornecimento contínuo tooAzure usando o Visual Studio Team Services e o Git
+Você pode usar toohost de projetos de equipe do Visual Studio Team Services um repositório Git para seu código-fonte e automaticamente criar e implantar aplicativos da web de tooAzure ou serviços em nuvem sempre que você enviar por push a um repositório de toohello de confirmação.
 
-Você precisará do Visual Studio 2013 e do SDK do Azure instalados. Se você ainda não tiver o Visual Studio 2013, baixe-o selecionando o link **Introdução gratuita (a página pode estar em inglês)** em [www.visualstudio.com](http://www.visualstudio.com). Instale o SDK do Azure [aqui](http://go.microsoft.com/fwlink/?LinkId=239540).
+Você precisará Visual Studio 2013 e hello SDK do Azure instalado. Se você ainda não tiver o Visual Studio 2013, baixá-lo escolhendo Olá **comece gratuitamente** link [www.visualstudio.com](http://www.visualstudio.com). Instalar Olá SDK do Azure na [aqui](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 > [!NOTE]
-> Você precisa de uma conta do Visual Studio Team Services para concluir este tutorial: você pode [abrir uma conta do Visual Studio Team Services gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> É necessário um toocomplete de conta do Visual Studio Team Services este tutorial: você pode [abrir uma conta do Visual Studio Team Services gratuitamente](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 > 
 > 
 
-Para configurar um serviço de nuvem para compilação e implantação automática no Azure usando o Visual Studio Team Services, siga essas etapas.
+tooset a um tooautomatically de serviço de nuvem compilar e implantar tooAzure usando o Visual Studio Team Services, siga estas etapas.
 
 ## <a name="1-create-a-git-repository"></a>1: Criar um repositório Git
-1. Se você ainda não tiver uma conta do Visual Studio Team Services, pode obter uma [aqui](http://go.microsoft.com/fwlink/?LinkId=397665). Quando criar seu projeto da equipe, escolha o Git como seu sistema de controle do código-fonte. Siga as instruções para conectar o Visual Studio ao projeto da equipe.
-2. No **Team Explorer**, escolha o link **Clonar este repositório**.
+1. Se você ainda não tiver uma conta do Visual Studio Team Services, pode obter uma [aqui](http://go.microsoft.com/fwlink/?LinkId=397665). Quando criar seu projeto da equipe, escolha o Git como seu sistema de controle do código-fonte. Execute o projeto de equipe de tooyour Olá instruções tooconnect Visual Studio.
+2. Em **Team Explorer**, escolha Olá **a clonagem deste repositório** link.
    
     ![][3]
-3. Especifique o local da cópia local e selecione o botão **Clonar** .
+3. Especificar local de saudação da cópia local do hello e escolha Olá **Clone** botão.
 
-## <a name="2-create-a-project-and-commit-it-to-the-repository"></a>2: Criar um projeto e confirmá-lo no repositório
-1. No **Team Explorer**, na seção **Soluções**, selecione o link **Novo** para criar um novo projeto no repositório local.
+## <a name="2-create-a-project-and-commit-it-toohello-repository"></a>2: criar um projeto e confirmá-la toohello repositório
+1. Em **Team Explorer**, em Olá **soluções** , escolha Olá **novo** link toocreate um novo projeto no repositório local hello.
    
     ![][4]
-2. Você pode implantar um aplicativo Web ou um serviço de nuvem (aplicativo do Azure) seguindo as etapas neste passo a passo. Crie um novo projeto de Serviço de Nuvem do Azure ou um novo projeto ASP.NET MVC. Certifique-se de que o projeto direciona-se ao .NET Framework 4 ou posterior. Se você está criando um projeto de serviço de nuvem, adicione uma função de trabalho e uma função web MVC do ASP.NET.
-   Se você quiser criar um aplicativo Web, escolha o modelo de projeto de **Aplicativo Web ASP.NET** e escolha **MVC**. Consulte [Criar um aplicativo web ASP.NET no Serviço de Aplicativo do Azure](../app-service-web/app-service-web-get-started-dotnet.md) para obter mais informações.
-3. Abra o menu de atalho da solução e escolha **Confirmar**.
+2. Você pode implantar um aplicativo web ou um serviço de nuvem (aplicativo do Azure) pelo Olá seguir as etapas neste passo a passo. Crie um novo projeto de Serviço de Nuvem do Azure ou um novo projeto ASP.NET MVC. Certifique-se de destinos do projeto Olá Olá .NET Framework 4 ou posterior. Se você está criando um projeto de serviço de nuvem, adicione uma função de trabalho e uma função web MVC do ASP.NET.
+   Se você quiser toocreate um aplicativo web, escolha Olá **aplicativo Web ASP.NET** modelo de projeto e escolha **MVC**. Consulte [Criar um aplicativo web ASP.NET no Serviço de Aplicativo do Azure](../app-service-web/app-service-web-get-started-dotnet.md) para obter mais informações.
+3. Abra Olá menu de atalho Olá solução e escolha **confirmar**.
    
     ![][7]
-4. Se for a primeira vez que usa o Git no Visual Studio Team Services, você precisará fornecer algumas informações para se identificar no Git. Na área **Alterações Pendentes** do **Team Explorer**, insira seu nome de usuário e endereço de email. Digite um comentário para a confirmação e, em seguida, escolha o botão **Confirmar** .
+4. Se esse for Olá pela primeira vez que você usou o Git no Visual Studio Team Services, você precisará tooprovide tooidentify algumas informações por conta própria no Git. Em Olá **alterações pendentes** área de **Team Explorer**, insira seu nome de usuário e endereço de email. Digite um comentário para confirmação hello e escolha Olá **confirmação** botão.
    
     ![][8]
-5. Observe as opções para incluir ou excluir alterações específicas ao fazer check-in. Se as alterações desejadas tiverem sido excluídas, escolha **Incluir Tudo**.
-6. Você confirmou as alterações em sua cópia local do repositório. Em seguida, sincronize as alterações com o servidor escolhendo o link **Sincronizar** .
+5. Observação: Olá opções tooinclude ou excluir alterações específicas ao fazer check-in. Se Olá alterações que você deseja são excluídos, escolha **incluir tudo**.
+6. Você tem agora Olá confirmada alterações em sua cópia local do repositório de saudação. Em seguida, sincronizar as alterações com o servidor de saudação escolhendo Olá **sincronização** link.
 
-## <a name="3-connect-the-project-to-azure"></a>3: Conectar o projeto ao Azure
-1. Agora que possui um repositório Git no Visual Studio Team Services com algum código-fonte nele, você está pronto para conectar seu repositório Git ao Azure.  No [portal clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885), selecione o serviço de nuvem ou aplicativo Web ou crie um novo; para isso, selecione o ícone + na parte inferior esquerda e escolha **Serviço de Nuvem** ou **Aplicativo Web**, depois selecione **Criação Rápida**.
+## <a name="3-connect-hello-project-tooazure"></a>3: conectar Olá projeto tooAzure
+1. Agora que você tem um repositório Git no Visual Studio Team Services com um código de origem nele, você está pronto tooconnect seu tooAzure de repositório do git.  Em Olá [portal clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885), selecione o aplicativo web ou serviço de nuvem ou crie um novo escolhendo o ícone na esquerda inferior hello e escolhendo + Olá **serviço de nuvem** ou **aplicativo Web**e **criação rápida**.
    
     ![][9]
-2. Para serviços de nuvem, escolha o link **Configurar a publicação com o Visual Studio Team Services** . Para aplicativos Web, escolha o link **Configurar a implantação por meio do controle do código-fonte** .
+2. Para serviços de nuvem, escolha Olá **configurar a publicação com o Visual Studio Team Services** link. Para aplicativos da web, escolha Olá **configurar a implantação do controle de origem** link.
    
     ![][10]
-3. No assistente, digite o nome da sua conta do Visual Studio Team Services na caixa de texto e escolha o link **Autorizar agora** . Você pode ser solicitado a entrar.
+3. No Assistente de saudação, digite o nome de saudação da sua conta do Visual Studio Team Services na caixa de texto de saudação e escolha Olá **autorizar agora** link. Você pode ser solicitado toosign no.
    
     ![][11]
-4. Na caixa de diálogo pop-up **Solicitação de Conexão**, escolha **Aceitar** para autorizar o Azure a configurar seu projeto de equipe no Visual Studio Team Services.
+4. Em Olá **solicitação de Conexão** caixa de diálogo pop-up, escolha **aceitar** tooauthorize tooconfigure do Azure que sua equipe de projeto no Visual Studio Team Services.
    
     ![][12]
-5. Depois que a autorização obtiver êxito, você verá uma lista suspensa que contém os projetos de equipe do Visual Studio Team Services.  Selecione o nome do projeto da equipe que você criou nas etapas anteriores e escolha o botão de marca de seleção do assistente.
+5. Depois que a autorização obtiver êxito, você verá uma lista suspensa que contém os projetos de equipe do Visual Studio Team Services.  Selecione Olá nome de projeto de equipe que você criou nas etapas anteriores hello e escolha o botão de marca de seleção do Assistente de saudação.
    
     ![][13]
    
-    Na próxima vez em que você enviar uma confirmação por push ao repositório, o Visual Studio Team Services vai compilar e implantar seu projeto no Azure.
+    Olá próxima vez que você enviar por push a um repositório de tooyour confirmação, o Visual Studio Team Services criará e implantará tooAzure seu projeto.
 
 ## <a name="4-trigger-a-rebuild-and-redeploy-your-project"></a>4: Disparar uma recompilação e reimplantar seu projeto
-1. No Visual Studio, abra um arquivo e altere-o. Por exemplo, altere o arquivo `_Layout.cshtml` na pasta Modos de Exibição\\Compartilhado em uma função web do MVC.
+1. No Visual Studio, abra um arquivo e altere-o. Por exemplo, altere o arquivo hello `_Layout.cshtml` em modos de exibição de saudação\\pasta compartilhada em uma função da web MVC.
    
     ![][17]
-2. Edite o texto do rodapé do site e salve o arquivo.
+2. Editar texto de rodapé Olá para o site de saudação e salve o arquivo hello.
    
     ![][18]
-3. No **Gerenciador de Soluções**, abra o menu de atalho do nó da solução, nó do projeto ou do arquivo que você alterou e então escolha **Confirmar**.
+3. Em **Solution Explorer**, abra o menu de atalho de Olá Olá Olá, nó de projeto ou nó da solução arquivo você alterado e, em seguida, escolha **confirmar**.
 4. Digite um comentário e escolha **Confirmar**.
    
     ![][20]
-5. Selecione o link **Sincronizar** .
+5. Escolha Olá **sincronização** link.
    
     ![][38]
-6. Escolha o link **Enviar por push** para enviar sua confirmação por push ao repositório no Visual Studio Team Services. (Você também pode usar o botão **Sincronizar** para copiar suas confirmações no repositório. A diferença é que **Sincronizar** também efetua pull das alterações mais recentes do repositório.
+6. Escolha Olá **Push** link toopush seu repositório de toohello de confirmação no Visual Studio Team Services. (Você também pode usar o hello **sincronização** botão toocopy seu repositório de toohello confirmações. Olá diferença é que **sincronização** também recebe Olá últimas alterações no repositório de hello.)
    
     ![][39]
-7. Escolha o botão **Início** para retornar à home page do **Team Explorer**.
+7. Escolha Olá **inicial** botão tooreturn toohello **Team Explorer** página inicial.
    
     ![][21]
-8. Escolha **Compilações** para exibir as compilações em andamento.
+8. Escolha **cria** tooview Olá compilações em andamento.
    
     ![][22]
    
     **Team Explorer** mostra que uma compilação foi disparada para seu check-in.
    
     ![][23]
-9. Para exibir um log detalhado enquanto a compilação está em andamento, clique duas vezes no nome da compilação em andamento.
-10. Enquanto a compilação estiver em andamento, examine a definição de compilação que foi criada quando você usou o assistente para vincular ao Azure.  Abra o menu de atalho da definição de compilação e escolha **Editar Definição de Compilação**.
+9. tooview um log detalhado Olá compilação em andamento, clique duas vezes no nome Olá Olá compilação em andamento.
+10. Enquanto a compilação de saudação está em andamento, dê uma olhada na definição de compilação de saudação que foi criada quando você usou Olá Assistente toolink tooAzure.  Abra o menu de atalho Olá Olá para definição de compilação e escolha **editar definição de compilação**.
     
     ![][25]
-11. Na guia **Gatilho** , você verá que a definição de compilação está definida, por padrão, para compilar em cada check-in. (Para um serviço de nuvem, o Visual Studio Team Services compila e implanta a ramificação mestre no ambiente de preparo automaticamente. Você ainda precisa executar uma etapa manual para implantar no site ativo. Para um aplicativo Web que não tem um ambiente de preparo, ele implanta a ramificação mestra diretamente no site ativo.
+11. Em Olá **gatilho** guia, você verá que definição de compilação de saudação é definida toobuild em cada check-in, por padrão. (Para um serviço de nuvem do Visual Studio Team Services cria e implanta Olá ramificação mestre toohello automaticamente o ambiente de preparo. Você ainda terá toodo site ao vivo do toodeploy toohello uma etapa manual. Para um aplicativo web que não tem um ambiente de preparo, implanta ramificação mestre Olá diretamente toohello live site.
     
     ![][26]
-12. Na guia **Processo** , você pode ver que o ambiente de implantação está definido como o nome do seu serviço de nuvem ou aplicativo Web.
+12. Em Olá **processo** guia, você pode ver o ambiente de implantação Olá é definido toohello nome do seu aplicativo web ou serviço de nuvem.
     
      ![][27]
-13. Especifique valores para as propriedades se você desejar valores diferentes dos padrões. As propriedades de publicação no Azure estão na seção **Implantação** e talvez você também precise definir parâmetros MSBuild. Por exemplo, em um projeto de serviço de nuvem, para especificar uma configuração de serviço diferente de "Nuvem", defina os parâmetros do MSbuild como `/p:TargetProfile=[YourProfile]`, em que *[YourProfile]* corresponde a um arquivo de configuração de serviço com um nome como ServiceConfiguration.*YourProfile*.cscfg.
+13. Especifica valores para propriedades de saudação se você quiser que os valores diferentes de padrões de saudação. Olá propriedades de publicação do Azure estão em Olá **implantação** seção e você talvez também seja necessário tooset MSBuild parâmetros. Por exemplo, em um projeto de serviço de nuvem, toospecify uma configuração de serviço diferente de "Nuvem", definir muito Olá MSbuild parâmetros`/p:TargetProfile=[YourProfile]` onde *[YourProfile]* corresponde a um arquivo de configuração de serviço com um nome como ServiceConfiguration. *YourProfile*. cscfg.
     
-     A tabela a seguir mostra as propriedades disponíveis na seção **Implantação** :
+     Olá tabela a seguir mostra propriedades disponíveis Olá em Olá **implantação** seção:
     
     | Propriedade | Valor Padrão |
     | --- | --- |
     | Permitir certificados não confiáveis |Se falso, os certificados SSL deve ser assinados por uma autoridade raiz. |
-    | Permitir Atualização |Permite que a implantação atualize uma implantação existente em vez de criar uma nova. Preserve o endereço IP. |
+    | Permitir Atualização |Olá implantação tooupdate permite que uma implantação existente em vez de criar um novo. Preserva o endereço IP hello. |
     | Não exclua |Se verdadeiro, não substitua uma implantação não relacionada existente (a atualização é permitida). |
-    | Caminho para Configurações de Implantação |O caminho para seu arquivo .pubxml para um aplicativo Web, relacionado à pasta raiz do repositório. Ignorado para serviços de nuvem. |
-    | Ambiente de implantação do Sharepoint |O mesmo que o nome do serviço. |
-    | Ambiente de implantação do Azure |O nome do aplicativo Web ou do serviço de nuvem. |
+    | Caminho tooDeployment configurações |Olá caminho tooyour. pubxml arquivo para um aplicativo web, a pasta raiz de toohello relativo do repositório de saudação. Ignorado para serviços de nuvem. |
+    | Ambiente de implantação do Sharepoint |Olá mesmo como o nome do serviço hello. |
+    | Ambiente de implantação do Azure |Olá aplicativo ou nuvem nome do serviço web. |
 14. A essa altura, sua compilação deve estar concluída com êxito.
     
      ![][28]
-15. Se você clicar duas vezes no nome da compilação, o Visual Studio mostrará um **Resumo da Compilação**, incluindo qualquer resultado de teste de projetos de teste de unidade associados.
+15. Se você clicar duas vezes nome de compilação hello, o Visual Studio mostra uma **Resumo da compilação**, incluindo os resultados dos testes de associadas a projetos de teste de unidade.
     
      ![][29]
-16. No [portal clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885), você poderá exibir a implantação associada na guia **Implantações** quando o ambiente de preparo estiver selecionado.
+16. Em Olá [portal clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885), você pode exibir a implantação de saudação associada em Olá **implantações** guia quando Olá ambiente de preparo é selecionado.
     
      ![][30]
-17. Navegue até a URL do site. Para um aplicativo Web, basta clicar no botão **Procurar** no portal. Para um serviço de nuvem, escolha a URL na seção **Visão Rápida** da página **Painel** que mostra o ambiente de preparo.
+17. Procure tooyour URL do seu site. Para um aplicativo web, basta escolher Olá **procurar** botão no portal de saudação. De um serviço de nuvem, escolha URL Olá Olá **rápidos** seção Olá **painel** página que mostra o ambiente de preparo hello.
     
-    Por padrão, as implantações de integração contínua para serviços de nuvem são publicadas no ambiente de preparo. Você pode alterar isso definindo a propriedade **Ambiente de Serviço de Nuvem Alternativo** para a **Produção**. Esta é a localização do URL do site está na página do painel do serviço de nuvem:
+    As implantações de integração contínua para serviços de nuvem são publicados toohello ambiente de preparo por padrão. Você pode alterar essa configuração Olá **ambiente de serviço de nuvem alternativo** propriedade muito**produção**. Aqui é onde Olá URL do site na página do painel do serviço de nuvem hello.
     
     ![][31]
     
-    Uma nova guia do navegador será aberta para revelar seu site em execução.
+    Uma nova guia do navegador será aberto tooreveal seu site em execução.
     
     ![][32]
-18. Se fizer outras alterações em seu projeto, você disparará mais compilações e acumulará várias implantações. O mais recente é marcado como Ativo.
+18. Se você fizer outras alterações tooyour projeto, você gatilho mais cria e acumularão várias implantações. Olá mais recente um é marcado como ativo.
     
     ![][33]
 
 ## <a name="5-redeploy-an-earlier-build"></a>5: Reimplantar um build anterior
-Esta etapa é opcional. No portal clássico do Azure, selecione uma implantação anterior e escolha **Reimplantar** para que seu site retroceda até um check-in anterior. Observe que isso vai disparar uma nova compilação no TFS e criará uma nova entrada em seu histórico de implantação.
+Esta etapa é opcional. Olá portal clássico do Azure, escolha uma implantação anterior e escolha **reimplantar** toorewind tooan seu site anteriormente check-in. Observe que isso vai disparar uma nova compilação no TFS e criará uma nova entrada em seu histórico de implantação.
 
 ![][34]
 
-## <a name="6-change-the-production-deployment"></a>6: Alterar a implantação de Produção
-Quando estiver pronto, você pode promover o ambiente de preparo para o ambiente de produção escolhendo **Trocar** no portal clássico do Azure. O ambiente de preparo recém-implantado é promovido para a produção e o ambiente de produção anterior, se houver, torna-se um ambiente de preparo. A implantação Ativa pode ser diferente dos ambientes de preparo e de produção, mas o histórico de implantação de compilações recentes é o mesmo, independentemente do ambiente.
+## <a name="6-change-hello-production-deployment"></a>6: alterar a implantação de produção de hello
+Quando você estiver pronto, você pode promover Olá preparo toohello ambiente de produção, escolhendo **trocar** em Olá portal clássico do Azure. ambiente de preparo Olá implantado recentemente é promovida tooProduction e ambiente de produção anterior hello, se houver, torna-se um ambiente de preparo. Olá implantação ativa pode ser diferente para ambientes de preparo e produção de hello, mas o histórico de implantação de saudação de builds recentes é Olá mesmo independentemente do ambiente.
 
 ![][35]
 
 ## <a name="7-deploy-from-a-working-branch"></a>7: Implantar por meio de uma ramificação em funcionamento.
-Quando usa o Git, normalmente você faz alterações em uma ramificação em andamento e a integra à ramificação mestre quando seu desenvolvimento estiver concluído. Durante a fase de desenvolvimento de um projeto, você compilará e implantará a ramificação em andamento no Azure.
+Quando você usa o Git, você normalmente fazer alterações em uma ramificação de trabalho e integrar a ramificação mestre hello quando o desenvolvimento de atinge um estado concluído. Durante a fase de desenvolvimento de saudação de um projeto, você deseja toobuild e implantar Olá tooAzure de ramificação de trabalho.
 
-1. No **Team Explorer**, escolha o botão **Início** e depois escolha o botão **Ramificações**.
+1. Em **Team Explorer**, escolha Olá **início** botão e, em seguida, escolha Olá **ramificações** botão.
    
     ![][40]
-2. Escolha o link **Nova Ramificação** .
+2. Escolha Olá **nova ramificação** link.
    
     ![][41]
-3. Insira o nome da ramificação, como “em andamento” e escolha **Criar Ramificação**. Isso cria uma nova ramificação local.
+3. Insira nome de saudação do branch hello, como "trabalho" e escolha **criar ramificação**. Isso cria uma nova ramificação local.
    
     ![][42]
-4. Publique a ramificação. Escolha o nome da ramificação em **Ramificações Não Publicadas** e selecione **Publicar**.
+4. Publica o branch de saudação. Escolher nome de branch Olá em **não publicado ramificações**e escolha **publicar**.
    
     ![][44]
-5. Por padrão, somente alterações na ramificação mestre disparam uma compilação contínua. Para definir o build contínuo para uma ramificação em andamento, escolha a página **Compilações** no **Team Explorer** e escolha **Editar Definição de Build**.
-6. Abra a guia **Configurações da Origem** . Em **Ramificações Monitoradas para Integração e Build Contínuos**, selecione **Clique aqui para Adicionar uma Nova Linha**.
+5. Por padrão, somente altera o disparador de ramificação mestre toohello uma compilação contínua. tooset backup contínua compilação para uma ramificação de trabalho, escolha Olá **cria** página **Team Explorer**e escolha **editar definição de compilação**.
+6. Olá abrir **configurações de fonte** guia. Em **monitorados ramificações de integração contínua e compilação**, escolha **clique aqui tooadd uma nova linha**.
    
     ![][47]
-7. Especifique a ramificação que você criou, como refs/heads/working.
+7. Especifique a ramificação de saudação que você criou, como cabeçalhos/refs/trabalho.
    
     ![][48]
-8. Faça uma alteração no código, abra o menu de atalho do arquivo alterado e escolha **Confirmar**.
+8. Faça uma alteração no código hello, menu de atalho Olá abrir arquivo hello alterado e, em seguida, escolha **confirmar**.
    
     ![][43]
-9. Escolha o link **Confirmações Não Sincronizadas** e clique no botão **Sincronizar** ou no link **Enviar por push** para copiar as alterações para a cópia da ramificação em andamento no Visual Studio Team Services.
+9. Escolha Olá **as confirmações** link e escolha Olá **sincronização** botão ou hello **Push** saudação do link toocopy altera toohello cópia de ramificação de trabalho Olá no Visual Studio Serviços de equipe.
    
    ![][45]
-10. Navegue até a exibição **Compilações** e encontre a compilação que foi acionada para a ramificação em andamento.
+10. Navegue toohello **cria** exibir e encontrar a compilação de saudação que foi disparada apenas para a ramificação de trabalho hello.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais dicas sobre como usar o Git com o Visual Studio Team Services, consulte [Desenvolver e compartilhar seu código no Git usando o Visual Studio](https://www.visualstudio.com/en-us/docs/git/share-your-code-in-git-vs-2017) e para obter informações sobre como usar um repositório Git que não é gerenciado pelo Visual Studio Team Services para publicar no Azure, consulte [Implantação Contínua para o Serviço de Aplicativo do Azure](../app-service-web/app-service-continuous-deployment.md). Para obter mais informações sobre o Visual Studio Team Services, consulte [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+toolearn mais dicas sobre como usar o Git com o Visual Studio Team Services, consulte [desenvolver e compartilhar seu código no Git usando o Visual Studio](https://www.visualstudio.com/en-us/docs/git/share-your-code-in-git-vs-2017) e para obter informações sobre como usar um repositório Git que não é gerenciado pelo Visual Studio Team Services toopublish tooAzure, consulte [tooAzure implantação contínua do serviço de aplicativo](../app-service-web/app-service-continuous-deployment.md). Para obter mais informações sobre o Visual Studio Team Services, consulte [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG

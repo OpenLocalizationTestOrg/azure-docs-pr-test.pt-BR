@@ -1,5 +1,5 @@
 ---
-title: Definir alertas no Azure Application Insights | Microsoft Docs
+title: Alertas de aaaSet no Azure Application Insights | Microsoft Docs
 description: "Seja notificado sobre os tempos de resposta lentos, as exceções e outras alterações de desempenho ou de uso em seu aplicativo Web."
 services: application-insights
 documentationcenter: 
@@ -13,86 +13,86 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.openlocfilehash: c8386ffc5d68260eeb75edf7efb77db1163dcef8
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: e160cb173e68fda2e6d97f29da342c46b7ac4f19
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="set-alerts-in-application-insights"></a>Definir alertas no Application Insights
-O [Azure Application Insights][start] pode alertá-lo sobre as alterações nas métricas de desempenho ou de uso do aplicativo Web. 
+[Informações de aplicativo do Azure] [ start] pode alertá-lo toochanges em métricas de desempenho ou de uso em seu aplicativo web. 
 
-O Application Insights monitora o aplicativo ativo em um [ampla variedade de plataformas][platforms] para ajudá-lo a diagnosticar problemas de desempenho e compreender os padrões de uso.
+Application Insights monitora seu aplicativo em tempo real em um [ampla variedade de plataformas] [ platforms] toohelp diagnosticar problemas de desempenho e entender os padrões de uso.
 
 Há três tipos de alerta:
 
 * Os **alertas de métrica** informam quando uma métrica ultrapassa um valor limite durante determinado período – como tempos de resposta, contagens de exceção, uso da CPU ou exibições de página. 
-* Os [**testes da Web**][availability] informam quando site está indisponível na Internet ou está respondendo com lentidão. [Saiba mais][availability].
-* Os [**diagnósticos proativos**](app-insights-proactive-diagnostics.md) são configurados automaticamente para notificar você sobre padrões de desempenho incomuns.
+* [**Testes na Web** ] [ availability] informam quando seu site não está disponível no hello internet ou respondendo lentamente. [Saiba mais][availability].
+* [**O diagnóstico proativo** ](app-insights-proactive-diagnostics.md) são configurados automaticamente toonotify sobre padrões de desempenho incomuns.
 
 Vamos nos concentrar nos alertas de métricas deste artigo.
 
 ## <a name="set-a-metric-alert"></a>Definir um alerta de Métrica
-Abra a folha Regras de alerta e, em seguida, use o botão adicionar. 
+Folha de regras de alerta Olá aberto e, em seguida, use Olá adicionar botão. 
 
-![Na folha das Regras de alerta, escolha Adicionar Alerta. Defina seu aplicativo como o recurso a ser medido, forneça um nome para o alerta e escolha uma métrica.](./media/app-insights-alerts/01-set-metric.png)
+![Na folha de regras de alerta hello, escolha Adicionar alerta. Configure seu aplicativo como Olá toomeasure de recursos, forneça um nome para o alerta hello e escolha uma métrica.](./media/app-insights-alerts/01-set-metric.png)
 
-* Defina o recurso antes de outras propriedades. **Escolha o recurso "(componentes)"** se desejar definir alertas em métricas de desempenho ou de uso.
-* O nome dado ao alerta deve ser exclusivo dentro do grupo de recursos (não apenas no seu aplicativo).
-* Observe as unidades quando você for solicitado para inserir o valor de limite.
-* Se você marcar a caixa “Proprietários de email...”, os alertas serão enviados por email para qualquer pessoa que tenha acesso a esse grupo de recursos. Para expandir esse grupo de pessoas, adicione-as à [assinatura ou grupo de recursos](app-insights-resources-roles-access-control.md) (não o recurso).
-* Se você especificar “Emails adicionais”, os alertas serão enviados aos indivíduos ou grupos (sem levar em conta se a caixa “proprietários de email...” foi marcada ou não). 
-* Defina um [endereço de webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) se tiver configurado um aplicativo Web que responda aos alertas. Ele é chamado quando o alerta é ativado e quando ele está resolvido. (Mas observe que, no momento, os parâmetros de consulta não são passados como propriedades de webhook)
-* É possível Desabilitar ou Habilitar o alerta: veja os botões na parte superior da folha.
+* Defina outras propriedades do recurso de saudação antes de saudação. **Escolha o recurso hello "(componentes)"** se você quiser tooset alertas em métricas de desempenho ou de uso.
+* nome de saudação que você forneça toohello alerta deve ser exclusivo dentro do grupo de recursos de saudação (não apenas o aplicativo).
+* Ser unidades de saudação toonote cuidado em que você for questionado tooenter valor de limite de saudação.
+* Se você marcar a caixa de Olá "... para proprietários de Email", os alertas são enviados por tooeveryone de email que possui o grupo de recursos de toothis de acesso. tooexpand esse conjunto de pessoas, adicioná-las toohello [grupo de recursos ou assinatura](app-insights-resources-roles-access-control.md) (não Olá recursos).
+* Se você especificar "Emails adicionais", os alertas são enviados toothose indivíduos ou grupos (se você tiver marcado a caixa de "email proprietários …" de saudação). 
+* Definir um [webhook endereço](../monitoring-and-diagnostics/insights-webhooks-alerts.md) se você tiver configurado um aplicativo web que responde tooalerts. Ele é chamado quando Olá alerta for ativado e quando ele está resolvido. (Mas observe que, no momento, os parâmetros de consulta não são passados como propriedades de webhook)
+* Você pode desabilitar ou habilitar Olá alerta: consulte Olá botões na parte superior de saudação da folha de saudação.
 
-*Não vejo o botão Adicionar Alerta.* 
+*Não vejo o botão de alerta de adicionar hello.* 
 
-* Você está usando uma conta organizacional? Você poderá definir alertas se tiver acesso de proprietário ou colaborador a esse recurso de aplicativo. Vejamos a folha Controle de Acesso. [Saiba mais sobre o controle de acesso][roles].
+* Você está usando uma conta organizacional? Você pode definir alertas, se você tiver o recurso de aplicativo de toothis acesso proprietário ou colaborador. Dê uma olhada na folha de controle de acesso de saudação. [Saiba mais sobre o controle de acesso][roles].
 
 > [!NOTE]
-> Na folha de alertas, você vê que já existe uma configuração de alerta: [Proactive Diagnostics](app-insights-proactive-failure-diagnostics.md). O alerta automático monitora uma métrica específica, taxa de falha de solicitação. A menos que você opte por desabilitar o alerta proativo, não precisa definir seu próprio alerta na taxa de falha de solicitação. 
+> Na folha de alertas hello, verá que já existe um conjunto de alerta para cima: [diagnóstico proativo](app-insights-proactive-failure-diagnostics.md). alerta automática Olá monitora uma determinada métrica, taxa de falhas. A menos que você decida alerta pró-ativo do toodisable hello, você não precisa tooset seu próprio alerta na taxa de falha de solicitação. 
 > 
 > 
 
 ## <a name="see-your-alerts"></a>Ver seus alertas
 Você recebe um email quando o estado de um alerta é mudado de inativo para ativo. 
 
-O estado atual de cada alerta é mostrado na folha de regras de Alerta.
+estado atual de saudação de cada alerta é mostrado na folha de regras de alerta de saudação.
 
-Há um resumo da atividade recente no menu suspenso de alertas:
+Há um resumo da atividade recente em alertas Olá suspensa:
 
 ![Lista suspensa Alertas](./media/app-insights-alerts/010-alert-drop.png)
 
-O histórico das alterações de estado está no Log de Atividades:
+histórico de saudação de alterações de estado está em Olá Log de atividades:
 
-![Na folha Visão geral, clique em Configurações, Logs de Auditoria](./media/app-insights-alerts/09-alerts.png)
+![Na folha de visão geral de saudação, clique em configurações, logs de auditoria](./media/app-insights-alerts/09-alerts.png)
 
 ## <a name="how-alerts-work"></a>Como funcionam os alertas
-* Um alerta tem três estados: “Nunca ativado”, “Ativado” e “Resolvido”. Ativado significa que a condição especificada era true, quando ela foi avaliada pela última vez.
-* Uma notificação é gerada quando um alerta muda de estado. (Se a condição do alerta já era true quando o alerta foi criado, talvez você não receba uma notificação até que a condição mude para false.)
-* Cada notificação gerará um email caso tenha marcado a caixa de emails ou fornecido endereços de email. Também é possível examinar a lista suspensa Notificações.
+* Um alerta tem três estados: “Nunca ativado”, “Ativado” e “Resolvido”. Ativada significa Olá condição especificada foi true, quando foi avaliado pela última vez.
+* Uma notificação é gerada quando um alerta muda de estado. (Se condição de alerta Olá já foi true quando você criou o alerta hello, poderá não receber uma notificação até que a condição de saudação vai false.)
+* Cada notificação gera um email, se você marcou Olá emails caixa fornecidos ou endereços de email. Você também pode examinar Olá notificações caixa suspensa.
 * Um alerta é avaliado toda vez que uma métrica chega, mas não o contrário.
-* A avaliação agrega a métrica ao longo do período anterior e a compara com o limite para determinar o novo estado.
-* O período que você escolhe especifica o intervalo durante o qual as métricas são agregadas. Ele não afeta a frequência com que o alerta é avaliado: isto depende da frequência da chegada das métricas.
-* Se nenhum dado chegar para uma determinada métrica por algum tempo, a lacuna tem efeitos diferentes sobre a avaliação do alerta e sobre os gráficos no Metrics Explorer. No Metrics Explorer, se nenhum dado for visto por mais tempo do que o intervalo de amostragem do gráfico, o gráfico mostrará um valor 0. Mas um alerta com base na mesma métrica não é avaliado novamente e o estado do alerta permanece inalterado. 
+* avaliação Olá agrega métrica Olá sobre Olá que precedem o período e, em seguida, compara toohello limite toodetermine Olá novo estado.
+* período Olá que você escolher Especifica o intervalo de saudação sobre quais métricas são agregadas. Isso não afetará a frequência hello alerta é avaliado: depende da frequência de saudação da chegada de métricas.
+* Se nenhum dado chega para uma métrica específica por algum tempo, intervalo de saudação tem efeitos diferentes na avaliação de alerta e em gráficos de saudação no Gerenciador de métrica. Gerenciador de métrica, se nenhum dado é visto por mais de um intervalo de amostragem do gráfico Olá Olá gráfico mostra um valor de 0. Mas um alerta com base em Olá mesma métrica não é reavaliada e Olá permanece de estado do alerta inalterado. 
   
-    Quando os dados chegam, o gráfico volta para um valor diferente de zero. O alerta é avaliado com base nos dados disponíveis para o período especificado. Se o novo ponto de dados for o único disponível no período, a agregação se baseará apenas nisso.
-* Um alerta pode piscar frequentemente entre os estados de alerta e íntegro, mesmo que você defina um longo período. Isso pode acontecer se o valor da métrica estiver em torno do limite. Não há nenhuma histerese no limite: a transição para o alerta acontece com o mesmo valor que a transição para o estado íntegro.
+    Quando os dados chegam eventualmente, gráfico de saudação salta valor do retorno tooa diferente de zero. alerta de saudação é avaliada com base nos dados de saudação disponíveis para Olá período especificado. Se novo ponto de dados Olá Olá apenas um disponível no período de Olá Olá agregação é baseado apenas em ponto de dados.
+* Um alerta pode piscar frequentemente entre os estados de alerta e íntegro, mesmo que você defina um longo período. Isso pode acontecer se o valor de métrica Olá passar em torno do limite de saudação. Não há nenhum Histerese no limite de saudação: Olá transição tooalert ocorre no Olá Olá transição toohealthy mesmo valor.
 
-## <a name="what-are-good-alerts-to-set"></a>Quais são alguns alertas que é recomendável definir?
-Depende de seu aplicativo. Para começar, é melhor não definir um número excessivo de métricas. Passe algum tempo examinando seus gráficos de métricas enquanto seu aplicativo está em execução para ter uma noção de como ele se comporta normalmente. Esta prática ajuda a encontrar maneiras de melhorar o desempenho. Em seguida, configure alertas para informá-lo quando as métricas estiverem fora da zona normal. 
+## <a name="what-are-good-alerts-tooset"></a>O que são bons alertas tooset?
+Depende de seu aplicativo. toostart, ele tem melhor não tooset muitos métricas. Dedique algum tempo Examinando os gráficos de métricas enquanto seu aplicativo estiver em execução, tooget uma ideia de como ele se comporta normalmente. Essa prática ajuda a localizar maneiras tooimprove seu desempenho. Configure alertas tootell você quando métricas Olá saem da zona de saudação normal. 
 
 Alguns alertas populares são:
 
-* [Métricas de navegador][client], especificamente, **tempos de carregamento de página** do navegador, são adequados para aplicativos Web. Se a página tem muitos scripts, você deve procurar **exceções de navegador**. Para obter essas métricas e esses alertas, você precisa configurar o [monitoramento de página da Web][client].
-* **Tempo de resposta do servidor** para o lado do servidor de aplicativos Web. Além de configurar alertas, confira essa métrica para ver se ela varia de forma desproporcional com altas taxas de solicitação: a variação pode indicar que seu aplicativo está ficando sem recursos. 
-* **Exceções de servidor** - para vê-las, você precisa fazer algumas [configurações adicionais](app-insights-asp-net-exceptions.md).
+* [Métricas de navegador][client], especificamente, **tempos de carregamento de página** do navegador, são adequados para aplicativos Web. Se a página tem muitos scripts, você deve procurar **exceções de navegador**. Em ordem tooget essas métricas e alertas, você ter tooset até [página da web de monitoramento][client].
+* **Tempo de resposta do servidor** para o lado do servidor de saudação de aplicativos da web. Bem como configurar alertas, fique atento esta métrica toosee se desproporcionalmente varia com taxas de solicitação alto: variação pode indicar que seu aplicativo está ficando sem recursos. 
+* **Exceções de servidor** -toosee-los, você tem toodo alguns [configuração adicional](app-insights-asp-net-exceptions.md).
 
-Não se esqueça de que [diagnósticos de taxa de falha proativos](app-insights-proactive-failure-diagnostics.md) monitoram automaticamente a taxa em que seu aplicativo responde às solicitações com códigos de falha. 
+Não se esqueça de que [diagnóstico de taxa de falha pró-ativo](app-insights-proactive-failure-diagnostics.md) automaticamente Olá taxa de monitor em que seu aplicativo responde toorequests com códigos de falha. 
 
 ## <a name="automation"></a>Automação
-* [Usar o PowerShell para automatizar a configuração de alertas](app-insights-powershell-alerts.md)
-* [Usar webhooks para automatizar a resposta a alertas](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+* [Use o PowerShell tooautomate configurar alertas](app-insights-powershell-alerts.md)
+* [Use webhooks tooautomate resposta tooalerts](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
 ## <a name="video"></a>Vídeo
 

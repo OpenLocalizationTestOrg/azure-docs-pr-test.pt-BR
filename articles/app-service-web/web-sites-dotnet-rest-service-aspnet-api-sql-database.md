@@ -1,6 +1,6 @@
 ---
-title: Criar uma API REST no Azure com ASP.NET e uma BD SQL | Microsoft Docs
-description: Um tutorial que ensina como implantar um aplicativo que usa a API Web ASP.NET em um aplicativo Web do Azure usando o Visual Studio.
+title: aaaCreate uma API REST no Azure com o ASP.NET e o banco de dados SQL | Microsoft Docs
+description: "Um tutorial que ensina como toodeploy um aplicativo que usa Olá ASP.NET Web API tooan aplicativo web do Azure usando o Visual Studio."
 services: app-service\web
 documentationcenter: .net
 author: Rick-Anderson
@@ -15,63 +15,63 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/29/2016
 ms.author: riande
-ms.openlocfilehash: 64c18f2cfabbb7af6ffd89b4c2a9095fca1cf799
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1ef45dd1582bfda367e53c39f863164422ad678b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-rest-service-using-aspnet-web-api-and-sql-database-in-azure-app-service"></a>Criar um serviço REST usando a API Web ASP.NET e o Banco de Dados SQL no Serviço de Aplicativo do Azure
-Este tutorial mostra como implantar um aplicativo Web do ASP.NET em um [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) usando o assistente de Publicação na Web no Visual Studio 2013 ou no Visual Studio 2013 Community Edition. 
+Este tutorial mostra como toodeploy uma ASP.NET web aplicativo tooan [do serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) usando o Assistente de publicar Web Olá no Visual Studio 2013 ou o Visual Studio 2013 Community Edition. 
 
-É possível abrir uma conta do Azure gratuitamente e, se você ainda não tiver o Visual Studio 2013, o SDK instalará automaticamente o Visual Studio 2013 para o Web Express. Portanto, você pode começar a desenvolver para o Azure de maneira totalmente gratuita.
+Você pode abrir uma conta do Azure gratuitamente e se você ainda não tiver o Visual Studio 2013, Olá SDK instalará automaticamente o Visual Studio 2013 para Web Express. Portanto, você pode começar a desenvolver para o Azure de maneira totalmente gratuita.
 
-Este tutorial pressupõe que você não tem nenhuma experiência anterior com o Azure. Ao concluir este tutorial, você terá um aplicativo Web simples em funcionamento na nuvem.
+Este tutorial pressupõe que você não tem nenhuma experiência anterior com o Azure. Ao concluir este tutorial, você terá um aplicativo da web simples para cima e em execução na nuvem hello.
 
 Você aprenderá a:
 
-* Como habilitar seu computador para desenvolvimento do Azure ao instalar o SDK do Azure.
-* Como criar um projeto MVC 5 do Visual Studio ASP.NET e publicá-lo em um aplicativo do Azure.
-* Como usar a API Web ASP.NET para habilitar chamadas à API Restful.
-* Como usar um banco de dados SQL para armazenar dados no Azure.
-* Como publicar atualizações de aplicativo no Azure.
+* Como tooenable sua máquina de desenvolvimento do Azure instalando Olá SDK do Azure.
+* Como toocreate um Visual Studio ASP.NET MVC 5 do projeto e publicá-lo tooan aplicativo do Azure.
+* Como toouse Olá ASP.NET Web API tooenable chamadas de API Restful.
+* Como toouse um SQL banco de dados toostore dados no Azure.
+* Como o aplicativo toopublish atualiza tooAzure.
 
-Você criará um aplicativo Web de lista de contatos simples desenvolvido no ASP.NET MVC 5 e que usa o ADO.NET Entity Framework para acesso ao banco de dados. A ilustração a seguir mostra o aplicativo concluído:
+Será possível compilar um aplicativo da web de lista de contatos simples que se baseia no ASP.NET MVC 5 e usa hello ADO.NET Entity Framework para acesso de banco de dados. Olá seguinte ilustração mostra Olá concluída aplicativo:
 
 ![captura de tela do site][intro001]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-### <a name="create-the-project"></a>Criar o projeto
+### <a name="create-hello-project"></a>Criar projeto Olá
 1. Inicie o Visual Studio 2013.
-2. No menu **Arquivo**, clique em **Novo Projeto**.
-3. Na caixa de diálogo **Novo Projeto**, expanda **Visual C#**, escolha **Web** e, em seguida, **Aplicativo Web ASP .NET**. Nomeie o aplicativo **ContactManager** e clique em **OK**.
+2. De saudação **arquivo** menu clique **novo projeto**.
+3. Em Olá **novo projeto** caixa de diálogo caixa, expanda **Visual C#** e selecione **Web** e, em seguida, selecione **aplicativo Web ASP.NET**. Nome do aplicativo hello **ContactManager** e clique em **Okey**.
    
     ![Caixa de diálogo Novo Projeto](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.png)
-4. Na caixa de diálogo **Novo Projeto ASP.NET**, escolha o modelo **MVC**, marque **API Web** e clique em **Alterar Autenticação**.
-5. Na caixa de diálogo **Alterar Autenticação**, clique em **Sem Autenticação** e clique em **OK**.
+4. Em Olá **novo projeto ASP.NET** caixa de diálogo, selecione Olá **MVC** modelo, verifique **API da Web** e, em seguida, clique em **alterar autenticação**.
+5. Em Olá **alterar autenticação** caixa de diálogo, clique em **sem autenticação**e, em seguida, clique em **Okey**.
    
     ![Sem Autenticação](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/GS13noauth.png)
    
-    O aplicativo de exemplo que você está criando não possui recursos que exijam que os usuários façam logon. Para obter informações sobre como implementar recursos de autenticação e autorização, consulte a seção [Próximas Etapas](#nextsteps) no final deste tutorial. 
-6. Na caixa de diálogo **Novo Projeto ASP.NET**, verifique se a opção **Hospedar na Nuvem** está marcada e clique em **OK**.
+    aplicativo de exemplo Hello que você está criando não tenha recursos que exigem toolog usuários em. Para obter informações sobre como tooimplement recursos de autenticação e autorização, consulte Olá [próximas etapas](#nextsteps) seção Olá final deste tutorial. 
+6. Em Olá **novo projeto ASP.NET** caixa de diálogo, Olá se tornar **Host na nuvem de saudação** está marcada e clique em **Okey**.
 
-Se você não entrou anteriormente no Azure, será solicitado que você entre.
+Se você não tiver entrado anteriormente no tooAzure, será solicitada toosign no.
 
-1. O assistente de configuração sugerirá um nome exclusivo com base em *ContactManager* (consulte a imagem abaixo). Selecione uma região perto de você. É possível utilizar o [azurespeed.com](http://www.azurespeed.com/ "AzureSpeed.com") para localizar o data center de latência mais baixa. 
+1. Assistente de configuração de saudação sugerirá um nome exclusivo baseado no *ContactManager* (consulte a imagem de saudação abaixo). Selecione uma região perto de você. Você pode usar [azurespeed.com](http://www.azurespeed.com/ "AzureSpeed.com") toofind Olá menor latência Datacenter. 
 2. Se você não criou um servidor de banco de dados antes, selecione **Criar novo servidor**, digite um nome de usuário de banco de dados e uma senha.
    
     ![Configurar o site do Azure](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/configAz.PNG)
 
-Se você tiver um servidor de banco de dados, use isso para criar um novo banco de dados. Os servidores de banco de dados são um recurso precioso e você geralmente deseja criar vários bancos de dados no mesmo servidor de teste e desenvolvimento em vez de criar um servidor de banco de dados por banco de dados. Certifique-se de que o seu site e banco de dados estejam na mesma região.
+Se você tiver um servidor de banco de dados, use esse toocreate um novo banco de dados. Servidores de banco de dados são um recurso precioso e geralmente você deseja toocreate vários bancos de dados Olá mesmo servidor de teste e desenvolvimento em vez de criar um servidor de banco de dados por banco de dados. Verifique se o seu site da web e o banco de dados estão em hello mesma região.
 
 ![Configurar o site do Azure](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/configWithDB.PNG)
 
-### <a name="set-the-page-header-and-footer"></a>Configurar o cabeçalho e o rodapé da página
-1. No **Gerenciador de Soluções**, expanda a pasta *Views\Shared* e abra o arquivo *_Layout.cshtml*.
+### <a name="set-hello-page-header-and-footer"></a>Definir Olá cabeçalho e rodapé
+1. Em **Solution Explorer**, expanda Olá *exibições \ compartilhadas* pasta e abra Olá *cshtml* arquivo.
    
     ![_Layout.cshtml no Gerenciador de Soluções][newapp004]
-2. Substitua o conteúdo do arquivo *Views\Shared_Layout.cshtml* pelo seguinte código:
+2. Substitua o conteúdo de saudação do hello *Views\Shared_Layout.cshtml* arquivo com hello código a seguir:
 
         <!DOCTYPE html>
         <html lang="en">
@@ -109,46 +109,46 @@ Se você tiver um servidor de banco de dados, use isso para criar um novo banco 
         </body>
         </html>
 
-A marcação acima altera o nome do aplicativo de "My ASP.NET App" para "Contact Manager" e remove os links para **Página Inicial**, **Sobre** e **Contato**.
+marcação de saudação acima do nome do aplicativo hello alterações de "My App ASP.NET" muito "gerente do contato" e remove links Olá muito**início**, **sobre** e **entre em contato com**.
 
-### <a name="run-the-application-locally"></a>Executar o aplicativo localmente
-1. Pressione CTRL+F5 para executar o aplicativo.
-   A home page do aplicativo é exibida no navegador padrão.
-    ![Home page da lista de tarefas pendentes](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.png)
+### <a name="run-hello-application-locally"></a>Executar o aplicativo hello localmente
+1. Pressione CTRL + F5 aplicativo de hello de toorun.
+   home page do aplicativo Hello aparece no navegador padrão de saudação.
+    ![página de início da lista de tooDo](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.png)
 
-Isso é tudo o que você precisa fazer por enquanto para criar o aplicativo que você implantará no Azure. Posteriormente, você adicionará a funcionalidade do banco de dados.
+Isso é tudo o que você precisa toodo para aplicativo de hello toocreate agora que você implantará tooAzure. Posteriormente, você adicionará a funcionalidade do banco de dados.
 
-## <a name="deploy-the-application-to-azure"></a>Implantar o aplicativo no Azure
-1. No Visual Studio, clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e selecione **Publicar** no menu de contexto.
+## <a name="deploy-hello-application-tooazure"></a>Implantar Olá aplicativo tooAzure
+1. No Visual Studio, clique com botão direito Olá em **Solution Explorer** e selecione **publicar** Olá no menu de contexto.
    
     ![Publicar no menu de contexto do projeto][PublishVSSolution]
    
-    O assistente de **Publicar Web** é aberto.
+    Olá **Publicar Web** assistente é aberto.
 2. Clique em **Publicar**.
 
 ![Guia Configurações](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/pw.png)
 
-O Visual Studio inicia o processo de cópia dos arquivos no servidor do Azure. A janela **Saída** mostra quais ações de implantação foram executadas e os relatórios da conclusão com êxito da implantação.
+O Visual Studio inicia o processo de saudação de copiar Olá arquivos toohello servidor do Azure. Olá **saída** janela mostra quais ações de implantação foram realizadas e relata a conclusão bem-sucedida da implantação de saudação.
 
-1. O navegador padrão abre automaticamente a URL do site implantado.
+1. navegador padrão de saudação é aberto automaticamente toohello URL do site Olá implantado.
    
-   O aplicativo que você criou agora está em execução na nuvem.
+   aplicativo Hello que você criou agora está em execução na nuvem hello.
    
-   ![A home page da lista de tarefas pendentes em execução no Azure][rxz2]
+   ![página de início da lista de tooDo em execução no Azure][rxz2]
 
-## <a name="add-a-database-to-the-application"></a>Adicionar um banco de dados ao aplicativo
-Em seguida, você atualizará o aplicativo MVC para adicionar a habilidade de exibir e atualizar contatos e armazenar os dados em um banco de dados. O aplicativo usará o Entity Framework para criar o banco de dados e ler e atualizar dados no banco de dados.
+## <a name="add-a-database-toohello-application"></a>Adicionar um aplicativo de toohello do banco de dados
+Em seguida, você vai atualizar Olá MVC aplicativo tooadd Olá capacidade toodisplay e atualizar contatos e armazenar dados de saudação em um banco de dados. aplicativo Hello usar tooread e o banco de dados do Entity Framework toocreate Olá Olá e atualizar dados no banco de dados de saudação.
 
-### <a name="add-data-model-classes-for-the-contacts"></a>Adicionar classes de modelo de dados aos contatos
+### <a name="add-data-model-classes-for-hello-contacts"></a>Adicionar classes de modelo de dados para os contatos Olá
 Você começa criando um modelo de dados simples no código.
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse na pasta Modelos e clique em **Adicionar**. Em seguida, clique em **Classe**.
+1. Em **Solution Explorer**, pasta de modelos de saudação, clique **adicionar**e, em seguida, **classe**.
    
     ![Adicionar Classe no menu de contexto da pasta Modelos][adddb001]
-2. Na caixa de diálogo **Adicionar Novo Item**, nomeie o novo arquivo de classe *Contact.cs* e clique em **Adicionar**.
+2. Em Olá **Adicionar Novo Item** caixa de diálogo, o nome hello novo arquivo de classe *Contact.cs*e, em seguida, clique em **adicionar**.
    
     ![Caixa de diálogo Adicionar Novo Item][adddb002]
-3. Substitua o conteúdo do arquivo Contacts.cs pelo código a seguir.
+3. Substitua o conteúdo de saudação do arquivo de Contacts.cs de saudação com hello código a seguir.
    
         using System.Globalization;
         namespace ContactManager.Models
@@ -172,49 +172,49 @@ Você começa criando um modelo de dados simples no código.
             }
         }
 
-A classe **Contact** define os dados que você armazenará para cada contato, além de uma chave primária, ContactID, que é necessária para o banco de dados. Você pode obter mais informações sobre modelos de dados na seção [Próximas etapas](#nextsteps) ao final deste tutorial.
+Olá **entre em contato com** classe define dados hello serão armazenados para cada contato, além de uma chave primária, a ID de contato, que é necessária para o banco de dados de saudação. Você pode obter mais informações sobre modelos de dados em Olá [próximas etapas](#nextsteps) seção Olá final deste tutorial.
 
-### <a name="create-web-pages-that-enable-app-users-to-work-with-the-contacts"></a>Criar as páginas da Web que permitem que os usuários do aplicativo trabalhem com os contatos
-No ASP.NET MVC, o recurso de scaffolding pode gerar automaticamente o código que executa as ações CRUD (criar, ler, atualizar e excluir).
+### <a name="create-web-pages-that-enable-app-users-toowork-with-hello-contacts"></a>Criar páginas da web que permitem toowork de usuários do aplicativo com contatos Olá
+Olá recurso do ASP.NET MVC Olá scaffolding pode gerar automaticamente código que executa a criar, ler, atualizar e excluir ações (CRUD).
 
-## <a name="add-a-controller-and-a-view-for-the-data"></a>Adicionar um controlador e uma exibição para os dados
-1. No **Gerenciador de Soluções**, expanda a pasta Controllers.
-2. Compile o projeto **(Ctrl+Shift+B)**. (Você deve compilar o projeto antes de usar o mecanismo de scaffolding.) 
-3. Clique com o botão direito do mouse na pasta Controladores e clique em **Adicionar** e em **Controlador**.
+## <a name="add-a-controller-and-a-view-for-hello-data"></a>Adicionar um controlador e uma exibição para dados de saudação
+1. Em **Solution Explorer**, expanda a pasta de controladores de saudação.
+2. Criar projeto Olá **(Ctrl + Shift + B)**. (Você deve criar o projeto de saudação antes de usar o mecanismo de scaffolding.) 
+3. Pasta de controladores de saudação de mouse e clique em **adicionar**e, em seguida, clique em **controlador**.
    
     ![Adicionar Controlador no menu de contexto da pasta Controladores][addcode001]
-4. Na caixa de diálogo **Adicionar Scaffold**, escolha **Controlador MVC com exibições, usando o Entity Framework** e clique em **Adicionar**.
+4. Em Olá **adicionar Scaffold** caixa de diálogo, selecione **controlador MVC com modos de exibição usando o Entity Framework** e clique em **adicionar**.
    
    ![Adicionar controlador](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.png)
-5. Defina o nome do controlador como **HomeController**. Selecione **Contato** como a classe de modelo. Clique no botão **Novo contexto de dados** e aceite o padrão "ContactManager.Models.ContactManagerContext" para o **Novo tipo de contexto de dados**. Clique em **Adicionar**.
+5. Defina o nome do controlador Olá muito**HomeController**. Selecione **Contato** como a classe de modelo. Clique em Olá **novo contexto de dados** botão e aceite o padrão de hello "ContactManager.Models.ContactManagerContext" hello **novo tipo de contexto de dados**. Clique em **Adicionar**.
 
-    Uma caixa de diálogo avisará: "Já existe um arquivo com o nome HomeController. Deseja substituí-lo?". Clique em **Sim**. Estamos substituindo o controlador inicial que foi criado com o novo projeto. Usaremos o novo controlador inicial para nossa lista de contatos.
+    Uma caixa de diálogo solicitará que você: "um arquivo com nome hello HomeController já existente. Você deseja tooreplace-lo? ". Clique em **Sim**. Nós são substituindo Olá início controlador que foi criado com o novo projeto de saudação. Usaremos Olá novo início controlador para nossa lista de contatos.
 
     O Visual Studio cria métodos do controlador e modos de exibição para as operações de banco de dados CRUD para objetos **Contact** .
 
-## <a name="enable-migrations-create-the-database-add-sample-data-and-a-data-initializer"></a>Habilitar migrações, criar o banco de dados, adicionar dados de exemplo e um inicializador de dados
-A próxima tarefa é habilitar o recurso [Codificar Primeiras Migrações](http://curah.microsoft.com/55220) para criar o banco de dados com base no modelo de dados criado.
+## <a name="enable-migrations-create-hello-database-add-sample-data-and-a-data-initializer"></a>Permitir as migrações, criar hello banco de dados, adicionar dados de exemplo e um inicializador de dados
+Olá próxima tarefa é Olá tooenable [migrações do Code First](http://curah.microsoft.com/55220) recurso no banco de dados do pedido toocreate Olá baseada no modelo de dados de saudação criado por você.
 
-1. No menu **Ferramentas**, escolha **Gerenciador de Pacotes de Biblioteca** e, em seguida, **Console do Gerenciador de Pacotes**.
+1. Em Olá **ferramentas** menu, selecione **Gerenciador de biblioteca de pacote** e **Package Manager Console**.
    
     ![Console do Gerenciador de Pacotes no menu Ferramentas][addcode008]
-2. Na janela **Console do Gerenciador de Pacotes** , digite o seguinte comando:
+2. Em Olá **Package Manager Console** janela, digite Olá comando a seguir:
    
         enable-migrations 
    
-    O comando **enable-migrations** cria a pasta *Migrações* e coloca nessa pasta um arquivo *Configuration.cs*, que pode ser editado para configurar Migrações. 
-3. Na janela **Console do Gerenciador de Pacotes** , digite o seguinte comando:
+    Olá **enable-migrations** comando cria um *migrações* pasta e o coloca na pasta um *Configuration.cs* arquivo que você pode editar tooconfigure migrações. 
+3. Em Olá **Package Manager Console** janela, digite Olá comando a seguir:
    
         add-migration Initial
    
-    O comando **add-migration Initial** gera uma classe denominada **&lt;date_stamp&gt;Initial**, que cria o banco de dados. O primeiro parâmetro ( *Initial* ) é arbitrário e é usado para criar o nome do arquivo. Você pode ver os novos arquivos de classe no **Gerenciador de Soluções**.
+    Olá **inicial de migração adicionar** comando gera uma classe denominada  **&lt;date_stamp&gt;inicial** que cria o banco de dados de saudação. Olá primeiro parâmetro ( *inicial* ) é arbitrário e usada toocreate Olá nome do arquivo hello. Você pode ver os novos arquivos de classe Olá no **Gerenciador de soluções**.
    
-    Na classe **Inicial**, o método **Up** cria a tabela Contatos e o método **Down** (usado quando você deseja retornar ao estado anterior) a descarta.
-4. Abra o arquivo *Migrations\Configuration.cs*. 
-5. Adicione os seguintes namespaces. 
+    Em Olá **inicial** classe hello **backup** método cria a tabela de contatos hello e hello **para baixo** descarta método (usado quando você deseja que o estado anterior do tooreturn toohello).
+4. Olá abrir *Migrations\Configuration.cs* arquivo. 
+5. Adicione Olá namespaces a seguir. 
    
          using ContactManager.Models;
-6. Substitua o método *Seed* pelo seguinte código:
+6. Substituir saudação *semente* método com hello código a seguir:
    
         protected override void Seed(ContactManager.Models.ContactManagerContext context)
         {
@@ -272,23 +272,23 @@ A próxima tarefa é habilitar o recurso [Codificar Primeiras Migrações](http:
                 );
         }
    
-    O código acima inicializa o banco de dados com as informações de contato. Para obter mais informações sobre a propagação do banco de dados, consulte [Depurando BDs do Entity Framework (EF) (a página pode estar em inglês)](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).
-7. Em **Console do Gerenciador de Pacotes** , digite o comando:
+    Esse código acima será inicializar banco de dados de saudação com informações de contato de saudação. Para obter mais informações sobre a propagação do banco de dados hello, consulte [bancos de dados de depuração Entity Framework (EF)](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).
+7. Em Olá **Package Manager Console** digite Olá comando:
    
         update-database
    
     ![Comandos do Console do Gerenciador de Pacotes][addcode009]
    
-    O **update-database** executa a primeira migração que cria o banco de dados. Por padrão, o banco de dados é criado como um banco de dados LocalDB do SQL Server Express.
-8. Pressione CTRL+F5 para executar o aplicativo. 
+    Olá **Atualizar banco de dados** executa Olá primeiro migração que cria o banco de dados de saudação. Por padrão, o banco de dados de saudação é criado como um banco de dados do SQL Server Express LocalDB.
+8. Pressione CTRL + F5 aplicativo de hello de toorun. 
 
-O aplicativo mostra os dados de semente e fornece links de edição, detalhes e exclusão.
+aplicativo Hello mostra dados de propagação de saudação e fornece edição, detalhes e links de exclusão.
 
 ![Exibição do MVC de dados][rxz3]
 
-## <a name="edit-the-view"></a>Editar a exibição
-1. Abra o arquivo *Views\Home\Index.cshtml*. Na próxima etapa, substituiremos a marcação gerada pelo código que usa [jQuery](http://jquery.com/) e [Knockout.js](http://knockoutjs.com/). Esse novo código recupera a lista de contatos do uso da API Web e do JSON e associa os dados de contato à interface do usuário usando knockout.js. Para obter mais informações, consulte a seção [Próximas Etapas](#nextsteps) no final deste tutorial. 
-2. Substitua o conteúdo do arquivo pelo código a seguir.
+## <a name="edit-hello-view"></a>Editar saudação exibição
+1. Olá abrir *Views\Home\Index.cshtml* arquivo. Na próxima etapa de hello, substituiremos marcação Olá gerado pelo código que usa [jQuery](http://jquery.com/) e [Knockout. js](http://knockoutjs.com/). Esse novo código recupera a lista de contatos de saudação do usando a API da web e JSON e, em seguida, associa Olá entre em contato com dados toohello da interface do usuário usando Knockout. js. Para obter mais informações, consulte Olá [próximas etapas](#nextsteps) seção Olá final deste tutorial. 
+2. Substitua o conteúdo de saudação do arquivo hello com hello código a seguir.
    
         @model IEnumerable<ContactManager.Models.Contact>
         @{
@@ -377,12 +377,12 @@ O aplicativo mostra os dados de semente e fornece links de edição, detalhes e 
                 <input type="submit" value="Add" />
             </fieldset>
         </form>
-3. Clique com o botão direito do mouse na pasta Content e clique em **Adicionar** e em **Novo Item...**.
+3. Pasta de conteúdo de saudação de mouse e clique em **adicionar**e, em seguida, clique em **Novo Item...** .
    
     ![Adicionar folha de estilos no menu de contexto da pasta Content][addcode005]
-4. Na caixa de diálogo **Adicionar Novo Item**, digite **Estilo** na caixa de pesquisa na parte superior direita e escolha **Folha de Estilos**.
+4. Em Olá **Adicionar Novo Item** caixa de diálogo, digite **estilo** Olá caixa de pesquisa à direita superior e, em seguida, selecione **folha de estilo**.
     ![Caixa de diálogo Adicionar Novo Item][rxStyle]
-5. Nomeie o arquivo *Contacts.css* e clique em **Adicionar**. Substitua o conteúdo do arquivo pelo código a seguir.
+5. Arquivo de saudação do nome *Contacts.css* e clique em **adicionar**. Substitua o conteúdo de saudação do arquivo hello com hello código a seguir.
    
         .column {
             float: left;
@@ -438,14 +438,14 @@ O aplicativo mostra os dados de semente e fornece links de edição, detalhes e 
             text-decoration: none;
         }
    
-    Usaremos esta folha de estilos no layout, nas cores e nos estilos usados no aplicativo do gerenciador de contatos.
-6. Abra o arquivo *AppStart\BundleConfig.cs*.
-7. Adicione o código a seguir para registrar o plug-in [Knockout](http://knockoutjs.com/index.html "KO") .
+    Usaremos esta folha de estilos para layout hello, cores e estilos usados no aplicativo de contato do Gerenciador de saudação.
+6. Olá abrir *App_Start\BundleConfig.cs* arquivo.
+7. Adicionar Olá Olá de tooregister de código a seguir [Knockout](http://knockoutjs.com/index.html "KO") plug-in.
    
         bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
                     "~/Scripts/knockout-{version}.js"));
-    Este exemplo usa o knockout para simplificar o código JavaScript dinâmico que lida com os modelos de tela.
-8. Modifique a entrada contents/css para registrar a folha de estilos de *contacts.css* . Altere a linha a seguir:
+    Este exemplo usando knockout toosimplify dinâmico código JavaScript que trata os modelos de tela hello.
+8. Modificar Olá Olá de tooregister de entrada de conteúdo/css *contacts.css* folha de estilos. Alterar Olá seguinte linha:
    
                  bundles.Add(new StyleBundle("~/Content/css").Include(
                    "~/Content/bootstrap.css",
@@ -456,52 +456,52 @@ O aplicativo mostra os dados de semente e fornece links de edição, detalhes e 
                    "~/Content/bootstrap.css",
                    "~/Content/contacts.css",
                    "~/Content/site.css"));
-9. No Console do Gerenciador de Pacotes, execute o comando a seguir para instalar o Knockout.
+9. Olá Package Manager Console, a execução Olá comando tooinstall Knockout a seguir.
    
         Install-Package knockoutjs
 
-## <a name="add-a-controller-for-the-web-api-restful-interface"></a>Adicionar um controlador para a interface da API Web Restful
+## <a name="add-a-controller-for-hello-web-api-restful-interface"></a>Adicionar um controlador de interface da Web API Restful Olá
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse em Controllers, clique em **Adicionar** e, em seguida, em **Controlador...** 
-2. Na caixa de diálogo **Adicionar Scaffold**, insira **Controlador da Web API 2 com ações, usando o Entity Framework** e clique em **Adicionar**.
+2. Em Olá **adicionar Scaffold** caixa de diálogo, digite **Web 2 controlador API com ações, usando o Entity Framework** e, em seguida, clique em **adicionar**.
    
     ![Adicionar a API do controlador](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.png)
-3. Na caixa de diálogo **Adicionar Controlador** , insira "ContactsController" como o nome do controlador. Selecione "Contato (ContactManager.Models)" para a **Classe do modelo**.  Mantenha o valor padrão para o **Classe de contexto de dados**. 
+3. Em Olá **Adicionar controlador** caixa de diálogo, digite "ContactsController" como o nome do controlador. Selecione "Contato (ContactManager.Models)" para Olá **classe modelo**.  Manter o valor padrão Olá Olá **classe de contexto de dados**. 
 4. Clique em **Adicionar**.
 
-### <a name="run-the-application-locally"></a>Executar o aplicativo localmente
-1. Pressione CTRL+F5 para executar o aplicativo.
+### <a name="run-hello-application-locally"></a>Executar o aplicativo hello localmente
+1. Pressione CTRL + F5 aplicativo de hello de toorun.
    
     ![Página de índice][intro001]
-2. Digite um contato e clique em **Adicionar**. O aplicativo retorna para a home page e exibe o contato que você inseriu.
+2. Digite um contato e clique em **Adicionar**. aplicativo Hello retorna home page do toohello e exibe o contato Olá inserido.
    
     ![Página de índice com itens da lista de tarefas pendentes][addwebapi004]
-3. No navegador, acrescente **/api/contacts** à URL.
+3. No navegador de hello, acrescente **/api/contatos** toohello URL.
    
-    A URL resultante será semelhante a http://localhost:1234/api/contacts. A API Web RESTful que você adicionou retorna os contatos armazenados. O Firefox e o Chrome exibirão os dados em formato XML.
+    URL de saudação resultante será parecida com a api/http://localhost:1234/contatos. Olá web RESTful API que você adicionou retorna contatos Olá armazenado. Firefox e no Chrome, exibirá dados de saudação em formato XML.
    
     ![Página de índice com itens da lista de tarefas pendentes][rxFFchrome]
 
-    O IE solicitará que você abra ou salve os contatos.
+    IE será solicitará que você tooopen ou salvar contatos hello.
 
     ![Caixa de diálogo Salvar API Web][addwebapi006]
 
 
-    Você pode abrir os contatos retornados no bloco de notas ou em um navegador.
+    Você pode abrir hello retornada contatos no bloco de notas ou em um navegador.
 
     Essa saída pode ser consumida por outro aplicativo, como um aplicativo ou uma página da web móvel.
 
     ![Caixa de diálogo Salvar API Web][addwebapi007]
 
-    **Aviso de Segurança**: neste ponto, o aplicativo não é seguro e está vulnerável a ataques CSRF. Mais à frente no tutorial, removeremos essa vulnerabilidade. Para obter mais informações, confira [Evitando ataques de solicitação intersite forjada (CSRF)][prevent-csrf-attacks].
+    **Aviso de segurança**: neste ponto, seu aplicativo é inseguro e vulnerável tooCSRF ataque. Posteriormente no tutorial Olá removeremos essa vulnerabilidade. Para obter mais informações, confira [Evitando ataques de solicitação intersite forjada (CSRF)][prevent-csrf-attacks].
 ## <a name="add-xsrf-protection"></a>Adicionar proteção XSRF
-A solicitação entre sites forjada (também conhecida como XSRF ou CSRF) é um ataque contra aplicativos web hospedados, no qual um site mal-intencionado pode influenciar a interação entre um navegador cliente e um site confiável para esse navegador. Esses ataques são possibilitados porque os navegadores da web enviarão tokens de autenticação automaticamente com toda solicitação para um site. O exemplo canônico é um cookie de autenticação, como o tíquete de autenticação de formulários do ASP.NET. No entanto, os sites que usam qualquer mecanismo de autenticação persistente (como a autenticação do Windows, Basic e assim por diante) podem ser alvos desses ataques.
+Falsificação de solicitação entre sites (também conhecido como XSRF ou CSRF) é um ataque contra aplicativos web hospedados no qual um site mal-intencionado pode influenciar a interação de saudação entre um navegador de cliente e um site confiada pelo navegador. Esses ataques são possibilitados como navegadores da web enviará os tokens de autenticação automaticamente com o site de tooa cada solicitação. exemplo canônico Hello é um cookie de autenticação, como ASP. Tíquete de autenticação de formulários do NET. No entanto, os sites que usam qualquer mecanismo de autenticação persistente (como a autenticação do Windows, Basic e assim por diante) podem ser alvos desses ataques.
 
-Um ataque XSRF é diferente de um ataque de phishing. Os ataques de phishing exigem a interação da vítima. Em um ataque de phishing, um site mal-intencionado imita o site de destino e a vítima é levada a fornecer informações confidenciais ao invasor. Em um ataque XSRF, normalmente não é necessária nenhuma interação da vítima. Em vez disso, o invasor conta com que o navegador envie automaticamente todos os cookies relevantes ao site de destino.
+Um ataque XSRF é diferente de um ataque de phishing. Ataques de phishing requerem interação da vítima hello. Em um ataque de phishing, um site mal-intencionado imitar o site de destino hello e vítima Olá enganar fornecendo invasor de toohello informações confidenciais. Em um ataque de XSRF, geralmente há nenhuma interação necessárias da vítima hello. Em vez disso, invasor Olá depende navegador Olá enviar automaticamente todos os site de destino de toohello cookies relevantes.
 
-Para saber mais, confira [Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_\(CSRF\)).
+Para obter mais informações, consulte Olá [Abrir projeto de segurança do aplicativo Web](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_\(CSRF\)).
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **ContactManager**, clique em **Adicionar** e em **Classe**.
-2. Nomeie o arquivo como *ValidateHttpAntiForgeryTokenAttribute.cs* e adicione o seguinte código:
+2. Arquivo de saudação do nome *ValidateHttpAntiForgeryTokenAttribute.cs* e adicione Olá código a seguir:
    
         using System;
         using System.Collections.Generic;
@@ -570,15 +570,15 @@ Para saber mais, confira [Open Web Application Security Project](https://www.owa
                 }
             }
         }
-3. Adicione a instrução *using* a seguir ao controlador de contratos, de forma que você tenha acesso ao atributo **[ValidateHttpAntiForgeryToken]** .
+3. Adicione o seguinte Olá *usando* toohello de instrução de contratos de controlador para que você tenha acesso toohello **[ValidateHttpAntiForgeryToken]** atributo.
    
         using ContactManager.Filters;
-4. Adicione o atributo **[ValidateHttpAntiForgeryToken]** aos métodos Post do **ContactsController** para protegê-lo contra ameaças XSRF. Você o adicionará aos métodos de ação "PutContact", "PostContact" e **DeleteContact**.
+4. Adicionar Olá **[ValidateHttpAntiForgeryToken]** toohello métodos de postagem de saudação do atributo **ContactsController** tooprotect-lo contra ameaças XSRF. Você irá adicionar toohello "PutContact", "PostContact" e **DeleteContact** métodos de ação.
    
         [ValidateHttpAntiForgeryToken]
             public IHttpActionResult PutContact(int id, Contact contact)
             {
-5. Atualize a seção *Scripts* do arquivo *Views\Home\Index.cshtml* de modo a incluir o código para obtenção de tokens XSRF.
+5. Saudação de atualização *Scripts* seção Olá *Views\Home\Index.cshtml* tokens de XSRF tooinclude código tooget saudação do arquivo.
    
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -633,59 +633,59 @@ Para saber mais, confira [Open Web Application Security Project](https://www.owa
             </script>
          }
 
-## <a name="publish-the-application-update-to-azure-and-sql-database"></a>Publicar a atualização do aplicativo no Azure e no Banco de Dados SQL
-Para publicar o aplicativo, repita o procedimento seguido anteriormente.
+## <a name="publish-hello-application-update-tooazure-and-sql-database"></a>Publicar Olá tooAzure de atualização de aplicativo e banco de dados SQL
+aplicativo de hello toopublish, você repetir procedimento Olá que você seguiu anteriormente.
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e escolha **Publicar**.
+1. Em **Solution Explorer**, projeto Olá clique com botão direito e selecione **publicar**.
    
     ![Publicar][rxP]
-2. Clique na guia **Configurações** .
-3. Em **ContactsManagerContext(ContactsManagerContext)**, clique no ícone **v** para alterar *Cadeia de conexão remota* para a cadeia de conexão do banco de dados de contato. Clique em **ContactDB**.
+2. Clique em Olá **configurações** guia.
+3. Em **ContactsManagerContext(ContactsManagerContext)**, clique em Olá **v** ícone toochange *cadeia de caracteres de conexão remota* toohello cadeia de caracteres de conexão para contato Olá banco de dados. Clique em **ContactDB**.
    
     ![Configurações](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt5.png)
-4. Marque a caixa de seleção de **Executar Codificar Migrações Iniciais (executado na inicialização do aplicativo)**.
-5. Clique em **Avançar** e, em seguida, em **Visualizar**. O Visual Studio exibe uma lista dos arquivos que serão adicionados ou atualizados.
+4. Marque a caixa Olá para **executar migrações do Code First (executado na inicialização do aplicativo)**.
+5. Clique em **Avançar** e, em seguida, em **Visualizar**. O Visual Studio exibe uma lista de arquivos de saudação que serão adicionados ou atualizados.
 6. Clique em **Publicar**.
-   Depois que a implantação for concluída, o navegador será aberto na home page do aplicativo.
+   Após a conclusão da implantação hello, o navegador de saudação abre toohello home page do aplicativo hello.
    
     ![Página de índice sem contatos][intro001]
    
-    O processo de publicação do Visual Studio configurou automaticamente a cadeia de conexão no arquivo *Web.config* implantado para apontar para o banco de dados SQL. Ele também configurou Codificar Migrações Iniciais para atualizar automaticamente o banco de dados para a versão mais recente na primeira vez em que o aplicativo acessar o banco de dados após a implantação.
+    Olá Visual Studio publicar cadeia de caracteres de conexão do processo configurado automaticamente Olá no hello implantado *Web. config* banco de dados do arquivo toopoint toohello SQL. Ele também configurado migrações do Code First tooautomatically Olá Atualizar banco de dados toohello versão mais recente primeiro aplicativo de saudação tempo hello acessa o banco de dados de saudação após a implantação.
    
-    Como resultado dessa configuração, o Código Primeiro criou o banco de dados executando o código na classe **Initial** que você criou anteriormente. Ele fez isso na primeira vez que o aplicativo tentou acessar o banco de dados após a implantação.
-7. Insira um contato como quando você executou o aplicativo localmente para verificar se a implantação do banco de dados teve êxito.
+    Como resultado, essa configuração Code First criou Olá banco de dados, executando código Olá em Olá **inicial** classe que você criou anteriormente. Que este Olá primeiro tempo Olá aplicativo tentado tooaccess Olá banco de dados após a implantação.
+7. Insira um contato como você fez quando você executou Olá aplicativo localmente, tooverify implantação de banco de dados foi bem-sucedida.
 
-Ao ver que o item inserido foi salvo e exibido na página do gerenciador de contatos, você sabe que ele foi armazenado no banco de dados.
+Quando você vir esse item Olá que inserir é salva e aparece na página de contato do Gerenciador de saudação, você saberá que foram armazenado no banco de dados de saudação.
 
 ![Página de índice com contatos][addwebapi004]
 
-O aplicativo agora está sendo executado na nuvem, usando o Banco de dados SQL para armazenar seus dados. Depois de concluir o teste do aplicativo no Azure, exclua-o. O aplicativo é público e não tem um mecanismo para limitar o acesso.
+aplicativo Hello está em execução na nuvem hello, usando o banco de dados SQL toostore seus dados. Depois de concluir o teste o aplicativo hello no Azure, exclua-o. aplicativo Hello é público e não tem acesso de toolimit um mecanismo.
 
 > [!NOTE]
-> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você quiser tooget iniciado com o serviço de aplicativo do Azure antes de se inscrever para uma conta do Azure, vá muito[tente do serviço de aplicativo](https://azure.microsoft.com/try/app-service/), onde você pode criar imediatamente um aplicativo web de curta duração starter no serviço de aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-Outra maneira de armazenar dados em um aplicativo do Azure é usar o Armazenamento do Azure, que fornece armazenamento de dados não relacionais na forma de blobs e tabelas. Os links a seguir fornecem mais informações sobre a API Web, o ASP.NET MVC e o Microsoft Azure.
+Outra maneira como toostore os dados em um aplicativo do Azure serão toouse armazenamento do Azure, que fornecem armazenamento de dados não relacionais no formato de saudação de blobs e tabelas. Olá links a seguir fornece mais informações sobre a API da Web, o ASP.NET MVC e o Windows Azure.
 
 * [Introdução ao Entity Framework usando MVC][EFCodeFirstMVCTutorial]
-* [Introdução ao ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
+* [Introdução tooASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 * [Sua primeira API Web ASP.NET](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
 * [Depurando WAWS](web-sites-dotnet-troubleshoot-visual-studio.md)
 
-Este tutorial e o aplicativo de exemplo foram escritos por [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) com a ajuda de Tom Dykstra e de Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
+Este aplicativo de exemplo do tutorial e hello foi escrito por [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [ @RickAndMSFT ](https://twitter.com/RickAndMSFT)) com a Ajuda de Tom Dykstra e Barry Dorrans (Twitter [ @blowdart ](https://twitter.com/blowdart)). 
 
-Deixe comentários sobre o que você gostou ou do que você gostaria de ver melhorado, não apenas sobre o próprio tutorial, mas também sobre os produtos que ele demonstra. Seus comentários nos ajudarão a priorizar melhorias. Estamos especialmente interessados em saber quanto há de interesse em mais automação para o processo de configuração e implantação de banco de dados de associação. 
+Deixe comentários sobre o que você gostou ou o que você gostaria que toosee aprimorado, não apenas sobre tutorial Olá em si, mas também sobre produtos Olá demonstra. Seus comentários nos ajudarão a priorizar melhorias. Estamos especialmente interessados em saber quantos interesse lá está em mais automação para o processo de saudação de configuração e implantação de banco de dados de associação de saudação. 
 
 ## <a name="whats-changed"></a>O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para um guia toohello alteração de sites tooApp serviço consulte: [do serviço de aplicativo do Azure e seu impacto sobre os serviços do Azure existente](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
-[Add Roles to the Membership Database]:#mbrDB
+[Add Roles toohello Membership Database]:#mbrDB
 [Create a Data Deployment Script]:#ppd
-[Update the Membership Database]:#ppd2
+[Update hello Membership Database]:#ppd2
 [setupdbenv]: #bkmk_setupdevenv
 [setupwindowsazureenv]: #bkmk_setupwindowsazure
 [createapplication]: #bkmk_createmvc4app

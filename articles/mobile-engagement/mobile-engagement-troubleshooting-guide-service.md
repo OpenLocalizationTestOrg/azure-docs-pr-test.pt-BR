@@ -1,5 +1,5 @@
 ---
-title: "Guia de solução de problemas do Azure Mobile Engagement - serviço"
+title: "aaaAzure Mobile Engagement Troubleshooting Guide - serviço"
 description: "Guias de solução de problemas para o Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: f13fd0540b783120014b3a8d4e41f78808c7fade
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cf48db323a873ccef95946f7bb26e8d7473c002f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshooting-guide-for-service-issues"></a>Guia de solução de problemas de serviço
-A seguir, possíveis problemas que podem ser encontrados na execução do Azure Mobile Engagement.
+Olá seguem possíveis problemas que podem ocorrer com a execução do Azure Mobile Engagement.
 
 ## <a name="service-outages"></a>Interrupções de serviço
 ### <a name="issue"></a>Problema
-* Problemas que parecem ser provocados por interrupções de serviços do Azure Mobile Engagement.
+* Problemas que aparecem toobe causado por interrupções no serviço do Azure Mobile Engagement.
 
 ### <a name="causes"></a>Causas
-* Os problemas que parecem ser provocados por interrupções de serviços do Azure Mobile Engagement podem ser causados por vários problemas diferentes:
-  * Problemas isolados que originalmente parecem sistêmicos para o Azure Mobile Engagement
+* Problemas que aparecem toobe causado por interrupções no serviço do Azure Mobile Engagement podem ser causados por vários problemas diferentes:
+  * Problemas isolados que originalmente aparecem tooall sistemática do Azure Mobile Engagement
   * Problemas conhecidos causados por interrupções de servidor (nem sempre são mostrados no status do servidor):
-  * Atrasos de agendamento, erros de direcionamento, problemas de atualização de notificação, interrupção da coleta de estatísticas, envio por push para de funcionar, interrupção do funcionamento das APIs, não é possível criar novos aplicativos ou usuários, erros de DNS e erros de tempo limite na interface do usuário, na API ou em aplicativos em um dispositivo.
+  * Agendando atrasos, erros de direcionamento, problemas de atualização do selo, parada estatísticas coletando Push parar de funcionar, da API pararem de funcionar, novos aplicativos ou usuários não pode ser criado, erros DNS e tempo limite Olá da interface do usuário, a API ou aplicativos em um dispositivo.
   * Interrupções de dependência de nuvem [Status do serviço do Azure](http://status.azure.com/)
   * Interrupções de dependência de Serviços de notificação de envio (PNS)
   * Interrupções de loja de aplicativos
 
-1) Para testar para ver se o problema é sistemático, você pode testar a mesma função de um
+1) tootest toosee se problema de saudação sistemático, você pode testar Olá a mesma função de outro
 
 * Aplicativo integrado Azure Mobile Engagement
 * Dispositivo de teste
@@ -46,46 +46,46 @@ A seguir, possíveis problemas que podem ser encontrados na execução do Azure 
 * Navegador (IE, Firefox, Chrome, etc.)
 * Computador
 
-2) Para testar se o problema afeta somente a interface do usuário ou a API:
+2) tootest se Olá afeta apenas Olá Olá ou interface do usuário da API:
 
-* Teste a mesma função da IU do Azure Mobile Engagement e das APIs do Azure Mobile Engagement.
+* Saudação de teste mesma função de ambos os Olá interface de usuário do Azure Mobile Engagement e Olá da API do Azure Mobile Engagement.
 
-3) Para testar se o problema é com a rede de telefone celular:
+3) tootest se o problema de saudação à sua rede de celular:
 
-* Teste tanto quando estiver conectado à Internet via WIFI quanto conectado via rede de celular 3G.
-* Confirme se o firewall não está bloqueando algum endereço IP ou porta do Azure Mobile Engagement.
+* Testar enquanto toohello conectado à Internet por meio de WIFI e enquanto estiver conectado por meio de sua rede de celular 3G.
+* Confirme se o firewall não está bloqueando qualquer um dos endereços IP do hello Azure Mobile Engagement ou portas.
 
-4) Para testar se o problema é com o dispositivo:
+4) tootest se Olá problema com seu dispositivo:
 
-* Teste se o dispositivo é capaz de se conectar ao Azure Mobile Engagement com outro aplicativo integrado Azure Mobile Engagement.
-* Verifique se você pode gerar eventos, trabalhos e travamentos de seu telefone que podem ser vistos na interface do usuário do Azure Mobile Engagement. 
-* Teste se você pode enviar notificações por push da IU do Azure Mobile Engagement para o seu dispositivo com base em sua identificação do dispositivo. 
+* Teste se o dispositivo é capaz de tooconnect tooAzure Mobile Engagement com outro aplicativo integrado do Azure Mobile Engagement.
+* Verifique se você pode gerar eventos, trabalhos e falhas de seu telefone que pode ser visto no hello interface de usuário do Azure Mobile Engagement. 
+* Testar se você pode enviar notificações por push do dispositivo de tooyour de interface de usuário do Azure Mobile Engagement Olá com base em sua ID de dispositivo. 
 
-5) Para testar se o problema é com seu aplicativo:
+5) tootest se Olá problema com seu aplicativo:
 
 * Instale e teste seu aplicativo de um emulador em vez de um dispositivo físico:
 
-6) Para testar se o problema é com as atualizações do sistema operacional para dispositivos do usuário final, que exigem uma atualização do SDK para resolver:
+6) tootest se Olá problema com o sistema operacional atualizado tooend usuário dispositivos, o que requer um tooresolve de atualização do SDK:
 
-* Teste seu aplicativo em diferentes dispositivos com diferentes versões do sistema operacional.
-* Confirme que você está usando a versão mais recente do SDK.
+* Teste seu aplicativo em dispositivos diferentes com diferentes versões do SO de saudação.
+* Confirme que você estiver usando a versão mais recente de saudação do hello SDK.
 
 ## <a name="connectivity-and-incorrect-information-issues"></a>Conectividade e problemas de informações incorretas
 ### <a name="issue"></a>Problema
-* Problemas de logon na interface do usuário do Azure Mobile Engagement.
-* Erros de conexão com as APIs do Azure Mobile Engagement.
-* Problemas ao carregar marcas de informações de aplicativo por meio da API do dispositivo.
+* Problemas ao efetuar logon em Olá interface de usuário do Azure Mobile Engagement.
+* Erros de Conexão com hello API do Azure Mobile Engagement.
+* Problemas ao carregar marcas de informações do aplicativo por meio de saudação API do dispositivo.
 * Problemas de download de logs ou de dados exportados do Azure Mobile Engagement.
-* Informações incorretas mostradas na interface do usuário do Azure Mobile Engagement.
+* Informações incorretas mostradas no hello interface de usuário do Azure Mobile Engagement.
 * Informações incorretas mostradas nos logs do Azure Mobile Engagement.
 
 ### <a name="causes"></a>Causas
-* Confirme se sua conta de usuário tem permissões suficientes para executar a tarefa.
-* Confirme se o problema não está restrito a um computador ou à sua rede local.
-* Confirme se o serviço do Azure Mobile Engagement não tem nenhuma interrupção relatada.
+* Confirme que sua conta de usuário tem a tarefa de saudação de tooperform permissões suficientes.
+* Confirme que esse problema Olá não é isolado tooone ou sua rede local.
+* Verifique se esse serviço do Azure Mobile Engagement Olá tem sem interrupções relatadas.
 * Confirme se os arquivos de marca de informações do aplicativo seguem todas estas regras:
-  * Usam somente o conjunto de caracteres UTF8 (não há suporte para o conjunto de caracteres ANSI).
-  * Usam uma vírgula "," como o caractere separador (você pode abrir uma solicitação de serviço para pedir a alteração do caractere separador do .csv de uma vírgula "," para um outro caractere, como um ponto e vírgula ";").
+  * Use Olá apenas o conjunto de caracteres UTF8 (conjunto de caracteres ANSI Olá não tem suporte).
+  * Use uma vírgula "," como o caractere separador hello (você pode abrir um serviço toorequest toochange hello. csv separador de caracteres de solicitação de uma vírgula "," caractere tooanother como um ponto e vírgula ";").
   * Usam letras maiúsculas para valores boolianos “verdadeiro” e “falso”.
-  * Usam um arquivo menor do que o tamanho máximo de 35 MB.
+  * Use um arquivo que é menor do que o tamanho máximo do arquivo de saudação de 35MB.
 

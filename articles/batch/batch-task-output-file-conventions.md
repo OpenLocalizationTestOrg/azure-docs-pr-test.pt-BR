@@ -1,6 +1,6 @@
 ---
-title: "Manter saída de trabalhos e tarefas no armazenamento do Azure com a biblioteca de Convenções de Arquivo para .NET – Lote do Azure | Microsoft Docs"
-description: "Saiba como usar a biblioteca de Convenções de Arquivo em Lote do Azure para .NET para manter a saída de tarefa e trabalho em Lote no Armazenamento do Azure e exibir a saída mantida no portal do Azure."
+title: "aaaPersist trabalhos e tarefas de saída tooAzure armazenamento com biblioteca de convenções de arquivo hello para .NET - lote do Azure | Microsoft Docs"
+description: "Saiba como toouse biblioteca de convenções de arquivo de lote do Azure para .NET toopersist tarefa em lotes e tooAzure de saída do trabalho armazenamento e Olá exibição persistentes saída Olá portal do Azure."
 services: batch
 documentationcenter: .net
 author: tamram
@@ -15,89 +15,89 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a9de327c20463469bc91d9720aa17333a36f919e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: cf2ac8632a13d32438c1bdcf11b4b9649de1e2b5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net-to-persist"></a>Manter os dados de trabalho e tarefa no Armazenamento do Azure com a biblioteca de Convenções de Arquivo em Lotes para o .NET manter 
+# <a name="persist-job-and-task-data-tooazure-storage-with-hello-batch-file-conventions-library-for-net-toopersist"></a>Manter o trabalho e dados tooAzure armazenamento com biblioteca de convenções de arquivo em lotes Olá para .NET toopersist de tarefas 
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-Uma maneira de manter os dados de tarefa é usar a [biblioteca Convenções de Arquivo em Lote do Azure para .NET][nuget_package]. A biblioteca de Convenções de Arquivo simplifica o processo de armazenar dados de saída de tarefa no Armazenamento do Azure e recuperá-los. Você pode usar a biblioteca de Convenções de Arquivo em código tanto do cliente quanto de &mdash; no código de tarefa para manter arquivos e no código do cliente para listá-los e recuperá-los. Seu código de tarefa também pode usar a biblioteca para recuperar as saídas de tarefas upstream, como em um cenário de [dependências de tarefa](batch-task-dependencies.md). 
+Dados de tarefa toopersist unidirecional são Olá toouse [biblioteca convenções de arquivo de lote do Azure para .NET][nuget_package]. Olá, biblioteca de convenções de arquivo simplifica o processo de saudação de armazenar a saída da tarefa dados tooAzure armazenamento e recuperá-los. Você pode usar Olá convenções arquivo biblioteca em código de cliente e de tarefa &mdash; no código de tarefa para manter arquivos e no cliente de código toolist e recuperá-las. O código de tarefa também pode usar Olá biblioteca tooretrieve Olá saída upstream tarefas, como em um [dependências entre tarefas](batch-task-dependencies.md) cenário. 
 
-Para recuperar arquivos de saída com a biblioteca de Convenções de Arquivo, você pode localizar os arquivos para um determinado trabalho ou tarefa listando-os por ID e finalidade. Você não precisa saber os nomes nem os locais dos arquivos. Por exemplo, você pode usar a biblioteca de Convenções de Arquivo para listar todos os arquivos intermediários para uma determinada tarefa ou obter um arquivo de versão prévia para um determinado trabalho.
+tooretrieve saída arquivos com biblioteca de convenções de arquivo hello, você pode localizar arquivos de saudação para um determinado trabalho ou tarefa listá-los por ID e a finalidade. Você não precisa tooknow nomes de saudação ou locais dos arquivos de saudação. Por exemplo, você pode usar toolist de biblioteca de convenções de arquivo hello todos os arquivos intermediários para uma determinada tarefa ou obter um arquivo de visualização para um determinado trabalho.
 
 > [!TIP]
-> Começando com a versão de 01/05/2017, a API de serviço de Lote dá suporte a manter dados de saída para o Armazenamento do Azure para tarefas e tarefas do gerenciador de trabalho que são executadas em pools criados com a configuração de máquina virtual. A API do serviço de Lote oferece uma maneira simples de manter a saída de dentro do código que cria uma tarefa e serve como uma alternativa à biblioteca de Convenções de Arquivo. Você pode modificar seus aplicativos cliente em Lotes para manter a saída sem necessidade de atualizar o aplicativo que sua tarefa está executando. Para obter mais informações, consulte [Manter dados de tarefa no Armazenamento do Azure com a API de serviço em Lote](batch-task-output-files.md).
+> Começando com a versão de 2017-05-01, Olá API do serviço de lote dá suporte a tooAzure de dados persistentes saída armazenamento para tarefas e tarefas do Gerenciador de trabalho que são executados em pools criados com a configuração de máquina virtual de saudação. Olá API do serviço de lote fornece um toopersist de maneira simples de saída de dentro do código de saudação que cria uma tarefa e serve como uma biblioteca de convenções de arquivo toohello alternativo. Você pode modificar a saída de toopersist de aplicativos de cliente de lote sem a necessidade de aplicativo hello tooupdate que a tarefa está em execução. Para obter mais informações, consulte [persistir dados de tarefa tooAzure armazenamento com a API do serviço de lote de saudação](batch-task-output-files.md).
 > 
 > 
 
-## <a name="when-do-i-use-the-file-conventions-library-to-persist-task-output"></a>Quando usar a biblioteca Convenções de Arquivo para manter a saída da tarefa?
+## <a name="when-do-i-use-hello-file-conventions-library-toopersist-task-output"></a>Quando usar o hello convenções arquivo biblioteca toopersist a saída da tarefa?
 
-O Lote do Azure fornece mais de uma maneira de manter a saída da tarefa. A biblioteca Convenções de Arquivo é ideal para estes cenários:
+Lote do Azure fornece uma maneira toopersist a saída da tarefa. Olá convenções de arquivo é melhor cenários de toothese adequados:
 
-- Você pode facilmente modificar o código para o aplicativo que sua tarefa está executando para manter os arquivos usando a biblioteca Convenções de Arquivo.
-- Você desejar transmitir dados para o Armazenamento do Azure enquanto a tarefa ainda está em execução.
-- Você desejar manter os dados dos pools criados com a configuração do serviço de nuvem ou a configuração de máquina virtual.
-- O aplicativo cliente ou outras tarefas no trabalho precisar localizar e baixar arquivos de saída de tarefas por ID ou por finalidade. 
-- Você desejar exibir a saída da tarefa no portal do Azure.
+- Você pode modificar facilmente o código Olá para o aplicativo hello se a tarefa está em execução toopersist arquivos usando biblioteca de convenções de arquivo hello.
+- Você deseja toostream dados tooAzure armazenamento enquanto a tarefa Olá ainda está em execução.
+- Você deseja toopersist dados pools criados com a configuração do serviço de nuvem hello ou configuração de máquina virtual de saudação.
+- O aplicativo cliente ou outras tarefas no hello toolocate necessidades de trabalho e baixar arquivos de saída de tarefas por ID ou por finalidade. 
+- Você deseja tooview saída da tarefa no hello portal do Azure.
 
-Se seu cenário for diferente daqueles listados acima, poderá ser necessário considerar uma abordagem diferente. Para obter mais informações sobre outras opções para manter a saída da tarefa, consulte [Manter saída de trabalho e tarefa no Armazenamento do Azure](batch-task-output.md). 
+Se seu cenário diferente daqueles listados acima, talvez seja necessário tooconsider uma abordagem diferente. Para obter mais informações sobre outras opções para persistir a saída da tarefa, consulte [Persist trabalhos e tarefas de saída tooAzure armazenamento](batch-task-output.md). 
 
-## <a name="what-is-the-batch-file-conventions-standard"></a>O que é o padrão Convenções do Arquivo em Lote?
+## <a name="what-is-hello-batch-file-conventions-standard"></a>O que é Olá convenções do arquivo de lote padrão?
 
-O [padrão Convenções de Arquivo em Lote](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) fornece um esquema de nomenclatura para os contêineres de destino e os caminhos de blob nos quais os arquivos de saída são gravados. Os arquivos mantidos no Armazenamento do Azure que segue o padrão Convenções de Arquivo ficam automaticamente disponíveis para exibição no portal do Azure. O portal está ciente da convenção de nomenclatura e, portanto, pode exibir arquivos que aderem a ela.
+Olá [padrão de convenções de arquivo em lotes](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) fornece um esquema de nomenclatura para contêineres de destino hello e toowhich de caminhos de blob, os arquivos de saída são gravados. Arquivos persistente tooAzure armazenamento que seguem toohello convenções de arquivo padrão são automaticamente disponíveis para visualização no hello portal do Azure. portal de Hello está ciente de convenção de nomenclatura hello e portanto pode exibir arquivos que seguem tooit.
 
-A biblioteca Convenções de Arquivo para .NET nomeia automaticamente seus contêineres de armazenamento e os arquivos de saída de tarefa acordo com o padrão de Convenções de Arquivo. A biblioteca Convenções de Arquivo também fornece métodos para consultar arquivos de saída no Armazenamento do Azure acordo com a ID do trabalho, a ID da tarefa ou a finalidade.   
+biblioteca de convenções de arquivo Hello para .NET nomeia automaticamente seus contêineres de armazenamento e arquivos de saída de tarefa de acordo com o toohello convenções de arquivo padrão. biblioteca de convenções de arquivo Hello também fornece métodos tooquery arquivos de saída no armazenamento do Azure toojob ID, ID da tarefa ou finalidade de acordo com.   
 
-Se você estiver desenvolvendo com uma linguagem que não .NET, poderá implementar o padrão de Convenções de Arquivo você mesmo em seu aplicativo. Para obter mais informações, consulte [Sobre o padrão de Convenções de Arquivo em Lote](batch-task-output.md#about-the-batch-file-conventions-standard).
+Se você estiver desenvolvendo com um idioma diferente do .NET, você pode implementar Olá convenções de arquivo padrão por conta própria em seu aplicativo. Para obter mais informações, consulte [sobre padrão de convenções de arquivo em lotes Olá](batch-task-output.md#about-the-batch-file-conventions-standard).
 
-## <a name="link-an-azure-storage-account-to-your-batch-account"></a>Vincular uma conta de Armazenamento do Azure à sua conta do Lote
+## <a name="link-an-azure-storage-account-tooyour-batch-account"></a>Vincular uma conta de armazenamento do Azure tooyour conta em lotes
 
-Para manter os dados de saída no Armazenamento do Azure usando a biblioteca Convenções de Arquivo, primeiro vincule uma conta de Armazenamento do Azure à sua conta do Lote. Se ainda não tiver fez isso, vincule uma conta de Armazenamento à sua conta do Lote usando o [portal do Azure](https://portal.azure.com):
+dados de saída de toopersist tooAzure armazenamento usando a biblioteca de convenções de arquivo hello, primeiro você deve vincular uma conta de armazenamento do Azure tooyour conta do lote. Se você ainda não tiver feito isso, vincular uma conta de armazenamento tooyour conta em lotes usando Olá [portal do Azure](https://portal.azure.com):
 
-1. Navegue até sua conta do Lote no portal do Azure. 
+1. Navegue tooyour conta de lote no hello portal do Azure. 
 2. Em **Configurações**, selecione **Conta de Armazenamento**.
 3. Se você ainda não tiver uma conta de Armazenamento associada à sua conta do Lote, clique em **Conta de Armazenamento (Nenhuma)**.
-4. Selecione uma conta de Armazenamento na lista para sua assinatura. Para melhor desempenho, use uma conta de Armazenamento do Azure que esteja na mesma região que a conta do Lote em que as tarefas estão em execução.
+4. Selecione uma conta de armazenamento na lista Olá para sua assinatura. Para melhor desempenho, use uma conta de armazenamento do Azure que está em Olá mesma região Olá conta do lote onde as tarefas estão em execução.
 
 ## <a name="persist-output-data"></a>Manter os dados de saída
 
-Para manter os dados de saída de trabalho e tarefa com a biblioteca Convenções de Arquivo, crie um contêiner no Armazenamento do Azure e salve a saída no contêiner. Use a [biblioteca de cliente do Armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage) em seu código de tarefa para carregar a saída da tarefa para o contêiner. 
+tarefa toopersist trabalho de saída de dados com a biblioteca de convenções de arquivo hello, criar um contêiner no armazenamento do Azure e salvar o contêiner de toohello Olá saída. Saudação de uso [biblioteca de cliente de armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage) em seu contêiner de toohello tarefa código tooupload Olá tarefa saída. 
 
 Para obter mais informações sobre como trabalhar com contêineres e blobs no Armazenamento do Azure, consulte [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 > [!WARNING]
-> Todas as saídas de trabalho e tarefa mantidas com a biblioteca Convenções de Arquivo são armazenadas no mesmo contêiner. Se um grande número de tarefas tentar manter arquivos ao mesmo tempo, poderão ser impostos [limites de limitação de armazenamento](../storage/common/storage-performance-checklist.md#blobs).
+> Todas as saídas de trabalho e tarefa persistentes Olá convenções de arquivo de biblioteca são armazenados no mesmo contêiner de hello. Se um grande número de tarefas tente toopersist arquivos no hello mesmo tempo, [redução dos limites de armazenamento](../storage/common/storage-performance-checklist.md#blobs) pode ser imposta.
 > 
 > 
 
 ### <a name="create-storage-container"></a>Criar um contêiner de armazenamento
 
-Para manter a saída da tarefa no Armazenamento do Azure, primeiro crie um contêiner chamando [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. Esse método de extensão usa um objeto [CloudStorageAccount][net_cloudstorageaccount] como parâmetro. Ele cria um contêiner nomeado de acordo com o padrão de Convenções de Arquivo, de modo que seu conteúdo é detectável pelo portal do Azure e os métodos de recuperação discutidos posteriormente neste artigo.
+tooAzure de saída de tarefa toopersist armazenamento, primeiro crie um contêiner chamando [CloudJob][net_cloudjob].[ PrepareOutputStorageAsync][net_prepareoutputasync]. Esse método de extensão usa um objeto [CloudStorageAccount][net_cloudstorageaccount] como parâmetro. Ele cria um contêiner nomeado acordo toohello convenções de arquivo padrão, para que seu conteúdo é detectável pelo Olá métodos de recuperação de portal e hello Azure discutidos posteriormente no artigo de saudação.
 
-Normalmente, você coloca o código para criar um contêiner no seu aplicativo cliente &mdash; o aplicativo que cria os pools, os trabalhos e as tarefas.
+Você normalmente colocar Olá código toocreate um contêiner em seu aplicativo cliente &mdash; Olá aplicativo que cria o pools, trabalhos e tarefas.
 
 ```csharp
 CloudJob job = batchClient.JobOperations.CreateJob(
     "myJob",
     new PoolInformation { PoolId = "myPool" });
 
-// Create reference to the linked Azure Storage account
+// Create reference toohello linked Azure Storage account
 CloudStorageAccount linkedStorageAccount =
     new CloudStorageAccount(myCredentials, true);
 
-// Create the blob storage container for the outputs
+// Create hello blob storage container for hello outputs
 await job.PrepareOutputStorageAsync(linkedStorageAccount);
 ```
 
 ### <a name="store-task-outputs"></a>Armazenar saídas de tarefas
 
-Agora que você preparou um contêiner no Armazenamento do Azure, as tarefas podem salvar a saída no contêiner usando a classe [TaskOutputStorage][net_taskoutputstorage] encontrada na biblioteca Convenções de Arquivo.
+Agora que você preparou um contêiner no armazenamento do Azure, tarefas podem salvar o contêiner de toohello de saída usando Olá [TaskOutputStorage] [ net_taskoutputstorage] classe encontrada na biblioteca de convenções de arquivo hello.
 
-No código da tarefa, primeiro crie um objeto [TaskOutputStorage][net_taskoutputstorage]. Em seguida, quando a tarefa concluir seu trabalho, chame o método [TaskOutputStorage][net_taskoutputstorage].[SaveAsync][net_saveasync] para salvar sua saída no Armazenamento do Azure.
+Em seu código de tarefa, primeiro crie um [TaskOutputStorage] [ net_taskoutputstorage] do objeto, em seguida, quando a tarefa de saudação concluiu seu trabalho, chame Olá [TaskOutputStorage] [ net_taskoutputstorage]. [SaveAsync] [ net_saveasync] método toosave tooAzure sua saída armazenamento.
 
 ```csharp
 CloudStorageAccount linkedStorageAccount = new CloudStorageAccount(myCredentials);
@@ -107,26 +107,26 @@ string taskId = Environment.GetEnvironmentVariable("AZ_BATCH_TASK_ID");
 TaskOutputStorage taskOutputStorage = new TaskOutputStorage(
     linkedStorageAccount, jobId, taskId);
 
-/* Code to process data and produce output file(s) */
+/* Code tooprocess data and produce output file(s) */
 
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg");
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
 ```
 
-O parâmetro `kind` do método [TaskOutputStorage](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.aspx).[SaveAsync](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync.aspx) categoriza os arquivos mantidos. Há quatro tipos predefinidos de [TaskOutputKind][net_taskoutputkind]: `TaskOutput`, `TaskPreview`, `TaskLog` e `TaskIntermediate.`. Você também pode definir as categorias personalizadas da saída.
+Olá `kind` parâmetro hello [TaskOutputStorage](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.aspx).[ SaveAsync](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync.aspx) método categoriza Olá persistente de arquivos. Há quatro tipos predefinidos de [TaskOutputKind][net_taskoutputkind]: `TaskOutput`, `TaskPreview`, `TaskLog` e `TaskIntermediate.`. Você também pode definir as categorias personalizadas da saída.
 
-Esses tipos de saída permitem que você especifique qual tipo de saídas listar ao consultar posteriormente o Lote para obter as saídas persistentes de determinada tarefa. Em outras palavras, ao listar as saídas de uma tarefa, você pode filtrar a lista em um dos tipos de saída. Por exemplo, "Forneça a saída de *visualização* da tarefa *109*". Mais informações sobre listagem e recuperação de saídas estão disponíveis em [Recuperar saída](#retrieve-output) , mais adiante no artigo.
+Esses tipos de saída permitem que você toospecify qual tipo de saídas toolist quando você consulta posteriormente em lotes para Olá persistentes saídas de uma determinada tarefa. Em outras palavras, quando você lista Olá saídas para uma tarefa, você pode filtrar a lista de saudação em um dos tipos de saída de hello. Por exemplo, "Envie-me Olá *visualização* de saída de tarefa *109*." Mais informações sobre a listagem e recuperando saídas aparece na [recuperar a saída](#retrieve-output) posteriormente Olá artigo.
 
 > [!TIP]
-> O tipo de saída também designa em que ponto no portal do Azure um arquivo específico é exibido: arquivos categorizados por *TaskOutput* aparecem em **Arquivos de saída de tarefa** e arquivos de *TaskLog* aparecem em **Logs de tarefa**.
+> Olá tipo de saída também determina onde no hello Azure portal um determinado arquivo aparece: *TaskOutput*-arquivos categorizados aparecem sob **arquivos de saída de tarefa**, e *TaskLog*arquivos aparecem sob **tarefa logs**.
 > 
 > 
 
 ### <a name="store-job-outputs"></a>Armazenar saídas de trabalhos
 
-Além de armazenar as saídas de tarefas, você pode armazenar as saídas associadas a um trabalho inteiro. Por exemplo, na tarefa de mesclagem de um trabalho de renderização de filme, você pode persistir o filme totalmente renderizado como uma saída de trabalho. Quando seu trabalho estiver concluído, o aplicativo cliente poderá simplesmente listar e recuperar as saídas para o trabalho e não precisará consultar as tarefas individuais.
+Além disso gera toostoring tarefa, você pode armazenar saídas Olá associadas a um trabalho inteiro. Por exemplo, na tarefa de mesclagem de saudação de um trabalho de processamento de filme, você pode persistir filme Olá totalmente processado como uma saída de trabalho. Quando o trabalho for concluído, seu aplicativo cliente pode listar recuperar Olá saídas de trabalho hello e não precisa tooquery Olá tarefas individuais.
 
-Armazene a saída de trabalho chamando o método [JobOutputStorage][net_joboutputstorage].[SaveAsync][net_joboutputstorage_saveasync] e especifique o [JobOutputKind][net_joboutputkind] e o nome de arquivo:
+Armazenar a saída de trabalho por chamada hello [JobOutputStorage][net_joboutputstorage].[ SaveAsync] [ net_joboutputstorage_saveasync] método e especifique Olá [JobOutputKind] [ net_joboutputkind] e nome de arquivo:
 
 ```csharp
 CloudJob job = new JobOutputStorage(acct, jobId);
@@ -136,21 +136,21 @@ await jobOutputStorage.SaveAsync(JobOutputKind.JobOutput, "mymovie.mp4");
 await jobOutputStorage.SaveAsync(JobOutputKind.JobPreview, "mymovie_preview.mp4");
 ```
 
-Assim como o tipo **TaskOutputKind** para saídas de tarefa, você usa o parâmetro [JobOutputKind][net_joboutputkind] para categorizar os arquivos mantidos de um trabalho. Esse parâmetro permite que você consulte posteriormente para (listar) um tipo específico de saída. O tipo **JobOutputKind** inclui as categorias de saída e versão prévia e dá suporte à criação de categorias personalizadas.
+Assim como acontece com hello **TaskOutputKind** tipo para saídas de tarefa, você usar Olá [JobOutputKind] [ net_joboutputkind] tipo toocategorize um trabalho da mantidas arquivos. Esse parâmetro permite consultar toolater (lista) de um tipo específico de saída. Olá **JobOutputKind** tipo inclui as categorias de saída e visualização e oferece suporte à criação de categorias personalizadas.
 
 ### <a name="store-task-logs"></a>Armazenar logs de tarefas
 
-Além de manter um arquivo no armazenamento durável quando uma tarefa ou trabalho é concluído, talvez seja necessário manter arquivos atualizados durante a execução de uma tarefa: arquivos de log &mdash; ou `stdout.txt` e `stderr.txt`, por exemplo. Para essa finalidade, a biblioteca de Convenções de Arquivo do Lote do Azure fornece o método [TaskOutputStorage][net_taskoutputstorage].[SaveTrackedAsync][net_savetrackedasync]. Com [SaveTrackedAsync][net_savetrackedasync], você pode acompanhar atualizações de um arquivo no nó (em um intervalo que você especificar) e persistir essas atualizações no Armazenamento do Azure.
+Além disso toopersisting que um armazenamento de toodurable arquivo quando uma tarefa ou trabalho conclui, talvez você precise toopersist arquivos que são atualizados durante a execução de uma tarefa Olá &mdash; arquivos de log ou `stdout.txt` e `stderr.txt`, por exemplo. Para essa finalidade, biblioteca de convenções de arquivo de lote do Azure Olá fornece Olá [TaskOutputStorage][net_taskoutputstorage].[ SaveTrackedAsync] [ net_savetrackedasync] método. Com [SaveTrackedAsync][net_savetrackedasync], você pode rastrear o arquivo de tooa de atualizações no nó de saudação (em um intervalo que você especificar) e manter esses tooAzure atualizações armazenamento.
 
-No trecho de código a seguir, usamos [SaveTrackedAsync] para atualizar [net_savetrackedasync]`stdout.txt` no Armazenamento do Azure a cada 15 segundos durante a execução da tarefa:
+Olá trecho de código a seguir, usamos [SaveTrackedAsync] [ net_savetrackedasync] tooupdate `stdout.txt` no armazenamento do Azure durante a execução de saudação da tarefa de saudação a cada 15 segundos:
 
 ```csharp
 TimeSpan stdoutFlushDelay = TimeSpan.FromSeconds(3);
 string logFilePath = Path.Combine(
     Environment.GetEnvironmentVariable("AZ_BATCH_TASK_DIR"), "stdout.txt");
 
-// The primary task logic is wrapped in a using statement that sends updates to
-// the stdout.txt blob in Storage every 15 seconds while the task code runs.
+// hello primary task logic is wrapped in a using statement that sends updates to
+// hello stdout.txt blob in Storage every 15 seconds while hello task code runs.
 using (ITrackedSaveOperation stdout =
         await taskStorage.SaveTrackedAsync(
         TaskOutputKind.TaskLog,
@@ -158,29 +158,29 @@ using (ITrackedSaveOperation stdout =
         "stdout.txt",
         TimeSpan.FromSeconds(15)))
 {
-    /* Code to process data and produce output file(s) */
+    /* Code tooprocess data and produce output file(s) */
 
-    // We are tracking the disk file to save our standard output, but the
-    // node agent may take up to 3 seconds to flush the stdout stream to
-    // disk. So give the file a moment to catch up.
+    // We are tracking hello disk file toosave our standard output, but the
+    // node agent may take up too3 seconds tooflush hello stdout stream to
+    // disk. So give hello file a moment toocatch up.
      await Task.Delay(stdoutFlushDelay);
 }
 ```
 
-A seção comentada `Code to process data and produce output file(s)` é um espaço reservado para o código que sua tarefa normalmente executaria. Por exemplo, você pode ter código que baixa dados do Armazenamento do Azure e executa uma transformação ou um cálculo neles. A parte importante desse trecho de código é demonstrar como você pode encapsular o código em um bloco `using` para atualizar periodicamente um arquivo com [SaveTrackedAsync][net_savetrackedasync].
+seção de comentários Olá `Code tooprocess data and produce output file(s)` é um espaço reservado para o código de saudação que normalmente executará a tarefa. Por exemplo, você pode ter código que baixa dados do Armazenamento do Azure e executa uma transformação ou um cálculo neles. parte importante Olá este trecho de código é demonstrar como você pode encapsular esse código em um `using` tooperiodically bloco atualizar um arquivo com [SaveTrackedAsync][net_savetrackedasync].
 
-O agente do nó é um programa executado em cada nó no pool e fornece a interface de comando e controle entre o nó e o serviço do Lote. A chamada `Task.Delay` é necessária no final deste bloco `using` para garantir que o agente do nó tenha tempo para liberar o conteúdo do padrão que sai para o arquivo stdout.txt no nó. Sem esse atraso, é possível ignorar os últimos segundos de saída. Esse atraso pode não ser necessário para todos os arquivos.
+agente do nó de saudação é um programa que é executado em cada nó no pool de saudação e fornece a interface de comando e controle de saudação entre nó hello e serviço de lote de saudação. Olá `Task.Delay` chamada é necessária no final da saudação deste `using` tooensure de bloco que Olá agente nó tem tempo tooflush Olá conteúdo padrão toohello stdout.txt arquivo no nó de saudação. Sem esse atraso, é possível toomiss Olá últimos segundos de saída. Esse atraso pode não ser necessário para todos os arquivos.
 
 > [!NOTE]
-> Quando você habilita o acompanhamento de arquivo com **SaveTrackedAsync**, apenas *acréscimos* ao arquivo rastreado acompanhado são mantidos no Armazenamento do Azure. Use esse método somente para acompanhar arquivos de log não rotativos ou outros arquivos que são gravados com operações de acréscimo ao final do arquivo.
+> Quando você habilita o arquivo de controle com **SaveTrackedAsync**, apenas *acrescenta* arquivo rastreado toohello são persistente tooAzure armazenamento. Use esse método somente para rastrear arquivos de log não girando ou outros arquivos que são gravados toowith acrescentar a fim de toohello operações de arquivo hello.
 > 
 > 
 
 ## <a name="retrieve-output-data"></a>Recuperar dados de saída
 
-Quando você recupera sua saída persistente usando a biblioteca de Convenções de Arquivo do Lote do Azure, pode fazer isso de maneira voltada para tarefas e trabalhos. Você pode solicitar a saída para determinada tarefa ou trabalho sem precisar saber o caminho no Armazenamento do Azure nem mesmo seu nome de arquivo. Em vez disso, você pode solicitar os arquivos de saída pela ID de tarefa ou trabalho.
+Quando você recupera a saída persistente usando Olá convenções de arquivo de lote do Azure biblioteca, você pode fazer isso de forma centralizada em tarefas e trabalho. Você pode solicitar a saudação de saída para determinada tarefa ou trabalho sem a necessidade de tooknow seu caminho no armazenamento do Azure ou o mesmo nome de arquivo. Em vez disso, você pode solicitar os arquivos de saída pela ID de tarefa ou trabalho.
 
-O trecho de código a seguir itera em todas as tarefas de um trabalho, imprime algumas informações sobre os arquivos de saída para a tarefa e então baixa os arquivos do Armazenamento.
+Hello trecho de código a seguir itera por meio de tarefas do trabalho, imprime algumas informações sobre os arquivos de saída Olá para tarefa hello e baixa os arquivos de armazenamento.
 
 ```csharp
 foreach (CloudTask task in myJob.ListTasks())
@@ -198,42 +198,42 @@ foreach (CloudTask task in myJob.ListTasks())
 }
 ```
 
-## <a name="view-output-files-in-the-azure-portal"></a>Exibir arquivos de saída no portal do Azure
+## <a name="view-output-files-in-hello-azure-portal"></a>Exibir arquivos de saída no hello portal do Azure
 
-O portal do Azure exibe os arquivos de saída de tarefa e os logs que são mantidos para uma conta de Armazenamento do Azure vinculado usando o [padrão de Convenções de Arquivo em Lote](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). Você mesmo pode implementar essas convenções em uma linguagem de sua escolha ou pode usar a biblioteca de Convenções de Arquivo em seus aplicativos .NET.
+portal do Azure Hello exibe os arquivos de saída de tarefa e logs que são persistente tooa vinculado conta de armazenamento do Azure usando Olá [padrão de convenções de arquivo em lotes](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). Você pode implementar essas convenções em Olá um idioma de sua escolha, ou você pode usar a biblioteca de convenções de arquivo hello em seus aplicativos .NET.
 
-Para habilitar a exibição de seus arquivos de saída no portal, você deve atender aos seguintes requisitos:
+exibição de saudação tooenable dos seus arquivos de saída no portal de Olá, é preciso atender Olá requisitos a seguir:
 
-1. [Vincular uma conta do Armazenamento do Azure](#requirement-linked-storage-account) à sua conta do Lote.
-2. Seguir as convenções de nomenclatura predefinidas para os arquivos e contêineres de Armazenamento ao persistir saídas. Você pode encontrar a definição dessas convenções na biblioteca Convenções de Arquivo [LEIAME][github_file_conventions_readme]. Se você usar a biblioteca [Convenções de Arquivo em Lote do Azure] [nuget_package] para manter sua saída, seus arquivos serão mantidos de acordo com o padrão de Convenções de Arquivo.
+1. [Vincular uma conta de armazenamento do Azure](#requirement-linked-storage-account) tooyour conta do lote.
+2. Aderir toohello predefinido convenções de nomenclatura para arquivos e contêineres de armazenamento quando a persistência de saídas. Você pode encontrar a definição de saudação essas convenções na biblioteca de convenções de arquivo hello [Leiame][github_file_conventions_readme]. Se você usar o hello [convenções de arquivo de lote do Azure] [ nuget_package] toopersist biblioteca sua saída, os arquivos são mantidos toohello convenções de arquivo padrão de acordo com.
 
-Para exibir logs e arquivos de saída de tarefa no portal do Azure, navegue até a tarefa em cuja saída você está interessado e clique em **Arquivos de saída salvos** ou **Logs salvos**. Esta imagem mostra os **Arquivos de saída salvos** para a tarefa com a ID "007":
+a saída da tarefa tooview arquivos e os logs na Olá portal do Azure, navegue até a tarefa toohello cuja saída você está interessado, em seguida, clique em **arquivos de saída salvo** ou **registros salvos**. Esta imagem mostra Olá **arquivos de saída salvo** para tarefa de saudação com ID "007":
 
-![Folha de saídas de tarefa no portal do Azure][2]
+![Saídas de tarefas folha em Olá portal do Azure][2]
 
 ## <a name="code-sample"></a>Exemplo de código
 
-O projeto de exemplo [PersistOutputs][github_persistoutputs] é um dos [exemplos de código do Lote do Azure][github_samples] no GitHub. Essa solução do Visual Studio demonstra como usar a biblioteca de Convenções de Arquivo de Lote do Azure para persistir a saída da tarefa para o armazenamento durável. Para executar o exemplo, siga estas etapas:
+Olá [PersistOutputs] [ github_persistoutputs] projeto de exemplo é uma saudação [exemplos de código do Azure Batch] [ github_samples] no GitHub. Essa solução do Visual Studio demonstra como armazenamento toodurable de saída da tarefa de toopersist de biblioteca do toouse Olá convenções de arquivo de lote do Azure. Olá toorun de exemplo, siga estas etapas:
 
-1. Abra o projeto no **Visual Studio 2015 ou mais recente**.
-2. Adicione suas **credenciais de conta** do Lote e do Armazenamento a **AccountSettings.settings** no projeto Microsoft.Azure.Batch.Samples.Common.
-3. **Compile** (mas não execute) a solução. Restaure todos os pacotes NuGet, se solicitado.
-4. Use o portal do Azure para carregar um [pacote de aplicativos](batch-application-packages.md) para **PersistOutputsTask**. Inclua o `PersistOutputsTask.exe` e seus assemblies dependentes no pacote .zip, defina a ID do aplicativo como "PersistOutputsTask" e a versão do pacote de aplicativos como "1.0".
-5. **Inicie** (execute) o projeto **PersistOutputs**.
-6. Quando solicitado a escolher a tecnologia de persistência a usar para executar o exemplo, digite **1** para executar o exemplo usando a biblioteca Convenções de Arquivo para manter a saída da tarefa. 
+1. Projeto aberto Olá no **Visual Studio 2015 ou mais recente**.
+2. Adicionar o lote e o armazenamento **as credenciais de conta** muito**AccountSettings.settings** no projeto de Microsoft.Azure.Batch.Samples.Common hello.
+3. **Criar** (mas não executam) Olá solução. Restaure todos os pacotes NuGet, se solicitado.
+4. Saudação de uso do Azure tooupload portal um [pacote de aplicativo](batch-application-packages.md) para **PersistOutputsTask**. Incluir Olá `PersistOutputsTask.exe` e seus assemblies dependentes no pacote. zip de hello, ID do conjunto de aplicativo hello muito "PersistOutputsTask" e o aplicativo hello pacote versão muito "1.0".
+5. **Iniciar** hello (Executar) **PersistOutputs** projeto.
+6. Quando solicitadas toochoose Olá persistência tecnologia toouse para execução do exemplo hello, digite **1** toorun Olá exemplo hello convenções arquivo biblioteca toopersist a saída da tarefa. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-### <a name="get-the-batch-file-conventions-library-for-net"></a>Obter a biblioteca Convenções de Arquivo em Lote para .NET
+### <a name="get-hello-batch-file-conventions-library-for-net"></a>Obter a biblioteca de convenções de arquivo em lotes de saudação para .NET
 
-A biblioteca Convenções de Arquivo em Lote para .NET está disponível em [NuGet][nuget_package]. A biblioteca amplia as classes [CloudJob][net_cloudjob] e [CloudTask][net_cloudtask] com novos métodos. Consulte também a [documentação de referência](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files) para a biblioteca Convenções de Arquivo.
+Olá convenções de arquivo em lotes biblioteca para .NET estão disponível no [NuGet][nuget_package]. estende a biblioteca de Olá Olá [CloudJob] [ net_cloudjob] e [CloudTask] [ net_cloudtask] classes com novos métodos. Consulte também Olá [documentação de referência](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files) para a biblioteca de convenções de arquivo hello.
 
-O [código-fonte][github_file_conventions] para a biblioteca Convenções de Arquivo está disponível no GitHub no repositório do SDK do Microsoft Azure para .NET. 
+Olá [código-fonte] [ github_file_conventions] para Olá convenções do arquivo de biblioteca está disponível no GitHub no hello SDK do Microsoft Azure para o repositório do .NET. 
 
 ### <a name="explore-other-approaches-for-persisting-output-data"></a>Explorar outras abordagens para manter dados de saída
 
-- Consulte [Manter saída de trabalho e tarefa para Armazenamento do Azure](batch-task-output.md) para obter uma visão geral de persistir dados de tarefa e trabalho.
-- Consulte [Manter dados de tarefa para o Armazenamento do Azure com a API de serviço de Lote](batch-task-output-files.md) para aprender a usar a API de serviço de Lote para manter os dados de saída.
+- Consulte [Persist trabalhos e tarefas de saída tooAzure armazenamento](batch-task-output.md) para obter uma visão geral de persistir dados de tarefa e o trabalho.
+- Consulte [persistir dados de tarefa tooAzure armazenamento com a API do serviço de lote de saudação](batch-task-output-files.md) toolearn como toouse Olá API do serviço de lote toopersist dados de saída.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_file_conventions]: https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Batch/FileConventions
@@ -260,4 +260,4 @@ O [código-fonte][github_file_conventions] para a biblioteca Convenções de Arq
 [storage_explorer]: http://storageexplorer.com/
 
 [1]: ./media/batch-task-output/task-output-01.png "Arquivos de saída salvos e Seletores de logs salvos no portal"
-[2]: ./media/batch-task-output/task-output-02.png "Folha de saídas de tarefa no portal do Azure"
+[2]: ./media/batch-task-output/task-output-02.png "Saídas de tarefas folha em Olá portal do Azure"

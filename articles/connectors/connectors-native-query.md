@@ -1,6 +1,6 @@
 ---
-title: "Adicionar a ação de consulta nos aplicativos lógicos | Microsoft Docs"
-description: "Visão geral da ação de consulta para executar ações, como filtrar matriz."
+title: "ação de consulta Olá aaaAdd em aplicativos lógicos | Microsoft Docs"
+description: "Visão geral de ação de consulta Olá para executar ações como a matriz de filtro."
 services: 
 documentationcenter: 
 author: jeffhollan
@@ -15,68 +15,68 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: a992fa17a07d6167297c4cf5fe9fb3b58181d7df
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3d4be901e7e6bf1b644057648930667ab34f2124
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-query-action"></a>Introdução à ação de consulta
-Usando a ação de consulta, você pode trabalhar com lotes e matrizes para executar os fluxos de trabalho para:
+# <a name="get-started-with-hello-query-action"></a>Introdução à ação de consulta Olá
+Usando a ação de consulta hello, você pode trabalhar com lotes e matrizes tooaccomplish os fluxos de trabalho:
 
 * Criar uma tarefa para todos os registros de alta prioridade a partir de um banco de dados.
 * Salvar todos os anexos em PDF dos emails em um blob do Azure.
 
-Para começar a usar a ação de consulta em um aplicativo lógico, consulte [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+tooget iniciado usando a ação de consulta de saudação em um aplicativo de lógica, consulte [criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="use-the-query-action"></a>Usar a ação de consulta
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](connectors-overview.md).  
+## <a name="use-hello-query-action"></a>Use a ação de consulta de saudação
+Uma ação é uma operação que é executada pelo fluxo de trabalho de saudação que é definido em um aplicativo lógico. [Saiba mais sobre ações](connectors-overview.md).  
 
-Atualmente, a ação de consulta tem uma operação, chamada matriz de filtro, que é exposta no designer. Isso permite que você consulte uma matriz e retorne um conjunto de resultados filtrados.
+ação de consulta Olá atualmente tem uma operação, chamada de matriz de filtro hello, que é exposta no designer de saudação. Isso permite que você tooquery uma matriz e retornar um conjunto de resultados filtrados.
 
 Veja como é possível adicioná-lo em um aplicativo lógico:
 
-1. Selecione o botão **Nova Etapa** .
+1. Selecione Olá **nova etapa** botão.
 2. Escolha **Adicionar uma ação**.
-3. Na caixa de pesquisa da ação, digite **filtro** para listar a ação **Filtrar matriz**.
+3. Na caixa de pesquisa de ação hello, digite **filtro** Olá toolist **matriz de filtro** ação.
    
-    ![Selecionar a ação de consulta](./media/connectors-native-query/using-action-1.png)
-4. Selecione uma matriz para filtrar. (A captura de tela a seguir mostra a matriz de resultados de uma pesquisa do Twitter.)
-5. Crie uma condição para avaliar em cada item. (A captura de tela a seguir filtra os tweets dos usuários que têm mais de 100 seguidores.)
+    ![Selecionar ação de consulta Olá](./media/connectors-native-query/using-action-1.png)
+4. Selecione um toofilter de matriz. (hello seguinte captura de tela mostra Olá matriz de resultados de uma pesquisa do Twitter.)
+5. Crie uma condição tooevaluate em cada item. (Olá captura de tela a seguir filtra tweets de usuários que têm mais de 100 seguidores.)
    
-    ![Concluir a ação de consulta](./media/connectors-native-query/using-action-2.png)
+    ![Ação de consulta Olá concluída](./media/connectors-native-query/using-action-2.png)
    
-    A ação produzirá uma nova matriz que contém somente os resultados que atendem aos requisitos do filtro.
-6. Clique no canto superior esquerdo da barra de ferramentas para salvar e seu aplicativo lógico será salvo e publicado (ativado).
+    ação de saudação produzirá uma nova matriz que contém somente os resultados que atendam aos requisitos de filtro de saudação.
+6. Clique o canto superior esquerdo de saudação de saudação da barra de ferramentas toosave e sua lógica aplicativo salvará os dois e publicar (Ativar).
 
 ## <a name="query-action"></a>Ação de consulta
-Veja os detalhes da ação com suporte deste conector. O conector tem uma ação possível.
+Aqui estão os detalhes de saudação para ação Olá que oferece suporte a esse conector. conector de saudação tem uma ação possível.
 
 | Ação | Descrição |
 | --- | --- |
-| Filtrar matriz |Avalia uma condição para cada item em uma matriz e retorna os resultados |
+| Filtrar matriz |Avalia uma condição para cada item em uma matriz e retorna resultados Olá |
 
 ## <a name="action-details"></a>Detalhes da ação
-A ação de consulta vem com uma ação possível. As tabelas a seguir descrevem os campos de entrada obrigatórios e opcionais para a ação e os detalhes de saída correspondentes associados ao uso da ação.
+ação de consulta Olá vem com uma ação possível. Olá tabelas a seguir descrevem hello necessárias e os campos de entrada opcionais para ação hello e Olá correspondente saída detalhes associados usando a ação de saudação.
 
 ### <a name="filter-array"></a>Filtrar matriz
-Estes são os campos de entrada para a ação, o que cria uma solicitação HTTP de saída.
+Olá seguem campos de entrada para a ação de saudação, que faz uma solicitação HTTP de saída.
 Um * significa que é um campo obrigatório.
 
 | Nome de exibição | Nome da propriedade | Descrição |
 | --- | --- | --- |
-| De* |de |A matriz a ser filtrada |
-| Condição* |onde |A condição a ser avaliada para cada item |
+| De* |Da |Olá matriz toofilter |
+| Condição* |onde |Olá tooevaluate condição para cada item |
 
 <br>
 
 ### <a name="output-details"></a>Detalhes de saída
-A seguir, os detalhes de saída para a resposta HTTP.
+Olá seguem detalhes de saída de hello resposta HTTP.
 
 | Nome da propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
 | Matriz filtrada |array |Uma matriz que contém um objeto para cada resultado filtrado |
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora, experimente a plataforma e [crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
+Agora, experimente a plataforma hello e [criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Você pode explorar Olá outros conectores disponíveis em aplicativos lógicos examinando nosso [lista APIs](apis-list.md).
 

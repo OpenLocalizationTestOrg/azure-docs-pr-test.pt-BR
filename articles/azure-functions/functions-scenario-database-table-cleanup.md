@@ -1,6 +1,6 @@
 ---
-title: Usar o Azure Functions para executar uma tarefa de limpeza de banco de dados | Microsoft Docs
-description: Use o Azure Functions para agendar uma tarefa que se conecta ao banco de dados SQL do Azure para limpar linhas periodicamente.
+title: "Limpeza de um banco de dados aaaUse funções do Azure tooperform tarefa | Microsoft Docs"
+description: "Use funções do Azure tooschedule uma tarefa que conecta tooAzure banco de dados SQL tooperiodically limpar linhas."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -15,76 +15,76 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: 6fd0e32374827b249f5aba1cbfc39117c88c6272
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 063a25fe8d14a75d54e9b72cec9fc1e25fa3ff44
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usar o Azure Functions para conectar a um banco de dados SQL do Azure
-Este tópico mostra como usar o Azure Functions para criar um trabalho agendado que limpa linhas em uma tabela em um banco de dados SQL do Azure. A nova função C# é criada com base em um gatilho de temporizador predefinido no Portal do Azure. Para dar suporte a esse cenário, você também precisa definir uma cadeia de conexão de banco de dados como uma configuração no aplicativo de funções. Esse cenário usa uma operação em massa no banco de dados. Para que sua função processe operações CRUD individuais em uma tabela dos Aplicativos Móveis, você deve usar as [Associações de aplicativos móveis](functions-bindings-mobile-apps.md).
+# <a name="use-azure-functions-tooconnect-tooan-azure-sql-database"></a>Use as funções do Azure tooconnect tooan banco de dados do SQL Azure
+Este tópico mostra como toouse funções do Azure toocreate agendado do trabalho que limpa a linhas em uma tabela em um banco de dados do SQL Azure. Olá nova função c# é criada com base em um modelo de gatilho de timer predefinidos Olá portal do Azure. toosupport neste cenário, você também deve definir uma cadeia de caracteres de conexão do banco de dados como uma configuração de aplicativo de função hello. Esse cenário usa uma operação em massa no banco de dados de saudação. toohave sua função processo CRUD operações individuais em uma tabela de aplicativos móveis, você deve usar [associações de aplicativos móveis](functions-bindings-mobile-apps.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ Este tópico usa uma função disparada por temporizador. Conclua as etapas no tópico [Criar uma função no Azure que seja disparada por um temporizador](functions-create-scheduled-function.md) para criar uma versão C# dessa função.   
++ Este tópico usa uma função disparada por temporizador. Olá concluir etapas no tópico Olá [criar uma função no Azure que é disparado por um timer](functions-create-scheduled-function.md) toocreate c# versão dessa função.   
 
-+ Este tópico demonstra um comando Transact-SQL que executa uma operação de limpeza em massa na tabela **SalesOrderHeader** no banco de dados de amostra AdventureWorksLT. Para criar o banco de dados de amostra AdventureWorksLT, conclua as etapas no tópico [Criar um Banco de Dados SQL do Azure no Portal do Azure](../sql-database/sql-database-get-started-portal.md). 
++ Este tópico demonstra o comando Transact-SQL que executa uma operação de limpeza em massa em Olá **SalesOrderHeader** tabela no banco de dados do exemplo hello AdventureWorksLT. toocreate Olá AdventureWorksLT de dados de exemplo, Olá completa etapas no tópico Olá [criar um banco de dados do SQL Azure no portal do Azure de saudação](../sql-database/sql-database-get-started-portal.md). 
 
 ## <a name="get-connection-information"></a>Obter informações de conexão
 
-Você precisa obter a cadeia de conexão para o banco de dados que você criou quando concluiu [Criar um Banco de Dados SQL do Azure no Portal do Azure](../sql-database/sql-database-get-started-portal.md).
+Você precisa de cadeia de caracteres de conexão do tooget Olá para banco de dados de saudação criado quando você concluir a [criar um banco de dados do SQL Azure no portal do Azure de saudação](../sql-database/sql-database-get-started-portal.md).
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+1. Faça logon no toohello [portal do Azure](https://portal.azure.com/).
  
-3. Selecione **Bancos de Dados SQL** no menu à esquerda e selecione seu banco de dados na página **Bancos de Dados SQL**.
+3. Selecione **bancos de dados SQL** no menu esquerdo do hello e selecione o banco de dados no hello **bancos de dados SQL** página.
 
-4. Selecione **Mostrar cadeias de conexão do banco de dados** e copie a cadeia de conexão completa do **ADO.NET**.
+4. Selecione **Mostrar cadeias de conexão de banco de dados** e cópia hello completa **ADO.NET** cadeia de caracteres de conexão.
 
-    ![Copie a cadeia de conexão ADO.NET.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
+    ![Copie a cadeia de conexão ADO.NET hello.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
-## <a name="set-the-connection-string"></a>Definir a cadeia de conexão 
+## <a name="set-hello-connection-string"></a>Cadeia de caracteres de conexão do conjunto Olá 
 
-Um aplicativo de função hospeda a execução de suas funções no Azure. É uma prática recomendada armazenar cadeias de conexão e outros segredos nas configurações do seu aplicativo de funções. Usar as configurações do aplicativo impede a divulgação acidental da cadeia de conexão com seu código. 
+Um aplicativo de função hospeda execução Olá das funções no Azure. É um cadeias de caracteres de conexão de toostore práticas recomendadas e outros segredos em suas configurações de aplicativo de função. Usando configurações do aplicativo impede a divulgação acidental de cadeia de caracteres de conexão de saudação com seu código. 
 
-1. Navegue até seu aplicativo de funções criado em [Criar uma função no Azure que é disparada por um temporizador](functions-create-scheduled-function.md).
+1. Navegue tooyour função aplicativo que você criou [criar uma função no Azure que é disparado por um timer](functions-create-scheduled-function.md).
 
 2. Selecione **Recursos da plataforma** > **Configurações de aplicativo**.
    
-    ![Configurações de aplicativo para o aplicativo de funções.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings.png)
+    ![Configurações do aplicativo para o aplicativo de função hello.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings.png)
 
-2. Role para baixo até **Cadeias de caracteres de conexão** e adicione uma cadeia de conexão usando as configurações especificadas na tabela.
+2. Role para baixo demais**cadeias de caracteres de Conexão** e adicionar uma cadeia de caracteres de conexão usando as configurações de saudação conforme especificado na tabela de saudação.
    
-    ![Adicione uma cadeia de conexão às configurações do aplicativo de funções.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-strings.png)
+    ![Adicione configurações de aplicativo de função de toohello uma conexão cadeia de caracteres.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-strings.png)
 
     | Configuração       | Valor sugerido | Descrição             | 
     | ------------ | ------------------ | --------------------- | 
-    | **Nome**  |  sqldb_connection  | Usado para acessar a cadeia de conexão armazenada no seu código de função.    |
-    | **Valor** | Cadeia de caracteres copiada  | Cole a cadeia de conexão que você copiou na seção anterior. |
-    | **Tipo** | Banco de Dados SQL | Use a conexão do Banco de Dados SQL. |   
+    | **Nome**  |  sqldb_connection  | Olá tooaccess usado armazenados cadeia de caracteres de conexão em seu código de função.    |
+    | **Valor** | Cadeia de caracteres copiada  | Após a cadeia de caracteres de conexão de saudação que você copiou na seção anterior hello. |
+    | **Tipo** | Banco de dados SQL | Use a conexão de banco de dados SQL do saudação padrão. |   
 
 3. Clique em **Salvar**.
 
-Agora, você pode adicionar o código de função C# que conecta ao Banco de Dados SQL.
+Agora, você pode adicionar Olá função código c# que se conecta tooyour banco de dados SQL.
 
 ## <a name="update-your-function-code"></a>Atualizar o código de função
 
-1. Em seu aplicativo de funções, selecione a Função disparada por temporizador.
+1. Em seu aplicativo de função, selecione a função de timer disparada de saudação.
  
-3. Adicione as seguintes referências de assembly na parte superior do código de função existente:
+3. Adicione Olá referências de assembly na parte superior de saudação do código de função existente Olá a seguir:
 
     ```cs
     #r "System.Configuration"
     #r "System.Data"
     ```
 
-3. Adicione as instruções `using` a seguir à função:
+3. Adicione o seguinte Olá `using` função toohello de instruções:
     ```cs
     using System.Configuration;
     using System.Data.SqlClient;
     using System.Threading.Tasks;
     ```
 
-4. Substitua a função **Run** existente por este código:
+4. Substituir saudação **executar** função com hello código a seguir:
     ```cs
     public static async Task Run(TimerInfo myTimer, TraceWriter log)
     {
@@ -97,7 +97,7 @@ Agora, você pode adicionar o código de função C# que conecta ao Banco de Dad
 
             using (SqlCommand cmd = new SqlCommand(text, conn))
             {
-                // Execute the command and log the # rows affected.
+                // Execute hello command and log hello # rows affected.
                 var rows = await cmd.ExecuteNonQueryAsync();
                 log.Info($"{rows} rows were updated");
             }
@@ -105,20 +105,20 @@ Agora, você pode adicionar o código de função C# que conecta ao Banco de Dad
     }
     ```
 
-    Este comando atualiza a coluna **Status** com base na data de envio. Ele deve atualizar 32 linhas de dados.
+    Este comando de exemplo atualiza Olá **Status** coluna com base na data de envio de saudação. Ele deve atualizar 32 linhas de dados.
 
-5. Clique em **Salvar**, observe nas janelas de **Logs** a execução da próxima função e observe o número de linhas atualizadas na tabela **SalesOrderHeader**.
+5. Clique em **salvar**, Olá inspecionar **Logs** windows para Olá execução de função, em seguida, observe Olá número de linhas atualizadas na Olá **SalesOrderHeader** tabela.
 
-    ![Exibir os logs da função.](./media/functions-scenario-database-table-cleanup/functions-logs.png)
+    ![Exibir logs de função hello.](./media/functions-scenario-database-table-cleanup/functions-logs.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Em seguida, saiba como usar o Functions com Aplicativos Lógicos para integração com outros serviços.
+Em seguida, Aprenda como toouse funciona com aplicativos lógicos toointegrate com outros serviços.
 
 > [!div class="nextstepaction"] 
 > [Criar uma função que se integra nos Aplicativos Lógicos](functions-twitter-email.md)
 
-Confira estes tópicos para obter mais informações sobre o Functions:
+Para obter mais informações sobre funções, consulte Olá seguintes tópicos:
 
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)  
   Referência do programador para codificação de funções e definição de gatilhos e de associações.

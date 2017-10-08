@@ -1,6 +1,6 @@
 ---
-title: Executar tarefas em segundo plano com Trabalhos Web
-description: Saiba como executar tarefas em segundo plano em aplicativos Web do Azure.
+title: tarefas do plano de fundo aaaRun com o WebJobs
+description: Saiba como tarefas do plano de fundo toorun no Azure de aplicativos web.
 services: app-service
 documentationcenter: 
 author: ggailey777
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2016
 ms.author: glenga
-ms.openlocfilehash: 3f8ae748e3d9c6b4e342536926a52b4e8f37ee51
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 96a3d977a806e7192207f0f4da79dfd248694336
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="run-background-tasks-with-webjobs"></a>Executar tarefas em segundo plano com Trabalhos Web
 ## <a name="overview"></a>Visão geral
-Você pode executar programas ou scripts em WebJobs em seu aplicativo Web do [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) de três maneiras: sob demanda, continuamente ou com base em uma agenda. Não há nenhum custo adicional para usar Trabalhos Web.
+Você pode executar programas ou scripts em WebJobs em seu aplicativo Web do [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) de três maneiras: sob demanda, continuamente ou com base em uma agenda. Não há nenhum custo adicional de toouse WebJobs.
 
 [!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
-Este artigo mostra como implantar Trabalhos Web utilizando o [Portal do Azure](https://portal.azure.com). Para obter informações sobre como implantar utilizando o Visual Studio ou um processo de entrega contínua, consulte [Como implantar Trabalhos Web do Azure em Aplicativos Web](websites-dotnet-deploy-webjobs.md).
+Este artigo mostra como toodeploy WebJobs usando Olá [Portal do Azure](https://portal.azure.com). Para obter informações sobre como toodeploy usando o Visual Studio ou um processo de entrega contínua, consulte [como tooDeploy do Azure WebJobs tooWeb aplicativos](websites-dotnet-deploy-webjobs.md).
 
-O SDK de Trabalhos Web do Azure simplifica muitas tarefas de programação de Trabalhos Web. Para obter mais informações, consulte [O que é o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk.md).
+Olá SDK do Azure WebJobs simplifica muitas tarefas de programação dos WebJobs. Para obter mais informações, consulte [novidades Olá SDK do WebJobs](websites-dotnet-webjobs-sdk.md).
 
- O Azure Functions oferece outra maneira de executar programas e scripts de um ambiente sem servidor ou de um aplicativo do Serviço de Aplicativo. Para saber mais, consulte [Visão geral do Azure Functions](../azure-functions/functions-overview.md).
+ As funções do Azure fornece outra maneira como os programas toorun e scripts de um ambiente sem servidor ou de um aplicativo de serviço de aplicativo. Para saber mais, consulte [Visão geral do Azure Functions](../azure-functions/functions-overview.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="acceptablefiles"></a>Tipos de arquivo aceitáveis para scripts ou programas
-Os seguintes tipos de arquivo são aceitos:
+Olá, tipos de arquivo a seguir é aceitas:
 
 * .cmd, .bat, .exe (usando o cmd do Windows)
 * .ps1 (usando o PowerShell)
@@ -45,42 +45,42 @@ Os seguintes tipos de arquivo são aceitos:
 * .js (usando nó)
 * .jar (usando java)
 
-## <a name="CreateOnDemand"></a>Criar um Trabalho Web sob demanda no portal
-1. Na folha **Aplicativo Web** do [Portal do Azure](https://portal.azure.com), clique em **Todas as configurações > Trabalhos Web** para mostrar a folha **Trabalhos Web**.
+## <a name="CreateOnDemand"></a>Criar um relatório sob demanda WebJob no portal de saudação
+1. Em Olá **aplicativo Web** folha de saudação [Portal do Azure](https://portal.azure.com), clique em **todas as configurações > WebJobs** tooshow Olá **WebJobs** folha.
    
     ![Lâmina do Trabalho Web](./media/web-sites-create-web-jobs/wjblade.png)
-2. Clique em **Adicionar**. A caixa de diálogo **Adicionar Trabalho Web** aparece.
+2. Clique em **Adicionar**. Olá **WebJob adicionar** caixa de diálogo é exibida.
    
     ![Adicionar lâmina do Trabalho Web](./media/web-sites-create-web-jobs/addwjblade.png)
-3. Em **Nome**, forneça um nome para o Trabalho Web. O nome deve começar com uma letra ou um número e não pode conter caracteres especiais além de "-" e "_".
-4. Na caixa **Como Executar**, escolha **Executar sob Demanda**.
-5. Na caixa **Carregamento de Arquivo** , clique no ícone de pasta e navegue até o arquivo zip que contém o script. O arquivo zip deve conter o executável (.exe, .cmd, .bat, .sh, .php, .py, .js), bem como os arquivos de suporte necessários para executar o script ou o programa.
-6. Marque **Criar** para carregar o script em seu aplicativo Web. 
+3. Em **nome**, forneça um nome para Olá WebJob. nome da saudação deve começar com uma letra ou um número e não pode conter caracteres especiais diferentes de "-" e "_".
+4. Em Olá **como tooRun** caixa, escolha **executados sob demanda**.
+5. Em Olá **carregamento de arquivo** , clique o ícone de pasta hello e procurar toohello arquivo. zip que contém o script. arquivo zip de saudação deve conter o executável (.exe. cmd. bat. sh. php. py. js), bem como quaisquer arquivos de suporte necessários toorun Olá programa ou script.
+6. Verificar **criar** tooupload Olá script tooyour web app. 
    
-    O nome especificado para o Trabalho Web é exibido na lista da folha **Trabalhos Web** .
-7. Para executar o Trabalho Web, clique com o botão direito do mouse em seu nome na lista e clique em **Executar**.
+    Olá nome especificado para Olá WebJob aparece na lista Olá Olá **WebJobs** folha.
+7. Olá toorun WebJob, clique o nome na lista de saudação e clique em **executar**.
    
     ![Executar o Trabalho Web](./media/web-sites-create-web-jobs/runondemand.png)
 
 ## <a name="CreateContinuous"></a>Criar um Trabalho Web em execução contínua
-1. Para criar um Trabalho Web em execução contínua, siga as mesmas etapas para criar um Trabalho Web que é executado uma vez, mas, na caixa **Como Executar**, escolha **Contínuo**.
-2. Para iniciar ou interromper um Trabalho Web contínuo, clique com o botão direito do mouse no Trabalho Web na lista e clique em **Iniciar** ou **Parar**.
+1. toocreate um WebJob de execução contínua, siga Olá mesmas etapas para criar um trabalho Web que é executado uma vez, mas em Olá **como tooRun** caixa, escolha **contínuo**.
+2. toostart ou parar um trabalho Web contínuo, clique com botão direito Olá WebJob na lista de saudação e clique em **iniciar** ou **parar**.
 
 > [!NOTE]
 > Se seu aplicativo Web for executado em mais de uma instância, um Trabalho Web em execução contínua será executado em todas as suas instâncias. Trabalhos Web agendados e sob demanda são executados em uma única instância selecionada para o balanceamento de carga pelo Microsoft Azure.
 > 
-> Para que WebJobs contínuos sejam executados de forma confiável e em todas as instâncias, ative a configuração Sempre Ativado* para o aplicativo Web, caso contrário, ele poderá interromper a execução quando o site de host do SCM ficar ocioso por muito tempo.
+> Para trabalhos Web contínuos toorun confiável e em todas as instâncias, habilitar Olá AlwaysOn * configuração Olá aplicativo web caso contrário, eles podem interromper a execução quando o site de host SCM Olá ficar ocioso por muito tempo.
 > 
 > 
 
 ## <a name="CreateScheduledCRON"></a>Criar um WebJob agendado usando uma expressão CRON
-Essa técnica está disponível para aplicativos Web em execução no modo Básico, Standard ou Premium e exige que a configuração **Sempre Ativado** esteja habilitada no aplicativo.
+Essa técnica é tooWeb disponíveis aplicativos em execução no modo básico, Standard ou Premium e requer Olá **AlwaysOn** configuração toobe habilitado no aplicativo hello.
 
-Para transformar um Trabalho Web Sob Demanda em um Trabalho Web agendado, basta incluir um arquivo `settings.job` na raiz do arquivo .zip do Trabalho Web. Esse arquivo JSON deve incluir uma propriedade `schedule` com uma [expressão CRON](https://en.wikipedia.org/wiki/Cron), como mostrado no exemplo abaixo.
+tooturn um WebJob na demanda em um trabalho Web agendado, basta incluir um `settings.job` arquivo na raiz de saudação do arquivo zip WebJob. Esse arquivo JSON deve incluir uma propriedade `schedule` com uma [expressão CRON](https://en.wikipedia.org/wiki/Cron), como mostrado no exemplo abaixo.
 
-A expressão CRON é composta por 6 campos: `{second} {minute} {hour} {day} {month} {day of the week}`.
+Olá expressão CRON é composto de 6 campos: `{second} {minute} {hour} {day} {month} {day of hello week}`.
 
-Por exemplo, para disparar o WebJob a cada 15 minutos, o `settings.job` teria:
+Por exemplo, tootrigger seu trabalho Web a cada 15 minutos, o `settings.job` teria:
 
 ```json
 {
@@ -90,90 +90,90 @@ Por exemplo, para disparar o WebJob a cada 15 minutos, o `settings.job` teria:
 
 Outros exemplos de agendamento CRON:
 
-* A cada hora (ou seja, sempre que a contagem de minutos for 0): `0 0 * * * *` 
-* A cada hora entre 9h e 17h: `0 0 9-17 * * *` 
+* Cada hora (ou seja, sempre que a contagem de saudação de minutos é 0):`0 0 * * * *` 
+* Cada hora de too5 9: 00 PM:`0 0 9-17 * * *` 
 * Às 9h30 todos os dias: `0 30 9 * * *`
 * Às 9h30 todos os dias de semana: `0 30 9 * * 1-5`
 
-**Observação**: ao implantar um Trabalho Web do Visual Studio, certifique-se de marcar as propriedades do arquivo `settings.job` como "Copiar se mais recente".
+**Observação**: ao implantar um trabalho Web do Visual Studio, verifique se toomark seu `settings.job` propriedades de arquivo como 'Copiar se mais recente'.
 
-## <a name="CreateScheduled"></a>Criar um Trabalho Web agendado usando o Agendador do Azure
-A técnica alternativa a seguir utiliza o Agendador do Azure. Nesse caso, seu Trabalho Web não tem nenhum conhecimento direto do agendamento. Em vez disso, o Agendador do Azure é configurado para disparar o Trabalho Web em um agendamento. 
+## <a name="CreateScheduled"></a>Criar um WebJob agendado usando Olá Agendador do Azure
+Olá técnica alternativa a seguir faz uso de saudação do Agendador do Azure. Nesse caso, seu trabalho Web não tem qualquer conhecimento direto da agenda de saudação. Em vez disso, Olá Agendador do Azure obtém tootrigger configurado seu trabalho Web em um agendamento. 
 
-O Portal do Azure ainda não tem a capacidade de criar um Trabalho Web agendado, mas até que esse recurso seja adicionado você pode fazê-lo usando o [portal clássico](http://manage.windowsazure.com).
+Olá Portal do Azure ainda não tiver Olá capacidade toocreate um trabalho Web agendado, mas até que esse recurso seja adicionado você pode fazer isso usando Olá [portal clássico](http://manage.windowsazure.com).
 
-1. No [portal clássico](http://manage.windowsazure.com) vá até a página do Trabalho Web e clique em **Adicionar**.
-2. Na caixa **Como Executar**, escolha **Executar em um agendamento**.
+1. Em Olá [portal clássico](http://manage.windowsazure.com) toohello WebJob página e clique em **adicionar**.
+2. Em Olá **como tooRun** caixa, escolha **executados em um agendamento**.
    
     ![Novo trabalho agendado][NewScheduledJob]
-3. Escolha a **Região do Agendador** para seu trabalho e, em seguida, clique na seta na parte inferior direita da caixa de diálogo para prosseguir para a próxima tela.
-4. Na caixa de diálogo **Criar Trabalho**, escolha o tipo de **Recorrência** desejado: **Trabalho único** ou **Trabalho recorrente**.
+3. Escolha Olá **região Agendador** para seu trabalho e, em seguida, clique em seta Olá Olá canto direito inferior da tela do diálogo tooproceed toohello próxima hello.
+4. Em Olá **criar trabalho de** caixa de diálogo, escolha o tipo de saudação do **recorrência** desejado: **trabalho único** ou **trabalho recorrente**.
    
     ![Agendar recorrência][SchdRecurrence]
 5. Escolha também uma hora **Inicial**: **Agora** ou **Em uma hora específica**.
    
     ![Agendar hora inicial][SchdStart]
-6. Se desejar iniciar em uma hora específica, escolha os valores da hora inicial em **Início em**.
+6. Se você quiser toostart em um momento específico, escolha os valores de tempo inicial em **iniciando em**.
    
     ![Agendar o início em uma hora específica][SchdStartOn]
-7. Se escolher um trabalho recorrente, você tem a opção **Repetir a Cada** para especificar a frequência de ocorrência e a opção **Término em** para especificar uma hora de término.
+7. Se você escolher um trabalho recorrente, você terá Olá **repetir cada** opção toospecify Olá frequência de ocorrência e Olá **terminando em** opção toospecify uma hora de término.
    
     ![Agendar recorrência][SchdRecurEvery]
-8. Se escolher **Semanas**, você poderá selecionar a caixa **Em uma agenda específica** e especificar os dias da semana em que deseja que o trabalho seja executado.
+8. Se você escolher **semanas**, você pode selecionar Olá **em uma agenda específica** caixa e especifique dias Olá da semana Olá que você deseja Olá toorun de trabalho.
    
-    ![Agendar em dias da semana][SchdWeeksOnParticular]
-9. Se você escolher **Meses** e selecionar a caixa **Em uma Agenda Específica**, poderá definir o trabalho a ser executado em um determinado número de **Dias** do mês. 
+    ![Dias de agendamento da saudação semana][SchdWeeksOnParticular]
+9. Se você escolher **meses** e selecione hello **em uma agenda específica** caixa, você pode definir Olá trabalho toorun em determinada numerada **dias** no mês de saudação. 
    
-    ![Agendar datas específicas no mês][SchdMonthsOnPartDays]
-10. Se você escolher **Dias da Semana**, poderá selecionar em qual dia ou dias da semana no mês deseja que o trabalho seja executado.
+    ![Agendar determinado de datas no mês de saudação][SchdMonthsOnPartDays]
+10. Se você escolher **dias da semana**, você pode selecionar qual dia ou dias da semana Olá no mês de saudação desejado Olá toorun de trabalho no.
     
      ![Agendar dias da semana específicos em um mês][SchdMonthsOnPartWeekDays]
-11. Finalmente, você também pode usar a opção **Ocorrências** para escolher em qual semana do mês (primeira, segunda, terceira etc.) deseja que o trabalho seja executado nos dias da semana especificados.
+11. Por fim, você também pode usar Olá **ocorrências** toochoose opção qual semana do mês de saudação (primeiro, segundo, terceiro etc) deseja Olá trabalho toorun em Olá dias da semana especificado.
     
     ![Agendar dias da semana específicos em semanas específicas em um mês][SchdMonthsOnPartWeekDaysOccurences]
-12. Depois que você tiver criado um ou mais trabalhos, os nomes serão exibidos na guia Trabalhos Web com status, tipo de cronograma e outras informações. As informações de histórico dos 30 últimos Trabalhos Web são mantidas.
+12. Depois de criar um ou mais trabalhos, seus nomes serão exibidos na guia de WebJobs Olá com seu status, tipo de agenda e outras informações. Informações de histórico para Olá últimos 30 WebJobs são mantidas.
     
     ![Lista de trabalhos][WebJobsListWithSeveralJobs]
 
 ### <a name="Scheduler"></a>Trabalhos agendados e o Agendador do Azure
-Os trabalhos agendados podem ser configurados mais detalhadamente nas páginas do Agendador do Azure do [portal clássico](http://manage.windowsazure.com).
+Trabalhos agendados também podem ser configurados nas páginas de Agendador do Azure de saudação do hello [portal clássico](http://manage.windowsazure.com).
 
-1. Na página Trabalhos Web, clique no link **cronograma** do trabalho para navegar até a página do portal do Agendador do Azure. 
+1. Na página de trabalhos Web hello, clique em do trabalho Olá **agenda** página de portal do link toonavigate toohello Agendador do Azure. 
    
-   ![Link para Agendador do Azure][LinkToScheduler]
-2. Na página do Agendador, clique no trabalho.
+   ![Link tooAzure Agendador][LinkToScheduler]
+2. Na página do Agendador hello, clique em trabalho hello.
    
-    ![Trabalho na página do portal do Agendador][SchedulerPortal]
-3. A página **Ação de Trabalho** é aberta, para que você possa configurá-lo. 
+    ![Trabalho na página de portal saudação do Agendador][SchedulerPortal]
+3. Olá **ação do trabalho** página é aberta, onde você pode configurar adicionalmente trabalho hello. 
    
     ![Ação de trabalho PageInScheduler][JobActionPageInScheduler]
 
-## <a name="ViewJobHistory"></a>Exibir o histórico do trabalho
-1. Para exibir o histórico de execução de um trabalho, incluindo trabalhos criados com o SDK de Trabalhos Web, clique no link correspondente na coluna **Logs** da folha Trabalhos Web. (Se quiser, você poderá usar o ícone da área de transferência para copiar a URL da página do arquivo de log para a área de transferência.)
+## <a name="ViewJobHistory"></a>Exibir histórico de trabalho Olá
+1. histórico de execução de saudação tooview de um trabalho, inclusive os trabalhos criados com hello SDK do WebJobs, clique no link correspondente em Olá **Logs** coluna da folha de WebJobs hello. (Você pode usar saudação da área de transferência ícone toocopy Olá URL da área de transferência do hello log arquivo página toohello se desejar.)
    
     ![Link Logs](./media/web-sites-create-web-jobs/wjbladelogslink.png)
-2. Clicar no link abre a página de detalhes para o Trabalho Web. Esta página mostra o nome do comando executado, os horários das execuções mais recentes, além do sucesso ou da falha. Em **Execuções de trabalho recentes**, clique em uma hora para ver mais detalhes.
+2. Clicar em links de saudação abre a página de detalhes de saudação para Olá WebJob. Esta página mostra Olá nome da execução do comando hello, Olá últimas vezes em que ele foi executado, e seu êxito ou falha. Em **execuções recentes do trabalho**, clique em um detalhes adicionais de toosee de tempo.
    
     ![WebJobDetails][WebJobDetails]
-3. A página **Detalhes da Execução do Trabalho Web** é exibida. Clique em **Alternar Saída** para ver o texto do conteúdo do log. O log de saída está em formato de texto. 
+3. Olá **detalhes da execução do WebJob** página será exibida. Clique em **alternar saída** toosee texto de saudação do conteúdo do log hello. log de saída de Hello está no formato de texto. 
    
     ![Detalhes da execução do trabalho Web][WebJobRunDetails]
-4. Para ver o texto de saída em uma janela separada do navegador, clique no link **download** . Para baixar o texto propriamente dito, com o botão direito do mouse no link e use as opções do navegador para salvar o conteúdo do arquivo.
+4. texto de saída de hello toosee em uma janela separada do navegador, clique em Olá **baixar** link. texto de saudação toodownload em si, clique o link hello e usar o conteúdo do arquivo de navegador opções toosave hello.
    
     ![Baixar saída do log][DownloadLogOutput]
-5. O link **Trabalhos Web** na parte superior da página oferece uma maneira prática de obter a uma lista de Trabalhos Web no painel de histórico.
+5. Olá **WebJobs** link na parte superior de saudação da página Olá fornece uma lista de tooa de tooget de maneira conveniente de WebJobs no painel de histórico de saudação.
    
-    ![Vincular à lista de Trabalhos Web][WebJobsLinkToDashboardList]
+    ![Lista de tooWebJobs de link][WebJobsLinkToDashboardList]
    
     ![Lista de Trabalhos Web no painel de histórico][WebJobsListInJobsDashboard]
    
-    O clique em um desses links leva você até a página Detalhes do Trabalho Web do trabalho selecionado.
+    Clicando em um desses links usa página de detalhes do trabalho Web toohello para trabalho Olá selecionado.
 
 ## <a name="WHPNotes"></a>Observações
-* Os aplicativos Web no modo Gratuito podem atingir tempo limite depois de 20 minutos se não houver solicitações para o site do scm (implantação) e o portal do aplicativo Web não estiver aberto no Azure. As solicitações para o site real não redefinirão isso.
-* O código para um trabalho contínuo precisa ser escrito para ser executado em um loop infinito.
-* Trabalhos contínuos só são executados continuamente quando o aplicativo Web estiver funcionando.
-* Os modos Básico e Padrão oferecem o recurso Sempre Ativo que, quando habilitado, evita que os aplicativos Web fiquem ociosos.
+* Aplicativos Web no modo gratuito podem atingir o tempo limite após 20 minutos, se não há nenhum site de scm (implantação) toohello solicitações e portal do aplicativo da web de saudação não está aberto no Azure. Site real de toohello solicitações não redefinirá a isso.
+* Código para um trabalho contínuo precisa toobe gravado toorun em um loop infinito.
+* Trabalhos contínuos são executados continuamente somente quando o aplicativo de web hello está ativo.
+* Básico e padrão modos oferta hello sempre no recurso que, quando ativada, impede que os aplicativos web se tornam ociosos.
 * Só é possível depurar continuamente os Trabalhos Web em execução. Não há suporte para a depuração Trabalhos Web agendados ou sob demanda.
 
 ## <a name="NextSteps"></a>Próximas etapas

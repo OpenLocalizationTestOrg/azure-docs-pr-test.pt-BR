@@ -1,6 +1,6 @@
 ---
-title: Usando o Gateway de Aplicativo do Azure com o balanceador de carga interno | Microsoft Docs
-description: "Esta página fornece instruções para configurar um Gateway de Aplicativo do Azure com um ponto de extremidade do Balanceador de Carga Interno"
+title: Gateway de aplicativo do Azure com o balanceador de carga interno de aaaUsing | Microsoft Docs
+description: "Esta página fornece instruções tooconfigure um Gateway de aplicativo do Azure com um ponto de extremidade com balanceamento de carga interno"
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
-ms.openlocfilehash: d6f3af61934c8c645be1f2c6b4c056fc7ee2e3aa
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 272ef84a02f92a8521c35aad6f1d9f9bf1675718
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Criar um Gateway de Aplicativo com um ILB (Balanceador de Carga Interno)
 
@@ -26,25 +26,25 @@ ms.lasthandoff: 07/11/2017
 > * [Azure Classic PowerShell](application-gateway-ilb.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-ilb-arm.md)
 
-O Gateway de Aplicativo pode ser configurado com um IP virtual voltado para a Internet ou com um ponto de extremidade interno não exposto à Internet, também conhecido como ponto de extremidade ILB (Balanceador de Carga Interno). Configurar o gateway como um ILB é útil para aplicativos de linha de negócios internos não expostos à Internet. Isso também é útil para serviços/camadas em um aplicativo multicamada que reside em um limite de segurança não exposto à Internet, mas que ainda exige distribuição de carga round robin, adesão da sessão ou terminação SSL. Este artigo o orienta ao longo das etapas para configurar um Application Gateway com um ILB.
+Application Gateway pode ser configurado com um IP virtual da internet ou com um toohello de ponto de extremidade interno não exposto à internet, também conhecido como ponto de extremidade de Balanceador de carga interno (ILB). Configurar gateway Olá com um ILB é útil para aplicativos de linha de negócios internos não expostos toointernet. Também é útil para camadas de serviço/dentro de um aplicativo de várias camada, que se encontra em um toointernet de limite não exposta de segurança, mas ainda requerem a distribuição de carga de round robin, persistência de sessão ou terminação SSL. Este artigo orienta Olá etapas tooconfigure um application gateway com um ILB.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente na seção **Windows PowerShell** da [página de download](https://azure.microsoft.com/downloads/).
+1. Instale a versão mais recente dos cmdlets do PowerShell do Azure hello usando Olá Web Platform Installer. Você pode baixar e instalar a versão mais recente de saudação do hello **do Windows PowerShell** seção Olá [página de Download](https://azure.microsoft.com/downloads/).
 2. Verifique se você tem uma rede virtual em funcionamento com uma sub-rede válida.
-3. Verifique se você tem servidores back-end na rede virtual ou com um IP/VIP público atribuído.
+3. Verifique se você tem servidores de back-end na rede virtual hello, ou com um IP público/VIP atribuído.
 
-Para criar um Application Gateway, execute as etapas a seguir na ordem listada. 
+toocreate um application gateway, execute Olá etapas na ordem Olá listados a seguir. 
 
 1. [Criar um Application Gateway](#create-a-new-application-gateway)
-2. [Configurar o gateway](#configure-the-gateway)
-3. [Definir a configuração do gateway](#set-the-gateway-configuration)
-4. [Iniciar o gateway](#start-the-gateway)
-5. [Verificar o gateway](#verify-the-gateway-status)
+2. [Configurar o gateway de saudação](#configure-the-gateway)
+3. [Configuração de gateway de saudação do conjunto](#set-the-gateway-configuration)
+4. [Gateway de saudação inicial](#start-the-gateway)
+5. [Verifique se o gateway de saudação](#verify-the-gateway-status)
 
 ## <a name="create-an-application-gateway"></a>Criar um Application Gateway:
 
-**Para criar o gateway**, use o cmdlet `New-AzureApplicationGateway`, substituindo os valores pelos seus próprios. Observe que a cobrança pelo gateway não se inicia neste momento. A cobrança é iniciada em uma etapa posterior, quando o gateway é iniciado com êxito.
+**gateway de saudação toocreate**, use Olá `New-AzureApplicationGateway` cmdlet, substituindo os valores hello com seus próprios. Observe que a cobrança por gateway Olá não iniciam neste momento. A cobrança começa em uma etapa posterior, quando o gateway Olá foi iniciado com êxito.
 
 ```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -58,9 +58,9 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 ```
 
-**Para validar** esse gateway que foi criado, você pode usar o cmdlet `Get-AzureApplicationGateway`. 
+**toovalidate** que Olá gateway foi criado, você pode usar o hello `Get-AzureApplicationGateway` cmdlet. 
 
-No exemplo, *Description*, *InstanceCount* e *GatewaySize* são parâmetros opcionais. O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Medium. Small e Large são outros valore disponíveis. *Vip* e *DnsName* são mostrados em branco porque o gateway ainda não foi iniciado. Eles serão criados depois que o gateway estiver em estado de execução. 
+No exemplo hello, *descrição*, *InstanceCount*, e *GatewaySize* são parâmetros opcionais. Olá valor padrão para *InstanceCount* é 2, com um valor máximo de 10. Olá valor padrão para *GatewaySize* é médio. Small e Large são outros valore disponíveis. *VIP* e *DnsName* são mostrados como em branco porque o gateway Olá ainda não foi iniciado. Eles são criados depois que o gateway de hello está em estado de execução de saudação. 
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -81,25 +81,25 @@ VirtualIPs:
 DnsName:
 ```
 
-## <a name="configure-the-gateway"></a>Configurar o gateway
-Uma configuração de gateway de aplicativo consiste em vários valores. Os valores podem ser vinculados para construir a configuração.
+## <a name="configure-hello-gateway"></a>Configurar o gateway de saudação
+Uma configuração de gateway de aplicativo consiste em vários valores. valores Hello podem ser restritos a configuração de saudação tooconstruct juntos.
 
-Os valores são:
+Olá valores são:
 
-* **Pool de servidores de back-end:** a lista de endereços IP dos servidores back-end. Os endereços IP listados ou devem pertencer à sub-rede da VNet, ou devem ser um IP/VIP público. 
-* **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookies. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
-* **Porta front-end:** essa porta é a porta pública aberta no gateway de aplicativo. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
-* **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (Http ou Https, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL). 
-* **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *basic* . A regra *basic* é a distribuição de carga round robin.
+* **Pool de servidores de back-end:** lista de saudação de endereços IP dos servidores de back-end de saudação. endereços IP Hello listado ou devem pertencer a sub-rede de rede virtual toohello ou devem ser um IP público/VIP. 
+* **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookies. Essas configurações são tooa empatado pool e são aplicados tooall servidores no pool de saudação.
+* **Porta de front-end:** essa porta é a porta pública de saudação aberta no gateway do aplicativo hello. Tráfego atinge a essa porta e, em seguida, obtém tooone redirecionado de servidores de back-end de saudação.
+* **Ouvinte:** ouvinte Olá tem uma porta de front-end, um protocolo (Http ou Https, eles diferenciam maiusculas de minúsculas) e o nome do certificado SSL de saudação (se a configuração de SSL de descarregamento). 
+* **Regra:** regra Olá associa ouvinte hello e pool de servidores de back-end hello e define qual tráfego Olá pool do servidor de back-end deve ser direcionado toowhen que ele atinja um ouvinte específico. Atualmente, apenas Olá *básica* regra tem suporte. Olá *básica* regra é a distribuição de carga de round-robin.
 
-Você pode construir sua configuração criando um objeto de configuração ou usando um arquivo XML de configuração. Para construir a configuração usando um arquivo XML de configuração, use o exemplo abaixo.
+Você pode construir sua configuração criando um objeto de configuração ou usando um arquivo XML de configuração. tooconstruct de sua configuração por meio de um arquivo XML de configuração, use Olá exemplo abaixo.
 
-Observe o seguinte:
+Observe o seguinte hello:
 
-* O elemento *FrontendIPConfigurations* descreve os detalhes do ILB relevantes para configurar o Gateway de Aplicativo com ILB. 
-* O *Tipo* de IP front-end deve ser definido como ‘Privado’.
-* O *StaticIPAddress* deve ser definido para o IP interno desejado no qual o gateway recebe o tráfego. Observe que o elemento *StaticIPAddress* é opcional. Se não for definido, será escolhido um IP interno disponível na sub-rede implantada. 
-* O valor do elemento *Name* especificado em *FrontendIPConfiguration* deve ser usado no elemento *FrontendIP* de HTTPListener para fazer referência a FrontendIPConfiguration.
+* Olá *FrontendIPConfigurations* elemento descreve Olá ILB detalhes relevantes para configurar o Application Gateway com um ILB. 
+* IP de front-end Hello *tipo* deve ser definido too'Private'
+* Olá *StaticIPAddress* devem ser definidos no qual Olá gateway recebe o tráfego IP interno do toohello desejado. Observe que Olá *StaticIPAddress* elemento é opcional. Se não for definido, um IP interno disponível da sub-rede Olá implantado é escolhido. 
+* Olá valor Olá *nome* elemento especificado no *FrontendIPConfiguration* devem ser usadas em Olá HTTPListener *FrontendIP* elemento toorefer toohello FrontendIPConfiguration.
   
   **Exemplo de XML de configuração**
 ```xml
@@ -156,8 +156,8 @@ Observe o seguinte:
 ```
 
 
-## <a name="set-the-gateway-configuration"></a>Definir a configuração do gateway
-Em seguida, você vai configurar o gateway de aplicativo. É possível usar o cmdlet `Set-AzureApplicationGatewayConfig` com um objeto de configuração ou com um arquivo XML de configuração. 
+## <a name="set-hello-gateway-configuration"></a>Configuração de gateway de saudação do conjunto
+Em seguida, você configurará o gateway de aplicativo hello. Você pode usar o hello `Set-AzureApplicationGatewayConfig` cmdlet com um objeto de configuração ou com um arquivo XML de configuração. 
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
@@ -171,12 +171,12 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
 ```
 
-## <a name="start-the-gateway"></a>Iniciar o gateway
+## <a name="start-hello-gateway"></a>Gateway de saudação inicial
 
-Depois que o gateway tiver sido configurado, use o cmdlet `Start-AzureApplicationGateway` para iniciá-lo. A cobrança por um gateway de aplicativo começa depois que o gateway tiver sido iniciado com êxito. 
+Uma vez configurado o gateway hello, use Olá `Start-AzureApplicationGateway` gateway de saudação do cmdlet toostart. A cobrança por um application gateway iniciado após a saudação gateway foi iniciado com êxito. 
 
 > [!NOTE]
-> A regra `Start-AzureApplicationGateway` pode levar até 15 a 20 minutos para ser concluído. 
+> Olá `Start-AzureApplicationGateway` cmdlet pode levar até toocomplete too15 a 20 minutos. 
 > 
 > 
 
@@ -192,12 +192,12 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
 ```
 
-## <a name="verify-the-gateway-status"></a>Verificar o status do gateway
+## <a name="verify-hello-gateway-status"></a>Verificar status do gateway Olá
 
-Use o cmdlet `Get-AzureApplicationGateway` para verificar o status do gateway. Se `Start-AzureApplicationGateway` tiver sido bem-sucedido na etapa anterior, o Estado deverá ser *Em execução* e Vip e DnsName deverão ter entradas válidas. Este exemplo mostra o cmdlet na primeira linha, seguido pela saída. Neste exemplo, o gateway está em execução e pronto para assumir o tráfego. 
+Saudação de uso `Get-AzureApplicationGateway` status de saudação do cmdlet toocheck do gateway. Se `Start-AzureApplicationGateway` com êxito na etapa anterior hello, Olá estado deve ser *executando*, Olá Vip e DnsName deve ter entradas válidas. Isso exemplo mostra Olá cmdlet na primeira linha de saudação, seguido de saída de hello. Neste exemplo, gateway hello está em execução e o tráfego tootake pronto. 
 
 > [!NOTE]
-> Neste exemplo, o Application Gateway está configurado para aceitar o tráfego no ponto de extremidade ILB configurado de 10.0.0.10.
+> Olá application gateway configurado tooaccept tráfego em Olá configurou o ponto de extremidade ILB de 10.0.0.10 neste exemplo.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest 

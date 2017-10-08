@@ -1,7 +1,7 @@
 ---
-title: "Dicas de desempenho – NoSQL do Azure Cosmos DB | Microsoft Docs"
-description: "Saiba mais sobre as opções de configuração do cliente para melhorar o desempenho de banco de dados do Azure Cosmos DB"
-keywords: como melhorar o desempenho do banco de dados
+title: dicas de aaaPerformance - Azure Cosmos banco de dados NoSQL | Microsoft Docs
+description: "Saiba o desempenho do banco de dados do cliente configuração Opções tooimprove Azure Cosmos DB"
+keywords: como tooimprove desempenho banco de dados
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mimig
-ms.openlocfilehash: a94cda90eca9dca2b93adb8f5091d829e7375aa5
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 4f3e82ae5048e3dbc20b0fd891a2d3aa22adf3fc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Dicas de desempenho para o Azure Cosmos DB
-O Azure Cosmos DB é um banco de dados distribuído rápido e flexível que pode ser dimensionado perfeitamente com garantia de latência e produtividade. Você não precisa fazer alterações importantes de arquitetura nem escrever um código complexo para dimensionar seu banco de dados com o Cosmos DB. Aumentar e reduzir é tão fácil quanto fazer uma única chamada da API ou uma [chamada do método do SDK](set-throughput.md#set-throughput-sdk). No entanto, como o Cosmos DB é acessado por meio de chamadas de rede, há otimizações do lado do cliente que você pode fazer para obter o desempenho máximo.
+O Azure Cosmos DB é um banco de dados distribuído rápido e flexível que pode ser dimensionado perfeitamente com garantia de latência e produtividade. Você não tem alterações de arquitetura principais toomake ou escrever códigos complexos tooscale seu banco de dados com o banco de dados do Cosmos. Aumentar e reduzir é tão fácil quanto fazer uma única chamada da API ou uma [chamada do método do SDK](set-throughput.md#set-throughput-sdk). No entanto, porque Cosmos DB é acessado por meio de chamadas de rede existe são otimizações do lado do cliente pode fazer tooachieve máximo desempenho.
 
-Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu banco de dados?", considere as seguintes opções:
+Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu banco de dados?", Considere Olá as opções a seguir:
 
 ## <a name="networking"></a>Rede
 <a id="direct-connection"></a>
 
 1. **Política de conexão: usar o modo de conexão direta**
 
-    Como um cliente se conecta ao Cosmos DB tem implicações importantes no desempenho, especialmente em termos da latência do lado do cliente observada. Há duas definições principais da configuração disponíveis para configurar a Política de conexão do cliente – o *modo* da conexão e o [protocolo da *conexão*](#connection-protocol).  Os dois modos disponíveis são:
+    Como um cliente se conecta tooCosmos banco de dados tem implicações importantes sobre o desempenho, especialmente em termos de latência do cliente observado. Há duas configurações de chave de configuração disponíveis para configurar a diretiva de Conexão-conexão de saudação do cliente *modo* e hello [conexão *protocolo*](#connection-protocol).  Olá dois modos disponíveis são:
 
    1. Modo Gateway (padrão)
    2. Modo Direto
 
-      O Modo Gateway é suportado em todas as plataformas SDK e é o padrão configurado.  Se seu aplicativo for executado em uma rede corporativa com restrições de firewall rígidas, o Modo Gateway será a melhor opção, já que ele usa a porta HTTPS padrão e um único ponto de extremidade. Porém, a compensação do desempenho é que o Modo Gateway envolve um salto de rede adicional sempre que os dados são lidos ou gravados no Cosmos DB. Por isso, o Modo Direto oferece um melhor desempenho devido a menos saltos de rede.
+      Modo de gateway tem suporte em todas as plataformas do SDK e é Olá configurado padrão.  Se seu aplicativo é executado em uma rede corporativa com restrições de firewall estrita, o modo de Gateway é Olá melhor opção porque ele usa a porta HTTPS padrão de saudação e um ponto de extremidade. Olá compensação de desempenho, no entanto, é que o modo de Gateway envolve um salto de rede adicionais sempre que dados é lida ou gravados tooCosmos banco de dados. Por isso, o modo direto oferece melhor desempenho devido toofewer saltos de rede.
 <a id="use-tcp"></a>
-2. **Política de conexão: usar o protocolo TCP**
+2. **Diretiva de Conexão: usar o protocolo TCP Olá**
 
     Ao usar o Modo Direto, há duas opções de protocolo disponíveis:
 
    * TCP
    * HTTPS
 
-     O Cosmos DB oferece um modelo de programação RESTful simples e aberto por HTTPS. Além disso, ele oferece um protocolo TCP eficiente que também é RESTful em seu modelo de comunicação e está disponível por meio do SDK do cliente .NET. Tanto TCP direto quanto HTTPS usam SSL para criptografar tráfego e autenticação inicial. Para ter um melhor desempenho, use o protocolo TCP quando possível.
+     O Cosmos DB oferece um modelo de programação RESTful simples e aberto por HTTPS. Além disso, ele oferece um protocolo TCP eficiente, que também é RESTful no seu modelo de comunicação e está disponível por meio do SDK de cliente .NET hello. Tanto TCP direto quanto HTTPS usam SSL para criptografar tráfego e autenticação inicial. Para melhor desempenho, use o protocolo TCP hello quando possível.
 
-     Ao usar o TCP no Modo Gateway, a Porta TCP 443 é a porta do Cosmos DB e 10255 é a porta da API do MongoDB. Ao usar o TCP no Modo Direto, além das portas do Gateway, você precisa garantir que o intervalo de portas de 10000 a 20000 está aberto, pois o Cosmos DB usa portas TCP dinâmicas. Se essas portas não estiverem abertas e você tentar usar TCP, você receberá o erro 503 Serviço indisponível.
+     Ao usar TCP no modo de Gateway, porta TCP 443 é Olá porta DB Cosmos e 10255 é a porta de API do MongoDB hello. Ao usar TCP em modo direto, em portas do Gateway toohello adição, você deve tooensure porta de saudação entre 10000 e 20000 está aberto como banco de dados do Cosmos usa portas TCP dinâmicas. Se essas portas não estão abertas e você tentar toouse TCP, você receberá o erro 503 Serviço indisponível.
 
-     O Modo Conectividade é configurado durante a construção da instância do DocumentClient com o parâmetro ConnectionPolicy. Se o Modo Direto for usado, o Protocolo também poderá ser definido no parâmetro ConnectionPolicy.
+     Olá modo de conectividade é configurado durante a construção de saudação da instância de DocumentClient Olá com parâmetro de ConnectionPolicy hello. Se for usado o modo direto, Olá protocolo também pode definir no parâmetro de ConnectionPolicy hello.
 
     ```C#
     var serviceEndpoint = new Uri("https://contoso.documents.net");
-    var authKey = new "your authKey from the Azure portal";
+    var authKey = new "your authKey from hello Azure portal";
     DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
     new ConnectionPolicy
     {
@@ -62,98 +62,98 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
     });
     ```
 
-    Como o TCP tem suporte apenas no Modo Direto, se o Modo Gateway for usado, o protocolo HTTPS será sempre utilizado para se comunicar com o Gateway e o valor do Protocolo na ConnectionPolicy será ignorado.
+    Como TCP só tem suporte em modo direto, se o modo de Gateway é usado, em seguida, Olá protocolo HTTPS é sempre usado toocommunicate com hello Gateway e hello valor do protocolo em Olá que connectionpolicy será ignorado.
 
-    ![Ilustração da política de conexão do Azure Cosmos DB](./media/performance-tips/connection-policy.png)
+    ![Ilustração de saudação diretiva de conexão de banco de dados do Azure Cosmos](./media/performance-tips/connection-policy.png)
 
-3. **Chamar OpenAsync para evitar a latência de inicialização na primeira solicitação**
+3. **Chame a latência de inicialização tooavoid OpenAsync na primeira solicitação**
 
-    Por padrão, a primeira solicitação tem uma latência maior porque tem que buscar a tabela de roteamento de endereço. Para evitar essa latência de inicialização na primeira solicitação, você deve chamar OpenAsync() uma vez durante a inicialização da seguinte maneira.
+    Por padrão, a primeira solicitação de saudação tem uma latência mais alta porque ele tem a tabela de roteamento de endereço do toofetch hello. essa latência de inicialização em Olá tooavoid primeiro solicitar, você deve chamar OpenAsync() uma vez durante a inicialização da seguinte maneira.
 
         await client.OpenAsync();
    <a id="same-region"></a>
 4. **Colocar os clientes na mesma região do Azure para o desempenho**
 
-    Quando possível, coloque aplicativos que chamam o Cosmos DB na mesma região do banco de dados do Cosmos DB. Para obter uma comparação aproximada, as chamadas ao Cosmos DB na mesma região são concluídas de 1 a 2 ms, mas a latência entre a Costa Leste e a Oeste dos EUA é > 50 ms. Provavelmente, essa latência pode variar entre as solicitações dependendo da rota seguida pela solicitação conforme ela passa do cliente para o limite de datacenter do Azure. A menor latência possível é alcançada garantindo que o aplicativo de chamada estará localizado na mesma região do Azure do ponto de extremidade do Cosmos DB provisionado. Para obter uma lista de regiões disponíveis, consulte [Regiões do Azure](https://azure.microsoft.com/regions/#services).
+    Quando possível, coloque Olá de quaisquer aplicativos que chamam Cosmos DB mesma região Olá banco de dados do banco de dados do Cosmos. Para obter uma comparação aproximada, chama tooCosmos DB dentro Olá concluir a mesma região dentro de 1 a 2 ms, mas a latência de saudação entre hello Oeste e Costa Leste de saudação dos EUA é > 50 ms. Essa latência provavelmente pode variar de solicitação toorequest dependendo da rota Olá tomada por solicitação Olá conforme ele passa de limite do hello cliente toohello datacenter do Azure. Olá menor latência possível é obtida, garantindo chamada hello aplicativo está localizado em Olá mesma região do Azure Olá provisionado ponto de extremidade do banco de dados do Cosmos. Para obter uma lista de regiões disponíveis, consulte [Regiões do Azure](https://azure.microsoft.com/regions/#services).
 
-    ![Ilustração da política de conexão do Azure Cosmos DB](./media/performance-tips/same-region.png)
+    ![Ilustração de saudação diretiva de conexão de banco de dados do Azure Cosmos](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
 5. **Aumentar o número de threads/tarefas**
 
-    Como as chamadas ao Azure Cosmos DB são feitas pela rede, talvez seja necessário variar o grau de paralelismo das solicitações, de forma que o aplicativo cliente aguarde um tempo mínimo entre as solicitações. Por exemplo, se você estiver usando a [Biblioteca de Paralelismo de Tarefas](https://msdn.microsoft.com//library/dd460717.aspx)do .NET, crie centenas de tarefas de leitura ou gravação no Cosmos DB.
+    Como chamadas tooAzure Cosmos DB são feitas pela rede hello, talvez seja necessário toovary grau de saudação de paralelismo de suas solicitações para que o aplicativo de cliente hello gasta muito pouco tempo de espera entre solicitações. Por exemplo, se você estiver usando. Do NET [biblioteca paralela de tarefas](https://msdn.microsoft.com//library/dd460717.aspx), criar na ordem de saudação de 100 tarefas ler ou gravar tooCosmos banco de dados.
 
 ## <a name="sdk-usage"></a>Uso do SDK
-1. **Instalar o SDK mais recente**
+1. **Instalar o SDK mais recente de Olá**
 
-    Os SDKs do Cosmos DB estão constantemente sendo aprimorados para fornecer o melhor desempenho. Consulte as páginas do [SDK do Cosmos DB](documentdb-sdk-dotnet.md) para determinar o SDK mais recente e examinar as melhorias.
-2. **Usar um cliente do Cosmos DB singleton para obter o tempo de vida do aplicativo**
+    Olá Cosmos SDKs do banco de dados estão sendo constantemente tooprovide aprimorado Olá melhor desempenho. Consulte Olá [Cosmos DB SDK](documentdb-sdk-dotnet.md) páginas toodetermine Olá SDK mais recente e examine melhorias.
+2. **Usar um cliente de banco de dados do Cosmos singleton para o tempo de vida de saudação do seu aplicativo**
 
-    Observe que cada instância do DocumentClient tem um thread seguro e realiza um gerenciamento de conexão eficiente e o cache de endereço ao operar no Modo Direto. Para permitir o gerenciamento de conexão eficiente e o melhor desempenho por DocumentClient, é recomendável usar uma única instância de DocumentClient por AppDomain durante a vida útil do aplicativo.
+    Observe que cada instância do DocumentClient tem um thread seguro e realiza um gerenciamento de conexão eficiente e o cache de endereço ao operar no Modo Direto. gerenciamento de conexão eficiente tooallow e melhor desempenho por DocumentClient, é recomendável toouse uma única instância de DocumentClient por AppDomain para o tempo de vida de saudação do aplicativo hello.
 
    <a id="max-connection"></a>
 3. **Aumentar System.Net MaxConnections por host usando o modo de Gateway**
 
-    As solicitações do Cosmos DB são feitas por HTTPS/REST durante o uso do modo Gateway e estão sujeitas ao limite de conexão padrão por nome do host ou endereço IP. Talvez seja necessário definir MaxConnections com um valor mais alto (100-1000), de forma que a biblioteca de cliente possa utilizar várias conexões simultâneas ao Cosmos DB. No SDK do .NET 1.8.0 e posterior, o valor padrão para [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) é 50 e para alterar o valor, você pode definir o [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) para um valor mais alto.   
+    Cosmos DB solicitações feitas por HTTPS/REST ao usar o modo de Gateway e estão sujeitos toohello limite de conexão padrão por nome de host ou endereço IP. Talvez seja necessário tooset Olá MaxConnections tooa maior valor (100-1000) para que hello biblioteca de cliente pode utilizar várias conexões simultâneas tooCosmos banco de dados. Olá .NET SDK 1.8.0 e acima, Olá valor padrão para [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) é 50 e toochange Olá valor, você pode definir Olá [Documents.Client.ConnectionPolicy.MaxConnectionLimit ](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) tooa maior valor.   
 4. **Ajustar consultas paralelas para coleções particionadas**
 
-     O SDK .NET do DocumentDB versão 1.9.0 e superiores oferecem suporte a consultas paralelas, o que permite a consulta a uma coleção particionada em paralelo (confira [Trabalhando com SDKs](documentdb-partition-data.md#working-with-the-azure-cosmos-db-sdks) e os [exemplos de código](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) relacionados para saber mais). Consultas paralelas são projetadas para melhorar a latência da consulta e a produtividade em relação à contraparte serial. Consultas paralelas fornecem dois parâmetros que os usuários podem ajustar para atender aos próprios requisitos, (a) MaxDegreeOfParallelism: para controlar o número máximo de partições que podem ser consultadas em paralelo e (b) MaxBufferedItemCount: para controlar o número de resultados de pré-obtidos.
+     SDK do DocumentDB .NET versão 1.9.0 e acima de consultas paralelas suporte, que permitem que você tooquery uma coleção particionada em paralelo (consulte [trabalhando com hello SDKs](documentdb-partition-data.md#working-with-the-azure-cosmos-db-sdks) e hello relacionadas [exemplos de código](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) para mais informações). Consultas paralelas são a latência da consulta tooimprove projetado e taxa de transferência sobre sua contraparte serial. Consultas paralelas fornecem dois parâmetros que os usuários podem ajustar toocustom ajustar seus requisitos, (a) MaxDegreeOfParallelism: número de máximo de saudação do toocontrol de partições, em seguida, pode ser consultado em paralelo e (b) MaxBufferedItemCount: toocontrol Olá inúmeros pré-busca de resultados.
 
-    (a) ***Ajuste de MaxDegreeOfParallelism\:*** a consulta paralela funciona consultando várias partições em paralelo. No entanto, os dados de uma coleta particionada individual são buscados em série com relação à consulta. Então, definir MaxDegreeOfParallelism como o número de partições representa o máximo de chance de conseguir uma consulta com o melhor desempenho, desde que todas as outras condições do sistema permaneçam as mesmas. Se você não souber o número de partições, defina MaxDegreeOfParallelism como um número alto, e o sistema escolherá o mínimo (número de partições, entrada fornecida pelo usuário) como o MaxDegreeOfParallelism.
+    (a) ***Ajuste de MaxDegreeOfParallelism\:*** a consulta paralela funciona consultando várias partições em paralelo. No entanto, dados de uma coleta particionada individual são buscados em série com respeito toohello consulta. Assim, definindo Olá MaxDegreeOfParallelism toohello o número de partições tem a chance de máximo de saudação de atingir Olá a maioria das consultas de alto desempenho, desde que todas as outras condições do sistema permanecem Olá mesmo. Se você não souber o número de saudação de partições, você pode definir o número alto da saudação MaxDegreeOfParallelism tooa e sistema Olá escolhe mínimo hello (número de partições, a entrada fornecida pelo usuário) como Olá MaxDegreeOfParallelism.
 
-    É importante observar que as consultas paralelas produzirão os melhores benefícios se os dados forem distribuídos uniformemente em todas as partições com relação à consulta. Se a coleção particionada for particionada de uma forma que todos ou a maioria dos dados retornados por uma consulta ficarem concentrados em algumas partições (uma partição, na pior das hipóteses), o desempenho da consulta seria um afunilamento dessas partições.
+    É importante toonote que paralelo de consultas produzir Olá melhores benefícios se Olá dados forem distribuídos uniformemente em todas as partições com respeito toohello consulta. Se Olá particionada coleção é particionada forma que todos ou a maior parte dos dados hello retornados por uma consulta é concentrada em algumas partições (na pior das hipóteses, uma partição) e desempenho Olá de consulta Olá seria um afunilamento por essas partições.
 
-    (b) ***Ajuste MaxBufferedItemCount\:*** a consulta paralela destina-se a buscar previamente resultados enquanto o lote atual de resultados está sendo processado pelo cliente. A busca prévia ajuda a melhorar a latência geral de uma consulta. MaxBufferedItemCount é o parâmetro para limitar o número de resultados pré-obtidos. Configurar MaxBufferedItemCount para o número esperado de resultados retornados (ou um número mais alto) permite que a consulta receba o benefício máximo da busca prévia.
+    (b) ***ajuste MaxBufferedItemCount\: *** consulta paralela é resultados de busca de toopre projetado enquanto o lote atual de saudação de resultados está sendo processada pelo cliente hello. Olá pré-leitura ajuda a melhoria de latência geral de uma consulta. MaxBufferedItemCount é Olá parâmetro toolimit Olá número de resultados pré-buscados. Configuração MaxBufferedItemCount toohello esperado número de resultados retornados (ou um número mais alto) permite Olá consulta tooreceive máximo benefício de busca prévia.
 
-    Observe que a busca prévia funciona da mesma forma independentemente do MaxDegreeOfParallelism, e há um único buffer para os dados de todas as partições.  
+    Observe que funciona pré-busca Olá mesmo maneira independentemente da saudação MaxDegreeOfParallelism e há um único buffer para dados de saudação de todas as partições.  
 5. **Ativar o GC no lado do servidor**
 
-    A redução da frequência da coleta de lixo pode ajudar em alguns casos. No .NET, defina [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) como true.
+    Reduzir Olá frequência da coleta de lixo pode ajudar em alguns casos. No .NET, defina [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) tootrue.
 6. **Implementar a retirada em intervalos de RetryAfter**
 
-    Durante o teste de desempenho, você deve aumentar a carga até que uma pequena taxa de solicitações seja restringida. Se restringida, o aplicativo cliente deve retirar a limitação no intervalo de nova tentativa do servidor especificado. Respeitar a retirada garante que você perca o mínimo de tempo de espera entre as tentativas. O suporte da política de repetição está incluído na Versão 1.8.0 e posterior do DocumentDB [.NET](documentdb-sdk-dotnet.md) e [Java](documentdb-sdk-java.md), na versão 1.9.0 e posterior do [Node.js](documentdb-sdk-node.md) e [Python](documentdb-sdk-python.md) e em todas as versões com suporte dos SDKs do [.NET Core](documentdb-sdk-dotnet-core.md). Para saber mais, confira [Exceder os limites da taxa de transferência reservada](request-units.md#RequestRateTooLarge) e [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    Durante o teste de desempenho, você deve aumentar a carga até que uma pequena taxa de solicitações seja restringida. Se limitada, o aplicativo de cliente hello deve retirada na limitação para o intervalo de repetição especificada pelo servidor de saudação. Respeitar Olá retirada garante que você passe a quantidade mínima de tempo de espera entre as repetições. Suporte de política de repetição está incluído na versão 1.8.0 e posterior da saudação documentos [.NET](documentdb-sdk-dotnet.md) e [Java](documentdb-sdk-java.md), versão 1.9.0 e acima de saudação [Node.js](documentdb-sdk-node.md) e [ Python](documentdb-sdk-python.md), e todas as versões com suporte do hello [.NET Core](documentdb-sdk-dotnet-core.md) SDKs. Para saber mais, confira [Exceder os limites da taxa de transferência reservada](request-units.md#RequestRateTooLarge) e [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 7. **Escalar horizontalmente sua carga de trabalho do cliente**
 
-    Se você estiver testando em altos níveis da taxa de transferência (>50.000 RU/s), o aplicativo cliente poderá fazer um afunilamento devido à limitação do computador na utilização da CPU ou da Rede. Se você chegar a este ponto, poderá continuar expandindo a conta do Cosmos DB ainda mais escalando seus aplicativos cliente horizontalmente entre vários servidores.
+    Se você estiver testando em níveis de alta taxa de transferência (> 50.000 RU/s), aplicativo de cliente hello pode se tornar um afunilamento Olá devido toohello máquina limitar na utilização da CPU ou de rede. Se você chegar a este ponto, você pode continuar a conta de banco de dados do Cosmos de saudação toopush mais expandindo seus aplicativos de cliente em vários servidores.
 8. **Armazenar em cache os URIs do documento para uma menor latência de leitura**
 
-    Armazene em cache os URIs do documento sempre que possível para ter o melhor desempenho de leitura.
+    Documento URIs sempre que possível para melhor desempenho de leitura de saudação do cache.
    <a id="tune-page-size"></a>
-9. **Ajustar o tamanho da página para os feeds de leitura/consultas para ter o melhor desempenho**
+9. **Ajustar o tamanho da página Olá para feeds de consultas/leitura para melhorar o desempenho**
 
-    Ao executar uma grande quantidade de leitura dos documentos utilizando a funcionalidade do feed de leitura (por exemplo, ReadDocumentFeedAsync) ou ao enviar uma consulta SQL do DocumentDB, os resultados serão retornados de uma maneira segmentada se o conjunto de resultados for muito grande. Por padrão, os resultados são retornados em blocos de 100 itens ou 1 MB, o limite que for atingido primeiro.
+    Quando executar a maior parte de leitura de documentos usando leitura feed funcionalidade (por exemplo, ReadDocumentFeedAsync) ou ao emitir uma consulta SQL do DocumentDB, os resultados de saudação são retornados de modo segmentado se Olá conjunto de resultados for muito grande. Por padrão, os resultados são retornados em blocos de 100 itens ou 1 MB, o limite que for atingido primeiro.
 
-    Para reduzir o número idas e vindas na rede necessárias para recuperar todos os resultados aplicáveis, você pode aumentar o tamanho da página usando o cabeçalho de solicitação x-ms-max-item-count para até 1000. Nos casos em que você precisa exibir apenas alguns resultados, por exemplo, se a interface do usuário ou a API do aplicativo retornar apenas dez resultados de uma vez, também será possível diminuir o tamanho da página para dez para reduzir a taxa de transferência consumida pelas leituras e consultas.
+    tooreduce número de saudação de rede tooretrieve de viagens de ida e necessárias todos os resultados aplicável, você pode aumentar o tamanho da página hello usando too1000 de tooup de cabeçalho de solicitação x-ms-max-item-count. Em casos em que você precisa toodisplay apenas alguns resultados, por exemplo, se sua API de aplicativo ou de interface do usuário retorna apenas 10 resultados de um tempo, você também pode diminuir Olá tamanho too10 tooreduce Olá taxa de transferência página consumida para leituras e consultas.
 
-    Você também poderá definir o tamanho da página usando os SDKs do Cosmos DB disponíveis.  Por exemplo:
+    Você também pode definir o tamanho da página hello usando Olá disponível SDKs de banco de dados do Cosmos.  Por exemplo:
 
         IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
 10. **Aumentar o número de threads/tarefas**
 
-    Consulte [Aumentar o número de threads/tarefas](#increase-threads) na seção Rede.
+    Consulte [aumentar o número de threads/tarefas](#increase-threads) em Olá seção de rede.
 
 11. **Usar o processamento do host de 64 bits**
 
-    O SDK do DocumentDB funciona em um processo de host de 32 bits quando você usa o SDK do .NET do DocumentDB versão 1.11.4 e superior. No entanto, se você usa consultas entre partições, recomenda-se o processamento de host de 64 bits para melhorar o desempenho. Os seguintes tipos de aplicativos têm o processo de host de 32 bits como o padrão, portanto para alterá-los para 64 bits, siga estas etapas com base no tipo de seu aplicativo:
+    Olá SDK do DocumentDB funciona em um processo de host de 32 bits quando você estiver usando o SDK do DocumentDB .NET versão 1.11.4 e posterior. No entanto, se você usa consultas entre partições, recomenda-se o processamento de host de 64 bits para melhorar o desempenho. Olá seguintes tipos de aplicativos que o host de 32 bits processar como padrão hello, portanto em ordem toochange ou too64 bits, siga estas etapas com base no tipo de saudação do seu aplicativo:
 
-    - Para aplicativos executáveis, isso pode ser feito desmarcando a opção **Preferir 32 bits** na janela **Propriedades do Projeto**, na guia **Compilar**.
+    - Para aplicativos do executável, isso pode ser feito por Olá desmarcando **preferir 32-bit** opção Olá **propriedades do projeto** janela Olá **criar** guia.
 
-    - Para projetos de teste com base em VSTest, isso pode ser feito selecionando **teste**->**configurações de teste**->**padrão arquitetura de processador X64**, do **Visual Studio Test** opção de menu.
+    - Para projetos de teste com base em VSTest, isso pode ser feito selecionando **teste**->**configurações do teste**->**padrão arquitetura de processador X64**, de saudação **Visual Studio Test** opção de menu.
 
-    - Para aplicativos Web ASP.NET implantados localmente, isso pode ser feito verificando o **usar a versão de 64 bits do IIS Express para sites da web e projetos**, em **ferramentas**->**opções**->**projetos e soluções**->**projetos da Web**.
+    - Para aplicativos Web ASP.NET implantados localmente, isso pode ser feito verificando Olá **versão de 64 bits de saudação uso do IIS Express para sites e projetos**, em **ferramentas** ->  **Opções de**->**projetos e soluções**->**projetos Web**.
 
-    - Para aplicativos Web ASP.NET implantados no Azure, isso pode ser feito escolhendo o **plataforma de 64 bits** no **configurações do aplicativo** no portal do Azure.
+    - Para aplicativos Web ASP.NET implantados no Azure, isso pode ser feito escolhendo Olá **plataforma de 64 bits** em Olá **configurações de aplicativo** em Olá portal do Azure.
 
 ## <a name="indexing-policy"></a>Política de indexação
 1. **Usar a indexação lenta para as taxas de ingestão de tempo máximo mais rápidas**
 
-    O Cosmos DB permite que você especifique – no nível da coleção – uma política de indexação, que possibilita escolher se você deseja que os documentos em uma coleção sejam indexados automaticamente.  Além disso, você também pode escolher entre as atualizações do índice síncronas (Consistentes) e assíncronas (Lentas). Por padrão, o índice é atualizado sincronamente em cada inserção, substituição ou exclusão de um documento para a coleção. O modo síncrono permite que as consultas obedeçam ao mesmo [nível de consistência](consistency-levels.md) das leituras de documentos sem demora para o índice “atualizado”.
+    Banco de dados do cosmos permite toospecify – no nível de coleção hello – uma política de indexação, o que permite que você toochoose se desejar Olá documentos em um toobe coleção indexada automaticamente ou não.  Além disso, você também pode escolher entre as atualizações do índice síncronas (Consistentes) e assíncronas (Lentas). Por padrão, o índice de saudação é atualizado de forma síncrona em cada inserção, substituir ou excluir de uma coleção de toohello do documento. Modo síncrono toohonor de consultas do modo habilita Olá Olá mesmo [nível de consistência](consistency-levels.md) da saudação documento lê sem qualquer atraso de índice Olá muito "atualizado".
 
-    A indexação lenta pode ser considerada para os cenários em que os dados são gravados em picos e você deseja reduzir o trabalho necessário para indexar o conteúdo em um período de tempo maior. A indexação lenta permite que você use a taxa de transferência provisionada com eficiência e atenda as solicitações de gravação em horários de pico com latência mínima. Porém, é importante observar que, quando a indexação lenta estiver habilitada, os resultados da consulta, em última análise, serão consistentes, independentemente do nível de consistência configurado para a conta do Cosmos DB.
+    A indexação lenta pode ser considerada para cenários em que os dados são gravados em intermitências e deseja tooamortize Olá trabalho necessário tooindex conteúdo em um período mais longo de tempo. A indexação lenta também permite que você toouse sua provisionado a taxa de transferência com eficiência e atender solicitações de gravação em horários de pico com latência mínima. É importante toonote, no entanto, que, quando a indexação lento está habilitada, resultados da consulta são eventualmente consistentes, independentemente do nível de consistência de saudação configurado para conta de banco de dados do Cosmos hello.
 
-    Portanto, o modo de indexação Consistente (IndexingPolicy.IndexingMode é definido para Consistente) incorre no maior custo de unidade de solicitação por gravação, enquanto o modo de indexação Lento (IndexingPolicy.IndexingMode é definido para Lento) e nenhuma indexação (IndexingPolicy.Automatic é definido para False) têm um custo zero de indexação no momento da gravação.
+    Portanto, modo consistente de indexação (IndexingPolicy.IndexingMode é definido tooConsistent) incorre em custos unidade solicitação de hello mais alto por gravação enquanto Lazy indexação modo (IndexingPolicy.IndexingMode é definido tooLazy) e nenhum indexação (IndexingPolicy.Automatic é definido tooFalse) tenha o custo zero indexação Olá tempo de gravação.
 2. **Excluir caminhos não utilizados da indexação para ter gravações mais rápidas**
 
-    A política de indexação do Cosmos DB também permite que você especifique quais caminhos de documento serão incluídos ou excluídos da indexação, aproveitando os Caminhos de Indexação (IndexingPolicy.IncludedPaths e IndexingPolicy.ExcludedPaths). O uso dos caminhos de indexação pode oferecer um melhor desempenho de gravação e menor armazenamento de índices para os cenários nos quais os padrões da consulta são conhecidos com antecedência, pois os custos da indexação estão correlacionados diretamente com o número de caminhos exclusivos indexados.  Por exemplo, o código a seguir mostra como excluir uma seção inteira de documentos (também conhecida como uma subárvore) de indexação usando o curinga "*".
+    Política de indexação do cosmos do banco de dados também permite que você toospecify que tooinclude caminhos de documento ou excluídos da indexação, aproveitando os caminhos de indexação (IndexingPolicy.IncludedPaths e IndexingPolicy.ExcludedPaths). use Olá dos caminhos de indexação pode oferecer desempenho aprimorado de gravação e armazenamento de índice inferior para cenários que Olá padrões de consulta são conhecidos com antecedência, assim como os custos de indexação diretamente correlacionado toohello número exclusivo caminhos indexados.  Por exemplo, a saudação de código a seguir mostra como tooexclude uma seção inteira de saudação documentos (também conhecido como uma subárvore) de indexação usando hello "*" curinga.
 
     ```C#
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
@@ -169,19 +169,19 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
 1. **Medir e ajustar para o uso mais baixo de unidades/segundo da solicitação**
 
-    O Cosmos DB oferece um conjunto avançado de operações do banco de dados, incluindo consultas relacionais e hierárquicas com UDFs, procedimentos armazenados e gatilhos – todos operando nos documentos em uma coleção de banco de dados. O custo associado a cada uma dessas operações varia com base na CPU, E/S e memória necessárias para concluir a operação. Em vez de pensar em e gerenciar recursos de hardware, você pode pensar em uma RU (unidade de solicitação) como uma medida única para os recursos necessários para realizar várias operações de bancos de dados e atender a uma solicitação do aplicativo.
+    Cosmos banco de dados oferece um conjunto avançado de operações de banco de dados, incluindo consultas relacionais e hierárquicas com UDFs, procedimentos armazenados e gatilhos – todos os controles em documentos hello dentro de uma coleção de banco de dados. custo de saudação associado a cada uma dessas operações varia de acordo com hello da CPU, e/s e memória necessária toocomplete Olá operação. Em vez de pensar sobre e gerenciamento de recursos de hardware, você pode pensar uma unidade de solicitação (RU) como uma única medida para Olá recursos necessários tooperform várias operações de banco de dados e o serviço de uma solicitação de aplicativo.
 
-    [unidades de solicitação](request-units.md) são provisionados para cada conta do banco de dados com base no número de unidades de capacidade que você compra. O consumo da unidade de solicitação é avaliado em termos de taxa por segundo. Os aplicativos que excedem a taxa das unidades de solicitação provisionada para sua conta serão limitados até que a taxa fique abaixo do nível reservado da conta. Se o seu aplicativo exigir um nível mais alto de taxa de transferência, você pode comprar unidades de capacidade adicionais.
+    [Unidades de solicitação](request-units.md) são provisionados para cada conta de banco de dados com base no número de saudação de unidades de capacidade que você comprar. O consumo da unidade de solicitação é avaliado em termos de taxa por segundo. Aplicativos que excedem a unidade de solicitação provisionado Olá taxa para sua conta é limitada até que a taxa de saudação fique abaixo Olá nível reservado para a conta de saudação. Se o seu aplicativo exigir um nível mais alto de taxa de transferência, você pode comprar unidades de capacidade adicionais.
 
-    A complexidade de uma consulta afeta a quantidade de Unidades de Solicitação que são consumidas para uma operação. O número de predicados, natureza dos predicados, número de UDFs e tamanho do conjunto de dados de origem influenciam o custo das operações de consulta.
+    complexidade de saudação de uma consulta afeta quantas unidades de solicitação são consumidas para uma operação. número de Olá de predicados, natureza de predicados hello, número de UDFs e tamanho de saudação do conjunto de dados de origem Olá todos influenciam o custo de saudação de operações de consulta.
 
-    Para medir a sobrecarga de qualquer operação (criar, atualizar ou excluir), examine o cabeçalho x-ms-request-charge (ou a propriedade RequestCharge equivalente em ResourceResponse<T> ou FeedResponse<T> no SDK do .NET) para medir o número de unidades de solicitação consumidas por essas operações.
+    sobrecarga de saudação toomeasure de qualquer operação (criar, atualizar ou excluir), inspecionar o cabeçalho x-ms-taxa de solicitação de saudação (ou Olá propriedade RequestCharge equivalente em ResourceResponse<T> ou FeedResponse<T> em Olá .NET SDK) toomeasure número de saudação de unidades de solicitação consumida por essas operações.
 
     ```C#
-    // Measure the performance (request units) of writes
+    // Measure hello performance (request units) of writes
     ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);
     Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);
-    // Measure the performance (request units) of queries
+    // Measure hello performance (request units) of queries
     IDocumentQuery<dynamic> queryable = client.CreateDocumentQuery(collectionSelfLink, queryString).AsDocumentQuery();
     while (queryable.HasMoreResults)
          {
@@ -190,26 +190,26 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
          }
     ```             
 
-    A carga de solicitação retornada nesse cabeçalho é uma fração de sua taxa de transferência provisionada (ou seja, 2000 RUs/segundo). Por exemplo, se a consulta anterior retornar 1.000 documentos de 1 KB, o custo da operação será 1.000. Assim, em um segundo, o servidor mantém apenas duas dessas solicitações antes de limitar as solicitações subsequentes. Para saber mais, consulte [Unidades de solicitação](request-units.md) e a [calculadora das unidades de solicitação](https://www.documentdb.com/capacityplanner).
+    taxa de solicitação retornada nesse cabeçalho Hello é uma fração de sua taxa de transferência fornecida (ou seja, 2000 RUs / segundo). Por exemplo, se hello consulta anterior retorna 1KB de 1000 documentos, o custo de saudação da operação de saudação é 1000. Como tal, dentro de um segundo, servidor de saudação honra apenas dois tais solicitações antes da limitação de solicitações subsequentes. Para obter mais informações, consulte [unidades de solicitação](request-units.md) e hello [Calculadora de unidade de solicitação](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
 2. **Lidar com uma limitação da taxa/taxa de solicitação muito grande**
 
-    Quando um cliente tentar exceder a taxa de transferência reservada para uma conta, não haverá nenhuma degradação de desempenho no servidor e nenhum uso da capacidade da taxa além do nível reservado. O servidor encerrará antecipadamente a solicitação com RequestRateTooLarge (código de status HTTP 429) e retornará o cabeçalho x-ms-retry-after-ms indicando a quantidade de tempo, em milissegundos, que o usuário deve aguardar antes de tentar novamente a solicitação.
+    Quando um cliente tenta tooexceed Olá taxa de transferência reservada para uma conta, não há sem degradação do desempenho no servidor de saudação e sem uso da capacidade da taxa de transferência além do nível de saudação reservada. servidor de saudação preventivamente terminará solicitação Olá com RequestRateTooLarge (código de status HTTP 429) e retorno Olá o cabeçalho x-ms-repetição-após-ms indicando de saudação período de tempo, em milissegundos, que Olá usuário deve aguardar antes de tentar novamente a solicitação de saudação.
 
         HTTP Status 429,
         Status Line: RequestRateTooLarge
         x-ms-retry-after-ms :100
 
-    Os SDKs irão capturar implicitamente essa resposta, respeitarão o cabeçalho server-specified retry-after e repetirão a solicitação. A menos que sua conta esteja sendo acessada simultaneamente por vários clientes, a próxima tentativa será bem-sucedida.
+    Olá SDKs implicitamente todos os catch essa resposta, respeitam Olá servidor especificado cabeçalho retry-after e repita a solicitação hello. A menos que sua conta está sendo acessada simultaneamente por vários clientes, a próxima repetição de saudação terá êxito.
 
-    Se você tiver mais de um cliente operando cumulativamente de como consistente acima da taxa de solicitação, a contagem de repetição padrão atualmente definida para 9 internamente pelo cliente poderá não ser suficiente. Nesse caso, o cliente irá gerar uma DocumentClientException com o código de status 429 para o aplicativo. A contagem de repetição padrão pode ser alterada definindo RetryOptions na instância de ConnectionPolicy. Por padrão, a DocumentClientException com o código de status 429 será retornada após uma espera cumulativa de 30 segundos se a solicitação continuar a operar acima da taxa de solicitação. Isso ocorre mesmo quando a contagem de repetição atual é menor que a contagem de repetição máxima, seja o padrão 9 seja um valor definido pelo usuário.
+    Se você tiver mais de um cliente cumulativamente funcionando consistentemente acima de taxa de solicitação hello, Olá contagem de repetições padrão atualmente too9 conjunto internamente pelo cliente Olá pode não ser suficiente; Nesse caso, o cliente hello gera um DocumentClientException com o aplicativo de 429 toohello status código. Contagem de repetições saudação padrão pode ser alterada por Olá configuração RetryOptions na instância de ConnectionPolicy hello. Por padrão, Olá DocumentClientException com código de status 429 será retornado após um tempo de espera cumulativo de 30 segundos se solicitação Olá continua toooperate acima a taxa de solicitação de saudação. Isso ocorre mesmo quando Olá repetir contagem atual é menor que a contagem de repetição máxima Olá, seja padrão Olá 9 ou um valor definido pelo usuário.
 
-    Embora o comportamento de repetição automática ajude a melhorar a resiliência e a utilidade da maioria dos aplicativos, ela pode entrar em conflito ao fazer comparações de desempenho, especialmente ao medir a latência.  A latência observada pelo cliente terá um pico se o teste atingir a limitação do servidor e fizer com que o SDK do cliente repita silenciosamente. Para evitar picos de latência durante os testes de desempenho, meça o custo retornado por cada operação e verifique se as solicitações estão operando abaixo da taxa de solicitação reservada. Para saber mais, consulte [Unidades de solicitação](request-units.md).
+    Enquanto automatizada hello comportamento de repetição ajuda tooimprove flexibilidade e facilidade de uso para Olá a maioria dos aplicativos, pode vir oposto ao fazer as avaliações de desempenho, especialmente quando medindo a latência.  latência de cliente observado Hello serão apresentam picos se experimento Olá atinge a limitação do servidor de saudação e faz com que o cliente Olá repetição de toosilently do SDK. latência de tooavoid picos durante testes de desempenho, medidas Olá custos retornado por cada operação e garantir que as solicitações são operando abaixo de taxa de solicitação reservado hello. Para saber mais, consulte [Unidades de solicitação](request-units.md).
 3. **Design de documentos menores para uma maior taxa de transferência**
 
-    O custo da solicitação (ou seja, o custo de processamento da solicitação) de uma determinada operação está correlacionado diretamente com o tamanho do documento. As operações em documentos grandes custam mais que as operações de documentos pequenos.
+    Olá a carga de solicitação (ou seja, o custo de processamento de solicitação) de uma determinada operação é diretamente correlacionado toohello tamanho do documento hello. As operações em documentos grandes custam mais que as operações de documentos pequenos.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter um aplicativo de exemplo usado para avaliar o Cosmos DB para cenários de alto desempenho em alguns computadores cliente, consulte [Teste de desempenho e escala com o Cosmos DB](performance-testing.md).
+Para um tooevaluate do aplicativo usado de exemplo Cosmos DB para cenários de alto desempenho em algumas máquinas cliente, consulte [desempenho e dimensionamento de teste com o banco de dados do Cosmos](performance-testing.md).
 
-Além disso, para saber mais sobre como projetar seu aplicativo para escala e alto desempenho, consulte [Particionamento e escala no Azure Cosmos DB](partition-data.md).
+Além disso, toolearn mais sobre como criar seu aplicativo de escala e de alto desempenho, consulte [particionamento e escala no banco de dados do Azure Cosmos](partition-data.md).

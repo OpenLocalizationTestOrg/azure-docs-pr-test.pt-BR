@@ -1,5 +1,5 @@
 ---
-title: Failover regional no Azure Cosmos DB | Microsoft Docs
+title: aaaRegional failover no banco de dados do Azure Cosmos | Microsoft Docs
 description: "Saiba mais sobre como o failover manual e automáticos funcionam com o Azure Cosmos DB."
 services: cosmos-db
 documentationcenter: 
@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d8ba08bc9f99cb77c9f03949fc5db299eb222c8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d2fdc7b0e8958d129ab027e4b11193b12961ddae
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Failover regional automático para a continuidade dos negócios no Azure Cosmos DB
-O Azure Cosmos DB simplifica a distribuição global de dados oferecendo [contas de banco de dados em várias regiões](distribute-data-globally.md) totalmente gerenciadas que fornecem claras compensações entre consistência, disponibilidade e desempenho, tudo com garantias correspondentes. As contas do Cosmos DB oferecem alta disponibilidade, latências de milissegundos de digito único, [níveis bem definidos de consistência](consistency-levels.md), failover regional transparente com APIs de hospedagem múltipla e a capacidade de dimensionar de forma elástica a produtividade e o armazenamento no mundo todo. 
+Banco de dados do Azure Cosmos simplifica a distribuição global Olá de dados, oferecendo totalmente gerenciado, [contas de banco de dados de várias regiões](distribute-data-globally.md) que fornecem limpar compensações entre consistência, disponibilidade e desempenho, todos com correspondente garantia. Contas do cosmos DB oferecem alta disponibilidade, as latências de dígito único ms, [níveis de consistência bem definidos](consistency-levels.md), transparent failover regional com APIs de hospedagem múltipla e a taxa de transferência da escala tooelastically Olá capacidade e armazenamento globo hello. 
 
-O Cosmos DB dá suporte tanto a failovers explícitos quanto àqueles controlados por política, que permitem controlar o comportamento do sistema de ponta a ponta em caso de falhas. Neste artigo, veremos:
+Cosmos DB suporta explícita e failovers baseado em políticas que permitem que você o comportamento de sistema de ponta a ponta de saudação toocontrol no evento de saudação de falhas. Neste artigo, veremos:
 
 * Como funcionam os failovers manuais no Cosmos DB?
 * Como funcionam os failovers automáticos no Cosmos DB e o que acontece quando um data center fica indisponível?
@@ -35,18 +35,18 @@ Saiba mais sobre failovers regionais nesse vídeo do Azure Friday com Scott Hans
 >[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
 
 ## <a id="ConfigureMultiRegionApplications"></a>Configurando aplicativos de várias regiões
-Antes de nos aprofundarmos nos modos de failover, examinaremos como você pode configurar um aplicativo para aproveitar a disponibilidade de várias regiões e ser resiliente diante de failovers regionais.
+Antes de mergulhar em modos de failover, vamos examinar como você pode configurar uma vantagem de tootake do aplicativo de várias regiões de disponibilidade e ser resiliente em face de saudação de failovers regional.
 
 * Primeiro, implante seu aplicativo em várias regiões
-* Para garantir o acesso de baixa latência de todas as regiões nas quais seu aplicativo é implantado, configure a [lista de regiões preferenciais](https://msdn.microsoft.com/library/microsoft.azure.documents.client.connectionpolicy.preferredlocations.aspx#P:Microsoft.Azure.Documents.Client.ConnectionPolicy.PreferredLocations) correspondente para cada região por meio de um dos SDKs com suporte.
+* acesso de baixa latência tooensure de cada região de seu aplicativo é implantado, configurar Olá correspondente [lista de regiões preferenciais](https://msdn.microsoft.com/library/microsoft.azure.documents.client.connectionpolicy.preferredlocations.aspx#P:Microsoft.Azure.Documents.Client.ConnectionPolicy.PreferredLocations) para SDKs com suporte em cada região por meio de uma saudação.
 
-O trecho a seguir mostra como inicializar um aplicativo de várias regiões. Aqui, a conta do Azure Cosmos DB `contoso.documents.azure.com` está configurada com duas regiões – Oeste dos EUA e Europa Setentrional. 
+Olá trecho a seguir mostra como tooinitialize um aplicativo de várias regiões. Olá aqui, a conta de banco de dados do Azure Cosmos `contoso.documents.azure.com` é configurado com duas regiões - Oeste dos EUA e Norte da Europa. 
 
-* O aplicativo é implantado na região Oeste dos EUA (usando os Serviços de Aplicativos do Azure, por exemplo) 
-* Configurado com `West US` como a primeira região preferencial para leituras de baixa latência
-* Configurado com `North Europe` como a segunda região preferencial (para alta disponibilidade durante falhas regionais)
+* aplicativo Hello é implantado na região Oeste dos EUA de saudação (por exemplo usando serviços de aplicativo do Azure) 
+* Configurado com `West US` como Olá primeiro a região preferida para baixa latência lê
+* Configurado com `North Europe` como Olá segundo a região preferida (para alta disponibilidade durante falhas regionais)
 
-Na API do DocumentDB, essa configuração é parecida com o seguinte trecho:
+Em Olá API DocumentDB, essa configuração é semelhante Olá trecho de código a seguir:
 
 ```cs
 ConnectionPolicy usConnectionPolicy = new ConnectionPolicy 
@@ -64,62 +64,62 @@ DocumentClient usClient = new DocumentClient(
     usConnectionPolicy);
 ```
 
-O aplicativo também é implantado na região da Europa Setentrional, com a ordem das regiões preferenciais invertida. Ou seja, a região da Europa Setentrional é especificada primeiro para leituras de baixa latência. Em seguida, a região Oeste dos EUA é especificada como a segunda região preferencial para alta disponibilidade durante falhas regionais.
+aplicativo Hello também é implantado na região do Norte da Europa Olá com ordem de saudação das regiões preferenciais revertida. Ou seja, a região do Norte da Europa Olá é especificada primeiro para leituras de baixa latência. Em seguida, região Oeste dos EUA de saudação é especificado como Olá segundo a região preferida para alta disponibilidade durante falhas regionais.
 
-O diagrama de arquitetura a seguir mostra uma implantação de aplicativo de várias regiões em que o Cosmos DB e o aplicativo estão configurados para estarem disponíveis em quatro regiões geográficas do Azure.  
+Olá arquitetura diagrama a seguir mostra uma implantação de aplicativo de várias regiões onde o banco de dados do Cosmos e aplicativo hello são toobe configurado em quatro regiões geográficas do Azure.  
 
 ![Implantação de aplicativos globalmente distribuídos com o Azure Cosmos DB](./media/regional-failover/app-deployment.png)
 
-Agora, vejamos como o serviço Cosmos DB lida com falhas regionais por meio de failovers automáticos. 
+Agora, vamos examinar como Olá serviço Cosmos DB trata regionais falhas por meio de failovers automáticos. 
 
 ## <a id="AutomaticFailovers"></a>Failovers Automáticos
-No caso raro de uma interrupção regional do Azure ou falha do data center, o Cosmos DB dispara automaticamente failovers de todas as contas do Cosmos DB com uma presença na região afetada. 
+No evento raro de saudação de uma interrupção regional do Azure ou paralisação do data center, Cosmos DB acionará automaticamente failovers de todas as contas de banco de dados do Cosmos com uma presença na região Olá afetado. 
 
 **O que acontece se uma região de leitura sofre uma interrupção?**
 
-As contas do Cosmos DB com uma região de leitura em uma das regiões afetadas são automaticamente desconectadas de sua região de gravação e marcadas como offline. Os SDKs do Cosmos DB implementam um protocolo de descoberta regional que permite que eles detectem automaticamente quando uma região está disponível e redirecionem chamadas de leitura para a próxima região disponível na lista de regiões preferenciais. Se nenhuma das regiões na lista de regiões preferenciais estiver disponível, as chamadas retornarão automaticamente à região de gravação atual. Nenhuma alteração é necessária no código do aplicativo para tratar de failovers regionais. Durante todo esse processo, as garantias de consistência continuam sendo cumpridas pelo Cosmos DB.
+Contas de cosmos banco de dados com uma região de leitura em uma das regiões Olá afetado são automaticamente desconectadas de sua região de gravação e marcado como offline. Olá Cosmos DB SDKs implementar um protocolo de descoberta regionais que lhes permite tooautomatically detectar quando uma região está disponível e chamadas toohello próxima região disponível na lista de região preferida Olá de leitura de redirecionamento. Se nenhuma das regiões Olá Olá região lista preferencial está disponível, chamadas automaticamente recorrer toohello região de gravação atual. Nenhuma alteração é necessária em seu failovers regional do toohandle de código de aplicativo. Durante todo esse processo, garantias de consistência continuam toobe respeitada por banco de dados do Cosmos.
 
 ![Falhas de região de leitura no Azure Cosmos DB](./media/regional-failover/read-region-failures.png)
 
-Depois que a região afetada se recupera da interrupção, todas as contas do Cosmos DB afetadas na região são recuperadas automaticamente pelo serviço. Depois, as contas do Cosmos DB que tinham uma região de leitura na região afetada serão sincronizadas automaticamente com a região de gravação atual e passarão a ficar online. Os SDKs do Cosmos DB descobrem a disponibilidade da nova região e avaliam se ela deve ser selecionada como a região de leitura atual com base na lista de regiões preferenciais configurada pelo aplicativo. Leituras subsequentes são redirecionadas para a região recuperada sem exigir nenhuma alteração ao código do aplicativo.
+Depois que a região Olá afetado recupera queda de hello, todas as contas de banco de dados do Cosmos Olá afetado na região de saudação são recuperadas automaticamente pelo serviço de saudação. Contas de cosmos banco de dados que tiveram uma região de leitura na região Olá afetado serão e automaticamente sincronizar com a região atual de gravação e ativar online. Olá Cosmos DB SDKs disponibilidade Olá da nova região de saudação de descobrir e avaliar se região Olá deve ser selecionado como Olá leitura a região atual com base na lista de região preferida Olá configurada pelo aplicativo hello. Leituras subsequentes são redirecionadas toohello de região recuperado sem a necessidade de qualquer código de aplicativo tooyour alterações.
 
 **O que acontece se uma região de gravação sofre uma interrupção?**
 
-Se a região afetada for a região de gravação atual de determinada conta do Cosmos DB, essa região será marcada como offline automaticamente. Em seguida, uma região alternativa será promovida como a região de gravação de cada conta afetada do Cosmos DB. Você pode controlar por completo a ordem de seleção de região de suas contas do Cosmos DB por meio do portal do Azure ou de [forma programática](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
+Se Olá afetados Olá atual gravação região é para uma determinada conta de banco de dados do Cosmos, em seguida, região Olá será automaticamente marcado como offline. Em seguida, uma região alternativa é promovida como Olá gravar região de cada conta de banco de dados do Cosmos afetada. Você pode controlar totalmente a ordem de seleção de região Olá para suas contas de banco de dados do Cosmos via Olá portal do Azure ou [programaticamente](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
 
 ![Prioridades de failover para o Azure Cosmos DB](./media/regional-failover/failover-priorities.png)
 
-Durante failovers automáticos, o Cosmos DB escolhe automaticamente a próxima região de gravação para determinada conta do Azure Cosmos DB com base na ordem de prioridade especificada. 
+Durante failovers automáticos, Cosmos DB escolhe automaticamente Olá a próxima área de gravação para um determinado banco de dados do Cosmos com base em Olá a conta especificada de ordem de prioridade. 
 
 ![Falhas de região de gravação no Azure Cosmos DB](./media/regional-failover/write-region-failures.png)
 
-Depois que a região afetada se recupera da interrupção, todas as contas do Cosmos DB afetadas na região são recuperadas automaticamente pelo serviço. 
+Depois que a região Olá afetado recupera queda de hello, todas as contas de banco de dados do Cosmos Olá afetado na região de saudação são recuperadas automaticamente pelo serviço de saudação. 
 
-* As contas do Cosmos DB com sua região de gravação anterior na área afetada permanecerão em um modo offline com disponibilidade de leitura mesmo após a recuperação da região. 
-* Você pode consultar essa região para computar quaisquer gravações não replicadas durante a interrupção por meio da comparação dos dados presentes nela com os dados disponíveis na região de gravação atual. Com base nas necessidades de seu aplicativo, você pode executar a mesclagem e/ou resolução de conflitos e gravar o conjunto final de alterações de volta na região de gravação atual. 
-* Depois de concluir as alterações de mesclagem, você poderá colocar a região afetada online novamente, removendo e adicionando a região novamente à sua conta do Cosmos DB. Quando a região é adicionada novamente, você pode configurá-lo como a região de gravação, executando um failover manual por meio do Portal do Azure ou [programaticamente](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+* Contas do cosmos banco de dados com sua região de gravação anterior na região Olá afetado permanecerão em modo offline com disponibilidade leitura mesmo após a recuperação de saudação da região de saudação. 
+* Você pode consultar toocompute esta região não replicadas gravações durante a interrupção de saudação comparando com dados Olá disponíveis na região de gravação atual hello. Com base nas necessidades de saudação do seu aplicativo, você pode executar a resolução de mesclagem e/ou em conflito e gravar o conjunto final de saudação da região de gravação alterações toohello back atual. 
+* Depois de concluir as alterações de mesclagem, você pode colocar região Olá afetado novamente online, removendo e lendo a conta de banco de dados do Cosmos Olá região tooyour. Depois que a região de saudação é adicionado novamente, você pode configurá-lo novamente como região de gravação da saudação executando um failover manual por meio do portal do Azure de saudação ou [programaticamente](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
 
 ## <a id="ManualFailovers"></a>Failovers Manuais
 
-Além de failovers automáticos, a região de gravação atual de determinada conta do Cosmos DB pode ser alterada manualmente de modo dinâmico para uma das regiões de leitura existentes. Failovers manuais podem ser iniciados por meio do Portal do Azure ou [programaticamente](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
+Além disso, tooautomatic failovers, Olá atual gravar região de uma determinada conta de banco de dados do Cosmos pode ser alterado manualmente dinamicamente tooone de saudação regiões de leitura existente. Failovers manuais podem ser iniciadas por meio do portal do Azure de saudação ou [programaticamente](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
 
-Os failovers manuais garantem **zero perda de dados** e **zero perda de disponibilidade** e, na conta do Cosmos DB especificada, transferem normalmente o status de gravação da região de gravação antiga para a nova. Assim como ocorre em failovers automáticos, o SDK do Cosmos DB manipula automaticamente as alterações de região de gravação durante failovers manuais e garante que as chamadas são redirecionadas automaticamente para a nova região de gravação. Nenhuma alteração de configuração ou código é necessária em seu aplicativo para gerenciar failovers. 
+Certifique-se de failovers manuais **zero perda de dados** e **zero disponibilidade** perda e normalmente o status de gravação de transferência da saudação antiga gravam região toohello novo da saudação especificou a conta de banco de dados do Cosmos. Como em failovers automáticos, Olá Cosmos DB SDK automaticamente identificadores de gravar as alterações durante failovers manuais de região e garante que as chamadas são toohello automaticamente redirecionado a nova região de gravação. Nenhuma alteração de configuração ou código é necessários em failovers de toomanage seu aplicativo. 
 
 ![Failovers manuais no Azure Cosmos DB](./media/regional-failover/manual-failovers.png)
 
-Estes são alguns dos cenários comuns em que o failover manual pode ser útil:
+Estes são alguns cenários comuns de saudação em que o failover manual pode ser útil:
 
-**Modelo siga o relógio**: se os aplicativos tiverem padrões de tráfego previsíveis com base na hora do dia, você poderá alterar periodicamente o status de gravação para a região geográfica mais ativa com base na hora do dia.
+**Siga o modelo de relógio Olá**: se seus aplicativos tenham padrões de tráfego previsível com base no tempo de saudação do dia hello, você pode alterar periodicamente Olá gravação status toohello mais ativo região geográfica com base na hora do dia de saudação.
 
-**Atualização de serviço**: determinada implantação de aplicativos distribuídos globalmente pode envolver o redirecionamento de tráfego para uma região diferente por meio do Gerenciador de Tráfego durante sua atualização de serviço planejada. Essa implantação de aplicativo agora pode usar o failover manual para manter o status de gravação para a região em que haverá tráfego ativo durante a janela de tempo da atualização de serviço.
+**Atualização de serviço**: determinada implantação de aplicativo distribuído globalmente pode envolver a região de toodifferent tráfego por meio do Gerenciador de tráfego de redirecionamento durante a atualização de serviço planejada. Essa implantação de aplicativo agora pode usar failover manual tookeep Olá gravação status toohello região em que haverá tráfego active toobe durante o período de atualização do serviço de saudação.
 
-**Simulações de BCDR (continuidade dos negócios e recuperação de desastre) e HADR (Alta disponibilidade e recuperação de desastres)**: a maioria dos aplicativos empresariais incluem testes de continuidade de negócios como parte do seu processo de desenvolvimento e lançamento. Testes de BCDR e HADR geralmente são uma etapa importante no que se refere a certificações de conformidade e garantia da disponibilidade do serviço no caso de interrupções regionais. Teste a prontidão para BCDR de seus aplicativos que usam o Cosmos DB para armazenamento disparando um failover manual de sua conta do Cosmos DB e/ou adicionando e removendo uma região de forma dinâmica.
+**Simulações de BCDR (continuidade dos negócios e recuperação de desastre) e HADR (Alta disponibilidade e recuperação de desastres)**: a maioria dos aplicativos empresariais incluem testes de continuidade de negócios como parte do seu processo de desenvolvimento e lançamento. BCDR e HADR teste geralmente é uma etapa importante em certificações de conformidade e garante disponibilidade de serviço no caso de saudação de interrupções regionais. Você pode testar a preparação BCDR Olá dos aplicativos que usam o banco de dados do Cosmos para armazenamento disparar um failover manual de sua conta de banco de dados do Cosmos e/ou adicionando e removendo uma região dinamicamente.
 
-Neste artigo, examinamos como os failovers manuais e automáticos funcionam no Cosmos DB e como você pode configurar suas contas e seus aplicativos do Cosmos DB para estarem disponíveis globalmente. Usando o suporte de replicação global do Cosmos DB, melhore a latência de ponta a ponta e garanta que eles estão altamente disponíveis, até mesmo no caso de falhas regionais. 
+Neste artigo, analisamos o trabalho de failovers como manual e automática no banco de dados do Cosmos e como você pode configurar seu globalmente disponíveis de toobe Cosmos DB contas e os aplicativos. Ao usar o suporte de replicação global do banco de dados Cosmos, você pode melhorar a latência de ponta a ponta e garantir que eles sejam altamente disponíveis, mesmo em caso de saudação de falhas de região. 
 
 ## <a id="NextSteps"></a>Próximas etapas
 * Saiba mais sobre como o Cosmos DB dá suporte à [distribuição global](distribute-data-globally.md)
 * Saiba mais sobre [consistência global com o Azure Cosmos DB](consistency-levels.md)
 * Desenvolver com várias regiões usando o [API do DocumentDB](../cosmos-db/tutorial-global-distribution-documentdb.md) do Azure Cosmos DB
-* Aprenda a criar [arquiteturas de gravador de várias regiões](multi-region-writers.md) com o Azure DocumentDB
+* Saiba como toobuild [arquiteturas de gravador de várias regiões](multi-region-writers.md) com documentos do Azure
 

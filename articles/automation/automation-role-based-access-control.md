@@ -1,6 +1,6 @@
 ---
-title: "Controle de acesso baseado em função na Automação do Azure | Microsoft Docs"
-description: "O RBAC (controle de acesso baseado em função) permite o gerenciamento de acesso aos recursos do Azure. Esse artigo descreve como configurar o RBAC na Automação do Azure."
+title: "controle de acesso baseado em aaaRole na automação do Azure | Microsoft Docs"
+description: "O RBAC (controle de acesso baseado em função) permite o gerenciamento de acesso aos recursos do Azure. Este artigo descreve como tooset o RBAC na automação do Azure."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -15,36 +15,36 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/12/2016
 ms.author: magoedte;sngun
-ms.openlocfilehash: 17c7e410a9c5b69ab450eb3affd192f1e3cb6e76
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 051438e44d0c5c514d6dbaac5a312344ee311cdf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controle de acesso com base em função na Automação do Azure
 ## <a name="role-based-access-control"></a>Controle de acesso baseado em função
-O RBAC (controle de acesso baseado em função) permite o gerenciamento de acesso aos recursos do Azure. Com o [RBAC](../active-directory/role-based-access-control-configure.md), você pode separar as tarefas dentro de sua equipe e conceder somente a quantidade de acesso que os usuários, os grupos e os aplicativos precisam para realizar seus trabalhos. O acesso baseado em função pode ser concedido aos usuários que usam o portal do Azure, as ferramentas de Linha de Comando do Azure ou as APIs de Gerenciamento do Azure.
+O RBAC (controle de acesso baseado em função) permite o gerenciamento de acesso aos recursos do Azure. Usando [RBAC](../active-directory/role-based-access-control-configure.md), você pode separar as tarefas dentro de sua equipe e conceder apenas Olá quantidade de acesso toousers, grupos e aplicativos que precisam tooperform seus trabalhos. Acesso baseado em função pode ser concedido toousers usando Olá portal do Azure, as ferramentas de linha de comando do Azure ou APIs de gerenciamento do Azure.
 
 ## <a name="rbac-in-automation-accounts"></a>RBAC em Contas de Automação
-Na Automação do Azure, o acesso é concedido atribuindo a função apropriada de RBAC aos usuários, grupos e aplicativos no escopo da Conta de Automação. Veja a seguir as funções internas com suporte de uma Conta de Automação:  
+Automação do Azure, o acesso é concedido, atribuindo Olá apropriado RBAC função toousers, grupos e aplicativos no escopo da conta de automação de saudação. A seguir são Olá funções internas com suporte por uma conta de automação:  
 
 | **Função** | **Descrição** |
 |:--- |:--- |
-| Proprietário |A função Proprietário permite acesso a todos os recursos e ações em uma Conta de Automação, incluindo o fornecimento de acesso a outros usuários, grupos e aplicativos para gerenciar a conta de Automação. |
-| Colaborador |A função Colaborador permite gerenciar tudo, exceto a modificação de permissões de acesso de outros usuários para uma conta de Automação. |
-| Leitor |A função Leitor permite que você veja todos os recursos em uma conta de Automação, mas não permite realizar alterações. |
-| Operador de automação |A função Operador de Automação permite realizar tarefas operacionais como iniciar, parar, suspender, continuar e agendar trabalhos. Essa função é útil se você deseja evitar que seus recursos da Conta de Automação, como runbooks e ativos de credenciais, sejam exibidos ou modificados, mas ainda permitir que os membros de sua organização executem esses runbooks. |
-| Administrador de Acesso do Usuário |A função Administrador de Acesso do Usuário permite que você gerencie o acesso dos usuários às Contas de Automação do Azure. |
+| Proprietário |função de proprietário de saudação permite acessar os recursos tooall e ações em uma conta de automação, inclusive fornecendo acesso tooother usuários, grupos e aplicativos toomanage Olá conta de automação. |
+| Colaborador |função de Colaborador Olá permite toomanage tudo, exceto a modificação de outro usuário acessar a conta de automação de tooan de permissões. |
+| Leitor |função de leitor de saudação permite que você tooview todos os recursos de saudação em uma automação contam mas não é possível fazer nenhuma alteração. |
+| Operador de automação |função de operador de automação de saudação permite tarefas operacionais tooperform como iniciar, parar, suspender, continuar e agendar trabalhos. Essa função é útil se você quiser tooprotect seus recursos da conta de automação como ativos de credenciais e runbooks sejam exibidas ou modificadas, mas ainda permitir que os membros de sua organização tooexecute Esses runbooks. |
+| Administrador de Acesso do Usuário |função de administrador de acesso de usuário de saudação permite toomanage contas de automação de tooAzure de acesso de usuário. |
 
 > [!NOTE]
-> Você não pode conceder direitos de acesso a um runbook ou a runbooks específicos, apenas aos recursos e ações em uma conta de Automação.  
+> Você não pode conceder acesso direitos tooa específico de runbook ou runbooks, somente os recursos de toohello e as ações dentro da saudação conta de automação.  
 > 
 > 
 
-Neste artigo, vamos orientar você pela configuração do RBAC na Automação do Azure. Mas primeiro, vamos examinar mais de perto as permissões individuais concedidas ao Colaborador, Leitor, Operador de Automação e Administrador de Acesso do Usuário para obtermos um bom entendimento antes de conceder a alguém direitos para a conta de Automação.  Caso contrário, isso poderia ter consequências indesejáveis ou não intencionais.     
+Neste artigo, irá orientá-lo como tooset o RBAC na automação do Azure. Mas primeiro, vamos tomar perto examinar Olá individuais de permissões concedido toohello Colaborador, leitor, o operador de automação e o administrador de acesso do usuário para que obtemos uma boa compreensão antes de conceder a qualquer pessoa direitos toohello conta de automação.  Caso contrário, isso poderia ter consequências indesejáveis ou não intencionais.     
 
 ## <a name="contributor-role-permissions"></a>Permissões da função Colaborador
-A tabela a seguir apresenta as ações específicas que podem ser executadas pela função Colaborador na Automação.
+Olá tabela a seguir apresenta ações específicas de saudação que podem ser executadas pela função de Colaborador de saudação na automação.
 
 | **Tipo de recurso** | **Ler** | **Gravar** | **Excluir** | **Outras ações** |
 |:--- |:--- |:--- |:--- |:--- |
@@ -67,7 +67,7 @@ A tabela a seguir apresenta as ações específicas que podem ser executadas pel
 | Webhook de Automação |![Status Verde](media/automation-role-based-access-control/green-checkmark.png) |![Status Verde](media/automation-role-based-access-control/green-checkmark.png) |![Status Verde](media/automation-role-based-access-control/green-checkmark.png) |![Status Verde](media/automation-role-based-access-control/green-checkmark.png) |
 
 ## <a name="reader-role-permissions"></a>Permissões da função Leitor
-A tabela a seguir apresenta as ações específicas que podem ser executadas pela função Leitor na Automação.
+Olá tabela a seguir apresenta ações específicas de saudação que podem ser executadas por função de leitor de saudação na automação.
 
 | **Tipo de recurso** | **Ler** | **Gravar** | **Excluir** | **Outras ações** |
 |:--- |:--- |:--- |:--- |:--- |
@@ -79,7 +79,7 @@ A tabela a seguir apresenta as ações específicas que podem ser executadas pel
 | Definição de função |![Status Verde](media/automation-role-based-access-control/green-checkmark.png) | | | |
 
 ## <a name="automation-operator-role-permissions"></a>Permissões de função de Operador de Automação
-A tabela a seguir apresenta as ações específicas que podem ser executadas pela função Operador de Automação na Automação.
+Olá tabela a seguir apresenta ações específicas de saudação que podem ser executadas por função de operador de automação de saudação na automação.
 
 | **Tipo de recurso** | **Ler** | **Gravar** | **Excluir** | **Outras ações** |
 |:--- |:--- |:--- |:--- |:--- |
@@ -101,10 +101,10 @@ A tabela a seguir apresenta as ações específicas que podem ser executadas pel
 | Trabalho de Teste de Rascunho de Runbook de Automação | | | | |
 | Webhook de Automação | | | | |
 
-Para obter mais detalhes, [Ações de um Operador de Automação](../active-directory/role-based-access-built-in-roles.md#automation-operator) lista as ações compatíveis com a função de Operador de Automação na Conta de Automação e seus recursos.
+Para obter mais detalhes, Olá [ações de operador de automação](../active-directory/role-based-access-built-in-roles.md#automation-operator) listas Olá ações com suporte pela função de operador de automação Olá na conta de automação hello e seus recursos.
 
 ## <a name="user-access-administrator-role-permissions"></a>Permissões da função Administrador de Acesso do Usuário
-A tabela a seguir apresenta as ações específicas que podem ser executadas pela função Administrador de Acesso do Usuário na Automação.
+Olá tabela a seguir apresenta ações específicas de saudação que podem ser executadas pela função de administrador de acesso de usuário de saudação na automação.
 
 | **Tipo de recurso** | **Ler** | **Gravar** | **Excluir** | **Outras ações** |
 |:--- |:--- |:--- |:--- |:--- |
@@ -127,106 +127,106 @@ A tabela a seguir apresenta as ações específicas que podem ser executadas pel
 | Webhook de Automação |![Status Verde](media/automation-role-based-access-control/green-checkmark.png) | | | |
 
 ## <a name="configure-rbac-for-your-automation-account-using-azure-portal"></a>Configurar o RBAC para sua Conta de Automação usando o Portal do Azure
-1. Faça logon no [Portal do Azure](https://portal.azure.com/) e abra sua conta de Automação na folha Contas de Automação.  
-2. Clique no controle **Acesso** no canto superior direito. Isso abre a folha **Usuários** onde você pode adicionar novos usuários, grupos e aplicativos para gerenciar sua Conta de Automação e exibir as funções existentes que podem ser configuradas para ela.  
+1. Faça logon no toohello [Portal do Azure](https://portal.azure.com/) e abra sua conta de automação da folha de contas de automação de saudação.  
+2. Clique em Olá **acesso** controle Olá canto superior direito. Isso abre o hello **usuários** folha de onde você pode adicionar novos toomanage de usuários, grupos e aplicativos de sua conta de automação e funções de exibição existentes que podem ser configuradas para Olá conta de automação.  
    
    ![Botão de acesso](media/automation-role-based-access-control/automation-01-access-button.png)  
 
 > [!NOTE]
-> **Os administradores de assinatura** já existem como usuários padrão. O grupo de administradores de assinatura do Active Directory inclui os administradores de serviço e os coadministradores de sua assinatura do Azure. O administrador de serviços é o proprietário da assinatura do Azure e de seus recursos e também herdará a função de proprietário das Contas de Automação. Isso significa que o acesso é **Herdado** para **administradores e coadministradores de serviço** de uma assinatura e ele é **Atribuído** a todos os outros usuários. Clique em **Administradores de assinatura** para ver mais detalhes sobre suas permissões.  
+> **Administradores de assinatura** já existe como usuário de padrão de saudação. grupo do active directory do Hello assinatura administradores inclui Olá administrador (es) de serviço e co-administrator(s) para sua assinatura do Azure. Olá administrador de serviço é o proprietário de saudação da sua assinatura do Azure e seus recursos e serão ter função de proprietário de saudação herdadas para contas de automação Olá muito. Isso significa que o acesso de saudação é **herdadas** para **administradores e coadministradores de serviço** de uma assinatura e do **atribuído** para Olá a todos os outros usuários. Clique em **administradores de assinatura** tooview mais detalhes sobre suas permissões.  
 > 
 > 
 
 ### <a name="add-a-new-user-and-assign-a-role"></a>Adicionar um novo usuário e atribuir uma função
-1. Na folha Usuários, clique em **Adicionar** para abrir a opção **Adicionar folha de acesso**, na qual você pode adicionar um usuário, grupo ou aplicativo e atribuir uma função a eles.  
+1. Na folha de usuários hello, clique em **adicionar** tooopen Olá **Adicionar folha de acesso** onde você pode adicionar um usuário, grupo ou aplicativo e atribuir uma função toothem.  
    
    ![Adicionar usuário](media/automation-role-based-access-control/automation-02-add-user.png)  
-2. Selecione uma função na lista de funções disponíveis. Escolheremos a função **Leitor** , mas você pode escolher qualquer uma das funções internas disponíveis compatíveis com a Conta de Automação ou função personalizada que você tenha definido.  
+2. Selecione uma função na lista de saudação de funções disponíveis. Podemos escolher Olá **leitor** função, mas você pode escolher qualquer Olá disponíveis funções internas que oferece suporte a uma conta de automação ou qualquer função personalizada que você tenha definido.  
    
    ![Escolher função](media/automation-role-based-access-control/automation-03-select-role.png)  
-3. Clique em **Adicionar usuários** para abrir a folha **Adicionar usuários**. Se você estiver adicionado usuários, grupos ou aplicativos para gerenciar sua assinatura, eles estarão listados e você poderá selecioná-los para adicionar o acesso. Se não houver usuários listados, ou se o usuário que você quer adicionar não estiver na lista, clique em **Convidar** para abrir a folha **Convidar uma pessoa** e convidar um usuário com um endereço de email válido da conta da Microsoft, como as Ids do Outlook.com, do OneDrive ou do Xbox Live. Depois de inserir o endereço de email do usuário, clique em **Selecionar** para adicionar o usuário e clique em **OK**. 
+3. Clique em **adicionar usuários** tooopen Olá **adicionar usuários** folha. Se você tiver adicionado todos os usuários, grupos ou aplicativos toomanage sua assinatura, em seguida, os usuários são listados e você pode selecionar tooadd acesso. Se não existem quaisquer usuários listados, ou se usuário Olá você está interessado em Adicionar não estiver listado, em seguida, clique em **convidar** tooopen Olá **convidar um convidado** folha, onde você pode convidar um usuário com uma conta válida da Microsoft endereço de email, como Outlook.com, OneDrive ou Xbox Live Ids. Depois que você inseriu um endereço de email de saudação do usuário hello, clique em **selecione** tooadd Olá usuário e, em seguida, clique em **Okey**. 
    
    ![Adicionar usuários](media/automation-role-based-access-control/automation-04-add-users.png)  
    
-   Agora você já deve ver o usuário adicionado à folha **Usuários** com a função **Leitor** atribuída.  
+   Agora você deve ver o usuário Olá adicionado toohello **usuários** folha com hello **leitor** função atribuída.  
    
    ![Listar usuários](media/automation-role-based-access-control/automation-05-list-users.png)  
    
-   Você também pode atribuir uma função para o usuário na folha **Funções** . 
-4. Clique em **Funções** na folha Usuários para abrir a **folha Funções**. Nessa folha, você pode exibir o nome da função além do número de usuários e grupos atribuídos a essa função.
+   Você também pode atribuir um usuário toohello função hello **funções** folha. 
+4. Clique em **funções** de saudação do hello usuários folha tooopen **folha funções**. Desta folha, você pode exibir o nome de saudação da função hello, número de saudação de usuários e grupos atribuídos a função toothat.
    
     ![Atribuir função na folha de usuários](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
    
    > [!NOTE]
-   > O controle de acesso baseado em função só pode ser definido no nível da Conta de Automação e não em qualquer recurso abaixo dela.
+   > Controle de acesso baseado em função só pode ser definido no hello nível de conta de automação e não em qualquer recurso abaixo Olá conta de automação.
    > 
    > 
    
-    Você pode atribuir mais de uma função a um usuário, grupo ou aplicativo. Por exemplo, se adicionarmos a função **Operador de Automação** com a **função Leitor** ao usuário, essas funções poderão exibir todos os recursos de automação e executar os trabalhos de runbook. Você pode expandir a lista suspensa para exibir uma lista de funções atribuídas ao usuário.  
+    Você pode atribuir mais de um usuário de tooa de função, grupo ou aplicativo. Por exemplo, se adicionarmos Olá **automação operador** função juntamente com hello **função leitor** toohello usuário, em seguida, eles podem exibir todos os recursos de automação hello, bem como executar trabalhos de runbook hello. Você pode expandir Olá suspensa tooview uma lista de funções atribuídas toohello usuário.  
    
     ![Exibir várias funções](media/automation-role-based-access-control/automation-07-view-multiple-roles.png)  
 
 ### <a name="remove-a-user"></a>Remover um usuário
-Você pode remover a permissão de acesso de um usuário que não está gerenciando a Conta de Automação ou que não trabalha mais para a organização. Veja abaixo as etapas para remover um usuário: 
+Você pode remover a permissão de acesso de saudação para um usuário que não está gerenciando Olá conta de automação, ou que não mais funcionar para a organização de saudação. A seguir são Olá etapas tooremove um usuário: 
 
-1. Na folha **Usuários** , escolha a atribuição de função que você deseja remover.
-2. Clique no botão **Remover** na folha de detalhes de atribuição.
-3. Clique em **Sim** para confirmar a remoção. 
+1. De saudação **usuários** folha, a atribuição de função hello selecione que você deseja tooremove.
+2. Clique em Olá **remover** botão na folha de detalhes de atribuição de saudação.
+3. Clique em **Sim** tooconfirm remoção. 
    
    ![Remover usuários](media/automation-role-based-access-control/automation-08-remove-users.png)  
 
 ## <a name="role-assigned-user"></a>Usuário com função atribuída
-Quando um usuário atribuído a uma função entra em sua Conta de Automação, ele pode ver a conta do proprietário exibida na lista de **Diretórios Padrão**. Para exibir a Conta de Automação à qual ele foi adicionado, é preciso alternar o diretório padrão para o diretório padrão do proprietário.  
+Quando uma função de usuário atribuída tooa faz logon na conta de automação de tootheir, eles agora podem ver a conta do proprietário da saudação listada na lista de saudação do **diretórios padrão**. Na saudação de tooview ordem conta de automação que eles foram adicionados, eles devem alternar diretório de padrão do proprietário do toohello diretório padrão hello.  
 
 ![Diretório padrão](media/automation-role-based-access-control/automation-09-default-directory-in-role-assigned-user.png)  
 
 ### <a name="user-experience-for-automation-operator-role"></a>Experiência do usuário para a função de Operador de Automação
-Quando um usuário, atribuído à função de Operador de Automação, exibe a Conta de Automação atribuída, ele só consegue exibir a lista de runbooks, trabalhos de runbook e agendamentos criados na Conta de Automação, mas não exibe suas definições. Ele pode iniciar, parar, suspender, continuar ou agendar o trabalho de runbook. O usuário não terá acesso a outros recursos de automação, como configurações, grupos de trabalho híbridos ou nós DSC.  
+Quando um usuário, que é atribuído a modos de exibição de função de operador de automação toohello conta de automação de saudação que são atribuídos ao, eles podem apenas exibir Olá a lista de runbooks, agendas e trabalhos de runbook criado em Olá conta de automação, mas não é possível exibir a sua definição. Eles podem iniciar, interromper, suspender, continuar ou agendar o trabalho de runbook hello. usuário de saudação não terá acesso tooother recursos de automação, como configurações, grupos de trabalho híbrido ou nós de DSC.  
 
-![Nenhum acesso aos recursos](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)  
+![Nenhum tooresourcres de acesso](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)  
 
-Quando o usuário clica no runbook, os comandos para exibir a fonte ou editar o runbook não são fornecidos uma vez que a função de Operador de Automação não permite acesso a esses comandos.  
+Quando o usuário Olá clica no runbook hello, hello comandos tooview Olá fonte ou editar runbook Olá não são fornecidos como função de operador de automação de saudação não permite acesso toothem.  
 
-![Sem acesso para editar o runbook](media/automation-role-based-access-control/automation-11-no-access-to-edit-runbook.png)  
+![Nenhum runbook tooedit de acesso](media/automation-role-based-access-control/automation-11-no-access-to-edit-runbook.png)  
 
-O usuário terá acesso para exibir e criar agendamentos, mas não terá acesso a qualquer outro tipo de ativo.  
+usuário Olá terá acesso tooview e toocreate agendamentos, mas não terá acesso tooany outro tipo de ativo.  
 
-![Nenhum acesso a ativos](media/automation-role-based-access-control/automation-12-no-access-to-assets.png)  
+![Nenhum tooassets de acesso](media/automation-role-based-access-control/automation-12-no-access-to-assets.png)  
 
-Esse usuário não tem acesso para exibir os Webhooks associados a um runbook
+Este usuário não tem acesso tooview Olá webhooks associado a um runbook
 
-![Nenhum acesso ao Webhooks](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)  
+![Nenhum toowebhooks de acesso](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)  
 
 ## <a name="configure-rbac-for-your-automation-account-using-azure-powershell"></a>Configurar o RBAC para sua Conta de Automação usando o Azure PowerShell
-O acesso baseado em função também pode ser configurado para uma Conta de Automação usando os seguintes [cmdlets do Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
+Acesso baseado em função também pode ser configurado tooan conta de automação usando os seguintes Olá [cmdlets do PowerShell do Azure](../active-directory/role-based-access-control-manage-access-powershell.md).
 
-• [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) lista todas as funções RBAC que estão disponíveis no Azure Active Directory. Você pode usar esse comando juntamente com a propriedade **Nome** para listar todas as ações que podem ser executadas por uma função específica.  
+• [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) lista todas as funções RBAC que estão disponíveis no Azure Active Directory. Você pode usar esse comando junto com hello **nome** toolist propriedade todos Olá ações que podem ser executadas por uma função específica.  
     **Exemplo:**  
     ![Obter a definição da função](media/automation-role-based-access-control/automation-14-get-azurerm-role-definition.png)  
 
-• [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) lista as atribuições de função do RBAC do Azure AD no escopo especificado. Sem parâmetros, esse comando retorna todas as atribuições de função realizadas na assinatura. Use o parâmetro **ExpandPrincipalGroups** para listar as atribuições de acesso para o usuário especificado, bem como para os grupos dos quais o usuário é membro.  
-    **Exemplo:** use o comando a seguir para listar todos os usuários e suas funções em uma conta de automação.
+• [AzureRmRoleAssignment get](https://msdn.microsoft.com/library/mt619413.aspx) listas de atribuições de função de RBAC do Azure AD em Olá especificado escopo. Sem parâmetros, este comando retorna todas as atribuições de função hello feitas na assinatura de saudação. Saudação de uso **ExpandPrincipalGroups** atribuições de acesso do parâmetro toolist para Olá especificado de usuário, bem como grupos de Olá Olá usuário é membro.  
+    **Exemplo:** toolist de comando a seguir de saudação Use todos os usuários de saudação e suas funções dentro de uma conta de automação.
 
     Get-AzureRMRoleAssignment -scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>” 
 
 ![Obter a atribuição da função](media/automation-role-based-access-control/automation-15-get-azurerm-role-assignment.png)
 
-• [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) para atribuir acesso de usuários, grupos e aplicativos a um determinado escopo.  
-    **Exemplo:** use o comando a seguir para atribuir a função "Operador de Automação" para um usuário no escopo da Conta de Automação.
+• [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) tooassign toousers, grupos e aplicativos tooa determinado escopo de acesso.  
+    **Exemplo:** tooassign hello "Automação operador" função um usuário no escopo da conta de automação de saudação do comando de uso a seguir de saudação.
 
-    New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName "Automation operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”  
+    New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish toogrant access> -RoleDefinitionName "Automation operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”  
 
 ![Nova atribuição de função](media/automation-role-based-access-control/automation-16-new-azurerm-role-assignment.png)
 
-• Use [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) para remover o acesso de um usuário, grupo ou aplicativo especificado de um determinado escopo.  
-    **Exemplo:** use o comando a seguir para remover o usuário da função "Operador de Automação" do escopo da Conta de Automação.
+• Use [AzureRmRoleAssignment remover](https://msdn.microsoft.com/library/mt603781.aspx) tooremove acesso de um usuário, grupo ou um aplicativo de um escopo específico.  
+    **Exemplo:** tooremove usuário de saudação da função de "Operador de automação" hello no escopo da conta de automação de saudação do comando de uso a seguir de saudação.
 
-    Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName "Automation Operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”
+    Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish tooremove> -RoleDefinitionName "Automation Operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”
 
-Nos exemplos acima, substitua a **Id de entrada**, a **Id da assinatura**, o **nome do grupo de recursos** e o **nome da conta de Automação** pelos detalhes de sua conta. Escolha **sim** quando solicitado a confirmar antes de continuar a remover a atribuição de função de usuário.   
+Olá acima exemplos, substitua **entrar Id**, **Id de assinatura**, **nome do grupo de recursos** e **nome da conta de automação** com seu detalhes da conta. Escolha **Sim** quando solicitado tooconfirm antes de continuar a atribuição de função de usuário tooremove.   
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter informações sobre as diversas maneiras de configurar o RBAC para a Automação do Azure, consulte [gerenciar o RBAC com o Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
-* Para obter detalhes sobre diferentes maneiras de iniciar um runbook, confira [Iniciando um runbook](automation-starting-a-runbook.md)
-* Para obter informações sobre os diferentes tipos de runbook, consulte [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
+* Para obter informações sobre diferentes maneiras tooconfigure RBAC para automação do Azure, consulte muito[gerenciar RBAC com o Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
+* Para obter detalhes sobre diferentes maneiras toostart um runbook, consulte [iniciando um runbook](automation-starting-a-runbook.md)
+* Para obter informações sobre os tipos de runbook diferente, consulte muito[tipos de runbook de automação do Azure](automation-runbook-types.md)
 

@@ -1,5 +1,5 @@
 ---
-title: "Amostra de Script do CLI do Azure – implantar modelo| Microsoft Docs"
+title: aaaAzure exemplo de Script CLI - implantar modelo | Microsoft Docs
 description: Script de exemplo para implantar um modelo do Azure Resource Manager.
 services: azure-resource-manager
 documentationcenter: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: tomfitz
-ms.openlocfilehash: 974230f349aec46fde58e69658e05a13bff4296f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5a94eedbd898ced29d67f8ce3023ca5c65f83af2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-resource-manager-template-deployment---azure-cli-script"></a>Implantação do Azure Resource Manager - script do CLI do Azure
 
-Esse script implanta um modelo do Resource Manager em um grupo de recursos em sua assinatura.
+Esse script implanta um grupo de recursos de tooa de modelo do Gerenciador de recursos em sua assinatura.
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
@@ -37,7 +37,7 @@ IFS=$'\n\t'
 
 # -e: immediately exit if any command has a non-zero exit status
 # -o: prevents errors in a pipeline from being masked
-# IFS new value is less likely to cause confusing bugs when looping arrays or arguments (e.g. $@)
+# IFS new value is less likely toocause confusing bugs when looping arrays or arguments (e.g. $@)
 
 usage() { echo "Usage: $0 -i <subscriptionId> -g <resourceGroupName> -n <deploymentName> -l <resourceGroupLocation>" 1>&2; exit 1; }
 
@@ -84,12 +84,12 @@ if [[ -z "$deploymentName" ]]; then
 fi
 
 if [[ -z "$resourceGroupLocation" ]]; then
-    echo "Enter a location below to create a new resource group else skip this"
+    echo "Enter a location below toocreate a new resource group else skip this"
     echo "ResourceGroupLocation:"
     read resourceGroupLocation
 fi
 
-#templateFile Path - template file to be used
+#templateFile Path - template file toobe used
 templateFilePath="template.json"
 
 if [ ! -f "$templateFilePath" ]; then
@@ -110,7 +110,7 @@ if [ -z "$subscriptionId" ] || [ -z "$resourceGroupName" ] || [ -z "$deploymentN
     usage
 fi
 
-#login to azure using your credentials
+#login tooazure using your credentials
 az account show 1> /dev/null
 
 if [ $? != 0 ];
@@ -118,7 +118,7 @@ then
     az login
 fi
 
-#set the default subscription id
+#set hello default subscription id
 az account set --subscription $subscriptionId
 
 #Check for existing RG
@@ -147,7 +147,7 @@ fi
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
-Execute o comando a seguir para remover o grupo de recursos e todos os seus recursos.
+Comando a seguir de execução Olá tooremove grupo de recursos de saudação e todos os seus recursos.
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -155,7 +155,7 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Esse script usa os seguintes comandos para criar a implantação. Cada item em que a tabela contém links para a documentação específica do comando.
+Esse script usa Olá implantação de saudação toocreate comandos a seguir. Cada item na tabela de saudação vincula a documentação específica do toocommand.
 
 | Command | Observações |
 |---|---|
@@ -167,8 +167,8 @@ Esse script usa os seguintes comandos para criar a implantação. Cada item em q
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter uma introdução à implantação de modelos, veja [Implantar recursos com modelos do Resource Manager e o Azure PowerShell](resource-group-template-deploy-cli.md).
-* Para saber mais sobre como implantar um modelo que exija um token SAS, veja [Implantar o modelo particular com o token SAS](resource-manager-cli-sas-token.md).
-* Para definir os parâmetros no modelo, consulte [Criando modelos](resource-group-authoring-templates.md#parameters).
-* Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
+* Para modelos de toodeploying uma introdução, consulte [implantar recursos com modelos do Gerenciador de recursos e o Azure PowerShell](resource-group-template-deploy-cli.md).
+* Para obter mais informações sobre a implantação de um modelo que exija um token SAS, veja [Implantar modelo particular com o token SAS](resource-manager-cli-sas-token.md).
+* parâmetros de toodefine no modelo, consulte [criar modelos](resource-group-authoring-templates.md#parameters).
+* Para obter diretrizes sobre como as empresas podem usar o Gerenciador de recursos tooeffectively gerenciar assinaturas, consulte [scaffold enterprise do Azure - controle de assinatura prescritivas](resource-manager-subscription-governance.md).
 

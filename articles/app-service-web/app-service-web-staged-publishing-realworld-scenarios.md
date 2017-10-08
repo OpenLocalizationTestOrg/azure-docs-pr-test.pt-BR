@@ -1,6 +1,6 @@
 ---
-title: "Usar ambientes de DevOps com eficiência para seu aplicativo Web | Microsoft Docs"
-description: "Saiba como usar os slots de implantação para configurar e gerenciar vários ambientes de desenvolvimento do aplicativo"
+title: ambientes de DevOps aaaUse efetivamente para seu aplicativo web | Microsoft Docs
+description: "Saiba como toouse slots da implantação tooset backup e gerenciar vários ambientes de desenvolvimento para seu aplicativo"
 services: app-service\web
 documentationcenter: 
 author: sunbuild
@@ -14,43 +14,43 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 10/24/2016
 ms.author: sumuth
-ms.openlocfilehash: 25248411659f6c7b2e386e310428c365c44ea2e0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 61a552e735a4ad9769b661d7c988744074ba2962
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-devops-environments-effectively-for-your-web-apps"></a>Usar ambientes de Operações de Desenvolvimento com eficiência em seus aplicativos Web
-Este artigo mostra como configurar e gerenciar implantações de aplicativo Web quando houver várias versões de seu aplicativo em vários ambientes, como desenvolvimento, preparo, QA (controle de qualidade) e produção. Cada versão do aplicativo pode ser considerada um ambiente de desenvolvimento para a finalidade específica de seu processo de implantação. Por exemplo os desenvolvedores podem usar o ambiente de QA para testar a qualidade do aplicativo antes de aplicar as alterações em produção.
-Ter vários ambientes de desenvolvimento pode ser algo desafiador, pois você precisa controlar o código, gerenciar os recursos (computação, aplicativo Web, banco de dados, cache, etc.) e implantar o código nos ambientes.
+Este artigo mostra como tooset e gerenciar implantações de aplicativo web quando várias versões do seu aplicativo em vários ambientes, como desenvolvimento, teste, qualidade (QA) e produção. Cada versão do seu aplicativo pode ser considerado como um ambiente de desenvolvimento para finalidade específica de saudação do processo de implantação. Por exemplo, os desenvolvedores podem usar Olá qualidade do controle de qualidade ambiente tootest saudação do aplicativo hello antes de eles push Olá alterações tooproduction.
+Vários ambientes de desenvolvimento podem ser um desafio porque você precisa de código tootrack, gerenciar recursos (computação, aplicativo web, banco de dados, cache, etc.) e implante o código em ambientes.
 
 ## <a name="set-up-a-non-production-environment-stage-dev-qa"></a>Configurar um ambiente de não produção (estágio, desenvolvimento, controle de qualidade)
-Quando um aplicativo Web de produção estiver em funcionamento, a próxima etapa será criar um ambiente de não produção. Para usar slots de implantação, verifique se você está executando no modo do plano do Serviço de Aplicativo do Azure Standard ou Premium. Os slots de implantação são aplicativos Web dinâmicos com seus próprios nomes de host. Os elementos de configuração e conteúdo de aplicativo Web podem ser permutados entre dois slots de implantação, incluindo o slot de produção. Quando você implanta seu aplicativo em um slot de implantação, obtém os seguintes benefícios:
+Depois que um aplicativo da web de produção estiver em execução, Olá próxima etapa é toocreate um ambiente de não produção. toouse slots de implantação, certifique-se de que você está executando no modo de plano Standard ou o serviço de aplicativo do Azure Premium Olá. Os slots de implantação são aplicativos Web dinâmicos com seus próprios nomes de host. Elementos de conteúdo e configuração de aplicativo da Web podem ser trocados entre os dois slots de implantação, incluindo o slot de produção de hello. Quando você implanta o slot de implantação do aplicativo tooa, você obtém Olá benefícios a seguir:
 
-- É possível validar as alterações no aplicativo Web em um slot de implantação de preparo antes de trocá-lo pelo slot de produção.
-- Quando você implanta primeiro um aplicativo Web em um slot e depois trocá-o para produção, todas as instâncias do slot são preparadas antes dessa troca. Esse processo elimina o tempo de inatividade quando você for implantar seu aplicativo Web. O redirecionamento do tráfego é contínuo e nenhuma solicitação é descartada devido a operações de permuta. Para automatizar todo esse fluxo de trabalho, configure a [Troca Automática](web-sites-staged-publishing.md#configure-auto-swap) quando a validação pré-troca não for necessária.
-- Após uma troca, o slot com o aplicativo Web preparado anteriormente terá o aplicativo Web de produção anterior. Se as modificações alternadas no slot de produção não forem o que você esperava, é possível fazer a mesma alternação imediatamente para ter o “último aplicativo Web bom” de volta.
+- Você pode validar o aplicativo de web tooa alterações em um slot de implantação de preparo antes de alternar o aplicativo hello com o slot de produção de hello.
+- Quando você implanta um slot de tooa do aplicativo web primeiro e troque-o em produção, todas as instâncias do slot de saudação são aquecidas antes de ser trocadas em produção. Esse processo elimina o tempo de inatividade quando você for implantar seu aplicativo Web. Olá redirecionamento do tráfego é contínuo e nenhuma solicitação é descartada devido a operações de tooswap. tooautomate esse fluxo de trabalho inteiro, configurar [troca automática](web-sites-staged-publishing.md#configure-auto-swap) quando a validação de pré-permuta não é necessária.
+- Após uma troca slot Olá que tem o aplicativo web de saudação preparado anteriormente agora tem Olá aplicativo de web de produção anterior. Se alterações Olá trocadas no slot de produção de hello estiverem não conforme o esperado, você pode executar Olá mesma troca imediatamente tooget seu "última boas" back do aplicativo web.
 
-Para configurar um slot de implantação de preparo, confira [Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure](web-sites-staged-publishing.md). Cada ambiente deve incluir seu próprio conjunto de recursos. Por exemplo, se o seu aplicativo Web usar um banco de dados, os aplicativos Web de preparo e produção deverão usar bancos de dados diferentes. Adicione recursos de ambiente de desenvolvimento de preparo, como banco de dados, armazenamento ou cache, para definir o ambiente de desenvolvimento de preparo.
+tooset backup de um slot de implantação de preparo, consulte [configurar ambientes de preparo para aplicativos web no serviço de aplicativo do Azure](web-sites-staged-publishing.md). Cada ambiente deve incluir seu próprio conjunto de recursos. Por exemplo, se o seu aplicativo Web usar um banco de dados, os aplicativos Web de preparo e produção deverão usar bancos de dados diferentes. Adicione seu ambiente de desenvolvimento de preparo de preparo recursos do ambiente de desenvolvimento como tooset de cache, armazenamento ou banco de dados.
 
 ## <a name="examples-of-using-multiple-development-environments"></a>Exemplos de uso de vários ambientes de desenvolvimento
-Qualquer projeto deve seguir o gerenciamento de código fonte com pelo menos dois ambientes: desenvolvimento e produção. Se você usar CMSs (sistemas de gerenciamento de conteúdo), estruturas de aplicativo etc., talvez o aplicativo não ofereça suporte a esse cenário sem personalização. Essa eventualidade é real para algumas das estruturas populares discutidas nas seções a seguir. Muitas perguntas vêm à tona ao trabalhar com CMS/estruturas, como:
+Qualquer projeto deve seguir o gerenciamento de código fonte com pelo menos dois ambientes: desenvolvimento e produção. Se você usar sistemas de gerenciamento de conteúdo (CMSs), estruturas de aplicativo, etc., o aplicativo hello pode não suportar este cenário sem personalização. Neste caso é verdadeiro para algumas das estruturas populares de saudação que são abordadas Olá seções a seguir. Muitas perguntas vêm toomind quando você trabalha com estruturas/CMS, tais como:
 
-- Como dividir o conteúdo em ambientes diferentes?
+- Como quebrar conteúdo Olá em ambientes diferentes?
 - Quais arquivos você pode alterar sem afetar as atualizações de versão da estrutura?
 - Como gerenciar as configurações por ambiente?
-- Como você gerencia atualizações de versão para módulos, plug-ins e estrutura principal?
+- Como gerenciar atualizações de versão de módulos, plug-ins e estrutura de principal Olá?
 
-Há várias maneiras de configurar vários ambientes para seu projeto. Os exemplos a seguir mostram um método para cada aplicativo respectivo.
+Há muitos tooset maneiras vários ambientes de seu projeto. Olá exemplos a seguir mostram um método para cada respectivo aplicativo.
 
 ### <a name="wordpress"></a>WordPress
-Nesta seção, você aprenderá como configurar um fluxo de trabalho de implantação usando slots para WordPress. O WordPress, como a maioria das soluções de CMS, não dá suporte a vários ambientes de desenvolvimento sem personalização. O recurso Aplicativos Web do Serviço de Aplicativo do Azure tem alguns recursos que facilitam o armazenamento de definições de configuração fora de seu código.
+Nesta seção, você aprenderá como tooset o fluxo de trabalho de um implantação usando slots de WordPress. O WordPress, como a maioria das soluções de CMS, não dá suporte a vários ambientes de desenvolvimento sem personalização. recurso de aplicativos Web de saudação do serviço de aplicativo do Azure tem alguns recursos que tornam mais fácil toostore definições de configuração fora de seu código.
 
-1. Antes de criar um slot de preparo, configure o código do aplicativo para dar suporte a vários ambientes. Para dar suporte a vários ambientes no WordPress, você precisa editar `wp-config.php` em seu aplicativo Web de desenvolvimento local e adicionar o código a seguir no início do arquivo. Esse processo permitirá que seu aplicativo obtenha a configuração correta com base no ambiente selecionado.
+1. Antes de criar um slot de preparo, configure seu toosupport de código do aplicativo vários ambientes. toosupport vários ambientes WordPress, é necessário tooedit `wp-config.php` em seu local de desenvolvimento aplicativo da web e adicionar Olá seguindo o código no início de saudação do arquivo hello. Esse processo permite que seu aplicativo toopick Olá configuração correta com base no ambiente selecionado hello.
 
     ```
     // Support multiple environments
-    // set the config file based on current environment
+    // set hello config file based on current environment
     if (strpos($_SERVER['HTTP_HOST'],'localhost') !== false) {
     // local development
      $config_file = 'config/wp-config.local.php';
@@ -61,18 +61,18 @@ Nesta seção, você aprenderá como configurar um fluxo de trabalho de implanta
     }
     $path = dirname(__FILE__). '/';
     if (file_exists($path. $config_file)) {
-    // include the config file if it exists, otherwise WP is going to fail
+    // include hello config file if it exists, otherwise WP is going toofail
     require_once $path. $config_file;
     ```
 
-2. Crie uma pasta na raiz do aplicativo Web chamada `config` e adicione os arquivos `wp-config.azure.php` e `wp-config.local.php`, que representam o ambiente do Azure e o ambiente local respectivamente.
+2. Criar uma pasta na raiz do aplicativo web chamado `config`e adicione Olá `wp-config.azure.php` e `wp-config.local.php` arquivos, que representam o ambiente do Azure e o ambiente local, respectivamente.
 
-3. Copie o seguinte em `wp-config.local.php`:
+3. Copie a seguinte Olá em `wp-config.local.php`:
 
     ```
     <?php
     // MySQL settings
-    /** The name of the database for WordPress */
+    /** hello name of hello database for WordPress */
 
     define('DB_NAME', 'yourdatabasename');
 
@@ -86,7 +86,7 @@ Nesta seção, você aprenderá como configurar um fluxo de trabalho de implanta
     define('DB_HOST', 'localhost');
     /**
      * For developers: WordPress debugging mode.
-     * * Change this to true to enable the display of notices during development.
+     * * Change this tootrue tooenable hello display of notices during development.
      * It is strongly recommended that plugin and theme developers use WP_DEBUG
      * in their development environments.
      */
@@ -111,14 +111,14 @@ Nesta seção, você aprenderá como configurar um fluxo de trabalho de implanta
     $table_prefix = 'wp_';
     ```
 
-    A definição das chaves de segurança, conforme ilustrado acima, pode ajudar a impedir que seu aplicativo Web seja invadido; portanto, use valores exclusivos. Se você precisar gerar a cadeia de caracteres para as chaves de segurança mencionadas no código, [acesse o gerador automático](https://api.wordpress.org/secret-key/1.1/salt) para criar novos pares de chave/valor.
+    Definir chaves de segurança Olá conforme ilustrado no código anterior Olá pode ajudar tooprevent seu aplicativo web de sendo invadido, portanto, use valores exclusivos. Se precisar de cadeia de caracteres de saudação toogenerate para chaves de segurança mencionadas no código hello, você pode [gerador automática vá toohello](https://api.wordpress.org/secret-key/1.1/salt) toocreate novos pares chave/valor.
 
-4. Copie o seguinte código em `wp-config.azure.php`:
+4. Código a seguir de saudação de cópia em `wp-config.azure.php`:
 
     ```    
     <?php
     // MySQL settings
-    /** The name of the database for WordPress */
+    /** hello name of hello database for WordPress */
 
     define('DB_NAME', getenv('DB_NAME'));
 
@@ -134,12 +134,12 @@ Nesta seção, você aprenderá como configurar um fluxo de trabalho de implanta
     /**
     * For developers: WordPress debugging mode.
     *
-    * Change this to true to enable the display of notices during development.
+    * Change this tootrue tooenable hello display of notices during development.
     * It is strongly recommended that plugin and theme developers use WP_DEBUG
     * in their development environments.
-    * Turn on debug logging to investigate issues without displaying to end user. For WP_DEBUG_LOG to
+    * Turn on debug logging tooinvestigate issues without displaying tooend user. For WP_DEBUG_LOG to
     * do anything, WP_DEBUG must be enabled (true). WP_DEBUG_DISPLAY should be used in conjunction
-    * with WP_DEBUG_LOG so that errors are not displayed on the page */
+    * with WP_DEBUG_LOG so that errors are not displayed on hello page */
 
     */
     define('WP_DEBUG', getenv('WP_DEBUG'));
@@ -147,7 +147,7 @@ Nesta seção, você aprenderá como configurar um fluxo de trabalho de implanta
     define('WP_DEBUG_DISPLAY',false);
 
     //Security key settings
-    /** If you need to generate the string for security keys mentioned above, you can go the automatic generator to create new keys/values: https://api.wordpress.org/secret-key/1.1/salt **/
+    /** If you need toogenerate hello string for security keys mentioned above, you can go hello automatic generator toocreate new keys/values: https://api.wordpress.org/secret-key/1.1/salt **/
     define('AUTH_KEY',getenv('DB_AUTH_KEY'));
     define('SECURE_AUTH_KEY', getenv('DB_SECURE_AUTH_KEY'));
     define('LOGGED_IN_KEY', getenv('DB_LOGGED_IN_KEY'));
@@ -167,9 +167,9 @@ Nesta seção, você aprenderá como configurar um fluxo de trabalho de implanta
     ```
 
 #### <a name="use-relative-paths"></a>Use caminhos relativos
-Por fim, configure caminhos relativos no aplicativo WordPress. O WordPress armazena informações de URL no banco de dados. Esse armazenamento dificulta mais a movimentação de conteúdo de um ambiente para outro. Você precisa atualizar o banco de dados sempre que mudar do ambiente local para o de preparo ou do ambiente de preparo para de produção. Para reduzir o risco de problemas que podem ocorrer com a implantação de banco de dados sempre que você implantar de um ambiente para outro, use o [plug-in de links Relative Root](https://wordpress.org/plugins/root-relative-urls/) que pode ser instalado usando o painel de administrador do WordPress.
+Uma última tooconfigure de coisa no aplicativo de WordPress Olá é caminhos relativos. WordPress armazena informações de URL no banco de dados de saudação. Esse armazenamento dificultará a mover o conteúdo de um ambiente tooanother. É necessário o banco de dados do tooupdate Olá toda vez que você mover de toostage local ou ambientes de tooproduction estágio. risco de saudação tooreduce dos problemas que podem ocorrer com a implantação de um banco de dados sempre que você implantar a partir de um ambiente tooanother, use Olá [relativo raiz vincula o plug-in](https://wordpress.org/plugins/root-relative-urls/), que pode ser instalado usando o administrador do WordPress Olá Painel de controle.
 
-Adicione as seguintes entradas ao arquivo `wp-config.php` antes do comentário `That's all, stop editing!`:
+Adicionar Olá tooyour entradas a seguir `wp-config.php` arquivo antes de saudação `That's all, stop editing!` comentário:
 
 ```
 
@@ -179,30 +179,30 @@ Adicione as seguintes entradas ao arquivo `wp-config.php` antes do comentário `
     define('DOMAIN_CURRENT_SITE', filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
 ```
 
-Ative o plug-in no menu `Plugins` no painel de administrador do WordPress. Salve as configurações de link permanente para o aplicativo WordPress.
+Ativar Olá plug-in por meio de saudação `Plugins` menu no painel do administrador de WordPress. Salve as configurações de link permanente para o aplicativo WordPress.
 
-#### <a name="the-final-wp-configphp-file"></a>O último arquivo `wp-config.php`
-As atualizações principais do WordPress não afetarão seus arquivos `wp-config.php`, `wp-config.azure.php` e `wp-config.local.php`. Aqui está uma versão final do arquivo `wp-config.php`:
+#### <a name="hello-final-wp-configphp-file"></a>Olá final `wp-config.php` arquivo
+As atualizações principais do WordPress não afetarão seus arquivos `wp-config.php`, `wp-config.azure.php` e `wp-config.local.php`. Esta é a versão final do hello `wp-config.php` arquivo:
 
 ```
 <?php
 /**
- * The base configurations of the WordPress.
+ * hello base configurations of hello WordPress.
  *
- * This file has the following configurations: MySQL settings, Table Prefix,
+ * This file has hello following configurations: MySQL settings, Table Prefix,
  * Secret Keys, and ABSPATH. You can find more information by visiting
  *
- * Codex page. You can get the MySQL settings from your web host.
+ * Codex page. You can get hello MySQL settings from your web host.
  *
- * This file is used by the wp-config.php creation script during the
- * installation. You don't have to use the web web app, you can just copy this file
- * to "wp-config.php" and fill in the values.
+ * This file is used by hello wp-config.php creation script during the
+ * installation. You don't have toouse hello web web app, you can just copy this file
+ * too"wp-config.php" and fill in hello values.
  *
  * @package WordPress
  */
 
 // Support multiple environments
-// set the config file based on current environment
+// set hello config file based on current environment
 if (strpos($_SERVER['HTTP_HOST'],'localhost') !== false) { // local development
   $config_file = 'config/wp-config.local.php';
 }
@@ -213,14 +213,14 @@ elseif ((strpos(getenv('WP_ENV'),'stage') !== false) ||(strpos(getenv('WP_ENV'),
 
 $path = dirname(__FILE__). '/';
 if (file_exists($path. $config_file)) {
-  // include the config file if it exists, otherwise WP is going to fail
+  // include hello config file if it exists, otherwise WP is going toofail
   require_once $path. $config_file;
 }
 
-/** Database Charset to use in creating database tables. */
+/** Database Charset toouse in creating database tables. */
 define('DB_CHARSET', 'utf8');
 
-/** The Database Collate type. Don't change this if in doubt. */
+/** hello Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
 
 
@@ -231,7 +231,7 @@ define('WP_SITEURL', 'http://'. $_SERVER['HTTP_HOST']);
 define('WP_CONTENT_URL', '/wp-content');
 define('DOMAIN_CURRENT_SITE', $_SERVER['HTTP_HOST']);
 
-/** Absolute path to the WordPress directory. */
+/** Absolute path toohello WordPress directory. */
 if ( !defined('ABSPATH') )
     define('ABSPATH', dirname(__FILE__). '/');
 
@@ -240,21 +240,21 @@ require_once(ABSPATH. 'wp-settings.php');
 ```
 
 #### <a name="set-up-a-staging-environment"></a>Configurar um ambiente de preparo
-1. Se você já tiver um aplicativo Web do WordPress em execução em sua assinatura do Azure, entre no [Portal do Azure](http://portal.azure.com) e acesse seu aplicativo Web do WordPress. Se você não tiver um aplicativo Web do WordPress, crie um no Azure Marketplace. Para saber mais, consulte [Criar um aplicativo Web do WordPress no Serviço de Aplicativo do Azure](web-sites-php-web-site-gallery.md).
-Clique em **Configurações** > **Slots de implantação** > **Adicionar** para criar um slot de implantação com o nome *preparo*. Um slot de implantação é outro aplicativo Web que compartilha os mesmos recursos que o aplicativo Web principal criado anteriormente.
+1. Se você já tiver um aplicativo web do WordPress em execução em sua assinatura do Azure, entre no toohello [portal do Azure](http://portal.azure.com), e, em seguida, vá tooyour WordPress web app. Se você não tiver um aplicativo web do WordPress, você pode criar um de saudação do Azure Marketplace. mais, consulte toolearn [criar um aplicativo web do WordPress no serviço de aplicativo do Azure](web-sites-php-web-site-gallery.md).
+Clique em **configurações** > **slots de implantação** > **adicionar** toocreate um slot de implantação com o nome da saudação *estágio*. Um slot de implantação é outro aplicativo web que compartilhamentos Olá os mesmos recursos que o aplicativo web principal de saudação que você criou anteriormente.
 
     ![Criar um slot de implantação de estágio](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)
 
-2. Adicione outro banco de dados MySQL, digamos `wordpress-stage-db`, ao seu grupo de recursos, `wordpressapp-group`.
+2. Adicionar outro banco de dados MySQL, digamos que `wordpress-stage-db`, grupo de recursos de tooyour `wordpressapp-group`.
 
-    ![Adicionar banco de dados MySQL ao grupo de recursos](./media/app-service-web-staged-publishing-realworld-scenarios/2addmysql.png)
+    ![Adicionar grupo de tooresource de banco de dados MySQL](./media/app-service-web-staged-publishing-realworld-scenarios/2addmysql.png)
 
-3. Atualize as cadeias de conexão de seu slot de implantação de preparo para apontar para o banco de dados, `wordpress-stage-db`. Seu aplicativo Web de produção, `wordpressprodapp` e o aplicativo Web de preparo `wordpressprodapp-stage`, têm que apontar para bancos de dados diferentes.
+3. Atualizar cadeias de caracteres de conexão de saudação do estágio implantação slot toopoint toohello novo banco de dados, `wordpress-stage-db`. O aplicativo web de produção, `wordpressprodapp`e de preparo do aplicativo web, `wordpressprodapp-stage`, bancos de dados deve toodifferent ponto.
 
 #### <a name="configure-environment-specific-app-settings"></a>Definir configurações específicas do ambiente de aplicativo
-Os desenvolvedores podem armazenar pares de cadeia de chave/valor no Azure como parte das informações de configuração, chamadas de **Configurações do Aplicativo**, associadas a um aplicativo Web. No tempo de execução, os aplicativos Web recuperam esses valores automaticamente para você e os disponibilizam na execução do código em seu aplicativo Web. Do ponto de vista da segurança, é um bom benefício indireto, pois informações confidenciais, como cadeias de conexão de banco de dados que incluem senhas, nunca aparecem como texto não criptografado em um arquivo como o `wp-config.php`.
+Os desenvolvedores podem armazenar pares de cadeia de caracteres de chave/valor no Azure como parte das informações de configuração hello, chamadas **configurações do aplicativo**, associado a um aplicativo web. Em tempo de execução, os aplicativos web automaticamente recuperam esses valores e torná-los disponível toocode que está sendo executado no seu aplicativo web. Do ponto de vista da segurança, é um bom benefício indireto, pois informações confidenciais, como cadeias de conexão de banco de dados que incluem senhas, nunca aparecem como texto não criptografado em um arquivo como o `wp-config.php`.
 
-Esse processo, que é explicado nos parágrafos a seguir, é útil porque inclui alterações de arquivo e alterações do banco de dados para o aplicativo do WordPress:
+Esse processo, que é explicado em Olá parágrafos a seguir, é útil porque ela inclui alterações de arquivo e alterações de banco de dados para o aplicativo de WordPress Olá:
 
 * Atualização de versão do WordPress
 * Adicionar novo, editar ou atualizar plug-ins
@@ -268,99 +268,99 @@ Definir configurações do aplicativo para:
 
 ![Configurações de Aplicativo para aplicativo Web Wordpress](./media/app-service-web-staged-publishing-realworld-scenarios/3configure.png)
 
-Não deixe de adicionar as seguintes configurações de aplicativo para os slots do aplicativo Web de produção e de preparo. Observe que os aplicativos Web de produção e de preparo usam bancos de dados diferentes.
+Certifique-se de que você adicione Olá seguindo as configurações do aplicativo para o slot de produção web app e estágio. Observe que a saudação aplicativo da web de produção e preparo aplicativo da web usam bancos de dados diferentes.
 
-1. Desmarque a caixa de seleção **Configuração do Slot** para todos os parâmetros de configurações, exceto WP_ENV. Esse processo trocará a configuração de seu aplicativo Web, conteúdo do arquivo e banco de dados. Se a **Configuração de Slot** estiver marcada, as configurações de aplicativo e as configurações de cadeia de conexão do aplicativo Web *não* moverão entre ambientes durante uma operação de **Troca**. As alterações de banco de dados presentes não interromperão o aplicativo Web de produção.
+1. Olá limpar **configuração do Slot** caixa de seleção para todos os parâmetros de configurações de saudação exceto WP_ENV. Esse processo alternará configuração Olá para seu aplicativo web, o conteúdo do arquivo e o banco de dados. Se **configuração do Slot** é verificado, configurações do aplicativo e a configuração de cadeia de caracteres de conexão do aplicativo da web de saudação serão *não* mover entre ambientes ao fazer uma **trocar** operação. As alterações de banco de dados presentes não interromperão o aplicativo Web de produção.
 
-2. Implante um aplicativo Web do ambiente de desenvolvimento local no aplicativo Web de preparo e no banco de dados usando o WebMatrix, ou ferramentas de sua escolha, como FTP, Git ou PhpMyAdmin.
+2. Implante Olá desenvolvimento local ambiente web aplicativo toohello estágio web app e o banco de dados usando o WebMatrix ou ferramentas de sua escolha, como FTP, Git ou PhpMyAdmin.
 
     ![Caixa de Diálogo Publicação do Web Matrix no aplicativo Web WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/4wmpublish.png)
 
-3. Procurar e testar seu aplicativo Web de preparo. Considerando um cenário em que o tema do aplicativo Web deva ser atualizado, eis o aplicativo Web de preparo.
+3. Procurar e testar seu aplicativo Web de preparo. Considerar um cenário em que o tema de saudação do aplicativo web de saudação é toobe atualizado, aqui é Olá aplicativo web de preparo.
 
     ![Procurar aplicativo Web de preparo antes de alternar slots](./media/app-service-web-staged-publishing-realworld-scenarios/5wpstage.png)
 
-4. Se estiver tudo correto, clique no botão **Alternar** no seu aplicativo Web de preparo para mover o conteúdo para o seu ambiente de produção. Neste caso, alterne o aplicativo Web e o banco de dados entre ambientes durante cada operação **Alternar** .
+4. Se tudo estiver correto, clique em Olá **trocar** botão seu ambiente de produção de conteúdo toohello o preparo toomove de aplicativo web. Nesse caso, você pode trocar Olá web app e o banco de dados de saudação em ambientes durante cada **permuta** operação.
 
     ![Alternar alterações de visualização do WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
     > [!NOTE]
-    > Se o seu cenário precisar apenas enviar arquivos por push (sem atualizações de banco de dados), verifique a **Configuração do Slot** de todas as *configurações de aplicativo* e *configurações de cadeias de conexão* relacionadas ao banco de dados na folha **Configurações do Aplicativo Web** no Portal do Azure antes de realizar a **Troca**. Neste caso, DB_NAME, DB_HOST, DB_PASSWORD, DB_USER, as configurações de cadeia de conexão padrão devem aparecer nas alterações de visualização ao realizar a **Troca**. Neste momento, quando você concluir a operação de **Troca**, o aplicativo Web do WordPress terá somente os arquivos atualizados.
+    > Se seu cenário precisa enviar tooonly os arquivos (atualizações de banco de dados), verifique **configuração do Slot** para todos os Olá relacionados ao banco de dados *configurações do aplicativo* e *configuraçõesdecadeiasdecaracteresdeconexão*em Olá **configurações do aplicativo Web** folha em Olá portal do Azure antes de fazer Olá **trocar**. Neste caso, DB_NAME, DB_HOST, DB_PASSWORD, DB_USER, as configurações de cadeia de conexão padrão devem aparecer nas alterações de visualização ao realizar a **Troca**. Neste momento, quando você concluir Olá **trocar** operação, Olá aplicativo web do WordPress será ter Olá atualiza somente os arquivos.
     >
     >
 
-    Antes de realizar uma **Troca**, este é o aplicativo Web de produção do WordPress.
+    Antes de fazer uma **trocar**, aqui está o aplicativo de web do WordPress de produção de hello.
     ![Aplicativo Web de produção antes de trocar slots](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
 
-    Após a operação de **Troca**, o tema terá sido atualizado em seu aplicativo Web de produção.
+    Depois de saudação **trocar** operação, tema Olá foi atualizada em seu aplicativo da web de produção.
 
     ![Aplicativo Web de produção após alternar slots](./media/app-service-web-staged-publishing-realworld-scenarios/8afswap.png)
 
-5. Quando você precisar reverter, vá até as **Configurações de Aplicativo** Web de produção e clique no botão **Trocar** para trocar o aplicativo Web e o banco de dados do slot de produção para o de preparo. Lembre-se de que se as alterações do banco de dados estiverem incluídas em uma operação de **Troca**, na próxima vez que você implantar em seu aplicativo Web de preparo, será necessário implantar as alterações do banco de dados no banco de dados atual para seu aplicativo Web de preparo. O banco de dados atual pode ser o banco de dados de produção anterior ou o banco de dados de preparo.
+5. Quando você precisar tooroll novamente, você pode ir web de produção toohello **configurações do aplicativo**e clique em Olá **trocar** botão tooswap Olá web app e o banco de dados toostaging no slot de produção. Lembre-se de que se as alterações do banco de dados são incluídas com um **trocar** operação, em seguida, Olá próxima vez que você implantar tooyour preparo aplicativo web, é necessário toodeploy Olá alterações toohello atual banco de dados para seu aplicativo web preparo. banco de dados atual Olá pode ser banco de dados de produção de anterior hello ou Olá estágio.
 
 #### <a name="summary"></a>Resumo
 Veja a seguir um processo generalizado para qualquer aplicativo que tenha um banco de dados:
 
-1. Instale o aplicativo em seu ambiente local.
+1. Instale o aplicativo hello em seu ambiente local.
 2. Inclua configurações específicas de ambiente (locais e Aplicativos Web do Azure).
 3. Configure seus ambientes de produção e preparo para aplicativos Web.
-4. Se você tiver um aplicativo de produção já em execução no Azure, sincronize o conteúdo de produção (arquivos/código e banco de dados) para os ambientes de preparo e local.
+4. Se você tiver um aplicativo de produção já em execução no Azure, sincronize seu conteúdo (arquivos/código e banco de dados) toolocal e preparo ambientes de produção.
 5. Desenvolva seu aplicativo no ambiente local.
-6. Coloque seu aplicativo Web de produção em manutenção ou em modo bloqueado e sincronize o conteúdo do banco de dados da produção para ambientes de teste e desenvolvimento.
-7. Implante no ambiente de preparo e teste.
-8. Implante no ambiente de produção.
+6. Coloque seu aplicativo da web de produção em manutenção ou modo bloqueado e sincronizar o conteúdo do banco de dados toostaging e desenvolvimento de ambientes de produção.
+7. Implante toohello teste e ambiente de preparo.
+8. Implante ambiente tooproduction.
 9. Repita as etapas quatro a seis.
 
 ### <a name="umbraco"></a>Umbraco
-Nesta seção, você aprenderá como o Umbraco CMS usa um módulo personalizado para implantar em vários ambientes DevOps. Este exemplo fornece uma abordagem diferente para gerenciar vários ambientes de desenvolvimento.
+Nesta seção, você aprenderá como Olá Umbraco CMS usa um módulo personalizado toodeploy em vários ambientes de DevOps. Este exemplo fornece uma abordagem diferente toomanaging vários ambientes de desenvolvimento.
 
-[Umbraco CMS](http://umbraco.com/) é uma solução de .NET CMS popular usada por muitos desenvolvedores. Ela fornece o módulo [Courier2](http://umbraco.com/products/more-add-ons/courier-2) para implantar dos ambientes de desenvolvimento, passando pelo preparo até chegar à produção. Você pode criar facilmente um ambiente de desenvolvimento local para um aplicativo Web Umbraco CMS usando o Visual Studio ou o WebMatrix.
+[Umbraco CMS](http://umbraco.com/) é uma solução de .NET CMS popular usada por muitos desenvolvedores. Ele fornece Olá [Courier2](http://umbraco.com/products/more-add-ons/courier-2) toodeploy do módulo de ambientes de desenvolvimento de tooproduction toostaging. Você pode criar facilmente um ambiente de desenvolvimento local para um aplicativo Web Umbraco CMS usando o Visual Studio ou o WebMatrix.
 
 - [Criar um aplicativo Web Umbraco com o Visual Studio](https://our.umbraco.org/documentation/Installation/install-umbraco-with-nuget)
 - [Criar um aplicativo Web Umbraco com o WebMatrix](http://umbraco.tv/videos/umbraco-v7/implementor/fundamentals/installation/creating-umbraco-site-from-webmatrix-web-gallery/)
 
-Lembre-se sempre de remover a pasta `install` em seu aplicativo e nunca carregá-la em aplicativos Web em estágio ou produção. Este tutorial usa o WebMatrix.
+Lembre-se sempre Olá tooremove `install` pasta em seu aplicativo e nunca carregá-lo a aplicativos web de toostage ou de produção. Este tutorial usa o WebMatrix.
 
 #### <a name="set-up-a-staging-environment"></a>Configurar um ambiente de preparo
-1. Crie um slot de implantação, conforme mencionado anteriormente, para o aplicativo Web Umbraco CMS, supondo que você já tenha um aplicativo Web Umbraco CMS em funcionamento. Se não tiver, você poderá criar um no Marketplace.
-2. Atualize a cadeia de conexão do slot de implantação de preparo para apontar para o novo banco de dados **umbraco-stage-db**. O aplicativo Web de produção (umbraositecms-1) e o aplicativo Web de preparo (umbracositecms-1-stage) *devem* apontar para bancos de dados diferentes.
+1. Crie um slot de implantação, conforme mencionado anteriormente para Olá Umbraco CMS web app, supondo que você já tiver um aplicativo da web Umbraco CMS para cima e em execução. Se você não fizer isso, você pode criar um da saudação Marketplace.
+2. Atualizar a cadeia de caracteres de conexão de saudação para seu novo de toohello estágio toopoint do slot de implantação **umbraco de estágio de db** banco de dados. O aplicativo web de produção (umbraositecms-1) e o preparo web app (etapas de 1 umbracositecms) *deve* toodifferent de ponto de bancos de dados.
 
     ![Atualizar a Cadeia de conexão para aplicativos Web de preparo com o novo banco de dados de preparo](./media/app-service-web-staged-publishing-realworld-scenarios/9umbconnstr.png)
 
-3. Clique em **Obter configurações de publicação** para o **preparo** do slot de implantação. Esse processo baixará um arquivo de configurações de publicação que armazena todas as informações exigidas pelo Visual Studio ou WebMatrix para publicar seu aplicativo do aplicativo Web de desenvolvimento local para o aplicativo Web do Azure.
+3. Clique em **configurações de publicação obter** para o slot de implantação Olá **estágio**. Esse processo baixará um arquivo de configurações de publicação que armazena todas as informações de saudação que o Visual Studio ou no WebMatrix requer toopublish seu aplicativo do aplicativo de web do Azure toohello do aplicativo de web de desenvolvimento local hello.
 
-    ![Obter configurações de publicação para o aplicativo Web de preparo](./media/app-service-web-staged-publishing-realworld-scenarios/10getpsetting.png)
-4. Abra seu aplicativo Web de desenvolvimento local no WebMatrix ou Visual Studio. Este tutorial usa o WebMatrix. Primeiro, você precisa importar o arquivo de configurações de publicação de seu aplicativo Web de preparo.
+    ![Obter configuração de saudação preparo aplicativo web de publicação](./media/app-service-web-staged-publishing-realworld-scenarios/10getpsetting.png)
+4. Abra seu aplicativo Web de desenvolvimento local no WebMatrix ou Visual Studio. Este tutorial usa o WebMatrix. Primeiro, é necessário tooimport Olá publicar o arquivo de configurações para seu aplicativo web preparo.
 
     ![Importar Configurações de publicação para o Umbraco usando Web Matrix](./media/app-service-web-staged-publishing-realworld-scenarios/11import.png)
 
-5. Examine as alterações feitas na caixa de diálogo e implante seu aplicativo Web local em seu aplicativo Web do Azure, *umbracositecms-1-stage*. Ao implantar arquivos diretamente em seu aplicativo Web de preparo, você omitirá os arquivos na pasta `~/app_data/TEMP/`, pois eles serão regenerados quando o aplicativo Web de preparo for iniciado pela primeira vez. Você também deverá omitir o arquivo `~/app_data/umbraco.config`, que também será regenerado.
+5. Revisar as alterações na caixa de diálogo hello e implantar seu aplicativo de web do Azure de tooyour de aplicativo da web local, *umbracositecms-1-estágio*. Quando você implantar arquivos diretamente tooyour preparação de aplicativo da web, você será omitir os arquivos no hello `~/app_data/TEMP/` pasta porque esses arquivos serão regenerados quando é o primeiro aplicativo de web de estágio Olá iniciado. Você também deve omitir Olá `~/app_data/umbraco.config` arquivo, que também será regenerado.
 
     ![Examinar as alterações de publicação no Web Matrix](./media/app-service-web-staged-publishing-realworld-scenarios/12umbpublish.png)
 
-6. Após a publicação bem-sucedida do aplicativo Web Umbraco local no aplicativo Web de preparo, procure seu aplicativo Web de preparo e execute alguns testes para eliminar problemas.
+6. Depois de publicar Olá Umbraco web local aplicativo toohello preparo aplicativo web com êxito, procurar tooyour preparo web app e execute toorule de testes alguns problemas.
 
-#### <a name="set-up-the-courier2-deployment-module"></a>Configurar módulo de implantação Courier2
-Com o módulo [Courier2](http://umbraco.com/products/more-add-ons/courier-2), você pode simplesmente clicar com o botão direito para enviar conteúdo por push, folhas de estilo e módulos de desenvolvimento de um aplicativo Web de preparo para um aplicativo Web de produção. Esse processo reduz o risco de interromper o aplicativo Web de produção ao implantar uma atualização.
-Adquira uma licença para Courier2 para o domínio `*.azurewebsites.net` e seu domínio personalizado (vamos supor http://abc.com). Após adquirir a licença, coloque a licença baixada (arquivo .LIC.) na pasta `bin`.
+#### <a name="set-up-hello-courier2-deployment-module"></a>Configurar o módulo de implantação Courier2 Olá
+Com hello [Courier2](http://umbraco.com/products/more-add-ons/courier-2) módulo, simplesmente clique toopush conteúdo, folhas de estilo e módulos de desenvolvimento de um teste da web aplicativo tooa aplicativo web de produção. Esse processo reduz o risco de saudação de quebrar seu aplicativo da web de produção quando você implantar uma atualização.
+Adquira uma licença para Courier2 para Olá `*.azurewebsites.net` domínio e seu domínio personalizado (digamos http://abc.com). Depois de comprar licenças hello, Olá local baixado licença (. Arquivo lic.) no hello `bin` pasta.
 
 ![Soltar o arquivo de licença na pasta bin](./media/app-service-web-staged-publishing-realworld-scenarios/13droplic.png)
 
-1. [Baixe o pacote Courier2](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/). Entre no aplicativo Web de preparo, por exemplo, http://umbracocms-site-stage.azurewebsites.net/umbraco, clique no menu **Desenvolvedor** e clique em **Pacotes** > **Instalar pacote local**.
+1. [Baixe o pacote de saudação Courier2](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/). Logon no aplicativo web do estágio tooyour, digamos que http://umbracocms-site-stage.azurewebsites.net/umbraco, clique em Olá **desenvolvedor** menu e clique **pacotes** > **instalar pacote local**.
 
     ![Instalador do pacote Umbraco](./media/app-service-web-staged-publishing-realworld-scenarios/14umbpkg.png)
 
-2. Carregue o pacote Courier2 usando o instalador.
+2. Carregar o pacote de saudação Courier2 usando o instalador de saudação.
 
     ![Carregar pacote para módulo courier](./media/app-service-web-staged-publishing-realworld-scenarios/15umbloadpkg.png)
 
-3. Para configurar o pacote, você precisa atualizar o arquivo courier.config na pasta **Config** do seu aplicativo Web.
+3. pacote de saudação tooconfigure, você precisa courier.config arquivo hello tooupdate Olá **Config** pasta do seu aplicativo web.
 
     ```xml
     <!-- Repository connection settings -->
-     <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
+     <!-- For each site, a custom repository must be configured, so Courier knows how tooconnect and authenticate-->
      <repositories>
-        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear: -->
+        <!-- If a custom Umbraco Membership provider is used, specify login & password + set hello passwordEncoding tooclear: -->
         <repository name="production web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
           <url>http://umbracositecms-1.azurewebsites.net</url>
           <user>0</user>
@@ -371,18 +371,18 @@ Adquira uma licença para Courier2 para o domínio `*.azurewebsites.net` e seu d
      </repositories>
      ```
 
-4. Em `<repositories>`, insira a URL do site de produção e as informações do usuário.
-    Se você estiver usando o provedor de associação Umbraco padrão, adicione a ID do usuário Administração na seção &lt;user&gt;.
-    Se você estiver usando um provedor de associação do Umbraco personalizado, use `<login>` e `<password>` no módulo Courier2 para conectar-se ao site de produção.
-    Para obter mais detalhes, [confira a documentação do módulo Courier2](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation).
+4. Em `<repositories>`, insira as informações de usuário e a URL de site de produção do hello.
+    Se você estiver usando o provedor de associação saudação padrão Umbraco, adicionar Olá ID de usuário de administração de saudação em Olá &lt;usuário&gt; seção.
+    Se você estiver usando um provedor de associação personalizado Umbraco, use `<login>`,`<password>` no site de produção do hello Courier2 módulo tooconnect toohello.
+    Para obter mais detalhes, [documentação Olá módulo Olá Courier2](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation).
 
-5. De maneira semelhante, instale o módulo Courier2 em seu site de produção e configure-o para apontar para o aplicativo Web de estágio em seu respectivo arquivo courier.config, conforme mostrado aqui.
+5. Da mesma forma, instalar o módulo de Courier2 de saudação em seu site de produção e configurá-lo toopoint toohello estágio web app em seu arquivo do respectivos courier.config conforme mostrado aqui.
 
     ```xml
      <!-- Repository connection settings -->
-     <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
+     <!-- For each site, a custom repository must be configured, so Courier knows how tooconnect and authenticate-->
      <repositories>
-        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear: -->
+        <!-- If a custom Umbraco Membership provider is used, specify login & password + set hello passwordEncoding tooclear: -->
         <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
           <url>http://umbracositecms-1-stage.azurewebsites.net</url>
           <user>0</user>
@@ -390,55 +390,55 @@ Adquira uma licença para Courier2 para o domínio `*.azurewebsites.net` e seu d
      </repositories>
     ```
 
-6. Clique na guia **Courier2** no painel do aplicativo Web Umbraco CMS e clique em **Locais**. Você deve ver o nome do repositório, como mencionado em `courier.config`. Faça esse processo em seus aplicativos Web de preparo e de produção.
+6. Clique em Olá **Courier2** guia Olá painel do aplicativo web Umbraco CMS e, em seguida, clique em **locais**. Você deve ver o nome do repositório Olá conforme mencionado em `courier.config`. Faça esse processo em seus aplicativos Web de preparo e de produção.
 
     ![Exibir repositório de aplicativo Web de destino](./media/app-service-web-staged-publishing-realworld-scenarios/16courierloc.png)
 
-7. Para implantar o conteúdo do site de preparo para o site de produção, acesse **Conteúdo** e selecione uma página existente ou crie uma nova página. Selecionarei uma página existente de meu aplicativo Web cujo título da página é **Introdução – novo** e clicarei em **Salvar e Publicar**.
+7. conteúdo toodeploy Olá preparo site de produção do site toohello, ir muito**conteúdo**e selecione uma página existente ou crie uma nova página. Seleciono uma página existente do meu aplicativo web em que o título de saudação da página de saudação é **Introdução – nova**e, em seguida, clique em **salvar e publicar**.
 
     ![Alterar o título da página e publicar](./media/app-service-web-staged-publishing-realworld-scenarios/17changepg.png)
 
-8. Clique com o botão direito do mouse na página modificada para exibir todas as opções. Clique em **Courier** para abrir a caixa de diálogo **Implantação**. Clique em **Implantar** para iniciar a implantação.
+8. Olá com o botão direito modificado página tooview todas as opções de saudação. Clique em **Courier** tooopen Olá **implantação** caixa de diálogo. Clique em **implantar** tooinitiate implantação.
 
     ![Diálogo de implantação de módulo Courier](./media/app-service-web-staged-publishing-realworld-scenarios/18dialog1.png)
 
-9. Analise as alterações e clique em **Continuar**.
+9. Revisar alterações hello e, em seguida, clique em **continuar**.
 
     ![Alterações de análise do diálogo de implantação de módulo Courier](./media/app-service-web-staged-publishing-realworld-scenarios/19dialog2.png)
 
-    O log de implantação mostra se a implantação foi bem-sucedida.
+    log de implantação Olá mostra se a implantação de saudação foi bem-sucedida.
 
      ![Exibir Logs de implantação do módulo Courier](./media/app-service-web-staged-publishing-realworld-scenarios/20successdlg.png)
 
-10. Procure seu aplicativo Web de produção para ver se as alterações foram reproduzidas.
+10. Procure seu toosee de aplicativo de web de produção se Olá alterações são refletidas.
 
      ![Procurar o aplicativo Web de produção](./media/app-service-web-staged-publishing-realworld-scenarios/21umbpg.png)
 
-Para saber mais sobre como usar o Courier, leia a documentação.
+toolearn mais sobre como toouse Courier, examine Olá documentação.
 
-#### <a name="how-to-upgrade-the-umbraco-cms-version"></a>Como atualizar a versão CMS do Umbraco
-O Courier não ajudará com a atualização de uma versão do Umbraco CMS para outra. Ao atualizar a versão CMS do Umbraco, você deve verificar as incompatibilidades entre seus módulos personalizados ou módulos de parceiros e as bibliotecas principais do Umbraco. Estas são as práticas recomendadas:
+#### <a name="how-tooupgrade-hello-umbraco-cms-version"></a>Como tooupgrade Olá versão Umbraco CMS
+Será Courier não ajudam a atualizar de uma versão do tooanother Umbraco CMS. Quando você atualiza uma versão Umbraco CMS, deve verificar se há incompatibilidades com seus módulos personalizados ou de parceiros e Olá Umbraco Core libraries. Estas são as práticas recomendadas:
 
-* Sempre faça backup de seu aplicativo Web e do banco de dados antes de fazer uma atualização. Em aplicativos Web no Azure, você pode configurar backups automáticos para seus sites usando o recurso de backup e restaurando seu site, se for necessário, usando o recurso restaurar. Para obter mais detalhes, veja [Como fazer backup de seu aplicativo Web](web-sites-backup.md) e [Como restaurar seu aplicativo Web](web-sites-restore.md).
-* Verifique se os pacotes de parceiros são compatíveis com a versão para a qual você está atualizando. Na página de download do pacote, examine a compatibilidade de projeto com a versão do Umbraco CMS.
+* Sempre faça backup de seu aplicativo Web e do banco de dados antes de fazer uma atualização. Em aplicativos web no Azure, você pode configurar backups automáticos para seus sites usando o recurso de backup hello e restaurar seu site, se necessário, usando o recurso de restauração de saudação. Para obter mais detalhes, consulte [como tooback o seu aplicativo web](web-sites-backup.md) e [como toorestore seu aplicativo web](web-sites-restore.md).
+* Verifique se os pacotes de parceiros são compatíveis com versão Olá que estiver atualizando para o. Página de download do pacote hello, examine a compatibilidade de projeto Olá com uma versão Umbraco CMS.
 
-Para obter mais detalhes sobre como atualizar seu aplicativo Web localmente, [consulte o guia de atualização geral](https://our.umbraco.org/documentation/getting-started/setup/upgrading/general).
+Para obter mais detalhes sobre como tooupgrade seu aplicativo web localmente, [Consulte diretrizes gerais de atualização Olá](https://our.umbraco.org/documentation/getting-started/setup/upgrading/general).
 
-Após a atualização do site de desenvolvimento local, publique as alterações no aplicativo Web de preparo. Teste seu aplicativo. Se estiver tudo certo, use o botão **Trocar** para trocar seu site de preparo para o aplicativo Web de produção. Ao usar a operação **Trocar**, você poderá exibir as alterações que serão afetadas na configuração de seu aplicativo Web. Essa operação de **Troca** alterna os bancos de dados e aplicativos Web. Após a **Troca**, o aplicativo Web de produção apontará para o banco de dados umbraco-stage-db, e o aplicativo Web de preparo apontará para o banco de dados umbraco-prod-db.
+Depois que o site de desenvolvimento local for atualizado, publica Olá alterações toohello aplicativo web de preparo. Teste seu aplicativo. Se tudo estiver correto, use Olá **trocar** botão tooswap seu aplicativo de web de produção do site toohello preparo. Quando você usa Olá **trocar** operação, você pode exibir as alterações de saudação que serão afetadas na configuração do seu aplicativo web. Isso **trocar** operação alterna Olá os aplicativos web e os bancos de dados. Depois de saudação **trocar**, Olá produção aplicativo será toohello ponto umbraco de estágio de db banco de dados web e Olá preparo web aplicativo será ponto tooumbraco-prod-db banco de dados.
 
 ![Alternar visualização para implantar o Umbraco CMS](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
-Estas são as vantagens de trocar o aplicativo Web e o banco de dados:
+Estas são as vantagens de troca Olá web app e o banco de dados de saudação:
 
-* Você pode reverter para a versão anterior do seu aplicativo Web com outra **Troca** se houver algum problema com o aplicativo.
-* Para uma atualização, você precisa implantar arquivos e banco de dados do aplicativo Web de preparo para o aplicativo Web de produção e o banco de dados. Muitas coisas que podem dar errado quando você implanta arquivos e bancos de dados. Usando o recurso **Troca** dos slots, podemos reduzir o tempo de inatividade durante uma atualização e reduzir o risco de falhas que podem ocorrer na implantação das alterações.
-* Você pode fazer o **Teste A/B** usando o recurso [Teste em produção](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/).
+* Você pode reverter toohello a versão anterior de seu aplicativo web com outra **trocar** se houver algum problema de aplicativo.
+* Para uma atualização, você precisa toodeploy arquivos e bancos de dados de saudação preparo aplicativo de web de produção do toohello de aplicativo web e banco de dados. Muitas coisas que podem dar errado quando você implanta arquivos e bancos de dados. Usando Olá **trocar** recurso de slots, podemos reduzir o tempo de inatividade durante uma atualização e reduzir o risco de saudação de falhas que podem ocorrer quando você implantar as alterações.
+* Você pode fazer **A / B teste** usando Olá [teste em produção](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/) recurso.
 
-Este exemplo mostra a flexibilidade da plataforma, onde você pode criar módulos personalizados semelhantes ao módulo Umbraco Courier para gerenciar a implantação entre ambientes.
+Este exemplo mostra Olá flexibilidade da plataforma Olá onde você pode criar módulos personalizados semelhante tooUmbraco Courier toomanage a implantação do módulo em ambientes.
 
 ## <a name="references"></a>Referências
 [Desenvolvimento de software Agile com o Serviço de Aplicativo do Azure](app-service-agile-software-development.md)
 
 [Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure](web-sites-staged-publishing.md)
 
-[Como bloquear acesso via Web a slots de implantação de não produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
+[Como o web tooblock acessar slots de implantação de produção toonon](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)

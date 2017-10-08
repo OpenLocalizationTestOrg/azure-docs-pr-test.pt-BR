@@ -1,5 +1,5 @@
 ---
-title: Script do PowerShell para criar um recurso do Application Insights | Microsoft Docs
+title: aaaPowerShell script toocreate um recurso do Application Insights | Microsoft Docs
 description: "Automatize a criação de recursos do Application Insights."
 services: application-insights
 documentationcenter: windows
@@ -13,28 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2016
 ms.author: bwren
-ms.openlocfilehash: a828af9c7d207dd84cc626fc70206018fd67e2dd
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 2ac00376d38026d64c2c5deabfaca60588924510
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="powershell-script-to-create-an-application-insights-resource"></a>Script do PowerShell para criar um recurso do Application Insights
+# <a name="powershell-script-toocreate-an-application-insights-resource"></a>Toocreate de script do PowerShell um recurso do Application Insights
 
 
-Quando você deseja monitorar um novo aplicativo, ou uma nova versão de um aplicativo, com o [Azure Application Insights](https://azure.microsoft.com/services/application-insights/), você configura um novo recurso no Microsoft Azure. Este recurso é o local no qual os dados de telemetria do seu aplicativo são analisados e exibidos. 
+Quando você deseja toomonitor um novo aplicativo - ou uma nova versão de um aplicativo - com [Azure Application Insights](https://azure.microsoft.com/services/application-insights/), defina um novo recurso no Microsoft Azure. Esse recurso é onde os dados de telemetria de saudação do seu aplicativo são analisados e exibidos. 
 
-Você pode automatizar a criação de um novo recurso usando o PowerShell.
+Você pode automatizar a criação de um novo recurso hello usando o PowerShell.
 
-Por exemplo, se você estiver desenvolvendo um aplicativo de dispositivo móvel, é provável que, a qualquer momento, haverá várias versões publicadas do seu aplicativo em uso por seus clientes. Não é recomendável obter os resultados da telemetria de diferentes versões misturadas. Por isso, obtenha seu processo de compilação para criar um novo recurso para cada compilação.
+Por exemplo, se você estiver desenvolvendo um aplicativo de dispositivo móvel, é provável que, a qualquer momento, haverá várias versões publicadas do seu aplicativo em uso por seus clientes. Você não deseja que os resultados de telemetria Olá tooget de diferentes versões misturadas. Para que você obtenha um novo recurso de seu toocreate do processo de compilação para cada compilação.
 
 > [!NOTE]
-> Se você quiser criar um conjunto de recursos ao mesmo tempo, considere [criar os recursos usando um modelo do Azure](app-insights-powershell.md).
+> Se você quiser que um conjunto de recursos todos toocreate Olá mesmo tempo, considere [criar hello recursos usando um modelo do Azure](app-insights-powershell.md).
 > 
 > 
 
-## <a name="script-to-create-an-application-insights-resource"></a>Script para criar um recurso do Application Insights
-Consulte as especificações do cmdlet relevante:
+## <a name="script-toocreate-an-application-insights-resource"></a>Script toocreate um recurso do Application Insights
+Consulte as especificações de cmdlet relevante hello:
 
 * [New-AzureRmResource](https://msdn.microsoft.com/library/mt652510.aspx)
 * [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt678995.aspx)
@@ -48,31 +48,31 @@ Consulte as especificações do cmdlet relevante:
 # Set Values
 ###########################################
 
-# If running manually, uncomment before the first 
-# execution to login to the Azure Portal:
+# If running manually, uncomment before hello first 
+# execution toologin toohello Azure Portal:
 
 # Add-AzureRmAccount / Login-AzureRmAccount
 
-# Set the name of the Application Insights Resource
+# Set hello name of hello Application Insights Resource
 
 $appInsightsName = "TestApp"
 
-# Set the application name used for the value of the Tag "AppInsightsApp" 
+# Set hello application name used for hello value of hello Tag "AppInsightsApp" 
 
 $applicationTagName = "MyApp"
 
-# Set the name of the Resource Group to use.  
-# Default is the application name.
+# Set hello name of hello Resource Group toouse.  
+# Default is hello application name.
 $resourceGroupName = "MyAppResourceGroup"
 
 ###################################################
-# Create the Resource and Output the name and iKey
+# Create hello Resource and Output hello name and iKey
 ###################################################
 
-# Select the azure subscription
+# Select hello azure subscription
 Select-AzureSubscription -SubscriptionName "MySubscription"
 
-# Create the App Insights Resource
+# Create hello App Insights Resource
 
 
 $resource = New-AzureRmResource `
@@ -84,7 +84,7 @@ $resource = New-AzureRmResource `
   -PropertyObject @{"Application_Type"="web"} `
   -Force
 
-# Give owner access to the team
+# Give owner access toohello team
 
 New-AzureRmRoleAssignment `
   -SignInName "myteam@fabrikam.com" `
@@ -98,10 +98,10 @@ Write-Host "IKey = " $resource.Properties.InstrumentationKey
 
 ```
 
-## <a name="what-to-do-with-the-ikey"></a>O que fazer com o iKey
-Cada recurso é identificado por sua chave de instrumentação (iKey). O iKey é uma saída do script de criação de recursos. Seu script de compilação deve fornecer o iKey para o SDK do Application Insights inserido no seu aplicativo.
+## <a name="what-toodo-with-hello-ikey"></a>Quais toodo com iKey Olá
+Cada recurso é identificado por sua chave de instrumentação (iKey). Olá iKey é uma saída do script de criação de recursos de saudação. O script de compilação deve fornecer Olá iKey toohello que SDK do Application Insights inserido em seu aplicativo.
 
-Há duas maneiras de disponibilizar o iKey para o SDK:
+Há duas maneiras toomake Olá iKey disponível toohello SDK:
 
 * No [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md): 
   * `<instrumentationkey>`*ikey*`</instrumentationkey>`

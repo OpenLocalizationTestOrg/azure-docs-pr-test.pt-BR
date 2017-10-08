@@ -1,6 +1,6 @@
 ---
-title: "Usar o portal do Azure para uma introdução ao Data Lake Store | Microsoft Docs"
-description: "Use o portal do Azure para criar uma conta do Data Lake Store e executar operações básicas no Data Lake Store"
+title: "Introdução de aaaUse tooget portal do Azure ao repositório Data Lake | Microsoft Docs"
+description: "Use Olá toocreate portal do Azure uma conta do repositório Data Lake e executar operações básicas em Olá repositório Data Lake"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/06/2017
 ms.author: nitinme
-ms.openlocfilehash: fa13266993017374ba49709f8e22fbe6b03a28c7
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 6bb3413f00bfa4393f08aed18bc1d5f8a2f28fc5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Introdução ao Azure Data Lake Store usando o portal do Azure
+# <a name="get-started-with-azure-data-lake-store-using-hello-azure-portal"></a>Introdução ao repositório Azure Data Lake usando Olá portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -33,43 +33,43 @@ ms.lasthandoff: 08/18/2017
 >
 > 
 
-Saiba como usar o portal do Azure para criar uma conta do Azure Data Lake Store e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta etc. Para obter mais informações, consulte [Visão geral do Azure Data Lake Store](data-lake-store-overview.md).
+Saiba como toouse Olá toocreate portal do Azure uma conta do repositório Azure Data Lake e executar operações básicas de como criar pastas, carregar e baixar arquivos de dados, exclua sua conta, etc. Para obter mais informações, consulte [Visão geral do Azure Data Lake Store](data-lake-store-overview.md).
 
-Os dois vídeos a seguir contêm as mesmas informações conforme descrito neste artigo:
+Olá dois vídeos a seguir contêm Olá as mesmas informações conforme descrito neste artigo:
 
 * [Criar uma conta do Repositório Data Lake](https://mix.office.com/watch/1k1cycy4l4gen)
-* [Gerenciar dados no Repositório Data Lake usando o Explorador de Dados](https://mix.office.com/watch/icletrxrh6pc)
+* [Gerenciar dados no repositório Data Lake usando Olá Explorador de dados](https://mix.office.com/watch/icletrxrh6pc)
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar este tutorial, você deve ter os seguintes itens:
+Antes de começar este tutorial, você deve ter Olá itens a seguir:
 
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-an-azure-data-lake-store-account"></a>Criar uma conta do Repositório Azure Data Lake
 
-1. Inscreva-se no novo [portal do Azure](https://portal.azure.com).
-2. Clique em **NOVO**, clique em **Dados + Armazenamento** e clique em **Azure Data Lake Store**. Leia as informações na folha **Azure Data Lake Store** e clique em **Criar** no canto inferior esquerdo da folha.
-3. Na folha **Novo Data Lake Store**, forneça os valores conforme mostrado na captura de tela a seguir:
+1. Logon toohello novo [portal do Azure](https://portal.azure.com).
+2. Clique em **NOVO**, clique em **Dados + Armazenamento** e clique em **Azure Data Lake Store**. Ler informações de Olá Olá **repositório Azure Data Lake** folha e depois clique em **criar** na Olá inferior esquerda da folha de saudação.
+3. Em Olá **novo repositório do Data Lake** folha, forneça os valores hello, conforme mostrado na Olá captura de tela a seguir:
    
     ![Criar uma nova conta do Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Criar uma nova conta do Azure Data Lake Store")
    
-   * **Nome**. Insira um nome exclusivo para a conta do Data Lake Store.
-   * **Assinatura**. Selecione a assinatura na qual você deseja criar uma nova conta do Data Lake Store.
-   * **Grupo de Recursos**. Selecione um grupo de recursos existente ou selecione a opção **Criar novo** para criar um. Um grupo de recursos é um contêiner que mantém os recursos relacionados para um aplicativo. Para saber mais, consulte [Grupos de Recursos no Azure](../azure-resource-manager/resource-group-overview.md#resource-groups).
-   * **Local**: selecione um local no qual você deseja criar a conta do Data Lake.
+   * **Nome**. Insira um nome exclusivo para Olá conta do repositório Data Lake.
+   * **Assinatura**. Selecione a assinatura Olá sob a qual você deseja toocreate uma nova conta do repositório Data Lake.
+   * **Grupo de Recursos**. Selecione um grupo de recursos existente ou selecione Olá **criar novo** toocreate opção um. Um grupo de recursos é um contêiner que mantém os recursos relacionados para um aplicativo. Para saber mais, consulte [Grupos de Recursos no Azure](../azure-resource-manager/resource-group-overview.md#resource-groups).
+   * **Local**: selecione um local onde deseja que a conta de repositório Data Lake toocreate hello.
    * **Configurações de Criptografia**. Há três opções:
      
      * **Não habilite a criptografia**.
-     * **Use chaves gerenciadas pelo Azure Data Lake**.  se quiser que o Azure Data Lake Store gerencie suas chaves de criptografia.
-     * **Escolha as chaves no Azure Key Vault**. Você pode selecionar um Azure Key Vault existente ou criar um novo Key Vault. Para usar as chaves em um Key Vault, você deve atribuir permissões para a conta do Azure Data Lake Store para acessar o Azure Key Vault. Para obter instruções, consulte [Atribuir permissões ao Azure Key Vault](#assign-permissions-to-azure-key-vault).
+     * **Use chaves gerenciadas pelo Azure Data Lake**.  Se você quiser repositório Azure Data Lake toomanage suas chaves de criptografia.
+     * **Escolha as chaves no Azure Key Vault**. Você pode selecionar um Azure Key Vault existente ou criar um novo Key Vault. chaves de saudação toouse de um cofre de chave, você deve atribuir permissões para Olá conta do repositório Azure Data Lake tooaccess hello Azure Key Vault. Para obter instruções hello, consulte [atribuir permissões tooAzure Cofre de chaves](#assign-permissions-to-azure-key-vault).
        
         ![Criptografia do Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Criptografia do Data Lake Store")
        
-        Clique em **OK** na folha **Configurações de Criptografia**.
+        Clique em **Okey** em Olá **configurações de criptografia** folha.
 
         Para obter mais informações, consulte [Criptografia dos dados no Azure Data Lake Store](./data-lake-store-encryption.md).
 
-4. Clique em **Criar**. Se você escolher fixar a conta no painel, você será levado de volta para o painel e poderá ver o progresso de seu provisionamento de conta do Data Lake Store. Após o provisionamento da conta do Repositório Data Lake, a folha da conta será exibida.
+4. Clique em **Criar**. Se você escolher o painel da toohello toopin Olá conta, é exibida novamente o painel de toohello e você pode ver o progresso de saudação do seu provisionamento de conta do repositório Data Lake. Uma vez Olá conta do repositório Data Lake é provisionado, folha de conta Olá aparece.
 
 Você também pode criar uma conta do Data Lake Store usando modelos do Azure Resource Manager. Esses modelos são acessíveis nos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/?term=data+lake+store):
 
@@ -77,56 +77,56 @@ Você também pode criar uma conta do Data Lake Store usando modelos do Azure Re
 - Com criptografia de dados usando o Data Lake Store: [Implantar conta do Data Lake Store com criptografia (Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
 - Com criptografia de dados usando o Azure Key Vault: [Implantar conta do Data Lake Store com criptografia (Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
 
-### <a name="assign-permissions-to-azure-key-vault"></a>Atribuir permissões ao Azure Key Vault
-Se você tiver usado as chaves de um Cofre de Chaves do Azure para configurar a criptografia na conta do Data Lake Store, deverá configurar o acesso entre a conta do Data Lake Store e a conta do Cofre de Chaves do Azure. Execute as seguintes etapas para fazê-lo.
+### <a name="assign-permissions-to-azure-key-vault"></a>Atribuir permissões tooAzure Cofre de chaves
+Se você usou as chaves de criptografia de tooconfigure um cofre de chaves do Azure na conta do repositório Data Lake do hello, configure o acesso entre contas de repositório Data Lake hello e hello Azure Key Vault. Execute Olá toodo as etapas a seguir assim.
 
-1. Se você tiver usado as chaves do Cofre de Chaves do Azure, a folha da conta do Data Lake Store exibirá um aviso na parte superior. Clique no aviso para abrir a folha **Configurar permissões do Cofre de Chaves**.
+1. Se você usou as chaves da saudação Cofre de chaves do Azure, folha Olá para Olá conta do repositório Data Lake exibirá um aviso na parte superior da saudação. Clique em Olá Olá de tooopen aviso **configurar permissões de Cofre de chave** folha.
    
     ![Criptografia do Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Criptografia do Data Lake Store")
-2. A folha mostra duas opções para configurar o acesso.
+2. folha de saudação mostra duas opções tooconfigure acesso.
    
-   * Na primeira opção, clique em **Conceder Permissão** para configurar o acesso. A primeira opção só será habilitada quando o usuário que criou a conta do Data Lake Store também for um administrador do Cofre de Chaves do Azure.
-   * A outra opção é executar o cmdlet do PowerShell exibido na folha. Você precisa ser o proprietário do Cofre de Chaves do Azure ou ter a capacidade de conceder permissões no Cofre de Chaves do Azure. Depois de executar o cmdlet, volte para a folha e clique em **Habilitar** para configurar o acesso.
+   * Opção de primeira hello, clique em **conceder permissão** tooconfigure acesso. opção primeira Olá é habilitada somente quando o usuário Olá que criou a conta do repositório Data Lake Olá também é um administrador de saudação Cofre de chaves do Azure.
+   * Olá, outra opção é cmdlet do PowerShell Olá toorun exibida na folha de saudação. Você precisa toobe proprietário Olá Olá Cofre de chaves do Azure ou ter permissões de toogrant de capacidade de Olá Olá Cofre de chaves do Azure. Depois de executar o cmdlet hello, volte a folha de toohello e clique em **habilitar** tooconfigure acesso.
 
 ## <a name="createfolder"></a>Criar pastas na conta do Repositório Azure Data Lake
-Você pode criar pastas em sua conta do Repositório Data Lake para gerenciar e armazenar dados.
+Você pode criar pastas em seu toomanage de conta do repositório Data Lake e armazenar dados.
 
-1. Abra a conta do Data Lake Store que você criou. No painel esquerdo, clique em **Procurar**, clique em **Data Lake Store** e, na folha Data Lake Store, clique no nome da conta sob a qual você deseja criar as pastas. Se você tiver fixado a conta no quadro inicial, clique no bloco da conta.
+1. Abrir conta de repositório Data Lake Olá que você criou. No painel esquerdo do hello, clique em **procurar**, clique em **repositório Data Lake**e clique em nome da conta Olá sob a qual você deseja toocreate pastas da folha de repositório Data Lake hello,. Se você fixou Olá quadro inicial toohello de conta, clique em bloco essa conta.
 2. Na folha de sua conta do Repositório Data Lake, clique em **Gerenciador de Dados**.
    
     ![Criar pastas na conta do Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Criar pastas na conta do Data Lake Store")
-3. Na folha de sua conta do Data Lake Store, clique em **Nova Pasta**, insira um nome para a nova pasta e clique em **OK**.
+3. Na folha de conta seu repositório Data Lake, clique em **nova pasta**, insira um nome para a nova pasta de saudação e, em seguida, clique em **Okey**.
    
     ![Criar pastas na conta do Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Criar pastas na conta do Data Lake Store")
    
-    A pasta recém-criada é listada na folha **Data Explorer**. Você pode criar pastas aninhadas em qualquer nível.
+    pasta Olá recém-criado está listada no hello **Data Explorer** folha. Você pode criar pastas aninhadas em qualquer nível.
    
     ![Criar pastas na conta do Data Lake](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Criar pastas na conta do Data Lake")
 
-## <a name="uploaddata"></a>Carregar dados na conta do Repositório Azure Data Lake
-É possível carregar seus dados em uma conta do Repositório Data Lake diretamente no nível da raiz ou em uma pasta que você criou na conta. Na captura de tela a seguir, acompanhe as etapas para carregar um arquivo em uma subpasta na folha **Data Explorer**. Nessa captura de tela, o arquivo é carregado em uma subpasta mostrada no caminho navegado (marcado em uma caixa vermelha).
+## <a name="uploaddata"></a>Carregar conta de repositório Data Lake tooAzure dados
+Você pode carregar seu tooan dados conta do repositório Azure Data Lake diretamente no hello nível ou tooa pasta raiz que você criou na conta de saudação. Olá seguinte captura de tela, siga tooupload de etapas de saudação uma subpasta de tooa do arquivo de saudação **Data Explorer** folha. Nesta captura de tela, o arquivo de saudação é carregado tooa subpasta mostrada na trilha de saudação (marcada por uma caixa vermelha).
 
-Se estiver procurando alguns dados de exemplo para carregar, é possível obter a pasta **Dados da Ambulância** no [Repositório Git do Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
+Se você estiver procurando por alguns tooupload de dados de exemplo, você pode obter Olá **ambulância dados** pasta Olá [repositório Git do Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 ![Carregar dados](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Carregar dados")
 
-## <a name="properties"></a>Propriedades e ações disponíveis para os dados armazenados
-Clique no arquivo recém-adicionado para abrir a folha **Propriedades** . As propriedades associadas ao arquivo e as ações que você pode executar no arquivo estão disponíveis nesta folha. Você também pode copiar o caminho completo para o arquivo em sua conta do Azure Data Lake Store, em destaque na caixa vermelha na captura de tela a seguir:
+## <a name="properties"></a>Propriedades e ações disponíveis no hello dados armazenados
+Clique em Olá Olá de tooopen de arquivo recém adicionada **propriedades** folha. Propriedades de saudação associadas ao arquivo hello e ações de saudação, que você pode executar no arquivo hello estão disponíveis nessa folha. Você também pode copiar Olá caminho completo toofile em sua conta do repositório Azure Data Lake, realçada na caixa Olá vermelho no hello captura de tela a seguir:
 
-![Propriedades nos dados](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Propriedades nos dados")
+![Propriedades de dados saudação](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "propriedades nos dados Olá")
 
-* Clique em **Visualizar** para uma visualização do arquivo, diretamente do navegador. Você também pode especificar o formato da visualização. Clique em **Visualização**, clique em **Formato** na folha **Visualização de Arquivo** e, na folha **Formato de Visualização do Arquivo**, especifique as opções, como o número de linhas para exibição, codificação a ser usada, o delimitador, etc.
+* Clique em **visualização** toosee uma visualização de arquivo hello, diretamente do navegador de saudação. Você pode especificar o formato de saudação de visualização de saudação também. Clique em **visualização**, clique em **formato** em Olá **a visualização de arquivo** folha e em Olá **formato de arquivo de visualização** folha especificar Olá opções tais como como o número de linhas toodisplay, codificação toouse toouse delimitador, etc.
   
   ![Formato de arquivo de visualização](./media/data-lake-store-get-started-portal/ADL.File.Preview.png "Formato de arquivo de visualização")
-* Clique em **Baixar** para baixar o arquivo em seu computador.
-* Clique em **Renomear arquivo** para renomear o arquivo.
-* Clique em **Excluir arquivo** para excluir o arquivo.
+* Clique em **baixar** computador de tooyour toodownload Olá arquivo.
+* Clique em **renomear arquivo** toorename arquivo de saudação.
+* Clique em **excluir arquivo** toodelete arquivo de saudação.
 
 ## <a name="secure-your-data"></a>Proteja seus dados
-Você pode proteger os dados armazenados em sua conta do Repositório Azure Data Lake usando o Active Directory do Azure e o controle de acesso (ACLs). Para obter instruções sobre como fazer isso, consulte [Protegendo dados no Repositório Azure Data Lake](data-lake-store-secure-data.md).
+Você pode proteger dados Olá armazenados na conta do repositório Azure Data Lake usando o Active Directory do Azure e controle de acesso (ACLs). Para obter instruções sobre como toodo que, consulte [proteção de dados no repositório Azure Data Lake](data-lake-store-secure-data.md).
 
 ## <a name="delete-azure-data-lake-store-account"></a>Excluir a conta do Repositório Azure Data Lake
-Para excluir uma conta do Repositório Azure Data Lake da folha de seu Repositório Data Lake, clique em **Excluir**. Para confirmar a ação, você receberá uma solicitação para inserir o nome da conta que você deseja excluir. Insira o nome da conta e clique em **Excluir**.
+toodelete uma conta do repositório Azure Data Lake, na folha seu repositório Data Lake, clique **excluir**. ação de saudação tooconfirm, será nome de saudação do tooenter solicitadas da conta de Olá que desejar toodelete. Insira nome de saudação da conta de saudação e, em seguida, clique em **excluir**.
 
 ![Excluir conta do Data Lake](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Excluir conta do Data Lake")
 

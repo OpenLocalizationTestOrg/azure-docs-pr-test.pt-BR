@@ -1,6 +1,6 @@
 ---
-title: Particionamento e escala no Azure Cosmos DB | Microsoft Docs
-description: "Saiba mais sobre como o particionamento funciona no DB Cosmos do Azure, como configurar o particionamento e as chaves de partição e como escolher a chave de partição correta para seu aplicativo."
+title: aaaPartitioning e escala no banco de dados do Azure Cosmos | Microsoft Docs
+description: "Saiba mais sobre como particionamento funciona no banco de dados do Azure Cosmos, como particionamento tooconfigure e chaves de partição e como toopick Olá direito chave da partição para seu aplicativo."
 services: cosmos-db
 author: arramac
 manager: jhubbard
@@ -15,27 +15,27 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81010d91ac7fe8fa7149c52ed56af304cf4e83d9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 30621d2ba0b89efb72005680d5f3a73998347514
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>Particionamento no Azure Cosmos DB usando a API do DocumentDB
+# <a name="partitioning-in-azure-cosmos-db-using-hello-documentdb-api"></a>Particionamento no banco de dados do Cosmos do Azure usando Olá API DocumentDB
 
-O [DB Cosmos do Microsoft Azure](../cosmos-db/introduction.md) é um serviço com vários modelos de banco de dados, distribuído globalmente, que foi criado para ajudá-lo a obter um desempenho rápido e previsível e a dimensionar continuamente conforme o crescimento de seu aplicativo. 
+[Banco de dados do Microsoft Azure Cosmos](../cosmos-db/introduction.md) é toohelp de serviço criado um banco de dados distribuído, vários modelos global você alcançar desempenho rápido e previsível e escalabilidade perfeitamente junto com seu aplicativo à medida que cresce. 
 
-Este artigo fornece uma visão geral de como trabalhar com o particionamento de contêineres do Cosmos DB com a API do DocumentDB. Consulte [particionamento e escala horizontal](../cosmos-db/partition-data.md) para obter uma visão geral dos conceitos e das melhores práticas de particionamento com uma API do Azure Cosmos DB. 
+Este artigo fornece uma visão geral de como toowork com o particionamento de banco de dados do Cosmos contêineres com hello API DocumentDB. Consulte [particionamento e escala horizontal](../cosmos-db/partition-data.md) para obter uma visão geral dos conceitos e das melhores práticas de particionamento com uma API do Azure Cosmos DB. 
 
-Para começar a codificar, baixe o projeto no [GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
+tooget iniciada com o código, baixe o projeto de saudação do [Github](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
 
-Depois de ler este artigo, você poderá responder as seguintes perguntas:   
+Depois de ler este artigo, você será capaz de tooanswer Olá perguntas a seguir:   
 
 * Como funciona o particionamento no Azure Cosmos DB?
 * Como fazer para configurar o particionamento no Azure Cosmos DB?
-* O que são chaves de partição e como escolher a chave de partição correta para meu aplicativo?
+* Quais são as chaves de partição, e como escolher a chave de partição correta de saudação para meu aplicativo?
 
-Para começar a codificar, baixe o projeto na [Amostra de Test Drive de Desempenho do Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
+tooget iniciada com o código, baixe o projeto de saudação do [exemplo de Driver de teste do Azure Cosmos DB desempenho](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
 
 <!-- placeholder until we have a permanent solution-->
 <a name="partition-keys"></a>
@@ -44,7 +44,7 @@ Para começar a codificar, baixe o projeto na [Amostra de Test Drive de Desempen
 
 ## <a name="partition-keys"></a>Chaves de partição
 
-Na API do DocumentDB, você especifica a definição da chave de partição na forma de um caminho JSON. A tabela a seguir mostra exemplos de definições de chave de partição e os valores correspondentes a cada uma. A chave de partição é especificada como um caminho, por exemplo, `/department` representa o departamento de propriedade. 
+Olá API DocumentDB, você especifica a definição de chave de partição Olá na forma de saudação de um caminho JSON. Olá tabela a seguir mostra exemplos de definições de chave de partição e valores hello correspondente tooeach. chave de partição Olá é especificado como um caminho, por exemplo, `/department` representa Olá departamento de propriedade. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -54,43 +54,43 @@ Na API do DocumentDB, você especifica a definição da chave de partição na f
         </tr>
         <tr>
             <td valign="top"><p>/department</p></td>
-            <td valign="top"><p>Corresponde ao valor de doc.department, em que doc é o item.</p></td>
+            <td valign="top"><p>Corresponde o valor toohello doc.department onde o documento é o item de saudação.</p></td>
         </tr>
         <tr>
             <td valign="top"><p>/properties/name</p></td>
-            <td valign="top"><p>Corresponde ao valor de doc.properties.name, em que doc é o item (propriedade aninhada).</p></td>
+            <td valign="top"><p>Corresponde o valor de toohello de doc.properties.name onde o documento é o item de saudação (propriedade aninhada).</p></td>
         </tr>
         <tr>
             <td valign="top"><p>/id</p></td>
-            <td valign="top"><p>Corresponde ao valor de doc.id (a ID e a chave de partição são a mesma propriedade).</p></td>
+            <td valign="top"><p>Corresponde o valor de toohello de doc.id (chave de id e a partição são Olá mesmo propriedade).</p></td>
         </tr>
         <tr>
             <td valign="top"><p>/"nome do departamento"</p></td>
-            <td valign="top"><p>Corresponde ao valor de doc[“nome do departamento”], em que doc é o item.</p></td>
+            <td valign="top"><p>Corresponde o valor toohello doc ["nome do departamento"] onde o documento é o item de saudação.</p></td>
         </tr>
     </tbody>
 </table>
 
 > [!NOTE]
-> A sintaxe da chave de partição é semelhante à especificação de caminho para caminhos de política de indexação, com a diferença básica de que o caminho corresponde à propriedade em vez do valor, ou seja, não há nenhum caractere curinga no final. Por exemplo, você especificaria /department/? para indexar os valores de departamento, mas especificaria /department como a definição de chave de partição. A chave de partição é indexada implicitamente e não pode ser excluída da indexação com substituições de política de indexação.
+> sintaxe Olá para chave de partição é especificação de caminho toohello semelhante para caminhos de política de indexação com diferença chave Olá Olá caminho corresponde a propriedade toohello em vez do valor de hello, ou seja, não há nenhum caractere curinga no final da saudação. Por exemplo, você especificaria /department/? Olá tooindex valores em departamento, mas Especifica /department como definição de chave de partição de saudação. chave de partição Olá implicitamente é indexada e não pode ser excluído da indexação usando substituições de política de indexação.
 > 
 > 
 
-Vamos analisar como a opção da chave de partição afeta o desempenho do aplicativo.
+Vamos examinar como opção de saudação de chave de partição afeta o desempenho de saudação do seu aplicativo.
 
-## <a name="working-with-the-azure-cosmos-db-sdks"></a>Trabalhando com SDKs do Azure Cosmos DB
-O Azure Cosmos DB adicionou suporte ao particionamento automático na [API REST versão 2015-12-16](/rest/api/documentdb/). Para criar contêineres particionados, você deve baixar versões do SDK 1.6.0 ou mais novas em uma das plataformas do SDK com suporte (.NET, Node.js, Java, Python, MongoDB). 
+## <a name="working-with-hello-azure-cosmos-db-sdks"></a>Trabalhando com hello SDKs do banco de dados do Azure Cosmos
+O Azure Cosmos DB adicionou suporte ao particionamento automático na [API REST versão 2015-12-16](/rest/api/documentdb/). Em contêineres de toocreate particionado de ordem, você deve baixar versões do SDK 1.6.0 ou suporte mais recente, em uma saudação plataformas SDK (.NET, Node.js, Java, Python, MongoDB). 
 
 ### <a name="creating-containers"></a>Criando contêineres
-O exemplo a seguir mostra um trecho do .NET para criação de um contêiner para armazenar dados telemétricos do dispositivo de 20.000 unidades de solicitação por segundo de produtividade. O SDK define o valor de OfferThroughput (que por sua vez define o cabeçalho de solicitação `x-ms-offer-throughput` na API REST). Aqui, definimos `/deviceId` como a chave de partição. A opção de chave de partição é salva com o restante dos metadados do contêiner, como nome e política de indexação.
+Olá exemplo a seguir mostra um toocreate de trecho de código .NET dados de telemetria de dispositivo um contêiner toostore 20.000 de unidades de solicitação por segundo de taxa de transferência. Olá SDK define o valor de OfferThroughput de saudação (que por sua vez define Olá `x-ms-offer-throughput` cabeçalho de solicitação na Olá REST API). Aqui vamos definir Olá `/deviceId` como chave de partição hello. opção de saudação de chave de partição é salvo junto com o restante Olá Olá metadados do contêiner como o nome e a política de indexação.
 
-Para este exemplo, escolhemos `deviceId` , pois sabemos que (a) uma vez que há um grande número de dispositivos, as gravações podem ser distribuídas uniformemente nas partições e nos permite dimensionar o banco de dados para incluir grandes volumes de dados e (b) muitas solicitações como buscar a última leitura para um dispositivo limitam-se a um único deviceId e podem ser recuperadas de uma única partição.
+Para este exemplo, escolhemos `deviceId` como sabemos que (a) uma vez que há um grande número de dispositivos, gravações podem ser distribuídas uniformemente em partições e possibilitando tooscale Olá banco de dados tooingest grandes volumes de dados e (b) muitas solicitações hello como busca de leitura mais recente Olá para um dispositivo são deviceId único tooa no escopo e podem ser recuperados de uma única partição.
 
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 await client.CreateDatabaseAsync(new Database { Id = "db" });
 
-// Container for device telemetry. Here the property deviceId will be used as the partition key to 
+// Container for device telemetry. Here hello property deviceId will be used as hello partition key too
 // spread across partitions. Configured for 10K RU/s throughput and an indexing policy that supports 
 // sorting against any number or string property.
 DocumentCollection myCollection = new DocumentCollection();
@@ -103,10 +103,10 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 20000 });
 ```
 
-Esse método faz uma chamada à API REST ao Cosmos DB e o serviço provisionará várias partições com base na produtividade solicitada. Você pode alterar a produtividade de um contêiner conforme suas necessidades de desempenho mudarem. 
+Este método faz uma API REST chamar tooCosmos banco de dados e serviço Olá provisionará um número de partições com base na taxa de transferência solicitada hello. Você pode alterar a taxa de transferência de saudação de um contêiner como o desempenho precisa evoluir. 
 
 ### <a name="reading-and-writing-items"></a>Lendo e gravando itens
-Agora, vamos inserir dados no Cosmos DB. Esta é uma classe de exemplo que contém uma leitura de dispositivo e uma chamada a CreateDocumentAsync para inserir uma nova leitura de dispositivo em um contêiner. Este é um exemplo que utiliza a API do DocumentDB:
+Agora, vamos inserir dados no Cosmos DB. Aqui está um exemplo de classe que contém uma leitura do dispositivo e tooinsert de tooCreateDocumentAsync uma chamada de um novo dispositivo de leitura de um contêiner. Este é um exemplo utilizando Olá API DocumentDB:
 
 ```csharp
 public class DeviceReading
@@ -131,7 +131,7 @@ public class DeviceReading
     public double MetricValue;
   }
 
-// Create a document. Here the partition key is extracted as "XMS-0001" based on the collection definition
+// Create a document. Here hello partition key is extracted as "XMS-0001" based on hello collection definition
 await client.CreateDocumentAsync(
     UriFactory.CreateDocumentCollectionUri("db", "coll"),
     new DeviceReading
@@ -145,17 +145,17 @@ await client.CreateDocumentAsync(
     });
 ```
 
-Vamos ler o item pela chave da partição e ID, atualizá-lo e, então, como uma etapa final, excluí-lo pela chave de partição e ID. Observe que as leituras incluem um valor de PartitionKey (correspondente ao cabeçalho de solicitação `x-ms-documentdb-partitionkey` na API REST).
+Vamos ler Olá item por sua chave de partição e a id, atualizá-lo e como uma etapa final, exclua-o por id e a chave de partição. Observe que as leituras de saudação incluem um valor de PartitionKey (correspondente toohello `x-ms-documentdb-partitionkey` cabeçalho de solicitação na Olá API REST).
 
 ```csharp
-// Read document. Needs the partition key and the ID to be specified
+// Read document. Needs hello partition key and hello ID toobe specified
 Document result = await client.ReadDocumentAsync(
   UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
   new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 
 DeviceReading reading = (DeviceReading)(dynamic)result;
 
-// Update the document. Partition key is not required, again extracted from the document
+// Update hello document. Partition key is not required, again extracted from hello document
 reading.MetricValue = 104;
 reading.ReadingTime = DateTime.UtcNow;
 
@@ -170,7 +170,7 @@ await client.DeleteDocumentAsync(
 ```
 
 ### <a name="querying-partitioned-containers"></a>Consultando contêineres particionados
-Quando você consulta dados em contêineres particionados, o Azure Cosmos DB encaminha automaticamente a consulta para as partições que correspondem aos valores de chave de partição especificados no filtro (se houver). Por exemplo, esta consulta é roteada para apenas a partição que contém a chave de partição "XMS-0001".
+Quando você consulta dados em contêineres particionados, o banco de dados do Cosmos automaticamente rotas Olá partições toohello de consulta correspondente valores de chave de partição do toohello especificados no filtro de saudação (se houver). Por exemplo, esta consulta é roteado toojust Olá partição contendo Olá chave de partição "XMS-0001".
 
 ```csharp
 // Query using partition key
@@ -179,7 +179,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
     .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
 ```
     
-A consulta a seguir não tem um filtro na chave de partição (DeviceId) e é distribuída para todas as partições em que ela é executada no índice da partição. Observe que você precisa especificar o EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` na API REST) para fazer com que o SDK execute uma consulta em partições.
+Olá consulta a seguir não tem um filtro na chave de partição da saudação (DeviceId) e é leque exibindo tooall partições onde ela é executada no índice da partição Olá. Observe que você tem Olá toospecify EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` em Olá API REST) toohave Olá SDK tooexecute uma consulta em partições.
 
 ```csharp
 // Query across partition keys
@@ -189,10 +189,10 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-O Cosmos DB dá suporte a [funções de agregação](documentdb-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` e `AVG` em contêineres particionados usando SQL, a partir dos SDKs 1.12.0 e posterior. As consultas devem incluir um único operador de agregação e um único valor na projeção.
+O Cosmos DB dá suporte a [funções de agregação](documentdb-sql-query.md#Aggregates) `COUNT`, `MIN`, `MAX`, `SUM` e `AVG` em contêineres particionados usando SQL, a partir dos SDKs 1.12.0 e posterior. Consultas devem incluir um único operador de agregação e devem incluir um valor único na projeção de saudação.
 
 ### <a name="parallel-query-execution"></a>Execução de consulta paralela
-Os SDKs 1.9.0 e posterior do Cosmos DB dão suporte a opções de execução de consulta paralela, que permitem realizar consultas de baixa latência em coleções particionadas, mesmo quando elas precisam acessar um grande número de partições. Por exemplo, a consulta a seguir é configurada para ser executada paralelamente entre partições.
+Olá Cosmos DB SDKs 1.9.0 e acima do opções de execução de consulta paralela, que permitem que você tooperform baixa latência as consultas em coleções particionadas, mesmo quando eles precisarem de tootouch um grande número de partições. Por exemplo, Olá consulta a seguir é toorun configurado em paralelo entre partições.
 
 ```csharp
 // Cross-partition Order By Queries
@@ -203,15 +203,15 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .OrderBy(m => m.MetricValue);
 ```
     
-Você pode gerenciar a execução de consulta paralela ajustando os seguintes parâmetros:
+Você pode gerenciar a execução de consulta paralela ajustando Olá parâmetros a seguir:
 
-* Ao definir `MaxDegreeOfParallelism`, é possível controlar o grau de paralelismo, ou seja, o número máximo de conexões de rede simultâneas às partições do contêiner. Se você definir esse valor como -1, o grau de paralelismo será gerenciado pelo SDK. Se o `MaxDegreeOfParallelism` não for especificado nem definido como 0, que é o valor padrão, haverá uma única conexão de rede às partições do contêiner.
-* Definindo `MaxBufferedItemCount`, você pode compensar a latência da consulta e a utilização da memória no lado do cliente. Se você omitir esse parâmetro ou defini-lo como -1, o número de itens armazenados em buffer durante a execução da consulta paralela será gerenciado pelo SDK.
+* Definindo `MaxDegreeOfParallelism`, você pode controlar o grau de paralelismo, ou seja, Olá de número máximo de partições do contêiner de rede simultâneas conexões toohello hello. Se você definir muito-1, o grau de paralelismo Olá é gerenciado pelo Olá SDK. Se hello `MaxDegreeOfParallelism` não for especificado ou definido too0, que é o valor padrão de saudação, haverá partições de uma única rede conexão toohello contêiner.
+* Definindo `MaxBufferedItemCount`, você pode compensar a latência da consulta e a utilização da memória no lado do cliente. Se você omite esse parâmetro ou defina muito-1, número de saudação de itens em buffer durante a execução de consulta paralela é gerenciado pelo Olá SDK.
 
-Dado o mesmo estado da coleção, uma consulta paralela retornará resultados na mesma ordem da execução serial. Ao executar uma consulta entre partições que inclui classificação (ORDER BY e/ou TOP), o SDK do Azure Cosmos DB emite a consulta paralelamente entre partições e mescla os resultados parcialmente classificados no lado do cliente para produzir resultados ordenados globalmente.
+Considerando Olá mesmo estado da coleção hello, uma consulta paralela retornará resultados Olá mesma ordem como em execução em série. Ao executar uma consulta entre partições que inclui a classificação (ORDER BY e/ou superior), problemas de banco de dados do SDK do Azure Cosmos Olá Olá consulta em paralelo em partições e mesclagens resultados parcialmente classificados no hello cliente lado tooproduce resultados ordenados globalmente.
 
 ### <a name="executing-stored-procedures"></a>Executando procedimentos armazenados
-Você também poderá executar transações atômicas em documentos com a mesma ID de dispositivo, por exemplo, se estiver mantendo agregações ou o último estado de um dispositivo em um único item. 
+Você também pode executar transações atômicas em relação a documentos com hello a mesma ID de dispositivo, por exemplo, se você estiver mantendo agregações ou Olá estado mais recente de um dispositivo em um único item. 
 
 ```csharp
 await client.ExecuteStoredProcedureAsync<DeviceReading>(
@@ -220,12 +220,12 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
     "XMS-001-FE24C");
 ```
    
-Na próxima seção, examinaremos como é possível passar de contêineres de partição única para contêineres particionados.
+Na próxima seção, Olá, vamos examinar como você pode mover toopartitioned contêineres de contêineres de partição única.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, apresentamos uma visão geral de como trabalhar com o particionamento de contêineres do Azure Cosmos DB com a API do DocumentDB. Consulte também [particionamento e escala horizontal](../cosmos-db/partition-data.md) para obter uma visão geral dos conceitos e das melhores práticas de particionamento com uma API do Azure Cosmos DB. 
+Neste artigo, fornecemos uma visão geral de como toowork com o particionamento do banco de dados do Azure Cosmos contêineres com hello API DocumentDB. Consulte também [particionamento e escala horizontal](../cosmos-db/partition-data.md) para obter uma visão geral dos conceitos e das melhores práticas de particionamento com uma API do Azure Cosmos DB. 
 
 * Executar testes de desempenho e escala com o BD Cosmos do Azure. Consulte [Teste de desempenho e escala com o BD Cosmos do Azure](performance-testing.md) para obter um exemplo.
-* Introdução à codificação com os [SDKs](documentdb-sdk-dotnet.md) ou a [API REST](/rest/api/documentdb/)
+* Introdução a codificação com hello [SDKs](documentdb-sdk-dotnet.md) ou hello [API REST](/rest/api/documentdb/)
 * Saiba mais sobre a [produtividade provisionada no DB Cosmos do Azure](request-units.md)
 

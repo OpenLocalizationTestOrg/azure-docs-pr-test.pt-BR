@@ -1,6 +1,6 @@
 ---
-title: "Sincronização de dados offline em aplicativos móveis do Azure | Microsoft Docs"
-description: "Visão geral e referência conceitual do recurso de sincronização de dados offline para aplicativos móveis do Azure"
+title: "aaaOffline sincronização de dados em aplicativos móveis do Azure | Microsoft Docs"
+description: "Visão geral do recurso de sincronização de dados offline Olá para aplicativos móveis do Azure e referência conceitual"
 documentationcenter: windows
 author: ggailey777
 manager: syntaxc4
@@ -14,27 +14,27 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: glenga
-ms.openlocfilehash: 8e2bd755d14319f8c66f7ae7ec64fbd10801b39d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 58673240ba433651faf1f619ca5da33dd6459d2b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Sincronização de dados offline em Aplicativos Móveis do Azure
 ## <a name="what-is-offline-data-sync"></a>O que é sincronização de dados offline?
-A sincronização de dados offline é um recurso do SDK para cliente e servidor de Aplicativos Móveis do Azure que torna mais fácil para os desenvolvedores criarem aplicativos que funcionem sem uma conexão de rede do servidor.
+Sincronização de dados offline é um cliente e o recurso SDK de aplicativos móveis do Azure que torna mais fácil para os desenvolvedores toocreate aplicativos que são funcionais sem uma conexão de rede do servidor.
 
-Quando seu aplicativo estiver no modo offline, os usuários ainda poderão criar e modificar os dados, que serão salvos em um repositório local. Quando o aplicativo estiver online novamente, você pode sincronizar as alterações locais com o back-end do aplicativo Móvel do Azure. O recurso também inclui suporte para detectar conflitos quando o mesmo registro é alterado no cliente e no back-end. Os conflitos podem ser tratados no servidor ou cliente.
+Quando o aplicativo estiver no modo offline, você pode criar e modificar dados, que são salvo no repositório local tooa. Quando o aplicativo hello está novamente online, ele possa sincronizar as alterações locais com seu back-end do aplicativo do Azure Mobile. recurso Olá também inclui suporte para a detecção de conflitos quando Olá mesmo registro é alterado em ambos Olá cliente e Olá back-end. Conflitos podem ser tratados no servidor de saudação ou cliente hello.
 
 A sincronização offline proporciona vários benefícios:
 
-* Melhora a capacidade de resposta do aplicativo armazenando em cache os dados do servidor localmente no dispositivo
+* Melhorar a capacidade de resposta do aplicativo armazenando dados localmente no dispositivo de saudação do servidor
 * Crie aplicativos robustos que permanecem úteis quando há problemas de rede
-* Permite que usuários finais criem e modifiquem dados mesmo quando não há acesso à rede, com suporte para cenários com pouca ou nenhuma conectividade
-* Sincroniza dados entre vários dispositivos e detecta conflitos quando o mesmo registro é modificado por dois dispositivos
+* Permitir toocreate de usuários finais e modificar dados, mesmo quando não há nenhum acesso de rede, o suporte a cenários com pouca ou nenhuma conectividade
+* Sincronizar dados em vários dispositivos e detectar conflitos quando hello mesmo registro é modificado por dois dispositivos
 * Limite o uso de rede em redes de alta latência ou monitoradas
 
-Os tutoriais a seguir mostram como adicionar sincronização offline para os clientes móveis usando aplicativos móveis do Azure:
+Olá tutoriais a seguir mostra como a sincronização offline tooadd tooyour clientes móveis usando aplicativos móveis do Azure:
 
 * [Android: Habilitar a sincronização offline]
 * [Apache Cordova: habilitar sincronização offline](app-service-mobile-cordova-get-started-offline-data.md)
@@ -45,48 +45,48 @@ Os tutoriais a seguir mostram como adicionar sincronização offline para os cli
 * [Plataforma Universal do Windows: habilitar a sincronização offline]
 
 ## <a name="what-is-a-sync-table"></a>O que é uma tabela de sincronização?
-Para acessar o ponto de extremidade "/tables", os SDKs do cliente móvel do Azure fornecem interfaces como `IMobileServiceTable` (SDK do cliente .NET) ou `MSTable` (cliente iOS). Essas APIs se conectam diretamente ao back-end do Aplicativo Móvel do Azure e falharão se o dispositivo cliente não tiver uma conexão de rede.
+Olá tooaccess "/ tabelas" ponto de extremidade de cliente do Azure Mobile Olá SDKs fornecem interfaces como `IMobileServiceTable` (SDK de cliente .NET) ou `MSTable` (cliente do iOS). Essas APIs se conectar diretamente de back-end de aplicativo do Azure Mobile toohello e falharem se o dispositivo de saudação do cliente não tem uma conexão de rede.
 
-Para oferecer suporte a uso offline, seu aplicativo deve usar as APIs de *tabela de sincronização*, como `IMobileServiceSyncTable` (SDK do cliente .NET) ou `MSSyncTable` (cliente iOS). As mesmas operações CRUD (Criar, Ler, Atualizar e Excluir) funcionam com as APIs de tabela de sincronização, exceto que agora elas leem ou gravam em um *repositório local*. Antes de qualquer operação de tabela de sincronização poder ser executada, o armazenamento local deve ser inicializado.
+uso off-line de toosupport, seu aplicativo deve usar Olá *tabela sincronização* APIs, como `IMobileServiceSyncTable` (SDK de cliente .NET) ou `MSSyncTable` (cliente do iOS). Olá todas as mesmas operações CRUD (criar, ler, atualizar, excluir) funcionam em sincronização APIs de tabela, exceto agora eles leiam ou gravar tooa *repositório local*. Antes de quaisquer operações de tabela de sincronização podem ser executadas, armazenamento local Olá deve ser inicializado.
 
 ## <a name="what-is-a-local-store"></a>O que é um armazenamento local?
-Um armazenamento local é a camada de persistência de dados no dispositivo cliente. Os SDKs de cliente de aplicativos móveis do Azure oferecem uma implementação padrão do armazenamento local. No Windows, Xamarin e Android, ele se baseia em SQLite. No iOS, ele se baseia em Core Data.
+Um repositório local é a camada de persistência de dados Olá no dispositivo de cliente hello. implementação do repositório de cliente de aplicativos do Azure Mobile Olá SDKs fornecem um padrão local. No Windows, Xamarin e Android, ele se baseia em SQLite. No iOS, ele se baseia em Core Data.
 
-Para usar a implementação baseada em SQLite no Windows Phone ou Windows Store 8.1, é preciso instalar uma extensão do SQLite. Para obter mais detalhes, veja [Plataforma Universal do Windows: habilitar a sincronização offline]. Android e iOS são fornecidos com uma versão do SQLite no próprio sistema operacional do dispositivo; portanto, não é necessário fazer referência a sua própria versão do SQLite.
+toouse Olá SQLite implementação baseada no Windows Phone ou da Windows Store 8.1, você precisa tooinstall uma extensão do SQLite. Para obter mais detalhes, veja [Plataforma Universal do Windows: habilitar a sincronização offline]. Android e iOS fornecidos com uma versão do SQLite no dispositivo Olá sistema operacional em si, portanto, não é necessário tooreference sua própria versão do SQLite.
 
-Os desenvolvedores também podem implementar seu próprio armazenamento local. Por exemplo, se você quiser armazenar dados em um formato criptografado no cliente móvel, poderá definir um armazenamento local que usa SQLCipher para criptografia.
+Os desenvolvedores também podem implementar seu próprio armazenamento local. Por exemplo, se você quiser toostore dados em um formato criptografado no cliente móvel Olá, você pode definir um local de armazenamento usa SQLCipher para criptografia.
 
 ## <a name="what-is-a-sync-context"></a>O que é um contexto de sincronização?
-Um *contexto de sincronização* é associado a um objeto de cliente móvel (como `IMobileServiceClient` ou `MSClient`) e rastreia as alterações que são feitas com tabelas de sincronização. O contexto de sincronização mantém uma *fila de operação* que conserva uma lista ordenada de operações CUD (Criar, Atualizar e Excluir) que é posteriormente enviada ao servidor.
+Um *contexto de sincronização* é associado a um objeto de cliente móvel (como `IMobileServiceClient` ou `MSClient`) e rastreia as alterações que são feitas com tabelas de sincronização. contexto de sincronização Olá mantém um *fila de operação*, que mantém uma lista ordenada de operações CUD (Create, Update, Delete) que for posteriormente enviado toohello server.
 
-Um armazenamento local é associado ao contexto de sincronização usando um método initialize como `IMobileServicesSyncContext.InitializeAsync(localstore)` no [SDK do cliente do .NET].
+Um repositório local está associado com o contexto de sincronização hello usando um método de inicialização como `IMobileServicesSyncContext.InitializeAsync(localstore)` em Olá [cliente .NET SDK].
 
 ## <a name="how-sync-works"></a>Como a sincronização offline funciona
-Ao usar tabelas de sincronização, o código do cliente controla quando as alterações locais são sincronizadas com um back-end do aplicativo móvel do Azure. Nada será enviado ao back-end até que haja uma chamada para alterações locais de *push* . Da mesma forma, o armazenamento local é preenchido com dados novos somente quando há uma chamada para dados de *pull* .
+Ao usar tabelas de sincronização, o código do cliente controla quando as alterações locais são sincronizadas com um back-end do aplicativo móvel do Azure. Nenhuma informação será enviada toohello back-end até que haja uma chamada muito*push* alterações locais. Da mesma forma, repositório local Olá é preenchido com os novos dados somente quando há uma chamada muito*pull* dados.
 
-* **Push**: push é uma operação no contexto de sincronização e envia todas as alterações de CUD desde o último envio por push. Observe que não é possível enviar apenas alterações de uma tabela individual, pois as operações poderiam ser enviadas fora da ordem. O envio por push executa uma série de chamadas REST ao back-end do seu aplicativo móvel do Azure, que por sua vez, modifica o banco de dados do servidor.
-* **Pull**: o pull é executado por tabela e pode ser personalizado com uma consulta para recuperar apenas um subconjunto dos dados do servidor. Os SDKs de cliente móvel do Azure inserem então os dados resultantes no armazenamento local.
-* **Pushes implícitos**: se um pull for executado em uma tabela que tenha atualizações locais pendentes, o pull primeiro executará um `push()` no contexto de sincronização. Esse envio por push ajuda a minimizar conflitos entre as alterações que já estão na fila e novos dados do servidor.
-* **Sincronização Incremental**: o primeiro parâmetro para a operação de pull é um *nome de consulta* que é usado apenas no cliente. Se você usar um nome de consulta não nulo, o SDK móvel do Azure executará uma *sincronização incremental*. Cada vez que uma operação de pull retornar um conjunto de resultados, o carimbo de data/hora `updatedAt` mais recente desse conjunto de resultados será armazenado nas tabelas do sistema local do SDK. As operações de pull subsequentes recuperarão somente registros após esse carimbo de data/hora.
+* **Push**: Push é uma operação no contexto de sincronização hello e envia todas as alterações CUD desde push última hello. Observe que ele é toosend não é possível somente alterações de uma tabela individual, pois caso contrário, as operações podem ser enviadas fora de ordem. Push executa uma série de REST chamadas tooyour aplicativo do Azure móvel back-end, que por sua vez modifica seu banco de dados do servidor.
+* **Pull**: Pull é executado em uma base por tabela e pode ser personalizado com uma consulta tooretrieve apenas um subconjunto de dados do servidor de saudação. Olá cliente do Azure Mobile SDKs e insira dados resultantes Olá no repositório local hello.
+* **Envios implícita**: se uma recepção é executada em uma tabela que tem as atualizações locais pendentes, pull Olá primeiro executa um `push()` no contexto de sincronização de saudação. Essa ação ajuda a minimizar conflitos entre as alterações que já estão na fila e novos dados do servidor de saudação.
+* **Sincronização incremental**: operação de recepção de toohello do hello primeiro parâmetro é um *nome da consulta* que é usado somente no cliente de saudação. Se você usar um nome de consulta não nulo, Olá SDK do Azure Mobile executa um *sincronização incremental*. Cada vez que uma operação de recepção retorna um conjunto de resultados, Olá mais recente `updatedAt` carimbo de hora em que conjunto de resultados é armazenado em tabelas de sistema local do SDK de saudação. As operações de pull subsequentes recuperarão somente registros após esse carimbo de data/hora.
 
-  Para usar a sincronização incremental, o servidor deve retornar valores `updatedAt` significativos e também deve oferecer suporte à classificação por este campo. No entanto, como o SDK adiciona sua própria classificação no campo updatedAt, não é possível usar uma consulta de pull que tem sua própria cláusula `orderBy` .
+  toouse a sincronização incremental, o servidor deve retornar significativo `updatedAt` valores e também deve oferecer suporte a classificação por este campo. No entanto, como Olá SDK adiciona seu próprio classificação no campo de updatedAt hello, você não pode usar uma consulta de pull tem seu próprio `orderBy` cláusula.
 
-  O nome da consulta pode ser qualquer sequência de caracteres que você escolher, mas deve ser exclusivo para cada consulta lógica em seu aplicativo.
-  Caso contrário, operações de pull diferentes poderiam substituir o mesmo carimbo de data/hora de sincronização incremental e as consultas poderiam retornar resultados incorretos.
+  nome da consulta Olá pode ser qualquer cadeia de caracteres que você escolher, mas ele deve ser exclusivo para cada consulta lógica em seu aplicativo.
+  Caso contrário, as operações de pull diferentes podem substituir Olá mesmo carimbo de hora de sincronização incremental e as consultas podem retornar resultados incorretos.
 
-  Se a consulta tiver um parâmetro, uma maneira de criar um nome de consulta exclusivo é incorporar o valor do parâmetro.
+  Se a consulta Olá tem um parâmetro, uma maneira toocreate um nome exclusivo de consulta é o valor do parâmetro de Olá de tooincorporate.
   Por exemplo, se você estiver filtrando userid, o nome da consulta pode ser da seguinte maneira (em C#):
 
         await todoTable.PullAsync("todoItems" + userid,
             syncTable.Where(u => u.UserId == userid));
 
-  Se você deseja recusar a sincronização incremental, passe `null` como a ID da consulta. Nesse caso, todos os registros são recuperados em cada chamada de `PullAsync`, o que é potencialmente ineficiente.
-* **Limpeza**: é possível limpar o conteúdo do armazenamento local usando `IMobileServiceSyncTable.PurgeAsync`.
-  Pode ser necessário realizar limpeza se você tiver dados obsoletos no banco de dados do cliente ou se quiser descartar todas as alterações pendentes.
+  Se você quiser tooopt fora de sincronização incremental, passar `null` como Olá ID da consulta. Nesse caso, todos os registros são recuperados em cada chamada muito`PullAsync`, que é potencialmente ineficiente.
+* **Limpando**: você pode limpar o conteúdo de saudação do uso do armazenamento local de saudação `IMobileServiceSyncTable.PurgeAsync`.
+  Limpeza pode ser necessário se você tiver dados obsoletos no banco de dados de cliente hello, ou se desejar toodiscard todas as alterações pendentes.
 
-  Uma limpeza remove uma tabela do repositório local. Se houver operações que estão aguardando a sincronização com o banco de dados do servidor, a limpeza gerará uma exceção, a menos que o parâmetro *forçar limpeza* esteja definido.
+  Uma limpeza desmarca uma tabela de armazenamento local hello. Se não houver operações aguardando a sincronização com o banco de dados de servidor de saudação, Olá limpeza lançará uma exceção, a menos que Olá *forçar limpeza* parâmetro está definido.
 
-  Como exemplo de dados obsoletos no cliente, suponha que no exemplo "lista de tarefas", Device1 mantém apenas os itens que não foram concluídos. Um todoitem “Comprar leite” é marcado como concluído no servidor por outro dispositivo. No entanto, o Device1 ainda terá o todoitem “Comprar leite” no repositório local, pois ele só está obtendo itens que não foram marcados como concluídos. Uma limpeza limpa esse item obsoleto.
+  Como um exemplo de dados obsoletos no cliente Olá, vamos supor que no exemplo de "lista de tarefas" Olá, Device1 recebe apenas os itens que não foram concluídos. Um todoitem "Comprar leite" está marcado como concluído no servidor de saudação por outro dispositivo. No entanto, Device1 ainda tem hello "Comprar leite" todoitem no repositório local porque ele está recebendo somente itens que não estão marcadas como concluída. Uma limpeza limpa esse item obsoleto.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [iOS: Habilitar a sincronização offline]
@@ -95,7 +95,7 @@ Ao usar tabelas de sincronização, o código do cliente controla quando as alte
 * [Plataforma Universal do Windows: habilitar a sincronização offline]
 
 <!-- Links -->
-[SDK do cliente do .NET]: app-service-mobile-dotnet-how-to-use-client-library.md
+[cliente .NET SDK]: app-service-mobile-dotnet-how-to-use-client-library.md
 [Android: Habilitar a sincronização offline]: app-service-mobile-android-get-started-offline-data.md
 [iOS: Habilitar a sincronização offline]: app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS: Habilitar a sincronização offline]: app-service-mobile-xamarin-ios-get-started-offline-data.md

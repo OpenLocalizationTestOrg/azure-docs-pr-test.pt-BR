@@ -1,6 +1,6 @@
 ---
-title: "Bibliotecas de Autenticação do Azure Active Directory | Microsoft Docs"
-description: "A Biblioteca (ADAL) de Autenticação do AD do Azure permite que os desenvolvedores de aplicativo cliente autentiquem facilmente os usuários no Active Directory (AD) local ou em nuvem e daí obtenham tokens de acesso para proteger chamadas de API."
+title: "aaaAzure bibliotecas de autenticação do Active Directory | Microsoft Docs"
+description: "saudação do Azure AD Authentication Library (ADAL) os desenvolvedores de aplicativos de cliente permite tooeasily autenticar usuários toocloud ou Active Directory (AD) local e, em seguida, obter tokens de acesso para proteger chamadas de API."
 services: active-directory
 documentationcenter: 
 author: bryanla
@@ -15,20 +15,20 @@ ms.workload: identity
 ms.date: 08/02/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 9cf8ca88c9df4082590b18acd5c4a87a91bb1afd
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 20fae18807ef03463ab1bc218e5f3548b5bd5717
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Bibliotecas de Autenticação do Active Directory do Azure
-A ADAL (Biblioteca de Autenticação do Azure Active Directory) permite que os desenvolvedores de aplicativo cliente autentiquem facilmente os usuários no AD (Active Directory) local ou em nuvem e obtenham tokens de acesso para proteger as chamadas à API. A ADAL facilita a autenticação para os desenvolvedores por meio de recursos, como:
+Hello Azure autenticação biblioteca ADAL (Active Directory) permite que cliente aplicativo desenvolvedores tooeasily autenticar usuários toocloud ou Active Directory (AD) local e obter tokens de acesso para proteger chamadas de API. A ADAL facilita a autenticação para os desenvolvedores por meio de recursos, como:
  - suporte para chamadas de método assíncronas
  - um cache de token configurável que armazena tokens de acesso e tokens de atualização
  - atualização de token automática quando um token de acesso expira e um token de atualização está disponível
  - e mais
  
-Ao controlar a maior parte da complexidade, a ADAL ajuda os desenvolvedores a se concentrar na lógica de negócios e a proteger facilmente os recursos sem ser um especialista em segurança.
+Controlando a maioria da complexidade hello, ADAL ajuda os desenvolvedores a se concentrarem na lógica de negócios e proteja facilmente os recursos, sem ser um especialista em segurança.
 
 A ADAL está disponível em uma variedade de plataformas.
 
@@ -44,7 +44,7 @@ A ADAL está disponível em uma variedade de plataformas.
 | Cliente .NET, Windows Store, Windows Phone 8.1 |ADAL .NET v2 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.4) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.4) | [Aplicativo da área de trabalho](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) | | 
 | JavaScript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[Aplicativo de Página Única](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
 | iOS, macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[Aplicativo iOS](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-ios) | [Referência](https://cocoapods.org/pods/ADAL)|
-| Android |ADAL |[O Repositório Central](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Aplicativo Android](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-android) | [JavaDocs](http://javadoc.io/doc/com.microsoft.aad/adal/)|
+| Android |ADAL |[Olá repositório Central](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Aplicativo Android](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-android) | [JavaDocs](http://javadoc.io/doc/com.microsoft.aad/adal/)|
 | Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | | |
 | Java |ADAL4J |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Aplicativo Web Java](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-webapp-java) | |
 | Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) | | |
@@ -67,20 +67,20 @@ Aqui estão os três cenários comuns nos quais a ADAL pode ser usada para auten
 
 ### <a name="authenticating-users-of-a-native-client-application-running-on-a-device"></a>Autenticação de usuários de um aplicativo cliente nativo em execução em um dispositivo 
 
-Nesse cenário, um desenvolvedor tem um aplicativo cliente do WPF, que precisa acessar um recurso remoto protegido pelo Azure AD, como uma API Web. Ele tem uma assinatura do Azure, sabe como chamar a API da Web downstream e conhece o locatário do AD do Azure que usa a API da Web. Como resultado, ele pode usar a ADAL para facilitar a autenticação com o AD do Azure, delegando completamente a experiência de autenticação para a ADAL ou tratando explicitamente as credenciais do usuário. A ADAL facilita autenticar o usuário, obter um token de acesso e um token de atualização do AD do Azure, e então, usar o token de acesso para fazer solicitações para a API da Web.
+Nesse cenário, um desenvolvedor tem um aplicativo cliente WPF, que precisa tooaccess um recurso remoto protegido pelo AD do Azure, como uma API da web. Ele tem uma assinatura do Azure, sabe como tooinvoke Olá API da web downstream e conhece hello Azure locatário do AD que Olá API da web usa. Como resultado, ele pode usar a autenticação de ADAL toofacilitate com AD do Azure, delegando completamente Olá tooADAL de experiência de autenticação ou tratando explicitamente as credenciais do usuário. ADAL torna fácil tooauthenticate usuário de saudação, obter um token de acesso e token de atualização do AD do Azure e, em seguida, usar Olá acesso toomake token solicitações toohello web API.
 
-Para um exemplo de código que demonstra esse cenário usando a autenticação do AD do Azure, consulte [Aplicativo WPF de cliente nativo para API Web](https://github.com/azureadsamples/nativeclient-dotnet).
+Para obter um exemplo de código que demonstra esse cenário usando a autenticação tooAzure AD, consulte [tooWeb de aplicativo cliente WPF nativo API](https://github.com/azureadsamples/nativeclient-dotnet).
 
 ### <a name="authenticating-a-confidential-client-application-running-on-a-web-server"></a>Autenticar um aplicativo cliente confidencial em execução em um servidor Web
 
-Nesse cenário, um desenvolvedor tem um aplicativo em execução num servidor que precisa acessar um recurso remoto protegido pelo AD do Azure, como uma API da Web. Ele tem uma assinatura do Azure, sabe como chamar o serviço downstream e conhece o locatário do AD do Azure que a API da Web usa. Como resultado, ele pode usar a ADAL para facilitar a autenticação com o AD do Azure tratando explicitamente as credenciais do aplicativo. A ADAL facilita recuperar um token do AD do Azure usando a credencial do cliente do aplicativo e, em seguida, usar esse token para fazer solicitações para a API da Web. A ADAL também controla o gerenciamento da vida útil do token de acesso armazenando em cache e renovando-o conforme necessário. Para um exemplo de código que demonstre este cenário, consulte [Aplicativo de Console daemon para API Web](https://github.com/AzureADSamples/Daemon-DotNet).
+Nesse cenário, um desenvolvedor tem um aplicativo em execução em um servidor que precisa tooaccess um recurso remoto protegido pelo AD do Azure, como uma API da web. Ele tem uma assinatura do Azure, sabe como tooinvoke Olá serviço downstream e conhece Olá AD do Azure locatário Olá API da web usa. Como resultado, ele pode usar autenticação de ADAL toofacilitate com o AD do Azure tratando explicitamente as credenciais do aplicativo hello. ADAL torna fácil tooretrieve um token do AD do Azure usando a credencial do cliente do aplicativo hello e, em seguida, usar esse token toomake solicitações toohello API da web. O ADAL também identificadores de gerenciar o tempo de vida de saudação do hello token de acesso por ele em cache e renovando ele conforme necessário. Para obter um exemplo de código que demonstre este cenário, consulte [tooWeb de aplicativo de console Daemon API](https://github.com/AzureADSamples/Daemon-DotNet).
 
 ### <a name="authenticating-a-confidential-client-application-running-on-a-server-on-behalf-of-a-user"></a>Autenticar um aplicativo cliente confidencial em execução em um servidor, em nome de um usuário 
 
-Nesse cenário, um desenvolvedor tem um aplicativo em execução num servidor que precisa acessar um recurso remoto protegido pelo AD do Azure, como uma API da Web. A solicitação também precisa ser feita em nome de um usuário do Azure AD. Ele tem uma assinatura do Azure, sabe como chamar a API da Web downstream e conhece o locatário do AD do Azure que o serviço usa. Quando o usuário é autenticado para o aplicativo Web, o aplicativo pode obter um código de autorização para o usuário do AD do Azure. O aplicativo Web pode então usar a ADAL para obter um token de acesso e atualizar o token em nome de um usuário usando o código de autorização e as credenciais de cliente associadas ao aplicativo do AD do Azure. Depois que o aplicativo Web estiver em posse do token de acesso, ele pode chamar a API da Web até o token expirar. Quando o token expirar, o aplicativo Web pode usar a ADAL para obter um novo token de acesso usando o token de atualização recebido anteriormente. Para um exemplo de código que demonstre este cenário, consulte [Cliente nativo para API Web](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
+Nesse cenário, um desenvolvedor tem um aplicativo em execução em um servidor que precisa tooaccess um recurso remoto protegido pelo AD do Azure, como uma API da web. solicitação de saudação também precisa toobe feita em nome de um usuário do AD do Azure. Ele tem uma assinatura do Azure, sabe como tooinvoke Olá API da web downstream e conhece Olá serviço de saudação de locatário do AD do Azure usa. Depois que o usuário Olá é autenticado toohello aplicativo de web, aplicativo hello pode obter um código de autorização para o usuário de saudação do AD do Azure. aplicativo da web Hello, em seguida, pode usar o ADAL tooobtain um token de acesso e token de atualização em nome do usuário usando produtos de credenciais de cliente e código de autorização Olá associados ao aplicativo de saudação do AD do Azure. Depois que o aplicativo da web hello estiver em posse do token de acesso de Olá, pode chamar Olá web API até Olá token expirar. Quando Olá token expirar, aplicativo da web hello pode usar o ADAL tooget um novo token de acesso usando o token de atualização de saudação anteriormente foi recebida. Para obter um exemplo de código que demonstre este cenário, consulte [Native client tooWeb API tooWeb API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
 
 ## <a name="see-also"></a>Consulte também
 
-- [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md)
+- [Olá guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md)
 - [Cenários de autenticação do Active Directory do Azure](active-directory-authentication-scenarios.md)
 - [Exemplos de código do Active Directory do Azure](active-directory-code-samples.md)

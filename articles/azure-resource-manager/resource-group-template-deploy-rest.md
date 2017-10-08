@@ -1,6 +1,6 @@
 ---
-title: Implantar recursos com a API REST e o modelo | Microsoft Docs
-description: "Use o Azure Resource Manager e a API REST do Resource Manager para implantar recursos no Azure. Os recursos são definidos em um modelo do Resource Manager."
+title: recursos de aaaDeploy com API REST e o modelo | Microsoft Docs
+description: "Use toodeploy um tooAzure de recursos de Gerenciador de recursos do Azure e API de REST do Gerenciador de recursos. Olá recursos são definidos em um modelo do Gerenciador de recursos."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/10/2017
 ms.author: tomfitz
-ms.openlocfilehash: 46856a25fb57bb2c5a3c1aeae13c11655e1a58a5
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 347ad3bdb604429e7291297d448688204af69b46
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Implantar recursos com modelos do Resource Manager e a API REST do Resource Manager
 > [!div class="op_single_selector"]
@@ -29,23 +29,23 @@ ms.lasthandoff: 08/18/2017
 > 
 > 
 
-Este artigo explica como usar a API REST do Resource Manager com modelos do Resource Manager para implantar seus recursos no Azure.  
+Este artigo explica como toouse Olá REST API do Gerenciador de recursos com o Gerenciador de recursos modelos toodeploy tooAzure seus recursos.  
 
 > [!TIP]
 > Para obter ajuda com a depuração de erros durante a implantação, consulte:
 > 
-> * [Exibir operações de implantação](resource-manager-deployment-operations.md) para saber como obter informações que ajudarão a solucionar o erro
-> * [Solucionar erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md) para saber como resolver os erros comuns da implantação
+> * [Exibir operações de implantação](resource-manager-deployment-operations.md) toolearn sobre a obtenção de informações que ajudam você a solucionar o erro
+> * [Solucionar erros comuns ao implantar recursos tooAzure com o Azure Resource Manager](resource-manager-common-deployment-errors.md) toolearn como tooresolve erros comuns de implantação
 > 
 > 
 
-Seu modelo pode ser um arquivo local ou um arquivo externo que está disponível por meio de um URI. Quando seu modelo reside em uma conta de armazenamento, você pode restringir o acesso a ele e fornecer um token de SAS (Assinatura de Acesso Compartilhado) durante a implantação.
+Seu modelo pode ser um arquivo local ou um arquivo externo que está disponível por meio de um URI. Quando o modelo estiver em uma conta de armazenamento, você pode restringir o modelo de toohello de acesso e fornecer um token de assinatura (SAS) de acesso compartilhado durante a implantação.
 
 [!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
 
-## <a name="deploy-with-the-rest-api"></a>Implantar com a API REST
+## <a name="deploy-with-hello-rest-api"></a>Implantar com hello API REST
 1. Definir [Parâmetros e cabeçalhos comuns](https://docs.microsoft.com/rest/api/index), incluindo tokens de autenticação.
-2. Se você não tiver um grupo de recursos existente, crie um grupo de recursos. Forneça sua ID de assinatura, o nome do novo grupo de recursos e local que você precisa para sua solução. Para obter mais informações, consulte [Criar um grupo de recursos](https://docs.microsoft.com/rest/api/resources/resourcegroups#ResourceGroups_CreateOrUpdate).
+2. Se você não tiver um grupo de recursos existente, crie um grupo de recursos. Forneça seu ID de assinatura, o nome de saudação do novo grupo de recursos hello e local que você precisa para sua solução. Para obter mais informações, consulte [Criar um grupo de recursos](https://docs.microsoft.com/rest/api/resources/resourcegroups#ResourceGroups_CreateOrUpdate).
    
         PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2015-01-01
           <common headers>
@@ -55,8 +55,8 @@ Seu modelo pode ser um arquivo local ou um arquivo externo que está disponível
                "tagname1": "tagvalue1"
             }
           }
-3. Valide sua implantação antes de executá-la usando a operação [Validar uma implantação do modelo](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Validate) . Ao testar a implantação, forneça parâmetros exatamente como faria ao executar a implantação (mostrado na próxima etapa).
-4. Crie uma implantação. Forneça sua ID da assinatura, o nome do grupo de recursos, o nome da implantação e um link para seu modelo. Para obter informações sobre o arquivo de modelo, consulte [Arquivo de parâmetro](#parameter-file). Para obter mais informações sobre a API REST para criar um grupo de recursos, consulte [Criar uma implantação de modelo](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_CreateOrUpdate). Observe que **mode** está definido como **Incremental**. Para executar uma implantação completa, defina **mode** como **Complete**. Tenha cuidado ao usar o modo completo, pois você pode excluir acidentalmente recursos que não estão em seu modelo.
+3. Validar sua implantação antes de executá-lo executando Olá [validar uma implantação de modelo](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Validate) operação. Ao testar a implantação de hello, forneça parâmetros exatamente como faria ao executar implantação hello (mostrada na próxima etapa do hello).
+4. Crie uma implantação. Fornece sua ID de assinatura, nome Olá Olá do grupo de recursos, nome de saudação da implantação de saudação e um modelo de tooyour de link. Para obter informações sobre o arquivo de modelo hello, consulte [arquivo de parâmetro](#parameter-file). Para obter mais informações sobre a API REST de saudação toocreate um grupo de recursos, consulte [criar uma implantação de modelo](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_CreateOrUpdate). Saudação de aviso **modo** está definido muito**Incremental**. toorun uma implantação completa, defina **modo** muito**concluir**. Tenha cuidado ao usar o modo completo Olá inadvertidamente, você pode excluir recursos que não estão no modelo.
    
         PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
           <common headers>
@@ -74,14 +74,14 @@ Seu modelo pode ser um arquivo local ou um arquivo externo que está disponível
             }
           }
    
-      Se você quiser registrar o conteúdo da resposta, o conteúdo da solicitação ou ambos, inclua **debugSetting** na solicitação.
+      Se desejar que o conteúdo da resposta toolog, conteúdo da solicitação ou ambos, incluir **debugSetting** na solicitação de saudação.
    
         "debugSetting": {
           "detailLevel": "requestContent, responseContent"
         }
    
-      Você pode configurar sua conta de armazenamento para usar um token de SAS (Assinatura de Acesso Compartilhado). Para obter mais informações, consulte [Delegando Acesso com uma Assinatura de Acesso Compartilhado](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
-5. Obtém o status da implantação do modelo. Para obter mais informações, consulte [obter informações sobre uma implantação de modelo](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get).
+      Você pode configurar seu toouse de conta de armazenamento um token de acesso compartilhado (SAS) de assinatura. Para obter mais informações, consulte [Delegando Acesso com uma Assinatura de Acesso Compartilhado](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
+5. Obter status de saudação da implantação de modelo hello. Para obter mais informações, consulte [obter informações sobre uma implantação de modelo](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get).
    
           GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
            <common headers>
@@ -91,9 +91,9 @@ Seu modelo pode ser um arquivo local ou um arquivo externo que está disponível
 [!INCLUDE [resource-manager-parameter-file](../../includes/resource-manager-parameter-file.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre como lidar com operações assíncronas de REST, confira [Track asynchronous Azure operations](resource-manager-async-operations.md) (Rastrear operações assíncronas do Azure).
-* Para obter um exemplo de como implantar recursos por meio da biblioteca de cliente do .NET, veja [Implantar recursos usando bibliotecas do .NET e um modelo](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Para definir os parâmetros no modelo, consulte [Criando modelos](resource-group-authoring-templates.md#parameters).
-* Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments.md).
-* Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
+* toolearn sobre como lidar com operações assíncronas de REST, consulte [controlar operações assíncronas de Azure](resource-manager-async-operations.md).
+* Para obter um exemplo de implantação de recursos por meio da biblioteca de cliente .NET hello, consulte [implantar recursos usando as bibliotecas .NET e um modelo](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* parâmetros de toodefine no modelo, consulte [criar modelos](resource-group-authoring-templates.md#parameters).
+* Para obter orientação sobre a implantação de ambientes de toodifferent sua solução, consulte [ambientes de desenvolvimento e teste no Microsoft Azure](solution-dev-test-environments.md).
+* Para obter diretrizes sobre como as empresas podem usar o Gerenciador de recursos tooeffectively gerenciar assinaturas, consulte [scaffold enterprise do Azure - controle de assinatura prescritivas](resource-manager-subscription-governance.md).
 

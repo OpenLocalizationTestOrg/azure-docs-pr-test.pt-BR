@@ -1,6 +1,6 @@
 ---
-title: "Perguntas frequentes sobre implantação de aplicativos Web do Azure | Microsoft Docs"
-description: "Obtenha respostas para perguntas frequentes sobre a implantação para o recurso Aplicativos Web do Serviço de Aplicativo do Azure."
+title: aaaDeployment perguntas frequentes para aplicativos web do Azure | Microsoft Docs
+description: "Obtenha respostas toofrequently perguntas frequentes sobre implantação para recursos de aplicativos Web de saudação do serviço de aplicativo do Azure."
 services: app-service\web
 documentationcenter: 
 author: genlin
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/10/2017
 ms.author: genli
-ms.openlocfilehash: 69f8c50f7f5889b75544deca19c54268fbf5eca7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 566e1d7028e678f9679200f436118d27dfb07079
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre implantação de Aplicativos Web no Azure
 
-Este artigo apresenta respostas para perguntas frequentes sobre problemas de implantação do [recurso Aplicativos Web do Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/web/).
+Este artigo possui respostas toofrequently perguntas frequentes (FAQs) sobre problemas de implantação para Olá [recurso de aplicativos Web do serviço de aplicativo do Azure](https://azure.microsoft.com/services/app-service/web/).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -31,71 +31,71 @@ Este artigo apresenta respostas para perguntas frequentes sobre problemas de imp
 
 Estas são algumas opções para publicar seu código do aplicativo Web:
 
-*   Implante usando o Visual Studio. Se você tiver a solução Visual Studio, clique com o botão direito do mouse no projeto de aplicativo Web e, em seguida, selecione **Publicar**.
-*   Implante usando um cliente FTP. No portal do Azure, baixe o perfil de publicação do aplicativo Web no qual você deseja implantar o código. Em seguida, carregue os arquivos em \site\wwwroot usando as mesmas credenciais FTP do perfil de publicação.
+*   Implante usando o Visual Studio. Se você tiver a solução do Visual Studio hello, projeto de aplicativo web hello e, em seguida, selecione **publicar**.
+*   Implante usando um cliente FTP. Olá portal do Azure, download Olá publicará perfil do aplicativo web de saudação que você deseja toodeploy seu código. Em seguida, carregue Olá arquivos too\site\wwwroot usando Olá mesmo publicar credenciais do perfil FTP.
 
-Para obter mais informações, consulte [Implantar seu aplicativo no Serviço de Aplicativo](web-sites-deploy.md).
+Para obter mais informações, consulte [implantar seu aplicativo tooApp serviço](web-sites-deploy.md).
 
-## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Recebi uma mensagem de erro ao tentar implantar por meio do Visual Studio. Como resolver isso?
+## <a name="i-see-an-error-message-when-i-try-toodeploy-from-visual-studio-how-do-i-resolve-this"></a>Vejo uma mensagem de erro quando tento toodeploy do Visual Studio. Como resolver isso?
 
-Se você receber a seguinte mensagem de erro, talvez você esteja usando uma versão mais antiga do SDK: “Erro durante a implantação do recurso 'YourResourceName' no grupo de recursos 'YourResourceGroup': MissingRegistrationForLocation: a assinatura não está registrada para o tipo de recurso 'components' na localização 'EUA Central'. Registre-se novamente nesse provedor para ter acesso a essa localização”. 
+Se você vir a seguinte mensagem de saudação, talvez usando uma versão mais antiga do hello SDK: "Erro durante a implantação do recurso 'YourResourceName' no grupo de recursos 'YourResourceGroup': MissingRegistrationForLocation: assinatura de saudação não está registrada para Olá tipo de recurso 'componentes' local Olá 'Central EUA'. Registre de novo para este provedor local de toothis ordem toohave acesso." 
 
-Para resolver esse erro, atualize para o [último SDK](https://azure.microsoft.com/downloads/). Se você receber essa mensagem e tiver o último SDK, envie uma solicitação de suporte.
+tooresolve este erro, a atualização toohello [SDK mais recente](https://azure.microsoft.com/downloads/). Se você vir essa mensagem e ter Olá SDK mais recente, envie uma solicitação de suporte.
 
-## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>Como fazer para implantar um aplicativo ASP.NET por meio do Visual Studio no Serviço de Aplicativo?
+## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-tooapp-service"></a>Como posso implantar um aplicativo ASP.NET do Visual Studio tooApp serviço?
 <a id="deployasp"></a>
 
-O tutorial [Criar seu primeiro aplicativo Web ASP.NET no Azure em cinco minutos](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-get-started/) mostra como implantar um aplicativo Web ASP.NET em um aplicativo Web no Serviço de Aplicativo usando o Visual Studio 2015.
+tutorial de saudação [criar seu primeiro aplicativo web ASP.NET no Azure em cinco minutos](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-get-started/) mostra como toodeploy uma ASP.NET web application tooa web app no serviço de aplicativo usando o Visual Studio 2015.
 
-## <a name="what-are-the-different-types-of-deployment-credentials"></a>Quais são os diferentes tipos de credenciais de implantação?
+## <a name="what-are-hello-different-types-of-deployment-credentials"></a>Quais são Olá diferentes tipos de credenciais de implantação?
 
-O Serviço de Aplicativo dá suporte a dois tipos de credenciais para a implantação local do Git e a implantação de FTP/S. Para obter mais informações sobre como configurar as credenciais de implantação, consulte [Configurar as credenciais de implantação para o Serviço de Aplicativo](app-service-deployment-credentials.md).
+O Serviço de Aplicativo dá suporte a dois tipos de credenciais para a implantação local do Git e a implantação de FTP/S. Para obter mais informações sobre como tooconfigure credenciais de implantação, consulte [configurar credenciais de implantação para o serviço de aplicativo](app-service-deployment-credentials.md).
 
-## <a name="what-is-the-file-or-directory-structure-of-my-app-service-web-app"></a>Qual é a estrutura de arquivos ou de diretórios de meu aplicativo Web do Serviço de Aplicativo?
+## <a name="what-is-hello-file-or-directory-structure-of-my-app-service-web-app"></a>O que é a estrutura de arquivo ou diretório de saudação do meu aplicativo do serviço de aplicativo web?
 
-Para obter informações sobre a estrutura de arquivos do aplicativo do Serviço de Aplicativo, consulte [Estrutura de arquivos no Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure).
+Para obter informações sobre a estrutura do arquivo de saudação do seu aplicativo de serviço de aplicativo, consulte [estrutura de arquivos no Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure).
 
-## <a name="how-do-i-resolve-ftp-error-550---there-is-not-enough-space-on-the-disk-when-i-try-to-ftp-my-files"></a>Como fazer para resolver o “Erro de FTP 550 – não há espaço suficiente em disco” quando tento usar o FTP para meus arquivos?
+## <a name="how-do-i-resolve-ftp-error-550---there-is-not-enough-space-on-hello-disk-when-i-try-tooftp-my-files"></a>Como resolver "FTP erro 550 - lá não é suficiente espaço em disco hello" quando tento tooFTP Meus arquivos?
 
-Se você receber essa mensagem, é provável que você esteja atingindo uma cota de disco no plano de serviço do aplicativo Web. Talvez você precise escalar verticalmente para uma camada de serviço superior de acordo com suas necessidades de espaço em disco. Para obter mais informações sobre planos de preços e limites de recursos, consulte [Preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
+Se você vir essa mensagem, é provável que você está executando em uma cota de disco no plano de serviço Olá para seu aplicativo web. Talvez seja necessário tooscale a camada de serviço superior tooa com base em suas necessidades de espaço em disco. Para obter mais informações sobre planos de preços e limites de recursos, consulte [Preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>Como fazer para configurar a implantação contínua em meu aplicativo Web do Serviço de Aplicativo?
 
-Configure a implantação contínua por meio de vários recursos, incluindo o Visual Studio Team Services, OneDrive, GitHub, Bitbucket, Dropbox e outros repositórios Git. Essas opções estão disponíveis no portal. [Implantação contínua para o Serviço de Aplicativo](app-service-continuous-deployment.md) é um tutorial útil que explica como configurar a implantação contínua.
+Configure a implantação contínua por meio de vários recursos, incluindo o Visual Studio Team Services, OneDrive, GitHub, Bitbucket, Dropbox e outros repositórios Git. Essas opções estão disponíveis no portal de saudação. [Implantação contínua tooApp serviço](app-service-continuous-deployment.md) é um tutorial úteis que explica como tooset a implantação contínua.
 
 ## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>Como fazer para solucionar problemas com a implantação contínua do GitHub e do Bitbucket?
 
 Para obter ajuda sobre como investigar problemas com a implantação contínua do GitHub ou do Bitbucket, consulte [Investigando a implantação contínua](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment).
 
-## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this"></a>Não consigo usar o FTP em meu site nem publicar meu código. Como resolver isso?
+## <a name="i-cant-ftp-toomy-site-and-publish-my-code-how-do-i-resolve-this"></a>Não consigo toomy site de FTP e publicar meu código. Como resolver isso?
 
-Para resolver problemas de FTP:
+problemas de tooresolve FTP:
 
-1. Verifique se você está inserindo o nome do host e as credenciais corretas. Para obter informações detalhadas sobre os diferentes tipos de credenciais e como usá-los, consulte [Credenciais de implantação](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
-2. Verifique se as portas FTP não estão bloqueadas por um firewall. As portas devem ter essas configurações:
+1. Verifique se que você está inserindo credenciais e o nome de host correto hello. Para obter informações detalhadas sobre os diferentes tipos de credenciais e como toouse-los, consulte [credenciais de implantação](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
+2. Verifique se que as portas FTP de saudação não estão bloqueadas por um firewall. portas de saudação devem ter essas configurações:
     * Porta de conexão de controle FTP: 21
     * Porta de conexão de dados FTP: 989, 10001-10300
 
-## <a name="how-do-i-publish-my-code-to-app-service"></a>Como fazer para publicar meu código no Serviço de Aplicativo?
+## <a name="how-do-i-publish-my-code-tooapp-service"></a>Como publicar tooApp meu código serviço?
 
-O Guia de início rápido do Azure foi projetado para ajudá-lo a implantar seu aplicativo usando a pilha de implantação e o método de sua escolha. Para usar o Guia de início rápido, no portal do Azure, acesse **Configurações** > **Implantação de Aplicativo**.
+Olá início rápido do Azure é projetado toohelp implantar seu aplicativo usando a pilha de implantação hello e método de sua escolha. Olá toouse início rápido, em Olá portal do Azure, vá muito**configurações** > **implantação de aplicativo**.
 
-## <a name="why-does-my-app-sometimes-restart-after-deployment-to-app-service"></a>Por que meu aplicativo às vezes reinicia após a implantação no Serviço de Aplicativo?
+## <a name="why-does-my-app-sometimes-restart-after-deployment-tooapp-service"></a>Por que meu aplicativo às vezes, reinicia após a implantação tooApp serviço?
 
-Para saber mais sobre as circunstâncias nas quais uma implantação de aplicativo pode resultar em uma reinicialização, consulte [Implantação versus problemas de tempo de execução](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts"). Como o artigo descreve, o Serviço de Aplicativo implanta arquivos na pasta wwwroot. Ele nunca reinicia o aplicativo diretamente.
+toolearn sobre circunstâncias Olá sob a qual uma implantação de aplicativo pode resultar em uma reinicialização, consulte [implantação versus problemas de tempo de execução](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts"). Como Olá descreve, o serviço de aplicativo implanta na pasta wwwroot toohello arquivos. Ele nunca reinicia o aplicativo diretamente.
 
 ## <a name="how-do-i-integrate-visual-studio-team-services-code-with-app-service"></a>Como fazer para integrar o código do Visual Studio Team Services ao Serviço de Aplicativo?
 
 Você tem duas opções para usar a implantação contínua com o Visual Studio Team Services:
 
-*   Use um projeto Git. Conecte-se por meio do Serviço de Aplicativo usando as opções de implantação desse repositório.
-*   Use um projeto TFVC (Controle de Versão do Team Foundation). Implante usando o agente de build do Serviço de Aplicativo.
+*   Use um projeto Git. Conecte-se por meio do serviço de aplicativo usando as opções de implantação de saudação desse repositório.
+*   Use um projeto TFVC (Controle de Versão do Team Foundation). Implante usando o agente de compilação Olá para serviço de aplicativo.
 
 A implantação contínua de código para essas duas opções depende dos fluxos de trabalho existentes do desenvolvedor e dos procedimentos de check-in. Para obter mais informações, consulte estes artigos: 
 
-*   [Implementar a implantação contínua do aplicativo em um site do Azure](https://www.visualstudio.com/docs/release/examples/azure/azure-web-apps-from-build-and-release-hubs)
-*   [Configurar uma conta do Visual Studio Team Services para que ela possa ser implantada em um aplicativo Web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)
+*   [Implementar a implantação contínua do seu site do Azure de tooan do aplicativo](https://www.visualstudio.com/docs/release/examples/azure/azure-web-apps-from-build-and-release-hubs)
+*   [Configurar uma conta do Visual Studio Team Services para que ele pode implantar o aplicativo da web de tooa](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)
 
-## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>Como fazer para usar o FTP ou o FTPS para implantar meu aplicativo no Serviço de Aplicativo?
+## <a name="how-do-i-use-ftp-or-ftps-toodeploy-my-app-tooapp-service"></a>Como usar FTP ou FTPS toodeploy tooApp meu aplicativo serviço?
 
-Para obter informações sobre como usar o FTP ou o FTPS para implantar o aplicativo Web no Serviço de Aplicativo, consulte [Implantar o aplicativo no Serviço de Aplicativo usando o FTP/S](app-service-deploy-ftp.md).
+Para obter informações sobre como usar o FTP ou FTPS toodeploy seu tooApp de aplicativo web Service, consulte [implantar seu serviço de tooApp do aplicativo usando o FTP/S](app-service-deploy-ftp.md).

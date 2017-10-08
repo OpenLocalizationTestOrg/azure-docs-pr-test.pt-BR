@@ -1,6 +1,6 @@
 ---
-title: Criar identidade para o aplicativo do Azure no portal | Microsoft Docs
-description: "Descreve como criar um novo aplicativo do Azure Active Directory e uma nova entidade de serviço, que possam ser usados com o controle de acesso baseado em função no Azure Resource Manager para gerenciar o acesso aos recursos."
+title: aaaCreate identidade para o aplicativo no portal do Azure | Microsoft Docs
+description: "Descreve como toocreate um novo aplicativo do Active Directory do Azure e o serviço principal que pode ser usado com o controle de acesso baseado em função hello no Gerenciador de recursos do Azure toomanage acessam tooresources."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5d24fb99e1095d53e5ea547e53b80178d9cb77c0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 9624715ac612f42df6f9e9e67b8233bd4b914174
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory que possa acessar recursos
+# <a name="use-portal-toocreate-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Use o portal toocreate um aplicativo do Azure Active Directory e a entidade de serviço que pode acessar os recursos
 
-Quando você tiver um aplicativo que precisa acessar ou modificar os recursos, deverá configurar um aplicativo do Azure AD (Active Directory) e atribuir as permissões necessárias a ele. Esta abordagem é preferencial para executar o aplicativo com suas próprias credenciais porque:
+Quando você tiver um aplicativo que precisa tooaccess ou modificar os recursos, você deve configurar um aplicativo do Azure AD (Active Directory) e atribuir Olá necessárias permissões tooit. Essa abordagem é preferível toorunning Olá aplicativo com suas próprias credenciais, porque:
 
-* Você pode atribuir permissões para a identidade do aplicativo que são diferentes de suas próprias permissões. Normalmente, essas permissões são restritas a exatamente o que o aplicativo precisa fazer.
-* Você não precisa alterar as credenciais do aplicativo se alterar suas responsabilidades. 
-* Você pode usar um certificado para automatizar a autenticação ao executar um script autônomo.
+* Você pode atribuir permissões de identidade de aplicativo toohello que são diferentes de suas próprias permissões. Normalmente, essas permissões são restrito tooexactly toodo precisa de qual aplicativo hello.
+* Você não tem credenciais do aplicativo de saudação toochange se alterar suas responsabilidades. 
+* Você pode usar uma autenticação de certificado de tooautomate ao executar um script autônomo.
 
-Este tópico mostra como executar essas etapas no portal. Ele se concentra em um aplicativo de locatário único que se destina a ser executado dentro de uma única organização. Você normalmente usa os aplicativos com um único locatário para os aplicativos da linha de negócios executados em sua organização.
+Este tópico mostra como tooperform aqueles percorre portal hello. Ele se concentra em um aplicativo de único locatário em que o aplicativo hello é pretendido toorun dentro de uma só organização. Você normalmente usa os aplicativos com um único locatário para os aplicativos da linha de negócios executados em sua organização.
  
 ## <a name="required-permissions"></a>Permissões necessárias
-Para concluir este tópico, você deve ter permissões suficientes para registrar um aplicativo com o locatário do Azure AD e atribuir o aplicativo a uma função em sua assinatura do Azure. Vamos verificar se você tem as permissões corretas para executar essas etapas.
+toocomplete neste tópico, você deve ter um aplicativo de tooregister de permissões suficientes com seu locatário do AD do Azure e atribuir a função de tooa aplicativo hello em sua assinatura do Azure. Vamos garantir que você tenha Olá permissões corretas tooperform essas etapas.
 
 ### <a name="check-azure-active-directory-permissions"></a>Verificar as permissões do Azure Active Directory
-1. Entre na sua conta do Azure por meio do [Portal do Azure](https://portal.azure.com).
+1. Fazer logon no tooyour conta do Azure por meio de saudação [portal do Azure](https://portal.azure.com).
 2. Selecione **Azure Active Directory**.
 
      ![selecionar azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 3. No Azure Active Directory, selecione **Configurações de Usuário**.
 
      ![selecionar configurações de usuário](./media/resource-group-create-service-principal-portal/select-user-settings.png)
-4. Verifique a configuração **Registros do Aplicativo**. Se estiver definida como **Sim**, usuários que não são administradores podem registrar aplicativos do AD. Essa configuração significa que qualquer usuário no locatário do Azure AD pode registrar um aplicativo. Você pode prosseguir com a [verificação das permissões de assinatura do Azure](#check-azure-subscription-permissions).
+4. Verificar Olá **registros do aplicativo** configuração. Se definir muito**Sim**, os usuários não administradores podem registrar aplicativos do AD. Essa configuração significa que qualquer usuário no locatário do AD do Azure Olá pode registrar um aplicativo. Você pode continuar muito[permissões de assinatura do Azure verificar](#check-azure-subscription-permissions).
 
      ![exibir registros de aplicativo](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
-5. Se a configuração de registros do aplicativo estiver definida como **Não**, somente usuários que são administradores podem registrar aplicativos. Você precisa verificar se sua conta é de administrador para o locatário do Azure AD. Selecione **Visão Geral** e **Localizar um usuário** nas Tarefas Rápidas.
+5. Se os registros do aplicativo hello configuração está definido muito**não**, somente os usuários administrativos podem registrar aplicativos. É necessário toocheck se sua conta é um administrador de locatário do AD do Azure hello. Selecione **Visão Geral** e **Localizar um usuário** nas Tarefas Rápidas.
 
      ![localizar usuário](./media/resource-group-create-service-principal-portal/find-user.png)
 6. Procure por sua conta e selecione-a quando encontrá-la.
@@ -53,16 +53,16 @@ Para concluir este tópico, você deve ter permissões suficientes para registra
 7. Para sua conta, selecione **função de diretório**. 
 
      ![função de diretório](./media/resource-group-create-service-principal-portal/select-directory-role.png)
-8. Veja sua função de diretório atribuída no Azure AD. Se sua conta estiver atribuída com a função de usuário, mas a configuração de registro de aplicativo (de etapas anteriores) estiver limitada a usuários administradores, peça ao administrador para atribuir uma função de administrador a você ou para permitir que os usuários registrem aplicativos.
+8. Veja sua função de diretório atribuída no Azure AD. Se sua conta é atribuída a função de usuário toohello, mas hello, configuração de registro de aplicativo (da saudação etapas anteriores) é limitado tooadmin usuários, peça ao seu administrador tooeither atribuir a função administrador tooan ou tooenable usuários tooregister aplicativos.
 
      ![exibir função](./media/resource-group-create-service-principal-portal/view-role.png)
 
 ### <a name="check-azure-subscription-permissions"></a>Verificar permissões de assinatura do Azure
-Em sua assinatura do Azure, sua conta deve ter acesso de `Microsoft.Authorization/*/Write` para atribuir um aplicativo do AD a uma função. Esta ação deve ser concedida pela função [Proprietário](../active-directory/role-based-access-built-in-roles.md#owner) ou pela função [Administrador de Acesso do Usuário](../active-directory/role-based-access-built-in-roles.md#user-access-administrator). Se sua conta tiver a função **Colaborador**, você não tem a permissão adequada. Você receberá um erro ao tentar atribuir a entidade de serviço a uma função. 
+Sua assinatura do Azure, sua conta deve ter `Microsoft.Authorization/*/Write` acessar tooassign uma função de tooa de aplicativo do AD. Essa ação é concedida por meio de saudação [proprietário](../active-directory/role-based-access-built-in-roles.md#owner) função ou [administrador de acesso do usuário](../active-directory/role-based-access-built-in-roles.md#user-access-administrator) função. Se sua conta é atribuída toohello **Colaborador** função, você não tem permissão suficiente. Você receberá um erro durante a tentativa de função de principal tooa tooassign Olá serviço. 
 
-Para verificar suas permissões de assinatura:
+toocheck suas permissões de assinatura:
 
-1. Se você ainda não está vendo sua conta do Azure AD usando as etapas anteriores, selecione **Azure Active Directory** no painel à esquerda.
+1. Se você estiver não já em sua conta do AD do Azure de saudação etapas anteriores, selecione **Active Directory do Azure** no painel esquerdo do hello.
 
 2. Encontre sua conta do Azure AD. Selecione **Visão Geral** e **Localizar um usuário** nas Tarefas Rápidas.
 
@@ -74,12 +74,12 @@ Para verificar suas permissões de assinatura:
 3. Selecione **Recursos do Azure**.
 
      ![selecionar recursos](./media/resource-group-create-service-principal-portal/select-azure-resources.png) 
-3. Exiba suas funções atribuídas e determine se você tem as permissões adequadas para atribuir um aplicativo do AD a uma função. Caso contrário, peça ao administrador da assinatura para adicioná-lo à função Administrador de Acesso do Usuário. Na imagem a seguir, o usuário é atribuído à função Proprietário para duas assinaturas, o que significa que o usuário tem as permissões adequadas. 
+3. Exibir as funções atribuídas e determinar se você tem as permissões adequadas tooassign uma função de tooa de aplicativo do AD. Se não, peça ao seu tooadd do administrador de assinatura função administrador do acesso tooUser. Olá a imagem a seguir, o usuário de Olá é função proprietário toohello atribuído para duas assinaturas, que significa que o usuário tem permissões suficientes. 
 
      ![mostrar permissões](./media/resource-group-create-service-principal-portal/view-assigned-roles.png)
 
 ## <a name="create-an-azure-active-directory-application"></a>Criar um aplicativo do Azure Active Directory
-1. Entre na sua conta do Azure por meio do [Portal do Azure](https://portal.azure.com).
+1. Fazer logon no tooyour conta do Azure por meio de saudação [portal do Azure](https://portal.azure.com).
 2. Selecione **Azure Active Directory**.
 
      ![selecionar azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
@@ -91,53 +91,53 @@ Para verificar suas permissões de assinatura:
 
      ![adicionar aplicativo](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-6. Forneça um nome e uma URL para o aplicativo. Selecione **aplicativo Web/API** ou **Nativo** para o tipo de aplicativo que você deseja criar. Depois de definir os valores, selecione **Criar**.
+6. Forneça um nome e uma URL para o aplicativo hello. Selecione **aplicativo Web / API** ou **nativo** para o tipo de saudação do aplicativo que você deseja toocreate. Depois de definir os valores hello, selecione **criar**.
 
      ![nomear aplicativo](./media/resource-group-create-service-principal-portal/create-app.png)
 
 Você criou seu aplicativo.
 
 ## <a name="get-application-id-and-authentication-key"></a>Obter chave de autenticação e ID do aplicativo
-Ao fazer logon por meio de programação, você precisa da ID para seu aplicativo e de uma chave de autenticação. Para obter esses valores, use as seguintes etapas:
+Ao fazer logon por meio de programação, é necessário Olá ID para seu aplicativo e uma chave de autenticação. tooget esses valores, Olá use as etapas a seguir:
 
 1. Em **Registros do Aplicativo** no Azure Active Directory, selecione seu aplicativo.
 
      ![selecionar aplicativo](./media/resource-group-create-service-principal-portal/select-app.png)
-2. Copie a **ID do aplicativo** e armazene-a no código do aplicativo. Os aplicativos na seção [Aplicativos de exemplo](#sample-applications) referem-se a esse valor como a ID do cliente.
+2. Saudação de cópia **ID do aplicativo** e armazená-la no código do aplicativo. Olá aplicativos Olá [aplicativos de exemplo](#sample-applications) seção Consulte valor toothis como id de saudação do cliente.
 
      ![ID do CLIENTE](./media/resource-group-create-service-principal-portal/copy-app-id.png)
-3. Para gerar uma chave de autenticação, selecione **Chaves**.
+3. toogenerate uma chave de autenticação, selecione **chaves**.
 
      ![selecionar chaves](./media/resource-group-create-service-principal-portal/select-keys.png)
-4. Forneça uma descrição da chave e uma duração para a chave. Ao terminar, escolha **Salvar**.
+4. Forneça uma descrição da chave de saudação e uma duração para a chave de saudação. Ao terminar, escolha **Salvar**.
 
      ![salvar chave](./media/resource-group-create-service-principal-portal/save-key.png)
 
-     Após salvar a chave, o valor da chave é exibido. Copie este valor, pois não é possível recuperar a chave posteriormente. Forneça o valor da chave com a ID do aplicativo para fazer logon como o aplicativo. Armazene o valor da chave onde seu aplicativo possa recuperá-lo.
+     Depois de salvar chave hello, Olá valor chave Olá é exibido. Copie esse valor, porque não é capaz de tooretrieve chave de saudação mais tarde. Você fornece o valor de chave Olá Olá toolog de ID de aplicativo em como o aplicativo hello. Armazena o valor de chave Olá onde seu aplicativo pode recuperá-lo.
 
      ![chave salva](./media/resource-group-create-service-principal-portal/copy-key.png)
 
 ## <a name="get-tenant-id"></a>Obter a ID do locatário
-Ao fazer logon por meio de programação, você precisa passar a ID de locatário com a solicitação de autenticação. 
+Quando programaticamente o logon, é preciso toopass Olá locatário ID com a solicitação de autenticação. 
 
-1. Para obter a ID de locatário, selecione **Propriedades** do seu locatário do Azure AD. 
+1. ID de locatário Olá tooget, selecione **propriedades** para seu locatário do AD do Azure. 
 
      ![selecionar propriedades do Azure AD](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
 
-2. Copie a **ID de diretório**. Esse valor é a ID do locatário.
+2. Saudação de cópia **ID de diretório**. Esse valor é a ID do locatário.
 
      ![ID do locatário](./media/resource-group-create-service-principal-portal/copy-directory-id.png)
 
-## <a name="assign-application-to-role"></a>Atribuir aplicativo à função
-Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma função. Decida qual função representa as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, consulte [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md).
+## <a name="assign-application-toorole"></a>Atribuir o aplicativo toorole
+tooaccess recursos em sua assinatura, você deve atribuir a função de tooa aplicativo hello. Decida qual função representa permissões corretas de saudação para o aplicativo hello. toolearn sobre as funções disponíveis do hello, consulte [RBAC: criado em funções](../active-directory/role-based-access-built-in-roles.md).
 
-Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissão são herdadas para níveis inferiores do escopo. Por exemplo, adicionar um aplicativo à função Leitor de um grupo de recursos significa que ele pode ler o grupo de recursos e todos os recursos que ele contiver.
+Você pode definir o escopo de saudação no nível de saudação de assinatura de saudação, o grupo de recursos ou o recurso. As permissões são herdadas toolower níveis de escopo. Por exemplo, adicionar que uma função de leitor de toohello de aplicativo para um grupo de recursos significa que ele pode ler o grupo de recursos hello e recursos que ela contém.
 
-1. Navegue até o nível do escopo ao qual quer atribuir o aplicativo. Por exemplo, para atribuir uma função no escopo da assinatura, escolha **Assinaturas**. Em vez disso, você pode selecionar um grupo de recursos ou um recurso.
+1. Navegar um nível de toohello de escopo que você deseja que o aplicativo hello tooassign. Por exemplo, tooassign uma função no escopo de assinatura hello, selecione **assinaturas**. Em vez disso, você pode selecionar um grupo de recursos ou um recurso.
 
      ![selecione a assinatura](./media/resource-group-create-service-principal-portal/select-subscription.png)
 
-2. Escolha a assinatura específica (grupo de recursos ou recurso) à qual atribuir o aplicativo.
+2. Selecione Olá determinada assinatura (grupo de recursos ou recursos) tooassign Olá aplicativo.
 
      ![selecionar assinatura para atribuição](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
 
@@ -148,18 +148,18 @@ Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do 
 4. Selecione **Adicionar**.
 
      ![escolher adicionar](./media/resource-group-create-service-principal-portal/select-add.png)
-6. Selecione a função que deseja atribuir ao aplicativo. A imagem a seguir mostra a função **Leitor**.
+6. Selecione a função de saudação desejar tooassign toohello aplicativo. Olá, imagem a seguir mostra Olá **leitor** função.
 
      ![escolher função](./media/resource-group-create-service-principal-portal/select-role.png)
 
 8. Procure seu aplicativo e selecione-o.
 
      ![pesquisar aplicativo](./media/resource-group-create-service-principal-portal/search-app.png)
-9. Selecione **OK** para finalizar a atribuição da função. Agora você vê o aplicativo na lista de usuários atribuídos a uma função para esse escopo.
+9. Selecione **Okey** toofinish atribuição de função hello. Consulte o seu aplicativo na lista de saudação de usuários atribuídos a função tooa para esse escopo.
 
-## <a name="log-in-as-the-application"></a>Faça logon como o aplicativo
+## <a name="log-in-as-hello-application"></a>Faça logon como um aplicativo hello
 
-Seu aplicativo agora está configurado no Azure Active Directory. Você tem uma ID e a chave a ser usada para fazer logon como o aplicativo. O aplicativo está atribuído a uma função que oferece determinadas ações que ele pode executar. Para obter informações sobre como fazer logon no aplicativo por meio de diferentes plataformas, consulte:
+Seu aplicativo agora está configurado no Azure Active Directory. Você tem uma ID e uma chave toouse para fazer logon como um aplicativo hello. aplicativo Hello é designado como tooa que concede determinadas ações que ele possa executar. Para obter informações sobre como fazer logon como um aplicativo hello através de diferentes plataformas, consulte:
 
 * [PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)
 * [CLI do Azure](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli)
@@ -172,6 +172,6 @@ Seu aplicativo agora está configurado no Azure Active Directory. Você tem uma 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para configurar um aplicativo multilocatário, consulte [Guia do desenvolvedor para a autorização com a API do Azure Resource Manager](resource-manager-api-authentication.md).
-* Para aprender a especificar as políticas de segurança, consulte [Controle de Acesso baseado nas Funções do Azure](../active-directory/role-based-access-control-configure.md).  
-* Para obter uma lista de ações disponíveis que podem ser concedidas ou negadas a usuários, consulte [Operações do Provedor de Recursos do Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md).
+* tooset um aplicativo multilocatário, consulte [tooauthorization de guia do desenvolvedor com hello API do Gerenciador de recursos do Azure](resource-manager-api-authentication.md).
+* toolearn sobre como especificar políticas de segurança, consulte [controle de acesso baseado em função do Azure](../active-directory/role-based-access-control-configure.md).  
+* Para obter uma lista de ações disponíveis que podem ser concedidas ou negadas toousers, consulte [operações do provedor de recursos do Gerenciador de recursos do Azure](../active-directory/role-based-access-control-resource-provider-operations.md).

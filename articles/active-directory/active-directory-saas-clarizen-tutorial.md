@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory ao Clarizen | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Active Directory do Azure e o Clarizen."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Clarizen."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,42 +13,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 574c6877bddac8be7d6d541bfabbdc10f6be3101
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f24ccda3b90e5df9a203a444dfda905043b30276
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: integração do Active Directory do Azure ao Clarizen
 
-Neste tutorial, você aprenderá a integrar o Azure AD (Azure Active Directory) ao Clarizen. Essa integração oferece os seguintes benefícios:
+Neste tutorial, você aprenderá como toointegrate do Azure Active Directory (AD do Azure) com o Clarizen. Isso proporciona integração Olá seguintes benefícios:
 
-- No Azure AD, é possível controlar quem tem acesso ao Clarizen.
-- Você pode permitir que seus usuários entrem automaticamente no Clarizen (logon único) com suas contas do Azure AD.
-- Você pode gerenciar suas contas em um único local, o portal clássico do Azure.
+- Você pode controlar, no AD do Azure, que tem acesso tooClarizen.
+- Você pode habilitar o toobe de usuários conectado automaticamente tooClarizen (logon único) com suas contas do AD do Azure.
+- Você pode gerenciar suas contas em um local central, Olá portal do Azure.
 
-O cenário deste tutorial consiste em duas tarefas principais:
+cenário de saudação neste tutorial consiste em duas tarefas principais:
 
-1. Adicione o Clarizen da galeria.
+1. Adicione Clarizen da Galeria de saudação.
 2. Configurar e testar logon único do Azure AD.
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS (software como serviço) ao Azure AD, consulte [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para configurar a integração do Azure AD ao Clarizen, você precisará dos seguintes itens:
+tooconfigure integração do AD do Azure com o Clarizen, você precisa Olá itens a seguir:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura de Clarizen está habilitada para logon único
 
-Para testar as etapas neste tutorial, siga estas recomendações:
+etapas de saudação tootest neste tutorial, siga estas recomendações:
 
 - Teste o logon único do Azure AD em um ambiente de teste. Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de teste do Azure AD, você poderá [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="add-clarizen-from-the-gallery"></a>Adicionar o Clarizen da galeria
-Para configurar a integração do Clarizen ao Azure AD, adicione o Clarizen da galeria à sua lista de aplicativos SaaS gerenciados.
+## <a name="add-clarizen-from-hello-gallery"></a>Adicionar Clarizen da Galeria de saudação
+integração de saudação do tooconfigure do Clarizen no AD do Azure, adicione Clarizen da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
 
-1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, clique no ícone **Azure Active Directory**.
+1. Em Olá [portal do Azure](https://portal.azure.com), no painel esquerdo de hello, clique Olá **Active Directory do Azure** ícone.
 
     ![Ícone do Azure Active Directory][1]
 
@@ -56,138 +56,138 @@ Para configurar a integração do Clarizen ao Azure AD, adicione o Clarizen da g
 
     ![Clicar em "Aplicativos corporativos" e em "Todos os aplicativos"][2]
 
-3. Clique no botão **Adicionar** na parte superior da caixa de diálogo.
+3. Clique em Olá **adicionar** botão na parte superior de Olá Olá da caixa de diálogo.
 
-    ![O botão “Adicionar”][3]
+    ![botão de "Adicionar" Hello][3]
 
-4. Na caixa de pesquisa, digite **Clarizen**.
+4. Na caixa de pesquisa hello, digite **Clarizen**.
 
-    ![Digitar "Clarizen" na caixa de pesquisa](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_000.png)
+    ![Digitar "Clarizen" na caixa de pesquisa de saudação](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_000.png)
 
-5. No painel de resultados, selecione **Clarizen** e clique em **Adicionar** para adicionar o aplicativo.
+5. No painel de resultados de saudação, selecione **Clarizen**e, em seguida, clique em **adicionar** aplicativo hello de tooadd.
 
-    ![Selecionar o Clarizen no painel de resultados](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_0001.png)
+    ![Selecionando Clarizen no painel de resultados de saudação](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_0001.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
-Nas seções a seguir, você configurará e testará o logon único do Azure AD com o Clarizen, com base no usuário de teste Brenda Fernandes.
+Em Olá seções a seguir, configurar e testar o logon único do AD do Azure com o Clarizen com base no usuário de teste Olá Britta Simon.
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Clarizen é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Clarizen. Você estabelece essa relação de vínculo atribuindo o valor de **nome de usuário** no Azure AD como o valor de **Nome de usuário** no Clarizen.
+Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no Clarizen é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no Clarizen precisa toobe estabelecida. Estabelecer essa relação de link atribuindo o valor de saudação do **nome de usuário** no AD do Azure como valor de saudação do **Username** no Clarizen.
 
-Para configurar e testar o logon único do Azure AD com o Clarizen, você precisará concluir os seguintes blocos de construção:
+tooconfigure e teste de logon único do AD do Azure com o Clarizen, Olá completa blocos de construção a seguir:
 
-1. **[Configure o logon único do Azure AD](#configure-azure-ad-single-sign-on)** para permitir que seus usuários usem esse recurso.
-2. **[Crie um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Clarizen](#create-a-clarizen-test-user)**: para ter um equivalente de Brenda Fernandes no Clarizen que esteja vinculado à representação dela no Azure AD.
-4. **[Atribua o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** para verificar se a configuração funciona.
+1. **[Configurar o logon único do AD do Azure](#configure-azure-ad-single-sign-on)**  tooenable toouse seus usuários esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#create-an-azure-ad-test-user)**  tootest logon único do AD do Azure com Britta Simon.
+3. **[Criar um usuário de teste do Clarizen](#create-a-clarizen-test-user)**  toohave um equivalente do Britta Simon no Clarizen é a representação toohello vinculado do Azure AD dela.
+4. **[Atribuir um usuário de teste de saudação do AD do Azure](#assign-the-azure-ad-test-user)**  tooenable Britta Simon toouse AD do Azure-logon único.
+5. **[Testar o logon único](#test-single-sign-on)**  tooverify Olá se os trabalhos de configuração.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
-Habilite o logon único do Azure AD no portal do Azure e configura o logon único em seu aplicativo Clarizen.
+Habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo Clarizen.
 
-1. No portal do Azure, na página de integração do aplicativo **Clarizen**, clique em **Logon único**.
+1. Em Olá portal do Azure, Olá **Clarizen** página de integração de aplicativos, clique em **o logon único**.
 
     ![Clicar em "Logon único"][4]
 
-2. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
+2. Em Olá **o logon único** caixa de diálogo para **modo**, selecione **baseado no SAML logon** tooenable-logon único.
 
     ![Selecionar "Logon único baseado em SAML"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_01.png)
 
-3. Na seção **URLs e Domínio do Clarizen**, execute as seguintes etapas:
+3. Em Olá **Clarizen domínio e URLs** , execute Olá etapas a seguir:
 
     ![Caixas de URL de resposta e o identificador](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_02.png)
 
-    a. Na caixa **Identificador**, digite o valor como: **Clarizen**
+    a. Em Olá **identificador** caixa, o valor do tipo hello como: **Clarizen**
 
-    b. Na caixa **URL de Resposta**, digite uma URL usando o seguinte padrão: **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**
+    b. Em Olá **URL de resposta** , digite uma URL usando o saudação padrão a seguir: **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**
 
     > [!NOTE]
-    > Esses não são os valores reais. Você precisa usar o identificador real e a URL de resposta. Aqui, sugerimos que você use o valor exclusivo de uma cadeia de caracteres como o identificador. Para obter os valores reais, entre em contato com a [equipe de suporte do Clarizen](https://success.clarizen.com/hc/en-us/requests/new).
+    > Eles não são valores reais de saudação. Você tem toouse Olá real identificador e URL de resposta. Aqui, sugerimos que você use o valor exclusivo de saudação de uma cadeia de caracteres como Olá identificador. tooget Olá valores reais, Olá contato [equipe de suporte do Clarizen](https://success.clarizen.com/hc/en-us/requests/new).
 
-4. Sobre o **certificado de autenticação SAML** seção, clique em **criar novo certificado**.
+4. Em Olá **o certificado de autenticação SAML** seção, clique em **criar novo certificado**.
 
     ![Clicar em "Criar novo certificado"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_03.png)  
 
-5. Na caixa de diálogo **Criar um Novo Certificado**, clique no ícone de calendário e selecione uma data de expiração. Em seguida, clique em **Salvar**.
+5. Em Olá **criar um novo certificado** caixa de diálogo, clique o ícone de calendário hello e selecione uma data de expiração. Em seguida, clique em **Salvar**.
 
     ![Selecionar e salvar uma data de expiração](./media/active-directory-saas-clarizen-tutorial/tutorial_general_300.png)
 
-6. Na seção **Certificado de Autenticação SAML**, selecione **Ativar o novo certificado** e clique em **Salvar**.
+6. Em Olá **o certificado de autenticação SAML** seção, selecione **ativar o novo certificado**e, em seguida, clique em **salvar**.
 
-    ![Marcar a caixa de seleção para ativar o novo certificado](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_04.png)
+    ![Marcar Olá a caixa de seleção para tornar o novo certificado de saudação ativo](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_04.png)
 
-7. Na caixa de diálogo **Certificado de substituição**, clique em **OK**.
+7. Em Olá **certificado de substituição** caixa de diálogo, clique em **Okey**.
 
-    ![Clicar em "OK" para confirmar que você deseja ativar o certificado](./media/active-directory-saas-clarizen-tutorial/tutorial_general_400.png)
+    ![Clicar em "Okey" tooconfirm que você deseja toomake Olá certificado active](./media/active-directory-saas-clarizen-tutorial/tutorial_general_400.png)
 
-8. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e salve o arquivo do certificado em seu computador.
+8. Em Olá **o certificado de autenticação SAML** seção, clique em **certificado (Base64)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.
 
-    ![Clicar em "Certificado (Base64)" para iniciar o download](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_05.png)
+    ![Clique em download de saudação toostart "Certificate (Base64)"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_05.png)
 
-9. Na seção **Configuração do Clarizen**, clique em **Configurar o Clarizen** para abrir a janela **Configurar logon**.
+9. Em Olá **Clarizen configuração** seção, clique em **configurar Clarizen** tooopen Olá **configurar o logon** janela.
 
     ![Clicar em "Configurar Clarizen"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_06.png)
 
     ![Janela "Configurar o logon", incluindo URLs e arquivos](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_07.png)
 
-10. Em outra janela do navegador da Web, entre em seu site de empresa do Clarizen como administrador.
+10. Em uma janela de navegador web diferente, entre no site da empresa Clarizen tooyour como um administrador.
 
 11. Clique no nome de usuário e em **Configurações**.
 
     ![Clicar em "Configurações" em seu nome de usuário](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_001.png "Configurações")
 
-12. Clique na guia **Configurações Globais**. Em seguida, próximo a **Autenticação Federada**, clique em **editar**.
+12. Clique em Olá **configurações globais** guia. Em seguida, Avançar muito**autenticação federada**, clique em **editar**.
 
     ![Guia "Configurações Globais"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_002.png "Configurações Globais")
 
-13. Na caixa de diálogo **Autenticação Federada**, execute as seguintes etapas:
+13. Em Olá **autenticação federada** caixa de diálogo caixa, execute Olá etapas a seguir:
 
     ![Caixa de diálogo "Autenticação Federada"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_003.png "Autenticação Federada")
 
     a. Selecione **Habilitar Autenticação Federada**.
 
-    b. Clique em **Carregar** para carregar o certificado baixado.
+    b. Clique em **carregar** tooupload seu certificado baixado.
 
-    c. Na caixa de texto **URL de Entrada**, insira o valor da **URL de Serviço de Logon Único SAML** do assistente de configuração de aplicativo do Azure AD.
+    c. Em Olá **URL de entrada** , digite o valor de saudação do **Single Sign-On URL do serviço SAML** da janela de configuração de aplicativo de saudação do AD do Azure.
 
-    d. Na caixa de texto **URL de Saída**, insira o valor da **URL de Saída** do assistente de configuração de aplicativo do Azure AD.
+    d. Em Olá **URL de logout** , digite o valor de saudação do **URL de logout** da janela de configuração de aplicativo de saudação do AD do Azure.
 
     e. Selecione **Usar POST**.
 
     f. Clique em **Salvar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
-No portal do Azure, crie um usuário de teste chamado Brenda Fernandes.
+No portal do Azure de Olá, crie um usuário de teste chamado Britta Simon.
 
-![Nome e endereço de email do usuário de teste do Azure AD][100]
+![Nome e endereço de email do usuário de teste de saudação do AD do Azure][100]
 
-1. No portal do Azure, no painel esquerdo, clique no ícone do **Azure Active Directory**.
+1. No hello portal do Azure, no painel esquerdo do hello, clique em Olá **Active Directory do Azure** ícone.
 
     ![Ícone do Azure Active Directory](./media/active-directory-saas-clarizen-tutorial/create_aaduser_01.png)
 
-2. Clique em **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+2. Clique em **usuários e grupos**e, em seguida, clique em **todos os usuários** toodisplay lista de saudação de usuários.
 
     ![Clicar em "Usuários e grupos" e "Todos os usuários"](./media/active-directory-saas-clarizen-tutorial/create_aaduser_02.png)
 
-3. Na parte superior da caixa de diálogo, clique em **Adicionar** para abrir a caixa de diálogo **Usuário**.
+3. Na parte superior de Olá Olá da caixa de diálogo, clique em **adicionar** tooopen Olá **usuário** caixa de diálogo.
 
-    ![O botão “Adicionar”](./media/active-directory-saas-clarizen-tutorial/create_aaduser_03.png)
+    ![botão de "Adicionar" Hello](./media/active-directory-saas-clarizen-tutorial/create_aaduser_03.png)
 
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+4. Em Olá **usuário** caixa de diálogo caixa, execute Olá etapas a seguir:
 
     ![Caixa de diálogo "Usuário" com o nome, p endereço de email e a senha preenchidos](./media/active-directory-saas-clarizen-tutorial/create_aaduser_04.png)
 
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
+    a. Em Olá **nome** , digite **BrittaSimon**.
 
-    b. Na caixa **Nome de usuário**, digite o endereço de email da conta de Brenda Fernandes.
+    b. Em Olá **nome de usuário** caixa de endereço de email do tipo hello de saudação conta Britta Simon.
 
-    c. Selecione **Mostrar Senha** e anote o valor de **Senha**.
+    c. Selecione **Mostrar senha** e anote o valor de saudação do **senha**.
 
     d. Clique em **Criar**.
 
 ### <a name="create-a-clarizen-test-user"></a>Criar um usuário de teste do Clarizen
-Para permitir que os usuários do Azure AD entrem no Clarizen, você deverá provisionar contas de usuário. No caso do Clarizen, o provisionamento é uma tarefa manual.
+tooenable a toosign de usuários do AD do Azure no tooClarizen, você deverá provisionar contas de usuário. No caso de saudação do Clarizen, o provisionamento é uma tarefa manual.
 
-1. Entre em seu site de empresa do Clarizen como administrador.
+1. Entre no tooyour Clarizen site da empresa como um administrador.
 
 2. Clique em **Pessoas**.
 
@@ -197,52 +197,52 @@ Para permitir que os usuários do Azure AD entrem no Clarizen, você deverá pro
 
     ![Botão "Convidar Usuário"](./media/active-directory-saas-clarizen-tutorial/create_aaduser_002.png "Convidar Usuários")
 
-4. Na página **Convidar Pessoas**, execute as seguintes etapas:
+4. Em Olá **convidar pessoas** caixa de diálogo caixa, execute Olá etapas a seguir:
 
     ![Caixa de diálogo "Convidar Pessoas"](./media/active-directory-saas-clarizen-tutorial/create_aaduser_003.png "Convidar Pessoas")
 
-    a. Na caixa **Email**, digite o endereço de email da conta de Brenda Fernandes.
+    a. Em Olá **Email** caixa de endereço de email do tipo hello de saudação conta Britta Simon.
 
     b. Clique em **Convidar**.
 
     > [!NOTE]
-    > O titular da conta do Active Directory do Azure receberá um email e seguirá um link para confirmar a conta antes que ela se torne ativa.
+    > proprietário de conta do Active Directory do Azure Olá será receberá um email e execute tooconfirm um link em sua conta antes de se tornar ativa.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
-Permita que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao Clarizen.
+### <a name="assign-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
+Habilite Britta Simon toouse logon único do Azure, concedendo tooClarizen seu acesso.
 
 ![Usuário de teste atribuído][200]
 
-1. No portal do Azure, abra a exibição de aplicativos, navegue até a exibição de diretório, clique em **Aplicativos empresariais** e então clique em **Todos os aplicativos**.
+1. No portal do Azure de Olá, abrir modo de exibição de aplicativos de saudação, toohello directory modo de navegação, clique em **aplicativos empresariais**e, em seguida, clique em **todos os aplicativos**.
 
     ![Clicar em "Aplicativos corporativos" e em "Todos os aplicativos"][201]
 
-2. Na lista de aplicativos, selecione **Clarizen**.
+2. Na lista de aplicativos hello, selecione **Clarizen**.
 
-    ![Selecionar Clarizen na lista](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_50.png)
+    ![Selecionando Clarizen na lista de saudação](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_50.png)
 
-3. No painel esquerdo, clique em **Usuários e grupos**.
+3. No painel esquerdo do hello, clique em **usuários e grupos**.
 
     ![Clicar em “Usuário e grupos”][202]
 
-4. Clique no botão **Adicionar** . Em seguida, na caixa de diálogo **Adicionar Atribuição**, selecione **Usuários e grupos**.
+4. Clique em Olá **adicionar** botão. Em seguida, no hello **Adicionar atribuição** caixa de diálogo, selecione **usuários e grupos**.
 
-    ![O botão "Adicionar" e a caixa de diálogo "Adicionar Atribuição"][203]
+    ![botão de "Adicionar" Hello e caixa de diálogo "Adicionar atribuição" hello][203]
 
-5. Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista de usuários.
+5. Em Olá **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de saudação de usuários.
 
-6. Na caixa de diálogo **Usuários e grupos**, clique no botão **Selecionar**.
+6. Em Olá **usuários e grupos** caixa de diálogo, clique em Olá **selecione** botão.
 
-7. Na caixa de diálogo **Adicionar Atribuição**, clique no botão **Atribuir**.
+7. Em Olá **Adicionar atribuição** caixa de diálogo, clique em Olá **atribuir** botão.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
-Teste sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Teste sua configuração do Azure AD único logon usando Olá painel de acesso.
 
-Ao clicar no bloco do Clarizen no Painel de Acesso, você deve ser conectado automaticamente ao aplicativo do Clarizen.
+Quando você clica em bloco Clarizen Olá Olá painel de acesso, você deve ser conectado automaticamente tooyour aplicativo Clarizen.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS ao Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como aplicativos de SaaS toointegrate com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

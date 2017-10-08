@@ -1,6 +1,6 @@
 ---
-title: "Interagir com relatórios usando a API JavaScript | Microsoft Docs"
-description: "Power BI Embedded, interagir com relatórios usando a API JavaScript"
+title: "aaaInteract com relatórios usando Olá API JavaScript | Microsoft Docs"
+description: "Power BI inserido, interagir com relatórios usando Olá API JavaScript"
 services: power-bi-embedded
 documentationcenter: 
 author: guyinacube
@@ -15,52 +15,52 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/06/2017
 ms.author: asaxton
-ms.openlocfilehash: 500462ac835674d80650c02aa7fc629b4a975857
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 657e4d5cee031bdda173ab3f451cc19b93ddb17b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>Interagir com relatórios do Power BI usando a API JavaScript
-A API JavaScript do Power BI permite que você insira relatórios do Power BI com facilidade em seus aplicativos. Com a API, seus aplicativos podem interagir programaticamente com diferentes elementos do relatório, como páginas e filtros. Essa interatividade faz com que os relatórios do Power BI sejam uma parte mais integrada do seu aplicativo.
+# <a name="interact-with-power-bi-reports-using-hello-javascript-api"></a>Interagir com relatórios do Power BI usando Olá API JavaScript
+Olá API JavaScript do Power BI permite que você tooeasily inserir relatórios do Power BI em seus aplicativos. Com a API do hello, seus aplicativos podem interagir programaticamente com elementos de relatório diferente como páginas e filtros. Essa interatividade faz com que os relatórios do Power BI sejam uma parte mais integrada do seu aplicativo.
 
-Você pode inserir um relatório do Power BI em seu aplicativo usando um iframe hospedado como parte do aplicativo. O iframe age como um limite entre seu aplicativo e o relatório, como você pode ver na imagem a seguir. 
+Você pode inserir um relatório do Power BI em seu aplicativo usando um iframe hospedado como parte do aplicativo hello. Olá iframe funciona como um limite entre seu aplicativo e o relatório de saudação, como você pode ver no Olá a imagem a seguir. 
 
 ![Power BI embedded iframe sem API do Javascript](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-1.png)
 
-O iframe torna o processo de incorporação muito mais fácil, mas sem a API JavaScript o relatório e o seu aplicativo não podem interagir entre si. Essa falta de interação pode dar impressão de que o relatório não faz realmente parte do aplicativo. O relatório e o aplicativo realmente precisam se comunicar, como na imagem a seguir.
+Olá iframe torna Olá inserindo um processo muito mais fácil, mas sem Olá Olá de API JavaScript relatório e seu aplicativo não podem interagir entre si. Esta falta de interação pode facilitar a sensação relatório Olá realmente não é parte de um aplicativo hello. aplicativo e relatório Olá precisam realmente toocommunicate e para trás, como Olá a imagem a seguir.
 
 ![Power BI embedded iframe com API do Javascript](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-2.png)
 
-A API JavaScript do Power BI permite que você escreva código que possa passar com segurança pelo limite do iframe. Isso permite que seu aplicativo execute programaticamente uma ação em um relatório e escute eventos de ações que os usuários fazem no relatório.
+Olá API JavaScript do Power BI permite que você o código de toowrite que pode passar com segurança por limite de iframe hello. Isso permite que seu aplicativo tooprogrammatically executar uma ação em um relatório e toolisten para eventos de ações que os usuários fazem no relatório de saudação.
 
-## <a name="what-can-you-do-with-the-power-bi-javascript-api"></a>O que você pode fazer com a API JavaScript do Power BI?
-Com a API JavaScript você pode gerenciar relatórios, navegar pelas páginas de um relatório, filtrar um relatório e manipular eventos de inserção. O diagrama a seguir mostra a estrutura da API.
+## <a name="what-can-you-do-with-hello-power-bi-javascript-api"></a>O que você pode fazer com hello API JavaScript do Power BI?
+Com hello API JavaScript, você pode gerenciar relatórios, navegue toopages em um relatório, filtrar um relatório e tratar eventos de inserção. Olá diagrama a seguir mostra estrutura Olá Olá API.
 
 ![Diagrama da API JavaScript do Power BI](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-3.png)
 
 ### <a name="manage-reports"></a>Gerenciar relatórios
-A API Javascript permite que você gerencie o comportamento no nível de página e de relatório:
+Olá API Javascript permite que você toomanage comportamento no nível de página e relatório hello:
 
-* Insira um Relatório específico do Power BI com segurança em seu aplicativo - experimente o [aplicativo de demonstração inserção](http://azure-samples.github.io/powerbi-angular-client/#/scenario1)
+* Inserir um relatório específico do Power BI com segurança em seu aplicativo - tente Olá [incorporar o aplicativo de demonstração](http://azure-samples.github.io/powerbi-angular-client/#/scenario1)
   * Definir token de acesso
-* Configurar o relatório
-  * Habilite e desabilite o painel de filtro e o painel de navegação de página - experimente o [aplicativo de demonstração de configurações de atualização](http://azure-samples.github.io/powerbi-angular-client/#/scenario6)
-  * Defina padrões para páginas e filtros - experimente o [aplicativo para definir padrões](http://azure-samples.github.io/powerbi-angular-client/#/scenario5)
+* Configurar o relatório de saudação
+  * Habilitar e desabilitar o painel de filtro hello e painel de navegação de página - tente Olá [atualizar o aplicativo de demonstração de configurações](http://azure-samples.github.io/powerbi-angular-client/#/scenario6)
+  * Definir padrões para páginas e filtros - tente Olá [demonstração do conjunto de padrões](http://azure-samples.github.io/powerbi-angular-client/#/scenario5)
 * Entrar e sair do modo de tela inteira
 
 [Saiba mais sobre como inserir um relatório](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics)
 
-### <a name="navigate-to-pages-in-a-report"></a>Navegar pelas páginas de um relatório
-A API JavaScript permite que você descubra todas as páginas de um relatório e defina a página atual. Experimente o [aplicativo de demonstração de navegação](http://azure-samples.github.io/powerbi-angular-client/#/scenario3).
+### <a name="navigate-toopages-in-a-report"></a>Navegue toopages em um relatório
+Olá API JavaScript enbales você toodiscover todas as páginas em uma página atual de Olá do relatório e tooset. Tente Olá [aplicativo de demonstração de navegação](http://azure-samples.github.io/powerbi-angular-client/#/scenario3).
 
 [Saiba mais sobre a navegação de página](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Page-Navigation)
 
 ### <a name="filter-a-report"></a>Filtrar um relatório
-A API JavaScript fornece recursos básicos e avançados de filtragem para relatórios inseridos e páginas de relatório. Experimente o [aplicativo de demonstração de filtragem](http://azure-samples.github.io/powerbi-angular-client/#/scenario4)e examine alguns códigos introdutórios aqui.  
+Olá API JavaScript fornece básicos e avançados recursos de relatórios inseridos e páginas de relatório de filtragem. Tente Olá [filtragem de aplicativo de demonstração](http://azure-samples.github.io/powerbi-angular-client/#/scenario4)e examinar alguns códigos introdução aqui.  
 
 #### <a name="basic-filters"></a>Filtros básicos
-Um filtro básico é colocado em uma coluna ou nível hierárquico e contém uma lista de valores a serem incluídos ou excluídos.
+Um filtro básico é colocado em um coluna ou nível hierárquico e contém uma lista de valores tooinclude ou excluir.
 
 ```
 const basicFilter: pbi.models.IBasicFilter = {
@@ -76,7 +76,7 @@ const basicFilter: pbi.models.IBasicFilter = {
 
 
 #### <a name="advanced-filters"></a>Filtros avançados
-Os filtros avançados usam o operador lógico E ou OU e aceitam uma ou duas condições, cada uma com seus próprios operador e valor. As condições com suporte são:
+Filtros avançados usam o operador lógico hello e ou ou e aceitar uma ou duas condições, cada um com suas próprias operador e um valor. As condições com suporte são:
 
 * Nenhum
 * LessThan
@@ -115,7 +115,7 @@ const advancedFilter: pbi.models.IAdvancedFilter = {
 [Saiba mais sobre filtragem](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Filters)
 
 ### <a name="handling-events"></a>Manipulação de eventos
-Além de enviar informações para o iframe, seu aplicativo também pode receber informações sobre os seguintes eventos provenientes do iframe:
+Além disso toosending informações em iframe hello, seu aplicativo pode também receber informações sobre Olá eventos provenientes iframe Olá a seguir:
 
 * Inserir
   * carregado
@@ -127,7 +127,7 @@ Além de enviar informações para o iframe, seu aplicativo também pode receber
 [Saiba mais sobre a manipulação de eventos](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Handling-Events)
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre a API JavaScript do Power BI, confira os links a seguir:
+Para obter mais informações sobre Olá API JavaScript do Power BI, confira Olá links a seguir:
 
 * [Wiki da API JavaScript](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
 * [Referência de modelo de objeto](https://microsoft.github.io/powerbi-models/modules/_models_.html)

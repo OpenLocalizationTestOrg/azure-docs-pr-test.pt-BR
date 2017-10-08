@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Como recuperar LocalDB problema de limite de 10 GB | Microsoft Docs'
-description: "Este tópico descreve como recuperar o serviço de sincronização do Azure do AD Connect quando encontra LocalDB 10GB limitar o problema."
+title: "Conexão do AD do Azure: Como limitar toorecover do LocalDB 10GB problema | Microsoft Docs"
+description: "Este tópico descreve como toorecover sincronização do Azure do AD Connect de serviço quando ele encontra LocalDB 10GB limitar o problema."
 services: active-directory
 documentationcenter: 
 author: cychua
@@ -14,91 +14,91 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 08e682c51b12d4506019d2f6b68e1eae0798b990
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7b8ce6e19b68837639017bb0315eda4b924d525a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Como se recuperar de um limite de 10 GB do LocalDB
-O Azure AD Connect requer um banco de dados do SQL Server para armazenar dados de identidade. Você pode usar o padrão que do SQL Server 2012 Express LocalDB instalado com o Azure AD Connect ou usar seu próprio SQL completo. O SQL Server Express impõe um limite de tamanho de 10 GB. Ao usar o LocalDB e esse limite for atingido, o serviço de sincronização do Azure do AD Connect não pode iniciar ou sincronizar corretamente. Este artigo fornece as etapas de recuperação.
+# <a name="azure-ad-connect-how-toorecover-from-localdb-10-gb-limit"></a>Conexão do AD do Azure: Como toorecover do limite de 10 GB do LocalDB
+Conexão do AD do Azure requer um dados de identidade de toostore de banco de dados do SQL Server. Você pode usar saudação padrão do que SQL Server 2012 Express LocalDB é instalado com o Azure AD Connect ou usar seu próprio SQL completo. O SQL Server Express impõe um limite de tamanho de 10 GB. Ao usar o LocalDB e esse limite for atingido, o serviço de sincronização do Azure do AD Connect não pode iniciar ou sincronizar corretamente. Este artigo fornece as etapas de recuperação de saudação.
 
 ## <a name="symptoms"></a>Sintomas
 Há dois sintomas comuns:
 
-* O Serviço de sincronização do Azure do AD Connect **está em execução**, mas não consegue sincronizar com o erro *"stopped-database-disk-full"*.
+* Serviço de sincronização se conectar do Azure AD **está em execução** , mas falha toosynchronize com *"parado-banco de dados-disco cheio"* erro.
 
-* Serviço de sincronização do Azure do AD Connect **não pode iniciar**. Quando você tentar iniciar o serviço, ele falha com o evento 6323 e mensagem de erro *"o servidor encontrou um erro porque o SQL Server está sem espaço em disco“.*
+* Serviço de sincronização se conectar do Azure AD **é toostart não é possível**. Quando você tenta toostart serviço de hello, falhar com a mensagem de erro e de evento 6323 *"servidor de saudação encontrou um erro porque o SQL Server está sem espaço em disco."*
 
 ## <a name="short-term-recovery-steps"></a>Etapas de recuperação de curto prazo
-Esta seção fornece as etapas para recuperar o espaço de banco de dados necessário para o serviço do Azure AD Connect sincronização retomar a operação. As etapas são as seguintes:
-1. [Determinar o status do Serviço de Sincronização](#determine-the-synchronization-service-status)
-2. [Reduzir o banco de dados](#shrink-the-database)
+Esta seção fornece espaço em tooreclaim DB Olá etapas necessário para a operação do serviço de sincronização se conectar do Azure AD tooresume. Olá etapas incluem:
+1. [Determinar o status do serviço de sincronização Olá](#determine-the-synchronization-service-status)
+2. [Reduzir Olá banco de dados](#shrink-the-database)
 3. [Excluir dados de histórico de execução](#delete-run-history-data)
 4. [Reduzir o período de retenção de dados de histórico de execução](#shorten-retention-period-for-run-history-data)
 
-### <a name="determine-the-synchronization-service-status"></a>Determinar o status do serviço de sincronização
-Primeiro, determine se o serviço de sincronização ainda está executando ou não:
+### <a name="determine-hello-synchronization-service-status"></a>Determinar o status do serviço de sincronização Olá
+Primeiro, determine se Olá serviço de sincronização ainda está executando ou não:
 
-1. Faça logon no seu servidor do Azure AD Connect como administrador.
+1. Faça logon tooyour servidor da conexão do AD do Azure como administrador.
 
-2. Vá para **Service Control Manager**.
+2. Vá muito**Service Control Manager**.
 
-3. Verifique o status do **Microsoft Azure AD Sync**.
+3. Verificar status de saudação do **Microsoft Azure AD Sync**.
 
 
-4. Se estiver em execução, não parar ou reiniciar o serviço. Ignorar [reduzir o banco de dados](#shrink-the-database) etapa e vá para [excluir dados de histórico de executar](#delete-run-history-data) etapa.
+4. Se ele estiver em execução, não interromper ou reiniciar o serviço de saudação. Ignorar [banco de dados de saudação redução](#shrink-the-database) etapa e vá muito[excluir dados de histórico de execução](#delete-run-history-data) etapa.
 
-5. Se não estiver em execução, tente iniciar o serviço. Se o serviço foi iniciado com êxito, ignore [reduzir o banco de dados](#shrink-the-database) etapa e vá para [excluir dados de histórico de executar](#delete-run-history-data) etapa. Caso contrário, prossiga com a etapa [Reduzir o banco de dados](#shrink-the-database).
+5. Se não estiver em execução, tente toostart serviço de saudação. Se o serviço de saudação é iniciado com êxito, ignore [banco de dados de saudação redução](#shrink-the-database) etapa e vá muito[excluir dados de histórico de execução](#delete-run-history-data) etapa. Caso contrário, prossiga com [banco de dados de saudação redução](#shrink-the-database) etapa.
 
-### <a name="shrink-the-database"></a>Reduzir o banco de dados
-Use a operação de redução para liberar espaço de banco de dados para iniciar o serviço de sincronização. Ele libera espaço de banco de dados, removendo os espaços em branco no banco de dados. Essa etapa é melhor esforço, como não há garantia de que você sempre pode recuperar espaço. Para saber mais sobre a operação de redução, leia este artigo [reduzir um banco de dados](https://msdn.microsoft.com/library/ms189035.aspx).
+### <a name="shrink-hello-database"></a>Reduzir Olá banco de dados
+Use toofree de operação de redução Olá backup suficiente Olá de toostart de espaço do banco de dados serviço de sincronização. Ele libera o espaço de banco de dados ao remover espaços em branco no banco de dados de saudação. Essa etapa é melhor esforço, como não há garantia de que você sempre pode recuperar espaço. toolearn mais sobre a operação de redução, leia este artigo [reduzir um banco de dados](https://msdn.microsoft.com/library/ms189035.aspx).
 
 > [!IMPORTANT]
-> Ignore esta etapa se você pode obter o serviço de sincronização para execução. Não é recomendável para reduzir o banco de dados SQL que pode levar a mau desempenho devido à maior fragmentação.
+> Ignore esta etapa se você pode obter Olá toorun de serviço de sincronização. Olá tooshrink banco de dados SQL não é recomendável porque ele pode levar toopoor desempenho devido a fragmentação tooincreased.
 
-O nome do banco de dados criado para o Azure AD Connect é **ADSync**. Para executar uma operação de redução, você deve fazer em como o administrador do sistema ou DBO do banco de dados. Durante a instalação do Azure AD Connect, as contas a seguir são concedidas direitos de sysadmin:
+nome de saudação do banco de dados de saudação criado para o Azure AD Connect é **ADSync**. tooperform uma operação de redução, faça logon no como Olá sysadmin ou DBO do banco de dados de saudação. Durante a instalação do Azure AD Connect, Olá contas a seguir é concedido direitos de administrador do sistema:
 * Administradores Locais
-* A conta de usuário que foi usada para executar a instalação do Azure AD Connect.
-* A conta de serviço de sincronização que é usada como o contexto operacional do serviço de sincronização do Azure do AD Connect.
-* O grupo local ADSyncAdmins criado durante a instalação.
+* conta de usuário de saudação que foi usado toorun AD do Azure Connect instalação.
+* Olá conta de serviço de sincronização que é usada como Olá operacional contexto do serviço de sincronização se conectar do Azure AD.
+* Olá grupo ADSyncAdmins que foi criado durante a instalação.
 
-1. O banco de dados por meio da cópia de backup **ADSync.mdf** e **ADSync_log.ldf** arquivos localizados em `%ProgramFiles%\program files\Microsoft Azure AD Sync\Data` para um local seguro.
+1. Saudação de banco de dados por meio da cópia de backup **ADSync.mdf** e **ADSync_log.ldf** arquivos localizados em `%ProgramFiles%\program files\Microsoft Azure AD Sync\Data` local seguro tooa.
 
 2. Inicie uma nova sessão do PowerShell.
 
-3. Navegue até a pasta `%ProgramFiles%\Program Files\Microsoft SQL Server\110\Tools\Binn`.
+3. Navegue toofolder `%ProgramFiles%\Program Files\Microsoft SQL Server\110\Tools\Binn`.
 
-4. Iniciar **sqlcmd** utilitário executando o comando `./SQLCMD.EXE -S “(localdb)\.\ADSync” -U <Username> -P <Password>`, usando a credencial de um administrador do sistema ou o DBO do banco de dados.
+4. Iniciar **sqlcmd** utilitário executando o comando Olá `./SQLCMD.EXE -S “(localdb)\.\ADSync” -U <Username> -P <Password>`, usando a credencial de saudação do sysadmin ou Olá DBO do banco de dados.
 
-5. Para reduzir o banco de dados, no prompt do sqlcmd (1>), digite `DBCC Shrinkdatabase(ADSync,1);`, seguido por `GO` na próxima linha.
+5. tooshrink Olá banco de dados, no prompt de sqlcmd hello (1 >), digite `DBCC Shrinkdatabase(ADSync,1);`, seguido por `GO` na próxima linha de saudação.
 
-6. Se a operação for bem-sucedida, tente iniciar o serviço de sincronização novamente. Se você puder iniciar o serviço de sincronização, vá para [excluir dados de histórico de executar](#delete-run-history-data) etapa. Caso contrário, contate o Suporte.
+6. Se Olá operação for bem-sucedida, tente toostart Olá serviço de sincronização novamente. Se você puder iniciar Olá serviço de sincronização, vá muito[excluir dados de histórico de execução](#delete-run-history-data) etapa. Caso contrário, contate o Suporte.
 
 ### <a name="delete-run-history-data"></a>Excluir dados de histórico de execução
-Por padrão, Azure AD Connect retém a dias sete de dados de histórico de execução. Nesta etapa, podemos excluir os dados de histórico de execução para recuperar espaço de banco de dados para que o serviço de sincronização do Azure do AD Connect pode começar a sincronizar novamente.
+Por padrão, o Azure AD Connect retém o tooseven dias de dados de histórico de execução. Nesta etapa, excluímos Olá espaço de tooreclaim banco de dados de dados de histórico de execução para que o serviço de sincronização se conectar do Azure AD pode começar a sincronizar novamente.
 
-1.  Inicie o **Gerenciador de Serviço de Sincronização** indo para INICIAR → Serviço de Sincronização.
+1.  Iniciar **Synchronization Service Manager** pelo vai tooSTART → serviço de sincronização.
 
-2.  Vá para a guia **Operações**.
+2.  Vá toohello **operações** guia.
 
 3.  Em **Ações**, selecione **Limpar Execuções**…
 
-4.  Você pode escolher a opção **Limpar todas as execuções** ou **Limpar execuções antes de... <date>**. É recomendável que você comece desmarcando os dados de histórico de execução com mais de dois dias. Se você continuar a executar o problema de tamanho do banco de dados, escolha o **limpar todas as execuções** opção.
+4.  Você pode escolher a opção **Limpar todas as execuções** ou **Limpar execuções antes de... <date>**. É recomendável que você comece desmarcando os dados de histórico de execução com mais de dois dias. Se você continuar toorun problema de tamanho do banco de dados, em seguida, escolha Olá **limpar todas as execuções** opção.
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>Reduzir o período de retenção de dados de histórico de execução
-Esta etapa é reduzir a probabilidade de executando o problema de limite de 10 GB após vários ciclos de sincronização.
+Esta etapa é a probabilidade de saudação do tooreduce em execução em um problema de limite de 10 GB de saudação após vários ciclos de sincronização.
 
 1. Abra uma nova sessão do PowerShell.
 
-2. Execute `Get-ADSyncScheduler` e anote a propriedade PurgeRunHistoryInterval, que especifica o período de retenção atual.
+2. Execute `Get-ADSyncScheduler` e anote Olá propriedade PurgeRunHistoryInterval, que especifica o período de retenção atual hello.
 
-3. Execute `Set-ADSyncScheduler -PurgeRunHistoryInterval 2.00:00:00` para definir o período de retenção como dois dias. Ajuste o período de retenção, como apropriado.
+3. Executar `Set-ADSyncScheduler -PurgeRunHistoryInterval 2.00:00:00` tooset Olá retenção tootwo período em dias. Ajuste o período de retenção de saudação conforme apropriado.
 
-## <a name="long-term-solution--migrate-to-full-sql"></a>Solução de longo prazo – migrar para o SQL completo
-Em geral, o problema é indicativo de que o tamanho do banco de dados de 10 GB não é mais suficiente para o Azure AD Connect sincronizar seu Active Directory local ao Azure AD. É recomendável que você troque pelo uso da versão completa do SQL Server. Você não pode substituir o LocalDB de uma implantação existente do Azure AD Connect diretamente com o banco de dados da versão completa do SQL. Em vez disso, você deve implantar um novo servidor do Azure AD Connect com a versão completa do SQL. É recomendável que você faça uma migração swing, onde o novo servidor do Azure AD Connect (com o banco de dados SQL) é implantado como um servidor de preparo, ao lado do servidor do Azure AD Connect existente (com o LocalDB). 
-* Para obter instruções sobre como configurar o remote SQL com o Azure AD Connect, consulte o artigo [instalação personalizada do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom).
-* Para obter instruções sobre a migração swing para atualização do Azure AD Connect, veja o artigo [Azure AD Connect: Atualização de uma versão anterior para a versão mais recente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration).
+## <a name="long-term-solution--migrate-toofull-sql"></a>Solução de longo prazo – migrar toofull SQL
+Em geral, problema de saudação é uma indicação de que o tamanho do banco de dados de 10 GB não é suficiente para toosynchronize do Azure AD Connect seu tooAzure do Active Directory local AD. É recomendável que você mude a versão completa do toousing saudação do SQL server. Diretamente, você não pode substituir Olá LocalDB de uma implantação existente do Azure AD Connect com banco de dados de saudação da versão completa de saudação do SQL. Em vez disso, você deve implantar um novo servidor do Azure AD Connect com a versão completa de saudação do SQL. É recomendável que você execute uma migração de giro onde o novo servidor de conexão do AD do Azure Olá, (com o banco de dados SQL) é implantado como um servidor de preparo, o próximo toohello existente do Azure AD Connect servidor (com LocalDB). 
+* Para obter instruções sobre como tooconfigure SQL remoto com o Azure AD Connect, consulte tooarticle [instalação personalizada do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom).
+* Para obter instruções sobre a migração de movimento para a atualização do Azure AD Connect, consulte tooarticle [do Azure AD Connect: atualização do toohello versão anterior mais recente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration).
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).

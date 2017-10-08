@@ -1,6 +1,6 @@
 ---
-title: "Repositórios de Registro de contêiner do Azure | Microsoft Docs"
-description: "Como usar os repositórios de Registro de contêiner do Azure para imagens do Docker"
+title: "repositórios de registro de contêiner aaaAzure | Microsoft Docs"
+description: "Como repositórios de registro de contêiner do Azure toouse para imagens do Docker"
 services: container-registry
 documentationcenter: 
 author: cristy
@@ -13,32 +13,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: cristyg
-ms.openlocfilehash: dd4feff057269ed7106990bb63eed7fcffa2dbec
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 06172a63465838a78a607f268da116d8158789ee
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-container-registry-repositories"></a>Repositórios de Registro de contêiner do Azure
 
-Os Registros de Contêiner do Azure são compatíveis com uma variedade de serviços e orquestradores. Para tornar mais fácil de controlar os serviços de origem e os agentes dos quais o ACR é usado, começamos usando o campo de cabeçalho do Docker no arquivo Docker.config.
+Os Registros de Contêiner do Azure são compatíveis com uma variedade de serviços e orquestradores. toomake-serviços de fonte de saudação tootrack mais fácil e agentes do qual ACR é usado, começamos usando o campo de cabeçalho de Docker Olá Olá Docker.config arquivo.
 
 
 
-## <a name="viewing-repositories-in-the-portal"></a>Exibindo repositórios no Portal
+## <a name="viewing-repositories-in-hello-portal"></a>Exibir os repositórios em Olá Portal
 
-Os cabeçalhos do ACR seguem o formato:
+cabeçalhos ACR Olá seguem o formato de saudação:
 ```
 X-Meta-Source-Client: <cloud>/<service>/<optionalservicename>
 ```
 
 * Nuvem: Azure, Azure Stack ou outras nuvens do Azure específicas do país ou do governo. Embora no momento não haja suporte para o Azure Stack e nuvens do governo, este parâmetro habilita suporte futuro.
-* Serviço: nome do serviço.
-* Optionalservicename: parâmetro opcional para serviços com subserviços ou para especificar uma SKU (ex: aplicativos Web correspondem a Azure/app-service/web-apps).
+* Serviço: o nome do serviço de saudação.
+* Optionalservicename: o parâmetro opcional para serviços com subserviços ou toospecify um SKU (ex: aplicativos web correspondem com aplicativos do Azure/app-service/web).
 
-Orquestradores e serviços de parceiro são incentivados a usar valores de cabeçalho específicos para ajudar em nossa telemetria. Os usuários também podem modificar o valor passado para o cabeçalho, se desejarem.
+Orchestrators e serviços de parceiro são incentivados toouse cabeçalho específico valores toohelp com nosso telemetria. Os usuários também podem modificar o valor Olá passado toohello cabeçalho se desejarem.
 
-Os valores que desejamos que os parceiros do ACR usem para preencher o campo "X-Meta-Origem-Cliente" estão abaixo:
+valores Hello desejamos ACR parceiros toouse toopopulate hello "X-Meta-origem-cliente" campo são os seguintes:
 
 | Nome do Serviço              | Cabeçalho                                |
 | ------------------------- | ------------------------------------- |
@@ -57,4 +57,4 @@ Os valores que desejamos que os parceiros do ACR usem para preencher o campo "X-
 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Saiba mais sobre os registros e os serviços e orquestradores com suporte](container-registry-intro.md)
+[Saiba mais sobre registros e Olá suporte para serviços e orchestrators](container-registry-intro.md)

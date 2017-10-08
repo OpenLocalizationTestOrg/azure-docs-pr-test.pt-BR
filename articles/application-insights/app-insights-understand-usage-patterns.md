@@ -1,6 +1,6 @@
 ---
-title: Funis do Azure Application Insights
-description: "Saiba como você pode usar Funis para descobrir como os clientes estão interagindo com seu aplicativo."
+title: aaaAzure Funis do Application Insights
+description: "Saiba como você pode usar os Funis toodiscover como os clientes estão interagindo com o seu aplicativo."
 services: application-insights
 documentationcenter: 
 author: CFreemanwa
@@ -12,32 +12,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: cfreeman
-ms.openlocfilehash: 85f47daaaff8967eb83c330bab839023f128b486
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3a90cfd11cb193e303136504df44008ffd04a290
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="discover-how-customers-are-using-your-application-with-the-application-insights-funnels"></a>Descobrir como os clientes estão usando seu aplicativo com os Funis do Application Insights
+# <a name="discover-how-customers-are-using-your-application-with-hello-application-insights-funnels"></a>Descobrir como os clientes estão usando o seu aplicativo com hello Funis do Application Insights
 
-Entender a experiência do cliente é de extrema importância para seus negócios. Se o aplicativo envolver vários estágios, você precisará saber se a maioria dos clientes está progredindo por todo o processo ou se eles estão encerrando o processo em algum momento. A progressão por uma série de etapas em um aplicativo Web é conhecida como “funil”. Use os Funis do Application Insights para obter informações sobre os usuários e monitorar as taxas de conversão passo a passo. 
+Experiência do cliente compreensão é de negócios de tooyour tem importância hello. Se seu aplicativo envolve várias etapas, você precisará tooknow se a maioria dos clientes que estão em andamento por meio de todo o processo de hello, ou se eles são encerrar o processo de saudação em algum momento. progressão Olá por meio de uma série de etapas em um aplicativo web é conhecido como um funil"". Você pode usar o hello Application Insights Funis toogain aprofundar-se os usuários e as taxas de conversão de passo a passo do monitor. 
 
-## <a name="get-started-with-the-funnels-blade"></a>Introdução à folha Funis
-A maneira mais fácil de saber mais sobre os Funis é acompanhar um exemplo. As ilustrações a seguir demonstram as etapas que os proprietários de uma empresa de comércio eletrônico realizarão para saber como seus clientes interagem com seu aplicativo Web.  
+## <a name="get-started-with-hello-funnels-blade"></a>Introdução à folha de Funis Olá
+Olá toolearn de maneira mais fácil sobre os Funis é toowalk, embora um exemplo. Olá ilustrações a seguir demonstram os proprietários de etapas de saudação de uma empresa de comércio eletrônico levaria toolearn como os clientes interagem com seus aplicativos web.  
 
 ### <a name="create-your-funnel"></a>Criar o funil
-Antes de criar o funil, você precisa decidir qual pergunta você deseja responder. Por exemplo, talvez você deseje saber quantos clientes que exibem a home page clicam em um anúncio. Neste exemplo, os proprietários da empresa Fabrikam Fiber desejam saber o percentual de clientes que fazem uma compra depois de adicionar itens ao carrinho de compras durante o mês passado.
+Antes de criar o funil, é necessário toodecide na pergunta Olá deseja tooanswer. Por exemplo, convém tooknow quantos clientes exibindo o página inicial, clique em um anúncio. Neste exemplo, proprietários de saudação do hello da empresa de fibra Fabrikam deseja tooknow percentual de saudação de clientes que fazer uma compra depois da adição de itens tootheir carrinho de compras durante a saudação no último mês.
 
-Estas são as etapas que eles realizam para criar seu funil.
+Aqui estão Olá etapas que levam toocreate seu funil.
 
-1. Clique no botão Novo na folha Funis.
-1. Selecione o intervalo de tempo “Mês passado” na lista suspensa **Intervalo de Tempo**. 
-1. Selecione o evento **Página do produto** na lista suspensa **Etapa 1**. 
-1. Selecione o evento **Adicionar ao carrinho de compras** na lista suspensa **Etapa 2**.
-1. Selecione o evento **Clicar em Comprar** na lista suspensa **Etapa 3**.
-1. Adicione um nome ao funil e clique em **Salvar**.
+1. Clique em novo botão Olá na folha de Funis hello.
+1. Selecione intervalo de tempo de saudação do "Mês passado" hello **intervalo de tempo** lista suspensa. 
+1. Selecione Olá **página** eventos de saudação **etapa 1** lista suspensa. 
+1. Selecione Olá **adicionar tooshopping carrinho** eventos de saudação **etapa 2** lista suspensa.
+1. Selecione Olá **clique em comprar** eventos de saudação **etapa 3** lista suspensa.
+1. Adicionar um funil de toohello nome e clique em **salvar**.
 
-A ilustração a seguir demonstra os dados gerados na folha Funis. Nessa folha, os proprietários da Fabrikam podem ver que, durante a última semana, 22,7% de seus clientes que adicionaram um item ao carrinho de compras concluíram a compra. Eles também podem ver que 1% dos clientes clicou em um anúncio antes de visitar a página do produto e que 20% de seus clientes saíram do site depois de concluírem a compra.
+Olá ilustração a seguir demonstra gera Olá dados Olá Funis folha. Olá aqui Fabrikam proprietários podem ver que, durante a saudação última semana, 22,7% de seus clientes que adicionou um item de compras de tootheir Carrinho compra Olá concluída. Eles também podem ver que 1% dos clientes Olá clicado um anúncio para que visitar a página de produto hello e 20% de seus clientes desconectados depois de concluir a compra.
 
 
 ![Folha Funis com os dados](./media/app-insights-understand-usage-patterns/funnel1.png)

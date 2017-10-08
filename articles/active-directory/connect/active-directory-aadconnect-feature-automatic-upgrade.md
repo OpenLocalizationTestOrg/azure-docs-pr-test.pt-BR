@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Connect: atualização automática | Microsoft Docs"
-description: "Este tópico descreve o recurso interno de atualização automática na sincronização do Azure AD Connect."
+description: "Este tópico descreve Olá internos recurso de atualização automática na sincronização do Azure AD Connect."
 services: active-directory
 documentationcenter: 
 author: AndKjell
@@ -14,88 +14,88 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 15dcfff0a5b10eb0565b450664406ba3f4a8de10
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 70d15eb3adf7758d8a43d278157daa504e059a98
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: atualização automática
 Esse recurso foi introduzido com a compilação 1.1.105.0 (lançada em fevereiro de 2016).
 
 ## <a name="overview"></a>Visão geral
-Verificar se a instalação do Azure AD Connect está sempre atualizada nunca foi tão fácil após o lançamento do recurso de **atualização automática** . Esse recurso é habilitado por padrão para instalações rápidas e atualizações de DirSync. Quando uma nova versão for lançada, a instalação será atualizada automaticamente.
+Certificando-se de sua instalação do Azure AD Connect está sempre toodate nunca foi tão fácil com hello **atualização automática** recurso. Esse recurso é habilitado por padrão para instalações rápidas e atualizações de DirSync. Quando uma nova versão for lançada, a instalação será atualizada automaticamente.
 
-A atualização automática é habilitada por padrão para o seguinte:
+Atualização automática está habilitada por padrão para seguir hello:
 
 * Instalação das configurações expressas e atualizações de DirSync.
 * Usar o SQL Express LocalDB, que é o que as configurações Expressas sempre usam. O DirSync com o SQL Express também usa o LocalDB.
-* A conta do AD é a conta MSOL_ padrão criada pelas configurações Expressas e DirSync.
-* Ter menos de 100 mil objetos no metaverso.
+* Olá conta do AD é Olá MSOL_ conta criada as configurações Express e o DirSync.
+* Tem menos de 100.000 objetos no metaverso hello.
 
-O estado atual da atualização automática pode ser exibido com o cmdlet `Get-ADSyncAutoUpgrade`do PowerShell. Ele contém os seguintes estados:
+estado atual de saudação da atualização automática pode ser exibido com o cmdlet do PowerShell Olá `Get-ADSyncAutoUpgrade`. Ele tem Olá estados a seguir:
 
 | Estado | Comentário |
 | --- | --- |
 | Habilitado |A atualização automática está habilitada. |
-| Suspenso |Somente definido pelo sistema. O sistema não está mais qualificado para receber atualizações automáticas. |
+| Suspenso |Definido pelo sistema de saudação apenas. Olá sistema não estiver mais atualizações automáticas tooreceive qualificados. |
 | Desabilitado |A atualização automática está desabilitada. |
 
-Você pode alterar entre **Habilitado** e **Desabilitado** com o `Set-ADSyncAutoUpgrade`. Somente o sistema deve definir o estado como **Suspenso**.
+Você pode alterar entre **Habilitado** e **Desabilitado** com o `Set-ADSyncAutoUpgrade`. Apenas sistema Olá deve definir o estado de saudação **suspenso**.
 
-A atualização automática está usando o Azure AD Connect Health para a infraestrutura de atualização. Para que a atualização automática funcione, não deixe de abrir as URLs no seu servidor proxy do **Azure AD Connect Health** conforme documentado em [Intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+A atualização automática está usando o Azure AD Connect Health para a infraestrutura de atualização de saudação. Para toowork de atualização automática, verifique se você abriu Olá URLs no servidor proxy para **Azure AD Connect Health** conforme documentado no [intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-Se a interface do usuário **Synchronization Service Manager** estiver em execução no servidor, a atualização será suspensa até que a interface do usuário seja fechada.
+Se hello **Synchronization Service Manager** interface do usuário está em execução no servidor de saudação, em seguida, hello atualização está suspenso até que seja fechado Olá da interface do usuário.
 
 ## <a name="troubleshooting"></a>Solucionar problemas
-Se a sua instalação do Connect não for atualizada conforme o esperado, siga estas etapas para descobrir o que poderia estar errado.
+Se a instalação do Connect não atualizada conforme o esperado, siga essas toofind etapas out o que pode estar errado.
 
-Primeiro, você não deve esperar que a atualização automática seja tentada no primeiro dia em que uma nova versão for lançada. Há uma aleatoriedade intencional antes que ocorra uma tentativa de atualização. Sendo assim, não se assuste se a instalação não for atualizada imediatamente.
+Primeiro, não espere Olá toobe de atualização automática tentada Olá primeiro dia de que uma nova versão for lançada. Há uma aleatoriedade intencional antes que ocorra uma tentativa de atualização. Sendo assim, não se assuste se a instalação não for atualizada imediatamente.
 
-Se você achar que algo não está certo, primeiro execute `Get-ADSyncAutoUpgrade` para garantir que a atualização automática esteja habilitada.
+Se você achar que algo não está correto, primeiro execute `Get-ADSyncAutoUpgrade` tooensure a atualização automática está habilitada.
 
-Em seguida, verifique se que você abriu as URLs necessárias em seu proxy ou no firewall. A atualização automática está usando o Azure AD Connect Health conforme descrito na [Visão geral](#overview). Se você usar um proxy, certifique-se de que a Integridade foi configurada para usar um [servidor proxy](../connect-health/active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Teste também a [conectividade de integridade](../connect-health/active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) com o Azure AD.
+Em seguida, certifique-se de que abrir URLs Olá necessária no seu proxy ou firewall. Atualização automática está usando o Azure AD Connect Health, conforme descrito em Olá [visão geral](#overview). Se você usar um proxy, certifique-se de integridade foi configurado toouse um [servidor proxy](../connect-health/active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Também testar Olá [conectividade integridade](../connect-health/active-directory-aadconnect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) tooAzure AD.
 
-Com a conectividade com o Azure AD verificada, é hora de examinar os logs de eventos. Inicie o visualizador de eventos e examine o log de eventos do **Aplicativo** . Adicione um filtro de log de eventos para a fonte **Atualização do Azure AD Connect** e o intervalo de ID de evento **300-399**.  
+Com hello conectividade tooAzure AD verificado, é hora toolook em logs de eventos de saudação. Iniciar o Visualizador de eventos hello e examinar Olá **aplicativo** log de eventos. Adicionar um filtro de log de eventos para a origem de saudação **do Azure AD conectar atualizar** e intervalo de id de evento Olá **300 399**.  
 ![Filtro de log de eventos para atualização automática](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogfilter.png)  
 
-Agora, você pode ver os logs de eventos associados ao status da atualização automática.  
+Agora você pode ver os logs de eventos de saudação associado com o status de saudação para atualização automática.  
 ![Filtro de log de eventos para atualização automática](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogresult.png)  
 
-O código de resultado tem um prefixo com uma visão geral do estado.
+código de resultado Olá tem um prefixo com uma visão geral do estado de saudação.
 
 | Prefixo do código de resultado | Descrição |
 | --- | --- |
-| Sucesso |A instalação foi atualizada com êxito. |
-| UpgradeAborted |Uma condição temporária interrompeu a atualização. Ela será tentada novamente e a expectativa é de que tenha êxito posteriormente. |
-| UpgradeNotSupported |O sistema tem uma configuração que está impedindo que o sistema seja atualizado automaticamente. A atualização será tentada novamente para ver se o estado está mudando, mas a expectativa é de que o sistema precise ser atualizado manualmente. |
+| Sucesso |instalação de saudação foi atualizada com êxito. |
+| UpgradeAborted |Uma condição temporária interrompido atualização hello. Ele tentará novamente e expectativa de saudação é que ela é bem-sucedida mais tarde. |
+| UpgradeNotSupported |sistema de saudação tem uma configuração que está bloqueando o sistema de saudação do que está sendo atualizado automaticamente. Ele poderá ser repetida toosee se a alteração do estado de hello, mas Olá expectativa é de que o sistema Olá deve ser atualizado manualmente. |
 
-Esta é uma lista das mensagens mais comuns que você encontrará. Ela não lista todas as mensagens, mas a mensagem de resultado deve ser clara quanto a qual é o problema.
+Aqui está uma lista de mensagens mais comuns de saudação que encontrar. Não lista todos os, mas a mensagem de saudação do resultado deve ser com o problema que Olá é.
 
 | Mensagem de resultado | Descrição |
 | --- | --- |
 | **UpgradeAborted** | |
-| UpgradeAbortedCouldNotSetUpgradeMarker |Não foi possível escrever no registro. |
-| UpgradeAbortedInsufficientDatabasePermissions |O grupo de administradores interno não tem permissões para o banco de dados. Atualize manualmente para a versão mais recente do Azure AD Connect para resolver esse problema. |
-| UpgradeAbortedInsufficientDiskSpace |Não há espaço em disco suficiente para dar suporte a uma atualização. |
-| UpgradeAbortedSecurityGroupsNotPresent |Não foi possível encontrar e resolver todos os grupos de segurança usados pelo mecanismo de sincronização. |
-| UpgradeAbortedServiceCanNotBeStarted |O serviço NT **Microsoft Azure AD Sync** falhou ao iniciar. |
-| UpgradeAbortedServiceCanNotBeStarted |O serviço NT **Microsoft Azure AD Sync** falhou ao parar. |
-| UpgradeAbortedServiceIsNotRunning |O serviço NT **Microsoft Azure AD Sync** não está executando. |
-| UpgradeAbortedSyncCycleDisabled |A opção SyncCycle no [agendador](active-directory-aadconnectsync-feature-scheduler.md) foi desabilitada. |
-| UpgradeAbortedSyncExeInUse |A [interface do usuário do Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) está aberta no servidor. |
-| UpgradeAbortedSyncOrConfigurationInProgress |O assistente de instalação está em execução ou uma sincronização foi agendada fora do agendador. |
+| UpgradeAbortedCouldNotSetUpgradeMarker |Não foi possível gravar o registro de toohello. |
+| UpgradeAbortedInsufficientDatabasePermissions |grupo de administradores internos de saudação não tem o banco de dados de toohello de permissões. Atualize manualmente a versão mais recente toohello do Azure AD Connect tooaddress esse problema. |
+| UpgradeAbortedInsufficientDiskSpace |Não é uma atualização insuficiente toosupport de espaço em disco. |
+| UpgradeAbortedSecurityGroupsNotPresent |Não foi possível localizar e resolver todos os grupos de segurança usados pelo mecanismo de sincronização de saudação. |
+| UpgradeAbortedServiceCanNotBeStarted |Olá serviço NT **Microsoft Azure AD Sync** toostart de falha. |
+| UpgradeAbortedServiceCanNotBeStarted |Olá serviço NT **Microsoft Azure AD Sync** toostop de falha. |
+| UpgradeAbortedServiceIsNotRunning |Olá serviço NT **Microsoft Azure AD Sync** não está em execução. |
+| UpgradeAbortedSyncCycleDisabled |Olá SyncCycle opção Olá [Agendador](active-directory-aadconnectsync-feature-scheduler.md) foi desabilitada. |
+| UpgradeAbortedSyncExeInUse |Olá [Gerenciador de serviço de sincronização da interface do usuário](active-directory-aadconnectsync-service-manager-ui.md) é aberta no servidor de saudação. |
+| UpgradeAbortedSyncOrConfigurationInProgress |Olá Assistente de instalação está em execução ou uma sincronização foi agendada fora Olá Agendador. |
 | **UpgradeNotSupported** | |
-| UpgradeNotSupportedCustomizedSyncRules |Você adicionou suas próprias regras personalizadas à configuração. |
-| UpgradeNotSupportedDeviceWritebackEnabled |Você habilitou o recurso [write-back de dispositivo](active-directory-aadconnect-feature-device-writeback.md) . |
-| UpgradeNotSupportedGroupWritebackEnabled |Você habilitou o recurso [write-back de grupo](active-directory-aadconnect-feature-preview.md#group-writeback) . |
-| UpgradeNotSupportedInvalidPersistedState |A instalação não é uma configuração Express ou uma atualização de DirSync. |
-| UpgradeNotSupportedMetaverseSizeExceeeded |Você tem mais de 100 mil objetos no metaverso. |
-| UpgradeNotSupportedMultiForestSetup |Você está se conectando a mais de uma floresta. A instalação expressa se conecta somente a uma floresta. |
+| UpgradeNotSupportedCustomizedSyncRules |Você adicionou seus próprios configuração toohello de regras personalizadas. |
+| UpgradeNotSupportedDeviceWritebackEnabled |Você habilitou Olá [write-back de dispositivo](active-directory-aadconnect-feature-device-writeback.md) recurso. |
+| UpgradeNotSupportedGroupWritebackEnabled |Você habilitou Olá [write-back de grupo](active-directory-aadconnect-feature-preview.md#group-writeback) recurso. |
+| UpgradeNotSupportedInvalidPersistedState |Olá instalação não é um configurações Express ou uma atualização do DirSync. |
+| UpgradeNotSupportedMetaverseSizeExceeeded |Você tem mais de 100.000 objetos no metaverso hello. |
+| UpgradeNotSupportedMultiForestSetup |Você está se conectando toomore de uma floresta. A configuração expressa só se conecta a floresta tooone. |
 | UpgradeNotSupportedNonLocalDbInstall |Você não está usando um banco de dados SQL Server Express LocalDB. |
-| UpgradeNotSupportedNonMsolAccount |A [conta do Conector AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) não é mais a conta MSOL_ padrão. |
-| UpgradeNotSupportedStagingModeEnabled |O servidor está definido como em [modo de preparo](active-directory-aadconnectsync-operations.md#staging-mode). |
-| UpgradeNotSupportedUserWritebackEnabled |Você habilitou o recurso [write-back de usuário](active-directory-aadconnect-feature-preview.md#user-writeback) . |
+| UpgradeNotSupportedNonMsolAccount |Olá [conta de conector AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) não é saudação padrão MSOL_ conta mais. |
+| UpgradeNotSupportedStagingModeEnabled |servidor de saudação é definido toobe no [modo de preparo](active-directory-aadconnectsync-operations.md#staging-mode). |
+| UpgradeNotSupportedUserWritebackEnabled |Você habilitou Olá [write-back de usuário](active-directory-aadconnect-feature-preview.md#user-writeback) recurso. |
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).

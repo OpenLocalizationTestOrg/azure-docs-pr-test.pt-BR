@@ -1,6 +1,6 @@
 ---
-title: "Criar um aplicativo Web em um Ambiente do Serviço de Aplicativo v1"
-description: "Saiba como criar aplicativos Web e planos de serviço de aplicativo em um Ambiente do Serviço de Aplicativo v1"
+title: "aaaCreate um aplicativo web em um ambiente de serviço de aplicativo v1"
+description: "Saiba como toocreate web apps e planos de serviço de aplicativo em um ambiente de serviço de aplicativo v1"
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 0779486b040b8dc51cdd42521ba965e58388425a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 322ef344517c54247b102fb4920e35645986ef98
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Criar um aplicativo Web em um Ambiente do Serviço de Aplicativo v1
 
 > [!NOTE]
-> Este artigo é sobre o Ambiente do Serviço de Aplicativo v1.  Há uma versão mais recente do Ambiente do Serviço de Aplicativo que é mais fácil de usar e é executada em infraestrutura mais avançada. Para saber mais sobre a nova versão, comece com [Introdução ao Ambiente do Serviço de Aplicativo](../app-service/app-service-environment/intro.md).
+> Este artigo é sobre Olá v1 do ambiente de serviço de aplicativo.  Há uma versão mais recente do hello ambiente de serviço de aplicativo que é mais fácil toouse e é executado na infraestrutura mais avançada. toolearn mais sobre a nova versão de hello começam com hello [Introdução toohello ambiente de serviço de aplicativo](../app-service/app-service-environment/intro.md).
 > 
 
 ## <a name="overview"></a>Visão geral
-Este tutorial mostra como criar aplicativos Web e planos do Serviço de Aplicativo em um [Ambiente do Serviço de Aplicativo v1](app-service-app-service-environment-intro.md) (ASE). 
+Este tutorial mostra como toocreate de aplicativos web e planos de serviço de aplicativo em um [v1 do ambiente de serviço de aplicativo](app-service-app-service-environment-intro.md) (ASE). 
 
 > [!NOTE]
-> Se você quiser saber como criar um aplicativo Web mas se não precisar fazê-lo em um Ambiente de Serviço de Aplicativo, consulte [Criar um aplicativo Web .NET](app-service-web-get-started-dotnet.md) ou um dos tutoriais relacionados para outras linguagens e estruturas.
+> Se você quiser toolearn como toocreate um aplicativo web, mas não é necessário toodo-lo em um ambiente de serviço de aplicativo, consulte [criar um aplicativo web .NET](app-service-web-get-started-dotnet.md) ou uma saudação relacionados tutoriais para outros idiomas e estruturas.
 > 
 > 
 
@@ -38,64 +38,64 @@ Este tutorial mostra como criar aplicativos Web e planos do Serviço de Aplicati
 Este tutorial supõe que você tenha criado um Ambiente de Serviço de Aplicativo. Se você ainda não tiver feito isso, consulte [Criar um Ambiente de Serviço de Aplicativo](app-service-web-how-to-create-an-app-service-environment.md). 
 
 ## <a name="create-a-web-app"></a>Criar um aplicativo Web
-1. No [Portal do Azure](https://portal.azure.com/), clique em **Novo > Web + Móvel > Aplicativo Web**. 
+1. Em Olá [Portal do Azure](https://portal.azure.com/), clique em **Novo > Web + móvel > aplicativo Web**. 
    
     ![][1]
 2. Selecione sua assinatura.  
    
-    Se você tiver várias assinaturas, lembre-se de que, para criar um aplicativo no Ambiente de Serviço de Aplicativo, precisará usar a mesma assinatura que usou ao criar o ambiente. 
+    Se você tiver várias assinaturas esteja ciente de que toocreate um aplicativo em seu ambiente de serviço de aplicativo, você precisa toouse Olá a mesma assinatura que você usou ao criar o ambiente de saudação. 
 3. Selecione ou crie um grupo de recursos.
    
-    Os *grupos de recursos* permitem gerenciar recursos do Azure relacionados como uma unidade e são úteis durante o estabelecimento de regras de *controle de acesso baseado em função* (RBAC) para seus aplicativos. Para saber mais, confira [Visão geral do Azure Resource Manager][ResourceGroups]. 
+    *Grupos de recursos* habilitar você toomanage relacionadas a recursos do Azure como uma unidade e são úteis ao estabelecer *controle de acesso baseado em função* regras (RBAC) para seus aplicativos. Para saber mais, confira [Visão geral do Azure Resource Manager][ResourceGroups]. 
 4. Selecione ou crie um plano do Serviço de Aplicativo.
    
-    *planos do Serviço de Aplicativo* são conjuntos gerenciados de aplicativos Web.  Normalmente, quando você seleciona os preços, o preço cobrado é aplicado a um plano do serviço de aplicativo em vez de aplicado aos aplicativos individuais. Em um ASE você paga pelas instâncias de computação alocadas para o ASE em vez do que foi listado com o ASP.  Para aumentar o número de instâncias de um aplicativo Web, você aumenta as instâncias do seu plano do Serviço de Aplicativo e isso afeta todos os aplicativos Web nesse plano.  Alguns recursos, como slots de site ou integração de VNET, também têm restrições de quantidade dentro do plano.  Para saber mais, consulte [Visão geral de planos do Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
+    *planos do Serviço de Aplicativo* são conjuntos gerenciados de aplicativos Web.  Normalmente quando você seleciona a preços, preço Olá cobrado é aplicado toohello o plano do serviço de aplicativo em vez de aplicativos individuais toohello. Em uma ASE pagar para computação Olá instâncias alocadas toohello ASE em vez do que você tenha listado com o ASP.  tooscale número Olá de instâncias de um aplicativo web dimensionar as instâncias de saudação do seu plano de serviço de aplicativo e afeta todos os aplicativos da web de saudação no plano.  Alguns recursos, como a integração de rede virtual ou de slots do site também têm restrições de quantidade no plano de saudação.  Para saber mais, consulte [Visão geral de planos do Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
    
-    Você pode identificar os planos do Serviço de Aplicativo no ASE examinando o local indicado abaixo do nome do plano.  
+    Você pode identificar Olá que planos de serviço de aplicativo em seu ASE examinando o local de saudação que é observado em nome do plano de saudação.  
    
     ![][5]
    
-    Se você quiser usar um plano de serviço do Serviço de Aplicativo que já exista no seu Ambiente de Serviço de Aplicativo, selecione-o. Se você quiser criar um novo plano do Serviço de Aplicativo, consulte a seção seguinte deste tutorial, [Criar um plano do Serviço de Aplicativo em um Ambiente de Serviço de Aplicativo](#createplan).
-5. Insira o nome do aplicativo Web e clique em **Criar**. 
+    Se você quiser toouse um plano de serviço de aplicativo que já existe no seu ambiente de serviço de aplicativo, selecione-o. Se você quiser toocreate um novo plano de serviço de aplicativo, consulte Olá deste tutorial, a seção seguinte [criar um plano de serviço de aplicativo em um ambiente de serviço de aplicativo](#createplan).
+5. Insira nome de saudação para seu aplicativo web e, em seguida, clique em **criar**. 
    
-    Se seu ASE usar um VIP Externo, a URL de um aplicativo em um ASE será: [*sitename*].[*nome do seu Ambiente do Serviço de Aplicativo*].p.azurewebsites.net em vez de [*sitename*].azurewebsites.net
+    Se seu ASE usa uma URL de saudação do VIP externo de um aplicativo em uma ASE é: [*sitename*]. [ *nome do seu ambiente de serviço de aplicativo*]. p.azurewebsites.net em vez de [*sitename*]. azurewebsites.net
    
-    Se o seu ASE usa um VIP interno, a URL de um aplicativo nesse ASE é: [*sitename*]. [*subdomínio especificado durante a criação do ASE*]   
-    Depois de selecionar o ASP durante a criação do ASE você verá o subdomínio de atualização abaixo **Nome**
+    Se seu ASE usa uma URL interna VIP e Olá de um aplicativo que ASE é: [*sitename*]. [ *subdomínio especificado durante a criação de ASE*]   
+    Depois de selecionar o ASP durante a criação do ASE você verá subdomínio Olá atualizar abaixo **nome**
 
 ## <a name="createplan"></a> Criar um plano do Serviço de Aplicativo
-Quando você cria um plano do Serviço de Aplicativo em um Ambiente do Serviço de Aplicativo, as opções do seu trabalhador serão diferentes caso não haja trabalhadores compartilhados em um ASE.  Os trabalhadores que você precisa usar são aqueles que foram alocados para o ASE pelo administrador.  Isso significa que, para criar um novo plano, você precisa ter mais trabalhadores alocados para o pool de trabalho ASE do que o número total de instâncias em todos os seus planos já nesse pool de trabalho.  Se não tiver trabalhadores suficientes em seu pool de trabalho ASE para criar o plano, você precisará trabalhar com seu administrador do ASE para adicioná-los.
+Quando você cria um plano do Serviço de Aplicativo em um Ambiente do Serviço de Aplicativo, as opções do seu trabalhador serão diferentes caso não haja trabalhadores compartilhados em um ASE.  trabalhadores Olá ter toouse são Olá aqueles que foram alocados ASE toohello pelo administrador hello.  Isso significa que toocreate um novo plano, é necessário mais que o número total de saudação de instâncias do pool de trabalho dos ASE trabalhadores alocados tooyour toohave em todos os seus planos já nesse pool de trabalho.  Se você não tem suficiente trabalhadores em seu toocreate de pool do trabalhador ASE seu plano, é necessário toowork com seu tooget de admin ASE-los adicionados.
 
-Outra diferença em relação aos planos do Serviço de Aplicativo hospedados por um Ambiente do Serviço de Aplicativo é a ausência de seleção de preços.  Quando você tem um ambiente do serviço de aplicativo, você está pagando por recursos de computação usados pelo sistema e não tem encargos adicionais para os planos nesse ambiente.  Normalmente, quando você cria um plano do Serviço de Aplicativo, você seleciona um plano de preços que determina sua cobrança.  Um ambiente do serviço de aplicativo é essencialmente um local privado onde você pode criar conteúdo.  Você paga pelo ambiente e não para hospedar seu conteúdo.
+Outra diferença com planos de serviço de aplicativo hospedado por um ambiente de serviço de aplicativo é a falta de saudação de preços de seleção.  Quando você tiver um ambiente de serviço de aplicativo você estiver pagando para recursos de computação usados pelo sistema hello e não tiver adicionados encargos para planos de saudação nesse ambiente.  Normalmente, quando você cria um plano do Serviço de Aplicativo, você seleciona um plano de preços que determina sua cobrança.  Um ambiente do serviço de aplicativo é essencialmente um local privado onde você pode criar conteúdo.  Você paga pelo ambiente de saudação e não toohost seu conteúdo.
 
-As instruções a seguir mostram como criar um plano do Serviço de Aplicativo enquanto você estiver criando um aplicativo Web, como explicado na seção anterior do tutorial.
+Olá instruções a seguir mostram como toocreate um aplicativo de serviço plano enquanto você estiver criando um aplicativo web, como explicado na seção anterior de saudação tutorial hello.
 
-1. Clique em **Criar Novo** na interface do usuário de seleção de planos e forneça um nome para seu plano como normalmente faria fora de um ASE.
-2. Selecione o ASE que você deseja usar em sua seleção de local.
+1. Clique em **criar novo** em Olá plano seleção da interface do usuário e fornecer um nome para o plano como faria normalmente fora de uma ASE.
+2. Selecione ASE Olá que você deseja toouse em sua seleção de local.
    
     Como um Ambiente do Serviço de Aplicativo é, essencialmente, um local de implantação particular, ele é mostrado no Local. 
    
     ![][2]
    
-    Após a seleção de um ASE no seletor de local, a interface do usuário de criação de Serviço de Aplicativo é atualizada.  O local agora mostra o nome do sistema ASE e a região em que ele está, e o seletor de plano de preços será substituído por um seletor de pool de trabalho.  
+    Após a seleção de uma ASE no seletor de local de hello, Olá atualizações de interface do usuário de criação de plano do serviço de aplicativo.  local de saudação agora mostra nome de saudação do hello sistema ASE e região Olá está em e Olá seletor de plano de preços é substituído por um seletor de pool do trabalhador.  
    
     ![][3]
 
 ### <a name="selecting-a-worker-pool"></a>Selecionando o pool de trabalho
-Normalmente no Serviço de Aplicativo do Azure e fora de um Ambiente do Serviço de Aplicativo, há três tamanhos de computação disponíveis com a seleção de um plano de preços dedicado.  De maneira semelhante, para um ASE, você pode definir até três pools de trabalho e especificar o tamanho de computação que é usado para esse pool de trabalho.  O que isso significa para locatários do ASE é que, em vez de selecionar um plano de preços com tamanho de computação para o plano do Serviço de Aplicativo, selecione o que chamamos de um *pool de trabalho*.  
+Normalmente, no serviço de aplicativo do Azure e fora de um ambiente de serviço de aplicativo, há 3 tamanhos de computação que estão disponíveis com a seleção de saudação de um plano de preço dedicado.  De maneira semelhante, para uma ASE você pode definir até too3 pools de trabalhadores e especificar o tamanho de computação de saudação que é usado para esse pool de trabalho.  Isso significa que para locatários de saudação ASE é que, em vez de selecionar um plano de preços com tamanho de computação para o plano de serviço de aplicativo, você seleciona o que é chamado de um *pool do trabalhador*.  
 
-A interface do usuário de seleção de pool de trabalho mostra o tamanho de computação usado para esse pool de trabalho abaixo do nome.  A quantidade disponível se refere a quantas instâncias de computação estão disponíveis para uso no pool.  O pool pode, na realidade, ter mais instâncias que esse número, mas esse valor se refere simplesmente a quantas não estão em uso.  Se você precisar ajustar o seu ambiente de serviço de aplicativo para adicionar mais recursos de computação, consulte [Configurando seu ambiente de serviço de aplicativo](app-service-web-configure-an-app-service-environment.md).
+seleção de pool do trabalhador Olá interface do usuário mostra o tamanho de computação de saudação usado para esse pool de trabalho abaixo do nome de saudação.  Olá quantidade disponível refere-se toohow muitas instâncias de computação estão disponíveis para uso nesse pool.  pool total Hello, na verdade, pode ter mais instâncias que esse número, mas esse valor se refere a toosimply quantos não estão em uso.  Se você precisar tooadjust tooadd seu ambiente de serviço de aplicativo computação mais recursos, consulte [configurando seu ambiente de serviço de aplicativo](app-service-web-configure-an-app-service-environment.md).
 
 ![][4]
 
-Neste exemplo, você verá apenas dois pools de trabalho disponíveis. Isso ocorre porque o administrador do ASE alocou hosts apenas nesses dois pools de trabalho.  O terceiro aparecerá quando houver VMs alocadas para ele.  
+Neste exemplo, você verá apenas dois pools de trabalho disponíveis. Isso ocorre porque o administrador do ASE Olá alocados somente hosts nesses pools de dois trabalho.  Olá terceiro aparecerão quando houver VMs alocadas para ele.  
 
 ## <a name="after-web-app-creation"></a>Após a criação do aplicativo Web
-Há algumas considerações sobre a execução de aplicativos Web e o gerenciamento de planos do Serviço de Aplicativo em um ASE que precisam ser levadas em conta.  
+Há algumas considerações para executar aplicativos da web e gerenciar planos de serviço de aplicativo em uma ASE que precisam toobe levada em conta.  
 
-Como observado anteriormente, o proprietário do ASE é responsável pelo tamanho do sistema e, como resultado, responsável também por garantir que haja capacidade suficiente para hospedar os planos do Serviço de Aplicativo desejados. Se não houver nenhum processador disponível, você não poderá criar o plano do Serviço de Aplicativo.  Isso também é verdadeiro ao dimensionar seu aplicativo Web.  Se você precisar de mais instâncias, será necessário que o administrador de seu ambiente do serviço de aplicativo adicione mais processadores.
+Conforme observado anteriormente, proprietário Olá Olá ASE é responsável por tamanho de saudação do sistema hello e assim eles também são responsáveis para garantir que existe suficiente Olá toohost de capacidade desejadas planos de serviço de aplicativo. Se não houver nenhum trabalhador disponível, você não poderá ser capaz de toocreate seu plano de serviço de aplicativo.  Isso também é verdadeiro tooscaling backup de seu aplicativo web.  Se precisar de mais instâncias, você teria tooget seu tooadd de administração do ambiente de serviço de aplicativo mais trabalhadores.
 
-Depois de criar seu aplicativo Web e o plano do Serviço de Aplicativo, será uma boa ideia escalá-lo verticalmente.  Em um ASE, é sempre necessário ter pelo menos 2 instâncias do seu plano do Serviço de Aplicativo para proporcionar tolerância a falhas para seus aplicativos.  O dimensionamento de um plano do Serviço de Aplicativo em um ASE é igual ao normal por meio da interface do usuário do plano do Serviço de Aplicativo.  Para obter mais informações sobre o dimensionamento, [Como dimensionar um aplicativo Web em um Ambiente de Serviço de Aplicativo](app-service-web-scale-a-web-app-in-an-app-service-environment.md)
+Depois de criar seu aplicativo web e o plano de serviço de aplicativo é uma boa ideia tooscale-o.  Em uma ASE é sempre necessário toohave pelo menos 2 instâncias de sua tolerância a falhas do serviço de aplicativo plano tooprovide para seus aplicativos.  Dimensionamento de um aplicativo de serviço plano em uma ASE é Olá mesmo normalmente por meio de saudação plano de serviço de aplicativo da interface do usuário.  Para obter mais informações sobre como dimensionar, [como tooscale um aplicativo web em um ambiente de serviço de aplicativo](app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 
 <!--Image references-->
 [1]: ./media/app-service-web-how-to-create-a-web-app-in-an-ase/createaspnewwebapp.png

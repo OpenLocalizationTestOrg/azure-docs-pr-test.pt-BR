@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao teste em produção para Aplicativos Web"
-description: "Saiba mais sobre o recurso TiP (Teste em Produção) nos Aplicativos Web do Serviço de Aplicativo do Azure."
+title: "aaaGet de Introdução ao teste em produção para aplicativos Web"
+description: "Saiba mais sobre Olá teste no recurso de produção (dica) em aplicativos de Web do serviço de aplicativo do Azure."
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -14,68 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
 ms.author: cephalin
-ms.openlocfilehash: 9f38b635140cacf0513c75385bce3c110a930969
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2ddbd532ffe2a4f3e07fd386d9741a3fde3639ca
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-test-in-production-for-web-apps"></a>Introdução ao teste em produção para Aplicativos Web
-O teste em produção, ou teste dinâmico do seu aplicativo Web usando o tráfego do cliente em tempo real, é uma estratégia de teste que está cada vez mais sendo integrada pelos desenvolvedores de aplicativos em sua metodologia de [desenvolvimento ágil](https://en.wikipedia.org/wiki/Agile_software_development) . Ele permite que você teste a qualidade dos seus aplicativos com o tráfego do usuário em tempo real em seu ambiente de produção, em vez de dados sintetizados em um ambiente de teste. Ao expor seu novo aplicativo para usuários reais, você pode ser informado dos problemas reais que o aplicativo poderá enfrentar após sua implantação. Você pode verificar a funcionalidade, desempenho e valor de suas atualizações de aplicativo em relação ao volume, velocidade e variedade do tráfego de usuário real, que você nunca pode aproximar em um ambiente de teste.
+O teste em produção, ou teste dinâmico do seu aplicativo Web usando o tráfego do cliente em tempo real, é uma estratégia de teste que está cada vez mais sendo integrada pelos desenvolvedores de aplicativos em sua metodologia de [desenvolvimento ágil](https://en.wikipedia.org/wiki/Agile_software_development) . Ele permite tootest qualidade de saudação de seus aplicativos com o tráfego de usuário em tempo real em seu ambiente de produção, como toosynthesized contrário dados em um ambiente de teste. Ao expor os novos usuários tooreal aplicativo, você pode ser informados no problemas reais hello, que seu aplicativo pode enfrentar quando ele é implantado. Você pode verificar a funcionalidade de hello, desempenho e valor de suas atualizações de aplicativo no volume hello, a velocidade e a variedade de tráfego de usuário real, o que você nunca pode aproximar-se em um ambiente de teste.
 
 ## <a name="traffic-routing-in-app-service-web-apps"></a>Roteamento de Tráfego nos Aplicativos Web do Serviço de Aplicativo
-Com o recurso Roteamento de Tráfego no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714), é possível direcionar uma parte do tráfego do usuário em tempo real para um ou mais [slots de implantação](web-sites-staged-publishing.md) e analisar seu aplicativo com o [Azure Application Insights](/services/application-insights/), [Azure HDInsight](/services/hdinsight/) ou uma ferramenta de terceiros como o [New Relic](/marketplace/partners/newrelic/newrelic/) para validar a alteração. Por exemplo, é possível implementar os seguintes cenários com o Serviço de Aplicativo:
+Com hello roteamento de tráfego de recursos em [do serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714), você pode direcionar uma parte de tooone de tráfego do usuário em tempo real ou mais [slots de implantação](web-sites-staged-publishing.md)e, em seguida, analisar seu aplicativo com [aplicativo do Azure Insights](/services/application-insights/) ou [do Azure HDInsight](/services/hdinsight/), ou uma ferramenta de terceiros, como [New Relic](/marketplace/partners/newrelic/newrelic/) toovalidate sua alteração. Por exemplo, você pode implementar Olá os seguintes cenários com o serviço de aplicativo:
 
-* Descobrir bugs funcionais ou identificar afunilamentos de desempenho em suas atualizações antes da implantação em todo o site
-* Realize “voos de teste controlado” de suas alterações, medindo métricas de usabilidade no aplicativo beta
-* Aumente gradualmente para uma nova atualização e normalmente volte para a versão atual se ocorrer um erro 
+* Descobrir bugs funcionais ou identificar afunilamentos de desempenho em sua implantação de todo o toosite atualizações anteriores
+* Executar "teste controlado voos" alterações medindo métricas de usabilidade Olá beta aplicativo
+* Aumentar gradualmente tooa nova atualização e normalmente de volta para a versão atual do toohello se ocorrer um erro 
 * Otimize os resultados de negócios do seu aplicativo executando [testes A/B](https://en.wikipedia.org/wiki/A/B_testing) ou [testes multivariados](https://en.wikipedia.org/wiki/Multivariate_testing_in_marketing) em vários slots de implantação
 
 ### <a name="requirements-for-using-traffic-routing-in-web-apps"></a>Requisitos para usar o Roteamento de Tráfego em Aplicativos Web
 * Seu aplicativo Web deve ser executado na camada **Standard** ou **Premium**, pois ela é necessária para vários slots de implantação.
-* Para funcionar corretamente, o Roteamento de Tráfego exige que os cookies estejam habilitados no navegador dos usuários. O Roteamento de Tráfego usa cookies para fixar um navegador do cliente em um slot de implantação durante toda a sessão do cliente.
+* Em ordem toowork corretamente, roteamento de tráfego exige toobe cookies habilitado no navegador Olá dos usuários. Roteamento de tráfego usa cookies toopin um slot de implantação do cliente navegador tooa para sessão de cliente de Olá Olá vida.
 * O Roteamento de Tráfego dá suporte a cenários avançados do TiP por meio de cmdlets do Azure PowerShell.
 
-## <a name="route-traffic-segment-to-a-deployment-slot"></a>Encaminhar segmento de tráfego para um slot de implantação
-No nível básico em cada cenário do TiP, encaminhe um percentual predefinido do seu tráfego em tempo real em um slot de implantação que não seja de produção. Para fazer isso, siga as etapas abaixo:
+## <a name="route-traffic-segment-tooa-deployment-slot"></a>Slot de implantação tooa do segmento de tráfego de rota
+No nível básico de saudação em cada cenário de ponta, é possível rotear um percentual predefinido do seu slot de implantação de produção não tooa tráfego ao vivo. toodo isso, execute Olá estas etapas abaixo:
 
 > [!NOTE]
-> Nestas etapas, pressupomos que você já tenha um [slot de implantação de não produção](web-sites-staged-publishing.md) e que o conteúdo do aplicativo Web desejado já esteja [implantado](web-sites-deploy.md) nele.
+> Olá etapas aqui pressupõe que você já tem um [slot de implantação de produção não](web-sites-staged-publishing.md) e que Olá desejado de conteúdo do aplicativo web já está [implantado](web-sites-deploy.md) tooit.
 > 
 > 
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+1. Faça logon no hello [Portal do Azure](https://portal.azure.com/).
 2. Na folha de seu aplicativo Web, clique em **Configurações** > **Roteamento de Tráfego**.
    ![](./media/app-service-web-test-in-production/01-traffic-routing.png)
-3. Selecione o slot para o qual você deseja encaminhar o tráfego e o percentual do tráfego total desejado e clique em **Salvar**.
+3. Slot de saudação selecione que você deseja tooroute tráfego tooand Olá porcentagem Olá total tráfego é desejado e clique em **salvar**.
    
     ![](./media/app-service-web-test-in-production/02-select-slot.png)
-4. Vá para a folha do slot de implantação. Agora você deverá ver o tráfego em tempo real ser encaminhado para ele.
+4. Vá folha do slot de implantação toohello. Agora você deve ver o tráfego em tempo real que está sendo roteado tooit.
    
     ![](./media/app-service-web-test-in-production/03-traffic-routed.png)
 
-Depois de configurar o Roteamento de Tráfego, o percentual especificado de clientes será encaminhado aleatoriamente para o slot de não produção. No entanto, é importante observar que quando um cliente é encaminhado automaticamente para um slot específico, ele será “fixado” nesse slot durante a vida útil da sessão do cliente. Isso pode ser feito usando um cookie para fixar a sessão do usuário. Se você inspecionar as solicitações HTTP, você encontrará um cookie `TipMix` em cada solicitação subsequente.
+Depois da configuração do roteamento de tráfego, Olá especificado percentual de clientes serão tooyour aleatoriamente roteados slot de não produção. No entanto, é importante toonote que depois que um cliente é slot específico tooa automaticamente roteado, será toothat "fixo" slot para vida Olá dessa sessão de cliente. Isso usando uma sessão de usuário do cookie toopin hello. Se você inspecionar solicitações Olá HTTP, você encontrará um `TipMix` cookie em cada solicitação subsequente.
 
 ![](./media/app-service-web-test-in-production/04-tip-cookie.png)
 
-## <a name="force-client-requests-to-a-specific-slot"></a>Forçar solicitações de cliente em um slot específico
-Além do roteamento de tráfego automático, o Serviço de Aplicativo pode encaminhar solicitações para um slot específico. Isso é útil quando você deseja que os usuários consigam aceitar ou recusar seu aplicativo beta. Para fazer isso, use o parâmetro de consulta `x-ms-routing-name` .
+## <a name="force-client-requests-tooa-specific-slot"></a>Forçar slot específico de tooa de solicitações de cliente
+Em adição tooautomatic roteamento de tráfego, o serviço de aplicativo é slot específico do tooa tooroute capaz de solicitações. Isso é útil quando você deseja que seu tooopt capaz de toobe usuários-para ou sair do aplicativo beta. toodo isso, use Olá `x-ms-routing-name` parâmetro de consulta.
 
-Para redirecionar os usuários para um slot específico usando `x-ms-routing-name`, certifique-se de que o slot já foi adicionado à lista de Roteamento de Tráfego. Como você deseja encaminhar para um slot explicitamente, não importa o percentual de roteamento real que será definido. Se desejar, você pode criar um “link beta” que os usuários podem clicar para acessar o aplicativo beta.
+tooreroute usuários tooa slot específico usando `x-ms-routing-name`, você deve assegurar-se de que slot Olá já foi adicionada a lista de roteamento de tráfego toohello. Como você deseja tooroute tooa slot explicitamente, não importa porcentagem roteamento real Olá definida por você. Se desejar, você pode criar um "link beta" que os usuários podem clicar tooaccess Olá aplicativo beta.
 
 ![](./media/app-service-web-test-in-production/06-enable-x-ms-routing-name.png)
 
 ### <a name="opt-users-out-of-beta-app"></a>Recusar usuários do aplicativo beta
-Para permitir que os usuários recusem seu aplicativo beta, é possível colocar este link na página da Web:
+usuários toolet recusar a seu aplicativo beta, por exemplo, você pode colocar esse link na página da web:
 
-    <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
+    <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back tooproduction app</a>
 
-A cadeia de caracteres `x-ms-routing-name=self` especifica o local de produção. Depois que o navegador do cliente acessar o link, ele não só é redirecionado para o slot de produção, mas todas as solicitações subsequentes conterão o cookie `x-ms-routing-name=self` que fixa a sessão no slot de produção.
+Olá a cadeia de caracteres `x-ms-routing-name=self` Especifica o slot de produção de hello. Após hello link de saudação do acesso do navegador cliente, não apenas ele redirecionado toohello slot de produção, mas todas as solicitações subsequentes irão conter Olá `x-ms-routing-name=self` cookie que fixa o slot de produção Olá sessão toohello.
 
 ![](./media/app-service-web-test-in-production/05-access-production-slot.png)
 
-### <a name="opt-users-in-to-beta-app"></a>Aceitar usuários no aplicativo beta
-Para permitir que os usuários aceitem seu aplicativo beta, defina o mesmo parâmetro de consulta como o nome do slot de não produção, por exemplo:
+### <a name="opt-users-in-toobeta-app"></a>Aceitar usuários no aplicativo toobeta
+aceitar usuários toolet tooyour beta aplicativos, conjunto Olá mesmo consultar o nome do parâmetro toohello do slot de não produção de hello, por exemplo:
 
         <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 

@@ -1,6 +1,6 @@
 ---
-title: "Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Saiba como usar a publicação em estágios para aplicativos Web no Serviço de Aplicativo do Azure."
+title: "aaaSet a ambientes de preparo para aplicativos web no serviço de aplicativo do Azure | Microsoft Docs"
+description: "Saiba como toouse preparado a publicação de aplicativos web no serviço de aplicativo do Azure."
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -15,66 +15,66 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: ca27c55eaaceb3109b1450c550330dfc416fdf55
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 338424100a20bf823323313fb6699e439f367421
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no Serviço de Aplicativo do Azure
 <a name="Overview"></a>
 
-Ao implantar seu aplicativo Web, aplicativo Web no Linux, back-end móvel e aplicativo de API no [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714), você pode implantar em um slot de implantação separado em vez de no slot de produção padrão quando estiver executando no modo do plano do Serviço de Aplicativo **Standard** ou **Premium**. Os slots de implantação são, na verdade, aplicativos online com seus próprios nomes de host. Os elementos de configurações e conteúdo de aplicativo podem ser trocados entre dois slots de implantação, incluindo o slot de produção. Implantar o seu aplicativo em um slot de implantação tem os seguintes benefícios:
+Quando você implanta seu aplicativo web, o aplicativo web no Linux, móvel back-end e aplicativo de API muito[do serviço de aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714), você pode implantar tooa slot de implantação separado em vez de slot de produção saudação padrão durante a execução no hello **padrão**ou **Premium** modo do plano de serviço de aplicativo. Os slots de implantação são, na verdade, aplicativos online com seus próprios nomes de host. Elementos de conteúdo e as configurações de aplicativo podem ser trocados entre os dois slots de implantação, incluindo o slot de produção de hello. Implantar o slot de implantação do aplicativo tooa tem Olá benefícios a seguir:
 
-* É possível validar as alterações no aplicativo em um slot de implantação de preparo antes de permutá-lo pelo slot de produção.
-* Implantar um aplicativo em um slot inicial e depois permutá-lo, enviando-o para produção, garante que todas as instâncias do slot estejam prontas antes dessa troca. Isso elimina o tempo de inatividade quando você for implantar seu aplicativo. O redirecionamento do tráfego é contínuo e nenhuma solicitação é descartada como resultado de operações de permuta. Todo esse fluxo de trabalho pode ser automatizado por meio da configuração de [Permuta Automática](#Auto-Swap) quando a validação de pré-permuta não é necessária.
-* Após a troca, o slot com o aplicativo de preparo anterior terá o aplicativo de produção anterior. Se as alterações permutadas no slot de produção não forem o que você esperava, é possível fazer a mesma permuta imediatamente para ter o "último site bom" de volta.
+* Você pode validar as alterações de aplicativo em um slot de implantação de preparo antes de trocá-lo com o slot de produção de hello.
+* Implantando um slot de tooa aplicativo pela primeira vez e trocá-lo em produção garantem que todas as instâncias do slot de saudação são aquecidas antes de ser trocadas em produção. Isso elimina o tempo de inatividade quando você for implantar seu aplicativo. Olá redirecionamento do tráfego é contínuo e nenhuma solicitação é descartada como resultado de operações de troca. Todo esse fluxo de trabalho pode ser automatizado por meio da configuração de [Permuta Automática](#Auto-Swap) quando a validação de pré-permuta não é necessária.
+* Após uma troca slot Olá com aplicativo preparado anteriormente agora tem Olá aplicativo de produção anterior. Se alterações Olá trocadas no slot de produção de hello estiverem não conforme o esperado, você pode executar Olá que mesma troca imediatamente tooget o "último site conhecido" de volta.
 
-Cada modo de plano do Serviço de Aplicativo dá suporte a um número diferente de slots de implantação. Para descobrir o número de slots ao qual seu aplicativo dá suporte, consulte [Preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
+Cada modo de plano do Serviço de Aplicativo dá suporte a um número diferente de slots de implantação. toofind número Olá de slots modo do aplicativo oferece suporte, consulte [preços do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
 
-* Quando seu aplicativo tem vários slots, você não pode alterar o modo.
+* Quando seu aplicativo tiver vários slots, você não pode alterar o modo de saudação.
 * O dimensionamento não está disponível para slots de não produção.
-* O gerenciamento de recurso vinculado não tem suporte para slots de não produção. Somente no [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) você pode evitar esse impacto potencial em um slot de produção, mudando temporariamente o slot de não produção para um modo de plano do Serviço de Aplicativo diferente. Observe que o slot de não produção deve uma vez mais compartilhar o mesmo modo com o slot de produção antes que você possa alternar os dois slots.
+* O gerenciamento de recurso vinculado não tem suporte para slots de não produção. Em Olá [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715) somente, você pode evitar esse impacto potencial em um slot de produção movendo temporariamente o modo de planejamento do hello slot de produção não tooa diferente do serviço de aplicativo. Observe que esse slot de não produção de hello novamente deve compartilhar a saudação mesmo modo com o slot de produção de hello antes que você pode trocar os slots de saudação dois.
 
 <a name="Add"></a>
 
 ## <a name="add-a-deployment-slot"></a>Adicionar um slot de implantação
-O aplicativo deve estar em execução no modo **Standard** ou **Premium** para que você habilite vários slots de implantação.
+aplicativo Hello deve estar em execução Olá **padrão** ou **Premium** modo na ordem para você tooenable vários slots de implantação.
 
-1. No [Portal do Azure](https://portal.azure.com/), abra a [folha de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources) de seu aplicativo.
-2. Escolha a opção **Slots de implantação** e clique em **Adicionar Slot**.
+1. Em Olá [Portal do Azure](https://portal.azure.com/), abra o aplicativo [folha de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources).
+2. Escolha Olá **slots de implantação** opção e, em seguida, clique em **adicionar Slot**.
    
     ![Adicionar um novo slot de implantação][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > Se o aplicativo ainda não estiver no modo **Standard** ou **Premium**, você receberá uma mensagem indicando os modos compatíveis para habilitar a publicação em etapas. Neste momento, você tem a opção de selecionar **Atualizar** e navegar para a guia **Escala** do aplicativo antes de continuar.
+   > Se Olá aplicativo não ainda estiver no hello **padrão** ou **Premium** modo, você receberá uma mensagem indicando modos de saudação tem suportada para habilitar a publicação de preparação. Neste ponto, você tem Olá opção tooselect **atualização** e navegue toohello **escala** guia do aplicativo antes de continuar.
    > 
    > 
-3. Na folha **Adicionar um slot**, nomeie o slot e opte por clonar a configuração de aplicativo por meio de outro slot de implantação existente. Clique na marca de seleção para continuar.
+3. Em Olá **adicionar um slot** folha, dê um nome de slot hello e selecionar se tooclone configuração do aplicativo de outro slot de implantação existente. Clique em Olá toocontinue de marca de seleção.
    
     ![Fonte de configuração][ConfigurationSource1]
    
-    Na primeira vez em que você adicionar um slot, você terá somente duas opções: clonar configuração do slot padrão em produção ou não clonar.
-    Se já tiver criado vários slots, você poderá clonar a configuração de um slot diferente do que estiver em produção:
+    Olá primeira vez que você adicionar um slot, você terá apenas duas opções: configuração de clone do slot de padrão de saudação em produção ou não.
+    Depois que você criou vários slots, será capaz de tooclone configuração de um slot diferente de saudação em produção:
    
     ![Fontes de configuração][MultipleConfigurationSources]
-4. Na folha de recursos do aplicativo, clique em **Slots de implantação**, clique em um slot de implantação para abrir a folha de recursos desse slot, que contém um conjunto de métricas e configuração como qualquer outro aplicativo. O nome do slot é exibido na parte superior da folha para lembrar que você está visualizando o slot de implantação.
+4. Na folha de recursos do aplicativo, clique em **slots de implantação**, em seguida, clique em um tooopen do slot de implantação folha de recursos do que slot, com um conjunto de métricas e configuração, assim como qualquer outro aplicativo. Olá nome do slot de saudação é mostrado na parte superior de saudação do hello folha tooremind que você está exibindo Olá slot de implantação.
    
     ![Título do slot de implantação][StagingTitle]
-5. Clique na URL do aplicativo, na folha do slot. Observe que o slot de implantação tem seu próprio nome de host e também é um aplicativo em tempo real. Para limitar o acesso público ao slot de implantação, consulte [Aplicativo Web do Serviço de Aplicativo - bloquear acesso via Web a slots de implantação de não produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
+5. Clique em URL do aplicativo hello na folha do slot hello. Observe que o slot de implantação Olá tem seu próprio nome de host e também é um aplicativo em tempo real. slot de implantação da toohello toolimit acesso público, consulte [aplicativo Web do serviço de aplicativo – slots de implantação de produção toonon do bloco da web acesso](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
-Não há nenhum conteúdo após a criação do slot de implantação. É possível implantar no slot a partir de uma ramificação diferente do repositório, ou mesmo de um repositório diferente. Você também pode alterar a configuração do slot. Use o perfil de publicação ou as credenciais de implantação associadas ao slot de implantação para atualizar o conteúdo.  Por exemplo, você pode [publicar neste slot com o git](app-service-deploy-local-git.md).
+Não há nenhum conteúdo após a criação do slot de implantação. Você pode implantar o slot toohello de uma ramificação do repositório diferente, ou um repositório diferente. Você também pode alterar a configuração do slot de saudação. Olá Use publicar perfil ou implantação as credenciais associadas Olá slot de implantação para atualizações de conteúdo.  Por exemplo, você pode [publicar toothis slot com o git](app-service-deploy-local-git.md).
 
 <a name="AboutConfiguration"></a>
 
 ## <a name="configuration-for-deployment-slots"></a>Configuração de slots de implantação
-Quando você clona a configuração de outro slot de implantação, a configuração clonada é editável. Além disso, alguns elementos de configuração seguirão o conteúdo em uma permuta (não específicos do slot) enquanto outros elementos de configuração permanecerão no mesmo slot após uma permuta (específicos do slot). A lista a seguir mostra a configuração que será alterada com a permuta de slots.
+Quando você clona a configuração de outro slot de implantação, configuração clonado Olá é editável. Além disso, alguns elementos de configuração seguirá conteúdo Olá em uma troca (não slot específico) enquanto outros elementos de configuração permanecerão no hello mesmo slot após uma troca (slot específico). Hello listas a seguir mostram configuração Olá que mudará quando você troca os slots.
 
 **Configurações que são permutadas**:
 
 * Configurações gerais - como a versão do framework, 32/64 bits, Web sockets
-* Configurações do aplicativo (podem ser configuradas para fixarem-se a um slot)
-* Cadeias de conexão (podem ser configuradas para fixarem-se a um slot)
+* Configurações do aplicativo (pode ser configurado toostick tooa slot)
+* Cadeias de caracteres de Conexão (pode ser configurado toostick tooa slot)
 * Mapeamentos de manipulador
 * Configurações de monitoramento e diagnóstico
 * Conteúdo de Trabalhos Web
@@ -87,91 +87,91 @@ Quando você clona a configuração de outro slot de implantação, a configura�
 * Configurações de escala
 * Agendadores de Trabalhos Web
 
-Para definir uma cadeia de conexão ou configuração de aplicativo a fim de fixar um slot (não trocado), acesse a folha **Configurações do aplicativo** de um slot específico e marque a caixa **Configuração do Slot** para os elementos de configuração que devem se fixar ao slot. Observe que marcar um elemento de configuração como específico do slot tem o efeito de estabelecer esse elemento como não passível de troca, em todos os slots de implantação associados ao aplicativo.
+tooconfigure uma configuração ou conexão cadeia de caracteres toostick tooa slot do aplicativo (não trocado), Olá acesso **configurações do aplicativo** folha para um slot específico, em seguida, selecione Olá **configuração do Slot** caixa Olá elementos de configuração que devem preferir slot hello. Observe que marcar um elemento de configuração específicos de slot tem o efeito de saudação do estabelecimento de elemento como não swap em todos os slots de implantação Olá associados ao aplicativo hello.
 
 ![Configurações de slot][SlotSettings]
 
 <a name="Swap"></a>
 
 ## <a name="swap-deployment-slots"></a>Permute slots de implantação 
-Você pode trocar os slots de implantação na exibição **Visão geral** ou **Slots de implantação** da folha de recursos do aplicativo.
+Você pode trocar os slots de implantação Olá **visão geral** ou **slots de implantação** exibição da folha de recursos do aplicativo.
 
 > [!IMPORTANT]
-> Antes de trocar um aplicativo por meio de um slot de implantação para produção, verifique se todas as configurações específicas de slot estão configuradas exatamente como você deseja tê-las no destino da troca.
+> Antes de você troca um aplicativo a partir de um slot de implantação em produção, certifique-se de que todas as configurações específicas de slot não são configuradas exatamente como você deseja toohave-lo no destino da troca hello.
 > 
 > 
 
-1. Para trocar slots de implantação, clique no botão **Trocar** na barra de comandos do aplicativo ou na barra de comandos de um slot de implantação.
+1. tooswap slots de implantação, clique em Olá **trocar** botão na barra de comandos de saudação do aplicativo hello, ou na barra de comandos de saudação de um slot de implantação.
    
     ![Botão permutar][SwapButtonBar]
 
-2. Verifique se a origem e o destino da permuta estão definidos corretamente. Geralmente, o destino da troca é o slot de produção. Clique em **OK** para concluir a operação. Quando a operação for concluída, os slots de implantação terão sido permutados.
+2. Certifique-se de destino Olá permuta origem e de troca estão definidas corretamente. Geralmente, o destino da troca Olá é slot de produção de hello. Clique em **Okey** toocomplete operação de saudação. Quando a conclusão da operação de hello, slots de implantação Olá foram trocados.
 
     ![Troca completa](./media/web-sites-staged-publishing/SwapImmediately.png)
 
-    Para o tipo de troca **Troca com visualização**, veja [Troca com visualização (troca de várias fases)](#Multi-Phase).  
+    Para Olá **troca com visualização** trocar o tipo, consulte [troca com visualização (troca de várias fase)](#Multi-Phase).  
 
 <a name="Multi-Phase"></a>
 
 ## <a name="swap-with-preview-multi-phase-swap"></a>Troca com visualização (troca de várias fases)
 
 Troca com visualização, ou troca de várias fases, simplifica a validação de elementos de configuração específicos ao slot, como cadeias de conexão.
-Para cargas de trabalho críticas, convém validar se o aplicativo está se comportando conforme o esperado quando a configuração do slot de produção é aplicada, e você deve executar essa validação *antes* de o aplicativo ser trocado para produção. A troca com visualização é o que você precisa.
+Para cargas de trabalho de missão crítica, você deseja toovalidate que Olá aplicativo se comporta conforme o esperado quando a configuração do slot de produção de hello for aplicada, e você deve executar essa validação *antes de* aplicativo hello é alternado para a produção. A troca com visualização é o que você precisa.
 
 > [!NOTE]
 > Não há suporte para a troca com visualização em aplicativos Web no Linux.
 
-Quando você usa a opção **Troca com visualização** (consulte [Trocar slots de implantação](#Swap)), o Serviço de Aplicativo faz o seguinte:
+Quando você usa Olá **troca com visualização** opção (consulte [trocar slots de implantação](#Swap)), serviço de aplicativo hello a seguir:
 
-- Mantém o slot de destino inalterado para que a carga de trabalho existente nesse slot (por exemplo, produção) não seja afetada.
-- Aplica os elementos de configuração do slot de destino ao slot de origem, incluindo as configurações de aplicativo e as cadeias de conexão específicas ao slot.
-- Reinicia os processos de trabalho no slot de origem usando esses elementos de configuração mencionados anteriormente.
-- Quando você conclui a troca: move o slot de origem pré-preparado para o slot de destino. O slot de destino é movido para o slot de origem como em uma troca manual.
-- Quando você cancela a troca: reaplica os elementos de configuração do slot de origem ao slot de origem.
+- Mantém Olá destino slot inalterada para que os carga de trabalho em que slot (por exemplo, produção) não é afetada.
+- Aplica-se elementos de configuração de saudação da saudação slot toohello fonte do slot de destino, incluindo cadeias de caracteres de conexão específicos de slot hello e configurações do aplicativo.
+- Reinicia os processos de trabalho de saudação no slot de origem hello usando esses elementos de configuração mencionados acima.
+- Quando você concluir troca Olá: move slot de origem warmed-up Olá no slot de destino hello. slot de destino Olá é movido para o slot de origem hello como em uma troca manual.
+- Quando você cancela a troca de saudação: reaplica elementos de configuração de saudação do slot de origem toohello do slot de origem hello.
 
-Você pode visualizar exatamente como o aplicativo se comportará com a configuração do slot de destino. Após a conclusão da validação, você poderá completar a troca em outra etapa. Essa etapa tem a vantagem adicional de que o slot de origem já está preparado com a configuração desejada, e os clientes não enfrentarão qualquer tempo de inatividade.  
+Você pode visualizar exatamente como Olá aplicativo se comportará com a configuração do slot de destino hello. Depois de concluir a validação, você concluir troca de saudação em uma etapa separada. Esta etapa tem Olá vantagem adicional que o slot de origem Olá já é aquecido com a configuração desejada hello e os clientes não terão nenhum tempo de inatividade.  
 
-Exemplos de cmdlets do Azure PowerShell disponíveis para permuta multifase são incluídos nos cmdlets do Azure PowerShell para a seção de slots de implantação.
+Exemplos de saudação cmdlets do PowerShell do Azure disponíveis para a troca de várias fase são incluídos no hello cmdlets do PowerShell do Azure para a seção de slots de implantação.
 
 <a name="Auto-Swap"></a>
 
 ## <a name="configure-auto-swap"></a>Configurar a troca automática
-A Troca Automática simplifica cenários DevOps em q você deseja implantar continuamente seu aplicativo, sem nenhuma inicialização a frio nem tempo de inatividade para clientes finais do aplicativo. Quando um slot de implantação estiver configurado para Troca Automática para produção, sempre que você enviar por push a atualização de código para esse slot, o Serviço de Aplicativo trocará automaticamente o aplicativo para produção depois que ele já tiver feito sido preparado no slot.
+Simplifica de troca automática DevOps cenários em que você deseja toocontinuously implanta seu aplicativo com zero inicialização a frio e tempo de inatividade zero para clientes finais do aplicativo hello. Quando um slot de implantação é configurado para a troca automática em produção, sempre que você enviar por push o slot de toothat de atualização de código, do serviço de aplicativo automaticamente alternará Olá aplicativo em produção após já ter aquecido no slot de saudação.
 
 > [!IMPORTANT]
-> Ao habilitar a Permuta Automática para um slot, verifique se a configuração do slot é exatamente a configuração pretendida para o slot de destino (geralmente o slot de produção).
+> Quando você habilitar a troca automática para um slot, certifique-se de configuração do slot de saudação é exatamente configuração Olá destinada ao slot de destino da saudação (geralmente slot de produção de hello).
 > 
 > 
 
 > [!NOTE]
 > Não há suporte para a troca automática em aplicativos Web no Linux.
 
-Configurar a Permuta Automática para um slot é fácil. Siga as etapas abaixo:
+Configurar a Permuta Automática para um slot é fácil. Siga as etapas de saudação abaixo:
 
 1. Em **Slots de Implantação**, selecione um slot que não esteja em produção e escolha **Configurações do Aplicativo** na folha de recursos do slot.  
    
     ![][Autoswap1]
-2. Selecione **Ativar** para **Troca Automática**, escolha o slot de destino desejado em **Slot de Troca Automática** e clique em **Salvar** na barra de comandos. Verifique se a configuração para o slot é exatamente igual à configuração desejada para o slot de destino.
+2. Selecione **na** para **troca automática**, selecione slot de destino desejado Olá em **Slot de troca automática**e clique em **salvar** na barra de comandos de saudação. Certifique-se de configuração para o slot de saudação é exatamente configuração Olá destinada ao slot de destino hello.
    
-    A guia **Notificações** piscará **SUCESSO** em verde quando a operação for concluída.
+    Olá **notificações** guia pisca uma verde **êxito** após a conclusão da operação de saudação.
    
     ![][Autoswap2]
    
    > [!NOTE]
-   > Para testar a Troca Automática para seu aplicativo, primeiro você poderá selecionar um slot de destino que não seja de produção em **Slot de Troca Automática** para se familiarizar com o recurso.  
+   > tootest troca automática para seu aplicativo, primeiro você poderá selecionar um slot de destino não seja de produção em **Slot de troca automática** toobecome familiarizado com o recurso de saudação.  
    > 
    > 
-3. Execute um envio de código por push para esse slot de implantação. A Permuta Automática ocorrerá após um curto período de tempo e a atualização será refletida na URL do seu slot de destino.
+3. Execute um slot de implantação de toothat de envio por push de código. Troca automática ocorrerá após um curto período de tempo e atualização hello será refletida na URL do seu slot de destino.
 
 <a name="Rollback"></a>
 
-## <a name="to-rollback-a-production-app-after-swap"></a>Para reverter um aplicativo de produção após a permuta
-Se algum erro for identificado na produção após uma permuta de slot, reverta os slots para os estados pré-permuta permutando ambos os slots imediatamente.
+## <a name="toorollback-a-production-app-after-swap"></a>um aplicativo de produção após a troca de toorollback
+Se qualquer erro for identificado na produção após uma troca de slot, reverter slots Olá tootheir back pré-permuta estados trocando slots de saudação mesmo dois imediatamente.
 
 <a name="Warm-up"></a>
 
 ## <a name="custom-warm-up-before-swap"></a>Aquecimento personalizado antes da permuta
-Alguns aplicativos podem exigir ações personalizadas de aquecimento. O elemento de configuração `applicationInitialization` no web.config permite que você especifique ações de inicialização personalizadas a serem executadas antes de uma solicitação ser recebida. A operação de permuta aguardará esse aquecimento personalizado ser concluído. Este é está um exemplo fragmento do web.config.
+Alguns aplicativos podem exigir ações personalizadas de aquecimento. Olá `applicationInitialization` elemento de configuração no Web. config permite que você toospecify inicialização personalizada ações toobe executada antes que uma solicitação é recebida. operação de permuta Olá aguardará esse toocomplete aquecimento personalizado. Este é está um exemplo fragmento do web.config.
 
     <applicationInitialization>
         <add initializationPage="/" hostName="[app hostname]" />
@@ -180,8 +180,8 @@ Alguns aplicativos podem exigir ações personalizadas de aquecimento. O element
 
 <a name="Delete"></a>
 
-## <a name="to-delete-a-deployment-slot"></a>Para excluir um slot de implantação
-Na folha de um slot de implantação, abra a folha do slot de implantação, clique em **Visão geral** (a página padrão) e clique em **Excluir** na barra de comandos.  
+## <a name="toodelete-a-deployment-slot"></a>toodelete um slot de implantação
+Na folha de saudação para um slot de implantação, folha do slot de implantação Olá aberto, clique em **visão geral** (página de saudação padrão) e clique em **excluir** na barra de comandos de saudação.  
 
 ![Excluir um slot de implantação][DeleteStagingSiteButton]
 
@@ -190,9 +190,9 @@ Na folha de um slot de implantação, abra a folha do slot de implantação, cli
 <a name="PowerShell"></a>
 
 ## <a name="azure-powershell-cmdlets-for-deployment-slots"></a>Cmdlets do PowerShell do Azure para slots de implantação
-O Azure PowerShell é um módulo que fornece cmdlets para gerenciar o Azure por meio do Windows PowerShell, incluindo suporte ao gerenciamento de slots de implantação no Serviço de Aplicativo do Azure.
+PowerShell do Azure é um módulo que fornece cmdlets toomanage Azure através do Windows PowerShell, incluindo suporte para gerenciar os slots de implantação no serviço de aplicativo do Azure.
 
-* Para obter mais informações sobre como instalar e configurar o PowerShell do Azure, e como autenticar o PowerShell do Azure com sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Microsoft Azure](/powershell/azure/overview).  
+* Para obter informações sobre como instalar e configurar o PowerShell do Azure e sobre a autenticação do Azure PowerShell com sua assinatura do Azure, consulte [como tooinstall e configurar o Microsoft Azure PowerShell](/powershell/azure/overview).  
 
 - - -
 ### <a name="create-a-web-app"></a>Criar um aplicativo Web
@@ -207,7 +207,7 @@ New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] 
 ```
 
 - - -
-### <a name="initiate-a-swap-with-review-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>Iniciar uma troca com revisão (troca de várias fases) e aplicar a configuração do slot de destino ao slot de origem
+### <a name="initiate-a-swap-with-review-multi-phase-swap-and-apply-destination-slot-configuration-toosource-slot"></a>Inicia uma troca de revisão (troca de várias fase) e aplique o slot de toosource de configuração de slot de destino
 ```
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
@@ -238,39 +238,39 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 <a name="CLI"></a>
 
 ## <a name="azure-command-line-interface-azure-cli-commands-for-deployment-slots"></a>Comandos da interface de linha de comando do Azure (CLI do Azure) para slots de implantação
-A CLI do Azure fornece comandos entre plataformas para trabalhar com o Azure, incluindo suporte ao gerenciamento de slots de implantação do Serviço de Aplicativo.
+Olá CLI do Azure fornece comandos de plataforma cruzada para trabalhar com o Azure, incluindo suporte para o gerenciamento de slots de implantação do serviço de aplicativo.
 
-* Para obter instruções sobre como instalar e configurar a CLI do Azure, incluindo informações sobre como conectar a CLI do Azure com sua assinatura do Azure, consulte [Instalar e configurar a CLI do Azure](../cli-install-nodejs.md).
-* Para listar os comandos disponíveis para o Serviço de Aplicativo do Azure na CLI do Azure, chame `azure site -h`.
+* Para obter instruções sobre como instalar e configurar o hello CLI do Azure, incluindo informações sobre como tooconnect CLI do Azure tooyour assinatura do Azure, consulte [instalar e configurar Olá CLI do Azure](../cli-install-nodejs.md).
+* comandos de saudação do toolist disponíveis para o serviço de aplicativo do Azure no hello CLI do Azure, chame `azure site -h`.
 
 > [!NOTE] 
 > Para obter os comandos da [CLI 2.0 do Azure](https://github.com/Azure/azure-cli) para slots de implantação, confira [az appservice web deployment slot](/cli/azure/appservice/web/deployment/slot).
 
 - - -
 ### <a name="azure-site-list"></a>azure site list
-Para obter informações sobre aplicativos na assinatura atual, chame **azure site list**, como no exemplo a seguir.
+Para obter informações sobre aplicativos de saudação na assinatura atual hello, chame **a lista de sites do azure**, conforme mostrado no exemplo a seguir de saudação.
 
 `azure site list webappslotstest`
 
 - - -
 ### <a name="azure-site-create"></a>azure site create
-Para criar um slot de implantação, chame **azure site create** e especifique o nome de um aplicativo existente e o nome do slot para criar, como no exemplo a seguir.
+toocreate um slot de implantação, chame **criar site do azure** e especifique o nome de saudação de um aplicativo existente e nome de saudação do hello slot toocreate, como no exemplo a seguir de saudação.
 
 `azure site create webappslotstest --slot staging`
 
-Para habilitar o controle do código-fonte para o novo slot, use a opção **--git** , como no exemplo a seguir.
+tooenable de controle de origem para o novo slot hello, use Olá **– git** opção, como no exemplo a seguir de saudação.
 
 `azure site create --git webappslotstest --slot staging`
 
 - - -
 ### <a name="azure-site-swap"></a>azure site swap
-Para fazer com que o slot de implantação atualizado se torne o aplicativo de produção, use o comando **azure site swap** para executar uma operação de permuta, como no exemplo a seguir. O aplicativo de produção não passará por nenhuma experiência de tempo de inatividade, nem passará por uma inicialização a frio.
+toomake Olá aplicativo de produção de hello de slot de implantação atualizada, use Olá **troca de site do azure** comando tooperform uma operação de permuta, como no exemplo a seguir de saudação. aplicativo de produção de Hello não terá nenhum tempo de inatividade, nem passará uma inicialização a frio.
 
 `azure site swap webappslotstest`
 
 - - -
 ### <a name="azure-site-delete"></a>azure site delete
-Para excluir um slot de implantação que não seja mais necessário, use o comando **excluir de site azure** , como no exemplo a seguir.
+toodelete um slot de implantação que não é mais necessário, use Olá **exclusão de site do azure** comando, como no exemplo a seguir de saudação.
 
 `azure site delete webappslotstest --slot staging`
 
@@ -281,9 +281,9 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Aplicativo Web do Serviço de Aplicativo do Azure – bloquear o acesso via Web a slots de implantação de não produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-[Introdução ao Serviço de Aplicativo no Linux](./app-service-linux-intro.md)
-[Avaliação gratuita do Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
+[Azure serviço de aplicativo Web aplicativo – bloquear slots de implantação de produção toonon web access](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
+[tooApp Introdução serviço no Linux](./app-service-linux-intro.md)
+[avaliação gratuita do Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
 
 <!-- IMAGES -->
 [QGAddNewDeploymentSlot]:  ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png

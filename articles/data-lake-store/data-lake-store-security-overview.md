@@ -1,5 +1,5 @@
 ---
-title: "Visão geral da segurança no Data Lake Store | Microsoft Docs"
+title: "aaaOverview de segurança no repositório Data Lake | Microsoft Docs"
 description: "Entender como o Azure Data Lake Store é um repositório de big data seguro"
 services: data-lake-store
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/10/2017
 ms.author: nitinme
-ms.openlocfilehash: a481a1169e189318406bc672eb560aeedb41750f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 69e20bd046a9427202074baf59bff13f5b6a83ae
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="security-in-azure-data-lake-store"></a>Segurança no Armazenamento do Azure Data Lake
-Muitas empresas estão tirando vantagem da análise de big data para ter ideias de negócios e ajudá-los a tomar decisões inteligentes. Uma organização pode ter um ambiente regulamentado e complexo, com um número crescente de usuários diferentes. É fundamental para uma empresa ter certeza de que os dados essenciais aos negócios são armazenados com mais segurança, com o nível correto de acesso concedido a usuários individuais. O Azure Data Lake Store foi criado para ajudar a atender a esses requisitos de segurança. Neste artigo, saiba mais sobre os recursos de segurança do Data Lake Store, incluindo:
+Muitas empresas estão tirando vantagem da análise de big data para business insights toohelp-los fazer inteligente decisões. Uma organização pode ter um ambiente regulamentado e complexo, com um número crescente de usuários diferentes. É essencial para uma toomake enterprise-se de que dados essenciais aos negócios são armazenados com mais segurança, com o nível de acesso concedido a usuários tooindividual correto hello. Repositório Azure Data Lake é projetado toohelp atender a esses requisitos de segurança. Neste artigo, saiba mais sobre os recursos de segurança de saudação do repositório Data Lake, incluindo:
 
 * Autenticação
 * Autorização
@@ -30,87 +30,87 @@ Muitas empresas estão tirando vantagem da análise de big data para ter ideias 
 * Auditoria
 
 ## <a name="authentication-and-identity-management"></a>Autenticação e gerenciamento das identidades
-Autenticação é o processo pelo qual a identidade do usuário é verificada quando ele interage com o Data Lake Store ou com qualquer serviço que se conecte ao Data Lake Store. Para o Gerenciamento das identidades e a autenticação, o Data Lake Store usa o [Azure Active Directory](../active-directory/active-directory-whatis.md), uma solução na nuvem do gerenciamento de identidades e acessos completo que simplifica o gerenciamento de usuários e grupos.
+A autenticação é o processo de saudação pelo qual a identidade do usuário é verificada quando o usuário Olá interage com o repositório Data Lake ou com qualquer serviço que se conecta tooData Lake repositório. Para gerenciamento de identidade e autenticação, usa o repositório Data Lake [Active Directory do Azure](../active-directory/active-directory-whatis.md), uma identidade e acesso gerenciamento nuvem solução abrangente que simplifica o gerenciamento de saudação de usuários e grupos.
 
-Toda assinatura do Azure pode ser associada a uma instância do Azure Active Directory. Somente os usuários e identidades de serviço que estão definidos no serviço Azure Active Directory podem acessar sua conta do Data Lake Store, usando o portal do Azure, as ferramentas de linha de comando, ou aplicativos de cliente criados pela sua organização usando o SDK do Azure Data Lake Store. As principais vantagens de usar o Azure Active Directory como um mecanismo de controle de acesso centralizado são:
+Toda assinatura do Azure pode ser associada a uma instância do Azure Active Directory. Somente os usuários e identidades de serviço que são definidas no serviço Active Directory do Azure podem acessar sua conta do repositório Data Lake, usando Olá portal do Azure, ferramentas de linha de comando, ou por meio de aplicativos de cliente que cria sua organização usando Olá dados do Azure Repositório Lake SDK. As principais vantagens de usar o Azure Active Directory como um mecanismo de controle de acesso centralizado são:
 
-* Gerenciamento de ciclo de vida de identidade simplificado. A identidade de um usuário ou um serviço (uma entidade principal do serviço) pode ser criada rapidamente e revogada simplesmente excluindo ou desabilitando a conta no diretório.
+* Gerenciamento de ciclo de vida de identidade simplificado. identidade de saudação de um usuário ou um serviço (uma identidade de entidade de serviço) pode ser criada rapidamente e rapidamente revogada, basta excluir ou desabilitar conta Olá no diretório de saudação.
 * Multi-Factor Authentication. [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) fornece uma camada adicional de segurança para os logons e as transações dos usuários.
 * A autenticação de clientes por meio de um protocolo aberto padrão, como OAuth ou OpenID.
 * Federação com serviços de diretório da empresa e provedores de identidade da nuvem.
 
 ## <a name="authorization-and-access-control"></a>Autenticação e controle de acessos
-Depois que o Azure Active Directory autentica um usuário para que ele possa acessar o Azure Data Lake Store, controles de autorização acessam permissões para o Data Lake Store. O Data Lake Store separa autorização das atividades relacionadas à conta e relacionadas a dados da seguinte forma:
+Depois que o Active Directory do Azure autentica um usuário para que hello usuário possa acessar o repositório do Azure Data Lake, controles de autorização acessar permissões para o repositório Data Lake. Repositório data Lake separa a autorização para atividades relacionadas à conta e dados relacionados em Olá maneira a seguir:
 
 * [Controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md) ) fornecido pelo Azure para gerenciamento de contas
-* ACL POSIX para acessar dados no repositório
+* POSIX ACL para acesso a dados no repositório de saudação
 
 ### <a name="rbac-for-account-management"></a>RBAC para o gerenciamento da conta
-Quatro funções básicas são definidas para o Data Lake Store por padrão. As funções permitem operações diferentes em uma conta do Data Lake Store usando o portal do Azure, os cmdlets do PowerShell e as APIs REST. As funções Proprietário e Colaborador podem realizar várias funções de administração na conta. Você pode atribuir a função Leitor para os usuários que só interagem com dados.
+Quatro funções básicas são definidas para o Data Lake Store por padrão. funções Hello permitem operações diferentes em uma conta do repositório Data Lake via Olá portal do Azure, cmdlets do PowerShell e APIs REST. Olá proprietário e funções de Colaborador podem executar uma variedade de funções de administração na conta de saudação. Você pode atribuir Olá leitor função toousers que apenas interagir com dados.
 
 ![Funções RBAC](./media/data-lake-store-security-overview/rbac-roles.png "Funções RBAC")
 
-Observe que, embora as funções sejam atribuídas para gerenciamento de conta, algumas funções afetam o acesso aos dados. Você precisa usar ACLs para controlar o acesso a operações que um usuário pode executar no sistema de arquivos. A tabela a seguir mostra um resumo dos direitos de gerenciamento e dos direitos de acesso de dados para as funções padrão.
+Observe que, embora as funções são atribuídas para gerenciamento de conta, algumas funções afetam toodata de acesso. É necessário toouse ACLs toocontrol acesso toooperations que um usuário pode executar no sistema de arquivo hello. Olá, a tabela a seguir mostra um resumo dos direitos e gerenciamento de direitos de acesso de dados para Olá funções padrão.
 
 | Funções | Direitos de gerenciamento | Direitos de acesso a dados | Explicação |
 | --- | --- | --- | --- |
-| Nenhuma função atribuída |Nenhum |Controlado pela ACL |Os usuários não podem usar o portal do Azure ou os cmdlets do Azure PowerShell para percorrer o Data Lake Store. O usuário pode usar apenas as ferramentas de linha de comando. |
-| Proprietário |Todos |Todos |A função Proprietário é um superusuário. Essa função pode gerenciar tudo e tem acesso completo aos dados. |
-| Leitor |Somente leitura |Controlado pela ACL |A função Leitor pode ver tudo sobre o gerenciamento da conta, como qual usuário é atribuído a qual função. A função Leitor não pode fazer alterações. |
-| Colaborador |Tudo, exceto adicionar e remover as funções. |Controlado pela ACL |A função Colaborador pode gerenciar alguns aspectos de uma conta, como implantações e a criação e o gerenciamento de alertas. Um Colaborador não pode adicionar ou remover funções. |
-| Administrador de Acesso do Usuário |Adicionar e remover funções |Controlado pela ACL |A função Administrador de Acesso do Usuário permite gerenciar o acesso do usuário às contas. |
+| Nenhuma função atribuída |Nenhum |Controlado pela ACL |usuário de saudação não pode usar o hello Azure portal ou o Azure PowerShell cmdlets toobrowse repositório Data Lake. usuário Olá pode usar somente as ferramentas de linha de comando. |
+| Proprietário |Todos |Todos |função de proprietário de saudação é um superusuário. Essa função pode gerenciar tudo e tem acesso completo toodata. |
+| Leitor |Somente leitura |Controlado pela ACL |função de leitor de saudação pode exibir tudo sobre o gerenciamento de conta, como qual usuário é atribuído a função toowhich. função de leitor de saudação não pode fazer as alterações. |
+| Colaborador |Tudo, exceto adicionar e remover as funções. |Controlado pela ACL |função de Colaborador Olá pode gerenciar alguns aspectos de uma conta, como implantações e criar e gerenciar alertas. função de Colaborador Olá não é possível adicionar ou remover funções. |
+| Administrador de Acesso do Usuário |Adicionar e remover funções |Controlado pela ACL |função de administrador de acesso de usuário de saudação pode gerenciar tooaccounts de acesso do usuário. |
 
-Para obter instruções, confira [Atribuir usuários ou grupos de segurança às contas do Azure Data Lake Store](data-lake-store-secure-data.md#assign-users-or-security-groups-to-azure-data-lake-store-accounts).
+Para obter instruções, consulte [atribuir usuários ou grupos de segurança de contas do repositório de Lake tooData](data-lake-store-secure-data.md#assign-users-or-security-groups-to-azure-data-lake-store-accounts).
 
 ### <a name="using-acls-for-operations-on-file-systems"></a>Usando ACLs para as operações nos sistemas de arquivos
-O Data Lake Store é um sistema de arquivos hierárquico, como o HDFS (Hadoop Distributed File System) e dá suporte a [ACLs POSIX](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Ele controla permissões de leitura (r), gravação (w) e execução (x) para recursos da função Proprietário, para o grupo Proprietários e para outros usuários e grupos. Na Visualização Pública do Data Lake Store (versão atual), as ACLs podem ser habilitadas na pasta raiz, nas subpastas e nos arquivos individuais. Para saber mais sobre como funcionam as ACLs no contexto do Data Lake Store, veja [Controle de acesso no Data Lake ](data-lake-store-access-control.md).
+O Data Lake Store é um sistema de arquivos hierárquico, como o HDFS (Hadoop Distributed File System) e dá suporte a [ACLs POSIX](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Ele controla leitura (r), gravação (w) e execute (tooresources de permissões para a função de proprietário de saudação para proprietários de grupo hello e para outros usuários e grupos x). Em Olá Data Lake repositório Public Preview (versão atual do hello), as ACLs podem ser habilitadas na pasta raiz de hello, subpastas e arquivos individuais. Para saber mais sobre como funcionam as ACLs no contexto do Data Lake Store, veja [Controle de acesso no Data Lake ](data-lake-store-access-control.md).
 
-Recomendamos que você defina as ACLs para vários usuários usando [grupos de segurança](../active-directory/active-directory-accessmanagement-manage-groups.md). Adicione usuários a um grupo de segurança e atribua as ACLs de um arquivo ou pasta ao grupo de segurança. Isso é útil quando você deseja fornecer acesso personalizado, já que você está limitado à adição de no máximo nove entradas de acesso personalizado. Para saber mais sobre como proteger melhor os dados armazenados no Data Lake Store usando grupos de segurança do Azure Active Directory, confira [Atribuir usuários ou grupo de segurança, como ACLs, ao sistema de arquivos do Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions).
+Recomendamos que você defina as ACLs para vários usuários usando [grupos de segurança](../active-directory/active-directory-accessmanagement-manage-groups.md). Adicionar grupo de segurança usuários tooa e, em seguida, atribuir Olá ACLs para um grupo de segurança de toothat do arquivo ou pasta. Isso é útil quando você desejar acesso personalizado a tooprovide, porque você está limitado tooadding um máximo de nove entradas de acesso personalizado. Para obter mais informações sobre como toobetter proteger os dados armazenados no repositório Data Lake usando grupos de segurança do Active Directory do Azure, consulte [atribuir usuários ou grupo de segurança como toohello ACLs de sistema de arquivos do repositório Azure Data Lake](data-lake-store-secure-data.md#filepermissions).
 
 ![Lista de acesso padrão e personalizado](./media/data-lake-store-security-overview/adl.acl.2.png "lista de acesso padrão e personalizado")
 
 ## <a name="network-isolation"></a>Isolamento da rede
-Use o Data Lake Store para ajudar a controlar o acesso ao seu armazenamento de dados no nível da rede. Você pode habilitar o firewall e definir um intervalo de endereços IP para seus clientes confiáveis. Com um intervalo de endereços IP, somente os clientes que possuem um endereço IP no intervalo definido podem se conectar ao Data Lake Store.
+Repositório de dados de tooyour do repositório Use Data Lake toohelp controle acesso no nível de rede hello. Você pode habilitar o firewall e definir um intervalo de endereços IP para seus clientes confiáveis. Com um intervalo de endereços IP, somente os clientes que têm um endereço IP dentro do intervalo de saudação definido podem se conectar a tooData Lake repositório.
 
 ![Configurações de firewall e acesso IP](./media/data-lake-store-security-overview/firewall-ip-access.png "Endereço IP e configurações de firewall")
 
 ## <a name="data-protection"></a>Proteção de dados
-O Azure Data Lake Store protege seus dados em todo o ciclo de vida. Para os dados em trânsito, o Data Lake Store usa o protocolo TLS (Transport Layer Security) padrão da indústria para proteger os dados na rede.
+O Azure Data Lake Store protege seus dados em todo o ciclo de vida. Dados em trânsito, repositório Data Lake usa saudação padrão da indústria segurança de camada de transporte (TLS) protocol toosecure dados pela rede hello.
 
 ![Criptografia no Data Lake Store](./media/data-lake-store-security-overview/adls-encryption.png "Criptografia no Data Lake Store")
 
-O Data Lake Store também fornece criptografia para os dados armazenados na conta. Você pode optar por ter seus dados criptografados ou optar por nenhuma criptografia. Se você optar por criptografia, os dados armazenados no Data Lake Store são criptografados antes do armazenamento em mídia persistente. Nesse caso, o Data Lake Store criptografa os dados automaticamente antes da persistência e descriptografa os dados antes da recuperação, por isso é completamente transparente para o cliente que acessa os dados. Não há nenhuma alteração de código necessária no lado do cliente para criptografar/descriptografar dados.
+Repositório data Lake também fornece criptografia de dados que são armazenados na conta de saudação. Você pode escolher toohave seus dados criptografados ou optar por sem criptografia. Se você aceitar a criptografia, os dados armazenados no repositório Data Lake serão criptografado toostoring anterior na mídia persistente. Nesse caso, o repositório Data Lake automaticamente criptografa toopersisting anteriores de dados e descriptografa tooretrieval anteriores de dados, por isso é completamente transparente toohello cliente acessando dados saudação. Não há nenhuma alteração de código necessária nos dados do hello cliente lado tooencrypt/descriptografar.
 
-Em relação ao gerenciamento de chaves, o Data Lake Store fornece dois modos para gerenciar suas chaves-mestras de criptografia (MEKs), que são necessárias para descriptografar os dados armazenados no Data Lake Store. Você também pode deixar o Data Lake Store gerenciar as MEKs para você ou optar por manter a propriedade das MEKs usando sua conta do Cofre de Chaves do Azure. Você pode especificar o modo de gerenciamento de chaves ao criar uma conta do Data Lake Store. Para saber mais sobre como fornecer configuração relacionada à criptografia, veja [Introdução ao Azure Data Lake Store usando o Portal do Azure](data-lake-store-get-started-portal.md).
+Para gerenciamento de chaves, o repositório Data Lake oferece dois modos de gerenciar suas chaves de criptografia mestra (MEKs), que são necessários para descriptografar os dados que são armazenados no hello repositório Data Lake. Você também pode deixar repositório Data Lake gerenciar Olá MEKs para você, ou escolha tooretain apropriar MEKs hello usando sua conta do Azure Key Vault. Especifique o modo de saudação do gerenciamento de chaves enquanto durante a criação de uma conta do repositório Data Lake. Para obter mais informações sobre como tooprovide relacionadas à criptografia configuração, consulte [Introdução ao repositório Azure Data Lake usando hello Azure Portal](data-lake-store-get-started-portal.md).
 
 ## <a name="auditing-and-diagnostic-logs"></a>Logs de auditoria e diagnóstico
 Você pode usar os logs de auditoria ou de diagnóstico, dependendo de estar procurando logs para atividades relacionadas ao gerenciamento ou para atividades relacionadas aos dados.
 
-* As atividades relacionadas ao gerenciamento usam as APIs do Azure Resource Manager e são exibidas no portal do Azure por meio dos logs de auditoria.
-* As atividades relacionadas aos dados usam APIs REST WebHDFS e são exibidas no portal do Azure por meio dos logs de diagnóstico.
+* Atividades relacionadas ao gerenciamento de usam as APIs do Gerenciador de recursos do Azure e são apresentadas em Olá portal do Azure por meio de logs de auditoria.
+* As atividades relacionadas a dados usam APIs REST de WebHDFS e são apresentadas em Olá portal do Azure por meio de logs de diagnóstico.
 
 ### <a name="auditing-logs"></a>Logs de auditoria
-Para cumprir as normas, uma organização poderá exigir trilhas de auditoria adequadas se precisar examinar incidentes específicos. O Data Lake Store tem auditoria e monitoramento internos e registra todas as atividades de gerenciamento da conta.
+toocomply com as normas, uma organização pode exigir as trilhas de auditoria adequada se ele precisa toodig em incidentes específicos. O Data Lake Store tem auditoria e monitoramento internos e registra todas as atividades de gerenciamento da conta.
 
-Para trilhas de auditoria de gerenciamento de conta, exiba e escolha as colunas que deseja registrar em log. Você também pode exportar os logs de auditoria para o Armazenamento do Azure.
+Para trilhas de auditoria de gerenciamento de conta, exibir e escolha Olá colunas que você deseja toolog. Você também pode exportar logs de auditoria tooAzure armazenamento.
 
 ![Logs de auditoria](./media/data-lake-store-security-overview/audit-logs.png "Logs de auditoria")
 
 ### <a name="diagnostic-logs"></a>Logs de diagnóstico
-Você pode definir as trilhas de auditoria de acesso aos dados no portal do Azure (em Configurações de Diagnóstico) e criar uma conta de armazenamento de blobs do Azure onde os logs serão armazenados.
+Você pode definir trilhas de auditoria de acesso a dados nas Olá portal do Azure (em configurações de diagnóstico) e criar uma conta de armazenamento de BLOBs do Azure onde Olá logs são armazenados.
 
 ![Logs de diagnóstico](./media/data-lake-store-security-overview/diagnostic-logs.png "Logs de diagnóstico")
 
-Depois de configurar as definições de diagnóstico, você pode exibir os logs na guia **Logs de Diagnóstico** .
+Depois de configurar as definições de diagnóstico, você pode exibir os logs de saudação em Olá **Logs de diagnóstico** guia.
 
 Para saber mais sobre como trabalhar com logs de diagnóstico com o Azure Data Lake Store, consulte [Acessar logs de diagnóstico para o Data Lake Store](data-lake-store-diagnostic-logs.md).
 
 ## <a name="summary"></a>Resumo
-Os clientes corporativos exigem uma plataforma de nuvem da análise de dados que seja segura e fácil de usar. O Azure Data Lake Store é projetado para ajudar a endereçar esses requisitos com o gerenciamento da identidade e a autenticação usando a integração do Azure Active Directory, as autorizações baseadas em ACL, o isolamento de rede, a criptografia do dados em trânsito e em repouso (no futuro) e a auditoria.
+Os clientes corporativos exigem uma plataforma de nuvem de análise de dados que é seguro e fácil toouse. Repositório Azure Data Lake é projetado toohelp atender a esses requisitos através de gerenciamento de identidade e autenticação por meio da integração do Active Directory do Azure, a autorização baseada em ACL, isolamento de rede, a criptografia de dados em trânsito e em repouso (Olá recebidas futuras) e auditoria.
 
-Se você quer ver os novos recursos incluídos no Data Lake Store, envie seus comentários para o [Fórum Uservoice do Data Lake Store](https://feedback.azure.com/forums/327234-data-lake).
+Se você quiser toosee novos recursos do repositório Data Lake, envie seus comentários no hello [UserVoice de armazenamento do Data Lake fórum](https://feedback.azure.com/forums/327234-data-lake).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Visão geral do repositório Azure Data Lake](data-lake-store-overview.md)
 * [Introdução ao Data Lake Store](data-lake-store-get-started-portal.md)
 * [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)

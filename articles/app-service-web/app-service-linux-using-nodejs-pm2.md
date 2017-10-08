@@ -1,5 +1,5 @@
 ---
-title: "Usando a configuração de PM2 para Node.js no Aplicativo Web do Azure no Linux | Microsoft Docs"
+title: "configuração de aaaUsing PM2 para Node.js no aplicativo Web do Azure no Linux | Microsoft Docs"
 description: "Usando a configuração de PM2 para Node.js no Aplicativo Web do Azure no Linux"
 keywords: "serviço de aplicativo do Azure, aplicativo web, nodejs, pm2, linux, oss"
 services: app-service
@@ -15,32 +15,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-ms.openlocfilehash: 5002400a673e2c5cc4290bab488b839fb2282966
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 923783ffe656e01c43318899d1a656b553ebb5f2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-pm2-configuration-for-nodejs-in-azure-web-app-on-linux"></a>Usar a configuração de PM2 para Node.js no Aplicativo Web do Azure no Linux
 
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
 
-Se definir a pilha de aplicativos como o Node.js para o Aplicativo Web do Azure no Linux, você terá a opção de definir um arquivo de inicialização do Node.js, como mostrado na imagem a seguir:
+Se você definir Olá tooNode.js de pilha de aplicativo para o aplicativo Web do Azure no Linux, você obtém Olá opção tooset um arquivo de inicialização do Node. js conforme mostrado no Olá a imagem a seguir:
 
 ![Definir um arquivo de inicialização do Node.js][1]
 
-Use esta opção para fazer uma das seguintes tarefas:
+Você pode usar este toodo opção um de saudação tarefas a seguir:
 
-* Especificar o script de inicialização para seu aplicativo Node.js (por exemplo: /bin/server.js).
-* Especificar o arquivo de configuração PM2 a ser usado para seu aplicativo Node.js (por exemplo: /foo/process.json).
+* Especifique o script de inicialização de saudação para seu aplicativo Node. js (por exemplo: /bin/server.js).
+* Especifique a saudação PM2 toouse de arquivo de configuração para seu aplicativo Node. js (por exemplo: /foo/process.json).
   
   > [!NOTE]
-  > Se você quiser que seus processos do Node.js sejam reiniciados automaticamente quando determinados arquivos forem modificados, use a configuração PM2. Caso contrário, seu aplicativo não será reiniciado quando receber as notificações de alteração (por exemplo, quando o código do aplicativo for alterado).
+  > Se você quiser automaticamente seu toorestart de processos do Node. js quando determinados arquivos são modificados, use a configuração de PM2 de hello. Caso contrário, seu aplicativo não será reiniciado quando receber as notificações de alteração (por exemplo, quando o código do aplicativo for alterado).
   > 
   > 
 
-Você pode verificar a [documentação do arquivo de processos](http://pm2.keymetrics.io/docs/usage/application-declaration/) do Node.js para todas as opções, mas veja a seguir um exemplo do que você pode usar como seu arquivo process.json:
+Você pode verificar Olá Node. js [processar documentação arquivo](http://pm2.keymetrics.io/docs/usage/application-declaration/) para todas as opções de hello, mas a seguir está um exemplo de como o que você pode usar como o arquivo process.json:
 
         {
           "name"        : "worker",
@@ -56,12 +56,12 @@ Você pode verificar a [documentação do arquivo de processos](http://pm2.keyme
           }
         }
 
-Os aspectos importantes a observar nessa configuração são:
+Toonote coisas importantes nesta configuração são:
 
-* A propriedade "script" especifica o script de inicialização do aplicativo.
-* A propriedade "instances" especifica quantas instâncias do processo de nó serão iniciadas. Se você estiver executando seu aplicativo em VMs maiores com vários núcleos, é uma boa ideia para maximizar seus recursos definir um valor mais alto aqui.
-* A matriz "watch" especifica todos os arquivos para os quais você deseja reiniciar o processo de nó quando eles forem alterados.
-* No momento, para "watch_options", é necessário especificar "usePolling" como true devido ao modo como o conteúdo do aplicativo é montado.
+* propriedade de "script" Hello Especifica o script de início do aplicativo.
+* propriedade de "ocorrências" Hello Especifica quantas instâncias de saudação toolaunch de processo de nó. Se você estiver executando o aplicativo em máquinas virtuais maiores que têm vários núcleos, é uma boa ideia toomaximize seus recursos, definindo um valor mais alto aqui.
+* Olá "observar" matriz especifica todos os arquivos que você deseja toorestart processo de nó Olá para quando elas forem alteradas.
+* Para hello "watch_options", você precisa no momento toospecify "usePolling" como true devido à forma como o hello seu conteúdo de aplicativos está montado.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [O que é um Aplicativo Web do Azure no Linux?](app-service-linux-intro.md)

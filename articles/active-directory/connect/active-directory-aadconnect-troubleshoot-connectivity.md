@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: solucionar problemas de conectividade | Microsoft Docs'
-description: Explica como solucionar problemas de conectividade com o Azure AD Connect.
+description: Explica como os problemas de conectividade da tootroubleshoot ao Azure AD Connect.
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -14,98 +14,98 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: f9631e8a383b88421c55d9c42c8059df9e732800
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 60d6b7c4ad8a3ab907c20e598ec9443f115df287
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Solucionar problemas de conectividade com o Azure AD Connect
-Esse artigo explica como funciona a conectividade entre o Azure AD Connect e o AD do Azure e como solucionar problemas de conectividade. Esses problemas são mais prováveis de serem vistos em um ambiente com um servidor proxy.
+Este artigo explica como funciona a conectividade entre o Azure AD Connect e AD do Azure e como os problemas de conectividade da tootroubleshoot. Esses problemas são provavelmente toobe visto em um ambiente com um servidor proxy.
 
-## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>Solucionar problemas de conectividade no assistente de instalação
-O Azure AD Connect está usando Autenticação Moderna (usando a biblioteca ADAL) para autenticação. O assistente de instalação e o mecanismo de sincronização adequado exigem machine.config para ser configurado corretamente já que são dois aplicativos .NET.
+## <a name="troubleshoot-connectivity-issues-in-hello-installation-wizard"></a>Solucionar problemas de conectividade no Assistente de instalação de saudação
+Conexão do AD do Azure está usando autenticação moderna (usando a biblioteca ADAL Olá) para autenticação. Assistente de instalação Hello e mecanismo de sincronização de saudação adequado exigem toobe Machine. config configurado corretamente uma vez que esses dois são aplicativos .NET.
 
-Neste artigo, mostraremos como a Fabrikam se conecta ao AD do Azure por meio de seu proxy. O servidor proxy é chamado fabrikamproxy e está usando a porta 8080.
+Neste artigo, mostramos como a Fabrikam se conecta tooAzure AD por meio de seu proxy. servidor de proxy Olá chamado fabrikamproxy e está usando a porta 8080.
 
-Primeiro, precisamos garantir que [**machine.config**](active-directory-aadconnect-prerequisites.md#connectivity) esteja configurado corretamente.  
+Primeiro é preciso toomake se [ **Machine. config** ](active-directory-aadconnect-prerequisites.md#connectivity) está configurado corretamente.  
 ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
 > [!NOTE]
-> Em alguns blogs sem relação com a Microsoft, está documentado que as alterações devem ser feitas em miiserver.exe.config. No entanto, esse arquivo será substituído em cada atualização, portanto, mesmo que ele funcione durante a instalação inicial, o sistema deixará de funcionar na primeira atualização. Por esse motivo, a recomendação é atualizar o machine.config.
+> Em alguns blogs não Microsoft, ele está documentado que as alterações devem ser feitas toomiiserver.exe.config em vez disso. No entanto, esse arquivo será substituído em cada atualização até mesmo se ele funciona durante a instalação inicial, sistema Olá deixará de funcionar na primeira atualização. Por esse motivo, a recomendação de saudação é tooupdate Machine. config em vez disso.
 >
 >
 
-O servidor proxy também deve ter as URLs necessárias abertas. A lista oficial é documentada em [intervalos de endereços IP e URLs do Office 365 ](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+servidor de proxy Olá também deve ter URLs Olá necessário abertos. lista oficial Hello está documentada em [intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-Dessas URLs, a tabela a seguir é o mínimo absoluto para oferecer a capacidade de se conectar ao AD do Azure. Essa lista não inclui quaisquer recursos opcionais, como write-back de senha ou Azure AD Connect Health. Ela está documentado aqui para ajudar na solução de problemas da configuração inicial.
+As URLs, Olá a tabela a seguir é Olá absoluto toobe mínimo bare capaz de tooconnect tooAzure AD. Essa lista não inclui quaisquer recursos opcionais, como write-back de senha ou Azure AD Connect Health. É documentado toohelp aqui na solução de problemas de configuração inicial de saudação.
 
 | URL | Port | Descrição |
 | --- | --- | --- |
-| mscrl.microsoft.com |HTTP/80 |Usada para baixar as listas CRL. |
-| \*.verisign.com |HTTP/80 |Usada para baixar as listas CRL. |
-| \*.entrust.com |HTTP/80 |Usada para baixar as listas CRL para o MFA. |
-| \*.windows.net |HTTPS/443 |Usado para entrar no AD do Azure. |
+| mscrl.microsoft.com |HTTP/80 |Lista de usados toodownload CRL. |
+| \*.verisign.com |HTTP/80 |Lista de usados toodownload CRL. |
+| \*.entrust.com |HTTP/80 |Lista de CRL toodownload usado para MFA. |
+| \*.windows.net |HTTPS/443 |Toosign usado em tooAzure AD. |
 | Secure.aadcdn.microsoftonline p.com |HTTPS/443 |Usado para MFA. |
-| \*.microsoftonline.com |HTTPS/443 |Usado para configurar o diretório do Azure AD e importar/exportar dados. |
+| \*.microsoftonline.com |HTTPS/443 |Usado tooconfigure seus dados de diretório e de importação/exportação do AD do Azure. |
 
-## <a name="errors-in-the-wizard"></a>Erros no assistente
-O assistente de instalação está usando dois contextos de segurança diferentes. Na página **Conectar-se ao Azure AD** utiliza o usuário conectado no momento. Na página **Configurar** o assistente muda para a [conta que executa o serviço no mecanismo de sincronização](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). Se houver um problema, provavelmente ele aparecerá já na página **Conectar ao Azure AD** do assistente, uma vez que a configuração do proxy é global.
+## <a name="errors-in-hello-wizard"></a>Erros no Assistente de saudação
+Assistente de instalação Hello está usando dois contextos de segurança diferente. Na página de saudação **conectar tooAzure AD**, utiliza Olá usuário conectado no momento. Na página de saudação **configurar**, ele está sendo alterado toohello [conta que está executando o serviço Olá para o mecanismo de sincronização Olá](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). Se houver um problema, ele aparece provavelmente já no hello **conectar tooAzure AD** página no Assistente de saudação desde que a configuração de proxy de saudação é global.
 
-Estes são os problemas mais comuns que você encontrará no assistente de instalação.
+Olá problemas a seguir é erros mais comuns de Olá encontrados no Assistente de instalação de saudação.
 
-### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>O assistente de instalação não foi configurado corretamente
-Esse erro aparecerá quando o assistente não conseguir acessar o proxy.  
+### <a name="hello-installation-wizard-has-not-been-correctly-configured"></a>Assistente de instalação de saudação não foi configurado corretamente
+Este erro aparece quando o Assistente de saudação em si não pode acessar o proxy de saudação.  
 ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomachineconfig.png)
 
-* Se você vir esse erro, verifique se o [machine.config](active-directory-aadconnect-prerequisites.md#connectivity) foi configurado corretamente.
-* Se parecer correto, siga as etapas em [Verificar a conectividade do proxy](#verify-proxy-connectivity) para ver se o problema também ocorre fora do assistente.
+* Se você vir esse erro, verifique se Olá [Machine. config](active-directory-aadconnect-prerequisites.md#connectivity) foi configurado corretamente.
+* Se que parece correto, execute as etapas de saudação em [verificar a conectividade de proxy](#verify-proxy-connectivity) toosee se houver problema Olá fora Olá assistente também.
 
 ### <a name="a-microsoft-account-is-used"></a>Uma conta da Microsoft é usada
 Se você usar uma **conta da Microsoft** em vez de uma conta **corporativa ou de estudante**, você verá um erro genérico.  
 ![Uma conta da Microsoft é usada](./media/active-directory-aadconnect-troubleshoot-connectivity/unknownerror.png)
 
-### <a name="the-mfa-endpoint-cannot-be-reached"></a>Não é possível alcançar o ponto de extremidade da MFA
-Esse erro aparecerá se o ponto de extremidade **https://secure.aadcdn.microsoftonline-p.com** não puder ser alcançado e o administrador global tiver a MFA habilitada.  
+### <a name="hello-mfa-endpoint-cannot-be-reached"></a>não é possível alcançar o ponto de extremidade MFA de saudação
+Este erro ocorrerá se hello ponto de extremidade **https://secure.aadcdn.microsoftonline-p.com** não pode ser alcançado e o administrador global tem MFA habilitado.  
 ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
 
-* Se você vir esse erro, verifique se o ponto de extremidade **secure.aadcdn.microsoftonline-p.com** foi adicionado ao proxy.
+* Se você vir esse erro, verifique se esse ponto de extremidade Olá **secure.aadcdn.microsoftonline p.com** toohello proxy foi adicionado.
 
-### <a name="the-password-cannot-be-verified"></a>A senha não pode ser verificada
-Se o assistente de instalação for bem-sucedido ao conectar-se ao AD do Azure, mas a senha não puder ser verificada, você verá este erro:  
+### <a name="hello-password-cannot-be-verified"></a>Olá senha não pode ser verificada
+Não é possível verificar se o Assistente de instalação Olá for bem-sucedida na conexão tooAzure AD, mas a própria senha Olá que você vir esse erro:  
 ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
 
-* A senha é uma senha temporária e deve ser alterada? É realmente a senha correta? Tente fazer logon em https://login.microsoftonline.com (em outro computador que não seja o servidor do Azure AD Connect) e verifique se a conta é utilizável.
+* É a senha de saudação uma senha temporária e deve ser alterada? É-Olá, na verdade, a senha correta? Tente toosign em toohttps://login.microsoftonline.com (em outro computador servidor do Azure AD Connect Olá) e verifique a conta Olá é utilizável.
 
 ### <a name="verify-proxy-connectivity"></a>Verificar a conectividade do proxy
-Para verificar se o servidor do Azure AD Connect tem conectividade real com o Proxy e a Internet, use o PowerShell para ver se o proxy está permitindo solicitações da Web ou não. Em um prompt do PowerShell, execute `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Tecnicamente, a primeira chamada é para https://login.microsoftonline.com e esse URI também funciona, mas o outro URI responde mais rápido).
+tooverify se hello, servidor do Azure AD Connect tem conectividade real com hello Proxy e a Internet, use algumas toosee PowerShell se proxy hello está permitindo solicitações da web ou não. Em um prompt do PowerShell, execute `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Tecnicamente hello primeira chamada é toohttps://login.microsoftonline.com e esse URI também funciona, mas outros URI hello é toorespond mais rápido.)
 
-O PowerShell usa a configuração em machine.config para entrar em contato com o proxy. As configurações no winhttp/netsh não devem afetar esses cmdlets.
+PowerShell usa configuração Olá no proxy de saudação toocontact Machine. config. configurações de saudação no netsh/winhttp não devem afetar esses cmdlets.
 
-Se o proxy estiver configurado corretamente, você deverá obter um status de êxito: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest200.png)
+Se o proxy hello está configurado corretamente, você deve obter um status de êxito: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest200.png)
 
-Se você receber **Não é possível se conectar ao servidor remoto** é porque o PowerShell está tentando fazer uma chamada direta sem usar o proxy ou o DNS não está configurado corretamente. Verifique se o arquivo **machine.config** está configurado corretamente.
+Se você receber **servidor remoto do não é possível tooconnect toohello**, PowerShell está tentando toomake uma chamada direta sem usar proxy hello ou DNS não está configurado corretamente. Verifique se Olá **Machine. config** arquivo está configurado corretamente.
 ![unabletoconnect](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequestunable.png)
 
-Se o proxy não estiver configurado corretamente, você receberá um erro: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png)
+Se o proxy de saudação não está configurado corretamente, você obterá um erro: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png)
 ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
 | Erro | Texto do erro | Comentário |
 | --- | --- | --- |
-| 403 |Proibido |O proxy não foi aberto para a URL solicitada. Examine a configuração do proxy e verifique se as [URLs](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) foram abertas. |
-| 407 |Autenticação de proxy necessária |O servidor proxy solicitou uma entrada e nenhuma foi fornecida. Se o servidor proxy exigir autenticação, verifique se isso está configurado em machine.config. Verifique também se você está usando contas de domínio para o usuário que executa o assistente e para a conta de serviço. |
+| 403 |Proibido |proxy de saudação não foi aberto para Olá solicitado URL. Verificar configuração de proxy de saudação e verifique se Olá [URLs](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) foram abertos. |
+| 407 |Autenticação de proxy necessária |servidor de proxy Olá necessária uma entrada e nenhum foi fornecido. Se o servidor proxy requer autenticação, verifique se toohave essa configuração definida em Machine. config de saudação. Verifique também se que você estiver usando contas de domínio para o usuário Olá executando o Assistente de saudação e Olá conta de serviço. |
 
-## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>O padrão de comunicação entre o Azure AD Connect e o AD do Azure
-Se você executou todas essas etapas anteriores e ainda não conseguiu se conectar, comece a examinar os logs de rede. Esta seção está documentando um padrão de conectividade normal e bem-sucedido. Também está listando distrações comuns que podem ser ignoradas ao ler os logs de rede.
+## <a name="hello-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>padrão de comunicação de saudação entre o Azure AD Connect e AD do Azure
+Se você executou todas essas etapas anteriores e ainda não conseguiu se conectar, comece a examinar os logs de rede. Esta seção está documentando um padrão de conectividade normal e bem-sucedido. Ele também é listando herrings vermelho comuns que podem ser ignorados durante a leitura de logs de saudação de rede.
 
-* Há chamadas para https://dc.services.visualstudio.com. Não é necessário que esta URL esteja aberta no proxy para que a instalação tenha êxito e essas chamadas podem ser ignoradas.
-* Veja que a resolução DNS lista os hosts reais no namespace DNS nsatc.net e em outros namespaces que não estejam em microsoftonline.com. No entanto, não há solicitações de serviços Web nos nomes de servidor reais e você não precisará adicionar essas URLs ao proxy.
-* Os pontos de extremidade adminwebservice e provisioningapi são pontos de extremidade de descoberta usados para localizar o ponto de extremidade real a ser usado. Esses pontos de extremidade são diferentes dependendo de sua região.
+* Há chamadas toohttps://dc.services.visualstudio.com. Não é necessário toohave que essa URL aberto no proxy Olá Olá instalação toosucceed e essas chamadas pode ser ignorado.
+* Consulte a resolução de dns lista toobe de hosts real Olá Olá nsatc.net de espaço de nome DNS e outros namespaces não em microsoftonline.com. No entanto, não há quaisquer solicitações de serviço da web em nomes de servidor real hello e você não tem tooadd proxy de toohello essas URLs.
+* provisioningapi e adminwebservice de pontos de extremidade de saudação são pontos de extremidade de descoberta e usadas toofind Olá real do ponto de extremidade toouse. Esses pontos de extremidade são diferentes dependendo de sua região.
 
 ### <a name="reference-proxy-logs"></a>Logs de proxy de referência
-Veja um despejo de um log de proxy real e a página do assistente de instalação de onde ele foi tirado (entradas duplicadas para o mesmo ponto de extremidade foram removidas). Esta seção pode ser usada como referência para seus próprios logs de proxy e de rede. Os pontos de extremidade reais podem ser diferentes em seu ambiente (especialmente as URLs em *itálico*).
+Aqui está um despejo de um proxy real log e hello página Assistente de instalação de onde ele foi feito (toohello entradas duplicadas foram removidas mesmo ponto de extremidade). Esta seção pode ser usada como referência para seus próprios logs de proxy e de rede. pontos de extremidade de saudação real podem ser diferentes em seu ambiente (em particular as URLs em *itálico*).
 
-**Conecte-se ao Azure AD**
+**Conecte-se tooAzure AD**
 
 | Hora | URL |
 | --- | --- |
@@ -142,16 +142,16 @@ Veja um despejo de um log de proxy real e a página do assistente de instalaçã
 | 11/01/2016 08:49 |connect://*bba800-anchor*.microsoftonline.com:443 |
 
 ## <a name="authentication-errors"></a>Erros de autenticação
-Esta seção aborda os erros que podem ser retornados do ADAL (a biblioteca de autenticação usada pelo Azure AD Connect) e do PowerShell. O erro explicado deve ajudá-lo a entender as próximas etapas.
+Esta seção aborda os erros que podem ser retornados do ADAL (biblioteca de autenticação Olá usada pelo Azure AD Connect) e do PowerShell. Erro de saudação explicado deve ajudá-lo na entender as próximas etapas.
 
 ### <a name="invalid-grant"></a>Concessão Inválida
-Senha ou nome de usuário inválido. Para saber mais, confira [A senha não pode ser verificada](#the-password-cannot-be-verified).
+Senha ou nome de usuário inválido. Para obter mais informações, consulte [Olá senha não pode ser verificada](#the-password-cannot-be-verified).
 
 ### <a name="unknown-user-type"></a>Tipo de usuário desconhecido
-O seu diretório do Azure AD não pode ser encontrado ou resolvido. Talvez você esteja tentando fazer logon com um nome de usuário em um domínio não verificado?
+O seu diretório do Azure AD não pode ser encontrado ou resolvido. Talvez você tentar toologin com um nome de usuário em um domínio não verificado?
 
 ### <a name="user-realm-discovery-failed"></a>Falha na descoberta do realm de usuário
-Problemas de configuração de rede ou proxy. Não é possível acessar a rede. Confira [Solucionar problemas de conectividade no assistente de instalação](#troubleshoot-connectivity-issues-in-the-installation-wizard).
+Problemas de configuração de rede ou proxy. rede de saudação não pode ser alcançado. Consulte [solucionar problemas de conectividade no Assistente de instalação Olá](#troubleshoot-connectivity-issues-in-the-installation-wizard).
 
 ### <a name="user-password-expired"></a>A senha do usuário expirou
 Suas credenciais expiraram. Altere a sua senha.
@@ -160,7 +160,7 @@ Suas credenciais expiraram. Altere a sua senha.
 Problema desconhecido.
 
 ### <a name="authentication-cancelled"></a>Autenticação cancelada
-O desafio da autenticação multifator (MFA) foi cancelado.
+desafio de autenticação multifator (MFA) Olá foi cancelado.
 
 ### <a name="connecttomsonline"></a>ConnectToMSOnline
 A autenticação foi bem-sucedida, mas o PowerShell do Azure AD tem um problema de autenticação.
@@ -178,21 +178,21 @@ A autenticação foi bem-sucedida. Não foi possível recuperar as informações
 A autenticação foi bem-sucedida. Não foi possível recuperar informações de domínio do Azure AD.
 
 ### <a name="unexpected-exception"></a>Exceção inesperada
-Mostrada como um erro inesperado no assistente de instalação. Poderá ocorrer se você usar uma **conta da Microsoft** em vez de uma conta **corporativa ou de estudante**.
+Mostrado como um erro inesperado no Assistente de instalação de saudação. Pode ocorrer se você tentar toouse um **Microsoft Account** em vez de **conta de escola ou organização**.
 
 ## <a name="troubleshooting-steps-for-previous-releases"></a>Etapas para solucionar problemas de versões anteriores.
-O assistente de conexão foi desativado a partir das versões com número de compilação 1.1.105.0 (lançada em fevereiro de 2016). Esta seção e a configuração não são mais necessárias, mas são mantidas como referência.
+Com versões começando pelo número de compilação 1.1.105.0 (lançado em fevereiro de 2016), o Assistente de entrada hello foi desativado. Essa configuração de seção e hello deixam de ser necessária, mas é mantida como referência.
 
-Para que o assistente de conexão funcione, o winhttp deve ser configurado. Essa configuração pode ser feita com [ **netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
+Para Olá logon único no assistente toowork, winhttp deve ser configurado. Essa configuração pode ser feita com [ **netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
 ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
-### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>O assistente de conexão não foi configurado corretamente
-Esse erro ocorre quando o Assistente de conexão não consegue acessar o proxy ou o proxy não está permitindo a solicitação.
+### <a name="hello-sign-in-assistant-has-not-been-correctly-configured"></a>Assistente de entrada Hello não foi configurado corretamente
+Esse erro aparece quando o Assistente de entrada hello não pode acessar o proxy de saudação ou proxy Olá não está permitindo que a solicitação de saudação.
 ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
 
-* Se você vir esse erro, examine a configuração do proxy no [netsh](active-directory-aadconnect-prerequisites.md#connectivity) e verifique se ela está correta.
+* Se você vir esse erro, examine a configuração de proxy de saudação em [netsh](active-directory-aadconnect-prerequisites.md#connectivity) e verifique se ela está correta.
   ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
-* Se parecer correto, siga as etapas em [Verificar a conectividade do proxy](#verify-proxy-connectivity) para ver se o problema também ocorre fora do assistente.
+* Se que parece correto, execute as etapas de saudação em [verificar a conectividade de proxy](#verify-proxy-connectivity) toosee se houver problema Olá fora Olá assistente também.
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).

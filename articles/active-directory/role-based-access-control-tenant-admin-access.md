@@ -1,6 +1,6 @@
 ---
-title: "Acesso elevado de administrador de locatários — Azure AD | Microsoft Docs"
-description: "Este tópico descreve as funções internas para o RBAC (controle de acesso baseado em função)."
+title: "administração de aaaTenant elevar o acesso - o AD do Azure | Microsoft Docs"
+description: "Este tópico descreve Olá criado nas funções de controle de acesso baseado em função (RBAC)."
 services: active-directory
 documentationcenter: 
 author: andredm7
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andredm
-ms.openlocfilehash: bf64a92b359a6f68d84fa5ee17eda64ed6371990
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7996f2af3277dc40e2a1766cc4a7862a2399cdef
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Elevar o acesso como um administrador de locatários com Controle de Acesso Baseado em Função
 
-O Controle de Acesso Baseado em Função ajuda os administradores de locatários a obter elevações temporárias no acesso para que eles possam conceder permissões mais elevadas que o normal. Um administrador de locatários pode elevar a si mesmo para a função de Administrador de Acesso do Usuário quando necessário. Essa função fornece ao administrador de locatários permissões para conceder a si mesmo ou a outras funções no escopo "/".
+O Controle de Acesso Baseado em Função ajuda os administradores de locatários a obter elevações temporárias no acesso para que eles possam conceder permissões mais elevadas que o normal. Um administrador de locatários pode elevar a mesmo toohello função de administrador de acesso do usuário quando necessário. Essa função fornece Olá toogrant de permissões de administrador de locatário por conta própria ou outras funções em Olá escopo "/".
 
-Esse recurso é importante porque permite que o administrador de locatários veja todas as assinaturas que existem em uma organização. Também permite aos aplicativos de automação (como faturamento e auditoria) acessar todas as assinaturas e fornecer uma exibição precisa do estado da organização em termos de gerenciamento de ativos ou cobrança.  
+Esse recurso é importante porque ela permite locatário Olá administrador toosee que todos Olá assinaturas que existem em uma organização. Ele também permite tooaccess de aplicativos (como faturamento e auditoria) de automação todas as assinaturas de saudação e fornecer uma exibição precisa do estado de saudação da organização Olá para cobrança ou gerenciamento de ativos.  
 
-## <a name="how-to-use-elevateaccess-to-give-tenant-access"></a>Como usar elevateAccess para fornecer acesso de locatário
+## <a name="how-toouse-elevateaccess-toogive-tenant-access"></a>Como o acesso de locatário toouse elevateAccess toogive
 
-O processo básico funciona com as seguintes etapas:
+processo básico de saudação funciona com hello etapas a seguir:
 
-1. Usando REST, chame *elevateAccess*, que concede a você a função Administrador de Acesso do Usuário no escopo "/".
+1. Usando REST, chame *elevateAccess*, que concede a você Olá a função de administrador de acesso do usuário em "/" de escopo.
 
     ```
     POST https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01
     ```
 
-2. Crie uma [atribuição de função](/rest/api/authorization/roleassignments) para atribuir qualquer função em qualquer escopo. O exemplo a seguir mostra as propriedades para atribuir a função Leitor no escopo "/":
+2. Criar um [atribuição de função](/rest/api/authorization/roleassignments) tooassign qualquer função em qualquer escopo. Olá exemplo a seguir mostra as propriedades Olá para atribuir Olá a função de leitor em "/" de escopo:
 
     ```
     { "properties":{
@@ -55,17 +55,17 @@ O processo básico funciona com as seguintes etapas:
 4. Revogue seus privilégios de Administrador de Acesso do Usuário até que sejam necessários novamente.
 
 
-## <a name="how-to-undo-the-elevateaccess-action"></a>Como desfazer a ação de elevateAccess
+## <a name="how-tooundo-hello-elevateaccess-action"></a>Como tooundo Olá elevateAccess ação
 
-Ao chamar *elevateAccess*, você cria uma atribuição de função para si mesmo, de modo que para revogar esses privilégios é preciso excluir a atribuição.
+Quando você chama *elevateAccess* criar uma atribuição de função por conta própria, portanto toorevoke os privilégios que você precisa toodelete Olá atribuição.
 
-1.  Chame [GET roleDefinitions](/rest/api/authorization/roledefinitions#RoleDefinitions_Get), em que roleName = Administrador de Acesso do Usuário determina o GUID do nome da função de Administrador de Acesso do Usuário. A resposta deve se parecer com esta:
+1.  Chamar [roleDefinitions GET](/rest/api/authorization/roledefinitions#RoleDefinitions_Get) onde roleName = toodetermine do administrador do acesso de usuário Olá nome GUID da função de administrador de acesso de usuário de saudação. resposta de saudação deve ter esta aparência:
 
     ```
     {"value":[{"properties":{
     "roleName":"User Access Administrator",
     "type":"BuiltInRole",
-    "description":"Lets you manage user access to Azure resources.",
+    "description":"Lets you manage user access tooAzure resources.",
     "assignableScopes":["/"],
     "permissions":[{"actions":["*/read","Microsoft.Authorization/*","Microsoft.Support/*"],"notActions":[]}],
     "createdOn":"0001-01-01T08:00:00.0000000Z",
@@ -78,9 +78,9 @@ Ao chamar *elevateAccess*, você cria uma atribuição de função para si mesmo
     "nextLink":null}
     ```
 
-    Salve o GUID do parâmetro *name*, neste caso **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
+    Salvar Olá GUID de saudação *nome* parâmetro, neste caso **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
 
-2. Chame [GET roleAssignments](/rest/api/authorization/roleassignments#RoleAssignments_Get), em que principalId = sua própria ObjectId. Isso lista todas as suas atribuições no locatário. Procure aquela em que o escopo é "/" e a RoleDefinitionId termina com o GUID do nome da função que você encontrou na etapa 1. A atribuição de função deve se parecer com esta:
+2. Chame [GET roleAssignments](/rest/api/authorization/roleassignments#RoleAssignments_Get), em que principalId = sua própria ObjectId. Lista todas as atribuições no locatário hello. Procure Olá um em que o escopo de saudação é "/" e Olá RoleDefinitionId termina com a função hello nome GUID encontrado na etapa 1. atribuição de função Hello deve ter esta aparência:
 
     ```
     {"value":[{"properties":{
@@ -97,12 +97,12 @@ Ao chamar *elevateAccess*, você cria uma atribuição de função para si mesmo
     "nextLink":null}
     ```
 
-    Novamente, salve o GUID do parâmetro *name* parâmetro, neste caso **e7dd75bc-06f6-4e71-9014-ee96a929d099**.
+    Salvar novamente, Olá GUID de saudação *nome* parâmetro, neste caso **e7dd75bc-06f6-4e71-9014-ee96a929d099**.
 
-3. Por fim, chame [DELETE roleAssignments](/rest/api/authorization/roleassignments#RoleAssignments_DeleteById), em que roleAssignmentId = o GUID do nome que você encontrou na etapa 2.
+3. Finalmente, chame [excluir roleAssignments](/rest/api/authorization/roleassignments#RoleAssignments_DeleteById) onde roleAssignmentId = Olá nome GUID encontrado na etapa 2.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [como gerenciar o Controle de Acesso Baseado em Função com REST](role-based-access-control-manage-access-rest.md)
 
-- [Gerenciar atribuições de acesso](role-based-access-control-manage-assignments.md) no Portal do Azure
+- [Gerenciar atribuições de acesso](role-based-access-control-manage-assignments.md) em Olá portal do Azure

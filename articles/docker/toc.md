@@ -5,7 +5,7 @@
 ## [Aplicativo Web do Python com o Docker e PostgreSQL](/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app)
 ## [CI/CD com Docker Swarm e VSTS](/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine)
 ## [CI/CD com Docker, Jenkins e Linux](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)
-# Guias de instruções
+# Como tooguides
 ## [Extensão de VM do Docker](/azure/virtual-machines/linux/dockerextension)
 ## [Máquina do Docker](/azure/virtual-machines/linux/docker-machine)
 ## [Registro de contêiner do Azure](/azure/container-registry/container-registry-get-started-portal)

@@ -1,6 +1,6 @@
 ---
-title: "Marcar recursos do Azure para organização lógica | Microsoft Docs"
-description: "Mostra como aplicar marcas para organizar os recursos do Azure para cobrança e gerenciamento."
+title: "aaaTag Azure recursos para organização lógica | Microsoft Docs"
+description: "Mostra como tooapply marcas tooorganize Azure recursos para cobrança e gerenciamento."
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: tomfitz
-ms.openlocfilehash: 4f52c30614ad39da8a34ff6ecfb707b75400517f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e07470463d160f8cefe5c80bc91e66a96af6ca45
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-tags-to-organize-your-azure-resources"></a>Usar marcações para organizar seus recursos do Azure
+# <a name="use-tags-tooorganize-your-azure-resources"></a>Use marcas tooorganize seus recursos do Azure
 [!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
 
 > [!NOTE]
-> Você pode aplicar marcas apenas a recursos que oferecem suporte a operações do Azure Resource Manager. Se você tiver criado uma máquina virtual, uma rede virtual ou uma conta de armazenamento por meio do modelo de implantação clássica (como o portal clássico do Azure), não poderá aplicar uma marca a esse recurso. Para dar suporte à marcação, implante esses recursos novamente por meio do Resource Manager. Todos os outros recursos oferecem suporte à marcação.
+> Você pode aplicar marcas tooresources única que oferece suporte a operações do Gerenciador de recursos do Azure. Se você criou uma máquina virtual, a rede virtual ou a conta de armazenamento por meio do modelo de implantação clássico hello (por exemplo, como por meio Olá portal clássico do Azure), você não pode aplicar um recurso de toothat de marca. toosupport marcação, reimplante esses recursos por meio do Gerenciador de recursos. Todos os outros recursos oferecem suporte à marcação.
 > 
 > 
 
 ## <a name="policies-for-tag-consistency"></a>Políticas para consistência de marca
 
-Você pode usar políticas de recursos para criar regras padrão para sua organização. Você pode criar políticas que garantem que os recursos sejam marcados com os valores apropriados. Para obter mais informações, consulte [Aplicar políticas de recursos para marcas](resource-manager-policy-tags.md).
+Você pode usar regras de toocreate de diretivas de recursos padrão para sua organização. Você pode criar políticas que certifique-se de que recursos estão marcados com valores apropriados hello. Para obter mais informações, consulte [Aplicar políticas de recursos para marcas](resource-manager-policy-tags.md).
 
 ## <a name="powershell"></a>PowerShell
 [!INCLUDE [resource-manager-tag-resources-powershell](../../includes/resource-manager-tag-resources-powershell.md)]
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-Para conferir as marcas existentes para um *grupo de recursos*, use:
+toosee Olá marcas existentes para um *grupo de recursos*, use:
 
 ```azurecli
 az group show -n examplegroup --query tags
 ```
 
-Esse script retorna o seguinte formato:
+Esse script retorna Olá formato a seguir:
 
 ```json
 {
@@ -52,45 +52,45 @@ Esse script retorna o seguinte formato:
 }
 ```
 
-Para conferir as marcas existentes para um *recurso que tem uma ID de recurso especificada*, use:
+toosee Olá marcas existentes para um *recurso que tem uma ID de recurso especificado*, use:
 
 ```azurecli
 az resource show --id {resource-id} --query tags
 ```
 
-Ou, para conferir as marcas existentes para um *recurso que tem um nome, tipo e um grupo de recursos especificado*, use:
+Ou, toosee Olá marcas existentes para um *recurso que tem um grupo específico de nome, o tipo e o recurso*, use:
 
 ```azurecli
 az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
 ```
 
-Para obter grupos de recursos que têm uma marca específica, use `az group list`:
+grupos de recursos tooget que têm uma marca específica, use `az group list`:
 
 ```azurecli
 az group list --tag Dept=IT
 ```
 
-Para obter todos os recursos que tem marca e valor específicos, use `az resource list`:
+tooget todos os recursos de saudação que têm uma marca específica e um valor, use `az resource list`:
 
 ```azurecli
 az resource list --tag Dept=Finance
 ```
 
-Ao aplicar marcas a um recurso ou grupo de recursos, você pode substituir as marcas existentes nesse recurso ou grupo de recursos. Portanto, você deve usar uma abordagem diferente com base em se o recurso ou o grupo de recursos tem marcas existentes. 
+Quando você aplica marcas tooa recurso ou um grupo de recursos, você pode substituir as marcas existentes Olá nesse recurso ou grupo de recursos. Portanto, você deve usar uma abordagem diferente com base em se o recurso de saudação ou grupo de recursos tem marcas existentes. 
 
-Para adicionar marcas a um *grupo de recursos sem marcas existentes*, use:
+tooadd marcas tooa *grupo de recursos sem marcas existentes*, use:
 
 ```azurecli
 az group update -n examplegroup --set tags.Environment=Test tags.Dept=IT
 ```
 
-Para adicionar marcas a um *recurso sem marcas existentes*, use:
+tooadd marcas tooa *recurso sem marcas existentes*, use:
 
 ```azurecli
 az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ``` 
 
-Para adicionar marcas a um recurso que já tem marcas, recupere as marcas existentes, reformate esse valor e reaplique as marcas novas e existentes: 
+tooadd marcas tooa de recurso que já tem marcas, recuperar marcas existentes hello, reformatar esse valor e reaplicar as marcas existentes e novas hello: 
 
 ```azurecli
 jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags)
@@ -98,7 +98,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Para aplicar todas as marcas de um grupo de recursos em seus recursos, e *não manter as marcas existentes nos recursos*, use o seguinte script:
+tooapply todas as marcas de recursos do tooits um grupo de recursos, e *não reter marcas existentes nos recursos de saudação*, use Olá script a seguir:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -114,7 +114,7 @@ do
 done
 ```
 
-Para aplicar todas as marcações de um grupo de recursos a seus recursos e *reter as marcações existentes nos recursos*, use o seguinte script:
+tooapply todas as marcas de recursos do tooits um grupo de recursos, e *reter marcas existentes nos recursos*, use Olá script a seguir:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -142,23 +142,23 @@ done
 
 
 ## <a name="rest-api"></a>API REST
-O portal do Azure e o PowerShell usam a [API REST do Gerenciador de Recursos](https://docs.microsoft.com/rest/api/resources/) em segundo plano. Se você precisar integrar a marcação a outro ambiente, você pode obter marcas usando **GET** na ID do recurso e atualizar o conjunto de marcas usando uma chamada de **PATCH**.
+Olá portal do Azure e o PowerShell usam Olá [REST API do Gerenciador de recursos](https://docs.microsoft.com/rest/api/resources/) em segundo plano da saudação. Se você precisar toointegrate marcação em outro ambiente, você pode obter marcas usando **obter** Olá recurso ID e atualização Olá conjunto de marcas usando um **PATCH** chamar.
 
 ## <a name="tags-and-billing"></a>Marcas e cobrança
-Você pode usar marcas para agrupar os dados de cobrança. Por exemplo, se você estiver executando várias VMs para organizações diferentes, use as marcas para a utilização do grupo por centro de custo. Você também pode usar marcas para categorizar os custos pelo ambiente de tempo de execução, como por exemplo, o uso de cobrança para VMs em execução no ambiente de produção.
+Você pode usar marcas toogroup seus dados de cobrança. Por exemplo, se você estiver executando várias VMs para organizações diferentes, use Olá marcas toogroup uso pelo Centro de custo. Você também pode usar marcas toocategorize custos pelo ambiente de tempo de execução, como o uso de cobrança Olá para VMs em execução no ambiente de produção de hello.
 
 
-Você pode recuperar as informações sobre as marcações por meio das [APIs RateCard e Uso de Recursos do Azure](../billing/billing-usage-rate-card-overview.md) ou do arquivo de uso CSV (com valores separados por vírgula). Baixe o arquivo de uso no [portal de contas do Azure](https://account.windowsazure.com/) ou no [portal de EA](https://ea.azure.com). Para saber mais sobre o acesso programático às informações de cobrança, confira [Obter informações sobre o consumo de recursos do Microsoft Azure](../billing/billing-usage-rate-card-overview.md). Para operações de API REST, confira [Referência da API REST de cobrança do Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+Você pode recuperar informações sobre marcas por meio de saudação [uso de recursos do Azure e APIs RateCard](../billing/billing-usage-rate-card-overview.md) ou arquivo de valores separados por vírgulas (CSV) de uso de saudação. Baixar o arquivo de uso de saudação do hello [portal de conta do Azure](https://account.windowsazure.com/) ou [portal EA](https://ea.azure.com). Para obter mais informações sobre toobilling acesso programático, consulte [obter ideias sobre o consumo de recursos do Microsoft Azure](../billing/billing-usage-rate-card-overview.md). Para operações de API REST, confira [Referência da API REST de cobrança do Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
 
-Quando você baixa o CSV de uso para serviços que dão suporte a marcações com cobrança, as marcações aparecerão na coluna **Marcações** . Para saber mais, confira [Entenda sua fatura do Microsoft Azure](../billing/billing-understand-your-bill.md).
+Quando você baixar uso Olá CSV para serviços que oferecem suporte a marcas de cobrança, marcas de saudação aparecem no hello **marcas** coluna. Para saber mais, confira [Entenda sua fatura do Microsoft Azure](../billing/billing-understand-your-bill.md).
 
 ![Ver as marcas de cobranças](./media/resource-group-using-tags/billing_csv.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* É possível aplicar restrições e convenções em sua assinatura usando políticas personalizadas. Uma política que você definir pode exigir que todos os recursos tenham uma valor para uma marcação específica. Para saber mais, confira [Usar políticas para gerenciar recursos e controlar o acesso](resource-manager-policy.md).
-* Para obter uma introdução ao uso do Azure PowerShell ao implantar recursos, confira [Usando o Azure PowerShell com o Azure Resource Manager](powershell-azure-resource-manager.md).
-* Para obter uma introdução ao uso da CLI do Azure ao implantar recursos, confira [Usando a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](xplat-cli-azure-resource-manager.md).
-* Para obter uma introdução ao uso do portal, confira [Usando o portal do Azure para gerenciar os recursos do Azure](resource-group-portal.md).  
-* Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
+* É possível aplicar restrições e convenções em sua assinatura usando políticas personalizadas. Uma política que você definir pode exigir que todos os recursos tenham uma valor para uma marcação específica. Para obter mais informações, consulte [usar políticas toomanage recursos e controlar o acesso](resource-manager-policy.md).
+* Para uma introdução toousing PowerShell do Azure quando você estiver implantando recursos, consulte [usando o PowerShell do Azure com o Azure Resource Manager](powershell-azure-resource-manager.md).
+* Para uma saudação de toousing Introdução CLI do Azure quando você estiver implantando recursos, consulte [hello usando a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](xplat-cli-azure-resource-manager.md).
+* Para o portal de saudação do toousing uma introdução, consulte [usando os recursos do Azure de toomanage portal do Azure Olá](resource-group-portal.md).  
+* Para obter diretrizes sobre como as empresas podem usar o Gerenciador de recursos tooeffectively gerenciar assinaturas, consulte [scaffold enterprise do Azure - controle de assinatura prescritivas](resource-manager-subscription-governance.md).
 

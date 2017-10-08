@@ -1,6 +1,6 @@
 ---
-title: "Documentação do Catálogo de Dados do Azure - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba como configurar um catálogo de dados em que sua organização pode localizar, entender e consumir fontes de dados. Tutoriais, referência de API e outras documentações."
+title: "aaaAzure documentação do catálogo de dados - tutoriais, referência de API | Microsoft Docs"
+description: "Saiba como tooset backup de um catálogo de dados onde encontrar sua organização, entender e consumir fontes de dados. Tutoriais, referência de API e outras documentações."
 services: data-catalog
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/25/2017
 ms.author: carolz
-ms.openlocfilehash: 0e7431332d46ba3891dff0cf70685be0277d4ddd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: eb2decd9e73531890b18497b5f39af77d6411a43
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="data-catalog-documentation"></a>Documentação do Catálogo de Dados
 
-Saiba como usar o Catálogo de Dados para ajudar a sua organização e a sua equipe a descobrir, a entender e a consumir suas fontes de dados. Os tutoriais, a referência da API REST e outra documentação mostram como planejar e configurar seu repositório de dados em que os consumidores de dados podem descobrir fontes de dados disponíveis e obter conhecimento enviado por especialistas no assunto.
+Saiba como toohelp do catálogo de dados toouse sua equipe e organização descobrir, entender e consumir suas fontes de dados. Tutoriais, referência da API REST e outras documentações mostram como tooplan e configurar o repositório de dados em que os consumidores de dados podem descobrir fontes de dados disponíveis e obter o conhecimento da contribuição especialistas no assunto.
 
 <ul class="panelContent cardsFTitle">
     <li>

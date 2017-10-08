@@ -1,6 +1,6 @@
 ---
-title: "Guia de início rápido do Azure Cloud Shell (versão prévia) | Microsoft Docs"
-description: "Guia de início rápido para o Azure Cloud Shell"
+title: "início rápido do Shell de nuvem (visualização) aaaAzure | Microsoft Docs"
+description: "Início rápido para Olá Shell de nuvem do Azure"
 services: 
 documentationcenter: 
 author: jluk
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: juluk
-ms.openlocfilehash: 75676eb0ab784e2adbfd27b170c1dee5599b74ac
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e60700b92c10c331910dd8bb3c627fe1a024091c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="quickstart-for-using-the-azure-cloud-shell"></a>Guia de início rápido para usar o Azure Cloud Shell
+# <a name="quickstart-for-using-hello-azure-cloud-shell"></a>Guia de início rápido para usar o hello Shell de nuvem do Azure
 
-Este documento fornece detalhes sobre como usar o Azure Cloud Shell no [Portal do Azure](https://ms.portal.azure.com/).
+Este documento detalha como toouse Olá Shell de nuvem do Azure no hello [portal do Azure](https://ms.portal.azure.com/).
 
 ## <a name="start-cloud-shell"></a>Iniciar o Cloud Shell
-1. Inicie o **Cloud Shell** no painel de navegação superior do Portal do Azure <br>
+1. Iniciar **nuvem Shell** de navegação superior Olá Olá portal do Azure <br>
 ![](media/shell-icon.png)
-2. Selecione uma assinatura para criar uma conta de armazenamento e um compartilhamento de arquivos do Azure
+2. Selecione uma assinatura toocreate uma conta de armazenamento e compartilhamento de arquivos do Azure
 3. Selecione "Criar armazenamento"
 
 > [!TIP]
@@ -47,21 +47,21 @@ Crie um novo grupo de recursos no Oeste dos EUA chamado "MyRG": <br>
 `az group create -l westus -n MyRG` <br>
 
 ### <a name="create-a-linux-vm"></a>Criar uma VM do Linux
-Crie uma VM do Ubuntu em seu novo grupo de recursos. A CLI do Azure 2.0 criará chaves SSH e configurará a VM com elas. <br>
+Crie uma VM do Ubuntu em seu novo grupo de recursos. Olá 2.0 do CLI do Azure criará as chaves de SSH e Olá instalação VM com eles. <br>
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
-> Por padrão, as chaves pública e privada usadas para autenticar sua VM são colocadas em `/User/.ssh/id_rsa` e `/User/.ssh/id_rsa.pub` pela CLI do Azure 2.0. Sua pasta .ssh é mantida na imagem de 5 GB do compartilhamento de arquivos anexado do Azure.
+> Olá tooauthenticate de chaves públicas e privadas usadas sua VM são colocados em `/User/.ssh/id_rsa` e `/User/.ssh/id_rsa.pub` pelo Azure CLI 2.0 por padrão. Sua pasta .ssh é mantida na imagem de 5 GB do compartilhamento de arquivos anexado do Azure.
 
 Seu nome de usuário nessa VM será o nome de usuário usado no Cloud Shell ($User@Azure:).
 
 ### <a name="ssh-into-your-linux-vm"></a>SSH em sua VM Linux
-1. Pesquise pelo nome de sua VM na barra de pesquisa do Portal do Azure
+1. Procurar o nome VM na barra de pesquisa do portal do Azure Olá
 2. Clique em "Conectar" e execute: `ssh username@ipaddress`
 
 ![](media/sshcmd-copy.png)
 
-Após estabelecer a conexão SSH, você deverá ver o prompt de boas-vindas do Ubuntu.
+Após estabelecer a conexão de SSH hello, você verá um prompt de boas-vinda de Ubuntu de saudação.
 ![](media/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>Limpando 

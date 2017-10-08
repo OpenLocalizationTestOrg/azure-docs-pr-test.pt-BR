@@ -1,6 +1,6 @@
 ---
-title: Monitoramento do Azure Functions | Microsoft Docs
-description: Saiba como monitorar o Azure Functions.
+title: "aaaMonitoring funções do Azure | Microsoft Docs"
+description: "Saiba como toomonitor as funções do Azure."
 services: functions
 documentationcenter: na
 author: wesmc7777
@@ -16,30 +16,30 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/03/2016
 ms.author: wesmc
-ms.openlocfilehash: b70214593b1417265387f42306a633bb0df2920e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 254348d1cefce925654bd9532715b6def571e0ec
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitoring-azure-functions"></a>Monitoramento do Azure Functions
 
 ## <a name="overview"></a>Visão geral 
 
 
-A guia **Monitorar** de cada função permite revisar cada execução de uma função.
+Olá **Monitor** guia para cada função permite que você tooreview cada execução de uma função.
 
 ![guia Monitorar do Azure Functions](./media/functions-monitoring/monitor-tab.png) 
 
-Ao clicar em uma execução, é possível rever a duração, os dados de entrada, os erros e os arquivos de log associados. Tudo isso é útil na depuração e no ajuste de desempenho de suas funções.
+Clicando em uma execução permite que você tooreview Olá duração, dados de entrada, erros e arquivos de log associados. Tudo isso é útil na depuração e no ajuste de desempenho de suas funções.
 
 
 > [!IMPORTANT]
-> Ao usar o [Plano de hospedagem de consumo](functions-overview.md#pricing) do Azure Functions, o bloco **Monitoramento** na folha de visão geral do Aplicativo de Funções não mostrará dados. Isso porque a plataforma escala e gerencia dinamicamente instâncias de computação para você, de modo que essas métricas não são significativas em um plano de consumo. Para monitorar o uso dos Aplicativos de Funções, você deve usar as orientações neste artigo.
+> Ao usar o hello [consumo de plano de hospedagem](functions-overview.md#pricing) para funções do Azure, Olá **monitoramento** lado a lado na folha de visão geral do aplicativo de função hello não mostrarão nenhum dado. Isso ocorre porque a plataforma de saudação dimensiona dinamicamente e gerencia instâncias de computação, portanto, essas métricas não são significativas em um plano de consumo. uso de saudação toomonitor de seus aplicativos de função, você deve usar em vez disso, as diretrizes de Olá neste artigo.
 > 
-> A captura de tela a seguir mostra um exemplo:
+> Olá captura de tela a seguir mostra um exemplo:
 > 
-> ![Monitoramento na folha de recursos principais](./media/functions-monitoring/app-service-overview-monitoring.png)
+> ![Monitoramento na folha de recursos principais de saudação](./media/functions-monitoring/app-service-overview-monitoring.png)
 
 
 
@@ -47,24 +47,24 @@ Ao clicar em uma execução, é possível rever a duração, os dados de entrada
 
 Para acessar o monitoramento em tempo real, clique na **transmissão de evento ao vivo**, como mostrado abaixo. 
 
-![Opção de transmissão de evento ao vivo para a guia monitorar](./media/functions-monitoring/monitor-tab-live-event-stream.png)
+![Opção de fluxo de evento para o guia do monitor de saudação de Live](./media/functions-monitoring/monitor-tab-live-event-stream.png)
 
-A transmissão de evento ao vivo será mostrada em gráfico em uma nova guia do navegador, como mostrado abaixo. 
+fluxo de evento ao vivo Hello serão colocados no gráfico em uma nova guia do navegador conforme mostrado abaixo. 
 
 ![Exemplo de transmissão de evento ao vivo](./media/functions-monitoring/live-event-stream.png)
 
 
 > [!NOTE]
-> Há um problema conhecido que pode causar falha na população dos dados. Caso você enfrente esse problema, talvez seja preciso fechar a guia do navegador que contém a transmissão de evento ao vivo e clicar na **transmissão de evento ao vivo** novamente para permitir que os dados da transmissão do evento sejam populados corretamente. 
+> Há um problema conhecido que pode fazer com que seu toobe de toofail dados preenchido. Se você enfrentar isso, talvez seja necessário tooclose Olá navegador guia contendo Olá ao vivo fluxo de eventos e clique **fluxo de evento ao vivo** novamente tooallow-tooproperly popular com seus dados de fluxo de evento. 
 
-A transmissão de evento ao vivo apresentará em gráfico as seguintes estatísticas para sua função:
+fluxo de evento ao vivo Hello serão graph Olá estatísticas para a função a seguir:
 
 * Execuções iniciadas por segundo
 * Execuções concluídas por segundo
 * Execuções com falha por segundo
 * Tempo médio de execução em milissegundos.
 
-Essas estatísticas são em tempo real, mas o gráfico real dos dados de execução pode ter aproximadamente 10 segundos de latência.
+Essas estatísticas são em tempo real, mas Olá real de gráficos de dados de execução Olá pode ter cerca de 10 segundos de latência.
 
 
 
@@ -74,53 +74,53 @@ Essas estatísticas são em tempo real, mas o gráfico real dos dados de execuç
 ## <a name="monitoring-log-files-from-a-command-line"></a>Monitoramento de arquivos de log de uma linha de comando
 
 
-Você pode transmitir arquivos de log para uma sessão de linha de comando em uma estação de trabalho local usando a CLI (Interface de Linha de Comando) do Azure ou o PowerShell.
+Você pode transmitir uma sessão de linha de comando de tooa de arquivos de log em uma estação de trabalho local usando hello Azure Interface de linha de comando (CLI) ou o PowerShell.
 
-### <a name="monitoring-function-app-log-files-with-the-azure-cli"></a>Monitoramento de arquivos de log do aplicativo de funções com a CLI do Azure
+### <a name="monitoring-function-app-log-files-with-hello-azure-cli"></a>Monitoramento de arquivos de log de aplicativo de função com hello CLI do Azure
 
-Para começar, [instale a CLI do Azure](../cli-install-nodejs.md)
+tooget iniciado, [instalar Olá CLI do Azure](../cli-install-nodejs.md)
 
-Faça logon na sua conta do Azure usando o comando a seguir, ou qualquer uma das outras opções abordadas em [Fazer logon no Azure usando a CLI do Azure](../xplat-cli-connect.md).
+Efetue login em sua conta do Azure usando os seguintes Olá comando ou qualquer Olá outras opções abordadas, [login tooAzure de saudação CLI do Azure](../xplat-cli-connect.md).
 
     azure login
 
-Use o comando a seguir para habilitar o modo ASM (Gerenciamento de Serviço da CLI do Azure):
+Modo de gerenciamento de serviço de CLI do Azure (ASM) tooenable do comando de uso a seguir de saudação:.
 
     azure config mode asm
 
-Se você tiver várias assinaturas, use os comandos a seguir para listá-las e definir a assinatura atual para aquela que contém seu aplicativo de funções.
+Se você tiver várias assinaturas, use Olá toolist comandos a seguir, suas assinaturas e o conjunto Olá assinatura toohello assinatura atual que contém seu aplicativo de função.
 
     azure account list
     azure account set <subscriptionNameOrId>
 
-O seguinte comando transmitirá os arquivos de log do seu aplicativo de funções para a linha de comando:
+Olá comando a seguir será de fluxo de arquivos de log Olá sua função aplicativo toohello da linha de comando:
 
     azure site log tail -v <function app name>
 
 ### <a name="monitoring-function-app-log-files-with-powershell"></a>Monitoramento de arquivos de log do aplicativo de funções com o PowerShell
 
-Para começar, [instale e configure o Azure PowerShell](/powershell/azure/overview).
+tooget iniciado, [instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
-Adicione a conta do Azure executando o seguinte comando:
+Adicione sua conta do Azure executando Olá comando a seguir:
 
     PS C:\> Add-AzureAccount
 
-Se você tiver várias assinaturas, liste-as pelo nome com o seguinte comando para ver se a assinatura correta é a atualmente selecionada com base na propriedade `IsCurrent`:
+Se você tiver várias assinaturas, você pode listá-los por nome com hello toosee de comando a seguir se Olá correto de assinatura é hello atualmente selecionado com base em `IsCurrent` propriedade:
 
     PS C:\> Get-AzureSubscription
 
-Se precisar definir a assinatura ativa para aquela que contém seu aplicativo de funções, use o seguinte comando:
+Se você precisar tooset Olá assinatura ativa toohello uma que contém seu aplicativo de função, use Olá comando a seguir:
 
     PS C:\> Get-AzureSubscription -SubscriptionName "MyFunctionAppSubscription" | Select-AzureSubscription
 
-Transmita os logs para sua sessão do PowerShell com o seguinte comando:
+Fluxo de sessão do PowerShell Olá logs tooyour com hello comando a seguir:
 
     PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
 
-Para obter mais informações, veja [Como transmitir logs para aplicativos Web](../app-service-web/web-sites-enable-diagnostic-log.md#streamlogs). 
+Para obter mais informações, consulte muito[como: fluxo de logs para aplicativos web](../app-service-web/web-sites-enable-diagnostic-log.md#streamlogs). 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais, consulte os recursos a seguir:
+Para obter mais informações, consulte Olá recursos a seguir:
 
 * [Testando uma função](functions-test-a-function.md)
 * [Dimensionar uma função](functions-scale.md)

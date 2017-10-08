@@ -1,6 +1,6 @@
 ---
-title: Provisionar um aplicativo Web que usa um banco de dados SQL
-description: Use um modelo do Azure Resource Manager para implantar um aplicativo Web que inclui um banco de dados SQL.
+title: aaaProvision um aplicativo web que usa um banco de dados SQL
+description: Use um modelo de Gerenciador de recursos do Azure toodeploy um aplicativo web que inclui um banco de dados SQL.
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: cephalin
-ms.openlocfilehash: cc34f684f8c50e95a62cb7b04fd2ddce5deb68d6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 189c0122d201e88f15013bf241d66652ef23df4e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="provision-a-web-app-with-a-sql-database"></a>Provisionar um aplicativo Web com um banco de dados SQL
-Neste tópico, você aprenderá como criar um modelo do Azure Resource Manager que implanta um aplicativo Web e um banco de dados SQL. Você aprenderá como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
+Neste tópico, você aprenderá como toocreate um modelo do Gerenciador de recursos do Azure que implanta um aplicativo web e o banco de dados SQL. Você aprenderá como toodefine quais recursos são implantados e como toodefine parâmetros que são especificados quando a implantação de saudação for executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo toomeet seus requisitos.
 
-Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Para obter mais informações sobre a implantação de aplicativos, consulte [Implantar um aplicativo complexo de maneira previsível no Azure](app-service-deploy-complex-application-predictably.md).
 
-Para obter o modelo completo, consulte [Modelo de aplicativo Web com banco de dados SQL](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
+Para o modelo do hello completa, consulte [modelo Web aplicativo com o banco de dados SQL](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -41,29 +41,29 @@ Neste modelo, você implantará:
 * Regras de alerta
 * Insights de aplicativo
 
-Para executar a implantação automaticamente, clique no seguinte botão:
+toorun Olá implantação automaticamente, clique em Olá botão a seguir:
 
-[![Implantar no Azure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
+[![Implantar tooAzure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
-## <a name="parameters-to-specify"></a>Parâmetros para especificar
+## <a name="parameters-toospecify"></a>Parâmetros toospecify
 [!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
 ### <a name="administratorlogin"></a>administratorLogin
-O nome da conta a ser usado para o administrador do servidor de banco de dados.
+Olá toouse de nome de conta de administrador de servidor de banco de dados de saudação.
 
     "administratorLogin": {
       "type": "string"
     }
 
 ### <a name="administratorloginpassword"></a>administratorLoginPassword
-A senha a ser usada para o administrador do servidor de banco de dados.
+Olá toouse de senha de administrador de servidor de banco de dados de saudação.
 
     "administratorLoginPassword": {
       "type": "securestring"
     }
 
 ### <a name="databasename"></a>databaseName
-O nome do novo banco de dados para criar.
+nome de saudação do hello toocreate de banco de dados novo.
 
     "databaseName": {
       "type": "string",
@@ -71,7 +71,7 @@ O nome do novo banco de dados para criar.
     }
 
 ### <a name="collation"></a>collation
-O agrupamento de banco de dados a ser usado para controlar o uso adequado de caracteres.
+Olá toouse de agrupamento de banco de dados para que governam Olá adequado o uso de caracteres.
 
     "collation": {
       "type": "string",
@@ -79,7 +79,7 @@ O agrupamento de banco de dados a ser usado para controlar o uso adequado de car
     }
 
 ### <a name="edition"></a>edition
-O tipo de banco de dados para criar.
+tipo de saudação do toocreate de banco de dados.
 
     "edition": {
       "type": "string",
@@ -90,12 +90,12 @@ O tipo de banco de dados para criar.
         "Premium"
       ],
       "metadata": {
-        "description": "The type of database to create."
+        "description": "hello type of database toocreate."
       }
     }
 
 ### <a name="maxsizebytes"></a>maxSizeBytes
-O tamanho máximo, em bytes, do banco de dados.
+Olá tamanho máximo, em bytes, para o banco de dados de saudação.
 
     "maxSizeBytes": {
       "type": "string",
@@ -103,7 +103,7 @@ O tamanho máximo, em bytes, do banco de dados.
     }
 
 ### <a name="requestedserviceobjectivename"></a>requestedServiceObjectiveName
-O nome correspondente ao nível de desempenho para edição. 
+Olá nome correspondente toohello nível de desempenho para edição. 
 
     "requestedServiceObjectiveName": {
       "type": "string",
@@ -118,12 +118,12 @@ O nome correspondente ao nível de desempenho para edição.
         "P3"
       ],
       "metadata": {
-        "description": "Describes the performance level for Edition"
+        "description": "Describes hello performance level for Edition"
       }
     }
 
 ## <a name="variables-for-names"></a>Nomes de variáveis
-Esse modelo inclui variáveis que constroem nomes usados no modelo. Os valores da variável usam a função **uniqueString** para gerar um nome por meio da ID do grupo de recursos.
+Esse modelo inclui variáveis que construir nomes usados no modelo de saudação. valores de variável Olá usam Olá **uniqueString** toogenerate um nome da id do grupo de recursos de saudação de função.
 
     "variables": {
         "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -132,9 +132,9 @@ Esse modelo inclui variáveis que constroem nomes usados no modelo. Os valores d
     },
 
 
-## <a name="resources-to-deploy"></a>Recursos a implantar
+## <a name="resources-toodeploy"></a>Recursos toodeploy
 ### <a name="sql-server-and-database"></a>SQL Server e banco de dados
-Cria um novo SQL Server e banco de dados. O nome do servidor é especificado no parâmetro **serverName** e o local é especificado no parâmetro **serverLocation**. Ao criar o novo servidor, você deve fornecer um nome de logon e senha para o administrador do servidor de banco de dados. 
+Cria um novo SQL Server e banco de dados. nome de saudação do servidor de saudação é especificado no hello **serverName** parâmetro e hello local especificado no hello **serverLocation** parâmetro. Ao criar o novo servidor de saudação, você deve fornecer um nome de logon e uma senha de administrador de servidor de banco de dados de saudação. 
 
     {
       "name": "[variables('sqlserverName')]",
@@ -373,7 +373,7 @@ Cria um novo SQL Server e banco de dados. O nome do servidor é especificado no 
       },
       "properties": {
         "name": "[concat('CPUHigh ', variables('hostingPlanName'))]",
-        "description": "[concat('The average CPU is high across all the instances of ', variables('hostingPlanName'))]",
+        "description": "[concat('hello average CPU is high across all hello instances of ', variables('hostingPlanName'))]",
         "isEnabled": false,
         "condition": {
           "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
@@ -407,7 +407,7 @@ Cria um novo SQL Server e banco de dados. O nome do servidor é especificado no 
       },
       "properties": {
         "name": "[concat('LongHttpQueue ', variables('hostingPlanName'))]",
-        "description": "[concat('The HTTP queue for the instances of ', variables('hostingPlanName'), ' has a large number of pending requests.')]",
+        "description": "[concat('hello HTTP queue for hello instances of ', variables('hostingPlanName'), ' has a large number of pending requests.')]",
         "isEnabled": false,
         "condition": {
           "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
@@ -446,7 +446,7 @@ Cria um novo SQL Server e banco de dados. O nome do servidor é especificado no 
       }
     }
 
-## <a name="commands-to-run-deployment"></a>Comandos para executar a implantação
+## <a name="commands-toorun-deployment"></a>Implantação de toorun de comandos
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
@@ -462,6 +462,6 @@ Cria um novo SQL Server e banco de dados. O nome do servidor é especificado no 
     az resource deployment create -g {resource-group-name} --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json --parameters '@azuredeploy.parameters.json'
 
 > [!NOTE]
-> Para obter o conteúdo dos parâmetros no arquivo JSON, veja [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.parameters.json).
+> Para obter conteúdo do arquivo JSON de parâmetros hello, consulte [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.parameters.json).
 >
 >

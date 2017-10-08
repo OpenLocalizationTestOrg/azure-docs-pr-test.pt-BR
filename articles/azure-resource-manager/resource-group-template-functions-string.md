@@ -1,6 +1,6 @@
 ---
-title: "Funções do modelo do Azure Resource Manager – cadeia de caracteres | Microsoft Docs"
-description: "Descreve as funções a serem usadas em um modelo do Azure Resource Manager para trabalhar com cadeias de caracteres."
+title: "a cadeia de caracteres de funções de modelo do Gerenciador de recursos de aaaAzure - | Microsoft Docs"
+description: "Descreve Olá toouse de funções em um toowork de modelo do Gerenciador de recursos do Azure com cadeias de caracteres."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3e5c9ca546629f782a3d722b49f5fbaf5147e823
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 27f7f6a52cbe4e9915718184433e92ca92999346
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funções de cadeia de caracteres para modelos do Azure Resource Manager
 
-O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cadeias de caracteres:
+Gerenciador de recursos fornece Olá funções para trabalhar com cadeias de caracteres a seguir:
 
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
@@ -59,21 +59,21 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cade
 ## <a name="base64"></a>base64
 `base64(inputString)`
 
-Retorna a representação base64 da cadeia de caracteres de entrada.
+Retorna Olá representação de cadeia de caracteres de entrada hello base 64.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| inputString |Sim |string |O valor a retornar como uma representação base64. |
+| inputString |Sim |string |Olá tooreturn valor como uma representação em base64. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia de caracteres que contém a representação base64.
+Uma cadeia de caracteres que contém a representação de base64 hello.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo a seguir mostra como usar a função base64.
+saudação de exemplo a seguir mostra como toouse Olá função base64.
 
 ```json
 {
@@ -112,7 +112,7 @@ O exemplo a seguir mostra como usar a função base64.
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -125,13 +125,13 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="base64tojson"></a>base64ToJson
 `base64tojson`
 
-Converte uma representação base64 em um objeto JSON.
+Converte um objeto JSON de tooa de representação de base64.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sim |string |A representação base64 a ser convertida em um objeto JSON. |
+| base64Value |Sim |string |objeto Olá base64 representação tooconvert tooa JSON. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -139,7 +139,7 @@ Um objeto JSON.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte exemplo usa a função base64ToJson para converter um valor base64:
+Olá, exemplo a seguir usa Olá base64ToJson função tooconvert um valor base64:
 
 ```json
 {
@@ -178,7 +178,7 @@ O seguinte exemplo usa a função base64ToJson para converter um valor base64:
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -191,21 +191,21 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="base64tostring"></a>base64ToString
 `base64ToString(base64Value)`
 
-Converte uma representação base64 em uma cadeia de caracteres.
+Converte uma cadeia de caracteres base64 representação tooa.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sim |string |A representação base64 a ser convertida em uma cadeia de caracteres. |
+| base64Value |Sim |string |cadeia de caracteres do Hello base64 representação tooconvert tooa. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia de caracteres do valor base64 convertido.
+Uma cadeia de caracteres de saudação convertido valor base64.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte exemplo usa a função base64ToString para converter um valor base64:
+Olá, exemplo a seguir usa Olá base64ToString função tooconvert um valor base64:
 
 ```json
 {
@@ -244,7 +244,7 @@ O seguinte exemplo usa a função base64ToString para converter um valor base64:
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -259,13 +259,13 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="concat"></a>concat
 `concat (arg1, arg2, arg3, ...)`
 
-Combina vários valores de cadeia de caracteres e retorna a cadeia de caracteres concatenada ou combina várias matrizes e retorna a matriz concatenada.
+Combina vários valores de cadeia de caracteres e retorna a cadeia de caracteres hello concatenado, ou combina vários conjuntos e retorna a matriz Olá concatenado.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |cadeia de caracteres ou matriz |O primeiro valor de concatenação. |
+| arg1 |Sim |cadeia de caracteres ou matriz |primeiro valor de concatenação Hello. |
 | argumentos adicionais |Não |string |Valores adicionais em ordem sequencial para concatenação. |
 
 ### <a name="return-value"></a>Valor de retorno
@@ -273,7 +273,7 @@ Uma cadeia de caracteres ou matriz de valores concatenados.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo a seguir mostra como combinar dois valores de cadeia de caracteres e retornar uma cadeia de caracteres concatenada.
+saudação de exemplo a seguir mostra como toocombine dois valores de cadeia de caracteres e retorna uma cadeia de caracteres concatenada.
 
 ```json
 {
@@ -295,13 +295,13 @@ O exemplo a seguir mostra como combinar dois valores de cadeia de caracteres e r
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | concatOutput | Cadeia de caracteres | prefix-5yj4yjf5mbg72 |
 
-O próximo exemplo mostra como combinar duas matrizes.
+saudação de exemplo a seguir mostra como toocombine duas matrizes.
 
 ```json
 {
@@ -336,7 +336,7 @@ O próximo exemplo mostra como combinar duas matrizes.
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -353,16 +353,16 @@ Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cade
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| contêiner |Sim |matriz, objeto ou cadeia de caracteres |O valor que contém o valor a ser encontrado. |
-| itemToFind |Sim |string ou int |O valor a ser encontrado. |
+| contêiner |Sim |matriz, objeto ou cadeia de caracteres |valor de saudação que contém Olá toofind de valor. |
+| itemToFind |Sim |string ou int |Olá toofind de valor. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-**True** se o item for encontrado; caso contrário, **False**.
+**True** se o item de saudação for encontrado; caso contrário, **False**.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte exemplo mostra como usar contains com tipos diferentes:
+Olá exemplo a seguir mostra como toouse contém com tipos diferentes:
 
 ```json
 {
@@ -413,7 +413,7 @@ O seguinte exemplo mostra como usar contains com tipos diferentes:
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -429,13 +429,13 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="datauri"></a>dataUri
 `dataUri(stringToConvert)`
 
-Converte um valor em um URI de dados.
+Converte um dado do valor tooa URI.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Sim |string |O valor a ser convertido em um URI de dados. |
+| stringToConvert |Sim |string |Olá tooconvert tooa dados de valor URI. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -443,7 +443,7 @@ Uma cadeia de caracteres formatada como um URI de dados.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte exemplo converte um valor em um URI de dados e um URI de dados em uma cadeia de caracteres:
+saudação de exemplo a seguir converte um dado do valor tooa URI e converte uma cadeia de caracteres do URI tooa de dados:
 
 ```json
 {
@@ -473,7 +473,7 @@ O seguinte exemplo converte um valor em um URI de dados e um URI de dados em uma
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -485,21 +485,21 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="datauritostring"></a>dataUriToString
 `dataUriToString(dataUriToConvert)`
 
-Converte um valor formatado como um URI de dados em uma cadeia de caracteres.
+Converte um URI de dados formatados de cadeia de caracteres do valor tooa.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Sim |string |Os valor de URI de dados a ser convertido. |
+| dataUriToConvert |Sim |string |dados de saudação tooconvert de valor do URI. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia de caracteres que contém o valor convertido.
+Uma cadeia de caracteres que contém a saudação convertido valor.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte exemplo converte um valor em um URI de dados e um URI de dados em uma cadeia de caracteres:
+saudação de exemplo a seguir converte um dado do valor tooa URI e converte uma cadeia de caracteres do URI tooa de dados:
 
 ```json
 {
@@ -529,7 +529,7 @@ O seguinte exemplo converte um valor em um URI de dados e um URI de dados em uma
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -547,15 +547,15 @@ Determina se uma matriz, objeto ou uma cadeia de caracteres está vazio.
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Sim |matriz, objeto ou cadeia de caracteres |O valor a ser verificado, caso esteja vazio. |
+| itemToTest |Sim |matriz, objeto ou cadeia de caracteres |Olá toocheck valor se ele estiver vazio. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Retorna **True** se o valor é vazio; caso contrário, **False**.
+Retorna **True** se o valor de saudação está vazio; caso contrário, **False**.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo a seguir verifica se uma matriz, um objeto e uma cadeia de caracteres estão vazios.
+saudação de exemplo a seguir verifica se uma matriz, objeto e a cadeia de caracteres estão vazios.
 
 ```json
 {
@@ -594,7 +594,7 @@ O exemplo a seguir verifica se uma matriz, um objeto e uma cadeia de caracteres 
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -607,22 +607,22 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="endswith"></a>endsWith
 `endsWith(stringToSearch, stringToFind)`
 
-Determina se uma cadeia de caracteres termina com um valor. A comparação não diferencia maiúsculas de minúsculas.
+Determina se uma cadeia de caracteres termina com um valor. comparação de saudação diferencia maiusculas de minúsculas.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |string |O valor que contém o item a ser encontrado. |
-| stringToFind |Sim |string |O valor a ser encontrado. |
+| stringToSearch |Sim |string |valor de saudação que contém Olá toofind de item. |
+| stringToFind |Sim |string |Olá toofind de valor. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-**True** se o último caractere ou caracteres da cadeia de caracteres corresponderem ao valor; caso contrário, **False**.
+**True** se Olá último ou mais caracteres de cadeia de caracteres hello corresponder ao valor de saudação; caso contrário, **False**.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte exemplo mostra como usar as funções startsWith e endsWith:
+saudação de exemplo a seguir mostra como toouse Olá startsWith e endsWith funções:
 
 ```json
 {
@@ -658,7 +658,7 @@ O seguinte exemplo mostra como usar as funções startsWith e endsWith:
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -674,21 +674,21 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="first"></a>first
 `first(arg1)`
 
-Retorna o primeiro caractere da cadeia de caracteres ou o primeiro elemento da matriz.
+Retorna Olá primeiro caractere da cadeia de caracteres de saudação ou o primeiro elemento da matriz de saudação.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o primeiro elemento ou caractere. |
+| arg1 |Sim |matriz ou cadeia de caracteres |Olá valor tooretrieve Olá primeiro elemento ou um caractere. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia de caracteres do primeiro caractere ou o tipo (cadeia de caracteres, inteiro, matriz ou objeto) do primeiro elemento em uma matriz.
+Uma cadeia de caracteres primeiro hello, ou tipo hello (string, int, matriz ou objeto) do primeiro elemento Olá em uma matriz.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo a seguir mostra como usar a primeira função com uma matriz e cadeia de caracteres.
+Olá exemplo a seguir mostra como toouse Olá primeira função com uma matriz e a cadeia de caracteres.
 
 ```json
 {
@@ -715,7 +715,7 @@ O exemplo a seguir mostra como usar a primeira função com uma matriz e cadeia 
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -727,22 +727,22 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="indexof"></a>indexOf
 `indexOf(stringToSearch, stringToFind)`
 
-Retorna a primeira posição de um valor em uma cadeia de caracteres. A comparação não diferencia maiúsculas de minúsculas.
+Retorna Olá primeira posição de um valor em uma cadeia de caracteres. comparação de saudação diferencia maiusculas de minúsculas.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |string |O valor que contém o item a ser encontrado. |
-| stringToFind |Sim |string |O valor a ser encontrado. |
+| stringToSearch |Sim |string |valor de saudação que contém Olá toofind de item. |
+| stringToFind |Sim |string |Olá toofind de valor. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Um inteiro que representa a posição do item a ser encontrado. O valor é baseado em zero. Se o item não for encontrado, -1 será retornado.
+Um inteiro que representa a posição de saudação do hello toofind de item. valor de saudação é baseado em zero. Se o item de saudação não for encontrado, -1 será retornado.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte exemplo mostra como usar as funções indexOf e lastIndexOf:
+saudação de exemplo a seguir mostra como toouse Olá indexOf e lastIndexOf funções:
 
 ```json
 {
@@ -774,7 +774,7 @@ O seguinte exemplo mostra como usar as funções indexOf e lastIndexOf:
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -789,21 +789,21 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="last"></a>last
 `last (arg1)`
 
-Retorna o último caractere da cadeia de caracteres ou o último elemento da matriz.
+Retorna a última caractere da cadeia de caracteres de saudação ou último elemento Olá da matriz de saudação.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o último elemento ou caractere. |
+| arg1 |Sim |matriz ou cadeia de caracteres |Olá valor tooretrieve Olá último elemento ou um caractere. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia de caracteres do último caractere ou o tipo (cadeia de caracteres, inteiro, matriz ou objeto) do último elemento em uma matriz.
+Uma cadeia de caracteres última hello ou tipo de saudação (string, int, matriz ou objeto) do hello último elemento em uma matriz.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo a seguir mostra como usar a última função com uma matriz e cadeia de caracteres.
+Olá exemplo a seguir mostra como toouse Olá última função com uma matriz e a cadeia de caracteres.
 
 ```json
 {
@@ -830,7 +830,7 @@ O exemplo a seguir mostra como usar a última função com uma matriz e cadeia d
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -842,22 +842,22 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="lastindexof"></a>lastIndexOf
 `lastIndexOf(stringToSearch, stringToFind)`
 
-Retorna a última posição de um valor em uma cadeia de caracteres. A comparação não diferencia maiúsculas de minúsculas.
+Retorna Olá última posição de um valor em uma cadeia de caracteres. comparação de saudação diferencia maiusculas de minúsculas.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |string |O valor que contém o item a ser encontrado. |
-| stringToFind |Sim |string |O valor a ser encontrado. |
+| stringToSearch |Sim |string |valor de saudação que contém Olá toofind de item. |
+| stringToFind |Sim |string |Olá toofind de valor. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Um inteiro que representa a última posição do item a ser encontrado. O valor é baseado em zero. Se o item não for encontrado, -1 será retornado.
+Um inteiro que representa a última posição Olá da saudação toofind de item. valor de saudação é baseado em zero. Se o item de saudação não for encontrado, -1 será retornado.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte exemplo mostra como usar as funções indexOf e lastIndexOf:
+saudação de exemplo a seguir mostra como toouse Olá indexOf e lastIndexOf funções:
 
 ```json
 {
@@ -889,7 +889,7 @@ O seguinte exemplo mostra como usar as funções indexOf e lastIndexOf:
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -904,13 +904,13 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="length"></a>length
 `length(string)`
 
-Retorna o número de caracteres em uma cadeia de caracteres ou de elementos em uma matriz.
+Retorna o número de saudação de caracteres em uma cadeia de caracteres ou elementos em uma matriz.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz ou cadeia de caracteres |A matriz a ser usada para obter o número de elementos ou a cadeia de caracteres a ser usada para obter o número de caracteres. |
+| arg1 |Sim |matriz ou cadeia de caracteres |Olá toouse de matriz para obter o número de saudação de elementos ou Olá toouse de cadeia de caracteres para obter o número de saudação de caracteres. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -918,7 +918,7 @@ Um inteiro.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte exemplo mostra como usar length com uma matriz e cadeia de caracteres:
+Olá mostrado no exemplo a seguir como comprimento toouse com uma matriz e a cadeia de caracteres:
 
 ```json
 {
@@ -952,7 +952,7 @@ O seguinte exemplo mostra como usar length com uma matriz e cadeia de caracteres
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -964,25 +964,25 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="padleft"></a>padLeft
 `padLeft(valueToPad, totalLength, paddingCharacter)`
 
-Retorna uma cadeia de caracteres alinhada à direita adicionando caracteres à esquerda até alcançar o comprimento total especificado.
+Retorna uma cadeia de caracteres alinhada à direita, adicionando caracteres toohello esquerda até atingir o comprimento especificado total hello.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| valueToPad |Sim |cadeia de caracteres ou inteiro |O valor para alinhar à direita. |
-| totalLength |Sim |int |O número total de caracteres na cadeia de caracteres retornada. |
-| paddingCharacter |Não |caractere único |O caractere a ser usado para o preenchimento à esquerda até que o tamanho total seja atingido. O valor padrão é um espaço. |
+| valueToPad |Sim |string ou int |Olá valor tooright-alinhar. |
+| totalLength |Sim |int |número total de saudação de caracteres em Olá retornou uma cadeia de caracteres. |
+| paddingCharacter |Não |caractere único |Olá toouse de caractere para o preenchimento à esquerda até que o comprimento total Olá seja atingido. valor padrão de saudação é um espaço. |
 
-Se a cadeia de caracteres original for mais longa que o número de caracteres a ser preenchido, nenhum caractere será adicionado.
+Se a cadeia de caracteres original Olá for maior que o número de saudação do toopad caracteres, caracteres não é adicionado.
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia de caracteres com, pelo menos, o número de caracteres especificado.
+Uma cadeia de caracteres pelo menos Olá número de caracteres especificado.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo a seguir mostra como preencher o valor de parâmetro fornecido pelo usuário adicionando o caractere zero até que ele atinja o número total de caracteres. 
+saudação de exemplo a seguir mostra como toopad Olá valor de parâmetro fornecido pelo usuário, adicionando Olá caractere zero até atingir o número total de saudação de caracteres. 
 
 ```json
 {
@@ -1004,7 +1004,7 @@ O exemplo a seguir mostra como preencher o valor de parâmetro fornecido pelo us
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -1021,17 +1021,17 @@ Retorna uma nova cadeia de caracteres com todas as instâncias de uma cadeia de 
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| originalString |Sim |string |O valor que tem todas as instâncias de uma cadeia de caracteres substituídas por outra cadeia de caracteres. |
-| oldString |Sim |string |A cadeia de caractere a ser removida da cadeia de caracteres original. |
-| newString |Sim |string |A cadeia de caracteres a ser adicionada no lugar da cadeia removida. |
+| originalString |Sim |string |valor de saudação que tem todas as instâncias de uma cadeia de caracteres substituídas por outra cadeia de caracteres. |
+| oldString |Sim |string |cadeia de caracteres de saudação toobe removida da cadeia de caracteres original hello. |
+| newString |Sim |string |Olá tooadd de cadeia de caracteres em vez da saudação removido cadeia de caracteres. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia de caracteres com os caracteres substituídos.
+Uma cadeia de caracteres com hello caracteres foram substituídos.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo a seguir mostra como remover todos os traços da cadeia de caracteres fornecida pelo usuário e como substituir parte da cadeia de caracteres por outra cadeia de caracteres.
+saudação de exemplo a seguir mostra como tooremove todos os traços de cadeia de caracteres fornecida pelo usuário hello e como parte de tooreplace de saudação cadeia de caracteres com outra cadeia de caracteres.
 
 ```json
 {
@@ -1057,7 +1057,7 @@ O exemplo a seguir mostra como remover todos os traços da cadeia de caracteres 
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -1069,14 +1069,14 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="skip"></a>skip
 `skip(originalValue, numberToSkip)`
 
-Retorna uma cadeia de caracteres com todos os caracteres após o número especificado de caracteres ou uma matriz com todos os elementos após o número especificado de elementos.
+Retorna uma cadeia de caracteres com todos os caracteres de saudação depois Olá número especificado de caracteres ou uma matriz com todos os elementos de saudação depois Olá número especificado de elementos.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres a ser usada para ignorar. |
-| numberToSkip |Sim |int |O número de elementos ou caracteres a ser ignorado. Se esse valor for 0 ou menos, todos os elementos ou caracteres no valor serão retornados. Se for maior que o tamanho da matriz ou cadeia de caracteres, uma matriz ou cadeia de caracteres vazia será retornada. |
+| originalValue |Sim |matriz ou cadeia de caracteres |Olá toouse matriz ou cadeia de caracteres para ignorar. |
+| numberToSkip |Sim |int |número de saudação de elementos ou caracteres tooskip. Se esse valor for 0 ou menos, todos os elementos de hello ou caracteres no valor de saudação são retornados. Se for maior do que o tamanho de cadeia de caracteres ou matriz Olá Olá, uma matriz vazia ou cadeia de caracteres é retornada. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1084,7 +1084,7 @@ Uma matriz ou cadeia de caracteres.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo a seguir ignora o número especificado de elementos na matriz e o número especificado de caracteres em uma cadeia de caracteres.
+Olá seguindo o exemplo ignora Olá número especificado de elementos na matriz de saudação e Olá número especificado de caracteres em uma cadeia de caracteres.
 
 ```json
 {
@@ -1126,7 +1126,7 @@ O exemplo a seguir ignora o número especificado de elementos na matriz e o núm
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -1138,14 +1138,14 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="split"></a>split
 `split(inputString, delimiter)`
 
-Retorna uma matriz de cadeias de caracteres que contém as subcadeias de caracteres da cadeia de caracteres de entrada que são delimitadas por delimitadores especificados.
+Retorna uma matriz de cadeias de caracteres que contém as subcadeias de caracteres de saudação do hello cadeia de caracteres de entrada que é delimitadas por Olá especificado delimitadores.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| inputString |Sim |string |A cadeia de caracteres a dividir. |
-| delimiter |Sim |cadeia de caracteres ou matriz de cadeias de caracteres |O delimitador a ser usado para dividir a cadeia de caracteres. |
+| inputString |Sim |string |Olá toosplit de cadeia de caracteres. |
+| delimiter |Sim |cadeia de caracteres ou matriz de cadeias de caracteres |Olá toouse delimitador para a divisão de cadeia de caracteres de saudação. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1153,7 +1153,7 @@ Uma matriz de cadeias de caracteres.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo a seguir divide a cadeia de caracteres de entrada com uma vírgula e com uma vírgula ou um ponto-e-vírgula.
+Olá exemplo a seguir divide Olá entrada cadeia de caracteres com uma vírgula e com uma vírgula ou ponto e vírgula.
 
 ```json
 {
@@ -1186,7 +1186,7 @@ O exemplo a seguir divide a cadeia de caracteres de entrada com uma vírgula e c
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -1198,22 +1198,22 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="startswith"></a>startsWith
 `startsWith(stringToSearch, stringToFind)`
 
-Determina se uma cadeia de caracteres começa com um valor. A comparação não diferencia maiúsculas de minúsculas.
+Determina se uma cadeia de caracteres começa com um valor. comparação de saudação diferencia maiusculas de minúsculas.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |string |O valor que contém o item a ser encontrado. |
-| stringToFind |Sim |string |O valor a ser encontrado. |
+| stringToSearch |Sim |string |valor de saudação que contém Olá toofind de item. |
+| stringToFind |Sim |string |Olá toofind de valor. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-**True** se o primeiro caractere ou caracteres da cadeia de caracteres corresponderem ao valor; caso contrário, **False**.
+**True** se Olá primeiro caractere ou caracteres de cadeia de caracteres hello corresponder ao valor de saudação; caso contrário, **False**.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte exemplo mostra como usar as funções startsWith e endsWith:
+saudação de exemplo a seguir mostra como toouse Olá startsWith e endsWith funções:
 
 ```json
 {
@@ -1249,7 +1249,7 @@ O seguinte exemplo mostra como usar as funções startsWith e endsWith:
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -1265,21 +1265,21 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="string"></a>string
 `string(valueToConvert)`
 
-Converte o valor especificado em uma cadeia de caracteres.
+Converte Olá especificado a cadeia de caracteres do valor tooa.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Sim | Qualquer |O valor a ser convertido em cadeia de caracteres. Qualquer tipo de valor pode ser convertido, incluindo objetos e matrizes. |
+| valueToConvert |Sim | Qualquer |Olá valor tooconvert toostring. Qualquer tipo de valor pode ser convertido, incluindo objetos e matrizes. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia de caracteres do valor convertido.
+Uma cadeia de caracteres do valor de saudação convertida.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte exemplo mostra como converter diferentes tipos de valores em cadeias de caracteres:
+saudação de exemplo a seguir mostra como tooconvert diferentes tipos de valores toostrings:
 
 ```json
 {
@@ -1324,7 +1324,7 @@ O seguinte exemplo mostra como converter diferentes tipos de valores em cadeias 
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -1337,23 +1337,23 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="substring"></a>substring
 `substring(stringToParse, startIndex, length)`
 
-Retorna uma subcadeia de caraceteres que começa na posição do caractere especificado e contém o número especificado de caracteres.
+Retorna uma subcadeia de caracteres que começa no hello especificado posição de caracteres e contém Olá número especificado de caracteres.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Sim |string |A cadeia original da qual a subcadeia de caracteres é extraída. |
-| startIndex |Não |int |A posição inicial do caractere baseada em zero para a subcadeia de caracteres. |
-| length |Não |int |O número de caracteres para a subcadeia de caracteres. Deve se referir a uma localização dentro da cadeia de caracteres. |
+| stringToParse |Sim |string |Olá cadeia de caracteres original do qual Olá subcadeia de caracteres é extraída. |
+| startIndex |Não |int |Olá com base em zero posição de caractere inicial de subcadeia de caracteres de saudação. |
+| length |Não |int |número de saudação de caracteres de subcadeia de caracteres de saudação. Deve se referir tooa local dentro da cadeia de caracteres de saudação. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-A subcadeia de caracteres.
+subcadeia de caracteres Hello.
 
 ### <a name="remarks"></a>Comentários
 
-A função falhará quando a subcadeia de caracteres ultrapassar o final da cadeia de caracteres. O exemplo a seguir falha com o erro “Os parâmetros de índice e de tamanho devem se referir a uma localização na cadeia de caracteres. O parâmetro de índice: '0', o parâmetro de comprimento: '11', o comprimento do parâmetro de cadeia de caracteres: '10'”.
+função Hello falha quando a subcadeia de caracteres hello ultrapassa a fim de saudação da cadeia de caracteres de saudação. saudação de exemplo a seguir falhará com hello erro "parâmetros de índice e o comprimento da saudação devem se referir tooa local dentro da cadeia de caracteres de saudação. Olá parâmetro de índice: '0' hello parâmetro de comprimento: Olá '11', comprimento do parâmetro de cadeia de caracteres hello: '10'. ".
 
 ```json
 "parameters": {
@@ -1366,7 +1366,7 @@ A função falhará quando a subcadeia de caracteres ultrapassar o final da cade
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo a seguir extrai uma subcadeia de caracteres de um parâmetro.
+saudação de exemplo a seguir extrai uma subcadeia de caracteres de um parâmetro.
 
 ```json
 {
@@ -1388,7 +1388,7 @@ O exemplo a seguir extrai uma subcadeia de caracteres de um parâmetro.
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -1400,14 +1400,14 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="take"></a>take
 `take(originalValue, numberToTake)`
 
-Retorna uma cadeia de caracteres com o número especificado de caracteres desde o início da cadeia de caracteres ou uma matriz com o número especificado de elementos desde o início da matriz.
+Retorna uma cadeia de caracteres com hello número especificado de caracteres do início de saudação do hello cadeia de caracteres ou uma matriz com hello número especificado de elementos do início de saudação da matriz de saudação.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres da qual extrair os elementos. |
-| numberToTake |Sim |int |O número de elementos ou caracteres a ser extraído. Se esse valor for 0 ou menos, uma matriz ou cadeia de caracteres vazia será retornada. Se for maior que o tamanho da matriz ou cadeia de caracteres especificada, todos os elementos da matriz ou cadeia de caracteres serão retornados. |
+| originalValue |Sim |matriz ou cadeia de caracteres |Olá cadeia ou matriz de elementos de saudação tootake do. |
+| numberToTake |Sim |int |número de saudação de elementos ou caracteres tootake. Se esse valor for 0 ou menos, uma matriz ou cadeia de caracteres vazia será retornada. Se for maior do que o comprimento de saudação do hello considerando a cadeia de caracteres ou matriz, todos os elementos de saudação na cadeia de caracteres ou matriz hello serão retornados. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1415,7 +1415,7 @@ Uma matriz ou cadeia de caracteres.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo a seguir extrai o número especificado de elementos da matriz e de caracteres de uma cadeia de caracteres.
+Olá seguindo o exemplo usa Olá número especificado de elementos da matriz hello e caracteres de uma cadeia de caracteres.
 
 ```json
 {
@@ -1457,7 +1457,7 @@ O exemplo a seguir extrai o número especificado de elementos da matriz e de car
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -1469,21 +1469,21 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="tolower"></a>toLower
 `toLower(stringToChange)`
 
-Converte a cadeia de caracteres especificada em letras minúsculas.
+Converte Olá especificado caso toolower de cadeia de caracteres.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sim |string |O valor a ser convertido em letras minúsculas. |
+| stringToChange |Sim |string |Olá valor tooconvert toolower maiusculas e minúsculas. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-A cadeia de caracteres convertida em minúsculas.
+cadeia de caracteres de saudação convertida toolower caso.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo a seguir converte um valor de parâmetro em letras minúsculas e maiúsculas.
+saudação de exemplo a seguir converte um caso de toolower de valor de parâmetro e tooupper caso.
 
 ```json
 {
@@ -1509,7 +1509,7 @@ O exemplo a seguir converte um valor de parâmetro em letras minúsculas e maiú
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -1521,21 +1521,21 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="toupper"></a>toUpper
 `toUpper(stringToChange)`
 
-Converte a cadeia de caracteres especificada em maiúsculas.
+Converte Olá especificado caso tooupper de cadeia de caracteres.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sim |string |O valor a ser convertido em letras maiúsculas. |
+| stringToChange |Sim |string |Olá valor tooconvert tooupper maiusculas e minúsculas. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-A cadeia de caracteres convertida em maiúsculas.
+cadeia de caracteres de saudação convertida tooupper caso.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo a seguir converte um valor de parâmetro em letras minúsculas e maiúsculas.
+saudação de exemplo a seguir converte um caso de toolower de valor de parâmetro e tooupper caso.
 
 ```json
 {
@@ -1561,7 +1561,7 @@ O exemplo a seguir converte um valor de parâmetro em letras minúsculas e maiú
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -1573,21 +1573,21 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="trim"></a>cortar
 `trim (stringToTrim)`
 
-Remove todos os caracteres de espaço em branco à esquerda e à direita da cadeia de caracteres especificada.
+Remove todos os principais e caracteres de espaço em branco da saudação especificado cadeia de caracteres.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Sim |string |O valor de corte. |
+| stringToTrim |Sim |string |Olá tootrim de valor. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-A cadeia de caracteres sem caracteres de espaço em branco à esquerda e à direita.
+cadeia de caracteres de saudação sem à esquerda e caracteres de espaço em branco à direita.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo a seguir remove os caracteres de espaço em branco do parâmetro.
+Olá, exemplo a seguir remove caracteres de espaço em branco de saudação do parâmetro hello.
 
 ```json
 {
@@ -1609,7 +1609,7 @@ O exemplo a seguir remove os caracteres de espaço em branco do parâmetro.
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -1620,44 +1620,44 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="uniquestring"></a>uniqueString
 `uniqueString (baseString, ...)`
 
-Cria uma cadeia de caracteres de hash determinístico com base nos valores fornecidos como parâmetros. 
+Cria uma cadeia de caracteres de hash determinística com base nos valores hello fornecidos como parâmetros. 
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| baseString |Sim |string |O valor usado na função de hash para criar uma cadeia de caracteres exclusiva. |
-| parâmetros extras conforme necessário |Não |string |Você pode adicionar quantas cadeias de caracteres forem necessárias para criar o valor que especifica o nível de exclusividade. |
+| baseString |Sim |string |valor de saudação usado na toocreate de função de hash Olá uma cadeia de caracteres exclusiva. |
+| parâmetros extras conforme necessário |Não |string |Você pode adicionar quantas cadeias de caracteres como valor de saudação toocreate necessário que especifica o nível de saudação de exclusividade. |
 
 ### <a name="remarks"></a>Comentários
 
-Essa função é útil quando você precisa criar um nome exclusivo para um recurso. Você fornece valores de parâmetros que limitam o escopo de exclusividade para o resultado. Você pode especificar se o nome é exclusivo para a assinatura, grupo de recursos ou implantação. 
+Essa função é útil quando você precisa toocreate um nome exclusivo para um recurso. Você fornecer valores de parâmetro para limitam o escopo de saudação de exclusividade para o resultado de saudação. Você pode especificar se o nome da saudação é exclusivo para baixo toosubscription, no grupo de recursos ou implantação. 
 
-O valor retornado não é uma cadeia de caracteres aleatória, mas sim o resultado de uma função de hash. O valor retornado tem 13 caracteres. Não é globalmente exclusivo. Você talvez queira combinar o valor com um prefixo de sua convenção de nomenclatura para criar um nome significativo. O exemplo a seguir mostra o formato do valor retornado. O valor real poderá variar de acordo com os parâmetros fornecidos.
+Olá retornou o valor não é uma cadeia de caracteres aleatória, mas em vez disso, Olá resultado de uma função de hash. Olá retornou o valor é 13 caracteres. Não é globalmente exclusivo. Talvez você queira toocombine valor de saudação com um prefixo de seu toocreate de convenção de nomenclatura um nome que seja significativo. Olá, exemplo a seguir mostra formato Olá Olá retornada o valor. valor real Olá varia de acordo com hello parâmetros fornecido.
 
     tcvhiyu5h2o5o
 
-Os exemplos a seguir mostram como usar uniqueString para criar um valor exclusivo para níveis usados com mais frequência.
+Olá exemplos a seguir mostra como toouse uniqueString toocreate um único valor para comumente usados níveis.
 
-Escopo exclusivo para a assinatura
+Toosubscription escopo exclusivo
 
 ```json
 "[uniqueString(subscription().subscriptionId)]"
 ```
 
-Escopo exclusivo para o grupo de recursos
+Exclusivo tooresource no escopo de grupo
 
 ```json
 "[uniqueString(resourceGroup().id)]"
 ```
 
-Escopo exclusivo para a implantação de um grupo de recursos
+Exclusivo toodeployment com escopo definido para um grupo de recursos
 
 ```json
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-O exemplo a seguir mostra como criar um nome exclusivo para uma conta de armazenamento com base em seu grupo de recursos. Dentro do grupo de recursos, o nome não é exclusivo se for construído da mesma maneira.
+saudação de exemplo a seguir mostra como toocreate um nome exclusivo para uma conta de armazenamento com base em seu grupo de recursos. Dentro do grupo de recursos Olá, nome de saudação não é exclusivo se construída Olá mesma maneira.
 
 ```json
 "resources": [{ 
@@ -1672,7 +1672,7 @@ Uma cadeia de caracteres que contém 13 caracteres.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo abaixo retorna os resultados de uniquestring:
+saudação de exemplo a seguir retorna os resultados da uniquestring:
 
 ```json
 {
@@ -1697,30 +1697,30 @@ O exemplo abaixo retorna os resultados de uniquestring:
 ## <a name="uri"></a>uri
 `uri (baseUri, relativeUri)`
 
-Cria um URI absoluto, combinando o baseUri e a cadeia de caracteres relativeUri.
+Cria um URI absoluto combinando Olá baseUri e cadeia de caracteres hello Uri_relativo.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| baseUri |Sim |string |Cadeia de caracteres do URI de base. |
-| relativeUri |Sim |string |Cadeia de caracteres de uri relativo para adicionar a cadeia de caracteres do uri de base. |
+| baseUri |Sim |string |Olá a cadeia de caracteres de uri de base. |
+| relativeUri |Sim |string |Olá uri relativo cadeia de caracteres tooadd toohello uri base cadeia de caracteres. |
 
-O valor para o parâmetro **baseUri** pode incluir um arquivo específico, mas apenas o caminho base é usado ao construir a URI. Por exemplo, transmitir `http://contoso.com/resources/azuredeploy.json` como parâmetro baseUri resultará em uma URI base de `http://contoso.com/resources/`.
+Olá valor Olá **baseUri** parâmetro pode incluir um arquivo específico, mas somente caminho base Olá é usado ao construir Olá URI. Por exemplo, passar `http://contoso.com/resources/azuredeploy.json` como resultados de parâmetro hello baseUri em um URI de base de `http://contoso.com/resources/`.
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia de caracteres que representa o URI absoluto dos valores base e relativos.
+Uma cadeia de caracteres que representa Olá URI absoluto para valores de base e relativo hello.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo a seguir mostra como criar um link para um modelo aninhado com base no valor do modelo pai.
+saudação de exemplo a seguir mostra como tooconstruct um modelo aninhado do link tooa com base no valor de saudação do modelo pai a saudação.
 
 ```json
 "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 ```
 
-O seguinte exemplo mostra como usar uri, uriComponent e uriComponentToString:
+Olá mostrado no exemplo a seguir como uri toouse, uriComponent e uriComponentToString:
 
 ```json
 {
@@ -1749,7 +1749,7 @@ O seguinte exemplo mostra como usar uri, uriComponent e uriComponentToString:
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -1768,15 +1768,15 @@ Codifica um URI.
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Sim |string |O valor a ser codificado. |
+| stringToEncode |Sim |string |Olá tooencode de valor. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Uma cadeia de caracteres do valor codificado em URI.
+Uma cadeia de caracteres de saudação URI valor codificado.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte exemplo mostra como usar uri, uriComponent e uriComponentToString:
+Olá mostrado no exemplo a seguir como uri toouse, uriComponent e uriComponentToString:
 
 ```json
 {
@@ -1805,7 +1805,7 @@ O seguinte exemplo mostra como usar uri, uriComponent e uriComponentToString:
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -1825,7 +1825,7 @@ Retorna uma cadeia de caracteres de um valor codificado em URI.
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Sim |string |O valor codificado em URI a ser convertido em uma cadeia de caracteres. |
+| uriEncodedString |Sim |string |Olá URI codificado em cadeia de caracteres do valor tooconvert tooa. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1833,7 +1833,7 @@ Uma cadeia de caracteres decodificada de valores codificados em URI.
 
 ### <a name="examples"></a>Exemplos
 
-O seguinte exemplo mostra como usar uri, uriComponent e uriComponentToString:
+Olá mostrado no exemplo a seguir como uri toouse, uriComponent e uriComponentToString:
 
 ```json
 {
@@ -1862,7 +1862,7 @@ O seguinte exemplo mostra como usar uri, uriComponent e uriComponentToString:
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -1872,8 +1872,8 @@ A saída do exemplo anterior com os valores padrão é:
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
-* Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
-* Para ver como implantar o modelo que você criou, veja [Implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
+* Para obter uma descrição das seções de saudação em um modelo do Gerenciador de recursos do Azure, consulte [modelos de autoria do Azure Resource Manager](resource-group-authoring-templates.md).
+* toomerge vários modelos, consulte [usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
+* tooiterate um número de vezes especificado durante a criação de um tipo de recurso, consulte [criar várias instâncias de recursos no Gerenciador de recursos do Azure](resource-group-create-multiple.md).
+* toosee como modelo de saudação toodeploy que você criou, consulte [implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
 

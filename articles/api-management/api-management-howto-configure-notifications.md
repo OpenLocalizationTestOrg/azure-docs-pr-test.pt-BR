@@ -1,6 +1,6 @@
 ---
-title: "Configurar notificações e modelos de email no Gerenciamento de API do Azure | Microsoft Docs"
-description: "Saiba como configurar notificações e modelos de email no Gerenciamento de API do Azure."
+title: "notificações de aaaConfigure e email modelos no gerenciamento de API do Azure | Microsoft Docs"
+description: "Saiba como tooconfigure notificações e email modelos no gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,63 +14,63 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 3d8b74e32059cfc1a4c3a8fc7d3bd04676ee80c8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dc23289c25a1641992b73cb955099b3f207b6968
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Como configurar notificações e modelos de email no Gerenciamento de API do Azure
-O Gerenciamento de API possibilita configurar notificações de eventos específicos e modelos dos emails que são usados para se comunicar com os administradores e desenvolvedores de uma instância do Gerenciamento de API. Este tópico mostra como configurar notificações de eventos disponíveis e fornece uma visão geral da configuração dos modelos dos emails usados desses eventos.
+# <a name="how-tooconfigure-notifications-and-email-templates-in-azure-api-management"></a>Como notificações tooconfigure e email modelos no gerenciamento de API do Azure
+Gerenciamento de API permite Olá tooconfigure notificações sobre eventos específicos e modelos de email de saudação tooconfigure que são usada toocommunicate com administradores hello e desenvolvedores de uma instância de gerenciamento de API. Este tópico mostra como as notificações tooconfigure Olá eventos disponíveis e fornece uma visão geral de como configurar modelos de email de saudação usados para esses eventos.
 
 ## <a name="publisher-notifications"> </a>Configurar notificações do editor
-Para configurar notificações, clique no **portal do Editor** no Portal do Azure para seu serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
+notificações de tooconfigure, clique em **portal do publicador** em hello Portal do Azure para seu serviço de gerenciamento de API. Isso leva toohello portal do publicador de gerenciamento de API.
 
 ![Portal do editor][api-management-management-console]
 
 > [!NOTE] 
-> Se ainda não criou uma instância de serviço de Gerenciamento de API, confira [Criar uma instância de serviço de Gerenciamento de API][Create an API Management service instance] no tutorial [Introdução ao Gerenciamento de API do Azure][Get started with Azure API Management].
+> Se você ainda não tiver criado uma instância do serviço de gerenciamento de API, consulte [criar uma instância do serviço de gerenciamento de API] [ Create an API Management service instance] em Olá [Introdução ao gerenciamento de API do Azure] [ Get started with Azure API Management] tutorial.
 
-Clique em **Notificações** no menu **Gerenciamento de API** à esquerda para ver as notificações disponíveis.
+Clique em **notificações** de saudação **gerenciamento de API** menu Olá deixado tooview notificações disponíveis hello.
 
 ![Notificações do editor][api-management-publisher-notifications]
 
-Os eventos na lista a seguir podem ser configurados para enviar notificações.
+Olá lista de eventos a seguir pode ser configurada para notificações.
 
-* **Solicitações de assinatura (que precisam de aprovação)** - Os usuários e destinatários de email especificados receberão notificações por email sobre solicitações de assinaturas de produtos de API que precisarem de aprovação.
-* **Novas assinaturas** - Os usuários e destinatários de email especificados receberão notificações por email sobre novas assinaturas de produtos de API.
-* **Solicitações da galeria de aplicativos** - Os usuários e destinatários de email especificados receberão notificações por email quando novos aplicativos forem enviados à galeria de aplicativos.
-* **CCO** - Os usuários e destinatários de email especificados receberão cópias ocultas de todos os emails enviados a desenvolvedores.
-* **Novo problema ou comentário** - Os usuários e destinatários de email especificados receberão notificações por email quando um novo problema ou comentário for enviado no portal do desenvolvedor.
-* **Mensagem de conta encerrada** - Os usuários e destinatários de email especificados receberão notificações por email quando uma conta for encerrada.
-* **Limite de cota de assinatura se aproximando** - Os usuários e destinatários de email a seguir receberão notificações por email quando o uso de assinaturas estiver se aproximando da cota.
+* **Solicitações de assinatura (que exige aprovação)** - Olá destinatários de email especificado e os usuários receberão notificações por email sobre solicitações de assinatura para exigir a aprovação de produtos de API.
+* **Novas assinaturas** - Olá destinatários de email especificado e os usuários receberão notificações por email sobre novas assinaturas de produto de API.
+* **Solicitações de galeria de aplicativos** - Olá destinatários de email especificado e os usuários receberão notificações por email quando novos aplicativos forem enviados toohello Galeria de aplicativos.
+* **Cco** - Olá destinatários de email especificado e os usuários receberão o email com cópia oculta do toodevelopers de todos os emails enviados.
+* **Novo problema ou comentário** - Olá destinatários de email especificado e os usuários receberão notificações por email quando um novo problema ou comentário é enviado no portal do desenvolvedor de saudação.
+* **Mensagem de fechar conta** - Olá destinatários de email especificado e os usuários receberão notificações por email quando uma conta é fechada.
+* **Próximo limite de cota de assinatura** - Olá destinatários de email a seguir e os usuários receberão notificações por email quando o uso de assinatura obtém toousage fechar cota.
 
-Para cada evento, você pode especificar destinatários de email usando a caixa de texto de endereço de email ou selecionando os usuários em uma lista.
+Para cada evento, você pode especificar os destinatários de email usando a caixa de texto de endereço de email de saudação ou você pode selecionar os usuários de uma lista.
 
-Para especificar os endereços de email a serem notificados, insira-os na caixa de texto de endereço de email. Se tiver diversos endereços de email, separe-os por vírgula.
+endereços de email do toospecify Olá toobe notificado, digite-os na caixa de texto de endereço de email de saudação. Se tiver diversos endereços de email, separe-os por vírgula.
 
 ![Destinatários da notificação][api-management-email-addresses]
 
-Para especificar os usuários a serem notificados, clique em **adicionar destinatário**, marque as caixas de seleção ao lado dos usuários a serem notificados e clique em **OK**.
+toospecify Olá usuários toobe notificado, clique em **Adicionar destinatário**, Olá caixa ao lado de saudação usuários toobe notificado de seleção e clique em **Okey**.
 
 > [!NOTE] 
-> Somente os administradores são exibidos na lista.
+> Somente os administradores são exibidos na lista de saudação.
 
 
-Após configurar os destinatários da notificação, clique em **Salvar** para aplicar a atualização dos destinatários da notificação.
+Depois de configurar os destinatários de notificações de saudação, clique em **salvar** tooapply Olá atualizado destinatários de notificação.
 
 > [!NOTE] 
-> Se você navegar para fora da guia **Notificações do editor** , o Portal do editor o alertará se houver alterações não salvas.
+> Se você sair Olá **publicador notificações** portal do publicador Olá guia alerta se há alterações não salvas.
 
 
 ## <a name="email-templates"> </a>Configurar modelos de email
-O Gerenciamento de API fornece modelos de email para mensagens de email que são enviadas no decorrer da administração e da utilização do serviço. Os seguintes modelos de email são fornecidos.
+Gerenciamento de API fornece modelos de email para Olá mensagens de email que são enviadas em curso de saudação de administrar e usar o serviço de saudação. Olá, modelos de email a seguir é fornecido.
 
 * Envio à galeria de aplicativos aprovado
 * Carta de despedida do desenvolvedor
 * Notificação de limite de cota se aproximando
 * Convidar usuário
-* Novo comentário adicionado a um problema
+* Novo comentário adicionado tooan problema
 * Novo problema recebido
 * Nova assinatura ativada
 * Confirmação de renovação de assinatura
@@ -79,11 +79,11 @@ O Gerenciamento de API fornece modelos de email para mensagens de email que são
 
 Esses modelos podem ser modificados da forma desejada.
 
-Para ver e configurar os modelos de email para sua instância do Gerenciamento de API, clique em **Notificações** no menu **Gerenciamento de API** à esquerda e selecione a guia **Modelos de email**.
+tooview e configurar modelos de email de saudação para sua instância de gerenciamento de API, clique em **notificações** de saudação **gerenciamento de API** menu saudação à esquerda e selecione Olá **modelos de Email**  guia.
 
 ![Modelos de email][api-management-email-templates]
 
-Para ver ou modificar um modelo específico, selecione-o na lista suspensa **Modelos** .
+tooview ou modificar um modelo específico, selecione-o da saudação **modelos** lista suspensa.
 
 ![Lista de modelos de email][api-management-email-templates-list]
 
@@ -91,14 +91,14 @@ Cada modelo de email tem um assunto em texto sem formatação e uma definição 
 
 ![Editor de modelos de email][api-management-email-template]
 
-A lista **Parâmetros** contém parâmetros que, quando inseridos no assunto ou corpo, serão substituídos pelo valor designado quando o email for enviado. Para inserir um parâmetro, posicione o cursor onde quiser que ele seja colocado e clique na seta à esquerda do nome do parâmetro.
+Olá **parâmetros** lista contém uma lista de parâmetros, que, quando inserido em Olá assunto ou corpo, será o valor substituído Olá designado quando Olá email é enviado. tooinsert um parâmetro, coloque o cursor de saudação em que você deseja Olá parâmetro toogo e clique em Olá seta toohello esquerda do nome de parâmetro hello.
 
-Clique em **Visualização** ou **Enviar um teste** para ver como o email ficará ou enviar um email de teste.
+Clique em **visualização** ou **enviar um teste** toosee como email hello serão pesquisar ou enviar um email de teste.
 
 > [!NOTE] 
-> Os parâmetros não são substituídos por valores reais ao visualizar ou enviar um teste.
+> parâmetros de saudação não são substituídos por valores reais quando visualizar ou enviar um teste.
 
-Para salvar as alterações feitas no modelo de email, clique em **Salvar** ou, para cancelar as alterações, clique em **Cancelar**.
+modelo de email do toohello toosave Olá alterações, clique em **salvar**, ou clique em alterações de saudação toocancel **Cancelar**.
  
 
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png
@@ -114,8 +114,8 @@ Para salvar as alterações feitas no modelo de email, clique em **Salvar** ou, 
 [Configure publisher notifications]: #publisher-notifications
 [Configure email templates]: #email-templates
 
-[How to create and use groups]: api-management-howto-create-groups.md
-[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
+[How toocreate and use groups]: api-management-howto-create-groups.md
+[How tooassociate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance

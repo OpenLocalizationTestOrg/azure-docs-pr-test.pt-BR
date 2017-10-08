@@ -1,5 +1,5 @@
 ---
-title: "Notas de versão do SDK do Azure para .NET 3.0 | Microsoft Docs"
+title: "aaaAzure SDK para notas de versão do .NET 3.0 | Microsoft Docs"
 description: "Notas de Versão do SDK do Azure para .NET 3.0"
 services: app-service\web
 documentationcenter: .net
@@ -13,39 +13,39 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 03/07/2017
 ms.author: juliako
-ms.openlocfilehash: eea4e569ac2d0192ed7872d2fcb9bed03614832b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8970b4c9b64de40dc29a33d69006a00ae5e38a50
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-sdk-for-net-30-release-notes"></a>Notas de versão do SDK do Azure para .NET 3.0
 
-Este tópico inclui as notas de versão para a versão 3.0 do SDK do Azure para .NET.
+Este tópico inclui as notas de versão para a versão 3.0 de saudação do SDK do Azure para .NET.
 
 ##<a name="azure-sdk-for-net-30-release-summary"></a>Resumo da versão do SDK do Azure para .NET 3.0
 
 Data do lançamento: 03/07/2017
  
-Nenhuma alteração significativa do Azure SDK 3.0 foi introduzida nesta versão. Também não há nenhum processo de atualização necessário para aproveitar esse SDK com projetos de Serviço de Nuvem existentes. Para permitir o uso do SDK do Azure 3.0 sem a necessidade de um processo de atualização, o SDK do Azure 3.0 instala os mesmos diretórios do SDK do Azure 2.9. A maioria dos componentes não alterou a versão principal 2.9, apenas atualizou o número de build.
+Nenhum toohello de alterações de quebra do Azure SDK 3.0 foram introduzidos nesta versão. Há também não tooleverage do processo de atualização necessário este SDK com projetos de serviço de nuvem existentes. uso de tooallow de saudação do Azure SDK 3.0 sem a necessidade de um processo de atualização, o Azure SDK 3.0 instala toohello mesmos diretórios do Azure SDK 2.9. A maioria dos componentes de saudação não alterou versão principal de saudação do 2.9 mas recém-atualizado em vez disso, o número de compilação Olá.
 
 ## <a name="visual-studio-2017-rtw"></a>Visual Studio 2017 RTW
 
-- No Visual Studio 2017, esta versão do SDK do Azure para .NET é integrada à Carga de Trabalho do Azure. Todas as ferramentas que você precisa para fazer o desenvolvimento do Azure farão parte do Visual Studio 2017 no futuro. Para o Visual Studio 2015, o SDK ainda estará disponível por meio do WebPI. Agora que o Visual Studio 2017 foi lançado, descontinuamos as versões do SDK do Azure para .NET para Visual Studio 2013.
+- No Visual Studio de 2017, esta versão do hello Azure SDK para .NET é criado na toohello carga de trabalho do Azure. Todas as ferramentas de saudação necessário toodo desenvolvimento do Azure farão parte do Visual Studio de 2017 no futuro. Para Visual Studio 2015 Olá SDK ainda estarão disponível por meio do WebPI. Agora que o Visual Studio 2017 foi lançado, descontinuamos as versões do SDK do Azure para .NET para Visual Studio 2013.
 
 ### <a name="azure-diagnostics"></a>Diagnóstico do Azure
 
-- Foi alterado o comportamento para armazenar somente uma cadeia de conexão parcial somente com a chave substituída por um token de cadeia de conexão do armazenamento de diagnóstico dos Serviços de Nuvem. A chave de armazenamento real agora é armazenada na pasta de perfil do usuário para que seu acesso possa ser controlado. O Visual Studio lerá a chave de armazenamento da pasta de perfil de usuário para depuração local e processo de publicação. 
-- Em resposta à alteração descrita acima, a equipe do Visual Studio Online aprimorou o modelo de tarefa de implantação dos Serviços de Nuvem do Azure para que os usuários possam especificar a chave de armazenamento para configurar a extensão de diagnóstico ao publicar no Azure na Implantação e Integração Contínua.
-- Tornamos possível armazenar a cadeia de conexão segura e a geração de tokens para Diagnóstico do Azure (WAD) a fim de ajudá-lo a solucionar problemas de configuração em ambientes.
+- Olá alterados comportamento tooonly armazenar uma cadeia de caracteres de conexão parcial com chave Olá substituído por um token de cadeia de conexão de armazenamento de diagnóstico de serviços de nuvem. chave de armazenamento real do Hello agora é armazenada na pasta de perfil de usuário Olá assim seu acesso pode ser controlado. O Visual Studio lerá a chave de armazenamento de saudação da pasta de perfil de usuário para depuração local e o processo de publicação. 
+- Na resposta, altere toohello descrito acima, Visual Studio Online team Olá avançado modelo de tarefa de implantação de serviços de nuvem do Azure para que usuários podem especificar a chave de armazenamento de saudação para definir a extensão de diagnóstico ao publicar tooAzure na integração contínua e a implantação.
+- Fizemos-a cadeia de caracteres de conexão segura toostore possíveis e geração de tokens para diagnóstico WAD (Azure), toohelp você solucionar problemas de configuração em environements.
  
 ### <a name="windows-server-2016-virtual-machines"></a>Máquinas virtuais do Windows Server 2016
 
-- O Visual Studio agora oferece suporte à implantação de Serviços de Nuvem nas máquinas virtuais da Família do SO 5 (Windows Server 2016). Para serviços de nuvem existentes, é possível alterar suas configurações para direcionar a nova Família de SO. Ao criar novos serviços de nuvem, se você optar por criar o serviço usando o .net 4.6 ou posterior, isso padronizará o serviço para usar a Família do SO 5.  Para obter mais informações, é possível examinar a [tabela de suporte da Família do SO Convidado](../cloud-services/cloud-services-guestos-update-matrix.md).
+- O Visual Studio agora oferece suporte a implantação dos serviços de nuvem tooOS máquinas virtuais de família 5 (Windows Server 2016). Para serviços de nuvem existente, você pode alterar sua configurações tootarget Olá nova família de sistemas operacionais. Ao criar novos serviços em nuvem, se você escolher toocreate Olá serviço usando o .net 4.6 ou posterior, o padrão será Olá serviço toouse 5 de família do sistema operacional.  Para obter mais informações, você pode examinar Olá [família do sistema operacional convidado suporte tabela](../cloud-services/cloud-services-guestos-update-matrix.md).
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
-- O SDK do Azure para .NET 3.0 apresentou um problema ao remover o Visual Studio 2017 em uma configuração lado a lado com o Visual Studio 2015.  Se você tiver o SDK do Azure instalado para Visual Studio 2015, o Emulador de Armazenamento do Microsoft Azure e o emulador de computação do Microsoft Azure serão removidos se você desinstalar o Visual Studio 2017.  Isso produzirá um erro durante a criação e depuração de novos projetos de serviços de nuvem no Visual Studio 2015. Para corrigir esse problema, reinstale o SDK do Azure do Web Platform Installer.  O problema será resolvido em uma atualização futura do Visual Studio 2017.  .
+- O SDK do Azure para .NET 3.0 apresentou um problema ao remover o Visual Studio 2017 em uma configuração lado a lado com o Visual Studio 2015.  Se você tiver Olá SDK do Azure instalado para Visual Studio 2015, Olá emulador de armazenamento do Microsoft Azure e o emulador de computação do Microsoft Azure serão removidos se você desinstalar o Visual Studio de 2017.  Isso produzirá um erro durante a criação e depuração de novos projetos de serviços de nuvem no Visual Studio 2015. Em ordem toofix esse problema, reinstale o hello Azure SDK de Olá Web Platform Installer.  Olá problema será resolvido em uma atualização futura do Visual Studio de 2017.  .
 
  
 ### <a name="azure-in-role-cache"></a>Cache na função do Azure 

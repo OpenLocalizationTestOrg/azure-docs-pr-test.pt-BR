@@ -1,6 +1,6 @@
 ---
-title: "Ativos de variáveis na Automação do Azure | Microsoft Docs"
-description: "Ativos de variáveis são valores que estão disponíveis para todos os runbooks e configurações DSC na Automação do Azure.  Este artigo explica os detalhes das variáveis e como trabalhar com elas na criação de textos e gráficos."
+title: "ativos de aaaVariable na automação do Azure | Microsoft Docs"
+description: "Os ativos de variável são valores que estão disponíveis tooall runbooks e as configurações de DSC na automação do Azure.  Este artigo explica detalhes de saudação de variáveis e como toowork-los na criação de texto e gráfico."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,38 +14,38 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: dc00e1e5fa8df5cb55e7e2672137d1df44133773
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f9daa49fc1dc883ffb218a9adf26e36df1d6bb27
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="variable-assets-in-azure-automation"></a>Ativos variáveis na Automação do Azure
 
-Ativos de variáveis são valores que estão disponíveis para todos os runbooks e configurações DSC em sua conta de automação. Eles podem ser criados, modificados e recuperados no portal do Azure, no Windows PowerShell e em um runbook ou uma configuração DSC. As variáveis de automação são úteis para os seguintes cenários:
+Os ativos de variável são valores que estão disponíveis tooall runbooks e as configurações de DSC em sua conta de automação. Eles podem ser criados, modificados e recuperados de saudação portal do Azure, Windows PowerShell e de um runbook ou a configuração DSC. Variáveis de automação são úteis para Olá os seguintes cenários:
 
 - Compartilhe um valor entre vários runbooks ou configurações DSC.
 
-- Compartilhe um valor entre vários trabalhos do mesmo runbook ou configuração DSC.
+- Compartilhar um valor entre vários trabalhos do hello mesmo runbook ou a configuração DSC.
 
-- Gerencie um valor do portal ou da linha de comando do Windows PowerShell usada por runbooks ou configurações de DSC, tal como conjunto de itens de configuração comuns como, por exemplo, lista específica de nomes de VM, grupo de recursos específico, nome de domínio de AD, etc.  
+- Gerencie um valor no portal de saudação ou na linha de comando do Windows PowerShell Olá é usada por runbooks ou configurações de DSC, como um conjunto de itens de configuração comuns como lista específica de nomes de VM, um grupo de recursos específico, um nome de domínio do AD, etc.  
 
-As variáveis de automação são mantidas para que continuem disponíveis mesmo se o runbook ou a configuração DSC falhar.  Isso também permite que um valor seja definido por um runbook que é depois usado por outro, ou que é usado pelo mesmo runbook ou configuração DSC na próxima vez em que for executado.
+Variáveis de automação são mantidas para que continuem toobe disponível mesmo se houver falha Olá runbook ou a configuração DSC.  Isso também permite que um toobe valor definido por um runbook que é usado por outro, ou é usado por Olá mesmo runbook ou saudação de configuração DSC próxima vez que ele é executado.
 
-Quando uma variável é criada, você pode definir que ele seja armazenado criptografado.  Quando uma variável é criptografada, ela é armazenada com segurança na Automação do Azure e seu valor não pode ser recuperado do cmdlet [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx) enviado como parte do módulo do Azure PowerShell.  A única maneira de recuperar um valor criptografado é por meio da atividade **Get-AutomationVariable** em um runbook ou configuração DSC.
+Quando uma variável é criada, você pode definir que ele seja armazenado criptografado.  Quando uma variável é criptografada, ela é armazenada com segurança na automação do Azure e seu valor não pode ser recuperado da saudação [AzureRmAutomationVariable Get](https://msdn.microsoft.com/library/mt603849.aspx) cmdlet que é fornecido como parte do módulo do PowerShell do Azure hello.  Olá única maneira de recuperar um valor criptografado é de saudação **Get-AutomationVariable** atividade em um runbook ou a configuração DSC.
 
 > [!NOTE]
-> Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é criptografada por um certificado mestre e armazenada na Automação do Azure. Antes de armazenar um ativo seguro, a chave para a conta de automação é descriptografada usando o certificado mestre e usada para criptografar o ativo.
+> Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados em Olá automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é criptografada por um certificado mestre e armazenada na Automação do Azure. Antes de armazenar um ativo seguro, chave Olá para conta de automação de saudação é descriptografado usando certificado mestre hello e usado tooencrypt ativo de saudação.
 
 ## <a name="variable-types"></a>Tipos de variável
 
-Quando você cria uma variável com o portal do Azure, deve especificar um tipo de dados na lista suspensa para que o portal possa exibir o controle adequado para a inserção do valor da variável. A variável não está restrita a esse tipo de dados, mas você deve definir a variável usando o Windows PowerShell se desejar especificar um valor de um tipo diferente. Se você especificar **Indefinido**, o valor da variável será definido como **$null** e você deverá definir o valor com o cmdlet [Set-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913767.aspx) ou atividade **Set-AutomationVariable**.  Você não pode criar ou alterar o valor de um tipo complexo de variável no portal, mas pode fornecer um valor de qualquer tipo usando o Windows PowerShell. Tipos complexos serão retornados como um [PSCustomObject](http://msdn.microsoft.com/library/system.management.automation.pscustomobject.aspx).
+Quando você cria uma variável com hello portal do Azure, você deve especificar um tipo de dados na lista suspensa de saudação para que portal Olá possa exibir o controle apropriado de saudação para inserir o valor da variável hello. Olá variável não é restrito toothis dados tipo, mas você deve definir variável de saudação usando o Windows PowerShell se você quiser toospecify um valor de um tipo diferente. Se você especificar **não definido**, valor variável Olá Olá será definido muito**$null**, e você deve definir o valor de saudação com hello [Set-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913767.aspx) cmdlet ou **Set-AutomationVariable** atividade.  Não é possível criar ou alterar o valor de saudação para um tipo complexo de variável no portal de saudação, mas você pode fornecer um valor de qualquer tipo usando o Windows PowerShell. Tipos complexos serão retornados como um [PSCustomObject](http://msdn.microsoft.com/library/system.management.automation.pscustomobject.aspx).
 
-Você pode armazenar vários valores para uma única variável criando uma matriz ou hashtable e salvando-a na variável.
+Você pode armazenar vários valores tooa única variável criando uma matriz ou tabela de hash e salvando-o toohello variável.
 
-A seguir está uma lista de tipos de variáveis disponíveis na automação:
+Olá seguem uma lista de tipos de variáveis disponíveis na automação:
 
-* string
+* Cadeia de caracteres
 * Número inteiro
 * DateTime
 * Booliano
@@ -53,38 +53,38 @@ A seguir está uma lista de tipos de variáveis disponíveis na automação:
 
 ## <a name="cmdlets-and-workflow-activities"></a>Atividades de fluxo de trabalho e cmdlets
 
-Os cmdlets na tabela a seguir são usados para criar e gerenciar variáveis de automação com o Windows PowerShell. Eles são fornecidos como parte do [módulo do Azure PowerShell](../powershell-install-configure.md) que está disponível para uso em runbooks e na configuração DSC da Automação.
+cmdlets Olá Olá a tabela a seguir são usada toocreate e gerenciar variáveis de automação com o Windows PowerShell. Eles são fornecidos como parte da saudação [módulo Azure PowerShell](../powershell-install-configure.md) que está disponível para uso em runbooks de automação e a configuração de DSC.
 
 |Cmdlets|Descrição|
 |:---|:---|
-|[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|Recupera o valor de uma variável existente.|
+|[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|Recupera o valor de saudação de uma variável existente.|
 |[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Cria uma nova variável e define o seu valor.|
 |[Remove-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|Remove uma variável existente.|
-|[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|Define o valor de uma variável existente.|
+|[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|Define o valor de saudação de uma variável existente.|
 
-As atividades de fluxo de trabalho na tabela a seguir são usadas para acessar variáveis de automação em um runbook. Elas só estão disponíveis para uso em um runbook ou uma configuração DSC e não são fornecidas como parte do módulo do Azure PowerShell.
+atividades de fluxo de trabalho de saudação em Olá a tabela a seguir são usadas tooaccess variáveis de automação em um runbook. Eles só estão disponíveis para uso em um runbook ou a configuração DSC e não são fornecidas como parte do módulo do PowerShell do Azure hello.
 
 |Atividades de fluxo de trabalho|Descrição|
 |:---|:---|
-|Get-AutomationVariable|Recupera o valor de uma variável existente.|
-|Set-AutomationVariable|Define o valor de uma variável existente.|
+|Get-AutomationVariable|Recupera o valor de saudação de uma variável existente.|
+|Set-AutomationVariable|Define o valor de saudação de uma variável existente.|
 
 > [!NOTE] 
-> Evite usar variáveis no parâmetro –Name de **Get-AutomationVariable** em um runbook ou na configuração DSC, pois isso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e variáveis da Automação no momento do design.
+> Você deve evitar usar variáveis em hello – o parâmetro Name do **Get-AutomationVariable** em um runbook ou a configuração de DSC, pois isso pode complicar a descoberta de dependências entre runbooks ou configuração de DSC e automação variáveis em tempo de design.
 
 ## <a name="creating-a-new-automation-variable"></a>Criando uma nova variável de automação
 
-### <a name="to-create-a-new-variable-with-the-azure-portal"></a>Para criar uma nova variável com o portal do Azure
+### <a name="toocreate-a-new-variable-with-hello-azure-portal"></a>toocreate uma nova variável com hello portal do Azure
 
-1. Na sua conta de automação, clique no bloco **Ativos** e então, na folha, **Ativos**, selecione **Variáveis**.
-2. No bloco **Variáveis**, clique em **Adicionar uma variável**.
-3. Complete as opções na folha **Nova Variável** e clique em **Criar** para salvar a nova variável.
+1. Na sua conta de automação, clique em Olá **ativos** lado a lado e, em seguida, em Olá **ativos** folha, selecione **variáveis**.
+2. Em Olá **variáveis** lado a lado, selecione **adicionar uma variável**.
+3. Concluir opções Olá Olá **nova variável** folha e clique em **criar** salvar Olá nova variável.
 
-### <a name="to-create-a-new-variable-with-windows-powershell"></a>Para criar uma nova variável com o Windows PowerShell
+### <a name="toocreate-a-new-variable-with-windows-powershell"></a>toocreate uma nova variável com o Windows PowerShell
 
-O cmdlet [New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx) cria uma nova variável e define o seu valor inicial. Você pode recuperar o valor usando [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx). Se o valor for um tipo simples, é retornado o mesmo tipo. Se for um tipo complexo, um **PSCustomObject** é retornado.
+Olá [AzureRmAutomationVariable novo](https://msdn.microsoft.com/library/mt603613.aspx) cmdlet cria uma nova variável e define seu valor inicial. Você pode recuperar o valor de saudação usando [Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx). Se o valor de saudação é um tipo simples, esse mesmo tipo é retornado. Se for um tipo complexo, um **PSCustomObject** é retornado.
 
-Os comandos de exemplo a seguir mostram como criar uma variável do tipo cadeia de caracteres e retornar o seu valor.
+saudação de exemplo a seguir comandos mostram como toocreate uma variável do tipo cadeia de caracteres e, em seguida, seu valor de retorno.
 
     New-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" 
     –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable' `
@@ -92,7 +92,7 @@ Os comandos de exemplo a seguir mostram como criar uma variável do tipo cadeia 
     $string = (Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" `
     –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 
-Os comandos de exemplo a seguir mostram como criar uma variável do tipo complexo e retornar as suas propriedades. Nesse caso, é usado um objeto máquina virtual de **Get-AzureRmVm** .
+saudação de exemplo a seguir comandos mostram como toocreate uma variável com um complexo de tipo e, em seguida, retornar suas propriedades. Nesse caso, é usado um objeto máquina virtual de **Get-AzureRmVm** .
 
     $vm = Get-AzureRmVm -ResourceGroupName "ResourceGroup01" –Name "VM01"
     New-AzureRmAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
@@ -106,14 +106,14 @@ Os comandos de exemplo a seguir mostram como criar uma variável do tipo complex
 
 ## <a name="using-a-variable-in-a-runbook-or-dsc-configuration"></a>Usando uma variável em um runbook ou configuração DSC 
 
-Use a atividade **Set-AutomationVariable** para definir o valor de uma variável da Automação em um runbook ou uma configuração DSC e **Get-AutomationVariable** para recuperá-la.  Você não deve usar os cmdlets **Set-AzureAutomationVariable** ou **Get-AzureAutomationVariable** em um runbook ou configuração DSC, já que eles são menos eficientes do que as atividades de fluxo de trabalho.  Também não é possível recuperar o valor de variáveis protegidas com o **Get-AzureAutomationVariable**.  A única maneira de criar uma nova variável de dentro de um runbook ou configuração DSC é usar o cmdlet [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) .
+Saudação de uso **Set-AutomationVariable** valor de hello atividade tooset de uma variável de automação em um runbook ou a configuração DSC e a saudação **Get-AutomationVariable** tooretrieve-lo.  Você não deve usar o hello **Set-AzureAutomationVariable** ou **Get-AzureAutomationVariable** cmdlets em um runbook ou a configuração de DSC, já que eles são menos eficientes do que as atividades de fluxo de trabalho de saudação.  Também é possível recuperar valor de saudação de variáveis seguras com **Get-AzureAutomationVariable**.  Olá toocreate de maneira somente uma nova variável de dentro de um runbook ou a configuração de DSC está Olá toouse [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) cmdlet.
 
 
 ### <a name="textual-runbook-samples"></a>Exemplos de runbook textual
 
 #### <a name="setting-and-retrieving-a-simple-value-from-a-variable"></a>Definindo e recuperando um valor simples de uma variável
 
-Os comandos de exemplo a seguir mostram como definir e recuperar uma variável em um runbook textual. Nesse exemplo, presume-se que as variáveis do tipo integer denominadas *NumberOfIterations* e *NumberOfRunnings*, além de uma variável do tipo cadeia de caracteres denominada *SampleMessage*, já foram criadas.
+saudação de exemplo a seguir comandos mostram como tooset e recuperar uma variável em um runbook textual. Nesse exemplo, presume-se que as variáveis do tipo integer denominadas *NumberOfIterations* e *NumberOfRunnings*, além de uma variável do tipo cadeia de caracteres denominada *SampleMessage*, já foram criadas.
 
     $NumberOfIterations = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
     $NumberOfRunnings = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
@@ -128,13 +128,13 @@ Os comandos de exemplo a seguir mostram como definir e recuperar uma variável e
 
 #### <a name="setting-and-retrieving-a-complex-object-in-a-variable"></a>Definindo e recuperando um objeto complexo em uma variável
 
-O código de exemplo a seguir mostra como atualizar uma variável com um valor complexo em um runbook textual. Nesse exemplo, uma máquina virtual do Azure é recuperada com **Get-AzureVM** e salva em uma variável de automação existente.  Como explicado em [Tipos de variáveis](#variable-types), ela é armazenada como um PSCustomObject.
+saudação de exemplo a seguir mostra código como tooupdate uma variável com um valor complexo em um runbook textual. Neste exemplo, uma máquina virtual do Azure é recuperada com **Get-AzureVM** e tooan salvo variável de automação existente.  Como explicado em [Tipos de variáveis](#variable-types), ela é armazenada como um PSCustomObject.
 
     $vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
     Set-AutomationVariable -Name "MyComplexVariable" -Value $vm
 
 
-No código a seguir, o valor é recuperado da variável e usado para iniciar a máquina virtual.
+Saudação de código a seguir, valor Olá é recuperada da máquina de virtual de Olá Olá toostart variável e usado.
 
     $vmObject = Get-AutomationVariable -Name "MyComplexVariable"
     if ($vmObject.PowerState -eq 'Stopped') {
@@ -144,12 +144,12 @@ No código a seguir, o valor é recuperado da variável e usado para iniciar a m
 
 #### <a name="setting-and-retrieving-a-collection-in-a-variable"></a>Definindo e recuperando uma coleção em uma variável
 
-O código de exemplo a seguir mostra como usar uma variável com uma coleção de valores complexos em um runbook textual. Nesse exemplo, várias máquinas virtuais do Azure são recuperadas com **Get-AzureVM** e salvas em uma variável de automação existente.  Como explicado em [Tipos de variáveis](#variable-types), elas são armazenadas como uma coleção de PSCustomObjects.
+saudação de exemplo a seguir mostra código como toouse uma variável com uma coleção de valores complexos em um runbook textual. Neste exemplo, várias máquinas virtuais do Azure são recuperadas com **Get-AzureVM** e tooan salvo variável de automação existente.  Como explicado em [Tipos de variáveis](#variable-types), elas são armazenadas como uma coleção de PSCustomObjects.
 
     $vms = Get-AzureVM | Where -FilterScript {$_.Name -match "my"}     
     Set-AutomationVariable -Name 'MyComplexVariable' -Value $vms
 
-No código a seguir, a coleção é recuperada da variável e usada para iniciar cada máquina virtual.
+Na Olá código a seguir, a coleção de saudação é recuperada da variável hello e usado toostart cada máquina virtual.
 
     $vmValues = Get-AutomationVariable -Name "MyComplexVariable"
     ForEach ($vmValue in $vmValues)
@@ -162,17 +162,17 @@ No código a seguir, a coleção é recuperada da variável e usada para iniciar
 
 ### <a name="graphical-runbook-samples"></a>Exemplos de runbook gráfico
 
-Em um runbook gráfico, você adiciona o **Get-AutomationVariable** ou o **Set-AutomationVariable** clicando na variável com o botão direito do mouse no painel Biblioteca do editor gráfico e selecionando a atividade desejada.
+Um runbook gráfico, você adiciona Olá **Get-AutomationVariable** ou **Set-AutomationVariable** clicando duas vezes na variável de saudação no painel de biblioteca de saudação do editor gráfico hello e selecionando Olá atividade desejada.
 
-![Adicionar variável à tela](media/automation-variables/runbook-variable-add-canvas.png)
+![Adicionar variável toocanvas](media/automation-variables/runbook-variable-add-canvas.png)
 
 #### <a name="setting-values-in-a-variable"></a>Definindo valores em uma variável
-A imagem a seguir mostra as atividades de exemplo para atualizar uma variável com um valor simples em um runbook gráfico. Nesse exemplo, uma única máquina virtual do Azure é recuperada com **Get-AzureRmVM** e o nome do computador é salvo em uma variável de automação existente com um tipo de cadeia de caracteres.  Não importa se o [link é um pipeline ou uma sequência](automation-graphical-authoring-intro.md#links-and-workflow) , já que esperamos somente um único objeto na saída.
+Olá imagem a seguir mostra exemplo atividades tooupdate uma variável com um valor simples em um runbook gráfico. Neste exemplo, uma única máquina virtual do Azure é recuperada com **Get-AzureRmVM** e nome do computador Olá é salvo tooan variável de automação existente com um tipo de cadeia de caracteres.  Não importa se hello [link é um pipeline ou sequência](automation-graphical-authoring-intro.md#links-and-workflow) como Esperamos que apenas um único objeto na saída de hello.
 
 ![Definir variável simples](media/automation-variables/runbook-set-simple-variable.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre como interligar as atividades na criação gráfica, confira [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
-* Para começar a usar runbooks gráficos, veja [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md) 
+* toolearn mais sobre como conectar atividades juntas na criação do gráfico, consulte [Links no gráfico de criação](automation-graphical-authoring-intro.md#links-and-workflow)
+* tooget iniciado com runbooks gráficos, consulte [meu primeiro runbook gráfico](automation-first-runbook-graphical.md) 
 

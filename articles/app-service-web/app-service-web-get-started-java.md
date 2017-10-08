@@ -1,6 +1,6 @@
 ---
-title: Criar seu primeiro aplicativo Web Java no Azure
-description: "Saiba como executar aplicativos Web no Serviço de Aplicativo implantando um aplicativo Java básico."
+title: aaaCreate seu primeiro aplicativo web Java no Azure
+description: "Saiba como toorun aplicativos web no serviço de aplicativo ao implantar um aplicativo Java básico."
 services: app-service\web
 documentationcenter: 
 author: rmcmurray
@@ -15,24 +15,24 @@ ms.topic: quickstart
 ms.date: 6/7/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc
-ms.openlocfilehash: b91b9bde5eb8ea0d7e2196056b635fe54095e748
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 81315c07b5aa84cbec50a17b2cb3914927b19c00
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Criar seu primeiro aplicativo Web Java no Azure
 
-O recurso [aplicativos Web](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) do [Serviço de aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) fornece um serviço de hospedagem Web altamente escalonável e com aplicação de patch automática. Este guia de início rápido mostra como implantar um aplicativo Web Java no Serviço de Aplicativo usando o [IDE do Eclipse para desenvolvedores Java EE](http://www.eclipse.org/).
+Olá [aplicativos Web](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) recurso de [do serviço de aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) fornece um serviço de hospedagem web altamente escalonável, aplicação de patch automática. Este guia de início rápido mostra como toodeploy um Java web aplicativo tooApp Service usando Olá [IDE do Eclipse para desenvolvedores Java EE](http://www.eclipse.org/).
 
 !["Hello Azure"! exemplo de aplicativo Web](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este guia de início rápido, instale:
+toocomplete este guia de início rápido, instalar:
 
-* O[Eclipse IDE para desenvolvedores de Java EE](http://www.eclipse.org/downloads/) gratuito. Este guia de início rápido usa Eclipse Neon.
-* O [Kit de Ferramentas do Azure para Eclipse](/azure/azure-toolkit-for-eclipse-installation).
+* Olá livre [IDE do Eclipse para desenvolvedores Java EE](http://www.eclipse.org/downloads/). Este guia de início rápido usa Eclipse Neon.
+* Olá [Kit de ferramentas do Azure para Eclipse](/azure/azure-toolkit-for-eclipse-installation).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -40,7 +40,7 @@ Para concluir este guia de início rápido, instale:
 
 No Eclipse, selecione **Arquivo** > **Novo** > **Projeto Web Dinâmico**.
 
-Na caixa de diálogo **Novo projeto Web dinâmico**, nomeie o projeto como **MyFirstJavaOnAzureWebApp** e selecione **Concluir**.
+Em Olá **novo projeto Web dinâmico** caixa de diálogo, o projeto de saudação do nome **MyFirstJavaOnAzureWebApp**e selecione **concluir**.
    
 ![Caixa de diálogo Novo Projeto Web Dinâmico](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
@@ -50,19 +50,19 @@ Se o Explorador de projeto não for exibido, restaure-o.
 
 ![Espaço de trabalho do Java EE para Eclipse](./media/app-service-web-get-started-java/pe.png)
 
-No Explorador de projeto, expanda o projeto **MyFirstJavaOnAzureWebApp**.
+No Explorador de projeto, expanda Olá **MyFirstJavaOnAzureWebApp** projeto.
 Clique com o botão direito do mouse em **WebContent**e selecione **Novo** > **Arquivo JSP**.
 
 ![Menu de um novo arquivo JSP no Explorador de projeto](./media/app-service-web-get-started-java/new-jsp-file-menu.png)
 
-Na caixa de diálogo **Novo Arquivo JSP**:
+Em Olá **novo arquivo JSP** caixa de diálogo:
 
-* Nomeie o arquivo **index.jsp**.
+* Arquivo de saudação do nome **index.jsp**.
 * Selecione **Concluir**.
 
   ![Caixa de diálogo Novo Arquivo JSP](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
 
-No arquivo index.jsp, substitua o elemento `<body></body>` pela seguinte marcação:
+No arquivo JSP Olá substitua Olá `<body></body>` elemento com hello marcação a seguir:
 
 ```jsp
 <body>
@@ -70,21 +70,21 @@ No arquivo index.jsp, substitua o elemento `<body></body>` pela seguinte marcaç
 </body>
 ```
 
-Salve as alterações.
+Salve alterações de saudação.
 
-## <a name="publish-the-web-app-to-azure"></a>Publicar aplicativo Web no Azure
+## <a name="publish-hello-web-app-tooazure"></a>Publicar Olá web aplicativo tooAzure
 
-No Explorador de Projeto, clique com o botão direito do mouse e selecione **Azure** > **Publicar como aplicativo Web do Azure**.
+No Explorador de projeto, clique com botão direito hello e, em seguida, selecione **Azure** > **Publicar como um aplicativo Web do Azure**.
 
 ![Publicar como menu de contexto de Aplicativo Web do Azure](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
 
-Na caixa de diálogo **Entrar no Azure**, mantenha a opção **Interativo** e selecione **Entrar**.
+Em Olá **Azure entrar** caixa de diálogo, mantenha Olá **interativo** opção e, em seguida, selecione **entrar**.
 
-Siga as instruções de entrada.
+Siga Olá entrar instruções.
 
 ### <a name="deploy-web-app-dialog-box"></a>Caixa de diálogo Implantar Aplicativo Web
 
-Depois de entrar na sua conta do Azure, a caixa de diálogo **Implantar aplicativo Web** é exibida.
+Depois de ter entrado tooyour conta do Azure, Olá **implantar aplicativo da Web** caixa de diálogo é exibida.
 
 Selecione **Criar**.
 
@@ -92,20 +92,20 @@ Selecione **Criar**.
 
 ### <a name="create-app-service-dialog-box"></a>Criar a caixa de diálogo Serviço de Aplicativo
 
-A caixa de diálogo **Criar Serviço de Aplicativo** é exibida com valores padrão. O número **170602185241** mostrado na imagem a seguir é diferente na caixa de diálogo.
+Olá **criar serviço de aplicativo** caixa de diálogo é exibida com valores padrão. Olá número **170602185241** mostrado no hello seguinte imagem é diferente na caixa de diálogo.
 
 ![Criar a caixa de diálogo Serviço de Aplicativo](./media/app-service-web-get-started-java/cas1.png)
 
-Na caixa de diálogo **Criar Serviço de Aplicativo**:
+Em Olá **criar serviço de aplicativo** caixa de diálogo:
 
-* Mantenha o nome gerado para o aplicativo Web. Esse nome deve ser exclusivo no Azure. O nome faz parte do endereço URL do aplicativo Web. Por exemplo: se o nome do aplicativo Web é **MyJavaWebApp**, a URL é *myjavawebapp.azurewebsites.net*.
-* Mantenha o contêiner da Web padrão.
+* Mantenha o nome de saudação gerada para o aplicativo web de saudação. Esse nome deve ser exclusivo no Azure. nome de saudação faz parte do endereço da URL Olá Olá web app. Por exemplo: se o nome do aplicativo web hello é **MyJavaWebApp**, Olá URL é *myjavawebapp.azurewebsites.net*.
+* Manter o contêiner do saudação padrão da web.
 * Selecione uma assinatura do Azure.
-* Na guia **Plano do serviço de aplicativo**:
+* Em Olá **plano do serviço de aplicativo** guia:
 
-  * **Criar novo**: mantenha o padrão, que é o nome do plano do Serviço de Aplicativo.
+  * **Criar um novo**: mantenha saudação padrão, que é o nome de saudação do hello plano de serviço de aplicativo.
   * **Local**: selecione **Europa Ocidental** ou um local perto de você.
-  * **Tipo de preço**: selecione a opção gratuita. Para os recursos, consulte [Preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
+  * **Tipo de preço**: selecione Olá opção livre. Para os recursos, consulte [Preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
 
    ![Criar a caixa de diálogo Serviço de Aplicativo](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
 
@@ -113,7 +113,7 @@ Na caixa de diálogo **Criar Serviço de Aplicativo**:
 
 ### <a name="resource-group-tab"></a>Guia Grupo de recursos
 
-Selecione a guia **Grupo de recursos**. Mantenha o valor padrão gerado para o grupo de recursos.
+Selecione Olá **grupo de recursos** guia. Mantenha o valor de padrão gerado de Olá Olá para grupo de recursos.
 
 ![Guia Grupo de recursos](./media/app-service-web-get-started-java/create-app-service-resource-group.png)
 
@@ -122,38 +122,38 @@ Selecione a guia **Grupo de recursos**. Mantenha o valor padrão gerado para o g
 Selecione **Criar**.
 
 <!--
-### The JDK tab
+### hello JDK tab
 
-Select the **JDK** tab. Keep the default, and then select **Create**.
+Select hello **JDK** tab. Keep hello default, and then select **Create**.
 
 ![Create App Service plan](./media/app-service-web-get-started-java/create-app-service-specify-jdk.png)
 -->
 
-O Kit de ferramentas do Azure cria o aplicativo Web e exibe uma caixa de diálogo de progresso.
+Olá Kit de ferramentas do Azure cria Olá web app e exibe uma caixa de diálogo de progresso.
 
 ![Criar caixa de diálogo Serviço de Aplicativo](./media/app-service-web-get-started-java/create-app-service-progress-bar.png)
 
 ### <a name="deploy-web-app-dialog-box"></a>Caixa de diálogo Implantar Aplicativo Web
 
-Na caixa de diálogo **Implantar aplicativo Web**, selecione **Implantar na raiz**. Se você tiver um serviço de aplicativo em *wingtiptoys.azurewebsites.net* e não puder implantar na raiz, o aplicativo Web chamado **MyFirstJavaOnAzureWebApp** será implantado em *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
+Em Olá **implantar aplicativo da Web** caixa de diálogo, selecione **implantar tooroot**. Se você tiver um aplicativo de serviço no *wingtiptoys.azurewebsites.net* e você não implanta toohello raiz, Olá web aplicativo chamado **MyFirstJavaOnAzureWebApp** é implantado muito *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
 
 ![Caixa de diálogo Implantar Aplicativo Web](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
 
-A caixa de diálogo mostra o Azure, o JDK e as seleções de contêiner da Web.
+caixa de diálogo Olá mostra hello Azure JDK e as seleções de contêiner da web.
 
-Selecione **Implantar** para publicar o aplicativo Web no Azure.
+Selecione **implantar** toopublish Olá web aplicativo tooAzure.
 
-Quando a publicação for concluída, selecione o link **Publicado** na caixa de diálogo **Log de atividades do Azure**.
+Quando termina de publicação hello, selecione Olá **publicado** link no hello **o Log de atividades do Azure** caixa de diálogo.
 
 ![Caixa de diálogo Log de atividades do Azure](./media/app-service-web-get-started-java/aal.png)
 
-Parabéns! Você implantou o aplicativo Web no Azure com êxito. 
+Parabéns! Você implantou seu tooAzure de aplicativo web com êxito. 
 
 !["Hello Azure"! exemplo de aplicativo Web](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
-## <a name="update-the-web-app"></a>Atualizar o aplicativo Web
+## <a name="update-hello-web-app"></a>Atualizar o aplicativo web de saudação
 
-Altere o código JSP de exemplo para uma mensagem diferente.
+Alterar Olá exemplo JSP código tooa mensagem diferente.
 
 ```jsp
 <body>
@@ -161,35 +161,35 @@ Altere o código JSP de exemplo para uma mensagem diferente.
 </body>
 ```
 
-Salve as alterações.
+Salve alterações de saudação.
 
-No Explorador de Projeto, clique com o botão direito do mouse e selecione **Azure** > **Publicar como aplicativo Web do Azure**.
+No Explorador de projeto, clique com botão direito hello e, em seguida, selecione **Azure** > **Publicar como um aplicativo Web do Azure**.
 
-A caixa de diálogo **Implantar aplicativo Web** é exibida e mostra o serviço de aplicativo criado anteriormente. 
+Olá **implantar aplicativo da Web** caixa de diálogo é exibida e mostra Olá do serviço de aplicativo que você criou anteriormente. 
 
 > [!NOTE]
-> Selecione **Implantar na raiz** cada vez que você publicar.
+> Selecione **implantar tooroot** cada vez que você publicar.
 >
 
-Selecione o aplicativo Web e selecione **Implantar** para publicar as alterações.
+Selecione o aplicativo web de saudação e selecione **implantar**, que publica as alterações de saudação.
 
-Quando o link **Publicando** aparecer, selecione-o para navegar até o aplicativo Web e ver as alterações.
+Olá quando **publicação** link for exibida, selecione-o aplicativo de web toohello toobrowse e ver as alterações de saudação.
 
-## <a name="manage-the-web-app"></a>Gerenciar o aplicativo Web
+## <a name="manage-hello-web-app"></a>Gerenciar o aplicativo da web de saudação
 
-Vá para o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> a fim de ver o aplicativo Web que você criou.
+Vá toohello <a href="https://portal.azure.com" target="_blank">portal do Azure</a> toosee Olá web aplicativo que você criou.
 
-Selecione **Grupos de recursos** no painel esquerdo.
+No menu à esquerda do hello, selecione **grupos de recursos**.
 
-![Navegação no portal para grupos de recursos](media/app-service-web-get-started-java/rg.png)
+![Grupos de tooresource de navegação do Portal](media/app-service-web-get-started-java/rg.png)
 
-Selecione a guia Grupo de recursos. A página mostra os recursos que você criou neste guia de início rápido.
+Selecione o grupo de recursos de saudação. página Olá mostra os recursos de saudação que você criou neste guia de início rápido.
 
 ![Grupo de recursos myResourceGroup](media/app-service-web-get-started-java/rg2.png)
 
-Selecione o aplicativo Web (**webapp-170602193915** na imagem anterior).
+Selecione Olá web app (**170602193915 webapp** em Olá anterior imagem).
 
-A página **Visão geral** será exibida. Esta página fornece uma visão de como está seu aplicativo. Aqui você pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir. As guias no lado esquerdo da página mostram as configuração diferentes que você pode abrir. 
+Olá **visão geral** página será exibida. Esta página fornece uma exibição como o aplicativo hello está fazendo. Aqui você pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir. guias de saudação no lado esquerdo de saudação da página Olá mostram Olá configurações diferentes que você pode abrir. 
 
 ![Página Serviço de Aplicativo no portal do Azure](media/app-service-web-get-started-java/web-app-blade.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Como usar o armazenamento de tabela do Azure com o SDK de Trabalhos Web
-description: Saiba como usar o armazenamento de tabela do Azure com o SDK de Trabalhos Web. Crie tabelas, adicione entidades a tabelas e leia tabelas existentes.
+title: aaaHow toouse armazenamento de tabela do Azure com hello SDK do WebJobs
+description: Saiba como o armazenamento com hello SDK do WebJobs de tabela toouse do Azure. Criar tabelas, adicionar entidades tootables e ler as tabelas existentes.
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
@@ -14,24 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: glenga
-ms.openlocfilehash: 13cfc788c14d714df7022ce003d34691cf73d121
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8e28c69df4a934646add9e50c6de28e76dca1636
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-azure-table-storage-with-the-webjobs-sdk"></a>Como usar o armazenamento de tabela do Azure com o SDK de Trabalhos Web
+# <a name="how-toouse-azure-table-storage-with-hello-webjobs-sdk"></a>Como o armazenamento com hello SDK do WebJobs de tabela toouse do Azure
 ## <a name="overview"></a>Visão geral
-Este guia fornece exemplos de código em C# que mostram como ler e gravar tabelas de armazenamento do Azure usando o [SDK de Trabalhos Web](websites-dotnet-webjobs-sdk.md) versão 1.x.
+Este guia fornece exemplos de código do c# que mostra como tooread e gravação de armazenamento do Azure tabelas usando [SDK do WebJobs](websites-dotnet-webjobs-sdk.md) versão 1. x.
 
-Este guia pressupõe que você sabe [como criar um projeto WebJob no Visual Studio com cadeias de conexão que apontam para sua conta de armazenamento](websites-dotnet-webjobs-sdk-get-started.md) ou para [várias contas de armazenamento](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
+Guia de saudação pressupõe que você sabe [como toocreate um projeto do WebJob no Visual Studio com conexão cadeias de caracteres essa conta de armazenamento de ponto tooyour](websites-dotnet-webjobs-sdk-get-started.md) ou muito[várias contas de armazenamento](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
 
-Alguns dos trechos de código mostram o atributo `Table` usado nas funções que são [chamadas manualmente](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), ou seja, que não usam um dos atributos de acionamento. 
+Alguns dos trechos de código Olá mostram Olá `Table` atributo usado em funções que são [chamado manualmente](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), ou seja, não usando um dos atributos de gatilho hello. 
 
-## <a id="ingress"></a> Como adicionar entidades a uma tabela
-Para adicionar entidades em uma tabela, use o atributo `Table` com um parâmetro `ICollector<T>` ou `IAsyncCollector<T>`, no qual `T` especifica o esquema das entidades que você deseja adicionar. O construtor de atributo tem um parâmetro de cadeia que especifica o nome da tabela. 
+## <a id="ingress"></a>Como tabela de tooa de entidades de tooadd
+tabela de tooa tooadd entidades, use Olá `Table` atributo com um `ICollector<T>` ou `IAsyncCollector<T>` parâmetro onde `T` Especifica o esquema de saudação de entidades Olá deseja tooadd. o construtor de atributo Olá leva um parâmetro de cadeia de caracteres que especifica o nome de saudação da tabela de saudação. 
 
-O exemplo de código a seguir adiciona entidades `Person` em uma tabela nomeada *entrada*.
+Olá exemplo de código a seguir adiciona `Person` tabela tooa de entidades denominada *entrada*.
 
         [NoAutomaticTrigger]
         public static void IngressDemo(
@@ -48,7 +48,7 @@ O exemplo de código a seguir adiciona entidades `Person` em uma tabela nomeada 
             }
         }
 
-Geralmente, o tipo que você usa com `ICollector` deriva de `TableEntity` ou implementa `ITableEntity`,  mas ele não precisa fazer isso. Qualquer uma das seguintes classes `Person` funciona com o código mostrado no método `Ingress` anterior.
+Olá normalmente tipo usado com `ICollector` deriva `TableEntity` ou implementa `ITableEntity`, mas ele não precisa. Olá seguinte `Person` classes de trabalho com o código de Olá Olá anterior mostrado `Ingress` método.
 
         public class Person : TableEntity
         {
@@ -62,25 +62,25 @@ Geralmente, o tipo que você usa com `ICollector` deriva de `TableEntity` ou imp
             public string Name { get; set; }
         }
 
-Para trabalhar diretamente com a API de armazenamento do Azure, você pode adicionar um parâmetro `CloudStorageAccount` à assinatura do método.
+Se você desejar toowork diretamente com hello API de armazenamento do Azure, você pode adicionar um `CloudStorageAccount` a assinatura do método toohello parâmetro.
 
 ## <a id="monitor"></a> Monitoramento em tempo real
-Como as funções de entrada de dados geralmente processam grandes volumes de dados, o painel do SDK de Trabalhos Web fornece dados de monitoramento em tempo real. A seção **Log de Invocação** informa se a função ainda está em execução.
+Como as funções de entrada de dados geralmente processam grandes volumes de dados, Olá painel do SDK do WebJobs fornece dados de monitoramento em tempo real. Olá **invocação Log** seção informa se a função hello ainda em execução.
 
 ![Função de entrada em execução](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressrunning.png)
 
-A página **Detalhes de Invocação** relata o progresso da função (número de entidades gravadas) enquanto ela está em execução e lhe dá a oportunidade de anulá-la. 
+Olá **detalhes de invocação** página relatórios Olá andamento da função (número de entidades gravados) enquanto está em execução e fornece uma oportunidade tooabort-lo. 
 
 ![Função de entrada em execução](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressprogress.png)
 
-Quando a função é concluída, a página **Detalhes de Invocação** relata o número de linhas gravadas.
+Quando função hello termina, hello **detalhes de invocação** página relata o número de saudação de linhas gravadas.
 
 ![Função de entrada concluída](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingresssuccess.png)
 
-## <a id="multiple"></a> Como ler várias entidades de uma tabela
-Para ler uma tabela, use o atributo `Table` com um parâmetro `IQueryable<T>`, em que tipo `T` deriva de `TableEntity` ou implementa `ITableEntity`.
+## <a id="multiple"></a>Como tooread várias entidades de uma tabela
+tooread uma tabela, use Olá `Table` atributo com um `IQueryable<T>` parâmetro onde digitar `T` deriva `TableEntity` ou implementa `ITableEntity`.
 
-O seguinte exemplo de código lê e registra em log todas as linhas da tabela `Ingress`:
+Olá exemplo de código a seguir lê e registra em log todas as linhas de saudação `Ingress` tabela:
 
         public static void ReadTable(
             [Table("Ingress")] IQueryable<Person> tableBinding,
@@ -94,10 +94,10 @@ O seguinte exemplo de código lê e registra em log todas as linhas da tabela `I
             }
         }
 
-### <a id="readone"></a> Como ler uma única entidade de uma tabela
-Há um construtor de atributo `Table` com dois parâmetros adicionais que permite especificar a chave de partição e a chave de linha quando você deseja associar a uma entidade de tabela única.
+### <a id="readone"></a>Como tooread uma única entidade de uma tabela
+Há um `Table` construtor de atributos com dois parâmetros adicionais que permitem que você especifique a chave de partição hello e chave de linha quando desejar toobind tooa tabela única entidade.
 
-O seguinte exemplo de código lê uma linha de tabela para uma entidade `Person` com base nos valores de chave de partição e chave de linha recebidos em uma mensagem de fila:  
+Olá, exemplo de código a seguir lê uma linha de tabela para um `Person` entidade com base em partição chave e a linha de valores de chave recebidos em uma mensagem da fila:  
 
         public static void ReadTableEntity(
             [QueueTrigger("inputqueue")] Person personInQueue,
@@ -117,12 +117,12 @@ O seguinte exemplo de código lê uma linha de tabela para uma entidade `Person`
         }
 
 
-A classe `Person` nesse exemplo não precisa implementar `ITableEntity`.
+Olá `Person` classe neste exemplo não tem tooimplement `ITableEntity`.
 
-## <a id="storageapi"></a> Como usar a API de Armazenamento .NET diretamente para trabalhar com uma tabela
-Você também pode usar o atributo `Table` com um objeto `CloudTable` para ter mais flexibilidade ao trabalhar com uma tabela.
+## <a id="storageapi"></a>Como toouse Olá API de armazenamento .NET diretamente toowork com uma tabela
+Você também pode usar o hello `Table` atributo com um `CloudTable` objeto mais flexibilidade ao trabalhar com uma tabela.
 
-A seguinte amostra de código usa um objeto `CloudTable` para adicionar uma única entidade de *entrada* à tabela. 
+exemplo de código a seguir Olá um `CloudTable` tooadd toohello uma única entidade do objeto *entrada* tabela. 
 
         public static void UseStorageAPI(
             [Table("Ingress")] CloudTable tableBinding,
@@ -138,22 +138,22 @@ A seguinte amostra de código usa um objeto `CloudTable` para adicionar uma úni
             tableBinding.Execute(insertOperation);
         }
 
-Para obter mais informações sobre como usar o objeto `CloudTable` , consulte [Como usar o Armazenamento de Tabela do .NET](../cosmos-db/table-storage-how-to-use-dotnet.md). 
+Para obter mais informações sobre como Olá toouse `CloudTable` de objeto, consulte [como toouse o armazenamento de tabela do .NET](../cosmos-db/table-storage-how-to-use-dotnet.md). 
 
-## <a id="queues"></a>Tópicos relacionados abordados no artigo de instruções sobre filas
-Para obter informações sobre como lidar com o processamento de tabelas acionado por uma mensagem da fila ou para cenários do SDK de Trabalhos Web não específicos do processamento de tabelas, consulte [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+## <a id="queues"></a>Tópicos relacionados cobertos por filas de saudação como-tooarticle
+Para obter informações sobre como processamento de tabela toohandle disparada por uma mensagem da fila, ou para WebJobs cenários do SDK não específicas tootable processamento, consulte [como toouse Azure fila de armazenamento com hello SDK do WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
-Os tópicos abordados nesse artigo incluem o seguinte:
+Os tópicos abordados nesse artigo incluem o seguinte hello:
 
 * Funções assíncronas
 * Várias instâncias
 * Desligamento normal
-* Usar atributos do SDK de Trabalhos Web no corpo de uma função
-* Definir as cadeias de conexão do SDK no código
+* Usar atributos de SDK do WebJobs no corpo de saudação de uma função
+* Cadeias de conexão do conjunto Olá SDK no código
 * Definir valores para parâmetros do construtor do SDK WebJobs no código
 * Disparar uma função manualmente
 * Gravar logs
 
 ## <a id="nextsteps"></a> Próximas etapas
-Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com tabelas do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
+Este guia fornece código exemplos que mostram como os cenários comuns de toohandle para trabalhar com tabelas do Azure. Para obter mais informações sobre como toouse WebJobs do Azure e hello WebJobs SDK, consulte [recursos recomendada do Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
 

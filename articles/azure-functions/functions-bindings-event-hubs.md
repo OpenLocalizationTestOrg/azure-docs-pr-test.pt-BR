@@ -1,6 +1,6 @@
 ---
-title: "Associações dos Hubs de Eventos do Azure Functions | Microsoft Docs"
-description: "Entenda como usar associações dos Hubs de Eventos do Azure no Azure Functions."
+title: "associações de Hubs de eventos de funções aaaAzure | Microsoft Docs"
+description: "Entender como toouse associações de Hubs de eventos do Azure em funções do Azure."
 services: functions
 documentationcenter: na
 author: wesmc7777
@@ -16,55 +16,55 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/20/2017
 ms.author: wesmc
-ms.openlocfilehash: 19021bef8b7156b3049f43b0275c0ed0c6b22514
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e864f032ad5ac58d318c9843c3844b5642733a70
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-event-hubs-bindings"></a>Associações dos Hubs de Eventos do Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Este artigo explica como configurar e usar associações dos [Hubs de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md) no Azure Functions.
+Este artigo explica como tooconfigure e usar [Hubs de eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md) associações para funções do Azure.
 O Azure Functions dá suporte a associações de gatilho e de saída para os Hubs de Eventos.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Se você for novo nos Hubs de Evento do Azure, consulte a [Visão geral dos Hubs de Eventos](../event-hubs/event-hubs-what-is-event-hubs.md).
+Se você for novo tooAzure os Hubs de eventos, consulte Olá [visão geral de Hubs de evento](../event-hubs/event-hubs-what-is-event-hubs.md).
 
 <a name="trigger"></a>
 
 ## <a name="event-hub-trigger"></a>Gatilho do hub de eventos
-Use o gatilho dos Hubs de Eventos do Azure para responder a um evento enviado para uma transmissão de evento do hub de eventos. É necessário ter acesso de leitura ao hub de eventos para configurar o gatilho.
+Hubs de eventos do uso Olá disparar toorespond tooan eventos enviados tooan fluxo de evento de hub de eventos. Você deve ter acesso de leitura toohello evento hub tooset o gatilho de saudação.
 
-O gatilho da função Hubs de Eventos usa o seguinte objeto JSON na matriz `bindings` de function.json:
+gatilho de função de Hubs de eventos de saudação usa Olá seguinte objeto JSON na Olá `bindings` matriz de function.json:
 
 ```json
 {
     "type": "eventHubTrigger",
     "name": "<Name of trigger parameter in function signature>",
     "direction": "in",
-    "path": "<Name of the event hub>",
-    "consumerGroup": "Consumer group to use - see below",
+    "path": "<Name of hello event hub>",
+    "consumerGroup": "Consumer group toouse - see below",
     "connection": "<Name of app setting with connection string - see below>"
 }
 ```
 
-`consumerGroup` é uma propriedade opcional usada para definir o [grupo de consumidores](../event-hubs/event-hubs-features.md#event-consumers) usado para assinar eventos no hub. Se omitido, o grupo de consumidores `$Default` será usado.  
-`connection` deve ser o nome de uma configuração de aplicativo que contém a cadeia de conexão para o namespace do hub de eventos.
-Copie essa cadeia de conexão clicando no botão **Informações de Conexão** do *namespace*, não no próprio hub de eventos. Essa cadeia de conexão deve ter, pelo menos, permissões de leitura para ativar o gatilho.
+`consumerGroup`é uma saudação de tooset propriedade opcional usada [grupo de consumidores](../event-hubs/event-hubs-features.md#event-consumers) usado toosubscribe tooevents no hub de saudação. Se omitido, Olá `$Default` grupo de consumidores é usado.  
+`connection`deve ser o nome de saudação de uma configuração de aplicativo que contém o namespace do hub de eventos toohello string hello conexão.
+Copie essa cadeia de caracteres de conexão clicando Olá **informações de Conexão** botão para Olá *namespace*, não hub de eventos Olá em si. Essa cadeia de caracteres de conexão deve ter pelo menos leitura gatilho de saudação tooactivate permissões.
 
-[Configurações adicionais](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) podem ser fornecidas em um arquivo host.json para ajustar ainda mais gatilhos dos Hubs de Eventos.  
+[Configurações adicionais](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) pode ser fornecido um host.json arquivo toofurther bem ajusta os gatilhos de Hubs de eventos.  
 
 <a name="triggerusage"></a>
 
 ## <a name="trigger-usage"></a>Uso de gatilho
-Quando uma função de gatilho dos Hubs de Eventos é disparada, a mensagem que a dispara é passada para a função como cadeia de caracteres.
+Quando uma função de gatilho de Hubs de evento é disparada, mensagem de saudação do que o aciona é passada para função hello como uma cadeia de caracteres.
 
 <a name="triggersample"></a>
 
 ## <a name="trigger-sample"></a>Exemplo de gatilho
-Suponha que você tenha o seguinte gatilho dos Hubs de Eventos na matriz `bindings` de function.json:
+Suponha que você tenha Olá seguintes Hubs de evento de gatilho Olá `bindings` matriz de function.json:
 
 ```json
 {
@@ -76,7 +76,7 @@ Suponha que você tenha o seguinte gatilho dos Hubs de Eventos na matriz `bindin
 }
 ```
 
-Consulte o exemplo específico a um idioma de registro do corpo da mensagem do gatilho do hub de eventos.
+Consulte Olá específico do idioma exemplo registra o corpo da mensagem de saudação do disparador de hub de eventos de saudação.
 
 * [C#](#triggercsharp)
 * [F#](#triggerfsharp)
@@ -95,7 +95,7 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-Você também pode receber o evento como um objeto [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata), que fornece acesso aos metadados do evento.
+Você também pode receber o evento hello como um [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) objeto, que dá a você acessar metadados de evento toohello.
 
 ```cs
 #r "Microsoft.ServiceBus"
@@ -108,7 +108,7 @@ public static void Run(EventData myEventHubMessage, TraceWriter log)
 }
 ```
 
-Para receber eventos em um lote, altere o método de assinatura para `string[]` ou `EventData[]`.
+tooreceive eventos em um lote, alterar a assinatura do método hello muito`string[]` ou `EventData[]`.
 
 ```cs
 public static void Run(string[] eventHubMessages, TraceWriter log)
@@ -143,9 +143,9 @@ module.exports = function (context, myEventHubMessage) {
 <a name="output"></a>
 
 ## <a name="event-hubs-output-binding"></a>Associação de saída dos Hubs de Eventos
-Use a associação de saída dos Hubs de Eventos para gravar eventos em uma transmissão de evento do hub de eventos. É necessário ter permissão de envio para um hub de eventos a fim de gravar eventos nele.
+Olá usar Hubs de eventos de saída fluxo de evento hub de eventos tooan de eventos toowrite de associação. Você deve ter o envio permissão tooan evento hub toowrite eventos tooit.
 
-A associação de saída usa o seguinte objeto JSON na matriz `bindings` de function.json:
+associação de saída Hello usa Olá seguinte objeto JSON na Olá `bindings` matriz de function.json:
 
 ```json
 {
@@ -157,22 +157,22 @@ A associação de saída usa o seguinte objeto JSON na matriz `bindings` de func
 }
 ```
 
-`connection` deve ser o nome de uma configuração de aplicativo que contém a cadeia de conexão para o namespace do hub de eventos.
-Copie essa cadeia de conexão clicando no botão **Informações de Conexão** do *namespace*, não no próprio hub de eventos. Essa cadeia de conexão deve ter permissões de envio para enviar a mensagem à transmissão do evento.
+`connection`deve ser o nome de saudação de uma configuração de aplicativo que contém o namespace do hub de eventos toohello string hello conexão.
+Copie essa cadeia de caracteres de conexão clicando Olá **informações de Conexão** botão para Olá *namespace*, não hub de eventos Olá em si. Essa cadeia de caracteres de conexão deve ter um fluxo de eventos do envio permissões toosend Olá mensagem toohello.
 
 ## <a name="output-usage"></a>Uso de saída
-Esta seção mostra como usar a associação de saída dos Hubs de Eventos no seu código de função.
+Esta seção mostra como toouse seus Hubs de eventos de saída de associação no seu código de função.
 
-Você pode gerar mensagens de saída para o hub de eventos configurado com os seguintes tipos de parâmetro:
+Você pode dar saída hub de eventos mensagens toohello configurado com hello tipos de parâmetro a seguir:
 
 * `out string`
-* `ICollector<string>` (para gerar várias mensagens)
+* `ICollector<string>`(toooutput várias mensagens)
 * `IAsyncCollector<string>` (versão assíncrona de `ICollector<T>`)
 
 <a name="outputsample"></a>
 
 ## <a name="output-sample"></a>Amostra de saída
-Suponha que você tenha a seguinte associação de saída dos Hubs de Eventos na matriz `bindings` de function.json:
+Suponha que você tenha a seguinte Olá Hubs de eventos de saída associação em Olá `bindings` matriz de function.json:
 
 ```json
 {
@@ -184,7 +184,7 @@ Suponha que você tenha a seguinte associação de saída dos Hubs de Eventos na
 }
 ```
 
-Consulte o exemplo específico a um idioma de gravação de evento na mesma transmissão.
+Consulte Olá específico do idioma exemplo grava um fluxo até mesmo de toohello de eventos.
 
 * [C#](#outcsharp)
 * [F#](#outfsharp)
@@ -205,7 +205,7 @@ public static void Run(TimerInfo myTimer, out string outputEventHubMessage, Trac
 }
 ```
 
-Ou, para criar várias mensagens:
+Ou, toocreate várias mensagens:
 
 ```cs
 public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, TraceWriter log)
@@ -241,7 +241,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-Ou, para enviar várias mensagens,
+Ou, toosend várias mensagens,
 
 ```javascript
 module.exports = function(context) {

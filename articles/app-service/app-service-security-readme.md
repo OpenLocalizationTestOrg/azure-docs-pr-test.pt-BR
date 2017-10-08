@@ -1,6 +1,6 @@
 ---
-title: "Segurança do Serviço de Aplicativo do Azure"
-description: "Saiba como proteger aplicativos Web, móveis, API e lógicos no Serviço de Aplicativo do Azure."
+title: "aaaAzure segurança do serviço de aplicativo"
+description: "Saiba como toosecure a aplicativos Web, móveis, lógica e de API no serviço de aplicativo do Azure."
 services: app-service
 documentationcenter: 
 author: naziml
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2015
 ms.author: naziml
-ms.openlocfilehash: 7d26d52ad04bd4158a1450ae0f49fc7c1f8a04e8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8a0bff7d9665abadd70c1cfd07dca265ea057596
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-app-service-security"></a>Segurança do Serviço de Aplicativo do Azure
-O Serviço de Aplicativo do Azure está em conformidade com os padrões essenciais do setor em relação a segurança e confiabilidade, para fornecer a nossos clientes uma plataforma segura. Temos vários recursos fáceis de usar para ajudar a proteger o tráfego de entrada e de saída do seu aplicativo. Também ajudamos clientes a proteger seu código de aplicativo, fornecendo funcionalidade externa para verificar vulnerabilidades em seu aplicativo Web.
+Serviços de aplicativo do Azure está em conformidade com padrões do setor de chave de Olá para segurança e confiabilidade tooprovide nossos clientes uma plataforma segura. Temos vários toohelp de fácil de usar recursos proteger o tráfego de entrada e saído para seu aplicativo. Também podemos ajudá-segura de seu código de aplicativo, fornecendo externamente fornecida funcionalidade tooscan o aplicativo web para vulnerabilidades de clientes.
 
 [!INCLUDE [app-service-blueprint-security](../../includes/app-service-blueprint-security.md)]
 
-O Serviço de Aplicativo do Azure usa a mesma solução Antimalware usada pelos Serviços de Nuvem do Azure e pelas máquinas virtuais. Para saber mais sobre isso, confira nossa [documentação antimalware](../security/azure-security-antimalware.md). 
+Usos de serviço de aplicativo do Azure Olá mesma solução Antimalware usada por serviços de nuvem do Azure e máquinas virtuais. toolearn mais sobre isso consulte tooour [Antimalware documentação](../security/azure-security-antimalware.md). 
 

@@ -1,5 +1,5 @@
 ---
-title: Logs de streaming e console
+title: logs de aaaStreaming e console
 description: "Logs de streaming e visão geral do console"
 author: btardif
 manager: erikre
@@ -14,24 +14,24 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: byvinyal
-ms.openlocfilehash: 120ce6b115820728b9f853e9ff349beb0ef29c9d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bb4b8ce5358da12041e164dfff8f43790dd67924
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="streaming-logs-and-the-console"></a>Logs de streaming e o console
+# <a name="streaming-logs-and-hello-console"></a>Os Logs de streaming e hello Console
 ## <a name="streaming-logs"></a>Logs de streaming
-O **portal do Azure** fornece um visualizador de log de streaming integrado que permite exibir os eventos de rastreamento de aplicativos do **Serviço de Aplicativo** em tempo real.  
+Olá **portal do Azure** fornece um visualizador de log de streaming integrado que permite que você exiba os eventos de rastreamento de seu **do serviço de aplicativo** aplicativos em tempo real.  
 
 A configuração desse recurso exige algumas etapas simples:
 
 * Escrever rastreamentos no código
 * Habilitar os **Logs de Diagnóstico** para seu aplicativo
-* Exiba a transmissão da interface de usuário interna **Logs de Streaming** no **portal do Azure**.
+* Fluxo de saudação de exibição de internas Olá **Logs de Streaming** UI de saudação **portal do Azure**.
 
-### <a name="how-to-write-traces-in-your-code"></a>Como escrever rastreamentos no código
-É fácil escrever rastreamentos no código.  No C#, é tão fácil quanto escrever o seguinte código:
+### <a name="how-toowrite-traces-in-your-code"></a>Como toowrite rastreamentos em seu código
+É fácil escrever rastreamentos no código.  No c# é tão fácil quanto escrever Olá código a seguir:
 
 `````````````````````````
 Trace.TraceInformation("My trace statement");
@@ -45,34 +45,34 @@ Trace.TraceWarning("My warning statement");
 Trace.TraceError("My error statement");
 `````````````````````````
 
-A classe de rastreamento está no namespace System. Diagnostics.
+Olá classe Trace reside no namespace System Diagnostics hello.
 
-Em um aplicativo node.js, você pode escrever esse código para obter o mesmo resultado:
+Em um aplicativo Node. js, você pode escrever este código tooachieve Olá mesmo resultado:
 
 `````````````````````````
 console.log("My trace statement").
 `````````````````````````
 
-### <a name="how-to-enable-and-view-the-streaming-logs"></a>Como habilitar e exibir os logs de streaming
-Os Diagnósticos do ![][BrowseSitesScreenshot] são habilitados de acordo com cada aplicativo. Comece navegando até o site em que deseja habilitar esse recurso.  
+### <a name="how-tooenable-and-view-hello-streaming-logs"></a>Como tooenable e exibição Olá logs de streaming
+Os Diagnósticos do ![][BrowseSitesScreenshot] são habilitados de acordo com cada aplicativo. Comece procurando toohello site você gostaria que tooenable esse recurso no.  
 
-![][DiagnosticsLogs] No menu de configurações, role para baixo até a seção **Monitoramento** e clique em **(1) Logs de Diagnóstico**. Em seguida, **(2) habilite** **Log de Aplicativo (Filesystem)** ou **Log de Aplicativo (blob)** A opção **Nível** permite alterar o nível de severidade dos rastreamentos a serem capturados. Se estiver apenas tentando se familiarizar com o recurso, defina o nível para **Detalhado** a fim de garantir que todos os demonstrativos de rastreamento sejam coletados.
+![][DiagnosticsLogs]No menu de configurações, role para baixo toohello **monitoramento** seção e clique em **(1) Logs de diagnóstico**. Em seguida, **enable (2)** **(sistema de arquivos) de log de aplicativo** ou **(blob) de log de aplicativo** Olá **nível** opção permite que você altere Olá nível de severidade de toocapture rastreamentos. Se você estiver apenas tentando tooget familiarizado com o recurso de hello, definir nível de saudação muito**detalhado** tooensure todas as instruções de rastreamento são coletadas.
 
-Clique em **SALVAR** na parte superior da lâmina, e você está pronto para exibir logs.
+Clique em **salvar** na parte superior de saudação da folha de saudação e você estiver pronto tooview logs.
 
 > [!NOTE]
-> Quanto mais alto o **nível de severidade**, mais recursos serão consumidos para registro e mais rastreamentos serão produzidos. Certifique-se de que o **nível de severidade** esteja configurado com o detalhamento correto para um site de produção ou tráfego alto. 
+> Olá Olá superior **nível de severidade** hello mais recursos são consumido toolog e hello mais rastreamentos são produzidos. Certifique-se de **nível de severidade** é toohello configurado o detalhamento correto para uma produção ou um site de alto tráfego. 
 > 
 > 
 
-![][StreamingLogsScreenshot] Para exibir os **logs de streaming** de dentro do portal do Azure, clique em **(1) Fluxo de Log** também na seção **Monitoramento** do menu de configurações. Se o aplicativo estiver gravando ativamente os demonstrativos de rastreamento, você deverá vê-los na **(2) interface de usuário Logs de Streaming** quase em tempo real.
+![][StreamingLogsScreenshot]Olá tooview **os logs de streaming** em Olá portal do Azure, clique em **fluxo de Log (1)** também em Olá **monitoramento** seção do menu de configurações de saudação. Se seu aplicativo ativamente está gravando instruções de rastreamento, você deverá vê-los no hello **logs de streaming (2) da interface do usuário** quase em tempo real.
 
 ## <a name="console"></a>Console
-O **portal do Azure** fornece ao console acesso ao seu aplicativo. É possível explorar o sistema de arquivos do aplicativo e executar scripts powershell/cmd. Você é vinculado pelas mesmas permissões definidas que seu código de aplicativo em execução ao executar comandos do console. O acesso a diretórios protegidos ou a execução de scripts que exigem permissões elevadas é bloqueado.  
+Olá **portal do Azure** fornece ao aplicativo de tooyour de acesso de console. É possível explorar o sistema de arquivos do aplicativo e executar scripts powershell/cmd. São vinculados por Olá mesmas permissões definidas como o código do aplicativo em execução durante a execução de comandos do console. Acessar os diretórios tooprotected ou execução de scripts que exige permissões elevadas está bloqueada.  
 
-![][ConsoleScreenshot] No menu de configurações, role para baixo até a seção **Ferramentas de Desenvolvimento** e clique em **(1) Console**, e a interface de usuário **(2) Console** será aberta à direita.
+![][ConsoleScreenshot]No menu de configurações, role para baixo demais**ferramentas de desenvolvimento** seção e clique em **(1) o Console** e hello **(2) o console** UI abre toohello direita.
 
-Para se familiarizar com o **console**, tente comandos básicos como:
+tooget familiarizado com hello **console**, tente comandos básicos, como:
 
 `````````````````````````
 dir

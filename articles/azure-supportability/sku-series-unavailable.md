@@ -1,6 +1,6 @@
 ---
-title: "Série SKU não disponível | Microsoft Docs"
-description: "Algumas séries de SKU não estão disponíveis para a assinatura selecionada para essa região."
+title: "série de aaaSKU disponível | Microsoft Docs"
+description: "Algumas séries SKU não estão disponíveis para a assinatura de saudação selecionada para esta região."
 services: Azure Supportability
 documentationcenter: 
 author: ganganarayanan
@@ -14,35 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: gangan
-ms.openlocfilehash: 3dc32bfb88e43e82cc4b3f43e31ce20d4302b688
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 76d45894c75c714fb3165b86add4be9012cbd5bc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sku-series-unavailable"></a>Série de SKU indisponível
-Em algumas regiões, determinados SKUs não ficam automaticamente disponíveis em novas assinaturas.  Isso pode ocorrer quando [SKUs mais avançados são introduzidos em uma região](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) e a popularidade do SKU herdado decai.
-A mensagem "*Algumas séries de SKU não estão disponíveis para a assinatura selecionada para esta região*" é exibida durante a criação de uma solicitação de suporte para aumentar a cota de núcleos de computação.
+Em algumas regiões, determinados SKUs não ficam automaticamente disponíveis em novas assinaturas.  Isso pode ocorrer quando [SKUs mais potentes foram introduzidos em uma região](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) e popularidade Olá Olá SKU herdado recusa.
+mensagem de saudação "*série alguns SKU não está disponível para assinatura Olá selecionado para esta região*" é exibida quando a criação de uma cota de núcleos de computação do suporte solicitação tooincrease.
 
-É possível analisar a disponibilidade do SKU na página [Serviços do Azure por região](https://azure.microsoft.com/regions/#services) . 
+É possível analisar a disponibilidade do SKU no hello [os serviços do Azure por região](https://azure.microsoft.com/regions/#services) página. 
 
-Para solicitar acesso a um SKU que foi bloqueado em sua assinatura, crie uma solicitação de suporte de "Gerenciamento de Assinatura".
+toorequest acesso tooa SKU restrito de sua assinatura, crie uma solicitação de suporte de "Gerenciamento de assinatura".
 
-* Na página Noções Básicas, selecione o tipo de Problema como "Gerenciamento de Assinatura" e clique em "Avançar".
+* Na página de Noções básicas de saudação, selecione o tipo de problema como "Assinatura de gerenciamento" e clique em "Avançar".
 
 ![Folha de Noções básicas](./media/SKU-series-unavailable/BasicsSubMgmt.png)
 
-* Na página do Problema, selecione o tipo de Problema como "Outras perguntas gerais" e insira a região exata e o SKU que você não estiver vendo.
-  Isso ajuda a acelerar o processo de suporte.
+* Na página de problema hello, selecione o tipo de problema de saudação como "Outras questões gerais" e insira região exata hello e SKU não esteja visualizando.
+  Isso ajuda a acelerar o processo de suporte de saudação.
 
 ![Problema](./media/SKU-series-unavailable/ProblemSubMgmt.png)
 
-* Na página Informações de Contato, coloque seus detalhes de contato e clique em “Criar”.
+* Na página de informações de contato Olá, insira os detalhes do contato e clique em "Criar".
 
 ![Informações de contato](./media/SKU-series-unavailable/ContactInformation.png)
 
 ## <a name="feedback"></a>Comentários
-Estamos sempre abertos a comentários e sugestões! Envie-nos suas [sugestões](https://feedback.azure.com/forums/266794-support-feedback). Além disso, você pode interagir conosco pelo [Twitter](https://twitter.com/azuresupport) ou nos [fóruns do MSDN](https://social.msdn.microsoft.com/Forums/azure).
+Estamos sempre abrir toofeedback e sugestões! Envie-nos suas [sugestões](https://feedback.azure.com/forums/266794-support-feedback). Além disso, você pode envolver conosco por meio de [Twitter](https://twitter.com/azuresupport) ou hello [fóruns MSDN](https://social.msdn.microsoft.com/Forums/azure).
 
 ## <a name="learn-more"></a>Saiba mais
 [Perguntas frequentes sobre o suporte do Azure.](https://azure.microsoft.com/support/faq)

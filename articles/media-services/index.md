@@ -1,6 +1,6 @@
 ---
-title: "Documentação dos Serviços de Mídia do Azure - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba como transmitir sob demanda ou em tempo real vídeo de qualidade de transmissão com os serviços de mídia, uma plataforma de nuvem extensível com segurança. Tutoriais, referências de API e muito mais."
+title: "aaaAzure documentação de serviços de mídia - tutoriais, referência de API | Microsoft Docs"
+description: "Saiba como toosecurely fluxo de vídeo de qualidade de transmissão ao vivo ou sob demanda com os serviços de mídia, uma plataforma de nuvem extensível. Tutoriais, referências de API e muito mais."
 services: media-services
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: f0da57cc74e190e6684036c8a793dface3c6dd74
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c36b7dbf14434e7aadc38f2c74ca7d3830a1bd3f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="media-services-documentation"></a>Documentação de Serviços de Mídia
 
-Saiba como transmitir vídeo de qualidade de transmissão com os Serviços de Mídia, uma plataforma de nuvem extensível. Tutoriais, referências de API e outras documentações mostram como oferecer com segurança, sob demanda e ao vivo, fluxos de áudio ou vídeos que são dimensionados para milhões de usuários.
+Saiba como toostream vídeo de qualidade de transmissão com serviços de mídia, uma plataforma de nuvem extensível. Tutoriais, referências de API e outras documentações mostram como toosecurely entregar sob demanda e ao vivo fluxos de áudio ou vídeos que podem ser expandidos toomillions de usuários.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -70,7 +70,7 @@ Saiba como transmitir vídeo de qualidade de transmissão com os Serviços de M�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução aos Serviços de Mídia do Azure usando o Portal do Azure</h3>
+                        <h3>Introdução ao Azure Media Services usando Olá Portal do Azure</h3>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@ Saiba como transmitir vídeo de qualidade de transmissão com os Serviços de M�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Criar uma conta dos Serviços de Mídia do Azure usando o Portal do Azure</h3>
+                        <h3>Criar uma conta de serviços de mídia do Azure usando Olá Portal do Azure</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Saiba como transmitir vídeo de qualidade de transmissão com os Serviços de M�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução ao fornecimento de conteúdo usando o Portal do Azure</h3>
+                        <h3>Obter Introdução entregar conteúdo usando Olá Portal do Azure</h3>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 ---
-title: "Implantar um aplicativo Web móvel ASP.NET MVC 5 no Serviço de Aplicativo do Azure"
-description: "Um tutorial que ensina como implantar um aplicativo Web no Serviço de Aplicativo do Azure usando recursos móveis no aplicativo Web ASP.NET MVC 5."
+title: "aplicativo de web móvel aaaDeploy um ASP.NET MVC 5 no serviço de aplicativo do Azure"
+description: "Um tutorial que ensina como toodeploy uma tooAzure de aplicativo web do serviço de aplicativo móvel usando o recursos no ASP.NET MVC 5 aplicativo da web."
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -14,56 +14,56 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
-ms.openlocfilehash: c98e9b485c52a82e5be5c0f6b0b67912d1e890b9
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 01119c07246c0252fd357562774a2e90b3ef77d0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-an-aspnet-mvc-5-mobile-web-app-in-azure-app-service"></a>Implantar um aplicativo Web móvel ASP.NET MVC 5 no Serviço de Aplicativo do Azure
-Este tutorial ensinará você o básico sobre como compilar um aplicativo Web do ASP.NET MVC 5 adaptado para dispositivos móveis e implantá-lo no Serviço de Aplicativo do Azure. Para este tutorial, você precisa do [Visual Studio Express 2013 para Web][Visual Studio Express 2013] ou do Visual Studio Professional Edition, se já o tiver. Você pode usar o [Visual Studio 2015], mas as capturas de tela serão diferentes e você deverá usar os modelos do ASP.NET 4.x.
+Este tutorial irá ensiná-Olá Noções básicas de como toobuild um ASP.NET MVC 5 web aplicativo amigáveis para dispositivos móveis e implantá-lo tooAzure do serviço de aplicativo. Para este tutorial, você precisa [Visual Studio Express 2013 para Web] [ Visual Studio Express 2013] ou a edição professional saudação do Visual Studio se ele já está instalado. Você pode usar [Visual Studio 2015] mas capturas de tela de saudação serão diferentes e você deve usar modelos do hello ASP.NET 4. x.
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-youll-build"></a>O que você vai construir
-Neste tutorial, você adicionará recursos móveis ao aplicativo de listagem de conferência simples que é fornecido no [projeto inicial][StarterProject]. A captura de tela a seguir mostra as sessões do ASP.NET no aplicativo concluído, como visto no emulador do navegador nas ferramentas de desenvolvedor do Internet Explorer 11 F12.
+Para este tutorial, você adicionará recursos móveis toohello listagem de conferência aplicativo simples que é fornecido no hello [projeto inicial][StarterProject]. Olá seguinte captura de tela mostra Olá ASP.NET sessões no aplicativo hello concluída, como visto no emulador de navegador Olá nas ferramentas de desenvolvedor F12 do Internet Explorer 11.
 
 ![][FixedSessionsByTag]
 
-É possível utilizar as ferramentas de desenvolvedor do Internet Explorer 11 F12 e a [ferramenta Fiddler][Fiddler] para ajudar a depurar o seu aplicativo. 
+Você pode usar ferramentas de desenvolvedor Olá F12 do Internet Explorer 11 e hello [ferramenta Fiddler] [ Fiddler] toohelp depurar seu aplicativo. 
 
 ## <a name="skills-youll-learn"></a>Qualificações que você aprenderá
 Eis o que você vai aprender:
 
-* Como usar o Visual Studio 2013 para publicar seu aplicativo Web diretamente em um aplicativo Web no Serviço de Aplicativo do Azure.
-* Como os modelos do ASP.NET MVC 5 utilizam o framework de CSS Bootstrap para melhorar a exibição em dispositivos móveis
-* Como criar modos de exibição para dispositivos móveis voltados para navegadores de dispositivos móveis específicos, tais como iPhone e Android
-* Como criar modos de exibição dinâmicos (que respondam a navegadores diferentes em todos os dispositivos)
+* Como toopublish toouse Visual Studio 2013 seu aplicativo web diretamente tooa de aplicativo web no serviço de aplicativo do Azure.
+* Como modelos Olá ASP.NET MVC 5 usam o framework de inicialização de CSS Olá para melhorar a exibição em dispositivos móveis
+* Como toocreate específicas para dispositivos móveis exibições tootarget específico navegadores de dispositivos móveis, como iPhone hello e Android
+* Como toocreate responsivo exibições (exibições que respondem toodifferent navegadores em todos os dispositivos)
 
-## <a name="set-up-the-development-environment"></a>Configurar o ambiente de desenvolvimento
-Configure o ambiente de desenvolvimento instalando o SDK do Azure para .NET 2.5.1 ou posterior. 
+## <a name="set-up-hello-development-environment"></a>Configurar o ambiente de desenvolvimento Olá
+Configurar seu ambiente de desenvolvimento, instalando hello Azure SDK para .NET 2.5.1 ou posterior. 
 
-1. Para instalar o SDK do Azure para .NET, clique no link abaixo. Se você ainda não tiver o Visual Studio 2013 instalado, ele será instalado pelo link. Este tutorial requer o Visual Studio 2013. [SDK do Azure para o Visual Studio 2013][AzureSDKVs2013]
-2. Na janela do Web Platform Installer, clique em **Instalar** e prossiga com a instalação.
+1. Olá tooinstall SDK do Azure para .NET, clique o link de saudação abaixo. Se você não tiver o Visual Studio 2013 instalado, ele será instalado por um link de saudação. Este tutorial requer o Visual Studio 2013. [SDK do Azure para o Visual Studio 2013][AzureSDKVs2013]
+2. Na janela do Web Platform Installer hello, clique em **instalar** e prosseguir com a instalação de saudação.
 
-Também será necessário um emulador do navegador móvel. Qualquer uma das opções a seguir funcionará:
+Também será necessário um emulador do navegador móvel. Qualquer um dos seguintes Olá funcionará:
 
 * Emulador do navegador nas [ferramentas de desenvolvedor do Internet Explorer 11 F12][EmulatorIE11] (usado em todas as capturas de tela do navegador móvel). Ele possui predefinições de cadeia de caracteres de agente de usuário para Windows Phone 8, Windows Phone 7 e Apple iPad.
 * Emulador de navegador nas [DevTools do Google Chrome][EmulatorChrome]. Contém predefinições para vários dispositivos Android, e também para Apple iPhone, Apple iPad e Amazon Kindle Fire. Ele também emula eventos de toque.
 * [Emulador do Opera para dispositivos móveis][EmulatorOpera]
 
-Os projetos do Visual Studio com o código-fonte em C\# estão disponíveis para acompanhar este tópico:
+Projetos do Visual Studio com C\# código-fonte é tooaccompany disponível neste tópico:
 
 * [Download do projeto inicial][StarterProject]
 * [Download do projeto concluído][CompletedProject]
 
-## <a name="bkmk_DeployStarterProject"></a>Implantar o projeto inicial em um aplicativo Web do Azure
-1. Baixe o [projeto inicial][StarterProject] do aplicativo de listagem de conferência.
-2. Em seguida, no Windows Explorer, clique com o botão direito do mouse no arquivo ZIP baixado e escolha *Propriedades*.
-3. Na caixa de diálogo **Propriedades**, escolha o botão **Desbloquear**. (Desbloquear impede um aviso de segurança que ocorre quando você tenta usar um arquivo *.zip* que você baixou da Web).
-4. Clique com o botão direito do mouse no arquivo ZIP e selecione **Extrair tudo** para descompactar o arquivo. 
-5. No Visual Studio, abra o arquivo *C#\Mvc5Mobile.sln*.
-6. No Gerenciador de Soluções, clique com o botão direito no projeto e clique em **Publicar**.
+## <a name="bkmk_DeployStarterProject"></a>Implantar o aplicativo de web do Azure do hello starter projeto tooan
+1. Baixe o aplicativo de listagem de conferência hello [projeto inicial][StarterProject].
+2. Em seguida, no Windows Explorer, clique no arquivo ZIP de saudação baixado e escolha *propriedades*.
+3. Em Olá **propriedades** caixa de diálogo caixa, escolha Olá **desbloquear** botão. (Desbloqueio impede que um aviso de segurança que ocorre quando você tenta toouse um *. zip* arquivo que você baixou da web hello.)
+4. Arquivo ZIP de saudação e selecione **extrair tudo** para descompactar o arquivo hello. 
+5. No Visual Studio, abra Olá *C#\Mvc5Mobile.sln* arquivo.
+6. No Gerenciador de soluções, clique com botão direito hello e clique em **publicar**.
    
    ![][DeployClickPublish]
 7. Em Publicar Web, clique em **Serviço de Aplicativo do Microsoft Azure**.
@@ -72,44 +72,44 @@ Os projetos do Visual Studio com o código-fonte em C\# estão disponíveis para
 8. Se você ainda não tiver feito logon no Azure, clique em **Adicionar uma conta**.
    
    ![][DeploySignIn]
-9. Siga os prompts para fazer logon na sua conta do Azure.
-10. A caixa de diálogo serviço de aplicativo agora deve mostrar que você entrou. Clique em **Novo**.
+9. Siga Olá prompts toolog em sua conta do Azure.
+10. Olá caixa de diálogo serviço de aplicativo agora deve mostrar como conectado. Clique em **Novo**.
     
     ![][DeployNewWebsite]  
-11. No campo **Nome do Aplicativo Web** , especifique um prefixo único para o nome do aplicativo. O nome totalmente qualificado do aplicativo Web será *&lt;prefixo>*.azurewebsites.net. Além disso, especifique um novo nome de grupo de recursos em **Grupo de recursos**. Em seguida, clique em **Novo** para criar um novo plano do Serviço de Aplicativo.
+11. Em Olá **nome do aplicativo Web** , especifique um prefixo de nome exclusivo do aplicativo. O nome totalmente qualificado do aplicativo Web será *&lt;prefixo>*.azurewebsites.net. Além disso, especifique um novo nome de grupo de recursos em **Grupo de recursos**. Em seguida, clique em **novo** toocreate um novo plano de serviço de aplicativo.
     
     ![][DeploySiteSettings]
-12. Configurar o novo plano do Serviço de Aplicativo e clique em **OK**. 
+12. Configurar o novo plano de serviço de aplicativo hello e clique em **Okey**. 
     
     ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-7a.png)
-13. De volta na caixa de diálogo Criar Serviço de Aplicativo, clique em **Criar**.
+13. Novamente na caixa de diálogo de criação de serviço de aplicativo hello, clique em **criar**.
     
     ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/deploy-to-azure-website-7b.png) 
-14. Após os recursos do Azure serem criados, a caixa de diálogo Publicar Web será preenchida com as configurações para seu novo aplicativo. Clique em **Publicar**.
+14. Depois hello recursos do Azure são criados, de diálogo Publicar Web hello será preenchido com as configurações de saudação para seu novo aplicativo. Clique em **Publicar**.
     
     ![][DeployPublishSite]
     
-    Depois que o Visual Studio terminar de publicar o projeto inicial para o aplicativo Web do Azure, o navegador da área de trabalho se abre para exibir o aplicativo Web online.
-15. Inicie o emulador de navegador móvel, copie a URL para o aplicativo de conferência (*<prefix>*.azurewebsites.net) do emulador e depois clique no botão da parte superior direita e selecione **Procurar por marca**. Se você estiver usando o Internet Explorer 11 como navegador padrão, basta digitar `F12`, depois `Ctrl+8` e, em seguida, alterar o perfil do navegador para **Windows Phone**. A imagem abaixo mostra o modo de exibição *AllTags* em modo retrato (ao escolher **Procurar por marca**).
+    Depois que o Visual Studio termina publicação Olá starter projeto toohello web do Azure aplicativo, o navegador de área de trabalho Olá abre toodisplay Olá web dinâmico aplicativo.
+15. Iniciar o emulador do navegador de dispositivo móvel, copie Olá URL para o aplicativo de conferência hello (*<prefix>*. azurewebsites.net) no emulador do Windows hello e, em seguida, clique no botão superior direito e selecione **procurar por marca**. Se você estiver usando o Internet Explorer 11 como navegador padrão de saudação, basta tootype `F12`, em seguida, `Ctrl+8`e alterar o perfil de navegador Olá muito**do Windows Phone**. A imagem abaixo mostra Olá *AllTags* exibição no modo retrato (escolha **procurar por marca**).
     
     ![][AllTags]
 
 > [!TIP]
-> Enquanto depura o aplicativo MVC 5 no Visual Studio, você pode publicar seu aplicativo Web no Azure novamente para verificar o aplicativo Web online, diretamente no navegador móvel ou um emulador de navegador.
+> Enquanto você pode depurar seu aplicativo MVC 5 de dentro do Visual Studio, você pode publicar seu tooAzure de aplicativo da web novamente tooverify Olá ao vivo aplicativo web diretamente do seu navegador móvel ou um emulador de navegador.
 > 
 > 
 
-A exibição é muito legível em um dispositivo móvel. Você também já pode ver alguns dos efeitos visuais aplicados pelo framework de Bootstrap CSS.
-Clique no link **ASP.NET** .
+exibição de saudação é muito legível em um dispositivo móvel. Você também já pode ver alguns dos efeitos visuais de saudação aplicados pela estrutura de inicialização CSS hello.
+Clique em Olá **ASP.NET** link.
 
 ![][SessionsByTagASP.NET]
 
-O modo de exibição de marca do ASP.NET é ajustado à tela, o que é feito automaticamente pelo Bootstrap para você. No entanto, é possível aprimorar esse modo de exibição para melhor se adequar ao navegador móvel. Por exemplo, a coluna **Data** é muito difícil de ler. Mais adiante no tutorial, você vai alterar o modo de exibição *AllTags* para torná-lo acessível a dispositivos móveis.
+Olá modo de exibição ASP.NET é ajustado zoom toohello tela, que Bootstrap faz para você automaticamente. No entanto, você pode melhorar essa exibição toobetter naipe Olá navegador de dispositivo móvel. Por exemplo, Olá **data** coluna é difícil de ler. Posteriormente no tutorial hello, você alterará Olá *AllTags* exibir toomake-amigáveis para dispositivos móveis.
 
 ## <a name="bkmk_bootstrap"></a> Framework de CSS Bootstrap
-Uma novidade do modelo MVC 5 é o suporte interno ao Bootstrap. Você já viu como ele aprimora imediatamente os diferentes modos de exibição em seu aplicativo. Por exemplo, a barra de navegação na parte superior é recolhida automaticamente quando a largura do navegador é menor. No navegador da área de trabalho, tente redimensionar a janela e veja como a barra de navegação muda de aparência e estilo. O responsável é o design Web dinâmico interno do Bootstrap.
+A novidade no hello MVC 5 modelo é suporte interno a inicialização. Você já viu como ele melhora imediatamente Olá modos de exibição em seu aplicativo. Por exemplo, barra de navegação de saudação na parte superior da saudação é recolhível automaticamente quando a largura do navegador de saudação for menor. No navegador de área de trabalho hello, tente redimensionar a janela do navegador hello e ver como a barra de navegação Olá altera sua aparência. Este é o design de web responsivo Olá que é criado na inicialização.
 
-Para ver como ficaria a aparência do aplicativo Web sem o Bootstrap, abra *App\_Start\\BundleConfig.cs* e transforme em comentário as linhas que contêm *bootstrap.js* e *bootstrap.css*. O código a seguir mostra as duas últimas instruções do método `RegisterBundles` após a alteração:
+toosee como aplicativo da Web de saudação seria sem inicialização, abra *aplicativo\_iniciar\\BundleConfig.cs* e comente as linhas de saudação que contenham *bootstrap.js* e *bootstrap.css*. Olá código a seguir mostra Olá duas últimas instruções de saudação `RegisterBundles` método após alteração hello:
 
      bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
               //"~/Scripts/bootstrap.js",
@@ -119,29 +119,29 @@ Para ver como ficaria a aparência do aplicativo Web sem o Bootstrap, abra *App\
               //"~/Content/bootstrap.css",
               "~/Content/site.css"));
 
-Pressione `Ctrl+F5` para executar o aplicativo.
+Pressione `Ctrl+F5` aplicativo hello de toorun.
 
-Observe que a barra de navegação recolhível é agora apenas uma lista simples e desordenada. Clique em **Procurar por marcação** novamente e clique em **ASP.NET**.
-No modo de exibição do emulador do navegador móvel, é possível ver que ele já não se ajusta à tela, e você precisa rolar para os lados para conseguir vero lado direito da tabela.
+Observe a que barra de navegação recolhível que Olá agora é apenas uma lista não ordenada comum. Clique em **Procurar por marcação** novamente e clique em **ASP.NET**.
+No modo de exibição de emulador móvel hello, você pode ver agora que já não é ajustado para zoom toohello tela e você deve rolar lateralmente na ordem toosee, Olá direita da tabela de saudação.
 
 ![][SessionsByTagASP.NETNoBootstrap]
 
-Desfaça as alterações e atualize o navegador móvel para verificar se a exibição acessível para dispositivo móvel foi restaurada.
+Desfaça as alterações e atualizar Olá navegador móvel tooverify que a exibição de dispositivos móveis Olá foi restaurada.
 
-O Bootstrap não é específico para o ASP.NET MVC 5, e você pode aproveitar esses recursos em qualquer aplicativo Web. Ele é, porém, um recurso interno do modelo de projeto MVC 5 do ASP.NET, de forma que o seu aplicativo Web MVC 5 pode, por padrão, aproveitar o Bootstrap.
+Inicialização não é específico tooASP.NET MVC 5, e você pode tirar proveito desses recursos em um aplicativo web. Ele é, porém, um recurso interno do modelo de projeto MVC 5 do ASP.NET, de forma que o seu aplicativo Web MVC 5 pode, por padrão, aproveitar o Bootstrap.
 
-Para saber mais sobre o Bootstrap, visite o site do [Bootstrap][BootstrapSite].
+Para obter mais informações sobre inicialização, vá toothe [Bootstrap] [ BootstrapSite] site.
 
-Na próxima seção, você verá como fornecer modos de exibição específicos para navegadores móveis.
+Na próxima seção, Olá você verá como modos de exibição específicos tooprovide navegador móvel.
 
-## <a name="bkmk_overrideviews"></a> Substituir os modos de exibição, os layouts e as exibições parciais
-Você pode substituir qualquer modo de exibição (inclusive layouts e modos de exibição parciais) para navegadores de dispositivos móveis em geral, para um navegador móvel individual ou para qualquer navegador específico. Para fornecer uma exibição específica para dispositivos móveis, você pode copiar um arquivo de modo de exibição e adicionar *.Mobile* ao nome do arquivo. Por exemplo, para criar uma exibição *Index* móvel, você pode copiar *Views\\Home\\Index.cshtml* para *Views\\Home\\Index.Mobile.cshtml*.
+## <a name="bkmk_overrideviews"></a>Substituição de modos de exibição de hello, Layouts e exibições parciais
+Você pode substituir qualquer modo de exibição (inclusive layouts e modos de exibição parciais) para navegadores de dispositivos móveis em geral, para um navegador móvel individual ou para qualquer navegador específico. Exibir do tooprovide uma específicas para dispositivos móveis, você pode copiar um arquivo de exibição e adicionar *. Mobile* toohello nome de arquivo. Por exemplo, toocreate móveis *índice* exibição, você pode copiar *exibições\\início\\cshtml* para *modos de exibição\\início\\ Index.Mobile.cshtml*.
 
 Nesta seção, você criará um arquivo de layout específico para dispositivos móveis.
 
-Para começar, copie *Views\\Shared\\\_Layout.cshtml* para *Views\\Shared\\\_Layout.Mobile.cshtml*. Abra *\_Layout.Mobile.cshtml* e altere o título de **Aplicativo MVC5** para **Aplicativo MVC5(Móvel)**.
+toostart, cópia *exibições\\compartilhado\\\_cshtml* para *exibições\\compartilhado\\\_Layout.Mobile.cshtml* . Abra  *\_Layout.Mobile.cshtml* e altere o título de saudação do **MVC5 aplicativo** muito**MVC5 aplicativo (móvel)**.
 
-Em cada chamada `Html.ActionLink` à barra de navegação, remova "Procurar por" em cada link *ActionLink*. O código a seguir mostra a marca `<ul class="nav navbar-nav">` completa do arquivo de layout para dispositivos móveis.
+Em cada `Html.ActionLink` chamada para a barra de navegação hello, remova "Procurar por" em cada link *ActionLink*. Olá, código a seguir mostra Olá concluída `<ul class="nav navbar-nav">` marca de arquivo de layout para dispositivos móveis hello.
 
     <ul class="nav navbar-nav">
         <li>@Html.ActionLink("Home", "Index", "Home")</li>
@@ -150,22 +150,22 @@ Em cada chamada `Html.ActionLink` à barra de navegação, remova "Procurar por"
         <li>@Html.ActionLink("Tag", "AllTags", "Home")</li>
     </ul>
 
-Copie o arquivo *Views\\Home\\AllTags.cshtml* para *Views\\Home\\AllTags.Mobile.cshtml*. Abra o novo arquivo e altere o elemento `<h2>` das "Marcas" para "marcas (M)":
+Saudação de cópia *exibições\\início\\AllTags.cshtml* o arquivo para *exibições\\início\\AllTags.Mobile.cshtml*. Abra o novo arquivo de saudação e altere o `<h2>` elemento de "Tags" muito "marcas (M)":
 
     <h2>Tags (M)</h2>
 
-Navegue até a página de marcas utilizando um navegador de desktop e o emulador do navegador móvel. O emulador do navegador móvel mostra as duas alterações que você fez (o título de *\_Layout.Mobile.cshtml* e de *AllTags.Mobile.cshtml*).
+Procure toohello marcas página usando um navegador da área de trabalho e usar o emulador do navegador móvel. emulador de navegador móvel Olá mostra Olá duas alterações feitas (Olá título de  *\_Layout.Mobile.cshtml* e título de saudação do *AllTags.Mobile.cshtml*).
 
 ![][AllTagsMobile_LayoutMobile]
 
-Por outro lado, a exibição do navegador da área de trabalho não foi alterada (com títulos de *\_Layout.cshtml* e *AllTags.cshtml*).
+Por outro lado, exibição de área de trabalho Olá não foi alterada (com títulos de  *\_cshtml* e *AllTags.cshtml*).
 
 ![][AllTagsMobile_LayoutMobileDesktop]
 
 ## <a name="bkmk_browserviews"></a> Criar modos de exibição para um navegador específico
-Além dos modos de exibição específicos para navegadores móveis e de desktop, você pode criar modos de exibição para um único navegador. Por exemplo, é possível criar modos de exibição específicos para o navegador do iPhone ou do Android. Nesta seção, você criará um layout para o navegador do iPhone e uma versão para iPhone do modo de exibição *AllTags* .
+Além disso toomobile-área de trabalho específicas e exibições, você pode criar modos de exibição para um navegador individual. Por exemplo, você pode criar exibições que são específicas para iPhone hello ou navegador do Android hello. Nesta seção, você criará um layout para o navegador do iPhone hello e uma versão de iPhone do hello *AllTags* exibição.
 
-Abra o arquivo *Global.asax* e adicione o código a seguir ao fim do método `Application_Start`.
+Olá abrir *global. asax* de arquivos e adicionar Olá inferior toohello código a seguir o `Application_Start` método.
 
     DisplayModeProvider.Instance.Modes.Insert(0, new DefaultDisplayMode("iPhone")
     {
@@ -173,51 +173,51 @@ Abra o arquivo *Global.asax* e adicione o código a seguir ao fim do método `Ap
             ("iPhone", StringComparison.OrdinalIgnoreCase) >= 0)
     });
 
-Este código define um novo modo de exibição denominado “iPhone”, que será comparado a todas as solicitações de entrada. Se a solicitação de entrada corresponder à condição que você definiu (isto é, se o agente do usuário contiver a cadeia de caracteres “iPhone”), o ASP.NET MVC vai procurar por modos de exibição cujo nome contenha o sufixo “iPhone”.
+Este código define um novo modo de exibição denominado “iPhone”, que será comparado a todas as solicitações de entrada. Se a solicitação de entrada hello corresponder a condição definida (ou seja, se o agente do usuário Olá contém a cadeia de caracteres do hello "iPhone"), o ASP.NET MVC procurará exibições cujo nome contém o sufixo "iPhone".
 
 > [!NOTE]
-> Ao adicionar modos de exibição específicos para determinado navegador móvel, como para iPhone e Android, configure o primeiro argumento como `0` (inserido no topo da lista) para garantir que o modo específico para um navegador tenha precedência sobre o modelo para dispositivos móveis (*.Mobile.cshtml). Se o modelo para dispositivos móveis estiver no topo da lista, ele será selecionado no lugar do modo de exibição que você pretendia usar (a primeira correspondência predomina, e o modelo para dispositivos móveis corresponde a todos os navegadores móveis). 
+> Quando adicionar específicos de navegador móvel modos de exibição, como para iPhone e Android, ser se tooset Olá primeiro argumento muito`0` (inserir na parte superior de saudação da lista de saudação) toomake-se de que o modo de navegador específico Olá tem precedência sobre o modelo móveis Olá (*. Cshtml). Se o modelo móveis hello está na parte superior de saudação da lista de saudação em vez disso, ele será selecionado em seu modo de exibição desejado (Olá primeiro wins de correspondência e modelo móveis Olá corresponde a todos os navegadores móveis). 
 > 
 > 
 
-No código, clique com botão direito em `DefaultDisplayMode`, escolha **Resolver** e, em seguida, escolha `using System.Web.WebPages;`. Isso inclui uma referência ao namespace `System.Web.WebPages`, que é onde os tipos de `DisplayModeProvider` e `DefaultDisplayMode` são definidos.
+No código de saudação, clique com botão direito `DefaultDisplayMode`, escolha **resolver**e, em seguida, escolha `using System.Web.WebPages;`. Isso adiciona uma referência toothe `System.Web.WebPages` namespace, que é o local onde o `DisplayModeProvider` e `DefaultDisplayMode` tipos são definidos.
 
 ![][ResolveDefaultDisplayMode]
 
-Como alternativa, basta adicionar manualmente a seguinte linha na seção `using` do arquivo.
+Como alternativa, você pode adicionar apenas manualmente Olá toothe linha a seguir `using` seção do arquivo hello.
 
     using System.Web.WebPages;
 
-Salve as alterações. Copie o arquivo *Views\\Shared\\\_Layout.Mobile.cshtml* para *Views\\Shared\\\_Layout.iPhone.cshtml*. Abra o novo arquivo e altere o título de `MVC5 Application (Mobile)` para `MVC5 Application (iPhone)`.
+Salve alterações de saudação. Copie o arquivo *Views\\Shared\\\_Layout.Mobile.cshtml* para *Views\\Shared\\\_Layout.iPhone.cshtml*. Abra o novo arquivo de saudação e, em seguida, altere o título de saudação do `MVC5 Application (Mobile)` para `MVC5 Application (iPhone)`.
 
-Copie o arquivo *Views\\Home\\AllTags.Mobile.cshtml* para *Views\\Home\\AllTags.iPhone.cshtml*. Abra o novo arquivo, altere o elemento `<h2>` de "Tags (M)" para "Tags (iPhone)".
+Saudação de cópia *exibições\\início\\AllTags.Mobile.cshtml* o arquivo para *exibições\\início\\AllTags.iPhone.cshtml*. No novo arquivo de saudação, alterar Olá `<h2>` elemento de "marcas (M)" muito "marcas (iPhone)".
 
-Execute o aplicativo. Execute o emulador de navegador móvel com o agente do usuário definido como “iPhone” e navegue até o modo de exibição *AllTags* . Se você estiver usando o emulador nas ferramentas de desenvolvedor do Internet Explorer 11 F12, configure a emulação para fazer o seguinte:
+Execute o aplicativo hello. Executar um emulador navegador móvel, verifique se o agente do usuário está definido muito "iPhone" e procurar toohello *AllTags* exibição. Se você estiver usando o emulador Olá nas ferramentas de desenvolvedor F12 do Internet Explorer 11, configure a seguir toohello emulação:
 
 * Perfil do navegador = **Windows Phone**
 * Cadeia de caracteres de agente do usuário = **Personalizado**
 * Cadeia de caracteres personalizada = **Apple-iPhone5C1/1001,525**
 
-A captura de tela a seguir mostra o modo de exibição *AllTags* renderizado no emulador das ferramentas de desenvolvedor do Internet Explorer 11 F12 com a cadeia de caracteres de agente do usuário personalizada (trata-se de uma cadeia de caracteres de agente do usuário do iPhone 5C).
+Olá, seguinte captura de tela mostra Olá *AllTags* exibição renderizada no emulador do Windows em ferramentas de desenvolvedor F12 do Internet Explorer 11 com a cadeia de caracteres de agente de usuário personalizada hello (Esta é uma cadeia de caracteres de agente de usuário do iPhone 5 C).
 
 ![][AllTagsIPhone_LayoutIPhone]
 
-No navegador móvel, selecione o link **Alto-falantes** . Como não há um modo de exibição móvel (*AllSpeakers.Mobile.cshtml*), a exibição padrão de alto-falantes (*AllSpeakers.cshtml*) é renderizada utilizando o modo de exibição de layout para dispositivos móveis (*\_Layout.Mobile.cshtml*). Como mostrado abaixo, o título **MVC5 Application (Móvel)** é definido em *\_Layout.Mobile.cshtml*.
+No navegador de dispositivo móvel hello, selecione Olá **alto-falantes** link. Porque não há uma exibição móvel (*AllSpeakers.Mobile.cshtml*), exibir alto-falantes do saudação padrão (*AllSpeakers.cshtml*) é processado usando o modo de exibição de layout para dispositivos móveis hello ( *\_ Layout.Mobile.cshtml*). Conforme mostrado abaixo, título Olá **MVC5 aplicativo (móvel)** é definido em  *\_Layout.Mobile.cshtml*.
 
 ![][AllSpeakers_LayoutMobile]
 
-Você pode desativar globalmente a renderização do modo de exibição padrão (não móvel) dentro de um layout móvel ao configurar `RequireConsistentDisplayMode` como `true` no arquivo *Views\\\_ViewStart.cshtml*, desta forma:
+Globalmente você pode desabilitar o modo de exibição padrão (não móveis) da renderização dentro de um layout para dispositivos móveis, definindo `RequireConsistentDisplayMode` para `true` em Olá *exibições\\\_ViewStart.cshtml* arquivo, como este:
 
     @{
         Layout = "~/Views/Shared/_Layout.cshtml";
         DisplayModeProvider.Instance.RequireConsistentDisplayMode = true;
     }
 
-Quando `RequireConsistentDisplayMode` estiver definido como `true`, o layout móvel (*\_Layout.Mobile.cshtml*) será usado apenas para modos de exibição móveis (ou seja, quando o arquivo de exibição tiver o formato ***ViewName**.Mobile.cshtml*). Talvez você queira definir `RequireConsistentDisplayMode` como `true` se o layout voltado para dispositivos móveis não funcionar bem com seus modos de exibição não voltados para dispositivos móveis. A captura de tela abaixo mostra como a página *Alto-falantes* é renderizada quando `RequireConsistentDisplayMode` é definido como `true` (sem a cadeia de caracteres "(Móvel)" na barra de navegação na parte superior).
+Quando `RequireConsistentDisplayMode` está definido muito`true`, layout móveis hello (*\_Layout.Mobile.cshtml*) é usado apenas para exibições móveis (ou seja, quando o arquivo de exibição é do formulário Olá  ***ViewName** . Cshtml*). Talvez você queira tooset `RequireConsistentDisplayMode` muito`true` se o layout para dispositivos móveis não funcionar bem com seus modos de exibição não móveis. Olá captura de tela abaixo mostra como Olá *alto-falantes* page renderiza quando `RequireConsistentDisplayMode` está definido muito`true` (sem Olá cadeia de caracteres "(móvel)" em Olá navegação barra na parte superior da saudação).
 
 ![][AllSpeakers_LayoutMobileOverridden]
 
-Você pode desativar o modo de exibição consistente em um modo específico definindo o `RequireConsistentDisplayMode` como `false` no arquivo do modo de exibição. A seguinte marcação no arquivo *Views\\Home\\AllSpeakers.cshtml* define `RequireConsistentDisplayMode` como `false`:
+Você pode desabilitar o modo de exibição consistente em um modo específico, definindo `RequireConsistentDisplayMode` muito`false` no arquivo de exibição de saudação. A seguinte marcação em Olá *exibições\\início\\AllSpeakers.cshtml* conjuntos de arquivos `RequireConsistentDisplayMode` muito`false`:
 
     @model IEnumerable<string>
 
@@ -226,13 +226,13 @@ Você pode desativar o modo de exibição consistente em um modo específico def
         DisplayModeProvider.Instance.RequireConsistentDisplayMode = false;
     }
 
-Nesta seção, você viu como criar layouts e exibições móveis e como criar layouts e exibições para dispositivos específicos, como o iPhone.
-No entanto, a principal vantagem do framework de Bootstrap CSS é o layout responsivo, o que significa que uma única folha de estilos pode ser aplicada em área de trabalho, telefone e navegadores de tablet para criar uma aparência consistente. Na próxima seção, você verá como aproveitar o Bootstrap para criar modos de exibição para dispositivos móveis.
+Esta seção que vimos como toocreate móveis layouts e modos de exibição e como toocreate layouts e modos de exibição para dispositivos específicos, como Olá iPhone.
+No entanto, Olá principal vantagem do framework de inicialização CSS Olá é o layout dinâmico, o que significa que uma única folha de estilos pode ser aplicada de área de trabalho, telefone e tablet navegadores toocreate uma aparência consistente. Na próxima seção, Olá você verá como tooleverage inicializar amigáveis para dispositivos móveis toocreate modos de exibição.
 
-## <a name="bkmk_Improvespeakerslist"></a> Melhorar a lista de alto-falantes
-Como você acabou de ver, o modo de exibição *Alto-falantes* é legível, mas os links são pequenos e difíceis de tocar em um dispositivo móvel. Nesta seção, você tornará o modo de exibição *AllSpeakers* acessível para dispositivos móveis, que exibe links grandes, fáceis de tocar e contém uma caixa de pesquisa para localizar alto-falantes rapidamente.
+## <a name="bkmk_Improvespeakerslist"></a>Melhorar Olá alto-falantes lista
+Como você acabou de ver, Olá *alto-falantes* modo de exibição pode ser lido, mas Olá links são pequenos e tootap difícil em um dispositivo móvel. Nesta seção, você fará Olá *AllSpeakers* exibição amigáveis para dispositivos móveis, que exibe links grande, fácil de toque e contém um tooquickly da caixa de pesquisa localizar alto-falantes.
 
-É possível usar os estilos do [grupo de listas vinculadas][linked list group] do Bootstrap para aprimorar a exibição de *Speakers*. Em *Views\\Home\\AllSpeakers.cshtml*, substitua o conteúdo do arquivo Razor pelo código abaixo.
+Você pode usar o hello Bootstrap [grupo de lista vinculada] [ linked list group] estilo para melhorar a saudação *alto-falantes* exibição. Em *exibições\\início\\AllSpeakers.cshtml*, substitua o conteúdo de saudação do arquivo de Razor de saudação com código de saudação abaixo.
 
      @model IEnumerable<string>
 
@@ -249,17 +249,17 @@ Como você acabou de ver, o modo de exibição *Alto-falantes* é legível, mas 
         }
     </div>
 
-O atributo `class="list-group"` na marca `<div>` aplica o estilo da lista do Bootstrap, e o atributo `class="input-group-item"` aplica o estilo do item da lista do Bootstrap a todos os links.
+Olá `class="list-group"` atributo Olá `<div>` marca aplica o estilo de lista de inicialização e hello `class="input-group-item"` atributo aplica-se o link de tooeach de estilo de item de lista de inicialização.
 
-Atualize o navegador móvel. O modo de exibição atualizado tem esta aparência:
+Atualize o navegador móvel hello. Olá atualizado exibição esta aparência:
 
 ![][AllSpeakersFixed]
 
-Os estilos do [grupo de listas vinculadas][linked list group] do Bootstrap torna clicável a caixa inteira de todos os links, proporcionando uma experiência de usuário muito melhor. Alterne para o modo de exibição de desktop e observe a consistência na aparência e no estilo.
+Olá Bootstrap [grupo de lista vinculada] [ linked list group] estilo torna Olá caixa inteira para cada link clicável, que é uma experiência de usuário muito melhor. Alternar exibição da área de trabalho toothe e observar Olá aparência consistente.
 
 ![][AllSpeakersFixedDesktop]
 
-Embora o modo de exibição do navegador móvel tenha sido aprimorado, é difícil navegar pela longa lista de alto-falantes. O Bootstrap não oferece uma funcionalidade de filtro de pesquisa pronta para uso, mas você pode adicionar uma utilizando poucas linhas de código. Primeiro, adicione uma caixa de pesquisa à exibição, em seguida, vincule ao código do JavaScript para a função de filtro. Em *Views\\Home\\AllSpeakers.cshtml*, adicione uma marcação \<form\> logo após a marcação \<h2\>, como mostrado abaixo:
+Embora o modo de exibição de navegador móvel Olá melhorou, é difícil navegar longa lista Olá de alto-falantes. O Bootstrap não oferece uma funcionalidade de filtro de pesquisa pronta para uso, mas você pode adicionar uma utilizando poucas linhas de código. Você primeiro adiciona uma exibição de toohello da caixa de pesquisa e a ligar com hello código JavaScript para a função de filtro de saudação. Em *exibições\\início\\AllSpeakers.cshtml*, adicionar um \<formulário\> marca logo após Olá \<h2\> marca, conforme mostrado abaixo:
 
     @model IEnumerable<string>
 
@@ -284,23 +284,23 @@ Embora o modo de exibição do navegador móvel tenha sido aprimorado, é difíc
         }
     </div>
 
-Observe que os estilos Bootstrap são aplicados às marcas `<form>` e `<input>`. O elemento `<span>` adiciona um ícone [glyphicon][glyphicon] do Bootstrap à caixa de pesquisa.
+Observe que Olá `<form>` e `<input>` marcas ambos têm Olá Bootstrap estilos aplicados toothem. Olá `<span>` elemento adiciona uma inicialização [glyphicon] [ glyphicon] toothe caixa de pesquisa.
 
-Na pasta *Scripts*, adicione um Arquivo JavaScript chamado *filter.js*. Abra o arquivo e cole o seguinte código nele:
+Em Olá *Scripts* pasta, adicione um arquivo JavaScript chamado *filter.js*. Abra o arquivo hello e cole Olá código a seguir para ele:
 
     $(function () {
 
-        // reset the search form when the page loads
+        // reset hello search form when hello page loads
         $("form").each(function () {
             this.reset();
         });
 
-        // wire up the events to the <input> element for search/filter
+        // wire up hello events toohello <input> element for search/filter
         $("input").bind("keyup change", function () {
             var searchtxt = this.value.toLowerCase();
             var items = $(".list-group-item");
 
-            // show all speakers that begin with the typed text and hide others
+            // show all speakers that begin with hello typed text and hide others
             for (var i = 0; i < items.length; i++) {
                 var val = items[i].text.toLowerCase();
                 val = val.substring(0, searchtxt.length);
@@ -314,41 +314,41 @@ Na pasta *Scripts*, adicione um Arquivo JavaScript chamado *filter.js*. Abra o a
         });
     });
 
-Também será preciso incluir o filter.js em seus pacotes registrados. Abra *App\_Start\\BundleConfig.cs* e altere os primeiros pacotes. Altere a primeira instrução `bundles.Add` (para o pacote **jquery**) para incluir *Scripts\\filter.js*, da seguinte maneira:
+Você também precisa tooinclude filter.js em seus pacotes registrados. Abra *aplicativo\_iniciar\\BundleConfig.cs* e alterar pacotes de saudação primeiro. Alterar o primeiro `bundles.Add` instrução (para Olá **jquery** pacote) tooinclude *Scripts\\filter.js*, da seguinte maneira:
 
      bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/jquery-{version}.js",
                 "~/Scripts/filter.js"));
 
-O pacote **jquery** já está renderizado pelo modo de exibição padrão *\_Layout*. Mais tarde, você pode utilizar o mesmo código JavaScript para aplicar a funcionalidade de filtro a outros modos de exibição de lista.
+Olá **jquery** pacote já é renderizado por padrão Olá  *\_Layout* exibição. Posteriormente, você pode utilizar Olá JavaScript mesmo código tooapply os modos de exibição de lista do filtro funcionalidade tooother.
 
-Atualize o navegador móvel e vá para o modo de exibição *AllSpeakers* . Na caixa de pesquisa, digite “sc”. Agora, a lista de alto-falantes deve ser filtrada de acordo com a cadeia de caracteres de busca.
+Atualize o navegador móvel hello e vá toohello *AllSpeakers* exibição. Na caixa de pesquisa, digite “sc”. lista de alto-falantes Olá agora deve ser filtrada acordo com a cadeia de caracteres de pesquisa tooyour.
 
 ![][AllSpeakersFixedSearchBySC]
 
-## <a name="bkmk_improvetags"></a> Melhorar a lista de marcas
-Como acontece com o modo de exibição *Alto-falantes*, o modo de exibição *Marcações* é legível, mas os links são pequenos e difíceis de tocar em um dispositivo móvel. É possível corrigir o modo de exibição *Marcações* da mesma forma que o modo de exibição *Alto-falantes* foi corrigido; basta usar as alterações de código descritas anteriormente com a seguinte sintaxe do método `Html.ActionLink` em *Views\\Home\\AllTags.cshtml*:
+## <a name="bkmk_improvetags"></a>Melhorar Olá lista de marcas
+Como Olá *alto-falantes* exibir, hello *marcas* modo de exibição pode ser lido, mas Olá links são pequeno e de difícil tootap em um dispositivo móvel. Você pode corrigir Olá *marcas* exibição Olá mesmo maneira corrigir Olá *alto-falantes* exibir, se você usar as alterações de código Olá descritas anteriormente, mas com os seguintes Olá `Html.ActionLink` sintaxe de método em  *Modos de exibição\\início\\AllTags.cshtml*:
 
     @Html.ActionLink(tag, 
                      "SessionsByTag", 
                      new { tag }, 
                      new { @class = "list-group-item" })
 
-O navegador de desktop atualizado terá a seguinte aparência:
+Olá atualizados parece navegador de área de trabalho da seguinte maneira:
 
 ![][AllTagsFixedDesktop]
 
-E o navegador móvel atualizado terá a seguinte aparência: 
+E Olá atualizado navegador móvel parece da seguinte maneira: 
 
 ![][AllTagsFixed]
 
 > [!NOTE]
-> Se você perceber que o formato de lista original ainda permanece no navegador móvel e ficar imaginando o que aconteceu com o seu belo estilo do Bootstrap, isso é consequência de alguma alteração indesejada feita durante o processo para criar modos de exibição específicos para dispositivos móveis. No entanto, agora que você está usando o Framework de CSS Bootstrap para criar um design Web dinâmico, vá em frente e exclua os modos de exibição e os layouts específicos para dispositivos móveis. Assim que tiver feito isso, o navegador móvel atualizado vai exibir o estilo do Bootstrap.
+> Se você notar que formatação da lista original Olá ainda está em Olá navegador móvel e o estilo de inicialização adequado com tooyour esteja se perguntando, este é um artefato da sua anteriores ação toocreate móvel exibições específicas. No entanto, agora que você estiver usando Olá Bootstrap CSS framework toocreate um design responsivo web, vá head e remover essas exibições específicas para dispositivos móveis e modos de exibição de layout específicas para dispositivos móveis hello. Depois de você ter feito isso, navegador de dispositivo móvel atualizado Olá mostrará estilo Bootstrap hello.
 > 
 > 
 
-## <a name="bkmk_improvedates"></a> Melhorar a lista de datas
-É possível melhorar o modo de exibição *Datas* da mesma forma como você melhorou o modo de exibição *Alto-falantes* e *Marcações*; basta usar as alterações de código descritas anteriormente com a seguinte sintaxe do método `Html.ActionLink` em *Views\\Home\\AllDates.cshtml*:
+## <a name="bkmk_improvedates"></a>Melhorar Olá lista de datas
+Você pode melhorar Olá *datas* exibir como aprimorado Olá *alto-falantes* e *marcas* exibições se você usar alterações de código de saudação descritas anteriormente, mas com hello após `Html.ActionLink` sintaxe de método em *exibições\\início\\AllDates.cshtml*:
 
     @Html.ActionLink(date.ToString("ddd, MMM dd, h:mm tt"), 
                      "SessionsByDate", 
@@ -359,7 +359,7 @@ A exibição atualizada do navegador móvel será como esta:
 
 ![][AllDatesFixed]
 
-Você pode aprimorar ainda mais o modo de exibição de *Datas* organizando os valores data-hora por data. Isso pode ser feito com os estilos de [painéis][panels] do Bootstrap. Substitua o conteúdo do arquivo *Views\\Home\\AllDates.cshtml* pelo seguinte código:
+Você pode melhorar ainda mais o hello *datas* exibição, organizando os valores de data e hora Olá por data. Isso pode ser feito com hello Bootstrap [painéis] [ panels] de estilo. Substitua o conteúdo de saudação do hello *exibições\\início\\AllDates.cshtml* arquivo com o código a seguir:
 
     @model IEnumerable<DateTime>
 
@@ -387,26 +387,26 @@ Você pode aprimorar ainda mais o modo de exibição de *Datas* organizando os v
         </div>
     }
 
-Esse código cria uma marcação `<div class="panel panel-primary">` separada para cada data diferente da lista e usa o [grupo de listas vinculadas][linked list group] para os respectivos links, como antes. Esta é a aparência do navegador móvel quando esse código é executado:
+Esse código cria um separado `<div class="panel panel-primary">` marca para cada data distinta na lista de Olá e usa Olá [grupo de lista vinculada] [ linked list group] para os respectivos links como antes. Aqui está o navegador móvel Olá aparência quando esse código é executado:
 
 ![][AllDatesFixed2]
 
-Alterne para o navegador de desktop. Novamente, repare na consistência de aparência.
+Opção toohello área de trabalho no navegador. Novamente, observe a aparência consistente hello.
 
 ![][AllDatesFixed2Desktop]
 
-## <a name="bkmk_improvesessionstable"></a> Melhorar o modo de exibição da tabela de sessões
-Nesta seção, você tornará o modo de exibição *SessionsTable* mais acessível a dispositivos móveis. Esta mudança é mais extensa que as anteriores.
+## <a name="bkmk_improvesessionstable"></a>Melhorar Olá SessionsTable exibição
+Nesta seção, você fará Olá *SessionsTable* exibir mais amigáveis para dispositivos móveis. Essa alteração é alterações anteriores de hello mais ampla.
 
-No navegador móvel, toque o botão **Marcação** e insira `asp` na caixa de pesquisa.
+No navegador de dispositivo móvel hello, toque em Olá **marca** botão e, em seguida, digite `asp` na caixa de pesquisa.
 
 ![][AllTagsFixedSearchByASP]
 
-Toque o link **ASP.NET** .
+Toque em Olá **ASP.NET** link.
 
 ![][SessionsTableTagASP.NET]
 
-Como você pode ver, a exibição está formatada como uma tabela, que foi desenhada para ser exibida em um navegador de desktop. No entanto, é um pouco difícil de ler em um navegador móvel. Para corrigir isso, abra *Views\\Home\\SessionsTable.cshtml* e substitua o conteúdo do arquivo pelo seguinte código:
+Como você pode ver, a exibição de saudação é formatada como uma tabela, que é atualmente projetado toobe exibido no navegador de área de trabalho de saudação. No entanto, é um pouco difícil tooread em um navegador móvel. toofix isso, abra *exibições\\início\\SessionsTable.cshtml* e, em seguida, substitua conteúdo de saudação do arquivo hello código a seguir:
 
     @model IEnumerable<Mvc5Mobile.Models.Session>
 
@@ -439,40 +439,40 @@ Como você pode ver, a exibição está formatada como uma tabela, que foi desen
         </div>
     </div>
 
-O código faz 3 coisas:
+código de saudação faz 3:
 
-* Utiliza o [grupo de listas vinculadas personalizado][custom linked list group] do Bootstrap para formatar as informações da sessão verticalmente, de modo que elas possam ser lidas em um navegador móvel (usando classes como list-group-item-text)
-* Aplica o [sistema de grades][grid system] ao layout, de modo que os itens da sessão fluam horizontalmente no navegador da área de trabalho e verticalmente no navegador móvel (usando a classe col-md-4)
-* Usa os [utilitários dinâmicos][responsive utilities] para ocultar as marcações de sessão quando exibidas em um navegador móvel (usando a classe hidden-xs)
+* usa Olá Bootstrap [grupo personalizado de lista vinculada] [ custom linked list group] tooformat Olá informações de sessão verticalmente, para que todas essas informações pode ser lidas em um navegador móvel (usando classes como lista de grupo-item-texto)
+* aplica-se a saudação [sistema grade] [ grid system] toothe layout, portanto essa sessão Olá itens fluxo horizontalmente no navegador de área de trabalho hello e verticalmente no navegador de dispositivo móvel hello (usando a classe do hello col-md-4)
+* Olá usa [utilitários responsivos] [ responsive utilities] para ocultar marcas de sessão hello quando exibido no navegador de dispositivo móvel hello (usando a classe de xs oculto de saudação)
 
-Você também pode tocar no link de um título para ir à respectiva sessão. A imagem abaixo reflete as alterações de código.
+Você também pode tocar uma título toogo toohello respectivos a sessão de link. imagem de saudação abaixo reflete as alterações de código hello.
 
 ![][FixedSessionsByTag]
 
-O sistema de grades do Bootstrap organiza as sessões verticalmente, de maneira automática, no navegador móvel. Perceba, também, que as marcas não são exibidas. Alterne para o navegador de desktop.
+sistema de inicialização grade Olá aplicadas automaticamente Organiza as sessões verticalmente no navegador móvel hello. Além disso, observe que as marcas de saudação não são mostradas. Opção toohello área de trabalho no navegador.
 
 ![][SessionsTableFixedTagASP.NETDesktop]
 
-Perceba que, neste navegador, as marcas são exibidas. Você também pode notar que o sistema de grades do Bootstrap organiza os itens da sessão em duas colunas. Se ampliar o navegador, você perceberá que o arranjo muda para três colunas.
+No navegador de área de trabalho Olá, observe que as marcas de saudação agora são exibidas. Além disso, você pode ver que sistema de inicialização grade Olá que você aplicou organiza os itens de sessão de saudação em duas colunas. Se você aumentar o navegador, você verá que organização Olá muda toothree colunas.
 
-## <a name="bkmk_improvesessionbycode"></a> Melhorar o modo de exibição SessionByCode
-Finalmente, você consertará o modo de exibição *SessionByCode* , para torná-lo acessível a dispositivos móveis.
+## <a name="bkmk_improvesessionbycode"></a>Melhorar Olá SessionByCode exibição
+Por fim, você corrigirá Olá *SessionByCode* exibir toomake-amigáveis para dispositivos móveis.
 
-No navegador móvel, toque o botão **Marcação** e insira `asp` na caixa de pesquisa.
+No navegador de dispositivo móvel hello, toque em Olá **marca** botão e, em seguida, digite `asp` na caixa de pesquisa.
 
 ![][AllTagsFixedSearchByASP]
 
-Toque o link **ASP.NET** . As sessões para a marca ASP.NET são exibidas.
+Toque em Olá **ASP.NET** link. As sessões de marca ASP.NET hello serão exibidas.
 
 ![][FixedSessionsByTag]
 
-Escolha o link **Construindo um aplicativo de página única com o ASP.NET e AngularJS** .
+Escolha Olá **criando um aplicativo de página única com ASP.NET e AngularJS** link.
 
 ![][SessionByCode3-644]
 
-A exibição padrão para navegador de desktop é boa, mas você pode aprimorar a aparência facilmente usando alguns componentes GUI do Bootstrap.
+modo de exibição da área de trabalho saudação padrão é bom, mas você pode melhorar a aparência de saudação facilmente usando alguns componentes de GUI de inicialização.
 
-Abra *Views\\Home\\SessionByCode.cshtml* e substitua o conteúdo pela seguinte marcação:
+Abra *exibições\\início\\SessionByCode.cshtml* e substitua o conteúdo de saudação com hello marcação a seguir:
 
     @model Mvc5Mobile.Models.Session
 
@@ -512,20 +512,20 @@ Abra *Views\\Home\\SessionByCode.cshtml* e substitua o conteúdo pela seguinte m
         }
     </div>
 
-A nova marcação usa o estilo de painéis do Bootstrap para melhorar o modo de exibição no dispositivo móvel. 
+nova marcação de saudação usa Bootstrap painéis definindo o estilo de modo de exibição móvel tooimprove hello. 
 
-Atualize o navegador móvel. A imagem a seguir reflete as alterações de código que você acabou de criar:
+Atualize o navegador móvel hello. Olá imagem a seguir reflete as alterações de código de saudação que você acabou de criar:
 
 ![][SessionByCodeFixed3-644]
 
 ## <a name="wrap-up-and-review"></a>Conclusão e revisão
-Este tutorial mostrou como usar o ASP.NET MVC 5 para desenvolver aplicativos Web com opção para dispositivos móveis. Estão incluídos:
+Este tutorial mostrou como aplicativos de Web toouse ASP.NET MVC 5 toodevelop amigáveis para dispositivos móveis. Estão incluídos:
 
-* Implantar um aplicativo ASP.NET MVC 5 em um aplicativo Web do Serviço de Aplicativo
-* Usar o Bootstrap para criar layouts Web dinâmicos em seu aplicativo MVC 5
+* Implantar um aplicativo de ASP.NET MVC 5 tooan aplicativo do serviço de aplicativo web
+* Use layout de web responsivo toocreate de inicialização em seu aplicativo MVC 5
 * Substituir layouts, modos de exibição e exibições parciais globalmente ou para um modo de exibição individual
 * Controlar a imposição de layout e de substituição parcial usando a propriedade `RequireConsistentDisplayMode`
-* Criar modos de exibição voltados para navegadores específicos, como o do iPhone
+* Criar exibições que navegadores específicos, como o navegador do iPhone Olá de destino
 * Aplicar estilos do Bootstrap no código Razor
 
 ## <a name="see-also"></a>Consulte também
@@ -533,23 +533,23 @@ Este tutorial mostrou como usar o ASP.NET MVC 5 para desenvolver aplicativos Web
 * [Bootstrap][BootstrapSite]
 * [Blog oficial do Bootstrap][Official Bootstrap Blog]
 * [Tutorial do Bootstrap no Twitter, feito pela Tutorial Republic][Twitter Bootstrap Tutorial from Tutorial Republic]
-* [The Bootstrap Playground][The Bootstrap Playground]
+* [Olá parque de inicialização][hello Bootstrap Playground]
 * [Práticas recomendadas pelo W3C para Aplicativos Web Móveis][W3C Recommendation Mobile Web Application Best Practices]
 * [Recomendação Candidata do W3C para consultas de mídia][W3C Candidate Recommendation for media queries]
 
 ## <a name="whats-changed"></a>O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para um guia toohello alteração de sites tooApp serviço consulte: [do serviço de aplicativo do Azure e seu impacto sobre os serviços do Azure existente](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- Internal Links -->
-[Deploy the starter project to an Azure web app]: #bkmk_DeployStarterProject
+[Deploy hello starter project tooan Azure web app]: #bkmk_DeployStarterProject
 [Bootstrap CSS Framework]: #bkmk_bootstrap
-[Override the Views, Layouts, and Partial Views]: #bkmk_overrideviews
+[Override hello Views, Layouts, and Partial Views]: #bkmk_overrideviews
 [Create Browser-Specific Views]:#bkmk_browserviews
-[Improve the Speakers List]: #bkmk_Improvespeakerslist
-[Improve the Tags List]: #bkmk_improvetags
-[Improve the Dates List]: #bkmk_improvedates
-[Improve the SessionsTable View]: #bkmk_improvesessionstable
-[Improve the SessionByCode View]: #bkmk_improvesessionbycode
+[Improve hello Speakers List]: #bkmk_Improvespeakerslist
+[Improve hello Tags List]: #bkmk_improvetags
+[Improve hello Dates List]: #bkmk_improvedates
+[Improve hello SessionsTable View]: #bkmk_improvesessionstable
+[Improve hello SessionByCode View]: #bkmk_improvesessionbycode
 
 <!-- External Links -->
 [Visual Studio Express 2013]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
@@ -571,7 +571,7 @@ Este tutorial mostrou como usar o ASP.NET MVC 5 para desenvolver aplicativos Web
 [responsive utilities]: http://getbootstrap.com/css/#responsive-utilities
 [Official Bootstrap Blog]: http://blog.getbootstrap.com/
 [Twitter Bootstrap Tutorial from Tutorial Republic]: http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/
-[The Bootstrap Playground]: http://www.bootply.com/
+[hello Bootstrap Playground]: http://www.bootply.com/
 [W3C Recommendation Mobile Web Application Best Practices]: http://www.w3.org/TR/mwabp/
 [W3C Candidate Recommendation for media queries]: http://www.w3.org/TR/css3-mediaqueries/
 

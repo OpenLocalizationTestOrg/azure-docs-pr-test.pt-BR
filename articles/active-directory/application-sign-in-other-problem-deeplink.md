@@ -1,6 +1,6 @@
 ---
-title: Problemas para entrar em um aplicativo usando um DeepLink| Microsoft Docs
-description: Como solucionar problemas de acesso a um aplicativo de uma URL de Deeplink usando o Azure AD
+title: aaaProblems entrar no aplicativo tooan usando um deeplink | Microsoft Docs
+description: Como os problemas de tootroubleshoot acesso a um aplicativo de uma URL deeplink usando o Azure AD
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,253 +13,253 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 798015ab68afc65378cffc75afec9c7f91fc1926
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: dc82410001ac05895cc0244c3a89ace71bcf01a9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Problemas para entrar em um aplicativo usando um DeepLink
+# <a name="problems-signing-in-tooan-application-using-a-deeplink"></a>Problemas para entrar no aplicativo tooan usando um deeplink
 
-O Painel de Acesso é um portal baseado na Web que permite a um usuário com uma conta corporativa ou de estudante no Azure Active Directory (Azure AD) exibir e iniciar aplicativos baseados em nuvem para os quais o administrador do Azure AD concedeu acesso. 
+Olá painel de acesso é um portal baseado na web que permite que um usuário com um trabalho ou escola conta em aplicativos tooview e início baseado em nuvem do Azure Active Directory (AD do Azure) que Olá administrador do AD do Azure tem acesso-los ao. 
 
-Esses aplicativos são configurados em nome do usuário no portal do Azure AD. O aplicativo deve ser configurado corretamente e atribuído ao usuário ou a um grupo no qual o usuário é membro para ver o aplicativo no Painel de Acesso.
+Esses aplicativos são configurados em nome de usuário de saudação no portal do Azure AD hello. aplicativo Hello deve ser configurado corretamente e atribuído toohello usuário ou grupo Olá é um membro de toosee aplicativo Olá Olá painel de acesso.
 
-DeepLinks ou URLs de acesso do Usuário são links que seus usuários podem usar para acessar seus aplicativos SSO de senha diretamente de suas barras de URLs de navegadores. Ao navegar até esse link, os usuários serão automaticamente conectados ao aplicativo sem ter que ir primeiro ao Painel de Acesso. Esse é o mesmo link que os usuários usam para acessar esses aplicativos a partir do aplicativo de inicialização do Office 365.
+Acesso de usuário ou links profundos URLs são links que os usuários podem usar tooaccess seus aplicativos de SSO de senha diretamente da URL de seus navegadores de barras. Navegando toothis link, os usuários terão automaticamente conectado ao aplicativo hello sem ter que primeiro toogo toohello painel de acesso. Isso é hello link mesmo que os usuários usam tooaccess estes aplicativos de iniciador do aplicativo hello Office 365.
 
-## <a name="general-issues-to-check-first"></a>Questões gerais que primeiro devem ser verificadas
+## <a name="general-issues-toocheck-first"></a>Geral emite toocheck primeiro
 
--   Verifique se você está usando um **navegador** que atenda aos requisitos mínimos para o Painel de Acesso.
+-   Verifique se seu usando um **navegador** que atende aos requisitos mínimos Olá Olá painel de acesso.
 
--   Verifique se o navegador do usuário adicionou a URL do aplicativo ao seus **sites confiáveis**.
+-   Certifique-se de navegador do usuário Olá adicionou URL Olá Olá aplicativo tooits **sites confiáveis**.
 
--   Verifique se o aplicativo está **configurado** corretamente.
+-   Certifique-se de aplicativo de hello toocheck é **configurado** corretamente.
 
--   Verifique se a conta do usuário está **habilitada** para entradas.
+-   Certifique-se de conta de usuário Olá **habilitado** para entradas.
 
--   Verifique se a conta do usuário **não está bloqueada.**
+-   Certifique-se de conta de usuário Olá **não bloqueada.**
 
--   Verifique se a **senha do usuário não expirou ou foi esquecida.**
+-   Tornar-se de que usuário Olá **senha não está expirada ou esquecida.**
 
 -   Verifique se a **Autenticação Multifator** não está bloqueando o acesso do usuário.
 
 -   Verifique se uma **Política de acesso condicional** ou política de **Proteção de Identidade** não está bloqueando o acesso do usuário.
 
--   Verifique se as **informações de contato de autenticação** de um usuário estão atualizadas para permitir a aplicação da Autenticação Multifator ou de políticas de Acesso Condicional.
+-   Certifique-se de que um usuário **informações de contato de autenticação** está ativo toodate tooallow autenticação multifator ou o acesso condicional políticas toobe imposta.
 
--   Tente também eliminar os cookies do navegador e tente entrar novamente.
+-   Verifique se tooalso tente eliminar os cookies do seu navegador e tentar toosign em novamente.
 
-## <a name="checking-the-deeplink"></a>Verificar o DeepLink
+## <a name="checking-hello-deeplink"></a>Verificando Olá deeplink
 
-Para verificar se você tem o DeepLink correto, siga as etapas abaixo:
+toocheck se você tiver deeplink correto do hello, siga as etapas de saudação abaixo:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
+1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global** ou **Co-administrador.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
+2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
 
-4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicativos empresariais** no menu de navegação do hello Azure Active Directory à esquerda.
 
-5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **todos os aplicativos** tooview uma lista de todos os seus aplicativos.
 
-  * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+  * Se você não vir o aplicativo hello você deseja mostrar aqui, use Olá **filtro** controle na parte superior de saudação do hello **lista de todos os aplicativos** e conjunto hello **Mostrar** opção muito **Todos os aplicativos.**
 
-6.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
+6.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global** ou **Co-administrador.**
 
-7.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
+7.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
 
-8.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+8.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
 
-9.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+9.  Clique em **aplicativos empresariais** no menu de navegação do hello Azure Active Directory à esquerda.
 
-10. Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+10. Clique em **todos os aplicativos** tooview uma lista de todos os seus aplicativos.
 
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se você não vir o aplicativo hello você deseja mostrar aqui, use Olá **filtro** controle na parte superior de saudação do hello **lista de todos os aplicativos** e conjunto hello **Mostrar** opção muito **Todos os aplicativos.**
 
-11. Selecione o aplicativo que você deseja verificar o DeepLink.
+11. Selecione aplicativo hello para que deseja Olá seleção Olá deeplink.
 
-12. Localize o rótulo **URL de acesso do Usuário**. O DeepLink deve corresponder a essa URL.
+12. Localizar o rótulo de saudação **URL de acesso do usuário**. O DeepLink deve corresponder a essa URL.
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Como instalar a extensão do Navegador do Painel de Acesso
+## <a name="how-tooinstall-hello-access-panel-browser-extension"></a>Como tooinstall Olá extensão de navegador do painel de acesso
 
-Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seguir:
+Olá tooinstall extensão de navegador do painel de acesso, execute as etapas de saudação abaixo:
 
-1.  Abra o [Painel de Acesso](https://myapps.microsoft.com) em um dos navegadores compatíveis e entre como um **usuário** no Azure AD.
+1.  Olá abrir [painel de acesso](https://myapps.microsoft.com) em um dos navegadores Olá com suporte e entre como um **usuário** no AD do Azure.
 
-2.  Clique no **aplicativo de SSO com senha** no Painel de Acesso.
+2.  Clique em uma **aplicativo SSO de senha** no painel de acesso de saudação.
 
-3.  No prompt solicitando a instalação do software, selecione **Instalar Agora**.
+3.  Olá prompt perguntando tooinstall Olá software, selecione **instalar agora**.
 
-4.  Com base no seu navegador, você será direcionado para o link de download. **Adicione** a extensão ao seu navegador.
+4.  Com base em seu navegador é direcionado toohello link para download. **Adicionar** navegador de tooyour Olá extensão.
 
-5.  Se o navegador solicitar, selecione como **Habilitar** ou **Permitir** a extensão.
+5.  Se seu navegador solicita, selecione tooeither **habilitar** ou **permitir** Olá extensão.
 
 6.  Quando estiver instalado, **reinicie** a sessão do navegador.
 
-7.  Entrar no Painel de Acesso e verificar se é possível **iniciar** os aplicativos de SSO de senha
+7.  Entrar painel de acesso de saudação e veja se é possível **iniciar** seus aplicativos de SSO de senha
 
-Também é possível baixar a extensão para Chrome e Firefox diretamente pelos links abaixo:
+Você também pode baixar a extensão Olá para Chrome e Firefox de links diretos da saudação abaixo:
 
 -   [Extensão do Painel de Acesso do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
 -   [Extensão do Painel de Acesso do Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar o login único com senha para um aplicativo na galeria do Azure AD
+## <a name="how-tooconfigure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Como senha tooconfigure o logon único para um aplicativo da Galeria do Azure AD
 
-Para configurar um aplicativo da galeria do Azure AD será necessário:
+tooconfigure um aplicativo da Galeria do AD do Azure Olá você precisa:
 
--   [Adicionar um aplicativo da galeria do Azure AD](#add-an-application-from-the-Azure-AD-gallery)
+-   [Adicionar um aplicativo da Galeria do Azure AD Olá](#add-an-application-from-the-Azure-AD-gallery)
 
--   [Configurar o aplicativo para logon único com senha](#configure-the-application-for-password-single-sign-on)
+-   [Configurar o aplicativo hello de senha single sign-on](#configure-the-application-for-password-single-sign-on)
 
-### <a name="add-an-application-from-the-azure-ad-gallery"></a>Adicionar um aplicativo da galeria do Azure AD
+### <a name="add-an-application-from-hello-azure-ad-gallery"></a>Adicionar um aplicativo da Galeria do Azure AD Olá
 
-Para adicionar um aplicativo da Galeria do Azure AD, siga as etapas abaixo:
+tooadd um aplicativo hello Galeria do AD do Azure, siga as etapas de saudação abaixo:
 
-1.  Abra o [Portal do Azure](https://portal.azure.com) e entre como um **Administrador Global** ou **Coadministrador**.
+1.  Olá abrir [Portal do Azure](https://portal.azure.com) e entre como um **Administrador Global** ou **coadministrador**.
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
+2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicativos empresariais** no menu de navegação do hello Azure Active Directory à esquerda.
 
-5.  clique no botão **Adicionar** no canto superior direito da folha **Aplicativos Empresariais**.
+5.  Clique em Olá **adicionar** botão no canto superior direito Olá Olá **aplicativos empresariais** folha.
 
-6.  Na caixa de texto **Inserir um nome** da seção **Adicionar da galeria**, digite o nome do aplicativo.
+6.  Em Olá **Insira um nome** caixa de texto de saudação **adicionar da Galeria Olá** seção, digite o nome de saudação do aplicativo hello.
 
-7.  Selecione o aplicativo para o qual você deseja configurar o logon único.
+7.  Selecione aplicativo hello desejar tooconfigure para logon único.
 
-8.  Antes de adicionar o aplicativo, é possível alterar seu nome pela caixa de texto **Nome**.
+8.  Antes de adicionar o aplicativo hello, você pode alterar seu nome de saudação **nome** caixa de texto.
 
-9.  Clique no botão **Adicionar** para adicionar o aplicativo.
+9.  Clique em **adicionar** botão, o aplicativo de hello tooadd.
 
-Após um breve período, você verá a folha de configuração do aplicativo.
+Após um curto período, você deve ser folha de configuração do aplicativo do toosee capaz de saudação.
 
-### <a name="configure-the-application-for-password-single-sign-on"></a>Configurar o aplicativo para logon único com senha
+### <a name="configure-hello-application-for-password-single-sign-on"></a>Configurar o aplicativo hello de senha single sign-on
 
-Para configurar o logon único para um aplicativo, siga as etapas abaixo:
+tooconfigure logon único para um aplicativo, siga as etapas de saudação abaixo:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
+1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global** ou **Co-administrador.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
+2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
 
-4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicativos empresariais** no menu de navegação do hello Azure Active Directory à esquerda.
 
-5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **todos os aplicativos** tooview uma lista de todos os seus aplicativos.
 
-  * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+  * Se você não vir o aplicativo hello você deseja mostrar aqui, use Olá **filtro** controle na parte superior de saudação do hello **lista de todos os aplicativos** e conjunto hello **Mostrar** opção muito **Todos os aplicativos.**
 
-6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
+6.  Selecione aplicativo hello deseja tooconfigure-logon único.
 
-7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
+7.  Depois que o aplicativo hello carrega, clique em Olá **o logon único** no menu de navegação à esquerda do aplicativo hello.
 
-8.  Selecione o modo **Logon baseado em Senha.**
+8.  Modo de seleção Olá **com base em senha de logon.**
 
-9.  [Atribuir usuários ao aplicativo](#how-to-assign-a-user-to-an-application-directly).
+9.  [Atribuir usuários toohello aplicativo](#how-to-assign-a-user-to-an-application-directly).
 
-10. Além disso, também é possível fornecer credenciais em nome do usuário selecionando as linhas dos usuários, clicando em **Atualizar Credenciais** e digitando o nome de usuário e a senha em nome dos usuários. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
+10. Além disso, você também pode fornecer credenciais em nome de usuário de saudação selecionar linhas de saudação de usuários hello e clicando em **credenciais de atualização** e inserindo Olá nome de usuário e senha em nome dos usuários de saudação. Caso contrário, os usuários ser solicitadas tooenter Olá credenciais si mesmos após a inicialização.
 
-## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único com senha para um aplicativo inexistente na galeria
+## <a name="how-tooconfigure-password-single-sign-on-for-a-non-gallery-application"></a>Como senha tooconfigure o logon único para um aplicativo não Galeria
 
-Para configurar um aplicativo da galeria do Azure AD será necessário:
+tooconfigure um aplicativo da Galeria do AD do Azure Olá você precisa:
 
 -   [Adicionar um aplicativo inexistente na galeria](#add-a-non-gallery-application)
 
--   [Configurar o aplicativo para logon único com senha](#configure-the-application-for-password-single-sign-on)
+-   [Configurar o aplicativo hello de senha single sign-on](#configure-the-application-for-password-single-sign-on)
 
 ### <a name="add-a-non-gallery-application"></a>Adicionar um aplicativo inexistente na galeria
 
-Para adicionar um aplicativo da Galeria do Azure AD, siga as etapas abaixo:
+tooadd um aplicativo hello Galeria do AD do Azure, siga as etapas de saudação abaixo:
 
-1.  Abra o [Portal do Azure](https://portal.azure.com) e entre como um **Administrador Global** ou **Coadministrador**.
+1.  Olá abrir [Portal do Azure](https://portal.azure.com) e entre como um **Administrador Global** ou **coadministrador**.
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
+2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicativos empresariais** no menu de navegação do hello Azure Active Directory à esquerda.
 
-5.  clique no botão **Adicionar** no canto superior direito da folha **Aplicativos Empresariais**.
+5.  Clique em Olá **adicionar** botão no canto superior direito Olá Olá **aplicativos empresariais** folha.
 
 6.  clique em **Aplicativo inexistente na galeria.**
 
-7.  Insira o nome do aplicativo na caixa de texto **Nome**. Selecione **Adicionar.**
+7.  Insira o nome de saudação do seu aplicativo em Olá **nome** caixa de texto. Selecione **Adicionar.**
 
-Após um curto período de tempo, você poderá ver a folha de configuração do aplicativo.
+Após um curto período, você deve ser folha de configuração do aplicativo do toosee capaz de saudação.
 
-### <a name="configure-the-application-for-password-single-sign-on"></a>Configurar o aplicativo para logon único com senha
+### <a name="configure-hello-application-for-password-single-sign-on"></a>Configurar o aplicativo hello de senha single sign-on
 
-Para configurar o logon único para um aplicativo, siga as etapas abaixo:
+tooconfigure logon único para um aplicativo, siga as etapas de saudação abaixo:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
+1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global** ou **Co-administrador.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
+2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
 
-4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicativos empresariais** no menu de navegação do hello Azure Active Directory à esquerda.
 
-5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **todos os aplicativos** tooview uma lista de todos os seus aplicativos.
 
-    1.  Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+    1.  Se você não vir o aplicativo hello você deseja mostrar aqui, use Olá **filtro** controle na parte superior de saudação do hello **lista de todos os aplicativos** e conjunto hello **Mostrar** opção muito **Todos os aplicativos.**
 
-6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
+6.  Selecione aplicativo hello deseja tooconfigure-logon único.
 
-7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
+7.  Depois que o aplicativo hello carrega, clique em Olá **o logon único** no menu de navegação à esquerda do aplicativo hello.
 
-8.  Selecione o modo **Logon baseado em senha.**
+8.  Modo de seleção Olá **com base em senha de logon.**
 
-9.  Insira a **URL de Logon**. Trata-se da URL em que os usuários inserem o nome de usuário e senha para entrar. Verifique se os campos de entrada estão visíveis na URL.
+9.  Digite hello **URL de logon**. Isso é Olá URL onde os usuários digitarão seu nome de usuário e senha toosign em para. Certifique-se de campos de entrada hello são visíveis na URL de saudação.
 
-10. Atribuir usuários a um aplicativo.
+10. Atribua usuários toohello aplicativo.
 
-11. Além disso, também é possível fornecer credenciais em nome do usuário selecionando as linhas dos usuários, clicando em **Atualizar Credenciais** e digitando o nome de usuário e a senha em nome dos usuários. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
+11. Além disso, você também pode fornecer credenciais em nome de usuário de saudação selecionar linhas de saudação de usuários hello e clicando em **credenciais de atualização** e inserindo Olá nome de usuário e senha em nome dos usuários de saudação. Caso contrário, os usuários ser solicitadas tooenter Olá credenciais si mesmos após a inicialização.
 
-## <a name="how-to-assign-a-user-to-an-application-directly"></a>Como atribuir um usuário diretamente a um aplicativo
+## <a name="how-tooassign-a-user-tooan-application-directly"></a>Como tooassign tooan aplicativo do usuário diretamente
 
-Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas abaixo:
+tooassign um ou mais aplicativos de tooan usuários diretamente, siga as etapas de saudação abaixo:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global.**
+1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
+2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
 
-4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicativos empresariais** no menu de navegação do hello Azure Active Directory à esquerda.
 
-5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **todos os aplicativos** tooview uma lista de todos os seus aplicativos.
 
-  * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+  * Se você não vir o aplicativo hello você deseja mostrar aqui, use Olá **filtro** controle na parte superior de saudação do hello **lista de todos os aplicativos** e conjunto hello **Mostrar** opção muito **Todos os aplicativos.**
 
-6.  Na lista, selecione o aplicativo ao qual deseja atribuir um usuário.
+6.  Selecione o aplicativo hello deseja tooassign uma lista de saudação do usuário toofrom.
 
-7.  Após o carregamento do aplicativo, clique em **Usuários e Grupos** no menu de navegação esquerdo do aplicativo.
+7.  Depois que o aplicativo hello carrega, clique em **usuários e grupos** no menu de navegação à esquerda do aplicativo hello.
 
-8.  Clique no botão **Adicionar** na parte superior da lista **Usuários e Grupos** para abrir a folha **Adicionar Atribuição**.
+8.  Clique Olá **adicionar** botão na parte superior Olá **usuários e grupos** Olá de tooopen lista **Adicionar atribuição** folha.
 
-9.  Clique no seletor **Usuários e grupos** da folha **Adicionar Atribuição**.
+9.  Clique em Olá **usuários e grupos** seletor de saudação **Adicionar atribuição** folha.
 
-10. Digite o **nome completo** ou o **endereço de email** do usuário que você deseja atribuir na caixa de pesquisa **Pesquisar por nome ou endereço de email**.
+10. Tipo de saudação **nome completo** ou **endereço de email** do usuário Olá que lhe interessam atribuindo em Olá **pesquisar por nome ou endereço de email** caixa de pesquisa.
 
-11. Passe o mouse sobre o **usuário** na lista para mostrar uma **caixa de seleção**. Clique na caixa de seleção ao lado do logotipo ou da foto de perfil do usuário para adicioná-lo à lista **Selecionado**.
+11. Passe o mouse sobre Olá **usuário** em Olá lista tooreveal um **caixa de seleção**. Clique em tooadd de foto ou logotipo de perfil do Olá caixa de seleção próxima toohello usuário seu usuário toohello **selecionados** lista.
 
-12. **Opcional:** caso queira **adicionar mais de um usuário**, digite outro **nome completo** ou **endereço de email** na caixa de pesquisa **Pesquisar por nome ou endereço de email** e clique na caixa de seleção para adicionar esse usuário à lista **Selecionado**.
+12. **Opcional:** se você gostaria que muito**adicionar mais de um usuário**, tipo em outro **nome completo** ou **endereço de email** em Olá **pesquisar por nome endereço de email ou** caixa de pesquisa e, em seguida, clique em tooadd de caixa de seleção Olá esse usuário toohello **selecionados** lista.
 
-13. Ao concluir a seleção dos usuários, clique no botão **Selecionar** para adicioná-los à lista de usuários e grupos a serem atribuídos ao aplicativo.
+13. Quando você terminar de selecionar usuários, clique em Olá **selecione** botão tooadd-los toohello lista de usuários e grupos toobe atribuído toohello aplicativo.
 
-14. **Opcional:** clique no seletor **Selecionar Função** na folha **Adicionar Atribuição** para selecionar uma função que será atribuída aos usuários selecionados.
+14. **Opcional:** clique Olá **Selecionar função** seletor de saudação **Adicionar atribuição** folha tooselect uma função tooassign toohello usuários selecionados.
 
-15. Clique no botão **Atribuir** para atribuir o aplicativo aos usuários selecionados.
+15. Clique em Olá **atribuir** botão tooassign Olá aplicativo toohello selecionado de usuários.
 
-Após um breve período, os usuários selecionados poderão iniciar esses aplicativos no Painel de Acesso.
+Após um curto período, os usuários Olá que você selecionou ser capaz de toolaunch esses aplicativos em Olá painel de acesso.
 
-## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Se essas etapas de solução de problemas não resolverem o problema. 
+## <a name="if-these-troubleshooting-steps-do-not-hello-resolve-hello-issue"></a>Se essas etapas de solução de problemas Olá não resolva o problema de saudação. 
 
-Abra um tíquete de suporte com as informações a seguir, se estiverem disponíveis:
+Abra um tíquete de suporte com hello informações a seguir se disponíveis:
 
 -   ID de erro de correlação
 
@@ -274,4 +274,4 @@ Abra um tíquete de suporte com as informações a seguir, se estiverem disponí
 -   Rastreamentos do Fiddler
 
 ## <a name="next-steps"></a>Próximas etapas
-[Fornecer logon único para seus aplicativos com Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
+[Fornecer aplicativos de tooyour de logon único com o Proxy de aplicativo](active-directory-application-proxy-sso-using-kcd.md)

@@ -1,6 +1,6 @@
 ---
-title: "Associações do Banco de Dados Cosmos do Azure Functions | Microsoft Docs"
-description: "Entenda como usar associações do Banco de Dados Cosmo do Azure no Azure Functions."
+title: "associações de funções Cosmos DB aaaAzure | Microsoft Docs"
+description: "Entender como associações de banco de dados do Azure Cosmos toouse em funções do Azure."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -16,48 +16,48 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/18/2016
 ms.author: glenga
-ms.openlocfilehash: de95b0591eb95e76dbb7ba2382e9e14e1f66cda1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 76b89e8296db1dd28dff9528903b1f6a28f55232
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-cosmos-db-bindings"></a>Associações do Banco de Dados Cosmos do Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Este artigo explica como configurar e codificar associações do Banco de Dados Cosmos do Azure no Azure Functions. O Azure Functions dá suporte a associações de entrada e saída para o Banco de Dados Cosmos.
+Este artigo explica como as associações de banco de dados do Azure Cosmos tooconfigure e código em funções do Azure. O Azure Functions dá suporte a associações de entrada e saída para o Cosmos DB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Para saber mais sobre o Banco de Dados Cosmos, veja [Introdução ao Banco de Dados Cosmos](../documentdb/documentdb-introduction.md) e [Criar um aplicativo de console do Banco de Dados Cosmos](../documentdb/documentdb-get-started.md).
+Para obter mais informações sobre o banco de dados do Cosmos, consulte [tooCosmos Introdução DB](../documentdb/documentdb-introduction.md) e [criar um aplicativo de console de banco de dados do Cosmos](../documentdb/documentdb-get-started.md).
 
 <a id="docdbinput"></a>
 
 ## <a name="documentdb-api-input-binding"></a>Associação de entrada da API do DocumentDB
-A associação de entrada da API do DocumentDB recupera um documento do Banco de Dados Cosmos e o passa ao parâmetro de entrada nomeada da função. A ID do documento pode ser determinada com base no gatilho que invoca a função. 
+Olá associação de entrada da API DocumentDB recupera um documento de banco de dados do Cosmos e passa toohello nomeado o parâmetro de entrada da função hello. documento Hello que ID pode ser determinado com base no disparador Olá que invoca a função hello. 
 
-A associação de entrada da API do DocumentDB tem as seguintes propriedades em *function.json*:
+Olá associação de entrada da API do DocumentDB tem Olá seguintes propriedades em *function.json*:
 
-- `name` : nome do Identificador usado no código de função para o documento
-- `type` : deve ser definido como "documentdb"
-- `databaseName` : O banco de dados que contém o documento
-- `collectionName` : A coleção que contém o documento
-- `id` : a ID do documento a ser recuperado. Essa propriedade oferece suporte a parâmetros de associações; consulte [Associar a propriedades personalizadas de entrada em uma expressão de associação](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression) no artigo [Conceitos de associações e gatilhos de funções do Azure](functions-triggers-bindings.md).
-- `sqlQuery`: uma consulta SQL do Banco de Dados Cosmos usada para recuperar vários documentos. A consulta oferece suporte a associações de tempo de execução. Por exemplo: `SELECT * FROM c where c.departmentId = {departmentId}`
-- `connection`: o nome da configuração do aplicativo que contém a cadeia de conexão do Banco de Dados Cosmos
-- `direction` : deve ser definido como `"in"`.
+- `name`: Nome de identificador usado no código de função para documento Olá
+- `type`: deve ser definido muito "documentos"
+- `databaseName`: banco de dados de saudação que contém o documento de saudação
+- `collectionName`: coleta Olá que contém o documento de saudação
+- `id`: Olá Id da saudação tooretrieve de documento. Essa propriedade oferece suporte a parâmetros de associações; consulte [ligar as propriedades de entrada toocustom em uma expressão de associação](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression) artigo Olá [gatilhos de funções do Azure e conceitos de associações](functions-triggers-bindings.md).
+- `sqlQuery`: uma consulta SQL do Banco de Dados Cosmos usada para recuperar vários documentos. consulta de saudação dá suporte a associações de tempo de execução. Por exemplo: `SELECT * FROM c where c.departmentId = {departmentId}`
+- `connection`: nome de saudação da configuração de aplicativo hello que contém a cadeia de conexão do banco de dados do Cosmos
+- `direction`: deve ser definido muito`"in"`.
 
-As propriedades `id` e `sqlQuery` não podem ser especificadas. Se `id` nem `sqlQuery` estiver definido, toda a coleção é recuperada.
+Olá propriedades `id` e `sqlQuery` não podem ser especificados. Se nem `id` nem `sqlQuery` for definida, hello toda coleção é recuperada.
 
 ## <a name="using-a-documentdb-api-input-binding"></a>Utilizar uma associação de entrada de API do DocumentDB
 
-* Em funções C# e F#, todas as alterações feitas no documento de entrada por parâmetros de entrada nomeados são persistidas automaticamente. 
-* Funções de JavaScript, as atualizações não são feitas automaticamente após a saída da função. Em vez disso, use `context.bindings.<documentName>In` e `context.bindings.<documentName>Out` para fazer atualizações. Consulte o [exemplo JavaScript](#injavascript).
+* Em c# e F # funções, quando a função hello encerrada com êxito, qualquer alteração feita toohello o documento de entrada por meio de parâmetros de entrada nomeados é automaticamente persistidas. 
+* Funções de JavaScript, as atualizações não são feitas automaticamente após a saída da função. Em vez disso, use `context.bindings.<documentName>In` e `context.bindings.<documentName>Out` toomake atualizações. Consulte Olá [JavaScript exemplo](#injavascript).
 
 <a name="inputsample"></a>
 
 ## <a name="input-sample-for-single-document"></a>Exemplo de entrada para um único documento
-Suponha que você tenha a seguinte associação de entrada da API do DocumentDB na matriz `bindings` de function.json:
+Suponha que você tenha a seguinte Olá API DocumentDB entrada associação em Olá `bindings` matriz de function.json:
 
 ```json
 {
@@ -71,7 +71,7 @@ Suponha que você tenha a seguinte associação de entrada da API do DocumentDB 
 }
 ```
 
-Veja o exemplo de idioma específico que usa essa associação de entrada para atualizar o valor de texto do documento.
+Consulte Olá específico do idioma exemplo que usa o valor de texto do documento associação de entrada tooupdate hello.
 
 * [C#](#incsharp)
 * [F#](#infsharp)
@@ -98,7 +98,7 @@ let Run(myQueueItem: string, inputDocument: obj) =
   inputDocument?text <- "This has changed."
 ```
 
-Esse exemplo requer um arquivo `project.json` que especifique as dependências `FSharp.Interop.Dynamic` e `Dynamitey` do NuGet:
+Este exemplo requer uma `project.json` arquivo Especifica Olá `FSharp.Interop.Dynamic` e `Dynamitey` dependências do NuGet:
 
 ```json
 {
@@ -113,7 +113,7 @@ Esse exemplo requer um arquivo `project.json` que especifique as dependências `
 }
 ```
 
-Para adicionar um arquivo do `project.json`, veja [Gerenciamento de pacotes do F#](functions-reference-fsharp.md#package).
+tooadd um `project.json` de arquivos, consulte [gerenciamento de pacotes do F #](functions-reference-fsharp.md#package).
 
 <a name="injavascript"></a>
 
@@ -130,9 +130,9 @@ module.exports = function (context) {
 
 ## <a name="input-sample-with-multiple-documents"></a>Exemplo de entrada com vários documentos
 
-Suponha que você deseja recuperar vários documentos especificados por uma consulta SQL, usando um gatilho de fila para personalizar os parâmetros de consulta. 
+Suponha que você deseja tooretrieve vários documentos especificados por uma consulta SQL, usando parâmetros de consulta uma fila gatilho toocustomize hello. 
 
-Neste exemplo, o gatilho de fila fornece um parâmetro `departmentId`. Uma mensagem da fila de `{ "departmentId" : "Finance" }` retornará todos os registros para o departamento financeiro. Usar o seguinte em *function.json*:
+Neste exemplo, o gatilho de fila Olá fornece um parâmetro `departmentId`. Uma mensagem da fila de `{ "departmentId" : "Finance" }` retornará todos os registros para o departamento de finanças hello. Use a seguinte Olá no *function.json*:
 
 ```
 {
@@ -177,30 +177,30 @@ module.exports = function (context, input) {
 ```
 
 ## <a id="docdboutput"></a>Associação de saída da API do DocumentDB
-A associação de saída da API do DocumentDB permite que você escreva um novo documento em um banco de dados do Banco de Dados Cosmos do Azure. O *function.json* especifica as propriedades a seguir:
+Olá API DocumentDB associação permite que você escreva um novo documento tooan banco de dados do Azure Cosmos banco de dados de saída. Ele tem Olá seguintes propriedades em *function.json*:
 
-- `name` : nome do Identificador usado no código de função para o novo documento
-- `type` : deve ser definido como `"documentdb"`
-- `databaseName` : o banco de dados que contém a coleção na qual o novo documento será criado.
-- `collectionName` : a coleção na qual o novo documento será criado.
-- `createIfNotExists` : é um valor booliano para indicar se a coleção será criada se ela não existir. O padrão é *false*. O motivo para isso é que as novas coleções são criadas com a taxa de transferência reservada, o que tem implicações de preço. Para obter mais detalhes, visite a [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).
-- `connection`: o nome da configuração do aplicativo que contém a cadeia de conexão do Banco de Dados Cosmos
-- `direction` : deve ser definido como `"out"`
+- `name`: O identificador usado no código de função para Olá novo documento
+- `type`: deve ser definido muito`"documentdb"`
+- `databaseName`: banco de dados de saudação que contém a coleção Olá onde Olá novo documento será criado.
+- `collectionName`: Olá coleção onde Olá novo documento será criado.
+- `createIfNotExists`: Um valor booleano tooindicate se Olá coleção será criada se não existir. saudação padrão é *false*. Olá motivo para isso é uma novidade as coleções são criadas com a taxa de transferência reservada que tem implicações de preços. Para obter mais detalhes, visite Olá [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).
+- `connection`: nome de saudação da configuração de aplicativo hello que contém a cadeia de conexão do banco de dados do Cosmos
+- `direction`: deve ser definido muito`"out"`
 
 ## <a name="using-a-documentdb-api-output-binding"></a>Usar uma associação de saída de API do DocumentDB
-Esta seção mostra como usar a associação de saída da API do DocumentDB em seu código da função.
+Esta seção mostra como toouse sua API de documentos de saída no seu código de função de associação.
 
-Quando você grava para o parâmetro de saída em sua função, por padrão um novo documento é gerado no banco de dados, com um GUID gerado automaticamente como a ID do documento. Você pode especificar a ID do documento de saída, especificando a propriedade `id` JSON no parâmetro de saída. 
+Quando você escreve um parâmetro de saída toohello na sua função, por padrão, que um novo documento é gerado no banco de dados, com um GUID gerado automaticamente como Olá documento ID. Você pode especificar a ID do documento de saudação do documento de saída especificando Olá `id` propriedade JSON em Olá parâmetro de saída. 
 
 >[!Note]  
->Ao especificar a ID de um documento existente, ela é substituída pelo novo documento de saída. 
+>Quando você especificar Olá ID de um documento existente, ele obtém substituído por novo documento de saída hello. 
 
-Para obter vários documentos de saída, você também pode associar a `ICollector<T>` ou `IAsyncCollector<T>`, sendo `T` um dos tipos com suporte.
+toooutput vários documentos, você também pode associar muito`ICollector<T>` ou `IAsyncCollector<T>` onde `T` é um dos tipos de saudação com suporte.
 
 <a name="outputsample"></a>
 
 ## <a name="documentdb-api-output-binding-sample"></a>Exemplo de associação de saída da API do DocumentDB
-Suponha que você tenha a seguinte associação de saída da API do DocumentDB na matriz `bindings` de function.json:
+Suponha que você tenha a seguinte Olá API DocumentDB saída associação em Olá `bindings` matriz de function.json:
 
 ```json
 {
@@ -214,7 +214,7 @@ Suponha que você tenha a seguinte associação de saída da API do DocumentDB n
 }
 ```
 
-E que você tenha uma associação de entrada de fila para uma fila que recebe o JSON no seguinte formato:
+E você tem uma associação de entrada de fila para uma fila que recebe o JSON no hello formato a seguir:
 
 ```json
 {
@@ -224,7 +224,7 @@ E que você tenha uma associação de entrada de fila para uma fila que recebe o
 }
 ```
 
-E você deseja criar documentos do Banco de Dados Cosmos no formato a seguir para cada registro:
+E toocreate Cosmos DB documentos em Olá formato para cada registro a seguir:
 
 ```json
 {
@@ -235,7 +235,7 @@ E você deseja criar documentos do Banco de Dados Cosmos no formato a seguir par
 }
 ```
 
-Veja o exemplo de idioma específico que usa essa associação de saída para adicionar documentos ao seu banco de dados.
+Consulte Olá específico do idioma exemplo que usa essa saída associação tooadd documentos tooyour banco de dados.
 
 * [C#](#outcsharp)
 * [F#](#outfsharp)
@@ -292,7 +292,7 @@ let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
       address = employee?address }
 ```
 
-Esse exemplo requer um arquivo `project.json` que especifique as dependências `FSharp.Interop.Dynamic` e `Dynamitey` do NuGet:
+Este exemplo requer uma `project.json` arquivo Especifica Olá `FSharp.Interop.Dynamic` e `Dynamitey` dependências do NuGet:
 
 ```json
 {
@@ -307,7 +307,7 @@ Esse exemplo requer um arquivo `project.json` que especifique as dependências `
 }
 ```
 
-Para adicionar um arquivo do `project.json`, veja [Gerenciamento de pacotes do F#](functions-reference-fsharp.md#package).
+tooadd um `project.json` de arquivos, consulte [gerenciamento de pacotes do F #](functions-reference-fsharp.md#package).
 
 <a name="outjavascript"></a>
 

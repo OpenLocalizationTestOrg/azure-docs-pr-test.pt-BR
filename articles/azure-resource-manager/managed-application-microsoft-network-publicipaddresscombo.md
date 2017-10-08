@@ -1,6 +1,6 @@
 ---
-title: "Elemento de interface do usuário PublicIpAddressCombo de aplicativo gerenciado do Azure | Microsoft Docs"
-description: "Descreve o elemento Microsoft.Compute.PublicIpAddressCombo da interface do usuário para aplicativos gerenciados do Azure"
+title: "elemento de interface do usuário PublicIpAddressCombo de aplicativo gerenciado aaaAzure | Microsoft Docs"
+description: "Descreve Olá elemento Microsoft.Network.PublicIpAddressCombo da interface do usuário para aplicativos gerenciados do Azure"
 services: azure-resource-manager
 documentationcenter: na
 author: tabrezm
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
-ms.openlocfilehash: 2eb773f5f0cf389fc39bc3a0f5fbf9ac726d1949
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8ba689005c0eccda0a57bf628de4b5197886a950
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Elemento de interface do usuário Microsoft.Network.PublicIpAddressCombo
 Um grupo de controles para selecionar um endereço IP público novo ou existente. Use esse elemento ao [criar um Aplicativo Gerenciado do Azure](managed-application-publishing.md).
@@ -25,9 +25,9 @@ Um grupo de controles para selecionar um endereço IP público novo ou existente
 ## <a name="ui-sample"></a>Exemplo de interface do usuário
 ![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft.network.publicipaddresscombo.png)
 
-- Se o usuário selecionar 'Nenhum' como endereço IP público, a caixa de texto de rótulo do nome de domínio ficará oculta.
-- Se o usuário selecionar um endereço IP público existente, a caixa de texto de rótulo do nome de domínio ficará desabilitada. Seu valor é o rótulo de nome de domínio do endereço IP selecionado.
-- O sufixo do nome de domínio (por exemplo, westus.cloudapp.azure.com) é atualizado automaticamente com base no local selecionado.
+- Se o usuário Olá seleciona 'Nenhum' para o endereço IP público, caixa de texto rótulo do nome de domínio hello está oculto.
+- Se o usuário Olá seleciona um endereço IP público existente, a caixa de texto rótulo do nome de domínio Olá está desabilitada. Seu valor é o rótulo de nome de domínio de saudação do endereço IP de saudação selecionado.
+- Olá domínio nome sufixo (por exemplo, westus.cloudapp.azure.com) atualizações automaticamente com base na localização de saudação selecionada.
 
 ## <a name="schema"></a>Esquema
 ```json
@@ -61,20 +61,20 @@ Um grupo de controles para selecionar um endereço IP público novo ou existente
 ```
 
 ## <a name="remarks"></a>Comentários
-- Se `constraints.required.domainNameLabel` é definido como **true**, o usuário deve fornecer um rótulo de nome de domínio ao criar um novo endereço IP público. Endereços IP públicos existentes sem um rótulo não ficam disponíveis para seleção.
-- Se `options.hideNone` é definido como **true**, a opção de selecionar **Nenhum** para o endereço IP público fica oculta. O valor padrão é **false**.
-- Se `options.hideDomainNameLabel` é definido como **true**, a caixa de texto do rótulo de nome de domínio fica oculta. O valor padrão é **false**.
-- Se `options.hideExisting` é true, o usuário não pode escolher um endereço IP público existente. O valor padrão é **false**.
+- Se `constraints.required.domainNameLabel` está definido muito**true**, usuário Olá deve fornecer um rótulo de nome de domínio ao criar um novo endereço IP público. Endereços IP públicos existentes sem um rótulo não ficam disponíveis para seleção.
+- Se `options.hideNone` está definido muito**true**, Olá, em seguida, a opção tooselect **nenhum** para o IP público Olá endereço está oculto. valor padrão de saudação é **false**.
+- Se `options.hideDomainNameLabel` está definido muito**true**, em seguida, a caixa de texto de saudação do rótulo de nome de domínio está oculto. valor padrão de saudação é **false**.
+- Se `options.hideExisting` for true, o usuário Olá não é capaz de toochoose um endereço IP público existente. valor padrão de saudação é **false**.
 
 ## <a name="sample-output"></a>Saída de exemplo
-Se o usuário não seleciona nenhum endereço IP público,a seguinte saída é esperada:
+Se o usuário Olá não seleciona Nenhum endereço IP público, hello seguinte saída é esperada:
 ```json
 {
   "newOrExistingOrNone": "none"
 }
 ```
 
-Se o usuário seleciona um endereço IP novo ou existente,a seguinte saída é esperada:
+Se o usuário Olá seleciona um endereço IP novo ou existente, hello seguinte saída é esperada:
 ```json
 {
   "name": "ip01",
@@ -87,6 +87,6 @@ Se o usuário seleciona um endereço IP novo ou existente,a seguinte saída é e
 - Quando `options.hideDomainNameLabel` for especificado, `domainNameLabel` não será declarado.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados do Azure](managed-application-overview.md).
-* Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* Para aplicativos de toomanaged uma introdução, consulte [visão geral de aplicativos gerenciados do Azure](managed-application-overview.md).
+* Para definições de interface do usuário de toocreating uma introdução, consulte [guia de Introdução ao CreateUiDefinition](managed-application-createuidefinition-overview.md).
 * Para obter uma descrição das propriedades comuns em elementos de interface do usuário, consulte [Elementos de CreateUiDefinition](managed-application-createuidefinition-elements.md).

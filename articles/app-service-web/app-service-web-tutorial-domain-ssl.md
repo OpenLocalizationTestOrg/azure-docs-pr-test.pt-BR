@@ -1,6 +1,6 @@
 ---
-title: Adicionar um nome personalizado e SSL a um aplicativo Web do Azure| Microsoft Docs
-description: "Saiba como preparar seu aplicativo Web do Azure para entrar em produção adicionando a marca da sua empresa. Mapeie o nome de domínio personalizado para seu aplicativo Web e proteja-o com um certificado SSL personalizado."
+title: "aplicativo da web SSL tooan do Azure e domínio personalizado aaaAdd | Microsoft Docs"
+description: "Saiba como tooprepare do Azure web produção do aplicativo toogo adicionando sua identidade visual da empresa. Mapeie o aplicativo de web tooyour do (domínio banido) de nome de domínio personalizado Olá e protegê-lo com um certificado SSL personalizado."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,54 +15,54 @@ ms.topic: tutorial
 ms.date: 03/29/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c9d00f678b6257a8aafb35acd2d5a2292703a2dc
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 2679ed8b2dbbeba0b128c1a3ec01148f97c35342
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-custom-domain-and-ssl-to-an-azure-web-app"></a>Adicionar um nome personalizado e SSL a um aplicativo Web do Azure
+# <a name="add-custom-domain-and-ssl-tooan-azure-web-app"></a>Adicionar domínio personalizado e o aplicativo de web do Azure tooan SSL
 
-Este tutorial mostra como mapear rapidamente um nome de domínio personalizado para seu aplicativo Web do Azure e, depois, protegê-lo com um certificado SSL personalizado. 
+Este tutorial mostra como tooquickly mapear um aplicativo web do Azure de tooyour de nome de domínio personalizado e, em seguida, protegê-lo com um certificado SSL personalizado. 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Antes de executar este exemplo, instale a [CLI 2.0 do Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) localmente.
+Antes de executar este exemplo, instalar Olá [2.0 do CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) localmente.
 
-Também é necessário acesso administrativo à página de configuração de DNS para seu respectivo provedor de domínio. Por exemplo, para adicionar `www.contoso.com`, você precisa ser capaz de configurar entradas DNS para `contoso.com`.
+Você também precisa página de configuração do acesso administrativo toohello DNS para o seu provedor do respectivos domínios. Por exemplo, tooadd `www.contoso.com`, você precisa toobe tooconfigure capaz de entradas DNS para `contoso.com`.
 
-Por fim, você precisa de um arquivo .PFX válido _e_ de sua senha para o certificado SSL que você deseja carregar e associar. Esse certificado SSL deve ser configurado para proteger o nome de domínio personalizado que você deseja. No exemplo acima, seu certificado SSL deve proteger `www.contoso.com`. 
+Por fim, é necessário um válido. Arquivo PFX _e_ sua senha para certificado SSL Olá deseja tooupload e estabeleça uma ligação. Esse certificado SSL deve ser o nome de domínio personalizado de saudação configurado toosecure desejado. Em Olá exemplo acima, o certificado SSL deve proteger `www.contoso.com`. 
 
 ## <a name="step-1---create-an-azure-web-app"></a>Etapa 1 - Criar um aplicativo Web do Azure
 
-### <a name="log-in-to-azure"></a>Fazer logon no Azure
+### <a name="log-in-tooazure"></a>Faça logon no tooAzure
 
-Agora, usaremos a CLI 2.0 do Azure em uma janela do terminal para criar os recursos necessários para hospedar nosso aplicativo Node.js no Azure.  Faça logon na sua assinatura do Azure com o comando [az login](/cli/azure/#login) e siga as instruções na tela. 
+Estamos agora vai toouse Olá 2.0 do CLI do Azure em um terminal toocreate Olá recursos necessário toohost nosso aplicativo Node.js no Azure.  Fazer logon no tooyour assinatura do Azure com hello [logon az](/cli/azure/#login) de comando e siga o hello instruções na tela. 
 
 ```azurecli 
 az login 
 ``` 
    
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos   
-Crie um grupo de recursos com [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure, como os aplicativos Web, bancos de dados e contas de armazenamento, são implantados e gerenciados. 
+Criar um grupo de recursos com hello [criar grupo az](/cli/azure/group#create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure, como os aplicativos Web, bancos de dados e contas de armazenamento, são implantados e gerenciados. 
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope 
 ```
 
-Para ver quais são os valores possíveis para `---location`, use o comando `az appservice list-locations` da CLI do Azure.
+toosee quais possíveis valores que você podem usar para `---location`, use Olá `az appservice list-locations` comando CLI do Azure.
 
 ## <a name="create-an-app-service-plan"></a>Criar um plano de Serviço de Aplicativo
 
-Criar um plano do Serviço de Aplicativo com o comando [az appservice plan create](/cli/azure/appservice/plan#create). 
+Criar um plano de serviço de aplicativo com hello [criar plano de serviço de aplicativo az](/cli/azure/appservice/plan#create) comando. 
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-O exemplo a seguir cria um Plano do Serviço de Aplicativo denominado `myAppServicePlan` usando o tipo de preço **Basic**.
+Olá, exemplo a seguir cria um plano de serviço de aplicativo chamado `myAppServicePlan` usando Olá **básica** preço.
 
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1
 
-Quando o Plano do Serviço de Aplicativo for criado, a CLI do Azure mostrará informações semelhantes ao exemplo a seguir. 
+Quando Olá plano de serviço de aplicativo tiver sido criado, Olá CLI do Azure mostra informações toohello semelhante exemplo a seguir. 
 
 ```json 
 { 
@@ -82,15 +82,15 @@ Quando o Plano do Serviço de Aplicativo for criado, a CLI do Azure mostrará in
 
 ## <a name="create-a-web-app"></a>Criar um aplicativo Web
 
-Agora que um Plano do Serviço de Aplicativo foi criado, crie um Aplicativo Web no Plano do Serviço de Aplicativo `myAppServicePlan`. O aplicativo Web fornece um espaço de hospedagem para implantar seu código, bem como uma URL para exibir o aplicativo implantado. Use o comando [az appservice web create](/cli/azure/appservice/web#create) para criar o Aplicativo Web. 
+Agora que foi criado um plano de serviço de aplicativo, criar um aplicativo web em Olá `myAppServicePlan` plano de serviço de aplicativo. Fornece de aplicativo de web Hello você estiver uma hospedagem toodeploy de espaço em seu código, bem como fornece uma URL para você Olá tooview aplicativo implantado. Saudação de uso [web do serviço de aplicativo az criar](/cli/azure/appservice/web#create) comando toocreate Olá web app. 
 
-No comando abaixo, substitua o espaço reservado `<app_name>` por seu próprio nome exclusivo de aplicativo. O nome exclusivo será usado como a parte do nome de domínio padrão para o aplicativo Web, portanto, o nome deve ser exclusivo entre todos os aplicativos no Azure. Posteriormente, você poderá mapear qualquer entrada DNS personalizada para o aplicativo Web antes de expor para seus usuários. 
+O comando Olá abaixo, substitua por seu próprio nome exclusivo do aplicativo onde você pode ver Olá `<app_name>` espaço reservado. Esse nome exclusivo será usado como parte de Olá Olá padrão do nome de domínio de aplicativo da web hello, para que o nome do hello deve toobe exclusivo entre todos os aplicativos no Azure. Posteriormente, você pode mapear qualquer entrada DNS personalizado, toohello aplicativo da web antes de você expor tooyour usuários. 
 
 ```azurecli
 az appservice web create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan 
 ```
 
-Quando o aplicativo Web tiver sido criado, a CLI do Azure mostrará informações semelhantes ao exemplo a seguir. 
+Quando o aplicativo da web de saudação tiver sido criado, Olá CLI do Azure mostra informações toohello semelhante exemplo a seguir. 
 
 ```json 
 { 
@@ -110,7 +110,7 @@ Quando o aplicativo Web tiver sido criado, a CLI do Azure mostrará informaçõe
 } 
 ```
 
-Na saída JSON, `defaultHostName` mostra o nome de domínio padrão de seu aplicativo Web. Em seu navegador, navegue até este endereço.
+De saudação saída JSON, `defaultHostName` mostra o nome do domínio do seu aplicativo web padrão. No seu navegador, navegue toothis endereço.
 
 ```
 http://<app_name>.azurewebsites.net 
@@ -120,33 +120,33 @@ http://<app_name>.azurewebsites.net
 
 ## <a name="step-2---configure-dns-mapping"></a>Etapa 2 - Configurar o mapeamento DNS
 
-Nesta etapa, você adiciona um mapeamento de um domínio personalizado para o nome de domínio padrão de seu aplicativo Web, `<app_name>.azurewebsites.net`. Normalmente, você executa essa etapa no site do provedor de domínio. Cada site do registrador de domínio é um pouco diferente, portanto, você deve consultar a documentação do provedor. Estas são algumas diretrizes gerais. 
+Nesta etapa, você adiciona um mapeamento de nome de domínio padrão do aplicativo um domínio personalizado tooyour da web, `<app_name>.azurewebsites.net`. Normalmente, você executa essa etapa no site do provedor de domínio. Cada site do registrador de domínio é um pouco diferente, portanto, você deve consultar a documentação do provedor. Estas são algumas diretrizes gerais. 
 
-### <a name="navigate-to-to-dns-management-page"></a>Navegue até a página de gerenciamento do DNS
+### <a name="navigate-tootoodns-management-page"></a>Navegue tootooDNS página de gerenciamento
 
-Primeiro, faça logon no site do registrador de domínio.  
+Primeiro, faça logon no site do registrador de domínio tooyour.  
 
-Depois, localize a página para gerenciar registros DNS. Procure links ou áreas do site rotuladas como **Nome de domínio**, **DNS** ou **Gerenciamento de Servidor de Nomes**. Normalmente, você pode encontrar o link exibindo as informações de conta e procurando um link como **Meus domínios**.
+Em seguida, localize a página de saudação para gerenciar registros DNS. Procure links ou áreas do site Olá rotulada **nome de domínio**, **DNS**, ou **nome do servidor de gerenciamento**. Geralmente, você pode encontrar o link de saudação exibindo as informações da conta e, em seguida, procurando, como um link **Meus domínios**.
 
 Quando encontrar a página, procure por um link que permita adicionar ou editar os registros DNS. Pode ser um **Arquivo de zona**, link de **Registros DNS** ou um link de configuração **Avançado**.
 
 ### <a name="create-a-cname-record"></a>Criar um registro CNAME
 
-Adicione um registro CNAME que mapeie o nome de subdomínio desejado para o nome de domínio padrão de seu aplicativo Web (`<app_name>.azurewebsites.net`, em que `<app_name>` é o nome exclusivo do aplicativo).
+Adicionar um registro CNAME que mapeia o nome de domínio padrão do aplicativo do web tooyour nome hello subdomínio desejado (`<app_name>.azurewebsites.net`, onde `<app_name>` é o nome exclusivo do aplicativo).
 
-Para o exemplo `www.contoso.com`, crie um CNAME que mapeie o nome de host `www` para `<app_name>.azurewebsites.net`.
+Para Olá `www.contoso.com` exemplo, criar um CNAME que mapeia Olá `www` hostname muito`<app_name>.azurewebsites.net`.
 
-## <a name="step-3---configure-the-custom-domain-on-your-web-app"></a>Etapa 3 - Configurar o domínio personalizado em seu aplicativo Web
+## <a name="step-3---configure-hello-custom-domain-on-your-web-app"></a>Etapa 3 – configurar o domínio personalizado Olá em seu aplicativo web
 
-Quando você terminar de configurar o mapeamento do nome de host no site do provedor de domínio, você estará pronto para configurar o domínio personalizado em seu aplicativo Web. Use o comando [az appservice web config hostname add](/cli/azure/appservice/web/config/hostname#add) para adicionar essa configuração. 
+Quando você terminar de configurar o mapeamento de nome de host Olá no site do provedor de domínio, você está domínio personalizado de saudação tooconfigure pronto em seu aplicativo web. Saudação de uso [az serviço de aplicativo web configuração hostname adicionar](/cli/azure/appservice/web/config/hostname#add) comando tooadd essa configuração. 
 
-No comando a seguir, substitua `<app_name>` pelo nome exclusivo de seu aplicativo, e <nome_do_seu_domínio> pelo nome de domínio personalizado totalmente qualificado (por exemplo, `www.contoso.com`). 
+O comando Olá abaixo, substitua `<app_name>` com seu nome de aplicativo exclusivo e < your_custom_domain > com nome de domínio totalmente qualificado de personalizado de saudação (por exemplo, `www.contoso.com`). 
 
 ```azurecli
 az appservice web config hostname add --webapp <app_name> --resource-group myResourceGroup --name <your_custom_domain>
 ```
 
-O domínio personalizado agora está totalmente mapeado para seu aplicativo Web. Em seu navegador, navegue até o nome de domínio personalizado. Por exemplo:
+domínio personalizado Olá agora é totalmente mapeado tooyour web app. No seu navegador, navegue toohello nome de domínio personalizado. Por exemplo:
 
 ```
 http://www.contoso.com 
@@ -154,27 +154,27 @@ http://www.contoso.com
 
 ![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-custom-domain.png)  
 
-## <a name="step-4---bind-a-custom-ssl-certificate-to-your-web-app"></a>Etapa 4 - Associar um certificado SSL personalizado ao seu aplicativo Web
+## <a name="step-4---bind-a-custom-ssl-certificate-tooyour-web-app"></a>Etapa 4: associar um certificado SSL personalizado, tooyour aplicativo da web
 
-Agora você tem um aplicativo Web, com o nome de domínio desejado na barra de endereços do navegador. No entanto, se você navegar até `https://<your_custom_domain>`, receberá um erro de certificado. 
+Agora você tem um aplicativo web do Azure, com nome de domínio de saudação desejado na barra de endereços do navegador hello. No entanto, se você navegar toohello `https://<your_custom_domain>` agora, você não receberá um erro de certificado. 
 
 ![app-service-web-service-created](media/app-service-web-tutorial-domain-ssl/web-app-cert-error.png)  
 
-Esse erro ocorre porque seu aplicativo Web ainda não possui uma associação de certificado SSL que corresponda ao nome de domínio personalizado. No entanto, você não receberá um erro se navegar até `https://<app_name>.azurewebsites.net`. Isso porque seu aplicativo, bem como todos os aplicativos do Serviço de Aplicativo do Azure, são protegidos com o certificado SSL para o domínio curinga `*.azurewebsites.net` por padrão. 
+Esse erro ocorre porque seu aplicativo Web ainda não possui uma associação de certificado SSL que corresponda ao nome de domínio personalizado. No entanto, você não obterá um erro se você navegar muito`https://<app_name>.azurewebsites.net`. Isso ocorre porque o seu aplicativo, bem como todos os aplicativos de serviço de aplicativo do Azure, é protegida com certificado SSL Olá Olá `*.azurewebsites.net` domínio curinga por padrão. 
 
-Para acessar seu aplicativo Web pelo nome de seu domínio personalizado, associe o certificado SSL de seu domínio personalizado ao aplicativo Web. Você fará isso nesta etapa. 
+Em ordem tooaccess seu aplicativo web pelo nome do seu domínio personalizado, é necessário certificado SSL toobind Olá para seu aplicativo de web toohello domínio personalizado. Você fará isso nesta etapa. 
 
-### <a name="upload-the-ssl-certificate"></a>Carregar o certificado SSL
+### <a name="upload-hello-ssl-certificate"></a>Carregar certificado SSL Olá
 
-Carregue o certificado SSL de seu domínio personalizado em seu aplicativo Web usando o comando [az appservice web config ssl upload](/cli/azure/appservice/web/config/ssl#upload).
+Carregar certificado SSL Olá para seu aplicativo de web tooyour domínio personalizado usando Olá [carregamento de ssl az serviço de aplicativo web config](/cli/azure/appservice/web/config/ssl#upload) comando.
 
-No comando a seguir, substitua `<app_name>` pelo nome de seu aplicativo exclusivo, `<path_to_ptx_file>` pelo caminho até o arquivo .PFX e `<password>` pela senha do certificado. 
+O comando Olá abaixo, substitua `<app_name>` com o nome exclusivo do aplicativo, `<path_to_ptx_file>` com hello tooyour de caminho. Arquivo PFX e `<password>` com a senha do certificado. 
 
 ```azurecli
 az appservice web config ssl upload --name <app_name> --resource-group myResourceGroup --certificate-file <path_to_pfx_file> --certificate-password <password> 
 ```
 
-Após o carregamento do certificado, a CLI do Azure mostrará informações semelhantes ao exemplo a seguir:
+Quando o certificado de saudação é carregado, Olá CLI do Azure mostra informações toohello semelhante exemplo a seguir:
 
 ```json
 {
@@ -210,21 +210,21 @@ ificates/9FD1D2D06E2293673E2A8D1CA484A092BD016D00__West Europe_myResourceGroup",
 }
 ```
 
-Na saída JSON, `thumbprint` mostra a impressão digital do certificado carregado. Copie esse valor para a próxima etapa.
+De saudação saída JSON, `thumbprint` mostra a impressão digital do certificado que o carregado. Copie seu valor para a próxima etapa de saudação.
 
-### <a name="bind-the-uploaded-ssl-certificate-to-the-web-app"></a>Associar o certificado SSL carregado ao aplicativo Web
+### <a name="bind-hello-uploaded-ssl-certificate-toohello-web-app"></a>Associar o aplicativo web do hello carregado SSL certificado toohello
 
-Agora, seu aplicativo Web tem o nome de domínio personalizado que você deseja, e também tem um certificado SSL que protege esse domínio personalizado. Agora só resta associar o certificado carregado ao aplicativo Web. Faça isso usando o comando [az appservice web config ssl bind](/cli/azure/appservice/web/config/ssl#bind).
+Seu aplicativo web agora tem o nome de domínio personalizado de saudação desejado, e ele também tem um certificado SSL que protege o domínio personalizado. Olá somente coisa toodo esquerdo é toobind Olá certificado carregado toohello web app. Você pode fazer isso usando Olá [ligação ssl do az serviço de aplicativo web config](/cli/azure/appservice/web/config/ssl#bind) comando.
 
-No comando a seguir, substitua `<app_name>` pelo nome exclusivo do aplicativo e `<thumbprint-from-previous-output>` pela impressão digital do certificado que você obteve com o comando anterior. 
+O comando Olá abaixo, substitua `<app_name>` com o nome exclusivo do aplicativo e `<thumbprint-from-previous-output>` com impressão digital de certificado Olá obter do comando anterior hello. 
 
 az appservice web config ssl bind --name <nome_do_aplicativo> --resource-group myResourceGroup --certificate-thumbprint <miniatura-da-saída-anterior> --ssl-type SNI
 
-Após a associação do certificado ao seu aplicativo Web, a CLI do Azure mostrará informações semelhantes ao exemplo a seguir:
+Quando o certificado de saudação está acoplado tooyour web app, Olá CLI do Azure mostra informações toohello semelhante exemplo a seguir:
 
 { "availabilityState": "Normal", "clientAffinityEnabled": true, "clientCertEnabled": false, "cloningInfo": null, "containerSize": 0, "dailyMemoryTimeQuota": 0, "defaultHostName": "<nome_do_aplicativo>.azurewebsites.net", "enabled": true, "enabledHostNames": [ "www.contoso.com", "<nome_do_aplicativo>.azurewebsites.net", "<nome_do_aplicativo>.scm.azurewebsites.net" ], "gatewaySiteName": null, "hostNameSslStates": [ { "hostType": "Standard", "name": "<app_name>.azurewebsites.net", "sslState": "Disabled", "thumbprint": null, "toUpdate": null, "virtualIp": null }, { "hostType": "Repository", "name": "<nome_do_aplicativo>.scm.azurewebsites.net", "sslState": "Disabled", "thumbprint": null, "toUpdate": null, "virtualIp": null }, { "hostType": "Standard", "name": "www.contoso.com", "sslState": "SniEnabled", "thumbprint": "9FD1D2D06E2293673E2A8D1CA484A092BD016D00", "toUpdate": null, "virtualIp": null } ], "hostNames": [ "www.contoso.com", "<nome_do_aplicativo>.azurewebsites.net" ], "hostNamesDisabled": false, "hostingEnvironmentProfile": null, "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/site s/<nome_do_aplicativo>", "isDefaultContainer": null, "kind": "WebApp", "lastModifiedTimeUtc": "2017-03-29T14:36:18.803333", "location": "West Europe", "maxNumberOfWorkers": null, "microService": "false", "name": "<app_name>", "outboundIpAddresses": "13.94.143.57,13.94.136.57,40.68.199.146,13.94.138.55,13.94.140.1", "premiumAppDeployed": null, "repositorySiteName": "<nome_do_aplicativo>", "reserved": false, "resourceGroup": "myResourceGroup", "scmSiteAlsoStopped": false, "serverFarmId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsof t.Web/serverfarms/myAppServicePlan", "siteConfig": null, "slotSwapStatus": null, "state": "Running", "suspendedTill": null, "tags": null, "targetSwapSlot": null, "trafficManagerHostNames": null, "type": "Microsoft.Web/sites", "usageState": "Normal" }
 
-Em seu navegador, navegue até o ponto de extremidade HTTPS de seu nome de domínio personalizado. Por exemplo:
+No seu navegador, navegue tooHTTPS de ponto de extremidade do seu nome de domínio personalizado. Por exemplo:
 
 ```
 https://www.contoso.com 

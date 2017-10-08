@@ -1,6 +1,6 @@
 ---
-title: "Encaminhar dados do trabalho da Automação do Azure para o OMS Log Analytics | Microsoft Docs"
-description: "Este artigo demonstra como enviar status de trabalho e fluxos de trabalho de runbook para Gerenciamento e Log Analytics do Microsoft Operations Management Suite para fornecer informações adicionais."
+title: "aaaForward tooOMS de dados de trabalho de automação do Azure Log Analytics | Microsoft Docs"
+description: "Este artigo demonstra como fluxos de trabalho de runbook e status do trabalho toosend gerenciamento e informações adicionais do toodeliver tooMicrosoft análise de Log do Operations Management Suite."
 services: automation
 documentationcenter: 
 author: MGoedtel
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/02/2017
 ms.author: magoedte
-ms.openlocfilehash: 2c0ca7fc332963e5a5db3c20c400ed877ae0cc54
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e78b6c6677d6502711ce828e2d32b7a91922ae26
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>Encaminhar status do trabalho e fluxos de trabalho de Automação para Log Analytics (OMS)
-A Automação pode enviar o status do trabalho de runbook e fluxos de trabalho para seu espaço de trabalho de Log Analytics do Microsoft Operations Management Suite (OMS).  Os logs e fluxos de trabalho podem ser vistos no portal do Azure ou com o PowerShell, no caso de trabalhos individuais, e isso permite a você fazer investigações simples. Com o Log Analytics, você pode:
+# <a name="forward-job-status-and-job-streams-from-automation-toolog-analytics-oms"></a>Encaminhar o status do trabalho e fluxos de trabalho de automação tooLog Analytics (OMS)
+Automação pode enviar runbook trabalho status e o trabalho fluxos tooyour análise de logs do Microsoft Operations Management Suite (OMS) espaço de trabalho.  Logs de trabalho e fluxos de trabalho são visíveis no hello portal do Azure, ou com o PowerShell, para trabalhos individuais e isso permite que você investigações de tooperform simples. Com o Log Analytics, você pode:
 
 * Obter informações sobre os trabalhos de Automação
 * Disparar um email ou um alerta com base no status do trabalho de runbook (por exemplo, com falha ou suspenso)
@@ -30,29 +30,29 @@ A Automação pode enviar o status do trabalho de runbook e fluxos de trabalho p
 * Visualizar o histórico de trabalho ao longo do tempo     
 
 ## <a name="prerequisites-and-deployment-considerations"></a>Pré-requisitos e considerações de implantação
-Para começar a enviar seus logs de Automação para Log Analytics, você precisará do seguinte:
+toostart enviar sua automação logs tooLog análise, você precisa:
 
-1. Versão de novembro 2016 ou posterior do [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) ( versão 2.3.0).
+1. Olá novembro de 2016 ou versão posterior do [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
 2. Um espaço de trabalho do Log Analytics. Para saber mais, confira [Introdução ao Log Analytics](../log-analytics/log-analytics-get-started.md). 
-3. O ResourceId para sua conta da Automação do Azure
+3. Olá ResourceId para sua conta de automação do Azure
 
-Para localizar o ResourceId da sua conta da Automação do Azure e o espaço de trabalho do Log Analytics, execute o seguinte PowerShell:
+Olá toofind ResourceId para sua conta de automação do Azure e o espaço de trabalho de análise de Log, execute Olá PowerShell a seguir:
 
 ```powershell
-# Find the ResourceId for the Automation Account
+# Find hello ResourceId for hello Automation Account
 Find-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
 
-# Find the ResourceId for the Log Analytics workspace
+# Find hello ResourceId for hello Log Analytics workspace
 Find-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
-Se tiver várias contas de automação ou espaços de trabalho, na saída dos comandos acima, localize o *Nome* que você precisa configurar e copie o valor de *ResourceId*.
+Se você tiver várias contas de automação, ou espaços de trabalho, na saída Olá Olá anterior comandos, localize Olá *nome* necessário tooconfigure e copie o valor Olá para *ResourceId*.
 
-Se precisar encontrar o *Nome* da sua Conta de automação, no portal do Azure, selecione sua conta de Automação na folha **Conta de automação** e selecione **Todas as configurações**.  Na folha **Todas as configurações**, em **Configurações de Conta**, selecione **Propriedades**.  Na folha **Propriedades**, você pode observar esses valores.<br> ![Propriedades da Conta de Automação](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
+Se você precisar Olá toofind *nome* da sua conta de automação em Olá portal do Azure selecione sua conta de automação de saudação **conta de automação** folha e selecione **todas as configurações**.  De saudação **todas as configurações** folha, em **configurações de conta** selecione **propriedades**.  Em Olá **propriedades** folha, você pode observar esses valores.<br> ![Propriedades da Conta de Automação](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
 
 ## <a name="set-up-integration-with-log-analytics"></a>Configurar a integração com o Log Analytics
-1. Em seu computador, inicie o **Windows PowerShell** na tela **Inicial**.  
-2. Copie e cole o PowerShell a seguir e edite o valor de `$workspaceId` e `$automationAccountId`.  Para o parâmetro `-Environment`, os valores válidos são *AzureCloud* ou *AzureUSGovernment*, dependendo do ambiente de nuvem no qual você está trabalhando.     
+1. Em seu computador, inicie **do Windows PowerShell** de saudação **iniciar** tela.  
+2. Copie e cole Olá PowerShell a seguir e Editar valor Olá Olá `$workspaceId` e `$automationAccountId`.  Para Olá `-Environment` parâmetro, os valores válidos são *AzureCloud* ou *AzureUSGovernment* dependendo do ambiente de nuvem Olá você está trabalhando.     
 
 ```powershell
 [cmdletBinding()]
@@ -63,14 +63,14 @@ Se precisar encontrar o *Nome* da sua Conta de automação, no portal do Azure, 
         [string]$Environment="AzureCloud"
     )
 
-#Check to see which cloud environment to sign into.
+#Check toosee which cloud environment toosign into.
 Switch ($Environment)
    {
        "AzureCloud" {Login-AzureRmAccount}
        "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
    }
 
-# if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
+# if you have one Log Analytics workspace you can use hello following command tooget hello resource id of hello workspace
 $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
 $automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
@@ -81,10 +81,10 @@ Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $work
 
 Depois de executar esse script, você verá os registros no Log Analytics em 10 minutos a seguir à gravação do novo JobLogs ou JobStreams.
 
-Para ver os logs, execute a seguinte consulta na pesquisa de logs do Log Analytics: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
+logs de saudação toosee, executados Olá consulta na pesquisa de log de análise de Log a seguir:`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Verificar a configuração
-Para confirmar que sua conta de automação está enviando logs para o seu espaço de trabalho do Log Analytics, verifique se os diagnósticos estão definidos corretamente na Conta de automação usando o seguinte PowerShell:
+tooconfirm sua conta de automação está enviando logs de espaço de trabalho de análise de Log tooyour, verifique se os diagnósticos estão definidos corretamente na conta de automação hello usando Olá PowerShell a seguir:
 
 ```powershell
 [cmdletBinding()]
@@ -95,13 +95,13 @@ Para confirmar que sua conta de automação está enviando logs para o seu espa�
         [string]$Environment="AzureCloud"
     )
 
-#Check to see which cloud environment to sign into.
+#Check toosee which cloud environment toosign into.
 Switch ($Environment)
    {
        "AzureCloud" {Login-AzureRmAccount}
        "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
    }
-# if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
+# if you have one Log Analytics workspace you can use hello following command tooget hello resource id of hello workspace
 $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
 $automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
@@ -109,9 +109,9 @@ $automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESO
 Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 ```
 
-Na saída, verifique se:
-+ Em *Logs*, o valor de *Habilitado* é *True*
-+ O valor de *WorkspaceId* é definido como o ResourceId do seu espaço de trabalho do Log Analytics
+Na saída de hello Certifique-se de que:
++ Em *Logs*, Olá valor *habilitado* é *True*
++ Olá valor *WorkspaceId* está definida toohello ResourceId de seu espaço de trabalho de análise de Log
 
 
 ## <a name="log-analytics-records"></a>Registros do Log Analytics
@@ -120,21 +120,21 @@ O diagnóstico de Automação do Azure cira dois tipos de registros no Log Analy
 ### <a name="job-logs"></a>Logs de trabalho
 | Propriedade | Descrição |
 | --- | --- |
-| TimeGenerated |Data e hora da execução do trabalho de runbook. |
-| RunbookName_s |O nome do runbook. |
-| Caller_s |Quem iniciou a operação.  Os valores possíveis são um endereço de email ou o sistema para trabalhos agendados. |
-| Tenant_g | GUID que identifica o locatário para o Chamador. |
-| JobId_g |GUID que é a Id do trabalho de runbook. |
-| ResultType |O status do trabalho de runbook.  Os valores possíveis são:<br>- Iniciado<br>- Parado<br>- Suspenso<br>- Com falha<br>– Concluído |
-| Categoria | Classificação do tipo de dados.  Para a Automação, o valor é JobLogs. |
-| OperationName | Especifica o tipo de operação realizada no Azure.  Para a Automação, o valor é Job. |
-| Recurso | Nome da Conta de automação |
-| SourceSystem | Como o Log Analytics coletou os dados. Sempre *Azure* para o Diagnóstico do Azure. |
-| ResultDescription |Descreve o estado de resultado do trabalho de runbook.  Os valores possíveis são:<br>- O trabalho foi iniciado<br>- O trabalho falhou<br>- Trabalho Concluído |
-| CorrelationId |O GUID que é a Id de correlação do trabalho de runbook. |
-| ResourceId |Especifica a ID de recurso da conta da Automação do Azure para o runbook. |
-| SubscriptionId | O GUID (ID de assinatura do Azure) para a Conta de automação. |
-| ResourceGroup | Nome do grupo de recursos para a Conta de automação. |
+| TimeGenerated |Data e hora quando o trabalho de runbook Olá executado. |
+| RunbookName_s |nome de saudação do runbook hello. |
+| Caller_s |Quem iniciou a operação de saudação.  Os valores possíveis são um endereço de email ou o sistema para trabalhos agendados. |
+| Tenant_g | GUID que identifica o locatário Olá para Olá chamador. |
+| JobId_g |GUID que é hello Id do trabalho de runbook hello. |
+| ResultType |status de Olá Olá do trabalho de runbook.  Os valores possíveis são:<br>- Iniciado<br>- Parado<br>- Suspenso<br>- Com falha<br>– Concluído |
+| Categoria | Classificação de tipo de saudação de dados.  Para automação, o valor de saudação é JobLogs. |
+| OperationName | Especifica o tipo de saudação da operação executada no Azure.  Para automação, o valor de saudação é trabalho. |
+| Recurso | Nome da conta de automação de saudação |
+| SourceSystem | Como a análise de Log coletados dados saudação. Sempre *Azure* para o Diagnóstico do Azure. |
+| ResultDescription |Descreve o estado de resultado do trabalho de runbook hello.  Os valores possíveis são:<br>- O trabalho foi iniciado<br>- O trabalho falhou<br>- Trabalho Concluído |
+| CorrelationId |GUID que é hello Id de correlação de trabalho de runbook hello. |
+| ResourceId |Especifica a id de recurso de conta de automação do Azure de Olá do runbook hello. |
+| SubscriptionId | Olá Id (GUID) de assinatura do Azure para Olá conta de automação. |
+| ResourceGroup | Nome do grupo de recursos Olá Olá conta de automação. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 
@@ -142,67 +142,67 @@ O diagnóstico de Automação do Azure cira dois tipos de registros no Log Analy
 ### <a name="job-streams"></a>Transmissões de trabalho
 | Propriedade | Descrição |
 | --- | --- |
-| TimeGenerated |Data e hora da execução do trabalho de runbook. |
-| RunbookName_s |O nome do runbook. |
-| Caller_s |Quem iniciou a operação.  Os valores possíveis são um endereço de email ou o sistema para trabalhos agendados. |
-| StreamType_s |O tipo de fluxo de trabalho. Os valores possíveis são:<br>- Andamento<br>- Saída<br>- Aviso<br>- Erro<br>- Depurar<br>- Detalhado |
-| Tenant_g | GUID que identifica o locatário para o Chamador. |
-| JobId_g |GUID que é a Id do trabalho de runbook. |
-| ResultType |O status do trabalho de runbook.  Os valores possíveis são:<br>- em andamento |
-| Categoria | Classificação do tipo de dados.  Para a Automação, o valor é JobStreams. |
-| OperationName | Especifica o tipo de operação realizada no Azure.  Para a Automação, o valor é Job. |
-| Recurso | Nome da Conta de automação |
-| SourceSystem | Como o Log Analytics coletou os dados. Sempre *Azure* para o Diagnóstico do Azure. |
-| ResultDescription |Inclui o fluxo de saída do runbook. |
-| CorrelationId |O GUID que é a Id de correlação do trabalho de runbook. |
-| ResourceId |Especifica a ID de recurso da conta da Automação do Azure para o runbook. |
-| SubscriptionId | O GUID (ID de assinatura do Azure) para a Conta de automação. |
-| ResourceGroup | Nome do grupo de recursos para a Conta de automação. |
+| TimeGenerated |Data e hora quando o trabalho de runbook Olá executado. |
+| RunbookName_s |nome de saudação do runbook hello. |
+| Caller_s |Quem iniciou a operação de saudação.  Os valores possíveis são um endereço de email ou o sistema para trabalhos agendados. |
+| StreamType_s |tipo de saudação do fluxo de trabalho. Os valores possíveis são:<br>- Andamento<br>- Saída<br>- Aviso<br>- Erro<br>- Depurar<br>- Detalhado |
+| Tenant_g | GUID que identifica o locatário Olá para Olá chamador. |
+| JobId_g |GUID que é hello Id do trabalho de runbook hello. |
+| ResultType |status de Olá Olá do trabalho de runbook.  Os valores possíveis são:<br>- em andamento |
+| Categoria | Classificação de tipo de saudação de dados.  Para automação, o valor de saudação é JobStreams. |
+| OperationName | Especifica o tipo de saudação da operação executada no Azure.  Para automação, o valor de saudação é trabalho. |
+| Recurso | Nome da conta de automação de saudação |
+| SourceSystem | Como a análise de Log coletados dados saudação. Sempre *Azure* para o Diagnóstico do Azure. |
+| ResultDescription |Inclui Olá fluxo de saída de runbook hello. |
+| CorrelationId |GUID que é hello Id de correlação de trabalho de runbook hello. |
+| ResourceId |Especifica a id de recurso de conta de automação do Azure de Olá do runbook hello. |
+| SubscriptionId | Olá Id (GUID) de assinatura do Azure para Olá conta de automação. |
+| ResourceGroup | Nome do grupo de recursos Olá Olá conta de automação. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 
 ## <a name="viewing-automation-logs-in-log-analytics"></a>Exibir Logs de Automação no Log Analytics
-.Agora que você começou a enviar logs de trabalho de Automação para Log Analytics, vamos ver o que você pode fazer com esses logs no Log Analytics.
+Agora que você iniciou a enviar seu tooLog de logs de trabalho de automação Analytics, vamos ver o que você pode fazer com esses logs de análise de Log.
 
-Para ver os logs, execute a seguinte consulta: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
+logs de saudação toosee, executados Olá consulta a seguir:`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Enviar um email quando um trabalho de runbook falhar ou for suspenso
-Uma das principais solicitações de nossos clientes é a capacidade de enviar um email ou uma mensagem de texto quando algo dá errado em um trabalho de runbook.   
+Uma das nossas principais clientes pergunta é para Olá capacidade toosend um email ou um texto quando algo dá errado com um trabalho de runbook.   
 
-Para criar uma regra de alerta, você começa criando uma pesquisa de log para os registros de trabalhos de runbook que devem invocar o alerta.  Clique no botão **Alerta** para criar e configurar a regra de alerta.
+a regra toocreate um alerta, comece criando uma pesquisa de log de runbook Olá registros de trabalho que devem chamar o alerta de saudação.  Clique em Olá **alerta** botão toocreate e configurar a regra de alerta de saudação.
 
-1. Na página Visão geral do Log Analytics, clique em **Pesquisa de Logs**.
-2. Crie uma consulta de pesquisa de logs para o alerta digitando a seguinte pesquisa no campo de consulta: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended)` Você também pode agrupar pelo RunbookName usando: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended) | measure Count() by RunbookName_s`   
+1. Na página de visão geral de análise de Log de Olá, clique em **pesquisa de Log**.
+2. Crie uma consulta de pesquisa de log para o alerta, digitando Olá a seguir pesquisa no campo de consulta Olá: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended)` você também pode agrupar por Olá RunbookName usando:`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended) | measure Count() by RunbookName_s`   
 
-   Se você tiver configurado logs de mais de uma Conta de automação ou assinatura para o espaço de trabalho, também poderá agrupar os alertas por assinatura e por conta de Automação.  O nome da conta de Automação pode ser derivado do campo de Recurso na pesquisa de JobLogs.  
-3. Para abrir a tela **Adicionar Regra de Alerta**, clique em **Alerta** na parte superior da página. Para obter mais detalhes sobre as opções de configuração de alerta, confira [Alertas no Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules).
+   Se você configurar logs de mais de uma automação conta ou assinatura tooyour espaço de trabalho, você pode agrupar alertas por assinatura e conta de automação.  Nome da conta de automação pode ser derivada de campo de recurso Olá na pesquisa de saudação do JobLogs.  
+3. Olá tooopen **Adicionar regra de alerta** tela, clique em **alerta** na parte superior de saudação da página de saudação. Para obter mais detalhes sobre o alerta de Olá Olá opções tooconfigure, consulte [alertas na análise de Log](../log-analytics/log-analytics-alerts.md#alert-rules).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Localizar todos os trabalhos que foram concluídos com erros
-Além de alertas de falhas, você pode descobrir quando um trabalho de runbook tem um erro não fatal. Nesses casos, o PowerShell produz um fluxo de erro, mas os erros não fatais fazem com que seu trabalho seja suspenso ou falhe.    
+Além disso tooalerting em caso de falha, você pode encontrar quando um trabalho de runbook tem um erro não fatal. Nesses casos o PowerShell produz um fluxo de erro, mas os erros de não finalização Olá não causar toosuspend seu trabalho ou falhar.    
 
 1. No seu espaço de trabalho do Log Analytics, clique em **Pesquisa de Logs**.
-2. No campo de consulta, digite `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobStreams StreamType_s=Error | measure count() by JobId_g` e clique em **Pesquisar**.
+2. No campo de consulta hello, digite `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobStreams StreamType_s=Error | measure count() by JobId_g` e, em seguida, clique em **pesquisa**.
 
 ### <a name="view-job-streams-for-a-job"></a>Exibir fluxos de trabalho para um trabalho
-Ao depurar um trabalho, talvez você também queira examinar os fluxos de trabalho.  A consulta abaixo mostra todos os fluxos para um único trabalho com GUID 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0:   
+Quando você estiver depurando um trabalho, talvez você queira toolook em fluxos de trabalho de saudação.  Olá, consulta a seguir mostra todos os fluxos de saudação para um único trabalho com GUID 2ebd22ea-e05e-4eb9 - 9d 76-d73cbd4356e0:   
 
 `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobStreams JobId_g="2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0" | sort TimeGenerated | select ResultDescription`
 
 ### <a name="view-historical-job-status"></a>Exibir o status do histórico de trabalho
-Finalmente, talvez você queira visualizar o histórico de trabalho ao longo do tempo.  Você pode usar essa consulta para pesquisar o status dos trabalhos ao longo do tempo.
+Por fim, talvez você queira toovisualize seu histórico de trabalho ao longo do tempo.  Você pode usar essa consulta toosearch para status Olá dos trabalhos ao longo do tempo.
 
 `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs NOT(ResultType="started") | measure Count() by ResultType interval 1hour`  
 <br> ![Gráfico de status de trabalho histórico do OMS](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
 ## <a name="summary"></a>Resumo
-Ao enviar seus dados de fluxo e status do Trabalho de automação para Log Analytics, você poderá ter mais informações sobre o status de seus Trabalhos de automação:
-+ Configurando alertas para notificá-lo quando houver um problema
-+ Usando exibições personalizadas e consultas de pesquisa para visualizar os resultados de runbook, o status do trabalho de runbook e outros principais indicadores ou métricas relacionadas.  
+Enviando sua automação trabalho status e o fluxo de dados tooLog análise, você pode obter uma noção melhor sobre status de saudação de seus trabalhos de automação por:
++ Configurar alertas toonotify você quando há um problema
++ Usando modos de exibição personalizados e toovisualize de consultas de pesquisa seus resultados de runbook, o status do trabalho de runbook e outros relacionam principais indicadores ou métricas.  
 
-O Log Analytics oferece maior visibilidade operacional para os Trabalhos de automação e pode ajudar a tratar de incidentes mais rapidamente.  
+Análise de log fornece maior visibilidade operacional tooyour trabalhos de automação e pode ajudar a incidentes de endereço mais rápidos.  
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre como construir consultas de pesquisa diferentes e examinar os logs de trabalho de Automação com o Log Analytics, confira [Efetuar pesquisas no Log Analytics](../log-analytics/log-analytics-log-searches.md)
-* Para entender como criar e recuperar mensagens de erro e de saída de runbooks, confira [Saída e mensagens de Runbook](automation-runbook-output-and-messages.md)
-* Para saber mais sobre a execução de runbooks, como monitorar trabalhos de runbook e outros detalhes técnicos, confira [Acompanhar um trabalho de runbook](automation-runbook-execution.md)
-* Para saber mais sobre o Log Analytics do OMS e fontes de coleta de dados, confira [Coletar dados do Armazenamento do Azure na visão geral do Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+* toolearn mais sobre como consultas de pesquisa diferentes tooconstruct e examine Olá automação trabalho logs de análise de Log, consulte [pesquisas de Log na análise de Log](../log-analytics/log-analytics-log-searches.md)
+* toounderstand como mensagens de saída e o erro toocreate e recuperar de runbooks, consulte [mensagens e saída de Runbook](automation-runbook-output-and-messages.md)
+* toolearn mais sobre a execução do runbook, como trabalhos de runbook toomonitor e outros detalhes técnicos, consulte [acompanhar um trabalho de runbook](automation-runbook-execution.md)
+* toolearn mais sobre análise de logs do OMS e fontes de coleta de dados, consulte [dados de armazenamento do Azure coleta na visão geral da análise de Log](../log-analytics/log-analytics-azure-storage.md)

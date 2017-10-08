@@ -1,5 +1,5 @@
 ---
-title: "Políticas de recurso do Azure para marcas | Microsoft Docs"
+title: "políticas de recursos aaaAzure marcas | Microsoft Docs"
 description: "Fornece exemplos de políticas de recurso para gerenciamento de marcas em recursos"
 services: azure-resource-manager
 documentationcenter: na
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: tomfitz
-ms.openlocfilehash: 469bd8d637337e5900ea84c6bfaf88064695fb7e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 5a5b3d5ed52b47544b397694b9da0070f61b1faf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="apply-resource-policies-for-tags"></a>Aplicar políticas de recurso a marcas
 
-Este tópico fornece regras de política comuns que podem ser aplicadas para garantir o uso consistente de marcas em recursos.
+Este tópico fornece a você pode aplicar o uso consistente de marcas tooensure nos recursos de regras de política comum.
 
-A aplicação de uma política de marca a um grupo de recursos ou a uma assinatura com recursos existentes não aplica retroativamente a política a esses recursos. Para impor as políticas a esses recursos, dispare uma atualização para os recursos existentes. Este artigo inclui um exemplo do PowerShell para disparar uma atualização.
+Aplicação de um grupo de recursos de tooa de política de marca ou a assinatura com recursos existentes não se aplicam retroativamente recursos de toothose política hello. políticas de saudação do tooenforce sobre os recursos, disparar uma toohello de atualização existente de recursos. Este artigo inclui um exemplo do PowerShell para disparar uma atualização.
 
 ## <a name="ensure-all-resources-in-a-resource-group-have-a-tagvalue"></a>Garantir que todos os recursos em um grupo de recursos tenham um valor/marca
 
-Um requisito comum é o de que todos os recursos em um grupo de recursos tenham uma marca e um valor específicos. Esse requisito geralmente é necessário para controlar custos por departamento. As seguintes condições devem ser atendidas:
+Um requisito comum é o de que todos os recursos em um grupo de recursos tenham uma marca e um valor específicos. Esse requisito é geralmente custos tootrack necessárias pelo departamento. Olá condições a seguir deve ser atendido:
 
-* A marca necessária e o valor são acrescentados aos recursos novos e atualizados que não têm a marca.
-* A marca e o valor necessários não podem ser removidos de nenhum recurso existente.
+* Olá necessário marca e valor são acrescentado toonew e recursos que não têm marca Olá atualizado.
+* Olá necessário marca e o valor não pode ser removido de todos os recursos existentes.
 
-Você pode atender a esse requisito aplicando a um grupo de recursos.
+Você atender a esse requisito, aplicando o grupo de recursos do duas políticas internas tooa.
 
 | ID | Descrição |
 | ---- | ---- |
-| 2a0e14a6-b0a6-4fab-991a-187a4f81c498 | Aplica uma marca necessária e seu valor padrão quando não for especificado pelo usuário. |
+| 2a0e14a6-b0a6-4fab-991a-187a4f81c498 | Aplica uma marca necessária e seu valor padrão quando não for especificado pelo usuário hello. |
 | 1e30110a-5ceb-460c-a204-c1c3969c6d62 | Impõe uma marca necessária e seu valor. |
 
 ### <a name="powershell"></a>PowerShell
 
-O seguinte script PowerShell atribui as duas definições de diretiva interna para um grupo de recursos. Antes de executar o script, atribua todas as marcas necessárias para o grupo de recursos. Cada marca no grupo de recursos é necessária para os recursos do grupo. Para atribuir a todos os grupos de recursos em sua assinatura, não fornece o `-Name` parâmetro ao obter os grupos de recursos.
+saudação de script do PowerShell a seguir atribui o grupo de recursos do hello política interna duas definições tooa. Antes de executar o script hello, atribua todas as marcas necessárias toohello recurso grupo. Cada marca no grupo de recursos de saudação é necessária para recursos de saudação no grupo de saudação. grupos de recursos de tooall tooassign em sua assinatura, não fornecem Olá `-Name` parâmetro ao obter grupos de recursos de saudação.
 
 ```powershell
 $appendpolicy = Get-AzureRmPolicyDefinition | Where-Object {$_.Name -eq '2a0e14a6-b0a6-4fab-991a-187a4f81c498'}
@@ -62,7 +62,7 @@ foreach($rg in $rgs)
 }
 ```
 
-Depois de atribuir as políticas, você pode disparar uma atualização para todos os recursos existentes para impor as políticas de marca que você adicionou. O script a seguir mantém outras marcas que existiam nos recursos:
+Depois de atribuir políticas hello, você pode disparar um tooall de atualização existente políticas de recursos tooenforce Olá marca que você adicionou. Olá, script a seguir retém outras marcas que existiam em recursos de saudação:
 
 ```powershell
 $group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
@@ -81,7 +81,7 @@ foreach($r in $resources)
 ```
 
 ## <a name="require-tags-for-a-resource-type"></a>Exigir marcas para um tipo de recurso
-O exemplo a seguir mostra como aninhar operadores lógicos para exigir uma marca de aplicativo somente para um tipo de recurso especificado (nesse caso, contas de armazenamento).
+saudação de exemplo a seguir mostra como toonest operadores lógicos toorequire um aplicativo de marca para apenas um tipo de recurso especificado (neste caso, as contas de armazenamento).
 
 ```json
 {
@@ -106,7 +106,7 @@ O exemplo a seguir mostra como aninhar operadores lógicos para exigir uma marca
 ```
 
 ## <a name="require-tag"></a>Exigir marca
-A seguinte política nega as solicitações que não têm uma marca contendo a chave "costCenter" (qualquer valor pode ser aplicado):
+Olá seguinte política nega as solicitações que não têm uma marca que contém a chave "costCenter" (qualquer valor pode ser aplicado):
 
 ```json
 {
@@ -123,7 +123,7 @@ A seguinte política nega as solicitações que não têm uma marca contendo a c
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Depois de definir uma regra de política (conforme mostrado nos exemplos anteriores), você precisará criar a definição de política e atribuí-la a um escopo. O escopo pode ser uma assinatura, grupo de recursos ou recurso. Para atribuir políticas por meio do portal, consulte [Usar o portal do Azure para atribuir e gerenciar políticas de recurso](resource-manager-policy-portal.md). Para atribuir políticas por meio da API REST, do PowerShell ou da CLI do Azure, consulte [Atribuir e gerenciar políticas por meio de script](resource-manager-policy-create-assign.md).
-* Para ver uma introdução às políticas de recurso, confira [Visão geral da política de recurso](resource-manager-policy.md).
-* Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
+* Depois de definir uma regra de política (conforme mostrado no hello anterior exemplos), você precisa de definição de política de saudação toocreate e atribuí-la tooa escopo. escopo de saudação pode ser uma assinatura, o grupo de recursos ou o recurso. políticas de tooassign por meio do portal hello, consulte [tooassign portal do Azure de uso e gerenciar políticas de recursos](resource-manager-policy-portal.md). políticas de tooassign por meio da API REST, PowerShell ou CLI do Azure, consulte [atribuir e gerenciar políticas por meio de script](resource-manager-policy-create-assign.md).
+* Para políticas de tooresource uma introdução, consulte [visão geral do recurso política](resource-manager-policy.md).
+* Para obter diretrizes sobre como as empresas podem usar o Gerenciador de recursos tooeffectively gerenciar assinaturas, consulte [scaffold enterprise do Azure - controle de assinatura prescritivas](resource-manager-subscription-governance.md).
 

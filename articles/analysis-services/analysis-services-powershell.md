@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o Azure Analysis Services com o PowerShell | Microsoft Docs
+title: aaaManage Azure Analysis Services com o PowerShell | Microsoft Docs
 description: O gerenciamento do Azure Analysis Services com o PowerShell.
 services: analysis-services
 documentationcenter: 
@@ -14,47 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: owend
-ms.openlocfilehash: 95593053950f96a83e093c29516e9f66ebad53bf
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: bc4250bf77b5a0d86c1049ee57493bcf2a1f0c1b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gerenciar o Azure Analysis Services com PowerShell
 
-Este artigo descreve os cmdlets do PowerShell usados para executar tarefas de gerenciamento de banco de dados e servidor do Azure Analysis Services. 
+Este artigo descreve PowerShell cmdlets usados tooperform Azure Analysis Services server e banco de dados de tarefas de gerenciamento. 
 
-As tarefas de gerenciamento de servidor, como criar ou excluir um servidor, suspender ou retomar operações de servidor ou alterar o nível de serviço (camada), usam cmdlets do AzureRM (Azure Resource Manager). Outras tarefas de gerenciamento de bancos de dados, como adição ou remoção de membros da função, processamento ou particionamento, usam os cmdlets incluídos no mesmo módulo SqlServer que o SQL Server Analysis Services.
+Tarefas de gerenciamento de servidor, como criação ou exclusão de um servidor, suspender ou retomar as operações do servidor ou alterando o nível de serviço da saudação (camada) usam cmdlets do Gerenciador de recursos do Azure (AzureRM). Outras tarefas de gerenciamento de bancos de dados, como adicionar ou remover membros da função, processamento ou particionamento use cmdlets incluídos no hello mesmo módulo SqlServer, como SQL Server Analysis Services.
 
 ## <a name="permissions"></a>Permissões
-A maioria das tarefas do PowerShell exige privilégios de administrador no servidor do Analysis Services que está sendo gerenciado. As tarefas agendadas do PowerShell são operações autônomas. A conta que executa o agendador deve ter privilégios de administrador no servidor do Analysis Services. 
+A maioria das tarefas do PowerShell exigem que você tem privilégios de administrador no servidor do Analysis Services Olá que você está gerenciando. As tarefas agendadas do PowerShell são operações autônomas. conta de saudação executando Agendador Olá deve ter privilégios de administrador no servidor do Analysis Services hello. 
 
-Para operações de servidor usando os cmdlets AzureRm, sua conta ou a conta executando o Agendador também deve pertencer à função de Proprietário do recurso no [Controle de Acesso Baseado em Função do Azure (RBAC)](../active-directory/role-based-access-control-what-is.md). 
+Para operações de servidor usando os cmdlets AzureRm, a conta ou Olá executando Agendador também deve pertencer toohello a função de proprietário para o recurso de saudação em [o Access RBAC (controle)](../active-directory/role-based-access-control-what-is.md). 
 
 ## <a name="server-operations"></a>Operações do servidor 
-Os cmdlets do Azure Analysis Services são incluídos no módulo de componente [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices). Para instalar os módulos de cmdlet do AzureRM, confira [Cmdlets do Azure Resource Manager](/powershell/azure/overview) na Galeria do PowerShell.
+Cmdlets do Azure do Analysis Services são incluídos no hello [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) módulo de componente. módulos do cmdlet AzureRM tooinstall, consulte [cmdlets do Azure Resource Manager](/powershell/azure/overview) em Olá Galeria do PowerShell.
 
 |Cmdlet|Descrição| 
 |------------|-----------------| 
-|[Export-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|Exporta o log para um arquivo.| 
+|[Export-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|Exportações de log toofile.| 
 |[Get-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|Obtém detalhes de uma instância do servidor.|  
 |[New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|Cria uma instância de servidor.|
 |[Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|Remove uma instância do servidor.|  
 |[Suspend-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|Suspende uma instância do servidor.| 
 |[Resume-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver)|Retoma uma instância do servidor.|  
 |[Set-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)|Modifica uma instância do servidor.|   
-|[Test-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|Testa a existência de uma instância do servidor.| 
+|[Test-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|Testes Olá a existência de uma instância de servidor.| 
 
 ## <a name="database-operations"></a>Operações de banco de dados
 
-As operações de banco de dados do Azure Analysis Services usam o mesmo módulo [SqlServer](https://www.powershellgallery.com/packages/SqlServer) que o SQL Server Analysis Services. No entanto, nem todos os cmdlets têm suporte para o Azure Analysis Services. 
+Azure Analysis Services, as operações de banco de dados usam Olá mesmo [SqlServer](https://www.powershellgallery.com/packages/SqlServer) módulo como SQL Server Analysis Services. No entanto, nem todos os cmdlets têm suporte para o Azure Analysis Services. 
 
-O módulo SqlServer fornece cmdlets de gerenciamento de banco de dados de tarefas específicas e o cmdlet Invoke-ASCmd de uso geral que aceita um script ou consulta de TMSL (Linguagem de Script de Modelo Tabular). Os cmdlets a seguir no módulo SqlServer têm suporte para o Azure Analysis Services.
+módulo do SqlServer Olá fornece cmdlets de gerenciamento de banco de dados de tarefas específicas, bem como o cmdlet Invoke-ASCmd de finalidade geral de Olá que aceita um modelo de script TMSL (linguagem tabela) de consulta ou script. Olá seguintes cmdlets no módulo do SqlServer Olá têm suporte para serviços de análise do Azure.
 
   
 |Cmdlet|Descrição|
 |------------|-----------------| 
-|[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Adicionar um membro a uma função de banco de dados.| 
+|[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Adicione um membro da função de banco de dados tooa.| 
 |[Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet)|Fazer backup de um banco de dados do Analysis Services.|  
 |[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Remover um membro de uma função de banco de dados.|   
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Executar um script TMSL.|

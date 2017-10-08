@@ -1,6 +1,6 @@
 ---
-title: Configurar o descarregamento SSL - Gateway de Aplicativo do Azure - PowerShell | Microsoft Docs
-description: "Esta página fornece instruções para criar um gateway de aplicativo com descarregamento SSL usando o Gerenciador de Recursos do Azure"
+title: aaaConfigure SSL descarregar - Gateway de aplicativo do Azure - PowerShell | Microsoft Docs
+description: "Esta página fornece instruções toocreate descarregar um application gateway com SSL usando o Gerenciador de recursos do Azure"
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: gwallace
-ms.openlocfilehash: ededabc7c665d6bb05b91e4d21d01fb1379add32
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: c2855d8d3caaa97ec05475c67ff0f8dce72ef2a7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-resource-manager"></a>Configurar um gateway de aplicativo para descarregamento SSL usando o Gerenciador de Recursos do Azure
 
@@ -28,44 +28,44 @@ ms.lasthandoff: 08/18/2017
 > * [Azure Classic PowerShell](application-gateway-ssl.md)
 > * [CLI 2.0 do Azure](application-gateway-ssl-cli.md)
 
-O Gateway de Aplicativo do Azure pode ser configurado para encerrar a sessão SSL no gateway para evitar que a onerosa tarefa de descriptografia de SSL aconteça no web farm. O descarregamento SSL também simplifica a configuração do servidor front-end e o gerenciamento do aplicativo Web.
+Gateway de aplicativo do Azure pode ser configurado tooterminate Olá Secure Sockets Layer (SSL) sessão Olá gateway tooavoid cara SSL descriptografia tarefas toohappen no farm de web hello. Descarregamento SSL também simplifica a configuração de servidor front-end do hello e gerenciamento de aplicativo da web hello.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente na seção **Windows PowerShell** da [página Downloads](https://azure.microsoft.com/downloads/).
-2. Você cria uma rede virtual e uma sub-rede para o gateway de aplicativo. Verifique se não há máquinas virtuais ou implantações em nuvem usando a sub-rede. O Gateway de Aplicativo deve estar sozinho em uma sub-rede de rede virtual.
-3. Os servidores que você configura para usar o gateway de aplicativo devem existir ou ter seus pontos de extremidade criados na rede virtual ou com um IP/VIP público atribuído.
+1. Instale a versão mais recente Olá Olá Azure de cmdlets do PowerShell usando Olá Web Platform Installer. Você pode baixar e instalar a versão mais recente de saudação do hello **do Windows PowerShell** seção Olá [página de Downloads](https://azure.microsoft.com/downloads/).
+2. Crie uma rede virtual e uma sub-rede para o gateway de aplicativo hello. Certifique-se de que não há máquinas ou implantações de nuvem usando sub-rede hello. O Gateway de Aplicativo deve estar sozinho em uma sub-rede de rede virtual.
+3. servidores Olá configurar o gateway de aplicativo hello toouse devem existir ou tem seus pontos de extremidade criado na rede virtual hello ou com um IP público/VIP atribuído.
 
-## <a name="what-is-required-to-create-an-application-gateway"></a>O que é necessário para criar um gateway de aplicativo?
+## <a name="what-is-required-toocreate-an-application-gateway"></a>O que é necessário toocreate um application gateway?
 
-* **Pool de servidores back-end:** a lista de endereços IP dos servidores back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP/VIP público.
-* **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
-* **Porta front-end:** essa porta é a porta pública aberta no gateway de aplicativo. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
-* **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS; essas configurações diferenciam maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL).
-* **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *basic* . A regra *básica* é a distribuição de carga round robin.
+* **Pool de servidores de back-end:** lista de saudação de endereços IP dos servidores de back-end de saudação. endereços IP Hello listado ou devem pertencer a sub-rede da rede virtual toohello ou devem ser um IP público/VIP.
+* **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são tooa empatado pool e são aplicados tooall servidores no pool de saudação.
+* **Porta de front-end:** essa porta é a porta pública de saudação que é aberta no gateway do aplicativo hello. Tráfego atinge essa porta e, em seguida, obtém redirecionado tooone de servidores de back-end de saudação.
+* **Ouvinte:** ouvinte Olá tem uma porta de front-end, um protocolo (Http ou Https, essas configurações diferenciam maiusculas de minúsculas) e o nome do certificado SSL de saudação (se a configuração de SSL de descarregamento).
+* **Regra:** regra Olá associa ouvinte hello e pool de saudação do servidor de back-end e define o tráfego de saudação do pool de servidor back-end deve ser direcionado toowhen que ele atinja um ouvinte específico. Atualmente, apenas Olá *básica* regra tem suporte. Olá *básica* regra é a distribuição de carga de round-robin.
 
 **Observações adicionais sobre a configuração**
 
-Para a configuração de certificados SSL, o protocolo em **HttpListener** deve ser alterado para *Https* (diferencia maiúsculas de minúsculas). O elemento **SslCertificate** é adicionado ao **HttpListener** com o valor da variável configurado para o certificado SSL. A porta front-end deve ser atualizada para 443.
+Para a configuração de certificados SSL, Olá protocolo em **HttpListener** devem alterar muito*Https* (com distinção entre maiusculas e minúsculas). Olá **SslCertificate** elemento é adicionado muito**HttpListener** com valor de variável Olá configurado para o certificado SSL da saudação. porta de front-end Olá deve ser atualizado too443.
 
-**Para habilitar a afinidade baseada em cookie**: um gateway de aplicativo pode ser configurado para garantir que uma solicitação de uma sessão de cliente sempre seja direcionada para a mesma VM no web farm. Este cenário é concluído pela injeção de um cookie de sessão que permite que o gateway redirecione o tráfego corretamente. Para habilitar a afinidade baseada em cookie, defina **CookieBasedAffinity** como *Habilitado* no elemento **BackendHttpSettings**.
+**afinidade de baseada em cookie tooenable**: um application gateway pode ser configurado tooensure que uma solicitação de uma sessão de cliente é sempre toohello direcionado mesma VM no farm de web hello. Este cenário é feito pela inclusão de um cookie de sessão que permite que o tráfego de toodirect gateway Olá adequadamente. Definir afinidade baseada em cookie tooenable, **CookieBasedAffinity** muito*habilitado* em Olá **BackendHttpSettings** elemento.
 
 ## <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
 
-A diferença entre usar o modelo de implantação Clássico do Azure e o Azure Resource Manager é a ordem em que você cria o gateway de aplicativo e os itens que precisam ser configurados.
+diferença de saudação entre usar o modelo de implantação clássico do Azure hello e Gerenciador de recursos do Azure é a ordem de saudação que você criar um aplicativo gateway e Olá itens que precisam toobe configurado.
 
-Com o Gerenciador de Recursos, todos os componentes de um gateway de aplicativo são configurados individualmente e reunidos para criar um recurso do gateway de aplicativo.
+Com o Gerenciador de recursos, todos os componentes de um application gateway são configurados individualmente e, em seguida, coloque junto toocreate um recurso do application gateway.
 
-A seguir, as etapas necessárias para criar um gateway de aplicativo:
+Aqui está Olá etapas necessárias toocreate um application gateway:
 
 1. Criar um grupo de recursos para o Gerenciador de Recursos
-2. Criar uma rede virtual, uma sub-rede e um IP público para o gateway de aplicativo
+2. Criar rede virtual, sub-rede e IP público para o gateway de aplicativo hello
 3. Criar um objeto de configuração do gateway do aplicativo
 4. Criar um recurso do gateway de aplicativo
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Criar um grupo de recursos para o Gerenciador de Recursos
 
-Alterne para o modo PowerShell para usar os cmdlets do Gerenciador de Recursos do Azure. Mais informações estão disponíveis em [Usando o Windows PowerShell com o Gerenciador de Recursos](../powershell-azure-resource-manager.md).
+Certifique-se de que você alterne os cmdlets do PowerShell modo toouse hello Azure Resource Manager. Há mais informações disponíveis em [Como usar o Windows PowerShell com o Gerenciador de Recursos](../powershell-azure-resource-manager.md).
 
 ### <a name="step-1"></a>Etapa 1
 
@@ -75,17 +75,17 @@ Login-AzureRmAccount
 
 ### <a name="step-2"></a>Etapa 2
 
-Verificar as assinaturas da conta.
+Verificar as assinaturas de saudação para conta de saudação.
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Você deve se autenticar com suas credenciais.
+Você está tooauthenticate solicitado com suas credenciais.
 
 ### <a name="step-3"></a>Etapa 3
 
-Escolha quais das suas assinaturas do Azure deseja usar.
+Escolha qual toouse suas assinaturas do Azure.
 
 ```powershell
 Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
@@ -99,13 +99,13 @@ Crie um grupo de recursos (ignore esta etapa se você estiver usando um grupo de
 New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 ```
 
-O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Essa configuração é usada como o local padrão para os recursos do grupo de recursos em questão. Verifique se todos os comandos para criar um gateway de aplicativo usam o mesmo grupo de recursos.
+O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especifiquem um local. Essa configuração é usada como o local padrão de saudação para recursos desse grupo de recursos. Certifique-se de que todos os toocreate de comandos usa um application gateway Olá mesmo grupo de recursos.
 
-No exemplo anterior, criamos um grupo de recursos denominado **appgw-RG** e a localização **Oeste dos EUA**.
+O exemplo hello acima, criamos um grupo de recursos chamado **appgw RG** e local **Oeste dos EUA**.
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Criar uma rede virtual e uma sub-rede para o gateway de aplicativo
+## <a name="create-a-virtual-network-and-a-subnet-for-hello-application-gateway"></a>Criar uma rede virtual e uma sub-rede para o gateway de aplicativo hello
 
-O exemplo a seguir mostra como criar uma rede virtual usando o Gerenciador de Recursos:
+Olá mostrado no exemplo a seguir como toocreate uma rede virtual usando o Gerenciador de recursos:
 
 ### <a name="step-1"></a>Etapa 1
 
@@ -113,7 +113,7 @@ O exemplo a seguir mostra como criar uma rede virtual usando o Gerenciador de Re
 $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 ```
 
-Esta amostra atribui o intervalo de endereços 10.0.0.0/24 a uma variável de sub-rede a ser usada para criar uma rede virtual.
+Este exemplo atribui o intervalo de endereço Olá 10.0.0.0/24 tooa sub-rede toobe variável usada toocreate uma rede virtual.
 
 ### <a name="step-2"></a>Etapa 2
 
@@ -121,7 +121,7 @@ Esta amostra atribui o intervalo de endereços 10.0.0.0/24 a uma variável de su
 $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 ```
 
-Esta amostra cria uma rede virtual chamada **appgwvnet** no grupo de recursos **appgw-rg** para a região Oeste dos EUA usando o prefixo 10.0.0.0/16 com a sub-rede 10.0.0.0/24.
+Este exemplo cria uma rede virtual denominada **appgwvnet** no grupo de recursos **appgw rg** para a região do hello Oeste dos EUA com hello prefixo 10.0.0.0/16 10.0.0.0/24 sub-rede.
 
 ### <a name="step-3"></a>Etapa 3
 
@@ -129,15 +129,15 @@ Esta amostra cria uma rede virtual chamada **appgwvnet** no grupo de recursos **
 $subnet = $vnet.Subnets[0]
 ```
 
-Esta amostra atribui o objeto de sub-rede à variável $subnet para as próximas etapas.
+Este exemplo atribui Olá sub-rede objeto toovariable $subnet para as próximas etapas hello.
 
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Criar um endereço IP público para a configuração de front-end
+## <a name="create-a-public-ip-address-for-hello-front-end-configuration"></a>Criar um endereço IP público para a configuração de front-end Olá
 
 ```powershell
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
 ```
 
-Esta amostra cria um recurso de IP público **publicIP01** no grupo de recursos **appgw-rg** para a região Oeste dos EUA.
+Este exemplo cria um recurso IP público **publicIP01** no grupo de recursos **appgw rg** para região Oeste dos EUA de saudação.
 
 ## <a name="create-an-application-gateway-configuration-object"></a>Criar um objeto de configuração do gateway do aplicativo
 
@@ -147,7 +147,7 @@ Esta amostra cria um recurso de IP público **publicIP01** no grupo de recursos 
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 ```
 
-Esta amostra cria uma configuração de IP do gateway de aplicativo chamada **gatewayIP01**. Quando o Gateway de Aplicativo é iniciado, ele escolhe um endereço IP na sub-rede configurada e no tráfego de rede da rota para os endereços IP no pool de IPs de back-end. Tenha em mente que cada instância usa um endereço IP.
+Esta amostra cria uma configuração de IP do gateway de aplicativo chamada **gatewayIP01**. Quando Application Gateway iniciado, ele seleciona um endereço IP da sub-rede de saudação configurado e rotear os endereços IP de toohello de tráfego de rede no pool IP de back-end de saudação. Tenha em mente que cada instância usa um endereço IP.
 
 ### <a name="step-2"></a>Etapa 2
 
@@ -155,7 +155,7 @@ Esta amostra cria uma configuração de IP do gateway de aplicativo chamada **ga
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 ```
 
-Esta amostra configura o pool de endereços IP de back-end denominado **pool01** com os endereços IP **134.170.185.46**, **134.170.188.221**, **134.170.185.50**. Esses valores são os endereços IP que receberão o tráfego de rede proveniente do ponto de extremidade do IP de front-end. Substitua os endereços IP do exemplo anterior pelos endereços IP dos pontos de extremidade do aplicativo Web.
+Este exemplo configura o pool de endereços do hello back-end IP denominado **pool01** com endereços IP **134.170.185.46**, **134.170.188.221**, **134.170.185.50** . Esses valores são endereços IP hello que recebem o tráfego de rede hello proveniente de um ponto de extremidade IP de front-end hello. Substitua os endereços IP de saudação da saudação anterior exemplo com endereços IP de saudação de seus pontos de extremidade do aplicativo web.
 
 ### <a name="step-3"></a>Etapa 3
 
@@ -163,7 +163,7 @@ Esta amostra configura o pool de endereços IP de back-end denominado **pool01**
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Enabled
 ```
 
-Esta amostra define a configuração **poolsetting01** do gateway de aplicativo para o tráfego de rede com carga balanceada no pool de back-end.
+Este exemplo configura a configuração de gateway do aplicativo **poolsetting01** tooload balanceada de tráfego de rede no pool de back-end de saudação.
 
 ### <a name="step-4"></a>Etapa 4
 
@@ -171,7 +171,7 @@ Esta amostra define a configuração **poolsetting01** do gateway de aplicativo 
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 443
 ```
 
-Esta amostra configura a porta do IP de front-end denominada **frontendport01** para o ponto de extremidade do IP público.
+Este exemplo configura a porta IP front-end Olá chamada **frontendport01** ponto de extremidade IP pública hello.
 
 ### <a name="step-5"></a>Etapa 5
 
@@ -179,7 +179,7 @@ Esta amostra configura a porta do IP de front-end denominada **frontendport01** 
 $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path for certificate file> -Password "<password>"
 ```
 
-Esta amostra configura o certificado usado para a conexão SSL. O certificado deve estar no formato .pfx e a senha deve ter entre 4 e 12 caracteres.
+Este exemplo configura o certificado de saudação usado para a conexão SSL. certificado Olá precisa toobe no formato. pfx e senha Olá deve estar entre 4 too12 caracteres.
 
 ### <a name="step-6"></a>Etapa 6
 
@@ -187,7 +187,7 @@ Esta amostra configura o certificado usado para a conexão SSL. O certificado de
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 ```
 
-Esta amostra cria a configuração de IP de front-end chamada **fipconfig01** e associa o endereço IP público à configuração de IP de front-end.
+Este exemplo cria a configuração de IP front-end Olá nomeada **fipconfig01** e associa Olá endereço IP público com configuração de IP de front-end de saudação.
 
 ### <a name="step-7"></a>Etapa 7
 
@@ -195,7 +195,7 @@ Esta amostra cria a configuração de IP de front-end chamada **fipconfig01** e 
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
 ```
 
-Esta amostra cria o ouvinte de nome **listener01** e associa a porta de front-end à configuração de IP e ao certificado do front-end.
+Este exemplo cria o nome do ouvinte Olá **listener01** e associa Olá certificado e configuração de IP de front-end da toohello de porta de front-end.
 
 ### <a name="step-8"></a>Etapa 8
 
@@ -203,7 +203,7 @@ Esta amostra cria o ouvinte de nome **listener01** e associa a porta de front-en
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
-Esta amostra cria a regra de roteamento do balanceador de carga chamada **rule01**, que configura o comportamento do balanceador de carga.
+Este exemplo cria Olá regra balanceador de carga roteamento denominada **rule01** que define o comportamento de Balanceador de carga de saudação.
 
 ### <a name="step-9"></a>Etapa 9
 
@@ -211,10 +211,10 @@ Esta amostra cria a regra de roteamento do balanceador de carga chamada **rule01
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 ```
 
-Esta amostra configura o tamanho da instância do gateway de aplicativo.
+Este exemplo configura o tamanho de instância de saudação do gateway de aplicativo hello.
 
 > [!NOTE]
-> O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Medium. Você pode escolher entre Standard_Small, Standard_Medium e Standard_Large.
+> Olá valor padrão para *InstanceCount* é 2, com um valor máximo de 10. Olá valor padrão para *GatewaySize* é médio. Você pode escolher entre Standard_Small, Standard_Medium e Standard_Large.
 
 ### <a name="step-10"></a>Etapa 10
 
@@ -222,7 +222,7 @@ Esta amostra configura o tamanho da instância do gateway de aplicativo.
 $policy = New-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
 ```
 
-Esta etapa define a política SSL para usar no gateway do aplicativo. Visite [versões de política de configurar SSL e conjuntos de codificação no Gateway de Aplicativo](application-gateway-configure-ssl-policy-powershell.md) para saber mais.
+Esta etapa define Olá toouse de política SSL no gateway do aplicativo hello. Visite [versões de política de configurar SSL e conjuntos de codificação no Application Gateway](application-gateway-configure-ssl-policy-powershell.md) toolearn mais.
 
 ## <a name="create-an-application-gateway-by-using-new-azureapplicationgateway"></a>Criar um gateway de aplicativo usando New-AzureApplicationGateway
 
@@ -230,11 +230,11 @@ Esta etapa define a política SSL para usar no gateway do aplicativo. Visite [ve
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
 ```
 
-Esta amostra cria um gateway de aplicativo com todos os itens de configuração das etapas anteriores. No exemplo, o gateway de aplicativo se chama **appgwtest**.
+Este exemplo cria um application gateway com todos os itens de configuração do hello etapas anteriores. No exemplo hello, o gateway de aplicativo hello é chamado **appgwtest**.
 
 ## <a name="get-application-gateway-dns-name"></a>Obter um nome DNS de Gateway de Aplicativo
 
-Depois de criar o gateway, a próxima etapa será configurar o front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. Para garantir que os usuários finais possam alcançar o gateway de aplicativo, um registro CNAME pode ser usado para apontar para o ponto de extremidade público do gateway de aplicativo. [Configurando um nome de domínio personalizado no Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para isso, recupere detalhes do Gateway de Aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress anexado ao Gateway de Aplicativo. O nome DNS do Gateway de Aplicativo deve ser usado para criar um registro CNAME que aponta os dois aplicativos Web para esse nome DNS. O uso de registros A não é recomendável, pois o VIP pode mudar na reinicialização do gateway de aplicativo.
+Depois de criar o gateway hello, Olá próxima etapa é tooconfigure Olá front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. os usuários finais de tooensure pode pressionar o gateway de aplicativo hello, um registro CNAME pode ser usado toopoint toohello ponto de extremidade público do gateway de aplicativo hello. [Configurando um nome de domínio personalizado no Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). toodo, detalhes de recuperar de gateway de aplicativo hello e seu nome de IP/DNS associado usando Olá PublicIPAddress elemento toohello anexado application gateway. nome DNS do gateway do aplicativo Hello deve ser usado toocreate um registro CNAME, qual nome DNS pontos Olá duas web aplicativos toothis. uso de saudação de registros de um não é recomendável porque Olá VIP pode ser alterado na reinicialização do application gateway.
 
 
 ```powershell
@@ -265,7 +265,7 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se desejar configurar um gateway de aplicativo para usar com um balanceador de carga interno (ILB), veja [Criar um gateway de aplicativo com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
+Se você quiser tooconfigure um toouse de gateway do aplicativo com um balanceador de carga interno (ILB), consulte [criar um gateway de aplicativo com um balanceador de carga interno (ILB)](application-gateway-ilb.md).
 
 Se deseja obter mais informações sobre as opções de balanceamento de carga no geral, consulte:
 

@@ -1,5 +1,5 @@
 ---
-title: "Políticas de recursos do Azure para convenções de nomenclatura | Microsoft Docs"
+title: "políticas de recursos aaaAzure para convenções de nomenclatura | Microsoft Docs"
 description: "Descreve as políticas do Azure Resource Manager para convenções de nomenclatura de recursos."
 services: azure-resource-manager
 documentationcenter: na
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 51b3519bbba8cb4c768bfdd7dadf92fced434f22
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c8384b231263fb694aed8b936a953d5c0ca31e71
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="apply-resource-policies-for-names-and-text"></a>Aplicar políticas de recursos a nomes e texto
-Este tópico mostra várias [políticas de recursos](resource-manager-policy.md) que podem ser aplicadas para estabelecer as convenções de nomenclatura e texto. Essas políticas garantem a consistência de nomes de recursos e valores de marcação. 
+Este tópico mostra vários [políticas de recursos](resource-manager-policy.md) você pode aplicar as convenções de nomenclatura e texto tooestablish. Essas políticas garantem a consistência de nomes de recursos e valores de marcação. 
 
 ## <a name="set-naming-convention-with-wildcard"></a>Definir a convenção de nomenclatura com um curinga
-O exemplo a seguir mostra o uso de curingas, que é compatível com a condição **like**. A condição declara que, se o nome corresponder ao padrão mencionado (namePrefix\*nameSuffix), a solicitação será negada:
+Olá, exemplo a seguir mostra uso Olá de caractere curinga, que é suportado pelo Olá **como** condição. Olá condição declara que se hello nome corresponder padrão mencionadas hello (namePrefix\*nameSuffix), em seguida, negar a solicitação de saudação:
 
 ```json
 {
@@ -42,7 +42,7 @@ O exemplo a seguir mostra o uso de curingas, que é compatível com a condição
 
 ## <a name="set-naming-convention-with-pattern"></a>Definir a convenção de nomenclatura com um padrão
 
-Para especificar que nomes de recurso correspondem a um padrão, use a condição match. O exemplo a seguir exige que os nomes comecem com `contoso` e contenham seis letras adicionais:
+toospecify que os nomes de recursos correspondem a um padrão, use Olá correspondem à condição. exemplo a seguir Hello requer nomes toostart com `contoso` e conter seis letras adicionais:
 
 ```json
 {
@@ -60,7 +60,7 @@ Para especificar que nomes de recurso correspondem a um padrão, use a condiçã
 
 ## <a name="set-date-pattern-for-tag-value"></a>Definir um padrão de data para um valor de marcação
 
-Para exigir um padrão de data de dois dígitos, hífen, três letras, traço e quatro dígitos, use:
+toorequire um padrão de data de dois dígitos, hífen, três letras, traço e quatro dígitos, use:
 
 ```json
 {
@@ -75,6 +75,6 @@ Para exigir um padrão de data de dois dígitos, hífen, três letras, traço e 
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Depois de definir uma regra de política (conforme mostrado nos exemplos anteriores), você precisará criar a definição de política e atribuí-la a um escopo. O escopo pode ser uma assinatura, grupo de recursos ou recurso. Para atribuir políticas por meio do portal, consulte [Usar o portal do Azure para atribuir e gerenciar políticas de recurso](resource-manager-policy-portal.md). Para atribuir políticas por meio da API REST, do PowerShell ou da CLI do Azure, consulte [Atribuir e gerenciar políticas por meio de script](resource-manager-policy-create-assign.md). 
-* Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
+* Depois de definir uma regra de política (conforme mostrado no hello anterior exemplos), você precisa de definição de política de saudação toocreate e atribuí-la tooa escopo. escopo de saudação pode ser uma assinatura, o grupo de recursos ou o recurso. políticas de tooassign por meio do portal hello, consulte [tooassign portal do Azure de uso e gerenciar políticas de recursos](resource-manager-policy-portal.md). políticas de tooassign por meio da API REST, PowerShell ou CLI do Azure, consulte [atribuir e gerenciar políticas por meio de script](resource-manager-policy-create-assign.md). 
+* Para obter diretrizes sobre como as empresas podem usar o Gerenciador de recursos tooeffectively gerenciar assinaturas, consulte [scaffold enterprise do Azure - controle de assinatura prescritivas](resource-manager-subscription-governance.md).
 

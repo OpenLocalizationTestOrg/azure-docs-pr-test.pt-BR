@@ -1,6 +1,6 @@
 ---
-title: "Orientação para desenvolvimento do Azure Functions | Microsoft Docs"
-description: "Aprenda os conceitos e técnicas do Azure Functions que você precisa para desenvolver funções no Azure, em todas as linguagens de programação e associações."
+title: "aaaGuidance para o desenvolvimento de funções do Azure | Microsoft Docs"
+description: "Saiba os conceitos de funções do Azure hello e técnicas que você precisa de funções de toodevelop no Azure, em todas as linguagens de programação e associações."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -16,21 +16,21 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: chrande
-ms.openlocfilehash: 879be48150cfe13e31064475aa637f13f5f5f9d5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 86d37dae5333f615faafc966e9da6e08e0a6354e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-developers-guide"></a>Guia do desenvolvedor do Azure Functions
-No Azure Functions, funções específicas compartilham alguns componentes e conceitos técnicos, independentemente da linguagem ou da associação usada. Antes de aprender detalhes específicos de uma determinada linguagem ou binding, leia esta visão geral que se aplica a todos eles.
+Em funções do Azure, funções específicas compartilham alguns conceitos técnicos principais e componentes, independentemente do idioma de saudação ou associação usada. Antes de começar em detalhes tooa específico determinado idioma ou associação de aprendizado, ser tooread-se a esta visão geral que se aplica a tooall deles.
 
-Este artigo pressupõe que você já tenha lido a [Visão geral do Azure Functions](functions-overview.md) e está familiarizado com [conceitos do SDK de WebJobs como gatilhos, associações e tempo de execução do JobHost](../app-service-web/websites-dotnet-webjobs-sdk.md). O Azure Functions é baseado no SDK de WebJobs. 
+Este artigo pressupõe que você já leu Olá [visão geral de funções do Azure](functions-overview.md) e estiver familiarizado com [conceitos do SDK do WebJobs como gatilhos, associações e o tempo de execução do hello JobHost](../app-service-web/websites-dotnet-webjobs-sdk.md). As funções do Azure baseia-se em Olá SDK do WebJobs. 
 
 ## <a name="function-code"></a>Código de função
-Uma *função* é o principal conceito no Azure Functions. Você escreve o código para uma função em uma linguagem de sua escolha e salva os arquivos de código e configuração na mesma pasta. A configuração é denominada `function.json`, que contém dados de configuração JSON. Várias linguagens são compatíveis, e cada um tem uma experiência ligeiramente diferente otimizada para funcionar melhor para a linguagem em questão. 
+Um *função* Olá o conceito principal em funções do Azure. Escrever código para uma função em um idioma de sua escolha e salve o código de saudação e Olá de arquivos de configuração na mesma pasta. configuração de saudação é nomeada `function.json`, que contém dados de configuração JSON. Há suporte para vários idiomas, e cada um tem um toowork ligeiramente diferentes experiência otimizada recomendada para esse idioma. 
 
-O arquivo function.json define as associações de função e outras definições de configuração. O tempo de execução usa esse arquivo para determinar os eventos a serem monitorados, bem como para passar e retornar dados da execução da função. Veja a seguir um arquivo function.json de exemplo.
+arquivo de function.json Olá define associações de função hello e outras definições de configuração. saudação de tempo de execução usa toomonitor de eventos neste arquivo toodetermine hello e como toopass dados e retornar dados de função execução. a seguir Olá é um exemplo de arquivo function.json.
 
 ```json
 {
@@ -47,68 +47,68 @@ O arquivo function.json define as associações de função e outras definiçõe
 }
 ```
 
-Defina a propriedade `disabled` como `true` para impedir que a função seja executada.
+Saudação de conjunto `disabled` propriedade muito`true` tooprevent função de saudação do que está sendo executada.
 
-A propriedade `bindings` é onde você configura gatilhos e associações. Cada associação compartilha algumas configurações comuns e outras que são específicas para um determinado tipo de associação. Todas as associações exigem as seguintes configurações:
+Olá `bindings` propriedade é onde você configura os disparadores e associações. Cada associação compartilha algumas configurações comuns e algumas configurações, que são específicos tooa determinado tipo de associação. Cada associação requer Olá configurações a seguir:
 
 | Propriedade | Valores/Tipos | Comentários |
 | --- | --- | --- |
 | `type` |string |Tipo de binding. Por exemplo: `queueTrigger`. |
-| `direction` |'in', 'out' |Indica se a associação é para receber dados na função ou enviar dados a partir da função. |
-| `name` |string |O nome que é usado para os dados associados na função. Em C#, esse é um nome de um argumento. Em JavaScript, é a chave em uma lista de chaves/valores. |
+| `direction` |'in', 'out' |Indica se a associação de saudação é para receber dados em função hello ou envio de dados de função hello. |
+| `name` |string |nome de saudação que é usado para Olá dados associados na função hello. Para c#, este é o nome de um argumento; chave de saudação em uma lista de chave/valor-do para JavaScript. |
 
 ## <a name="function-app"></a>Aplicativo de funções
-Um aplicativo de funções é composto por uma ou mais funções individuais que são gerenciadas em conjunto pelo Serviço de Aplicativo do Azure. Todas as funções em um aplicativo de funções compartilham o mesmo plano de preços, a implantação contínua e a versão de tempo de execução. Funções escritas em vários idiomas podem compartilhar o mesmo aplicativo de funções. Pense em um aplicativo de funções como uma forma de organizar e gerenciar coletivamente suas funções. 
+Um aplicativo de funções é composto por uma ou mais funções individuais que são gerenciadas em conjunto pelo Serviço de Aplicativo do Azure. Todas as funções hello em um compartilhamento de aplicativo de função hello mesmo preços do plano, a implantação contínua e a versão de tempo de execução. Funções escritas em pode de vários idiomas compartilham Olá mesma função de aplicativo. Pensar em um aplicativo de função como uma maneira tooorganize e coletivamente gerenciar suas funções. 
 
 ## <a name="runtime-script-host-and-web-host"></a>Tempo de execução (host de script e host Web)
-O tempo de execução, ou host de script, é o host subjacente do SDK WebJobs que escuta eventos, coleta e envia dados e, por fim, executa seu código. 
+tempo de execução de saudação ou host de script, é Olá subjacente SDK do WebJobs host que escuta eventos, coleta e envia dados e, por fim, executa o seu código. 
 
-Para facilitar gatilhos HTTP, há também um host Web que foi desenvolvido para ficar na frente do host de script em cenários de produção. Ter dois hosts ajuda a isolar o host de script a partir do tráfego de front-end gerenciado pelo host Web.
+gatilhos de toofacilitate HTTP, também é um host da web que é projetado toosit na frente do host de script hello em cenários de produção. Ter dois hosts ajuda a host de script hello tooisolate do tráfego de front-end Olá gerenciado por Olá web host.
 
 ## <a name="folder-structure"></a>Estrutura de pastas
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-Ao configurar um projeto para implantar funções em um aplicativo de função no Serviço de Aplicativo do Azure, você poderá tratar essa estrutura de pastas como o código do site. Você pode usar ferramentas como implantação e integração contínuas ou scripts de implantação personalizados para implantar a instalação do pacote de tempo ou a transpilação do código.
+Ao configurar um projeto para implantar o aplicativo de função tooa funções no serviço de aplicativo do Azure, você pode tratar essa estrutura de pastas como o código do site. Você pode usar ferramentas como implantação e integração contínuas ou scripts de implantação personalizados para implantar a instalação do pacote de tempo ou a transpilação do código.
 
 > [!NOTE]
-> Não se esqueça de implantar o arquivo `host.json` e as pastas de função diretamente na pasta `wwwroot`. Não inclua a pasta `wwwroot` nas implantações. Caso contrário, você acabará com pastas `wwwroot\wwwroot`. 
+> Certifique-se de que toodeploy seu `host.json` pastas de arquivo e a função diretamente toohello `wwwroot` pasta. Não inclua Olá `wwwroot` pasta em implantações. Caso contrário, você acabará com pastas `wwwroot\wwwroot`. 
 > 
 > 
 
-## <a id="fileupdate"></a> Como atualizar os arquivos de aplicativo de funções
-O editor de funções interno do portal do Azure permite que você atualize o arquivo *function.json* e o arquivo de código de uma função. Para carregar ou atualizar outros arquivos, como *package.json* ou *project.json*, ou dependências, você precisa usar outros métodos de implantação.
+## <a id="fileupdate"></a>Como tooupdate função arquivos do aplicativo
+editor de função Hello incorporado Olá portal do Azure permite que você atualize Olá *function.json* arquivo e o arquivo de código de saudação para uma função. tooupload ou atualização de outros arquivos como *Package. JSON* ou *Project* ou dependências, você tem toouse outros métodos de implantação.
 
-Os aplicativos de funções baseiam-se no Serviço de Aplicativo; portanto, todas as [opções de implantação disponíveis para aplicativos Web padrão](../app-service-web/web-sites-deploy.md) também estão disponíveis para aplicativos de funções. Aqui estão alguns métodos que você pode usar para carregar ou atualizar os arquivos de aplicativos de função. 
+Função aplicativos são criados no serviço de aplicativo, portanto todos Olá [opções de implantação de aplicativos da web de toostandard disponíveis](../app-service-web/web-sites-deploy.md) também estão disponíveis para aplicativos de função. Aqui estão alguns métodos, você pode usar tooupload ou atualizar os arquivos de aplicativo de função. 
 
-#### <a name="to-use-app-service-editor"></a>Para usar o Editor do Serviço de Aplicativo
-1. No portal do Azure Functions, clique em **Configurações do aplicativo de funções**.
-2. Na seção **Configurações Avançadas**, clique em **Ir para Configurações do Serviço de Aplicativo**.
+#### <a name="toouse-app-service-editor"></a>toouse Editor de aplicativo de serviço
+1. No portal do Azure funções hello, clique em **configurações do aplicativo de função**.
+2. Em Olá **configurações avançadas** seção, clique em **ir configurações do serviço tooApp**.
 3. Clique em **Editor do Serviço de Aplicativo** na navegação do Menu do aplicativo em **FERRAMENTAS DE DESENVOLVIMENTO**.
 4. Clique em **Ir**.
    
-   Depois de carregar o Editor do Serviço de Aplicativo, você verá o arquivo *host.json* e as pastas de função em *wwwroot*. 
-5. Abra os arquivos para editá-los ou arraste e solte do computador de desenvolvimento para carregar arquivos.
+   Depois que o Editor de serviço de aplicativo é carregado, você verá Olá *host.json* pastas de arquivo e a função em *wwwroot*. 
+5. Arquivos abertos tooedit-los, ou arrastar e soltar de seus arquivos de tooupload de máquina de desenvolvimento.
 
-#### <a name="to-use-the-function-apps-scm-kudu-endpoint"></a>Para usar o ponto de extremidade SCM (Kudu) do aplicativo de funções
+#### <a name="toouse-hello-function-apps-scm-kudu-endpoint"></a>ponto de extremidade do aplicativo de função hello toouse SCM (Kudu)
 1. Navegue até: `https://<function_app_name>.scm.azurewebsites.net`.
 2. Clique em **Console de Depuração > CMD**.
-3. Navegue até `D:\home\site\wwwroot\` para atualizar *host.json* ou `D:\home\site\wwwroot\<function_name>` para atualizar os arquivos de uma função.
-4. Arraste e solte um arquivo que você deseja carregar para a pasta apropriada na grade de arquivos. Há duas áreas na grade de arquivo onde é possível soltar um arquivo. No caso de arquivos *.zip* , uma caixa é exibida com o rótulo "Arraste até aqui para carregar e descompactar". No caso de outros tipos de arquivo, solte na grade de arquivo, mas fora da caixa "descompactar".
+3. Navegue muito`D:\home\site\wwwroot\` tooupdate *host.json* ou `D:\home\site\wwwroot\<function_name>` tooupdate arquivos de uma função.
+4. Arrastar e soltar um arquivo que você deseja tooupload para a pasta apropriada Olá na grade de arquivo hello. Há duas áreas na grade de arquivo hello onde você pode remover um arquivo. Para *. zip* arquivos, aparecerá uma caixa com rótulo hello "arraste aqui tooupload e descompacte." Para outros tipos de arquivo, drop na grade de arquivo hello, mas fora da caixa "unzip" hello.
 
-<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --DonnaM -->
+<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on hello consumption plan --DonnaM -->
 
-#### <a name="to-use-continuous-deployment"></a>Para usar a implantação contínua
-Siga as instruções no tópico [Implantação contínua para funções do Azure](functions-continuous-deployment.md).
+#### <a name="toouse-continuous-deployment"></a>implantação contínua toouse
+Siga as instruções de saudação do tópico de saudação [implantação contínua para funções do Azure](functions-continuous-deployment.md).
 
 ## <a name="parallel-execution"></a>Execução paralela
-Quando vários eventos de gatilho ocorrem mais rápido do que um tempo de execução single-threaded de função pode processar, o tempo de execução pode invocar a função várias vezes em paralelo.  Se um aplicativo de funções estiver usando o [Plano de hospedagem de consumo](functions-scale.md#how-the-consumption-plan-works), ele poderá escalar horizontalmente de maneira automática.  Cada instância do aplicativo de funções, quer seja executada no Plano de hospedagem de consumo, quer em um [Plano de hospedagem do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) comum, pode processar invocações de função simultâneas em paralelo usando vários threads.  O número máximo de invocações de função simultâneas em cada instância do aplicativo de funções varia com base no tipo de gatilho que está sendo usado, bem como nos recursos usados por outras funções no aplicativo de funções.
+Quando vários eventos de gatilho ocorrem mais rápido do que um tempo de execução da função de thread único pode processá-las, tempo de execução de saudação pode chamar a função hello várias vezes em paralelo.  Se um aplicativo de função está usando Olá [consumo de plano de hospedagem](functions-scale.md#how-the-consumption-plan-works), Olá função aplicativo pode ser expandida automaticamente.  Cada instância do aplicativo de função hello, se o aplicativo hello é executado em Olá consumo plano ou uma expressão de hospedagem [plano de hospedagem do serviço de aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), podem processar invocações simultâneas em paralelo usando vários threads.  número máximo de saudação de chamadas simultâneas de função em cada instância do aplicativo de função varia com base no tipo de saudação do gatilho que está sendo usado, bem como recursos de Olá usados por outras funções em um aplicativo de função hello.
 
 ## <a name="functions-runtime-versioning"></a>Controle de versão de tempo de execução de funções
 
-Você pode configurar a versão do tempo de execução de Funções usando a configuração de aplicativo `FUNCTIONS_EXTENSION_VERSION`. Por exemplo, o valor "~1" indica que seu aplicativo de funções usará 1 como sua versão principal. Aplicativos de funções são atualizados para cada nova versão secundária à medida que elas são lançadas. Você pode exibir a versão exata do Aplicativo de Funções na guia **Configurações** no Portal do Azure.
+Você pode configurar a versão de saudação do tempo de execução de funções hello usando Olá `FUNCTIONS_EXTENSION_VERSION` configuração do aplicativo. Por exemplo, o valor de hello "~ 1" indica que o seu aplicativo com a função usará 1 como sua versão principal. Aplicativos de função são atualizados tooeach nova versão secundária que elas são lançadas. Você pode exibir a versão exata de saudação do seu aplicativo de função no hello **configurações** guia Olá Portal do Azure.
 
 ## <a name="repositories"></a>Repositórios
-O código para o Azure Functions é software livre e é armazenado em repositórios do GitHub:
+código de saudação para funções do Azure é o código-fonte aberto e armazenadas em repositórios GitHub:
 
 * [Tempo de execução do Azure Functions](https://github.com/Azure/azure-webjobs-sdk-script/)
 * [Portal do Azure Functions](https://github.com/projectkudu/AzureFunctionsPortal)
@@ -125,12 +125,12 @@ Veja uma tabela de todas as associações com suporte.
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais, consulte os recursos a seguir:
+Para obter mais informações, consulte Olá recursos a seguir:
 
 * [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
 * [Referência do desenvolvedor de C# do Azure Functions](functions-reference-csharp.md)
 * [Referência do desenvolvedor em F# do Azure Functions](functions-reference-fsharp.md)
 * [Referência do desenvolvedor de NodeJS do Azure Functions](functions-reference-node.md)
 * [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
-* [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Azure Functions: a jornada) no blog da equipe do Serviço de Aplicativo do Azure. Um histórico de como o Azure Functions foi desenvolvido.
+* [As funções do Azure: Olá jornada](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) no blog da equipe saudação do serviço de aplicativo do Azure. Um histórico de como o Azure Functions foi desenvolvido.
 

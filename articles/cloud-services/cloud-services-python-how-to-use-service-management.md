@@ -1,6 +1,6 @@
 ---
-title: "Como usar a API de gerenciamento de serviços (Python) - guia de recursos"
-description: "Saiba como executar tarefas de gerenciamento de serviços comuns de forma programática no Python."
+title: "gerenciamento de serviços de saudação do aaaHow toouse API (Python) - guia do recurso"
+description: "Saiba como tooprogrammatically executar tarefas comuns de gerenciamento de serviço do Python."
 services: cloud-services
 documentationcenter: python
 author: lmazuel
@@ -14,48 +14,48 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: 13249ba9a4b317a3154776b411ce0bb1f316b3bb
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b59622203470e1586484cec4033515edb39ca4d1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-service-management-from-python"></a>Como usar o Gerenciamento de Serviços no Python
-Este guia mostra como executar tarefas de gerenciamento de serviços comuns de forma programática no Python. A classe **ServiceManagementService** no [SDK do Azure para Python](https://github.com/Azure/azure-sdk-for-python) dá suporte a acesso programático para grande parte da funcionalidade relacionada ao gerenciamento de serviços que está disponível no [Portal Clássico do Azure][management-portal] (como **criação, atualização e exclusão de serviços de nuvem, implantações, serviços de gerenciamento de dados e máquinas virtuais**). Essa funcionalidade pode ser útil na criação de aplicativos que precisam de acesso programático ao gerenciamento de serviços.
+# <a name="how-toouse-service-management-from-python"></a>Como toouse gerenciamento de serviço do Python
+Este guia mostra como tooprogrammatically executar tarefas comuns de gerenciamento de serviço do Python. Olá **ServiceManagementService** classe Olá [Azure SDK para Python](https://github.com/Azure/azure-sdk-for-python) oferece suporte a acesso programático toomuch Olá relacionadas ao gerenciamento da funcionalidade do serviço que está disponível no hello [Portal clássico do azure] [ management-portal] (como **criar, atualizar e excluir serviços de nuvem e máquinas virtuais, serviços de gerenciamento de dados e implantações**). Essa funcionalidade pode ser útil na criação de aplicativos que precisam de gerenciamento de acesso programático à tooservice.
 
 ## <a name="WhatIs"> </a>O que é gerenciamento de serviços
-A API de Gerenciamento de Serviços fornece acesso programático à grande parte da funcionalidade do gerenciamento de serviços disponível por meio do [Portal Clássico do Azure][management-portal]. O SDK do Azure para Python permite que você gerencie os serviços de nuvem e as contas de armazenamento.
+Olá API de gerenciamento de serviço fornece acesso programático toomuch da funcionalidade de gerenciamento de serviços de saudação disponível por meio de saudação [portal clássico do Azure][management-portal]. Hello Azure SDK para Python permite toomanage seus serviços de nuvem e contas de armazenamento.
 
-Para usar a API de Gerenciamento de Serviços, é necessário [criar uma conta do Azure](https://azure.microsoft.com/pricing/free-trial/).
+API de gerenciamento de serviços do toouse Olá, é necessário muito[criar uma conta do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="Concepts"> </a>Conceitos
-O SDK do Azure para Python encapsula a [API de Gerenciamento de Serviços do Azure][svc-mgmt-rest-api], que é uma API REST. Todas as operações da API são executadas por meio do SSL e mutuamente autenticadas usando certificados X.509 v3. O serviço de gerenciamento pode ser acessado em um serviço em execução no Azure ou diretamente pela Internet em qualquer aplicativo que possa enviar uma solicitação HTTPS e receber uma resposta HTTPS.
+Hello Azure SDK para Python encapsula Olá [API de gerenciamento de serviços do Azure][svc-mgmt-rest-api], que é uma API REST. Todas as operações da API são executadas por meio do SSL e mutuamente autenticadas usando certificados X.509 v3. serviço de gerenciamento de saudação pode ser acessado de dentro de um serviço em execução no Azure, ou diretamente na Internet de saudação de qualquer aplicativo que possa enviar uma solicitação HTTPS e receber uma resposta de HTTPS.
 
 ## <a name="Installation"> </a>Instalação
-Todos os recursos descritos neste artigo estão disponíveis no pacote do `azure-servicemanagement-legacy` , que pode ser instalado usando o pip. Para obter mais informações sobre a instalação (por exemplo, se você for novo no Python), consulte este artigo: [Instalando o Python e o SDK do Azure](../python-how-to-install.md)
+Todos os recursos de saudação descritos neste artigo estão disponíveis em Olá `azure-servicemanagement-legacy` pacote, que pode ser instalado usando o pip. Para obter mais informações sobre a instalação (por exemplo, se você for novo tooPython), consulte este artigo: [instalando Python e hello SDK do Azure](../python-how-to-install.md)
 
-## <a name="Connect"> </a>Como conectar-se ao gerenciamento de serviços
-Para conectar-se ao ponto de extremidade do Gerenciamento de Serviços, você precisa da ID de sua assinatura do Azure e um certificado de gerenciamento válido. Você pode obter sua ID de assinatura por meio do [Portal Clássico do Azure][management-portal].
+## <a name="Connect"></a>Como: conectar-se gerenciamento tooservice
+ponto de extremidade de tooconnect toohello gerenciamento de serviço, você precisa sua ID de assinatura do Azure e um certificado de gerenciamento válido. Você pode obter sua ID de assinatura por meio de saudação [portal clássico do Azure][management-portal].
 
 > [!NOTE]
-> Agora é possível usar certificados criados com o OpenSSL quando for executado no Windows.  Isso requer o Python 2.7.4 ou posterior. Recomendamos que os usuários usem o OpenSSL, em vez de .pfx, já que o suporte para certificados .pfx provavelmente será removido no futuro.
+> Agora é possível toouse certificados criados com OpenSSL quando em execução no Windows.  Isso requer o Python 2.7.4 ou posterior. É recomendável usuários toouse OpenSSL em vez de. pfx, já que o suporte para o. pfx certificados provavelmente serão removidos no futuro hello.
 >
 >
 
 ### <a name="management-certificates-on-windowsmaclinux-openssl"></a>Certificados de gerenciamento no Windows/Mac/Linux (OpenSSL)
-Você também pode usar o [OpenSSL](http://www.openssl.org/) para criar o certificado de gerenciamento.  Na verdade, você precisa criar dois certificados, um para o servidor (um arquivo `.cer`) e um para o cliente (um arquivo `.pem`). Para criar o arquivo `.pem` , execute isto:
+Você pode usar [OpenSSL](http://www.openssl.org/) toocreate seu certificado de gerenciamento.  Você precisa realmente toocreate dois certificados, um servidor de saudação (uma `.cer` arquivo) e outro para o cliente da saudação (um `.pem` arquivo). Olá toocreate `.pem` de arquivos, execute:
 
     openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
-Para criar o certificado `.cer` , execute isto:
+Olá toocreate `.cer` do certificado, execute:
 
     openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
-Para saber mais sobre certificados do Azure, confira [Visão geral dos Certificados de Serviços de Nuvem do Azure](cloud-services-certs-create.md). Para obter uma descrição completa dos parâmetros do OpenSSL, consulte a documentação em [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
+Para saber mais sobre certificados do Azure, confira [Visão geral dos Certificados de Serviços de Nuvem do Azure](cloud-services-certs-create.md). Para obter uma descrição completa dos parâmetros do OpenSSL, consulte a documentação de saudação em [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
-Depois de criar esses arquivos, você precisará carregar o arquivo `.cer` no Azure por meio da ação "Carregar" da guia "Configurações" do [Portal Clássico do Azure][management-portal] e anotar o local no qual você salvou o arquivo `.pem`.
+Depois de criar esses arquivos, você precisa Olá tooupload `.cer` tooAzure por meio de ação do hello "Carregar" do guia de "Configurações" hello de saudação do arquivo [portal clássico do Azure][management-portal], e você precisa toomake Anote onde você salvou Olá `.pem` arquivo.
 
-Depois de ter obtido a ID de sua assinatura, criado um certificado e carregado o arquivo `.cer` no Azure, você pode conectar-se ao ponto de extremidade de gerenciamento do Azure passando a ID da assinatura e o caminho para o arquivo `.pem` para o **ServiceManagementService**:
+Depois de obter sua ID de assinatura, um certificado criado e carregado Olá `.cer` tooAzure de arquivo, você pode conectar o ponto de extremidade de gerenciamento do Azure toohello, passando a id da assinatura hello e Olá caminho toohello `.pem` arquivo muito**ServiceManagementService**:
 
     from azure import *
     from azure.servicemanagement import *
@@ -65,18 +65,18 @@ Depois de ter obtido a ID de sua assinatura, criado um certificado e carregado o
 
     sms = ServiceManagementService(subscription_id, certificate_path)
 
-No exemplo acima, `sms` é um objeto **ServiceManagementService** . A classe **ServiceManagementService** é a classe primária usada para gerenciar os serviços do Azure.
+Em Olá anterior como exemplo, `sms` é um **ServiceManagementService** objeto. Olá **ServiceManagementService** classe é Olá classe primária usada toomanage serviços do Azure.
 
 ### <a name="management-certificates-on-windows-makecert"></a>Certificados de gerenciamento no Windows (MakeCert)
-Você pode criar um certificado de gerenciamento autoassinado em seu computador usando `makecert.exe`.  Abra um **prompt de comando do Visual Studio** como **administrador** e use o seguinte comando, substituindo *AzureCertificate* pelo nome do certificado que você deseja usar.
+Você pode criar um certificado de gerenciamento autoassinado em seu computador usando `makecert.exe`.  Abra um **prompt de comando do Visual Studio** como um **administrador** e usar Olá comando a seguir, substituindo *AzureCertificate* com o nome do certificado Olá você gostaria que toouse.
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-O comando cria o arquivo `.cer` e o instala no repositório de certificados **Pessoal** . Para obter mais informações, confira a [Visão geral sobre certificados para os Serviços de Nuvem do Azure](cloud-services-certs-create.md).
+comando Olá cria Olá `.cer` de arquivo e instala-o no hello **pessoal** repositório de certificados. Para obter mais informações, confira a [Visão geral sobre certificados para os Serviços de Nuvem do Azure](cloud-services-certs-create.md).
 
-Depois que tiver criado o certificado, você precisará carregar do arquivo `.cer` no Azure por meio da ação "Carregar" da guia "Configurações" no [Portal Clássico do Azure][management-portal].
+Depois de criar o certificado de saudação, você precisa Olá tooupload `.cer` tooAzure por meio de ação do hello "Carregar" do guia de "Configurações" hello de saudação do arquivo [portal clássico do Azure][management-portal].
 
-Depois que tiver obtido a ID da sua assinatura, criado um certificado e carregado o arquivo `.cer` para o Azure, você poderá conectar-se ao ponto de extremidade de gerenciamento do Azure, passando a ID da assinatura e a localização do certificado em seu repositório de certificados **Pessoal** para **ServiceManagementService** (novamente, substitua *AzureCertificate* pelo nome do seu certificado):
+Depois de obter sua ID de assinatura, um certificado criado e carregado Olá `.cer` tooAzure de arquivo, você pode conectar o ponto de extremidade de gerenciamento do Azure toohello, passando a id da assinatura hello e local de saudação do certificado de saudação em seu **Pessoal** repositório de certificados muito**ServiceManagementService** (novamente, substitua *AzureCertificate* com nome de saudação do certificado):
 
     from azure import *
     from azure.servicemanagement import *
@@ -86,10 +86,10 @@ Depois que tiver obtido a ID da sua assinatura, criado um certificado e carregad
 
     sms = ServiceManagementService(subscription_id, certificate_path)
 
-No exemplo acima, `sms` é um objeto **ServiceManagementService** . A classe **ServiceManagementService** é a classe primária usada para gerenciar os serviços do Azure.
+Em Olá anterior como exemplo, `sms` é um **ServiceManagementService** objeto. Olá **ServiceManagementService** classe é Olá classe primária usada toomanage serviços do Azure.
 
 ## <a name="ListAvailableLocations"> </a>Como listar os locais disponíveis
-Para listar os locais que estão disponíveis para hospedar serviços, use o método **list\_locations**:
+locais de saudação toolist que estão disponíveis para hospedar os serviços, use Olá **lista\_locais** método:
 
     from azure import *
     from azure.servicemanagement import *
@@ -100,7 +100,7 @@ Para listar os locais que estão disponíveis para hospedar serviços, use o mé
     for location in result:
         print(location.name)
 
-Ao criar um serviço de nuvem ou de armazenamento, é preciso fornecer uma localização válida. O método **list\_locations** sempre retorna uma lista atualizada dos locais disponíveis no momento. Na data da criação deste artigo, os locais disponíveis são:
+Quando você criar um serviço de nuvem ou o serviço de armazenamento é necessário tooprovide um local válido. Olá **lista\_locais** método sempre retorna uma lista de locais disponíveis no momento da saudação atualizada. Redação deste artigo, locais de saudação disponíveis são:
 
 * Europa Ocidental
 * Norte da Europa
@@ -118,7 +118,7 @@ Ao criar um serviço de nuvem ou de armazenamento, é preciso fornecer uma local
 * Sudeste da Austrália
 
 ## <a name="CreateCloudService"> </a>Como criar um serviço de nuvem
-Quando você cria um aplicativo e o executa no Azure, o código e a configuração, juntos, são chamados de [serviço de nuvem][cloud service] do Azure (conhecido como *serviço hospedado* em versões anteriores do Azure). O método **create\_hosted\_service** permite que você crie um novo serviço hospedado, fornecendo um nome de serviço hospedado (que deve ser exclusivo no Azure), um rótulo (automaticamente codificado em base64), uma descrição e uma localização.
+Quando você cria um aplicativo e executá-lo no Azure, código de saudação e configuração junto são chamados de um Azure [serviço de nuvem] [ cloud service] (conhecido como um *serviço hospedado* no anterior Versões do Azure). Olá **criar\_hospedado\_service** método permite toocreate um novo serviço hospedado, fornecendo um nome de serviço hospedado (que deve ser exclusivo no Azure), um rótulo (toobase64 automaticamente codificado), um Descrição e um local.
 
     from azure import *
     from azure.servicemanagement import *
@@ -132,7 +132,7 @@ Quando você cria um aplicativo e o executa no Azure, o código e a configuraç�
 
     sms.create_hosted_service(name, label, desc, location)
 
-Você pode listar todos os serviços hospedados para seu assinatura com o método **list\_hosted\_services**:
+Você pode listar todos os serviços de saudação hospedado para sua assinatura com hello **lista\_hospedado\_serviços** método:
 
     result = sms.list_hosted_services()
 
@@ -142,7 +142,7 @@ Você pode listar todos os serviços hospedados para seu assinatura com o métod
         print('Location: ' + hosted_service.hosted_service_properties.location)
         print('')
 
-Se desejar obter informações sobre um determinado serviço hospedado, você pode fazê-lo passando o nome do serviço hospedado para o método **get\_hosted\_service\_properties**:
+Se você quiser tooget informações sobre um serviço hospedado em particular, você pode fazer isso passando toohello de nome de serviço hospedada de saudação **obter\_hospedado\_service\_propriedades** método:
 
     hosted_service = sms.get_hosted_service_properties('myhostedservice')
 
@@ -150,17 +150,17 @@ Se desejar obter informações sobre um determinado serviço hospedado, você po
     print('Management URL: ' + hosted_service.url)
     print('Location: ' + hosted_service.hosted_service_properties.location)
 
-Depois de criar um serviço de nuvem, você pode implantar seu código de serviço com o método **create\_deployment**.
+Depois de criar um serviço de nuvem, você pode implantar o serviço de toohello de código com hello **criar\_implantação** método.
 
 ## <a name="DeleteCloudService"> </a>Como excluir um serviço de nuvem
-Você pode excluir um serviço de nuvem passando o nome do serviço para o método **delete\_hosted\_service**:
+Você pode excluir um serviço de nuvem passando Olá serviço nome toohello **excluir\_hospedado\_service** método:
 
     sms.delete_hosted_service('myhostedservice')
 
-Para que seja possível excluir um serviço, todas as implantações do serviço devem ser excluídas primeiro. (Consulte [Como excluir uma implantação](#DeleteDeployment) para obter detalhes.)
+Antes de excluir um serviço, todas as implantações de serviço Olá devem ser excluídas primeiro. (Consulte [Como excluir uma implantação](#DeleteDeployment) para obter detalhes.)
 
 ## <a name="DeleteDeployment"> </a>Como excluir uma implantação
-Para excluir uma implantação, use o método **delete\_deployment**. O exemplo a seguir mostra como excluir uma implantação chamada `v1`.
+toodelete uma implantação, use Olá **excluir\_implantação** método. Olá exemplo a seguir mostra como toodelete uma implantação denominada `v1`.
 
     from azure import *
     from azure.servicemanagement import *
@@ -170,7 +170,7 @@ Para excluir uma implantação, use o método **delete\_deployment**. O exemplo 
     sms.delete_deployment('myhostedservice', 'v1')
 
 ## <a name="CreateStorageService"> </a>Como criar um serviço de armazenamento
-Um [serviço de armazenamento](../storage/common/storage-create-storage-account.md) fornece acesso a [Blobs](../storage/blobs/storage-python-how-to-use-blob-storage.md), [Tables](../cosmos-db/table-storage-how-to-use-python.md) e [Queues](../storage/queues/storage-python-how-to-use-queue-storage.md) do Azure. Para criar um serviço de armazenamento, você precisa de um nome para o serviço (com 3 a 24 caracteres minúsculos e exclusivo no Azure), uma descrição, um rótulo (até 100 caracteres, automaticamente codificado em base64) e um local. O exemplo a seguir mostra como criar um serviço de armazenamento especificando um local.
+Um [serviço de armazenamento](../storage/common/storage-create-storage-account.md) oferece acesso tooAzure [Blobs](../storage/blobs/storage-python-how-to-use-blob-storage.md), [tabelas](../cosmos-db/table-storage-how-to-use-python.md), e [filas](../storage/queues/storage-python-how-to-use-queue-storage.md). toocreate um serviço de armazenamento, é necessário um nome para o serviço de saudação (entre 3 e 24 caracteres minúsculos e exclusivo dentro do Azure), uma descrição, um rótulo (backup too100 caracteres, toobase64 automaticamente codificada) e um local. saudação de exemplo a seguir mostra como toocreate um armazenamento de serviço especificando um local.
 
     from azure import *
     from azure.servicemanagement import *
@@ -187,9 +187,9 @@ Um [serviço de armazenamento](../storage/common/storage-create-storage-account.
     operation_result = sms.get_operation_status(result.request_id)
     print('Operation status: ' + operation_result.status)
 
-Observe no exemplo acima que o status da operação **create\_storage\_account** pode ser recuperada passando o resultado retornado pelo **create\_storage\_account** ao método **get\_operation\_status**.  
+Observe que esse status de saudação do hello no Olá anterior exemplo **criar\_armazenamento\_conta** operação pode ser recuperada, passando o resultado de saudação retornado por **criar\_armazenamento \_conta** toohello **obter\_operação\_status** método.  
 
-Você pode listar suas contas de armazenamento e suas propriedades com o método **list\_storage\_accounts**:
+Você pode listar suas contas de armazenamento e suas propriedades com hello **lista\_armazenamento\_contas** método:
 
     from azure import *
     from azure.servicemanagement import *
@@ -203,7 +203,7 @@ Você pode listar suas contas de armazenamento e suas propriedades com o método
         print('')
 
 ## <a name="DeleteStorageService"> </a>Como excluir um serviço de armazenamento
-Você pode excluir um serviço de armazenamento passando o nome do serviço para o método **delete\_storage\_account**. A exclusão de um serviço de armazenamento excluirá todos os dados armazenados no serviço (blobs, tabelas e filas).
+Você pode excluir um serviço de armazenamento, passando toohello de nome de serviço de armazenamento de saudação **excluir\_armazenamento\_conta** método. A exclusão de um serviço de armazenamento exclui todos os dados armazenados no serviço de saudação (blobs, tabelas e filas).
 
     from azure import *
     from azure.servicemanagement import *
@@ -213,7 +213,7 @@ Você pode excluir um serviço de armazenamento passando o nome do serviço para
     sms.delete_storage_account('mystorageaccount')
 
 ## <a name="ListOperatingSystems"> </a>Como listar os sistemas operacionais disponíveis
-Para listar os sistemas operacionais que estão disponíveis para hospedar serviços, use o método **list\_operating\_systems**:
+toolist Olá os sistemas operacionais que estão disponíveis para hospedar os serviços, usam Olá **lista\_operacional\_sistemas** método:
 
     from azure import *
     from azure.servicemanagement import *
@@ -227,7 +227,7 @@ Para listar os sistemas operacionais que estão disponíveis para hospedar servi
         print('Family: ' + os.family_label)
         print('Active: ' + str(os.is_active))
 
-Como alternativa, você pode usar o método **list\_operating\_system\_families** que agrupa os sistemas operacionais por família:
+Como alternativa, você pode usar o hello **lista\_operacional\_sistema\_famílias** método, que agrupa os sistemas operacionais de saudação por família:
 
     result = sms.list_operating_system_families()
 
@@ -240,7 +240,7 @@ Como alternativa, você pode usar o método **list\_operating\_system\_families*
         print('')
 
 ## <a name="CreateVMImage"> </a>Como criar uma imagem do sistema operacional
-Para adicionar uma imagem do sistema operacional ao repositório de imagens, use o método **add\_os\_image**:
+tooadd um repositório de imagens de toohello de imagem de sistema operacional, use Olá **adicionar\_os\_imagem** método:
 
     from azure import *
     from azure.servicemanagement import *
@@ -257,7 +257,7 @@ Para adicionar uma imagem do sistema operacional ao repositório de imagens, use
     operation_result = sms.get_operation_status(result.request_id)
     print('Operation status: ' + operation_result.status)
 
-Para listar as imagens do sistema operacional estão disponíveis, use o método **list\_os\_images**. Isso inclui todas as imagens de plataforma e imagens do usuário:
+imagens do sistema operacional Olá toolist que estão disponíveis, use Olá **lista\_os\_imagens** método. Isso inclui todas as imagens de plataforma e imagens do usuário:
 
     result = sms.list_os_images()
 
@@ -272,7 +272,7 @@ Para listar as imagens do sistema operacional estão disponíveis, use o método
         print('')
 
 ## <a name="DeleteVMImage"> </a>Como excluir uma imagem do sistema operacional
-Para excluir uma imagem de usuário, use o método **delete\_os\_image**:
+toodelete uma imagem do usuário, use Olá **excluir\_os\_imagem** método:
 
     from azure import *
     from azure.servicemanagement import *
@@ -285,7 +285,7 @@ Para excluir uma imagem de usuário, use o método **delete\_os\_image**:
     print('Operation status: ' + operation_result.status)
 
 ## <a name="CreateVM"> </a>Como criar uma máquina virtual
-Para criar uma máquina virtual, você precisa primeiro criar um [serviço de nuvem](#CreateCloudService).  Em seguida, criar a implantação da máquina virtual usando o método **create\_virtual\_machine\_deployment**:
+toocreate uma máquina virtual, primeiro é necessário toocreate um [serviço de nuvem](#CreateCloudService).  Criar implantação da máquina virtual hello usando Olá **criar\_virtual\_máquina\_implantação** método:
 
     from azure import *
     from azure.servicemanagement import *
@@ -295,7 +295,7 @@ Para criar uma máquina virtual, você precisa primeiro criar um [serviço de nu
     name = 'myvm'
     location = 'West US'
 
-    #Set the location
+    #Set hello location
     sms.create_hosted_service(service_name=name,
         label=name,
         location=location)
@@ -303,7 +303,7 @@ Para criar uma máquina virtual, você precisa primeiro criar um [serviço de nu
     # Name of an os image as returned by list_os_images
     image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-en-us-30GB.vhd'
 
-    # Destination storage account container/blob where the VM disk
+    # Destination storage account container/blob where hello VM disk
     # will be created
     media_link = 'url_to_target_storage_blob_for_vm_hd'
 
@@ -323,7 +323,7 @@ Para criar uma máquina virtual, você precisa primeiro criar um [serviço de nu
         role_size='Small')
 
 ## <a name="DeleteVM"> </a>Como excluir uma máquina virtual
-Para excluir uma máquina virtual, primeiro você exclui a implantação usando o método **delete\_deployment**:
+toodelete uma máquina virtual, você primeiro excluir Olá implantação usando Olá **excluir\_implantação** método:
 
     from azure import *
     from azure.servicemanagement import *
@@ -333,19 +333,19 @@ Para excluir uma máquina virtual, primeiro você exclui a implantação usando 
     sms.delete_deployment(service_name='myvm',
         deployment_name='myvm')
 
-O serviço de nuvem pode ser excluído usando o método **delete\_hosted\_service**:
+serviço de nuvem Olá pode ser excluído usando Olá **excluir\_hospedado\_service** método:
 
     sms.delete_hosted_service(service_name='myvm')
 
 ## <a name="how-to-create-a-virtual-machine-from-a-captured-virtual-machine-image"></a>Como criar uma máquina virtual por meio de uma imagem de máquina virtual capturada
-Para capturar uma imagem de VM, você primeiro chama o método **capture\_vm\_image**:
+toocapture uma imagem de VM, você primeiro chamar hello **capturar\_vm\_imagem** método:
 
     from azure import *
     from azure.servicemanagement import *
 
     sms = ServiceManagementService(subscription_id, certificate_path)
 
-    # replace the below three parameters with actual values
+    # replace hello below three parameters with actual values
     hosted_service_name = 'hs1'
     deployment_name = 'dep1'
     vm_name = 'vm1'
@@ -365,11 +365,11 @@ Para capturar uma imagem de VM, você primeiro chama o método **capture\_vm\_im
             image
         )
 
-Em seguida, para certificar-se de que você capturou a imagem com sucesso, use a API **list\_vm\_images** e certifique-se de que a imagem seja exibida nos resultados:
+Em seguida, toomake-se de que você capturou com êxito a imagem hello, use Olá **lista\_vm\_imagens** api e certifique-se de sua imagem é exibida nos resultados da saudação:
 
     images = sms.list_vm_images()
 
-Para criar finalmente a máquina virtual usando a imagem capturada, use o método **create\_virtual\_machine\_deployment** como antes, mas desta vez passe vm_image_name
+toofinally criar máquina virtual de saudação usando a imagem capturada hello, use Olá **criar\_virtual\_máquina\_implantação** método como antes, mas desta vez passar Olá vm_image_name em vez disso
 
     from azure import *
     from azure.servicemanagement import *
@@ -379,7 +379,7 @@ Para criar finalmente a máquina virtual usando a imagem capturada, use o métod
     name = 'myvm'
     location = 'West US'
 
-    #Set the location
+    #Set hello location
     sms.create_hosted_service(service_name=name,
         label=name,
         location=location)
@@ -394,18 +394,18 @@ Para criar finalmente a máquina virtual usando a imagem capturada, use o métod
         role_size='Small',
         vm_image_name = image_name)
 
-Para saber mais sobre como capturar uma máquina Virtual Linux, consulte [Como capturar uma máquina Virtual Linux.](../virtual-machines/linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Saiba mais sobre toolearn como toocapture uma máquina Virtual Linux, consulte [como tooCapture uma máquina Virtual Linux.](../virtual-machines/linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
-Para saber mais sobre como capturar uma máquina Virtual Windows, consulte [Como capturar uma máquina Virtual Windows.](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+Saiba mais sobre toolearn como toocapture uma máquina Virtual do Windows, consulte [como tooCapture uma máquina Virtual do Windows.](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="What's Next"> </a>Próximas etapas
-Agora que você aprendeu os fundamentos do gerenciamento de serviços, você pode acessar a [documentação de referência da API completa para o SDK do Azure Python](http://azure-sdk-for-python.readthedocs.org/) e realizar tarefas complexas facilmente para gerenciar seu aplicativo python.
+Agora que você aprendeu as Noções básicas de saudação do gerenciamento de serviços, você pode acessar Olá [documentação de referência de API completa para hello Azure SDK de Python](http://azure-sdk-for-python.readthedocs.org/) e executar complexo tarefas facilmente toomanage seu aplicativo de python.
 
-Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
+Para obter mais informações, consulte Olá [Central de desenvolvedores de Python](/develop/python/).
 
 [What is Service Management]: #WhatIs
 [Concepts]: #Concepts
-[How to: Connect to service management]: #Connect
+[How to: Connect tooservice management]: #Connect
 [How to: List available locations]: #ListAvailableLocations
 [How to: Create a cloud service]: #CreateCloudService
 [How to: Delete a cloud service]: #DeleteCloudService

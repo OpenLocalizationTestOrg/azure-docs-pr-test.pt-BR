@@ -1,88 +1,77 @@
 ---
-title: 'BD Cosmos do Azure: compilar um aplicativo de console da API do MongoDB com Golang e o portal do Azure | Microsoft Docs'
-description: "Apresenta um exemplo de código Golang que pode ser usado para conectar e consultar o BD Cosmos do Azure"
-services: cosmos-db
-author: Durgaprasad-Budhwani
-manager: jhubbard
-editor: mimig1
-ms.service: cosmos-db
-ms.topic: hero-article
-ms.date: 07/21/2017
-ms.author: mimig
-ms.openlocfilehash: 9461a5d86b321fd02167379ba8751d44a861ebc2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+título: aaa "banco de dados do Azure Cosmos: criar um aplicativo de console do MongoDB API com Golang e Olá portal do Azure | Descrição de Microsoft Docs": apresenta um exemplo de código Golang você pode usar tooconnect tooand consultar os serviços do Azure Cosmos DB: cosmos db autor: manager Durgaprasad Budhwani: jhubbard editor: mimig1
+
+MS. Service: cosmos db MS. Topic: hero-article MS. Date: 21/07/2017 Author: mimig
 ---
-# <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>BD Cosmos do Azure: compilar um aplicativo de console da API do MongoDB com Golang e o portal do Azure
 
-O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB.
+# <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-hello-azure-portal"></a>Banco de dados do Azure do Cosmos: Criar um aplicativo de console do MongoDB API com Golang e Olá portal do Azure
 
-Este início rápido demonstra como usar um aplicativo [MongoDB](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-introduction) existente escrito em [Golang](https://golang.org/) e como conectá-lo ao banco de dados do BD Cosmos do Azure, que dá suporte a conexões de cliente do MongoDB.
+O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. Você pode criar e consultar documentos, chave/valor e bancos de dados do gráfico, que se beneficiar de distribuição global hello e recursos de escala horizontal no núcleo de saudação do banco de dados do Azure Cosmos rapidamente.
 
-Em outras palavras, o aplicativo Golang só sabe que está se conectando a um banco de dados usando as APIs do MongoDB. Está claro para o aplicativo que os dados estão armazenados no BD Cosmos do Azure.
+Esse início rápido demonstra como toouse existente [MongoDB](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-introduction) aplicativo escrito em [Golang](https://golang.org/) e conectá-lo tooyour Azure Cosmos banco de dados, que oferece suporte a conexões de cliente do MongoDB.
+
+Em outras palavras, o aplicativo Golang só sabe que ele está se conectando tooa banco de dados usando APIs do MongoDB. Isso é transparente toohello aplicativo hello dados é armazenado no banco de dados do Azure Cosmos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
-- [Go](https://golang.org/dl/) e um conhecimento básico sobre a linguagem [Go](https://golang.org/).
+- [Vá](https://golang.org/dl/) e um conhecimento básico de saudação [vá](https://golang.org/) idioma.
 - Um IDE — [Gogland](https://www.jetbrains.com/go/) da Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) ou [Atom](https://atom.io/). Neste tutorial, estou usando Goglang.
 
 <a id="create-account"></a>
-## <a name="create-a-database-account"></a>Crie uma conta de banco de dados
+## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
+## <a name="clone-hello-sample-application"></a>Clonar um aplicativo de exemplo hello
 
-Clone o aplicativo de exemplo e instale os pacotes necessários.
+Clonar o aplicativo de exemplo hello e instalar pacotes de saudação necessário.
 
-1. Crie uma pasta chamada CosmosDBSample dentro da pasta GOROOT\src, que é C:\Go\ por padrão.
-2. Execute o comando a seguir usando uma janela do terminal git como git bash para clonar o repositório de exemplo na pasta CosmosDBSample. 
+1. Crie uma pasta chamada CosmosDBSample Olá GOROOT\src pasta, que é C:\Go\ por padrão.
+2. Execute hello usando uma janela do terminal de git, como o repositório do git bash tooclone Olá exemplo na pasta de CosmosDBSample de saudação do comando a seguir. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-golang-getting-started.git
     ```
-3.  Execute o comando a seguir para obter o pacote mgo. 
+3.  Olá executar pacote do comando tooget Olá mgo a seguir. 
 
     ```
     go get gopkg.in/mgo.v2
     ```
 
-O driver [mgo](http://labix.org/mgo) (pronuncia-se *mango*) é um driver [MongoDB](http://www.mongodb.org/) para a [linguagem Go](http://golang.org/) que implementa uma seleção bem testada e avançada de recursos em uma API muito simples seguindo expressões Go padrão.
+Olá [mgo](http://labix.org/mgo) driver (pronunciado como *mango*) é um [MongoDB](http://www.mongodb.org/) driver para Olá [ir idioma](http://golang.org/) que implementa um conjunto avançado e bem testado seleção de recursos em uma API muito simple de linguagens de Go padrão a seguir.
 
 <a id="connection-string"></a>
 
 ## <a name="update-your-connection-string"></a>Atualizar sua cadeia de conexão
 
-Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
+Agora volte toohello tooget portal do Azure suas informações de cadeia de caracteres de conexão e copie-o em um aplicativo hello.
 
-1. Clique em **Início rápido** no menu de navegação à esquerda e clique em **Outros** para exibir as informações de cadeia de conexão exigidas pelo aplicativo Go.
+1. Clique em **início rápido** Olá menu de navegação à esquerda e, em seguida, clique em **outros** informações da cadeia de conexão Olá tooview exigidas pelo Olá aplicativo Go.
 
-2. No Goglang, abra o arquivo main.go no diretório GOROOT\CosmosDBSample e atualize as linhas de código a seguir usando as informações de cadeia de conexão do portal do Azure, conforme mostrado na captura de tela a seguir. 
+2. Em Goglang, abra o arquivo de main.go de saudação no diretório de GOROOT\CosmosDBSample hello e atualize Olá linhas seguintes do código usando informações da cadeia de conexão Olá da saudação portal do Azure, conforme mostrado no hello captura de tela a seguir. 
 
-    O Nome do banco de dados é o prefixo do valor **Host** no painel de cadeia de conexão de portal do Azure. Para a conta mostrada na imagem abaixo, o nome do banco de dados é golang-coach.
+    nome do banco de dados de saudação é o prefixo de saudação do hello **Host** valor no painel de cadeia de caracteres de conexão de portal do Azure hello. Para a conta de Olá mostrada na imagem de saudação abaixo, o nome do banco de dados de saudação é treinador golang.
 
     ```go
-    Database: "The prefix of the Host value in the Azure portal",
-    Username: "The Username in the Azure portal",
-    Password: "The Password in the Azure portal",
+    Database: "hello prefix of hello Host value in hello Azure portal",
+    Username: "hello Username in hello Azure portal",
+    Password: "hello Password in hello Azure portal",
     ```
 
-    ![Painel Início rápido, guia Outros no portal do Azure mostrando as informações de cadeia de conexão](./media/create-mongodb-golang/cosmos-db-golang-connection-string.png)
+    ![Início rápido de painel, outra guia de informações da cadeia de conexão Olá Olá mostrando portal do Azure](./media/create-mongodb-golang/cosmos-db-golang-connection-string.png)
 
-3. Salve o arquivo main.go.
+3. Salve o arquivo de main.go hello.
 
-## <a name="review-the-code"></a>Examine o código
+## <a name="review-hello-code"></a>Examine o código de saudação
 
-Façamos uma rápida revisão do que está acontecendo no arquivo main.go. 
+Vamos fazer uma rápida revisão do que está acontecendo no arquivo de main.go hello. 
 
-### <a name="connecting-the-go-app-to-azure-cosmos-db"></a>Conectando o aplicativo Go para o BD Cosmos do Azure
+### <a name="connecting-hello-go-app-tooazure-cosmos-db"></a>Conectando Olá Go aplicativo tooAzure Cosmos DB
 
-O BD Cosmos do Azure dá suporte ao MongoDB habilitado para SSL. Para se conectar a um MongoDB habilitado para SSL, você precisa definir a função **DialServer** em [mgo.DialInfo](http://gopkg.in/mgo.v2#DialInfo)e usar a função [tls.*Dial* ](http://golang.org/pkg/crypto/tls#Dial) para realizar a conexão.
+Banco de dados do Azure Cosmos dá suporte a saudação MongoDB SSL habilitado. tooconnect tooan MongoDB habilitado para SSL, você precisa Olá toodefine **DialServer** funcionar em [mgo. DialInfo](http://gopkg.in/mgo.v2#DialInfo)e fazer uso de saudação [tls. *Discagem* ](http://golang.org/pkg/crypto/tls#Dial) tooperform conexão de saudação de função.
 
-O trecho de código Golang a seguir se conecta ao aplicativo Go com a API MongoDB do Cosmos DB do Azure. A classe *DialInfo* contém opções para estabelecer uma sessão com um cluster do MongoDB.
+Olá Golang trecho de código a seguir se conecta a saudação Go aplicativo com a API do Azure Cosmos DB MongoDB. Olá *DialInfo* classe contém opções para estabelecer uma sessão com um cluster do MongoDB.
 
 ```go
 // DialInfo holds options for establishing a session with a MongoDB cluster.
@@ -98,27 +87,27 @@ dialInfo := &mgo.DialInfo{
 }
 
 // Create a session which maintains a pool of socket connections
-// to our Azure Cosmos DB MongoDB database.
+// tooour Azure Cosmos DB MongoDB database.
 session, err := mgo.DialWithInfo(dialInfo)
 
 if err != nil {
-    fmt.Printf("Can't connect to mongo, go error %v\n", err)
+    fmt.Printf("Can't connect toomongo, go error %v\n", err)
     os.Exit(1)
 }
 
 defer session.Close()
 
-// SetSafe changes the session safety mode.
-// If the safe parameter is nil, the session is put in unsafe mode, 
+// SetSafe changes hello session safety mode.
+// If hello safe parameter is nil, hello session is put in unsafe mode, 
 // and writes become fire-and-forget,
-// without error checking. The unsafe mode is faster since operations won't hold on waiting for a confirmation.
+// without error checking. hello unsafe mode is faster since operations won't hold on waiting for a confirmation.
 // 
 session.SetSafe(&mgo.Safe{})
 ```
 
-O método **mgo.Dial()** é usado quando não há nenhuma conexão SSL. Para uma conexão SSL, o método **mgo.DialWithInfo()** é necessário.
+Olá **mgo. Dial()** método é usado quando não houver nenhuma conexão SSL. Para uma conexão SSL, Olá **mgo. DialWithInfo()** método é necessário.
 
-Uma instância do objeto **DialWIthInfo{}** é usada para criar o objeto de sessão. Quando a sessão é estabelecida, você pode acessar a coleção usando o trecho de código abaixo:
+Uma instância do hello **{DialWIthInfo}** é objeto de sessão Olá toocreate usado. Quando a sessão de saudação é estabelecida, você pode acessar a coleção de hello usando Olá trecho de código a seguir:
 
 ```go
 collection := session.DB(“database”).C(“package”)
@@ -157,10 +146,10 @@ if err != nil {
 
 ### <a name="query-or-read-a-document"></a>Consultar ou ler um documento
 
-O Azure Cosmos DB dá suporte a consultas avançadas de documentos JSON armazenados em cada coleção. O código de exemplo a seguir mostra uma consulta que pode ser executada em documentos em sua coleção.
+O Azure Cosmos DB dá suporte a consultas avançadas de documentos JSON armazenados em cada coleção. Olá código exemplo a seguir mostra uma consulta que você pode executar em documentos de saudação em sua coleção.
 
 ```go
-// Get a Document from the collection
+// Get a Document from hello collection
 result := Package{}
 err = collection.Find(bson.M{"fullname": "react"}).One(&result)
 if err != nil {
@@ -199,13 +188,13 @@ if err != nil {
 }
 ```
     
-## <a name="run-the-app"></a>Execute o aplicativo
+## <a name="run-hello-app"></a>Executar o aplicativo hello
 
-1. Em Goglang, verifique se seu GOPATH (disponível em **Arquivo**, **Configurações**, **Go**, **GOPATH**) inclui o local no qual o gopkg foi instalado, que é PERFILDOUSUÁRIO/go por padrão. 
-2. Comente as linhas que excluem o documento, linhas 91 a 96, para que você possa ver o documento depois de executar o aplicativo.
+1. Em Goglang, certifique-se de que seu GOPATH (disponível em **arquivo**, **configurações**, **vá**, **GOPATH**) incluem local Olá no qual Olá gopkg foi instalado, que é USERPROFILE\go por padrão. 
+2. Comentar as linhas de saudação excluir documento hello, linhas 91-96, para que você pode ver o documento hello após o aplicativo hello em execução.
 3. No Goglang, clique em **Executar**e em **Run 'Build main.go and run'**.
 
-    O aplicativo termina e exibe a descrição do documento criado em [Criar um documento](#create-document).
+    aplicativo Hello termina e exibe a descrição Olá Olá documento criado no [criar um documento](#create-document).
     
     ```
     Description: A framework for building native apps with React.
@@ -213,32 +202,32 @@ if err != nil {
     Process finished with exit code 0
     ```
 
-    ![Goglang mostrando a saída do aplicativo](./media/create-mongodb-golang/goglang-cosmos-db.png)
+    ![Goglang mostrando a saída de saudação do aplicativo hello](./media/create-mongodb-golang/goglang-cosmos-db.png)
     
 ## <a name="review-your-document-in-data-explorer"></a>Revisar o documento no Data Explorer
 
-Volte para o portal do Azure a fim de ver o documento no Data Explorer.
+Volte toohello toosee portal do Azure seu documento no Explorador de dados.
 
-1. Clique em **Data Explorer (Versão prévia)** no menu de navegação à esquerda, expanda **golang-coach**, **pacote**e clique em **Documentos**. Na guia **Documentos** , clique na \_id para exibir o documento no painel direito. 
+1. Clique em **Gerenciador de dados (visualização)** no menu de navegação à esquerda do hello, expanda **golang treinador**, **pacote**e, em seguida, clique em **documentos**. Em Olá **documentos** , clique em Olá \_documento de saudação toodisplay id no painel direito da saudação. 
 
-    ![Data Explorer mostrando o documento recém-criado](./media/create-mongodb-golang/golang-cosmos-db-data-explorer.png)
+    ![Documento de saudação recém-criado do Gerenciador de dados mostrando](./media/create-mongodb-golang/golang-cosmos-db-data-explorer.png)
     
-2. Você pode trabalhar com o documento em linha e clicar em **Atualizar** para salvá-lo. Você também pode excluir o documento ou criar novos documentos ou consultas.
+2. Você pode trabalhar com hello documento embutido e clique em **atualização** toosave-lo. Você também pode excluir o documento de saudação ou criar novos documentos ou consultas.
 
-## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
+## <a name="review-slas-in-hello-azure-portal"></a>Examine os SLAs em Olá portal do Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você não continuar usando este aplicativo, exclua todos os recursos criados por esse início rápido no portal do Azure com as seguintes etapas:
+Se você não vai toocontinue toouse este aplicativo, exclua todos os recursos criados por este guia de início rápido Olá portal do Azure com hello etapas a seguir:
 
-1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e depois clique no nome do recurso criado. 
-2. Em sua página de grupo de recursos, clique em **Excluir**, digite o nome do recurso para excluir na caixa de texto e depois clique em **Excluir**.
+1. No menu esquerdo de saudação do hello portal do Azure, clique em **grupos de recursos** e clique em nome de saudação do recurso de saudação criado por você. 
+2. Na sua página de grupo de recursos, clique em **excluir**, digite o nome de saudação do hello recurso toodelete na caixa de texto de saudação e, em seguida, clique em **excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você aprendeu como criar uma conta do BD Cosmos do Azure e executar um aplicativo Golang usando a API para MongoDB. Agora, é possível importar outros dados para sua conta do BD Cosmos. 
+Este guia de início rápido, você aprendeu como toocreate uma conta de banco de dados do Azure Cosmos e executar um aplicativo Golang usando Olá API para o MongoDB. Agora você pode importar a conta de banco de dados do Cosmos tooyour dados adicionais. 
 
 > [!div class="nextstepaction"]
-> [Importar dados no BD Cosmos do Azure para a API do MongoDB](mongodb-migrate.md)
+> [Importe dados para o banco de dados do Azure Cosmos para Olá MongoDB API](mongodb-migrate.md)

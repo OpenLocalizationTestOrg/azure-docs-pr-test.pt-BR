@@ -1,6 +1,6 @@
 ---
-title: "Proteger APIs usando a autenticação de certificado do cliente no Gerenciamento de API — Gerenciamento de API do Azure | Microsoft Docs"
-description: "Saiba como proteger o acesso às APIs usando certificados do cliente"
+title: "APIs de aaaSecure usando a autenticação de certificado de cliente no gerenciamento de API - gerenciamento de API do Azure | Microsoft Docs"
+description: Saiba como toosecure acessar tooAPIs usando certificados de cliente
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
-ms.openlocfilehash: d3d51d0575a6d2dacced931601d48eb1e51a4051
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6ff78bda3d429829da79d0dc4d652f19669cc919
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Como proteger APIs usando a autenticação de certificado do cliente no Gerenciamento de API
+# <a name="how-toosecure-apis-using-client-certificate-authentication-in-api-management"></a>Como toosecure APIs usando o cliente de certificado autenticação no gerenciamento de API
 
-O Gerenciamento de API fornece a capacidade de proteger o acesso às APIs (isto é, cliente para Gerenciamento de API) usando certificados do cliente. No momento, você pode verificar a impressão digital de um certificado do cliente em relação a um valor desejado. Também é possível verificar a impressão digital em relação a certificados existentes carregados no Gerenciamento de API.  
+Gerenciamento de API fornece Olá recurso toosecure acesso tooAPIs (ou seja, cliente tooAPI gerenciamento) usando certificados de cliente. No momento, você pode verificar a impressão digital de saudação de um certificado de cliente com um valor desejado. Você também pode verificar a impressão digital de saudação em certificados existentes carregado tooAPI gerenciamento.  
 
-Para saber mais sobre como proteger o acesso ao serviço de back-end de uma API usando certificados do cliente (isto é, Gerenciamento de API para back-end), confira [Como garantir serviços de back-end usando autenticação de certificado do cliente](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
+Para obter informações sobre como proteger o acesso toohello serviço de back-end de uma API usando certificados de cliente (ou seja, gerenciamento de API tooback-end), consulte [como toosecure serviços de back-end usando o cliente de autenticação de certificado](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
 
-## <a name="checking-the-expiration-date"></a>Verificando a data de validade
+## <a name="checking-hello-expiration-date"></a>Verificando a data de expiração de saudação
 
-As políticas abaixo podem ser configuradas para verificar se o certificado está expirado:
+Abaixo políticas pode ser configurado toocheck se Olá certificado expirou:
 
 ```
 <choose>
@@ -39,9 +39,9 @@ As políticas abaixo podem ser configuradas para verificar se o certificado est�
 </choose>
 ```
 
-## <a name="checking-the-issuer-and-subject"></a>Verificando o emissor e a entidade
+## <a name="checking-hello-issuer-and-subject"></a>Verificação de assunto e emissor Olá
 
-As políticas abaixo podem ser configuradas para verificar o emissor e a entidade de um certificado do cliente:
+Abaixo políticas pode ser configurado toocheck Olá emissor e assunto de um certificado de cliente:
 
 ```
 <choose>
@@ -53,9 +53,9 @@ As políticas abaixo podem ser configuradas para verificar o emissor e a entidad
 </choose>
 ```
 
-## <a name="checking-the-thumbprint"></a>Verificando a impressão digital
+## <a name="checking-hello-thumbprint"></a>Verificando a impressão digital de saudação
 
-Veja abaixo que as políticas podem ser configuradas para verificar a impressão digital de um certificado do cliente:
+Abaixo políticas pode ser configurado toocheck impressão digital de saudação de um certificado de cliente:
 
 ```
 <choose>
@@ -67,9 +67,9 @@ Veja abaixo que as políticas podem ser configuradas para verificar a impressão
 </choose>
 ```
 
-## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>Verificação de uma impressão digital em relação a certificados carregados no Gerenciamento de API
+## <a name="checking-a-thumbprint-against-certificates-uploaded-tooapi-management"></a>Verificar uma impressão digital em certificados carregados tooAPI gerenciamento
 
-O exemplo a seguir mostra como verificar a impressão digital de um certificado do cliente em relação a certificados carregados no Gerenciamento de API: 
+Olá exemplo a seguir mostra como a impressão digital de saudação toocheck de um certificado de cliente em relação a certificados carregado tooAPI gerenciamento: 
 
 ```
 <choose>
@@ -84,6 +84,6 @@ O exemplo a seguir mostra como verificar a impressão digital de um certificado 
 
 ## <a name="next-step"></a>Próxima etapa
 
-*  [Como garantir serviços de back-end usando autenticação de certificado do cliente](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
-*  [Como carregar certificados](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
+*  [Como toosecure serviços de back-end usando o cliente de autenticação de certificado](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
+*  [Como os certificados tooupload](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
 

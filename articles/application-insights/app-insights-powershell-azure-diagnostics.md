@@ -1,6 +1,6 @@
 ---
-title: Usando o PowerShell para instalar o Application Insights no Azure | Microsoft Docs
-description: "Automatize a configuração do Diagnóstico do Azure para redirecionar para o Application Insights."
+title: aaaUsing PowerShell toosetup Application Insights em um Azure | Microsoft Docs
+description: "Automatize tooApplication toopipe de configurar o diagnóstico do Azure Insights."
 services: application-insights
 documentationcenter: .net
 author: sbtron
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2015
 ms.author: bwren
-ms.openlocfilehash: 3b6da89cc33cda713b483a2af3cbb493a03d6bec
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: c48a5d8eb23df162522860935af876063aaa6976
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Usando o PowerShell para configurar o Application Insights para um aplicativo Web do Azure
-O [Microsoft Azure](https://azure.com) pode ser [configurado para enviar o Diagnóstico do Azure](app-insights-azure-diagnostics.md) para o [Application Insights do Azure](app-insights-overview.md). O diagnóstico está relacionado aos Serviços de Nuvem do Azure e às VMs do Azure. Eles complementam a telemetria que você envia de um aplicativo usando o SDK do Application Insights. Como parte do processo de automatização da criação de novos recursos no Azure, você poderá configurar o diagnóstico usando o PowerShell.
+# <a name="using-powershell-tooset-up-application-insights-for-an-azure-web-app"></a>Usando o PowerShell tooset o Application Insights para um aplicativo web do Azure
+[Microsoft Azure](https://azure.com) pode ser [configurado o diagnóstico do Azure toosend](app-insights-azure-diagnostics.md) muito[Azure Application Insights](app-insights-overview.md). Olá diagnóstico relacionar tooAzure serviços de nuvem e VMs do Azure. Eles complementam telemetria Olá que você envia a partir do aplicativo hello usando Olá SDK do Application Insights. Como parte de automatizar o processo de saudação de criação de novos recursos no Azure, você pode configurar o diagnóstico usando o PowerShell.
 
 ## <a name="azure-template"></a>Modelo do Azure
-Se o aplicativo Web estiver no Azure e se você criar os recursos usando um modelo do Azure Resource Manager, poderá configurar o Application Insights adicionando isto ao nó de recursos:
+Se estiver Olá web aplicativo no Azure e criar seus recursos usando um modelo do Azure Resource Manager, você pode configurar o Application Insights adicionando este nó de recursos toohello:
 
     {
       resources: [
@@ -42,11 +42,11 @@ Se o aplicativo Web estiver no Azure e se você criar os recursos usando um mode
        ]
      } 
 
-* `nameOfAIAppResource` - um nome para o recurso do Application Insights
-* `myWebAppName` - a id do aplicativo Web
+* `nameOfAIAppResource`-um nome para o recurso do Application Insights de saudação
+* `myWebAppName`-id de saudação do aplicativo web de saudação
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Habilitar a extensão de diagnóstico como parte da implantação de um Serviço de Nuvem
-O cmdlet `New-AzureDeployment` tem um parâmetro `ExtensionConfiguration`, que usa uma matriz de configurações de diagnóstico. Elas podem ser criadas com o cmdlet `New-AzureServiceDiagnosticsExtensionConfig` . Por exemplo:
+Olá `New-AzureDeployment` cmdlet tem um parâmetro `ExtensionConfiguration`, que usa uma matriz de configurações de diagnóstico. Eles podem ser criados usando Olá `New-AzureServiceDiagnosticsExtensionConfig` cmdlet. Por exemplo:
 
 ```ps
 
@@ -123,9 +123,9 @@ Em um serviço existente, use `Set-AzureServiceDiagnosticsExtension`.
     Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
-Se você tiver habilitado a extensão de diagnóstico usando `Set-AzureServiceDiagnosticsExtension` ou `New-AzureServiceDiagnosticsExtensionConfig` sem o parâmetro Função, poderá remover a extensão usando `Remove-AzureServiceDiagnosticsExtension` sem o parâmetro Função. Se o parâmetro Função tiver sido usado ao habilitar a extensão, ele também deverá ser usado ao removê-la.
+Se você habilitou a extensão de diagnóstico hello usando `Set-AzureServiceDiagnosticsExtension` ou `New-AzureServiceDiagnosticsExtensionConfig` sem parâmetro de função hello, em seguida, você pode remover Olá extensão usando `Remove-AzureServiceDiagnosticsExtension` sem parâmetro de função hello. Se o parâmetro de função hello foi utilizado ao habilitar extensão hello, em seguida, ele também deverá ser usado durante a remoção de extensão de saudação.
 
-Para remover a extensão de diagnóstico de cada função individual:
+extensão de diagnóstico tooremove saudação de cada função individual:
 
 ```ps
 
@@ -135,6 +135,6 @@ Para remover a extensão de diagnóstico de cada função individual:
 
 ## <a name="see-also"></a>Consulte também
 * [Monitorar aplicativos dos Serviços de Nuvem do Azure com o Application Insights](app-insights-cloudservices.md)
-* [Enviar o Diagnóstico do Azure para o Application Insights](app-insights-azure-diagnostics.md)
+* [Enviar informações de tooApplication de diagnóstico do Azure](app-insights-azure-diagnostics.md)
 * [Automatizar a configuração de alertas](app-insights-powershell-alerts.md)
 

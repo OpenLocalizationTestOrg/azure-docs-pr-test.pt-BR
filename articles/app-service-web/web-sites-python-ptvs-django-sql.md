@@ -1,6 +1,6 @@
 ---
-title: Django e Banco de Dados SQL no Azure com Ferramentas Python 2.2 para Visual Studio
-description: "Aprenda a usar o Python Tools para Visual Studio para criar um aplicativo Django que armazena dados em uma instância do banco de dados SQL e o implanta em Aplicativos Web do Serviço de Aplicativo do Azure."
+title: aaaDjango e banco de dados do SQL Azure com as ferramentas Python 2.2 para Visual Studio
+description: "Saiba como toouse hello ferramentas Python para Visual Studio toocreate um aplicativo web Django que armazena dados em uma instância do banco de dados SQL e implantá-lo tooAzure aplicativos de Web do serviço de aplicativo."
 services: app-service\web
 tags: python
 documentationcenter: python
@@ -15,54 +15,54 @@ ms.devlang: python
 ms.topic: article
 ms.date: 07/07/2016
 ms.author: huvalo
-ms.openlocfilehash: 65b59dee2b7bddca77d31c692dab713c68d67e24
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b5b2ef4f3292e7df85007465c5394c8660a7d231
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="django-and-sql-database-on-azure-with-python-tools-22-for-visual-studio"></a>Django e Banco de Dados SQL no Azure com Ferramentas Python 2.2 para Visual Studio
-Neste tutorial, usaremos o [Python Tools para Visual Studio] para criar um aplicativo Web de votação simples, usando um dos modelos de exemplo de PTVS. Este tutorial também está disponível como um [vídeo](https://www.youtube.com/watch?v=ZwcoGcIeHF4).
+Neste tutorial, vamos usar [ferramentas Python para Visual Studio] toocreate um simples aplicativo da web usando um dos modelos de exemplo hello PTVS de pesquisa. Este tutorial também está disponível como um [vídeo](https://www.youtube.com/watch?v=ZwcoGcIeHF4).
 
-Aprenderemos como usar um banco de dados SQL hospedado no Azure, como configurar o aplicativo para usar um banco de dados SQL e como publicar o aplicativo Web em [Aplicativos Web do Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+Aprenderemos como toouse um banco de dados SQL hospedado no Azure, como tooconfigure Olá toouse de aplicativo da web a um banco de dados do SQL e como toopublish Olá aplicativo web muito[aplicativos de Web do serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Confira o [Centro de Desenvolvedores do Python] para obter mais artigos que abrangem o desenvolvimento de Aplicativos Web do Serviço de Aplicativo do Azure com PTVS usando as estruturas da Web Bottle, Flask e Django, com serviços do Armazenamento de Tabelas do Azure, MySQL e Banco de Dados SQL. Embora este artigo se concentre no Serviço de Aplicativo, as etapas são semelhantes ao desenvolvimento de [Serviços de Nuvem do Azure].
+Consulte Olá [Central de desenvolvedores de Python] para obter mais artigos que abordam o desenvolvimento de aplicativos Web de serviço de aplicativo do Azure ao PTVS usando garrafa de, Bulbo e Django web frameworks, com serviços de armazenamento de tabela do Azure, MySQL e banco de dados SQL. Enquanto este artigo concentra-se no serviço de aplicativo, etapas de saudação são semelhantes ao desenvolver [serviços de nuvem do Azure].
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Visual Studio 2015
 * [Python 2.7 de 32 bits]
 * [Ferramentas Python 2.2 para Visual Studio]
-* [Ferramentas do Python 2.2 para Amostras VSIX do Visual Studio]
+* [as ferramentas Python 2.2 para VSIX de amostras do Visual Studio]
 * [Ferramentas do SDK do Azure para VS 2015]
 * Django 1.9 ou posterior
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você quiser tooget iniciado com o serviço de aplicativo do Azure antes de se inscrever para uma conta do Azure, vá muito[tente do serviço de aplicativo](https://azure.microsoft.com/try/app-service/), onde você pode criar imediatamente um aplicativo web de curta duração starter no serviço de aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 >
 >
 
-## <a name="create-the-project"></a>Criar o projeto
-Nesta seção, criaremos um projeto Visual Studio usando um modelo de amostra. Criaremos um ambiente virtual e instalaremos pacotes necessários. Criaremos um banco de dados local usando sqlite. Em seguida, vamos executar o aplicativo Web localmente.
+## <a name="create-hello-project"></a>Criar hello projeto
+Nesta seção, criaremos um projeto Visual Studio usando um modelo de amostra. Criaremos um ambiente virtual e instalaremos pacotes necessários. Criaremos um banco de dados local usando sqlite. Em seguida, vamos executar Olá web aplicativo localmente.
 
 1. No Visual Studio, selecione **Arquivo**, **Novo Projeto**.
-2. Os modelos de projeto das [Ferramentas do Python 2.2 para Amostras VSIX do Visual Studio] estão disponíveis em **Python**, **Amostras**. Selecione **Projeto Web Django de Votações** e clique em OK para criar o projeto.
+2. Olá modelos de projeto de saudação [as ferramentas Python 2.2 para VSIX de amostras do Visual Studio] estão disponíveis em **Python**, **exemplos**. Selecione **sondagens Django Web projeto** e clique em projeto de saudação toocreate Okey.
 
      ![Caixa de diálogo Novo Projeto](./media/web-sites-python-ptvs-django-sql/PollsDjangoNewProject.png)
-3. Você será solicitado a instalar pacotes externos. Selecione **Instalar em um ambiente virtual**.
+3. Você será pacotes externos tooinstall solicitada. Selecione **Instalar em um ambiente virtual**.
 
      ![Caixa de diálogo Pacotes Externos](./media/web-sites-python-ptvs-django-sql/PollsDjangoExternalPackages.png)
-4. Selecione **Python 2.7** como o interpretador de base.
+4. Selecione **Python 2.7** como interpretador base hello.
 
      ![Caixa de diálogo Adicionar Ambiente Virtual](./media/web-sites-python-ptvs-django-sql/PollsCommonAddVirtualEnv.png)
-5. No **Gerenciador de Soluções**, clique com o botão direito do mouse no nó do projeto, selecione **Python** e **Migrar Django**.  Em seguida, selecione **Criar Superusuário do Django**.
-6. Isso abrirá um Console de Gerenciamento do Django e criará um banco de dados sqlite na pasta do projeto. Siga os prompts para criar um usuário.
-7. Confirme se o aplicativo funciona pressionando <kbd>F5</kbd>.
-8. Clique em **Fazer logon** na barra de navegação na parte superior.
+5. Em **Solution Explorer**, com o botão direito no nó do projeto hello e selecione **Python**e, em seguida, selecione **Django migrar**.  Em seguida, selecione **Criar Superusuário do Django**.
+6. Isso abra um Console de gerenciamento Django e criará um banco de dados sqlite na pasta de projeto hello. Siga Olá prompts toocreate um usuário.
+7. Confirme se o aplicativo hello funciona pressionando <kbd>F5</kbd>.
+8. Clique em **login** Olá na barra de navegação na parte superior da saudação.
 
      ![Navegador da Web](./media/web-sites-python-ptvs-django-sql/PollsDjangoCommonBrowserLocalMenu.png)
-9. Insira as credenciais para o usuário que você criou quando sincronizou o banco de dados.
+9. Insira as credenciais de saudação para usuário Olá criado quando você sincroniza o banco de dados de saudação.
 
      ![Navegador da Web](./media/web-sites-python-ptvs-django-sql/PollsDjangoCommonBrowserLocalLogin.png)
 10. Clique em **Criar Votações de Exemplo**.
@@ -73,29 +73,29 @@ Nesta seção, criaremos um projeto Visual Studio usando um modelo de amostra. C
       ![Navegador da Web](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqliteBrowser.png)
 
 ## <a name="create-a-sql-database"></a>Criar um banco de dados SQL
-Para o banco de dados, vamos criar um banco de dados SQL do Azure.
+Banco de dados Olá, vamos criar um banco de dados do SQL Azure.
 
 Você pode criar um banco de dados seguindo estas etapas.
 
-1. Faça logon no [Portal do Azure].
-2. Na parte inferior do painel de navegação, clique em **NOVO**. Clique em **Dados + Armazenamento** > **Banco de Dados SQL**.
-3. Configure o novo banco de dados SQL criando um novo grupo de recursos e selecione o local apropriado para o mesmo.
-4. Depois de criar o banco de dados SQL, clique em **Abrir no Visual Studio** na folha do banco de dados.
+1. Faça logon no hello [Portal do Azure].
+2. Na parte inferior do Olá Olá do painel de navegação, clique em **novo**. Clique em **Dados + Armazenamento** > **Banco de Dados SQL**.
+3. Configurar Olá novo banco de dados SQL, criando um novo grupo de recursos e selecione Olá local apropriado para ele.
+4. Depois de criar hello banco de dados SQL, clique em **aberto no Visual Studio** na folha do banco de dados de saudação.
 5. Clique em **Configurar seu firewall**.
-6. Na folha **Configurações de Firewall**, adicione uma regra de firewall com **IP INICIAL** e **IP FINAL** definidos como o endereço IP público de seu computador de desenvolvimento. Clique em **Salvar**.
+6. Em Olá **as configurações do Firewall** folha, adicionar uma regra de firewall com **IP inicial** e **IP final** definir toohello de endereço IP público de sua máquina de desenvolvimento. Clique em **Salvar**.
 
-   Isso permitirá conexões ao servidor de banco de dados em seu computador de desenvolvimento.
-7. Na folha do banco de dados, clique em **Propriedades** e em **Mostrar cadeias de conexão do banco de dados**.
-8. É possível usar o botão de cópia para colocar o valor de **ADO.NET** na área de transferência.
+   Isso permitirá que o servidor de banco de dados de toohello de conexões do computador de desenvolvimento.
+7. Na folha do banco de dados de saudação, clique em **propriedades**, em seguida, clique em **Mostrar cadeias de conexão de banco de dados**.
+8. Use Olá cópia botão tooput Olá valor **ADO.NET** na área de transferência hello.
 
-## <a name="configure-the-project"></a>Configurar o projeto
-Nesta seção, configuraremos nosso aplicativo Web para usar o banco de dados SQL que acabamos de criar. Também instalaremos pacotes adicionais Python necessários para usar bancos de dados SQL com Django. Em seguida, vamos executar o aplicativo Web localmente.
+## <a name="configure-hello-project"></a>Configurar Olá projeto
+Nesta seção, configuraremos nosso web aplicativo toouse Olá banco de dados SQL que acabamos de criar. Também instalaremos adicionais Python pacotes necessários toouse bancos de dados SQL com Django. Em seguida, vamos executar Olá web aplicativo localmente.
 
-1. No Visual Studio, abra **settings.py**, na pasta *ProjectName* . Cole temporariamente a cadeia de conexão obtida no editor. A cadeia de conexão está neste formato:
+1. No Visual Studio, abra **settings.py**, da saudação *ProjectName* pasta. Temporariamente cole a cadeia de caracteres de conexão de saudação no editor de saudação. cadeia de caracteres de conexão de saudação é neste formato:
 
        Server=<ServerName>,<ServerPort>;Database=<DatabaseName>;User ID=<UserName>;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-Editar a definição de `DATABASES` para usar os valores acima.
+Editar definição de saudação do `DATABASES` valores de saudação toouse acima.
 
         DATABASES = {
             'default': {
@@ -112,42 +112,42 @@ Editar a definição de `DATABASES` para usar os valores acima.
             }
         }
 
-1. No Gerenciador de Soluções, em **Ambientes Python**, clique com o botão direito do mouse no ambiente virtual e selecione **Instalar Pacote Python**.
-2. Instale o pacote `pyodbc` usando **pip**.
+1. No Gerenciador de soluções, em **Python ambientes**, com o botão direito no ambiente virtual hello e selecione **instalar pacote da Python**.
+2. Instalar o pacote de saudação `pyodbc` usando **pip**.
 
      ![Caixa de diálogo Instalar Pacote Python](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackagePyodbc.png)
-3. Instale o pacote `django-pyodbc-azure` usando **pip**.
+3. Instalar o pacote de saudação `django-pyodbc-azure` usando **pip**.
 
      ![Caixa de diálogo Instalar Pacote Python](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackageDjangoPyodbcAzure.png)
-4. No **Gerenciador de Soluções**, clique com o botão direito do mouse no nó do projeto, selecione **Python** e **Migrar Django**.  Em seguida, selecione **Criar Superusuário do Django**.
+4. Em **Solution Explorer**, com o botão direito no nó do projeto hello e selecione **Python**e, em seguida, selecione **Django migrar**.  Em seguida, selecione **Criar Superusuário do Django**.
 
-   Isso criará as tabelas de banco de dados SQL que criamos na seção anterior. Siga os prompts para criar um usuário, que não tem de corresponder ao usuário no banco de dados sqlite criado na primeira seção.
-5. Execute o aplicativo com `F5`. As votações criadas com **Criar Votações de Exemplo** e os dados enviados pela votação serão serializados no banco de dados SQL.
+   Isso cria tabelas de saudação do banco de dados do SQL Olá criada na seção anterior hello. Siga Olá prompts toocreate um usuário, que não tem um usuário de saudação toomatch no banco de dados sqlite Olá criado na primeira seção do hello.
+5. Executar o aplicativo hello com `F5`. Pesquisas que são criadas com **criar pesquisas de exemplo** e dados de saudação enviados ao votar serão serializados no banco de dados SQL Olá.
 
-## <a name="publish-the-web-app-to-azure-app-service"></a>Publicar aplicativo Web para Serviço de Aplicativo do Azure
-O SDK .NET do Azure fornece uma forma fácil de implantar seu aplicativo Web Aplicativos Web do Serviço de Aplicativo do Azure.
+## <a name="publish-hello-web-app-tooazure-app-service"></a>Publicar tooAzure de aplicativo web de saudação do serviço de aplicativo
+Olá SDK .NET do Azure fornece um toodeploy de maneira fácil seu tooAzure de aplicativo de web serviço de aplicativo Web de aplicativos web.
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no nó do projeto e selecione **Publicar**.
+1. Em **Solution Explorer**, com o botão direito no nó do projeto hello e selecione **publicar**.
 
      ![Caixa de diálogo Web Publicar](./media/web-sites-python-ptvs-django-sql/PollsCommonPublishWebSiteDialog.png)
 2. Clique em **Aplicativos Web do Microsoft Azure**.
-3. Clique em **Novo** para criar um novo aplicativo Web.
-4. Preencha os campos a seguir e clique em **Criar**.
+3. Clique em **novo** toocreate um novo aplicativo web.
+4. Preencha Olá campos a seguir e clique em **criar**.
 
    * **Nome do aplicativo Web**
    * **Plano do Serviço de Aplicativo**
    * **Grupo de recursos**
    * **Região**
-   * Deixe **Servidor de banco de dados** definido como **Nenhum banco de dados**
+   * Deixe **o servidor de banco de dados** definido muito**nenhum banco de dados**
 5. Aceite todos os outros padrões e clique em **Publicar**.
-6. Seu navegador da Web será aberto automaticamente para o aplicativo Web publicado. Você deve ver o aplicativo funcionando conforme o esperado, usando o banco de dados **SQL** hospedado no Azure.
+6. Seu navegador da web será aberto automaticamente toohello aplicativo de web publicados. Você deve ver o trabalho de aplicativo web hello conforme o esperado, usando Olá **SQL** banco de dados hospedado no Azure.
 
    Parabéns!
 
      ![Navegador da Web](./media/web-sites-python-ptvs-django-sql/PollsDjangoAzureBrowser.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Django e banco de dados SQL.
+Siga essas toolearn links mais sobre as ferramentas Python para Visual Studio, Django e banco de dados SQL.
 
 * [Ferramentas Python para documentação do Visual Studio]
   * [Projetos da Web]
@@ -157,17 +157,17 @@ Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Dj
 * [Banco de Dados SQL]
 
 ## <a name="whats-changed"></a>O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para um guia toohello alteração de sites tooApp serviço consulte: [do serviço de aplicativo do Azure e seu impacto sobre os serviços do Azure existente](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!--Link references-->
-[Centro de Desenvolvedores do Python]: /develop/python/
-[Serviços de Nuvem do Azure]: ../cloud-services/cloud-services-python-ptvs.md
+[Central de desenvolvedores de Python]: /develop/python/
+[serviços de nuvem do Azure]: ../cloud-services/cloud-services-python-ptvs.md
 
 <!--External Link references-->
 [Portal do Azure]: https://portal.azure.com
-[Python Tools para Visual Studio]: http://aka.ms/ptvs
+[ferramentas Python para Visual Studio]: http://aka.ms/ptvs
 [Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Ferramentas do Python 2.2 para Amostras VSIX do Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[as ferramentas Python 2.2 para VSIX de amostras do Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Ferramentas do SDK do Azure para VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Ferramentas Python para documentação do Visual Studio]: http://aka.ms/ptvsdocs

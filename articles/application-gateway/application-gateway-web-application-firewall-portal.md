@@ -1,6 +1,6 @@
 ---
-title: Criar ou atualizar um Gateway de Aplicativo do Azure com o firewall do aplicativo Web | Microsoft Docs
-description: Saiba como criar um Gateway de Aplicativo com o firewall do aplicativo Web usando o portal
+title: aaaCreate ou atualizar um Gateway de aplicativo do Azure com firewall do aplicativo web | Microsoft Docs
+description: "Saiba como toocreate um Application Gateway com o firewall do aplicativo web usando Olá portal"
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -15,67 +15,67 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: gwallace
-ms.openlocfilehash: 650f26d19615d27a94f3947aad7b7904b6c1fabc
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 68d140fef14499da654ea251d1208e6a800f55a9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-an-application-gateway-with-web-application-firewall-by-using-the-portal"></a>Criar um gateway de aplicativo com o firewall do aplicativo Web usando o portal
+# <a name="create-an-application-gateway-with-web-application-firewall-by-using-hello-portal"></a>Criar um gateway de aplicativos com o firewall do aplicativo web usando o portal de saudação
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](application-gateway-web-application-firewall-portal.md)
 > * [PowerShell](application-gateway-web-application-firewall-powershell.md)
 > * [CLI do Azure](application-gateway-web-application-firewall-cli.md)
 
-Aprenda como criar um gateway de aplicativo habilitado para firewall de aplicativo Web.
+Saiba como toocreate um firewall do aplicativo web habilitado gateway do aplicativo.
 
-O firewall de aplicativo Web (WAF) no Gateway de Aplicativo do Azure protege os aplicativos Web contra ataques comuns baseados na Web, como injeção de SQL, ataques de scripts entre sites e sequestros de sessão. O aplicativo Web protege contra muitas das 10 principais vulnerabilidades da Web OWASP.
+firewall do aplicativo web Hello (WAF) no Gateway de aplicativo do Azure protege os aplicativos da web comuns ataques baseados na web como injeção de SQL, ataques de script entre sites e sequestros de sessão. Aplicativo Web protege contra muitos Olá OWASP top 10 web vulnerabilidades comuns.
 
 ## <a name="scenarios"></a>Cenários
 
 Neste artigo, há dois cenários:
 
-No primeiro cenário, você aprenderá a [criar um gateway de aplicativo com o firewall do aplicativo Web](#create-an-application-gateway-with-web-application-firewall)
+No primeiro cenário de saudação, você aprenderá muito[criar um gateway de aplicativos com o firewall do aplicativo web](#create-an-application-gateway-with-web-application-firewall)
 
-No segundo cenário, você aprende a [adicionar o firewall do aplicativo Web a um gateway de aplicativo existente](#add-web-application-firewall-to-an-existing-application-gateway).
+No cenário de segundo hello, você aprenderá muito[adicionar web aplicativo firewall tooan existente application gateway](#add-web-application-firewall-to-an-existing-application-gateway).
 
 ![Cenário de exemplo][scenario]
 
 > [!NOTE]
-> A configuração adicional do Gateway de Aplicativo, incluindo investigações de integridade personalizadas, endereços de pool de back-end e regras adicionais são configuradas após o Gateway de Aplicativo ser configurado e não durante a implantação inicial.
+> Testes de configuração adicionais do gateway de aplicativo hello, incluindo integridade personalizado, endereços do pool de back-end e regras adicionais são configuradas após a configuração do gateway de aplicativo hello e não durante a implantação inicial.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-O Gateway de Aplicativo do Azure requer sua própria sub-rede. Ao criar uma rede virtual, certifique-se de deixar espaço de endereço suficiente para ter várias sub-redes. Depois de implantar um gateway de aplicativo a uma sub-rede, apenas gateway de aplicativos adicionais poderão ser adicionados à sub-rede.
+O Gateway de Aplicativo do Azure requer sua própria sub-rede. Ao criar uma rede virtual, certifique-se de que você deixe suficiente toohave de espaço de endereço várias sub-redes. Depois de implantar um aplicativo gateway tooa de sub-rede, os gateways de aplicativos adicionais só são toobe capaz de adicionar sub-rede toohello.
 
-##<a name="add-web-application-firewall-to-an-existing-application-gateway"></a> Adicionar o firewall do aplicativo Web a um gateway de aplicativo existente
+##<a name="add-web-application-firewall-to-an-existing-application-gateway"></a>Adicionar web aplicativo firewall tooan aplicativo gateway existente
 
-Este exemplo atualiza um gateway de aplicativo existente para dar suporte ao firewall do aplicativo Web no modo de prevenção.
+Este exemplo atualiza um existente application gateway toosupport firewall do aplicativo web no modo de prevenção.
 
-1. No painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique no Gateway de Aplicativo existente, na folha **Todos os recursos**. Se a assinatura que você selecionou já contém vários recursos, você pode inserir o nome em **Filtrar por nome...** para acessar a Zona DNS facilmente.
+1. No portal do Azure de saudação **Favoritos** painel, clique em **todos os recursos**. Clique Olá existente do Application Gateway em Olá **todos os recursos** folha. Se a assinatura de saudação selecionado já contiver vários recursos, você pode digitar o nome de saudação em Olá **filtrar por nome...** zona DNS do hello caixa tooeasily acesso.
 
    ![Criação de um gateway de aplicativo][1]
 
-1. Clique em **Firewall do Aplicativo Web** e atualize as configurações do gateway de aplicativo. Quando concluir, clique em **Salvar**
+1. Clique em **firewall do aplicativo Web** e atualizar as configurações de gateway de aplicativo hello. Quando concluir, clique em **Salvar**
 
-    As configurações para atualizar um gateway de aplicativo existente para dar suporte ao firewall do aplicativo da Web são:
+    Olá configurações tooupdate um existente application gateway toosupport firewall do aplicativo web são:
 
    | **Configuração** | **Valor** | **Detalhes**
    |---|---|---|
-   |**Atualizar para a camada WAF**| Verificado | Isso define a camada do gateway de aplicativo para a camada WAF.|
-   |**Status do firewall**| Habilitado | Essa configuração habilita o firewall no WAF.|
-   |**Modo de firewall** | Prevenção | Essa configuração é como o firewall do aplicativo Web lida com o tráfego mal-intencionado. O modo **Detecção** só registra em log os eventos, onde o modo **Prevenção** registra os eventos e interrompe o tráfego mal-intencionado.|
-   |**Conjunto de regras**|3.0|Essa configuração determina o [conjunto principal de regras](application-gateway-web-application-firewall-overview.md#core-rule-sets) usado para proteger os membros do pool de back-end.|
-   |**Configurar regras desabilitadas**|varia|Para evitar possíveis falsos positivos, essa configuração permite que você desabilite certas [regras e grupos de regras](application-gateway-crs-rulegroups-rules.md).|
+   |**Atualizar tooWAF da camada**| Verificado | Isso define a camada de saudação da camada do hello aplicativo gateway toohello WAF.|
+   |**Status do firewall**| habilitado | Essa configuração habilita o firewall do hello em Olá WAF.|
+   |**Modo de firewall** | Prevenção | Essa configuração é como o firewall do aplicativo Web lida com o tráfego mal-intencionado. **Detecção de** modo somente logs de eventos hello, onde **prevenção** modo registra eventos de saudação e paradas Olá tráfego mal-intencionado.|
+   |**Conjunto de regras**|3.0|Essa configuração determina Olá [principal de conjunto de regras](application-gateway-web-application-firewall-overview.md#core-rule-sets) que é usado tooprotect Olá back-end membros do pool.|
+   |**Configurar regras desabilitadas**|varia|tooprevent possíveis falsos positivos, essa configuração permite que você toodisable determinados [regras e grupos de regras](application-gateway-crs-rulegroups-rules.md).|
 
     >[!NOTE]
-    > Ao fazer o upgrade de um gateway de aplicativo existente para o SKU do WAF, o tamanho do SKU muda para **médio**. Isso pode ser reconfigurado após a conclusão da configuração.
+    > Ao atualizar um toohello de gateway do aplicativo existente WAF SKU, Olá SKU tamanho alterações muito**médio**. Isso pode ser reconfigurado após a conclusão da configuração.
 
     ![folha mostrando configurações básicas][2-1]
 
     > [!NOTE]
-    > Para exibir logs de firewall do aplicativo Web, o diagnóstico deve ser habilitado e ApplicationGatewayFirewallLog selecionado. É possível escolher uma contagem de instâncias de 1 para fins de teste. É importante saber que qualquer contagem de instâncias em duas instâncias não é coberta por um SLA e, portanto, não são recomendadas. Os gateways pequenos não estão disponíveis ao usar o firewall do aplicativo Web.
+    > logs de firewall de aplicativo da web tooview, diagnóstico devem ser habilitadas e ApplicationGatewayFirewallLog selecionado. É possível escolher uma contagem de instâncias de 1 para fins de teste. É importante tooknow qualquer instância de contagem em duas instâncias não é coberto por Olá SLA e, portanto, não recomendável. Os gateways pequenos não estão disponíveis ao usar o firewall do aplicativo Web.
 
 ## <a name="create-an-application-gateway-with-web-application-firewall"></a>criar um gateway de aplicativo com o firewall do aplicativo Web
 
@@ -86,78 +86,78 @@ Este cenário:
 * Criará uma sub-rede chamada Appgatewaysubnet que usa 10.0.0.0/28 como seu bloco CIDR.
 * Configurará um certificado para descarregamento SSL.
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com). Caso você ainda não tenha uma conta, poderá se inscrever para obter uma [avaliação gratuita de um mês](https://azure.microsoft.com/free)
-1. No painel Favoritos do portal, clique em **Novo**
-1. Na folha **Novo**, clique em **Rede**. Na folha **Rede**, clique em **Gateway de Aplicativo**, conforme mostrado na seguinte imagem:
-1. Navegue até o portal do Azure, clique em **Novo** > **Rede** > **Gateway de Aplicativo**
+1. Faça logon no toohello [portal do Azure](https://portal.azure.com). Caso você ainda não tenha uma conta, poderá se inscrever para obter uma [avaliação gratuita de um mês](https://azure.microsoft.com/free)
+1. No painel de favoritos saudação do portal de saudação, clique em **novo**
+1. Em Olá **novo** folha, clique em **rede**. Em Olá **rede** folha, clique em **Application Gateway**, conforme mostrado no Olá a imagem a seguir:
+1. Navegue toohello portal do Azure, clique em **novo** > **rede** > **Application Gateway**
 
     ![Criação de um gateway de aplicativo][1]
 
-1. Na folha **Informações Básicas** exibida, insira os seguintes valores e clique em **OK**:
+1. Em Olá **Noções básicas de** folha que aparece, digite Olá valores a seguir, clique em **Okey**:
 
    | **Configuração** | **Valor** | **Detalhes**
    |---|---|---|
-   |**Nome**|AdatumAppGateway|O nome do gateway de aplicativo|
-   |**Camada**|WAF|Os valores disponíveis são Standard e WAF. Visite a página [Firewall do aplicativo Web](application-gateway-web-application-firewall-overview.md) para saber mais sobre o WAF.|
+   |**Nome**|AdatumAppGateway|nome de saudação do gateway de aplicativo hello|
+   |**Camada**|WAF|Os valores disponíveis são Standard e WAF. Visite [firewall do aplicativo web](application-gateway-web-application-firewall-overview.md) toolearn mais sobre WAF.|
    |**Tamanho do SKU**|Média|As opções ao escolher a camada Standard são Pequeno, Médio e Grande. Ao escolher a camada do WAF, as opções são apenas Médio e Grande.|
-   |**Contagem de instâncias**|2|Número de instâncias do gateway de aplicativo para alta disponibilidade. Contagens de instância iguais a 1 devem ser usadas apenas para fins de teste.|
-   |**Assinatura**|[Sua assinatura]|Selecione uma assinatura na qual o gateway de aplicativo será criado.|
-   |**Grupo de recursos**|**Criar novo:** AdatumAppGatewayRG|Crie um grupos de recursos. O nome do grupo de recursos deve ser exclusivo na assinatura selecionada. Para saber mais sobre grupos de recursos, leia o artigo [Visão geral do Gerenciador de Recursos](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups).|
+   |**Contagem de instâncias**|2|Número de instâncias do gateway de aplicativo hello para alta disponibilidade. Contagens de instância iguais a 1 devem ser usadas apenas para fins de teste.|
+   |**Assinatura**|[Sua assinatura]|Selecione um assinatura toocreate Olá aplicativo gateway.|
+   |**Grupo de recursos**|**Criar novo:** AdatumAppGatewayRG|Crie um grupos de recursos. nome do grupo de recursos Olá deve ser exclusivo na assinatura de saudação selecionado. toolearn mais sobre grupos de recursos, leia Olá [Gerenciador de recursos](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups) artigo de visão geral.|
    |**Localidade**|Oeste dos EUA||
 
    ![folha mostrando configurações básicas][2-2]
 
-1. Na folha **Configurações** exibida em **Rede virtual**, clique em **Escolher uma rede virtual**. Essa etapa abre a folha **Escolher rede virtual**.  Clique em **Criar nova** para abrir a folha **Criar rede virtual**.
+1. Em Olá **configurações** folha que aparece sob **rede Virtual**, clique em **escolha uma rede virtual**. Esta etapa abre insira Olá **rede virtual escolha** folha.  Clique em **criar novo** tooopen Olá **criar rede virtual** folha.
 
    ![escolher uma rede virtual][2]
 
-1. Na folha **Criar rede virtual**, insira os valores a seguir e clique em **OK**. Essa etapa fecha as folhas **Criar rede virtual** e **Escolher rede virtual**. Isso popula o campo **Sub-rede** na folha **Configurações** com a sub-rede escolhida.
+1. Em Olá **criar folha de rede virtual** digite Olá valores a seguir, clique em **Okey**. Esta etapa fecha Olá **criar rede virtual** e **rede virtual escolha** folhas. Isso preenche Olá **sub-rede** campo Olá **configurações** folha com sub-rede Olá escolhido.
 
    |**Configuração** | **Valor** | **Detalhes** |
    |---|---|---|
-   |**Nome**|AdatumAppGatewayVNET|Nome do gateway de aplicativo|
-   |**Espaço de Endereço**|10.0.0.0/16| Esse valor é o espaço de endereço da rede virtual|
-   |**Nome da sub-rede**|AppGatewaySubnet|Nome da sub-rede do gateway de aplicativo|
-   |**Intervalo de endereços da sub-rede**|10.0.0.0/28 | Essa sub-rede permite sub-redes adicionais na rede virtual para membros do pool de back-end|
+   |**Nome**|AdatumAppGatewayVNET|Nome do gateway de aplicativo hello|
+   |**Espaço de Endereço**|10.0.0.0/16| Esse valor é o espaço de endereço de saudação para rede virtual Olá|
+   |**Nome da sub-rede**|AppGatewaySubnet|Nome da sub-rede Olá para o gateway de aplicativo hello|
+   |**Intervalo de endereços da sub-rede**|10.0.0.0/28 | Essa sub-rede permite mais sub-redes adicionais na rede virtual Olá para membros do pool de back-end|
 
-1. Na folha **Configurações** em **Configuração de IP de front-end**, escolha **Público** como o **Tipo de endereço IP**
+1. Em Olá **configurações** folha sob **configuração de IP de Frontend**, escolha **pública** como Olá **tipo de endereço IP**
 
-1. Na folha **Configurações** em **Endereço IP público**, clique em **Escolher um endereço IP público**. Essa etapa abrirá a folha **Escolher o endereço IP público**. Em seguida, clique em **Criar novo**.
+1. Em Olá **configurações** folha sob **endereço IP público**, clique em **escolher um endereço IP público**, essa etapa abre Olá **escolher endereço IP público**folha, clique em **criar novo**.
 
    ![escolher o IP público][3]
 
-1. Na folha **Criar endereço IP público**, aceite o valor padrão e clique em **OK**. Essa etapa fechará as folhas **Escolher endereço IP público** e **Criar endereço IP público** e populará **Endereço IP público** com o endereço IP público escolhido.
+1. Em Olá **criar endereço IP público** folha, aceite o valor padrão de saudação e clique em **Okey**. Esta etapa fecha Olá **escolher endereço IP público** folha, Olá **criar endereço IP público** folha e preencher **endereço IP público** com endereço IP público Olá escolhido.
 
-1. Na folha **Configurações** em **Configuração do ouvinte**, clique em **HTTP** sob **Protocolo**. Um certificado é necessário para usar **https**. A chave privada do certificado é necessária, portanto uma exportação .pfx do certificado é necessária para ser fornecida, além da senha do arquivo.
+1. Em Olá **configurações** folha sob **configuração de ouvinte**, clique em **HTTP** em **protocolo**. toouse **https**, é necessário um certificado. chave privada de saudação do certificado de saudação é necessária para que uma exportação. pfx de certificado Olá precisa toobe fornecido e Olá senha para o arquivo hello.
 
-1. Definir as configurações específicas do **WAF** .
+1. Configurar Olá **WAF** configurações específicas.
 
    |**Configuração** | **Valor** | **Detalhes** |
    |---|---|---|
    |**Status do firewall**| habilitado| Essa configuração ativa ou desativa o WAF.|
-   |**Modo de firewall** | Prevenção| Essa configuração determina as ações tomadas pelo WAF em relação ao tráfego mal-intencionado. Se **Detecção** for escolhido, o tráfego só será registrado em log.  Se **Prevenção** for escolhido, o tráfego será registrado em log e interrompido com uma resposta 403 Não Autorizado.|
+   |**Modo de firewall** | Prevenção| Essa configuração determina as ações Olá que WAF assume tráfego mal-intencionado. Se **Detecção** for escolhido, o tráfego só será registrado em log.  Se **Prevenção** for escolhido, o tráfego será registrado em log e interrompido com uma resposta 403 Não Autorizado.|
 
 
-1. Examine a página Resumo e clique em **OK**.  Agora o Gateway de Aplicativo está na fila e será criado.
+1. Examine a página de resumo de saudação e clique em **Okey**.  Agora o gateway de aplicativo hello enfileirado e criação.
 
-1. Quando o Gateway de Aplicativo tiver sido criado, navegue até ele no portal para continuar a configuração do Gateway de Aplicativo.
+1. Depois que o gateway de aplicativo hello foi criado, navegar tooit na configuração do portal toocontinue saudação do gateway de aplicativo hello.
 
     ![Modo de exibição de recursos do Gateway de Aplicativo][10]
 
-Estas etapas criam um gateway de aplicativo básico com configurações padrão para o ouvinte, pool de back-end, configurações de http de back-end e regras. Você pode modificar essas configurações de acordo com sua implantação quando o provisionamento for bem-sucedido
+Essas etapas criam um application gateway básico com configurações padrão para o ouvinte hello, pool de back-end, configurações de http de back-end e regras. Você pode modificar essas configurações toosuit sua implantação quando Olá provisionamento é bem-sucedido
 
 > [!NOTE]
-> Os gateways de aplicativo criados com a configuração básica do firewall do aplicativo Web são configurados com o CRS 3.0 para proteções.
+> Gateways de aplicativo criados com a configuração de firewall de aplicativo Olá web básico são configurados com CRS 3.0 para proteção.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Em seguida, você pode aprender a configurar um alias de domínio personalizado para o [endereço IP público](../dns/dns-custom-domain.md#public-ip-address) usando DNS do Azure ou outro provedor DNS.
+Em seguida, você pode aprender como tooconfigure um alias de domínio personalizado para Olá [endereço IP público](../dns/dns-custom-domain.md#public-ip-address) usando DNS do Azure ou outro provedor DNS.
 
-Saiba como configurar o log de diagnóstico para registrar os eventos detectados ou impedidos pelo firewall do aplicativo Web ao visitar o [Diagnóstico do Gateway de Aplicativo](application-gateway-diagnostics.md)
+Saiba como log de diagnóstico tooconfigure, eventos de saudação toolog detectadas ou evitados com o firewall do aplicativo web visitando [diagnóstico de Gateway do aplicativo](application-gateway-diagnostics.md)
 
-Saiba como criar investigações de integridade personalizados visitando [Criar uma investigação de integridade personalizada](application-gateway-create-probe-portal.md)
+Saiba como sondas de integridade personalizado toocreate visitando [criar um teste de integridade personalizado](application-gateway-create-probe-portal.md)
 
-Saiba como configurar o Descarregamento de SSL e levar a descriptografia SSL cara longe dos seus servidores Web visitando [Configurar Descarregamento de SSL](application-gateway-ssl-portal.md)
+Saiba como tooconfigure descarregamento de SSL e take Olá cara SSL descriptografia desativada, os servidores web visitando [configurar descarregamento de SSL](application-gateway-ssl-portal.md)
 
 <!--Image references-->
 [1]: ./media/application-gateway-web-application-firewall-portal/figure1.png

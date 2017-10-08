@@ -1,6 +1,6 @@
 ---
-title: Modelos de aplicativo no Gerenciamento de API do Azure | Microsoft Docs
-description: "Saiba como personalizar o conteúdo das páginas de aplicativo no portal do desenvolvedor do Gerenciamento de API do Azure."
+title: modelos de aaaApplication no gerenciamento de API do Azure | Microsoft Docs
+description: "Saiba como toocustomize Olá conteúdo das páginas de aplicativo hello no portal do desenvolvedor Olá no gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 6d2d44465800219f16866a621d4822614ac9e1dd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f4dc078be7163b047ca2e640a9065ba9e5ba709e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="application-templates-in-azure-api-management"></a>Modelos de aplicativo no Gerenciamento de API do Azure
-O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configura o respectivo conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como o [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), bem como um conjunto fornecido de [Recursos de cadeia de caracteres](api-management-template-resources.md#strings), [Recursos do Glyph](api-management-template-resources.md#glyphs) e [Controles de página](api-management-page-controls.md) localizados, você tem grande flexibilidade para configurar o conteúdo das páginas, conforme a necessidade, usando esses modelos.  
+Gerenciamento de API do Azure fornece que Olá conteúdo de saudação toocustomize capacidade de páginas de portal do desenvolvedor usando um conjunto de modelos que configurar seu conteúdo. Usando [DotLiquid](http://dotliquidmarkup.org/) sintaxe e hello editor de sua escolha, como [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de localizadas [recursos de cadeia de caracteres](api-management-template-resources.md#strings), [ Recursos de glifo](api-management-template-resources.md#glyphs), e [página controles](api-management-page-controls.md), você tiver um grande flexibilidade tooconfigure Olá conteúdo das páginas hello como desejar usar esses modelos.  
   
- Os modelos desta seção permitem personalizar o conteúdo das páginas de aplicativo no portal do desenvolvedor.  
+ Olá modelos nesta seção permitem toocustomize conteúdo de saudação de páginas de aplicativo hello no portal do desenvolvedor hello.  
   
 -   [Lista de aplicativos](#ProductList)  
   
 -   [Aplicativo](#Application)  
   
 > [!NOTE]
->  Os modelos de amostra padrão estão incluídos na documentação a seguir, mas estão sujeitos à alteração devido a melhorias contínuas. Você pode exibir os modelos padrão em tempo real no portal do desenvolvedor, navegando até os modelos individuais desejados. Para saber mais sobre como trabalhar com modelos, confira [Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Modelos de padrão de exemplo estão incluídos no hello documentação a seguir, mas são toochange assunto devido a melhorias toocontinuous. Você pode exibir modelos do saudação padrão em tempo real no portal do desenvolvedor Olá navegando modelos individuais toohello desejado. Para obter mais informações sobre como trabalhar com modelos, consulte [como toocustomize Olá portal do desenvolvedor do gerenciamento de API usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ##  <a name="ProductList"></a> Lista de aplicativos  
- O modelo **Lista de aplicativos** permite personalizar o corpo da página de lista de aplicativos no portal do desenvolvedor.  
+ Olá **lista de aplicativos** modelo permite toocustomize corpo de saudação da página de lista do aplicativo hello no portal do desenvolvedor hello.  
   
  ![Modelos do portal do desenvolvedor da página de lista de aplicativos](./media/api-management-application-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "Modelos do portal do desenvolvedor da página de lista de aplicativos do APIM")  
   
@@ -70,7 +70,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ### <a name="controls"></a>Controles  
- O modelo `Product list` pode usar os seguintes [controles de página](api-management-page-controls.md).  
+ Olá `Product list` modelo pode usar a seguinte Olá [página controles](api-management-page-controls.md).  
   
 -   [paging-control](api-management-page-controls.md#paging-control)  
   
@@ -78,9 +78,9 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|Paginamento|Entidade de [paginação](api-management-template-data-model-reference.md#Paging).|As informações de paginação da coleção de aplicativos.|  
-|Aplicativos|Coleção de entidades de [Aplicativo](api-management-template-data-model-reference.md#Application).|Os aplicativos visíveis para o usuário atual.|  
-|CategoryName|string|A categoria do aplicativo.|  
+|Paginamento|Entidade de [paginação](api-management-template-data-model-reference.md#Paging).|Olá paginação as informações para a coleção de aplicativos de saudação.|  
+|Aplicativos|Coleção de entidades de [Aplicativo](api-management-template-data-model-reference.md#Application).|usuário atual do Hello aplicativos toohello visível.|  
+|CategoryName|string|categoria de saudação do aplicativo.|  
   
 ### <a name="sample-template-data"></a>Amostra de dados do modelo  
   
@@ -134,7 +134,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ##  <a name="Application"></a> Aplicativo  
- O modelo **Aplicativos** permite personalizar o corpo da página de aplicativos no portal do desenvolvedor.  
+ Olá **aplicativo** modelo permite toocustomize corpo de saudação da página de aplicativo hello no portal do desenvolvedor hello.  
   
  ![Modelos do portal do desenvolvedor da página de aplicativos](./media/api-management-application-templates/APIM-Application-Page-Developer-Portal-Templates.png "Modelos do portal do desenvolvedor da página de aplicativos do APIM")  
   
@@ -177,7 +177,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ### <a name="controls"></a>Controles  
- O modelo `Application` não permite o uso de quaisquer [controles de página](api-management-page-controls.md).  
+ Olá `Application` modelo não permite o uso de saudação de qualquer [página controles](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Modelo de dados  
  Entidade de [aplicativo](api-management-template-data-model-reference.md#Application).  
@@ -220,4 +220,4 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como trabalhar com modelos, confira [Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos](api-management-developer-portal-templates.md).
+Para obter mais informações sobre como trabalhar com modelos, consulte [como toocustomize Olá portal do desenvolvedor do gerenciamento de API usando modelos](api-management-developer-portal-templates.md).

@@ -1,6 +1,6 @@
 ---
-title: "Funções do modelo do Resource Manager | Microsoft Docs"
-description: "Descreve as funções a serem usadas no modelo do Gerenciador de Recursos do Azure para recuperar valores, trabalhar com cadeias de caracteres e numéricos e recuperar informações de implantação."
+title: "aaaResource Gerenciador de funções de modelo | Microsoft Docs"
+description: "Descreve Olá toouse de funções em valores de tooretrieve um modelo do Azure Resource Manager, trabalhar com cadeias de caracteres e valores numéricos e recuperar informações de implantação."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: 1324bed07e991e9d84cb6832afe78bdb2d3348fa
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d1b2e68a33d75058f83d6972dadb33a6390d49b2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funções do modelo do Gerenciador de Recursos do Azure
-Este tópico descreve todas as funções que você pode usar em um modelo do Azure Resource Manager.
+Este tópico descreve todas as funções hello, que você pode usar em um modelo do Gerenciador de recursos do Azure.
 
-Você adiciona funções aos seus modelos colocando-as entre colchetes: `[` e `]`, respectivamente. A expressão é avaliada durante a implantação. Embora escrito como um literal de cadeia de caracteres, o resultado da avaliação da expressão pode ser de um tipo JSON diferente, como uma matriz, um objeto ou um inteiro. Assim como no JavaScript, as chamadas de função são formatadas como `functionName(arg1,arg2,arg3)`. Você faz referência às propriedades usando os operadores dot e [index].
+Você adiciona funções aos seus modelos colocando-as entre colchetes: `[` e `]`, respectivamente. Olá expressão é avaliada durante a implantação. Enquanto gravado como uma cadeia de caracteres literal, o resultado de saudação da avaliação de expressão Olá pode ser de um tipo diferente de JSON, como uma matriz, objeto ou inteiro. Assim como no JavaScript, as chamadas de função são formatadas como `functionName(arg1,arg2,arg3)`. Você pode referenciar propriedades usando os operadores de ponto e [index] hello.
 
 Uma expressão de modelo não pode exceder 24.576 caracteres.
 
-As funções do modelo e seus parâmetros não diferenciam maiúsculas de minúsculas. Por exemplo, o Resource Manager resolve **variables('var1')** e **VARIABLES('VAR1')** da mesma forma. Quando avaliada, a função preservará as maiúsculas e minúsculas, a menos que a função modifique-as expressamente (como toUpper ou toLower). Determinados tipos de recursos podem ter requisitos de maiúsculas e minúsculas independentemente de como as funções são avaliadas.
+As funções do modelo e seus parâmetros não diferenciam maiúsculas de minúsculas. Por exemplo, o Gerenciador de recursos resolve **variables('var1')** e **VARIABLES('VAR1')** como Olá mesmo. Quando avaliada, a menos que a função hello expressamente modifica caso (como toUpper ou toLower), a função hello preserva caso hello. Determinados tipos de recursos podem ter requisitos de maiúsculas e minúsculas independentemente de como as funções são avaliadas.
 
 <a id="array" />
 <a id="coalesce" />
@@ -87,7 +87,7 @@ O Resource Manager fornece várias funções para fazer comparações em seus mo
 <a id="variables" />
 
 ## <a name="deployment-value-functions"></a>Funções de valor de implantação
-O Gerenciador de Recursos fornece as seguintes funções para obter os valores de seções do modelo e os valores relacionados à implantação:
+Gerenciador de recursos fornece a seguinte Olá funções para obter valores de seções do modelo de saudação e valores relacionados toohello implantação:
 
 * [implantação](resource-group-template-functions-deployment.md#deployment)
 * [parâmetros](resource-group-template-functions-deployment.md#parameters)
@@ -105,16 +105,16 @@ O Gerenciador de Recursos fornece as seguintes funções para obter os valores d
 <a id="sub" />
 
 ## <a name="logical-functions"></a>Funções lógicas
-O Gerenciador de Recursos fornece as seguintes funções para trabalhar com condições lógicas:
+Gerenciador de recursos fornece Olá funções para trabalhar com condições lógicas a seguir:
 
-* [e](resource-group-template-functions-logical.md#and)
+* [and](resource-group-template-functions-logical.md#and)
 * [bool](resource-group-template-functions-logical.md#bool)
 * [if](resource-group-template-functions-logical.md#if)
 * [not](resource-group-template-functions-logical.md#not)
 * [ou](resource-group-template-functions-logical.md#or)
 
 ## <a name="numeric-functions"></a>Funções numéricas
-O Gerenciador de Recursos fornece as seguintes funções para trabalhar com números inteiros:
+Gerenciador de recursos fornece Olá seguintes funções para trabalhar com números inteiros:
 
 * [adicionar](resource-group-template-functions-numeric.md#add)
 * [copyIndex](resource-group-template-functions-numeric.md#copyindex)
@@ -136,7 +136,7 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com núm
 <a id="subscription" />
 
 ## <a name="resource-functions"></a>Funções de recurso
-O Gerenciador de Recursos fornece as seguintes funções para obter valores de recurso:
+Gerenciador de recursos fornece Olá funções para obter valores de recursos a seguir:
 
 * [listKeys e list{Value}](resource-group-template-functions-resource.md#listkeys)
 * [providers](resource-group-template-functions-resource.md#providers)
@@ -176,7 +176,7 @@ O Gerenciador de Recursos fornece as seguintes funções para obter valores de r
 <a id="uricomponenttostring" />
 
 ## <a name="string-functions"></a>Funções de cadeia de caracteres
-O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cadeias de caracteres:
+Gerenciador de recursos fornece Olá funções para trabalhar com cadeias de caracteres a seguir:
 
 * [base64](resource-group-template-functions-string.md#base64)
 * [base64ToJson](resource-group-template-functions-string.md#base64tojson)
@@ -210,8 +210,8 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cade
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter uma descrição das seções de um modelo do Gerenciador de Recursos do Azure, veja a seção [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md)
-* Para mesclar diversos modelos, confira a seção [Como usar modelos vinculados com o Gerenciador de Recursos do Azure](resource-group-linked-templates.md)
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, confira [Criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md)
-* Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md)
+* Para obter uma descrição das seções de saudação em um modelo do Gerenciador de recursos do Azure, consulte [modelos de autoria do Azure Resource Manager](resource-group-authoring-templates.md)
+* toomerge vários modelos, consulte [usando modelos vinculados com o Gerenciador de recursos do Azure](resource-group-linked-templates.md)
+* tooiterate um número de vezes especificado durante a criação de um tipo de recurso, consulte [criar várias instâncias de recursos no Gerenciador de recursos do Azure](resource-group-create-multiple.md)
+* toosee como modelo de saudação toodeploy que você criou, consulte [implantar um aplicativo com o modelo do Gerenciador de recursos do Azure](resource-group-template-deploy.md)
 

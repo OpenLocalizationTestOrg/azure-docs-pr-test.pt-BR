@@ -1,6 +1,6 @@
 ---
-title: "Entrega contínua de serviços de nuvem com TFS no Azure | Microsoft Docs"
-description: "Saiba como configurar a entrega contínua para aplicativos de nuvem do Azure. Exemplos de código para instruções de linha de comando do MSBuild e scripts do PowerShell."
+title: "Serviços de entrega de aaaContinuous para a nuvem com o TFS no Azure | Microsoft Docs"
+description: "Saiba como aplicativos de nuvem tooset a entrega contínua para o Azure. Exemplos de código para instruções de linha de comando do MSBuild e scripts do PowerShell."
 services: cloud-services
 documentationcenter: 
 author: kraigb
@@ -14,141 +14,141 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: kraigb
-ms.openlocfilehash: 0979722b9ec715e91825c7aba74657451df6e83f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: c0e5e72ffbd3c05b84ce1733068e92c528bcc4b9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="continuous-delivery-for-cloud-services-in-azure"></a>Fornecimento contínuo de serviços de nuvem no Azure
-O processo descrito neste artigo mostra como configurar o fornecimento contínuo de aplicativos na nuvem do Azure. Este processo permite criar pacotes automaticamente e implantar o pacote no Azure após cada verificação de código. O processo de compilação do pacote descrito neste artigo equivale ao comando **Package** do Visual Studio, e as etapas de publicação equivalem ao comando **Publish** do Visual Studio.
-O artigo aborda os métodos que você usaria para criar um servidor de compilação com instruções de linha de comando do MSBuild e scripts do Windows PowerShell, além de demonstrar como configurar as definições do Visual Studio Team Foundation Server - Team Build para usar os comandos do MSBuild e os scripts do PowerShell. O processo é personalizável para o ambiente de compilação e os ambientes de destino do Azure.
+Olá processo descrito neste artigo mostra como tooset a entrega contínua para aplicativos de nuvem do Azure. Esse processo permite que você crie automaticamente os pacotes e implantar Olá pacote tooAzure após cada check-in do código. Olá, processo de compilação do pacote descrito neste artigo é equivalente toohello **pacote** comando no Visual Studio e as etapas de publicação são equivalente toohello **publicar** comando no Visual Studio.
+Olá artigo abrange Olá métodos você usaria toocreate um servidor de compilação com instruções de linha de comando do MSBuild e scripts do Windows PowerShell e ele também demonstra como configurar o Visual Studio Team Foundation Server - definições Team Build toooptionally comandos de MSBuild Olá toouse e scripts do PowerShell. processo de saudação é personalizável para seu ambiente de compilação e ambientes de destino do Azure.
 
-Você também pode usar o Visual Studio Team Services, uma versão do TFS hospedada no Azure, para fazer isso com mais facilidade. 
+Você também pode usar o Visual Studio Team Services, uma versão do TFS que é hospedado no Azure, toodo isso mais facilmente. 
 
 Antes de começar, você deve publicar seu aplicativo do Visual Studio.
-Isso garantirá que todos os recursos estejam disponíveis e sejam inicializados quando você tentar automatizar o processo de publicação.
+Isso garantirá que todos os recursos de saudação estão disponíveis e inicializado quando você tenta tooautomate processo de publicação de saudação.
 
-## <a name="1-configure-the-build-server"></a>1: Configurar o Servidor de Build
-Antes de criar um pacote do Azure usando o MSBuild, você deve instalar o software e as ferramentas necessárias no servidor de compilação.
+## <a name="1-configure-hello-build-server"></a>1: configurar Olá servidor de compilação
+Antes de criar um pacote do Azure usando o MSBuild, você deve instalar o software Olá necessárias e as ferramentas no servidor de compilação de saudação.
 
-O Visual Studio não precisa estar instalado no servidor de compilação. Se você quiser usar o Team Foundation Build Service para gerenciar o servidor de compilação, siga as instruções na documentação do [Team Foundation Build Service][Team Foundation Build Service].
+O Visual Studio não é necessário toobe instalado no servidor de compilação de saudação. Se você quiser toouse Team Foundation Build Service toomanage seu servidor de compilação, siga as instruções de Olá Olá [Team Foundation Build Service] [ Team Foundation Build Service] documentação.
 
-1. No servidor de build, instale o [.NET Framework 4.5.2][.NET Framework 4.5.2], que inclui o MSBuild.
-2. Instale a versão mais recente das [Ferramentas de criação do Azure para .NET](https://azure.microsoft.com/develop/net/).
-3. Instale as [Bibliotecas do Azure para .NET](http://go.microsoft.com/fwlink/?LinkId=623519).
-4. Copie o arquivo Microsoft.WebApplication.targets de uma instalação do Visual Studio no servidor de compilação.
+1. No servidor de compilação hello, instalar Olá [do .NET Framework 4.5.2][.NET Framework 4.5.2], que inclui o MSBuild.
+2. Instalar hello mais recente [ferramentas de criação do Azure para .NET](https://azure.microsoft.com/develop/net/).
+3. Instalar Olá [bibliotecas do Azure para .NET](http://go.microsoft.com/fwlink/?LinkId=623519).
+4. Copie o arquivo de WebApplication de saudação de um toohello de instalação do Visual Studio criar o servidor.
 
-   Em um computador com o Visual Studio instalado, esse arquivo está localizado no diretório C:\\Arquivos de Programas(x86)\\MSBuild\\Microsoft\\VisualStudio\\v14.0\\WebApplications. Você deve copiá-lo para o mesmo diretório no servidor de compilação.
-5. Instale as [Ferramentas do Azure para Visual Studio](https://www.visualstudio.com/features/azure-tools-vs.aspx).
+   Em um computador com Visual Studio instalado, esse arquivo está localizado no diretório Olá c:\\arquivos de programa (x86)\\MSBuild\\Microsoft\\VisualStudio\\v 14.0\\aplicativos daWeb. Você deve copiá-lo toohello mesmo diretório no servidor de compilação de saudação.
+5. Instalar Olá [ferramentas do Azure para Visual Studio](https://www.visualstudio.com/features/azure-tools-vs.aspx).
 
 ## <a name="2-build-a-package-using-msbuild-commands"></a>2: Compilar um Pacote usando comandos MSBuild
-Esta seção descreve como criar um comando do MSBuild que compila um pacote do Azure. Execute esta etapa no servidor de compilação para verificar setudo está configurado corretamente e se o comando do MSBuild faz o que você deseja fazer. Você pode adicionar essa linha de comando a scripts de construção existentes no servidor de compilação ou usar a linha de comando em uma definição de compilação do TFS, conforme descrito na próxima seção. Para obter mais informações sobre parâmetros de linha de comando e sobre o MSBuild, consulte [Referência de linha de comando do MSBuild](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx).
+Esta seção descreve como tooconstruct um MSBuild comando que cria um pacote do Azure. Execute esta etapa no hello tooverify de servidor de compilação que tudo está configurado corretamente e que o comando de MSBuild Olá o que você deseja toodo. Você pode adicionar essa linha de comando tooexisting criar scripts no servidor de compilação hello, ou você pode usar saudação de linha de comando em uma definição de compilação do TFS, conforme descrito na próxima seção, Olá. Para obter mais informações sobre parâmetros de linha de comando e sobre o MSBuild, consulte [Referência de linha de comando do MSBuild](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx).
 
-1. Se o Visual Studio estiver instalado no servidor de build, localize e escolha **Prompt de Comando do Studio Visual** na pasta **Ferramentas do Visual Studio** do Windows.
+1. Se o Visual Studio está instalado no servidor de compilação hello, localize e selecione **Prompt de comando do Visual Studio** em Olá **ferramentas do Visual Studio** pasta no Windows.
 
-   Se o Visual Studio não estiver instalado no servidor de compilação, abra um prompt de comando e verifique se MSBuild.exe está acessível no caminho. O MSBuild é instalado com o .NET Framework no caminho %WINDIR%\\Microsoft.NET\\Framework\\*Version*. Por exemplo, para adicionar MSBuild.exe à variável de ambiente PATH quando você tem o .NET Framework 4 instalado, digite o seguinte comando no prompt de comando:
+   Se o Visual Studio não está instalado no servidor de compilação Olá, abra um prompt de comando e verifique se MSBuild.exe está acessível no caminho. MSBuild é instalado com a saudação do .NET Framework em Olá caminho % WINDIR %\\Microsoft.NET\\Framework\\*versão*. Por exemplo, para adicionar a variável de ambiente MSBuild.exe toohello caminho quando você tiver o .NET Framework 4 instalado, digite hello comando no prompt de comando Olá a seguir:
 
        set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
-2. No prompt de comando, navegue até a pasta que contém o arquivo de projeto do Azure que você deseja compilar.
-3. Execute MSBuild com a opção /target:Publish, como no seguinte exemplo:
+2. No prompt de comando hello, navegue toohello pasta que contém o arquivo de projeto do Azure que você deseja toobuild.
+3. Executar o MSBuild com hello /target: opção como no exemplo a seguir de saudação de publicação:
 
        MSBuild /target:Publish
 
-   Essa opção pode ser abreviada como /t:Publish. A opção /t:Publish no MSBuild não deve ser confundida com os comandos Publicar disponíveis no Visual Studio quando você tem o SDK do Azure instalado. A opção /t:Publish compila apenas os pacotes do Azure. Ela não implanta os pacotes como os comandos Publicar no Visual Studio.
+   Essa opção pode ser abreviada como /t:Publish. opção de /t:Publish Olá no MSBuild não deve ser confundida com comandos de publicação Olá disponíveis no Visual Studio quando você tiver hello que Azure SDK instalado. Olá /t: opção de publicação somente compilações Olá pacotes do Azure. Não implanta pacotes de saudação assim como os comandos do hello publicar no Visual Studio.
 
-   Você também pode especificar o nome do projeto como um parâmetro do MSBuild. Se não for especificado, o diretório atual é usado. Para saber mais sobre as opções da linha de comando, veja [Referência da linha de comando do MSBuild](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx).
-4. Localize a saída. Por padrão, esse comando cria um diretório relacionado à pasta raiz do projeto, como *ProjectDir*\\bin\\*Configuration*\\app.publish\\. Ao criar um projeto do Azure, você gera dois arquivos, o arquivo do pacote propriamente dito e o arquivo de configuração que o acompanha:
+   Opcionalmente, você pode especificar o nome do projeto hello como um parâmetro de MSBuild. Se não for especificado, o diretório atual da saudação é usado. Para saber mais sobre as opções da linha de comando, veja [Referência da linha de comando do MSBuild](https://msdn.microsoft.com/library/ms164311%28v=vs.140%29.aspx).
+4. Localize a saída de hello. Por padrão, este comando cria um diretório na relação toohello pasta raiz do projeto Olá, como *ProjectDir*\\bin\\*configuração* \\ App.Publish\\. Quando você compila um projeto do Azure, você deve gerar dois arquivos, o próprio arquivo de pacote hello e Olá que acompanha o arquivo de configuração:
 
    * Project.cspkg
    * ServiceConfiguration.*TargetProfile*.cscfg
 
-   Por padrão, cada projeto do Azure inclui um arquivo de configuração de serviço (arquivo .cscfg) para compilações locais (depuração) e outro para compilações de nuvem (de preparo ou produção), mas você pode adicionar ou remover arquivos de configuração de serviço conforme necessário. Quando compilar um pacote dentro do Visual Studio, você será questionado quanto ao arquivo de configuração de serviço a ser incluído com o pacote.
-5. Especifique o arquivo de configuração do serviço. Quando você compila um pacote usando o MSBuild, o arquivo de configuração de serviço local é incluído por padrão. Para incluir um arquivo de configuração de serviço diferente, defina a propriedade TargetProfile do comando MSBuild, como no seguinte exemplo:
+   Por padrão, cada projeto do Azure inclui um arquivo de configuração de serviço (arquivo .cscfg) para compilações locais (depuração) e outro para compilações de nuvem (de preparo ou produção), mas você pode adicionar ou remover arquivos de configuração de serviço conforme necessário. Quando você criar um pacote do Visual Studio, você será solicitado que tooinclude de arquivo de configuração de serviço junto com o pacote de saudação.
+5. Especifique o arquivo de configuração do serviço de saudação. Quando você criar um pacote usando o MSBuild, o arquivo de configuração do serviço local hello está incluído por padrão. tooinclude um arquivo de configuração de serviço diferentes, defina a propriedade TargetProfile do comando de MSBuild hello, como no exemplo a seguir de saudação:
 
        MSBuild /t:Publish /p:TargetProfile=Cloud
-6. Especifique o local para a saída. Defina o caminho usando a opção /p:PublishDir=*Directory*\\, incluindo o separador de barra invertida à direita, como no exemplo a seguir:
+6. Especifique o local de saudação para saída de hello. Definir o caminho de saudação usando o /p: publishdir =*diretório* \\ opção, incluindo Olá separador de barra invertida, como no exemplo a seguir de saudação à direita:
 
        MSBuild /target:Publish /p:PublishDir=\\myserver\drops\
 
-   Depois de criar e testar uma linha de comando do MSBuild apropriada para compilar os projetos e integrá-los em um pacote do Azure, você poderá adicionar essa linha de comando aos scripts de compilação. Se seu servidor de compilação usar scripts personalizados, esse processo dependerá das especificidades de seu processo de compilação personalizado. Se estiver usando o TFS como um ambiente de compilação, você poderá seguir as instruções na próxima etapa para adicionar a compilação do pacote do Azure ao processo de compilação.
+   Depois de criada e testada uma MSBuild apropriado toobuild de linha de comando seus projetos e combiná-los em um pacote do Azure, você pode adicionar scripts de compilação de tooyour essa linha de comando. Se seu servidor de compilação usar scripts personalizados, esse processo dependerá das especificidades de seu processo de compilação personalizado. Se você estiver usando o TFS como um ambiente de compilação, você pode seguir instruções Olá Olá próxima etapa tooadd Olá pacote do Azure compilação tooyour processo de compilação.
 
 ## <a name="3-build-a-package-using-tfs-team-build"></a>3: Compilar um Pacote usando o TFS Team Build
-Se você tiver o TFS (Team Foundation Server) configurado como um controlador de compilação e o servidor de compilação estiver configurado como um computador de compilação TFS, você poderá configurar uma compilação automatizada para o pacote do Azure. Para obter informações sobre como configurar e usar o Team Foundation Server como um sistema de build, veja [Escalar horizontalmente seu sistema de build][Scale out your build system]. Em particular, o procedimento a seguir presume que você configurou seu servidor de build, conforme descrito em [Implantar e configurar um servidor de build][Deploy and configure a build server] e que criou um projeto de equipe e um projeto de serviço de nuvem no projeto de equipe.
+Se você tiver Team Foundation Server (TFS) configurado como um controlador de compilação e hello criar servidor configurado como um computador de compilação do TFS, opcionalmente, você pode configurar uma compilação automatizada para seu pacote do Azure. Para obter informações sobre como tooset backup e usar o Team Foundation server como um sistema de compilação, consulte [seu sistema de compilação em expansão][Scale out your build system]. Em particular, o procedimento a seguir supõe que você configurou seu servidor de compilação conforme descrito em [implantar e configurar um servidor de compilação][Deploy and configure a build server], e que você tenha criado um projeto de equipe criado uma nuvem projeto de serviço no projeto de equipe hello.
 
-Para configurar o TFS para compilar pacotes do Azure, execute as seguintes etapas:
+tooconfigure TFS toobuild Azure pacotes, executar Olá etapas a seguir:
 
-1. No Visual Studio, no computador de desenvolvimento, no menu Exibir , escolha **Team Explorer** ou Ctrl+\\, Ctrl+M. Na janela do Team Explorer, expanda o nó **Builds** ou escolha a página **Builds** e escolha **Definição de Nova Compilação**.
+1. No Visual Studio no computador de desenvolvimento, no menu de exibição hello, escolha **Team Explorer**, ou escolha Ctrl +\\, Ctrl + M. Na janela do Team Explorer, expanda Olá **cria** nó ou escolha Olá **cria** página e selecione **nova definição de compilação**.
 
    ![Opção Nova Definição de Compilação][0]
-2. Escolha a guia **Gatilho** e especifique as condições desejadas para quando deseja que o pacote seja compilado. Por exemplo, especifique **Integração Contínua** para compilar o pacote sempre que um check-in de controle do código-fonte ocorrer.
-3. Selecione a guia **Configurações de Origem**, e certifique-se de que a pasta do projeto esteja listada na coluna **Pasta do Controle do Código-Fonte** e que o status seja **Ativo**.
-4. Escolha a guia **Padrões de Compilação** e, em Controlador de compilação, verifique o nome do servidor de compilação.  Além disso, escolha a opção **Copiar resultado da criação para a seguinte pasta** de recebimento e especifique o local de recebimento desejado.
-5. Escolha a guia **Processo** . Na guia Processo, selecione o modelo padrão, em **Build**, selecione o projeto se ele ainda não estiver selecionado e expanda a seção **Avançado** na seção **Build** da grade.
-6. Escolha **Argumentos do MSBuild**e defina os argumentos da linha de comando do MSBuild apropriados, conforme descrito na Etapa 2 acima. Por exemplo, insira **/t:Publish /p:PublishDir=\\\\meuservidor\\drops\\** para compilar um pacote e copie os arquivos de pacote para o local \\\\meuservidor\\drops\\:
+2. Escolha Olá **gatilho** guia e, em seguida, especifique a saudação desejado condições para quando você quiser Olá toobe pacote criado. Por exemplo, especificar **integração contínua** ocorre de pacote de saudação toobuild sempre que o check-in de controle de uma origem.
+3. Escolha Olá **configurações de fonte de** guia e certifique-se de sua pasta de projeto está listada na Olá **pasta de controle de origem** coluna, e o status de saudação é **Active**.
+4. Escolha Olá **padrões de compilação** guia e no controlador de compilação, verifique o nome de saudação do servidor de compilação de saudação.  Além disso, escolha a opção de saudação **seguinte de toohello de saída de compilação de cópia Remover pasta** e especifique o local de destino Olá desejado.
+5. Escolha Olá **processo** guia. Na guia do processo hello, escolher o modelo de padrão de saudação, em **criar**, escolha o projeto de saudação se não ainda estiver selecionada e expanda Olá **avançado** seção Olá **Build**seção da grade de saudação.
+6. Escolha **argumentos de MSBuild**e defina os argumentos de linha de comando do MSBuild apropriados Olá conforme descrito na etapa 2 acima. Por exemplo, digite **/t: publicar /p: publishdir =\\\\myserver\\descarta\\**  toobuild um pacote de saudação do pacote e copiar arquivos de local de toohello \\ \\myserver\\descarta\\:
 
    ![Argumentos do MSBuild][2]
 
    > [!NOTE]
-   > Copiar os arquivos para um compartilhamento público torna mais fácil implantar manualmente os pacotes do seu computador de desenvolvimento.
-7. Teste o êxito da etapa de compilação fazendo check-in de uma alteração para o projeto ou coloque na fila uma nova compilação. Para colocar na fila uma nova compilação, no Team Explorer, clique com o botão direito do mouse em **Todas as Definições de Compilação** e, em seguida, escolha **Colocar Nova Compilação na Fila**.
+   > Copiando Olá arquivos tooa compartilhamento público torna mais fácil toomanually implantar pacotes de saudação do seu computador de desenvolvimento.
+7. Testar o sucesso de saudação da etapa de compilação verificando-se em um projeto de tooyour de alteração ou enfileirar uma nova compilação. tooqueue a uma nova compilação no Team Explorer, clique com botão direito **todas as definições de compilação,** e, em seguida, escolha **enfileirar nova compilação**.
 
 ## <a name="4-publish-a-package-using-a-powershell-script"></a>4: Publicar um Pacote usando um Script do PowerShell
-Esta seção descreve como criar um script do Windows PowerShell que publicará a saída do pacote do aplicativo de nuvem para o Azure usando parâmetros opcionais. Esse script pode ser chamado após a etapa de compilação na sua automação de compilação personalizada. Ele também pode ser chamado das atividades do fluxo de trabalho do Modelo de processo no Visual Studio TFS Team Build.
+Esta seção descreve como tooconstruct um script do Windows PowerShell que publicará o pacote de aplicativos de nuvem Olá saída tooAzure usando parâmetros opcionais. Esse script pode ser chamado após a etapa de compilação de saudação na sua automação de compilação personalizada. Ele também pode ser chamado das atividades do fluxo de trabalho do Modelo de processo no Visual Studio TFS Team Build.
 
-1. Instale os [cmdlets do Azure PowerShell][Azure PowerShell cmdlets] (v0.6.1 ou superior).
-   Durante a fase de instalação do cmdlet, opte por instalar como um snap-in. Observeque essa versão suportada oficialmente substitui a versão mais antigaoferecida por meio do CodePlex, embora as versões anteriores foram numeradas 2.x.x.
-2. Inicie o PowerShell do Azure usando o menu Iniciar. Se você iniciar dessa forma, os cmdlets do PowerShell do Azure serão carregados.
-3. No prompt do PowerShell, verifique se os cmdlets do PowerShell são carregados digitando o comando parcial `Get-Azure` e pressionando a tecla Tab para o preenchimento de declaração.
+1. Instalar Olá [cmdlets do PowerShell do Azure] [ Azure PowerShell cmdlets] (v0.6.1 ou superior).
+   Durante a fase de instalação do cmdlet hello, escolha tooinstall como um snap-in. Observe que esta versão com suporte oficialmente substitui a versão mais antiga do hello oferecido por meio do CodePlex, embora as versões anteriores do hello foram numeradas 2.x.x.
+2. Inicie o PowerShell do Azure usando o menu de início de saudação ou página inicial. Se você iniciar dessa forma, Olá cmdlets do PowerShell do Azure será carregado.
+3. No prompt do PowerShell hello, verifique se Olá cmdlets do PowerShell são carregados digitando o comando parcial Olá `Get-Azure` e, em seguida, pressionar Olá a tecla Tab para conclusão de instrução.
 
-   Se você pressionar a tecla Tab repetidamente, deverá ver diversos comandos do Azure PowerShell.
-4. Verifique se você consegue se conectar à assinatura do Azure importando as informações de assinatura do arquivo .publishsettings.
+   Se você pressionar a tecla Tab de saudação repetidamente, você verá vários comandos do PowerShell do Azure.
+4. Verifique se que você pode conectar tooyour assinatura do Azure importando as informações de assinatura de arquivo. publishsettings de saudação.
 
    `Import-AzurePublishSettingsFile c:\scripts\WindowsAzure\default.publishsettings`
 
-   Em seguida, digite o comando
+   Em seguida, insira o comando Olá
 
    `Get-AzureSubscription`
 
    Isso mostra informações sobre sua assinatura. Verifique se tudo está correto.
-5. Salve o modelo de script fornecido ao final deste artigo em sua pasta de scripts como c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**.
-6. Consulte a seção de parâmetros do script. Adicione ou modifique os valores padrão. Esses valores podem ser substituídos sempre passando parâmetros explícitos.
-7. Verifique se há contas de serviço de nuvem e de armazenamento válidas criadas na assinatura que possam ser direcionadas pelo script de publicação. A conta de armazenamento (armazenamento de blob) será usada para carregar e armazenar temporariamente o arquivo de configuração e o pacote de implantação, enquanto a implantação está sendo criada.
+5. Salvar modelo de script hello fornecido no final da saudação deste artigo para a pasta de scripts, como c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**.
+6. Examine a seção de parâmetros de saudação do script hello. Adicione ou modifique os valores padrão. Esses valores podem ser substituídos sempre passando parâmetros explícitos.
+7. Certifique-se de serviço de nuvem válido e não contas de armazenamento criadas na sua assinatura que pode ser afetada por Olá script de publicação. A conta de armazenamento (armazenamento de blob) será usado tooupload e armazenar temporariamente o arquivo de pacote e a configuração de implantação de saudação durante a implantação está sendo criada.
 
-   * Para criar um novo serviço de nuvem, você pode chamar esse script ou usar o [portal do Azure](https://portal.azure.com). O nome do serviço de nuvem será usado como um prefixo em um nome de domínio totalmente qualificado e, portanto, deve ser exclusivo.
+   * toocreate um novo serviço de nuvem, você pode chamar esse script ou Olá [portal do Azure](https://portal.azure.com). nome do serviço de nuvem Olá será usado como um prefixo em um nome de domínio totalmente qualificado e, portanto, ele deve ser exclusivo.
 
          New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
-   * Para criar uma nova conta de armazenamento, você pode chamar esse script ou usar o [portal do Azure](https://portal.azure.com). O nome da conta de armazenamento será usado como um prefixo em um nome de domínio totalmente qualificado e, portanto, deve ser exclusivo. Você pode tentar usar o mesmo nome que o serviço de nuvem.
+   * toocreate uma nova conta de armazenamento, você pode chamar esse script ou Olá [portal do Azure](https://portal.azure.com). o nome de conta de armazenamento Olá será usado como um prefixo em um nome de domínio totalmente qualificado e, portanto, ele deve ser exclusivo. Você pode tentar usar Olá mesmo nome do serviço de nuvem.
 
          New-AzureStorageAccount -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
-8. Chame o script diretamente do PowerShell do Azure, ou conecte esse script à automação de compilação do host para ocorrer após a compilação do pacote.
+8. Chamar o script hello diretamente do PowerShell do Azure ou conectar este toooccur de automação de compilação do script tooyour host após a compilação do pacote de saudação.
 
    > [!IMPORTANT]
-   > O script sempre vai excluir ou substituir as implantações existentes por padrão, se eles forem detectados. Isso é necessário para habilitar o fornecimento contínuo de automação onde não é possível nenhum aviso ao usuário.
+   > script Hello serão sempre excluir ou substituir as implantações existentes por padrão, se eles são detectados. Isso é necessário para habilitar o fornecimento contínuo de automação onde não é possível nenhum aviso ao usuário.
    >
    >
 
-   **Cenário de exemplo 1:** implantação contínua ao ambiente de preparo de um serviço:
+   **Cenário de exemplo 1:** toohello implantação contínua preparação do ambiente de serviço:
 
        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Staging -serviceName mycloudservice -storageAccountName mystoragesaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
-   Isso é normalmente seguido pela verificação da execução de teste e uma troca de VIP. A troca de VIP pode ser feita por meio do [portal do Azure](https://portal.azure.com) ou usando o cmdlet Move-Deployment.
+   Isso é normalmente seguido pela verificação da execução de teste e uma troca de VIP. permuta de VIP de saudação pode ser feita por meio de saudação [portal do Azure](https://portal.azure.com) ou usando o cmdlet Olá Move-implantação.
 
-   **Cenário de exemplo 2:** implantação contínua ao ambiente de produção de um serviço de teste dedicado
+   **Cenário de exemplo 2:** ambiente de produção toohello implantação contínua de um serviço de teste dedicados
 
        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Production -enableDeploymentUpgrade 1 -serviceName mycloudservice -storageAccountName mystorageaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
    **Área de trabalho remota:**
 
-   Se a Área de Trabalho Remota estiver habilitada no projeto do Azure, você precisará realizar etapas individuais adicionais para garantir que o certificado de serviço de nuvem seja carregado em todos os serviços de nuvem segmentados por esse script.
+   Se a área de trabalho remota está habilitada no seu projeto do Azure, você precisará tooperform etapas única adicionais Olá tooensure que certificado de serviço de nuvem correto é carregado tooall serviços de nuvem direcionados por esse script.
 
-   Localize os valores de impressão digital do certificado esperados por suas funções. Os valores da impressão digital são visíveis na seção Certificados no arquivo de configuração de nuvem (ou seja, ServiceConfiguration.Cloud.cscfg). Ela também é visível na caixa de diálogo Configuração de Área de Trabalho Remota no Visual Studio, quando você Mostrar Opções e exibir o certificado selecionado.
+   Localize valores de impressão digital do certificado Olá esperados por suas funções. Os valores de impressão digital são visíveis na seção de certificados de saudação do arquivo de configuração de nuvem (ou seja, ServiceConfiguration). Também é visível na caixa de diálogo de configuração da área de trabalho remota de saudação no Visual Studio quando você Mostrar opções e exibir hello selecionado certificado.
 
        <Certificates>
              <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="C33B6C432C25581601B84C80F86EC2809DC224E8" thumbprintAlgorithm="sha1" />
        </Certificates>
 
-   Carregue certificados de Área de Trabalho Remota como uma etapa única de configuração usando o seguinte script de cmdlet:
+   Carregar certificados de área de trabalho remota como uma etapa de configuração única usando Olá cmdlet script a seguir:
 
        Add-AzureCertificate -serviceName <CLOUDSERVICENAME> -certToDeploy (get-item cert:\CurrentUser\MY\<THUMBPRINT>)
 
@@ -156,31 +156,31 @@ Esta seção descreve como criar um script do Windows PowerShell que publicará 
 
        Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
-   Como alternativa, você pode exportar o arquivo de certificado PFX com a chave privada e carregar certificados para cada serviço de nuvem de destino usando o [portal do Azure](https://portal.azure.com).
+   Como alternativa, você pode exportar arquivo de certificado PFX Olá com chave privada e carregar certificados tooeach serviço de destino nuvem usando o [portal do Azure](https://portal.azure.com).
 
    <!---
-   Fixing broken links for Azure content migration from ACOM to DOCS. I'm unable to find a replacement links, so I'm commenting out this reference for now. The author can investigate in the future. "Read the following article to learn more: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx.
+   Fixing broken links for Azure content migration from ACOM tooDOCS. I'm unable toofind a replacement links, so I'm commenting out this reference for now. hello author can investigate in hello future. "Read hello following article toolearn more: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx.
    -->
    **Atualizar implantação vs. Excluir Implantação -\> Nova Implantação**
 
-   O script vai, por padrão, executar uma implantação de atualização($enableDeploymentUpgrade = 1) quando nenhum parâmetro for passado ou o valor 1 for passado explicitamente. Para instâncias únicas isso tem a vantagem de levar menos tempo do que uma implantação completa. Para instâncias que exigem alta disponibilidade, isso também tem a vantagem de deixar algumas instâncias em execução enquanto outras são atualizadas (movimentação de seu domínio de atualização), além de seu VIP não ser excluído.
+   Olá script por padrão executará uma implantação de atualização ($enableDeploymentUpgrade = 1) quando nenhum parâmetro é passado ou o valor 1 é passado explicitamente. Para instâncias únicas isso tem a vantagem de levar menos tempo do que uma implantação completa. Para instâncias que exigem alta disponibilidade, que isso também tem a vantagem de saudação de deixar algumas instâncias em execução enquanto outros são atualizadas (percorrer seu domínio de atualização), além de seu VIP não será excluído.
 
-   A Implantação de Atualização pode ser desabilitada no script ($enableDeploymentUpgrade = 0) ou transmitindo *-enableDeploymentUpgrade 0* como um parâmetro, o que altera o comportamento do script para excluir primeiro qualquer implantação existente e, em seguida, criar uma nova implantação.
+   Implantação de atualização pode ser desabilitada no script hello ($enableDeploymentUpgrade = 0) ou passando *- enableDeploymentUpgrade 0* como um parâmetro, que altera a exclusão do script comportamento toofirst qualquer implantação existente e, em seguida, criar um nova implantação.
 
    > [!IMPORTANT]
-   > O script sempre vai excluir ou substituir as implantações existentes por padrão, se eles forem detectados. Isso é necessário para habilitar o fornecimento contínuo de automação onde é possível sem nenhum aviso ao usuário/operador.
+   > script Hello serão sempre excluir ou substituir as implantações existentes por padrão, se eles são detectados. Isso é necessário para habilitar o fornecimento contínuo de automação onde é possível sem nenhum aviso ao usuário/operador.
    >
    >
 
 ## <a name="5-publish-a-package-using-tfs-team-build"></a>5: Publicar um Pacote usando o TFS Team Build
-Esta etapa opcional conecta o TFS Team Build ao script criado na etapa 4, que manipula a publicação da compilação do pacote no Azure. Isso implica modificar o modelo de processo usado pela sua definição de compilação para que seja executada uma atividade de Publicar no final do fluxo de trabalho. A atividade de Publicar executará o comando PowerShell passando parâmetros da compilação. A saída dos destinos do MSBuild e o script de publicação serão redirecionados para a saída de compilação padrão.
+Esta etapa opcional conecta o TFS Team Build toohello script criado na etapa 4, que manipula a publicação de tooAzure de compilação do pacote de saudação. Isso envolve a modificação Olá usada por sua definição de compilação para que ele executa uma atividade de publicação no final de saudação do fluxo de trabalho de saudação do modelo de processo. Hello atividade publicar executará o comando PowerShell passando parâmetros de compilação de saudação. Saída de hello MSBuild tem como alvo e script de publicação será conectada na saída de compilação padrão hello.
 
-1. Edite a definição de compilação responsável pela implantação contínua.
-2. Selecione a guia **Processo** .
-3. Execute [estas instruções](http://msdn.microsoft.com/library/dd647551.aspx) para adicionar um projeto de atividade ao modelo de processo de compilação, baixe o modelo padrão, adicione-o ao projeto e faça check-in. Atribua um novo nome ao modelo de processo de compilação, como AzureBuildProcessTemplate.
-4. Volte à guia **Processo** e use **Mostrar Detalhes** para mostrar uma lista dos modelos de processos de compilação disponíveis. Escolha o botão **Novo...** e navegue para o projeto recém-adicionado e faça o check-in. Localize o modelo que você acabou de criar e escolha **OK**.
-5. Abra o modelo de processo selecionado para edição. Você pode abrir diretamente no designer de fluxo de trabalho ou no editor de XML para trabalhar como XAML.
-6. Adicione a seguinte lista de novos argumentos como itens de linha separados na guia de argumentos do designer de fluxo de trabalho. Todos os argumentos devem ter direção =In e digite =String. Esses serão usados para parâmetros de fluxo da definição de compilação para o fluxo de trabalho, que, em seguida, é usado para chamar o script de publicação.
+1. Editar saudação definição de compilação responsável por contínua implantar.
+2. Selecione Olá **processo** guia.
+3. Execute [estas instruções](http://msdn.microsoft.com/library/dd647551.aspx) tooadd um projeto de atividade para hello criar modelo de processo, baixe o modelo padrão de saudação, adicioná-lo ao projeto Olá e check-in. Dê um novo nome, como AzureBuildProcessTemplate de modelo de processo de compilação de saudação.
+4. Retornar toohello **processo** guia e usar **Mostrar detalhes** tooshow uma lista de modelos de processo de compilação disponível. Escolha Olá **New...**  botão e, em seguida, navegue toohello projeto recém-adicionado e check-in. Localize o modelo Olá recém-criado e escolha **Okey**.
+5. Abra Olá selecionada do modelo de processo para edição. Você pode abrir diretamente no designer de fluxo de trabalho de saudação ou no hello toowork de editor de XML com hello XAML.
+6. Adicione Olá lista de argumentos novos a seguir como itens separados de linha na guia de argumentos de saudação do designer de fluxo de trabalho de saudação. Todos os argumentos devem ter direção =In e digite =String. Esses serão usados tooflow parâmetros da definição de compilação Olá no fluxo de trabalho hello, quais Olá de toocall usado get, em seguida, o script de publicação.
 
        SubscriptionName
        StorageAccountName
@@ -193,7 +193,7 @@ Esta etapa opcional conecta o TFS Team Build ao script criado na etapa 4, que ma
 
    ![Lista de argumentos][3]
 
-   O XAML correspondente tem esta aparência:
+   Olá que correspondente XAML tem esta aparência:
 
        <Activity  _ />
          <x:Members>
@@ -228,38 +228,38 @@ Esta etapa opcional conecta o TFS Team Build ao script criado na etapa 4, que ma
          </x:Members>
 
          <this:Process.MSBuildArguments>
-7. Adicione uma nova sequência no final do Agente de Execução:
+7. Adicione uma nova sequência de final de saudação do executar no agente:
 
-   1. Comece adicionando uma atividade de declaração If para verificar se há um arquivo de script válido. Defina a condição para este valor:
+   1. Comece adicionando um toocheck de atividade de instrução If para um arquivo de script válida. Defina o valor de toothis de condição de saudação:
 
           Not String.IsNullOrEmpty(PublishScriptLocation)
-   2. No caso Then da declaração If, adicione uma nova atividade de sequência. Defina o nome de exibição para 'Iniciar publicação'
-   3. Com a sequência de publicação inicial ainda selecionada, adicione a lista a seguir de novas variáveis como itens de linha separadas na guia de variáveis do designer de fluxo de trabalho. Todas as variáveis devem ter um tipo de Variável =String e Escopo=Início da publicação. Esses serão usados para parâmetros de fluxo da definição de compilação para o fluxo de trabalho, que, em seguida, é usado para chamar o script de publicação.
+   2. Em Olá caso de Olá instrução If, adicione uma nova atividade de sequência. Publicar too'Start de nome de exibição do conjunto de saudação '
+   3. Com hello início publicar sequência ainda selecionada, adicione a seguinte lista de novas variáveis como itens separados de linha na guia variáveis de designer de fluxo de trabalho de saudação. Todas as variáveis devem ter um tipo de Variável =String e Escopo=Início da publicação. Esses serão usados tooflow parâmetros da definição de compilação Olá no fluxo de trabalho, quais Olá de toocall usado get, em seguida, o script de publicação.
 
       * SubscriptionDataFilePath, do tipo String
       * PublishScriptFilePath, do tipo String
 
         ![Novas variáveis][4]
-   4. Se estiver usando o TFS 2012 ou anterior, adicione uma atividade ConvertWorkspaceItem ao início da nova Sequência. Se estiver usando o TFS 2013 ou posterior, adicione uma atividade GetLocalPath ao início da nova sequência. Para um ConvertWorkspaceItem, defina as propriedades da seguinte maneira: Direction=ServerToLocal, DisplayName='Convert publish script filename', Input=' PublishScriptLocation', Result='PublishScriptFilePath', Workspace='Workspace'. Para uma atividade GetLocalPath, defina a propriedade IncomingPath como 'PublishScriptLocation’ e o Resultado como 'PublishScriptFilePath'. Esta atividade converte o caminho para o script de publicação dos locais do servidor TFS (se aplicável) para um caminho de disco local padrão.
-   5. Se estiver usando o TFS 2012 ou anterior, adicione outra atividade ConvertWorkspaceItem ao final da nova Sequência. Direction=ServerToLocal, DisplayName='Convert subscription filename', Input=' SubscriptionDataFileLocation', Result= 'SubscriptionDataFilePath', Workspace='Workspace'. Se estiver usando o TFS 2013 ou posterior, adicione outra atividade GetLocalPath. IncomingPath='SubscriptionDataFileLocation' e Result='SubscriptionDataFilePath.'
-   6. Adicione uma atividade InvokeProcess ao final da nova sequência.
-      Essa atividade chama PowerShell.exe com os argumentos passados pela definição de compilação.
+   4. Se você estiver usando o TFS 2012 ou anterior, adicionar uma atividade de ConvertWorkspaceItem no início de saudação do hello nova sequência. Se você estiver usando o TFS 2013 ou posterior, adicione uma atividade de GetLocalPath no início de saudação da nova sequência de saudação. Para um ConvertWorkspaceItem, definir propriedades de saudação da seguinte maneira: direção = ServerToLocal, DisplayName = 'Converter a publicação de nome de arquivo de script', entrada = 'PublishScriptLocation', resultado = 'PublishScriptFilePath', espaço de trabalho = 'Espaço de trabalho'. Para uma atividade de GetLocalPath, defina Olá propriedade IncomingPath too'PublishScriptLocation', e Olá too'PublishScriptFilePath de resultado '. Este toohello de caminho hello atividade converte publicar script a partir de locais do servidor TFS (se aplicável) tooa caminho de disco local padrão.
+   5. Se você estiver usando o TFS 2012 ou anterior, adicione outra atividade de ConvertWorkspaceItem final Olá Olá nova sequência. Direction=ServerToLocal, DisplayName='Convert subscription filename', Input=' SubscriptionDataFileLocation', Result= 'SubscriptionDataFilePath', Workspace='Workspace'. Se estiver usando o TFS 2013 ou posterior, adicione outra atividade GetLocalPath. IncomingPath='SubscriptionDataFileLocation' e Result='SubscriptionDataFilePath.'
+   6. Adicionar uma atividade de InvokeProcess final Olá Olá nova sequência.
+      Essa chamadas de atividade PowerShell.exe com argumentos Olá passado por Olá definição de compilação.
 
       + Arguments = String.Format(" -File ""{0}"" -serviceName {1}  -storageAccountName {2} -packageLocation ""{3}""  -cloudConfigLocation ""{4}"" -subscriptionDataFile ""{5}""  -selectedSubscription {6} -environment ""{7}""",  PublishScriptFilePath, ServiceName, StorageAccountName,  PackageLocation, CloudConfigLocation,  SubscriptionDataFilePath, SubscriptionName, Environment)
       + DisplayName = Execute publish script
-      + FileName = "PowerShell" (incluindo as aspas)
+      + FileName = "PowerShell" (incluir aspas Olá)
       + OutputEncoding=  System.Text.Encoding.GetEncoding(System.Globalization.CultureInfo.InstalledUICulture.TextInfo.OEMCodePage)
-   7. Na caixa de texto da seção **Gerenciar Saída Padrão** de InvokeProcess, defina o valor da caixa de texto como “ data”. Essa é uma variável para armazenar os dados de saída padrão.
-   8. Adicione uma atividade WriteBuildMessage logo abaixo da seção de **Gerenciar Saída Padrão** . Defina a importância ='Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High'e a mensagem = 'dados'. Isso garante que a saída padrão do script será gravada na saída de compilação.
-   9. Na caixa de texto da seção **Gerenciar Erro de Saída** de InvokeProcess, defina o valor da caixa de texto como “data”. Essa é uma variável para armazenar os dados de erro padrão.
-   10. Adicione uma atividade WriteBuildError pouco abaixo da seção **Gerenciar Erro de Saída** . Defina a mensagem = 'dados'. Isso garante que os erros padrões do script serão gravados na saída do erro de compilação.
-   11. Corrija quaisquer erros, indicados por sinais de exclamação azuis. Passe o mouse sobre os pontos de exclamação para ver informações sobre o erro. Salve o fluxo de trabalho para limpar os erros.
+   7. Em Olá **tratar saída padrão** seção o InvokeProcess de texto, defina too'data de valor de caixa de texto de saudação '. Este é um dados de saída padrão de saudação toostore variável.
+   8. Adicionar uma atividade WriteBuildMessage logo abaixo Olá **tratar saída padrão** seção. Definir Olá importância = 'Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High' e mensagem de saudação = 'data'. Isso garante que a saída padrão de saudação do script será gravada toohello saída da compilação.
+   9. Em Olá **tratar a saída de erro** seção o InvokeProcess de texto, defina too'data de valor de caixa de texto de saudação '. Este é um toostore variável de dados de erro padrão de saudação.
+   10. Adicionar uma atividade WriteBuildError logo abaixo Olá **tratar a saída de erro** seção. Defina a mensagem de saudação = 'data'. Isso garante que erros de padrão de saudação do script hello serão gravados toohello saída de erro de compilação.
+   11. Corrija quaisquer erros, indicados por sinais de exclamação azuis. Passe o mouse sobre o pontos de exclamação tooget uma dica sobre o erro de saudação. Salve fluxo de trabalho de saudação para limpar os erros.
 
-   O resultado final das atividades de fluxo de trabalho de publicação terá a seguinte aparência no designer:
+   resultado final Olá Olá publicar atividades terá esta aparência no designer de saudação do fluxo de trabalho:
 
    ![Atividades do fluxo de trabalho][5]
 
-   O resultado final das atividades de fluxo de trabalho de publicação terá a seguinte aparência neste XAML:
+   resultado final Olá Olá publicar atividades terá esta aparência em XAML de fluxo de trabalho:
 
        <If Condition="[Not String.IsNullOrEmpty(PublishScriptLocation)]" sap2010:WorkflowViewState.IdRef="If_1">
            <If.Then>
@@ -292,22 +292,22 @@ Esta etapa opcional conecta o TFS Team Build ao script criado na etapa 4, que ma
            </If.Then>
          </If>
        </Sequence>
-8. Salve o fluxo de trabalho do modelo de processo de compilação e o faça check-in deste arquivo.
-9. Edite a definição de compilação (feche-a se já estiver aberta), e selecione o botão **Novo** se não quiser ver o novo modelo na lista de Modelos de Processo.
-10. Defina os valores da propriedade do parâmetro na seção Vários como segue:
+8. Salve fluxo de trabalho modelo processo de compilação de saudação e Check-In deste arquivo.
+9. Editar definição de compilação da saudação (fechá-lo se ele já estiver aberto) e selecione hello **novo** botão se você ainda não ver Olá novo modelo na lista de saudação de modelos de processo.
+10. Defina valores de propriedade de parâmetro de saudação em Olá Misc seção da seguinte maneira:
 
     1. CloudConfigLocation ='c:\\drops\\app.publish\\ServiceConfiguration.Cloud.cscfg' *Esse valor é derivado de: ($PublishDir)ServiceConfiguration.Cloud.cscfg*
     2. PackageLocation = 'c:\\drops\\app.publish\\ContactManager.Azure.cspkg' *Esse valor é derivado de: ($PublishDir)($ProjectName).cspkg*
     3. PublishScriptLocation = 'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'
-    4. ServiceName = 'mycloudservicename' *Use o nome de serviço de nuvem apropriado aqui*
+    4. ServiceName = 'mycloudservicename' *a nome de serviço de nuvem apropriado de saudação de uso aqui*
     5. Ambiente = 'Teste'
-    6. StorageAccountName = 'mystorageaccountname' *Use o nome da conta de armazenamento adequado aqui*
+    6. StorageAccountName = 'mystorageaccountname' *a nome de conta de armazenamento apropriado de saudação de uso aqui*
     7. SubscriptionDataFileLocation = 'c:\\scripts\\WindowsAzure\\Subscription.xml'
     8. SubscriptionName = 'padrão'
 
     ![Valores de propriedade do parâmetro][6]
-11. Salve as alterações para a Definição de Compilação.
-12. Coloque uma compilação em fila para executar a compilação do pacote e publicar. Se você tiver um gatilho definido para Integração Contínua, você vai executar esse comportamento em cada check-in.
+11. Salve alterações de saudação toohello definição de compilação.
+12. Fila tooexecute uma compilação ambos Olá compilação do pacote e publicação. Se você tiver um gatilho definido tooContinuous integração, você executará esse comportamento em cada check-in.
 
 ### <a name="publishcloudserviceps1-script-template"></a>Modelo de script PublishCloudService.ps1
 ```
@@ -316,7 +316,7 @@ Param(  $serviceName = "",
         $packageLocation = "",
         $cloudConfigLocation = "",
         $environment = "Staging",
-        $deploymentLabel = "ContinuousDeploy to $servicename",
+        $deploymentLabel = "ContinuousDeploy too$servicename",
         $timeStampFormat = "g",
         $alwaysDeleteExistingDeployments = 1,
         $enableDeploymentUpgrade = 1,
@@ -332,7 +332,7 @@ function Publish()
     {
         Write-Output "$(Get-Date -f $timeStampFormat) - No deployment is detected. Creating a new deployment. "
     }
-    #check for existing deployment and then either upgrade, delete + deploy, or cancel according to $alwaysDeleteExistingDeployments and $enableDeploymentUpgrade boolean variables
+    #check for existing deployment and then either upgrade, delete + deploy, or cancel according too$alwaysDeleteExistingDeployments and $enableDeploymentUpgrade boolean variables
     if ($deployment.Name -ne $null)
     {
         switch ($alwaysDeleteExistingDeployments)
@@ -499,7 +499,7 @@ $subscriptionname = $subscription.subscriptionname
 $subscriptionid = $subscription.subscriptionid
 $slot = $environment
 
-#main driver - publish & write progress to activity log
+#main driver - publish & write progress tooactivity log
 Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy script started."
 Write-Output "$(Get-Date -f $timeStampFormat) - Preparing deployment of $deploymentLabel for $subscriptionname with Subscription ID $subscriptionid."
 
@@ -513,7 +513,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para habilitar a depuração remota ao usar a entrega contínua, consulte [Habilitar a depuração remota ao usar a entrega contínua para publicar no Azure](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md).
+depuração remota tooenable ao usar a entrega contínua, consulte [habilitar a depuração remota ao usar a entrega contínua toopublish tooAzure](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md).
 
 [Team Foundation Build Service]: https://msdn.microsoft.com/library/ee259687.aspx
 [.NET Framework 4]: https://www.microsoft.com/download/details.aspx?id=17851
@@ -522,7 +522,7 @@ Para habilitar a depuração remota ao usar a entrega contínua, consulte [Habil
 [Scale out your build system]: https://msdn.microsoft.com/library/dd793166.aspx
 [Deploy and configure a build server]: https://msdn.microsoft.com/library/ms181712.aspx
 [Azure PowerShell cmdlets]: /powershell/azureps-cmdlets-docs
-[the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
+[hello .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
 [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01bc.png
 [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
 [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png

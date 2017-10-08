@@ -1,6 +1,6 @@
 ---
-title: "Exibindo logs de diagnóstico do Azure Data Lake Store| Microsoft Docs"
-description: "Entenda como configurar e acessar os logs de diagnóstico do Azure Data Lake Store  "
+title: "logs de diagnóstico aaaViewing para repositório Azure Data Lake | Microsoft Docs"
+description: "Entender como toosetup e acessar logs de diagnóstico para o repositório Azure Data Lake "
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -14,83 +14,83 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/10/2017
 ms.author: nitinme
-ms.openlocfilehash: b7a38ec445ef0ce13f3f1931e8ee246dce6412a5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 11fbf7f517f97abdcaf809c1ebeeb51424ab2c1c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Acessando os logs de diagnóstico do Azure Data Lake Store
-Saiba mais sobre como habilitar o log de diagnóstico em sua conta do Data Lake Store e como exibir os logs coletados em sua conta.
+Saiba mais sobre como tooenable log de diagnóstico para sua conta do repositório Data Lake e como tooview Olá logs coletados para sua conta.
 
-As organizações podem habilitar o log de diagnóstico para que suas contas do Azure Data Lake Store coletem trilhas de auditoria de acesso a dados que forneçam informações, como a lista de usuários que acessam os dados, a frequência que os dados são acessados, a quantidade de dados armazenados na conta, etc.
+As organizações podem habilitar o log de diagnóstico para seu repositório Azure Data Lake conta toocollect dados acesso trilhas de auditoria que fornece informações como a lista de usuários que acessam dados hello, frequência dados saudação são acessados, a quantidade de dados é armazenado no Olá conta, etc.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Conta do Repositório Azure Data Lake**. Siga as instruções em [Introdução ao Repositório Azure Data Lake usando o Portal do Azure](data-lake-store-get-started-portal.md).
+* **Conta do Repositório Azure Data Lake**. Siga as instruções de saudação em [Introdução ao repositório Azure Data Lake usando hello Azure Portal](data-lake-store-get-started-portal.md).
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Habilitar o log de diagnóstico em sua conta do Data Lake Store
-1. Entre no novo [Portal do Azure](https://portal.azure.com).
+1. Logon toohello novo [Portal do Azure](https://portal.azure.com).
 2. Abra sua conta Data Lake Store e na folha da conta Data Lake Store, clique em **Configurações**, em seguida, clique em **Logs de diagnóstico**.
-3. No **os logs de diagnóstico** folha, clique em **Ativar diagnóstico**.
+3. Em Olá **logs de diagnóstico** folha, clique em **Ativar diagnóstico**.
 
     ![Habilitar o log de diagnóstico](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "habilitar logs de diagnóstico")
 
-3. Na folha **Diagnóstico** , faça as seguintes alterações para configurar o log de diagnóstico.
+3. Em Olá **diagnóstico** folha, fazer Olá alterações tooconfigure log de diagnóstico a seguir.
    
     ![Habilitar o log de diagnóstico](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "habilitar logs de diagnóstico")
    
-   * Defina **Status** para **Ativado** para habilitar o log de diagnóstico.
-   * Você pode optar por armazenar/processar os dados de maneiras diferentes.
+   * Definir **Status** muito**na** tooenable log de diagnóstico.
+   * Você pode escolher dados toostore/processo saudação de maneiras diferentes.
      
-        * Selecione a opção **Arquivar em uma conta de armazenamento** para armazenar os logs em uma conta de armazenamento do Azure. Use esta opção se quiser arquivar os dados que serão processados em lote em uma data posterior. Se escolher esta opção, você deverá fornecer uma conta de armazenamento do Azure para salvar os logs.
+        * Selecione a opção de saudação muito**tooa conta de armazenamento de arquivos** toostore logs tooan conta de armazenamento do Azure. Você usar essa opção se você quiser tooarchive Olá dados que serão processadas em lote em uma data posterior. Se você selecionar essa opção deve fornecer uma conta de armazenamento do Azure logs Olá toosave.
         
-        * Selecione a opção **Transmitir pra um hub de eventos** para transmitir os dados de log para um Hub de Eventos do Azure. Provavelmente, você usará esta opção se tiver um pipeline de processamento de downstream para analisar os logs de entrada em tempo real. Se escolher esta opção, você deverá fornecer os detalhes no Hub de Eventos do Azure que deseja usar.
+        * Selecione a opção de saudação muito**hub de eventos do fluxo tooan** tooan de dados de log toostream Hub de eventos do Azure. Provavelmente você usará essa opção se você tiver um processamento downstream pipeline tooanalyze logs de entrada em tempo real. Se você selecionar essa opção, você deve fornecer detalhes de saudação para Olá Hub de eventos do Azure você deseja toouse.
 
-        * Selecione a opção de **enviar para Log Analytics** para usar o serviço do Azure Log Analytics para analisar os dados de log gerado. Se você selecionar essa opção, você deve fornecer os detalhes para o espaço de trabalho do Operations Management Suite que você usaria a análise de log de executar.
+        * Selecione a opção de saudação muito**enviar tooLog análise** toouse Olá dados de log do Azure Log Analytics serviço tooanalyze Olá gerado. Se você selecionar essa opção, você deve fornecer Olá detalhes para o espaço de trabalho do hello Operations Management Suite que você use Olá executaria análise de log.
      
-   * Especifique se deseja obter os logs de auditoria, os logs de solicitação ou ambos.
-   * Especifique o número de dias que os dados devem ser mantidos. Retenção só é aplicável se você estiver usando a conta de armazenamento do Azure para arquivar dados de log.
+   * Especifique se deseja que os logs de auditoria tooget ou logs de solicitação ou ambos.
+   * Especifique o número de saudação de dias para o qual os dados de saudação devem ser mantidos. Retenção só é aplicável se você estiver usando dados de log de tooarchive de conta de armazenamento do Azure.
    * Clique em **Salvar**.
 
-Depois de habilitar as configurações de diagnóstico, você poderá observar os logs na guia **Logs de Diagnóstico** .
+Depois que você habilitou as configurações de diagnóstico, você pode assistir Olá registra no hello **Logs de diagnóstico** guia.
 
 ## <a name="view-diagnostic-logs-for-your-data-lake-store-account"></a>Veja os logs de diagnóstico em sua conta do Data Lake Store
-Há duas maneiras de exibir os dados do log da sua conta no Data Lake Store.
+Há duas maneiras de dados de log de saudação tooview para sua conta do repositório Data Lake.
 
-* Na exibição de configurações da conta do Data Lake Store
-* Na conta de Armazenamento do Azure onde os dados são armazenados
+* Na conta do repositório Data Lake Olá exibir configurações
+* Da conta de armazenamento do Azure Olá onde são armazenados dados Olá
 
-### <a name="using-the-data-lake-store-settings-view"></a>Usando a exibição de configurações do Data Lake Store
+### <a name="using-hello-data-lake-store-settings-view"></a>Exibir usando Olá de configurações de armazenamento do Data Lake
 1. Na folha **Configurações** da conta Data Lake Store, clique em **Logs de Diagnóstico**.
    
-    ![Log de diagnóstico de exibição](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "exibir logs de diagnóstico") 
-2. Na folha **Logs de Diagnóstico**, você deve ver os logs categorizados por **Logs de Auditoria** e **Logs de Solicitação**.
+    ![Exibir logs de diagnóstico](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "Exibir logs de diagnóstico") 
+2. Em Olá **Logs de diagnóstico** folha, você deve ver logs Olá categorizadas por **os Logs de auditoria** e **os Logs de solicitação**.
    
-   * Os Logs de Solicitação capturam todas as solicitações de API feitas na conta do Data Lake Store.
-   * Os Logs de Auditoria são semelhantes aos Logs de Solicitação, mas fornecem uma análise mais detalhada das operações que estão sendo executadas na conta do Data Lake Store. Por exemplo, uma única chamada à API de upload nos logs de solicitação poderá resultar em várias operações do tipo "Anexar" nos logs de auditoria.
-3. Clique no link **Download** em cada entrada de log para baixar os logs.
+   * Logs de solicitação de captura todas as solicitações de API feitas na conta do repositório Data Lake do hello.
+   * Logs de auditoria são os Logs de toorequest semelhantes, mas fornecem uma análise mais detalhada das operações de saudação que está sendo executada na conta do repositório Data Lake hello. Por exemplo, uma chamada à API único carregamento nos logs de solicitação pode resultar em várias operações de "Append" hello logs de auditoria.
+3. Clique em Olá **baixar** link em cada entrada toodownload Olá registros de log.
 
-### <a name="from-the-azure-storage-account-that-contains-log-data"></a>Na conta de Armazenamento do Azure que contém dados de log
-1. Abra a folha Conta de armazenamento do Azure associada ao Data Lake Store para registro em log e clique em Blobs. A folha **serviço Blob** lista dois contêineres.
+### <a name="from-hello-azure-storage-account-that-contains-log-data"></a>De saudação conta de armazenamento do Azure que contém dados de log
+1. Abra a folha de conta de armazenamento do Azure Olá associada a repositório Data Lake para registro em log e, em seguida, clique em Blobs. Olá **do serviço Blob** folha lista dois contêineres.
    
     ![Exibir logs de diagnóstico](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Exibir logs de diagnóstico")
    
-   * O contêiner **insights-logs-audit** contém os logs de auditoria.
-   * O contêiner **insights-logs-requests** contém os logs de solicitação.
-2. Dentro desses contêineres, os logs são armazenados na estrutura a seguir.
+   * contêiner de saudação **insights de logs de auditoria** contém logs de auditoria de saudação.
+   * contêiner de saudação **insights de logs de solicitações** contém logs de solicitação de saudação.
+2. Dentro desses contêineres, Olá logs são armazenados em Olá estrutura a seguir.
    
-    ![Log de diagnóstico de exibição](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "exibir logs de diagnóstico")
+    ![Exibir logs de diagnóstico](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "Exibir logs de diagnóstico")
    
-    Por exemplo, o caminho completo para um log de auditoria poderia ser `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
+    Como exemplo, o log de auditoria de tooan Olá caminho completo pode ser`https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
    
-    De modo semelhante, o caminho completo para um log de solicitação poderia ser `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
+    Da mesma forma, seria o log de solicitações de tooa Olá caminho completo`https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
 
-## <a name="understand-the-structure-of-the-log-data"></a>Compreenda a estrutura dos dados de log
-Os logs de auditoria e solicitação estão em formato JSON. Nesta seção, examinaremos a estrutura do JSON nos logs de solicitação e auditoria.
+## <a name="understand-hello-structure-of-hello-log-data"></a>Entender a estrutura Olá Olá dos dados de log
+Olá logs de auditoria e de solicitação estão em um formato JSON. Nesta seção, vamos examinar a estrutura de saudação do JSON para a solicitação e logs de auditoria.
 
 ### <a name="request-logs"></a>Logs de Solicitação
-Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada blob tem um objeto-raiz chamado **registros** que contém uma matriz de objetos do log.
+Aqui está um exemplo de entrada no log de solicitação formatada em JSON hello. Cada blob tem um objeto-raiz chamado **registros** que contém uma matriz de objetos do log.
 
     {
     "records": 
@@ -116,28 +116,28 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 #### <a name="request-log-schema"></a>Esquema do log de solicitação
 | Name | Tipo | Descrição |
 | --- | --- | --- |
-| tempo real |Cadeia de caracteres |O carimbo de data/hora (em UTC) do log |
-| resourceId |Cadeia de caracteres |A ID do recurso em que a operação ocorreu |
-| categoria |Cadeia de caracteres |A categoria do log. Por exemplo, **Solicitações**. |
-| operationName |Cadeia de caracteres |Nome da operação que está registrada. Por exemplo, getfilestatus. |
-| resultType |Cadeia de caracteres |O status da operação, por exemplo, 200. |
-| callerIpAddress |Cadeia de caracteres |O endereço IP do cliente que está fazendo a solicitação |
-| correlationId |Cadeia de caracteres |A ID do log que pode ser usada para agrupar um conjunto de entradas de log relacionadas |
-| identidade |Objeto |A identidade que gerou o log |
+| tempo real |Cadeia de caracteres |Olá carimbo de hora (UTC) do log de saudação |
+| resourceId |Cadeia de caracteres |ID de saudação do recurso de saudação que levou operação colocar em |
+| categoria |Cadeia de caracteres |categoria do log de saudação. Por exemplo, **Solicitações**. |
+| operationName |Cadeia de caracteres |Nome da operação de saudação que é registrada. Por exemplo, getfilestatus. |
+| resultType |Cadeia de caracteres |status de saudação da operação de hello, por exemplo, 200. |
+| callerIpAddress |Cadeia de caracteres |endereço IP de saudação do cliente de saudação fazer solicitação Olá |
+| correlationId |Cadeia de caracteres |id de saudação do log de saudação que podem usados toogroup juntos um conjunto de entradas de log relacionadas |
+| identidade |Objeto |identidade de saudação que gerou o log de saudação |
 | propriedades |JSON |Confira abaixo para obter os detalhes |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propriedades do log de solicitação
 | Name | Tipo | Descrição |
 | --- | --- | --- |
-| HttpMethod |Cadeia de caracteres |O método HTTP usado para a operação. Por exemplo, GET. |
-| Caminho |Cadeia de caracteres |O caminho em que a operação foi executada |
-| RequestContentLength |int |O comprimento do conteúdo da solicitação HTTP |
-| ClientRequestId |Cadeia de caracteres |A ID que identifica esta solicitação exclusivamente |
-| StartTime |Cadeia de caracteres |A hora em que o servidor recebeu a solicitação |
-| EndTime |Cadeia de caracteres |A hora em que o servidor enviou uma resposta |
+| HttpMethod |Cadeia de caracteres |Olá método HTTP usado para operação de saudação. Por exemplo, GET. |
+| Caminho |Cadeia de caracteres |Olá caminho Olá operação foi executada em |
+| RequestContentLength |int |comprimento do conteúdo da solicitação HTTP de saudação Olá |
+| ClientRequestId |Cadeia de caracteres |Olá Id que identifica exclusivamente esta solicitação |
+| StartTime |Cadeia de caracteres |tempo de saudação na qual solicitação de Olá Olá recebido do servidor |
+| EndTime |Cadeia de caracteres |tempo de saudação no qual Olá servidor enviou uma resposta |
 
 ### <a name="audit-logs"></a>Logs de auditoria
-Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blob tem um objeto-raiz chamado **registros** que contém uma matriz de objetos do log
+Aqui está um exemplo de entrada no log de auditoria formatada em JSON hello. Cada blob tem um objeto-raiz chamado **registros** que contém uma matriz de objetos do log
 
     {
     "records": 
@@ -162,24 +162,24 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 #### <a name="audit-log-schema"></a>Esquema do log de auditoria
 | Name | Tipo | Descrição |
 | --- | --- | --- |
-| tempo real |Cadeia de caracteres |O carimbo de data/hora (em UTC) do log |
-| resourceId |Cadeia de caracteres |A ID do recurso em que a operação ocorreu |
-| categoria |Cadeia de caracteres |A categoria do log. Por exemplo, **Auditoria**. |
-| operationName |Cadeia de caracteres |Nome da operação que está registrada. Por exemplo, getfilestatus. |
-| resultType |Cadeia de caracteres |O status da operação, por exemplo, 200. |
-| correlationId |Cadeia de caracteres |A ID do log que pode ser usada para agrupar um conjunto de entradas de log relacionadas |
-| identidade |Objeto |A identidade que gerou o log |
+| tempo real |Cadeia de caracteres |Olá carimbo de hora (UTC) do log de saudação |
+| resourceId |Cadeia de caracteres |ID de saudação do recurso de saudação que levou operação colocar em |
+| categoria |Cadeia de caracteres |categoria do log de saudação. Por exemplo, **Auditoria**. |
+| operationName |Cadeia de caracteres |Nome da operação de saudação que é registrada. Por exemplo, getfilestatus. |
+| resultType |Cadeia de caracteres |status de saudação da operação de hello, por exemplo, 200. |
+| correlationId |Cadeia de caracteres |id de saudação do log de saudação que podem usados toogroup juntos um conjunto de entradas de log relacionadas |
+| identidade |Objeto |identidade de saudação que gerou o log de saudação |
 | propriedades |JSON |Confira abaixo para obter os detalhes |
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades do log de auditoria
 | Name | Tipo | Descrição |
 | --- | --- | --- |
-| StreamName |Cadeia de caracteres |O caminho em que a operação foi executada |
+| StreamName |Cadeia de caracteres |Olá caminho Olá operação foi executada em |
 
-## <a name="samples-to-process-the-log-data"></a>Exemplos para processar os dados do log
-O Azure Data Lake Store fornece um exemplo sobre como processar e analisar os dados do log. Você pode encontrar o exemplo em [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
+## <a name="samples-tooprocess-hello-log-data"></a>Dados de log exemplos tooprocess Olá
+Repositório Azure Data Lake fornece um exemplo sobre como tooprocess e analisar dados de log hello. Você pode encontrar o exemplo hello em [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Visão geral do repositório Azure Data Lake](data-lake-store-overview.md)
 * [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
 

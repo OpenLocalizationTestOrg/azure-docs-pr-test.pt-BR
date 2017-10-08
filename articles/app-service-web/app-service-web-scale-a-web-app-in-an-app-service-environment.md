@@ -1,5 +1,5 @@
 ---
-title: "Como escalar um aplicativo em um Ambiente do Serviço de Aplicativo"
+title: "aaaHow tooScale um aplicativo em um ambiente de serviço de aplicativo"
 description: "Escalando um aplicativo em um Ambiente do Serviço de Aplicativo"
 services: app-service
 documentationcenter: 
@@ -14,59 +14,59 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
-ms.openlocfilehash: 240c2486c23b7cd84e2471bf5b2170e08ee1f150
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 08916eac056c46bf8cb6edffbf96285317b32062
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>Escalando aplicativos em um Ambiente do Serviço de Aplicativo
-No Serviço de Aplicativo do Azure normalmente há três itens que você pode dimensionar:
+Saudação do serviço de aplicativo do Azure há normalmente três itens, que você pode dimensionar:
 
 * plano de preços
 * tamanho do trabalho 
 * número de instâncias.
 
-Em um ASE não é necessário selecionar ou alterar o plano de preços.  Em termos de recursos, ele já está no nível de recurso de preços Premium.  
+Em uma ASE, não há nenhuma necessidade tooselect ou alterar Olá preços do plano.  Em termos de recursos, ele já está no nível de recurso de preços Premium.  
 
-Com relação aos tamanhos de trabalho, o administrador do ASE pode atribuir o tamanho do recurso de computação a ser usado para cada pool de trabalho.  Isso significa que você pode ter o Pool de Trabalhadores 1 com recursos de computação P4 e o Pool de Trabalhadores 2 com recursos de computação P1, se desejado.  Eles não precisam estar em ordem de tamanho.  Para obter detalhes sobre os tamanhos e seus preços, confira o documento aqui [Preços do Serviço de Aplicativo do Azure][AppServicePricing].  Isso deixa as opções de dimensionamento para aplicativos Web e Planos do Serviço de Aplicativo em um Ambiente do Serviço de Aplicativo sendo:
+Com respeito tooworker tamanhos, Olá ASE administrador pode atribuir o tamanho de saudação do hello toobe de recursos de computação usada para cada pool de trabalho.  Isso significa que você pode ter o Pool de Trabalhadores 1 com recursos de computação P4 e o Pool de Trabalhadores 2 com recursos de computação P1, se desejado.  Eles não têm toobe na ordem de tamanho.  Para obter detalhes sobre tamanhos de saudação e seus preços documento hello aqui, consulte [preços de serviço de aplicativo do Azure][AppServicePricing].  Isso deixa Olá opções de dimensionamento para aplicativos web e planos de serviço de aplicativo em um ambiente de serviço de aplicativo toobe:
 
 * seleção do pool de trabalhadores
 * número de instâncias
 
-A alteração de qualquer um dos itens é feita por meio da interface do usuário apropriada mostrada para os seus Planos do Serviço de Aplicativo hospedados no ASE.  
+Alterar o item é feito por meio de saudação apropriado de interface de usuário para seu ASE hospedado planos de serviço de aplicativo.  
 
 ![][1]
 
-Você não pode escalar verticalmente seu ASP além do número de recursos de computação disponíveis no pool de trabalho em que o ASP está localizado.  Se precisar de recursos de computação no pool de trabalho, providencie para que o administrador do ASE os adicione.  Para obter informações sobre a reconfiguração de seu ASE, leia as informações fornecidas aqui: [Como configurar um ambiente do Serviço de Aplicativo][HowtoConfigureASE].  Também convém aproveitar os recursos de autoescala do ASE para adicionar capacidade com base no agendamento ou em métricas.  Para obter mais detalhes sobre como configurar a autoescala para o ambiente ASE propriamente dito, confira [Como configurar a autoescala para um Ambiente do Serviço de Aplicativo][ASEAutoscale].
+Você não pode expandir o ASP além do número de saudação de recursos de computação disponíveis no pool do trabalhador Olá que o ASP está em.  Se você precisar de recursos nesse pool de trabalho de computação precisa tooget seu tooadd de administrador ASE-los.  Para obter informações em torno de reconfiguração seu ASE Leia informações Olá aqui: [como um ambiente de serviço de aplicativo de tooConfigure][HowtoConfigureASE].  Também convém tootake aproveitar Olá com base em agendamento ou métricas de capacidade de tooadd ASE AutoEscala recursos.  tooget para ver mais detalhes sobre como configurar o dimensionamento automático para o ambiente de saudação ASE próprio [como tooconfigure AutoEscala para um ambiente de serviço de aplicativo][ASEAutoscale].
 
-Você pode criar vários planos de serviço de aplicativo usando recursos de computação de pools de trabalho diferentes, ou pode usar o mesmo pool de trabalho.  Por exemplo, se tiver (10) recursos de computação disponíveis no Pool de trabalho 1, você poderá optar por criar um plano de serviço de aplicativo que usa (6) recursos de computação e um segundo plano de serviço de aplicativo que usa (4) recursos de computação.
+Você pode criar aplicativos de vários planos de serviço usando os recursos de computação de pools de trabalho diferente, ou você pode usar Olá mesmo pool de trabalho.  Por exemplo, se você tiver recursos de computação disponíveis (10) no trabalho Pool 1, você pode escolher o plano de serviço de um aplicativo toocreate usando os recursos de computação (6) e um serviço de aplicativo de segundo plano que usa os recursos de computação (4).
 
-### <a name="scaling-the-number-of-instances"></a>Dimensionando o número de instâncias
-Quando você cria seu aplicativo Web em um Ambiente do Serviço de Aplicativo, ele começa com uma instância.  Em seguida, você pode escalar horizontalmente para mais instâncias a fim de fornecer recursos de computação adicionais para seu aplicativo.   
+### <a name="scaling-hello-number-of-instances"></a>Escalonar Olá número de instâncias
+Quando você cria seu aplicativo Web em um Ambiente do Serviço de Aplicativo, ele começa com uma instância.  Você pode expandir tooadditional tooprovide de instâncias adicional de computação recursos para seu aplicativo.   
 
-Se seu ASE tiver capacidade suficiente, isso é muito simples.  Acesse seu Plano do Serviço de Aplicativo que contém os sites que você deseja escalar verticalmente e selecione Escala.  Isso abre a interface do usuário em que você pode definir manualmente a escala para o ASP ou configurar as regras de autoescala para ele.  Para escalar manualmente seu aplicativo, basta definir ***Escalar por*** como ***uma contagem de instância inserida manualmente***.  Daqui, arraste o controle deslizante para a quantidade desejada ou insira-a na caixa ao lado do controle deslizante.  
+Se seu ASE tiver capacidade suficiente, isso é muito simples.  Você vai tooyour plano de serviço aplicativo que contém sites Olá você deseja tooscale backup e selecione a escala.  Isso abre a saudação da interface do usuário em que você pode definir escala Olá para o ASP ou configurar regras de dimensionamento automático para o ASP manualmente.  seu aplicativo simplesmente conjunto de escalas de toomanually ***o dimensionamento por*** muito***uma contagem de instâncias que inseri manualmente***.  Daqui arraste quantity do hello controle deslizante toohello desejado ou insira Olá caixa próxima toohello controle deslizante.  
 
 ![][2] 
 
-As regras de autoescala para um ASP em um ASE funcionam da mesma forma que em uma condição normal.  É possível selecionar ***Percentual de CPU*** em ***Escalar por*** e criar regras de autoescala para o ASP com base no percentual de CPU ou criar regras mais complexas usando ***regras de agendamento e desempenho***.  Para ver detalhes mais completos sobre como configurar a autoescala, use o guia [Escalar um aplicativo no Serviço de Aplicativo do Azure][AppScale]. 
+regras de AutoEscala Olá para um ASP em um trabalho ASE Olá mesmo que eles normalmente.  É possível selecionar ***Percentual de CPU*** em ***Escalar por*** e criar regras de autoescala para o ASP com base no percentual de CPU ou criar regras mais complexas usando ***regras de agendamento e desempenho***.  toosee concluir mais detalhes sobre como configurar o guia de saudação de uso de dimensionamento automático aqui [dimensionar um aplicativo de serviço de aplicativo do Azure][AppScale]. 
 
 ### <a name="worker-pool-selection"></a>seleção do pool de trabalhadores
-Como observamos anteriormente, a seleção do pool de trabalho é acessada da interface do usuário do ASP.  Abra a folha do ASP que deseja escalar e selecione o pool de trabalho.  Você verá todos os pools de trabalhadores que configurou no seu Ambiente do Serviço de Aplicativo.  Se você tiver somente um pool de trabalhadores, verá somente o pool listado.  Para alterar a localização de pool de trabalho do ASP, basta selecionar o pool de trabalho para o qual deseja mover seu Plano do Serviço de Aplicativo.  
+Conforme observado anteriormente, seleção de pool do trabalhador Olá é acessada de saudação ASP da interface do usuário.  Abra a folha de saudação para Olá ASP que você deseja tooscale e selecione o pool de trabalho.  Você verá todos os pools de trabalhadores Olá que você configurou em seu ambiente de serviço de aplicativo.  Se você tiver somente um trabalhador pool, em seguida, você só verá um pool de saudação listado.  toochange o ASP do pool que trabalho está em, basta selecionar pool de trabalho Olá você deseja que seu toomove plano do serviço de aplicativo para.  
 
 ![][3]
 
-Antes de mover seu ASP de um pool de trabalho para outro, é importante se certificar de que você terá a capacidade adequada para o ASP.  Na lista de pools de trabalhadores, não apenas o nome do pool de trabalhadores está listado, mas você também pode ver quantos trabalhadores estão disponíveis nesse pool de trabalhadores.  Certifique-se de que há instâncias suficientes disponíveis para conter o seu Plano do Serviço de Aplicativo.  Se precisar de mais recursos de computação no pool de trabalhadores para o qual deseja mover, providencie para que o administrador do seu ASE os adicione.  
+Antes de mover o ASP do trabalho de um pool tooanother é importante toomake-se de que você terá a capacidade adequada para o ASP.  Na lista de saudação de pools de trabalho, não só é o nome do pool de trabalho Olá listado, mas você também pode ver quantos operadores estão disponíveis nesse pool de trabalho.  Certifique-se de que há suficiente toocontain de instâncias disponíveis seu plano de serviço de aplicativo.  Se você precisa de mais recursos de computação no pool do trabalhador Olá desejar toomove para, em seguida, obter seu tooadd de administrador ASE-los.  
 
 > [!NOTE]
-> Mover um ASP de um pool de trabalho causará inicializações a frio dos aplicativos nesse ASP.  Isso pode fazer com que as solicitações sejam executadas lentamente enquanto o aplicativo é inicializado a frio nos novos recursos de computação.  A inicialização a frio pode ser evitada usando a [funcionalidade de aquecimento do aplicativo][AppWarmup] no Serviço de Aplicativo do Azure.  O módulo Inicialização de Aplicativos descrito neste artigo também funciona para inicializações a frio porque o processo de inicialização também é invocado quando aplicativos são inicializados a frio em novos recursos de computação. 
+> Mover um ASP do pool de um trabalho fará com que a frio inicia de saudação aplicativos em que o ASP.  Isso pode causar toorun de solicitações lenta como seu aplicativo está frio iniciado em novos recursos de computação hello.  Olá inicialização a frio pode ser evitada usando Olá [passiva, o recurso de aplicativo] [ AppWarmup] no serviço de aplicativo do Azure.  módulo de inicialização do aplicativo Hello descrito no artigo Olá também funciona para frios porque o processo de inicialização de saudação também é chamado quando os aplicativos estão frios iniciado em novos recursos de computação. 
 > 
 > 
 
 ## <a name="getting-started"></a>Introdução
-Para se familiarizar com os Ambientes do Serviço de Aplicativo, confira [Como criar um Ambiente do Serviço de Aplicativo][HowtoCreateASE]
+tooget iniciado com ambientes de serviço de aplicativo, consulte [como tooCreate um ambiente de serviço de aplicativo][HowtoCreateASE]
 
-Para saber mais sobre a plataforma de Serviço de Aplicativo do Azure, veja [Serviço de Aplicativo do Azure][AzureAppService].
+Para obter mais informações sobre a plataforma do serviço de aplicativo do Azure hello, consulte [do serviço de aplicativo do Azure][AzureAppService].
 
 <!--Image references-->
 [1]: ./media/app-service-web-scale-a-web-app-in-an-app-service-environment/aseappscale-aspblade.png

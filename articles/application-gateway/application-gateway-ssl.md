@@ -1,6 +1,6 @@
 ---
-title: "Configurar o descarregamento SSL - Gateway de Aplicativo do Azure - PowerShell clássico | Microsoft Docs"
-description: "Este artigo fornece instruções para criar um Application Gateway com descarregamento de protocolo SSL usando o modelo de implantação clássica do Azure."
+title: "aaaConfigure SSL descarregar clássico - Gateway de aplicativo do Azure - PowerShell | Microsoft Docs"
+description: "Este artigo fornece instruções toocreate descarregar um application gateway com SSL usando Olá modelo de implantação clássico do Azure."
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
-ms.openlocfilehash: 2eba6fb24c11add12ac16d04d3445e19a3486216
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 5cb128015747ed4b71802cf751c80b60634601a9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configurar um Application Gateway para o descarregamento SSL usando o modelo implantação clássico
+# <a name="configure-an-application-gateway-for-ssl-offload-by-using-hello-classic-deployment-model"></a>Configure um gateway de aplicativo para descarregamento SSL usando o modelo de implantação clássico Olá
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](application-gateway-ssl-portal.md)
@@ -28,34 +28,34 @@ ms.lasthandoff: 08/18/2017
 > * [Azure Classic PowerShell](application-gateway-ssl.md)
 > * [CLI 2.0 do Azure](application-gateway-ssl-cli.md)
 
-O Gateway de Aplicativo do Azure pode ser configurado para encerrar a sessão SSL no gateway para evitar que a onerosa tarefa de descriptografia de SSL aconteça no web farm. O descarregamento SSL também simplifica a configuração do servidor front-end e o gerenciamento do aplicativo Web.
+Gateway de aplicativo do Azure pode ser configurado tooterminate Olá Secure Sockets Layer (SSL) sessão Olá gateway tooavoid cara SSL descriptografia tarefas toohappen no farm de web hello. Descarregamento SSL também simplifica a configuração de servidor front-end do hello e gerenciamento de aplicativo da web hello.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente da seção **Windows PowerShell** da [página Downloads](https://azure.microsoft.com/downloads/).
-2. Verifique se você tem uma rede virtual em funcionamento com uma sub-rede válida. Verifique se não há máquinas virtuais ou implantações em nuvem usando a sub-rede. O gateway de aplicativo deve estar sozinho em uma sub-rede de rede virtual.
-3. Os servidores que você configura para usar o gateway de aplicativo devem existir ou ter seus pontos de extremidade criados na rede virtual ou com um IP/VIP público atribuído.
+1. Instale a versão mais recente Olá Olá Azure de cmdlets do PowerShell usando Olá Web Platform Installer. Você pode baixar e instalar a versão mais recente de saudação do hello **do Windows PowerShell** seção Olá [página de Downloads](https://azure.microsoft.com/downloads/).
+2. Verifique se você tem uma rede virtual em funcionamento com uma sub-rede válida. Certifique-se de que não há máquinas ou implantações de nuvem usando sub-rede hello. gateway de aplicativo Hello deve ser sozinho em uma sub-rede de rede virtual.
+3. servidores de saudação que você configure o gateway de aplicativo hello toouse devem existir ou seus pontos de extremidade criados na rede virtual hello ou com um IP público/VIP atribuídos.
 
-Para configurar o descarregamento de SSL em um Application Gateway, execute as seguintes etapas na ordem listada:
+tooconfigure SSL descarregar em um gateway de aplicativo, Olá etapas na ordem Olá listados a seguir:
 
 1. [Criar um Application Gateway](#create-an-application-gateway)
 2. [Carregar certificados SSL](#upload-ssl-certificates)
-3. [Configurar o gateway](#configure-the-gateway)
-4. [Definir a configuração do gateway](#set-the-gateway-configuration)
-5. [Iniciar o gateway](#start-the-gateway)
-6. [Verificar o status do gateway](#verify-the-gateway-status)
+3. [Configurar o gateway de saudação](#configure-the-gateway)
+4. [Configuração de gateway de saudação do conjunto](#set-the-gateway-configuration)
+5. [Gateway de saudação inicial](#start-the-gateway)
+6. [Verificar status do gateway Olá](#verify-the-gateway-status)
 
-## <a name="create-an-application-gateway"></a>Criar um Application Gateway
+## <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
 
-Para criar o gateway, use o cmdlet `New-AzureApplicationGateway`, substituindo os valores pelos seus próprios. A cobrança pelo gateway não se inicia neste momento. A cobrança é iniciada em uma etapa posterior, quando o gateway é iniciado com êxito.
+gateway toocreate Olá Olá use `New-AzureApplicationGateway` cmdlet, substituindo os valores hello com seus próprios. Cobrança para o gateway de saudação não funciona neste momento. A cobrança começa em uma etapa posterior, quando o gateway Olá foi iniciado com êxito.
 
 ```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 ```
 
-Para validar esse gateway que foi criado, você pode usar o cmdlet `Get-AzureApplicationGateway`.
+toovalidate que Olá gateway foi criado, você pode usar o hello `Get-AzureApplicationGateway` cmdlet.
 
-No exemplo, *Description*, *InstanceCount* e *GatewaySize* são parâmetros opcionais. O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Medium. Small e Large são outros valore disponíveis. *VirtualIPs* e *DnsName* são mostrados em branco porque o gateway ainda não foi iniciado. Esses valores serão criados depois que o gateway estiver em estado de execução.
+No exemplo hello, *descrição*, *InstanceCount*, e *GatewaySize* são parâmetros opcionais. Olá valor padrão para *InstanceCount* é 2, com um valor máximo de 10. Olá valor padrão para *GatewaySize* é médio. Small e Large são outros valore disponíveis. *VirtualIPs* e *DnsName* são mostrados como em branco porque o gateway Olá ainda não foi iniciado. Esses valores são criados depois que o gateway de hello está em estado de execução de saudação.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -63,17 +63,17 @@ Get-AzureApplicationGateway AppGwTest
 
 ## <a name="upload-ssl-certificates"></a>Carregar certificados SSL
 
-Use `Add-AzureApplicationGatewaySslCertificate` para carregar o certificado do servidor no formato *pfx* para o gateway de aplicativo. O nome do certificado é um nome escolhido pelo usuário e deve ser exclusivo dentro do gateway de aplicativo. Esse certificado é conhecido por esse nome em todas as operações de gerenciamento de certificado no gateway de aplicativo.
+Use `Add-AzureApplicationGatewaySslCertificate` certificado do servidor de saudação tooupload no *pfx* gateway de formato de aplicativo toohello. nome do certificado Olá é um nome de usuário escolhido e deve ser exclusivo no gateway do aplicativo hello. Esse certificado é chamado tooby esse nome em todas as operações de gerenciamento de certificado no gateway do aplicativo hello.
 
-O exemplo a seguir mostra o cmdlet. Substitua os valores no exemplo pelos seus próprios.
+Este exemplo a seguir mostra o cmdlet hello, substitua valores de saudação no exemplo hello com seus próprios.
 
 ```powershell
-Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file>
+Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path toopfx file>
 ```
 
-Em seguida, valide o carregamento do certificado. Use o cmdlet `Get-AzureApplicationGatewayCertificate` .
+Em seguida, valide o carregamento do certificado hello. Saudação de uso `Get-AzureApplicationGatewayCertificate` cmdlet.
 
-Este exemplo mostra o cmdlet na primeira linha, seguido pela saída.
+Isso exemplo mostra Olá cmdlet na primeira linha de saudação, seguido de saída de hello.
 
 ```powershell
 Get-AzureApplicationGatewaySslCertificate AppGwTest
@@ -90,28 +90,28 @@ State..........: Provisioned
 ```
 
 > [!NOTE]
-> A senha do certificado deve ser entre 4 a 12 caracteres, letras ou números. Caracteres especiais não são aceitos.
+> senha do certificado Olá tem toobe entre 4 too12 caracteres, letras ou números. Caracteres especiais não são aceitos.
 
-## <a name="configure-the-gateway"></a>Configurar o gateway
+## <a name="configure-hello-gateway"></a>Configurar o gateway de saudação
 
-Uma configuração de gateway de aplicativo consiste em vários valores. Os valores podem ser vinculados para construir a configuração.
+Uma configuração de gateway de aplicativo consiste em vários valores. valores Hello podem ser restritos a configuração de saudação tooconstruct juntos.
 
-Os valores são:
+Olá valores são:
 
-* **Pool de servidores back-end:** a lista de endereços IP dos servidores back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP/VIP público.
-* **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
-* **Porta front-end:** essa porta é a porta pública aberta no gateway de aplicativo. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
-* **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS, esses valores diferenciam maiúsculas de minúsculas) e o nome do certificado SSL (caso esteja configurando o descarregamento SSL).
-* **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *basic* . A regra *básica* é a distribuição de carga round robin.
+* **Pool de servidores de back-end:** lista de saudação de endereços IP dos servidores de back-end de saudação. endereços IP Hello listado ou devem pertencer a sub-rede da rede virtual toohello ou devem ser um IP público/VIP.
+* **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são tooa empatado pool e são aplicados tooall servidores no pool de saudação.
+* **Porta de front-end:** essa porta é a porta pública de saudação que é aberta no gateway do aplicativo hello. Tráfego atinge essa porta e, em seguida, obtém redirecionado tooone de servidores de back-end de saudação.
+* **Ouvinte:** ouvinte Olá tem uma porta de front-end, um protocolo (Http ou Https, esses valores diferenciam maiusculas de minúsculas) e o nome do certificado SSL de saudação (se a configuração de SSL de descarregamento).
+* **Regra:** regra Olá associa ouvinte hello e pool de saudação do servidor de back-end e define o tráfego de saudação do pool de servidor back-end deve ser direcionado toowhen que ele atinja um ouvinte específico. Atualmente, apenas Olá *básica* regra tem suporte. Olá *básica* regra é a distribuição de carga de round-robin.
 
 **Observações adicionais sobre a configuração**
 
-Para a configuração de certificados SSL, o protocolo em **HttpListener** deve ser alterado para *Https* (diferencia maiúsculas de minúsculas). O elemento **SslCert** é adicionado a **HttpListener** com o valor definido para o mesmo nome usado no carregamento da seção de certificados SSL anterior. A porta front-end deve ser atualizada para 443.
+Para a configuração de certificados SSL, Olá protocolo em **HttpListener** devem alterar muito*Https* (com distinção entre maiusculas e minúsculas). Olá **SslCert** elemento é adicionado muito**HttpListener** com hello valor definido toohello mesmo nome como usado no carregamento de saudação das anteriores a seção de certificados SSL. porta de front-end Olá deve ser atualizado too443.
 
-**Para habilitar a afinidade baseada em cookie**: um gateway de aplicativo pode ser configurado para garantir que uma solicitação de uma sessão de cliente sempre seja direcionada para a mesma VM no web farm. Este cenário é concluído pela injeção de um cookie de sessão que permite que o gateway redirecione o tráfego corretamente. Para habilitar a afinidade baseada em cookie, defina **CookieBasedAffinity** como *Habilitado* no elemento **BackendHttpSettings**.
+**afinidade de baseada em cookie tooenable**: um application gateway pode ser configurado tooensure que uma solicitação de uma sessão de cliente é sempre toohello direcionado mesma VM no farm de web hello. Este cenário é feito pela inclusão de um cookie de sessão que permite que o tráfego de toodirect gateway Olá adequadamente. Definir afinidade baseada em cookie tooenable, **CookieBasedAffinity** muito*habilitado* em Olá **BackendHttpSettings** elemento.
 
 Você pode construir sua configuração criando um objeto de configuração ou usando um arquivo XML de configuração.
-Para construir a configuração usando um arquivo XML de configuração, use o exemplo abaixo:
+tooconstruct sua configuração por meio de uma configuração de arquivo XML, use Olá exemplo a seguir:
 
 **Exemplo de XML de configuração**
 
@@ -162,20 +162,20 @@ Para construir a configuração usando um arquivo XML de configuração, use o e
 </ApplicationGatewayConfiguration>
 ```
 
-## <a name="set-the-gateway-configuration"></a>Definir a configuração do gateway
+## <a name="set-hello-gateway-configuration"></a>Configuração de gateway de saudação do conjunto
 
-Em seguida, você configura o gateway de aplicativo. É possível usar o cmdlet `Set-AzureApplicationGatewayConfig` com um objeto de configuração ou um arquivo XML de configuração.
+Em seguida, defina o gateway de aplicativo hello. Você pode usar o hello `Set-AzureApplicationGatewayConfig` cmdlet com um objeto de configuração ou com um arquivo XML de configuração.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 ```
 
-## <a name="start-the-gateway"></a>Iniciar o gateway
+## <a name="start-hello-gateway"></a>Gateway de saudação inicial
 
-Depois que o gateway tiver sido configurado, use o cmdlet `Start-AzureApplicationGateway` para iniciá-lo. A cobrança por um gateway de aplicativo começa depois que o gateway tiver sido iniciado com êxito.
+Uma vez configurado o gateway hello, use Olá `Start-AzureApplicationGateway` gateway de saudação do cmdlet toostart. A cobrança por um application gateway iniciado após a saudação gateway foi iniciado com êxito.
 
 > [!NOTE]
-> O cmdlet `Start-AzureApplicationGateway` poderá levar até 15 a 20 minutos para terminar.
+> Olá `Start-AzureApplicationGateway` cmdlet pode levar até toofinish too15 a 20 minutos.
 >
 >
 
@@ -183,11 +183,11 @@ Depois que o gateway tiver sido configurado, use o cmdlet `Start-AzureApplicatio
 Start-AzureApplicationGateway AppGwTest
 ```
 
-## <a name="verify-the-gateway-status"></a>Verificar o status do gateway
+## <a name="verify-hello-gateway-status"></a>Verificar status do gateway Olá
 
-Use o cmdlet `Get-AzureApplicationGateway` para verificar o status do gateway. Se `Start-AzureApplicationGateway` foi bem-sucedido na etapa anterior, o item *Estado* deverá ser Em execução e *VirtualIPs* e *DnsName* deverão ter entradas válidas.
+Saudação de uso `Get-AzureApplicationGateway` status de saudação do cmdlet toocheck do gateway de saudação. Se `Start-AzureApplicationGateway` com êxito na etapa anterior de saudação, *estado* devem estar em execução, e *VirtualIPs* e *DnsName* devem ter entradas válidas.
 
-Este exemplo mostra um Application Gateway que está ativo, em execução e pronto para receber tráfego.
+Este exemplo mostra um application gateway, em execução, e o tráfego tootake pronto.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest

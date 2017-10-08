@@ -1,6 +1,6 @@
 ---
-title: Criar um Gateway de Aplicativo - Portal do Azure | Microsoft Docs
-description: Saiba como criar um Gateway de Aplicativo usando o portal
+title: aaaCreate um Application Gateway - Portal do Azure | Microsoft Docs
+description: "Saiba como toocreate um Application Gateway usando Olá portal"
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -15,110 +15,110 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: gwallace
-ms.openlocfilehash: d3c39cfe3159cd4059a81f966fb551175188278b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 24c1d5701eae372cd233162ceb58dea36a3b6a39
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-an-application-gateway-with-the-portal"></a>Criar um gateway de aplicativo com o portal
+# <a name="create-an-application-gateway-with-hello-portal"></a>Criar um gateway de aplicativos com o portal de saudação
 
-O [Gateway de Aplicativo](application-gateway-introduction.md) é uma solução de virtualização dedicada que fornece o ADC (controlador de entrega de aplicativos) como serviço, oferecendo várias funcionalidades de balanceamento de carga de camada 7 para o aplicativo. Este artigo o orienta durante as etapas para criar um Gateway de Aplicativo usando o portal do Azure e adicionar um servidor existente como um membro de back-end.
+O [Gateway de Aplicativo](application-gateway-introduction.md) é uma solução de virtualização dedicada que fornece o ADC (controlador de entrega de aplicativos) como serviço, oferecendo várias funcionalidades de balanceamento de carga de camada 7 para o aplicativo. Este artigo o orienta por Olá etapas toocreate um Application Gateway usando Olá portal do Azure e adicionar um servidor existente como um membro de back-end.
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
+## <a name="log-in-tooazure"></a>Faça logon no tooAzure
 
-Faça logon no portal do Azure em [http://portal.azure.com](http://portal.azure.com)
+Faça logon no toohello portal do Azure em [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-application-gateway"></a>Criar um gateway de aplicativo
 
-Para criar um gateway de aplicativo, conclua as etapas a seguir. O gateway de aplicativo exige sua própria sub-rede. Ao criar uma rede virtual, certifique-se de deixar espaço de endereço suficiente para ter várias sub-redes. Depois que o gateway de aplicativo for implantado em uma sub-rede, apenas outros gateways de aplicativo poderão ser adicionados a ele.
+toocreate um application gateway Olá concluir as etapas a seguir. O gateway de aplicativo exige sua própria sub-rede. Ao criar uma rede virtual, certifique-se de que você deixe suficiente toohave de espaço de endereço várias sub-redes. Após o gateway de aplicativo hello sub-rede tooa implantado, apenas outros application gateways podem ser adicionados tooit.
 
-1. No painel Favoritos do portal, clique em **Novo**
-1. Na folha **Novo**, clique em **Rede**. Na folha **Rede**, clique em **Gateway de Aplicativo**, conforme mostrado na seguinte imagem:
+1. No painel de favoritos saudação do portal de saudação, clique em **novo**
+1. Em Olá **novo** folha, clique em **rede**. Em Olá **rede** folha, clique em **Application Gateway**, conforme mostrado no Olá a imagem a seguir:
 
     ![Criação de um gateway de aplicativo][1]
 
-1. Na folha **Informações Básicas** exibida, insira os seguintes valores e clique em **OK**:
+1. Em Olá **Noções básicas de** folha que aparece, digite Olá valores a seguir, clique em **Okey**:
 
    | **Configuração** | **Valor** | **Detalhes**|
    |---|---|---|
-   |**Nome**|AdatumAppGateway|O nome do gateway de aplicativo|
-   |**Camada**|Standard|Os valores disponíveis são Standard e WAF. Visite a página [Firewall do aplicativo Web](application-gateway-web-application-firewall-overview.md) para saber mais sobre o WAF.|
+   |**Nome**|AdatumAppGateway|nome de saudação do gateway de aplicativo hello|
+   |**Camada**|Standard|Os valores disponíveis são Standard e WAF. Visite [firewall do aplicativo web](application-gateway-web-application-firewall-overview.md) toolearn mais sobre WAF.|
    |**Tamanho do SKU**|Média|As opções ao escolher a camada Standard são Pequeno, Médio e Grande. Ao escolher a camada do WAF, as opções são apenas Médio e Grande.|
-   |**Contagem de instâncias**|2|Número de instâncias do gateway de aplicativo para alta disponibilidade. Contagens de instância iguais a 1 devem ser usadas apenas para fins de teste.|
-   |**Assinatura**|[Sua assinatura]|Selecione uma assinatura na qual o gateway de aplicativo será criado.|
-   |**Grupo de recursos**|**Criar novo:** AdatumAppGatewayRG|Crie um grupos de recursos. O nome do grupo de recursos deve ser exclusivo na assinatura selecionada. Para saber mais sobre grupos de recursos, leia o artigo [Visão geral do Gerenciador de Recursos](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups).|
+   |**Contagem de instâncias**|2|Número de instâncias do gateway de aplicativo hello para alta disponibilidade. Contagens de instância iguais a 1 devem ser usadas apenas para fins de teste.|
+   |**Assinatura**|[Sua assinatura]|Selecione um assinatura toocreate Olá aplicativo gateway.|
+   |**Grupo de recursos**|**Criar novo:** AdatumAppGatewayRG|Crie um grupos de recursos. nome do grupo de recursos Olá deve ser exclusivo na assinatura de saudação selecionado. toolearn mais sobre grupos de recursos, leia Olá [Gerenciador de recursos](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups) artigo de visão geral.|
    |**Localidade**|Oeste dos EUA||
 
-1. Na folha **Configurações** exibida em **Rede virtual**, clique em **Escolher uma rede virtual**. A folha **Escolher rede virtual** é aberta.  Clique em **Criar nova** para abrir a folha **Criar rede virtual**.
+1. Em Olá **configurações** folha que aparece sob **rede Virtual**, clique em **escolha uma rede virtual**. Olá **rede virtual escolha** folha é aberta.  Clique em **criar novo** tooopen Olá **criar rede virtual** folha.
 
    ![escolher uma rede virtual][2]
 
-1. Na folha **Criar rede virtual**, insira os valores a seguir e clique em **OK**. As folhas **Criar rede virtual** e **Escolher rede virtual** são fechadas. Esta etapa popula o campo **Sub-rede** na folha **Configurações** com a sub-rede escolhida.
+1. Em Olá **criar folha de rede virtual** digite Olá valores a seguir, clique em **Okey**. Olá **criar rede virtual** e **rede virtual escolha** folhas fechar. Essa etapa preenche Olá **sub-rede** campo Olá **configurações** folha com sub-rede Olá escolhido.
 
    | **Configuração** | **Valor** | **Detalhes**|
    |---|---|---|
-   |**Nome**|AdatumAppGatewayVNET|Nome do gateway de aplicativo|
-   |**Espaço de Endereço**|10.0.0.0/16|Esse é o espaço de endereço da rede virtual|
-   |**Nome da sub-rede**|AppGatewaySubnet|Nome da sub-rede do gateway de aplicativo|
-   |**Intervalo de endereços da sub-rede**|10.0.0.0/28|Essa sub-rede permite sub-redes adicionais na rede virtual para membros do pool de back-end|
+   |**Nome**|AdatumAppGatewayVNET|Nome do gateway de aplicativo hello|
+   |**Espaço de Endereço**|10.0.0.0/16|Este é o espaço de endereço de saudação para rede virtual Olá|
+   |**Nome da sub-rede**|AppGatewaySubnet|Nome da sub-rede Olá para o gateway de aplicativo hello|
+   |**Intervalo de endereços da sub-rede**|10.0.0.0/28|Essa sub-rede permite mais sub-redes adicionais na rede virtual Olá para membros do pool de back-end|
 
-1. Na folha **Configurações** em **Configuração de IP de front-end**, escolha **Público** como o **Tipo de endereço IP**
+1. Em Olá **configurações** folha sob **configuração de IP de Frontend**, escolha **pública** como Olá **tipo de endereço IP**
 
-1. Na folha **Configurações** em **Endereço IP público**, clique em **Escolher um endereço IP público**; a folha **Escolher o endereço IP público** abrirá, clique em **Criar novo**.
+1. Em hello **configurações** folha sob **endereço IP público** clique **escolher um endereço IP público**, Olá **escolher endereço IP público** abre folha , clique em **criar novo**.
 
    ![escolher o IP público][3]
 
-1. Na folha **Criar endereço IP público**, aceite o valor padrão e clique em **OK**. A folha fecha e popula o **Endereço IP público** com o endereço IP público escolhido.
+1. Em Olá **criar endereço IP público** folha, aceite o valor padrão de saudação e clique em **Okey**. folha de saudação fecha e preenche a saudação **endereço IP público** com endereço IP público Olá escolhido.
 
-1. Na folha **Configurações** em **Configuração do ouvinte**, clique em **HTTP** sob **Protocolo**. Insira a porta a ser usada no campo **Porta**.
+1. Em Olá **configurações** folha sob **configuração de ouvinte**, clique em **HTTP** em **protocolo**. Digite hello porta toouse no hello **porta** campo.
 
-2. Clique em **OK** na folha **Configurações** para continuar.
+2. Clique em **Okey** em Olá **configurações** toocontinue de folha.
 
-1. Examine as configurações na folha **Resumo** e clique em **OK** para iniciar a criação do gateway de aplicativo. A criação de um gateway de aplicativo é uma tarefa de execução longa e levará muito tempo para ser concluída.
+1. Revisar configurações Olá Olá **resumo** folha e clique em **Okey** toostart criação do gateway de aplicativo hello. Criar um gateway de aplicativos é uma tarefa demorada e leva tempo toocomplete.
 
-## <a name="add-servers-to-backend-pools"></a>Adicionar servidores aos pools de back-end
+## <a name="add-servers-toobackend-pools"></a>Adicionar servidores toobackend pools
 
-Depois que você criar o gateway de aplicativo, os sistemas que hospedam o aplicativo que terá a carga balanceada ainda precisará ser adicionado ao gateway de aplicativo. Os endereços IP, o FQDN ou as NICs desses servidores são adicionados aos pools de endereços de back-end.
+Depois de criar o gateway de aplicativo hello, sistemas Olá que hospedam o balanceamento de carga do hello aplicativo toobe ainda precisam de gateway de aplicativo toobe toohello adicionado. Olá endereços IP, FQDN ou NICs desses servidores são adicionados toohello pools de endereços de back-end.
 
 ### <a name="ip-address-or-fqdn"></a>Endereço IP ou FQDN
 
-1. Com o gateway de aplicativo criado, no painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique no gateway de aplicativo **AdatumAppGateway** na folha Todos os recursos. Se a assinatura selecionada já contiver vários recursos, você poderá inserir **AdatumAppGateway** na caixa **Filtrar por nome...** para acessar facilmente o gateway de aplicativo.
+1. Com o gateway de aplicativo hello criado, no portal do Azure de saudação **Favoritos** painel, clique em **todos os recursos**. Clique em Olá **AdatumAppGateway** application gateway em Olá folha de todos os recursos. Se a assinatura de saudação selecionado já contiver vários recursos, você pode inserir **AdatumAppGateway** em Olá **filtrar por nome...** gateway de caixa tooeasily acesso Olá aplicativo.
 
-1. O gateway de aplicativo criado é exibido. Clique em **Pools de back-end** e selecione o pool de back-end atual **appGatewayBackendPool**. Isso abrirá a folha **appGatewayBackendPool**.
+1. gateway de aplicativo Hello criado é exibido. Clique em **pools de back-end**e selecione o pool de back-end atual Olá **appGatewayBackendPool**, Olá **appGatewayBackendPool** folha é aberta.
 
    ![Pools de back-end do Gateway de Aplicativo][4]
 
-1. Clique em **Adicionar Destino** para adicionar endereços IP de valores de FQDN. Escolha **Endereço IP ou FQDN** como o **Tipo** e insira o endereço IP ou o FQDN no campo. Repita esta etapa para outros membros do pool de back-end. Quando terminar, clique em **Salvar**.
+1. Clique em **Adicionar destino** tooadd endereços IP de valores FQDN. Escolha **IP endereço ou FQDN** como Olá **tipo** e digite o endereço IP ou FQDN no campo de saudação. Repita esta etapa para outros membros do pool de back-end. Quando terminar, clique em **Salvar**.
 
 ### <a name="virtual-machine-and-nic"></a>Máquina virtual e NIC
 
-Também é possível adicionar NICs de máquina virtual como membros do pool de back-end. Somente as máquinas virtuais que estão dentro da mesma rede virtual que o Gateway de Aplicativo ficarão disponíveis na lista suspensa.
+Também é possível adicionar NICs de máquina virtual como membros do pool de back-end. Apenas as máquinas virtuais na mesma rede virtual Olá Application Gateway estão disponíveis por meio de saudação Olá suspenso.
 
-1. Com o gateway de aplicativo criado, no painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique no gateway de aplicativo **AdatumAppGateway** na folha Todos os recursos. Se a assinatura selecionada já contiver vários recursos, você poderá inserir **AdatumAppGateway** na caixa **Filtrar por nome...** para acessar facilmente o gateway de aplicativo.
+1. Com o gateway de aplicativo hello criado, no portal do Azure de saudação **Favoritos** painel, clique em **todos os recursos**. Clique em Olá **AdatumAppGateway** application gateway em Olá folha de todos os recursos. Se a assinatura de saudação selecionado já contiver vários recursos, você pode inserir **AdatumAppGateway** em Olá **filtrar por nome...** gateway de caixa tooeasily acesso Olá aplicativo.
 
-1. O gateway de aplicativo criado é exibido. Clique em **Pools de back-end** e selecione o pool de back-end atual **appGatewayBackendPool**. Isso abrirá a folha **appGatewayBackendPool**.
+1. gateway de aplicativo Hello criado é exibido. Clique em **pools de back-end**e selecione o pool de back-end atual Olá **appGatewayBackendPool**, Olá **appGatewayBackendPool** folha é aberta.
 
    ![Pools de back-end do Gateway de Aplicativo][5]
 
-1. Clique em **Adicionar Destino** para adicionar endereços IP de valores de FQDN. Escolha **Máquina Virtual** como o **Tipo** e selecione a máquina virtual e a NIC a serem usadas. Quando terminar, clique em **Salvar**
+1. Clique em **Adicionar destino** tooadd endereços IP de valores FQDN. Escolha **Máquina Virtual** como Olá **tipo** e selecione máquina virtual de saudação e toouse NIC. Quando terminar, clique em **Salvar**
 
    > [!NOTE]
-   > Somente as máquinas virtuais que estão na mesma rede virtual do gateway de aplicativo ficarão disponíveis na caixa suspensa.
+   > Apenas as máquinas virtuais em Olá mesma rede virtual como o gateway de aplicativo hello estão disponíveis na caixa suspensa hello.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, exclua o grupo de recursos, o gateway de aplicativo e todos os recursos relacionados. Para fazer isso, selecione o grupo de recursos na folha do gateway de aplicativo e clique em **Excluir**.
+Quando não é mais necessário, exclua o grupo de recursos hello, gateway do aplicativo e todos os recursos relacionados. toodo, portanto, selecione o grupo de recursos de saudação da folha de gateway do aplicativo hello e clique em **excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Nesse cenário, você implantou um gateway de aplicativo e adicionou um servidor ao back-end. A próxima etapa é configurar o gateway de aplicativo modificando as configurações e ajustando as regras no gateway. Essas etapas podem ser encontradas nos artigos a seguir:
+Nesse cenário, você implantado um application gateway e adicionou um back-end do servidor toohello. Olá próximas etapas são tooconfigure gateway de aplicativo hello pela modificação das configurações e regras de ajuste no gateway hello. Essas etapas podem ser encontradas visitando Olá artigos a seguir:
 
-Saiba como criar investigações de integridade personalizados visitando [Criar uma investigação de integridade personalizada](application-gateway-create-probe-portal.md)
+Saiba como sondas de integridade personalizado toocreate visitando [criar um teste de integridade personalizado](application-gateway-create-probe-portal.md)
 
-Saiba como configurar o Descarregamento de SSL e levar a descriptografia SSL cara longe dos seus servidores Web visitando [Configurar Descarregamento de SSL](application-gateway-ssl-portal.md)
+Saiba como tooconfigure descarregamento de SSL e take Olá cara SSL descriptografia desativada, os servidores web visitando [configurar descarregamento de SSL](application-gateway-ssl-portal.md)
 
-Saiba como proteger seus aplicativos com o [Firewall do Aplicativo Web](application-gateway-webapplicationfirewall-overview.md), um recurso do gateway de aplicativo.
+Saiba como tooprotect seus aplicativos com [Firewall do aplicativo Web](application-gateway-webapplicationfirewall-overview.md) um recurso do application gateway.
 
 <!--Image references-->
 [1]: ./media/application-gateway-create-gateway-portal/figure1.png

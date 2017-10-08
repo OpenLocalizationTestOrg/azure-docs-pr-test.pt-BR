@@ -1,6 +1,6 @@
 ---
-title: "Referência de modelo de dados de modelo do Gerenciamento de API do Azure | Microsoft Docs"
-description: "Saiba mais sobre as representações de entidade e tipo para itens comuns usados nos modelos de dados para os modelos de portal do desenvolvedor no Gerenciamento de API do Azure."
+title: "referência de modelo de dados de modelo de gerenciamento de API aaaAzure | Microsoft Docs"
+description: "Saiba mais sobre as representações Olá de entidade e o tipo para itens comuns usados em modelos de dados de saudação para modelos de portal Olá desenvolvedor no gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7d049d8ecc9e597cf48ce0c820c172798bcf86de
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referência de modelo de dados de modelo do Gerenciamento de API do Azure
-Este tópico descreve as representações de entidade e tipo para itens comuns usados nos modelos de dados para os modelos de portal do desenvolvedor no Gerenciamento de API do Azure.  
+Este tópico descreve as representações Olá de entidade e o tipo para itens comuns usados em modelos de dados de saudação para modelos de portal Olá desenvolvedor no gerenciamento de API do Azure.  
   
- Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o portal de desenvolvedor de Gerenciamento de API usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+ Para obter mais informações sobre como trabalhar com modelos, consulte [como toocustomize Olá portal do desenvolvedor do gerenciamento de API usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 -   [API](#API)  
 -   [Resumo da API](#APISummary)  
@@ -51,109 +51,109 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 -   [Inscrição do usuário](#UserSignUp)  
   
 ##  <a name="API"></a> API  
- A entidade `API` tem as seguintes propriedades.  
+ Olá `API` entidade tem Olá propriedades a seguir.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|ID|string|Identificador de recurso. Identifica exclusivamente a API na instância atual do serviço de Gerenciamento de API. O valor é uma URL relativa válida no formato de `apis/{id}` em que `{id}` é um identificador de API. Essa propriedade é somente leitura.|  
-|name|string|O nome da API. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
-|description|string|A descrição da API. Não deve ficar vazio. Pode incluir marcas de formatação HTML. O comprimento máximo é de 1000 caracteres.|  
-|serviceUrl|string|A URL absoluta do serviço de back-end implementado esta API.|  
-|path|string|A URL relativa que identifica exclusivamente esta API e todos os seus caminhos de recurso dentro da instância do serviço de Gerenciamento de API. Ele é acrescentado à URL base do Ponto de Extremidade de API especificada durante a criação da instância de serviço para formar uma URL pública para essa API.|  
-|protocols|matriz de números|Descreve em quais protocolos as operações nessa API podem ser invocadas. Os valores permitidos são `1 - http` e `2 - https` ou ambos.|  
+|ID|string|Identificador de recurso. Identifica exclusivamente a API Olá na instância de serviço de gerenciamento de API atual hello. valor de saudação é uma URL relativa válida no formato de saudação do `apis/{id}` onde `{id}` é um identificador de API. Essa propriedade é somente leitura.|  
+|name|string|Nome da saudação API. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
+|description|string|Descrição da saudação API. Não deve ficar vazio. Pode incluir marcas de formatação HTML. O comprimento máximo é de 1000 caracteres.|  
+|serviceUrl|string|URL absoluta do serviço de back-end Olá implementar essa API.|  
+|path|string|URL relativa identificando exclusivamente esta API e todos os seus caminhos de recurso na instância do serviço de gerenciamento de API de saudação. Ele é adicionado URL base do ponto de extremidade toohello API especificada durante a saudação tooform de criação de instância de serviço uma URL pública para esta API.|  
+|protocols|matriz de números|Descreve em qual Olá protocolos operações nessa API podem ser invocadas. Os valores permitidos são `1 - http` e `2 - https` ou ambos.|  
 |authenticationSettings|[Authorization server authentication settings](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings) (Configurações de autenticação do servidor de autorização)|Coleção de configurações de autenticação incluídas nessa API.|  
-|subscriptionKeyParameterNames|objeto|Propriedade opcional que pode ser usada para especificar nomes personalizados para parâmetros de consulta e/ou cabeçalho que contêm a chave de assinatura. Quando essa propriedade estiver presente, ela deverá conter pelo menos uma das duas propriedades a seguir.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
+|subscriptionKeyParameterNames|objeto|Propriedade opcional que pode ser nomes personalizados de toospecify usado para parâmetros de consulta e/ou cabeçalho que contém a chave de assinatura de saudação. Quando essa propriedade estiver presente, ele deve conter pelo menos uma das duas propriedades a seguir hello.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
 ##  <a name="APISummary"></a> Resumo da API  
- A entidade `API summary` tem as seguintes propriedades.  
+ Olá `API summary` entidade tem Olá propriedades a seguir.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|ID|string|Identificador de recurso. Identifica exclusivamente a API na instância atual do serviço de Gerenciamento de API. O valor é uma URL relativa válida no formato de `apis/{id}` em que `{id}` é um identificador de API. Essa propriedade é somente leitura.|  
-|name|string|O nome da API. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
-|description|string|A descrição da API. Não deve ficar vazio. Pode incluir marcas de formatação HTML. O comprimento máximo é de 1000 caracteres.|  
+|ID|string|Identificador de recurso. Identifica exclusivamente a API Olá na instância de serviço de gerenciamento de API atual hello. valor de saudação é uma URL relativa válida no formato de saudação do `apis/{id}` onde `{id}` é um identificador de API. Essa propriedade é somente leitura.|  
+|name|string|Nome da saudação API. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
+|description|string|Descrição da saudação API. Não deve ficar vazio. Pode incluir marcas de formatação HTML. O comprimento máximo é de 1000 caracteres.|  
   
 ##  <a name="Application"></a> Aplicativo  
- A entidade `application` tem as seguintes propriedades.  
+ Olá `application` entidade tem Olá propriedades a seguir.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|ID|string|O identificador exclusivo do aplicativo.|  
-|Title|string|O título do aplicativo.|  
-|Descrição|string|A descrição do aplicativo.|  
-|Url|URI|O URI do aplicativo.|  
-|Versão|string|As informações de versão do aplicativo.|  
-|Requisitos|string|Uma descrição dos requisitos do aplicativo.|  
-|Estado|número|O estado atual do aplicativo.<br /><br /> – 0 – Registrado<br /><br /> – 1 – Enviado<br /><br /> – 2 – Publicado<br /><br /> – 3 – Rejeitado<br /><br /> – 4 – Não publicado|  
-|RegistrationDate|DateTime|A data e hora em que o aplicativo foi registrado.|  
-|CategoryId|número|A categoria do aplicativo (finanças, entretenimento etc.)|  
-|DeveloperId|string|O identificador exclusivo do desenvolvedor que enviou o aplicativo.|  
-|Anexos|Coleção de entidades de [Anexo](#Attachment).|Todos os anexos do aplicativo, como capturas de tela ou ícones.|  
-|ícone|[Anexo](#Attachment)|O ícone do aplicativo.|  
+|ID|string|Identificador exclusivo de saudação do aplicativo hello.|  
+|Title|string|título de saudação do aplicativo hello.|  
+|Descrição|string|Descrição de saudação do aplicativo hello.|  
+|Url|URI|Olá URI para o aplicativo hello.|  
+|Versão|string|Informações de versão para o aplicativo hello.|  
+|Requisitos|string|Uma descrição dos requisitos para o aplicativo hello.|  
+|Estado|número|estado atual de saudação do aplicativo hello.<br /><br /> – 0 – Registrado<br /><br /> – 1 – Enviado<br /><br /> – 2 – Publicado<br /><br /> – 3 – Rejeitado<br /><br /> – 4 – Não publicado|  
+|RegistrationDate|Datetime|aplicativo de saudação de data e hora Hello foi registrado.|  
+|CategoryId|número|categoria de saudação do aplicativo hello (Finanças, entretenimento, etc.)|  
+|DeveloperId|string|Identificador exclusivo de saudação do desenvolvedor Olá que enviou o aplicativo hello.|  
+|Anexos|Coleção de entidades de [Anexo](#Attachment).|Todos os anexos para o aplicativo hello como capturas de tela ou ícones.|  
+|ícone|[Anexo](#Attachment)|Olá Olá de ícone para o aplicativo hello.|  
   
 ##  <a name="Attachment"></a> Anexo  
- A entidade `attachment` tem as seguintes propriedades.  
+ Olá `attachment` entidade tem Olá propriedades a seguir.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|UniqueId|string|O identificador exclusivo do anexo.|  
-|Url|string|A URL do recurso.|  
-|Tipo|string|O tipo de anexo.|  
-|ContentType|string|O tipo de mídia do anexo.|  
+|UniqueId|string|Olá identificador exclusivo para o anexo hello.|  
+|Url|string|URL de saudação do recurso de saudação.|  
+|Tipo|string|tipo de saudação do anexo.|  
+|ContentType|string|tipo de mídia de saudação do anexo hello.|  
   
 ##  <a name="Sample"></a> Exemplo de código  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|título|string|O nome da operação.|  
+|título|string|nome de saudação da operação de saudação.|  
 |snippet|string|Essa propriedade foi preterida e não deve ser usada.|  
-|brush|string|Qual modelo de coloração da sintaxe do código a ser usado ao exibir o exemplo de código. Os valores permitidos são `plain`, `php`, `java`, `xml`, `objc`, `python`, `ruby` e `csharp`.|  
-|template|string|O nome desse modelo de exemplo de código.|  
-|corpo|string|Um espaço reservado para a parte do exemplo de código do trecho de código.|  
-|estático|string|O método HTTP da operação.|  
-|scheme|string|O protocolo a ser usado para a solicitação de operação.|  
-|path|string|O caminho da operação.|  
+|brush|string|Qual o código de modelo toobe usada ao exibir um exemplo de código a saudação da coloração de sintaxe. Os valores permitidos são `plain`, `php`, `java`, `xml`, `objc`, `python`, `ruby` e `csharp`.|  
+|template|string|nome da saudação desse modelo de exemplo de código.|  
+|body|string|Um espaço reservado para a parte do exemplo de código Olá trecho hello.|  
+|estático|string|método HTTP da operação de saudação do Hello.|  
+|scheme|string|Olá toouse de protocolo para a solicitação de operação de saudação.|  
+|path|string|caminho de saudação da operação de saudação.|  
 |query|string|Exemplo de cadeia de caracteres de consulta com parâmetros definidos.|  
-|host|string|A URL do gateway de serviço de Gerenciamento de API para a API que contém esta operação.|  
-|Cabeçalhos|Coleção de entidades de [Cabeçalho](#Header).|Cabeçalhos para esta operação.|  
+|host|string|URL de saudação do gateway do serviço de gerenciamento de API Olá para Olá API que contém esta operação.|  
+|headers|Coleção de entidades de [Cabeçalho](#Header).|Cabeçalhos para esta operação.|  
 |parameters|Coleção de entidade de [Parâmetro](#Parameter).|Parâmetros que são definidos para essa operação.|  
   
 ##  <a name="Comment"></a> Comentário  
- A entidade `API` tem as seguintes propriedades.  
+ Olá `API` entidade tem Olá propriedades a seguir.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|ID|número|A ID do comentário.|  
-|CommentText|string|O corpo do comentário. Pode incluir HTML.|  
-|DeveloperCompany|string|O nome da empresa do desenvolvedor.|  
-|PostedOn|DateTime|A data e hora em que o comentário foi postado.|  
+|ID|número|id de saudação do comentário hello.|  
+|CommentText|string|corpo de saudação do comentário hello. Pode incluir HTML.|  
+|DeveloperCompany|string|nome da empresa do desenvolvedor Olá Olá.|  
+|PostedOn|Datetime|comentário de saudação de data e hora Olá foi postado.|  
   
 ##  <a name="Issue"></a> Problema  
- A entidade `issue` tem as seguintes propriedades.  
+ Olá `issue` entidade tem Olá propriedades a seguir.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|ID|string|O identificador exclusivo do problema.|  
-|ApiID|string|A ID da API para a qual esse problema foi relatado.|  
-|Title|string|Título do problema.|  
-|Descrição|string|Descrição do problema.|  
-|SubscriptionDeveloperName|string|Nome do desenvolvedor que relatou o problema.|  
-|IssueState|string|O estado atual do problema. Os valores possíveis são Proposto, Aberto e Fechado.|  
-|ReportedOn|DateTime|A data e hora em que o problema foi relatado.|  
+|ID|string|Olá identificador exclusivo para o problema de saudação.|  
+|ApiID|string|id de Olá Olá API para o qual esse problema foi relatado.|  
+|Title|string|Título do problema de saudação.|  
+|Descrição|string|Descrição do problema de saudação.|  
+|SubscriptionDeveloperName|string|Nome do desenvolvedor de saudação que Olá problema reportado.|  
+|IssueState|string|estado atual de saudação do problema de saudação. Os valores possíveis são Proposto, Aberto e Fechado.|  
+|ReportedOn|Datetime|problema de saudação de data e hora Olá foi relatado.|  
 |Comentários|Coleção de entidades de [Comentário](#Comment).|Comentários sobre este problema.|  
-|Anexos|Coleção de entidades de [Anexo](api-management-template-data-model-reference.md#Attachment).|Quaisquer anexos para o problema.|  
-|Serviços|Coleção de entidades de [API](#API).|As APIs assinadas pelo usuário que arquivou o problema.|  
+|Anexos|Coleção de entidades de [Anexo](api-management-template-data-model-reference.md#Attachment).|Qualquer problema de toohello anexos.|  
+|Serviços|Coleção de entidades de [API](#API).|Olá APIs inscrito usuário Olá tooby arquivada, o problema de saudação.|  
   
 ##  <a name="Filtering"></a> Filtragem  
- A entidade `filtering` tem as seguintes propriedades.  
+ Olá `filtering` entidade tem Olá propriedades a seguir.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|Padrão|string|O termo de pesquisa atual ou `null` se não houver nenhum termo de pesquisa.|  
-|Placeholder|string|O texto a ser exibido na caixa de pesquisa quando não há nenhum termo de pesquisa especificado.|  
+|Padrão|string|termo de pesquisa atual Olá; ou `null` se não houver nenhum termo de pesquisa.|  
+|Placeholder|string|Olá toodisplay de texto na caixa de pesquisa hello quando não houver nenhum termo de pesquisa especificado.|  
   
 ##  <a name="Header"></a> Cabeçalho  
- Esta seção descreve a representação de `parameter`.  
+ Esta seção descreve Olá `parameter` representação.  
   
 |Propriedade|Descrição|Tipo|  
 |--------------|-----------------|----------|  
@@ -162,11 +162,11 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |valor|string|Valor do cabeçalho.|  
 |typeName|string|Tipo de dados do valor do cabeçalho.|  
 |options|string|Opções.|  
-|obrigatório|booleano|Se o cabeçalho é necessário.|  
-|readOnly|booleano|Se o cabeçalho é somente leitura.|  
+|obrigatório|Booliano|Se o cabeçalho de saudação é necessário.|  
+|readOnly|Booliano|Se o cabeçalho de saudação é somente leitura.|  
   
 ##  <a name="HTTPRequest"></a> Solicitação HTTP  
- Esta seção descreve a representação de `request`.  
+ Esta seção descreve Olá `request` representação.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
@@ -176,7 +176,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |representations|matriz de [Representação](#Representation)|Coleção de representações de solicitação da operação.|  
   
 ##  <a name="HTTPResponse"></a> Resposta HTTP  
- Esta seção descreve a representação de `response`.  
+ Esta seção descreve Olá `response` representação.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
@@ -185,52 +185,52 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |representations|matriz de [Representação](#Representation)|Coleção de representações de resposta da operação.|  
   
 ##  <a name="Operation"></a> Operação  
- A entidade `operation` tem as seguintes propriedades.  
+ Olá `operation` entidade tem Olá propriedades a seguir.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|ID|string|Identificador de recurso. Identifica exclusivamente a operação na instância atual do serviço de Gerenciamento de API. O valor é uma URL relativa válida no formato de `apis/{aid}/operations/{id}` em que `{aid}` é um identificador de API e `{id}` é um identificador de API. Essa propriedade é somente leitura.|  
-|name|string|Nome da operação. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
-|description|string|Descrição da operação. Não deve ficar vazio. Pode incluir marcas de formatação HTML. O comprimento máximo é de 1000 caracteres.|  
-|scheme|string|Descreve em quais protocolos as operações nessa API podem ser invocadas. Os valores permitidos são `http` e `https` ou `http` e `https`.|  
-|uriTemplate|string|Modelo de URL relativa identificando o recurso de destino para esta operação. Pode incluir parâmetros. Exemplo: `customers/{cid}/orders/{oid}/?date={date}`|  
-|host|string|A URL de gateway de Gerenciamento de API que hospeda a API.|  
+|ID|string|Identificador de recurso. Identifica exclusivamente a operação de saudação na instância de serviço de gerenciamento de API atual hello. valor de saudação é uma URL relativa válida no formato de saudação do `apis/{aid}/operations/{id}` onde `{aid}` é um identificador de API e `{id}` é um identificador de operação. Essa propriedade é somente leitura.|  
+|name|string|Nome da operação de saudação. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
+|description|string|Descrição da operação de saudação. Não deve ficar vazio. Pode incluir marcas de formatação HTML. O comprimento máximo é de 1000 caracteres.|  
+|scheme|string|Descreve em qual Olá protocolos operações nessa API podem ser invocadas. Os valores permitidos são `http` e `https` ou `http` e `https`.|  
+|uriTemplate|string|Modelo de URL relativa identificando Olá recurso de destino para esta operação. Pode incluir parâmetros. Exemplo: `customers/{cid}/orders/{oid}/?date={date}`|  
+|host|string|Olá URL de gateway de gerenciamento de API que hospeda a API de saudação.|  
 |httpMethod|string|Método HTTP da operação.|  
 |solicitação|[Solicitação HTTP](#HTTPRequest)|Uma entidade que contém detalhes da solicitação.|  
 |responses|matriz de [Resposta HTTP](#HTTPResponse)|Matriz de entidades de [Resposta HTTP](#HTTPResponse) da operação.|  
   
 ##  <a name="Menu"></a> Menu de operação  
- A entidade `operation menu` tem as seguintes propriedades.  
+ Olá `operation menu` entidade tem Olá propriedades a seguir.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|ApiId|string|A ID da API atual.|  
-|CurrentOperationId|string|A ID da operação atual.|  
-|Ação|string|O tipo de menu.|  
-|MenuItems|Coleção de entidades de [Item de menu de operação](#MenuItem).|As operações para a API do atual.|  
+|ApiId|string|id de saudação da API de saudação atual.|  
+|CurrentOperationId|string|id de saudação da operação atual de saudação.|  
+|Ação|string|tipo de menu Hello.|  
+|MenuItems|Coleção de entidades de [Item de menu de operação](#MenuItem).|operações de saudação para API atual hello.|  
   
 ##  <a name="MenuItem"></a> Item de menu de operação  
- A entidade `operation menu item` tem as seguintes propriedades.  
+ Olá `operation menu item` entidade tem Olá propriedades a seguir.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|ID|string|A ID da operação.|  
-|Title|string|A descrição da operação.|  
-|HttpMethod|string|O método HTTP da operação.|  
+|ID|string|id de saudação da operação de saudação.|  
+|Title|string|Descrição de saudação da operação de saudação.|  
+|HttpMethod|string|método Http da operação de saudação do Hello.|  
   
 ##  <a name="Paging"></a> Paginação  
- A entidade `paging` tem as seguintes propriedades.  
+ Olá `paging` entidade tem Olá propriedades a seguir.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|Página|número|O número da página atual.|  
-|PageSize|número|O número máximo de resultados a serem exibidos em uma única página.|  
-|TotalItemCount|número|O número de itens a serem exibidos.|  
-|ShowAll|booleano|Se todos os resultados devem ser mostrados em uma única página.|  
-|PageCount|número|O número de páginas de resultados.|  
+|Página|número|número da página atual Hello.|  
+|PageSize|número|Olá toobe máximo de resultados exibido em uma única página.|  
+|TotalItemCount|número|número de saudação de itens para exibição.|  
+|ShowAll|Booliano|Se toosho todos os resultados em uma única página.|  
+|PageCount|número|número de saudação de páginas de resultados.|  
   
 ##  <a name="Parameter"></a> Parâmetro  
- Esta seção descreve a representação de `parameter`.  
+ Esta seção descreve Olá `parameter` representação.  
   
 |Propriedade|Descrição|Tipo|  
 |--------------|-----------------|----------|  
@@ -243,26 +243,26 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |typeName|string|Tipo de parâmetro.|  
   
 ##  <a name="Product"></a> Produto  
- A entidade `product` tem as seguintes propriedades.  
+ Olá `product` entidade tem Olá propriedades a seguir.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|ID|string|Identificador de recurso. Identifica exclusivamente o produto na instância atual do serviço de Gerenciamento de API. O valor é uma URL relativa válida no formato de `products/{pid}` em que `{pid}` é um identificador de produto. Essa propriedade é somente leitura.|  
-|Title|string|O nome do produto. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
-|Descrição|string|Descrição do produto. Não deve ficar vazio. Pode incluir marcas de formatação HTML. O comprimento máximo é de 1000 caracteres.|  
-|Termos|string|Termos de uso do produto. Os desenvolvedores que tentarem assinar o produto verão e deverão aceitar esses termos para concluir o processo de assinatura.|  
-|ProductState|número|Especifica se o produto está publicado ou não. Os produtos publicados são detectáveis por desenvolvedores no portal do desenvolvedor. Os produtos não publicados são visíveis apenas para administradores.<br /><br /> Os valores permitidos para o estado do produto são:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
-|AllowMultipleSubscriptions|booleano|Especifica se um usuário pode ter várias assinaturas para este produto ao mesmo tempo.|  
-|MultipleSubscriptionsCount|número|O número de assinaturas para este produto pelo usuário atual.|  
+|ID|string|Identificador de recurso. Identifica exclusivamente o produto Olá na instância de serviço de gerenciamento de API atual hello. valor de saudação é uma URL relativa válida no formato de saudação do `products/{pid}` onde `{pid}` é um identificador de produto. Essa propriedade é somente leitura.|  
+|Title|string|Nome do produto de saudação. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
+|Descrição|string|Descrição do produto hello. Não deve ficar vazio. Pode incluir marcas de formatação HTML. O comprimento máximo é de 1000 caracteres.|  
+|Termos|string|Termos de uso do produto. Desenvolvedores tentar toosubscribe toohello produto serão exibidos e necessário tooaccept esses termos antes de poderem concluir o processo de assinatura hello.|  
+|ProductState|número|Especifica se o produto de saudação é publicado ou não. Os produtos publicados são detectáveis por desenvolvedores no portal do desenvolvedor hello. Os produtos não publicados são visíveis tooadministrators somente.<br /><br /> Olá os valores permitidos para o estado do produto são:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
+|AllowMultipleSubscriptions|Booliano|Especifica se um usuário pode ter vários produtos de toothis de assinaturas no hello simultaneamente.|  
+|MultipleSubscriptionsCount|número|Olá número de assinaturas toothis produto pelo usuário atual hello.|  
   
 ##  <a name="Provider"></a> Provedor  
- A entidade `provider` tem as seguintes propriedades.  
+ Olá `provider` entidade tem Olá propriedades a seguir.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |Propriedades|dicionário de cadeia de caracteres|Propriedades desse provedor de autenticação.|  
-|AuthenticationType|string|O tipo de provedor. (Azure Active Directory, logon do Facebook, Conta do Google, Conta da Microsoft, Twitter).|  
-|Legenda|string|Nome de exibição do provedor.|  
+|AuthenticationType|string|tipo de provedor de saudação. (Azure Active Directory, logon do Facebook, Conta do Google, Conta da Microsoft, Twitter).|  
+|Legenda|string|Nome de exibição do provedor de saudação.|  
   
 ##  <a name="Representation"></a> Representação  
  Esta seção descreve uma `representation`.  
@@ -270,90 +270,90 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |contentType|string|Especifica um tipo de conteúdo personalizado ou registrado para essa representação, por exemplo, `application/xml`.|  
-|exemplo|string|Um exemplo da representação.|  
+|exemplo|string|Um exemplo de representação de saudação.|  
   
 ##  <a name="Subscription"></a> Assinatura  
- A entidade `subscription` tem as seguintes propriedades.  
+ Olá `subscription` entidade tem Olá propriedades a seguir.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|ID|string|Identificador de recurso. Identifica exclusivamente a assinatura na instância atual do serviço de Gerenciamento de API. O valor é uma URL relativa válida no formato de `subscriptions/{sid}` em que `{sid}` é um identificador de assinatura. Essa propriedade é somente leitura.|  
-|ProductId|string|O identificador de recurso do produto assinado. O valor é uma URL relativa válida no formato de `products/{pid}` em que `{pid}` é um identificador de produto.|  
-|ProductTitle|string|O nome do produto. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
-|ProductDescription|string|Descrição do produto. Não deve ficar vazio. Pode incluir marcas de formatação HTML. O comprimento máximo é de 1000 caracteres.|  
-|ProductDetailsUrl|string|A URL relativa para os detalhes do produto.|  
-|state|string|O estado da assinatura. Os possíveis estados são:<br /><br /> - `0 - suspended` – a assinatura está bloqueada e o assinante não pode chamar APIs do produto.<br /><br /> - `1 - active` – a assinatura está ativa.<br /><br /> - `2 - expired` – a assinatura atingiu sua data de validade e foi desativada.<br /><br /> - `3 - submitted` – a solicitação de assinatura foi feita pelo desenvolvedor, mas ainda não foi aprovada ou rejeitada.<br /><br /> - `4 - rejected` – a solicitação de assinatura foi negada por um administrador.<br /><br /> - `5 - cancelled` – a assinatura foi cancelada pelo desenvolvedor ou administrador.|  
-|DisplayName|string|Nome de exibição da assinatura.|  
-|CreatedDate|dateTime|A data em que a assinatura foi criada, no formato ISO 8601: `2014-06-24T16:25:00Z`.|  
-|CanBeCancelled|booleano|Se a assinatura pode ser cancelada pelo usuário atual.|  
-|IsAwaitingApproval|booleano|Se a assinatura está aguardando aprovação.|  
-|StartDate|dateTime|A data de início da assinatura, no formato ISO 8601: `2014-06-24T16:25:00Z`.|  
-|ExpirationDate|dateTime|A data de validade da assinatura, no formato ISO 8601: `2014-06-24T16:25:00Z`.|  
-|NotificationDate|dateTime|A data de notificação da assinatura, no formato ISO 8601: `2014-06-24T16:25:00Z`.|  
-|primaryKey|string|A chave de assinatura primária. O comprimento máximo é de 256 caracteres.|  
-|secondaryKey|string|A chave de assinatura secundária. O comprimento máximo é de 256 caracteres.|  
-|CanBeRenewed|booleano|Se a assinatura pode ser renovada pelo usuário atual.|  
-|HasExpired|booleano|Se a assinatura expirou.|  
-|IsRejected|booleano|Se a solicitação de assinatura foi negada.|  
-|CancelUrl|string|A URL relativa para cancelar a assinatura.|  
-|RenewUrl|string|A URL relativa para renovar a assinatura.|  
+|ID|string|Identificador de recurso. Identifica exclusivamente a assinatura de saudação na instância de serviço de gerenciamento de API atual hello. valor de saudação é uma URL relativa válida no formato de saudação do `subscriptions/{sid}` onde `{sid}` é um identificador de assinatura. Essa propriedade é somente leitura.|  
+|ProductId|string|Identificador de recurso de produto de saudação do hello inscrito produto. valor de saudação é uma URL relativa válida no formato de saudação do `products/{pid}` onde `{pid}` é um identificador de produto.|  
+|ProductTitle|string|Nome do produto de saudação. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
+|ProductDescription|string|Descrição do produto hello. Não deve ficar vazio. Pode incluir marcas de formatação HTML. O comprimento máximo é de 1000 caracteres.|  
+|ProductDetailsUrl|string|Detalhes de produto de toohello de URL relativos.|  
+|state|string|estado de saudação de assinatura de saudação. Os possíveis estados são:<br /><br /> - `0 - suspended`– Olá assinatura está bloqueada e assinante Olá não é possível chamar quaisquer APIs do produto hello.<br /><br /> - `1 - active`– Olá assinatura está ativa.<br /><br /> - `2 - expired`– Olá atingiu sua data de expiração e foi desativada.<br /><br /> - `3 - submitted`– solicitação de assinatura de saudação foi feita pelo desenvolvedor hello, mas ainda não foi aprovada ou rejeitada.<br /><br /> - `4 - rejected`– solicitação de assinatura de saudação foi negada por um administrador.<br /><br /> - `5 - cancelled`– Olá assinatura foi cancelada pelo administrador ou desenvolvedor de saudação.|  
+|DisplayName|string|Nome de exibição de assinatura de saudação.|  
+|CreatedDate|dateTime|assinatura de saudação do Hello data foi criada, no formato ISO 8601: `2014-06-24T16:25:00Z`.|  
+|CanBeCancelled|Booliano|Se a assinatura Olá pode ser cancelada pelo usuário atual hello.|  
+|IsAwaitingApproval|Booliano|Se a assinatura de saudação está aguardando aprovação.|  
+|StartDate|dateTime|Olá data de início de assinatura hello, no formato ISO 8601: `2014-06-24T16:25:00Z`.|  
+|ExpirationDate|dateTime|Olá data de expiração Olá assinatura, no formato ISO 8601: `2014-06-24T16:25:00Z`.|  
+|NotificationDate|dateTime|Data de notificação Olá para assinatura hello, no formato ISO 8601: `2014-06-24T16:25:00Z`.|  
+|primaryKey|string|chave de assinatura principal Hello. O comprimento máximo é de 256 caracteres.|  
+|secondaryKey|string|chave de assinatura secundária Hello. O comprimento máximo é de 256 caracteres.|  
+|CanBeRenewed|Booliano|Se a assinatura Olá poderá ser renovada pelo usuário atual hello.|  
+|HasExpired|Booliano|Se a assinatura de saudação expirou.|  
+|IsRejected|Booliano|Se a solicitação de assinatura de saudação foi negada.|  
+|CancelUrl|string|Olá relativo Url toocancel Olá assinatura.|  
+|RenewUrl|string|Olá relativo Url toorenew Olá assinatura.|  
   
 ##  <a name="SubscriptionSummary"></a> Resumo da assinatura  
- A entidade `subscription summary` tem as seguintes propriedades.  
+ Olá `subscription summary` entidade tem Olá propriedades a seguir.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|ID|string|Identificador de recurso. Identifica exclusivamente a assinatura na instância atual do serviço de Gerenciamento de API. O valor é uma URL relativa válida no formato de `subscriptions/{sid}` em que `{sid}` é um identificador de assinatura. Essa propriedade é somente leitura.|  
-|DisplayName|string|O nome de exibição da assinatura|  
+|ID|string|Identificador de recurso. Identifica exclusivamente a assinatura de saudação na instância de serviço de gerenciamento de API atual hello. valor de saudação é uma URL relativa válida no formato de saudação do `subscriptions/{sid}` onde `{sid}` é um identificador de assinatura. Essa propriedade é somente leitura.|  
+|DisplayName|string|Olá exibir o nome da assinatura Olá|  
   
 ##  <a name="UserAccountInfo"></a> Informações de conta de usuário  
- A entidade `user account info` tem as seguintes propriedades.  
+ Olá `user account info` entidade tem Olá propriedades a seguir.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |Nome|string|Nome. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
 |Sobrenome|string|Sobrenome. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
-|Email|string|Endereço de email. Não deve estar vazio e deve ser exclusivo dentro da instância do serviço. O comprimento máximo é de 254 caracteres.|  
+|Email|string|Endereço de email. Não deve estar vazio e deve ser exclusivo na instância do serviço de saudação. O comprimento máximo é de 254 caracteres.|  
 |Senha|string|Senha da conta de usuário.|  
-|NameIdentifier|string|Identificador de conta, igual ao email do usuário.|  
+|NameIdentifier|string|Identificador de conta, hello mesmo que o email do usuário hello.|  
 |ProviderName|string|Nome do provedor de autenticação.|  
-|IsBasicAccount|booleano|True se essa conta foi registrada usando o email e a senha, false se a conta foi registrada usando um provedor.|  
+|IsBasicAccount|Booliano|True se esta conta foi registrada usando o email e senha. False se a conta de saudação foi registrada usando um provedor.|  
   
 ##  <a name="UseSignIn"></a> Entrada do usuário  
- A entidade `user sign in` tem as seguintes propriedades.  
+ Olá `user sign in` entidade tem Olá propriedades a seguir.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|Email|string|Endereço de email. Não deve estar vazio e deve ser exclusivo dentro da instância do serviço. O comprimento máximo é de 254 caracteres.|  
+|Email|string|Endereço de email. Não deve estar vazio e deve ser exclusivo na instância do serviço de saudação. O comprimento máximo é de 254 caracteres.|  
 |Senha|string|Senha da conta de usuário.|  
-|ReturnUrl|string|A URL da página em que o usuário clicou para entrar.|  
-|RememberMe|booleano|Se deve salvar as informações do usuário atual.|  
+|ReturnUrl|string|Olá o URL da página de saudação em que o usuário Olá clicou entrar.|  
+|RememberMe|Booliano|Se toosave Olá informações do usuário atual.|  
 |RegistrationEnabled|booleano|Se o registro está habilitado.|  
 |DelegationEnabled|booleano|Se a entrada delegada está habilitada.|  
-|DelegationUrl|string|A URL de entrada delegada, se estiver habilitada.|  
-|SsoSignUpUrl|string|O logon único na URL para o usuário, se estiver presente.|  
-|AuxServiceUrl|string|Se o usuário atual for um administrador, isso será um link para a instância de serviço no Portal Clássico do Azure.|  
-|Provedores|Coleção de entidades de [Provedor](#Provider)|Os provedores de autenticação para este usuário.|  
-|UserRegistrationTerms|string|Termos que um usuário deve aceitar antes de entrar.|  
+|DelegationUrl|string|Olá delegado logon na url, se habilitado.|  
+|SsoSignUpUrl|string|Olá única URL de logon de usuário hello, se estiver presente.|  
+|AuxServiceUrl|string|Se o usuário atual Olá for um administrador, isso é uma instância de serviço do link toohello em Olá Portal clássico do Azure.|  
+|Provedores|Coleção de entidades de [Provedor](#Provider)|Olá provedores de autenticação para este usuário.|  
+|UserRegistrationTerms|string|Termos que um usuário deve concordar toobefore entrar.|  
 |UserRegistrationTermsEnabled|booleano|Se os termos estão habilitados.|  
   
 ##  <a name="UserSignUp"></a> Inscrição do usuário  
- A entidade `user sign up` tem as seguintes propriedades.  
+ Olá `user sign up` entidade tem Olá propriedades a seguir.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|PasswordConfirm|booleano|Valor usado pelo controle [sign-up](api-management-page-controls.md#sign-up).|  
+|PasswordConfirm|Booliano|Valor usado pelo Olá [inscrição](api-management-page-controls.md#sign-up)controle inscrição.|  
 |Senha|string|Senha da conta de usuário.|  
-|PasswordVerdictLevel|número|Valor usado pelo controle [sign-up](api-management-page-controls.md#sign-up).|  
-|UserRegistrationTerms|string|Termos que um usuário deve aceitar antes de entrar.|  
-|UserRegistrationTermsOptions|número|Valor usado pelo controle [sign-up](api-management-page-controls.md#sign-up).|  
-|ConsentAccepted|booleano|Valor usado pelo controle [sign-up](api-management-page-controls.md#sign-up).|  
-|Email|string|Endereço de email. Não deve estar vazio e deve ser exclusivo dentro da instância do serviço. O comprimento máximo é de 254 caracteres.|  
+|PasswordVerdictLevel|número|Valor usado pelo Olá [inscrição](api-management-page-controls.md#sign-up)controle inscrição.|  
+|UserRegistrationTerms|string|Termos que um usuário deve concordar toobefore entrar.|  
+|UserRegistrationTermsOptions|número|Valor usado pelo Olá [inscrição](api-management-page-controls.md#sign-up)controle inscrição.|  
+|ConsentAccepted|Booliano|Valor usado pelo Olá [inscrição](api-management-page-controls.md#sign-up)controle inscrição.|  
+|Email|string|Endereço de email. Não deve estar vazio e deve ser exclusivo na instância do serviço de saudação. O comprimento máximo é de 254 caracteres.|  
 |Nome|string|Nome. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
 |Sobrenome|string|Sobrenome. Não deve ficar vazio. O comprimento máximo é de 100 caracteres.|  
-|UserData|string|Valor usado pelo controle [sign-up](api-management-page-controls.md#sign-up).|  
-|NameIdentifier|string|Valor usado pelo controle [sign-up](api-management-page-controls.md#sign-up).|  
+|UserData|string|Valor usado pelo Olá [inscrição](api-management-page-controls.md#sign-up) controle.|  
+|NameIdentifier|string|Valor usado pelo Olá [inscrição](api-management-page-controls.md#sign-up)controle inscrição.|  
 |ProviderName|string|Nome do provedor de autenticação.|
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como trabalhar com modelos, confira [Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos](api-management-developer-portal-templates.md).
+Para obter mais informações sobre como trabalhar com modelos, consulte [como toocustomize Olá portal do desenvolvedor do gerenciamento de API usando modelos](api-management-developer-portal-templates.md).

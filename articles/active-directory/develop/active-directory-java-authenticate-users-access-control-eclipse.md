@@ -1,6 +1,6 @@
 ---
-title: Como usar o Controle de Acesso (Java) | Microsoft Docs
-description: Aprenda a desenvolver e usar o controle de acesso com Java no Azure.
+title: aaaHow toouse o controle de acesso (Java) | Microsoft Docs
+description: Saiba como toodevelop e o uso de controle de acesso com Java no Azure.
 services: active-directory
 documentationcenter: java
 author: rmcmurray
@@ -15,163 +15,163 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: 698403d181e1fee09bb4692290c92203ded97ba4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cbbce3b1a05eabf3b86a8cb91db1bde92dbb8960
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse
-Este guia mostrará como usar o ACS (Serviço de Controle de Acesso) do Azure dentro do Kit de Ferramentas do Azure para Eclipse. Para obter mais informações sobre o ACS, consulte a seção [Próximas etapas](#next_steps) .
+# <a name="how-tooauthenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Como tooAuthenticate usuários da Web com o Azure acesso de controle de serviço usando o Eclipse
+Este guia mostrará como toouse hello Azure Access Control Service (ACS) dentro de saudação Kit de ferramentas do Azure para Eclipse. Para obter mais informações sobre o ACS, consulte Olá [próximas etapas](#next_steps) seção.
 
 > [!NOTE]
-> O Filtro de Controle dos Serviços de Acesso do Azure é uma visualização de tecnologia da comunidade. Como software de pré-lançamento, a Microsoft não dá suporte formal a ele.
+> Olá filtro de controle de serviços de acesso do Azure é uma visualização de tecnologia da comunidade. Como software de pré-lançamento, a Microsoft não dá suporte formal a ele.
 > 
 > 
 
 ## <a name="what-is-acs"></a>O que é o ACS?
-A maioria dos desenvolvedores não são especialistas em identidade e geralmente não querem gastar tempo desenvolvendo a autenticação e mecanismos de autenticação para seus aplicativos e serviços. O ACS é um serviço do Azure que fornece uma maneira fácil de autenticar os usuários que precisam acessar seus aplicativos e serviços da web sem a necessidade de fatorar lógica de autenticação complexa em seu código.
+A maioria dos desenvolvedores não são especialistas em identidade e geralmente não querem gastar tempo desenvolvendo a autenticação e mecanismos de autenticação para seus aplicativos e serviços. ACS é um serviço do Azure que fornece uma maneira fácil de autenticar usuários que precisam de tooaccess seus aplicativos web e serviços sem a necessidade de lógica de autenticação complexa toofactor em seu código.
 
-Os seguintes recursos estão disponíveis no ACS:
+Olá recursos a seguir está disponível no ACS:
 
 * Integração com o Windows Identity Foundation (WIF).
 * Suporte para IPs (provedores de identidade) populares da Web incluindo o Windows Live ID, o Google, o Yahoo e o Facebook.
 * Suporte para o Serviço de Federação do Active Directory (AD FS) 2.0.
-* Um serviço de gerenciamento baseado em Open Data Protocol (OData) que fornece acesso programático para configurações do ACS.
-* Um Portal de Gerenciamento que permite acesso administrativo para as configurações do ACS.
+* Um Open Data Protocol (OData)-com base em serviço de gerenciamento que fornece acesso programático tooACS configurações.
+* Um Portal de gerenciamento que permite o acesso administrativo toohello configurações do ACS.
 
 Para obter mais informações sobre o ACS, consulte [Serviço de Controle de Acesso 2.0][Access Control Service 2.0].
 
 ## <a name="concepts"></a>Conceitos
-O ACS do Azure baseia-se na identidade baseada em declarações - uma abordagem consistente para a criação de mecanismos de autenticação para aplicativos executados localmente ou na nuvem. A identidade baseada em declarações fornece uma maneira comum para aplicativos e serviços obterem as informações da identidade necessárias sobre os usuários de sua organização, em outras organizações e na Internet.
+Azure ACS baseia-se em entidades de saudação da identidade baseada em declarações - uma abordagem consistente toocreating os mecanismos de autenticação para aplicativos em execução no local ou na nuvem hello. Identidade baseada em declarações fornece uma maneira comum para aplicativos e serviços tooacquire as informações de identidade que precisam sobre os usuários de sua organização, em outras organizações e na Internet de saudação.
 
-Para concluir as tarefas deste guia, você precisa compreender os seguintes conceitos:
+tarefas de saudação toocomplete neste guia, você deve compreender Olá conceitos a seguir:
 
-**Cliente** - no contexto deste guia de instruções, esse é um navegador que está tentando obter acesso ao seu aplicativo Web.
+**Cliente** -no contexto de saudação deste tooguide como, este é um navegador que está tentando o aplicativo web do toogain acesso tooyour.
 
-**Aplicativo de terceira parte confiável (RP)** - um aplicativo RP é um site ou um serviço Web que terceiriza a autenticação para uma autoridade externa. No jargão de identidade, dizemos que o RP confia essa autoridade. Este guia explica como configurar seu aplicativo para relação de confiança de ACS.
+**Aplicativo de terceira parte confiável (RP)** -aplicativo de um RP é um site ou serviço que terceirize a autoridade de autenticação tooone externo. Jargão de identidade, dizemos que Olá RP confia autoridade. Este guia explica como tooconfigure tootrust seu aplicativo ACS.
 
-**Token** - um token é uma coleção de dados de segurança que geralmente são emitidos após a autenticação bem-sucedida de um usuário. Ele contém um conjunto de *declarações*, atributos do usuário autenticado. Uma declaração pode representar um nome de usuário, um identificador de uma função à qual um usuário pertence, a idade de um usuário e assim por diante. Um token é geralmente assinado digitalmente, o que significa que pode sempre ser originado de volta ao seu emissor e seu conteúdo não pode ser violado. Um usuário obtém acesso a um aplicativo RP apresentando um token válido emitido por uma autoridade na qual o aplicativo RP confia.
+**Token** - um token é uma coleção de dados de segurança que geralmente são emitidos após a autenticação bem-sucedida de um usuário. Ele contém um conjunto de *declarações*, atributos de saudação autenticada do usuário. Uma declaração pode representar um nome de usuário, um identificador de uma função à qual um usuário pertence, a idade de um usuário e assim por diante. Um token é geralmente digitalmente assinado, que significa que sempre é tooits back originários de emissor e seu conteúdo não pode ser violado. Um usuário ganhos acesso tooa RP aplicativo apresentando um token válido emitido por uma autoridade de confiança do aplicativo de RP hello.
 
-**IP (Provedor de Identidade)** - um IP é uma autoridade que autentica as identidades dos usuários e emite tokens de segurança. O trabalho real de emissão de tokens é implementado por meio de um serviço especial chamado STS (Serviço de Token de Segurança). Exemplos típicos de IPs incluem o Windows Live ID, o Facebook, os repositórios de usuários de negócios (como o Active Directory) e assim por diante.
-Quando o ACS está configurado para confiar em um IP, o sistema irá aceitar e validar os tokens emitidos por esse IP. O ACS pode confiar em vários IPs ao mesmo tempo, o que significa que quando o seu aplicativo confia no ACS, você pode oferecer instantaneamente seu aplicativo a todos os usuários autenticados de todos os IPs nos quais o ACS confia em seu nome.
+**IP (Provedor de Identidade)** - um IP é uma autoridade que autentica as identidades dos usuários e emite tokens de segurança. trabalho real Olá emitir tokens é implementado, embora um serviço especial chamado serviço de Token de segurança (STS). Exemplos típicos de IPs incluem o Windows Live ID, o Facebook, os repositórios de usuários de negócios (como o Active Directory) e assim por diante.
+Quando o ACS é configurado tootrust um IP, sistema Olá aceitará e validará tokens emitidos por esse IP. ACS pode confiar em vários IPs de uma só vez, que significa que, quando seu aplicativo confia no ACS, você pode instantaneamente oferecer Olá de tooall seu aplicativo autenticada usuários Olá todos os IPs que ACS confia em seu nome.
 
 **FP (Provedor de Federação)** - os IPs têm conhecimento direto dos usuários e os autenticam usando suas credenciais e emitem declarações sobre o que conhecem sobre eles. Um FP (provedor de federação) é um tipo diferente de autoridade: em vez de autenticar usuários diretamente, ele atua como um intermediário e agencia a autenticação entre um RP e um ou mais IPs. Tanto IPs quanto FPs emitem tokens de segurança, por isso ambos usam os STS (Serviços de Token de Segurança). O ACS é um FP.
 
-**Mecanismo de Regras do ACS** - a lógica usada para transformar os tokens recebidos de IPs confiáveis em tokens com o objetivo de serem consumidos pelo RP é codificada no formulário de regras de transformação de declarações simples. O ACS apresenta um mecanismo de regra que se encarrega de aplicar qualquer lógica de transformação que você especifique para seu RP.
+**Mecanismo de regras do ACS** -regras de transformação de declarações de lógica de saudação tootransform usados tokens de entrada de tootokens de IPs confiáveis devem toobe consumida por Olá RP é codificada no formulário de simples. O ACS apresenta um mecanismo de regra que se encarrega de aplicar qualquer lógica de transformação que você especifique para seu RP.
 
-**Namespace do ACS** - um namespace é uma partição de nível superior do ACS que você usa para organizar suas configurações. Um namespace espera uma lista de IPs que você confia, os aplicativos de RPs a serem atendidos, as regras que você espera que o mecanismo de regra aplique ao processar tokens recebidos e assim por diante. Um namespace expõe vários pontos de extremidade que serão usados pelo aplicativo e pelo desenvolvedor para fazer o ACS executar sua função.
+**Namespace do ACS** - um namespace é uma partição de nível superior do ACS que você usa para organizar suas configurações. Um espaço para nome contém uma lista de IPs confiáveis, Olá RP aplicativos tooserve, regras de saudação que você espera Olá regra mecanismo tooprocess tokens de entrada e assim por diante. Um namespace expõe vários pontos de extremidade que serão usado pelo aplicativo hello e o desenvolvedor tooget ACS tooperform sua função.
 
-A figura a seguir mostra como a autenticação do ACS funciona com um aplicativo da Web:
+Olá figura a seguir mostra como a autenticação do ACS funciona com um aplicativo web:
 
 ![Diagrama de fluxo do ACS][acs_flow]
 
-1. O cliente (neste caso, um navegador) solicita uma página do RP.
-2. Como a solicitação ainda não foi autenticada, o RP redireciona o usuário para a autoridade que ele confia, que é o ACS. O ACS apresenta ao usuário a opção de IPs que foram especificados para essa RP. O usuário seleciona o IP apropriado.
-3. O cliente vai para a página de autenticação do IP e solicita ao usuário para fazer logon.
-4. Depois que o cliente é autenticado (por exemplo, a identidade que credenciais foram inseridas), o IP emite um token de segurança.
-5. Depois de emitir um token de segurança, o IP redireciona o cliente para o ACS, e o cliente envia o token de segurança emitido pelo IP ao ACS.
-6. O ACS valida o token de segurança emitido por IP, insere a declaração de identidade nesse token para o mecanismo de regras do ACS, calcula as declarações de identidade de saída e emite um novo token de segurança que contém essas declarações de saída.
-7. O ACS redireciona o cliente para o RP. O cliente envia o novo token de segurança emitido pelo ACS ao RP. O RP valida a assinatura no token de segurança emitido pelo ACS, valida as declarações nesse token e retorna a página que foi solicitada originalmente.
+1. Olá cliente (neste caso um navegador) solicita uma página do hello RP.
+2. Desde que a solicitação de saudação ainda não foi autenticada, Olá RP redireciona autoridade Olá de toohello de usuário que ele confia, que é o ACS. Olá ACS apresenta Olá usuário escolha Olá de IPs que foram especificados para essa RP. usuário Olá seleciona IP apropriada hello.
+3. Olá cliente procura a página de autenticação toohello endereços IP e solicita Olá usuário toolog em.
+4. Depois Olá cliente é autenticado (por exemplo, são inseridas credenciais de identidade de saudação), Olá IP emite um token de segurança.
+5. Depois de emitir um token de segurança, Olá IP redireciona Olá tooACS de cliente e cliente de Olá envia Olá token emitido por Olá tooACS IP.
+6. ACS valida o token de segurança de saudação emitido pelo IP hello, entradas Olá identidade declarações nesse token em mecanismo de regras de saudação ACS, calcula Olá declarações de identidade de saída e emite um novo token de segurança que contém essas declarações de saída.
+7. ACS redireciona Olá cliente toohello RP. cliente Olá envia Olá novo token de segurança emitido pelo ACS toohello RP. Olá RP valida a assinatura Olá Olá token de segurança emitido pelo ACS, valida Olá declarações nesse token e retorna Olá página originalmente solicitada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para concluir as tarefas deste guia, você precisará do seguinte:
+tarefas de saudação toocomplete neste guia, você precisará seguir Olá:
 
 * Um JDK (Java Developer Kit) versão 1.6 ou posterior.
 * Um IDE do Eclipse para desenvolvedores do Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>. 
 * Uma distribuição de um servidor web baseado em Java ou servidor de aplicativo, como o Apache Tomcat, o GlassFish, o Servidor de Aplicativo JBoss ou o Jetty.
 * Uma assinatura do Azure, que pode ser adquirida em <http://www.microsoft.com/windowsazure/offers/>.
-* O Kit de Ferramentas do Azure para Eclipse, versão de abril de 2014 ou posterior. Para saber mais, confira [Instalação do Kit de Ferramentas do Azure para Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
-* Um certificado X.509 para uso com o aplicativo. Você precisará desse certificado no certificado público (.cer) e no formato Troca de Informações Pessoais (.PFX). (As opções para criação desse certificado serão descritas posteriormente neste tutorial).
-* Familiaridade com emulador de computação do Azure e com as técnicas de implantação discutidas em [Criando um aplicativo Hello World para o Azure no Eclipse (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
+* Olá Kit de ferramentas do Azure para Eclipse, abril de 2014 versão ou posterior. Para obter mais informações, consulte [Olá instalando o Kit de ferramentas do Azure para Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
+* Um toouse do certificado x. 509 com o seu aplicativo. Você precisará desse certificado no certificado público (.cer) e no formato Troca de Informações Pessoais (.PFX). (As opções para criação desse certificado serão descritas posteriormente neste tutorial).
+* Familiaridade com hello Azure computação emulador e implantação técnicas discutidas em [criando um aplicativo Hello World para Azure no Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
 
 ## <a name="create-an-acs-namespace"></a>Criar um namespace do ACS
-Para começar a usar o ACS (Access Control Service) no Azure, você deve criar um namespace do ACS. O namespace fornece um escopo exclusivo para resolver os recursos do ACS a partir do seu aplicativo.
+toobegin usando o serviço de controle de acesso (ACS) no Azure, você deve criar um namespace do ACS. Olá namespace fornece um escopo exclusivo para endereçar recursos do ACS de dentro de seu aplicativo.
 
-1. Faça logon no [Portal de Gerenciamento do Azure][Azure Management Portal].
+1. Faça logon no hello [Portal de gerenciamento][Azure Management Portal].
 2. Clique em **Active Directory**. 
-3. Para criar um novo namespace do Controle de Acesso, clique em **Novo**, em **Serviços de Aplicativos**, em **Controle de Acesso** e em **Criação Rápida**. 
-4. Insira um nome para o namespace. O Azure verifica se o nome é exclusivo.
-5. Selecione a região na qual o namespace é usado. Para obter o melhor desempenho, use a região na qual você está implantando o seu aplicativo.
-6. Se você tiver mais de uma assinatura, selecione a assinatura que você deseja usar para o namespace do ACS.
+3. toocreate um novo namespace de controle de acesso, clique em **novo**, clique em **serviços de aplicativos**, clique em **controle de acesso**e, em seguida, clique em **criação rápida** . 
+4. Insira um nome para o namespace de saudação. Azure verifica que esse nome hello é exclusivo.
+5. Selecione Olá região na qual Olá namespace é usado. Para melhor desempenho de hello, use região Olá no qual você está implantando seu aplicativo.
+6. Se você tiver mais de uma assinatura, selecione a assinatura de saudação que você deseja toouse para namespace Olá ACS.
 7. Clique em **Criar**.
 
-O Azure cria e ativa o namespace. Aguarde até que o status do novo namespace seja **Ativo** para continuar. 
+O Azure cria e ativa Olá namespace. Aguarde até que o status de saudação do hello novo namespace é **Active** antes de continuar. 
 
 ## <a name="add-identity-providers"></a>Adicionar provedores de identidade
-Nesta tarefa, você adicionará os IPs a serem usados com seu aplicativo RP para autenticação. Para fins de demonstração, esta tarefa mostra como adicionar o Windows Live como um IP, mas você poderá usar qualquer um dos IPs listados no Portal de Gerenciamento ACS.
+Nesta tarefa, você pode adicionar IPs toouse com seu aplicativo RP para autenticação. Para fins de demonstração, esta tarefa mostra como tooadd Windows Live como um IP, mas você pode usar qualquer um dos Olá que IPS listado no Portal de gerenciamento do ACS de saudação.
 
-1. No [Portal de Gerenciamento do Azure][Azure Management Portal], clique em **Active Directory**, selecione um namespace de Controle de Acesso e, em seguida, clique em **Gerenciar**. O Portal de Gerenciamento do ACS é aberto.
-2. No painel de navegação esquerdo do Portal de Gerenciamento do ACS, clique em **Provedores de Identidade**.
-3. O Windows Live ID é habilitado por padrão e não pode ser excluído. Para fins deste tutorial, apenas o Windows Live ID é usado. Nessa tela, no entanto, é onde você poderia adicionar outros IPs, clicando no botão **Adicionar** .
+1. Em Olá [Portal de gerenciamento][Azure Management Portal], clique em **do Active Directory**, selecione um namespace de controle de acesso e, em seguida, clique em **gerenciar**. Olá Portal de gerenciamento do ACS é aberto.
+2. No painel de navegação esquerdo de saudação do hello Portal de gerenciamento do ACS, clique em **provedores de identidade**.
+3. O Windows Live ID é habilitado por padrão e não pode ser excluído. Para fins deste tutorial, apenas o Windows Live ID é usado. Nessa tela, no entanto, é onde você pode adicionar outros IPs, clicando em Olá **adicionar** botão.
 
-O Windows Live ID agora está habilitado como um IP para o seu namespace do ACS. Em seguida, especifique seu aplicativo web Java (a ser criado mais tarde) como um RP.
+O Windows Live ID agora está habilitado como um IP para o seu namespace do ACS. Em seguida, você pode especificar o aplicativo web de Java (toobe criada posteriormente) como uma RP.
 
 ## <a name="add-a-relying-party-application"></a>Adicionar um aplicativo de terceira parte confiável
-Nesta tarefa, você configura o ACS para reconhecer seu aplicativo web Java como um aplicativo RP válido.
+Nesta tarefa, você configurar ACS toorecognize o aplicativo web Java como um aplicativo válido do RP.
 
-1. No Portal de Gerenciamento do ACS, clique em **Aplicativos de terceiras partes confiáveis**.
-2. Na página **Aplicativos de Terceira Parte Confiável**, clique em **Adicionar**.
-3. Na página **Adicionar aplicativos de terceiras partes confiáveis** , faça o seguinte:
+1. No Portal de gerenciamento do ACS de Olá, clique em **aplicativos de terceira parte**.
+2. Em Olá **aplicativos de terceiros confiáveis** , clique em **adicionar**.
+3. Em Olá **Adicionar aplicativo de terceiros confiável** página, Olá a seguir:
    
-   1. Em **Nome**, digite o nome do RP. Para fins desse tutorial, digite **Aplicativo Web do Azure**.
+   1. Em **nome**, nome de tipo de saudação de saudação RP. Para fins desse tutorial, digite **Aplicativo Web do Azure**.
    2. Em **Modo**, selecione **Inserir as configurações manualmente**.
-   3. Em **Realm**, digite o URI ao qual o token de segurança emitido pelo ACS se aplica. Para esta tarefa, digite **http://localhost:8080/**.
+   3. Em **Realm**, tipo hello URI toowhich Olá token de segurança emitido pelo ACS se aplica. Para esta tarefa, digite **http://localhost:8080/**.
       ![Realm de terceira parte confiável para uso no emulador de computação][relying_party_realm_emulator]
-   4. Em **URL de Retorno,** digite a URL para a qual o ACS retorna o token de segurança. Para esta tarefa, digite **http://localhost:8080/MyACSHelloWorld/index.jsp**
+   4. Em **URL de retorno** tipo hello URL toowhich ACS retorna o token de segurança de saudação. Para esta tarefa, digite **http://localhost:8080/MyACSHelloWorld/index.jsp**
       ![URL de retorno da terceira parte confiável para uso no emulador de computação][relying_party_return_url_emulator]
-   5. Aceite os valores padrão no restante dos campos.
+   5. Aceite valores padrão de saudação restante Olá dos campos de saudação.
 4. Clique em **Salvar**.
 
-Você agora configurou com êxito seu aplicativo Web Java, quando executado no emulador de computação do Azure (em http://localhost:8080/), para ser um RP no namespace do ACS. Em seguida, crie as regras que o ACS usa para processar declarações para o RP.
+Você agora configurou com êxito o aplicativo web Java quando ele é executado no emulador de computação do Azure hello (em http://localhost:8080 /) toobe uma RP em seu namespace do ACS. Em seguida, crie regras de saudação que o ACS usa declarações tooprocess para Olá RP.
 
 ## <a name="create-rules"></a>Criar regras
-Nesta tarefa, você define as regras que orientam como as declarações são passadas dos IPs para seu RP. Para o objetivo deste guia, iremos configurar o ACS simplesmente para copiar os tipos e valores de declarações de entrada diretamente no token de saída, sem filtrá-los nem modificá-los.
+Nesta tarefa, defina regras de saudação que unidade como declarações são passadas do IPs tooyour RP. Para finalidade de saudação deste guia, simplesmente configuraremos valores e tipos de declaração de entrada do ACS toocopy Olá diretamente no token de saída de hello, sem filtrar ou modificá-los.
 
-1. Na página principal do Portal de Gerenciamento do ACS, clique em **Grupos de Regras**.
-2. Na página **Grupos de Regras**, clique em **Grupo de Regras Padrão para o Aplicativo Web do Azure**.
-3. Na página **Editar Grupo de Regras**, clique em **Gerar**.
-4. Na página **Gerar Regras: Grupo de Regras Padrão para o Aplicativo Web do Azure**, verifique se Windows Live ID está selecionado e clique em **Gerar**.    
-5. Na página **Editar Grupo de Regras**, clique em **Salvar**.
+1. Na página principal do Portal de gerenciamento do ACS hello, clique em **grupos de regras**.
+2. Em Olá **grupos de regras** , clique em **o grupo de regras padrão para o aplicativo Web do Azure**.
+3. Em Olá **Editar grupo de regras** , clique em **gerar**.
+4. Em Olá **gerar regras: grupo de regras padrão para o aplicativo Web do Azure** página, verifique se o Windows Live ID está marcada e, em seguida, clique em **gerar**.    
+5. Em Olá **Editar grupo de regras** , clique em **salvar**.
 
-## <a name="upload-a-certificate-to-your-acs-namespace"></a>Carregar um certificado para seu namespace do ACS
-Nesta tarefa, você carrega um certificado PFX que será usado para assinar solicitações de token criadas pelo seu namespace do ACS.
+## <a name="upload-a-certificate-tooyour-acs-namespace"></a>Carregar um namespace de ACS de tooyour de certificado
+Nesta tarefa, você deve carregar um. Certificado PFX que será usado toosign solicitações de token criadas por seu namespace do ACS.
 
-1. Na página principal do Portal de Gerenciamento do ACS, clique em **Certificados e Chaves**.
-2. Na página **Certificados e Chaves**, clique em **Adicionar** acima de **Autenticação de Tokens**.
-3. Na página **Adicionar Certificado ou Chave de Autenticação de Token** :
-   1. Na seção **Usado para**, clique em **Aplicativo de Terceira Parte Confiável** e selecione **Aplicativo Web do Azure** (que você configurou previamente com o nome do seu aplicativo de terceira parte confiável).
-   2. Na seção **Tipo**, selecione **Certificado X.509**.
-   3. Na seção **Certificado** , clique no botão procurar e navegue até o arquivo de certificado x.509 que você deseja usar. Esse será um arquivo .PFX. Selecione o arquivo, clique em **Abrir** e digite a senha do certificado na caixa de texto **Senha**. Observe que, para fins de teste, você deve usar um certificado autoassinado. Para criar um certificado autoassinado, use o botão **Novo** na caixa de diálogo **Biblioteca de Filtros do ACS** (descrita posteriormente) ou use o utilitário **encutil.exe** no [site do projeto][project website] do Kit de Início do Azure para Java.
-   4. Verifique se **Tornar Primário** está marcado. Sua página **Adicionar Chave ou Certificado de Autenticação de Tokens** deve ser semelhante à exibida a seguir.
+1. Na página principal do Portal de gerenciamento do ACS hello, clique em **certificados e chaves**.
+2. Em Olá **certificados e chaves** , clique em **adicionar** acima **assinatura de Token**.
+3. Em Olá **adicionar Token de assinatura de certificado ou chave** página:
+   1. Em Olá **usado para** seção, clique em **aplicativo de terceiros confiável** e selecione **aplicativo Web do Azure** (que você tenha configurado como nome de saudação do seu aplicativo de terceira parte).
+   2. Em Olá **tipo** seção, selecione **certificado x. 509**.
+   3. Em Olá **certificado** seção, clique botão de procura hello e arquivo de certificado x. 509 toohello que você deseja toouse. Esse será um arquivo .PFX. Selecione o arquivo hello, clique em **abrir**e digite a senha do certificado Olá em Olá **senha** caixa de texto. Observe que, para fins de teste, você deve usar um certificado autoassinado. toocreate um certificado autoassinado, use Olá **novo** botão Olá **biblioteca de filtro ACS** diálogo (descrito adiante), ou use Olá **encutil.exe** utility do hello [site projeto] [ project website] de hello Azure Starter Kit para Java.
+   4. Verifique se **Tornar Primário** está marcado. O **adicionar Token de assinatura de certificado ou chave** página deve ter aparência a seguir toohello semelhante.
        ![Adicionar certificado de autenticação de tokens][add_token_signing_cert]
-   5. Clique em **Salvar** para salvar suas configurações e fechar a página **Adicionar Certificado ou Chave de Autenticação de Tokens**.
+   5. Clique em **salvar** toosave suas configurações e fechar Olá **adicionar Token de assinatura de certificado ou chave** página.
 
-Em seguida, revise as informações na página Integração de Aplicativos e copie o URI do qual você precisará para configurar seu aplicativo Web Java para usar o ACS.
+Em seguida, examine informações do Olá Olá integração de aplicativos página e cópia Olá URI que você precisará tooconfigure seu toouse de aplicativos Java web ACS.
 
-## <a name="review-the-application-integration-page"></a>Revisar a página Integração de Aplicativos
-Você pode encontrar todas as informações e o código necessário para configurar seu aplicativo Web Java (o aplicativo RP) para trabalhar com o ACS na página Integração de Aplicativos do Portal de Gerenciamento do ACS. Você precisará dessas informações ao configurar seu aplicativo web Java para autenticação federada.
+## <a name="review-hello-application-integration-page"></a>Página de integração de aplicativos de saudação de revisão
+Você pode encontrar todas as informações de saudação e Olá código necessário tooconfigure seu toowork Java web application (Olá aplicativo RP) com o ACS na página de integração de aplicativos de saudação do hello Portal de gerenciamento do ACS. Você precisará dessas informações ao configurar seu aplicativo web Java para autenticação federada.
 
-1. No Portal de Gerenciamento ACS, clique em **Integração de aplicativos**.  
-2. Na página **Integração de Aplicativos**, clique em **Páginas de Logon**.
-3. Na página **Integração da Página de Logon**, clique em **Aplicativo Web do Azure**.
+1. No Portal de gerenciamento do ACS de Olá, clique em **integração de aplicativos**.  
+2. Em Olá **integração de aplicativos** , clique em **páginas de logon**.
+3. Em Olá **integração da página de logon** , clique em **aplicativo Web do Azure**.
 
-Na página **Integração da Página de Logon: Aplicativo Web do Azure**, a URL listada na **Opção 1: Link para uma página de logon hospedada pelo ACS** será usada em seu aplicativo Web Java. Você precisará desse valor ao adicionar a biblioteca de Filtros de Serviços do Controle de Acesso para seu aplicativo Java.
+Em Olá **integração da página de logon: aplicativo Web do Azure** página Olá URL listada nas **opção 1: página de logon hospedada no ACS tooan Link** será usado em seu aplicativo da web de Java. Esse valor será necessário quando você adiciona Olá filtro de serviços de controle de acesso do Azure biblioteca tooyour aplicativo Java.
 
 ## <a name="create-a-java-web-application"></a>Criar um aplicativo web Java
-1. No Eclipse, no menu, clique em **Arquivo**, clique em **Novo** e clique em **Projeto Web Dinâmico**. (Se você não vir o **Projeto Web Dinâmico** listado como um projeto disponível depois de clicar em **Arquivo**, **Novo**, faça o seguinte: clique em **Arquivo**, clique em **Novo**, clique em **Projeto**, expanda **Web**, clique em **Projeto Web Dinâmico** e clique em **Avançar**.) Para fins deste tutorial, nomeie o projeto **MyACSHelloWorld**. (Certifique-se de usar esse nome, as etapas subsequentes deste tutorial esperam que seu arquivo WAR seja nomeado MyACSHelloWorld). Sua tela será semelhante à seguinte:
+1. No Eclipse, no menu de saudação clique **arquivo**, clique em **novo**e, em seguida, clique em **projeto Web dinâmico**. (Se você não vir **projeto Web dinâmico** listado como um projeto disponível depois de clicar em **arquivo**, **novo**, em seguida, Olá a seguir: clique em **arquivo**, clique em **novo**, clique em **projeto**, expanda **Web**, clique em **projeto Web dinâmico**e clique em  **Em seguida**.) Para fins deste tutorial, nomeie o projeto de saudação **MyACSHelloWorld**. (Certifique-se de usar esse nome, as etapas subsequentes neste tutorial esperam sua toobe de arquivo WAR denominado MyACSHelloWorld). Sua tela será exibido a seguir toohello semelhante:
    
     ![Criar um Projeto Hello World para exemplo do ACS][create_acs_hello_world]
    
     Clique em **Concluir**.
 2. Na exibição do Explorador de Projeto do Eclipse, expanda **MyACSHelloWorld**. Clique com o botão direito do mouse em **WebContent**, clique em **Novo** e, em seguida, clique em **Arquivo JSP**.
-3. Na caixa de diálogo **Novo Arquivo JSP**, nomeie o arquivo como **index.jsp**. Mantenha a pasta pai como MyACSHelloWorld/WebContent, conforme mostrado a seguir:
+3. Em Olá **novo arquivo JSP** caixa de diálogo, o arquivo de saudação do nome **index.jsp**. Manter a pasta pai Olá MyACSHelloWorld/WebContent, conforme mostrado na seguinte hello:
    
     ![Adicionar um arquivo JSP para exemplo do ACS][add_jsp_file_acs]
    
     Clique em **Avançar**.
-4. Na caixa de diálogo **Selecionar Modelo JSP**, selecione **Novo Arquivo JSP (html)** e clique em **Concluir**.
-5. Quando o arquivo index.jsp for aberto no Eclipse, adicione texto para exibir **Hello ACS World!** dentro do elemento existente `<body>`. Seu conteúdo `<body>` atualizado deve ser semelhante ao seguinte:
+4. Em Olá **Selecionar modelo JSP** caixa de diálogo, selecione **novo arquivo JSP (html)** e clique em **concluir**.
+5. Quando o arquivo do hello index.jsp for aberto no Eclipse, adicionar no texto toodisplay **ACS Olá, mundo!** dentro de saudação existente `<body>` elemento. Seu atualizada `<body>` conteúdo deve aparecer da seguinte hello:
    
         <body>
           <b><% out.println("Hello ACS World!"); %></b>
@@ -179,87 +179,87 @@ Na página **Integração da Página de Logon: Aplicativo Web do Azure**, a URL 
    
     Salve o index.jsp.
 
-## <a name="add-the-acs-filter-library-to-your-application"></a>Adicionar a Biblioteca de Filtros do ACS ao seu aplicativo
+## <a name="add-hello-acs-filter-library-tooyour-application"></a>Adicionar Olá tooyour aplicativo de biblioteca do filtro ACS
 1. No explorador de Projeto do Eclipse, clique com o botão direito do mouse em **MyACSHelloWorld**, clique em **Caminho de Compilação** e em **Configurar Caminho de Compilação**.
-2. Na caixa de diálogo **Caminho de Compilação do Java**, clique na guia **Bibliotecas**.
+2. Em Olá **caminho de compilação de Java** caixa de diálogo, clique em Olá **bibliotecas** guia.
 3. Clique em **Adicionar Biblioteca**.
-4. Clique em **Filtro dos Serviços de Controle de Acesso do Azure (da MS Open Tech)** e clique em **Avançar**. A caixa de diálogo **Filtro do Access Control Services do Azure** é exibida.  (O campo **Localização** pode ter um caminho diferente, dependendo de onde você instalou o Eclipse, e o número da versão pode ser diferente, dependendo das atualizações do software.)
+4. Clique em **Filtro dos Serviços de Controle de Acesso do Azure (da MS Open Tech)** e clique em **Avançar**. Olá **filtro de serviços de controle de acesso do Azure** caixa de diálogo é exibida.  (Olá **local** campo pode ter um caminho diferente, dependendo de onde você instalou o Eclipse, e o número de versão Olá poderia ser diferente, dependendo das atualizações de software.)
    
     ![Adicionar a biblioteca de filtros do ACS][add_acs_filter_lib]
-5. Usando um navegador aberto na página **Integração da Página de Logon** do Portal de Gerenciamento, copie a URL listada no campo **Opção 1: link para uma página de logon hospedada pelo ACS** e cole-a no campo **Ponto de Extremidade de Autenticação do ACS** na caixa de diálogo do Eclipse.
-6. Usando um navegador aberto na página **Editar Aplicativo de Terceira Parte Confiável** do Portal de Gerenciamento, copie a URL listada no campo **Realm** e cole-a no campo **Realm de Terceira Parte Confiável** na caixa de diálogo do Eclipse.
-7. Na seção **Segurança** da caixa de diálogo Eclipse, se desejar usar um certificado existente, clique em **Procurar**, navegue até o certificado que você deseja usar, selecione-o e clique em **Abrir**. Ou, se você desejar criar um novo certificado, clique em **Novo** para exibir a caixa de diálogo **Novo Certificado**, especifique a senha, o nome do arquivo .cer e o nome do arquivo .pfx para o novo certificado.
-8. Marque **Inserir o certificado no arquivo WAR**. A incorporação do certificado dessa maneira o inclui em sua implantação sem que você precise adicioná-lo manualmente como um componente. (Caso contrário, se você precisar armazenar seu certificado externamente ao arquivo WAR, você poderá adicionar o certificado como um componente da função e desmarcar **Inserir o certificado no arquivo WAR**.)
-9. [Opcional] Mantenha a opção **Requer conexões HTTPS** marcada. Se você definir essa opção, precisará acessar seu aplicativo usando o protocolo HTTPS. Se você não desejar requerer conexões HTTPS, desmarque essa opção.
-10. Para uma implantação no emulador de computação, suas configurações do **Filtro do ACS do Azure** serão semelhantes ao seguinte.
+5. Usando um navegador aberto toohello **integração da página de logon** página de hello Portal de gerenciamento, copiar Olá URL listado no hello **opção 1: página de logon hospedada no ACS Link tooan** campo e cole-o em Olá **o ponto de extremidade do ACS autenticação** campo da caixa de diálogo do hello Eclipse.
+6. Usando um navegador aberto toohello **Editar aplicativo de terceiros confiável** página de hello Portal de gerenciamento, copiar Olá URL listado no hello **Realm** campo e cole-o em Olá **terceira parte confiável Realm**  campo da caixa de diálogo do hello Eclipse.
+7. Dentro de saudação **segurança** seção da caixa de diálogo de Eclipse da saudação, se você quiser toouse um certificado existente, clique em **procurar**, navegar toohello certificado você deseja toouse, selecione-o e clique em  **Abra**. Ou, se você quiser toocreate um novo certificado, clique em **novo** toodisplay Olá **novo certificado** caixa de diálogo, em seguida, especifique a senha Olá, nome do arquivo. cer de saudação e nome do arquivo. pfx Olá Olá novo certificado.
+8. Verificar **certificado de saudação de inserção no arquivo WAR de saudação**. Certificado Olá incorporação dessa maneira inclui-lo em sua implantação sem exigir que você toomanually adicioná-lo como um componente. (Se, em vez disso, você deve armazenar o certificado externamente do seu arquivo WAR, você pode adicionar o certificado hello como um componente de função e desmarque **certificado de saudação de inserção no arquivo WAR de saudação**.)
+9. [Opcional] Mantenha a opção **Requer conexões HTTPS** marcada. Se você definir essa opção, você precisará tooaccess seu aplicativo usando o protocolo HTTPS de saudação. Se você não quiser toorequire conexões de HTTPS, desmarque essa opção.
+10. Para uma implantação toohello compute emulator, seu **Azure ACS filtro** configurações serão a aparência a seguir toohello semelhante.
     
-    ![Configurações do Filtro do ACS do Azure para uma implantação no emulador de computação][add_acs_filter_lib_emulator]
+    ![Configurações de filtro ACS do Azure para uma implantação toohello o emulador de computação][add_acs_filter_lib_emulator]
 11. Clique em **Concluir**.
 12. Clique em **Sim** quando for apresentada uma caixa de diálogo informando que será criado um arquivo web.xml.
-13. Clique em **OK** para fechar o diálogo **Caminho de Compilação Java**.
+13. Clique em **Okey** tooclose Olá **caminho de compilação de Java** caixa de diálogo.
 
-## <a name="deploy-to-the-compute-emulator"></a>Implantar no emulador de computação
+## <a name="deploy-toohello-compute-emulator"></a>Implantar o emulador de computação toohello
 1. No Explorador de Projeto do Eclipse, clique com o botão direito do mouse em **MyACSHelloWorld**, clique em **Azure** e em **Pacote para Azure**.
 2. Para **Nome do Projeto**, digite **MyAzureACSProject** e clique em **Avançar**.
-3. Selecione um JDK e o servidor de aplicativo. (Essas etapas são abordadas detalhadamente no tutorial [Criando um aplicativo Hello World para o Azure no Eclipse (a página pode estar em inglês)](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) ).
+3. Selecione um JDK e o servidor de aplicativo. (Essas etapas são abordadas detalhadamente em Olá [criando um aplicativo Hello World para Azure no Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) tutorial).
 4. Clique em **Concluir**.
-5. Clique no botão **Executar no emulador do Azure** .
-6. Depois de iniciar seu aplicativo web Java no emulador de computação, feche todas as instâncias do seu navegador (para que nenhuma sessão atual do navegador interfira em seu teste de logon do ACS).
-7. Execute seu aplicativo ao abrir <http://localhost:8080/MyACSHelloWorld/> em seu navegador (ou <https://localhost:8080/MyACSHelloWorld/> se tiver selecionado **Requer conexões HTTPS**). Um logon do Windows Live ID deve ser solicitado e você deverá ser levado à URL de retorno especificada para seu aplicativo de terceira parte confiável.
-8. Ao concluir a exibição do aplicativo, clique no botão **Redefinir Emulador do Azure** .
+5. Clique em Olá **executar no emulador do Azure** botão.
+6. Depois que o aplicativo web Java for iniciado no emulador de computação hello, feche todas as instâncias do seu navegador (de forma que qualquer sessão de navegador atual não interferir com o teste de logon do ACS).
+7. Execute seu aplicativo ao abrir <http://localhost:8080/MyACSHelloWorld/> em seu navegador (ou <https://localhost:8080/MyACSHelloWorld/> se tiver selecionado **Requer conexões HTTPS**). Você deve ser solicitado para um logon do Windows Live ID e, em seguida, você deve ser levado toohello URL de retorno especificado para o aplicativo de terceira parte.
+8. Quando terminar de exibir o aplicativo, clique em Olá **redefinir emulador do Azure** botão.
 
-## <a name="deploy-to-azure"></a>Implantar no Azure
-Para implantar no Azure, você precisará alterar o realm da terceira parte confiável e retornar a URL para seu namespace do ACS.
+## <a name="deploy-tooazure"></a>Implantar tooAzure
+toodeploy tooAzure, você precisará toochange Olá terceira parte confiável realm URL de retorno e de seu namespace do ACS.
 
-1. No Portal de Gerenciamento do Azure, na página **Editar Aplicativo da Terceira Parte Confiável**, modifique **Realm** para ser a URL de seu site implantado. Substitua **exemplo** pelo nome DNS especificado para sua implantação.
+1. Dentro de saudação Portal de gerenciamento do Azure, em Olá **Editar aplicativo de terceiros confiável** , modifique **Realm** toobe Olá URL do seu site implantado. Substituir **exemplo** com o nome DNS Olá especificado para sua implantação.
    
     ![Realm de terceira parte confiável para uso na produção][relying_party_realm_production]
-2. Modifique a **URL de retorno** para ser a URL do seu aplicativo. Substitua **exemplo** pelo nome DNS especificado para sua implantação.
+2. Modificar **URL de retorno** toobe Olá URL do seu aplicativo. Substituir **exemplo** com o nome DNS Olá especificado para sua implantação.
    
     ![URL de retorno da terceira parte confiável para uso na produção][relying_party_return_url_production]
-3. Clique em **Salvar** para salvar o realm da terceira parte confiável atualizado e retornar as alterações da URL.
-4. Mantenha a página **Integração da Página de Logon** aberta no navegador, você precisará copiá-la em breve.
+3. Clique em **salvar** toosave seu atualizado respondem parte realm URL de retorno e alterações.
+4. Lembre-Olá **integração da página de logon** página aberta no navegador, será necessário toocopy-lo em breve.
 5. No explorador de Projeto do Eclipse, clique com o botão direito do mouse em **MyACSHelloWorld**, clique em **Caminho de Compilação** e em **Configurar Caminho de Compilação**.
-6. Clique na guia **Bibliotecas**, clique em **Filtro dos Serviços de Controle de Acesso do Azure** e em **Editar**.
-7. Usando um navegador aberto na página **Integração da Página de Logon** do Portal de Gerenciamento, copie a URL listada no campo **Opção 1: link para uma página de logon hospedada pelo ACS** e cole-a no campo **Ponto de Extremidade de Autenticação do ACS** na caixa de diálogo do Eclipse.
-8. Usando um navegador aberto na página **Editar Aplicativo de Terceira Parte Confiável** do Portal de Gerenciamento, copie a URL listada no campo **Realm** e cole-a no campo **Realm de Terceira Parte Confiável** na caixa de diálogo do Eclipse.
-9. Na seção **Segurança** da caixa de diálogo Eclipse, se desejar usar um certificado existente, clique em **Procurar**, navegue até o certificado que você deseja usar, selecione-o e clique em **Abrir**. Ou, se você desejar criar um novo certificado, clique em **Novo** para exibir a caixa de diálogo **Novo Certificado**, especifique a senha, o nome do arquivo .cer e o nome do arquivo .pfx para o novo certificado.
-10. Mantenha a opção **Incorporar o certificado no arquivo WAR** marcada, supondo que você deseja incorporar o certificado no arquivo WAR.
-11. [Opcional] Mantenha a opção **Requer conexões HTTPS** marcada. Se você definir essa opção, precisará acessar seu aplicativo usando o protocolo HTTPS. Se você não desejar requerer conexões HTTPS, desmarque essa opção.
-12. Para uma implantação no Azure, suas configurações do Filtro do ACS do Azure serão semelhantes ao seguinte.
+6. Clique em Olá **bibliotecas** , clique em **filtro de serviços de controle de acesso do Azure**e, em seguida, clique em **editar**.
+7. Usando um navegador aberto toohello **integração da página de logon** página de hello Portal de gerenciamento, copiar Olá URL listado no hello **opção 1: página de logon hospedada no ACS Link tooan** campo e cole-o em Olá **o ponto de extremidade do ACS autenticação** campo da caixa de diálogo do hello Eclipse.
+8. Usando um navegador aberto toohello **Editar aplicativo de terceiros confiável** página de hello Portal de gerenciamento, copiar Olá URL listado no hello **Realm** campo e cole-o em Olá **terceira parte confiável Realm**  campo da caixa de diálogo do hello Eclipse.
+9. Dentro de saudação **segurança** seção da caixa de diálogo de Eclipse da saudação, se você quiser toouse um certificado existente, clique em **procurar**, navegar toohello certificado você deseja toouse, selecione-o e clique em  **Abra**. Ou, se você quiser toocreate um novo certificado, clique em **novo** toodisplay Olá **novo certificado** caixa de diálogo, em seguida, especifique a senha Olá, nome do arquivo. cer de saudação e nome do arquivo. pfx Olá Olá novo certificado.
+10. Manter **certificado de saudação de inserção no arquivo WAR de saudação** marcada, supondo que você deseja tooembed Olá certificado no arquivo WAR de saudação.
+11. [Opcional] Mantenha a opção **Requer conexões HTTPS** marcada. Se você definir essa opção, você precisará tooaccess seu aplicativo usando o protocolo HTTPS de saudação. Se você não quiser toorequire conexões de HTTPS, desmarque essa opção.
+12. Para uma implantação tooAzure, as configurações de filtro do Azure ACS procurará a seguir toohello semelhante.
     
     ![Configurações do Filtro do ACS do Azure para uma implantação de produção][add_acs_filter_lib_production]
-13. Clique em **Concluir** para fechar a caixa de diálogo **Editar Biblioteca**.
-14. Clique em **OK** para fechar a caixa de diálogo **Propriedades de MyACSHelloWorld**.
-15. No Eclipse, clique no botão **Publicar na Nuvem do Azure** . Responda às solicitações, de maneira semelhante ao que foi feito na seção **Para implantar seu aplicativo no Azure** do tópico [Criando um aplicativo Hello World para o Azure no Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) . 
+13. Clique em **concluir** tooclose Olá **Editar biblioteca** caixa de diálogo.
+14. Clique em **Okey** tooclose Olá **propriedades MyACSHelloWorld** caixa de diálogo.
+15. No Eclipse, clique em Olá **publicar tooAzure nuvem** botão. Responder a prompts toohello, semelhantes a como feito no hello **toodeploy tooAzure seu aplicativo** seção Olá [criando um aplicativo Hello World para Azure no Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) tópico. 
 
-Após a implantação do seu aplicativo web, feche todas as sessões abertas do navegador e execute seu aplicativo web. Você deverá ser solicitado a entrar com as credenciais do Windows Live ID que, em seguida, serão enviadas para a URL de retorno de seu aplicativo de terceira parte confiável.
+Depois que seu aplicativo da web foi implantado, feche todas as sessões de navegador aberto, executar o aplicativo da web e você deverá toosign com as credenciais do Windows Live ID, seguido por envio toohello URL do seu aplicativo de terceira parte de retorno.
 
-Quando você terminar de usar seu aplicativo Hello World do ACS, lembre-se de excluir a implantação (você pode aprender como excluir uma implantação no tópico [Criando um aplicativo Hello World para o Azure no Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) ).
+Quando você terminar usando o aplicativo Hello World do ACS, lembre-se de implantação de saudação toodelete (você pode aprender como toodelete uma implantação em Olá [criando um aplicativo Hello World para Azure no Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) tópico).
 
 ## <a name="next_steps"></a>Próximas etapas
-Para obter um exame da marcação linguagem SAML (Security Assertion Markup Language) retornada pelo ACS para seu aplicativo, consulte [Como exibir SAML retornado pelo Serviço de Controle de Acesso do Azure][How to view SAML returned by the Azure Access Control Service]. Para explorar melhor a funcionalidade do ACS e experimentar mais cenários sofisticados, consulte [Serviço de Controle de Acesso 2.0][Access Control Service 2.0].
+Para um exame de saudação SAML Security Assertion Markup Language () retornado pelo aplicativo de tooyour do ACS, consulte [como tooview SAML retornado pelo hello Azure Access Control Service][How tooview SAML returned by hello Azure Access Control Service]. toofurther explorar tooexperiment com cenários mais sofisticados e funcionalidade do ACS, consulte [Access Control Service 2.0][Access Control Service 2.0].
 
-Além disso, esse exemplo usou a opção **Incorporar o certificado no arquivo WAR** . Essa opção simplifica a implantação do certificado. Se, em vez disso, você desejar manter seu certificado de autenticação separado do seu arquivo WAR, você poderá usar a seguinte técnica:
+Além disso, essa saudação de exemplo usado **certificado de saudação de inserção no arquivo WAR de saudação** opção. Essa opção facilita o certificado de saudação toodeploy simples. Se em vez disso, você deseja tookeep seu certificado de autenticação separado do seu arquivo WAR, você pode usar o hello técnica a seguir:
 
-1. Na seção **Segurança** da caixa de diálogo **Filtro dos Serviços de Controle de Acesso do Azure**, digite **${env.JAVA_HOME}/mycert.cer** e desmarque a opção **Incorporar o certificado no arquivo WAR**. (Ajuste mycert.cer se o nome do arquivo do certificado for diferente). Clique em **Concluir** para fechar o diálogo.
-2. Copie o certificado como um componente em sua implantação: no Explorador de Projeto do Eclipse, expanda **MyAzureACSProject**, clique com o botão direito do mouse em **WorkerRole1**, clique em **Propriedades**, expanda **Função do Azure** e clique em **Componentes**.
+1. Dentro de saudação **segurança** seção Olá **filtro de serviços de controle de acesso do Azure** caixa de diálogo, digite **${env. JAVA_HOME}/mycert.cer** e desmarque **certificado de saudação de inserção no arquivo WAR de saudação**. (Ajuste mycert.cer se o nome do arquivo do certificado for diferente). Clique em **concluir** caixa de diálogo tooclose hello.
+2. Certificado de saudação cópia como um componente em sua implantação: no Explorador de projeto do Eclipse, expanda **MyAzureACSProject**, clique com botão direito **WorkerRole1**, clique em **propriedades** , expanda **função do Azure**e clique em **componentes**.
 3. Clique em **Adicionar**.
-4. Na caixa de diálogo **Adicionar Componente** :
+4. Dentro de saudação **adicionar componente** caixa de diálogo:
    
-   1. Na seção **Importar** :
-      1. Use o botão **Arquivo** para navegar para o certificado que você deseja usar. 
+   1. Em Olá **importação** seção:
+      1. Saudação de uso **arquivo** botão toonavigate toohello certificado toouse. 
       2. Para **Método**, selecione **copiar**.
-   2. Para **Como Nome**, clique na caixa de texto e aceite o nome padrão.
-   3. Na seção **Implantar** :
+   2. Para **nome como**, clique na caixa de texto de saudação e aceite o nome padrão de saudação.
+   3. Em Olá **implantar** seção:
       1. Para **Método**, selecione **copiar**.
-      2. Para **Para o diretório**, digite **%JAVA_HOME%**.
-   4. Sua caixa de diálogo **Adicionar Componente** deverá ser semelhante à seguinte.
+      2. Para **toodirectory**, tipo **JAVA_HOME %**.
+   4. O **adicionar componente** caixa de diálogo deve ser a seguir toohello semelhante.
       
        ![Adicionar componente de certificado][add_cert_component]
    5. Clique em **OK**.
 
-Neste ponto, seu certificado seria incluído em sua implantação. Observe que, independentemente de você incorporar o certificado no arquivo WAR ou adicioná-lo como um componente à sua implantação, você precisa carregar o certificado em seu namespace, conforme descrito na seção [Carregar um certificado em seu namespace do ACS][Upload a certificate to your ACS namespace].
+Neste ponto, seu certificado seria incluído em sua implantação. Observe que independentemente de você insere certificado Olá no arquivo WAR de saudação ou adicioná-lo como uma implantação de tooyour do componente, você precisa tooupload Olá certificado tooyour namespace conforme descrito em Olá [carregar um namespace de ACS de tooyour certificado] [ Upload a certificate tooyour ACS namespace] seção.
 
 [What is ACS?]: #what-is
 [Concepts]: #concepts
@@ -269,15 +269,15 @@ Neste ponto, seu certificado seria incluído em sua implantação. Observe que, 
 [Add Identity Providers]: #add-IP
 [Add a Relying Party Application]: #add-RP
 [Create Rules]: #create-rules
-[Upload a certificate to your ACS namespace]: #upload-certificate
-[Review the Application Integration Page]: #review-app-int
+[Upload a certificate tooyour ACS namespace]: #upload-certificate
+[Review hello Application Integration Page]: #review-app-int
 [Configure Trust between ACS and Your ASP.NET Web Application]: #config-trust
-[Add the ACS Filter library to your application]: #add_acs_filter_library
-[Deploy to the compute emulator]: #deploy_compute_emulator
-[Deploy to Azure]: #deploy_azure
+[Add hello ACS Filter library tooyour application]: #add_acs_filter_library
+[Deploy toohello compute emulator]: #deploy_compute_emulator
+[Deploy tooAzure]: #deploy_azure
 [Next steps]: #next_steps
 [project website]: http://wastarterkit4java.codeplex.com/releases/view/61026
-[How to view SAML returned by the Azure Access Control Service]: active-directory-java-view-saml-returned-by-access-control.md
+[How tooview SAML returned by hello Azure Access Control Service]: active-directory-java-view-saml-returned-by-access-control.md
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451

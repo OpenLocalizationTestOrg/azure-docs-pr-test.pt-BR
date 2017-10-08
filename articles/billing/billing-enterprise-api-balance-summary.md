@@ -1,6 +1,6 @@
 ---
-title: "APIs Enterprise de cobrança do Azure – saldo e resumo | Microsoft Docs"
-description: "Aprenda sobre as APIs RateCard e de Uso de Cobrança do Azure, que são usadas para fornecer informações sobre o consumo de recursos e as tendências do Azure."
+title: "aaaAzure cobrança Enterprise APIs - saldo e resumo | Microsoft Docs"
+description: "Saiba mais sobre o uso de cobrança do Azure e APIs RateCard, que são insights tooprovide usados para consumo de recursos do Azure e tendências."
 services: 
 documentationcenter: 
 author: aedwin
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: f6b149f0e656d2263705048aa5b644f5bb4a5712
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b031de2c347e5abeacd11743cc96024434518918
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reporting-apis-for-enterprise-customers---balance-and-summary"></a>APIs de Relatórios para clientes Enterprise – Saldo e Resumo
 
-A API Saldo e Resumo oferece um resumo mensal de informações sobre saldos, novas compras, encargos de serviço do Azure Marketplace, ajustes e encargos de excedente.
+Olá equilíbrio e a API de resumo oferece um resumo mensal de informações sobre saldos, novas aquisições, tarifas do serviço Azure Marketplace, ajustes e encargos de excedentes.
 
 
 ##<a name="request"></a>Solicitação 
-As propriedades de cabeçalho comuns que precisam ser adicionadas são especificadas [aqui](billing-enterprise-api.md). Se um período de cobrança não for especificado, os dados do período de cobrança atual serão retornados.
+Propriedades de cabeçalho comuns que precisam toobe adicionado são especificadas [aqui](billing-enterprise-api.md). Se não for especificado um período de cobrança, em seguida, dados de cobrança atual Olá período são retornados.
 
 |Método | URI da solicitação|
 |-|-|
@@ -35,7 +35,7 @@ As propriedades de cabeçalho comuns que precisam ser adicionadas são especific
 |GET| https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/balancesummary|
 
 > [!Note]
-> Para usar a versão de visualização da API, substitua a v2 pela v1 na URL anterior.
+> versão de visualização de saudação toouse da API, substitua v2 v1 no hello acima URL.
 >
 
 ## <a name="response"></a>Resposta
@@ -77,11 +77,11 @@ As propriedades de cabeçalho comuns que precisam ser adicionadas são especific
 
 |Nome da Propriedade| Tipo| Descrição
 |-|-|-|
-|ID|string|A ID exclusiva de um determinado período de cobrança e registro|
-|billingPeriodId|string |A ID do período de cobrança|
-|currencyCode|string |O código da moeda|
-|beginningBalance|decimal| O saldo inicial para o período de cobrança|
-|endingBalance|decimal| O saldo final do período de cobrança (para períodos abertos ele será atualizado diariamente)|
+|ID|string|Olá Id exclusiva para um determinado período de cobrança e registro|
+|billingPeriodId|string |Olá Id do período de cobrança|
+|currencyCode|string |código de moeda Olá|
+|beginningBalance|decimal| saldo inicial de Olá Olá período de faturamento|
+|endingBalance|decimal| Olá saldo final para o período de cobrança hello (para períodos abertos que isso será atualizado diariamente)|
 |newPurchases|decimal| Valor total da nova compra|
 |adjustments|decimal| Valor total do ajuste|
 |utilized|decimal| Uso total do compromisso|

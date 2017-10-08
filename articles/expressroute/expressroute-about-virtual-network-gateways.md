@@ -1,5 +1,5 @@
 ---
-title: Sobre gateways de rede virtual ExpressRoute | Microsoft Docs
+title: gateways de rede virtual de rota expressa aaaAbout | Microsoft Docs
 description: Saiba mais sobre os gateways de rede virtual para ExpressRoute.
 services: expressroute
 documentationcenter: na
@@ -15,38 +15,38 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/05/2017
 ms.author: cherylmc
-ms.openlocfilehash: a6363fa380d0bab05d7500141cc6019d1d3f68b8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4daf4f96b4fadb00683d8e536e51734853008c50
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Sobre os gateways de rede virtual para ExpressRoute
-O gateway de rede virtual é usado para enviar o tráfego de rede entre as redes virtuais do Azure e locais. Quando você configura uma conexão ExpressRoute, é necessário criar e configurar um gateway de rede virtual e uma conexão de gateway de rede virtual.
+Um gateway de rede virtual é usado toosend o tráfego de rede entre redes virtuais do Azure e locais de local. Quando você configura uma conexão ExpressRoute, é necessário criar e configurar um gateway de rede virtual e uma conexão de gateway de rede virtual.
 
-Quando você cria um gateway de rede virtual, especifica várias configurações. Uma das configurações necessárias especifica se o gateway será usado para tráfego de ExpressRoute ou Tráfego VPN Site a Site. No modelo de implantação do Resource Manager, a configuração é '-GatewayType'.
+Quando você cria um gateway de rede virtual, especifica várias configurações. Uma das configurações necessárias de saudação especifica se o gateway de saudação será usado para o tráfego de rota expressa ou VPN Site a Site. No modelo de implantação do Gerenciador de recursos de hello, configuração de saudação for '-GatewayType'.
 
-Quando o tráfego de rede é enviado em uma conexão privada, você pode usar o tipo de gateway 'ExpressRoute'. Isso também é referido como um gateway ExpressRoute. Quando o tráfego de rede é enviado criptografado na Internet pública, você pode usar o tipo de gateway 'Vpn'. Isso é referido como um gateway VPN. As conexões Site a Site, Ponto a Site e VNet a VNet usam um gateway VPN.
+Quando o tráfego de rede é enviado em uma conexão privada, use o tipo de gateway de saudação 'ExpressRoute'. Isso também é chamado tooas um gateway de rota expressa. Quando o tráfego é enviado criptografado em Olá Internet pública, use o tipo de gateway Olá 'Vpn'. Isso é chamado tooas um gateway de VPN. As conexões Site a Site, Ponto a Site e VNet a VNet usam um gateway VPN.
 
-Cada rede virtual pode ter apenas um gateway de rede virtual por tipo de gateway. Por exemplo, você pode ter um gateway de rede virtual que usa - GatewayType Vpn, e outro que usa -GatewayType ExpressRoute. Este artigo se concentra no gateway de rede virtual ExpressRoute.
+Cada rede virtual pode ter apenas um gateway de rede virtual por tipo de gateway. Por exemplo, você pode ter um gateway de rede virtual que usa - GatewayType Vpn, e outro que usa -GatewayType ExpressRoute. Este artigo se concentra no gateway de rede virtual de rota expressa hello.
 
 ## <a name="gwsku"></a>SKUs do Gateway
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-Se quiser atualizar o gateway para um SKU de gateway mais potente, na maioria dos casos, você pode usar o cmdlet do PowerShell 'Resize-AzureRmVirtualNetworkGateway'. Isso funcionará em atualizações para as SKUs Standard e HighPerformance. No entanto, para atualizar para a SKU UltraPerformance, você precisará recriar o gateway.
+Se você quiser tooupgrade tooa seu gateway mais poderoso gateway SKU, na maioria dos casos, você pode usar Olá cmdlet do PowerShell 'Redimensionamento AzureRmVirtualNetworkGateway'. Isso funcionará para atualizações tooStandard e SKUs de alto desempenho. No entanto, tooupgrade toohello UltraPerformance SKU, você precisará de gateway de saudação toorecreate.
 
 ### <a name="aggthroughput"></a>Taxa de transferência agregada estimada por SKU de gateway
-A tabela a seguir mostra os tipos de gateway e a produtividade agregada estimada. Esta tabela aplica-se a ambos os modelos de implantação do Gerenciador de Recursos e clássico.
+Olá tabela a seguir mostra os tipos de gateway hello e Olá estimado taxa de transferência. Esta tabela se aplica a saudação tooboth Gerenciador de recursos e modelos de implantação clássico.
 
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
 > [!IMPORTANT]
-> A produtividade do aplicativo depende de vários fatores, como a latência de ponta a ponta e o número de fluxos de tráfego abertos pelo aplicativo. Os números na tabela representam o limite superior que o aplicativo, teoricamente, pode atingir em um ambiente ideal. 
+> Taxa de transferência de aplicativos depende de vários fatores, como latência de ponta a ponta Olá, e o número de saudação do tráfego de flui Olá aplicativo aberto. obtêm números Olá Olá tabela representam Olá limite superior que o aplicativo hello pode theorectically em um ambiente ideal. 
 > 
 >
 
 ## <a name="resources"></a>Cmdlets do PowerShell e APIs REST
-Para obter recursos técnicos adicionais e requisitos de sintaxe específicos ao usar cmdlets do PowerShell e APIs REST para configurações do gateway de rede virtual, veja as páginas a seguir:
+Para obter recursos técnicos adicionais e requisitos de sintaxe específica ao usar APIs REST e cmdlets do PowerShell para configurações de gateway de rede virtual, consulte Olá páginas a seguir:
 
 | **Clássico** | **Gerenciador de Recursos** |
 | --- | --- |

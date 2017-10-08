@@ -1,6 +1,6 @@
 ---
-title: "Monitorar aplicativos no Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Saiba como monitorar Aplicativos no Serviço de Aplicativo do Azure usando o Portal do Azure."
+title: "aaaMonitor aplicativos no serviço de aplicativo do Azure | Microsoft Docs"
+description: "Saiba como toomonitor aplicativos no serviço de aplicativo do Azure usando Olá Portal do Azure."
 services: app-service
 documentationcenter: 
 author: btardif
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: byvinyal
-ms.openlocfilehash: 25d3776920d683fffedcd8ac6ed0e84dfe875974
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 80d5a466102a894a49d04ae35aa54cc1d05a58df
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Como monitorar aplicativos Web no Serviço de Aplicativo do Azure
-O [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) fornece a funcionalidade de monitoramento no [Portal do Azure](https://portal.azure.com).
-Isso inclui a capacidade de examinar **cotas** e **métricas** para um aplicativo, bem como o Plano do Serviço de Aplicativo, configurar **alertas** e até mesmo **dimensionar** automaticamente de acordo com essas métricas.
+[Serviço de aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) fornece funcionalidade interna de monitoramento no hello [Portal do Azure](https://portal.azure.com).
+Isso inclui Olá capacidade tooreview **cotas** e **métricas** para um aplicativo, bem como Olá plano de serviço de aplicativo, configurando **alertas** e até mesmo **dimensionamento** automaticamente de acordo com essas métricas.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="understanding-quotas-and-metrics"></a>Noções básicas sobre cotas e métricas
 ### <a name="quotas"></a>Cotas
-Aplicativos hospedados no Serviço de Aplicativo estão sujeitos a determinados *limites* de recursos que eles podem usar. Os limites são definidos pelo **Plano do Serviço de Aplicativo** associado ao aplicativo.
+Aplicativos hospedados no serviço de aplicativo são o assunto toocertain *limites* nos recursos que eles podem usar. Olá limites são definidos por Olá **plano de serviço de aplicativo** associado ao aplicativo hello.
 
-Se o aplicativo estiver hospedado em um plano **Gratuito** ou **Compartilhado**, os limites de uso dos recursos que o aplicativo pode usar são definidos por **Cotas**.
+Se o aplicativo hello está hospedado em um **livre** ou **compartilhado** planejar, em seguida, limites de saudação em recursos Olá Olá aplicativo pode usar são definidos por **cotas**.
 
-Se o aplicativo estiver hospedado em um plano **Básico**, **Standard** ou **Premium**, os limites de uso dos recursos que podem usar são definidos pelo **tamanho** (Pequeno, Médio, Grande) e **contagem de instâncias** (1, 2, 3,...) do **Plano do Serviço de Aplicativo**.
+Se o aplicativo hello está hospedado em um **básica**, **padrão** ou **Premium** planejar, em seguida, limites de saudação em recursos Olá usarem são definidas pelas Olá **tamanho** (Pequeno, médio, grande) e **a contagem de instâncias** (1, 2, 3,...) do hello **plano de serviço de aplicativo**.
 
 **Cotas** para aplicativos **Gratuitos** ou **Compartilhados** são:
 
@@ -48,35 +48,35 @@ Se o aplicativo estiver hospedado em um plano **Básico**, **Standard** ou **Pre
 * **Sistema de arquivos**
   * Quantidade total de armazenamento permitida.
 
-A única cota aplicável aos aplicativos hospedados no plano **Básico**, **Standard** e **Premium** é **Sistema de arquivos**.
+Olá somente cota aplicável tooapps hospedado em **básica**, **padrão** e **Premium** planos é **Filesystem**.
 
-Para saber mais sobre cotas, limites e recursos específicos disponíveis para SKUs de Serviço de Aplicativo diferentes, confira: [Limites do serviço de assinatura do Azure](../azure-subscription-service-limits.md#app-service-limits)
+Para obter mais informações sobre cotas específicas hello, limites e recursos disponíveis para Olá diferentes SKUs do serviço de aplicativo podem ser encontradas aqui: [limites de serviço de assinatura do Azure](../azure-subscription-service-limits.md#app-service-limits)
 
 #### <a name="quota-enforcement"></a>Aplicação de cota
-Se, durante o uso, um aplicativo exceder a cota **CPU (curto)**, **CPU (dia)** ou **largura de banda**, o aplicativo será interrompido até que a cota seja redefinida. Durante esse tempo, todas as solicitações de entrada resultarão em um **HTTP 403**.
+Se um aplicativo em seu uso exceder Olá **CPU (curta)**, **CPU (dia)**, ou **largura de banda** cota, Olá aplicativo será interrompido até que a cota de saudação define novamente. Durante esse tempo, todas as solicitações de entrada resultarão em um **HTTP 403**.
 ![][http403]
 
-Se a cota **memória** do aplicativo for excedida, o aplicativo será reiniciado.
+Se Olá aplicativo **memória** cota for excedida, aplicativo hello será reiniciado.
 
-Se a cota **Sistema de arquivos** for excedida, qualquer operação falhará, incluindo a gravação em logs.
+Se hello **Filesystem** cota for excedida, em seguida, qualquer operação irá falhar, isso inclui gravar toologs de gravação.
 
 As cotas podem ser aumentadas ou removidas de seu aplicativo pela atualização de seu Plano do Serviço de Aplicativo.
 
 ### <a name="metrics"></a>Métricas
-**Métricas** fornecem informações sobre o aplicativo, ou sobre o comportamento do Plano do Serviço de Aplicativo.
+**Métricas** fornecem informações sobre o aplicativo hello ou o comportamento do plano de serviço de aplicativo.
 
-Para um **Aplicativo**, as métricas disponíveis são:
+Para uma **aplicativo**, métricas de saudação disponíveis são:
 
 * **Tempo Médio de Resposta**
-  * O tempo médio necessário para o aplicativo atender às solicitações em ms.
+  * Olá tempo médio para solicitações de tooserve aplicativo hello em ms.
 * **Conjunto de trabalho de memória média**
-  * A quantidade média de memória em MiBs usada pelo aplicativo.
+  * tempo médio de saudação de memória em MiBs usada pelo aplicativo hello.
 * **Tempo de CPU**
-  * A quantidade de CPU em segundos consumida pelo aplicativo. Para saber mais sobre essa métrica, consulte: [Tempo de CPU versus percentual de CPU](#cpu-time-vs-cpu-percentage)
+  * quantidade de saudação da CPU em segundos consumidos por um aplicativo hello. Para saber mais sobre essa métrica, consulte: [Tempo de CPU versus percentual de CPU](#cpu-time-vs-cpu-percentage)
 * **Entrada de Dados**
-  * A quantidade de largura de banda de entrada consumida pelo aplicativo em MiBs.
+  * quantidade de saudação de entrada largura de banda consumida pelo aplicativo hello em MiBs.
 * **Saída de dados**
-  * A quantidade de largura de banda de saída consumida pelo aplicativo em MiBs.
+  * quantidade de saudação de saída de largura de banda consumida por um aplicativo hello MiBs.
 * **Http 2xx**
   * Contagem de solicitações que resultam em um código de status http > = 200, mas < 300.
 * **Http 3xx**
@@ -94,11 +94,11 @@ Para um **Aplicativo**, as métricas disponíveis são:
 * **Erros do Servidor Http**
   * Contagem de solicitações que resultam em um código de status http > = 500, mas < 600.
 * **Conjunto de trabalho de memória**
-  * Quantidade atual de memória usada pelo aplicativo em MiBs.
+  * Quantidade de memória usada pelo aplicativo hello MiBs atual.
 * **Solicitações**
   * Número total de solicitações, independentemente de seu código de status HTTP resultante.
 
-Para um **Plano do Serviço de Aplicativo**, as métricas disponíveis são:
+Para uma **plano de serviço de aplicativo**, métricas de saudação disponíveis são:
 
 > [!NOTE]
 > As métricas do Plano do Serviço de Aplicativo só estão disponíveis para os planos no SKU **Básico**, **Standard** e **Premium**.
@@ -106,58 +106,58 @@ Para um **Plano do Serviço de Aplicativo**, as métricas disponíveis são:
 > 
 
 * **Porcentagem de CPU**
-  * A média de CPU usada em todas as instâncias do plano.
+  * Olá média de CPU usada por todas as instâncias do plano de saudação.
 * **Porcentagem de Memória**
-  * A média de memória usada em todas as instâncias do plano.
+  * Olá média da memória usada em todas as instâncias do plano de saudação.
 * **Entrada de Dados**
-  * A média de largura de banda de entrada usada em todas as instâncias do plano.
+  * Olá entrada largura de banda média usada em todas as instâncias do plano de saudação.
 * **Saída de dados**
-  * A média de largura de banda de saída usada em todas as instâncias do plano.
+  * Média de saudação largura de banda usada em todas as instâncias do plano de saudação de saída.
 * **Tamanho da fila do disco**
-  * O número médio de solicitações de leitura e gravação enfileiradas no armazenamento. Um tamanho grande de fila de disco é uma indicação de um aplicativo que pode estar lento devido ao excesso de E/S de disco.
+  * número médio de saudação de ler e gravar solicitações enfileiradas no armazenamento. Um comprimento de fila de disco alta é uma indicação de um aplicativo que pode ser lento devido a e/s de disco tooexcessive.
 * **Tamanho da Fila de Http**
-  * O número médio de solicitações HTTP que tiveram de esperar na fila antes de serem atendidas. Um tamanho de fila HTTP alto ou crescente é um sintoma de um plano sob carga pesada.
+  * Olá média de solicitações HTTP que tinha toosit na fila de saudação antes que está sendo atendida. Um tamanho de fila HTTP alto ou crescente é um sintoma de um plano sob carga pesada.
 
 ### <a name="cpu-time-vs-cpu-percentage"></a>Tempo de CPU versus porcentagem de CPU
-<!-- To do: Fix Anchor (#CPU-time-vs.-CPU-percentage) -->
+<!-- toodo: Fix Anchor (#CPU-time-vs.-CPU-percentage) -->
 
 Há duas métricas que refletem o uso da CPU. **Tempo de CPU** e **Percentual de CPU**
 
-**Tempo de CPU** é útil para aplicativos hospedados nos planos **Gratuito** ou **Compartilhado** desde que uma de suas cotas seja definida em minutos de CPU usados pelo aplicativo.
+**Tempo de CPU** é útil para aplicativos hospedados em **livre** ou **compartilhado** planos como uma das suas cotas é definida em minutos de CPU usados pelo aplicativo hello.
 
-O **percentual de CPU**, por outro lado, é útil para aplicativos hospedados em planos **Básico**, **Standard** e **Premium**, já que podem ser expandidos e essa métrica é uma boa indicação do uso geral em todas as instâncias.
+**Porcentagem de CPU** em Olá outro lado é útil para aplicativos hospedados em **básica**, **padrão** e **premium** planos desde que eles podem ser expandidos e essa métrica é uma boa indicação da saudação uso geral em todas as instâncias.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Granularidade de Métricas e a Política de Retenção
-As métricas de um aplicativo e de um Plano do Serviço de Aplicativo são registradas e agregadas pelo serviço com as seguintes granularidades e políticas de retenção:
+Métricas para um plano de serviço de aplicativo e de aplicativo são registradas e agregadas por serviço Olá com hello granularidades e políticas de retenção a seguir:
 
 * Métricas de granularidade de **minuto** são mantidas por **48 horas**
 * Métricas de granularidade de **hora** são mantidas por **30 dias**
 * Métricas de granularidade de **dia** são mantidas por **90 dias**
 
-## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Monitoramento de cotas e métricas no Portal do Azure.
-Você pode examinar o status das diferentes **cotas** e **métricas** que afetam um aplicativo no [Portal do Azure](https://portal.azure.com).
+## <a name="monitoring-quotas-and-metrics-in-hello-azure-portal"></a>Monitoramento de métricas e cotas no hello Portal do Azure.
+Você pode examinar o status de saudação do hello diferente **cotas** e **métricas** afetar um aplicativo hello [Portal do Azure](https://portal.azure.com).
 
 ![][quotas]
-**Cotas** podem ser encontradas em Configurações >**Cotas**. A experiência do usuário permite que você examine: (1) o nome das cotas, (2) o intervalo de redefinição, (3) o limite atual e (4) o valor atual.
+**Cotas** podem ser encontradas em Configurações >**Cotas**. Olá UX permite que você examine: nome de cotas de saudação (1), (2) o intervalo de redefinição, (3) o limite atual e o valor atual (4).
 
 ![][metrics]
-**Métricas** podem ser acessadas diretamente da folha do recurso. Você também pode personalizar o gráfico da seguinte maneira: (1) **clique** nele e (2) selecione **editar gráfico**.
-A partir daqui, você pode alterar (3) o **intervalo de tempo**, (4) o **tipo de gráfico** e (5) as **métricas** a serem exibidas.  
+**Métricas** pode ser acessado diretamente na folha de recursos de saudação. Você também pode personalizar o gráfico do hello: (1) **clique** nele e selecione (2) **Editar gráfico**.
+Aqui você pode alterar hello (3) **intervalo de tempo**, (4) **tipo de gráfico**e (5) **métricas** toodisplay.  
 
 Saiba mais sobre métricas aqui: [Monitorar as métricas do serviço](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
 ## <a name="alerts-and-autoscale"></a>Alertas e dimensionamento automático
-As métricas de um Aplicativo ou Plano do Serviço de Aplicativo podem ser conectadas a alertas, para saber mais sobre isso, consulte [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+Métricas para um plano de aplicativo ou serviço de aplicativo pode ser vinculado tooalerts, toolearn mais sobre isso, consulte [receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
-Aplicativos do Serviço de Aplicativo hospedados em Planos do Serviço de Aplicativo Básico, Standard ou Premium oferecem suporte ao **Dimensionamento Automático**. Isso permite que você configure regras que monitoram as métricas do Plano do Serviço de Aplicativo e podem aumentar ou diminuir a contagem de instâncias, fornecendo recursos adicionais conforme o necessário, ou economizando dinheiro quando o aplicativo é provisionado de forma excessiva. Saiba mais sobre o dimensionamento automático aqui: [Como dimensionar](../monitoring-and-diagnostics/insights-how-to-scale.md) e aqui [Práticas recomendadas para o dimensionamento automático do Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+Aplicativos do Serviço de Aplicativo hospedados em Planos do Serviço de Aplicativo Básico, Standard ou Premium oferecem suporte ao **Dimensionamento Automático**. Isso permite que você regras tooconfigure que monitorar as métricas de plano de serviço de aplicativo e podem aumentar ou diminuir a contagem de instância Olá fornecer recursos adicionais conforme necessário, ou salvando money quando o aplicativo hello excesso de provisionamento. Você pode aprender mais sobre AutoEscala aqui: [como tooScale](../monitoring-and-diagnostics/insights-how-to-scale.md) e aqui [as práticas recomendadas para dimensionamento automático do Monitor do Azure](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 
 > [!NOTE]
-> Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você quiser tooget iniciado com o serviço de aplicativo do Azure antes de se inscrever para uma conta do Azure, vá muito[tente do serviço de aplicativo](https://azure.microsoft.com/try/app-service/), onde você pode criar imediatamente um aplicativo web de curta duração starter no serviço de aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
 ## <a name="whats-changed"></a>O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para um guia toohello alteração de sites tooApp serviço consulte: [do serviço de aplicativo do Azure e seu impacto sobre os serviços do Azure existente](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169

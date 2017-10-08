@@ -1,6 +1,6 @@
 ---
-title: "Saída e mensagens do runbook na Automação do Azure | Microsoft Docs"
-description: "Descreve como criar e recuperar a saída e mensagens de erro de runbooks na Automação do Azure."
+title: "aaaRunbook mensagens na automação do Azure e saída | Microsoft Docs"
+description: "Descreve como o erro e saída toocreate e recuperar mensagens de runbooks na automação do Azure."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,39 +14,39 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: 6f01f97e38aa271034741c8a5e2f8057ab61fcd7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c1505fa889473766bfa47e43aaed2449d60ad851
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Saída e mensagens do runbook na Automação do Azure
-A maioria dos runbooks da Automação do Azure terá alguma forma de saída, como uma mensagem de erro para o usuário ou um objeto complexo destinado a ser consumido por outro fluxo de trabalho. O Windows PowerShell oferece [vários fluxos](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) para o envio da saída de um script ou de um de fluxo de trabalho. A Automação do Azure funciona com cada um desses fluxos de forma diferente e você deve seguir as práticas recomendadas de como usar cada um quando estiver criando um runbook.
+A maioria dos runbooks de automação do Azure terá alguma forma de saída, como um usuário de toohello de mensagem de erro ou um objeto complexo destinado toobe consumido por outro fluxo de trabalho. O Windows PowerShell oferece [vários fluxos](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) toosend saída de um script ou fluxo de trabalho. Automação do Azure funciona diferentemente com cada um desses fluxos, e você deve seguir as práticas recomendadas para como toouse cada quando você estiver criando um runbook.
 
-A tabela a seguir oferece uma breve descrição de cada um dos fluxos e de seu comportamento no Portal de Gerenciamento do Azure ao executar um runbook publicado e ao [testar um runbook](automation-testing-runbook.md). Serão fornecidos mais detalhes sobre cada fluxo nas seções subsequentes.
+Olá tabela a seguir fornece uma breve descrição de cada um dos fluxos de saudação e seus comportamentos no Portal de gerenciamento de saudação quando executar um runbook publicado e quando [testar um runbook](automation-testing-runbook.md). Serão fornecidos mais detalhes sobre cada fluxo nas seções subsequentes.
 
 | Fluxo | Descrição | Publicado | Teste |
 |:--- |:--- |:--- |:--- |
-| Saída |Objetos que se destinam a consumo de outros runbooks. |Gravado no histórico do trabalho. |Exibido no Painel de Saída do Teste. |
-| Aviso |Mensagem de aviso para o usuário. |Gravado no histórico do trabalho. |Exibido no Painel de Saída do Teste. |
-| Erro |Mensagem de erro para o usuário. Ao contrário de uma exceção, o runbook continua após uma mensagem de erro por padrão. |Gravado no histórico do trabalho. |Exibido no Painel de Saída do Teste. |
-| Detalhado |Mensagens que fornecem informações gerais ou de depuração. |Gravado no histórico do trabalho somente se o log detalhado estiver ativado para o runbook. |Exibido no painel Saída de Teste somente se $VerbosePreference for definido como Continuar no runbook. |
-| Andamento |Os registros são automaticamente gerados antes e depois de cada atividade no runbook. O runbook não deve tentar criar seus próprios registros de andamento porque são destinados a um usuário interativo. |Gravado no histórico do trabalho somente se o log de andamento estiver ativado para o runbook. |Não exibido no Painel Saída de Teste. |
-| Depurar |As mensagens destinadas a um usuário interativo. Não deve ser usado em runbooks. |Não gravado no histórico do trabalho. |Não gravado no Painel Saída de Teste. |
+| Saída |Objetos destinados toobe consumido por outros runbooks. |Histórico de trabalho toohello escrito. |Exibido no painel de saída do teste de saudação. |
+| Aviso |Mensagem de aviso destinada ao usuário hello. |Histórico de trabalho toohello escrito. |Exibido no painel de saída do teste de saudação. |
+| Erro |Mensagem de erro destinado Olá usuário. Ao contrário de uma exceção, Olá runbook continua após uma mensagem de erro por padrão. |Histórico de trabalho toohello escrito. |Exibido no painel de saída do teste de saudação. |
+| Detalhado |Mensagens que fornecem informações gerais ou de depuração. |Gravado toojob histórico somente se o log detalhado está ativado para o runbook hello. |No painel de saída do teste Olá só aparece se $VerbosePreference é configurada tooContinue em Olá runbook. |
+| Andamento |Registros gerados automaticamente antes e depois de cada atividade no runbook hello. Olá runbook não deve tentar toocreate em seus próprios registros de progresso desde que eles são destinados a um usuário interativo. |Gravado toojob histórico somente se o log de andamento está ativado para Olá runbook. |Não é exibido no painel de saída do teste de saudação. |
+| Depurar |As mensagens destinadas a um usuário interativo. Não deve ser usado em runbooks. |Não gravado toojob histórico. |Não gravado tooTest painel de saída. |
 
 ## <a name="output-stream"></a>Fluxo de saída
-O fluxo de saída destina-se à saída de objetos criados por um script ou um fluxo de trabalho quando executado corretamente. Na Automação do Azure, esse fluxo é usado principalmente para objetos que se destinam a ser consumidos por [runbooks pais que chamam o runbook atual](automation-child-runbooks.md). Quando você [chamar um runbook embutido](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) de um runbook pai, ele retornará dados do fluxo de saída para o pai. Você só deverá usar o fluxo de saída para comunicar informações gerais para o usuário se souber que o runbook nunca será chamado por outro runbook. Como prática recomendada, no entanto, você normalmente deverá usar o [Fluxo Detalhado](#Verbose) para comunicar informações gerais para o usuário.
+fluxo de saída de Hello destina-se a saída de objetos criados por um script ou fluxo de trabalho quando ele é executado corretamente. Na automação do Azure, esse fluxo é usado principalmente para objetos destinados toobe consumida por [runbooks pais que chamam o runbook atual Olá](automation-child-runbooks.md). Quando você [chamar um runbook embutido](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) de um runbook pai, ele retorna dados do pai de toohello de fluxo de saída de hello. Você deve usar apenas o usuário do hello saída fluxo toocommunicate informações gerais toohello back se você souber Olá runbook nunca será chamado por outro runbook. Como prática recomendada, no entanto, você normalmente deve usar Olá [fluxo detalhado](#Verbose) toocommunicate usuário de toohello de informações gerais.
 
-Você pode gravar dados no fluxo de saída usando [Write-Output](http://technet.microsoft.com/library/hh849921.aspx) ou colocando o objeto em sua própria linha no runbook.
+Você pode gravar o fluxo de dados toohello saída usando [Write-Output](http://technet.microsoft.com/library/hh849921.aspx) ou colocando o objeto de saudação em sua própria linha no runbook hello.
 
-    #The following lines both write an object to the output stream.
+    #hello following lines both write an object toohello output stream.
     Write-Output –InputObject $object
     $object
 
 ### <a name="output-from-a-function"></a>Saída de uma função
-Quando você grava o fluxo de saída em uma função incluída no seu runbook, a saída é passada de volta ao runbook. Se o runbook atribuir essa saída a uma variável, então ela não será gravada no fluxo de saída. A gravação de qualquer outro fluxo de dentro de uma função gravará o fluxo correspondente no runbook.
+Quando você escreve o fluxo de saída toohello em uma função que está incluída no seu runbook, a saída de hello é passada toohello back runbook. Se Olá runbook atribui essa variável de tooa de saída, em seguida, ele não será gravado toohello fluxo de saída. Gravar tooany outros fluxos de dentro da função hello gravará toohello o fluxo correspondente para o runbook hello.
 
-Considere os cenários de exemplo a seguir.
+Considere Olá runbook de exemplo a seguir.
 
     Workflow Test-Runbook
     {
@@ -63,20 +63,20 @@ Considere os cenários de exemplo a seguir.
     }
 
 
-O fluxo de saída para o trabalho de runbook deveria ser:
+saudação de fluxo de saída para o trabalho de runbook Olá seria:
 
     Output inside of function
     Output outside of function
 
-O fluxo detalhado para o trabalho de runbook deveria ser:
+saudação de fluxo detalhado para o trabalho de runbook Olá seria:
 
     Verbose outside of function
     Verbose inside of function
 
-Uma vez publicado o runbook e antes de começar, você também deve ativar log Detalhado nas configurações de runbook para obter a saída de fluxo Detalhada.
+Depois que você publicou o runbook hello e antes de você iniciá-lo, você também deve ativar registro nas configurações de runbook Olá no hello tooget de ordem saída de fluxo detalhado detalhado.
 
 ### <a name="declaring-output-data-type"></a>Declarando o tipo de dados de saída
-Um fluxo de trabalho pode especificar o tipo de dados de sua saída usando o [atributo OutputType](http://technet.microsoft.com/library/hh847785.aspx). Esse atributo não tem nenhum efeito em tempo de execução, mas oferece uma indicação para o autor do runbook no tempo de design da saída esperada do runbook. Como o conjunto de ferramentas para runbooks continua a evoluir, a importância de declarar tipos de dados de saída em tempo de design aumentará. Como resultado, é uma prática recomendada incluir essa declaração em todos os runbooks criados.
+Um fluxo de trabalho pode especificar o tipo de dados de saudação de sua saída usando Olá [atributo OutputType](http://technet.microsoft.com/library/hh847785.aspx). Esse atributo não tem nenhum efeito em tempo de execução, mas ele fornece um autor de runbook indicação toohello em tempo de design da saída de hello esperado de runbook hello. Como Olá conjunto de ferramentas para runbooks continua tooevolve, importância de saudação da declaração de tipos de dados de saída em tempo de design aumenta. Como resultado, é uma prática recomendada tooinclude essa declaração em quaisquer runbooks criados por você.
 
 Veja uma lista de tipos de saída de exemplo:
 
@@ -85,7 +85,7 @@ Veja uma lista de tipos de saída de exemplo:
 * System.Collections.Hashtable
 * Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine
 
-O exemplo de runbook a seguir gera um objeto de cadeia de caracteres e inclui uma declaração de seu tipo de saída. Se seu runbook gerar uma matriz de um determinado tipo, você ainda deverá especificar o tipo como oposto a uma matriz do tipo.
+Olá seguinte exemplo de runbook gera um objeto de cadeia de caracteres e inclui uma declaração de seu tipo de saída. Se seu runbook gera como saída uma matriz de um determinado tipo, ainda deve especificar o tipo de saudação como tooan contrário matriz do tipo hello.
 
     Workflow Test-Runbook
     {
@@ -95,61 +95,61 @@ O exemplo de runbook a seguir gera um objeto de cadeia de caracteres e inclui um
        Write-Output $output
     }
 
-Para declarar um tipo de saída em runbooks Gráficos ou de Fluxo de Trabalho Gráfico do PowerShell, você poderá selecionar a opção de menu **Entrada e Saída** e digitar o nome do tipo de saída.  Recomendamos que você use o nome completo da classe .NET para torná-la facilmente identificável ao fazer referência a ela de um runbook pai.  Isso expõe todas as propriedades da classe para o barramento de dados no runbook e oferece muita flexibilidade ao usá-los para a lógica condicional, registro em log e referenciamento como valores de outras atividades no runbook.<br> ![Opção Entrada e Saída de Runbook](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
+toodeclare uma saída de tipo em runbooks Grapical ou fluxo de trabalho do PowerShell gráfica, você pode selecionar Olá **de entrada e saída** opção de menu e digite o nome de saudação do hello tipo de saída.  É recomendável usar o hello toomake de nome de classe completo .NET-lo facilmente identificável ao fazer referência a ele de um runbook pai.  Isso expõe todas as propriedades de saudação do barramento de dados de toohello dessa classe no runbook hello e fornece uma grande flexibilidade quando usá-los para lógica condicional, o log e referenciando os valores de outras atividades no runbook hello.<br> ![Opção Entrada e Saída de Runbook](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
 
-No exemplo a seguir, temos dois runbooks gráficos para demonstrar esse recurso.  Se aplicarmos o modelo de design modular do runbook, temos um runbook que serve como o *modelo de Autenticação do Runbook* que gerencia a autenticação com o Azure usando a conta Executar como.  Nosso segundo runbook, que normalmente executaria a lógica principal para automatizar um determinado cenário, nesse caso executará o *modelo de Autenticação de Runbook* e exibirá os resultados para o painel de saída **Teste** .  Sob circunstâncias normais, esse runbook teria de fazer algo em um recurso aproveitando a saída do runbook filho.    
+Saudação de exemplo a seguir, temos duas toodemonstrate de runbooks gráficos esse recurso.  Se conseguimos aplicar o modelo de design modular runbook hello, temos um runbook que serve como Olá *modelo autenticação Runbook* gerenciamento de autenticação com o uso do Azure Olá conta executar como.  Nosso runbook segundo, que normalmente seria executar Olá core lógica tooautomate um determinado cenário, nesse caso é vai Olá tooexecute *modelo autenticação Runbook* e exibir hello resultados tooyour **teste** painel de saída.  Em circunstâncias normais, podemos teria este runbook fazer algo em relação a uma saída de hello aproveitar recursos do runbook filho de saudação.    
 
-Veja a lógica básica do runbook **AuthenticateTo-Azure**.<br> ![Exemplo de modelo de runbook de autenticação](media/automation-runbook-output-and-messages/runbook-authentication-template.png).  
+Aqui está a lógica básica Olá de saudação **AuthenticateTo Azure** runbook.<br> ![Exemplo de modelo de runbook de autenticação](media/automation-runbook-output-and-messages/runbook-authentication-template.png).  
 
-Ele inclui o tipo de saída *Microsoft.Azure.Commands.Profile.Models.PSAzureContext*, que retornará as propriedades de perfil de autenticação.<br> ![Exemplo de tipo de saída de runbook](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png) 
+Ele inclui o tipo de saída de hello *Microsoft.Azure.Commands.Profile.Models.PSAzureContext*, que retorna as propriedades de perfil de autenticação hello.<br> ![Exemplo de tipo de saída de runbook](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png) 
 
-Embora esse runbook seja bastante direto, há um item de configuração para ressaltar aqui.  A última atividade está executando o cmdlet **Write-Output** e grava os dados de perfil em uma variável $_ usando uma expressão do PowerShell para o parâmetro **Inputobject**, que é necessário para esse cmdlet.  
+Enquanto esse runbook é muito simples e prático, há um toocall de item de configuração limite aqui.  última atividade de saudação está em execução Olá **Write-Output** cmdlet e gravações Olá variável perfil dados tooa $_ usando uma expressão do PowerShell para Olá **Inputobject** parâmetro, que é necessário para que cmdlet.  
 
-Para o segundo runbook neste exemplo, chamado *Test-ChildOutputType*, nós simplesmente temos duas atividades.<br> ![Runbook de tipo de saída de exemplo filho](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png) 
+Olá runbook segundo neste exemplo, chamado *ChildOutputType teste*, simplesmente, temos duas atividades.<br> ![Runbook de tipo de saída de exemplo filho](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png) 
 
-A primeira atividade chama o runbook **AuthenticateTo-Azure** e a segunda atividade está executando o cmdlet **Write-Verbose** com a **Fonte de dados** de **Saída de atividade** e o valor de **Caminho de campo** é **Context.Subscription.SubscriptionName**, que está especificando a saída de contexto do runbook **AuthenticateTo-Azure**.<br> ![Fonte de dados de parâmetro do cmdlet Write-Verbose](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)    
+primeira atividade de saudação chama Olá **AuthenticateTo Azure** runbook e hello segunda atividade está em execução Olá **Write-Verbose** cmdlet com hello **fonte de dados** de  **Saída de atividade** e o valor Olá **caminho de campo** é **Context.Subscription.SubscriptionName**, que está especificando a saída de contexto de saudação do hello  **Azure AuthenticateTo** runbook.<br> ![Fonte de dados de parâmetro do cmdlet Write-Verbose](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)    
 
-A saída resultante é o nome da assinatura.<br> ![Resultados do runbook Test-ChildOutputType](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
+saída resultante Olá é o nome de saudação de assinatura de saudação.<br> ![Resultados do runbook Test-ChildOutputType](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
 
-Uma observação sobre o comportamento do controle Tipo de Saída.  Quando você digita um valor no campo Tipo de Saída na folha Propriedades de Entrada e Saída, precisa clicar fora do controle depois de digitá-lo, para que a entrada seja reconhecida pelo controle.  
+Uma observação sobre o comportamento de saudação do hello controle do tipo de saída.  Quando você digita um valor no campo de tipo de saída Olá Olá entrada e a folha de propriedades de saída, você tem tooclick fora do controle Olá depois que você digita, para que seu toobe entrada reconhecido pelo controle de saudação.  
 
 ## <a name="message-streams"></a>Fluxos de mensagens
-Ao contrário do fluxo de saída, os fluxos de mensagens destinam-se a comunicar informações ao usuário. Existem vários fluxos de mensagens para diferentes tipos de informação, e cada um deles é manipulado de forma diferente pela Automação do Azure.
+Ao contrário do fluxo de saída de hello, fluxos de mensagens são usuário de toohello informações toocommunicate pretendido. Existem vários fluxos de mensagens para diferentes tipos de informação, e cada um deles é manipulado de forma diferente pela Automação do Azure.
 
 ### <a name="warning-and-error-streams"></a>Fluxos de aviso e de erro
-Os fluxos de Aviso e de Erro pretendem registrar problemas que ocorrem em um runbook. Eles são gravadas no histórico do trabalho quando um runbook é executado e são incluídos no Painel Saída de Teste no Portal de Gerenciamento do Azure quando um runbook é testado. Por padrão, o runbook continuará a ser executado após um aviso ou um erro. Você pode especificar que o runbook seja suspenso em um aviso ou um erro ao definir uma [variável de preferência](#PreferenceVariables) no runbook antes de criar a mensagem. Por exemplo, para fazer com que um runbook seja suspenso em um erro como o faria em uma exceção, defina **$ErrorActionPreference** como Stop.
+fluxos de aviso e erro Olá são toolog pretendido problemas que ocorrem em um runbook. Eles são gravados toohello histórico de trabalho quando um runbook é executado e são incluídos no painel de saída do teste de saudação no Portal de gerenciamento de saudação quando um runbook é testado. Por padrão, o runbook Olá continuará a executar após um aviso ou erro. Você pode especificar esse runbook Olá deve ser suspenso em um aviso ou erro definindo uma [variável de preferência](#PreferenceVariables) em Olá runbook antes de criar a mensagem de saudação. Por exemplo, toocause toosuspend um runbook em um erro como se fosse uma exceção, defina **$ErrorActionPreference** tooStop.
 
-Crie uma mensagem de aviso ou de erro usando o cmdlet [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) ou [Write-Error](http://technet.microsoft.com/library/hh849962.aspx). As atividades também podem ser gravadas nesses fluxos.
+Criar uma mensagem de aviso ou erro usando Olá [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) ou [Write-Error](http://technet.microsoft.com/library/hh849962.aspx) cmdlet. As atividades também podem gravar fluxos toothese.
 
-    #The following lines create a warning message and then an error message that will suspend the runbook.
+    #hello following lines create a warning message and then an error message that will suspend hello runbook.
 
     $ErrorActionPreference = "Stop"
     Write-Warning –Message "This is a warning message."
-    Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
+    Write-Error –Message "This is an error message that will stop hello runbook because of hello preference variable."
 
 ### <a name="verbose-stream"></a>Fluxo Detalhado
-O fluxo de mensagens Detalhado destina-se a informações gerais sobre a operação do runbook. Como o [Fluxo de Depuração](#Debug) não está disponível em um runbook, as mensagens detalhadas deverão ser usadas para informações de depuração. Por padrão, as mensagens detalhadas de runbooks publicados não serão armazenadas no histórico do trabalho. Para armazenar as mensagens detalhadas, configure runbooks publicados como Registros Detalhados de Log na guia Configurar do runbook no Portal de Gerenciamento do Azure. Na maioria dos casos, você deve manter a configuração padrão de não obter o log de registros detalhados para um runbook por motivos de desempenho. Só ative essa opção para solucionar problemas ou depurar um runbook.
+fluxo de mensagem detalhada Olá é para obter informações gerais sobre a operação de runbook hello. Desde Olá [fluxo de depuração](#Debug) não está disponível em um runbook, mensagens detalhadas devem ser usadas para obter informações de depuração. Por padrão, as mensagens detalhadas de runbooks publicados não serão armazenadas no histórico de trabalho hello. toostore as mensagens detalhadas, configurar runbooks publicados tooLog registros detalhados no guia de configurar Olá Olá runbook no Portal de gerenciamento de saudação. Na maioria dos casos, você deve manter a configuração de padrão de saudação do log não registros detalhados para um runbook por motivos de desempenho. Ativar este tootroubleshoot somente da opção ou depurar um runbook.
 
-Quando você estiver [testando um runbook](automation-testing-runbook.md), as mensagens detalhadas não serão exibidas, mesmo se o runbook estiver configurado para log de registros detalhados. Para exibir as mensagens detalhadas enquanto [testa um runbook](automation-testing-runbook.md), você deverá definir a variável $VerbosePreference como Continue. Com esse conjunto de variáveis, as mensagens detalhadas serão exibidas no Painel de Saída de Teste do Portal do Azure.
+Quando [testar um runbook](automation-testing-runbook.md), mensagens detalhadas não são exibidas, mesmo se o runbook Olá é registros detalhados toolog configurado. as mensagens detalhadas ao toodisplay [testar um runbook](automation-testing-runbook.md), você deve definir Olá $VerbosePreference tooContinue de variável. Com essa variável configurada, as mensagens detalhadas serão exibidas no hello painel de saída do teste de saudação portal do Azure.
 
-Criar uma mensagem detalhada usando o cmdlet [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx) .
+Criar uma mensagem detalhada usando Olá [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx) cmdlet.
 
-    #The following line creates a verbose message.
+    #hello following line creates a verbose message.
 
     Write-Verbose –Message "This is a verbose message."
 
 ### <a name="debug-stream"></a>Fluxo de Depuração
-O fluxo de Depuração deve ser usado por um usuário interativo e não deve ser usado em runbooks.
+fluxo de depuração Olá destina para uso com um usuário interativo e não deve ser usado em runbooks.
 
 ## <a name="progress-records"></a>Registros de andamento
-Se você configurar um runbook para criar um log de registros de andamento (na guia Configurar do runbook no Portal do Azure), um registro será gravado no histórico de trabalhos antes e após a execução de cada atividade. Na maioria dos casos, você deverá manter a configuração padrão de não obter o log de registros detalhados para um runbook para maximizar o desempenho. Só ative essa opção para solucionar problemas ou depurar um runbook. Quando você estiver testando um runbook, as mensagens de andamento não serão exibidas, mesmo se o runbook estiver configurado para log de registros de andamento.
+Se você configurar registros de progresso de toolog um runbook (na guia Configurar de saudação de saudação runbook no portal do Azure de saudação), um registro será gravado toohello histórico de trabalho antes e após a execução de cada atividade. Na maioria dos casos, você deve manter a configuração de padrão de saudação de log não registros de progresso de um runbook no desempenho de toomaximize de ordem. Ativar este tootroubleshoot somente da opção ou depurar um runbook. Ao testar um runbook, mensagens de progresso não são exibidas, mesmo se Olá runbook estiver configurado toolog registros de progresso.
 
-O cmdlet [Write-Progress](http://technet.microsoft.com/library/hh849902.aspx) não é válido em um runbook, já que ele deve ser usado com um usuário interativo.
+Olá [Write-Progress](http://technet.microsoft.com/library/hh849902.aspx) cmdlet não é válido em um runbook, já que isso é destinado ao uso com um usuário interativo.
 
 ## <a name="preference-variables"></a>Variáveis de preferência
-O Windows PowerShell usa [variáveis de preferência](http://technet.microsoft.com/library/hh847796.aspx) para determinar como responder aos dados enviados para fluxos de saída diferentes. Você pode definir essas variáveis em um runbook para controlar como ele responde aos dados enviados em diferentes fluxos.
+O Windows PowerShell usa [variáveis de preferências](http://technet.microsoft.com/library/hh847796.aspx) toodetermine como toorespond toodata enviado toodifferent fluxos de saída. Você pode definir essas variáveis em um toocontrol runbook como ele responde toodata enviados para diferentes fluxos.
 
-A tabela a seguir lista as variáveis de preferência que podem ser usadas em runbooks com seus valores válidos e padrão. Observe que essa tabela inclui somente os valores que são válidos em um runbook. Os valores adicionais serão válidos para as variáveis de preferência quando usados no Windows PowerShell fora da Automação do Azure.
+Olá tabela a seguir lista as variáveis de preferências de saudação que podem ser usadas em runbooks com seus válido e valores padrão. Observe que essa tabela inclui somente os valores de saudação que são válidos em um runbook. Valores adicionais são válidos para variáveis de preferência hello quando usados no Windows PowerShell fora da automação do Azure.
 
 | Variável | Valor Padrão | Valores Válidos |
 |:--- |:--- |:--- |
@@ -157,22 +157,22 @@ A tabela a seguir lista as variáveis de preferência que podem ser usadas em ru
 | ErrorActionPreference |Continue |Stop<br>Continue<br>SilentlyContinue |
 | VerbosePreference |SilentlyContinue |Stop<br>Continue<br>SilentlyContinue |
 
-A tabela a seguir lista o comportamento para os valores de variáveis de preferência válidos em runbooks.
+Olá a tabela a seguir lista o comportamento de saudação para valores de variável de preferência Olá que são válidas em runbooks.
 
 | Valor | Comportamento |
 |:--- |:--- |
-| Continue |Registra em log a mensagem e continua executando o runbook. |
-| SilentlyContinue |Continua executando o runbook sem registrar em log a mensagem. Isso tem o efeito de ignorar a mensagem. |
-| Stop |Registra em log a mensagem e suspende o runbook. |
+| Continue |Registra a mensagem de saudação e continua executando o runbook hello. |
+| SilentlyContinue |Continua executando Olá runbook sem registrar a mensagem de saudação. Isso tem o efeito de saudação de ignorar a mensagem de saudação. |
+| Parar |Registra a mensagem de saudação e suspende o runbook hello. |
 
 ## <a name="retrieving-runbook-output-and-messages"></a>Recuperando saída e mensagens do runbook
 ### <a name="azure-portal"></a>Portal do Azure
-Você pode exibir os detalhes de um trabalho de runbook no Portal do Azure na guia Trabalhos de um runbook. O Resumo do trabalho exibirá os parâmetros de entrada e o [Fluxo de Saída](#Output) , além de informações gerais sobre o trabalho e todas as exceções, caso tenham ocorrido. O Histórico incluirá mensagens do [Fluxo de Saída](#Output) e dos [Fluxos de Erro e de Aviso](#WarningError), além do [Fluxo Detalhado](#Verbose) e dos [Registros de Andamento](#Progress), caso o runbook esteja configurado para o log de registros detalhados e de andamento.
+Você pode exibir detalhes de saudação de um trabalho de runbook no portal do Azure na guia trabalhos de saudação de um runbook de saudação. Olá resumo do trabalho Olá exibirá os parâmetros de entrada hello e hello [fluxo de saída](#Output) nas informações de toogeneral de adição sobre o trabalho de saudação e todas as exceções que tenham ocorrido. Olá histórico incluirá mensagens de saudação [fluxo de saída](#Output) e [fluxos de advertência e erro](#WarningError) na adição toohello [fluxo detalhado](#Verbose) e [progresso Registros](#Progress) se Olá runbook estiver configurado toolog detalhado e registros de progresso.
 
 ### <a name="windows-powershell"></a>Windows PowerShell
-No Windows PowerShell, você pode recuperar saída e mensagens de um runbook usando o cmdlet [Get-AzureAutomationJobOutput](https://msdn.microsoft.com/library/mt603476.aspx) . Esse cmdlet exige a ID do trabalho e tem um parâmetro chamado Stream, onde você pode especificar qual fluxo será retornado. Você pode especificar Any para retornar todos os fluxos do trabalho.
+No Windows PowerShell, você pode recuperar mensagens e saída de um runbook usando Olá [Get-AzureAutomationJobOutput](https://msdn.microsoft.com/library/mt603476.aspx) cmdlet. Esse cmdlet requer Olá ID do trabalho hello e tem um parâmetro chamado fluxo onde você pode especificar qual fluxo tooreturn. Você pode especificar qualquer tooreturn todos os fluxos de trabalho de saudação.
 
-O exemplo a seguir inicia um runbook de exemplo e aguarda a sua conclusão. Depois de concluído, seu fluxo de saída será coletado do trabalho.
+saudação de exemplo a seguir inicia um runbook de exemplo e, em seguida, aguarda-toocomplete. Depois de concluído, o fluxo de saída é coletado do trabalho hello.
 
     $job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
@@ -189,25 +189,25 @@ O exemplo a seguir inicia um runbook de exemplo e aguarda a sua conclusão. Depo
     –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
 
 ### <a name="graphical-authoring"></a>Criação gráfica
-Para runbooks gráficos, um log extra está disponível na forma de rastreamento em nível de atividade.  Há dois níveis de rastreamento: Básico e Detalhado.  No rastreamento Básico, é possível ver a hora de início e de término de cada atividade do runbook, além de informações relacionadas a quaisquer repetições de atividade, como o número de tentativas e a hora de início da atividade.  No rastreamento Detalhado, você obtém o rastreamento Básico, além de dados de entrada e de saída para cada atividade.  Observe que, atualmente, os registros de rastreamento são escritos usando a transmissão detalhada; portanto, é necessário, habilitar o log Detalhado ao habilitar o rastreamento.  Para runbooks gráficos com o rastreamento habilitado, não é necessário fazer registros de progresso de log, pois o rastreamento Básico tem a mesma finalidade e é mais informativo.
+Para runbooks gráficos, log adicional está disponível em forma de saudação do rastreamento em nível de atividade.  Há dois níveis de rastreamento: Básico e Detalhado.  No rastreamento básico, você pode ver Olá iniciar e hora de término de cada atividade no runbook hello, além de informações relacionadas tooany repetições de atividade, como número de tentativas e a hora de início da atividade de saudação.  No rastreamento Detalhado, você obtém o rastreamento Básico, além de dados de entrada e de saída para cada atividade.  Observe que no momento registros de rastreamento de saudação são gravados usando o fluxo detalhado do hello, habilite o log detalhado quando você ativa o rastreamento.  Para runbooks gráficos com o rastreamento ativado não é necessário toolog registros de progresso, porque serve de rastreamento básico Olá Olá mesmo propósito e é mais informativo.
 
 ![Modo de exibição Transmissões de Trabalho da criação gráfica](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
 
-Na captura de tela acima, é possível ver que, ao habilitar o log Detalhado e o rastreamento para runbooks gráficos, muito mais informações estão disponíveis no modo de exibição Transmissões de Trabalho de produção.  Essas informações extra podem ser essenciais para solucionar problemas de produção com um runbook e, portanto, você só deve habilitá-lo para essa finalidade e não como uma prática geral.    
-Especificamente, os registros de Rastreamento podem ser inúmeros.  Com o rastreamento de runbook Gráfico, é possível obter de dois a quatro registros por atividade, dependendo se o rastreamento Básico ou Detalhado tiver sido configurado.  A menos que você precise dessas informações para acompanhar o progresso de um runbook com relação à solução de problemas, convém manter o Rastreamento desligado.
+Você pode ver a saudação acima captura de tela que, quando você habilita o log detalhado de log e rastreamento para runbooks gráficos, muito mais informações estão disponíveis na produção de hello que exibir fluxos de trabalho.  Essas informações extra podem ser essenciais para solucionar problemas de produção com um runbook e, portanto, você só deve habilitá-lo para essa finalidade e não como uma prática geral.    
+registros de rastreamento Olá podem ser especialmente vários.  Com o runbook gráfico rastreamento que você pode obter dois registros toofour por atividade dependendo se você tiver configurado o rastreamento básico ou detalhado.  A menos que você precisar esse andamento de saudação tootrack informações de um runbook para solução de problemas, convém tookeep que rastreamento desativado.
 
-**Para habilitar o rastreamento em nível de atividade, execute as etapas a seguir.**
+**tooenable nível de atividade de rastreamento, execute Olá etapas a seguir.**
 
-1. No Portal do Azure, abra sua conta de Automação.
-2. Clique no bloco **Runbooks** para abrir a lista de runbooks.
-3. Na folha Runbooks, clique para selecionar um runbook gráfico na lista de runbooks.
-4. Na folha Configurações do runbook selecionado, clique em **Log e Rastreamento**.
-5. Na folha Log e Rastreamento, sob registros detalhados de Log, clique em **Ativado** para habilitar o log detalhado e, sob o Rastreamento em nível de atividade, altere o nível de rastreamento para **Básico** ou **Detalhado** com base no nível de rastreamento necessário.<br>
+1. No Portal do Azure do hello, abra sua conta de automação.
+2. Clique em Olá **Runbooks** bloco tooopen Olá lista de runbooks.
+3. Na folha de Runbooks hello, clique em tooselect um runbook gráfico da sua lista de runbooks.
+4. Na folha de configurações Olá runbook Olá selecionado, clique em **log e rastreamento**.
+5. No hello log e rastreamento folha em registros detalhados de Log, clique em **na** tooenable o log detalhado e rastreamento de udner nível de atividade, alterar o nível de rastreamento Olá muito**básica** ou **detalhado**  com base no nível de saudação de rastreamento que você precisa.<br>
    
    ![Folha Log e Rastreamento da criação gráfica](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
 ### <a name="microsoft-operations-management-suite-oms-log-analytics"></a>Log Analytics do OMS (Microsoft Operations Management Suite)
-A Automação pode enviar o status do trabalho de runbook e fluxos de trabalho para seu espaço de trabalho de Log Analytics do Microsoft Operations Management Suite (OMS).  Com o Log Analytics, você pode
+Automação pode enviar runbook trabalho status e o trabalho fluxos tooyour análise de logs do Microsoft Operations Management Suite (OMS) espaço de trabalho.  Com o Log Analytics, você pode
 
 * Obter informações sobre os trabalhos de Automação 
 * Disparar um email ou um alerta com base no status do trabalho de runbook (por exemplo, com falha ou suspenso) 
@@ -215,9 +215,9 @@ A Automação pode enviar o status do trabalho de runbook e fluxos de trabalho p
 * Correlacionar trabalhos em contas de Automação 
 * Visualizar o histórico de trabalho ao longo do tempo    
 
-Para saber mais sobre como configurar a integração com o Log Analytics para coletar, correlacionar e agir sobre dados de trabalho, confira [Encaminhar fluxos de trabalho e status do trabalho da Automação para o Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md).
+Para obter mais informações sobre como a integração de tooconfigure com toocollect de análise de Log, correlacionar e agir sobre dados de trabalho, consulte [encaminhar o status do trabalho e fluxos de trabalho de automação tooLog Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre a execução de runbooks, como monitorar trabalhos de runbook e outros detalhes técnicos, confira [Acompanhar um trabalho de runbook](automation-runbook-execution.md)
-* Para entender como criar e usar runbooks filho, consulte [Runbooks filho na Automação do Azure](automation-child-runbooks.md)
+* toolearn mais sobre a execução do runbook, como trabalhos de runbook toomonitor e outros detalhes técnicos, consulte [acompanhar um trabalho de runbook](automation-runbook-execution.md)
+* toounderstand como toodesign e usar runbooks filho, consulte [filho runbooks na automação do Azure](automation-child-runbooks.md)
 

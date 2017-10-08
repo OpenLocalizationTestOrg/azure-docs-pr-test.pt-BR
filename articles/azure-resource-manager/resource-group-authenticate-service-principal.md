@@ -1,6 +1,6 @@
 ---
-title: Criar identidade para o aplicativo do Azure com o PowerShell | Microsoft Docs
-description: "Descreve como usar o Azure PowerShell para criar um aplicativo do Active Directory do Azure e uma entidade de serviço, e conceder acesso a recursos por meio do controle de acesso baseado em função. Ele mostra como autenticar um aplicativo com uma senha ou certificado."
+title: aaaCreate identidade para o aplicativo do Azure com o PowerShell | Microsoft Docs
+description: "Descreve como controlam a toouse do Azure PowerShell toocreate um aplicativo do Active Directory do Azure e entidade de serviço e conceder acesso a tooresources por meio de acesso baseado em função. Ele mostra como tooauthenticate aplicativo com uma senha ou certificado."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 55e83b0742652abbb42100a11a468bc13a7a8aed
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c534360799b590054a051e4426e5e27dccb559b7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos
+# <a name="use-azure-powershell-toocreate-a-service-principal-tooaccess-resources"></a>Usar Azure PowerShell toocreate um serviço principal tooaccess recursos
 
-Quando você tiver um aplicativo ou script que precisa acessar recursos, poderá configurar uma identidade para o aplicativo e autenticá-lo com suas próprias credenciais. Essa identidade é conhecida como uma entidade de serviço. Essa abordagem permite:
+Quando você tiver um aplicativo ou script que precisa de recursos de tooaccess, você pode configurar uma identidade para o aplicativo hello e autenticar o aplicativo hello com suas próprias credenciais. Essa identidade é conhecida como uma entidade de serviço. Essa abordagem permite:
 
-* Atribuir permissões à identidade do aplicativo que são diferentes de suas próprias permissões. Normalmente, essas permissões são restritas a exatamente o que o aplicativo precisa fazer.
+* Atribua permissões de identidade de aplicativo toohello que são diferentes de suas próprias permissões. Normalmente, essas permissões são restrito tooexactly toodo precisa de qual aplicativo hello.
 * Use um certificado para a autenticação ao executar um script autônomo.
 
-Este tópico mostra como usar o [Azure PowerShell](/powershell/azure/overview) para configurar tudo que você precisa para um aplicativo ser executado com suas próprias credenciais e identidade.
+Este tópico mostra como toouse [Azure PowerShell](/powershell/azure/overview) tooset backup de tudo que você precisa para toorun um aplicativo em suas próprias credenciais e identidade.
 
 ## <a name="required-permissions"></a>Permissões necessárias
-Para concluir este tópico, você deve ter permissões suficientes no Azure Active Directory e em sua assinatura do Azure. Especificamente, você deve ser capaz de criar um aplicativo no Active Directory do Azure e atribuir a entidade de serviço a uma função. 
+toocomplete neste tópico, você deve ter permissões suficientes no Active Directory do Azure e sua assinatura do Azure. Especificamente, você deve ser capaz de toocreate um aplicativo de saudação do Active Directory do Azure e atribuir função de tooa principal do serviço de saudação. 
 
-A maneira mais fácil de verificar se a sua conta tem as permissões adequadas é por meio do portal. Consulte [Verificar permissão necessária](resource-group-create-service-principal-portal.md#required-permissions).
+Olá mais fácil toocheck de maneira se sua conta tem permissões suficientes é por meio do portal hello. Consulte [Verificar permissão necessária](resource-group-create-service-principal-portal.md#required-permissions).
 
-Agora, vá para uma seção para se autenticar com:
+Agora, faça a seção tooa para autenticar com:
 
 * [password](#create-service-principal-with-password)
 * [certificado autoassinado](#create-service-principal-with-self-signed-certificate)
@@ -42,17 +42,17 @@ Agora, vá para uma seção para se autenticar com:
 
 ## <a name="powershell-commands"></a>Comandos do PowerShell
 
-Para configurar uma entidade de serviço, use:
+tooset a uma entidade de serviço, use:
 
 | Command | Descrição |
 | ------- | ----------- | 
 | [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Cria uma entidade de serviço do Azure Active Directory |
-| [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Atribui a função RBAC especificada à entidade se segurança especificada no escopo especificado. |
+| [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Olá atribui especificado principal especificado do RBAC função toohello, a saudação especificado no escopo. |
 
 
 ## <a name="create-service-principal-with-password"></a>Criar a entidade de serviço com a senha
 
-Para criar uma entidade de serviço com a função de Colaborador para sua assinatura, use: 
+toocreate uma entidade de serviço com a função de Colaborador Olá para sua assinatura, use: 
 
 ```powershell
 Login-AzureRmAccount
@@ -61,18 +61,18 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-O exemplo fica suspenso por 20 segundos para dar tempo para a nova entidade de serviço propagar-se pelo Azure Active Directory. Se o script não esperar tempo suficiente, você verá um erro dizendo: "PrincipalNotFound: a {id} da entidade não existe no diretório”.
+exemplo Hello suspenso por 20 segundos tooallow algum tempo para Olá novo serviço principal toopropagate em todo o Active Directory do Azure. Se o script não Aguarde tempo suficiente, você verá um erro dizendo: "PrincipalNotFound: Principal {id} não existe no diretório hello."
 
-O script a seguir permite que você especifique um escopo diferente da assinatura padrão e tenta realizar a atribuição de função novamente no caso de erro:
+Olá script a seguir permite que você toospecify um escopo diferente de assinatura de padrão de saudação e repetições Olá atribuição de função se ocorrer um erro:
 
 ```powershell
 Param (
 
- # Use to set scope to resource group. If no value is provided, scope is set to subscription.
+ # Use tooset scope tooresource group. If no value is provided, scope is set toosubscription.
  [Parameter(Mandatory=$false)]
  [String] $ResourceGroup,
 
- # Use to set subscription. If no value is provided, default subscription is used. 
+ # Use tooset subscription. If no value is provided, default subscription is used. 
  [Parameter(Mandatory=$false)]
  [String] $SubscriptionId,
 
@@ -105,7 +105,7 @@ Param (
  }
 
  
- # Create Service Principal for the AD app
+ # Create Service Principal for hello AD app
  $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
@@ -113,7 +113,7 @@ Param (
  $Retries = 0;
  While ($NewRole -eq $null -and $Retries -le 6)
  {
-    # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
+    # Sleep here for a few seconds tooallow hello service principal application toobecome active (should only take a couple of seconds normally)
     Sleep 15
     New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
     $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
@@ -121,24 +121,24 @@ Param (
  }
 ```
 
-Alguns itens a serem observados sobre o script:
+Toonote de alguns itens sobre script hello:
 
-* Para conceder o acesso da identidade à assinatura padrão, não é necessário fornecer os parâmetros ResourceGroup ou SubscriptionId.
-* Especifique o parâmetro ResourceGroup somente quando desejar limitar o escopo da atribuição de função a um grupo de recursos.
-*  Neste exemplo, você adiciona a entidade de serviço à função Colaborador. Para ver outras funções, confira [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md).
-* O script fica suspenso 15 segundos para dar tempo à nova entidade de serviço de se propagar pelo Active Directory do Azure. Se o script não esperar tempo suficiente, você verá um erro dizendo: "PrincipalNotFound: a {id} da entidade não existe no diretório”.
-* Se precisar conceder o acesso à entidade de serviço a mais assinaturas ou grupos de recursos, execute o cmdlet `New-AzureRMRoleAssignment` novamente com escopos diferentes.
+* assinatura toogrant Olá identidade acesso toohello padrão, você não precisa tooprovide ResourceGroup ou SubscriptionId parâmetros.
+* Especifica parâmetro de ResourceGroup hello somente quando desejar que o escopo do toolimit Olá Olá função atribuição tooa do grupo de recursos.
+*  Neste exemplo, você deve adicionar função de Colaborador Olá serviço toohello principal. Para ver outras funções, confira [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md).
+* script Hello suspenso por 15 segundos tooallow algum tempo para Olá novo serviço principal toopropagate em todo o Active Directory do Azure. Se o script não Aguarde tempo suficiente, você verá um erro dizendo: "PrincipalNotFound: Principal {id} não existe no diretório hello."
+* Se você precisar de assinaturas de toomore acesso principal do serviço de saudação toogrant ou grupos de recursos, execute Olá `New-AzureRMRoleAssignment` cmdlet novamente com escopos diferentes.
 
 
 ### <a name="provide-credentials-through-powershell"></a>Fornecer as credenciais por meio do PowerShell
-Agora, você precisa fazer logon como o aplicativo para executar as operações. Para o nome de usuário, use a `ApplicationId` que você criou para o aplicativo. Como senha, use aquela especificada ao criar a conta. 
+Agora, você precisa toolog em operações de tooperform aplicativo hello. Olá nome de usuário, use Olá `ApplicationId` que você criou para o aplicativo hello. Senha hello, use Olá especificada ao criar conta de saudação. 
 
 ```powershell   
 $creds = Get-Credential
 Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId {tenant-id}
 ```
 
-A ID de locatário não diferencia maiúsculas de minúsculas e, portanto, você pode inseri-la diretamente no script. Se precisar recuperar a ID de locatário, use:
+Olá ID de locatário não é confidencial, portanto pode incorporá-lo diretamente no seu script. Se você precisar de ID de locatário tooretrieve Olá, use:
 
 ```powershell
 (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
@@ -146,7 +146,7 @@ A ID de locatário não diferencia maiúsculas de minúsculas e, portanto, você
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Criar a entidade de serviço com um certificado autoassinado
 
-Para criar uma entidade de serviço com um certificado autoassinado e a função de Colaborador para sua assinatura, use: 
+toocreate uma entidade de serviço com um certificado autoassinado e uma função de Colaborador Olá para sua assinatura, use: 
 
 ```powershell
 Login-AzureRmAccount
@@ -158,18 +158,18 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-O exemplo fica suspenso por 20 segundos para dar tempo para a nova entidade de serviço propagar-se pelo Azure Active Directory. Se o script não esperar tempo suficiente, você verá um erro dizendo: "PrincipalNotFound: a {id} da entidade não existe no diretório”.
+exemplo Hello suspenso por 20 segundos tooallow algum tempo para Olá novo serviço principal toopropagate em todo o Active Directory do Azure. Se o script não Aguarde tempo suficiente, você verá um erro dizendo: "PrincipalNotFound: Principal {id} não existe no diretório hello."
 
-O script a seguir permite que você especifique um escopo diferente da assinatura padrão e tenta realizar a atribuição de função novamente no caso de erro. Você deve ter o Azure PowerShell 2.0 no Windows 10 ou Windows Server 2016.
+Olá script a seguir permite que você toospecify um escopo diferente de assinatura de padrão de saudação e repetições Olá atribuição de função se ocorrer um erro. Você deve ter o Azure PowerShell 2.0 no Windows 10 ou Windows Server 2016.
 
 ```powershell
 Param (
 
- # Use to set scope to resource group. If no value is provided, scope is set to subscription.
+ # Use tooset scope tooresource group. If no value is provided, scope is set toosubscription.
  [Parameter(Mandatory=$false)]
  [String] $ResourceGroup,
 
- # Use to set subscription. If no value is provided, default subscription is used. 
+ # Use tooset subscription. If no value is provided, default subscription is used. 
  [Parameter(Mandatory=$false)]
  [String] $SubscriptionId,
 
@@ -208,7 +208,7 @@ Param (
  $Retries = 0;
  While ($NewRole -eq $null -and $Retries -le 6)
  {
-    # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
+    # Sleep here for a few seconds tooallow hello service principal application toobecome active (should only take a couple of seconds normally)
     Sleep 15
     New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
     $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
@@ -216,22 +216,22 @@ Param (
  }
 ```
 
-Alguns itens a serem observados sobre o script:
+Toonote de alguns itens sobre script hello:
 
-* Para conceder o acesso da identidade à assinatura padrão, não é necessário fornecer os parâmetros ResourceGroup ou SubscriptionId.
-* Especifique o parâmetro ResourceGroup somente quando desejar limitar o escopo da atribuição de função a um grupo de recursos.
-* Neste exemplo, você adiciona a entidade de serviço à função Colaborador. Para ver outras funções, confira [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md).
-* O script fica suspenso 15 segundos para dar tempo à nova entidade de serviço de se propagar pelo Active Directory do Azure. Se o script não esperar tempo suficiente, você verá um erro dizendo: "PrincipalNotFound: a {id} da entidade não existe no diretório”.
-* Se precisar conceder o acesso à entidade de serviço a mais assinaturas ou grupos de recursos, execute o cmdlet `New-AzureRMRoleAssignment` novamente com escopos diferentes.
+* assinatura toogrant Olá identidade acesso toohello padrão, você não precisa tooprovide ResourceGroup ou SubscriptionId parâmetros.
+* Especifica parâmetro de ResourceGroup hello somente quando desejar que o escopo do toolimit Olá Olá função atribuição tooa do grupo de recursos.
+* Neste exemplo, você deve adicionar função de Colaborador Olá serviço toohello principal. Para ver outras funções, confira [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md).
+* script Hello suspenso por 15 segundos tooallow algum tempo para Olá novo serviço principal toopropagate em todo o Active Directory do Azure. Se o script não Aguarde tempo suficiente, você verá um erro dizendo: "PrincipalNotFound: Principal {id} não existe no diretório hello."
+* Se você precisar de assinaturas de toomore acesso principal do serviço de saudação toogrant ou grupos de recursos, execute Olá `New-AzureRMRoleAssignment` cmdlet novamente com escopos diferentes.
 
-Se você **não tiver o Windows 10 ou o Windows Server 2016 Technical Preview**, precisará baixar o [Gerador de certificado autoassinado](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) no Script Center da Microsoft. Extraia seu conteúdo e importe o cmdlet necessário.
+Se você **não tem Windows 10 ou Windows Server 2016 Technical Preview**, você precisa Olá toodownload [gerador de certificado autoassinado](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) do Microsoft Script Center. Extraia o conteúdo e importar Olá cmdlet que é necessário.
 
 ```powershell  
 # Only run if you could not use New-SelfSignedCertificate
 Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
 ```
   
-No script, substitua as duas linhas a seguir para gerar o certificado.
+No script hello, substitua Olá dois certificados de saudação do toogenerate linhas a seguir.
   
 ```powershell
 New-SelfSignedCertificateEx  -StoreLocation CurrentUser -StoreName My -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
@@ -239,7 +239,7 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 ```
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Fornecer certificado por meio do script PowerShell automatizado
-Sempre que você entrar como uma entidade de serviço, precisará fornecer a ID do locatário do diretório para seu aplicativo do AD. Um locatário é uma instância do Active Directory do Azure. Se você tiver apenas uma assinatura, poderá usar:
+Sempre que você entrar como uma entidade de serviço, você precisa tooprovide id de locatário de saudação do diretório de saudação para seu aplicativo do AD. Um locatário é uma instância do Active Directory do Azure. Se você tiver apenas uma assinatura, poderá usar:
 
 ```powershell
 Param (
@@ -258,20 +258,20 @@ Param (
  Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $Thumbprint -ApplicationId $ApplicationId -TenantId $TenantId
 ```
 
-A ID do aplicativo e a ID de locatário não diferenciam maiúsculas de minúsculas e, portanto, você pode inseri-las diretamente no script. Se precisar recuperar a ID de locatário, use:
+aplicativo Hello ID e a ID de locatário não diferenciam minúsculas, portanto você pode inseri-los diretamente em seu script. Se você precisar de ID de locatário tooretrieve Olá, use:
 
 ```powershell
 (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 ```
 
-Se precisar recuperar a ID do aplicativo, use:
+Se você precisar de ID do aplicativo hello tooretrieve, use:
 
 ```powershell
 (Get-AzureRmADApplication -DisplayNameStartWith {display-name}).ApplicationId
 ```
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Criar a entidade de serviço com um certificado da Autoridade de Certificação
-Para usar um certificado emitido por uma Autoridade de Certificação para criar a entidade de serviço, use o seguinte script:
+toouse um certificado emitido por uma entidade de serviço de toocreate da autoridade de certificação, use Olá script a seguir:
 
 ```powershell
 Param (
@@ -311,7 +311,7 @@ Param (
  $Retries = 0;
  While ($NewRole -eq $null -and $Retries -le 6)
  {
-    # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
+    # Sleep here for a few seconds tooallow hello service principal application toobecome active (should only take a couple of seconds normally)
     Sleep 15
     New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
     $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
@@ -321,15 +321,15 @@ Param (
  $NewRole
 ```
 
-Alguns itens a serem observados sobre o script:
+Toonote de alguns itens sobre script hello:
 
-* O acesso é restrito à assinatura.
-* Neste exemplo, você adiciona a entidade de serviço à função Colaborador. Para ver outras funções, confira [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md).
-* O script fica suspenso 15 segundos para dar tempo à nova entidade de serviço de se propagar pelo Active Directory do Azure. Se o script não esperar tempo suficiente, você verá um erro dizendo: "PrincipalNotFound: a {id} da entidade não existe no diretório”.
-* Se precisar conceder o acesso à entidade de serviço a mais assinaturas ou grupos de recursos, execute o cmdlet `New-AzureRMRoleAssignment` novamente com escopos diferentes.
+* O acesso é toohello no escopo de assinatura.
+* Neste exemplo, você deve adicionar função de Colaborador Olá serviço toohello principal. Para ver outras funções, confira [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md).
+* script Hello suspenso por 15 segundos tooallow algum tempo para Olá novo serviço principal toopropagate em todo o Active Directory do Azure. Se o script não Aguarde tempo suficiente, você verá um erro dizendo: "PrincipalNotFound: Principal {id} não existe no diretório hello."
+* Se você precisar de assinaturas de toomore acesso principal do serviço de saudação toogrant ou grupos de recursos, execute Olá `New-AzureRMRoleAssignment` cmdlet novamente com escopos diferentes.
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Fornecer certificado por meio do script PowerShell automatizado
-Sempre que você entrar como uma entidade de serviço, precisará fornecer a ID do locatário do diretório para seu aplicativo do AD. Um locatário é uma instância do Active Directory do Azure.
+Sempre que você entrar como uma entidade de serviço, você precisa tooprovide id de locatário de saudação do diretório de saudação para seu aplicativo do AD. Um locatário é uma instância do Active Directory do Azure.
 
 ```powershell
 Param (
@@ -354,13 +354,13 @@ Param (
  Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $Thumbprint -ApplicationId $ApplicationId -TenantId $TenantId
 ```
 
-A ID do aplicativo e a ID de locatário não diferenciam maiúsculas de minúsculas e, portanto, você pode inseri-las diretamente no script. Se precisar recuperar a ID de locatário, use:
+aplicativo Hello ID e a ID de locatário não diferenciam minúsculas, portanto você pode inseri-los diretamente em seu script. Se você precisar de ID de locatário tooretrieve Olá, use:
 
 ```powershell
 (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 ```
 
-Se precisar recuperar a ID do aplicativo, use:
+Se você precisar de ID do aplicativo hello tooretrieve, use:
 
 ```powershell
 (Get-AzureRmADApplication -DisplayNameStartWith {display-name}).ApplicationId
@@ -368,57 +368,57 @@ Se precisar recuperar a ID do aplicativo, use:
 
 ## <a name="change-credentials"></a>Alterar credenciais
 
-Para alterar as credenciais para um aplicativo do AD, por causa de uma violação de segurança ou expiração de credencial, use os cmdlets [Remove-AzureRmADAppCredential](/powershell/resourcemanager/azurerm.resources/v3.3.0/remove-azurermadappcredential) e [New-AzureRmADAppCredential](/powershell/module/azurerm.resources/new-azurermadappcredential).
+credenciais de saudação toochange para um aplicativo do AD, devido a um comprometimento de segurança ou uma expiração de credencial, usam Olá [remover AzureRmADAppCredential](/powershell/resourcemanager/azurerm.resources/v3.3.0/remove-azurermadappcredential) e [AzureRmADAppCredential novo](/powershell/module/azurerm.resources/new-azurermadappcredential) cmdlets.
 
-Para remover todas as credenciais de um aplicativo, use:
+tooremove todas as credenciais de saudação para um aplicativo, use:
 
 ```powershell
 Remove-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -All
 ```
 
-Para adicionar uma senha, use:
+tooadd uma senha, use:
 
 ```powershell
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -Password p@ssword!
 ```
 
-Para adicionar um valor de certificado, crie um certificado autoassinado conforme mostrado neste tópico. Em seguida, use:
+tooadd um valor de certificado, crie um certificado autoassinado, conforme mostrado neste tópico. Em seguida, use:
 
 ```powershell
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
 ```
 
-## <a name="save-access-token-to-simplify-log-in"></a>Salvar o token de acesso para simplificar o logon
-Para evitar fornecer as credenciais de serviço principal toda vez que precisar fazer logon, você poderá salvar o token de acesso.
+## <a name="save-access-token-toosimplify-log-in"></a>Salvar o token toosimplify login de acesso
+tooavoid fornecendo Olá serviço principal credenciais sempre que ele precisa toolog no, você pode salvar o token de acesso de saudação.
 
-Para usar o token de acesso atual em uma sessão posterior, salve o perfil.
+toouse Olá token de acesso atual em uma sessão posterior, salvar perfil hello.
    
 ```powershell
 Save-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 ```
    
-Abra o perfil e examine seu conteúdo. Observe que ele contém um token de acesso. Em vez fazer o logon manualmente de novo, basta carregar o perfil.
+Abra o perfil hello e examine seu conteúdo. Observe que ele contém um token de acesso. Em vez de manualmente fazer logon novamente, basta carrega o perfil de saudação.
    
 ```powershell
 Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 ```
 
 > [!NOTE]
-> O token de acesso expira, portanto, usar um perfil salvo funcionará somente se o token for válido.
+> o token de acesso Olá expira, portanto usar um perfil salvo só funciona para como Olá token é válido.
 >  
 
-Como alternativa, você pode invocar operações REST do PowerShell para fazer logon. Na resposta de autenticação, você pode recuperar o token de acesso para uso com outras operações. Para obter um exemplo de como recuperar o token de acesso invocando operações REST, consulte [Gerar um token de acesso](resource-manager-rest-api.md#generating-an-access-token).
+Como alternativa, você pode chamar operações REST do PowerShell toolog no. De resposta de autenticação hello, você pode recuperar o token de acesso de saudação para uso com outras operações. Para obter um exemplo de recuperar o token de acesso de saudação ao chamar operações REST, consulte [gerar um Token de acesso](resource-manager-rest-api.md#generating-an-access-token).
 
 ## <a name="debug"></a>Depurar
 
-Você pode receber os seguintes erros ao criar uma entidade de serviço:
+Você pode encontrar hello os erros a seguir ao criar uma entidade de serviço:
 
-* **"Authentication_Unauthorized"** ou **"Nenhuma assinatura encontrada no contexto".** – Você verá esse erro quando sua conta não tiver as [permissões necessárias](#required-permissions) no Active Directory do Azure para registrar um aplicativo. Normalmente, você verá esse erro somente quando os usuários administradores no Active Directory do Azure puderem registrar aplicativos e sua conta não for um administrador. Solicite ao administrador para lhe atribuir uma função de administrador ou para permitir que os usuários registrem aplicativos.
+* **"Authentication_Unauthorized"** ou **"nenhuma assinatura encontrada no contexto de Olá".** -Você vir esse erro quando sua conta não tem Olá [as permissões necessárias](#required-permissions) no Active Directory do Azure de saudação tooregister um aplicativo. Normalmente, você verá esse erro somente quando os usuários administradores no Active Directory do Azure puderem registrar aplicativos e sua conta não for um administrador. Peça ao seu administrador tooeither atribuir a função administrador tooan ou tooenable usuários tooregister aplicativos.
 
-* Sua conta **"não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' no escopo '/subscriptions/{guid}'".**  – Você verá esse erro quando sua conta não tiver permissões suficientes para atribuir uma função a uma identidade. Solicite ao administrador da assinatura para adicioná-lo à função Administrador de Acesso do Usuário.
+* Sua conta **"não tem autorização tooperform ação 'Microsoft.Authorization/roleAssignments/write' no escopo 'assinaturas / {guid}'."**  -Consulte esse erro quando sua conta não tem suficientes tooassign de permissões uma identidade de tooan de função. Peça ao seu tooadd do administrador de assinatura função administrador do acesso tooUser.
 
 ## <a name="sample-applications"></a>Aplicativos de exemplo
-Para obter informações sobre como fazer logon no aplicativo por meio de diferentes plataformas, consulte:
+Para obter informações sobre como fazer logon como um aplicativo hello através de diferentes plataformas, consulte:
 
 * [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 * [Java](/java/azure/java-sdk-azure-authenticate)
@@ -427,8 +427,8 @@ Para obter informações sobre como fazer logon no aplicativo por meio de difere
 * [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para ver as etapas detalhadas sobre como integrar um aplicativo no Azure para gerenciar os recursos, consulte [Guia do desenvolvedor para a autorização com a API do Azure Resource Manager](resource-manager-api-authentication.md).
+* Para obter etapas detalhadas sobre como integrar um aplicativo do Azure para gerenciar recursos, consulte [tooauthorization de guia do desenvolvedor com hello API do Gerenciador de recursos do Azure](resource-manager-api-authentication.md).
 * Para obter uma explicação mais detalhada de aplicativos e entidades de serviço, consulte [Objetos de aplicativo e de entidade de serviço](../active-directory/active-directory-application-objects.md). 
 * Para obter mais informações sobre a autenticação do Active Directory do Azure, consulte [Cenários de Autenticação do Azure AD](../active-directory/active-directory-authentication-scenarios.md).
-* Para obter uma lista de ações disponíveis que podem ser concedidas ou negadas a usuários, consulte [Operações do Provedor de Recursos do Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md).
+* Para obter uma lista de ações disponíveis que podem ser concedidas ou negadas toousers, consulte [operações do provedor de recursos do Gerenciador de recursos do Azure](../active-directory/role-based-access-control-resource-provider-operations.md).
 

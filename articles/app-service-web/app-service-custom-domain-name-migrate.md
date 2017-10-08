@@ -1,6 +1,6 @@
 ---
-title: "Migrar um nome DNS ativo para o Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Saiba como migrar um nome de domínio DNS personalizado que já está atribuído a um site ativo ao Serviço de Aplicativo do Azure sem nenhum tempo de inatividade."
+title: "aaaMigrate um DNS active nome tooAzure do serviço de aplicativo | Microsoft Docs"
+description: "Saiba como toomigrate um nome de domínio DNS personalizado que já está atribuído a tooa live tooAzure do serviço de aplicativo do site sem qualquer tempo de inatividade."
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -15,42 +15,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: 89308c1c684a639950467b72d26703cc07c50c14
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: fbc4cc30dcb87efb2e867cb65c5404b667661e62
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS ativo para o Serviço de Aplicativo do Azure
+# <a name="migrate-an-active-dns-name-tooazure-app-service"></a>Migrar um ativo tooAzure de nome DNS do serviço de aplicativo
 
-Este artigo mostra como migrar um nome DNS ativo para o [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) sem nenhum tempo de inatividade.
+Este artigo mostra como toomigrate um DNS active nome muito[do serviço de aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) sem qualquer tempo de inatividade.
 
-Quando você migra um site ativo e seu nome de domínio DNS para o Serviço de Aplicativo, o nome DNS já está atendendo ao tráfego em tempo real. Evite o tempo de inatividade na resolução do DNS durante a migração associando o nome DNS ativo preventivamente ao aplicativo Serviço de Aplicativo.
+Quando você migra um site em tempo real e seu tooApp de nome de domínio DNS serviço, o nome DNS já está servindo tráfego ao vivo. Você pode evitar o tempo de inatividade na resolução DNS durante a migração de saudação associando preventivamente Olá active DNS nome tooyour aplicativo de serviço de aplicativo.
 
-Caso não esteja preocupado com o tempo de inatividade na resolução do DNS, consulte [Mapear um nome DNS personalizado existente para Aplicativos Web do Azure](app-service-web-tutorial-custom-domain.md).
+Se você não estiver preocupado com tempo de inatividade na resolução de DNS, consulte [mapear um tooAzure de nome DNS de personalizada existente aplicativos Web](app-service-web-tutorial-custom-domain.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir estas instruções:
+toocomplete nesse instruções:
 
 - [Verifique se o aplicativo Serviço de Aplicativo não está na camada GRATUITA](app-service-web-tutorial-custom-domain.md#checkpricing).
 
-## <a name="bind-the-domain-name-preemptively"></a>Vincular o nome de domínio preventivamente
+## <a name="bind-hello-domain-name-preemptively"></a>Associar o nome de domínio Olá preventivamente
 
-Ao vincular um domínio personalizado preventivamente, você obtém o seguinte antes mesmo de fazer quaisquer alterações nos registros DNS:
+Quando você associa um domínio personalizado preventivamente, realiza as seguinte Olá antes de fazer alterações nos registros DNS:
 
 - Verificar a propriedade de domínio
-- Habilitar o nome de domínio para seu aplicativo
+- Habilitar o nome de domínio de saudação para seu aplicativo
 
-Quando você finalmente migrar o nome DNS personalizado do site antigo para o aplicativo Serviço de Aplicativo, não haverá nenhum tempo de inatividade na resolução do DNS.
+Quando você migra, por fim, seu nome DNS personalizado Olá antigo toohello de site do aplicativo de serviço de aplicativo, haverá sem tempo de inatividade na resolução de DNS.
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
 ### <a name="create-domain-verification-record"></a>Criar registro de verificação de domínio
 
-Para verificar a propriedade do domínio, adicione um registro TXT. O registro TXT mapeia de _awverify.&lt;subdomain>_ para _&lt;appname>.azurewebsites.net_. 
+propriedade do domínio tooverify, adicionar um TXT registrar. Olá registro TXT mapas de _awverify.&lt; subdomínio >_ too_&lt;appname >. azurewebsites.net_. 
 
-O registro TXT necessário depende do registro DNS que você deseja migrar. Para obter exemplos, consulte a seguinte tabela (`@` normalmente representa o domínio raiz):  
+Olá registro TXT é necessário depende Olá deseja toomigrate de registro DNS. Para obter exemplos, consulte Olá a tabela a seguir (`@` normalmente representa Olá domínio raiz):  
 
 | Exemplo de registro DNS | Host TXT | Valor TXT |
 | - | - | - |
@@ -58,73 +58,73 @@ O registro TXT necessário depende do registro DNS que você deseja migrar. Para
 | www (sub) | _awverify.www_ | _&lt;appname>.azurewebsites.net_ |
 | \* (curinga) | _awverify.\*_ | _&lt;appname>.azurewebsites.net_ |
 
-Na página de registros DNS, anote o tipo de registro do nome DNS que você deseja migrar. O Serviço de Aplicativo dá suporte a mapeamentos de CNAME e registros A.
+Em sua página de registros DNS, observe o tipo de registro de saudação do hello nome DNS que você deseja toomigrate. O Serviço de Aplicativo dá suporte a mapeamentos de CNAME e registros A.
 
-### <a name="enable-the-domain-for-your-app"></a>Habilitar o domínio para o aplicativo
+### <a name="enable-hello-domain-for-your-app"></a>Habilitar Olá domínio para seu aplicativo
 
-No [portal do Azure](https://portal.azure.com), no painel de navegação à esquerda da página do aplicativo, selecione **Domínios personalizados**. 
+Em Olá [portal do Azure](https://portal.azure.com), no hello navegação à esquerda da página de aplicativo hello, selecione **domínios personalizados**. 
 
 ![Menu de domínio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Na página **Domínios personalizados**, selecione o ícone **+** ao lado de **Adicionar nome do host**.
+Em Olá **domínios personalizados** página, selecione Olá  **+**  ícone Avançar muito**Adicionar nome de host**.
 
 ![Adicionar nome do host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Digite o nome de domínio totalmente qualificado ao qual você adicionou o registro TXT, como `www.contoso.com`. Para um domínio de curinga (como \*.contoso.com), você pode usar qualquer nome DNS que corresponde ao domínio de curinga. 
+Nome de domínio totalmente qualificado do tipo hello que você adicionou o registro TXT de saudação, como `www.contoso.com`. Para um domínio de curinga (como \*. contoso.com), você pode usar qualquer nome DNS que coincide com o domínio de curinga hello. 
 
 Selecione **Validar**.
 
-O botão **Adicionar nome do host** é ativado. 
+Olá **Adicionar nome de host** botão está ativado. 
 
-Verifique se **Tipo de registro do nome do host** está definido como o tipo de registro DNS que você deseja migrar.
+Verifique se **tipo de registro de nome de host** é definir o tipo de registro de DNS do toohello deseja toomigrate.
 
 Selecione **Adicionar nome do host**.
 
-![Adicionar nome DNS para o aplicativo](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+![Adicionar aplicativo de toohello de nome DNS](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-Pode levar algum tempo para que o novo nome do host seja refletido na página **Domínios personalizados** do aplicativo. Tente atualizar o navegador para atualizar os dados.
+Pode levar algum tempo para Olá novo nome de host toobe refletida no aplicativo hello **domínios personalizados** página. Tente atualizar os dados de saudação do hello navegador tooupdate.
 
 ![Registro CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 Agora, o nome DNS personalizado está habilitado no Azure App. 
 
-## <a name="remap-the-active-dns-name"></a>Remapear o nome DNS ativo
+## <a name="remap-hello-active-dns-name"></a>Remapear o nome do DNS do active Olá
 
-Agora só resta remapear o registro DNS ativo para que ele aponte para o Serviço de Aplicativo. No momento, ele ainda aponta para o site antigo.
+Olá somente coisa toodo esquerdo é remapeamento seu ativo tooApp de toopoint de registro de DNS serviço. Direita agora, ele ainda aponta site antigo tooyour.
 
 <a name="info"></a>
 
-### <a name="copy-the-apps-ip-address-a-record-only"></a>Copiar o endereço IP do aplicativo (somente o registro A)
+### <a name="copy-hello-apps-ip-address-a-record-only"></a>Copie o endereço IP de saudação do aplicativo (somente um registro)
 
 Se estiver fazendo o remapeamento de um registro CNAME, ignore esta seção. 
 
-Para remapear um registro A, você precisa do endereço IP externo do aplicativo Serviço de Aplicativo, que é mostrado na página **Domínios personalizados**.
+tooremap um um registro, é necessário que o endereço IP externo do aplicativo de serviço de aplicativo hello que é mostrado na Olá **domínios personalizados** página.
 
-Feche a página **Adicionar nome do host** selecionando **X** no canto superior direito. 
+Olá fechar **Adicionar nome de host** página selecionando **X** no canto superior direito de saudação. 
 
-Na página **domínios personalizados**, copie o endereço IP do aplicativo.
+Em Olá **domínios personalizados** página, copie o endereço IP de saudação do aplicativo.
 
-![Navegação no Portal para o aplicativo do Azure](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
+![Navegação do portal tooAzure aplicativo](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-### <a name="update-the-dns-record"></a>Atualizar o registro DNS
+### <a name="update-hello-dns-record"></a>Atualizar o registro DNS Olá
 
-Novamente na página de registros DNS do provedor de domínio, selecione o registro DNS a ser remapeado.
+Em página de registros DNS de saudação do seu provedor de domínio, selecione tooremap de registro de DNS hello.
 
-Para o exemplo de domínio raiz `contoso.com`, remapeie o registro A ou CNAME como os exemplos na seguinte tabela: 
+Para Olá `contoso.com` raiz de domínio exemplo, remapear o registro A ou CNAME hello como exemplos Olá Olá a tabela a seguir: 
 
 | Exemplo de FQDN | Tipo de registro | Host | Valor |
 | - | - | - | - |
-| contoso.com (raiz) | O  | `@` | Endereço IP de [Copiar o endereço IP do aplicativo](#info) |
+| contoso.com (raiz) | Uma | `@` | Endereço IP do [endereço IP do aplicativo da saudação de cópia](#info) |
 | www.contoso.com (sub) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |
 | \*.contoso.com (curinga) | CNAME | _\*_ | _&lt;appname>.azurewebsites.net_ |
 
 Salve suas configurações.
 
-As consultas DNS devem começar a serem resolvidas para o aplicativo Serviço de Aplicativo imediatamente após a propagação do DNS.
+Consultas DNS devem iniciar a resolução tooyour aplicativo de serviço de aplicativo imediatamente após a propagação DNS ocorre.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como associar um certificado SSL personalizado ao Serviço de Aplicativo.
+Saiba como toobind um SSL personalizado tooApp serviço de certificado.
 
 > [!div class="nextstepaction"]
-> [Associar um certificado SSL personalizado existente a Aplicativos Web do Azure](app-service-web-tutorial-custom-ssl.md)
+> [Associar um tooAzure de certificado SSL de personalizada existente aplicativos Web](app-service-web-tutorial-custom-ssl.md)

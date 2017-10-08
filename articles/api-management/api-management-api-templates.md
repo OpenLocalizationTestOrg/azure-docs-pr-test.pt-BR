@@ -1,6 +1,6 @@
 ---
-title: Modelos de API no Gerenciamento de API do Azure | Microsoft Docs
-description: "Saiba como personalizar o conteúdo das páginas de API no portal do desenvolvedor do Gerenciamento de API do Azure."
+title: modelos de aaaAPI no gerenciamento de API do Azure | Microsoft Docs
+description: "Saiba como toocustomize Olá conteúdo das páginas de saudação API no portal do desenvolvedor Olá no gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 3802868470f0f74cd1f895a00195259861ea16f8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fdfa76167cfaf3b23b22d6321904f34da077fecb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelos de API no Gerenciamento de API do Azure
-O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configura o respectivo conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como o [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), bem como um conjunto fornecido de [Recursos de cadeia de caracteres](api-management-template-resources.md#strings), [Recursos do Glyph](api-management-template-resources.md#glyphs) e [Controles de página](api-management-page-controls.md) localizados, você tem grande flexibilidade para configurar o conteúdo das páginas, conforme a necessidade, usando esses modelos.  
+Gerenciamento de API do Azure fornece que Olá conteúdo de saudação toocustomize capacidade de páginas de portal do desenvolvedor usando um conjunto de modelos que configurar seu conteúdo. Usando [DotLiquid](http://dotliquidmarkup.org/) sintaxe e hello editor de sua escolha, como [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de localizadas [recursos de cadeia de caracteres](api-management-template-resources.md#strings), [ Recursos de glifo](api-management-template-resources.md#glyphs), e [página controles](api-management-page-controls.md), você tiver um grande flexibilidade tooconfigure Olá conteúdo das páginas hello como desejar usar esses modelos.  
   
- Os modelos desta seção permitem personalizar o conteúdo das páginas de API no portal do desenvolvedor.  
+ Olá modelos nesta seção permitem toocustomize conteúdo de saudação de páginas de API Olá no portal do desenvolvedor hello.  
   
 -   [Lista de APIs](#APIList)  
 -   [Operação](#Product)  
@@ -38,10 +38,10 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
     -   [Ruby](#Ruby)  
 
 > [!NOTE]
->  Os modelos de amostra padrão estão incluídos na documentação a seguir, mas estão sujeitos à alteração devido a melhorias contínuas. Você pode exibir os modelos padrão em tempo real no portal do desenvolvedor, navegando até os modelos individuais desejados. Para saber mais sobre como trabalhar com modelos, confira [Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Modelos de padrão de exemplo estão incluídos no hello documentação a seguir, mas são toochange assunto devido a melhorias toocontinuous. Você pode exibir modelos do saudação padrão em tempo real no portal do desenvolvedor Olá navegando modelos individuais toohello desejado. Para obter mais informações sobre como trabalhar com modelos, consulte [como toocustomize Olá portal do desenvolvedor do gerenciamento de API usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ##  <a name="APIList"></a> Lista de APIs  
- O modelo **Lista de APIs** possibilita personalizar o corpo da página de lista de APIs no portal do desenvolvedor.  
+ Olá **lista API** modelo permite toocustomize corpo de saudação da página de lista de saudação API no portal do desenvolvedor hello.  
   
  ![Lista de APIs no portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Modelo Lista de APIs no portal do desenvolvedor de APIM")  
   
@@ -76,7 +76,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ### <a name="controls"></a>Controles  
- O modelo `API list` pode usar os seguintes [controles de página](api-management-page-controls.md).  
+ Olá `API list` modelo pode usar a seguinte Olá [página controles](api-management-page-controls.md).  
   
 -   [paging-control](api-management-page-controls.md#paging-control)  
   
@@ -86,7 +86,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|apis|Coleção de entidades de [Resumo da API](api-management-template-data-model-reference.md#APISummary).|As APIs visíveis para o usuário atual.|  
+|apis|Coleção de entidades de [Resumo da API](api-management-template-data-model-reference.md#APISummary).|usuário atual do Hello APIs toohello visível.|  
   
 ### <a name="sample-template-data"></a>Amostra de dados do modelo  
   
@@ -109,7 +109,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ##  <a name="Product"></a> Operação  
- O modelo **Operação** permite personalizar o corpo da página de operação no portal do desenvolvedor.  
+ Olá **operação** modelo permite toocustomize corpo de saudação da página de operação Olá no portal do desenvolvedor hello.  
   
  ![Página de operação do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Página de operação de modelos do portal do desenvolvedor de APIM")  
   
@@ -335,21 +335,21 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ### <a name="controls"></a>Controles  
- O modelo `Operation` não permite o uso de quaisquer [controles de página](api-management-page-controls.md).  
+ Olá `Operation` modelo não permite o uso de saudação de qualquer [página controles](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Modelo de dados  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|apiId|string|A ID da API atual.|  
-|apiName|string|O nome da API.|  
-|apiDescription|string|Uma descrição para a API.|  
-|api|Entidade [Resumo da API](api-management-template-data-model-reference.md#APISummary).|A API atual.|  
-|operation|[Operação](api-management-template-data-model-reference.md#Operation)|A operação atualmente exibida.|  
-|sampleUrl|string|A URL para a operação atual.|  
+|apiId|string|id de saudação da API de saudação atual.|  
+|apiName|string|nome de saudação do hello API.|  
+|apiDescription|string|Uma descrição da saudação API.|  
+|api|Entidade [Resumo da API](api-management-template-data-model-reference.md#APISummary).|saudação API atual.|  
+|operation|[Operação](api-management-template-data-model-reference.md#Operation)|operação de saudação exibida atualmente.|  
+|sampleUrl|string|Olá URL para a operação atual de saudação.|  
 |operationMenu|[Menu Operação](api-management-template-data-model-reference.md#Menu)|Um menu de operações para esta API.|  
-|consoleUrl|URI|O URI para o botão **Experimente**.|  
-|amostras|Coleção de entidades de [Exemplo de código](api-management-template-data-model-reference.md#Sample).|Os exemplos de código para a operação atual.|  
+|consoleUrl|URI|Olá URI para Olá **Experimente** botão.|  
+|amostras|Coleção de entidades de [Exemplo de código](api-management-template-data-model-reference.md#Sample).|Olá exemplos de código para a operação atual de saudação...|  
   
 ### <a name="sample-template-data"></a>Amostra de dados do modelo  
   
@@ -376,7 +376,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -456,7 +456,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -480,7 +480,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -504,7 +504,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -528,7 +528,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -552,7 +552,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -576,7 +576,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -600,7 +600,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -624,7 +624,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
             "headers": [  
                 {  
                     "name": "Ocp-Apim-Subscription-Key",  
-                    "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+                    "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
                     "value": "{subscription key}",  
                     "typeName": "string",  
                     "options": null,  
@@ -639,7 +639,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ##  <a name="CodeSamples"></a> Exemplos de código  
- Os modelos a seguir permitem que você personalize o corpo dos exemplos de código individuais na página de operação.  
+ Olá modelos a seguir permitem que você toocustomize corpo de saudação dos exemplos de código individuais de saudação na página de operação de saudação.  
   
  ![Exemplos de código de modelos do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Exemplos de código de modelos do portal do desenvolvedor de APIM")  
   
@@ -660,7 +660,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 -   [Ruby](#Ruby)  
   
 ###  <a name="Curl"></a> Curl  
- O modelo **DocumentationSamplesCurl** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
+ Olá **DocumentationSamplesCurl** modelo permite que você toocustomize que o código de exemplo na seção de exemplos de código de saudação da página de operação de saudação.  
   
 #### <a name="default-template"></a>Modelo padrão  
   
@@ -678,7 +678,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 ```  
   
 #### <a name="controls"></a>Controles  
- Os modelos de exemplo de código não permitem o uso de quaisquer [controles de página](api-management-page-controls.md).  
+ Olá modelos de exemplo de código não permitem usar Olá qualquer [página controles](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modelo de dados  
  Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).  
@@ -700,7 +700,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -713,7 +713,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 ```  
   
 ###  <a name="CSharp"></a> C#  
- O modelo **DocumentationSamplesCsharp** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
+ Olá **DocumentationSamplesCsharp** modelo permite que você toocustomize que o código de exemplo na seção de exemplos de código de saudação da página de operação de saudação.  
   
 #### <a name="default-template"></a>Modelo padrão  
   
@@ -731,7 +731,7 @@ namespace CSHttpClientSample
         static void Main()  
         {  
             MakeRequest();  
-            Console.WriteLine("Hit ENTER to exit...");  
+            Console.WriteLine("Hit ENTER tooexit...");  
             Console.ReadLine();  
         }  
   
@@ -857,7 +857,7 @@ namespace CSHttpClientSample
 ```  
   
 #### <a name="controls"></a>Controles  
- Os modelos de exemplo de código não permitem o uso de quaisquer [controles de página](api-management-page-controls.md).  
+ Olá modelos de exemplo de código não permitem usar Olá qualquer [página controles](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modelo de dados  
  Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).  
@@ -879,7 +879,7 @@ namespace CSHttpClientSample
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -892,12 +892,12 @@ namespace CSHttpClientSample
 ```  
   
 ###  <a name="Stub"></a> Java  
- O modelo **DocumentationSamplesJava** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
+ Olá **DocumentationSamplesJava** modelo permite que você toocustomize que o código de exemplo na seção de exemplos de código de saudação da página de operação de saudação.  
   
 #### <a name="default-template"></a>Modelo padrão  
   
 ```xml  
-// // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
+// // This sample uses hello Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
 import java.net.URI;  
 import org.apache.http.HttpEntity;  
 import org.apache.http.HttpResponse;  
@@ -953,7 +953,7 @@ public class JavaSample
 ```  
   
 #### <a name="controls"></a>Controles  
- Os modelos de exemplo de código não permitem o uso de quaisquer [controles de página](api-management-page-controls.md).  
+ Olá modelos de exemplo de código não permitem usar Olá qualquer [página controles](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modelo de dados  
  Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).  
@@ -975,7 +975,7 @@ public class JavaSample
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -988,7 +988,7 @@ public class JavaSample
 ```  
   
 ###  <a name="JavaScript"></a> JavaScript  
- O modelo **DocumentationSamplesJs** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
+ Olá **DocumentationSamplesJs** modelo permite que você toocustomize que o código de exemplo na seção de exemplos de código de saudação da página de operação de saudação.  
   
 #### <a name="default-template"></a>Modelo padrão  
   
@@ -1042,7 +1042,7 @@ public class JavaSample
 ```  
   
 #### <a name="controls"></a>Controles  
- Os modelos de exemplo de código não permitem o uso de quaisquer [controles de página](api-management-page-controls.md).  
+ Olá modelos de exemplo de código não permitem usar Olá qualquer [página controles](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modelo de dados  
  Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).  
@@ -1064,7 +1064,7 @@ public class JavaSample
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1077,7 +1077,7 @@ public class JavaSample
 ```  
   
 ###  <a name="ObjectiveC"></a> Objective C  
- O modelo **DocumentationSamplesObjc** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
+ Olá **DocumentationSamplesObjc** modelo permite que você toocustomize que o código de exemplo na seção de exemplos de código de saudação da página de operação de saudação.  
   
 #### <a name="default-template"></a>Modelo padrão  
   
@@ -1154,7 +1154,7 @@ int main(int argc, const char * argv[])
 ```  
   
 #### <a name="controls"></a>Controles  
- Os modelos de exemplo de código não permitem o uso de quaisquer [controles de página](api-management-page-controls.md).  
+ Olá modelos de exemplo de código não permitem usar Olá qualquer [página controles](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modelo de dados  
  Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).  
@@ -1176,7 +1176,7 @@ int main(int argc, const char * argv[])
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1189,13 +1189,13 @@ int main(int argc, const char * argv[])
 ```  
   
 ###  <a name="PHP"></a> PHP  
- O modelo **DocumentationSamplesPhp** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
+ Olá **DocumentationSamplesPhp** modelo permite que você toocustomize que o código de exemplo na seção de exemplos de código de saudação da página de operação de saudação.  
   
 #### <a name="default-template"></a>Modelo padrão  
   
 ```xml  
 <?php  
-// This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
+// This sample uses hello Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
 require_once 'HTTP/Request2.php';  
   
 $request = new Http_Request2('{{scheme}}://{{host}}{{path}}');  
@@ -1244,7 +1244,7 @@ catch (HttpException $ex)
 ```  
   
 #### <a name="controls"></a>Controles  
- Os modelos de exemplo de código não permitem o uso de quaisquer [controles de página](api-management-page-controls.md).  
+ Olá modelos de exemplo de código não permitem usar Olá qualquer [página controles](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modelo de dados  
  Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).  
@@ -1266,7 +1266,7 @@ catch (HttpException $ex)
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1279,7 +1279,7 @@ catch (HttpException $ex)
 ```  
   
 ###  <a name="Python"></a> Python  
- O modelo **DocumentationSamplesPython** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
+ Olá **DocumentationSamplesPython** modelo permite que você toocustomize que o código de exemplo na seção de exemplos de código de saudação da página de operação de saudação.  
   
 #### <a name="default-template"></a>Modelo padrão  
   
@@ -1362,7 +1362,7 @@ except Exception as e:
 ```  
   
 #### <a name="controls"></a>Controles  
- Os modelos de exemplo de código não permitem o uso de quaisquer [controles de página](api-management-page-controls.md).  
+ Olá modelos de exemplo de código não permitem usar Olá qualquer [página controles](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modelo de dados  
  Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).  
@@ -1384,7 +1384,7 @@ except Exception as e:
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1397,7 +1397,7 @@ except Exception as e:
 ```  
   
 ###  <a name="Ruby"></a> Ruby  
- O modelo **DocumentationSamplesRuby** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
+ Olá **DocumentationSamplesRuby** modelo permite que você toocustomize que o código de exemplo na seção de exemplos de código de saudação da página de operação de saudação.  
   
 #### <a name="default-template"></a>Modelo padrão  
   
@@ -1433,7 +1433,7 @@ puts response.body
 ```  
   
 #### <a name="controls"></a>Controles  
- Os modelos de exemplo de código não permitem o uso de quaisquer [controles de página](api-management-page-controls.md).  
+ Olá modelos de exemplo de código não permitem usar Olá qualquer [página controles](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Modelo de dados  
  Entidade [Exemplo de código](api-management-template-data-model-reference.md#Sample).  
@@ -1455,7 +1455,7 @@ puts response.body
     "headers": [  
         {  
             "name": "Ocp-Apim-Subscription-Key",  
-            "description": "Subscription key which provides access to this API. Found in your <a href='/developer'>Profile</a>.",  
+            "description": "Subscription key which provides access toothis API. Found in your <a href='/developer'>Profile</a>.",  
             "value": "{subscription key}",  
             "typeName": "string",  
             "options": null,  
@@ -1468,4 +1468,4 @@ puts response.body
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como trabalhar com modelos, confira [Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos](api-management-developer-portal-templates.md).
+Para obter mais informações sobre como trabalhar com modelos, consulte [como toocustomize Olá portal do desenvolvedor do gerenciamento de API usando modelos](api-management-developer-portal-templates.md).

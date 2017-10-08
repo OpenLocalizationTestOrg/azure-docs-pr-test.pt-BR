@@ -1,6 +1,6 @@
 ---
-title: Adicionar cache para melhorar o desempenho no Gerenciamento de API do Azure | Microsoft Docs
-description: "Saiba como aprimorar a latência, carregar o consumo de largura de banda e o serviço Web para chamadas de serviço de Gerenciamento de API."
+title: aaaAdd cache tooimprove desempenho no gerenciamento de API do Azure | Microsoft Docs
+description: "Saiba como latência de saudação tooimprove, consumo de largura de banda e serviço web de carga para chamadas de serviço de gerenciamento de API."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 59c595f0d5ce849f44c46fdb6cab0b44d35fffa0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 056ab7cf788218327e30bd5c028b76e3b1977fb0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Adicionar caching para melhorar o desempenho no Gerenciamento de API do Azure
+# <a name="add-caching-tooimprove-performance-in-azure-api-management"></a>Adicionar cache tooimprove desempenho no gerenciamento de API do Azure
 É possível configurar as operações do Gerenciamento de API para cache das respostas. O cache das respostas pode reduzir significativamente a latência da API, o consumo da largura de banda e a carga de serviço Web para dados que não são alterados com frequência.
 
-Este guia mostra como adicionar o caching das respostas para sua API e configurar políticas para as operações de API de Eco. Você pode chamar a operação por meio do portal do desenvolvedor para verificar o caching em ação.
+Este guia mostra como tooadd resposta para a sua API de cache e configurar políticas para operações de API de eco do exemplo hello. Em seguida, você pode chamar operação Olá do cache tooverify portal do desenvolvedor do hello em ação.
 
 > [!NOTE]
 > Para saber mais sobre itens de cache por chave usando expressões de política, confira [Cache personalizado no Gerenciamento de API do Azure](api-management-sample-cache-by-key.md).
@@ -31,54 +31,54 @@ Este guia mostra como adicionar o caching das respostas para sua API e configura
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de seguir as etapas neste guia, você deve ter uma instância do serviço de Gerenciamento de API com uma API e um produto configurado. Se ainda não criou uma instância de serviço de Gerenciamento de API, confira [Criar uma instância de serviço de Gerenciamento de API][Create an API Management service instance] no tutorial [Introdução ao Gerenciamento de API do Azure][Get started with Azure API Management].
+Antes de saudação seguir as etapas neste guia, você deve ter uma instância do serviço de gerenciamento de API com uma API e um produto configurado. Se você ainda não tiver criado uma instância do serviço de gerenciamento de API, consulte [criar uma instância do serviço de gerenciamento de API] [ Create an API Management service instance] em Olá [Introdução ao gerenciamento de API do Azure] [ Get started with Azure API Management] tutorial.
 
 ## <a name="configure-caching"> </a>Configurar uma operação para caching
-Nesta etapa, você examinará as configurações de cache da operação **Recurso GET (em cache)** do exemplo de API de Eco.
+Nesta etapa, você revisará Olá configurações de saudação de cache **obter recursos (em cache)** operação do exemplo hello Echo API.
 
 > [!NOTE]
-> Cada instância de serviço de Gerenciamento de API vem pré-configurada com uma API de Eco que pode ser usada para experimentar e aprender sobre o Gerenciamento de API. Para obter mais informações, confira [Introdução ao Gerenciamento de API do Azure][Get started with Azure API Management].
+> Cada instância de serviço de gerenciamento de API vem pré-configurada com uma API de eco que podem ser usado tooexperiment com e saiba mais sobre o gerenciamento de API. Para obter mais informações, confira [Introdução ao Gerenciamento de API do Azure][Get started with Azure API Management].
 > 
 > 
 
-Para começar, clique em **Portal do Editor** no Portal do Azure para acessar o serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
+tooget iniciado, clique em **portal do publicador** em hello Portal do Azure para seu serviço de gerenciamento de API. Isso leva toohello portal do publicador de gerenciamento de API.
 
 ![Portal do editor][api-management-management-console]
 
-Clique em **APIs** no menu **Gerenciamento de API** à esquerda e clique em **API de Eco**.
+Clique em **APIs** de saudação **gerenciamento de API** menu saudação à esquerda e clique **Echo API**.
 
 ![API de Eco][api-management-echo-api]
 
-Clique na guia **Operações** e na operação **Recurso GET (em cache)**, na lista **Operações**.
+Clique em Olá **operações** guia e, em seguida, clique em Olá **obter recursos (em cache)** operação Olá **operações** lista.
 
 ![Operações de API de ECO][api-management-echo-api-operations]
 
-Clique na guia **Cache** para ver as configurações de cache para esta operação.
+Clique em Olá **cache** Olá tooview de guia Configurações para esta operação de cache.
 
 ![Guia Cache][api-management-caching-tab]
 
-Para habilitar o cache de uma operação, marque a caixa de seleção **Habilitar** . Neste exemplo, o caching está habilitado.
+tooenable cache para uma operação, selecione Olá **habilitar** caixa de seleção. Neste exemplo, o caching está habilitado.
 
-A resposta de cada operação tem uma chave baseada nos valores dos campos **Variar por parâmetros da cadeia de consulta** e **Variar por cabeçalhos**. Se quiser armazenar em cache várias respostas com base em cabeçalhos ou parâmetros de cadeias de consulta, você pode configurá-las nesses dois campos.
+Cada resposta de operação é organizada com base nos valores Olá Olá **variar por parâmetros de cadeia de caracteres de consulta** e **variam por cabeçalhos** campos. Se você quiser toocache várias respostas com base em parâmetros de cadeia de caracteres de consulta ou cabeçalhos, você pode configurá-los nesses dois campos.
 
-**Duração** especifica o intervalo de vencimento das respostas armazenadas em cache. Neste exemplo, o intervalo é de **3600** segundos, que equivale a uma hora.
+**Duração** Especifica o intervalo de expiração de saudação de respostas de saudação armazenado em cache. Neste exemplo, o intervalo de saudação é **3600** segundos, que é hora de tooone equivalente.
 
-Utilizando a configuração de cache neste exemplo, a primeira solicitação para a operação **Recurso GET (em cache)** retorna uma resposta do serviço de back-end. Esta resposta será armazenada em cache, com uma chave de acordo com os parâmetros de cadeia de consulta e cabeçalhos especificados. Chamadas subsequentes para a operação, com parâmetros correspondentes, retornarão respostas em cache até que o intervalo de duração de cache expire.
+Usando Olá configuração neste exemplo de cache, Olá primeiro toohello de solicitação **obter recursos (em cache)** operação retorna uma resposta do serviço de back-end de saudação. Essa resposta será armazenada, chaveado Olá especificado parâmetros de cadeia de caracteres de cabeçalhos e consulta. Chamadas subsequentes operação toohello, com parâmetros, será necessário Olá armazenados em cache resposta retornada, até que o intervalo de duração do cache de saudação expirou.
 
-## <a name="caching-policies"> </a>Examinar as políticas de cache
-Nesta etapa, você analisará as configurações de cache da operação **Recurso GET (em cache)** do exemplo de API de Echo.
+## <a name="caching-policies"></a>Olá revisão políticas de cache
+Nesta etapa, você examine Olá cache configurações para Olá **obter recursos (em cache)** operação do exemplo hello Echo API.
 
-Quando as configurações de cache são definidas para uma operação na guia **Cache** , políticas de cache são adicionadas à operação. Essas políticas podem ser vistas e editadas no editor de políticas.
+Quando as configurações de cache são configuradas para uma operação em Olá **cache** guia cache políticas são adicionadas para a operação de saudação. Essas políticas podem ser exibidas e editadas no editor de diretiva de saudação.
 
-Clique em **Políticas** no menu **Gerenciamento de API** à esquerda e selecione **API de Eco/Recurso GET (em cache)** na lista suspensa **Operação**.
+Clique em **políticas** de saudação **gerenciamento de API** menu Olá esquerdo e, em seguida, selecione **Echo API / obter recursos (em cache)** de saudação **operação**lista suspensa.
 
 ![Operação de escopo da política][api-management-operation-dropdown]
 
-Exibe as políticas para esta operação no editor de políticas.
+Isso exibe políticas Olá para esta operação no editor de diretiva de saudação.
 
 ![Editor de políticas de Gerenciamento de API][api-management-policy-editor]
 
-A definição de política para esta operação inclui as políticas que definem a configuração de cache, que foram revisadas usando a guia **Cache** na etapa anterior.
+definição de política de saudação para essa operação inclui Olá as políticas que definem Olá configuração de cache que foram examinadas usando Olá **cache** guia na etapa anterior hello.
 
 ```xml
 <policies>
@@ -98,49 +98,49 @@ A definição de política para esta operação inclui as políticas que definem
 ```
 
 > [!NOTE]
-> As alterações feitas nas políticas de cache no editor de políticas serão refletidas na guia **Cache** de uma operação e vice-versa.
+> As alterações feitas toohello políticas no editor de diretiva de saudação de cache será refletida no hello **cache** guia de uma operação e vice-versa.
 > 
 > 
 
-## <a name="test-operation"> </a>Chamar uma operação e testar o cache
-Para ver o cache em funcionamento, podemos chamar a operação por meio do portal do desenvolvedor. Clique em **Portal do desenvolvedor** no menu superior direito.
+## <a name="test-operation"></a>Chamar uma operação e testar o caching Olá
+Olá toosee cache em ação, podemos chamar a operação de saudação do portal do desenvolvedor Olá. Clique em **portal do desenvolvedor** no menu superior direito da saudação.
 
 ![Portal do desenvolvedor][api-management-developer-portal-menu]
 
-Clique em **APIs** no menu superior e selecione **API de Eco**.
+Clique em **APIs** Olá menu superior e, em seguida, selecione **Echo API**.
 
 ![API de Eco][api-management-apis-echo-api]
 
-> Se você tem apenas uma API configurada ou visível na conta, clicar em APIs levará você diretamente às operações dessa API.
+> Se você tiver apenas uma API configurada ou conta tooyour visível, clique em APIs leva você diretamente toohello operações para essa API.
 > 
 > 
 
-Selecione a operação **Recurso GET (em cache)** e clique em **Abrir Console**.
+Selecione Olá **obter recursos (em cache)** operação e depois clique em **abrir o Console**.
 
 ![Abrir console][api-management-open-console]
 
-O console permite que você invoque operações diretamente por meio do portal do desenvolvedor.
+Olá console permite operações tooinvoke diretamente do portal do desenvolvedor hello.
 
 ![Console][api-management-console]
 
-Mantenha os valores padrão para **param1** e **param2**.
+Manter valores padrão Olá **param1** e **param2**.
 
-Selecione a chave desejada na lista suspensa **subscription-key** . Se a sua conta tiver somente uma assinatura, ela já estará selecionada.
+Selecione Olá tecla desejada da saudação **chave de assinatura** lista suspensa. Se a sua conta tiver somente uma assinatura, ela já estará selecionada.
 
-Insira **sampleheader:value1** na caixa de texto **Cabeçalhos de solicitação**.
+Digite **sampleheader:value1** em Olá **cabeçalhos de solicitação** caixa de texto.
 
-Clique em **HTTP Get** e anote os cabeçalhos de resposta.
+Clique em **HTTP Get** e anote Olá cabeçalhos de resposta.
 
-Insira **sampleheader:value2** na caixa de texto **Cabeçalhos de solicitação** e clique em **HTTP Get**.
+Digite **sampleheader:value2** em Olá **cabeçalhos de solicitação** caixa de texto e clique **HTTP Get**.
 
-Observe que o valor de **sampleheader** ainda será **value1** na resposta. Teste alguns valores diferentes e observe que a resposta armazenada em cache da primeira chamada será retornada.
+Observe que valor Olá **sampleheader** ainda é **value1** em resposta hello. Tente alguns valores diferentes e observe que Olá a resposta armazenada em cache na primeira chamada de saudação é retornado.
 
-Insira **25** no campo **param2** e clique em **HTTP Get**.
+Digite **25** em Olá **param2** campo e, em seguida, clique em **HTTP Get**.
 
-Observe que agora o valor de **sampleheader** na resposta será **value2**. Como os resultados da operação têm uma chave de acordo com a cadeia de consulta, a resposta em cache anterior não foi retornada.
+Observe que valor Olá **sampleheader** Olá resposta agora é **value2**. Porque os resultados da operação Olá inseridos pela cadeia de caracteres de consulta, a resposta armazenada em cache anterior de saudação não foi retornada.
 
 ## <a name="next-steps"> </a>Próximas etapas
-* Para saber mais sobre as políticas de cache, veja [Políticas de cache][Caching policies] na [Referência de política do Gerenciamento de API][API Management policy reference].
+* Para obter mais informações sobre políticas de cache, consulte [políticas de cache] [ Caching policies] em Olá [referência de política de gerenciamento de API][API Management policy reference].
 * Para saber mais sobre itens de cache por chave usando expressões de política, confira [Cache personalizado no Gerenciamento de API do Azure](api-management-sample-cache-by-key.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
@@ -155,10 +155,10 @@ Observe que agora o valor de **sampleheader** na resposta será **value2**. Como
 [api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
 
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to add and publish a product]: api-management-howto-add-products.md
+[How tooadd operations tooan API]: api-management-howto-add-operations.md
+[How tooadd and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: api-management-monitoring.md
-[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Add APIs tooa product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: api-management-get-started.md
 
@@ -168,6 +168,6 @@ Observe que agora o valor de **sampleheader** na resposta será **value2**. Como
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 [Configure an operation for caching]: #configure-caching
-[Review the caching policies]: #caching-policies
-[Call an operation and test the caching]: #test-operation
+[Review hello caching policies]: #caching-policies
+[Call an operation and test hello caching]: #test-operation
 [Next steps]: #next-steps

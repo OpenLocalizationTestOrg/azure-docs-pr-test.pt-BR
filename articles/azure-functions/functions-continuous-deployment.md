@@ -1,6 +1,6 @@
 ---
-title: "Implantação contínua do Azure Functions | Microsoft Docs"
-description: "Use recursos de implantação contínua do Serviço de Aplicativo do Azure para publicar seu Azure Functions."
+title: "implantação de aaaContinuous para funções do Azure | Microsoft Docs"
+description: "Use recursos de implantação contínua do serviço de aplicativo do Azure toopublish funções do Azure."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 3756f1a039730bfd99b0375ce9bfeaf27178f2e0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 28c44f737dad3feab3cf54f7dd42b6a978d0617e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implantação contínua para Azure Functions
-As Funções do Azure facilitam a implantação do seu aplicativo de função utilizando a integração contínua do Serviço de Aplicativo. Funções integram BitBucket, Dropbox, GitHub e Visual Studio Team Services (VSTS). Isso permite que um fluxo de trabalho em que atualizações de código de função feitas utilizando um desses serviços integrados acione a implantação ao Azure. Se você for iniciante no Azure Functions, comece pela [Visão geral do Azure Functions](functions-overview.md).
+As funções do Azure torna fácil toodeploy seu aplicativo de função usando a integração contínua do serviço de aplicativo. Funções integram BitBucket, Dropbox, GitHub e Visual Studio Team Services (VSTS). Isso permite que um fluxo de trabalho em que o código de função atualizações feito usando um tooAzure de implantação de disparador esses serviços integrados. Se você estiver novas funções tooAzure, começar com [visão geral de funções do Azure](functions-overview.md).
 
-A implantação contínua é uma ótima opção para projetos nos quais várias contribuições frequentes são integradas. Ele também permite manter o controle do código-fonte no código de funções. As seguintes fontes de implantação têm suporte atualmente:
+A implantação contínua é uma ótima opção para projetos nos quais várias contribuições frequentes são integradas. Ele também permite manter o controle do código-fonte no código de funções. Olá origens de implantação a seguir é atualmente suportado:
 
 * [Bitbucket](https://bitbucket.org/)
 * [Dropbox](https://www.dropbox.com/)
@@ -34,113 +34,113 @@ A implantação contínua é uma ótima opção para projetos nos quais várias 
 * [OneDrive](https://onedrive.live.com/)
 * [Visual Studio Team Services](https://www.visualstudio.com/team-services/)
 
-As implantações são configuradas para cada aplicativo de função. Após a implantação contínua ser habilitada, o acesso ao código de função no portal é definido como *somente leitura*.
+As implantações são configuradas para cada aplicativo de função. Após a implantação contínua está habilitada, o código de toofunction de acesso no portal de saudação está definido muito*somente leitura*.
 
 ## <a name="continuous-deployment-requirements"></a>Requisitos de implantação contínua
 
-Você deve ter a fonte de implantação configurada e o código de funções na fonte de implantação antes de configurar a implantação contínua. Em uma implantação de aplicativo de funções específica, cada função reside em um subdiretório nomeado, em que o nome do diretório é o nome da função.  
+Você deve ter sua origem de implantação configurada e seu código de funções na origem de implantação de saudação antes de configurar a implantação contínua. Em uma implantação de aplicativo de determinada função, cada função reside em um subdiretório nomeado, onde o nome do diretório Olá é o nome de saudação do função hello.  
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
 ## <a name="set-up-continuous-deployment"></a>Configurar a implantação contínua
-Utilize o procedimento a seguir para configurar a implantação contínua para um aplicativo de função existente. Essas etapas demonstram a integração com um repositório GitHub, porém etapas semelhantes se aplicam para serviços do Visual Studio Team Services ou outros serviços de implantação.
+Use esta implantação contínua do procedimento tooconfigure para um aplicativo de função existente. Essas etapas demonstram a integração com um repositório GitHub, porém etapas semelhantes se aplicam para serviços do Visual Studio Team Services ou outros serviços de implantação.
 
-1. Em seu aplicativo de função no [portal do Azure](https://portal.azure.com), clique em **Recursos da plataforma** e **Opções de implantação**. 
+1. Em seu aplicativo de função no hello [portal do Azure](https://portal.azure.com), clique em **recursos de plataforma** e **opções de implantação**. 
    
     ![Configurar a implantação contínua](./media/functions-continuous-deployment/setup-deployment.png)
  
-2. Em seguida, na folha **Implantações**, clique em **Configurar**.
+2. Em seguida, em Olá **implantações** folha clique **instalação**.
  
     ![Configurar a implantação contínua](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-2. Na folha **Origem da implantação**, clique em **Escolher fonte**, preencha as informações da origem de implantação escolhida e clique em **OK**.
+2. Em Olá **origem de implantação** folha, clique em **Escolher fonte**, preencha as informações de saudação para sua fonte de implantação escolhida e clique em **Okey**.
    
     ![Escolher a fonte de implantação](./media/functions-continuous-deployment/choose-deployment-source.png)
 
-Após a implantação contínua ser configurada, todas as alterações de arquivos na fonte de implantação são copiadas para o aplicativo de função e uma implantação completa do site é disparada. O site é reimplantado quando os arquivos da origem são atualizados.
+Após a configuração de implantação contínua, todas as alterações de arquivo na fonte de implantação são copiados toohello função aplicativo e uma implantação completa do site é acionada. site de saudação for reimplantado quando os arquivos na fonte de saudação são atualizados.
 
 ## <a name="deployment-options"></a>Opções de implantação
 
-A seguir estão alguns cenários comuns de implantação:
+Olá seguem alguns cenários comuns de implantação:
 
 - [Criar uma implantação de preparo](#staging)
-- [Mover as funções existentes para implantação contínua](#existing)
+- [Mover a implantação de toocontinuous funções existentes](#existing)
 
 <a name="staging"></a>
 ### <a name="create-a-staging-deployment"></a>Criar uma implantação de preparo
 
 Aplicativos de Função ainda não dão suporte a slots de implantação. No entanto, você ainda pode gerenciar implantações de produção e preparo separadas usando a integração contínua.
 
-O processo para configurar e trabalhar com uma implantação de preparo geralmente tem esta aparência:
+Olá tooconfigure de processo e trabalhar com uma implantação de preparo geralmente tem esta aparência:
 
-1. Crie dois aplicativos de função em sua assinatura, um para o código de produção e outro para preparo. 
+1. Crie dois aplicativos de função em sua assinatura, uma para o código de produção de hello e outra para preparação. 
 
 2. Crie uma fonte de implantação, se você ainda não tiver uma. Este exemplo usa [GitHub].
 
-3. Para o aplicativo de funções de produção, conclua as etapas acima em **Configurar a implantação contínua** e defina a ramificação de implantação para a ramificação mestra do repositório GitHub.
+3. Para seu aplicativo de função de produção, Olá completo anterior etapas **configurar implantação contínua** e conjunto Olá implantação ramificação toohello mestre ramificação do repositório GitHub.
    
     ![Escolher a ramificação de implantação](./media/functions-continuous-deployment/choose-deployment-branch.png)
 
-4. Repita essa etapa para o aplicativo de funções de preparo, mas escolha a ramificação de preparo em vez do repositório GitHub. Se sua fonte de implantação não der suporte à ramificação, use uma pasta diferente.
+4. Repita essa etapa para Olá função de aplicativo de teste, mas escolha Olá Preparando ramificação em vez disso, no seu repositório GitHub. Se sua fonte de implantação não der suporte à ramificação, use uma pasta diferente.
     
-5. Faça atualizações no código na ramificação de preparo ou na pasta e verifique se as alterações são refletidas na implantação de preparo.
+5. Faça atualizações tooyour código em Olá branch ou pasta de preparo e verificar se essas alterações são refletidas na implantação de preparo de saudação.
 
-6. Depois de testar, mescle alterações da ramificação de preparo na ramificação mestre. Essa mesclagem disparará a implantação para o aplicativo de função de produção. Se sua fonte de implantação não der suporte a ramificações, substitua os arquivos na pasta de produção pelos arquivos da pasta de preparo.
+6. Depois de testes, mesclar alterações do branch de preparo Olá no branch mestre hello. Essa mesclagem gatilhos implantação toohello função aplicativo de produção. Se sua fonte de implantação não oferece suporte a ramificações, substitua arquivos de saudação na pasta de produção de hello com arquivos Olá Olá pasta temporária.
 
 <a name="existing"></a>
-### <a name="move-existing-functions-to-continuous-deployment"></a>Mover as funções existentes para implantação contínua
-Quando houver funções existentes que você criou e manteve no portal, será preciso baixar os arquivos de código de função existentes usando o FTP ou o repositório Git local para poder configurar a implantação contínua conforme descrito acima. Você pode fazer isso nas configurações do Serviço de Aplicativo para seu aplicativo de função. Depois que os arquivos forem baixados, você poderá carregá-los na fonte de implantação contínua escolhida.
+### <a name="move-existing-functions-toocontinuous-deployment"></a>Mover a implantação de toocontinuous funções existentes
+Quando você tem funções existentes que você tenha criado e mantido no portal de saudação, você precisa toodownload existente função arquivos de código usando FTP ou hello repositório Git local antes de configurar a implantação contínua conforme descrito acima. Você pode fazer isso no hello configurações de serviço de aplicativo para seu aplicativo de função. Depois que os arquivos são baixados, você poderá carregá-los origem de implantação contínua tooyour escolhido.
 
 > [!NOTE]
-> Depois de configurar a integração contínua, você não poderá mais editar os arquivos de origem no portal de Funções.
+> Depois de configurar a integração contínua, não será capaz de tooedit sua fonte de arquivos no portal de funções hello.
 
 - [Como configurar credenciais de implantação](#credentials)
 - [Como baixar arquivos usando FTP](#downftp)
-- [Como: baixar arquivos usando o repositório Git local](#downgit)
+- [Como: baixar os arquivos usando o repositório do Git local Olá](#downgit)
 
 <a name="credentials"></a>
 #### <a name="how-to-configure-deployment-credentials"></a>Como: configurar credenciais de implantação
-Antes de baixar arquivos do aplicativo de funções com o FTP ou repositório Git local, você deve configurar suas credenciais para acessar o site. As credenciais são definidas no nível do aplicativo de Função. Utilize as etapas a seguir para definir as credenciais de implantação no portal do Azure:
+Antes de baixar arquivos de seu aplicativo de função com FTP ou repositório Git local, você deve configurar seu site de saudação tooaccess credenciais. As credenciais são definidas no nível de aplicativo de função hello. As etapas a seguir de saudação do uso tooset credenciais de implantação no portal do Azure de saudação:
 
-1. Em seu aplicativo de função no [portal do Azure](https://portal.azure.com), clique em **Recursos da plataforma** e **Credenciais de implantação**.
+1. Em seu aplicativo de função no hello [portal do Azure](https://portal.azure.com), clique em **recursos de plataforma** e **credenciais de implantação**.
    
     ![Definir credenciais de implantação local](./media/functions-continuous-deployment/setup-deployment-credentials.png)
 
-2. Digite um nome de usuário e senha e clique em **Salvar**. Agora você pode usar essas credenciais para acessar seu aplicativo de função do FTP ou do repositório Git interno.
+2. Digite um nome de usuário e senha e clique em **Salvar**. Agora você pode usar essas credenciais tooaccess seu aplicativo de função do FTP ou hello repositório Git interno.
 
 <a name="downftp"></a>
 #### <a name="how-to-download-files-using-ftp"></a>Como: baixar arquivos usando FTP
 
-1. No aplicativo de função do [Portal do Azure](https://portal.azure.com), clique em **recursos de Plataforma**e **Propriedades**, e copie os valores para **Usuário de FTP/Implantação**,**Nome do Host FTP** e**Nome de Host FTPS**.  
+1. Em seu aplicativo de função no hello [portal do Azure](https://portal.azure.com), clique em **recursos de plataforma** e **propriedades**, em seguida, copie os valores hello para **dousuáriodeFTP/implantação**, **Nome do Host do FTP**, e **nome de Host FTPS**.  
 
-    O **Usuário de FTP/Implantação** deve ser inserido conforme exibido no portal, incluindo o nome do aplicativo, a fim de fornecer o contexto adequado para o servidor FTP.
+    **Usuário de FTP/implantação** deve ser inserido como exibido no portal de hello, incluindo o nome do aplicativo hello, tooprovide o contexto apropriado para o servidor de saudação FTP.
    
     ![Obter as informações de implantação](./media/functions-continuous-deployment/get-deployment-credentials.png)
 
-2. No cliente de FTP, use as informações de conexão coletadas para se conectar ao aplicativo e baixar os arquivos de origem para suas funções.
+2. De seu cliente FTP, use informações de conexão Olá coletadas tooconnect tooyour aplicativo e baixar arquivos de origem Olá para suas funções.
 
 <a name="downgit"></a>
 #### <a name="how-to-download-files-using-a-local-git-repository"></a>Como: baixar arquivos usando o repositório Git local
 
-1. Em seu aplicativo de função no [portal do Azure](https://portal.azure.com), clique em **Recursos da plataforma** e **Opções de implantação**. 
+1. Em seu aplicativo de função no hello [portal do Azure](https://portal.azure.com), clique em **recursos de plataforma** e **opções de implantação**. 
    
     ![Configurar a implantação contínua](./media/functions-continuous-deployment/setup-deployment.png)
  
-2. Em seguida, na folha **Implantações**, clique em **Configurar**.
+2. Em seguida, em Olá **implantações** folha clique **instalação**.
  
     ![Configurar a implantação contínua](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-2. Na folha **Fonte de implantações**, clique em**Repositório Git Local** e em seguida clique em **OK**.
+2. Em Olá **origem de implantação** folha, clique em **repositório Git Local** e, em seguida, clique em **Okey**.
 
-3. Em **Recursos da plataforma**, clique em **Propriedades** e observe o valor da URL de Git. 
+3. Em **recursos de plataforma**, clique em **propriedades** e observe o valor de saudação da URL de Git. 
    
     ![Configurar a implantação contínua](./media/functions-continuous-deployment/get-local-git-deployment-url.png)
 
-4. Faça uma cópia do repositório em seu computador local usando uma linha de comando com reconhecimento do Git ou sua ferramenta de Git favorita. O comando Git clone é semelhante ao seguinte:
+4. Repositório de saudação do clone em seu computador local usando um prompt de comando com reconhecimento de Git ou sua ferramenta favorita do Git. Olá comando de clone de Git tem esta aparência:
    
         git clone https://username@my-function-app.scm.azurewebsites.net:443/my-function-app.git
 
-5. Busque arquivos de seu aplicativo de função para o clone no computador local, como no seguinte exemplo:
+5. Obter arquivos do seu clone de toohello do aplicativo de função no computador local, como no exemplo a seguir de saudação:
    
         git pull origin master
    

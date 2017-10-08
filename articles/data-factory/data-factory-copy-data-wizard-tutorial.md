@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: criar um pipeline usando o Assistente de Cópia | Microsoft Docs"
-description: "Neste tutorial, você cria um pipeline do Azure Data Factory com uma Atividade de Cópia usando o Assistente de Cópia com suporte do Data Factory"
+description: "Neste tutorial, você criar um pipeline da fábrica de dados do Azure com uma atividade de cópia usando Olá Assistente para cópia de suporte pela fábrica de dados"
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 5922c050cc09236ba5fdec885a70d11da20135cd
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 567b89e7a54c245c134cd0674690e6f3499b46d3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: Criar um pipeline com a Atividade de Cópia usando o Assistente de Cópia do Data Factory
 > [!div class="op_single_selector"]
@@ -31,86 +31,86 @@ ms.lasthandoff: 08/03/2017
 > * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API do .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
-Este tutorial mostra como usar o **assistente de cópia** para copiar dados de um armazenamento de blobs do Azure para um Banco de Dados SQL do Azure. 
+Este tutorial mostra como Olá toouse **Assistente para cópia de** toocopy dados de um banco de dados de SQL do Azure de tooan do armazenamento de BLOBs do Azure. 
 
-O **assistente de cópia** permite que você crie rapidamente um pipeline de dados que copia dados de um armazenamento de dados de origem com suporte para um armazenamento de dados de destino com suporte. Portanto, recomendamos que você use o assistente como uma primeira etapa para criar um pipeline de exemplo no cenário de movimentação de dados. Para obter uma lista de armazenamentos de dados com suporte como origens e destinos, consulte [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats).  
+saudação do Azure Data Factory **Assistente para cópia** permite que você tooquickly criar um pipeline de dados que copia dados de um repositório de dados de destino origem com suporte dados repositório tooa com suporte. Portanto, recomendamos que você use o Assistente de saudação como uma primeira toocreate da etapa um pipeline de exemplo para seu cenário de movimentação de dados. Para obter uma lista de armazenamentos de dados com suporte como origens e destinos, consulte [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats).  
 
-Este tutorial mostra como criar um Azure Data Factory, iniciar o Assistente de Cópia, seguir uma série de etapas para fornecer detalhes sobre seu cenário de ingestão/movimentação de dados. Quando você concluir as etapas no assistente, ele criará um pipeline com Atividade de Cópia a fim de copiar dados de um armazenamento de blobs do Azure para um banco de dados SQL do Azure automaticamente. Para saber mais sobre a atividade de cópia, confira [Atividades de movimentação de dados](data-factory-data-movement-activities.md).
+Este tutorial mostra como toocreate uma fábrica de dados do Azure, Olá Iniciar Assistente para cópia, passar por uma série de detalhes de tooprovide etapas sobre seu cenário de inclusão/movimentação de dados. Quando você concluir as etapas no Assistente de saudação, o Assistente de saudação cria automaticamente um pipeline com dados de toocopy uma atividade de cópia de um banco de dados de SQL do Azure de tooan do armazenamento de BLOBs do Azure. Para saber mais sobre a atividade de cópia, confira [Atividades de movimentação de dados](data-factory-data-movement-activities.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Conclua os pré-requisitos listados no artigo [Visão geral do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) antes de executar este tutorial.
+Conclua os pré-requisitos listados em Olá [visão geral do Tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) artigo antes de executar este tutorial.
 
 ## <a name="create-data-factory"></a>Criar um data factory
-Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure denominado **ADFTutorialDataFactory**.
+Nesta etapa, você usa Olá toocreate portal do Azure uma fábrica de dados do Azure denominada **ADFTutorialDataFactory**.
 
-1. Faça logon no [portal do Azure](https://portal.azure.com).
-2. Clique em **+NOVO** no canto superior esquerdo, clique em **Dados + análise** e clique em **Data Factory**. 
+1. Faça logon no muito[portal do Azure](https://portal.azure.com).
+2. Clique em **+ novo** no canto superior esquerdo de saudação, clique em **dados + análise**e clique em **Data Factory**. 
    
    ![Novo -> DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
-2. Na folha **Nova data factory** :
+2. Em Olá **nova fábrica de dados** folha:
    
-   1. Digite **ADFTutorialDataFactory** como **nome**.
-       O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber o seguinte erro, `Data factory name “ADFTutorialDataFactory” is not available`, altere o nome do data factory (por exemplo, seunomeADFTutorialDataFactoryDDMMAAAA) e tente criá-lo novamente. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.  
+   1. Digite **ADFTutorialDataFactory** para Olá **nome**.
+       nome de Olá Olá do Azure da fábrica de dados deve ser globalmente exclusivo. Se você receber o erro Olá: `Data factory name “ADFTutorialDataFactory” is not available`, altere o nome de Olá Olá da fábrica de dados (por exemplo, yournameADFTutorialDataFactoryYYYYMMDD) e tente criar novamente. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.  
       
        ![Nome da data factory indisponível](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)    
    2. Selecione sua **assinatura**do Azure.
-   3. Em relação ao Grupo de Recursos, execute uma das seguintes etapas: 
+   3. Para o grupo de recursos, siga um destes Olá etapas a seguir: 
       
-      - Selecione **Usar existente** para selecionar um grupo de recursos existente.
-      - Selecione **Criar novo** e insira um nome para um grupo de recursos.
+      - Selecione **usar existente** tooselect um grupo de recursos existente.
+      - Selecione **criar novo** tooenter um nome para um grupo de recursos.
           
-        Algumas das etapas neste tutorial supõem que você usa o nome: **ADFTutorialResourceGroup** para o grupo de recursos. Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).
-   4. Selecione um **local** para o data factory.
-   5. Marque a caixa de seleção **Fixar no painel** na parte inferior da folha.  
+        Algumas das etapas neste tutorial Olá pressupõem que você use o nome da saudação: **ADFTutorialResourceGroup** Olá para grupo de recursos. toolearn sobre grupos de recursos, consulte [usando o recurso de grupos de toomanage os recursos do Azure](../azure-resource-manager/resource-group-overview.md).
+   4. Selecione um **local** Olá fábrica de dados.
+   5. Selecione **toodashboard Pin** caixa de seleção na parte inferior da saudação da folha de saudação.  
    6. Clique em **Criar**.
       
        ![Folha Nova data factory](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)            
-3. Depois que a criação for concluída, você verá a folha **Data Factory**, conforme mostrado na seguinte imagem:
+3. Após a conclusão da criação de saudação, você ver Olá **Data Factory** folha conforme Olá a imagem a seguir:
    
    ![Página inicial da data factory](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
 ## <a name="launch-copy-wizard"></a>Iniciar o Assistente de cópia
-1. Na folha Data Factory, clique em **Copiar dados [VERSÃO PRÉVIA]** para iniciar o **Assistente de cópia**. 
+1. Na folha de fábrica de dados hello, clique em **copiar dados [visualização]** toolaunch Olá **Assistente para cópia de**. 
    
    > [!NOTE]
-   > Se você vir que o navegador da Web está bloqueado em "Autorizando...", desmarque a configuração **Bloquear cookies de terceiros e dados de site** nas configurações do navegador (ou) mantenha-a habilitada, crie uma exceção para **login.microsoftonline.com** e tente iniciar o assistente novamente.
-2. Na página **Propriedades** :
+   > Se você vir esse navegador da web hello está preso em "Autorizar...", desabilitar/desmarque **bloquear cookies de terceiros e dados do site** definindo as configurações do navegador hello (ou) manter ele habilitado e criar uma exceção para  **login.microsoftonline.com** e tente iniciar o Assistente de saudação novamente.
+2. Em Olá **propriedades** página:
    
    1. Insira **CopyFromBlobToAzureSql** para o **Nome da tarefa**
    2. Insira uma **descrição** (opcional).
-   3. Altere a **data/hora de início** e a **data/hora de término** para que a data de término seja definida como a data de hoje e a de início, cinco dias antes.  
+   3. Saudação de alteração **data/hora inicial** e hello **data hora de término** para que a data de término hello é definir tootoday e iniciar data toofive dias.  
    4. Clique em **Avançar**.  
       
       ![Ferramenta de Cópia - página Propriedades](./media/data-factory-copy-data-wizard-tutorial/copy-tool-properties-page.png) 
-3. Na página **Repositório de dados de origem**, clique no bloco **Armazenamento de Blobs do Azure**. Use essa página para especificar o repositório de dados de origem para a tarefa de cópia. 
+3. Em Olá **repositório de dados de origem** , clique em **armazenamento de BLOBs do Azure** lado a lado. Você pode usar esse repositório de dados de origem do página toospecify Olá para tarefas de cópia de saudação. 
    
     ![Ferramenta de Cópia - página de repositório de dados de origem](./media/data-factory-copy-data-wizard-tutorial/copy-tool-source-data-store-page.png)
-4. Na página **Especificar a conta de armazenamento de Blobs do Azure** :
+4. Em Olá **especificar conta de armazenamento de BLOBs do Azure Olá** página:
    
    1. Insira **AzureStorageLinkedService** para o **Nome do serviço vinculado**.
    2. Confirme se a opção **De assinaturas do Azure** foi selecionada em **Método de seleção de conta**.
    3. Selecione sua **assinatura**do Azure.  
-   4. Selecione uma **Conta de armazenamento do Azure** na lista de contas de armazenamento do Azure disponíveis na assinatura selecionada. Você também pode inserir as configurações de conta de armazenamento manualmente selecionando a opção **Inserir manualmente** para o **Método de seleção de conta** e clicando em **Avançar**. 
+   4. Selecione um **conta de armazenamento do Azure** de saudação lista de armazenamento do Azure contas disponível na assinatura de saudação selecionada. Você também pode escolher tooenter configurações de conta de armazenamento manualmente selecionando **inserir manualmente** opção Olá **método de seleção de conta**e, em seguida, clique em **próximo**. 
       
-      ![Ferramenta de Cópia - especifique a conta de armazenamento de Blobs do Azure](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
-5. Na página **Escolher o arquivo de entrada ou a pasta** :
+      ![Copie a ferramenta - especificar conta de armazenamento de BLOBs do Azure Olá](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
+5. Em **pasta ou escolha o arquivo de entrada hello** página:
    
    1. Clique duas vezes em **adftutorial** (pasta).
    2. Selecione **emp.txt** e clique em **Escolher**
       
-      ![Ferramenta de Cópia - escolha a pasta ou o arquivo de entrada](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
-6. Na página **Escolha o arquivo ou a pasta de entrada**, clique em **Avançar**. Não selecione **Cópia binária**. 
+      ![Copie a ferramenta - escolha a pasta ou arquivo de entrada hello](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
+6. Em Olá **pasta ou escolha o arquivo de entrada hello** , clique em **próximo**. Não selecione **Cópia binária**. 
    
-    ![Ferramenta de Cópia - escolha a pasta ou o arquivo de entrada](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
-7. Na página **Configurações de formato de arquivo**, você vê os delimitadores e o esquema é detectado automaticamente pelo assistente na análise do arquivo. Você também pode inserir os delimitadores manualmente para que o assistente de cópia pare de detectar automaticamente ou substitua. Clique em **Avançar** depois de revisar os delimitadores e visualizar os dados. 
+    ![Copie a ferramenta - escolha a pasta ou arquivo de entrada hello](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
+7. Em Olá **as configurações de formato de arquivo** página, consulte delimitadores hello e esquema de saudação que é detectada automaticamente pelo Assistente de saudação Analisando arquivo hello. Você também pode inserir delimitadores Olá manualmente para Olá cópia Assistente toostop detectar automaticamente ou toooverride. Clique em **próximo** Após examinar delimitadores hello e visualizar dados. 
    
     ![Ferramenta de Cópia - configurações de formato de arquivo](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
-8. Na página Repositório de dados de destino, selecione **Banco de Dados SQL do Azure** e clique em **Avançar**.
+8. Em dados de destino de saudação repositório de página, selecione **banco de dados do SQL Azure**e clique em **próximo**.
    
     ![Ferramenta de Cópia - escolha o repositório de destino](./media/data-factory-copy-data-wizard-tutorial/choose-destination-store.png)
-9. Na página **Especificar o banco de dados SQL do Azure** :
+9. Em **banco de dados do SQL Azure especifique Olá** página:
    
-   1. Digite **AzureSqlLinkedService** no campo **Nome da conexão**.
+   1. Digite **AzureSqlLinkedService** para Olá **nome de Conexão** campo.
    2. Confirme se a opção **De assinaturas do Azure** foi selecionada em **Método de seleção de servidor/banco de dados**.
    3. Selecione sua **assinatura**do Azure.  
    4. Selecione **Nome do servidor** e **Banco de Dados**.
@@ -118,38 +118,38 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
    6. Clique em **Avançar**.  
       
       ![Ferramenta de Cópia - especifique o banco de dados SQL do Azure](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
-10. Na página **Mapeamento de tabela**, selecione **emp** para o campo **Destino** na lista suspensa e clique em **seta para baixo** (opcional) para ver o esquema e visualizar os dados.
+10. Em Olá **mapeamento de tabela** página, selecione **emp** para Olá **destino** campo da lista suspensa de saudação, clique em **a seta para baixo** (opcional) toosee Olá esquema e toopreview Olá dados.
     
      ![Ferramenta de Cópia - mapeamento de tabela](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
-11. Na página **Mapeamento de esquema**, clique em **Avançar**.
+11. Em Olá **mapeamento de esquema** , clique em **próximo**.
     
     ![Ferramenta de Cópia - mapeamento de esquema](./media/data-factory-copy-data-wizard-tutorial/schema-mapping-page.png)
-12. Na página **Configurações de desempenho**, clique em **Avançar**. 
+12. Em Olá **as configurações de desempenho** , clique em **próximo**. 
     
     ![Ferramenta de cópia - configurações de desempenho](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
-13. Examine as informações na página **Resumo** e clique em **Concluir**. Esse assistente cria dois serviços vinculados, dois conjuntos de dados (entrada e saída) e um pipeline no data factory (de onde você iniciou o Assistente de Cópia). 
+13. Revise informações Olá **resumo** página e, em seguida, clique em **concluir**. Assistente de saudação cria um pipeline, dois conjuntos de dados (de entrada e saída) e dois serviços vinculados na fábrica de dados de saudação (a partir de onde você iniciou Olá Assistente para copiar). 
     
     ![Ferramenta de cópia - configurações de desempenho](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
 ## <a name="launch-monitor-and-manage-application"></a>Iniciar o monitor e gerenciar aplicativo
-1. Na página **Implantação**, clique no link: `Click here to monitor copy pipeline`.
+1. Em Olá **implantação** página, clique no link de saudação: `Click here toomonitor copy pipeline`.
    
    ![Ferramenta de Cópia - implantação bem-sucedida](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
-2. O aplicativo de monitoramento é iniciado em uma guia separada no navegador da Web.   
+2. saudação de monitoramento do aplicativo é iniciada em uma guia separada em seu navegador da web.   
    
    ![Aplicativo de Monitoramento](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)   
-3. Para ver o status mais recente das fatias de cada hora, clique no botão **Atualizar** da lista **JANELAS DE ATIVIDADE** na parte inferior. Você vê cinco janelas de atividade para cinco dias entre as horas de início e de término do pipeline. A lista não é atualizada automaticamente e, portanto, talvez seja necessário clicar em Atualizar algumas vezes para poder ver todas as janelas de atividade com status Pronto. 
-4. Selecione uma janela de atividade na lista. Consulte os detalhes sobre ela no **Gerenciador da janela de atividade** à direita.
+3. toosee hello mais recente status de fatias de hora em hora, clique em **atualizar** botão Olá **atividade WINDOWS** lista na parte inferior da saudação. Você vê cinco janelas de atividade de cinco dias entre horários de início e término para o pipeline de saudação. lista de saudação não será atualizada automaticamente, para que você pode precisar tooclick atualizar algumas vezes antes de ver todas as janelas de atividade de saudação em estado pronto do hello. 
+4. Selecione uma janela de atividade na lista de saudação. Consulte os detalhes Olá sobre ele Olá **Pesquisador de objetos de janela de atividade** em saudação à direita.
 
     ![Detalhes da janela Atividade](media/data-factory-copy-data-wizard-tutorial/activity-window-details.png)    
 
-    Observe que as datas 11, 12, 13, 14 e 15 estão na cor verde, que significa que as fatias de saída diária para essas datas já foram produzidas. Você também verá essa codificação de cor no pipeline e o conjunto de dados de saída na exibição de diagrama. Na etapa anterior, observe que duas fatias já foram produzidas, uma está sendo processada e os outras duas estão aguardando processamento (com base na codificação de cores). 
+    Observe que as datas de saudação 11, 12, 13, 14 e 15 na cor verde, o que significa que já foram produzidas Olá diário fatias de saída para essas datas. Também consulte essa codificação por cores no pipeline hello e Olá conjunto de dados de saída no modo de exibição de diagrama de saudação. Na etapa anterior de Olá, observe que duas fatias já foram produzidas, uma fatia está sendo processada no momento e hello outros dois estão esperando toobe processada (com base em Olá codificação por cores). 
 
     Para saber mais sobre como usar o aplicativo, confira [Monitorar e gerenciar o pipeline usando o aplicativo de monitoramento](data-factory-monitor-manage-app.md) artigo.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você usou o armazenamento de blobs do Azure como um armazenamento de dados de origem e um banco de dados SQL do Azure como um armazenamento de dados de destino em uma operação de cópia. A tabela a seguir fornece uma lista de armazenamentos de dados com suporte como origens ou destinos na atividade de cópia: 
+Neste tutorial, você usou o armazenamento de blobs do Azure como um armazenamento de dados de origem e um banco de dados SQL do Azure como um armazenamento de dados de destino em uma operação de cópia. Olá tabela a seguir fornece uma lista de repositórios de dados com suporte como origens e destinos de atividade de cópia de saudação: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
-Para obter detalhes sobre campos/propriedades que você vê no assistente de cópia de um armazenamento de dados, clique no link para o armazenamento de dados na tabela. 
+Para obter detalhes sobre campos/propriedades que você vê no Assistente para cópia de saudação para um repositório de dados, clique o link Olá Olá repositório de dados na tabela de saudação. 

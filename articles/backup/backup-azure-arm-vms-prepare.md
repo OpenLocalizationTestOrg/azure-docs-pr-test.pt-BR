@@ -1,5 +1,5 @@
 ---
-title: "Backup do Azure: preparação para backup de máquinas virtuais | Microsoft Docs"
+title: "O Backup do Azure: Preparar tooback backup de máquinas virtuais | Microsoft Docs"
 description: "Assegure-se de que o ambiente esteja preparado para fazer backup de máquinas virtuais no Azure."
 services: backup
 documentationcenter: 
@@ -15,214 +15,214 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/10/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 8d701f4a459da2e08510e8001adca0847b08e924
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 5c3a41b5d3bd56e62ca5f207442867913aa99816
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar seu ambiente para fazer backup das máquinas virtuais implantadas com o Gerenciador de Recursos
+# <a name="prepare-your-environment-tooback-up-resource-manager-deployed-virtual-machines"></a>Preparar sua tooback ambiente backup de máquinas de virtuais implantadas pelo Gerenciador de recursos
 > [!div class="op_single_selector"]
 > * [Modelo do Gerenciador de Recursos](backup-azure-arm-vms-prepare.md)
 > * [Modelo clássico](backup-azure-vms-prepare.md)
 >
 >
 
-Este artigo fornece as etapas para preparar seu ambiente para fazer backup de uma VM (máquina virtual) implantada com o Gerenciador de Recursos. As etapas mostradas nos procedimentos usam o Portal do Azure.  
+Este artigo fornece etapas Olá para preparar seu tooback ambiente uma máquina virtual implantada para o Gerenciador de recursos (VM). Olá, etapas mostradas nos procedimentos de saudação usam Olá portal do Azure.  
 
-O serviço de Backup do Azure tem dois tipos de cofres (cofres de backup e de serviços de recuperação) para proteger suas VMs. Um cofre de backup protege VMs implantadas com o modelo de implantação Clássico. Um cofre dos serviços de recuperação protege **tanto as VMs implantadas com o modelo de implantação Clássico quanto aquelas implantadas com o Resource Manager**. Você deve usar um cofre dos Serviços de Recuperação para proteger uma VM implantada com o Gerenciador de Recursos.
+saudação de serviço de Backup do Azure tem dois tipos de cofres (backup cofres e cofres de serviços de recuperação) para proteger suas VMs. Um cofre de backup protege as VMs implantadas usando o modelo de implantação clássico hello. Um cofre dos serviços de recuperação protege **tanto as VMs implantadas com o modelo de implantação Clássico quanto aquelas implantadas com o Resource Manager**. Você deve usar um cofre de serviços de recuperação tooprotect uma VM implantada para o Gerenciador de recursos.
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Consulte [Preparar seu ambiente para fazer backup de máquinas virtuais do Azure](backup-azure-vms-prepare.md) para obter detalhes sobre como trabalhar com VMs do modelo de implantação Clássico.
+> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Consulte [preparar seu tooback ambiente backup de máquinas virtuais do Azure](backup-azure-vms-prepare.md) para obter detalhes sobre como trabalhar com implantação clássico VMs de modelo.
 >
 >
 
 Antes de proteger ou fazer backup de uma VM (máquina virtual) implantada com o Gerenciador de Recursos, verifique se esses pré-requisitos foram cumpridos:
 
-* Crie um cofre dos serviços de recuperação (ou identifique um cofre dos serviços de recuperação existente) *no mesmo local que sua VM*.
-* Selecione um cenário, defina a política de backup e os itens a serem protegidos.
-* Verifique a instalação do Agente de VM na máquina virtual.
+* Crie um cofre de serviços de recuperação (ou identificar um cofre de serviços de recuperação existente) *em Olá mesmo local que sua VM*.
+* Selecionar um cenário, definir a política de backup hello e definir tooprotect de itens.
+* Verifique a instalação de saudação do agente de VM na máquina virtual.
 * Verificar a conectividade de rede
-* Para VMs Linux, caso você deseje personalizar o ambiente de backup para backups consistentes com o aplicativo, siga as [etapas para configurar scripts pré-instantâneo e pós-instantâneo](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
+* Para VMs do Linux, caso você deseje toocustomize seu ambiente de backup para backups consistentes com aplicativo siga Olá [tooconfigure etapas previamente de instantâneo e os scripts de instantâneo após](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
-Se você souber que essas condições já existem em seu ambiente, prossiga para o [artigo Fazer backup das suas VMs](backup-azure-vms.md). Se você precisa configurar ou verificar qualquer um desses pré-requisitos, este artigo orienta você sobre etapas para prepará-los.
+Se você souber essas condições já existem em seu ambiente e, depois, toohello [backup seu artigo de VMs](backup-azure-vms.md). Se você precisa tooset backup ou verificar, qualquer um dos pré-requisitos, este artigo o orienta Olá etapas tooprepare esse pré-requisito.
 
 ##<a name="supported-operating-system-for-backup"></a>Versões de sistema operacional com suporte para backup
- * **Linux**: o Backup do Azure dá suporte a [uma lista de distribuições endossadas pelo Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) exceto o principal sistema operacional Linux. _Outras distribuições personalizadas do Linux também devem funcionar, contanto que o agente de VM esteja disponível na máquina virtual e exista suporte para Python. No entanto, não endossamos essas distribuições para backup._
+ * **Linux**: o Backup do Azure dá suporte a [uma lista de distribuições endossadas pelo Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) exceto o principal sistema operacional Linux. _Outros traga-seu-proprietário-distribuições do Linux também podem funcionar, contanto que o agente de VM hello está disponível na máquina virtual de saudação e suporte para Python existe. No entanto, não endossamos essas distribuições para backup._
  * **Windows Server**: não há suporte para versões anteriores ao Windows Server 2008 R2.
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limitações durante o backup e a restauração de uma VM
-Antes de preparar seu ambiente, compreenda as limitações.
+Antes de preparar seu ambiente, entenda as limitações de saudação.
 
 * Não há suporte para o backup de máquinas virtuais com mais de 16 discos de dados.
 * Não há suporte para o backup de máquinas virtuais com tamanhos de discos de dados maiores que 1.023 GB.
 * Não há suporte para o backup de máquinas virtuais com um endereço IP reservado e nenhum ponto de extremidade definido.
 * Não há suporte para backup de VMs criptografadas usando apenas BEK. Não há suporte para backup de VMs Linux criptografadas usando criptografia LUKS.
 * O backup de VMs na configuração do Servidor de Arquivos de Escalabilidade Horizontal não é recomendado.
-* Os dados de backup não incluem unidades de rede montadas anexadas à VM.
-* Não há suporte para a substituição de uma máquina virtual existente durante a restauração. Se você tentar restaurar a VM quando ela existir, a operação de restauração falhará.
+* Dados de backup não incluem tooVM de unidades conectadas montado em rede.
+* Não há suporte para a substituição de uma máquina virtual existente durante a restauração. Se você tentar toorestore Olá VM quando Olá VM existe, a operação de restauração de saudação falhará.
 * Não há suporte para backup e restauração entre regiões.
-* Você pode fazer backup de máquinas virtuais em todas as regiões públicas do Azure (consulte o [lista de verificação](https://azure.microsoft.com/regions/#services) das regiões com suporte). Se a região que você procura ainda não tem suporte, ela não aparecerá na lista suspensa durante a criação de cofre.
+* Você pode fazer backup de máquinas virtuais em todas as regiões públicas do Azure (consulte Olá [lista de verificação](https://azure.microsoft.com/regions/#services) de regiões com suporte). Se a região de saudação que você está procurando não tem suporte atualmente, ele não aparecerá na lista suspensa de saudação durante a criação do cofre.
 * A restauração de uma VM DC (controladora de domínio) que é parte de uma configuração multi-DC tem suporte somente usando o PowerShell. Leia mais sobre [como restaurar um controlador de domínio com vários DCs](backup-azure-restore-vms.md#restoring-domain-controller-vms)
-* Apenas há suporte para a restauração de máquinas virtuais que têm as seguintes configurações de rede especial por meio do PowerShell. VMs criadas usando o fluxo de trabalho de restauração na interface do usuário não terão essas configurações de rede depois que a operação de restauração for concluída. Para saber mais, confira [Restaurando VMs com configurações de rede especiais](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations).
+* Há suporte para a restauração de máquinas virtuais que têm Olá configurações de rede especiais a seguir somente por meio do PowerShell. Máquinas virtuais criadas usando o fluxo de trabalho de restauração Olá Olá interface do usuário não terá essas configurações de rede após a conclusão da operação de restauração de saudação. mais, consulte toolearn [Restaurando VMs com configurações de rede especial](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations).
   * Máquinas virtuais sob configuração do balanceador de carga (interno e externo)
   * Máquinas virtuais com vários endereços IP reservados
   * Máquinas virtuais com vários adaptadores de rede
 
 ## <a name="create-a-recovery-services-vault-for-a-vm"></a>Criar um cofre de Serviços de Recuperação para uma VM
-Um cofre dos serviços de recuperação é uma entidade que armazena os backups e os pontos de recuperação criados ao longo do tempo. O cofre dos serviços de recuperação também contêm as políticas de backup associadas às máquinas virtuais protegidas.
+Um cofre de serviços de recuperação é uma entidade que armazena os backups hello e pontos de recuperação que foram criados ao longo do tempo. Cofre de serviços de recuperação de saudação também contém políticas de backup Olá associadas com as máquinas virtuais de saudação protegida.
 
-Para criar um cofre dos serviços de recuperação:
+Cofre de serviços de toocreate uma recuperação:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
-2. No menu Hub, clique em **Procurar** e, na lista de recursos, digite **Serviços de Recuperação**. Quando você começar a digitar, a lista será filtrada com base em sua entrada. Clique em **Cofre dos Serviços de Recuperação**.
+1. Entrar toohello [portal do Azure](https://portal.azure.com/).
+2. No menu de Hub hello, clique em **procurar** e, na lista de saudação de recursos, digite **dos serviços de recuperação**. Como começar a digitar, lista Olá filtra com base em sua entrada. Clique em **Cofre dos Serviços de Recuperação**.
 
-    ![Clique no botão Procurar e digite Serviços de Recuperação. Quando você vir a opção segura Serviços de Recuperação, clique nela para abrir a folha de cofre de Serviços de Recuperação.](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
+    ![Clique o botão de procura hello e digite dos serviços de recuperação. Quando você vir os serviços de recuperação de saudação cofre opção, clique em tooopen Olá dos serviços de recuperação cofre folha.](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 
-    A lista de cofres dos Serviços de Recuperação é exibida.
-3. No menu **Cofres de Serviços de Recuperação**, clique em **Adicionar**.
+    saudação de lista de cofres de serviços de recuperação é exibida.
+3. Em Olá **os cofres de serviços de recuperação** menu, clique em **adicionar**.
 
     ![Criar Cofre de Serviços de Recuperação - etapa 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
 
-    A folha do cofre dos Serviços de Recuperação será aberta, solicitando que você forneça o **Nome**, a **Assinatura**, o **Grupo de recursos** e o **Local**.
+    Serviços de recuperação de saudação cofre abre a folha, solicitando que você tooprovide uma **nome**, **assinatura**, **grupo de recursos**, e **local**.
 
     ![Criar Cofre de Serviços de Recuperação - etapa 5](./media/backup-azure-arm-vms-prepare/rs-vault-attributes.png)
-4. Em **Nome**, insira um nome amigável para identificar o cofre. O nome deve ser exclusivo para a assinatura do Azure. Digite um nome que contenha de 2 a 50 caracteres. Ele deve começar com uma letra e pode conter apenas letras, números e hifens.
-5. Clique em **Assinatura** para ver a lista de assinaturas disponíveis. Se você não tiver certeza sobre qual assinatura usar, utilize a assinatura padrão (ou sugerida). Haverá várias opções somente se sua conta organizacional estiver associada a várias assinaturas do Azure.
-6. Clique em **Grupo de recursos** para ver a lista dos Grupos de recursos disponíveis ou clique em **Novo** para criar um novo Grupo de recursos. Para obter informações completas sobre Grupos de recursos, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-7. Clique em **Local** para selecionar a região geográfica do cofre. O cofre **deve** estar na mesma região que as máquinas virtuais que você deseja proteger.
+4. Para **nome**, insira um cofre de saudação tooidentify nome amigável. nome da saudação precisa toobe exclusivo Olá assinatura do Azure. Digite um nome que contenha de 2 a 50 caracteres. Ele deve começar com uma letra e pode conter apenas letras, números e hifens.
+5. Clique em **assinatura** toosee Olá lista de assinaturas. Se você não tiver certeza de qual toouse de assinatura, use saudação padrão (ou sugerido) assinatura. Haverá várias opções somente se sua conta organizacional estiver associada a várias assinaturas do Azure.
+6. Clique em **grupo de recursos** toosee Olá a lista de grupos de recursos disponíveis, ou clique em **novo** toocreate um novo grupo de recursos. Para obter informações completas sobre Grupos de recursos, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
+7. Clique em **local** tooselect Olá região para o cofre hello. cofre Olá **deve** em Olá Olá de máquinas virtuais que você deseja tooprotect mesma região.
 
    > [!IMPORTANT]
-   > Se você não souber ao certo em qual local sua VM se encontra, feche a caixa de diálogo de criação do cofre e vá para a lista de Máquinas Virtuais no portal. Se você tiver máquinas virtuais em várias regiões, será necessário criar um cofre de Serviços de Recuperação em cada região. Crie o cofre no primeiro local antes de ir para o próximo local. Não é necessário especificar as contas de armazenamento para armazenar os dados de backup - o cofre de Serviços de Recuperação e o serviço de Backup do Azure cuidarão disso automaticamente.
+   > Se você tiver certeza da saudação localização na qual sua VM, feche fora da caixa de diálogo de criação de cofre hello e vá toohello a lista de máquinas virtuais no portal de saudação. Se você tiver máquinas virtuais em várias regiões, você precisará toocreate um cofre de serviços de recuperação de cada região. Crie cofre Olá no primeiro local de saudação antes de ir toohello próximo local. Há contas de armazenamento sem necessidade toospecify toostore Olá os dados de backup – Olá Cofre de serviços de recuperação e hello Azure Backup service lidar com isso automaticamente.
    >
    >
 
-8. Clique em **Criar**. Talvez demore um pouco para o cofre de Serviços de Recuperação ser criado. Monitore as notificações de status na área superior direita no portal. Depois que o cofre é criado, ele aparece na lista de cofres dos Serviços de Recuperação. Se você não encontrar seu cofre, clique em **Atualizar** para
+8. Clique em **Criar**. Pode levar algum tempo para Olá toobe criado de Cofre de serviços de recuperação. Monitorar as notificações de status de saudação na área superior direito de saudação no portal de saudação. Depois de criar seu cofre, ele aparece na lista de saudação de cofres de serviços de recuperação. Se você não encontrar seu cofre, clique em **Atualizar** para
 
     ![Lista de cofres de backup](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
-    Agora que você criou o cofre, saiba como configurar a replicação de armazenamento.
+    Agora que você criou seu cofre, saiba como tooset Olá replicação de armazenamento.
 
 ## <a name="set-storage-replication"></a>Definir replicação de armazenamento
-A opção de replicação de armazenamento permite que você escolha entre o armazenamento com redundância geográfica e armazenamento com redundância local. Por padrão, seu cofre tem armazenamento com redundância geográfica. Deixe a opção definida como armazenamento com redundância geográfica se este for seu backup principal. Escolha o armazenamento com redundância local se quiser uma opção mais barata que não seja tão durável.
+opção de replicação de armazenamento Olá permite toochoose entre o armazenamento com redundância geográfica e o armazenamento redundante localmente. Por padrão, seu cofre tem armazenamento com redundância geográfica. Deixe Olá opção set toogeo redundantes armazenamento se esta for sua principal de backup. Escolha o armazenamento com redundância local se quiser uma opção mais barata que não seja tão durável.
 
-Para editar a configuração de replicação de armazenamento:
+configuração de replicação de armazenamento de saudação tooedit:
 
-1. Selecione seu cofre na folha **Cofres dos serviços de recuperação**.
-    Quando você clica no cofre, a folha de configurações (*que tem o nome do cofre na parte superior*) e a folha de detalhes do cofre abrem.
+1. Em Olá **os cofres de serviços de recuperação** folha, selecione o cofre.
+    Quando você clica em seu cofre, Olá folha de configurações (*que tem o nome de saudação do cofre Olá na parte superior da saudação*) e os detalhes de cofre Olá abre folha.
 
-    ![escolha seu cofre na lista de cofres de backup](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
+    ![Escolha seu cofre Olá lista de cofres de backup](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
 
-2. Na folha de **Configurações**, use o controle deslizante vertical para rolar para baixo até a seção **Gerenciar**. Clique na **Infraestrutura de Backup** para abrir sua folha. Na seção **Geral**, clique em **Configuração de Backup** para abrir sua folha. Na folha **Configuração de Backup** , escolha a opção de replicação de armazenamento para seu cofre. Por padrão, seu cofre tem armazenamento com redundância geográfica. Se você alterar o tipo de replicação de armazenamento, clique em **Salvar**.
+2. Em Olá **configurações** folha, use Olá slider vertical tooscroll para baixo toohello **gerenciar** seção. Clique em **Backup infraestrutura** tooopen sua folha. Em Olá **geral** seção clique **configuração de Backup** tooopen sua folha. Em Olá **configuração de Backup** folha, escolha a opção de replicação de armazenamento Olá para seu cofre. Por padrão, seu cofre tem armazenamento com redundância geográfica. Se você alterar o tipo de replicação de armazenamento hello, clique em **salvar**.
 
     ![Lista de cofres de backup](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
-     Se você estiver usando o Azure como um ponto de extremidade de armazenamento de backup principal, continue usando o armazenamento com redundância geográfica. Se você estiver usando o Azure como um ponto de extremidade de armazenamento de backup não primário, considere a escolha do armazenamento com redundância local. Leia mais sobre as opções de armazenamento com [redundância geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage) e [redundância local](../storage/common/storage-redundancy.md#locally-redundant-storage) na [Visão geral da replicação do Armazenamento do Azure](../storage/common/storage-redundancy.md).
-    Depois de escolher a opção de armazenamento para o cofre, você estará pronto para associar a VM ao cofre. Para iniciar a associação, você deverá descobrir e registrar as máquinas virtuais do Azure.
+     Se você estiver usando o Azure como um ponto de extremidade de armazenamento de backup principal, continue usando o armazenamento com redundância geográfica. Se você estiver usando o Azure como um ponto de extremidade de armazenamento de backup não primário, considere a escolha do armazenamento com redundância local. Leia mais sobre [georredundante](../storage/common/storage-redundancy.md#geo-redundant-storage) e [localmente redundante](../storage/common/storage-redundancy.md#locally-redundant-storage) opções de armazenamento no hello [visão geral de replicação de armazenamento do Azure](../storage/common/storage-redundancy.md).
+    Depois de escolher a opção de armazenamento de saudação para seu cofre, você está pronto tooassociate Olá VM com o cofre hello. associação de saudação toobegin, você deve descobrir e registrar Olá máquinas virtuais do Azure.
 
-## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Selecionar a meta de backup, definir a política e os itens a serem protegidos
-Antes de registrar uma VM em um cofre, execute o processo de descoberta para garantir que todas as novas máquinas virtuais adicionadas à assinatura sejam identificadas. O processo consulta o Azure quanto à lista de máquinas virtuais na assinatura, juntamente com informações adicionais, como o nome do serviço de nuvem e a região. No portal do Azure, o cenário se refere ao que você vai colocar no cofre de serviços de recuperação. A Política é o agendamento para quando e com que frequência os pontos de recuperação serão feitos. A Política também inclui o período de retenção dos pontos de recuperação.
+## <a name="select-a-backup-goal-set-policy-and-define-items-tooprotect"></a>Selecione uma meta de backup, defina a política e definir tooprotect itens
+Antes de registrar uma VM com um cofre, execute Olá tooensure de processo de descoberta que quaisquer novas máquinas virtuais que foram adicionadas toohello assinatura são identificadas. Olá processar consultas do Azure para obter lista de saudação de máquinas virtuais na assinatura hello, juntamente com informações adicionais, como nome de serviço de nuvem hello e região Olá. Olá portal do Azure, o cenário refere-se toowhat serão tooput no cofre de serviços de recuperação de saudação. A diretiva é agenda Olá para frequência e quando os pontos de recuperação são feitos. Política também inclui o período de retenção Olá Olá pontos de recuperação.
 
-1. Se você já tiver um cofre de Serviços de Recuperação aberto, vá para a etapa 2. Se você não tiver um cofre dos serviços de recuperação aberto, abra o [Portal do Azure](https://portal.azure.com/), no menu do Hub e clique em **Mais serviços**.
+1. Se você já tiver um cofre de serviços de recuperação aberta, vá toostep 2. Se você não tiver um cofre de serviços de recuperação aberto, abra Olá [portal do Azure](https://portal.azure.com/) e no menu de Hub hello, clique em **mais serviços**.
 
-   * Na lista de recursos, digite **Serviços de Recuperação**.
-   * Quando você começar a digitar, a lista será filtrada com base em sua entrada. Quando vir a opção **Cofres dos Serviços de Recuperação**, clique nela.
+   * Na lista de saudação de recursos, digite **dos serviços de recuperação**.
+   * Como começar a digitar, lista Olá filtra com base em sua entrada. Quando vir a opção **Cofres de Serviços de Recuperação**, clique nela.
 
      ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 
-     A lista de cofres de Serviços de Recuperação aparecerá. Se não houver nenhum cofre em sua assinatura, essa lista estará vazia.
+     saudação de lista de cofres de serviços de recuperação é exibida. Se não houver nenhum cofre em sua assinatura, essa lista estará vazia.
 
-    ![Exibir a lista de cofres dos serviços de recuperação](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
+    ![Lista de cofres de modo de exibição de saudação dos serviços de recuperação](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
-   * Na lista de cofres de serviços de recuperação, selecione um cofre para abrir seu painel.
+   * Na lista de saudação de cofres de serviços de recuperação, selecione um cofre tooopen seu painel.
 
-     A folha de Configurações e o painel do cofre para o cofre escolhido abrirão.
+     folha de configurações de saudação e hello cofre painel Cofre Olá escolhida, é aberta.
 
      ![Abrir a folha do cofre](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
-2. No menu do painel do cofre, clique em **Backup** para abrir a folha de backup.
+2. No menu do painel Cofre Olá clique **Backup** tooopen folha de Backup de saudação.
 
     ![Abrir a folha Backup](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-    Abra as folhas de Backup e as folhas de Meta de backup.
+    folhas de Backup e Backup meta Olá abrir.
 
     ![Abrir a folha Cenário](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
-3. Na folha Meta de Backup, defina **Onde está a carga de trabalho em execução** no Azure, **Do que você deseja fazer backup** na máquina Virtual e clique **OK**.
+3. Na folha de meta de Backup hello, defina **onde sua carga de trabalho está executando** tooAzure e **o que fazer você deseja toobackup** tooVirtual máquina e, em seguida, clique em **Okey**.
 
-    Isso registra a extensão da VM com o cofre. A folha Meta de backup fecha e a folha **Política de Backup** abre.
+    Isso registra Olá extensão de VM com o cofre hello. Olá meta Backup folha fecha e hello **política de Backup** folha é aberta.
 
     ![Abrir a folha Cenário](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
-4. Na folha Política de backup, selecione a política de backup que você deseja aplicar ao cofre.
+4. Na folha de política de Backup hello, selecione política de backup Olá deseja tooapply toohello cofre.
 
     ![Selecionar a política de backup](./media/backup-azure-arm-vms-prepare/setting-rs-backup-policy-new.png)
 
-    Os detalhes da política padrão estão listados no menu suspenso. Se você quiser criar uma nova política, selecione **Criar Nova** no menu suspenso. Para obter instruções sobre como definir uma política de backup, confira [Definindo uma política de backup](backup-azure-vms-first-look-arm.md#defining-a-backup-policy).
-    Clique em **OK** para associar a política de backup com o cofre.
+    detalhes de saudação da política de padrão de saudação são listados sob o menu suspenso de saudação. Se você desejar toocreate uma nova política, selecione **criar novo** do menu suspenso de saudação. Para obter instruções sobre como definir uma política de backup, confira [Definindo uma política de backup](backup-azure-vms-first-look-arm.md#defining-a-backup-policy).
+    Clique em **Okey** tooassociate política de backup Olá cofre hello.
 
-    A folha Política de backup fecha e a folha **Seleção de máquinas virtuais** abre.
-5. Na folha **Selecionar máquinas virtuais**, escolha as máquinas virtuais que serão associadas à política especificada e clique em **OK**.
+    Olá fecha de folha de política de Backup e hello **selecionar máquinas virtuais** folha é aberta.
+5. Em Olá **selecionar máquinas virtuais** folha, escolha Olá tooassociate de máquinas virtuais com hello especificado política e clique em **Okey**.
 
     ![Selecionar carga de trabalho](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-    A máquina virtual selecionada é validada. Se você não encontrar as máquinas virtuais esperadas, verifique se elas existem no mesmo local do Azure que o cofre dos Serviços de Recuperação e se já não estão protegidas em outro cofre. O local do cofre dos serviços de recuperação é exibido no painel do cofre.
+    máquina virtual de saudação selecionada é validada. Se você não vir as máquinas virtuais de saudação esperado toosee, verifique se eles existem no hello mesmo local do Azure Olá Cofre de serviços de recuperação e não ainda estão protegido no cofre de outro. local de saudação de saudação que Cofre de serviços de recuperação é mostrado no painel do cofre hello.
 
-6. Agora que você definiu todas as configurações para o cofre, clique em **Habilitar Backup** na folha de backup. Isso implanta a política para o cofre e as VMs. Isso não cria o ponto de recuperação inicial para a máquina virtual.
+6. Agora que você definiu todas as configurações para o cofre hello, no hello folha Backup clique **habilitar Backup**. Isso implanta Olá política toohello do cofre e Olá VMs. Isso não cria o ponto de recuperação inicial de saudação para a máquina virtual de saudação.
 
     ![Habilitar Backup](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
-Depois de habilitar o backup com êxito, a sua política de backup será executada no prazo especificado. Se você quiser gerar um trabalho de backup sob demanda para fazer backup das máquinas virtuais agora, confira [Acionar o trabalho de Backup](./backup-azure-arm-vms.md#triggering-the-backup-job).
+Depois de habilitar o backup de saudação com êxito, sua política de backup será executado na agenda. Se você quiser toogenerate tooback um trabalho de backup sob demanda backup de máquinas virtuais de saudação agora, consulte [trabalho de Backup Olá Triggering](./backup-azure-arm-vms.md#triggering-the-backup-job).
 
-Se você tiver problemas ao registrar a máquina virtual, confira as seguintes informações sobre como instalar o agente de VM e conectividade de rede. Se as máquinas virtuais criadas no Azure estiverem protegidas, então é provável que as informações a seguir não serão necessárias. No entanto se você migrou suas máquinas virtuais para o Azure, então é melhor conferir se o agente de VM foi instalado corretamente e se a sua máquina virtual pode se comunicar com a rede virtual.
+Se você tiver problemas ao registrar a máquina virtual de hello, consulte Olá seguintes informações sobre como instalar Olá agente de VM e conectividade de rede. Você provavelmente não precisará Olá informações a seguir se você estiver protegendo máquinas virtuais criadas no Azure. No entanto se você migrou máquinas virtuais no Azure, em seguida, certifique-se que você tiver instalado o agente de VM hello e se sua máquina virtual pode se comunicar com a rede virtual Olá corretamente.
 
-## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instalar o Agente de VM na máquina virtual
-O Agente de VM do Azure deve ser instalado na máquina virtual do Azure para a extensão de Backup funcionar. Se sua VM tiver sido criada da galeria do Azure, o agente de VM já estará presente na máquina virtual. Essas informações são fornecidas para as situações em que você *não* está usando uma VM criada da Galeria do Azure, por exemplo, tendo migrado uma VM de um datacenter local. Nesse caso, o Agente de VM precisa ser instalado para proteger a máquina virtual. Saiba mais sobre o [agente de VM](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux).
+## <a name="install-hello-vm-agent-on-hello-virtual-machine"></a>Instalar Olá agente de VM na máquina virtual de saudação
+Hello Azure VM Agent deve ser instalado em Olá máquina virtual do Azure para Olá toowork de extensão de Backup. Se sua VM foi criada de saudação Galeria do Azure, Olá VM Agent já está presente na máquina virtual de saudação. Essas informações são fornecidas para Olá situações nas quais é *não* usando uma VM criada a partir Olá Galeria do Azure - por exemplo você migrou uma máquina virtual de um datacenter local. Nesse caso, Olá agente de VM precisa toobe instalado na máquina virtual do pedido tooprotect hello. Saiba mais sobre Olá [agente de VM](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux).
 
-Se você tiver problemas para fazer backup da VM do Azure, verifique se o Agente de VM do Azure está instalado corretamente na máquina virtual (veja a tabela abaixo). A tabela a seguir oferece informações adicionais sobre o Agente de VM para VMs do Windows e do Linux.
+Se você tiver problemas ao fazer backup Olá VM do Azure, verifique se hello Azure VM Agent está instalado corretamente na máquina virtual de saudação (consulte a tabela de saudação abaixo). Olá, a tabela a seguir fornece informações adicionais sobre Olá VM Agent para Windows e VMs do Linux.
 
 | **Operação** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Instalação do agente de VM |Baixe e instale o [agente MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisará de privilégios de Administrador para concluir a instalação. |<li> Instale o [agente Linux](../virtual-machines/linux/agent-user-guide.md) mais recente. Você precisará de privilégios de Administrador para concluir a instalação. É recomendável instalar o agente do seu repositório de distribuição. **Não é recomendável** instalar o agente de VM Linux diretamente do GitHub.  |
-| Atualizar o Agente de VM |Atualizar o agente de VM é tão simples quanto reinstalar os [Binários do Agente de VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |Siga as instruções em [atualizando o agente de VM Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). É recomendável atualizar o agente do seu repositório de distribuição. **Não é recomendável** atualizar o agente de VM Linux diretamente do GitHub.<br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |
-| Validação da instalação do Agente de VM |<li>Navegue até a pasta *C:\WindowsAzure\Packages* na VM do Azure. <li>Você deve encontrar o arquivo WaAppAgent.exe presente.<li> Clique com o botão direito do mouse no arquivo, vá para **Propriedades** e selecione a guia **Detalhes**. O campo Versão do Produto deve ser 2.6.1198.718 ou mais recente. |N/D |
+| Olá instalar agente de VM |Baixe e instale Olá [MSI agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisará de instalação de saudação do toocomplete de privilégios de administrador. |<li> Instalar hello mais recente [agente Linux](../virtual-machines/linux/agent-user-guide.md). Você precisará de instalação de saudação do toocomplete de privilégios de administrador. É recomendável instalar o agente do seu repositório de distribuição. **Não é recomendável** instalar o agente de VM Linux diretamente do GitHub.  |
+| Atualizando Olá agente de VM |Olá atualizar agente de VM é tão simple quanto a reinstalação Olá [binários de agente de VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Certifique-se de que nenhuma operação de backup está em execução enquanto o agente de VM hello está sendo atualizado. |Siga as instruções de saudação [atualização Olá agente de VM do Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). É recomendável atualizar o agente do seu repositório de distribuição. **Não é recomendável** atualizar o agente de VM Linux diretamente do GitHub.<br>Certifique-se de que nenhuma operação de backup está em execução durante a saudação que VM Agent está sendo atualizado. |
+| Validar a instalação do agente de VM Olá |<li>Navegue toohello *C:\WindowsAzure\Packages* pasta Olá VM do Azure. <li>Você deve encontrar o arquivo de WaAppAgent.exe de saudação presente.<li> Clique duas vezes o arquivo hello, ir muito**propriedades**e, em seguida, selecione Olá **detalhes** campo de versão do produto de saudação de guia deve ser 2.6.1198.718 ou superior. |N/D |
 
 ### <a name="backup-extension"></a>Extensão de backup
-Assim que o Agente de VM for instalado na máquina virtual, o serviço Backup do Azure instalará a extensão de backup no Agente de VM. O serviço do Backup do Azure atualiza e corrige continuamente a extensão de backup.
+Uma vez Olá que VM Agent está instalado na máquina virtual de hello, Olá serviço Backup do Azure instala Olá extensão backup toohello agente de VM. Olá serviço Backup do Azure diretamente atualizações e patches extensão backup hello.
 
-A extensão de backup será instalada pelo serviço Backup, esteja a VM em execução ou não. Uma VM em execução oferece uma maior chance de obter um ponto de recuperação consistente com o aplicativo. No entanto, o serviço do Backup do Azure continuará a realizar o backup da VM mesmo quando ela estiver desativada e a extensão não puder ser instalada. Isso é conhecido como VM Offline. Nesse caso, o ponto de recuperação será *consistente com a falha*.
+extensão de backup Olá é instalado pelo serviço de Backup Olá Olá VM está em execução ou não. Uma VM em execução fornece a possibilidade maior Olá da obtenção de um ponto de recuperação consistentes com aplicativos. No entanto, Olá serviço Backup do Azure continua tooback backup Olá VM mesmo se ele está desativado e não foi possível instalar a extensão de saudação. Isso é conhecido como VM Offline. Nesse caso, o ponto de recuperação Olá será *falha consistente*.
 
 ## <a name="network-connectivity"></a>Conectividade de rede
-Para gerenciar os instantâneos de VM, a extensão de backup precisa de conectividade com os endereços IP públicos do Azure. Sem a conexão correta com a Internet, as solicitações HTTP da máquina virtual atingirão o tempo limite e a operação de backup falhará. Se sua implantação possui restrições de acesso em vigor (por meio de um NSG, Grupo de Segurança de Rede, por exemplo), escolha uma destas opções para fornecer um caminho livre para o tráfego de backup:
+Em instantâneos VM do pedido toomanage Olá, extensão de backup Olá precisa de conectividade toohello Azure endereços IP públicos. Sem conectividade de Internet certa hello, HTTP solicitações hello e tempo limite de operação de backup Olá máquina virtual falhará. Se sua implantação possui restrições de acesso em vigor (por meio de um NSG, Grupo de Segurança de Rede, por exemplo), escolha uma destas opções para fornecer um caminho livre para o tráfego de backup:
 
-* [Lista de autorizados de intervalos de IP de datacenter do Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653) : consulte o artigo para obter instruções sobre como colocar os endereços IP na lista de autorizados.
+* [Intervalos IP de datacenter do Azure lista branca Olá](http://www.microsoft.com/en-us/download/details.aspx?id=41653) -consulte o artigo Olá para obter instruções sobre como toowhitelist Olá endereços IP.
 * Implante um servidor de proxy HTTP para rotear o tráfego.
 
-Ao decidir qual opção usar, desvantagens entre a capacidade de gerenciamento, controle granular e custo.
+Ao decidir qual opção toouse, Olá compensações estão entre capacidade de gerenciamento, um controle granular e custo.
 
 | Opção | Vantagens | Desvantagens |
 | --- | --- | --- |
-| Intervalos de IPs na lista de autorizados |Sem custo adicional.<br><br>Para habilitar o acesso em NSG, use o cmdlet <i>Set-AzureNetworkSecurityRule</i>. |É complexo para gerenciar, já que os intervalos de IP afetados mudam com o tempo.<br><br>Fornece acesso ao Azure por completo, não somente ao Armazenamento. |
-| Proxy HTTP |É permitido o controle granular no proxy em relação às URLs de armazenamento.<br>Único ponto de acesso à Internet para VMs.<br>Não está sujeito a alterações do endereço IP do Azure |Custos adicionais para a execução de uma VM com o software do proxy |
+| Intervalos de IPs na lista de autorizados |Sem custo adicional.<br><br>Para abrir o acesso em um NSG, use Olá <i>AzureNetworkSecurityRule conjunto</i> cmdlet. |Toomanage complexo como alteração de intervalos IP hello afetado ao longo do tempo.<br><br>Fornece todo de toohello de acesso do Azure e não apenas o armazenamento. |
+| Proxy HTTP |Controle granular no proxy Olá armazenamento Olá URLs permitidas.<br>TooVMs de acesso de ponto único de Internet.<br>Não sujeito a alterações de endereço IP tooAzure. |Custos adicionais para executar uma máquina virtual com o software de proxy de saudação. |
 
-### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>lista de autorizados de intervalos de IP de datacenter do Azure
-Para colocar os intervalos IP do datacenter do Azure na lista de autorizados, consulte o [site do Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653) para obter detalhes sobre os intervalos de IP e as instruções.
+### <a name="whitelist-hello-azure-datacenter-ip-ranges"></a>Intervalos IP de datacenter do Azure lista branca Olá
+intervalos de IP do toowhitelist Olá datacenter do Azure, consulte Olá [site do Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653) para obter detalhes sobre os intervalos de IP hello e instruções.
 
 ### <a name="using-an-http-proxy-for-vm-backups"></a>Usando um proxy HTTP para backups de uma VM
-Ao fazer backup de uma VM, a extensão de backup na VM envia os comandos de gerenciamento de instantâneo para o Armazenamento do Azure usando a API de HTTPS. Roteie o tráfego da extensão de backup por meio do proxy HTTP, pois ele é o único componente configurado para dar acesso à Internet pública.
+Ao fazer backup de uma VM, extensão de backup Olá em Olá VM envia Olá instantâneo gerenciamento comandos tooAzure armazenamento usando uma API de HTTPS. Rotear o tráfego de extensão de backup Olá por meio do proxy HTTP de saudação já que é o único componente de saudação configurado para acesso toohello Internet pública.
 
 > [!NOTE]
-> Não há recomendações do software de proxy a serem usadas. Escolha um proxy que seja compatível com as etapas de configuração abaixo.
+> Não há nenhuma recomendação de software de proxy de saudação que deve ser usado. Certifique-se de que você escolha um proxy que é compatível com etapas de configuração de saudação abaixo.
 >
 >
 
-A imagem de exemplo abaixo mostra as três etapas de configuração necessárias para usar um proxy HTTP:
+imagem de exemplo Hello abaixo mostra etapas de configuração de três Olá toouse necessário um HTTP proxy:
 
-* A VM de aplicativo roteia todo o tráfego HTTP voltado para a Internet pública por meio da VM do Proxy.
-* A VM do Proxy permite a passagem do tráfego de entrada de VMs na rede virtual.
-* O NSG (Grupo de Segurança de Rede) chamado bloqueio de NSF precisa de uma regra de segurança para permitir a passagem de tráfego de Internet da VM do Proxy.
+* Rotas de VM do aplicativo vinculado a todo o tráfego HTTP Olá Internet pública por meio do Proxy de VM.
+* Proxy VM permite que o tráfego de entrada de VMs na rede virtual hello.
+* Olá grupo de segurança da rede (NSG) denominado NSF-bloqueio precisa de um segurança regra permitindo Internet tráfego de saída do Proxy de VM.
 
 ![Diagrama de implantação de proxy HTTP com NSG](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
 
-Para usar um proxy HTTP para se comunicar com a Internet pública, siga estas etapas:
+toouse um HTTP proxy toocommunicating toohello Internet pública, siga estas etapas:
 
 #### <a name="step-1-configure-outgoing-network-connections"></a>Etapa 1. Configurar conexões de rede de saída
 ###### <a name="for-windows-machines"></a>Para computadores Windows
@@ -235,13 +235,13 @@ Isso definirá a configuração do servidor de proxy para a Conta do Sistema Loc
      psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"
      ```
      Isso abrirá a janela do Internet Explorer.
-3. Acesse Ferramentas -> Opções da Internet -> Conexões -> Configurações de LAN.
+3. Vá tooTools -> Opções da Internet -> conexões -> configurações da LAN.
 4. Verifique as configurações de proxy para a conta do Sistema. Defina o IP e a porta do proxy.
 5. Feche o Internet Explorer.
 
 Isso configurará um proxy de todo o computador e será usado para qualquer tráfego de saída HTTP/HTTPS.
 
-Se você configurou um servidor de proxy em uma conta de usuário atual (não uma Conta do Sistema Local), use o script a seguir para aplicá-la ao SYSTEMACCOUNT:
+Se você configurou um servidor proxy em uma conta de usuário atual (não uma conta de sistema Local), use Olá tooapply de script a segui-los tooSYSTEMACCOUNT:
 
 ```
    $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
@@ -258,42 +258,42 @@ Se você configurou um servidor de proxy em uma conta de usuário atual (não um
 >
 
 ###### <a name="for-linux-machines"></a>Para computadores Linux
-Adicione a seguinte linha ao arquivo ```/etc/environment``` :
+Adicionar Olá toohello linha a seguir ```/etc/environment``` arquivo:
 
 ```
 http_proxy=http://<proxy IP>:<proxy port>
 ```
 
-Adicione as linhas abaixo ao arquivo ```/etc/waagent.conf``` :
+Adicionar Olá toohello linhas a seguir ```/etc/waagent.conf``` arquivo:
 
 ```
 HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
 ```
 
-#### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>Etapa 2. Permitir conexões de entrada no servidor de proxy:
-1. No servidor proxy, abra o Firewall do Windows. A maneira mais fácil de acessar o firewall é procurar o Firewall do Windows com Segurança Avançada.
+#### <a name="step-2-allow-incoming-connections-on-hello-proxy-server"></a>Etapa 2. Permita conexões de entrada no servidor de proxy hello:
+1. No servidor de proxy hello, abra o Firewall do Windows. firewall do Hello mais fácil maneira tooaccess Olá é toosearch Firewall do Windows com segurança avançada.
 
-    ![Abrir o Firewall](./media/backup-azure-vms-prepare/firewall-01.png)
-2. No diálogo Firewall do Windows, clique com o botão direito do mouse em **Regras de Entrada** e clique em **Nova Regra...**.
+    ![Abrir Olá Firewall](./media/backup-azure-vms-prepare/firewall-01.png)
+2. Na caixa de diálogo de Firewall do Windows hello, clique com botão direito **regras de entrada** e clique em **nova regra...** .
 
     ![Criar uma nova regra](./media/backup-azure-vms-prepare/firewall-02.png)
-3. No **Assistente para Nova Regra de Entrada**, selecione a opção **Personalizar** para **Tipo de Regra** e clique em **Avançar**.
-4. Na página para selecionar **Programa**, escolha **Todos os Programas** e clique em **Avançar**.
-5. Na página **Protocolo e Portas**, insira as seguintes informações e clique em **Avançar**:
+3. Em Olá **novo Assistente de regra de entrada**, escolha Olá **personalizado** opção Olá **tipo de regra** e clique em **próximo**.
+4. Em saudação do hello página tooselect **programa**, escolha **todos os programas** e clique em **próximo**.
+5. Em Olá **protocolo e portas** página, digite Olá informações a seguir e clique em **próximo**:
 
     ![Criar uma nova regra](./media/backup-azure-vms-prepare/firewall-03.png)
 
    * para *Tipo de protocolo*, escolha *TCP*
-   * para *Porta local*, escolha *Portas Específicas*, no campo abaixo especifique o ```<Proxy Port>``` que foi configurado.
+   * para *porta Local* escolha *portas específicas*, no campo de saudação abaixo especifique Olá ```<Proxy Port>``` que foi configurado.
    * para *Porta remota*, escolha *Todas as Portas*
 
-     Para o restante do assistente, clique até o fim e dê um nome a essa regra.
+     Restante Olá Assistente hello, clique em todos os finais de toohello de maneira hello e dê um nome dessa regra.
 
-#### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>Etapa 3. Adicionar uma regra de exceção ao NSG:
-Em um prompt de comando do Azure PowerShell, digite o seguinte comando:
+#### <a name="step-3-add-an-exception-rule-toohello-nsg"></a>Etapa 3. Adicione uma regra de exceção toohello NSG:
+Em um prompt de comando do PowerShell do Azure, digite Olá comando a seguir:
 
-O comando a seguir adiciona uma exceção ao NSG. Essa exceção permite a passagem de tráfego TCP de qualquer porta em 10.0.0.5 para qualquer endereço da Internet na porta 80 (HTTP) ou 443 (HTTPS). Se você exigir uma porta específica na Internet pública, adicione-a também ao ```-DestinationPortRange```.
+saudação de comando a seguir adiciona uma exceção toohello NSG. Essa exceção permite o tráfego TCP de qualquer porta 10.0.0.5 tooany endereço na Internet na porta 80 (HTTP) ou 443 (HTTPS). Se você precisar de uma porta específica no hello Internet pública, ser tooadd-se de que a porta toohello ```-DestinationPortRange``` também.
 
 ```
 Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
@@ -301,15 +301,15 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 ```
 
 
-*Essas etapas usam valores e nomes específicos para esse exemplo. Use os nomes e valores da sua implantação ao inserir, recortar e colar os detalhes no seu código.*
+*Essas etapas usam valores e nomes específicos para esse exemplo. Use Olá nomes e valores para sua implantação ao inserir, ou recortar e colar os detalhes em seu código.*
 
-Agora que sabemos que há conectividade de rede, você está pronto para fazer backup da sua VM. Confira [Back up Resource Manager-deployed VMs](backup-azure-arm-vms.md)(Fazer backup das máquinas virtuais implantadas com o Gerenciador de Recursos).
+Agora que você sabe que há conectividade de rede, você está pronto tooback a sua máquina virtual. Confira [Back up Resource Manager-deployed VMs](backup-azure-arm-vms.md)(Fazer backup das máquinas virtuais implantadas com o Gerenciador de Recursos).
 
 ## <a name="questions"></a>Perguntas?
-Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
+Se você tiver dúvidas ou se houver qualquer recurso que você gostaria que toosee incluído, [nos enviar comentários](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você já preparou seu ambiente para fazer backup de sua VM, a próxima etapa lógica será criar um backup. O artigo de planejamento oferece informações mais detalhadas sobre o backup de máquinas virtuais.
+Agora que você preparou seu ambiente para fazer backup de sua VM, a próxima etapa lógica é toocreate um backup. Olá planejamento artigo fornece informações mais detalhadas sobre como fazer backup de máquinas virtuais.
 
 * [Backup de máquinas virtuais](backup-azure-vms.md)
 * [Planeje sua infraestrutura de backup da VM](backup-azure-vms-introduction.md)

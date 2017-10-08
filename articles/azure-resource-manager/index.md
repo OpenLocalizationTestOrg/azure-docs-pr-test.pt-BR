@@ -1,6 +1,6 @@
 ---
-title: "Documentação do Azure Resource Manager - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba como usar o Resource Manager para implantar e gerenciar os recursos da solução como um grupo e criar modelos para implantação de recursos consistentes e repetíveis."
+title: "aaaAzure documentação do Gerenciador de recursos - tutoriais, referência de API | Microsoft Docs"
+description: "Saiba como toouse toodeploy do Gerenciador de recursos e gerenciar recursos de solução como um grupo e toocreate modelos para implantação do recurso consistente e reproduzível."
 services: azure-resource-manager
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: e74ec7e061c7b00acbf1cba7fdcc1864a81fff3b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dc920b14e84bbad1a178fc91a61a1d2642d644b1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="azure-resource-manager-documentation"></a>Documentação do Azure Resource Manager
 
-Saiba como usar o Resource Manager para implantar, monitorar e gerenciar os recursos da solução como um grupo. Os tutoriais, as referências de API e outras documentações mostram como configurar grupos de recursos e criar modelos para implantação consistente e reproduzível.
+Saiba como toouse toodeploy do Gerenciador de recursos, monitorar e gerenciar recursos de solução como um grupo. Tutoriais, referências de API e outras documentações mostram como tooset o recurso de grupos e criar modelos para implantação consistente e reproduzível.
 
 <ul class="panelContent cardsFTitle">
     <li>

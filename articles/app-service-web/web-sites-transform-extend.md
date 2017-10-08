@@ -1,6 +1,6 @@
 ---
-title: "Configurações avançadas e extensões de aplicativo Web do Serviço de Aplicativo do Azure"
-description: "Use as declarações de XDT (Transformação de documento XML) para transformar o arquivo ApplicationHost.config em seu aplicativo Web do Serviço de Aplicativo do Azure e adicionar extensões privadas para habilitar ações de administração personalizadas."
+title: "configurações e extensões avançadas de aaaAzure aplicativo do serviço de aplicativo web"
+description: "Use Transformation(XDT) de documento XML declarações tootransform Olá arquivo applicationHost. config em seu serviço de aplicativo do Azure web app e tooadd extensões privadas tooenable administração personalizadas Ações."
 author: cephalin
 writer: cephalin
 editor: mollybos
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: 314d3a954e712b829e7cf5eb37b23b31670f976b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 873347ac13113d1ac989cba29128382c81dcfcca
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-app-service-web-app-advanced-config-and-extensions"></a>Configurações avançadas e extensões de aplicativo Web do Serviço de Aplicativo do Azure
-Ao usar declarações XDT ([Transformação de Documento XML](http://msdn.microsoft.com/library/dd465326.aspx)), você pode transformar o arquivo [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) em seu aplicativo Web no Serviço de Aplicativo do Azure. Também é possível usar declarações XDT para adicionar extensões de site privadas a fim de habilitar ações de administração de aplicativo Web personalizadas. Este artigo inclui uma extensão de aplicativo Web do Gerenciador de PHP de exemplo, que habilita o gerenciamento das configurações de PHP por meio de uma interface da Web.
+Usando [transformação de documento XML](http://msdn.microsoft.com/library/dd465326.aspx) declarações (XDT), você pode transformar Olá [applicationHost. config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) arquivo em seu aplicativo web no serviço de aplicativo do Azure. Você também pode usar XDT declarações tooadd extensões privadas tooenable da web personalizado administração ações de aplicativo. Este artigo inclui uma extensão de aplicativo Web do Gerenciador de PHP de exemplo, que habilita o gerenciamento das configurações de PHP por meio de uma interface da Web.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a id="transform"></a>Configuração avançada por meio de ApplicationHost.config
-A plataforma do Serviço de Aplicativo fornece flexibilidade e controle para configuração de aplicativos Web. Embora o arquivo de configuração ApplicationHost.config do IIS padrão não esteja disponível para edição direta no Serviço de Aplicativo, a plataforma dá suporte a um modelo de transformação ApplicationHost.config declarativo com base em XDT (Transformação de documento XML).
+Olá plataforma do serviço de aplicativo fornece flexibilidade e controle de configuração de aplicativo da web. Embora o arquivo de configuração de IIS applicationHost. config padrão Olá não está disponível para edição direta no serviço de aplicativo, plataforma Olá dá suporte a um modelo declarativo de transformação de applicationHost. config com base na transformação de documento XML (XDT).
 
-Para aproveitar essa funcionalidade de transformação, você cria um arquivo ApplicationHost.xdt com conteúdo XDT e o coloca na raiz do site (d:\home\site) no [Console do Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console). Talvez seja necessário reiniciar o aplicativo Web para que as alterações entrem em vigor.
+tooleverage essa funcionalidade de transformação, crie um arquivo de ApplicationHost.xdt com XDT conteúdo e coloque sob a raiz do site hello (d:\home\site) no hello [Kudu Console](https://github.com/projectkudu/kudu/wiki/Kudu-console). Talvez seja necessário toorestart Olá Web App para efeito de tootake de alterações.
 
-O exemplo applicationHost.xdt a seguir mostra como adicionar uma nova variável de ambiente personalizada para um aplicativo Web que utilize PHP 5.4.
+Olá applicationHost.xdt exemplo a seguir mostra como o aplicativo que usa PHP 5.4 da web de tooadd um novo tooa de variável de ambiente personalizado.
 
 ```xml
 <?xml version="1.0"?>
@@ -48,46 +48,46 @@ O exemplo applicationHost.xdt a seguir mostra como adicionar uma nova variável 
 </configuration>
 ```
 
-Um arquivo de log com status e detalhes de transformação está disponível na raiz FTP em LogFiles\Transform.
+Um arquivo de log com detalhes e status de transformação está disponível de raiz FTP de saudação em LogFiles\Transform.
 
 Para ver outros exemplos, veja [https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples).
 
 **Observação**<br />
-Os elementos da lista de módulos em `system.webServer` não podem ser removidos nem reorganizados, mas é possível fazer adições à lista.
+Elementos da lista de saudação de módulos em `system.webServer` não podem ser removidos ou reordenados, mas a lista de toohello adições são possíveis.
 
 ## <a id="extend"></a> Estender seu aplicativo Web
 ### <a id="overview"></a> Visão geral das extensões privadas de aplicativo Web
-O Serviço de Aplicativo dá suporte a extensões de aplicativo Web como um ponto de extensibilidade para ações administrativas. Na verdade, alguns recursos de plataforma do Serviço de Aplicativo são implementados como extensões pré-instaladas. Embora as extensões de plataforma pré-instaladas não possam ser modificadas, é possível criar e configurar extensões privadas para seu próprio aplicativo Web. Essa funcionalidade também se baseia em declarações XDT. As etapas principais para a criação de uma extensão privada de aplicativo Web são as seguintes:
+O Serviço de Aplicativo dá suporte a extensões de aplicativo Web como um ponto de extensibilidade para ações administrativas. Na verdade, alguns recursos de plataforma do Serviço de Aplicativo são implementados como extensões pré-instaladas. Enquanto as extensões da plataforma pré-instalados Olá não podem ser modificadas, você pode criar e configurar extensões privadas para seu próprio aplicativo web. Essa funcionalidade também se baseia em declarações XDT. para criar uma extensão do aplicativo web privada principais etapas de saudação são seguinte hello:
 
 1. **Conteúdo**de extensão de aplicativo Web: criar qualquer aplicativo Web ao qual o Serviço de Aplicativo dá suporte
 2. **Declaração**de extensão de aplicativo Web: criar um arquivo ApplicationHost.xdt
-3. **Implantação** de extensão de aplicativo Web: colocar o conteúdo na pasta SiteExtensions, em `root`
+3. Extensão de aplicativo da Web **implantação**: colocar o conteúdo na pasta de SiteExtensions Olá em`root`
 
-Os links internos para o aplicativo Web devem apontar para um caminho relativo ao caminho de aplicativo especificado no arquivo ApplicationHost.xdt. Qualquer alteração feita ao arquivo ApplicationHost.xdt exige uma reciclagem do aplicativo Web.
+Links internos para o aplicativo web de saudação deve apontar tooa caminho relativo toohello aplicativo caminho especificado no arquivo de ApplicationHost.xdt hello. Qualquer arquivo de ApplicationHost.xdt toohello alteração requer uma reciclagem de aplicativo web.
 
 **Observação**: informações adicionais sobre esses elementos-chave estão disponíveis em [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions).
 
-Um exemplo detalhado está incluído para ilustrar as etapas para criar e habilitar uma extensão privada de aplicativo Web. O código-fonte do exemplo Gerenciador de PHP a seguir pode ser baixado de [https://github.com/projectkudu/PHPManager](https://github.com/projectkudu/PHPManager).
+Um exemplo detalhado é incluído tooillustrate Olá etapas para criar e habilitar uma extensão do aplicativo web privada. Olá código-fonte de exemplo do Gerenciador do PHP hello que segue pode ser baixado do [https://github.com/projectkudu/PHPManager](https://github.com/projectkudu/PHPManager).
 
 ### <a id="SiteSample"></a> Exemplo de extensão de aplicativo Web: Gerenciador de PHP
-O Gerenciador de PHP é uma extensão de aplicativo Web que permite que os administradores de aplicativo Web exibam e definam facilmente suas configurações de PHP usando uma interface da Web em vez de precisar modificar arquivos .ini PHP diretamente. Entre os arquivos de configuração comuns para PHP estão o arquivo php. ini localizado em Arquivos de Programas e o arquivo .user.ini localizado na pasta raiz do aplicativo Web. Como o arquivo php.ini não é editável diretamente na plataforma do Serviço de Aplicativo, a extensão do Gerenciador de PHP usa o arquivo .user.ini para aplicar alterações de configuração.
+O Gerenciador do PHP é uma extensão do aplicativo web que permite que os administradores de aplicativo web tooeasily exibir e definir suas configurações de PHP usando uma interface da web em vez de ter arquivos. ini toomodify PHP diretamente. Arquivos de configuração comuns para PHP incluem arquivo ini de Olá localizado em arquivos de programa e hello. user.ini arquivo localizado na pasta raiz de saudação do seu aplicativo web. Como arquivo php.ini de saudação não pode ser editado diretamente no hello plataforma do serviço de aplicativo, Olá extensão do Gerenciador do PHP usa hello. user.ini arquivo tooapply alterações de configuração.
 
-#### <a id="PHPwebapp"></a> O aplicativo Web do Gerenciador de PHP
-A seguir está a página inicial de implantação do Gerenciador de PHP:
+#### <a id="PHPwebapp"></a>saudação de aplicativo de web do Gerenciador do PHP
+a seguir Olá é Olá home page do hello implantação do Gerenciador do PHP:
 
 ![TransformSitePHPUI][TransformSitePHPUI]
 
-Como você pode ver, uma extensão do aplicativo Web é exatamente como um aplicativo Web normal, mas com um arquivo ApplicationHost.xdt adicional colocado na pasta raiz do aplicativo Web (mais detalhes sobre o arquivo ApplicationHost.xdt estão disponíveis na próxima seção deste artigo).
+Como você pode ver, uma extensão do aplicativo web é como um aplicativo web regular, mas com um arquivo ApplicationHost.xdt adicional na pasta raiz de saudação do aplicativo web de saudação (mais detalhes sobre o arquivo de ApplicationHost.xdt Olá estão disponíveis na próxima seção, Olá deste artigo).
 
-A extensão Gerenciador de PHP foi criada usando-se o modelo de aplicativo Web MVC 4 do ASP.NET do Visual Studio. A exibição a seguir do Gerenciador de Soluções mostra a estrutura da extensão Gerenciador de PHP.
+saudação de extensão do Gerenciador do PHP foi criada usando o modelo de aplicativo de Web do Visual Studio ASP.NET MVC 4 hello. Olá seguinte modo de exibição no Gerenciador de soluções mostra estrutura Olá Olá extensão do Gerenciador do PHP.
 
 ![TransformSiteSolEx][TransformSiteSolEx]
 
-A única lógica especial necessária para E/S de arquivo é indicar onde o diretório wwwroot do aplicativo Web está localizado. Como mostra o seguinte exemplo de código, a variável de ambiente "HOME" indica o caminho da raiz do aplicativo Web, e o caminho wwwroot pode ser construído acrescentando-se "site\wwwroot":
+Olá somente uma lógica especial necessária para e/s de arquivo é tooindicate onde hello diretório wwwroot do aplicativo web de saudação está localizado. Como a seguir mostra exemplo de código, Olá Olá variável de ambiente "HOME" indica Olá caminho de raiz do aplicativo web e o caminho de wwwroot Olá pode ser construído anexando "site\wwwroot":
 
 ```csharp
 /// <summary>
-/// Gives the location of the .user.ini file, even if one doesn't exist yet
+/// Gives hello location of hello .user.ini file, even if one doesn't exist yet
 /// </summary>
 private static string GetUserSettingsFilePath()
 {
@@ -102,22 +102,22 @@ private static string GetUserSettingsFilePath()
 ```
 
 
-Já com o caminho do diretório, você pode usar operações de E/S de arquivo regulares para ler e gravar arquivos.
+Depois de ter o caminho do diretório hello, você pode usar tooread de operações de e/s de arquivos regulares e gravar toofiles.
 
-Um ponto de cuidado em relação às extensões do aplicativo Web se refere à identificação de links internos.  Se tiver quaisquer links em seus arquivos HTML que indiquem caminhos absolutos para links internos no aplicativo Web, você deverá garantir que esses links sejam acrescentados ao início do nome da extensão, como sua raiz. Isso é necessário porque a raiz da extensão agora é "/`[your-extension-name]`/" em vez de ser apenas "/", logo, todo link interno deve ser atualizado adequadamente. Por exemplo, suponhamos que o código inclua um link para o seguinte:
+Um ponto de cuidado com extensões de aplicativo web considera a manipulação de saudação de links internos.  Se você tiver todos os links nos arquivos HTML que fornecem caminhos absolutos toointernal links em seu aplicativo web, você deve garantir que esses links são prefixados com seu nome de extensão como sua raiz. Isso é necessário porque Olá raiz para a sua extensão agora é "/`[your-extension-name]`/" em vez de ser links apenas "/", portanto qualquer interno deve ser atualizado adequadamente. Por exemplo, suponha que seu código inclui o seguinte de toohello um link:
 
 `"<a href="/Home/Settings">PHP Settings</a>"`
 
-Quando o link fizer parte de uma extensão de aplicativo Web, esse link deverá estar no seguinte formato:
+Quando o link de saudação fizer parte de uma extensão de aplicativo da web, link Olá deve ser Olá formulário a seguir:
 
 `"<a href="/[your-site-name]/Home/Settings">Settings</a>"`
 
-Você pode contornar esse requisito usando apenas caminhos relativos no aplicativo Web ou, no caso de aplicativos do ASP.NET, usando o método `@Html.ActionLink` , que cria os links apropriados para você.
+Você pode contornar esse requisito usando somente a caminhos relativos no seu aplicativo web, ou em Olá caso de aplicativos ASP.NET, usando Olá `@Html.ActionLink` método que cria os links apropriados Olá para você.
 
-#### <a id="XDT"></a> O arquivo applicationHost.xdt
-O código da extensão do aplicativo Web fica em %HOME%\SiteExtensions\[nome-da-extensão]. Chamaremos ele de a raiz da extensão.  
+#### <a id="XDT"></a>arquivo de applicationHost.xdt Olá
+código de saudação para a sua extensão de aplicativo web entra em %HOME%\SiteExtensions\[seu nome de extensão]. Chamaremos raiz desse extensão hello.  
 
-Para registrar a extensão do aplicativo Web com o arquivo applicationHost.config, você precisa colocar um arquivo chamado ApplicationHost.xdt na raiz da extensão. O conteúdo do arquivo ApplicationHost.xdt deve ser conforme demonstrado a seguir:
+tooregister sua extensão do aplicativo web com o arquivo applicationHost config hello, você precisa tooplace um arquivo chamado ApplicationHost.xdt na raiz da extensão de saudação. conteúdo de saudação do arquivo de ApplicationHost.xdt Olá deve ser da seguinte maneira:
 
 ```xml
 <?xml version="1.0"?>
@@ -125,7 +125,7 @@ Para registrar a extensão do aplicativo Web com o arquivo applicationHost.confi
   <system.applicationHost>
     <sites>
       <site name="%XDT_SCMSITENAME%" xdt:Locator="Match(name)">
-        <!-- NOTE: Add your extension name in the application paths below -->
+        <!-- NOTE: Add your extension name in hello application paths below -->
         <application path="/[your-extension-name]" xdt:Locator="Match(path)" xdt:Transform="Remove" />
         <application path="/[your-extension-name]" applicationPool="%XDT_APPPOOLNAME%" xdt:Transform="Insert">
           <virtualDirectory path="/" physicalPath="%XDT_EXTENSIONPATH%" />
@@ -136,9 +136,9 @@ Para registrar a extensão do aplicativo Web com o arquivo applicationHost.confi
 </configuration>
 ```
 
-O nome que você seleciona como o nome da extensão deve ser igual ao nome da pasta raiz da extensão.
+Selecione como o nome da extensão de nome de saudação deve ter Olá mesmo nome como a pasta raiz de extensão.
 
-Isso tem o efeito de adicionar um novo caminho de aplicativo à lista de sites `system.applicationHost` no site SCM. O site SCM é um ponto de extremidade de administração de site com credenciais de acesso específicas. Tem a URL `https://[your-site-name].scm.azurewebsites.net`.  
+Isso tem o efeito de saudação de adicionar um novo toohello de caminho do aplicativo `system.applicationHost` lista de sites no site SCM hello. site SCM Olá é um ponto de extremidade de administração de site com as credenciais de acesso específicas. Ele tem Olá URL `https://[your-site-name].scm.azurewebsites.net`.  
 
 ```xml
 <system.applicationHost>
@@ -155,7 +155,7 @@ Isso tem o efeito de adicionar um novo caminho de aplicativo à lista de sites `
       <application path="/" applicationPool="[your-website]">
         <virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Kudu\1.24.20926.5" />
       </application>
-      <!-- Note the custom changes that go here -->
+      <!-- Note hello custom changes that go here -->
       <application path="/[your-extension-name]" applicationPool="[your-website]">
         <virtualDirectory path="/" physicalPath="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\SiteExtensions\[your-extension-name]" />
       </application>
@@ -166,23 +166,23 @@ Isso tem o efeito de adicionar um novo caminho de aplicativo à lista de sites `
 ```
 
 ### <a id="deploy"></a> Implantação de extensão de aplicativo Web
-Para instalar a extensão de aplicativo Web, você pode usar FTP para copiar todos os arquivos do seu aplicativo Web para a pasta `\SiteExtensions\[your-extension-name]` do aplicativo Web no qual você deseja instalar a extensão.  Não se esqueça de copiar o arquivo ApplicationHost.xdt para esse local também. Reinicie o aplicativo Web para habilitar a extensão.
+tooinstall sua extensão do aplicativo web, você pode usar todos os arquivos de saudação do seu toohello de aplicativo web FTP toocopy `\SiteExtensions\[your-extension-name]` pasta do aplicativo web de saudação no qual você deseja a extensão de saudação tooinstall.  Ser se toocopy Olá ApplicationHost.xdt toothis local do arquivo também. Reinicie sua extensão de saudação do tooenable de aplicativo web.
 
-Você deve ser capaz de ver a extensão do aplicativo Web em:
+Você deve ser capaz de toosee sua extensão do aplicativo web em:
 
 `https://[your-site-name].scm.azurewebsites.net/[your-extension-name]`
 
-Observe que a URL se parece com a URL do aplicativo Web, exceto por usar HTTPS e conter ".scm".
+Observe que Olá que URL parece com hello URL para seu aplicativo web, exceto que ela usa HTTPS e contém ".scm".
 
-É possível desabilitar todas as extensões (não pré-instaladas) privadas do seu aplicativo Web durante o desenvolvimento e investigações adicionando uma configuração de aplicativo com a chave `WEBSITE_PRIVATE_EXTENSIONS` e um valor de `0`.
+É extensões toodisable privada todos os possíveis (não pré-instalado) para seu aplicativo web durante o desenvolvimento e investigações adicionando configurações de um aplicativo com chave Olá `WEBSITE_PRIVATE_EXTENSIONS` e um valor de `0`.
 
 > [!NOTE]
-> Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você quiser tooget iniciado com o serviço de aplicativo do Azure antes de se inscrever para uma conta do Azure, vá muito[tente do serviço de aplicativo](https://azure.microsoft.com/try/app-service/), onde você pode criar imediatamente um aplicativo web de curta duração starter no serviço de aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
 ## <a name="whats-changed"></a>O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para um guia toohello alteração de sites tooApp serviço consulte: [do serviço de aplicativo do Azure e seu impacto sobre os serviços do Azure existente](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- IMAGES -->
 [TransformSitePHPUI]: ./media/web-sites-transform-extend/TransformSitePHPUI.png

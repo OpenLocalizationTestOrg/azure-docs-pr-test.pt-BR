@@ -1,6 +1,6 @@
 ---
-title: "Conecte o Arduino ao IoT do Azure - Lição 1: obter ferramentas (Windows) | Microsoft Docs"
-description: "Baixe e instale as ferramentas e software necessários para o primeiro aplicativo de exemplo para o Adafruit Feather M0 WiFi no Windows 7 e versões posteriores."
+title: "Conecte-se Arduino tooAzure IoT - lição 1: obter ferramentas (Windows) | Microsoft Docs"
+description: "Baixe e instale as ferramentas necessárias hello e software para o primeiro aplicativo de exemplo hello para Adafruit difusão M0 WiFi no Windows 7 e versões posteriores."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,13 +17,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 5d27c016c4a74e31455e676b3c3070a8e262b21f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4dd946da6c84293987e166fd1d17fac117e94e4c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-the-tools-windows-7-or-later"></a>Obtenha as ferramentas (Windows 7 ou superior)
+# <a name="get-hello-tools-windows-7-or-later"></a>Obter ferramentas hello (Windows 7 ou posterior)
 
 > [!div class="op_single_selector"]
 > * [Windows 7 ou posterior][windows]
@@ -32,60 +32,60 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="what-you-will-do"></a>O que você fará
 
-Baixe as ferramentas de desenvolvimento e o software para o primeiro aplicativo de exemplo para a placa do Adafruit Feather M0 WiFi Arduino.
+Baixe ferramentas de desenvolvimento hello e software Olá Olá primeiro aplicativo de exemplo para a sua placa Adafruit difusão M0 WiFi Arduino.
 
-Se você tiver problemas, procure por soluções na [página de solução de problemas][troubleshooting].
+Se você tiver problemas, procure por soluções em Olá [página de solução][troubleshooting].
 
 > [!NOTE]
-> Embora a linguagem de programação da lógica principal seja o Arduino, ferramentas Node.js são usadas nas lições para compilar e implantar aplicativos de exemplo.
+> Embora Arduino Olá linguagem da lógica principal Olá de programação, ferramentas Node.js são usadas em Olá lições toobuild e implantar aplicativos de exemplo.
 
 ## <a name="what-you-will-learn"></a>O que você aprenderá
 Neste artigo, você aprenderá:
 
-* Como instalar o Git e o Node.js.
-  * [Git](https://git-scm.com) é um software livre de sistema de controle de versão distribuído. O aplicativo de exemplo para este artigo está armazenado em Git.
+* Como tooinstall Node. js e Git.
+  * [Git](https://git-scm.com) é um software livre de sistema de controle de versão distribuído. aplicativo de exemplo Hello para este artigo é armazenado no Git.
   * O [Node.js](https://nodejs.org/en/) é um tempo de execução de JavaScript com um avançado ecossistema de pacote.
-* Como usar o NPM (gerenciador de pacotes Node.js) para instalar ferramentas de desenvolvimento adicionais do Node.js.
-  * O requisito mínimo de versão do Node.js é 4.5 LTS.
-  * O [NPM](https://www.npmjs.com) é um dos gerenciadores de pacote para o Node.js.
+* Como ferramentas de desenvolvimento do toouse NPM tooinstall adicionais Node. js.
+  * requisito de versão mínima de saudação do Node. js é 4.5 LTS.
+  * [NPM](https://www.npmjs.com) é uma saudação gerenciadores de pacotes para Node. js.
 
 ## <a name="what-you-need"></a>O que você precisa
 
-Para concluir esta operação, você precisará de:
+toocomplete essa operação, você precisará de:
 
-* Uma conexão com a Internet para baixar as ferramentas de desenvolvimento e o software.
+* Um toodownload de conexão de Internet Olá ferramentas de desenvolvimento e Olá software.
 * Um computador que esteja executando o Windows.
 
 ## <a name="install-git-and-nodejs"></a>Instalar o Git e o Node.js
 
-Clique nos links abaixo para baixar e instalar o Git e o Node.js LTS para Windows.
+Clicar em links de saudação abaixo toodownload e instale o Git e LTS Node. js para Windows.
 
 * [Obtenha o Git para Windows](https://git-scm.com/download/win/)
 * [Obtenha o Node.js LTS para o Windows](https://nodejs.org/en/)
 
 ## <a name="install-additional-nodejs-development-tools"></a>Instalar ferramentas adicionais de desenvolvimento do Node.js
 
-Use [gulp.js](http://gulpjs.com) para automatizar a implantação do aplicativo de exemplo para sua placa Arduino.
+Use [gulp.js](http://gulpjs.com) tooautomate implantação de saudação de tooyour de aplicativo de exemplo hello Arduino quadro.
 
-Inicie um prompt de comando como administrador. Instale `gulp`, `device-discovery-cli` executando o seguinte comando no terminal:
+Inicie um prompt de comando como administrador. Instalar `gulp`, `device-discovery-cli` executando Olá comando no terminal Olá a seguir:
 
 ```bash
 npm install -g gulp device-discovery-cli
 ```
 
-Se tiver problemas ao instalar o Node.js e essas ferramentas de desenvolvimento adicionais do Node.js no seu computador, consulte o [guia de solução de problemas][troubleshooting] para soluções de problemas comuns.
+Se você tiver problemas ao instalar o Node. js e essas ferramentas de desenvolvimento Node. js adicionais no seu computador, consulte Olá [guia de solução de problemas] [ troubleshooting] para problemas de toocommon de soluções.
 
 ## <a name="install-visual-studio-code"></a>Instalar o Visual Studio Code
 
-[Baixe](https://code.visualstudio.com/docs/setup/windows) e instale o Visual Studio Code. O Visual Studio Code é um editor de código-fonte leve mas poderoso para Windows, Linux e macOS. Use este editor posteriormente no tutorial para editar o código de exemplo.
+[Baixe](https://code.visualstudio.com/docs/setup/windows) e instale o Visual Studio Code. O Visual Studio Code é um editor de código-fonte leve mas poderoso para Windows, Linux e macOS. Você pode usar este editor posteriormente no código de exemplo hello tooedit tutorial hello.
 
 ## <a name="summary"></a>Resumo
 
-Você instalou as ferramentas de desenvolvimento e software necessários para o primeiro aplicativo de exemplo. A tarefa seguinte é criar, implantar e executar o aplicativo de exemplo na placa Arduino.
+Você instalou as ferramentas de desenvolvimento de saudação necessárias e software para o primeiro aplicativo de exemplo hello. Olá próxima tarefa é toocreate, implantar e executar o aplicativo de exemplo hello em seu quadro Arduino.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Criar e implantar o aplicativo de exemplo de piscar][create-and-deploy-the-blink-sample-application]
+[Criar e implantar o aplicativo de exemplo hello blink][create-and-deploy-the-blink-sample-application]
 <!-- Images and links -->
 
 [windows]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md

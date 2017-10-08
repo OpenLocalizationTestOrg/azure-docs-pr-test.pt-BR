@@ -1,6 +1,6 @@
 ---
-title: Fazer backup de seu aplicativo no Azure
-description: "Saiba como criar backups de seus aplicativos no Serviço de Aplicativo do Azure."
+title: aaaBack backup de seu aplicativo no Azure
+description: "Saiba como toocreate backups de seus aplicativos no serviço de aplicativo do Azure."
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 77e983afaaba8e944ab1f337e1c28ced83b63205
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e41d93d322bbc48b45b28eeaa817928d83c2b9d6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="back-up-your-app-in-azure"></a>Fazer backup de seu aplicativo no Azure
-O recurso de Backup e Restauração no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) permite que você crie backups de aplicativos facilmente, de modo manual ou agendado. Você pode restaurar o aplicativo em um instantâneo de um estado anterior, substituindo o aplicativo existente ou restaurando em outro aplicativo. 
+Olá fazer backup e restaurar o recurso no [do serviço de aplicativo do Azure](../app-service/app-service-value-prop-what-is.md) permite que você crie facilmente os backups de aplicativos manualmente ou em uma agenda. Você pode restaurar o instantâneo de tooa aplicativo hello de um estado anterior por sobrescrever app existente de saudação ou restauração tooanother. 
 
 Para obter informações sobre como restaurar um aplicativo por um backup, veja [Restaurar um aplicativo no Serviço de Aplicativo do Azure](web-sites-restore.md).
 
 <a name="whatsbackedup"></a>
 
 ## <a name="what-gets-backed-up"></a>Do que é feito backup
-O Serviço de Aplicativo pode fazer backup das seguintes em uma conta de armazenamento do Azure e um contêiner que você configurou para uso de seu aplicativo. 
+Serviço de aplicativo pode fazer o backup do seguinte Olá conta de armazenamento do Azure tooan informações e contêiner que você tenha configurado toouse seu aplicativo. 
 
 * Configuração do aplicativo
 * Conteúdo do arquivo
-* Banco de dados conectado ao seu aplicativo
+* Banco de dados conectado tooyour aplicativo
 
-As soluções de banco de dados a seguir são compatíveis com o recurso de backup: 
+Olá soluções de banco de dados a seguir têm suporte com o recurso de backup: 
    - [Banco de Dados SQL](https://azure.microsoft.com/en-us/services/sql-database/)
    - [Banco de Dados do Azure para MySQL (Visualização)](https://azure.microsoft.com/en-us/services/mysql)
    - [Banco de Dados do Azure para PostgreSQL (Visualização)](https://azure.microsoft.com/en-us/services/postgres)
@@ -49,116 +49,116 @@ As soluções de banco de dados a seguir são compatíveis com o recurso de back
 <a name="requirements"></a>
 
 ## <a name="requirements-and-restrictions"></a>Requisitos e restrições
-* O recurso de Backup e Restauração exige que o plano do Serviço de Aplicativo esteja na camada **Standard** ou **Premium**. Para obter mais informações sobre como dimensionar seu plano do Serviço de Aplicativo para usar uma camada superior, veja [Escalar verticalmente um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-scale.md).  
+* Olá fazer backup e o recurso de restauração requer Olá toobe do plano de serviço de aplicativo no hello **padrão** camada ou **Premium** camada. Para obter mais informações sobre como dimensionar seu plano de serviço de aplicativo toouse uma camada superior, consulte [dimensionar um aplicativo no Azure](web-sites-scale.md).  
   A camada **Premium** permite um número maior de backups diários do que a camada **Standard**.
-* Você precisa de uma conta de armazenamento do Azure e do contêiner na mesma assinatura do aplicativo do qual você deseja fazer backup. Para obter mais informações sobre contas de armazenamento do Azure, consulte os [links](#moreaboutstorage) no final deste artigo.
-* Backups podem ter até 10 GB de conteúdo do aplicativo e do banco de dados. Se o tamanho do backup ultrapassar esse limite, você receberá um erro.
+* Você precisa de uma conta de armazenamento do Azure e o contêiner no hello mesma assinatura que você deseja toobackup de aplicativo de saudação. Para obter mais informações sobre contas de armazenamento do Azure, consulte Olá [links](#moreaboutstorage) final Olá deste artigo.
+* Backups podem ser a too10 GB de conteúdo do aplicativo e banco de dados. Se o tamanho do backup Olá exceder esse limite, você receberá um erro.
 
 <a name="manualbackup"></a>
 
 ## <a name="create-a-manual-backup"></a>Criar um backup manual
-1. No [Portal do Azure](https://portal.azure.com), navegue até a folha do aplicativo, selecione **Backups**. A folha **Backups** será exibida.
+1. Em Olá [Portal do Azure](https://portal.azure.com), navegue folha tooyour do aplicativo, selecione **Backups**. Olá **Backups** folha será exibida.
    
     ![Página Backups][ChooseBackupsPage]
    
    > [!NOTE]
-   > Se você receber a mensagem abaixo, clique nela para atualizar seu plano do Serviço de Aplicativo antes de continuar com os backups.
+   > Se você vir a mensagem de saudação abaixo, clique nele tooupgrade seu plano de serviço de aplicativo antes de prosseguir com backups.
    > Veja [Escalar verticalmente um aplicativo no Azure](web-sites-scale.md) para obter mais informações.  
    > ![Escolher uma conta de armazenamento](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 
 
-2. Na folha de **Backup**, clique em **Configurar**
-![Clique em Configurar](./media/web-sites-backup/ClickConfigure1.png)
-3. Na folha **Configuração de Backup**, clique em **Armazenamento: não configurado** para configurar uma conta de armazenamento.
+2. Em Olá **Backup** folha, clique em **configurar**
+![clique em configurar](./media/web-sites-backup/ClickConfigure1.png)
+3. Em Olá **configuração de Backup** folha, clique em **armazenamento: não configurado** tooconfigure uma conta de armazenamento.
    
     ![Escolher uma conta de armazenamento][ChooseStorageAccount]
-4. Escolha o destino de seu backup selecionando uma **Conta de Armazenamento** e um **Contêiner**. A conta de armazenamento deve pertencer à mesma assinatura do aplicativo do qual você deseja fazer backup. Se desejar, você pode criar uma nova conta de armazenamento ou um novo contêiner nas respectivas folhas. Quando terminar, clique em **Selecionar**.
+4. Escolha o destino de seu backup selecionando uma **Conta de Armazenamento** e um **Contêiner**. conta de armazenamento Olá deve pertencer toohello mesma assinatura que o aplicativo hello desejar tooback. Se desejar, você pode criar uma nova conta de armazenamento ou um novo contêiner folhas respectivos hello. Quando terminar, clique em **Selecionar**.
    
     ![Escolher uma conta de armazenamento](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
-5. Na folha **Configuração de Backup** que ainda está aberta, você pode configurar o **Banco de Dados de Backup**, selecione os bancos de dados que deseja incluir nos backups (banco de dados SQL ou MySQL) e clique em **OK**.  
+5. Em Olá **configuração de Backup** folha que for deixada aberta, você pode configurar **banco de dados de Backup**, em seguida, selecione os bancos de dados de saudação desejado tooinclude nos backups de saudação (banco de dados SQL ou MySQL) e clique em **Okey**.  
    
     ![Escolher uma conta de armazenamento](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > Para que um banco de dados apareça nessa lista, sua cadeia de conexão deve existir na seção **Cadeias de conexão** da folha **Configurações do aplicativo** do aplicativo.
+   > Para um tooappear de banco de dados nessa lista, sua cadeia de caracteres de conexão deve existir no hello **cadeias de caracteres de Conexão** seção Olá **configurações de aplicativo** folha para seu aplicativo.
    > 
    > 
-6. Na folha **Configuração de Backup**, clique em **Salvar**.    
-7. Na folha de **Backups**, clique em **Backup**.
+6. Em Olá **configuração de Backup** folha, clique em **salvar**.    
+7. Em Olá **Backups** folha, clique em **Backup**.
    
     ![Botão BackUpNow][BackUpNow]
    
-    Você verá uma mensagem informando o andamento do processo de backup.
+    Você verá uma mensagem de progresso durante o processo de backup hello.
 
-Após a configuração da conta de armazenamento e do contêiner, você poderá iniciar um backup manual a qualquer momento.  
+Depois da configuração do contêiner e a conta de armazenamento hello, você pode iniciar um backup manual a qualquer momento.  
 
 <a name="automatedbackups"></a>
 
 ## <a name="configure-automated-backups"></a>Configurar backups automáticos
-1. Na folha de **Configuração de Backup**, defina **Backup Agendado** para **Ativado**. 
+1. Em Olá **configuração de Backup** folha, defina **backup agendado** muito**em**. 
    
     ![Escolher uma conta de armazenamento](./media/web-sites-backup/05ScheduleBackup1.png)
-2. Opções de Agendamento de Backups serão exibidas, defina **Backup Agendado** para **Ativado**, configure o agendamento de backup conforme desejado e clique em **OK**.
+2. Definir opções de serão exibida, agendamento de backup **Backup agendado** muito**na**, em seguida, configurar o agendamento de backup Olá conforme desejado e clique em **Okey**.
    
     ![Habilitar backups automatizados][SetAutomatedBackupOn]
 
 <a name="partialbackups"></a>
 
 ## <a name="configure-partial-backups"></a>Configurar backups parciais
-Às vezes, você não quer fazer backup de tudo em seu aplicativo. Veja alguns exemplos:
+Às vezes, você não quer toobackup tudo em seu aplicativo. Veja alguns exemplos:
 
 * Você [configura backups semanais](web-sites-backup.md#configure-automated-backups) do aplicativo que contém conteúdo estático que nunca muda, como imagens ou postagens antigas no blog.
-* Seu aplicativo tem mais de 10 GB de conteúdo (que é o volume máximo de backup por vez).
-* Você não deseja fazer backup dos arquivos de log.
+* Seu aplicativo tem mais de 10 GB de conteúdo (que é o valor máximo hello, que você pode fazer backup de cada vez).
+* Você não deseja que os arquivos de log Olá toobackup.
 
-Os backups parciais permitem que você escolha exatamente quais arquivos deseja incluir no backup.
+Backups parciais permite que você escolha exatamente quais arquivos que você deseja toobackup.
 
 ### <a name="exclude-files-from-your-backup"></a>Excluir arquivos do backup
-Vamos supor que você tenha um aplicativo que contém arquivos de log e imagens estáticas que passaram por backup e não vão mais sofrer alteração. Nesses casos, você pode excluir a exclusão desses arquivos e pastas em backups futuros. Para excluir arquivos e pastas de seus backups, crie um arquivo `_backup.filter` na pasta `D:\home\site\wwwroot` de seu aplicativo. Especifique a lista de arquivos e pastas que você excluir deste arquivo. 
+Suponha que você tenha um aplicativo que contém os arquivos de log e imagens estáticas que tenham sido backup uma vez e não serão toochange. Nesses casos, você pode excluir a exclusão desses arquivos e pastas em backups futuros. tooexclude arquivos e pastas de seus backups, criar um `_backup.filter` arquivo hello `D:\home\site\wwwroot` pasta do seu aplicativo. Especifica Olá lista de arquivos e pastas que você deseja tooexclude neste arquivo. 
 
-Uma maneira fácil de acessar seus arquivos é usando o Kudu. Clique na configuração **Ferramentas Avançadas-> Ir** em seu aplicativo Web para acessar o Kudu.
+Um tooaccess de maneira fácil seus arquivos é toouse Kudu. Clique em **ferramentas avançadas -> Go** configuração para seu aplicativo de web tooaccess Kudu.
 
 ![Kudu usando o Portal][kudu-portal]
 
-Identifique as pastas que você quer excluir de seus backups.  Por exemplo, você quer filtrar e remover os arquivos e pastas realçados.
+Identifica Olá pastas que você deseja tooexclude de seus backups.  Por exemplo, você deseja toofilter pasta realçado hello e arquivos.
 
 ![Pasta Imagens][ImagesFolder]
 
-Crie um arquivo chamado `_backup.filter` e coloque a lista acima no arquivo, mas remova `D:\home`. Liste um diretório ou arquivo por linha. Portanto, o conteúdo do arquivo deve ser:
+Crie um arquivo chamado `_backup.filter` e colocar a lista de saudação acima no arquivo hello, mas remover `D:\home`. Liste um diretório ou arquivo por linha. Então o conteúdo de saudação do arquivo hello deve ser:
  ```bash
     \site\wwwroot\Images\brand.png
     \site\wwwroot\Images\2014
     \site\wwwroot\Images\2013
 ```
 
-Carregue o arquivo `_backup.filter` no diretório `D:\home\site\wwwroot\` de seu site usando o [ftp](web-sites-deploy.md#ftp) ou qualquer outro método. Se quiser, você pode criar o arquivo diretamente usando Kudu `DebugConsole` e inserir o conteúdo nesse local.
+Carregar `_backup.filter` arquivo toohello `D:\home\site\wwwroot\` diretório de seu site usando [ftp](web-sites-deploy.md#ftp) ou qualquer outro método. Se desejar, você pode criar o arquivo hello diretamente usando Kudu `DebugConsole` e inserir seu conteúdo hello.
 
-Execute backups da mesma maneira que faria normalmente, de modo [manual](#create-a-manual-backup) ou [automático](#configure-automated-backups). Agora, quaisquer arquivos e pastas especificados em `_backup.filter` serão excluídos dos backups futuros agendados ou iniciados manualmente. 
+Executar backups Olá mesmo como você faria normalmente, [manualmente](#create-a-manual-backup) ou [automaticamente](#configure-automated-backups). Agora, todos os arquivos e pastas que são especificadas em `_backup.filter` é excluído da saudação futuros backups agendados ou iniciado manualmente. 
 
 > [!NOTE]
-> Você restaura backups parciais de seu site da mesma maneira como [restauraria um backup regular](web-sites-restore.md). O processo de restauração faz a coisa certa.
+> Restaurar backups parciais de saudação seu site mesma maneira que faria [restaurar um backup regular](web-sites-restore.md). o processo de restauração Olá Olá certo.
 > 
-> Quando um backup completo é restaurado, todo o conteúdo do site é substituído por tudo o que está no backup. Se um arquivo estiver no site mas não no backup, será excluído. Mas, quando um backup parcial é restaurado, qualquer conteúdo que esteja localizado em um dos diretórios não autorizados ou qualquer arquivo não autorizado, é deixado como está.
+> Quando um backup completo for restaurado, todo o conteúdo no site de saudação é substituído por tudo o que está em backup de saudação. Se um arquivo estiver no site hello, mas não no backup Olá é excluído. Mas, quando um backup parcial é restaurado, qualquer conteúdo que está localizado em um dos diretórios de saudação na lista negra ou qualquer arquivo na lista negra, será deixado como está.
 > 
 
 
 <a name="aboutbackups"></a>
 
 ## <a name="how-backups-are-stored"></a>Como os backups são armazenados
-Depois de criar um ou mais backups para seu aplicativo, os backups ficam visíveis na folha **Contêineres** de sua conta de armazenamento, bem como em seu aplicativo. Na conta de armazenamento, cada backup é formado por um arquivo `.zip` que contém os dados de backup e um arquivo `.xml` que contém um manifesto do conteúdo do arquivo `.zip`. Será possível descompactar e procurar esses arquivos se você quiser acessar seus backups sem realmente executar uma restauração do aplicativo.
+Depois de ter feito uma ou mais backups para seu aplicativo, backups de saudação são visíveis em Olá **contêineres** folha de sua conta de armazenamento e seu aplicativo. Conta de armazenamento hello, cada backup consiste em uma`.zip` arquivo que contém os dados de backup hello e um `.xml` arquivo que contém um manifesto de saudação `.zip` o conteúdo do arquivo. Você pode descompactar e procurar esses arquivos se você quiser tooaccess seus backups sem realmente executar uma restauração do aplicativo.
 
-O backup de banco de dados do aplicativo é armazenado na raiz do arquivo .zip. Para um banco de dados SQL, este é um arquivo BACPAC (sem extensão de arquivo) e pode ser importado. Para criar um banco de dados SQL com base na exportação do BACPAC, veja [Importar um arquivo BACPAC para criar um novo banco de dados de usuário](http://technet.microsoft.com/library/hh710052.aspx).
+backup de banco de dados Olá para o aplicativo hello é armazenado na raiz de saudação do arquivo the.zip. Para um banco de dados SQL, este é um arquivo BACPAC (sem extensão de arquivo) e pode ser importado. toocreate um banco de dados do SQL com base em Olá exportação do BACPAC, consulte [importar um arquivo BACPAC de tooCreate um novo banco de dados de usuário](http://technet.microsoft.com/library/hh710052.aspx).
 
 > [!WARNING]
-> A alteração de qualquer um dos arquivos no contêiner **websitebackups** pode fazer com que o backup se torne inválido e, portanto, não restaurável.
+> Alterar qualquer um dos arquivos Olá no seu **websitebackups** contêiner pode fazer com que o hello toobecome de backup inválido e, portanto, não recuperáveis.
 > 
 > 
 
 <a name="nextsteps"></a>
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter informações sobre como restaurar um aplicativo por um backup, veja [Restaurar um aplicativo no Serviço de Aplicativo do Azure](web-sites-restore.md). Você também pode fazer backup e restaurar aplicativos do Serviço de Aplicativo usando a API REST (veja [Usar a REST para fazer backup e restaurar aplicativos do Serviço de Aplicativo](websites-csm-backup.md)).
+Para obter informações sobre como restaurar um aplicativo por um backup, veja [Restaurar um aplicativo no Serviço de Aplicativo do Azure](web-sites-restore.md). Você também pode fazer backup e restaurar aplicativos de serviço de aplicativo usando a API REST (consulte [REST de uso toobackup e restauração de aplicativos de serviço de aplicativo](websites-csm-backup.md)).
 
 
 <!-- IMAGES -->

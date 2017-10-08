@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: d55cecf20abdf1637f0537e63a3dba5992a68741
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b55e0f2d426e34ceef9869d5a6d1b0956d8bd076
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
-A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
+equipe do Azure Active Directory (AD do Azure) Olá atualiza regularmente o Azure AD Connect com novos recursos e funcionalidade. Nem todas as adições são aplicáveis tooall públicos.
 
-Este artigo foi projetado para ajudá-lo a controlar as versões que foram lançadas e compreender se você precisa atualizar para a versão mais recente ou não.
+Este artigo é projetado toohelp você manter o controle de versões de saudação que foram lançadas e toounderstand se é necessário a versão mais recente do tooupdate toohello ou não.
 
 Esta é uma lista de tópicos relacionados:
 
 
 Tópico |  Detalhes
 --------- | --------- |
-Etapas para atualizar do Azure AD Connect | Métodos diferentes para [atualizar de uma versão anterior para a versão mais recente](active-directory-aadconnect-upgrade-previous-version.md) do Azure AD Connect.
-Permissões necessárias | Para obter permissões necessárias para aplicar uma atualização, veja [contas e permissões](./active-directory-aadconnect-accounts-permissions.md#upgrade).
+Etapas tooupgrade do Azure AD Connect | Métodos diferentes muito[atualização do toohello versão anterior mais recente](active-directory-aadconnect-upgrade-previous-version.md) versão do Azure AD Connect.
+Permissões necessárias | Para as permissões necessárias tooapply uma atualização, consulte [contas e permissões](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Baixar| [Baixar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## <a name="115610"></a>1.1.561.0
@@ -41,38 +41,38 @@ Status: 23 de julho de 2017
 
 #### <a name="fixed-issue"></a>Problema corrigido
 
-* Foi corrigido um problema que fazia com que a regra de sincronização integrada "Out to AD – User ImmutableId" fosse removida:
+* Corrigido um problema que causou a regra de sincronização de fora da caixa de hello "Out tooAD - ImmutableId do usuário" toobe removido:
 
-  * O problema ocorre quando o Azure AD Connect é atualizado ou quando a opção de tarefa *Atualizar configuração de sincronização* no assistente do Azure AD Connect é usada para atualizar a configuração da sincronização do Azure AD Connect.
+  * problema de saudação ocorre quando o Azure AD Connect é atualizado, ou hello quando a opção de tarefa *configuração de sincronização de atualização* hello Azure AD Connect assistente é usado tooupdate AD do Azure Connect configuração da sincronização.
   
-  * Essa regra de sincronização é aplicável aos clientes que habilitaram o [msDS-ConsistencyGuid como recurso de âncora de origem](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). Esse recurso foi introduzido na versão 1.1.524.0 e posteriores. Quando a regra de sincronização é removida, o Azure AD Connect não consegue mais preencher o atributo ms-DS-ConsistencyGuid do AD local com o valor do atributo ObjectGuid. Isso não impede que novos usuários sejam provisionados no Azure AD.
+  * Esta regra de sincronização é aplicável toocustomers que habilitaram Olá [msDS-ConsistencyGuid como recurso de âncora de origem](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). Esse recurso foi introduzido na versão 1.1.524.0 e posteriores. Quando a regra de sincronização de saudação é removida, o Azure AD Connect não pode preencher local atributo do ms-DS-ConsistencyGuid AD com hello valor do atributo ObjectGuid. Isso não impede que novos usuários sejam provisionados no Azure AD.
   
-  * A correção garante que a regra de sincronização não seja mais removida durante a atualização ou durante a alteração de configuração, desde que o recurso esteja habilitado. Para clientes existentes que tenham sido afetados por esse problema, a correção também garantirá que a regra de sincronização seja adicionada novamente após a atualização para esta versão do Azure AD Connect.
+  * correção de saudação garante que essa regra de sincronização de saudação não será removida durante a atualização, ou durante a alteração de configuração, como Olá está ativado. Para clientes existentes que foram afetados por esse problema, corrija Olá também garante que essa regra de sincronização Olá é adicionada novamente após a atualização de versão toothis do Azure AD Connect.
 
-* Foi corrigido um problema que fazia com que as regras de sincronização integradas tivessem o valor de precedência menores que 100:
+* Corrigido um problema que faz com que as regras de sincronização de fora da caixa valor de precedência de toohave é menor que 100:
 
-  * Em geral, os valores de precedência de 0 a 99 são reservados para regras de sincronização personalizadas. Durante a atualização, os valores de precedência para regras de sincronização integradas são atualizados para acomodar as alterações de regra de sincronização. Devido a esse problema, as regras de sincronização integradas podem ser atribuídas com valores de precedência que sejam menores que 100.
+  * Em geral, os valores de precedência de 0 a 99 são reservados para regras de sincronização personalizadas. Durante a atualização, os valores de precedência de Olá para regras de sincronização de fora da caixa são atualizados tooaccommodate alterações nas regras de sincronização. Devido a problema toothis, regras de sincronização de fora da caixa podem ser atribuídas o valor de precedência que for menor que 100.
   
-  * A correção impede que o problema ocorra durante a atualização. No entanto, ela não restaura os valores de precedência dos clientes existentes que tenham sido afetados pelo problema. Uma correção adicional será fornecida no futuro para ajudar com a restauração.
+  * correção de saudação impede que o problema de saudação que ocorrem durante a atualização. No entanto, ele não restaura os valores de precedência de saudação para clientes existentes que foram afetados pelo problema hello. Uma correção separada será fornecida em toohelp futura de saudação com restauração de saudação.
 
-* Foi corrigido um problema em que a [tela Filtragem de domínio e UO](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering), no assistente do Azure AD Connect, mostrava a opção *Sincronizar todos os domínios e UOs* como selecionada, mesmo que a filtragem baseada em UO estivesse habilitada.
+* Corrigido um problema em que hello [tela de domínio e a filtragem de unidade Organizacional](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) de saudação do Azure AD Connect assistente está mostrando *sincronizar todos os domínios e OUs* opção conforme selecionado, mesmo que a filtragem baseada em unidade Organizacional é habilitado.
 
-*   Foi corrigido um problema que fazia com que a [tela Configurar partições de diretório](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) no Synchronization Service Manager retornasse um erro se o botão *Atualizar* fosse clicado. A mensagem de erro é *"Foi encontrado um erro ao atualizar domínios: não é possível converter objeto do tipo 'System.Collections.ArrayList' no tipo 'Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject'."* O erro ocorre quando um novo domínio do AD é adicionado a uma floresta existente do AD e você tenta atualizar o Azure AD Connect usando o botão Atualizar.
+*   Corrigido um problema que causou Olá [tela Configurar partições de diretório](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) em Olá Synchronization Service Manager tooreturn um erro se hello *atualização* botão é clicado. mensagem de erro Olá *"foi encontrado um erro ao atualizar domínios: não é possível toocast objeto do tipo 'System.Collections.ArrayList' tootype ' Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject."* Olá erro ocorre quando o novo domínio do AD foi adicionado tooan floresta existente do AD e você está tentando tooupdate do Azure AD Connect usando Olá botão Atualizar.
 
 #### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 
-* O [recurso de Atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) foi expandido para dar suporte aos clientes com as seguintes configurações:
-  * Você habilitou o recurso write-back de dispositivo.
-  * Você habilitou o recurso write-back de grupo.
-  * A instalação não é uma configuração Express ou uma atualização de DirSync.
-  * Você tem mais de 100 mil objetos no metaverso.
-  * Você está se conectando a mais de uma floresta. A instalação expressa se conecta somente a uma floresta.
-  * A conta do Conector AD não é mais a conta MSOL_ padrão.
-  * O servidor está definido como em modo de preparo.
-  * Você habilitou o recurso write-back de usuário.
+* [Recurso de atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) foi expandido toosupport clientes com hello configurações a seguir:
+  * Você habilitou o recurso de write-back de dispositivo hello.
+  * Você habilitou o recurso de write-back de grupo hello.
+  * Olá instalação não é um configurações Express ou uma atualização do DirSync.
+  * Você tem mais de 100.000 objetos no metaverso hello.
+  * Você está se conectando toomore de uma floresta. A configuração expressa só se conecta a floresta tooone.
+  * Olá conta de conector do AD não é saudação padrão MSOL_ conta mais.
+  * servidor de saudação é definido toobe no modo de preparo.
+  * Você habilitou o recurso de write-back de usuário hello.
   
   >[!NOTE]
-  >A expansão de escopo do recurso de Atualização automática afeta os clientes com o Azure AD Connect build 1.1.105.0 e posteriores. Se você não quiser que seu servidor do Azure AD Connect seja atualizado automaticamente, será necessário executar o seguinte cmdlet em seu servidor do Azure AD Connect: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Para obter mais informações sobre habilitar/desabilitar a Atualização automática, consulte o artigo [Azure AD Connect: atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md).
+  >expansão de escopo de saudação do recurso de atualização automática de saudação afeta os clientes com o Azure AD Connect compilação 1.1.105.0 e depois. Se você não quiser que seu toobe do servidor do Azure AD Connect atualizado automaticamente, você deve executar a seguinte cmdlet no seu servidor do Azure AD Connect: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Para obter mais informações sobre habilitação/desabilitação da atualização automática, consulte tooarticle [do Azure AD Connect: a atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md).
 
 ## <a name="115580"></a>1.1.558.0
 Status: não será liberada. As alterações deste build estão incluídas na versão 1.1.561.0.
@@ -81,47 +81,47 @@ Status: não será liberada. As alterações deste build estão incluídas na ve
 
 #### <a name="fixed-issue"></a>Problema corrigido
 
-* Foi corrigido um problema que fazia com que a regra de sincronização integrada "Out to AD – User ImmutableId" fosse removida quando a configuração de filtragem baseada em UO era atualizada. Essa regra de sincronização é exigida pelo [msDS-ConsistencyGuid como recurso de âncora de origem](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
+* Corrigido um problema que causou a saudação out-of-box sincronização regra "Out tooAD - ImmutableId do usuário" toobe removidos quando configuração filtragem baseada em unidade Organizacional é atualizada. Esta regra de sincronização é necessária para Olá [msDS-ConsistencyGuid como recurso de âncora de origem](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
 
-* Foi corrigido um problema em que a [tela Filtragem de domínio e UO](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering), no assistente do Azure AD Connect, mostrava a opção *Sincronizar todos os domínios e UOs* como selecionada, mesmo que a filtragem baseada em UO estivesse habilitada.
+* Corrigido um problema em que hello [tela de domínio e a filtragem de unidade Organizacional](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) de saudação do Azure AD Connect assistente está mostrando *sincronizar todos os domínios e OUs* opção conforme selecionado, mesmo que a filtragem baseada em unidade Organizacional é habilitado.
 
-*   Foi corrigido um problema que fazia com que a [tela Configurar partições de diretório](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) no Synchronization Service Manager retornasse um erro se o botão *Atualizar* fosse clicado. A mensagem de erro é *"Foi encontrado um erro ao atualizar domínios: não é possível converter objeto do tipo 'System.Collections.ArrayList' no tipo 'Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject'."* O erro ocorre quando um novo domínio do AD é adicionado a uma floresta existente do AD e você tenta atualizar o Azure AD Connect usando o botão Atualizar.
+*   Corrigido um problema que causou Olá [tela Configurar partições de diretório](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) em Olá Synchronization Service Manager tooreturn um erro se hello *atualização* botão é clicado. mensagem de erro Olá *"foi encontrado um erro ao atualizar domínios: não é possível toocast objeto do tipo 'System.Collections.ArrayList' tootype ' Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject."* Olá erro ocorre quando o novo domínio do AD foi adicionado tooan floresta existente do AD e você está tentando tooupdate do Azure AD Connect usando Olá botão Atualizar.
 
 #### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 
-* O [recurso de Atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) foi expandido para dar suporte aos clientes com as seguintes configurações:
-  * Você habilitou o recurso write-back de dispositivo.
-  * Você habilitou o recurso write-back de grupo.
-  * A instalação não é uma configuração Express ou uma atualização de DirSync.
-  * Você tem mais de 100 mil objetos no metaverso.
-  * Você está se conectando a mais de uma floresta. A instalação expressa se conecta somente a uma floresta.
-  * A conta do Conector AD não é mais a conta MSOL_ padrão.
-  * O servidor está definido como em modo de preparo.
-  * Você habilitou o recurso write-back de usuário.
+* [Recurso de atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) foi expandido toosupport clientes com hello configurações a seguir:
+  * Você habilitou o recurso de write-back de dispositivo hello.
+  * Você habilitou o recurso de write-back de grupo hello.
+  * Olá instalação não é um configurações Express ou uma atualização do DirSync.
+  * Você tem mais de 100.000 objetos no metaverso hello.
+  * Você está se conectando toomore de uma floresta. A configuração expressa só se conecta a floresta tooone.
+  * Olá conta de conector do AD não é saudação padrão MSOL_ conta mais.
+  * servidor de saudação é definido toobe no modo de preparo.
+  * Você habilitou o recurso de write-back de usuário hello.
   
   >[!NOTE]
-  >A expansão de escopo do recurso de Atualização automática afeta os clientes com o Azure AD Connect build 1.1.105.0 e posteriores. Se você não quiser que seu servidor do Azure AD Connect seja atualizado automaticamente, será necessário executar o seguinte cmdlet em seu servidor do Azure AD Connect: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Para obter mais informações sobre habilitar/desabilitar a Atualização automática, consulte o artigo [Azure AD Connect: atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md).
+  >expansão de escopo de saudação do recurso de atualização automática de saudação afeta os clientes com o Azure AD Connect compilação 1.1.105.0 e depois. Se você não quiser que seu toobe do servidor do Azure AD Connect atualizado automaticamente, você deve executar a seguinte cmdlet no seu servidor do Azure AD Connect: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Para obter mais informações sobre habilitação/desabilitação da atualização automática, consulte tooarticle [do Azure AD Connect: a atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md).
 
 ## <a name="115570"></a>1.1.557.0
 Status: julho de 2017
 
 >[!NOTE]
->Esta compilação não está disponível para os clientes por meio do recurso Atualização Automática do Azure AD Connect.
+>Esta compilação não está disponível toocustomers por meio do recurso de conectar-se a atualização automática de saudação do AD do Azure.
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 
 #### <a name="fixed-issue"></a>Problema corrigido
-* Foi corrigido um problema com o cmdlet Initialize-ADSyncDomainJoinedComputerSync que fazia com que o domínio verificado configurado no objeto de ponto de conexão de serviço existente fosse alterado, mesmo que ele ainda fosse um domínio válido. Esse problema ocorre quando seu locatário do Azure AD tem mais de um domínio verificado, os quais podem ser usados para configurar o ponto de conexão de serviço.
+* Corrigido um problema com o cmdlet Olá Initialize-ADSyncDomainJoinedComputerSync que causou o domínio verificado do hello configurado no hello existente serviço conexão ponto objeto toobe alterado, mesmo que ele ainda é um domínio válido. Esse problema ocorre quando seu locatário do AD do Azure tem mais de um domínios verificados que podem ser usado para configurar o ponto de conexão de serviço de saudação.
 
 #### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
-* O Write-back de Senha já está disponível para versão prévia com a nuvem do Microsoft Azure Governamental e com o Microsoft Cloud Alemanha. Para obter mais informações sobre o suporte do Azure AD Connect para as diferentes instâncias de serviço, consulte o artigo [Azure AD Connect: considerações especiais para instâncias](active-directory-aadconnect-instances.md).
+* O Write-back de Senha já está disponível para versão prévia com a nuvem do Microsoft Azure Governamental e com o Microsoft Cloud Alemanha. Para obter mais informações sobre o suporte do Azure AD Connect Olá diferentes para instâncias de serviço, consulte tooarticle [do Azure AD Connect: considerações especiais para instâncias](active-directory-aadconnect-instances.md).
 
-* O cmdlet Initialize-ADSyncDomainJoinedComputerSync agora tem um novo parâmetro opcional chamado AzureADDomain. Esse parâmetro permite especificar o domínio verificado a ser usado para configurar o ponto de conexão de serviço.
+* Olá Initialize-ADSyncDomainJoinedComputerSync cmdlet agora tem um novo parâmetro opcional nomeado AzureADDomain. Esse parâmetro permite especificar qual verificado toobe de domínio usada para configurar o ponto de conexão de serviço de saudação.
 
 ### <a name="pass-through-authentication"></a>Autenticação de Passagem
 
 #### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
-* O nome do agente necessário para Autenticação de passagem foi alterado de *Conector de Proxy de Aplicativo do Microsoft Azure AD* para *Agente de autenticação do Microsoft Azure AD Connect*.
+* nome de saudação do agente de saudação necessário para autenticação de passagem foi alterada de *conector de Proxy de aplicativo do Microsoft Azure AD* muito*agente do Microsoft Azure AD Connect autenticação*.
 
 * A habilitação da Autenticação de passagem não habilita a Sincronização de hash de senha por padrão.
 
@@ -130,58 +130,58 @@ Status: julho de 2017
 Status: junho de 2017
 
 > [!IMPORTANT]
-> Foram introduzidas alterações de regra de esquema e sincronização nesse build. O Serviço de Sincronização do Azure AD Connect disparará as etapas de Importação completa e Sincronização completa após a atualização. Detalhes das alterações são descritos abaixo. Para adiar temporariamente as etapas de Importação completa e Sincronização completa após a atualização, consulte o artigo [Como adiar a sincronização completa após a atualização](active-directory-aadconnect-upgrade-previous-version.md#how-to-defer-full-synchronization-after-upgrade).
+> Foram introduzidas alterações de regra de esquema e sincronização nesse build. O Serviço de Sincronização do Azure AD Connect disparará as etapas de Importação completa e Sincronização completa após a atualização. Detalhes das alterações de saudação são descritos abaixo. tootemporarily adiar etapas de importação completa e sincronização completa após a atualização, consulte tooarticle [como toodefer completo sincronização após a atualização](active-directory-aadconnect-upgrade-previous-version.md#how-to-defer-full-synchronization-after-upgrade).
 >
 >
 
 ### <a name="azure-ad-connect-sync"></a>Sincronização do Azure AD Connect
 
 #### <a name="known-issue"></a>Problema conhecido
-* Há um problema que afeta os clientes que estejam usando a [filtragem baseada em UO](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) com a sincronização do Azure AD Connect. Quando você navega até a [página Filtragem de domínio e UO](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) no assistente do Azure AD Connect, espera-se o seguinte comportamento:
-  * Se a filtragem baseada em UO estiver habilitada, a opção **Sincronizar domínios e UOs selecionados** será selecionada.
-  * Caso contrário, a opção **Sincronizar todos os domínios e UOs** será selecionada.
+* Há um problema que afeta os clientes que estejam usando a [filtragem baseada em UO](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) com a sincronização do Azure AD Connect. Quando você navega toohello [página de domínio e a filtragem de UO](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) no Assistente para conectar-se de saudação do AD do Azure, é esperado Olá comportamento a seguir:
+  * Se a filtragem baseada em unidade Organizacional é habilitado, Olá **de sincronização selecionados domínios e unidades organizacionais** opção é selecionada.
+  * Caso contrário, Olá **sincronizar todos os domínios e OUs** opção é selecionada.
 
-O problema que surge é que a **opção Sincronizar todos os domínios e UOs** fica sempre selecionada quando você executa o assistente.  Isso ocorre mesmo se a filtragem baseada em UO tiver sido configurada anteriormente. Antes de salvar qualquer alteração de configuração do AAD Connect, verifique se a **opção Sincronizar domínios e UOs selecionados está selecionada** e verifique se todas as UOs que precisam ser sincronizadas estão habilitadas novamente. Caso contrário, a filtragem baseada em UO será desabilitada.
+Olá, problema que surge é que hello **sincronizar todos os domínios e OUs opção** sempre é selecionado quando você executa o Assistente de saudação.  Isso ocorre mesmo se a filtragem baseada em UO tiver sido configurada anteriormente. Antes de salvar as alterações de configuração do AAD Connect, verifique se Olá **sincronizar selecionados domínios e OUs está selecionada** e verifique se todas as UOs necessário toosynchronize estão habilitadas novamente. Caso contrário, a filtragem baseada em UO será desabilitada.
 
 #### <a name="fixed-issues"></a>Problemas corrigidos
 
-* Foi corrigido um problema com Write-back de Senha que permitia que um administrador do Azure AD redefinisse a senha de uma conta de usuário privilegiado do AD local. O problema ocorre quando o Azure AD Connect recebe a permissão de Redefinição de senha sobre a conta privilegiada. O problema é corrigido nesta versão do Azure AD Connect não permitindo que um administrador do Azure AD redefina a senha de uma conta de usuário privilegiado arbitrária do AD local, a menos que o administrador seja o proprietário daquela conta. Para obter mais informações, consulte o [Security Advisory 4033453](https://technet.microsoft.com/library/security/4033453).
+* Corrigido um problema com write-back de senha que permite que um tooreset de administrador do AD do Azure senha Olá local AD conta de usuário privilegiado. problema de Olá ocorre quando o Azure AD Connect é concedido a permissão de redefinição de senha Olá conta Olá privilegiado. Olá problema é corrigido nesta versão do Azure AD Connect não permitindo que um tooreset de administrador do AD do Azure senha Olá local arbitrário AD conta de usuário privilegiado, a menos que o administrador Olá é proprietário de saudação dessa conta. Para obter mais informações, consulte muito[4033453 consultoria de segurança](https://technet.microsoft.com/library/security/4033453).
 
-* Foi corrigido um problema relacionado ao recurso [msDS-ConsistencyGuid como âncora de origem](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) em que o Azure AD Connect não faz write-back no atributo msDS-ConsistencyGuid do AD local. O problema ocorre quando há várias florestas do AD locais adicionadas ao Azure AD Connect e a *opção Existem identidades de usuários em vários diretórios* está selecionada. Quando essa configuração é usada, as regras de sincronização resultantes não preenchem o atributo sourceAnchorBinary no metaverso. O atributo sourceAnchorBinary é usado como o atributo de origem para o atributo msDS-ConsistencyGuid. Como resultado, o write-back no atributo ms-DSConsistencyGuid não ocorre. Para corrigir o problema, as seguintes regras de sincronização foram atualizadas para garantir que o atributo sourceAnchorBinary no metaverso seja sempre populado:
+* Corrigido um problema relacionado toohello [msDS-ConsistencyGuid como âncora de origem](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) recurso onde o Azure AD Connect não não write-back tooon locais de atributo msDS-ConsistencyGuid do AD. Olá problema ocorre quando há vários locais florestas do AD adicionado tooAzure AD Connect e hello *existem identidades de usuário em opção de vários diretórios* está selecionado. Quando essa configuração é usada, as regras de sincronização resultante de saudação não preenchem atributo sourceAnchorBinary Olá Olá metaverso. atributo de sourceAnchorBinary de saudação é usado como atributo de origem Olá para o atributo msDS-ConsistencyGuid. Como resultado, atributo do Write-back toohello ms-DSConsistencyGuid não ocorrerá. problema de saudação toofix, seguintes regras de sincronização foram tooensure atualizado que Olá sourceAnchorBinary atributo Olá que metaverso sempre é populado:
   * In from AD – InetOrgPerson AccountEnabled.xml
   * In from AD - InetOrgPerson Common.xml
   * In from AD - User AccountEnabled.xml
   * In from AD - User Common.xml
   * In from AD - User Join SOAInAAD.xml
 
-* Anteriormente, mesmo se o recurso [msDS-ConsistencyGuid como âncora de origem](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) não estivesse habilitado, a regra de sincronização "Out to AD – User ImmutableId" ainda seria adicionada ao Azure AD Connect. O efeito seria benigno e não faria com que o write-back do atributo msDS-ConsistencyGuid ocorresse. Para evitar confusão, foi adicionada uma lógica para garantir que a regra de sincronização seja adicionada somente quando o recurso estiver habilitado.
+* Anteriormente, até mesmo se hello [msDS-ConsistencyGuid como âncora de origem](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) recurso não estiver habilitado, hello "Out tooAD – ImmutableId do usuário" regra de sincronização será adicionada tooAzure AD Connect. efeito de saudação é benigno e não faz com que o write-back de toooccur do atributo msDS-ConsistencyGuid. tooavoid confusão, foi adicionada lógica tooensure que Olá regra de sincronização é adicionado somente quando o recurso hello está habilitado.
 
-* Foi corrigido um problema que causava a falha na sincronização de hash de senha com o evento de erro 611. Esse problema ocorria depois que um ou mais controladores de domínio eram removidos do AD local. No final de cada ciclo de sincronização de senha, o cookie de sincronização emitido pelo AD local continha IDs de invocação dos controladores de domínio removidos com valor de USN (números de sequência de atualização) igual a 0. O Gerenciador de Sincronização de Senha não é capaz de persistir o cookie de sincronização que tenha valor de USN igual a 0 e falha com o evento de erro 611. Durante o próximo ciclo de sincronização, o Gerenciador de Sincronização de Senha reutiliza o último cookie de sincronização persistido que não tenha o valor de USN igual a 0. Isso faz com que as mesmas alterações de senha sejam sincronizadas. Com essa correção, o Gerenciador de Sincronização de Senha persiste corretamente o cookie de sincronização.
+* Corrigido um problema que causou toofail de sincronização de hash de senha com o evento de erro 611. Esse problema ocorria depois que um ou mais controladores de domínio eram removidos do AD local. No final da saudação de cada ciclo de sincronização de senha, Olá cookie de sincronização emitido por local AD contém IDs de invocação Olá removido dos controladores de domínio com valor de USN (número de sequência de atualização) de 0. Olá Gerenciador de sincronização de senha é toopersist não é possível sincronização cookie contendo USN valor de 0 e falhará com o evento de erro 611. Durante a próxima sincronização de saudação do ciclo, Olá Gerenciador de sincronização de senha reutiliza Olá última persistente cookie de sincronização que não contêm o valor de USN de 0. Isso faz com que Olá mesmas alterações de senha toobe ressincronizado. Com essa correção, Olá Gerenciador de sincronização de senha persiste o cookie de sincronização Olá corretamente.
 
-* Anteriormente, mesmo que a Atualização automática tivesse sido desabilitada usando o cmdlet Set-ADSyncAutoUpgrade, o processo de Atualização automática continuava a verificar atualizações periodicamente e dependia do instalador baixado para ser desabilitado. Com essa correção, o processo de Atualização automática não verificará mais atualizações periodicamente. A correção será aplicada automaticamente quando o instalador de atualização desta versão do Azure AD Connect for executada uma vez.
+* Anteriormente, mesmo se a atualização automática foi desativado usando o cmdlet Olá conjunto ADSyncAutoUpgrade, Olá atualização automática do processo continua toocheck para atualização periodicamente e se baseia em Olá baixado instalador toohonor desativação. Com essa correção, Olá o processo de atualização automática não verificará mais atualização periodicamente. correção de saudação é aplicada automaticamente quando o instalador de atualização para esta versão do Azure AD Connect é executada uma vez.
 
 #### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 
-* Anteriormente, o recurso [msDS-ConsistencyGuid como âncora de origem](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) estava disponível somente para novas implantações. Agora ele está disponível para as implantações existentes. Mais especificamente:
-  * Para acessar o recurso, inicie o assistente Azure AD Connect e escolha a opção *Atualizar âncora de origem*.
-  * Essa opção só está visível para as implantações existentes que estejam usando o objectGuid como atributo sourceAnchor.
-  * Ao configurar a opção, o assistente validará o estado do atributo msDS-ConsistencyGuid em seu Active Directory local. Se o atributo não estiver configurado em nenhum objeto de usuário no diretório, o assistente usará o msDS-ConsistencyGuid como o atributo sourceAnchor. Se o atributo estiver configurado em um ou mais objetos de usuário no diretório, o assistente concluirá que o atributo está sendo usado por outros aplicativos e não é adequado como atributo sourceAnchor, não permitindo que a alteração da Âncora de origem prossiga. Se você tiver certeza de que o atributo não é usado pelos aplicativos existentes, precisará contatar o Suporte para obter informações sobre como suprimir o erro.
+* Anteriormente, Olá [msDS-ConsistencyGuid como âncora de origem](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) recurso estava disponível toonew implantações somente. Agora, ela é implantações tooexisting disponíveis. Mais especificamente:
+  * tooaccess Olá recursos, Iniciar Assistente para conectar-se de saudação do AD do Azure e escolha Olá *âncora de origem de atualização* opção.
+  * Essa opção é somente as implantações de tooexisting visível que estão usando o objectGuid como o atributo sourceAnchor.
+  * Ao configurar a opção hello, o Assistente de saudação valida estado de saudação do atributo de msDS-ConsistencyGuid Olá no Active Directory local. Se o atributo de saudação não está configurado em qualquer objeto de usuário no diretório Olá, o Assistente de Olá usa Olá msDS-ConsistencyGuid como atributo de sourceAnchor hello. Se o atributo Olá estiver configurado em um ou mais objetos de usuário no diretório hello, Assistente de saudação conclui atributo hello está sendo usado por outros aplicativos e não é adequado como atributo sourceAnchor e não permite Olá tooproceed de alteração de âncora de origem. Se você tem certeza de que o atributo Olá não é usado por aplicativos existentes, será necessário toocontact suporte para obter informações sobre como toosuppress Olá erro.
 
-* Específico ao atributo **userCertificate** nos objetos de dispositivo, o Azure AD Connect agora procura por valores de certificados necessários para [Conectar dispositivos ingressados no domínio ao Azure AD para a experiência do Windows 10](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy) e filtra o restante antes da sincronização com o Azure AD. Para habilitar esse comportamento, a regra de sincronização integrada "Out to AAD – Device Join SOAInAD" foi atualizada.
+* Específico muito**userCertificate** atributos nos objetos de dispositivo, o Azure AD Connect agora procura valores de certificados necessários para [tooAzure de dispositivos que ingressaram no domínio AD para Windows 10 experiência de conexão](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy) e filtra os Olá restante antes de sincronizar tooAzure AD. tooenable esse comportamento, a regra de sincronização de out-of-box hello "Out tooAAD - dispositivo ingressar SOAInAD" foi atualizado.
 
-* Agora o Azure AD Connect dá suporte ao write-back do atributo **cloudPublicDelegates** do Exchange Online no atributo **publicDelegates** do AD local. Isso habilita o cenário em que uma caixa de correio do Exchange Online possa obter direitos de SendOnBehalfTo para usuários com caixa de correio do Exchange local. Para dar suporte a esse recurso, uma nova regra de sincronização integrada "Out to AD – User Exchange Hybrid PublicDelegates writeback" foi adicionada. Essa regra de sincronização só é adicionada ao Azure AD Connect quando o recurso Exchange Híbrido está habilitado.
+* Azure AD Connect agora dá suporte a write-back do Exchange Online **cloudPublicDelegates** tooon local de atributo AD **publicDelegates** atributo. Isso permite que o cenário de saudação em que uma caixa de correio do Exchange Online pode ser concedida SendOnBehalfTo direitos toousers com caixa de correio do Exchange no local. toosupport esse recurso, uma nova regra de sincronização de fora da caixa "Out tooAD – usuário Exchange híbrido PublicDelegates write-back" foi adicionado. Essa regra de sincronização só é adicionada tooAzure AD se conectar ao recurso híbrida do Exchange está habilitado.
 
-*   Agora o Azure AD Connect dá suporte à sincronização do atributo **altRecipient** por meio do Azure AD. Para dar suporte a essa alteração, as seguintes regras de sincronização integradas foram atualizadas para incluir o fluxo de atributo necessário:
+*   Azure AD Connect agora dá suporte a sincronização Olá **altRecipient** atributo do AD do Azure. toosupport essa alteração, regras de sincronização de fora da caixa a seguir foram atualizados tooinclude o fluxo de atributos Olá necessários:
   * Entrada do AD – usuário do Exchange
-  * Out to AAD – User ExchangeOnline
+  * Limite tooAAD – ExchangeOnline do usuário
   
-* O atributo **cloudSOAExchMailbox** no metaverso indica se um determinado usuário tem a caixa de correio do Exchange Online ou não. A definição desse atributo foi atualizada para incluir RecipientDisplayTypes adicionais do Exchange Online, como caixas de correio de Equipamentos e de Sala de conferência. Para habilitar essa alteração, a definição do atributo cloudSOAExchMailbox, que se encontra na regra de sincronização integrada "In from AAD – User Exchange Hybrid", foi atualizada de:
+* Olá **cloudSOAExchMailbox** atributo Olá metaverso indica se um determinado usuário tem a caixa de correio do Exchange Online ou não. Sua definição foi atualizada tooinclude RecipientDisplayTypes Online adicionais do Exchange como essas caixas de correio de sala de conferência e equipamentos. tooenable essa alteração, a definição de saudação do atributo de cloudSOAExchMailbox hello, que se encontra na regra de sincronização de fora da caixa "do AAD – usuário Exchange híbrido", foi atualizada em:
 
 ```
 CBool(IIF(IsNullOrEmpty([cloudMSExchRecipientDisplayType]),NULL,BitAnd([cloudMSExchRecipientDisplayType],&amp;HFF) = 0))
 ```
 
-... para o seguinte:
+... toohello a seguir:
 
 ```
 CBool(
@@ -199,7 +199,7 @@ CBool(
 
 ```
 
-* Foi adicionado o seguinte conjunto de funções compatíveis com X509Certificate2 para a criação de expressões de regra de sincronização, a fim de lidar com valores de certificado no atributo userCertificate:
+* A seguir Olá adicionado conjunto de funções X509Certificate2 compatível para criar valores de certificado de toohandle de expressões de regra de sincronização no atributo de userCertificate Olá:
 
     ||||
     | --- | --- | --- |
@@ -213,48 +213,48 @@ CBool(
     |CertKeyAlgorithmParams|CertHashString|Where|
     |||With|
 
-* As seguintes alterações de esquema foram introduzidas para permitir que os clientes criem regras de sincronização personalizadas para transmitir sAMAccountName, domainNetBios e domainFQDN para objetos de grupo, bem como transmitir distinguishedName para objetos de usuário:
+* Alterações de esquema a seguir foram introduzidas tooallow clientes toocreate sincronização personalizadas regras tooflow sAMAccountName, domainNetBios e domainFQDN para objetos de grupo, bem como distinguishedName para objetos de usuário:
 
-  * Os atributos a seguir foram adicionados ao esquema do MV:
+  * Atributos a seguir foram adicionados tooMV esquema:
     * Grupo: AccountName
     * Grupo: domainNetBios
     * Grupo: domainFQDN
     * Pessoa: distinguishedName
 
-  * Os atributos a seguir foram adicionados ao esquema do Azure AD Connector:
+  * Atributos a seguir foram adicionados tooAzure esquema de conector AD:
     * Grupo: OnPremisesSamAccountName
     * Grupo: NetBiosName
     * Grupo: DnsDomainName
     * Usuário: OnPremisesDistinguishedName
 
-* O script do cmdlet ADSyncDomainJoinedComputerSync agora tem um novo parâmetro opcional chamado AzureEnvironment. O parâmetro é usado para especificar a região na qual o locatário do Azure Active Directory correspondente está hospedado. Os valores válidos incluem:
+* Olá ADSyncDomainJoinedComputerSync cmdlet script agora tem um novo parâmetro opcional nomeado AzureEnvironment. parâmetro Hello é usado toospecify Olá qual região correspondente locatário do Active Directory do Azure está hospedado no. Os valores válidos incluem:
   * AzureCloud (padrão)
   * AzureChinaCloud
   * AzureGermanyCloud
   * USGovernment
  
-* O Editor de regra de sincronização foi atualizado para usar Join (em vez de Provision) como o valor padrão do tipo de link durante a criação da regra de sincronização.
+* Unir toouse atualizado do Editor de regra de sincronização (em vez de provisionar) como valor padrão de saudação do tipo de link durante a criação de regra de sincronização.
 
 ### <a name="ad-fs-management"></a>Gerenciamento dos AD FS
 
 #### <a name="issues-fixed"></a>Problemas corrigidos
 
-* As seguintes URLs são novos pontos de extremidade do Web Services Federation, introduzidos pelo Azure AD para aumentar a resiliência contra interrupção de autenticação e serão adicionadas à configuração de confiança da entidade de replicação do AD FS local:
+* URLs a seguir são novos pontos de extremidade do WS-Federation introduzidos por resiliência do AD do Azure tooimprove contra falha de autenticação e será adicionado tooon local responder a configuração de confiança de terceiros do AD FS:
   * https://ests.login.microsoftonline.com/login.srf
   * https://stamp2.login.microsoftonline.com/login.srf
   * https://ccs.login.microsoftonline.com/login.srf
   * https://ccs-sdf.login.microsoftonline.com/login.srf
   
-* Foi corrigido um problema que fazia com que o AD FS gerasse um valor de declaração incorreto para IssuerID. O problema ocorre se houver vários domínios verificados no locatário do Azure AD e o sufixo do domínio do atributo userPrincipalName usado para gerar a declaração IssuerID tiver pelo menos 3 níveis de profundidade (por exemplo, johndoe@us.contoso.com). O problema é resolvido ao atualizar a expressão regular usada pelas regras de declaração.
+* Corrigido um problema que causou o valor de declaração incorreta do AD FS toogenerate para IssuerID. problema de saudação ocorre se houver vários domínios verificados no locatário de saudação do AD do Azure e o sufixo do domínio de saudação do hello userPrincipalName atributo usado toogenerate Olá IssuerID declaração é pelo menos 3 níveis profunda (por exemplo, johndoe@us.contoso.com). Olá problema é resolvido atualizando regex Olá usado pelas regras de declaração de saudação.
 
 #### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
-* Anteriormente, o recurso Certificate Management do AD FS, fornecido pelo Azure AD Connect, só podia ser usado com farms do AD FS gerenciados por meio do Azure AD Connect. Agora, você pode usar o recurso com farms do AD FS que não sejam gerenciados com o Azure AD Connect.
+* Anteriormente, o recurso de gerenciamento de certificados de ADFS de saudação fornecido pelo Azure AD Connect somente pode ser usado com ADFS farms de servidores gerenciados por meio do Azure AD Connect. Agora, você pode usar o recurso de saudação com farms de servidores do AD FS que não são gerenciados usando o Azure AD Connect.
 
 ## <a name="115240"></a>1.1.524.0
 Lançamento: maio de 2017
 
 > [!IMPORTANT]
-> Foram introduzidas alterações de regra de esquema e sincronização nesse build. O Serviço de Sincronização do Azure AD Connect disparará as etapas de Importação Completa e Sincronização Completa após a atualização. Detalhes das alterações são descritos abaixo.
+> Foram introduzidas alterações de regra de esquema e sincronização nesse build. O Serviço de Sincronização do Azure AD Connect disparará as etapas de Importação Completa e Sincronização Completa após a atualização. Detalhes das alterações de saudação são descritos abaixo.
 >
 >
 
@@ -262,40 +262,40 @@ Lançamento: maio de 2017
 
 Sincronização do Azure AD Connect
 
-* Corrigido um problema que fazia a Atualização Automática ocorrer no servidor do Azure AD Connect, mesmo que o cliente tivesse desabilitado o recurso usando o cmdlet Set-ADSyncAutoUpgrade. Com essa correção, o processo de Atualização Automática no servidor ainda verifica se há atualizações periodicamente, mas o instalador baixado respeita a configuração de Atualização Automática.
-* Durante a atualização in-loco do DirSync, o Azure AD Connect cria uma conta de serviço do Azure AD para ser usada pelo Azure AD Connector para sincronizar com o Azure AD. Depois da criação da conta, o Azure AD Connect autentica-se com o Azure AD usando a conta. Às vezes, a autenticação falha devido a questões transitórias que, por sua vez, fazem a atualização in-loco de DirSync falhar com o erro *"Ocorreu um erro ao executar tarefa Configurar AAD Sync: AADSTS50034: para entrar nesse aplicativo, a conta deve ser adicionada ao diretório xxx.onmicrosoft.com"*. Para melhorar a resiliência da atualização do DirSync, o Azure AD Connect agora tenta novamente realizar a etapa de autenticação.
-* Havia um problema com o build 443 que fazia a atualização in-loco do DirSync ser bem-sucedida, mas os perfis de execução necessários para a sincronização do diretório não eram criados. A lógica de reparo está incluída nesse build do Azure AD Connect. Quando o cliente atualiza para esse build, o Azure AD Connect detecta os perfis de execução ausentes e cria-os.
-* Corrigido um problema que fazia o processo de Sincronização de Senha não ser inicializado com a ID de Evento 6900 e o erro *"Um item com a mesma chave já foi adicionado"*. Esse problema ocorre se você atualiza a configuração de filtragem da UO para incluir a partição de configuração do AD. Para corrigir esse problema, o processo de Sincronização de Senha agora sincroniza alterações de senha de partições de domínio do AD apenas. Partições não de domínio, como a partição de configuração, são ignoradas.
-* Durante a instalação do Expresso, o Azure AD Connect cria uma conta do AD DS local para ser usada pelo AD Connector para comunicação com o AD local. Anteriormente, a conta era criada com o sinalizador PASSWD_NOTREQD definido no atributo user-Account-Control e uma senha aleatória era definida na conta. Agora, o Azure AD Connect remove explicitamente o sinalizador PASSWD_NOTREQD depois que a senha é definida na conta.
-* Corrigido um problema que faz com que a atualização do DirSync falhe com o erro *"Ocorreu um deadlock no SQL Server que está tentando adquirir um deadlock de aplicativo"* quando o atributo mailNickname é encontrado no esquema do AD local, mas não está limitado à classe de objeto de Usuário do AD.
-* Corrigido um problema que fazia o recurso de write-back do Dispositivo ser desabilitado automaticamente quando um administrador estava atualizando a configuração de sincronização do Azure AD Connect usando o assistente do Azure AD Connect. Isso é causado pela execução de verificação de pré-requisito pelo assistente para a configuração de write-back do Dispositivo existente no AD local e a falha na verificação. A correção será ignorar a verificação se o write-back do Dispositivo já tiver sido habilitado anteriormente.
-* Para configurar a filtragem da UO, você pode usar o assistente do Azure AD Connect ou o Synchronization Service Manager. Anteriormente, se você usasse o Assistente do Azure AD Connect para configurar a filtragem de UO, novas UOs criadas posteriormente seriam incluídas para sincronização de diretórios. Se você não quisesse incluir novas UOs, precisaria configurar a filtragem de UO usando o Synchronization Service Manager. Agora, você pode obter o mesmo comportamento usando o assistente do Azure AD Connect.
-* Corrigido um problema que fazia os procedimentos armazenados exigidos pelo Azure AD Connect serem criados sob o esquema do administrador de instalação, em vez de no esquema do dbo.
-* Corrigido um problema que fazia com que o atributo TrackingId retornado pelo Azure AD fosse omitido nos Logs de Evento do Servidor do AAD Connect. O problema ocorria quando o Azure AD Connect recebia uma mensagem de redirecionamento do Azure AD e do Azure AD Connect não conseguia conectar-se ao ponto de extremidade fornecido. O TrackingId é usado pelos Engenheiros de Suporte para correlacionar com logs no lado do serviço durante a solução de problemas.
-* Quando o Azure AD Connect recebe o erro LargeObject do Azure AD, o Azure AD Connect gera um evento com o EventID 6941 e a mensagem *“O objeto provisionado é muito grande. Restrinja o número de valores de atributo nesse objeto.”* Ao mesmo tempo, o Azure AD Connect também gera um evento enganoso com EventID 6900 e mensagem *"Microsoft.Online.Coexistence.ProvisionRetryException: não é possível comunicar-se com o serviço Microsoft Azure Active Directory"*. Para minimizar a confusão, Azure AD Connect não gera mais este último evento quando o erro LargeObject é recebido.
-* Corrigido um problema que fazia com que o Synchronization Service Manager parasse de responder ao tentar atualizar a configuração do conector de LDAP genérico.
+* Corrigido um problema que faz com que toooccur atualização automática no servidor do Azure AD Connect hello, mesmo se o cliente tiver desabilitado o recurso hello usando Olá conjunto ADSyncAutoUpgrade cmdlet. Com essa correção, Olá processo de atualização automática no servidor de saudação ainda verifica se há atualização periodicamente, mas instalador baixado hello respeita a configuração de atualização automática de saudação.
+* Durante a atualização in-loco de DirSync, o Azure AD Connect cria um toobe de conta de serviço do AD do Azure usada pelo conector de saudação do AD do Azure para sincronizar com o AD do Azure. Após a criação de conta de Olá, Azure AD Connect autentica com o Azure AD usando a conta de saudação. Às vezes, a autenticação falha devido a problemas transitórios, que por sua vez, faz toofail atualização do DirSync no local com o erro *"Ocorreu um erro ao executar tarefa de configurar a sincronização do AAD: AADSTS50034: toosign nesse aplicativo, a conta de saudação deve ser adicionado toohello xxx.onmicrosoft.com directory."* tooimprove resiliência de saudação da atualização do DirSync, do Azure AD Connect agora tentará novamente a etapa de autenticação hello.
+* Houve um problema com a compilação 443 que faz com que o DirSync in-loco atualização toosucceed mas necessários para a sincronização de diretório de perfis de execução não são criados. A lógica de reparo está incluída nesse build do Azure AD Connect. Quando o cliente atualiza toothis compilação, o Azure AD Connect detecta ausente perfis de execução e criá-los.
+* Corrigido um problema que faz a sincronização de senha processo toofail toostart 6900 de ID de evento e o erro *"Um item com hello a mesma chave já foi adicionado"*. Esse problema ocorre se você atualizar OU partição de configuração de tooinclude AD de configuração de filtragem. toofix esse problema, a sincronização de senha agora processar sincroniza alterações de senha de partições de domínio do AD apenas. Partições não de domínio, como a partição de configuração, são ignoradas.
+* Durante a instalação do Express, a conexão do AD do Azure cria um local toobe usado pelo Olá AD conector toocommunicate com o local de conta do AD DS AD. Anteriormente, Olá conta é criada com o sinalizador PASSWD_NOTREQD Olá definido no atributo de controle de conta de usuário hello e uma senha aleatória é definida na conta de saudação. Agora, Azure AD Connect explicitamente remove sinalizador PASSWD_NOTREQD Olá depois Olá senha é definida na conta de saudação.
+* Corrigido um problema que faz com que o DirSync toofail de atualização com o erro *"Ocorreu um deadlock no sql server que tentar tooacquire um bloqueio de aplicativo"* quando o atributo de mailNickname hello está localizado no hello esquema do AD local, mas não é classe de objeto de usuário do AD de toohello limitada.
+* Fixo de um problema que causa tooautomatically de recurso de write-back do dispositivo desativado quando um administrador está atualizando a configuração de sincronização do Azure AD Connect usando o Assistente de conexão do AD do Azure. Isso é causado pela verificação de pré-requisito executando Olá Assistente para write-back configuração de dispositivo existente Olá no AD local e Falha na verificação da saudação. correção de saudação é seleção de saudação tooskip se Write-back de dispositivo já está habilitado anteriormente.
+* tooconfigure OU filtragem, você pode usar Assistente de conexão do AD do Azure hello ou Olá Synchronization Service Manager. Anteriormente, se você usar a filtragem de saudação do AD do Azure Connect Assistente tooconfigure unidade Organizacional, novas OUs criadas posteriormente são incluídas para sincronização de diretórios. Se você não quiser novo toobe UOs incluído, você deve configurar OU filtragem usando Olá Synchronization Service Manager. Agora, você pode obter Olá mesmo comportamento usando o Assistente de conexão do AD do Azure.
+* Corrigido um problema que faz com que procedimentos armazenados exigidos pelo Azure AD Connect toobe criado no esquema de saudação do hello instalando admin, em vez de no esquema de dbo hello.
+* Corrigido um problema que faz com que o atributo de TrackingId Olá retornado pelo AD do Azure toobe omitido na Olá AAD Logs de eventos de servidor se conectar. problema de Olá ocorre se o Azure AD Connect recebe uma mensagem de redirecionamento do AD do Azure e do Azure AD Connect é o ponto de extremidade de toohello de tooconnect fornecido. Olá TrackingId é usada pelo toocorrelate engenheiros de suporte com logs de lado do serviço durante a solução de problemas.
+* Quando o Azure AD Connect recebe o erro LargeObject do AD do Azure, Azure AD Connect gera um evento com EventID 6941 e mensagem *"hello provisionado é muito grande. Número de saudação de valores de atributo nesse objeto trim."* A saudação mesmo momento, o Azure AD Connect também gera um evento enganoso com EventID 6900 e mensagem *"Microsoft.Online.Coexistence.ProvisionRetryException: não é possível toocommunicate com hello Windows serviço Active Directory do Azure."* toominimize confusão, Azure AD Connect não gera o evento com este último hello quando LargeObject erro é recebido.
+* Corrigido um problema que faz com que o hello toobecome do Gerenciador de serviço de sincronização não responder durante a tentativa de configuração de saudação tooupdate para conector LDAP genérico.
 
 **Novos recursos/melhorias:**
 
 Sincronização do Azure AD Connect
-* Alterações de Regra de Sincronização – as seguintes alterações de regra de sincronização foram implementadas:
-  * Atualizado o conjunto de regras de sincronização padrão para não exportar os atributos **userCertificate** e **userSMIMECertificate** se os atributos tivessem mais de 15 valores.
-  * Os atributos **employeeID** e **msExchBypassModerationLink** do AD agora são incluídos no conjunto de regras de sincronização padrão.
+* Sincronizar as alterações de regra – Olá regra de sincronização foram implementadas alterações a seguir:
+  * Conjunto de regras de sincronização padrão atualizado toonot atributos de exportação **userCertificate** e **userSMIMECertificate** se atributos Olá tem mais de 15 valores.
+  * Atributos do AD **employeeID** e **msExchBypassModerationLink** agora estão incluídas no conjunto de regras de sincronização saudação padrão.
   * O atributo **photo** do AD foi removido do conjunto de regras de sincronização padrão.
-  * Adicionado **preferredDataLocation** ao esquema de Metaverso e ao esquema do AAD Connector. Os clientes que desejam atualizar qualquer um dos atributos no Azure AD podem implementar regras de sincronização personalizadas para fazer isso. Para obter mais informações sobre o atributo, consulte a seção do artigo [Sincronização do Azure AD Connect: como fazer uma alteração à configuração padrão – habilitar a sincronização de PreferredDataLocation](active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-preferreddatalocation).
-  * Adicionado **userType** ao esquema do Metaverso e ao esquema do AAD Connector. Os clientes que desejam atualizar qualquer um dos atributos no Azure AD podem implementar regras de sincronização personalizadas para fazer isso.
+  * Adicionado **preferredDataLocation** toohello metaverso esquema e o esquema do conector AAD. Clientes que desejam tooupdate que podem implementar qualquer um dos atributos no AD do Azure personalizado toodo de regras de sincronização assim. toofind mais informações sobre o atributo Olá, consulte a seção tooarticle [sincronização do Azure AD Connect: como a toomake toohello uma alteração de configuração - Habilitar sincronização de PreferredDataLocation padrão](active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-preferreddatalocation).
+  * Adicionado **userType** toohello metaverso esquema e o esquema do conector AAD. Clientes que desejam tooupdate que podem implementar qualquer um dos atributos no AD do Azure personalizado toodo de regras de sincronização assim.
 
-* Agora o Azure AD Connect habilita automaticamente o uso do atributo ConsistencyGuid como o atributo de Âncora de origem para objetos do AD local. Além disso, o Azure AD Connect preenche o atributo ConsistencyGuid com o valor do atributo objectGuid se ele estiver vazio. Esse recurso é aplicável apenas à nova implantação. Para obter mais informações sobre esse recurso, consulte a seção do artigo [Azure AD Connect: Conceitos de design – usando msDS-ConsistencyGuid como sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
-* O novo cmdlet de solução de problemas Invoke-ADSyncDiagnostics foi adicionado para ajudar a diagnosticar problemas relacionados à Sincronização de Hash de Senha. Para obter informações sobre como usar o cmdlet, consulte o artigo [Solucionar problemas de sincronização de senha com a sincronização do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization).
-* O Azure AD Connect agora dá suporte à sincronização dos objetos de Pasta Pública Habilitados para Email do AD local para o Azure AD. Você pode habilitar o recurso usando o assistente do Azure AD Connect em Recursos Opcionais. Para obter mais informações sobre esse recurso, consulte o artigo [Suporte do Bloqueio do Edge Baseado nos Diretórios do Office 365 para Pastas Públicas locais Habilitadas para Email](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders).
-* O Azure AD Connect exige uma conta do AD DS para sincronizar do AD local. Anteriormente, se você instalava o Azure AD Connect usando o modo Expresso, era possível fornecer as credenciais de uma conta do Admin Corporativo e o Azure AD Connect criaria a conta necessária do AD DS. No entanto, para uma instalação personalizada e para adicionar florestas a uma implantação existente, era necessário fornecer a conta do AD DS. Agora você também tem a opção de fornecer as credenciais de uma conta do Admin Corporativo durante uma instalação personalizada e permitir que o Azure AD Connect crie a conta do AD DS necessária.
-* O Azure AD Connect agora dá suporte a SQL AOA. Você deve habilitar o SQL AOA antes de instalar o Azure AD Connect. Durante a instalação, o Azure AD Connect detecta se a instância do SQL fornecida está habilitada para SQL AOA ou não. Se o SQL AOA estiver habilitado, o Azure AD Connect descobrirá melhor se o AOA SQL está configurado para usar replicação síncrona ou replicação assíncrona. Ao configurar o Ouvinte do Grupo de Disponibilidade, é recomendável definir a propriedade RegisterAllProvidersIP como 0. Isso ocorre porque o Azure AD Connect atualmente usa o SQL Native Client para conectar-se ao SQL, e o SQL Native Client não dá suporte ao uso da propriedade MultiSubNetFailover.
-* Se você estiver usando o LocalDB como o banco de dados para o servidor do Azure AD Connect e tiver atingido seu limite de tamanho de 10 GB, o Serviço de Sincronização não será mais iniciado. Anteriormente, você precisava executar a operação ShrinkDatabase no LocalDB para recuperar espaço suficiente do banco de dados para o Serviço de Sincronização iniciar. Depois disso, você pode usar o Synchronization Service Manager para excluir o histórico de execução para recuperar mais espaço do banco de dados. Agora, você pode usar cmdlet Start-ADSyncPurgeRunHistory para limpar os dados do histórico de execução do LocalDB para recuperar espaço do banco de dados. Além disso, esse cmdlet dá suporte ao modo offline (especificando o parâmetro -offline), que pode ser usado quando o Synchronization Service não estiver em execução. Observação: o modo offline poderá ser usado apenas se o Synchronization Service não estiver em execução e o banco de dados usado for LocalDB.
-* Para reduzir a quantidade de espaço de armazenamento necessária, o Azure AD Connect agora compacta os detalhes do erro de sincronização antes de armazená-los em bancos de dados SQL/LocalDB. Ao atualizar de uma versão anterior do Azure AD Connect para esta versão, o Azure AD Connect executa uma compactação única em detalhes do erro de sincronização existentes.
-* Anteriormente, depois de atualizar a configuração de filtragem da UO, você precisava executar manualmente uma importação Completa para garantir que os objetos existentes fossem incluídos/excluídos adequadamente da sincronização de diretório. Agora, o Azure AD Connect aciona automaticamente a importação Completa durante o próximo ciclo de sincronização. Além disso, a importação Total deve ser aplicada apenas aos AD Connectors afetados pela atualização. Observação: essa melhoria é aplicável apenas a atualizações de filtragem de UO feitas usando o assistente do Azure AD Connect. Não é aplicável à atualização de filtragem de UO feita usando o Synchronization Service Manager.
+* Conexão do AD do Azure agora automaticamente habilita Olá usar ConsistencyGuid atributo como atributo de âncora de origem Olá para local objetos do AD. Além disso, o Azure AD Connect preenche o atributo de ConsistencyGuid de saudação com valor de atributo objectGuid Olá se ela estiver vazia. Este recurso está apenas a implantação toonew aplicável. toofind mais informações sobre esse recurso, consulte a seção tooarticle [do Azure AD Connect: conceitos - usando msDS-ConsistencyGuid como sourceAnchor de projeto](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
+* Nova solução de problemas cmdlet Invoke-ADSyncDiagnostics foi adicionado toohelp diagnosticar sincronização de Hash de senha problemas relacionados. Para obter informações sobre como usar o cmdlet hello, consulte tooarticle [solucionar problemas de sincronização de senha com a sincronização do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization).
+* Conexão do AD do Azure agora oferece suporte a objetos de sincronizar Mail-Enabled de pasta pública do AD tooAzure AD no local. Você pode habilitar o recurso de saudação usando o Assistente de conexão do AD do Azure em recursos opcionais. toofind mais informações sobre esse recurso, consulte tooarticle [Office 365 diretório com base em borda bloqueando o suporte a locais Mail habilitado pública pastas](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders).
+* Um toosynchronize de conta do AD DS do local requer a conexão do AD do Azure AD. Anteriormente, se você instalou o Azure AD Connect usando o modo expresso hello, você pode fornecer credenciais de saudação de uma conta de administrador corporativo e do Azure AD Connect criaria conta Olá AD DS necessária. No entanto, para uma instalação personalizada e adicionar a implantação existente do tooan florestas, era necessário tooprovide Olá conta AD DS em vez disso. Agora, você também tem Olá opção tooprovide Olá credenciais de uma conta de administrador corporativo durante uma instalação personalizada e permitem que o Azure AD Connect criar hello AD DS conta necessária.
+* O Azure AD Connect agora dá suporte a SQL AOA. Você deve habilitar o SQL AOA antes de instalar o Azure AD Connect. Durante a instalação, o Azure AD Connect detecta se a instância SQL Olá fornecida está habilitada para SQL AOA, ou não. Se SQL AOA estiver habilitado, o Azure AD Connect mais descobre se SQL AOA é replicação síncrona toouse configurado ou replicação assíncrona. Ao configurar o ouvinte do grupo de disponibilidade do hello, é recomendável que você defina Olá RegisterAllProvidersIP propriedade too0. Isso ocorre porque a conexão do AD do Azure atualmente usa o SQL Native Client tooconnect tooSQL e SQL Native Client não dá suporte para uso de saudação da propriedade MultiSubNetFailover.
+* Se você estiver usando o LocalDB como banco de dados de saudação do servidor do Azure AD Connect e atingiu seu limite de tamanho de 10 GB, Olá serviço de sincronização não inicia. Anteriormente, você precisa tooperform operação ShrinkDatabase Olá LocalDB tooreclaim suficiente espaço de banco de dados para Olá toostart de serviço de sincronização. Depois que, você pode usar Olá toodelete Synchronization Service Manager executar tooreclaim histórico mais espaço de banco de dados. Agora, você pode usar Start-ADSyncPurgeRunHistory cmdlet toopurge executar dados de histórico do espaço de banco de dados de tooreclaim LocalDB. Além disso, esse cmdlet dá suporte ao modo offline (especificando Olá - parâmetro offline) que pode ser usado quando Olá serviço de sincronização não está em execução. Observação: Olá offline modo pode ser usado apenas se hello serviço de sincronização não está em execução e o banco de dados de saudação usado é LocalDB.
+* tooreduce saudação do espaço de armazenamento necessário, o Azure AD Connect agora compacta os detalhes do erro de sincronização antes de armazená-los em bancos de dados LocalDB/SQL. Ao atualizar de uma versão anterior do Azure AD Connect toothis versão, do Azure AD Connect executa uma única compactação nos detalhes de erro de sincronização existente.
+* Anteriormente, depois de atualizar OU configuração de filtragem, você deve executar manualmente a importação completa tooensure objetos existentes são corretamente incluído/excluído da sincronização de diretório. Agora, o Azure AD Connect aciona importação completa automaticamente durante a próxima sincronização de saudação do ciclo. Importação completa, mais só é ser aplicada toohello AD conectores afetados pela atualização de saudação. Observação: essa melhoria é aplicável tooOU filtragem atualizações feitas usando o assistente apenas do hello Azure AD Connect. Não é aplicável tooOU filtragem atualização feita usando Olá Synchronization Service Manager.
 * Anteriormente, filtragem baseada em Grupo dava suporte apenas a objetos de Usuários, Grupos e Contato. Agora, a filtragem baseada em Grupo também dá suporte a objetos de Computador.
-* Anteriormente, você podia excluir dados do Espaço Conector sem desabilitar o agendador de sincronização do Azure AD Connect. Agora, o Synchronization Service Manager bloqueia a exclusão de dados do Espaço Conector quando ele detecta que o agendador está habilitado. Além disso, um aviso é retornado para informar os clientes sobre uma possível perda de dados se os dados do espaço conector forem excluídos.
-* Anteriormente, você precisava desabilitar a transcrição do PowerShell para o assistente do Azure AD Connect ser executado corretamente. Esse problema foi parcialmente resolvido. Você poderá habilitar a transcrição do PowerShell se estiver usando o assistente do Azure AD Connect para gerenciar a configuração de sincronização. Você deverá desabilitar a transcrição do PowerShell se estiver usando o assistente do Azure AD Connect para gerenciar a configuração do ADFS.
+* Anteriormente, você podia excluir dados do Espaço Conector sem desabilitar o agendador de sincronização do Azure AD Connect. Agora, Olá Synchronization Service Manager exclusão de saudação de blocos de dados de espaço do conector se detectar que o Agendador hello está habilitado. Além disso, um aviso é retornado tooinform clientes sobre uma possível perda de dados se Olá dados de espaço do conector é excluído.
+* Anteriormente, você deve desabilitar a transcrição do PowerShell para Azure AD Connect Assistente toorun corretamente. Esse problema foi parcialmente resolvido. Se você estiver usando a configuração de sincronização do toomanage do Assistente de conexão do AD do Azure, você pode habilitar transcrição do PowerShell. Se você estiver usando a configuração de toomanage do ADFS do Assistente de conexão do AD do Azure, você deve desabilitar a transcrição do PowerShell.
 
 
 
@@ -303,56 +303,56 @@ Sincronização do Azure AD Connect
 Lançamento: abril de 2017
 
 **Problemas corrigidos:**
-* Corrigido o problema em que o Azure AD Connect não será instalado com êxito na versão localizada do Windows Server.
+* Correção do problema Olá onde do Azure AD Connect não será instalado com êxito em uma versão localizada do Windows Server.
 
 ## <a name="114840"></a>1.1.484.0
 Lançamento: abril de 2017
 
 **Problemas conhecidos:**
 
-* Essa versão do Azure AD Connect não será instalada com êxito se as seguintes condições forem todas verdadeiras:
+* Esta versão do Azure AD Connect não será instalado com êxito se Olá seguintes condições é verdadeira:
    1. Você está executando a atualização DirSync in-loco ou a nova instalação do Azure AD Connect.
-   2. Você está usando uma versão localizada do Windows Server em que o nome do grupo de Administradores interno no servidor não é "Administradores".
-   3. Você pode usar o SQL Server 2012 Express LocalDB padrão instalado com o Azure AD Connect ou usar seu próprio SQL completo.
+   2. Você está usando uma versão localizada do Windows Server em que o nome de saudação do grupo de administradores interno no servidor de saudação não é "Administradores".
+   3. Você está usando o padrão de saudação SQL Server 2012 Express LocalDB instalado com o Azure AD Connect em vez de fornecer seu próprio completa do SQL.
 
 **Problemas corrigidos:**
 
 Sincronização do Azure AD Connect
-* Corrigido um problema em que o agendador de sincronização ignora a etapa de sincronização inteiro se um ou mais conectores estiver sem o perfil de execução para essa etapa de sincronização. Por exemplo, você adicionou manualmente um conector usando Soynchronization Service Manager sem criar um perfil de execução de Importação Delta para ele. Essa correção garante que o agendador de sincronização continua a executar Importação Delta para outros conectores.
-* Corrigido um problema em que o Serviço de Sincronização imediatamente para de processar um perfil de execução quando ele encontra um problema com uma das etapas de execução. Essa correção garante que o Serviço de Sincronização ignora essa etapa de execução e continua processando o restante. Por exemplo, você tem um perfil de execução de Importação Delta para seu conector do AD com várias etapas de execução (uma para cada domínio do AD local). O Serviço de Sincronização executará a Importação Delta com os outros domínios do AD, mesmo que um deles tenha problemas de conectividade de rede.
-* Corrigido um problema que faz com que a atualização do Azure AD Connector seja ignorada durante a Atualização Automática.
-* Corrigido um problema que faz com que o Azure AD Connect determine incorretamente se o servidor é um controlador de domínio durante a instalação o que, por sua vez, faz com que a atualização do DirSync falhe.
-* Corrigido um problema que faz com que a atualização in-loco de DirSync não crie perfis de execução para o Azure AD Connector.
-* Corrigido um problema em que a interface de usuário do Synchronization Service Manager não responde ao tentar configurar o Generic LDAP Connector.
+* Corrigido um problema onde Agendador de sincronização Olá ignora a etapa de sincronização inteiro Olá se o perfil de execução para essa etapa de sincronização não tiver um ou mais conectores. Por exemplo, você adicionou manualmente um conector usando Olá Synchronization Service Manager sem criar um perfil de execução para ele de importação de Delta. Essa correção garante que o Agendador de sincronização Olá continua toorun importação Delta para outros conectores.
+* Corrigido um problema em que Olá serviço de sincronização imediatamente para o processamento um perfil de execução quando for encontra um problema com uma das etapas de saudação executar. Essa correção garante que Olá ignora o serviço de sincronização que execute a etapa e continua tooprocess Olá rest. Por exemplo, você tem um perfil de execução de Importação Delta para seu conector do AD com várias etapas de execução (uma para cada domínio do AD local). saudação de serviço de sincronização será executado importação Delta com hello outros domínios do AD mesmo se uma delas tiver problemas de conectividade de rede.
+* Corrigido um problema que faz com que o toobe de atualização do conector AD do Azure Olá ignorado durante a atualização automática.
+* Corrigido um problema tooincorrectly de conectar-se que faz com que o AD do Azure determinam se o servidor de saudação é um controlador de domínio durante a instalação, que por sua vez causas DirSync atualizar toofail.
+* Fixo de um problema que faz com que o DirSync toonot atualização in-loco criar qualquer executar perfil Olá conector AD do Azure.
+* Corrigido um problema em que interface de usuário do Gerenciador de serviço de sincronização Olá deixa de responder durante a tentativa de tooconfigure conector de LDAP genérico.
 
 Gerenciamento dos AD FS
-* Corrigido um problema em que o assistente do Azure AD Connect falha se o nó primário do AD FS foi movido para outro servidor.
+* Corrigido um problema onde o Assistente de conexão do AD do Azure Olá falha se o nó primário do hello AD FS tiver sido movido tooanother server.
 
 SSO da Área de Trabalho
-* Corrigido um problema no assistente do Azure AD Connect em que a tela de entrada não permite habilitar o recurso de SSO da Área de Trabalho se você escolheu a Sincronização de Senha como a opção de Entrada durante a nova instalação.
+* Corrigido um problema no Assistente de conexão do AD do Azure Olá onde hello tela de entrada não permite que você habilitar o recurso de SSO de área de trabalho se você escolher a sincronização de senha como a opção de entrada durante a instalação de novo.
 
 **Novos recursos/melhorias:**
 
 Sincronização do Azure AD Connect
-* Azure AD Connect Sync agora oferecre suporte para uso da Conta de Serviço Virtual, Conta de Serviço Gerenciado e Conta de Serviço Gerenciado de Grupo como sua conta de serviço. Isso se aplica à nova instalação do Azure AD Connect, somente. Ao instalar o Azure AD Connect:
+* AD conectar-se a sincronização do Azure agora dá suporte a uso de saudação de conta de serviço Virtual, a conta de serviço gerenciado e conta de serviço gerenciado do grupo como sua conta de serviço. Isso se aplica a instalação toonew do Azure AD Connect somente. Ao instalar o Azure AD Connect:
     * Por padrão, o assistente do Azure AD Connect criará uma Conta de Serviço Virtual e utilizará como sua conta de serviço.
-    * Se você estiver instalando em um controlador de domínio, o Azure AD Connect reverterá para o comportamento anterior onde criará uma conta de usuário de domínio e utilizará como sua conta de serviço.
-    * É possível substituir o comportamento padrão fornecendo uma das seguintes opções:
+    * Se você estiver instalando em um controlador de domínio, o Azure AD Connect reverterá ser tooprevious comportamento em que criará uma conta de usuário de domínio e o utiliza como sua conta de serviço em vez disso.
+    * Você pode substituir o comportamento padrão de saudação fornecendo Olá seguinte:
       * Uma Conta de Serviço Gerenciado de Grupo
       * Uma Conta de Serviço Gerenciado
       * Uma conta de usuário do domínio
       * Uma conta de usuário local
-* Anteriormente, se você atualizasse para uma nova versão do Azure AD Connect contendo atualizações de conexão ou alterações na regra de sincronização, o Azure AD Connect dispararia um ciclo de sincronização completo. Agora, o Azure AD Connect dispara seletivamente a etapa de Importação Completa somente para conectores com atualização e a etapa de Sincronização Completa somente para conectores com alterações de regra de sincronização.
-* Anteriormente, o limite de exclusão de exportação só se aplicava às exportações disparadas pelo Agendador de Sincronização. Agora, o recurso é estendido para incluir exportações disparadas manualmente pelo cliente usando o Synchronization Service Manager.
-* No seu locatário do Azure AD, há uma configuração de serviço que indica se o recurso de Sincronização de Senha está habilitado para o seu locatário ou não. Anteriormente, era fácil que configuração de serviço fosse configurado incorretamente pelo Azure AD Connect quando havia um servidor de preparo e um ativo. Agora, o Azure AD Connect tentará manter a configuração de serviço consistente com o servidor ativo do Azure AD Connect, somente.
+* Anteriormente, se você atualizar tooa nova compilação do Azure AD Connect que contém atualizar conectores ou alterações nas regras de sincronização, o Azure AD Connect dispararão um ciclo de sincronização completa. Agora, o Azure AD Connect dispara seletivamente a etapa de Importação Completa somente para conectores com atualização e a etapa de Sincronização Completa somente para conectores com alterações de regra de sincronização.
+* Anteriormente, Olá limite de exclusão de exportação só se aplica a tooexports que são disparadas por meio do Agendador de sincronização de saudação. Agora, o recurso de saudação é estendido tooinclude exportações manualmente disparadas por cliente hello usando Olá Synchronization Service Manager.
+* No seu locatário do Azure AD, há uma configuração de serviço que indica se o recurso de Sincronização de Senha está habilitado para o seu locatário ou não. Anteriormente, é fácil para Olá toobe de configuração de serviço configurado incorretamente pelo Azure AD Connect quando você tem um ativo e um servidor de preparo. Agora, o Azure AD Connect tentará tookeep consistente com seu ativo de configuração de serviço de saudação apenas o servidor do Azure AD Connect.
 * O assistente do Azure AD Connect agora detecta e retorna um aviso se o AD local não tiver Lixeira do AD ativada.
-* Anteriormente, Exportar para o Azure AD expirava e falhava se o tamanho combinado dos objetos no lote excedesse um determinado limite. Agora, o Serviço de Sincronização tentará reenviar os objetos em lotes menores se o problema for encontrado.
-* O aplicativo de Gerenciamento de Chaves de Serviço de Sincronização foi removido do Menu Iniciar do Windows. O Gerenciamento de chave de criptografia continuará a oferecer suporte por meio da interface de linha de comando usando miiskmu.exe. Para obter informações sobre o gerenciamento de chave de criptografia, consulte o artigo [Abandonando a chave de criptografia de sincronização do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-azure-ad-connect-sync-encryption-key).
-* Anteriormente, se você alterava a senha da conta de serviço de sincronização do Azure AD Connect, o Serviço de Sincronização não poderia iniciar corretamente até que você tivesse abandonado a chave de criptografia e reinicializado a senha da conta do serviço de sincronização do Azure AD Connect. Agora, isso não é mais necessário.
+* Anteriormente, exportação tooAzure AD expira e falhará se Olá combinados tamanho dos objetos de saudação em lote Olá excede determinado limite. Agora, Olá serviço de sincronização tentará tooresend objetos de saudação em lotes menores se Olá problema for encontrado.
+* saudação de aplicativo de gerenciamento de chaves do serviço de sincronização foi removida do Menu Iniciar do Windows. Gerenciamento de chave de criptografia continuará toobe têm suportada por meio da interface de linha de comando usando miiskmu.exe. Para obter informações sobre o gerenciamento de chave de criptografia, consulte tooarticle [chave de criptografia de sincronização se conectar de saudação do AD do Azure Abandoning](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-azure-ad-connect-sync-encryption-key).
+* Anteriormente, se você alterar a senha da conta de serviço para o Azure AD Connect sincronização de hello, Olá serviço de sincronização não será capaz de iniciar corretamente até ter abandonado a chave de criptografia de saudação e reiniciadas a senha da conta de serviço para o Azure AD Connect sincronização de saudação. Agora, isso não é mais necessário.
 
 SSO da Área de Trabalho
 
-* O assistente do Azure AD Connect não exige mais porta 9090 para ser aberta na rede ao configurar a Autenticação de Passagem e SSO de Área de Trabalho. Somente a porta 443 é exigida. 
+* Assistente de conexão do AD do Azure não requer mais porta 9090 toobe aberto na rede Olá ao configurar a autenticação de passagem e SSO de área de trabalho. Somente a porta 443 é exigida. 
 
 ## <a name="114430"></a>1.1.443.0
 Lançamento: março de 2017
@@ -360,115 +360,115 @@ Lançamento: março de 2017
 **Problemas corrigidos:**
 
 Sincronização do Azure AD Connect
-* Correção de um problema que causa uma falha do assistente do Azure AD Connect se o nome de exibição do Conector do Azure AD não contém o domínio onmicrosoft.com inicial atribuído ao locatário do Azure AD.
-* Correção de um problema que causa uma falha do assistente do Azure AD Connect ao estabelecer uma conexão com o banco de dados SQL quando a senha da Conta de Serviço de Sincronização contém caracteres especiais, como apóstrofo, dois-pontos e espaço.
-* Correção de um problema que faz com que o erro “A dimagem tem uma âncora diferente da imagem” ocorra em um servidor do Azure AD Connect no modo de preparo, após a exclusão temporária de um objeto do AD local da sincronização e sua inclusão novamente na sincronização.
-* Correção de um problema que faz com que o erro “O objeto localizado pelo DN é um fantasma” ocorra em um servidor do Azure AD Connect no modo de preparo, após a exclusão temporária de um objeto do AD local da sincronização e sua inclusão novamente na sincronização.
+* Corrigido um problema que faz com que o Azure AD Connect Assistente toofail se o nome de exibição de saudação do hello conector AD do Azure não contém a saudação inicial onmicrosoft.com domínio atribuído toohello AD do Azure locatário.
+* Corrigido um problema que faz com que o Azure AD Connect Assistente toofail ao fazer o banco de dados de tooSQL de conexão quando a senha Olá Olá conta de serviço de sincronização contém caracteres especiais, como o apóstrofo, dois-pontos e espaço.
+* Corrigido um problema que causa o erro de saudação toooccur "hello dimage tem uma âncora que é diferente de imagem hello" em um servidor do Azure AD Connect em modo de preparo, após você temporariamente excluiu um local AD da sincronização do objeto e, em seguida, incluído-lo novamente para sincronizando.
+* Corrigido um problema que causa o erro de saudação toooccur "objeto Olá localizado por DN é um fantasma" em um servidor do Azure AD Connect em modo de preparo, após você temporariamente excluiu um local AD da sincronização do objeto e incluído-o novamente para sincronizar.
 
 Gerenciamento dos AD FS
-* Correção de um problema no qual o assistente do Azure AD Connect não atualiza a configuração do AD FS nem define as declarações corretas no objeto de confiança de terceira parte confiável após a configuração de um ID de Logon Alternativo.
-* Correção de um problema no qual o assistente do Azure AD Connect não consegue manipular corretamente os servidores do AD FS cujas contas de serviço são configuradas usando o formato userPrincipalName, em vez do formato sAMAccountName.
+* Corrigido um problema em que o Assistente do Azure AD Connect não atualizar a configuração do AD FS e definido Olá direita declarações em Olá terceira parte confiável após a configuração de ID de logon alternativo.
+* Corrigido um problema em que o Assistente do Azure AD Connect é servidores de FS de identificador AD toocorrectly não é possível cujas contas de serviço são configuradas usando o formato userPrincipalName em vez do formato de sAMAccountName.
 
 Autenticação de Passagem
-* Correção de um problema que causa uma falha do assistente do Azure AD Connect se a Autenticação de Passagem é selecionada, mas o registro de seu conector falha.
-* Correção de um problema que faz com que o assistente do Azure AD Connect ignore as verificações de validação no método de conexão selecionado quando o recurso SSO da Área de Trabalho está habilitado.
+* Corrigido um problema que faz com que o Azure AD Connect Assistente toofail se passar por meio de autenticação está selecionada, mas o registro do seu conector falhar.
+* Corrigido um problema que faz com que o Azure AD Connect, verificações de validação de toobypass de assistente no método de entrada selecionado quando o recurso de SSO de área de trabalho está habilitado.
 
 Redefinição de senha
-* Correção de um problema que pode fazer com que o servidor do Azure AAD Connect não tente se reconectar se a conexão for interrompida por um firewall ou proxy.
+* Corrigido um problema que pode causar hello Azure AAD Connect server toonot tentativa toore-conectar se a conexão de saudação foi interrompida por um firewall ou proxy.
 
 **Novos recursos/melhorias:**
 
 Sincronização do Azure AD Connect
-* Agora, o cmdlet Get-ADSyncScheduler retorna uma nova propriedade booliana chamada SyncCycleInProgress. Se o valor retornado for verdadeiro, isso significa que há um ciclo de sincronização agendado em andamento.
-* A pasta de destino de armazenamento dos logs de instalação e configuração do Azure AD Connect foi movida de %localappdata%\AADConnect para %programdata%\AADConnect, a fim de melhorar a acessibilidade aos arquivos de log.
+* Agora, o cmdlet Get-ADSyncScheduler retorna uma nova propriedade booliana chamada SyncCycleInProgress. Se Olá retornou o valor for true, o que significa que há um ciclo de sincronização agendada em andamento.
+* Pasta de destino para armazenar logs de instalação e de instalação do Azure AD Connect foi movida %localappdata%\AADConnect too%programdata%\AADConnect tooimprove acessibilidade toohello dos arquivos de log.
 
 Gerenciamento dos AD FS
 * Adição de suporte para atualização do Certificado SSL do Farm do AD FS.
 * Adição de suporte para gerenciamento do AD FS 2016.
 * Agora é possível especificar uma gMSA (Conta de Serviço Gerenciado de Grupo) existente durante a instalação do AD FS.
-* Agora é possível configurar o SHA-256 como o algoritmo de hash de assinatura para o objeto de confiança de terceira parte confiável do Azure AD.
+* Agora você pode configurar o SHA-256 como algoritmo de hash de assinatura de saudação da terceira parte confiável do AD do Azure.
 
 Redefinição de senha
-* Introdução de aprimoramentos para permitir que o produto funcione em ambientes com regras de firewall mais rígidas.
-* Aumento na confiabilidade de conexão com o Barramento de Serviço do Azure.
+* Melhorias introduzidas tooallow Olá toofunction produto em ambientes com regras de firewall mais rigorosas.
+* Conexão maior confiabilidade tooAzure barramento de serviço.
 
 ## <a name="113800"></a>1.1.380.0
 Lançamento: dezembro de 2016
 
 **Problema corrigido:**
 
-* Foi corrigido o problema em que a regra de declaração de issuerid para AD FS (Serviços de Federação do Active Directory) está ausente desta compilação.
+* Problema de saudação fixa onde Olá issuerid regra de declaração para os serviços de Federação do Active Directory (AD FS) está faltando nesta compilação.
 
 >[!NOTE]
->Esta compilação não está disponível para os clientes por meio do recurso Atualização Automática do Azure AD Connect.
+>Esta compilação não está disponível toocustomers por meio do recurso de conectar-se a atualização automática de saudação do AD do Azure.
 
 ## <a name="113710"></a>1.1.371.0
 Lançamento: dezembro de 2016
 
 **Problema conhecido:**
 
-* A regra de declaração issuerid para o AD FS está ausente dessa compilação. A regra de declaração de issuerid é necessária se você está associando vários domínios ao Azure AD (Azure Active Directory). Se estiver usando o Azure AD Connect para gerenciar a implantação local do AD FS, atualizar para essa compilação removerá a regra de declaração issuerid existente da configuração do AD FS. Você pode contornar o problema adicionando a regra de declaração issuerid após a instalação/atualização. Para obter detalhes sobre como adicionar regra de declaração issuerid, confira este artigo sobre [Multiple Domain Support for Federating with Azure AD](active-directory-aadconnect-multiple-domains.md) (Suporte a vários domínios para federação com o Azure AD).
+* regra de declaração de issuerid Olá para o AD FS está ausente na compilação. regra de declaração de issuerid Olá será necessária se você está associando vários domínios com o Azure Active Directory (AD do Azure). Se você estiver usando seu local do Azure AD Connect toomanage implantação do AD FS, atualizando toothis build remove regra de declaração de issuerid existente Olá da configuração do AD FS. Você pode contornar o problema de saudação ao Adicionar regra de declaração de issuerid Olá após a atualização da instalação hello. Para obter detalhes sobre como adicionar Olá issuerid regra de declaração, consulte artigo toothis na [suporte para vários domínios para federação com o Azure AD](active-directory-aadconnect-multiple-domains.md).
 
 **Problema corrigido:**
 
-* Se a porta 9090 não estiver aberta para a conexão de saída, a atualização ou a instalação do Azure AD Connect falhará.
+* Se 9090 de porta não está aberto para conexão de saída de hello, Olá do Azure AD Connect instalação ou atualização falhará.
 
 >[!NOTE]
->Esta compilação não está disponível para os clientes por meio do recurso Atualização Automática do Azure AD Connect.
+>Esta compilação não está disponível toocustomers por meio do recurso de conectar-se a atualização automática de saudação do AD do Azure.
 
 ## <a name="113700"></a>1.1.370.0
 Lançamento: dezembro de 2016
 
 **Problemas conhecidos:**
 
-* A regra de declaração issuerid para o AD FS está ausente dessa compilação. A regra de declaração issuerid será necessária se você estiver federando vários domínios com o Azure AD. Se estiver usando o Azure AD Connect para gerenciar a implantação local do AD FS, atualizar para essa compilação removerá a regra de declaração issuerid existente da configuração do AD FS. Você pode contornar o problema adicionando a regra de declaração issuerid após a instalação/atualização. Para obter detalhes sobre como adicionar a regra de declaração issuerid, confira este artigo sobre [Suporte a vários domínios para federação com o Azure AD](active-directory-aadconnect-multiple-domains.md).
-* A porta 9090 deve estar aberta para a saída para que a instalação seja concluída.
+* regra de declaração de issuerid Olá para o AD FS está ausente na compilação. regra de declaração de issuerid Olá será necessária se você está associando vários domínios com o Azure AD. Se você estiver usando seu local do Azure AD Connect toomanage implantação do AD FS, atualizando toothis build remove regra de declaração de issuerid existente Olá da configuração do AD FS. Você pode contornar o problema de saudação ao Adicionar regra de declaração de issuerid Olá após a instalação/atualização. Para obter detalhes sobre como adicionar issuerid a regra de declaração, consulte o artigo toothis na [suporte para vários domínios para federação com o Azure AD](active-directory-aadconnect-multiple-domains.md).
+* Porta 9090 deve ser aberto toocomplete de saída.
 
 **Novos recursos:**
 
 * Autenticação de Passagem (Visualização).
 
 >[!NOTE]
->Esta compilação não está disponível para os clientes por meio do recurso Atualização Automática do Azure AD Connect.
+>Esta compilação não está disponível toocustomers por meio do recurso de conectar-se a atualização automática de saudação do AD do Azure.
 
 ## <a name="113430"></a>1.1.343.0
 Lançamento: novembro de 2016
 
 **Problema conhecido:**
 
-* A regra de declaração issuerid para o AD FS está ausente dessa compilação. A regra de declaração issuerid será necessária se você estiver federando vários domínios com o Azure AD. Se estiver usando o Azure AD Connect para gerenciar a implantação local do AD FS, atualizar para essa compilação removerá a regra de declaração issuerid existente da configuração do AD FS. Você pode contornar o problema adicionando a regra de declaração issuerid após a instalação/atualização. Para obter detalhes sobre como adicionar a regra de declaração issuerid, confira este artigo sobre [Suporte a vários domínios para federação com o Azure AD](active-directory-aadconnect-multiple-domains.md).
+* regra de declaração de issuerid Olá para o AD FS está ausente na compilação. regra de declaração de issuerid Olá será necessária se você está associando vários domínios com o Azure AD. Se você estiver usando seu local do Azure AD Connect toomanage implantação do AD FS, atualizando toothis build remove regra de declaração de issuerid existente Olá da configuração do AD FS. Você pode contornar o problema de saudação ao Adicionar regra de declaração de issuerid Olá após a instalação/atualização. Para obter detalhes sobre como adicionar issuerid a regra de declaração, consulte o artigo toothis na [suporte para vários domínios para federação com o Azure AD](active-directory-aadconnect-multiple-domains.md).
 
 **Problemas corrigidos:**
 
-* Algumas vezes, instalar o Azure Connect AD falha porque não é possível criar uma conta de serviço local cuja senha satisfaça o nível de complexidade especificado pela política de senha da organização.
-* Foi corrigido um problema em que as regras de associação não são avaliadas novamente quando um objeto no espaço do conector simultaneamente fica fora do escopo de uma regra de junção e tornam-se em escopo para outro. Isso pode ocorrer se você tiver duas ou mais regras de junção cujas condições de junção são mutuamente exclusivas.
+* Às vezes, a instalação do Azure AD Connect falha porque é uma conta de serviço local cuja senha atende o nível de saudação de complexidade especificada por política de senha da organização de saudação do toocreate não é possível.
+* Corrigido um problema em que as regras de associação não são reavaliadas quando um objeto no espaço do conector Olá simultaneamente fica fora do escopo para uma junção regra e tornam-se em escopo para outro. Isso pode ocorrer se você tiver duas ou mais regras de junção cujas condições de junção são mutuamente exclusivas.
 * Corrigido um problema em que regras de sincronização de entrada (do Azure AD) que não contêm regras de união não são processadas se elas tiverem valores de precedência inferiores daqueles que contém regras de associação.
 
 **Aperfeiçoamentos:**
 
 * Adicionado suporte para instalar o Azure AD Connect no Windows Server 2016 Standard ou posterior.
-* Foi adicionado suporte para usar o SQL Server 2016 como banco de dados remoto para o Azure AD Connect.
+* Adicionado suporte para usar o SQL Server 2016 como banco de dados remoto Olá para o Azure AD Connect.
 
 ## <a name="112810"></a>1.1.281.0
 Lançamento: agosto de 2016
 
 **Problemas corrigidos:**
 
-* As alterações no intervalo de sincronização não ocorrerão até após a conclusão do próximo ciclo de sincronização.
+* Intervalo de toosync alterações não ocorrerá até que após Olá próximo ciclo de sincronização seja concluído.
 * O assistente do Azure AD Connect não aceita uma conta do Azure AD cujo nome de usuário começa com um sublinhado (\_).
-* Falha do Assistente do Azure AD Connect ao autenticar a conta do Azure AD se a senha da conta contém muitos caracteres especiais. A mensagem de erro "Não foi possível validar as credenciais. Ocorreu um erro inesperado.” é retornado.
-* Desinstalar o servidor de preparo desabilita a sincronização de senha no locatário do Azure AD e causa a falha da sincronização de senha com o servidor ativo.
-* A sincronização de senha falha em casos incomuns quando não há hash de senha armazenado no usuário.
+* Assistente de conexão do AD do Azure falha conta do tooauthenticate Olá AD do Azure se a senha da conta Olá contém muitos caracteres especial. Mensagem de erro "não é possível toovalidate credenciais. Ocorreu um erro inesperado.” é retornado.
+* Desinstalando o servidor de preparo desabilita a sincronização de senha no locatário do AD do Azure e faz com que o toofail de sincronização de senha com o servidor ativo.
+* Sincronização de senha falha em casos incomuns, quando não houver nenhum hash de senha armazenado em usuário hello.
 * Quando o servidor do Azure AD Connect está habilitado para o modo de preparo, o write-back de senha não é temporariamente desabilitado.
-* O assistente do Azure AD Connect não mostra a sincronização de senha real e a configuração de write-back de senha quando o servidor está no modo de preparo. Ele sempre os mostra como desabilitados.
-* As alterações de configuração na sincronização de senha e no write-back de senha não são mantidas pelo Assistente do Azure AD Connect quando o servidor está no modo de preparo.
+* Assistente do Azure AD Connect não mostra a sincronização de senha real hello e configuração de write-back de senha quando o servidor está em modo de preparo. Ele sempre os mostra como desabilitados.
+* Sincronização de toopassword de alterações de configuração e de write-back de senha não são mantidas pelo Assistente de conexão do AD do Azure, quando o servidor está em modo de preparo.
 
 **Aperfeiçoamentos:**
 
-* Cmdlet Start-ADSyncSyncCycle atualizado para indicar se pode iniciar um novo ciclo de sincronização com êxito ou não.
-* Cmdlet Stop-ADSyncSyncCycle adicionado para encerrar o ciclo de sincronização e a operação que estão atualmente em andamento.
-* Cmdlet Stop-ADSyncScheduler atualizado para encerrar o ciclo de sincronização e a operação que estão atualmente em andamento.
-* Ao configurar [Extensões de diretório](active-directory-aadconnectsync-feature-directory-extensions.md) no Assistente do Azure AD Connect, o atributo do Azure AD do tipo "Cadeia de caracteres Teletex" pode ser selecionado.
+* Atualizado saudação inicial ADSyncSyncCycle cmdlet tooindicate seja toosuccessfully capaz de iniciar um novo ciclo de sincronização ou não.
+* Ciclo de sincronização de tooterminate de cmdlet adicionados Olá ADSyncSyncCycle parar e operação, que estão atualmente em andamento.
+* Ciclo de sincronização atualizado Olá Stop-ADSyncScheduler cmdlet tooterminate e operação, que estão atualmente em andamento.
+* Ao configurar [extensões de diretório](active-directory-aadconnectsync-feature-directory-extensions.md) no Assistente de conexão do AD do Azure, o atributo de saudação do AD do Azure do tipo "Cadeia de caracteres Teletex" agora pode ser selecionado.
 
 ## <a name="111890"></a>1.1.189.0
 Lançamento: junho de 2016
@@ -477,7 +477,7 @@ Lançamento: junho de 2016
 
 * O Azure AD Connect agora pode ser instalado em um servidor compatível com FIPS.
   * Para sincronização de senha, confira [Sincronização de senha e FIPS](active-directory-aadconnectsync-implement-password-synchronization.md#password-synchronization-and-fips).
-* Corrigido um problema em que um nome NetBIOS não pôde ser resolvido para o FQDN no Active Directory Connector.
+* Corrigido um problema em que um nome NetBIOS não pôde ser resolvido toohello FQDN no hello conector do Active Directory.
 
 ## <a name="111800"></a>1.1.180.0
 Lançamento: maio de 2016
@@ -486,13 +486,13 @@ Lançamento: maio de 2016
 
 * Avisa e ajuda a verificar os domínios se você não fizer isso antes de executar o Azure AD Connect.
 * Adicionado suporte ao [Microsoft Cloud Alemanha](active-directory-aadconnect-instances.md#microsoft-cloud-germany).
-* Adicionado suporte à infraestrutura em [nuvem do Microsoft Azure Governamental](active-directory-aadconnect-instances.md#microsoft-azure-government-cloud) mais recente com novos requisitos de URL.
+* Adicionado suporte para mais recente Olá [nuvem do Microsoft Azure Government](active-directory-aadconnect-instances.md#microsoft-azure-government-cloud) infraestrutura com novos requisitos de URL.
 
 **Problemas corrigidos e aperfeiçoamentos:**
 
-* Adicionada filtragem ao Editor de regra de sincronização para tornar mais fácil localizar as regras de sincronização.
+* Adicionado toohello filtragem toomake do Editor de regra de sincronização-toofind fácil regras de sincronização.
 * Desempenho aprimorado ao excluir um espaço de conector.
-* Corrigido um problemas quando o mesmo objeto foi excluído e adicionado na mesma execução (chamado excluir/adicionar).
+* Corrigido um problema quando Olá mesmo objeto tanto foi excluído e adicionado em Olá mesmo executar (chamado excluir ou adicionar).
 * Uma regra de sincronização desabilitada não pode mais reabilitar objetos e atributos incluídos na atualização ou na atualização de esquema de diretório.
 
 ## <a name="111300"></a>1.1.130.0
@@ -500,8 +500,8 @@ Lançamento: abril de 2016
 
 **Novos recursos:**
 
-* Suporte adicionado para atributos com valores múltiplos para [Extensões de diretório](active-directory-aadconnectsync-feature-directory-extensions.md).
-* Suporte adicionado para mais variações de configuração de [atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) serem consideradas qualificadas para atualização.
+* Adicionado suporte para atributos com valores múltiplos muito[extensões de diretório](active-directory-aadconnectsync-feature-directory-extensions.md).
+* Adicionado suporte para mais variações de configuração para [atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) toobe considerado qualificado para atualização.
 * Adicionados alguns cmdlets para o [agendador personalizado](active-directory-aadconnectsync-feature-scheduler.md#custom-scheduler).
 
 ## <a name="111190"></a>1.1.119.0
@@ -511,17 +511,17 @@ Lançamento: março de 2016
 
 * Foi garantido que a Instalação expressa não possa ser usada no Windows Server 2008 (pré-R2), já que a sincronização de senha não tem suporte neste sistema operacional.
 * A atualização do DirSync com uma configuração de filtro personalizado não funcionou conforme o esperado.
-* Ao atualizar para uma versão mais recente e se não houver alterações na configuração, a importação/sincronização completa não deverá ser agendada.
+* Ao atualizar a versão mais recente do tooa e não há nenhuma configuração de toohello alterações, uma sincronização/importação completa não deve ser agendada.
 
 ## <a name="111100"></a>1.1.110.0
 Lançamento: fevereiro de 2016
 
 **Problemas corrigidos:**
 
-* A atualização de versões anteriores não funcionará se a instalação não estiver na pasta padrão C:\Arquivos de Programas.
-* Se você instalar e desmarcar **Iniciar o processo de sincronização...** no fim do assistente de instalação, executar o assistente de instalação uma segunda vezs não habilitará o agendador.
-* O agendador não funciona conforme o esperado em servidores em que o formato de data/hora en-US não é usado. Ele também bloqueará `Get-ADSyncScheduler` para retornar as horas corretas.
-* Se você instalou uma versão anterior do Azure AD Connect com o ADFS como a opção de entrada e atualização, não será possível executar o assistente de instalação novamente.
+* Atualização de versões anteriores não funcionará se a instalação de saudação não está na pasta de C:\Program Files saudação padrão.
+* Se você instalar e desmarque **iniciar o processo de sincronização Olá** final Olá Olá do Assistente de instalação, Assistente de instalação em execução Olá uma segunda vez não permitirão Agendador hello.
+* Agendador Hello não funciona conforme o esperado em servidores onde hello formato de data/hora US-en não é usado. Ele também bloqueia `Get-ADSyncScheduler` vezes correto tooreturn.
+* Se você instalou uma versão anterior do Azure AD Connect com o AD FS como Olá atualização e a opção de entrada, você não pode executar novamente o Assistente de instalação de saudação.
 
 ## <a name="111050"></a>1.1.105.0
 Lançamento: fevereiro de 2016
@@ -529,27 +529,27 @@ Lançamento: fevereiro de 2016
 **Novos recursos:**
 
 * [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) para clientes de configurações Expressas.
-* Suporte para o administrador global usando a Autenticação Multifator do Azure e o Privileged Identity Management no assistente de instalação.
-  * Você precisará permitir que o proxy também permita o tráfego para https://secure.aadcdn.microsoftonline-p.com se usar a Autenticação Multifator.
-  * Você precisa adicionar https://secure.aadcdn.microsoftonline-p.com à lista de sites confiáveis para que a Autenticação Multifator funcione corretamente.
-* Permita alterar o método de logon do usuário após a instalação inicial.
-* Permita [Filtragem de Domínio e UO](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) no assistente de instalação. Isso também permite conectar-se às florestas em que nem todos os domínios estão disponíveis.
-* O [Agendador](active-directory-aadconnectsync-feature-scheduler.md) é interno ao mecanismo de sincronização.
+* Suporte para Olá administrador global usando o Azure multi-Factor Authentication e Privileged Identity Management no Assistente de instalação de saudação.
+  * Você precisa tooallow tooalso seu proxy para permitir tráfego toohttps://secure.aadcdn.microsoftonline-p.com se você usar a autenticação multifator.
+  * Lista de sites confiáveis do tooadd https://secure.aadcdn.microsoftonline-p.com tooyour são necessários para o trabalho de tooproperly multi-Factor Authentication.
+* Permite alterar o método de entrada do usuário Olá após a instalação inicial.
+* Permitir [domínio e unidade Organizacional filtragem](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) no Assistente de instalação de saudação. Isso também permite a conexão tooforests em que nem todos os domínios estão disponíveis.
+* [Agendador](active-directory-aadconnectsync-feature-scheduler.md) baseia-se no mecanismo de sincronização de toohello.
 
-**Recursos promovidos da visualização para GA:**
+**Recursos promovidos da visualização tooGA:**
 
 * [Write-back de dispositivo](active-directory-aadconnect-feature-device-writeback.md).
 * [Extensões de diretório](active-directory-aadconnectsync-feature-directory-extensions.md).
 
 **Novos recursos de visualização:**
 
-* O novo intervalo de ciclo de sincronização padrão é de 30 minutos. Costumava ser três horas para todas as versões anteriores. Adiciona suporte para alterar o comportamento do [agendador](active-directory-aadconnectsync-feature-scheduler.md) .
+* Olá novo padrão ciclo de sincronização intervalo é de 30 minutos. Usado toobe três horas para todas as versões anteriores. Adiciona suporte toochange Olá [Agendador](active-directory-aadconnectsync-feature-scheduler.md) comportamento.
 
 **Problemas corrigidos:**
 
-* A página Verificar domínios DNS nem sempre reconheceu os domínios.
+* Olá Verifique se a página de domínios DNS não reconheceu sempre domínios hello.
 * Solicita credenciais de administrador de domínio ao configurar o AD FS.
-* As contas locais do AD não são reconhecidas pelo assistente de instalação se estiverem localizadas em um domínio com uma árvore DNS diferente do domínio raiz.
+* Olá local contas do AD não são reconhecidas pelo Assistente de instalação de saudação se localizado em um domínio com uma árvore diferente de DNS de domínio raiz da saudação.
 
 ## <a name="1091310"></a>1.0.9131.0
 Lançamento: dezembro de 2015
@@ -557,17 +557,17 @@ Lançamento: dezembro de 2015
 **Problemas corrigidos:**
 
 * A sincronização de senha poderá não funcionar quando você alterar as senhas no AD DS (Active Directory Domain Services), mas funcionará quando você definir uma senha.
-* Quando você tiver um servidor proxy, a autenticação do Azure AD poderá falhar durante a instalação ou se uma atualização for cancelada na página de configuração.
+* Quando você tiver um servidor proxy, tooAzure autenticação AD pode falhar durante a instalação, ou se uma atualização for cancelada na página de configuração de saudação.
 * A atualização de uma versão anterior do Azure AD Connect com uma instância completa do SQL Server falhará se você não for um SA (administrador do sistema) do SQL Server.
-* A atualização de uma versão anterior do Azure AD Connect com um SQL Server remoto mostra o erro "Não é possível acessar o banco de dados SQL do ADSync".
+* Atualizando a partir de uma versão anterior do Azure AD Connect com um SQL Server remoto mostra o erro de "não é possível tooaccess Olá banco de dados SQL ADSync" hello.
 
 ## <a name="1091250"></a>1.0.9125.0
 Lançamento: novembro de 2015
 
 **Novos recursos:**
 
-* Pode reconfigurar a relação de confiança entre o ADFS e o AD do Azure.
-* Pode atualizar o esquema do Active Directory e gerar regras de sincronização.
+* Pode reconfigurar a confiança do AD FS tooAzure AD.
+* Pode atualizar o esquema do Active Directory hello e regenerar as regras de sincronização.
 * Pode desabilitar uma regra de sincronização.
 * Pode definir "AuthoritativeNull" como um novo literal em uma regra de sincronização.
 
@@ -583,47 +583,47 @@ Lançamento: novembro de 2015
 **Problemas corrigidos:**
 
 * Problemas de sincronização de senha:
-  * Um objeto movido de fora do escopo para dentro do escopo não terá sua senha sincronizada. Isso inclui a UO e a filtragem de atributo.
-  * Selecionar uma nova UO para incluir na sincronização não exige uma sincronização de senha completa.
-  * Quando um usuário desabilitado é habilitado, a senha não é sincronizada.
-  * A fila de repetição de senha é infinita e o limite anterior de 5.000 objetos a ser retirado foi removido.
-* Não é possível se conectar ao Active Directory com o nível funcional de floresta do Windows Server 2016.
-* Não é possível alterar o grupo que é usado para filtragem de grupo após a instalação inicial.
-* Não cria mais um novo perfil do usuário no servidor do Azure AD Connect para cada usuário que faz uma alteração de senha com write-back de senha habilitada.
-* Não é possível usar valores Inteiros Longos em escopos de regras de sincronização.
-* A caixa de seleção "write-back de dispositivo" permanecerá desabilitada se houver controladores de domínio inacessíveis.
+  * Um objeto movido de escopo fora do escopo tooin não terão sua senha sincronizada. Isso inclui a UO e a filtragem de atributo.
+  * Selecionar um novo tooinclude OU em sincronização não exige uma sincronização completa de senha.
+  * Quando um usuário desabilitado é habilitado senha Olá não sincronizados.
+  * fila de repetição de senha Olá é infinita e limite de saudação anterior de 5.000 toobe objetos obsoleto foi removido.
+* Não é possível tooconnect tooActive diretório com o nível funcional de floresta do Windows Server 2016.
+* Grupo de saudação toochange não é possível que é usado para filtragem de grupo após a instalação inicial do hello.
+* Não cria um novo perfil de usuário no servidor do Azure AD Connect Olá para cada usuário fazer uma alteração de senha com write-back de senha habilitada.
+* Não é possível toouse inteiro longo valores escopos de regras em sincronia.
+* caixa de seleção Hello "write-back de dispositivo" permanecerá desabilitada se houver controladores de domínio inacessível.
 
 ## <a name="1086670"></a>1.0.8667.0
 Lançamento: agosto de 2015
 
 **Novos recursos:**
 
-* O assistente de instalação do Azure AD Connect agora está localizado para todos os idiomas do Windows Server.
+* saudação do Azure AD Connect, o Assistente de instalação está localizada tooall idiomas do Windows Server.
 * Suporte adicionado para desbloqueio de contas ao usar o gerenciamento de senhas do AD do Azure.
 
 **Problemas corrigidos:**
 
-* O assistente de instalação do Azure AD Connect falha se outro usuário continuar a instalação em vez da pessoa que iniciou a instalação inicialmente.
-* Se uma desinstalação anterior do Azure AD Connect falhar ao desinstalar o Azure AD Connect Sync corretamente, não será possível reinstalá-lo.
-* Não será possível instalar o Azure AD Connect usando a Instalação expressa se o usuário não estiver no domínio raiz da floresta ou se uma versão diferente do inglês do Active Directory for usada.
-* Se o FQDN da conta de usuário do Active Directory não puder ser resolvido, é mostrada a mensagem enganosa de erro "Falha ao confirmar o esquema".
-* Se a conta usada no Active Directory Connector for alterada fora do assistente, o assistente falhará em execuções posteriores.
-* O Azure AD Connect às vezes não pode instalar em um controlador de domínio.
+* Assistente de instalação do Azure AD Connect falha se outro usuário continuar a instalação, em vez de saudação pessoa iniciado pela primeira vez a instalação de saudação.
+* Se uma desinstalação anterior do Azure AD Connect não toouninstall do Azure AD Connect sincronização corretamente, não é possível tooreinstall.
+* Não é possível instalar o Azure AD Connect usando a instalação expressa se usuário Olá não está no domínio raiz da saudação da floresta de saudação ou se uma versão diferente do inglês do Active Directory é usada.
+* Se Olá FQDN do hello conta de usuário do Active Directory não pode ser resolvido, é mostrada uma mensagem de erro enganoso ""falha toocommit hello esquema.
+* Se conta Olá usada em Olá conector do Active Directory foi alterada fora Olá assistente, o Assistente de saudação falhará em execuções subsequentes.
+* Às vezes, o Azure AD Connect não tooinstall em um controlador de domínio.
 * Não é possível habilitar e desabilitar o "Modo de preparo" se os atributos de extensão forem adicionados.
-* O write-back de senha falha em algumas configurações devido a uma senha incorreta no Active Directory Connector.
+* Write-back de senha falha em algumas configurações devido a uma senha incorreta no hello conector do Active Directory.
 * DirSync não poderá ser atualizado se um DN (nome diferenciado) for usado na filtragem de atributos.
 * Uso excessivo de CPU ao usar a redefinição de senha.
 
 **Recursos de visualização removidos:**
 
-* O recurso de visualização [Write-back de usuário](active-directory-aadconnect-feature-preview.md#user-writeback) foi temporariamente removido com base nos comentários de nossos clientes da visualização. Ela será adicionada novamente mais tarde, depois que abordarmos os comentários fornecidos.
+* o recurso de visualização Olá [write-back de usuário](active-directory-aadconnect-feature-preview.md#user-writeback) temporariamente foi removida com base nos comentários de nossos clientes de visualização. Ele será adicionado novamente mais tarde depois abordamos Olá fornecido comentários.
 
 ## <a name="1086410"></a>1.0.8641.0
 Lançamento: junho de 2015
 
 **Versão inicial do Azure AD Connect.**
 
-Nome alterado de Azure AD Sync para Azure AD Connect.
+Nome alterado de tooAzure de sincronização do AD do Azure AD Connect.
 
 **Novos recursos:**
 
@@ -645,7 +645,7 @@ Lançamento: maio de 2015
 
 **Novo Requisito:**
 
-* O Azure AD Sync agora requer a instalação do .NET Framework versão 4.5.1.
+* Agora, o Azure AD Sync exige saudação do .NET Framework versão 4.5.1 toobe instalado.
 
 **Problemas corrigidos:**
 
@@ -656,17 +656,17 @@ Lançamento: abril de 2015
 
 **Problemas corrigidos e aperfeiçoamentos:**
 
-* O Active Directory Connector não processa exclusões corretamente se a Lixeira estiver habilitada e se existirem vários domínios na floresta.
-* O desempenho das operações de importação foi aprimorado para o Active Directory Connector do Azure.
-* Quando um grupo excedeu o limite de associação (por padrão, o limite é definido como 50.000 objetos), o grupo foi excluído do Azure Active Directory. Com o novo comportamento, o grupo não é excluído, um erro é gerado e novas alterações de associação não são exportadas.
-* Não é possível provisionar um novo objeto se uma exclusão de preparo com o mesmo DN já estiver presente no espaço do conector.
-* Alguns objetos são marcados para sincronização durante uma sincronização delta, embora não haja alteração preparada no objeto.
-* Forçar uma sincronização de senha também remove a lista preferencial do DC.
+* Olá conector do Active Directory não processa exclusões corretamente se Olá Lixeira estiver habilitada e existirem vários domínios na floresta de saudação.
+* Olá desempenho das operações de importação foi aprimorado para hello Azure Active Directory Connector.
+* Quando um grupo excedeu o limite de associação de saudação (por padrão, o limite de saudação é definido too50, 000 objetos), Olá grupo foi excluído no Active Directory do Azure. Com o novo comportamento de Olá, Olá grupo não será excluído, um erro será gerado e alteração de associação não é exportadas.
+* Não é possível provisionar um novo objeto se uma exclusão de preparo com hello que mesmo DN já está presente no espaço do conector hello.
+* Alguns objetos são marcados para sincronização durante uma sincronização delta, embora não exista nenhuma alteração preparada em objeto hello.
+* Forçar uma sincronização de senha também remove Olá preferido DC.
 * CSExportAnalyzer tem problemas com alguns estados de objetos.
 
 **Novos recursos:**
 
-* Um ingresso agora pode se conectar ao tipo de objeto "ANY" na MV.
+* Uma junção agora pode se conectar muito "qualquer" tipo de objeto em Olá MV.
 
 ## <a name="104850222"></a>1.0.485.0222
 Lançamento: fevereiro de 2015
@@ -677,9 +677,9 @@ Lançamento: fevereiro de 2015
 
 **Problemas corrigidos:**
 
-* A Sincronização de Senha respeita o atributo cloudFiltered usado pela filtragem de atributo. Os objetos filtrados não estão mais no escopo de sincronização de senha.
-* Em raras situações em que a topologia tem muitos controladores de domínio, a sincronização de senha não funciona.
-* "Servidor-parado" ao importar do Conector do AD do Azure depois que o gerenciamento de dispositivo tiver sido habilitado no AD do Azure/Intune.
+* Sincronização de senhas respeita o atributo cloudFiltered Olá que é usado pela filtragem de atributos. Os objetos filtrados não estão mais no escopo de sincronização de senha.
+* Em situações raras em que a topologia de saudação tinha muitos controladores de domínio, a sincronização de senha não funciona.
+* "Servidor interrompido" durante a importação de saudação conector AD do Azure depois de gerenciamento de dispositivo foi habilitada no AD do Azure/Intune.
 * Ingressar FSPs (Entidades de Segurança Externa) de vários domínios na mesma floresta causa um erro de ingresso ambíguo.
 
 ## <a name="104751202"></a>1.0.475.1202
@@ -688,19 +688,19 @@ Lançamento: dezembro de 2014
 **Novos recursos:**
 
 * Agora há suporte para a sincronização de senhas com filtragem baseada em atributo. Para obter mais informações, confira [Sincronização de senha com filtragem](active-directory-aadconnectsync-configure-filtering.md).
-* O atributo msDS-ExternalDirectoryObjectID será gravado de volta no Active Directory. Esse recurso adiciona suporte a aplicativos do Office 365. Ele usa OAuth2 para acessar caixas de correio Locais e Online em uma Implantação Híbrida do Exchange.
+* atributo de msDS-ExternalDirectoryObjectID Hello será gravado tooActive Directory. Esse recurso adiciona suporte a aplicativos do Office 365. Ele usa OAuth2 tooaccess caixas de correio locais e Online em uma implantação híbrida do Exchange.
 
 **Problemas de atualização corrigidos:**
 
-* Uma versão mais recente do que o assistente de logon está disponível no servidor.
-* Um caminho de instalação personalizada foi usado para instalar o Azure AD Sync.
-* Um critério de associação personalizado inválido bloqueará a atualização.
+* Uma versão mais recente do Assistente de entrada hello está disponível no servidor de saudação.
+* Um caminho de instalação personalizado foi usado tooinstall sincronização do AD do Azure.
+* Uma atualização de Olá de blocos de critério inválido de junção personalizada.
 
 **Outras correções:**
 
-* Modelos do Office Pro Plus corrigidos.
+* Modelos de Olá fixo para o Office Pro Plus.
 * Foram corrigidos os problemas de instalação causados por nomes de usuário que começam com um traço.
-* Foi corrigida a perda da configuração sourceAnchor ao executar o assistente de instalação uma segunda vez.
+* Fixa perdedora Olá sourceAnchor configuração ao executar o Assistente de instalação de saudação uma segunda vez.
 * Rastreamento ETW fixo para a sincronização de senha corrigido.
 
 ## <a name="104701023"></a>1.0.470.1023
@@ -708,20 +708,20 @@ Lançamento: outubro de 2014
 
 **Novos recursos:**
 
-* Sincronização de senha de vários locais do Active Directory para o Azure AD.
-* Interface do usuário de instalação localizada para todos os idiomas do Windows Server.
+* A sincronização de senha de vários locais do Active Directory tooAzure AD.
+* Instalação localizado da interface do usuário tooall idiomas do Windows Server.
 
 **Atualizando do AADSync 1.0 GA**
 
-Se já tiver instalado o Azure AD Sync, há uma etapa adicional que você precisa realizar caso você já tenha alterado algumas das regras de sincronização de fábrica. Depois de atualizar para a versão 1.0.470.1023, a sincronização de regras que você modificou será duplicada. Para cada regra de sincronização modificada, faça o seguinte:
+Se você já tiver o Azure AD Sync instalado, há uma etapa adicional que você tenha tootake caso você tiver alterado as regras de sincronização de fora da caixa de saudação. Depois de ter atualizado versão toohello 1.0.470.1023, as regras de sincronização de saudação que você modificou são duplicadas. Para cada regra de sincronização modificada, Olá a seguir:
 
-1.  Localize a regra de sincronização você modificou e anote as alterações.
-* Exclua a regra de sincronização.
-* Localize a nova regra de sincronização que é criada pelo Azure AD Sync e reaplique as alterações.
+1.  Localize a regra de sincronização de saudação modificou e anote as alterações de saudação.
+* Exclua regra de sincronização de saudação.
+* Localize Olá nova regra de sincronização que é criada pelo Azure AD Sync e reaplique as alterações de saudação.
 
-**Permissões para a conta do Active Directory**
+**Permissões para Olá conta do Active Directory**
 
-A conta do Active Directory deve receber permissões adicionais para poder ler os hashes de senha do Active Directory. As permissões a serem concedidas são denominadas "Replicar Alterações de Diretório" e "Replicar Todas as Alterações de Diretório". Ambas as permissões são necessárias para ler os hashes de senha.
+Olá conta do Active Directory deve ser concedida hashes de senha permissões adicionais toobe tooread capaz de saudação do Active Directory. Olá permissões toogrant são chamados de "Replicar alterações de diretório" e "Directory replicando todas as alterações." As permissões são hashes de senha necessária toobe tooread capaz de saudação.
 
 ## <a name="104190911"></a>1.0.419.0911
 Lançamento: setembro de 2014

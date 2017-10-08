@@ -8,7 +8,7 @@
 
 # Instruções
 ## [Armazenamento persistente](persisting-shell-storage.md)
-## [Usando a janela](using-the-shell-window.md)
+## [Usando a janela de saudação](using-the-shell-window.md)
 
 # [Preços](pricing.md)
 

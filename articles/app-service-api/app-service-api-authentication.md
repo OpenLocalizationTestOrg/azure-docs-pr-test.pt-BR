@@ -1,6 +1,6 @@
 ---
-title: "Autenticação e autorização para aplicativos de API no Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Saiba mais sobre os serviços de autenticação e autorização fornecidos pelo Serviço de Aplicativo do Azure para Aplicativos de API."
+title: "aaaAuthentication e autorização para aplicativos de API no serviço de aplicativo do Azure | Microsoft Docs"
+description: "Saiba mais sobre os serviços de autenticação e autorização de saudação que fornece o serviço de aplicativo do Azure para aplicativos de API."
 services: app-service\api
 documentationcenter: .net
 author: alexkarcher-msft
@@ -14,98 +14,98 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: alkarche
-ms.openlocfilehash: f9fd533dfbd54517232f9dae5000ed4779baebd4
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6d26754b8b606ec232a74768787922ea80577c95
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="authentication-and-authorization-for-api-apps-in-azure-app-service"></a>Autenticação e autorização para aplicativos de API no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
 > [!NOTE]
-> Este tópico será migrado para um tópico consolidado de [Autenticação/Autorização de Serviço de Aplicativo](../app-service/app-service-authentication-overview.md) , que abrange a Web, celulares e aplicativos de API.
+> Este tópico será migrado tooa consolidado [autenticação do serviço de aplicativo / autorização](../app-service/app-service-authentication-overview.md) tópico, que abrange a Web, móveis e aplicativos de API.
 > 
 > 
 
-O Serviço de Aplicativo do Azure oferece serviços de autenticação e autorização internos que implementam o [OAuth 2.0](#oauth) e o [OpenID Connect](#oauth). Este artigo descreve os serviços e as opções que estão disponíveis para Aplicativos de API no Serviço de Aplicativo do Azure.
+O Serviço de Aplicativo do Azure oferece serviços de autenticação e autorização internos que implementam o [OAuth 2.0](#oauth) e o [OpenID Connect](#oauth). Este artigo descreve os serviços de saudação e opções que estão disponíveis para aplicativos de API no serviço de aplicativo do Azure.
 
-O diagrama a seguir ilustra algumas características importantes da autenticação do Serviço de Aplicativo:
+Olá diagrama a seguir ilustra algumas características principais de autenticação do serviço de aplicativo:
 
 * Ele processa previamente as solicitações de API de entrada, o que significa que ele funciona com qualquer linguagem ou estrutura com suporte do Serviço de Aplicativo.
-* Ele oferece várias opções para a quantidade de trabalho de autenticação que você deseja realizar em seu próprio código.
+* Ele fornece várias opções para quanto a autenticação de trabalho você deseja toodo em seu próprio código.
 * Ele funciona para a autenticação de usuário final e de conta de serviço. 
 * Ele dá suporte a cinco provedores de autenticação: Active Directory do Azure, Facebook, Google, Twitter e Conta da Microsoft.
-* Ele funciona da mesma forma para Aplicativos de API, Aplicativos Web e Aplicativos Móveis.
+* Ele funciona hello mesmo para aplicativos de API, aplicativos Web e aplicativos móveis.
 
 ![](./media/app-service-api-authentication/api-apps-overview.png)
 
 ## <a name="language-agnostic"></a>Independente de linguagem
-O processamento de autenticação do Serviço de Aplicativo acontece antes que as solicitações cheguem ao aplicativo de API. Isso significa que os recursos de autenticação funcionam para aplicativos de API escritos em qualquer linguagem ou estrutura.  A API pode ser baseada em ASP.NET, Java, Node.js ou qualquer estrutura à qual o Serviço de Aplicativo dê suporte.
+Processamento de autenticação do serviço de aplicativo ocorre antes de solicitações acessar seu aplicativo de API, o que significa que os recursos de autenticação Olá funcionam para aplicativos escritos em qualquer idioma ou a estrutura da API.  A API pode ser baseada em ASP.NET, Java, Node.js ou qualquer estrutura à qual o Serviço de Aplicativo dê suporte.
 
-O Serviço de Aplicativo passa o token web JSON (JWT) no cabeçalho de Autorização de uma solicitação HTTP e o código escrito em qualquer linguagem ou estrutura pode obter as informações necessárias do token. Além disso, o Serviço de Aplicativo oferece acesso mais fácil às declarações mais comumente usadas definindo alguns cabeçalhos especiais, como:
+Serviço de aplicativo passa no token web JSON hello (JWT) no cabeçalho de autorização de saudação de uma solicitação HTTP e código escrito em qualquer idioma ou a estrutura pode obter Olá informações necessárias de saudação token. Além disso, serviço de aplicativo fornece acesso mais fácil declarações toohello mais comumente usado definindo alguns cabeçalhos especiais, como a seguir hello:
 
 * X-MS-CLIENT-PRINCIPAL-NAME
 * X-MS-CLIENT-PRINCIPAL-ID
 * X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN
 * X-MS-TOKEN-FACEBOOK-EXPIRES-ON
 
-Em uma API .NET, você pode usar o atributo `Authorize` e, para uma autorização mais refinada, é possível escrever facilmente um código com base em declarações, pois as informações de declarações são preenchidas para você em classes .NET.
+Em uma API .NET, você pode usar o hello `Authorize` atributo e para autorização refinada que você pode facilmente escrever o código com base em declarações porque as informações de declarações são preenchidas nas classes do .NET.
 
 ## <a name="multiple-protection-options"></a>Várias opções de proteção
 O Serviço de Aplicativo pode impedir que as solicitações HTTP anônimas atinjam seu aplicativo de API, ele pode passar todas as solicitações e validar os tokens para solicitações que os incluem ou pode deixar passar todas as solicitações sem realizar qualquer ação sobre elas:
 
-1. Permitir que apenas solicitações autenticadas cheguem ao aplicativo de API.
+1. Permitir que somente solicitações autenticadas tooreach seu aplicativo de API.
    
-    Se for recebida uma solicitação anônima de um navegador, o Serviço de Aplicativo será redirecionado para uma página de logon para o provedor de autenticação (AD do Azure, Google, Twitter, etc.) que você escolher. 
+    Se uma solicitação anônima é recebida de um navegador, do serviço de aplicativo redirecionará tooa a página de logon para o provedor de autenticação hello (Twitter do Azure AD, Google, etc.) que você escolher. 
    
-    Com essa opção, você não precisa escrever código de autenticação no aplicativo, e o código de autorização é simplificado porque as declarações mais importantes são fornecidas nos cabeçalhos HTTP.
-2. Permitir que todas as solicitações cheguem ao aplicativo de API, mas validar as solicitações autenticadas e transmitir informações de autenticação nos cabeçalhos HTTP.
+    Com essa opção, você não precisa toowrite qualquer código de autenticação em todos os em seu aplicativo, e o código de autorização é simplificado porque a declarações de hello mais importantes são fornecidas nos cabeçalhos HTTP da saudação.
+2. Permitir tooreach de todas as solicitações de seu aplicativo de API, mas validar solicitações autenticadas e passa informações de autenticação nos cabeçalhos de saudação HTTP.
    
-    Esta opção oferece mais flexibilidade no tratamento de solicitações anônimas, mas você precisa escrever código para impedir que usuários anônimos usem a API. Como as declarações mais populares são passadas nos cabeçalhos das solicitações HTTP, o código de autorização é relativamente simples.
-3. Permitir que todas as solicitações cheguem à API e não executar ação alguma nas informações de autenticação nas solicitações.
+    Essa opção oferece mais flexibilidade no tratamento de solicitações anônimas, mas você tiver código toowrite se desejar que os usuários anônimos tooprevent usando sua API. Como declarações mais populares do hello são passadas em cabeçalhos de saudação de solicitações HTTP, o código de autorização é relativamente simple.
+3. Permitir tooreach de todas as solicitações sua API, executar nenhuma ação nas informações de autenticação em solicitações de saudação.
    
-    Essa opção deixa as tarefas de autenticação e autorização inteiramente a cargo do código do aplicativo.
+    Essa opção deixa as tarefas de saudação de autenticação e autorização totalmente o código do aplicativo de tooyour.
 
-No [portal do Azure](https://portal.azure.com/), selecione a opção desejada na folha **Autenticação/Autorização** .
+Em Olá [portal do Azure](https://portal.azure.com/), selecionar opção de saudação desejada no hello **autenticação / autorização** folha.
 
 ![](./media/app-service-api-authentication/authblade.png)
 
-Para as opções 1 e 2, ative a **Autenticação do Serviço de Aplicativo** e, na lista suspensa **Ação a ser tomada quando a solicitação não for autenticada**, escolha **Fazer logon** ou **Permitir a solicitação (nenhuma ação)**.  Se escolher **Logon**, você precisará escolher um provedor de autenticação e configurá-lo.
+Para opções 1 e 2, ativar **autenticação do serviço de aplicativo**e em hello **tootake ação quando a solicitação não está autenticada** lista suspensa escolha **login** ou **Permitir solicitação (nenhuma ação)**.  Se você escolher **login**, você toochoose um provedor de autenticação e configurar esse provedor.
 
 ![](./media/app-service-api-authentication/actiontotake.png)
 
-Para obter informações detalhadas sobre como configurar a autenticação, consulte [Como configurar seu aplicativo do Serviço de Aplicativo para usar o logon do Active Directory do Azure](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). O artigo se aplica a aplicativos de API, bem como a aplicativos móveis, e fornece links de outros artigos para os outros provedores de autenticação.
+Para obter informações detalhadas sobre como autenticação tooconfigure, consulte [como tooconfigure seu logon de Active Directory do Azure do serviço de aplicativo aplicativo toouse](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). artigo de saudação se aplica a aplicativos tooAPI, bem como os aplicativos móveis e vincula tooother artigos para Olá outros provedores de autenticação.
 
 ## <a id="internal"></a> Autenticação da conta de serviço
-A autenticação do Serviço de Aplicativo funciona para cenários internos, como chamar de um aplicativo de API para outro aplicativo de API. Neste cenário, você pode obter um token usando credenciais para uma conta de serviço em vez de credenciais de usuário final. Uma conta de serviço também pode ser chamada de *entidade de serviço* no Active Directory do Azure e a autenticação que usa essa conta também é conhecida como um cenário de serviço a serviço. 
+Autenticação do serviço de aplicativo funciona para cenários internos, como para a chamada de um aplicativo de tooanother API de aplicativo de API. Neste cenário, você pode obter um token usando credenciais para uma conta de serviço em vez de credenciais de usuário final. Uma conta de serviço também pode ser chamada de *entidade de serviço* no Active Directory do Azure e a autenticação que usa essa conta também é conhecida como um cenário de serviço a serviço. 
 
-Para cenários de serviço a serviço, proteja o aplicativo de API chamado usando o Active Directory do Azure e forneça um token de autorização de entidade de serviço do AAD ao chamar o aplicativo de API. Você obtém um token fornecendo a ID do cliente e o segredo do cliente do aplicativo do AAD. Nenhum código especial exclusivo do Azure será exigido, como era o costume no tratamento do token Zumo dos Serviços Móveis. Um exemplo desse cenário que usa aplicativos de API ASP.NET é abordado pelo tutorial [Autenticação de entidade de serviço para Aplicativos de API](app-service-api-dotnet-service-principal-auth.md).
+Para cenários de serviço para proteger a saudação chamada aplicativo de API usando o Active Directory do Azure e fornecer um token de autorização de entidade de serviço do AAD ao chamar hello API do aplicativo. Você pode obter um token, fornecendo a ID de saudação do cliente e o segredo do aplicativo AAD de saudação do cliente. Nenhum código somente no Azure especial é necessário, como true toobe usado para lidar com o token do hello Zumo de serviços móveis. Um exemplo desse cenário usando aplicativos de API do ASP.NET é coberto por tutorial Olá [autenticação principal do serviço para aplicativos de API](app-service-api-dotnet-service-principal-auth.md).
 
-Se quiser lidar com um cenário de serviço a serviço sem usar a autenticação do Serviço de Aplicativo, você poderá usar a autenticação de certificados de cliente ou a autenticação básica. Para saber mais sobre certificados de cliente no Azure, veja [Como configurar a Autenticação Mútua TLS para aplicativos Web](../app-service-web/app-service-web-configure-tls-mutual-auth.md). Para saber mais sobre a autenticação básica no ASP.NET, confira [Filtros de autenticação na API Web 2 ASP.NET](http://www.asp.net/web-api/overview/security/authentication-filters).
+Se você quiser toohandle um cenário de serviços sem usar autenticação do serviço de aplicativo, você pode usar certificados de cliente ou a autenticação básica. Para obter informações sobre certificados de cliente no Azure, consulte [como tooConfigure autenticação mútua do TLS para aplicativos Web](../app-service-web/app-service-web-configure-tls-mutual-auth.md). Para saber mais sobre a autenticação básica no ASP.NET, confira [Filtros de autenticação na API Web 2 ASP.NET](http://www.asp.net/web-api/overview/security/authentication-filters).
 
-A autenticação de conta de serviço de um aplicativo lógico do Serviço de Aplicativo para um aplicativo de API é um caso especial, que é explicado em [Usando a API personalizada hospedada no Serviço de Aplicativo com aplicativos lógicos](../logic-apps/logic-apps-custom-hosted-api.md).
+Autenticação de conta de serviço de um aplicativo do serviço de aplicativo lógica aplicativo tooan API é um caso especial que é explicado em [usando sua API personalizada hospedado no serviço de aplicativo com aplicativos lógicos](../logic-apps/logic-apps-custom-hosted-api.md).
 
 ## <a name="mobile-client-authentication"></a>Autenticação de cliente móvel
-Para saber mais sobre como lidar com a autenticação de clientes móveis, confira a [documentação sobre autenticação para aplicativos móveis](../app-service-mobile/app-service-mobile-ios-get-started-users.md). A autenticação do Serviço de Aplicativo funciona da mesma forma para aplicativos móveis e para aplicativos de API.
+Para obter informações sobre como toohandle autenticação de clientes móveis, consulte Olá [documentação sobre autenticação para aplicativos móveis](../app-service-mobile/app-service-mobile-ios-get-started-users.md). A autenticação do serviço de aplicativo funciona Olá mesma forma para aplicativos móveis e aplicativos de API.
 
 ## <a name="more-information"></a>Mais informações
-Para saber mais sobre autenticação e autorização no Serviço de Aplicativo do Azure, consulte os seguintes recursos:
+Para obter mais informações sobre autenticação e autorização no serviço de aplicativo do Azure, consulte Olá recursos a seguir:
 
 * [Como expandir a autenticação/autorização do Serviço de Aplicativo](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)
-* [Como configurar seu aplicativo do Serviço de Aplicativo para usar o logon do Active Directory do Azure](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (Inclui links para outros provedores de autenticação na parte superior da página.) 
+* [Como tooconfigure seu logon de Active Directory do Azure do serviço de aplicativo aplicativo toouse](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (inclui links para outros provedores de autenticação na parte superior de saudação da página de saudação). 
 
-Para saber mais sobre o OAuth 2.0, o OpenID Connect e os Tokens da Web JSON (JWT), confira os recursos a seguir.
+Para obter mais informações sobre o OAuth 2.0, OpenID Connect e JSON Web Tokens (JWT), consulte Olá recursos a seguir.
 
 * [Introdução ao OAuth 2.0](http://shop.oreilly.com/product/0636920021810.do "Getting Started with OAuth 2.0") 
-* [Introdução ao curso OAuth2, OpenID Connect e JSON Web Tokens (JWT) - Pluralsight](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction) 
+* [Introdução tooOAuth2, OpenID Connect e JSON Web Tokens (JWT) - curso Applied](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction) 
 * [Curso Criação e proteção de uma API RESTful para vários clientes no ASP.NET - Pluralsight](http://www.pluralsight.com/courses/building-securing-restful-api-aspdotnet)
 
-Para saber mais sobre o Active Directory do Azure, confira os recursos a seguir.
+Para obter mais informações sobre o Active Directory do Azure, consulte Olá recursos a seguir.
 
 * [Cenários do AD do Azure](http://aka.ms/aadscenarios)
 * [Guia dos desenvolvedores do AD do Azure](http://aka.ms/aaddev)
 * [Exemplos do AD do Azure](http://aka.ms/aadsamples)
 
 ## <a name="next-steps"></a>Próximas etapas
-Este artigo explicou os recursos de autenticação e de autorização do Serviço de Aplicativo que você pode usar para aplicativos de API. O próximo tutorial da série Introdução mostra como implementar a [autenticação de usuário em Aplicativos de API do Serviço de Aplicativo](app-service-api-dotnet-user-principal-auth.md).
+Este artigo explicou os recursos de autenticação e de autorização do Serviço de Aplicativo que você pode usar para aplicativos de API. tutorial de Avançar Olá Olá fique iniciado série mostra como tooimplement [autenticação de usuário em aplicativos de API do serviço de aplicativo](app-service-api-dotnet-user-principal-auth.md).
 

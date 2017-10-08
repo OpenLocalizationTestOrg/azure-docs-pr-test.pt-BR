@@ -1,6 +1,6 @@
 ---
-title: Limites e cotas de assinatura do Azure | Microsoft Docs
-description: "Fornece uma lista de assinaturas comuns do Azure e limites de serviço, cotas e restrições. Isso inclui informações sobre como aumentar os limites junto com os valores máximos."
+title: assinatura aaaAzure limites e cotas | Microsoft Docs
+description: "Fornece uma lista de assinaturas comuns do Azure e limites de serviço, cotas e restrições. Isso inclui informações sobre como tooincrease limita juntamente com os valores máximo."
 services: 
 documentationcenter: 
 author: rothja
@@ -15,32 +15,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: byvinyal
-ms.openlocfilehash: a76acd67e9ba7822f2837b3c08e2ede389047f11
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a754d56124520791254ab8f1729808f0750ff222
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
-Este documento lista alguns dos limites mais comuns do Microsoft Azure, que também são chamados de cotas. Esse documento não cobre atualmente todos os serviços do Azure. Com o passar do tempo, a lista será expandida e atualizada para uma maior cobertura da plataforma.
+Este documento lista alguns dos limites Microsoft Azure mais comuns Olá que às vezes são chamados de cotas. Esse documento não cobre atualmente todos os serviços do Azure. Ao longo do tempo, lista de saudação será expandida e atualizado toocover mais da plataforma de saudação.
 
-Visite [Visão geral de preços do Azure](https://azure.microsoft.com/pricing/) para saber mais sobre preços do Azure. Lá, você pode estimar os custos usando a [Calculadora de Preços](https://azure.microsoft.com/pricing/calculator/) ou visitando a página de detalhes de preços para um serviço (por exemplo, [VMs do Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). Para obter dicas sobre como ajudar a gerenciar custos, consulte [Evitar custos inesperados com o gerenciamento de custo e cobrança do Azure](billing/billing-getting-started.md).
-
-> [!NOTE]
-> Se você deseja aumentar o limite ou a cota acima do **Limite Padrão**, [abra uma solicitação no suporte ao cliente online sem custo](azure-supportability/resource-manager-core-quotas-request.md). Os limites não podem ser aumentados acima do valor **Limite Máximo** mostrado nas tabelas a seguir. Se não houver nenhuma coluna **Limite Máximo**, o recurso não terá limites ajustáveis. 
-> 
-> As assinaturas de Avaliação Gratuita não estão qualificadas para os aumentos de cota ou limite. Se tiver uma Avaliação Gratuita, você poderá atualizar para uma assinatura [Pré-paga](https://azure.microsoft.com/offers/ms-azr-0003p/) . Para obter mais informações, consulte [Atualizar a Versão de Avaliação Gratuita do Azure para Pré-Pago](billing/billing-upgrade-azure-subscription.md).
-> 
-
-## <a name="limits-and-the-azure-resource-manager"></a>Limites e o Gerenciador de Recursos do Azure
-Agora é possível combinar vários recursos do Azure em um único Grupo de Recursos do Azure. Ao usar os Grupos de Recursos, limites que antes eram globais passam a ser gerenciados em nível regional com o Gerenciador de Recursos do Azure. Para saber mais sobre os Grupos de Recursos do Azure, confira [Visão geral do Azure Resource Manager](azure-resource-manager/resource-group-overview.md).
-
-Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer diferenças nos limites ao usar o Gerenciador de Recursos do Azure. Por exemplo, há uma tabela de **Limites de Assinatura** e uma tabela de **Limites de Assinatura – Azure Resource Manager**. Quando um limite se aplica a ambos os cenários, ele é mostrado apenas na primeira tabela. A menos que indicado de outro modo, os limites são globais em todas as regiões.
+Visite [visão geral de preços do Azure](https://azure.microsoft.com/pricing/) toolearn mais informações sobre preços do Azure. Lá, você pode estimar os custos usando Olá [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/) ou visitando Olá preços página de detalhes para um serviço (por exemplo, [VMs do Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). Para obter dicas toohelp gerenciar custos, consulte [impedir que inesperado custos com gerenciamento de custos e de cobrança do Azure](billing/billing-getting-started.md).
 
 > [!NOTE]
-> É importante enfatizar que as cotas para recursos nos Grupos de Recursos do Azure são acessíveis de acordo com a região pela assinatura e não de acordo com a assinatura, assim como acontece com as cotas de gerenciamento de serviço. Vamos usar cotas de núcleos como exemplo. Se você precisar solicitar um aumento de cota com suporte para núcleos, você precisa decidir quantos núcleos deseja usar em quais regiões e, em seguida, fazer uma solicitação específica de cotas de núcleos do Grupo de Recursos do Azure para as quantidades e regiões desejadas. Portanto, se precisar usar 30 núcleos na Europa Ocidental para executar seu aplicativo lá, você deve solicitar especificamente 30 núcleos na Europa Ocidental. Mas você não terá um aumento na cota de núcleos em nenhuma outra região – somente a Europa Ocidental terá a cota de 30 núcleos.
+> Se você quiser cota acima hello ou limite de saudação tooraise **limite padrão**, [abrir uma solicitação de suporte do cliente online sem custos](azure-supportability/resource-manager-core-quotas-request.md). Hello limites não podem ser aumentados Olá **limite máximo** valor mostrado no hello tabelas a seguir. Se não houver nenhum **limite máximo** coluna, em seguida, recursos de saudação não tem limites ajustáveis. 
+> 
+> As assinaturas de Avaliação Gratuita não estão qualificadas para os aumentos de cota ou limite. Se você tiver uma avaliação gratuita, você pode atualizar tooa [pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/) assinatura. Para obter mais informações, consulte [atualizar avaliação gratuita do Azure tooPay-como-você-Go](billing/billing-upgrade-azure-subscription.md).
+> 
+
+## <a name="limits-and-hello-azure-resource-manager"></a>Limites e hello Azure Resource Manager
+Agora é possível toocombine vários recursos do Azure tooa único grupo de recursos do Azure. Ao usar grupos de recursos, limites que antes eram globais gerenciados em um nível regional com hello Azure Resource Manager. Para saber mais sobre os Grupos de Recursos do Azure, confira [Visão geral do Azure Resource Manager](azure-resource-manager/resource-group-overview.md).
+
+Nos limites Olá abaixo, uma nova tabela foi adicionado tooreflect as diferenças nos limites ao usar o hello Azure Resource Manager. Por exemplo, há uma tabela de **Limites de Assinatura** e uma tabela de **Limites de Assinatura – Azure Resource Manager**. Quando um limite se aplica a cenários de tooboth, é mostrada apenas na primeira tabela de saudação. A menos que indicado de outro modo, os limites são globais em todas as regiões.
+
+> [!NOTE]
+> É importante tooemphasize que cotas para recursos em grupos de recursos do Azure são por região acessível por sua assinatura e não por assinatura, como cotas de gerenciamento de serviço de saudação. Vamos usar cotas de núcleos como exemplo. Se você precisar toorequest aumentar a cota com suporte para núcleos, você precisa toodecide como muitos núcleos desejado toouse em quais regiões e, em seguida, fazer uma solicitação específica para o grupo de recursos do Azure principais cotas para valores hello e regiões em que você deseja. Portanto, se você precisar toouse 30 núcleos na Europa Ocidental toorun seu aplicativo; Especificamente, você deve solicitar 30 núcleos na Europa Ocidental. Mas você não terá uma cota de núcleos aumentam em qualquer outra região - somente Ocidental terá a cota de núcleo de 30 de saudação.
 > <!-- -->
-> Como resultado, pode ser útil pensar em decidir quais devem ser as cotas do Grupo de Recursos do Azure para a carga de trabalho em determinada região e solicitar essa quantidade em cada região na qual esteja considerando a possibilidade de implantação. Consulte [Solucionando problemas de implantação](resource-manager-common-deployment-errors.md) para obter mais ajuda ao descobrir suas cotas atuais para regiões específicas.
+> Como resultado, você pode achar útil tooconsider decidir o que suas cotas de grupo de recursos do Azure precisam toobe para sua carga de trabalho em qualquer uma região e solicitação que o valor em cada região na qual você estiver considerando a implantação. Consulte [Solucionando problemas de implantação](resource-manager-common-deployment-errors.md) para obter mais ajuda ao descobrir suas cotas atuais para regiões específicas.
 > 
 > 
 
@@ -96,7 +96,7 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 [!INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
 #### <a name="subscription-limits---azure-resource-manager"></a>Limites de Assinatura – Azure Resource Manager
-Os limites a seguir se aplicam ao usar o Gerenciador de Recursos do Azure e os Grupos de Recursos do Azure. Limites que não foram alterados com o Gerenciador de Recursos do Azure não estão listados abaixo. Consulte a tabela anterior para obter esses limites.
+Olá limites a seguir se aplicam ao usar o hello Azure Resource Manager e grupos de recursos do Azure. Limites que não foram alteradas com hello Azure Resource Manager não estão listados abaixo. Consulte a tabela anterior toohello para esses limites.
 
 Para obter informações sobre como lidar com limites de solicitações do Resource Manager, confira [Throttling Resource Manager requests](resource-manager-request-limits.md) (Limitando as solicitações do Resource Manager).
 
@@ -110,7 +110,7 @@ Para obter informações sobre como lidar com limites de solicitações do Resou
 [!INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 #### <a name="virtual-machines-limits---azure-resource-manager"></a>Limites de Máquinas Virtuais – Gerenciador de Recursos do Azure
-Os limites a seguir se aplicam ao usar o Gerenciador de Recursos do Azure e os Grupos de Recursos do Azure. Limites que não foram alterados com o Gerenciador de Recursos do Azure não estão listados abaixo. Consulte a tabela anterior para obter esses limites.
+Olá limites a seguir se aplicam ao usar o hello Azure Resource Manager e grupos de recursos do Azure. Limites que não foram alteradas com hello Azure Resource Manager não estão listados abaixo. Consulte a tabela anterior toohello para esses limites.
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
@@ -144,7 +144,7 @@ Para obter mais detalhes sobre os limites da conta de armazenamento, veja [Metas
 #### <a name="storage-service-limits"></a>Limites de Serviço de Armazenamento
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
+<!-- conceptual info about disk limits -- applies toounmanaged and managed -->
 #### <a name="virtual-machine-disk-limits"></a>Limites de disco de máquina virtual 
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
@@ -167,7 +167,7 @@ Consulte [Tamanhos de máquina virtual](virtual-machines/linux/sizes.md?toc=%2fa
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
 ### <a name="app-service-limits"></a>Limites do Serviço de Aplicativo
-Os limites de Serviço de Aplicativo a seguir incluem limites para Aplicativos Web, Aplicativos Móveis, Aplicativos de API e Aplicativos Lógicos.
+limites de serviço de aplicativo a seguir Olá incluem limites para aplicativos Web, aplicativos móveis, aplicativos de API e aplicativos lógicos.
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
@@ -178,22 +178,22 @@ Os limites de Serviço de Aplicativo a seguir incluem limites para Aplicativos W
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
 ### <a name="biztalk-services-limits"></a>Limites dos Serviços BizTalk
-A tabela a seguir mostra os limites para os serviços Biztalk do Azure.
+Olá tabela a seguir mostra os limites de saudação para serviços Biztalk do Azure.
 
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 ### <a name="azure-cosmos-db-limits"></a>Limites do Azure Cosmos DB
-O Azure Cosmos DB é um banco de dados de escala global no qual o armazenamento e a produtividade podem ser dimensionados para atender às necessidades de seu aplicativo. Em caso de dúvidas sobre a escala fornecida pelo Azure Cosmos DB, envie um email para askcosmosdb@microsoft.com.
+Banco de dados do Azure Cosmos é um banco de dados de escala global em qual taxa de transferência e o armazenamento pode ser dimensionado toohandle tudo o que seu aplicativo requer. Se você tiver alguma dúvida sobre a escala hello Azure Cosmos DB fornece, envie um email tooaskcosmosdb@microsoft.com.
 
 ### <a name="mobile-engagement-limits"></a>Limites do Mobile Engagement 
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
 ### <a name="search-limits"></a>Limites do Search
-Os tipos de preço determinam a capacidade e os limites de seu serviço Search. Eles incluem:
+Camadas de preços determinam a capacidade de saudação e limites de seu serviço de pesquisa. Eles incluem:
 
 * *Gratuito* serviço multilocatário, compartilhado com outros assinantes do Azure, destinado à avaliação e a pequenos projetos de desenvolvimento.
-* *Básico* fornece recursos de computação dedicados para cargas de trabalho de produção em uma escala menor, com até três réplicas para cargas de trabalho de consulta altamente disponíveis.
-* *Standard (S1, S2, S3, S3 de alta densidade)* para cargas de trabalho de produção maiores. Há vários níveis dentro da camada Standard para que você possa escolher uma configuração de recursos que corresponda ao seu perfil de carga de trabalho.
+* *Básico* fornece recursos de computação dedicados para cargas de trabalho de produção em uma escala menor, com o backup de réplicas toothree para cargas de trabalho de consulta altamente disponível.
+* *Standard (S1, S2, S3, S3 de alta densidade)* para cargas de trabalho de produção maiores. Vários níveis existem na camada padrão Olá para que você possa escolher uma configuração de recurso que melhor descreva seu perfil de carga de trabalho.
 
 **Limites por assinatura**
 
@@ -203,7 +203,7 @@ Os tipos de preço determinam a capacidade e os limites de seu serviço Search. 
 
 [!INCLUDE [azure-search-limits-per-service](../includes/azure-search-limits-per-service.md)]
 
-Para saber mais sobre limites em um nível mais granular, como o tamanho do documento, consultas por segundo, chaves, solicitações e respostas, confira [Limites de serviço no Azure Search](search/search-limits-quotas-capacity.md).
+toolearn mais sobre limites em um nível mais granular, como tamanho do documento, consultas por segundo, chaves, solicitações e respostas, consulte [limites na pesquisa do Azure do serviço](search/search-limits-quotas-capacity.md).
 
 ### <a name="media-services-limits"></a>Limites de Serviços de Mídia
 [!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]

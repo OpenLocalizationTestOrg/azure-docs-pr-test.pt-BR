@@ -1,5 +1,5 @@
 ---
-title: "Modelo de dados do Azure Application Insights Telemetry – telemetria de exceções | Microsoft Docs"
+title: "aaaAzure modelo de dados de telemetria do Application Insights - telemetria de exceção | Microsoft Docs"
 description: "Modelo de dados do Application Insights para telemetria de exceções"
 services: application-insights
 documentationcenter: .net
@@ -12,19 +12,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: bwren
-ms.openlocfilehash: 6b220b0cb6719bac606f599d657d08ab847c7590
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 4c2b7d1ac3816d5623db9a35819a48a68a13a9cd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="exception-telemetry-application-insights-data-model"></a>Telemetria de exceções: modelo de dados do Application Insights
 
-Um [Application Insights](app-insights-overview.md), uma instância da exceção representa uma exceção tratada ou sem tratamento que ocorreu durante a execução do aplicativo monitorado.
+Em [Application Insights](app-insights-overview.md), uma instância de exceção representa uma exceção de tratada ou não tratada que ocorreu durante a execução do aplicativo hello monitorado.
 
 ## <a name="problem-id"></a>ID do Problema
 
-Identificador do local em que a exceção foi lançada no código. Usada para agrupamento de exceções. Normalmente, é uma combinação do tipo de exceção e uma função da pilha de chamadas.
+Identificador de onde a exceção de saudação foi gerada no código. Usada para agrupamento de exceções. Normalmente, uma combinação de tipo de exceção e uma função da pilha de chamadas de saudação.
 
 Comprimento máximo: 1.024 caracteres
 
@@ -34,7 +34,7 @@ Nível de severidade de rastreamento. O valor pode ser `Verbose`, `Information`,
 
 ## <a name="exception-details"></a>Detalhes da exceção
 
-(A ser estendido)
+(toobe estendido)
 
 ## <a name="custom-properties"></a>Propriedades personalizadas
 
@@ -47,5 +47,5 @@ Nível de severidade de rastreamento. O valor pode ser `Verbose`, `Information`,
 ## <a name="next-steps"></a>Próximas etapas
 
 - Consulte [modelo de dados](application-insights-data-model.md) para modelo de dados e tipos do Application Insights.
-- Aprenda a [diagnosticar exceções em seus aplicativos Web com o Application Insights](app-insights-asp-net-exceptions.md).
+- Saiba como muito[diagnosticar exceções em seus aplicativos web com o Application Insights](app-insights-asp-net-exceptions.md).
 - Confira as [plataformas](app-insights-platforms.md) com suporte do Application Insights.

@@ -1,6 +1,6 @@
 ---
-title: "Publicar a Área de Trabalho Remota com o Proxy de Aplicativo do Azure AD | Microsoft Docs"
-description: "Cobre as noções básicas sobre os conectores do Proxy de Aplicativo do Azure AD."
+title: "aaaPublish área de trabalho remota com o Proxy de aplicativo do Azure AD | Microsoft Docs"
+description: "Abrange Olá Noções básicas sobre conectores de Proxy de aplicativo do Azure AD."
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -16,77 +16,77 @@ ms.date: 06/11/2017
 ms.author: kgremban
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 785bb4f893cf6861ef3b090d99780fd9b6b08c0e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 1174161d0b5ef1157c334970f00ef4f0702a9545
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar a Área de Trabalho Remota com o Proxy de Aplicativo do Azure AD
 
-Este artigo aborda como implantar RDS (Serviços de Área de Trabalho Remota) com o Proxy de Aplicativo para que os usuários remotos possam ainda ser produtivos.
+Este artigo aborda como toodeploy serviços de área de trabalho remota (RDS) com o Proxy de aplicativo para que os usuários remotos podem ainda ser produtivos.
 
-O público-alvo deste artigo é:
-- Os clientes atuais do Proxy de Aplicativo do Azure AD que desejam oferecer mais aplicativos para seus usuários finais publicando aplicativos locais através dos Serviços de Área de Trabalho Remota.
-- Clientes atuais dos Serviços de Área de Trabalho Remota cujo desejo é reduzir a superfície de ataque da respectiva implantação usando o Proxy de Aplicativo do Azure AD. Este cenário fornece um conjunto limitado de verificação em duas etapas e controles de acesso condicional para o RDS.
+o objetivo da saudação público para este artigo é:
+- Proxy de aplicativo do AD do Azure aos clientes que deseja que os usuários finais tootheir aplicativos mais toooffer publicando aplicativos locais através dos serviços de área de trabalho remota.
+- Serviços de área de trabalho remota aos clientes que desejarem tooreduce Olá a ataques de sua implantação usando o Proxy de aplicativo do Azure AD. Este cenário fornece um conjunto limitado de verificação em duas etapas e tooRDS de controles de acesso condicional.
 
-## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>Como o Proxy de aplicativo se ajusta na implantação do RDS padrão
+## <a name="how-application-proxy-fits-in-hello-standard-rds-deployment"></a>Como o Proxy de aplicativo se encaixa na implantação de RDS padrão Olá
 
-Uma implantação do RDS padrão inclui vários serviços de função da Área de Trabalho Remota em execução no Windows Server. Observando a [arquitetura dos Serviços de Área de Trabalho Remota](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture), há várias opções de implantação. A diferença mais perceptível entre a [implantação RDS com o Proxy de Aplicativo do Azure AD](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) (mostrado no diagrama a seguir) e outras opções de implantação é que o cenário de Proxy de Aplicativo tem uma conexão de saída permanente do servidor executando o serviço do conector. Outras implantações deixam conexões de entrada abertas por meio de um balanceador de carga.
+Uma implantação do RDS padrão inclui vários serviços de função da Área de Trabalho Remota em execução no Windows Server. Olhando Olá [arquitetura dos serviços de área de trabalho remota](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture), há várias opções de implantação. Olá a diferença mais notável entre hello [implantação de RDS com Proxy de aplicativo do Azure AD](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) (mostrado no diagrama a seguir de saudação) e hello outras opções de implantação é esse cenário de Proxy de aplicativo hello tem uma saída de permanente conexão do servidor de saudação executando o serviço do conector hello. Outras implantações deixam conexões de entrada abertas por meio de um balanceador de carga.
 
-![O proxy de aplicativo fica entre a VM do RDS e a Internet pública](./media/application-proxy-publish-remote-desktop/rds-with-app-proxy.png)
+![Fica de Proxy de aplicativo entre Olá RDS VM e Olá internet pública](./media/application-proxy-publish-remote-desktop/rds-with-app-proxy.png)
 
-Em uma implantação do RDS, a função Web da Área de Trabalho Remota e a função de Gateway de Área de Trabalho Remota são executados em computadores voltados para a Internet. Esses pontos de extremidade são expostos pelos seguintes motivos:
-- A Web de Área de Trabalho Remota fornece ao usuário um ponto de extremidade público para entrar e exibir os diversos aplicativos locais e áreas de trabalho que eles podem acessar. Ao selecionar um recurso, uma conexão de RDP é criada usando o aplicativo nativo no sistema operacional.
-- O Gateway de Área de Trabalho Remota entra em cena quando um usuário inicia a conexão de RDP. O Gateway de Área de Trabalho Remota manipula o tráfego RDP criptografado chegando pela Internet e o converte para o servidor local ao qual o usuário está se conectando. Nesse cenário, o tráfego que o Gateway de Área de Trabalho Remota está recebendo é proveniente do Proxy de Aplicativo do Azure AD.
+Em uma implantação de RDS, a função da Web da área de trabalho remota de saudação e função do Gateway de área de trabalho remota Olá executados em máquinas de voltado para a Internet. Esses pontos de extremidade são expostos para Olá motivos a seguir:
+- Web da área de trabalho remota oferece usuário Olá toosign um ponto de extremidade público no e exibição Olá vários aplicativos locais e áreas de trabalho que eles possam acessar. Ao selecionar um recurso, uma conexão de RDP é criado usando o aplicativo nativo Olá Olá sistema operacional.
+- Gateway de área de trabalho remota entra em imagem hello quando um usuário inicia a conexão de RDP hello. Hello Gateway RD manipula o tráfego RDP Olá criptografado provenientes de saudação à Internet e converte toohello servidor local que Olá usuário está se conectando. Nesse cenário, Olá Olá de tráfego que gateway de área de trabalho remota está recebendo proveniente Olá Proxy de aplicativo do Azure AD.
 
 >[!TIP]
->Se você não implantou o RDS anteriormente ou deseja obter mais informações antes de começar, saiba como [implantar perfeitamente o RDS com o Azure Resource Manager e o Azure Marketplace](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure).
+>Se você ainda não implantou o RDS antes, ou obter mais informações antes de começar, saiba como muito[implantar perfeitamente RDS com o Gerenciador de recursos do Azure e o Azure Marketplace](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure).
 
 ## <a name="requirements"></a>Requisitos
 
-- Tanto o ponto de extremidade da Web da Área de Trabalho Remota quanto o ponto de extremidade do Gateway de Área de Trabalho Remota devem estar localizados no mesmo computador e com uma raiz comum. A Web da Área de Trabalho Remota e o Gateway de Área de Trabalho Remota serão publicados como um único aplicativo, para que você possa ter uma experiência de logon único entre os dois aplicativos.
+- Ambos Olá Web da área de trabalho remota e os pontos de extremidade devem estar localizados no servidor Gateway RD Olá mesmo computador e com uma raiz comum. Web da área de trabalho remota e Gateway de área de trabalho remota serão publicado como um único aplicativo para que você tenha uma experiência de logon único entre aplicativos Olá dois.
 
 - Você já deverá ter [implantado o RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) e [habilitado o Proxy de Aplicativo](active-directory-application-proxy-enable.md).
 
-- Esse cenário pressupõe que seus usuários finais passem pelo Internet Explorer em áreas de trabalho do Windows 7 ou do Windows 10 que se conectem por meio da página da Web de RD. Se você precisar de suporte a outros sistemas operacionais, consulte [Suporte a outras configurações de cliente](#support-for-other-client-configurations).
+- Este cenário pressupõe que seus usuários finais passar pelo Internet Explorer no Windows 7 ou Windows 10 desktops que se conectam por meio de página da Web da área de trabalho remota de saudação. Se você precisar toosupport outros sistemas operacionais, consulte [suporte para outras configurações de cliente](#support-for-other-client-configurations).
 
   >[!NOTE]
   >No momento, não há suporte para atualização do Criador do Windows 10.
 
-- No Internet Explorer, habilite o complemento ActiveX do RDS.
+- No Internet Explorer, habilitá-Olá ActiveX RDS.
 
-## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>Implantar o cenário conjunto de RDS e Proxy de Aplicativo
+## <a name="deploy-hello-joint-rds-and-application-proxy-scenario"></a>Implantar Olá cenário comum de RDS e o Proxy de aplicativo
 
-Depois de configurar o RDS e o Proxy de Aplicativo do Azure AD em seu ambiente, siga as etapas para combinar as duas soluções. Essas etapas explicam passo a passo como publicar os dois pontos de extremidade de RDS voltados para a Web (Web da Área de Trabalho Remota e Gateway de Área de Trabalho Remota) como aplicativos, direcionando depois o tráfego em seu RDS para passar pelo Proxy de Aplicativo.
+Depois de configurar o RDS e o Proxy de aplicativo do Azure AD para o seu ambiente, siga Olá etapas toocombine Olá duas soluções. Essas etapas explicam publicar Olá duas web voltados RDS pontos de extremidade (Web da área de trabalho remota e Gateway de área de trabalho remota) como aplicativos e direcionar o tráfego em seu toogo RDS por meio do Proxy de aplicativo.
 
-### <a name="publish-the-rd-host-endpoint"></a>Publicar o ponto de extremidade do host de Área de Trabalho Remota
+### <a name="publish-hello-rd-host-endpoint"></a>Publicar o ponto de extremidade de host de área de trabalho remota Olá
 
-1. [Publicar um novo aplicativo de Proxy de Aplicativo](application-proxy-publish-azure-portal.md) com os seguintes valores:
-   - URL interna: https://\<rdhost\>.com/, em que \<rdhost\> é a raiz comum que a Web da Área de Trabalho Remota e o Gateway de Área de Trabalho Remota compartilham.
-   - URL externa: esse campo é preenchido automaticamente com base no nome do aplicativo, mas você pode modificá-lo. Os usuários serão levados a essa URL quando acessarem o RDS.
+1. [Publicar um novo aplicativo de Proxy de aplicativo](application-proxy-publish-azure-portal.md) com hello valores a seguir:
+   - URL interna: https://\<rdhost\>.com /, onde \<rdhost\> é Olá raiz comum que compartilham Web da área de trabalho remota e Gateway de área de trabalho remota.
+   - URL externa: Este campo é preenchido automaticamente com base no nome de saudação do aplicativo hello, mas você pode modificá-lo. Os usuários irá toothis URL quando acessarem RDS.
    - Método de pré-autenticação: Azure Active Directory
    - Converter cabeçalhos de URL: não
-2. Atribua usuários ao aplicativo de Área de Trabalho Remota publicado. Certifique-se também de que todos eles tenham acesso ao RDS.
-3. Deixe o método de logon único para o aplicativo como **Logon único do Azure AD desabilitado**. É solicitado aos usuários que autentiquem uma vez no Azure AD e uma vez para a Web da Área de Trabalho Remota, eles têm logon único para o Gateway de Área de Trabalho Remota.
-4. Vá para **Azure Active Directory** > **Registros de Aplicativo** > *Seu aplicativo* > **Configurações**.
-5. Selecione **Propriedades** e atualize o campo **URL da Home Page** para apontar para o ponto de extremidade da Web da Área de Trabalho Remota (como https://\<rdhost\>.com/RDWeb).
+2. Atribuir usuários toohello publicado o aplicativo de área de trabalho remota. Verifique se que todos eles têm acesso tooRDS, muito.
+3. Olá método de logon único para o aplicativo hello como Leave **AD do Azure SSO desabilitado**. Os usuários são frequentes tooauthenticate quando tooAzure AD e uma vez tooRD da Web, mas possuem tooRD de logon único Gateway.
+4. Vá muito**Active Directory do Azure** > **registros do aplicativo** > *seu aplicativo* > **configurações**.
+5. Selecione **propriedades** e atualização hello **URL da Home page** o ponto de extremidade do campo toopoint tooyour Web da área de trabalho remota (como https://\<rdhost\>.com/RDWeb).
 
-### <a name="direct-rds-traffic-to-application-proxy"></a>Direcionar o tráfego do RDS para o Proxy de Aplicativo
+### <a name="direct-rds-traffic-tooapplication-proxy"></a>Direcionar o tráfego RDS tooApplication Proxy
 
-Conecte-se à implantação do RDS como administrador e altere o nome do servidor de Gateway de Área de Trabalho Remota para a implantação. Isso garante que as conexões passem pelo Proxy de Aplicativo do Azure AD.
+Conecte-se a implantação do RDS toohello como um administrador e altere o nome do servidor de Gateway de área de trabalho remota Olá para implantação de saudação. Isso garante que as conexões passam por Olá Proxy de aplicativo do Azure AD.
 
-1. Conecte-se ao servidor RDS executando a função de Agente de Conexão de Área de Trabalho Remota.
+1. Conecte o servidor RDS toohello executando a função de agente de Conexão de área de trabalho de saudação.
 2. Inicie o **Gerenciador do Servidor**.
-3. Selecione **Serviços de Área de Trabalho Remota** no painel à esquerda.
+3. Selecione **Remote Desktop Services** Olá no painel de saudação esquerda.
 4. Selecione **Visão geral**.
-5. Na seção Visão geral da implantação, selecione o menu suspenso e escolha **Editar propriedades de implantação**.
-6. Na guia Gateway de Área de Trabalho Remota, altere o campo **Nome do servidor** para a URL externa que você definiu para o ponto de extremidade do host de Área de Trabalho Remota no Proxy de Aplicativo.
-7. Altere o campo **Método de logon** para **Autenticação de Senha**.
+5. Na seção Visão geral da implantação do hello, selecione o menu suspenso de saudação e escolha **editar propriedades de implantação**.
+6. Na guia de Gateway de área de trabalho remota hello, alterar Olá **nome do servidor** toohello campo URL externa que você definiu para o ponto de extremidade de host de saudação área de trabalho remota no Proxy de aplicativo.
+7. Saudação de alteração **método de Logon** campo muito**autenticação de senha**.
 
   ![Tela Propriedades de Implantação no RDS](./media/application-proxy-publish-remote-desktop/rds-deployment-properties.png)
 
-8. Para cada coleção, execute o comando a seguir. Substitua *\<yourcollectionname\>* e *\<proxyfrontendurl\>* por suas próprias informações. Este comando habilita o logon único entre a Web da Área de Trabalho Remota e Gateway de Área de Trabalho Remota e otimiza o desempenho:
+8. Para cada coleção, execute Olá comando a seguir. Substitua *\<yourcollectionname\>* e *\<proxyfrontendurl\>* por suas próprias informações. Este comando habilita o logon único entre a Web da Área de Trabalho Remota e Gateway de Área de Trabalho Remota e otimiza o desempenho:
 
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"
@@ -97,38 +97,38 @@ Conecte-se à implantação do RDS como administrador e altere o nome do servido
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://gateway.contoso.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
 
-9. Para verificar se a modificação das propriedades personalizadas do RDP, bem como para exibir o conteúdo do arquivo do RDP que será baixado do RDWeb para essa coleção, execute o seguinte comando:
+9. modificação de saudação tooverify de propriedades personalizadas de RDP hello, bem como exibir hello RDP conteúdo do arquivo que será baixado da RDWeb para esta coleção, execute Olá comando a seguir:
     ```
     (get-wmiobject -Namespace root\cimv2\terminalservices -Class Win32_RDCentralPublishedRemoteDesktop).RDPFileContents
     ```
 
-Agora que você configurou a Área de Trabalho Remota, o Proxy de Aplicativo do Azure AD assumiu como o componente voltado para a Internet do RDS. Você pode remover os outros pontos de extremidade voltados para a Internet pública em seus computadores da Web da Área de Trabalho Remota e do Gateway de Área de Trabalho Remota.
+Agora que você configurou a área de trabalho remota, o Proxy de aplicativo do Azure AD tem assumido como componente de voltados à internet de saudação do RDS. Você pode remover Olá outros pontos de extremidade para a internet públicos em suas máquinas da Web da área de trabalho remota e Gateway de área de trabalho remota.
 
-## <a name="test-the-scenario"></a>Testar o cenário
+## <a name="test-hello-scenario"></a>Cenário de teste de saudação
 
-Teste o cenário com o Internet Explorer no computador com Windows 7 ou 10.
+Testar o cenário de saudação com o Internet Explorer no Windows 7 ou o computador de 10.
 
-1. Vá para a URL externa que você configurou ou localize seu aplicativo no [painel MyApps](https://myapps.microsoft.com).
-2. É solicitado que você se autentique no Azure Active Directory. Use uma conta que você atribuiu ao aplicativo.
-3. Será solicitado que você autentique a Web da Área de Trabalho Remota.
-4. Quando a autenticação de RDS for bem-sucedida, você poderá selecionar o computador desktop ou aplicativo que deseja e começar a trabalhar.
+1. Vá toohello URL externa que você configurar ou localizar seu aplicativo hello [MyApps painel](https://myapps.microsoft.com).
+2. Você será solicitado tooauthenticate tooAzure do Active Directory. Use uma conta que você atribuiu toohello aplicativo.
+3. Você será solicitado tooauthenticate tooRD da Web.
+4. Se a autenticação de RDS for bem-sucedida, você pode selecionar desktop saudação ou aplicativo que você deseja e começa a trabalhar.
 
 ## <a name="support-for-other-client-configurations"></a>Suporte para outras configurações de cliente
 
-A configuração descrita neste artigo é para usuários no Windows 7 ou 10, com o Internet Explorer mais o complemento ActiveX do RDS. Se for necessário, no entanto, você poderá dar suporte a outros sistemas operacionais ou navegadores. A diferença está no método de autenticação que você usa.
+configuração de saudação descrita neste artigo é para usuários no Windows 7 ou 10, Internet Explorer além de complemento de RDS ActiveX hello. Se for necessário, no entanto, você poderá dar suporte a outros sistemas operacionais ou navegadores. diferença de saudação está no método de autenticação de saudação que você usar.
 
 | Método de autenticação | Configuração de cliente com suporte |
 | --------------------- | ------------------------------ |
 | Pré-autenticação    | Windows 7/10 usando o Internet Explorer + complemento ActiveX do RDS |
-| Passagem | Qualquer outro sistema operacional que dê suporte ao aplicativo de Área de Trabalho Remota da Microsoft |
+| Passagem | Qualquer outro sistema operacional que dá suporte ao aplicativo de área de trabalho remota Microsoft hello |
 
-O fluxo de pré-autenticação oferece mais benefícios de segurança que o fluxo de passagem. Com a pré-autenticação, você pode aproveitar os recursos de autenticação do Azure AD, como o logon único, acesso condicional e verificação em duas etapas, para os seus recursos locais. Você também pode garantir que somente tráfego autenticado alcance sua rede.
+fluxo de pré-autenticação Olá oferece mais benefícios de segurança que o fluxo de passagem de saudação. Com a pré-autenticação, você pode aproveitar os recursos de autenticação do Azure AD, como o logon único, acesso condicional e verificação em duas etapas, para os seus recursos locais. Você também pode garantir que somente tráfego autenticado alcance sua rede.
 
-Para usar a autenticação de passagem, há apenas duas modificações às etapas listadas neste artigo:
-1. Na etapa 1, [Publicar o ponto de extremidade do host de RD](#publish-the-rd-host-endpoint), defina o método de pré-autenticação como **Passagem**.
-2. Em [Tráfego de RDS direto para o Proxy de Aplicativo](#direct-rds-traffic-to-application-proxy), ignore totalmente a etapa 8.
+autenticação de passagem de toouse, há apenas duas modificações toohello etapas que são listadas neste artigo:
+1. Em [publica o ponto de extremidade de host Olá RD](#publish-the-rd-host-endpoint) etapa 1, defina o método de pré-autenticação Olá muito**passagem**.
+2. Em [tooApplication Proxy de tráfego direto RDS](#direct-rds-traffic-to-application-proxy), ignore a etapa 8 inteiramente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Habilitar acesso remoto ao SharePoint com o Proxy de Aplicativo do Azure AD](application-proxy-enable-remote-access-sharepoint.md)  
+[Habilitar acesso remoto tooSharePoint com Proxy de aplicativo do Azure AD](application-proxy-enable-remote-access-sharepoint.md)  
 [Considerações de segurança para acessar aplicativos remotamente usando o Proxy de Aplicativo do Azure AD](application-proxy-security-considerations.md)

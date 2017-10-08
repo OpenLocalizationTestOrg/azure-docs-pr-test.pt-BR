@@ -2,7 +2,7 @@
 ## [O que é o Azure Analysis Services?](analysis-services-overview.md)
 ## [Fontes de dados com suporte](analysis-services-datasource.md)
 ## [Autenticação e permissões de usuário](analysis-services-manage-users.md)
-## [Conectando fontes de dados locais](analysis-services-gateway.md)
+## [Conectando a fontes de dados locais tooon](analysis-services-gateway.md)
 ## [Nível de compatibilidade](analysis-services-compat-level.md)
 ## [Alta disponibilidade](analysis-services-bcdr.md)
 
@@ -12,7 +12,7 @@
 ## [Implantar um modelo no Visual Studio](analysis-services-deploy.md)
 ## [Criar um modelo no portal do Azure (versão prévia)](analysis-services-create-model-portal.md)
 
-# Instruções 
+# Como muito
 ## [Gerenciar um servidor](analysis-services-manage.md)
 ## [Gerenciar usuários de banco de dados](analysis-services-database-users.md)
 ## [Gerenciar administradores de servidor](analysis-services-server-admins.md)

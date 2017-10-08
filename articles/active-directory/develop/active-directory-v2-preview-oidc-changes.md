@@ -1,6 +1,6 @@
 ---
-title: "Alterações no ponto de extremidade do Azure AD v2.0 | Microsoft Docs"
-description: "Uma descrição das alterações que estão sendo feitas nos protocolos de visualização pública do modelo de aplicativo v 2.0."
+title: ponto de extremidade do aaaChanges toohello AD do Azure v 2.0 | Microsoft Docs
+description: "Uma descrição das alterações que estão sendo feitas protocolos de visualização pública toohello aplicativo modelo v 2.0."
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -15,28 +15,28 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ae73833a68db14804dc40eaf07ff7d3effaa9052
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d7b28a481e12d5dbbc4a10110193bdbd754f4929
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="important-updates-to-the-v20-authentication-protocols"></a>Atualizações Importantes para os Protocolos de Autenticação v 2.0
-Atenção, desenvolvedores! Nas próximas duas semanas, realizaremos algumas atualizações em nossos protocolos de autenticação v 2.0 que podem significar alterações de interrupção em qualquer aplicativo que você tenha gravado durante o período de visualização.  
+# <a name="important-updates-toohello-v20-authentication-protocols"></a>V 2.0 de toohello importantes atualizações protocolos de autenticação
+Atenção, desenvolvedores! Sobre Olá próximas duas semanas, realizaremos atualizações alguns protocolos de autenticação do tooour v 2.0 que podem significar últimas alterações para todos os aplicativos que foram gravadas durante o período de nossa visualização.  
 
 ## <a name="who-does-this-affect"></a>A quem isso afeta?
-Todos os aplicativos que foram gravados para usar o ponto de extremidade de autenticação convergido v 2.0, 
+Todos os aplicativos que foram gravados v 2.0 do toouse Olá convergida ponto de extremidade de autenticação
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
 ```
 
-Mais informações sobre o ponto de extremidade v 2.0 podem ser encontradas [aqui](active-directory-appmodel-v2-overview.md).
+Obter mais informações sobre o ponto de extremidade do hello v 2.0 podem ser encontradas [aqui](active-directory-appmodel-v2-overview.md).
 
-Se você tiver criado um aplicativo usando o ponto de extremidade v 2.0 codificando diretamente para o protocolo v 2.0, usando qualquer um de nossos middlewares da Web OAuth ou OpenID Connect, ou outras bibliotecas de terceiros para realizar a autenticação, deverá estar preparado para testar seus projetos e fazer as alterações necessárias.
+Se você criou um aplicativo usando o ponto de extremidade do hello v 2.0 codificando diretamente toohello v 2.0 protocol usando qualquer um dos nossos middlewares web OpenID Connect ou OAuth ou usando outros 3ª parte bibliotecas tooperform a autenticação, você deve estar preparado tootest seus projetos e verifique alterações necessárias.
 
 ## <a name="who-doesnt-this-affect"></a>A quem isso não afeta?
-Quaisquer aplicativos que foram gravados no ponto de extremidade de autenticação de produção do AD do Azure
+Todos os aplicativos que foram gravados em relação a saudação produção AD do Azure do ponto de extremidade,
 
 ```
 https://login.microsoftonline.com/common/oauth2/authorize
@@ -44,11 +44,11 @@ https://login.microsoftonline.com/common/oauth2/authorize
 
 Esse protocolo é imutável e não terá qualquer alteração.
 
-Além disso, se seu aplicativo usa **somente** a biblioteca do ADAL para realizar a autenticação, você não precisará alterar nada.  O ADAL protegeu seu aplicativo contra alterações.  
+Além disso, se seu aplicativo **somente** usa a autenticação de tooperform nossa biblioteca ADAL, você não terá toochange nada.  ADAL tem blindado seu aplicativo de alterações de saudação.  
 
-## <a name="what-are-the-changes"></a>Quais são as alterações?
-### <a name="removing-the-x5t-value-from-jwt-headers"></a>Remover o valor x5t dos cabeçalhos JWT
-O ponto de extremidade v 2.0 usa muito os tokens JWT que contêm uma seção de parâmetros do cabeçalho com metadados relevantes sobre o token.  Se você decodificasse o cabeçalho de um dos nossos JWTs atuais, encontraria algo como:
+## <a name="what-are-hello-changes"></a>Quais são as alterações de Olá?
+### <a name="removing-hello-x5t-value-from-jwt-headers"></a>Removendo o valor de x5t Olá dos cabeçalhos JWT
+o ponto de extremidade do Hello v 2.0 usa tokens JWT extensivamente, que contém uma seção de parâmetros de cabeçalho com metadados relevantes sobre token de saudação.  Se decodificar o cabeçalho de saudação de um dos nossos JWTs atuais, você deve encontrar algo como:
 
 ```
 { 
@@ -59,23 +59,23 @@ O ponto de extremidade v 2.0 usa muito os tokens JWT que contêm uma seção de 
 }
 ```
 
-Onde as propriedades "x5t" e "kid" identificam a chave pública que deve ser usada para validar a assinatura do token, conforme recuperada no ponto de extremidade de metadados OpenID Connect.
+Onde ambas as propriedades de "x5t" e "kid" hello identificam a chave pública de saudação que deve ser assinatura do token de saudação toovalidate usado, conforme recuperados do ponto de extremidade de metadados de OpenID Connect hello.
 
-A alteração que estamos fazendo aqui é remover a propriedade "x5t".  Você pode continuar a usar os mesmos mecanismos para validar os tokens, mas deve contar somente com a propriedade "kid" para recuperar a chave pública correta, conforme especificado no protocolo OpenID Connect. 
+alteração de saudação que estamos fazendo aqui é propriedade de hello "x5t" de tooremove.  Você pode continuar toouse Olá mesmo toovalidate de mecanismos de tokens, mas deve depender somente hello "kid" propriedade tooretrieve Olá chave pública correta, como especificado em Olá protocolo OpenID Connect. 
 
 > [!IMPORTANT]
-> **Seu trabalho: Verifique se seu aplicativo não depende da existência do valor x5t.**
+> **O trabalho: Verifique se seu aplicativo não depende da existência de saudação do valor de x5t hello.**
 > 
 > 
 
 ### <a name="removing-profileinfo"></a>Remover profile_info
-Anteriormente, o ponto de extremidade v 2.0 retornava um objeto JSON codificado na base64 nas respostas do token chamadas `profile_info`.  Ao solicitar um token de acesso no ponto de extremidade v 2.0 enviando uma solicitação para:
+Anteriormente, o ponto de extremidade do hello v 2.0 tem foi retornar um objeto JSON codificado na base64 em respostas de token chamadas `profile_info`.  Ao solicitar um token de acesso do ponto de extremidade do hello v 2.0 enviando uma solicitação para:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 
-A resposta pareceria com o seguinte objeto JSON:
+resposta de saudação seria Olá objeto JSON a seguir:
 
 ```
 { 
@@ -88,9 +88,9 @@ A resposta pareceria com o seguinte objeto JSON:
 }
 ```
 
-O valor `profile_info` continha informações sobre o usuário que entrou no aplicativo: seu nome de exibição, primeiro nome, sobrenome, endereço de email, identificador, etc.  Basicamente, `profile_info` foi usado para o cache do token e a exibição.
+Olá `profile_info` informações de valor contido sobre o usuário de saudação que assinou o aplicativo hello - seu nome de exibição, nome, sobrenome, endereço de email, identificador e assim por diante.  Primeiramente, Olá `profile_info` foi usado para o cache de token e fins de exibição.
 
-Agora, estamos removendo o valor `profile_info` , mas não se preocupe, ainda fornecemos essas informações para os desenvolvedores em um local ligeiramente diferente.  Em vez de `profile_info`, o ponto de extremidade v 2.0 agora retornará um `id_token` em cada resposta do token:
+Agora estamos removendo Olá `profile_info` valor – mas não se preocupe, ainda estamos fornecendo essa toodevelopers informações em um local ligeiramente diferente.  Em vez de `profile_info`, o ponto de extremidade do hello v 2.0 agora irá retornar um `id_token` em cada resposta do token:
 
 ```
 { 
@@ -103,17 +103,17 @@ Agora, estamos removendo o valor `profile_info` , mas não se preocupe, ainda fo
 }
 ```
 
-Você pode decodificar e analisar o id_token para recuperar as mesmas informações recebidas do profile_info.  O id_token é um JSON Web Token (JWT), contendo conteúdo conforme especificado pelo OpenID Connect.  O código para fazer isso deve ser bastante similar. Você só precisa extrair o segmento intermediário (corpo) do id_token e decodificá-lo com base64 para acessar o objeto JSON.
+Você pode decodificar e analisar Olá id_token tooretrieve Olá mesmas informações que você recebeu do profile_info.  Olá id_token é um JSON Web Token (JWT), com conteúdo conforme especificado pelas OpenID Connect.  Olá código para fazer isso deve ser bem semelhante – basta intermediária de saudação tooextract segmento (corpo Olá) da saudação id_token e base64 decodificá-la tooaccess objeto JSON hello dentro.
 
-Nas próximas duas semanas, você deverá codificar seu aplicativo para recuperar as informações do usuário em `id_token` ou `profile_info`, o que estiver presente.  Dessa forma, quando a alteração for feita, seu aplicativo poderá lidar com a transição de `profile_info` para `id_token` sem interrupção.
+Sobre Olá próximas duas semanas, você deve codificar as informações do usuário do aplicativo tooretrieve Olá de qualquer Olá `id_token` ou `profile_info`; o que está presente.  Dessa forma, quando Olá alteração é feita, seu aplicativo pode lidar com transição de saudação do `profile_info` muito`id_token` sem interrupções.
 
 > [!IMPORTANT]
-> **Seu trabalho: Verifique se seu aplicativo não depende da existência do valor `profile_info`.**
+> **O trabalho: Verifique se seu aplicativo não depende da existência de saudação do hello `profile_info` valor.**
 > 
 > 
 
 ### <a name="removing-idtokenexpiresin"></a>Remover id_token_expires_in
-Semelhante ao ocorrido com `profile_info`, também estamos removendo o parâmetro `id_token_expires_in` das respostas.  Anteriormente, o ponto de extremidade v 2.0 retornaria um valor `id_token_expires_in` junto com cada resposta id_token, por exemplo, em uma resposta de autorização:
+Semelhante muito`profile_info`, também estamos removendo Olá `id_token_expires_in` parâmetro de respostas.  Anteriormente, o ponto de extremidade do hello v 2.0 retornaria um valor para `id_token_expires_in` junto com cada resposta id_token, por exemplo, em uma resposta de autorização:
 
 ```
 https://myapp.com?id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...&id_token_expires_in=3599...
@@ -132,15 +132,15 @@ Ou em uma resposta do token:
 }
 ```
 
-O valor `id_token_expires_in` indicaria o número de segundos que o id_token permaneceria válido.  Agora, estamos removendo o valor `id_token_expires_in` em sua totalidade.  Em vez disso, você pode usar as declarações `nbf` e `exp` padrão do OpenID Connect para examinar a validade de um id_token.  Confira a [referência do token v 2.0](active-directory-v2-tokens.md) para obter mais informações sobre essas declarações.
+Olá `id_token_expires_in` valor indicaria Olá quantos segundos Olá id_token permanecerá válido para.  Agora, estamos removendo Olá `id_token_expires_in` valor completamente.  Em vez disso, você pode usar o padrão de OpenID Connect Olá `nbf` e `exp` tooexamine validade de saudação de um id_token de declarações.  Consulte Olá [referência de token v 2.0](active-directory-v2-tokens.md) para obter mais informações sobre essas declarações.
 
 > [!IMPORTANT]
-> **Seu trabalho: Verifique se seu aplicativo não depende da existência do valor `id_token_expires_in`.**
+> **O trabalho: Verifique se seu aplicativo não depende da existência de saudação do hello `id_token_expires_in` valor.**
 > 
 > 
 
-### <a name="changing-the-claims-returned-by-scopeopenid"></a>Alterar as declarações retornadas por scope=openid
-Essa alteração será a mais importante. Na verdade, isso afetará quase todos os aplicativos que usam o ponto de extremidade v 2.0.  Muitos aplicativos enviam solicitações para o ponto de extremidade v 2.0 usando o escopo de `openid`, como:
+### <a name="changing-hello-claims-returned-by-scopeopenid"></a>Alterando declarações Olá retornadas pelo escopo = openid
+Essa alteração será hello mais significativa – na verdade, isso afetará a quase todos os aplicativos que usa o ponto de extremidade do hello v 2.0.  Muitos aplicativos enviar solicitações toohello v 2.0 ponto de extremidade usando Olá `openid` escopo, como:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -151,9 +151,9 @@ client_id=...
 &scope=openid offline_access https://outlook.office.com/mail.read
 ```
 
-Hoje, quando o usuário concede permissão para o escopo de `openid`, seu aplicativo recebe uma grande quantidade de informações sobre o usuário do id_token resultante.  As declarações em um id_token podem incluir o nome, nome de usuário preferido, endereço de email, ID do objeto e mais.
+Hoje, quando o usuário de saudação concede permissão para Olá `openid` escopo, seu aplicativo recebe uma grande quantidade de informações sobre o usuário Olá Olá resultante id_token.  As declarações em um id_token podem incluir o nome, nome de usuário preferido, endereço de email, ID do objeto e mais.
 
-Nesta atualização, estamos alterando as informações às quais o escopo de `openid` dá acesso ao aplicativo para ter uma melhor conformidade com a especificação do OpenID Connect.  O escopo `openid` apenas permitirá que seu aplicativo conecte o usuário e receba um identificador específico do aplicativo para o usuário na declaração `sub` do id_token.  As declarações em um id_token apenas com o escopo de `openid` concedido serão destituídas de qualquer informação de identificação pessoal.  Os exemplos de declarações do id_token são:
+Nesta atualização, nós estamos alterando as informações de saudação que Olá `openid` escopo permite ao aplicativo acesso aos toobetter comform com hello especificação OpenID Connect.  Olá `openid` escopo será somente que seu aplicativo toosign Olá usuário e recebe um identificador específico do aplicativo para o usuário Olá no hello `sub` Olá id_token de declaração.  Olá declarações em um id_token com apenas Olá `openid` escopo concedido será não possui informações pessoalmente identificáveis.  Os exemplos de declarações do id_token são:
 
 ```
 { 
@@ -169,12 +169,12 @@ Nesta atualização, estamos alterando as informações às quais o escopo de `o
 }
 ```
 
-Se você quiser obter informações de identificação pessoal (PII) sobre o usuário em seu aplicativo, seu aplicativo precisará solicitar permissões adicionais do usuário.  Estamos introduzindo o suporte para dois novos escopos da especificação OpenID Connect, os escopos `email` e `profile`, que permitem que você faça isso.
+Se você quiser tooobtain informações de identificação pessoal (PII) sobre o usuário Olá no seu aplicativo, seu aplicativo precisará de permissões adicionais de toorequest de usuário de saudação.  Estamos introduzindo o suporte para dois novos escopos de especificação de OpenID Connect hello – hello `email` e `profile` escopos – que permitem toodo.
 
-* O escopo `email` é muito simples — permite que seu aplicativo acesse o endereço de email principal do usuário por meio da declaração `email` no id_token.  Observe que a declaração `email` nem sempre estará presente nos id_tokens. Ela só será incluída se estiver disponível no perfil do usuário.
-* O escopo `profile` permite que seu aplicativo acesse todas as outras informações básicas sobre o usuário – seu nome, nome de usuário preferido, ID do objeto etc.
+* Olá `email` escopo é muito simples – ele permite que o endereço de email principal do usuário seu aplicativo acesso toohello via Olá `email` Olá id_token de declaração.  Observe que Olá `email` declaração não sempre estarão presente em id_tokens – ele só será incluído se disponíveis no perfil do usuário Olá.
+* Olá `profile` escopo dá seu tooall de acesso do aplicativo outras informações básicas sobre o usuário hello – seu nome, o nome do usuário preferencial, a ID de objeto e assim por diante.
 
-Isso permite que você codifique seu aplicativo com uma divulgação mínima – você pode solicitar ao usuário apenas o conjunto de informações que seu aplicativo precisa para fazer seu trabalho.  Se você quiser continuar a obter o conjunto completo de informações do usuário que seu aplicativo recebe atualmente, deverá incluir todos os três escopos em suas solicitações de autorização:
+Isso permite toocode seu aplicativo de forma mínima divulgação – você pode pedir Olá usuário apenas o conjunto de saudação de informações que seu aplicativo requer toodo seu trabalho.  Se você quiser toocontinue obtenção Olá o conjunto completo de informações do usuário que seu aplicativo está recebendo, você deve incluir todos os três escopos em suas solicitações de autorização:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -185,55 +185,55 @@ client_id=...
 &scope=openid profile email offline_access https://outlook.office.com/mail.read
 ```
 
-Seu aplicativo pode começar a enviar imediatamente os escopos de `email` e `profile` e o ponto de extremidade v 2.0 aceitará esses dois escopos e começará a solicitar as permissões dos usuários conforme necessário.  No entanto, a alteração na interpretação do escopo de `openid` não entrará em vigor por algumas semanas.
+Seu aplicativo pode começar a enviar Olá `email` e `profile` escopos imediatamente e o ponto de extremidade do hello v 2.0 aceitar esses dois escopos e começar solicitando permissões de usuários, conforme necessário.  No entanto, a saudação alterar na interpretação Olá Olá `openid` escopo não entrarão em vigor para algumas semanas.
 
 > [!IMPORTANT]
-> **Seu trabalho: adicione os escopos `profile` e `email` se seu aplicativo requer informações sobre o usuário.**  Observe que o ADAL incluirá essas duas permissões nas solicitações por padrão. 
+> **O trabalho: Adicionar Olá `profile` e `email` escopos se seu aplicativo requer informações sobre o usuário hello.**  Observe que o ADAL incluirá essas duas permissões nas solicitações por padrão. 
 > 
 > 
 
-### <a name="removing-the-issuer-trailing-slash"></a>Remover o emissor da barra à direita.
-Anteriormente, o valor do emissor que aparece nos tokens do ponto de extremidade v 2.0 assumiu a forma
+### <a name="removing-hello-issuer-trailing-slash"></a>Removendo Olá emissor barra à direita.
+Anteriormente, o valor de emissor Olá que aparece em tokens do ponto de extremidade do hello v 2.0 levou formulário Olá
 
 ```
 https://login.microsoftonline.com/{some-guid}/v2.0/
 ```
 
-Onde o guid era o tenantId do locatário do AD do Azure que emitiu o token.  Com essas alterações, o valor do emissor transforma-se
+Onde Olá guid foi tenantId de saudação do locatário de saudação do AD do Azure que emitiu o token de saudação.  Com essas alterações, o valor de emissor Olá torna-se
 
 ```
 https://login.microsoftonline.com/{some-guid}/v2.0 
 ```
 
-em ambos os tokens e no documento de descoberta do OpenID Connect.
+em ambos os tokens em documento de descoberta de OpenID Connect hello.
 
 > [!IMPORTANT]
-> **Seu trabalho: Verifique se seu aplicativo aceita o valor do emissor com e sem uma barra à direita durante a validação do emissor.**
+> **O trabalho: Verifique se seu aplicativo aceita o valor de emissor Olá com e sem uma barra à direita durante a validação do emissor.**
 > 
 > 
 
 ## <a name="why-change"></a>Por que alterar?
-A principal motivação para introduzir essas alterações é para que seja compatível com a especificação padrão do OpenID Connect.  Ao ser compatível com o OpenID Connect, esperamos minimizar as diferenças entre a integração com serviços de identidade do Microsoft e outros serviços de identidade do setor.  Queremos permitir que os desenvolvedores usem suas bibliotecas de autenticação de fonte aberta favoritas sem ter que alterar as bibliotecas para aceitarem as diferenças da Microsoft.
+a principal motivação Olá para introduzir essas alterações é toobe compatível com hello especificação padrão OpenID Connect.  Ao ser OpenID Connect compatíveis, esperamos toominimize diferenças entre a integração com serviços de identidade da Microsoft e com outros serviços de identidade no setor de saudação.  Queremos tooenable desenvolvedores toouse suas bibliotecas de autenticação de software livre favorito sem a necessidade de diferenças de Microsoft tooalter Olá bibliotecas tooaccommodate.
 
 ## <a name="what-can-you-do"></a>O que você pode fazer?
-A partir de hoje, você pode começar a fazer todas as alterações descritas acima.  Você deve imediatamente:
+A partir de hoje, você pode começar a fazer todas as alterações de saudação descritas acima.  Você deve imediatamente:
 
-1. **Remova qualquer dependência no parâmetro do cabeçalho `x5t`.**
-2. **Lide de modo elegante com a transição de `profile_info` para `id_token` nas respostas de tokens.**
-3. **Remova qualquer dependência do parâmetro de resposta `id_token_expires_in`.**
-4. **Adicione os escopos `profile` e `email` ao seu aplicativo se ele precisar de informações básicas do usuário.**
+1. **Remova qualquer dependência no hello `x5t` parâmetro de cabeçalho.**
+2. **Tratar normalmente a transição de saudação do `profile_info` muito`id_token` em respostas de token.**
+3. **Remova qualquer dependência no hello `id_token_expires_in` parâmetro de resposta.**
+4. **Adicionar Olá `profile` e `email` escopos tooyour aplicativo se seu aplicativo precisa de informações de usuário básica.**
 5. **Aceite os valores do emissor nos tokens com e sem uma barra à direita.**
 
-Nossa [documentação do protocolo v 2.0](active-directory-v2-protocols.md) já foi atualizada para refletir essas alterações, portanto, você pode usá-la como referência ao ajudar a atualizar seu código.
+Nosso [v 2.0 documentação do protocolo](active-directory-v2-protocols.md) já foi atualizado tooreflect essas alterações, portanto você pode usá-lo como referência ajudar a atualizar seu código.
 
-Se você tiver mais dúvidas sobre o escopo das alterações, fique à vontade para nos contactar no Twitter em @AzureAD.
+Se você tiver outras perguntas no escopo de saudação das alterações de hello, sinta-se livre tooreach out toous no Twitter em @AzureAD.
 
 ## <a name="how-often-will-protocol-changes-occur"></a>Com que frequência as alterações do protocolo ocorrerão?
-Não podemos prever qualquer alteração de interrupção nos protocolos de autenticação.  Podemos intencionalmente agrupar essas alterações em uma versão para que você não tenha que passar por esse tipo de processo de atualização novamente pouco tempo depois.  Claro, continuaremos a adicionar recursos ao serviço de autenticação v 2.0 convergido que você pode aproveitar, mas essas alterações devem ser aditivas e não interromperem o código existente.
+Não podemos prever qualquer mais recentes alterações toohello protocolos de autenticação.  Podemos intencionalmente agrupará essas alterações em uma versão para que você não terá toogo por meio desse tipo de processo de atualização novamente a qualquer momento em breve.  Obviamente, vamos continuar tooadd recursos toohello convergido v 2.0 serviço de autenticação que você pode tirar proveito do, mas essas alterações devem ser aditivo e não quebra código existente.
 
-Por fim, gostaríamos de agradecer você por experimentar as coisas durante esse período de visualização.  As informações e experiências de nossos primeiros participantes foram inestimáveis até o momento e esperamos que você continue a compartilhar suas opiniões e ideias.
+Por fim, esperamos que toosay Obrigado por experimentar as coisas durante o período de visualização hello.  insights Hello e experiências de nossos usuários iniciais foram inestimáveis até o momento e esperamos que você continue tooshare suas opiniões e ideias.
 
 Boa codificação!
 
-Divisão de Identidade da Microsoft
+Olá divisão de identidade da Microsoft
 

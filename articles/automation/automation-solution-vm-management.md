@@ -1,6 +1,6 @@
 ---
-title: "Solução Iniciar/Parar VMs fora do horário comercial [versão prévia] na Automação | Microsoft Docs"
-description: "As soluções de Gerenciamento de VM iniciam e param suas Máquinas Virtuais do Azure Resource Manager com agendamento e as monitoram proativamente no Log Analytics."
+title: "aaaStart/parar máquinas virtuais durante a solução de fora do horário comercial [visualização] | Microsoft Docs"
+description: "soluções de gerenciamento de VM Olá inicia e interrompe a máquinas virtuais do Gerenciador de recursos do Azure em um agendamento e monitorar proativamente a partir de análise de Log."
 services: automation
 documentationCenter: 
 authors: mgoedtel
@@ -14,203 +14,203 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: magoedte
-ms.openlocfilehash: e44f04b3492ac07822b0842864f84a5f16dc3f5b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6cbe16dfb40bf13f29d9e58ca0bc8c5c7979879d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="startstop-vms-during-off-hours-preview-solution-in-automation"></a>Solução Iniciar/Parar VMs fora do horário comercial [Visualização] na Automação
 
-A solução Iniciar/Parar VMs fora do horário comercial [Visualização] inicia e para máquinas virtuais do Azure Resource Manager em um agendamento definido pelo usuário e fornece informações sobre o sucesso dos trabalhos de Automação que iniciam e param as máquinas virtuais com o Log Analytics do OMS.  
+Hello VMs iniciar/parar durante a solução de fora do horário comercial [visualização] inicia e interrompe as máquinas virtuais do Azure Resource Manager em um agendamento definido pelo usuário e fornece informações sobre o sucesso de saudação de trabalhos de automação de saudação que iniciar e interromper as máquinas virtuais com o OMS Análise de log.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- O runbook funciona com uma [conta Executar como do Azure](automation-offering-get-started.md#authentication-methods).  A conta Executar como é o método de autenticação preferido, pois ela usa a autenticação de certificado em vez de uma senha que pode expirar ou ser alterada com frequência.  
+- Olá runbooks trabalhar com um [conta executar como do Azure](automation-offering-get-started.md#authentication-methods).  Olá conta executar como é o método de autenticação de saudação preferido porque ele usa a autenticação de certificado em vez de uma senha que pode expirar ou alterados com frequência.  
 
-- Essa solução só pode gerenciar VMs que estejam na mesma assinatura em que reside a conta de Automação.  
+- Esta solução só pode gerenciar máquinas virtuais que estão em Olá mesma assinatura onde reside a conta de automação de saudação.  
 
-- A solução só pode ser implantada nas seguintes regiões do Azure: Sudeste da Austrália, Leste dos EUA, Sudeste Asiático e Europa Ocidental.  Os runbooks que gerenciam o agendamento de VM podem direcionar para VMs em qualquer região.  
+- Essa solução implantará somente toohello regiões do Azure - Leste dos EUA, Sudeste da Austrália, Sudeste da Ásia e Europa Ocidental a seguir.  Olá runbooks que gerencia o agendamento VM Olá pode direcionar VMs em qualquer região.  
 
-- Para enviar notificações por email ao concluir os runbooks Iniciar e Parar VMs, é necessário ter uma assinatura de classe executiva do Office 365.  
+- toosend notificações por email quando Olá iniciar e parar runbooks VM completa, uma assinatura de classe de negócios do Office 365 é necessária.  
 
 ## <a name="solution-components"></a>Componentes da solução
 
-Essa solução consiste no recursos a seguir que serão importados e adicionados à sua conta de Automação.
+Essa solução consiste em Olá recursos que serão importados e adicionaram tooyour conta de automação a seguir.
 
 ### <a name="runbooks"></a>Runbooks
 
 Runbook | Descrição|
 --------|------------|
-CleanSolution-MS-Mgmt-VM | Esse runbook remove todos os recursos contidos e agenda quando você vai excluir a solução da sua assinatura.|  
+CleanSolution-MS-Mgmt-VM | Esse runbook removerá independente de todos os recursos e agendamentos, quando você for toodelete solução de saudação de sua assinatura.|  
 SendMailO365-MS-Mgmt | Esse runbook envia um email pelo Office 365 Exchange.|
-StartByResourceGroup-MS-Mgmt-VM | Esse runbook destina-se a iniciar VMs (VMs clássicas e baseadas no ARM) que residem em determinada lista de grupos de recursos do Azure.
-StopByResourceGroup-MS-Mgmt-VM | Esse runbook destina-se a parar VMs (VMs clássicas e baseadas no ARM) que residem em determinada lista de grupos de recursos do Azure.|
+StartByResourceGroup-MS-Mgmt-VM | Este runbook é pretendido toostart VMs (ambos clássico e ARM com base em máquinas virtuais) que reside em uma determinada lista de grupos de recursos do Azure.
+StopByResourceGroup-MS-Mgmt-VM | Este runbook é pretendido toostop VMs (ambos clássico e ARM com base em máquinas virtuais) que reside em uma determinada lista de grupos de recursos do Azure.|
 <br>
 
-### <a name="variables"></a>Variáveis
+### <a name="variables"></a>variáveis
 
 Variável | Descrição|
 ---------|------------|
 Runbook **SendMailO365-MS-Mgmt** ||
-SendMailO365-IsSendEmail-MS-Mgmt | Especifica se os runbooks StartByResourceGroup-MS-Mgmt-VM e StopByResourceGroup-MS-Mgmt-VM podem enviar notificação por email após a conclusão.  Selecione **True** para habilitar e **False** para desativar o alerta de email. O valor padrão é **False**.| 
+SendMailO365-IsSendEmail-MS-Mgmt | Especifica se os runbooks StartByResourceGroup-MS-Mgmt-VM e StopByResourceGroup-MS-Mgmt-VM podem enviar notificação por email após a conclusão.  Selecione **True** tooenable e **False** toodisable alertas de email. O valor padrão é **False**.| 
 Runbook **StartByResourceGroup-MS-Mgmt-VM** ||
-StartByResourceGroup-ExcludeList-MS-Mgmt-VM | Insira nomes de VM a serem excluídos da operação de gerenciamento; separe os nomes usando ponto e vírgula (;) sem espaços. Os valores diferenciam maiúsculas de minúsculas e há suporte para curingas (asterisco).|
-StartByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Texto que pode ser anexado ao início do corpo da mensagem de email.|
-StartByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | Especifica o nome da Conta de Automação que contém o runbook Email.  **Não modifique essa variável.**|
-StartByResourceGroup-SendMailO365-EmailRunbookName-MS-Mgmt | Especifica o nome do runbook Email.  Isso é usado pelos runbooks StartByResourceGroup-MS-Mgmt-VM e StopByResourceGroup-MS-Mgmt-VM para enviar email.  **Não modifique essa variável.**|
-StartByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | Especifica o nome do Grupo de recursos que contém o runbook Email.  **Não modifique essa variável.**|
-StartByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Especifica o texto da linha de assunto do email.|  
-StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Especifica os destinatários do email.  Digite nomes separados usando ponto e vírgula (;) sem espaços.|
-StartByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Insira nomes de VM a serem excluídos da operação de gerenciamento; separe os nomes usando ponto e vírgula (;) sem espaços. Os valores diferenciam maiúsculas de minúsculas e há suporte para curingas (asterisco).  O valor padrão (asterisco) incluirá todos os grupos de recursos na assinatura.|
-StartByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Especifica a assinatura que contém as VMs a serem gerenciadas pela solução.  Ela deve ser a mesma assinatura em que reside a conta de Automação da solução.|
+StartByResourceGroup-ExcludeList-MS-Mgmt-VM | Insira a VM nomes toobe excluído da operação de gerenciamento. Separe os nomes usando semi-colon(;) sem espaços. Os valores diferenciam maiúsculas de minúsculas e há suporte para curingas (asterisco).|
+StartByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Texto que pode ser anexada toohello a partir do corpo de mensagem de email de saudação.|
+StartByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | Especifica o nome de saudação do hello conta de automação contém Olá Email runbook.  **Não modifique essa variável.**|
+StartByResourceGroup-SendMailO365-EmailRunbookName-MS-Mgmt | Especifica o nome de saudação do hello email runbook.  Isso é usado por hello StartByResourceGroup-MS-Mgmt-VM e o email de toosend runbooks StopByResourceGroup-MS-Mgmt-VM.  **Não modifique essa variável.**|
+StartByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | Especifica o nome de Olá Olá do grupo de recursos que contém a saudação Email runbook.  **Não modifique essa variável.**|
+StartByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Especifica o texto de saudação para linha de assunto de saudação de email de saudação.|  
+StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Especifica a saudação destinatários de email hello.  Digite nomes separados usando ponto e vírgula (;) sem espaços.|
+StartByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Insira a VM nomes toobe excluído da operação de gerenciamento. Separe os nomes usando semi-colon(;) sem espaços. Os valores diferenciam maiúsculas de minúsculas e há suporte para curingas (asterisco).  Valor padrão (com asterisco) incluirá todos os grupos de recursos na assinatura de saudação.|
+StartByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Especifica a assinatura Olá que contém toobe de VMs gerenciada por essa solução.  Isso deve ser Olá a mesma assinatura em que reside o hello conta de automação dessa solução.|
 Runbook **StopByResourceGroup-MS-Mgmt-VM** ||
-StopByResourceGroup-ExcludeList-MS-Mgmt-VM | Insira nomes de VM a serem excluídos da operação de gerenciamento; separe os nomes usando ponto e vírgula (;) sem espaços. Os valores diferenciam maiúsculas de minúsculas e há suporte para curingas (asterisco).|
-StopByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Texto que pode ser anexado ao início do corpo da mensagem de email.|
-StopByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | Especifica o nome da Conta de Automação que contém o runbook Email.  **Não modifique essa variável.**|
-StopByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | Especifica o nome do Grupo de recursos que contém o runbook Email.  **Não modifique essa variável.**|
-StopByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Especifica o texto da linha de assunto do email.|  
-StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Especifica os destinatários do email.  Digite nomes separados usando ponto e vírgula (;) sem espaços.|
-StopByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Insira nomes de VM a serem excluídos da operação de gerenciamento; separe os nomes usando ponto e vírgula (;) sem espaços. Os valores diferenciam maiúsculas de minúsculas e há suporte para curingas (asterisco).  O valor padrão (asterisco) incluirá todos os grupos de recursos na assinatura.|
-StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Especifica a assinatura que contém as VMs a serem gerenciadas pela solução.  Ela deve ser a mesma assinatura em que reside a conta de Automação da solução.|  
+StopByResourceGroup-ExcludeList-MS-Mgmt-VM | Insira a VM nomes toobe excluído da operação de gerenciamento. Separe os nomes usando semi-colon(;) sem espaços. Os valores diferenciam maiúsculas de minúsculas e há suporte para curingas (asterisco).|
+StopByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Texto que pode ser anexada toohello a partir do corpo de mensagem de email de saudação.|
+StopByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | Especifica o nome de saudação do hello conta de automação contém Olá Email runbook.  **Não modifique essa variável.**|
+StopByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | Especifica o nome de Olá Olá do grupo de recursos que contém a saudação Email runbook.  **Não modifique essa variável.**|
+StopByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Especifica o texto de saudação para linha de assunto de saudação de email de saudação.|  
+StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Especifica a saudação destinatários de email hello.  Digite nomes separados usando ponto e vírgula (;) sem espaços.|
+StopByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Insira a VM nomes toobe excluído da operação de gerenciamento. Separe os nomes usando semi-colon(;) sem espaços. Os valores diferenciam maiúsculas de minúsculas e há suporte para curingas (asterisco).  Valor padrão (com asterisco) incluirá todos os grupos de recursos na assinatura de saudação.|
+StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Especifica a assinatura Olá que contém toobe de VMs gerenciada por essa solução.  Isso deve ser Olá a mesma assinatura em que reside o hello conta de automação dessa solução.|  
 <br>
 
 ### <a name="schedules"></a>Agendas
 
 Agenda | Descrição|
 ---------|------------|
-StartByResourceGroup-agenda-MS-Mgmt | Agenda de runbook StartByResourceGroup, que executa a inicialização de VMs gerenciadas pela solução. Quando criada, é padronizada para o fuso horário UTC.|
-StopByResourceGroup-agenda-MS-Mgmt | Agenda de runbook StopByResourceGroup, que executa o desligamento de VMs gerenciadas pela solução. Quando criada, é padronizada para o fuso horário UTC.|
+StartByResourceGroup-agenda-MS-Mgmt | Agenda de runbook StartByResourceGroup, que executa a inicialização de saudação de VMs gerenciadas por essa solução. Quando criado, padrão é tooUTC fuso horário.|
+StopByResourceGroup-agenda-MS-Mgmt | Agenda de runbook StopByResourceGroup, que executa o desligamento de saudação de VMs gerenciadas por essa solução. Quando criado, padrão é tooUTC fuso horário.|
 
 ### <a name="credentials"></a>Credenciais
 
 Credencial | Descrição|
 -----------|------------|
-O365Credential | Especifica uma conta de usuário válida do Office 365 para enviar email.  Necessário apenas se a variável SendMailO365-IsSendEmail-MS-Mgmt é definida como **True**.
+O365Credential | Especifica um email de toosend conta do usuário do Office 365 válido.  Necessário apenas se a variável SendMailO365-IsSendEmail-MS-Mgmt está definido muito**True**.
 
 ## <a name="configuration"></a>Configuração
 
-Execute as seguintes etapas para adicionar a solução Iniciar/Parar VMs fora do horário comercial [Visualização] à sua conta de Automação e configure as variáveis para personalizar a solução.
+Olá durante o horário de trabalho [visualização] solução tooyour conta de automação a seguir etapas tooadd Olá VMs iniciar/parar de executar e, em seguida, configurar a solução de Olá Olá variáveis toocustomize.
 
-1. Na tela inicial no portal do Azure, selecione o bloco **Marketplace**.  Se o bloco não está fixado em sua tela inicial, selecione **Novo** no painel de navegação esquerdo.  
-2. Na folha Marketplace, digite **Iniciar VM** na caixa de pesquisa e selecione a solução **Iniciar/Parar VMs fora do horário comercial [Visualização]** nos resultados da pesquisa.  
-3. Na folha **Iniciar/Parar VMs fora do horário comercial [Visualização]** da solução selecionada, examine as informações de resumo e clique em **Criar**.  
-4. A folha **Adicionar Solução** aparece e você é solicitado a configurar a solução antes de importá-la para sua assinatura da Automação.<br><br> ![Folha Adicionar Solução do Gerenciamento de VM](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
-5.  Na folha **Adicionar Solução**, selecione **Espaço de Trabalho** e selecione um espaço de trabalho do OMS que seja vinculado à mesma assinatura do Azure em que a conta de Automação está em ou crie um novo espaço de trabalho do OMS.  Se você não tiver um espaço de trabalho do OMS, poderá selecionar **Criar Novo Espaço de Trabalho** e, na folha **Espaço de Trabalho do OMS**, faça o seguinte: 
-   - Especifique um nome para o novo **Espaço de Trabalho do OMS**.
-   - Selecione uma **Assinatura** a vincular escolhendo uma na lista suspensa, se a selecionada por padrão não é adequada.
+1. Saudação inicial-tela hello portal do Azure, selecione Olá **Marketplace** lado a lado.  Se Olá bloco não está mais tooyour fixados home-tela hello à esquerda no painel de navegação, selecione **novo**.  
+2. Na folha do Marketplace hello, digite **iniciar VM** na caixa de pesquisa hello e solução de hello, em seguida, selecione **iniciar/parar VMs fora do horário comercial [visualização]** Olá dos resultados da pesquisa.  
+3. Em Olá **iniciar/parar VMs fora do horário comercial [visualização]** folha para Olá selecionado solução, examine as informações de resumo hello e, em seguida, clique em **criar**.  
+4. Olá **adicionar solução** lâmina aparece onde você está tooconfigure solicitadas Olá solução antes de importá-lo em sua assinatura de automação.<br><br> ![Folha Adicionar Solução do Gerenciamento de VM](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
+5.  Em Olá **adicionar solução** folha, selecione **espaço de trabalho** e aqui, você selecionar um espaço de trabalho do OMS é vinculado toohello mesma assinatura do Azure que Olá conta de automação está em ou criar um novo espaço de trabalho do OMS.  Se você não tiver um espaço de trabalho do OMS, você pode selecionar **criar novo espaço de trabalho** e Olá **espaço de trabalho do OMS** folha executar seguinte hello: 
+   - Especifique um nome para Olá novo **espaço de trabalho do OMS**.
+   - Selecione um **assinatura** toolink tooby selecionando na lista suspensa de saudação se padrão Olá selecionado não é apropriado.
    - Em **Grupo de Recursos**, você pode selecionar um grupo de recursos existente ou criar um novo.  
-   - Selecione um **Local**.  No momento, os únicos locais fornecidos para seleção são **Sudeste da Austrália**, **Leste dos EUA**, **Sudeste Asiático** e **Europa Ocidental**.
-   - Selecione um **tipo de preço**.  A solução é oferecida em duas camadas: camada paga OMS e gratuita.  A camada gratuita tem um limite de quantidade de dados coletados diariamente, de período de retenção e de minutos de tempo de execução do trabalho de runbook.  A camada paga do OMS não tem um limite de quantidade de dados coletados diariamente.  
+   - Selecione um **Local**.  No momento Olá únicos locais fornecidos para seleção, são **Sudeste da Austrália**, **Leste dos EUA**, **Sudeste da Ásia**, e **Ocidental**.
+   - Selecione um **tipo de preço**.  Olá solução é oferecida em duas camadas: gratuito e OMS paga da camada.  camada gratuita Olá tem um limite na quantidade de saudação dos dados coletados diariamente, período de retenção e minutos de tempo de execução do trabalho de runbook.  Olá OMS paga da camada não tem um limite na quantidade de saudação de dados coletados diariamente.  
 
         > [!NOTE]
-        > Embora a camada paga Autônoma seja exibida como uma opção, ela não se aplica.  Se você selecioná-la e prosseguir com a criação dessa solução em sua assinatura, ocorrerá uma falha.  Essa questão será abordada quando a solução for lançada oficialmente.<br>Se você usar essa solução, ela só usará minutos de trabalho de automação e de ingestão de log.  A solução não adiciona outros nós do OMS ao seu ambiente.  
+        > Enquanto Olá autônomo paga camada é exibida como uma opção, não é aplicável.  Se você selecioná-la e continuar com a criação de saudação da solução em sua assinatura, ele falhará.  Essa questão será abordada quando a solução for lançada oficialmente.<br>Se você usar essa solução, ela só usará minutos de trabalho de automação e de ingestão de log.  solução de saudação não adicionar ambiente tooyour de nós OMS adicionais.  
 
-6. Depois de fornecer as informações necessárias na folha **Espaço de trabalho do OMS**, clique em **Criar**.  Enquanto as informações são verificadas e o espaço de trabalho é criado, você pode acompanhar seu progresso no menu **Notificações**.  Você será levado para a folha **Adicionar Solução**.  
-7. Na folha **Adicionar Solução**, selecione **Conta de Automação**.  Se você estiver criando um novo espaço de trabalho do OMS, será necessário criar uma nova conta de Automação que será associada ao novo espaço de trabalho do OMS especificado anteriormente, incluindo a assinatura do Azure, o grupo de recursos e a região.  Selecione **Criar uma conta de Automação** e, na folha **Adicionar Conta de Automação**, forneça o seguinte: 
-  - No campo **Nome**, digite o nome da conta de Automação.
+6. Depois de fornecer informações de saudação necessárias em Olá **espaço de trabalho do OMS** folha, clique em **criar**.  Enquanto as informações de saudação são verificadas e espaço de trabalho de saudação é criado, você pode acompanhar seu progresso em **notificações** menu hello.  Você será retornado toohello **adicionar solução** folha.  
+7. Em Olá **adicionar solução** folha, selecione **conta de automação**.  Se você estiver criando um novo espaço de trabalho do OMS, será necessário tooalso criar uma nova conta de automação que será associada com hello novo espaço de trabalho OMS especificado anteriormente, incluindo sua assinatura do Azure, o grupo de recursos e a região.  Você pode selecionar **criar uma conta de automação** e Olá **conta de automação adicionar** folha, fornecer Olá seguintes: 
+  - Em Olá **nome** campo, digite nome Olá Olá conta de automação.
 
-    Todas as outras opções são preenchidas automaticamente com base no espaço de trabalho do OMS selecionado, e essas opções não podem ser modificadas.  Uma conta Executar como do Azure é o método de autenticação padrão para os runbooks incluídos nesta solução.  Após clicar em **OK**, as opções de configuração são validadas e a conta de Automação é criada.  Você pode acompanhar o progresso em **Notificações** no menu. 
+    Todas as outras opções são preenchidas automaticamente com base no espaço de trabalho do OMS Olá selecionado e essas opções não podem ser modificadas.  Uma conta executar como do Azure é o método de autenticação padrão Olá para runbooks Olá incluído nesta solução.  Depois de clicar em **Okey**, opções de configuração de saudação são validadas e Olá conta de automação é criado.  Você pode acompanhar seu progresso em **notificações** menu hello. 
 
-    Caso contrário, você pode selecionar uma conta Executar como de Automação existente.  Observe que a conta selecionada não pode já estar vinculada a outro espaço de trabalho do OMS; caso contrário, uma mensagem aparecerá na folha para informá-lo.  Se já estiver vinculada, você precisará selecionar uma conta Executar como de Automação diferente ou criar uma nova.<br><br> ![Conta de Automação já vinculada ao Espaço de Trabalho do OMS](media/automation-solution-vm-management/vm-management-solution-add-solution-blade-autoacct-warning.png)<br>
+    Caso contrário, você pode selecionar uma conta Executar como de Automação existente.  Observe que a conta Olá selecionada não pode ser vinculado tooanother espaço de trabalho do OMS, caso contrário, uma mensagem será apresentada na Olá folha tooinform você.  Se já estiver vinculado, será necessário tooselect uma conta executar como automação diferente ou crie um novo.<br><br> ![Automação conta já vinculado tooOMS espaço de trabalho](media/automation-solution-vm-management/vm-management-solution-add-solution-blade-autoacct-warning.png)<br>
 
-8. Por fim, na folha **Adicionar Solução**, selecione **Configuração** e a folha **Parâmetros** será exibida.  Na folha **Parâmetros**, você será solicitado a:  
-   - Especifique os **Nomes de Grupo de Recursos de Destino**, que é um nome de grupo de recursos que contém VMs a serem gerenciadas pela solução.  Você pode inserir mais de um nome e separá-los usando ponto-e-vírgula (os valores diferenciam maiúsculas de minúsculas).  O uso de um caractere curinga tem suporte para selecionar VMs em todos os grupos de recursos na assinatura.
-   - Selecione uma **Agenda**, que é um conjunto de data e hora para iniciar e parar as VMs no grupo de recursos de destino.  Por padrão, o agendamento é configurado para o fuso horário UTC e a seleção de outra região não está disponível.  Se quiser configurar o agendamento para seu fuso horário específico após a configuração da solução, confira [Modificando o agendamento de inicialização e desligamento](#modifying-the-startup-and-shutdown-schedule) abaixo.    
+8. Por fim no hello **adicionar solução** folha, selecione **configuração** e hello **parâmetros** folha é exibida.  Em Olá **parâmetros** folha, você precisará:  
+   - Especifique a saudação **nomes de grupo de recursos de destino**, que é um nome de grupo de recursos que contém toobe de VMs gerenciada por essa solução.  Você pode inserir mais de um nome e separá-los usando ponto-e-vírgula (os valores diferenciam maiúsculas de minúsculas).  Usar um caractere curinga é suportado se você quiser tootarget VMs em todos os grupos de recursos na assinatura de saudação.
+   - Selecione um **agenda** que é uma recorrência de data e hora, iniciando e parando Olá da VM no hello grupos de recursos de destino.  Por padrão, agendamento de saudação é fuso horário configurado toohello UTC e selecionar uma região diferente não está disponível.  Se você quiser tooconfigure Olá agenda tooyour fuso horário específico depois de configurar a solução hello, consulte [agenda de inicialização e desligamento Olá modificando](#modifying-the-startup-and-shutdown-schedule) abaixo.    
 
-10. Depois de ter concluído a configuração inicial necessária para a solução, selecione **Criar**.  Todas as configurações serão validadas e ele tentará implantar a solução em sua assinatura.  Esse processo pode levar vários segundos e você pode acompanhar seu progresso no menu **Notificações**. 
+10. Depois de ter concluído a saudação inicial configurações necessárias para a solução de saudação, selecione **criar**.  Todas as configurações serão validadas e, em seguida, ele tentará toodeploy solução de saudação em sua assinatura.  Esse processo pode levar vários segundos toocomplete e você pode acompanhar seu progresso em **notificações** menu hello. 
 
 ## <a name="collection-frequency"></a>Frequência de coleta
 
-Dados do fluxo do trabalho e do log do trabalho de automação são incluídos no repositório do OMS a cada cinco minutos.  
+Dados de fluxo automação trabalho log e o trabalho é incluídos no repositório do OMS Olá a cada cinco minutos.  
 
-## <a name="using-the-solution"></a>Usando a solução
+## <a name="using-hello-solution"></a>Usando a solução de saudação
 
-Ao adicionar a solução de Gerenciamento de VMs ao seu espaço de trabalho do OMS, o bloco **Exibição StartStopVM** será adicionado ao painel do OMS.  Esse bloco exibe uma contagem e uma representação gráfica dos trabalhos de runbooks para soluções iniciadas e concluídas com êxito.<br><br> ![Bloco de exibição StartStopVM de Gerenciamento de VM](media/automation-solution-vm-management/vm-management-solution-startstopvm-view-tile.png)  
+Quando você adiciona a solução de gerenciamento de VM hello, em sua saudação de espaço de trabalho do OMS **StartStopVM exibição** bloco será adicionado tooyour painel do OMS.  Este bloco exibe uma contagem e a representação gráfica dos trabalhos de runbooks Olá para solução de saudação que iniciaram e concluiu com êxito.<br><br> ![Bloco de exibição StartStopVM de Gerenciamento de VM](media/automation-solution-vm-management/vm-management-solution-startstopvm-view-tile.png)  
 
-Na sua conta de Automação, você pode acessar e gerenciar a solução selecionando o bloco **Soluções** e a folha **Soluções**, e selecionando a solução **Start-Stop-VM [Workspace]** na lista.<br><br> ![Lista de soluções de automação](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
+Em sua conta de automação, você pode acessar e gerenciar a solução Olá selecionando Olá **soluções** lado a lado e, em seguida, Olá **soluções** folha, selecionando a solução Olá **[Start-Stop-VM Espaço de trabalho]** da lista de saudação.<br><br> ![Lista de soluções de automação](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
 
-A escolha da solução exibirá a folha da solução **Start-Stop-VM[Workspace]**, onde você pode examinar detalhes importantes, por exemplo, o bloco **StartStopVM**, como no espaço de trabalho do OMS, que exibe a contagem e a representação gráfica dos trabalhos de runbooks para a solução iniciada e concluída com êxito.<br><br> ![Folha Solução VM de Automação](media/automation-solution-vm-management/vm-management-solution-solution-blade.png)  
+Selecionar solução Olá exibirá Olá **Start-Stop-VM [espaço de trabalho]** folha de solução, onde você pode analisar detalhes importantes como Olá **StartStopVM** lado a lado, como no espaço de trabalho do OMS, que Exibe uma contagem e a representação gráfica dos trabalhos de runbooks Olá para solução de saudação que iniciaram e foram concluídos com êxito.<br><br> ![Folha Solução VM de Automação](media/automation-solution-vm-management/vm-management-solution-solution-blade.png)  
 
-Daqui, você pode abrir o espaço de trabalho do OMS e executar outras análises dos registros de trabalho.  Basta clicar em **Todas as configurações** e, na folha **Configurações**, selecione **Início Rápido** e, na folha **Início Rápido**, selecione **Portal OMS**.   Isso abrirá uma nova guia ou sessão do navegador e introduzirá seu espaço de trabalho do OMS associado à sua conta de Automação e assinatura.  
+Aqui você pode também abrir seu espaço de trabalho do OMS e executar a análise dos registros de trabalho hello.  Basta clicar em **todas as configurações**e em Olá **configurações** folha, selecione **início rápido** e, em seguida, em Olá **início rápido** selecione folha  **Portal do OMS**.   Isso abrirá uma nova guia ou sessão do navegador e introduzirá seu espaço de trabalho do OMS associado à sua conta de Automação e assinatura.  
 
 
 ### <a name="configuring-e-mail-notifications"></a>Configurando notificações por email
 
-Para habilitar notificações por email quando os runbooks Iniciar e Parar VM forem concluídos, você precisará modificar a credencial **O365Credential** e, no mínimo, as seguintes variáveis:
+tooenable as notificações por email quando hello iniciar e parar runbooks VM completa, você precisará Olá toomodify **O365Credential** de credencial e, no mínimo, Olá seguintes variáveis:
 
  - SendMailO365-IsSendEmail-MS-Mgmt
  - StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
  - StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
 
-Para configurar a credencial **O365Credential**, execute as seguintes etapas:
+Olá tooconfigure **O365Credential** de credencial, execute Olá etapas a seguir:
 
-1. Da sua conta de automação, clique em **Todas as Configurações** na parte superior da janela. 
-2. Na folha **Configurações** na seção **Recursos de Automação**, selecione **Ativos**. 
-3. Na folha **Ativos**, selecione o bloco **Credencial** e, na folha **Credencial**, selecione **O365Credential**.  
-4. Insira um nome de usuário e uma senha válidos do Office 365 e clique em **Salvar** para salvar suas alterações.  
+1. Na sua conta de automação, clique em **todas as configurações de** na parte superior de saudação da janela de saudação. 
+2. Em Olá **configurações** folha na seção Olá **recursos de automação**, selecione **ativos**. 
+3. Em Olá **ativos** folha, selecione Olá **credencial** lado a lado e de saudação **credencial** folha, selecione Olá **O365Credential**.  
+4. Insira um nome de usuário válido do Office 365 e uma senha e, em seguida, clique em **salvar** toosave suas alterações.  
 
-Para configurar as variáveis destacadas anteriormente, execute as seguintes etapas:
+variáveis de saudação tooconfigure realçados anteriormente, execute Olá etapas a seguir:
 
-1. Da sua conta de automação, clique em **Todas as Configurações** na parte superior da janela. 
-2. Na folha **Configurações** na seção **Recursos de Automação**, selecione **Ativos**. 
-3. Na folha **Ativos**, selecione o bloco **Variáveis** e, na folha **Variáveis**, selecione a variável listada acima. Modifique o seu valor seguindo a descrição especificada na seção [Variável](##variables) mencionada anteriormente.  
-4. Clique em **Salvar** para salvar as alterações da variável.   
+1. Na sua conta de automação, clique em **todas as configurações de** na parte superior de saudação da janela de saudação. 
+2. Em Olá **configurações** folha na seção Olá **recursos de automação**, selecione **ativos**. 
+3. Em Olá **ativos** folha, selecione Olá **variáveis** lado a lado e de saudação **variáveis** folha, selecione variável Olá listado acima e, em seguida, modificar seu valor Olá a seguir Descrição para ele especificado no hello [variável](##variables) seção anterior.  
+4. Clique em **salvar** variável de toohello toosave Olá alterações.   
 
-### <a name="modifying-the-startup-and-shutdown-schedule"></a>Modificando o agendamento de inicialização e desligamento
+### <a name="modifying-hello-startup-and-shutdown-schedule"></a>Modificar agendamento de inicialização e desligamento Olá
 
-O gerenciamento da agenda de inicialização e desligamento nesta solução segue as mesmas etapas descritas em [Agendando um runbook na Automação do Azure](automation-schedules.md).  Lembre-se de que você não pode modificar a configuração de agenda.  Você precisará desabilitar o agendamento existente, criar um novo e vincular o runbook **StartByResourceGroup-MS-Mgmt-VM** ou **StopByResourceGroup-MS-Mgmt-VM** que deseja que seja aplicado pela agenda.   
+Gerencia agenda de inicialização e desligamento do hello nesta solução segue Olá mesmo etapas, conforme descrito na [agendar um runbook na automação do Azure](automation-schedules.md).  Lembre-se de que você não pode modificar a configuração de agendamento de saudação.  Você precisará toodisable Olá agendamento existente e, em seguida, crie um novo e, em seguida, vincular toohello **StartByResourceGroup-MS-Mgmt-VM** ou **StopByResourceGroup-MS-Mgmt-VM** runbook que você deseja Olá Agende tooapply para.   
 
 ## <a name="log-analytics-records"></a>Registros do Log Analytics
 
-A Automação cria dois tipos de registros no repositório do OMS.
+Automação cria dois tipos de registros no repositório do OMS hello.
 
 ### <a name="job-logs"></a>Logs de trabalho
 
 Propriedade | Descrição|
 ----------|----------|
-Chamador |  Quem iniciou a operação.  Os valores possíveis são um endereço de email ou o sistema para trabalhos agendados.|
-Categoria | Classificação do tipo de dados.  Para a Automação, o valor é JobLogs.|
-CorrelationId | O GUID que é a Id de correlação do trabalho de runbook.|
-JobId | GUID que é a Id do trabalho de runbook.|
-operationName | Especifica o tipo de operação realizada no Azure.  Para a Automação, o valor será Trabalho.|
-resourceId | Especifica o tipo de recurso no Azure.  Para a Automação, o valor é a conta da Automação associada ao runbook.|
-ResourceGroup | Especifica o nome do grupo de recursos do trabalho do runbook.|
-ResourceProvider | Especifica o serviço do Azure que fornece os recursos que você pode implantar e gerenciar.  Para Automação, o valor é Automação do Azure.|
-ResourceType | Especifica o tipo de recurso no Azure.  Para a Automação, o valor é a conta da Automação associada ao runbook.|
-resultType | O status do trabalho de runbook.  Os valores possíveis são:<br>- Iniciado<br>- Parado<br>- Suspenso<br>- Com falha<br>- Êxito|
-resultDescription | Descreve o estado de resultado do trabalho de runbook.  Os valores possíveis são:<br>- O trabalho foi iniciado<br>- O trabalho falhou<br>- Trabalho Concluído|
-RunbookName | Especifica o nome do runbook.|
-SourceSystem | Especifica o sistema de origem dos dados enviados.  Em Automação, o valor será :OpsManager|
-StreamType | Especifica o tipo de evento. Os valores possíveis são:<br>- Detalhado<br>- Saída<br>- Erro<br>- Aviso|
-SubscriptionId | Especifica a ID da assinatura do trabalho.
-Hora | Data e hora da execução do trabalho de runbook.|
+Chamador |  Quem iniciou a operação de saudação.  Os valores possíveis são um endereço de email ou o sistema para trabalhos agendados.|
+Categoria | Classificação de tipo de saudação de dados.  Para automação, o valor de saudação é JobLogs.|
+CorrelationId | GUID que é hello Id de correlação de trabalho de runbook hello.|
+JobId | GUID que é hello Id do trabalho de runbook hello.|
+operationName | Especifica o tipo de saudação da operação executada no Azure.  Para automação, o valor de saudação será o trabalho.|
+resourceId | Especifica o tipo de recurso Olá no Azure.  Para automação, o valor de saudação é conta de automação Olá associada hello.|
+ResourceGroup | Especifica o nome do grupo de recursos Olá Olá do trabalho de runbook.|
+ResourceProvider | Especifica a saudação do serviço do Azure que fornece recursos de saudação, você pode implantar e gerenciar.  Para automação, o valor de saudação é automação do Azure.|
+ResourceType | Especifica o tipo de recurso Olá no Azure.  Para automação, o valor de saudação é conta de automação Olá associada hello.|
+resultType | status de Olá Olá do trabalho de runbook.  Os valores possíveis são:<br>- Iniciado<br>- Parado<br>- Suspenso<br>- Com falha<br>- Êxito|
+resultDescription | Descreve o estado de resultado do trabalho de runbook hello.  Os valores possíveis são:<br>- O trabalho foi iniciado<br>- O trabalho falhou<br>- Trabalho Concluído|
+RunbookName | Especifica o nome de saudação do runbook hello.|
+SourceSystem | Especifica o sistema de origem Olá para dados de saudação enviados.  Para automação, o valor de saudação será: OpsManager|
+StreamType | Especifica o tipo de saudação do evento. Os valores possíveis são:<br>- Detalhado<br>- Saída<br>- Erro<br>- Aviso|
+SubscriptionId | Especifica a ID de assinatura de saudação do trabalho de saudação.
+Hora | Data e hora quando o trabalho de runbook Olá executado.|
 
 
 ### <a name="job-streams"></a>Transmissões de trabalho
 
 Propriedade | Descrição|
 ----------|----------|
-Chamador |  Quem iniciou a operação.  Os valores possíveis são um endereço de email ou o sistema para trabalhos agendados.|
-Categoria | Classificação do tipo de dados.  Para a Automação, o valor é JobStreams.|
-JobId | GUID que é a Id do trabalho de runbook.|
-operationName | Especifica o tipo de operação realizada no Azure.  Para a Automação, o valor será Trabalho.|
-ResourceGroup | Especifica o nome do grupo de recursos do trabalho do runbook.|
-resourceId | Especifica o tipo de ID de recurso no Azure.  Para a Automação, o valor é a conta da Automação associada ao runbook.|
-ResourceProvider | Especifica o serviço do Azure que fornece os recursos que você pode implantar e gerenciar.  Para Automação, o valor é Automação do Azure.|
-ResourceType | Especifica o tipo de recurso no Azure.  Para a Automação, o valor é a conta da Automação associada ao runbook.|
-resultType | O resultado do trabalho de runbook no momento em que o evento foi gerado.  Os valores possíveis são:<br>- InProgress|
-resultDescription | Inclui o fluxo de saída do runbook.|
-RunbookName | O nome do runbook.|
-SourceSystem | Especifica o sistema de origem dos dados enviados.  Em Automação, o valor será :OpsManager|
-StreamType | O tipo de fluxo de trabalho. Os valores possíveis são:<br>- Andamento<br>- Saída<br>- Aviso<br>- Erro<br>- Depurar<br>- Detalhado|
-Hora | Data e hora da execução do trabalho de runbook.|
+Chamador |  Quem iniciou a operação de saudação.  Os valores possíveis são um endereço de email ou o sistema para trabalhos agendados.|
+Categoria | Classificação de tipo de saudação de dados.  Para automação, o valor de saudação é JobStreams.|
+JobId | GUID que é hello Id do trabalho de runbook hello.|
+operationName | Especifica o tipo de saudação da operação executada no Azure.  Para automação, o valor de saudação será o trabalho.|
+ResourceGroup | Especifica o nome do grupo de recursos Olá Olá do trabalho de runbook.|
+resourceId | Especifica a Id de recurso Olá no Azure.  Para automação, o valor de saudação é conta de automação Olá associada hello.|
+ResourceProvider | Especifica a saudação do serviço do Azure que fornece recursos de saudação, você pode implantar e gerenciar.  Para automação, o valor de saudação é automação do Azure.|
+ResourceType | Especifica o tipo de recurso Olá no Azure.  Para automação, o valor de saudação é conta de automação Olá associada hello.|
+resultType | resultado de Olá Olá do trabalho de runbook no evento Olá Olá foi gerado.  Os valores possíveis são:<br>- InProgress|
+resultDescription | Inclui Olá fluxo de saída de runbook hello.|
+RunbookName | nome de saudação do runbook hello.|
+SourceSystem | Especifica o sistema de origem Olá para dados de saudação enviados.  Para automação, o valor de saudação será OpsManager|
+StreamType | tipo de saudação do fluxo de trabalho. Os valores possíveis são:<br>- Andamento<br>- Saída<br>- Aviso<br>- Erro<br>- Depurar<br>- Detalhado|
+Hora | Data e hora quando o trabalho de runbook Olá executado.|
 
-Quando você executa uma pesquisa de log que retorna registros de categoria de **JobLogs** ou **JobStreams**, pode selecionar a exibição **JobLogs** ou **JobStreams** que exibe um conjunto de blocos resumindo as atualizações retornadas pela pesquisa.
+Quando você executa qualquer pesquisa de log que retorna registros de categoria de **JobLogs** ou **JobStreams**, você pode selecionar Olá **JobLogs** ou **JobStreams** exibição que exibe um conjunto de quadros de resumo de atualizações de saudação retornadas pela pesquisa de saudação.
 
 ## <a name="sample-log-searches"></a>Pesquisas de log de exemplo
 
-A tabela a seguir fornece pesquisas de log de exemplo para os registros de alerta coletados por essa solução. 
+Olá tabela a seguir fornece pesquisas de log de exemplo para registros de trabalho coletados por essa solução. 
 
 Consultar | Descrição|
 ----------|----------|
@@ -218,24 +218,24 @@ Localizar trabalhos de runbook StartVM que foram concluídos com êxito | Catego
 Localizar trabalhos de runbook StopVM que foram concluídos com êxito | Category=JobLogs RunbookName_s="StartByResourceGroup-MS-Mgmt-VM" ResultType=Failed &#124; measure count() by JobId_g
 Mostrar o status do trabalho ao longo do tempo para runbooks StartVM e StopVM | Category=JobLogs RunbookName_s="StartByResourceGroup-MS-Mgmt-VM" OR "StopByResourceGroup-MS-Mgmt-VM" NOT(ResultType="started") | measure Count() by ResultType interval 1day|
 
-## <a name="removing-the-solution"></a>Removendo a solução
+## <a name="removing-hello-solution"></a>Remover solução Olá
 
-Se você decidir que não precisa mais usar a solução, você pode excluí-la da conta de Automação.  Excluir a solução só removerá os runbooks, não excluirá as agendas ou variáveis que foram criadas quando a solução foi adicionada.  Esses ativos precisarão ser excluídos manualmente se não estiverem sendo usados com outros runbooks.  
+Se você decidir que não mais precisar toouse solução de saudação qualquer adicional, você poderá excluí-la da saudação conta de automação.  Excluir solução Olá removerá apenas runbooks hello, não excluirá agendas hello ou variáveis que foram criadas quando a solução de saudação foi adicionada.  Esses ativos você precisará toodelete manualmente se você não estiver usando-os com outros runbooks.  
 
-Para excluir a solução, execute as etapas a seguir:
+toodelete Olá solução, execute Olá etapas a seguir:
 
-1.  Na sua conta de automação, selecione o bloco **Soluções**.  
-2.  Na folha **Soluções**, selecione a solução **Start-Stop-VM[Workspace]**.  Na folha **VMManagementSolution[Workspace]**, no menu, clique em **Excluir**.<br><br> ![Excluir a Solução de Gerenciamento de VM](media/automation-solution-vm-management/vm-management-solution-delete.png)
-3.  Na janela **Excluir solução**, confirme que deseja excluir a solução.
-4.  Enquanto as informações são verificadas e a solução é excluída, você pode acompanhar seu progresso no menu **Notificações**.  Você retornará para a folha **VMManagementSolution[Workspace]** depois que o processo para remover a solução for iniciado.  
+1.  Na sua conta de automação, selecione Olá **soluções** lado a lado.  
+2.  Em Olá **soluções** folha, solução de saudação selecione **Start-Stop-VM [espaço de trabalho]**.  Em Olá **VMManagementSolution [espaço de trabalho]** folha, do menu do botão Olá **excluir**.<br><br> ![Excluir a Solução de Gerenciamento de VM](media/automation-solution-vm-management/vm-management-solution-delete.png)
+3.  Em Olá **excluir solução** janela, confirme que você deseja toodelete Olá solução.
+4.  Enquanto informações de saudação são verificadas e solução de saudação for excluída, você pode acompanhar seu progresso em **notificações** menu hello.  Você será retornado toohello **VMManagementSolution [espaço de trabalho]** folha depois Olá processo tooremove solução começa.  
 
-A conta de Automação e o espaço de trabalho do OMS não serão excluídos como parte desse processo.  Se você não deseja manter o espaço de trabalho do OMS, será necessário excluí-lo manualmente.  Isso também pode ser feito no portal do Azure.   Na tela inicial do portal do Azure, selecione **Log Analytics** e, em seguida, na folha **Log Analytics**, selecione o espaço de trabalho e clique em **Excluir** no menu na folha configurações do espaço de trabalho.  
+espaço de trabalho do OMS e conta de automação de saudação não serão excluídos como parte desse processo.  Se você não quiser que espaço de trabalho do OMS tooretain hello, será necessário toomanually excluí-lo.  Isso pode ser feito também da saudação portal do Azure.   Saudação inicial-tela hello portal do Azure, selecione **análise de Log** e, em seguida, em Olá **análise de Log** folha, espaço de trabalho Olá selecione e clique em **excluir** do menu Olá folha de configurações de espaço de trabalho de saudação.  
       
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre como construir consultas de pesquisa diferentes e examinar os logs de trabalho de Automação com o Log Analytics, confira [Efetuar pesquisas no Log Analytics](../log-analytics/log-analytics-log-searches.md)
-- Para saber mais sobre a execução de runbooks, como monitorar trabalhos de runbook e outros detalhes técnicos, confira [Acompanhar um trabalho de runbook](automation-runbook-execution.md)
-- Para saber mais sobre o Log Analytics do OMS e fontes de coleta de dados, confira [Coletar dados do Armazenamento do Azure na visão geral do Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+- toolearn mais sobre como consultas de pesquisa diferentes tooconstruct e examine Olá automação trabalho logs de análise de Log, consulte [pesquisas de Log na análise de Log](../log-analytics/log-analytics-log-searches.md)
+- toolearn mais sobre a execução do runbook, como trabalhos de runbook toomonitor e outros detalhes técnicos, consulte [acompanhar um trabalho de runbook](automation-runbook-execution.md)
+- toolearn mais sobre análise de logs do OMS e fontes de coleta de dados, consulte [dados de armazenamento do Azure coleta na visão geral da análise de Log](../log-analytics/log-analytics-azure-storage.md)
 
 
 

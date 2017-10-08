@@ -1,6 +1,6 @@
 ---
-title: "Como usar o Barramento de Serviço do Azure com o SDK de Trabalhos Web"
-description: "Saiba como usar tópicos e filas do barramento de serviço do Azure com o SDK de Trabalhos Web."
+title: aaaHow toouse Azure Service Bus com hello SDK do WebJobs
+description: "Saiba como toouse filas de barramento de serviço do Azure e os tópicos com hello SDK do WebJobs."
 services: app-service\web, service-bus
 documentationcenter: .net
 author: ggailey777
@@ -14,19 +14,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: glenga
-ms.openlocfilehash: 7cec03cae5d20d1ead9eb24e99415c33d8b76f05
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cb801a9320a20c276da4f48c8941c09d3f09bb1e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-azure-service-bus-with-the-webjobs-sdk"></a>Como usar o Barramento de Serviço do Azure com o SDK de Trabalhos Web
+# <a name="how-toouse-azure-service-bus-with-hello-webjobs-sdk"></a>Como toouse de barramento de serviço do Azure com hello SDK do WebJobs
 ## <a name="overview"></a>Visão geral
-Este guia fornece exemplos de código c# que mostram como disparar um processo quando uma mensagem do Barramento de Serviço é recebida. Os exemplos de código que usam o [SDK WebJobs](websites-dotnet-webjobs-sdk.md) versão 1.x.
+Este guia fornece c# exemplos de código que mostram como tootrigger um processo quando é recebida uma mensagem de barramento de serviço do Azure. uso de exemplos de código de saudação [SDK do WebJobs](websites-dotnet-webjobs-sdk.md) versão 1. x.
 
-O guia pressupõe que você saiba [como criar um projeto de Trabalho Web no Visual Studio com cadeias de conexão que apontam para sua conta de armazenamento](websites-dotnet-webjobs-sdk-get-started.md).
+Guia de saudação pressupõe que você sabe [como toocreate um projeto do WebJob no Visual Studio com conexão cadeias de caracteres essa conta de armazenamento de ponto tooyour](websites-dotnet-webjobs-sdk-get-started.md).
 
-Os trechos de código mostram apenas funções, não o código que cria o objeto `JobHost` , como neste exemplo:
+trechos de código Olá mostram apenas as funções, hello não código que cria Olá `JobHost` objeto como neste exemplo:
 
 ```
 public class Program
@@ -41,12 +41,12 @@ public class Program
 }
 ```
 
-Um [exemplo de código completo do Barramento de Serviço](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Program.cs) está no repositório de exemplos azure-webjobs-sdk no GitHub.com.
+Um [exemplo de código completo do barramento de serviço](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Program.cs) no repositório do azure webjobs-sdk exemplos Olá em GitHub.com.
 
 ## <a id="prerequisites"></a> Pré-requisitos
-Para trabalhar com o Barramento de Serviço, você precisa instalar o pacote do NuGet [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) , além dos pacotes do SDK de Trabalhos Web. 
+toowork com o barramento de serviço tiver Olá tooinstall [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) NuGet pacote Além disso toohello outros pacotes do SDK do WebJobs. 
 
-Você também deve definir a cadeia de conexão AzureWebJobsServiceBus além de cadeias de conexão de armazenamento.  Você pode fazer isso na seção `connectionStrings` do arquivo  App.config, conforme mostrado no seguinte exemplo:
+Você também tem uma cadeia de caracteres de conexão do tooset Olá AzureWebJobsServiceBus em cadeias de conexão de armazenamento de toohello de adição.  Você pode fazer isso no hello `connectionStrings` seção do arquivo App. config de hello, conforme mostrado no exemplo a seguir de saudação:
 
         <connectionStrings>
             <add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey]"/>
@@ -54,20 +54,20 @@ Você também deve definir a cadeia de conexão AzureWebJobsServiceBus além de 
             <add name="AzureWebJobsServiceBus" connectionString="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[yourKey]"/>
         </connectionStrings>
 
-Para um projeto de exemplo que inclui a configuração de cadeia de conexão do Barramento de Serviço no arquivo App.config, consulte [exemplo de Barramento de Serviço](https://github.com/Azure/azure-webjobs-sdk-samples/tree/master/BasicSamples/ServiceBus). 
+Para um projeto de exemplo que inclui a configuração de cadeia de caracteres de conexão de barramento de serviço Olá no arquivo App. config de saudação, consulte [exemplo de barramento de serviço](https://github.com/Azure/azure-webjobs-sdk-samples/tree/master/BasicSamples/ServiceBus). 
 
-As cadeias de conexão também podem ser definidas no ambiente de tempo de execução do Azure, que, em seguida, substitui as configurações do App.config quando o Trabalho Web é executado no Azure. Para obter mais informações, consulte [Introdução ao SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-get-started.md#configure-the-web-app-to-use-your-azure-sql-database-and-storage-account).
+cadeias de caracteres de conexão Olá também podem ser definidas no ambiente de tempo de execução do Azure hello, que, em seguida, substitui as configurações de App. config hello quando Olá trabalho Web é executado no Azure. Para obter mais informações, consulte [Introdução ao SDK do WebJobs do hello](websites-dotnet-webjobs-sdk-get-started.md#configure-the-web-app-to-use-your-azure-sql-database-and-storage-account).
 
-## <a id="trigger"></a> Como disparar uma função quando uma mensagem da fila de Barramento de Serviço é recebida
-Para gravar uma função que o SDK de Trabalhos Web chama quando uma mensagem da fila é recebida, use o atributo `ServiceBusTrigger` . O construtor de atributo tem um parâmetro que especifica o nome da fila para sondagem.
+## <a id="trigger"></a>Como tootrigger uma função quando um barramento de serviço de fila de mensagem é recebida
+toowrite uma função que Olá SDK do WebJobs chama quando é recebida uma mensagem da fila, use Olá `ServiceBusTrigger` atributo. o construtor de atributo Olá leva um parâmetro que especifica o nome de saudação do hello toopoll de fila.
 
 ### <a name="how-servicebustrigger-works"></a>Como funciona o ServicebusTrigger
-O SDK recebe uma mensagem em modo `PeekLock` e chamadas `Complete` na mensagem se a função for concluída com êxito, ou chamadas `Abandon` se a função falhar. Se a função for executada por mais tempo que o limite `PeekLock` , o bloqueio é renovado automaticamente.
+Olá, SDK recebe uma mensagem no `PeekLock` modo e chamadas de `Complete` na mensagem de saudação quando função hello concluído com êxito, ou chamadas `Abandon` se a função hello falhar. Se a função hello executada por mais de saudação `PeekLock` tempo limite de bloqueio de saudação é renovada automaticamente.
 
-O barramento de serviço faz seu próprio tratamento de fila de mensagens suspeitas que não podem ser controladas ou configuradas pelo SDK do WebJobs. 
+Barramento de serviço faz seu próprio tratamento de fila suspeita que não pode ser controlado ou configurado por Olá SDK do WebJobs. 
 
 ### <a name="string-queue-message"></a>Mensagem da fila da cadeia
-O exemplo de código a seguir lê uma mensagem da fila que contém uma cadeia de caracteres e grava a cadeia de caracteres no painel do SDK de Trabalhos Web.
+Olá, exemplo de código a seguir lê uma mensagem da fila que contém uma cadeia de caracteres e grava a cadeia de caracteres de saudação toohello painel do SDK do WebJobs.
 
         public static void ProcessQueueMessage([ServiceBusTrigger("inputqueue")] string message, 
             TextWriter logger)
@@ -75,20 +75,20 @@ O exemplo de código a seguir lê uma mensagem da fila que contém uma cadeia de
             logger.WriteLine(message);
         }
 
-**Observação:** se você estiver criando as mensagens de fila em um aplicativo que não usa o SDK de Trabalhos Web, certifique-se de definir [BrokeredMessage.ContentType](http://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx) para "text/plain".
+**Observação:** se você estiver criando Olá mensagens da fila em um aplicativo que não usa o SDK do WebJobs do hello, verifique se tooset [BrokeredMessage.ContentType](http://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx) muito "texto/simples".
 
 ### <a name="poco-queue-message"></a>Mensagem da fila POCO
-O SDK desserializará automaticamente uma mensagem da fila que contém o JSON para um tipo POCO [(objeto Plain Old CLR](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)). O exemplo de código a seguir lê uma mensagem da fila que contém um objeto `BlobInformation` que tem uma propriedade `BlobName`:
+Olá SDK desserializará automaticamente uma mensagem da fila que contém JSON para um POCO [(objeto Plain Old CLR](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) tipo. Olá, exemplo de código a seguir lê uma mensagem da fila que contém um `BlobInformation` objeto que tem um `BlobName` propriedade:
 
         public static void WriteLogPOCO([ServiceBusTrigger("inputqueue")] BlobInformation blobInfo,
             TextWriter logger)
         {
-            logger.WriteLine("Queue message refers to blob: " + blobInfo.BlobName);
+            logger.WriteLine("Queue message refers tooblob: " + blobInfo.BlobName);
         }
 
-Para obter exemplos de código mostrando como usar propriedades do POCO para trabalhar com blobs e tabelas na mesma função, consulte a [versão de filas de armazenamento deste artigo](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#pocoblobs).
+Para exemplos de código mostrando como propriedades de toouse de saudação POCO toowork com blobs e tabelas no mesmo Olá funcionam, consulte Olá [versão de filas de armazenamento deste artigo](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#pocoblobs).
 
-Se seu código que cria a mensagem da fila não usa o SDK WebJobs, use um código semelhante ao exemplo a seguir:
+Se seu código que cria a mensagem da fila de saudação não usar Olá SDK do WebJobs, use toohello semelhante de código exemplo a seguir:
 
         var client = QueueClient.CreateFromConnectionString(ConfigurationManager.ConnectionStrings["AzureWebJobsServiceBus"].ConnectionString, "blobadded");
         BlobInformation blobInformation = new BlobInformation () ;
@@ -96,13 +96,13 @@ Se seu código que cria a mensagem da fila não usa o SDK WebJobs, use um códig
         client.Send(message);
 
 ### <a name="types-servicebustrigger-works-with"></a>O tipo ServiceBusTrigger funciona com
-Além dos tipos `string` e POCO, você pode usar o atributo `ServiceBusTrigger` com uma matriz de bytes ou um objeto `BrokeredMessage`.
+Além disso `string` e POCO tipos, você pode usar o hello `ServiceBusTrigger` atributo com uma matriz de bytes ou um `BrokeredMessage` objeto.
 
-## <a id="create"></a> Como criar mensagens de fila do Barramento de Serviço
-Para escrever uma função que cria um uma nova mensagem de fila, use o atributo `ServiceBus` e passe o nome da fila para o construtor de atributo. 
+## <a id="create"></a>Como toocreate barramento de serviço de fila de mensagens
+toowrite uma função que cria uma nova mensagem de fila usar Olá `ServiceBus` atributo e passar no construtor de atributo toohello do nome de fila hello. 
 
 ### <a name="create-a-single-queue-message-in-a-non-async-function"></a>Criar uma mensagem de fila única em uma função não sincronizada
-O exemplo de código a seguir usa um parâmetro de saída para criar uma nova mensagem na fila denominada "outputqueue" com o mesmo conteúdo que a mensagem recebida na fila denominada "inputqueue".
+saudação de exemplo de código a seguir usa um toocreate de parâmetro de saída que uma nova mensagem na fila de saudação denominado "outputqueue" com o mesmo conteúdo como Olá na fila de saudação denominada "inputqueue" foi recebida uma mensagem de saudação.
 
         public static void CreateQueueMessage(
             [ServiceBusTrigger("inputqueue")] string queueMessage,
@@ -111,17 +111,17 @@ O exemplo de código a seguir usa um parâmetro de saída para criar uma nova me
             outputQueueMessage = queueMessage;
         }
 
-O parâmetro de saída para a criação de uma mensagem de fila única pode ser qualquer um dos seguintes tipos:
+saudação de parâmetro de saída para a criação de uma mensagem da fila única pode ser qualquer um dos seguintes tipos de saudação:
 
 * `string`
 * `byte[]`
 * `BrokeredMessage`
 * Um tipo POCO serializável que você define. Automaticamente serializado como JSON.
 
-Para parâmetros de tipo POCO, uma mensagem de fila sempre é criada quando a função termina. Se o parâmetro for null, o SDK cria uma mensagem de fila que retorna nula quando a mensagem é recebida e desserializada. Para outros tipos, se o parâmetro for nulo nenhuma mensagem da fila é criada.
+Para parâmetros de tipo POCO, uma mensagem da fila sempre é criada quando a função hello termina; Se o parâmetro hello for nulo, Olá SDK cria uma mensagem da fila que retorna null quando a mensagem de saudação é recebida e desserializada. Para Olá outros tipos, se o parâmetro hello é nulo nenhuma mensagem de fila é criada.
 
 ### <a name="create-multiple-queue-messages-or-in-async-functions"></a>Criar várias mensagens de fila ou nas funções assíncronas
-Para criar várias mensagens, use o atributo `ServiceBus` com `ICollector<T>` ou `IAsyncCollector<T>`, conforme mostrado no exemplo de código a seguir:
+toocreate várias mensagens, use Olá `ServiceBus` atributo com `ICollector<T>` ou `IAsyncCollector<T>`, conforme mostrado no hello exemplo de código a seguir:
 
         public static void CreateQueueMessages(
             [ServiceBusTrigger("inputqueue")] string queueMessage,
@@ -133,10 +133,10 @@ Para criar várias mensagens, use o atributo `ServiceBus` com `ICollector<T>` ou
             outputQueueMessage.Add(queueMessage + "2");
         }
 
-Cada mensagem da fila é criada imediatamente quando o método `Add` é chamado.
+Cada mensagem de fila é criada imediatamente quando hello `Add` método é chamado.
 
-## <a id="topics"></a>Como trabalhar com tópicos do Barramento de Serviço
-Para gravar uma função que o SDK chama quando uma mensagem é recebida em um tópico do barramento de serviço, use o atributo `ServiceBusTrigger` com o construtor que usa o nome do tópico e assinatura, conforme mostrado no exemplo de código a seguir:
+## <a id="topics"></a>Como toowork com tópicos do barramento de serviço
+toowrite uma função que Olá SDK chama quando uma mensagem é recebida em um tópico do barramento de serviço, use Olá `ServiceBusTrigger` atributo com o construtor de saudação que obtém o nome do tópico e assinatura, conforme mostrado no hello exemplo de código a seguir:
 
         public static void WriteLog([ServiceBusTrigger("outputtopic","subscription1")] string message,
             TextWriter logger)
@@ -144,32 +144,32 @@ Para gravar uma função que o SDK chama quando uma mensagem é recebida em um t
             logger.WriteLine("Topic message: " + message);
         }
 
-Para criar uma mensagem em um tópico, use o atributo `ServiceBus` com um nome de tópico da mesma forma que você pode usá-lo com um nome de fila.
+toocreate uma mensagem em um tópico, use Olá `ServiceBus` atributo com uma saudação de nome do tópico mesmo maneira que você pode usá-lo com um nome de fila.
 
 ## <a name="features-added-in-release-11"></a>Recursos adicionados na versão 1.1
-Os seguintes recursos foram adicionados na versão 1.1:
+Olá recursos a seguir foram adicionado na versão 1.1:
 
 * Permitir personalização profunda de processamento de mensagens via `ServiceBusConfiguration.MessagingProvider`.
-* `MessagingProvider` dá suporte à personalização do Barramento de Serviço `MessagingFactory` e `NamespaceManager`.
-* Um padrão de estratégia `MessageProcessor` permite que você especifique um processador por fila/tópico.
+* `MessagingProvider`oferece suporte à personalização de saudação do Service Bus `MessagingFactory` e `NamespaceManager`.
+* Um `MessageProcessor` padrão de estratégia permite que você toospecify um processador por fila/tópico.
 * A simultaneidade de processamento de mensagem tem suporte por padrão. 
 * Personalização fácil de `OnMessageOptions` via `ServiceBusConfiguration.MessageOptions`.
-* Permita que [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71) seja especificado em `ServiceBusTriggerAttribute`/`ServiceBusAttribute` (para cenários em que você talvez não precise gerenciar direitos). Observe que o Azure WebJobs não pode provisionar automaticamente filas e tópicos inexistentes sem AccessRights Gerenciar.
+* Permitir [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71) toobe especificado em `ServiceBusTriggerAttribute` / `ServiceBusAttribute` (para cenários em que você pode não ter gerenciam direitos). Observe que o Azure WebJobs é tooautomatically não é possível provisionar inexistente as filas e tópicos sem gerenciar AccessRights.
 
-## <a id="queues"></a>Tópicos relacionados abordados no artigo de instruções de filas de armazenamento
-Para obter informações sobre cenários do SDK de Trabalhos Web não específicos para o barramento de serviço, consulte [Como usar armazenamento de fila do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+## <a id="queues"></a>Tópicos relacionados cobertos por filas de armazenamento da saudação como-tooarticle
+Para obter informações sobre cenários de SDK do WebJobs tooService não específica do Bus, consulte [como toouse Azure fila de armazenamento com hello SDK do WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
-Os tópicos abordados nesse artigo incluem o seguinte:
+Os tópicos abordados nesse artigo incluem o seguinte hello:
 
 * Funções assíncronas
 * Várias instâncias
 * Desligamento normal
-* Usar atributos do SDK de Trabalhos Web no corpo de uma função
-* Definir as cadeias de conexão do SDK no código
+* Usar atributos de SDK do WebJobs no corpo de saudação de uma função
+* Cadeias de conexão do conjunto Olá SDK no código
 * Definir valores para parâmetros do construtor do SDK WebJobs no código
 * Disparar uma função manualmente
 * Gravar logs
 
 ## <a id="nextsteps"></a> Próximas etapas
-Este guia forneceu exemplos de amostras que mostram como lidar com cenários comuns para trabalhar com o Barramento de Serviço do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
+Este guia fornece código exemplos que mostram como os cenários comuns de toohandle para trabalhar com o barramento de serviço do Azure. Para obter mais informações sobre como toouse WebJobs do Azure e hello WebJobs SDK, consulte [recursos recomendada do Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
 

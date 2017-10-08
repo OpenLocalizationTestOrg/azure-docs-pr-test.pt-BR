@@ -1,6 +1,6 @@
 ---
-title: Usando o Azure AD Connect Health com o AD FS | Microsoft Docs
-description: "Esta é a página do Azure AD Connect Health sobre como monitorar a sua infraestrutura local do AD FS."
+title: aaaUsing do Azure AD Connect Health com AD FS | Microsoft Docs
+description: "Esta é a página de integridade de conexão de saudação do AD do Azure como toomonitor local infraestrutura do AD FS."
 services: active-directory
 documentationcenter: 
 author: karavar
@@ -15,107 +15,107 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7946f11d209e6341caa3a11e946fb1596e758277
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 0cd26e8762be65e09d22e1f113e5165c4f131715
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorar o AD FS usando o Azure AD Connect Health
-A documentação a seguir é específica para monitorar a sua infraestrutura do AD FS com o Azure AD Connect Health. Para saber mais sobre como monitorar o Azure AD Connect (Sincronização) com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health para Sincronização](active-directory-aadconnect-health-sync.md). Além disso, para obter informações sobre como monitorar os Serviços de Domínio do Active Directory com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health com o AD DS](active-directory-aadconnect-health-adds.md).
+Olá documentação a seguir é específico toomonitoring sua infraestrutura do AD FS com o Azure AD Connect Health. Para saber mais sobre como monitorar o Azure AD Connect (Sincronização) com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health para Sincronização](active-directory-aadconnect-health-sync.md). Além disso, para obter informações sobre como monitorar os Serviços de Domínio do Active Directory com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health com o AD DS](active-directory-aadconnect-health-adds.md).
 
 ## <a name="alerts-for-ad-fs"></a>Alertas do AD FS
-A seção de Alertas do Azure AD Connect Health fornece a lista de alertas ativos. Cada alerta inclui informações relevantes, etapas de resolução e links para documentação relacionada.
+Olá seção alertas de integridade de conexão de AD do Azure fornece que Olá lista de alertas ativos. Cada alerta inclui informações relevantes, etapas de resolução e documentação de toorelated links.
 
-Clique duas vezes em um alerta ativo ou resolvido para abrir uma nova folha com as informações adicionais, as etapas a serem seguidas para resolver o alerta e os links para documentação relevante. Você também pode exibir dados históricos sobre alertas que foram resolvidas no passado.
+Você pode clicar duas vezes uma tooopen alerta, ativo ou resolvido uma nova folha com informações adicionais, etapas tooresolve Olá alerta e documentação de toorelevant links. Você também pode exibir dados históricos sobre alertas que foram resolvidos no hello anterior.
 
 ![Portal do Azure AD Connect Health](./media/active-directory-aadconnect-health/alert2.png)
 
 ## <a name="usage-analytics-for-ad-fs"></a>Análises de Uso do AD FS
-A Análise de Uso do Azure AD Connect Health analisa o tráfego de autenticação de servidores de Federação. Você pode clicar duas vezes na caixa de análise de uso para abrir a folha de análise de uso, que mostra várias métricas e agrupamentos.
+Análise AD do Azure conectar integridade uso analisa o tráfego de autenticação de saudação dos seus servidores de Federação. Clique duas vezes em caixa de análise de uso do hello, tooopen Olá uso folha de análise, que mostra várias métricas e os agrupamentos.
 
 > [!NOTE]
-> Para usar a análise de uso com o AD FS, você deve garantir que a auditoria do AD FS esteja habilitada. Para obter mais informações, consulte [Habilitar a auditoria do AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
+> toouse análise de uso com o AD FS, você deve garantir que a auditoria do AD FS está habilitado. Para obter mais informações, consulte [Habilitar a auditoria do AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
 >
 >
 
 ![Portal do Azure AD Connect Health](./media/active-directory-aadconnect-health/report1.png)
 
-Para selecionar métricas adicionais, especifique um intervalo de tempo ou, para alterar o agrupamento, clique no gráfico de análise de uso e selecione Editar gráfico. Em seguida, você pode especificar o intervalo de tempo, selecionar uma métrica diferente e alterar o agrupamento. Você pode exibir a distribuição do tráfego de autenticação com base em diferentes “métricas” e agrupar cada métrica usando parâmetros relevantes "agrupar por" descritos na seção a seguir:
+tooselect de métricas adicionais, especifique um intervalo de tempo, ou o agrupamento de saudação toochange, clique no gráfico de análise de uso de saudação e selecione Editar gráfico. Você pode especificar o intervalo de tempo de saudação, selecione uma métrica diferente e alterar o agrupamento de saudação. Você pode exibir a distribuição Olá Olá de tráfego de autenticação com base em diferentes "métricas" e agrupar cada métrica usando parâmetros relevantes "Agrupar por" descritos em Olá seção a seguir:
 
 **Métrica: Total de solicitações** – Número total de solicitações processadas por servidores AD FS.
 
-|Agrupar Por | O que significa que o agrupamento e por que ele é útil? |
+|Agrupar Por | O que significa o agrupamento de saudação e por que é útil? |
 | --- | --- |
-| Todos | Mostra a contagem do número total de solicitações processadas por todos os servidores AD FS.|
-| Aplicativo | Agrupa o total de solicitações com base na terceira parte confiável de destino. Esse agrupamento é útil para entender qual aplicativo está recebendo o percentual do tráfego total. |
-|  Servidor |Agrupa o total de solicitações com base no servidor que processa a solicitação. Esse agrupamento é útil para entender a distribuição de carga do tráfego total.
-| Ingresso no local |Agrupa o total de solicitações com base em se as solicitações são provenientes de dispositivos que são ingressados no local (conhecido). Esse agrupamento é útil para compreender se os recursos são acessados usando dispositivos desconhecidos para a infraestrutura de identidades. |
-|  Método de autenticação | Agrupa o total de solicitações com base no método de autenticação usado para autenticação. Esse agrupamento é útil para entender o método de autenticação comum que é usado para autenticação. Estes são os métodos de autenticação possíveis <ol> <li>Autenticação Integrada do Windows (Windows)</li> <li>Autenticação Baseada em Formulários (Formulários)</li> <li>SSO (Logon único)</li> <li>Autenticação de Certificado X509 (Certificado)</li> <br>Se os servidores de federação receberem a solicitação com um Cookie SSO, essa solicitação será contabilizada como SSO (logon único). Nesses casos, se o cookie for válido, o usuário não precisa fornecer credenciais e obtém acesso contínuo ao aplicativo. Esse comportamento é comum se você tiver várias partes confiáveis protegidas pelos servidores da Federação. |
-| Local de rede | Agrupa o total de solicitações com base no local de rede do usuário. Pode ser qualquer intranet ou extranet. Esse agrupamento é útil para saber qual é a porcentagem do tráfego que está vindo da intranet em comparação com a extranet. |
+| Todos | Mostra a contagem de saudação do número total de solicitações processadas por todos os servidores do AD FS.|
+| Aplicativo | Grupos Olá total de solicitações com base na terceira parte confiável Olá direcionado. Esse agrupamento é útil toounderstand qual aplicativo está recebendo o percentual do total de tráfego hello. |
+|  Servidor |Total de solicitações com base no servidor de saudação que processa a solicitação Olá Olá a grupos. Esse agrupamento é útil toounderstand distribuição de carga de saudação do tráfego total de saudação.
+| Ingresso no local |Grupos Olá total de solicitações com base em se eles são provenientes de dispositivos que estão no local de trabalho (conhecido). Esse agrupamento é útil toounderstand se os recursos são acessados usando dispositivos de infraestrutura de identidade toohello desconhecido. |
+|  Método de autenticação | Grupos Olá total de solicitações com base no método de autenticação Olá usado para autenticação. Esse agrupamento é útil toounderstand Olá método de autenticação comum que é usado para autenticação. Estes são os métodos de autenticação possíveis Olá <ol> <li>Autenticação Integrada do Windows (Windows)</li> <li>Autenticação Baseada em Formulários (Formulários)</li> <li>SSO (Logon único)</li> <li>Autenticação de Certificado X509 (Certificado)</li> <br>Se os servidores de Federação Olá receberem solicitação Olá com um Cookie de SSO, essa solicitação é contabilizada como SSO (logon único). Nesses casos, se Olá cookie for válido, o usuário de Olá não é solicitado credenciais tooprovide e obtém acesso contínuo toohello aplicativo. Esse comportamento é comum se você tiver várias partes confiantes protegidas pelos servidores de Federação hello. |
+| Local de rede | Total de solicitações com base no local de rede de saudação do usuário Olá Olá a grupos. Pode ser qualquer intranet ou extranet. Esse agrupamento é útil tooknow a porcentagem de tráfego de saudação é proveniente de intranet hello ou extranet. |
 
 
-**Métrica: Total de solicitações com falha** – O número total de solicitações com falha processadas pelo serviço de federação. (Essa métrica só está disponível no AD FS para o Windows Server 2012 R2)
+**Métrica: Solicitação com falha Total** -número total de saudação falha solicitações processadas pelo serviço de Federação hello. (Essa métrica só está disponível no AD FS para o Windows Server 2012 R2)
 
-|Agrupar Por | O que significa que o agrupamento e por que ele é útil? |
+|Agrupar Por | O que significa o agrupamento de saudação e por que é útil? |
 | --- | --- |
-| Tipo de erro | Mostra o número de erros com base nos tipos de erro predefinidos. Esse agrupamento é útil para entender os tipos comuns de erros. <ul><li>Nome de usuário ou senha incorretos: erros causados por nome de usuário ou senha incorretos.</li> <li>"Bloqueio de extranet": falhas devido a solicitações recebidas de um usuário que foi bloqueado da extranet </li><li> "Senha expirada": falhas devido a usuários que fazem logon com uma senha expirada.</li><li>"Conta desabilitada": falhas devido a usuários que fazem logon com uma conta desabilitada.</li><li>"Autenticação do dispositivo": falhas devido a usuários que não foram autenticados usando a Autenticação do Dispositivo.</li><li>"Autenticação de Certificado de Usuário": falhas devido a usuários que não foram autenticados devido a um certificado inválido.</li><li>"MFA": falhas devido ao usuário que não foi autenticado usando a Autenticação Multifator.</li><li>"Outras Credenciais": "Autorização de Emissão": falhas devido a falhas de autorização.</li><li>"Delegação de Emissão": falhas devido a erros de delegação de emissão.</li><li>"Aceitação de Token": falhas causadas pelo ADFS rejeitando o token de um provedor de identidade de terceiros.</li><li>"Protocolo": falha devido a erros de protocolo.</li><li>"Desconhecido": envolve tudo. Quaisquer outras falhas que não se encaixam nas categorias definidas.</li> |
-| Servidor | Agrupa os erros com base no servidor. Esse agrupamento é útil para entender a distribuição de erros entre servidores. A distribuição desigual poderia ser um indicador de um servidor em um estado com falha. |
-| Local de rede | Agrupa os erros com base no local de rede das solicitações (intranet versus extranet). Esse agrupamento é útil para entender que tipo de solicitações está falhando. |
-|  Aplicativo | Agrupa as falhas com base no aplicativo de destino (terceira parte confiável). Esse agrupamento é útil para entender qual aplicativo de destino está tendo maior número de erros. |
+| Tipo de erro | Mostra o número de saudação de erros com base nos tipos de erro predefinidos. Esse agrupamento é útil toounderstand Olá os tipos comuns de erros. <ul><li>Nome de usuário ou a senha incorreta: erros devido tooincorrect username ou password.</li> <li>"O bloqueio de extranet": falhas devido a solicitações de toohello recebidas de um usuário que foi bloqueado de extranet </li><li> "Expirado senha": falhas devido a log toousers com uma senha expirada.</li><li>"Desabilitado conta": falhas devido a log toousers com uma conta desabilitada.</li><li>"Autenticação de dispositivo": falhas devido a falha toousers tooauthenticate usando a autenticação do dispositivo.</li><li>"Autenticação de certificado de usuário": falhas devido a tooauthenticate toousers falha devido a um certificado inválido.</li><li>"MFA": falhas devido a falha toouser tooauthenticate usando a autenticação multifator.</li><li>"Outras credenciais": "Autorização de emissão": falhas devido a falhas de tooauthorization.</li><li>"Emissão delegação": falhas devido a erros de delegação tooissuance.</li><li>"Aceitação de token": falhas devido a rejeição tooADFS Olá token de um provedor de identidade de terceiros.</li><li>"Protocol": falha devido a erros de tooprotocol.</li><li>"Desconhecido": envolve tudo. Outras falhas que não cabem na Olá definido categorias.</li> |
+| Servidor | Grupos Olá erros com base no servidor de saudação. Esse agrupamento é útil toounderstand distribuição de erro de saudação entre os servidores. A distribuição desigual poderia ser um indicador de um servidor em um estado com falha. |
+| Local de rede | Grupos Olá erros com base no local de rede de saudação de solicitações de saudação (intranet vs extranet). Esse agrupamento é útil toounderstand tipo de saudação de solicitações com falha. |
+|  Aplicativo | Grupos Olá falhas com base no aplicativo hello direcionado (terceira parte confiável). Esse agrupamento é útil toounderstand qual aplicativo de destino está vendo mais o número de erros. |
 
 **Métrica: Contagem de usuários** – número médio de usuários exclusivos autenticando-se ativamente usando o AD FS
 
-|Agrupar Por | O que significa que o agrupamento e por que ele é útil? |
+|Agrupar Por | O que significa o agrupamento de saudação e por que é útil? |
 | --- | --- |
-|Todos |Essa métrica fornece uma contagem do número médio de usuários que usam o serviço de federação na fração de tempo selecionada. Os usuários não estão agrupados. <br>A média depende da fração de tempo selecionada. |
-| Aplicativo |Agrupa o número médio de usuários com base no aplicativo de destino (terceira parte confiável). Esse agrupamento é útil para entender a quantos usuários estão usando o aplicativo. |
+|Todos |Essa métrica fornece uma contagem do número médio de usuários usando o serviço de Federação Olá em fatias de tempo selecionado hello. os usuários de saudação não estão agrupados. <br>Média de saudação depende Olá fração de tempo selecionada. |
+| Aplicativo |Número médio de saudação de grupos de usuários com base em Olá direcionados aplicativo (terceira parte confiável). Esse agrupamento é útil toounderstand quantos usuários estão usando o aplicativo. |
 
 ## <a name="performance-monitoring-for-ad-fs"></a>Monitoramento de desempenho do AD FS
-O Monitoramento de Desempenho do Azure Active Directory Connect Health fornece informações de monitoramento nas métricas. Selecionar a caixa Monitoramento abre uma nova folha com informações detalhadas sobre as métricas.
+O Monitoramento de Desempenho do Azure Active Directory Connect Health fornece informações de monitoramento nas métricas. Selecionar caixa de monitoramento hello, abre uma nova folha com informações detalhadas sobre as métricas de saudação.
 
 ![Portal do Azure AD Connect Health](./media/active-directory-aadconnect-health/perf1.png)
 
-Ao selecionar a opção de filtro na parte superior da folha, você pode filtrar por servidor para ver as métricas individuais de um servidor. Para alterar as métricas, clique com o botão direito do mouse no gráfico de monitoramento na folha de monitoramento e selecione Editar Gráfico (ou selecione o botão Editar Gráfico). Na nova folha que é aberta, você pode selecionar métricas adicionais na lista suspensa e especificar um intervalo de tempo para exibir os dados de desempenho.
+Selecionando a opção de filtro de saudação na parte superior de saudação da folha hello, você pode filtrar por servidor toosee métricas de um servidor individual. métrica de toochange, com o botão direito no gráfico em Olá monitoramento folha de monitoramento de saudação e selecione Editar gráfico (ou botão de editar gráfico Olá select). Da saudação nova folha que é aberta, você pode selecionar métricas adicionais na lista suspensa hello e especificar um intervalo de tempo para exibir dados de desempenho de saudação.
 
 ## <a name="reports-for-ad-fs"></a>Relatórios do AD FS
 O Azure AD Connect Health fornece relatórios sobre a atividade e o desempenho do AD FS. Esses relatórios ajudam os administradores a obter percepções sobre as atividades nos servidores do AD FS.
 
 ### <a name="top-50-users-with-failed-usernamepassword-logins"></a>50 principais usuários com logons com falha de nome de usuário/senha
-Um dos motivos comuns para a falha de uma solicitação de autenticação em um servidor do AD FS é uma solicitação com credenciais inválidas, ou seja, um nome de usuário ou uma senha incorretos. Costuma acontecer par aos usuários devido a senhas complexas, senhas esquecidas ou erros de digitação.
+Um dos motivos comuns de saudação para uma solicitação de autenticação com falha em um servidor do AD FS é uma solicitação com credenciais inválidas, ou seja, um nome de usuário incorreto ou a senha. Normalmente acontece toousers devido toocomplex senhas, senhas esquecidas ou erros de digitação.
 
-Mas há outros motivos que podem resultar em um número inesperado de solicitações manipuladas pelos servidores do AD FS, tais como: um aplicativo que armazena em cache as credenciais de usuário e as credenciais expiram ou um usuário mal-intencionado tenta entrar em uma conta com uma série de senhas conhecidas. Estes dois exemplos são motivos válidos que poderiam levar a um aumento nas solicitações.
+Mas há outros motivos que podem resultar em um número inesperado de solicitações que está sendo tratado por seus servidores do AD FS, tais como: um aplicativo que caches credenciais de usuário e credenciais de saudação expirarem ou um usuário mal-intencionado tentar toosign em uma conta com uma série de senhas conhecidas. Esses dois exemplos são motivos que poderiam levar tooa aumento nas solicitações.
 
-O Azure AD Connect Health para ADFS fornece um relatório sobre os 50 principais usuários com falhas em tentativas de logon devido a um nome de usuário ou uma senha inválidos. Esse relatório é obtido com o processamento dos eventos de auditoria gerados por todos os servidores do AD FS nos farms
+O Azure AD Connect Health para AD FS fornece um relatório sobre os primeiros 50 usuários com as tentativas de logon com falha devido tooinvalid username ou password. Este relatório é obtido com o processamento de eventos de auditoria de saudação gerados por todos os servidores de saudação do AD FS em farms de saudação
 
 ![Portal do Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report1a.png)
 
-Neste relatório, você tem acesso fácil às seguintes informações:
+Neste relatório, você tem acesso fácil toohello informações a seguir:
 
-* Número total de solicitações com falha com nome de usuário/senha incorretos nos últimos 30 dias
+* N º total de solicitações com falha com o nome de usuário/senha incorreta no hello últimos 30 dias
 * Número médio de usuários com falha de logon com um nome de usuário/senha inválidos por dia.
 
-Ao clicar nessa opção, você é levado até a folha de relatório principal, que fornece detalhes adicionais. Esta folha inclui um gráfico com informações de tendência para ajudar a estabelecer uma linha de base sobre solicitações com nome de usuário ou senha incorretos. Além disso, ele fornece a lista dos 50 principais usuários com o maior número de tentativas com falha.
+Clicar nesta parte leva toohello folha de relatório principal que fornece detalhes adicionais. Esta folha inclui um gráfico com tendência informações toohelp estabelecer uma linha de base sobre solicitações com o nome de usuário incorreto ou a senha. Além disso, ele fornece a lista de saudação dos primeiros 50 usuários com número de saudação de tentativas com falha.
 
-O gráfico fornece as seguintes informações:
+gráfico de saudação fornece Olá informações a seguir:
 
-* O número total de logons com falha devido a um nome de usuário/senha inválidos a cada dia.
-* O número total de usuários exclusivos com logons com falha a cada dia.
+* Olá n º total de logons com falha devido a nome de usuário/senha incorreta tooa em uma base por dia.
+* Olá n º total de usuários exclusivos que logons em uma base por dia com falha.
 * Endereço IP do cliente da última solicitação
 
 ![Portal do Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report3a.png)
 
-O relatório fornece as seguintes informações:
+relatório de saudação fornece Olá informações a seguir:
 
 | Item do relatório | Descrição |
 | --- | --- |
-| Id de Usuário |Mostra a ID de usuário que foi usada. Esse valor é o que o usuário digitou, que, em alguns casos, é o uso da ID de usuário errada. |
-| Tentativas com falha |Mostra o número total de tentativas com falha para essa ID de usuário específica. A tabela é classificada com o maior número de tentativas com falha em ordem decrescente. |
-| Última falha |Mostra o carimbo de data/hora quando a última falha ocorreu. |
-| IP da última falha |Mostra o endereço IP do cliente da solicitação incorreta mais recente. |
+| Id de Usuário |Mostra a ID de usuário de saudação que foi usada. Esse valor é o hello usuário digitado, que, em alguns casos, é Olá ID de usuário incorreto está sendo usado. |
+| Tentativas com falha |Mostra hello n º total de tentativas com falha para essa ID de usuário específico. Olá tabela é classificada por hello número máximo de tentativas com falha em ordem decrescente. |
+| Última falha |Mostra o carimbo de data / hora de saudação quando Olá última falha. |
+| IP da última falha |Mostra o endereço de IP do cliente de saudação de solicitação incorreta mais recente de saudação. |
 
 > [!NOTE]
-> Esse relatório é atualizado automaticamente a cada duas horas com as novas informações coletadas no momento. Como resultado, as tentativas de logon nas últimas duas horas podem não ser incluídas no relatório.
+> Este relatório é atualizado automaticamente após a cada duas horas com hello novas informações coletadas no momento. Como resultado, as tentativas de logon em Olá últimas duas horas não podem ser incluídas no relatório de saudação.
 >
 >
 

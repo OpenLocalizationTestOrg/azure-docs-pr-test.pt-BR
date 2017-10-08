@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory com Yonyx Interactive Guides | Microsoft Docs"
-description: "Saiba como configurar logon único entre o Azure Active Directory e Yonyx Interactive Guides."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e guias de Yonyx interativo."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,191 +14,191 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 522f440a0b3746e1101aed845678b3930e030fec
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 24e30d243143651b8d32535c76dc300931ae5746
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Tutorial: Integração do Azure Active Directory com Yonyx Interactive Guides
 
-Neste tutorial, você aprende a integrar o Yonyx Interactive Guides ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como toointegrate Yonyx interativo guias com o Azure Active Directory (AD do Azure).
 
-Integrar Yonyx Interactive Guides ao Azure AD oferece os seguintes benefícios:
+Integrando guias interativo Yonyx com o AD do Azure fornece Olá benefícios a seguir:
 
-- Você pode controlar no Azure AD quem tem acesso a Yonyx Interactive Guides
-- Você pode habilitar seus usuários a entrar automaticamente em Yonyx Interactive Guides (logon único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um única localização: o Portal do Azure
+- Você pode controlar no AD do Azure que tenha acesso tooYonyx guias interativo
+- Você pode habilitar seu usuários tooautomatically get conectado tooYonyx guias interativo (logon único) com suas contas do AD do Azure
+- Você pode gerenciar suas contas em um local central - Olá portal do Azure
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Yonyx Interactive Guides, você precisa dos seguintes itens:
+tooconfigure integração do AD do Azure com guias de Yonyx interativa, você precisa Olá itens a seguir:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura do Yonyx Interactive Guides habilitada para logon único
 
 > [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
 
-1. Adicionando Yonyx Interactive Guides da galeria
+1. Adicionando guias interativo Yonyx da Galeria de saudação
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-yonyx-interactive-guides-from-the-gallery"></a>Adicionando Yonyx Interactive Guides da galeria
-Para configurar a integração de Yonyx Interactive Guides no Azure AD, é preciso adicionar Yonyx Interactive Guides da galeria à sua lista de aplicativos SaaS gerenciados.
+## <a name="adding-yonyx-interactive-guides-from-hello-gallery"></a>Adicionando guias interativo Yonyx da Galeria de saudação
+integração de saudação tooconfigure dos guias de Yonyx interativo no AD do Azure, você precisa tooadd guias interativo de Yonyx da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
 
-**Para adicionar Yonyx Interactive Guides da galeria, execute as seguintes etapas:**
+**tooadd Yonyx de guias interativa da Galeria hello, execute Olá etapas a seguir:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
 
-    ![O botão Azure Active Directory][1]
+    ![botão de Active Directory do Azure Olá][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
 
-    ![A folha Aplicativos empresariais][2]
+    ![folha de aplicativos de empresa Olá][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
 
-    ![O botão Novo aplicativo][3]
+    ![Novo botão de aplicativo Hello][3]
 
-4. Na caixa de pesquisa, digite **Yonyx Interactive Guides**, selecione **Yonyx Interactive Guides** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa hello, digite **guias interativo Yonyx**, selecione **guias interativo Yonyx** no painel de resultados e clique em **adicionar** botão aplicativo hello de tooadd.
 
-    ![Yonyx Interactive Guides na lista de resultados](./media/active-directory-saas-yonyx-tutorial/tutorial_yonyxinteractiveguides_addfromgallery.png)
+    ![Guias de Yonyx interativo na lista de resultados de saudação](./media/active-directory-saas-yonyx-tutorial/tutorial_yonyxinteractiveguides_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
 Nesta seção, você configura e testa o logon único do Azure AD com o Yonyx Interactive Guides, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Yonyx Interactive Guides é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Yonyx Interactive Guides.
+Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá nos guias interativo Yonyx é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação nos guias interativo Yonyx precisa toobe estabelecida.
 
-No Yonyx Interactive Guides, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+Nos guias de Yonyx interativo, atribuir o valor de saudação do hello **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
 
-Para configurar e testar o logon único do Azure AD com Yonyx Interactive Guides, você precisará concluir os seguintes blocos de construção:
+tooconfigure e teste de logon único do AD do Azure com guias de Yonyx interativa, você precisa Olá toocomplete blocos de construção a seguir:
 
-1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Yonyx Interactive Guides](#create-a-yonyx-interactive-guides-test-user)** – para ter um equivalente de Brenda Fernandes no Yonyx Interactive Guides vinculado à representação de usuário do Azure AD.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#create-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
+3. **[Criar um usuário de teste de guias interativo Yonyx](#create-a-yonyx-interactive-guides-test-user)**  -toohave um equivalente de Britta Simon Yonyx guias interativa que é vinculado toohello AD do Azure representação do usuário.
+4. **[Atribuir um usuário de teste de saudação do AD do Azure](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
+5. **[Testar o logon único](#test-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo Yonyx Interactive Guides.
+Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único em seu aplicativo de guias de Yonyx interativo.
 
-**Para configurar o logon único do Azure AD com Yonyx Interactive Guides, execute as seguintes etapas:**
+**tooconfigure logon único do AD do Azure com guias de Yonyx interativo, execute Olá etapas a seguir:**
 
-1. No portal do Azure, na página de integração do aplicativo **Yonyx Interactive Guides**, clique em **Logon único**.
+1. Em Olá portal do Azure, Olá **guias interativo Yonyx** página de integração de aplicativos, clique em **o logon único**.
 
     ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
  
     ![Caixa de diálogo Logon único](./media/active-directory-saas-yonyx-tutorial/tutorial_yonyxinteractiveguides_samlbase.png)
 
-3. Na seção **Domínio e URLs do Yonyx Interactive Guides**, realize as seguintes etapas:
+3. Em Olá **Yonyx interativo guias de domínio e URLs** , execute Olá etapas a seguir:
 
     ![Informações de logon único em Domínio e URLs do Yonyx Interactive Guides](./media/active-directory-saas-yonyx-tutorial/tutorial_yonyxinteractiveguides_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.yonyx.com/y/conversation/?id=<guid number>`
+    a. Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<company name>.yonyx.com/y/conversation/?id=<guid number>`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<company name>.yonyx.com`
+    b. Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<company name>.yonyx.com`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do Yonyx Interactive Guides](mailto:support@yonyx.com) para obter esses valores. 
+    > Esses valores não são reais. Atualizar esses valores com hello real URL de logon e o identificador. Entre em contato com [equipe de suporte do cliente de guias interativo Yonyx](mailto:support@yonyx.com) tooget esses valores. 
  
-4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+4. Em Olá **o certificado de autenticação SAML** seção, clique em **Certificate(Base64)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.
 
-    ![O link de download do Certificado](./media/active-directory-saas-yonyx-tutorial/tutorial_yonyxinteractiveguides_certificate.png) 
+    ![link de download de certificado Olá](./media/active-directory-saas-yonyx-tutorial/tutorial_yonyxinteractiveguides_certificate.png) 
 
 5. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-yonyx-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Yonyx Interactive Guides**, clique em **Configurar o Yonyx Interactive Guides** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+6. Em Olá **Yonyx interativo guias de configuração** seção, clique em **configurar guias interativo de Yonyx** tooopen **configurar o logon** janela. Saudação de cópia **URL de logout, ID de entidade de SAML e Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**
 
     ![Configuração do Yonyx Interactive Guides](./media/active-directory-saas-yonyx-tutorial/tutorial_yonyxinteractiveguides_configure.png) 
 
-7. Para configurar o logon único no lado do **Yonyx Interactive Guides**, é necessário enviar o **Certificado (Base64)** baixado, a **URL de Saída**, a **URL do Serviço de Logon Único SAML** e a **ID da Entidade SAML** para A [equipe de suporte do Yonyx Interactive Guides](mailto:support@yonyx.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+7. tooconfigure logon único no **guias interativo Yonyx** lado, você precisa toosend Olá baixado **Certificate(Base64)**, **URL de logout**, **SAML URL do serviço de logon em um único** **ID da entidade SAML** muito[guias interativo Yonyx equipe de suporte](mailto:support@yonyx.com). Eles definidos Olá de toohave essa configuração conexão SSO do SAML definido corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
 
   ![Criar um usuário de teste do Azure AD][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
 
-1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. Em Olá **portal do Azure**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.
 
-    ![O botão Azure Active Directory](./media/active-directory-saas-yonyx-tutorial/create_aaduser_01.png) 
+    ![botão de Active Directory do Azure Olá](./media/active-directory-saas-yonyx-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos** e clique em **todos os usuários**.
     
-    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/active-directory-saas-yonyx-tutorial/create_aaduser_02.png) 
+    ![Olá "Usuários e grupos" e "Todos os usuários" links](./media/active-directory-saas-yonyx-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação da caixa de diálogo de saudação.
  
-    ![O botão Adicionar](./media/active-directory-saas-yonyx-tutorial/create_aaduser_03.png) 
+    ![botão Adicionar de saudação](./media/active-directory-saas-yonyx-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+4. Em Olá **usuário** caixa de diálogo de página, execute Olá etapas a seguir:
  
-    ![A caixa de diálogo Usuário](./media/active-directory-saas-yonyx-tutorial/create_aaduser_04.png) 
+    ![caixa de diálogo de usuário Olá](./media/active-directory-saas-yonyx-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    a. Em Olá **nome** caixa de texto, tipo **BrittaSimon**.
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
 
-    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+    c. Selecione **Mostrar senha** e anote o valor Olá Olá **senha**.
 
     d. Clique em **Criar**.
  
 ### <a name="create-a-yonyx-interactive-guides-test-user"></a>Criar um usuário de teste do Yonyx Interactive Guides
 
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Yonyx Interactive Guides. O Yonyx Interactive Guides dá suporte a provisionamento just-in-time, que está habilitado por padrão.
+Olá objetivo desta seção é toocreate um usuário chamado Britta Simon nos guias de Yonyx interativo. O Yonyx Interactive Guides dá suporte a provisionamento just-in-time, que está habilitado por padrão.
 
-Não há itens de ação para você nesta seção. Um novo usuário será criado durante a tentativa de acessar o Yonyx Interactive Guides, caso ele ainda não exista.
+Não há itens de ação para você nesta seção. Um novo usuário é criado durante uma tentativa tooaccess guias interativo Yonyx se ele ainda não existir.
 
 >[!NOTE]
->Se precisar criar um usuário manualmente, contate a equipe de suporte do Yonyx Interactive Guides pelo email <mailto:support@yonyx.com>. 
+>Se você precisar toocreate um usuário manualmente, você precisa toocontact Olá equipe por meio de suporte de guias interativo Yonyx < mailto:support@yonyx.com >. 
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
 
-Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Yonyx Interactive Guides.
+Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooYonyx guias interativo.
 
-![Atribuir a função de usuário][200]
+![Atribuir função de usuário Olá][200]
 
-**Para atribuir Brenda Fernandes ao Yonyx Interactive Guides, execute as seguintes etapas:**
+**tooassign Britta Simon tooYonyx guias interativo execute Olá etapas a seguir:**
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Yonyx Interactive Guides**.
+2. Na lista de aplicativos hello, selecione **guias interativo Yonyx**.
 
-    ![O link do Yonyx Interactive Guides na lista de Aplicativos](./media/active-directory-saas-yonyx-tutorial/tutorial_yonyxinteractiveguides_app.png) 
+    ![Olá guias interativo Yonyx link na lista de aplicativos Olá](./media/active-directory-saas-yonyx-tutorial/tutorial_yonyxinteractiveguides_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
 
-    ![O link “Usuários e grupos”][202]
+    ![link de "Usuários e grupos" Hello][202]
 
 4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
-    ![O painel Adicionar Atribuição][203]
+    ![Painel de atribuição adicionar Olá][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -206,15 +206,15 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
 
-Ao clicar no bloco Yonyx Interactive Guides no Painel de Acesso, você deverá entrar automaticamente no aplicativo Yonyx Interactive Guides.
+Quando você clica em Olá guias interativo Yonyx bloco no painel de acesso de saudação, você deve obter tooyour automaticamente conectado no aplicativo de guias de Yonyx interativo.
 
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Para obter mais informações sobre Olá painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

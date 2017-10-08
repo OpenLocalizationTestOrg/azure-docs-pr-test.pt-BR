@@ -1,6 +1,6 @@
 ---
-title: Implantar e gerenciar topologias Apache Storm no HDInsight baseado em Linux | Microsoft Docs
-description: Aprenda a implantar, monitorar e gerenciar topologias do Apache Storm usando o Painel do Storm no HDInsight baseado em Linux. Use as ferramentas do Hadoop para Visual Studio.
+title: aaaDeploy e gerenciar as topologias do Apache Storm no HDInsight baseados em Linux | Microsoft Docs
+description: "Saiba como toodeploy, monitorar e gerenciar topologias Apache Storm usando Olá profusão de painel no HDInsight baseados em Linux. Use as ferramentas do Hadoop para Visual Studio."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/16/2017
 ms.author: larryfr
-ms.openlocfilehash: b9e82463030807d2674594e73f762fe93515d423
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3a1edb773089cc596fea423710aa88cf83c7b841
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Implantar e gerenciar topologias Apache Storm no HDInsight
 
-Neste documento, conheça as noções básicas de gerenciamento e monitoramento de topologias Storm em execução no Storm em clusters HDInsight.
+Neste documento, conheça os fundamentos de saudação do gerenciamento e monitoramento topologias Storm em execução em Storm em clusters HDInsight.
 
 > [!IMPORTANT]
-> As etapas deste artigo exigem um Storm baseado em Linux no cluster HDInsight. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). 
+> Olá etapas neste artigo exigem uma tempestade baseados em Linux no cluster HDInsight. Linux é Olá sistema operacional somente de usado no HDInsight versão 3.4 ou posterior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). 
 >
 > Para obter informações sobre as topologias de implantação e monitoramento em HDInsight baseado em Windows, consulte [Implantar e gerenciar topologias do Apache Storm no HDInsight baseado em Windows](hdinsight-storm-deploy-monitor-topology.md)
 
@@ -37,9 +37,9 @@ Neste documento, conheça as noções básicas de gerenciamento e monitoramento 
 
 * (Opcional) **Familiaridade com SSH e SCP**: para saber mais, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* (Opcional) **Visual Studio**: SDK do Azure 2.5.1 ou mais novo e as Ferramentas do Data Lake para Visual Studio. Para obter mais informações, consulte [Introdução ao uso das Ferramentas do Data Lake para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+* (Opcional) **Visual Studio**: SDK do Azure 2.5.1 ou mais recente e hello Data Lake Tools para Visual Studio. Para obter mais informações, consulte [Introdução ao uso das Ferramentas do Data Lake para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-    Uma das seguintes versões do Visual Studio:
+    Um dos Olá seguintes versões do Visual Studio:
 
   * Visual Studio 2012 com [Atualização 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
@@ -48,94 +48,94 @@ Neste documento, conheça as noções básicas de gerenciamento e monitoramento 
 
   * Visual Studio 2015 (qualquer edição)
 
-  * Visual Studio 2017 (qualquer edição). As Ferramentas do Data Lake para Visual Studio 2017 são instaladas como parte da Carga de Trabalho do Azure.
+  * Visual Studio 2017 (qualquer edição). Data Lake Tools para Visual Studio de 2017 são instalados como parte da saudação carga de trabalho do Azure.
 
 ## <a name="submit-a-topology-visual-studio"></a>Enviar uma topologia: Visual Studio
 
-As Ferramentas do HDInsight podem ser usadas para enviar topologias C# ou híbridas para seu cluster do Storm. As etapas a seguir usam um aplicativo de exemplo. Para obter informações sobre como criar suas próprias topologias usando as Ferramentas do HDInsight, consulte [Desenvolver topologias em C# usando as Ferramentas do HDInsight para Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+Ferramentas do HDInsight Olá pode ser usado toosubmit c# ou híbrido topologias tooyour cluster Storm. Olá, as etapas a seguir usa um aplicativo de exemplo. Para obter informações sobre como criar seus próprio topologias usando ferramentas do HDInsight hello, consulte [desenvolver c# topologias usando ferramentas do HDInsight Olá para o Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
-1. Se você ainda não instalou a última versão das Ferramentas do Data Lake para Visual Studio, consulte [Introdução ao uso das Ferramentas do Data Lake para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+1. Se já não tiver instalado a versão mais recente Olá das ferramentas de Data Lake Olá para o Visual Studio, consulte [começar a usar Data Lake Tools para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
     > [!NOTE]
-    > Anteriormente, as Ferramentas do Data Lake para Visual Studio se chamavam Ferramentas do HDInsight para Visual Studio.
+    > Olá Data Lake Tools para Visual Studio foram anteriormente chamado hello ferramentas do HDInsight para Visual Studio.
     >
-    > As Ferramentas do Data Lake para Visual Studio são incluídas na __Carga de Trabalho do Azure__ do Visual Studio 2017.
+    > Data Lake Tools para Visual Studio são incluídos no hello __carga de trabalho do Azure__ para 2017 do Visual Studio.
 
 2. Abra o Visual Studio, selecione **Arquivo** > **Novo** > **Projeto**.
 
-3. Na caixa de diálogo **Novo Projeto**, expanda **Instalados** > **Modelos** e selecione **HDInsight**. Na lista de modelos, selecione **Amostra do Storm**. Na parte inferior da caixa de diálogo, digite um nome para o aplicativo.
+3. Em Olá **novo projeto** caixa de diálogo caixa, expanda **instalado** > **modelos**e, em seguida, selecione **HDInsight**. Saudação de modelos, selecione lista **profusão de exemplo**. Na parte inferior do Olá Olá da caixa de diálogo, digite um nome para o aplicativo hello.
 
     ![imagem](./media/hdinsight-storm-deploy-monitor-topology-linux/sample.png)
 
-4. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Enviar para o Storm no HDInsight**.
+4. Em **Solution Explorer**, clique com botão direito hello e selecione **enviar tooStorm no HDInsight**.
 
    > [!NOTE]
-   > Se solicitado, insira as credenciais de logon para sua assinatura do Azure. Se você tiver mais de uma assinatura, faça o logon naquela que contém seu Storm no cluster HDInsight.
+   > Se solicitado, insira as credenciais de logon de saudação para sua assinatura do Azure. Se você tiver mais de uma assinatura, faça logon toohello que contém seu Storm no cluster HDInsight.
 
-5. Selecione seu Storm no cluster HDInsight no menu suspenso **Cluster Storm** e selecione **Enviar**. Você pode monitorar se o envio teve êxito ou não usando a janela **Saída** .
+5. Selecione seu Storm no cluster HDInsight Olá **Cluster Storm** lista suspensa e selecione **enviar**. Você pode monitorar se o envio de saudação foi bem-sucedida usando Olá **saída** janela.
 
-## <a name="submit-a-topology-ssh-and-the-storm-command"></a>Enviar uma topologia: SSH e o comando do Storm
+## <a name="submit-a-topology-ssh-and-hello-storm-command"></a>Enviar uma topologia: SSH e hello profusão de comando
 
-1. Use o SSH para conectar ao cluster HDInsight. Substitua o **USERNAME** pelo nome do seu logon SSH. Substitua o **CLUSTERNAME** pelo nome do seu cluster HDInsight:
+1. Use SSH tooconnect toohello HDInsight cluster. Substituir **USERNAME** nome de saudação do seu logon SSH. Substitua o **CLUSTERNAME** pelo nome do seu cluster HDInsight:
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-    Para saber mais sobre como usar o SSH para se conectar ao cluster HDInsight, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+    Para obter mais informações sobre como usar SSH tooconnect tooyour HDInsight de cluster, consulte [usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Use o comando a seguir para iniciar uma topologia de exemplo:
+2. Use Olá comando toostart uma topologia de exemplo a seguir:
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
 
-    Esse comando inicia a topologia de WordCount de exemplo no cluster. Essa topologia gera frases aleatoriamente e conta a ocorrência de cada palavra nas frases.
+    Esse comando inicia a topologia de WordCount do exemplo hello no cluster hello. Essa topologia gerar aleatoriamente frases e a ocorrência de saudação de contagem de cada palavra em frases hello.
 
    > [!NOTE]
-   > Ao enviar a topologia para o cluster, primeiro você deverá copiar o arquivo jar com o cluster antes de usar o comando `storm`. Para copiar o arquivo para o cluster, é possível usar o comando `scp`. Por exemplo, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
+   > Ao enviar o cluster de toohello de topologia, primeiro você deve copiar o arquivo jar de saudação contendo cluster Olá antes de usar o hello `storm` comando. cluster do toocopy Olá arquivos toohello, você pode usar o hello `scp` comando. Por exemplo, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
    >
-   > O exemplo de WordCount e outros exemplos de storm starter já estão incluídos no cluster em `/usr/hdp/current/storm-client/contrib/storm-starter/`.
+   > exemplo de WordCount Hello e obter outros exemplos de starter storm, já estão incluídos no cluster em `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
 ## <a name="submit-a-topology-programmatically"></a>Enviar uma topologia: de forma programática
 
-Você pode implantar programaticamente uma topologia para Storm no HDInsight por meio da comunicação com o serviço Nimbus hospedado no seu cluster. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) fornece um exemplo de aplicativo Java que demonstra como implantar e iniciar uma topologia por meio do serviço Nimbus.
+Programaticamente, você pode implantar um tooStorm de topologia no HDInsight comunicando-se com hello serviço Nimbus hospedado no seu cluster. [https://GitHub.com/Azure-Samples/hdinsight-Java-Deploy-Storm-Topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) fornece um exemplo de aplicativo Java que demonstra como toodeploy e iniciar uma topologia através de Olá serviço Nimbus.
 
 ## <a name="monitor-and-manage-visual-studio"></a>Monitorar e gerenciar: Visual Studio
 
-Quando uma topologia for enviada com êxito usando o Visual Studio, a exibição **Topologias do Storm** do cluster será mostrada. Selecione a topologia da lista para exibir informações sobre a topologia em execução.
+Quando uma topologia tiver sido enviada com êxito usando o Visual Studio, Olá **Storm topologias** exibir para Olá cluster aparece. Selecione topologia Olá Olá listar tooview informações sobre Olá executando topologia.
 
 ![monitor do visual studio](./media/hdinsight-storm-deploy-monitor-topology/vsmonitor.png)
 
 > [!NOTE]
 > Você também pode exibir **Topologias Storm** no **Gerenciador de Servidores** expandindo **Azure** > **HDInsight** e clicando com o botão direito do mouse em um Storm no cluster do HDInsight e selecionando **Exibir Topologias Storm**.
 
-Escolha a forma dos spouts ou bolts para exibir informações sobre esses componentes. Uma nova janela será aberta para cada item selecionado.
+Selecione a forma de Olá Olá spouts ou bolts tooview informações sobre esses componentes. Uma nova janela será aberta para cada item selecionado.
 
 ### <a name="deactivate-and-reactivate"></a>Desativar e reativar
 
-A desativação de uma topologia pausa até que seja interrompido ou reativado. Para executar essas operações, use os botões __Desativar__ e __Reativar__ na parte superior do __Resumo da Topologia__.
+A desativação de uma topologia pausa até que seja interrompido ou reativado. tooperform essas operações, use Olá __desativar__ e __reativar__ botões na parte superior de saudação do hello __Resumo da topologia__.
 
 ### <a name="rebalance"></a>Rebalanceamento
 
-Rebalancear uma topologia permite que o sistema revise o paralelismo da topologia. Por exemplo, se você tiver redimensionado o cluster para adicionar mais anotações, o rebalanceamento permitirá que uma topologia veja os novos nós.
+Rebalanceamento uma topologia permite Olá sistema toorevise Olá paralelismo topologia hello. Por exemplo, se você tiver redimensionado Olá cluster tooadd mais notas, rebalanceamento permite que uma topologia de toosee Olá novos nós.
 
-Para redistribuir uma topologia, use o botão __Redistribuir__ na parte superior do __Resumo da Topologia__.
+toorebalance uma topologia, use Olá __reequilibrar__ botão na parte superior de saudação do hello __Resumo da topologia__.
 
 > [!WARNING]
-> Rebalancear uma topologia primeiro desativa a topologia, em seguida, redistribui os trabalhos uniformemente no cluster e finalmente retorna a topologia para o estado que estava antes do rebalanceamento. Portanto, se a topologia estava ativa, ela ficará ativa novamente. Se ela foi desativada, ela permanecerá desativada.
+> Rebalanceamento uma topologia de primeiro desativa a topologia de saudação, redistribui os trabalhadores uniformemente em cluster hello e finalmente retorna Olá topologia toohello estado antes de rebalanceamento ocorrer. Então se topologia Olá estava ativa, ele fica ativo novamente. Se ela foi desativada, ela permanecerá desativada.
 
 ### <a name="kill-a-topology"></a>Encerrar uma topologia
 
-As topologias Storm continuarão em execução até serem paradas ou até que o cluster seja excluído. Para interromper uma topologia, use o botão __Encerrar__ na parte superior do __Resumo da Topologia__.
+Topologias Storm continuam em execução até que eles sejam interrompidos ou Olá cluster é excluído. toostop uma topologia, use Olá __Kill__ botão na parte superior de saudação do hello __Resumo da topologia__.
 
-## <a name="monitor-and-manage-ssh-and-the-storm-command"></a>Monitorar e gerenciar: SSH e o comando Storm
+## <a name="monitor-and-manage-ssh-and-hello-storm-command"></a>Monitorar e gerenciar: SSH e hello profusão de comando
 
-O `storm` utilitário permite que você trabalhe com as topologias de execução na linha de comando. Use `storm -h` para uma lista completa de comandos.
+Olá `storm` utilitário permite que você toowork com a execução de topologias de linha de comando hello. Use `storm -h` para uma lista completa de comandos.
 
 ### <a name="list-topologies"></a>Topologias de lista
 
-Use o comando a seguir para listar todas as topologias em execução:
+Use Olá toolist de comando a seguir todas as topologias em execução:
 
     storm list
 
-Esse comando retorna informações semelhantes ao seguinte texto:
+Esse comando retorna informações toohello semelhante texto a seguir:
 
     Topology_name        Status     Num_tasks  Num_workers  Uptime_secs
     -------------------------------------------------------------------
@@ -143,7 +143,7 @@ Esse comando retorna informações semelhantes ao seguinte texto:
 
 ### <a name="deactivate-and-reactivate"></a>Desativar e reativar
 
-A desativação de uma topologia pausa até que seja interrompido ou reativado. Use o seguinte comando para desativar e reativar:
+A desativação de uma topologia pausa até que seja interrompido ou reativado. Use Olá toodeactivate de comando a seguir e reativar:
 
     storm Deactivate TOPOLOGYNAME
 
@@ -151,96 +151,96 @@ A desativação de uma topologia pausa até que seja interrompido ou reativado. 
 
 ### <a name="kill-a-running-topology"></a>Eliminar uma topologia em execução
 
-As topologias Storm, depois de iniciadas, continuarão em execução até serem interrompidas. Para interrompê-la, use o comando a seguir:
+As topologias Storm, depois de iniciadas, continuarão em execução até serem interrompidas. toostop uma topologia, use Olá comando a seguir:
 
     storm kill TOPOLOGYNAME
 
 ### <a name="rebalance"></a>Rebalanceamento
 
-Rebalancear uma topologia permite que o sistema revise o paralelismo da topologia. Por exemplo, se você tiver redimensionado o cluster para adicionar mais anotações, o rebalanceamento permitirá que uma topologia veja os novos nós.
+Rebalanceamento uma topologia permite Olá sistema toorevise Olá paralelismo topologia hello. Por exemplo, se você tiver redimensionado Olá cluster tooadd mais notas, rebalanceamento permite que uma topologia de toosee Olá novos nós.
 
 > [!WARNING]
-> Rebalancear uma topologia primeiro desativa a topologia, em seguida, redistribui os trabalhos uniformemente no cluster e finalmente retorna a topologia para o estado que estava antes do rebalanceamento. Portanto, se a topologia estava ativa, ela ficará ativa novamente. Se ela foi desativada, ela permanecerá desativada.
+> Rebalanceamento uma topologia de primeiro desativa a topologia de saudação, redistribui os trabalhadores uniformemente em cluster hello e finalmente retorna Olá topologia toohello estado antes de rebalanceamento ocorrer. Então se topologia Olá estava ativa, ele fica ativo novamente. Se ela foi desativada, ela permanecerá desativada.
 
     storm rebalance TOPOLOGYNAME
 
 ## <a name="monitor-and-manage-storm-ui"></a>Monitorar e gerenciar: interface do usuário do Storm
 
-A IU do Storm fornece uma interface Web para trabalhar com as topologias em funcionamento, e é incluída no seu cluster HDInsight. Para ver a interface de usuário do Storm, use um navegador da Web para abrir **https://CLUSTERNAME.azurehdinsight.net/stormui**, em que **CLUSTERNAME** é o nome do seu cluster.
+Olá profusão de interface do usuário fornece uma interface da web para trabalhar com a execução de topologias e está incluída no seu cluster HDInsight. Olá tooview Storm da interface do usuário, use um tooopen do navegador da web **https://CLUSTERNAME.azurehdinsight.net/stormui**, onde **CLUSTERNAME** é o nome de saudação do cluster.
 
 > [!NOTE]
-> Se solicitado a forneça um nome de usuário e senha, insira o administrador de cluster (admin) e a senha que você usou ao criar o cluster.
+> Se for solicitado tooprovide um nome de usuário e senha, insira o administrador de cluster de saudação (administrador) e a senha que você usou quando criar cluster de saudação.
 
 ### <a name="main-page"></a>Página principal
 
-A página principal da interface do usuário do Storm fornece as seguintes informações:
+página principal de saudação do hello profusão de interface do usuário fornece Olá informações a seguir:
 
-* **Resumo do cluster**: informações básicas sobre o cluster do Storm
-* **Resumo da topologia**: uma lista das topologias em execução. Use os links desta seção para exibir mais informações sobre topologias específicas.
-* **Resumo do Supervisor**: informações sobre o supervisor do Storm.
-* **Configuração do Nimbus**: configuração do Nimbus para o cluster.
+* **Resumo do cluster**: informações básicas sobre cluster de Storm hello.
+* **Resumo da topologia**: uma lista das topologias em execução. Use links Olá tooview esta seção obter mais informações sobre topologias específicas.
+* **Resumo do Supervisor**: informações sobre o supervisor de profusão de saudação.
+* **Configuração de Nimbus**: configuração Nimbus para cluster hello.
 
 ### <a name="topology-summary"></a>Resumo da topologia
 
-Selecionar um link na seção **Resumo da topologia** exibirá as seguintes informações sobre a topologia:
+Selecionar um link de saudação **Resumo da topologia** seção exibe Olá informações sobre topologia Olá a seguir:
 
-* **Resumo da topologia**: informações básicas sobre a topologia.
-* **Ações da topologia**: ações de gerenciamento que podem ser executadas para a topologia.
+* **Resumo de topologia**: informações básicas sobre a topologia de saudação.
+* **Ações de topologia**: ações de gerenciamento que você pode executar para a topologia de saudação.
 
   * **Ativar**: retoma o processamento de uma topologia de desativada.
   * **Desativar**: pausa uma topologia em execução.
-  * **Reequilibrar**: ajusta o paralelismo da topologia. Você deve reequilibrar topologias em execução depois de alterar o número de nós no cluster. Essa operação permite que a topologia ajuste o paralelismo para compensar o aumento ou a diminuição do número de nós no cluster.
+  * **Reequilibrar**: ajusta o paralelismo de saudação da topologia de saudação. Você deve reequilibrar topologias em execução depois que você tenha alterado Olá número de nós no cluster de saudação. Esta operação permite Olá topologia tooadjust paralelismo toocompensate para Olá aumentando ou diminuindo o número de nós no cluster de saudação.
 
-    Para saber mais, consulte <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Noções básicas sobre o paralelismo de uma topologia do Storm</a>.
-  * **Eliminar**: encerra uma topologia Storm após o tempo limite especificado.
-* **Estatísticas da topologia**: estatísticas sobre a topologia. Para definir o período de tempo para as entradas restantes na página, use os links da coluna **Janela**.
-* **Spouts**: os spouts usados pela topologia. Use os links desta seção para exibir mais informações sobre spouts específicos.
-* **Bolts**: os bolts usados pela topologia. Use os links desta seção para exibir mais informações sobre bolts específicos.
-* **Configuração da topologia**: a configuração da topologia selecionada.
+    Para obter mais informações, consulte <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Noções básicas sobre o paralelismo de saudação de uma topologia Storm</a>.
+  * **Kill**: encerra uma topologia Storm depois Olá especificada de tempo limite.
+* **Estatísticas de topologia**: estatísticas sobre a topologia de saudação. tooset Olá período de tempo para Olá restantes entradas na página de saudação, use os links de Olá Olá **janela** coluna.
+* **Spouts**: Olá spouts usados pelo topologia hello. Use os links de saudação na tooview seção para obter mais informações sobre spouts específicos.
+* **Bolts**: Olá parafusos usados pelo topologia hello. Use os links de saudação na tooview seção para obter mais informações sobre parafusos específicos.
+* **Configuração de topologia**: configuração de saudação da topologia de saudação selecionada.
 
 ### <a name="spout-and-bolt-summary"></a>Resumo de Spout e Bolt
 
-Selecionar um spout nas seções **Spouts** ou **Bolts** exibirá as seguintes informações sobre o item selecionado:
+Selecionando um spout da saudação **Spouts** ou **Bolts** seções exibe Olá informações sobre o item de saudação selecionada a seguir:
 
-* **Resumo do componente**: informações básicas sobre o spout ou o bolt.
-* **Estatísticas de Spout/Bolt**: estatísticas sobre o spout ou o bolt. Para definir o período de tempo para as entradas restantes na página, use os links da coluna **Janela**.
-* **Estatísticas de entrada** (somente bolt): informações sobre os streams de entrada consumidos pelo bolt.
-* **Estatísticas de saída**: informações sobre os streams emitidos por esse spout ou bolt.
-* **Executores**: informações sobre as instâncias do spout ou bolt. Selecione a entrada **Porta** gerada por um executor específico para exibir um log de informações de diagnóstico produzido para esta instância.
+* **Resumo de componente**: informações básicas sobre spout hello ou raio.
+* **Estatísticas de spout/raio**: estatísticas sobre Olá spout ou parafuso. tooset Olá período de tempo para Olá restantes entradas na página de saudação, use os links de Olá Olá **janela** coluna.
+* **Estatísticas de entrada** (incluem apenas): consumidos pelo raio de saudação de fluxos de entrada de informações sobre hello.
+* **Estatísticas de saída**: informações sobre fluxos de saudação emitidos por essa spout ou parafuso.
+* **Executores**: informações sobre instâncias de saudação do spout hello ou raio. Selecione Olá **porta** gerada de um log de informações de diagnóstico de entrada para tooview um executor específico para essa instância.
 * **Erros**: qualquer informação de erro para este spout ou bolt.
 
 ## <a name="monitor-and-manage-rest-api"></a>Monitorar e gerenciar: API REST
 
-A interface do usuário do Storm é criada sobre a API REST e, portanto, você pode realizar gerenciamento semelhante e monitorar a funcionalidade usando a API REST. Você pode usar a API REST para criar ferramentas personalizadas para o gerenciamento e o monitoramento de topologias Storm.
+Olá profusão de interface do usuário é criada sobre Olá API REST, para que você possa executar gerenciamento semelhantes e funcionalidade de monitoramento usando a API REST de saudação. Você pode usar ferramentas personalizadas do toocreate Olá API REST para gerenciar e monitorar as topologias Storm.
 
-Para obter mais informações, veja [API REST da interface do usuário do Storm](http://storm.apache.org/releases/0.9.6/STORM-UI-REST-API.html). As informações a seguir são específicas para o uso da API REST com Apache Storm no HDInsight.
+Para obter mais informações, veja [API REST da interface do usuário do Storm](http://storm.apache.org/releases/0.9.6/STORM-UI-REST-API.html). Olá informações a seguir são específicos toousing Olá API de REST do Apache Storm no HDInsight.
 
 > [!IMPORTANT]
-> A API do REST Storm não está disponível publicamente pela Internet, e deve ser acessada usando um túnel SSH para o nó principal do cluster HDInsight. Para obter informações sobre como criar e usar um túnel SSH, consulte [Usar um túnel SSH para acessar a interface do usuário da Web do Ambari, ResourceManager, JobHistory, NameNode, Oozie e outras interfaces do usuário da Web](hdinsight-linux-ambari-ssh-tunnel.md).
+> Olá profusão de REST API não está disponível publicamente em Olá internet e deve ser acessado usando um SSH túnel toohello HDInsight nó principal do cluster. Para obter informações sobre como criar e usar um túnel SSH, consulte [tooaccess Use SSH túnel Ambari web da interface do usuário, ResourceManager, JobHistory, NameNode, Oozie e outras interfaces do usuário da web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ### <a name="base-uri"></a>URI de base
 
-O URI base da API REST em clusters HDInsight baseados em Linux está disponível no nó de cabeçalho em **https://HEADNODEFQDN:8744/api/v1/**. O nome de domínio do nó de cabeçalho é gerado durante a criação do cluster e não é estático.
+Olá URI de base para a API REST de saudação em clusters HDInsight baseados em Linux está disponível no nó de cabeçalho de saudação em **https://HEADNODEFQDN:8744/api/v1/**. nome de domínio de saudação do nó principal Olá é gerado durante a criação do cluster e não é estático.
 
-Você pode encontrar o FQDN (Nome de Domínio Totalmente Qualificado) para o nó de cabeçalho do cluster de várias maneiras diferentes:
+Você pode encontrar o nome de domínio totalmente qualificado (FQDN) Olá para o nó principal do cluster de saudação de várias maneiras diferentes:
 
-* **De uma sessão SSH**: use o comando `headnode -f` de uma sessão SSH para o cluster.
-* **Do Ambari Web**: selecione **Serviços** na parte superior da página, em seguida, selecione **Storm**. Na guia **Resumo** selecione **Servidor de IU do Storm**. O FQDN do nó que a interface do usuário do Storm e a API REST estão executando está na parte superior da página.
-* **Da API REST do Ambari**: use o comando `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` para recuperar informações sobre o nó no qual a interface do usuário do Storm e a API REST estão sendo executados. Substitua **SENHA** pela senha do administrador do cluster. Substitua **CLUSTERNAME** pelo nome do cluster. Na resposta, a entrada "host_name" contém o FQDN do nó.
+* **Em uma sessão SSH**: usar o comando Olá `headnode -f` de um cluster de toohello sessão SSH.
+* **Do Ambari Web**: selecione **serviços** da parte superior de saudação da página hello, em seguida, selecione **Storm**. De saudação **resumo** guia, selecione **profusão de interface do usuário servidor**. Olá FQDN do nó Olá Olá profusão de interface do usuário e a API REST está em execução é no início de saudação da página de saudação.
+* **Na API de REST do Ambari**: usar o comando Olá `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` tooretrieve informações sobre o nó Olá Olá profusão de interface do usuário e a API REST estão em execução no. Substituir **senha** com a senha de administrador Olá para cluster hello. Substituir **CLUSTERNAME** com o nome do cluster hello. Em resposta hello, entrada de "host_name" hello contém Olá FQDN do nó de saudação.
 
 ### <a name="authentication"></a>Autenticação
 
-As solicitações para a API REST devem usar a **autenticação básica**e, portanto, você usará o nome do administrador e a senha do cluster HDInsight.
+Solicitações toohello devem usar a API REST **autenticação básica**, portanto, você usa o nome do administrador de cluster de HDInsight de saudação e a senha.
 
 > [!NOTE]
-> Como a autenticação básica é enviada usando texto não criptografado, você **sempre** deverá usar HTTPS para proteger as comunicações com o cluster.
+> Porque a autenticação básica é enviada usando o texto não criptografado, você deve **sempre** usar comunicações toosecure HTTPS com cluster hello.
 
 ### <a name="return-values"></a>Valores de retorno
 
-As informações retornadas da API REST só poderão ser usadas dentro do cluster ou de máquinas virtuais na mesma Rede Virtual do Azure que o cluster. Por exemplo, o FQDN (nome de domínio totalmente qualificado) retornado para servidores Zookeeper não é acessível pela Internet.
+Informações que são retornadas da saudação REST API só pode ser usada em cluster hello ou máquinas virtuais em Olá mesma rede Virtual do Azure como cluster hello. Por exemplo, nome de domínio totalmente qualificado de saudação (FQDN) retornado para os servidores de Zookeeper não estará acessível de saudação à Internet.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu a implantar e monitorar topologias usando o Painel do Storm, saiba como [Desenvolver topologias baseadas em Java usando Maven](hdinsight-storm-develop-java-topology.md).
+Agora que você aprendeu como topologias toodeploy e monitor usando Olá profusão de painel, saiba como muito[topologias em Java desenvolver usando Maven](hdinsight-storm-develop-java-topology.md).
 
 Para obter mais topologias de exemplo, consulte [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md).

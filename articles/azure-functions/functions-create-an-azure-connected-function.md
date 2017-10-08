@@ -1,6 +1,6 @@
 ---
-title: "Criar uma função que se conecta aos serviços do Azure | Microsoft Docs"
-description: "Usar Azure Functions para criar um aplicativo sem servidor que se conecta a outros serviços do Azure."
+title: "aaaCreate uma função que se conecta a serviços tooAzure | Microsoft Docs"
+description: "Use as funções do Azure toocreate um aplicativo sem servidor que conecta tooother do Azure services."
 services: functions
 documentationcenter: dev-center-name
 author: yochay
@@ -17,49 +17,49 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 65964a322f0adab4f648fb350bedb77b46bf9054
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9d1f7d3b236f8d2c1a404c76aee410f6d458fb7a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-functions-to-create-a-function-that-connects-to-other-azure-services"></a>Use as Azure Functions para criar uma função que se conecta a outros serviços do Azure
+# <a name="use-azure-functions-toocreate-a-function-that-connects-tooother-azure-services"></a>Use as funções do Azure toocreate uma função que se conecta tooother do Azure services
 
-Este tópico mostra como você pode criar uma função nas Azure Functions que escuta mensagens em uma fila do Armazenamento do Azure e copia as mensagens para linhas em uma tabela do Armazenamento do Azure. Uma função disparada por temporizador é usada para carregar as mensagens na fila. Uma segunda função lê da fila e grava as mensagens na tabela. Ambas a fila e a tabela são criadas para você por Azure Functions com base nas definições de associação. 
+Este tópico mostra como toocreate uma função em funções do Azure que escuta toomessages em uma saudação de fila e cópias do armazenamento do Azure mensagens toorows em uma tabela de armazenamento do Azure. Uma função de temporizador disparado é usado tooload mensagens na fila de saudação. Uma segunda função lê da fila de saudação e grava a tabela de toohello de mensagens. Fila hello e tabela Olá são criadas para você por funções do Azure com base nas definições de associação de saudação. 
 
-Para tornar as coisas mais interessantes, uma função é escrita em JavaScript e a outra é escrita em script C#. Isso demonstra como um aplicativo de funções pode ter funções em várias linguagens. 
+coisas toomake mais interessantes, uma função é escrita em JavaScript e outros Olá é gravado no script c#. Isso demonstra como um aplicativo de funções pode ter funções em várias linguagens. 
 
 Você pode ver esse cenário demonstrado em um [vídeo no Channel 9](https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player).
 
-## <a name="create-a-function-that-writes-to-the-queue"></a>Criar uma função que grava na fila
+## <a name="create-a-function-that-writes-toohello-queue"></a>Crie uma função que grava toohello fila
 
-Antes de você se conectar a uma fila de armazenamento, você precisa criar uma função que carrega a fila de mensagens. Essa função de JavaScript usa um gatilho de temporizador que grava uma mensagem na fila a cada 10 segundos. Se você ainda não tiver uma conta do Azure, confira a experiência [Experimentar o Azure Functions](https://functions.azure.com/try) ou [crie sua conta gratuita do Azure](https://azure.microsoft.com/free/).
+Antes de poder conectar tooa fila de armazenamento, você precisa toocreate uma função que carrega a fila de mensagens de saudação. Essa função de JavaScript usa um gatilho de timer que grava uma fila de mensagens toohello cada 10 segundos. Se você ainda não tiver uma conta do Azure, confira Olá [funções do Azure tente](https://functions.azure.com/try) experiência, ou [criar sua conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-1. Acesse o Portal do Azure e localize o aplicativo de funções.
+1. Vá toohello portal do Azure e localize seu aplicativo de função.
 
 2. Clique em **Nova Função** > **TimerTrigger-JavaScript**. 
 
-3. Nomeie a função como **FunctionsBindingsDemo1**, insira um valor da expressão cron `0/10 * * * * *` para **Schedule** e, em seguida, clique em **Criar**.
+3. Nome de função hello **FunctionsBindingsDemo1**, digite um valor de expressão cron de `0/10 * * * * *` para **agenda**e, em seguida, clique em **criar**.
    
     ![Adicionar uma função disparada por temporizador](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
 
     Você criou uma função disparada por temporizador que é executada a cada 10 segundos.
 
-5. Na guia **Desenvolver**, clique em **Logs** e exiba a atividade do log. Você vê uma entrada de log gravada a cada 10 segundos.
+5. Em Olá **desenvolver** , clique em **Logs** e exibir a atividade de Olá no log de saudação. Você vê uma entrada de log gravada a cada 10 segundos.
    
-    ![Exibir o log para verificar se a função funciona](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
+    ![Exibir hello log tooverify Olá função funciona](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
 
 ## <a name="add-a-message-queue-output-binding"></a>Adicionar uma associação de saída de fila de mensagens
 
-1. Na guia **Integrar**, escolha **Nova Saída** > **Armazenamento de Filas do Azure** > **Selecionar**.
+1. Em Olá **integrar** guia, escolha **nova saída** > **armazenamento de fila do Azure** > **selecione**.
 
     ![Adicionar uma função de temporizador de gatilho](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
 
-2. Insira `myQueueItem` para **Nome de parâmetro de mensagem** e `functions-bindings` para **Nome da fila**, selecione uma **Conexão da conta de armazenamento** existente ou clique em **nova** para criar uma conexão de conta de armazenamento e, em seguida, clique em **Salvar**.  
+2. Digite `myQueueItem` para **nome de parâmetro de mensagem** e `functions-bindings` para **nome de fila**, selecione uma existente **conexão da conta de armazenamento** ou clique em **novo** toocreate um armazenamento de conta de conexão e, em seguida, clique em **salvar**.  
 
-    ![Criar a associação de saída para a fila de armazenamento](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab2.png)
+    ![Criar fila de armazenamento Olá saída associação toohello](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab2.png)
 
-1. De volta à função **Desenvolver**, acrescente o seguinte código à função:
+1. Em Olá **desenvolver** guia, acrescentar Olá função toohello de código a seguir:
    
     ```javascript
    
@@ -72,7 +72,7 @@ Antes de você se conectar a uma fila de armazenamento, você precisa criar uma 
     }
    
     ```
-2. Localize a instrução *if* ao redor da linha 9 da função e insira o código a seguir após essa instrução.
+2. Localizar Olá *se* em torno de instrução linha 9 da função hello e de código a seguir de saudação insert após essa instrução.
    
     ```javascript
    
@@ -82,55 +82,55 @@ Antes de você se conectar a uma fila de armazenamento, você precisa criar uma 
    
     ```  
    
-    Esse código cria um **myQueueItem** e define sua propriedade **time** com o carimbo de data/hora atual. Em seguida, ele adiciona o novo item de fila à associação **myQueueItem** do contexto.
+    Esse código cria um **myQueueItem** e define seu **tempo** toohello propriedade carimbo de hora atual. Em seguida, adiciona Olá nova fila item toohello do contexto **myQueueItem** associação.
 
 3. Clique em **Salvar e Executar**.
 
 ## <a name="view-storage-updates-by-using-storage-explorer"></a>Exibir atualizações de armazenamento usando o Gerenciador de Armazenamento
-Você pode verificar se a função está funcionando por meio da exibição de mensagens na fila que você criou.  Você pode se conectar à sua fila de armazenamento usando o Cloud Explorer no Visual Studio. No entanto, o portal torna fácil conectar-se à sua conta de armazenamento usando o Gerenciador de Armazenamento do Microsoft Azure.
+Você pode verificar se a função está funcionando, exibindo mensagens na fila Olá que você criou.  Você pode se conectar a fila de armazenamento tooyour usando o Pesquisador de objetos de nuvem no Visual Studio. No entanto, portal Olá torna fácil tooconnect conta de armazenamento de tooyour usando o Microsoft Azure Storage Explorer.
 
-1. Na guia **Integrar**, clique em sua fila de associação de saída > **Documentação**, exiba novamente a cadeia de conexão para sua conta de armazenamento e copie o valor. Você pode usar esse valor para conectar-se à sua conta de armazenamento.
+1. Em Olá **integrar** , clique em sua fila de associação de saída > **documentação**, reexibir hello cadeia de caracteres de Conexão para sua conta de armazenamento e copie o valor de saudação. Você usar essa conta de armazenamento do valor tooconnect tooyour.
 
     ![Baixar o Gerenciador de Armazenamento do Azure](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab3.png)
 
 
 2. Se você ainda não fez isso, baixe e instale o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com). 
  
-3. No Gerenciador de Armazenamento, clique em conectar ao ícone de Armazenamento do Azure, cole a cadeia de conexão no campo e conclua o assistente.
+3. No Gerenciador de armazenamento, clique em Olá tooAzure armazenamento ícone connect, cole a cadeia de caracteres de conexão de Olá no campo hello e conclua o Assistente de saudação.
 
     ![Gerenciador de Armazenamento – adicionar uma conexão](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-storage-explorer.png)
 
-4. Em **Local e anexado**, expanda **Contas de Armazenamento** > sua conta de armazenamento > **Filas** > **funções-associações** e verifique se as mensagens são gravadas na fila.
+4. Em **Local e anexado**, expanda **contas de armazenamento** > sua conta de armazenamento > **filas** > **deassociaçõesdefunções**e verifique se que as mensagens são escritas toohello fila.
 
-    ![Modo de exibição de mensagens na fila](./media/functions-create-an-azure-connected-function/functionsbindings-azure-storage-explorer.png)
+    ![Exibição de mensagens na fila de saudação](./media/functions-create-an-azure-connected-function/functionsbindings-azure-storage-explorer.png)
 
-    Se a fila não existe ou está vazia, provavelmente há um problema com o código ou a associação de função.
+    Se a fila de saudação não existe ou está vazia, provavelmente há um problema com sua associação de função ou o código.
 
-## <a name="create-a-function-that-reads-from-the-queue"></a>Criar uma função que lê da fila
+## <a name="create-a-function-that-reads-from-hello-queue"></a>Criar uma função que lê da fila de saudação
 
-Agora que você tem mensagens sendo adicionadas à fila, você pode criar outra função que lê da fila e grava as mensagens permanentemente uma tabela de Armazenamento do Azure.
+Agora que você tem que está sendo adicionadas toohello fila de mensagens, você pode criar outra função que lê da fila de saudação e gravações Olá permanentemente mensagens tooan tabela de armazenamento do Azure.
 
 1. Clique em **Nova Função** > **QueueTrigger-CSharp**. 
  
-2. Nomeie a função `FunctionsBindingsDemo2`, insira **funções-associações** no campo **Nome da Fila**, selecione uma conta de armazenamento existente ou crie uma e, em seguida, clique em **Criar**.
+2. Nome de função hello `FunctionsBindingsDemo2`, digite **associações a funções** em Olá **nome da fila** campo, selecione uma conta de armazenamento existente ou crie um e, em seguida, clique em **criar**.
 
     ![Adicionar uma função de temporizador de fila de saída](./media/functions-create-an-azure-connected-function/function-demo2-new-function.png) 
 
-3. (Opcional) Você pode verificar se a nova função funciona exibindo a nova fila no Gerenciador de Armazenamento como antes. Você também pode usar o Cloud Explorer no Visual Studio.  
+3. (Opcional) Você pode verificar que nova função de saudação funciona exibindo a nova fila de saudação no Gerenciador de armazenamento como antes. Você também pode usar o Cloud Explorer no Visual Studio.  
 
-4. (Opcional) Atualize a fila **funções-associações** e observe os itens que foram removidos da fila. A remoção ocorre porque a função está associada à fila **funções-associações** como um gatilho de entrada e a função lê a fila. 
+4. (Opcional) Atualizar Olá **associações a funções** fila e observe que os itens foram removidos da fila de saudação. Hello remoção ocorre porque a função hello é toohello associado **associações a funções** como uma função de gatilho e hello entrada lê a fila de saudação da fila. 
  
 ## <a name="add-a-table-output-binding"></a>Adicionar uma associação de saída da tabela
 
 1. Em FunctionsBindingsDemo2, clique em **Integrar** > **Nova Saída** > **Armazenamento de Tabela do Azure** > **Selecionar**.
 
-    ![Adicionar uma associação a uma tabela de Armazenamento do Azure](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
+    ![Adicionar uma tabela de armazenamento do Azure associação tooan](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
 
 2. Insira `functionbindings` para **Nome de tabela** e `myTable` para **Nome de parâmetro de tabela**, escolha uma **Conexão da conta de armazenamento** ou crie uma nova e, em seguida, clique em **Salvar**.
 
-    ![Configurar a Associação da tabela de armazenamento](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
+    ![Configurar a associação de tabela de armazenamento Olá](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
    
-3. Na guia **Desenvolver**, substitua o código de função existente pelo seguinte:
+3. Em Olá **desenvolver** guia, substitua o código de função existente Olá pela seguinte hello:
    
     ```cs
     
@@ -147,7 +147,7 @@ Agora que você tem mensagens sendo adicionadas à fila, você pode criar outra 
             OriginalTime = myQueueItem.Time    
         };
         
-        // Add the item to the table binding collection.
+        // Add hello item toohello table binding collection.
         myTable.Add(myItem);
     
         log.Verbose($"C# Queue trigger function processed: {myItem.RowKey} | {myItem.Msg} | {myItem.Time}");
@@ -168,27 +168,27 @@ Agora que você tem mensagens sendo adicionadas à fila, você pode criar outra 
         public string Time { get; set;}
     }
     ```
-    A classe **TableItem** representa uma linha na tabela de armazenamento e você adiciona o item à coleção `myTable` de objetos **TableItem**. Você deve definir as Propriedades **PartitionKey** e **RowKey** para poder inserir na tabela.
+    Olá **TableItem** classe representa uma linha na tabela de armazenamento hello e adicionar Olá item toohello `myTable` coleção de **TableItem** objetos. Você deve definir Olá **PartitionKey** e **RowKey** propriedades toobe capaz de tooinsert na tabela de saudação.
 
-4. Clique em **Salvar**.  Por fim, você pode verificar se a função funciona exibindo a tabela no Gerenciador de Armazenamento ou Visual Studio Cloud Explorer.
+4. Clique em **Salvar**.  Por fim, você pode verificar Olá função funciona exibindo tabela de saudação no Gerenciador de armazenamento ou o Gerenciador de nuvem do Visual Studio.
 
-5. (Opcional) Na sua conta de armazenamento no Gerenciador de Armazenamento, expanda **Tabelas** > **funções-associações** e verifique se as linhas são adicionadas à tabela. Você pode fazer o mesmo no Cloud Explorer no Visual Studio.
+5. (Opcional) Na sua conta de armazenamento no Gerenciador de armazenamento, expanda **tabelas** > **functionsbindings** e verifique se que linhas são adicionadas toohello tabela. Você pode fazer Olá mesmo no Gerenciador de nuvem no Visual Studio.
 
-    ![Modo de exibição de linhas na tabela](./media/functions-create-an-azure-connected-function/functionsbindings-azure-storage-explorer2.png)
+    ![Exibição de linhas na tabela de saudação](./media/functions-create-an-azure-connected-function/functionsbindings-azure-storage-explorer2.png)
 
-    Se a tabela não existe ou está vazia, provavelmente há um problema com o código ou a associação de função. 
+    Se a tabela de saudação não existe ou está vazia, provavelmente há um problema com sua associação de função ou o código. 
  
 [!INCLUDE [More binding information](../../includes/functions-bindings-next-steps.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-Confira estes tópicos para obter mais informações sobre o Azure Functions:
+Para obter mais informações sobre as funções do Azure, consulte Olá seguintes tópicos:
 
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)  
   Referência do programador para codificação de funções e definição de gatilhos e de associações.
 * [Testando o Azure Functions](functions-test-a-function.md)  
   Descreve várias ferramentas e técnicas para testar suas funções.
-* [Como escalar o Azure Functions](functions-scale.md)  
-  Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de hospedagem de consumo e como escolher o plano certo. 
+* [Como tooscale funções do Azure](functions-scale.md)  
+  Discute os planos de serviço disponíveis com as funções do Azure, incluindo o plano de hospedagem de consumo hello e como toochoose Olá plano à direita. 
 
 [!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
 

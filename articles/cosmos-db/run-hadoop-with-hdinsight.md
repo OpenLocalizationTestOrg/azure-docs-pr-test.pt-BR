@@ -1,6 +1,6 @@
 ---
-title: Executar um trabalho do Hadoop usando o Azure Cosmos DB e o HDInsight | Microsoft Docs
-description: Saiba como executar um trabalho simples do Hive, Pig e MapReduce com o Azure Cosmos DB e o Azure HDInsight.
+title: aaaRun um Hadoop de trabalho usando o banco de dados do Azure Cosmos e HDInsight | Microsoft Docs
+description: Saiba como toorun um simple Hive, Pig e MapReduce trabalho com o banco de dados do Azure Cosmos e HDInsight do Azure.
 services: cosmos-db
 author: dennyglee
 manager: jhubbard
@@ -15,34 +15,34 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 427864fc4e494c19fcda4cfd454a9923499f6337
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 2e27499f2c4ba951af9a1ade1bcc9c1b6d298fcd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Executar um trabalho do Apache Hive, Pig ou Hadoop usando o Azure Cosmos DB e o HDInsight
-Este tutorial mostra como executar trabalhos do [Apache Hive][apache-hive], [Apache Pig][apache-pig] e [Apache Hadoop][apache-hadoop] MapReduce no Azure HDInsight com o conector para Hadoop do Cosmos DB. O conector para Hadoop do Cosmos DB permite que o Cosmos DB atue como uma fonte e um coletor para trabalhos do Hive, Pig e MapReduce. Este tutorial usará o Cosmos DB como a fonte de dados e o destino para trabalhos do Hadoop.
+Este tutorial mostra como toorun [Apache Hive][apache-hive], [Apache Pig][apache-pig], e [Apache Hadoop] [ apache-hadoop] Trabalhos MapReduce no Azure HDInsight com o conector para Hadoop do Cosmos DB. Conector para Hadoop do cosmos do banco de dados permite tooact DB Cosmos como uma origem e um coletor para trabalhos Hive, Pig e MapReduce. Este tutorial usará DB Cosmos como fonte de dados de saudação e de destino para trabalhos de Hadoop.
 
-Depois de concluir este tutorial, você poderá responder às seguintes perguntas:
+Após concluir este tutorial, você será capaz de tooanswer Olá perguntas a seguir:
 
 * Como fazer para carregar dados do Cosmos DB usando um trabalho do Hive, Pig ou MapReduce?
 * Como fazer para armazenar dados no Cosmos DB usando um trabalho do Hive, Pig ou MapReduce?
 
-Recomendamos começar assistindo ao vídeo a seguir, no qual executamos um trabalho do Hive usando o Cosmos DB e o HDInsight.
+É recomendável que guia de Introdução observando Olá seguindo o vídeo, onde é executado por meio de um trabalho de Hive usando o banco de dados do Cosmos e HDInsight.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Use-Azure-DocumentDB-Hadoop-Connector-with-Azure-HDInsight/player]
 >
 >
 
-Depois, volte a este artigo, no qual você receberá todos os detalhes de como executar trabalhos analíticos nos dados do Cosmos DB.
+Em seguida, retorne toothis artigo, onde você receberá detalhes completos de saudação em como você pode executar trabalhos de análise em seus dados de banco de dados do Cosmos.
 
 > [!TIP]
-> Este tutorial presume que você tenha experiência anterior com o uso do Apache Hadoop, Hive e/ou Pig. Se você estiver começando a usar o Apache Hadoop, Hive e Pig, recomendamos visitar a [Documentação do Apache Hadoop][apache-hadoop-doc]. Este tutorial também pressupõe que você tenha experiência anterior com o Cosmos DB e tenha uma conta do Cosmos DB. Se estiver conhecendo o Cosmos DB agora ou ainda não tiver uma conta do Cosmos DB, confira nossa página [Introdução][getting-started].
+> Este tutorial presume que você tenha experiência anterior com o uso do Apache Hadoop, Hive e/ou Pig. Se você for novo tooApache Hadoop, Hive e Pig, recomendamos que você visite Olá [documentação do Apache Hadoop][apache-hadoop-doc]. Este tutorial também pressupõe que você tenha experiência anterior com o Cosmos DB e tenha uma conta do Cosmos DB. Se você estiver tooCosmos novo banco de dados ou você não tem uma conta de banco de dados do Cosmos, Confira nosso [Introdução] [ getting-started] página.
 >
 >
 
-Não tem tempo para fazer o tutorial e quer apenas a amostra completa de scripts do PowerShell para Hive, Pig e MapReduce? Sem problemas, elas estão [aqui][hdinsight-samples]. O download contém também arquivos hql, pig e java para essas amostras.
+Você não tem tempo toocomplete Olá tutorial e deseja apenas scripts do PowerShell de exemplo completo tooget Olá para Hive, Pig e MapReduce? Sem problemas, elas estão [aqui][hdinsight-samples]. download de saudação também contém arquivos hql, pig e java Olá esses exemplos.
 
 ## <a name="NewestVersion"></a>Versão Mais Recente
 <table border='1'>
@@ -55,41 +55,41 @@ Não tem tempo para fazer o tutorial e quer apenas a amostra completa de scripts
     <tr><th>Versões do HDInsight para as quais há suporte</th>
         <td>3.1, 3.2</td></tr>
     <tr><th>Log de alterações</th>
-        <td>Azure Cosmos DB Java SDK atualizado para 1.6.0</br>
+        <td>Cosmos atualizada do Azure DB Java SDK too1.6.0</br>
             Suporte adicionado para coleções particionadas como uma fonte e coletor</br>
         </td></tr>
 </table>
 
 ## <a name="Prerequisites"></a>Pré-requisitos
-Antes de seguir as instruções neste tutorial, certifique-se de ter o seguinte:
+Antes de seguir as instruções de saudação neste tutorial, certifique-se de que você tenha a seguinte hello:
 
-* Uma conta do Cosmos DB, um banco de dados e uma coleção com documentos. Para obter mais informações, consulte [Introdução ao Cosmos DB][getting-started]. Importe dados de exemplo para sua conta do Cosmos DB com a [ferramenta de importação do Cosmos DB][import-data].
+* Uma conta do Cosmos DB, um banco de dados e uma coleção com documentos. Para obter mais informações, consulte [Introdução ao Cosmos DB][getting-started]. Importar dados de exemplo para a conta de banco de dados do Cosmos com hello [ferramenta de importação de banco de dados do Cosmos][import-data].
 * Produtividade. Leituras e gravações do HDInsight serão contabilizadas de acordo com suas unidades de solicitação alocadas para suas coleções.
-* Capacidade para um procedimento armazenado adicional dentro de cada coleção de saída. Os procedimentos armazenados são usados para transferir os documentos resultantes.
-* Capacidade para os documentos resultantes dos trabalhos de Hive, Pig ou MapReduce.
+* Capacidade para um procedimento armazenado adicional dentro de cada coleção de saída. procedimentos armazenado de Hello são usados para a transferência de documentos resultantes.
+* Capacidade para documentos resultantes de saudação de trabalhos de Hive, Pig e MapReduce hello.
 * [*Opcional*] Capacidade para uma coleção adicional.
 
 > [!WARNING]
-> Para evitar a criação de uma nova coleção durante um dos trabalhos, você pode imprimir os resultados no StdOut, salvar a saída no seu contêiner WASB ou especificar um coleção que já existe. Caso você especifique uma coleção existente, novos documentos serão criados dentro da coleção e os documentos existentes serão afetados somente se houver conflitos entre as *IDs*. **O conector substitui automaticamente documentos existentes com conflitos de ID**. Você pode desativar esse recurso definindo a opção de upsert como falsa. Se upsert estiver definido como falso e houver um conflito, o trabalho do Hadoop falhará, retornando um erro de conflito de ID.
+> Em ordem tooavoid Olá a criação de uma nova coleção durante qualquer um dos trabalhos hello, você pode imprimir Olá resultados toostdout, salvar o contêiner do hello saída tooyour WASB ou especifique uma coleção já existente. No caso de saudação da especificação de uma coleção existente, novos documentos serão criados dentro da coleção de saudação e documentos já existentes serão afetados apenas se houver um conflito na *ids*. **conector de saudação substituirá automaticamente os documentos existentes com conflitos de id**. Você pode desativar esse recurso definindo Olá upsert opção toofalse. Se upsert é falso e um conflito ocorre, o trabalho do Hadoop Olá falhará; relatar um erro de conflito de id.
 >
 >
 
 ## <a name="ProvisionHDInsight"></a>Etapa 1: criar um novo cluster HDInsight
-Este tutorial usa a Ação de Script do Portal do Azure para personalizar o cluster HDInsight. Nesse tutorial, usaremos o Portal do Azure para criar o cluster HDInsight. Para sabe como usar cmdlets do PowerShell ou o SDK do .NET do HDInsight, veja o artigo [Personalizar clusters HDInsight usando Ação de Script][hdinsight-custom-provision].
+Este tutorial usa o Script de ação de saudação do Portal Azure toocustomize seu cluster HDInsight. Neste tutorial, usaremos hello Azure Portal toocreate seu cluster HDInsight. Para obter instruções sobre como os cmdlets do PowerShell toouse ou hello HDInsight .NET SDK, check-out de [HDInsight personalizar clusters usando a ação de Script] [ hdinsight-custom-provision] artigo.
 
-1. Entre no [Portal do Azure][azure-portal].
-2. Clique em **+Novo** na parte superior do painel de navegação esquerdo e procure por **HDInsight** na barra de pesquisa na folha Novo.
-3. O **HDInsight** publicado pela **Microsoft** aparecerá na parte superior dos Resultados. Clique nele, em seguida, clique em **Criar**.
-4. Na folha Criar Novo Cluster do HDInsight, insira seu **Nome do Cluster** e selecione a **Assinatura** com a qual você deseja provisionar o recurso.
+1. Entrar toohello [Portal do Azure][azure-portal].
+2. Clique em **+ novo** na parte superior de saudação do hello barra de navegação esquerda, procure por **HDInsight** na barra de pesquisa de saudação na nova folha de saudação.
+3. **HDInsight** publicado por **Microsoft** aparecerá na parte superior de saudação do hello resultados. Clique nele, em seguida, clique em **Criar**.
+4. No novo HDInsight Cluster de saudação criar folha, insira seu **nome do Cluster** e selecione hello **assinatura** deseja tooprovision esse recurso em.
 
     <table border='1'>
-        <tr><td>Nome do cluster</td><td>Nome do cluster.<br/>
+        <tr><td>Nome do cluster</td><td>Cluster de saudação do nome.<br/>
 O nome DNS deve começar e terminar com um número alfanumérico e pode conter traços.<br/>
-O campo deve ser uma cadeia com 3 a 63 caracteres.</td></tr>
+campo de saudação deve ser uma cadeia de caracteres entre 3 e 63 caracteres.</td></tr>
         <tr><td>Nome da assinatura</td>
-            <td>Se você tiver mais de uma Assinatura do Azure, selecione a assinatura que hospedará seu cluster HDInsight. </td></tr>
+            <td>Se você tiver mais de uma assinatura do Azure, selecione a assinatura de saudação que irá hospedar o seu cluster HDInsight. </td></tr>
     </table>
-5. Clique em **Selecionar Tipo de Cluster** e defina as seguintes propriedades para os valores especificados.
+5.Clique em **Selecionar tipo de Cluster** e valores especificados de saudação do conjunto de propriedades toohello a seguir.
 
     <table border='1'>
         <tr><td>Tipo de cluster</td><td><strong>Hadoop</strong></td></tr>
@@ -101,63 +101,63 @@ O campo deve ser uma cadeia com 3 a 63 caracteres.</td></tr>
     Agora, clique em **SELECT**.
 
     ![Fornecer detalhes do cluster HDInsight inicial do Hadoop][image-customprovision-page1]
-6. Clique em **Credenciais** para definir seu logon e credenciais de acesso remoto. Escolha o **Nome de Usuário de Logon do Cluster** e a **Senha de Logon do Cluster**.
+6. Clique em **credenciais** tooset seu logon e credenciais de acesso remoto. Escolha o **Nome de Usuário de Logon do Cluster** e a **Senha de Logon do Cluster**.
 
-    Se você quiser ter um acesso remoto em seu cluster, selecione *sim* na parte inferior da folha e forneça um nome de usuário e senha.
-7. Clique em **Fonte de Dados** para definir o local principal para o acesso a dados. Escolha o **Método de Seleção** e especifique uma conta de armazenamento já existente ou crie uma nova.
-8. Na mesma folha, especifique um **Contêiner Padrão** e um **Local**. Clique em **SELECT**.
+    Se você desejar tooremote em seu cluster, selecione *Sim* na parte inferior da saudação da folha de saudação e forneça um nome de usuário e senha.
+7. Clique em **fonte de dados** tooset acessar o local para os dados. Escolha Olá **método de seleção** e especificar uma conta de armazenamento já existente ou crie um novo.
+8. Olá folha mesmo em, especifique um **contêiner padrão** e um **local**. Clique em **SELECT**.
 
    > [!NOTE]
-   > Selecione um local próximo à região da conta do Cosmos DB para ter um melhor desempenho
+   > Selecione tooyour de fechar um local DB Cosmos região da conta para melhorar o desempenho
    >
    >
-9. Clique em **Preços** para selecionar o número e o tipo de nós. Você poderá manter a configuração padrão e dimensionar o número de nós de Trabalho mais tarde.
-10. Clique em **Configuração Opcional** e, em seguida, em **Ações de Script** na folha Configuração Opcional.
+9. Clique em **preços** tooselect Olá número e tipo de nós. Você pode manter configuração padrão de saudação e Olá aumenta o número de nós de trabalho mais tarde.
+10. Clique em **configuração opcional**, em seguida, **ações de Script** no hello folha de configuração opcional.
 
-     Nas Ações de Script, digite as informações a seguir para personalizar o cluster HDInsight.
+     Em ações de Script, digite Olá toocustomize informações a seguir seu cluster HDInsight.
 
      <table border='1'>
          <tr><th>Propriedade</th><th>Valor</th></tr>
          <tr><td>Nome</td>
-             <td>Especifique um nome para a ação de script.</td></tr>
+             <td>Especifique um nome para a ação de script hello.</td></tr>
          <tr><td>URI do script</td>
-             <td>Especifique o URI para o script que é chamado para personalizar o cluster.</br></br>
+             <td>Especifique Olá URI toohello script que é invocado toocustomize Olá cluster.</br></br>
 Insira: </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</strong>.</td></tr>
          <tr><td>Principal</td>
-             <td>Clique na caixa de seleção para executar o script do PowerShell no nó Principal.</br></br>
+             <td>Clique em Olá toorun da caixa de seleção Olá script do PowerShell para o nó de cabeçalho hello.</br></br>
              <strong>Marque essa caixa de seleção</strong>.</td></tr>
          <tr><td>Trabalho</td>
-             <td>Clique na caixa de seleção para executar o script do PowerShell no nó Trabalho.</br></br>
+             <td>Clique em Olá caixa de seleção toorun Olá PowerShell script no nó de trabalho hello.</br></br>
              <strong>Marque essa caixa de seleção</strong>.</td></tr>
          <tr><td>Zookeeper</td>
-             <td>Clique na caixa de seleção para executar o script do PowerShell no nó Zookeeper.</br></br>
+             <td>Clique em script do PowerShell Olá caixa de seleção toorun Olá para Olá Zookeeper.</br></br>
              <strong>Não é necessário</strong>.
              </td></tr>
          <tr><td>parâmetros</td>
-             <td>Especifique os parâmetros, se exigido pelo script.</br></br>
+             <td>Especifica parâmetros de hello, se exigido pelo script hello.</br></br>
              <strong>Nenhum parâmetro necessário</strong>.</td></tr>
      </table>
 11. Criar um novo **Grupo de Recursos** ou use um Grupo de Recursos existente em sua Assinatura do Azure.
-12. Agora, marque **Fixar no painel** para controlar sua implantação e clique em **Criar**!
+12. Agora, verifique **Pin toodashboard** tootrack sua implantação e clique em **criar**!
 
 ## <a name="InstallCmdlets"></a>Etapa 2: instalar e configurar o Azure PowerShell
 1. Instale o PowerShell do Azure. As instruções podem ser encontradas [aqui][powershell-install-configure].
 
    > [!NOTE]
-   > Como alternativa, só para consultas Hive, você pode usar o Editor de Hive online do HDInsight. Para fazer isso, entre no [Portal do Azure][azure-portal] e clique em **HDInsight** no painel esquerdo para exibir uma lista dos clusters HDInsight. Clique no cluster no qual deseja executar consultas Hive e clique em **Console de Consulta**.
+   > Como alternativa, só para consultas Hive, você pode usar o Editor de Hive online do HDInsight. toodo assim, entrar toohello [Portal do Azure][azure-portal], clique em **HDInsight** tooview de painel esquerdo Olá em uma lista de seus clusters HDInsight. Clique em cluster Olá você deseja que as consultas de Hive toorun em e, em seguida, clique em **Console de consulta**.
    >
    >
-2. Abra o Ambiente de Script Integrado do PowerShell do Azure:
+2. Abra hello Azure PowerShell ambiente de script integrado:
 
-   * Em um computador com Windows 8 ou Windows Server 2012 ou posterior, você pode usar a Pesquisa interna. Na tela Inicial, digite **powershell ise** e clique em **Inserir**.
-   * Em um computador com uma versão anterior ao Windows 8 ou ao Windows Server 2012, use o menu Iniciar. No menu Iniciar, digite **Prompt de Comando** na caixa de pesquisa e, na lista de resultados, clique em **Prompt de Comando**. No Prompt de Comando, digite **powershell_ise** e clique em **Inserir**.
+   * Em um computador executando o Windows 8 ou o Windows Server 2012 ou posterior, você pode usar internas Olá pesquisa. Na tela de início do hello, digite **powershell ise** e clique em **Enter**.
+   * Em um computador executando uma versão anterior ao Windows 8 ou Windows Server 2012, use o menu de início de saudação. Saudação do menu de início, digite **Prompt de comando** na caixa de pesquisa hello e, na lista de saudação de resultados, clique em **Prompt de comando**. No Prompt de comando do hello, digite **powershell_ise** e clique em **Enter**.
 3. Adicione sua conta do Azure.
 
-   1. No Painel do Console, digite **Add-AzureAccount** e clique em **Inserir**.
-   2. Digite o endereço de email associado à sua assinatura do Azure e clique em **Continuar**.
-   3. Digite a senha de sua assinatura do Azure.
+   1. Em Olá painel de Console, digite **Add-AzureAccount** e clique em **Enter**.
+   2. Digite hello endereço de email associado à sua assinatura do Azure e clique em **continuar**.
+   3. Digite a senha Olá para sua assinatura do Azure.
    4. Clique em **Entrar**.
-4. O diagrama a seguir identifica as partes importantes do seu Ambiente de Script de PowerShell do Azure.
+4. Olá diagrama a seguir identifica as partes importantes de saudação do seu ambiente de script de PowerShell do Azure.
 
     ![Diagrama do PowerShell do Azure][azure-powershell-diagram]
 
@@ -167,27 +167,27 @@ Insira: </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/d
 >
 >
 
-1. Defina as seguintes variáveis no seu Painel de Script do PowerShell.
+1. Saudação de conjunto de variáveis no seu painel de Script do PowerShell a seguir.
 
-        # Provide Azure subscription name, the Azure Storage account and container that is used for the default HDInsight file system.
+        # Provide Azure subscription name, hello Azure Storage account and container that is used for hello default HDInsight file system.
         $subscriptionName = "<SubscriptionName>"
         $storageAccountName = "<AzureStorageAccountName>"
         $containerName = "<AzureStorageContainerName>"
 
-        # Provide the HDInsight cluster name where you want to run the Hive job.
+        # Provide hello HDInsight cluster name where you want toorun hello Hive job.
         $clusterName = "<HDInsightClusterName>"
-2. <p>Vamos começar pela cadeia de caracteres de consulta. Vamos escrever uma consulta do Hive que usa todas as IDs exclusivas (_rid) e os carimbos de data/hora (_ts) gerados pelo sistema de documentos de uma coleção do Azure Cosmos DB, registra todos os documentos por minuto e armazena os resultados em uma nova coleção do Azure Cosmos DB.</p>
+2. <p>Vamos começar pela cadeia de caracteres de consulta. Vamos gravar uma consulta de Hive que leva os carimbos de hora gerada pelo sistema ( TS) e identificações exclusivas ( RID) de uma coleção de banco de dados do Azure Cosmos todos os documentos, também incluirá todos os documentos em um minuto hello e, em seguida, armazena os resultados de saudação volta para uma nova coleção de banco de dados do Azure Cosmos.</p>
 
-    <p>Primeiro, vamos criar uma tabela Hive por meio da coleção do Azure Cosmos DB. Adicione o seguinte trecho de código ao painel de Script do PowerShell <strong>após</strong> o trecho de código do n.º 1. Inclua o parâmetro opcional DocumentDB.query para limitar os documentos a somente _ts e _rid.</p>
+    <p>Primeiro, vamos criar uma tabela Hive por meio da coleção do Azure Cosmos DB. Adicionar Olá toohello de trecho de código painel de Script do PowerShell a seguir <strong>depois</strong> trecho de código de saudação do #1. Certifique-se de que incluir Olá opcional DocumentDB.query parâmetro t trim nossos TS toojust de documentos e RID.</p>
 
    > [!NOTE]
    > **Ter nomeado o DocumentDB.inputCollections não foi um erro.** Sim, nós podemos adicionar várias coleções como entrada: </br>
    >
    >
 
-        '*DocumentDB.inputCollections*' = '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*' A1A</br> The collection names are separated without spaces, using only a single comma.
+        '*DocumentDB.inputCollections*' = '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*' A1A</br> hello collection names are separated without spaces, using only a single comma.
 
-        # Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
+        # Create a Hive table using data from DocumentDB. Pass DocumentDB hello query toofilter transferred data too_rid and _ts.
         $queryStringPart1 = "drop table DocumentDB_timestamps; "  +
                             "create external table DocumentDB_timestamps(id string, ts BIGINT) "  +
                             "stored by 'com.microsoft.azure.documentdb.hive.DocumentDBStorageHandler' "  +
@@ -198,16 +198,16 @@ Insira: </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/d
                                 "'DocumentDB.inputCollections' = '<DocumentDB Input Collection Name>', " +
                                 "'DocumentDB.query' = 'SELECT r._rid AS id, r._ts AS ts FROM root r' ); "
 
-1. Em seguida, vamos criar uma tabela Hive para a coleção de saída. As propriedades do documento de saída serão o mês, dia, hora, minuto e o número total de ocorrências.
+1. Em seguida, vamos criar uma tabela de Hive para a coleção de saída de hello. Propriedades de documento de saída Olá será mês hello, dia, hora, minuto e número total de saudação de ocorrências.
 
    > [!NOTE]
    > **Mais uma vez, ter nomeado o DocumentDB.outputCollections não foi um erro.** Sim, nós podemos adicionar várias coleções como saída: </br>
-   > '*DocumentDB.outputCollections*' = '*\<Nome da Coleção de Saída do DocumentDB 1\>*,*\<Nome da Coleção de Saída do DocumentDB 2\>*' </br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula. </br></br>
-   > Os documentos são distribuídos por round robin entre várias coleções. Um lote de documentos será armazenado em uma coleção, um segundo lote de documentos será armazenado na coleção seguinte e assim por diante.
+   > '*DocumentDB.outputCollections*' = '*\<Nome da Coleção de Saída do DocumentDB 1\>*,*\<Nome da Coleção de Saída do DocumentDB 2\>*' </br> nomes de coleção de saudação são separados sem espaços, usando apenas uma única vírgula. </br></br>
+   > Os documentos são distribuídos por round robin entre várias coleções. Um lote de documentos será armazenado em uma coleção e, em seguida, um segundo lote de documentos será armazenado na coleção de Avançar de Olá e assim por diante.
    >
    >
 
-       # Create a Hive table for the output data to DocumentDB.
+       # Create a Hive table for hello output data tooDocumentDB.
        $queryStringPart2 = "drop table DocumentDB_analytics; " +
                              "create external table DocumentDB_analytics(Month INT, Day INT, Hour INT, Minute INT, Total INT) " +
                              "stored by 'com.microsoft.azure.documentdb.hive.DocumentDBStorageHandler' " +
@@ -216,7 +216,7 @@ Insira: </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/d
                                  "'DocumentDB.key' = '<DocumentDB Primary Key>', " +  
                                  "'DocumentDB.db' = '<DocumentDB Database Name>', " +
                                  "'DocumentDB.outputCollections' = '<DocumentDB Output Collection Name>' ); "
-2. Por fim, vamos classificar os documentos por mês, dia, hora e minuto e inserir os resultados na tabela Hive de saída.
+2. Por fim, vamos contagem Olá documentos por mês, dia, hora e minuto e inserir resultados Olá Olá no Hive tabela de saída.
 
         # GROUP BY minute, COUNT entries for each, INSERT INTO output Hive table.
         $queryStringPart3 = "INSERT INTO table DocumentDB_analytics " +
@@ -226,39 +226,39 @@ Insira: </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/d
                               "FROM DocumentDB_timestamps " +
                               "GROUP BY month(from_unixtime(ts)), day(from_unixtime(ts)), " +
                               "hour(from_unixtime(ts)) , minute(from_unixtime(ts)); "
-3. Adicione o trecho de script a seguir para criar uma definição de trabalho Hive por meio da consulta anterior.
+3. Adicione Olá toocreate de trecho de código de script uma definição de trabalho de Hive a seguir da consulta anterior hello.
 
         # Create a Hive job definition.
         $queryString = $queryStringPart1 + $queryStringPart2 + $queryStringPart3
         $hiveJobDefinition = New-AzureHDInsightHiveJobDefinition -Query $queryString
 
-    Você também pode usar a opção -File para especificar um arquivo de script HiveQL no HDFS.
-4. Adicione o trecho a seguir para salvar a hora de início e enviar o trabalho Hive.
+    Você também pode usar hello - arquivo alternar toospecify um arquivo de script HiveQL no HDFS.
+4. Adicione Olá após a hora de início do trecho toosave hello e enviar o trabalho de Hive hello.
 
-        # Save the start time and submit the job to the cluster.
+        # Save hello start time and submit hello job toohello cluster.
         $startTime = Get-Date
         Select-AzureSubscription $subscriptionName
         $hiveJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $hiveJobDefinition
-5. Adicione o seguinte para aguardar a conclusão do trabalho Hive.
+5. Adicione Olá toowait para toocomplete de trabalho de Hive Olá a seguir.
 
-        # Wait for the Hive job to complete.
+        # Wait for hello Hive job toocomplete.
         Wait-AzureHDInsightJob -Job $hiveJob -WaitTimeoutInSeconds 3600
-6. Adicione o seguinte para imprimir a saída padrão e os horários de início e fim.
+6. Adicionar Olá após tooprint saudação padrão hello e saída de início e término.
 
-        # Print the standard error, the standard output of the Hive job, and the start and end time.
+        # Print hello standard error, hello standard output of hello Hive job, and hello start and end time.
         $endTime = Get-Date
         Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $hiveJob.JobId -StandardOutput
         Write-Host "Start: " $startTime ", End: " $endTime -ForegroundColor Green
-7. **Execute** seu novo script! **Clique** no botão de execução verde.
-8. Confira os resultados. Faça logon no [Portal do Azure][azure-portal].
+7. **Execute** seu novo script! **Clique em** verde Olá executar botão.
+8. Verifique os resultados de saudação. O logon no hello [Portal do Azure][azure-portal].
 
-   1. Clique em <strong>Procurar</strong> no painel do lado esquerdo. </br>
-   2. Clique em <strong>tudo</strong> na parte superior direita no painel de navegação. </br>
+   1. Clique em <strong>procurar</strong> no painel do lado esquerdo de saudação. </br>
+   2. Clique em <strong>tudo</strong> na saudação de superior direita do painel de navegação de saudação. </br>
    3. Localize e clique em <strong>Contas do Azure Cosmos DB</strong>. </br>
-   4. Em seguida, encontre sua <strong>Conta do Azure Cosmos DB</strong>, depois o <strong>Banco de dados do Azure Cosmos DB</strong> e sua <strong>Coleção do Azure Cosmos DB</strong> associada à coleção de saída especificada no trabalho na consulta de Hive.</br>
+   4. Em seguida, localizar seu <strong>conta de banco de dados do Azure Cosmos</strong>, em seguida, <strong>banco de dados do banco de dados do Azure Cosmos</strong> e sua <strong>coleção de banco de dados do Azure Cosmos</strong> associado a coleção de saída Olá especificada em a consulta de Hive.</br>
    5. Por fim, clique em <strong>Gerenciador de Documentos</strong> abaixo de <strong>Ferramentas de Desenvolvedor</strong>.</br></p>
 
-   Você verá os resultados da consulta Hive.
+   Você verá os resultados de saudação de sua consulta de Hive.
 
    ![Resultados da consulta de Hive][image-hive-query-results]
 
@@ -268,125 +268,125 @@ Insira: </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/d
 >
 >
 
-1. Defina as seguintes variáveis no seu Painel de Script do PowerShell.
+1. Saudação de conjunto de variáveis no seu painel de Script do PowerShell a seguir.
 
         # Provide Azure subscription name.
         $subscriptionName = "Azure Subscription Name"
 
-        # Provide HDInsight cluster name where you want to run the Pig job.
+        # Provide HDInsight cluster name where you want toorun hello Pig job.
         $clusterName = "Azure HDInsight Cluster Name"
-2. <p>Vamos começar pela cadeia de caracteres de consulta. Vamos escrever uma consulta Pig que usa todas as IDs exclusivas (_rid) e os carimbos de data/hora (_ts) gerados pelo sistema de documentos de uma coleção do Azure Cosmos DB, registra todos os documentos por minuto e armazena os resultados em uma nova coleção do Azure Cosmos DB.</p>
-    <p>Primeiro, carregue documentos do Cosmos DB no HDInsight. Adicione o seguinte trecho de código ao painel de Script do PowerShell <strong>após</strong> o trecho de código do n.º 1. Adicione uma consulta do DocumentDB ao parâmetro de consulta opcional do DocumentDB para limitar os documentos a somente _ts e _rid.</p>
+2. <p>Vamos começar pela cadeia de caracteres de consulta. Vamos gravar uma consulta de Pig que usa todos os documentos gerada pelo sistema carimbos de hora ( TS) e identificações exclusivas ( RID) de uma coleção de banco de dados do Azure Cosmos, também incluirá todos os documentos em um minuto hello e, em seguida, armazena os resultados de saudação volta para uma nova coleção de banco de dados do Azure Cosmos.</p>
+    <p>Primeiro, carregue documentos do Cosmos DB no HDInsight. Adicionar Olá toohello de trecho de código painel de Script do PowerShell a seguir <strong>depois</strong> trecho de código de saudação do #1. Certifique-se de tooadd um DocumentDB de consulta toohello tootrim de parâmetro de consulta opcional DocumentDB nossos TS toojust de documentos e RID.</p>
 
    > [!NOTE]
    > Sim, nós podemos adicionar várias coleções como entrada: </br>
-   > '*\<Nome da Coleção de Entrada do DocumentDB 1\>*,*\<Nome da Coleção de Entrada do DocumentDB 2\>*'</br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula. </b>
+   > '*\<Nome da Coleção de Entrada do DocumentDB 1\>*,*\<Nome da Coleção de Entrada do DocumentDB 2\>*'</br> nomes de coleção de saudação são separados sem espaços, usando apenas uma única vírgula. </b>
    >
    >
 
-    Os documentos são distribuídos por round robin entre várias coleções. Um lote de documentos será armazenado em uma coleção, um segundo lote de documentos será armazenado na coleção seguinte e assim por diante.
+    Os documentos são distribuídos por round robin entre várias coleções. Um lote de documentos será armazenado em uma coleção e, em seguida, um segundo lote de documentos será armazenado na coleção de Avançar de Olá e assim por diante.
 
-        # Load data from Cosmos DB. Pass DocumentDB query to filter transferred data to _rid and _ts.
+        # Load data from Cosmos DB. Pass DocumentDB query toofilter transferred data too_rid and _ts.
         $queryStringPart1 = "DocumentDB_timestamps = LOAD '<DocumentDB Endpoint>' USING com.microsoft.azure.documentdb.pig.DocumentDBLoader( " +
                                                         "'<DocumentDB Primary Key>', " +
                                                         "'<DocumentDB Database Name>', " +
                                                         "'<DocumentDB Input Collection Name>', " +
                                                         "'SELECT r._rid AS id, r._ts AS ts FROM root r' ); "
-3. Em seguida, vamos classificar os documentos por mês, dia, hora, minuto e o número total de ocorrências.
+3. Em seguida, vamos contar documentos Olá por mês hello, dia, hora, minuto e número total de saudação de ocorrências.
 
        # GROUP BY minute and COUNT entries for each.
        $queryStringPart2 = "timestamp_record = FOREACH DocumentDB_timestamps GENERATE `$0#'id' as id:int, ToDate((long)(`$0#'ts') * 1000) as timestamp:datetime; " +
                            "by_minute = GROUP timestamp_record BY (GetYear(timestamp), GetMonth(timestamp), GetDay(timestamp), GetHour(timestamp), GetMinute(timestamp)); " +
                            "by_minute_count = FOREACH by_minute GENERATE FLATTEN(group) as (Year:int, Month:int, Day:int, Hour:int, Minute:int), COUNT(timestamp_record) as Total:int; "
-4. Por fim, vamos armazenar os resultados em nossa nova coleção de saída.
+4. Por fim, vamos armazenar resultados Olá em nossa nova coleção de saída.
 
    > [!NOTE]
    > Sim, nós podemos adicionar várias coleções como saída: </br>
-   > '\<Nome da Coleção de Saída do DocumentDB 1\>, \<Nome da Coleção de Saída do DocumentDB 2\>'</br> Os nomes de coleção são separados sem espaços, usando apenas uma única vírgula.</br>
-   > Os documentos serão distribuídos em round robin entre os vários documentos. Um lote de documentos será armazenado em uma coleção, um segundo lote de documentos será armazenado na coleção seguinte e assim por diante.
+   > '\<Nome da Coleção de Saída do DocumentDB 1\>, \<Nome da Coleção de Saída do DocumentDB 2\>'</br> nomes de coleção de saudação são separados sem espaços, usando apenas uma única vírgula.</br>
+   > Documenta vai ser distribuído round robin em Olá várias coleções. Um lote de documentos será armazenado em uma coleção e, em seguida, um segundo lote de documentos será armazenado na coleção de Avançar de Olá e assim por diante.
    >
    >
 
-        # Store output data to Cosmos DB.
+        # Store output data tooCosmos DB.
         $queryStringPart3 = "STORE by_minute_count INTO '<DocumentDB Endpoint>' " +
                             "USING com.microsoft.azure.documentdb.pig.DocumentDBStorage( " +
                                 "'<DocumentDB Primary Key>', " +
                                 "'<DocumentDB Database Name>', " +
                                 "'<DocumentDB Output Collection Name>'); "
-5. Adicione o trecho de script a seguir para criar uma definição de trabalho Pig por meio da consulta anterior.
+5. Adicione Olá seguir toocreate de trecho de código de script uma definição de trabalho de Pig de consulta anterior hello.
 
         # Create a Pig job definition.
         $queryString = $queryStringPart1 + $queryStringPart2 + $queryStringPart3
         $pigJobDefinition = New-AzureHDInsightPigJobDefinition -Query $queryString -StatusFolder $statusFolder
 
-    Você também pode usar a opção -File para especificar um arquivo script Pig no HDFS.
-6. Adicione o trecho a seguir para salvar a hora de início e enviar o trabalho Pig.
+    Você também pode usar hello - arquivo alternar toospecify um arquivo de script Pig no HDFS.
+6. Adicione Olá após a hora de início do trecho toosave hello e enviar o trabalho de Pig hello.
 
-        # Save the start time and submit the job to the cluster.
+        # Save hello start time and submit hello job toohello cluster.
         $startTime = Get-Date
         Select-AzureSubscription $subscriptionName
         $pigJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $pigJobDefinition
-7. Adicione o seguinte para aguardar a conclusão do trabalho Pig.
+7. Adicione Olá toowait para toocomplete de trabalho de Pig Olá a seguir.
 
-        # Wait for the Pig job to complete.
+        # Wait for hello Pig job toocomplete.
         Wait-AzureHDInsightJob -Job $pigJob -WaitTimeoutInSeconds 3600
-8. Adicione o seguinte para imprimir a saída padrão e os horários de início e fim.
+8. Adicionar Olá após tooprint saudação padrão hello e saída de início e término.
 
-        # Print the standard error, the standard output of the Hive job, and the start and end time.
+        # Print hello standard error, hello standard output of hello Hive job, and hello start and end time.
         $endTime = Get-Date
         Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $pigJob.JobId -StandardOutput
         Write-Host "Start: " $startTime ", End: " $endTime -ForegroundColor Green
-9. **Execute** seu novo script! **Clique** no botão de execução verde.
-10. Confira os resultados. Faça logon no [Portal do Azure][azure-portal].
+9. **Execute** seu novo script! **Clique em** verde Olá executar botão.
+10. Verifique os resultados de saudação. O logon no hello [Portal do Azure][azure-portal].
 
-    1. Clique em <strong>Procurar</strong> no painel do lado esquerdo. </br>
-    2. Clique em <strong>tudo</strong> na parte superior direita no painel de navegação. </br>
+    1. Clique em <strong>procurar</strong> no painel do lado esquerdo de saudação. </br>
+    2. Clique em <strong>tudo</strong> na saudação de superior direita do painel de navegação de saudação. </br>
     3. Localize e clique em <strong>Contas do Azure Cosmos DB</strong>. </br>
-    4. Em seguida, localizar seu <strong>Conta do Azure Cosmos DB</strong>, depois, <strong>banco de dados do Azure Cosmos DB</strong> e sua <strong>coleção do Azure Cosmos DB</strong> associados à coleção de saída especificada na consulta de Pig.</br>
+    4. Em seguida, localizar seu <strong>conta de banco de dados do Azure Cosmos</strong>, em seguida, <strong>banco de dados do banco de dados do Azure Cosmos</strong> e sua <strong>coleção de banco de dados do Azure Cosmos</strong> associado a coleção de saída Olá especificada em a consulta de Pig.</br>
     5. Por fim, clique em <strong>Gerenciador de Documentos</strong> abaixo de <strong>Ferramentas de Desenvolvedor</strong>.</br></p>
 
-    Você verá os resultados da consulta Pig.
+    Você verá os resultados de saudação de sua consulta de Pig.
 
     ![Resultados da consulta de Pig][image-pig-query-results]
 
 ## <a name="RunMapReduce"></a>Etapa 5: executar um trabalho MapReduce usando o Azure Cosmos DB e o HDInsight
-1. Defina as seguintes variáveis no seu Painel de Script do PowerShell.
+1. Saudação de conjunto de variáveis no seu painel de Script do PowerShell a seguir.
 
         $subscriptionName = "<SubscriptionName>"   # Azure subscription name
         $clusterName = "<ClusterName>"             # HDInsight cluster name
-2. Executaremos um trabalho MapReduce que computa o número de ocorrências para cada propriedade do Documento por meio de sua coleção do Azure Cosmos DB. Adicione este trecho de script **após** o trecho acima.
+2. Executaremos um trabalho MapReduce que calcula o número de saudação de ocorrências para cada propriedade de documento da coleção de banco de dados do Azure Cosmos. Adicionar este trecho de código de script **depois** trecho de saudação acima.
 
-        # Define the MapReduce job.
+        # Define hello MapReduce job.
         $TallyPropertiesJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/TallyProperties-v01.jar" -ClassName "TallyProperties" -Arguments "<DocumentDB Endpoint>","<DocumentDB Primary Key>", "<DocumentDB Database Name>","<DocumentDB Input Collection Name>","<DocumentDB Output Collection Name>","<[Optional] DocumentDB Query>"
 
    > [!NOTE]
-   > TallyProperties-v01.jar é fornecido com a instalação personalizada do Conector para Hadoop do Cosmos DB.
+   > TallyProperties v01.jar vem com instalação personalizada de saudação do hello Cosmos conector para Hadoop do banco de dados.
    >
    >
-3. Adicione o comando a seguir para enviar o trabalho MapReduce.
+3. Adicione Olá trabalho MapReduce do comando toosubmit Olá a seguir.
 
-        # Save the start time and submit the job.
+        # Save hello start time and submit hello job.
         $startTime = Get-Date
         Select-AzureSubscription $subscriptionName
         $TallyPropertiesJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $TallyPropertiesJobDefinition | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600  
 
-    Além da definição do trabalho MapReduce, você também deve fornecer o nome do cluster HDInsight onde você deseja executar o trabalho MapReduce e as credenciais. O Start-AzureHDInsightJob é uma chamada assincronizada. Para verificar a conclusão do trabalho, use o cmdlet *AzureHDInsightJob de espera* .
-4. Adicione o seguinte comando para verificar se há erros na execução do trabalho MapReduce.
+    Além disso toohello definição de trabalho MapReduce, você também fornecer nome do cluster HDInsight Olá onde você deseja o trabalho de MapReduce toorun hello e credenciais de saudação. Olá Start-AzureHDInsightJob é uma chamada assíncrona. conclusão de Olá toocheck de trabalho hello, use Olá *Wait-AzureHDInsightJob* cmdlet.
+4. Adicione Olá toocheck de comando a seguir erros com a execução do trabalho MapReduce hello.
 
-        # Get the job output and print the start and end time.
+        # Get hello job output and print hello start and end time.
         $endTime = Get-Date
         Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $TallyPropertiesJob.JobId -StandardError
         Write-Host "Start: " $startTime ", End: " $endTime -ForegroundColor Green
-5. **Execute** seu novo script! **Clique** no botão de execução verde.
-6. Confira os resultados. Faça logon no [Portal do Azure][azure-portal].
+5. **Execute** seu novo script! **Clique em** verde Olá executar botão.
+6. Verifique os resultados de saudação. O logon no hello [Portal do Azure][azure-portal].
 
-   1. Clique em <strong>Procurar</strong> no painel do lado esquerdo.
-   2. Clique em <strong>tudo</strong> na parte superior direita no painel de navegação.
+   1. Clique em <strong>procurar</strong> no painel do lado esquerdo de saudação.
+   2. Clique em <strong>tudo</strong> na saudação de superior direita do painel de navegação de saudação.
    3. Localize e clique em <strong>Contas do Azure Cosmos DB</strong>.
-   4. Em seguida, localizar seu <strong>Conta do Azure Cosmos DB</strong>, depois, <strong>banco de dados do Azure Cosmos DB</strong> e sua <strong>coleção do Azure Cosmos DB</strong> associados à coleção de saída especificada no trabalho do MapReduce.
+   4. Em seguida, localizar seu <strong>conta de banco de dados do Azure Cosmos</strong>, em seguida, <strong>banco de dados do banco de dados do Azure Cosmos</strong> e sua <strong>coleção de banco de dados do Azure Cosmos</strong> associado a coleção de saída Olá especificada em o trabalho de MapReduce.
    5. Por fim, clique em <strong>Gerenciador de Documentos</strong> abaixo de <strong>Ferramentas de Desenvolvedor</strong>.
 
-      Você verá os resultados do trabalho MapReduce.
+      Você verá os resultados de saudação do seu trabalho de MapReduce.
 
       ![Resultados da consulta de MapReduce][image-mapreduce-query-results]
 
@@ -395,11 +395,11 @@ Parabéns! Você acaba de executar seus primeiros trabalhos do Hive, Pig e MapRe
 
 Nós abrimos o código-fonte do nosso Conector do Hadoop. Se estiver interessado, você poderá contribuir com o [GitHub][github].
 
-Para saber mais, consulte os seguintes artigos:
+toolearn mais, consulte Olá artigos a seguir:
 
 * [Desenvolver um aplicativo Java com o DocumentDB][documentdb-java-application]
 * [Desenvolver programas Java MapReduce para Hadoop no HDInsight][hdinsight-develop-deploy-java-mapreduce]
-* [Introdução ao uso do Hadoop com o Hive no HDInsight para analisar o uso de fone de celular][hdinsight-get-started]
+* [Começar a usar Hadoop com Hive no uso de celular tooanalyze HDInsight][hdinsight-get-started]
 * [Usar o MapReduce com o HDInsight][hdinsight-use-mapreduce]
 * [Usar o Hive com o HDInsight][hdinsight-use-hive]
 * [Usar o Pig com o HDInsight][hdinsight-use-pig]

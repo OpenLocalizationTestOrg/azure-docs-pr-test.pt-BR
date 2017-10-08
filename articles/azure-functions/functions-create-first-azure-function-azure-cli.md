@@ -1,6 +1,6 @@
 ---
-title: "Criar sua primeira função na CLI do Azure | Microsoft Docs"
-description: "Aprenda a criar sua primeira Função do Azure para a execução sem servidor usando a CLI do Azure."
+title: "aaaCreate sua primeira função da saudação CLI do Azure | Microsoft Docs"
+description: "Saiba como toocreate do Azure a primeira função para a execução sem servidor usando Olá CLI do Azure."
 services: functions
 keywords: 
 author: ggailey777
@@ -12,21 +12,21 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: erikre
-ms.openlocfilehash: 8bd3e4bb7423db44c48b04f25edcf1074e6ea0bd
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 5feed0045d4998b88b0e1bb50996cb7bb42b0822
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-your-first-function-using-the-azure-cli"></a>Criar sua primeira função usando a CLI do Azure
+# <a name="create-your-first-function-using-hello-azure-cli"></a>Criar sua primeira função usando Olá CLI do Azure
 
-Este tutorial de início rápido explica como usar o Azure Functions para criar sua primeira função. É possível usar a CLI do Azure para criar um aplicativo de funções, que é a infraestrutura sem servidor que hospeda sua função. O código de função em si é implantado de um repositório de exemplo do GitHub.    
+Este tutorial de início rápido orienta como toouse toocreate de funções do Azure a primeira função. Usar o hello CLI do Azure toocreate um aplicativo de função, que é Olá infraestrutura sem servidor que hospeda a função. código de função Hello em si é implantado de um repositório de exemplo do GitHub.    
 
-Você pode seguir as etapas abaixo usando um computador Mac, Windows ou Linux. 
+Você pode seguir estas etapas hello usando um computador Mac, Windows ou Linux. 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-Antes de executar este exemplo, você deve ter o seguinte:
+Antes de executar este exemplo, você deve ter o seguinte hello:
 
 + Uma conta do [GitHub](https://github.com) ativa. 
 + Uma assinatura ativa do Azure.
@@ -35,14 +35,14 @@ Antes de executar este exemplo, você deve ter o seguinte:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se você escolher tooinstall e usa o hello CLI localmente, este tópico requer que você está executando a versão do CLI do Azure Olá 2.0 ou posterior. Executar `az --version` toofind versão de saudação. Se você precisar tooinstall ou atualização, consulte [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure, como os aplicativos de funções, bancos de dados e contas de armazenamento, são implantados e gerenciados.
+Criar um grupo de recursos com hello [criar grupo az](/cli/azure/group#create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure, como os aplicativos de funções, bancos de dados e contas de armazenamento, são implantados e gerenciados.
 
-O seguinte exemplo cria um grupo de recursos chamado `myResourceGroup`.  
+Olá, exemplo a seguir cria um grupo de recursos denominado `myResourceGroup`.  
 Se você não estiver usando o Cloud Shell, primeiro você deve entrar usando `az login`.
 
 ```azurecli-interactive
@@ -52,15 +52,15 @@ az group create --name myResourceGroup --location westeurope
 
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 
-O Functions usa uma conta de Armazenamento do Azure para manter o estado e outras informações sobre suas funções. Crie uma conta de armazenamento no grupo de recursos que você criou ao utilizar o comando [az storage account create](/cli/azure/storage/account#create).
+Funções usa um estado de toomaintain de conta de armazenamento do Azure e outras informações sobre suas funções. Criar uma conta de armazenamento no grupo de recursos de saudação criado usando Olá [criar conta de armazenamento az](/cli/azure/storage/account#create) comando.
 
-No seguinte comando, substitua seu próprio nome da conta de armazenamento globalmente exclusivo quando vir o espaço reservado `<storage_name>`. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas.
+Olá a seguir de comando, substitua seu próprio nome de conta de armazenamento exclusivo onde você pode ver Olá `<storage_name>` espaço reservado. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas.
 
 ```azurecli-interactive
 az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
 ```
 
-Depois que a conta de armazenamento for criada, a CLI do Azure mostrará informações semelhantes ao exemplo a seguir:
+Depois que tiver sido criada a conta de armazenamento hello, Olá CLI do Azure mostra informações toohello semelhante exemplo a seguir:
 
 ```json
 {
@@ -82,17 +82,17 @@ Depois que a conta de armazenamento for criada, a CLI do Azure mostrará informa
 
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
-Você deve ter um aplicativo de funções para hospedar a execução de suas funções. O aplicativo de funções fornece um ambiente para execução sem servidor do seu código de função. Ele permite que você agrupe funções como uma unidade lógica para facilitar o gerenciamento, a implantação e o compartilhamento de recursos. Crie um aplicativo de funções ao usar o comando [az functionapp create](/cli/azure/functionapp#create). 
+Você deve ter uma função aplicativo toohost Olá a execução das funções. Olá função aplicativo fornece um ambiente de execução sem servidor do seu código de função. Ele permite que você agrupe funções como uma unidade lógica para facilitar o gerenciamento, a implantação e o compartilhamento de recursos. Criar um aplicativo de função usando Olá [functionapp az criar](/cli/azure/functionapp#create) comando. 
 
-No seguinte comando, substitua seu próprio nome de aplicativo de funções exclusivo quando vir o espaço reservado `<app_name>` e o nome da conta de armazenamento para `<storage_name>`. O `<app_name>` é usado como domínio DNS padrão para o aplicativo de funções, portanto, o nome deve ser exclusivo entre todos os aplicativos no Azure. 
+Olá a seguir de comando, substitua seu próprio nome de aplicativo de função exclusiva onde você pode ver Olá `<app_name>` espaço reservado e hello nome de conta de armazenamento para `<storage_name>`. Olá `<app_name>` é usado como o domínio DNS à saudação padrão de saudação função aplicativo e o nome de saudação caso precisa toobe exclusivo entre todos os aplicativos no Azure. 
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
 --consumption-plan-location westeurope
 ```
-Por padrão, um aplicativo de funções é criado com o Plano de hospedagem de consumo, o que significa que os recursos são adicionados dinamicamente, conforme exigido por suas funções e você paga apenas quando funções estão em execução. Para obter mais informações, consulte [Escolher o plano de hospedagem correto](functions-scale.md). 
+Por padrão, um função de aplicativo é criado com hello consumo plano de hospedagem, que significa que os recursos são adicionados dinamicamente conforme exigido por funções, e você paga apenas quando funções estão em execução. Para obter mais informações, consulte [plano de hospedagem correto escolha Olá](functions-scale.md). 
 
-Depois que o aplicativo de funções for criado, a CLI do Azure mostrará informações semelhantes ao exemplo a seguir:
+Após Olá função aplicativo foi criado, Olá CLI do Azure mostra informações toohello semelhante exemplo a seguir:
 
 ```json
 {
@@ -112,18 +112,18 @@ Depois que o aplicativo de funções for criado, a CLI do Azure mostrará inform
 }
 ```
 
-Agora que você tem um aplicativo de funções, é possível implantar o código de função real do repositório GitHub de exemplo.
+Agora que você tem um aplicativo de função, você pode implantar o código de função real de saudação do repositório de exemplo hello GitHub.
 
 ## <a name="deploy-your-function-code"></a>Implantar o código de função  
 
-Há várias maneiras de criar o código de função no novo aplicativo de funções. Este tópico se conecta a um repositório de exemplo no GitHub. Assim como anteriormente, no código a seguir, substitua o espaço reservado `<app_name>` pelo nome do aplicativo de funções que você criou. 
+Há várias toocreate de maneiras seu código de função em seu novo aplicativo de função. Este tópico se conecta tooa repositório de exemplo no GitHub. Como antes, Olá código a seguir substitua Olá `<app_name>` espaço reservado com o nome de saudação do aplicativo de função hello criado por você. 
 
 ```azurecli-interactive
 az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --branch master \
 --repo-url https://github.com/Azure-Samples/functions-quickstart \
 --manual-integration 
 ```
-Após a definição de fonte de implantação, a CLI do Azure mostra informações semelhantes ao exemplo a seguir (valores nulos removidos para facilitar a leitura):
+Após a implantação de saudação origem foi definido, Olá CLI do Azure mostra informações toohello semelhantes (valores nulos removidos para facilitar a leitura) de exemplo a seguir:
 
 ```json
 {
@@ -140,9 +140,9 @@ Após a definição de fonte de implantação, a CLI do Azure mostra informaçõ
 }
 ```
 
-## <a name="test-the-function"></a>Testar a função
+## <a name="test-hello-function"></a>Função de saudação do teste
 
-Use o cURL para testar a função implantada em um computador Mac ou Linux, ou usando Bash no Windows. Execute o seguinte comando cURL, substituindo o espaço reservado `<app_name>` pelo nome do aplicativo de funções. Acrescente a cadeia de caracteres de consulta `&name=<yourname>` à URL.
+Use ondulação tootest Olá implantado função em um computador Mac ou Linux ou usando o Bash no Windows. Executar Olá após a rotação de comando, substituindo Olá `<app_name>` espaço reservado com o nome de saudação do seu aplicativo de função. Acrescente a cadeia de caracteres de consulta Olá `&name=<yourname>` toohello URL.
 
 ```bash
 curl http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
@@ -150,7 +150,7 @@ curl http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
 
 ![Resposta de função mostrada em um navegador.](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-curl.png)  
 
-Caso não tenha o cURL disponível na linha de comando, digite a mesma URL no endereço do seu navegador da Web. Novamente, substitua o espaço reservado `<app_name>` pelo nome do aplicativo de funções, e acrescente a cadeia de consulta `&name=<yourname>` à URL e execute a solicitação. 
+Se você não tiver ondulação disponível na linha de comando, digite Olá a mesma URL no endereço de saudação do navegador da web. Novamente, substitua Olá `<app_name>` espaço reservado com o nome de saudação do seu aplicativo de função e acrescenta a cadeia de caracteres de consulta Olá `&name=<yourname>` toohello URL e executar a solicitação de saudação. 
 
     http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
    
@@ -158,7 +158,7 @@ Caso não tenha o cURL disponível na linha de comando, digite a mesma URL no en
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Outros inícios rápidos nessa coleção aproveitam esse início rápido. Se você planeja continuar trabalhando com inícios rápidos subsequentes ou com os tutoriais, não limpe os recursos criados nesse início rápido. Caso contrário, use os comandos a seguir para excluir todos os recursos criados por esse início rápido:
+Outros inícios rápidos nessa coleção aproveitam esse início rápido. Se você planeja toocontinue toowork com tutoriais subsequentes ou com os tutoriais hello, faça não limpar os recursos de saudação criados neste guia de início rápido. Se você não planeja toocontinue, use Olá toodelete de comando a seguir todos os recursos criados por este guia de início rápido:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

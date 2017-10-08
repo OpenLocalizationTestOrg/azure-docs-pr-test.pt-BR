@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: habilitando write-back de dispositivo | Microsoft Docs'
-description: Este documento fornece detalhes sobre como habilitar write-back de dispositivo usando o Azure AD Connect
+description: Este documento detalhes como tooenable dispositivo write-back usando o Azure AD Connect
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -14,46 +14,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 3b14013894b7fabdd4658a64f8fdfd29216ba268
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 2566a514137fed85b21929207cf3230e6878ebbe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: habilitando o write-back do dispositivo
 > [!NOTE]
-> Uma assinatura do Azure AD Premium é necessária para write-back do dispositivo.
+> TooAzure uma assinatura Premium do AD é necessária para write-back do dispositivo.
 > 
 > 
 
-A documentação a seguir fornece informações sobre como habilitar o recurso de write-back do dispositivo no Azure AD Connect. Write-back de dispositivo é usado nas seguintes situações:
+Olá documentação a seguir fornece informações sobre como recurso de write-back de dispositivo de saudação tooenable no Azure AD Connect. Write-back do dispositivo é usado em Olá os seguintes cenários:
 
-* Habilitar acesso condicional com base em dispositivos aos aplicativos protegidos por ADFS (2012 R2 ou superior) (terceira parte confiável).
+* Habilitar o acesso condicional com base em dispositivos tooADFS (2012 R2 ou superior) (terceira parte confiável) de aplicativos protegidos.
 
-Isso fornece segurança adicional e a garantia de que o acesso aos aplicativos é concedido somente a dispositivos confiáveis. Para saber mais sobre acesso condicional, consulte [Gerenciando risco com acesso condicional](../active-directory-conditional-access.md) e [Configurando o acesso condicional no local usando o registro do dispositivo do Azure Active Directory](../active-directory-conditional-access-automatic-device-registration-setup.md).
+Isso fornece segurança adicional e garantia de que acessar tooapplications é concedida somente tootrusted dispositivos. Para saber mais sobre acesso condicional, consulte [Gerenciando risco com acesso condicional](../active-directory-conditional-access.md) e [Configurando o acesso condicional no local usando o registro do dispositivo do Azure Active Directory](../active-directory-conditional-access-automatic-device-registration-setup.md).
 
 > [!IMPORTANT]
-> <li>Os dispositivos devem estar localizados na mesma floresta que os usuários. Como o write-back dos dispositivos deve ser feito em uma única floresta, esse recurso não é compatível com uma implantação com várias florestas de usuário.</li>
-> <li>Somente um objeto de configuração de registro de dispositivo pode ser adicionado à floresta local do Active Directory. Esse recurso não é compatível com uma topologia onde o Active Directory local é sincronizado a vários diretórios do AD do Azure.</li>> 
+> <li>Dispositivos devem estar localizados no hello mesma floresta como usuários hello. Desde que os dispositivos devem ser gravados tooa única floresta, esse recurso não atualmente suporta uma implantação com várias florestas de usuário.</li>
+> <li>Objeto de configuração do registro de dispositivo somente uma pode ser adicionado a floresta do toohello no local do Active Directory. Este recurso não é compatível com uma topologia onde Olá local do Active Directory é diretórios toomultiple sincronizado do AD do Azure.</li>> 
 
 ## <a name="part-1-install-azure-ad-connect"></a>Parte 1: instalar o Azure AD Connect
-1. Instale o Azure AD Connect usando configurações expressas ou personalizadas. A Microsoft recomenda iniciar com todos os usuários e grupos sincronizados com êxito antes de habilitar o write-back do dispositivo.
+1. Instale o Azure AD Connect usando configurações expressas ou personalizadas. A Microsoft recomenda toostart com todos os usuários e grupos sincronizados com êxito antes de ativar o write-back do dispositivo.
 
 ## <a name="part-2-prepare-active-directory"></a>Parte 2: preparar o Active Directory
-Use as etapas a seguir para preparar para o uso de write-back do dispositivo.
+Use Olá tooprepare etapas para usar o write-back de dispositivo a seguir.
 
-1. No computador no qual o Azure AD Connect está instalado, inicie o PowerShell no modo elevado.
-2. Se o módulo do PowerShell do Active Directory NÃO estiver instalado, instale-o usando o comando a seguir:
+1. Da máquina Olá onde o Azure AD Connect está instalado, inicie o PowerShell no modo elevado.
+2. Se o módulo do Active Directory PowerShell Olá não estiver instalado, instale-o usando Olá comando a seguir:
    
    `Add-WindowsFeature RSAT-AD-PowerShell`
-3. Se o módulo do PowerShell do Active Directory do Azure NÃO estiver instalado, baixe-o e instale-o de [Módulo do Active Directory do Azure para o Windows PowerShell (versão de 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297). Este componente depende do assistente de conexão, que é instalado com o Azure AD Connect.
-4. Com credenciais de administrador corporativo, execute os seguintes comandos e, em seguida, saia do PowerShell.
+3. Se o módulo do Azure Active Directory PowerShell Olá não estiver instalado, baixe e instale-o de [Azure módulo Active Directory para Windows PowerShell (versão de 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297). Este componente tem uma dependência em Olá Assistente de conexão, que é instalado com o Azure AD Connect.
+4. Com credenciais de administrador corporativo, execute Olá comandos a seguir e, em seguida, saia do PowerShell.
    
    `Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'`
    
    `Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}`
 
-As credenciais de administrador corporativo serão necessárias, já que é necessário alterar o namespace de configuração. Um administrador de domínio não terá permissões suficientes.
+Credenciais de administrador corporativo serão necessárias, já que o namespace de configuração toohello alterações são necessárias. Um administrador de domínio não terá permissões suficientes.
 
 ![Powershell para habilitar o write-back do dispositivo](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)
 
@@ -61,74 +61,74 @@ Descrição:
 
 * Se ainda não existirem, ele criará e configurará novos contêineres e objetos em CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
 * Se não existir, cria e configura novos contêineres e objetos em CN=RegisteredDevices,[domain-dn]. Objetos de dispositivo serão criados neste contêiner.
-* Define as permissões necessárias na conta do Azure AD Connector para gerenciar dispositivos em seu Active Directory.
-* Só precisa ser executado em uma floresta, mesmo que o Azure AD Connect esteja instalado em várias florestas.
+* Define as permissões necessárias no hello conta de conector AD do Azure, dispositivos toomanage no seu Active Directory.
+* Só precisa toorun em uma floresta, mesmo se a conexão do AD do Azure está sendo instalado em várias florestas.
 
 Parâmetros:
 
 * DomainName: domínio do Active Directory no qual os objetos do dispositivo serão criados. Observação: todos os dispositivos para determinada floresta do Active Directory serão criados em um único domínio.
-* AdConnectorAccount: conta do Active Directory que será usada pelo Azure AD Connect para gerenciar objetos no diretório. Esta é a conta usada pela sincronização do Azure AD Connect para se conectar ao AD. Se você instalou usando configurações expressas, é a conta prefixada com MSOL_.
+* AdConnectorAccount: Conta do Active Directory que será usada pelo Azure AD Connect toomanage objetos no diretório de saudação. Isso é usada pelo Azure AD Connect sincronização tooconnect tooAD de conta de saudação. Se você tiver instalado usando as configurações expressas, é prefixada com MSOL_ de conta de saudação.
 
 ## <a name="part-3-enable-device-writeback-in-azure-ad-connect"></a>Parte 3: habilitar o dispositivo write-back na conexão do AD do Azure
-Use o procedimento a seguir para habilitar write-back do dispositivo no Azure AD Connect.
+Use Olá seguindo o procedimento tooenable dispositivo write-back na conexão do AD do Azure.
 
-1. Execute o assistente de instalação novamente. Selecione **personalizar opções de sincronização** na página Tarefas Adicionais e clique em **Avançar**.
+1. Execute novamente o Assistente de instalação de saudação. Selecione **personalizar opções de sincronização** Olá as tarefas adicionais de página e clique em **próximo**.
    ![Instalação Personalizada - Personalizar opções de sincronização](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback2.png)
-2. Na página Recursos Opcionais, o write-back do dispositivo não estará mais esmaecido. Observe que se as etapas de preparação do Azure AD Connect não forem concluídas, o write-back do dispositivo ficará indisponível na página Recursos Opcionais. Marque a caixa para write-back do dispositivo e clique em **avançar**. Se a caixa de seleção ainda estiver desabilitada, consulte a [seção de solução de problemas](#the-writeback-checkbox-is-still-disabled).
+2. Na página de recursos opcionais de hello, Write-back de dispositivo estará não esmaecida. Observe que, se hello etapas de preparação do Azure AD Connect não sejam concluídas write-back de dispositivo estará esmaecido out na página de recursos opcionais de saudação. Marque a caixa Olá para write-back do dispositivo e clique em **próximo**. Se a caixa de seleção Olá ainda estiver desabilitada, consulte Olá [seção de solução de problemas](#the-writeback-checkbox-is-still-disabled).
    ![Instalação Personalizada - Recursos opcionais de write-back de dispositivo](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback3.png)
-3. Na página de write-back, você verá o domínio fornecido como a floresta de write-back de dispositivo padrão.
+3. Na página de write-back Olá, você verá o domínio Olá fornecido como floresta de write-back de dispositivo saudação padrão.
    ![Florestas de destino do write-back de dispositivo da Instalação Personalizada](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback4.png)
-4. Conclua a instalação do assistente sem alterações de configuração adicionais. Se necessário, confira [Instalação personalizada do Azure AD Connect.](active-directory-aadconnect-get-started-custom.md)
+4. Concluir a instalação de saudação do hello assistente sem alterações de configuração adicionais. Se necessário, consulte muito[instalação personalizada do Azure AD Connect.](active-directory-aadconnect-get-started-custom.md)
 
 ## <a name="enable-conditional-access"></a>Habilitar o acesso condicional
-Instruções detalhadas para habilitar esse cenário estão disponíveis em [Definindo o acesso condicional local usando o registro do dispositivo do Active Directory do Azure](../active-directory-conditional-access-automatic-device-registration-setup.md).
+Tooenable instruções detalhadas sobre esse cenário estão disponíveis em [definindo o acesso condicional no local, usando o registro do dispositivo do Azure Active Directory](../active-directory-conditional-access-automatic-device-registration-setup.md).
 
-## <a name="verify-devices-are-synchronized-to-active-directory"></a>Verifique se que dispositivos estão sincronizados com o Active Directory
-O write-back do dispositivo agora deve estar funcionando corretamente. Pode levar até 3 horas para que os objetos do dispositivo sejam gravados no Active Directory.  Para verificar se os dispositivos estão sendo sincronizados corretamente, faça o seguinte, depois de concluir as regras de sincronização:
+## <a name="verify-devices-are-synchronized-tooactive-directory"></a>Verifique se que os dispositivos são sincronizado tooActive diretório
+O write-back do dispositivo agora deve estar funcionando corretamente. Lembre-se de que pode levar horas too3 para dispositivo objetos toobe gravados tooAD.  tooverify seus dispositivos estão sendo sincronizados corretamente, Olá depois de concluir as regras de sincronização de saudação:
 
 1. Inicie o Centro Administrativo do Active Directory.
-2. Expanda RegisteredDevices dentro do domínio que está sendo federado.
+2. Expanda RegisteredDevices, dentro de saudação domínio sendo federado.
    ![Dispositivos registrados do Centro de Administração do Active Directory](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)
 3. Dispositivos registrados atuais serão listados lá.
    ![Lista de dispositivos registrados do Centro de Administração do Active Directory](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)
 
 ## <a name="troubleshooting"></a>Solucionar problemas
-### <a name="the-writeback-checkbox-is-still-disabled"></a>A caixa de seleção de write-back é desabilitada
-Se a caixa de seleção para write-back do dispositivo não estiver habilitada, mesmo se você tiver seguido as etapas acima, as etapas seguir o guiarão através do que o assistente de instalação estiver verificando antes de a caixa ser habilitada.
+### <a name="hello-writeback-checkbox-is-still-disabled"></a>caixa de seleção de write-back de saudação ainda está desabilitada.
+Se a caixa de seleção Olá para write-back de dispositivo não estiver habilitado, mesmo se você tiver seguido as etapas acima, a saudação Olá etapas a seguir irá guiá-lo por meio de instalação que Olá assistente está verificando antes de caixa hello está habilitada.
 
 Primeiro as prioridades:
 
-* Verifique se pelo menos uma floresta tem 2012R2 do Windows Server. O tipo de objeto do dispositivo deve estar presente.
-* Se já estiver executando o assistente de instalação, as alterações não serão detectadas. Nesse caso, conclua o assistente de instalação e execute-o novamente.
-* Verifique se a conta fornecida no script de inicialização é, na verdade, o usuário correto usado pelo Active Directory Connector. Para fazer isso, siga essas etapas:
-  * No menu Iniciar, abra **Serviço de sincronização**.
-  * Abra a guia **Conectores** .
-  * Localize o conector com o tipo de Serviços de Domínio do Active Directory e selecione-o.
+* Verifique se pelo menos uma floresta tem 2012R2 do Windows Server. tipo de objeto de dispositivo Olá deve estar presente.
+* Se o Assistente de instalação de saudação já está em execução, as alterações não serão detectadas. Nesse caso, conclua o Assistente de instalação hello e executá-lo novamente.
+* Certifique-se de saudação conta que fornecer no script de inicialização de saudação é realmente Olá correto usuário usado por Olá conector do Active Directory. tooverify isso, siga estas etapas:
+  * Saudação do menu de início, abra **serviço de sincronização**.
+  * Olá abrir **conectores** guia.
+  * Localize Olá conector com o tipo de serviços de domínio do Active Directory e selecioná-lo.
   * Em **Ações**, selecione **Propriedades**.
-  * Vá para **Conectar-se à floresta do Active Directory**. Verifique o nome de usuário e domínio especificado nessa correspondência de tela a conta fornecida para o script.
+  * Vá muito**conectar-se a floresta do diretório tooActive**. Verifique se esse nome de usuário e domínio Olá especificado no script de toohello tela correspondência Olá conta fornecida.
     ![Conta do conector no Sync Service Manager](./media/active-directory-aadconnect-feature-device-writeback/connectoraccount.png)
 
 Verifique a configuração no Active Directory:
 
-* Verifique se o serviço de registro do dispositivo está localizado no local abaixo (CN = DeviceRegistrationService, CN = Serviços de registro de dispositivo, CN = Configuração do registro de dispositivo, CN = Services, CN = Configuration) no contexto de nomenclatura da configuração.
+* Verifique se esse Olá Device Registration Service está localizado no local de saudação abaixo (CN = DeviceRegistrationService, CN = Serviços de registro de dispositivo, CN = Device Registration Configuration, CN = Services, CN = Configuration) no contexto de nomenclatura de configuração.
 
 ![Solucionar problemas, DeviceRegistrationService no namespace de configuração](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot1.png)
 
-* Verifique se há apenas um objeto de configuração pesquisando o namespace de configuração. Se houver mais de um, exclua a cópia.
+* Verifique se há apenas um objeto de configuração pesquisando Olá namespace de configuração. Se houver mais de um, exclua a cópia de saudação.
 
-![Solucionar problemas, procurar por objetos duplicados](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot2.png)
+![Solucionar problemas, procure objetos duplicados Olá](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot2.png)
 
-* No objeto do serviço de registro de dispositivo, verifique se o atributo msDS-DeviceLocation está presente e tem um valor. Pesquise esse local e verifique se ele está presente com o atributo msDS-DeviceContainer objectType.
+* No objeto de serviço de registro de dispositivo hello, certifique-se de saudação atributo msDS-DeviceLocation está presente e tem um valor. Pesquisa esse local e verifique se ele estiver presente com hello objectType msDS-DeviceContainer.
 
 ![Solucionar problemas, msDS-DeviceLocation](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot3.png)
 
 ![Solucionar problemas, classe de objeto RegisteredDevices](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot4.png)
 
-* Verifique se a conta usada pelo conector do Active Directory tem as permissões necessárias no contêiner dos Dispositivos Registrados encontradas pela etapa anterior. Permissões esperadas neste contêiner:
+* Verificar conta Olá usada pelo Olá que conector do Active Directory tem as permissões necessárias no contêiner de dispositivos registrados Olá encontrado pela etapa anterior hello. Isso é permissões Olá esperado neste contêiner:
 
 ![Solucionar problemas, verificar permissões no contêiner](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot5.png)
 
-* Verifique se a conta do Active Directory tem permissões no objeto CN = Configuração do registro de dispositivo, CN = Services, CN= Configuração.
+* Verificar Olá conta do Active Directory tem permissões no hello CN = Device Registration Configuration, CN = Services, CN = objeto de configuração.
 
 ![Solucionar problemas, verificar permissões na configuração de registro do dispositivo](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot6.png)
 

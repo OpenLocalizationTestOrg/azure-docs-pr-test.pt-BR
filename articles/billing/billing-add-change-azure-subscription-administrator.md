@@ -1,6 +1,6 @@
 ---
-title: "Adicionar ou alterar funções de administração de assinatura do Azure | Microsoft Docs"
-description: "Descreve como adicionar ou alterar o Coadministrador, Administrador de Serviços e Administrador da Conta do Azure "
+title: "aaaAdd ou alterar funções de assinatura de administração do Azure | Microsoft Docs"
+description: "Descreve como tooadd ou alterar Coadministrador do Azure, o administrador de serviço e o administrador da conta"
 services: 
 documentationcenter: 
 author: genlin
@@ -15,113 +15,113 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: genli
-ms.openlocfilehash: da5995535d42ed52772cb09e0f4da51bbf878748
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 14eaecf2dbfd7152775ac3552bf3a7ae3db596b8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>Adicionar ou alterar as funções de administrador do Azure que gerenciam a assinatura ou serviços
-Altere o administrador do Azure que gerencia sua assinatura do Azure ou que gerencia os serviços do Azure usados em sua assinatura. Para exibir as informações de cobrança do Azure e gerenciar as assinaturas, entre no [Centro de Contas](https://account.windowsazure.com/Home/Index) como o Administrador da Conta. 
+# <a name="add-or-change-azure-administrator-roles-that-manage-hello-subscription-or-services"></a>Adicionar ou alterar as funções de administrador do Azure que gerenciam a assinatura de saudação ou serviços
+Você pode alterar Olá administrador do Azure que gerencia a sua assinatura do Azure ou gerencia Olá serviços do Azure usados na sua assinatura. tooview as informações de cobrança do Azure e gerenciar assinaturas, você deve entrar no toohello [Centro de contas](https://account.windowsazure.com/Home/Index) como Olá administrador da conta. 
 
 ## <a name="add-an-admin-for-a-subscription"></a>Adicionar um administrador para uma assinatura
-Adicione um administrador do Azure no Portal do Azure ou no Portal Clássico do Azure.
+Você pode adicionar um administrador do Azure em Olá portal do Azure ou em Olá portal clássico do Azure.
 
 **Portal do Azure**
 
-Para adicionar alguém como administrador de uma assinatura no portal do Azure, você atribui à pessoa a função de proprietário. A função de proprietário só pode gerenciar os recursos na assinatura que você atribuiu. Eu não tenho privilégio de acesso a outras assinaturas. Os proprietários adicionados por meio do [Portal do Azure](https://portal.azure.com) não podem gerenciar recursos no [Portal Clássico do Azure](https://manage.windowsazure.com).
+tooadd alguém como um administrador para uma assinatura no hello portal do Azure, você lhes função de proprietário de saudação. função de proprietário de saudação só pode gerenciar recursos Olá na assinatura de saudação que você atribuiu. Ele não tem assinaturas de tooother de privilégio de acesso. Olá proprietários adicionar por meio de saudação [portal do Azure](https://portal.azure.com) não é possível gerenciar recursos no hello [portal clássico do Azure](https://manage.windowsazure.com).
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
-2. No menu Ajuda, selecione **Assinatura** > *a assinatura que você deseja que o administrador acesse*.
+1. Entrar toohello [portal do Azure](https://portal.azure.com).
+2. No menu de Hub hello, selecione **assinatura** > *Olá assinatura que você deseja Olá administrador tooaccess*.
 
     ![Captura de tela que mostra a assinatura selecionada](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
 
-3. Na folha da assinatura, selecione **Controle de acesso (IAM)**.
-4. Selecione **Adicionar** > **Função** > **Proprietário**. Digite o endereço de email do usuário que você deseja adicionar como proprietário, selecione o usuário e, em seguida, **Salvar**.
+3. Na folha de assinatura hello, selecione **(IAM) do controle de acesso**.
+4. Selecione **Adicionar** > **Função** > **Proprietário**. Digite o endereço de email de saudação do usuário Olá você deseja tooadd como proprietário, o usuário selecione Olá e, em seguida, selecione **salvar**.
 
-    ![Captura de tela que mostra a função Proprietário selecionada](./media/billing-add-change-azure-subscription-administrator/add-role.png)
+    ![Captura de tela que mostra a função de proprietário de saudação selecionada](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
-5. Se você deseja adicionar a conta do proprietário como coadministrador, na página **Controle de acesso (IAM)**, clique com o botão direito do mouse no usuário e, em seguida, selecione **Adicionar como coadministrador**. Esse recurso agora está disponível na [versão prévia do portal do Azure](https://preview.portal.azure.com/). 
+5. Se quiser que a conta do proprietário Olá tooadd como coadministrador, em hello **(IAM) do controle de acesso** página, clique com botão direito usuário Olá e, em seguida, selecione **adicionar como coadministrador**. Esse recurso agora está disponível na [versão prévia do portal do Azure](https://preview.portal.azure.com/). 
 
      ![Captura de tela que adiciona o coadministrador](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 
     >[!TIP]
-    >Você precisará adicionar o usuário “Proprietário” como coadministrador se o usuário precisar gerenciar os serviços do Azure no [portal clássico do Azure](https://manage.windowsazure.com/).
+    >Você precisará de usuário de "Proprietário" hello tooadd como coadministrador se precisar de usuário Olá toomanage Olá serviços do Azure em [portal clássico do Azure](https://manage.windowsazure.com/).
 
-    Para remover a permissão de coadministrador, clique com o botão direito do mouse no usuário “coadministrador” e, em seguida, selecione **Remover coadministrador**.
+    tooremove permissão de coadministrador hello, usuário de "coadministrador" hello e, em seguida, selecione **remover o coadministrador**.
 
     ![Captura de tela que remove o coadministrador](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
 
 
 **Portal clássico do Azure**
 
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com/).
-2. No painel de navegação, selecione **Configurações**> **Administradores**> **Adicionar**. </br>
+1. Entrar toohello [portal clássico do Azure](https://manage.windowsazure.com/).
+2. No painel de navegação hello, selecione **configurações**> **administradores**> **adicionar**. </br>
 
-    ![Captura de tela que mostra como usar botão Adicionar](./media/billing-add-change-azure-subscription-administrator/addcoadmin.png)
-3. Digite o endereço de email da pessoa que deseja adicionar como Coadministrador e, em seguida, selecione a assinatura à qual deseja que o Coadministrador tenha acesso.</br>
+    ![Captura de tela que mostra como tooget toohello adicionar botão](./media/billing-add-change-azure-subscription-administrator/addcoadmin.png)
+3. Saudação de tipo endereço de email da pessoa a saudação ser tooadd como coadministrador e selecione Olá assinatura que você deseja Olá coadministrador tooaccess.</br>
 
     ![Captura de tela que mostra uma assinatura selecionada ](./media/billing-add-change-azure-subscription-administrator/addcoadmin2.png)</br>
 
-O seguinte endereço de email pode ser adicionado como Coadministrador:
+Olá, endereço de email a seguir pode ser adicionada como um Coadministrador:
 
 * **Conta da Microsoft** (anteriormente Windows Live Id) </br>
-  : você pode usar uma Conta da Microsoft para entrar em todos os produtos e serviços de nuvem da Microsoft orientados ao consumidor, como Outlook (Hotmail), Skype (MSN), OneDrive, Windows Phone e Xbox LIVE.
+  Você pode usar um toosign Account da Microsoft em tooall orientados ao consumidor produtos da Microsoft e serviços de nuvem, como o Outlook (Hotmail), (MSN) Skype, OneDrive, Windows Phone e Xbox LIVE.
 * **Organizational account**</br>
-  : uma conta organizacional é uma conta criada no Active Directory do Azure. O endereço da conta organizacional tem este formato:
+  : uma conta organizacional é uma conta criada no Active Directory do Azure. endereço de conta organizacional Olá tem este formato:
 
     usuario@&lt;seu domínio&gt;.onmicrosoft.com
 
 ## <a name="change-service-administrator-for-a-subscription"></a>Alterar o Administrador de Serviços de uma assinatura
-Somente o Administrador da Conta pode alterar o Administrador de Serviços de uma assinatura.
+Olá administrador da conta pode alterar Olá administrador de serviço para uma assinatura.
 
-1. Entre no [Centro de Contas do Azure](https://account.windowsazure.com/subscriptions) usando o Administrador da Conta.
-2. Selecione a assinatura que deseja alterar.
-3. No lado direito, selecione **Editar detalhes da assinatura**. </br>
+1. Entrar muito[Centro de contas Azure](https://account.windowsazure.com/subscriptions) usando Olá administrador da conta.
+2. Selecione a assinatura de saudação toochange desejado.
+3. Selecione direita hello, **Editar assinatura** detalhes. </br>
 
     ![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
-4. Na caixa **ADMINISTRADOR DE SERVIÇOS** , insira o endereço de email do novo administrador de serviços. </br>
+4. Em Olá **administrador de serviço** , digite o endereço de email de saudação do hello novo administrador do serviço. </br>
 
     ![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
 
-## <a name="change-the-account-administrator"></a>Alterar o Administrador da Conta
-Para transferir a propriedade da conta do Azure para outra conta, confira [Transferindo a propriedade de uma assinatura do Azure](billing-subscription-transfer.md).
+## <a name="change-hello-account-administrator"></a>Alterar Olá administrador da conta
+a propriedade tootransfer de saudação do Azure tooanother conta, consulte [transferir a propriedade de uma assinatura do Azure](billing-subscription-transfer.md).
 
-Recomendamos que você não exclua ou renomeie o endereço de email do Administrador da Conta. Talvez você veja um comportamento inesperado e indesejado com a conta do Azure. Talvez você não consiga entrar no Azure com essa conta, fazer alterações na conta ou gerenciar recursos com essa conta. 
+É altamente recomendável que você não exclua ou renomeie o endereço de email do administrador da conta de saudação. Você pode observar o comportamento e não esperado com hello conta do Azure. Você não pode ser tooAzure capaz de entrar com essa conta, fazer alterações toohello conta ou gerenciar recursos com essa conta. 
 
-## <a name="check-the-account-administrator-of-the-subscription"></a>Verificar quem é o Administrador da Conta da assinatura
-Se você não tiver certeza de quem é o administrador da conta de sua assinatura, use as etapas a seguir para descobrir.
+## <a name="check-hello-account-administrator-of-hello-subscription"></a>Verificar Olá administrador da conta de assinatura de saudação
+Se você não tiver certeza de que o administrador da conta Olá é para sua assinatura, use Olá seguindo as etapas toofind-out.
 
-  1. Entre no [Portal do Azure](https://portal.azure.com).
-  2. No menu Hub, selecione **Assinatura**.
-  3. Selecione a assinatura que você deseja verificar e olhe as **Configurações**.
-  4. Selecione **Propriedades**. O administrador da conta da assinatura será exibido na caixa **Administrador da Conta** .  
+  1. Entrar toohello [portal do Azure](https://portal.azure.com).
+  2. No menu de Hub hello, selecione **assinatura**.
+  3. Selecione Olá assinatura você deseja toocheck e, em seguida, procure em **configurações**.
+  4. Selecione **Propriedades**. Olá administrador da conta Olá assinatura é exibido no hello **administrador da conta** caixa.  
 
 ## <a name="types-of-azure-admin-accounts"></a>Tipos de contas de administrador do Azure
- Administrador da Conta, Administrador de Serviços e Coadministrador são os três tipos de função de administrador no Microsoft Azure. A tabela a seguir descreve a diferença entre essas três funções administrativas.
+ Conta de administrador, administrador de serviço e co-administrador são três tipos de saudação de funções de administrador no Microsoft Azure. Olá, tabela a seguir descreve Olá diferença entre essas três funções administrativas.
 
 | Função administrativa | Limite | Descrição |
 | --- | --- | --- |
-| AA (Administrador da Conta) |1 por conta do Azure |Essa é a pessoa que se inscreveu ou que comprou assinaturas do Azure e que está autorizada a acessar o [Centro de Contas](https://account.windowsazure.com/Home/Index) e realizar várias tarefas de gerenciamento. A capacidade de criar assinaturas, cancelar assinaturas, alterar a cobrança para uma assinatura e alterar o Administrador de Serviços são algumas dessas tarefas. |
-| SA (Administrador de Serviços) |1 por assinatura do Azure |Essa função está autorizada a gerenciar serviços no [Portal do Azure](https://portal.azure.com). Por padrão, para uma nova assinatura, o Administrador da Conta também é o Administrador de Serviços. |
-| Coadministrador (CA) no [portal clássico do Azure](https://manage.windowsazure.com) |200 por assinatura |Essa função tem os mesmos privilégios de acesso que o Administrador de Serviços, mas não pode alterar a associação de assinaturas nos diretórios do Azure. |
+| AA (Administrador da Conta) |1 por conta do Azure |Isso é Olá pessoa inscreveu ou comprar assinaturas do Azure e é autorizado tooaccess hello [Centro de contas](https://account.windowsazure.com/Home/Index) e executar várias tarefas de gerenciamento. Esses incluem toocreate capaz de assinaturas, cancelar assinaturas, alterar a cobrança Olá para uma assinatura e alterar Olá administrador de serviço. |
+| SA (Administrador de Serviços) |1 por assinatura do Azure |Essa função é serviços autorizados toomanage em Olá [portal do Azure](https://portal.azure.com). Por padrão, para uma nova assinatura, Olá administrador da conta é também Olá administrador de serviço. |
+| Coadministrador (CA) em Olá [portal clássico do Azure](https://manage.windowsazure.com) |200 por assinatura |Essa função tem Olá mesmo privilégios de acesso como Olá administrador de serviço, mas não é possível alterar a associação de saudação dos diretórios de tooAzure de assinaturas. |
 
-O RBAC (Controle de Acesso Baseado em Função) do Active Directory do Azure permite que os usuários sejam adicionados a várias funções. Para obter mais informações, confira [Controle de acesso baseado em função do Active Directory do Azure](../active-directory/role-based-access-control-configure.md).
+Controle de acesso do Azure com base em função do Active Directory (RBAC) permite que os usuários toobe adicionado toomultiple funções. Para obter mais informações, confira [Controle de acesso baseado em função do Active Directory do Azure](../active-directory/role-based-access-control-configure.md).
 
 ## <a name="limitations-and-restrictions-for-admin-accounts"></a>Limitações e restrições para contas de administrador
-* Cada assinatura é associada a um diretório do Azure AD (também conhecido como Diretório Padrão). Para localizar o Diretório Standard ao qual a assinatura está associada, acesse o [Portal clássico do Azure](https://manage.windowsazure.com/), selecione **Configurações** > **Assinaturas**. Verifique a ID da assinatura para localizar o Diretório Padrão.
-* Se estiver conectado com uma Conta da Microsoft, você poderá adicionar apenas outras Contas da Microsoft ou usuários no Diretório Padrão como Coadministrador.
-* Se você estiver conectado a uma conta organizacional, você poderá adicionar outras contas organizacionais em sua organização como Coadministrador. Por exemplo, abby@contoso.com pode adicionar bob@contoso.com como Administrador de Serviços ou Coadministrador, mas não pode adicionar john@notcontoso.com, a menos que john@notcontoso.com esteja no Diretório Padrão. Usuários conectados usando contas organizacionais podem continuar adicionando usuários da Conta da Microsoft como Coadministradores ou Administradores de Serviços.
-* Agora que é possível entrar no Azure com uma conta organizacional, estas são as alterações dos requisitos de conta de Administrador de Serviços e Coadministrador:
+* Cada assinatura é associada um diretório do AD do Azure (também conhecido como Olá diretório padrão). Olá toofind assinatura de saudação do diretório padrão está associado, vá toohello [portal clássico do Azure](https://manage.windowsazure.com/), selecione **configurações** > **assinaturas**. Verifique Olá assinatura ID toofind Olá diretório padrão.
+* Se você tiver entrado com uma Account da Microsoft, você só pode adicionar outros Accounts da Microsoft ou usuários no diretório padrão de saudação como Coadministrador.
+* Se você estiver conectado a uma conta organizacional, você poderá adicionar outras contas organizacionais em sua organização como Coadministrador. Por exemplo, abby@contoso.com pode adicionar bob@contoso.com como Administrador de Serviços ou Coadministrador, mas não pode adicionar john@notcontoso.com, a menos que john@notcontoso.com esteja no Diretório Padrão. Usuários conectados com as contas organizacionais podem continuar tooadd usuários de Account da Microsoft como administrador de serviço ou Coadministrador.
+* Agora que é possível toosign em tooAzure com uma conta organizacional, aqui estão Olá alterações tooService administrador e requisitos de conta de coadministrador:
 
-  | Método de entrada | Adicionar Conta da Microsoft ou usuários no Diretório Padrão como CA ou SA? | Adicionar conta organizacional na mesma organização como CA ou SA? | Adicionar conta organizacional em uma organização diferente como CA ou SA? |
+  | Método de entrada | Adicionar Conta da Microsoft ou usuários no Diretório Padrão como CA ou SA? | Adicionar conta organizacional no hello mesma organização como autoridade de certificação ou SA? | Adicionar conta organizacional em uma organização diferente como CA ou SA? |
   | --- | --- | --- | --- |
   |  Conta da Microsoft |Sim |Não |Não |
   |  Conta organizacional |Sim |Sim |Não |
 
 ## <a name="learn-more-about-resource-access-control-and-active-directory"></a>Saiba mais sobre o controle de acesso a recursos e o Active Directory
-* Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, consulte [Noções básicas sobre o acesso aos recursos do Azure](../active-directory/active-directory-understanding-resource-access.md).
+* toolearn mais sobre como o acesso aos recursos é controlado no Microsoft Azure, consulte [Noções básicas sobre o acesso a recursos no Azure](../active-directory/active-directory-understanding-resource-access.md).
 * Para saber mais sobre como o Azure Active Directory, confira [Como as assinaturas do Azure estão associadas ao Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md) e [Atribuição de funções de administrador no Azure Active Directory](../active-directory/active-directory-assign-admin-roles.md).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
-Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+Se você ainda precisar de Ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) tooget seu problema resolvido rapidamente.

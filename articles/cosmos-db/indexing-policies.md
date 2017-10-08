@@ -1,6 +1,6 @@
 ---
-title: "Políticas de indexação do Azure Cosmos DB | Microsoft Docs"
-description: "Entenda como funciona a indexação no Azure Cosmos DB. Saiba como configurar e alterar a política de indexação para indexação automática e um melhor desempenho."
+title: "políticas de indexação de banco de dados do Cosmos aaaAzure | Microsoft Docs"
+description: "Entenda como funciona a indexação no Azure Cosmos DB. Saiba como tooconfigure e alteração Olá política de indexação para a indexação automática e melhor desempenho."
 keywords: "como funciona a indexação, indexação automática, banco de dados de indexação"
 services: cosmos-db
 documentationcenter: 
@@ -15,34 +15,34 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 2c03b498b1530388a48db4d2925debc2e03e30aa
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4f77b352b89382aa3352136038cb0e95c7588aac
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Como o Azure Cosmos DB indexa dados?
 
-Por padrão, todos os dados do Azure Cosmos DB são indexados. Embora muitos clientes fiquem satisfeitos em deixar que o Azure Cosmos DB cuide automaticamente de todos os aspectos da indexação, o Azure Cosmos DB também dá suporte à especificação de uma **política de indexação** personalizada para coleções durante a criação. As políticas de indexação do Azure Cosmos DB são mais flexíveis e avançadas do que os índices secundários oferecidos em outras plataformas de banco de dados, pois elas permitem o design e a personalização da forma do índice sem comprometer a flexibilidade de esquemas. Para saber como a indexação funciona no Azure Cosmos DB, é necessário entender que, ao gerenciar a política de indexação, você poderá criar compensações refinadas entre a sobrecarga de armazenamento de índice, a produtividade de gravação e consulta e a consistência de consulta.  
+Por padrão, todos os dados do Azure Cosmos DB são indexados. E enquanto muitos clientes estão satisfeitos toolet Azure Cosmos DB tratar automaticamente todos os aspectos da indexação, o banco de dados do Azure Cosmos também oferece suporte a especificando um personalizado **política de indexação** para coleções durante a criação. Políticas de indexação no banco de dados do Azure Cosmos são mais flexíveis e eficientes do que os índices secundários oferecidos em outras plataformas de banco de dados, porque elas permitem criar e personalizar a forma de saudação do índice de saudação sem sacrificar a flexibilidade de esquema. toolearn como indexação funciona no banco de dados do Azure Cosmos, você deve entender que, por meio do gerenciamento de política de indexação, você pode fazer refinadas compensações entre sobrecarga de armazenamento do índice, gravação e taxa de transferência de consulta e a consistência de consulta.  
 
-Neste artigo, examinamos mais detalhadamente as políticas de indexação do Azure Cosmos DB, como é possível personalizar a política de indexação e as compensações associadas. 
+Neste artigo, vamos dar uma olhada fechar o banco de dados do Azure Cosmos políticas de indexação, como você pode personalizar a política de indexação e Olá associado vantagens e desvantagens. 
 
-Após ler este artigo, você poderá responder as perguntas a seguir:
+Depois de ler este artigo, você será capaz de tooanswer Olá perguntas a seguir:
 
-* Como substituir as propriedades a serem incluídas ou excluídas da indexação?
-* Como configurar o índice para eventuais atualizações?
-* Como configurar a indexação para executar consultas Order By ou de intervalo?
-* Como fazer alterações à política de indexação de uma coleção?
+* Como substituir Olá propriedades tooinclude ou excluir da indexação?
+* Como configurar o índice da saudação eventual atualizações?
+* Como configurar a indexação tooperform Order By ou intervalo de consultas?
+* Como exibir a política de indexação da coleção de tooa alterações?
 * Como posso comparar armazenamento e desempenho de políticas de indexação diferentes?
 
-## <a id="CustomizingIndexingPolicy"></a> Personalizando a política de indexação de uma coleção
-Os desenvolvedores podem personalizar as compensações entre armazenamento, desempenho de gravação/consulta e consistência de consulta, substituindo a política de indexação padrão em uma coleção do Azure Cosmos DB e configurando os aspectos a seguir.
+## <a id="CustomizingIndexingPolicy"></a>Personalizando a política de indexação de saudação de uma coleção
+Os desenvolvedores podem personalizar Olá prós e contras armazenamento, desempenho de consulta/gravação e a consistência de consulta, substituindo a política de indexação saudação padrão em uma coleção de banco de dados do Azure Cosmos e configurando Olá aspectos a seguir.
 
-* **Incluindo/excluindo documentos e caminhos no/do índice**. Os desenvolvedores podem escolher determinados documentos a serem excluídos ou incluídos no índice no momento da inserção ou da substituição deles na coleção. Os desenvolvedores também podem optar por incluir ou excluir determinadas propriedades JSON conhecidas como caminhos (incluindo padrões curingas) a serem indexadas em documentos incluídos em um índice.
-* **Configurando diversos tipos de índice**. Para cada um dos caminhos incluídos, os desenvolvedores também podem especificar o tipo de índice exigido em uma coleção com base nos dados e na carga de trabalho de consulta esperada, além da “precisão” numérica ou de cadeia de caracteres de cada caminho.
-* **Configurando modos de atualização de índice**. O Azure Cosmos DB dá suporte a três modos de indexação, que podem ser configurados por meio da política de indexação em uma coleção do Azure Cosmos DB: Consistente, Lento e Nenhum. 
+* **Incluindo/excluindo documentos e caminhos no/do índice**. Os desenvolvedores podem escolher toobe certos documentos excluídos ou incluídos no índice de saudação em tempo de saudação de inserção ou substituí-las toohello coleção. Os desenvolvedores também podem escolher tooinclude ou excluir determinadas propriedades JSON também conhecido como toobe (incluindo padrões de curinga) de caminhos indexado em todos os documentos que são incluídos em um índice.
+* **Configurando diversos tipos de índice**. Para cada um dos caminhos de saudação incluído, os desenvolvedores também podem especificar tipo de saudação do índice que precisam de uma coleção com base em seus dados e carga de trabalho de consulta esperada e Olá numérico/cadeia de caracteres "precisão" para cada caminho.
+* **Configurando modos de atualização de índice**. Banco de dados do Azure Cosmos dá suporte a três modos de indexação que podem ser configurados via Olá política em uma coleção de banco de dados do Azure Cosmos de indexação: consistente, Lazy e None. 
 
-O seguinte trecho de código .NET mostra como definir uma política de indexação personalizada durante a criação de uma coleção. Aqui, definimos a política com índice de intervalo de cadeias de caracteres e números à precisão máxima. Essa política nos permite executar consultas de Ordenar por com relação a cadeias de caracteres.
+Olá .NET mostra de trecho de código a seguir como tooset uma política personalizada de indexação durante a criação de saudação de uma coleção. Aqui vamos definir política Olá com índice de intervalo para cadeias de caracteres e números na precisão máxima da saudação. Essa política nos permite executar consultas de Ordenar por com relação a cadeias de caracteres.
 
     DocumentCollection collection = new DocumentCollection { Id = "myCollection" };
 
@@ -53,33 +53,33 @@ O seguinte trecho de código .NET mostra como definir uma política de indexaç�
 
 
 > [!NOTE]
-> O esquema JSON para política de indexação foi alterado com o lançamento da versão 2015-06-03 da API REST para dar suporte a índices de intervalo nas cadeias de caracteres. O SDK 1.2.0 do .NET e os SDKs 1.1.0 do Java, Python e Node.js suportam o novo esquema de política. SDKs mais antigos usam a API REST versão 2015-04-08 e dão suporte ao esquema mais antigo da política de indexação.
+> esquema JSON Olá para política de indexação foi alterada com versão de saudação da versão da API REST índices de intervalo toosupport 2015-06-03 entre cadeias de caracteres. .NET SDK 1.2.0 e Java, Python e Node.js SDKs 1.1.0 oferecem suporte a saudação nova política schema. SDKs mais antigas usam Olá versão 2015-04-08 da API REST e suportam a esquema mais antigo de saudação da política de indexação.
 > 
 > Por padrão, o Azure Cosmos DB indexa todas as propriedades de cadeia de caracteres nos documentos de forma consistente com um índice de Hash e as propriedades numéricas com um índice de Intervalo.  
 > 
 > 
 
-### <a name="customizing-the-indexing-policy-using-the-portal"></a>Personalização da política de indexação usando o portal
+### <a name="customizing-hello-indexing-policy-using-hello-portal"></a>Personalizando a política de indexação hello usando o portal de saudação
 
-Você pode alterar a política de indexação de uma coleção usando o portal do Azure. Abra sua conta do Azure Cosmos DB no portal do Azure, selecione a coleção na menu de navegação à esquerda, clique em **Configurações** e então clique em **Política de Indexação**. Na folha **Política de Indexação**, altere sua política de indexação e, em seguida, clique em **OK** para salvar suas alterações. 
+Você pode alterar Olá indexação de política de uma coleção usando Olá portal do Azure. Abra sua conta do Azure Cosmos DB Olá portal do Azure, selecione sua coleção no hello de navegação à esquerda, clique em menu **configurações**e, em seguida, clique em **política de indexação**. Em Olá **política de indexação** folha, altere sua política de indexação e, em seguida, clique em **Okey** toosave suas alterações. 
 
 ### <a id="indexing-modes"></a>Modos de indexação do banco de dados
-O Azure Cosmos DB dá suporte a três modos de indexação, que podem ser configurados por meio da política de indexação em uma coleção do Azure Cosmos DB – Consistente, Lento e Nenhum.
+Banco de dados do Azure Cosmos oferece suporte a três indexação modos que podem ser configurados por meio de saudação indexação política em uma coleção de banco de dados do Azure Cosmos – consistente, Lazy e nenhum.
 
-**Consistente**: se uma política da coleção do Azure Cosmos DB for designada como “consistente”, as consultas em determinada coleção do Azure Cosmos DB seguirão o mesmo nível de consistência especificado para as leituras de ponto (ou seja, forte, desatualização limitada, sessão ou eventual). O índice é atualizado de forma síncrona como parte da atualização do documento (ou seja, inserção, substituição, atualização e exclusão de um documento em uma coleção do Azure Cosmos DB).  A indexação consistente dá suporte a consultas consistentes ao custo de uma possível redução na taxa de transferência de gravação. Essa redução é uma função dos caminhos exclusivos que precisam ser indexados e do "nível de consistência". O modo de indexação consistente foi projetado para cargas de trabalho de "gravação rápida, consulta imediata”.
+**Consistente**: se a política de uma coleção banco de dados do Azure Cosmos é designada como "consistente", consultas de saudação em um determinado acompanhamento de coleção do banco de dados do Azure Cosmos Olá mesmo nível de consistência especificado para o ponto-leituras de hello (ou seja, forte,-envelhecimento limitado, sessão ou eventual). índice de saudação é atualizado de modo síncrono como parte da atualização de documento hello (ou seja, inserção, substituição, update e delete de um documento em uma coleção de banco de dados do Azure Cosmos).  Indexação consistente dá suporte a consultas consistentes ao custo de saudação de redução possíveis na taxa de transferência de gravação. Essa redução é uma função de caminhos Olá exclusivo necessário toobe indexado e hello "nível de consistência". O modo de indexação consistente foi projetado para cargas de trabalho de "gravação rápida, consulta imediata”.
 
-**Lento**: para permitir a produtividade máxima da ingestão de documentos, uma coleção do Azure Cosmos DB pode ser configurada com consistência lenta, o que significa que as consultas serão, em última análise, consistentes. O índice é atualizado de forma assíncrona quando uma coleção do Azure Cosmos DB está inativa, ou seja, quando a capacidade de produtividade da coleção não é totalmente utilizada para atender às solicitações do usuário. Para cargas de trabalho "ingerir agora, consultar depois" que exijam a ingestão ilimitada de documentos, o modo de indexação “lento” será mais adequado.
+**Lento**: tooallow throughput de inclusão de documento máximo, uma coleção de banco de dados do Azure Cosmos pode ser configurada com consistência lenta; consultas significado são finalmente consistentes. índice de Olá é atualizado de forma assíncrona quando uma coleção de banco de dados do Azure Cosmos está inativa ou seja, quando a capacidade de taxa de transferência da coleção Olá não é totalmente utilizados tooserve solicitações do usuário. Para cargas de trabalho "ingerir agora, consultar depois" que exijam a ingestão ilimitada de documentos, o modo de indexação “lento” será mais adequado.
 
 **Nenhum**: uma coleção marcada com o modo de índice "Nenhum" não tem nenhum índice associado a ela. Isso é geralmente usado se o Azure Cosmos DB é utilizado como um armazenamento de chave/valor e os documentos são acessados apenas pela sua propriedade de ID. 
 
 > [!NOTE]
-> A configuração da política de indexação com “Nenhum” tem o efeito colateral de remover qualquer índice existente. Use essa opção se os padrões de acesso forem somente exigir a “id” e/ou o “self-link”.
+> Olá configurar indexação de política com "None" tem Olá efeito colateral o descarte de um índice existente. Use essa opção se os padrões de acesso forem somente exigir a “id” e/ou o “self-link”.
 > 
 > 
 
-A amostra a seguir explica como criar uma coleção do Azure Cosmos DB usando o SDK do .NET com indexação automática consistente em todas as inserções de documentos.
+Olá apresentação de exemplo a seguir como cria uma coleção de banco de dados do Azure Cosmos usando Olá .NET SDK com a indexação automática consistente em todas as inserções de documento.
 
-A tabela a seguir mostra a consistência para as consultas baseadas no modo de indexação (Consistente e Lento) configurado para a coleção e o nível de consistência especificado para a solicitação de consulta. Isso se aplica a consultas criadas com qualquer interface - API REST, SDKs ou de dentro de procedimentos armazenados e de gatilhos. 
+Olá, a tabela a seguir mostra a consistência Olá para consultas baseadas em Olá modo de indexação (consistente e Lazy) configurado para Olá coleta e hello consistência nível especificado para a solicitação de consulta de saudação. Isso se aplica tooqueries feitas usando SDKs qualquer interface - API REST, ou de dentro procedimentos armazenados e gatilhos. 
 
 |Consistência|Modo de indexação: Consistente|Modo de indexação: Lento|
 |---|---|---|
@@ -88,9 +88,9 @@ A tabela a seguir mostra a consistência para as consultas baseadas no modo de i
 |Session|Session|Eventual|
 |Eventual|Eventual|Eventual|
 
-O Azure Cosmos DB retorna um erro para consultas feitas em coleções com o modo de indexação Nenhum. As consultas podem ainda ser executadas como verificações por meio do cabeçalho explícito `x-ms-documentdb-enable-scan` na API REST ou da opção de solicitação `EnableScanInQuery` usando o SDK do .NET. Alguns recursos de consulta como ORDER BY não têm suporte como verificações com `EnableScanInQuery`.
+O Azure Cosmos DB retorna um erro para consultas feitas em coleções com o modo de indexação Nenhum. Consultas ainda podem ser executadas como verificações via Olá explícita `x-ms-documentdb-enable-scan` cabeçalho Olá API REST ou hello `EnableScanInQuery` opção usando Olá SDK .NET de solicitação. Alguns recursos de consulta como ORDER BY não têm suporte como verificações com `EnableScanInQuery`.
 
-A tabela a seguir mostra a consistência de consultas baseadas no modo de indexação (Consistente, Lento e Nenhum) quando EnableScanInQuery é especificado.
+Olá, tabela a seguir mostra a consistência Olá para consultas com base no modo de indexação de saudação (consistente, Lazy e nenhum) quando EnableScanInQuery é especificado.
 
 |Consistência|Modo de indexação: Consistente|Modo de indexação: Lento|Modo de indexação: Nenhum|
 |---|---|---|---|
@@ -99,7 +99,7 @@ A tabela a seguir mostra a consistência de consultas baseadas no modo de indexa
 |Session|Session|Eventual|Session|
 |Eventual|Eventual|Eventual|Eventual|
 
-O exemplo de código a seguir mostra como criar uma coleção do Azure Cosmos DB usando o SDK do .NET com indexação consistente em todas as inserções de documentos.
+Olá apresentação de exemplo de código a seguir como cria uma coleção de banco de dados do Azure Cosmos usando Olá SDK .NET com indexação consistente em todas as inserções de documento.
 
      // Default collection creates a hash index for all string fields and a range index for all numeric    
      // fields. Hash indexes are compact and offer efficient performance for equality queries.
@@ -112,29 +112,29 @@ O exemplo de código a seguir mostra como criar uma coleção do Azure Cosmos DB
 
 
 ### <a name="index-paths"></a>Caminhos de índice
-O Azure Cosmos DB modela documentos JSON e o índice como árvores e permite que você ajuste políticas de caminhos dentro da árvore. Nos documentos, você pode escolher quais caminhos devem ser incluídos ou excluídos da indexação. Isso pode oferecer um melhor desempenho de gravação e menor armazenamento de índice para situações onde os padrões de consulta são previamente conhecidos.
+Banco de dados do Azure Cosmos modelos de documentos JSON e índice hello como árvores e permite toopolicies tootune para caminhos de árvore de saudação. Nos documentos, você pode escolher quais caminhos devem ser incluídos ou excluídos da indexação. Isso pode oferecer desempenho aprimorado de gravação e armazenamento de índice inferior para cenários quando os padrões de consulta Olá são conhecidos com antecedência.
 
-Caminhos de índice começam com a raiz (/) e geralmente terminam com o operador de curinga ?, indicando que há vários valores possíveis para o prefixo. Por exemplo, para servir SELECT * FROM Families F WHERE F.familyName = "Andersen", você deve incluir um caminho de índice para /familyName/? na política de índice da coleção.
+Caminhos de índice começam com raiz hello (/) e normalmente terminam com Olá? operador de caractere curinga, indicando que há vários valores possíveis para o prefixo de saudação. Por exemplo, tooserve selecione * de famílias F WHERE F.familyName = "Andersen", você deve incluir um caminho de índice para /familyName/? na política de índice da coleção de saudação.
 
-Os caminhos de índice também podem usar o operador curinga * para especificar o comportamento de caminhos recursivamente no prefixo. Por exemplo, /payload/* pode ser usado para excluir tudo na propriedade de conteúdo da indexação.
+Caminhos de índice também podem usar o hello * comportamento de saudação do curinga operador toospecify caminhos recursivamente sob prefixo hello. Por exemplo, carga / * pode ser usado tooexclude tudo na propriedade de carga de saudação da indexação.
 
-Estes são os padrões comuns para especificar caminhos de índice:
+Aqui estão os padrões comuns de saudação para especificar caminhos de índice:
 
-| path                | Descrição/caso de uso                                                                                                                                                                                                                                                                                         |
+| Caminho                | Descrição/caso de uso                                                                                                                                                                                                                                                                                         |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| /                   | Caminho padrão para coleta. Recursiva e aplica-se em toda árvore do documento inteiro.                                                                                                                                                                                                                                   |
-| /prop/?             | Caminho de índice necessário para fazer consultas como as seguintes (com tipos hash e de intervalo respectivamente):<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                       |
-| /prop/*             | Caminho de índice para todos os caminhos sob o rótulo especificado. Funciona com as seguintes consultas<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop         |
-| /props/[]/?         | O caminho do índice necessário para atender a consultas de JOIN e iteração em matrizes de escalares como ["a", "b", "c"]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5                                                                         |
-| /props/[]/subprop/? | O caminho do índice necessário para atender a consultas de JOIN e iteração em matrizes de objetos como [{subprop: "a"}, {subprop: "b"}]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value"                                  |
-| /prop/subprop/?     | Caminho de índice necessário para fazer consultas (com tipos hash e de intervalo respectivamente):<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5                                                                                                                    |
+| /                   | Caminho padrão para coleta. Recursivo e aplica-se a árvore do documento toowhole.                                                                                                                                                                                                                                   |
+| /prop/?             | Caminho do índice necessário tooserve consultas como Olá seguinte (com Hash ou Range tipos respectivamente):<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                       |
+| /prop/*             | Caminho de índice para todos os caminhos no rótulo especificado hello. Funciona com hello consultas a seguir<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop         |
+| /props/[]/?         | Caminho do índice necessário tooserve iteração e consultas de junção em matrizes de escalares como ["a", "b", "c"]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5                                                                         |
+| /props/[]/subprop/? | Caminho do índice necessário tooserve iteração e consultas de junção em relação a matrizes de objetos, como [{subprop: "a"}, {subprop: "b"}]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value"                                  |
+| /prop/subprop/?     | Caminho do índice necessário tooserve consultas (com Hash ou Range tipos respectivamente):<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5                                                                                                                    |
 
 > [!NOTE]
-> Ao definir caminhos de índice personalizados, é necessário especificar a regra de indexação padrão para a árvore de todo o documento indicada pelo caminho especial "/*". 
+> Ao configurar caminhos do índice personalizado, será necessário toospecify Olá indexação regra padrão Olá todo o documento árvore indicado pelo caminho especial hello "/ *". 
 > 
 > 
 
-O exemplo a seguir configura um caminho específico com a indexação de intervalo e um valor personalizado de precisão de 20 bytes:
+Olá exemplo a seguir configura um caminho específico com a indexação de intervalo e um valor de precisão personalizado de 20 bytes:
 
     var collection = new DocumentCollection { Id = "rangeSinglePathCollection" };    
 
@@ -159,19 +159,19 @@ O exemplo a seguir configura um caminho específico com a indexação de interva
 
 
 ### <a name="index-data-types-kinds-and-precisions"></a>Tipos, modelos e precisões de dados
-Agora que já vimos como especificar caminhos, vamos examinar as opções que podemos usar para configurar a política de indexação para um caminho. Você pode especificar uma ou mais definições de indexação para cada caminho:
+Agora que estamos dando uma olhada em como caminhos toospecify, vamos dar uma olhada opções hello, podemos usar tooconfigure Olá política de indexação para um caminho. Você pode especificar uma ou mais definições de indexação para cada caminho:
 
 * Tipo de dados: **String**, **Number**, **Point**, **Polygon** ou **LineString** (pode conter somente uma entrada por tipo de dados por caminho)
 * Tipo de índice: **Hash** (consultas de igualdade), **Intervalo** (consultas de igualdade, de intervalo ou Order By) ou **Espacial** (consultas espaciais) 
-* Precisão: para índice de hash, isso varia de 1 a 8 para cadeias de caracteres e números, com um padrão de 3. Para o índice de intervalo, esse valor pode ser -1 (precisão máxima) e variar entre 1 e 100 (precisão máxima) para a cadeia de caracteres ou valores numéricos.
+* Precisão: Para índice de hash varia de 1 too8 para cadeias de caracteres e números com padrão como 3. Para o índice de intervalo, esse valor pode ser -1 (precisão máxima) e variar entre 1 e 100 (precisão máxima) para a cadeia de caracteres ou valores numéricos.
 
 #### <a name="index-kind"></a>Tipo de índice
 O Azure Cosmos DB dá suporte a tipos de índice Hash e Intervalo em todos os caminhos (que podem ser configurados para cadeias de caracteres, números ou ambos).
 
-* **Hash** dá suporte a consultas JOIN e de igualdade eficientes. Na maioria dos casos de uso, os índices de hash não precisam de uma precisão maior que o valor padrão de 3 bytes. DataType pode ser String ou Number.
+* **Hash** dá suporte a consultas JOIN e de igualdade eficientes. Na maioria dos casos de uso, os índices de hash não é necessário uma maior precisão que saudação padrão de 3 bytes. DataType pode ser String ou Number.
 * **Intervalo** dá suporte a consultas de igualdade eficientes, a consultas de intervalo (usando >, <, >=, <=, !=) e a consultas Order By. Por padrão, as consultas Ordenar por também exigem a precisão máxima de índice (-1). DataType pode ser String ou Number.
 
-O Azure Cosmos DB também dá suporte ao tipo de índice Espacial em todos os caminhos, que podem ser especificados para os tipos de dados Point, Polygon ou LineString. O valor no caminho especificado deve ser um fragmento GeoJSON válido, como `{"type": "Point", "coordinates": [0.0, 10.0]}`.
+Banco de dados do Azure Cosmos também oferece suporte a tipo de índice espacial Olá para cada caminho, o que pode ser especificado para tipos de saudação LineString, Polygon ou ponto de dados. valor de saudação no caminho especificado Olá deve ser um fragmento GeoJSON válido como `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
 * **Espacial** dá suporte a consultas espaciais (interna e de distância) eficientes. DataType pode ser Point, Polygon ou LineString.
 
@@ -180,43 +180,43 @@ O Azure Cosmos DB também dá suporte ao tipo de índice Espacial em todos os ca
 > 
 > 
 
-Estes são os tipos de índice com suporte e exemplos de consultas que eles podem usar para servir:
+Aqui estão os tipos de índice Olá com suporte e exemplos de consultas que podem ser usado tooserve:
 
 | Tipo de índice | Descrição/caso de uso                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Hash       | O hash em /prop/? (or /) pode ser usado para servir às seguintes consultas eficientemente:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash em /props/[]/? (or / or /props/) pode ser usado para servir às consultas a seguir eficientemente:<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5                                                                                                                       |
-| Intervalo      | O intervalo em over /prop/? (or /) pode ser usado para servir às seguintes consultas eficientemente:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
-| Espacial     | O intervalo em over /prop/? (or /) pode ser usado para servir às seguintes consultas eficientemente:<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --com indexação nos pontos habilitada<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --com indexação em polígonos habilitada              |
+| Hash       | O hash em /prop/? (ou /) pode ser usado tooserve Olá seguir consultas com eficiência:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash em /props/[]/? (ou / ou/propriedades /) pode ser usado tooserve Olá seguir consultas com eficiência:<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5                                                                                                                       |
+| Intervalo      | O intervalo em over /prop/? (ou /) pode ser usado tooserve Olá seguir consultas com eficiência:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
+| Espacial     | O intervalo em over /prop/? (ou /) pode ser usado tooserve Olá seguir consultas com eficiência:<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --com indexação nos pontos habilitada<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --com indexação em polígonos habilitada              |
 
-Por padrão, um erro será retornado para consultas com operadores de intervalo como >= se não houver nenhum índice de intervalo (de qualquer precisão) para sinalizar que uma verificação pode ser necessária para servir a consulta. Consultas de intervalo podem ser executadas sem um índice de intervalo usando o cabeçalho x-ms-documentdb-enable-scan na API REST ou na opção de solicitação EnableScanInQuery usando o SDK do .NET. Se houver outro filtro na consulta no qual o Azure Cosmos DB pode usar o índice para filtrar, nenhum erro será retornado.
+Por padrão, um erro será retornado para consultas com operadores de intervalo como > = Se não houver nenhum índice de intervalo (de qualquer precisão) em ordem toosignal que uma verificação pode ser necessário tooserve consulta de saudação. Consultas de intervalo podem ser executadas sem um índice de intervalo usando o cabeçalho x-ms-documentdb-enable-scan Olá Olá API REST ou a opção de solicitação de EnableScanInQuery hello usando Olá .NET SDK. Se houver quaisquer outros filtros na consulta Olá que o banco de dados do Azure Cosmos pode usar o hello índice toofilter contra, nenhum erro será retornado.
 
-As mesmas regras se aplicam a consultas espaciais. Por padrão, um erro retornará para consultas espaciais se não houver um índice espacial e se não houver outros filtros que possam ser atendidos a partir do índice. Elas podem ser executadas como um exame usando x-ms-documentdb-enable-scan/EnableScanInQuery.
+Olá mesmas regras se aplicam para consultas espaciais. Por padrão, um erro é retornado para consultas espaciais se não houver nenhum índice espacial e existem outros filtros que podem ser servidos de índice hello. Elas podem ser executadas como um exame usando x-ms-documentdb-enable-scan/EnableScanInQuery.
 
 #### <a name="index-precision"></a>Precisão de índice
-A precisão de índice permite definir um equilíbrio entre a sobrecarga de armazenamento de índice e o desempenho da consulta. Para números, recomendamos usar a configuração de precisão padrão -1 (“máximo”). Como os números são 8 bytes em JSON, isso é equivalente a uma configuração de 8 bytes. Escolher um valor mais baixo para precisão, como 1 a 7, significa que os valores dentro de alguns intervalos podem ser mapeados para a mesma entrada de índice. Portanto, você reduzirá o espaço de armazenamento do índice, mas a execução da consulta talvez precise processar mais documentos e, como consequência, consumirá mais taxa de transferência, ou seja, unidades de solicitação.
+A precisão de índice permite definir um equilíbrio entre a sobrecarga de armazenamento de índice e o desempenho da consulta. Para números, é recomendável usar configuração de precisão saudação padrão de -1 ("máximo"). Como os números são 8 bytes em JSON, essa é a configuração de tooa equivalente de 8 bytes. Escolhendo um valor mais baixo de precisão, como 1-7, significa que valores dentro de alguns toohello de mapa de intervalos de mesma entrada de índice. Portanto, você reduzirá o espaço de armazenamento do índice, mas a execução da consulta pode ter tooprocess mais documentos e, consequentemente, consumir mais taxa de transferência, ou seja, unidades de solicitação.
 
-A configuração de precisão do índice tem mais aplicação prática com intervalos de cadeia de caracteres. Como cadeias de caracteres podem ter qualquer comprimento arbitrário, a escolha de precisão do índice pode afetar o desempenho de consultas de intervalo de cadeia de caracteres e a quantidade de espaço de armazenamento de índice necessária. Os índices de intervalo de cadeia de caracteres podem ser configurados com 1-100 ou -1 (“máximo”). Se você quiser executar consultas Ordenar por em propriedades de cadeia de caracteres, então deverá especificar uma precisão de -1 para os caminhos correspondentes.
+A configuração de precisão do índice tem mais aplicação prática com intervalos de cadeia de caracteres. Como cadeias de caracteres podem ser qualquer comprimento arbitrário, escolha Olá de precisão de índice Olá pode afetar o desempenho de saudação de consultas de intervalo de cadeia de caracteres e a quantidade de saudação do impacto de espaço de armazenamento do índice necessário. Os índices de intervalo de cadeia de caracteres podem ser configurados com 1-100 ou -1 (“máximo”). Se você quiser tooperform Order By consultas em Propriedades de cadeia de caracteres, você deve especificar uma precisão de -1 para caminhos correspondentes hello.
 
-Os índices espaciais sempre usam a precisão de índice padrão para todos os tipos (Points, LineStrings e Polygons) e não podem ser substituídos. 
+Índices espaciais sempre usam a precisão de índice saudação padrão para todos os tipos (pontos, LineStrings e polígonos) e não podem ser substituída. 
 
-O exemplo a seguir mostra como aumentar a precisão de índices de intervalo em uma coleção usando o SDK do .NET. 
+saudação de exemplo a seguir mostra como tooincrease precisão de saudação para intervalo de índices em uma coleção usando o SDK .NET de saudação. 
 
 **Criar uma coleção com uma precisão de índice personalizada**
 
     var rangeDefault = new DocumentCollection { Id = "rangeCollection" };
 
-    // Override the default policy for Strings to range indexing and "max" (-1) precision
+    // Override hello default policy for Strings toorange indexing and "max" (-1) precision
     rangeDefault.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
 
     await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), rangeDefault);   
 
 
 > [!NOTE]
-> O Azure Cosmos DB retorna um erro quando uma consulta usa Order By, mas não tem um índice de intervalo no caminho consultado com a precisão máxima. 
+> Banco de dados do Azure Cosmos retornará um erro quando uma consulta usa Order By, mas não tem um índice de intervalo com caminho de saudação consultados com precisão máxima da saudação. 
 > 
 > 
 
-Da mesma forma, caminhos podem ser excluídos completamente da indexação. O exemplo a seguir mostra como excluir uma seção inteira de documentos (também conhecida como uma subárvore) de indexação usando o curinga "*".
+Da mesma forma, caminhos podem ser excluídos completamente da indexação. Olá próximo exemplo mostra como tooexclude uma seção inteira de saudação documentos (também conhecido como subárvore) de indexação usando hello "*" curinga.
 
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
@@ -227,54 +227,54 @@ Da mesma forma, caminhos podem ser excluídos completamente da indexação. O ex
 
 
 ## <a name="opting-in-and-opting-out-of-indexing"></a>Aceitando e recusando a indexação
-Você pode escolher se deseja que a coleção indexe automaticamente todos os documentos. Por padrão, todos os documentos são indexados automaticamente, mas você pode optar por desativá-lo. Quando a indexação estiver desativada, documentos podem ser acessados somente por meio de seus self links ou através de consultas usando um ID.
+Você pode escolher se deseja tooautomatically índice da coleção de saudação todos os documentos. Por padrão, todos os documentos são indexados automaticamente, mas você pode escolher tooturn-la. Quando a indexação estiver desativada, documentos podem ser acessados somente por meio de seus self links ou através de consultas usando um ID.
 
-Com a indexação automática desativada, você ainda pode adicionar seletivamente somente documentos específicos para o índice. Por outro lado, você pode deixar a indexação automática e seletivamente optar por excluir apenas documentos específicos. As configurações de Ativar/desativar a indexação são úteis quando você tem apenas um subconjunto dos documentos que precisa ser consultado.
+Com indexação automática desativado, você pode adicionar ainda seletivamente apenas o índice de toohello documentos específicos. Por outro lado, você pode deixar automática de indexação em e escolha seletivamente tooexclude documentos específicos. A indexação de ativar/desativar configurações são úteis quando você tem apenas um subconjunto de documentos que precisam de toobe consultada.
 
-Por exemplo, a amostra a seguir explica como incluir um documento explicitamente usando o [SDK do .NET na API do DocumentDB](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet) e a propriedade [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
+Por exemplo, Olá exemplo a seguir mostra como tooinclude um documento explicitamente usando Olá [SDK .NET do DocumentDB API](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet) e hello [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) propriedade.
 
-    // If you want to override the default collection behavior to either
+    // If you want toooverride hello default collection behavior tooeither
     // exclude (or include) a Document from indexing,
-    // use the RequestOptions.IndexingDirective property.
+    // use hello RequestOptions.IndexingDirective property.
     client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"),
         new { id = "AndersenFamily", isRegistered = true },
         new RequestOptions { IndexingDirective = IndexingDirective.Include });
 
-## <a name="modifying-the-indexing-policy-of-a-collection"></a>Modificando a política de indexação de uma coleção
-O Azure Cosmos DB permite que você faça alterações na política de indexação de uma coleção de forma dinâmica. Uma alteração na política de indexação em uma coleção do Azure Cosmos DB pode levar a uma alteração na forma do índice, incluindo a possibilidade de indexação dos caminhos, a precisão deles, bem como o modelo de consistência do próprio índice. Portanto, uma alteração na política de indexação requer, efetivamente, uma transformação do índice antigo em um novo. 
+## <a name="modifying-hello-indexing-policy-of-a-collection"></a>Modificando a política de indexação de saudação de uma coleção
+Banco de dados do Azure Cosmos permite que você toomake alterações toohello política de indexação de uma coleção em funcionamento hello. Uma alteração na política em uma coleção de banco de dados do Azure Cosmos de indexação pode gerar tooa alteração na forma de saudação do índice Olá incluindo Olá caminhos podem ser indexados, sua precisão, bem como modelo de consistência de saudação do próprio índice hello. Assim, uma alteração na política de indexação, efetivamente requer uma transformação de índice antigo Olá para um novo. 
 
 **Transformações de índice online**
 
 ![Como funciona a indexação – Transformações de índice online do Azure Cosmos DB](./media/indexing-policies/index-transformations.png)
 
-As transformações de índice são feitas online, o que significa que os documentos indexados pela política anterior são transformados com eficiência de acordo com a nova política **sem afetar a disponibilidade de gravação ou a taxa de transferência provisionada** da coleção. A consistência de operações de leitura e de gravação realizadas usando a API REST, SDKs ou em procedimentos armazenados e gatilhos não é afetada durante a transformação de índice. Isso significa que não haverá degradação de desempenho ou tempo de inatividade em seus aplicativos quando você alterar uma política de indexação.
+Transformações de índice são feitas online, o que significa que documentos hello indexados por política antigo Olá com eficiência são transformados por nova política de saudação **sem afetar a disponibilidade de gravação da saudação ou a taxa de transferência fornecida Olá** de coleção de saudação. Olá consistência de leitura e feitas usando Olá API REST, SDKs de operações de gravação ou de dentro de procedimentos armazenados e gatilhos não é afetado durante a transformação de índice. Isso significa que não há nenhum desempenho aplicativos de tooyour degradação ou tempo de inatividade quando você alterar uma política de indexação.
 
-No entanto, durante o tempo em que a transformação de índice estiver em andamento, as consultas por fim serão consistentes, independentemente da configuração do modo indexação (Consistente ou Lento). Isso também se aplica a consultas de todas as interfaces – API REST, SDKs ou de procedimentos armazenados e de gatilhos. Assim como acontece na indexação Lenta, a transformação de índice é executada de forma assíncrona em segundo plano nas réplicas usando os recursos disponíveis para uma determinada réplica. 
+No entanto, durante o tempo de saudação que a transformação de índice é o andamento, as consultas são finalmente consistentes, independentemente da saudação (consistente ou Lazy) de configuração do modo de indexação. Isso também se aplica a tooqueries de todas as interfaces – API REST, SDKs e no procedimentos armazenados e gatilhos. Assim como com Lazy indexação, transformação de índice é executada de forma assíncrona no plano de fundo de saudação em réplicas de saudação usando recursos de reposição de saudação disponíveis para uma determinada réplica. 
 
-As transformações de índice também são feitas **in-situ** (no local), ou seja, o Azure Cosmos DB não mantém duas cópias do índice e troca o índice antigo pelo novo. Isso significa que o espaço em disco adicional não será necessário ou consumido em suas coleções durante a execução de transformações de índice.
+Transformações de índice também ficam **na situ** (no local), ou seja, o banco de dados do Azure Cosmos não mantém duas cópias do hello e troca Olá antigo índice out com hello uma nova. Isso significa que o espaço em disco adicional não será necessário ou consumido em suas coleções durante a execução de transformações de índice.
 
-Quando você alterar a política de indexação, a forma como as alterações serão aplicadas para a transformação do índice antigo no novo dependerão principalmente das configurações do modo de indexação do que de outros valores, como os caminhos incluídos/excluídos, os tipos de índice e as precisões. Caso a política antiga e a nova usem a indexação consistente, o Azure Cosmos DB executará uma transformação de índice online. Você não poderá aplicar outra alteração de política de indexação com o modo de indexação consistente enquanto a transformação estiver em andamento.
+Quando você alterar a política de indexação, como alterações de saudação são aplicada toomove de saudação antigo índice toohello novo um dependem principalmente Olá configurações do modo de indexação mais para que Olá outros valores como caminhos incluído/excluído, os tipos de índice e precisões. Caso a política antiga e a nova usem a indexação consistente, o Azure Cosmos DB executará uma transformação de índice online. Você não pode aplicar outra alteração de política de indexação com modo de indexação consistente enquanto transformação hello está em andamento.
 
-No entanto, você pode mudar para o modo de indexação Lento ou Nenhum enquanto uma transformação está em andamento. 
+No entanto, você pode mover tooLazy ou nenhum modo de indexação enquanto uma transformação está em andamento. 
 
-* Quando você muda para Lento, a alteração na política de indexação é efetivada imediatamente e o Azure Cosmos DB inicia a recriação do índice de forma assíncrona. 
-* Quando você muda para Nenhum, então o índice é removido imediatamente. A mudança para Nenhum será útil quando você quiser cancelar uma transformação em andamento e iniciar uma nova com uma política de indexação diferente. 
+* Quando você move tooLazy, Olá índice política são alteradas efetiva imediatamente e o banco de dados do Azure Cosmos inicia recriar índice de saudação de forma assíncrona. 
+* Quando você move tooNone, em seguida, Olá índice é descartado efetiva imediatamente. Movendo tooNone é útil quando você deseja toocancel uma em andamento transformação e iniciar nova com uma política de indexação diferente. 
 
-Se você estiver usando o SDK do .NET, poderá iniciar uma alteração de política de indexação usando o novo método **ReplaceDocumentCollectionAsync** e acompanhar o progresso em percentual da transformação do índice transformação usando o a propriedade de resposta **IndexTransformationProgress** de uma chamada **ReadDocumentCollectionAsync**. Outros SDKs e a API REST dão suporte a propriedades e métodos equivalentes para alterações na política de indexação.
+Se você estiver usando o SDK .NET de hello, pode disparar uma alteração de política de indexação usando Olá novo **ReplaceDocumentCollectionAsync** método e rastrear Olá percentual de andamento da transformação de índice hello usando Olá  **IndexTransformationProgress** propriedade de resposta de um **ReadDocumentCollectionAsync** chamar. Outros SDKs e hello API REST suportam equivalentes propriedades e métodos para fazer alterações de política de indexação.
 
-Veja um trecho de código que mostra como modificar a política de indexação de uma coleção do modo de indexação Consistente para o Lento.
+Aqui está um trecho de código que mostra como uma coleção de toomodify da política de indexação de tooLazy de modo de indexação consistente.
 
-**Modificar a política de indexação de Consistente para Lento**
+**Modificar a política de indexação de tooLazy consistente**
 
-    // Switch to lazy indexing.
-    Console.WriteLine("Changing from Default to Lazy IndexingMode.");
+    // Switch toolazy indexing.
+    Console.WriteLine("Changing from Default tooLazy IndexingMode.");
 
     collection.IndexingPolicy.IndexingMode = IndexingMode.Lazy;
 
     await client.ReplaceDocumentCollectionAsync(collection);
 
 
-Você pode verificar o andamento de uma transformação de índice chamando, por exemplo, ReadDocumentCollectionAsync, como mostrado abaixo.
+Você pode verificar o progresso de saudação de uma transformação de índice por chamada ReadDocumentCollectionAsync, por exemplo, conforme mostrado abaixo.
 
 **Acompanhar o andamento da transformação de índice**
 
@@ -291,49 +291,49 @@ Você pode verificar o andamento de uma transformação de índice chamando, por
         await Task.Delay(TimeSpan.FromMilliseconds(smallWaitTimeMilliseconds));
     }
 
-Você pode remover o índice de uma coleção mudando para o modo de indexação Nenhum. Essa pode ser uma ferramenta operacional útil se você quiser cancelar uma transformação em andamento e iniciar uma nova imediatamente.
+Você pode descartar o índice de saudação para uma coleção movendo toohello nenhum modo de indexação. Isso pode ser uma ferramenta operacional útil se você quiser toocancel uma transformação em andamento e iniciar um novo imediatamente.
 
-**Removendo o índice de uma coleção**
+**Descartar índice Olá para uma coleção**
 
-    // Switch to lazy indexing.
-    Console.WriteLine("Dropping index by changing to to the None IndexingMode.");
+    // Switch toolazy indexing.
+    Console.WriteLine("Dropping index by changing tootoohello None IndexingMode.");
 
     collection.IndexingPolicy.IndexingMode = IndexingMode.None;
 
     await client.ReplaceDocumentCollectionAsync(collection);
 
-Quando você fará alterações na política de indexação de suas coleções do Azure Cosmos DB? A seguir, os casos de uso mais comuns:
+Quando você faria alterações de política de indexação coleções do banco de dados do Azure Cosmos tooyour? Olá seguem casos de uso mais comuns de saudação:
 
-* Fornecer resultados consistentes durante a operação normal, mas fazer fallback para a indexação lenta durante importações de dados em massa
-* Começar a usar novos recursos de indexação em suas coleções atuais do Azure Cosmos DB, como consultas geoespaciais que exigem o tipo de índice Espacial ou consultas de intervalo Order By/cadeia de caracteres, que exigem o tipo de índice Intervalo de cadeia de caracteres
-* Selecionar manualmente as propriedades a serem indexadas e alterá-las ao longo do tempo
-* Ajustar a precisão da indexação para melhorar o desempenho da consulta ou reduzir o armazenamento consumido
+* Fornecendo resultados consistentes durante a operação normal, mas que retorne toolazy indexação durante a importação de dados em massa
+* Começar a usar os novos recursos de indexação no seu banco de dados do Azure Cosmos coleções atual, por exemplo, como geoespaciais consultar que exigem tipo de índice espacial hello, ou Order By / consultas de intervalo que exigem a cadeia de caracteres de saudação tipo de índice de intervalo de cadeia de caracteres
+* Selecione de mão Olá toobe propriedades indexada e alterá-los ao longo do tempo
+* Ajustar o desempenho da consulta tooimprove precisão indexação ou reduzir o consumo de armazenamento
 
 > [!NOTE]
-> Para modificar a política de indexação usando ReplaceDocumentCollectionAsync, você precisará de uma versão superior à 1.3.0 do SDK do .NET
+> toomodify política de indexação usando ReplaceDocumentCollectionAsync, você precisa de versão > = 1.3.0 de saudação SDK .NET
 > 
-> Para que a transformação do índice seja concluída com êxito, você deve assegurar que exista espaço livre suficiente disponível na coleção. Se a coleção atingir sua cota de armazenamento, a transformação do índice será pausada. A transformação do índice será retomada automaticamente quando houver espaço em armazenamento disponível, por exemplo, se você excluir alguns documentos.
+> Para toocomplete de transformação de índice com êxito, você deve garantir que há espaço livre de armazenamento suficiente disponível na coleção de saudação. Se a coleção de saudação atingir sua cota de armazenamento, a transformação de índice Olá será pausada. A transformação do índice será retomada automaticamente quando houver espaço em armazenamento disponível, por exemplo, se você excluir alguns documentos.
 > 
 > 
 
 ## <a name="performance-tuning"></a>Ajuste de desempenho
-As APIs do DocumentDB fornecem informações sobre as métricas de desempenho, como o armazenamento de índice usado e o custo da taxa de transferência (unidades de solicitação) para cada operação. Essas informações podem ser usadas para comparar várias políticas de indexação e para ajuste de desempenho.
+Olá APIs do DocumentDB fornecem informações sobre métricas de desempenho, como Olá o armazenamento de índice usado e taxa de transferência da saudação (unidades de solicitação) de custo para cada operação. Essas informações pode ser usada toocompare várias políticas de indexação e de ajuste de desempenho.
 
-Para verificar se a cota de armazenamento e o uso de uma coleção, execute uma solicitação HEAD ou GET em relação ao recurso de coleção e inspecione os cabeçalhos x-ms-request-quota e x-ms-request-usage. No SDK do .NET, as propriedades [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) e [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) em [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) contêm esses valores correspondentes.
+cota de armazenamento do toocheck hello e uso de uma coleção, executar uma solicitação HEAD ou GET no recurso de coleção hello e inspecionar Olá x-ms-solicitação-quota e cabeçalhos de x-ms-solicitação-usage hello. No SDK .NET de hello, Olá [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) e [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) propriedades [ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) contêm esses valores correspondentes .
 
-     // Measure the document size usage (which includes the index size) against   
+     // Measure hello document size usage (which includes hello index size) against   
      // different policies.
      ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"));  
      Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 
 
-Para medir a sobrecarga de indexação em cada operação de gravação (criar, atualizar ou excluir), inspecione o cabeçalho x-ms-request-charge (ou a propriedade equivalente [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) em [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) no SDK do .NET) para medir o número de unidades de solicitação consumidas por essas operações.
+sobrecarga de saudação do toomeasure de indexação em cada operação de gravação (criar, atualizar ou excluir), inspecionar o cabeçalho x-ms-taxa de solicitação de hello (ou hello equivalente [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) propriedade [ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) em Olá .NET SDK) toomeasure número de saudação de unidades de solicitação consumida por essas operações.
 
-     // Measure the performance (request units) of writes.     
+     // Measure hello performance (request units) of writes.     
      ResourceResponse<Document> response = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), myDocument);              
      Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);
 
-     // Measure the performance (request units) of queries.    
+     // Measure hello performance (request units) of queries.    
      IDocumentQuery<dynamic> queryable =  client.CreateDocumentQuery(UriFactory.CreateDocumentCollectionUri("db", "coll"), queryString).AsDocumentQuery();
 
      double totalRequestCharge = 0;
@@ -346,20 +346,20 @@ Para medir a sobrecarga de indexação em cada operação de gravação (criar, 
 
      Console.WriteLine("Query consumed {0} request units in total", totalRequestCharge);
 
-## <a name="changes-to-the-indexing-policy-specification"></a>Alterações à especificação da política de indexação
-Uma alteração no esquema da política de indexação foi introduzida em 7 de julho de 2015 com a versão 2015-06-03 da API REST. As classes correspondentes nas versões do SDK têm novas implementações para corresponder ao esquema. 
+## <a name="changes-toohello-indexing-policy-specification"></a>Especificação da política de indexação de toohello de alterações
+Uma alteração no esquema de saudação para política de indexação foi introduzida em 7 de julho de 2015 com a API de REST versão 2015-06-03. classe correspondente Olá versões do SDK Olá tem novo esquema de saudação toomatch implementações. 
 
-As seguintes alterações foram implementadas na especificação JSON:
+Olá, as seguintes alterações foram implementada no hello especificação JSON:
 
 * A política de indexação dá suporte a índices de intervalo para cadeias de caracteres
 * Cada caminho pode ter várias definições de índice, um para cada tipo de dados
 * A indexação de precisão dá suporte a 1-8 para números de 1-100 para cadeias de caracteres e -1 (precisão máxima)
-* Segmentos de caminhos não exigem aspas duplas para cada caminho de escape. Por exemplo, você pode adicionar um caminho /title/? em vez de /"title"/?
-* O caminho raiz representando "todos os caminhos" pode ser representado como /* (além de /)
+* Segmentos de caminhos não exigem um tooescape aspas duplas cada caminho. Por exemplo, você pode adicionar um caminho /title/? em vez de /"title"/?
+* caminho de raiz de saudação que representa "todos os caminhos" pode ser representado como / * (além de muito /)
 
-Se você tiver o código que provisiona coleções com uma política de indexação personalizada gravada com versão 1.1.0 do SDK do .NET ou anterior, precisará alterar o código do aplicativo para lidar com essas alterações e mover para a versão 1.2.0 do SDK. Se você não tiver um código que configura a política de indexação ou planeja continuar usando uma versão anterior do SDK, nenhuma alteração será necessária.
+Se você tiver um código que provisiona coleções com uma política personalizada de indexação gravada com versão 1.1.0 do hello SDK .NET ou anterior, você precisará toochange toohandle de código do seu aplicativo essas alterações na versão de tooSDK ordem toomove 1.2.0. Se você não tiver um código que configura a política de indexação ou planejar toocontinue usando uma versão mais antiga do SDK, nenhuma alteração é necessária.
 
-Para uma comparação prática, aqui está um exemplo de política de indexação personalizada escrita usando a API REST versão 2015-06-03, bem como a versão 2015-04-08 anterior.
+Para obter uma comparação prática, aqui está um exemplo de política personalizada de indexação escrita usando Olá versão 2015-06-03 da API REST, bem como Olá anterior versão 2015-04-08.
 
 **Política de indexação anterior do JSON**
 
@@ -409,7 +409,7 @@ Para uma comparação prática, aqui está um exemplo de política de indexaçã
     }
 
 ## <a name="next-steps"></a>Próximas etapas
-Siga os links abaixo para ver exemplos de gerenciamento de políticas de índice e saber mais sobre a linguagem de consulta do Azure Cosmos DB.
+Siga links Olá abaixo para exemplos de política de gerenciamento de índice e toolearn mais sobre a linguagem de consulta do Azure Cosmos DB.
 
 1. [Exemplos de código do Gerenciamento de Índice do .NET na API do DocumentDB](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 2. [Operações de coleção da API REST no DocumentDB](https://msdn.microsoft.com/library/azure/dn782195.aspx)

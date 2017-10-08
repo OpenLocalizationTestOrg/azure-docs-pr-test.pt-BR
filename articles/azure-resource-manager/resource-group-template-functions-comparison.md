@@ -1,6 +1,6 @@
 ---
-title: "Funções de modelo do Azure Resource Manager – comparação | Microsoft Docs"
-description: "Descreve as funções a serem usadas em um modelo do Resource Manager para comparar valores."
+title: "funções de modelo do Gerenciador de recursos aaaAzure - comparação | Microsoft Docs"
+description: "Descreve Olá toouse de funções em valores de toocompare modelo do Azure Resource Manager."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: 521e5ed06c138bcd374913588f06a2e6c1e99963
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ebcfc9ed6c93f8b540ec4c066e9457c621800b7b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Funções de comparação para modelos do Azure Resource Manager
 
@@ -39,16 +39,16 @@ Verifica se dois valores são iguais entre si.
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |int, string, array ou object |O primeiro valor para verificar a igualdade. |
-| arg2 |Sim |int, string, array ou object |O segundo valor para verificar a igualdade. |
+| arg1 |Sim |int, string, array ou object |Olá primeiro toocheck de valor de igualdade. |
+| arg2 |Sim |int, string, array ou object |Olá toocheck segundo do valor de igualdade. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Retorna **True** se os valores são iguais; caso contrário, **False**.
+Retorna **True** se valores hello forem iguais; caso contrário, **False**.
 
 ### <a name="remarks"></a>Comentários
 
-A função equals é frequentemente usada com o elemento `condition` para testar se um recurso está implantado.
+Olá igual a função é geralmente usada com hello `condition` elemento tootest se um recurso é implantado.
 
 ```json
 {
@@ -67,7 +67,7 @@ A função equals é frequentemente usada com o elemento `condition` para testar
 
 ### <a name="example"></a>Exemplo
 
-O modelo de exemplo verifica os diferentes tipos de valores para igualdade. Todos os valores padrão retornam True.
+modelo de exemplo Hello verifica os diferentes tipos de valores para igualdade. Todos os valores padrão de saudação retornarem True.
 
 ```json
 {
@@ -130,17 +130,17 @@ O modelo de exemplo verifica os diferentes tipos de valores para igualdade. Todo
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | checkInts | Bool | True  |
 | checkStrings | Bool | True  |
 | checkArrays | Bool | True  |
-| checkObjects | Bool | True |
+| checkObjects | Bool | Verdadeiro |
 
 
-O exemplo a seguir usa [não](resource-group-template-functions-logical.md#not) com **é igual a**.
+Olá exemplo a seguir usa [não](resource-group-template-functions-logical.md#not) com **é igual a**.
 
 ```json
 {
@@ -156,7 +156,7 @@ O exemplo a seguir usa [não](resource-group-template-functions-logical.md#not) 
     }
 ```
 
-O resultado do exemplo anterior é:
+saída Olá Olá anterior exemplo é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -166,22 +166,22 @@ O resultado do exemplo anterior é:
 ## <a name="greater"></a>greater
 `greater(arg1, arg2)`
 
-Verifica se o primeiro valor é maior que o segundo valor.
+Verifica se o primeiro valor de saudação é maior que o valor de segundo hello.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |int ou string |O primeiro valor da comparação de maior que. |
-| arg2 |Sim |int ou string |O segundo valor da comparação de maior que. |
+| arg1 |Sim |int ou string |primeiro valor de comparação maior Olá Olá. |
+| arg2 |Sim |int ou string |o segundo valor de comparação maior Olá Olá. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Retorna **True** se o primeiro valor é maior que o segundo valor; caso contrário, **False**.
+Retorna **True** se Olá primeiro valor é maior que o valor de segundo Olá; caso contrário, **False**.
 
 ### <a name="example"></a>Exemplo
 
-O modelo de exemplo verifica se um valor é maior que o outro.
+modelo de exemplo Hello verifica se um valor de saudação é maior do que outros hello.
 
 ```json
 {
@@ -220,7 +220,7 @@ O modelo de exemplo verifica se um valor é maior que o outro.
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -231,22 +231,22 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="greaterorequals"></a>greaterOrEquals
 `greaterOrEquals(arg1, arg2)`
 
-Verifica se o primeiro valor é maior que ou igual ao segundo valor.
+Verifica se o primeiro valor de saudação é maior que ou igual toohello segundo valor.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |int ou string |O primeiro valor da comparação de maior que ou igual a. |
-| arg2 |Sim |int ou string |O segundo valor da comparação de maior que ou igual a. |
+| arg1 |Sim |int ou string |primeiro valor para comparação de maior ou igual Olá Olá. |
+| arg2 |Sim |int ou string |o segundo valor para comparação de maior ou igual Olá Olá. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Retorna **True** se o primeiro valor é maior que ou igual ao segundo valor; caso contrário, **False**.
+Retorna **True** se Olá primeiro valor for maior que ou igual toohello segundo; caso contrário, **False**.
 
 ### <a name="example"></a>Exemplo
 
-O modelo de exemplo verifica se um valor é maior que ou igual ao outro.
+modelo de exemplo Hello verifica se um valor de saudação é maior ou igual toohello outros.
 
 ```json
 {
@@ -285,7 +285,7 @@ O modelo de exemplo verifica se um valor é maior que ou igual ao outro.
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -297,22 +297,22 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="less"></a>less
 `less(arg1, arg2)`
 
-Verifica se o primeiro valor é menor que o segundo valor.
+Verifica se Olá primeiro valor é menor que Olá segundo valor.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |int ou string |O primeiro valor da comparação de menor que. |
-| arg2 |Sim |int ou string |O segundo valor da comparação de menor que. |
+| arg1 |Sim |int ou string |primeiro valor de saudação menos comparação Hello. |
+| arg2 |Sim |int ou string |o segundo valor para Olá menos comparação Hello. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Retorna **True** se o primeiro valor é menor que o segundo valor; caso contrário, **False**.
+Retorna **True** se Olá primeiro valor é menor que Olá segundo valor; caso contrário, **False**.
 
 ### <a name="example"></a>Exemplo
 
-O modelo de exemplo verifica se um valor é menor que o outro.
+modelo de exemplo Hello verifica se um valor de saudação é menor que Olá outros.
 
 ```json
 {
@@ -351,7 +351,7 @@ O modelo de exemplo verifica se um valor é menor que o outro.
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -362,22 +362,22 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="lessorequals"></a>lessOrEquals
 `lessOrEquals(arg1, arg2)`
 
-Verifica se o primeiro valor é menor que ou igual ao segundo valor.
+Verifica se o primeiro valor de saudação é menor ou igual toohello segundo valor.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |int ou string |O primeiro valor da comparação de menor que ou igual a. |
-| arg2 |Sim |int ou string |O segundo valor da comparação de menor que ou igual a. |
+| arg1 |Sim |int ou string |Olá Olá primeiro valor menor ou igual a comparação. |
+| arg2 |Sim |int ou string |Olá Olá segundo valor menor ou igual a comparação. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Retorna **True** se o primeiro valor é menor que ou igual ao segundo valor; caso contrário, **False**.
+Retorna **True** se Olá primeiro valor é menor ou igual toohello segundo valor; caso contrário, **False**.
 
 ### <a name="example"></a>Exemplo
 
-O modelo de exemplo verifica se um valor é menor que ou igual ao outro.
+Olá modelo de exemplo verifica se um valor de saudação é menor ou igual toohello outros.
 
 ```json
 {
@@ -416,7 +416,7 @@ O modelo de exemplo verifica se um valor é menor que ou igual ao outro.
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -426,8 +426,8 @@ A saída do exemplo anterior com os valores padrão é:
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
-* Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
-* Para ver como implantar o modelo que você criou, veja [Implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
+* Para obter uma descrição das seções de saudação em um modelo do Gerenciador de recursos do Azure, consulte [modelos de autoria do Azure Resource Manager](resource-group-authoring-templates.md).
+* toomerge vários modelos, consulte [usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
+* tooiterate um número de vezes especificado durante a criação de um tipo de recurso, consulte [criar várias instâncias de recursos no Gerenciador de recursos do Azure](resource-group-create-multiple.md).
+* toosee como modelo de saudação toodeploy que você criou, consulte [implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "Políticas no Gerenciamento de API do Azure | Microsoft Docs"
-description: "Saiba mais sobre as políticas disponíveis para uso no Gerenciamento de API do Azure."
+title: "políticas de gerenciamento de API aaaAzure | Microsoft Docs"
+description: "Saiba mais sobre políticas de saudação disponíveis para uso no gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 485dc3a87a81dc67f5144596a30d498293d6b76a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1c468ff37d73359f1dd694b91e20c2ca04f8934e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-management-policies"></a>Políticas de Gerenciamento de API
-Esta seção fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](api-management-howto-policies.md).  
+Esta seção fornece uma referência para Olá políticas de gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](api-management-howto-policies.md).  
   
- As políticas são um recurso poderoso do sistema que permitem ao editor alterar o comportamento da API por meio de configuração. As políticas são um conjunto de instruções executadas em sequência, no momento da solicitação ou da resposta de uma API. Instruções populares incluem a conversão do formato de XML para JSON e limite de taxa de chamada para restringir a quantidade de chamadas recebidas de um desenvolvedor. Muitas políticas estão disponíveis pré-configuradas.  
+ As políticas são um recurso poderoso do sistema Olá que permitem que o publicador Olá toochange comportamento de saudação do hello API por meio da configuração. As políticas são um conjunto de instruções que são executadas sequencialmente na solicitação de saudação ou resposta de uma API. As instruções populares incluem conversão de formato de XML tooJSON e limitando toorestrict Olá quantidade de chamadas de entrada de um desenvolvedor de taxa de chamada. Muitas outras políticas estão disponíveis sem a necessidade de saudação.  
   
- Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo](api-management-advanced-policies.md#choose) e [Definir variável](api-management-advanced-policies.md#set-variable) se baseiam em expressões de políticas. Para obter mais informações, confira [Políticas avançadas](api-management-advanced-policies.md#AdvancedPolicies) e [Expressões de política](api-management-policy-expressions.md).  
+ Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de gerenciamento de API hello, a menos que Olá política especifique o contrário. Algumas políticas, como Olá [fluxo de controle](api-management-advanced-policies.md#choose) e [Set variable](api-management-advanced-policies.md#set-variable) políticas se baseiam em expressões de política. Para obter mais informações, confira [Políticas avançadas](api-management-advanced-policies.md#AdvancedPolicies) e [Expressões de política](api-management-policy-expressions.md).  
   
 ##  <a name="ProxyPolicies"></a> Políticas  
   
@@ -39,37 +39,37 @@ Esta seção fornece uma referência para as políticas de Gerenciamento de API 
   
     -   [Restringir IP do autor da chamada](api-management-access-restriction-policies.md#RestrictCallerIPs) - Filtra (permite/recusa) chamadas de endereços IP específicos e/ou intervalos de endereços.  
   
-    -   [Definir a cota de uso por assinatura](api-management-access-restriction-policies.md#SetUsageQuota) - Permite que você aplique uma cota renovável ou permanente de volume de chamada e/ou largura de banda, baseado em assinatura.  
+    -   [Definir a cota de uso por assinatura](api-management-access-restriction-policies.md#SetUsageQuota) -permite que você tooenforce uma vida útil ou renovável chamada volume e/ou a largura de banda de cota, em uma base por assinatura.  
   
-    -   [Definir a cota de uso por chave](api-management-access-restriction-policies.md#SetUsageQuotaByKey) - Permite que você aplique uma cota renovável ou permanente de volume de chamada e/ou largura de banda, baseado em chave.  
+    -   [Definir a cota de uso pela chave](api-management-access-restriction-policies.md#SetUsageQuotaByKey) -permite que você tooenforce uma vida útil ou renovável chamada volume e/ou a largura de banda de cota, em uma base por chave.  
   
     -   [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) - Impõe a existência e a validade de JWT extraída de um cabeçalho HTTP especificado ou um parâmetro de consulta especificado.  
   
 -   [Políticas avançadas](api-management-advanced-policies.md#AdvancedPolicies)  
   
-    -   [Fluxo de controle](api-management-advanced-policies.md#choose): aplica condicionalmente declarações de política com base na avaliação de expressões boolianas.  
+    -   [Fluxo de controle](api-management-advanced-policies.md#choose) - condicionalmente aplica instruções de política com base na avaliação de saudação de expressões Boolianas.  
   
-    -   [Encaminhar solicitação](api-management-advanced-policies.md#ForwardRequest) -Encaminha a solicitação ao serviço de back-end.  
+    -   [Enviar solicitação](api-management-advanced-policies.md#ForwardRequest) -encaminha o serviço de back-end do hello solicitação toohello.  
   
-    -   [Registrar em log no Hub de Eventos](api-management-advanced-policies.md#log-to-eventhub): envia mensagens no formato especificado para um destino de mensagem definido por uma entidade Agente.  
+    -   [Log tooEvent Hub](api-management-advanced-policies.md#log-to-eventhub) -envia mensagens no destino de mensagem hello formato especificado tooa definido por uma entidade de agente de log.  
   
-    -   [Repetir](api-management-advanced-policies.md#Retry) - repete a execução das instruções de política, se e até que a condição seja atendida. A execução será repetida em intervalos de tempo especificados até e a contagem de repetições especificada.  
+    -   [Repita](api-management-advanced-policies.md#Retry) -tentativas de execução de saudação colocados declarações de política, se e até Olá condição for atendida. A execução será repetida em Olá intervalos de tempo especificado e o toohello especificado contagem de repetição.  
   
-    -   [Retornar resposta](api-management-advanced-policies.md#ReturnResponse) - Anula a execução de pipeline e retorna a resposta especificada diretamente para o autor da chamada.  
+    -   [Retornar a resposta](api-management-advanced-policies.md#ReturnResponse) -Olá de execução e retorna de anulações de pipeline da resposta especificada diretamente toohello chamador.  
   
-    -   [Enviar solicitação unidirecional](api-management-advanced-policies.md#SendOneWayRequest) - Envia uma solicitação para a URL especificada sem aguardar uma resposta.  
+    -   [Enviar solicitação de uma maneira](api-management-advanced-policies.md#SendOneWayRequest) -envia uma solicitação toohello especificado URL sem aguardar uma resposta.  
   
-    -   [Enviar solicitação](api-management-advanced-policies.md#SendRequest) - Envia uma solicitação para a URL especificada.  
+    -   [Enviar solicitação](api-management-advanced-policies.md#SendRequest) -envia uma solicitação toohello especificou a URL.  
   
     -   [Definir variável](api-management-advanced-policies.md#set-variable): persiste um valor em uma variável de contexto nomeada para acesso posterior.  
   
-    -   [Definir método de solicitação](api-management-advanced-policies.md#SetRequestMethod) - Permite alterar o método HTTP de uma solicitação.  
+    -   [Definir o método de solicitação](api-management-advanced-policies.md#SetRequestMethod) -permite que você toochange método de saudação HTTP para uma solicitação.  
   
-    -   [Definir código de status](api-management-advanced-policies.md#SetStatus) – altera o código de status de HTTP para o valor especificado.  
+    -   [Definir o código de status](api-management-advanced-policies.md#SetStatus) -valor especificado de toohello de código de status HTTP de saudação alterações.  
   
-    -   [Rastreamento](api-management-advanced-policies.md#Trace) - adiciona uma cadeia de caracteres para a saída do [Inspetor de API](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/).  
+    -   [Rastreamento](api-management-advanced-policies.md#Trace) -adiciona uma cadeia de caracteres de saudação [API Inspetor](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) saída.  
   
-    -   [Aguarde](api-management-advanced-policies.md#Wait): espera pelas políticas [Enviar solicitação](api-management-advanced-policies.md#SendRequest), [Obter valor do cache](api-management-caching-policies.md#GetFromCacheByKey) ou [Fluxo de controle](api-management-advanced-policies.md#choose) incorporadas serem concluídas antes de prosseguir.  
+    -   [Aguarde](api-management-advanced-policies.md#Wait) -aguarda para colocados [solicitação de envio](api-management-advanced-policies.md#SendRequest), [obter o valor de cache](api-management-caching-policies.md#GetFromCacheByKey), ou [fluxo de controle](api-management-advanced-policies.md#choose) toocomplete políticas antes de continuar.  
   
 -   [Políticas de autenticação](api-management-authentication-policies.md#AuthenticationPolicies)  
   
@@ -81,43 +81,43 @@ Esta seção fornece uma referência para as políticas de Gerenciamento de API 
   
     -   [Obter do cache](api-management-caching-policies.md#GetFromCache) - Executa a pesquisa em cache e retorna uma resposta válida armazenada em cache quando uma estiver disponível.  
   
-    -   [Armazenar em cache](api-management-caching-policies.md#StoreToCache) - Armazena a resposta em cache de acordo com a configuração de controle de cache especificada.  
+    -   [Armazenar toocache](api-management-caching-policies.md#StoreToCache) -resposta de Caches de acordo com o toohello especificado a configuração de controle de cache.  
   
     -   [Obter valor do cache](api-management-caching-policies.md#GetFromCacheByKey) - Recupere um item em cache por chave.  
   
-    -   [Armazenar valor em cache](api-management-caching-policies.md#StoreToCacheByKey) -Armazene um item no cache por chave.  
+    -   [Armazena o valor em cache](api-management-caching-policies.md#StoreToCacheByKey) -armazenar um item no cache de saudação por chave.  
   
-    -   [Remover o valor do cache](api-management-caching-policies.md#RemoveCacheByKey) - remove um item no cache por chave.  
+    -   [Remova o valor do cache](api-management-caching-policies.md#RemoveCacheByKey) -remover um item no cache de saudação por chave.  
   
 -   [Políticas entre domínios](api-management-cross-domain-policies.md#CrossDomainPolicies)  
   
-    -   [Permitir chamadas entre domínios](api-management-cross-domain-policies.md#AllowCrossDomainCalls) - Torna a API acessível por meio de clientes Adobe Flash e Microsoft Silverlight baseados em navegadores.  
+    -   [Permitir chamadas entre domínios](api-management-cross-domain-policies.md#AllowCrossDomainCalls) -torna Olá API acessível de clientes baseados em navegador Microsoft Silverlight e Adobe Flash.  
   
-    -   [CORS](api-management-cross-domain-policies.md#CORS) - Adicionar suporte de compartilhamento de recursos entre origens (CORS) a uma operação ou a uma API para permitir chamadas entre domínios de clientes baseados em navegadores.  
+    -   [CORS](api-management-cross-domain-policies.md#CORS) -adiciona o compartilhamento de recursos entre origens (CORS) suporte para a operação de tooan ou chama um API entre tooallow domínios de clientes baseados em navegador.  
   
-    -   [JSONP](api-management-cross-domain-policies.md#JSONP) - Adiciona suporte JSON com preenchimento (JSONP) a uma operação ou a uma API para permitir chamadas entre domínios de clientes JavaScript baseados em navegadores.  
+    -   [JSONP](api-management-cross-domain-policies.md#JSONP) - adiciona JSON com a operação de tooan de suporte de preenchimento (JSONP) ou chama um API entre tooallow domínios de clientes baseados em navegador do JavaScript.  
   
 -   [Políticas de transformação](api-management-transformation-policies.md#TransformationPolicies)  
   
-    -   [Converter JSON para XML](api-management-transformation-policies.md#ConvertJSONtoXML) - Converte o corpo da solicitação ou da resposta de JSON para XML.  
+    -   [Converter JSON tooXML](api-management-transformation-policies.md#ConvertJSONtoXML) - converte solicitação ou o corpo da resposta de JSON tooXML.  
   
-    -   [Converter XML para JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) - Converte o corpo da solicitação ou da resposta de XML para JSON.  
+    -   [Converter XML tooJSON](api-management-transformation-policies.md#ConvertXMLtoJSON) - converte solicitação ou o corpo da resposta de XML tooJSON.  
   
     -   [Localizar e substituir cadeia no corpo](api-management-transformation-policies.md#Findandreplacestringinbody) - Encontra uma subcadeia de uma solicitação ou resposta e a substitui por outra subcadeia.  
   
-    -   [Mascarar URLs no conteúdo](api-management-transformation-policies.md#MaskURLSContent) – Reescreve (mascara) os links no corpo da resposta, para que eles apontem para o link equivalente por meio do gateway.  
+    -   [Mascarar URLs no conteúdo](api-management-transformation-policies.md#MaskURLSContent) -regrava (mascara) links na resposta de saudação do corpo para que eles apontem toohello o link equivalente através do gateway de saudação.  
   
-    -   [Definir o serviço de back-end](api-management-transformation-policies.md#SetBackendService) - Altera o serviço de back-end para uma solicitação de entrada.  
+    -   [Configurar o serviço de back-end](api-management-transformation-policies.md#SetBackendService) -altera o serviço de back-end Olá para uma solicitação de entrada.  
   
-    -   [Definir corpo](api-management-transformation-policies.md#SetBody) - Define o corpo da mensagem para solicitações de entrada e saída.  
+    -   [Definir corpo](api-management-transformation-policies.md#SetBody) -define o corpo da mensagem de saudação para solicitações de entrada e saídas.  
   
-    -   [Definir cabeçalho HTTP](api-management-transformation-policies.md#SetHTTPheader) - Atribui um valor a uma resposta e/ou cabeçalho de resposta existente ou adiciona uma nova resposta e/ou cabeçalho de resposta.  
+    -   [Definir cabeçalho HTTP](api-management-transformation-policies.md#SetHTTPheader) - atribui um cabeçalho de solicitação e/ou resposta do valor tooan existente ou adiciona um novo cabeçalho de solicitação de e/ou resposta.  
   
     -   [Definir parâmetro de cadeia de consulta](api-management-transformation-policies.md#SetQueryStringParameter) - Adiciona, substitui o valor ou exclui parâmetros de cadeias de consulta de solicitação.  
   
-    -   [Reescrever URL](api-management-transformation-policies.md#RewriteURL) - Converte a URL de uma solicitação de sua forma pública em sua forma esperada pelo serviço Web.  
+    -   [Regravar URL](api-management-transformation-policies.md#RewriteURL) -converte uma URL de solicitação de forma pública formulário toohello esperada pelo serviço da web de saudação.  
   
-    -   [Transformar XML usando um XSLT](api-management-transformation-policies.md#XSLTransform): aplica uma transformação XSL para XML no corpo da solicitação ou da resposta.  
+    -   [Transformar XML usando um XSLT](api-management-transformation-policies.md#XSLTransform) -aplica-se um tooXML de transformação XSL no corpo de solicitação ou resposta hello.  
   
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como trabalhar com políticas, veja [Políticas em Gerenciamento de API](api-management-howto-policies.md).  

@@ -1,5 +1,5 @@
 ---
-title: Exemplos de CLI do Lote do Azure | Microsoft Docs
+title: aaaAzure exemplos de CLI do lote | Microsoft Docs
 description: Exemplos de CLI do Lote do Azure
 services: batch
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2017
 ms.author: antisch
-ms.openlocfilehash: 51fd27536994ca36bf9559a780660c3a16bf30cc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0d700a6edebd35a3b2bb86926d1e57d4a33584b4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-batch-cli-samples"></a>Exemplos de CLI do Lote do Azure
 
 ## <a name="tutorials-with-sample-shell-scripts"></a>Tutoriais com exemplos de scripts do shell
 
-A tabela a seguir inclui links para scripts bash compilados com a CLI do Azure. Esses scripts demonstram como usar o serviço do Lote.
+Hello tabela a seguir inclui links toobash scripts criados usando Olá CLI do Azure demonstram o uso do serviço de lote de saudação.
 
 | Script | Observações |
 |---|---|
@@ -35,4 +35,4 @@ A tabela a seguir inclui links para scripts bash compilados com a CLI do Azure. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre Olá CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).

@@ -1,6 +1,6 @@
 ---
-title: "Políticas de cache no Gerenciamento de API do Azure | Microsoft Docs"
-description: "Saiba mais sobre as políticas de cache disponíveis para uso no Gerenciamento de API do Azure."
+title: "políticas de gerenciamento de API de cache do aaaAzure | Microsoft Docs"
+description: "Saiba mais sobre Olá cache políticas disponíveis para uso no gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 2a8f012e7e223ef5c1683c8a6c5ecf2f3e96bed8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bd6b0721945609b28dbf6e7ef0631979c08c8c65
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="api-management-caching-policies"></a>Políticas de cache do Gerenciamento de API
-Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
+Este tópico fornece uma referência para Olá políticas de gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="CachingPolicies"></a> Políticas de cache  
   
@@ -29,26 +29,26 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
     -   [Obter do cache](api-management-caching-policies.md#GetFromCache): executa a pesquisa em cache e retorna uma resposta válida armazenada em cache quando disponível.  
   
-    -   [Armazenar em cache](api-management-caching-policies.md#StoreToCache): armazena a resposta em cache de acordo com a configuração de controle de cache especificada.  
+    -   [Armazenar toocache](api-management-caching-policies.md#StoreToCache) - respostas de Caches de acordo com o toohello configuração de controle de cache especificado.  
   
 -   Valor das políticas de cache  
   
     -   [Obter valor do cache](#GetFromCacheByKey) - Recupere um item em cache por chave.  
   
-    -   [Armazenar valor em cache](#StoreToCacheByKey) -Armazene um item no cache por chave.  
+    -   [Armazena o valor em cache](#StoreToCacheByKey) -armazenar um item no cache de saudação por chave.  
   
-    -   [Remover o valor do cache](#RemoveCacheByKey) - remove um item no cache por chave.  
+    -   [Remova o valor do cache](#RemoveCacheByKey) -remover um item no cache de saudação por chave.  
   
 ##  <a name="GetFromCache"></a> Obter do cache  
- Use a política `cache-lookup` para realizar pesquisas e retornar uma resposta válida em cache quando disponível. Esta política deve ser aplicada em casos nos quais o conteúdo da resposta permanece estático por um período de tempo. O cache das respostas reduz os requisitos de largura de banda e processamento exigidos do servidor Web de back-end e reduz a latência percebida pelos consumidores da API.  
+ Saudação de uso `cache-lookup` cache da política de tooperform pesquisar e retornar uma resposta válida de cache quando disponível. Esta política deve ser aplicada em casos nos quais o conteúdo da resposta permanece estático por um período de tempo. O cache de resposta reduz a largura de banda e requisitos de processamento impostos Olá back-end da web server e reduz a latência percebida pelos consumidores de API.  
   
 > [!NOTE]
->  É necessário ter uma política correspondente de [Armazenar em cache](api-management-caching-policies.md#StoreToCache).  
+>  Essa diretiva deve ter um correspondente [toocache repositório](api-management-caching-policies.md#StoreToCache) política.  
   
 ### <a name="policy-statement"></a>Declaração de política  
   
 ```xml  
-<cache-lookup vary-by-developer="true | false" vary-by-developer-groups="true | false" downstream-caching-type="none | private | public" must-revalidate="true | false" allow-private-response-caching="@(expression to evaluate)">  
+<cache-lookup vary-by-developer="true | false" vary-by-developer-groups="true | false" downstream-caching-type="none | private | public" must-revalidate="true | false" allow-private-response-caching="@(expression tooevaluate)">  
   <vary-by-header>Accept</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Accept-Charset</vary-by-header>  
@@ -82,18 +82,18 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 ```  
   
 #### <a name="example-using-policy-expressions"></a>Exemplo usando expressões de política  
- Este exemplo mostra como configurar a duração do cache de resposta do Gerenciamento de API que corresponde ao cache de resposta do serviço de back-end, conforme especificado pela diretiva `Cache-Control` do serviço de backup. Para ver uma demonstração da configuração e do uso dessa política, veja [Abordagem da Nuvem Episódio 177: Mais Recursos de Gerenciamento de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avance para 25:25.  
+ Este exemplo mostra como resposta de gerenciamento de API tootooconfigure cache duração que corresponde ao Olá cache de resposta do serviço de back-end Olá conforme especificado pelas Olá feito do serviço `Cache-Control` diretiva. Para ver uma demonstração de como configurar e usar essa política, consulte [nuvem abrangem episódio 177: mais recursos de gerenciamento de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e Avançar too25:25.  
   
 ```xml  
-<!-- The following cache policy snippets demonstrate how to control API Management reponse cache duration with Cache-Control headers sent by the backend service. -->  
+<!-- hello following cache policy snippets demonstrate how toocontrol API Management reponse cache duration with Cache-Control headers sent by hello backend service. -->  
   
-<!-- Copy this snippet into the inbound section -->  
+<!-- Copy this snippet into hello inbound section -->  
 <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="public" must-revalidate="true" >  
   <vary-by-header>Accept</vary-by-header>  
   <vary-by-header>Accept-Charset</vary-by-header>  
 </cache-lookup>  
   
-<!-- Copy this snippet into the outbound section. Note that cache duration is set to the max-age value provided in the Cache-Control header received from the backend service or to the deafult value of 5 min if none is found  -->  
+<!-- Copy this snippet into hello outbound section. Note that cache duration is set toohello max-age value provided in hello Cache-Control header received from hello backend service or toohello deafult value of 5 min if none is found  -->  
 <cache-store duration="@{  
     var header = context.Response.Headers.GetValueOrDefault("Cache-Control","");  
     var maxAge = Regex.Match(header, @"max-age=(?<maxAge>\d+)").Groups["maxAge"]?.Value;  
@@ -102,7 +102,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
  />  
 ```  
   
- Para saber mais, veja [Expressões de política](api-management-policy-expressions.md) e [Variável de contexto](api-management-policy-expressions.md#ContextVariables).  
+ Para obter mais informações, veja [Expressões de política](api-management-policy-expressions.md) e [Variável de contexto](api-management-policy-expressions.md#ContextVariables).  
   
 ### <a name="elements"></a>Elementos  
   
@@ -116,21 +116,21 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |Nome|Descrição|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|allow-private-response-caching|Quando definido como `true`, permite armazenar em cache as solicitações que contêm um cabeçalho Authorization.|Não|false|  
-|downstream-caching-type|Este atributo deve ser definido como um dos valores a seguir.<br /><br /> -   none: o cache downstream não é permitido.<br />-   private: o cache downstream privado é permitido.<br />-   public: o cache downstream privado e compartilhado é permitido.|Não|nenhum|  
-|must-revalidate|Quando o cache downstream está habilitado, este atributo ativa ou desativa a diretiva de controle de cache `must-revalidate` em respostas do gateway.|Não|verdadeiro|  
-|vary-by-developer|Definido como `true` para respostas em cache por chave de desenvolvedor.|Não|false|  
-|vary-by-developer-groups|Definido como `true` para respostas em cache por função de usuário.|Não|false|  
+|allow-private-response-caching|Quando definido muito`true`, permite armazenar em cache de solicitações que contêm um cabeçalho de autorização.|Não|false|  
+|downstream-caching-type|Esse atributo deve ser definido como tooone de saudação valores a seguir.<br /><br /> -   none: o cache downstream não é permitido.<br />-   private: o cache downstream privado é permitido.<br />-   public: o cache downstream privado e compartilhado é permitido.|Não|nenhum|  
+|must-revalidate|Quando o cache downstream é habilitado esse atributo ativa ou desativa a saudação `must-revalidate` diretiva de controle de cache em respostas de gateway.|Não|verdadeiro|  
+|vary-by-developer|Definir muito`true` respostas toocache por chave de desenvolvedor.|Não|false|  
+|vary-by-developer-groups|Definir muito`true` respostas toocache por função de usuário.|Não|false|  
   
 ### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+ Essa política pode ser usada em Olá após diretiva [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
--   **Seções de política:** entrada  
+-   **Seções de política:** de entrada  
   
 -   **Escopos de política:** API, operação, produto  
   
-##  <a name="StoreToCache"></a> Armazenar em cache  
- A política `cache-store` armazena as respostas em cache de acordo com a configuração de cache especificada. Esta política deve ser aplicada em casos nos quais o conteúdo da resposta permanece estático por um período de tempo. O cache das respostas reduz os requisitos de largura de banda e processamento exigidos do servidor Web de back-end e reduz a latência percebida pelos consumidores da API.  
+##  <a name="StoreToCache"></a>Repositório toocache  
+ Olá `cache-store` especificado de respostas de caches de política toohello de acordo com as configurações de cache. Esta política deve ser aplicada em casos nos quais o conteúdo da resposta permanece estático por um período de tempo. O cache de resposta reduz a largura de banda e requisitos de processamento impostos Olá back-end da web server e reduz a latência percebida pelos consumidores de API.  
   
 > [!NOTE]
 >  Esta política deve ter uma política [Obter do cache](api-management-caching-policies.md#GetFromCache) correspondente.  
@@ -161,18 +161,18 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 ```  
   
 #### <a name="example-using-policy-expressions"></a>Exemplo usando expressões de política  
- Este exemplo mostra como configurar a duração do cache de resposta do Gerenciamento de API que corresponde ao cache de resposta do serviço de back-end, conforme especificado pela diretiva `Cache-Control` do serviço de backup. Para ver uma demonstração da configuração e do uso dessa política, veja [Abordagem da Nuvem Episódio 177: Mais Recursos de Gerenciamento de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avance para 25:25.  
+ Este exemplo mostra como resposta de gerenciamento de API tootooconfigure cache duração que corresponde ao Olá cache de resposta do serviço de back-end Olá conforme especificado pelas Olá feito do serviço `Cache-Control` diretiva. Para ver uma demonstração de como configurar e usar essa política, consulte [nuvem abrangem episódio 177: mais recursos de gerenciamento de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e Avançar too25:25.  
   
 ```xml  
-<!-- The following cache policy snippets demonstrate how to control API Management reponse cache duration with Cache-Control headers sent by the backend service. -->  
+<!-- hello following cache policy snippets demonstrate how toocontrol API Management reponse cache duration with Cache-Control headers sent by hello backend service. -->  
   
-<!-- Copy this snippet into the inbound section -->  
+<!-- Copy this snippet into hello inbound section -->  
 <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="public" must-revalidate="true" >  
   <vary-by-header>Accept</vary-by-header>  
   <vary-by-header>Accept-Charset</vary-by-header>  
 </cache-lookup>  
   
-<!-- Copy this snippet into the outbound section. Note that cache duration is set to the max-age value provided in the Cache-Control header received from the backend service or to the deafult value of 5 min if none is found  -->  
+<!-- Copy this snippet into hello outbound section. Note that cache duration is set toohello max-age value provided in hello Cache-Control header received from hello backend service or toohello deafult value of 5 min if none is found  -->  
 <cache-store duration="@{  
     var header = context.Response.Headers.GetValueOrDefault("Cache-Control","");  
     var maxAge = Regex.Match(header, @"max-age=(?<maxAge>\d+)").Groups["maxAge"]?.Value;  
@@ -181,7 +181,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
  />  
 ```  
   
- Para saber mais, veja [Expressões de política](api-management-policy-expressions.md) e [Variável de contexto](api-management-policy-expressions.md#ContextVariables).  
+ Para obter mais informações, veja [Expressões de política](api-management-policy-expressions.md) e [Variável de contexto](api-management-policy-expressions.md#ContextVariables).  
   
 ### <a name="elements"></a>Elementos  
   
@@ -193,17 +193,17 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |Nome|Descrição|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|duration|Vida útil das entradas armazenadas em cache, especificada em segundos.|Sim|N/D|  
+|duration|Tempo de vida de saudação armazenados em cache as entradas, especificadas em segundos.|Sim|N/D|  
   
 ### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+ Essa política pode ser usada em Olá após diretiva [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Seções de política:** saída  
   
 -   **Escopos de política:** API, operação, produto  
   
 ##  <a name="GetFromCacheByKey"></a> Obter valor do cache  
- Use a política `cache-lookup-value` para executar a consulta em cache por chave e retornar um valor armazenado em cache. A chave pode ter um valor de cadeia de caracteres arbitrário e geralmente é fornecida usando uma expressão de política.  
+ Saudação de uso `cache-lookup-value` política tooperform pesquisa de cache por chave e retornam um valor armazenado em cache. chave de saudação pode ter um valor de cadeia de caracteres arbitrária e normalmente é fornecido usando uma expressão de política.  
   
 > [!NOTE]
 >  É necessário ter uma política correspondente de [Armazenar valor em cache](#StoreToCacheByKey).  
@@ -212,7 +212,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 ```xml  
 <cache-lookup-value key="cache key value"   
-    default-value="value to use if cache lookup resulted in a miss"   
+    default-value="value toouse if cache lookup resulted in a miss"   
     variable-name="name of a variable looked up value is assigned to" />  
 ```  
   
@@ -236,19 +236,19 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |Nome|Descrição|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|default-value|Um valor que será atribuído à variável se a pesquisa de chave em cache resultou em um erro. Se esse atributo não for especificado, `null` é atribuído.|Não|`null`|  
-|chave|Valor de chave de cache a usar na pesquisa.|Sim|N/D|  
-|variable-name|Nome da [variável de contexto](api-management-policy-expressions.md#ContextVariables) a atribuir para o valor pesquisado, se a pesquisa for bem-sucedida. Se a pesquisa resulta em um erro, a variável será atribuída o valor do atributo `default-value` ou `null`, se o atributo `default-value` for omitido.|Sim|N/D|  
+|default-value|Um valor que será atribuído toohello variável se a pesquisa de chave de cache Olá resultou em um erro. Se esse atributo não for especificado, `null` é atribuído.|Não|`null`|  
+|chave|Toouse de valor de chave na pesquisa de saudação do cache.|Sim|N/D|  
+|variable-name|Nome da saudação [variável de contexto](api-management-policy-expressions.md#ContextVariables) Olá pesquisado o valor será atribuído, se a pesquisa for bem-sucedida. Se a pesquisa resulta em um erro, variável Olá será atribuído valor Olá Olá `default-value` atributo ou `null`, se hello `default-value` atributo for omitido.|Sim|N/D|  
   
 ### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+ Essa política pode ser usada em Olá após diretiva [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
--   **Seções de política:** entrada, saída, back-end, em caso de erro  
+-   **Seções da política:** entrada, saída, back-end, em caso de erro  
   
 -   **Escopos de política:** global, API, operação, produto  
   
 ##  <a name="StoreToCacheByKey"></a> Armazenar valor em cache  
- `cache-store-value` armazena em cache por chave. A chave pode ter um valor de cadeia de caracteres arbitrário e geralmente é fornecida usando uma expressão de política.  
+ Olá `cache-store-value` executa o armazenamento em cache por chave. chave de saudação pode ter um valor de cadeia de caracteres arbitrária e normalmente é fornecido usando uma expressão de política.  
   
 > [!NOTE]
 >  Esta política deve ter uma política [Obter valor do cache](#GetFromCacheByKey) correspondente.  
@@ -256,7 +256,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 ### <a name="policy-statement"></a>Declaração de política  
   
 ```xml  
-<cache-store-value key="cache key value" value="value to cache" duration="seconds" />  
+<cache-store-value key="cache key value" value="value toocache" duration="seconds" />  
 ```  
   
 ### <a name="example"></a>Exemplo  
@@ -279,19 +279,19 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |Nome|Descrição|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|duration|Valor será armazenado em cache para o valor de duração fornecido, especificado em segundos.|Sim|N/D|  
-|chave|A chave em cache em que o valor será armazenado.|Sim|N/D|  
-|valor|O valor a ser armazenado em cache.|Sim|N/D|  
+|duration|Valor serão armazenadas em cache para Olá fornecido valor de duração, especificado em segundos.|Sim|N/D|  
+|chave|Valor de chave saudação do cache será armazenado em.|Sim|N/D|  
+|valor|Olá toobe de valor armazenado em cache.|Sim|N/D|  
   
 ### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+ Essa política pode ser usada em Olá após diretiva [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
--   **Seções de política:** entrada, saída, back-end, em caso de erro  
+-   **Seções da política:** entrada, saída, back-end, em caso de erro  
   
 -   **Escopos de política:** global, API, operação, produto  
   
 ###  <a name="RemoveCacheByKey"></a> Remover valor do cache  
- `cache-remove-value` exclui um item em cache identificado por sua chave. A chave pode ter um valor de cadeia de caracteres arbitrário e geralmente é fornecida usando uma expressão de política.  
+ Olá `cache-remove-value` exclui um item em cache identificado por sua chave. chave de saudação pode ter um valor de cadeia de caracteres arbitrária e normalmente é fornecido usando uma expressão de política.  
   
 #### <a name="policy-statement"></a>Declaração de política  
   
@@ -319,12 +319,12 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |Nome|Descrição|Obrigatório|Padrão|  
 |----------|-----------------|--------------|-------------|  
-|chave|A chave do valor anteriormente armazenado em cache a ser removido do cache.|Sim|N/D|  
+|chave|chave de saudação do hello previamente armazenados em cache toobe valor removido do cache de saudação.|Sim|N/D|  
   
 #### <a name="usage"></a>Uso  
- Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
+ Essa política pode ser usada em Olá após diretiva [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
   
--   **Seções de política:** entrada, saída, back-end, em caso de erro  
+-   **Seções da política:** entrada, saída, back-end, em caso de erro  
   
 -   **Escopos de política:** global, API, operação, produto  
   

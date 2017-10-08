@@ -1,6 +1,6 @@
 ---
-title: "Como usar o SDK do JavaScript para os Aplicativos Móveis do Azure"
-description: "Como usar o v para os Aplicativos Móveis do Azure"
+title: "aaaHow tooUse Olá SDK de JavaScript para aplicativos móveis do Azure"
+description: "Como v tooUse para aplicativos móveis do Azure"
 services: app-service\mobile
 documentationcenter: javascript
 author: ggailey777
@@ -14,32 +14,32 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: glenga
-ms.openlocfilehash: 0c4b4de560d70592f5bbdee28b56a7686b5689f4
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3fcbb0c5bd6918a285bdafa1946ba0bd47bb21b0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Como usar a biblioteca de cliente JavaScript para os Aplicativos Móveis do Azure
+# <a name="how-toouse-hello-javascript-client-library-for-azure-mobile-apps"></a>Como o tooUse hello biblioteca de cliente JavaScript para aplicativos móveis do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-Este guia ensina a executar cenários comuns usando o mais recente [SDK do JavaScript para os Aplicativos Móveis do Azure]. Se não estiver familiarizado com os Aplicativos Móveis do Azure, primeiro conclua o [Início Rápido dos Aplicativos Móveis do Azure] para criar um back-end e uma tabela. Neste guia, vamos nos concentrar no uso do back-end móvel em aplicativos Web em HTML/JavaScript.
+Este guia ensina usando hello mais recente de cenários comuns de tooperform [SDK de JavaScript para aplicativos móveis do Azure]. Se você for novo tooAzure os aplicativos móveis, primeiro conclua [início rápido do Azure Mobile aplicativos] toocreate um back-end e criar uma tabela. Este guia, vamos nos concentrar em usar o back-end de saudação móvel em aplicativos Web HTML/JavaScript.
 
 ## <a name="supported-platforms"></a>Plataformas com suporte
-Limitamos o suporte de navegador às versões atuais e mais recentes dos principais navegadores: Google Chrome, Microsoft Edge, Microsoft Internet Explorer e Mozilla Firefox.  Esperamos que o SDK funcione com todos os navegadores relativamente modernos.
+Podemos limite atual de toohello de suporte do navegador e versões de saudação da última principais navegadores: Microsoft Edge, Google Chrome, o Microsoft Internet Explorer e Mozilla Firefox.  Esperamos Olá SDK toofunction com qualquer navegador moderno relativamente.
 
-O pacote é distribuído como um Módulo de JavaScript Universal e, portanto, ele dá suporte aos formatos AMD, CommonJS e globais.
+pacote de saudação é distribuído como um módulo de JavaScript Universal, para que ele suporta globais, AMD, e formatos de CommonJS.
 
 ## <a name="Setup"></a>Configuração e pré-requisitos
-Este guia pressupõe que você tenha criado um back-end com uma tabela. Este guia pressupõe que a tabela tem o mesmo esquema das tabelas desses tutoriais.
+Este guia pressupõe que você tenha criado um back-end com uma tabela. Este guia presume que tabela Olá tenha Olá mesmo esquema de tabelas Olá esses tutoriais.
 
-A instalação do SDK do JavaScript para Aplicativos Móveis do Azure pode ser feita por meio do comando `npm` :
+Instalar Olá SDK de JavaScript de aplicativos móveis do Azure pode ser feito por meio de saudação `npm` comando:
 
 ```
 npm install azure-mobile-apps-client --save
 ```
 
-A biblioteca também pode ser usada como um módulo ES2015, em ambientes de CommonJS como Browserify e Webpack e como uma biblioteca AMD.  Por exemplo:
+biblioteca de saudação também pode ser usada como um módulo ES2015, em ambientes de CommonJS como Browserify e Webpack e como uma biblioteca AMD.  Por exemplo:
 
 ```
 # For ECMAScript 5.1 CommonJS
@@ -48,7 +48,7 @@ var WindowsAzure = require('azure-mobile-apps-client');
 import * as WindowsAzure from 'azure-mobile-apps-client';
 ```
 
-Você também pode usar uma versão pré-criada do SDK baixando diretamente do nosso CDN:
+Você também pode usar uma versão pré-criado do hello SDK baixando diretamente do nosso CDN:
 
 ```html
 <script src="https://zumo.blob.core.windows.net/sdk/azure-mobile-apps-client.min.js"></script>
@@ -57,52 +57,52 @@ Você também pode usar uma versão pré-criada do SDK baixando diretamente do n
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
 ## <a name="auth"></a>Como autenticar usuários
-O Serviço de Aplicativo do Azure oferece suporte à autenticação e autorização de usuários de aplicativos usando vários provedores de identidade externos: Facebook, Google, Conta da Microsoft e Twitter. Você pode definir permissões em tabelas para restringir o acesso a operações específicas apenas para usuários autenticados. Você também pode usar a identidade de usuários autenticados para implementar regras de autorização em scripts do servidor. Para obter mais informações, consulte o tutorial [Introdução à autenticação] .
+O Serviço de Aplicativo do Azure oferece suporte à autenticação e autorização de usuários de aplicativos usando vários provedores de identidade externos: Facebook, Google, Conta da Microsoft e Twitter. Você pode definir permissões de acesso a tabelas toorestrict para operações específicas de tooonly autenticado usuários. Você também pode usar a identidade Olá usuários autenticados tooimplement de regras de autorização nos scripts de servidor. Para obter mais informações, consulte Olá [Introdução à autenticação] tutorial.
 
-Dois fluxos de autenticação são suportados: um server flow e um client flow.  O fluxo de servidor fornece a experiência de autenticação mais simples, pois depende da interface de autenticação da web do provedor. O fluxo de cliente permite uma integração mais profunda com funcionalidades específicas do dispositivo, como logon único, uma vez que depende de SDKs específicos do provedor.
+Dois fluxos de autenticação são suportados: um server flow e um client flow.  fluxo do servidor de saudação fornece experiência de autenticação mais simples de Olá, como ele se baseia na interface de autenticação do provedor de saudação da web. Olá fluxo cliente permite integração mais profunda com recursos específicos do dispositivo, como single-sign-on como ele se baseia em SDKs específicos de provedor.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
 ### <a name="configure-external-redirect-urls"></a>Como configurar o Serviço de Aplicativo Móvel para URLs de redirecionamento externo.
-Vários tipos de aplicativo JavaScript usam uma funcionalidade de loopback para manipular fluxos de interface do usuário do OAuth.  Esses recursos incluem:
+Vários tipos de aplicativos JavaScript usam um toohandle de capacidade de loopback que OAuth UI flui.  Esses recursos incluem:
 
 * Executar o serviço localmente
-* Usar o Live Reload com o Ionic Framework
-* Redirecionar para o Serviço de Aplicativo para autenticação.
+* Usando o Live recarregar com hello Framework Ionic
+* Redirecionando tooApp serviço para autenticação.
 
-A execução local pode causar problemas porque, por padrão, a autenticação de Serviço de Aplicativo só está configurada para permitir o acesso do back-end do Aplicativo Móvel. Use as seguintes etapas para alterar as configurações de Serviço de Aplicativo de modo a habilitar a autenticação ao executar o servidor localmente:
+Em execução localmente pode causar problemas porque, por padrão, a autenticação é apenas do serviço de aplicativo configurado o acesso de tooallow do seu back-end do aplicativo móvel. Use Olá seguindo as etapas toochange Olá autenticação de tooenable de configurações do serviço de aplicativo ao executar o servidor de saudação localmente:
 
-1. Faça logon no [Portal do Azure]
-2. Navegue até o back-end do Aplicativo Móvel.
-3. Escolha **Gerenciador de recursos** no menu **FERRAMENTAS DE DESENVOLVIMENTO**.
-4. Clique em **Ir** para abrir o gerenciador de recursos para o back-end do Aplicativo Móvel em uma nova janela ou guia.
-5. Expanda o nó **config** > **authsettings** do seu aplicativo.
-6. Clique no botão **Editar** para habilitar a edição do recurso.
-7. Encontre o elemento **allowedExternalRedirectUrls** , que deve ser nulo. Adicione as URLs em uma matriz:
+1. Faça logon no toohello [portal do Azure]
+2. Navegue back-end de aplicativo móvel tooyour.
+3. Selecione **Gerenciador de recursos** em Olá **ferramentas de desenvolvimento** menu.
+4. Clique em **vá** Gerenciador de recursos de saudação tooopen do seu back-end do aplicativo móvel em uma nova guia ou janela.
+5. Expanda Olá **config** > **authsettings** nó para seu aplicativo.
+6. Clique em Olá **editar** botão tooenable edição do recurso de saudação.
+7. Localize Olá **allowedExternalRedirectUrls** elemento, que deve ser nulo. Adicione as URLs em uma matriz:
 
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
 
-    Substitua as URLs na matriz pelas URLs do serviço, que neste exemplo é `http://localhost:3000` para o serviço local de exemplo do Node.js. Você também pode usar `http://localhost:4400` para o serviço Ripple ou alguma outra URL, dependendo de como seu aplicativo é configurado.
-8. Na parte superior da página, clique em **Leitura/Gravação** e clique em **PUT** para salvar as atualizações.
+    Substitua Olá URLs na matriz Olá Olá URLs do serviço, que neste exemplo é `http://localhost:3000` para o serviço de exemplo hello local Node. js. Você também pode usar `http://localhost:4400` para serviço de ondulação hello ou outra URL, dependendo de como seu aplicativo está configurado.
+8. Na parte superior de saudação da página de saudação, clique em **leitura/gravação**, em seguida, clique em **colocar** toosave suas atualizações.
 
-Você também precisa adicionar as mesmas URLs de loopback às configurações de lista branca do CORS:
+Você também precisa tooadd Olá configurações de lista branca do mesmo loopback URLs toohello CORS:
 
-1. Navegue até o [Portal do Azure].
-2. Navegue até o back-end do Aplicativo Móvel.
-3. Clique em **CORS** no menu **API**.
-4. Insira cada URL na caixa de texto **Origens Permitidas** vazia.  Uma nova caixa de texto é criada.
+1. Navegue back toohello [portal do Azure].
+2. Navegue back-end de aplicativo móvel tooyour.
+3. Clique em **CORS** em Olá **API** menu.
+4. Insira cada URL no hello vazio **origens permitidas** caixa de texto.  Uma nova caixa de texto é criada.
 5. Clique em **SALVAR**
 
-Após a atualização do back-end, você poderá usar as novas URLs de loopback em seu aplicativo.
+Depois Olá back-end de atualizações, você será capaz de toouse Olá novas URLs de loopback em seu aplicativo.
 
 <!-- URLs. -->
-[Início Rápido dos Aplicativos Móveis do Azure]: app-service-mobile-cordova-get-started.md
+[início rápido do Azure Mobile aplicativos]: app-service-mobile-cordova-get-started.md
 [Introdução à autenticação]: app-service-mobile-cordova-get-started-users.md
-[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
+[Add authentication tooyour app]: app-service-mobile-cordova-get-started-users.md
 
-[Portal do Azure]: https://portal.azure.com/
-[SDK do JavaScript para os Aplicativos Móveis do Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
+[portal do Azure]: https://portal.azure.com/
+[SDK de JavaScript para aplicativos móveis do Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
 [Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx

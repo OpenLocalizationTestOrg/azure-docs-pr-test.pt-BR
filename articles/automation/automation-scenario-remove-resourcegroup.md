@@ -1,6 +1,6 @@
 ---
-title: "Automatizar a remoção de grupos de recursos | Microsoft Docs"
-description: "Versão do Fluxo de Trabalho do PowerShell de um cenário de Automação do Azure, incluindo runbooks para remover todos os grupos de recursos de sua assinatura."
+title: "remoção de aaaAutomate de grupos de recursos | Microsoft Docs"
+description: "Versão de fluxo de trabalho do PowerShell de um cenário de automação do Azure, incluindo runbooks tooremove todos os recursos de grupos em sua assinatura."
 services: automation
 documentationcenter: 
 author: MGoedtel
@@ -14,56 +14,56 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: magoedte
-ms.openlocfilehash: 6aa3897d44b146483204d43e026d3d158c3e13b6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d7ff8064842385d57b0eebdf7b263150c958255f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Cenário da Automação do Azure - automatize a remoção de grupos de recursos
-Muitos clientes criam mais de um grupo de recursos. Alguns podem ser usados para gerenciar aplicativos de produção e outros podem ser usados como ambientes de desenvolvimento, teste e preparo. A automatização da implantação desses recursos é uma coisa, mas poder encerrar um grupo de recursos com um clique do botão é outra. Você pode simplificar essa tarefa comum de gerenciamento usando a Automação do Azure. Isso é útil se você está trabalhando com uma assinatura do Azure com um limite de gastos por meio de uma oferta de membro como o MSDN ou o programa Microsoft Partner Network Cloud Essentials.
+Muitos clientes criam mais de um grupo de recursos. Alguns podem ser usados para gerenciar aplicativos de produção e outros podem ser usados como ambientes de desenvolvimento, teste e preparo. Automatizar a implantação de saudação desses recursos é uma coisa, mas que está sendo toodecommission capaz de um grupo de recursos com um clique de botão de saudação é outra. Você pode simplificar essa tarefa comum de gerenciamento usando a Automação do Azure. Isso é útil se você estiver trabalhando com uma assinatura do Azure que tem um limite de gastos por meio de uma oferta de membro como o MSDN ou Olá programa Microsoft Partner Network Cloud Essentials.
 
-Este cenário se baseia em um runbook do PowerShell e foi projetado para remover da sua assinatura um ou mais grupos de recursos especificados por você. A configuração padrão do runbook é para testar antes de continuar. Isso faz com que você não exclua o grupo de recursos acidentalmente antes de estar pronto para concluir o procedimento.   
+Este cenário se baseia em um runbook do PowerShell e é projetado tooremove um ou mais grupos de recursos que você especificar na sua assinatura. configuração padrão Olá Olá runbook é tootest antes de continuar. Isso garante que não acidentalmente excluir grupo de recursos de saudação antes que você está pronto toocomplete esse procedimento.   
 
-## <a name="getting-the-scenario"></a>Obtendo o cenário
-Este cenário consiste em um runbook do PowerShell que você pode baixar da [Galeria do PowerShell](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript). Você também pode importá-la diretamente da [Galeria de runbooks](automation-runbook-gallery.md) no portal do Azure.<br><br>
+## <a name="getting-hello-scenario"></a>Obtendo o cenário de saudação
+Este cenário consiste em um runbook do PowerShell que você pode baixar do hello [Galeria do PowerShell](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript). Você também pode importá-lo diretamente do hello [Galeria de Runbook](automation-runbook-gallery.md) em Olá portal do Azure.<br><br>
 
 | Runbook | Descrição |
 | --- | --- |
-| Remove-ResourceGroup |Remove um ou mais grupos de recursos do Azure e seus recursos associados da assinatura. |
+| Remove-ResourceGroup |Remove um ou mais grupos de recursos do Azure e recursos associados de assinatura de saudação. |
 
 <br>
-Os parâmetros de entrada a seguir são definidos para este runbook:
+Olá, parâmetros de entrada a seguir é definida para este runbook:
 
 | Parâmetro | Descrição |
 | --- | --- |
-| NameFilter (Obrigatório) |Especifica um filtro de nome para limitar os grupos de recursos que você pretende excluir. Você pode passar vários valores usando uma lista separada por vírgulas.<br>O filtro não diferencia maiúsculas de minúsculas e corresponderá a qualquer grupo de recursos que contenha a cadeia de caracteres. |
-| PreviewMode (opcional) |Executa o runbook para ver quais grupos de recursos seriam excluídos, mas não realiza nenhuma ação.<br>O padrão é **true** para ajudar a evitar a exclusão acidental de um ou mais grupos de recursos passados para o runbook. |
+| NameFilter (Obrigatório) |Especifica um nome filtro toolimit Olá recursos grupos que você pretenda sobre a exclusão. Você pode passar vários valores usando uma lista separada por vírgulas.<br>filtro de saudação não diferencia maiusculas de minúsculas e corresponderá a qualquer grupo de recursos que contém a cadeia de caracteres de saudação. |
+| PreviewMode (opcional) |Olá runbook toosee quais grupos de recursos serão excluídos, mas não executa nenhuma ação é executado.<br>saudação padrão é **true** toohelp evitar a exclusão acidental de um ou mais grupos de recursos passado toohello runbook. |
 
 ## <a name="install-and-configure-this-scenario"></a>Instalar e configurar esse cenário
 ### <a name="prerequisites"></a>Pré-requisitos
-Esse runbook se autentica usando a [conta Executar como do Azure](automation-sec-configure-azure-runas-account.md).    
+Este runbook autentica usando Olá [conta executar como do Azure](automation-sec-configure-azure-runas-account.md).    
 
-### <a name="install-and-publish-the-runbooks"></a>Instalar e publicar os runbooks
-Depois de baixar o runbook, você poderá importá-lo usando o procedimento em [Procedimentos para importar runbooks](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation). Publique o runbook depois que ele for importado com êxito em sua conta de Automação.
+### <a name="install-and-publish-hello-runbooks"></a>Instalar e publicar runbooks Olá
+Depois de baixar o runbook hello, você pode importá-lo usando o procedimento Olá [importar runbook procedimentos](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation). Publica o runbook Olá depois que ele foi importado com êxito para a sua conta de automação.
 
-## <a name="using-the-runbook"></a>Usando o runbook
-As etapas a seguir orientarão você pela execução deste runbook e o ajudarão a se familiarizar com o funcionamento dele. Você só testará o runbook neste exemplo, e não excluirá de fato o grupo de recursos.  
+## <a name="using-hello-runbook"></a>Usando o runbook Olá
+Olá seguinte irá orientá-lo por meio da execução de saudação desse runbook e ajuda que você se familiarize com como ele funciona. Você só testará Olá runbook neste exemplo, não realmente excluir o grupo de recursos de saudação.  
 
-1. No Portal do Azure, abra sua conta da Automação e clique no bloco **Runbooks**.
-2. Selecione o runbook **Remove-ResourceGroup** e clique em **Iniciar**.
-3. Quando você inicia o runbook, a folha **Iniciar Runbook** é aberta e você pode configurar valores a seguir para os parâmetros. Digite os nomes dos grupos de recursos em sua assinatura que você pode usar para testar e não causarão danos se forem excluídos acidentalmente.<br> ![Parâmetros Remove-ResouceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
+1. Em Olá portal do Azure, abra sua conta de automação e clique em **Runbooks**.
+2. Selecione Olá **remover ResourceGroup** runbook e clique em **iniciar**.
+3. Quando você inicia o runbook hello, Olá **iniciar Runbook** folha é aberto e você pode configurar os parâmetros de saudação. Digite nomes de saudação de grupos de recursos em sua assinatura que você pode usar para teste e não causará nenhum dano se excluído acidentalmente.<br> ![Parâmetros Remove-ResouceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
 
    > [!NOTE]
-   > Verifique se **Previewmode** está definido como **true** para evitar a exclusão de grupos de recursos selecionados.  **Observe** que este runbook não removerá o grupo de recursos com a conta da Automação que está executando esse runbook.  
+   > Certifique-se de **Previewmode** está definido muito**true** tooavoid excluindo Olá selecionada de grupos de recursos.  **Observação** que este runbook não removerá o grupo de recursos de saudação que contém a conta de automação de saudação que está executando este runbook.  
    >
    >
-4. Depois de configurar todos os valores de parâmetro, clique em **OK** e o runbook será enfileirado para execução.  
+4. Depois de configurar todos os valores de parâmetro hello, clique em **Okey**, e o runbook hello será enfileirado para execução.  
 
-Para exibir os detalhes do trabalho do runbook **Remove-ResourceGroup** no Portal do Azure, selecione o bloco **Trabalhos** do runbook. O resumo do trabalho exibe os parâmetros de entrada e o fluxo de saída, além de informações gerais sobre o trabalho e todas as exceções ocorridas.<br> ![Status de trabalho do runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
+detalhes de saudação tooview de saudação **remover ResourceGroup** trabalho de runbook no hello portal do Azure, selecione **trabalhos** em Olá runbook. parâmetros de entrada do Hello trabalho Resumo exibe hello e saída de hello fluxo além toogeneral informações sobre o trabalho de saudação e todas as exceções que ocorreram.<br> ![Status de trabalho do runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
 
-O **Resumo do Trabalho** inclui mensagens de fluxos de saída, de aviso e de erro. Selecione **Saída** para exibir os resultados detalhados da execução do runbook.<br> ![Resultados da saída do runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
+Olá **resumo do trabalho** inclui mensagens de fluxos de saída, aviso e erro hello. Selecione **saída** tooview detalhadas resultados da execução de runbook hello.<br> ![Resultados da saída do runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para começar a criar seu próprio runbook, confira [Criando ou importando um runbook na Automação do Azure](automation-creating-importing-runbook.md).
-* Para começar a usar os runbooks de fluxo de trabalho do PowerShell, confira [Meu primeiro runbook de fluxo de trabalho do PowerShell](automation-first-runbook-textual.md).
+* tooget começou a criar seu próprio runbook, consulte [criar ou importar um runbook na automação do Azure](automation-creating-importing-runbook.md).
+* tooget iniciado com runbooks do fluxo de trabalho do PowerShell, consulte [meu primeiro runbook de fluxo de trabalho do PowerShell](automation-first-runbook-textual.md).

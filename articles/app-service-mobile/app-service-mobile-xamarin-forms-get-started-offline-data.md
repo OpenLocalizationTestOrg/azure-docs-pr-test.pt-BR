@@ -1,6 +1,6 @@
 ---
-title: "Habilitar sincronização offline para seu aplicativo móvel do Azure (Xamarin.Forms) | Microsoft Docs"
-description: "Aprenda a usar o aplicativo móvel do Serviço de Aplicativo para armazenar em cache e sincronizar dados offline no aplicativo Xamarin.Forms"
+title: "sincronização offline de aaaEnable para seu aplicativo móvel do Azure (xamarin. Forms) | Microsoft Docs"
+description: "Saiba como toouse aplicativo do serviço de aplicativo móvel toocache e sincronização de dados offline em seu aplicativo xamarin. Forms"
 documentationcenter: xamarin
 author: ggailey777
 manager: yochayk
@@ -14,59 +14,59 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: glenga
-ms.openlocfilehash: f2bed0a7124517319cc82405c4ab6b4d79aacfe1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 4b41404fc9507e82068fdf8aa612d57cbeb366bf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Habilitar sincronização offline para seu aplicativo móvel Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 ## <a name="overview"></a>Visão geral
-Este tutorial apresenta o recurso de sincronização offline de Aplicativos móveis do Azure para Xamarin.Forms. Sincronização offline permite que os usuários finais interajam com um aplicativo móvel, exibindo, adicionando ou modificando dados, mesmo quando não há conexão de rede. As alterações são armazenadas em um banco de dados local. Quando o dispositivo estiver online novamente, essas alterações serão sincronizadas com o serviço remoto.
+Este tutorial apresenta o recurso de sincronização offline de saudação de aplicativos móveis do Azure para xamarin. Forms. Sincronização offline permite que os usuários finais interajam com um aplicativo móvel, exibindo, adicionando ou modificando dados, mesmo quando não há conexão de rede. As alterações são armazenadas em um banco de dados local. Depois que o dispositivo de saudação estiver online novamente, essas alterações são sincronizadas com o serviço remoto hello.
 
-Este tutorial se baseia na solução de início rápido do Xamarin.Forms para aplicativos móveis criados quando você conclui o tutorial [Criar um aplicativo iOS Xamarin]. A solução de início rápido para Xamarin.Forms contém o código para dar suporte à sincronização offline, que só precisa ser habilitada. Neste tutorial, você atualiza a solução de início rápido para ativar os recursos offline dos Aplicativos Móveis do Azure. Também destacamos o código especificamente offline no aplicativo. Se você não usar a solução de início rápido baixada, deverá adicionar os pacotes de extensão de acesso de dados autenticação ao seu projeto. Para saber mais sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure][1].
+Este tutorial se baseia na Olá xamarin. Forms quickstart solução para aplicativos móveis que você cria ao concluir o tutorial [criar um aplicativo Xamarin iOS]. solução de início rápido de saudação para xamarin. Forms contém Olá código toosupport sincronização offline, que só precisa toobe habilitado. Neste tutorial, você deve atualizar Olá quickstart solução tooturn recursos offline de saudação do aplicativos móveis do Azure. Podemos também realce o código de off-line específicos de Olá no aplicativo hello. Se você não usar a solução de início rápido de saudação baixada, você deve adicionar o projeto de tooyour de pacotes de extensão de acesso de dados de hello. Para obter mais informações sobre pacotes de extensão do servidor, consulte [funcionam com o servidor de back-end .NET Olá SDK para aplicativos móveis do Azure][1].
 
-Para saber mais sobre o recurso de sincronização offline, confira o tópico [Sincronização de dados offline nos Aplicativos Móveis do Azure][2].
+toolearn mais sobre o recurso de sincronização offline hello, consulte o tópico de saudação [sincronização de dados Offline em aplicativos móveis do Azure][2].
 
-## <a name="enable-offline-sync-functionality-in-the-quickstart-solution"></a>Habilitar a funcionalidade de sincronização offline na solução de início rápido
-O código de sincronização offline é incluído no projeto usando diretivas de pré-processador C#. Quando o símbolo **OFFLINE\_SYNC\_ENABLED** é definido, esses caminhos de código são incluídos na compilação. Para aplicativos do Windows, você deve instalar também a plataforma SQLite.
+## <a name="enable-offline-sync-functionality-in-hello-quickstart-solution"></a>Habilitar a funcionalidade de sincronização offline na solução de início rápido de saudação
+código de sincronização offline Hello está incluído no projeto de saudação usando diretivas de pré-processador C#. Olá quando **OFFLINE\_sincronização\_habilitado** símbolo é definido, esses caminhos de código são incluídos na compilação de saudação. Para aplicativos do Windows, instale também plataforma do SQLite hello.
 
-1. No Visual Studio, clique com o botão direito do mouse na solução > **Gerenciar Pacotes NuGet para a Solução...**, procure e instale o pacote NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore** para todos os projetos na solução.
-2. No Gerenciador de Soluções, abra o arquivo TodoItemManager.cs do projeto com **Portable** no nome, que é o projeto da Biblioteca de Classes Portátil e remova o comentário da seguinte diretiva de pré-processador:
+1. No Visual Studio, clique com botão direito solução hello > **gerenciar pacotes NuGet para solução...** , em seguida, procurar e instalar o **Microsoft.Azure.Mobile.Client.SQLiteStore** pacote NuGet para todos os projetos na solução de saudação.
+2. Em Olá Solution Explorer, abra o arquivo de TodoItemManager.cs de saudação do projeto Olá com **portátil** em nome de saudação, que é o projeto de biblioteca de classes portátil, em seguida, remova os comentários Olá após diretiva de pré-processador:
 
         #define OFFLINE_SYNC_ENABLED
-3. (Opcional) Para dar suporte a dispositivos Windows, instale um dos seguintes pacotes de tempo de execução do SQLite:
+3. Dispositivos do Windows toosupport (opcional), instale um dos Olá SQLite pacotes de tempo de execução a seguir:
 
    * **Tempo de Execução do Windows 8.1**: instale o [SQLite para Windows 8.1][3].
    * **Windows Phone 8.1**: instale o [SQLite para Windows Phone 8.1][4].
-   * **Plataforma Universal do Windows** Instale o [SQLite para a Plataforma Universal do Windows][5].
+   * **Plataforma universal do Windows** instalar [SQLite para Olá Universal do Windows Universal][5].
 
-     Embora o início rápido não contenha um projeto Universal do Windows, a plataforma Universal do Windows tem suporte com formulários do Xamarin.
-4. (Opcional) Em cada projeto de aplicativo do Windows, clique com o botão direito do mouse em **Referências** > **Adicionar referência…** e expanda a pasta **Windows** > **Extensões**.
-    Habilite o SDK do **SQLite para Windows** apropriado, junto com o SDK do **Tempo de execução do Visual C++ 2013 para Windows**.
-    Os nomes do SDK do SQLite variam ligeiramente de acordo com cada plataforma Windows.
+     Embora Olá quickstart não contém um projeto Universal do Windows, plataforma Universal do Windows de saudação é compatível com o Xamarin Forms.
+4. (Opcional) Em cada projeto de aplicativo do Windows, clique com botão direito **referências** > **adicionar referência...** , expanda Olá **Windows** pasta > **extensões**.
+    Habilitar Olá apropriado **SQLite para Windows** SDK junto com hello **Visual C++ 2013 em tempo de execução para da Windows** SDK.
+    Hello nomes SQLite SDK variam ligeiramente em cada plataforma do Windows.
 
-## <a name="review-the-client-sync-code"></a>Examine o código de sincronização do cliente
-Aqui há uma breve visão geral do que já está incluído no código do tutorial nas diretivas do `#if OFFLINE_SYNC_ENABLED` . A funcionalidade de sincronização offline está no arquivo de projeto TodoItemManager.cs no projeto da Biblioteca de Classes Portátil. Para obter uma visão geral conceitual do recurso, confira [Sincronização de dados Offline em aplicativos móveis do Azure][2].
+## <a name="review-hello-client-sync-code"></a>Examine o código de sincronização do cliente Olá
+Aqui está uma breve visão geral do que já está incluído no tutorial código Olá Olá `#if OFFLINE_SYNC_ENABLED` diretivas. A funcionalidade de sincronização offline está no arquivo de projeto TodoItemManager.cs Olá no projeto de biblioteca de classes portátil hello. Para obter uma visão geral conceitual do recurso hello, consulte [sincronização de dados Offline em aplicativos móveis do Azure][2].
 
-* Antes de qualquer operação de tabela poder ser executada, o armazenamento local deve ser inicializado. O banco de dados de armazenamento local é inicializado no construtor da classe **TodoItemManager** usando o seguinte código:
+* Antes de quaisquer operações de tabela podem ser executadas, armazenamento local Olá deve ser inicializado. Olá banco de dados do armazenamento local é inicializado no hello **TodoItemManager** construtor da classe usando Olá código a seguir:
 
         var store = new MobileServiceSQLiteStore(OfflineDbPath);
         store.DefineTable<TodoItem>();
 
-        //Initializes the SyncContext using the default IMobileServiceSyncHandler.
+        //Initializes hello SyncContext using hello default IMobileServiceSyncHandler.
         this.client.SyncContext.InitializeAsync(store);
 
         this.todoTable = client.GetSyncTable<TodoItem>();
 
-    Este código cria um novo banco de dados SQLite local usando a classe **MobileServiceSQLiteStore**.
+    Esse código cria um novo local SQLite banco de dados usando Olá **MobileServiceSQLiteStore** classe.
 
-    O método **DefineTable** cria uma tabela no repositório local que corresponde aos campos no tipo fornecido.  O tipo não precisa incluir todas as colunas que estão no banco de dados remoto. É possível armazenar um subconjunto de colunas.
-* O campo **todoTable** no **TodoItemManager** é um tipo **IMobileServiceSyncTable** em vez de **IMobileServiceTable**. Essa classe usa o banco de dados local para todas as operações de criação, leitura, atualização e exclusão (CRUD) de tabela. Você decide quando essas alterações são enviadas por push ao back-end do Aplicativo Móvel ao chamar **PushAsync** no **IMobileServiceSyncContext**. O contexto de sincronização ajuda a preservar relações da tabela controlando e enviando por push as alterações em todas as tabelas que um aplicativo cliente tenha modificado quando o **PushAsync** é chamado.
+    Olá **DefineTable** método cria uma tabela no repositório local de saudação que corresponda a campos Olá no tipo hello fornecido.  tipo de saudação não tem tooinclude todas as colunas de saudação que estão no banco de dados remoto hello. É possível toostore um subconjunto de colunas.
+* Olá **todoTable** campo **TodoItemManager** é um **IMobileServiceSyncTable** digite, em vez de **IMobileServiceTable**. Essa classe usa Olá banco de dados local para todos os criar, ler, atualizar e excluir operações de tabela (CRUD). Você decide quando essas alterações são enviados por push back-end de aplicativo móvel toohello chamando **PushAsync** em Olá **IMobileServiceSyncContext**. Hello contexto de sincronização ajuda a preservar relações de tabela, controle e enviar as alterações em todas as tabelas de um aplicativo cliente tenha modificado quando **PushAsync** é chamado.
 
-    O método **SyncAsync** a seguir é chamado para sincronização com o back-end do Aplicativo Móvel:
+    a seguir Olá **SyncAsync** método é chamado toosync com back-end de aplicativo móvel hello:
 
         public async Task SyncAsync()
         {
@@ -95,7 +95,7 @@ Aqui há uma breve visão geral do que já está incluído no código do tutoria
                 {
                     if (error.OperationKind == MobileServiceTableOperationKind.Update && error.Result != null)
                     {
-                        //Update failed, reverting to server's copy.
+                        //Update failed, reverting tooserver's copy.
                         await error.CancelAndUpdateItemAsync(error.Result);
                     }
                     else
@@ -110,44 +110,44 @@ Aqui há uma breve visão geral do que já está incluído no código do tutoria
             }
         }
 
-    Este exemplo usa o tratamento de erros simples com o manipulador de sincronização padrão. Um aplicativo real trataria os diversos erros como condições de rede e conflitos de servidor usando uma personalização da implementação de **IMobileServiceSyncHandler**.
+    Este exemplo usa com o manipulador de sincronização saudação padrão de tratamento de erros simples. Um aplicativo real trataria Olá vários erros como condições de rede e o servidor está em conflito usando um personalizado **IMobileServiceSyncHandler** implementação.
 
 ## <a name="offline-sync-considerations"></a>Considerações sobre a sincronização offline
-No exemplo, o método **SyncAsync** é chamado somente na inicialização e quando a sincronização é solicitada.  Para iniciar uma sincronização em um aplicativo Android ou iOS, puxe para baixo a lista de itens; para o Windows, use o botão **Sincronizar**. Em um aplicativo do mundo real, você também poderia fazer a sincronização disparar quando o estado da rede mudasse.
+No exemplo hello, Olá **SyncAsync** método é chamado somente na inicialização e quando a sincronização é solicitada.  tooinitiate uma sincronização em um aplicativo do Android ou iOS, pull para baixo na lista de itens de saudação; para o Windows, use Olá **sincronização** botão. Em um aplicativo do mundo real, você também poderia fazer o gatilho de sincronização hello quando alterações de estado da rede hello.
 
-Quando um pull é executado em uma tabela que tenha atualizações locais pendentes controladas pelo contexto, e essa operação de pull automaticamente dispara um envio por push de contexto anterior. Durante a atualização, a adição e a conclusão de itens neste exemplo, você pode omitir a chamada explícita a **PushAsync**.
+Quando a extração é executada em uma tabela que tem pendente atualizações locais rastreadas pelo contexto de hello, puxe a operação automaticamente gatilhos um envio por push do contexto anterior. Quando a atualização, a adição e Concluindo itens neste exemplo, você pode omitir Olá explícita **PushAsync** chamar.
 
-No código fornecido, todos os registros na tabela remota TodoItem são solicitados, mas também é possível filtrar os registros passando uma ID de consulta e uma consulta ao **PushAsync**. Para obter mais informações, consulte a seção *Sincronização Incremental* em [Sincronização de Dados Offline em Aplicativos Móveis do Azure][2].
+No código Olá fornecido, todos os registros na tabela TodoItem remota de saudação são consultados, mas também é possível toofilter registros, passando uma id de consulta e uma consulta muito**PushAsync**. Para obter mais informações, consulte a seção de saudação *Sincronização Incremental* na [sincronização de dados Offline em aplicativos móveis do Azure][2].
 
-## <a name="run-the-client-app"></a>Execute o aplicativo cliente
-Com a sincronização offline agora habilitada, execute o aplicativo cliente pelo menos uma vez em cada plataforma para preencher o banco de dados do armazenamento local. Posteriormente, simule um cenário offline e modificará os dados no armazenamento local enquanto o aplicativo estiver offline.
+## <a name="run-hello-client-app"></a>Execute o aplicativo de cliente Olá
+Com a sincronização offline agora está habilitada, execute o aplicativo de cliente de saudação pelo menos uma vez em cada banco de dados plataforma toopopulate Olá repositório local. Posteriormente, simular um cenário offline e modificar dados de saudação no repositório local Olá enquanto o aplicativo hello está offline.
 
-## <a name="update-the-sync-behavior-of-the-client-app"></a>Atualize o comportamento de sincronização do aplicativo cliente
-Nesta seção, modifique o projeto do cliente para simular um cenário offline usando uma URL de aplicativo inválida para o back-end. Como alternativa, você pode desativar conexões de rede mudando o dispositivo para o "Modo de avião".  Quando você adiciona ou alterar itens de dados, essas alterações são mantidas no armazenamento local, mas não sincronizadas com o armazenamento de dados back-end até que a conexão seja restabelecida.
+## <a name="update-hello-sync-behavior-of-hello-client-app"></a>Atualizar o comportamento de sincronização de saudação do aplicativo de cliente Olá
+Nesta seção, modifique Olá cliente projeto toosimulate um cenário offline usando uma URL de aplicativo inválido para o back-end. Como alternativa, você pode desativar conexões de rede, movendo o dispositivo muito "Modo avião".  Quando você adicionar ou alterar itens de dados, essas alterações são mantidas no repositório local hello, mas não sincronizadas do repositório de dados de back-end de toohello até que a conexão de saudação é restabelecida.
 
-1. No Gerenciador de Soluções, abra o arquivo de projeto Constants.cs do projeto **Portable** e altere o valor de `ApplicationURL` para apontar para uma URL inválida:
+1. Em Olá Gerenciador de soluções, abra o arquivo de projeto de Constants.cs de saudação de saudação **portátil** projeto e altere o valor de saudação do `ApplicationURL` toopoint tooan inválido URL:
 
         public static string ApplicationURL = @"https://your-service.azurewebsites.net/";
-2. Abra o arquivo TodoItemManager.cs do projeto **Portable** e adicione um **catch** à classe base **Exception** para o bloco **try...catch** em **SyncAsync**. Esse bloco **catch** grava a mensagem de exceção no console, da seguinte maneira:
+2. Arquivo TodoItemManager.cs abrir Olá Olá **portátil** projeto e, em seguida, adicionar um **catch** para Olá base **exceção** toohello classe **try... catch** bloco em **SyncAsync**. Isso **catch** bloco grava o console de toohello de mensagem de exceção hello, da seguinte maneira:
 
             catch (Exception ex)
             {
                 Console.Error.WriteLine(@"Exception: {0}", ex.Message);
             }
-3. Compile e execute o aplicativo cliente.  Adicione alguns novos itens. Observe que uma exceção será registrada no console para cada tentativa de sincronização com o back-end. Esses novos itens existem apenas no repositório local até que possam ser enviados por push para o serviço móvel. O aplicativo cliente se comporta como se estivesse conectado ao back-end, dando suporte a todas as operações CRUD (criar, ler, atualizar e excluir).
-4. Feche o aplicativo e reinicie-o para verificar se os novos itens que você criou persistem no armazenamento local.
-5. (Opcional) Use o Visual Studio para exibir a tabela de Banco de Dados SQL do Azure para ver se os dados no banco de dados do back-end não foram alterados.
+3. Compilar e executar o aplicativo de cliente hello.  Adicione alguns novos itens. Observe que uma exceção seja registrada no console de saudação para toosync cada tentativa com hello back-end. Os novos itens só existem no repositório local Olá até que elas podem ser enviadas back-end do toohello móvel. Olá aplicativo de cliente se comporta como se estivesse conectado toohello back-end, dando suporte a que todos os criar, ler, update, as operações de exclusão (CRUD).
+4. Feche o aplicativo hello e reiniciá-lo tooverify que você criou novos itens de saudação são repositório local toohello persistente.
+5. (Opcional) Use Visual Studio tooview seu toosee de tabela de banco de dados do Azure SQL Olá dados no banco de dados de back-end de saudação não foram alterados.
 
-    No Visual Studio, abra **Gerenciador de Servidores**. Navegue até o banco de dados em **Azure**->**Bancos de dados SQL**. Clique com o botão direito do mouse em seu banco de dados e selecione **Abrir no Pesquisador de Objetos do SQL Server**. Agora você pode navegar até sua tabela de banco de dados SQL e seu conteúdo.
+    No Visual Studio, abra **Gerenciador de Servidores**. Navegue de banco de dados tooyour no **Azure**->**bancos de dados SQL**. Clique com o botão direito do mouse em seu banco de dados e selecione **Abrir no Pesquisador de Objetos do SQL Server**. Agora você pode procurar a tabela de banco de dados do SQL tooyour e seu conteúdo.
 
-## <a name="update-the-client-app-to-reconnect-your-mobile-backend"></a>Atualize o aplicativo cliente para reconectar seu back-end móvel
-Nesta seção, reconecte o aplicativo ao back-end móvel, que simula o aplicativo voltando ao estado online. Quando você executa o gesto de atualização, os dados são sincronizados com o serviço móvel.
+## <a name="update-hello-client-app-tooreconnect-your-mobile-backend"></a>Atualizar tooreconnect de aplicativo cliente Olá seu back-end móvel
+Nesta seção, reconecte Olá aplicativo toohello móvel back-end, que simula um aplicativo hello que voltar para o estado online tooan. Quando você executa o gesto de atualização Olá, dados são back-end de móveis tooyour sincronizados.
 
-1. Reabra Constants.cs. Corrija o `applicationURL` de modo que ele aponte para a URL correta.
-2. Recompile e execute o aplicativo cliente. O aplicativo tenta sincronizar com o back-end do aplicativo móvel após iniciar. Verifique se nenhuma exceção está registrada no console de depuração.
-3. (Opcional) Exiba os dados atualizados usando o Pesquisador de Objetos do SQL Server ou uma ferramenta REST, como o Fiddler ou [Postman][6]. Observe que os dados foram sincronizados entre o banco de dados de back-end e o repositório local.
+1. Reabra Constants.cs. Olá correto `applicationURL` toopoint toohello corrigir URL.
+2. Recriar e execute o aplicativo de cliente hello. aplicativo Hello tentativas toosync com back-end de aplicativo móvel Olá depois de iniciar. Verifique se que nenhuma exceção é registradas no console de depuração de saudação.
+3. (Opcional) Saudação de exibição atualizada dados usando o Pesquisador de objetos do SQL Server ou uma ferramenta REST, como o Fiddler ou [carteiro][6]. Aviso Olá dados entre o banco de dados de back-end hello e armazenamento local Olá foi sincronizados.
 
-    Observe que os dados foram sincronizados entre o banco de dados e o armazenamento local e contém os itens que você adicionou enquanto seu aplicativo estava desconectado.
+    Observe dados saudação foi sincronizados entre o banco de dados de saudação e armazenamento local hello e contém itens Olá adicionados enquanto seu aplicativo estava desconectado.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Sincronização de Dados Offline em Aplicativos Móveis do Azure][2]

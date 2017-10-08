@@ -1,5 +1,5 @@
 ---
-title: "Comunicar-se com qualquer ponto de extremidade por meio de HTTP – Aplicativo Lógico do Azure | Microsoft Docs"
+title: "aaaCommunicate com qualquer ponto de extremidade via HTTP - os aplicativos lógicos do Azure | Microsoft Docs"
 description: "Crie aplicativos lógicos que possam se comunicar com qualquer ponto de extremidade via HTTP"
 services: logic-apps
 author: jeffhollan
@@ -15,39 +15,39 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: d422a07a27ffa62a673bd2d471ae4fc837251dee
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9793601839437a2b880bdb81e15881270cacc963
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-http-action"></a>Introdução à ação HTTP
+# <a name="get-started-with-hello-http-action"></a>Introdução ao Olá ação HTTP
 
-Com a ação HTTP, você pode estender os fluxos de trabalho para a sua organização e se comunicar com qualquer ponto de extremidade por HTTP.
+Com hello ação HTTP, você pode estender os fluxos de trabalho para a sua organização e comunicar-se o ponto de extremidade tooany via HTTP.
 
 Você pode:
 
 * Crie fluxos de trabalho de aplicativo lógico que são ativados (disparam) quando um site que você gerencia é desativado.
-* Comunique-se com qualquer ponto de extremidade por HTTP para estender seus fluxos de trabalho para outros serviços.
+* Se comunicam tooany de ponto de extremidade por HTTP tooextend seus fluxos de trabalho em outros serviços.
 
-Para começar a usar a ação HTTP em um aplicativo lógico, confira [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
+tooget iniciado usando a ação de saudação HTTP em um aplicativo de lógica, consulte [criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="use-the-http-trigger"></a>Usar o gatilho HTTP
-Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](connectors-overview.md).
+## <a name="use-hello-http-trigger"></a>Use o gatilho Olá HTTP
+Um gatilho é um evento que pode ser usado toostart Olá fluxo de trabalho é definido em um aplicativo lógico. [Saiba mais sobre gatilhos](connectors-overview.md).
 
-Veja uma sequência de exemplo de como configurar um gatilho HTTP no Designer de Aplicativo Lógico.
+Aqui está uma sequência de exemplo de como tooset backup Olá HTTP gatilho Olá Designer de lógica do aplicativo.
 
-1. Adicione o gatilho HTTP no seu aplicativo lógico.
-2. Preencha os parâmetros do ponto de extremidade HTTP que deseja sondar.
-3. Modifique o intervalo de recorrência quanto à frequência que ele deve ser sondado.
+1. Adicione o gatilho HTTP de saudação em seu aplicativo de lógica.
+2. Preencha os parâmetros de saudação para o ponto de extremidade de saudação HTTP que você deseja toopoll.
+3. Modificar o intervalo de recorrência de saudação na frequência com a qual ele deve pesquisar.
 
-   Agora, o aplicativo lógico é disparado com qualquer conteúdo retornado durante cada verificação.
+   Olá lógica aplicativo agora é acionado com qualquer conteúdo que é retornado durante cada verificação.
 
    ![Gatilho HTTP](./media/connectors-native-http/using-trigger.png)
 
-### <a name="how-the-http-trigger-works"></a>Como o gatilho HTTP funciona
+### <a name="how-hello-http-trigger-works"></a>Como funciona o gatilho HTTP Olá
 
-O gatilho HTTP envia uma chamada para um ponto de extremidade HTTP em um intervalo recorrente. Por padrão, qualquer código de resposta HTTP menor do que 300 faz com que um aplicativo lógico seja executado. Para especificar se o aplicativo lógico deve ser disparado, você pode editar o aplicativo lógico no modo de exibição de código e adicionar uma condição que é avaliada após a chamada HTTP. Veja um exemplo de um gatilho HTTP que será disparado sempre que o código de status retornado for maior ou igual a `400`.
+gatilho HTTP Olá envia um ponto de extremidade de tooHTTP chamada em um intervalo recorrente. Por padrão, qualquer código de resposta HTTP é menor que 300 faz com que um toorun de aplicativo lógica. toospecify se deve acionar o aplicativo lógico de Olá, você pode editar aplicativo de lógica de saudação na exibição de código e adicionar uma condição que é avaliada após Olá chamada HTTP. Aqui está um exemplo de um gatilho HTTP que é acionado quando a saudação retornou o código de status é maior que ou igual a muito`400`.
 
 ```javascript
 "Http":
@@ -72,57 +72,57 @@ O gatilho HTTP envia uma chamada para um ponto de extremidade HTTP em um interva
 }
 ```
 
-Os detalhes completos sobre os parâmetros de gatilho HTTP estão disponíveis no [MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx#HTTP-trigger).
+Detalhes completos sobre os parâmetros de gatilho Olá HTTP estão disponíveis em [MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx#HTTP-trigger).
 
-## <a name="use-the-http-action"></a>Usar a ação HTTP
+## <a name="use-hello-http-action"></a>Use a ação Olá HTTP
 
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. 
+Uma ação é uma operação que é executada pelo fluxo de trabalho de saudação que é definido em um aplicativo lógico. 
 [Saiba mais sobre ações](connectors-overview.md).
 
 1. Escolha **Nova Etapa** > **Adicionar uma ação**.
-3. Na caixa de pesquisa de ação, digite **http** para listar as ações HTTP.
+3. Na caixa de pesquisa de ação hello, digite **http** ações de saudação HTTP toolist.
    
-    ![Selecionar a ação HTTP](./media/connectors-native-http/using-action-1.png)
+    ![Selecione a ação Olá HTTP](./media/connectors-native-http/using-action-1.png)
 
-4. Adicione quaisquer parâmetros necessários para a chamada HTTP.
+4. Adicione os parâmetros necessários para a chamada de saudação HTTP.
    
-    ![Concluir a ação HTTP](./media/connectors-native-http/using-action-2.png)
+    ![Olá completa ação HTTP](./media/connectors-native-http/using-action-2.png)
 
-5. Clique em **Salvar** na barra de ferramentas do designer. Seu aplicativo lógico é salvo e publicado (ativado) simultaneamente.
+5. Na barra de ferramentas designer hello, clique em **salvar**. Seu aplicativo lógico é salvo e publicado (ativado) no hello simultaneamente.
 
 ## <a name="http-trigger"></a>Gatilho HTTP
-Veja os detalhes do gatilho com suporte deste conector. O conector HTTP tem um gatilho.
+Aqui estão os detalhes de saudação disparador Olá que oferece suporte a esse conector. conector HTTP Olá tem um gatilho.
 
 | Gatilho | Descrição |
 | --- | --- |
-| http |Faz uma chamada HTTP e retorna o conteúdo da resposta. |
+| HTTP |Faz uma chamada HTTP e retorna o conteúdo de resposta de saudação. |
 
 ## <a name="http-action"></a>Ação HTTP
-Veja os detalhes da ação com suporte deste conector. O conector HTTP tem uma ação possível.
+Aqui estão os detalhes de saudação para ação Olá que oferece suporte a esse conector. conector HTTP Olá tem uma ação possível.
 
 | Ação | Descrição |
 | --- | --- |
-| http |Faz uma chamada HTTP e retorna o conteúdo da resposta. |
+| HTTP |Faz uma chamada HTTP e retorna o conteúdo de resposta de saudação. |
 
 ## <a name="http-details"></a>Detalhes do HTTP
-As tabelas a seguir descrevem os campos de entrada obrigatórios e opcionais para a ação e os detalhes de saída correspondentes associados ao uso da ação.
+Olá tabelas a seguir descrevem hello necessárias e os campos de entrada opcionais para ação hello e Olá correspondente saída detalhes associados usando a ação de saudação.
 
 #### <a name="http-request"></a>Solicitação HTTP
-Estes são os campos de entrada para a ação, o que cria uma solicitação HTTP de saída.
+Olá seguem campos de entrada para a ação de saudação, que faz uma solicitação HTTP de saída.
 Um * significa que é um campo obrigatório.
 
 | Nome de exibição | Nome da propriedade | Descrição |
 | --- | --- | --- |
-| Método* |estático |Verbo HTTP a ser usado |
-| URI* |uri |O URI para a solicitação HTTP |
-| Cabeçalhos |Cabeçalhos |Um objeto JSON de cabeçalhos HTTP a serem incluídos |
-| Corpo |Corpo |O corpo da solicitação HTTP |
-| Autenticação |Autenticação |Os detalhes na seção [Autenticação](#authentication) |
+| Método* |estático |Olá HTTP verbo toouse |
+| URI* |uri |Olá URI de solicitação HTTP de saudação |
+| Cabeçalhos |headers |Um objeto JSON de tooinclude de cabeçalhos HTTP |
+| Corpo |body |saudação de corpo de solicitação HTTP |
+| Autenticação |Autenticação |Detalhes de saudação [autenticação](#authentication) seção |
 
 <br>
 
 #### <a name="output-details"></a>Detalhes de saída
-A seguir, os detalhes de saída para a resposta HTTP.
+Olá seguem detalhes de saída de hello resposta HTTP.
 
 | Nome da propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
@@ -131,7 +131,7 @@ A seguir, os detalhes de saída para a resposta HTTP.
 | Código de status |int |Código de status HTTP |
 
 ## <a name="authentication"></a>Autenticação
-O recurso de Aplicativos Lógicos permitem que você use diferentes tipos de autenticação em pontos de extremidade HTTP. Você pode usar essa autenticação com os conectores **HTTP**, **[HTTP + Swagger](connectors-native-http-swagger.md)** e **[Webhook HTTP](connectors-native-webhook.md)**. Os seguintes tipos de autenticação são configuráveis:
+recurso de aplicativos lógicos Olá permite toouse diferentes tipos de autenticação em relação a pontos de extremidade HTTP. Você pode usar essa autenticação com hello **HTTP**,  **[HTTP + Swagger](connectors-native-http-swagger.md)**, e  **[HTTP Webhook](connectors-native-webhook.md)**  conectores. Olá, tipos de autenticação a seguir podem ser configurado:
 
 * [Autenticação básica](#basic-authentication)
 * [Autenticação de certificado de cliente](#client-certificate-authentication)
@@ -139,18 +139,18 @@ O recurso de Aplicativos Lógicos permitem que você use diferentes tipos de aut
 
 #### <a name="basic-authentication"></a>Autenticação básica
 
-O seguinte objeto de autenticação é necessário para a autenticação básica.
+Olá, objeto de autenticação a seguir é necessário para a autenticação básica.
 Um * significa que é um campo obrigatório.
 
 | Nome da propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
 | Type* |type |Tipo de autenticação (deve ser `Basic` para a autenticação básica) |
-| Username* |Nome de Usuário |Nome de usuário para autenticar |
-| Password* |Senha |Senha para autenticação |
+| Username* |Nome de Usuário |Tooauthenticate de nome de usuário |
+| Password* |Senha |Senha tooauthenticate |
 
 > [!TIP]
-> Se você quiser usar uma senha que não é possível recuperar na definição, use um parâmetro `securestring` e a `@parameters()` 
-> [função de definição do fluxo de trabalho](http://aka.ms/logicappdocs).
+> Se você quiser toouse uma senha que não é possível recuperar definição hello, use um `securestring` parâmetro e hello `@parameters()`  
+>  [função da definição de fluxo de trabalho](http://aka.ms/logicappdocs).
 
 Por exemplo:
 
@@ -164,17 +164,17 @@ Por exemplo:
 
 #### <a name="client-certificate-authentication"></a>Autenticação de certificado de cliente
 
-O seguinte objeto de autenticação é necessário para a autenticação de certificado de cliente. Um * significa que é um campo obrigatório.
+Olá seguinte objeto de autenticação é necessária para autenticação de certificado de cliente. Um * significa que é um campo obrigatório.
 
 | Nome da propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
-| Type* |type |O tipo de autenticação (deve ser `ClientCertificate` para certificados de cliente SSL) |
-| PFX* |pfx |O conteúdo codificado na Base64 do arquivo Personal Information Exchange (PFX) |
-| Password* |Senha |A senha para acessar o arquivo PFX |
+| Type* |type |Olá o tipo de autenticação (deve ser `ClientCertificate` para certificados de cliente SSL) |
+| PFX* |pfx |conteúdo codificado com Base64 de saudação do arquivo de troca de informações pessoais (PFX) Olá |
+| Password* |Senha |Olá senha tooaccess Olá arquivo PFX |
 
 > [!TIP]
-> Para usar um parâmetro que não será legível na definição após salvar o aplicativo lógico, você poderá usar um parâmetro `securestring` e a `@parameters()` 
-> [função de definição do fluxo de trabalho](http://aka.ms/logicappdocs).
+> um parâmetro que não será legível na definição de saudação depois de salvar o aplicativo de lógica de saudação do toouse, você pode usar um `securestring` parâmetro e hello `@parameters()`  
+>  [função da definição de fluxo de trabalho](http://aka.ms/logicappdocs).
 
 Por exemplo:
 
@@ -187,18 +187,18 @@ Por exemplo:
 ```
 
 #### <a name="azure-ad-oauth-authentication"></a>Autenticação OAuth do Azure AD
-O seguinte objeto de autenticação é necessário para a autenticação OAuth do Azure AD. Um * significa que é um campo obrigatório.
+Olá, objeto de autenticação a seguir é necessário para autenticação OAuth do AD do Azure. Um * significa que é um campo obrigatório.
 
 | Nome da propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
-| Type* |type |O tipo de autenticação (deve ser `ActiveDirectoryOAuth` para a autenticação OAuth do Azure AD) |
-| Tenant* |locatário |O identificador do locatário para o locatário do Azure AD |
-| Audience* |audiência |O recurso para cujo uso você está solicitando autorização. Por exemplo: `https://management.core.windows.net/` |
-| Client ID* |clientId |O identificador de cliente para o aplicativo do Azure AD |
-| Secret* |segredo |O segredo do cliente que está solicitando o token |
+| Type* |type |Olá o tipo de autenticação (deve ser `ActiveDirectoryOAuth` para OAuth do AD do Azure) |
+| Tenant* |locatário |Identificador do locatário Olá para o locatário de saudação do AD do Azure |
+| Audience* |audiência |recurso Hello está solicitando toouse de autorização. Por exemplo: `https://management.core.windows.net/` |
+| Client ID* |clientId |Olá identificador de cliente para o aplicativo hello AD do Azure |
+| Secret* |segredo |segredo de saudação do cliente de saudação que está solicitando o token Olá |
 
 > [!TIP]
-> Você pode usar um parâmetro `securestring` e a `@parameters()` [função de definição do fluxo de trabalho](http://aka.ms/logicappdocs) para usar um parâmetro que não será legível na definição depois de salvar.
+> Você pode usar um `securestring` parâmetro e hello `@parameters()` [função da definição de fluxo de trabalho](http://aka.ms/logicappdocs) toouse um parâmetro que não será legível na definição de saudação depois de salvar.
 > 
 > 
 
@@ -215,5 +215,5 @@ Por exemplo:
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora, experimente a plataforma e [crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
+Agora, experimente a plataforma hello e [criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Você pode explorar Olá outros conectores disponíveis em aplicativos lógicos examinando nosso [lista APIs](apis-list.md).
 

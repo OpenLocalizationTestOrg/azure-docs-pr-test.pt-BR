@@ -1,5 +1,5 @@
 ---
-title: "Como criar um Ambiente do Serviço de Aplicativo v1"
+title: "aaaHow tooCreate v1 um ambiente de serviço de aplicativo"
 description: "Descrição do fluxo de criação para ambiente do serviço de aplicativo v1"
 services: app-service
 documentationcenter: 
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 400bcc08650f8a13911c05c8d0d04ddc22327dfd
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 95feb33854eee5bac02fa68b066e2fc10eb3fede
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-create-an-app-service-environment-v1"></a>Como criar um Ambiente do Serviço de Aplicativo v1 
+# <a name="how-toocreate-an-app-service-environment-v1"></a>Como tooCreate v1 um ambiente de serviço de aplicativo 
 
 > [!NOTE]
-> Este artigo é sobre o Ambiente do Serviço de Aplicativo v1. Há uma versão mais recente do Ambiente de Serviço de Aplicativo que é mais fácil de usar e é executado na infraestrutura mais avançada. Para saber mais sobre a nova versão, comece com [Introdução ao Ambiente do Serviço de Aplicativo](../app-service/app-service-environment/intro.md).
+> Este artigo é sobre Olá v1 do ambiente de serviço de aplicativo. Há uma versão mais recente do hello ambiente de serviço de aplicativo que é mais fácil toouse e é executado na infraestrutura mais avançada. toolearn mais sobre a nova versão de hello começam com hello [Introdução toohello ambiente de serviço de aplicativo](../app-service/app-service-environment/intro.md).
 > 
 
 ### <a name="overview"></a>Visão geral
-O Ambiente de Serviço de Aplicativo (ASE) é uma opção de serviço Premium do Serviço de Aplicativo do Azure que fornece um recurso de configuração avançada não disponível em carimbos com vários locatários. O recurso ASE essencialmente implanta o Serviço de Aplicativo do Azure na rede virtual de um cliente. Para obter uma maior compreensão dos recursos oferecidos pelos ambientes do serviço de aplicativo, leia a documentação [O que é um ambiente do serviço de aplicativo][WhatisASE].
+Olá ambiente de serviço de aplicativo (ASE) é uma opção de serviço Premium do serviço de aplicativo do Azure que fornece um recurso de configuração avançada que não está disponível em carimbos de multilocatário hello. recurso de ASE Olá essencialmente implanta saudação do serviço de aplicativo do Azure na rede virtual do cliente. saudação de leitura toogain uma maior compreensão dos recursos de saudação oferecida pelos ambientes de serviço de aplicativo [o que é um ambiente de serviço de aplicativo] [ WhatisASE] documentação.
 
 ### <a name="before-you-create-your-ase"></a>Antes de criar seu ASE
-É importante estar ciente dos itens que você não pode alterar. Os aspectos que você não pode alterar quanto ao ASE após sua criação são:
+É importante toobe ciente das coisas Olá que você não pode alterar. Os aspectos que você não pode alterar quanto ao ASE após sua criação são:
 
 * Local
 * Assinatura
@@ -39,24 +39,24 @@ O Ambiente de Serviço de Aplicativo (ASE) é uma opção de serviço Premium do
 * Sub-rede usada 
 * Tamanho da sub-rede
 
-Ao escolher uma rede virtual e especificar uma sub-rede, verifique se ela é grande o suficiente para acomodar qualquer crescimento futuro. 
+Quando escolher uma rede virtual e especificando uma sub-rede, verifique se ele é grande o suficiente tooaccomodate qualquer crescimento futuro. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>Criando um Ambiente do Serviço de Aplicativo v1
-Para criar um Ambiente do Serviço de Aplicativo v1, você precisa pesquisar ***Ambiente do Serviço de Aplicativo v1*** no Azure Marketplace ou acessar Novo -> Web + Móvel -> Ambiente do Serviço de Aplicativo. Para criar um ASEv1:
+toocreate v1 um ambiente de serviço de aplicativo que precisa toosearch hello Azure Marketplace para ***v1 do ambiente de serviço de aplicativo***, ou por meio do novo -> Web + móvel -> ambiente de serviço de aplicativo. toocreate um ASEv1:
 
-1. Forneça o nome do seu ASE. O nome especificado para o ASE será usado para os aplicativos Web criados no ASE. Se o nome do ASE for appsvcenvdemo, o nome do subdomínio será .*appsvcenvdemo.p.azurewebsites.net*. Se você tiver criado, portanto, um aplicativo Web chamado *mytestapp*, ele seria endereçável em *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Você não pode usar espaços em branco no nome do ASE. Se você usar letras maiúsculas entre os caracteres do nome, o nome de domínio será a versão total em letras minúsculas desse nome. Se você usar um ILB, seu nome do ASE não será usado no subdomínio, mas sim declarado explicitamente durante a criação do ASE
+1. Forneça o nome de saudação do seu ASE. nome de Olá especificado para Olá ASE será usado para aplicativos de saudação criados no hello ASE. Se o nome da saudação ASE é appsvcenvdemo nome de subdomínio Olá seria. *appsvcenvdemo.p.azurewebsites.net*. Se você tiver criado, portanto, um aplicativo Web chamado *mytestapp*, ele seria endereçável em *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Você não pode usar o espaço em branco no nome de saudação do seu ASE. Se você usar caracteres maiusculos em nome hello, o nome de domínio de Olá será versão minúscula total de saudação do nome. Se você usar um ILB, seu nome do ASE não será usado no subdomínio, mas sim declarado explicitamente durante a criação do ASE
    
     ![][1]
-2. Selecione sua assinatura. A assinatura usada para seu ASE também é aquela com a qual serão criados todos os aplicativos no ASE. Você pode colocar seu ASE em uma VNet que está em outra assinatura
-3. Selecione ou especifique um novo grupo de recursos. O grupo de recursos usado para seu ASE deve ser o mesmo usado para sua rede virtual. Se você selecionar uma rede virtual já existente, a seleção de grupo de recursos para o ASE será atualizada para refletir a de sua rede virtual.
+2. Selecione sua assinatura. assinatura de saudação usada para sua ASE também é Olá um serão criados com todos os aplicativos em que ASE. Você pode colocar seu ASE em uma VNet que está em outra assinatura
+3. Selecione ou especifique um novo grupo de recursos. grupo de recursos de saudação usado para seu ASE deve ser Olá mesmo que é usado para a sua rede virtual. Se você selecionar uma rede virtual já existente, seleção de grupo de recursos de saudação para seu ASE serão atualizado tooreflect que sua rede virtual.
    
     ![][2]
-4. Faça suas seleções de Rede Virtual e Local. Você pode optar por criar uma nova rede virtual ou selecionar uma rede virtual já existente. Se selecionar uma nova rede virtual, você poderá especificar um nome e local. A nova VNet terá o intervalo de endereços 192.168.250.0/23 e uma sub-rede denominada **padrão** que é definida como 192.168.250.0/24. Você pode simplesmente selecionar um VNet pré-existente clássico ou do Gerenciador de Recursos. A seleção do tipo de VIP determina se seu ASE pode ser acessado diretamente por meio da Internet (Externo) ou se ele usa um Balanceador de Carga Interno (ILB). Para saber mais sobre eles, leia [Usando um Balanceador de Carga Interno com um Ambiente de Serviço de Aplicativo][ILBASE]. Se você selecionar um tipo de VIP Externo, poderá selecionar com quantos endereços IP externos o sistema é criado para fins de IPSSL. Se selecionar Interno, você precisará especificar o subdomínio que seu ASE usará. Os ASEs podem ser implantados em redes virtuais que usam os intervalos de endereço público *ou* espaços de endereço *RFC1918* (ou seja, endereços privados). Para usar uma rede virtual com um intervalo de endereços públicos, você precisará criar a VNet antecipadamente. Ao selecionar uma VNet já existente, você precisará criar uma nova sub-rede durante a criação do ASE. **Você não pode usar uma sub-rede criada previamente no portal. Você poderá criar um ASE com uma sub-rede já existente, se criar o ASE usando um modelo do Resource Manager.** Para criar um ASE por meio de um modelo, use as informações fornecidas aqui, [Criar um ambiente de serviço de aplicativo do modelo][ILBAseTemplate] e aqui, [Criar um ambiente de serviço de aplicativo do ILB do modelo][ASEfromTemplate].
+4. Faça suas seleções de Rede Virtual e Local. Você pode escolher toocreate uma nova rede virtual ou selecione uma rede virtual já existente. Se selecionar uma nova rede virtual, você poderá especificar um nome e local. Olá nova rede virtual terá Olá endereço intervalo 192.168.250.0/23 e uma sub-rede denominada **padrão** que é definido como 192.168.250.0/24. Você pode simplesmente selecionar um VNet pré-existente clássico ou do Gerenciador de Recursos. Olá a seleção do tipo de VIP determina se o ASE pode ser acessado diretamente da saudação internet (externo) ou se ele usa um balanceador de carga interno (ILB). mais sobre eles ler de toolearn [usando um balanceador de carga interno com um ambiente de serviço de aplicativo][ILBASE]. Se você selecionar um tipo de VIP de externos, em seguida, você pode selecionar quantas sistema externo de saudação de endereços IP é criado com para fins IPSSL. Se você selecionar interno necessário subdomínio de saudação toospecify que seu ASE usará. Os ASEs podem ser implantados em redes virtuais que usam os intervalos de endereço público *ou* espaços de endereço *ou* RFC1918 (ou seja, endereços privados). Ordem toouse uma rede virtual com um intervalo de endereços públicos, você precisará toocreate Olá VNet antecipadamente. Quando você seleciona uma rede virtual já existente, você precisará toocreate uma nova sub-rede durante a criação do ASE. **Você não pode usar uma sub-rede criada previamente no portal de saudação. Você poderá criar um ASE com uma sub-rede já existente, se criar o ASE usando um modelo do Resource Manager.** toocreate uma ASE de um modelo use informações de saudação aqui, [criando um ambiente de serviço de aplicativo do modelo] [ ILBAseTemplate] e aqui, [criando um ambiente de serviço de aplicativo do ILB de modelo] [ASEfromTemplate].
 
 ### <a name="details"></a>Detalhes
-É criado um ASE com dois Front-Ends e dois trabalhos. Os Front-Ends atuam como os pontos de extremidade HTTP/HTTPS e enviam tráfego para as Funções de Trabalho, que são funções que hospedam seus aplicativos. Você pode ajustar a quantidade após a criação do ASE e pode até mesmo configurar regras de dimensionamento automático nesses pools de recursos. Para obter mais detalhes sobre a colocação em escala manual, o gerenciamento e o monitoramento de um ambiente de serviço de aplicativo, acesse: [Como configurar um Ambiente de Serviço de Aplicativo][ASEConfig] 
+É criado um ASE com dois Front-Ends e dois trabalhos. Olá Front-Ends atuar como pontos de extremidade HTTP/HTTPS hello e enviar tráfego trabalhadores toohello que são funções hello que hospedam seus aplicativos. Você pode ajustar a quantidade de saudação após a criação de ASE e pode até mesmo configurar regras de AutoEscala nesses pools de recursos. Para obter mais detalhes sobre o redimensionamento manual, gerenciamento e monitoramento de um ambiente de serviço de aplicativo acesse aqui: [como tooconfigure um ambiente de serviço de aplicativo][ASEConfig] 
 
-Pode existir apenas um ASE na sub-rede usada pelo ASE. A sub-rede não pode ser usada para algo diferente de ASE
+Somente uma ASE saudação pode existir na sub-rede Olá usado pelo Olá ASE. Olá não pode ser usada para algo diferente de saudação ASE
 
 ### <a name="after-app-service-environment-v1-creation"></a>Após a criação de um Ambiente do Serviço de Aplicativo v1
 Após a criação do ASE é possível ajustar:
@@ -64,20 +64,20 @@ Após a criação do ASE é possível ajustar:
 * Quantidade de Front-Ends (mínimo: 2)
 * Quantidade de processadores (mínimo: 2)
 * Quantidade de endereços IP disponíveis para SSL de IP
-* Tamanho de recursos de computação usados pelos Front-Ends ou Processadores (o tamanho mínimo de Front-End é P2)
+* Tamanhos de recursos usados por Olá Front-Ends ou trabalho de computação (o tamanho mínimo de Front-End é P2)
 
-Há mais detalhes sobre o gerenciamento da colocação em escala manual e monitoramento de Ambientes de Serviço de Aplicativo aqui: [Como configurar um Ambiente de Serviço de Aplicativo][ASEConfig] 
+Há mais detalhes sobre o dimensionamento, gerenciamento e monitoramento de ambientes de serviço de aplicativo aqui manual: [como tooconfigure um ambiente de serviço de aplicativo][ASEConfig] 
 
-Para saber mais sobre o dimensionamento automático, há um guia aqui: [Como configurar o dimensionamento automático para um Ambiente de Serviço de Aplicativo][ASEAutoscale]
+Para obter informações sobre o dimensionamento automático, há um guia aqui: [como tooconfigure AutoEscala para um ambiente de serviço de aplicativo][ASEAutoscale]
 
-Há dependências adicionais que não estão disponíveis para personalização, como o banco de dados e o armazenamento. Esses são gerenciados pelo Azure e fornecidos com o sistema. O armazenamento do sistema dá suporte a até 500 GB para todo o Ambiente de Serviço do Aplicativo e o banco de dados é ajustado pelo Azure como necessário, por meio do dimensionamento do sistema.
+Há dependências adicionais que não estão disponíveis para personalização, como o banco de dados de saudação e armazenamento. Essas são tratadas pelo Azure e são fornecidas com o sistema de saudação. Olá sistema armazenamento dá suporte a backup too500 GB para Olá todo o ambiente de serviço de aplicativo e banco de dados de saudação é ajustado pelo Azure conforme necessário, escala de saudação do sistema hello.
 
 ## <a name="getting-started"></a>Introdução
-Todos os artigos e os Como fazer para Ambientes de Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes de Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
+Todos os artigos e como-para para ambientes de serviço de aplicativo estão disponíveis no hello [Leiame para ambientes de serviço de aplicativo](../app-service/app-service-app-service-environments-readme.md).
 
-Para começar a usar Ambientes de Serviço de Aplicativo v1, veja [Introdução ao Ambiente de Serviço de Aplicativo v1][WhatisASE]
+tooget iniciado com o ambiente de serviço de aplicativo v1, consulte [toohello Introdução v1 do ambiente de serviço de aplicativo][WhatisASE]
 
-Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure][AzureAppService].
+Para obter mais informações sobre a plataforma do serviço de aplicativo do Azure hello, consulte [do serviço de aplicativo do Azure][AzureAppService].
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

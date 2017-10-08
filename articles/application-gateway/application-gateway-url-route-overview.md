@@ -1,6 +1,6 @@
 ---
-title: "Visão geral do roteamento de conteúdo baseado em URL | Microsoft Docs"
-description: "Esta página fornece uma visão geral do roteamento de conteúdo baseado em URL do Gateway de Aplicativo, da configuração de UrlPathMap e da regra de PathBasedRouting."
+title: "com base em aaaURL conteúdo visão geral do roteamento | Microsoft Docs"
+description: "Esta página fornece uma visão geral de saudação URL do aplicativo Gateway de roteamento baseado em conteúdo, configuração de UrlPathMap e PathBasedRouting regra."
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: gwallace
-ms.openlocfilehash: 75c3279d2d02cb3c6e949d191c88a1eb18b58a27
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 5094b42625baffeb395beace68db0d269e46080c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="url-path-based-routing-overview"></a>Visão geral do Roteamento Baseado em Caminho de URL
 
-O Roteamento Baseado em Caminho de URL permite rotear o tráfego para pools do servidor de back-end com base nos Caminhos de URL da solicitação. 
+URL de caminho com base em roteamento permite que você tooroute tráfego tooback ponta pools de servidores com base em caminhos de URL de solicitação de saudação. 
 
-Um dos cenários possíveis é rotear as solicitações de tipos de conteúdo diferentes para pools de servidores de back-end diferentes.
+Um dos cenários de saudação é tooroute solicitações para pools de servidores de back-end de toodifferent de diferentes tipos de conteúdo.
 
-No exemplo a seguir, o Gateway de Aplicativo está fornecendo tráfego para contoso.com de três pools de servidor de back-end, como por exemplo: VideoServerPool, ImageServerPool e DefaultServerPool.
+Em Olá exemplo a seguir, Application Gateway está servindo o tráfego para contoso.com de três pools do servidor back-end por exemplo: VideoServerPool, ImageServerPool e DefaultServerPool.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-As solicitações de http://contoso.com/video* são roteadas para VideoServerPool e as de http://contoso.com/images* são roteadas para ImageServerPool. O DefaultServerPool será selecionado se nenhum dos padrões de caminho forem compatíveis.
+As solicitações para http://contoso.com/video * são roteada tooVideoServerPool e http://contoso.com/images * são roteada tooImageServerPool. DefaultServerPool será selecionada se corresponder a nenhum dos padrões de caminho hello.
 
 > [!IMPORTANT]
-> As regras são processadas na ordem em que elas são listadas no portal. É altamente recomendável configurar primeiro os ouvintes de vários locais para configurar um ouvinte básico.  Isso garante que o tráfego seja roteado para o back-end correto. Se um ouvinte básico for listado primeiro e corresponder a uma solicitação de entrada, ele é processado por esse ouvinte.
+> Regras são processadas na ordem Olá que estão listados no portal de saudação. É altamente recomendado tooconfigure multissite ouvintes primeiro anterior tooconfiguring um ouvinte básico.  Isso garante que o tráfego obtém roteados toohello volta terminar. Se um ouvinte básico for listado primeiro e corresponder a uma solicitação de entrada, ele é processado por esse ouvinte.
 
 ## <a name="urlpathmap-configuration-element"></a>Elemento de configuração UrlPathMap
 
-O elemento urlPathMap é usado para especificar padrões de Caminho para mapeamentos de pool do servidor de back-end. O seguinte é o trecho do elemento urlPathMap do arquivo de modelo.
+Olá urlPathMap é mapeamentos de pool do servidor usado toospecify padrões de caminho tooback-end. Olá, exemplo de código a seguir é o trecho de saudação do elemento urlPathMap do arquivo de modelo.
 
 ```json
 "urlPathMaps": [{
@@ -69,13 +69,13 @@ O elemento urlPathMap é usado para especificar padrões de Caminho para mapeame
 ```
 
 > [!NOTE]
-> PathPattern: essa configuração é uma lista de padrões de caminho para correspondência. Cada um deve começar com / e o único lugar onde um "*" é permitido é no final após um "/". A cadeia de caracteres inserida no correspondente de caminho não inclui nenhum texto após o primeiro ? ou #, e esses caracteres não são permitidos aqui.
+> PathPattern: Essa configuração é uma lista de toomatch de padrões de caminho. Cada um deve começar com / e coloque-Olá somente um "*" é permitido é em Olá final após um "/". cadeia de caracteres de saudação alimentada toohello correspondente de caminho não inclui qualquer texto após Olá primeiro? ou, # e os caracteres não são permitidos aqui.
 
 Você pode conferir um [modelo do Resource Manager usando o roteamento baseado em URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) para obter mais informações.
 
 ## <a name="pathbasedrouting-rule"></a>Regra de PathBasedRouting
 
-RequestRoutingRule do tipo PathBasedRouting é usada para associar um ouvinte a um urlPathMap. Todas as solicitações recebidas por este ouvinte são roteadas com base na política especificada no urlPathMap.
+RequestRoutingRule do tipo PathBasedRouting é usado toobind urlPathMap de tooa um ouvinte. Todas as solicitações recebidas por este ouvinte são roteadas com base na política especificada no urlPathMap.
 Trecho de código da regra de PathBasedRouting:
 
 ```json
@@ -100,4 +100,4 @@ Trecho de código da regra de PathBasedRouting:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de conhecer o roteamento de conteúdo baseado em URL, acesse [criar um application gateway usando o roteamento baseado em URL](application-gateway-create-url-route-portal.md) para criar um application gateway com as regras de roteamento de URL.
+Depois de aprendizado sobre o roteamento de conteúdo baseado em URL, ir muito[criar um gateway de aplicativo usando roteamento baseado em URL](application-gateway-create-url-route-portal.md) toocreate um application gateway com regras de roteamento de URL.

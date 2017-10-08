@@ -1,5 +1,5 @@
 ---
-title: "Suporte de SSH para o Aplicativo Web do Serviço de Aplicativo do Azure no Linux | Microsoft Docs"
+title: "suporte a aaaSSH Azure serviço de aplicativo Web App no Linux | Microsoft Docs"
 description: Saiba como usar SSH com o Aplicativo Web do Azure no Linux.
 keywords: "serviço de aplicativo do azure, aplicativo web, linux, oss"
 services: app-service
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: feee7a5c91d213a6b0bfdaf264a4da4d9e79cbe7
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e00be6d4631e8936a2a8bc106da1fc06237a4b39
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="ssh-support-for-azure-web-app-on-linux"></a>Suporte de SSH para o Aplicativo Web do Azure no Linux
 
@@ -27,39 +27,39 @@ ms.lasthandoff: 08/29/2017
 
 ## <a name="overview"></a>Visão geral
 
-O [SSH (Secure Shell)](https://en.wikipedia.org/wiki/Secure_Shell) é um protocolo de rede criptográfico para usar serviços de rede de forma segura. Ele é usado com maior frequência para fazer logon em um sistema remotamente com segurança em uma linha de comando, bem como para executar comandos administrativos remotamente.
+O [SSH (Secure Shell)](https://en.wikipedia.org/wiki/Secure_Shell) é um protocolo de rede criptográfico para usar serviços de rede de forma segura. É toolog mais comumente usado em um sistema remotamente com segurança de uma linha de comando e executar comandos administrativos remotamente.
 
-O Aplicativo Web no Linux fornece suporte de SSH no contêiner de aplicativo com cada uma das imagens internas do Docker usadas para a Pilha em Tempo de Execução de novos aplicativos Web. 
+Web App no Linux fornece suporte SSH no contêiner do aplicativo hello com cada uma das imagens do Docker internas Olá usadas para Olá pilha de tempo de execução de novos aplicativos web. 
 
 ![Pilhas de tempo de execução](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
-Você também pode usar SSH com suas imagens personalizadas do Docker incluindo o servidor SSH como parte da imagem e configurando-o conforme descrito neste tópico.
+Você também pode usar SSH com as imagens do Docker personalizadas, incluindo o servidor SSH hello como parte da imagem hello e configurá-lo, conforme descrito neste tópico.
 
 
 
 ## <a name="making-a-client-connection"></a>Estabelecendo uma conexão de cliente
 
-Para estabelecer uma conexão de cliente SSH, o site principal deve ser iniciado. 
+toomake uma conexão de cliente SSH, o site principal Olá deve ser iniciado. 
 
-Cole o ponto de extremidade de SCM (gerenciamento de controle do código-fonte) de seu aplicativo Web no navegador usando o seguinte formato:
+Cole o ponto de extremidade de gerenciamento de controle de origem (SCM) de saudação para seu aplicativo web no seu navegador usando Olá formulário a seguir:
 
         https://<your sitename>.scm.azurewebsites.net/webssh/host
 
-Se ainda não estiver autenticado, você precisará se autenticar usando sua assinatura do Azure para se conectar.
+Se você não estiver autenticado, será necessário tooauthenticate com sua assinatura do Azure tooconnect.
 
 ![Conexão SSH](./media/app-service-linux-ssh-support/app-service-linux-ssh-connection.png)
 
 
 ## <a name="ssh-support-with-custom-docker-images"></a>Suporte de SSH com imagens personalizadas do Docker
 
-Para que uma imagem personalizada do Docker dê suporte à comunicação SSH entre o contêiner e o cliente no portal do Azure, execute as seguintes etapas para a imagem do Docker. 
+Em ordem para uma personalizado Docker imagem toosupport SSH comunicação entre o contêiner de saudação e cliente Olá Olá portal do Azure, execute Olá seguindo as etapas para a imagem do Docker. 
 
-Essas etapas são mostradas no repositório do Serviço de Aplicativo do Azure como exemplo [aqui](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
+Essas etapas são mostrados na Olá repositório do serviço de aplicativo do Azure como um exemplo [aqui](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
 
-1. Inclua a instalação `openssh-server` na [instrução `RUN`](https://docs.docker.com/engine/reference/builder/#run) no Dockerfile para sua imagem e defina a senha da conta raiz como `"Docker!"`. 
+1. Incluir Olá `openssh-server` instalação [ `RUN` instrução](https://docs.docker.com/engine/reference/builder/#run) em hello Dockerfile para sua imagem e definir a senha de saudação para conta de raiz de saudação muito`"Docker!"`. 
 
     > [!NOTE] 
-    > Essa configuração não permite conexões externas com o contêiner. O SSH só pode ser acessado por meio do site do Kudu/SCM, que é autenticado usando as credenciais de publicação.
+    > Essa configuração não permite que o contêiner de toohello conexões externas. SSH só pode ser acessado por meio de saudação Kudu / Site de SCM, que é autenticado usando Olá credenciais de publicação.
 
     ```docker
     # ------------------------
@@ -70,32 +70,32 @@ Essas etapas são mostradas no repositório do Serviço de Aplicativo do Azure c
       && echo "root:Docker!" | chpasswd
     ``` 
 
-2. Adicione uma [instrução `COPY`](https://docs.docker.com/engine/reference/builder/#copy) ao Dockerfile para copiar um arquivo [sshd_config](http://man.openbsd.org/sshd_config) para o diretório */etc/ssh/*. Seu arquivo de configuração deve ser baseado em nosso arquivo sshd_config no repositório Azure-App-Service do GitHub [aqui](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
+2. Adicionar um [ `COPY` instrução](https://docs.docker.com/engine/reference/builder/#copy) toohello Dockerfile toocopy um [sshd_config](http://man.openbsd.org/sshd_config) arquivo toohello */etc/ssh/* directory. O arquivo de configuração deve ser baseado em nosso arquivo sshd_config no repositório do GitHub do serviço de aplicativo do Azure Olá [aqui](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
 
     > [!NOTE] 
-    > O arquivo *sshd_config* deve incluir o seguinte ou a conexão falhará: 
-    > * `Ciphers` deve incluir pelo menos um dos itens a seguir: `aes128-cbc,3des-cbc,aes256-cbc`.
-    > * `MACs` deve incluir pelo menos um dos itens a seguir: `hmac-sha1,hmac-sha1-96`.
+    > Olá *sshd_config* arquivo deve incluir o seguinte hello ou falha de conexão hello: 
+    > * `Ciphers`deve incluir pelo menos um dos seguintes Olá: `aes128-cbc,3des-cbc,aes256-cbc`.
+    > * `MACs`deve incluir pelo menos um dos seguintes Olá: `hmac-sha1,hmac-sha1-96`.
 
     ```docker
     COPY sshd_config /etc/ssh/
     ```
 
 
-3. Inclua a porta 2222 na [instrução `EXPOSE`](https://docs.docker.com/engine/reference/builder/#expose) para o Dockerfile. Embora a senha raiz seja conhecida, a porta 2222 não pode ser acessada da Internet. Ela é uma porta interna que pode ser acessada somente por contêineres dentro da rede ponte de uma rede virtual privada.
+3. Incluir porta 2222 na Olá [ `EXPOSE` instrução](https://docs.docker.com/engine/reference/builder/#expose) para Olá Dockerfile. Embora a senha de raiz de saudação for conhecida, porta 2222 não pode ser acessada de saudação à internet. É uma única porta interna acessível somente por contêineres dentro da rede de ponte de saudação de uma rede virtual privada.
 
     ```docker
     EXPOSE 2222 80
     ```
 
-4. Certifique-se de iniciar o serviço SSH. Este exemplo [aqui](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) usa um script shell no diretório */bin*.
+4. Certifique-se de toostart Olá ssh de serviço. exemplo Hello [aqui](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) usa um script de shell em */bin* directory.
 
     ```bash
     #!/bin/bash
     service ssh start
     ```
 
-    O Dockerfile usa a [instrução `CMD`](https://docs.docker.com/engine/reference/builder/#cmd) para executar o script.
+    Olá Dockerfile usa Olá [ `CMD` instrução](https://docs.docker.com/engine/reference/builder/#cmd) toorun script de saudação.
 
     ```docker
     COPY init_container.sh /bin/
@@ -108,9 +108,9 @@ Essas etapas são mostradas no repositório do Serviço de Aplicativo do Azure c
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte os links a seguir para obter mais informações sobre o Aplicativo Web no Linux. Você pode postar perguntas e problemas no [nosso fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+Consulte Olá seguindo os links para obter mais informações sobre o aplicativo Web no Linux. Você pode postar perguntas e problemas no [nosso fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Como usar uma imagem personalizada do Docker para o Aplicativo Web do Azure no Linux](app-service-linux-using-custom-docker-image.md)
+* [Como toouse um Docker personalizado da imagem para o aplicativo Web do Azure no Linux](app-service-linux-using-custom-docker-image.md)
 * [Usando a configuração de PM2 para Node.js no Aplicativo Web do Azure no Linux](app-service-linux-using-nodejs-pm2.md)
 * [Usando o .NET Core no Aplicativo Web do Azure no Linux](app-service-linux-using-dotnetcore.md)
 * [Usando Ruby no Aplicativo Web do Azure no Linux](app-service-linux-ruby-get-started.md)

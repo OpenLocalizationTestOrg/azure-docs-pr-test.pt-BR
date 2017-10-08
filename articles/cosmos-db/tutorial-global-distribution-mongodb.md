@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de distribuição global do Azure Cosmos DB para a API do MongoDB | Microsoft Docs"
-description: "Saiba como configurar a distribuição global do Azure Cosmos DB usando a API do MongoDB."
+title: "tutorial de distribuição global aaaAzure Cosmos DB para a API do MongoDB | Microsoft Docs"
+description: "Saiba como distribuição global usando o banco de dados do Azure Cosmos toosetup Olá MongoDB API."
 services: cosmos-db
 keywords: "distribuição global, MongoDB"
 documentationcenter: 
@@ -15,26 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: a2747102f4d8cac412b67abc3fd07cfa3661bcee
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 0fc2d670bb4e21ac5f813f9586b407ba06ccf354
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>Como configurar a distribuição global do Azure Cosmos DB usando a API do MongoDB
+# <a name="how-toosetup-azure-cosmos-db-global-distribution-using-hello-mongodb-api"></a>Como a distribuição global usando o banco de dados do Azure Cosmos toosetup Olá MongoDB API
 
-Neste artigo, mostraremos como usar o Portal do Azure para configurar a distribuição global do Azure Cosmos DB e, depois, conectar-se usando a API do MongoDB.
+Neste artigo, mostramos como toouse Olá toosetup portal do Azure distribuição global do banco de dados do Azure Cosmos e, em seguida, conecte-se usando Olá MongoDB API.
 
-Este artigo aborda as seguintes tarefas: 
+Este artigo aborda Olá tarefas a seguir: 
 
 > [!div class="checklist"]
-> * Configurar a distribuição global usando o Portal do Azure
-> * Configurar a distribuição global usando a [API do MongoDB](mongodb-introduction.md)
+> * Configurar a distribuição global usando Olá portal do Azure
+> * Configurar a distribuição global usando Olá [API do MongoDB](mongodb-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-## <a name="verifying-your-regional-setup-using-the-mongodb-api"></a>Verificar a configuração regional usando a API do MongoDB
-A maneira mais simples de verificar sua configuração global dentro de API para MongoDB é executar o comando *isMaster()* no Shell do Mongo.
+## <a name="verifying-your-regional-setup-using-hello-mongodb-api"></a>Verificando a configuração regional usando Olá MongoDB API
+a maneira mais simples de saudação de duplo verificando sua configuração global dentro de API para o MongoDB é Olá toorun *isMaster()* comando Olá Shell Mongo.
 
 No Shell do Mongo:
 
@@ -68,23 +68,23 @@ Exemplos de resultados:
       }
    ```
 
-## <a name="connecting-to-a-preferred-region-using-the-mongodb-api"></a>Conectar-se a uma região preferencial usando a API do MongoDB
+## <a name="connecting-tooa-preferred-region-using-hello-mongodb-api"></a>Conectar-se a região preferida tooa usando Olá MongoDB API
 
-A API do MongoDB permite que você especifique a preferência de leitura de sua coleção para um banco de dados distribuído globalmente. Para leituras de baixa latência e alta disponibilidade global, recomendamos a definição de sua preferência de leitura da coleção como *mais próximo*. Uma preferência de leitura de *mais próximo* está configurada para ler a região mais próxima.
+Olá MongoDB API permite que você toospecify preferência de leitura da coleção para um banco de dados globalmente distribuído. Para ambos baixa leituras de latência e alta disponibilidade global, é recomendável definir preferência de leitura da coleção muito*mais próximo*. Uma preferência de leitura de *mais próximo* é configurado tooread da região mais próxima hello.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Nearest));
 ```
 
-Para aplicativos com uma região de leitura/gravação primária e uma região secundária para cenários de DR (recuperação de desastres), recomendamos a definição da preferência de leitura da coleção como *secundário preferido*. Uma preferência de leitura de *secundário preferido* é configurada para ler a região secundária quando a região primária não está disponível.
+Para aplicativos com um primário leitura/gravação região e uma região secundária para a recuperação de desastres (DR) cenários, é recomendável definir preferência de leitura da coleção muito*secundário preferido*. Uma preferência de leitura de *secundário preferido* é configurado tooread da região secundária hello quando a região primária Olá não está disponível.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.SecondaryPreferred));
 ```
 
-Por fim, se você quiser especificar manualmente suas regiões de leitura. Defina a marca region dentro de sua preferência de leitura.
+Por fim, se você como toomanually especificaria as regiões de leitura. Você pode definir a região Olá marca dentro de sua preferência de leitura.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
@@ -92,17 +92,17 @@ var tag = new Tag("region", "Southeast Asia");
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Secondary, new[] { new TagSet(new[] { tag }) }));
 ```
 
-Assim, concluímos este tutorial. Aprenda a gerenciar a consistência de sua conta globalmente replicada lendo [Níveis de consistência no Azure Cosmos DB](consistency-levels.md). E para saber mais sobre como a replicação de banco de dados global funciona no Azure Cosmos DB, veja [Distribuir dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
+Assim, concluímos este tutorial. Você pode aprender como toomanage Olá consistência da sua conta global replicada lendo [níveis de consistência no banco de dados do Azure Cosmos](consistency-levels.md). E para saber mais sobre como a replicação de banco de dados global funciona no Azure Cosmos DB, veja [Distribuir dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você fez o seguinte:
+Neste tutorial, você fez a seguir hello:
 
 > [!div class="checklist"]
-> * Configurar a distribuição global usando o Portal do Azure
-> * Configurar a distribuição global usando a API do DocumentDB
+> * Configurar a distribuição global usando Olá portal do Azure
+> * Configurar a distribuição global usando Olá APIs do DocumentDB
 
-Agora você pode prosseguir para o próximo tutorial e aprender a desenvolver localmente usando o emulador local do Azure Cosmos DB.
+Você pode continuar toolearn tutorial do próximo toohello como toodevelop localmente usando Olá emulador local do banco de dados do Azure Cosmos.
 
 > [!div class="nextstepaction"]
-> [Desenvolver localmente com o emulador](local-emulator.md)
+> [Desenvolva localmente com o emulador de saudação](local-emulator.md)

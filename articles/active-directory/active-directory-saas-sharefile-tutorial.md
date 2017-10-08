@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory com o Citrix ShareFile | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Citrix ShareFile."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Citrix ShareFile."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,229 +14,229 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
-ms.openlocfilehash: b85680104fe4f33638c559b2a12483a2312a4476
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: d7eaf140e56c40f9f621062849dd8558588ffd1c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Tutorial: integração do Azure Active Directory ao Citrix ShareFile
 
-Nesse tutorial, você aprenderá a integrar o Citrix ShareFile ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como toointegrate Citrix ShareFile com o Azure Active Directory (AD do Azure).
 
-A integração do Citrix ShareFile ao Azure AD oferece os seguintes benefícios:
+Integração do Citrix ShareFile com o Azure AD oferece Olá benefícios a seguir:
 
-- No Azure AD, é possível controlar quem tem acesso ao Citrix ShareFile.
-- Você pode permitir que seus usuários façam logon automaticamente no Citrix ShareFile usando logon único com suas contas do Azure AD.
-- Você pode gerenciar suas contas em um único local central – o portal do Azure.
+- Você pode controlar no AD do Azure que tenha acesso tooCitrix ShareFile.
+- Você pode habilitar seu usuários tooautomatically get conectado tooCitrix ShareFile (logon único) com suas contas do AD do Azure.
+- Você pode gerenciar suas contas em um local central - Olá portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao Citrix ShareFile, você precisará dos seguintes itens:
+tooconfigure integração do Azure AD com Citrix ShareFile, você precisa Olá itens a seguir:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura habilitada para logon único do Citrix ShareFile
 
 > [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+tootest Olá etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
 
-1. Adicionar o Citrix ShareFile por meio da galeria
+1. Adicionar Citrix ShareFile da Galeria de saudação
 2. Configurar e testar logon único do Azure AD
 
-## <a name="add-citrix-sharefile-from-the-gallery"></a>Adicionar o Citrix ShareFile por meio da galeria
-Para configurar a integração do Citrix ShareFile com o Azure AD, você precisa adicionar o Citrix ShareFile, por meio da galeria, à sua lista de aplicativos de SaaS gerenciados.
+## <a name="add-citrix-sharefile-from-hello-gallery"></a>Adicionar Citrix ShareFile da Galeria de saudação
+integração de saudação tooconfigure do Citrix ShareFile no AD do Azure, você precisa tooadd Citrix ShareFile da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
 
-**Para adicionar o Citrix ShareFile da galeria, execute as seguintes etapas:**
+**tooadd Citrix ShareFile da Galeria hello, execute Olá etapas a seguir:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone. 
 
-    ![O botão Azure Active Directory][1]
+    ![botão de Active Directory do Azure Olá][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue muito**aplicativos empresariais**. Em seguida, acesse muito**todos os aplicativos**.
 
-    ![A folha Aplicativos empresariais][2]
+    ![folha de aplicativos de empresa Olá][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.
 
-    ![O botão Novo aplicativo][3]
+    ![Novo botão de aplicativo Hello][3]
 
-4. Na caixa de pesquisa, digite **Citrix ShareFile**, selecione **Citrix ShareFile** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa hello, digite **Citrix ShareFile**, selecione **Citrix ShareFile** no painel de resultados e clique em **adicionar** botão aplicativo hello de tooadd.
 
-    ![Citrix ShareFile na lista de resultados](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_addfromgallery.png)
+    ![Lista de resultados do Citrix ShareFile em Olá](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
 Nesta seção, você vai configurar e testar o logon único do Azure AD com o Citrix ShareFile, com base em um usuário de teste chamado "Brenda Fernandes".
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Citrix ShareFile é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Citrix ShareFile.
+Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá no Citrix ShareFile é tooa usuário no AD do Azure. Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação no Citrix ShareFile precisa toobe estabelecida.
 
-No Citrix ShareFile, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+No Citrix ShareFile, atribuir o valor de saudação do hello **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.
 
-Para configurar e testar o logon único do Azure AD com o Citrix ShareFile, você precisa concluir os seguintes blocos de construção:
+tooconfigure e teste de logon único do AD do Azure com o Citrix ShareFile, é necessário Olá toocomplete blocos de construção a seguir:
 
-1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Citrix ShareFile](#create-a-citrix-sharefile-test-user)** – para ter um equivalente de Brenda Fernandes no Citrix ShareFile que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.
+2. **[Criar um usuário de teste do AD do Azure](#create-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.
+3. **[Criar um usuário de teste do Citrix ShareFile](#create-a-citrix-sharefile-test-user)**  -toohave um equivalente do Britta Simon no Citrix ShareFile é vinculado toohello AD do Azure representação do usuário.
+4. **[Atribuir um usuário de teste de saudação do AD do Azure](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.
+5. **[Testar o logon único](#test-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e configura o logon único em seu aplicativo Citrix ShareFile.
+Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único em seu aplicativo da Citrix ShareFile.
 
-**Para configurar o logon único do Azure AD com o Citrix ShareFile, execute as seguintes etapas:**
+**tooconfigure AD do Azure-logon único com o Citrix ShareFile, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, na página de integração do aplicativo **Citrix ShareFile**, clique em **Logon único**.
+1. Em Olá portal do Azure, Olá **Citrix ShareFile** página de integração de aplicativos, clique em **o logon único**.
 
     ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.
  
     ![Caixa de diálogo Logon único](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_samlbase.png)
 
-3. Na seção **URLs e Domínio do Citrix ShareFile**, execute as seguintes etapas:
+3. Em Olá **Citrix ShareFile domínio e URLs** , execute Olá etapas a seguir:
 
     ![Informações de logon único de Domínio e URLs do Citrix ShareFile](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_url.png)
     
-    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenant-name>.sharefile.com/saml/login`
+    Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<tenant-name>.sharefile.com/saml/login`
 
     > [!NOTE] 
-    > Esse valor não é real. Atualize esse valor com a URL de Logon real. Entre em contato com a [equipe de suporte ao cliente do Citrix ShareFile](https://www.citrix.co.in/products/sharefile/support.html) para obter esse valor. 
+    > Esse valor não é real. Atualize esse valor com hello URL de logon real. Entre em contato com [equipe de suporte do cliente do Citrix ShareFile](https://www.citrix.co.in/products/sharefile/support.html) tooget esse valor. 
 
-4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+4. Em Olá **o certificado de autenticação SAML** seção, clique em **certificado (Base64)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.
 
-    ![O link de download do Certificado](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_certificate.png) 
+    ![link de download de certificado Olá](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_certificate.png) 
 
 5. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-sharefile-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Citrix ShareFile**, clique em **Configurar Citrix ShareFile** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+6. Em Olá **configuração da Citrix ShareFile** seção, clique em **configurar Citrix ShareFile** tooopen **configurar o logon** janela. Saudação de cópia **URL de logout, ID de entidade de SAML e Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**
 
     ![Configuração do Citrix ShareFile](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_configure.png) 
 
 7. Em outra janela do navegador da Web, faça logon em seu site de empresa do **Citrix ShareFile** como administrador.
 
-8. Na barra de ferramentas na parte superior, clique em **Administrador**.
+8. Na barra de ferramentas de saudação na parte superior do hello, clique em **Admin**.
 
-9. No painel de navegação à esquerda, selecione **Configurar Logon Único**.
+9. No painel de navegação esquerdo hello, selecione **configurar logon único**.
    
     ![Administração de Conta](./media/active-directory-saas-sharefile-tutorial/ic773627.png "Administração de Conta")
 
-10. Na página **Configuração de Logon Único/SAML 2.0** em **Configurações Básicas**, realize as seguintes etapas:
+10. Em Olá **Single Sign-On / configuração do SAML 2.0** página de diálogo em **configurações básicas**, executar Olá etapas a seguir:
    
     ![Logon Único](./media/active-directory-saas-sharefile-tutorial/ic773628.png "Logon Único")
    
     a. Clique em **Habilitar SAML**.
     
-    b. Na caixa de texto **ID da Entidade/Emissor do IDP**, cole o valor da **ID da Entidade SAML** copiado do Portal do Azure.
+    b. Em **emissor IDP / ID da entidade** caixa de texto valor Olá colar **ID da entidade SAML** que você copiou do portal do Azure.
 
-    c. Clique em **Alterar** ao lado do campo **Certificado X.509** e carregue o certificado baixado no portal Azure.
+    c. Clique em **alteração** toohello próximo **certificado x. 509** campo e, em seguida, upload do certificado Olá baixado do hello portal do Azure.
     
-    d. Na caixa de texto **URL de Logon**, cole o valor da **URL de Serviço de Logon Único do SAML** que você copiou do Portal do Azure.
+    d. Em **URL de logon** caixa de texto valor Olá colar **Single Sign-On URL do serviço SAML** que você copiou do portal do Azure.
     
-    e. Na caixa de texto **URL de Logoff**, cole o valor da **URL de Saída** copiado do portal do Azure.
+    e. Em **URL de Logout** caixa de texto valor Olá colar **URL de logout** que você copiou do portal do Azure.
 
-11. Clique em **Salvar** no portal de gerenciamento do Citrix ShareFile.
+11. Clique em **salvar** em Olá portal de gerenciamento do Citrix ShareFile.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!  Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação. Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
 
    ![Criar um usuário de teste do Azure AD][100]
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**
 
-1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
+1. No hello portal do Azure, no painel esquerdo do hello, clique em Olá **Active Directory do Azure** botão.
 
-    ![O botão Azure Active Directory](./media/active-directory-saas-sharefile-tutorial/create_aaduser_01.png)
+    ![botão de Active Directory do Azure Olá](./media/active-directory-saas-sharefile-tutorial/create_aaduser_01.png)
 
-2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos**e, em seguida, clique em **todos os usuários**.
 
-    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/active-directory-saas-sharefile-tutorial/create_aaduser_02.png)
+    ![Olá "Usuários e grupos" e "Todos os usuários" links](./media/active-directory-saas-sharefile-tutorial/create_aaduser_02.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+3. Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação do hello **todos os usuários** caixa de diálogo.
 
-    ![O botão Adicionar](./media/active-directory-saas-sharefile-tutorial/create_aaduser_03.png)
+    ![botão Adicionar de saudação](./media/active-directory-saas-sharefile-tutorial/create_aaduser_03.png)
 
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+4. Em Olá **usuário** caixa de diálogo caixa, execute Olá etapas a seguir:
 
-    ![A caixa de diálogo Usuário](./media/active-directory-saas-sharefile-tutorial/create_aaduser_04.png)
+    ![caixa de diálogo de usuário Olá](./media/active-directory-saas-sharefile-tutorial/create_aaduser_04.png)
 
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
+    a. Em Olá **nome** , digite **BrittaSimon**.
 
-    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
+    b. Em Olá **nome de usuário** caixa tipo hello endereço de email do usuário Britta Simon.
 
-    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+    c. Selecione Olá **Mostrar senha** caixa de seleção e anote o valor de saudação que é exibido no hello **senha** caixa.
 
     d. Clique em **Criar**.
  
 ### <a name="create-a-citrix-sharefile-test-user"></a>Criar um usuário de teste do Citrix ShareFile
 
-Para permitir que os usuários do Azure AD façam logon no Citrix ShareFile, eles devem ser provisionados no Citrix ShareFile. No caso do Citrix ShareFile, o provisionamento é uma tarefa manual.
+Em ordem tooenable AD do Azure usuários toolog no Citrix ShareFile, eles devem ser provisionados no Citrix ShareFile. No caso de saudação do Citrix ShareFile, o provisionamento é uma tarefa manual.
 
-**Para provisionar uma conta de usuário, execute as seguintes etapas:**
+**tooprovision uma conta de usuário, execute Olá etapas a seguir:**
 
-1. Faça logon em seu locatário do **Citrix ShareFile** .
+1. Faça logon no tooyour **Citrix ShareFile** locatário.
 
 2. Clique em **Gerenciar Usuários \> Gerenciar Página Inicial dos Usuários \> + Criar Funcionário**.
    
    ![Criar Funcionário](./media/active-directory-saas-sharefile-tutorial/IC781050.png "Criar Funcionário")
 
-3. Na seção **Informações Básicas**, execute as etapas abaixo:
+3. Em Olá **informações básicas** , execute etapas a seguir:
    
    ![Informações Básicas](./media/active-directory-saas-sharefile-tutorial/IC799951.png "Informações Básicas")
    
-   a. Na caixa de texto **Endereço de Email**, digite o endereço de email de Brenda Fernandes como **brittasimon@contoso.com**.
+   a. Em Olá **endereço de Email** caixa de texto, endereço de email de saudação do tipo do Britta Simon como  **brittasimon@contoso.com** .
    
-   b. Na caixa de texto **Nome**, digite o **nome** do usuário como **Brenda**.
+   b. Em Olá **nome** caixa de texto, tipo **nome** do usuário como **Britta**.
    
-   c. Na caixa de texto **Sobrenome**, digite o **sobrenome** do usuário como **Fernandes**.
+   c. Em Olá **Sobrenome** caixa de texto, tipo **Sobrenome** do usuário como **Simon**.
 
 4. Clique em **Adicionar Usuário**.
   
    >[!NOTE]
-   >O titular da conta do Azure AD receberá um email e seguirá um link para confirmar sua conta antes de se tornar ativo. Você pode usar quaisquer outras ferramentas de criação de conta de usuário do Citrix ShareFile ou APIs fornecidas pelo Citrix ShareFile para provisionar contas de usuário do Azure AD.
+   >proprietário de conta do AD do Azure Olá será receberá um email e execute tooconfirm um link em sua conta antes de se tornar ativa. Você pode usar qualquer ferramenta de criação outros Citrix ShareFile usuário conta ou APIs fornecidas pelo Citrix ShareFile tooprovision contas de usuário do AD do Azure.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
 
-Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao Citrix ShareFile.
+Nesta seção, você pode habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooCitrix ShareFile.
 
-![Atribuir a função de usuário][200] 
+![Atribuir função de usuário Olá][200] 
 
-**Para atribuir Brenda Fernandes ao Citrix ShareFile, execute as seguintes etapas:**
+**tooassign tooCitrix Britta Simon ShareFile, execute Olá etapas a seguir:**
 
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+1. No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Citrix ShareFile**.
+2. Na lista de aplicativos hello, selecione **Citrix ShareFile**.
 
-    ![O link do Citrix ShareFile na lista de Aplicativos](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_app.png)  
+    ![Olá Citrix ShareFile link na lista de aplicativos Olá](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_app.png)  
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu Olá Olá esquerda, clique em **usuários e grupos**.
 
-    ![O link “Usuários e grupos”][202]
+    ![link de "Usuários e grupos" Hello][202]
 
 4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
-    ![O painel Adicionar Atribuição][203]
+    ![Painel de atribuição adicionar Olá][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
@@ -244,14 +244,14 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testa a AD do Azure única configuração de logon usando o painel de acesso de saudação.
 
-Quando você clica no bloco Citrix ShareFile. no Painel de Acesso, você deve fazer logon automaticamente no seu aplicativo Citrix ShareFile.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md). 
+Quando você clica em Olá Citrix ShareFile bloco no painel de acesso de saudação, você deve obter tooyour automaticamente conectado no aplicativo da Citrix ShareFile.
+Para obter mais informações sobre o painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

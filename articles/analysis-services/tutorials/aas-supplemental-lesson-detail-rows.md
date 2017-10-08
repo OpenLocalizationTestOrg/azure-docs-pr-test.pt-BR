@@ -1,63 +1,46 @@
 ---
-title: "Lição suplementar de tutorial do Azure Analysis Services: linhas de detalhes | Microsoft Docs"
-description: "Descreve como criar uma expressão de linhas de detalhes no tutorial do Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: minewiskan
-manager: erikre
-editor: 
-tags: 
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 05/26/2017
-ms.author: owend
-ms.openlocfilehash: fde5cd9a9efc3a13e731a91962ced5c086a72355
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+título: aaa "lição suplementar do tutorial do Azure Analysis Services: linhas de detalhes | Descrição de Microsoft Docs": descreve como toocreate uma expressão de linhas de detalhes em Olá tutorial do Azure Analysis Services.
+serviços: documentationcenter do analysis services: ' autor: manager minewiskan: erikre editor: ' marcas: '
+
+MS. AssetID: MS. Service: MS. devlang do analysis services: NA MS. Topic: get-started-article tgt_pltfrm: NA Workload: MS. Date na: 26/05/2017 Author: owend
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Lição suplementar – Linhas de Detalhes
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-Nesta lição suplementar, você pode usar o Editor do DAX para definir uma expressão de linhas de detalhes personalizada. Uma expressão de linhas de detalhes é uma propriedade em uma medida, fornecendo aos usuários finais mais informações sobre os resultados agregados de uma medida. 
+Nesta lição suplementar, você use Olá Editor DAX toodefine uma expressão personalizada de linhas de detalhes. Uma expressão de linhas de detalhes é uma propriedade em uma medida, proporcionando aos usuários finais para obter mais informações sobre os resultados da saudação agregado de uma medida. 
   
-Tempo estimado para conclusão desta lição: **10 minutos**  
+Estimado tempo toocomplete nesta lição: **10 minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
-Este tópico de lição suplementar faz parte de um tutorial de modelagem Tabular. Antes de executar as tarefas desta lição suplementar, você deve ter concluído todas as lições anteriores ou ter um projeto de modelo de amostra de Vendas pela Internet da Adventure Works concluído.  
+Este tópico de lição suplementar faz parte de um tutorial de modelagem Tabular. Antes de executar tarefas de saudação nesta lição suplementar, você deve concluir todas as lições anteriores ou tem um projeto de modelo de exemplo Adventure Works Internet Sales concluído.  
   
-## <a name="what-do-we-need-to-solve"></a>O que precisamos resolver?
-Examinaremos os detalhes de nossa medida InternetTotalSales antes de adicionarmos uma expressão de linhas de detalhes.
+## <a name="what-do-we-need-toosolve"></a>O que fazer precisamos toosolve?
+Vamos examinar os detalhes de saudação de nossa medida InternetTotalSales, antes de adicionar uma expressão de linhas de detalhes.
 
-1.  No SSDT, clique no menu **Modelo** > **Analisar no Excel** para abrir o Excel e criar uma tabela dinâmica em branco.
+1.  No SSDT, clique em Olá **modelo** menu > **analisar no Excel** tooopen Excel e criar uma tabela dinâmica em branco.
   
-2.  Em **Campos de Tabela Dinâmica**, adicione a medida **InternetTotalSales** da tabela FactInternetSales a **Valores**, **CalendarYear** da tabela DimDate a **Colunas** e **EnglishCountryRegionName** a **Linhas**. Nossa tabela dinâmica agora nos oferece resultados agregados da medida InternetTotalSales por regiões e por ano. 
+2.  Em **PivotTable Fields**, adicionar Olá **InternetTotalSales** de medidas da tabela de FactInternetSales Olá muito**valores**, **CalendarYear**de saudação DimDate tabela muito**colunas**, e **EnglishCountryRegionName** muito**linhas**. Agora, nossa tabela dinâmica oferece nos resultados agregados de medidas de InternetTotalSales Olá regiões e ano. 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
-3. Na tabela dinâmica, clique duas vezes em um valor agregado para um ano e um nome de região. Aqui, clicamos duas vezes no valor para Austrália e o ano de 2014. Uma nova planilha abre os dados contidos, mas não os dados úteis.
+3. Em Olá tabela dinâmica, clique duas vezes em um valor agregado para um ano e um nome de região. Aqui é clicado duas vezes valor Olá Austrália e hello ano 2014. Uma nova planilha abre os dados contidos, mas não os dados úteis.
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-sheet.png)
   
-O que gostaríamos de ver aqui é uma tabela contendo colunas e linhas de dados que contribuam para o resultado agregado de nossa medida InternetTotalSales. Para fazer isso, podemos adicionar uma expressão de linhas de detalhes como uma propriedade da medida.
+O que podemos gostariam de ter toosee aqui é uma tabela que contém colunas e linhas de dados que contribuem toohello agregado resultado de nossa medida InternetTotalSales. toodo que podemos adicionar uma expressão de linhas de detalhes como uma propriedade de medida hello.
 
 ## <a name="add-a-detail-rows-expression"></a>Adicionar uma expressão de linhas de detalhes
 
-#### <a name="to-create-a-detail-rows-expression"></a>Para criar uma expressão de linhas de detalhes 
+#### <a name="toocreate-a-detail-rows-expression"></a>toocreate uma expressão de linhas de detalhes 
   
-1. No SSDT, na grade de medida da tabela FactInternetSales, clique na medida **InternetTotalSales**. 
+1. No SSDT, na grade de medida da tabela de FactInternetSales hello, clique em Olá **InternetTotalSales** medidas. 
 
-2. Em **Propriedades** > **Expressão de Linhas de Detalhes**, clique no botão do editor para abrir o Editor do DAX.
+2. Em **propriedades** > **expressão de linhas de detalhes**, clique em Olá editor botão tooopen Olá Editor DAX.
 
     ![aas-lesson-detail-rows-ellipse](../tutorials/media/aas-lesson-detail-rows-ellipse.png)
 
-3. No Editor do DAX, digite a expressão a seguir:
+3. No Editor do DAX, digite Olá expressão a seguir:
 
     ```
     SELECTCOLUMNS(
@@ -72,9 +55,9 @@ O que gostaríamos de ver aqui é uma tabela contendo colunas e linhas de dados 
 
     ```
 
-    Essa expressão especifica nomes de colunas, sendo que os resultados de medidas da tabela FactInternetSales e tabelas relacionadas são retornados quando um usuário clica duas vezes em um resultado agregado em uma tabela dinâmica ou relatório.
+    Essa expressão especifica nomes de colunas, e os resultados de medida de saudação tabelas FactInternetSales e tabelas relacionadas são retornados quando um usuário clica duas vezes em um resultado agregado em uma tabela dinâmica ou relatório.
 
-4. No Excel, exclua a planilha criada na Etapa 3, clique duas vezes um valor agregado. Desta vez, com uma propriedade de expressão de linhas de detalhes definida para a medida, uma nova planilha será aberta contendo dados muito mais úteis.
+4. Novamente no Excel, excluir planilha Olá criada na etapa 3, em seguida, clique duas vezes em um valor agregado. Neste momento, com uma propriedade de expressão de linhas de detalhes definida para medidas hello, uma nova planilha é aberta que contém dados muito mais útil.
 
     ![aas-lesson-detail-rows-detailsheet](../tutorials/media/aas-lesson-detail-rows-detailsheet.png)
 

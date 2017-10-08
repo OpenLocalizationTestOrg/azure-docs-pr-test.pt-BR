@@ -1,6 +1,6 @@
 ---
-title: "Adicionar um aplicativo Java a Aplicativos Web do Serviço de Aplicativo do Azure"
-description: "Este tutorial mostra como adicionar uma página ou um aplicativo à sua instância de Aplicativos Web do Serviço de Aplicativo de Azure que já está configurada para usar o Java."
+title: "aaaAdd um aplicativo de Java tooAzure aplicativos de Web do serviço de aplicativo"
+description: "Este tutorial mostra como tooadd uma instância de tooyour aplicativo ou página de aplicativo de serviço de aplicativos Web do Azure que já está configurado toouse Java."
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
@@ -14,33 +14,33 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: c28e7c499ed02b759df580f4b14a971b6aec5b67
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2feb464b2933921ad2887779a6b7589634e2e2f9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-a-java-application-to-azure-app-service-web-apps"></a>Adicionar um aplicativo Java a Aplicativos Web do Serviço de Aplicativo do Azure
-Após inicializar seu aplicativo Web do Java no [Serviço de Aplicativo do Azure][Azure App Service], conforme documentado em [Criar um aplicativo Web do Java no Serviço de Aplicativo do Azure](web-sites-java-get-started.md), você poderá carregar o aplicativo colocando o WAR na pasta **webapps**.
+# <a name="add-a-java-application-tooazure-app-service-web-apps"></a>Adicionar um aplicativo de Java tooAzure aplicativos de Web do serviço de aplicativo
+Depois que seu aplicativo web Java inicializou [do serviço de aplicativo do Azure] [ Azure App Service] conforme documentado em [criar um aplicativo da web de Java no serviço de aplicativo do Azure](web-sites-java-get-started.md), você pode carregar seu aplicativo colocando o WAR no hello **webapps** pasta.
 
-O caminho de navegação para a pasta **webapps** varia dependendo de como você configurou sua instância dos Aplicativos Web.
+Olá toohello do caminho de navegação **webapps** pasta varia com base na maneira como você configurar sua instância de aplicativos Web.
 
-* Se você configurar o aplicativo Web usando o Azure Marketplace, o caminho para a pasta **webapps** estará no formato **d:\home\site\wwwroot\bin\application\_server\webapps**, em que **application\_server** é o nome do servidor de aplicativos em vigor para a instância dos Aplicativos Web. 
-* Se você configurar o aplicativo Web usando a interface do usuário de configuração do Azure, o caminho para a pasta **webapps** estará no formato **d:\home\site\wwwroot\webapps**. 
+* Se você configurar seu aplicativo web usando hello Azure Marketplace, Olá caminho toohello **webapps** pasta está na forma de saudação **d:\home\site\wwwroot\bin\application\_server\webapps**, onde **aplicativo\_server** é nome hello saudação do servidor de aplicativos em vigor para a instância de aplicativos Web. 
+* Se você configurar seu aplicativo web usando a saudação da interface do usuário de configuração do Azure, Olá caminho toohello **webapps** pasta está na forma de saudação **d:\home\site\wwwroot\webapps**. 
 
-Observe que você pode usar o controle do código-fonte para carregar o aplicativo ou páginas da web, incluindo [cenários de integração contínua](app-service-continuous-deployment.md). O FTP também é uma opção para carregar seu aplicativo ou páginas da web. Para obter mais informações sobre como implantar aplicativos por FTP, confira [Implantar seu aplicativo no Serviço de Aplicativo do Azure].
+Observe que você pode usar tooupload de controle de origem, seu aplicativo ou páginas da web, incluindo [cenários de integração contínua](app-service-continuous-deployment.md). FTP também é uma opção para carregar o aplicativo ou páginas da web; Para obter mais informações sobre como implantar seus aplicativos por FTP, consulte [implantar tooAzure seu aplicativo do serviço de aplicativo].
 
-Observação para aplicativos Web Tomcat: assim que você tiver carregado seu arquivo WAR na pasta **webapps** , o servidor do aplicativo Tomcat detectará que você o adicionou e o carregará automaticamente. Observe que se você copiar arquivos (diferentes de arquivos WAR) no diretório raiz, o servidor de aplicativos precisará ser reiniciado para que esses arquivos sejam usados. A funcionalidade de carregamento automático dos aplicativos Web Tomcat Java em execução no Azure baseia-se na adição de um novo arquivo WAR ou da adição de novos arquivos ou diretórios à pasta **webapps** . 
+Observação para aplicativos da web Tomcat: depois de carregar seu toohello de arquivo WAR **webapps** pasta, o servidor de aplicativos Tomcat Olá detectará que você adicionou a ele e automaticamente carregá-lo. Observe que, se você copiar o diretório de raiz de toohello de arquivos (exceto arquivos WAR), servidor de aplicativo hello precisará toobe reiniciado para que esses arquivos são usados. funcionalidade de autoload Olá para aplicativos da web Tomcat Java Olá em execução no Azure é baseada em um novo arquivo WAR que está sendo adicionado ou novos arquivos ou diretórios adicionados toohello **webapps** pasta. 
 
 <a name="see-also"></a>
 
 ## <a name="see-also"></a>Consulte também
-Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure].
+Para obter mais informações sobre como usar o Azure com Java, consulte Olá [Centro de desenvolvedores de Java do Azure].
 
 [application-insights-app-insights-java-get-started](../application-insights/app-insights-java-get-started.md)
 
 <!-- URL List -->
 
-[Central de desenvolvimento Java do Azure]: https://azure.microsoft.com/develop/java/
+[Centro de desenvolvedores de Java do Azure]: https://azure.microsoft.com/develop/java/
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
-[Implantar seu aplicativo no Serviço de Aplicativo do Azure]: ./web-sites-deploy.md
+[implantar tooAzure seu aplicativo do serviço de aplicativo]: ./web-sites-deploy.md

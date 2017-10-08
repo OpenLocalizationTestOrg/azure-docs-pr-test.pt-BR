@@ -1,5 +1,5 @@
 ---
-title: Regras e grupos de regras CRS de firewall do aplicativo Web Gateway de Aplicativo do Azure | Microsoft Docs
+title: regras e grupos de regras de firewall do aplicativo web Application Gateway aaaAzure CRS | Microsoft Docs
 description: "Esta página fornece informações sobre regras e grupos de regras CRS do firewall do aplicativo Web."
 documentationcenter: na
 services: application-gateway
@@ -15,17 +15,17 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: gwallace
-ms.openlocfilehash: 9f4445b7ceb5b39c7907b1ca4c7bf0ad52ba8212
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6be139847392baeb235bc48b079335c1e0d8287b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Lista de regras e grupos de regras CRS de firewall do aplicativo Web oferecidos
 
-O WAF (Firewall do aplicativo Web) do Gateway de Aplicativo protege os aplicativos Web de vulnerabilidades e explorações. Isso é feito por meio de regras que são definidas com base nos conjuntos de regra do núcleo OWASP 2.2.9 ou 3.0. Essas regras podem ser desabilitadas com base em cada regra. Este artigo contém as regras e os conjuntos de regras oferecidos atualmente.
+O WAF (Firewall do aplicativo Web) do Gateway de Aplicativo protege os aplicativos Web de vulnerabilidades e explorações. Isso é feito por meio de regras que são definidas com base em Olá OWASP principais conjuntos de regras 2.2.9 ou 3.0. Essas regras podem ser desabilitadas com base em cada regra. Este artigo contém as regras atuais da saudação e conjuntos de regras oferecidos.
 
-As tabelas a seguir são os grupos de regras e regras que estão disponíveis ao usar o Gateway de Aplicativo com o firewall do aplicativo Web.  Cada tabela representa as regras encontradas em um grupo de regras para uma versão específica do CRS.
+Olá tabelas a seguir é grupos de regras de saudação e regras que estão disponíveis ao usar o Application Gateway com o firewall do aplicativo web.  Cada tabela representa regras Olá encontradas em um grupo de regras para uma versão específica do CRS.
 
 ##<a name="owasp30"></a>OWASP_3.0
 
@@ -110,7 +110,7 @@ As tabelas a seguir são os grupos de regras e regras que estão disponíveis ao
 |920011|Regra 920011|
 |920012|Regra 920012|
 |920100|Linha de solicitação de HTTP inválida|
-|920130|Falha ao analisar o corpo da solicitação.|
+|920130|Falha ao corpo da solicitação tooparse.|
 |920140|Falha na validação estrita do corpo de solicitação com várias partes = %@{REQBODY_PROCESSOR_ERROR PE} BQ %@{MULTIPART_BOUNDARY_QUOTED} BW %@{MULTIPART_BOUNDARY_WHITESPACE} %@{MULTIPART_DATA_BEFORE DB} DA %@{MULTIPART_DATA_AFTER} HF %@{MULTIPART_HEADER_FOLDING} LF %@{MULTIPART_LF_LINE} SM %@{MULTIPART_SEMICOLON_MISSING} IQ %@{MULTIPART_INVALID_QUOTING} IH %@{MULTIPART_INVALID_HEADER_FOLDING} FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
 |920160|O cabeçalho Content-Length HTTP não é numérico.|
 |920170|Solicitação GET ou HEAD com conteúdo no corpo.|
@@ -342,7 +342,7 @@ As tabelas a seguir são os grupos de regras e regras que estão disponíveis ao
 |---|---|
 |960911|Linha de solicitação de HTTP inválida|
 |981227|Erro do Apache = URI inválido na solicitação.|
-|960912|Falha ao analisar o corpo da solicitação.|
+|960912|Falha ao corpo da solicitação tooparse.|
 |960914|Falha na validação estrita do corpo de solicitação com várias partes = %@{REQBODY_PROCESSOR_ERROR PE} BQ %@{MULTIPART_BOUNDARY_QUOTED} BW %@{MULTIPART_BOUNDARY_WHITESPACE} %@{MULTIPART_DATA_BEFORE DB} DA %@{MULTIPART_DATA_AFTER} HF %@{MULTIPART_HEADER_FOLDING} LF %@{MULTIPART_LF_LINE} SM %@{MULTIPART_SEMICOLON_MISSING} IQ %@{MULTIPART_INVALID_QUOTING} IH %@{MULTIPART_INVALID_HEADER_FOLDING} FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
 |960915|O analisador de várias partes detectou um limite possivelmente incomparável.|
 |960016|O cabeçalho Content-Length HTTP não é numérico.|
@@ -400,9 +400,9 @@ As tabelas a seguir são os grupos de regras e regras que estão disponíveis ao
 
 |RuleId|Descrição|
 |---|---|
-|990002|A solicitação indica que um verificador de segurança verificou o site|
-|990901|A solicitação indica que um verificador de segurança verificou o site|
-|990902|A solicitação indica que um verificador de segurança verificou o site|
+|990002|Solicitação indica uma saudação segurança Scanner digitalizou Site|
+|990901|Solicitação indica uma saudação segurança Scanner digitalizou Site|
+|990902|Solicitação indica uma saudação segurança Scanner digitalizou Site|
 |990012|Rastreador do site invasor|
 
 ### <a name="crs40"></a> crs_40_generic_attacks
@@ -592,6 +592,6 @@ As tabelas a seguir são os grupos de regras e regras que estão disponíveis ao
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como desabilitar as regras de WAF visitando: [Personalizar regras de WAF](application-gateway-customize-waf-rules-portal.md)
+Saiba como as regras de toodisable WAF visitando: [regras WAF personalizar](application-gateway-customize-waf-rules-portal.md)
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png

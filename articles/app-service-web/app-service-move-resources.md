@@ -1,6 +1,6 @@
 ---
-title: Mover os recursos do aplicativo Web para outro grupo de recursos
-description: "Descreve os cenários em que você pode mover aplicativos Web e Serviços de Aplicativos de um grupo de recursos para outro."
+title: Recursos do aplicativo Web de aaaMove tooanother grupo de recursos
+description: "Descreve os cenários de saudação onde você pode mover os aplicativos Web e serviços de aplicativos de tooanother de um grupo de recursos."
 services: app-service
 documentationcenter: 
 author: ZainRizvi
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: zarizvi
-ms.openlocfilehash: 1b5059dc052005b6079f70ecf6771a3771df8d87
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 931012fee656b7f8a4b2c225c38739a9171d3b2e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="supported-move-configurations"></a>Configurações de movimentação com suporte
-Você pode mover recursos de Aplicativo Web do Azure usando a [API Mover Recursos do Resource Manager](../azure-resource-manager/resource-group-move-resources.md).
+Você pode mover os recursos de aplicativo Web do Azure usando Olá [Resource Manager mover recursos API](../azure-resource-manager/resource-group-move-resources.md).
 
-Atualmente, os aplicativos Web do Azure dão suporte para os seguintes cenários de movimentação:
+Os aplicativos Web do Azure atualmente suporta os seguintes cenários de movimentação de saudação:
 
-* Mover todo o conteúdo de um grupo de recursos (aplicativos Web, planos do serviço de aplicativo e certificados) para outro grupo de recursos. 
+* Mover todo o conteúdo de um grupo de recursos (aplicativos da web, planos de serviço de aplicativo e certificados) Olá tooanother grupo de recursos. 
    > [!Note]
-   > O grupo de recursos de destino não pode conter nenhum recurso Microsoft.Web nesse cenário.
+   > grupo de recursos de destino de saudação não pode conter todos os recursos Microsoft neste cenário.
 
-* Mover aplicativos Web individuais para um grupo de recursos diferente, enquanto ainda os hospeda em seu plano do serviço de aplicativo atual (o plano do serviço de aplicativo permanece no grupo de recursos antigo).
+* Mova o grupo de recursos diferente tooa de aplicativos web individuais, enquanto ainda hospedando-los em seu plano de serviço de aplicativo atual (Olá aplicativo serviço plano permanece no grupo de recursos antigo Olá).
 
 

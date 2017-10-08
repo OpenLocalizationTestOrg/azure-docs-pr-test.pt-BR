@@ -1,6 +1,6 @@
 ---
-title: "Configurar SSL para um serviço de nuvem | Microsoft Docs"
-description: "Saiba como especificar um ponto de extremidade HTTPS para uma função Web e como carregar um certificado SSL para proteger seu aplicativo. Esses exemplos usam o portal do Azure."
+title: "aaaConfigure SSL para um serviço de nuvem | Microsoft Docs"
+description: "Saiba como toospecify um ponto de extremidade HTTPS para uma função web e como tooupload um SSL certificado toosecure seu aplicativo. Esses exemplos usam Olá portal do Azure."
 services: cloud-services
 documentationcenter: .net
 author: Thraka
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: adegeo
-ms.openlocfilehash: e5c8c3b098772c0586712305a577b24a6f0d924c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b19283bb7b0e95374f2ae9c3532eb1effc7d6a9f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configurando SSL para um aplicativo no Azure
 > [!div class="op_single_selector"]
@@ -26,38 +26,38 @@ ms.lasthandoff: 07/11/2017
 > * [Portal clássico do Azure](cloud-services-configure-ssl-certificate.md)
 >
 
-A criptografia SSL (Secure Socket Layer) é o método mais usado para proteger dados enviados pela Internet. Esta tarefa comum aborda como especificar um ponto de extremidade HTTPS para uma função Web e como carregar um certificado SSL para proteger seu aplicativo.
+Criptografia do Secure Socket Layer (SSL) é o método de hello mais comumente usada de proteção de dados enviados pela Olá internet. Essa tarefa comum discute como toospecify um ponto de extremidade HTTPS para uma função web e como tooupload um SSL certificado toosecure seu aplicativo.
 
 > [!NOTE]
-> Os procedimentos descritos nesta tarefa se aplicam aos Serviços de Nuvem do Azure; para os Serviços de Aplicativos, veja [isto](../app-service-web/web-sites-configure-ssl-certificate.md).
+> procedimentos de saudação nesta tarefa se aplicam a serviços de nuvem tooAzure; para serviços de aplicativos, consulte [isso](../app-service-web/web-sites-configure-ssl-certificate.md).
 >
 
-Essa tarefa usa uma implantação de produção. Informações sobre o uso de uma implantação de preparo são fornecidas no final deste tópico.
+Essa tarefa usa uma implantação de produção. Informações sobre o uso de uma implantação de preparo são fornecidas no final deste tópico hello.
 
 Leia [isto](cloud-services-how-to-create-deploy-portal.md) primeiro se você ainda não tiver criado um serviço de nuvem.
 
 [!INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 ## <a name="step-1-get-an-ssl-certificate"></a>Etapa 1: Obter um certificado SSL
-Para configurar SSL de um aplicativo, você deve primeiro obter um certificado SSL assinado por uma Autoridade de Certificação (CA), um terceiro confiável que emita certificados com essa finalidade. Se ainda não tiver um, você precisará obtê-lo junto a uma empresa que venda certificados SSL.
+tooconfigure SSL para um aplicativo, você primeiro precisa tooget um certificado SSL assinado por uma autoridade de certificação (CA), um terceiro confiável que emite certificados para essa finalidade. Se você ainda não tiver um, será necessário tooobtain uma empresa que vende certificados SSL.
 
-O certificado deve atender aos seguintes requisitos para certificados SSL no Azure:
+certificado de saudação deve atender aos Olá seguindo os requisitos para certificados SSL no Azure:
 
-* O certificado deve conter uma chave privada.
-* O certificado deve ser criado para troca de chaves, exportável para um arquivo Troca de Informações Pessoais (.pfx).
-* O nome de assunto do certificado deve corresponder ao domínio usado para acessar o serviço de nuvem. Você não pode obter um certificado SSL de uma autoridade de certificação (CA) para o domínio cloudapp.net. Você deve adquirir um nome de domínio personalizado para usar quando acessar o serviço. Quando você solicitar um certificado de uma autoridade de certificação, o nome de assunto do certificado deve corresponder ao nome de domínio personalizado usado para acessar o aplicativo. Por exemplo, se o nome de domínio personalizado for **contoso.com**, você pode solicitar um certificado da autoridade de certificação para ***.contoso.com** ou **www.contoso.com**.
-* O certificado deve usar, no mínimo, uma criptografia de 2048 bits.
+* certificado de saudação deve conter uma chave privada.
+* certificado de saudação deve ser criado para troca de chaves, exportável tooa arquivo de troca de informações pessoais (. pfx).
+* Hello nome da entidade do certificado deve corresponder o serviço de nuvem do hello domínio usado tooaccess hello. Você não pode obter um certificado SSL de uma autoridade de certificação (CA) para o domínio do hello cloudapp.net. Você deve adquirir um toouse de nome de domínio personalizado ao seu serviço de acesso. Quando você solicitar um certificado de uma autoridade de certificação, nome da entidade do certificado Olá deve corresponder Olá domínio personalizado nome usado tooaccess seu aplicativo. Por exemplo, se o nome de domínio personalizado for **contoso.com**, você pode solicitar um certificado da autoridade de certificação para ***.contoso.com** ou **www.contoso.com**.
+* certificado Olá deve usar um mínimo de criptografia de 2048 bits.
 
-Para fins de teste, você pode [criar](cloud-services-certs-create.md) e usar um certificado autoassinado. Um certificado autoassinado não é autenticado por meio de uma autoridade de certificação e pode usar o domínio cloudapp.net como a URL do site. Por exemplo, a tarefa a seguir usa um certificado autoassinado na qual o nome comum (CN) utilizado no certificado é **sslexample.cloudapp.net**.
+Para fins de teste, você pode [criar](cloud-services-certs-create.md) e usar um certificado autoassinado. Um certificado autoassinado não é autenticado por meio de uma autoridade de certificação e pode usar o domínio cloudapp.net de saudação como Olá URL do site. Por exemplo, hello tarefa a seguir usa um certificado autoassinado no qual Olá nome comum (CN) utilizado no certificado de saudação é **sslexample.cloudapp.net**.
 
-Em seguida, você deve incluir informações sobre o certificado nos arquivos de definição e configuração do serviço.
+Em seguida, você deve incluir informações sobre o certificado de saudação em sua definição de serviço e arquivos de configuração de serviço.
 
 <a name="modify"> </a>
 
-## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Etapa 2: Modificar a definição de serviço e arquivos de configuração
-O aplicativo deve ser configurado para usar o certificado, e um ponto de extremidade HTTPS deve ser adicionado. Dessa forma, os arquivos de definição e configuração do serviço precisam ser atualizados.
+## <a name="step-2-modify-hello-service-definition-and-configuration-files"></a>Etapa 2: Modificar arquivos de definição e configuração de serviço Olá
+Seu aplicativo deve ser o certificado de saudação toouse configurado e um ponto de extremidade HTTPS deve ser adicionado. Como resultado, hello definição de serviço e arquivos de configuração de serviço necessário toobe atualizado.
 
-1. No ambiente de desenvolvimento, abra o arquivo de definição de serviço (CSDEF), adicione uma seção **Certificados** dentro da seção **WebRole** e inclua as seguintes informações sobre o certificado (e os certificados intermediários):
+1. Em seu ambiente de desenvolvimento, abra o arquivo de definição de serviço (CSDEF) hello, adicione um **certificados** seção dentro de saudação **WebRole** seção e incluir Olá informações a seguir o certificado (e certificados intermediários):
 
    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -68,11 +68,11 @@ O aplicativo deve ser configurado para usar o certificado, e um ponto de extremi
                         storeName="My"
                         permissionLevel="limitedOrElevated" />
             <!-- IMPORTANT! Unless your certificate is either
-            self-signed or signed directly by the CA root, you
-            must include all the intermediate certificates
+            self-signed or signed directly by hello CA root, you
+            must include all hello intermediate certificates
             here. You must list them here, even if they are
-            not bound to any endpoints. Failing to list any of
-            the intermediate certificates may cause hard-to-reproduce
+            not bound tooany endpoints. Failing toolist any of
+            hello intermediate certificates may cause hard-to-reproduce
             interoperability problems on some clients.-->
             <Certificate name="CAForSampleCertificate"
                         storeLocation="LocalMachine"
@@ -83,16 +83,16 @@ O aplicativo deve ser configurado para usar o certificado, e um ponto de extremi
     </WebRole>
     ```
 
-   A seção **Certificados** define o nome do nosso certificado, seu local e o nome do repositório no qual está localizado.
+   Olá **certificados** seção define o nome de saudação do nosso certificado, seu local e o nome de saudação do repositório Olá onde ele está localizado.
 
-   As permissões (atributo `permisionLevel`) podem ser definidas como um dos seguintes valores:
+   Permissões (`permisionLevel` atributo) pode ser tooone de conjunto de saudação seguintes valores:
 
    | Valor da permissão | Descrição |
    | --- | --- |
-   | limitedOrElevated |**(Padrão)** Todos os processos de função podem acessar a chave privada. |
-   | elevado |Somente processos elevados podem acessar a chave privada. |
+   | limitedOrElevated |**(Padrão)**  Todos os processos de função podem acessar a chave privada hello. |
+   | elevado |Somente os processos elevados podem acessar a chave privada hello. |
 
-2. No arquivo de definição de serviço, adicione um elemento **InputEndpoint** dentro da seção **Pontos de extremidade** para habilitar HTTPS:
+2. Em seu arquivo de definição de serviço, adicionar um **InputEndpoint** elemento dentro do hello **pontos de extremidade** seção tooenable HTTPS:
 
    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -105,7 +105,7 @@ O aplicativo deve ser configurado para usar o certificado, e um ponto de extremi
     </WebRole>
     ```
 
-3. No arquivo de definição de serviço, adicione um elemento de **Associação** dentro da seção **Sites**. Este elemento adiciona uma associação HTTPS para mapear o ponto de extremidade para o site:
+3. Em seu arquivo de definição de serviço, adicionar um **associação** elemento dentro do hello **Sites** seção. Esse elemento adiciona uma associação de HTTPS toomap o site do ponto de extremidade tooyour:
 
    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -121,8 +121,8 @@ O aplicativo deve ser configurado para usar o certificado, e um ponto de extremi
     </WebRole>
     ```
 
-   Todas as alterações obrigatórias no arquivo de definição de serviço foram concluídas, mas você continua precisando adicionar as informações de certificado ao arquivo de configuração de serviço.
-4. Em seu arquivo de configuração de serviço (CSCFG), ServiceConfiguration.Cloud.cscfg, adicione um valor de **Certificados** com o do seu certificado. O exemplo de código a seguir fornece detalhes da seção **Certificados**, exceto para o valor de impressão digital.
+   Arquivo de definição de todos os Olá alterações necessárias toohello serviço foram concluídas; Porém, você continua precisando tooadd Olá certificado informações ao arquivo de configuração do serviço de saudação.
+4. Em seu arquivo de configuração de serviço (CSCFG), ServiceConfiguration.Cloud.cscfg, adicione um valor de **Certificados** com o do seu certificado. Olá, exemplo de código a seguir fornece detalhes de saudação **certificados** seção, exceto pelo valor de impressão digital de saudação.
 
    ```xml
     <Role name="Deployment">
@@ -139,51 +139,51 @@ O aplicativo deve ser configurado para usar o certificado, e um ponto de extremi
     </Role>
     ```
 
-(Este exemplo usa **sha1** para o algoritmo de impressão digital. Especifique o valor apropriado ao algoritmo thumbprint do certificado.)
+(Este exemplo usa **sha1** para algoritmo de impressão digital de saudação. Especificar valor de saudação apropriado para o algoritmo de impressão digital do certificado).
 
-Agora que os arquivos de definição e configuração do serviço foram atualizados, empacote a implantação para carregamento no Azure. Se você está usando **cspack**, não use o sinalizador **/generateConfigurationFile**, pois ele substituirá as informações de certificado que você acabou de inserir.
+Agora que os arquivos de configuração Olá serviço definição e o serviço foi atualizados, sua implantação para carregar tooAzure do pacote. Se você está usando **cspack**, não use o sinalizador **/generateConfigurationFile**, pois ele substituirá as informações de certificado que você acabou de inserir.
 
 ## <a name="step-3-upload-a-certificate"></a>Etapa 3: Carregar um certificado
-Conecte-se ao Portal do Azure e...
+Conecte-se toohello portal do Azure e...
 
-1. Na seção **Todos os recursos** do Portal, selecione seu serviço de nuvem.
+1. Em Olá **todos os recursos** seção Olá Portal, selecione seu serviço de nuvem.
 
     ![Publicar o serviço de nuvem](media/cloud-services-configure-ssl-certificate-portal/browse.png)
 
 2. Clique em **Certificados**.
 
-    ![Clique no ícone de certificados](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
+    ![Clique Olá certificados ícone](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
 
-3. Clique em **Carregar** na parte superior da área de certificados.
+3. Clique em **carregar** na parte superior de saudação da área de certificados de saudação.
 
-    ![Clique no item de menu Carregar](media/cloud-services-configure-ssl-certificate-portal/Upload_menu.png)
+    ![Clique em item de menu de carregamento de saudação](media/cloud-services-configure-ssl-certificate-portal/Upload_menu.png)
 
-4. Forneça o **Arquivo**, **Senha** e clique em **Carregar** na parte inferior da área de entrada de dados.
+4. Fornecer Olá **arquivo**, **senha**, em seguida, clique em **carregar** na parte inferior de Olá Olá entrada da área de dados.
 
-## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Etapa 4: Conectar-se à instância da função usando HTTPS
-Agora que sua implantação está ativa e em execução no Azure, você pode se conectar a ela usando HTTPS.
+## <a name="step-4-connect-toohello-role-instance-by-using-https"></a>Etapa 4: Conectar a instância de função toohello usando HTTPS
+Agora que sua implantação estiver em execução no Azure, você pode conectar tooit usando HTTPS.
 
-1. Clique na **URL do Site** para abrir o navegador da Web.
+1. Clique em Olá **URL do Site** tooopen navegador da web hello.
 
-   ![Clique na URL do site](media/cloud-services-configure-ssl-certificate-portal/navigate.png)
+   ![Clique em Olá URL do Site](media/cloud-services-configure-ssl-certificate-portal/navigate.png)
 
-2. No navegador da Web, modifique o link para usar **http** sem vez de **http**, e visite a página.
+2. No navegador da web, modifique Olá link toouse **https** em vez de **http**e, em seguida, visite a página de saudação.
 
    > [!NOTE]
-   > Se estiver usando um certificado autoassinado, ao navegar até um ponto de extremidade HTTPS associado com o certificado autoassinado, você poderá ver um erro de certificado no navegador. O uso de um certificado assinado por uma certificação confiável elimina esse problema; enquanto isso, você pode ignorar o erro. (Outra opção é adicionar o certificado autoassinado ao repositório de certificado da autoridade de certificado confiável do usuário.)
+   > Se você estiver usando um certificado autoassinado, quando você procurar o ponto de extremidade HTTPS de tooan associada com um certificado autoassinado hello, que você verá um erro de certificado no navegador de saudação. Usando um certificado assinado por uma autoridade de certificação confiável elimina esse problema; em Olá enquanto isso, você pode ignorar o erro de saudação. (Outra opção é o repositório de certificados do usuário do toohello certificado autoassinado Olá tooadd certificado confiável autoridade.)
    >
    >
 
    ![Visualização de site](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
    > [!TIP]
-   > Se quiser usar SSL em uma implantação de preparação em lugar de uma implantação da produção, você precisará determinar primeiro o URL usado na implantação de preparação. Após o serviço de nuvem ter sido implantado, a URL para o ambiente de preparo será determinada pelo GUID da **ID da Implantação** neste formato: `https://deployment-id.cloudapp.net/`  
+   > Se você quiser toouse SSL para uma implantação de preparo, em vez de uma implantação de produção, você precisará primeiro toodetermine Olá URL usada para implantação de preparo de saudação. Quando o serviço de nuvem tiver sido implantado, Olá URL toohello ambiente de preparo é determinado pelo Olá **ID de implantação** GUID neste formato:`https://deployment-id.cloudapp.net/`  
    >
-   > Criar um certificado com o nome comum (CN) igual à URL baseada em GUID (por exemplo, **328187776e774ceda8fc57609d404462.cloudapp.net**). Use o portal para adicionar o certificado ao serviço de nuvem preparado. Em seguida, adicione as informações de certificado aos arquivos CSDEF e CSCFG, reempacote seu aplicativo e atualize a implantação preparada usando o novo pacote.
+   > Criar um certificado com hello comuns CN (nome) toohello igual com base em GUID URL (por exemplo, **328187776e774ceda8fc57609d404462.cloudapp.net**). Use Olá tooadd portal Olá certificado tooyour testados serviço de nuvem. Em seguida, adicione Olá certificado informações tooyour CSDEF arquivos e CSCFG, reempacotar seu aplicativo e atualizar sua implantação de preparo toouse Olá novo pacote de.
    >
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Configuração geral do serviço de nuvem](cloud-services-how-to-configure-portal.md).
-* Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy-portal.md).
+* Saiba como muito[implantar um serviço de nuvem](cloud-services-how-to-create-deploy-portal.md).
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage-portal.md).

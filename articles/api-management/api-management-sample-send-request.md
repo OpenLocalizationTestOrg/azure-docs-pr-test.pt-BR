@@ -1,6 +1,6 @@
 ---
-title: "Usando o serviço Gerenciamento de API para gerar solicitações HTTP"
-description: "Saiba como usar políticas de solicitação e de resposta no Gerenciamento de API para chamar serviços externos de sua API"
+title: "solicitações de toogenerate HTTP de serviço de gerenciamento de API aaaUsing"
+description: "Saiba mais políticas de solicitação e resposta toouse em serviços externos de toocall de gerenciamento de API de sua API"
 services: api-management
 documentationcenter: 
 author: darrelmiller
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: e778943715d6ca5256ad612d82bdc1f82197df0d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8002ee453057513340328d99f298703c3b3a9531
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="using-external-services-from-the-azure-api-management-service"></a>Uso dos serviços externos do serviço de Gerenciamento de API do Azure
-As políticas disponíveis no serviço de Gerenciamento de API do Azure permitem uma ampla variedade de trabalhos úteis com base apenas na solicitação de entrada, na resposta de saída e em informações básicas de configuração. No entanto, a capacidade de interagir com serviços externos das políticas de Gerenciamento de API abre muitas outras oportunidades.
+# <a name="using-external-services-from-hello-azure-api-management-service"></a>Usando os serviços externos de saudação serviço de gerenciamento de API do Azure
+políticas de saudação disponíveis no serviço de gerenciamento de API do Azure podem fazer uma ampla gama de trabalho útil com base puramente na solicitação de entrada hello, resposta de saída de hello e informações de configuração básica. No entanto, as políticas sendo capaz de toointeract com serviços externos do gerenciamento de API abre muitos mais oportunidades.
 
-Vimos anteriormente como podemos interagir com o [serviço Hub de Eventos do Azure para registro em log, monitoramento e análise](api-management-log-to-eventhub-sample.md). Neste artigo, demonstraremos as políticas que permitem a interação com qualquer serviço externo baseado em HTTP. Essas políticas podem ser usadas para disparar eventos remotos ou para recuperar informações que serão usadas para manipular a solicitação e resposta originais de alguma forma.
+Anteriormente, vimos como podemos podem interagir com hello [serviço de Hub de eventos do Azure para registro em log, monitoramento e análise](api-management-log-to-eventhub-sample.md). Neste artigo, tentaremos demonstrar serviço baseado em políticas que permitem que você toointeract com qualquer HTTP externo. Essas políticas podem ser usadas para disparar eventos remotos ou para recuperar as informações que serão solicitação original do toomanipulate usado hello e resposta de alguma forma.
 
 ## <a name="send-one-way-request"></a>Send-One-Way-Request
-Possivelmente, a interação externa mais simples é o estilo de solicitação "disparar e esquecer" que permite que um serviço externo seja notificado sobre algum tipo de evento importante. Podemos usar a política de fluxo de controle `choose` para detectar qualquer tipo de condição de nosso interesse; se a condição for atendida, poderemos fazer uma solicitação HTTP externa usando a política [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) . Isso inclui uma solicitação para um sistema de mensagens como Hipchat ou Slack, ou uma API de email como SendGrid ou MailChimp, ou para incidentes de suporte críticos, algo como o PagerDuty. Todos esses sistemas de mensagens têm APIs HTTP simples que podemos facilmente invocar.
+Possivelmente hello interação externa mais simples é Olá disparar e esquecer de solicitação que permite que um toobe de serviço externo notificado de algum tipo de evento importante. Podemos usar política de fluxo de controle Olá `choose` toodetect qualquer tipo de condição que estão interessados e, em seguida, se hello condição for atendida, o que podemos fazer uma solicitação HTTP externa usando Olá [send-uma maneira solicitação](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) política. Isso pode ser um tooa de solicitação de mensagens de sistema, como Hipchat ou atraso ou um email de API como SendGrid ou MailChimp, ou para incidentes de suporte crítico algo parecido com PagerDuty. Todos esses sistemas de mensagens têm APIs HTTP simples que podemos facilmente invocar.
 
 ### <a name="alerting-with-slack"></a>Alertas com Slack
-O exemplo a seguir demonstra como enviar uma mensagem a uma sala de bate-papo do Slack, se o código de status de resposta HTTP for maior ou igual a 500. Um erro de intervalo 500 indica um problema com nossa API de back-end que o cliente de nossa API não consegue resolver sozinho. Isso geralmente exige algum tipo de intervenção de nossa parte.  
+saudação de exemplo a seguir demonstra como toosend tooa uma mensagem atraso salas de chat, se o código de status de resposta HTTP Olá é maior que ou igual a too500. Um erro de intervalo de 500 indica um problema com nosso API de back-end que Olá cliente da nossa API não pode ser resolvidos sozinhos. Isso geralmente exige algum tipo de intervenção de nossa parte.  
 
 ```xml
 <choose>
@@ -56,31 +56,31 @@ O exemplo a seguir demonstra como enviar uma mensagem a uma sala de bate-papo do
 </choose>
 ```
 
-O Slack tem a noção de ganchos de entrada da Web. Ao configurar um gancho de entrada da Web, o Slack gera uma URL especial que permite a realização de uma solicitação POST simples e a transmissão de uma mensagem para o canal do Slack. O corpo JSON que criamos se baseia em um formato definido pelo Slack.
+Margem de atraso tem noção de saudação de conexões de entrada da web. Ao configurar um gancho da web de entrada, o atraso gera uma URL especial que permite que você toodo uma solicitação POST simple e toopass uma mensagem em canal de margem de atraso de saudação. Olá corpo JSON que criamos baseia-se em um formato definido pela margem de atraso.
 
 ![Gancho da Web do Slack](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### <a name="is-fire-and-forget-good-enough"></a>O método "disparar e esquecer" é o suficiente?
-Há certas compensações ao usar um estilo de solicitação "disparar e esquecer". Se, por algum motivo, a solicitação falhar, a falha não será registrada. Nessa situação específica, a complexidade de ter um sistema de relatório de falhas secundário e o custo adicional de desempenho de ter que espera por uma resposta não oferecem garantias. Para cenários nos quais é essencial verificar a resposta, a política [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) é uma opção mais adequada.
+Há certas compensações ao usar um estilo de solicitação "disparar e esquecer". Se por algum motivo, Olá solicitação falhará e falha de saudação não será reportada. Nessa situação específica, complexidade de saudação de ter um sistema de relatórios de falhas secundário e o custo de desempenho adicionais de saudação de aguardando resposta Olá não está garantida. Para cenários em que é essencial toocheck resposta de hello, em seguida, Olá [solicitação de envio](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) política é uma opção melhor.
 
 ## <a name="send-request"></a>send-request
-A política `send-request` permite o uso de um serviço externo para executar funções complexas de processamento e retornar dados para o serviço de gerenciamento de API, que pode ser usado para um processamento adicional da política.
+Olá `send-request` política permite usar um tooperform de serviço externo complexo de funções e serviço de gerenciamento de toohello API retorna dados que pode ser usado para processamento adicional de diretiva de processamento.
 
 ### <a name="authorizing-reference-tokens"></a>Autorizando tokens de referência
-Uma função importante do Gerenciamento de API é proteger os recursos de back-end. Se o servidor de autorização usado pela sua API criar [tokens JWT](http://jwt.io/) como parte de seu fluxo do OAuth2, assim como faz o [Azure Active Directory](../active-directory/active-directory-aadconnect.md), você poderá usar a política `validate-jwt` para verificar a validade do token. No entanto, alguns servidores de autorização criam algo chamado [tokens de referência](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) que não podem ser verificados sem a realização de uma chamada para o servidor de autorização.
+Uma função importante do Gerenciamento de API é proteger os recursos de back-end. Se o servidor de autorização Olá usado pela sua API cria [tokens JWT](http://jwt.io/) como parte de seu fluxo de OAuth2, como [Active Directory do Azure](../active-directory/active-directory-aadconnect.md) faz, em seguida, você pode usar o hello `validate-jwt` validade de saudação tooverify política do token de saudação. No entanto, alguns servidores de autorização criam o que chamamos de [referência tokens](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) que não pode ser verificada sem fazer um servidor de autorização de toohello de retorno de chamada.
 
 ### <a name="standardized-introspection"></a>Introspecção padronizada
-No passado, não havia uma forma padronizada de verificar um token de referência com um servidor de autorização. No entanto, um padrão proposto recentemente, o [RFC 7662](https://tools.ietf.org/html/rfc7662) , foi publicado pela IETF definindo como um servidor de recursos pode verificar a validade de um token.
+Olá passado não tem havido nenhuma maneira padronizada de verificar um token de referência com um servidor de autorização. No entanto um padrão proposto recentemente [7662 RFC](https://tools.ietf.org/html/rfc7662) foi publicada por Olá IETF que define como um servidor de recurso pode verificar a validade de saudação de um token.
 
-### <a name="extracting-the-token"></a>Extração do token
-A primeira etapa é extrair o token do cabeçalho de Autorização. O valor do cabeçalho deve ser formatado com o esquema de autorização `Bearer` , um espaço único e o token de autorização, conforme a [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Infelizmente, há casos nos quais o esquema de autorização é omitido. Para levar isso em conta durante a análise, dividimos o valor do cabeçalho em um espaço e selecionamos a última cadeia de caracteres da matriz de cadeias de caracteres retornada. Isso fornece uma solução alternativa para cabeçalhos de autorização formatados incorretamente.
+### <a name="extracting-hello-token"></a>Extraindo o token Olá
+Olá primeira etapa é tooextract token de saudação do cabeçalho de autorização de saudação. valor de cabeçalho Olá deve ser formatado com hello `Bearer` esquema de autorização, um único espaço e, em seguida, autorização de saudação do token de acordo [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Infelizmente, há casos em que o esquema de autorização de saudação for omitida. tooaccount para isso durante a análise, podemos dividir o valor do cabeçalho Olá em um espaço e a última cadeia de caracteres de saudação selecione de hello retornada a matriz de cadeias de caracteres. Isso fornece uma solução alternativa para cabeçalhos de autorização formatados incorretamente.
 
 ```xml
 <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
 ```
 
-### <a name="making-the-validation-request"></a>Realização da solicitação de validação
-Após a obtenção do token de autorização, podemos fazer a solicitação para validar o token. A RFC 7662 chama esse processo de introspecção e exige que você aplique `POST` a um formulário HTML para o recurso de introspecção. O formulário HTML deve conter pelo menos um par de chave/valor com a chave `token`. Essa solicitação para o servidor de autorização também deve ser autenticada a fim de garantir que os clientes mal-intencionados não possam vasculhar os tokens válidos.
+### <a name="making-hello-validation-request"></a>Fazer a solicitação de validação de saudação
+Assim que tivermos o token de autorização hello, podemos Olá solicitação toovalidate Olá token. RFC 7662 chama introspecção esse processo e requer que você `POST` um recurso de introspecção de toohello de formulário HTML. saudação do formulário HTML deve conter pelo menos um par chave/valor com chave Olá `token`. Esse servidor de autorização toohello solicitação também deve ser autenticado tooensure que não é possível ir trawling clientes mal-intencionado para tokens válidos.
 
 ```xml
 <send-request mode="new" response-variable-name="tokenstate" timeout="20" ignore-error="true">
@@ -96,13 +96,13 @@ Após a obtenção do token de autorização, podemos fazer a solicitação para
 </send-request>
 ```
 
-### <a name="checking-the-response"></a>Verificação da resposta
-O atributo `response-variable-name` é usado para dar acesso à resposta retornada. O nome definido nessa propriedade pode ser usado como uma chave para o dicionário `context.Variables` a fim de acessar o objeto `IResponse`.
+### <a name="checking-hello-response"></a>Verificação de resposta de saudação
+Olá `response-variable-name` atributo é usado toogive Olá de acesso retornada uma resposta. Olá nome definido na propriedade pode ser usado como uma chave no hello `context.Variables` saudação do dicionário tooaccess `IResponse` objeto.
 
-Do objeto de resposta, podemos recuperar o corpo e a RFC 7622 nos informa de que a resposta deve ser um objeto JSON e deve conter pelo menos uma propriedade chamada `active` , que é um valor booliano. Quando `active` é verdadeiro, o token é considerado válido.
+Do objeto de resposta Olá podemos recuperar corpo hello e RFC 7622 informa que a resposta de saudação deve ser um objeto JSON e deve conter pelo menos uma propriedade chamada `active` que é um valor booleano. Quando `active` for true, o token de saudação é considerado válido.
 
 ### <a name="reporting-failure"></a>Indicação de falha
-Usamos uma política `<choose>` para detectar se o token é inválido e, em caso positivo, retornar uma resposta 401.
+Usamos uma `<choose>` toodetect de política se Olá token é inválido e nesse caso, retornar uma resposta 401.
 
 ```xml
 <choose>
@@ -117,17 +117,17 @@ Usamos uma política `<choose>` para detectar se o token é inválido e, em caso
 </choose>
 ```
 
-Conforme a [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3), que descreve como os tokens `bearer` devem ser usados, também retornamos um cabeçalho `WWW-Authenticate` com a resposta 401. O WWW-Authenticate tem como intenção instruir um cliente sobre como construir uma solicitação devidamente autorizada. Devido à ampla variedade de abordagens possíveis com a estrutura OAuth2, é difícil comunicar todas as informações necessárias. Felizmente, há esforços sendo realizados para ajudar os [clientes a descobrirem como autorizar corretamente as solicitações para um servidor de recursos](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
+Como por [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) que descreve como `bearer` tokens devem ser usados, podemos também retornar um `WWW-Authenticate` cabeçalho de resposta Olá 401. Olá WWW-Authenticate é pretendido tooinstruct um cliente sobre como tooconstruct uma solicitação autorizada corretamente. Devido a ampla variedade de abordagens possíveis com o framework Olá OAuth2 toohello, é difícil toocommunicate todos Olá necessárias informações. Felizmente, há esforços em andamento toohelp [clientes descobrir como tooproperly autorizar o servidor de recurso solicitações tooa](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
 
 ### <a name="final-solution"></a>Solução final
-Juntando todas as peças, temos a seguinte política:
+Reunir todas as partes da saudação, obtemos Olá diretiva a seguir:
 
 ```xml
 <inbound>
   <!-- Extract Token from Authorization header parameter -->
   <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
 
-  <!-- Send request to Token Server to validate token (see RFC 7662) -->
+  <!-- Send request tooToken Server toovalidate token (see RFC 7662) -->
   <send-request mode="new" response-variable-name="tokenstate" timeout="20" ignore-error="true">
     <set-url>https://microsoft-apiappec990ad4c76641c6aea22f566efc5a4e.azurewebsites.net/introspection</set-url>
     <set-method>POST</set-method>
@@ -156,32 +156,32 @@ Juntando todas as peças, temos a seguinte política:
 </inbound>
 ```
 
-Este é apenas um dos muitos exemplos de como a política `send-request` pode ser usada para integrar serviços externos úteis ao processo de solicitações e respostas que fluem pelo serviço Gerenciamento de API.
+Isso é apenas um dos vários exemplos de como Olá `send-request` política pode ser serviços externos útil de toointegrate usado no processo de saudação de solicitações e respostas que passam por Olá serviço de gerenciamento de API.
 
 ## <a name="response-composition"></a>Composição da resposta
-A política `send-request` pode ser usada para melhorar a uma solicitação primária para um sistema back-end, como vimos no exemplo anterior, ou pode ser usada como uma substituição completa para a chamada back-end. Com essa técnica podemos criar facilmente recursos de composição agregados de vários sistemas diferentes.
+Olá `send-request` política pode ser usada para melhorar a um sistema de back-end de tooa solicitação primária, conforme vimos no exemplo anterior hello, ou ele pode ser usado como uma substituição completa para chamada de back-end de saudação. Com essa técnica podemos criar facilmente recursos de composição agregados de vários sistemas diferentes.
 
 ### <a name="building-a-dashboard"></a>Criando um painel
-Às vezes, você quer expor as informações existentes em vários sistemas de back-end, por exemplo, para gerar um painel. Os KPIs vêm de todos os back-ends diferentes, mas convém não fornecer acesso direto a eles, e seria bom se todas as informações pudessem ser recuperadas em uma única solicitação. Talvez algumas informações de back-end precisem de um pouco de organização e uma pequena limpeza primeiro! Ser capaz de armazenar em cache o recurso composto é útil para reduzir a carga back-end, pois você sabe que os usuários têm o hábito de pressionar sem parar a tecla F5 para ver se suas métricas com baixo desempenho mudam.    
+Às vezes, você deseja toobe tooexpose capaz de informações que existe em vários sistemas de back-end, por exemplo, toodrive um painel. Olá KPIs vêm de todos os diferentes back-ends, mas você prefere que não as toothem tooprovide acesso direto e seria interessante se todas as informações de saudação podem ser recuperadas em uma única solicitação. Talvez algumas das informações de back-end Olá precisa de alguns divisão e repartir um pouco de limpeza e primeiro! Olá back-end seja capaz de toocache que o recurso de composição seria um tooreduce útil carregar como você sabe que os usuários têm o hábito de anti-hammering a tecla F5 de saudação em ordem toosee se suas métricas com baixo desempenho podem ser alterado.    
 
-### <a name="faking-the-resource"></a>Falsificando o recurso
-A primeira etapa da construção de nosso recurso de painel é configurar uma nova operação no portal de editor do Gerenciamento de API. Essa será uma operação de espaço reservado usada para configurar nossa política de composição a fim de criar nosso recurso dinâmico.
+### <a name="faking-hello-resource"></a>Recurso de Olá falsificação
+Olá primeiro toobuilding de etapa nosso recurso de painel é tooconfigure uma nova operação no portal do publicador de gerenciamento de API de saudação. Isso será um tooconfigure da operação usada de espaço reservado nosso toobuild de política de composição nosso recurso dinâmico.
 
 ![Operação de painel](./media/api-management-sample-send-request/api-management-dashboard-operation.png)
 
-### <a name="making-the-requests"></a>Fazendo as solicitações
-Após a criação da operação `dashboard` , podemos configurar uma política especificamente para essa operação. 
+### <a name="making-hello-requests"></a>Fazendo solicitações Olá
+Uma vez Olá `dashboard` operação tiver sido criada, pode configurar uma política especificamente para essa operação. 
 
 ![Operação de painel](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
 
-A primeira etapa é extrair parâmetros de consulta da solicitação de entrada, para que possamos encaminhá-los ao nosso back-end. Neste exemplo, nosso painel está mostrando informações baseadas em um período; portanto, ele apresenta os parâmetros `fromDate` e `toDate`. Podemos usar a política `set-variable` para extrair as informações da URL de solicitação.
+primeira etapa de saudação é tooextract os parâmetros de consulta de solicitação de entrada hello, de forma que podemos pode encaminhar tooour back-end. Neste exemplo, nosso painel está mostrando informações baseadas em um período; portanto, ele apresenta os parâmetros `fromDate` e `toDate`. Podemos usar o hello `set-variable` informações de URL de solicitação Olá Olá de tooextract de diretiva.
 
 ```xml
 <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
 <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
 ```
 
-Assim que tivermos essas informações poderemos fazer solicitações para todos os sistemas back-end. Cada solicitação constrói uma nova URL com as informações de parâmetro, chama seu respectivo servidor e armazena a resposta em uma variável de contexto.
+Essas informações se houver podemos solicitações tooall sistemas de back-end de saudação. Cada solicitação constrói uma nova URL com informações de parâmetro hello e chama seu respectivo servidor e armazena a resposta de saudação em uma variável de contexto.
 
 ```xml
 <send-request mode="new" response-variable-name="revenuedata" timeout="20" ignore-error="true">
@@ -205,10 +205,10 @@ Assim que tivermos essas informações poderemos fazer solicitações para todos
 </send-request>
 ```
 
-Essas solicitações serão executadas em sequência, o que não é ideal. Em uma versão futura apresentaremos uma nova política chamada `wait` , que permitirá a execução em paralelo de todas essas solicitações.
+Essas solicitações serão executadas em sequência, o que não é ideal. Em uma versão futura apresentaremos uma nova política chamada `wait` permitir que todos esses tooexecute solicitações em paralelo.
 
 ### <a name="responding"></a>Respondendo
-Para construir a resposta composta, podemos usar a política [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) . O elemento `set-body` pode usar uma expressão para construir um novo `JObject` com todas as representações de componente incorporadas como propriedades.
+resposta composto de saudação tooconstruct usamos Olá [resposta de retorno](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) política. Olá `set-body` elemento pode usar uma expressão tooconstruct um novo `JObject` com todas as representações de componente Olá inseridas como propriedades.
 
 ```xml
 <return-response response-variable-name="existing response variable">
@@ -226,7 +226,7 @@ Para construir a resposta composta, podemos usar a política [return-response](h
 </return-response>
 ```
 
-A política completa tem a seguinte aparência:
+diretiva completa Olá será semelhante ao seguinte:
 
 ```xml
 <policies>
@@ -278,13 +278,13 @@ A política completa tem a seguinte aparência:
 </policies>
 ```
 
-Na configuração da operação de espaço reservado podemos configurar o recurso de painel para ser armazenado em cache durante pelo menos uma hora, pois entendemos que a natureza dos dados significa que mesmo se estiver uma hora desatualizado, ainda será suficientemente eficaz para transmitir as informações valiosas aos usuários.
+Na configuração de saudação da operação de espaço reservado de saudação que podemos configurar Olá painel recursos toobe armazenado em cache pelo menos uma hora como compreendemos natureza Olá dados saudação significa que, mesmo se houver uma hora desatualizada, que ele ainda estará suficientemente eficaz usuários que toohello tooconvey informações valiosas.
 
 ## <a name="summary"></a>Resumo
-O serviço de Gerenciamento de API do Azure fornece políticas flexíveis que podem ser aplicadas seletivamente ao tráfego HTTP e permite a composição de serviços back-end. Se você quiser aprimorar seu gateway de API com funções de alerta, verificação e recursos de validação, ou criar novos recursos compostos baseados em vários serviços back-end, a política `send-request` e as políticas relacionadas abrirão um mundo de oportunidades.
+Serviço de gerenciamento de API do Azure fornece políticas flexíveis que podem ser seletivamente aplicadas tooHTTP tráfego e permite a composição de serviços back-end. Se você deseja tooenhance seu gateway de API com funções, recursos de validação e verificação de alerta ou cria novos recursos de composição, com base em vários serviços de back-end, Olá `send-request` e políticas relacionadas abrem um mundo de possibilidades.
 
 ## <a name="watch-a-video-overview-of-these-policies"></a>Assista a uma visão geral dessas políticas em vídeo
-Para obter mais informações sobre as políticas [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) e [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) abordadas neste artigo, assista ao vídeo a seguir.
+Para obter mais informações sobre Olá [send-uma maneira solicitação](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [solicitação de envio](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest), e [resposta de retorno](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) políticas abordadas neste artigo, assista Olá vídeo a seguir.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
 > 

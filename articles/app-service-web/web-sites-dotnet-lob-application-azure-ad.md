@@ -1,6 +1,6 @@
 ---
-title: "Criar um aplicativo de linha de negócios do Azure com a autenticação do Azure Active Directory | Microsoft Docs"
-description: "Saiba como criar um aplicativo de linha de negócios ASP.NET MVC no Serviço de Aplicativo do Azure que realiza a autenticação com o Azure Active Directory"
+title: "aaaCreate um aplicativo de linha de negócios do Azure com a autenticação do Active Directory do Azure | Microsoft Docs"
+description: "Saiba como o aplicativo toocreate uma ASP.NET MVC linha de negócios no serviço de aplicativo do Azure que autentica com o Active Directory do Azure"
 services: app-service\web, active-directory
 documentationcenter: .net
 author: cephalin
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 09/01/2016
 ms.author: cephalin
-ms.openlocfilehash: 6eadf0a521a32c5bc580908e4e4b7f4305e2bf7e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3bcafad78ac0151889b3e336784cc561009f244f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-line-of-business-azure-app-with-azure-active-directory-authentication"></a>Criar um aplicativo de linha de negócios do Azure com a autenticação do Azure Active Directory
-Este artigo mostra como criar um aplicativo de linha de negócios do .NET nos [Aplicativos Web do Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) usando o recurso [Autenticação/Autorização](../app-service/app-service-authentication-overview.md). Também mostra como usar a [API do Graph do Azure Active Directory](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) para consultar dados de diretório no aplicativo.
+Este artigo mostra como aplicativo toocreate uma .NET linha de negócios em [aplicativos de Web do serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) usando Olá [autenticação / autorização](../app-service/app-service-authentication-overview.md) recurso. Ele também mostra como Olá toouse [API do Graph do Azure Active Directory](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) tooquery dados do diretório de aplicativo hello.
 
-O locatário do Azure Active Directory que você usa pode ser um diretório somente do Azure. Ou pode ser [sincronizado com seu Active Directory local](../active-directory/active-directory-aadconnect.md) para criar uma experiência de logon único para trabalhadores locais e remotos. Este artigo usa o diretório padrão para sua conta do Azure.
+locatário do Active Directory do Azure Olá que você usar pode ser um diretório somente no Azure. Ou, pode ser [sincronizado com o Active Directory no local](../active-directory/active-directory-aadconnect.md) toocreate uma experiência de logon único para os funcionários que estão em locais e remotos. Este artigo usa o diretório padrão de saudação para sua conta do Azure.
 
 <a name="bkmk_build"></a>
 
 ## <a name="what-you-will-build"></a>O que você compilará
-Você compilará um aplicativo simples de linha de negócios CRUD (Create-Read-Update-Delete) nos Aplicativos Web do Serviço de Aplicativo que acompanha itens de trabalho com os seguintes recursos:
+Você criará um aplicativo simples de criar-leitura-atualização-exclusão (CRUD) de linha de negócios em aplicativos de Web do serviço de aplicativo que rastreia itens de trabalho com hello recursos a seguir:
 
 * Autentica usuários no Active Directory do Azure
 * Consulta usuários de diretório e grupos usando a [API do Graph do Azure Active Directory](http://msdn.microsoft.com/library/azure/hh974476.aspx)
-* Usar o modelo *Sem Autenticação* do ASP.NET MVC
+* Use Olá ASP.NET MVC *sem autenticação* modelo
 
 Se você precisar de controle de acesso baseado em função (RBAC) para seu aplicativo de linha de negócios no Azure, confira a [Próxima etapa](#next).
 
@@ -41,97 +41,97 @@ Se você precisar de controle de acesso baseado em função (RBAC) para seu apli
 ## <a name="what-you-need"></a>O que você precisa
 [!INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
-É necessário o seguinte para concluir este tutorial:
+Você precisa Olá toocomplete a seguir este tutorial:
 
 * Um locatário do Active Directory do Azure com usuários em vários grupos
-* Permissões para criar aplicativos no locatário do Active Directory do Azure
+* Permissões toocreate aplicativos no locatário do Active Directory do Azure Olá
 * Visual Studio 2013 Atualização 4 ou posterior
 * [SDK 2.8.1 do Azure ou posterior](https://azure.microsoft.com/downloads/)
 
 <a name="bkmk_deploy"></a>
 
-## <a name="create-and-deploy-a-web-app-to-azure"></a>Crie e implante um aplicativo Web no Azure
+## <a name="create-and-deploy-a-web-app-tooazure"></a>Criar e implantar um tooAzure de aplicativo web
 1. No Visual Studio, clique em **Arquivo** > **Novo** > **Projeto**.
 2. Selecione **Aplicativo Web ASP.NET**, nomeie seu projeto e clique em **OK**.
-3. Escolha o modelo **MVC** e altere a autenticação para **Sem Autenticação**. Certifique-se de que a opção **Hospedar na Nuvem** esteja selecionada e clique em **OK**.
+3. Selecione Olá **MVC** modelo, altere a autenticação de saudação muito**sem autenticação**. Certifique-se de **Host na nuvem de saudação** está selecionado e clique em **Okey**.
    
     ![](./media/web-sites-dotnet-lob-application-azure-ad/1-create-mvc-no-authentication.png)
-4. Na caixa de diálogo **Criar Serviço de Aplicativo**, clique em **Adicionar uma conta** (e, depois, **Adicionar uma conta** na lista suspensa) para fazer logon em sua conta do Azure.
-5. Depois de conectado, configure seu aplicativo Web. Crie um grupo de recursos e um novo Plano do Serviço de Aplicativo clicando no respectivo botão **Novo** . Clique em **Explorar serviços adicionais do Azure** para continuar.
+4. Em Olá **criar serviço de aplicativo** caixa de diálogo, clique em **adicionar uma conta** (e, em seguida, **adicionar uma conta** na lista suspensa de saudação) toolog em tooyour conta do Azure.
+5. Depois de conectado, configure seu aplicativo Web. Criar um grupo de recursos e um novo plano de serviço de aplicativo clicando Olá respectivo **novo** botão. Clique em **explorar serviços adicionais do Azure** toocontinue.
    
     ![](./media/web-sites-dotnet-lob-application-azure-ad/2-create-app-service.png)
-6. Na guia **Serviços**, clique em **+** para adicionar um Banco de Dados SQL para seu aplicativo. 
+6. Em Olá **serviços** , clique em  **+**  tooadd um banco de dados SQL para seu aplicativo. 
    
     ![](./media/web-sites-dotnet-lob-application-azure-ad/3-add-sql-database.png)
-7. Em **Configurar Banco de Dados SQL**, clique em **Novo** para criar uma instância do SQL Server.
-8. Em **Configurar SQL Server**, configure sua instância do SQL Server. Em seguida, clique em **OK**, **OK** e em **Criar** para iniciar a criação do aplicativo no Azure.
-9. Em **Atividade do Serviço de Aplicativo do Azure**, você pode ver quando a criação do aplicativo terminar. Clique em **Publicar&lt;*nome_do_aplicativo*>para esse Aplicativo Web agora** e, em seguida, clique em **Publicar**. 
+7. Em **configurar banco de dados SQL**, clique em **novo** toocreate uma instância do SQL Server.
+8. Em **Configurar SQL Server**, configure sua instância do SQL Server. Em seguida, clique em **Okey**, **Okey**, e **criar** tookick desativar a criação de saudação de aplicativo no Azure.
+9. Em **atividade de serviço de aplicativo do Azure**, você pode ver quando da criação do aplicativo hello for concluída. Clique em  **publicar &lt;* appname*> toothis aplicativo Web agora * *, em seguida, clique em **publicar**. 
    
-    Após a conclusão do Visual Studio, ele abrirá o aplicativo de publicação no navegador. 
+    Depois que o Visual Studio for concluído, ele abre Olá publicar o aplicativo no navegador de saudação. 
    
     ![](./media/web-sites-dotnet-lob-application-azure-ad/4-published-shown-in-browser.png)
 
 <a name="bkmk_auth"></a>
 
 ## <a name="configure-authentication-and-directory-access"></a>Configurar a autenticação e acesso ao diretório
-1. Faça logon no [Portal do Azure](https://portal.azure.com).
-2. No meu à esquerda, clique em **Serviços de Aplicativos** > **&lt;*nome_do_aplicativo*>** > **Autenticação/Autorização**.
+1. Faça logon no toohello [portal do Azure](https://portal.azure.com).
+2. No menu à esquerda do hello, clique em **serviços de aplicativos** > **&lt;*appname*> * * > **autenticação / autorização**.
    
     ![](./media/web-sites-dotnet-lob-application-azure-ad/5-app-service-authentication.png)
 3. Ative a autenticação do Azure Active Directory clicando em **Ativar** > **Azure Active Directory** > **Expresso** > **OK**.
    
     ![](./media/web-sites-dotnet-lob-application-azure-ad/6-authentication-express.png)
-4. Clique em **Salvar** na barra de comandos.
+4. Clique em **salvar** na barra de comandos de saudação.
    
     ![](./media/web-sites-dotnet-lob-application-azure-ad/7-authentication-save.png)
    
-    Após a gravação das configurações de autenticação, tente navegar até seu aplicativo novamente no navegador. As configurações padrão impõem a autenticação em todo o aplicativo. Se você ainda não estiver conectado, será redirecionado para uma tela de logon. Depois de conectado, você verá seu aplicativo protegido por HTTPS. Em seguida, será necessário habilitar o acesso aos dados do diretório. 
-5. Navegue até o [Portal Clássico](https://manage.windowsazure.com).
-6. No menu à esquerda, clique em **Active Directory** > **Diretório Padrão** > **Aplicativos** > **&lt;*nome_do_aplicativo*>**.
+    Depois que as configurações de autenticação Olá foram salvas com êxito, tente navegar tooyour aplicativo novamente no navegador de saudação. As configurações padrão impõem a autenticação no aplicativo inteiro hello. Se você já não estiver conectado, você é redirecionado tooa a tela de login. Depois de conectado, você verá seu aplicativo protegido por HTTPS. Em seguida, você precisa toodirectory tooenable acessar os dados. 
+5. Navegue toohello [portal clássico](https://manage.windowsazure.com).
+6. No menu à esquerda do hello, clique em **do Active Directory** > **diretório padrão** > **aplicativos**  >   **&lt;* appname*> * *.
    
     ![](./media/web-sites-dotnet-lob-application-azure-ad/8-find-aad-application.png)
    
-    Este é o aplicativo do Azure Active Directory criado pelo Serviço de Aplicativo para você a fim de habilitar o recurso de Autorização/Autenticação.
-7. Clique em **Usuários** e **Grupos** para se certificar de que haja alguns usuários e grupos no diretório. Caso contrário, crie alguns usuários e grupos de teste.
+    Este é o aplicativo do Active Directory do Azure hello que o serviço de aplicativo criado para você tooenable Olá autorização / recurso de autenticação.
+7. Clique em **usuários** e **grupos** toomake-se de que há alguns usuários e grupos no diretório de saudação. Caso contrário, crie alguns usuários e grupos de teste.
    
     ![](./media/web-sites-dotnet-lob-application-azure-ad/9-create-users-groups.png)
-8. Clique em **Configurar** para configurar esse aplicativo.
-9. Role para baixo até a seção **Chaves** e adicione uma chave selecionando uma duração. Em seguida, clique em **Permissões Delegadas** e selecione **Ler dados do diretório**. 
+8. Clique em **configurar** tooconfigure este aplicativo.
+9. Role para baixo toohello **chaves** seção e adicione uma chave, selecionando uma duração. Em seguida, clique em **Permissões Delegadas** e selecione **Ler dados do diretório**. 
    Clique em **Salvar**.
    
     ![](./media/web-sites-dotnet-lob-application-azure-ad/10-configure-aad-application.png)
-10. Depois que as configurações forem salvas, role para cima até a seção **Chaves** e clique no botão **Copiar** para copiar a chave do cliente. 
+10. Depois que as configurações são salvas, role para cima toohello **chaves** seção e clique em Olá **cópia** chave botão toocopy de saudação do cliente. 
     
      ![](./media/web-sites-dotnet-lob-application-azure-ad/11-get-app-key.png)
     
     > [!IMPORTANT]
-    > Se você sair desta página agora, não poderá acessar essa chave de cliente novamente.
+    > Se você sair desta página agora, não será capaz de tooaccess esse cliente nunca novamente da chave.
     > 
     > 
-11. Em seguida, você precisará configurar seu aplicativo Web com essa chave. Faça logon no [Azure Resource Manager](https://resources.azure.com) com sua conta do Azure.
-12. Na parte superior da página, clique em **Leitura/Gravação** para fazer alterações no Azure Resource Manager.
+11. Em seguida, você precisa tooconfigure seu aplicativo web com essa chave. Faça logon no toohello [Gerenciador de recursos do Azure](https://resources.azure.com) com sua conta do Azure.
+12. Na parte superior de saudação da página de saudação, clique em **leitura/gravação** toomake alterações Olá Gerenciador de recursos do Azure.
     
     ![](./media/web-sites-dotnet-lob-application-azure-ad/12-resource-manager-writable.png)
-13. Encontre as configurações de autenticação de seu aplicativo, localizadas em assinaturas > **&lt;*nome_da_assinatura*>** > **resourceGroups** > **&lt;*nome_do_grupo_de_recursos*>** > **provedores** > **Microsoft.Web** > **sites** > **&lt;*nome_do_aplicativo*>** > **config** > **authsettings**.
+13. Localizar as configurações de autenticação para seu aplicativo, localizado em assinaturas de hello >  **&lt;* subscriptionname*> * * > **resourceGroups**  >   **&lt;* resourcegroupname*> * * > **provedores** > **Microsoft**  >  **sites** > **&lt;*appname*> * * > **config**  >  **authsettings**.
 14. Clique em **Editar**.
     
     ![](./media/web-sites-dotnet-lob-application-azure-ad/13-edit-authsettings.png)
-15. No painel de edição, defina as propriedades `clientSecret` e `additionalLoginParams` da seguinte maneira.
+15. Olá painel de edição, definido Olá `clientSecret` e `additionalLoginParams` propriedades da seguinte maneira.
     
         ...
-        "clientSecret": "<client key from the Azure Active Directory application>",
+        "clientSecret": "<client key from hello Azure Active Directory application>",
         ...
         "additionalLoginParams": ["response_type=code id_token", "resource=https://graph.windows.net"],
         ...
-16. Clique em **Inserir** na parte superior para enviar suas alterações.
+16. Clique em **colocar** em Olá toosubmit superior suas alterações.
     
     ![](./media/web-sites-dotnet-lob-application-azure-ad/14-edit-parameters.png)
-17. Agora, para testar se você tem o token de autorização para acessar a API do Graph do Azure Active Directory, basta navegar até **https://&lt;*nome_do_aplicativo*>.azurewebsites.net/.auth/me** no seu navegador. Se você configurou tudo corretamente, veja a propriedade `access_token` na resposta JSON.
+17. Tootest agora, se você tiver autorização Olá token Olá tooaccess API do Graph do Azure Active Directory, basta navegar até  **https://&lt;*appname*>.azurewebsites.net/.auth/me** no seu Navegador. Se você configurou tudo corretamente, você deverá ver Olá `access_token` propriedade Olá resposta JSON.
     
-    O caminho da URL de `~/.auth/me` é gerenciado pela Autenticação/Autorização do Serviço de Aplicativo para fornecer todas as informações relacionadas à sua sessão autenticada. Para saber mais, confira [Autenticação e autorização no Serviço de Aplicativo do Azure](../app-service/app-service-authentication-overview.md).
+    Olá `~/.auth/me` caminho da URL é gerenciado pelo aplicativo serviço de autenticação / autorização toogive você todas as informações de saudação relacionados sessão tooyour autenticado. Para saber mais, confira [Autenticação e autorização no Serviço de Aplicativo do Azure](../app-service/app-service-authentication-overview.md).
     
     > [!NOTE]
-    > O caminho da URL de `access_token` tem um período de expiração. No entanto, a Autenticação/Autorização do Serviço de Aplicativo fornece a funcionalidade de atualização do token com `~/.auth/refresh`. Para saber mais sobre como usá-la, consulte [Repositório de Token do Serviço de Aplicativo](https://cgillum.tech/2016/03/07/app-service-token-store/).
+    > Olá `access_token` tem um período de expiração. No entanto, a Autenticação/Autorização do Serviço de Aplicativo fornece a funcionalidade de atualização do token com `~/.auth/refresh`. Para obter mais informações sobre como toouse, consulte [armazenamento de Token do serviço de aplicativo](https://cgillum.tech/2016/03/07/app-service-token-store/).
     > 
     > 
 
@@ -139,10 +139,10 @@ Em seguida, você fará algo útil com os dados do diretório.
 
 <a name="bkmk_crud"></a>
 
-## <a name="add-line-of-business-functionality-to-your-app"></a>Adicionar uma funcionalidade de linha de negócios ao seu aplicativo
+## <a name="add-line-of-business-functionality-tooyour-app"></a>Adicionar a funcionalidade de linha de negócios tooyour aplicativo
 Agora, crie um rastreador de itens de trabalho CRUD simples.  
 
-1. Na pasta ~\Modelos, crie um arquivo de classe chamado WorkItem.cs e substitua `public class WorkItem {...}`pelo código a seguir:
+1. Na pasta de ~\Models hello, crie um arquivo de classe chamado WorkItem.cs e substitua `public class WorkItem {...}` com hello código a seguir:
    
      using System.ComponentModel.DataAnnotations;
    
@@ -163,13 +163,13 @@ Agora, crie um rastreador de itens de trabalho CRUD simples.
          Resolved,
          Closed
      }
-2. Compile o projeto para disponibilizar o novo modelo para a lógica de scaffolding no Visual Studio.
-3. Adicione um novo item com scaffold `WorkItemsController` à pasta ~\Controllers (clique com o botão direito do mouse em **Controladores**, aponte para **Adicionar** e selecione **Novo item com scaffold**). 
+2. Crie hello projeto toomake sua nova lógica de scaffolding toohello acessível do modelo no Visual Studio.
+3. Adicionar um novo item de scaffolding `WorkItemsController` toohello ~\Controllers pasta (clique **controladores**, ponto muito**adicionar**e selecione **novo item de scaffolding**). 
 4. Selecione **Controlador MVC 5 com modos de exibição usando o Entity Framework** e clique em **Adicionar**.
-5. Escolha o modelo que você criou e clique em **+** e em **Adicionar** para adicionar um contexto de dados. Em seguida, clique em **Adicionar**.
+5. Modelo de saudação selecione que você criou, clique  **+**  e, em seguida, **adicionar** tooadd um contexto de dados e, em seguida, clique em **adicionar**.
    
    ![](./media/web-sites-dotnet-lob-application-azure-ad/16-add-scaffolded-controller.png)
-6. Em ~\Views\WorkItems\Create.cshtml (um item automaticamente submetido a scaffolding), localize o método auxiliar `Html.BeginForm` e faça as seguintes alterações destacadas:  
+6. No ~\Views\WorkItems\Create.cshtml (um item de scaffolding automaticamente), localize Olá `Html.BeginForm` método auxiliar e fazer Olá realçadas alterações a seguir:  
    
    <pre class="prettyprint">
    @model WebApplication1.Models.WorkItem
@@ -229,7 +229,7 @@ Agora, crie um rastreador de itens de trabalho CRUD simples.
    }
    
    &lt;div&gt;
-    @Html.ActionLink(&quot;Back to List&quot;, &quot;Index&quot;)
+    @Html.ActionLink(&quot;Back tooList&quot;, &quot;Index&quot;)
    &lt;/div&gt;
    
    @section Scripts {
@@ -247,7 +247,7 @@ Agora, crie um rastreador de itens de trabalho CRUD simples.
    
         var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
    
-        // Submit the selected user/group to be asssigned.
+        // Submit hello selected user/group toobe asssigned.
         $(&quot;#submit-button&quot;).click({ picker: picker }, function () {
             if (!picker.Selected())
                 return;
@@ -257,25 +257,25 @@ Agora, crie um rastreador de itens de trabalho CRUD simples.
    }
    </pre>
    
-   Observe que `token` e `tenant` são usados pelo objeto `AadPicker` para fazer chamadas da API do Graph do Azure Active Directory. Você adicionará `AadPicker` mais tarde.     
+   Observe que `token` e `tenant` são usados por Olá `AadPicker` toomake objeto chamadas de API do Graph do Azure Active Directory. Você adicionará `AadPicker` mais tarde.     
    
    > [!NOTE]
-   > Você também pode obter `token` e `tenant` do lado do cliente com `~/.auth/me`, mas isso seria uma chamada de servidor adicional. Por exemplo:
+   > Você também pode obter `token` e `tenant` do lado do cliente Olá com `~/.auth/me`, mas que deve ser uma chamada de servidor adicional. Por exemplo:
    > 
    > $.ajax({ dataType: "json", url: "/.auth/me", success: function (data) { var token = data[0].access_token; var tenant = data[0].user_claims .find(c => c.typ === 'http://schemas.microsoft.com/identity/claims/tenantid') .val; } });
    > 
    > 
-7. Faça as mesmas alterações com ~\Views\WorkItems\Edit.cshtml.
-8. O objeto `AadPicker` é definido em um script ao qual você precisa adicionar ao seu projeto. Clique com o botão direito do mouse na pasta ~\Scripts, aponte para **Adicionar** e clique em **arquivo JavaScript**. Digite `AadPickerLibrary` para o nome de arquivo e clique em **OK**.
-9. Copie o conteúdo deste [local](https://raw.githubusercontent.com/cephalin/active-directory-dotnet-webapp-roleclaims/master/WebApp-RoleClaims-DotNet/Scripts/AadPickerLibrary.js) em ~\Scripts\AadPickerLibrary.js.
+7. Alterar Olá mesmo com ~ \Views\WorkItems\Edit.cshtml.
+8. Olá `AadPicker` objeto é definido em um script que você precisa tooadd tooyour projeto. Clique Olá ~\Scripts pasta, aponte muito**adicionar**e clique em **arquivo JavaScript**. Tipo `AadPickerLibrary` para o nome de arquivo hello e clique em **Okey**.
+9. Copiar o conteúdo de saudação do [aqui](https://raw.githubusercontent.com/cephalin/active-directory-dotnet-webapp-roleclaims/master/WebApp-RoleClaims-DotNet/Scripts/AadPickerLibrary.js) em ~ \Scripts\AadPickerLibrary.js.
    
-   No script, o objeto `AadPicker` chama a [API do Graph do Azure Active Directory](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) para pesquisar usuários e grupos que correspondam à entrada.  
-10. ~\Scripts\AadPickerLibrary.js também usa o [widget Autocomplete do jQuery UI](https://jqueryui.com/autocomplete/). Portanto, você precisa adicionar o jQuery UI ao seu projeto. Clique com o botão direito do mouse em seu projeto e clique em **Gerenciar Pacotes NuGet**.
-11. No Gerenciador de Pacotes NuGet, clique em Procurar, digite **jquery-ui** na barra de pesquisa e clique em **jQuery.UI.Combined**.
+   No script hello, Olá `AadPicker` objeto chamadas [API do Graph do Azure Active Directory](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) toosearch para usuários e grupos que corresponder à entrada hello.  
+10. ~\Scripts\AadPickerLibrary.js também usa Olá [jQuery UI AutoCompletar widget](https://jqueryui.com/autocomplete/). Assim, é necessário o projeto de tooyour tooadd jQuery UI. Clique com o botão direito do mouse em seu projeto e clique em **Gerenciar Pacotes NuGet**.
+11. Em Olá NuGet Package Manager, clique em Procurar, tipo **jquery ui** Olá barra de pesquisa e clique em **jQuery.UI.Combined**.
     
     ![](./media/web-sites-dotnet-lob-application-azure-ad/17-add-jquery-ui-nuget.png)
-12. No painel à direita, clique em **Instalar** e em **OK** para continuar.
-13. Abra ~\App_Start\BundleConfig.cs e faça as seguintes alterações realçadas:  
+12. No painel direito da saudação, clique em **instalar**, em seguida, clique em **Okey** tooproceed.
+13. Abra ~\App_Start\BundleConfig.cs e verifique Olá realçadas alterações a seguir:  
     
     <pre class="prettyprint">
     public static void RegisterBundles(BundleCollection bundles)
@@ -288,8 +288,8 @@ Agora, crie um rastreador de itens de trabalho CRUD simples.
         bundles.Add(new ScriptBundle(&quot;~/bundles/jqueryval&quot;).Include(
                     &quot;~/Scripts/jquery.validate*&quot;));
     
-        // Use the development version of Modernizr to develop with and learn from. Then, when you&#39;re
-        // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+        // Use hello development version of Modernizr toodevelop with and learn from. Then, when you&#39;re
+        // ready for production, use hello build tool at http://modernizr.com toopick only hello tests you need.
         bundles.Add(new ScriptBundle(&quot;~/bundles/modernizr&quot;).Include(
                     &quot;~/Scripts/modernizr-*&quot;));
     
@@ -304,38 +304,38 @@ Agora, crie um rastreador de itens de trabalho CRUD simples.
     }
     </pre>
     
-    Há outras maneiras de alto desempenho para gerenciar arquivos JavaScript e CSS em seu aplicativo. No entanto, para manter a simplicidade, apenas acumule os pacotes carregados com cada exibição.
-14. Por fim, em ~\Global.asax, adicione a linha de código a seguir ao método `Application_Start()`. `Ctrl`+`.` em cada erro de resolução de nomes para corrigi-lo.
+    Há toomanage de maneiras mais eficazes JavaScript e arquivos CSS em seu aplicativo. No entanto, para manter a simplicidade você apenas vai toopiggyback em pacotes de saudação que serão carregados com cada exibição.
+14. Por fim, em ~ \Global.asax, adicionar Olá a seguinte linha de código no hello `Application_Start()` método. `Ctrl`+`.`em cada erro de resolução de nomes muito corrigi-lo.
     
         AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
     
     > [!NOTE]
-    > Você precisa dessa linha de código porque o modelo padrão de MVC usa a decoração <code>[ValidateAntiForgeryToken]</code> em algumas das ações. Devido ao comportamento descrito por [Brock Allen](https://twitter.com/BrockLAllen) em [MVC 4, AntiForgeryToken e declarações](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), seu HTTP POST poderá falhar na validação do token antifalsificação pelos seguintes motivos:
+    > Esta linha de código é necessário porque o modelo saudação padrão MVC usa <code>[ValidateAntiForgeryToken]</code> decoração em algumas das ações de saudação. Devido a toohello comportamento descrito por [Brock Allen](https://twitter.com/BrockLAllen) em [MVC 4, AntiForgeryToken e declarações](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) sua POSTAGEM HTTP pode falhar a validação de token antifalsificação porque:
     > 
-    > * O Azure Active Directory não envia http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, que é exigido por padrão pelo token antifalsificação.
-    > * Se o Azure Active Directory for um diretório sincronizado com o AD FS, a relação de confiança do AD FS por padrão não envia a declaração http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, embora você possa configurar manualmente o AD FS para enviá-la.
+    > * Active Directory do Azure não envia http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider hello, que é requerido por padrão pelo token antifalsificação de saudação.
+    > * Se o Active Directory do Azure é sincronizado com o AD FS de diretório, relação de confiança de saudação do AD FS por padrão não enviar Olá http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider declaração, embora você possa configurar manualmente o AD FS toosend Esta declaração.
     > 
-    > `ClaimTypes.NameIdentifies` especifica a declaração `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`, que o Active Directory do Azure fornece.  
+    > `ClaimTypes.NameIdentifies`Especifica a declaração de saudação `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`, que forneça Active Directory do Azure.  
     > 
     > 
 15. Agora, publique suas alterações. Clique com o botão direito do mouse em seu projeto e clique em **Publicar**.
-16. Clique em **Configurações**, verifique se há uma cadeia de conexão com seu Banco de Dados SQL, escolha **Atualizar Banco de Dados** para fazer as alterações de esquema no modelo e clique em **Publicar**.
+16. Clique em **configurações**, verifique se há uma cadeia de caracteres de conexão tooyour banco de dados SQL, selecione **Atualizar banco de dados** toomake Olá alterações de esquema para o seu modelo e clique em **publicar** .
     
     ![](./media/web-sites-dotnet-lob-application-azure-ad/18-publish-crud-changes.png)
-17. No navegador, navegue até https://&lt;*nome_do_aplicativo*>.azurewebsites.net/workitems e clique em **Criar Novo**.
-18. Clique na caixa **AssignedToName** . Agora você verá os usuários e grupos do seu locatário do Azure Active Directory em uma lista suspensa. Você pode digitar para filtrar ou usar a tecla `Up` ou `Down` ou clicar para selecionar o usuário ou grupo. 
+17. No navegador de hello, navegue toohttps: / /&lt;*appname*>.azurewebsites.net/workitems e clique em **criar novo**.
+18. Clique em Olá **AssignedToName** caixa. Agora você verá os usuários e grupos do seu locatário do Azure Active Directory em uma lista suspensa. Você pode digitar toofilter, ou usar Olá `Up` ou `Down` de chave ou clique tooselect Olá usuário ou grupo. 
     
     ![](./media/web-sites-dotnet-lob-application-azure-ad/19-use-aadpicker.png)
-19. Clique em **Criar** para salvar as alterações. Em seguida, clique em **Editar** no item de trabalho criado para observar o mesmo comportamento.
+19. Clique em **criar** toosave alterações de saudação. Em seguida, clique em **editar** trabalho Olá criado item tooobserve Olá mesmo comportamento.
 
-Parabéns, você está executando um aplicativo de linha de negócios no Azure com acesso ao diretório! Você pode fazer muito mais com a API do Graph. Consulte a [referência da API do Graph do Azure AD](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog).
+Parabéns, você está executando um aplicativo de linha de negócios no Azure com acesso ao diretório! Há muito mais que você pode fazer com hello API do Graph. Consulte a [referência da API do Graph do Azure AD](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog).
 
 <a name="next"></a>
 
 ## <a name="next-step"></a>Próxima etapa
-Se você precisar de controle de acesso baseado em função (RBAC) para o aplicativo de linha de negócios no Azure, confira [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) para obter um exemplo da equipe do Azure Active Directory. Ele mostra como habilitar funções para seu aplicativo do Azure Active Directory e, em seguida, autorizar usuários com a decoração `[Authorize]` .
+Se você precisar de controle de acesso baseado em função (RBAC) para seu aplicativo de linha de negócios no azure, consulte [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) para obter um exemplo da equipe do Active Directory do Azure hello. Ele mostra como funções de tooenable para seu aplicativo do Active Directory do Azure e, em seguida, autorizar usuários com hello `[Authorize]` decoração.
 
-Se o seu aplicativo de linha de negócios precisar acessar dados locais, confira [Acesso a recursos locais usando conexões híbridas no Serviço de Aplicativo do Azure](web-sites-hybrid-connection-get-started.md).
+Se seu aplicativo de linha de negócios precisa acessar dados tooon locais, consulte [acessar recursos usando conexões híbridas no serviço de aplicativo do Azure locais](web-sites-hybrid-connection-get-started.md).
 
 <a name="bkmk_resources"></a>
 
@@ -343,6 +343,6 @@ Se o seu aplicativo de linha de negócios precisar acessar dados locais, confira
 * [Autenticação e autorização no Serviço de Aplicativo do Azure](../app-service/app-service-authentication-overview.md)
 * [Autenticar com o Active Directory local em seu aplicativo do Azure](web-sites-authentication-authorization.md)
 * [Criar um aplicativo de linha de negócios no Azure com autenticação do AD FS](web-sites-dotnet-lob-application-adfs.md)
-* [Autenticação do Serviço de Aplicativo e a API do Graph do Azure AD](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
+* [Autenticação do serviço de aplicativo e hello Azure AD Graph API](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
 * [Exemplos e documentação do Microsoft Azure Active Directory](https://github.com/AzureADSamples)
 * [Tipos de declaração e token com suporte no Active Directory do Azure](http://msdn.microsoft.com/library/azure/dn195587.aspx)

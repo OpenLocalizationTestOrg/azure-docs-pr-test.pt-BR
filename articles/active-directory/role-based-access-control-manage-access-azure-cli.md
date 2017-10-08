@@ -1,6 +1,6 @@
 ---
-title: "Gerenciar RBAC (controle de acesso baseado em função) com a CLI do Azure | Microsoft Docs"
-description: "Saiba como gerenciar o RBAC (Controle de Acesso baseado em função) com a interface de linha de comando do Azure listando as funções e ações de função, e atribuindo funções às assinaturas e escopos de aplicativo."
+title: aaaManage baseada em controle de acesso (RBAC) com CLI do Azure | Microsoft Docs
+description: "Saiba como interface toomanage baseada em controle de acesso (RBAC) com hello Azure de linha de comando por função e funções de listagem ações e atribuindo funções toohello escopos de assinatura e o aplicativo."
 services: active-directory
 documentationcenter: 
 author: andredm7
@@ -14,33 +14,33 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: ad644de6d23950e699d99042d27381336626caab
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 438418e5f6ee9b98908c9c264d516eb722a4e26d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Gerenciar o Controle de Acesso baseado em função com a Interface de Linha de Comando do Azure
+# <a name="manage-role-based-access-control-with-hello-azure-command-line-interface"></a>Gerenciar o controle de acesso baseado em função com hello interface de linha de comando do Azure
 > [!div class="op_single_selector"]
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [API REST](role-based-access-control-manage-access-rest.md)
 
 
-Você pode usar o RBAC (Controle de Acesso baseado em função) no Portal do Azure e na API do Azure Resource Manager para gerenciar o acesso a sua assinatura e aos recursos de maneira detalhada. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
+Você pode usar o controle de acesso baseado em função (RBAC) em hello portal do Azure e assinatura do Azure Resource Manager API toomanage acesso tooyour e recursos em um nível granular. Com esse recurso, você pode conceder acesso para usuários, grupos ou entidades de serviço do Active Directory, atribuindo toothem algumas funções em um escopo específico.
 
-Antes de poder usar a CLI (interface de linha de comando) do Azure para gerenciar o RBAC, é necessário ter os seguintes pré-requisitos:
+Antes de usar toomanage de interface de linha de comando (CLI) do Azure Olá RBAC, você deve ter Olá pré-requisitos a seguir:
 
-* CLI do Azure versão 0.8.8 ou posterior. Para instalar a versão mais recente e associá-la à sua assinatura do Azure, consulte [Instalar e configurar a CLI do Azure](../cli-install-nodejs.md).
-* Azure Resource Manager na Azure CLI. Acesse [Usando a Azure CLI com o Resource Manager](../xplat-cli-azure-resource-manager.md) para obter mais detalhes.
+* CLI do Azure versão 0.8.8 ou posterior. versão mais recente do tooinstall hello e associe-o com sua assinatura do Azure, consulte [instalar e configurar Olá CLI do Azure](../cli-install-nodejs.md).
+* Azure Resource Manager na Azure CLI. Vá muito[usando Olá CLI do Azure com o Gerenciador de recursos de hello](../xplat-cli-azure-resource-manager.md) para obter mais detalhes.
 
 ## <a name="list-roles"></a>Listar funções
 ### <a name="list-all-available-roles"></a>Relacionar todas as funções disponíveis
-Para listar todas as funções disponíveis, use:
+toolist todas as funções disponíveis, use:
 
         azure role list
 
-O exemplo a seguir mostra a relação de *todas as funções disponíveis*.
+Olá, exemplo a seguir mostra a lista de saudação do *todas as funções disponíveis*.
 
 ```
 azure role list --json | jq '.[] | {"roleName":.properties.roleName, "description":.properties.description}'
@@ -49,11 +49,11 @@ azure role list --json | jq '.[] | {"roleName":.properties.roleName, "descriptio
 ![Linha de comando do Azure RBAC  - lista de funções do azure - captura de tela](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-list.png)
 
 ### <a name="list-actions-of-a-role"></a>Relacionar ações de uma função
-Para listar as ações de uma função, use:
+ações de saudação toolist de uma função, use:
 
     azure role show "<role name>"
 
-O exemplo a seguir mostra as ações das funções *Colaborador* e *Colaborador da Máquina Virtual*.
+Olá, exemplo a seguir mostra as ações de saudação do hello *Colaborador* e *colaborador da máquina Virtual* funções.
 
 ```
 azure role show "contributor" --json | jq '.[] | {"Actions":.properties.permissions[0].actions,"NotActions":properties.permissions[0].notActions}'
@@ -65,11 +65,11 @@ azure role show "virtual machine contributor" --json | jq '.[] | .properties.per
 
 ## <a name="list-access"></a>Relacionar acesso
 ### <a name="list-role-assignments-effective-on-a-resource-group"></a>Relacionar as atribuições de função como efetivas em um grupo de recursos
-Para listar as atribuições de função que existem em um grupo de recursos, use:
+toolist Olá atribuições de função que existem em um grupo de recursos, use:
 
     azure role assignment list --resource-group <resource group name>
 
-O exemplo a seguir mostra as atribuições de função no grupo *pharma-sales-projecforcast* .
+Olá exemplo a seguir mostra as atribuições de função hello em Olá *pharma de vendas de projecforcast* grupo.
 
 ```
 azure role assignment list --resource-group pharma-sales-projecforcast --json | jq '.[] | {"DisplayName":.properties.aADObject.displayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
@@ -78,15 +78,15 @@ azure role assignment list --resource-group pharma-sales-projecforcast --json | 
 ![Linha de comando do RBAC do Azure – lista de atribuição de funções do Azure por grupo – captura de tela](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
 
 ### <a name="list-role-assignments-for-a-user"></a>Listar as atribuições de função de um usuário
-Para listar as atribuições de função para um usuário específico e as atribuições que são atribuídas aos grupos do usuário, use:
+atribuições de função toolist Olá para um usuário específico e atribuições de saudação que são atribuídas a grupos de usuários tooa, use:
 
     azure role assignment list --signInName <user email>
 
-Você também pode ver as atribuições da função herdadas dos grupos modificando o comando:
+Você também pode ver as atribuições de função são herdadas de grupos, modificando o comando hello:
 
     azure role assignment list --expandPrincipalGroups --signInName <user email>
 
-O exemplo a seguir mostra as atribuições da função concedidas ao usuário *sameert@aaddemo.com* . Isso inclui funções atribuídas diretamente ao usuário e funções herdadas de grupos.
+Olá, exemplo a seguir mostra as atribuições de função de saudação que recebem toohello  *sameert@aaddemo.com*  usuário. Isso inclui funções que são atribuídas diretamente toohello usuário e que são herdadas de grupos.
 
 ```
 azure role assignment list --signInName sameert@aaddemo.com --json | jq '.[] | {"DisplayName":.properties.aADObject.DisplayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
@@ -97,89 +97,89 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 ![Linha de comando do Azure RBAC  - lista de atribuição de funções do azure por usuário - captura de tela](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
 
 ## <a name="grant-access"></a>Conceder acesso
-Para conceder acesso após ter identificado a função que você deseja atribuir, use:
+acesso de toogrant depois de ter identificado a função hello que você deseja tooassign, use:
 
     azure role assignment create
 
-### <a name="assign-a-role-to-group-at-the-subscription-scope"></a>Atribuir uma função ao grupo no escopo da assinatura
-Para atribuir uma função a um grupo no escopo da assinatura, use:
+### <a name="assign-a-role-toogroup-at-hello-subscription-scope"></a>Atribuir um toogroup de função no escopo de assinatura Olá
+tooassign um grupo de tooa de função no escopo de assinatura hello, use:
 
     azure role assignment create --objectId  <group object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
 
-O exemplo a seguir atribui a função *Leitor* à *equipe de Christine Koch* no escopo da *assinatura*.
+Olá, exemplo a seguir atribui Olá *leitor* função muito*equipe de Christine Koch* em Olá *assinatura* escopo.
 
 ![Linha de comando do Azure RBAC – criação de atribuição de funções do Azure por grupo – captura de tela](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-1.png)
 
-### <a name="assign-a-role-to-an-application-at-the-subscription-scope"></a>Atribuir uma função a um aplicativo no escopo da assinatura
-Para atribuir uma função a um aplicativo no escopo da assinatura, use:
+### <a name="assign-a-role-tooan-application-at-hello-subscription-scope"></a>Atribuir um aplicativo de tooan de função no escopo de assinatura Olá
+tooassign um aplicativo de tooan de função no escopo de assinatura hello, use:
 
     azure role assignment create --objectId  <applications object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
 
-O exemplo a seguir concede a função *Colaborador* a um aplicativo *Azure AD* na assinatura selecionada.
+Olá, exemplo a seguir concede Olá *Colaborador* função tooan *AD do Azure* aplicativo hello selecionado assinatura.
 
  ![Linha de comando do Azure RBAC  - criação de atribuição de funções do azure por aplicativo](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-2.png)
 
-### <a name="assign-a-role-to-a-user-at-the-resource-group-scope"></a>Atribuir uma função ao usuário no escopo do grupo de recursos
-Para atribuir uma função a um usuário no escopo do grupo de recursos, use:
+### <a name="assign-a-role-tooa-user-at-hello-resource-group-scope"></a>Atribuir um usuário de tooa de função no escopo do grupo de recursos de saudação
+tooassign um usuário de tooa de função no escopo de grupo de recursos do hello, use:
 
     azure role assignment create --signInName  <user email address> --roleName "<name of role>" --resourceGroup <resource group name>
 
-O exemplo a seguir concede a função *Colaborador da Máquina Virtual* ao usuário *samert@aaddemo.com* no escopo do grupo de recursos *Pharma-Sales-ProjectForcast*.
+Olá, exemplo a seguir concede Olá *colaborador da máquina Virtual* função muito *samert@aaddemo.com*  usuário Olá *Pharma de vendas de ProjectForcast* escopo do grupo de recursos.
 
 ![Linha de comando do RBAC do Azure – criação de atribuição de funções do Azure por usuário – captura de tela](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-3.png)
 
-### <a name="assign-a-role-to-a-group-at-the-resource-scope"></a>Atribuir uma função a um grupo no escopo de recursos
-Para atribuir uma função a um grupo no escopo de recursos, use:
+### <a name="assign-a-role-tooa-group-at-hello-resource-scope"></a>Atribua um grupo de tooa de função no escopo do recurso Olá
+tooassign um grupo de tooa de função no escopo do recurso hello, use:
 
     azure role assignment create --objectId <group id> --role "<name of role>" --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
 
-O exemplo a seguir concede a função *Colaborador da Máquina Virtual* a um grupo do *Azure AD* em uma *sub-rede*.
+Olá, exemplo a seguir concede Olá *colaborador da máquina Virtual* função tooan *AD do Azure* grupo um *sub-rede*.
 
 ![Linha de comando do Azure RBAC – criação de atribuição de funções do Azure por grupo – captura de tela](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-4.png)
 
 ## <a name="remove-access"></a>Remover acesso
-Para remover uma atribuição de função, use:
+tooremove uma atribuição de função, use:
 
-    azure role assignment delete --objectId <object id to from which to remove role> --roleName "<role name>"
+    azure role assignment delete --objectId <object id toofrom which tooremove role> --roleName "<role name>"
 
-O exemplo a seguir remove a atribuição da função *Colaborador da Máquina Virtual* do usuário *sammert@aaddemo.com* no grupo de recursos *Pharma-Sales-ProjectForcast*.
-Em seguida, o exemplo remove a atribuição de função de um grupo na assinatura.
+Olá, exemplo a seguir remove Olá *colaborador da máquina Virtual* atribuição de função de saudação  *sammert@aaddemo.com*  usuário Olá *Pharma de vendas de ProjectForcast* grupo de recursos.
+exemplo Hello, em seguida, remove a atribuição de função de saudação de um grupo na assinatura de saudação.
 
 ![Linha de comando do Azure RBAC  - exclusão de atribuição de funções do azure - captura de tela](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
 
 ## <a name="create-a-custom-role"></a>Criar uma função personalizada
-Para criar uma função personalizada, use:
+toocreate uma função personalizada, use:
 
     azure role create --inputfile <file path>
 
-O exemplo a seguir cria uma função personalizada chamada *Operador de Máquina Virtual*. Essa função personalizada concede acesso a todas as operações de leitura dos provedores de recursos *Microsoft.Compute*, *Microsoft.Storage* e *Microsoft.Network*, além de conceder acesso para iniciar, reiniciar e monitorar máquinas virtuais. Essa função personalizada pode ser usada em duas assinaturas. Este exemplo utiliza um arquivo JSON como entrada.
+Olá, exemplo a seguir cria uma função personalizada chamada *operador de máquina Virtual*. Esta função personalizada que concede acesso tooall ler as operações de *Microsoft. Compute*, *Microsoft*, e *Network* provedores e concede acesso a recursos toostart, reiniciar e monitorar as máquinas virtuais. Essa função personalizada pode ser usada em duas assinaturas. Este exemplo utiliza um arquivo JSON como entrada.
 
 ![JSON - definição de função personalizada - captura de tela](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-1.png)
 
 ![Linha de comando do Azure RBAC  - criação de função do azure - captura de tela](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
 
 ## <a name="modify-a-custom-role"></a>Modificar uma função personalizada
-Para modificar uma função personalizada, use o comando `azure role show` para recuperar a definição da função. Depois, faça as alterações desejadas no arquivo de definição da função. Por fim, use `azure role set` para salvar a definição da função modificada.
+toomodify uma função personalizada, primeiro use Olá `azure role show` comando tooretrieve definição de função. Em seguida, verifique o arquivo de definição de função do hello alterações desejadas toohello. Por fim, use `azure role set` toosave Olá modificou a definição de função.
 
     azure role set --inputfile <file path>
 
-O exemplo a seguir adiciona a operação *Microsoft.Insights/diagnosticSettings/* a **Actions** e uma assinatura do Azure a **AssignableScopes** da função personalizada Operador de Máquina Virtual.
+Olá, exemplo a seguir adiciona Olá *Microsoft.Insights/diagnosticSettings/* operação toohello **ações**e uma assinatura do Azure toohello **AssignableScopes**Olá Máquina Virtual personalizada da função de operador.
 
 ![JSON - modificar definição de função personalizada - captura de tela](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
 
 ![Linha de comando do Azure RBAC  - conjunto de funções do azure - captura de tela](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
 
 ## <a name="delete-a-custom-role"></a>Excluir uma função personalizada
-Para excluir uma função personalizada, primeiro use o comando `azure role show` para determinar a **ID** da função. Em seguida, use o comando `azure role delete` para excluir a função especificando a **ID**.
+toodelete uma função personalizada, primeiro use Olá `azure role show` saudação do comando toodetermine **ID** da função hello. Em seguida, use Olá `azure role delete` função de saudação do comando toodelete especificando Olá **ID**.
 
-O exemplo a seguir remove a função personalizada *Operador de Máquina Virtual* .
+Olá, exemplo a seguir remove Olá *operador de máquina Virtual* função personalizada.
 
 ![Linha de comando do Azure RBAC  - exclusão de funções do azure - captura de tela](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-delete.png)
 
 ## <a name="list-custom-roles"></a>Listar funções personalizadas
-Para listar as funções disponíveis para atribuição em um escopo, use o comando `azure role list` .
+funções de saudação toolist que estão disponíveis para atribuição a um escopo, usar Olá `azure role list` comando.
 
-O comando a seguir lista todas as funções disponíveis para atribuição na assinatura selecionada.
+saudação de comando a seguir lista todas as funções que estão disponíveis para atribuição na assinatura de saudação selecionada.
 
 ```
 azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
@@ -187,7 +187,7 @@ azure role list --json | jq '.[] | {"name":.properties.roleName, type:.propertie
 
 ![Linha de comando do Azure RBAC  - lista de funções do azure - captura de tela](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
 
-No exemplo a seguir, a função personalizada *Operador de Máquina Virtual* não está disponível na assinatura *Production4*, pois essa assinatura não está nos **AssignableScopes** da função.
+Em Olá exemplo a seguir, Olá *operador de máquina Virtual* função personalizada não está disponível no hello *Production4* assinatura porque a assinatura não está em Olá  **AssignableScopes** da função hello.
 
 ```
 azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'

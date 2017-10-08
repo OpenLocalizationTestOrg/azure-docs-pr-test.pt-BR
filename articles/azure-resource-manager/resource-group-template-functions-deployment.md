@@ -1,6 +1,6 @@
 ---
-title: "Funções de modelo do Azure Resource Manager – implantação | Microsoft Docs"
-description: "Descreve as funções a serem usadas em um modelo do Resource Manager para recuperar informações sobre implantação."
+title: "funções de modelo do Gerenciador de recursos aaaAzure - implantação | Microsoft Docs"
+description: "Descreve Olá funções toouse um informações de implantação do Azure Resource Manager modelo tooretrieve."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: d7e6bcd669d40cb19de44b646505856ecd8f51a0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 458c3f740504fdd6799ed24cc386219726737636
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funções de implantação para modelos do Azure Resource Manager 
 
-O Gerenciador de Recursos fornece as seguintes funções para obter os valores de seções do modelo e os valores relacionados à implantação:
+Gerenciador de recursos fornece a seguinte Olá funções para obter valores de seções do modelo de saudação e valores relacionados toohello implantação:
 
 * [implantação](#deployment)
 * [parâmetros](#parameters)
 * [variáveis](#variables)
 
-Para obter valores de recursos, de grupos de recursos ou de assinaturas, veja [Funções de recurso](resource-group-template-functions-resource.md).
+tooget valores de recursos, grupos de recursos ou assinaturas, consulte [funções de recurso](resource-group-template-functions-resource.md).
 
 <a id="deployment" />
 
 ## <a name="deployment"></a>implantação
 `deployment()`
 
-Retorna informações sobre a operação de implantação atual.
+Retorna informações sobre a operação de implantação atual hello.
 
 ### <a name="return-value"></a>Valor de retorno
 
-Essa função retorna o objeto que é passado durante a implantação. As propriedades no objeto retornado vão variar dependendo se o objeto de implantação for transmitido como um link ou como um objeto na linha. Quando o objeto de implantação é passado na linha, como ao usar o parâmetro **-TemplateFile** no Azure PowerShell para apontar para um arquivo local, o objeto retornado tem no seguinte formato:
+Esta função retorna o objeto Olá passado durante a implantação. propriedades Olá Olá retornada objeto diferem com base em se hello implantação objeto é passado como um link ou como um objeto na linha. Quando o objeto de implantação de saudação é passado na linha, como ao usar Olá **- TemplateFile** parâmetro no Azure PowerShell toopoint tooa arquivo local, Olá retornou objeto tem Olá formato a seguir:
 
 ```json
 {
@@ -61,7 +61,7 @@ Essa função retorna o objeto que é passado durante a implantação. As propri
 }
 ```
 
-Quando o objeto é transmitido como um link, como ao usar o parâmetro **- TemplateUri** para apontar para um objeto remoto, o objeto é retornado no seguinte formato: 
+Quando o objeto de saudação é passado como um link, como quando usando Olá **- TemplateUri** parâmetro toopoint tooa remoto do objeto, Olá objeto é retornado no hello formato a seguir: 
 
 ```json
 {
@@ -87,7 +87,7 @@ Quando o objeto é transmitido como um link, como ao usar o parâmetro **- Templ
 
 ### <a name="remarks"></a>Comentários
 
-Você pode usar a implantação() para vincular a outro modelo com base no URI do modelo pai.
+Você pode usar deployment() toolink tooanother modelo com base em Olá URI do modelo-Olá pai.
 
 ```json
 "variables": {  
@@ -97,7 +97,7 @@ Você pode usar a implantação() para vincular a outro modelo com base no URI d
 
 ### <a name="example"></a>Exemplo
 
-O exemplo a seguir retorna o objeto de implantação:
+Olá, exemplo a seguir retorna o objeto de implantação hello:
 
 ```json
 {
@@ -113,7 +113,7 @@ O exemplo a seguir retorna o objeto de implantação:
 }
 ```
 
-O exemplo anterior retorna o seguinte objeto:
+Olá, exemplo anterior retorna Olá objeto a seguir:
 
 ```json
 {
@@ -139,24 +139,24 @@ O exemplo anterior retorna o seguinte objeto:
 
 <a id="parameters" />
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>parâmetros
 `parameters(parameterName)`
 
-Retorna um valor de parâmetro. O nome do parâmetro especificado deve ser definido na seção de parâmetros do modelo.
+Retorna um valor de parâmetro. nome do parâmetro especificado Olá deve ser definido na seção de parâmetros de saudação do modelo de saudação.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| parameterName |Sim |string |O nome do parâmetro a retornar. |
+| parameterName |Sim |string |nome de saudação do hello tooreturn de parâmetro. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-O valor do parâmetro especificado.
+valor Olá Olá especificado o parâmetro.
 
 ### <a name="remarks"></a>Comentários
 
-Normalmente, você usa parâmetros para definir valores de recursos. O exemplo a seguir define o nome do site para o valor do parâmetro passado durante a implantação.
+Normalmente, você pode usar valores de parâmetros de recursos tooset. Olá exemplo a seguir define nome de saudação do valor de parâmetro do site da web toohello passado durante a implantação.
 
 ```json
 "parameters": { 
@@ -176,7 +176,7 @@ Normalmente, você usa parâmetros para definir valores de recursos. O exemplo a
 
 ### <a name="example"></a>Exemplo
 
-O exemplo a seguir mostra um uso simplificado da função parâmetros.
+Olá, exemplo a seguir mostra um uso simplificado da função de parâmetros de saudação.
 
 ```json
 {
@@ -231,7 +231,7 @@ O exemplo a seguir mostra um uso simplificado da função parâmetros.
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -246,21 +246,21 @@ A saída do exemplo anterior com os valores padrão é:
 ## <a name="variables"></a>variáveis
 `variables(variableName)`
 
-Retorna o valor da variável. O nome do parâmetro especificado deve ser definido na seção variáveis do modelo.
+Retorna Olá valor da variável. Olá nome de variável especificado deve ser definido na seção de variáveis de saudação do modelo de saudação.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| variableName |Sim |Cadeia de caracteres |O nome da variável a retornar. |
+| variableName |Sim |Cadeia de caracteres |nome de saudação do tooreturn variável hello. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-O valor da variável especificada.
+valor Olá Olá especificado variável.
 
 ### <a name="remarks"></a>Comentários
 
-Normalmente, você usa variáveis para simplificar seu modelo criando valores complexos apenas uma vez. O exemplo a seguir constrói um nome exclusivo para uma conta de armazenamento.
+Normalmente, você usa variáveis toosimplify seu modelo Criando valores complexos, apenas uma vez. Olá, exemplo a seguir constrói um nome exclusivo para uma conta de armazenamento.
 
 ```json
 "variables": {
@@ -284,7 +284,7 @@ Normalmente, você usa variáveis para simplificar seu modelo criando valores co
 
 ### <a name="example"></a>Exemplo
 
-O modelo de exemplo retorna valores de variáveis diferentes.
+modelo de exemplo Hello retorna valores de variável diferentes.
 
 ```json
 {
@@ -322,7 +322,7 @@ O modelo de exemplo retorna valores de variáveis diferentes.
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -332,8 +332,8 @@ A saída do exemplo anterior com os valores padrão é:
 | exampleOutput4 |  Objeto | {"property1": "value1", "property2": "value2"} |
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
-* Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
-* Para ver como implantar o modelo que você criou, veja [Implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
+* Para obter uma descrição das seções de saudação em um modelo do Gerenciador de recursos do Azure, consulte [modelos de autoria do Azure Resource Manager](resource-group-authoring-templates.md).
+* toomerge vários modelos, consulte [usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
+* tooiterate um número de vezes especificado durante a criação de um tipo de recurso, consulte [criar várias instâncias de recursos no Gerenciador de recursos do Azure](resource-group-create-multiple.md).
+* toosee como modelo de saudação toodeploy que você criou, consulte [implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
 

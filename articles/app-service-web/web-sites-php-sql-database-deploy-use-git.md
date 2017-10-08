@@ -1,6 +1,6 @@
 ---
-title: "Criar um aplicativo Web PHP-SQL e implantá-lo no Serviço de Aplicativo do Azure usando Git"
-description: "Um tutorial que demonstra como criar um aplicativo Web do PHP que armazena dados no Banco de Dados SQL do Azure e usa a implantação do Git para o Serviço de Aplicativo do Azure."
+title: "aaaCreate um SQL do PHP aplicativo da web e implantar tooAzure do serviço de aplicativo usando o Git"
+description: "Um tutorial que demonstra como toocreate um PHP web aplicativo que armazena dados no banco de dados do SQL Azure e usar tooAzure de implantação do Git do serviço de aplicativo."
 services: app-service\web, sql-database
 documentationcenter: php
 author: rmcmurray
@@ -14,90 +14,90 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 0baa3eced3824fec0907ca937c594f127a2bdf8b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: aaacb2fe0787bbcdafa72871912e8d08792be29d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-php-sql-web-app-and-deploy-to-azure-app-service-using-git"></a>Criar um aplicativo Web PHP-SQL e implantá-lo no Serviço de Aplicativo do Azure usando Git
-Este tutorial mostra como criar um aplicativo web do PHP no [serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) que se conecta ao banco de dados SQL do Azure e como implantá-lo usando o Git. Este tutorial presume que você tenha [PHP][install-php], [SQL Server Express][install-SQLExpress], [Drivers da Microsoft para SQL Server para PHP](http://www.microsoft.com/download/en/details.aspx?id=20098) e [Git][install-git] instalados em seu computador. Após a conclusão deste guia, você terá um aplicativo Web PHP/SQL em execução no Azure.
+# <a name="create-a-php-sql-web-app-and-deploy-tooazure-app-service-using-git"></a>Criar um aplicativo web do SQL do PHP e implantar tooAzure do serviço de aplicativo usando o Git
+Este tutorial mostra como toocreate um PHP web app [do serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) que se conecta tooAzure banco de dados SQL e como toodeploy usando Git. Este tutorial presume que você tenha [PHP][install-php], [SQL Server Express][install-SQLExpress], Olá [Drivers da Microsoft para SQL Server para PHP ](http://www.microsoft.com/download/en/details.aspx?id=20098), e [Git] [ install-git] instalado em seu computador. Após a conclusão deste guia, você terá um aplicativo Web PHP/SQL em execução no Azure.
 
 > [!NOTE]
-> É possível instalar e configurar PHP, SQL Server Express, os Drivers da Microsoft para SQL Server para PHP usando o [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
+> Você pode instalar e configurar o PHP, SQL Server Express e Olá Drivers da Microsoft para SQL Server para PHP usando Olá [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 > 
 > 
 
 Você aprenderá:
 
-* Como criar um aplicativo Web do Azure e um banco de dados SQL usando o [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Já que o PHP está habilitado nos Aplicativos Web do Serviço de Aplicativo por padrão, não é necessário nada de especial para executar seu código PHP.
-* Como publicar e publicar novamente o aplicativo no Azure usando o Git.
+* Como toocreate um Azure web app e um banco de dados SQL usando Olá [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Como PHP está habilitado no serviço de aplicativo Web de aplicativos, por padrão, nada de especial é necessário toorun seu código PHP.
+* Como toopublish e publicar novamente o tooAzure de aplicativo usando o Git.
 
-Seguindo este tutorial, você irá criar um aplicativo da web de registro simples no PHP. O aplicativo será hospedado em um Site do Azure. Abaixo, uma captura de tela do aplicativo concluído:
+Seguindo este tutorial, você irá criar um aplicativo da web de registro simples no PHP. aplicativo Hello será hospedado em um site do Azure. É uma captura de tela do aplicativo hello concluída abaixo:
 
 ![Site PHP do Azure](./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png)
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você quiser tooget iniciado com o serviço de aplicativo do Azure antes de se inscrever para uma conta do Azure, vá muito[tente do serviço de aplicativo](https://azure.microsoft.com/try/app-service/), onde você pode criar imediatamente um aplicativo web de curta duração starter no serviço de aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
 ## <a name="create-an-azure-web-app-and-set-up-git-publishing"></a>Criar um aplicativo Web do Azure e configurar a publicação Git
-Siga estas etapas para criar um aplicativo Web do Azure e um banco de dados SQL:
+Siga essas etapas toocreate um aplicativo web do Azure e um banco de dados SQL:
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. Abra o Azure Marketplace clicando no ícone **Novo** no lado superior esquerdo do painel, clique em **Selecionar Tudo** próximo a Marketplace e selecione **Web + Móvel**.
-3. No Marketplace, selecione **Web + Móvel**.
-4. Clique no ícone **Aplicativo Web + SQL** .
-5. Depois de ler a descrição do aplicativo Web + aplicativo SQL, selecione **Criar**.
-6. Clique em cada parte (**Grupo de Recursos**, **Aplicativo Web**, **Banco de Dados** e **Assinatura**) e insira ou selecione valores para os campos obrigatórios:
+1. Faça logon no toohello [Portal do Azure](https://portal.azure.com/).
+2. Abra hello Azure Marketplace clicando Olá **novo** ícone no início de saudação à esquerda do painel de saudação, clique em **Selecionar tudo** tooMarketplace Avançar e selecionando **Web + móvel**.
+3. No hello Marketplace, selecione **Web + móvel**.
+4. Clique em Olá **Web app + SQL** ícone.
+5. Depois de ler a descrição de saudação do aplicativo Web de saudação + SQL aplicativo, selecione **criar**.
+6. Clique em cada parte (**grupo de recursos**, **aplicativo Web**, **banco de dados**, e **assinatura**) e insira ou selecione valores para Olá necessária campos:
    
    * Insira um nome de URL de sua escolha    
    * Configurar credenciais de servidor de banco de dados
-   * Selecione a região mais próxima de você
+   * Selecione Olá região mais próxima tooyou
      
      ![configurar o aplicativo](./media/web-sites-php-sql-database-deploy-use-git/configure-db-settings.png)
-7. Quando terminar de definir o aplicativo Web, clique em **Criar**.
+7. Quando terminar de definir o aplicativo web de saudação, clique em **criar**.
    
-    Quando o aplicativo Web tiver sido criado, o botão **Notificações** piscará **SUCESSO** em verde e abrirá a folha do grupo de recursos para exibir o aplicativo Web e o banco de dados SQL no grupo.
-8. Clique no ícone do aplicativo Web na folha do grupo de recursos para abrir a folha do aplicativo Web.
+    Quando o aplicativo da web de saudação tiver sido criado, Olá **notificações** botão pisca uma verde **êxito** e Olá recurso grupo folha abrir tooshow ambos os Olá web app e hello banco de dados SQL no grupo de saudação.
+8. Clique em ícone do aplicativo da web de saudação na folha de saudação recurso grupo folha tooopen saudação do aplicativo web.
    
     ![grupo de recursos do aplicativo Web](./media/web-sites-php-sql-database-deploy-use-git/resource-group-blade.png)
 9. Em **Configurações**, clique em **Implantação contínua** > **Definir configurações necessárias**. Selecione **Repositório Git local** e clique em **OK**.
    
     ![onde está o código-fonte](./media/web-sites-php-sql-database-deploy-use-git/setup-local-git.png)
    
-    Se não tiver configurado um repositório Git antes, você deverá fornecer um nome de usuário e senha. Para fazer isso, clique em **Configurações** > **Credenciais de implantação** na folha do aplicativo Web.
+    Se não tiver configurado um repositório Git antes, você deverá fornecer um nome de usuário e senha. toodo, clique **configurações** > **credenciais de implantação** na folha do aplicativo da web de saudação.
    
     ![](./media/web-sites-php-sql-database-deploy-use-git/deployment-credentials.png)
-10. Em **Configurações**, clique em **Propriedades** para ver a URL remota do Git que você precisa usar para implantar seu aplicativo PHP posteriormente.
+10. Em **configurações** clique em **propriedades** toosee Olá Git remoto URL precisar toouse toodeploy seu aplicativo PHP mais tarde.
 
 ## <a name="get-sql-database-connection-information"></a>Obter informações da conexão do Banco de Dados SQL
-Para se conectar à instância do banco de dados SQL que está vinculada a seu aplicativo Web, você precisa das informações de conexão, que especificou ao criar o banco de dados. Para obter informações sobre a conexão do Banco de Dados SQL, siga estas etapas:
+instância de banco de dados SQL do toohello tooconnect é vinculada tooyour web app, o será necessário Olá informações de conexão, o que você especificou quando criou o banco de dados de saudação. Olá tooget informações de conexão de banco de dados SQL, siga estas etapas:
 
-1. Na folha do grupo de recursos, clique no ícone do banco de dados SQL.
-2. Na folha do banco de dados SQL, clique em **Configurações** > **Propriedades** e clique em **Mostrar cadeias de conexão de banco de dados**. 
+1. Na folha do grupo de recursos hello, clique em ícone Olá SQL do banco de dados.
+2. Na folha de saudação SQL do banco de dados, clique em **configurações** > **propriedades**, em seguida, clique em **Mostrar cadeias de conexão de banco de dados**. 
    
     ![Exibir propriedades do banco de dados](./media/web-sites-php-sql-database-deploy-use-git/view-database-properties.png)
-3. Na seção **PHP** da caixa de diálogo resultante, anote os valores de `Server`, `SQL Database` e `User Name`. Você usará posteriormente esses valores ao publicar seu aplicativo Web do PHP para o Serviço de Aplicativo do Azure.
+3. De saudação **PHP** seção da caixa de diálogo resultante hello, anote os valores hello para `Server`, `SQL Database`, e `User Name`. Você usará esses valores posteriormente quando publicar seu tooAzure de aplicativo web do PHP do serviço de aplicativo.
 
 ## <a name="build-and-test-your-application-locally"></a>Criar e testar o aplicativo localmente
-O aplicativo Registro é um aplicativo simples do PHP que permite que você se registre em um evento fornecendo seu nome e endereço de email. As informações sobre inscritos anteriores são exibidas em uma tabela. As informações de registro são armazenadas em uma instância do Banco de Dados SQL. O aplicativo consiste em dois arquivos (copie/cole o código disponível abaixo):
+Olá aplicativo de registro é um aplicativo simples do PHP que permite que você tooregister para um evento, fornecendo seu nome e endereço de email. As informações sobre inscritos anteriores são exibidas em uma tabela. As informações de registro são armazenadas em uma instância do Banco de Dados SQL. aplicativo Hello consiste em dois arquivos (código de copiar/colar disponível abaixo):
 
 * **index.php**: exibe um formulário de registro e uma tabela contendo informações sobre o inscrito.
-* **createtable.php**: cria a tabela de Banco de Dados SQL para o aplicativo. Este arquivo será usado apenas uma vez.
+* **CreateTable.PHP**: cria a tabela de banco de dados SQL Olá para o aplicativo hello. Este arquivo será usado apenas uma vez.
 
-Para executar o aplicativo localmente, siga as etapas abaixo. Observe que essas etapas pressupõem que você tem PHP e SQL Server Express definidos em sua máquina local, e que você habilitou a [Extensão PDO para SQL Server][pdo-sqlsrv].
+aplicativo de hello toorun localmente, siga as etapas de saudação abaixo. Observe que essas etapas pressupõem ter PHP e SQL Server Express configurado no seu computador local e que você tenha ativado Olá [extensão PDO para SQL Server][pdo-sqlsrv].
 
-1. Crie um Banco de Dados SQL chamado `registration`. Você pode fazer isso a partir do comando `sqlcmd` com estes comandos:
+1. Crie um Banco de Dados SQL chamado `registration`. Você pode fazer isso de saudação `sqlcmd` prompt de comando com esses comandos:
    
         >sqlcmd -S localhost\sqlexpress -U <local user name> -P <local password>
         1> create database registration
         2> GO    
 2. No diretório raiz de seu aplicativo, crie dois arquivos: um chamado `createtable.php` e outro chamado `index.php`.
-3. Abra o arquivo `createtable.php` em um editor de texto ou IDE e adicione o código abaixo. Esse código será usado para criar a tabela `registration_tbl` no banco de dados `registration`.
+3. Olá abrir `createtable.php` arquivo em um editor de texto ou o IDE e adicione Olá código abaixo. Esse código será usado toocreate Olá `registration_tbl` tabela Olá `registration` banco de dados.
    
         <?php
         // DB connection info
@@ -122,12 +122,12 @@ Para executar o aplicativo localmente, siga as etapas abaixo. Observe que essas 
         echo "<h3>Table created.</h3>";
         ?>
    
-    Observe que você precisa atualizar os valores para <code>$user</code> e <code>$pwd</code> com seu nome de usuário do SQL Server local e a senha.
-4. Em um terminal no diretório raiz do aplicativo, digite o seguinte comando:
+    Observe que você precisará valores hello tooupdate <code>$user</code> e <code>$pwd</code> com seu nome de usuário do SQL Server local e a senha.
+4. Em um terminal no diretório raiz de saudação de saudação de tipo de aplicativo hello comando a seguir:
    
         php -S localhost:8000
-5. Abra um navegador da Web e navegue para **http://localhost:8000/createtable.php**. Isso criará a tabela `registration_tbl` no banco de dados.
-6. Abra o arquivo **index.php** em um editor de texto ou IDE e adicione o código básico de HTML e CSS para a página (o código PHP será adicionado em várias etapas).
+5. Abra um navegador da web e navegue muito**http://localhost:8000/createtable.php**. Isso criará Olá `registration_tbl` tabela no banco de dados de saudação.
+6. Olá abrir **index.php** de arquivos em um editor de texto ou o IDE e adicionar Olá HTML e CSS código básico para a página de saudação (Olá código PHP será adicionado em etapas posteriores).
    
         <html>
         <head>
@@ -148,7 +148,7 @@ Para executar o aplicativo localmente, siga as etapas abaixo. Observe que essas 
         </head>
         <body>
         <h1>Register here!</h1>
-        <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
+        <p>Fill in your name and email address, then click <strong>Submit</strong> tooregister.</p>
         <form method="post" action="index.php" enctype="multipart/form-data" >
               Name  <input type="text" name="name" id="name"/></br>
               Email <input type="text" name="email" id="email"/></br>
@@ -159,14 +159,14 @@ Para executar o aplicativo localmente, siga as etapas abaixo. Observe que essas 
         ?>
         </body>
         </html>
-7. Nas marcas de PHP, adicione o código PHP para conectar ao banco de dados.
+7. Nas marcas PHP de hello, adicione o código PHP para a conexão de banco de dados toohello.
    
         // DB connection info
         $host = "localhost\sqlexpress";
         $user = "user name";
         $pwd = "password";
         $db = "registration";
-        // Connect to database.
+        // Connect toodatabase.
         try {
             $conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
             $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
@@ -175,8 +175,8 @@ Para executar o aplicativo localmente, siga as etapas abaixo. Observe que essas 
             die(var_dump($e));
         }
    
-    Novamente, você precisará atualizar os valores para <code>$user</code> e <code>$pwd</code> com seu nome de usuário do MySQL local e a senha.
-8. Após o código de conexão do banco de dados, adicione código para inserir informações de registro no banco de dados.
+    Novamente, você precisará valores hello tooupdate <code>$user</code> e <code>$pwd</code> com seu nome de usuário do MySQL local e a senha.
+8. Após o código de conexão de banco de dados hello, adicione código para inserir informações de registro no banco de dados de saudação.
    
         if(!empty($_POST)) {
         try {
@@ -197,7 +197,7 @@ Para executar o aplicativo localmente, siga as etapas abaixo. Observe que essas 
         }
         echo "<h3>Your're registered!</h3>";
         }
-9. Finalmente, após o código acima, adicione código para recuperar dados do banco de dados.
+9. Por fim, seguindo o código Olá acima, adicione código para recuperar dados do banco de dados de saudação.
    
         $sql_select = "SELECT * FROM registration_tbl";
         $stmt = $conn->query($sql_select);
@@ -218,10 +218,10 @@ Para executar o aplicativo localmente, siga as etapas abaixo. Observe que essas 
             echo "<h3>No one is currently registered.</h3>";
         }
 
-Agora você pode navegar para **http://localhost:8000/index.php** para testar o aplicativo.
+Agora você pode procurar muito**http://localhost:8000/index.php** tootest aplicativo de hello.
 
 ## <a name="publish-your-application"></a>Publicar seu aplicativo
-Depois de testar o aplicativo localmente, você poderá publicá-lo nos Aplicativos Web do Serviço de Aplicativo do Azure usando o Git. Entretanto, você precisará atualizar a conexão do banco de dados no aplicativo. Usando as informações de conexão de banco de dados obtidas previamente (na seção **Obter informações de conexão de banco de dados SQL**), atualize as seguintes informações nos **dois** arquivos `createdatabase.php` e `index.php` com os valores apropriados:
+Depois de testar seu aplicativo localmente, você pode publicar aplicativos Web do serviço tooApp usando o Git. No entanto, você primeiro precisa de informações de conexão de banco de dados tooupdate Olá no aplicativo hello. Usando informações de conexão de banco de dados Olá obtidos anteriormente (no hello **informações de conexão de banco de dados de SQL obter** seção), atualização Olá informações a seguir **ambos** Olá `createdatabase.php` e `index.php` valores adequados de arquivos com hello:
 
     // DB connection info
     $host = "tcp:<value of Server>";
@@ -230,18 +230,18 @@ Depois de testar o aplicativo localmente, você poderá publicá-lo nos Aplicati
     $db = "<value of SQL Database>";
 
 > [!NOTE]
-> No <code>$host</code>, o valor de servidor deve ser precedido com <code>tcp:</code>.
+> Em Olá <code>$host</code>, valor de saudação do servidor deve ser precedida com <code>tcp:</code>.
 > 
 > 
 
-Agora, você está pronto para configurar a publicação Git e publicar o aplicativo.
+Agora, você está pronto tooset a publicação no Git e publica o aplicativo hello.
 
 > [!NOTE]
-> Essas são as mesmas etapas indicadas no final da seção **Criar um aplicativo web do Azure e configurar a publicação do Git** , acima.
+> Esses são Olá mesmas etapas observadas no fim de saudação do hello **criar um aplicativo web do Azure e configurar a publicação de Git** seção acima.
 > 
 > 
 
-1. Abra GitBash (ou um terminal, se o Git estiver em seu `PATH`), altere os diretórios para o diretório raiz de seu aplicativo (o diretório de **registro** ) e execute os seguintes comandos:
+1. Abrir GitBash (ou um terminal, se for Git no seu `PATH`), alterar diretórios toohello diretório de raiz do seu aplicativo (Olá **registro** directory), e execução Olá comandos a seguir:
    
         git init
         git add .
@@ -249,27 +249,27 @@ Agora, você está pronto para configurar a publicação Git e publicar o aplica
         git remote add azure [URL for remote repository]
         git push azure master
    
-    Será solicitada a senha que você criou anteriormente.
-2. Navegue até **http://[nome do aplicativo Web].azurewebsites.net/createtable.php** para criar a tabela do banco de dados SQL para o aplicativo.
-3. Navegue até **http://[nome do aplicativo Web].azurewebsites.net/index.php** para começar a usar o aplicativo.
+    Você será solicitado para senha Olá criado anteriormente.
+2. Procurar muito**http://[web aplicativo name].azurewebsites.net/createtable.php** toocreate tabela de banco de dados SQL Olá para o aplicativo hello.
+3. Procurar muito**http://[web aplicativo name].azurewebsites.net/index.php** toobegin usando o aplicativo hello.
 
-Depois de ter publicado seu aplicativo, você pode começar a fazer alterações nele e usar o Git para publicá-lo. 
+Depois de publicar seu aplicativo, você pode começar a fazer alterações tooit e usar o Git toopublish-los. 
 
-## <a name="publish-changes-to-your-application"></a>Publicar alterações em seu aplicativo
-Para publicar alterações no aplicativo, siga estas etapas:
+## <a name="publish-changes-tooyour-application"></a>Publicar alterações tooyour aplicativo
+toopublish altera tooapplication, siga estas etapas:
 
-1. Faça alterações em seu aplicativo localmente.
-2. Abra GitBash (ou um terminal, se o Git estiver em seu `PATH`), altere os diretórios para o diretório raiz de seu aplicativo e execute os seguintes comandos:
+1. Faça alterações tooyour aplicativo localmente.
+2. Abra GitBash (ou um terminal it Git está no seu `PATH`), altere o diretório de raiz de toohello de diretórios do seu aplicativo e executar Olá comandos a seguir:
    
         git add .
         git commit -m "comment describing changes"
         git push azure master
    
-    Será solicitada a senha que você criou anteriormente.
-3. Navegue até **http://[nome do aplicativo Web].azurewebsites.net/index.php** para ver suas alterações.
+    Você será solicitado para senha Olá criado anteriormente.
+3. Procurar muito**http://[web aplicativo name].azurewebsites.net/index.php** toosee suas alterações.
 
 ## <a name="whats-changed"></a>O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para um guia toohello alteração de sites tooApp serviço consulte: [do serviço de aplicativo do Azure e seu impacto sobre os serviços do Azure existente](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062

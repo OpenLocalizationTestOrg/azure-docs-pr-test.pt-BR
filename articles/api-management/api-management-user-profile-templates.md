@@ -1,6 +1,6 @@
 ---
-title: "Modelos de perfil de usuário no Gerenciamento de API do Azure | Microsoft Docs"
-description: "Saiba como personalizar o conteúdo das páginas de Perfil de usuário no portal do desenvolvedor do Gerenciamento de API do Azure."
+title: "AAA \"modelos de perfil de usuário no gerenciamento de API do Azure | Microsoft Docs\""
+description: "Saiba como páginas de conteúdo toocustomize Olá Olá perfil de usuário no portal do desenvolvedor Olá no gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 9a11bd5800068a5725ab2f099043993bff0b28d8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c8f153b310221164809acf58e4af236928ceb41d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modelos de perfil de usuário no Gerenciamento de API do Azure
-O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configura o respectivo conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como o [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), bem como um conjunto fornecido de [Recursos de cadeia de caracteres](api-management-template-resources.md#strings), [Recursos do Glyph](api-management-template-resources.md#glyphs) e [Controles de página](api-management-page-controls.md) localizados, você tem grande flexibilidade para configurar o conteúdo das páginas, conforme a necessidade, usando esses modelos.  
+Gerenciamento de API do Azure fornece que Olá conteúdo de saudação toocustomize capacidade de páginas de portal do desenvolvedor usando um conjunto de modelos que configurar seu conteúdo. Usando [DotLiquid](http://dotliquidmarkup.org/) sintaxe e hello editor de sua escolha, como [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de localizadas [recursos de cadeia de caracteres](api-management-template-resources.md#strings), [ Recursos de glifo](api-management-template-resources.md#glyphs), e [página controles](api-management-page-controls.md), você tiver um grande flexibilidade tooconfigure Olá conteúdo das páginas hello como desejar usar esses modelos.  
   
- Os modelos desta seção permitem personalizar o conteúdo das páginas de perfil de usuário no portal do desenvolvedor.  
+ Olá modelos nesta seção permitem toocustomize conteúdo de saudação de páginas de perfil de usuário Olá no portal do desenvolvedor hello.  
   
 -   [Perfil](#Profile)  
   
@@ -34,10 +34,10 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 -   [Atualizar informações da conta](#UpdateAccountInfo)  
   
 > [!NOTE]
->  Os modelos de amostra padrão estão incluídos na documentação a seguir, mas estão sujeitos à alteração devido a melhorias contínuas. Você pode exibir os modelos padrão em tempo real no portal do desenvolvedor, navegando até os modelos individuais desejados. Para saber mais sobre como trabalhar com modelos, confira [Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Modelos de padrão de exemplo estão incluídos no hello documentação a seguir, mas são toochange assunto devido a melhorias toocontinuous. Você pode exibir modelos do saudação padrão em tempo real no portal do desenvolvedor Olá navegando modelos individuais toohello desejado. Para obter mais informações sobre como trabalhar com modelos, consulte [como toocustomize Olá portal do desenvolvedor do gerenciamento de API usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ##  <a name="Profile"></a> Perfil  
- O modelo **perfil** permite que você personalize a seção de perfil do usuário da página correspondente no portal do desenvolvedor.  
+ Olá **perfil** modelo permite que você toocustomize seção de perfil de usuário Olá da página de perfil de usuário Olá no portal do desenvolvedor hello.  
   
  ![Página de perfil do usuário](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Página de perfil do usuário de APIM")  
   
@@ -99,21 +99,21 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ### <a name="data-model"></a>Modelo de dados  
   
 > [!NOTE]
->  Os modelos [Perfil](#Profile), [Aplicativos](#Applications) e [Assinaturas](#Subscriptions) compartilham o mesmo modelo de dados e recebem os mesmos dados de modelo.  
+>  Olá [perfil](#Profile), [aplicativos](#Applications), e [assinaturas](#Subscriptions) modelos compartilham Olá mesmo dados modelam e recebem Olá mesmos dados de modelo.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|firstName|string|O primeiro nome do usuário atual.|  
-|lastName|string|O sobrenome do usuário atual.|  
-|companyName|string|O nome da empresa do usuário atual.|  
-|addresserEmail|string|Endereço de email do usuário atual.|  
-|developersUsageStatisticsLinkk|string|URL relativa para exibir a análise para o usuário atual.|  
-|subscriptions|Coleção de entidades de [Assinatura](api-management-template-data-model-reference.md#Subscription).|As assinaturas da usuário atual.|  
-|de dimensionamento da Web|Coleção de entidades de [Aplicativo](api-management-template-data-model-reference.md#Application).|Os aplicativos do usuário atual.|  
-|changePasswordUrl|string|A URL relativa para alterar a senha do usuário atual.|  
-|changeNameOrEmailUrl|string|A URL relativa para alterar o nome e o email para o usuário atual.|  
-|canChangePassword|booleano|Se o usuário atual pode alterar sua senha.|  
-|isSystemUser|booleano|Se o usuário atual é membro de um dos [grupos](api-management-key-concepts.md#groups) internos.|  
+|firstName|string|Nome do usuário atual hello.|  
+|lastName|string|Sobrenome do usuário atual hello.|  
+|companyName|string|nome da empresa do usuário atual Olá Olá.|  
+|addresserEmail|string|Endereço de email do usuário atual hello.|  
+|developersUsageStatisticsLinkk|string|Análise de tooview de URL relativo para o usuário atual hello.|  
+|subscriptions|Coleção de entidades de [Assinatura](api-management-template-data-model-reference.md#Subscription).|assinaturas de saudação para o usuário atual hello.|  
+|de dimensionamento da Web|Coleção de entidades de [Aplicativo](api-management-template-data-model-reference.md#Application).|aplicativos de saudação do usuário atual hello.|  
+|changePasswordUrl|string|Olá relativo URL toochange Olá senha do usuário atual.|  
+|changeNameOrEmailUrl|string|Olá relativo toochange Olá nome e o email para o usuário atual hello.|  
+|canChangePassword|Booliano|Se o usuário atual Olá pode alterar sua senha.|  
+|isSystemUser|Booliano|Se o usuário atual Olá é um membro de uma das interno de saudação [grupos](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Amostra de dados do modelo  
   
@@ -130,7 +130,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
             "Id": "57026e30de15d80041070001",  
             "ProductId": "57026e30de15d80041060001",  
             "ProductTitle": "Starter",  
-            "ProductDescription": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",  
+            "ProductDescription": "Subscribers will be able toorun 5 calls/minute up tooa maximum of 100 calls/week.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060001",  
             "State": "Active",  
             "DisplayName": "Starter  (default)",  
@@ -153,7 +153,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
             "Id": "57026e30de15d80041070002",  
             "ProductId": "57026e30de15d80041060002",  
             "ProductTitle": "Unlimited",  
-            "ProductDescription": "Subscribers have completely unlimited access to the API. Administrator approval is required.",  
+            "ProductDescription": "Subscribers have completely unlimited access toohello API. Administrator approval is required.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060002",  
             "State": "Active",  
             "DisplayName": "Unlimited  (default)",  
@@ -182,7 +182,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ##  <a name="Subscriptions"></a> Assinaturas  
- O modelo **Assinaturas** permite que você personalize a seção de assinaturas da página de perfil do usuário no portal do desenvolvedor.  
+ Olá **assinaturas** modelo permite que você toocustomize seção de assinaturas de saudação da página de perfil de usuário Olá no portal do desenvolvedor hello.  
   
  ![Página de assinatura de usuário](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Página de assinatura de usuário do APIM")  
   
@@ -313,28 +313,28 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ### <a name="controls"></a>Controles  
- Este modelo pode usar os seguintes [controles de página](api-management-page-controls.md).  
+ Esse modelo pode usar a seguinte Olá [página controles](api-management-page-controls.md).  
   
 -   [subscription-cancel](api-management-page-controls.md#subscription-cancel)  
   
 ### <a name="data-model"></a>Modelo de dados  
   
 > [!NOTE]
->  Os modelos [Perfil](#Profile), [Aplicativos](#Applications) e [Assinaturas](#Subscriptions) compartilham o mesmo modelo de dados e recebem os mesmos dados de modelo.  
+>  Olá [perfil](#Profile), [aplicativos](#Applications), e [assinaturas](#Subscriptions) modelos compartilham Olá mesmo dados modelam e recebem Olá mesmos dados de modelo.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|firstName|string|O primeiro nome do usuário atual.|  
-|lastName|string|O sobrenome do usuário atual.|  
-|companyName|string|O nome da empresa do usuário atual.|  
-|addresserEmail|string|Endereço de email do usuário atual.|  
-|developersUsageStatisticsLinkk|string|URL relativa para exibir a análise para o usuário atual.|  
-|subscriptions|Coleção de entidades de [Assinatura](api-management-template-data-model-reference.md#Subscription).|As assinaturas da usuário atual.|  
-|de dimensionamento da Web|Coleção de entidades de [Aplicativo](api-management-template-data-model-reference.md#Application).|Os aplicativos do usuário atual.|  
-|changePasswordUrl|string|A URL relativa para alterar a senha do usuário atual.|  
-|changeNameOrEmailUrl|string|A URL relativa para alterar o nome e o email para o usuário atual.|  
-|canChangePassword|booleano|Se o usuário atual pode alterar sua senha.|  
-|isSystemUser|booleano|Se o usuário atual é membro de um dos [grupos](api-management-key-concepts.md#groups) internos.|  
+|firstName|string|Nome do usuário atual hello.|  
+|lastName|string|Sobrenome do usuário atual hello.|  
+|companyName|string|nome da empresa do usuário atual Olá Olá.|  
+|addresserEmail|string|Endereço de email do usuário atual hello.|  
+|developersUsageStatisticsLinkk|string|Análise de tooview de URL relativo para o usuário atual hello.|  
+|subscriptions|Coleção de entidades de [Assinatura](api-management-template-data-model-reference.md#Subscription).|assinaturas de saudação para o usuário atual hello.|  
+|de dimensionamento da Web|Coleção de entidades de [Aplicativo](api-management-template-data-model-reference.md#Application).|aplicativos de saudação do usuário atual hello.|  
+|changePasswordUrl|string|Olá relativo URL toochange Olá senha do usuário atual.|  
+|changeNameOrEmailUrl|string|Olá relativo toochange Olá nome e o email para o usuário atual hello.|  
+|canChangePassword|Booliano|Se o usuário atual Olá pode alterar sua senha.|  
+|isSystemUser|Booliano|Se o usuário atual Olá é um membro de uma das interno de saudação [grupos](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Amostra de dados do modelo  
   
@@ -351,7 +351,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
             "Id": "57026e30de15d80041070001",  
             "ProductId": "57026e30de15d80041060001",  
             "ProductTitle": "Starter",  
-            "ProductDescription": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",  
+            "ProductDescription": "Subscribers will be able toorun 5 calls/minute up tooa maximum of 100 calls/week.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060001",  
             "State": "Active",  
             "DisplayName": "Starter  (default)",  
@@ -374,7 +374,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
             "Id": "57026e30de15d80041070002",  
             "ProductId": "57026e30de15d80041060002",  
             "ProductTitle": "Unlimited",  
-            "ProductDescription": "Subscribers have completely unlimited access to the API. Administrator approval is required.",  
+            "ProductDescription": "Subscribers have completely unlimited access toohello API. Administrator approval is required.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060002",  
             "State": "Active",  
             "DisplayName": "Unlimited  (default)",  
@@ -403,7 +403,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ##  <a name="Applications"></a> Aplicativos  
- O modelo **Aplicativos** permite que você personalize a seção de aplicativos da página de perfil do usuário no portal do desenvolvedor.  
+ Olá **aplicativos** modelo permite que você toocustomize seção de assinaturas de saudação da página de perfil de usuário Olá no portal do desenvolvedor hello.  
   
  ![Página Aplicativos da conta de usuário](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Página Aplicativos da conta de usuário de APIM")  
   
@@ -476,28 +476,28 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ### <a name="controls"></a>Controles  
- Este modelo pode usar os seguintes [controles de página](api-management-page-controls.md).  
+ Esse modelo pode usar a seguinte Olá [página controles](api-management-page-controls.md).  
   
 -   [app-actions](api-management-page-controls.md#app-actions)  
   
 ### <a name="data-model"></a>Modelo de dados  
   
 > [!NOTE]
->  Os modelos [Perfil](#Profile), [Aplicativos](#Applications) e [Assinaturas](#Subscriptions) compartilham o mesmo modelo de dados e recebem os mesmos dados de modelo.  
+>  Olá [perfil](#Profile), [aplicativos](#Applications), e [assinaturas](#Subscriptions) modelos compartilham Olá mesmo dados modelam e recebem Olá mesmos dados de modelo.  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|firstName|string|O primeiro nome do usuário atual.|  
-|lastName|string|O sobrenome do usuário atual.|  
-|companyName|string|O nome da empresa do usuário atual.|  
-|addresserEmail|string|Endereço de email do usuário atual.|  
-|developersUsageStatisticsLinkk|string|URL relativa para exibir a análise para o usuário atual.|  
-|subscriptions|Coleção de entidades de [Assinatura](api-management-template-data-model-reference.md#Subscription).|As assinaturas da usuário atual.|  
-|de dimensionamento da Web|Coleção de entidades de [Aplicativo](api-management-template-data-model-reference.md#Application).|Os aplicativos do usuário atual.|  
-|changePasswordUrl|string|A URL relativa para alterar a senha do usuário atual.|  
-|changeNameOrEmailUrl|string|A URL relativa para alterar o nome e o email para o usuário atual.|  
-|canChangePassword|booleano|Se o usuário atual pode alterar sua senha.|  
-|isSystemUser|booleano|Se o usuário atual é membro de um dos [grupos](api-management-key-concepts.md#groups) internos.|  
+|firstName|string|Nome do usuário atual hello.|  
+|lastName|string|Sobrenome do usuário atual hello.|  
+|companyName|string|nome da empresa do usuário atual Olá Olá.|  
+|addresserEmail|string|Endereço de email do usuário atual hello.|  
+|developersUsageStatisticsLinkk|string|Análise de tooview de URL relativo para o usuário atual hello.|  
+|subscriptions|Coleção de entidades de [Assinatura](api-management-template-data-model-reference.md#Subscription).|assinaturas de saudação para o usuário atual hello.|  
+|de dimensionamento da Web|Coleção de entidades de [Aplicativo](api-management-template-data-model-reference.md#Application).|aplicativos de saudação do usuário atual hello.|  
+|changePasswordUrl|string|Olá relativo URL toochange Olá senha do usuário atual.|  
+|changeNameOrEmailUrl|string|Olá relativo toochange Olá nome e o email para o usuário atual hello.|  
+|canChangePassword|Booliano|Se o usuário atual Olá pode alterar sua senha.|  
+|isSystemUser|Booliano|Se o usuário atual Olá é um membro de uma das interno de saudação [grupos](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Amostra de dados do modelo  
   
@@ -514,7 +514,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
             "Id": "57026e30de15d80041070001",  
             "ProductId": "57026e30de15d80041060001",  
             "ProductTitle": "Starter",  
-            "ProductDescription": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",  
+            "ProductDescription": "Subscribers will be able toorun 5 calls/minute up tooa maximum of 100 calls/week.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060001",  
             "State": "Active",  
             "DisplayName": "Starter  (default)",  
@@ -537,7 +537,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
             "Id": "57026e30de15d80041070002",  
             "ProductId": "57026e30de15d80041060002",  
             "ProductTitle": "Unlimited",  
-            "ProductDescription": "Subscribers have completely unlimited access to the API. Administrator approval is required.",  
+            "ProductDescription": "Subscribers have completely unlimited access toohello API. Administrator approval is required.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060002",  
             "State": "Active",  
             "DisplayName": "Unlimited  (default)",  
@@ -566,7 +566,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ##  <a name="UpdateAccountInfo"></a> Atualizar informações da conta  
- O modelo **Atualizar informações da conta** permite que você personalize a página **Atualizar informações da conta** no portal do desenvolvedor.  
+ Olá **Uodate as informações de conta** modelo permite Olá toocustomize **atualizar informações de conta** página no portal do desenvolvedor hello.  
   
  ![Modelos do portal do desenvolvedor da página de informações conta de usuário](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "Modelos do portal do desenvolvedor da página de informações conta de usuário do APIM")  
   
@@ -623,4 +623,4 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como trabalhar com modelos, confira [Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos](api-management-developer-portal-templates.md).
+Para obter mais informações sobre como trabalhar com modelos, consulte [como toocustomize Olá portal do desenvolvedor do gerenciamento de API usando modelos](api-management-developer-portal-templates.md).

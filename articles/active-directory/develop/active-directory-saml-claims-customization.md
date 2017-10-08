@@ -1,6 +1,6 @@
 ---
-title: "Personalizando as declarações emitidas no token SAML para aplicativos pré-integrados no Azure Active Directory | Microsoft Docs"
-description: "Saiba como personalizar as declarações emitidas no token SAML para aplicativos pré-integrados no Azure Active Directory"
+title: "aaaCustomizing declarações emitidas no token SAML Olá para aplicativos pré-integrados no Active Directory do Azure | Microsoft Docs"
+description: "Saiba como toocustomize Olá declarações emitidas no hello token SAML para aplicativos pré-integrados no Active Directory do Azure"
 services: active-directory
 documentationcenter: 
 author: jeevansd
@@ -15,66 +15,66 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 6d232759630fcc567788a8326b566b659f89d17a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: a376318929472403e799f02fdd3fbddc91d0a70c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps-in-azure-active-directory"></a>Personalizando as declarações emitidas no token SAML para aplicativos pré-integrados no Active Directory do Azure
-Hoje, o Azure Active Directory dá suporte a milhares de aplicativos pré-integrados na Galeria de Aplicativos do Azure AD, incluindo mais de 360 que dão suporte ao logon único usando o protocolo SAML 2.0. Quando um usuário é autenticado em um aplicativo por meio do Azure AD usando SAML, o Azure AD envia um token ao aplicativo (por um HTTP POST). Em seguida, o aplicativo é validado e usa o token para conectar o usuário em vez de solicitar um nome de usuário e a senha. Esses tokens SAML contêm partes de informações sobre o usuário conhecidas como "declarações".
+# <a name="customizing-claims-issued-in-hello-saml-token-for-pre-integrated-apps-in-azure-active-directory"></a>Personalizando declarações emitidas em Olá token SAML para aplicativos pré-integrados no Active Directory do Azure
+Atualmente o Active Directory do Azure dá suporte a milhares de aplicativos pré-integrados em Olá Galeria de aplicativos do Azure AD, incluindo mais 360 que dão suporte a logon único usando o protocolo de saudação SAML 2.0. Quando um usuário se autentica tooan aplicativo por meio do AD do Azure usando SAML, o AD do Azure envia um aplicativo de token toohello (por meio de um HTTP POST). E, em seguida, o aplicativo hello valida e usa Olá toolog token Olá usuário em vez de solicitar um nome de usuário e senha. Esses tokens SAML contêm informações sobre o usuário Olá conhecido como "declarações".
 
-Em linguagem de identificação, uma "declaração" são informações que um provedor de identidade declara sobre um usuário dentro do token que ele emite para esse usuário. No [Token SAML](http://en.wikipedia.org/wiki/SAML_2.0), esses dados normalmente estão contidos na Instrução de Atributo SAML. A ID única do usuário é normalmente representada na SAML Subject, também denominada Identificador de Nome.
+Em linguagem de identificação, uma declaração de"" informações que declara um provedor de identidade sobre um usuário dentro do token Olá que emitem para esse usuário. Em [token SAML](http://en.wikipedia.org/wiki/SAML_2.0), esses dados geralmente contidos em Olá SAML atributo de instrução. Olá ID exclusiva do usuário é representado geralmente em hello, que também chamado de assunto SAML como identificador de nome.
 
-Por padrão, o Azure Active Directory emite um token SAML ao seu aplicativo que contém uma declaração NameIdentifier com um valor do nome do usuário (também conhecido como nome UPN) no Azure AD. Esse valor pode identificar exclusivamente o usuário. O token SAML também contém declarações adicionais com o endereço de email, nome e sobrenome do usuário.
+Por padrão, o Active Directory do Azure emite um aplicativo de tooyour token SAML que contém uma declaração NameIdentifier, com um valor de saudação do usuário (conhecidos como UPN) no AD do Azure. Esse valor pode identificar exclusivamente o usuário hello. token SAML Olá também contém declarações adicionais que contém o endereço de email do usuário Olá, nome e sobrenome.
 
-Para exibir ou editar as declarações emitidas no token SAML para o aplicativo, abra o aplicativo no Portal do Azure. Em seguida, marque a caixa de seleção **Exibir e editar todos os outros atributos de usuário** na seção **Atributos de Usuário** do aplicativo.
+tooview ou editar Olá as declarações emitidas no hello aplicativo toohello token de SAML, aplicativo hello abrir no portal do Azure. Selecione Olá **exibir e editar todos os outros atributos de usuário** caixa de seleção no hello **atributos de usuário** seção de aplicativo hello.
 
 ![Seção Atributos de usuário][1]
 
-Há dois possíveis motivos para você precisar editar as declarações emitidas no token SAML:
-* O aplicativo foi escrito para exigir um conjunto diferente de URIs ou valores de declaração.
-* O aplicativo foi implantado de uma forma que exige que a declaração NameIdentifier seja algo diferente do nome de usuário (também conhecido como nome UPN) armazenado no Azure Active Directory.
+Há dois motivos possíveis quais declarações de saudação tooedit emitidas no token SAML Olá pode ser necessário:
+* aplicativo Hello gravou toorequire outro conjunto de declaração URIs ou valores de declaração.
+* aplicativo Hello foi implantado em uma forma que requer toobe de declaração NameIdentifier Olá algo diferente de nome de usuário da saudação (conhecidos como UPN) armazenados no Active Directory do Azure.
 
-Você pode editar qualquer um dos valores de declaração padrão. Selecione a linha de declaração na tabela de atributos do token SAML. Isso abre a seção **Editar atributo** e, em seguida, é possível editar o nome, valor e namespace da declaração associado a ela.
+Você pode editar qualquer um dos valores de declaração saudação padrão. Selecione a linha de declaração de saudação na tabela de atributos de token de SAML hello. Isso abre o hello **Editar atributo** seção e, em seguida, você pode editar a declaração de nome, valor e namespace associado Olá declaração.
 
 ![Editar Atributo de Usuário][2]
 
-Também é possível remover declarações (que não sejam NameIdentifier) usando o menu de contexto, aberto clicando no ícone **...**.  Também é possível adicionar novas declarações usando o botão **Adicionar atributo**.
+Você também pode remover declarações (que não sejam NameIdentifier) usando o menu de contexto hello, que abre clicando em Olá **...**  ícone.  Você também pode adicionar novas declarações usando Olá **Adicionar atributo** botão.
 
 ![Editar Atributo de Usuário][3]
 
-## <a name="editing-the-nameidentifier-claim"></a>Editando a declaração NameIdentifier
-Para resolver o problema no qual o aplicativo foi implantado usando um nome de usuário diferente, clique na lista suspensa **Identificador de Usuário** na seção **Atributos de Usuário**. Essa ação apresenta uma caixa de diálogo com várias opções diferentes:
+## <a name="editing-hello-nameidentifier-claim"></a>Edição Olá declaração NameIdentifier
+problema de saudação toosolve onde o aplicativo hello foi implantado usando um nome de usuário diferente, clique em Olá **identificador de usuário** suspensa no hello **atributos de usuário** seção. Essa ação apresenta uma caixa de diálogo com várias opções diferentes:
 
 ![Editar Atributo de Usuário][4]
 
-Na lista suspensa, selecione **user.mail** para definir a declaração NameIdentifier como o endereço de email do usuário no diretório. Ou selecione **user.onpremisessamaccountname** para definir como o Nome da Conta SAM do usuário sincronizado do Azure AD local.
+No hello lista suspensa, selecione **user.mail** tooset Olá NameIdentifier declaração endereço de email do usuário de saudação toobe no diretório de saudação. Ou, selecione **user.onpremisessamaccountname** nome de conta do SAM do tooset toohello usuário sincronizado a partir do Azure AD local.
 
-Também é possível usar a função especial **ExtractMailPrefix()** para remover o sufixo de domínio do endereço de email, Nome da Conta SAM ou do nome UPN. Isso extrai somente a primeira parte do nome de usuário que está sendo passada (por exemplo, "joe_smith" em vez de joe_smith@contoso.com).
+Você também pode usar o hello especial **ExtractMailPrefix()** sufixo do domínio Olá função tooremove de endereço de email Olá, nome de conta SAM ou Olá UPN. Isso extrai somente a primeira parte de saudação do usuário Olá nome que está sendo passado (por exemplo, "joe_smith" em vez de joe_smith@contoso.com).
 
 ![Editar Atributo de Usuário][5]
 
-Agora também adicionamos a função **join()** para ingressar no domínio verificado com o valor do identificador de usuário. quando você seleciona a função join() no **Identificador de Usuário**, primeiro selecione o identificador de usuário como o endereço de email ou nome UPN e, em seguida, na segunda lista suspensa, selecione seu domínio verificado. Se você selecionar o endereço de email com o domínio verificado, o Azure AD extrai o nome de usuário do primeiro valor joe_smith de joe_smith@contoso.com e o acrescenta com contoso.onmicrosoft.com. Veja os exemplos a seguir:
+Agora também adicionamos Olá **JOIN ()** saudação do função toojoin verificar o domínio com valor de identificador de usuário hello. Quando você seleciona a função do hello JOIN () em Olá **identificador de usuário** primeiro selecione Olá identificador de usuário, como o nome da entidade usuário ou endereço de email e na Olá segunda lista suspensa, selecione o domínio verificado. Se você selecionar o endereço de email de saudação com domínio verificado hello, o AD do Azure extrai Olá username de saudação primeiro valor joe_smith de joe_smith@contoso.com e acrescenta com contoso.onmicrosoft.com. Consulte Olá exemplo a seguir:
 
 ![Editar Atributo de Usuário][6]
 
 ## <a name="adding-claims"></a>Adicionando declarações
-Ao adicionar uma declaração, você pode especificar o nome do atributo (que não precisa seguir rigidamente um padrão de URI de acordo com a especificação SAML). Defina o valor para qualquer atributo de usuário armazenado no diretório.
+Ao adicionar uma declaração, você pode especificar o nome do atributo hello (que não precisará toofollow um padrão URI de acordo com a especificação SAML Olá). Definir Olá valor tooany atributo de usuário que é armazenado no diretório de saudação.
 
 ![Adicionar Atributo de Usuário][7]
 
-Por exemplo, você precisa enviar o departamento ao qual o usuário pertence na organização como uma declaração (por exemplo, Vendas). Insira o nome da declaração conforme esperado pelo aplicativo e, em seguida, selecione **user.department** como o valor.
+Por exemplo, você precisa toosend departamento Olá Olá usuário pertence tooin sua organização como uma declaração (por exemplo, vendas). Insira o nome da declaração Olá conforme o esperado pelo aplicativo hello e, em seguida, selecione **User. Department** como valor de saudação.
 
 > [!NOTE]
-> Se, para um determinado usuário, não houver valor armazenado para um atributo selecionado, essa declaração não será emitida no token.
+> Se para um determinado usuário, não há nenhum valor armazenado para um atributo selecionado, essa declaração não está sendo emitida no token de saudação.
 
 > [!TIP]
-> Há suporte para **user.onpremisesecurityidentifier** e **user.onpremisesamaccountname** apenas ao sincronizar os dados de usuário do Active Directory local usando a [ferramenta Azure AD Connect](../active-directory-aadconnect.md).
+> Olá **user.onpremisesecurityidentifier** e **user.onpremisesamaccountname** somente têm suporte quando a sincronização de dados de usuário do local do Active Directory usando Olá [Azure Ferramenta de conexão do AD](../active-directory-aadconnect.md).
 
 ## <a name="restricted-claims"></a>Declarações restritas
 
-Há algumas declarações restritas no SAML. Se você adicionar essas declarações, então o Azure AD não as enviará. O conjunto de declarações restritas do SAML são os seguintes:
+Há algumas declarações restritas no SAML. Se você adicionar essas declarações, então o Azure AD não as enviará. A seguir é Olá SAML restrito conjunto de declarações:
 
     | Tipo de declaração (URI) |
     | ------------------- |
@@ -127,7 +127,7 @@ Há algumas declarações restritas no SAML. Se você adicionar essas declaraç�
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](../active-directory-apps-index.md)
-* [Configurando logon único para aplicativos que não estão na galeria de aplicativo do Active Directory do Azure](../active-directory-saas-custom-apps.md)
+* [Configurando um único logon tooapplications que não estão na Galeria de aplicativos do Active Directory do Azure Olá](../active-directory-saas-custom-apps.md)
 * [Solução de problemas de logon único baseado em SAML](active-directory-saml-debugging.md)
 
 <!--Image references-->

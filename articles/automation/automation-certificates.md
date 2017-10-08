@@ -1,6 +1,6 @@
 ---
-title: "Ativos de certificado na Automação do Azure | Microsoft Docs"
-description: "Os certificados podem ser armazenados com segurança na Automação do Azure para que possam ser acessados pelos runbooks ou pelas configurações DSC para serem autenticados em recursos do Azure e de terceiros.  Este artigo explica os detalhes de certificados e como trabalhar com elas na criação textual e gráfica."
+title: "ativos de aaaCertificate na automação do Azure | Microsoft Docs"
+description: "Certificados podem ser armazenados com segurança na automação do Azure para que eles possam ser acessados por runbooks ou tooauthenticate de configurações DSC no Azure e os recursos de terceiros.  Este artigo explica detalhes de saudação de certificados e como toowork-los na criação de texto e gráfico."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/19/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: fd1737a420c132dace9307436bfea98a9bde94a0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2c25bee937890438ea9022669be2c24c77a110b4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Ativos de certificado na Automação do Azure
 
-Os certificados podem ser armazenados com segurança na Automação do Azure para que possam ser acessados pelos runbooks ou pelas configurações DSC usando a atividade **Get-AzureRmAutomationRmCertificate** para recursos do Azure Resource Manager. Isso permite criar runbooks e configurações DSC que usam certificados para autenticação ou adicioná-los a recursos do Azure ou de terceiros.
+Certificados podem ser armazenados com segurança na automação do Azure para que eles possam ser acessados por runbooks ou configurações de DSC usando Olá **AzureRmAutomationRmCertificate Get** atividade para recursos do Gerenciador de recursos do Azure. Isso permite que você toocreate runbooks e as configurações de DSC que usam certificados para autenticação ou adiciona recursos tooAzure ou de terceiros.
 
 > [!NOTE] 
-> Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é criptografada por um certificado mestre e armazenada na Automação do Azure. Antes de armazenar um ativo seguro, a chave para a conta de automação é descriptografada usando o certificado mestre e usada para criptografar o ativo.
+> Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados em Olá automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é criptografada por um certificado mestre e armazenada na Automação do Azure. Antes de armazenar um ativo seguro, chave Olá para conta de automação de saudação é descriptografado usando certificado mestre hello e usado tooencrypt ativo de saudação.
 > 
 
 ## <a name="windows-powershell-cmdlets"></a>Cmdlets do Windows PowerShell
 
-Os cmdlets na tabela a seguir são usados para criar e gerenciar ativos de certificados de automação com o Windows PowerShell. Eles são fornecidos como parte do [módulo do Azure PowerShell](../powershell-install-configure.md) que está disponível para uso em runbooks e na configuração DSC da Automação.
+cmdlets Olá Olá a tabela a seguir são usada toocreate e gerenciar ativos de certificado de automação com o Windows PowerShell. Eles são fornecidos como parte da saudação [módulo Azure PowerShell](../powershell-install-configure.md) que está disponível para uso em runbooks de automação e configurações de DSC.
 
 |Cmdlets|Descrição|
 |:---|:---|
-|[Get-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx)|Obtém informações sobre um certificado a ser usado em um runbook ou configuração DSC. Você só pode recuperar o certificado propriamente dito da atividade Get-AutomationCertificate.|
+|[Get-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx)|Recupera informações sobre toouse um certificado em um runbook ou a configuração DSC. Você só pode recuperar o certificado de saudação da atividade de Get-AutomationCertificate.|
 |[New-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603604.aspx)|Cria um novo certificado para a Automação do Azure.|
 [Remove-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603529.aspx)|Remove um certificado da Automação do Azure.|Cria um novo certificado para a Automação do Azure.
-|[Set-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603760.aspx)|Define as propriedades para um certificado existente, incluindo o carregamento do arquivo de certificado e a definição da senha para um. pfx.|
-|[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Carrega um certificado de serviço para o serviço de nuvem especificado.|
+|[Set-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603760.aspx)|Define as propriedades de saudação para um certificado existente, incluindo o carregamento de arquivo de certificado hello e a senha de saudação de configuração para um. pfx.|
+|[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Carrega um serviço de certificado para Olá especificado serviço de nuvem.|
 
 
 ## <a name="creating-a-new-certificate"></a>Criando um novo certificado
 
-Ao criar um novo certificado, você carrega um arquivo .cer ou .pfx na Automação do Azure. Se marcar certificado como exportável, você poderá transferi-lo do repositório de certificados da Automação do Azure. Se ele não for exportável, ele só poderá ser usado para a assinatura no runbook ou na configuração DSC.
+Quando você cria um novo certificado, você pode carregar um tooAzure de arquivo. cer ou. pfx automação. Se você marcar certificado hello como exportável, você pode transferi-lo fora do repositório de certificados de automação do Azure hello. Se não for exportável, ele pode apenas ser usado para assinatura no runbook hello ou configuração de DSC.
 
 
-### <a name="to-create-a-new-certificate-with-the-azure-portal"></a>Para criar um novo certificado com o portal do Azure
+### <a name="toocreate-a-new-certificate-with-hello-azure-portal"></a>toocreate um novo certificado com hello portal do Azure
 
-1. Na sua conta de automação, clique no bloco **Ativos** para abrir a folha **Ativos**.
-1. Clique no bloco **Certificados** para abrir a folha **Certificados**.
-1. Clique em **Adicionar um certificado** na parte superior da folha.
-2. Digite um nome para o certificado na caixa **Nome** .
-2. Clique em **Selecionar um arquivo** em **Carregar um arquivo de certificado** para procurar um arquivo .cer ou .pfx.  Se você selecionar um arquivo .pfx, especifique uma senha e se ele deve ter permissão para ser exportado.
-1. Clique em **Criar** para salvar o novo ativo de certificado.
+1. Na sua conta de automação, clique em Olá **ativos** bloco tooopen Olá **ativos** folha.
+1. Clique em Olá **certificados** bloco tooopen Olá **certificados** folha.
+1. Clique em **adicionar um certificado** na parte superior de saudação da folha de saudação.
+2. Digite um nome para o certificado de saudação Olá **nome** caixa.
+2. Clique em **selecionar um arquivo** em **carregar um arquivo de certificado** toobrowse para um arquivo. cer ou. pfx.  Se você selecionar um arquivo. pfx, especifique uma senha e se ele deve ter permissão toobe exportado.
+1. Clique em **criar** toosave Olá novo certificado ativo.
 
 
-### <a name="to-create-a-new-certificate-with-windows-powershell"></a>Para criar um novo certificado com o Windows PowerShell
+### <a name="toocreate-a-new-certificate-with-windows-powershell"></a>toocreate um novo certificado com o Windows PowerShell
 
-O exemplo a seguir mostra como criar um novo Certificado de automação e marcá-lo como exportável. Isso importa um arquivo .pfx existente.
+Olá exemplo a seguir demonstra como toocreate automação uma novo certificado e marcá-la exportável. Isso importa um arquivo .pfx existente.
 
     $certName = 'MyCertificate'
     $certPath = '.\MyCert.pfx'
@@ -69,11 +69,11 @@ O exemplo a seguir mostra como criar um novo Certificado de automação e marcá
 
 ## <a name="using-a-certificate"></a>Usando um certificado
 
-Você deve usar a atividade **Get-AutomationCertificate** para usar um certificado. Não é possível usar o cmdlet [Get-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx), pois ele retorna informações sobre o ativo de certificado, mas não sobre o próprio certificado.
+Você deve usar o hello **Get-AutomationCertificate** toouse de atividade um certificado. Você não pode usar o hello [AzureRmAutomationCertificate Get](https://msdn.microsoft.com/library/mt603765.aspx) cmdlet desde que ele retorna informações sobre o ativo de certificado hello, mas não Olá próprio certificado.
 
 ### <a name="textual-runbook-sample"></a>Exemplo de runbook textual
 
-O código de exemplo a seguir mostra como adicionar um certificado a um serviço de nuvem em um runbook. Nesse exemplo, a senha é recuperada de uma variável de automação criptografada.
+Olá, código de exemplo a seguir mostra como o serviço em um runbook de nuvem tooadd tooa um certificado. Neste exemplo, a senha Olá é recuperada de uma variável de automação criptografada.
 
     $serviceName = 'MyCloudService'
     $cert = Get-AutomationCertificate -Name 'MyCertificate'
@@ -83,15 +83,15 @@ O código de exemplo a seguir mostra como adicionar um certificado a um serviço
 
 ### <a name="graphical-runbook-sample"></a>Exemplo de runbook gráfico
 
-Você adiciona **Get-AutomationCertificate** a um runbook gráfico clicando com o botão direito no certificado no painel Biblioteca do editor gráfico e selecionando **Adicionar à tela**.
+Adicionar um **Get-AutomationCertificate** tooa runbook gráfico clicando no certificado de saudação no painel de biblioteca de saudação do editor gráfico hello e selecionando **adicionar toocanvas**.
 
-![Adicionar certificado à tela](media/automation-certificates/automation-certificate-add-to-canvas.png)
+![Adicionar certificado toohello tela](media/automation-certificates/automation-certificate-add-to-canvas.png)
 
-A imagem a seguir mostra um exemplo do uso de um certificado em um runbook gráfico.  Esse é o mesmo exemplo mostrado acima para adicionar um certificado a um serviço de nuvem de um runbook textual.
+Olá imagem a seguir mostra um exemplo de como usar um certificado em um runbook gráfico.  Isso é hello mesmo exemplo mostrado acima para adicionar um serviço de nuvem tooa certificado de um runbook textual.
 
 ![Exemplo de criação gráfica ](media/automation-certificates/graphical-runbook-add-certificate.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre como trabalhar com links para controlar o fluxo lógico de atividades que o seu runbook é projetado para realizar, consulte [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow). 
+- toolearn mais sobre como trabalhar com o fluxo lógico de saudação do toocontrol de links de atividades de runbook é projetado tooperform, consulte [Links no gráfico de criação](automation-graphical-authoring-intro.md#links-and-workflow). 

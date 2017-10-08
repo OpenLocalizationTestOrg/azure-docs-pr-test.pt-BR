@@ -1,6 +1,6 @@
 ---
-title: "Sobre Aplicativos Móveis no Serviço de Aplicativo do Azure"
-description: "Saiba mais sobre as vantagens que o Serviço de Aplicativo traz para seus aplicativos móveis corporativos."
+title: "aaaAbout aplicativos móveis no serviço de aplicativo do Azure"
+description: "Saiba mais sobre as vantagens de saudação que o serviço de aplicativo traz tooyour enterprise aplicativos móveis."
 services: app-service\mobile
 documentationcenter: 
 author: ggailey777
@@ -14,50 +14,50 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: ac35ff9fe1c5f315c4de08de951f505627ec412b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ab96af11c3df196acfb9ecec1339e7f6093c7066
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="getting-started"> </a>Sobre Aplicativos Móveis no Serviço de Aplicativo do Azure
-O Serviço de Aplicativo do Azure é uma oferta de [PaaS](https://azure.microsoft.com/overview/what-is-paas/) (plataforma como um serviço) para desenvolvedores profissionais. O serviço oferece um conjunto avançado de recursos para cenários Web, móveis e de integração. 
+O Serviço de Aplicativo do Azure é uma oferta de [PaaS](https://azure.microsoft.com/overview/what-is-paas/) (plataforma como um serviço) para desenvolvedores profissionais. serviço Olá traz um conjunto avançado de recursos tooweb, móveis e integração de cenários. 
 
-O recurso Aplicativos Móveis do Serviço de Aplicativo do Azure dá aos desenvolvedores empresariais e integradores de sistema uma plataforma de desenvolvimento de aplicativos móveis que é altamente dimensionável e globalmente disponível.
+recurso de aplicativos móveis de saudação do serviço de aplicativo do Azure oferece aos desenvolvedores corporativos e plataforma de desenvolvimento do sistema integradores de um aplicativo móvel que é altamente escalonável e disponível globalmente.
 
 ![Visão geral dos recursos dos Aplicativos Móveis](./media/app-service-mobile-value-prop/overview.png)
 
 ## <a name="why-mobile-apps"></a>Por que os aplicativos móveis?
-Com o recurso Aplicativos Móveis, você pode:
+Com o recurso de aplicativos móveis Olá, você pode:
 
 * **Criar aplicativos nativos e multiplataforma**: quer você esteja criando aplicativos nativos iOS, Android e Windows ou aplicativos Xamarin ou Cordova (PhoneGap) multiplataforma, você pode aproveitar o Serviço de Aplicativo usando SDKs nativos.
-* **Conectar-se a seus sistemas corporativos**: com o recurso Aplicativos Móveis, você pode adicionar logon corporativo em minutos e conectar-se aos recursos locais ou de nuvem de sua empresa.
-* **Criar aplicativos prontos para uso offline com sincronização de dados**: torne sua força de trabalho móvel mais produtiva por meio da criação de aplicativos que trabalham offline e use Aplicativos Móveis para sincronizar dados em segundo plano quando houver conectividade com qualquer uma das suas origens de dados corporativos ou APIs SaaS (software como um serviço).
-* **Notificações por push para milhões em segundos**: atraia seus clientes com notificações instantâneas de envio por push em qualquer dispositivo, personalizadas segundo suas necessidades e enviadas na hora certa.
+* **Conectar sistemas de enterprise tooyour**: com recurso de aplicativos móveis Olá, você pode adicionar entrada corporativa em minutos e se conectar tooyour enterprise local ou recursos de nuvem.
+* **Compilar aplicativos prontos para off-line com sincronização de dados**: sua força de trabalho móvel mais produtivos criando aplicativos que trabalhar offline e usar aplicativos móveis toosync dados no plano de fundo hello quando a conectividade estiver presente com qualquer uma das suas fontes de dados da empresa ou software como serviço (SaaS) APIs.
+* **Enviar notificações toomillions em segundos**: envolver seus clientes instantânea notificações por push em qualquer dispositivo personalizado tootheir necessidades e enviado quando o tempo de saudação é adequado.
 
 ## <a name="mobile-apps-features"></a>Recursos dos Aplicativos Móveis
-Os recursos a seguir são importantes para o desenvolvimento móvel habilitado para nuvem:
+Olá recursos a seguir é importante habilitado toocloud desenvolvimento móvel:
 
-* **Autenticação e autorização**: selecione em uma lista crescente de provedores de identidade, incluindo o Azure Active Directory para autenticação corporativa, além de provedores sociais, como contas do Facebook, do Google, do Twitter e da Microsoft. Os Aplicativos Móveis oferecem um serviço OAuth 2.0 para cada provedor. Você também pode integrar o SDK do provedor de identidade à funcionalidade específica do provedor.
+* **Autenticação e autorização**: selecione em uma lista crescente de provedores de identidade, incluindo o Azure Active Directory para autenticação corporativa, além de provedores sociais, como contas do Facebook, do Google, do Twitter e da Microsoft. Os Aplicativos Móveis oferecem um serviço OAuth 2.0 para cada provedor. Você também pode integrar hello SDK para o provedor de identidade Olá para a funcionalidade específica do provedor.
 
     Descubra mais sobre os nossos [recursos de autenticação].
 
-* **Acesso a Dados**: os Aplicativos Móveis fornecem uma fonte de dados OData v3 compatível com dispositivos móveis vinculada ao Banco de Dados SQL do Azure ou a um SQL Server local. Como esse serviço pode ser baseado no Entity Framework, você pode integrar facilmente com outros provedores de dados NoSQL e SQL, incluindo o [Armazenamento de Tabelas do Azure], o MongoDB, o [Azure Cosmos DB] e os provedores de API SaaS, como o Office 365 e o Salesforce.com.
+* **Acesso a dados**: aplicativos móveis fornece uma fonte de dados de v3 OData de dispositivos móveis que foi vinculada tooAzure banco de dados SQL ou um SQL server local. Como esse serviço pode ser baseado no Entity Framework, você pode integrar facilmente com outros provedores de dados NoSQL e SQL, incluindo o [Armazenamento de Tabelas do Azure], o MongoDB, o [Azure Cosmos DB] e os provedores de API SaaS, como o Office 365 e o Salesforce.com.
 
-* **Sincronização offline**: os SDKs do nosso cliente facilita a criação de aplicativos móveis robustos e dinâmicos que funcionam com um conjunto de dados offline. Você pode sincronizar esse conjunto de dados automaticamente com os dados de back-end, incluindo o suporte a resolução de conflitos.
+* **Sincronização offline**: nosso cliente SDKs tornar fácil toobuild robusto e responsivo aplicativos móveis que funcionam com um conjunto de dados offline. Você pode sincronizar esse conjunto de dados automaticamente com dados de back-end hello, incluindo o suporte de resolução de conflitos.
 
   Descubra mais sobre nossos [recursos de dados].
 
-* **Notificações por push**: nossos SDKs de cliente se integram perfeitamente aos recursos de registro dos Hubs de Notificação do Azure, permitindo que você envie notificações por push para milhões de usuários simultaneamente.
+* **Notificações por push**: nosso cliente SDKs integração perfeita com recursos de registro de saudação de Hubs de notificação do Azure, portanto você pode enviar por push notificações toomillions de usuários simultaneamente.
 
   Descubra mais sobre os nossos [recursos de notificação por push].
 
 * **SDKs de Cliente**: fornecemos um conjunto completo de SDKs de Cliente que abrangem o desenvolvimento nativo ([iOS], [Android] e [Windows]), desenvolvimento de plataforma cruzada ([Xamarin.iOS e Xamarin.Android], [Xamarin.Forms]) e o desenvolvimento de aplicativos híbridos ([Apache Cordova]). Cada SDK de cliente está disponível com uma licença MIT e é software livre.
 
 ## <a name="azure-app-service-features"></a>Recursos do Serviço de Aplicativo do Azure
-Os recursos de plataforma abaixo são úteis para sites de produção móvel:
+Olá recursos da plataforma a seguir é úteis para sites de produção móvel:
 
-* **Dimensionamento automático**: com o Serviço de Aplicativo, você pode escalar verticalmente ou horizontalmente de maneira fácil para lidar com todas as cargas clientes de entrada. Selecione o número e o tamanho das VMs manualmente ou configure o dimensionamento automático para dimensionar seu back-end de aplicativo móvel com base na carga ou a agenda.
+* **Dimensionamento automático**: com o serviço de aplicativo, você pode rapidamente escalar verticalmente ou expansão toohandle qualquer carga de cliente de entrada. Manualmente selecione Olá número e o tamanho das VMs, ou configurar seu aplicativo móvel back-end com base na carga ou agenda tooscale de dimensionamento automático.
 
   Descubra mais sobre o [dimensionamento automático].
 
@@ -65,11 +65,11 @@ Os recursos de plataforma abaixo são úteis para sites de produção móvel:
 
   Descubra mais sobre [ambientes de preparo].
 
-* **Implantação contínua**: o Serviço de Aplicativo pode integrar sistemas SCM (Gerenciador de Controle de Serviço) comuns, permitindo que você implante automaticamente uma nova versão do seu back-end por push para uma ramificação de seu sistema SCM.
+* **Implantação contínua**: serviço de aplicativo pode integrar sistemas de gerenciamento (SCM) de cadeia de fornecimento comum, para que você pode implantar automaticamente uma nova versão do seu back-end por push o branch tooa do seu sistema SCM.
 
   Descubra mais sobre [opções de implantação].
 
-* **Rede virtual**: o Serviço de Aplicativo pode se conectar a recursos locais usando a rede virtual, o Azure ExpressRoute ou conexões híbridas.
+* **Rede virtual**: serviço de aplicativo pode se conectar a recursos locais tooon por meio de conexões de rede, a rota expressa do Azure ou híbrido virtuais.
 
   Descubra mais sobre as [conexões híbridas], as [redes virtuais] e o [ExpressRoute].
 
@@ -79,15 +79,15 @@ Os recursos de plataforma abaixo são úteis para sites de produção móvel:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar a usar os Aplicativos Móveis no Serviço de Aplicativo do Azure, conclua o tutorial de [introdução]. O tutorial abrange os fundamentos da produção de um back-end móvel e um cliente de sua escolha. Ele também aborda a integração de autenticação, sincronização offline e notificações por push. Você pode concluir o tutorial várias vezes, uma vez para cada aplicativo cliente.
+tooget iniciado com aplicativos móveis no serviço de aplicativo do Azure, Olá completa [Introdução] tutorial. tutorial Olá abrange as Noções básicas de saudação de produção de volta um celular terminar e cliente de sua escolha. Ele também aborda a integração de autenticação, sincronização offline e notificações por push. Você pode concluir o tutorial de saudação várias vezes, uma vez para cada aplicativo cliente.
 
 Para saber mais sobre Aplicativos Móveis, reveja nosso [mapa de aprendizado].
-Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure].
+Para obter mais informações sobre a plataforma do serviço de aplicativo do Azure hello, consulte [do serviço de aplicativo do Azure].
 
 <!-- URLs. -->
-[Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[Serviço de Aplicativo do Azure]: ../app-service/app-service-value-prop-what-is.md
-[introdução]: app-service-mobile-ios-get-started.md
+[Migrate your mobile service tooApp Service]: app-service-mobile-migrating-from-mobile-services.md
+[do serviço de aplicativo do Azure]: ../app-service/app-service-value-prop-what-is.md
+[Introdução]: app-service-mobile-ios-get-started.md
 [Armazenamento de Tabelas do Azure]:../cosmos-db/table-storage-how-to-use-dotnet.md
 [Azure Cosmos DB]: ../cosmos-db/documentdb-get-started.md
 [recursos de autenticação]: ./app-service-mobile-auth.md

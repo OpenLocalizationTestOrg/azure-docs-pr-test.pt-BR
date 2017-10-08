@@ -1,5 +1,5 @@
 ---
-title: "Introdução à Área de Trabalho do Windows no Azure AD v2 – Configuração | Microsoft Docs"
+title: "aaaAzure AD v2 Windows Desktop Introdução - Config | Microsoft Docs"
 description: "Como um aplicativo .NET da Área de Trabalho do Windows (XAML) pode obter um token de acesso e chamar uma API protegida pelo ponto de extremidade do Azure Active Directory v2."
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,19 +15,19 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 5e83171846517496e221f0a84565cdf7b77514df
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d96d9eded200824a6f7ee234009dd0bb11b18b39
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-## <a name="add-the-applications-registration-information-to-your-app"></a>Adicionar as informações de registro do aplicativo ao aplicativo
-Nesta etapa, você precisa adicionar a ID do Aplicativo ao projeto.
+## <a name="add-hello-applications-registration-information-tooyour-app"></a>Adicionar aplicativo de tooyour de informações de registro do aplicativo hello
+Nesta etapa, você precisa de projeto de tooyour tooadd Olá Id do aplicativo.
 
-1.  Abra `App.xaml.cs` e substitua a linha que contém a `ClientId` por:
+1.  Abra `App.xaml.cs` e substitua a linha hello contendo Olá `ClientId` com:
 
 ```csharp
-private static string ClientId = "[Enter the application Id here]";
+private static string ClientId = "[Enter hello application Id here]";
 ```
 
 ### <a name="what-is-next"></a>Próximas etapas

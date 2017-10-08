@@ -1,5 +1,5 @@
 ---
-title: "Armazenar dados não estruturados usando o Azure Functions e o Cosmos DB"
+title: "aaaStore dados não estruturados usando funções do Azure e banco de dados do Cosmos"
 description: "Armazenar dados não estruturados usando o Azure Functions e o Cosmos DB"
 services: functions
 documentationcenter: functions
@@ -17,23 +17,23 @@ ms.workload: na
 ms.date: 08/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 7c18676ff94ec7da17094abc5f33fb3c6a79895f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 48d6899c20d3e6f6b062725fca329972ead3c696
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-cosmos-db"></a>Armazenar dados não estruturados usando o Azure Functions e o Cosmos DB
 
-O [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) é uma ótima maneira de armazenar dados não estruturados e JSON. Combinado com o Azure Functions, o Cosmos DB torna o armazenamento de dados rápido e fácil com muito menos código do que o necessário para armazenar dados em um banco de dados relacional.
+[Banco de dados do Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/) é uma ótima maneira toostore não estruturado e dados JSON. Combinado com o Azure Functions, o Cosmos DB torna o armazenamento de dados rápido e fácil com muito menos código do que o necessário para armazenar dados em um banco de dados relacional.
 
-No Azure Functions, associações de entrada e saída fornecem uma maneira declarativa para se conectar a dados de serviço externo de sua função. Neste tópico, saiba como atualizar uma função existente em C# a fim de adicionar uma associação de saída que armazena dados não estruturados em um documento do Cosmos DB. 
+Em funções do Azure, as associações de entrada e saídas fornecem um forma declarativa tooconnect tooexternal serviço de dados de sua função. Neste tópico, Aprenda como tooupdate um existente c# função tooadd uma associação de saída que armazena dados não estruturados em um documento de banco de dados do Cosmos. 
 
 ![Banco de Dados Cosmos](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial:
+toocomplete este tutorial:
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
@@ -41,42 +41,42 @@ Para concluir este tutorial:
 
 1. Expanda seu aplicativo de funções e sua função.
 
-1. Selecione **Integrar** e **+Nova Saída**, que está na parte superior direita da página. Escolha **Azure Cosmos DB** e clique em **Selecionar**.
+1. Selecione **integrar** e **+ nova saída**, que está no hello parte superior direita da página de saudação. Escolha **Azure Cosmos DB** e clique em **Selecionar**.
 
     ![Adicionar uma associação de saída do Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-add-new-output-binding.png)
 
-3. Use a configuração **Saída do Azure Cosmos DB** conforme especificado na tabela: 
+3. Saudação de uso **saída de banco de dados do Azure Cosmos** configurações conforme especificado na tabela de saudação: 
 
     ![Configurar associação de saída do Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-configure-cosmosdb-binding.png)
 
     | Configuração      | Valor sugerido  | Descrição                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Nome do parâmetro do documento** | taskDocument | Nome que se refere ao objeto do Cosmos DB no código. |
-    | **Nome do banco de dados** | taskDatabase | Nome do banco de dados para salvar os documentos. |
+    | **Nome do parâmetro do documento** | taskDocument | Nome que se refere o objeto de banco de dados do Cosmos toohello no código. |
+    | **Nome do banco de dados** | taskDatabase | Nome de documentos de toosave do banco de dados. |
     | **Nome da coleção** | TaskCollection | Nome da coleção dos bancos de dados Cosmos DB. |
-    | **Se for true, cria o banco de dados e a coleção do Cosmos DB** | Verificado | A coleção ainda não existe, então crie uma. |
+    | **Se true, cria a coleção e o banco de dados de banco de dados do Cosmos Olá** | Verificado | coleção de saudação não existir, então criá-lo. |
 
-4. Selecione **Novo** ao lado do rótulo **Conexão de documento do Cosmos DB** e selecione **+ Criar novo**. 
+4. Selecione **novo** toohello próximo **conexão do banco de dados do Cosmos documento** rótulo e selecione **+ criar novo**. 
 
-5. Use a configuração de **Nova conta**, conforme especificado na tabela: 
+5. Saudação de uso **nova conta** configurações conforme especificado na tabela de saudação: 
 
     ![Configurar a conexão do Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-CosmosDB.png)
 
     | Configuração      | Valor sugerido  | Descrição                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **ID** | Nome do banco de dados | ID exclusiva para o banco de dados do Cosmos DB  |
-    | **API** | SQL (DocumentDB) | Selecione a API do banco de dados do documento.  |
+    | **ID** | Nome do banco de dados | ID exclusiva para o banco de dados de banco de dados do Cosmos Olá  |
+    | **API** | SQL (DocumentDB) | Selecione Olá API de banco de dados de documento.  |
     | **Assinatura** | Assinatura do Azure | Assinatura do Azure  |
-    | **Grupo de recursos** | myResourceGroup |  Use o grupo de recursos existente que contém seu aplicativo de função. |
-    | **Localidade**  | WestEurope | Selecione um local próximo ao seu aplicativo de função ou a outros aplicativos que usam os documentos armazenados.  |
+    | **Grupo de recursos** | myResourceGroup |  Use Olá grupo de recursos existente que contém seu aplicativo de função. |
+    | **Localidade**  | WestEurope | Selecione um local perto tooeither seu aplicativo de função ou tooother aplicativos que usam Olá documentos armazenados.  |
 
-6. Clique em **OK** para criar o banco de dados. A criação do banco de dados pode demorar alguns minutos. Após a criação do banco de dados, a cadeia de conexão de banco de dados é armazenada como uma configuração de aplicativo de função. O nome dessa configuração de aplicativo é inserido na **conexão da conta do Cosmos DB**. 
+6. Clique em **Okey** o banco de dados do toocreate hello. Ele pode levar o banco de dados Olá toocreate de alguns minutos. Após a criação do banco de dados hello, cadeia de conexão de banco de dados de saudação é armazenada como uma configuração de aplicativo de função. nome da saudação dessa configuração de aplicativo é inserido no **conexão de conta do banco de dados do Cosmos**. 
  
-8. Após definir a cadeia de conexão, selecione **Salvar** para criar a associação.
+8. Após definir a cadeia de caracteres de conexão Olá, selecione **salvar** toocreate associação de saudação.
 
-## <a name="update-the-function-code"></a>Atualizar o código de função
+## <a name="update-hello-function-code"></a>Atualizar o código de função hello
 
-Substitua o código existente da função em C# pelo código a seguir:
+Substitua Olá c# função código existente pelo Olá código a seguir:
 
 ```csharp
 using System.Net;
@@ -110,11 +110,11 @@ public static HttpResponseMessage Run(HttpRequestMessage req, out object taskDoc
 }
 
 ```
-Esse exemplo de código lê as cadeias de consulta da Solicitação HTTP e as atribui a campos no objeto `taskDocument`. A associação `taskDocument` envia os dados do objeto desse parâmetro de associação para armazenamento no banco de dados de documento associado. O banco de dados é criado na primeira execução da função.
+Este exemplo de código lê Olá solicitação HTTP cadeias de caracteres de consulta e os atribui toofields em Olá `taskDocument` objeto. Olá `taskDocument` associação envia dados de objeto de saudação de toobe de parâmetro essa associação armazenado no banco de dados de documento de saudação. Olá banco de dados criado Olá primeira vez Olá função é executada.
 
-## <a name="test-the-function-and-database"></a>Testar a função e o banco de dados
+## <a name="test-hello-function-and-database"></a>Função de saudação do teste e o banco de dados
 
-1. Expanda a janela direita e selecione **Testar**. Em **Consulta**, clique em **+ Adicionar parâmetro** e adicione os seguintes parâmetros à cadeia de consulta:
+1. Expanda a janela direita hello e selecione **teste**. Em **consulta**, clique em **+ Adicionar parâmetro** e adicione Olá cadeia de caracteres de consulta de toohello parâmetros a seguir:
 
     + `name`
     + `task`
@@ -124,15 +124,15 @@ Esse exemplo de código lê as cadeias de consulta da Solicitação HTTP e as at
 
     ![Configurar associação de saída do Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png)
 
-1. No lado esquerdo do Portal do Azure, expanda a barra de ícones, digite `cosmos` no campo de pesquisa e selecione **Azure Cosmos DB**.
+1. Na Olá lado esquerdo da saudação portal do Azure, expanda a barra de ícones Olá, tipo `cosmos` em Olá pesquisar o campo e selecione **o banco de dados do Azure Cosmos**.
 
-    ![Procure o serviço do Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
+    ![Pesquisar Olá serviço de banco de dados do Cosmos](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
 
-2. Selecione o banco de dados que você criou e **Data Explorer**. Expanda os nós **Coleções**, selecione o novo documento e confirme se o documento contém os valores de cadeia de consulta, juntamente com alguns metadados adicionais. 
+2. Banco de dados selecione Olá criado por você, em seguida, selecione **Data Explorer**. Expanda Olá **coleções** nós, selecione Olá novo documento e confirmar esse documento hello contém os valores de cadeia de caracteres de consulta, juntamente com alguns metadados adicionais. 
 
     ![Verifique a entrada do Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
 
-Você adicionou com êxito uma associação ao gatilho HTTP que armazena dados não estruturados em um banco de dados do Cosmos DB.
+Você adicionou com êxito um gatilho HTTP tooyour de associação que armazena dados não estruturados em um banco de dados do banco de dados do Cosmos.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
@@ -140,4 +140,4 @@ Você adicionou com êxito uma associação ao gatilho HTTP que armazena dados n
 
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
 
-Para saber mais sobre a associação a um banco de dados Cosmos DB, veja [Associações do Azure Functions Cosmos DB](functions-bindings-documentdb.md).
+Para obter mais informações sobre o banco de dados de banco de dados do Cosmos de tooa associação, consulte [associações de banco de dados do Azure funções Cosmos](functions-bindings-documentdb.md).

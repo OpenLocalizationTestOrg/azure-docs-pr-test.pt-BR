@@ -1,6 +1,6 @@
 ---
 title: "Introdução - Fazer backup de VMs do Azure com um cofre de backup | Microsoft Docs"
-description: "Use o portal clássico para fazer backup de máquinas virtuais do Azure em um cofre de Backup. Este tutorial explica todas as fases, incluindo a criação do cofre de Backup, o registro das máquinas virtuais, a criação da política de backup e a execução do trabalho de backup inicial."
+description: "Use tooback de portal clássico Olá o Cofre de Backup tooa VMs do Azure. Este tutorial explica todas as fases, incluindo criar Cofre de Backup hello, registrar Olá VMs, criar política de backup e executar o trabalho de backup inicial hello."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/2/2017
 ms.author: markgal;
-ms.openlocfilehash: fc31d7654e455ec5b4e4bb9af4cf1a166f1661ee
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 77700e69eab9faccbc7ef923e1eb4e1f97be75d7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="first-look-backing-up-azure-virtual-machines"></a>Introdução: Fazendo backup de máquinas virtuais do Azure
 > [!div class="op_single_selector"]
@@ -27,59 +27,59 @@ ms.lasthandoff: 08/18/2017
 >
 >
 
-Este tutorial explica as etapas para fazer backup de uma VM (máquina virtual) do Azure em um cofre de backup do Azure. Este artigo descreve o modelo clássico ou o modelo de implantação do Service Manager para fazer backup de máquinas virtuais. As etapas a seguir se aplicam somente a cofres de Backup criados no portal clássico. A Microsoft recomenda usar o modelo do Resource Manager para novas implantações.
+Este tutorial descreve as etapas de saudação para fazer backup de um cofre de backup tooa máquina virtual do Azure (VM) no Azure. Este artigo descreve o modelo clássico hello ou modelo de implantação do Service Manager, para fazer backup de máquinas virtuais. Olá etapas a seguir se aplicam somente cofres tooBackup criados no portal clássico do hello. A Microsoft recomenda usando o modelo do Gerenciador de recursos de saudação para novas implantações.
 
-Se você estiver interessado em fazer backup de uma VM em um cofre de Serviços de Recuperação que pertence a um grupo de recursos, confira [Introdução: proteger VMs em um cofre de serviços de recuperação](backup-azure-vms-first-look-arm.md).
+Se você estiver interessado em um cofre de serviços de recuperação de tooa VM que pertença tooa grupo de recursos de backup, consulte [primeiro olhar: proteger VMs com um cofre de serviços de recuperação](backup-azure-vms-first-look-arm.md).
 
-Para concluir o tutorial a seguir com êxito, estes pré-requisitos devem existir:
+toosuccessfully concluir seguinte Olá tutorial, estes pré-requisitos devem existir:
 
 * Você criou uma VM em sua assinatura do Azure.
-* A VM tem conectividade com os endereços IP públicos do Azure. Para obter informações adicionais, veja [Conectividade de rede](backup-azure-vms-prepare.md#network-connectivity).
+* Olá VM tem endereços IP públicos de tooAzure conectividade. Para obter informações adicionais, veja [Conectividade de rede](backup-azure-vms-prepare.md#network-connectivity).
 
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este tutorial deve ser usado com máquinas virtuais criadas no portal clássico.
+> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este tutorial é para uso com máquinas virtuais criadas no portal clássico do hello.
 >
 >
 
 ## <a name="create-a-backup-vault"></a>Criar um cofre de backup
-O cofre de backup é uma entidade que armazena todos os pontos de backups e recuperação que foram criados ao longo do tempo. O cofre de backup também contém as políticas de backup que serão aplicadas às máquinas virtuais incluídas no backup.
+Um cofre de backup é uma entidade que armazena todos os backups de saudação e pontos de recuperação que foram criados ao longo do tempo. Cofre de backup Olá também contém Olá as políticas de backup que estão sendo feitas backup de máquinas virtuais toohello aplicado.
 
 > [!IMPORTANT]
-> A partir de março de 2017, você não poderá mais usar o portal clássico para criar os cofres de Backup.
-> Você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> Após 15 de outubro de 2017, você não poderá usar o PowerShell para criar os Cofres do Backup. **Em 1º de novembro de 2017**:
->- Todos os Cofres do Backup restantes serão atualizados automaticamente para os cofres dos Serviços de Recuperação.
->- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
+> A partir de março de 2017, você não pode usar os cofres de Backup Olá toocreate portal clássico.
+> Você pode atualizar seu cofres dos serviços de tooRecovery de cofres de Backup. Para obter detalhes, consulte o artigo Olá [atualizar um tooa de Cofre de Backup Cofre de serviços de recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva tooupgrade cofres de serviços tooRecovery os cofres de Backup.<br/> Após 15 de outubro de 2017, você não pode usar o PowerShell toocreate os cofres de Backup. **Em 1º de novembro de 2017**:
+>- Todos os cofres de Backup restantes serão automaticamente atualizados tooRecovery cofres de serviços.
+>- Você não será capaz de tooaccess os dados de backup no portal clássico do hello. Em vez disso, use Olá tooaccess portal do Azure os dados de backup em cofres de serviços de recuperação.
 >
 
 ## <a name="discover-and-register-azure-virtual-machines"></a>Descobrir e registrar máquinas virtuais do Azure
-Antes de registrar a VM em um cofre, execute o processo de descoberta para identificar novas VMs. Isso retorna uma lista de máquinas virtuais na assinatura, juntamente com informações adicionais, como o nome do serviço de nuvem e a região.
+Antes de registrar Olá VM com um cofre, execute tooidentify de processo de descoberta de saudação novas VMs. Isso retorna uma lista de máquinas virtuais na assinatura hello, juntamente com informações adicionais, como o nome do serviço de nuvem hello e região hello.
 
-1. Entrar no [portal Clássico do Azure](http://manage.windowsazure.com/)
-2. No portal clássico do Azure, clique em **Serviços de Recuperação** para abrir a lista de cofres dos Serviços de Recuperação.
+1. Entrar toohello [portal clássico do Azure](http://manage.windowsazure.com/)
+2. No portal clássico do Azure do hello, clique em **dos serviços de recuperação** tooopen lista de saudação de cofres de serviços de recuperação.
     ![Selecionar carga de trabalho](./media/backup-azure-vms-first-look/recovery-services-icon.png)
-3. Na lista de cofres, escolha o cofre para fazer backup de uma VM.
+3. Saudação de cofres, selecione lista Olá cofre tooback backup de uma VM.
 
-    Quando você seleciona o cofre, ele é aberto na página **Início Rápido**
-4. No menu do cofre, clique em **Itens Registrados**.
+    Quando você seleciona o cofre, ele é aberto no hello **início rápido** página
+4. No menu de cofre hello, clique em **itens registrados**.
 
     ![Selecionar carga de trabalho](./media/backup-azure-vms-first-look/configure-registered-items.png)
-5. No menu **Tipo**, selecione **Máquina Virtual do Azure**.
+5. De saudação **tipo** menu, selecione **Máquina Virtual do Azure**.
 
     ![Selecionar carga de trabalho](./media/backup-azure-vms/discovery-select-workload.png)
-6. Clique em **DESCOBRIR** na parte inferior da página.
+6. Clique em **DISCOVER** final Olá Olá página.
     ![Botão Descobrir](./media/backup-azure-vms/discover-button-only.png)
 
-    O processo de descoberta pode ser executado por alguns minutos, enquanto as máquinas virtuais estão sendo tabuladas. Há uma notificação na parte inferior da tela que informa você de que o processo está sendo executado.
+    o processo de descoberta Olá pode levar alguns minutos enquanto estão sendo tabuladas máquinas virtuais de saudação. Há uma notificação na parte inferior da saudação da tela de saudação que permite que você saiba que o processo de hello está sendo executado.
 
     ![Descobrir VMs](./media/backup-azure-vms/discovering-vms.png)
 
-    As alterações de notificação quando o processo é concluído.
+    Olá notificação muda quando Olá processo for concluído.
 
     ![Descoberta concluída](./media/backup-azure-vms-first-look/discovery-complete.png)
-7. Clique em **REGISTRAR** na parte inferior da página.
+7. Clique em **registrar** final Olá Olá página.
     ![Botão Registrar](./media/backup-azure-vms-first-look/register-icon.png)
-8. No menu de atalho **Registrar Itens** , selecione as máquinas virtuais que você deseja registrar.
+8. Em Olá **registrar itens** menu de atalho, selecione Olá máquinas de virtuais que você deseja tooregister.
 
    > [!TIP]
    > Várias máquinas virtuais podem ser registradas ao mesmo tempo.
@@ -87,90 +87,90 @@ Antes de registrar a VM em um cofre, execute o processo de descoberta para ident
    >
 
     Um trabalho é criado para cada máquina virtual selecionada.
-9. Clique em **Exibir Trabalho** na notificação para ir para a página **Trabalhos**.
+9. Clique em **Exibir trabalho** em Olá notificação toogo toohello **trabalhos** página.
 
     ![Registrar trabalho](./media/backup-azure-vms/register-create-job.png)
 
-    A máquina virtual também aparece na lista de itens registrados junto com o status da operação de registro.
+    máquina virtual de saudação também aparece na lista de saudação de itens registrados, junto com o status de saudação da operação de registro de saudação.
 
     ![Status de registro 1](./media/backup-azure-vms/register-status01.png)
 
-    Quando a operação for concluída, o status será alterado para refletir o estado *registrado* .
+    Quando Olá operação for concluída, o status de saudação muda Olá tooreflect *registrado* estado.
 
     ![Status de registro 2](./media/backup-azure-vms/register-status02.png)
 
-## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instalar o Agente de VM na máquina virtual
-O Agente de VM do Azure deve ser instalado na máquina virtual do Azure para a extensão de Backup funcionar. Se sua VM tiver sido criada da galeria do Azure, o agente de VM já estará presente na VM; você pode pular para [proteção de suas VMs](backup-azure-vms-first-look.md#create-the-backup-policy).
+## <a name="install-hello-vm-agent-on-hello-virtual-machine"></a>Instalar Olá agente de VM na máquina virtual de saudação
+Hello Azure VM Agent deve ser instalado em Olá máquina virtual do Azure para Olá toowork de extensão de Backup. Se sua VM foi criada de saudação Galeria do Azure, Olá VM Agent já está presente no hello VM; Você pode ignorar muito[protegendo suas VMs](backup-azure-vms-first-look.md#create-the-backup-policy).
 
-Se sua VM tiver migrado de um datacenter local, a VM provavelmente não terá o agente instalado. Você deve instalar o Agente de VM na máquina virtual antes de continuar a proteger a VM. Para obter etapas detalhadas sobre como instalar o Agente de VM, confira a [seção Agente de VM do artigo Backup de VMs](backup-azure-vms-prepare.md#vm-agent).
+Se sua VM migrado de um datacenter local, Olá VM provavelmente não tem Olá que VM Agent instalado. Você deve instalar Olá agente de VM na máquina virtual Olá Olá de tooprotect continuar VM. Para obter etapas detalhadas sobre como instalar hello agente de VM, consulte Olá [seção agente de VM do artigo de VMs de Backup Olá](backup-azure-vms-prepare.md#vm-agent).
 
-## <a name="create-the-backup-policy"></a>Criar a política de backup
-Antes de disparar o trabalho de backup inicial, defina a agenda de quando os instantâneos de backup serão feitos. A agenda de quando os instantâneos de backup são criados e por quanto tempo esses instantâneos serão mantido compõem a política de backup. As informações de retenção se baseiam no esquema de rotação de backup Avô-pai-filho.
+## <a name="create-hello-backup-policy"></a>Criar política de backup Olá
+Antes de disparar o trabalho de backup inicial hello, defina o agendamento de saudação quando os instantâneos de backup são realizados. Olá agendar instantâneos de backup são realizados e Olá tempo esses instantâneos são mantidos, é política de backup hello. informações de retenção Olá baseia-se no esquema de rotação de backup avô-pai-filho.
 
-1. Navegue até o cofre de backup, em **Serviços de Recuperação** no Portal Clássico do Azure e clique em **Itens Registrados**.
-2. Selecione **Máquina Virtual do Azure** no menu suspenso.
+1. Navegue toohello Cofre de backup em **dos serviços de recuperação** Olá portal clássico do Azure e clique em **itens registrados**.
+2. Selecione **Máquina Virtual do Azure** do menu suspenso de saudação.
 
     ![Selecionar a carga de trabalho no portal](./media/backup-azure-vms/select-workload.png)
-3. Na parte inferior da página, clique em **PROTEGER** .
+3. Clique em **proteger** final Olá Olá página.
     ![Clique em Proteger](./media/backup-azure-vms-first-look/protect-icon.png)
 
-    O **assistente Proteger Itens** é mostrado e lista *apenas* as máquinas virtuais registradas e não protegidas.
+    Olá **proteger itens assistente** aparece e lista *somente* máquinas virtuais que são registradas e não protegidas.
 
     ![Configurar proteção em escala](./media/backup-azure-vms/protect-at-scale.png)
-4. Selecione as máquinas virtuais que deseja proteger.
+4. Selecione a saudação de máquinas virtuais que você deseja tooprotect.
 
-    Se houver duas ou mais máquinas virtuais com o mesmo nome, use o Serviço de Nuvem para distinguir entre elas.
-5. No menu **Configurar proteção** , escolha uma política existente ou crie uma nova política para proteger as máquinas virtuais que você identificou.
+    Se houver dois ou mais máquinas virtuais com hello mesmo nome, use Olá toodistinguish de serviço de nuvem entre máquinas virtuais de saudação.
+5. Em Olá **configurar proteção** menu Selecione uma política existente ou crie um novo tooprotect de política máquinas virtuais Olá que você identificou.
 
-    Os novos cofres de Backup têm uma política padrão associada ao cofre. Essa política usa um instantâneo diário a cada noite, e o instantâneo diário é mantido por 30 dias. Cada política de backup pode ter várias máquinas virtuais associadas a ela. No entanto, a máquina virtual só pode estar associada a apenas uma política de cada vez.
+    Novos cofres de Backup têm uma política de padrão associada Olá cofre. Esta política usa um diário de instantâneo a cada noite e instantâneo diário Olá é mantido por 30 dias. Cada política de backup pode ter várias máquinas virtuais associadas a ela. No entanto, máquina virtual de saudação só pode ser associada com uma política por vez.
 
     ![Proteger com nova política](./media/backup-azure-vms/policy-schedule.png)
 
    > [!NOTE]
-   > Uma política de backup também inclui um esquema de retenção para os backups agendados. Se você selecionar uma política de backup, não será possível modificar as opções de retenção na próxima etapa.
+   > Uma política de backup inclui um esquema de retenção para backups agendado de saudação. Se você selecionar uma política de backup, você será opções de retenção Olá toomodify não é possível na próxima etapa do hello.
    >
    >
-6. Em **Intervalo de Retenção** , defina o escopo diário, semanal, mensal e anual para os pontos de backup específicos.
+6. Em **período de retenção** definir Olá escopo diário, semanal, mensal e anual para pontos de backup específico hello.
 
     ![O backup da máquina virtual é realizado com ponto de recuperação](./media/backup-azure-vms/long-term-retention.png)
 
-    A política de retenção especifica o período de armazenamento de um backup. Você pode especificar políticas de retenção diferentes com base em quando o backup é feito.
-7. Clique em **Trabalhos** para exibir a lista de trabalhos de **Configurar Proteção**.
+    Política de retenção Especifica Olá período de tempo para armazenar um backup. Você pode especificar diferentes políticas de retenção com base em quando é feito backup hello.
+7. Clique em **trabalhos** tooview lista de saudação do **configurar proteção** trabalhos.
 
     ![Configurar o trabalho de proteção](./media/backup-azure-vms/protect-configureprotection.png)
 
-    Agora que a política foi estabelecida, vá para a próxima etapa e execute o backup inicial.
+    Agora que estabelecida política Olá, vá toohello próxima etapa e executar o backup inicial hello.
 
 ## <a name="initial-backup"></a>Backup inicial
-Após uma máquina virtual ser protegida com uma política, você poderá exibir essa relação na guia **Itens Protegidos** . Até que o backup inicial ocorra, o **Status de Proteção** será mostrado como **Protegido – (backup inicial pendente)**. Por padrão, o primeiro backup agendado é o *backup inicial*.
+Depois que uma máquina virtual foi protegida com uma política, você pode exibir esse relacionamento na Olá **itens protegidos** guia. Até que o backup inicial Olá ocorre, hello **Status de proteção** mostra como **protegido - (pendente backup inicial)**. Por padrão, o primeiro backup agendado de saudação é Olá *backup inicial*.
 
 ![Backup pendente](./media/backup-azure-vms-first-look/protection-pending-border.png)
 
-Para começar o backup inicial agora:
+toostart saudação inicial backup agora:
 
-1. Na página **Itens Protegidos**, clique em **Fazer Backup Agora** na parte inferior da página.
+1. Em Olá **itens protegidos** , clique em **Backup agora** final Olá Olá página.
     ![Ícone de Fazer Backup Agora](./media/backup-azure-vms-first-look/backup-now-icon.png)
 
-    O serviço de Backup do Azure cria um trabalho de backup para a operação de backup inicial.
-2. Clique na guia **Trabalhos** para exibir a lista de trabalhos.
+    Olá serviço Backup do Azure cria um trabalho de backup para a operação de backup inicial hello.
+2. Clique em Olá **trabalhos** lista de saudação do guia tooview de trabalhos.
 
     ![Backup em andamento](./media/backup-azure-vms-first-look/protect-inprogress.png)
 
-    Após a conclusão do backup inicial, o status da máquina virtual na guia **Itens Protegidos** é *Protegida*.
+    Quando o backup inicial é concluída, o status de saudação de máquina virtual Olá Olá **itens protegidos** guia *protegidos*.
 
     ![O backup da máquina virtual é realizado com ponto de recuperação](./media/backup-azure-vms/protect-backedupvm.png)
 
    > [!NOTE]
-   > O backup de máquinas virtuais é um processo local. Você não pode fazer backup de máquinas virtuais de uma região em um cofre de backup em outra região. Assim, para todas as regiões do Azure que tenham VMs que precisem de backup, pelo menos um cofre de backup deverá ser criado nessa região.
+   > O backup de máquinas virtuais é um processo local. Você não pode fazer backup de máquinas virtuais de uma região tooa Cofre de backup em outra região. Portanto, para cada região do Azure com VMs que precisam de backup de toobe, pelo menos um cofre de backup deve ser criado nessa região.
    >
    >
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você já fez um backup de uma VM, há várias etapas subsequentes pode poderiam ser interessantes. A etapa mais lógica é se familiarizar com a restauração de dados para uma máquina virtual. No entanto, há tarefas de gerenciamento que o ajudarão a entender como manter os dados seguros e minimizar os custos.
+Agora que você já fez um backup de uma VM, há várias etapas subsequentes pode poderiam ser interessantes. Olá mais lógica etapa é toofamiliarize-se com a restauração de dados tooa VM. No entanto, há tarefas de gerenciamento que ajudarão você a entender como tookeep seus dados seguros e minimizar os custos.
 
 * [Gerenciar e monitorar suas máquinas virtuais](backup-azure-manage-vms.md)
 * [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 * [Diretrizes de solução de problemas](backup-azure-vms-troubleshoot.md)
 
 ## <a name="questions"></a>Perguntas?
-Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
+Se você tiver dúvidas ou se houver qualquer recurso que você gostaria que toosee incluído, [nos enviar comentários](http://aka.ms/azurebackup_feedback).

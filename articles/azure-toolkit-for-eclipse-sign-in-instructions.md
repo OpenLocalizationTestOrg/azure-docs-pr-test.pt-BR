@@ -1,6 +1,6 @@
 ---
-title: "Instruções de entrada do Kit de ferramentas do Azure para Eclipse | Microsoft Docs"
-description: Saiba como se inscrever no Microsoft Azure usando o Kit de ferramentas do Azure para Eclipse.
+title: "aaaSign em instruções de saudação Kit de ferramentas do Azure para Eclipse | Microsoft Docs"
+description: "Saiba como toosign no Microsoft Azure usando Olá Kit de ferramentas do Azure para Eclipse."
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,26 +14,26 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: 02dd9935086c4c40d9ed54cc9ff2412ca96889f5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 95be64750ca0147f76dae8f364fad80cb9ccc969
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-sign-in-instructions-for-the-azure-toolkit-for-eclipse"></a>Instruções de entrada no Azure para o Kit de Ferramentas do Azure para Eclipse
+# <a name="azure-sign-in-instructions-for-hello-azure-toolkit-for-eclipse"></a>Entrada do Azure em instruções para Olá Kit de ferramentas do Azure para Eclipse
 
-O Kit de ferramentas do Azure para Eclipse fornece dois métodos para entrar em sua conta do Azure:
+Olá Kit de ferramentas do Azure para Eclipse fornece dois métodos para entrar em sua conta do Azure:
 
   * **Interativo** – quando você estiver usando esse método, você inserirá suas credenciais do Azure sempre que entrar na conta do Azure.
-  * **Automatizado** – quando você estiver usando esse método, você criará um arquivo de credenciais que conterá os dados da entidade de serviço, após o qual você poderá usar o arquivo de credenciais para entrar automaticamente em sua conta do Azure.
+  * **Automatizada** - quando você estiver usando esse método, você criará um arquivo de credenciais que contém seus dados de entidade de serviço, após o qual você pode usar o hello credenciais arquivo tooautomatically logon em sua conta do Azure.
 
-As etapas nas seções a seguir descreverão como usar cada método.
+Olá etapas Olá seções a seguir descrevem como toouse cada método.
 
 [!INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
 ## <a name="signing-into-your-azure-account-interactively"></a>Entrar em sua conta do Azure interativamente
 
-As etapas a seguir ilustrarão como se inscrever no Azure inserindo manualmente suas credenciais do Azure.
+Olá etapas a seguir ilustrará como toosign no Azure inserindo manualmente suas credenciais do Azure.
 
 1. Abra seu projeto com o Eclipse.
 
@@ -41,33 +41,33 @@ As etapas a seguir ilustrarão como se inscrever no Azure inserindo manualmente 
 
    ![Menu do Eclipse para Entrar no Azure][I01]
 
-1. Quando a caixa de diálogo **Entrar no Azure** for exibida, selecione **Interativo** e, em seguida, clique em **Entrar**.
+1. Olá quando **Azure entrar** caixa de diálogo é exibida, selecione **interativo**e, em seguida, clique em **entrar**.
 
    ![Caixa de diálogo Entrar][I02]
 
-1. Quando a caixa de diálogo **Logon no Azure** for exibida, digite as credenciais do Azure e, em seguida, clique em **Entrar**.
+1. Olá quando **Log no Azure** caixa de diálogo for exibida, insira suas credenciais do Azure e, em seguida, clique em **entrar**.
 
-   ![Caixa de diálogo Logon no Azure][I03]
+   ![Caixa de Diálogo de Logon do Azure][I03]
 
-1. Quando a caixa de diálogo **Selecionar Assinaturas** for exibida, selecione as assinaturas que deseja usar e, em seguida, clique em **OK**.
+1. Olá quando **selecione assinaturas** caixa de diálogo for exibida, assinaturas de saudação selecione que você deseja toouse e, em seguida, clique em **Okey**.
 
    ![Caixa de diálogo Selecionar Assinaturas][I04]
 
 ## <a name="signing-out-of-your-azure-account-when-you-signed-in-interactively"></a>Sair de sua conta do Azure quando você entrou no modo interativo
 
-Depois de configurar as etapas na seção anterior, você sairá automaticamente de sua conta do Azure toda vez que reiniciar o Eclipse. No entanto, se você quiser sair de sua conta do Azure sem reiniciar o Eclipse, use as etapas a seguir.
+Depois que você configurou etapas Olá na seção anterior Olá, você será conectado automaticamente sua conta do Azure cada vez que você reinicie o Eclipse. No entanto, se você quiser toosign fora da sua conta do Azure sem reiniciar o Eclipse, use Olá etapas a seguir.
 
 1. No Eclipse, clique em **Ferramentas**, depois clique em **Azure** e, em seguida, clique em **Sair**.
 
    ![Menu do Eclipse para saída do Azure][L01]
 
-1. Quando a caixa de diálogo **Saída do Azure** for exibida, clique em **Sim**.
+1. Olá quando **Azure sair** caixa de diálogo for exibida, clique em **Sim**.
 
    ![Caixa de diálogo Saída do Azure][L02]
 
-## <a name="signing-into-your-azure-account-automatically-and-creating-a-credentials-file-to-use-in-the-future"></a>Entrar automaticamente em sua conta do Azure e criar um arquivo de credenciais para usar no futuro
+## <a name="signing-into-your-azure-account-automatically-and-creating-a-credentials-file-toouse-in-hello-future"></a>Entrar em sua conta do Azure automaticamente e criar credenciais de um arquivo toouse no hello futuras
 
-As etapas a seguir lhe orientarão na criação de um arquivo de credenciais que contém os dados da entidade de serviço. Depois de concluir essas etapas, o Eclipse usará automaticamente o arquivo de credenciais para entrar automaticamente no Azure toda vez que você abrir o projeto.
+Olá seguinte irá orientá-lo na criação de um arquivo de credenciais que contém seus dados de entidade de serviço. Depois de concluir essas etapas, será Eclipse automaticamente o logon use Olá credenciais arquivo tooautomatically que você no Azure cada vez que você abra seu projeto.
 
 1. Abra seu projeto com o Eclipse.
 
@@ -75,45 +75,45 @@ As etapas a seguir lhe orientarão na criação de um arquivo de credenciais que
 
    ![Menu do Eclipse para Entrar no Azure][A01]
 
-1. Quando a caixa de diálogo **Entrar no Azure** for exibida, selecione **Automatizado** e, em seguida, clique em **Novo**.
+1. Olá quando **Azure entrar** caixa de diálogo é exibida, selecione **automatizada**e, em seguida, clique em **novo**.
 
    ![Caixa de diálogo Entrar][A02]
 
-1. Quando a caixa de diálogo **Logon no Azure** for exibida, digite as credenciais do Azure e, em seguida, clique em **Entrar**.
+1. Olá quando **Log no Azure** caixa de diálogo for exibida, insira suas credenciais do Azure e, em seguida, clique em **entrar**.
 
-   ![Caixa de diálogo Logon no Azure][A03]
+   ![Caixa de Diálogo de Logon do Azure][A03]
 
-1. Quando a caixa de diálogo **Criar Arquivos de Autenticação** for exibida, selecione as assinaturas que deseja usar, escolha o diretório de destino e, em seguida, clique em **Iniciar**.
+1. Olá quando **criar arquivos de autenticação** caixa de diálogo for exibida, assinaturas de saudação selecione deseja toouse, escolha o diretório de destino e, em seguida, clique em **iniciar**.
 
-   ![Caixa de diálogo Logon no Azure][A04]
+   ![Caixa de Diálogo de Logon do Azure][A04]
 
-1. A caixa de diálogo **Status de Criação da Entidade de Serviço** será exibida e, depois que os arquivos tiverem sido criados com êxito, clique em **OK**.
+1. Olá **Status de criação da entidade de serviço** caixa de diálogo será exibida e depois que os arquivos foram criados com êxito, clique em **Okey**.
 
    ![Caixa de diálogo Status de Criação da Entidade de Serviço][A05]
 
-1. Quando a caixa de diálogo **Entrar no Azure** for exibida, clique em **Entrar**.
+1. Olá quando **Azure entrar** caixa de diálogo for exibida, clique em **entrar**.
 
-   ![Caixa de diálogo Logon no Azure][A06]
+   ![Caixa de Diálogo de Logon do Azure][A06]
 
-1. Quando a caixa de diálogo **Selecionar Assinaturas** for exibida, selecione as assinaturas que deseja usar e, em seguida, clique em **OK**.
+1. Olá quando **selecione assinaturas** caixa de diálogo for exibida, assinaturas de saudação selecione que você deseja toouse e, em seguida, clique em **Okey**.
 
    ![Caixa de diálogo Selecionar Assinaturas][A07]
 
 ## <a name="signing-out-of-your-azure-account-when-you-signed-in-automatically"></a>Sair de sua conta do Azure quando você entrou automaticamente
 
-Depois de configurar as etapas na seção anterior, o Kit de ferramentas do Azure realizará sua entrada automaticamente em sua conta do Azure toda vez que você reiniciar o Eclipse. No entanto, para sair de sua conta do Azure e impedir que o Kit de ferramentas do Azure promova sua entrada automaticamente, use as etapas a seguir.
+Depois que você configurou etapas Olá na seção anterior Olá, Olá Kit de ferramentas do Azure você entrará automaticamente em sua conta do Azure cada vez que você reinicie o Eclipse. No entanto, toosign fora da sua conta do Azure e impedir que o hello Kit de ferramentas do Azure você entrar automaticamente, Olá use as etapas a seguir.
 
 1. No Eclipse, clique em **Ferramentas**, depois clique em **Azure** e, em seguida, clique em **Sair**.
 
    ![Menu do Eclipse para saída do Azure][L01]
 
-1. Quando a caixa de diálogo **Saída do Azure** for exibida, clique em **Sim**.
+1. Olá quando **Azure sair** caixa de diálogo for exibida, clique em **Sim**.
 
    ![Caixa de diálogo Saída do Azure][L03]
 
 ## <a name="signing-into-your-azure-account-automatically-using-a-credentials-file-which-you-have-already-created"></a>Entre automaticamente em sua conta do Azure usando um arquivo de credenciais que você já criou
 
-Se você sair do Azure quando você estiver usando o Eclipse, você precisará reconfigurar o Kit de ferramentas do Azure para Eclipse para usar um arquivo de credenciais criado antes que você possa entrar automaticamente em sua conta do Azure. As etapas a seguir explicam como configurar o Kit de ferramentas do Azure para usar um arquivo de credenciais existente.
+Se você sair do Azure quando você estiver usando o Eclipse, você precisará Olá tooreconfigure Kit de ferramentas do Azure para Eclipse toouse um arquivo de credenciais que tiver criado antes que você pode entrar automaticamente em sua conta do Azure. Olá etapas a seguir orientará você pela configuração Olá Kit de ferramentas do Azure toouse um arquivo existente de credenciais.
 
 1. Abra seu projeto com o Eclipse.
 
@@ -121,37 +121,37 @@ Se você sair do Azure quando você estiver usando o Eclipse, você precisará r
 
    ![Menu do Eclipse para Entrar no Azure][A01]
 
-1. Quando a caixa de diálogo **Entrar no Azure** for exibida, selecione **Automatizado** e, em seguida, clique em **Procurar**.
+1. Olá quando **Azure entrar** caixa de diálogo é exibida, selecione **automatizada**e, em seguida, clique em **procurar**.
 
    ![Caixa de diálogo Entrar][A02]
 
-1. Quando a caixa de diálogo **Selecionar Arquivo Autenticado** for exibida, selecione um arquivo de credenciais que você criou anteriormente e, em seguida, clique em **Selecionar**.
+1. Olá quando **Selecionar arquivo autenticado** caixa de diálogo for exibida, selecione um arquivo de credenciais que você criou anteriormente e, em seguida, clique em **selecione**.
 
    ![Caixa de diálogo Entrar][A08]
 
-1. Quando a caixa de diálogo **Entrar no Azure** for exibida, clique em **Entrar**.
+1. Olá quando **Azure entrar** caixa de diálogo for exibida, clique em **entrar**.
 
-   ![Caixa de diálogo Logon no Azure][A06]
+   ![Caixa de Diálogo de Logon do Azure][A06]
 
-1. Quando a caixa de diálogo **Selecionar Assinaturas** for exibida, selecione as assinaturas que deseja usar e, em seguida, clique em **OK**.
+1. Olá quando **selecione assinaturas** caixa de diálogo for exibida, assinaturas de saudação selecione que você deseja toouse e, em seguida, clique em **Okey**.
 
    ![Caixa de diálogo Selecionar Assinaturas][A07]
 
 ## <a name="see-also"></a>Consulte também
-Para obter mais informações sobre os kits de ferramentas do Azure para Java IDEs, confira os links a seguir:
+Para obter mais informações sobre Olá kits de ferramentas do Azure para Java IDEs, consulte Olá links a seguir:
 
 * [Kit de ferramentas do Azure para Eclipse]
-  * [Novidades no Kit de Ferramentas do Azure para o Eclipse]
-  * [Instalação do Kit de Ferramentas do Azure para o Eclipse]
-  * *Instruções de entrada do Kit de ferramentas do Azure para Eclipse (este artigo)*
+  * [Novidades no Kit de ferramentas do Azure para Eclipse de saudação]
+  * [Saudação de instalar o Kit de ferramentas do Azure para Eclipse]
+  * *Entrada em instruções Olá Kit de ferramentas do Azure para Eclipse (Este artigo)*
   * [Criar um aplicativo Web Hello World para o Azure no Eclipse]
 * [Kit de Ferramentas do Azure para IntelliJ]
-  * [Novidades no Kit de Ferramentas do Azure para IntelliJ]
-  * [Instalação do Kit de Ferramentas do Azure para IntelliJ]
-  * [Instruções de entrada para o Kit de ferramentas do Azure para IntelliJ]
+  * [Novidades no Kit de ferramentas do Azure para IntelliJ de saudação]
+  * [Saudação de instalar o Kit de ferramentas do Azure para IntelliJ]
+  * [Entrada em instruções hello Azure Toolkit for IntelliJ]
   * [Criar um aplicativo Web Hello World para o Azure no IntelliJ]
 
-Para saber mais sobre como usar o Azure com Java, confira o [Centro de Desenvolvedores Java do Azure] e as [Ferramentas Java para Visual Studio Team Services].
+Para obter mais informações sobre como usar o Azure com Java, consulte Olá [Centro de desenvolvedores de Java do Azure] e hello [ferramentas Java para o Visual Studio Team Services].
 
 <!-- URL List -->
 
@@ -159,15 +159,15 @@ Para saber mais sobre como usar o Azure com Java, confira o [Centro de Desenvolv
 [Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij.md
 [Criar um aplicativo Web Hello World para o Azure no Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Criar um aplicativo Web Hello World para o Azure no IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[Instalação do Kit de Ferramentas do Azure para o Eclipse]: ./azure-toolkit-for-eclipse-installation.md
-[Instalação do Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-installation.md
-[Sign In Instructions for the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
-[Instruções de entrada para o Kit de ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[Novidades no Kit de Ferramentas do Azure para o Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
-[Novidades no Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+[Saudação de instalar o Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Saudação de instalar o Kit de ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Sign In Instructions for hello Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Entrada em instruções hello Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[Novidades no Kit de ferramentas do Azure para Eclipse de saudação]: ./azure-toolkit-for-eclipse-whats-new.md
+[Novidades no Kit de ferramentas do Azure para IntelliJ de saudação]: ./azure-toolkit-for-intellij-whats-new.md
 
-[Centro de Desenvolvedores Java do Azure]: https://azure.microsoft.com/develop/java/
-[Ferramentas Java para Visual Studio Team Services]: https://java.visualstudio.com/
+[Centro de desenvolvedores de Java do Azure]: https://azure.microsoft.com/develop/java/
+[ferramentas Java para o Visual Studio Team Services]: https://java.visualstudio.com/
 
 <!-- IMG List -->
 

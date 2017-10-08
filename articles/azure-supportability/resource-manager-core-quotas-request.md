@@ -1,5 +1,5 @@
 ---
-title: "Solicitações de aumento de cota de núcleo do Azure Resource Manager | Microsoft Docs"
+title: "solicitações de aumentar a cota de núcleo do Gerenciador de recursos de aaaAzure | Microsoft Docs"
 description: "Solicitações de aumento de cota de núcleo do Azure Resource Manager"
 author: ganganarayanan
 ms.author: gangan
@@ -7,24 +7,24 @@ ms.date: 1/18/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: cb6c5b3e86f126d4110d1cd29d8c9891e356e414
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b158b9f0e0338eb239da9253c2146ea93c02e316
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="resource-manager-core-quota-increase-requests"></a>Solicitações de aumento de cota de núcleo do Resource Manager
 
-As cotas de núcleo do Resource Manager são aplicadas no nível da região e no nível de família de SKU.
-Saiba mais sobre como as cotas são aplicadas na página [Limites de serviço da assinatura do Azure ](http://aka.ms/quotalimits).
-Para saber mais sobre as famílias de SKU, compare custo e desempenho na página [Preços de máquinas virtuais](http://aka.ms/pricingcompute).
+As cotas do Gerenciador de recursos principal são aplicadas no nível de região de saudação e nível de família de SKU.
+Saiba mais sobre como as cotas são impostas Olá [assinatura do Azure e limites de serviço](http://aka.ms/quotalimits) página.
+toolearn mais sobre as famílias de SKU, você pode comparar custo e desempenho em Olá [preços das máquinas virtuais](http://aka.ms/pricingcompute) página.
 
-Para solicitar um aumento, crie um caso de suporte de Cota para Núcleos no Portal do Azure, [https://portal.azure.com](https://portal.azure.com).
+toorequest um aumento, criar um caso de suporte de cota de núcleos em Olá portal do Azure, [https://portal.azure.com](https://portal.azure.com).
 
 > [!NOTE]
-> Saiba como [criar uma solicitação de suporte](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) no Portal do Azure
+> Saiba como muito[criar uma solicitação de suporte](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) no hello portal do Azure
 
-1. Na página de nova solicitação de suporte, selecione o Tipo de problema como "Cota" e o Tipo de cota como "Núcleos".
+1. Na nova página de solicitação de suporte Olá, selecione o tipo de problema como "Cota" e o tipo de cota como "Núcleos".
 
     ![Folha de Noções Básicas de Cota](./media/resource-manager-core-quotas-request/Basics-blade.png)
 
@@ -32,13 +32,13 @@ Para solicitar um aumento, crie um caso de suporte de Cota para Núcleos no Port
 
     ![Folha Problema de Cota](./media/resource-manager-core-quotas-request/Problem-step.png)
 
-3. Selecione as Famílias de SKU que exigem um aumento.
+3. Selecione as famílias de SKU de saudação que exigem um aumento.
 
     ![Série de SKU selecionada](./media/resource-manager-core-quotas-request/SKU-selected.png)
 
-4. Insira os novos limites desejados na assinatura.
+4. Insira novos limites de saudação você gostaria que a assinatura de saudação.
 
     ![Nova solicitação de cota do SKU](./media/resource-manager-core-quotas-request/SKU-new-quota.png)
 
-- Para remover uma linha, desmarque o SKU no menu suspenso de família de SKU ou clique no ícone "x" de descarte.
-Depois de inserir a cota desejada para cada família de SKU, clique em "Avançar" na página Etapa do problema para continuar com a criação da solicitação de suporte.
+- tooremove uma linha, desmarque Olá SKU do hello SKU família suspensa ou clique em Olá descarte "x" ícone.
+Depois de inserir cota de saudação desejado para cada família SKU, clique em "Avançar" no hello problema etapa página toocontinue com a criação de solicitação de suporte de saudação.

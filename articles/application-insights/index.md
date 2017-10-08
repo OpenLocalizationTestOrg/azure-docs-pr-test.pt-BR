@@ -1,6 +1,6 @@
 ---
-title: "Documentação do Application Insights do Azure - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba como usar o Application Insights, um serviço de gerenciamento de desempenho de aplicativos para detectar, realizar triagem e diagnosticar problemas em aplicativos Web e serviços."
+title: "aaaAzure documentação de Insights do aplicativo - tutoriais, referência de API | Microsoft Docs"
+description: "Saiba como toouse Application Insights um toodetect de gerenciamento de desempenho de aplicativo extensível, triagem e diagnosticar problemas em aplicativos web e serviços."
 services: application-insights
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 1f3fc2431bacd6852c6babc7ebbb07c6a3b74145
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 341ac74463dc44ea477c9f0f7bcf83fed6189f0b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="application-insights-documentation"></a>Documentação do Application Insights
 
-Saiba como usar o Application Insights, um serviço de gerenciamento de desempenho de aplicativos extensível para desenvolvedores da Web. Tutoriais, referências de API e outras documentações mostram como detectar, realizar triagem e diagnosticar problemas em aplicativos Web e serviços.
+Saiba como toouse Application Insights, um gerenciamento de desempenho de aplicativos extensíveis de serviço para desenvolvedores da web. Tutoriais, referências de API e outras documentações mostram como toodetect, triagem e diagnosticar problemas em aplicativos web e serviços.
 
 <ul class="panelContent cardsFTitle">
     <li>

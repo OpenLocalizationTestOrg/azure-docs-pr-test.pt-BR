@@ -1,6 +1,6 @@
 ---
-title: Lista de contas do Armazenamento do Azure
-description: "Gerenciar as configurações de conta de armazenamento usando o Kit de Ferramentas do Azure para o Eclipse"
+title: aaaAzure lista de contas de armazenamento
+description: "Gerenciar as configurações de conta de armazenamento usando Olá Kit de ferramentas do Azure para Eclipse"
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,90 +14,90 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: f859efa389d3fe0b4b7b16255d57f1aa13123319
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 35e25881ca95ae4050a26283e4726d9549b37f46
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-account-list"></a>Lista de contas do Armazenamento do Azure
-As contas de armazenamento do Azure permitem que os locais de download sejam usados para o seu JDK, servidor de aplicativos e componentes arbitrários, bem como para armazenar o estado ao usar o caching. O Eclipse mantém uma lista de contas de armazenamento conhecidas que estão disponíveis para seus projetos no espaço de trabalho do Eclipse. Para abrir a caixa de diálogo **Contas de Armazenamento**, que é usada para gerenciar essa lista, no Eclipse, clique em **Janela**, **Preferências**, expanda o **Azure**, em seguida, clique em **Contas de Armazenamento**.
+Habilitar contas de armazenamento do Azure baixar toobe locais usado para o seu JDK, servidor de aplicativos e componentes arbitrários, bem como para armazenar o estado ao usar o cache. O Eclipse mantém uma lista de contas de armazenamento conhecidas que são projetos tooyour disponíveis no seu espaço de trabalho do Eclipse. Olá tooopen **contas de armazenamento** caixa de diálogo, que é usado toomanage que listam no Eclipse, clique em **janela**, clique em **preferências**, expanda **Azure** e, em seguida, clique em **contas de armazenamento**.
 
-Veja a seguir o diálogo **Contas de Armazenamento** .
+Veja a seguir de Olá Olá **contas de armazenamento** caixa de diálogo.
 
 ![][ic719496]
 
-Essa caixa de diálogo também pode ser aberta a partir de um link **Contas** nas caixas de diálogo que usam contas de armazenamento, como as seguintes:
+Essa caixa de diálogo também pode ser aberta em uma **contas** em caixas de diálogo que usam contas de armazenamento, como a seguir Olá link:
 
-* Guia **JDK** da caixa de diálogo **Configuração do Servidor**.
-* Guia **Servidor** da caixa de diálogo **Configuração do Servidor**.
-* O diálogo **Adicionar Componente** .
-* O diálogo de propriedades **Caching** .
+* Olá **JDK** guia da saudação **configuração do servidor** caixa de diálogo.
+* Olá **servidor** guia da saudação **configuração do servidor** caixa de diálogo.
+* Olá **adicionar componente** caixa de diálogo.
+* Olá **cache** caixa de diálogo Propriedades.
 
-## <a name="to-import-your-storage-accounts-using-a-publish-settings-file"></a>Para importar suas contas de armazenamento usando um arquivo de configurações de publicação
-1. Na caixa de diálogo **Contas de Armazenamento**, clique em **Importar do arquivo PUBLISH-SETTINGS**.
+## <a name="tooimport-your-storage-accounts-using-a-publish-settings-file"></a>tooimport contas de armazenamento usando um arquivo de configurações de publicação
+1. Dentro de saudação **contas de armazenamento** caixa de diálogo, clique em **importar do arquivo de configurações de publicação**.
 
-2. (Ignore esta etapa se você já tiver salvo um arquivo de configurações de publicação em seu computador local.) Na caixa de diálogo **Importar Informações da Assinatura**, clique em **Baixar Arquivo PUBLISH-SETTINGS**. Se você ainda não estiver conectado à sua conta do Azure, receberá uma solicitação para fazer logon. Em seguida, você receberá uma solicitação para salvar um arquivo de configurações de publicação do Azure. (Você pode ignorar as instruções resultantes mostradas nas páginas de logon - elas são fornecidas pelo portal do Azure e são destinadas aos usuários do Visual Studio.) Salve-o em seu computador local.
+2. (Ignore esta etapa se você já tiver salvo uma máquina local tooyour de arquivo publicar configurações). Em Olá **importar informações de assinatura** caixa de diálogo, clique em **baixar o arquivo de configurações de publicação**. Se você ainda não está conectados à sua conta do Azure, será solicitado toolog no. Em seguida, será solicitado que você toosave do Azure publica o arquivo de configurações. (Você pode ignorar Olá resultante instruções nas páginas de logon Olá - eles são fornecidos pelo Olá portal do Azure e são destinados a usuários do Visual Studio.) Salve-o computador local tooyour.
 
-3. Ainda na caixa de diálogo **Importar Informações da Assinatura**, clique no botão **Procurar**, selecione o arquivo de configurações da publicação salvo anteriormente, em seguida, clique em **Abrir**.
+3. Ainda no hello **importar informações de assinatura** caixa de diálogo, clique em Olá **procurar** botão, selecione Olá Publicar arquivo de configurações que você salvou anteriormente e, em seguida, clique em **abrir**.
 
-4. Clique em **OK** para fechar a caixa de diálogo **Importar Informações da Assinatura**.
+4. Clique em **Okey** tooclose Olá **importar informações de assinatura** caixa de diálogo.
 
-## <a name="to-create-a-new-storage-account"></a>Para criar uma nova conta de armazenamento
-1. Na caixa de diálogo **Contas de Armazenamento**, clique em **Adicionar**.
+## <a name="toocreate-a-new-storage-account"></a>toocreate uma nova conta de armazenamento
+1. Dentro de saudação **contas de armazenamento** caixa de diálogo, clique em **adicionar**.
 
-2. Na caixa de diálogo **Adicionar Conta de Armazenamento**, clique em **Nova**.
+2. Dentro de saudação **adicionar conta de armazenamento** caixa de diálogo, clique em **novo**.
 
-3. No diálogo **Nova Conta de Armazenamento** , especifique valores para os seguintes itens:
+3. Dentro de saudação **nova conta de armazenamento** caixa de diálogo, especifique valores para seguir hello:
 
    * Nome da conta de armazenamento.
 
-   * Local da conta de armazenamento.
+   * Local da conta de armazenamento de saudação.
 
-   * Descrição da conta de armazenamento.
+   * Descrição da conta de armazenamento de saudação.
 
-   * A assinatura à qual pertence a conta de armazenamento.
+   * conta de armazenamento Olá assinatura toowhich Olá pertence.
 
-4. Clique em **OK** para fechar a caixa de diálogo **Nova Conta de Armazenamento**.
+4. Clique em **Okey** tooclose Olá **nova conta de armazenamento** caixa de diálogo.
 
-Pode levar vários minutos para que a sua conta de armazenamento seja criada. Depois de criada, clique em **OK** para fechar a caixa de diálogo **Adicionar Conta de Armazenamento** e sua nova conta de armazenamento será adicionado à lista de contas de armazenamento disponíveis.
+Ele pode levar vários minutos para que seu toobe de conta de armazenamento criada. Depois de criado, clique em **Okey** tooclose Olá **adicionar conta de armazenamento** caixa de diálogo e sua nova conta de armazenamento serão adicionado toohello lista de contas de armazenamento disponível.
 
-## <a name="to-add-an-existing-storage-account-to-the-list"></a>Para adicionar uma conta de armazenamento existente à lista
-1. Se você ainda não tem uma conta de armazenamento do Azure, crie uma seguindo as etapas listadas na seção **Para criar uma nova conta de armazenamento** acima. (Como alternativa, você pode criar uma nova conta de armazenamento no [Portal de Gerenciamento do Azure][Azure Management Portal].)
+## <a name="tooadd-an-existing-storage-account-toohello-list"></a>tooadd uma lista de toohello de conta de armazenamento existente
+1. Se você ainda não tiver um armazenamento do Azure da conta, crie uma saudação etapas listadas na Olá **toocreate uma nova seção de conta de armazenamento** acima. (Como alternativa, você pode criar uma nova conta de armazenamento no hello [Portal de gerenciamento][Azure Management Portal].)
 
-2. Na caixa de diálogo **Contas de Armazenamento**, clique em **Adicionar**.
+2. Dentro de saudação **contas de armazenamento** caixa de diálogo, clique em **adicionar**.
 
-3. Na caixa de diálogo **Adicionar Conta de Armazenamento**, insira valores para o **Nome** e a **Chave de Acesso**. O nome da conta e a chave de acesso devem ser de uma conta existente do armazenamento do Azure. Use a seção **Armazenamento** do [Portal de Gerenciamento do Azure][Azure Management Portal] para exibir seus nomes e chaves de conta de armazenamento. O diálogo **Adicionar Conta de Armazenamento** será semelhante ao seguinte:
+3. Dentro de saudação **adicionar conta de armazenamento** caixa de diálogo, insira valores para **nome** e **chave de acesso**. chave de acesso e nome da conta de saudação deve ser uma conta de armazenamento do Azure existente. Saudação de uso **armazenamento** seção Olá [Portal de gerenciamento] [ Azure Management Portal] tooview nomes e as chaves de sua conta de armazenamento. O **adicionar conta de armazenamento** caixa de diálogo será a aparência a seguir toohello semelhante.
    
    ![][ic719497]
 
-4. Clique em **OK** para fechar a caixa de diálogo **Adicionar Conta de Armazenamento**.
+4. Clique em **Okey** tooclose Olá **adicionar conta de armazenamento** caixa de diálogo.
 
-## <a name="to-modify-a-storage-account-to-use-a-new-access-key"></a>Para modificar uma conta de armazenamento para usar uma nova chave de acesso
-1. Na caixa de diálogo **Contas de Armazenamento**, clique na conta de armazenamento que você deseja editar e clique em **Editar**.
+## <a name="toomodify-a-storage-account-toouse-a-new-access-key"></a>toomodify uma conta de armazenamento toouse uma nova chave de acesso
+1. Dentro de saudação **contas de armazenamento** caixa de diálogo, clique em Olá conta de armazenamento que você deseja tooedit e, em seguida, clique em **editar**.
 
-2. Na caixa de diálogo **Editar Chave de Acesso da Conta do Armazenamento**, modifique o valor **Chave de Acesso**.
+2. Dentro de saudação **Editar chave de acesso de conta de armazenamento** caixa de diálogo, modificar Olá **chave de acesso** valor.
 
-3. Clique em **OK** para fechar a caixa de diálogo **Editar Chave de Acesso da Conta de Armazenamento**.
+3. Clique em **Okey** tooclose Olá **Editar chave de acesso de conta de armazenamento** caixa de diálogo.
 
-## <a name="to-remove-a-storage-account-from-the-list-maintained-in-eclipse"></a>Para remover uma conta de armazenamento da lista mantida no Eclipse
-1. Na caixa de diálogo **Contas de Armazenamento**, clique na conta de armazenamento que você deseja editar e clique em **Remover**.
+## <a name="tooremove-a-storage-account-from-hello-list-maintained-in-eclipse"></a>tooremove uma conta de armazenamento da saudação lista mantida no Eclipse
+1. Dentro de saudação **contas de armazenamento** caixa de diálogo, clique em Olá conta de armazenamento que você deseja tooedit e, em seguida, clique em **remover**.
 
-2. Clique em **OK** quando for solicitado a remover a conta de armazenamento.
+2. Clique em **Okey** quando tooremove solicitada Olá conta de armazenamento.
 
 > [!NOTE]
-> A remoção da conta de armazenamento por meio do diálogo **Contas de Armazenamento** apenas a remove da lista de contas de armazenamento que podem ser exibidas no Eclipse. Ela não remove a conta de armazenamento de sua assinatura do Azure. Além disso, a conta de armazenamento pode reaparecer em sua lista, depois que o Eclipse carregar novamente os detalhes de sua assinatura.
+> Removendo Olá conta de armazenamento por meio de saudação **contas de armazenamento** diálogo apenas a remove da lista de saudação de contas de armazenamento podem ser visualizadas no Eclipse. Ele não remove o conta de armazenamento Olá sua assinatura do Azure. Além disso, o conta de armazenamento Olá pode aparecer novamente na sua lista, após o Eclipse recarregar os detalhes de saudação da sua assinatura.
 > 
 > 
 
 ## <a name="see-also"></a>Consulte também
 [Kit de Ferramentas do Azure para Eclipse][Azure Toolkit for Eclipse]
 
-[Instalar o Kit de Ferramentas do Azure para Eclipse][Installing the Azure Toolkit for Eclipse] 
+[Saudação de instalar o Kit de ferramentas do Azure para Eclipse][Installing hello Azure Toolkit for Eclipse] 
 
 [Criar um aplicativo Hello World para Azure no Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
-Para saber mais sobre como usar o Azure com o Java, confira o [Centro de Desenvolvedores Java do Azure][Azure Java Developer Center].
+Para obter mais informações sobre como usar o Azure com Java, consulte Olá [Centro de desenvolvedores de Java do Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
@@ -105,8 +105,8 @@ Para saber mais sobre como usar o Azure com o Java, confira o [Centro de Desenvo
 [Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
 [Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
+[Installing hello Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[What's New in hello Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
 

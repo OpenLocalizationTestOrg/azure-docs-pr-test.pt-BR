@@ -1,6 +1,6 @@
 ---
-title: Trabalhar com proxies no Azure Functions | Microsoft Docs
-description: "Visão geral de como usar Proxies do Azure Functions"
+title: "aaaWork com proxies em funções do Azure | Microsoft Docs"
+description: "Visão geral de como toouse Proxies de funções do Azure"
 services: functions
 documentationcenter: 
 author: mattchenderson
@@ -14,107 +14,107 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: mahender
-ms.openlocfilehash: 102e54627a8fee721d3ed85e86a8009e706bb5b1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4d94c89e8f8f2d2c771b01bae142bf9a4f3b7f2a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="work-with-azure-functions-proxies-preview"></a>Trabalhar com proxies do Azure Functions (visualização)
 
 > [!NOTE] 
-> Proxies do Azure Functions está atualmente em visualização. É gratuito enquanto na visualização, mas as funções padrão cobrança se aplica para execuções de proxy. Para saber mais, confira [Preços do Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+> Proxies do Azure Functions está atualmente em visualização. É gratuito enquanto na visualização, mas as funções padrão cobrança aplica tooproxy execuções. Para saber mais, confira [Preços do Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
-Este artigo explica como configurar e trabalhar com proxies do Azure Functions. Com esse recurso, você pode especificar os pontos de extremidade em seu aplicativo de funções que são implementados por outro recurso. Você pode usar esses proxies para dividir uma API grande em vários aplicativos de função (como uma arquitetura de microsserviços), enquanto ainda apresenta uma única superfície de API para clientes.
+Este artigo explica como tooconfigure e trabalhar com Proxies de funções do Azure. Com esse recurso, você pode especificar os pontos de extremidade em seu aplicativo de funções que são implementados por outro recurso. Você pode usar esses toobreak proxies uma API grande em vários aplicativos de função (como em uma arquitetura de microsserviço), enquanto ainda apresentar uma superfície de API simples para clientes.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 
 ## <a name="enable"></a>Habilitar proxies do Azure Functions
 
-Os proxies não estão habilitados por padrão. Você pode criar proxies enquanto o recurso estiver desativado, mas não será executado. Para habilitar proxies, faça o seguinte:
+Os proxies não estão habilitados por padrão. Você pode criar proxies enquanto Olá recurso está desabilitado, mas elas não serão executadas. tooenable proxies, Olá a seguir:
 
-1. Abra o [Portal do Azure] e navegue até seu aplicativo de funções.
+1. Olá abrir [portal do Azure], e em seguida, acesse o aplicativo de função tooyour.
 2. Selecione **Configurações do aplicativo de funções**.
-3. Alterne **Habilitar Proxies do Azure Functions (visualização)** para **Ativado**.
+3. Opção **habilitar Proxies de funções do Azure (visualização)** muito**em**.
 
-Você também pode retornar aqui para atualizar o tempo de execução do proxy medida que novos recursos forem disponibilizados.
+Você também pode retornar aqui tooupdate Olá proxy runtime conforme novos recursos se tornam disponíveis.
 
 
 ## <a name="create"></a>Criar um proxy
 
-Esta seção mostra como criar um proxy no portal do Functions.
+Esta seção mostra como toocreate um proxy no hello portal de funções.
 
-1. Abra o [Portal do Azure] e navegue até seu aplicativo de funções.
-2. No painel esquerdo, selecione **Novo proxy**.
+1. Olá abrir [portal do Azure], e em seguida, acesse o aplicativo de função tooyour.
+2. No painel esquerdo do hello, selecione **novo proxy**.
 3. Forneça um nome para seu proxy.
-4. Configurar o ponto de extremidade exposto no aplicativo de função especificando o **modelo de rota** e **Métodos HTTP**. Esses parâmetros se comportam de acordo com as regras de [gatilhos HTTP].
-5. Defina a **URL de back-end** para outro ponto de extremidade. Esse ponto de extremidade pode ser uma função em outro aplicativo de funções, ou pode ser qualquer outra API. O valor não precisa ser estático e pode fazer referência as [configurações do aplicativo] e os [parâmetros da solicitação original do cliente].
+4. Configurar o ponto de extremidade de saudação que é exposto no aplicativo função especificando Olá **modelo de rota** e **métodos HTTP**. Esses parâmetros se comportam de acordo regras toohello para [HTTP gatilhos].
+5. Saudação de conjunto **URL de back-end** tooanother de ponto de extremidade. Esse ponto de extremidade pode ser uma função em outro aplicativo de funções, ou pode ser qualquer outra API. Olá valor não precisa toobe estático, e ele pode fazer referência [configurações do aplicativo] e [parâmetros da solicitação de cliente original Olá].
 6. Clique em **Criar**.
 
-Seu proxy agora existe como um novo ponto de extremidade em seu aplicativo de funções. Da perspectiva do cliente, é equivalente a um HttpTrigger no Azure Functions. Você pode testar seu novo proxy copiando a URL do Proxy e testá-lo com seu cliente HTTP favorito.
+Seu proxy agora existe como um novo ponto de extremidade em seu aplicativo de funções. Da perspectiva do cliente, é equivalente tooan HttpTrigger em funções do Azure. Você pode testar seu novo proxy copiando Olá URL do Proxy e testá-lo com seu cliente HTTP favorito.
 
 ## <a name="modify-requests-responses"></a>Modificar solicitações e respostas
 
-Com os proxies do Azure Functions, você pode modificar solicitações e respostas do back-end. Essas transformações podem usar variáveis, conforme definido em [Usar variáveis].
+Com Proxies de funções do Azure, você pode modificar solicitações tooand respostas de back-end hello. Essas transformações podem usar variáveis, conforme definido em [Usar variáveis].
 
-### <a name="modify-backend-request"></a>Modificar a solicitação de back-end
+### <a name="modify-backend-request"></a>Modificar a solicitação de back-end Olá
 
-Por padrão, a solicitação de back-end é inicializada como uma cópia da solicitação original. Além de definir a URL de back-end, é possível fazer alterações no método HTTP, cabeçalhos e parâmetros de cadeia de consulta. Os valores modificados podem referenciar as [configurações do aplicativo] e os [parâmetros da solicitação original do cliente].
+Por padrão, a solicitação de back-end de saudação é inicializado como uma cópia da solicitação original hello. Além disso toosetting Olá back-end URL, você pode fazer alterações toohello HTTP método, cabeçalhos e parâmetros de cadeia de caracteres de consulta. Olá valores modificados podem fazer referência a [configurações do aplicativo] e [parâmetros da solicitação de cliente original Olá].
 
-Atualmente, não há experiência no portal para modificar as solicitações de back-end. Para saber como aplicar essa capacidade a partir de proxies.json, confira [Definir um objeto requestOverrides].
+Atualmente, não há experiência no portal para modificar as solicitações de back-end. toolearn como tooapply essa capacidade de proxies.json, consulte [definir um objeto requestOverrides].
 
-### <a name="modify-response"></a>Modificar a resposta
+### <a name="modify-response"></a>Modificar a resposta de saudação
 
-Por padrão, a resposta do cliente é inicializada como uma cópia da resposta de back-end. Você pode fazer alterações no código de status, na frase de motivo, nos cabeçalhos e no corpo da resposta. Os valores modificados podem referenciar as [configurações do aplicativo], os [parâmetros da solicitação original do cliente] e os [parâmetros da resposta de back-end].
+Por padrão, resposta de cliente Olá é inicializada como uma cópia da resposta de back-end de saudação. Você pode fazer o código de status da resposta de toohello alterações, frase de motivo, cabeçalhos e corpo. Olá valores modificados podem fazer referência a [configurações do aplicativo], [parâmetros da solicitação de cliente original Olá], e [parâmetros de resposta de back-end Olá].
 
-Atualmente, não há experiência no portal para modificar as respostas. Para saber como aplicar essa capacidade a partir de proxies.json, confira [Definir um objeto responseOverrides].
+Atualmente, não há experiência no portal para modificar as respostas. toolearn como tooapply essa capacidade de proxies.json, consulte [definir um objeto responseOverrides].
 
 ## <a name="using-variables"></a>Usar variáveis
 
-A configuração de um proxy não precisa ser estática. Você pode condicioná-la a usar as variáveis da solicitação original, da resposta de back-end ou das configurações do aplicativo.
+configuração de saudação para um proxy não precisa toobe estático. Você pode condição ele toouse variáveis de solicitação original hello, resposta de back-end de saudação ou as configurações do aplicativo.
 
 ### <a name="request-parameters"></a>Parâmetros de solicitação de referência
 
-Use os parâmetros de solicitação como entradas para a propriedade de URL de back-end ou como parte da modificação de solicitações e respostas. Alguns parâmetros podem ser limitados ao modelo de rota especificado na configuração do proxy base, enquanto outros são obtidos de propriedades da solicitação de entrada.
+Você pode usar parâmetros de solicitação como entradas toohello propriedade de URL de back-end ou como parte da modificação de solicitações e respostas. Alguns parâmetros podem ser vinculados de modelo de rota de saudação que é especificado na configuração de proxy base hello e outras pessoas podem vir de propriedades de solicitação de entrada hello.
 
 #### <a name="route-template-parameters"></a>Parâmetros de modelo de rota
-Os parâmetros usados no modelo de rota estão disponíveis para serem referenciados pelo nome. Os nomes de parâmetro são colocados entre chaves ({}).
+Parâmetros que são usados no modelo de rota Olá estão disponível toobe referenciada por nome. nomes de parâmetro Hello são colocados entre chaves ({}).
 
-Por exemplo, se um proxy tem um modelo de rota como `/pets/{petId}`, a URL do back-end pode incluir o valor de `{petId}`, como em `https://<AnotherApp>.azurewebsites.net/api/pets/{petId}`. Se o modelo de rota termina em um caractere curinga, como `/api/{*restOfPath}`, o valor `{restOfPath}` será uma representação de cadeia de caracteres dos segmentos de caminho restantes da solicitação de entrada.
+Por exemplo, se um proxy tem um modelo de rota, como `/pets/{petId}`, Olá URL de back-end pode incluir o valor de saudação do `{petId}`, como em `https://<AnotherApp>.azurewebsites.net/api/pets/{petId}`. Se o modelo de rota Olá termina em um caractere curinga, como `/api/{*restOfPath}`, Olá valor `{restOfPath}` é uma representação de cadeia de caracteres de saudação restantes segmentos de caminho da solicitação de entrada hello.
 
 #### <a name="additional-request-parameters"></a>Parâmetros de solicitação adicionais
-Além dos parâmetros do modelo de rota, os seguintes valores podem ser usados em valores de configuração:
+Além do toohello parâmetros de modelo de rota, Olá valores a seguir pode ser usado em valores de configuração:
 
-* **{request.method}**: o método HTTP usado na solicitação original.
-* **{request.headers.\<HeaderName\>}**: um cabeçalho que pode ser lido por meio da solicitação original. Substitua *\<HeaderName\>* pelo nome do cabeçalho que você deseja ler. Se o cabeçalho não estiver incluído na solicitação, o valor será a cadeia de caracteres vazia.
-* **{request.querystring.\<ParameterName\>}**: um parâmetro de cadeia de consulta que pode ser lido por meio da solicitação original. Substitua *\<ParameterName\>* pelo nome do parâmetro que você deseja ler. Se o parâmetro não estiver incluído na solicitação, o valor será a cadeia de caracteres vazia.
+* **{Request}** : Olá o método HTTP usado na solicitação original hello.
+* **{: Request. Headers. \<HeaderName\>}**: um cabeçalho que pode ser lido da solicitação original hello. Substituir  *\<HeaderName\>*  com o nome de saudação do cabeçalho de saudação que você deseja tooread. Se o cabeçalho de saudação não está incluído na solicitação Olá, o valor de Olá será a cadeia de caracteres vazia hello.
+* **{Request. QueryString. \<ParameterName\>}**: um parâmetro de cadeia de caracteres de consulta que possa ser lido da solicitação original hello. Substituir  *\<ParameterName\>*  com o nome de saudação do parâmetro hello que você deseja tooread. Se o parâmetro hello não está incluído na solicitação Olá, o valor de saudação será a cadeia de caracteres vazia hello.
 
 ### <a name="response-parameters"></a>Parâmetros de resposta de back-end de referência
 
-Parâmetros de resposta podem ser usados como parte da modificação da resposta ao cliente. Os seguintes valores podem ser usados em valores de configuração:
+Parâmetros de resposta podem ser usados como parte de modificar Olá resposta toohello cliente. Olá valores a seguir pode ser usado em valores de configuração:
 
-* **{backend.response.statusCode}**: o código de status HTTP retornado na resposta de back-end.
-* **{backend.response.statusReason}**: a frase de motivo HTTP retornada na resposta de back-end.
-* **{backend.response.headers.\<HeaderName\>}**: um cabeçalho que pode ser lido por meio da resposta de back-end. Substitua *\<HeaderName\>* pelo nome do cabeçalho que você deseja ler. Se o cabeçalho não estiver incluído na solicitação, o valor será a cadeia de caracteres vazia.
+* **{backend.response.statusCode}** : Olá código de status HTTP retornado na resposta de back-end de saudação.
+* **{backend.response.statusReason}** : frase de motivo Olá HTTP que é retornado na resposta de back-end de saudação.
+* **{backend.response.headers. \<HeaderName\>}**: um cabeçalho que pode ser lido da resposta de back-end de saudação. Substituir  *\<HeaderName\>*  com o nome de saudação do cabeçalho de saudação você deseja tooread. Se o cabeçalho de saudação não está incluído na solicitação Olá, o valor de Olá será a cadeia de caracteres vazia hello.
 
 ### <a name="use-appsettings"></a>Configurações do aplicativo de referência
 
-Você também referenciar as [configurações do aplicativo definidas para o aplicativo de funções](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#develop) envolvendo o nome da configuração entre sinais de percentual (%).
+Você também pode referenciar [configurações de aplicativo definidas para o aplicativo de função hello](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#develop) envolvendo o nome da configuração Olá sinais de porcentagem (%).
 
-Por exemplo, em uma URL de back-end *https://%ORDER_PROCESSING_HOST%/api/orders*, "% ORDER_PROCESSING_HOST %" será substituído pelo valor da configuração ORDER_PROCESSING_HOST.
+Por exemplo, uma URL de back-end de *https://%ORDER_PROCESSING_HOST%/api/orders* teria "% ORDER_PROCESSING_HOST %" substituído pelo valor de saudação da configuração de ORDER_PROCESSING_HOST hello.
 
 > [!TIP] 
-> Usar configurações do aplicativo para hosts de back-end quando você tem várias implantações ou ambientes de teste. Dessa forma, você pode garantir que você sempre está se comunicando com o back-end à direita para esse ambiente.
+> Usar configurações do aplicativo para hosts de back-end quando você tem várias implantações ou ambientes de teste. Dessa forma, você pode garantir que estamos falando sempre toohello volta terminar para esse ambiente.
 
 ## <a name="advanced-configuration"></a>Configuração avançada
 
-Os proxies que você configura são armazenados em um arquivo proxies.json, localizado na raiz do diretório de aplicativo função. Você pode editar esse arquivo manualmente e implantá-lo como parte do seu aplicativo ao usar qualquer um dos [métodos de implantação](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) que ofereça suporte a funções. O recurso deve ser [habilitado](#enable) para que o arquivo seja processado. 
+proxies de saudação que você configura são armazenados em um arquivo proxies.json, que está localizado na raiz de saudação de um diretório de aplicativo de função. Você pode editar esse arquivo manualmente e implantá-lo como parte do seu aplicativo quando você usar qualquer Olá [métodos de implantação](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) que ofereça suporte a funções. saudação de recurso deve ser [habilitado](#enable) para toobe do arquivo hello processado. 
 
 > [!TIP] 
-> Se você não tiver definido um dos métodos de implantação, também poderá trabalhar com o arquivo proxies.json no portal. Vá até o aplicativo de funções e selecione **Recursos da plataforma** e,depois, selecione **Editor do Serviço de Aplicativo**. Isso permitirá que você veja toda a estrutura de arquivo do aplicativo de funções e faça alterações.
+> Se você não configurou um dos métodos de implantação Olá, você também pode trabalhar com arquivos de proxies.json Olá no portal de saudação. Aplicativo de função tooyour vá, selecione **recursos de plataforma**e, em seguida, selecione **Editor de aplicativo de serviço**. Fazendo isso, você pode exibir estrutura de todo o arquivo de saudação do seu aplicativo de função e, em seguida, fazer alterações.
 
-Proxies.json é definido por um objeto de proxies, composto de proxies nomeados e suas definições. Opcionalmente, você pode referenciar um [esquema JSON](http://json.schemastore.org/proxies) para o preenchimento do código, caso seu editor dê suporte a isso. Um arquivo de exemplo pode parecer com o seguinte:
+Proxies.json é definido por um objeto de proxies, composto de proxies nomeados e suas definições. Opcionalmente, você pode referenciar um [esquema JSON](http://json.schemastore.org/proxies) para o preenchimento do código, caso seu editor dê suporte a isso. Um exemplo de arquivo pode parecer Olá a seguir:
 
 ```json
 {
@@ -131,29 +131,29 @@ Proxies.json é definido por um objeto de proxies, composto de proxies nomeados 
 }
 ```
 
-Cada proxy tem um nome amigável, como *proxy1*, no exemplo acima. O objeto de definição de proxy correspondente é definido pelas seguintes propriedades:
+Cada proxy tem um nome amigável, como *proxy1* em Olá anterior de exemplo. objeto de definição de proxy correspondente Olá é definido pela Olá propriedades a seguir:
 
-* **matchCondition**: obrigatório - um objeto que define as solicitações que disparam a execução desse proxy. Ele contém duas propriedades compartilhadas com [gatilhos HTTP]:
-    * _métodos_: uma matriz dos métodos HTTP aos quais o proxy responde. Se não for especificado, o proxy responderá a todos os métodos HTTP na rota.
-    * _route_: obrigatório - define o modelo da rota, controlando para quais URLs de solicitação seu proxy responde. Ao contrário de disparadores HTTP, não há nenhum valor padrão.
-* **backendUri**: a URL do recurso de back-end ao qual a solicitação deve ser transmitida por proxy. Esse valor pode referenciar as configurações do aplicativo e os parâmetros da solicitação original do cliente. Se esta propriedade não for incluída, o Azure Functions responderá com um HTTP 200 OK.
-* **requestOverrides**: um objeto que define as transformações para a solicitação de back-end. Confira [Definir um objeto requestOverrides].
-* **requestOverrides**: um objeto que define as transformações para a resposta do cliente. Confira [Definir um objeto responseOverrides].
+* **matchCondition**: necessário – um objeto que define as solicitações de saudação que disparam execução Olá desse proxy. Ele contém duas propriedades compartilhadas com [HTTP gatilhos]:
+    * _métodos_: uma matriz de métodos de saudação HTTP que Olá proxy responde. Se não for especificado, o proxy de saudação responde tooall métodos HTTP na rota de saudação.
+    * _rota_: exigido-- define o modelo de rota hello, controlar qual solicitação URLs seu proxy responde. Ao contrário de disparadores HTTP, não há nenhum valor padrão.
+* **backendUri**: Olá URL de solicitação de Olá Olá recursos de back-end toowhich deve usar o proxy. Esse valor pode referenciar parâmetros e configurações do aplicativo da solicitação de cliente original hello. Se esta propriedade não for incluída, o Azure Functions responderá com um HTTP 200 OK.
+* **requestOverrides**: um objeto que define a solicitação de back-end toohello transformações. Confira [definir um objeto requestOverrides].
+* **responseOverrides**: um objeto que define a resposta de cliente toohello transformações. Confira [definir um objeto responseOverrides].
 
 > [!NOTE] 
-> Os proxies do Azure Functions da propriedade route não respeitam a propriedade routePrefix da configuração de host do Functions. Se você quiser incluir um prefixo, como /api, ela deve ser incluída na propriedade de rota.
+> propriedade de rota Olá Proxies de funções do Azure não aceita a propriedade de routePrefix Olá Olá funções da configuração do host. Se você quiser tooinclude um prefixo, como /api, ela deve ser incluída na propriedade de rota hello.
 
 ### <a name="requestOverrides"></a>Definir um objeto requestOverrides
 
-O objeto requestOverrides define as alterações feitas à solicitação quando o recurso de back-end é chamado. O objeto é definido pelas seguintes propriedades:
+objeto de requestOverrides de saudação define as alterações feitas a solicitação toohello quando recursos de back-end de saudação é chamado. objeto de saudação é definido pela Olá propriedades a seguir:
 
-* **backend.request.method**: o método HTTP que será usado para chamar o back-end.
-* **backend.request.querystring.\<ParameterName\>**: um parâmetro de cadeia de consulta que pode ser definido para a chamada ao back-end. Substitua *\<ParameterName\>* pelo nome do parâmetro que você deseja definir. Se a cadeia de caracteres vazia for fornecida, o parâmetro não será incluído na solicitação de back-end.
-* **backend.request.headers.\<HeaderName\>**: um cabeçalho que pode ser definido para a chamada ao back-end. Substitua *\<HeaderName\>* pelo nome do cabeçalho que você deseja definir. Se você fornecer a cadeia de caracteres vazia, o cabeçalho não será incluído na solicitação de back-end.
+* **backend.Request.Method**: Olá método HTTP que foi usado o back-end de saudação toocall.
+* **backend.Request.QueryString. \<ParameterName\>**: um parâmetro de cadeia de caracteres de consulta que pode ser definido para Olá chamada toohello back-end. Substituir  *\<ParameterName\>*  com o nome de saudação do parâmetro hello que você deseja tooset. Se a cadeia de caracteres vazia Olá for fornecida, o parâmetro hello não está incluído na solicitação de back-end de saudação.
+* **backend.Request.Headers. \<HeaderName\>**: um cabeçalho que pode ser definido para Olá chamada toohello back-end. Substituir  *\<HeaderName\>*  com o nome de saudação do cabeçalho de saudação que você deseja tooset. Se você fornecer a cadeia de caracteres vazia hello, cabeçalho de saudação não está incluído na solicitação de back-end de saudação.
 
-Os valores podem referenciar as configurações do aplicativo e os parâmetros da solicitação original do cliente.
+Valores podem referenciar parâmetros e configurações do aplicativo da solicitação de cliente original hello.
 
-Uma configuração de exemplo pode ser parecida com a seguinte:
+Um exemplo de configuração pode parecer com hello seguinte:
 
 ```json
 {
@@ -176,16 +176,16 @@ Uma configuração de exemplo pode ser parecida com a seguinte:
 
 ### <a name="responseOverrides"></a>Definir um objeto responseOverrides
 
-O objeto requestOverrides define as alterações feitas à resposta passada novamente ao cliente. O objeto é definido pelas seguintes propriedades:
+objeto de requestOverrides Olá define as alterações feitas resposta toohello que passou toohello back cliente. objeto de saudação é definido pela Olá propriedades a seguir:
 
-* **response.statusCode**: o código de status HTTP a ser retornado ao cliente.
-* **response.statusReason**: a frase de motivo do HTTP a ser retornada ao cliente.
-* **response.body**: a representação de cadeia de caracteres do corpo a ser retornada ao cliente.
-* **response.headers.\<HeaderName\>**: um cabeçalho que pode ser definido para a resposta ao cliente. Substitua *\<HeaderName\>* pelo nome do cabeçalho que você deseja definir. Se você fornecer a cadeia de caracteres vazia, o cabeçalho não será incluído na resposta.
+* **response.statusCode**: Olá HTTP toobe de código de status retornado toohello cliente.
+* **response.statusReason**: toobe de frase de motivo Olá HTTP retornado toohello cliente.
+* **Response.body**: representação de cadeia de caracteres de saudação do hello corpo toobe retornado toohello cliente.
+* **Response.Headers. \<HeaderName\>**: um cabeçalho que pode ser definido para o cliente do hello resposta toohello. Substituir  *\<HeaderName\>*  com o nome de saudação do cabeçalho de saudação que você deseja tooset. Se você fornecer a cadeia de caracteres vazia hello, cabeçalho de saudação não está incluído na resposta de saudação.
 
-Os valores podem referenciar as configurações do aplicativo, os parâmetros da solicitação original do cliente e os parâmetros da resposta de back-end.
+Valores podem referenciar as configurações do aplicativo, parâmetros de solicitação de cliente original hello e parâmetros da resposta de back-end de saudação.
 
-Uma configuração de exemplo pode ser parecida com a seguinte:
+Um exemplo de configuração pode parecer com hello seguinte:
 
 ```json
 {
@@ -205,15 +205,15 @@ Uma configuração de exemplo pode ser parecida com a seguinte:
 }
 ```
 > [!NOTE] 
-> Neste exemplo, o corpo está sendo definido diretamente e, portanto, nenhuma propriedade `backendUri` é necessária. O exemplo mostra como você pode usar os Proxies do Azure Functions para simular APIs.
+> Neste exemplo, o corpo de hello está sendo definido diretamente, portanto não `backendUri` propriedade é necessária. exemplo Hello mostra como você pode usar Proxies de funções do Azure para APIs de simulação.
 
-[Portal do Azure]: https://portal.azure.com
-[gatilhos HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger
-[Modify the back-end request]: #modify-backend-request
-[Modify the response]: #modify-response
-[Definir um objeto requestOverrides]: #requestOverrides
-[Definir um objeto responseOverrides]: #responseOverrides
+[portal do Azure]: https://portal.azure.com
+[HTTP gatilhos]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger
+[Modify hello back-end request]: #modify-backend-request
+[Modify hello response]: #modify-response
+[definir um objeto requestOverrides]: #requestOverrides
+[definir um objeto responseOverrides]: #responseOverrides
 [configurações do aplicativo]: #use-appsettings
 [Usar variáveis]: #using-variables
-[parâmetros da solicitação original do cliente]: #request-parameters
-[parâmetros da resposta de back-end]: #response-parameters
+[parâmetros da solicitação de cliente original Olá]: #request-parameters
+[parâmetros de resposta de back-end Olá]: #response-parameters

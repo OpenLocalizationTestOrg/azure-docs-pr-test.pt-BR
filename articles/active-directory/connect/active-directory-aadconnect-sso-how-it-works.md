@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Connect: Logon Único Contínuo – como ele funciona | Microsoft Docs"
-description: "Este artigo descreve como o recurso Logon Único Contínuo do Azure Active Directory funciona."
+description: "Este artigo descreve como funciona hello Azure Active Directory perfeita logon único no recurso."
 services: active-directory
 keywords: "o que é o Azure AD Connect, instalar o Active Directory, componentes necessários do Azure AD, SSO, Logon Único"
 documentationcenter: 
@@ -14,66 +14,66 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: billmath
-ms.openlocfilehash: f0bcbdb03fbb70ff91ac3a56974a88eb1b26c245
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 17ce35b32832d241068ab878cf7aac42deab74ef
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Logon Único Contínuo do Azure Active Directory: aprofundamento técnico
 
-Este artigo fornece detalhes técnicos sobre como o recurso SSO Contínuo (Logon único contínuo) do Azure Active Directory funciona.
+Este artigo fornece detalhes técnicos em como funciona o recurso de saudação do Azure Active Directory perfeita-logon único (SSO contínuo).
 
 >[!IMPORTANT]
->Atualmente, o recurso SSO Contínuo está em visualização.
+>recurso de SSO contínuo Hello está atualmente em visualização.
 
 ## <a name="how-does-seamless-sso-work"></a>Como o SSO contínuo funciona?
 
-Esta seção tem duas partes:
-1. A instalação do recurso de SSO Contínuo.
+Esta seção tem tooit de duas partes:
+1. instalação de saudação do recurso de SSO contínuo hello.
 2. Como uma transação única de entrada de usuário funciona com o SSO Contínuo.
 
 ### <a name="how-does-set-up-work"></a>Como funciona a configuração?
 
-O SSO Contínuo é habilitado por meio do Azure AD Connect, conforme mostrado [aqui](active-directory-aadconnect-sso-quick-start.md). Ao habilitar o recurso, ocorrem as seguintes etapas:
+O SSO Contínuo é habilitado por meio do Azure AD Connect, conforme mostrado [aqui](active-directory-aadconnect-sso-quick-start.md). Ao habilitar o recurso de hello, Olá etapas a seguir ocorre:
 - Uma conta de computador denominada `AZUREADSSOACCT` (que representa o Azure AD) é criada em seu AD (Active Directory) local.
-- A chave de descriptografia Kerberos da conta do computador é compartilhada com segurança com o Azure AD.
-- Além disso, os dois SPNs (nomes de entidade de serviço) Kerberos são criados para representar duas URLs que são usadas durante a entrada no Azure AD.
+- chave de descriptografia do Kerberos da conta do computador Olá é compartilhado com segurança com o Azure AD.
+- Além disso, dois Kerberos nomes principais de serviço (SPNs) são criados toorepresent duas URLs são usadas durante a entrada do AD do Azure.
 
 >[!NOTE]
-> A conta do computador e os SPNs Kerberos são criados em cada floresta do AD que você sincroniza com o Azure AD (usando o Azure AD Connect) e para cujos usuários você deseja o SSO Contínuo. Mova a conta do computador `AZUREADSSOACCT` para uma UO (unidade organizacional) em que outras contas de computador são armazenadas para garantir que ela seja gerenciada da mesma maneira e não seja excluída.
+> conta de computador Hello e SPNs do Kerberos Olá são criados em cada floresta do AD sincronizar tooAzure AD (usando o Azure AD Connect) e cujos usuários você deseja SSO contínuo. Mover Olá `AZUREADSSOACCT` tooan de conta de computador UO (unidade organizacional) em que outras contas de computador são armazenado tooensure que ele é gerenciado no hello mesmo maneira e não será excluído.
 
 >[!IMPORTANT]
->É altamente recomendável que você [sobreponha a chave de descriptografia do Kerberos](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacct-computer-account) da conta do computador `AZUREADSSOACCT` pelo menos a cada 30 dias.
+>É altamente recomendável que você [sobrepor a chave de descriptografia de Kerberos Olá](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacct-computer-account) de saudação `AZUREADSSOACCT` conta de computador pelo menos a cada 30 dias.
 
 ### <a name="how-does-sign-in-with-seamless-sso-work"></a>Como a entrada com o SSO Contínuo funciona?
 
-Quando essa configuração estiver concluída, o SSO Contínuo funcionará da mesma maneira que qualquer outra entrada que use a IWA (Autenticação Integrada do Windows). O fluxo é da seguinte maneira:
+Após a conclusão da instalação hello, SSO contínuo funciona Olá mesma maneira como qualquer outra entrada que usa autenticação do Windows integrada (IWA). fluxo de saudação é o seguinte:
 
-1. O usuário tenta acessar um aplicativo (por exemplo, o Outlook Web App – https://outlook.office365.com/owa/) por meio de um dispositivo corporativo ingressado no domínio na sua rede corporativa.
-2. Se o usuário ainda não tiver entrado, ele será redirecionado para a página de entrada do Azure AD.
+1. usuário de saudação tenta tooaccess um aplicativo (por exemplo, Olá Outlook Web App - https://outlook.office365.com/owa/) de um dispositivo corporativo domínio dentro da rede corporativa.
+2. Se o usuário Olá não tiver entrado, usuário Olá é redirecionado toohello AD do Azure-página de entrada.
 
   >[!NOTE]
-  >Se a solicitação de entrada do Azure AD incluir um parâmetro `domain_hint` (identificando o seu locatário, por exemplo, contoso.onmicrosoft.com) ou `login_hint` (identificando o usuário, por exemplo, user@contoso.onmicrosoft.com ou user@contoso.com), a etapa 2 será ignorada.
+  >Se a solicitação de entrada hello AD do Azure inclui um `domain_hint` (identifica o locatário - por exemplo, contoso.onmicrosoft.com) ou `login_hint` (identificação de usuário Olá - por exemplo, user@contoso.onmicrosoft.com ou user@contoso.com) parâmetro e, em seguida, etapa 2 é ignorada.
 
-3. O usuário digita o nome de usuário na página de entrada do Azure AD.
-4. Usando JavaScript em segundo plano, o Azure AD desafia o navegador, por meio de uma resposta 401 Não autorizado, para fornecer um tíquete Kerberos.
-5. O navegador, por sua vez, solicita um tíquete do Active Directory para a conta do computador `AZUREADSSOACCT` (que representa o Azure AD).
-6. O Active Directory localiza a conta do computador e retorna um tíquete Kerberos para o navegador criptografado com o segredo da conta do computador.
-7. O navegador encaminha o tíquete Kerberos que adquiriu do Active Directory para o Azure AD (em uma das [URLs do Azure AD adicionadas anteriormente às configurações de zona de Intranet do navegador](active-directory-aadconnect-sso-quick-start.md#step-3-roll-out-the-feature)).
-8. O Azure AD descriptografa o tíquete Kerberos, que inclui a identidade do usuário conectado ao dispositivo corporativo, usando a chave compartilhada anteriormente.
-9. Após a avaliação, o Azure AD retorna um token ao aplicativo ou solicita que o usuário realize provas adicionais, como a Autenticação Multifator.
-10. Se a entrada do usuário for bem-sucedida, ele será capaz de acessar o aplicativo.
+3. tipos de usuário Olá em seu nome de usuário na página de entrada hello AD do Azure.
+4. Usando JavaScript no plano de fundo hello, o AD do Azure desafios navegador hello, por meio de uma resposta 401 não autorizado, tooprovide um tíquete Kerberos.
+5. navegador Hello, por sua vez, solicita um tíquete do Active Directory para Olá `AZUREADSSOACCT` conta de computador (que representa o AD do Azure).
+6. Active Directory localiza a conta de computador hello e retorna um navegador de toohello de tíquete Kerberos criptografado com o segredo da conta de computador hello.
+7. navegador de saudação encaminha o tíquete do Kerberos Olá adquiriu a tooAzure do Active Directory AD (em uma saudação [URLs do AD do Azure adicionados anteriormente as configurações de zona de Intranet do navegador toohello](active-directory-aadconnect-sso-quick-start.md#step-3-roll-out-the-feature)).
+8. Azure AD descriptografa Olá tíquete Kerberos, que inclui a identidade de saudação do usuário Olá conectado ao dispositivo corporativo hello, usar Olá anteriormente chave compartilhada.
+9. Após a avaliação, AD do Azure retorna um aplicativo de token toohello back ou solicita Olá usuário tooperform provas adicionais, como autenticação multifator.
+10. Se Olá usuário entrar for bem-sucedida, o usuário de saudação é tooaccess capaz de aplicativo de hello.
 
-O diagrama a seguir ilustra a todos os componentes e as etapas envolvidas.
+Olá diagrama a seguir ilustra todos os componentes de saudação e etapas de saudação envolvidos.
 
 ![Logon Único Contínuo](./media/active-directory-aadconnect-sso/sso2.png)
 
-O SSO Contínuo é oportunista, o que significa que, se ele falhar, a experiência de entrada retornará ao comportamento normal, ou seja, o usuário precisará inserir a senha para entrar.
+SSO contínuo é oportunista, o que significa que se ele falhar, a experiência de entrada hello reverterá ser tooits comportamento normal - ou seja, Olá usuário precisa tooenter toosign sua senha no.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [**Início Rápido** ](active-directory-aadconnect-sso-quick-start.md) – colocar o SSO Contínuo do Azure AD em funcionamento.
-- [**Perguntas frequentes**](active-directory-aadconnect-sso-faq.md) – respostas para perguntas frequentes.
-- [**Solução de problemas**](active-directory-aadconnect-troubleshoot-sso.md) – Saiba como resolver problemas comuns do recurso.
+- [**Perguntas frequentes sobre** ](active-directory-aadconnect-sso-faq.md) -respostas toofrequently perguntas frequentes.
+- [**Solucionar problemas de** ](active-directory-aadconnect-troubleshoot-sso.md) -Saiba como tooresolve comum problemas com o recurso de saudação.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – para registrar solicitações de novos recursos.

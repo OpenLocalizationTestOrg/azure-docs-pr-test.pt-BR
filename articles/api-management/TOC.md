@@ -3,7 +3,7 @@
 # Introdução
 ## [Gerenciar sua primeira API](api-management-get-started.md)
 ## [Proteger sua API com limites de taxas](api-management-howto-product-with-rules.md)
-## [Adicionar caching para melhorar o desempenho](api-management-howto-cache.md)
+## [Adicionar o desempenho do cache tooimprove](api-management-howto-cache.md)
 ## [Perguntas frequentes](api-management-faq.md)
 # Como
 ## Desenvolver APIs
@@ -13,8 +13,8 @@
 ### [Importar uma definição de API](api-management-howto-import-api.md)
 ## Proteger o back-end
 ### [Proteger back-end de API Web com o AAD](api-management-howto-protect-backend-with-aad.md)
-### [Conectar-se a uma rede virtual](api-management-using-with-vnet.md)
-### [Conectar uma rede virtual interna](api-management-using-with-internal-vnet.md)
+### [Conectar a rede virtual tooa](api-management-using-with-vnet.md)
+### [Conecte-se a rede virtual interna de tooan](api-management-using-with-internal-vnet.md)
 ### [Integrar o Gateway de Aplicativo em uma rede virtual interna](api-management-howto-integrate-internal-vnet-appgateway.md)
 ### [Autenticação Mútua de certificado](api-management-howto-mutual-certificates.md)
 ## Configurar Políticas
@@ -26,7 +26,7 @@
 ### [Visão geral das políticas](api-management-howto-policies.md)
 ### [Gerenciar segredos usando propriedades](api-management-howto-properties.md)
 ### [Proteger APIs usando a autenticação de certificado do cliente](api-management-howto-mutual-certificates-for-clients.md)
-## Personalizar a experiência do desenvolvedor
+## Personalizar a experiência do desenvolvedor Olá
 ### [Modificar o layout e o conteúdo da página](api-management-modify-content-layout.md)
 ### [Personalizar o estilo dos elementos da página](api-management-customize-styles.md)
 ### [Personalizar as páginas do sistema usando modelos](api-management-developer-portal-templates.md)
@@ -37,10 +37,10 @@
 ### [Habilitar suporte ao console OAuth](api-management-howto-oauth2.md)
 ## Gerenciar na produção
 ### [Gerenciar grupos](api-management-howto-create-groups.md)
-### [Implantar em várias regiões do Azure](api-management-howto-deploy-multi-region.md)
-### [Registrar eventos nos Hubs de Eventos do Azure](api-management-howto-log-event-hubs.md)
+### [Implantar toomultiple Azure regiões](api-management-howto-deploy-multi-region.md)
+### [Log de eventos tooAzure Hubs de eventos](api-management-howto-log-event-hubs.md)
 ### [Configurar DR usando backup/restauração](api-management-howto-disaster-recovery-backup-restore.md)
-### [Rastrear chamadas com o API Inspector](api-management-howto-api-inspector.md)
+### [Chamadas de rastreamento com hello Inspetor de API](api-management-howto-api-inspector.md)
 ### [Gerenciar contas de usuários](api-management-howto-create-or-invite-developers.md)
 ### [Gerenciar usando automação](automation-manage-api-management.md)
 ### [Configurar usando Git](api-management-configuration-repository-git.md)
@@ -81,14 +81,14 @@
 ## [Gerenciamento de API – funciona bem com outros serviços do Azure](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
 ## [Plug-in de Gerenciamento de API para SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)
-## [Conectando Hubs de Eventos ao Gerenciamento de API](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
+## [Conectar Hubs de eventos tooAPI gerenciamento](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
 ## [Consumir serviços WCF SOAP por HTTP](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Preços](https://azure.microsoft.com/pricing/details/api-management/)
 ## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
-## [Fornecer acesso tipo RBAC usando a API REST](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
+## [Fornecer acesso de RBAC usando Olá API REST](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=api-management)
-## [Configurar PostMan para chamar APIs de Gerenciamento de API](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
+## [Configurar carteiro toocall APIs de gerenciamento de API](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
 ## [White paper: gerenciamento de API baseado em nuvem](http://j.mp/ms-apim-whitepaper)

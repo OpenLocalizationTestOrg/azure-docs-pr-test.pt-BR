@@ -1,6 +1,6 @@
 ---
-title: "Implantação flighting (teste beta) no Serviço de Aplicativo do Azure"
-description: "Saiba como realizar a implantação flighting de novos recursos em seu aplicativo ou realizar teste beta em suas atualizações neste tutorial completo. Ele reúne os recursos do Serviço de Aplicativo como publicação contínua, slots, roteamento de tráfego e integração do Application Insights."
+title: "implantação de aaaFlighting (teste beta) no serviço de aplicativo do Azure"
+description: "Saiba como tooflight novos recursos no seu aplicativo ou beta testar as atualizações neste tutorial de ponta a ponta. Ele reúne os recursos do Serviço de Aplicativo como publicação contínua, slots, roteamento de tráfego e integração do Application Insights."
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -14,96 +14,96 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2016
 ms.author: cephalin
-ms.openlocfilehash: 83e3247310461ac148fff3c4ade3aa7216478537
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e83477b1fe46be09e5baa7bc2bd239b840b05cf7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="flighting-deployment-beta-testing-in-azure-app-service"></a>Implantação flighting (teste beta) no Serviço de Aplicativo do Azure
-Este tutorial mostra como realizar *implantações de liberação de versões de pré-lançamento* integrando os vários recursos do [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) e do [Azure Application Insights](/services/application-insights/).
+Este tutorial mostra como toodo *implantações flighting* integrando Olá diversos recursos de [do serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) e [Azure Application Insights](/services/application-insights/).
 
-*Flighting* é um processo de implantação que valida um novo recurso ou alteração com um número limitado de clientes reais, e é um teste importante no cenário de produção. É semelhante ao teste beta e às vezes é conhecido como “voo de teste controlado”. Muitas grandes empresas com uma presença na Web usam essa abordagem para obter validação antecipada sobre suas atualizações de aplicativo em sua prática de [desenvolvimento ágil](https://en.wikipedia.org/wiki/Agile_software_development). O Serviço de Aplicativo do Azure permite a integração de teste em produção com a publicação contínua e o Application Insights para implementar o mesmo cenário de DevOps. Entre os benefícios dessa abordagem estão:
+*Flighting* é um processo de implantação que valida um novo recurso ou alteração com um número limitado de clientes reais, e é um teste importante no cenário de produção. É toobeta parecido testes e às vezes é conhecido como "teste controlado voo". Muitas grandes empresas com uma presença na Web usam essa abordagem para obter validação antecipada sobre suas atualizações de aplicativo em sua prática de [desenvolvimento ágil](https://en.wikipedia.org/wiki/Agile_software_development). Serviço de aplicativo do Azure permite que você teste toointegrate em produção com a publicação contínua e Application Insights tooimplement Olá mesmo cenário DevOps. Entre os benefícios dessa abordagem estão:
 
-* **Obtenha comentários reais *antes* que as atualizações sejam lançadas na produção** - a única coisa melhor do que obter comentários após o lançamento é obter comentários antes dele. Você pode testar atualizações com o tráfego e comportamentos de usuário real em qualquer etapa desejada do ciclo de vida do produto.
+* **Obter comentários real *antes de* atualizações são lançada tooproduction** -Olá somente coisa melhor do que obter comentários assim que você soltar é obter comentários antes de liberar. Você pode testar atualizações com o tráfego de usuário real e comportamentos antecipada desejados no ciclo de vida do hello.
 * **Aprimore o [CTDD (desenvolvimento contínuo controlado por testes)](https://en.wikipedia.org/wiki/Continuous_test-driven_development)** - ao integrar o teste em produção com a integração e instrumentação contínuas com o Application Insights, a validação do usuário ocorre automaticamente e desde o início do ciclo de vida do produto. Isso ajuda a reduzir os investimentos em tempo na execução de teste manual.
-* **Otimizar o fluxo de trabalho de teste** - ao automatizar o teste em produção com a instrumentação de monitoramento contínuo, é possível potencialmente atingir os objetivos de vários tipos de testes em um único processo, como [integração](https://en.wikipedia.org/wiki/Integration_testing), [regressão](https://en.wikipedia.org/wiki/Regression_testing), [usabilidade](https://en.wikipedia.org/wiki/Usability_testing), acessibilidade, localização, [desempenho](https://en.wikipedia.org/wiki/Software_performance_testing), [segurança](https://en.wikipedia.org/wiki/Security_testing) e[ aceitação](https://en.wikipedia.org/wiki/Acceptance_testing).
+* **Otimizar o fluxo de trabalho de teste** -através da automação de teste em produção com a instrumentação de monitoramento contínua, você pode potencialmente atingir Olá objetivos de vários tipos de testes em um único processo, como [integração](https://en.wikipedia.org/wiki/Integration_testing), [regressão](https://en.wikipedia.org/wiki/Regression_testing), [usabilidade](https://en.wikipedia.org/wiki/Usability_testing), acessibilidade, localização, [desempenho](https://en.wikipedia.org/wiki/Software_performance_testing), [segurança](https://en.wikipedia.org/wiki/Security_testing), e [ aceitação](https://en.wikipedia.org/wiki/Acceptance_testing).
 
-Uma implantação flighting não se trata apenas do roteamento de tráfego em tempo real. Nesse tipo de implantação, você deseja obter informações o mais rápido possível, seja um bug inesperado, degradação de desempenho ou problemas de experiência do usuário. Lembre-se de que você está lidando com clientes reais. Portanto, para fazer isso da maneira certa, certifique-se de que você configurou sua implantação flighting para coletar todos os dados necessários para tomar uma decisão informada para a próxima etapa. Este tutorial mostra como coletar dados com o Application Insights, mas você pode usar o New Relic ou outras tecnologias que se adaptem ao seu cenário.
+Uma implantação flighting não se trata apenas do roteamento de tráfego em tempo real. Em tal implantação deseja toogain insight assim que possível, se é um erro inesperado, degradação de desempenho, problemas de experiência do usuário. Lembre-se de que você está lidando com clientes reais. Caso toodo à direita, você deve garantir que você configurou seu toogather implantação flighting todos os dados de saudação, você precisa em ordem toomake uma decisão informada para a próxima etapa. Este tutorial mostra como toocollect dados com o Application Insights, mas você podem usar o New Relic ou outras tecnologias que atenda às seu cenário.
 
 ## <a name="what-you-will-do"></a>O que você fará
-Neste tutorial, você aprenderá a reunir os seguintes cenários para testar seu aplicativo do Serviço de Aplicativo em produção:
+Neste tutorial, você aprenderá como toobring Olá tootest juntos cenários a seguir em seu aplicativo de serviço de aplicativo em produção:
 
-* [Encaminhar o tráfego de produção](app-service-web-test-in-production-get-start.md) para o seu aplicativo beta
-* [Instrumentar seu aplicativo](../application-insights/app-insights-web-track-usage.md) para obter métricas úteis
+* [Rotear o tráfego de produção](app-service-web-test-in-production-get-start.md) tooyour beta aplicativo
+* [Instrumentar seu aplicativo](../application-insights/app-insights-web-track-usage.md) métricas úteis tooobtain
 * Implantar continuamente seu aplicativo beta e rastrear métricas de aplicativo em tempo real
-* Compare as métricas entre o aplicativo de produção e o aplicativo de beta para ver como as alterações de código são convertidas para resultados
+* Métricas de comparação entre o aplicativo de produção de hello e Olá beta aplicativo toosee como código altera traduzem tooresults
 
 ## <a name="what-you-will-need"></a>O que será necessário
 * Uma conta do Azure
 * Uma conta do [GitHub](https://github.com/)
-* Visual Studio 2015 - você pode baixar a [Community edition](https://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx).
-* Git Shell (instalado com o [GitHub para Windows](https://windows.github.com/)) – isso permite que você execute comandos do Git e do PowerShell na mesma sessão
+* Visual Studio 2015 - você pode baixar Olá [Community edition](https://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx).
+* Shell de Git (instalado com [GitHub para Windows](https://windows.github.com/))-isso permite que você toorun os dois comandos Git e do PowerShell de Olá no hello mesma sessão
 * Bits do [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/v0.9.8-September2015/azure-powershell.0.9.8.msi) mais recentes
-* Noções básicas sobre:
+* Noções básicas sobre a seguir hello:
   * Implantação do modelo do [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) (veja [Implantar um aplicativo complexo de modo previsível no Azure](app-service-deploy-complex-application-predictably.md))
   * [Git](http://git-scm.com/documentation)
   * [PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
 > [!NOTE]
-> Você de uma conta do Azure para concluir este tutorial:
+> Você precisa de uma conta do Azure toocomplete neste tutorial:
 >
-> * É possível [abrir uma conta do Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/) – você obtém créditos que podem ser usados para experimentar serviços pagos do Azure e, mesmo após eles serem utilizados, é possível manter a conta e utilizar os serviços gratuitos do Azure, como Aplicativos Web.
+> * Você pode [abrir uma conta do Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/) -você obtém créditos você pode usar tootry out paga serviços do Azure e mesmo depois que eles são usados você pode manter a conta de saudação e use livre serviços do Azure, como aplicativos Web.
 > * É possível [ativar os benefícios para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) – todos os meses, sua assinatura do Visual Studio concede créditos que podem ser usados para experimentar serviços pagos do Azure.
 >
-> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você quiser tooget iniciado com o serviço de aplicativo do Azure antes de se inscrever para uma conta do Azure, vá muito[tente do serviço de aplicativo](https://azure.microsoft.com/try/app-service/), onde você pode criar imediatamente um aplicativo web de curta duração starter no serviço de aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 >
 >
 
 ## <a name="set-up-your-production-web-app"></a>Configurar seu aplicativo Web de produção
 > [!NOTE]
-> O script usado neste tutorial configurará automaticamente a publicação contínua de seu repositório GitHub. Isso requer que as credenciais do GitHub já estejam armazenadas no Azure; caso contrário, a implantação de scripts falhará ao tentar definir configurações de controle de origem para aplicativos Web.
+> script Hello usado neste tutorial automaticamente irá configurar a publicação contínua de seu repositório GitHub. Isso exige que suas credenciais do GitHub já são armazenados no Azure, caso contrário, a implantação de Olá script falhará durante a tentativa de tooconfigure configurações de controle de origem para os aplicativos web hello.
 >
-> Para armazenar suas credenciais do GitHub no Azure, crie um aplicativo Web no [Portal do Azure](https://portal.azure.com/) e [configure a implantação do GitHub](app-service-continuous-deployment.md). Você só precisa fazer isso uma vez.
+> toostore seu GitHub credenciais no Azure, criar um aplicativo web no hello [Portal do Azure](https://portal.azure.com/) e [configurar implantação GitHub](app-service-continuous-deployment.md). Você só precisa toodo desta vez.
 >
 >
 
-Em um cenário típico de DevOps, você tem um aplicativo que está em execução em tempo real no Azure e deseja fazer alterações nele por meio de publicação contínua. Neste cenário, você implantará na produção um modelo que você desenvolveu e testou.
+Em um cenário típico de DevOps, você tem um aplicativo que está em execução no Azure e desejar toomake tooit de alterações por meio da publicação contínua. Nesse cenário, você implantará tooproduction um modelo que você foram desenvolvidos e testados.
 
-1. Crie sua própria bifurcação do repositório do [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) . Para obter informações sobre como criar a bifurcação, consulte [Bifurcar um repositório](https://help.github.com/articles/fork-a-repo/). Depois que a bifurcação é criada, você pode vê-la no navegador.
+1. Criar seu próprio bifurcação de saudação [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) repositório. Para obter informações sobre como criar a bifurcação, consulte [Bifurcar um repositório](https://help.github.com/articles/fork-a-repo/). Depois que a bifurcação é criada, você pode vê-la no navegador.
 
    ![](./media/app-service-agile-software-development/production-1-private-repo.png)
 2. Abra uma sessão do Git Shell. Se ainda não tiver o Git Shell, instale o [GitHub para Windows](https://windows.github.com/) agora.
-3. Crie um clone local de seu bifurcação executando o seguinte comando:
+3. Crie um clone local de sua bifurcação executando Olá comando a seguir:
 
      git clone https://github.com/<your_fork>/ToDoApp.git
-4. Depois que tiver seu clone local, navegue até a *&lt;raiz_do_repositório>*\ARMTemplates e execute o script deploy.ps1 com um sufixo exclusivo, como mostrado abaixo:
+4. Uma vez que o clone local, navegue muito*&lt;repository_root >*\ARMTemplates e execução Olá deploy.ps1 script com um sufixo exclusivo, conforme mostrado abaixo:
 
      .\deploy.ps1 –RepoUrl https://github.com/<your_fork>/todoapp.git -ResourceGroupSuffix <your_suffix>
-5. Quando solicitado, digite o nome de usuário desejado e a senha para acesso ao banco de dados. Lembre-se de suas credenciais do banco de dados, porque você precisará especificá-las novamente ao atualizar o grupo de recursos.
+5. Quando solicitado, digite Olá desejado de nome de usuário e senha para acesso ao banco de dados. Lembre-se de credenciais de seu banco de dados, pois você precisará toospecify-las novamente quando atualizar Olá grupo de recursos.
 
-   Você deverá ver o progresso de provisionamento de vários recursos do Azure. Quando a implantação for concluída, o script iniciará o aplicativo no navegador e emitirá um aviso sonoro.
+   Você deve ver Olá provisionamento progresso de vários recursos do Azure. Quando a implantação for concluída, o script hello Iniciar aplicativo hello no navegador hello e oferecem um bipe amigável.
    ![](./media/app-service-web-test-in-production-controlled-test-flight/00.1-app-in-browser.png)
 6. De volta à sessão do Git Shell, execute:
 
      .\swap –Name ToDoApp<your_suffix>
 
    ![](./media/app-service-web-test-in-production-controlled-test-flight/00.2-swap-to-production.png)
-7. Quando o script for concluído, volte para navegar até endereço do front-end (http://ToDoApp*&lt;seu_sufixo>*.azurewebsites.net/) para ver o aplicativo em execução na produção.
-8. Faça logon no [Portal do Azure](https://portal.azure.com/) e veja o que foi criado.
+7. Quando o script hello termina, volte toobrowse toohello endereço do front-end (http://ToDoApp*&lt;your_suffix >*.azurewebsites.net/) aplicativo hello de toosee em execução em produção.
+8. Faça logon no hello [Portal do Azure](https://portal.azure.com/) e veja o que é criado.
 
-   Você deverá ver dois aplicativos Web no mesmo grupo de recursos, um com o sufixo `Api` no nome. Se examinar o modo de exibição do grupo de recursos, você também verá o banco de dados SQL e o servidor, o plano do Serviço de Aplicativo e os slots de preparo dos aplicativos Web. Navegue pelos diferentes recursos e compare-os com *&lt;raiz_do_repositório>*\ARMTemplates\ProdAndStage.json para ver como eles são configurados no modelo.
+   Você deve ser capaz de toosee dois os aplicativos web no hello mesmo grupo de recursos, um com hello `Api` sufixo no nome de saudação. Se você examinar o modo de exibição de grupo de recursos Olá, você também verá Olá banco de dados SQL e servidor, Olá plano de serviço de aplicativo e slots de preparo Olá para aplicativos da web de saudação. Navegue pelos recursos diferentes hello e compará-los com  *&lt;repository_root >*toosee \ARMTemplates\ProdAndStage.json como eles são configurados no modelo de saudação.
 
    ![](./media/app-service-web-test-in-production-controlled-test-flight/00.3-resource-group-view.png)
 
-Você configurou o aplicativo de produção.  Agora, vamos imaginar que você receba comentários de que a usabilidade é insatisfatória para o aplicativo. Portanto, você decide investigar. Você instrumentará seu aplicativo para que ele forneça comentários.
+Você configurou o aplicativo de produção de hello.  Agora, vamos imaginar que você receba comentários que usabilidade é ruim para o aplicativo hello. Portanto, você decide tooinvestigate. Você vai tooinstrument toogive seu aplicativo você comentários.
 
 ## <a name="investigate-instrument-your-client-app-for-monitoringmetrics"></a>Investigue: instrumentar o aplicativo cliente para monitoramento/métricas
 1. Abra *&lt;raiz_do-repositório>*\src\MultiChannelToDo.sln in Visual Studio.
 2. Restaure todos os pacotes NuGet clicando com o botão direito do mouse na solução > **Gerenciar Pacotes NuGet da Solução** > **Restaurar**.
-3. Clique com o botão direito do mouse em **MultiChannelToDo.Web** > **Adicionar Application Insights Telemetry** > **Definir Configurações** > Alterar grupo de recursos para ToDoApp*&lt;seu_sufixo>* > **Adicionar Application Insights ao Projeto**.
-4. No Portal do Azure, abra a folha do recurso **MultiChannelToDo.Web** do Application Insight. Em seguida, na seção **Integridade do aplicativo**, clique em **Saiba como coletar dados de carregamento da página do navegador** > copiar código.
-5. Adicione o código de instrumentação JS copiado à *&lt;raiz_repositório>*\src\MultiChannelToDo.Web\app\Index.cshtml, logo antes da marca `<heading>` de fechamento. Ele deve conter a chave exclusiva de instrumentação do recurso do Application Insight.
+3. Clique com botão direito **MultiChannelToDo.Web** > **adicionar telemetria do Application Insights** > **configurar** > alterar o grupo de recursos tooToDoApp*&lt;your_suffix >* > **tooProject adicionar Application Insights**.
+4. Em Olá Portal do Azure, abra a folha de saudação para Olá **MultiChannelToDo.Web** recurso do Application Insight. Em seguida, em hello **integridade do aplicativo** parte, clique em **Saiba como a página do navegador toocollect carregar dados** > Copiar código.
+5. Adicionar Olá copiado o código de instrumentação JS muito*&lt;repository_root >*\src\MultiChannelToDo.Web\app\Index.cshtml logo antes de fechamento Olá `<heading>` marca. Ela deve conter a chave de instrumentação exclusivo de saudação do recurso Application Insight.
 
         <script type="text/javascript">
         var appInsights=window.appInsights||function(config){
@@ -115,7 +115,7 @@ Você configurou o aplicativo de produção.  Agora, vamos imaginar que você re
         window.appInsights=appInsights;
         appInsights.trackPageView();
         </script>
-6. Envie eventos personalizados para o Application Insights para cliques do mouse adicionando o seguinte código à parte inferior do corpo:
+6. Envie eventos personalizados tooApplication Insights para cliques adicionando Olá inferior do código toohello do corpo a seguir:
 
        <script>
            $(document.body).find("*").click(function(event) {
@@ -124,16 +124,16 @@ Você configurou o aplicativo de produção.  Agora, vamos imaginar que você re
            });
        </script>
 
-   Este trecho de código em JavaScript envia um evento personalizado para o Application Insights sempre que um usuário clica em algum lugar no aplicativo Web.
-7. No Git Shell, confirme e envie por push as alterações à bifurcação no GitHub. Em seguida, aguarde até que os clientes atualizem o navegador.
+   Este trecho de código JavaScript envia um evento personalizado tooApplication Insights toda vez que um usuário clica em qualquer lugar no aplicativo web de saudação.
+7. No Shell de Git, confirmar e enviar por push a bifurcação de tooyour alterações no GitHub. Em seguida, aguarde o navegador de toorefresh de clientes.
 
        git add -A :/
        git commit -m "add AI configuration for client app"
        git push origin master
-8. Alterne as alterações do aplicativo implantado para a produção:
+8. Saudação de permuta implantado tooproduction de alterações do aplicativo:
 
      .\swap –Name ToDoApp<your_suffix>
-9. Navegue até o recurso do Application Insights que você configurou. Clique em Eventos personalizados.
+9. Procure o recurso do Application Insights toohello que você configurou. Clique em Eventos personalizados.
 
    ![](./media/app-service-web-test-in-production-controlled-test-flight/01-custom-events.png)
 
@@ -143,39 +143,39 @@ Suponha que você veja um gráfico como o mostrado abaixo:
 
 ![](./media/app-service-web-test-in-production-controlled-test-flight/02-custom-events-chart-view.png)
 
-E a grade de eventos abaixo dele:
+E a grade de eventos Olá abaixo dele:
 
 ![](./media/app-service-web-test-in-production-controlled-test-flight/03-custom-event-grid-view.png)
 
-De acordo com o código do aplicativo ToDoApp, o evento **BUTTON** corresponde ao botão Enviar e o evento **INPUT** corresponde à caixa de texto. Até agora, as coisas fazem sentido. No entanto, parece que há uma boa quantidade de cliques e muito poucos cliques nos itens de tarefas pendentes (os eventos **LI** ).
+De acordo com o código do aplicativo ToDoApp tooyour, Olá **botão** evento corresponde toohello no botão Enviar e hello **entrada** evento corresponde a caixa de texto toohello. Até agora, as coisas fazem sentido. No entanto, parece que há uma boa quantidade de cliques e cliques muito poucos itens de tarefas pendentes de hello (Olá **LI** eventos).
 
-Com base nisso, você forma a hipótese de que alguns usuários estão confusos sobre qual parte da interface do usuário é clicável, e isso ocorre porque o cursor tem o estilo de seleção de texto quando ele é passado sobre os itens da lista e seus ícones.
+Com base nesse, você formulário sua hipótese que alguns usuários confundido qual parte da saudação interface do usuário é clicável e isso ocorre porque o estilo do cursor Olá para seleção de texto quando ele for colocado em itens de lista hello e seus ícones.
 
 ![](./media/app-service-web-test-in-production-controlled-test-flight/04-to-do-list-item-ui.png)
 
-Isso pode ser um exemplo forçado. No entanto, você fará uma melhoria em seu aplicativo e realizará uma implantação flighting para obter comentários de usabilidade dos clientes em tempo real.
+Isso pode ser um exemplo forçado. No entanto, você está indo toomake um aplicativo de tooyour aperfeiçoamento e, em seguida, executar um flighting comentários de usabilidade de tooget de implantação de clientes em tempo real.
 
 ### <a name="instrument-your-server-app-for-monitoringmetrics"></a>Instrumentar seu aplicativo de servidor para monitoramento/métricas
-Essa é uma tangente, pois o cenário demonstrado neste tutorial lida apenas com o aplicativo cliente. No entanto, para fins de integridade, você configurará o aplicativo do lado do servidor.
+Isso é uma tangente pois cenário Olá demonstrado neste tutorial lida apenas transações com hello aplicativo de cliente. No entanto, para fins de integridade você configurará saudação do servidor app.
 
-1. Clique com o botão direito do mouse em **MultiChannelToDo** > **Adicionar Application Insights Telemetry** > **Definir Configurações** > Alterar grupo de recursos para ToDoApp*&lt;seu_sufixo>* > **Adicionar Application Insights ao Projeto**.
-2. No Git Shell, confirme e envie por push as alterações à bifurcação no GitHub. Em seguida, aguarde até que os clientes atualizem o navegador.
+1. Clique com botão direito **MultiChannelToDo** > **adicionar telemetria do Application Insights** > **configurar** > alterar o grupo de recursos tooToDoApp*&lt;your_suffix >* > **tooProject adicionar Application Insights**.
+2. No Shell de Git, confirmar e enviar por push a bifurcação de tooyour alterações no GitHub. Em seguida, aguarde o navegador de toorefresh de clientes.
 
        git add -A :/
        git commit -m "add AI configuration for server app"
        git push origin master
-3. Alterne as alterações do aplicativo implantado para a produção:
+3. Saudação de permuta implantado tooproduction de alterações do aplicativo:
 
      .\swap –Name ToDoApp<your_suffix>
 
 É isso!
 
-## <a name="investigate-add-slot-specific-tags-to-your-client-app-metrics"></a>Investigue: adicionar marcas específicas do slot às métricas do aplicativo cliente
-Nesta seção, você configurará os diferentes slots de implantação para enviar telemetria específica do slot para o mesmo recurso do Application Insights. Dessa forma, você pode comparar os dados de telemetria entre o tráfego de slots diferentes (ambientes de implantação) para ver o efeito das alterações de seu aplicativo com facilidade. Ao mesmo tempo, você pode separar o tráfego de produção do restante, para que você possa continuar a monitorar seu aplicativo de produção, conforme necessário.
+## <a name="investigate-add-slot-specific-tags-tooyour-client-app-metrics"></a>Investigue: Adicionar métricas de aplicativo de cliente de tooyour marcas específicas de slot
+Nesta seção, você irá configurar Olá diferentes de implantação slots toosend telemetria específicos de slot toohello mesmo recurso Application Insights. Dessa forma, você pode comparar a telemetria de dados entre o tráfego de slots diferentes (ambientes de implantação) tooeasily ver o efeito de saudação de suas alterações de aplicativo. AT Olá mesmo tempo, você pode separar o tráfego de produção de hello restante Olá para que você possa continuar toomonitor seu aplicativo de produção conforme necessário.
 
-Já que você está reunindo dados sobre o comportamento do cliente, você poderá [adicionar um inicializador de telemetria ao seu código do JavaScript](../application-insights/app-insights-api-filtering-sampling.md) em index.cshtml. Se desejar testar o desempenho do lado do servidor, por exemplo, também é possível realizar o mesmo em seu código do servidor (veja [API do Application Insights para métricas e eventos personalizados](../application-insights/app-insights-api-custom-events-metrics.md).
+Desde que você está coletando dados sobre o comportamento do cliente, você vai [adicionar um inicializador de telemetria tooyour código JavaScript](../application-insights/app-insights-api-filtering-sampling.md) em cshtml. Se você quiser tootest desempenho do lado do servidor, por exemplo, você também pode fazer da mesma forma no código do servidor (consulte [API do Application Insights para métricas e eventos personalizados](../application-insights/app-insights-api-custom-events-metrics.md).
 
-1. Primeiro, adicione o código entre os dois comentários `//` abaixo no bloco de JavaScript adicionado à marca `<heading>` anteriormente.
+1. Primeiro, adicione Olá bewteen de código Olá dois `//` comentários abaixo no bloco de JavaScript Olá que você adicionou toohello `<heading>` marca anteriormente.
 
         window.appInsights = appInsights;
 
@@ -191,34 +191,34 @@ Já que você está reunindo dados sobre o comportamento do cliente, você poder
 
         appInsights.trackPageView();
 
-    Esse código do inicializador faz com que o objeto `appInsights` adicione uma propriedade personalizada chamada `Environment` a cada item de telemetria enviado.
-2. Em seguida, adicione essa propriedade personalizada como uma [configuração do slot](web-sites-staged-publishing.md#AboutConfiguration) de seu aplicativo Web no Azure. Para fazer isso, execute os comandos a seguir em sua sessão do Git Shell.
+    Esse código de inicializador causa Olá `appInsights` tooadd objeto Olá uma propriedade personalizada chamada `Environment` tooevery parte de telemetria que ele envia.
+2. Em seguida, adicione essa propriedade personalizada como uma [configuração do slot](web-sites-staged-publishing.md#AboutConfiguration) de seu aplicativo Web no Azure. toodo, Olá executar comandos a seguir em sua sessão do Shell do Git.
 
         $app = Get-AzureWebsite -Name todoapp<your_suffix> -Slot production
         $app.AppSettings.Add("environment", "Production")
         $app.SlotStickyAppSettingNames.Add("environment")
         $app | Set-AzureWebsite -Name todoapp<your_suffix> -Slot production
 
-    O Web.config em seu projeto já define a configuração `environment` do aplicativo. Com essa configuração, quando você testar o aplicativo localmente, suas métricas serão marcadas com `VS Debugger`. No entanto, quando você enviar por push suas alterações para o Azure, o Azure encontrará e usará a configuração do aplicativo `environment` na configuração do aplicativo Web e suas métricas serão marcadas com `Production`.
-3. Confirme e envie por push as alterações de código à bifurcação no GitHub e aguarde até que os usuários usem o novo aplicativo (é necessário atualizar o navegador). Demora cerca de 15 minutos para que a nova propriedade apareça em seu recurso `MultiChannelToDo.Web` do Application Insights.
+    Olá Web. config em seu projeto já define Olá `environment` configuração do aplicativo. Com essa configuração, quando você testar o aplicativo de saudação localmente, suas métricas serão marcadas com `VS Debugger`. No entanto, quando você enviar por push tooAzure suas alterações, Azure encontrará e usar Olá `environment` configuração em vez disso, na configuração do aplicativo da web de saudação do aplicativo e suas métricas serão marcados com `Production`.
+3. Confirmar e enviar por push a bifurcação de tooyour de alterações de código no GitHub e aguarde até que os usuários toouse Olá novo aplicativo (necessidade toorefresh Olá navegador). Ocupa cerca de 15 minutos para Olá nova propriedade tooshow em suas ideias de aplicativo `MultiChannelToDo.Web` recursos.
 
         git add -A :/
-        git commit -m "add environment property to AI events for client app"
+        git commit -m "add environment property tooAI events for client app"
         git push origin master
-4. Agora, vá novamente para a folha **Eventos personalizados** e filtre as métricas em `Environment=Production`. Agora, você deverá ver todos os novos eventos personalizados no slot de produção com este filtro.
+4. Agora, vamos toohello **eventos personalizados** folha novamente e filtro Olá métricas em `Environment=Production`. Agora você deve ser capaz de toosee todos os Olá novos eventos personalizados em produção de hello slot com esse filtro.
 
     ![](./media/app-service-web-test-in-production-controlled-test-flight/05-filter-on-production-environment.png)
-5. Clique no botão **Favoritos** para salvar as configurações atuais do Metrics Explorer como algo como **Eventos personalizados: Produção**. Você pode alternar facilmente entre esta exibição e uma exibição de slot de implantação posteriormente.
+5. Clique em Olá **Favoritos** como botão toosave Olá atual do Metrics Explorer configurações toosomething **eventos personalizados: produção**. Você pode alternar facilmente entre esta exibição e uma exibição de slot de implantação posteriormente.
 
    > [!TIP]
    > Para uma análise ainda mais eficiente, considere [integrar seu recurso do Application Insights com o Power BI](../application-insights/app-insights-export-power-bi.md).
    >
    >
 
-### <a name="add-slot-specific-tags-to-your-server-app-metrics"></a>Adicionar marcas específicas do slot às suas métricas de aplicativo de servidor
-Novamente, para fins de exatidão, você configurará o aplicativo do lado do servidor. Ao contrário do aplicativo cliente que é instrumentado em JavaScript, as marcas específicas do slot para o aplicativo de servidor são instrumentadas com o código do .NET.
+### <a name="add-slot-specific-tags-tooyour-server-app-metrics"></a>Adicionar marcas específicas do slot tooyour aplicativo métricas
+Novamente, para fins de integridade você configurará saudação do servidor app. Ao contrário do aplicativo de cliente de saudação que é instrumentado em JavaScript, marcas específicas do slot de saudação do aplicativo de servidor é instrumentada com o código .NET.
 
-1. Abra *&lt;raiz_do_repositório>*\src\MultiChannelToDo\Global.asax.cs. Adicione o bloco de código abaixo, logo antes da chave do namespace de fechamento.
+1. Abra *&lt;raiz_do_repositório>*\src\MultiChannelToDo\Global.asax.cs. Adicione bloco de código Olá abaixo, antes de saudação chave de fechamento namespace.
 
         namespace MultiChannelToDo
         {
@@ -235,41 +235,41 @@ Novamente, para fins de exatidão, você configurará o aplicativo do lado do se
             }
                 // End new code
         }
-2. Corrija os erros de resolução de nomes adicionando as instruções `using` abaixo ao início do arquivo:
+2. Corrija os erros de resolução de nome hello adicionando Olá `using` instruções abaixo toohello a partir do arquivo hello:
 
         using Microsoft.ApplicationInsights.Channel;
         using Microsoft.ApplicationInsights.Extensibility;
-3. Adicione o código abaixo ao início do método `Application_Start()` :
+3. Adicione código Olá abaixo toohello início Olá `Application_Start()` método:
 
         TelemetryConfiguration.Active.TelemetryInitializers.Add(new ConfigInitializer());
-4. Confirme e envie por push as alterações de código à bifurcação no GitHub e aguarde até que os usuários usem o novo aplicativo (é necessário atualizar o navegador). Demora cerca de 15 minutos para que a nova propriedade apareça em seu recurso `MultiChannelToDo` do Application Insights.
+4. Confirmar e enviar por push a bifurcação de tooyour de alterações de código no GitHub e aguarde até que os usuários toouse Olá novo aplicativo (necessidade toorefresh Olá navegador). Ocupa cerca de 15 minutos para Olá nova propriedade tooshow em suas ideias de aplicativo `MultiChannelToDo` recursos.
 
         git add -A :/
-        git commit -m "add environment property to AI events for server app"
+        git commit -m "add environment property tooAI events for server app"
         git push origin master
 
 ## <a name="update-set-up-your-beta-branch"></a>Atualização: configurar sua ramificação beta
-1. Abra *&lt;raiz_do_repositório>*\ARMTemplates\ProdAndStagetest.json e encontre os recursos do `appsettings` (procure `"name": "appsettings"`). Há quatro deles, um para cada slot.
-2. Para cada recurso do `appsettings`, adicione uma configuração do aplicativo `"environment": "[parameters('slotName')]"` ao final da matriz `properties`. Não se esqueça de terminar a linha anterior com uma vírgula.
+1. Abra  *&lt;repository_root >*\ARMTemplates\ProdAndStagetest.json e localizar Olá `appsettings` recursos (procure `"name": "appsettings"`). Há quatro deles, um para cada slot.
+2. Para cada `appsettings` recurso, adicione uma `"environment": "[parameters('slotName')]"` final de toohello de configuração de aplicativo da saudação `properties` matriz. Não se esqueça de linha anterior do hello tooend com uma vírgula.
 
     ![](./media/app-service-web-test-in-production-controlled-test-flight/06-arm-app-setting-with-slot-name.png)
 
-    Você acabou de adicionar a configuração de aplicativo `environment` a todos os slots no modelo.
-3. No mesmo arquivo, encontre os recursos do `slotconfignames` (procure `"name": "slotconfignames"`). Há dois deles, um para cada aplicativo.
-4. Para cada recurso do `slotconfignames`, adicione `"environment"` ao final da matriz `appSettingNames`. Não se esqueça de terminar a linha anterior com uma vírgula.
+    Você acabou de adicionar Olá `environment` definindo tooall slots Olá no modelo de saudação do aplicativo.
+3. No hello mesmo arquivo, localize Olá `slotconfignames` recursos (procure `"name": "slotconfignames"`). Há dois deles, um para cada aplicativo.
+4. Para cada `slotconfignames` recurso, adicione `"environment"` toohello final de saudação `appSettingNames` matriz. Não se esqueça de linha anterior do hello tooend com uma vírgula.
 
-    Você acabou de fixar a configuração de aplicativo `environment` em seu respectivo slot de implantação para os dois aplicativos.  
-5. Em sua sessão do Git Shell, execute os comandos a seguir com o mesmo sufixo do grupo de recursos que você usou anteriormente.
+    Você acabou de criar hello `environment` slot de implantação do respectivos de tooits do aplicativo configuração cartão para ambos os aplicativos.  
+5. Na sua sessão do Shell de Git, Olá execução seguintes comandos com hello mesmo sufixo de grupo de recursos que você usou.
 
         git checkout -b beta
         git push origin beta
         .\deploy.ps1 -RepoUrl https://github.com/<your_fork>/ToDoApp.git -ResourceGroupSuffix <your_suffix> -SlotName beta -Branch beta
-6. Quando solicitado, especifique as mesmas credenciais do banco de dados SQL que anteriormente. Em seguida, quando solicitado a atualizar o grupo de recursos, digite `Y` e `ENTER`.
+6. Quando solicitado, especifique Olá as mesmas credenciais de banco de dados SQL como antes. Em seguida, quando solicitado a grupo de recursos tooupdate hello, tipo `Y`, em seguida, `ENTER`.
 
-    Depois que o script for concluído, todos os seus recursos no grupo de recursos original serão mantidos, mas um novo slot chamado “beta” será criado nele com a mesma configuração que o slot de “Preparação” que foi criado no início.
+    Depois que o script hello termina, todos os seus recursos no grupo de recursos original Olá são mantidos, mas um novo slot denominado "beta" for criado com hello mesmo configuração como o slot de "Preparação" hello que foi criado no início de saudação.
 
    > [!NOTE]
-   > Esse método de criação de diferentes ambientes de implantação é diferente do método no [Desenvolvimento de software Agile com o Serviço de Aplicativo do Azure](app-service-agile-software-development.md). Aqui, você cria ambientes de implantação com slots de implantação, enquanto que lá você cria ambientes de implantação com grupos de recursos. O gerenciamento de ambientes de implantação com grupos de recursos permite que você mantenha o ambiente de produção fora dos limites para os desenvolvedores; porém, não é fácil realizar testes em produção, o que pode ser feito facilmente com slots.
+   > Esse método de criação de ambientes de implantação diferentes é diferente do método hello em [desenvolvimento de software Agile com serviço de aplicativo do Azure](app-service-agile-software-development.md). Aqui, você cria ambientes de implantação com slots de implantação, enquanto que lá você cria ambientes de implantação com grupos de recursos. Gerenciando ambientes de implantação com grupos de recursos permite que você toodevelopers fora dos limites do ambiente tookeep Olá produção, mas não é fácil toodo teste em produção, o que pode ser feito facilmente com slots.
    >
    >
 
@@ -281,26 +281,26 @@ Se desejar, você também pode criar um aplicativo alfa executando
 
 Para este tutorial, você continuará usando seu aplicativo beta.
 
-## <a name="update-push-your-updates-to-the-beta-app"></a>Atualização: enviar por push as atualizações para o aplicativo beta
-Volte ao aplicativo que você deseja melhorar.
+## <a name="update-push-your-updates-toohello-beta-app"></a>Atualização: Seu aplicativo de beta de toohello de atualizações por Push
+Faça tooyour aplicativo que você deseja tooimprove.
 
 1. Verifique se você está agora em sua ramificação beta
 
         git checkout beta
-2. Em *&lt;raiz_repositório>*\src\MultiChannelToDo.Web\app\Index.cshtml, encontre a marca `<li>` e adicione o atributo `style="cursor:pointer"`, como mostrado abaixo.
+2. Em  *&lt;repository_root >*\src\MultiChannelToDo.Web\app\Index.cshtml, localizar Olá `<li>` marcar e adicionar Olá `style="cursor:pointer"` atributo, conforme mostrado abaixo.
 
     ![](./media/app-service-web-test-in-production-controlled-test-flight/07-change-cursor-style-on-li.png)
-3. confirme e envie por push para o Azure.
-4. Verifique se a alteração é agora refletida no slot beta navegando até http://todoapp*&lt;seu_sufixo>*-beta.azurewebsites.net/. Se você ainda não vir a alteração, atualize o navegador para obter o novo código JavaScript.
+3. Confirmar e enviar por push tooAzure.
+4. Verifique se a alteração Olá agora é refletida no slot de beta Olá navegando toohttp://todoapp*&lt;your_suffix >*-beta.azurewebsites.net/. Se você não vir Olá alterar ainda, atualize seu código javascript novo navegador tooget hello.
 
     ![](./media/app-service-web-test-in-production-controlled-test-flight/08-verify-change-in-beta-site.png)
 
-Agora que a alteração está em execução no slot beta, você está pronto para realizar uma implantação flighting.
+Agora que você tem a alteração em execução no slot de beta hello, você está pronto tooperform uma implantação flighting.
 
-## <a name="validate-route-traffic-to-the-beta-app"></a>Validar: encaminhar o tráfego para o aplicativo beta
-Nesta seção, você encaminhará o tráfego para o aplicativo beta. Para fins de clareza de demonstração, vamos encaminhar uma parte significativa do tráfego de usuário para ele. Na realidade, a quantidade de tráfego que você deseja encaminhar dependerá de sua situação específica. Por exemplo, se o seu site estiver na escala do microsoft.com, talvez seja necessário menos de 1% do tráfego total para obter dados úteis.
+## <a name="validate-route-traffic-toohello-beta-app"></a>Validar: Aplicativo de beta toohello de tráfego de rota
+Nesta seção, você será rotear tráfego toohello beta aplicativo. Para fins de clareza da demonstração, você vai tooroute uma parte significativa da saudação tooit de tráfego de usuário. Na realidade, Olá quantidade de tráfego que você deseja tooroute dependerá de sua situação específica. Por exemplo, se seu site estiver em escala de saudação do microsoft.com, talvez seja necessário menor que um por cento de seu tráfego total de dados de pedidos toogain útil.
 
-1. Em sua sessão do Git Shell, execute os seguintes comandos para encaminhar metade do tráfego de produção para o slot beta:
+1. Na sua sessão do Shell de Git, execute Olá tooroute comandos a seguir metade do slot de beta Olá produção tráfego toohello:
 
         $siteName = "ToDoApp<your suffix>"
         $rule = New-Object Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.RampUpRule
@@ -309,50 +309,50 @@ Nesta seção, você encaminhará o tráfego para o aplicativo beta. Para fins d
         $rule.Name = "beta"
         Set-AzureWebsite $siteName -Slot Production -RoutingRules $rule
 
-   A propriedade `ReroutePercentage=50` especifica que 50% do tráfego de produção será encaminhado para a URL do aplicativo beta (especificado pela propriedade `ActionHostName`).
-2. Agora, navegue até http://ToDoApp*&lt;seu_sufixo>*.azurewebsites.net. 50% do tráfego agora deve ser redirecionado para o slot beta.
-3. Em seu recurso do Application Insights, filtre as métricas pelo ambiente = “beta”.
+   Olá `ReroutePercentage=50` propriedade especifica que 50% do tráfego de produção de hello será a URL do aplicativo do toohello roteados beta (especificado pelo Olá `ActionHostName` propriedade).
+2. Agora vá toohttp://ToDoApp*&lt;your_suffix >*. azurewebsites.net. 50% de tráfego Olá agora deve ser redirecionado toohello slot de beta.
+3. Em seu recurso Application Insights, filtrar métricas Olá pelo ambiente = "beta".
 
    > [!NOTE]
-   > Se você salvar esta exibição filtrada como outro favorito, você poderá inverter facilmente as exibições do Metric Explorer entre as exibições de produção e beta.
+   > Se você salvar essa exibição filtrada como favorito outro, pode inverter facilmente exibições de métrica explorer Olá entre modos de exibição do beta e de produção.
    >
    >
 
-Suponha que no Application Insights você veja algo semelhante ao seguinte:
+Suponha que no Application Insights, consulte a seguir toohello algo semelhante:
 
 ![](./media/app-service-web-test-in-production-controlled-test-flight/09-test-beta-site-in-production.png)
 
-Isso não só mostra que há muito mais cliques nas marcas `<li>`, mas também que parece haver um aumento de cliques nas marcas `<li>`. Em seguida, você pode concluir que as pessoas descobriram que as novas marcas `<li>` são clicáveis e agora estão limpando todas as suas tarefas concluídas anteriormente no aplicativo.
+Não só é isso mostra que há muitos cliques mais em Olá `<li>` marcas, mas parece toobe um surto de cliques em `<li>` marcas. Pode, em seguida, concluir que as pessoas descobriram Olá novo `<li>` marcas são clicáveis e agora está limpando todas as suas tarefas previamente concluídas no aplicativo hello.
 
-Com base nos dados de sua implantação flighting, você decide que a nova interface do usuário está pronta para produção.
+Com base nos dados de saudação da sua implantação flighting, você decidir que a nova interface do usuário está pronto para produção.
 
 ## <a name="go-live-move-your-new-code-into-production"></a>Ativação: mover seu novo código para a produção
-Agora você está pronto para mover a atualização para a produção. A boa notícia é que agora você sabe que a atualização já foi validada *antes* de ser enviada para a produção. Agora você pode implantá-la com confiança. Já que você fez uma atualização ao aplicativo de cliente AngularJS, você apenas validou o código do lado do cliente. Se você fosse fazer alterações no aplicativo de API da Web de back-end, você poderia validar as alterações da mesma forma e com facilidade.
+Você está agora pronto toomove tooproduction sua atualização. O grande é que agora você sabe que a atualização já foi validada *antes de* é enviada por push tooproduction. Agora você pode implantá-la com confiança. Desde que você fez um aplicativo de cliente atualização toohello AngularJS, validados somente código de cliente hello. Se você fosse um aplicativo de API da Web de back-end do toomake alterações toohello, você pode validar as alterações da mesma forma e facilmente.
 
-1. No Git Shell, remova a regra de roteamento de tráfego executando o seguinte comando:
+1. No Shell de Git, remova a regra de roteamento de tráfego da saudação executando Olá comando a seguir:
 
         Set-AzureWebsite $siteName -Slot Production -RoutingRules @()
-2. Execute os comandos do Git:
+2. Execute comandos do Git hello:
 
         git checkout master
         git pull origin master
         git merge beta
         git push origin master
-3. Aguarde alguns minutos até que o novo código seja implantado no slot de preparo e inicie http://ToDoApp*&lt;seu_sufixo>*-staging.azurewebsites.net para verificar se a nova atualização está pronta no slot de preparo. Lembre-se de que a ramificação mestre da bifurcação está vinculada ao slot de preparo do aplicativo.
-4. Agora, permute o slot de preparo para a produção
+3. Aguarde alguns minutos para Olá novos toohello toobe implantado slot de preparo de código, em seguida, inicie http://ToDoApp*&lt;your_suffix >*-tooverify staging.azurewebsites.net que Olá nova atualização aquecido em preparo Olá slot. Lembre-se de que Olá ramificação mestre da bifurcação está vinculado toohello preparo slot do aplicativo.
+4. Agora, trocar o slot de preparação para a produção de hello
 
         cd <ROOT>\ToDoApp\ARMTemplates
         .\swap.ps1 -Name todoapp<your_suffix>
 
 ## <a name="summary"></a>Resumo
-O Serviço de Aplicativo do Azure facilita para as empresas de pequeno a médio porte testar seus aplicativos voltados para o cliente em produção, algo que tradicionalmente era feito em grandes empresas. Espero que este tutorial tenha fornecido o conhecimento necessário para reunir o Serviço de Aplicativo e o Application Insights e possibilitar a implantação flighting, e até mesmo outros cenários de teste na produção, em seu mundo DevOps.
+Serviço de aplicativo do Azure facilita tootest toomedium pequenos negócios seus aplicativos voltados para o cliente em produção, algo que foi feito tradicionalmente em grandes empresas. Esperamos que este tutorial lhe concedeu Olá conhecimento necessário toobring juntos Application Insights e do serviço de aplicativo toomake flighting implantação possíveis e outros cenários de teste em produção, seu mundo DevOps.
 
 ## <a name="more-resources"></a>Mais recursos
 * [Desenvolvimento de software Agile com o Serviço de Aplicativo do Azure](app-service-agile-software-development.md)
 * [Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure](web-sites-staged-publishing.md)
 * [Implantar um aplicativo complexo de modo previsível no Azure](app-service-deploy-complex-application-predictably.md)
-* [Criando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
-* [JSONLint - o validador JSON](http://jsonlint.com/)
+* [Criando modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-authoring-templates.md)
+* [JSONLint - Olá validador de JSON](http://jsonlint.com/)
 * [Ramificação Git – Conceitos básicos de ramificação e mesclagem](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * [PowerShell do Azure](/powershell/azure/overview)
 * [Projeto Kudu Wiki](https://github.com/projectkudu/kudu/wiki)

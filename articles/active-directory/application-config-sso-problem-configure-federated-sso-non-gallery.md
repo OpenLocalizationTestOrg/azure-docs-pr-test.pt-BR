@@ -1,6 +1,6 @@
 ---
-title: "Problema ao configurar o logon único federado para um aplicativo inexistente na galeria| Microsoft Docs"
-description: "Aborda alguns dos problemas comuns que você pode encontrar ao configurar o logon único federado para seu aplicativo SAML personalizado que não está listado na Galeria do Aplicativo Azure AD"
+title: "aaaProblem Configurando federado SSO para um aplicativo não Galeria | Microsoft Docs"
+description: "Resolver alguns problemas comuns hello, que você pode encontrar ao configurar aplicativo SAML personalizado federado único logon tooyour que não esteja listado no hello Galeria de aplicativos do Azure AD"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,59 +13,59 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 4eb2c04c940dd6ad15a491a331aed76c237f0387
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8c80f0001de01cbc9930ef0441cd804082ee8578
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>Problema ao configurar o logon único federado para um aplicativo inexistente na galeria
 
-Se você encontrar um problema ao configurar um aplicativo. Verifique se seguiu todas as etapas do artigo [Configurando logon único para aplicativos que não estão na galeria de aplicativo do Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)
+Se você encontrar um problema ao configurar um aplicativo. Verifique se você tiver seguido todas as etapas de saudação artigo Olá [Configurando único logon tooapplications que não estão na Galeria de aplicativos do Active Directory do Azure hello.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)
 
-## <a name="cant-add-another-instance-of-the-application"></a>Não é possível adicionar outra instância do aplicativo
+## <a name="cant-add-another-instance-of-hello-application"></a>Não é possível adicionar outra instância do aplicativo hello
 
-Para adicionar uma segunda instância de um aplicativo você precisará:
+tooadd uma segunda instância de um aplicativo, você precisa toobe capaz de:
 
--   Configurar um identificador exclusivo para a segunda instância. Não será possível configurar o mesmo identificador usado para a primeira instância.
+-   Configure um identificador exclusivo para a segunda instância de saudação. Você não será capaz de tooconfigure Olá mesmo identificador usado para a primeira instância de saudação.
 
--   Configurar um certificado diferente daquele usado para a primeira instância.
+-   Configure um certificado diferente que Olá usada para Olá primeira instância.
 
-Se o aplicativo não oferecer suporte a qualquer uma das opções acima. Então, não será possível configurar uma segunda instância.
+Se hello aplicativo não oferece suporte a qualquer Olá acima. Em seguida, não será capaz de tooconfigure uma segunda instância.
 
-## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Onde é possível configurar o formato EntityID (Identificador de Usuário)
+## <a name="where-do-i-set-hello-entityid-user-identifier-format"></a>Onde definir o formato de ID (identificador de usuário) Olá
 
-Não será possível selecionar o formato EntityID (Identificador de Usuário) que o Azure AD envia para o aplicativo na resposta após a autenticação do usuário.
+Não é o formato de ID (identificador de usuário) do hello tooselect capaz de AD do Azure envia toohello aplicativo em resposta Olá após a autenticação do usuário.
 
-O Azure AD seleciona o formato para o atributo NameID (Identificador de Usuário) com base no valor selecionado ou no formato solicitado pelo aplicativo no AuthRequest do SAML. Para obter mais informações, consulte o artigo [Protocolo SAML de Logon Único](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) na seção NameIDPolicy,
+Azure AD Olá selecione formato Olá NameID atributo (identificador de usuário) com base no valor de saudação selecionado ou Olá formato solicitado pelo aplicativo hello em Olá AuthRequest SAML. Para obter mais informações, visite o artigo de saudação [protocolo SAML de logon único](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) na seção Olá NameIDPolicy,
 
-## <a name="where-do-i-get-the-application-metadata-or-certificate-from-azure-ad"></a>Onde obter os metadados do aplicativo ou o certificado do Azure AD
+## <a name="where-do-i-get-hello-application-metadata-or-certificate-from-azure-ad"></a>Onde obter os metadados do aplicativo hello ou certificado do AD do Azure
 
-Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas abaixo:
+os metadados do aplicativo hello toodownload ou o certificado do AD do Azure, siga as etapas de saudação abaixo:
 
-1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
+1.  Olá abrir [ **Portal do Azure** ](https://portal.azure.com/) e entre como um **Administrador Global** ou **Co-administrador.**
 
-2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
+2.  Olá abrir **extensão do Active Directory do Azure** clicando **mais serviços** na parte inferior de saudação do menu de navegação esquerda principal hello.
 
-3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **"Active Directory do Azure**" na caixa de pesquisa do filtro de hello e selecione Olá **Active Directory do Azure** item.
 
-4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **aplicativos empresariais** no menu de navegação do hello Azure Active Directory à esquerda.
 
-5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **todos os aplicativos** tooview uma lista de todos os seus aplicativos.
 
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+   * Se você não vir o aplicativo hello você deseja mostrar aqui, use Olá **filtro** controle na parte superior de saudação do hello **lista de todos os aplicativos** e conjunto hello **Mostrar** opção muito **Todos os aplicativos.**
 
-6.  Selecione o aplicativo para o qual você precisa configurar o logon único.
+6.  Selecione o aplicativo hello você configurou o logon único.
 
-7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
+7.  Depois que o aplicativo hello carrega, clique em Olá **o logon único** no menu de navegação à esquerda do aplicativo hello.
 
-8.  Vá para a seção **Certificado de Autenticação SAML** e, em seguida, clique no valor da coluna **Download**. Dependendo do aplicativo que exigir a configuração de logon único, você verá a opção para baixar o Certificado ou o XML de Metadados.
+8.  Vá muito**o certificado de autenticação SAML** seção e, em seguida, clique em **baixar** valor da coluna. Dependendo de qual aplicativo hello requer a configuração de logon único, você ver qualquer toodownload de opção Olá Olá Metadata XML ou Olá certificado.
 
-O Azure AD não fornece uma URL para obter os metadados. Os metadados apenas podem ser recuperados como um arquivo XML.
+AD do Azure não fornece um URL de metadados de saudação de tooget. Olá metadados somente podem ser recuperados como um arquivo XML.
 
-## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>Não sei como personalizar declarações SAML enviadas para um aplicativo
+## <a name="dont-know-how-toocustomize-saml-claims-sent-tooan-application"></a>Não sei como declarações SAML toocustomize enviado tooan aplicativo
 
-Para saber como personalizar as declarações de atributo SAML enviadas para seu aplicativo, consulte [Mapeamento de declarações no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) para obter mais informações.
+toolearn como declarações de atributo toocustomize Olá SAML enviado tooyour aplicativo, consulte [declarações mapeamento no Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) para obter mais informações.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Gerenciando aplicativos com o Azure Active Directory](active-directory-enable-sso-scenario.md)

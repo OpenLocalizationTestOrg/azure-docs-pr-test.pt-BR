@@ -1,6 +1,6 @@
 ---
-title: "Leiame Ambiente do Serviço de Aplicativo do Azure"
-description: "Lista a documentação que descreve o Ambiente do Serviço de Aplicativo do Azure"
+title: "Leiame do ambiente de serviço de aplicativo aaaAzure"
+description: "Lista a saudação documentação que descreve o ambiente de serviço de aplicativo do Azure"
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 5b1362854dbc3b0098718bd2ea3cffb06366000c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6edc74804ded7497e70c31c9e08252257add4415
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="app-service-environment-documentation"></a>Documentação do ambiente do Serviço de Aplicativo
  Um Ambiente do Serviço de Aplicativo do Azure é um recurso do Serviço de Aplicativo do Azure que fornece um ambiente totalmente isolado e dedicado a executar com segurança os aplicativos do Serviço de Aplicativo em grande escala. Esse recurso pode hospedar os [aplicativos Web][webapps], [aplicativos móveis][mobileapps], [aplicativos de API][APIApps] e [funções][Functions].
@@ -29,20 +29,20 @@ Os ASE (Ambientes de Serviço de Aplicativo) são ideais para cargas de trabalho
 
 Os clientes podem criar vários ASEs dentro de uma única região do Azure, bem como entre várias regiões do Azure. Essa versatilidade torna os ASEs ideais para escalar horizontalmente camadas de aplicativo sem estado para dar suporte a cargas de trabalho RPS altas.
 
-Os ASEs são isolados para executar somente aplicativos de um único cliente, e sempre são implantados em uma rede virtual do Azure. Os clientes têm controle refinado sobre o tráfego de rede do aplicativo de entrada e saída usando os [Grupos de Segurança de Rede][NSGs]. Os aplicativos também podem estabelecer conexões seguras de alta velocidade por redes virtuais para recursos corporativos locais.
+ASs são isolado toorunning apenas os aplicativos de um único cliente e sempre são implantados em uma rede virtual do Azure. Os clientes têm controle refinado sobre o tráfego de rede do aplicativo de entrada e saída usando os [Grupos de Segurança de Rede][NSGs]. Aplicativos também podem estabelecer conexões seguras de alta velocidade sobre recursos corporativos de tooon locais de redes virtuais.
 
-Os aplicativos muitas vezes precisam acessar recursos corporativos, como bancos de dados internos e serviços Web. Os aplicativos executados em ASEs podem acessar recursos por meio de conexões VPN [site a site][SiteToSite] e [Azure ExpressRoute][ExpressRoute].
+Aplicativos normalmente precisam de recursos corporativos tooaccess, como bancos de dados internos e serviços da web. Os aplicativos executados em ASEs podem acessar recursos por meio de conexões VPN [site a site][SiteToSite] e [Azure ExpressRoute][ExpressRoute].
 
 * [O que é um Ambiente do Serviço de Aplicativo?][Intro]
 * [Criar um ambiente de serviço de aplicativo][MakeExternalASE]
 * [Criar um ambiente do Serviço de Aplicativo de balanceador de carga interno][MakeILBASE]
 * [Usar um ambiente do Serviço de Aplicativo][UsingASE]
-* [Considerações de rede e o ambiente do Serviço de Aplicativo][ASENetwork]
+* [Considerações de rede e hello ambiente de serviço de aplicativo][ASENetwork]
 * [Criar um ambiente do Serviço de Aplicativo de um modelo][MakeASEfromTemplate]
 
 
 ## <a name="videos"></a>Vídeos
-Domine a PaaS moderna para a empresa com o Serviço de Aplicativo do Azure
+Mestre moderno PaaS para Olá Enterprise com o serviço de aplicativo do Azure
 >[!VIDEO https://channel9.msdn.com/Events/Ignite/2016/BRK3205/player]
 
 Implantando aplicativos altamente escalonáveis e seguros

@@ -1,6 +1,6 @@
 ---
-title: "Criar e publicar um aplicativo gerenciado do catálogo de serviços do Azure | Microsoft Docs"
-description: "Mostra como criar um aplicativo gerenciado do Azure destinado aos membros de sua organização."
+title: "aaaCreate e publicar um aplicativo gerenciado do catálogo de serviço do Azure | Microsoft Docs"
+description: "Mostra como toocreate do Azure gerenciados aplicativo destina-se a membros de sua organização."
 services: azure-resource-manager
 author: ravbhatnagar
 manager: rjmax
@@ -10,27 +10,27 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/23/2017
 ms.author: gauravbh; tomfitz
-ms.openlocfilehash: 39b74984ec2f89ed39753963de7fe3ff79577c9e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 31f2f9e3b50f57dae7f4dcf2edefa7366bfff25c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Publicar um aplicativo gerenciado para consumo interno
 
-Crie e publique [aplicativos gerenciados](managed-application-overview.md) do Azure destinados aos membros de sua organização. Por exemplo, um departamento de TI pode publicar aplicativos gerenciados que garantem a conformidade com os padrões organizacionais. Esses aplicativos gerenciados estão disponíveis por meio do catálogo de serviços, não pelo Azure Marketplace.
+Crie e publique [aplicativos gerenciados](managed-application-overview.md) do Azure destinados aos membros de sua organização. Por exemplo, um departamento de TI pode publicar aplicativos gerenciados que garantem a conformidade com os padrões organizacionais. Esses aplicativos gerenciados estão disponíveis por meio do catálogo de serviços hello, hello Azure Marketplace.
 
-Para publicar um aplicativo gerenciado do catálogo de serviços, você deve:
+toopublish um aplicativo gerenciado para o catálogo de serviços hello, faça o seguinte:
 
-* Criar um pacote .zip que contém os três arquivos de modelo necessários.
-* Decidir qual usuário, grupo ou aplicativo precisa de acesso ao grupo de recursos na assinatura do usuário.
-* Criar a definição de aplicativo gerenciado que aponta para o pacote .zip e solicita o acesso à identidade.
+* Crie um pacote. zip que contém três arquivos de modelo hello.
+* Decida qual usuário, grupo ou aplicativo precisa acessar toohello o grupo de recursos na assinatura saudação do usuário.
+* Crie definição de aplicativo hello gerenciado que pontos de pacote do toohello. zip e solicitações de acesso para a identidade de saudação.
 
 ## <a name="create-a-managed-application-package"></a>Criar um pacote de aplicativos gerenciados
 
-A primeira etapa é criar os três arquivos de modelo necessários. Empacote todos os três arquivos em um arquivo .zip e carregue-o em um local acessível, como uma conta de armazenamento. Passe um link para esse arquivo .zip ao criar a definição de aplicativo gerenciado.
+Olá primeira etapa é arquivos de modelo necessárias três toocreate hello. Todos os três arquivos de pacote em um arquivo. zip e carregá-lo em local acessível tooan, como uma conta de armazenamento. Você passa um arquivo. zip do link toothis quando Olá criando gerenciado a definição do aplicativo.
 
-* **applianceMainTemplate.json**: esse arquivo define os recursos do Azure que são provisionados como parte do aplicativo gerenciado. O modelo não é diferente de um modelo normal do Resource Manager. Por exemplo, para criar uma conta de armazenamento por meio de um aplicativo gerenciado, o applianceMainTemplate.json contém:
+* **applianceMainTemplate.json**: este arquivo define hello Azure aplicativo os recursos que são provisionados como parte da saudação gerenciados. modelo de saudação não é diferente de um modelo regular do Gerenciador de recursos. Por exemplo, toocreate uma conta de armazenamento por meio de um aplicativo gerenciado, applianceMainTemplate.json contém:
 
   ```json
   {
@@ -58,17 +58,17 @@ A primeira etapa é criar os três arquivos de modelo necessários. Empacote tod
   }
   ```
 
-* **mainTemplate.json**: os usuários implantam esse modelo ao criar o aplicativo gerenciado. Ele define o recurso de aplicativo gerenciado, que é um tipo de recurso Microsoft.Solutions/appliances. Esse arquivo contém todos os parâmetros necessários para os recursos em applianceMainTemplate.json.
+* **mainTemplate.json**: os usuários implantar este modelo quando criar hello aplicativo gerenciado. Ele define o recurso de aplicativo hello gerenciado, que é um tipo de recurso Microsoft.Solutions/appliances. Esse arquivo contém todos os parâmetros de saudação que é necessário para recursos de saudação em applianceMainTemplate.json.
 
-  Defina duas propriedades importantes nesse modelo. Primeiro, a propriedade **applianceDefinitionId** é a ID de definição de aplicativo gerenciado. A definição é criada mais adiante neste tópico. Ao definir esse valor, você deve decidir qual assinatura e grupo de recursos serão usados para armazenar as definições de aplicativo gerenciado. Além disso, você deve escolher um nome para a definição. A ID está no formato:
+  Defina duas propriedades importantes nesse modelo. Primeiro, Olá **applianceDefinitionId** propriedade é ID Olá Olá gerenciado da definição do aplicativo. Você cria a definição de saudação neste tópico. Ao definir esse valor, você deve decidir qual assinatura e toouse do grupo de recursos para armazenar Olá definições de aplicativo gerenciado. E, você deve decidir sobre um nome para a definição de saudação. Olá ID está no formato de saudação:
 
   `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Solutions/applianceDefinitions/<definition-name>`
 
-  Em segundo lugar, a propriedade **managedResourceGroupId** é a ID do grupo de recursos no qual os recursos do Azure são criados. Atribua um valor a esse nome de grupo de recursos ou permita que o usuário forneça um nome. O formato da ID é:
+  Em segundo lugar, Olá **managedResourceGroupId** propriedade é a ID de Olá Olá do grupo de recursos onde hello recursos do Azure são criados. Você pode atribuir um valor para esse nome de grupo de recursos ou permitir que o usuário Olá forneça um nome. formato Olá Olá ID é:
 
   `/subscriptions/<subscription-id>/resourceGroups/<resoure-group-name>`.
 
-  O exemplo a seguir mostra um arquivo mainTemplate.json. Ele especifica um grupo de recursos para os recursos implantados. A ID de definição está definida para usar uma definição chamada **storageApp** em um grupo de recursos chamado **managedApplicationGroup**. Você pode alterar esses valores para usar nomes diferentes. Forneça sua própria ID de assinatura na ID de definição.
+  saudação de exemplo a seguir mostra um arquivo mainTemplate.json. Especifica um grupo de recursos para recursos de saudação implantado. Olá, ID de definição é toouse de conjunto nomeada de uma definição de **storageApp** em um grupo de recursos denominado **managedApplicationGroup**. Você pode alterar esses nomes diferentes de toouse de valores. Fornecer sua própria ID de assinatura na ID de definição de saudação.
 
   ```json
   {
@@ -104,9 +104,9 @@ A primeira etapa é criar os três arquivos de modelo necessários. Empacote tod
   }
   ```
 
-* **applianceCreateUiDefinition.json**: o portal do Azure usa esse arquivo para gerar a interface do usuário para os usuários que criam o aplicativo gerenciado. Você define como os usuários fornecem a entrada para cada parâmetro. Você pode usar opções como uma lista suspensa, caixa de texto, caixa de senha e outras ferramentas de entrada. Para saber como criar um arquivo de definição de interface do usuário para um aplicativo gerenciado, consulte [Introdução a CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* **applianceCreateUiDefinition.json**: hello portal do Azure usa esse arquivo toogenerate Olá interface do usuário para os usuários que criam Olá aplicativo gerenciado. Você define como os usuários fornecem a entrada para cada parâmetro. Você pode usar opções como uma lista suspensa, caixa de texto, caixa de senha e outras ferramentas de entrada. toolearn como toocreate um arquivo de definição de interface do usuário para um aplicativo gerenciado, consulte [Introdução ao CreateUiDefinition](managed-application-createuidefinition-overview.md).
 
-  O exemplo a seguir mostra um arquivo applianceCreateUiDefinition.json que permite aos usuários especificar o prefixo de nome da conta de armazenamento por meio de uma caixa de texto.
+  Olá, exemplo a seguir mostra um arquivo applianceCreateUiDefinition.json que permite que os usuários toospecify Olá armazenamento conta prefixo de nome por meio de uma caixa de texto.
 
   ```json
   {
@@ -120,11 +120,11 @@ A primeira etapa é criar os três arquivos de modelo necessários. Empacote tod
                 "type": "Microsoft.Common.TextBox",
                 "label": "Storage account name prefix",
                 "defaultValue": "storage",
-                "toolTip": "Provide a value that is used for the prefix of your storage account. Limit to 11 characters.",
+                "toolTip": "Provide a value that is used for hello prefix of your storage account. Limit too11 characters.",
                 "constraints": {
                     "required": true,
                     "regex": "^[a-z0-9A-Z]{1,11}$",
-                    "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-11 characters long."
+                    "validationMessage": "Only alphanumeric characters are allowed, and hello value must be 1-11 characters long."
                 },
                 "visible": true
             }
@@ -137,19 +137,19 @@ A primeira etapa é criar os três arquivos de modelo necessários. Empacote tod
   }
   ```
 
-Depois que todos os arquivos necessários estiverem prontos, empacote-os como um arquivo .zip. Os três arquivos devem estar no nível raiz do arquivo .zip. Se você colocá-los em uma pasta, receberá um erro ao criar a definição de aplicativo gerenciado que indica que os arquivos necessários não estão presentes. Carregue o pacote em um local acessível no qual ele pode ser consumido. O restante deste artigo pressupõe que o arquivo .zip exista em um contêiner de blobs de armazenamento publicamente acessível.
+Depois que todos os arquivos de saudação necessário estiverem prontos, empacotá-las como um arquivo. zip. Olá três arquivos deverão estar no nível de raiz de saudação do arquivo. zip de saudação. Se você pode colocá-los em uma pasta, você recebe um erro quando criando Olá gerenciado a definição de aplicativo que declara Olá necessários arquivos não estão presentes. Carregar um local acessível de tooan do pacote de saudação de onde eles podem ser consumidos. Olá restante deste artigo presume que o arquivo. zip de saudação existe em um contêiner de blob de armazenamento acessíveis publicamente.
 
 ## <a name="create-an-azure-active-directory-user-group-or-application"></a>Criar um grupo de usuários ou aplicativo do Azure Active Directory
 
-A segunda etapa é selecionar um grupo de usuários ou um aplicativo para gerenciar os recursos em nome do cliente. Esse grupo de usuários ou aplicativo tem permissões no grupo de recursos gerenciados de acordo com a função atribuída. A função pode ser qualquer função interna de RBAC (Controle de acesso baseado em função) como Proprietário ou Colaborador. Também é possível conceder a um usuário individual permissões para gerenciar os recursos, mas, normalmente, você atribui essa permissão a um grupo de usuários. Para criar um novo grupo de usuários do Active Directory, consulte [Criar um grupo e adicionar membros no Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
+Olá segunda etapa é tooselect um grupo de usuários ou aplicativos para gerenciamento de recursos de saudação em nome do cliente hello. Este grupo de usuário ou aplicativo tem permissões no hello recurso gerenciado grupo acordo toohello função atribuída. função Hello pode ser qualquer função interna de controle de acesso baseado em função (RBAC) como o proprietário ou colaborador. Você também pode dar a um usuário individual recursos de saudação do toomanage de permissão, mas normalmente você atribuir a esse grupo de usuário permissão tooa. toocreate um novo grupo de usuários do Active Directory, consulte [criar um grupo e adicionar membros no Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
 
-É necessário usar a ID de objeto do grupo de usuários para gerenciar os recursos. O seguinte exemplo mostra como obter a ID de objeto do nome de exibição do grupo:
+É necessário ID de objeto de saudação do hello toouse de grupo de usuário para gerenciar recursos de saudação. saudação de exemplo a seguir mostra como tooget Olá ID de objeto do nome de exibição do grupo hello:
 
 ```azurecli-interactive
 az ad group show --group exampleGroupName
 ```
 
-O comando de exemplo retorna a seguinte saída:
+o comando de exemplo Hello retorna Olá saída a seguir:
 
 ```azurecli
 {
@@ -161,22 +161,22 @@ O comando de exemplo retorna a seguinte saída:
 }
 ```
 
-Para recuperar apenas a ID de objeto, use:
+ID do objeto tooretrieve Olá apenas, use:
 
 ```azurecli-interactive
 groupid=$(az ad group show --group exampleGroupName --query objectId --output tsv)
 ```
 
-## <a name="get-the-role-definition-id"></a>Obter a ID de definição da função
+## <a name="get-hello-role-definition-id"></a>Obter ID de definição de função hello
 
-Em seguida, é necessário o ID de definição de função da função RBAC interna para conceder acesso ao usuário, grupo de usuários ou aplicativo. Normalmente, você usa a função Proprietário, Colaborador ou Leitor. O comando a seguir mostra como obter a ID de definição de função para a função Proprietário:
+Em seguida, você precisa Olá ID de definição da função de saudação função interna RBAC, você deseja toogrant toohello usuário, grupo de usuário ou aplicativo. Normalmente, você usa Olá proprietário ou colaborador ou o leitor de função. saudação de comando a seguir mostra como tooget Olá ID de definição de função para a função de proprietário de saudação:
 
 
 ```azurecli-interactive
 az role definition list --name owner
 ```
 
-O comando retorna a seguinte saída:
+Esse comando retorna Olá saída a seguir:
 
 ```azurecli
 {
@@ -186,7 +186,7 @@ O comando retorna a seguinte saída:
       "assignableScopes": [
         "/"
       ],
-      "description": "Lets you manage everything, including access to resources.",
+      "description": "Lets you manage everything, including access tooresources.",
       "permissions": [
         {
           "actions": [
@@ -202,13 +202,13 @@ O comando retorna a seguinte saída:
 }
 ```
 
-Você precisa do valor da propriedade "name" do exemplo anterior. Recupere apenas essa propriedade com:
+É necessário um valor Olá Olá "" da propriedade de nome de saudação anterior exemplo. Recupere apenas essa propriedade com:
 
 ```azurecli-interactive
 roleid=$(az role definition list --name Owner --query [].name --output tsv)
 ```
 
-## <a name="create-the-managed-application-definition"></a>Criar a definição de aplicativo gerenciado
+## <a name="create-hello-managed-application-definition"></a>Criar definição de aplicativo hello gerenciado
 
 Se você ainda não tiver um grupo de recursos para armazenar a definição de aplicativo gerenciado, crie um agora:
 
@@ -216,7 +216,7 @@ Se você ainda não tiver um grupo de recursos para armazenar a definição de a
 az group create --name managedApplicationGroup --location westcentralus
 ```
 
-Agora, crie o recurso de definição de aplicativo gerenciado.
+Agora, crie o recurso de definição de aplicativo hello gerenciado.
 
 ```azurecli-interactive
 az managedapp definition create \
@@ -230,18 +230,18 @@ az managedapp definition create \
   --package-file-uri <uri-path-to-zip-file>
 ```
 
-Os parâmetros usados no exemplo anterior são:
+Olá parâmetros usados em Olá anterior exemplo são:
 
-* **resource-group**: o nome do grupo de recursos no qual a definição de aplicativo gerenciado é criada.
-* **lock-level**: o tipo de bloqueio colocado no grupo de recursos gerenciado. Ela impede que o cliente execute operações indesejáveis no grupo de recursos. Atualmente, ReadOnly é o único nível de bloqueio com suporte. Quando ReadOnly é especificado, o cliente pode ler somente os recursos presentes no grupo de recursos gerenciados.
-* **authorizations**: descreve a ID da entidade e a ID de definição de função que são usadas para conceder permissão ao grupo de recursos gerenciado. Ele é especificado no formato `<principalId>:<roleDefinitionId>`. Vários valores também podem ser especificados para essa propriedade. Se houver a necessidade de vários valores, eles deverão ser especificados no formulário `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Vários valores são separados por um espaço.
-* **package-file-uri**: o local do pacote de aplicativos gerenciados que contém os arquivos de modelo, que podem ser um Azure Storage Blob.
+* **grupo de recursos**: nome Olá Olá do grupo de recursos onde Olá gerenciada a definição de aplicativo é criado.
+* **nível de bloqueio**: tipo de saudação do bloqueio colocado no grupo de recurso gerenciado Olá. Ela impede que o cliente Olá operações indesejáveis no grupo de recursos. Atualmente, somente leitura é Olá só tem suporte a nível de bloqueio. Quando somente leitura é especificada, cliente Olá somente pode ler recursos de Olá presentes no grupo de recurso gerenciado hello.
+* **autorizações**: descreve ID principal hello e ID de definição de função hello toogrant usado permissão toohello recurso gerenciado grupo. Ele é especificado no formato de saudação do `<principalId>:<roleDefinitionId>`. Vários valores também podem ser especificados para essa propriedade. Se houver necessidade de vários valores, deve ser especificados no formulário de saudação `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Vários valores são separados por um espaço.
+* **uri do arquivo de pacote**: Olá local do pacote de aplicativo gerenciado Olá que contém os arquivos de modelo de saudação, que podem ser um blob de armazenamento do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados](managed-application-overview.md).
-* Para obter exemplos dos arquivos, consulte [Exemplos de aplicativo gerenciado](https://github.com/Azure/azure-managedapp-samples/tree/master/samples).
+* Para aplicativos de toomanaged uma introdução, consulte [visão geral do aplicativo gerenciado](managed-application-overview.md).
+* Para obter exemplos de arquivos hello, consulte [gerenciados exemplos de aplicativo](https://github.com/Azure/azure-managedapp-samples/tree/master/samples).
 * Para obter informações sobre como consumir um aplicativo gerenciado do Catálogo de Serviços, consulte [Consumir um aplicativo gerenciado do Catálogo de Serviços](managed-application-consumption.md).
-* Para obter informações sobre como publicar aplicativos gerenciados para o Azure Marketplace, consulte [Aplicativos gerenciados do Azure no Marketplace](managed-application-author-marketplace.md).
-* Para obter informações sobre como consumir um aplicativo gerenciado do Marketplace, consulte [Consumir aplicativos gerenciados pelo Azure no Marketplace](managed-application-consume-marketplace.md).
-* Para saber como criar um arquivo de definição de interface do usuário para um aplicativo gerenciado, consulte [Introdução a CreateUiDefinition](managed-application-createuidefinition-overview.md).
+* Para obter informações sobre publicação toohello de aplicativos gerenciados do Azure Marketplace, consulte [Azure gerenciados aplicativos Olá Marketplace](managed-application-author-marketplace.md).
+* Para obter informações sobre o consumo de um aplicativo gerenciado de saudação Marketplace, consulte [Azure consumir gerenciados aplicativos Olá Marketplace](managed-application-consume-marketplace.md).
+* toolearn como toocreate um arquivo de definição de interface do usuário para um aplicativo gerenciado, consulte [Introdução ao CreateUiDefinition](managed-application-createuidefinition-overview.md).

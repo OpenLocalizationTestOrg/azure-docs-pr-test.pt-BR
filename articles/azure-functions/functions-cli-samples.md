@@ -1,5 +1,5 @@
 ---
-title: Exemplos de CLI do Azure - Azure Functions | Microsoft Docs
+title: "aaaAzure amostras de CLI - funções do Azure | Microsoft Docs"
 description: Exemplos de CLI do Azure - Azure Functions
 services: functions
 documentationcenter: functions
@@ -16,15 +16,15 @@ ms.workload: functions
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 6830ab9ada50da99871592e2c0911ac9cb8f5797
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 2041e710560a41f230a0ffc20dc89756c6b5c854
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cli-samples"></a>Exemplos de CLI do Azure
 
-A tabela a seguir inclui links para scripts bash criados para Azure Functions que usam a CLI do Azure.
+Olá tabela a seguir inclui links toobash scripts para as funções do Azure que use Olá CLI do Azure.
 
 | | |
 |-|-|
@@ -33,15 +33,15 @@ A tabela a seguir inclui links para scripts bash criados para Azure Functions qu
 | [Criar um Aplicativo de funções em um Plano do Serviço de Aplicativo](scripts/functions-cli-create-app-service-plan.md) | Crie um Aplicativo de funções em um Plano do Serviço de Aplicativo dedicado. |
 | | |
 |**Integração**||
-| [Criar um aplicativo de funções e conectá-lo a uma conta de armazenamento](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Crie um aplicativo de funções e conecte-o a uma conta de armazenamento. |
-| [Criar um aplicativo de funções e conectá-lo a um Banco de Dados Cosmo do Azure](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Criar um aplicativo de funções e conectá-lo a um Banco de Dados Cosmo do Azure |
+| [Criar um aplicativo de função e conecte-se a conta de armazenamento tooa](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Criar um aplicativo de função e conectá-lo tooa conta de armazenamento. |
+| [Criar um aplicativo de função e conecte-se tooan Azure Cosmos DB](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Criar um aplicativo de função e conectá-lo tooan Azure Cosmos DB |
 | | |
 |**Como configurar o aplicativo**||
-| [Mapear um domínio personalizado para um aplicativo de funções](scripts/functions-cli-configure-custom-domain.md) | Defina um domínio personalizado para suas funções.  |
-| [Associar um certificado SSL em um Aplicativo de funções](scripts/functions-cli-configure-ssl-certificate.md)  |  Carregue certificados SSL para funções em um domínio personalizado. |
+| [Mapa de um aplicativo de função tooa domínio personalizado](scripts/functions-cli-configure-custom-domain.md) | Defina um domínio personalizado para suas funções.  |
+| [Associar um aplicativo de função de tooa de certificado SSL](scripts/functions-cli-configure-ssl-certificate.md)  |  Carregue certificados SSL para funções em um domínio personalizado. |
 <!--
 
 |**Scale app**||
 
-|**Connect app to resources**||
+|**Connect app tooresources**||
 -->
