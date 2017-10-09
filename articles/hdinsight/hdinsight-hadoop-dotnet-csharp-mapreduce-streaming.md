@@ -1,6 +1,6 @@
 ---
-title: "Usar C# com MapReduce no Hadoop no HDInsight – Azure | Microsoft Docs"
-description: "Saiba como usar C# para criar soluções de MapReduce com Hadoop no Azure HDInsight."
+title: aaaUse c# com MapReduce no Hadoop no HDInsight - Azure | Microsoft Docs
+description: "Saiba como toouse c# toocreate MapReduce soluções com Hadoop no HDInsight do Azure."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,52 +16,52 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: larryfr
-ms.openlocfilehash: adb454e56378a800c671614735aec78b6851aeb2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: dd8b684e74155bc1a37d4ab8d6f9033276ef5aa3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a><span data-ttu-id="80ee4-103">Use C# com streaming de MapReduce no Hadoop no HDInsight</span><span class="sxs-lookup"><span data-stu-id="80ee4-103">Use C# with MapReduce streaming on Hadoop in HDInsight</span></span>
+# <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a><span data-ttu-id="b7410-103">Use C# com streaming de MapReduce no Hadoop no HDInsight</span><span class="sxs-lookup"><span data-stu-id="b7410-103">Use C# with MapReduce streaming on Hadoop in HDInsight</span></span>
 
-<span data-ttu-id="80ee4-104">Saiba como usar C# para criar uma solução de MapReduce no HDInsight.</span><span class="sxs-lookup"><span data-stu-id="80ee4-104">Learn how to use C# to create a MapReduce solution on HDInsight.</span></span>
+<span data-ttu-id="b7410-104">Saiba como toouse c# toocreate uma solução de MapReduce no HDInsight.</span><span class="sxs-lookup"><span data-stu-id="b7410-104">Learn how toouse C# toocreate a MapReduce solution on HDInsight.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="80ee4-105">O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior.</span><span class="sxs-lookup"><span data-stu-id="80ee4-105">Linux is the only operating system used on HDInsight version 3.4 or greater.</span></span> <span data-ttu-id="80ee4-106">Para obter mais informações, consulte [Controle de versão do componente do HDInsight](hdinsight-component-versioning.md).</span><span class="sxs-lookup"><span data-stu-id="80ee4-106">For more information, see [HDInsight component versioning](hdinsight-component-versioning.md).</span></span>
+> <span data-ttu-id="b7410-105">Linux é Olá sistema operacional somente de usado no HDInsight versão 3.4 ou posterior.</span><span class="sxs-lookup"><span data-stu-id="b7410-105">Linux is hello only operating system used on HDInsight version 3.4 or greater.</span></span> <span data-ttu-id="b7410-106">Para obter mais informações, consulte [Controle de versão do componente do HDInsight](hdinsight-component-versioning.md).</span><span class="sxs-lookup"><span data-stu-id="b7410-106">For more information, see [HDInsight component versioning](hdinsight-component-versioning.md).</span></span>
 
-<span data-ttu-id="80ee4-107">Hadoop Streaming é um utilitário que permite que você execute trabalhos MapReduce usando um script ou executável.</span><span class="sxs-lookup"><span data-stu-id="80ee4-107">Hadoop streaming is a utility that allows you to run MapReduce jobs using a script or executable.</span></span> <span data-ttu-id="80ee4-108">Neste exemplo, o .NET é usado para implementar o mapeador e Redutor de uma solução de contagem de palavras.</span><span class="sxs-lookup"><span data-stu-id="80ee4-108">In this example, .NET is used to implement the mapper and reducer for a word count solution.</span></span>
+<span data-ttu-id="b7410-107">Transmissão do Hadoop é um utilitário que permite que os trabalhos de MapReduce toorun usando um script ou executável.</span><span class="sxs-lookup"><span data-stu-id="b7410-107">Hadoop streaming is a utility that allows you toorun MapReduce jobs using a script or executable.</span></span> <span data-ttu-id="b7410-108">Neste exemplo, o .NET é usado tooimplement Olá mapeador e Redutor para uma solução de contagem de palavras.</span><span class="sxs-lookup"><span data-stu-id="b7410-108">In this example, .NET is used tooimplement hello mapper and reducer for a word count solution.</span></span>
 
-## <a name="net-on-hdinsight"></a><span data-ttu-id="80ee4-109">.NET no HDInsight</span><span class="sxs-lookup"><span data-stu-id="80ee4-109">.NET on HDInsight</span></span>
+## <a name="net-on-hdinsight"></a><span data-ttu-id="b7410-109">.NET no HDInsight</span><span class="sxs-lookup"><span data-stu-id="b7410-109">.NET on HDInsight</span></span>
 
-<span data-ttu-id="80ee4-110">Clusters do __HDInsight baseado em Linux__ usam [Mono (https://mono-project.com)](https://mono-project.com) para executar aplicativos .NET.</span><span class="sxs-lookup"><span data-stu-id="80ee4-110">__Linux-based HDInsight__ clusters use [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications.</span></span> <span data-ttu-id="80ee4-111">O Mono versão 4.2.1 está incluído no HDInsight versão 3.5.</span><span class="sxs-lookup"><span data-stu-id="80ee4-111">Mono version 4.2.1 is included with HDInsight version 3.5.</span></span> <span data-ttu-id="80ee4-112">Para obter mais informações sobre a versão de Mono incluída com o HDInsight, consulte [Versão de componente do HDInsight](hdinsight-component-versioning.md).</span><span class="sxs-lookup"><span data-stu-id="80ee4-112">For more information on the version of Mono included with HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md).</span></span> <span data-ttu-id="80ee4-113">Para usar uma versão específica do Mono, consulte o documento [Instalar ou atualizar](hdinsight-hadoop-install-mono.md).</span><span class="sxs-lookup"><span data-stu-id="80ee4-113">To use a specific version of Mono, see the [Install or update Mono](hdinsight-hadoop-install-mono.md) document.</span></span>
+<span data-ttu-id="b7410-110">__HDInsight baseados em Linux__ clusters use [Mono (https://mono-project.com)](https://mono-project.com) toorun aplicativos de .NET.</span><span class="sxs-lookup"><span data-stu-id="b7410-110">__Linux-based HDInsight__ clusters use [Mono (https://mono-project.com)](https://mono-project.com) toorun .NET applications.</span></span> <span data-ttu-id="b7410-111">O Mono versão 4.2.1 está incluído no HDInsight versão 3.5.</span><span class="sxs-lookup"><span data-stu-id="b7410-111">Mono version 4.2.1 is included with HDInsight version 3.5.</span></span> <span data-ttu-id="b7410-112">Para obter mais informações sobre a versão de saudação do Mono incluído no HDInsight, consulte [versões de componente do HDInsight](hdinsight-component-versioning.md).</span><span class="sxs-lookup"><span data-stu-id="b7410-112">For more information on hello version of Mono included with HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md).</span></span> <span data-ttu-id="b7410-113">toouse uma versão específica do Mono, consulte Olá [instalação ou atualização Mono](hdinsight-hadoop-install-mono.md) documento.</span><span class="sxs-lookup"><span data-stu-id="b7410-113">toouse a specific version of Mono, see hello [Install or update Mono](hdinsight-hadoop-install-mono.md) document.</span></span>
 
-<span data-ttu-id="80ee4-114">Para obter mais informações sobre compatibilidade de Mono com versões do .NET Framework, consulte [Compatibilidade de Mono](http://www.mono-project.com/docs/about-mono/compatibility/).</span><span class="sxs-lookup"><span data-stu-id="80ee4-114">For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/).</span></span>
+<span data-ttu-id="b7410-114">Para obter mais informações sobre compatibilidade de Mono com versões do .NET Framework, consulte [Compatibilidade de Mono](http://www.mono-project.com/docs/about-mono/compatibility/).</span><span class="sxs-lookup"><span data-stu-id="b7410-114">For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/).</span></span>
 
-## <a name="how-hadoop-streaming-works"></a><span data-ttu-id="80ee4-115">Como funciona o Hadoop Streaming</span><span class="sxs-lookup"><span data-stu-id="80ee4-115">How Hadoop streaming works</span></span>
+## <a name="how-hadoop-streaming-works"></a><span data-ttu-id="b7410-115">Como funciona o Hadoop Streaming</span><span class="sxs-lookup"><span data-stu-id="b7410-115">How Hadoop streaming works</span></span>
 
-<span data-ttu-id="80ee4-116">O processo básico usado para streaming neste documento é o seguinte:</span><span class="sxs-lookup"><span data-stu-id="80ee4-116">The basic process used for streaming in this document is as follows:</span></span>
+<span data-ttu-id="b7410-116">Olá basic processo usado para streaming neste documento é o seguinte:</span><span class="sxs-lookup"><span data-stu-id="b7410-116">hello basic process used for streaming in this document is as follows:</span></span>
 
-1. <span data-ttu-id="80ee4-117">O Hadoop passa dados para o mapeador (mapper.exe neste exemplo) no STDIN.</span><span class="sxs-lookup"><span data-stu-id="80ee4-117">Hadoop passes data to the mapper (mapper.exe in this example) on STDIN.</span></span>
-2. <span data-ttu-id="80ee4-118">O mapeador processa os dados e emite pares de chave/valor delimitados por tabulação para STDOUT.</span><span class="sxs-lookup"><span data-stu-id="80ee4-118">The mapper processes the data, and emits tab-delimited key/value pairs to STDOUT.</span></span>
-3. <span data-ttu-id="80ee4-119">A saída é lida pelo Hadoop e, em seguida, passada para o redutor (reducer.exe neste exemplo) no STDIN.</span><span class="sxs-lookup"><span data-stu-id="80ee4-119">The output is read by Hadoop, and then passed to the reducer (reducer.exe in this example) on STDIN.</span></span>
-4. <span data-ttu-id="80ee4-120">O redutor lê os pares de chave/valor delimitados por tabulação, processa os dados e, em seguida, emite o resultado como pares de chave/valor delimitados por tabulação no STDOUT.</span><span class="sxs-lookup"><span data-stu-id="80ee4-120">The reducer reads the tab-delimited key/value pairs, processes the data, and then emits the result as tab-delimited key/value pairs on STDOUT.</span></span>
-5. <span data-ttu-id="80ee4-121">A saída é lido pelo Hadoop e gravada no diretório de saída.</span><span class="sxs-lookup"><span data-stu-id="80ee4-121">The output is read by Hadoop and written to the output directory.</span></span>
+1. <span data-ttu-id="b7410-117">Hadoop passa STDIN mapeador de dados de toohello (mapper.exe neste exemplo).</span><span class="sxs-lookup"><span data-stu-id="b7410-117">Hadoop passes data toohello mapper (mapper.exe in this example) on STDIN.</span></span>
+2. <span data-ttu-id="b7410-118">Mapeador de saudação processa dados hello e emite tooSTDOUT de pares chave/valor delimitado por tabulação.</span><span class="sxs-lookup"><span data-stu-id="b7410-118">hello mapper processes hello data, and emits tab-delimited key/value pairs tooSTDOUT.</span></span>
+3. <span data-ttu-id="b7410-119">saída de Hello é lido pelo Hadoop e encaminhada toohello Redutor (reducer.exe neste exemplo) STDIN.</span><span class="sxs-lookup"><span data-stu-id="b7410-119">hello output is read by Hadoop, and then passed toohello reducer (reducer.exe in this example) on STDIN.</span></span>
+4. <span data-ttu-id="b7410-120">Redutor Olá lê pares de chave/valor Olá delimitado por tabulação, processa dados hello e, em seguida, emite resultados hello como pares de chave/valor delimitado por tabulação em STDOUT.</span><span class="sxs-lookup"><span data-stu-id="b7410-120">hello reducer reads hello tab-delimited key/value pairs, processes hello data, and then emits hello result as tab-delimited key/value pairs on STDOUT.</span></span>
+5. <span data-ttu-id="b7410-121">saída de Hello lidos por Hadoop e gravada toohello diretório de saída.</span><span class="sxs-lookup"><span data-stu-id="b7410-121">hello output is read by Hadoop and written toohello output directory.</span></span>
 
-<span data-ttu-id="80ee4-122">Para obter mais informações sobre streaming, consulte [Hadoop Streaming (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).</span><span class="sxs-lookup"><span data-stu-id="80ee4-122">For more information on streaming, see [Hadoop Streaming (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).</span></span>
+<span data-ttu-id="b7410-122">Para obter mais informações sobre streaming, consulte [Hadoop Streaming (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).</span><span class="sxs-lookup"><span data-stu-id="b7410-122">For more information on streaming, see [Hadoop Streaming (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="80ee4-123">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="80ee4-123">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="b7410-123">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="b7410-123">Prerequisites</span></span>
 
-* <span data-ttu-id="80ee4-124">Familiaridade com gravação e compilação de código em C# que se destina ao .NET Framework 4.5.</span><span class="sxs-lookup"><span data-stu-id="80ee4-124">A familiarity with writing and building C# code that targets .NET Framework 4.5.</span></span> <span data-ttu-id="80ee4-125">As etapas neste tutorial usam o Visual Studio 2017.</span><span class="sxs-lookup"><span data-stu-id="80ee4-125">The steps in this document use Visual Studio 2017.</span></span>
+* <span data-ttu-id="b7410-124">Familiaridade com gravação e compilação de código em C# que se destina ao .NET Framework 4.5.</span><span class="sxs-lookup"><span data-stu-id="b7410-124">A familiarity with writing and building C# code that targets .NET Framework 4.5.</span></span> <span data-ttu-id="b7410-125">Olá as etapas neste documento utilizarem 2017 do Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="b7410-125">hello steps in this document use Visual Studio 2017.</span></span>
 
-* <span data-ttu-id="80ee4-126">Uma forma de carregar arquivos .exe no cluster.</span><span class="sxs-lookup"><span data-stu-id="80ee4-126">A way to upload .exe files to the cluster.</span></span> <span data-ttu-id="80ee4-127">As etapas neste documento usam o Data Lake Tools para Visual Studio para carregar os arquivos no armazenamento primário do cluster.</span><span class="sxs-lookup"><span data-stu-id="80ee4-127">The steps in this document use the Data Lake Tools for Visual Studio to upload the files to primary storage for the cluster.</span></span>
+* <span data-ttu-id="b7410-126">Uma maneira tooupload .exe arquivos toohello cluster.</span><span class="sxs-lookup"><span data-stu-id="b7410-126">A way tooupload .exe files toohello cluster.</span></span> <span data-ttu-id="b7410-127">Olá etapas deste documento usam Olá Data Lake Tools para Visual Studio tooupload Olá arquivos tooprimary armazenamento Olá cluster.</span><span class="sxs-lookup"><span data-stu-id="b7410-127">hello steps in this document use hello Data Lake Tools for Visual Studio tooupload hello files tooprimary storage for hello cluster.</span></span>
 
-* <span data-ttu-id="80ee4-128">Azure PowerShell ou um cliente SSH.</span><span class="sxs-lookup"><span data-stu-id="80ee4-128">Azure PowerShell or a SSH client.</span></span>
+* <span data-ttu-id="b7410-128">Azure PowerShell ou um cliente SSH.</span><span class="sxs-lookup"><span data-stu-id="b7410-128">Azure PowerShell or a SSH client.</span></span>
 
-* <span data-ttu-id="80ee4-129">Um Hadoop no cluster do HDInsight.</span><span class="sxs-lookup"><span data-stu-id="80ee4-129">A Hadoop on HDInsight cluster.</span></span> <span data-ttu-id="80ee4-130">Para obter mais informações sobre como criar um cluster, consulte [Criar um cluster do HDInsight](hdinsight-provision-clusters.md).</span><span class="sxs-lookup"><span data-stu-id="80ee4-130">For more information on creating a cluster, see [Create an HDInsight cluster](hdinsight-provision-clusters.md).</span></span>
+* <span data-ttu-id="b7410-129">Um Hadoop no cluster do HDInsight.</span><span class="sxs-lookup"><span data-stu-id="b7410-129">A Hadoop on HDInsight cluster.</span></span> <span data-ttu-id="b7410-130">Para obter mais informações sobre como criar um cluster, consulte [Criar um cluster do HDInsight](hdinsight-provision-clusters.md).</span><span class="sxs-lookup"><span data-stu-id="b7410-130">For more information on creating a cluster, see [Create an HDInsight cluster](hdinsight-provision-clusters.md).</span></span>
 
-## <a name="create-the-mapper"></a><span data-ttu-id="80ee4-131">Criar o mapeador</span><span class="sxs-lookup"><span data-stu-id="80ee4-131">Create the mapper</span></span>
+## <a name="create-hello-mapper"></a><span data-ttu-id="b7410-131">Criar mapeador Olá</span><span class="sxs-lookup"><span data-stu-id="b7410-131">Create hello mapper</span></span>
 
-<span data-ttu-id="80ee4-132">No Visual Studio, crie um novo __aplicativo de console__ chamado __mapeador__.</span><span class="sxs-lookup"><span data-stu-id="80ee4-132">In Visual Studio, create a new __Console application__ named __mapper__.</span></span> <span data-ttu-id="80ee4-133">Use o seguinte código para o aplicativo:</span><span class="sxs-lookup"><span data-stu-id="80ee4-133">Use the following code for the application:</span></span>
+<span data-ttu-id="b7410-132">No Visual Studio, crie um novo __aplicativo de console__ chamado __mapeador__.</span><span class="sxs-lookup"><span data-stu-id="b7410-132">In Visual Studio, create a new __Console application__ named __mapper__.</span></span> <span data-ttu-id="b7410-133">Use Olá código para o aplicativo hello a seguir:</span><span class="sxs-lookup"><span data-stu-id="b7410-133">Use hello following code for hello application:</span></span>
 
 ```csharp
 using System;
@@ -74,14 +74,14 @@ namespace mapper
         static void Main(string[] args)
         {
             string line;
-            //Hadoop passes data to the mapper on STDIN
+            //Hadoop passes data toohello mapper on STDIN
             while((line = Console.ReadLine()) != null)
             {
                 // We only want words, so strip out punctuation, numbers, etc.
                 var onlyText = Regex.Replace(line, @"\.|;|:|,|[0-9]|'", "");
                 // Split at whitespace.
                 var words = Regex.Matches(onlyText, @"[\w]+");
-                // Loop over the words
+                // Loop over hello words
                 foreach(var word in words)
                 {
                     //Emit tab-delimited key/value pairs.
@@ -94,11 +94,11 @@ namespace mapper
 }
 ```
 
-<span data-ttu-id="80ee4-134">Depois de criar o aplicativo, compile-o para produzir o arquivo `/bin/Debug/mapper.exe` no diretório do projeto.</span><span class="sxs-lookup"><span data-stu-id="80ee4-134">After creating the application, build it to produce the `/bin/Debug/mapper.exe` file in the project directory.</span></span>
+<span data-ttu-id="b7410-134">Depois de criar o aplicativo hello, compile-Olá tooproduce `/bin/Debug/mapper.exe` arquivo no diretório de projeto hello.</span><span class="sxs-lookup"><span data-stu-id="b7410-134">After creating hello application, build it tooproduce hello `/bin/Debug/mapper.exe` file in hello project directory.</span></span>
 
-## <a name="create-the-reducer"></a><span data-ttu-id="80ee4-135">Criar o redutor</span><span class="sxs-lookup"><span data-stu-id="80ee4-135">Create the reducer</span></span>
+## <a name="create-hello-reducer"></a><span data-ttu-id="b7410-135">Criar Redutor Olá</span><span class="sxs-lookup"><span data-stu-id="b7410-135">Create hello reducer</span></span>
 
-<span data-ttu-id="80ee4-136">No Visual Studio, crie um novo __Aplicativo de console__ chamado __redutor__.</span><span class="sxs-lookup"><span data-stu-id="80ee4-136">In Visual Studio, create a new __Console application__ named __reducer__.</span></span> <span data-ttu-id="80ee4-137">Use o seguinte código para o aplicativo:</span><span class="sxs-lookup"><span data-stu-id="80ee4-137">Use the following code for the application:</span></span>
+<span data-ttu-id="b7410-136">No Visual Studio, crie um novo __Aplicativo de console__ chamado __redutor__.</span><span class="sxs-lookup"><span data-stu-id="b7410-136">In Visual Studio, create a new __Console application__ named __reducer__.</span></span> <span data-ttu-id="b7410-137">Use Olá código para o aplicativo hello a seguir:</span><span class="sxs-lookup"><span data-stu-id="b7410-137">Use hello following code for hello application:</span></span>
 
 ```csharp
 using System;
@@ -119,19 +119,19 @@ namespace reducer
             {
                 // Data from Hadoop is tab-delimited key/value pairs
                 var sArr = line.Split('\t');
-                // Get the word
+                // Get hello word
                 string word = sArr[0];
-                // Get the count
+                // Get hello count
                 int count = Convert.ToInt32(sArr[1]);
 
-                //Do we already have a count for the word?
+                //Do we already have a count for hello word?
                 if(words.ContainsKey(word))
                 {
-                    //If so, increment the count
+                    //If so, increment hello count
                     words[word] += count;
                 } else
                 {
-                    //Add the key to the collection
+                    //Add hello key toohello collection
                     words.Add(word, count);
                 }
             }
@@ -147,68 +147,68 @@ namespace reducer
 }
 ```
 
-<span data-ttu-id="80ee4-138">Depois de criar o aplicativo, compile-o para produzir o arquivo `/bin/Debug/reducer.exe` no diretório do projeto.</span><span class="sxs-lookup"><span data-stu-id="80ee4-138">After creating the application, build it to produce the `/bin/Debug/reducer.exe` file in the project directory.</span></span>
+<span data-ttu-id="b7410-138">Depois de criar o aplicativo hello, compile-Olá tooproduce `/bin/Debug/reducer.exe` arquivo no diretório de projeto hello.</span><span class="sxs-lookup"><span data-stu-id="b7410-138">After creating hello application, build it tooproduce hello `/bin/Debug/reducer.exe` file in hello project directory.</span></span>
 
-## <a name="upload-to-storage"></a><span data-ttu-id="80ee4-139">Carregar para o armazenamento</span><span class="sxs-lookup"><span data-stu-id="80ee4-139">Upload to storage</span></span>
+## <a name="upload-toostorage"></a><span data-ttu-id="b7410-139">Carregar toostorage</span><span class="sxs-lookup"><span data-stu-id="b7410-139">Upload toostorage</span></span>
 
-1. <span data-ttu-id="80ee4-140">No Visual Studio, abra **Gerenciador de Servidores**.</span><span class="sxs-lookup"><span data-stu-id="80ee4-140">In Visual Studio, open **Server Explorer**.</span></span>
+1. <span data-ttu-id="b7410-140">No Visual Studio, abra **Gerenciador de Servidores**.</span><span class="sxs-lookup"><span data-stu-id="b7410-140">In Visual Studio, open **Server Explorer**.</span></span>
 
-2. <span data-ttu-id="80ee4-141">Expanda **Azure** e expanda **HDInsight**.</span><span class="sxs-lookup"><span data-stu-id="80ee4-141">Expand **Azure**, and then expand **HDInsight**.</span></span>
+2. <span data-ttu-id="b7410-141">Expanda **Azure** e expanda **HDInsight**.</span><span class="sxs-lookup"><span data-stu-id="b7410-141">Expand **Azure**, and then expand **HDInsight**.</span></span>
 
-3. <span data-ttu-id="80ee4-142">Se solicitado, insira suas credenciais de assinatura do Azure e, em seguida, clique em **Entrar**.</span><span class="sxs-lookup"><span data-stu-id="80ee4-142">If prompted, enter your Azure subscription credentials, and then click **Sign In**.</span></span>
+3. <span data-ttu-id="b7410-142">Se solicitado, insira suas credenciais de assinatura do Azure e, em seguida, clique em **Entrar**.</span><span class="sxs-lookup"><span data-stu-id="b7410-142">If prompted, enter your Azure subscription credentials, and then click **Sign In**.</span></span>
 
-4. <span data-ttu-id="80ee4-143">Expanda o cluster HDInsight no qual você deseja implantar esse aplicativo.</span><span class="sxs-lookup"><span data-stu-id="80ee4-143">Expand the HDInsight cluster that you wish to deploy this application to.</span></span> <span data-ttu-id="80ee4-144">Uma entrada com o texto __(Conta de armazenamento padrão)__ é listada.</span><span class="sxs-lookup"><span data-stu-id="80ee4-144">An entry with the text __(Default Storage Account)__ is listed.</span></span>
+4. <span data-ttu-id="b7410-143">Expanda o cluster de HDInsight de saudação que você deseja toodeploy este aplicativo.</span><span class="sxs-lookup"><span data-stu-id="b7410-143">Expand hello HDInsight cluster that you wish toodeploy this application to.</span></span> <span data-ttu-id="b7410-144">Uma entrada com o texto de saudação __(conta de armazenamento padrão)__ está listado.</span><span class="sxs-lookup"><span data-stu-id="b7410-144">An entry with hello text __(Default Storage Account)__ is listed.</span></span>
 
-    ![Gerenciador de Servidores mostrando a conta de armazenamento para o cluster](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
+    ![Mostrando conta de armazenamento Olá para cluster de saudação do Gerenciador de servidores](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
 
-    * <span data-ttu-id="80ee4-146">Se essa entrada puder ser expandida, você estará usando uma __Conta de Armazenamento do Azure__ como armazenamento padrão do cluster.</span><span class="sxs-lookup"><span data-stu-id="80ee4-146">If this entry can be expanded, you are using an __Azure Storage Account__ as default storage for the cluster.</span></span> <span data-ttu-id="80ee4-147">Para exibir os arquivos no armazenamento padrão para o cluster, expanda a entrada e clique duas vezes no __(Contêiner Padrão)__.</span><span class="sxs-lookup"><span data-stu-id="80ee4-147">To view the files on the default storage for the cluster, expand the entry and then double-click the __(Default Container)__.</span></span>
+    * <span data-ttu-id="b7410-146">Se essa entrada pode ser expandida, você está usando um __conta de armazenamento do Azure__ como armazenamento padrão para o cluster de saudação.</span><span class="sxs-lookup"><span data-stu-id="b7410-146">If this entry can be expanded, you are using an __Azure Storage Account__ as default storage for hello cluster.</span></span> <span data-ttu-id="b7410-147">arquivos de saudação tooview no armazenamento padrão da saudação para cluster hello, expanda a entrada hello e clique duas vezes Olá __(contêiner padrão)__.</span><span class="sxs-lookup"><span data-stu-id="b7410-147">tooview hello files on hello default storage for hello cluster, expand hello entry and then double-click hello __(Default Container)__.</span></span>
 
-    * <span data-ttu-id="80ee4-148">Se essa entrada não puder ser expandida, você estará usando __Azure Data Lake Store__ como o armazenamento padrão do cluster.</span><span class="sxs-lookup"><span data-stu-id="80ee4-148">If this entry cannot be expanded, you are using __Azure Data Lake Store__ as the default storage for the cluster.</span></span> <span data-ttu-id="80ee4-149">Para exibir os arquivos no armazenamento padrão do cluster, clique duas vezes na entrada __(Conta de Armazenamento Padrão)__.</span><span class="sxs-lookup"><span data-stu-id="80ee4-149">To view the files on the default storage for the cluster, double-click the __(Default Storage Account)__ entry.</span></span>
+    * <span data-ttu-id="b7410-148">Se essa entrada não pode ser expandida, você está usando __repositório Azure Data Lake__ como armazenamento de padrão de saudação para cluster hello.</span><span class="sxs-lookup"><span data-stu-id="b7410-148">If this entry cannot be expanded, you are using __Azure Data Lake Store__ as hello default storage for hello cluster.</span></span> <span data-ttu-id="b7410-149">arquivos de saudação tooview no armazenamento padrão da saudação para cluster hello, clique duas vezes em Olá __(conta de armazenamento padrão)__ entrada.</span><span class="sxs-lookup"><span data-stu-id="b7410-149">tooview hello files on hello default storage for hello cluster, double-click hello __(Default Storage Account)__ entry.</span></span>
 
-5. <span data-ttu-id="80ee4-150">Para carregar os arquivos .exe, use um dos seguintes métodos:</span><span class="sxs-lookup"><span data-stu-id="80ee4-150">To upload the .exe files, use one of the following methods:</span></span>
+5. <span data-ttu-id="b7410-150">arquivos de .exe do tooupload Olá, use um dos métodos a seguir de saudação:</span><span class="sxs-lookup"><span data-stu-id="b7410-150">tooupload hello .exe files, use one of hello following methods:</span></span>
 
-    * <span data-ttu-id="80ee4-151">Se estiver usando uma __Conta de Armazenamento do Azure__, clique no ícone de upload e, em seguida, navegue até a pasta **bin\debug** do projeto **mapeador**.</span><span class="sxs-lookup"><span data-stu-id="80ee4-151">If using an __Azure Storage Account__, click the upload icon, and then browse to the **bin\debug** folder for the **mapper** project.</span></span> <span data-ttu-id="80ee4-152">Por fim, selecione o arquivo **mapper.exe** e clique em **Ok**.</span><span class="sxs-lookup"><span data-stu-id="80ee4-152">Finally, select the **mapper.exe** file and click **Ok**.</span></span>
+    * <span data-ttu-id="b7410-151">Se usar um __conta de armazenamento do Azure__, clique ícone de carregamento Olá e, em seguida, procure toohello **bin\debug** pasta Olá **mapeador** projeto.</span><span class="sxs-lookup"><span data-stu-id="b7410-151">If using an __Azure Storage Account__, click hello upload icon, and then browse toohello **bin\debug** folder for hello **mapper** project.</span></span> <span data-ttu-id="b7410-152">Por fim, selecione Olá **mapper.exe** de arquivo e clique em **Okey**.</span><span class="sxs-lookup"><span data-stu-id="b7410-152">Finally, select hello **mapper.exe** file and click **Ok**.</span></span>
 
         ![ícone de carregamento](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
     
-    * <span data-ttu-id="80ee4-154">Se estiver usando o __Azure Data Lake Store__, clique com o botão direito do mouse em uma área vazia na listagem de arquivos e, em seguida, selecione __Carregar__.</span><span class="sxs-lookup"><span data-stu-id="80ee4-154">If using __Azure Data Lake Store__, right-click an empty area in the file listing, and then select __Upload__.</span></span> <span data-ttu-id="80ee4-155">Por fim, selecione o arquivo **mapper.exe** e clique em **Abrir**.</span><span class="sxs-lookup"><span data-stu-id="80ee4-155">Finally, select the **mapper.exe** file and click **Open**.</span></span>
+    * <span data-ttu-id="b7410-154">Se usar __repositório Azure Data Lake__, uma área vazia na listagem de arquivo hello e, em seguida, selecione __carregar__.</span><span class="sxs-lookup"><span data-stu-id="b7410-154">If using __Azure Data Lake Store__, right-click an empty area in hello file listing, and then select __Upload__.</span></span> <span data-ttu-id="b7410-155">Por fim, selecione Olá **mapper.exe** de arquivo e clique em **abrir**.</span><span class="sxs-lookup"><span data-stu-id="b7410-155">Finally, select hello **mapper.exe** file and click **Open**.</span></span>
 
-    <span data-ttu-id="80ee4-156">Após o __mapper.exe__ cser carregado, repita o processo de upload para o arquivo __reducer.exe__.</span><span class="sxs-lookup"><span data-stu-id="80ee4-156">Once the __mapper.exe__ upload has finished, repeat the upload process for the __reducer.exe__ file.</span></span>
+    <span data-ttu-id="b7410-156">Uma vez Olá __mapper.exe__ carregamento for concluída, o processo de carregamento de repetição Olá para Olá __reducer.exe__ arquivo.</span><span class="sxs-lookup"><span data-stu-id="b7410-156">Once hello __mapper.exe__ upload has finished, repeat hello upload process for hello __reducer.exe__ file.</span></span>
 
-## <a name="run-a-job-using-an-ssh-session"></a><span data-ttu-id="80ee4-157">Executar um trabalho: usando uma sessão SSH</span><span class="sxs-lookup"><span data-stu-id="80ee4-157">Run a job: Using an SSH session</span></span>
+## <a name="run-a-job-using-an-ssh-session"></a><span data-ttu-id="b7410-157">Executar um trabalho: usando uma sessão SSH</span><span class="sxs-lookup"><span data-stu-id="b7410-157">Run a job: Using an SSH session</span></span>
 
-1. <span data-ttu-id="80ee4-158">Use o SSH para conectar ao cluster HDInsight.</span><span class="sxs-lookup"><span data-stu-id="80ee4-158">Use SSH to connect to the HDInsight cluster.</span></span> <span data-ttu-id="80ee4-159">Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).</span><span class="sxs-lookup"><span data-stu-id="80ee4-159">For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).</span></span>
+1. <span data-ttu-id="b7410-158">Use SSH tooconnect toohello HDInsight cluster.</span><span class="sxs-lookup"><span data-stu-id="b7410-158">Use SSH tooconnect toohello HDInsight cluster.</span></span> <span data-ttu-id="b7410-159">Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).</span><span class="sxs-lookup"><span data-stu-id="b7410-159">For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).</span></span>
 
-2. <span data-ttu-id="80ee4-160">Use um dos seguintes comandos para iniciar o trabalho MapReduce:</span><span class="sxs-lookup"><span data-stu-id="80ee4-160">Use one of the following command to start the MapReduce job:</span></span>
+2. <span data-ttu-id="b7410-160">Use uma saudação trabalho MapReduce do comando toostart Olá a seguir:</span><span class="sxs-lookup"><span data-stu-id="b7410-160">Use one of hello following command toostart hello MapReduce job:</span></span>
 
-    * <span data-ttu-id="80ee4-161">Se estiver usando o __Data Lake Store__ como armazenamento padrão:</span><span class="sxs-lookup"><span data-stu-id="80ee4-161">If using __Data Lake Store__ as default storage:</span></span>
+    * <span data-ttu-id="b7410-161">Se estiver usando o __Data Lake Store__ como armazenamento padrão:</span><span class="sxs-lookup"><span data-stu-id="b7410-161">If using __Data Lake Store__ as default storage:</span></span>
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
         ```
     
-    * <span data-ttu-id="80ee4-162">Se estiver usando o __Armazenamento do Azure__ como armazenamento padrão:</span><span class="sxs-lookup"><span data-stu-id="80ee4-162">If using __Azure Storage__ as default storage:</span></span>
+    * <span data-ttu-id="b7410-162">Se estiver usando o __Armazenamento do Azure__ como armazenamento padrão:</span><span class="sxs-lookup"><span data-stu-id="b7410-162">If using __Azure Storage__ as default storage:</span></span>
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
         ```
 
-    <span data-ttu-id="80ee4-163">A lista a seguir descreve o que cada parâmetro faz:</span><span class="sxs-lookup"><span data-stu-id="80ee4-163">The following list describes what each parameter does:</span></span>
+    <span data-ttu-id="b7410-163">Olá lista a seguir descreve o que faz cada parâmetro:</span><span class="sxs-lookup"><span data-stu-id="b7410-163">hello following list describes what each parameter does:</span></span>
 
-    * <span data-ttu-id="80ee4-164">`hadoop-streaming.jar`: o arquivo jar que contém a funcionalidade MapReduce de streaming.</span><span class="sxs-lookup"><span data-stu-id="80ee4-164">`hadoop-streaming.jar`: The jar file that contains the streaming MapReduce functionality.</span></span>
-    * <span data-ttu-id="80ee4-165">`-files`: adiciona os arquivos `mapper.exe` e `reducer.exe` a esse trabalho.</span><span class="sxs-lookup"><span data-stu-id="80ee4-165">`-files`: Adds the `mapper.exe` and `reducer.exe` files to this job.</span></span> <span data-ttu-id="80ee4-166">O `adl:///` ou `wasb:///` antes de cada arquivo é o caminho para a raiz do armazenamento padrão do cluster.</span><span class="sxs-lookup"><span data-stu-id="80ee4-166">The `adl:///` or `wasb:///` before each file is the path to the root of default storage for the cluster.</span></span>
-    * <span data-ttu-id="80ee4-167">`-mapper`: especifica qual arquivo implementa o mapeador.</span><span class="sxs-lookup"><span data-stu-id="80ee4-167">`-mapper`: Specifies which file implements the mapper.</span></span>
-    * <span data-ttu-id="80ee4-168">`-reducer`: especifica qual arquivo implementa o redutor.</span><span class="sxs-lookup"><span data-stu-id="80ee4-168">`-reducer`: Specifies which file implements the reducer.</span></span>
-    * <span data-ttu-id="80ee4-169">`-input`: os dados de entrada.</span><span class="sxs-lookup"><span data-stu-id="80ee4-169">`-input`: The input data.</span></span>
-    * <span data-ttu-id="80ee4-170">`-output`: o diretório de saída.</span><span class="sxs-lookup"><span data-stu-id="80ee4-170">`-output`: The output directory.</span></span>
+    * <span data-ttu-id="b7410-164">`hadoop-streaming.jar`: arquivo jar Olá que contém Olá MapReduce funcionalidade de streaming.</span><span class="sxs-lookup"><span data-stu-id="b7410-164">`hadoop-streaming.jar`: hello jar file that contains hello streaming MapReduce functionality.</span></span>
+    * <span data-ttu-id="b7410-165">`-files`: Adiciona Olá `mapper.exe` e `reducer.exe` trabalho toothis de arquivos.</span><span class="sxs-lookup"><span data-stu-id="b7410-165">`-files`: Adds hello `mapper.exe` and `reducer.exe` files toothis job.</span></span> <span data-ttu-id="b7410-166">Olá `adl:///` ou `wasb:///` antes de cada arquivo é toohello raiz do caminho do hello de armazenamento padrão para o cluster de saudação.</span><span class="sxs-lookup"><span data-stu-id="b7410-166">hello `adl:///` or `wasb:///` before each file is hello path toohello root of default storage for hello cluster.</span></span>
+    * <span data-ttu-id="b7410-167">`-mapper`: Especifica qual arquivo implementa mapeador de saudação.</span><span class="sxs-lookup"><span data-stu-id="b7410-167">`-mapper`: Specifies which file implements hello mapper.</span></span>
+    * <span data-ttu-id="b7410-168">`-reducer`: Especifica qual arquivo implementa Redutor hello.</span><span class="sxs-lookup"><span data-stu-id="b7410-168">`-reducer`: Specifies which file implements hello reducer.</span></span>
+    * <span data-ttu-id="b7410-169">`-input`: dados de entrada hello.</span><span class="sxs-lookup"><span data-stu-id="b7410-169">`-input`: hello input data.</span></span>
+    * <span data-ttu-id="b7410-170">`-output`: diretório de saída de hello.</span><span class="sxs-lookup"><span data-stu-id="b7410-170">`-output`: hello output directory.</span></span>
 
-3. <span data-ttu-id="80ee4-171">Após a conclusão do trabalho MapReduce, use o seguinte para exibir os resultados:</span><span class="sxs-lookup"><span data-stu-id="80ee4-171">Once the MapReduce job completes, use the following to view the results:</span></span>
+3. <span data-ttu-id="b7410-171">Após a conclusão do trabalho de MapReduce hello, use Olá resultados de saudação tooview a seguir:</span><span class="sxs-lookup"><span data-stu-id="b7410-171">Once hello MapReduce job completes, use hello following tooview hello results:</span></span>
 
     ```bash
     hdfs dfs -text /example/wordcountout/part-00000
     ```
 
-    <span data-ttu-id="80ee4-172">A seguinte lista é um exemplo dos dados retornados pelos comandos anteriores:</span><span class="sxs-lookup"><span data-stu-id="80ee4-172">The following text is an example of the data returned by this command:</span></span>
+    <span data-ttu-id="b7410-172">Olá, texto a seguir é um exemplo de dados de saudação retornados por este comando:</span><span class="sxs-lookup"><span data-stu-id="b7410-172">hello following text is an example of hello data returned by this command:</span></span>
 
         you     1128
         young   38
@@ -220,13 +220,13 @@ namespace reducer
         yourselves      3
         youth   17
 
-## <a name="run-a-job-using-powershell"></a><span data-ttu-id="80ee4-173">Executar um trabalho: usando o PowerShell</span><span class="sxs-lookup"><span data-stu-id="80ee4-173">Run a job: Using PowerShell</span></span>
+## <a name="run-a-job-using-powershell"></a><span data-ttu-id="b7410-173">Executar um trabalho: usando o PowerShell</span><span class="sxs-lookup"><span data-stu-id="b7410-173">Run a job: Using PowerShell</span></span>
 
-<span data-ttu-id="80ee4-174">Use o seguinte script de PowerShell para executar um trabalho MapReduce e baixar os resultados.</span><span class="sxs-lookup"><span data-stu-id="80ee4-174">Use the following PowerShell script to run a MapReduce job and download the results.</span></span>
+<span data-ttu-id="b7410-174">Usar Olá toorun de script do PowerShell um trabalho MapReduce a seguir e baixar os resultados de saudação.</span><span class="sxs-lookup"><span data-stu-id="b7410-174">Use hello following PowerShell script toorun a MapReduce job and download hello results.</span></span>
 
-<span data-ttu-id="80ee4-175">[!code-powershell[main](../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]</span><span class="sxs-lookup"><span data-stu-id="80ee4-175">[!code-powershell[main](../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]</span></span>
+[!code-powershell[main](../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
 
-<span data-ttu-id="80ee4-176">Esse script solicita nome e senha da conta de logon do cluster, juntamente com o nome do cluster HDInsight.</span><span class="sxs-lookup"><span data-stu-id="80ee4-176">This script prompts you for the cluster login account name and password, along with the HDInsight cluster name.</span></span> <span data-ttu-id="80ee4-177">Após a conclusão do trabalho, o resultado será baixado no arquivo `output.txt` no diretório em que o script foi executado.</span><span class="sxs-lookup"><span data-stu-id="80ee4-177">Once the job completes, the output is downloaded to the `output.txt` file in the directory the script is ran from.</span></span> <span data-ttu-id="80ee4-178">O seguinte texto é um exemplo dos dados no arquivo `output.txt`:</span><span class="sxs-lookup"><span data-stu-id="80ee4-178">The following text is an example of the data in the `output.txt` file:</span></span>
+<span data-ttu-id="b7410-175">Esse script solicita nome de conta de logon de cluster hello e a senha, juntamente com o nome do cluster HDInsight hello.</span><span class="sxs-lookup"><span data-stu-id="b7410-175">This script prompts you for hello cluster login account name and password, along with hello HDInsight cluster name.</span></span> <span data-ttu-id="b7410-176">Após a conclusão do trabalho hello, saída de hello é baixado toohello `output.txt` arquivo no script de saudação do diretório Olá é executado de.</span><span class="sxs-lookup"><span data-stu-id="b7410-176">Once hello job completes, hello output is downloaded toohello `output.txt` file in hello directory hello script is ran from.</span></span> <span data-ttu-id="b7410-177">Olá, texto a seguir é um exemplo de dados Olá Olá `output.txt` arquivo:</span><span class="sxs-lookup"><span data-stu-id="b7410-177">hello following text is an example of hello data in hello `output.txt` file:</span></span>
 
     you     1128
     young   38
@@ -238,10 +238,10 @@ namespace reducer
     yourselves      3
     youth   17
 
-## <a name="next-steps"></a><span data-ttu-id="80ee4-179">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="80ee4-179">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="b7410-178">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="b7410-178">Next steps</span></span>
 
-<span data-ttu-id="80ee4-180">Para obter mais informações sobre como usar o MapReduce com HDInsight, veja [Usar MapReduce com HDInsight](hdinsight-use-mapreduce.md).</span><span class="sxs-lookup"><span data-stu-id="80ee4-180">For more information on using MapReduce with HDInsight, see [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md).</span></span>
+<span data-ttu-id="b7410-179">Para obter mais informações sobre como usar o MapReduce com HDInsight, veja [Usar MapReduce com HDInsight](hdinsight-use-mapreduce.md).</span><span class="sxs-lookup"><span data-stu-id="b7410-179">For more information on using MapReduce with HDInsight, see [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md).</span></span>
 
-<span data-ttu-id="80ee4-181">Para obter informações sobre como usar C# com Hive e Pig, consulte [Usar uma função C# definida pelo usuário com Hive e Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md).</span><span class="sxs-lookup"><span data-stu-id="80ee4-181">For information on using C# with Hive and Pig, see [Use a C# user defined function with Hive and Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md).</span></span>
+<span data-ttu-id="b7410-180">Para obter informações sobre como usar C# com Hive e Pig, consulte [Usar uma função C# definida pelo usuário com Hive e Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md).</span><span class="sxs-lookup"><span data-stu-id="b7410-180">For information on using C# with Hive and Pig, see [Use a C# user defined function with Hive and Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md).</span></span>
 
-<span data-ttu-id="80ee4-182">Para obter informações sobre como usar C# com Storm no HDInsight, consulte [Desenvolver topologias C# para Storm no HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).</span><span class="sxs-lookup"><span data-stu-id="80ee4-182">For information on using C# with Storm on HDInsight, see [Develop C# topologies for Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).</span></span>
+<span data-ttu-id="b7410-181">Para obter informações sobre como usar C# com Storm no HDInsight, consulte [Desenvolver topologias C# para Storm no HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).</span><span class="sxs-lookup"><span data-stu-id="b7410-181">For information on using C# with Storm on HDInsight, see [Develop C# topologies for Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).</span></span>

@@ -1,15 +1,15 @@
 ---
 layout: LandingPage
-title: "Documentação da Retransmissão do Barramento de Serviço"
-description: "Saiba como o serviço de Retransmissão do Azure funciona em um ambiente local e na nuvem híbrido, completo com instruções, tutoriais, vídeos, referências de API e muito mais."
-ms.openlocfilehash: 43d2c5ca34e4903a41160496fdb4d975cb665de7
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+title: "aaaService documentação de retransmissão de barramento"
+description: "Saiba como Olá serviço de retransmissão do Azure funcionam em um local e nuvem ambiente híbrido, completo com a forma de, tutoriais, vídeos, referências de API e muito mais."
+ms.openlocfilehash: c042c82c90fa03e91ee9c1b513e325d7e8d33c08
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-bus-relay-documentation"></a>Documentação da Retransmissão do Barramento de Serviço
-Saiba como o serviço de Retransmissão do Azure facilita os aplicativos híbridos entre ambientes locais e na nuvem em uma rede empresarial corporativa e para a nuvem pública sem precisar abrir uma conexão de firewall nem exigir mudanças intrusivas em uma infraestrutura de rede corporativa.
+Saiba como retransmissão Azure serviço facilita aplicativos híbridos entre locais e nuvem ambientes dentro de uma empresa corporativa hello e rede nuvem pública, sem ter que tooopen uma conexão do firewall ou exigem alterações intrusiva tooa corporativo infraestrutura de rede.
 
 <ul class="panelContent cardsFTitle">
     <li>

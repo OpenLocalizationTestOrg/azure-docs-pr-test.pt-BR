@@ -1,5 +1,5 @@
 ---
-title: "Guia de Protocolo de Conexões Híbridas de Retransmissão do Azure | Microsoft Docs"
+title: "as conexões de retransmissão híbridas aaaAzure protocolo guia | Microsoft Docs"
 description: "Guia de protocolo de Conexões Híbridas de Retransmissão do Azure."
 services: service-bus-relay
 documentationcenter: na
@@ -14,109 +14,109 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: sethm;clemensv
-ms.openlocfilehash: 6b76403ba5fc4d00a625057549c85db59a473898
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2d145d919d606ae4722b063e1baf39fb845a600a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # Protocolo de Conexões Híbridas de Retransmissão do Azure
-A Retransmissão do Azure é um dos principais pilares de funcionalidades da plataforma do Barramento de Serviço do Azure. A nova funcionalidade *Conexões Híbridas* da Retransmissão é uma evolução segura e de protocolo em aberto com base em HTTP e WebSockets. Ele substitui o antigo recurso chamado igualmente de *Serviços BizTalk*, criado sobre uma base de protocolo proprietário. A integração do Conexões Híbridas aos Serviços de Aplicativos do Azure continuará a funcionar no estado em que se encontra.
+Retransmissão do Azure é uma das colunas de chave de recurso Olá da plataforma do Azure Service Bus hello. Olá novo *conexões híbridas* recurso de retransmissão é uma evolução segura, protocolo aberto com base em HTTP e WebSockets. Ele substitui o antigo hello, denominado igualmente *Serviços BizTalk* recurso que foi criado em uma base de protocolo proprietário. integração de saudação de conexões híbridas em serviços de aplicativo do Azure continuará toofunction como-é.
 
-O Conexões Híbridas possibilita uma comunicação com transmissão bidirecional binária entre dois aplicativos em rede, durante a qual um ou ambos podem residir atrás de NATs ou de firewalls. Este artigo descreve as interações do lado do cliente com a retransmissão de Conexões Híbridas para conectar clientes nas funções de ouvinte e o remetente e o modo como os ouvintes aceitam novas conexões.
+O Conexões Híbridas possibilita uma comunicação com transmissão bidirecional binária entre dois aplicativos em rede, durante a qual um ou ambos podem residir atrás de NATs ou de firewalls. Este artigo descreve as interações de cliente Olá com retransmissão de conexões híbridas Olá para conectar clientes no ouvinte e funções de remetente e como ouvintes de aceitam novas conexões.
 
 ## Modelo de interação
-A retransmissão do Conexões Híbridas conecta duas partes, fornecendo um ponto de encontro na nuvem do Azure que as partes podem descobrir e ao qual podem se conectar da perspectiva da sua própria rede. Esse ponto de encontro é chamado de "Conexão Híbrida" nesta e em outras documentações, nas APIs e também no Portal do Azure. O ponto de extremidade de serviço de Conexões Híbridas será referido como o "serviço" no restante deste artigo. O modelo de interação depende da nomenclatura estabelecida por muitas outras APIs de rede.
+retransmissão de conexões híbridas Olá conecta duas partes, fornecendo um ponto de encontro Olá nuvem do Azure que as partes podem descobrir e conexão toofrom perspectiva da sua própria rede. Esse ponto de reunião é chamado "Conexão híbrida" neste e em outras documentações, em Olá APIs e também em Olá portal do Azure. Olá conexões híbridas ponto de extremidade de serviço é chamado tooas hello "serviço" para o restante deste artigo hello. o modelo de interação Olá depende de nomenclatura Olá estabelecida por muitas APIs de rede.
 
-Há um ouvinte que primeiro indica a prontidão para lidar com conexões de entrada e, subsequentemente, aceita-as assim que chegam. Do outro lado, há um cliente conectado que se conecta ao ouvinte, esperando que essa conexão seja aceita para estabelecer um caminho de comunicação bidirecional.
-"Conectar", "Escutar" e "Aceitar" são os mesmos termos que você encontrará na maioria das APIs de soquete.
+Há um ouvinte que primeiro indica conexões de entrada de toohandle de preparação e subsequentemente aceitá-los assim que elas chegam. Em Olá outro lado, há uma conexão de cliente que conecta-se em direção de ouvinte hello, esperando que toobe conexão aceito para estabelecer um caminho de comunicação bidirecional.
+"Conectar", "Escutar" e "Aceitar" são Olá mesmo termos localizar na maioria das APIs de soquete.
 
-Qualquer modelo de comunicação retransmitida faz com que uma das partes realize conexões de saída em direção a um ponto de extremidade de serviço, o que torna o "ouvinte" também um "cliente" em uso coloquial e também pode causar outras sobrecargas de terminologia. Portanto, o significado preciso que usamos para Conexões Híbridas é o seguinte:
+Qualquer modelo de comunicação retransmitidas tem qualquer uma das partes estabelecer conexões de saída em direção a um ponto de extremidade de serviço, o que torna ouvinte"hello" também um "cliente" em uso colloquial e também pode fazer com que outras sobrecargas de terminologia. terminologia de precisa Hello, portanto, usamos para conexões híbridas é o seguinte:
 
-Os programas em ambos os lados de uma conexão são chamados de "cliente", pois são clientes para o serviço. O cliente que aguarda e aceita conexões é o "ouvinte", ou diz-se que faz a "função de ouvinte". O cliente que inicia uma nova conexão em direção a um ouvinte por meio do serviço é chamado de "remetente" ou faz a "função de remetente".
+programas de saudação em ambos os lados de uma conexão são chamados de "clientes", já que eles são o serviço de toohello de clientes. cliente que espera e aceita conexões é o "ouvinte", ou é Hello disse toobe hello "ouvinte função." Olá cliente que inicia uma nova conexão para um ouvinte por meio do serviço de saudação é chamado hello "sender", ou "função de remetente".
 
 ### Interações de ouvinte
-O ouvinte tem quatro interações com o serviço; todos os detalhes de conexão são descritos neste documento na seção de referência.
+ouvinte de saudação tem quatro interações com o serviço de saudação; todos os detalhes de transmissão são descritos neste artigo na seção de referência de saudação.
 
 #### Escutar
-Para indicar a preparação para o serviço sinalizando que um ouvinte está pronto para aceitar conexões, ele cria uma conexão WebSocket de saída. O handshake de conexão recebe o mesmo nome de uma Conexão Híbrida configurada no namespace de Retransmissão, além de um token de segurança que confere o direito "Listen" (de escuta) nesse nome.
-Quando o WebSocket é aceito pelo serviço, o registro é concluído e o WebSocket da Web estabelecido é mantido ativo como "canal de controle" para habilitar todas as interações subsequentes. O serviço permite até 25 ouvintes simultâneos em uma Conexão Híbrida. Se há dois ou mais ouvintes ativos, as conexões de entrada são balanceadas entre eles em ordem aleatória; não há garantia de distribuição justa.
+serviço de toohello de preparação tooindicate um ouvinte é tooaccept pronto conexões, ele cria uma conexão WebSocket saída. o handshake da conexão Olá assume o nome de saudação de uma Conexão híbrida configurada no namespace de retransmissão hello e um token de segurança que confere hello "Escutar" em que o nome.
+Quando Olá WebSocket é aceita pelo serviço hello, Olá registro for concluído e Olá estabelecida web que WebSocket é mantida ativa como hello "canal de controle" para habilitar todas as interações subsequentes. serviço de saudação permite que até too25 de ouvintes simultâneos em uma Conexão híbrida. Se há dois ou mais ouvintes ativos, as conexões de entrada são balanceadas entre eles em ordem aleatória; não há garantia de distribuição justa.
 
 #### Aceitar
-Quando um remetente abre uma nova conexão no serviço, o serviço escolhe e notifica um os ouvintes ativos na Conexão Híbrida. Essa notificação é enviada para o ouvinte no canal de controle em aberto como uma mensagem JSON que contém a URL do ponto de extremidade de WebSocket ao qual o ouvinte deve se conectar para aceitar a conexão.
+Quando um remetente abre uma nova conexão no serviço hello, o serviço de saudação escolhe e notifica um dos ouvintes de active Olá em Olá Conexão híbrida. Essa notificação é enviada toohello ouvinte em canal de controle abra hello como uma mensagem JSON contendo URL de saudação do ponto de extremidade de WebSocket Olá Olá ouvinte deve se conectar toofor aceitar conexão de saudação.
 
-A URL pode e deve ser usada diretamente pelo ouvinte sem nenhum trabalho extra.
-As informações codificadas são válidas apenas por um curto período de tempo, essencialmente o tempo pelo qual o remetente está disposto a esperar para que a conexão seja estabelecida de ponta a ponta, até um máximo de 30 segundos. A URL pode ser usada apenas para uma tentativa de conexão bem-sucedida. Assim que a conexão de WebSocket com a URL da reunião é estabelecida, todas as atividades adicionais neste WebSocket são retransmitidas de e para o remetente, sem nenhuma intervenção ou interpretação pelo serviço.
+Olá URL pode e deve ser usado diretamente pelo ouvinte Olá sem qualquer trabalho extra.
+Olá codificado informações só é válido por um curto período de tempo, essencialmente para desde como remetente Olá é disposto toowait para Olá conexão toobe estabelecida ponta a ponta, mas o máximo de tooa de 30 segundos. Olá URL só pode ser usado para a tentativa de uma conexão bem-sucedida. Assim que hello WebSocket conexão com hello reunião de que URL é estabelecida, todas as atividades adicionais neste WebSocket é transmitida do e remetente toohello, sem qualquer intervenção ou interpretação pelo serviço de saudação.
 
 #### Renew
-O token de segurança que deve ser usado para registrar o ouvinte e manter o canal de controle pode expirar enquanto o ouvinte está ativo. A expiração do token não afetará conexões contínuas, mas fará com que o canal de controle seja descartado pelo serviço ou logo após o momento da expiração. A operação "renew" é uma mensagem JSON que o ouvinte pode enviar para substituir o token associado ao canal de controle, para que o canal de controle possa ser mantido por períodos longos.
+token de segurança de saudação que deve ser usado tooregister ouvinte de saudação e manter que o canal de controle pode expirar enquanto ouvinte hello está ativa. expiração do token Olá não afetam as conexões em andamento, mas fazer toobe de canal de controle Olá descartado pelo serviço de saudação em ou logo após o momento de saudação da expiração. operação de "renovar" Hello é uma mensagem JSON que Olá ouvinte pode enviar token de saudação tooreplace associado ao canal de controle hello, para que hello canal de controle pode ser mantido por longos períodos.
 
 #### Ping
-Se o canal de controle permanecer ocioso por muito tempo, intermediários no caminho como balanceadores de carga ou NATs poderão remover a conexão TCP. A operação "ping" evita isso por meio do envio de uma pequena quantidade de dados no canal, que lembra a todos na rota de rede que a conexão deve estar ativa e também serve como um teste de atividade para o ouvinte. Se o ping falhar, o canal de controle deverá ser considerado inutilizável e o ouvinte deverá se reconectar.
+Se o canal de controle Olá permanecer ocioso por um longo tempo, intermediários na forma de saudação, como carga balanceadores ou NATs podem Cancelar conexão de TCP hello. operação de "ping" Hello evita que destina-se toobe atividade enviando uma pequena quantidade de dados no canal de saudação que lembra todos na rota de rede Olá essa conexão hello e também serve como um teste "ativo" para o ouvinte de saudação. Se Olá ping falhar, o canal de controle Olá deve ser considerado inutilizável e ouvinte Olá deve se reconectar.
 
 ### Interação de remetente
-O remetente tem apenas uma única interação com o serviço: ele se conecta.
+remetente Olá tem apenas uma única interação com o serviço de saudação: ele se conecta.
 
 #### Connect
-A operação "connect" abre um WebSocket no serviço, fornecendo o nome da Conexão Híbrida e um token de segurança (opcional, mas necessário por padrão) concedendo a permissão "Send" na cadeia de caracteres de consulta. O serviço interagirá então com o ouvinte no modo descrito anteriormente e fará com que o ouvinte crie uma conexão de encontro que será associada a esse WebSocket. Após o WebSocket ser aceito, todas as outras interações nesse WebSocket serão, portanto, com um ouvinte conectado.
+operação de "conectar-se" Olá abre um WebSocket no serviço hello, fornecendo nome de saudação do hello Conexão híbrida e (opcionalmente, mas é necessário por padrão) um token de segurança conferir permissões "Enviar" na cadeia de caracteres de consulta de saudação. serviço Olá interage com o ouvinte Olá Olá forma descrita anteriormente e ouvinte Olá cria uma conexão de encontro que está associado com este WebSocket. Após aceitar Olá WebSocket, todas as outras interações em que WebSocket são com um ouvinte conectado.
 
 ### Resumo da interação
-O resultado desse modelo de interação é que o cliente remetente sai do handshake com um WebSocket "limpo", que é conectado a um ouvinte e que não precisa de nenhum preâmbulo ou preparação adicionais. Esse modelo permite que praticamente qualquer implementação de cliente de WebSocket existente tire proveito imediatamente do serviço de Conexões Híbridas fornecendo uma URL construída corretamente na camada de clientes do seu WebSocket.
+resultado de saudação desse modelo de interação é que o cliente remetente Olá sair o handshake do WebSocket "normal", que é conectado tooa ouvinte e que não precisam de nenhuma introduções adicionais ou preparação. Esse modelo permite que a praticamente qualquer existente WebSocket cliente implementação tooreadily tirar vantagem da saudação serviço conexões híbridas ao fornecer uma URL construída corretamente em sua camada de cliente do WebSocket.
 
-O WebSocket da conexão de reunião que o ouvinte obtém por meio de interação com accept também é limpa e pode ser entregue a qualquer implementação de servidor de WebSocket existente com alguma abstração extra mínima, que faz a distinção entre operações "accept" nos ouvintes de rede local da sua estrutura e operações "accept" remotas do Conexões Híbridas.
+Olá encontro conexão WebSocket que Olá ouvinte obtém por meio da interação de aceitar também é normal e pode ser entregue tooany WebSocket servidor implementação com alguns mínimo abstração extra que faz distinção entre "aceitar" operações em sua estrutura escutas de rede local e remoto de conexões híbridas "aceitam" operações.
 
 ## Referência de protocolo
 
-Esta seção descreve os detalhes das interações de protocolo descritas anteriormente.
+Esta seção descreve os detalhes de saudação de interações de protocolo hello descritos anteriormente.
 
 Todas as conexões de WebSocket são feitas na porta 443 como uma atualização do HTTPS 1.1, o que é normalmente abstraído por alguma API ou estrutura de WebSocket. A descrição aqui é mantida neutra em termos de implementação, sem sugerir uma estrutura específica.
 
 ### Protocolo de ouvinte
-O protocolo de ouvinte consiste em dois gestos de conexão e três operações de mensagem.
+protocolo de ouvinte de saudação consiste em dois gestos de conexão e três operações de mensagens.
 
 #### Conexão de canal de controle do ouvinte
-O canal de controle é aberto com a criação de uma conexão de WebSocket para:
+canal de controle de saudação é aberto com a criação de uma conexão WebSocket para:
 
 ```
 wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token=...
 ```
 
-O `namespace-address` é o nome de domínio totalmente qualificado do namespace de Retransmissão do Azure que hospeda a Conexão Híbrida, normalmente no formato `{myname}.servicebus.windows.net`.
+Olá `namespace-address` é o nome de domínio totalmente qualificado de saudação do namespace do Azure retransmissão Olá hosts Olá Conexão híbrida, normalmente de forma Olá `{myname}.servicebus.windows.net`.
 
-As opções de parâmetro de cadeia de caracteres de consulta são conforme demonstrado a seguir.
+Opções de parâmetro de cadeia de caracteres de consulta de saudação são da seguinte maneira.
 
 | Parâmetro | Obrigatório | Descrição |
 | --- | --- | --- |
-| `sb-hc-action` |Sim |Para a função de ouvinte, o parâmetro deve ser **sb-hc-action=listen** |
-| `{path}` |Sim |O caminho de namespace em formato codificado de URL da Conexão Híbrida pré-configurada na qual registrar este ouvinte. Esta expressão é acrescentada à parte do caminho `$hc/` fixa. |
-| `sb-hc-token` |Sim\* |O ouvinte deve fornecer um Token de Acesso válido, compartilhado com o Barramento de Serviço, em formato codificado de URL para o namespace ou Conexão Híbrida que confere o direito **Listen** (escutar). |
+| `sb-hc-action` |Sim |Olá Olá da função de ouvinte para o parâmetro deve ser **sb-hc-action = escuta** |
+| `{path}` |Sim |Olá codificados de URL do caminho da saudação pré-configurado Conexão híbrida tooregister este ouvinte no. Essa expressão é acrescentado toohello fixada `$hc/` parte do caminho. |
+| `sb-hc-token` |Sim\* |Olá ouvinte deve fornecer um codificada por URL válido, serviço de barramento compartilhados Token de acesso para namespace hello ou Conexão híbrida que confere Olá **escutar** à direita. |
 | `sb-hc-id` |Não |Essa ID opcional fornecida pelo cliente permite o rastreamento de diagnóstico de ponta a ponta. |
 
-Se a conexão de WebSocket falhar porque o caminho de Conexão Híbrida não está sendo registrado, porque há um token inválido ou ausente ou por algum outro erro, os comentários de erro serão fornecidos usando o modelo comum de comentários de status HTTP 1.1. A descrição do status conterá uma ID de acompanhamento de erro que poderá ser comunicada ao pessoal de suporte do Azure:
+Se Olá conexão WebSocket falhar devido a caminho de Conexão híbrida toohello não está sendo registrado, ou um token inválido ou ausente ou algum outro erro, comentários de erro Olá é fornecido usando o modelo de comentários de status de HTTP 1.1 regular de hello. A descrição do status conterá uma ID de acompanhamento de erro que poderá ser comunicada ao pessoal de suporte do Azure:
 
 | Código | Erro | Descrição |
 | --- | --- | --- |
-| 404 |Não encontrado |O caminho da Conexão Híbrida é inválido ou a URL base está malformada. |
-| 401 |Não Autorizado |O token de segurança está ausente ou malformado ou inválido. |
-| 403 |Proibido |O token de segurança não é válido para esse caminho para essa ação. |
-| 500 |Erro Interno |Algo deu errado no serviço. |
+| 404 |Não encontrado |Olá Conexão híbrida caminho é inválido ou a URL base Olá está incorreta. |
+| 401 |Não Autorizado |o token de segurança Hello está ausente ou malformado ou inválido. |
+| 403 |Proibido |o token de segurança Olá não é válido para esse caminho para esta ação. |
+| 500 |Erro Interno |Ocorreu um problema no serviço de saudação. |
 
-Se a conexão de WebSocket for desligada intencionalmente pelo serviço depois que ele tiver sido inicialmente configurado, o motivo para fazer isso será comunicado usando código de erro de protocolo WebSocket apropriado juntamente com uma mensagem de erro descritiva, que também incluirá uma ID de acompanhamento. O serviço não desligará o canal de controle sem encontrar uma condição de erro. Qualquer desligamento normal é controlado de cliente.
+Se Olá conexão WebSocket é intencionalmente desligado pelo serviço Olá depois que ele foi inicialmente configurado, motivo hello para fazer isso é comunicado usando um código de erro de protocolo WebSocket apropriado juntamente com uma mensagem de erro descritiva que também inclui um controle ID. serviço de saudação não desligará o canal de controle sem encontrar uma condição de erro. Qualquer desligamento normal é controlado de cliente.
 
 | Status WS | Descrição |
 | --- | --- |
-| 1001 |O caminho de Conexão Híbrida foi excluído ou desabilitado. |
-| 1008 |O token de segurança expirou, portanto, a política de autorização foi violada. |
-| 1011 |Algo deu errado no serviço. |
+| 1001 |caminho de Conexão híbrida Olá foi excluído ou desabilitado. |
+| 1008 |token de segurança de saudação expirou, portanto a diretiva de autorização de saudação for violada. |
+| 1011 |Ocorreu um problema no serviço de saudação. |
 
 ### Handshake de aceitação
-A notificação "accept" é enviada pelo serviço ao ouvinte pelo canal de controle estabelecido anteriormente como uma mensagem JSON em um quadro de texto de WebSocket. Não há resposta para esta mensagem.
+Olá "aceitar" notificação é enviada pelo ouvinte de toohello serviço Olá pelo canal de controle estabelecida anteriormente como uma mensagem JSON em um quadro de texto do WebSocket. Não há nenhuma mensagem de resposta de toothis.
 
-A mensagem contém um objeto JSON chamado "accept", que define as seguintes propriedades neste momento:
+mensagem contém um objeto JSON denominado "aceitar", que define as seguintes propriedades no momento de saudação:
 
-* **endereço** – a cadeia de caracteres de URL a ser usada para estabelecer o WebSocket com o serviço para aceitar uma conexão de entrada.
-* **ID** – o identificador exclusivo para esta conexão. Se a ID tiver sido fornecida pelo cliente do remetente, será o valor fornecido pelo remetente; caso contrário, será um valor gerado pelo sistema.
-* **connectHeaders** – todos os cabeçalhos HTTP que foram fornecidos pelo remetente ao ponto de extremidade de retransmissão, o que também inclui os cabeçalhos Sec-WebSocket-Protocol e Sec-WebSocket-Extensions.
+* **endereço** – Olá toobe de cadeia de caracteres de URL usada para estabelecer Olá WebSocket toothe serviço tooaccept uma conexão de entrada.
+* **ID** – Olá identificador exclusivo para essa conexão. Se Olá ID foi fornecido pelo cliente do remetente Olá, é Olá remetente fornecido valor, caso contrário, será um valor gerado pelo sistema.
+* **connectHeaders** – todos os cabeçalhos HTTP que foram fornecidos toohello o ponto de extremidade de retransmissão por remetente hello, que também inclui hello protocolo s-WebSocket e os cabeçalhos Sec-WebSocket-extensões.
 
 #### Mensagem de Aceitação
 
@@ -134,70 +134,70 @@ A mensagem contém um objeto JSON chamado "accept", que define as seguintes prop
 }
 ```
 
-A URL do endereço fornecida na mensagem JSON é usada pelo ouvinte para estabelecer o WebSocket para aceitar ou rejeitar o soquete do remetente.
+Olá endereço URL fornecido no hello mensagem de JSON é usada pelo ouvinte Olá para estabelecer hello WebSocket para aceitar ou rejeitar o soquete de remetente hello.
 
-#### Aceitar o soquete
-Para aceitar, o ouvinte estabelece uma conexão WebSocket ao endereço fornecido.
+#### Aceitar o soquete de saudação
+tooaccept, o ouvinte Olá estabelece um endereço de toohello fornecido de conexão WebSocket.
 
-Se a mensagem "accept" tiver um cabeçalho `Sec-WebSocket-Protocol`, espera-se que o ouvinte só aceite o WebSocket se ele der suporte a esse protocolo. Além disso, ele define o cabeçalho conforme o WebSocket é estabelecido.
+Se hello "aceitar" mensagem realiza uma `Sec-WebSocket-Protocol` cabeçalho, espera-se que escuta Olá aceita apenas Olá WebSocket se ele dá suporte a esse protocolo. Além disso, ele define o cabeçalho hello como Olá que WebSocket é estabelecida.
 
-O mesmo se aplica ao cabeçalho `Sec-WebSocket-Extensions`. Se a estrutura der suporte a uma extensão, ela deverá definir o cabeçalho como a resposta do lado do servidor do handshake `Sec-WebSocket-Extensions` necessário para a extensão.
+Olá mesmo se aplica a toohello `Sec-WebSocket-Extensions` cabeçalho. Se Olá framework oferece suporte a uma extensão, ela deve definida resposta do hello cabeçalho toohello do lado do servidor de saudação necessária `Sec-WebSocket-Extensions` handshake para extensão de saudação.
 
-A URL deve ser usada no estado em que se encontra para estabelecer o soquete de aceitação, mas contém os seguintes parâmetros:
+Olá URL deve ser usada como-é para estabelecer Olá aceitar o soquete, mas contém os seguintes parâmetros:
 
 | Parâmetro | Obrigatório | Descrição |
 | --- | --- | --- |
-| `sb-hc-action` |Sim |Para aceitar um soquete, o parâmetro deverá ser `sb-hc-action=accept` |
-| `{path}` |Sim |(confira no parágrafo a seguir) |
+| `sb-hc-action` |Sim |Para aceitar um soquete, o parâmetro hello deve ser`sb-hc-action=accept` |
+| `{path}` |Sim |(consulte Olá parágrafo a seguir) |
 | `sb-hc-id` |Não |Consulte a descrição anterior de **id**. |
 
-`{path}` é o caminho do namespace em formato codificado de URL da Conexão Híbrida pré-configurada na qual este ouvinte deve ser registrado. Esta expressão é acrescentada à parte do caminho `$hc/` fixa. 
+`{path}`é Olá codificados de URL do caminho da saudação pré-configurado Conexão híbrida na qual tooregister este ouvinte. Essa expressão é acrescentado toothe fixada `$hc/` parte do caminho. 
 
-A expressão `path` pode ser estendida com um sufixo e uma expressão de cadeia de caracteres de consulta que segue o nome registrado após uma barra de separação. Isso permite que o cliente remetente passe argumentos de expedição para o ouvinte destinatário quando não é possível incluir cabeçalhos HTTP. A expectativa é que a estrutura do ouvinte analise a parte fixa do caminho e o nome registrado do caminho e faça o restante, possivelmente sem nenhum argumento da cadeia de caracteres de consulta precedido por `sb-`, disponível para o aplicativo para decidir se deseja ou não aceitar a conexão.
+Olá `path` expressão pode ser estendida com um sufixo e uma expressão de cadeia de caracteres de consulta que segue o nome registrado da saudação após uma barra de separação. Isso permite que Olá remetente cliente toopass expedição argumentos toohello aceitando ouvinte quando não é possível tooinclude HTTP cabeçalhos. Olá expectativa é esse ouvinte Olá framework analisa parte do caminho fixo hello e nome registrado de saudação do caminho e torna restante Olá, possivelmente sem nenhum argumento de cadeia de caracteres de consulta antecedido `sb-`, aplicativo toohello disponível para Decidindo se tooaccept Olá conexão.
 
-Para obter mais informações, consulte a seção "Sender Protocol" (Protocolo de remetente) a seguir.
+Para obter mais informações, consulte hello "Remetente protocolo" a seção seguinte.
 
-Se houver um erro, o serviço poderá responder da seguinte maneira:
+Se houver um erro, o serviço de saudação pode responder da seguinte maneira:
 
 | Código | Erro | Descrição |
 | --- | --- | --- |
-| 403 |Proibido |A URL não é válida. |
-| 500 |Erro Interno |Algo deu errado no serviço |
+| 403 |Proibido |Olá URL não é válida. |
+| 500 |Erro Interno |Ocorreu um problema no serviço de saudação |
 
-Depois que a conexão tiver sido estabelecida, o servidor será desligado do WebSocket quando o WebSocket do remetente desligar ou com o status a seguir:
+Depois que tiver sido estabelecida a conexão hello, Olá servidor é desligado Olá WebSocket ao remetente Olá WebSocket desliga, ou com hello status a seguir:
 
 | Status WS | Descrição |
 | --- | --- |
-| 1001 |O cliente remetente encerra a conexão. |
-| 1001 |O caminho de Conexão Híbrida foi excluído ou desabilitado. |
-| 1008 |O token de segurança expirou, portanto, a política de autorização foi violada. |
-| 1011 |Algo deu errado no serviço. |
+| 1001 |cliente do remetente Olá desliga conexão hello. |
+| 1001 |caminho de Conexão híbrida Olá foi excluído ou desabilitado. |
+| 1008 |token de segurança de saudação expirou, portanto a diretiva de autorização de saudação for violada. |
+| 1011 |Ocorreu um problema no serviço de saudação. |
 
-#### Rejeitar o soquete
-Rejeitar o soquete depois de inspecionar a mensagem "accept" requer um handshake semelhante, de modo que o código de status e a descrição de status comunicando o motivo da rejeição possam fluir de volta ao remetente.
+#### Rejeitar soquete Olá
+Rejeitando soquete Olá depois inspecionando "aceitar" mensagem de saudação do requer um handshake semelhante para que hello código de status e a descrição do status de comunicação que pode fluir o motivo da rejeição da saudação fazer toohello remetente.
 
-A escolha de design do protocolo aqui é usar um handshake WebSocket (que é projetado para terminar em um estado de erro definido) para que as implementações do ouvinte cliente possam continuar a depender de um cliente WebSocket e não precisem empregar um cliente HTTP básico adicional.
+Escolha de design de protocolo Hello aqui é toouse um handshake WebSocket (ou seja, tooend projetado em um estado de erro definido) para que as implementações de cliente de ouvinte podem continuar toorely em um cliente do WebSocket e não é necessário utilizar um extra, bare cliente HTTP.
 
-Para rejeitar o soquete, o cliente usa o endereço URI da mensagem "accept" e acrescenta dois parâmetros da cadeia de caracteres de consulta a ele, conforme demonstrado a seguir:
+soquete tooreject Olá cliente Olá aceita Olá endereço URI da mensagem de saudação do "aceitar" e acrescenta dois tooit de parâmetros de cadeia de caracteres de consulta, da seguinte maneira:
 
 | Param | Obrigatório | Descrição |
 | --- | --- | --- |
 | statusCode |Sim |Código de status HTTP numérico. |
-| statusDescription |Sim |Motivo da rejeição legível por humanos. |
+| statusDescription |Sim |Motivo legível humano Olá rejeição. |
 
-O URI resultante é usado para estabelecer uma conexão WebSocket.
+Olá que URI resultante é então usado tooestablish uma conexão WebSocket.
 
-Ao ser concluído corretamente, esse handshake falhará intencionalmente com um código de erro HTTP 410, pois nenhum WebSocket terá sido estabelecido. Se algo der errado, os códigos a seguir descrevem o erro:
+Ao ser concluído corretamente, esse handshake falhará intencionalmente com um código de erro HTTP 410, pois nenhum WebSocket terá sido estabelecido. Se algo der errado, Olá códigos a seguir descreve o erro hello:
 
 | Código | Erro | Descrição |
 | --- | --- | --- |
-| 403 |Proibido |A URL não é válida. |
-| 500 |Erro Interno |Algo deu errado no serviço. |
+| 403 |Proibido |Olá URL não é válida. |
+| 500 |Erro Interno |Ocorreu um problema no serviço de saudação. |
 
 ### Renovação de tokens do ouvinte
-Quando o token do ouvinte estiver prestes a expirar, ele poderá ser substituído enviando uma mensagem de quadro de texto ao serviço por meio do canal de controle estabelecido. A mensagem contém um objeto JSON chamado `renewToken`, que define a propriedade a seguir neste momento:
+Quando for token de ouvinte Olá sobre tooexpire, ele pode substituí-lo, enviando um texto quadro toohello serviço por meio do canal de controle Olá estabelecida. A mensagem contém um objeto JSON chamado `renewToken`, que define Olá propriedade a seguir no momento:
 
-* **token** – um Token de Acesso válido, compartilhado com o Barramento de Serviço, em formato codificado de URL para o namespace ou Conexão Híbrida e que confere o direito **Listen** (escutar).
+* **token** – um token de acesso compartilhado do barramento do serviço válido, codificados de URL para o namespace ou a Conexão híbrida que confere Olá **escutar** à direita.
 
 #### Mensagem renewToken
 
@@ -209,58 +209,58 @@ Quando o token do ouvinte estiver prestes a expirar, ele poderá ser substituíd
 }
 ```
 
-Se a validação de token falhar, o acesso será negado e serviço de nuvem fechará o WebSocket do canal de controle com um erro. Caso contrário, não há nenhuma resposta.
+Se a validação de token Olá falhar, o acesso foi negado e serviço de nuvem Olá fecha o canal de controle de saudação WebSocket com um erro. Caso contrário, não há nenhuma resposta.
 
 | Status WS | Descrição |
 | --- | --- |
-| 1008 |O token de segurança expirou, portanto, a política de autorização foi violada. |
+| 1008 |token de segurança de saudação expirou, portanto a diretiva de autorização de saudação for violada. |
 
 ## Protocolo de remetente
-O protocolo de remetente é efetivamente idêntico ao modo como um ouvinte é estabelecido.
-A meta é o máximo de transparência para o WebSocket de ponta a ponta. O endereço ao qual se conectar é o mesmo do ouvinte, mas a "ação" é diferente e o token precisa de uma permissão diferente:
+protocolo de remetente de saudação é efetivamente idêntico toohello forma que um ouvinte é estabelecido.
+meta de saudação é o máximo de transparência para Olá ponta a ponta WebSocket. endereço de saudação para se conectar a saudação toois que igual de ouvinte hello, mas a ação"hello" é diferente e o token precisa de uma permissão diferente:
 
 ```
 wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=...
 ```
 
-O *namespace-address* é o nome de domínio totalmente qualificado do namespace de Retransmissão do Azure que hospeda a Conexão Híbrida, normalmente no formato `{myname}.servicebus.windows.net`.
+Olá *endereço do namespace* é o nome de domínio totalmente qualificado de saudação do namespace do Azure retransmissão Olá hosts Olá Conexão híbrida, normalmente de forma Olá `{myname}.servicebus.windows.net`.
 
-A solicitação pode conter cabeçalhos HTTP adicionais arbitrários, incluindo aqueles definidos pelo aplicativo. Todos os cabeçalhos fornecidos fluem para o ouvinte e podem ser encontrados no objeto `connectHeader` da mensagem de controle **accept**.
+solicitação de saudação pode conter arbitrários cabeçalhos HTTP extras, incluindo aquelas definidas pelo aplicativo. Todos fornecido pelo ouvinte de toohello de fluxo de cabeçalhos e podem ser encontrados no hello `connectHeader` objeto do hello **aceitar** mensagem do controle.
 
-As opções de parâmetro de cadeia de caracteres de consulta são conforme demonstrado a seguir:
+Opções de parâmetro de cadeia de caracteres de consulta de saudação são da seguinte maneira:
 
 | Param | Obrigatório? | Descrição |
 | --- | --- | --- |
-| `sb-hc-action` |Sim |Para a função de remetente, o parâmetro deve ser `action=connect`. |
-| `{path}` |Sim |(confira no parágrafo a seguir) |
-| `sb-hc-token` |Sim\* |O ouvinte deve fornecer um Token de Acesso válido, compartilhado com o Barramento de Serviço, em formato codificado de URL para o namespace ou Conexão Híbrida que confere o direito **Send**. |
-| `sb-hc-id` |Não |Uma ID opcional que possibilita o rastreamento de diagnóstico de ponta a ponta e é disponibilizada para o ouvinte durante o handshake de aceitação. |
+| `sb-hc-action` |Sim |Para função de remetente hello, o parâmetro hello deve ser `action=connect`. |
+| `{path}` |Sim |(consulte Olá parágrafo a seguir) |
+| `sb-hc-token` |Sim\* |Olá ouvinte deve fornecer um codificada por URL válido, serviço de barramento compartilhados Token de acesso para namespace hello ou Conexão híbrida que confere Olá **enviar** à direita. |
+| `sb-hc-id` |Não |Uma ID opcional que permite que o rastreamento de diagnóstico de ponta a ponta e é feita ouvinte toohello disponível durante a saudação aceitar handshake. |
 
-O `{path}` é o namespace em formato codificado de URL da Conexão Híbrida pré-configurada na qual este ouvinte deve ser registrado. A expressão `path` pode ser estendida com um sufixo e uma expressão de cadeia de caracteres de consulta para se comunicar ainda mais. Se a Conexão Híbrida for registrada no caminho `hyco`, a expressão `path` poderá ser `hyco/suffix?param=value&...` seguida por parâmetros de cadeia de caracteres de consulta definidos aqui. Assim, uma expressão completa pode ser da seguinte maneira:
+Olá `{path}` é Olá codificados de URL do caminho da saudação pré-configurado Conexão híbrida na qual tooregister este ouvinte. Olá `path` expressão pode ser estendida com um sufixo e um toocommunicate de expressão de cadeia de caracteres de consulta adicional. Se Olá Conexão híbrida é registrado no caminho de saudação `hyco`, Olá `path` expressão pode ser `hyco/suffix?param=value&...` seguido por parâmetros de cadeia de caracteres de consulta Olá definidos aqui. Assim, uma expressão completa pode ser da seguinte maneira:
 
 ```
 wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sbc-hc-token=...
 ```
 
-A expressão `path` é passada por meio do ouvinte no URI do endereço contido na mensagem de controle "accept".
+Olá `path` expressão é passada toohello escuta no endereço Olá URI contido na mensagem de controle "aceitar" hello.
 
-Se a conexão de WebSocket falhar porque o caminho de Conexão Híbrida não está sendo registrado, porque há um token inválido ou ausente ou por algum outro erro, os comentários de erro serão fornecidos usando o modelo comum de comentários de status HTTP 1.1. A descrição do status conterá uma ID de acompanhamento de erro que poderá ser comunicada ao pessoal de suporte do Azure:
+Se Olá conexão WebSocket falhar devido a caminho de Conexão híbrida toohello não está sendo registrado, um token inválido ou ausente ou algum outro erro, comentários de erro Olá é fornecido usando o modelo de comentários de status de HTTP 1.1 regular de hello. A descrição do status conterá uma ID de acompanhamento de erro que poderá ser comunicada ao pessoal de suporte do Azure:
 
 | Código | Erro | Descrição |
 | --- | --- | --- |
-| 404 |Não encontrado |O caminho da Conexão Híbrida é inválido ou a URL base está malformada. |
-| 401 |Não Autorizado |O token de segurança está ausente ou malformado ou inválido. |
-| 403 |Proibido |O token de segurança não é válido para esse caminho e para essa ação. |
-| 500 |Erro Interno |Algo deu errado no serviço. |
+| 404 |Não encontrado |Olá Conexão híbrida caminho é inválido ou a URL base Olá está incorreta. |
+| 401 |Não Autorizado |o token de segurança Hello está ausente ou malformado ou inválido. |
+| 403 |Proibido |o token de segurança Olá não é válido para este caminho de e para esta ação. |
+| 500 |Erro Interno |Ocorreu um problema no serviço de saudação. |
 
-Se a conexão de WebSocket for desligada intencionalmente pelo serviço depois que ele tiver sido inicialmente configurado, o motivo para fazer isso será comunicado usando código de erro de protocolo WebSocket apropriado juntamente com uma mensagem de erro descritiva, que também incluirá uma ID de acompanhamento.
+Se Olá conexão WebSocket intencionalmente for desligado pelo serviço Olá depois que ele foi inicialmente configurado, isso porque Olá assim é comunicado usando um código de erro de protocolo WebSocket apropriado juntamente com uma mensagem de erro descritiva que também inclui um ID de rastreamento.
 
 | Status WS | Descrição |
 | --- | --- |
-| 1000 |O ouvinte desligou o soquete. |
-| 1001 |O caminho de Conexão Híbrida foi excluído ou desabilitado. |
-| 1008 |O token de segurança expirou, portanto, a política de autorização foi violada. |
-| 1011 |Algo deu errado no serviço. |
+| 1000 |ouvinte de saudação desligar soquete hello. |
+| 1001 |caminho de Conexão híbrida Olá foi excluído ou desabilitado. |
+| 1008 |token de segurança de saudação expirou, portanto a diretiva de autorização de saudação for violada. |
+| 1011 |Ocorreu um problema no serviço de saudação. |
 
 ## Próximas etapas
 * [Perguntas frequentes sobre retransmissão](relay-faq.md)

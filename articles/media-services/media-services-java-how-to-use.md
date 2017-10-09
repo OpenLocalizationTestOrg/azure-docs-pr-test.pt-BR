@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao fornecimento de conteúdo sob demanda usando Java | Microsoft Docs"
-description: "Este tutorial orienta você ao longo das etapas de implementação de um serviço básico de fornecimento de conteúdo de VoD (Vídeo sob Demanda) com o aplicativo AMS (Serviços de Mídia do Azure) usando Java."
+title: "aaaGet iniciado com o fornecimento de conteúdo sob demanda usando Java | Microsoft Docs"
+description: "Este tutorial orienta você pelas etapas de saudação da implementação de um serviço básico de fornecimento de conteúdo de vídeo sob demanda (VoD) com o aplicativo de serviços de mídia do Azure (AMS) usando o Java."
 services: media-services
 documentationcenter: java
 author: juliako
@@ -14,38 +14,38 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: juliako
-ms.openlocfilehash: 2294f3de094389f8aa500c75472e753339b18358
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b13eb88e35fb0d7a1ec1a213293080bad8aa1806
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-java"></a><span data-ttu-id="bd5dd-103">Introdução ao fornecimento de conteúdo sob demanda usando Java</span><span class="sxs-lookup"><span data-stu-id="bd5dd-103">Get started with delivering content on demand using Java</span></span>
+# <a name="get-started-with-delivering-content-on-demand-using-java"></a><span data-ttu-id="f3cfc-103">Introdução ao fornecimento de conteúdo sob demanda usando Java</span><span class="sxs-lookup"><span data-stu-id="f3cfc-103">Get started with delivering content on demand using Java</span></span>
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-<span data-ttu-id="bd5dd-104">Este tutorial orienta você ao longo das etapas de implementação de um serviço básico de fornecimento de conteúdo de VoD (Vídeo sob Demanda) com o aplicativo AMS (Serviços de Mídia do Azure) usando Java.</span><span class="sxs-lookup"><span data-stu-id="bd5dd-104">This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery service with Azure Media Services (AMS) application using Java.</span></span>
+<span data-ttu-id="f3cfc-104">Este tutorial orienta você pelas etapas de saudação da implementação de um serviço básico de fornecimento de conteúdo de vídeo sob demanda (VoD) com o aplicativo de serviços de mídia do Azure (AMS) usando o Java.</span><span class="sxs-lookup"><span data-stu-id="f3cfc-104">This tutorial walks you through hello steps of implementing a basic Video-on-Demand (VoD) content delivery service with Azure Media Services (AMS) application using Java.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="bd5dd-105">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="bd5dd-105">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="f3cfc-105">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="f3cfc-105">Prerequisites</span></span>
 
-<span data-ttu-id="bd5dd-106">Os itens a seguir são necessários para concluir o tutorial:</span><span class="sxs-lookup"><span data-stu-id="bd5dd-106">The following are required to complete the tutorial:</span></span>
+<span data-ttu-id="f3cfc-106">Olá seguem tutorial de saudação toocomplete necessária:</span><span class="sxs-lookup"><span data-stu-id="f3cfc-106">hello following are required toocomplete hello tutorial:</span></span>
 
-* <span data-ttu-id="bd5dd-107">Uma conta do Azure.</span><span class="sxs-lookup"><span data-stu-id="bd5dd-107">An Azure account.</span></span> <span data-ttu-id="bd5dd-108">Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="bd5dd-108">For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).</span></span> 
-* <span data-ttu-id="bd5dd-109">Uma conta dos Serviços de Mídia.</span><span class="sxs-lookup"><span data-stu-id="bd5dd-109">A Media Services account.</span></span> <span data-ttu-id="bd5dd-110">Para criar uma conta de Serviços de Mídia, consulte [Como criar uma conta de Serviços de Mídia](media-services-portal-create-account.md).</span><span class="sxs-lookup"><span data-stu-id="bd5dd-110">To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).</span></span>
-* <span data-ttu-id="bd5dd-111">As bibliotecas do Azure para Java, que podem ser instaladas na [Central de desenvolvedores de Java no Azure][Azure Java Developer Center].</span><span class="sxs-lookup"><span data-stu-id="bd5dd-111">The Azure Libraries for Java, which you can install from the [Azure Java Developer Center][Azure Java Developer Center].</span></span>
+* <span data-ttu-id="f3cfc-107">Uma conta do Azure.</span><span class="sxs-lookup"><span data-stu-id="f3cfc-107">An Azure account.</span></span> <span data-ttu-id="f3cfc-108">Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="f3cfc-108">For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).</span></span> 
+* <span data-ttu-id="f3cfc-109">Uma conta dos Serviços de Mídia.</span><span class="sxs-lookup"><span data-stu-id="f3cfc-109">A Media Services account.</span></span> <span data-ttu-id="f3cfc-110">toocreate uma conta de serviços de mídia, consulte [como tooCreate uma conta do Media Services](media-services-portal-create-account.md).</span><span class="sxs-lookup"><span data-stu-id="f3cfc-110">toocreate a Media Services account, see [How tooCreate a Media Services Account](media-services-portal-create-account.md).</span></span>
+* <span data-ttu-id="f3cfc-111">Olá bibliotecas do Azure para Java, que você pode instalar do hello [Centro de desenvolvedores de Java do Azure][Azure Java Developer Center].</span><span class="sxs-lookup"><span data-stu-id="f3cfc-111">hello Azure Libraries for Java, which you can install from hello [Azure Java Developer Center][Azure Java Developer Center].</span></span>
 
-## <a name="how-to-use-media-services-with-java"></a><span data-ttu-id="bd5dd-112">Como usar os Serviços de Mídia com o Java</span><span class="sxs-lookup"><span data-stu-id="bd5dd-112">How to: Use Media Services with Java</span></span>
-
->[!NOTE]
-><span data-ttu-id="bd5dd-113">Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**.</span><span class="sxs-lookup"><span data-stu-id="bd5dd-113">When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state.</span></span> <span data-ttu-id="bd5dd-114">Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**.</span><span class="sxs-lookup"><span data-stu-id="bd5dd-114">To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state.</span></span> 
+## <a name="how-to-use-media-services-with-java"></a><span data-ttu-id="f3cfc-112">Como usar os Serviços de Mídia com o Java</span><span class="sxs-lookup"><span data-stu-id="f3cfc-112">How to: Use Media Services with Java</span></span>
 
 >[!NOTE]
-><span data-ttu-id="bd5dd-115">Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy).</span><span class="sxs-lookup"><span data-stu-id="bd5dd-115">There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy).</span></span> <span data-ttu-id="bd5dd-116">Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento).</span><span class="sxs-lookup"><span data-stu-id="bd5dd-116">You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies).</span></span> <span data-ttu-id="bd5dd-117">Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.</span><span class="sxs-lookup"><span data-stu-id="bd5dd-117">For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.</span></span>
+><span data-ttu-id="f3cfc-113">Quando sua conta AMS é criada um **padrão** ponto de extremidade de streaming é adicionada conta tooyour Olá **parado** estado.</span><span class="sxs-lookup"><span data-stu-id="f3cfc-113">When your AMS account is created a **default** streaming endpoint is added tooyour account in hello **Stopped** state.</span></span> <span data-ttu-id="f3cfc-114">toostart streaming seu conteúdo e execute aproveitar o empacotamento dinâmico e criptografia dinâmica, Olá ponto de extremidade de streaming do qual você deseja toostream conteúdo tem toobe em Olá **executando** estado.</span><span class="sxs-lookup"><span data-stu-id="f3cfc-114">toostart streaming your content and take advantage of dynamic packaging and dynamic encryption, hello streaming endpoint from which you want toostream content has toobe in hello **Running** state.</span></span> 
 
-<span data-ttu-id="bd5dd-118">O código a seguir mostra como criar um ativo, carregar um arquivo de mídia para o ativo, executar um trabalho com uma tarefa para transformar o ativo e criar um localizador para transmitir seu vídeo.</span><span class="sxs-lookup"><span data-stu-id="bd5dd-118">The following code shows how to create an asset, upload a media file to the asset, run a job with a task to transform the asset, and create a locator to stream your video.</span></span>
+>[!NOTE]
+><span data-ttu-id="f3cfc-115">Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy).</span><span class="sxs-lookup"><span data-stu-id="f3cfc-115">There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy).</span></span> <span data-ttu-id="f3cfc-116">Você deve usar Olá Olá a mesma ID de política se você estiver usando sempre mesmo dias acesso permissões, por exemplo, as políticas para localizadores são tooremain desejado no local por um longo período (políticas de carregamento não).</span><span class="sxs-lookup"><span data-stu-id="f3cfc-116">You should use hello same policy ID if you are always using hello same days / access permissions, for example, policies for locators that are intended tooremain in place for a long time (non-upload policies).</span></span> <span data-ttu-id="f3cfc-117">Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.</span><span class="sxs-lookup"><span data-stu-id="f3cfc-117">For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.</span></span>
 
-<span data-ttu-id="bd5dd-119">Você precisa configurar uma conta de Serviços de Mídia para usar esse código.</span><span class="sxs-lookup"><span data-stu-id="bd5dd-119">You need to set up a Media Services account before using this code.</span></span> <span data-ttu-id="bd5dd-120">Para obter informações sobre como configurar uma conta, consulte [Como criar uma conta de Serviços de Mídia](media-services-portal-create-account.md).</span><span class="sxs-lookup"><span data-stu-id="bd5dd-120">For information about setting up an account, see [How to Create a Media Services Account](media-services-portal-create-account.md).</span></span>
+<span data-ttu-id="f3cfc-118">Hello código a seguir mostra como toocreate um ativo, carregar um ativo de toohello de arquivo de mídia, execute um trabalho com um ativo de saudação tootransform tarefa e criar um localizador toostream o vídeo.</span><span class="sxs-lookup"><span data-stu-id="f3cfc-118">hello following code shows how toocreate an asset, upload a media file toohello asset, run a job with a task tootransform hello asset, and create a locator toostream your video.</span></span>
 
-<span data-ttu-id="bd5dd-121">Substitua seus valores pelas variáveis 'clientId' e 'clientSecret'.</span><span class="sxs-lookup"><span data-stu-id="bd5dd-121">Substitute your values for the 'clientId' and 'clientSecret' variables.</span></span> <span data-ttu-id="bd5dd-122">O código também depende de um arquivo armazenado localmente.</span><span class="sxs-lookup"><span data-stu-id="bd5dd-122">The code also relies on a locally stored file.</span></span> <span data-ttu-id="bd5dd-123">Você precisará fornecer seu próprio arquivo a ser usado.</span><span class="sxs-lookup"><span data-stu-id="bd5dd-123">You'll need to provide your own file to use.</span></span>
+<span data-ttu-id="f3cfc-119">É necessário tooset uma conta de serviços de mídia antes de usar esse código.</span><span class="sxs-lookup"><span data-stu-id="f3cfc-119">You need tooset up a Media Services account before using this code.</span></span> <span data-ttu-id="f3cfc-120">Para obter informações sobre como configurar uma conta, consulte [como tooCreate uma conta do Media Services](media-services-portal-create-account.md).</span><span class="sxs-lookup"><span data-stu-id="f3cfc-120">For information about setting up an account, see [How tooCreate a Media Services Account](media-services-portal-create-account.md).</span></span>
+
+<span data-ttu-id="f3cfc-121">Substitua os valores para variáveis de saudação 'clientId' e 'clientSecret'.</span><span class="sxs-lookup"><span data-stu-id="f3cfc-121">Substitute your values for hello 'clientId' and 'clientSecret' variables.</span></span> <span data-ttu-id="f3cfc-122">código de saudação também se baseia em um arquivo armazenado localmente.</span><span class="sxs-lookup"><span data-stu-id="f3cfc-122">hello code also relies on a locally stored file.</span></span> <span data-ttu-id="f3cfc-123">Você precisará tooprovide toouse seu próprio arquivo.</span><span class="sxs-lookup"><span data-stu-id="f3cfc-123">You'll need tooprovide your own file toouse.</span></span>
 
     import java.io.*;
     import java.security.NoSuchAlgorithmException;
@@ -93,22 +93,22 @@ ms.lasthandoff: 08/29/2017
         {
 
             try {
-                // Set up the MediaContract object to call into the Media Services account
+                // Set up hello MediaContract object toocall into hello Media Services account
                 Configuration configuration = MediaConfiguration.configureWithOAuthAuthentication(
                 mediaServiceUri, oAuthUri, clientId, clientSecret, scope);
                 mediaService = MediaService.create(configuration);
 
 
-                // Upload a local file to an Asset
+                // Upload a local file tooan Asset
                 AssetInfo uploadAsset = uploadFileAndCreateAsset("BigBuckBunny.mp4");
                 System.out.println("Uploaded Asset Id: " + uploadAsset.getId());
 
 
-                // Transform the Asset
+                // Transform hello Asset
                 AssetInfo encodedAsset = encode(uploadAsset);
                 System.out.println("Encoded Asset Id: " + encodedAsset.getId());
 
-                // Create the Streaming Origin Locator
+                // Create hello Streaming Origin Locator
                 String url = getStreamingOriginLocator(encodedAsset);
 
                 System.out.println("Origin Locator URL: " + url);
@@ -140,24 +140,24 @@ ms.lasthandoff: 08/29/2017
             uploadAccessPolicy = mediaService
                 .create(AccessPolicy.create("uploadAccessPolicy", 15.0, EnumSet.of(AccessPolicyPermission.WRITE)));
 
-            // Create a Locator using the AccessPolicy and Asset
+            // Create a Locator using hello AccessPolicy and Asset
             uploadLocator = mediaService
                 .create(Locator.create(uploadAccessPolicy.getId(), resultAsset.getId(), LocatorType.SAS));
 
-            // Create the Blob Writer using the Locator
+            // Create hello Blob Writer using hello Locator
             uploader = mediaService.createBlobWriter(uploadLocator);
 
             File file = new File("BigBuckBunny.mp4"); 
 
-            // The local file that will be uploaded to your Media Services account
+            // hello local file that will be uploaded tooyour Media Services account
             InputStream input = new FileInputStream(file);
 
             System.out.println("Uploading " + fileName);
 
-            // Upload the local file to the asset
+            // Upload hello local file toohello asset
             uploader.createBlockBlob(fileName, input);
 
-            // Inform Media Services about the uploaded files
+            // Inform Media Services about hello uploaded files
             mediaService.action(AssetFile.createFileInfos(resultAsset.getId()));
             System.out.println("Uploaded Asset File " + fileName);
 
@@ -167,15 +167,15 @@ ms.lasthandoff: 08/29/2017
             return resultAsset;
         }
 
-        // Create a Job that contains a Task to transform the Asset
+        // Create a Job that contains a Task tootransform hello Asset
         private static AssetInfo encode(AssetInfo assetToEncode)
             throws ServiceException, InterruptedException {
 
-            // Retrieve the list of Media Processors that match the name
+            // Retrieve hello list of Media Processors that match hello name
             ListResult<MediaProcessorInfo> mediaProcessors = mediaService
                             .list(MediaProcessor.list().set("$filter", String.format("Name eq '%s'", preferedEncoder)));
 
-            // Use the latest version of the Media Processor
+            // Use hello latest version of hello Media Processor
             MediaProcessorInfo mediaProcessor = null;
             for (MediaProcessorInfo info : mediaProcessors) {
                 if (null == mediaProcessor || info.getVersion().compareTo(mediaProcessor.getVersion()) > 0) {
@@ -185,7 +185,7 @@ ms.lasthandoff: 08/29/2017
 
             System.out.println("Using Media Processor: " + mediaProcessor.getName() + " " + mediaProcessor.getVersion());
 
-            // Create a task with the specified Media Processor
+            // Create a task with hello specified Media Processor
             String outputAssetName = String.format("%s as %s", assetToEncode.getName(), encodingPreset);
             String taskXml = "<taskBody><inputAsset>JobInputAsset(0)</inputAsset>"
                     + "<outputAsset assetCreationOptions=\"0\"" // AssetCreationOptions.None
@@ -194,27 +194,27 @@ ms.lasthandoff: 08/29/2017
             Task.CreateBatchOperation task = Task.create(mediaProcessor.getId(), taskXml)
                     .setConfiguration(encodingPreset).setName("Encoding");
 
-            // Create the Job; this automatically schedules and runs it.
+            // Create hello Job; this automatically schedules and runs it.
             Job.Creator jobCreator = Job.create()
-                    .setName(String.format("Encoding %s to %s", assetToEncode.getName(), encodingPreset))
+                    .setName(String.format("Encoding %s too%s", assetToEncode.getName(), encodingPreset))
                     .addInputMediaAsset(assetToEncode.getId()).setPriority(2).addTaskCreator(task);
             JobInfo job = mediaService.create(jobCreator);
 
             String jobId = job.getId();
             System.out.println("Created Job with Id: " + jobId);
 
-            // Check to see if the Job has completed
+            // Check toosee if hello Job has completed
             checkJobStatus(jobId);
-            // Done with the Job
+            // Done with hello Job
 
-            // Retrieve the output Asset
+            // Retrieve hello output Asset
             ListResult<AssetInfo> outputAssets = mediaService.list(Asset.list(job.getOutputAssetsLink()));
             return outputAssets.get(0);
         }
 
 
         public static String getStreamingOriginLocator(AssetInfo asset) throws ServiceException {
-            // Get the .ISM AssetFile
+            // Get hello .ISM AssetFile
             ListResult<AssetFileInfo> assetFiles = mediaService.list(AssetFile.list(asset.getAssetFilesLink()));
             AssetFileInfo streamingAssetFile = null;
             for (AssetFileInfo file : assetFiles) {
@@ -232,7 +232,7 @@ ms.lasthandoff: 08/29/2017
             originAccessPolicy = mediaService.create(
                     AccessPolicy.create("Streaming policy", durationInMinutes, EnumSet.of(AccessPolicyPermission.READ)));
 
-            // Create a Locator using the AccessPolicy and Asset
+            // Create a Locator using hello AccessPolicy and Asset
             originLocator = mediaService
                     .create(Locator.create(originAccessPolicy.getId(), asset.getId(), LocatorType.OnDemandOrigin));
 
@@ -247,7 +247,7 @@ ms.lasthandoff: 08/29/2017
                 // Sleep for 5 seconds
                 Thread.sleep(5000);
 
-                // Query the updated Job state
+                // Query hello updated Job state
                 jobState = mediaService.get(Job.get(jobId)).getState();
                 System.out.println("Job state: " + jobState);
 
@@ -260,14 +260,14 @@ ms.lasthandoff: 08/29/2017
     }
 
 
-## <a name="media-services-learning-paths"></a><span data-ttu-id="bd5dd-124">Roteiros de aprendizagem dos Serviços de Mídia</span><span class="sxs-lookup"><span data-stu-id="bd5dd-124">Media Services learning paths</span></span>
+## <a name="media-services-learning-paths"></a><span data-ttu-id="f3cfc-124">Roteiros de aprendizagem dos Serviços de Mídia</span><span class="sxs-lookup"><span data-stu-id="f3cfc-124">Media Services learning paths</span></span>
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a><span data-ttu-id="bd5dd-125">Fornecer comentários</span><span class="sxs-lookup"><span data-stu-id="bd5dd-125">Provide feedback</span></span>
+## <a name="provide-feedback"></a><span data-ttu-id="f3cfc-125">Fornecer comentários</span><span class="sxs-lookup"><span data-stu-id="f3cfc-125">Provide feedback</span></span>
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="additional-resources"></a><span data-ttu-id="bd5dd-126">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="bd5dd-126">Additional Resources</span></span>
-<span data-ttu-id="bd5dd-127">Para obter a documentação do Javadoc dos Serviços de Mídia, consulte a [Documentação das bibliotecas do Azure para Java][Azure Libraries for Java documentation].</span><span class="sxs-lookup"><span data-stu-id="bd5dd-127">For Media Services Javadoc documentation, see [Azure Libraries for Java documentation][Azure Libraries for Java documentation].</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="f3cfc-126">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="f3cfc-126">Additional Resources</span></span>
+<span data-ttu-id="f3cfc-127">Para obter a documentação do Javadoc dos Serviços de Mídia, consulte a [Documentação das bibliotecas do Azure para Java][Azure Libraries for Java documentation].</span><span class="sxs-lookup"><span data-stu-id="f3cfc-127">For Media Services Javadoc documentation, see [Azure Libraries for Java documentation][Azure Libraries for Java documentation].</span></span>
 
 <!-- URLs. -->
 

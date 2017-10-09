@@ -1,5 +1,5 @@
 ---
-title: "Guia de solução de problemas do Azure Mobile Engagement - APIs"
+title: aaaAzure Mobile Engagement Troubleshooting Guide - APIs
 description: "Guias de solução de problemas para o Azure Mobile Engagement - APIs"
 services: mobile-engagement
 documentationcenter: 
@@ -14,80 +14,80 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: piyushjo
-ms.openlocfilehash: a7ae0a83046f2d67b790f672dcd3ae261987357a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5656b6f0f1aaf3e496a168c7cf09b307b9ab2a4c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="troubleshooting-guide-for-api-issues"></a><span data-ttu-id="fc456-103">Guia de solução de problemas de API</span><span class="sxs-lookup"><span data-stu-id="fc456-103">Troubleshooting guide for API issues</span></span>
-<span data-ttu-id="fc456-104">Estes são os possíveis problemas que podem ser encontrados na maneira como administradores interagem com o Azure Mobile Engagement por meio das APIs.</span><span class="sxs-lookup"><span data-stu-id="fc456-104">The following are possible issues you may encounter with how administrators interact with Azure Mobile Engagement via the APIs.</span></span>
+# <a name="troubleshooting-guide-for-api-issues"></a><span data-ttu-id="486a9-103">Guia de solução de problemas de API</span><span class="sxs-lookup"><span data-stu-id="486a9-103">Troubleshooting guide for API issues</span></span>
+<span data-ttu-id="486a9-104">Olá seguem possíveis problemas que podem ser encontrados em como os administradores interagem com o Azure Mobile Engagement por meio de APIs de saudação.</span><span class="sxs-lookup"><span data-stu-id="486a9-104">hello following are possible issues you may encounter with how administrators interact with Azure Mobile Engagement via hello APIs.</span></span>
 
-## <a name="syntax-issues"></a><span data-ttu-id="fc456-105">Problemas de sintaxe</span><span class="sxs-lookup"><span data-stu-id="fc456-105">Syntax issues</span></span>
-### <a name="issue"></a><span data-ttu-id="fc456-106">Problema</span><span class="sxs-lookup"><span data-stu-id="fc456-106">Issue</span></span>
-* <span data-ttu-id="fc456-107">Erros de sintaxe na utilização da API (ou comportamento inesperado).</span><span class="sxs-lookup"><span data-stu-id="fc456-107">Syntax Errors using the API (or unexpected behavior).</span></span>
+## <a name="syntax-issues"></a><span data-ttu-id="486a9-105">Problemas de sintaxe</span><span class="sxs-lookup"><span data-stu-id="486a9-105">Syntax issues</span></span>
+### <a name="issue"></a><span data-ttu-id="486a9-106">Problema</span><span class="sxs-lookup"><span data-stu-id="486a9-106">Issue</span></span>
+* <span data-ttu-id="486a9-107">Erros de sintaxe usando Olá API (ou um comportamento inesperado).</span><span class="sxs-lookup"><span data-stu-id="486a9-107">Syntax Errors using hello API (or unexpected behavior).</span></span>
 
-### <a name="causes"></a><span data-ttu-id="fc456-108">Causas</span><span class="sxs-lookup"><span data-stu-id="fc456-108">Causes</span></span>
-* <span data-ttu-id="fc456-109">Problemas de sintaxe:</span><span class="sxs-lookup"><span data-stu-id="fc456-109">Syntax issues:</span></span>
-  * <span data-ttu-id="fc456-110">Verifique a sintaxe da API específica que você está usando para confirmar se a opção está disponível.</span><span class="sxs-lookup"><span data-stu-id="fc456-110">Make sure to check the Syntax of the specific API you are using to confirm that the option is available.</span></span>
-  * <span data-ttu-id="fc456-111">Um problema comum com o uso da API é confundir a API de Alcance e a API de Envio por Push (a maioria das tarefas deve ser executada com a API de Alcance em vez da API de Envio por Push).</span><span class="sxs-lookup"><span data-stu-id="fc456-111">A common issue with API usage is to confuse the Reach API and the Push API (most tasks should be performed with the Reach API instead of the Push API).</span></span> 
-  * <span data-ttu-id="fc456-112">Outro problema comum com a integração do SDK e o uso da API é confundir a Chave do SDK e a Chave de API.</span><span class="sxs-lookup"><span data-stu-id="fc456-112">Another common issue with SDK integration and API usage is to confuse the SDK Key and the API Key.</span></span>
-  * <span data-ttu-id="fc456-113">Os scripts que se conectam às APIs precisam enviar dados pelo menos a cada 10 minutos ou a conexão atingirá o tempo limite (comum especialmente em scripts de API do Monitor aguardando dados).</span><span class="sxs-lookup"><span data-stu-id="fc456-113">Scripts that connect to the APIs need to send data at least every 10 minutes or the connection will time out (especially common in Monitor API scripts listening for data).</span></span> <span data-ttu-id="fc456-114">Para evitar atingir o tempo limite, faça seu script enviar um ping XMPP a cada 10 minutos para manter ativa a sessão com o servidor.</span><span class="sxs-lookup"><span data-stu-id="fc456-114">To prevent timeouts, have your script send an XMPP ping every 10 minutes to keep the session alive with the server.</span></span>
+### <a name="causes"></a><span data-ttu-id="486a9-108">Causas</span><span class="sxs-lookup"><span data-stu-id="486a9-108">Causes</span></span>
+* <span data-ttu-id="486a9-109">Problemas de sintaxe:</span><span class="sxs-lookup"><span data-stu-id="486a9-109">Syntax issues:</span></span>
+  * <span data-ttu-id="486a9-110">Certifique-se de que toocheck Olá Olá API específica que você está usando sintaxe tooconfirm que Olá opção está disponível.</span><span class="sxs-lookup"><span data-stu-id="486a9-110">Make sure toocheck hello Syntax of hello specific API you are using tooconfirm that hello option is available.</span></span>
+  * <span data-ttu-id="486a9-111">Um problema comum com o uso da API é tooconfuse Olá alcance API e hello API Push (a maioria das tarefas deve ser executada com hello API de alcance em vez da saudação API Push).</span><span class="sxs-lookup"><span data-stu-id="486a9-111">A common issue with API usage is tooconfuse hello Reach API and hello Push API (most tasks should be performed with hello Reach API instead of hello Push API).</span></span> 
+  * <span data-ttu-id="486a9-112">Outro problema comum com integração SDK e o uso da API é tooconfuse hello chave SDK e Olá chave de API.</span><span class="sxs-lookup"><span data-stu-id="486a9-112">Another common issue with SDK integration and API usage is tooconfuse hello SDK Key and hello API Key.</span></span>
+  * <span data-ttu-id="486a9-113">Scripts que se conectam toohello APIs precisam dados toosend pelo menos a cada 10 minutos ou conexão Olá atingirá o tempo limite (especialmente comum em scripts de API do Monitor escutando dados).</span><span class="sxs-lookup"><span data-stu-id="486a9-113">Scripts that connect toohello APIs need toosend data at least every 10 minutes or hello connection will time out (especially common in Monitor API scripts listening for data).</span></span> <span data-ttu-id="486a9-114">tempos limite de tooprevent, tem seu envio script um ping XMPP cada sessão de atividade com o servidor de saudação Olá do tookeep de 10 minutos.</span><span class="sxs-lookup"><span data-stu-id="486a9-114">tooprevent timeouts, have your script send an XMPP ping every 10 minutes tookeep hello session alive with hello server.</span></span>
 
-### <a name="see-also"></a><span data-ttu-id="fc456-115">Consulte também</span><span class="sxs-lookup"><span data-stu-id="fc456-115">See also</span></span>
-* <span data-ttu-id="fc456-116">[Documentação da API][Link 4]</span><span class="sxs-lookup"><span data-stu-id="fc456-116">[API Documentation][Link 4]</span></span>
-* [<span data-ttu-id="fc456-117">Informações do protocolo XMPP</span><span class="sxs-lookup"><span data-stu-id="fc456-117">XMPP Protocol Info</span></span>](http://xmpp.org/extensions/xep-0199.html)
+### <a name="see-also"></a><span data-ttu-id="486a9-115">Consulte também</span><span class="sxs-lookup"><span data-stu-id="486a9-115">See also</span></span>
+* <span data-ttu-id="486a9-116">[Documentação da API][Link 4]</span><span class="sxs-lookup"><span data-stu-id="486a9-116">[API Documentation][Link 4]</span></span>
+* [<span data-ttu-id="486a9-117">Informações do protocolo XMPP</span><span class="sxs-lookup"><span data-stu-id="486a9-117">XMPP Protocol Info</span></span>](http://xmpp.org/extensions/xep-0199.html)
 
-## <a name="unable-to-use-the-api-to-perform-the-same-action-available-in-the-azure-mobile-engagement-ui"></a><span data-ttu-id="fc456-118">Não é possível usar a API para executar a mesma ação disponível na interface de usuário do Azure Mobile Engagement</span><span class="sxs-lookup"><span data-stu-id="fc456-118">Unable to use the API to perform the same action available in the Azure Mobile Engagement UI</span></span>
-### <a name="issue"></a><span data-ttu-id="fc456-119">Problema</span><span class="sxs-lookup"><span data-stu-id="fc456-119">Issue</span></span>
-* <span data-ttu-id="fc456-120">Uma ação que funciona da interface do usuário do Azure Mobile Engagement não funciona da API do Azure Mobile Engagement relacionada.</span><span class="sxs-lookup"><span data-stu-id="fc456-120">An action that works from the Azure Mobile Engagement UI doesn't work from the related Azure Mobile Engagement API.</span></span>
+## <a name="unable-toouse-hello-api-tooperform-hello-same-action-available-in-hello-azure-mobile-engagement-ui"></a><span data-ttu-id="486a9-118">Não é possível toouse Olá API tooperform Olá mesma ação disponível em Olá interface de usuário do Azure Mobile Engagement</span><span class="sxs-lookup"><span data-stu-id="486a9-118">Unable toouse hello API tooperform hello same action available in hello Azure Mobile Engagement UI</span></span>
+### <a name="issue"></a><span data-ttu-id="486a9-119">Problema</span><span class="sxs-lookup"><span data-stu-id="486a9-119">Issue</span></span>
+* <span data-ttu-id="486a9-120">Uma ação que funciona da saudação de que interface de usuário do Azure Mobile Engagement não funcionar da saudação relacionadas a API do Azure Mobile Engagement.</span><span class="sxs-lookup"><span data-stu-id="486a9-120">An action that works from hello Azure Mobile Engagement UI doesn't work from hello related Azure Mobile Engagement API.</span></span>
 
-### <a name="causes"></a><span data-ttu-id="fc456-121">Causas</span><span class="sxs-lookup"><span data-stu-id="fc456-121">Causes</span></span>
-* <span data-ttu-id="fc456-122">A confirmação de que você pode executar a mesma ação da interface do usuário do Azure Mobile Engagement mostra que esse recurso do Azure Mobile Engagement foi corretamente integrado ao SDK.</span><span class="sxs-lookup"><span data-stu-id="fc456-122">Confirming that you can perform the same action from the Azure Mobile Engagement UI shows that you have correctly integrated this feature of Azure Mobile Engagement with the SDK.</span></span>
+### <a name="causes"></a><span data-ttu-id="486a9-121">Causas</span><span class="sxs-lookup"><span data-stu-id="486a9-121">Causes</span></span>
+* <span data-ttu-id="486a9-122">Confirmar que você pode realizar Olá mesma ação de saudação do Azure Mobile Engagement UI mostra corretamente integraram esse recurso do Azure Mobile Engagement com hello SDK.</span><span class="sxs-lookup"><span data-stu-id="486a9-122">Confirming that you can perform hello same action from hello Azure Mobile Engagement UI shows that you have correctly integrated this feature of Azure Mobile Engagement with hello SDK.</span></span>
 
-### <a name="see-also"></a><span data-ttu-id="fc456-123">Consulte também</span><span class="sxs-lookup"><span data-stu-id="fc456-123">See also</span></span>
-* <span data-ttu-id="fc456-124">[Documentação da Interface do Usuário][Link 1]</span><span class="sxs-lookup"><span data-stu-id="fc456-124">[UI Documentation][Link 1]</span></span>
+### <a name="see-also"></a><span data-ttu-id="486a9-123">Consulte também</span><span class="sxs-lookup"><span data-stu-id="486a9-123">See also</span></span>
+* <span data-ttu-id="486a9-124">[Documentação da Interface do Usuário][Link 1]</span><span class="sxs-lookup"><span data-stu-id="486a9-124">[UI Documentation][Link 1]</span></span>
 
-## <a name="error-messages"></a><span data-ttu-id="fc456-125">Mensagens de erro</span><span class="sxs-lookup"><span data-stu-id="fc456-125">Error Messages</span></span>
-### <a name="issue"></a><span data-ttu-id="fc456-126">Problema</span><span class="sxs-lookup"><span data-stu-id="fc456-126">Issue</span></span>
-* <span data-ttu-id="fc456-127">Códigos de erro de uso da API exibida em tempo de execução ou nos logs.</span><span class="sxs-lookup"><span data-stu-id="fc456-127">Error codes using the API displayed at runtime or in logs.</span></span>
+## <a name="error-messages"></a><span data-ttu-id="486a9-125">Mensagens de erro</span><span class="sxs-lookup"><span data-stu-id="486a9-125">Error Messages</span></span>
+### <a name="issue"></a><span data-ttu-id="486a9-126">Problema</span><span class="sxs-lookup"><span data-stu-id="486a9-126">Issue</span></span>
+* <span data-ttu-id="486a9-127">Códigos de erro usando a API de saudação exibido em tempo de execução ou nos logs.</span><span class="sxs-lookup"><span data-stu-id="486a9-127">Error codes using hello API displayed at runtime or in logs.</span></span>
 
-### <a name="causes"></a><span data-ttu-id="fc456-128">Causas</span><span class="sxs-lookup"><span data-stu-id="fc456-128">Causes</span></span>
-* <span data-ttu-id="fc456-129">Veja uma lista composta de números de códigos de status comuns da API para referência e a solução de problemas preliminar:</span><span class="sxs-lookup"><span data-stu-id="fc456-129">Here is a composite list of common API status codes numbers for reference and preliminary troubleshooting:</span></span>
+### <a name="causes"></a><span data-ttu-id="486a9-128">Causas</span><span class="sxs-lookup"><span data-stu-id="486a9-128">Causes</span></span>
+* <span data-ttu-id="486a9-129">Veja uma lista composta de números de códigos de status comuns da API para referência e a solução de problemas preliminar:</span><span class="sxs-lookup"><span data-stu-id="486a9-129">Here is a composite list of common API status codes numbers for reference and preliminary troubleshooting:</span></span>
   
         200        Success.
-        200        Account updated: device registered, associated, updated, or removed from the current account.
-        200        Returns a list of projects as a JSON object or an authentication token generated and returned in the response’s body.
+        200        Account updated: device registered, associated, updated, or removed from hello current account.
+        200        Returns a list of projects as a JSON object or an authentication token generated and returned in hello response’s body.
         201        Account created.
-        400        Invalid parameter or validation exception (check payload for details). The parameters provided to the API or service are invalid. In this case, the HTTP response will embed more details. Make sure to test for the MIME type of the response as the payload can either be plain text or a JSON object.
-        401        Authentication error. No user is currently authenticated or connected (check the AppID and SDK key).
-        402        Billing lock. The application is either off its quotas or is currently in a bad billing state.
-        403        The application is not enabled or the specific API is disabled for this application.
-        403        Unauthorized access to the project or application, invalid access key (the key must match the one provided when created).
-        403        Campaign specific errors: campaign must be finished (or has already been activated), the suspend action can only be performed on an scheduled campaign, cannot finish a campaign that is not currently “in progress”, campaign must be “in progress” and the campaign’s property named, manual Push must be set to true.
-        403        The email address is already associated to another account (a super user for instance). No authentication token will be generated.
+        400        Invalid parameter or validation exception (check payload for details). hello parameters provided toohello API or service are invalid. In this case, hello HTTP response will embed more details. Make sure tootest for hello MIME type of hello response as hello payload can either be plain text or a JSON object.
+        401        Authentication error. No user is currently authenticated or connected (check hello AppID and SDK key).
+        402        Billing lock. hello application is either off its quotas or is currently in a bad billing state.
+        403        hello application is not enabled or hello specific API is disabled for this application.
+        403        Unauthorized access toohello project or application, invalid access key (hello key must match hello one provided when created).
+        403        Campaign specific errors: campaign must be finished (or has already been activated), hello suspend action can only be performed on an scheduled campaign, cannot finish a campaign that is not currently “in progress”, campaign must be “in progress” and hello campaign’s property named, manual Push must be set tootrue.
+        403        hello email address is already associated tooanother account (a super user for instance). No authentication token will be generated.
         404        Application, device, campaign, or project identifier not found.
         404        Query parameter is invalid JSON or has a field with an unexpected value.
-        404        The email address is not associated with an account. Please create or update the account first.
-        405        Invalid HTTP method (GET, POST, etc.) or trying to edit a read only segment (i.e. add or update or delete a criterion). A segment becomes read only after it has been computed for the first time.
-        409        Name already associated to a different device ID or campaign.
-        413        Too many device identifiers (current limit is 1,000), POST URL encoded entity is over 2MB, or the period is too large to be displayed (the server didn’t retrieve the analytics because the user request is for a period that is too large).
-        503        Analytics not available yet (the requested information is not computed yet for an application).
-        504        The server was not able to handle your request in a reasonable time (if you make multiple calls to an API very quickly, try to make one call at a time and spread the calls out over time).
+        404        hello email address is not associated with an account. Please create or update hello account first.
+        405        Invalid HTTP method (GET, POST, etc.) or trying tooedit a read only segment (i.e. add or update or delete a criterion). A segment becomes read only after it has been computed for hello first time.
+        409        Name already associated tooa different device ID or campaign.
+        413        Too many device identifiers (current limit is 1,000), POST URL encoded entity is over 2MB, or hello period is too large toobe displayed (hello server didn’t retrieve hello analytics because hello user request is for a period that is too large).
+        503        Analytics not available yet (hello requested information is not computed yet for an application).
+        504        hello server was not able toohandle your request in a reasonable time (if you make multiple calls tooan API very quickly, try toomake one call at a time and spread hello calls out over time).
 
-### <a name="see-also"></a><span data-ttu-id="fc456-130">Consulte também</span><span class="sxs-lookup"><span data-stu-id="fc456-130">See also</span></span>
-* <span data-ttu-id="fc456-131">[Documentação da API – para erros detalhados sobre cada API específica][Link 4]</span><span class="sxs-lookup"><span data-stu-id="fc456-131">[API Documentation - for detailed errors on each specific API][Link 4]</span></span>
+### <a name="see-also"></a><span data-ttu-id="486a9-130">Consulte também</span><span class="sxs-lookup"><span data-stu-id="486a9-130">See also</span></span>
+* <span data-ttu-id="486a9-131">[Documentação da API – para erros detalhados sobre cada API específica][Link 4]</span><span class="sxs-lookup"><span data-stu-id="486a9-131">[API Documentation - for detailed errors on each specific API][Link 4]</span></span>
 
-## <a name="silent-failures"></a><span data-ttu-id="fc456-132">Falhas silenciosas</span><span class="sxs-lookup"><span data-stu-id="fc456-132">Silent failures</span></span>
-### <a name="issue"></a><span data-ttu-id="fc456-133">Problema</span><span class="sxs-lookup"><span data-stu-id="fc456-133">Issue</span></span>
-* <span data-ttu-id="fc456-134">A ação da API falha sem nenhuma mensagem de erro exibida em tempo de execução ou nos logs.</span><span class="sxs-lookup"><span data-stu-id="fc456-134">API action fails with no error message displayed at runtime or in logs.</span></span>
+## <a name="silent-failures"></a><span data-ttu-id="486a9-132">Falhas silenciosas</span><span class="sxs-lookup"><span data-stu-id="486a9-132">Silent failures</span></span>
+### <a name="issue"></a><span data-ttu-id="486a9-133">Problema</span><span class="sxs-lookup"><span data-stu-id="486a9-133">Issue</span></span>
+* <span data-ttu-id="486a9-134">A ação da API falha sem nenhuma mensagem de erro exibida em tempo de execução ou nos logs.</span><span class="sxs-lookup"><span data-stu-id="486a9-134">API action fails with no error message displayed at runtime or in logs.</span></span>
 
-### <a name="causes"></a><span data-ttu-id="fc456-135">Causas</span><span class="sxs-lookup"><span data-stu-id="fc456-135">Causes</span></span>
-* <span data-ttu-id="fc456-136">Muitos itens serão desabilitados na interface do usuário do Azure Mobile Engagement caso não tenham sido integrados corretamente, mas falharão de forma silenciosa a partir da API; dessa forma, lembre-se de testar a mesma funcionalidade da interface do usuário para ver se ela funciona.</span><span class="sxs-lookup"><span data-stu-id="fc456-136">Many items will be disabled in the Azure Mobile Engagement UI if they aren't integrated correctly, but will fail silently from the API, so remember to test the same functionality from the UI to see if it works.</span></span>
-* <span data-ttu-id="fc456-137">O Azure Mobile Engagement e muitos recursos avançados do Azure Mobile Engagement que você está tentando usar precisarão ser individualmente integrados ao seu aplicativo com o SDK em etapas distintas antes que você possa usá-los.</span><span class="sxs-lookup"><span data-stu-id="fc456-137">Azure Mobile Engagement, and many advanced features of Azure Mobile Engagement you are attempting to use, need to be individually integrated into your app with the SDK as separate steps before you can use them.</span></span>
+### <a name="causes"></a><span data-ttu-id="486a9-135">Causas</span><span class="sxs-lookup"><span data-stu-id="486a9-135">Causes</span></span>
+* <span data-ttu-id="486a9-136">Número de itens será desabilitado Olá interface de usuário do Azure Mobile Engagement se não estiver integrados corretamente, mas falhará em modo silencioso da saudação API, portanto Lembre-se tootest Olá a mesma funcionalidade de saudação da interface do usuário toosee se ele funciona.</span><span class="sxs-lookup"><span data-stu-id="486a9-136">Many items will be disabled in hello Azure Mobile Engagement UI if they aren't integrated correctly, but will fail silently from hello API, so remember tootest hello same functionality from hello UI toosee if it works.</span></span>
+* <span data-ttu-id="486a9-137">O Azure Mobile Engagement e vários recursos avançados do Azure Mobile Engagement, você está tentando executar toouse, toobe necessidade individualmente integrado ao seu aplicativo com o SDK do hello como etapas separadas antes de você pode usá-los.</span><span class="sxs-lookup"><span data-stu-id="486a9-137">Azure Mobile Engagement, and many advanced features of Azure Mobile Engagement you are attempting toouse, need toobe individually integrated into your app with hello SDK as separate steps before you can use them.</span></span>
 
-### <a name="see-also"></a><span data-ttu-id="fc456-138">Consulte também</span><span class="sxs-lookup"><span data-stu-id="fc456-138">See also</span></span>
-* <span data-ttu-id="fc456-139">[Guia de Solução de Problemas ‑ SDK][Link 25]</span><span class="sxs-lookup"><span data-stu-id="fc456-139">[Troubleshooting Guide - SDK][Link 25]</span></span>
+### <a name="see-also"></a><span data-ttu-id="486a9-138">Consulte também</span><span class="sxs-lookup"><span data-stu-id="486a9-138">See also</span></span>
+* <span data-ttu-id="486a9-139">[Guia de Solução de Problemas ‑ SDK][Link 25]</span><span class="sxs-lookup"><span data-stu-id="486a9-139">[Troubleshooting Guide - SDK][Link 25]</span></span>
 
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface-home.md

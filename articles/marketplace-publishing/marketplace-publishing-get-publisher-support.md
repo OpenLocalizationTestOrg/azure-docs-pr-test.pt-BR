@@ -1,6 +1,6 @@
 ---
-title: Acessando o suporte do publicador para o Azure Marketplace | Microsoft Docs
-description: "Como acessar e enviar solicitações de suporte do publicador para o Azure Marketplace"
+title: suporte do publicador aaaAccessing para hello Azure Marketplace | Microsoft Docs
+description: "Como tooaccess e enviar solicitações de suporte do publicador para hello Azure Marketplace"
 services: marketplace-publishing
 documentationcenter: na
 author: v-jeana
@@ -14,72 +14,72 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
-ms.openlocfilehash: 4bf5b2c53b91199e446836e76cefee6cd2878e25
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3b3bead42fccafba77b4a187432ad268319b2a81
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="accessing-publisher-support-for-the-azure-marketplace"></a><span data-ttu-id="da276-103">Acesse o suporte do publicador para o Azure Marketplace</span><span class="sxs-lookup"><span data-stu-id="da276-103">Accessing publisher support for the Azure Marketplace</span></span>
-<span data-ttu-id="da276-104">A Microsoft fornece suporte para uma ampla variedade de produtos e serviços.</span><span class="sxs-lookup"><span data-stu-id="da276-104">Microsoft provides support for a wide variety of products and services.</span></span> <span data-ttu-id="da276-105">Garantir que sua consulta localize a equipe de suporte correta é importante para garantir uma resposta apropriada e em tempo hábil.</span><span class="sxs-lookup"><span data-stu-id="da276-105">Ensuring that your query finds the right support team is important to ensure an appropriate and timely response.</span></span> <span data-ttu-id="da276-106">Considere os seguintes cenários que podem ajudá-lo a rotear sua consulta para a equipe apropriada:</span><span class="sxs-lookup"><span data-stu-id="da276-106">Please consider the following scenarios, which should help you route your query to the appropriate team:</span></span>
+# <a name="accessing-publisher-support-for-hello-azure-marketplace"></a><span data-ttu-id="1abdb-103">Acessando o suporte do publicador para hello Azure Marketplace</span><span class="sxs-lookup"><span data-stu-id="1abdb-103">Accessing publisher support for hello Azure Marketplace</span></span>
+<span data-ttu-id="1abdb-104">A Microsoft fornece suporte para uma ampla variedade de produtos e serviços.</span><span class="sxs-lookup"><span data-stu-id="1abdb-104">Microsoft provides support for a wide variety of products and services.</span></span> <span data-ttu-id="1abdb-105">Garantir que sua consulta localiza a equipe de suporte à direita de saudação é importante tooensure uma resposta apropriada e em tempo hábil.</span><span class="sxs-lookup"><span data-stu-id="1abdb-105">Ensuring that your query finds hello right support team is important tooensure an appropriate and timely response.</span></span> <span data-ttu-id="1abdb-106">Considere Olá cenários que devem ajudá-lo a rotear sua equipe apropriada de toohello de consulta a seguir:</span><span class="sxs-lookup"><span data-stu-id="1abdb-106">Please consider hello following scenarios, which should help you route your query toohello appropriate team:</span></span>
 
-* <span data-ttu-id="da276-107">Se você for um publicador no Azure Marketplace e ainda estiver desenvolvendo sua VM, você deve se comprometer com o Microsoft Onboarding ou equipes de computação.</span><span class="sxs-lookup"><span data-stu-id="da276-107">If you are a publisher in the Azure Marketplace and are still developing your VM, you should engage with your Microsoft onboarding or compute teams.</span></span>
-* <span data-ttu-id="da276-108">Se você for um publicador no Marketplace e tiver dúvida sobre um cliente, informe ao seu cliente para solicitar suporte por meio de links de suporte em https://portal.azure.com/.</span><span class="sxs-lookup"><span data-stu-id="da276-108">If you are a publisher in the Marketplace and have a question from a customer, please tell your customer to request support via the support links at https://portal.azure.com/.</span></span>
-* <span data-ttu-id="da276-109">Se você for um editor no Marketplace e tiver perguntas relacionadas ao seu aplicativo ou serviço, continue lendo abaixo.</span><span class="sxs-lookup"><span data-stu-id="da276-109">If you are a publisher in the Marketplace and have a question relating to your app or service, continue reading below.</span></span>
+* <span data-ttu-id="1abdb-107">Se você for um publicador no hello Azure Marketplace e ainda estiver desenvolvendo sua VM, deve interagir com sua integração da Microsoft ou equipes de computação.</span><span class="sxs-lookup"><span data-stu-id="1abdb-107">If you are a publisher in hello Azure Marketplace and are still developing your VM, you should engage with your Microsoft onboarding or compute teams.</span></span>
+* <span data-ttu-id="1abdb-108">Se você for um publicador no Marketplace de saudação e tiver uma pergunta de um cliente, informe seu cliente toorequest suporte por meio de links de suporte de saudação em https://portal.azure.com/.</span><span class="sxs-lookup"><span data-stu-id="1abdb-108">If you are a publisher in hello Marketplace and have a question from a customer, please tell your customer toorequest support via hello support links at https://portal.azure.com/.</span></span>
+* <span data-ttu-id="1abdb-109">Se você for um publicador no Marketplace de saudação e tiver uma pergunta relacionada tooyour aplicativo ou serviço, continue lendo abaixo.</span><span class="sxs-lookup"><span data-stu-id="1abdb-109">If you are a publisher in hello Marketplace and have a question relating tooyour app or service, continue reading below.</span></span>
 
-<span data-ttu-id="da276-110">Esta artigo mostrará como:</span><span class="sxs-lookup"><span data-stu-id="da276-110">This article will show you how to:</span></span>
+<span data-ttu-id="1abdb-110">Esta artigo mostrará como:</span><span class="sxs-lookup"><span data-stu-id="1abdb-110">This article will show you how to:</span></span>
 
-* <span data-ttu-id="da276-111">Entre na sua conta da Microsoft.</span><span class="sxs-lookup"><span data-stu-id="da276-111">Sign in to your Microsoft account.</span></span>
-* <span data-ttu-id="da276-112">Navegue até as páginas de suporte do publicador.</span><span class="sxs-lookup"><span data-stu-id="da276-112">Navigate to the publisher support pages.</span></span>
-* <span data-ttu-id="da276-113">Selecione o tipo de problema e categoria.</span><span class="sxs-lookup"><span data-stu-id="da276-113">Select the problem type and category.</span></span>
-* <span data-ttu-id="da276-114">Solicitar suporte.</span><span class="sxs-lookup"><span data-stu-id="da276-114">Request support.</span></span>
-* <span data-ttu-id="da276-115">Fornecer informações de contato.</span><span class="sxs-lookup"><span data-stu-id="da276-115">Provide contact information.</span></span>
-* <span data-ttu-id="da276-116">Descrever o problema.</span><span class="sxs-lookup"><span data-stu-id="da276-116">Describe the problem.</span></span>
+* <span data-ttu-id="1abdb-111">Entre tooyour conta da Microsoft.</span><span class="sxs-lookup"><span data-stu-id="1abdb-111">Sign in tooyour Microsoft account.</span></span>
+* <span data-ttu-id="1abdb-112">Navegar em páginas de suporte do publicador toohello.</span><span class="sxs-lookup"><span data-stu-id="1abdb-112">Navigate toohello publisher support pages.</span></span>
+* <span data-ttu-id="1abdb-113">Selecione a categoria e o tipo de problema de saudação.</span><span class="sxs-lookup"><span data-stu-id="1abdb-113">Select hello problem type and category.</span></span>
+* <span data-ttu-id="1abdb-114">Solicitar suporte.</span><span class="sxs-lookup"><span data-stu-id="1abdb-114">Request support.</span></span>
+* <span data-ttu-id="1abdb-115">Fornecer informações de contato.</span><span class="sxs-lookup"><span data-stu-id="1abdb-115">Provide contact information.</span></span>
+* <span data-ttu-id="1abdb-116">Descreva o problema de saudação.</span><span class="sxs-lookup"><span data-stu-id="1abdb-116">Describe hello problem.</span></span>
 
-## <a name="1-sign-in-to-your-microsoft-account"></a><span data-ttu-id="da276-117">1. Entre na sua conta da Microsoft</span><span class="sxs-lookup"><span data-stu-id="da276-117">1. Sign in to your Microsoft account</span></span>
-<span data-ttu-id="da276-118">Navegue para https://publish.windowsazure.com/ e entre com as credenciais da sua conta da Microsoft.</span><span class="sxs-lookup"><span data-stu-id="da276-118">Navigate to https://publish.windowsazure.com/ and sign in with your Microsoft account credentials.</span></span>
+## <a name="1-sign-in-tooyour-microsoft-account"></a><span data-ttu-id="1abdb-117">1. Entrar tooyour conta da Microsoft</span><span class="sxs-lookup"><span data-stu-id="1abdb-117">1. Sign in tooyour Microsoft account</span></span>
+<span data-ttu-id="1abdb-118">Navegue toohttps://publish.windowsazure.com/ e entre com suas credenciais de conta da Microsoft.</span><span class="sxs-lookup"><span data-stu-id="1abdb-118">Navigate toohttps://publish.windowsazure.com/ and sign in with your Microsoft account credentials.</span></span>
 
   ![Tela de entrada][1]
 
-## <a name="2-navigate-to-the-publisher-support-pages"></a><span data-ttu-id="da276-120">2. Navegue até as páginas de suporte do publicador</span><span class="sxs-lookup"><span data-stu-id="da276-120">2. Navigate to the publisher support pages</span></span>
-<span data-ttu-id="da276-121">No menu superior direito, selecione **Obter Suporte**.</span><span class="sxs-lookup"><span data-stu-id="da276-121">From the upper-right menu, select **Get Support**.</span></span>
+## <a name="2-navigate-toohello-publisher-support-pages"></a><span data-ttu-id="1abdb-120">2. Navegar pelas páginas de suporte do publicador toohello</span><span class="sxs-lookup"><span data-stu-id="1abdb-120">2. Navigate toohello publisher support pages</span></span>
+<span data-ttu-id="1abdb-121">Menu Olá superior direito, selecione **suporte**.</span><span class="sxs-lookup"><span data-stu-id="1abdb-121">From hello upper-right menu, select **Get Support**.</span></span>
 
   ![Obtenha suporte][2]
 
-## <a name="3-select-the-problem-type-and-category"></a><span data-ttu-id="da276-123">3. Selecione o tipo de problema e categoria</span><span class="sxs-lookup"><span data-stu-id="da276-123">3. Select the problem type and category</span></span>
+## <a name="3-select-hello-problem-type-and-category"></a><span data-ttu-id="1abdb-123">3. Selecione a categoria e o tipo de problema de saudação</span><span class="sxs-lookup"><span data-stu-id="1abdb-123">3. Select hello problem type and category</span></span>
 ![Tipo de problema e categoria][3]
 
-<span data-ttu-id="da276-125">Os tipos de problemas disponíveis são os seguintes:</span><span class="sxs-lookup"><span data-stu-id="da276-125">Available problem types are as follows:</span></span>
+<span data-ttu-id="1abdb-125">Os tipos de problemas disponíveis são os seguintes:</span><span class="sxs-lookup"><span data-stu-id="1abdb-125">Available problem types are as follows:</span></span>
 
-* <span data-ttu-id="da276-126">**Gerenciamento de contas**</span><span class="sxs-lookup"><span data-stu-id="da276-126">**Account Management**</span></span>
-* <span data-ttu-id="da276-127">**Relatórios e visões**</span><span class="sxs-lookup"><span data-stu-id="da276-127">**Reports and Insights**</span></span>
-* <span data-ttu-id="da276-128">**Certificação da imagem da VM**</span><span class="sxs-lookup"><span data-stu-id="da276-128">**VM Image Certification**</span></span>
-* <span data-ttu-id="da276-129">**Gerenciando Clientes**</span><span class="sxs-lookup"><span data-stu-id="da276-129">**Managing Customers**</span></span>
-* <span data-ttu-id="da276-130">**Gerenciando ofertas**</span><span class="sxs-lookup"><span data-stu-id="da276-130">**Managing Offers**</span></span>
-* <span data-ttu-id="da276-131">**Pagamentos**</span><span class="sxs-lookup"><span data-stu-id="da276-131">**Payouts**</span></span>
-* <span data-ttu-id="da276-132">**Central de Desenvolvedores**</span><span class="sxs-lookup"><span data-stu-id="da276-132">**Developer Center**</span></span>
-* <span data-ttu-id="da276-133">**Outros**</span><span class="sxs-lookup"><span data-stu-id="da276-133">**Other**</span></span>
+* <span data-ttu-id="1abdb-126">**Gerenciamento de contas**</span><span class="sxs-lookup"><span data-stu-id="1abdb-126">**Account Management**</span></span>
+* <span data-ttu-id="1abdb-127">**Relatórios e visões**</span><span class="sxs-lookup"><span data-stu-id="1abdb-127">**Reports and Insights**</span></span>
+* <span data-ttu-id="1abdb-128">**Certificação da imagem da VM**</span><span class="sxs-lookup"><span data-stu-id="1abdb-128">**VM Image Certification**</span></span>
+* <span data-ttu-id="1abdb-129">**Gerenciando Clientes**</span><span class="sxs-lookup"><span data-stu-id="1abdb-129">**Managing Customers**</span></span>
+* <span data-ttu-id="1abdb-130">**Gerenciando ofertas**</span><span class="sxs-lookup"><span data-stu-id="1abdb-130">**Managing Offers**</span></span>
+* <span data-ttu-id="1abdb-131">**Pagamentos**</span><span class="sxs-lookup"><span data-stu-id="1abdb-131">**Payouts**</span></span>
+* <span data-ttu-id="1abdb-132">**Central de Desenvolvedores**</span><span class="sxs-lookup"><span data-stu-id="1abdb-132">**Developer Center**</span></span>
+* <span data-ttu-id="1abdb-133">**Outros**</span><span class="sxs-lookup"><span data-stu-id="1abdb-133">**Other**</span></span>
 
-## <a name="4-request-support"></a><span data-ttu-id="da276-134">4. Solicitar suporte</span><span class="sxs-lookup"><span data-stu-id="da276-134">4. Request support</span></span>
-<span data-ttu-id="da276-135">Depois de selecionar o tipo de problema e a categoria, clique no botão **Iniciar solicitação** .</span><span class="sxs-lookup"><span data-stu-id="da276-135">After you select the problem type and category, click the **Start request** button.</span></span>
+## <a name="4-request-support"></a><span data-ttu-id="1abdb-134">4. Solicitar suporte</span><span class="sxs-lookup"><span data-stu-id="1abdb-134">4. Request support</span></span>
+<span data-ttu-id="1abdb-135">Depois de selecionar o tipo de problema hello e categoria, clique em Olá **solicitação de início** botão.</span><span class="sxs-lookup"><span data-stu-id="1abdb-135">After you select hello problem type and category, click hello **Start request** button.</span></span>
 
 ![Suporte de início][4]
 
-## <a name="5-provide-contact-information-and-describe-the-problem"></a><span data-ttu-id="da276-137">5. Fornecer informações de contato e descrever o problema</span><span class="sxs-lookup"><span data-stu-id="da276-137">5. Provide contact information and describe the problem</span></span>
-<span data-ttu-id="da276-138">Descreva o problema como totalmente possível e forneça quaisquer arquivos (capturas de tela, rastreamentos de rede, etc.) que podem ser úteis para solucionar o problema.</span><span class="sxs-lookup"><span data-stu-id="da276-138">Describe the problem as fully as you can, and provide any files (screenshots, network traces, etc.) that may be helpful in solving your issue.</span></span>
+## <a name="5-provide-contact-information-and-describe-hello-problem"></a><span data-ttu-id="1abdb-137">5. Fornecer informações de contato e descrever o problema de saudação</span><span class="sxs-lookup"><span data-stu-id="1abdb-137">5. Provide contact information and describe hello problem</span></span>
+<span data-ttu-id="1abdb-138">Descreva o problema de saudação como totalmente como você pode e forneça todos os arquivos (capturas de tela, rastreamentos de rede, etc.) que podem ser útil para solucionar o problema.</span><span class="sxs-lookup"><span data-stu-id="1abdb-138">Describe hello problem as fully as you can, and provide any files (screenshots, network traces, etc.) that may be helpful in solving your issue.</span></span>
 
 ![Descrever o problema][5]
 
-## <a name="6-submission-confirmation"></a><span data-ttu-id="da276-140">6. Confirmação de envio</span><span class="sxs-lookup"><span data-stu-id="da276-140">6. Submission confirmation</span></span>
-<span data-ttu-id="da276-141">Depois que você tiver enviado seu problema, abordaremos o reconhecimento de recebimento dentro de 24 horas e atribuir o problema de uma prioridade e severidade.</span><span class="sxs-lookup"><span data-stu-id="da276-141">Once you have submitted your issue, we will acknowledge receipt within 24 hours and assign your issue a priority and severity.</span></span> <span data-ttu-id="da276-142">Nossa equipe dedicada de engenheiros de suporte ajudará com a resolução de acordo com os tempos de resposta do SLA.</span><span class="sxs-lookup"><span data-stu-id="da276-142">Our dedicated team of support engineers will assist with its resolution according to our Service Level Agreement response times.</span></span>
+## <a name="6-submission-confirmation"></a><span data-ttu-id="1abdb-140">6. Confirmação de envio</span><span class="sxs-lookup"><span data-stu-id="1abdb-140">6. Submission confirmation</span></span>
+<span data-ttu-id="1abdb-141">Depois que você tiver enviado seu problema, abordaremos o reconhecimento de recebimento dentro de 24 horas e atribuir o problema de uma prioridade e severidade.</span><span class="sxs-lookup"><span data-stu-id="1abdb-141">Once you have submitted your issue, we will acknowledge receipt within 24 hours and assign your issue a priority and severity.</span></span> <span data-ttu-id="1abdb-142">Nossa equipe dedicada de engenheiros de suporte ajudará com sua resolução de acordo com tempos de resposta tooour contrato de nível de serviço.</span><span class="sxs-lookup"><span data-stu-id="1abdb-142">Our dedicated team of support engineers will assist with its resolution according tooour Service Level Agreement response times.</span></span>
 
 ![Confirmação][6]
 
-* <span data-ttu-id="da276-144">Se precisar falar conosco sobre seu problema, use o número de confirmação em todas as correspondências.</span><span class="sxs-lookup"><span data-stu-id="da276-144">If you need to talk to us about your issue, use the confirmation number in all correspondence.</span></span>
-* <span data-ttu-id="da276-145">Você pode exibir o andamento da resolução do seu problema a qualquer momento.</span><span class="sxs-lookup"><span data-stu-id="da276-145">You can view progress on your issue at any time.</span></span>
+* <span data-ttu-id="1abdb-144">Se você precisar tootalk toous sobre seu problema, use o número de confirmação de saudação em todas as correspondências.</span><span class="sxs-lookup"><span data-stu-id="1abdb-144">If you need tootalk toous about your issue, use hello confirmation number in all correspondence.</span></span>
+* <span data-ttu-id="1abdb-145">Você pode exibir o andamento da resolução do seu problema a qualquer momento.</span><span class="sxs-lookup"><span data-stu-id="1abdb-145">You can view progress on your issue at any time.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="da276-146">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="da276-146">Next steps</span></span>
-<span data-ttu-id="da276-147">Para saber como solucionar problemas de suporte específico, visite, [Problemas comuns no Azure Marketplace](marketplace-publishing-support-common-issues.md).</span><span class="sxs-lookup"><span data-stu-id="da276-147">To learn how to resolve specific support issues, see [Troubleshooting common issues on the Azure Marketplace](marketplace-publishing-support-common-issues.md).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="1abdb-146">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="1abdb-146">Next steps</span></span>
+<span data-ttu-id="1abdb-147">toolearn como tooresolve problemas de suporte específico, consulte [solução de problemas comuns hello Azure Marketplace](marketplace-publishing-support-common-issues.md).</span><span class="sxs-lookup"><span data-stu-id="1abdb-147">toolearn how tooresolve specific support issues, see [Troubleshooting common issues on hello Azure Marketplace](marketplace-publishing-support-common-issues.md).</span></span>
 
 [1]: ./media/marketplace-publishing-get-publisher-support/step1.png
 [2]: ./media/marketplace-publishing-get-publisher-support/step2.png

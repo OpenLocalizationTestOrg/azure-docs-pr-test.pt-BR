@@ -1,5 +1,5 @@
 ---
-title: "Introdução ao iOS no Azure AD v2 – Uso | Microsoft Docs"
+title: "aaaAzure AD v2 iOS guia de Introdução - uso | Microsoft Docs"
 description: Como aplicativos iOS (Swift) podem chamar uma API que exige tokens de acesso pelo ponto de extremidade do Azure Active Directory v2
 services: active-directory
 documentationcenter: dev-center-name
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
-ms.openlocfilehash: 2ac1117a31a101705539a1f75520ce8de43809a2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 22e67850e2e0b14b6d68815d8f23e18ce2e878ac
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a><span data-ttu-id="b1ab3-103">Usar a MSAL (Biblioteca de Autenticação da Microsoft) para obter um token para a API do Microsoft Graph</span><span class="sxs-lookup"><span data-stu-id="b1ab3-103">Use the Microsoft Authentication Library (MSAL) to get a token for the Microsoft Graph API</span></span>
+## <a name="use-hello-microsoft-authentication-library-msal-tooget-a-token-for-hello-microsoft-graph-api"></a><span data-ttu-id="5595e-103">Use Olá biblioteca de autenticação da Microsoft (MSAL) tooget um token para Olá Microsoft Graph API</span><span class="sxs-lookup"><span data-stu-id="5595e-103">Use hello Microsoft Authentication Library (MSAL) tooget a token for hello Microsoft Graph API</span></span>
 
-<span data-ttu-id="b1ab3-104">Abra `ViewController.swift` e substitua o código por:</span><span class="sxs-lookup"><span data-stu-id="b1ab3-104">Open `ViewController.swift` and replace the code with:</span></span>
+<span data-ttu-id="5595e-104">Abra `ViewController.swift` e substitua o código de saudação com:</span><span class="sxs-lookup"><span data-stu-id="5595e-104">Open `ViewController.swift` and replace hello code with:</span></span>
 
 ```swift
 import UIKit
@@ -42,16 +42,16 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
     @IBOutlet weak var loggingText: UITextView!
     @IBOutlet weak var signoutButton: UIButton!
 
-     // This button will invoke the call to the Microsoft Graph API. It uses the
-     // built in Swift libraries to create a connection.
+     // This button will invoke hello call toohello Microsoft Graph API. It uses the
+     // built in Swift libraries toocreate a connection.
     
     @IBAction func callGraphButton(_ sender: UIButton) {
         
         
         do {
             
-            // We check to see if we have a current logged in user. If we don't, then we need to sign someone in.
-            // We throw an interactionRequired so that we trigger the interactive signin.
+            // We check toosee if we have a current logged in user. If we don't, then we need toosign someone in.
+            // We throw an interactionRequired so that we trigger hello interactive signin.
             
             if  try self.applicationContext.users().isEmpty {
                 throw NSError.init(domain: "MSALErrorDomain", code: MSALErrorCode.interactionRequired.rawValue, userInfo: nil)
@@ -77,8 +77,8 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
             }
         }  catch let error as NSError {
             
-            // interactionRequired means we need to ask the user to sign-in. This usually happens
-            // when the user's Refresh Token is expired or if the user has changed their password
+            // interactionRequired means we need tooask hello user toosign-in. This usually happens
+            // when hello user's Refresh Token is expired or if hello user has changed their password
             // among other possible reasons.
             
             if error.code == MSALErrorCode.interactionRequired.rawValue {
@@ -99,9 +99,9 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
             
         } catch {
             
-            // This is the catch all error.
+            // This is hello catch all error.
             
-            self.loggingText.text = "Unable to acquire token. Got error: \(error)"
+            self.loggingText.text = "Unable tooacquire token. Got error: \(error)"
             
         }
     }
@@ -113,7 +113,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
              // Initialize a MSALPublicClientApplication with a given clientID and authority
             self.applicationContext = try MSALPublicClientApplication.init(clientId: kClientID, authority: kAuthority)
         } catch {
-            self.loggingText.text = "Unable to create Application Context. Error: \(error)"
+            self.loggingText.text = "Unable toocreate Application Context. Error: \(error)"
         }
     }
 
@@ -133,35 +133,35 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
 ```
 
 <!--start-collapse-->
-### <a name="more-information"></a><span data-ttu-id="b1ab3-105">Mais informações</span><span class="sxs-lookup"><span data-stu-id="b1ab3-105">More Information</span></span>
-#### <a name="getting-a-user-token-interactively"></a><span data-ttu-id="b1ab3-106">Obtendo um token de usuário interativamente</span><span class="sxs-lookup"><span data-stu-id="b1ab3-106">Getting a user token interactively</span></span>
-<span data-ttu-id="b1ab3-107">A chamada ao método `acquireToken` resulta em uma janela do navegador que solicita a entrada do usuário.</span><span class="sxs-lookup"><span data-stu-id="b1ab3-107">Calling the `acquireToken` method results in a browser window prompting the user to sign in.</span></span> <span data-ttu-id="b1ab3-108">Em geral, os aplicativos exigem que um usuário se conecte de forma interativa na primeira vez que precisam acessar um recurso protegido ou quando uma operação silenciosa para a aquisição de um token falha (por exemplo, a senha do usuário expirou).</span><span class="sxs-lookup"><span data-stu-id="b1ab3-108">Applications usually require a user to sign in interactively the first time they need to access a protected resource, or when a silent operation to acquire a token fails (e.g. the user’s password expired).</span></span>
+### <a name="more-information"></a><span data-ttu-id="5595e-105">Mais informações</span><span class="sxs-lookup"><span data-stu-id="5595e-105">More Information</span></span>
+#### <a name="getting-a-user-token-interactively"></a><span data-ttu-id="5595e-106">Obtendo um token de usuário interativamente</span><span class="sxs-lookup"><span data-stu-id="5595e-106">Getting a user token interactively</span></span>
+<span data-ttu-id="5595e-107">Olá chamada `acquireToken` método resulta em uma janela do navegador solicitando Olá toosign de usuário no.</span><span class="sxs-lookup"><span data-stu-id="5595e-107">Calling hello `acquireToken` method results in a browser window prompting hello user toosign in.</span></span> <span data-ttu-id="5595e-108">Aplicativos geralmente exigem toosign um usuário no interativamente Olá primeira vez que precisam tooaccess um recurso protegido, ou quando uma operação silenciosa tooacquire um token de falha (por exemplo, senha do usuário Olá expirado).</span><span class="sxs-lookup"><span data-stu-id="5595e-108">Applications usually require a user toosign in interactively hello first time they need tooaccess a protected resource, or when a silent operation tooacquire a token fails (e.g. hello user’s password expired).</span></span>
 
-#### <a name="getting-a-user-token-silently"></a><span data-ttu-id="b1ab3-109">Obtendo um token de usuário no modo silencioso</span><span class="sxs-lookup"><span data-stu-id="b1ab3-109">Getting a user token silently</span></span>
-<span data-ttu-id="b1ab3-110">O método `acquireTokenSilent` manipula as aquisições e a renovação de tokens sem nenhuma interação do usuário.</span><span class="sxs-lookup"><span data-stu-id="b1ab3-110">The `acquireTokenSilent` method handles token acquisitions and renewal without any user interaction.</span></span> <span data-ttu-id="b1ab3-111">Após `acquireToken` ser executado pela primeira vez, `acquireTokenSilent` é o método normalmente usado para obter tokens usados para acessar recursos protegidos nas próximas chamadas – já que as chamadas para solicitar ou renovar tokens são feitas no modo silencioso.</span><span class="sxs-lookup"><span data-stu-id="b1ab3-111">After `acquireToken` is executed for the first time, `acquireTokenSilent` is the method commonly used to obtain tokens used to access protected resources for subsequent calls - as calls to request or renew tokens are made silently.</span></span>
+#### <a name="getting-a-user-token-silently"></a><span data-ttu-id="5595e-109">Obtendo um token de usuário no modo silencioso</span><span class="sxs-lookup"><span data-stu-id="5595e-109">Getting a user token silently</span></span>
+<span data-ttu-id="5595e-110">Olá `acquireTokenSilent` método trata aquisições de token e renovação sem qualquer interação do usuário.</span><span class="sxs-lookup"><span data-stu-id="5595e-110">hello `acquireTokenSilent` method handles token acquisitions and renewal without any user interaction.</span></span> <span data-ttu-id="5595e-111">Depois de `acquireToken` é executado para Olá primeira vez, `acquireTokenSilent` é Olá método usado tooobtain tokens usados tooaccess recursos para as chamadas subsequentes - protegidos como chamadas toorequest ou renovar os tokens são feitas silenciosamente.</span><span class="sxs-lookup"><span data-stu-id="5595e-111">After `acquireToken` is executed for hello first time, `acquireTokenSilent` is hello method commonly used tooobtain tokens used tooaccess protected resources for subsequent calls - as calls toorequest or renew tokens are made silently.</span></span>
 
-<span data-ttu-id="b1ab3-112">Em certas ocasiões, `acquireTokenSilent` falhará – por exemplo, o usuário saiu do serviço ou alterou sua senha em outro dispositivo.</span><span class="sxs-lookup"><span data-stu-id="b1ab3-112">Eventually, `acquireTokenSilent` will fail – e.g. the user has signed out, or has changed their password on another device.</span></span> <span data-ttu-id="b1ab3-113">Quando a MSAL detecta que o problema pode ser resolvido com a solicitação de uma ação interativa, ela dispara uma exceção `MSALErrorCode.interactionRequired`.</span><span class="sxs-lookup"><span data-stu-id="b1ab3-113">When MSAL detects that the issue can be resolved by requiring an interactive action, it fires an `MSALErrorCode.interactionRequired` exception.</span></span> <span data-ttu-id="b1ab3-114">O aplicativo pode tratar essa exceção de duas maneiras:</span><span class="sxs-lookup"><span data-stu-id="b1ab3-114">Your application can handle this exception in two ways:</span></span>
+<span data-ttu-id="5595e-112">Por fim, `acquireTokenSilent` falhará – por exemplo, o usuário Olá foi desconectado ou alterou sua senha em outro dispositivo.</span><span class="sxs-lookup"><span data-stu-id="5595e-112">Eventually, `acquireTokenSilent` will fail – e.g. hello user has signed out, or has changed their password on another device.</span></span> <span data-ttu-id="5595e-113">Quando MSAL detecta que Olá problema pode ser resolvido, exigindo uma ação interativa, ele dispara um `MSALErrorCode.interactionRequired` exceção.</span><span class="sxs-lookup"><span data-stu-id="5595e-113">When MSAL detects that hello issue can be resolved by requiring an interactive action, it fires an `MSALErrorCode.interactionRequired` exception.</span></span> <span data-ttu-id="5595e-114">O aplicativo pode tratar essa exceção de duas maneiras:</span><span class="sxs-lookup"><span data-stu-id="5595e-114">Your application can handle this exception in two ways:</span></span>
 
-1.  <span data-ttu-id="b1ab3-115">Faça uma chamada a `acquireToken` imediatamente, o que resultará na solicitação de entrada do usuário.</span><span class="sxs-lookup"><span data-stu-id="b1ab3-115">Make a call against `acquireToken` immediately, which results in prompting the user to sign in.</span></span> <span data-ttu-id="b1ab3-116">Esse padrão geralmente é usado em aplicativos online em que não há nenhum conteúdo offline no aplicativo disponível para o usuário.</span><span class="sxs-lookup"><span data-stu-id="b1ab3-116">This pattern is usually used in online applications where there is no offline content in the application available for the user.</span></span> <span data-ttu-id="b1ab3-117">O aplicativo de exemplo gerado por esta configuração interativa usa esse padrão: você pode vê-lo em ação na primeira vez em que executa o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="b1ab3-117">The sample application generated by this guided setup uses this pattern: you can see it in action the first time you execute the application.</span></span> <span data-ttu-id="b1ab3-118">Como nenhum usuário nunca usou o aplicativo, `applicationContext.users().first` conterá um valor nulo e uma exceção ` MSALErrorCode.interactionRequired ` será lançada.</span><span class="sxs-lookup"><span data-stu-id="b1ab3-118">Because no user ever used the application, `applicationContext.users().first` will contain a null value, and an ` MSALErrorCode.interactionRequired ` exception will be thrown.</span></span> <span data-ttu-id="b1ab3-119">Em seguida, o código no exemplo trata a exceção chamando `acquireToken`, o que resulta na solicitação de entrada do usuário.</span><span class="sxs-lookup"><span data-stu-id="b1ab3-119">The code in the sample then handles the exception by calling `acquireToken` resulting in prompting the user to sign in.</span></span>
+1.  <span data-ttu-id="5595e-115">Fazer uma chamada contra `acquireToken` imediatamente, o que resulta em solicitando Olá toosign de usuário no.</span><span class="sxs-lookup"><span data-stu-id="5595e-115">Make a call against `acquireToken` immediately, which results in prompting hello user toosign in.</span></span> <span data-ttu-id="5595e-116">Esse padrão é geralmente usado em aplicativos online onde não há nenhum conteúdo offline no aplicativo hello disponíveis para usuário hello.</span><span class="sxs-lookup"><span data-stu-id="5595e-116">This pattern is usually used in online applications where there is no offline content in hello application available for hello user.</span></span> <span data-ttu-id="5595e-117">aplicativo de exemplo Hello gerado por esta instalação interativa usa esse padrão: você poderá ver isso no hello ação primeira vez que você executar o aplicativo hello.</span><span class="sxs-lookup"><span data-stu-id="5595e-117">hello sample application generated by this guided setup uses this pattern: you can see it in action hello first time you execute hello application.</span></span> <span data-ttu-id="5595e-118">Porque nenhum usuário já utilizada aplicativo hello, `applicationContext.users().first` conterá um valor nulo e um ` MSALErrorCode.interactionRequired ` exceção será lançada.</span><span class="sxs-lookup"><span data-stu-id="5595e-118">Because no user ever used hello application, `applicationContext.users().first` will contain a null value, and an ` MSALErrorCode.interactionRequired ` exception will be thrown.</span></span> <span data-ttu-id="5595e-119">Olá código no exemplo hello e identificadores Olá exceção chamando `acquireToken` resultando em solicitando Olá usuário toosign no.</span><span class="sxs-lookup"><span data-stu-id="5595e-119">hello code in hello sample then handles hello exception by calling `acquireToken` resulting in prompting hello user toosign in.</span></span>
 
-2.  <span data-ttu-id="b1ab3-120">Os aplicativos também podem fazer uma indicação visual para o usuário de que uma conexão interativa é necessária e, portanto, o usuário pode escolher o momento certo para se conectar ou o aplicativo pode tentar `acquireTokenSilent` novamente mais tarde.</span><span class="sxs-lookup"><span data-stu-id="b1ab3-120">Applications can also make a visual indication to the user that an interactive sign-in is required, so the user can select the right time to sign in, or the application can retry `acquireTokenSilent` at a later time.</span></span> <span data-ttu-id="b1ab3-121">Normalmente, isso é usado quando o usuário consegue usar outras funcionalidades do aplicativo sem ser interrompido – por exemplo, há conteúdo offline disponível no aplicativo.</span><span class="sxs-lookup"><span data-stu-id="b1ab3-121">This is usually used when the user can use other functionality of the application without being disrupted - for example, there is offline content available in the application.</span></span> <span data-ttu-id="b1ab3-122">Nesse caso, o usuário pode decidir quando deseja se conectar para acessar o recurso protegido ou atualizar as informações desatualizadas ou o aplicativo pode decidir tentar `acquireTokenSilent` novamente quando a rede é restaurada depois de ficar temporariamente indisponível.</span><span class="sxs-lookup"><span data-stu-id="b1ab3-122">In this case, the user can decide when they want to sign in to access the protected resource, or to refresh the outdated information, or your application can decide to retry `acquireTokenSilent` when network is restored after being unavailable temporarily.</span></span>
+2.  <span data-ttu-id="5595e-120">Os aplicativos também podem fazer um usuário toohello indicação visual que uma entrada interativa é necessária para que o usuário Olá pode selecionar Olá hora certa toosign em ou aplicativo hello pode repetir `acquireTokenSilent` mais tarde.</span><span class="sxs-lookup"><span data-stu-id="5595e-120">Applications can also make a visual indication toohello user that an interactive sign-in is required, so hello user can select hello right time toosign in, or hello application can retry `acquireTokenSilent` at a later time.</span></span> <span data-ttu-id="5595e-121">Isso geralmente é usado quando o usuário Olá pode usar outras funcionalidades de aplicativo hello sem interrupção — por exemplo, há conteúdo off-line disponível no aplicativo hello.</span><span class="sxs-lookup"><span data-stu-id="5595e-121">This is usually used when hello user can use other functionality of hello application without being disrupted - for example, there is offline content available in hello application.</span></span> <span data-ttu-id="5595e-122">Nesse caso, o usuário Olá pode decidir quando quiserem toosign no recurso de saudação protegido tooaccess, Olá toorefresh desatualizado informações ou seu aplicativo pode decidir tooretry `acquireTokenSilent` quando a rede é restaurada depois de ficar indisponível temporariamente.</span><span class="sxs-lookup"><span data-stu-id="5595e-122">In this case, hello user can decide when they want toosign in tooaccess hello protected resource, or toorefresh hello outdated information, or your application can decide tooretry `acquireTokenSilent` when network is restored after being unavailable temporarily.</span></span>
 
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a><span data-ttu-id="b1ab3-123">Chamar a API do Microsoft Graph usando o token obtido recentemente</span><span class="sxs-lookup"><span data-stu-id="b1ab3-123">Call the Microsoft Graph API using the token you just obtained</span></span>
+## <a name="call-hello-microsoft-graph-api-using-hello-token-you-just-obtained"></a><span data-ttu-id="5595e-123">Chamar API do Microsoft Graph hello usando Olá token obtido apenas</span><span class="sxs-lookup"><span data-stu-id="5595e-123">Call hello Microsoft Graph API using hello token you just obtained</span></span>
 
-<span data-ttu-id="b1ab3-124">Adicione o novo método abaixo a `ViewController.swift`.</span><span class="sxs-lookup"><span data-stu-id="b1ab3-124">Add the new method below to `ViewController.swift`.</span></span> <span data-ttu-id="b1ab3-125">Esse método é usado para fazer uma solicitação `GET` na API do Microsoft Graph usando um *Cabeçalho de Autorização HTTP*:</span><span class="sxs-lookup"><span data-stu-id="b1ab3-125">This method is used to make a `GET` request against the Microsoft Graph API using an *HTTP Authorization header*:</span></span>
+<span data-ttu-id="5595e-124">Adicionar Olá novo método abaixo muito`ViewController.swift`.</span><span class="sxs-lookup"><span data-stu-id="5595e-124">Add hello new method below too`ViewController.swift`.</span></span> <span data-ttu-id="5595e-125">Esse método é usado toomake um `GET` solicitação Olá Microsoft Graph API usando um *cabeçalho de autorização HTTP*:</span><span class="sxs-lookup"><span data-stu-id="5595e-125">This method is used toomake a `GET` request against hello Microsoft Graph API using an *HTTP Authorization header*:</span></span>
 
 ```swift
 func getContentWithToken() {
     
     let sessionConfig = URLSessionConfiguration.default
     
-    // Specify the Graph API endpoint
+    // Specify hello Graph API endpoint
     let url = URL(string: kGraphURI)
     var request = URLRequest(url: url!)
     
-    // Set the Authorization header for the request. We use Bearer tokens, so we specify Bearer + the token we got from the result
+    // Set hello Authorization header for hello request. We use Bearer tokens, so we specify Bearer + hello token we got from hello result
     request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "Authorization")
     let urlSession = URLSession(configuration: sessionConfig, delegate: self, delegateQueue: OperationQueue.main)
     
@@ -176,22 +176,22 @@ func getContentWithToken() {
 ```
 
 <!--start-collapse-->
-### <a name="making-a-rest-call-against-a-protected-api"></a><span data-ttu-id="b1ab3-126">Fazendo uma chamada REST em uma API protegida</span><span class="sxs-lookup"><span data-stu-id="b1ab3-126">Making a REST call against a protected API</span></span>
+### <a name="making-a-rest-call-against-a-protected-api"></a><span data-ttu-id="5595e-126">Fazendo uma chamada REST em uma API protegida</span><span class="sxs-lookup"><span data-stu-id="5595e-126">Making a REST call against a protected API</span></span>
 
-<span data-ttu-id="b1ab3-127">Neste aplicativo de exemplo, o método `getContentWithToken()` é usado para fazer uma solicitação HTTP `GET` em um recurso protegido que exige um token e, em seguida, retornar o conteúdo para o chamador.</span><span class="sxs-lookup"><span data-stu-id="b1ab3-127">In this sample application, the `getContentWithToken()` method is used to make an HTTP `GET` request against a protected resource that requires a token and then return the content to the caller.</span></span> <span data-ttu-id="b1ab3-128">Esse método adiciona o token adquirido no *cabeçalho de Autorização HTTP*.</span><span class="sxs-lookup"><span data-stu-id="b1ab3-128">This method adds the acquired token in the *HTTP Authorization header*.</span></span> <span data-ttu-id="b1ab3-129">Para esta amostra, o recurso é o ponto de extremidade *me* da API do Microsoft Graph – que exibe as informações de perfil do usuário.</span><span class="sxs-lookup"><span data-stu-id="b1ab3-129">For this sample, the resource is the Microsoft Graph API *me* endpoint – which displays the user's profile information.</span></span>
+<span data-ttu-id="5595e-127">Este aplicativo de exemplo hello `getContentWithToken()` método é usado toomake um HTTP `GET` solicitação em um recurso protegido que requer um chamador de conteúdo toohello Olá token e retornar.</span><span class="sxs-lookup"><span data-stu-id="5595e-127">In this sample application, hello `getContentWithToken()` method is used toomake an HTTP `GET` request against a protected resource that requires a token and then return hello content toohello caller.</span></span> <span data-ttu-id="5595e-128">Este método adiciona token Olá adquirido em Olá *cabeçalho de autorização HTTP*.</span><span class="sxs-lookup"><span data-stu-id="5595e-128">This method adds hello acquired token in hello *HTTP Authorization header*.</span></span> <span data-ttu-id="5595e-129">Para este exemplo, o recurso de saudação é Olá Microsoft Graph API *me* ponto de extremidade – que exibe informações de perfil do usuário hello.</span><span class="sxs-lookup"><span data-stu-id="5595e-129">For this sample, hello resource is hello Microsoft Graph API *me* endpoint – which displays hello user's profile information.</span></span>
 <!--end-collapse-->
 
-## <a name="set-up-sign-out"></a><span data-ttu-id="b1ab3-130">Configurar a saída</span><span class="sxs-lookup"><span data-stu-id="b1ab3-130">Set up sign-out</span></span>
+## <a name="set-up-sign-out"></a><span data-ttu-id="5595e-130">Configurar a saída</span><span class="sxs-lookup"><span data-stu-id="5595e-130">Set up sign-out</span></span>
 
-<span data-ttu-id="b1ab3-131">Adicione o seguinte método ao `ViewController.swift` para desconectar o usuário:</span><span class="sxs-lookup"><span data-stu-id="b1ab3-131">Add the following method to `ViewController.swift` to sign out the user:</span></span>
+<span data-ttu-id="5595e-131">Adicionar Olá seguinte método muito`ViewController.swift` toosign usuário hello:</span><span class="sxs-lookup"><span data-stu-id="5595e-131">Add hello following method too`ViewController.swift` toosign out hello user:</span></span>
 
 ```swift 
 @IBAction func signoutButton(_ sender: UIButton) {
 
     do {
         
-        // Removes all tokens from the cache for this application for the provided user
-        // first parameter:   The user to remove from the cache
+        // Removes all tokens from hello cache for this application for hello provided user
+        // first parameter:   hello user tooremove from hello cache
         
         try self.applicationContext.remove(self.applicationContext.users().first)
         self.signoutButton.isEnabled = false;
@@ -202,18 +202,18 @@ func getContentWithToken() {
 }
 ```
 <!--start-collapse-->
-### <a name="more-info-on-sign-out"></a><span data-ttu-id="b1ab3-132">Mais informações sobre a saída</span><span class="sxs-lookup"><span data-stu-id="b1ab3-132">More info on sign-out</span></span>
+### <a name="more-info-on-sign-out"></a><span data-ttu-id="5595e-132">Mais informações sobre a saída</span><span class="sxs-lookup"><span data-stu-id="5595e-132">More info on sign-out</span></span>
 
-<span data-ttu-id="b1ab3-133">O método `signoutButton` acima remove o usuário do cache de usuário da MSAL – efetivamente, isso informará a MSAL para esquecer o usuário atual; portanto, uma solicitação futura de aquisição de um token terá êxito apenas se for feita para ser interativa.</span><span class="sxs-lookup"><span data-stu-id="b1ab3-133">The `signoutButton` method removes the user from the MSAL user cache – this will effectively tell MSAL to forget the current user so a future request to acquire a token will only succeed if it is made to be interactive.</span></span>
+<span data-ttu-id="5595e-133">Olá `signoutButton` método Remove o usuário de saudação do hello cache de usuário MSAL – isso efetivamente informará o usuário atual do MSAL tooforget Olá para uma solicitação futuras tooacquire um token terá êxito apenas se ele for feito toobe interativo.</span><span class="sxs-lookup"><span data-stu-id="5595e-133">hello `signoutButton` method removes hello user from hello MSAL user cache – this will effectively tell MSAL tooforget hello current user so a future request tooacquire a token will only succeed if it is made toobe interactive.</span></span>
 
-<span data-ttu-id="b1ab3-134">Embora o aplicativo nesta amostra dê suporte a um único usuário, a MSAL dá suporte a cenários em que várias contas podem estar conectadas ao mesmo tempo – um exemplo é um aplicativo de email no qual um usuário tem várias contas.</span><span class="sxs-lookup"><span data-stu-id="b1ab3-134">Although the application in this sample supports a single user, MSAL supports scenarios where multiple accounts can be signed in at the same time – an example is an email application where a user has multiple accounts.</span></span>
+<span data-ttu-id="5595e-134">Embora o aplicativo hello neste exemplo dá suporte a um único usuário, MSAL oferece suporte a cenários onde várias contas podem entrar em hello simultaneamente – um exemplo é um aplicativo de email onde um usuário tenha várias contas.</span><span class="sxs-lookup"><span data-stu-id="5595e-134">Although hello application in this sample supports a single user, MSAL supports scenarios where multiple accounts can be signed in at hello same time – an example is an email application where a user has multiple accounts.</span></span>
 <!--end-collapse-->
 
-## <a name="register-the-callback"></a><span data-ttu-id="b1ab3-135">Registrar o retorno de chamada</span><span class="sxs-lookup"><span data-stu-id="b1ab3-135">Register the callback</span></span>
+## <a name="register-hello-callback"></a><span data-ttu-id="5595e-135">Registrar o retorno de chamada de saudação</span><span class="sxs-lookup"><span data-stu-id="5595e-135">Register hello callback</span></span>
 
-<span data-ttu-id="b1ab3-136">Depois que o usuário é autenticado, o navegador o redireciona para o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="b1ab3-136">Once the user authenticates, the browser redirects the user back to the application.</span></span> <span data-ttu-id="b1ab3-137">Siga as etapas abaixo para registrar esse retorno de chamada:</span><span class="sxs-lookup"><span data-stu-id="b1ab3-137">Follow the steps below to register this callback:</span></span>
+<span data-ttu-id="5595e-136">Depois que a autenticação do usuário hello, redirecionamentos do navegador Olá Olá usuário toohello back aplicativo.</span><span class="sxs-lookup"><span data-stu-id="5595e-136">Once hello user authenticates, hello browser redirects hello user back toohello application.</span></span> <span data-ttu-id="5595e-137">Siga as etapas de saudação abaixo tooregister esse retorno de chamada:</span><span class="sxs-lookup"><span data-stu-id="5595e-137">Follow hello steps below tooregister this callback:</span></span>
 
-1.  <span data-ttu-id="b1ab3-138">Abra `AppDelegate.swift` e importe a MSAL:</span><span class="sxs-lookup"><span data-stu-id="b1ab3-138">Open `AppDelegate.swift` and import MSAL:</span></span>
+1.  <span data-ttu-id="5595e-138">Abra `AppDelegate.swift` e importe a MSAL:</span><span class="sxs-lookup"><span data-stu-id="5595e-138">Open `AppDelegate.swift` and import MSAL:</span></span>
 
 ```swift
 import MSAL
@@ -221,13 +221,13 @@ import MSAL
 <!-- Workaround for Docs conversion bug -->
 <ol start="2">
 <li>
-<span data-ttu-id="b1ab3-139">Adicione o seguinte método à sua classe <code>AppDelegate</code> para tratar de retornos de chamada:</span><span class="sxs-lookup"><span data-stu-id="b1ab3-139">Add the following method to your <code>AppDelegate</code> class to handle callbacks:</span></span>
+<span data-ttu-id="5595e-139">Adicionar Olá após o método tooyour <code>AppDelegate</code> toohandle retornos de chamada de classe:</span><span class="sxs-lookup"><span data-stu-id="5595e-139">Add hello following method tooyour <code>AppDelegate</code> class toohandle callbacks:</span></span>
 </li>
 </ol>
 
 ```swift
-// @brief Handles inbound URLs. Checks if the URL matches the redirect URI for a pending AppAuth
-// authorization request and if so, will look for the code in the response.
+// @brief Handles inbound URLs. Checks if hello URL matches hello redirect URI for a pending AppAuth
+// authorization request and if so, will look for hello code in hello response.
 
 func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
     

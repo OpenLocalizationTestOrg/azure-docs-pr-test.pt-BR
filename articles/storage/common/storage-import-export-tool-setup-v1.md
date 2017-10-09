@@ -1,6 +1,6 @@
 ---
-title: "Configurando a Ferramenta de Importação/Exportação do Azure v1 | Microsoft Docs"
-description: "Saiba como configurar a ferramenta de preparação e reparo da unidade do serviço de Importação/Exportação do Azure. Este documento refere-se à v1 da Ferramenta de Importação/Exportação."
+title: "aaaSetting backup Olá v1 da ferramenta de importação/exportação do Azure | Microsoft Docs"
+description: "Saiba como tooset backup Olá conduzem a preparação e a ferramenta de reparo para o serviço de importação/exportação do Azure hello. Isso se refere a toov1 de Olá, ferramenta de importação/exportação."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,72 +14,72 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: 4fb4c7e39c0385cae7c7984eb774d6a468ee18e4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 838db815a7d4e6c04369711ef3eedb31fbb0b1b4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="setting-up-the-azure-importexport-tool"></a><span data-ttu-id="6e62a-104">Configurando a Ferramenta de Importação/Exportação do Azure</span><span class="sxs-lookup"><span data-stu-id="6e62a-104">Setting up the Azure Import/Export Tool</span></span>
-<span data-ttu-id="6e62a-105">A Ferramenta de Importação/Exportação do Microsoft Azure é a ferramenta de preparação e reparo da unidade que pode ser usada com o serviço de Importação/Exportação do Microsoft Azure.</span><span class="sxs-lookup"><span data-stu-id="6e62a-105">The Microsoft Azure Import/Export Tool is the drive preparation and repair tool that you can use with the Microsoft Azure Import/Export service.</span></span> <span data-ttu-id="6e62a-106">É possível usar a ferramenta para as seguintes funções:</span><span class="sxs-lookup"><span data-stu-id="6e62a-106">You can use the tool for the following functions:</span></span>  
+# <a name="setting-up-hello-azure-importexport-tool"></a><span data-ttu-id="aa49b-104">Configurando Olá, ferramenta de importação/exportação do Azure</span><span class="sxs-lookup"><span data-stu-id="aa49b-104">Setting up hello Azure Import/Export Tool</span></span>
+<span data-ttu-id="aa49b-105">Olá, ferramenta de importação/exportação do Microsoft Azure é a ferramenta de reparo que você pode usar com hello serviço de importação/exportação do Microsoft Azure e preparação da unidade Olá.</span><span class="sxs-lookup"><span data-stu-id="aa49b-105">hello Microsoft Azure Import/Export Tool is hello drive preparation and repair tool that you can use with hello Microsoft Azure Import/Export service.</span></span> <span data-ttu-id="aa49b-106">Você pode usar a ferramenta de saudação para Olá funções a seguir:</span><span class="sxs-lookup"><span data-stu-id="aa49b-106">You can use hello tool for hello following functions:</span></span>  
   
--   <span data-ttu-id="6e62a-107">Antes de criar um trabalho de importação, é possível usar essa ferramenta para copiar dados para os discos rígidos que você pretende enviar para um data center do Microsoft Azure.</span><span class="sxs-lookup"><span data-stu-id="6e62a-107">Before creating an import job, you can use this tool to copy data to the hard drives you are going to ship to a Windows Azure data center.</span></span>  
+-   <span data-ttu-id="aa49b-107">Antes de criar um trabalho de importação, você pode usar essa ferramenta toocopy dados toohello unidades de disco rígido for Centro de dados tooship tooa do Windows Azure.</span><span class="sxs-lookup"><span data-stu-id="aa49b-107">Before creating an import job, you can use this tool toocopy data toohello hard drives you are going tooship tooa Windows Azure data center.</span></span>  
   
--   <span data-ttu-id="6e62a-108">Após a conclusão de um trabalho de importação, é possível usar essa ferramenta para reparar os blobs corrompidos, ausentes ou que entraram em conflito com outros blobs.</span><span class="sxs-lookup"><span data-stu-id="6e62a-108">After an import job has completed, you can use this tool to repair any blobs that were corrupted, were missing, or conflicted with other blobs.</span></span>  
+-   <span data-ttu-id="aa49b-108">Depois que um trabalho de importação for concluída, você pode usar essa ferramenta toorepair todos os blobs que foram corrompidos, estavam ausentes ou está em conflito com outros blobs.</span><span class="sxs-lookup"><span data-stu-id="aa49b-108">After an import job has completed, you can use this tool toorepair any blobs that were corrupted, were missing, or conflicted with other blobs.</span></span>  
   
--   <span data-ttu-id="6e62a-109">Depois de receber as unidades de um trabalho de exportação concluído, é possível usar essa ferramenta para reparar os arquivos corrompidos ou ausentes nas unidades.</span><span class="sxs-lookup"><span data-stu-id="6e62a-109">After you receive the drives from a completed export job, you can use this tool to repair any files that were corrupted or missing on the drives.</span></span>  
+-   <span data-ttu-id="aa49b-109">Depois de receber Olá unidades de um trabalho de exportação concluído, você pode usar essa ferramenta toorepair todos os arquivos que foram corrompidos ou ausentes em unidades de saudação.</span><span class="sxs-lookup"><span data-stu-id="aa49b-109">After you receive hello drives from a completed export job, you can use this tool toorepair any files that were corrupted or missing on hello drives.</span></span>  
   
-## <a name="prerequisites"></a><span data-ttu-id="6e62a-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="6e62a-110">Prerequisites</span></span>  
-<span data-ttu-id="6e62a-111">Se estiver preparando as unidades para um trabalho de importação, você precisará atender aos seguintes pré-requisitos:</span><span class="sxs-lookup"><span data-stu-id="6e62a-111">If you are preparing drives for an import job, you will need to meet the following prerequisites:</span></span>  
+## <a name="prerequisites"></a><span data-ttu-id="aa49b-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="aa49b-110">Prerequisites</span></span>  
+<span data-ttu-id="aa49b-111">Se você estiver preparando unidades para um trabalho de importação, você precisará Olá toomeet pré-requisitos a seguir:</span><span class="sxs-lookup"><span data-stu-id="aa49b-111">If you are preparing drives for an import job, you will need toomeet hello following prerequisites:</span></span>  
   
--   <span data-ttu-id="6e62a-112">É necessário ter uma assinatura ativa do Azure.</span><span class="sxs-lookup"><span data-stu-id="6e62a-112">You must have an active Azure subscription.</span></span>  
+-   <span data-ttu-id="aa49b-112">É necessário ter uma assinatura ativa do Azure.</span><span class="sxs-lookup"><span data-stu-id="aa49b-112">You must have an active Azure subscription.</span></span>  
   
--   <span data-ttu-id="6e62a-113">A assinatura deve incluir uma conta de armazenamento com espaço disponível suficiente para armazenar os arquivos que você pretende importar.</span><span class="sxs-lookup"><span data-stu-id="6e62a-113">Your subscription must include a storage account with enough available space to store the files you are going to import.</span></span>  
+-   <span data-ttu-id="aa49b-113">Sua assinatura deve incluir uma conta de armazenamento com suficiente espaço disponível toostore Olá de arquivos que serão tooimport.</span><span class="sxs-lookup"><span data-stu-id="aa49b-113">Your subscription must include a storage account with enough available space toostore hello files you are going tooimport.</span></span>  
   
--   <span data-ttu-id="6e62a-114">É necessário pelo menos uma das chaves da conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="6e62a-114">You need at least one of the account keys for the storage account.</span></span>  
+-   <span data-ttu-id="aa49b-114">É necessário pelo menos uma das chaves de conta Olá Olá conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="aa49b-114">You need at least one of hello account keys for hello storage account.</span></span>  
   
--   <span data-ttu-id="6e62a-115">É necessário um computador (o “computador de cópia”) com o Windows 7, Windows Server 2008 R2 ou um sistema operacional Windows mais novo instalado.</span><span class="sxs-lookup"><span data-stu-id="6e62a-115">You need a computer (the "copy machine") with Windows 7, Windows Server 2008 R2, or a newer Windows operating system installed.</span></span>  
+-   <span data-ttu-id="aa49b-115">Você precisa de um computador (hello "computador de cópia") com o Windows 7, Windows Server 2008 R2 ou um sistema de operacional mais recente do Windows instalado.</span><span class="sxs-lookup"><span data-stu-id="aa49b-115">You need a computer (hello "copy machine") with Windows 7, Windows Server 2008 R2, or a newer Windows operating system installed.</span></span>  
   
--   <span data-ttu-id="6e62a-116">O .NET Framework 4 deve ser instalado no computador de cópia.</span><span class="sxs-lookup"><span data-stu-id="6e62a-116">The .NET Framework 4 must be installed on the copy machine.</span></span>  
+-   <span data-ttu-id="aa49b-116">saudação do .NET Framework 4 deve ser instalada no computador de cópia de saudação.</span><span class="sxs-lookup"><span data-stu-id="aa49b-116">hello .NET Framework 4 must be installed on hello copy machine.</span></span>  
   
--   <span data-ttu-id="6e62a-117">O BitLocker deve estar habilitado no computador de cópia.</span><span class="sxs-lookup"><span data-stu-id="6e62a-117">BitLocker must be enabled on the copy machine.</span></span>  
+-   <span data-ttu-id="aa49b-117">O BitLocker deve ser habilitado no computador de cópia de saudação.</span><span class="sxs-lookup"><span data-stu-id="aa49b-117">BitLocker must be enabled on hello copy machine.</span></span>  
   
--   <span data-ttu-id="6e62a-118">Serão necessárias uma ou mais unidades que contêm os dados a serem importados ou discos rígidos SATA de 3,5 polegadas vazios conectados ao computador de cópia.</span><span class="sxs-lookup"><span data-stu-id="6e62a-118">You will need one or more drives that contains data to be imported or empty 3.5-inch SATA hard drives connected to the copy machine.</span></span>  
+-   <span data-ttu-id="aa49b-118">Você precisará de um ou mais discos que contém dados toobe importado ou vazios discos rígidos SATA de 3,5 polegadas conectados toohello computador de cópia.</span><span class="sxs-lookup"><span data-stu-id="aa49b-118">You will need one or more drives that contains data toobe imported or empty 3.5-inch SATA hard drives connected toohello copy machine.</span></span>  
   
--   <span data-ttu-id="6e62a-119">Os arquivos que você pretende importar devem estar acessíveis no computador de cópia, estejam eles em um compartilhamento de rede ou um disco rígido local.</span><span class="sxs-lookup"><span data-stu-id="6e62a-119">The files you plan to import must be accessible from the copy machine, whether they are on a network share or a local hard drive.</span></span> 
+-   <span data-ttu-id="aa49b-119">arquivos Olá planejar tooimport devem estar acessíveis do computador de cópia hello, independentemente de estarem em um compartilhamento de rede ou um disco rígido local.</span><span class="sxs-lookup"><span data-stu-id="aa49b-119">hello files you plan tooimport must be accessible from hello copy machine, whether they are on a network share or a local hard drive.</span></span> 
   
-<span data-ttu-id="6e62a-120">Se estiver tentando reparar uma importação com falha parcial, serão necessários:</span><span class="sxs-lookup"><span data-stu-id="6e62a-120">If you are attempting to repair an import that has partially failed, you will need:</span></span>  
+<span data-ttu-id="aa49b-120">Se você estiver tentando toorepair uma importação que falhou parcialmente, será necessário:</span><span class="sxs-lookup"><span data-stu-id="aa49b-120">If you are attempting toorepair an import that has partially failed, you will need:</span></span>  
   
--   <span data-ttu-id="6e62a-121">Os arquivos de log de cópia</span><span class="sxs-lookup"><span data-stu-id="6e62a-121">The copy log files</span></span>  
+-   <span data-ttu-id="aa49b-121">arquivos de log de cópia Olá</span><span class="sxs-lookup"><span data-stu-id="aa49b-121">hello copy log files</span></span>  
   
--   <span data-ttu-id="6e62a-122">A chave da conta de armazenamento</span><span class="sxs-lookup"><span data-stu-id="6e62a-122">The storage account key</span></span>  
+-   <span data-ttu-id="aa49b-122">chave de conta de armazenamento Olá</span><span class="sxs-lookup"><span data-stu-id="aa49b-122">hello storage account key</span></span>  
   
-  <span data-ttu-id="6e62a-123">Se estiver tentando reparar uma exportação com falha parcial, serão necessários:</span><span class="sxs-lookup"><span data-stu-id="6e62a-123">If you are attempting to repair an export that has partially failed, you will need:</span></span>  
+  <span data-ttu-id="aa49b-123">Se você estiver tentando toorepair uma exportação que falhou parcialmente, será necessário:</span><span class="sxs-lookup"><span data-stu-id="aa49b-123">If you are attempting toorepair an export that has partially failed, you will need:</span></span>  
   
--   <span data-ttu-id="6e62a-124">Os arquivos de log de cópia</span><span class="sxs-lookup"><span data-stu-id="6e62a-124">The copy log files</span></span>  
+-   <span data-ttu-id="aa49b-124">arquivos de log de cópia Olá</span><span class="sxs-lookup"><span data-stu-id="aa49b-124">hello copy log files</span></span>  
   
--   <span data-ttu-id="6e62a-125">Os arquivos de manifesto (opcional)</span><span class="sxs-lookup"><span data-stu-id="6e62a-125">The manifest files (optional)</span></span>  
+-   <span data-ttu-id="aa49b-125">arquivos de manifesto de saudação (opcionais)</span><span class="sxs-lookup"><span data-stu-id="aa49b-125">hello manifest files (optional)</span></span>  
   
--   <span data-ttu-id="6e62a-126">A chave da conta de armazenamento</span><span class="sxs-lookup"><span data-stu-id="6e62a-126">The storage account key</span></span>  
+-   <span data-ttu-id="aa49b-126">chave de conta de armazenamento Olá</span><span class="sxs-lookup"><span data-stu-id="aa49b-126">hello storage account key</span></span>  
   
-## <a name="installing-the-azure-importexport-tool"></a><span data-ttu-id="6e62a-127">Instalando a ferramenta de Importação/Exportação do Azure</span><span class="sxs-lookup"><span data-stu-id="6e62a-127">Installing the Azure Import/Export Tool</span></span>  
- <span data-ttu-id="6e62a-128">A Ferramenta de Importação/Exportação do Azure consiste nos seguintes arquivos:</span><span class="sxs-lookup"><span data-stu-id="6e62a-128">The Azure Import/Export Tool consists of the following files:</span></span>  
+## <a name="installing-hello-azure-importexport-tool"></a><span data-ttu-id="aa49b-127">Olá instalar ferramenta de importação/exportação do Azure</span><span class="sxs-lookup"><span data-stu-id="aa49b-127">Installing hello Azure Import/Export Tool</span></span>  
+ <span data-ttu-id="aa49b-128">Olá, ferramenta de importação/exportação do Azure consiste em Olá seguintes arquivos:</span><span class="sxs-lookup"><span data-stu-id="aa49b-128">hello Azure Import/Export Tool consists of hello following files:</span></span>  
   
--   <span data-ttu-id="6e62a-129">WAImportExport.exe</span><span class="sxs-lookup"><span data-stu-id="6e62a-129">WAImportExport.exe</span></span>  
+-   <span data-ttu-id="aa49b-129">WAImportExport.exe</span><span class="sxs-lookup"><span data-stu-id="aa49b-129">WAImportExport.exe</span></span>  
   
--   <span data-ttu-id="6e62a-130">WAImportExport.exe.config</span><span class="sxs-lookup"><span data-stu-id="6e62a-130">WAImportExport.exe.config</span></span>  
+-   <span data-ttu-id="aa49b-130">WAImportExport.exe.config</span><span class="sxs-lookup"><span data-stu-id="aa49b-130">WAImportExport.exe.config</span></span>  
   
--   <span data-ttu-id="6e62a-131">WAImportExportCore.dll</span><span class="sxs-lookup"><span data-stu-id="6e62a-131">WAImportExportCore.dll</span></span>  
+-   <span data-ttu-id="aa49b-131">WAImportExportCore.dll</span><span class="sxs-lookup"><span data-stu-id="aa49b-131">WAImportExportCore.dll</span></span>  
   
--   <span data-ttu-id="6e62a-132">WAImportExportRepair.dll</span><span class="sxs-lookup"><span data-stu-id="6e62a-132">WAImportExportRepair.dll</span></span>  
+-   <span data-ttu-id="aa49b-132">WAImportExportRepair.dll</span><span class="sxs-lookup"><span data-stu-id="aa49b-132">WAImportExportRepair.dll</span></span>  
   
--   <span data-ttu-id="6e62a-133">Microsoft.WindowsAzure.Storage.dll</span><span class="sxs-lookup"><span data-stu-id="6e62a-133">Microsoft.WindowsAzure.Storage.dll</span></span>  
+-   <span data-ttu-id="aa49b-133">Microsoft.WindowsAzure.Storage.dll</span><span class="sxs-lookup"><span data-stu-id="aa49b-133">Microsoft.WindowsAzure.Storage.dll</span></span>  
   
--   <span data-ttu-id="6e62a-134">Hddid.dll</span><span class="sxs-lookup"><span data-stu-id="6e62a-134">Hddid.dll</span></span>  
+-   <span data-ttu-id="aa49b-134">Hddid.dll</span><span class="sxs-lookup"><span data-stu-id="aa49b-134">Hddid.dll</span></span>  
   
- <span data-ttu-id="6e62a-135">Copie esses arquivos para um diretório de trabalho, por exemplo, `c:\WAImportExport`.</span><span class="sxs-lookup"><span data-stu-id="6e62a-135">Copy these files to a working directory, for example, `c:\WAImportExport`.</span></span> <span data-ttu-id="6e62a-136">Em seguida, abra uma janela da linha de comando no modo Administrador e defina o diretório acima como o diretório atual.</span><span class="sxs-lookup"><span data-stu-id="6e62a-136">Next, open a command line window in Administrator mode, and set the above directory as current directory.</span></span>  
+ <span data-ttu-id="aa49b-135">Copie o diretório de trabalho do tooa esses arquivos, por exemplo, `c:\WAImportExport`.</span><span class="sxs-lookup"><span data-stu-id="aa49b-135">Copy these files tooa working directory, for example, `c:\WAImportExport`.</span></span> <span data-ttu-id="aa49b-136">Em seguida, abra uma janela de linha de comando no modo de administrador e defina Olá acima diretório como o diretório atual.</span><span class="sxs-lookup"><span data-stu-id="aa49b-136">Next, open a command line window in Administrator mode, and set hello above directory as current directory.</span></span>  
   
- <span data-ttu-id="6e62a-137">Para gerar a saída do comando, execute a ferramenta sem parâmetros:</span><span class="sxs-lookup"><span data-stu-id="6e62a-137">To output help for the command, run the tool without parameters:</span></span>  
+ <span data-ttu-id="aa49b-137">toooutput ajuda para o comando hello, execute a ferramenta Olá sem parâmetros:</span><span class="sxs-lookup"><span data-stu-id="aa49b-137">toooutput help for hello command, run hello tool without parameters:</span></span>  
   
 ```  
 WAImportExport, a client tool for Microsoft Azure Import/Export service. Microsoft (c) 2013, 2014  
@@ -119,117 +119,117 @@ Preview an Export Job:
 Parameters:  
   
     /j:<JournalFile>  
-        - Required. Path to the journal file. Each drive must have one and only one  
-          journal file. The journal file corresponding to the target drive must always  
+        - Required. Path toohello journal file. Each drive must have one and only one  
+          journal file. hello journal file corresponding toohello target drive must always  
           be specified.  
     /logdir:<LogDirectory>  
-        - Optional. The log directory. Verbose log files as well as some temporary  
-          files will be written to this directory. If not specified, current directory  
-          will be used as the log directory.  
+        - Optional. hello log directory. Verbose log files as well as some temporary  
+          files will be written toothis directory. If not specified, current directory  
+          will be used as hello log directory.  
     /id:<SessionId>  
-        - Required. The session Id is used to identify a copy session. It is used to  
+        - Required. hello session Id is used tooidentify a copy session. It is used too 
           ensure accurate recovery of an interrupted copy session. In addition, files  
-          that are copied in a copy session are stored in a directory named after the  
-          session Id on the target drive.  
+          that are copied in a copy session are stored in a directory named after hello  
+          session Id on hello target drive.  
     /resumesession  
-        - Optional. If the last copy session was terminated abnormally, this parameter  
-          can be specified to resume the session.  
+        - Optional. If hello last copy session was terminated abnormally, this parameter  
+          can be specified tooresume hello session.  
     /abortsession  
-        - Optional. If the last copy session was terminated abnormally, this parameter  
-          can be specified to abort the session.  
+        - Optional. If hello last copy session was terminated abnormally, this parameter  
+          can be specified tooabort hello session.  
     /sn:<StorageAccountName>  
-        - Required. Only applicable for RepairImport and RepairExport. The name of  
-          the storage account.  
+        - Required. Only applicable for RepairImport and RepairExport. hello name of  
+          hello storage account.  
     /sk:<StorageAccountKey>  
-        - Optional. The key of the storage account. One of /sk: and /csas: must be  
+        - Optional. hello key of hello storage account. One of /sk: and /csas: must be  
           specified.  
     /csas:<ContainerSas>  
-        - Optional. A container SAS, in format of <ContainerName>?<SasString>, to be  
-          used for import the data. One of /sk: and /csas: must be specified.  
+        - Optional. A container SAS, in format of <ContainerName>?<SasString>, toobe  
+          used for import hello data. One of /sk: and /csas: must be specified.  
     /t:<TargetDriveLetter>  
-        - Required. Drive letter of the target drive.  
+        - Required. Drive letter of hello target drive.  
     /r:<RepairFile>  
         - Required. Only applicable for RepairImport and RepairExport.  
-          Path to the file for tracking repair progress. Each drive must have one  
+          Path toohello file for tracking repair progress. Each drive must have one  
           and only one repair file.  
     /d:<TargetDirectories>  
         - Required. Only applicable for RepairImport and RepairExport.  
-          For RepairImport, one or more semicolon-separated directories to repair;  
-          For RepairExport, one directory to repair, e.g. root directory of the drive.  
+          For RepairImport, one or more semicolon-separated directories toorepair;  
+          For RepairExport, one directory toorepair, e.g. root directory of hello drive.  
     /format  
-        - Optional. If specified, the target drive will be formatted. DO NOT specify  
-          this parameter if you do not want to format the drive.  
+        - Optional. If specified, hello target drive will be formatted. DO NOT specify  
+          this parameter if you do not want tooformat hello drive.  
     /silentmode  
-        - Optional. If not specified, the /format parameter will require a confirmation  
-          from console before the tool formats the drive. If this parameter is specified,  
-          not confirmation will be given for formatting the drive.  
+        - Optional. If not specified, hello /format parameter will require a confirmation  
+          from console before hello tool formats hello drive. If this parameter is specified,  
+          not confirmation will be given for formatting hello drive.  
     /encrypt  
-        - Optional. If specified, the target drive will be encrypted with BitLocker.  
-          If the drive has already been encrypted with BitLocker, do not specify this  
-          parameter and instead specify the BitLocker key using the "/k" parameter.  
+        - Optional. If specified, hello target drive will be encrypted with BitLocker.  
+          If hello drive has already been encrypted with BitLocker, do not specify this  
+          parameter and instead specify hello BitLocker key using hello "/k" parameter.  
     /bk:<BitLockerKey>  
-        - Optional. The current BitLocker key if the drive has already been encrypted  
+        - Optional. hello current BitLocker key if hello drive has already been encrypted  
           with BitLocker.  
     /Disposition:<Disposition>  
-        - Optional. Specifies the behavior when a blob with the same path as the one  
+        - Optional. Specifies hello behavior when a blob with hello same path as hello one  
           being imported already exists. Valid values are: rename, no-overwrite and  
-          overwrite (case-sensitive). If not specified, "rename" will be used as the  
+          overwrite (case-sensitive). If not specified, "rename" will be used as hello  
           default value.  
     /BlobType:<BlobType>  
-        - Optional. The blob type for the imported blob(s). Valid values are BlockBlob  
-          and PageBlob. If not specified, BlockBlob will be used as the default value.  
+        - Optional. hello blob type for hello imported blob(s). Valid values are BlockBlob  
+          and PageBlob. If not specified, BlockBlob will be used as hello default value.  
     /PropertyFile:<PropertyFile>  
-        - Optional. Path to the property file for the file(s) to be imported.  
+        - Optional. Path toohello property file for hello file(s) toobe imported.  
     /MetadataFile:<MetadataFile>  
-        - Optional. Path to the metadata file for the file(s) to be imported.  
+        - Optional. Path toohello metadata file for hello file(s) toobe imported.  
     /CopyLogFile:<DriveCopyLogFile>  
-        - Required. Only applicable for RepairImport and RepairExport. Path to the  
+        - Required. Only applicable for RepairImport and RepairExport. Path toohello  
           drive copy log file (verbose or error).  
     /ManifestFile:<DriveManifestFile>  
-        - Required. Only applicable for RepairExport. Path to the drive manifest file.  
+        - Required. Only applicable for RepairExport. Path toohello drive manifest file.  
     /PathMapFile:<DrivePathMapFile>  
-        - Optional. Only applicable for RepairImport. Path to the file containing  
-          mappings of file paths relative to the drive root to locations of actual files  
+        - Optional. Only applicable for RepairImport. Path toohello file containing  
+          mappings of file paths relative toohello drive root toolocations of actual files  
           (tab-delimited). When first specified, it will be populated with file paths  
           with empty targets, which means either they are not found in TargetDirectories,  
-          access denied, with invalid name, or they exist in multiple directories. The  
-          path map file can be manually edited to include the correct target paths and  
-          specified again for the tool to resolve the file paths correctly.  
+          access denied, with invalid name, or they exist in multiple directories. hello  
+          path map file can be manually edited tooinclude hello correct target paths and  
+          specified again for hello tool tooresolve hello file paths correctly.  
     /ExportBlobListFile:<ExportBlobListFile>  
-        - Required. Path to the XML file containing list of blob paths or blob path  
-          prefixes for the blobs to be exported. The file format is the same as the  
-          blob list blob format in the Put Job operation of the Import/Export service  
+        - Required. Path toohello XML file containing list of blob paths or blob path  
+          prefixes for hello blobs toobe exported. hello file format is hello same as hello  
+          blob list blob format in hello Put Job operation of hello Import/Export service  
           REST API.  
     /DriveSize:<DriveSize>  
-        - Required. Size of drives to be used for export. For example, 500GB, 1.5TB.  
+        - Required. Size of drives toobe used for export. For example, 500GB, 1.5TB.  
           Note: 1 GB = 1,000,000,000 bytes  
                 1 TB = 1,000,000,000,000 bytes  
     /srcdir:<SourceDirectory>  
-        - Required. Source directory that contains files to be copied to the  
+        - Required. Source directory that contains files toobe copied toohello  
           target drives.  
     /dstdir:<DestinationBlobVirtualDirectory>  
-        - Required. Destination blob virtual directory to which the files will  
+        - Required. Destination blob virtual directory toowhich hello files will  
           be imported.  
     /srcfile:<SourceFilePath>  
-        - Required. Path to the source file to be imported.  
+        - Required. Path toohello source file toobe imported.  
     /dstblob:<DestinationBlobPath>  
-        - Required. Destination blob path for the file to be imported.  
+        - Required. Destination blob path for hello file toobe imported.  
     /skipwrite
-        - Optional. To skip write process. Used for inplace data drive preparation.
-          Be sure to reserve enough space (3 GB per 7TB) for drive manifest file!
+        - Optional. tooskip write process. Used for inplace data drive preparation.
+          Be sure tooreserve enough space (3 GB per 7TB) for drive manifest file!
 Examples:  
   
-    Copy a source directory to a drive:  
+    Copy a source directory tooa drive:  
     WAImportExport.exe PrepImport  
         /j:9WM35C2V.jrn /id:session#1 /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GEL  
         xmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /t:x /format /encrypt /srcdir:d:\movi  
         es\drama /dstdir:movies/drama/  
   
-    Copy another directory to the same drive following the above command:  
+    Copy another directory toohello same drive following hello above command:  
     WAImportExport.exe PrepImport  
         /j:9WM35C2V.jrn /id:session#2 /srcdir:d:\movies\action /dstdir:movies/action/  
   
-    Copy another file to the same drive following the above commands:  
+    Copy another file toohello same drive following hello above commands:  
     WAImportExport.exe PrepImport  
         /j:9WM35C2V.jrn /id:session#3 /srcfile:d:\movies\dvd.vhd /dstblob:movies/dvd.vhd /BlobType:PageBlob  
   
@@ -252,11 +252,11 @@ Examples:
         es\drama /dstdir:movies/drama/ /skipwrite
 ```  
   
-## <a name="next-steps"></a><span data-ttu-id="6e62a-138">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="6e62a-138">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="aa49b-138">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="aa49b-138">Next steps</span></span>
 
-* [<span data-ttu-id="6e62a-139">Preparação de discos rígidos para um trabalho de importação</span><span class="sxs-lookup"><span data-stu-id="6e62a-139">Preparing hard drives for an import job</span></span>](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [<span data-ttu-id="6e62a-140">Visualização do uso da unidade para um trabalho de exportação</span><span class="sxs-lookup"><span data-stu-id="6e62a-140">Previewing Drive usage for an export job</span></span>](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
-* [<span data-ttu-id="6e62a-141">Revisão do status do trabalho com arquivos de log de cópia</span><span class="sxs-lookup"><span data-stu-id="6e62a-141">Reviewing job status with copy log files</span></span>](../storage-import-export-tool-reviewing-job-status-v1.md)   
-* [<span data-ttu-id="6e62a-142">Reparação de um trabalho de importação</span><span class="sxs-lookup"><span data-stu-id="6e62a-142">Repairing an import job</span></span>](../storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [<span data-ttu-id="6e62a-143">Reparação de um trabalho de exportação</span><span class="sxs-lookup"><span data-stu-id="6e62a-143">Repairing an export job</span></span>](../storage-import-export-tool-repairing-an-export-job-v1.md)   
-* [<span data-ttu-id="6e62a-144">Solucionando problemas da Ferramenta de Importação/Exportação do Azure</span><span class="sxs-lookup"><span data-stu-id="6e62a-144">Troubleshooting the Azure Import/Export Tool</span></span>](storage-import-export-tool-troubleshooting-v1.md)
+* [<span data-ttu-id="aa49b-139">Preparação de discos rígidos para um trabalho de importação</span><span class="sxs-lookup"><span data-stu-id="aa49b-139">Preparing hard drives for an import job</span></span>](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [<span data-ttu-id="aa49b-140">Visualização do uso da unidade para um trabalho de exportação</span><span class="sxs-lookup"><span data-stu-id="aa49b-140">Previewing Drive usage for an export job</span></span>](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
+* [<span data-ttu-id="aa49b-141">Revisão do status do trabalho com arquivos de log de cópia</span><span class="sxs-lookup"><span data-stu-id="aa49b-141">Reviewing job status with copy log files</span></span>](../storage-import-export-tool-reviewing-job-status-v1.md)   
+* [<span data-ttu-id="aa49b-142">Reparação de um trabalho de importação</span><span class="sxs-lookup"><span data-stu-id="aa49b-142">Repairing an import job</span></span>](../storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [<span data-ttu-id="aa49b-143">Reparação de um trabalho de exportação</span><span class="sxs-lookup"><span data-stu-id="aa49b-143">Repairing an export job</span></span>](../storage-import-export-tool-repairing-an-export-job-v1.md)   
+* [<span data-ttu-id="aa49b-144">Olá, ferramenta de importação/exportação do Azure de solução de problemas</span><span class="sxs-lookup"><span data-stu-id="aa49b-144">Troubleshooting hello Azure Import/Export Tool</span></span>](storage-import-export-tool-troubleshooting-v1.md)

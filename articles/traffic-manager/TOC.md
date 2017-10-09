@@ -21,8 +21,8 @@
 ## [Verificar as Configurações do Gerenciador de Tráfego](traffic-manager-testing-settings.md)
 ## [Combinar serviços de balanceamento de carga](traffic-manager-load-balancing-azure.md)
 ## [Medir o desempenho do Gerenciador de Tráfego](traffic-manager-performance-considerations.md)
-## [Usar o PowerShell para gerenciar o Gerenciador de Tráfego](traffic-manager-powershell-arm.md)
-## [Apontar seu domínio da Internet para o Gerenciador de Tráfego](traffic-manager-point-internet-domain.md)
+## [Use o PowerShell toomanage Traffic Manager](traffic-manager-powershell-arm.md)
+## [Aponte seu domínio de Internet tooTraffic Manager](traffic-manager-point-internet-domain.md)
 ## Solucionar problemas
 ### [Solucionar problemas de status degradado no Gerenciador de Tráfego do Azure](traffic-manager-troubleshooting-degraded.md)
 

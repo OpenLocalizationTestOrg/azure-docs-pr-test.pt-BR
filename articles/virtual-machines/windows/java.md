@@ -1,6 +1,6 @@
 ---
-title: "Criar e gerenciar uma Máquina Virtual do Azure usando o Java | Microsoft Docs"
-description: "Use o Java e o Azure Resource Manager para implantar uma máquina virtual e todos os seus recursos de suporte."
+title: "aaaCreate e gerenciar um Azure Máquina Virtual usando o Java | Microsoft Docs"
+description: "Use o Java e o Azure Resource Manager toodeploy uma máquina virtual e todos os seus recursos de suporte."
 services: virtual-machines-windows
 documentationcenter: 
 author: davidmu1
@@ -15,32 +15,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.openlocfilehash: b9e739a07c5863577285fb3a221b372b385c6762
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 31ac8d59f92ecff887e64906940933dd6fd50815
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-and-manage-windows-vms-in-azure-using-java"></a><span data-ttu-id="c3969-103">Criar e gerenciar VMs Windows no Azure usando o Java</span><span class="sxs-lookup"><span data-stu-id="c3969-103">Create and manage Windows VMs in Azure using Java</span></span>
+# <a name="create-and-manage-windows-vms-in-azure-using-java"></a><span data-ttu-id="d5d9b-103">Criar e gerenciar VMs Windows no Azure usando o Java</span><span class="sxs-lookup"><span data-stu-id="d5d9b-103">Create and manage Windows VMs in Azure using Java</span></span>
 
-<span data-ttu-id="c3969-104">Uma [VM (Máquina Virtual) do Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) precisa de vários recursos do Azure suporte.</span><span class="sxs-lookup"><span data-stu-id="c3969-104">An [Azure Virtual Machine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) needs several supporting Azure resources.</span></span> <span data-ttu-id="c3969-105">Este artigo aborda a criação, o gerenciamento e a exclusão de recursos de VM usando o Java.</span><span class="sxs-lookup"><span data-stu-id="c3969-105">This article covers creating, managing, and deleting VM resources using Java.</span></span> <span data-ttu-id="c3969-106">Você aprenderá como:</span><span class="sxs-lookup"><span data-stu-id="c3969-106">You learn how to:</span></span>
+<span data-ttu-id="d5d9b-104">Uma [VM (Máquina Virtual) do Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) precisa de vários recursos do Azure suporte.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-104">An [Azure Virtual Machine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) needs several supporting Azure resources.</span></span> <span data-ttu-id="d5d9b-105">Este artigo aborda a criação, o gerenciamento e a exclusão de recursos de VM usando o Java.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-105">This article covers creating, managing, and deleting VM resources using Java.</span></span> <span data-ttu-id="d5d9b-106">Você aprenderá como:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-106">You learn how to:</span></span>
 
 > [!div class="checklist"]
-> * <span data-ttu-id="c3969-107">Criar um projeto Maven</span><span class="sxs-lookup"><span data-stu-id="c3969-107">Create a Maven project</span></span>
-> * <span data-ttu-id="c3969-108">Adicionar dependências</span><span class="sxs-lookup"><span data-stu-id="c3969-108">Add dependencies</span></span>
-> * <span data-ttu-id="c3969-109">Criar credenciais</span><span class="sxs-lookup"><span data-stu-id="c3969-109">Create credentials</span></span>
-> * <span data-ttu-id="c3969-110">Criar recursos</span><span class="sxs-lookup"><span data-stu-id="c3969-110">Create resources</span></span>
-> * <span data-ttu-id="c3969-111">Executar tarefas de gerenciamento</span><span class="sxs-lookup"><span data-stu-id="c3969-111">Perform management tasks</span></span>
-> * <span data-ttu-id="c3969-112">Excluir recursos</span><span class="sxs-lookup"><span data-stu-id="c3969-112">Delete resources</span></span>
-> * <span data-ttu-id="c3969-113">Executar o aplicativo</span><span class="sxs-lookup"><span data-stu-id="c3969-113">Run the application</span></span>
+> * <span data-ttu-id="d5d9b-107">Criar um projeto Maven</span><span class="sxs-lookup"><span data-stu-id="d5d9b-107">Create a Maven project</span></span>
+> * <span data-ttu-id="d5d9b-108">Adicionar dependências</span><span class="sxs-lookup"><span data-stu-id="d5d9b-108">Add dependencies</span></span>
+> * <span data-ttu-id="d5d9b-109">Criar credenciais</span><span class="sxs-lookup"><span data-stu-id="d5d9b-109">Create credentials</span></span>
+> * <span data-ttu-id="d5d9b-110">Criar recursos</span><span class="sxs-lookup"><span data-stu-id="d5d9b-110">Create resources</span></span>
+> * <span data-ttu-id="d5d9b-111">Executar tarefas de gerenciamento</span><span class="sxs-lookup"><span data-stu-id="d5d9b-111">Perform management tasks</span></span>
+> * <span data-ttu-id="d5d9b-112">Excluir recursos</span><span class="sxs-lookup"><span data-stu-id="d5d9b-112">Delete resources</span></span>
+> * <span data-ttu-id="d5d9b-113">Executar o aplicativo hello</span><span class="sxs-lookup"><span data-stu-id="d5d9b-113">Run hello application</span></span>
 
-<span data-ttu-id="c3969-114">São necessários cerca de 20 minutos para a conclusão destas etapas.</span><span class="sxs-lookup"><span data-stu-id="c3969-114">It takes about 20 minutes to do these steps.</span></span>
+<span data-ttu-id="d5d9b-114">Demora cerca de 20 minutos toodo essas etapas.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-114">It takes about 20 minutes toodo these steps.</span></span>
 
-## <a name="create-a-maven-project"></a><span data-ttu-id="c3969-115">Criar um projeto Maven</span><span class="sxs-lookup"><span data-stu-id="c3969-115">Create a Maven project</span></span>
+## <a name="create-a-maven-project"></a><span data-ttu-id="d5d9b-115">Criar um projeto Maven</span><span class="sxs-lookup"><span data-stu-id="d5d9b-115">Create a Maven project</span></span>
 
-1. <span data-ttu-id="c3969-116">Se você ainda não fez isso, instale o [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html).</span><span class="sxs-lookup"><span data-stu-id="c3969-116">If you haven't already done so, install [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html).</span></span>
-2. <span data-ttu-id="c3969-117">Instale o [Maven](http://maven.apache.org/download.cgi).</span><span class="sxs-lookup"><span data-stu-id="c3969-117">Install [Maven](http://maven.apache.org/download.cgi).</span></span>
-3. <span data-ttu-id="c3969-118">Crie uma nova pasta e o projeto:</span><span class="sxs-lookup"><span data-stu-id="c3969-118">Create a new folder and the project:</span></span>
+1. <span data-ttu-id="d5d9b-116">Se você ainda não fez isso, instale o [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html).</span><span class="sxs-lookup"><span data-stu-id="d5d9b-116">If you haven't already done so, install [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html).</span></span>
+2. <span data-ttu-id="d5d9b-117">Instale o [Maven](http://maven.apache.org/download.cgi).</span><span class="sxs-lookup"><span data-stu-id="d5d9b-117">Install [Maven](http://maven.apache.org/download.cgi).</span></span>
+3. <span data-ttu-id="d5d9b-118">Crie um novo projeto de pasta e hello:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-118">Create a new folder and hello project:</span></span>
     
     ```
     mkdir java-azure-test
@@ -49,9 +49,9 @@ ms.lasthandoff: 08/29/2017
     mvn archetype:generate -DgroupId=com.fabrikam -DartifactId=testAzureApp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-## <a name="add-dependencies"></a><span data-ttu-id="c3969-119">Adicionar dependências</span><span class="sxs-lookup"><span data-stu-id="c3969-119">Add dependencies</span></span>
+## <a name="add-dependencies"></a><span data-ttu-id="d5d9b-119">Adicionar dependências</span><span class="sxs-lookup"><span data-stu-id="d5d9b-119">Add dependencies</span></span>
 
-1. <span data-ttu-id="c3969-120">Na pasta `testAzureApp`, abra o arquivo `pom.xml` e adicione a configuração de build ao &lt;projeto&gt; para habilitar a criação do aplicativo:</span><span class="sxs-lookup"><span data-stu-id="c3969-120">Under the `testAzureApp` folder, open the `pom.xml` file and add the build configuration to &lt;project&gt; to enable the building of your application:</span></span>
+1. <span data-ttu-id="d5d9b-120">Em Olá `testAzureApp` pasta, abra Olá `pom.xml` de arquivo e adicione uma configuração de compilação de saudação muito&lt;projeto&gt; tooenable construção de saudação do seu aplicativo:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-120">Under hello `testAzureApp` folder, open hello `pom.xml` file and add hello build configuration too&lt;project&gt; tooenable hello building of your application:</span></span>
 
     ```xml
     <build>
@@ -67,7 +67,7 @@ ms.lasthandoff: 08/29/2017
     </build>
     ```
 
-2. <span data-ttu-id="c3969-121">Adicione as dependências necessárias para acessar o SDK do Java do Azure.</span><span class="sxs-lookup"><span data-stu-id="c3969-121">Add the dependencies that are needed to access the Azure Java SDK.</span></span>
+2. <span data-ttu-id="d5d9b-121">Adicione dependências Olá Olá tooaccess necessário SDK de Java do Azure.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-121">Add hello dependencies that are needed tooaccess hello Azure Java SDK.</span></span>
 
     ```xml
     <dependency>
@@ -112,15 +112,15 @@ ms.lasthandoff: 08/29/2017
     </dependency>
     ```
 
-3. <span data-ttu-id="c3969-122">Salve o arquivo.</span><span class="sxs-lookup"><span data-stu-id="c3969-122">Save the file.</span></span>
+3. <span data-ttu-id="d5d9b-122">Salve o arquivo hello.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-122">Save hello file.</span></span>
 
-## <a name="create-credentials"></a><span data-ttu-id="c3969-123">Criar credenciais</span><span class="sxs-lookup"><span data-stu-id="c3969-123">Create credentials</span></span>
+## <a name="create-credentials"></a><span data-ttu-id="d5d9b-123">Criar credenciais</span><span class="sxs-lookup"><span data-stu-id="d5d9b-123">Create credentials</span></span>
 
-<span data-ttu-id="c3969-124">Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de serviço do Active Directory](../../azure-resource-manager/resource-group-create-service-principal-portal.md).</span><span class="sxs-lookup"><span data-stu-id="c3969-124">Before you start this step, make sure that you have access to an [Active Directory service principal](../../azure-resource-manager/resource-group-create-service-principal-portal.md).</span></span> <span data-ttu-id="c3969-125">Além disso, registre o ID do aplicativo, a chave de autenticação e o ID do locatário que serão necessários em uma etapa posterior.</span><span class="sxs-lookup"><span data-stu-id="c3969-125">You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.</span></span>
+<span data-ttu-id="d5d9b-124">Antes de iniciar esta etapa, certifique-se de que você tenha acesso tooan [entidade de serviço do Active Directory](../../azure-resource-manager/resource-group-create-service-principal-portal.md).</span><span class="sxs-lookup"><span data-stu-id="d5d9b-124">Before you start this step, make sure that you have access tooan [Active Directory service principal](../../azure-resource-manager/resource-group-create-service-principal-portal.md).</span></span> <span data-ttu-id="d5d9b-125">Você também deve registrar a ID do aplicativo hello, chave de autenticação hello e ID de locatário Olá que você precisa em uma etapa posterior.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-125">You should also record hello application ID, hello authentication key, and hello tenant ID that you need in a later step.</span></span>
 
-### <a name="create-the-authorization-file"></a><span data-ttu-id="c3969-126">Criar o arquivo de autorização</span><span class="sxs-lookup"><span data-stu-id="c3969-126">Create the authorization file</span></span>
+### <a name="create-hello-authorization-file"></a><span data-ttu-id="d5d9b-126">Criar arquivo de autorização Olá</span><span class="sxs-lookup"><span data-stu-id="d5d9b-126">Create hello authorization file</span></span>
 
-1. <span data-ttu-id="c3969-127">Crie um arquivo chamado `azureauth.properties` e adicione estas propriedades a ele:</span><span class="sxs-lookup"><span data-stu-id="c3969-127">Create a file named `azureauth.properties` and add these properties to it:</span></span>
+1. <span data-ttu-id="d5d9b-127">Crie um arquivo chamado `azureauth.properties` e adicione tooit essas propriedades:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-127">Create a file named `azureauth.properties` and add these properties tooit:</span></span>
 
     ```
     subscription=<subscription-id>
@@ -133,20 +133,20 @@ ms.lasthandoff: 08/29/2017
     graphURL=https://graph.windows.net/
     ```
 
-    <span data-ttu-id="c3969-128">Substitua **&lt;subscription-id&gt;** pelo identificador da assinatura, **&lt;application-id&gt;** pelo identificador de aplicativo do Active Directory, **&lt;authentication-key&gt;** pela chave do aplicativo e **&lt;tenant-id&gt;** pelo identificador do locatário.</span><span class="sxs-lookup"><span data-stu-id="c3969-128">Replace **&lt;subscription-id&gt;** with your subscription identifier, **&lt;application-id&gt;** with the Active Directory application identifier, **&lt;authentication-key&gt;** with the application key, and **&lt;tenant-id&gt;** with the tenant identifier.</span></span>
+    <span data-ttu-id="d5d9b-128">Substituir  **&lt;id da assinatura&gt;**  com o identificador de assinatura,  **&lt;id do aplicativo&gt;**  com hello aplicativo do Active Directory identificador,  **&lt;chave de autenticação&gt;**  com chave de aplicativo hello, e  **&lt;id de locatário&gt;**  com locatário Olá identificador.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-128">Replace **&lt;subscription-id&gt;** with your subscription identifier, **&lt;application-id&gt;** with hello Active Directory application identifier, **&lt;authentication-key&gt;** with hello application key, and **&lt;tenant-id&gt;** with hello tenant identifier.</span></span>
 
-2. <span data-ttu-id="c3969-129">Salve o arquivo.</span><span class="sxs-lookup"><span data-stu-id="c3969-129">Save the file.</span></span>
-3. <span data-ttu-id="c3969-130">Defina uma variável de ambiente chamada AZURE_AUTH_LOCATION no shell com o caminho completo para o arquivo de autenticação.</span><span class="sxs-lookup"><span data-stu-id="c3969-130">Set an environment variable named AZURE_AUTH_LOCATION in your shell with the full path to the authentication file.</span></span>
+2. <span data-ttu-id="d5d9b-129">Salve o arquivo hello.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-129">Save hello file.</span></span>
+3. <span data-ttu-id="d5d9b-130">Defina uma variável de ambiente denominada AZURE_AUTH_LOCATION no shell com o arquivo de autenticação de toohello Olá caminho completo.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-130">Set an environment variable named AZURE_AUTH_LOCATION in your shell with hello full path toohello authentication file.</span></span>
 
-### <a name="create-the-management-client"></a><span data-ttu-id="c3969-131">Criar o cliente de gerenciamento</span><span class="sxs-lookup"><span data-stu-id="c3969-131">Create the management client</span></span>
+### <a name="create-hello-management-client"></a><span data-ttu-id="d5d9b-131">Crie saudação do cliente de gerenciamento</span><span class="sxs-lookup"><span data-stu-id="d5d9b-131">Create hello management client</span></span>
 
-1. <span data-ttu-id="c3969-132">Abra o arquivo `App.java` em `src\main\java\com\fabrikam` e verifique se esta declaração de pacote está na parte superior:</span><span class="sxs-lookup"><span data-stu-id="c3969-132">Open the `App.java` file under `src\main\java\com\fabrikam` and make sure this package statement is at the top:</span></span>
+1. <span data-ttu-id="d5d9b-132">Olá abrir `App.java` arquivo sob `src\main\java\com\fabrikam` e verifique se essa instrução de pacote está na parte superior da saudação:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-132">Open hello `App.java` file under `src\main\java\com\fabrikam` and make sure this package statement is at hello top:</span></span>
 
     ```java
     package com.fabrikam.testAzureApp;
     ```
 
-2. <span data-ttu-id="c3969-133">Abaixo da declaração de pacote, adicione estas instruções de importação:</span><span class="sxs-lookup"><span data-stu-id="c3969-133">Under the package statement, add these import statements:</span></span>
+2. <span data-ttu-id="d5d9b-133">Na instrução de pacote hello, adicione estas instruções de importação:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-133">Under hello package statement, add these import statements:</span></span>
    
     ```java
     import com.microsoft.azure.management.Azure;
@@ -168,7 +168,7 @@ ms.lasthandoff: 08/29/2017
     import java.util.Scanner;
     ```
 
-2. <span data-ttu-id="c3969-134">Para criar as credenciais do Active Directory necessárias para fazer solicitações, adicione este código ao método principal da classe App:</span><span class="sxs-lookup"><span data-stu-id="c3969-134">To create the Active Directory credentials that you need to make requests, add this code to the main method of the App class:</span></span>
+2. <span data-ttu-id="d5d9b-134">credenciais do Active Directory Olá toocreate que você precisa de solicitações de toomake, adicione esse código toohello principal método hello classe App:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-134">toocreate hello Active Directory credentials that you need toomake requests, add this code toohello main method of hello App class:</span></span>
    
     ```java
     try {    
@@ -184,13 +184,13 @@ ms.lasthandoff: 08/29/2017
 
     ```
 
-## <a name="create-resources"></a><span data-ttu-id="c3969-135">Criar recursos</span><span class="sxs-lookup"><span data-stu-id="c3969-135">Create resources</span></span>
+## <a name="create-resources"></a><span data-ttu-id="d5d9b-135">Criar recursos</span><span class="sxs-lookup"><span data-stu-id="d5d9b-135">Create resources</span></span>
 
-### <a name="create-the-resource-group"></a><span data-ttu-id="c3969-136">Criar o grupo de recursos</span><span class="sxs-lookup"><span data-stu-id="c3969-136">Create the resource group</span></span>
+### <a name="create-hello-resource-group"></a><span data-ttu-id="d5d9b-136">Criar grupo de recursos de saudação</span><span class="sxs-lookup"><span data-stu-id="d5d9b-136">Create hello resource group</span></span>
 
-<span data-ttu-id="c3969-137">Todos os recursos devem estar contidos em um [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md).</span><span class="sxs-lookup"><span data-stu-id="c3969-137">All resources must be contained in a [Resource group](../../azure-resource-manager/resource-group-overview.md).</span></span>
+<span data-ttu-id="d5d9b-137">Todos os recursos devem estar contidos em um [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md).</span><span class="sxs-lookup"><span data-stu-id="d5d9b-137">All resources must be contained in a [Resource group](../../azure-resource-manager/resource-group-overview.md).</span></span>
 
-<span data-ttu-id="c3969-138">Para especificar valores para o aplicativo e criar o grupo de recursos, adicione este código ao bloco try no método principal:</span><span class="sxs-lookup"><span data-stu-id="c3969-138">To specify values for the application and create the resource group, add this code to the try block in the main method:</span></span>
+<span data-ttu-id="d5d9b-138">toospecify valores hello aplicativo e criar grupo de recursos de saudação, adicione este bloco de try toohello código no método main hello:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-138">toospecify values for hello application and create hello resource group, add this code toohello try block in hello main method:</span></span>
 
 ```java
 System.out.println("Creating resource group...");
@@ -200,11 +200,11 @@ ResourceGroup resourceGroup = azure.resourceGroups()
     .create();
 ```
 
-### <a name="create-the-availability-set"></a><span data-ttu-id="c3969-139">Criar o conjunto de disponibilidade</span><span class="sxs-lookup"><span data-stu-id="c3969-139">Create the availability set</span></span>
+### <a name="create-hello-availability-set"></a><span data-ttu-id="d5d9b-139">Criar conjunto de disponibilidade Olá</span><span class="sxs-lookup"><span data-stu-id="d5d9b-139">Create hello availability set</span></span>
 
-<span data-ttu-id="c3969-140">Os [conjuntos de disponibilidade](tutorial-availability-sets.md) facilitam a manutenção das máquinas virtuais usadas por seu aplicativo.</span><span class="sxs-lookup"><span data-stu-id="c3969-140">[Availability sets](tutorial-availability-sets.md) make it easier for you to maintain the virtual machines used by your application.</span></span>
+<span data-ttu-id="d5d9b-140">[Conjuntos de disponibilidade](tutorial-availability-sets.md) tornar mais fácil para você toomaintain Olá VMs usados pelo seu aplicativo.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-140">[Availability sets](tutorial-availability-sets.md) make it easier for you toomaintain hello virtual machines used by your application.</span></span>
 
-<span data-ttu-id="c3969-141">Para criar o conjunto de disponibilidade, adicione este código ao bloco try no método principal:</span><span class="sxs-lookup"><span data-stu-id="c3969-141">To create the availability set, add this code to the try block in the main method:</span></span>
+<span data-ttu-id="d5d9b-141">disponibilidade de saudação toocreate definido, adicione este bloco de try toohello código no método main hello:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-141">toocreate hello availability set, add this code toohello try block in hello main method:</span></span>
 
 ```java
 System.out.println("Creating availability set...");
@@ -215,11 +215,11 @@ AvailabilitySet availabilitySet = azure.availabilitySets()
     .withSku(AvailabilitySetSkuTypes.MANAGED)
     .create();
 ```
-### <a name="create-the-public-ip-address"></a><span data-ttu-id="c3969-142">Criar um endereço IP público</span><span class="sxs-lookup"><span data-stu-id="c3969-142">Create the public IP address</span></span>
+### <a name="create-hello-public-ip-address"></a><span data-ttu-id="d5d9b-142">Criar endereço IP público de saudação</span><span class="sxs-lookup"><span data-stu-id="d5d9b-142">Create hello public IP address</span></span>
 
-<span data-ttu-id="c3969-143">Um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) é necessário para se comunicar com a máquina virtual.</span><span class="sxs-lookup"><span data-stu-id="c3969-143">A [Public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) is needed to communicate with the virtual machine.</span></span>
+<span data-ttu-id="d5d9b-143">Um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) é necessário toocommunicate com a máquina virtual de saudação.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-143">A [Public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) is needed toocommunicate with hello virtual machine.</span></span>
 
-<span data-ttu-id="c3969-144">Para criar o endereço IP público para a máquina virtual, adicione este código ao bloco try no método principal:</span><span class="sxs-lookup"><span data-stu-id="c3969-144">To create the public IP address for the virtual machine, add this code to the try block in the main method:</span></span>
+<span data-ttu-id="d5d9b-144">toocreate Olá endereço IP público para a máquina virtual de Olá, adicione este bloco de try toohello código no método main hello:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-144">toocreate hello public IP address for hello virtual machine, add this code toohello try block in hello main method:</span></span>
 
 ```java
 System.out.println("Creating public IP address...");
@@ -231,11 +231,11 @@ PublicIPAddress publicIPAddress = azure.publicIPAddresses()
     .create();
 ```
 
-### <a name="create-the-virtual-network"></a><span data-ttu-id="c3969-145">Criar a rede virtual</span><span class="sxs-lookup"><span data-stu-id="c3969-145">Create the virtual network</span></span>
+### <a name="create-hello-virtual-network"></a><span data-ttu-id="d5d9b-145">Criar rede virtual Olá</span><span class="sxs-lookup"><span data-stu-id="d5d9b-145">Create hello virtual network</span></span>
 
-<span data-ttu-id="c3969-146">Uma máquina virtual precisa estar em uma sub-rede de uma [Rede virtual](../../virtual-network/virtual-networks-overview.md).</span><span class="sxs-lookup"><span data-stu-id="c3969-146">A virtual machine must be in a subnet of a [Virtual network](../../virtual-network/virtual-networks-overview.md).</span></span>
+<span data-ttu-id="d5d9b-146">Uma máquina virtual precisa estar em uma sub-rede de uma [Rede virtual](../../virtual-network/virtual-networks-overview.md).</span><span class="sxs-lookup"><span data-stu-id="d5d9b-146">A virtual machine must be in a subnet of a [Virtual network](../../virtual-network/virtual-networks-overview.md).</span></span>
 
-<span data-ttu-id="c3969-147">Para criar uma sub-rede e uma rede virtual, adicione este código ao bloco try no método principal:</span><span class="sxs-lookup"><span data-stu-id="c3969-147">To create a subnet and a virtual network, add this code to the try block in the main method:</span></span>
+<span data-ttu-id="d5d9b-147">toocreate uma sub-rede e uma rede virtual, adicione este bloco de try toohello código no método main hello:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-147">toocreate a subnet and a virtual network, add this code toohello try block in hello main method:</span></span>
 
 ```java
 System.out.println("Creating virtual network...");
@@ -248,11 +248,11 @@ Network network = azure.networks()
     .create();
 ```
 
-### <a name="create-the-network-interface"></a><span data-ttu-id="c3969-148">Criar a interface de rede</span><span class="sxs-lookup"><span data-stu-id="c3969-148">Create the network interface</span></span>
+### <a name="create-hello-network-interface"></a><span data-ttu-id="d5d9b-148">Criar a interface de rede Olá</span><span class="sxs-lookup"><span data-stu-id="d5d9b-148">Create hello network interface</span></span>
 
-<span data-ttu-id="c3969-149">Uma máquina virtual precisa de uma interface de rede para se comunicar na rede virtual.</span><span class="sxs-lookup"><span data-stu-id="c3969-149">A virtual machine needs a network interface to communicate on the virtual network.</span></span>
+<span data-ttu-id="d5d9b-149">Uma máquina virtual precisa de um toocommunicate de interface de rede na rede virtual hello.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-149">A virtual machine needs a network interface toocommunicate on hello virtual network.</span></span>
 
-<span data-ttu-id="c3969-150">Para criar um adaptador de rede, adicione este código ao bloco try no método principal:</span><span class="sxs-lookup"><span data-stu-id="c3969-150">To create a network interface, add this code to the try block in the main method:</span></span>
+<span data-ttu-id="d5d9b-150">toocreate uma interface de rede, adicione este bloco de try toohello código no método main hello:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-150">toocreate a network interface, add this code toohello try block in hello main method:</span></span>
 
 ```java
 System.out.println("Creating network interface...");
@@ -267,11 +267,11 @@ NetworkInterface networkInterface = azure.networkInterfaces()
     .create();
 ```
 
-### <a name="create-the-virtual-machine"></a><span data-ttu-id="c3969-151">Criar a máquina virtual</span><span class="sxs-lookup"><span data-stu-id="c3969-151">Create the virtual machine</span></span>
+### <a name="create-hello-virtual-machine"></a><span data-ttu-id="d5d9b-151">Criar a máquina virtual de saudação</span><span class="sxs-lookup"><span data-stu-id="d5d9b-151">Create hello virtual machine</span></span>
 
-<span data-ttu-id="c3969-152">Agora que você criou todos os recursos de suporte, você pode criar uma máquina virtual.</span><span class="sxs-lookup"><span data-stu-id="c3969-152">Now that you created all the supporting resources, you can create a virtual machine.</span></span>
+<span data-ttu-id="d5d9b-152">Agora que você criou Olá todos os recursos de suporte, você pode criar uma máquina virtual.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-152">Now that you created all hello supporting resources, you can create a virtual machine.</span></span>
 
-<span data-ttu-id="c3969-153">Para criar a máquina virtual, adicione este código ao bloco try no método principal:</span><span class="sxs-lookup"><span data-stu-id="c3969-153">To create the virtual machine, add this code to the try block in the main method:</span></span>
+<span data-ttu-id="d5d9b-153">toocreate Olá a máquina virtual, adicione este bloco de try toohello código no método main hello:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-153">toocreate hello virtual machine, add this code toohello try block in hello main method:</span></span>
 
 ```java
 System.out.println("Creating virtual machine...");
@@ -288,16 +288,16 @@ VirtualMachine virtualMachine = azure.virtualMachines()
     .withSize("Standard_DS1")
     .create();
 Scanner input = new Scanner(System.in);
-System.out.println("Press enter to get information about the VM...");
+System.out.println("Press enter tooget information about hello VM...");
 input.nextLine();
 ```
 
 > [!NOTE]
-> <span data-ttu-id="c3969-154">Este tutorial cria uma máquina virtual executando uma versão do sistema operacional do Windows Server.</span><span class="sxs-lookup"><span data-stu-id="c3969-154">This tutorial creates a virtual machine running a version of the Windows Server operating system.</span></span> <span data-ttu-id="c3969-155">Para saber mais sobre a seleção de outras imagens, veja [Navegar e selecionar imagens de máquina virtual do Azure com o Windows PowerShell e a CLI do Azure](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="c3969-155">To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span></span>
+> <span data-ttu-id="d5d9b-154">Este tutorial cria uma máquina virtual executando uma versão do sistema de operacional de servidor do Windows hello.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-154">This tutorial creates a virtual machine running a version of hello Windows Server operating system.</span></span> <span data-ttu-id="d5d9b-155">toolearn mais sobre como selecionar outras imagens, consulte [navegue e selecione as imagens de máquina virtual do Azure com o Windows PowerShell e hello CLI do Azure](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="d5d9b-155">toolearn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and hello Azure CLI](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span></span>
 > 
 >
 
-<span data-ttu-id="c3969-156">Se você quiser usar um disco existente em vez de uma imagem do marketplace, use este código:</span><span class="sxs-lookup"><span data-stu-id="c3969-156">If you want to use an existing disk instead of a marketplace image, use this code:</span></span> 
+<span data-ttu-id="d5d9b-156">Se você quiser toouse um disco existente em vez de uma imagem do marketplace, use este código:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-156">If you want toouse an existing disk instead of a marketplace image, use this code:</span></span> 
 
 ```java
 ManagedDisk managedDisk = azure.disks.define("myosdisk") 
@@ -318,19 +318,19 @@ azure.virtualMachines.define("myVM")
     .create(); 
 ``` 
 
-## <a name="perform-management-tasks"></a><span data-ttu-id="c3969-157">Executar tarefas de gerenciamento</span><span class="sxs-lookup"><span data-stu-id="c3969-157">Perform management tasks</span></span>
+## <a name="perform-management-tasks"></a><span data-ttu-id="d5d9b-157">Executar outras tarefas de gerenciamento</span><span class="sxs-lookup"><span data-stu-id="d5d9b-157">Perform management tasks</span></span>
 
-<span data-ttu-id="c3969-158">Durante o ciclo de vida de uma máquina virtual, é possível que você queira executar tarefas de gerenciamento, como inicialização, interrupção ou exclusão de uma máquina virtual.</span><span class="sxs-lookup"><span data-stu-id="c3969-158">During the lifecycle of a virtual machine, you may want to run management tasks such as starting, stopping, or deleting a virtual machine.</span></span> <span data-ttu-id="c3969-159">Além disso, é possível que você queira criar um código para automatizar tarefas complexas ou repetitivas.</span><span class="sxs-lookup"><span data-stu-id="c3969-159">Additionally, you may want to create code to automate repetitive or complex tasks.</span></span>
+<span data-ttu-id="d5d9b-158">Durante a saudação do ciclo de vida de uma máquina virtual, talvez você queira toorun tarefas de gerenciamento como iniciar, parar ou excluir uma máquina virtual.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-158">During hello lifecycle of a virtual machine, you may want toorun management tasks such as starting, stopping, or deleting a virtual machine.</span></span> <span data-ttu-id="d5d9b-159">Além disso, talvez você queira toocreate código tooautomate repetitivas ou complexas tarefas.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-159">Additionally, you may want toocreate code tooautomate repetitive or complex tasks.</span></span>
 
-<span data-ttu-id="c3969-160">Quando você precisar fazer alguma coisa com a VM, precisará obter uma instância dela.</span><span class="sxs-lookup"><span data-stu-id="c3969-160">When you need to do anything with the VM, you need to get an instance of it.</span></span> <span data-ttu-id="c3969-161">Adicione este código ao bloco try do método principal:</span><span class="sxs-lookup"><span data-stu-id="c3969-161">Add this code to the try block of the main method:</span></span>
+<span data-ttu-id="d5d9b-160">Quando você precisar toodo nada com hello VM, você precisa tooget uma instância dele.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-160">When you need toodo anything with hello VM, you need tooget an instance of it.</span></span> <span data-ttu-id="d5d9b-161">Adicione este bloco de tente toohello código do método principal hello:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-161">Add this code toohello try block of hello main method:</span></span>
 
 ```java
 VirtualMachine vm = azure.virtualMachines().getByResourceGroup("myResourceGroup", "myVM");
 ```
 
-### <a name="get-information-about-the-vm"></a><span data-ttu-id="c3969-162">Obter informações sobre a VM</span><span class="sxs-lookup"><span data-stu-id="c3969-162">Get information about the VM</span></span>
+### <a name="get-information-about-hello-vm"></a><span data-ttu-id="d5d9b-162">Obter informações sobre Olá VM</span><span class="sxs-lookup"><span data-stu-id="d5d9b-162">Get information about hello VM</span></span>
 
-<span data-ttu-id="c3969-163">Para obter informações sobre a máquina virtual, adicione este código ao bloco try no método principal:</span><span class="sxs-lookup"><span data-stu-id="c3969-163">To get information about the virtual machine, add this code to the try block in the main method:</span></span>
+<span data-ttu-id="d5d9b-163">tooget informações sobre a máquina virtual de Olá, adicione este bloco de try toohello código no método main hello:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-163">tooget information about hello virtual machine, add this code toohello try block in hello main method:</span></span>
 
 ```java
 System.out.println("hardwareProfile");
@@ -382,94 +382,94 @@ for(InstanceViewStatus status : vm.instanceView().statuses()) {
     System.out.println("  code: " + status.code());
     System.out.println("  displayStatus: " + status.displayStatus());
 }
-System.out.println("Press enter to continue...");
+System.out.println("Press enter toocontinue...");
 input.nextLine();   
 ```
 
-### <a name="stop-the-vm"></a><span data-ttu-id="c3969-164">Pare a VM.</span><span class="sxs-lookup"><span data-stu-id="c3969-164">Stop the VM</span></span>
+### <a name="stop-hello-vm"></a><span data-ttu-id="d5d9b-164">Parar Olá VM</span><span class="sxs-lookup"><span data-stu-id="d5d9b-164">Stop hello VM</span></span>
 
-<span data-ttu-id="c3969-165">Você pode parar uma máquina virtual e manter todas as suas configurações, mas continuará a ser cobrado por ela, ou pode parar uma máquina virtual e desalocá-la.</span><span class="sxs-lookup"><span data-stu-id="c3969-165">You can stop a virtual machine and keep all its settings, but continue to be charged for it, or you can stop a virtual machine and deallocate it.</span></span> <span data-ttu-id="c3969-166">Quando uma máquina virtual é desalocada, todos os recursos associados a ela também são desalocadas e a cobrança para eles termina.</span><span class="sxs-lookup"><span data-stu-id="c3969-166">When a virtual machine is deallocated, all resources associated with it are also deallocated and billing ends for it.</span></span>
+<span data-ttu-id="d5d9b-165">Você pode parar uma máquina virtual e mantenha todas as suas configurações, mas continuar toobe cobrado por ele, ou você pode parar uma máquina virtual e desalocar a ele.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-165">You can stop a virtual machine and keep all its settings, but continue toobe charged for it, or you can stop a virtual machine and deallocate it.</span></span> <span data-ttu-id="d5d9b-166">Quando uma máquina virtual é desalocada, todos os recursos associados a ela também são desalocadas e a cobrança para eles termina.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-166">When a virtual machine is deallocated, all resources associated with it are also deallocated and billing ends for it.</span></span>
 
-<span data-ttu-id="c3969-167">Para interromper a máquina virtual sem desalocá-la, adicione este código ao bloco try no método principal:</span><span class="sxs-lookup"><span data-stu-id="c3969-167">To stop the virtual machine without deallocating it, add this code to the try block in the main method:</span></span>
+<span data-ttu-id="d5d9b-167">toostop Olá VM sem desalocá-lo, adicionar esse bloco de try toohello código no método main hello:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-167">toostop hello virtual machine without deallocating it, add this code toohello try block in hello main method:</span></span>
 
 ```java
 System.out.println("Stopping vm...");
 vm.powerOff();
-System.out.println("Press enter to continue...");
+System.out.println("Press enter toocontinue...");
 input.nextLine();
 ```
 
-<span data-ttu-id="c3969-168">Se você desejar desalocar a máquina virtual, altere a chamada PowerOff para este código:</span><span class="sxs-lookup"><span data-stu-id="c3969-168">If you want to deallocate the virtual machine, change the PowerOff call to this code:</span></span>
+<span data-ttu-id="d5d9b-168">Se você quiser toodeallocate Olá virtual machine, altere o código do hello desligado chamada toothis:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-168">If you want toodeallocate hello virtual machine, change hello PowerOff call toothis code:</span></span>
 
 ```java
 vm.deallocate();
 ```
 
-### <a name="start-the-vm"></a><span data-ttu-id="c3969-169">Iniciar a VM</span><span class="sxs-lookup"><span data-stu-id="c3969-169">Start the VM</span></span>
+### <a name="start-hello-vm"></a><span data-ttu-id="d5d9b-169">Olá iniciar VM</span><span class="sxs-lookup"><span data-stu-id="d5d9b-169">Start hello VM</span></span>
 
-<span data-ttu-id="c3969-170">Para iniciar a máquina virtual, adicione este código ao bloco try no método principal:</span><span class="sxs-lookup"><span data-stu-id="c3969-170">To start the virtual machine, add this code to the try block in the main method:</span></span>
+<span data-ttu-id="d5d9b-170">toostart Olá a máquina virtual, adicione este bloco de try toohello código no método main hello:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-170">toostart hello virtual machine, add this code toohello try block in hello main method:</span></span>
 
 ```java
 System.out.println("Starting vm...");
 vm.start();
-System.out.println("Press enter to continue...");
+System.out.println("Press enter toocontinue...");
 input.nextLine();
 ```
 
-### <a name="resize-the-vm"></a><span data-ttu-id="c3969-171">Redimensionar a VM</span><span class="sxs-lookup"><span data-stu-id="c3969-171">Resize the VM</span></span>
+### <a name="resize-hello-vm"></a><span data-ttu-id="d5d9b-171">Redimensionar Olá VM</span><span class="sxs-lookup"><span data-stu-id="d5d9b-171">Resize hello VM</span></span>
 
-<span data-ttu-id="c3969-172">Muitos aspectos da implantação devem ser considerados ao decidir sobre um tamanho para sua máquina virtual.</span><span class="sxs-lookup"><span data-stu-id="c3969-172">Many aspects of deployment should be considered when deciding on a size for your virtual machine.</span></span> <span data-ttu-id="c3969-173">Para obter mais informações, consulte [Tamanhos de VM](sizes.md).</span><span class="sxs-lookup"><span data-stu-id="c3969-173">For more information, see [VM sizes](sizes.md).</span></span>  
+<span data-ttu-id="d5d9b-172">Muitos aspectos da implantação devem ser considerados ao decidir sobre um tamanho para sua máquina virtual.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-172">Many aspects of deployment should be considered when deciding on a size for your virtual machine.</span></span> <span data-ttu-id="d5d9b-173">Para obter mais informações, consulte [Tamanhos de VM](sizes.md).</span><span class="sxs-lookup"><span data-stu-id="d5d9b-173">For more information, see [VM sizes](sizes.md).</span></span>  
 
-<span data-ttu-id="c3969-174">Para alterar o tamanho da máquina virtual, adicione este código ao bloco try no método principal:</span><span class="sxs-lookup"><span data-stu-id="c3969-174">To change size of the virtual machine, add this code to the try block in the main method:</span></span>
+<span data-ttu-id="d5d9b-174">toochange tamanho da máquina virtual de Olá, adicione este bloco de try toohello código no método main hello:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-174">toochange size of hello virtual machine, add this code toohello try block in hello main method:</span></span>
 
 ```java
 System.out.println("Resizing vm...");
 vm.update()
     .withSize(VirtualMachineSizeTypes.STANDARD_DS2)
     .apply();
-System.out.println("Press enter to continue...");
+System.out.println("Press enter toocontinue...");
 input.nextLine();
 ```
 
-### <a name="add-a-data-disk-to-the-vm"></a><span data-ttu-id="c3969-175">Adicionar um disco de dados à VM</span><span class="sxs-lookup"><span data-stu-id="c3969-175">Add a data disk to the VM</span></span>
+### <a name="add-a-data-disk-toohello-vm"></a><span data-ttu-id="d5d9b-175">Adicionar um disco de dados toohello VM</span><span class="sxs-lookup"><span data-stu-id="d5d9b-175">Add a data disk toohello VM</span></span>
 
-<span data-ttu-id="c3969-176">Para adicionar um disco de dados à máquina virtual que tem 2 GB de tamanho, um LUN igual a 0 e um tipo de cache ReadWrite, adicione este código ao bloco try no método principal:</span><span class="sxs-lookup"><span data-stu-id="c3969-176">To add a data disk to the virtual machine that is 2 GB in size, has a LUN of 0, and a caching type of ReadWrite, add this code to the try block in the main method:</span></span>
+<span data-ttu-id="d5d9b-176">tooadd uma máquina de virtual de toohello disco de dados que é 2 GB de tamanho, tem um LUN de 0 e um tipo de cache de ReadWrite, adicione este bloco de try toohello código no método main hello:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-176">tooadd a data disk toohello virtual machine that is 2 GB in size, has a LUN of 0, and a caching type of ReadWrite, add this code toohello try block in hello main method:</span></span>
 
 ```java
 System.out.println("Adding data disk...");
 vm.update()
     .withNewDataDisk(2, 0, CachingTypes.READ_WRITE)
     .apply();
-System.out.println("Press enter to delete resources...");
+System.out.println("Press enter toodelete resources...");
 input.nextLine();
 ```
 
-## <a name="delete-resources"></a><span data-ttu-id="c3969-177">Excluir recursos</span><span class="sxs-lookup"><span data-stu-id="c3969-177">Delete resources</span></span>
+## <a name="delete-resources"></a><span data-ttu-id="d5d9b-177">Excluir recursos</span><span class="sxs-lookup"><span data-stu-id="d5d9b-177">Delete resources</span></span>
 
-<span data-ttu-id="c3969-178">Como você é cobrado pelos recursos utilizados no Azure, sempre é uma boa prática excluir os recursos que não são mais necessários.</span><span class="sxs-lookup"><span data-stu-id="c3969-178">Because you are charged for resources used in Azure, it is always good practice to delete resources that are no longer needed.</span></span> <span data-ttu-id="c3969-179">Se você quiser excluir as máquinas virtuais e todos os recursos de suporte, tudo o que precisa fazer é excluir o grupo de recursos.</span><span class="sxs-lookup"><span data-stu-id="c3969-179">If you want to delete the virtual machines and all the supporting resources, all you have to do is delete the resource group.</span></span>
+<span data-ttu-id="d5d9b-178">Como você é cobrado pelos recursos usados no Azure, é sempre recursos toodelete de práticas recomendadas que não são mais necessários.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-178">Because you are charged for resources used in Azure, it is always good practice toodelete resources that are no longer needed.</span></span> <span data-ttu-id="d5d9b-179">Se você quiser toodelete Olá VMs e Olá todos os recursos de suporte, você tem toodo é Olá exclusão do grupo de recursos.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-179">If you want toodelete hello virtual machines and all hello supporting resources, all you have toodo is delete hello resource group.</span></span>
 
-1. <span data-ttu-id="c3969-180">Para excluir o grupo de recursos, adicione este código ao bloco try no método principal:</span><span class="sxs-lookup"><span data-stu-id="c3969-180">To delete the resource group, add this code to the try block in the main method:</span></span>
+1. <span data-ttu-id="d5d9b-180">recurso de saudação toodelete grupo, adicione este bloco de try toohello código no método main hello:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-180">toodelete hello resource group, add this code toohello try block in hello main method:</span></span>
    
 ```java
 System.out.println("Deleting resources...");
 azure.resourceGroups().deleteByName("myResourceGroup");
 ```
 
-2. <span data-ttu-id="c3969-181">Salve o arquivo App.java.</span><span class="sxs-lookup"><span data-stu-id="c3969-181">Save the App.java file.</span></span>
+2. <span data-ttu-id="d5d9b-181">Salve o arquivo de App.java hello.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-181">Save hello App.java file.</span></span>
 
-## <a name="run-the-application"></a><span data-ttu-id="c3969-182">Executar o aplicativo</span><span class="sxs-lookup"><span data-stu-id="c3969-182">Run the application</span></span>
+## <a name="run-hello-application"></a><span data-ttu-id="d5d9b-182">Executar o aplicativo hello</span><span class="sxs-lookup"><span data-stu-id="d5d9b-182">Run hello application</span></span>
 
-<span data-ttu-id="c3969-183">Devem ser necessários cerca de cinco minutos para o aplicativo de console executar completamente do início ao fim.</span><span class="sxs-lookup"><span data-stu-id="c3969-183">It should take about five minutes for this console application to run completely from start to finish.</span></span>
+<span data-ttu-id="d5d9b-183">Ele deve levar cerca de cinco minutos para este toorun do aplicativo de console completamente do início toofinish.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-183">It should take about five minutes for this console application toorun completely from start toofinish.</span></span>
 
-1. <span data-ttu-id="c3969-184">Para executar o aplicativo, use este comando do Maven:</span><span class="sxs-lookup"><span data-stu-id="c3969-184">To run the application, use this Maven command:</span></span>
+1. <span data-ttu-id="d5d9b-184">toorun Olá aplicativo, use este comando Maven:</span><span class="sxs-lookup"><span data-stu-id="d5d9b-184">toorun hello application, use this Maven command:</span></span>
 
     ```
     mvn compile exec:java
     ```
 
-2. <span data-ttu-id="c3969-185">Antes de pressionar **Enter** para iniciar a exclusão de recursos, reserve alguns minutos para verificar a criação dos recursos no portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="c3969-185">Before you press **Enter** to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure portal.</span></span> <span data-ttu-id="c3969-186">Clique no status de implantação para ver informações sobre a implantação.</span><span class="sxs-lookup"><span data-stu-id="c3969-186">Click the deployment status to see information about the deployment.</span></span>
+2. <span data-ttu-id="d5d9b-185">Antes de pressionar **Enter** toostart recursos de exclusão, você pode levar alguns minutos criação de saudação do tooverify de recursos de saudação em Olá portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-185">Before you press **Enter** toostart deleting resources, you could take a few minutes tooverify hello creation of hello resources in hello Azure portal.</span></span> <span data-ttu-id="d5d9b-186">Clique em Olá implantação status toosee informações sobre a implantação de saudação.</span><span class="sxs-lookup"><span data-stu-id="d5d9b-186">Click hello deployment status toosee information about hello deployment.</span></span>
 
 
-## <a name="next-steps"></a><span data-ttu-id="c3969-187">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="c3969-187">Next steps</span></span>
-* <span data-ttu-id="c3969-188">Saiba mais sobre como usar as [bibliotecas do Azure para Java](https://docs.microsoft.com/en-us/java/azure/java-sdk-azure-overview).</span><span class="sxs-lookup"><span data-stu-id="c3969-188">Learn more about using the [Azure libraries for Java](https://docs.microsoft.com/en-us/java/azure/java-sdk-azure-overview).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="d5d9b-187">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="d5d9b-187">Next steps</span></span>
+* <span data-ttu-id="d5d9b-188">Saiba mais sobre como usar o hello [bibliotecas do Azure para Java](https://docs.microsoft.com/en-us/java/azure/java-sdk-azure-overview).</span><span class="sxs-lookup"><span data-stu-id="d5d9b-188">Learn more about using hello [Azure libraries for Java](https://docs.microsoft.com/en-us/java/azure/java-sdk-azure-overview).</span></span>
 

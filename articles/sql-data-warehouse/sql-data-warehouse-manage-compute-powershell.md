@@ -1,6 +1,6 @@
 ---
-title: "Gerenciar potência de computação no SQL Data Warehouse do Azure (PowerShell) | Microsoft Docs"
-description: "Tarefas do PowerShell para gerenciar o poder de computação. Dimensionar recursos de computação ajustando as DWUs. Ou, para economizar custos, pause e retome os recursos de computação."
+title: "aaaManage computação power no Azure SQL Data Warehouse (PowerShell) | Microsoft Docs"
+description: "Capacidade de computação toomanage de tarefas do PowerShell. Dimensionar recursos de computação ajustando as DWUs. Ou, pausar e retomar os custos de toosave de recursos de computação."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -15,34 +15,34 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 6a185d96447c2e1b0b463439dd062081e783da5f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8b379d4cf89570649767f6896d2c630d4f1111d7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-compute-power-in-azure-sql-data-warehouse-powershell"></a><span data-ttu-id="c6c3f-105">Gerenciar poder de computação no SQL Data Warehouse do Azure (PowerShell)</span><span class="sxs-lookup"><span data-stu-id="c6c3f-105">Manage compute power in Azure SQL Data Warehouse (PowerShell)</span></span>
+# <a name="manage-compute-power-in-azure-sql-data-warehouse-powershell"></a><span data-ttu-id="107dc-105">Gerenciar poder de computação no SQL Data Warehouse do Azure (PowerShell)</span><span class="sxs-lookup"><span data-stu-id="107dc-105">Manage compute power in Azure SQL Data Warehouse (PowerShell)</span></span>
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="c6c3f-106">Visão geral</span><span class="sxs-lookup"><span data-stu-id="c6c3f-106">Overview</span></span>](sql-data-warehouse-manage-compute-overview.md)
-> * [<span data-ttu-id="c6c3f-107">Portal</span><span class="sxs-lookup"><span data-stu-id="c6c3f-107">Portal</span></span>](sql-data-warehouse-manage-compute-portal.md)
-> * [<span data-ttu-id="c6c3f-108">PowerShell</span><span class="sxs-lookup"><span data-stu-id="c6c3f-108">PowerShell</span></span>](sql-data-warehouse-manage-compute-powershell.md)
-> * [<span data-ttu-id="c6c3f-109">REST</span><span class="sxs-lookup"><span data-stu-id="c6c3f-109">REST</span></span>](sql-data-warehouse-manage-compute-rest-api.md)
-> * [<span data-ttu-id="c6c3f-110">TSQL</span><span class="sxs-lookup"><span data-stu-id="c6c3f-110">TSQL</span></span>](sql-data-warehouse-manage-compute-tsql.md)
+> * [<span data-ttu-id="107dc-106">Visão geral</span><span class="sxs-lookup"><span data-stu-id="107dc-106">Overview</span></span>](sql-data-warehouse-manage-compute-overview.md)
+> * [<span data-ttu-id="107dc-107">Portal</span><span class="sxs-lookup"><span data-stu-id="107dc-107">Portal</span></span>](sql-data-warehouse-manage-compute-portal.md)
+> * [<span data-ttu-id="107dc-108">PowerShell</span><span class="sxs-lookup"><span data-stu-id="107dc-108">PowerShell</span></span>](sql-data-warehouse-manage-compute-powershell.md)
+> * [<span data-ttu-id="107dc-109">REST</span><span class="sxs-lookup"><span data-stu-id="107dc-109">REST</span></span>](sql-data-warehouse-manage-compute-rest-api.md)
+> * [<span data-ttu-id="107dc-110">TSQL</span><span class="sxs-lookup"><span data-stu-id="107dc-110">TSQL</span></span>](sql-data-warehouse-manage-compute-tsql.md)
 >
 >
 
-## <a name="before-you-begin"></a><span data-ttu-id="c6c3f-111">Antes de começar</span><span class="sxs-lookup"><span data-stu-id="c6c3f-111">Before you begin</span></span>
-### <a name="install-the-latest-version-of-azure-powershell"></a><span data-ttu-id="c6c3f-112">Instale a versão mais recente do Azure PowerShell</span><span class="sxs-lookup"><span data-stu-id="c6c3f-112">Install the latest version of Azure PowerShell</span></span>
+## <a name="before-you-begin"></a><span data-ttu-id="107dc-111">Antes de começar</span><span class="sxs-lookup"><span data-stu-id="107dc-111">Before you begin</span></span>
+### <a name="install-hello-latest-version-of-azure-powershell"></a><span data-ttu-id="107dc-112">Instalar a versão mais recente de saudação do PowerShell do Azure</span><span class="sxs-lookup"><span data-stu-id="107dc-112">Install hello latest version of Azure PowerShell</span></span>
 > [!NOTE]
-> <span data-ttu-id="c6c3f-113">Para usar o Azure PowerShell com o SQL Data Warehouse, você precisa instalar a versão 1.0.3 ou superior do Azure PowerShell.</span><span class="sxs-lookup"><span data-stu-id="c6c3f-113">To use Azure PowerShell with SQL Data Warehouse, you need Azure PowerShell version 1.0.3 or greater.</span></span>  <span data-ttu-id="c6c3f-114">Para verificar a versão atual, execute o comando **Get-Module -ListAvailable -Name Azure**.</span><span class="sxs-lookup"><span data-stu-id="c6c3f-114">To verify your current version run the command **Get-Module -ListAvailable -Name Azure**.</span></span> <span data-ttu-id="c6c3f-115">Você pode instalar a versão mais recente do [Microsoft Web Platform Installer][Microsoft Web Platform Installer].</span><span class="sxs-lookup"><span data-stu-id="c6c3f-115">You can install the latest version from [Microsoft Web Platform Installer][Microsoft Web Platform Installer].</span></span>  <span data-ttu-id="c6c3f-116">Para saber mais, consulte [Como instalar e configurar o Azure PowerShell][How to install and configure Azure PowerShell].</span><span class="sxs-lookup"><span data-stu-id="c6c3f-116">For more information, see [How to install and configure Azure PowerShell][How to install and configure Azure PowerShell].</span></span>
+> <span data-ttu-id="107dc-113">toouse PowerShell do Azure SQL Data warehouse, é necessário que o Azure PowerShell versão 1.0.3 ou superior.</span><span class="sxs-lookup"><span data-stu-id="107dc-113">toouse Azure PowerShell with SQL Data Warehouse, you need Azure PowerShell version 1.0.3 or greater.</span></span>  <span data-ttu-id="107dc-114">tooverify sua versão atual executar comando Olá **Get-Module - ListAvailable-Name Azure**.</span><span class="sxs-lookup"><span data-stu-id="107dc-114">tooverify your current version run hello command **Get-Module -ListAvailable -Name Azure**.</span></span> <span data-ttu-id="107dc-115">Você pode instalar a versão mais recente de saudação do [Microsoft Web Platform Installer][Microsoft Web Platform Installer].</span><span class="sxs-lookup"><span data-stu-id="107dc-115">You can install hello latest version from [Microsoft Web Platform Installer][Microsoft Web Platform Installer].</span></span>  <span data-ttu-id="107dc-116">Para obter mais informações, consulte [como tooinstall e configurar o Azure PowerShell][How tooinstall and configure Azure PowerShell].</span><span class="sxs-lookup"><span data-stu-id="107dc-116">For more information, see [How tooinstall and configure Azure PowerShell][How tooinstall and configure Azure PowerShell].</span></span>
 >
 > 
 
-### <a name="get-started-with-azure-powershell-cmdlets"></a><span data-ttu-id="c6c3f-117">Introdução aos cmdlets do Azure PowerShell</span><span class="sxs-lookup"><span data-stu-id="c6c3f-117">Get started with Azure PowerShell cmdlets</span></span>
-<span data-ttu-id="c6c3f-118">Introdução:</span><span class="sxs-lookup"><span data-stu-id="c6c3f-118">To get started:</span></span>
+### <a name="get-started-with-azure-powershell-cmdlets"></a><span data-ttu-id="107dc-117">Introdução aos cmdlets do Azure PowerShell</span><span class="sxs-lookup"><span data-stu-id="107dc-117">Get started with Azure PowerShell cmdlets</span></span>
+<span data-ttu-id="107dc-118">tooget iniciado:</span><span class="sxs-lookup"><span data-stu-id="107dc-118">tooget started:</span></span>
 
-1. <span data-ttu-id="c6c3f-119">Abra o PowerShell do Azure.</span><span class="sxs-lookup"><span data-stu-id="c6c3f-119">Open Azure PowerShell.</span></span>
-2. <span data-ttu-id="c6c3f-120">No prompt do PowerShell, execute estes comandos para entrar no Azure Resource Manager e selecione sua assinatura.</span><span class="sxs-lookup"><span data-stu-id="c6c3f-120">At the PowerShell prompt, run these commands to sign in to the Azure Resource Manager and select your subscription.</span></span>
+1. <span data-ttu-id="107dc-119">Abra o PowerShell do Azure.</span><span class="sxs-lookup"><span data-stu-id="107dc-119">Open Azure PowerShell.</span></span>
+2. <span data-ttu-id="107dc-120">No prompt do PowerShell Olá, execute esses comandos toosign em toohello do Azure Resource Manager e selecione sua assinatura.</span><span class="sxs-lookup"><span data-stu-id="107dc-120">At hello PowerShell prompt, run these commands toosign in toohello Azure Resource Manager and select your subscription.</span></span>
 
     ```PowerShell
     Login-AzureRmAccount
@@ -53,10 +53,10 @@ ms.lasthandoff: 07/11/2017
 <a name="scale-performance-bk"></a>
 <a name="scale-compute-bk"></a>
 
-## <a name="scale-compute-power"></a><span data-ttu-id="c6c3f-121">Dimensionar poder de computação</span><span class="sxs-lookup"><span data-stu-id="c6c3f-121">Scale compute power</span></span>
+## <a name="scale-compute-power"></a><span data-ttu-id="107dc-121">Dimensionar poder de computação</span><span class="sxs-lookup"><span data-stu-id="107dc-121">Scale compute power</span></span>
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
-<span data-ttu-id="c6c3f-122">Para alterar as DWUs, use o cmdlet do PowerShell [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase].</span><span class="sxs-lookup"><span data-stu-id="c6c3f-122">To change the DWUs, use the [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase] PowerShell cmdlet.</span></span> <span data-ttu-id="c6c3f-123">O exemplo a seguir define o objetivo de nível de serviço como DW1000 para o banco de dados MySQLDW, que está hospedado no servidor MyServer.</span><span class="sxs-lookup"><span data-stu-id="c6c3f-123">The following example sets the service level objective to DW1000 for the database MySQLDW which is hosted on server MyServer.</span></span>
+<span data-ttu-id="107dc-122">Olá toochange DWUs, use Olá [conjunto AzureRmSqlDatabase] [ Set-AzureRmSqlDatabase] cmdlet do PowerShell.</span><span class="sxs-lookup"><span data-stu-id="107dc-122">toochange hello DWUs, use hello [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase] PowerShell cmdlet.</span></span> <span data-ttu-id="107dc-123">Olá exemplo a seguir define serviço Olá nível tooDW1000 objetivo para banco de dados Olá MySQLDW que está hospedado no servidor MyServer.</span><span class="sxs-lookup"><span data-stu-id="107dc-123">hello following example sets hello service level objective tooDW1000 for hello database MySQLDW which is hosted on server MyServer.</span></span>
 
 ```Powershell
 Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
@@ -64,13 +64,13 @@ Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -Requested
 
 <a name="pause-compute-bk"></a>
 
-## <a name="pause-compute"></a><span data-ttu-id="c6c3f-124">Pausar computação</span><span class="sxs-lookup"><span data-stu-id="c6c3f-124">Pause compute</span></span>
+## <a name="pause-compute"></a><span data-ttu-id="107dc-124">Pausar computação</span><span class="sxs-lookup"><span data-stu-id="107dc-124">Pause compute</span></span>
 [!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
-<span data-ttu-id="c6c3f-125">Para pausar um banco de dados, use o cmdlet [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase].</span><span class="sxs-lookup"><span data-stu-id="c6c3f-125">To pause a database, use the [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase] cmdlet.</span></span> <span data-ttu-id="c6c3f-126">O exemplo a seguir pausa um banco de dados chamado Database02 hospedado em um servidor chamado Server01.</span><span class="sxs-lookup"><span data-stu-id="c6c3f-126">The following example pauses a database named Database02 hosted on a server named Server01.</span></span> <span data-ttu-id="c6c3f-127">O servidor está em um grupo de recursos do Azure chamado ResourceGroup1.</span><span class="sxs-lookup"><span data-stu-id="c6c3f-127">The server is in an Azure resource group named ResourceGroup1.</span></span>
+<span data-ttu-id="107dc-125">toopause um banco de dados, use Olá [Suspend-AzureRmSqlDatabase] [ Suspend-AzureRmSqlDatabase] cmdlet.</span><span class="sxs-lookup"><span data-stu-id="107dc-125">toopause a database, use hello [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase] cmdlet.</span></span> <span data-ttu-id="107dc-126">Olá exemplo a seguir faz uma pausa um banco de dados denominado Database02 hospedado em um servidor chamado Server01.</span><span class="sxs-lookup"><span data-stu-id="107dc-126">hello following example pauses a database named Database02 hosted on a server named Server01.</span></span> <span data-ttu-id="107dc-127">em um grupo de recursos do Azure, o servidor de saudação é denominado ResourceGroup1.</span><span class="sxs-lookup"><span data-stu-id="107dc-127">hello server is in an Azure resource group named ResourceGroup1.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="c6c3f-128">Observe que, se o servidor for foo.database.windows.net, use "foo" como o -ServerName nos cmdlets do PowerShell.</span><span class="sxs-lookup"><span data-stu-id="c6c3f-128">Note that if your server is foo.database.windows.net, use "foo" as the -ServerName in the PowerShell cmdlets.</span></span>
+> <span data-ttu-id="107dc-128">Observe que se o servidor for foo.database.windows.net, use "foo" como Olá - ServerName nos cmdlets do PowerShell hello.</span><span class="sxs-lookup"><span data-stu-id="107dc-128">Note that if your server is foo.database.windows.net, use "foo" as hello -ServerName in hello PowerShell cmdlets.</span></span>
 >
 > 
 
@@ -78,7 +78,7 @@ Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -Requested
 Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
 –ServerName "Server01" –DatabaseName "Database02"
 ```
-<span data-ttu-id="c6c3f-129">Uma variação, o próximo exemplo recupera o banco de dados para o objeto $database.</span><span class="sxs-lookup"><span data-stu-id="c6c3f-129">A variation, this next example retrieves the database into the $database object.</span></span> <span data-ttu-id="c6c3f-130">Ele redireciona o objeto para [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase].</span><span class="sxs-lookup"><span data-stu-id="c6c3f-130">It then pipes the object to [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase].</span></span> <span data-ttu-id="c6c3f-131">Os resultados são armazenados no objeto resultDatabase.</span><span class="sxs-lookup"><span data-stu-id="c6c3f-131">The results are stored in the object resultDatabase.</span></span> <span data-ttu-id="c6c3f-132">O comando final mostra os resultados.</span><span class="sxs-lookup"><span data-stu-id="c6c3f-132">The final command shows the results.</span></span>
+<span data-ttu-id="107dc-129">Uma variação, o exemplo a seguir recupera o banco de dados de saudação em objeto Olá $database.</span><span class="sxs-lookup"><span data-stu-id="107dc-129">A variation, this next example retrieves hello database into hello $database object.</span></span> <span data-ttu-id="107dc-130">Ele canaliza objeto Olá muito[Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase].</span><span class="sxs-lookup"><span data-stu-id="107dc-130">It then pipes hello object too[Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase].</span></span> <span data-ttu-id="107dc-131">Olá resultados são armazenados em Olá resultDatabase de objeto.</span><span class="sxs-lookup"><span data-stu-id="107dc-131">hello results are stored in hello object resultDatabase.</span></span> <span data-ttu-id="107dc-132">comando final Olá mostra resultados de saudação.</span><span class="sxs-lookup"><span data-stu-id="107dc-132">hello final command shows hello results.</span></span>
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
@@ -89,17 +89,17 @@ $resultDatabase
 
 <a name="resume-compute-bk"></a>
 
-## <a name="resume-compute"></a><span data-ttu-id="c6c3f-133">Retomar a computação</span><span class="sxs-lookup"><span data-stu-id="c6c3f-133">Resume compute</span></span>
+## <a name="resume-compute"></a><span data-ttu-id="107dc-133">Retomar a computação</span><span class="sxs-lookup"><span data-stu-id="107dc-133">Resume compute</span></span>
 [!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
-<span data-ttu-id="c6c3f-134">Para iniciar um banco de dados, use o cmdlet [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase].</span><span class="sxs-lookup"><span data-stu-id="c6c3f-134">To start a database, use the [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase] cmdlet.</span></span> <span data-ttu-id="c6c3f-135">O exemplo a seguir inicia um banco de dados chamado Database02 hospedado em um servidor chamado Server01.</span><span class="sxs-lookup"><span data-stu-id="c6c3f-135">The following example starts a database named Database02 hosted on a server named Server01.</span></span> <span data-ttu-id="c6c3f-136">O servidor está em um grupo de recursos do Azure chamado ResourceGroup1.</span><span class="sxs-lookup"><span data-stu-id="c6c3f-136">The server is in an Azure resource group named ResourceGroup1.</span></span>
+<span data-ttu-id="107dc-134">toostart um banco de dados, use Olá [retomar AzureRmSqlDatabase] [ Resume-AzureRmSqlDatabase] cmdlet.</span><span class="sxs-lookup"><span data-stu-id="107dc-134">toostart a database, use hello [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase] cmdlet.</span></span> <span data-ttu-id="107dc-135">Olá, exemplo a seguir inicia um banco de dados denominado Database02 hospedado em um servidor chamado Server01.</span><span class="sxs-lookup"><span data-stu-id="107dc-135">hello following example starts a database named Database02 hosted on a server named Server01.</span></span> <span data-ttu-id="107dc-136">em um grupo de recursos do Azure, o servidor de saudação é denominado ResourceGroup1.</span><span class="sxs-lookup"><span data-stu-id="107dc-136">hello server is in an Azure resource group named ResourceGroup1.</span></span>
 
 ```Powershell
 Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
 –ServerName "Server01" -DatabaseName "Database02"
 ```
 
-<span data-ttu-id="c6c3f-137">Uma variação, o próximo exemplo recupera o banco de dados para o objeto $database.</span><span class="sxs-lookup"><span data-stu-id="c6c3f-137">A variation, this next example retrieves the database into the $database object.</span></span> <span data-ttu-id="c6c3f-138">Ele redireciona o objeto para [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase] e armazena os resultados em $resultDatabase.</span><span class="sxs-lookup"><span data-stu-id="c6c3f-138">It then pipes the object to [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase] and stores the results in $resultDatabase.</span></span> <span data-ttu-id="c6c3f-139">O comando final mostra os resultados.</span><span class="sxs-lookup"><span data-stu-id="c6c3f-139">The final command shows the results.</span></span>
+<span data-ttu-id="107dc-137">Uma variação, o exemplo a seguir recupera o banco de dados de saudação em objeto Olá $database.</span><span class="sxs-lookup"><span data-stu-id="107dc-137">A variation, this next example retrieves hello database into hello $database object.</span></span> <span data-ttu-id="107dc-138">Ele canaliza objeto Olá muito[retomar AzureRmSqlDatabase] [ Resume-AzureRmSqlDatabase] e armazena os resultados de saudação em $resultDatabase.</span><span class="sxs-lookup"><span data-stu-id="107dc-138">It then pipes hello object too[Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase] and stores hello results in $resultDatabase.</span></span> <span data-ttu-id="107dc-139">comando final Olá mostra resultados de saudação.</span><span class="sxs-lookup"><span data-stu-id="107dc-139">hello final command shows hello results.</span></span>
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
@@ -110,9 +110,9 @@ $resultDatabase
 
 <a name="check-database-state-bk"></a>
 
-## <a name="check-database-state"></a><span data-ttu-id="c6c3f-140">Verificar estado do banco de dados</span><span class="sxs-lookup"><span data-stu-id="c6c3f-140">Check database state</span></span>
+## <a name="check-database-state"></a><span data-ttu-id="107dc-140">Verificar estado do banco de dados</span><span class="sxs-lookup"><span data-stu-id="107dc-140">Check database state</span></span>
 
-<span data-ttu-id="c6c3f-141">Conforme mostrado nos exemplos acima, você pode usar o cmdlet [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase] para obter informações sobre um banco de dados, verificando assim o status, e também usá-lo como um argumento.</span><span class="sxs-lookup"><span data-stu-id="c6c3f-141">As shown in the above examples, one can use [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase] cmdlet to get information on a database, thereby checking the status, but also to use as an argument.</span></span> 
+<span data-ttu-id="107dc-141">Conforme mostrado na Olá acima exemplos, é possível usar [Get-AzureRmSqlDatabase] [ Get-AzureRmSqlDatabase] cmdlet tooget informações em um banco de dados, assim, verificando o status hello, mas também toouse como um argumento.</span><span class="sxs-lookup"><span data-stu-id="107dc-141">As shown in hello above examples, one can use [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase] cmdlet tooget information on a database, thereby checking hello status, but also toouse as an argument.</span></span> 
 
 ```powershell
 Get-AzureRmSqlDatabase [-ResourceGroupName] <String> [-ServerName] <String> [[-DatabaseName] <String>]
@@ -120,7 +120,7 @@ Get-AzureRmSqlDatabase [-ResourceGroupName] <String> [-ServerName] <String> [[-D
  [<CommonParameters>]
 ```
 
-<span data-ttu-id="c6c3f-142">O que resultará em algo parecido com isto</span><span class="sxs-lookup"><span data-stu-id="c6c3f-142">Which will result in something like</span></span> 
+<span data-ttu-id="107dc-142">O que resultará em algo parecido com isto</span><span class="sxs-lookup"><span data-stu-id="107dc-142">Which will result in something like</span></span> 
 
 ```powershell   
 ResourceGroupName             : nytrg
@@ -142,21 +142,21 @@ ElasticPoolName               :
 EarliestRestoreDate           : 1/1/0001 12:00:00 AM
 ```
 
-<span data-ttu-id="c6c3f-143">Em que você pode clicar para ver o *Status* do banco de dados.</span><span class="sxs-lookup"><span data-stu-id="c6c3f-143">Where you can then check to see the *Status* of the database.</span></span> <span data-ttu-id="c6c3f-144">Nesse caso, é possível ver que esse banco de dados está online.</span><span class="sxs-lookup"><span data-stu-id="c6c3f-144">In this case, you can see that this database is online.</span></span> 
+<span data-ttu-id="107dc-143">Onde você pode consultar Olá toosee *Status* de banco de dados de saudação.</span><span class="sxs-lookup"><span data-stu-id="107dc-143">Where you can then check toosee hello *Status* of hello database.</span></span> <span data-ttu-id="107dc-144">Nesse caso, é possível ver que esse banco de dados está online.</span><span class="sxs-lookup"><span data-stu-id="107dc-144">In this case, you can see that this database is online.</span></span> 
 
-<span data-ttu-id="c6c3f-145">Ao executar esse comando, você deverá receber um valor de Status Online, Pausando, Retomando, Dimensionando e Pausado.</span><span class="sxs-lookup"><span data-stu-id="c6c3f-145">When you run this command, you should receive a Status value of either Online, Pausing, Resuming, Scaling, and Paused.</span></span>
+<span data-ttu-id="107dc-145">Ao executar esse comando, você deverá receber um valor de Status Online, Pausando, Retomando, Dimensionando e Pausado.</span><span class="sxs-lookup"><span data-stu-id="107dc-145">When you run this command, you should receive a Status value of either Online, Pausing, Resuming, Scaling, and Paused.</span></span>
 
 <a name="next-steps-bk"></a>
 
-## <a name="next-steps"></a><span data-ttu-id="c6c3f-146">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="c6c3f-146">Next steps</span></span>
-<span data-ttu-id="c6c3f-147">Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][Management overview].</span><span class="sxs-lookup"><span data-stu-id="c6c3f-147">For other management tasks, see [Management overview][Management overview].</span></span>
+## <a name="next-steps"></a><span data-ttu-id="107dc-146">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="107dc-146">Next steps</span></span>
+<span data-ttu-id="107dc-147">Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][Management overview].</span><span class="sxs-lookup"><span data-stu-id="107dc-147">For other management tasks, see [Management overview][Management overview].</span></span>
 
 <!--Image references-->
 
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [Management overview]: ./sql-data-warehouse-overview-manage.md
-[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[How tooinstall and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->

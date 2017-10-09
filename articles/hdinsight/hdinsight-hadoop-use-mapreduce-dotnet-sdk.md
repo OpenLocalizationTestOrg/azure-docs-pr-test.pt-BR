@@ -1,6 +1,6 @@
 ---
-title: "Enviar trabalhos MapReduce usando o SDK do .NET do HDInsight – Azure | Microsoft Docs"
-description: Saiba como enviar trabalhos MapReduce para o Hadoop do Azure HDInsight usando o SDK do .NET do HDInsight.
+title: trabalhos de MapReduce aaaSubmit usando o HDInsight .NET SDK - Azure | Microsoft Docs
+description: Saiba como toosubmit MapReduce trabalhos tooAzure HDInsight Hadoop usando o HDInsight .NET SDK.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -16,38 +16,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: jgao
-ms.openlocfilehash: 015435270c31bafea0ebf5303b459338755c1410
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: d00e31400b8fa47982c31d00bfdcdb304bcb0b59
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a><span data-ttu-id="26647-103">Executar trabalhos MapReduce usando o SDK do .NET do HDInsight</span><span class="sxs-lookup"><span data-stu-id="26647-103">Run MapReduce jobs using HDInsight .NET SDK</span></span>
+# <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a><span data-ttu-id="a7245-103">Executar trabalhos MapReduce usando o SDK do .NET do HDInsight</span><span class="sxs-lookup"><span data-stu-id="a7245-103">Run MapReduce jobs using HDInsight .NET SDK</span></span>
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
-<span data-ttu-id="26647-104">Saiba como enviar trabalhos MapReduce usando o SDK do .NET do HDInsight.</span><span class="sxs-lookup"><span data-stu-id="26647-104">Learn how to submit MapReduce jobs using HDInsight .NET SDK.</span></span> <span data-ttu-id="26647-105">Os clusters HDInsight vêm com um arquivo jar com alguns exemplos de MapReduce.</span><span class="sxs-lookup"><span data-stu-id="26647-105">HDInsight clusters come with a jar file with some MapReduce samples.</span></span> <span data-ttu-id="26647-106">O arquivo jar está localizado em */example/jars/hadoop-mapreduce-examples.jar*.</span><span class="sxs-lookup"><span data-stu-id="26647-106">The jar file is */example/jars/hadoop-mapreduce-examples.jar*.</span></span>  <span data-ttu-id="26647-107">Um dos exemplos é *wordcount*.</span><span class="sxs-lookup"><span data-stu-id="26647-107">One of the samples is *wordcount*.</span></span> <span data-ttu-id="26647-108">Você desenvolve um aplicativo do console C# para enviar um trabalho wordcount.</span><span class="sxs-lookup"><span data-stu-id="26647-108">You develop a C# console application to submit a wordcount job.</span></span>  <span data-ttu-id="26647-109">O trabalho lê o arquivo */example/data/gutenberg/davinci.txt* e gera os resultados em */example/data/davinciwordcount*.</span><span class="sxs-lookup"><span data-stu-id="26647-109">The job reads the */example/data/gutenberg/davinci.txt* file, and outputs the results to */example/data/davinciwordcount*.</span></span>  <span data-ttu-id="26647-110">Se você desejar executar novamente o aplicativo, você deve limpar a pasta de saída.</span><span class="sxs-lookup"><span data-stu-id="26647-110">If you want to rerun the application, you must clean up the output folder.</span></span>
+<span data-ttu-id="a7245-104">Saiba como toosubmit MapReduce trabalhos usando o HDInsight .NET SDK.</span><span class="sxs-lookup"><span data-stu-id="a7245-104">Learn how toosubmit MapReduce jobs using HDInsight .NET SDK.</span></span> <span data-ttu-id="a7245-105">Os clusters HDInsight vêm com um arquivo jar com alguns exemplos de MapReduce.</span><span class="sxs-lookup"><span data-stu-id="a7245-105">HDInsight clusters come with a jar file with some MapReduce samples.</span></span> <span data-ttu-id="a7245-106">Olá jar arquivo é */example/jars/hadoop-mapreduce-examples.jar*.</span><span class="sxs-lookup"><span data-stu-id="a7245-106">hello jar file is */example/jars/hadoop-mapreduce-examples.jar*.</span></span>  <span data-ttu-id="a7245-107">Um dos exemplos de saudação é *wordcount*.</span><span class="sxs-lookup"><span data-stu-id="a7245-107">One of hello samples is *wordcount*.</span></span> <span data-ttu-id="a7245-108">Desenvolver um c# console aplicativo toosubmit um trabalho de wordcount.</span><span class="sxs-lookup"><span data-stu-id="a7245-108">You develop a C# console application toosubmit a wordcount job.</span></span>  <span data-ttu-id="a7245-109">trabalho de saudação lê Olá */example/data/gutenberg/davinci.txt* arquivo e as saídas Olá resultados muito*/example/data/davinciwordcount*.</span><span class="sxs-lookup"><span data-stu-id="a7245-109">hello job reads hello */example/data/gutenberg/davinci.txt* file, and outputs hello results too*/example/data/davinciwordcount*.</span></span>  <span data-ttu-id="a7245-110">Se você quiser toorerun Olá aplicativo, você deve limpar Olá pasta de saída.</span><span class="sxs-lookup"><span data-stu-id="a7245-110">If you want toorerun hello application, you must clean up hello output folder.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="26647-111">As etapas neste artigo devem ser executadas em um cliente do Windows.</span><span class="sxs-lookup"><span data-stu-id="26647-111">The steps in this article must be performed from a Windows client.</span></span> <span data-ttu-id="26647-112">Para obter informações sobre como usar um cliente Linux, OS X ou Unix para trabalhar com o Hive, use o seletor de tabulação mostrado na parte superior do artigo.</span><span class="sxs-lookup"><span data-stu-id="26647-112">For information on using a Linux, OS X, or Unix client to work with Hive, use the tab selector shown on the top of the article.</span></span>
+> <span data-ttu-id="a7245-111">etapas de saudação neste artigo devem ser executadas de um cliente do Windows.</span><span class="sxs-lookup"><span data-stu-id="a7245-111">hello steps in this article must be performed from a Windows client.</span></span> <span data-ttu-id="a7245-112">Para obter informações sobre como usar um Linux, OS X ou Unix cliente toowork com Hive, use o seletor de guia de saudação mostrado na parte superior de saudação do artigo hello.</span><span class="sxs-lookup"><span data-stu-id="a7245-112">For information on using a Linux, OS X, or Unix client toowork with Hive, use hello tab selector shown on hello top of hello article.</span></span>
 > 
 > 
 
-## <a name="prerequisites"></a><span data-ttu-id="26647-113">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="26647-113">Prerequisites</span></span>
-<span data-ttu-id="26647-114">Antes de começar este artigo, você deve ter os seguintes itens:</span><span class="sxs-lookup"><span data-stu-id="26647-114">Before you begin this article, you must have the following items:</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="a7245-113">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="a7245-113">Prerequisites</span></span>
+<span data-ttu-id="a7245-114">Antes de começar este artigo, você deve ter Olá itens a seguir:</span><span class="sxs-lookup"><span data-stu-id="a7245-114">Before you begin this article, you must have hello following items:</span></span>
 
-* <span data-ttu-id="26647-115">**Um cluster Hadoop no HDInsight**.</span><span class="sxs-lookup"><span data-stu-id="26647-115">**A Hadoop cluster in HDInsight**.</span></span> <span data-ttu-id="26647-116">Confira a [Introdução ao uso do Hadoop baseado em Linux no HDInsight](./hdinsight-hadoop-linux-tutorial-get-started.md).</span><span class="sxs-lookup"><span data-stu-id="26647-116">See [Get started using Linux-based Hadoop in HDInsight](./hdinsight-hadoop-linux-tutorial-get-started.md).</span></span>
-* <span data-ttu-id="26647-117">**Visual Studio 2013/2015/2017**.</span><span class="sxs-lookup"><span data-stu-id="26647-117">**Visual Studio 2013/2015/2017**.</span></span>
+* <span data-ttu-id="a7245-115">**Um cluster Hadoop no HDInsight**.</span><span class="sxs-lookup"><span data-stu-id="a7245-115">**A Hadoop cluster in HDInsight**.</span></span> <span data-ttu-id="a7245-116">Confira a [Introdução ao uso do Hadoop baseado em Linux no HDInsight](./hdinsight-hadoop-linux-tutorial-get-started.md).</span><span class="sxs-lookup"><span data-stu-id="a7245-116">See [Get started using Linux-based Hadoop in HDInsight](./hdinsight-hadoop-linux-tutorial-get-started.md).</span></span>
+* <span data-ttu-id="a7245-117">**Visual Studio 2013/2015/2017**.</span><span class="sxs-lookup"><span data-stu-id="a7245-117">**Visual Studio 2013/2015/2017**.</span></span>
 
-## <a name="submit-mapreduce-jobs-using-hdinsight-net-sdk"></a><span data-ttu-id="26647-118">Enviar trabalhos MapReduce usando o SDK do .NET do HDInsight</span><span class="sxs-lookup"><span data-stu-id="26647-118">Submit MapReduce jobs using HDInsight .NET SDK</span></span>
-<span data-ttu-id="26647-119">O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o trabalho com clusters HDInsight do .NET.</span><span class="sxs-lookup"><span data-stu-id="26647-119">The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET.</span></span> 
+## <a name="submit-mapreduce-jobs-using-hdinsight-net-sdk"></a><span data-ttu-id="a7245-118">Enviar trabalhos MapReduce usando o SDK do .NET do HDInsight</span><span class="sxs-lookup"><span data-stu-id="a7245-118">Submit MapReduce jobs using HDInsight .NET SDK</span></span>
+<span data-ttu-id="a7245-119">Olá HDInsight .NET SDK fornece bibliotecas de cliente .NET, o que torna mais fácil toowork com clusters de HDInsight do .NET.</span><span class="sxs-lookup"><span data-stu-id="a7245-119">hello HDInsight .NET SDK provides .NET client libraries, which makes it easier toowork with HDInsight clusters from .NET.</span></span> 
 
-<span data-ttu-id="26647-120">**Para enviar trabalhos**</span><span class="sxs-lookup"><span data-stu-id="26647-120">**To Submit jobs**</span></span>
+<span data-ttu-id="a7245-120">**trabalhos de tooSubmit**</span><span class="sxs-lookup"><span data-stu-id="a7245-120">**tooSubmit jobs**</span></span>
 
-1. <span data-ttu-id="26647-121">No Visual Studio, crie um aplicativo de console C#.</span><span class="sxs-lookup"><span data-stu-id="26647-121">Create a C# console application in Visual Studio.</span></span>
-2. <span data-ttu-id="26647-122">No Console do Gerenciador de Pacotes NuGet, execute o comando a seguir:</span><span class="sxs-lookup"><span data-stu-id="26647-122">From the Nuget Package Manager Console, run the following command:</span></span>
+1. <span data-ttu-id="a7245-121">No Visual Studio, crie um aplicativo de console C#.</span><span class="sxs-lookup"><span data-stu-id="a7245-121">Create a C# console application in Visual Studio.</span></span>
+2. <span data-ttu-id="a7245-122">Olá Nuget Package Manager Console, execute Olá comando a seguir:</span><span class="sxs-lookup"><span data-stu-id="a7245-122">From hello Nuget Package Manager Console, run hello following command:</span></span>
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
-3. <span data-ttu-id="26647-123">Use o seguinte código:</span><span class="sxs-lookup"><span data-stu-id="26647-123">Use the following code:</span></span>
+3. <span data-ttu-id="a7245-123">Use Olá código a seguir:</span><span class="sxs-lookup"><span data-stu-id="a7245-123">Use hello following code:</span></span>
    
         using System.Collections.Generic;
         using System.IO;
@@ -79,14 +79,14 @@ ms.lasthandoff: 08/18/2017
    
                 static void Main(string[] args)
                 {
-                    System.Console.WriteLine("The application is running ...");
+                    System.Console.WriteLine("hello application is running ...");
    
                     var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = existingClusterUsername, Password = existingClusterPassword };
                     _hdiJobManagementClient = new HDInsightJobManagementClient(existingClusterUri, clusterCredentials);
    
                     SubmitMRJob();
    
-                    System.Console.WriteLine("Press ENTER to continue ...");
+                    System.Console.WriteLine("Press ENTER toocontinue ...");
                     System.Console.ReadLine();
                 }
    
@@ -101,13 +101,13 @@ ms.lasthandoff: 08/18/2017
                         Arguments = args
                     };
    
-                    System.Console.WriteLine("Submitting the MR job to the cluster...");
+                    System.Console.WriteLine("Submitting hello MR job toohello cluster...");
                     var jobResponse = _hdiJobManagementClient.JobManagement.SubmitMapReduceJob(paras);
                     var jobId = jobResponse.JobSubmissionJsonResponse.Id;
                     System.Console.WriteLine("Response status code is " + jobResponse.StatusCode);
                     System.Console.WriteLine("JobId is " + jobId);
    
-                    System.Console.WriteLine("Waiting for the job completion ...");
+                    System.Console.WriteLine("Waiting for hello job completion ...");
    
                     // Wait for job completion
                     var jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
@@ -124,15 +124,15 @@ ms.lasthandoff: 08/18/2017
         
                     if (jobDetail.ExitValue == 0)
                     {
-                        // Create the storage account object
+                        // Create hello storage account object
                         CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=" + 
                             defaultStorageAccountName + 
                             ";AccountKey=" + defaultStorageAccountKey);
         
-                        // Create the blob client.
+                        // Create hello blob client.
                         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
         
-                        // Retrieve reference to a previously created container.
+                        // Retrieve reference tooa previously created container.
                         CloudBlobContainer container = blobClient.GetContainerReference(defaultStorageContainerName);
         
                         CloudBlockBlob blockBlob = container.GetBlockBlobReference(outputFolder.Substring(1) + "/part-r-00000");
@@ -163,18 +163,18 @@ ms.lasthandoff: 08/18/2017
                 }
             }
         }
-4. <span data-ttu-id="26647-124">Pressione **F5** para executar o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="26647-124">Press **F5** to run the application.</span></span>
+4. <span data-ttu-id="a7245-124">Pressione **F5** aplicativo hello de toorun.</span><span class="sxs-lookup"><span data-stu-id="a7245-124">Press **F5** toorun hello application.</span></span>
 
-<span data-ttu-id="26647-125">Para executar o trabalho novamente, é necessário alterar o nome da pasta de saída do trabalho, no exemplo, "/example/data/davinciwordcount".</span><span class="sxs-lookup"><span data-stu-id="26647-125">To run the job again, you must change the job output folder name, in the sample, it is "/example/data/davinciwordcount".</span></span>
+<span data-ttu-id="a7245-125">trabalho de saudação toorun novamente, você deve alterar Olá trabalho saída nome de pasta, no exemplo hello, é "/ dados/exemplo/davinciwordcount".</span><span class="sxs-lookup"><span data-stu-id="a7245-125">toorun hello job again, you must change hello job output folder name, in hello sample, it is "/example/data/davinciwordcount".</span></span>
 
-<span data-ttu-id="26647-126">Quando o trabalho for concluído com êxito, o aplicativo imprimirá o conteúdo do arquivo de saída "part-r-00000".</span><span class="sxs-lookup"><span data-stu-id="26647-126">When the job completes successfully, the application prints the content of the output file "part-r-00000".</span></span>
+<span data-ttu-id="a7245-126">Quando Olá for concluído com êxito, o aplicativo hello imprime conteúdo Olá Olá do arquivo de saída "parte-r-00000".</span><span class="sxs-lookup"><span data-stu-id="a7245-126">When hello job completes successfully, hello application prints hello content of hello output file "part-r-00000".</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="26647-127">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="26647-127">Next steps</span></span>
-<span data-ttu-id="26647-128">Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight.</span><span class="sxs-lookup"><span data-stu-id="26647-128">In this article, you have learned several ways to create an HDInsight cluster.</span></span> <span data-ttu-id="26647-129">Para saber mais, consulte os seguintes artigos:</span><span class="sxs-lookup"><span data-stu-id="26647-129">To learn more, see the following articles:</span></span>
+## <a name="next-steps"></a><span data-ttu-id="a7245-127">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="a7245-127">Next steps</span></span>
+<span data-ttu-id="a7245-128">Neste artigo, você aprendeu um cluster HDInsight toocreate de várias maneiras.</span><span class="sxs-lookup"><span data-stu-id="a7245-128">In this article, you have learned several ways toocreate an HDInsight cluster.</span></span> <span data-ttu-id="a7245-129">toolearn mais, consulte Olá artigos a seguir:</span><span class="sxs-lookup"><span data-stu-id="a7245-129">toolearn more, see hello following articles:</span></span>
 
-* <span data-ttu-id="26647-130">Para enviar um trabalho de Hive, consulte [Executar consultas Hive usando o SDK do .NET HDInsight](hdinsight-hadoop-use-hive-dotnet-sdk.md).</span><span class="sxs-lookup"><span data-stu-id="26647-130">For submitting a Hive job, see [Run Hive queries using HDInsight .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md).</span></span>
-* <span data-ttu-id="26647-131">Para criar clusters HDInsight, confira [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) (Criar clusters Hadoop baseados em Linux no HDInsight).</span><span class="sxs-lookup"><span data-stu-id="26647-131">For creating HDInsight clusters, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).</span></span>
-* <span data-ttu-id="26647-132">Para gerenciar clusters HDInsight, consulte [Gerenciar clusters Hadoop no HDInsight](hdinsight-administer-use-portal-linux.md).</span><span class="sxs-lookup"><span data-stu-id="26647-132">For managing HDInsight clusters, see [Manage Hadoop clusters in HDInsight](hdinsight-administer-use-portal-linux.md).</span></span>
-* <span data-ttu-id="26647-133">Para aprender sobre o SDK do .NET do HDInsight, consulte [referência do SDK do .NET do HDInsight](https://msdn.microsoft.com/library/mt271028.aspx).</span><span class="sxs-lookup"><span data-stu-id="26647-133">For learning the HDInsight .NET SDK, see [HDInsight .NET SDK reference](https://msdn.microsoft.com/library/mt271028.aspx).</span></span>
-* <span data-ttu-id="26647-134">Para autenticação não interativa no Azure, confira [Criar aplicativos .NET HDInsight de autenticação não interativa](hdinsight-create-non-interactive-authentication-dotnet-applications.md).</span><span class="sxs-lookup"><span data-stu-id="26647-134">For non-interactive authenticate to Azure, see [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md).</span></span>
+* <span data-ttu-id="a7245-130">Para enviar um trabalho de Hive, consulte [Executar consultas Hive usando o SDK do .NET HDInsight](hdinsight-hadoop-use-hive-dotnet-sdk.md).</span><span class="sxs-lookup"><span data-stu-id="a7245-130">For submitting a Hive job, see [Run Hive queries using HDInsight .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md).</span></span>
+* <span data-ttu-id="a7245-131">Para criar clusters HDInsight, confira [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) (Criar clusters Hadoop baseados em Linux no HDInsight).</span><span class="sxs-lookup"><span data-stu-id="a7245-131">For creating HDInsight clusters, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).</span></span>
+* <span data-ttu-id="a7245-132">Para gerenciar clusters HDInsight, consulte [Gerenciar clusters Hadoop no HDInsight](hdinsight-administer-use-portal-linux.md).</span><span class="sxs-lookup"><span data-stu-id="a7245-132">For managing HDInsight clusters, see [Manage Hadoop clusters in HDInsight](hdinsight-administer-use-portal-linux.md).</span></span>
+* <span data-ttu-id="a7245-133">Para aprender Olá HDInsight .NET SDK, consulte [referência do HDInsight .NET SDK](https://msdn.microsoft.com/library/mt271028.aspx).</span><span class="sxs-lookup"><span data-stu-id="a7245-133">For learning hello HDInsight .NET SDK, see [HDInsight .NET SDK reference](https://msdn.microsoft.com/library/mt271028.aspx).</span></span>
+* <span data-ttu-id="a7245-134">Para não interativo autenticar tooAzure, consulte [criar aplicativos .NET HDInsight de autenticação não interativo](hdinsight-create-non-interactive-authentication-dotnet-applications.md).</span><span class="sxs-lookup"><span data-stu-id="a7245-134">For non-interactive authenticate tooAzure, see [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md).</span></span>
 

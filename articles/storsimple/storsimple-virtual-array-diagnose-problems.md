@@ -1,6 +1,6 @@
 ---
-title: "Solução de problemas da StorSimple Virtual Array | Microsoft Docs"
-description: "Descreve o diagnóstico do Gerenciador de Dispositivos StorSimple e explica como usá-lo na solução de problemas da Matriz Virtual StorSimple."
+title: aaaTroubleshoot Array Virtual StorSimple | Microsoft Docs
+description: "Descreve Olá Gerenciador de dispositivos do StorSimple capacidade de diagnosticar e explica como toouse-tootroubleshoot sua matriz Virtual StorSimple."
 services: storsimple
 documentationcenter: 
 author: manuaery
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: a75e68c84a50977b162ca4d3a4a02936ca78cb6b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5b8e05d5ce6000424830059db450a0e662d19238
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a><span data-ttu-id="521d9-103">Usar o serviço do Gerenciador de Dispositivos StorSimple para administrar a Matriz Virtual StorSimple</span><span class="sxs-lookup"><span data-stu-id="521d9-103">Use the StorSimple Device Manager service to troubleshoot the StorSimple Virtual Array</span></span>
-## <a name="overview"></a><span data-ttu-id="521d9-104">Visão geral</span><span class="sxs-lookup"><span data-stu-id="521d9-104">Overview</span></span>
+# <a name="use-hello-storsimple-device-manager-service-tootroubleshoot-hello-storsimple-virtual-array"></a><span data-ttu-id="56d12-103">Use Olá Gerenciador de dispositivos do StorSimple service tootroubleshoot Olá matriz Virtual StorSimple</span><span class="sxs-lookup"><span data-stu-id="56d12-103">Use hello StorSimple Device Manager service tootroubleshoot hello StorSimple Virtual Array</span></span>
+## <a name="overview"></a><span data-ttu-id="56d12-104">Visão geral</span><span class="sxs-lookup"><span data-stu-id="56d12-104">Overview</span></span>
 
-<span data-ttu-id="521d9-105">O Gerenciador de Dispositivos StorSimple fornece uma configuração de **Diagnosticar e resolver problemas** na folha de resumo de serviço, que destaca alguns dos problemas que ocorrem com frequência que podem ocorrer com a matriz virtual e como resolvê-los.</span><span class="sxs-lookup"><span data-stu-id="521d9-105">The StorSimple Device Manager provides a **Diagnose and solve problems** setting within the service summary blade, which highlights some of the commonly occurring issues that can occur with your virtual array and how to solve them.</span></span> <span data-ttu-id="521d9-106">Este tutorial apresenta o recurso de solução de problemas de autoatendimento fornecido dentro do serviço do Gerenciador de Dispositivos do StorSimple.</span><span class="sxs-lookup"><span data-stu-id="521d9-106">This tutorial introduces the self-serve troubleshooting capability provided within the StorSimple Device Manager service.</span></span>
+<span data-ttu-id="56d12-105">Olá StorSimple Gerenciador de dispositivos fornece um **diagnosticar e resolver problemas** configuração dentro de folha de resumo de serviço hello, que destaca alguns dos problemas que normalmente ocorre de saudação que podem ocorrer com o virtual array e como toosolve -los.</span><span class="sxs-lookup"><span data-stu-id="56d12-105">hello StorSimple Device Manager provides a **Diagnose and solve problems** setting within hello service summary blade, which highlights some of hello commonly occurring issues that can occur with your virtual array and how toosolve them.</span></span> <span data-ttu-id="56d12-106">Este tutorial apresenta Olá autoatendimento para solução de problemas funcionalidade fornecida no hello serviço do Gerenciador de dispositivos do StorSimple.</span><span class="sxs-lookup"><span data-stu-id="56d12-106">This tutorial introduces hello self-serve troubleshooting capability provided within hello StorSimple Device Manager service.</span></span>
 
 ![Diagnosticar e resolver problemas](./media/storsimple-virtual-array-diagnose-problems/diagnose-problems-main.png)
 
-## <a name="diagnose-and-solve-issues"></a><span data-ttu-id="521d9-108">Diagnosticar e resolver problemas</span><span class="sxs-lookup"><span data-stu-id="521d9-108">Diagnose and solve issues</span></span>
+## <a name="diagnose-and-solve-issues"></a><span data-ttu-id="56d12-108">Diagnosticar e resolver problemas</span><span class="sxs-lookup"><span data-stu-id="56d12-108">Diagnose and solve issues</span></span>
 
-<span data-ttu-id="521d9-109">Você pode exibir alguns dos problemas comuns com a Matriz Virtual do StorSimple e examine as soluções para esses problemas a partir da sua folha de resumo de serviço do Gerenciador de Dispositivos do StorSimple.</span><span class="sxs-lookup"><span data-stu-id="521d9-109">You can view some of the common problems with the StorSimple Virtual Array and review the solutions to those issues right from your StorSimple Device Manager service summary blade.</span></span>
+<span data-ttu-id="56d12-109">Você pode exibir alguns dos problemas comuns de Olá Olá matriz Virtual StorSimple e analisar os problemas de toothose de soluções de saudação à direita da sua folha de resumo de serviço do Gerenciador de dispositivos do StorSimple.</span><span class="sxs-lookup"><span data-stu-id="56d12-109">You can view some of hello common problems with hello StorSimple Virtual Array and review hello solutions toothose issues right from your StorSimple Device Manager service summary blade.</span></span>
 
-#### <a name="to-diagnose-an-issue-with-your-virtual-array"></a><span data-ttu-id="521d9-110">Para diagnosticar um problema com sua matriz virtual</span><span class="sxs-lookup"><span data-stu-id="521d9-110">To diagnose an issue with your virtual array</span></span>
+#### <a name="toodiagnose-an-issue-with-your-virtual-array"></a><span data-ttu-id="56d12-110">toodiagnose um problema com o virtual array</span><span class="sxs-lookup"><span data-stu-id="56d12-110">toodiagnose an issue with your virtual array</span></span>
 
-1. <span data-ttu-id="521d9-111">Clique na configuração **Diagnosticar e resolver problemas** no painel esquerdo da folha de resumo de serviço do Gerenciador de Dispositivos do StorSimple para exibir uma lista dos problemas comuns.</span><span class="sxs-lookup"><span data-stu-id="521d9-111">Click **Diagnose and solve problems** setting in the left pane of your StorSimple Device Manager service summary blade to view a list of common problems.</span></span>
+1. <span data-ttu-id="56d12-111">Clique em **diagnosticar e resolver problemas** configuração Olá uma lista dos problemas comuns de painel de sua tooview de folha de resumo do Gerenciador de dispositivos do StorSimple serviço esquerdo.</span><span class="sxs-lookup"><span data-stu-id="56d12-111">Click **Diagnose and solve problems** setting in hello left pane of your StorSimple Device Manager service summary blade tooview a list of common problems.</span></span>
 
-2. <span data-ttu-id="521d9-112">**Expanda** no sintoma do problema que você está encontrando para examinar **Etapas recomendadas** para ajudar você a solucionar o problema.</span><span class="sxs-lookup"><span data-stu-id="521d9-112">**Expand** on the symptom of the issue you are encountering to review **Recommended steps** to aid you in troubleshooting the problem.</span></span> <span data-ttu-id="521d9-113">Se desejar, você também pode revisar os links de documentação detalhada fornecidos para referência adicional.</span><span class="sxs-lookup"><span data-stu-id="521d9-113">If you wish, you can also review the detailed documentation links provided for further reference.</span></span>
+2. <span data-ttu-id="56d12-112">**Expanda** no sintoma de saudação do problema Olá encontrando tooreview **etapas recomendadas** tooaid você solucionar o problema de saudação.</span><span class="sxs-lookup"><span data-stu-id="56d12-112">**Expand** on hello symptom of hello issue you are encountering tooreview **Recommended steps** tooaid you in troubleshooting hello problem.</span></span> <span data-ttu-id="56d12-113">Se desejar, você também pode analisar os links de documentação detalhada Olá fornecido para referência adicional.</span><span class="sxs-lookup"><span data-stu-id="56d12-113">If you wish, you can also review hello detailed documentation links provided for further reference.</span></span>
    
     ![Solucionar um problema](./media/storsimple-virtual-array-diagnose-problems/diagnose-problems-offline.png)
 
-3. <span data-ttu-id="521d9-115">Se não for possível encontrar uma referência ao seu problema ou resolvê-lo, entre em contato com o Microsoft Support para obter assistência.</span><span class="sxs-lookup"><span data-stu-id="521d9-115">If you are unable to find a reference to your issue or resolve it, reach out to Microsoft Support for further assistance.</span></span>
+3. <span data-ttu-id="56d12-115">Se você estiver toofind não é possível um problema de tooyour de referência ou resolvê-lo, alcançar tooMicrosoft suporte para obter assistência adicional.</span><span class="sxs-lookup"><span data-stu-id="56d12-115">If you are unable toofind a reference tooyour issue or resolve it, reach out tooMicrosoft Support for further assistance.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="521d9-116">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="521d9-116">Next steps</span></span>
-<span data-ttu-id="521d9-117">Saiba como [registrar um tíquete de suporte](storsimple-virtual-array-log-support-ticket.md)</span><span class="sxs-lookup"><span data-stu-id="521d9-117">Learn how to [log a support ticket](storsimple-virtual-array-log-support-ticket.md)</span></span>
+## <a name="next-steps"></a><span data-ttu-id="56d12-116">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="56d12-116">Next steps</span></span>
+<span data-ttu-id="56d12-117">Saiba como muito[um tíquete de suporte de log](storsimple-virtual-array-log-support-ticket.md)</span><span class="sxs-lookup"><span data-stu-id="56d12-117">Learn how too[log a support ticket](storsimple-virtual-array-log-support-ticket.md)</span></span>
 

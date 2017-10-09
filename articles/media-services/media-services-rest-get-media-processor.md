@@ -1,6 +1,6 @@
 ---
-title: "Como obter uma instância do processador de mídia usando REST | Microsoft Docs"
-description: "Saiba como criar um componente de processador de mídia para codificar, converter o formato, criptografar ou descriptografar conteúdo de mídia dos Serviços de Mídia do Azure."
+title: "AAA como tooget uma instância do processador de mídia usando REST | Microsoft Docs"
+description: "Saiba como toocreate uma tooencode de componente de processador de mídia, converter o formato, criptografar ou descriptografar o conteúdo de mídia do Azure Media Services."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,44 +14,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 4ad90ad979c5bd74fc55155098c88d5c13cb12e2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9f423648ab73c90405c64895ce0f5b6a457862e4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-get-a-media-processor-instance"></a><span data-ttu-id="613e6-103">Como obter uma instância do Processador de Mídia</span><span class="sxs-lookup"><span data-stu-id="613e6-103">How to get a Media Processor instance</span></span>
+# <a name="how-tooget-a-media-processor-instance"></a><span data-ttu-id="af551-103">Como tooget uma instância do processador de mídia</span><span class="sxs-lookup"><span data-stu-id="af551-103">How tooget a Media Processor instance</span></span>
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="613e6-104">.NET</span><span class="sxs-lookup"><span data-stu-id="613e6-104">.NET</span></span>](media-services-get-media-processor.md)
-> * [<span data-ttu-id="613e6-105">REST</span><span class="sxs-lookup"><span data-stu-id="613e6-105">REST</span></span>](media-services-rest-get-media-processor.md)
+> * [<span data-ttu-id="af551-104">.NET</span><span class="sxs-lookup"><span data-stu-id="af551-104">.NET</span></span>](media-services-get-media-processor.md)
+> * [<span data-ttu-id="af551-105">REST</span><span class="sxs-lookup"><span data-stu-id="af551-105">REST</span></span>](media-services-rest-get-media-processor.md)
 > 
 > 
 
-## <a name="overview"></a><span data-ttu-id="613e6-106">Visão geral</span><span class="sxs-lookup"><span data-stu-id="613e6-106">Overview</span></span>
-<span data-ttu-id="613e6-107">Nos Serviços de Mídia, um processador de mídia é um componente que manipula uma tarefa de processamento específica, como codificação, conversão de formato, criptografia ou descriptografia de conteúdo de mídia.</span><span class="sxs-lookup"><span data-stu-id="613e6-107">In Media Services a media processor is a component that handles a specific processing task, such as encoding, format conversion, encrypting, or decrypting media content.</span></span> <span data-ttu-id="613e6-108">Normalmente, você cria um processador de mídia quando está criando uma tarefa para codificar, criptografar ou converter o formato do conteúdo de mídia.</span><span class="sxs-lookup"><span data-stu-id="613e6-108">You typically create a media processor when you are creating a task to encode, encrypt, or convert the format of media content.</span></span>
+## <a name="overview"></a><span data-ttu-id="af551-106">Visão geral</span><span class="sxs-lookup"><span data-stu-id="af551-106">Overview</span></span>
+<span data-ttu-id="af551-107">Nos Serviços de Mídia, um processador de mídia é um componente que manipula uma tarefa de processamento específica, como codificação, conversão de formato, criptografia ou descriptografia de conteúdo de mídia.</span><span class="sxs-lookup"><span data-stu-id="af551-107">In Media Services a media processor is a component that handles a specific processing task, such as encoding, format conversion, encrypting, or decrypting media content.</span></span> <span data-ttu-id="af551-108">Normalmente você cria um processador de mídia quando você estiver criando uma tarefa tooencode, criptografar ou converter o formato de saudação do conteúdo de mídia.</span><span class="sxs-lookup"><span data-stu-id="af551-108">You typically create a media processor when you are creating a task tooencode, encrypt, or convert hello format of media content.</span></span>
 
-## <a name="azure-media-processors"></a><span data-ttu-id="613e6-109">Processadores de mídia do Azure</span><span class="sxs-lookup"><span data-stu-id="613e6-109">Azure media processors</span></span> 
+## <a name="azure-media-processors"></a><span data-ttu-id="af551-109">Processadores de mídia do Azure</span><span class="sxs-lookup"><span data-stu-id="af551-109">Azure media processors</span></span> 
 
-<span data-ttu-id="613e6-110">O tópico a seguir fornece listas de processadores de mídia:</span><span class="sxs-lookup"><span data-stu-id="613e6-110">The following topic provides lists of media processors:</span></span>
+<span data-ttu-id="af551-110">Olá tópico a seguir fornece listas de processadores de mídia:</span><span class="sxs-lookup"><span data-stu-id="af551-110">hello following topic provides lists of media processors:</span></span>
 
-* [<span data-ttu-id="613e6-111">Codificação de processadores de mídia</span><span class="sxs-lookup"><span data-stu-id="613e6-111">Encoding media processors</span></span>](scenarios-and-availability.md#encoding-media-processors)
-* [<span data-ttu-id="613e6-112">Processadores de mídia do Analytics</span><span class="sxs-lookup"><span data-stu-id="613e6-112">Analytics media processors</span></span>](scenarios-and-availability.md#analytics-media-processors)
-
->[!NOTE]
-><span data-ttu-id="613e6-113">Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP.</span><span class="sxs-lookup"><span data-stu-id="613e6-113">When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests.</span></span> <span data-ttu-id="613e6-114">Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).</span><span class="sxs-lookup"><span data-stu-id="613e6-114">For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).</span></span>
-
-## <a name="connect-to-media-services"></a><span data-ttu-id="613e6-115">Conectar-se aos Serviços de Mídia</span><span class="sxs-lookup"><span data-stu-id="613e6-115">Connect to Media Services</span></span>
-
-<span data-ttu-id="613e6-116">Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md).</span><span class="sxs-lookup"><span data-stu-id="613e6-116">For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).</span></span> 
+* [<span data-ttu-id="af551-111">Codificação de processadores de mídia</span><span class="sxs-lookup"><span data-stu-id="af551-111">Encoding media processors</span></span>](scenarios-and-availability.md#encoding-media-processors)
+* [<span data-ttu-id="af551-112">Processadores de mídia do Analytics</span><span class="sxs-lookup"><span data-stu-id="af551-112">Analytics media processors</span></span>](scenarios-and-availability.md#analytics-media-processors)
 
 >[!NOTE]
-><span data-ttu-id="613e6-117">Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia.</span><span class="sxs-lookup"><span data-stu-id="613e6-117">After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI.</span></span> <span data-ttu-id="613e6-118">Você deve fazer chamadas subsequentes para o novo URI.</span><span class="sxs-lookup"><span data-stu-id="613e6-118">You must make subsequent calls to the new URI.</span></span>
+><span data-ttu-id="af551-113">Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP.</span><span class="sxs-lookup"><span data-stu-id="af551-113">When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests.</span></span> <span data-ttu-id="af551-114">Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).</span><span class="sxs-lookup"><span data-stu-id="af551-114">For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).</span></span>
 
-## <a name="get-a-media-processor"></a><span data-ttu-id="613e6-119">Obter um processador de mídia</span><span class="sxs-lookup"><span data-stu-id="613e6-119">Get a media processor</span></span>
+## <a name="connect-toomedia-services"></a><span data-ttu-id="af551-115">Conectar os serviços de tooMedia</span><span class="sxs-lookup"><span data-stu-id="af551-115">Connect tooMedia Services</span></span>
 
-<span data-ttu-id="613e6-120">A chamada REST a seguir mostra como obter uma instância do processador de mídia por nome (neste caso, **Codificador de Mídia Padrão**).</span><span class="sxs-lookup"><span data-stu-id="613e6-120">The following REST call shows how to get a media processor instance by name (in this case, **Media Encoder Standard**).</span></span> 
+<span data-ttu-id="af551-116">Para obter informações sobre como tooconnect toohello AMS API, consulte [Olá acesso API de serviços de mídia do Azure com a autenticação do AD do Azure](media-services-use-aad-auth-to-access-ams-api.md).</span><span class="sxs-lookup"><span data-stu-id="af551-116">For information on how tooconnect toohello AMS API, see [Access hello Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).</span></span> 
 
-<span data-ttu-id="613e6-121">Solicitação:</span><span class="sxs-lookup"><span data-stu-id="613e6-121">Request:</span></span>
+>[!NOTE]
+><span data-ttu-id="af551-117">Após conectar-se toohttps://media.windows.net, você receberá um redirecionamento 301 que especifica outro URI dos serviços de mídia.</span><span class="sxs-lookup"><span data-stu-id="af551-117">After successfully connecting toohttps://media.windows.net, you will receive a 301 redirect specifying another Media Services URI.</span></span> <span data-ttu-id="af551-118">Você deve fazer chamadas subsequentes toohello novo URI.</span><span class="sxs-lookup"><span data-stu-id="af551-118">You must make subsequent calls toohello new URI.</span></span>
+
+## <a name="get-a-media-processor"></a><span data-ttu-id="af551-119">Obter um processador de mídia</span><span class="sxs-lookup"><span data-stu-id="af551-119">Get a media processor</span></span>
+
+<span data-ttu-id="af551-120">Olá chamada REST a seguir mostra como tooget um processador de mídia instância pelo nome (nesse caso, **codificador de mídia padrão**).</span><span class="sxs-lookup"><span data-stu-id="af551-120">hello following REST call shows how tooget a media processor instance by name (in this case, **Media Encoder Standard**).</span></span> 
+
+<span data-ttu-id="af551-121">Solicitação:</span><span class="sxs-lookup"><span data-stu-id="af551-121">Request:</span></span>
 
     GET https://media.windows.net/api/MediaProcessors()?$filter=Name%20eq%20'Media%20Encoder%20Standard' HTTP/1.1
     DataServiceVersion: 1.0;NetFx
@@ -63,7 +63,7 @@ ms.lasthandoff: 08/29/2017
     x-ms-version: 2.11
     Host: media.windows.net
 
-<span data-ttu-id="613e6-122">Resposta:</span><span class="sxs-lookup"><span data-stu-id="613e6-122">Response:</span></span>
+<span data-ttu-id="af551-122">Resposta:</span><span class="sxs-lookup"><span data-stu-id="af551-122">Response:</span></span>
 
     . . .
 
@@ -82,12 +82,12 @@ ms.lasthandoff: 08/29/2017
     }
 
 
-## <a name="media-services-learning-paths"></a><span data-ttu-id="613e6-123">Roteiros de aprendizagem dos Serviços de Mídia</span><span class="sxs-lookup"><span data-stu-id="613e6-123">Media Services learning paths</span></span>
+## <a name="media-services-learning-paths"></a><span data-ttu-id="af551-123">Roteiros de aprendizagem dos Serviços de Mídia</span><span class="sxs-lookup"><span data-stu-id="af551-123">Media Services learning paths</span></span>
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a><span data-ttu-id="613e6-124">Fornecer comentários</span><span class="sxs-lookup"><span data-stu-id="613e6-124">Provide feedback</span></span>
+## <a name="provide-feedback"></a><span data-ttu-id="af551-124">Fornecer comentários</span><span class="sxs-lookup"><span data-stu-id="af551-124">Provide feedback</span></span>
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a><span data-ttu-id="613e6-125">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="613e6-125">Next Steps</span></span>
-<span data-ttu-id="613e6-126">Agora que você já sabe como obter uma instância do processador de mídia, vá para o tópico [Como Codificar um Ativo](media-services-rest-get-started.md) , que mostrará como usar o Codificador de Mídia Standard para codificar um ativo.</span><span class="sxs-lookup"><span data-stu-id="613e6-126">Now that you know how to get a media processor instance, go to the [How to Encode an Asset](media-services-rest-get-started.md) topic which will show you how to use the Media Encoder Standard to encode an asset.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="af551-125">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="af551-125">Next Steps</span></span>
+<span data-ttu-id="af551-126">Agora que você sabe como tooget uma instância do processador de mídia, vá toohello [como um ativo de tooEncode](media-services-rest-get-started.md) tópico que lhe mostrará como toouse Olá tooencode codificador de mídia padrão um ativo.</span><span class="sxs-lookup"><span data-stu-id="af551-126">Now that you know how tooget a media processor instance, go toohello [How tooEncode an Asset](media-services-rest-get-started.md) topic which will show you how toouse hello Media Encoder Standard tooencode an asset.</span></span>
 

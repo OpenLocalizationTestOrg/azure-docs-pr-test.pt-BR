@@ -1,6 +1,6 @@
 ---
-title: "Conectar o Intel Edison (C) ao IoT do Azure - Lição 4: piscar o LED| Microsoft Docs"
-description: Personalize as mensagens para alterar o comportamento liga e desliga do LED.
+title: "Connect Intel Edison (C) tooAzure IoT – lição 4: piscar Olá LED | Microsoft Docs"
+description: "Personalize a saudação de toochange de mensagens de saudação LED do ativa e desativa o comportamento."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,30 +17,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 4852b1cca4c6186ef4857b903b771f76cc20adb8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c51acb42aa297ca91cfe76d7b0361ad95e2fb2e4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="change-the-on-and-off-behavior-of-the-led"></a><span data-ttu-id="17c57-104">Alterar o comportamento de ativar e desativar do LED</span><span class="sxs-lookup"><span data-stu-id="17c57-104">Change the on and off behavior of the LED</span></span>
-## <a name="what-you-will-do"></a><span data-ttu-id="17c57-105">O que você fará</span><span class="sxs-lookup"><span data-stu-id="17c57-105">What you will do</span></span>
-<span data-ttu-id="17c57-106">Personalize as mensagens para alterar o comportamento liga e desliga do LED.</span><span class="sxs-lookup"><span data-stu-id="17c57-106">Customize the messages to change the LED’s on and off behavior.</span></span> <span data-ttu-id="17c57-107">Se você tiver problemas, procure por soluções na [página de solução de problemas][troubleshooting].</span><span class="sxs-lookup"><span data-stu-id="17c57-107">If you have any problems, look for solutions on the [troubleshooting page][troubleshooting].</span></span>
+# <a name="change-hello-on-and-off-behavior-of-hello-led"></a><span data-ttu-id="9ff0e-104">Alterar Olá ativa e desativa o comportamento de saudação LED</span><span class="sxs-lookup"><span data-stu-id="9ff0e-104">Change hello on and off behavior of hello LED</span></span>
+## <a name="what-you-will-do"></a><span data-ttu-id="9ff0e-105">O que você fará</span><span class="sxs-lookup"><span data-stu-id="9ff0e-105">What you will do</span></span>
+<span data-ttu-id="9ff0e-106">Personalize a saudação de toochange de mensagens de saudação LED do ativa e desativa o comportamento.</span><span class="sxs-lookup"><span data-stu-id="9ff0e-106">Customize hello messages toochange hello LED’s on and off behavior.</span></span> <span data-ttu-id="9ff0e-107">Se você tiver problemas, procure por soluções em Olá [página de solução][troubleshooting].</span><span class="sxs-lookup"><span data-stu-id="9ff0e-107">If you have any problems, look for solutions on hello [troubleshooting page][troubleshooting].</span></span>
 
-## <a name="what-you-will-learn"></a><span data-ttu-id="17c57-108">O que você aprenderá</span><span class="sxs-lookup"><span data-stu-id="17c57-108">What you will learn</span></span>
-<span data-ttu-id="17c57-109">Utilizar funções adicionais para alterar o comportamento de ligar e desligar do LED.</span><span class="sxs-lookup"><span data-stu-id="17c57-109">Use additional functions to change the LED’s on and off behavior.</span></span>
+## <a name="what-you-will-learn"></a><span data-ttu-id="9ff0e-108">O que você aprenderá</span><span class="sxs-lookup"><span data-stu-id="9ff0e-108">What you will learn</span></span>
+<span data-ttu-id="9ff0e-109">Use Olá toochange de funções adicionais LED do ativa e desativa o comportamento.</span><span class="sxs-lookup"><span data-stu-id="9ff0e-109">Use additional functions toochange hello LED’s on and off behavior.</span></span>
 
-## <a name="what-you-need"></a><span data-ttu-id="17c57-110">O que você precisa</span><span class="sxs-lookup"><span data-stu-id="17c57-110">What you need</span></span>
-<span data-ttu-id="17c57-111">Você deve ter concluído com sucesso [Executar um aplicativo de exemplo no Intel Edison para receber mensagens da nuvem para o dispositivo][receive-cloud-to-device-messages].</span><span class="sxs-lookup"><span data-stu-id="17c57-111">You must have successfully completed [Run a sample application on Intel Edison to receive cloud to device messages][receive-cloud-to-device-messages].</span></span>
+## <a name="what-you-need"></a><span data-ttu-id="9ff0e-110">O que você precisa</span><span class="sxs-lookup"><span data-stu-id="9ff0e-110">What you need</span></span>
+<span data-ttu-id="9ff0e-111">Você deve ter concluído com êxito [executar um aplicativo de exemplo na nuvem do Intel Edison tooreceive mensagens toodevice][receive-cloud-to-device-messages].</span><span class="sxs-lookup"><span data-stu-id="9ff0e-111">You must have successfully completed [Run a sample application on Intel Edison tooreceive cloud toodevice messages][receive-cloud-to-device-messages].</span></span>
 
-## <a name="add-functions-to-mainc-and-gulpfilejs"></a><span data-ttu-id="17c57-112">Adicionar funções ao main.c e ao gulpfile.js</span><span class="sxs-lookup"><span data-stu-id="17c57-112">Add functions to main.c and gulpfile.js</span></span>
-1. <span data-ttu-id="17c57-113">Abra o aplicativo de exemplo no Visual Studio Code, executando os seguintes comandos:</span><span class="sxs-lookup"><span data-stu-id="17c57-113">Open the sample application in Visual Studio code by running the following commands:</span></span>
+## <a name="add-functions-toomainc-and-gulpfilejs"></a><span data-ttu-id="9ff0e-112">Adicionar gulpfile.js e toomain.c de funções</span><span class="sxs-lookup"><span data-stu-id="9ff0e-112">Add functions toomain.c and gulpfile.js</span></span>
+1. <span data-ttu-id="9ff0e-113">Abra o aplicativo de exemplo hello no código do Visual Studio executando Olá comandos a seguir:</span><span class="sxs-lookup"><span data-stu-id="9ff0e-113">Open hello sample application in Visual Studio code by running hello following commands:</span></span>
 
    ```bash
    cd Lesson4
    code .
    ```
-2. <span data-ttu-id="17c57-114">Abra o arquivo `main.c` e, em seguida, adicione as seguintes funções após a função blinkLED():</span><span class="sxs-lookup"><span data-stu-id="17c57-114">Open the `main.c` file, and then add the following functions after blinkLED() function:</span></span>
+2. <span data-ttu-id="9ff0e-114">Olá abrir `main.c` arquivo e, em seguida, adicionar funções a seguir após a função blinkLED() de saudação:</span><span class="sxs-lookup"><span data-stu-id="9ff0e-114">Open hello `main.c` file, and then add hello following functions after blinkLED() function:</span></span>
 
    ```c
    static void turnOnLED()
@@ -56,7 +56,7 @@ ms.lasthandoff: 07/11/2017
 
    ![arquivo main.c com funções adicionais](media/iot-hub-intel-edison-lessons/lesson4/updated_app_c.png)
 
-3. <span data-ttu-id="17c57-116">Adicione as seguintes condições antes do bloco `else if` da função `receiveMessageCallback`:</span><span class="sxs-lookup"><span data-stu-id="17c57-116">Add the following conditions before the `else if` block of the `receiveMessageCallback` function:</span></span>
+3. <span data-ttu-id="9ff0e-116">Adicionar Olá seguintes condições antes de saudação `else if` bloco de saudação `receiveMessageCallback` função:</span><span class="sxs-lookup"><span data-stu-id="9ff0e-116">Add hello following conditions before hello `else if` block of hello `receiveMessageCallback` function:</span></span>
 
    ```c
    else if (0 == strcmp((const char*)value, "\"on\""))
@@ -69,8 +69,8 @@ ms.lasthandoff: 07/11/2017
    }
    ```
 
-   <span data-ttu-id="17c57-117">Agora você configurou o aplicativo de exemplo para responder a mais instruções por meio de mensagens.</span><span class="sxs-lookup"><span data-stu-id="17c57-117">Now you’ve configured the sample application to respond to more instructions through messages.</span></span> <span data-ttu-id="17c57-118">A instrução "on" ativa o LED e a instrução "off" desativa o LED.</span><span class="sxs-lookup"><span data-stu-id="17c57-118">The "on" instruction turns on the LED, and the "off" instruction turns off the LED.</span></span>
-4. <span data-ttu-id="17c57-119">Abra o arquivo gulpfile.js e, em seguida, adicione uma nova função antes da função `sendMessage`:</span><span class="sxs-lookup"><span data-stu-id="17c57-119">Open the gulpfile.js file, and then add a new function before the function `sendMessage`:</span></span>
+   <span data-ttu-id="9ff0e-117">Agora você configurou instruções de toomore de toorespond Olá exemplo aplicativo por meio de mensagens.</span><span class="sxs-lookup"><span data-stu-id="9ff0e-117">Now you’ve configured hello sample application toorespond toomore instructions through messages.</span></span> <span data-ttu-id="9ff0e-118">Olá "em" instrução ativa Olá LED e hello "desativado" instrução desativa Olá LED.</span><span class="sxs-lookup"><span data-stu-id="9ff0e-118">hello "on" instruction turns on hello LED, and hello "off" instruction turns off hello LED.</span></span>
+4. <span data-ttu-id="9ff0e-119">Abrir o arquivo de gulpfile.js hello e, em seguida, adicionar uma nova função antes da função hello `sendMessage`:</span><span class="sxs-lookup"><span data-stu-id="9ff0e-119">Open hello gulpfile.js file, and then add a new function before hello function `sendMessage`:</span></span>
 
    ```javascript
    var buildCustomMessage = function (messageId) {
@@ -85,28 +85,28 @@ ms.lasthandoff: 07/11/2017
    ```
 
    ![Arquivo Gulpfile.js com funções adicionais][gulpfile]
-5. <span data-ttu-id="17c57-121">Na função `sendMessage`, substitua a linha `var message = buildMessage(sentMessageCount);` com a nova linha mostrada no trecho a seguir:</span><span class="sxs-lookup"><span data-stu-id="17c57-121">In the `sendMessage` function, replace the line `var message = buildMessage(sentMessageCount);` with the new line shown in the following snippet:</span></span>
+5. <span data-ttu-id="9ff0e-121">Em Olá `sendMessage` funcionar, substitua a linha hello `var message = buildMessage(sentMessageCount);` com nova linha de Olá Olá trecho de código a seguir mostrada:</span><span class="sxs-lookup"><span data-stu-id="9ff0e-121">In hello `sendMessage` function, replace hello line `var message = buildMessage(sentMessageCount);` with hello new line shown in hello following snippet:</span></span>
 
    ```javascript
    var message = buildCustomMessage(sentMessageCount);
    ```
-6. <span data-ttu-id="17c57-122">Salve todas as alterações.</span><span class="sxs-lookup"><span data-stu-id="17c57-122">Save all the changes.</span></span>
+6. <span data-ttu-id="9ff0e-122">Salve todas as alterações de saudação.</span><span class="sxs-lookup"><span data-stu-id="9ff0e-122">Save all hello changes.</span></span>
 
-### <a name="deploy-and-run-the-sample-application"></a><span data-ttu-id="17c57-123">Implantar e executar o aplicativo de exemplo</span><span class="sxs-lookup"><span data-stu-id="17c57-123">Deploy and run the sample application</span></span>
-<span data-ttu-id="17c57-124">Implante e execute o aplicativo de exemplo no Edison executando o seguinte comando:</span><span class="sxs-lookup"><span data-stu-id="17c57-124">Deploy and run the sample application on Edison by running the following command:</span></span>
+### <a name="deploy-and-run-hello-sample-application"></a><span data-ttu-id="9ff0e-123">Implantar e executar o aplicativo de exemplo hello</span><span class="sxs-lookup"><span data-stu-id="9ff0e-123">Deploy and run hello sample application</span></span>
+<span data-ttu-id="9ff0e-124">Implantar e executar o aplicativo de exemplo hello Edison executando Olá comando a seguir:</span><span class="sxs-lookup"><span data-stu-id="9ff0e-124">Deploy and run hello sample application on Edison by running hello following command:</span></span>
 
 ```bash
 gulp deploy && gulp run
 ```
 
-<span data-ttu-id="17c57-125">Você deve ver o LED ativar por dois segundos e, em seguida, desativar por outros dois segundos.</span><span class="sxs-lookup"><span data-stu-id="17c57-125">You should see the LED turn on for two seconds, and then turn off for another two seconds.</span></span> <span data-ttu-id="17c57-126">A última mensagem "stop" interrompe a execução do aplicativo de exemplo.</span><span class="sxs-lookup"><span data-stu-id="17c57-126">The last "stop" message stops the sample application from running.</span></span>
+<span data-ttu-id="9ff0e-125">Você verá Olá LED ativar por dois segundos e, em seguida, desligue por outro dois segundos.</span><span class="sxs-lookup"><span data-stu-id="9ff0e-125">You should see hello LED turn on for two seconds, and then turn off for another two seconds.</span></span> <span data-ttu-id="9ff0e-126">última mensagem de "stop" Hello interrompe o aplicativo de exemplo hello seja executado.</span><span class="sxs-lookup"><span data-stu-id="9ff0e-126">hello last "stop" message stops hello sample application from running.</span></span>
 
 ![liga e desliga][on-and-off]
 
-<span data-ttu-id="17c57-128">Parabéns!</span><span class="sxs-lookup"><span data-stu-id="17c57-128">Congratulations!</span></span> <span data-ttu-id="17c57-129">Você personalizou com sucesso as mensagens que são enviadas do Hub IoT para o Edison.</span><span class="sxs-lookup"><span data-stu-id="17c57-129">You’ve successfully customized the messages that are sent to Edison from your IoT hub.</span></span>
+<span data-ttu-id="9ff0e-128">Parabéns!</span><span class="sxs-lookup"><span data-stu-id="9ff0e-128">Congratulations!</span></span> <span data-ttu-id="9ff0e-129">Você personalizou mensagens de saudação enviadas tooEdison de seu hub IoT com êxito.</span><span class="sxs-lookup"><span data-stu-id="9ff0e-129">You’ve successfully customized hello messages that are sent tooEdison from your IoT hub.</span></span>
 
-### <a name="summary"></a><span data-ttu-id="17c57-130">Resumo</span><span class="sxs-lookup"><span data-stu-id="17c57-130">Summary</span></span>
-<span data-ttu-id="17c57-131">Essa seção opcional demonstra como personalizar as mensagens para que o aplicativo de exemplo controle o comportamento liga e desliga do LED de maneira diferente.</span><span class="sxs-lookup"><span data-stu-id="17c57-131">This optional section demonstrates how to customize messages so that the sample application can control the on and off behavior of the LED in a different way.</span></span>
+### <a name="summary"></a><span data-ttu-id="9ff0e-130">Resumo</span><span class="sxs-lookup"><span data-stu-id="9ff0e-130">Summary</span></span>
+<span data-ttu-id="9ff0e-131">Essa seção demonstra como toocustomize mensagens para que o aplicativo de exemplo hello possa controlar Olá ativa e desativa o comportamento de saudação LED de maneira diferente.</span><span class="sxs-lookup"><span data-stu-id="9ff0e-131">This optional section demonstrates how toocustomize messages so that hello sample application can control hello on and off behavior of hello LED in a different way.</span></span>
 
 <!-- Images and links -->
 

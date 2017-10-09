@@ -1,6 +1,6 @@
 ---
-title: "Configuração de políticas de entrega de ativos usando API REST dos Serviços de Mídia | Microsoft Docs"
-description: "Este tópico mostra como configurar políticas de entrega de ativos diferentes usando a API REST dos Serviços de Mídia."
+title: "políticas de entrega de ativos aaaConfiguring usando a API de REST de serviços de mídia | Microsoft Docs"
+description: "Este tópico mostra como tooconfigure políticas de entrega de ativo diferentes usando a API de REST de serviços de mídia."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,71 +14,71 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 7ffbde11b943961dd3a3b5edebd0cfd52429e845
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8203230d570935e17382c598820dbfe42f83f8d8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configuring-asset-delivery-policies"></a><span data-ttu-id="af4d4-103">Configuração de políticas de entrega de ativos</span><span class="sxs-lookup"><span data-stu-id="af4d4-103">Configuring asset delivery policies</span></span>
+# <a name="configuring-asset-delivery-policies"></a><span data-ttu-id="cfa93-103">Configuração de políticas de entrega de ativos</span><span class="sxs-lookup"><span data-stu-id="cfa93-103">Configuring asset delivery policies</span></span>
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
-<span data-ttu-id="af4d4-104">Se você planeja entregar dinamicamente ativos criptografados, uma das etapas do fluxo de trabalho de distribuição de conteúdo de Serviços de Mídia é configurar políticas de entrega de ativos.</span><span class="sxs-lookup"><span data-stu-id="af4d4-104">If you plan to deliver dynamically encrypted assets, one of the steps in the Media Services content delivery workflow is configuring delivery policies for assets.</span></span> <span data-ttu-id="af4d4-105">A política de entrega de ativos informa aos serviços de mídia como você deseja que o ativo seja entregue: em que protocolo de fluxo seu ativo deve ser dinamicamente empacotado (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos), se você deseja criptografar dinamicamente seu ativo ou não e como (criptografia de envelope ou comum).</span><span class="sxs-lookup"><span data-stu-id="af4d4-105">The asset delivery policy tells Media Services how you want for your asset to be delivered: into which streaming protocol should your asset be dynamically packaged (for example, MPEG DASH, HLS, Smooth Streaming, or all), whether or not you want to dynamically encrypt your asset and how (envelope or common encryption).</span></span>
+<span data-ttu-id="cfa93-104">Se você planejar ativos toodeliver dinamicamente criptografado, uma saudação etapas no hello conteúdo de fluxo de trabalho de entrega está configurando políticas de entrega de ativos de serviços de mídia.</span><span class="sxs-lookup"><span data-stu-id="cfa93-104">If you plan toodeliver dynamically encrypted assets, one of hello steps in hello Media Services content delivery workflow is configuring delivery policies for assets.</span></span> <span data-ttu-id="cfa93-105">política de entrega de ativos de saudação informa os serviços de mídia como você deseja para sua toobe ativo entregue: em qual protocolo de streaming deve seu ativo dinamicamente empacotado (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos), se você deseja toodynamically ou não criptografar seu ativo e como (envelope ou criptografia comum).</span><span class="sxs-lookup"><span data-stu-id="cfa93-105">hello asset delivery policy tells Media Services how you want for your asset toobe delivered: into which streaming protocol should your asset be dynamically packaged (for example, MPEG DASH, HLS, Smooth Streaming, or all), whether or not you want toodynamically encrypt your asset and how (envelope or common encryption).</span></span>
 
-<span data-ttu-id="af4d4-106">Este tópico discute como e por que criar e configurar políticas de entrega de ativos.</span><span class="sxs-lookup"><span data-stu-id="af4d4-106">This topic discusses why and how to create and configure asset delivery policies.</span></span>
+<span data-ttu-id="cfa93-106">Este tópico discute por que e como toocreate e configurar políticas de entrega de ativos.</span><span class="sxs-lookup"><span data-stu-id="cfa93-106">This topic discusses why and how toocreate and configure asset delivery policies.</span></span>
 
 >[!NOTE]
-><span data-ttu-id="af4d4-107">Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**.</span><span class="sxs-lookup"><span data-stu-id="af4d4-107">When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state.</span></span> <span data-ttu-id="af4d4-108">Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**.</span><span class="sxs-lookup"><span data-stu-id="af4d4-108">To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state.</span></span> 
+><span data-ttu-id="cfa93-107">Quando sua conta AMS é criada um **padrão** ponto de extremidade de streaming é adicionada conta tooyour Olá **parado** estado.</span><span class="sxs-lookup"><span data-stu-id="cfa93-107">When your AMS account is created a **default** streaming endpoint is added tooyour account in hello **Stopped** state.</span></span> <span data-ttu-id="cfa93-108">toostart streaming seu conteúdo e execute aproveitar o empacotamento dinâmico e criptografia dinâmica, Olá ponto de extremidade de streaming do qual você deseja toostream conteúdo tem toobe em Olá **executando** estado.</span><span class="sxs-lookup"><span data-stu-id="cfa93-108">toostart streaming your content and take advantage of dynamic packaging and dynamic encryption, hello streaming endpoint from which you want toostream content has toobe in hello **Running** state.</span></span> 
 >
-><span data-ttu-id="af4d4-109">Além disso, para poder usar o empacotamento dinâmico e a criptografia dinâmica, seu ativo deve conter um conjunto de arquivos MP4 de taxa de bits adaptável ou de Smooth Streaming de taxa de bits adaptável.</span><span class="sxs-lookup"><span data-stu-id="af4d4-109">Also, to be able to use dynamic packaging and dynamic encryption your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files.</span></span>
+><span data-ttu-id="cfa93-109">Além disso, o empacotamento dinâmico capaz de toouse toobe e criptografia dinâmica seu ativo deve conter um conjunto de MP4s de taxa de bits adaptável ou arquivos de Smooth Streaming de taxa de bits adaptável.</span><span class="sxs-lookup"><span data-stu-id="cfa93-109">Also, toobe able toouse dynamic packaging and dynamic encryption your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files.</span></span>
 
-<span data-ttu-id="af4d4-110">Você pode aplicar políticas diferentes para o mesmo ativo.</span><span class="sxs-lookup"><span data-stu-id="af4d4-110">You could apply different policies to the same asset.</span></span> <span data-ttu-id="af4d4-111">Por exemplo, você poderia aplicar criptografia PlayReady para criptografia de Envelope AES e Smooth Streaming para MPEG DASH e HLS.</span><span class="sxs-lookup"><span data-stu-id="af4d4-111">For example, you could apply PlayReady encryption to Smooth Streaming and AES Envelope encryption to MPEG DASH and HLS.</span></span> <span data-ttu-id="af4d4-112">Todos os protocolos que não são definidos em uma política de entrega (por exemplo, você adicionar uma única política que só especifica HLS como o protocolo) será bloqueado a partir do streaming.</span><span class="sxs-lookup"><span data-stu-id="af4d4-112">Any protocols that are not defined in a delivery policy (for example, you add a single policy that only specifies HLS as the protocol) will be blocked from streaming.</span></span> <span data-ttu-id="af4d4-113">A exceção a isso é se você não tiver nenhuma política de entrega de ativos definida em todos.</span><span class="sxs-lookup"><span data-stu-id="af4d4-113">The exception to this is if you have no asset delivery policy defined at all.</span></span> <span data-ttu-id="af4d4-114">Em seguida, todos os protocolos poderão ser criptografados.</span><span class="sxs-lookup"><span data-stu-id="af4d4-114">Then, all protocols will be allowed in the clear.</span></span>
+<span data-ttu-id="cfa93-110">Você pode aplicar políticas diferentes toohello mesmo ativo.</span><span class="sxs-lookup"><span data-stu-id="cfa93-110">You could apply different policies toohello same asset.</span></span> <span data-ttu-id="cfa93-111">Por exemplo, você pode aplicar PlayReady criptografia tooSmooth Streaming e Envelope AES criptografia tooMPEG DASH e HLS.</span><span class="sxs-lookup"><span data-stu-id="cfa93-111">For example, you could apply PlayReady encryption tooSmooth Streaming and AES Envelope encryption tooMPEG DASH and HLS.</span></span> <span data-ttu-id="cfa93-112">Todos os protocolos que não estão definidos em uma política de entrega (por exemplo, você adiciona uma única política que só especifica HLS como protocolo de saudação) serão impedidos de streaming.</span><span class="sxs-lookup"><span data-stu-id="cfa93-112">Any protocols that are not defined in a delivery policy (for example, you add a single policy that only specifies HLS as hello protocol) will be blocked from streaming.</span></span> <span data-ttu-id="cfa93-113">Olá toothis de exceção é se você não tiver nenhuma política de entrega de ativo definida.</span><span class="sxs-lookup"><span data-stu-id="cfa93-113">hello exception toothis is if you have no asset delivery policy defined at all.</span></span> <span data-ttu-id="cfa93-114">Em seguida, todos os protocolos poderão ser em Olá clara.</span><span class="sxs-lookup"><span data-stu-id="cfa93-114">Then, all protocols will be allowed in hello clear.</span></span>
 
-<span data-ttu-id="af4d4-115">Se você quiser entregar um ativo de armazenamento criptografado, configure a política de entrega do ativo.</span><span class="sxs-lookup"><span data-stu-id="af4d4-115">If you want to deliver a storage encrypted asset, you must configure the asset’s delivery policy.</span></span> <span data-ttu-id="af4d4-116">Antes que seu ativo possa ser transmitido, o servidor de streaming remove a criptografia de armazenamento e transmite o conteúdo usando a política de entrega especificada.</span><span class="sxs-lookup"><span data-stu-id="af4d4-116">Before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy.</span></span> <span data-ttu-id="af4d4-117">Por exemplo, para entregar o ativo criptografado com chave de criptografia de envelope de AES (Criptografia Avançada Padrão), defina o tipo de política como **DynamicEnvelopeEncryption**.</span><span class="sxs-lookup"><span data-stu-id="af4d4-117">For example, to deliver your asset encrypted with Advanced Encryption Standard (AES) envelope encryption key, set the policy type to **DynamicEnvelopeEncryption**.</span></span> <span data-ttu-id="af4d4-118">Para remover a criptografia de armazenamento e transmitir o ativo não criptografado, defina o tipo de política como **NoDynamicEncryption**.</span><span class="sxs-lookup"><span data-stu-id="af4d4-118">To remove storage encryption and stream the asset in the clear, set the policy type to **NoDynamicEncryption**.</span></span> <span data-ttu-id="af4d4-119">Seguem exemplos que mostram como configurar esses tipos de política.</span><span class="sxs-lookup"><span data-stu-id="af4d4-119">Examples that show how to configure these policy types follow.</span></span>
+<span data-ttu-id="cfa93-115">Se você quiser toodeliver um ativo de armazenamento criptografado, você deve configurar a política de entrega do hello ativo.</span><span class="sxs-lookup"><span data-stu-id="cfa93-115">If you want toodeliver a storage encrypted asset, you must configure hello asset’s delivery policy.</span></span> <span data-ttu-id="cfa93-116">Antes do ativo pode ser transmitido, Olá streaming fluxos e criptografia de armazenamento de saudação do servidor remove o conteúdo usando Olá especificado a política de distribuição.</span><span class="sxs-lookup"><span data-stu-id="cfa93-116">Before your asset can be streamed, hello streaming server removes hello storage encryption and streams your content using hello specified delivery policy.</span></span> <span data-ttu-id="cfa93-117">Por exemplo, toodeliver seu ativo criptografado com chave de criptografia de envelope AES Advanced Encryption Standard (), defina o tipo de política de saudação muito**DynamicEnvelopeEncryption**.</span><span class="sxs-lookup"><span data-stu-id="cfa93-117">For example, toodeliver your asset encrypted with Advanced Encryption Standard (AES) envelope encryption key, set hello policy type too**DynamicEnvelopeEncryption**.</span></span> <span data-ttu-id="cfa93-118">criptografia de armazenamento tooremove e ativo de saudação do fluxo em Olá claro, defina tipo de política de saudação muito**NoDynamicEncryption**.</span><span class="sxs-lookup"><span data-stu-id="cfa93-118">tooremove storage encryption and stream hello asset in hello clear, set hello policy type too**NoDynamicEncryption**.</span></span> <span data-ttu-id="cfa93-119">Exemplos que mostram como tooconfigure esses tipos de política execute.</span><span class="sxs-lookup"><span data-stu-id="cfa93-119">Examples that show how tooconfigure these policy types follow.</span></span>
 
-<span data-ttu-id="af4d4-120">Dependendo de como você configura a política de entrega de ativos, poderá empacotar e criptografar dinamicamente, bem como transmitir os seguintes protocolos de streaming: Smooth Streaming, HLS, MPEG DASH e transmissões.</span><span class="sxs-lookup"><span data-stu-id="af4d4-120">Depending on how you configure the asset delivery policy you would be able to dynamically package, dynamically encrypt, and stream the following streaming protocols: Smooth Streaming, HLS, MPEG DASH streams.</span></span>
+<span data-ttu-id="cfa93-120">Dependendo de como você configurar a política de distribuição do ativo Olá seria ser capaz de toodynamically pacote dinamicamente criptografar e Olá seguintes protocolos de transmissão de fluxo: Smooth Streaming, HLS, fluxos MPEG DASH.</span><span class="sxs-lookup"><span data-stu-id="cfa93-120">Depending on how you configure hello asset delivery policy you would be able toodynamically package, dynamically encrypt, and stream hello following streaming protocols: Smooth Streaming, HLS, MPEG DASH streams.</span></span>
 
-<span data-ttu-id="af4d4-121">A lista a seguir mostra os formatos usados para transmitir Smooth, HLS e DASH.</span><span class="sxs-lookup"><span data-stu-id="af4d4-121">The following list shows the formats that you use to stream Smooth, HLS, DASH.</span></span>
+<span data-ttu-id="cfa93-121">Olá seguinte lista mostra Olá formatos que você use toostream Smooth, HLS, traço.</span><span class="sxs-lookup"><span data-stu-id="cfa93-121">hello following list shows hello formats that you use toostream Smooth, HLS, DASH.</span></span>
 
-<span data-ttu-id="af4d4-122">Smooth Streaming:</span><span class="sxs-lookup"><span data-stu-id="af4d4-122">Smooth Streaming:</span></span>
+<span data-ttu-id="cfa93-122">Smooth Streaming:</span><span class="sxs-lookup"><span data-stu-id="cfa93-122">Smooth Streaming:</span></span>
 
-<span data-ttu-id="af4d4-123">{nome do ponto de extremidade de streaming - nome de conta do dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arqui}.ism/Manifest</span><span class="sxs-lookup"><span data-stu-id="af4d4-123">{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest</span></span>
+<span data-ttu-id="cfa93-123">{nome do ponto de extremidade de streaming - nome de conta do dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arqui}.ism/Manifest</span><span class="sxs-lookup"><span data-stu-id="cfa93-123">{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest</span></span>
 
-<span data-ttu-id="af4d4-124">HLS:</span><span class="sxs-lookup"><span data-stu-id="af4d4-124">HLS:</span></span>
+<span data-ttu-id="cfa93-124">HLS:</span><span class="sxs-lookup"><span data-stu-id="cfa93-124">HLS:</span></span>
 
-<span data-ttu-id="af4d4-125">{nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=m3u8-aapl)</span><span class="sxs-lookup"><span data-stu-id="af4d4-125">{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)</span></span>
+<span data-ttu-id="cfa93-125">{nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=m3u8-aapl)</span><span class="sxs-lookup"><span data-stu-id="cfa93-125">{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)</span></span>
 
-<span data-ttu-id="af4d4-126">MPEG DASH</span><span class="sxs-lookup"><span data-stu-id="af4d4-126">MPEG DASH</span></span>
+<span data-ttu-id="cfa93-126">MPEG DASH</span><span class="sxs-lookup"><span data-stu-id="cfa93-126">MPEG DASH</span></span>
 
-<span data-ttu-id="af4d4-127">{nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=mpd-time-csf)</span><span class="sxs-lookup"><span data-stu-id="af4d4-127">{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)</span></span>
+<span data-ttu-id="cfa93-127">{nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=mpd-time-csf)</span><span class="sxs-lookup"><span data-stu-id="cfa93-127">{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)</span></span>
 
 
-<span data-ttu-id="af4d4-128">Para obter instruções sobre como publicar um ativo e criar uma URL de streaming, consulte [Criar uma URL de streaming](media-services-deliver-streaming-content.md).</span><span class="sxs-lookup"><span data-stu-id="af4d4-128">For instructions on how to publish an asset and build a streaming URL, see [Build a streaming URL](media-services-deliver-streaming-content.md).</span></span>
+<span data-ttu-id="cfa93-128">Para obter instruções sobre como toopublish um ativo e compilar uma URL de streaming, consulte [construir uma URL de streaming](media-services-deliver-streaming-content.md).</span><span class="sxs-lookup"><span data-stu-id="cfa93-128">For instructions on how toopublish an asset and build a streaming URL, see [Build a streaming URL](media-services-deliver-streaming-content.md).</span></span>
 
-## <a name="considerations"></a><span data-ttu-id="af4d4-129">Considerações</span><span class="sxs-lookup"><span data-stu-id="af4d4-129">Considerations</span></span>
-* <span data-ttu-id="af4d4-130">Você não pode excluir um AssetDeliveryPolicy associado a um ativo enquanto um localizador OnDemand (streaming) existir para esse ativo.</span><span class="sxs-lookup"><span data-stu-id="af4d4-130">You cannot delete an AssetDeliveryPolicy associated with an asset while an OnDemand (streaming) locator exists for that asset.</span></span> <span data-ttu-id="af4d4-131">A recomendação é remover a política do ativo antes de excluir a política.</span><span class="sxs-lookup"><span data-stu-id="af4d4-131">The recommendation is to remove the policy from the asset before deleting the policy.</span></span>
-* <span data-ttu-id="af4d4-132">Não é possível criar um localizador de streaming em um ativo criptografado para armazenamento quando nenhuma política de entrega de ativo estiver definida.</span><span class="sxs-lookup"><span data-stu-id="af4d4-132">A streaming locator cannot be created on a storage encrypted asset when no asset delivery policy is set.</span></span>  <span data-ttu-id="af4d4-133">Se o Ativo não estiver criptografado para armazenamento, o sistema permitirá que você crie um localizador e transmita o ativo sem uma política de entrega de ativos.</span><span class="sxs-lookup"><span data-stu-id="af4d4-133">If the Asset isn’t storage encrypted, the system will let you create a locator and stream the asset in the clear without an asset delivery policy.</span></span>
-* <span data-ttu-id="af4d4-134">Você pode ter várias políticas de entrega de ativos associadas a um único ativo, mas pode especificar apenas uma maneira de lidar com um determinado AssetDeliveryProtocol.</span><span class="sxs-lookup"><span data-stu-id="af4d4-134">You can have multiple asset delivery policies associated with a single asset but you can only specify one way to handle a given AssetDeliveryProtocol.</span></span>  <span data-ttu-id="af4d4-135">Isso significa que se você tentar vincular duas políticas de entrega que especificam o protocolo AssetDeliveryProtocol.SmoothStreaming, o resultado será um erro pois o sistema não sabe qual delas você deseja aplicar quando um cliente fizer uma solicitação de Smooth Streaming.</span><span class="sxs-lookup"><span data-stu-id="af4d4-135">Meaning if you try to link two delivery policies that specify the AssetDeliveryProtocol.SmoothStreaming protocol that will result in an error because the system does not know which one you want it to apply when a client makes a Smooth Streaming request.</span></span>
-* <span data-ttu-id="af4d4-136">Se você tiver um ativo com um localizador de streaming existente, não poderá vincular uma nova política ao ativo, desvincular uma política existente do ativo ou atualizar uma política de entrega associada ao ativo.</span><span class="sxs-lookup"><span data-stu-id="af4d4-136">If you have an asset with an existing streaming locator, you cannot link a new policy to the asset, unlink an existing policy from the asset, or update a delivery policy associated with the asset.</span></span>  <span data-ttu-id="af4d4-137">Primeiro, você precisa remover o localizador de streaming, ajustar as políticas e, em seguida, recriar o localizador de streaming.</span><span class="sxs-lookup"><span data-stu-id="af4d4-137">You first have to remove the streaming locator, adjust the policies, and then re-create the streaming locator.</span></span>  <span data-ttu-id="af4d4-138">Você pode usar o mesmo locatorId quando recriar o localizador de streaming, mas certifique-se de que isso não causará problemas para os clientes uma vez que o conteúdo pode ser armazenado em cache pelo CDN de origem ou downstream.</span><span class="sxs-lookup"><span data-stu-id="af4d4-138">You can use the same locatorId when you recreate the streaming locator but you should ensure that won’t cause issues for clients since content can be cached by the origin or a downstream CDN.</span></span>
-
->[!NOTE]
-
-><span data-ttu-id="af4d4-139">Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP.</span><span class="sxs-lookup"><span data-stu-id="af4d4-139">When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests.</span></span> <span data-ttu-id="af4d4-140">Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).</span><span class="sxs-lookup"><span data-stu-id="af4d4-140">For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).</span></span>
-
-## <a name="connect-to-media-services"></a><span data-ttu-id="af4d4-141">Conectar-se aos Serviços de Mídia</span><span class="sxs-lookup"><span data-stu-id="af4d4-141">Connect to Media Services</span></span>
-
-<span data-ttu-id="af4d4-142">Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md).</span><span class="sxs-lookup"><span data-stu-id="af4d4-142">For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).</span></span> 
+## <a name="considerations"></a><span data-ttu-id="cfa93-129">Considerações</span><span class="sxs-lookup"><span data-stu-id="cfa93-129">Considerations</span></span>
+* <span data-ttu-id="cfa93-130">Você não pode excluir um AssetDeliveryPolicy associado a um ativo enquanto um localizador OnDemand (streaming) existir para esse ativo.</span><span class="sxs-lookup"><span data-stu-id="cfa93-130">You cannot delete an AssetDeliveryPolicy associated with an asset while an OnDemand (streaming) locator exists for that asset.</span></span> <span data-ttu-id="cfa93-131">recomendação de saudação é tooremove política de saudação do ativo de saudação antes de excluir a política de saudação.</span><span class="sxs-lookup"><span data-stu-id="cfa93-131">hello recommendation is tooremove hello policy from hello asset before deleting hello policy.</span></span>
+* <span data-ttu-id="cfa93-132">Não é possível criar um localizador de streaming em um ativo criptografado para armazenamento quando nenhuma política de entrega de ativo estiver definida.</span><span class="sxs-lookup"><span data-stu-id="cfa93-132">A streaming locator cannot be created on a storage encrypted asset when no asset delivery policy is set.</span></span>  <span data-ttu-id="cfa93-133">Se Olá ativo não criptografado de armazenamento, o sistema Olá permitem criar um ativo de localizador e o fluxo Olá Olá desmarque sem uma política de entrega de ativos.</span><span class="sxs-lookup"><span data-stu-id="cfa93-133">If hello Asset isn’t storage encrypted, hello system will let you create a locator and stream hello asset in hello clear without an asset delivery policy.</span></span>
+* <span data-ttu-id="cfa93-134">Você pode ter várias políticas de entrega de ativo associadas a um único ativo, mas você só pode especificar uma maneira toohandle AssetDeliveryProtocol um determinado.</span><span class="sxs-lookup"><span data-stu-id="cfa93-134">You can have multiple asset delivery policies associated with a single asset but you can only specify one way toohandle a given AssetDeliveryProtocol.</span></span>  <span data-ttu-id="cfa93-135">Que significa que se você tentar toolink duas políticas de entrega que especificar o protocolo de AssetDeliveryProtocol.SmoothStreaming de saudação resultará em um erro porque o sistema Olá não sabe qual deles você deseja tooapply quando um cliente faz uma solicitação de Smooth Streaming.</span><span class="sxs-lookup"><span data-stu-id="cfa93-135">Meaning if you try toolink two delivery policies that specify hello AssetDeliveryProtocol.SmoothStreaming protocol that will result in an error because hello system does not know which one you want it tooapply when a client makes a Smooth Streaming request.</span></span>
+* <span data-ttu-id="cfa93-136">Se você tiver um ativo com um localizador de streaming existente, você não pode vincular um novo ativo toohello política, desvincular uma política existente de ativo de saudação ou atualizar uma política de distribuição associada a saudação ativo.</span><span class="sxs-lookup"><span data-stu-id="cfa93-136">If you have an asset with an existing streaming locator, you cannot link a new policy toohello asset, unlink an existing policy from hello asset, or update a delivery policy associated with hello asset.</span></span>  <span data-ttu-id="cfa93-137">Primeiro ter localizador de transmissão tooremove hello, ajustar as diretivas de saudação e recrie o hello localizador de streaming.</span><span class="sxs-lookup"><span data-stu-id="cfa93-137">You first have tooremove hello streaming locator, adjust hello policies, and then re-create hello streaming locator.</span></span>  <span data-ttu-id="cfa93-138">Você pode usar o hello locatorId mesmo quando você recriar Olá streaming localizador, mas você deve garantir que não causar problemas para os clientes desde que o conteúdo pode ser armazenado em cache por origem hello ou um CDN de downstream.</span><span class="sxs-lookup"><span data-stu-id="cfa93-138">You can use hello same locatorId when you recreate hello streaming locator but you should ensure that won’t cause issues for clients since content can be cached by hello origin or a downstream CDN.</span></span>
 
 >[!NOTE]
-><span data-ttu-id="af4d4-143">Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia.</span><span class="sxs-lookup"><span data-stu-id="af4d4-143">After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI.</span></span> <span data-ttu-id="af4d4-144">Você deve fazer chamadas subsequentes para o novo URI.</span><span class="sxs-lookup"><span data-stu-id="af4d4-144">You must make subsequent calls to the new URI.</span></span>
 
-## <a name="clear-asset-delivery-policy"></a><span data-ttu-id="af4d4-145">Política de entrega de ativos clara</span><span class="sxs-lookup"><span data-stu-id="af4d4-145">Clear asset delivery policy</span></span>
-### <span data-ttu-id="af4d4-146"><a id="create_asset_delivery_policy"></a>Criar política de entrega de ativos</span><span class="sxs-lookup"><span data-stu-id="af4d4-146"><a id="create_asset_delivery_policy"></a>Create asset delivery policy</span></span>
-<span data-ttu-id="af4d4-147">A solicitação HTTP a seguir cria uma política de entrega de ativos que especifica a não aplicação de criptografia dinâmica e a entrega do fluxo em qualquer um dos seguintes protocolos: MPEG DASH, HLS e protocolos Smooth Streaming.</span><span class="sxs-lookup"><span data-stu-id="af4d4-147">The following HTTP request creates an asset delivery policy that specifies to not apply dynamic encryption and to deliver the stream in any of the following protocols:  MPEG DASH, HLS, and Smooth Streaming protocols.</span></span> 
+><span data-ttu-id="cfa93-139">Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP.</span><span class="sxs-lookup"><span data-stu-id="cfa93-139">When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests.</span></span> <span data-ttu-id="cfa93-140">Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).</span><span class="sxs-lookup"><span data-stu-id="cfa93-140">For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).</span></span>
 
-<span data-ttu-id="af4d4-148">Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte a seção [Tipos usados ao definir AssetDeliveryPolicy](#types) .</span><span class="sxs-lookup"><span data-stu-id="af4d4-148">For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.</span></span>   
+## <a name="connect-toomedia-services"></a><span data-ttu-id="cfa93-141">Conectar os serviços de tooMedia</span><span class="sxs-lookup"><span data-stu-id="cfa93-141">Connect tooMedia Services</span></span>
 
-<span data-ttu-id="af4d4-149">Solicitação:</span><span class="sxs-lookup"><span data-stu-id="af4d4-149">Request:</span></span>
+<span data-ttu-id="cfa93-142">Para obter informações sobre como tooconnect toohello AMS API, consulte [Olá acesso API de serviços de mídia do Azure com a autenticação do AD do Azure](media-services-use-aad-auth-to-access-ams-api.md).</span><span class="sxs-lookup"><span data-stu-id="cfa93-142">For information on how tooconnect toohello AMS API, see [Access hello Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).</span></span> 
+
+>[!NOTE]
+><span data-ttu-id="cfa93-143">Após conectar-se toohttps://media.windows.net, você receberá um redirecionamento 301 que especifica outro URI dos serviços de mídia.</span><span class="sxs-lookup"><span data-stu-id="cfa93-143">After successfully connecting toohttps://media.windows.net, you will receive a 301 redirect specifying another Media Services URI.</span></span> <span data-ttu-id="cfa93-144">Você deve fazer chamadas subsequentes toohello novo URI.</span><span class="sxs-lookup"><span data-stu-id="cfa93-144">You must make subsequent calls toohello new URI.</span></span>
+
+## <a name="clear-asset-delivery-policy"></a><span data-ttu-id="cfa93-145">Política de entrega de ativos clara</span><span class="sxs-lookup"><span data-stu-id="cfa93-145">Clear asset delivery policy</span></span>
+### <span data-ttu-id="cfa93-146"><a id="create_asset_delivery_policy"></a>Criar política de entrega de ativos</span><span class="sxs-lookup"><span data-stu-id="cfa93-146"><a id="create_asset_delivery_policy"></a>Create asset delivery policy</span></span>
+<span data-ttu-id="cfa93-147">Olá, solicitação HTTP a seguir cria uma política de entrega de ativos que especifica toonot aplicar criptografia dinâmica e protocolos de fluxo de saudação toodeliver em qualquer Olá a seguir: protocolos MPEG DASH, HLS e Smooth Streaming.</span><span class="sxs-lookup"><span data-stu-id="cfa93-147">hello following HTTP request creates an asset delivery policy that specifies toonot apply dynamic encryption and toodeliver hello stream in any of hello following protocols:  MPEG DASH, HLS, and Smooth Streaming protocols.</span></span> 
+
+<span data-ttu-id="cfa93-148">Para obter informações sobre quais valores que você podem especificar ao criar um AssetDeliveryPolicy, consulte Olá [tipos usados ao definir AssetDeliveryPolicy](#types) seção.</span><span class="sxs-lookup"><span data-stu-id="cfa93-148">For information on what values you can specify when creating an AssetDeliveryPolicy, see hello [Types used when defining AssetDeliveryPolicy](#types) section.</span></span>   
+
+<span data-ttu-id="cfa93-149">Solicitação:</span><span class="sxs-lookup"><span data-stu-id="cfa93-149">Request:</span></span>
 
     POST https://media.windows.net/api/AssetDeliveryPolicies HTTP/1.1
     Content-Type: application/json
@@ -96,7 +96,7 @@ ms.lasthandoff: 08/29/2017
     "AssetDeliveryPolicyType":2,
     "AssetDeliveryConfiguration":null}
 
-<span data-ttu-id="af4d4-150">Resposta:</span><span class="sxs-lookup"><span data-stu-id="af4d4-150">Response:</span></span>
+<span data-ttu-id="cfa93-150">Resposta:</span><span class="sxs-lookup"><span data-stu-id="cfa93-150">Response:</span></span>
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -122,10 +122,10 @@ ms.lasthandoff: 08/29/2017
     "Created":"2015-02-08T06:21:27.6908329Z",
     "LastModified":"2015-02-08T06:21:27.6908329Z"}
 
-### <span data-ttu-id="af4d4-151"><a id="link_asset_with_asset_delivery_policy"></a>Ativos de link com a política de entrega de ativos</span><span class="sxs-lookup"><span data-stu-id="af4d4-151"><a id="link_asset_with_asset_delivery_policy"></a>Link asset with asset delivery policy</span></span>
-<span data-ttu-id="af4d4-152">A seguinte solicitação HTTP vincula o ativo especificado na política de entrega de ativos.</span><span class="sxs-lookup"><span data-stu-id="af4d4-152">The following HTTP request links the specified asset to the asset delivery policy to.</span></span>
+### <span data-ttu-id="cfa93-151"><a id="link_asset_with_asset_delivery_policy"></a>Ativos de link com a política de entrega de ativos</span><span class="sxs-lookup"><span data-stu-id="cfa93-151"><a id="link_asset_with_asset_delivery_policy"></a>Link asset with asset delivery policy</span></span>
+<span data-ttu-id="cfa93-152">Olá Olá de links de solicitação HTTP a seguir especificado a política de distribuição do ativo toohello ativo para.</span><span class="sxs-lookup"><span data-stu-id="cfa93-152">hello following HTTP request links hello specified asset toohello asset delivery policy to.</span></span>
 
-<span data-ttu-id="af4d4-153">Solicitação:</span><span class="sxs-lookup"><span data-stu-id="af4d4-153">Request:</span></span>
+<span data-ttu-id="cfa93-153">Solicitação:</span><span class="sxs-lookup"><span data-stu-id="cfa93-153">Request:</span></span>
 
     POST https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3A86933344-9539-4d0c-be7d-f842458693e0')/$links/DeliveryPolicies HTTP/1.1
     DataServiceVersion: 1.0;NetFx
@@ -140,21 +140,21 @@ ms.lasthandoff: 08/29/2017
 
     {"uri":"https://media.windows.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')"}
 
-<span data-ttu-id="af4d4-154">Resposta:</span><span class="sxs-lookup"><span data-stu-id="af4d4-154">Response:</span></span>
+<span data-ttu-id="cfa93-154">Resposta:</span><span class="sxs-lookup"><span data-stu-id="cfa93-154">Response:</span></span>
 
     HTTP/1.1 204 No Content
 
 
-## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a><span data-ttu-id="af4d4-155">Política de entrega de ativos DynamicEnvelopeEncryption</span><span class="sxs-lookup"><span data-stu-id="af4d4-155">DynamicEnvelopeEncryption asset delivery policy</span></span>
-### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a><span data-ttu-id="af4d4-156">Cria chave de conteúdo do tipo EnvelopeEncryption e a vincula ao ativo</span><span class="sxs-lookup"><span data-stu-id="af4d4-156">Create content key of the EnvelopeEncryption type and link it to the asset</span></span>
-<span data-ttu-id="af4d4-157">Ao especificar a política de entrega DynamicEnvelopeEncryption, você precisa certificar-se de vincular seu ativo a uma chave de conteúdo do tipo EnvelopeEncryption.</span><span class="sxs-lookup"><span data-stu-id="af4d4-157">When specifying DynamicEnvelopeEncryption delivery policy, you need to make sure to link your asset to a content key of the EnvelopeEncryption type.</span></span> <span data-ttu-id="af4d4-158">Para saber mais, confira: [Criando uma chave de conteúdo](media-services-rest-create-contentkey.md)).</span><span class="sxs-lookup"><span data-stu-id="af4d4-158">For more information, see: [Creating a content key](media-services-rest-create-contentkey.md)).</span></span>
+## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a><span data-ttu-id="cfa93-155">Política de entrega de ativos DynamicEnvelopeEncryption</span><span class="sxs-lookup"><span data-stu-id="cfa93-155">DynamicEnvelopeEncryption asset delivery policy</span></span>
+### <a name="create-content-key-of-hello-envelopeencryption-type-and-link-it-toohello-asset"></a><span data-ttu-id="cfa93-156">Criar chave de conteúdo do tipo de EnvelopeEncryption hello e vinculá-lo ativo toohello</span><span class="sxs-lookup"><span data-stu-id="cfa93-156">Create content key of hello EnvelopeEncryption type and link it toohello asset</span></span>
+<span data-ttu-id="cfa93-157">Ao especificar a política de distribuição DynamicEnvelopeEncryption, é necessário toolink se toomake a chave de conteúdo ativo tooa de saudação tipo EnvelopeEncryption.</span><span class="sxs-lookup"><span data-stu-id="cfa93-157">When specifying DynamicEnvelopeEncryption delivery policy, you need toomake sure toolink your asset tooa content key of hello EnvelopeEncryption type.</span></span> <span data-ttu-id="cfa93-158">Para saber mais, confira: [Criando uma chave de conteúdo](media-services-rest-create-contentkey.md)).</span><span class="sxs-lookup"><span data-stu-id="cfa93-158">For more information, see: [Creating a content key](media-services-rest-create-contentkey.md)).</span></span>
 
-### <span data-ttu-id="af4d4-159"><a id="get_delivery_url"></a>Obter URL de entrega</span><span class="sxs-lookup"><span data-stu-id="af4d4-159"><a id="get_delivery_url"></a>Get delivery URL</span></span>
-<span data-ttu-id="af4d4-160">Obter a URL de entrega para o método de entrega especificado da chave de conteúdo criado na etapa anterior.</span><span class="sxs-lookup"><span data-stu-id="af4d4-160">Get the delivery URL for the specified delivery method of the content key created in the previous step.</span></span> <span data-ttu-id="af4d4-161">Um cliente usa a URL retornada para solicitar uma chave AES ou uma licença PlayReady a fim de reproduzir o conteúdo protegido.</span><span class="sxs-lookup"><span data-stu-id="af4d4-161">A client uses the returned URL to request an AES key or a PlayReady license in order to playback the protected content.</span></span>
+### <span data-ttu-id="cfa93-159"><a id="get_delivery_url"></a>Obter URL de entrega</span><span class="sxs-lookup"><span data-stu-id="cfa93-159"><a id="get_delivery_url"></a>Get delivery URL</span></span>
+<span data-ttu-id="cfa93-160">URL de envio de saudação Get para Olá especificado método de entrega da chave de conteúdo Olá criado na etapa anterior hello.</span><span class="sxs-lookup"><span data-stu-id="cfa93-160">Get hello delivery URL for hello specified delivery method of hello content key created in hello previous step.</span></span> <span data-ttu-id="cfa93-161">Um cliente usa Olá retornado URL toorequest uma chave AES ou uma licença do PlayReady Olá de tooplayback ordem conteúdo protegido.</span><span class="sxs-lookup"><span data-stu-id="cfa93-161">A client uses hello returned URL toorequest an AES key or a PlayReady license in order tooplayback hello protected content.</span></span>
 
-<span data-ttu-id="af4d4-162">Especifique o tipo da URL para obter no corpo da solicitação HTTP.</span><span class="sxs-lookup"><span data-stu-id="af4d4-162">Specify the type of the URL to get in the body of the HTTP request.</span></span> <span data-ttu-id="af4d4-163">Se você estiver protegendo o conteúdo com PlayReady, solicite uma URL de aquisição de licenças PlayReady dos Serviços de Mídia usando 1 para o keyDeliveryType: {"keyDeliveryType":1}.</span><span class="sxs-lookup"><span data-stu-id="af4d4-163">If you are protecting your content with PlayReady, request a Media Services PlayReady license acquisition URL, using 1 for the keyDeliveryType: {"keyDeliveryType":1}.</span></span> <span data-ttu-id="af4d4-164">Se você estiver protegendo seu conteúdo com a criptografia de envelope, solicite uma URL de aquisição de chave especificando 2 para keyDeliveryType: {"keyDeliveryType":2}.</span><span class="sxs-lookup"><span data-stu-id="af4d4-164">If you are protecting your content with the envelope encryption, request a key acquisition URL by specifying 2 for keyDeliveryType: {"keyDeliveryType":2}.</span></span>
+<span data-ttu-id="cfa93-162">Especifique o tipo de saudação de Olá URL tooget no corpo de saudação de solicitação HTTP de saudação.</span><span class="sxs-lookup"><span data-stu-id="cfa93-162">Specify hello type of hello URL tooget in hello body of hello HTTP request.</span></span> <span data-ttu-id="cfa93-163">Se você estiver protegendo o conteúdo com PlayReady, solicite uma URL de aquisição de licença do PlayReady dos serviços de mídia, usando 1 para Olá keyDeliveryType: {"keyDeliveryType": 1}.</span><span class="sxs-lookup"><span data-stu-id="cfa93-163">If you are protecting your content with PlayReady, request a Media Services PlayReady license acquisition URL, using 1 for hello keyDeliveryType: {"keyDeliveryType":1}.</span></span> <span data-ttu-id="cfa93-164">Se você estiver protegendo o conteúdo com criptografia de envelope hello, solicite uma URL de aquisição de chaves especificando 2 para keyDeliveryType: {"keyDeliveryType": 2}.</span><span class="sxs-lookup"><span data-stu-id="cfa93-164">If you are protecting your content with hello envelope encryption, request a key acquisition URL by specifying 2 for keyDeliveryType: {"keyDeliveryType":2}.</span></span>
 
-<span data-ttu-id="af4d4-165">Solicitação:</span><span class="sxs-lookup"><span data-stu-id="af4d4-165">Request:</span></span>
+<span data-ttu-id="cfa93-165">Solicitação:</span><span class="sxs-lookup"><span data-stu-id="cfa93-165">Request:</span></span>
 
     POST https://media.windows.net/api/ContentKeys('nb:kid:UUID:dc88f996-2859-4cf7-a279-c52a9d6b2f04')/GetKeyDeliveryUrl HTTP/1.1
     Content-Type: application/json
@@ -169,7 +169,7 @@ ms.lasthandoff: 08/29/2017
 
     {"keyDeliveryType":2}
 
-<span data-ttu-id="af4d4-166">Resposta:</span><span class="sxs-lookup"><span data-stu-id="af4d4-166">Response:</span></span>
+<span data-ttu-id="cfa93-166">Resposta:</span><span class="sxs-lookup"><span data-stu-id="cfa93-166">Response:</span></span>
 
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -187,12 +187,12 @@ ms.lasthandoff: 08/29/2017
     {"odata.metadata":"media.windows.net/api/$metadata#Edm.String","value":"https://amsaccount1.keydelivery.mediaservices.windows.net/?KID=dc88f996-2859-4cf7-a279-c52a9d6b2f04"}
 
 
-### <a name="create-asset-delivery-policy"></a><span data-ttu-id="af4d4-167">Criar política de entrega de ativos</span><span class="sxs-lookup"><span data-stu-id="af4d4-167">Create asset delivery policy</span></span>
-<span data-ttu-id="af4d4-168">A solicitação HTTP a seguir cria a **AssetDeliveryPolicy** que é configurada para aplicar a criptografia de envelope dinâmico (**DynamicEnvelopeEncryption**) para o protocolo **HLS** (neste exemplo, outros protocolos serão impedidos de realizar streaming).</span><span class="sxs-lookup"><span data-stu-id="af4d4-168">The following HTTP request creates the **AssetDeliveryPolicy** that is configured to apply dynamic envelope encryption (**DynamicEnvelopeEncryption**) to the **HLS** protocol (in this example, other protocols will be blocked from streaming).</span></span> 
+### <a name="create-asset-delivery-policy"></a><span data-ttu-id="cfa93-167">Criar política de entrega de ativos</span><span class="sxs-lookup"><span data-stu-id="cfa93-167">Create asset delivery policy</span></span>
+<span data-ttu-id="cfa93-168">Olá, solicitação HTTP a seguir cria Olá **AssetDeliveryPolicy** tooapply configurado que é a criptografia de envelope dinâmica (**DynamicEnvelopeEncryption**) toohello **HLS**protocolo (neste exemplo, outros protocolos serão impedidos de streaming).</span><span class="sxs-lookup"><span data-stu-id="cfa93-168">hello following HTTP request creates hello **AssetDeliveryPolicy** that is configured tooapply dynamic envelope encryption (**DynamicEnvelopeEncryption**) toohello **HLS** protocol (in this example, other protocols will be blocked from streaming).</span></span> 
 
-<span data-ttu-id="af4d4-169">Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte a seção [Tipos usados ao definir AssetDeliveryPolicy](#types) .</span><span class="sxs-lookup"><span data-stu-id="af4d4-169">For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.</span></span>   
+<span data-ttu-id="cfa93-169">Para obter informações sobre quais valores que você podem especificar ao criar um AssetDeliveryPolicy, consulte Olá [tipos usados ao definir AssetDeliveryPolicy](#types) seção.</span><span class="sxs-lookup"><span data-stu-id="cfa93-169">For information on what values you can specify when creating an AssetDeliveryPolicy, see hello [Types used when defining AssetDeliveryPolicy](#types) section.</span></span>   
 
-<span data-ttu-id="af4d4-170">Solicitação:</span><span class="sxs-lookup"><span data-stu-id="af4d4-170">Request:</span></span>
+<span data-ttu-id="cfa93-170">Solicitação:</span><span class="sxs-lookup"><span data-stu-id="cfa93-170">Request:</span></span>
 
     POST https://media.windows.net/api/AssetDeliveryPolicies HTTP/1.1
     Content-Type: application/json
@@ -209,7 +209,7 @@ ms.lasthandoff: 08/29/2017
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/\"}]"}
 
 
-<span data-ttu-id="af4d4-171">Resposta:</span><span class="sxs-lookup"><span data-stu-id="af4d4-171">Response:</span></span>
+<span data-ttu-id="cfa93-171">Resposta:</span><span class="sxs-lookup"><span data-stu-id="cfa93-171">Response:</span></span>
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -228,22 +228,22 @@ ms.lasthandoff: 08/29/2017
     {"odata.metadata":"media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/\"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
 
 
-### <a name="link-asset-with-asset-delivery-policy"></a><span data-ttu-id="af4d4-172">Ativos de link com a política de entrega de ativos</span><span class="sxs-lookup"><span data-stu-id="af4d4-172">Link asset with asset delivery policy</span></span>
-<span data-ttu-id="af4d4-173">Confira [Ativos de link com a política de entrega de ativos](#link_asset_with_asset_delivery_policy)</span><span class="sxs-lookup"><span data-stu-id="af4d4-173">See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_policy)</span></span>
+### <a name="link-asset-with-asset-delivery-policy"></a><span data-ttu-id="cfa93-172">Ativos de link com a política de entrega de ativos</span><span class="sxs-lookup"><span data-stu-id="cfa93-172">Link asset with asset delivery policy</span></span>
+<span data-ttu-id="cfa93-173">Confira [Ativos de link com a política de entrega de ativos](#link_asset_with_asset_delivery_policy)</span><span class="sxs-lookup"><span data-stu-id="cfa93-173">See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_policy)</span></span>
 
-## <a name="dynamiccommonencryption-asset-delivery-policy"></a><span data-ttu-id="af4d4-174">Política de entrega de ativos DynamicCommonEncryption</span><span class="sxs-lookup"><span data-stu-id="af4d4-174">DynamicCommonEncryption asset delivery policy</span></span>
-### <a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a><span data-ttu-id="af4d4-175">Cria chave de conteúdo do tipo CommonEncryption e a vincule ao ativo</span><span class="sxs-lookup"><span data-stu-id="af4d4-175">Create content key of the CommonEncryption type and link it to the asset</span></span>
-<span data-ttu-id="af4d4-176">Ao especificar a política de entrega DynamicCommonEncryption, você precisa certificar-se de vincular seu ativo a uma chave de conteúdo do tipo CommonEncryption.</span><span class="sxs-lookup"><span data-stu-id="af4d4-176">When specifying DynamicCommonEncryption delivery policy, you need to make sure to link your asset to a content key of the CommonEncryption type.</span></span> <span data-ttu-id="af4d4-177">Para saber mais, confira: [Criando uma chave de conteúdo](media-services-rest-create-contentkey.md)).</span><span class="sxs-lookup"><span data-stu-id="af4d4-177">For more information, see: [Creating a content key](media-services-rest-create-contentkey.md)).</span></span>
+## <a name="dynamiccommonencryption-asset-delivery-policy"></a><span data-ttu-id="cfa93-174">Política de entrega de ativos DynamicCommonEncryption</span><span class="sxs-lookup"><span data-stu-id="cfa93-174">DynamicCommonEncryption asset delivery policy</span></span>
+### <a name="create-content-key-of-hello-commonencryption-type-and-link-it-toohello-asset"></a><span data-ttu-id="cfa93-175">Criar chave de conteúdo do tipo de CommonEncryption hello e vinculá-lo ativo toohello</span><span class="sxs-lookup"><span data-stu-id="cfa93-175">Create content key of hello CommonEncryption type and link it toohello asset</span></span>
+<span data-ttu-id="cfa93-176">Ao especificar a política de distribuição DynamicCommonEncryption, é necessário toolink se toomake a chave de conteúdo ativo tooa de saudação tipo CommonEncryption.</span><span class="sxs-lookup"><span data-stu-id="cfa93-176">When specifying DynamicCommonEncryption delivery policy, you need toomake sure toolink your asset tooa content key of hello CommonEncryption type.</span></span> <span data-ttu-id="cfa93-177">Para saber mais, confira: [Criando uma chave de conteúdo](media-services-rest-create-contentkey.md)).</span><span class="sxs-lookup"><span data-stu-id="cfa93-177">For more information, see: [Creating a content key](media-services-rest-create-contentkey.md)).</span></span>
 
-### <a name="get-delivery-url"></a><span data-ttu-id="af4d4-178">Obter URL de entrega</span><span class="sxs-lookup"><span data-stu-id="af4d4-178">Get Delivery URL</span></span>
-<span data-ttu-id="af4d4-179">Obter a URL de entrega para o método de entrega PlayReady da chave de conteúdo criada na etapa anterior.</span><span class="sxs-lookup"><span data-stu-id="af4d4-179">Get the delivery URL for the PlayReady delivery method of the content key created in the previous step.</span></span> <span data-ttu-id="af4d4-180">Um cliente usa a URL retornada para solicitar uma licença do PlayReady a fim de reproduzir o conteúdo protegido.</span><span class="sxs-lookup"><span data-stu-id="af4d4-180">A client uses the returned URL to request a PlayReady license in order to playback the protected content.</span></span> <span data-ttu-id="af4d4-181">Para saber mais, confira [Obter a URL de entrega](#get_delivery_url)</span><span class="sxs-lookup"><span data-stu-id="af4d4-181">For more information, see [Get Delivery URL](#get_delivery_url).</span></span>
+### <a name="get-delivery-url"></a><span data-ttu-id="cfa93-178">Obter URL de entrega</span><span class="sxs-lookup"><span data-stu-id="cfa93-178">Get Delivery URL</span></span>
+<span data-ttu-id="cfa93-179">Obter URL de entrega de Olá Olá PlayReady método de entrega da chave de conteúdo Olá criado na etapa anterior hello.</span><span class="sxs-lookup"><span data-stu-id="cfa93-179">Get hello delivery URL for hello PlayReady delivery method of hello content key created in hello previous step.</span></span> <span data-ttu-id="cfa93-180">Um cliente usa Olá retornado toorequest URL protegida de uma licença do PlayReady Olá de tooplayback ordem conteúdo.</span><span class="sxs-lookup"><span data-stu-id="cfa93-180">A client uses hello returned URL toorequest a PlayReady license in order tooplayback hello protected content.</span></span> <span data-ttu-id="cfa93-181">Para saber mais, confira [Obter a URL de entrega](#get_delivery_url)</span><span class="sxs-lookup"><span data-stu-id="cfa93-181">For more information, see [Get Delivery URL](#get_delivery_url).</span></span>
 
-### <a name="create-asset-delivery-policy"></a><span data-ttu-id="af4d4-182">Criar política de entrega de ativos</span><span class="sxs-lookup"><span data-stu-id="af4d4-182">Create asset delivery policy</span></span>
-<span data-ttu-id="af4d4-183">A solicitação HTTP a seguir cria o **AssetDeliveryPolicy** que é configurado para aplicar a criptografia comum dinâmica (**DynamicCommonEncryption**) para o protocolo **Smooth Streaming** (neste exemplo, outros protocolos serão impedidos de realizar streaming).</span><span class="sxs-lookup"><span data-stu-id="af4d4-183">The following HTTP request creates the **AssetDeliveryPolicy** that is configured to apply dynamic common encryption (**DynamicCommonEncryption**) to the **Smooth Streaming** protocol (in this example, other protocols will be blocked from streaming).</span></span> 
+### <a name="create-asset-delivery-policy"></a><span data-ttu-id="cfa93-182">Criar política de entrega de ativos</span><span class="sxs-lookup"><span data-stu-id="cfa93-182">Create asset delivery policy</span></span>
+<span data-ttu-id="cfa93-183">Olá, solicitação HTTP a seguir cria Olá **AssetDeliveryPolicy** que é configurado tooapply comuns criptografia dinâmica (**DynamicCommonEncryption**) toohello **Smooth Streaming**  protocolo (neste exemplo, outros protocolos serão impedidos de streaming).</span><span class="sxs-lookup"><span data-stu-id="cfa93-183">hello following HTTP request creates hello **AssetDeliveryPolicy** that is configured tooapply dynamic common encryption (**DynamicCommonEncryption**) toohello **Smooth Streaming** protocol (in this example, other protocols will be blocked from streaming).</span></span> 
 
-<span data-ttu-id="af4d4-184">Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte a seção [Tipos usados ao definir AssetDeliveryPolicy](#types) .</span><span class="sxs-lookup"><span data-stu-id="af4d4-184">For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.</span></span>   
+<span data-ttu-id="cfa93-184">Para obter informações sobre quais valores que você podem especificar ao criar um AssetDeliveryPolicy, consulte Olá [tipos usados ao definir AssetDeliveryPolicy](#types) seção.</span><span class="sxs-lookup"><span data-stu-id="cfa93-184">For information on what values you can specify when creating an AssetDeliveryPolicy, see hello [Types used when defining AssetDeliveryPolicy](#types) section.</span></span>   
 
-<span data-ttu-id="af4d4-185">Solicitação:</span><span class="sxs-lookup"><span data-stu-id="af4d4-185">Request:</span></span>
+<span data-ttu-id="cfa93-185">Solicitação:</span><span class="sxs-lookup"><span data-stu-id="cfa93-185">Request:</span></span>
 
     POST https://media.windows.net/api/AssetDeliveryPolicies HTTP/1.1
     Content-Type: application/json
@@ -260,25 +260,25 @@ ms.lasthandoff: 08/29/2017
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
 
-<span data-ttu-id="af4d4-186">Se você deseja proteger o conteúdo usando Widevine DRM, atualize os valores de AssetDeliveryConfiguration para usar WidevineLicenseAcquisitionUrl (que tem o valor de 7) e especifique a URL de um serviço de fornecimento de licença.</span><span class="sxs-lookup"><span data-stu-id="af4d4-186">If you want to protect your content using Widevine DRM, update the AssetDeliveryConfiguration values to use WidevineLicenseAcquisitionUrl (which has the value of 7) and specify the URL of a license delivery service.</span></span> <span data-ttu-id="af4d4-187">Você pode usar os seguintes parceiros do AMS para ajudá-lo a fornecer licenças Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) e [castLabs](http://castlabs.com/company/partners/azure/).</span><span class="sxs-lookup"><span data-stu-id="af4d4-187">You can use the following AMS partners to help you deliver Widevine licenses: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).</span></span>
+<span data-ttu-id="cfa93-186">Se você quiser tooprotect seu conteúdo usando Widevine DRM, atualizar Olá AssetDeliveryConfiguration valores toouse WidevineLicenseAcquisitionUrl (que tem o valor de saudação do 7) e especifique Olá URL de um serviço de entrega de licença.</span><span class="sxs-lookup"><span data-stu-id="cfa93-186">If you want tooprotect your content using Widevine DRM, update hello AssetDeliveryConfiguration values toouse WidevineLicenseAcquisitionUrl (which has hello value of 7) and specify hello URL of a license delivery service.</span></span> <span data-ttu-id="cfa93-187">Você pode usar o hello AMS parceiros toohelp fornecer licenças Widevine a seguir: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).</span><span class="sxs-lookup"><span data-stu-id="cfa93-187">You can use hello following AMS partners toohelp you deliver Widevine licenses: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).</span></span>
 
-<span data-ttu-id="af4d4-188">Por exemplo:</span><span class="sxs-lookup"><span data-stu-id="af4d4-188">For example:</span></span> 
+<span data-ttu-id="cfa93-188">Por exemplo:</span><span class="sxs-lookup"><span data-stu-id="cfa93-188">For example:</span></span> 
 
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
 
 > [!NOTE]
-> <span data-ttu-id="af4d4-189">Ao criptografar com Widevine, você só seria capaz de fornecer usando um DASH.</span><span class="sxs-lookup"><span data-stu-id="af4d4-189">When encrypting with Widevine, you would only be able to deliver using DASH.</span></span> <span data-ttu-id="af4d4-190">Certifique-se de especificar DASH (2) no protocolo de fornecimento de ativos.</span><span class="sxs-lookup"><span data-stu-id="af4d4-190">Make sure to specify DASH (2) in the asset delivery protocol.</span></span>
+> <span data-ttu-id="cfa93-189">Ao criptografar com Widevine, seria apenas toodeliver capaz de usar o traço.</span><span class="sxs-lookup"><span data-stu-id="cfa93-189">When encrypting with Widevine, you would only be able toodeliver using DASH.</span></span> <span data-ttu-id="cfa93-190">Verifique o protocolo de entrega do se toospecify DASH (2) Olá no ativo.</span><span class="sxs-lookup"><span data-stu-id="cfa93-190">Make sure toospecify DASH (2) in hello asset delivery protocol.</span></span>
 > 
 > 
 
-### <a name="link-asset-with-asset-delivery-policy"></a><span data-ttu-id="af4d4-191">Ativos de link com a política de entrega de ativos</span><span class="sxs-lookup"><span data-stu-id="af4d4-191">Link asset with asset delivery policy</span></span>
-<span data-ttu-id="af4d4-192">Confira [Ativos de link com a política de entrega de ativos](#link_asset_with_asset_delivery_policy)</span><span class="sxs-lookup"><span data-stu-id="af4d4-192">See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_policy)</span></span>
+### <a name="link-asset-with-asset-delivery-policy"></a><span data-ttu-id="cfa93-191">Ativos de link com a política de entrega de ativos</span><span class="sxs-lookup"><span data-stu-id="cfa93-191">Link asset with asset delivery policy</span></span>
+<span data-ttu-id="cfa93-192">Confira [Ativos de link com a política de entrega de ativos](#link_asset_with_asset_delivery_policy)</span><span class="sxs-lookup"><span data-stu-id="cfa93-192">See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_policy)</span></span>
 
-## <span data-ttu-id="af4d4-193"><a id="types"></a>Tipos usados ao definir AssetDeliveryPolicy</span><span class="sxs-lookup"><span data-stu-id="af4d4-193"><a id="types"></a>Types used when defining AssetDeliveryPolicy</span></span>
+## <span data-ttu-id="cfa93-193"><a id="types"></a>Tipos usados ao definir AssetDeliveryPolicy</span><span class="sxs-lookup"><span data-stu-id="cfa93-193"><a id="types"></a>Types used when defining AssetDeliveryPolicy</span></span>
 
-### <a name="assetdeliveryprotocol"></a><span data-ttu-id="af4d4-194">AssetDeliveryProtocol</span><span class="sxs-lookup"><span data-stu-id="af4d4-194">AssetDeliveryProtocol</span></span>
+### <a name="assetdeliveryprotocol"></a><span data-ttu-id="cfa93-194">AssetDeliveryProtocol</span><span class="sxs-lookup"><span data-stu-id="cfa93-194">AssetDeliveryProtocol</span></span>
 
-<span data-ttu-id="af4d4-195">O enum a seguir descreve os valores que podem ser definidos para o protocolo de entrega de ativo.</span><span class="sxs-lookup"><span data-stu-id="af4d4-195">The following enum describes values you can set for the asset delivery protocol.</span></span>
+<span data-ttu-id="cfa93-195">Hello enum seguinte descreve os valores que você pode definir para o protocolo de entrega de ativos de saudação.</span><span class="sxs-lookup"><span data-stu-id="cfa93-195">hello following enum describes values you can set for hello asset delivery protocol.</span></span>
 
     [Flags]
     public enum AssetDeliveryProtocol
@@ -311,9 +311,9 @@ ms.lasthandoff: 08/29/2017
         All = 0xFFFF
     }
 
-### <a name="assetdeliverypolicytype"></a><span data-ttu-id="af4d4-196">AssetDeliveryPolicyType</span><span class="sxs-lookup"><span data-stu-id="af4d4-196">AssetDeliveryPolicyType</span></span>
+### <a name="assetdeliverypolicytype"></a><span data-ttu-id="cfa93-196">AssetDeliveryPolicyType</span><span class="sxs-lookup"><span data-stu-id="cfa93-196">AssetDeliveryPolicyType</span></span>
 
-<span data-ttu-id="af4d4-197">O enum a seguir descreve os valores que podem ser definidos para o tipo de política de entrega de ativo.</span><span class="sxs-lookup"><span data-stu-id="af4d4-197">The following enum describes values you can set for the asset delivery policy type.</span></span>  
+<span data-ttu-id="cfa93-197">Hello enum seguir descreve os valores que você pode definir para o tipo de política de entrega de ativos de saudação.</span><span class="sxs-lookup"><span data-stu-id="cfa93-197">hello following enum describes values you can set for hello asset delivery policy type.</span></span>  
 
     public enum AssetDeliveryPolicyType
     {
@@ -323,12 +323,12 @@ ms.lasthandoff: 08/29/2017
         None,
 
         /// <summary>
-        /// The Asset should not be delivered via this AssetDeliveryProtocol. 
+        /// hello Asset should not be delivered via this AssetDeliveryProtocol. 
         /// </summary>
         Blocked, 
 
         /// <summary>
-        /// Do not apply dynamic encryption to the asset.
+        /// Do not apply dynamic encryption toohello asset.
         /// </summary>
         /// 
         NoDynamicEncryption,  
@@ -344,9 +344,9 @@ ms.lasthandoff: 08/29/2017
         DynamicCommonEncryption
         }
 
-### <a name="contentkeydeliverytype"></a><span data-ttu-id="af4d4-198">ContentKeyDeliveryType</span><span class="sxs-lookup"><span data-stu-id="af4d4-198">ContentKeyDeliveryType</span></span>
+### <a name="contentkeydeliverytype"></a><span data-ttu-id="cfa93-198">ContentKeyDeliveryType</span><span class="sxs-lookup"><span data-stu-id="cfa93-198">ContentKeyDeliveryType</span></span>
 
-<span data-ttu-id="af4d4-199">O enum a seguir descreve os valores que você pode usar para configurar o método de entrega da chave de conteúdo para o cliente.</span><span class="sxs-lookup"><span data-stu-id="af4d4-199">The following enum describes values you can use to configure the delivery method of the content key to the client.</span></span>
+<span data-ttu-id="cfa93-199">Hello enum seguinte descreve os valores que você pode usar o método de entrega tooconfigure saudação do cliente de conteúdo toohello chave hello.</span><span class="sxs-lookup"><span data-stu-id="cfa93-199">hello following enum describes values you can use tooconfigure hello delivery method of hello content key toohello client.</span></span>
     
     public enum ContentKeyDeliveryType
     {
@@ -377,9 +377,9 @@ ms.lasthandoff: 08/29/2017
     }
 
 
-### <a name="assetdeliverypolicyconfigurationkey"></a><span data-ttu-id="af4d4-200">AssetDeliveryPolicyConfigurationKey</span><span class="sxs-lookup"><span data-stu-id="af4d4-200">AssetDeliveryPolicyConfigurationKey</span></span>
+### <a name="assetdeliverypolicyconfigurationkey"></a><span data-ttu-id="cfa93-200">AssetDeliveryPolicyConfigurationKey</span><span class="sxs-lookup"><span data-stu-id="cfa93-200">AssetDeliveryPolicyConfigurationKey</span></span>
 
-<span data-ttu-id="af4d4-201">O enum a seguir descreve os valores que você pode definir para configurar as chaves usadas para obter uma configuração específica para uma política de entrega de ativo.</span><span class="sxs-lookup"><span data-stu-id="af4d4-201">The following enum describes values you can set to configure keys used to get specific configuration for an asset delivery policy.</span></span>
+<span data-ttu-id="cfa93-201">Olá enum a seguir descreve os valores que você pode definir tooconfigure chaves usadas tooget configuração específica de uma política de entrega de ativos.</span><span class="sxs-lookup"><span data-stu-id="cfa93-201">hello following enum describes values you can set tooconfigure keys used tooget specific configuration for an asset delivery policy.</span></span>
 
     public enum AssetDeliveryPolicyConfigurationKey
     {
@@ -399,22 +399,22 @@ ms.lasthandoff: 08/29/2017
         EnvelopeBaseKeyAcquisitionUrl,
 
         /// <summary>
-        /// The initialization vector to use for envelope encryption in Base64 format.
+        /// hello initialization vector toouse for envelope encryption in Base64 format.
         /// </summary>
         EnvelopeEncryptionIVAsBase64,
 
         /// <summary>
-        /// The PlayReady License Acquisition Url to use for common encryption.
+        /// hello PlayReady License Acquisition Url toouse for common encryption.
         /// </summary>
         PlayReadyLicenseAcquisitionUrl,
 
         /// <summary>
-        /// The PlayReady Custom Attributes to add to the PlayReady Content Header
+        /// hello PlayReady Custom Attributes tooadd toohello PlayReady Content Header
         /// </summary>
         PlayReadyCustomAttributes,
 
         /// <summary>
-        /// The initialization vector to use for envelope encryption.
+        /// hello initialization vector toouse for envelope encryption.
         /// </summary>
         EnvelopeEncryptionIV,
 
@@ -424,9 +424,9 @@ ms.lasthandoff: 08/29/2017
         WidevineLicenseAcquisitionUrl
     }
 
-## <a name="media-services-learning-paths"></a><span data-ttu-id="af4d4-202">Roteiros de aprendizagem dos Serviços de Mídia</span><span class="sxs-lookup"><span data-stu-id="af4d4-202">Media Services learning paths</span></span>
+## <a name="media-services-learning-paths"></a><span data-ttu-id="cfa93-202">Roteiros de aprendizagem dos Serviços de Mídia</span><span class="sxs-lookup"><span data-stu-id="cfa93-202">Media Services learning paths</span></span>
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a><span data-ttu-id="af4d4-203">Fornecer comentários</span><span class="sxs-lookup"><span data-stu-id="af4d4-203">Provide feedback</span></span>
+## <a name="provide-feedback"></a><span data-ttu-id="cfa93-203">Fornecer comentários</span><span class="sxs-lookup"><span data-stu-id="cfa93-203">Provide feedback</span></span>
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 

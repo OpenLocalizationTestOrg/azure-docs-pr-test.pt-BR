@@ -1,5 +1,5 @@
 ---
-title: "Introdução à Área de Trabalho do Windows no Azure AD v2 – Configuração | Microsoft Docs"
+title: "aaaAzure AD v2 Windows Desktop Introdução - Config | Microsoft Docs"
 description: "Como um aplicativo .NET da Área de Trabalho do Windows (XAML) pode obter um token de acesso e chamar uma API protegida pelo ponto de extremidade do Azure Active Directory v2. | Microsoft Azure | Microsoft Azure"
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,26 +15,26 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 1dfaa7ade664e43dcb9aa788b0197ca17e6ec4cc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 39c257e3e0cb09491f6fe005877601bd46824d12
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-## <a name="create-an-application-express"></a><span data-ttu-id="ef3eb-104">Criar um aplicativo (Expresso)</span><span class="sxs-lookup"><span data-stu-id="ef3eb-104">Create an application (Express)</span></span>
-<span data-ttu-id="ef3eb-105">Agora você precisa registrar seu aplicativo no *Portal de Registro de Aplicativos da Microsoft*:</span><span class="sxs-lookup"><span data-stu-id="ef3eb-105">Now you need to register your application in the *Microsoft Application Registration Portal*:</span></span>
-1. <span data-ttu-id="ef3eb-106">Registre o aplicativo por meio do [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure)</span><span class="sxs-lookup"><span data-stu-id="ef3eb-106">Register your application via the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure)</span></span>
-2.  <span data-ttu-id="ef3eb-107">Insira um nome para o aplicativo e seu email</span><span class="sxs-lookup"><span data-stu-id="ef3eb-107">Enter a name for your application and your email</span></span>
-3.  <span data-ttu-id="ef3eb-108">Verifique se a opção Instalação Guiada está marcada</span><span class="sxs-lookup"><span data-stu-id="ef3eb-108">Make sure the option for Guided Setup is checked</span></span>
-4.  <span data-ttu-id="ef3eb-109">Siga as instruções para obter a ID do aplicativo e colá-lo no código</span><span class="sxs-lookup"><span data-stu-id="ef3eb-109">Follow the instructions to obtain the application ID and paste it into your code</span></span>
+## <a name="create-an-application-express"></a><span data-ttu-id="bd872-104">Criar um aplicativo (Expresso)</span><span class="sxs-lookup"><span data-stu-id="bd872-104">Create an application (Express)</span></span>
+<span data-ttu-id="bd872-105">Agora você precisa tooregister seu aplicativo no hello *Portal de registro de aplicativo do Microsoft*:</span><span class="sxs-lookup"><span data-stu-id="bd872-105">Now you need tooregister your application in hello *Microsoft Application Registration Portal*:</span></span>
+1. <span data-ttu-id="bd872-106">Registrar seu aplicativo por meio de saudação [Portal de registro de aplicativo do Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure)</span><span class="sxs-lookup"><span data-stu-id="bd872-106">Register your application via hello [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure)</span></span>
+2.  <span data-ttu-id="bd872-107">Insira um nome para o aplicativo e seu email</span><span class="sxs-lookup"><span data-stu-id="bd872-107">Enter a name for your application and your email</span></span>
+3.  <span data-ttu-id="bd872-108">Verifique se a opção Olá para a instalação interativa está marcada</span><span class="sxs-lookup"><span data-stu-id="bd872-108">Make sure hello option for Guided Setup is checked</span></span>
+4.  <span data-ttu-id="bd872-109">Siga a ID do aplicativo hello instruções tooobtain hello e colá-lo em seu código</span><span class="sxs-lookup"><span data-stu-id="bd872-109">Follow hello instructions tooobtain hello application ID and paste it into your code</span></span>
 
-### <a name="add-your-application-registration-information-to-your-solution-advanced"></a><span data-ttu-id="ef3eb-110">Adicionar as informações de registro do aplicativo à sua solução (Avançado)</span><span class="sxs-lookup"><span data-stu-id="ef3eb-110">Add your application registration information to your solution (Advanced)</span></span>
-<span data-ttu-id="ef3eb-111">Agora você precisa registrar seu aplicativo no *Portal de Registro de Aplicativos da Microsoft*:</span><span class="sxs-lookup"><span data-stu-id="ef3eb-111">Now you need to register your application in the *Microsoft Application Registration Portal*:</span></span>
-1. <span data-ttu-id="ef3eb-112">Acesse o [Portal de Registro de Aplicativos da Microsoft](https://apps.dev.microsoft.com/portal/register-app) para registrar um aplicativo</span><span class="sxs-lookup"><span data-stu-id="ef3eb-112">Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application</span></span>
-2. <span data-ttu-id="ef3eb-113">Insira um nome para o aplicativo e seu email</span><span class="sxs-lookup"><span data-stu-id="ef3eb-113">Enter a name for your application and your email</span></span> 
-3. <span data-ttu-id="ef3eb-114">Verifique se a opção Instalação Guiada está desmarcada</span><span class="sxs-lookup"><span data-stu-id="ef3eb-114">Make sure the option for Guided Setup is unchecked</span></span>
-4. <span data-ttu-id="ef3eb-115">Clique em `Add Platform` e, em seguida, selecione `Native Application` e clique em Salvar</span><span class="sxs-lookup"><span data-stu-id="ef3eb-115">Click `Add Platform`, then select `Native Application` and hit Save</span></span>
-5. <span data-ttu-id="ef3eb-116">Copie o GUID da ID do Aplicativo, volte ao Visual Studio, abra `App.xaml.cs` e substitua `your_client_id_here` pela ID do Aplicativo que você acabou de registrar:</span><span class="sxs-lookup"><span data-stu-id="ef3eb-116">Copy the GUID in Application ID, go back to Visual Studio, open `App.xaml.cs` and replace `your_client_id_here` with the Application ID you just registered:</span></span>
+### <a name="add-your-application-registration-information-tooyour-solution-advanced"></a><span data-ttu-id="bd872-110">Adicionar sua solução de tooyour de informações de registro de aplicativo (Avançado)</span><span class="sxs-lookup"><span data-stu-id="bd872-110">Add your application registration information tooyour solution (Advanced)</span></span>
+<span data-ttu-id="bd872-111">Agora você precisa tooregister seu aplicativo no hello *Portal de registro de aplicativo do Microsoft*:</span><span class="sxs-lookup"><span data-stu-id="bd872-111">Now you need tooregister your application in hello *Microsoft Application Registration Portal*:</span></span>
+1. <span data-ttu-id="bd872-112">Vá toohello [Portal de registro de aplicativo do Microsoft](https://apps.dev.microsoft.com/portal/register-app) tooregister um aplicativo</span><span class="sxs-lookup"><span data-stu-id="bd872-112">Go toohello [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) tooregister an application</span></span>
+2. <span data-ttu-id="bd872-113">Insira um nome para o aplicativo e seu email</span><span class="sxs-lookup"><span data-stu-id="bd872-113">Enter a name for your application and your email</span></span> 
+3. <span data-ttu-id="bd872-114">Verifique se a opção Olá para a instalação interativa está desmarcada</span><span class="sxs-lookup"><span data-stu-id="bd872-114">Make sure hello option for Guided Setup is unchecked</span></span>
+4. <span data-ttu-id="bd872-115">Clique em `Add Platform` e, em seguida, selecione `Native Application` e clique em Salvar</span><span class="sxs-lookup"><span data-stu-id="bd872-115">Click `Add Platform`, then select `Native Application` and hit Save</span></span>
+5. <span data-ttu-id="bd872-116">Copiar Olá GUID na ID de aplicativo, volte tooVisual Studio, abra `App.xaml.cs` e substitua `your_client_id_here` com hello ID de aplicativo que você acabou de registrar:</span><span class="sxs-lookup"><span data-stu-id="bd872-116">Copy hello GUID in Application ID, go back tooVisual Studio, open `App.xaml.cs` and replace `your_client_id_here` with hello Application ID you just registered:</span></span>
 
 ```csharp
 private static string ClientId = "your_application_id_here";

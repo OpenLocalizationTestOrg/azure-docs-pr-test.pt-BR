@@ -5,7 +5,7 @@
 ## [Perguntas frequentes](faq.md)
 
 # Introdução
-## [Criar uma VM do Linux com o portal](createportal.md)
+## [Criar uma VM do Linux com o portal de saudação](createportal.md)
 ## [Instalar a CLI do Azure.](../../../cli-install-nodejs.md)
 ## [Criar chaves SSH](../mac-create-ssh-keys.md)
 
@@ -16,21 +16,21 @@
 ### [Usar a Área de Trabalho Remota com uma VM Linux](remote-desktop.md)
 ### [Gerenciar extensões de VM](manage-extensions.md)
 ### [Gerenciar VMs com o Visual Studio](manage-visual-studio.md)
-### [Monitorar as VMs usando a Extensão de VM de Diagnóstico](../diagnostic-extension.md)
-### [Monitorar as VMs usando a v2.x da Extensão de VM de Diagnóstico](diagnostic-extension-v2.md)
+### [Monitorar VMs usando Olá extensão VM de diagnóstico](../diagnostic-extension.md)
+### [Monitorar VMs usando v2. x da saudação extensão VM de diagnóstico](diagnostic-extension-v2.md)
 ### [Injetar dados personalizados](inject-custom-data.md)
 ### [Redefinir senhas ou chaves do Linux, corrigir SSH e verificar discos](reset-access.md)
 ### [Manutenção](planned-maintenance-schedule.md)
-### [Criar um host do Docker usando a CLI](cli-use-docker.md)
-### [Criar um host do Docker usando o portal](portal-use-docker.md)
-### [Como usar o docker com o swarm](../../virtual-machines-linux-docker-swarm.md)
+### [Criar um host Docker usando Olá CLI](cli-use-docker.md)
+### [Criar um host Docker usando o portal de saudação](portal-use-docker.md)
+### [Como toouse Docker com por nuvem](../../virtual-machines-linux-docker-swarm.md)
 
 ## Usar o Armazenamento
 ### [Anexar um disco de dados](attach-disk.md)
 ### [Desanexar e disco de dados](detach-disk.md)
 
 ## Rede
-### [Abrir portas para sua VM](setup-endpoints.md)
+### [Abrir as portas tooyour VM](setup-endpoints.md)
 ### [Conectar VMs a uma rede virtual ou serviço de nuvem](connect-vms.md)
 
 ## Implantar imagens
@@ -43,7 +43,7 @@
 ### MySQL e MariaDB
 #### [Tutorial de cluster MariaDB](mariadb-mysql-cluster.md)
 #### [Instalar MySQL em uma VM OpenSUSE](mysql-on-opensuse.md)
-#### [Como usar conjuntos com balanceamento de carga para clusterizar MySQL](mysql-cluster.md)
+#### [Usando conjuntos com balanceamento de carga tooclusterize MySQL](mysql-cluster.md)
 #### [Otimização do desempenho do MySQL](optimize-mysql.md)
 
 ## Executar aplicativos
@@ -52,8 +52,8 @@
 ### [Pilha LAMP](lamp-script.md)
 ### [Tomcat](setup-tomcat.md)
 ### [Aplicativo Web com Visual Studio](web-app-visual-studio.md)
-### [Cluster RDMA para executar aplicativos MPI](rdma-cluster.md)
-### [Como usar o plug-in subordinado do Azure com a Integração contínua do Hudson](../../virtual-machines-azure-slave-plugin-for-hudson.md)
+### [Aplicativos de MPI RDMA cluster toorun](rdma-cluster.md)
+### [Como toouse hello Azure slave plug-in com Hudson CI](../../virtual-machines-azure-slave-plugin-for-hudson.md)
 ### HPC Pack
 #### [Criar um cluster para cargas de trabalho do Linux](hpcpack-cluster-powershell-script.md)
 #### [Gerenciar um cluster nós do Linux](hpcpack-cluster.md)
@@ -64,7 +64,7 @@
 ## Solucionar problemas
 ### [Implantações de VM](troubleshoot-deployment-new-vm.md)
 ### [Reiniciar ou redimensionar uma VM](restart-resize-error-troubleshooting.md)
-### [Anexar um disco rígido virtual para solucionar problemas da VM](troubleshoot-recovery-disks-portal.md)
+### [Anexar o disco rígido virtual tootroubleshooting VM](troubleshoot-recovery-disks-portal.md)
 
 # Referência
 ## [PowerShell](/powershell/azure/overview)

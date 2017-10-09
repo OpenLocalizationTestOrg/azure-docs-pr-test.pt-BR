@@ -1,6 +1,6 @@
 ---
-title: Use o PowerShell para redimensionar uma VM Windows no Azure | Microsoft Docs
-description: "Redimensione uma máquina virtual do Windows criada no modelo de implantação do Resource Manager usando o Azure Powershell."
+title: aaaUse PowerShell tooresize uma VM do Windows Azure | Microsoft Docs
+description: "Redimensione uma máquina virtual do Windows criada no modelo de implantação do Gerenciador de recursos de hello, usando o Powershell do Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: Drewm3
@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
-ms.openlocfilehash: 742efd1496de9ce76b1e5636297ef30f546bd108
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a4a80f3bc99911e4f1a095f0ce63aca00fa50694
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="resize-a-windows-vm"></a><span data-ttu-id="24298-103">Redimensionar uma VM do Windows</span><span class="sxs-lookup"><span data-stu-id="24298-103">Resize a Windows VM</span></span>
-<span data-ttu-id="24298-104">Este artigo mostra como redimensionar uma VM do Windows criada no modelo de implantação do Resource Manager usando o Azure Powershell.</span><span class="sxs-lookup"><span data-stu-id="24298-104">This article shows you how to resize a Windows VM, created in the Resource Manager deployment model using Azure Powershell.</span></span>
+# <a name="resize-a-windows-vm"></a><span data-ttu-id="eb714-103">Redimensionar uma VM do Windows</span><span class="sxs-lookup"><span data-stu-id="eb714-103">Resize a Windows VM</span></span>
+<span data-ttu-id="eb714-104">Este artigo mostra como tooresize uma VM do Windows criada no modelo de implantação do Gerenciador de recursos do hello usando o Powershell do Azure.</span><span class="sxs-lookup"><span data-stu-id="eb714-104">This article shows you how tooresize a Windows VM, created in hello Resource Manager deployment model using Azure Powershell.</span></span>
 
-<span data-ttu-id="24298-105">Depois de criar uma VM (máquina virtual), você pode expandir ou reduzir a VM, alterando o tamanho da VM.</span><span class="sxs-lookup"><span data-stu-id="24298-105">After you create a virtual machine (VM), you can scale the VM up or down by changing the VM size.</span></span> <span data-ttu-id="24298-106">Em alguns casos, você deverá desalocar a VM primeiro.</span><span class="sxs-lookup"><span data-stu-id="24298-106">In some cases, you must deallocate the VM first.</span></span> <span data-ttu-id="24298-107">Isso pode acontecer se o novo tamanho não estiver disponível no cluster de hardware que hospeda atualmente a VM.</span><span class="sxs-lookup"><span data-stu-id="24298-107">This can happen if the new size is not available on the hardware cluster that is currently hosting the VM.</span></span>
+<span data-ttu-id="eb714-105">Depois de criar uma máquina virtual (VM), você pode dimensionar Olá VM para cima ou para baixo, alterando o tamanho da VM hello.</span><span class="sxs-lookup"><span data-stu-id="eb714-105">After you create a virtual machine (VM), you can scale hello VM up or down by changing hello VM size.</span></span> <span data-ttu-id="eb714-106">Em alguns casos, você deverá desalocar Olá VM pela primeira vez.</span><span class="sxs-lookup"><span data-stu-id="eb714-106">In some cases, you must deallocate hello VM first.</span></span> <span data-ttu-id="eb714-107">Isso pode acontecer se o novo tamanho de saudação não está disponível no cluster de hardware de saudação que está hospedando Olá VM.</span><span class="sxs-lookup"><span data-stu-id="eb714-107">This can happen if hello new size is not available on hello hardware cluster that is currently hosting hello VM.</span></span>
 
-## <a name="resize-a-windows-vm-not-in-an-availability-set"></a><span data-ttu-id="24298-108">Redimensionar uma VM do Windows que não está em um conjunto de disponibilidade</span><span class="sxs-lookup"><span data-stu-id="24298-108">Resize a Windows VM not in an availability set</span></span>
-1. <span data-ttu-id="24298-109">Liste os tamanhos de VM que estão disponíveis no cluster do hardware onde a VM está hospedada.</span><span class="sxs-lookup"><span data-stu-id="24298-109">List the VM sizes that are available on the hardware cluster where the VM is hosted.</span></span> 
+## <a name="resize-a-windows-vm-not-in-an-availability-set"></a><span data-ttu-id="eb714-108">Redimensionar uma VM do Windows que não está em um conjunto de disponibilidade</span><span class="sxs-lookup"><span data-stu-id="eb714-108">Resize a Windows VM not in an availability set</span></span>
+1. <span data-ttu-id="eb714-109">Lista os tamanhos de VM Olá que estão disponíveis no cluster de hardware Olá onde Olá VM está hospedado.</span><span class="sxs-lookup"><span data-stu-id="eb714-109">List hello VM sizes that are available on hello hardware cluster where hello VM is hosted.</span></span> 
    
     ```powershell
     Get-AzureRmVMSize -ResourceGroupName <resourceGroupName> -VMName <vmName> 
     ```
-2. <span data-ttu-id="24298-110">Se o tamanho desejado estiver listado, execute o comando a seguir para redimensionar a VM.</span><span class="sxs-lookup"><span data-stu-id="24298-110">If the desired size is listed, run the following commands to resize the VM.</span></span> <span data-ttu-id="24298-111">Se o tamanho desejado não estiver listado, vá para a etapa 3.</span><span class="sxs-lookup"><span data-stu-id="24298-111">If the desired size is not listed, go on to step 3.</span></span>
+2. <span data-ttu-id="eb714-110">Se Olá desejado tamanho estiver listado, execute Olá comandos tooresize Olá VM a seguir.</span><span class="sxs-lookup"><span data-stu-id="eb714-110">If hello desired size is listed, run hello following commands tooresize hello VM.</span></span> <span data-ttu-id="eb714-111">Se Olá desejado tamanho não estiver listado, vá toostep 3.</span><span class="sxs-lookup"><span data-stu-id="eb714-111">If hello desired size is not listed, go on toostep 3.</span></span>
    
     ```powershell
     $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -VMName <vmName>
     $vm.HardwareProfile.VmSize = "<newVMsize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
     ```
-3. <span data-ttu-id="24298-112">Se o tamanho desejado não estiver listado, execute os comandos a seguir para desalocar a máquina virtual, redimensioná-la e reinicie a máquina virtual.</span><span class="sxs-lookup"><span data-stu-id="24298-112">If the desired size is not listed, run the following commands to deallocate the VM, resize it, and restart the VM.</span></span>
+3. <span data-ttu-id="eb714-112">Se Olá desejado tamanho não estiver listado, execute Olá toodeallocate Olá VM, redimensioná-la e reiniciar Olá VM de comandos a seguir.</span><span class="sxs-lookup"><span data-stu-id="eb714-112">If hello desired size is not listed, run hello following commands toodeallocate hello VM, resize it, and restart hello VM.</span></span>
    
     ```powershell
     $rgname = "<resourceGroupName>"
@@ -52,27 +52,27 @@ ms.lasthandoff: 07/11/2017
     ```
 
 > [!WARNING]
-> <span data-ttu-id="24298-113">Desalocar a VM libera os endereços IP dinâmicos atribuídos à VM.</span><span class="sxs-lookup"><span data-stu-id="24298-113">Deallocating the VM releases any dynamic IP addresses assigned to the VM.</span></span> <span data-ttu-id="24298-114">Os discos do sistema operacional e de dados não são afetados.</span><span class="sxs-lookup"><span data-stu-id="24298-114">The OS and data disks are not affected.</span></span> 
+> <span data-ttu-id="eb714-113">Olá ao desalocar VM libera os endereços IP dinâmicos atribuídos toohello VM.</span><span class="sxs-lookup"><span data-stu-id="eb714-113">Deallocating hello VM releases any dynamic IP addresses assigned toohello VM.</span></span> <span data-ttu-id="eb714-114">Olá SO e discos de dados não são afetados.</span><span class="sxs-lookup"><span data-stu-id="eb714-114">hello OS and data disks are not affected.</span></span> 
 > 
 > 
 
-## <a name="resize-a-windows-vm-in-an-availability-set"></a><span data-ttu-id="24298-115">Redimensionar uma VM do Windows que está em um conjunto de disponibilidade</span><span class="sxs-lookup"><span data-stu-id="24298-115">Resize a Windows VM in an availability set</span></span>
-<span data-ttu-id="24298-116">Se o novo tamanho de uma VM em um conjunto de disponibilidade não estiver disponível no cluster de hardware que está hospedando atualmente a VM, todas as VMs no conjunto de disponibilidade precisarão ser desalocadas para redimensionar a VM.</span><span class="sxs-lookup"><span data-stu-id="24298-116">If the new size for a VM in an availability set is not available on the hardware cluster currently hosting the VM, then all VMs in the availability set will need to be deallocated to resize the VM.</span></span> <span data-ttu-id="24298-117">Talvez também seja necessário atualizar o tamanho de outras VMs no conjunto de disponibilidade depois que uma máquina virtual for redimensionada.</span><span class="sxs-lookup"><span data-stu-id="24298-117">You also might need to update the size of other VMs in the availability set after one VM has been resized.</span></span> <span data-ttu-id="24298-118">Para redimensionar uma VM em um conjunto de disponibilidade, execute as seguintes etapas.</span><span class="sxs-lookup"><span data-stu-id="24298-118">To resize a VM in an availability set, perform the following steps.</span></span>
+## <a name="resize-a-windows-vm-in-an-availability-set"></a><span data-ttu-id="eb714-115">Redimensionar uma VM do Windows que está em um conjunto de disponibilidade</span><span class="sxs-lookup"><span data-stu-id="eb714-115">Resize a Windows VM in an availability set</span></span>
+<span data-ttu-id="eb714-116">Se hello novo tamanho para uma VM em um conjunto de disponibilidade não está disponível no cluster de hardware Olá hospedando Olá VM, em seguida, todas as VMs no conjunto de disponibilidade Olá precisará toobe desalocada tooresize Olá VM.</span><span class="sxs-lookup"><span data-stu-id="eb714-116">If hello new size for a VM in an availability set is not available on hello hardware cluster currently hosting hello VM, then all VMs in hello availability set will need toobe deallocated tooresize hello VM.</span></span> <span data-ttu-id="eb714-117">Talvez também seja necessário tooupdate tamanho de saudação de outras VMs no conjunto depois de uma máquina virtual foi redimensionada de disponibilidade de saudação.</span><span class="sxs-lookup"><span data-stu-id="eb714-117">You also might need tooupdate hello size of other VMs in hello availability set after one VM has been resized.</span></span> <span data-ttu-id="eb714-118">tooresize uma VM em um conjunto de disponibilidade, execute Olá etapas a seguir.</span><span class="sxs-lookup"><span data-stu-id="eb714-118">tooresize a VM in an availability set, perform hello following steps.</span></span>
 
-1. <span data-ttu-id="24298-119">Liste os tamanhos de VM que estão disponíveis no cluster do hardware onde a VM está hospedada.</span><span class="sxs-lookup"><span data-stu-id="24298-119">List the VM sizes that are available on the hardware cluster where the VM is hosted.</span></span>
+1. <span data-ttu-id="eb714-119">Lista os tamanhos de VM Olá que estão disponíveis no cluster de hardware Olá onde Olá VM está hospedado.</span><span class="sxs-lookup"><span data-stu-id="eb714-119">List hello VM sizes that are available on hello hardware cluster where hello VM is hosted.</span></span>
    
     ```powershell
     Get-AzureRmVMSize -ResourceGroupName <resourceGroupName> -VMName <vmName>
     ```
-2. <span data-ttu-id="24298-120">Se o tamanho desejado estiver listado, execute o comando a seguir para redimensionar a VM.</span><span class="sxs-lookup"><span data-stu-id="24298-120">If the desired size is listed, run the following commands to resize the VM.</span></span> <span data-ttu-id="24298-121">Se ela não estiver listada, vá para a etapa 3.</span><span class="sxs-lookup"><span data-stu-id="24298-121">If it is not listed, go to step 3.</span></span>
+2. <span data-ttu-id="eb714-120">Se Olá desejado tamanho estiver listado, execute Olá comandos tooresize Olá VM a seguir.</span><span class="sxs-lookup"><span data-stu-id="eb714-120">If hello desired size is listed, run hello following commands tooresize hello VM.</span></span> <span data-ttu-id="eb714-121">Se não estiver listado, vá toostep 3.</span><span class="sxs-lookup"><span data-stu-id="eb714-121">If it is not listed, go toostep 3.</span></span>
    
     ```powershell
     $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -VMName <vmName>
     $vm.HardwareProfile.VmSize = "<newVmSize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
     ```
-3. <span data-ttu-id="24298-122">Se o tamanho desejado não estiver listado, continue com as etapas a seguir para desalocar todas as VMs no conjunto de disponibilidade, redimensionar as VMs e reiniciá-las.</span><span class="sxs-lookup"><span data-stu-id="24298-122">If the desired size is not listed, continue with the following steps to deallocate all VMs in the availability set, resize VMs, and restart them.</span></span>
-4. <span data-ttu-id="24298-123">Pare todas as VMs no conjunto de disponibilidade.</span><span class="sxs-lookup"><span data-stu-id="24298-123">Stop all VMs in the availability set.</span></span>
+3. <span data-ttu-id="eb714-122">Se Olá desejado tamanho não estiver listado, continue com hello toodeallocate as etapas a seguir todas as VMs no conjunto de disponibilidade de saudação, redimensionar VMs e reiniciá-los.</span><span class="sxs-lookup"><span data-stu-id="eb714-122">If hello desired size is not listed, continue with hello following steps toodeallocate all VMs in hello availability set, resize VMs, and restart them.</span></span>
+4. <span data-ttu-id="eb714-123">Pare todas as VMs no conjunto de disponibilidade de saudação.</span><span class="sxs-lookup"><span data-stu-id="eb714-123">Stop all VMs in hello availability set.</span></span>
    
    ```powershell
    $rg = "<resourceGroupName>"
@@ -84,7 +84,7 @@ ms.lasthandoff: 07/11/2017
      Stop-AzureRmVM -ResourceGroupName $rg -Name $vmName -Force
    } 
    ```
-5. <span data-ttu-id="24298-124">Redimensione e reinicie todas as VMs no conjunto de disponibilidade.</span><span class="sxs-lookup"><span data-stu-id="24298-124">Resize and restart the VMs in the availability set.</span></span>
+5. <span data-ttu-id="eb714-124">Redimensionar e reinicie Olá VMs no conjunto de disponibilidade de saudação.</span><span class="sxs-lookup"><span data-stu-id="eb714-124">Resize and restart hello VMs in hello availability set.</span></span>
    
    ```powershell
    $rg = "<resourceGroupName>"
@@ -101,6 +101,6 @@ ms.lasthandoff: 07/11/2017
    }
    ```
 
-## <a name="next-steps"></a><span data-ttu-id="24298-125">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="24298-125">Next steps</span></span>
-* <span data-ttu-id="24298-126">Para obter escalabilidade adicional, execute várias instâncias de VM e expanda.</span><span class="sxs-lookup"><span data-stu-id="24298-126">For additional scalability, run multiple VM instances and scale out.</span></span> <span data-ttu-id="24298-127">Para saber mais, confira [Dimensionar automaticamente computadores Windows em um Conjunto de Dimensionamento de Máquinas Virtuais](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).</span><span class="sxs-lookup"><span data-stu-id="24298-127">For more information, see [Automatically scale Windows machines in a Virtual Machine Scale Set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="eb714-125">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="eb714-125">Next steps</span></span>
+* <span data-ttu-id="eb714-126">Para obter escalabilidade adicional, execute várias instâncias de VM e expanda. Para saber mais, confira [Dimensionar automaticamente computadores Windows em um Conjunto de Dimensionamento de Máquinas Virtuais](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).</span><span class="sxs-lookup"><span data-stu-id="eb714-126">For additional scalability, run multiple VM instances and scale out. For more information, see [Automatically scale Windows machines in a Virtual Machine Scale Set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).</span></span>
 

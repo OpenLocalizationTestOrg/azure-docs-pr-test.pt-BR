@@ -13,7 +13,7 @@
 ### [Habilitação de segurança operacional](azure-operational-security.md)
 ### [Detecção avançada de ameaças](azure-threat-detection.md)
 ### [Log e auditoria](azure-log-audit.md)
-### [Isolamento na nuvem pública](azure-isolation.md)
+### [Isolamento na nuvem pública Olá](azure-isolation.md)
 ### [Recursos técnicos de segurança](azure-security-technical-capabilities.md)
 ### [Governança no Azure](governance-in-azure.md)
 ### [Criptografia de dados em repouso](azure-security-encryption-atrest.md)
@@ -48,7 +48,7 @@
 ## Gerenciamento e monitoramento de segurança
 ### [Gerenciamento de segurança](azure-security-management.md)
 ### [Central de Segurança do Azure](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
-### [Introdução à integração de log do Azure](security-azure-log-integration-overview.md)
+### [Integração do log de tooAzure de Introdução](security-azure-log-integration-overview.md)
 #### [Introdução à integração de log do Azure](security-azure-log-integration-get-started.md)
 #### [Integrar o Azure Active Directory a logs de auditoria](security-azure-log-integration-ad.md)
 #### [Integrar os alertas da Central de Segurança](security-azure-log-integration-security-center.md)

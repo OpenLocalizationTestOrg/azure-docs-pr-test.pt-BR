@@ -17,14 +17,14 @@
 ### [Orientação arquitetural do push corporativo](notification-hubs-enterprise-push-notification-architecture.md)
 
 ## Desenvolver
-### [Enviar notificações por push para Android usando GCM](notification-hubs-android-push-notification-google-gcm-get-started.md)
+### [Enviar por push notificações tooAndroid usando GCM](notification-hubs-android-push-notification-google-gcm-get-started.md)
 ### [Enviar por push de notificações com limitação de área geográfica com o Bing Spatial Data](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
-### Enviar por push a usuários específicos
+### Enviar por push usuários toospecific
 #### [Android](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md)
 #### [iOS](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
 
-#### [Registrar o usuário atual usando ASP.NET](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
+#### [Registrar Olá usuário atual usando o ASP.NET](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 ### [Enviar notificações de plataforma cruzada](notification-hubs-aspnet-cross-platform-notification.md)
 ### Trabalhar com SDKs do servidor
 #### [.NET](https://msdn.microsoft.com/library/mt414893.aspx)

@@ -1,6 +1,6 @@
 ---
-title: "Como exibir e alterar o incentivo de revendedor do provedor de soluções de nuvem | Microsoft Docs"
-description: "Como exibir e alterar a seleção de Incentivo ao revendedor CSP"
+title: "aaaHow tooview e alteração Olá incentivo de revendedor do provedor de soluções de nuvem | Microsoft Docs"
+description: "Como tooview e alterar a seleção de CSP revendedor incentivo"
 services: marketplace-publishing
 documentationcenter: na
 author: DavidBosland
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: DavidBosland
-ms.openlocfilehash: d6e6e13f352dea5c27939c39ecb8be97bf6990ca
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4702d0167c38d100755a872f9b23e49cc7a46ba2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="view-and-change-your-cloud-solution-provider-reseller-incentive-in-the-azure-marketplace"></a><span data-ttu-id="0f8ca-103">Exibir e alterar o provedor de soluções de nuvem "Incentivo ao Revendedor" no Azure Marketplace</span><span class="sxs-lookup"><span data-stu-id="0f8ca-103">View and change your Cloud Solution Provider "Reseller Incentive" in the Azure Marketplace</span></span>
-<span data-ttu-id="0f8ca-104">Em 15 de março de 2016, nós disponibilizaremos a solução CSPs (provedores nuvem) "Incentivo ao Revendedor" para editores de Marketplace.</span><span class="sxs-lookup"><span data-stu-id="0f8ca-104">On March 15, 2016 we'll make the Cloud Solution Providers (CSPs) “Reseller Incentive” available to Marketplace publishers.</span></span>  <span data-ttu-id="0f8ca-105">A configuração padrão para este valor de incentivo é **Sim**.</span><span class="sxs-lookup"><span data-stu-id="0f8ca-105">The default setting for this incentive value is **Yes**.</span></span>  <span data-ttu-id="0f8ca-106">Como um editor, você pode decidir sair do programa de incentivo.</span><span class="sxs-lookup"><span data-stu-id="0f8ca-106">As a publisher you can decide to opt-out of the incentive program.</span></span>  <span data-ttu-id="0f8ca-107">Este artigo mostra como alterar a configuração em seu perfil do editor para que você possa recusar.</span><span class="sxs-lookup"><span data-stu-id="0f8ca-107">This article shows how to change the setting in your publisher profile so you can opt-out.</span></span>
+# <a name="view-and-change-your-cloud-solution-provider-reseller-incentive-in-hello-azure-marketplace"></a><span data-ttu-id="45fa4-103">Exibir e alterar seu provedor de soluções de nuvem "Revendedor incentivo" no hello Azure Marketplace</span><span class="sxs-lookup"><span data-stu-id="45fa4-103">View and change your Cloud Solution Provider "Reseller Incentive" in hello Azure Marketplace</span></span>
+<span data-ttu-id="45fa4-104">Em 15 de março de 2016, faremos Olá solução CSPs (provedores nuvem) "Revendedor incentivo" editores de tooMarketplace disponíveis.</span><span class="sxs-lookup"><span data-stu-id="45fa4-104">On March 15, 2016 we'll make hello Cloud Solution Providers (CSPs) “Reseller Incentive” available tooMarketplace publishers.</span></span>  <span data-ttu-id="45fa4-105">Olá a configuração padrão para esse valor incentivo é **Sim**.</span><span class="sxs-lookup"><span data-stu-id="45fa4-105">hello default setting for this incentive value is **Yes**.</span></span>  <span data-ttu-id="45fa4-106">Como um editor, você pode decidir tooopt-out de um programa de incentivo hello.</span><span class="sxs-lookup"><span data-stu-id="45fa4-106">As a publisher you can decide tooopt-out of hello incentive program.</span></span>  <span data-ttu-id="45fa4-107">Este artigo mostra como configuração de saudação toochange em seu editor de perfil para que você pode recusar.</span><span class="sxs-lookup"><span data-stu-id="45fa4-107">This article shows how toochange hello setting in your publisher profile so you can opt-out.</span></span>
 
-<span data-ttu-id="0f8ca-108">Para exibir ou alterar seu status de "Incentivo do Revendedor", siga estas etapas:</span><span class="sxs-lookup"><span data-stu-id="0f8ca-108">To view or change your “Reseller Incentive” status, follow these steps:</span></span>
+<span data-ttu-id="45fa4-108">tooview ou alterar seu status de "Revendedor incentivo", siga estas etapas:</span><span class="sxs-lookup"><span data-stu-id="45fa4-108">tooview or change your “Reseller Incentive” status, follow these steps:</span></span>
 
-1. <span data-ttu-id="0f8ca-109">Faça logon na sua [Conta de publicação do Microsoft Azure](https://publish.windowsazure.com/workspace)</span><span class="sxs-lookup"><span data-stu-id="0f8ca-109">Log in to your [Microsoft Azure Publishing account](https://publish.windowsazure.com/workspace)</span></span>
+1. <span data-ttu-id="45fa4-109">Faça logon no tooyour [conta de publicação do Microsoft Azure](https://publish.windowsazure.com/workspace)</span><span class="sxs-lookup"><span data-stu-id="45fa4-109">Log in tooyour [Microsoft Azure Publishing account](https://publish.windowsazure.com/workspace)</span></span>
 
    ![Tela inicial do perfil][1]
-2. <span data-ttu-id="0f8ca-111">Clique em **Editores**</span><span class="sxs-lookup"><span data-stu-id="0f8ca-111">Click **Publishers**</span></span>
+2. <span data-ttu-id="45fa4-111">Clique em **Editores**</span><span class="sxs-lookup"><span data-stu-id="45fa4-111">Click **Publishers**</span></span>
 
    ![Tela inicial do perfil - link de editores][2]
-3. <span data-ttu-id="0f8ca-113">Observe as informações do seu perfil sobre CSPs.</span><span class="sxs-lookup"><span data-stu-id="0f8ca-113">Notice the information in your profile about CSPs.</span></span>  <span data-ttu-id="0f8ca-114">Há um **Alternar para dizer que Sim ou não** para o "Incentivo ao Revendedor" - o status padrão é "Sim".</span><span class="sxs-lookup"><span data-stu-id="0f8ca-114">There is a **switch to say yes or no** to the "Reseller Incentive" - the default status is “Yes.”</span></span>
+3. <span data-ttu-id="45fa4-113">Observe a informações de saudação em seu perfil sobre CSPs.</span><span class="sxs-lookup"><span data-stu-id="45fa4-113">Notice hello information in your profile about CSPs.</span></span>  <span data-ttu-id="45fa4-114">Há um **alternar toosay Sim ou não** toohello "Revendedor incentivo" - status da saudação padrão é "Sim".</span><span class="sxs-lookup"><span data-stu-id="45fa4-114">There is a **switch toosay yes or no** toohello "Reseller Incentive" - hello default status is “Yes.”</span></span>
 
    ![Perfil - Editores][3]
-4. <span data-ttu-id="0f8ca-116">Para alterar o status do "Incentivo ao Revendedor", acesse o seu perfil do editor, selecione e salve a sua escolha:</span><span class="sxs-lookup"><span data-stu-id="0f8ca-116">To change your "Reseller Incentive" status access your Publisher Profile then select and save your choice:</span></span>
+4. <span data-ttu-id="45fa4-116">toochange seu status de "Revendedor incentivo" acessar seu perfil do publicador, em seguida, selecione e salve sua escolha:</span><span class="sxs-lookup"><span data-stu-id="45fa4-116">toochange your "Reseller Incentive" status access your Publisher Profile then select and save your choice:</span></span>
 
-   * <span data-ttu-id="0f8ca-117">Selecione **Sim** para escolher fornecer o desconto de 20% para os CSPs que estão revendendo os aplicativos e serviços listados no Azure Marketplace.</span><span class="sxs-lookup"><span data-stu-id="0f8ca-117">Select **Yes** to choose to provide the 20 percent discount to the CSPs who are reselling the applications and services you have listed in the Azure Marketplace.</span></span>  <span data-ttu-id="0f8ca-118">Ou selecione **Não** para recusar o programa de incentivo.</span><span class="sxs-lookup"><span data-stu-id="0f8ca-118">Or select **No** to opt out of this incentive program.</span></span>  <span data-ttu-id="0f8ca-119">Em ambos os casos, o editor recebe o mesmo pagamento.</span><span class="sxs-lookup"><span data-stu-id="0f8ca-119">In either case the publisher receives the same payout.</span></span>
-   * <span data-ttu-id="0f8ca-120">Depois de fazer uma seleção, certifique-se de clicar em **Salvar** no canto superior direito.</span><span class="sxs-lookup"><span data-stu-id="0f8ca-120">After you make a selection make sure you click **Save** in the upper right hand corner.</span></span>
+   * <span data-ttu-id="45fa4-117">Selecione **Sim** toochoose tooprovide Olá 20% de desconto toohello CSPs que são revenda aplicativos de saudação e serviços que estejam listadas no hello Azure Marketplace.</span><span class="sxs-lookup"><span data-stu-id="45fa4-117">Select **Yes** toochoose tooprovide hello 20 percent discount toohello CSPs who are reselling hello applications and services you have listed in hello Azure Marketplace.</span></span>  <span data-ttu-id="45fa4-118">Ou selecione **não** tooopt fora deste programa incentivo.</span><span class="sxs-lookup"><span data-stu-id="45fa4-118">Or select **No** tooopt out of this incentive program.</span></span>  <span data-ttu-id="45fa4-119">Em qualquer caso Olá publicador recebe Olá mesmo pagamento.</span><span class="sxs-lookup"><span data-stu-id="45fa4-119">In either case hello publisher receives hello same payout.</span></span>
+   * <span data-ttu-id="45fa4-120">Depois de fazer uma seleção Verifique se você clicar em **salvar** no canto superior direito de saudação.</span><span class="sxs-lookup"><span data-stu-id="45fa4-120">After you make a selection make sure you click **Save** in hello upper right hand corner.</span></span>
 
    ![Perfil - Editores - Caixas de alteração][4]
 

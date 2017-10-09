@@ -1,6 +1,6 @@
 ---
-title: "Documentação do Azure SQL Server Stretch Database - Tutoriais | Microsoft Azure"
-description: "Aprenda a usar o SQL Server Stretch Database para migrar os dados frios com segurança para o Azure sem alterar as consultas ou os aplicativos. Tutoriais e outra documentação."
+title: "aaaAzure documentação de banco de dados do SQL Server Stretch - tutoriais | Microsoft Docs"
+description: "Saiba como toouse dados frios do banco de dados do SQL Server Stretch toomigrate com segurança tooAzure sem alterar as consultas ou aplicativos. Tutoriais e outra documentação."
 services: sql-server-stretch-database
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: bb5e0fa9981133a77c235a42be369b3bbacb4ac0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2b009d80224a62d940ec8b11de22ad8c0865d869
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="sql-server-stretch-database-documentation"></a>Documentação do SQL Server Stretch Database
 
-Saiba como usar o SQL Server Stretch Database para migrar os dados frios de forma transparente e segura para a nuvem do Azure. Os tutoriais e outra documentação ajudam a configurar uma disponibilidade econômica para os bancos de dados com dados pouco usados sem exigir alterações nas consultas ou aplicativos existentes.
+Saiba como toouse do SQL Server Stretch dados frios toomigrate de banco de dados transparente e segura toohello Azure nuvem. Tutoriais e outros ajuda documentação que configurar disponibilidade econômica para bancos de dados com pouco usados dados sem a necessidade de alterações tooexisting consultas ou aplicativos.
 
 
 <ul class="panelContent cardsFTitle">
@@ -89,7 +89,7 @@ Saiba como usar o SQL Server Stretch Database para migrar os dados frios de form
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução ao assistente do SQL Server Stretch Database</h3>
+                        <h3>Começar a usar o Assistente de banco de dados do SQL Server Stretch Olá</h3>
                     </div>
                 </div>
             </div>

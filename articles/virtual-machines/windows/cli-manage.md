@@ -1,6 +1,6 @@
 ---
-title: "Comandos básicos da CLI para as tarefas da VM do Windows | Microsoft Docs"
-description: "Comandos básicos da CLI do Azure para criar e gerenciar as VMs do Windows no Azure Resource Manager"
+title: comandos de aaaBasic CLI para tarefas de VM do Windows | Microsoft Docs
+description: "CLI do Azure básico comandos toocreate e gerenciar máquinas virtuais do Windows no Gerenciador de recursos do Azure"
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/23/2016
 ms.author: danlep
-ms.openlocfilehash: 1ec1e0d5499e0a4da02a26bfb71a1117d920e7f5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3b5db7ae0017cb4713785539c96f7550b5a9bdab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="common-azure-cli-commands-for-virtual-machine-tasks-in-the-resource-manager-deployment-model"></a><span data-ttu-id="1b7bc-103">Comandos de CLI do Azure comuns para as tarefas da máquina virtual no modelo de implantação do Gerenciador de Recursos</span><span class="sxs-lookup"><span data-stu-id="1b7bc-103">Common Azure CLI commands for virtual machine tasks in the Resource Manager deployment model</span></span>
-<span data-ttu-id="1b7bc-104">Este artigo mostra os comandos comuns da Interface de Linha de Comando do Azure (CLI do Azure) para criar e gerenciar as VMs no modelo de implantação do Gerenciador de Recursos.</span><span class="sxs-lookup"><span data-stu-id="1b7bc-104">This article shows common Azure Command-Line Interface (Azure CLI) commands to create and manage VMs in the Resource Manager deployment model.</span></span> 
+# <a name="common-azure-cli-commands-for-virtual-machine-tasks-in-hello-resource-manager-deployment-model"></a><span data-ttu-id="95c45-103">Comandos comuns de CLI do Azure para tarefas de máquina virtual no modelo de implantação do Gerenciador de recursos de saudação</span><span class="sxs-lookup"><span data-stu-id="95c45-103">Common Azure CLI commands for virtual machine tasks in hello Resource Manager deployment model</span></span>
+<span data-ttu-id="95c45-104">Este artigo mostra toocreate comum de comandos de Interface de linha de comando do Azure (CLI do Azure) e gerenciar máquinas virtuais no modelo de implantação do Gerenciador de recursos de saudação.</span><span class="sxs-lookup"><span data-stu-id="95c45-104">This article shows common Azure Command-Line Interface (Azure CLI) commands toocreate and manage VMs in hello Resource Manager deployment model.</span></span> 
 
 [!INCLUDE [virtual-machines-common-cli-manage](../../../includes/virtual-machines-common-cli-manage.md)]
 

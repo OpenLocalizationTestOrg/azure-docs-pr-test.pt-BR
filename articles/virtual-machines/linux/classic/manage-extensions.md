@@ -1,6 +1,6 @@
 ---
-title: "Gerenciar extensões de máquina virtual com base no Linux | Microsoft Docs"
-description: "Descreve como adicionar, localizar, atualizar e remover extensões para máquinas virtuais do Azure, no modelo de implantação clássica."
+title: "extensões de máquina virtual baseada em Linux aaaManage | Microsoft Docs"
+description: "Descreve como tooadd, localizar, atualizar e remover extensões de máquinas virtuais do Azure, no modelo de implantação clássico hello."
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-ms.openlocfilehash: 2d16b4c2c3bfa8db6dc1455915bd3f8a80222163
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7f198f44d229dde7f60eec99033215dffb18370d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-virtual-machine-extensions"></a><span data-ttu-id="45998-103">Gerenciar extensões de máquina virtual</span><span class="sxs-lookup"><span data-stu-id="45998-103">Manage virtual machine extensions</span></span>
-<span data-ttu-id="45998-104">Descreve como localizar, adicionar, modificar ou remover extensões de VM com máquinas virtuais Windows ou Linux no Azure.</span><span class="sxs-lookup"><span data-stu-id="45998-104">Describes how to find, add, modify, or remove VM Extensions with either Windows or Linux Virtual Machines on Azure.</span></span>
+# <a name="manage-virtual-machine-extensions"></a><span data-ttu-id="748cb-103">Gerenciar extensões de máquina virtual</span><span class="sxs-lookup"><span data-stu-id="748cb-103">Manage virtual machine extensions</span></span>
+<span data-ttu-id="748cb-104">Descreve como toofind, adicionar, modificar ou remover extensões da VM com o Windows ou máquinas virtuais Linux no Azure.</span><span class="sxs-lookup"><span data-stu-id="748cb-104">Describes how toofind, add, modify, or remove VM Extensions with either Windows or Linux Virtual Machines on Azure.</span></span>
 
 > [!IMPORTANT] 
-> <span data-ttu-id="45998-105">O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="45998-105">Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md).</span></span> <span data-ttu-id="45998-106">Este artigo aborda o uso do modelo de implantação Clássica.</span><span class="sxs-lookup"><span data-stu-id="45998-106">This article covers using the Classic deployment model.</span></span> <span data-ttu-id="45998-107">A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.</span><span class="sxs-lookup"><span data-stu-id="45998-107">Microsoft recommends that most new deployments use the Resource Manager model.</span></span> <span data-ttu-id="45998-108">Para obter informações sobre como usar extensões de VM com o modelo do Resource Manager, veja [aqui](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="45998-108">For information about using VM extensions with the Resource Manager model, see [here](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span></span>
+> <span data-ttu-id="748cb-105">O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="748cb-105">Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md).</span></span> <span data-ttu-id="748cb-106">Este artigo aborda usando o modelo de implantação clássico hello.</span><span class="sxs-lookup"><span data-stu-id="748cb-106">This article covers using hello Classic deployment model.</span></span> <span data-ttu-id="748cb-107">A Microsoft recomenda que mais novas implantações de usam o modelo do Gerenciador de recursos de saudação.</span><span class="sxs-lookup"><span data-stu-id="748cb-107">Microsoft recommends that most new deployments use hello Resource Manager model.</span></span> <span data-ttu-id="748cb-108">Para obter informações sobre como usar extensões de VM com o modelo do Gerenciador de recursos de hello, consulte [aqui](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="748cb-108">For information about using VM extensions with hello Resource Manager model, see [here](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).</span></span>
 
 [!INCLUDE [virtual-machines-common-classic-manage-extensions](../../../../includes/virtual-machines-common-classic-manage-extensions.md)]
 

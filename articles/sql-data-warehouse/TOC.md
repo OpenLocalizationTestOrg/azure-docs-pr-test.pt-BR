@@ -90,7 +90,7 @@
 ### Tutoriais
 #### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 
-### Guias de instruções
+### Como tooguides
 #### [Dados de amostra](sql-data-warehouse-load-sample-databases.md)
 #### [Repositório Azure Data Lake](sql-data-warehouse-load-from-azure-data-lake-store.md)
 #### [BCP](sql-data-warehouse-load-with-bcp.md)
@@ -107,7 +107,7 @@
 ### [Migrar o esquema](sql-data-warehouse-migrate-schema.md)
 ### [Migrar o código](sql-data-warehouse-migrate-code.md)
 ### [Migrar dados](sql-data-warehouse-migrate-data.md)
-### [Migrar para o Armazenamento Premium](sql-data-warehouse-migrate-to-premium-storage.md)
+### [Migrar o armazenamento toopremium](sql-data-warehouse-migrate-to-premium-storage.md)
 
 ## Gerenciar a computação
 

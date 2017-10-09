@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao Azure Mobile Engagement para iOS em Swift | Microsoft Docs"
-description: "Aprenda a usar o Azure Mobile Engagement com Análises e Notificações por Push para Aplicativos iOS."
+title: aaaGet iniciado com o Azure Mobile Engagement para iOS no Swift | Microsoft Docs
+description: "Saiba como toouse Azure Mobile Engagement com análises e notificações por Push para aplicativos do iOS."
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,63 +14,63 @@ ms.devlang: swift
 ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: piyushjo
-ms.openlocfilehash: 1011b9823333e79a52cd2d187df4f8d063b1f799
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9a3841d305745f8b80c6b0c86aabe18e0c7c0e59
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-azure-mobile-engagement-for-ios-apps-in-swift"></a><span data-ttu-id="2d830-103">Introdução ao Azure Mobile Engagement para Aplicativos iOS em Swift</span><span class="sxs-lookup"><span data-stu-id="2d830-103">Get Started with Azure Mobile Engagement for iOS Apps in Swift</span></span>
+# <a name="get-started-with-azure-mobile-engagement-for-ios-apps-in-swift"></a><span data-ttu-id="40616-103">Introdução ao Azure Mobile Engagement para Aplicativos iOS em Swift</span><span class="sxs-lookup"><span data-stu-id="40616-103">Get Started with Azure Mobile Engagement for iOS Apps in Swift</span></span>
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-<span data-ttu-id="2d830-104">Este tópico mostra como usar o Azure Mobile Engagement para entender o uso do aplicativo e enviar notificações por push para usuários segmentados para um aplicativo iOS.</span><span class="sxs-lookup"><span data-stu-id="2d830-104">This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users to an iOS application.</span></span>
-<span data-ttu-id="2d830-105">Neste tutorial, você cria um aplicativo iOS em branco que coleta dados básicos e recebe notificações por push usando o Sistema de Notificação por Push da Apple (APNS).</span><span class="sxs-lookup"><span data-stu-id="2d830-105">In this tutorial, you create a blank iOS app that collects basic data and receives push notifications using Apple Push Notification System (APNS).</span></span>
+<span data-ttu-id="40616-104">Este tópico mostra como toouse do Azure Mobile Engagement toounderstand seu uso do aplicativo e enviar por push o aplicativo do iOS notificações toosegmented usuários tooan.</span><span class="sxs-lookup"><span data-stu-id="40616-104">This topic shows you how toouse Azure Mobile Engagement toounderstand your app usage and send push notifications toosegmented users tooan iOS application.</span></span>
+<span data-ttu-id="40616-105">Neste tutorial, você cria um aplicativo iOS em branco que coleta dados básicos e recebe notificações por push usando o Sistema de Notificação por Push da Apple (APNS).</span><span class="sxs-lookup"><span data-stu-id="40616-105">In this tutorial, you create a blank iOS app that collects basic data and receives push notifications using Apple Push Notification System (APNS).</span></span>
 
-<span data-ttu-id="2d830-106">Este tutorial exige o seguinte:</span><span class="sxs-lookup"><span data-stu-id="2d830-106">This tutorial requires the following:</span></span>
+<span data-ttu-id="40616-106">Este tutorial requer o seguinte hello:</span><span class="sxs-lookup"><span data-stu-id="40616-106">This tutorial requires hello following:</span></span>
 
-* <span data-ttu-id="2d830-107">XCode 8, que pode ser instalado a partir da MAC App Store</span><span class="sxs-lookup"><span data-stu-id="2d830-107">XCode 8, which you can install from your MAC App Store</span></span>
-* <span data-ttu-id="2d830-108">o [SKD do Mobile Engagement iOS]</span><span class="sxs-lookup"><span data-stu-id="2d830-108">the [Mobile Engagement iOS SDK]</span></span>
-* <span data-ttu-id="2d830-109">Certificado de notificação por push (. p12), que pode ser obtido no centro de desenvolvimento da Apple</span><span class="sxs-lookup"><span data-stu-id="2d830-109">Push notification certificate (.p12) that you can obtain on your Apple Dev Center</span></span>
-
-> [!NOTE]
-> <span data-ttu-id="2d830-110">Este tutorial usa o Swift versão 3.0.</span><span class="sxs-lookup"><span data-stu-id="2d830-110">This tutorial uses Swift version 3.0.</span></span> 
-> 
-> 
-
-<span data-ttu-id="2d830-111">A conclusão desse tutorial é um pré-requisito para todos os outros tutoriais do Mobile Engagement para os aplicativos iOS.</span><span class="sxs-lookup"><span data-stu-id="2d830-111">Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for iOS apps.</span></span>
+* <span data-ttu-id="40616-107">XCode 8, que pode ser instalado a partir da MAC App Store</span><span class="sxs-lookup"><span data-stu-id="40616-107">XCode 8, which you can install from your MAC App Store</span></span>
+* <span data-ttu-id="40616-108">Olá [SDK do Mobile Engagement iOS]</span><span class="sxs-lookup"><span data-stu-id="40616-108">hello [Mobile Engagement iOS SDK]</span></span>
+* <span data-ttu-id="40616-109">Certificado de notificação por push (. p12), que pode ser obtido no centro de desenvolvimento da Apple</span><span class="sxs-lookup"><span data-stu-id="40616-109">Push notification certificate (.p12) that you can obtain on your Apple Dev Center</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="2d830-112">Para concluir este tutorial, você precisa ter uma conta ativa do Azure.</span><span class="sxs-lookup"><span data-stu-id="2d830-112">To complete this tutorial, you must have an active Azure account.</span></span> <span data-ttu-id="2d830-113">Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos.</span><span class="sxs-lookup"><span data-stu-id="2d830-113">If you don't have an account, you can create a free trial account in just a couple of minutes.</span></span> <span data-ttu-id="2d830-114">Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-swift-get-started).</span><span class="sxs-lookup"><span data-stu-id="2d830-114">For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-swift-get-started).</span></span>
+> <span data-ttu-id="40616-110">Este tutorial usa o Swift versão 3.0.</span><span class="sxs-lookup"><span data-stu-id="40616-110">This tutorial uses Swift version 3.0.</span></span> 
 > 
 > 
 
-## <span data-ttu-id="2d830-115"><a id="setup-azme"></a>Configurar o Mobile Engagement para seu aplicativo iOS</span><span class="sxs-lookup"><span data-stu-id="2d830-115"><a id="setup-azme"></a>Setup Mobile Engagement for your iOS app</span></span>
+<span data-ttu-id="40616-111">A conclusão desse tutorial é um pré-requisito para todos os outros tutoriais do Mobile Engagement para os aplicativos iOS.</span><span class="sxs-lookup"><span data-stu-id="40616-111">Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for iOS apps.</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="40616-112">toocomplete neste tutorial, você deve ter uma conta ativa do Azure.</span><span class="sxs-lookup"><span data-stu-id="40616-112">toocomplete this tutorial, you must have an active Azure account.</span></span> <span data-ttu-id="40616-113">Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos.</span><span class="sxs-lookup"><span data-stu-id="40616-113">If you don't have an account, you can create a free trial account in just a couple of minutes.</span></span> <span data-ttu-id="40616-114">Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-swift-get-started).</span><span class="sxs-lookup"><span data-stu-id="40616-114">For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-swift-get-started).</span></span>
+> 
+> 
+
+## <span data-ttu-id="40616-115"><a id="setup-azme"></a>Configurar o Mobile Engagement para seu aplicativo iOS</span><span class="sxs-lookup"><span data-stu-id="40616-115"><a id="setup-azme"></a>Setup Mobile Engagement for your iOS app</span></span>
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <span data-ttu-id="2d830-116"><a id="connecting-app"></a>Conecte o seu aplicativo ao back-end do Mobile Engagement</span><span class="sxs-lookup"><span data-stu-id="2d830-116"><a id="connecting-app"></a>Connect your app to the Mobile Engagement backend</span></span>
-<span data-ttu-id="2d830-117">Este tutorial apresenta uma "integração básica" que é o conjunto mínimo exigido para coletar dados e enviar uma notificação por push.</span><span class="sxs-lookup"><span data-stu-id="2d830-117">This tutorial presents a "basic integration", which is the minimal set required to collect data and send a push notification.</span></span> <span data-ttu-id="2d830-118">A documentação de integração completa pode ser encontrada na [Integração do SDK do iOS no Mobile Engagement](mobile-engagement-ios-sdk-overview.md)</span><span class="sxs-lookup"><span data-stu-id="2d830-118">The complete integration documentation can be found in the [Mobile Engagement iOS SDK integration](mobile-engagement-ios-sdk-overview.md)</span></span>
+## <span data-ttu-id="40616-116"><a id="connecting-app"></a>Conectar seu back-end do aplicativo toohello Mobile Engagement</span><span class="sxs-lookup"><span data-stu-id="40616-116"><a id="connecting-app"></a>Connect your app toohello Mobile Engagement backend</span></span>
+<span data-ttu-id="40616-117">Este tutorial apresenta uma "integração básica", que é Olá mínimo definido toocollect necessários dados e envia uma notificação por push.</span><span class="sxs-lookup"><span data-stu-id="40616-117">This tutorial presents a "basic integration", which is hello minimal set required toocollect data and send a push notification.</span></span> <span data-ttu-id="40616-118">documentação de integração completa Olá pode ser encontrada no hello [integração do SDK do Mobile Engagement iOS](mobile-engagement-ios-sdk-overview.md)</span><span class="sxs-lookup"><span data-stu-id="40616-118">hello complete integration documentation can be found in hello [Mobile Engagement iOS SDK integration](mobile-engagement-ios-sdk-overview.md)</span></span>
 
-<span data-ttu-id="2d830-119">Criaremos um aplicativo básico com XCode para demonstrar a integração:</span><span class="sxs-lookup"><span data-stu-id="2d830-119">We will create a basic app with XCode to demonstrate the integration:</span></span>
+<span data-ttu-id="40616-119">Vamos criar um aplicativo básico com a integração de saudação do XCode toodemonstrate:</span><span class="sxs-lookup"><span data-stu-id="40616-119">We will create a basic app with XCode toodemonstrate hello integration:</span></span>
 
-### <a name="create-a-new-ios-project"></a><span data-ttu-id="2d830-120">Crie um novo projeto iOS</span><span class="sxs-lookup"><span data-stu-id="2d830-120">Create a new iOS project</span></span>
+### <a name="create-a-new-ios-project"></a><span data-ttu-id="40616-120">Crie um novo projeto iOS</span><span class="sxs-lookup"><span data-stu-id="40616-120">Create a new iOS project</span></span>
 [!INCLUDE [Create a new iOS Project](../../includes/mobile-engagement-create-new-ios-app.md)]
 
-### <a name="connect-your-app-to-mobile-engagement-backend"></a><span data-ttu-id="2d830-121">Conecte seu aplicativo ao back-end do Mobile Engagement</span><span class="sxs-lookup"><span data-stu-id="2d830-121">Connect your app to Mobile Engagement backend</span></span>
-1. <span data-ttu-id="2d830-122">Faça o download do [SKD do Mobile Engagement iOS]</span><span class="sxs-lookup"><span data-stu-id="2d830-122">Download the [Mobile Engagement iOS SDK]</span></span>
-2. <span data-ttu-id="2d830-123">Extraia arquivo o arquivo .tar.gz para uma pasta no seu computador</span><span class="sxs-lookup"><span data-stu-id="2d830-123">Extract the .tar.gz file to a folder in your computer</span></span>
-3. <span data-ttu-id="2d830-124">Clique com botão direito no projeto e selecione "Adicionar arquivos a..."</span><span class="sxs-lookup"><span data-stu-id="2d830-124">Right click the project and select "Add files to ..."</span></span>
+### <a name="connect-your-app-toomobile-engagement-backend"></a><span data-ttu-id="40616-121">Conectar seu back-end do aplicativo tooMobile contrato</span><span class="sxs-lookup"><span data-stu-id="40616-121">Connect your app tooMobile Engagement backend</span></span>
+1. <span data-ttu-id="40616-122">Baixar Olá [SDK do Mobile Engagement iOS]</span><span class="sxs-lookup"><span data-stu-id="40616-122">Download hello [Mobile Engagement iOS SDK]</span></span>
+2. <span data-ttu-id="40616-123">Extrair hello. gz arquivo tooa pasta no seu computador</span><span class="sxs-lookup"><span data-stu-id="40616-123">Extract hello .tar.gz file tooa folder in your computer</span></span>
+3. <span data-ttu-id="40616-124">Projeto Olá clique com botão direito e selecione "Adicionar arquivos muito..."</span><span class="sxs-lookup"><span data-stu-id="40616-124">Right click hello project and select "Add files too..."</span></span>
    
     ![][1]
-4. <span data-ttu-id="2d830-125">Navegue até a pasta onde você extraiu o SDK e selecione a `EngagementSDK` pasta, então, pressione OK.</span><span class="sxs-lookup"><span data-stu-id="2d830-125">Navigate to the folder where you extracted the SDK and select the `EngagementSDK` folder then press OK.</span></span>
+4. <span data-ttu-id="40616-125">Navegue toohello pasta onde você extraiu hello SDK e selecione Olá `EngagementSDK` pasta e pressione Okey.</span><span class="sxs-lookup"><span data-stu-id="40616-125">Navigate toohello folder where you extracted hello SDK and select hello `EngagementSDK` folder then press OK.</span></span>
    
     ![][2]
-5. <span data-ttu-id="2d830-126">Abra a guia `Build Phases` e no menu `Link Binary With Libraries`, adicione as estruturas, como mostrado abaixo:</span><span class="sxs-lookup"><span data-stu-id="2d830-126">Open the `Build Phases` tab and in the `Link Binary With Libraries` menu add the frameworks as shown below:</span></span>
+5. <span data-ttu-id="40616-126">Olá abrir `Build Phases` guia e na Olá `Link Binary With Libraries` menu Adicionar estruturas de hello, conforme mostrado abaixo:</span><span class="sxs-lookup"><span data-stu-id="40616-126">Open hello `Build Phases` tab and in hello `Link Binary With Libraries` menu add hello frameworks as shown below:</span></span>
    
     ![][3]
-6. <span data-ttu-id="2d830-127">Crie um cabeçalho Bridging para poder usar as APIs do Objective C do SDK escolhendo Arquivo > Novo > Arquivo > iOS > Fonte > Arquivo de Cabeçalho.</span><span class="sxs-lookup"><span data-stu-id="2d830-127">Create a Bridging header to be able to use the SDK's Objective C APIs by choosing File > New > File > iOS > Source > Header File.</span></span>
+6. <span data-ttu-id="40616-127">Criar um ponte de cabeçalho toobe toouse capaz de saudação do objetivo C APIs do SDK escolhendo Arquivo > Novo > arquivo > iOS > fonte > arquivo de cabeçalho.</span><span class="sxs-lookup"><span data-stu-id="40616-127">Create a Bridging header toobe able toouse hello SDK's Objective C APIs by choosing File > New > File > iOS > Source > Header File.</span></span>
    
     ![][4]
-7. <span data-ttu-id="2d830-128">Edite o arquivo de cabeçalho ponte para expor o código em Objective-C do Mobile Engagement para o código Swift e adicione as seguintes importações:</span><span class="sxs-lookup"><span data-stu-id="2d830-128">Edit the bridging header file to expose Mobile Engagement Objective-C code to your Swift code, add the following imports :</span></span>
+7. <span data-ttu-id="40616-128">Editar saudação ponte cabeçalho arquivo tooexpose Mobile Engagement Objective-C código tooyour código Swift, adicione Olá importa a seguir:</span><span class="sxs-lookup"><span data-stu-id="40616-128">Edit hello bridging header file tooexpose Mobile Engagement Objective-C code tooyour Swift code, add hello following imports :</span></span>
    
         /* Mobile Engagement Agent */
         #import "AEModule.h"
@@ -81,13 +81,13 @@ ms.lasthandoff: 07/11/2017
         #import "EngagementViewController.h"
         #import "AEUserNotificationHandler.h"
         #import "AEIdfaProvider.h"
-8. <span data-ttu-id="2d830-129">Em Configurações de Compilação, verifique se a definição da compilação do Bridging Header do Objective C em Compilador Swift - Geração de Código tem um caminho para esse cabeçalho.</span><span class="sxs-lookup"><span data-stu-id="2d830-129">Under Build Settings, make sure the Objective-C Bridging Header build setting under Swift Compiler - Code Generation has a path to this header.</span></span> <span data-ttu-id="2d830-130">Aqui está um exemplo de caminho: **$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h (dependendo do caminho)**</span><span class="sxs-lookup"><span data-stu-id="2d830-130">Here is a path example: **$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h (depending on the path)**</span></span>
+8. <span data-ttu-id="40616-129">Em configurações da compilação, certifique-se de saudação configuração em compilador Swift - geração de código de compilação de cabeçalho de ponte Objective-C tem um cabeçalho de toothis de caminho.</span><span class="sxs-lookup"><span data-stu-id="40616-129">Under Build Settings, make sure hello Objective-C Bridging Header build setting under Swift Compiler - Code Generation has a path toothis header.</span></span> <span data-ttu-id="40616-130">Aqui está um exemplo de caminho: **$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h (dependendo do caminho de saudação)**</span><span class="sxs-lookup"><span data-stu-id="40616-130">Here is a path example: **$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h (depending on hello path)**</span></span>
    
    ![][6]
-9. <span data-ttu-id="2d830-131">Volte para o portal do Azure na página *Informações de Conexão* de seu aplicativo e copie a Cadeia de Conexão</span><span class="sxs-lookup"><span data-stu-id="2d830-131">Go back to the Azure portal in your app's *Connection Info* page and copy the Connection String</span></span>
+9. <span data-ttu-id="40616-131">Voltar toohello portal do Azure em seu aplicativo *informações de Conexão* Olá página e copie a cadeia de caracteres de Conexão</span><span class="sxs-lookup"><span data-stu-id="40616-131">Go back toohello Azure portal in your app's *Connection Info* page and copy hello Connection String</span></span>
    
    ![][5]
-10. <span data-ttu-id="2d830-132">Agora, cole a cadeia de conexão em `didFinishLaunchingWithOptions` delegar</span><span class="sxs-lookup"><span data-stu-id="2d830-132">Now paste the connection string in the `didFinishLaunchingWithOptions` delegate</span></span>
+10. <span data-ttu-id="40616-132">Agora cole a cadeia de caracteres de conexão de saudação em Olá `didFinishLaunchingWithOptions` delegar</span><span class="sxs-lookup"><span data-stu-id="40616-132">Now paste hello connection string in hello `didFinishLaunchingWithOptions` delegate</span></span>
     
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
         {
@@ -96,30 +96,30 @@ ms.lasthandoff: 07/11/2017
               [...]
         }
 
-## <span data-ttu-id="2d830-133"><a id="monitor"></a>Habilitar monitoramento em tempo real</span><span class="sxs-lookup"><span data-stu-id="2d830-133"><a id="monitor"></a>Enabling real-time monitoring</span></span>
-<span data-ttu-id="2d830-134">Para iniciar o envio de dados e assegurar que os usuários estejam ativos, você deve enviar pelo menos uma tela (Atividade) para o back-end do Mobile Engagement.</span><span class="sxs-lookup"><span data-stu-id="2d830-134">In order to start sending data and ensuring that the users are active, you must send at least one screen (Activity) to the Mobile Engagement backend.</span></span>
+## <span data-ttu-id="40616-133"><a id="monitor"></a>Habilitar monitoramento em tempo real</span><span class="sxs-lookup"><span data-stu-id="40616-133"><a id="monitor"></a>Enabling real-time monitoring</span></span>
+<span data-ttu-id="40616-134">Em ordem toostart enviar dados e garantir que os usuários de saudação estão ativos, você deve enviar pelo menos uma tela (atividade) toohello Mobile Engagement backend.</span><span class="sxs-lookup"><span data-stu-id="40616-134">In order toostart sending data and ensuring that hello users are active, you must send at least one screen (Activity) toohello Mobile Engagement backend.</span></span>
 
-1. <span data-ttu-id="2d830-135">Abra o arquivo **ViewController.swift** e substitua a classe base **ViewController** para ser **EngagementViewController**:</span><span class="sxs-lookup"><span data-stu-id="2d830-135">Open the **ViewController.swift** file and replace the base class of **ViewController** to be **EngagementViewController**:</span></span>
+1. <span data-ttu-id="40616-135">Olá abrir **ViewController.swift** de arquivo e substitua a classe base Olá de **ViewController** toobe **EngagementViewController**:</span><span class="sxs-lookup"><span data-stu-id="40616-135">Open hello **ViewController.swift** file and replace hello base class of **ViewController** toobe **EngagementViewController**:</span></span>
    
     `class ViewController : EngagementViewController {`
 
-## <span data-ttu-id="2d830-136"><a id="monitor"></a>Conectar o aplicativo com monitoramento em tempo real</span><span class="sxs-lookup"><span data-stu-id="2d830-136"><a id="monitor"></a>Connect app with real-time monitoring</span></span>
+## <span data-ttu-id="40616-136"><a id="monitor"></a>Conectar o aplicativo com monitoramento em tempo real</span><span class="sxs-lookup"><span data-stu-id="40616-136"><a id="monitor"></a>Connect app with real-time monitoring</span></span>
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <span data-ttu-id="2d830-137"><a id="integrate-push"></a>Habilitar Notificações por Push e mensagens no aplicativo</span><span class="sxs-lookup"><span data-stu-id="2d830-137"><a id="integrate-push"></a>Enabling Push Notifications and in-app messaging</span></span>
-<span data-ttu-id="2d830-138">O Mobile Engagement permite interagir e ENTRAR EM CONTATO com seus usuários com Notificações por Push e Mensagens no Aplicativo no contexto de campanhas.</span><span class="sxs-lookup"><span data-stu-id="2d830-138">Mobile Engagement allows you to interact and REACH with your users with Push Notifications and In-app Messaging in the context of campaigns.</span></span> <span data-ttu-id="2d830-139">Esse módulo é chamado de REACH no portal do Mobile Engagement.</span><span class="sxs-lookup"><span data-stu-id="2d830-139">This module is called REACH in the Mobile Engagement portal.</span></span>
-<span data-ttu-id="2d830-140">As seções a seguir irão configurar o aplicativo para recebê-los.</span><span class="sxs-lookup"><span data-stu-id="2d830-140">The following sections will setup your app to receive them.</span></span>
+## <span data-ttu-id="40616-137"><a id="integrate-push"></a>Habilitar Notificações por Push e mensagens no aplicativo</span><span class="sxs-lookup"><span data-stu-id="40616-137"><a id="integrate-push"></a>Enabling Push Notifications and in-app messaging</span></span>
+<span data-ttu-id="40616-138">Mobile Engagement permite toointeract e alcance com os usuários com notificações por Push e no aplicativo de mensagens no contexto de saudação de campanhas.</span><span class="sxs-lookup"><span data-stu-id="40616-138">Mobile Engagement allows you toointeract and REACH with your users with Push Notifications and In-app Messaging in hello context of campaigns.</span></span> <span data-ttu-id="40616-139">Esse módulo é chamado alcance no portal do Mobile Engagement hello.</span><span class="sxs-lookup"><span data-stu-id="40616-139">This module is called REACH in hello Mobile Engagement portal.</span></span>
+<span data-ttu-id="40616-140">Olá seções a seguir irá configurar seu aplicativo tooreceive-los.</span><span class="sxs-lookup"><span data-stu-id="40616-140">hello following sections will setup your app tooreceive them.</span></span>
 
-### <a name="enable-your-app-to-receive-silent-push-notifications"></a><span data-ttu-id="2d830-141">Habilitar seu aplicativo para receber Notificações por push silenciosas</span><span class="sxs-lookup"><span data-stu-id="2d830-141">Enable your app to receive Silent Push Notifications</span></span>
+### <a name="enable-your-app-tooreceive-silent-push-notifications"></a><span data-ttu-id="40616-141">Habilitar seu aplicativo tooreceive silenciosa notificações por Push</span><span class="sxs-lookup"><span data-stu-id="40616-141">Enable your app tooreceive Silent Push Notifications</span></span>
 [!INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
 
-### <a name="add-the-reach-library-to-your-project"></a><span data-ttu-id="2d830-142">Adicionar a biblioteca Reach ao seu projeto</span><span class="sxs-lookup"><span data-stu-id="2d830-142">Add the Reach library to your project</span></span>
-1. <span data-ttu-id="2d830-143">Clique com botão direito no projeto</span><span class="sxs-lookup"><span data-stu-id="2d830-143">Right click your project</span></span>
-2. <span data-ttu-id="2d830-144">Selecione `Add file to ...`</span><span class="sxs-lookup"><span data-stu-id="2d830-144">Select `Add file to ...`</span></span>
-3. <span data-ttu-id="2d830-145">Navegue até a pasta onde você extraiu o SDK</span><span class="sxs-lookup"><span data-stu-id="2d830-145">Navigate to the folder where you extracted the SDK</span></span>
-4. <span data-ttu-id="2d830-146">Selecione a pasta `EngagementReach`</span><span class="sxs-lookup"><span data-stu-id="2d830-146">Select the `EngagementReach` folder</span></span>
-5. <span data-ttu-id="2d830-147">Clique em Adicionar</span><span class="sxs-lookup"><span data-stu-id="2d830-147">Click Add</span></span>
-6. <span data-ttu-id="2d830-148">Edite o arquivo de cabeçalho ponte para expor os cabeçalhos de Acesso em Objective-C do Mobile Engagement e adicione as seguintes importações:</span><span class="sxs-lookup"><span data-stu-id="2d830-148">Edit the bridging header file to expose Mobile Engagement Objective-C Reach headers and add the following imports :</span></span>
+### <a name="add-hello-reach-library-tooyour-project"></a><span data-ttu-id="40616-142">Adicionar Olá alcance biblioteca tooyour projeto</span><span class="sxs-lookup"><span data-stu-id="40616-142">Add hello Reach library tooyour project</span></span>
+1. <span data-ttu-id="40616-143">Clique com botão direito no projeto</span><span class="sxs-lookup"><span data-stu-id="40616-143">Right click your project</span></span>
+2. <span data-ttu-id="40616-144">Selecione `Add file too...`</span><span class="sxs-lookup"><span data-stu-id="40616-144">Select `Add file too...`</span></span>
+3. <span data-ttu-id="40616-145">Navegue toohello pasta onde você extraiu Olá SDK</span><span class="sxs-lookup"><span data-stu-id="40616-145">Navigate toohello folder where you extracted hello SDK</span></span>
+4. <span data-ttu-id="40616-146">Selecione Olá `EngagementReach` pasta</span><span class="sxs-lookup"><span data-stu-id="40616-146">Select hello `EngagementReach` folder</span></span>
+5. <span data-ttu-id="40616-147">Clique em Adicionar</span><span class="sxs-lookup"><span data-stu-id="40616-147">Click Add</span></span>
+6. <span data-ttu-id="40616-148">Editar saudação ponte cabeçalhos de alcance do Mobile Engagement Objective-C do cabeçalho arquivo tooexpose e adicione Olá importa a seguir:</span><span class="sxs-lookup"><span data-stu-id="40616-148">Edit hello bridging header file tooexpose Mobile Engagement Objective-C Reach headers and add hello following imports :</span></span>
    
         /* Mobile Engagement Reach */
         #import "AEAnnouncementViewController.h"
@@ -144,8 +144,8 @@ ms.lasthandoff: 07/11/2017
         #import "AEViewControllerUtil.h"
         #import "AEWebAnnouncementJsBridge.h"
 
-### <a name="modify-your-application-delegate"></a><span data-ttu-id="2d830-149">Modifique seu Representante do Aplicativo</span><span class="sxs-lookup"><span data-stu-id="2d830-149">Modify your Application Delegate</span></span>
-1. <span data-ttu-id="2d830-150">Em `didFinishLaunchingWithOptions` - crie um módulo de alcance e transmita-o para a linha de inicialização do Engagement existente:</span><span class="sxs-lookup"><span data-stu-id="2d830-150">Inside  the `didFinishLaunchingWithOptions` -  create a reach module and pass it to your existing Engagement initialization line:</span></span>
+### <a name="modify-your-application-delegate"></a><span data-ttu-id="40616-149">Modifique seu Representante do Aplicativo</span><span class="sxs-lookup"><span data-stu-id="40616-149">Modify your Application Delegate</span></span>
+1. <span data-ttu-id="40616-150">Olá interna `didFinishLaunchingWithOptions` - criar um módulo de alcance e passá-lo tooyour linha de inicialização contrato existente:</span><span class="sxs-lookup"><span data-stu-id="40616-150">Inside  hello `didFinishLaunchingWithOptions` -  create a reach module and pass it tooyour existing Engagement initialization line:</span></span>
    
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool 
         {
@@ -155,8 +155,8 @@ ms.lasthandoff: 07/11/2017
             return true
         }
 
-### <a name="enable-your-app-to-receive-apns-push-notifications"></a><span data-ttu-id="2d830-151">Habilite seu aplicativo para receber Notificações por Push do APNS</span><span class="sxs-lookup"><span data-stu-id="2d830-151">Enable your app to receive APNS Push Notifications</span></span>
-1. <span data-ttu-id="2d830-152">Adicione a seguinte linha ao método `didFinishLaunchingWithOptions`:</span><span class="sxs-lookup"><span data-stu-id="2d830-152">Add the following line to the `didFinishLaunchingWithOptions` method:</span></span>
+### <a name="enable-your-app-tooreceive-apns-push-notifications"></a><span data-ttu-id="40616-151">Habilitar seu aplicativo tooreceive notificações por Push do APNS</span><span class="sxs-lookup"><span data-stu-id="40616-151">Enable your app tooreceive APNS Push Notifications</span></span>
+1. <span data-ttu-id="40616-152">Adicionar Olá toohello linha a seguir `didFinishLaunchingWithOptions` método:</span><span class="sxs-lookup"><span data-stu-id="40616-152">Add hello following line toohello `didFinishLaunchingWithOptions` method:</span></span>
    
         if #available(iOS 8.0, *)
         {
@@ -174,12 +174,12 @@ ms.lasthandoff: 07/11/2017
         {
             application.registerForRemoteNotifications(matching: [.alert, .badge, .sound])
         }
-2. <span data-ttu-id="2d830-153">Adicione o método `didRegisterForRemoteNotificationsWithDeviceToken` da seguinte maneira:</span><span class="sxs-lookup"><span data-stu-id="2d830-153">Add the `didRegisterForRemoteNotificationsWithDeviceToken` method as follows:</span></span>
+2. <span data-ttu-id="40616-153">Adicionar Olá `didRegisterForRemoteNotificationsWithDeviceToken` método da seguinte maneira:</span><span class="sxs-lookup"><span data-stu-id="40616-153">Add hello `didRegisterForRemoteNotificationsWithDeviceToken` method as follows:</span></span>
    
         func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
             EngagementAgent.shared().registerDeviceToken(deviceToken)
         }
-3. <span data-ttu-id="2d830-154">Adicione o método `didReceiveRemoteNotification:fetchCompletionHandler:` da seguinte maneira:</span><span class="sxs-lookup"><span data-stu-id="2d830-154">Add the `didReceiveRemoteNotification:fetchCompletionHandler:` method as follows:</span></span>
+3. <span data-ttu-id="40616-154">Adicionar Olá `didReceiveRemoteNotification:fetchCompletionHandler:` método da seguinte maneira:</span><span class="sxs-lookup"><span data-stu-id="40616-154">Add hello `didReceiveRemoteNotification:fetchCompletionHandler:` method as follows:</span></span>
    
         func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
             EngagementAgent.shared().applicationDidReceiveRemoteNotification(userInfo, fetchCompletionHandler:completionHandler)
@@ -188,7 +188,7 @@ ms.lasthandoff: 07/11/2017
 [!INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
 
 <!-- URLs. -->
-<span data-ttu-id="2d830-155">[SKD do Mobile Engagement iOS]: http://aka.ms/qk2rnj</span><span class="sxs-lookup"><span data-stu-id="2d830-155">[Mobile Engagement iOS SDK]: http://aka.ms/qk2rnj</span></span>
+[SDK do Mobile Engagement iOS]: http://aka.ms/qk2rnj
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-ios-get-started/xcode-add-files.png

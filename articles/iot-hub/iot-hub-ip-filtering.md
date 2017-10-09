@@ -1,6 +1,6 @@
 ---
-title: "Filtros IP de conexão do Hub IoT do Azure | Microsoft Docs"
-description: "Como usar a filtragem de IP para bloquear conexões de endereços IP específicos para seu Hub IoT do Azure. Você pode bloquear conexões de endereços IP individuais ou de intervalos de endereços IP."
+title: "filtros de conexão de IP de Hub IoT aaaAzure | Microsoft Docs"
+description: "Como endereços IP de toouse tooblock conexões de IP específica de filtragem para tooyour Azure IoT hub. Você pode bloquear conexões de endereços IP individuais ou de intervalos de endereços IP."
 services: iot-hub
 documentationcenter: 
 author: BeatriceOltean
@@ -14,83 +14,83 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2017
 ms.author: boltean
-ms.openlocfilehash: 85f5f044faddd5180f0c19d3f2c235b20f6373d5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 45e5906a494561b6108895d86d6a04fc3b52b8fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-ip-filters"></a><span data-ttu-id="66ab5-104">Usar filtros IP</span><span class="sxs-lookup"><span data-stu-id="66ab5-104">Use IP filters</span></span>
+# <a name="use-ip-filters"></a><span data-ttu-id="6acce-104">Usar filtros IP</span><span class="sxs-lookup"><span data-stu-id="6acce-104">Use IP filters</span></span>
 
-<span data-ttu-id="66ab5-105">A segurança é um aspecto importante de qualquer solução de IoT com base no Hub IoT do Azure.</span><span class="sxs-lookup"><span data-stu-id="66ab5-105">Security is an important aspect of any IoT solution based on Azure IoT Hub.</span></span> <span data-ttu-id="66ab5-106">Às vezes você precisa especificar explicitamente os endereços IP dos quais o dispositivo pode se conectar como parte da sua configuração de segurança.</span><span class="sxs-lookup"><span data-stu-id="66ab5-106">Sometimes you need to explicitly specify the IP addresses from which devices can connect as part of your security configuration.</span></span> <span data-ttu-id="66ab5-107">O recurso _filtro IP_ permite que você configure regras para rejeitar ou aceitar tráfego de endereços IPv4 específicos.</span><span class="sxs-lookup"><span data-stu-id="66ab5-107">The _IP filter_ feature enables you to configure rules for rejecting or accepting traffic from specific IPv4 addresses.</span></span>
+<span data-ttu-id="6acce-105">A segurança é um aspecto importante de qualquer solução de IoT com base no Hub IoT do Azure.</span><span class="sxs-lookup"><span data-stu-id="6acce-105">Security is an important aspect of any IoT solution based on Azure IoT Hub.</span></span> <span data-ttu-id="6acce-106">Às vezes você precisa tooexplicitly especificar endereços IP de saudação do qual o dispositivo pode se conectar como parte da configuração de segurança.</span><span class="sxs-lookup"><span data-stu-id="6acce-106">Sometimes you need tooexplicitly specify hello IP addresses from which devices can connect as part of your security configuration.</span></span> <span data-ttu-id="6acce-107">Olá _filtro IP_ recurso permite que as regras de tooconfigure para rejeitar ou aceitar tráfego de endereços IPv4 específicos.</span><span class="sxs-lookup"><span data-stu-id="6acce-107">hello _IP filter_ feature enables you tooconfigure rules for rejecting or accepting traffic from specific IPv4 addresses.</span></span>
 
-## <a name="when-to-use"></a><span data-ttu-id="66ab5-108">Quando usar</span><span class="sxs-lookup"><span data-stu-id="66ab5-108">When to use</span></span>
+## <a name="when-toouse"></a><span data-ttu-id="6acce-108">Quando toouse</span><span class="sxs-lookup"><span data-stu-id="6acce-108">When toouse</span></span>
 
-<span data-ttu-id="66ab5-109">Há dois casos de uso específicos em que é útil bloquear os pontos de extremidade do Hub IoT para determinados endereços IP:</span><span class="sxs-lookup"><span data-stu-id="66ab5-109">There are two specific use-cases when it is useful to block the IoT Hub endpoints for certain IP addresses:</span></span>
+<span data-ttu-id="6acce-109">Há dois casos de uso específicos quando se trata de pontos de extremidade de Hub IoT Olá de tooblock úteis para determinados endereços IP:</span><span class="sxs-lookup"><span data-stu-id="6acce-109">There are two specific use-cases when it is useful tooblock hello IoT Hub endpoints for certain IP addresses:</span></span>
 
-- <span data-ttu-id="66ab5-110">O Hub IoT deve receber tráfego somente de um intervalo específico de endereços IP e rejeitar todo o resto.</span><span class="sxs-lookup"><span data-stu-id="66ab5-110">Your IoT hub should receive traffic only from a specified range of IP addresses and reject everything else.</span></span> <span data-ttu-id="66ab5-111">Por exemplo, caso você esteja usando o Hub IoT com o [Azure ExpressRoute] para criar conexões privadas entre um Hub IoT e sua infraestrutura local.</span><span class="sxs-lookup"><span data-stu-id="66ab5-111">For example, you are using your IoT hub with [Azure Express Route] to create private connections between an IoT hub and your on-premises infrastructure.</span></span>
-- <span data-ttu-id="66ab5-112">Você precisa rejeitar tráfego de endereços IP que foram identificados como suspeitos pelo administrador do Hub IoT.</span><span class="sxs-lookup"><span data-stu-id="66ab5-112">You need to reject traffic from IP addresses that have been identified as suspicious by the IoT hub administrator.</span></span>
+- <span data-ttu-id="6acce-110">O Hub IoT deve receber tráfego somente de um intervalo específico de endereços IP e rejeitar todo o resto.</span><span class="sxs-lookup"><span data-stu-id="6acce-110">Your IoT hub should receive traffic only from a specified range of IP addresses and reject everything else.</span></span> <span data-ttu-id="6acce-111">Por exemplo, você está usando o hub IoT com [rota expressa do Azure] toocreate de conexões privadas entre um hub IoT e sua infraestrutura local.</span><span class="sxs-lookup"><span data-stu-id="6acce-111">For example, you are using your IoT hub with [Azure Express Route] toocreate private connections between an IoT hub and your on-premises infrastructure.</span></span>
+- <span data-ttu-id="6acce-112">É necessário tooreject tráfego de endereços IP que foram identificados como suspeita pelo administrador de hub IoT hello.</span><span class="sxs-lookup"><span data-stu-id="6acce-112">You need tooreject traffic from IP addresses that have been identified as suspicious by hello IoT hub administrator.</span></span>
 
-## <a name="how-filter-rules-are-applied"></a><span data-ttu-id="66ab5-113">Como são aplicadas as regras de filtro</span><span class="sxs-lookup"><span data-stu-id="66ab5-113">How filter rules are applied</span></span>
+## <a name="how-filter-rules-are-applied"></a><span data-ttu-id="6acce-113">Como são aplicadas as regras de filtro</span><span class="sxs-lookup"><span data-stu-id="6acce-113">How filter rules are applied</span></span>
 
-<span data-ttu-id="66ab5-114">As regras de filtro IP são aplicadas no nível do serviço Hub IoT.</span><span class="sxs-lookup"><span data-stu-id="66ab5-114">The IP filter rules are applied at the IoT Hub service level.</span></span> <span data-ttu-id="66ab5-115">Portanto, as regras de filtro IP se aplicam a todas as conexões de dispositivos e aplicativos de back-end que usam qualquer protocolo com suporte.</span><span class="sxs-lookup"><span data-stu-id="66ab5-115">Therefore the IP filter rules apply to all connections from devices and back-end apps using any supported protocol.</span></span>
+<span data-ttu-id="6acce-114">regras de filtro IP Hello são aplicadas em Olá nível de serviço de IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="6acce-114">hello IP filter rules are applied at hello IoT Hub service level.</span></span> <span data-ttu-id="6acce-115">Portanto regras de filtro IP hello aplicam tooall conexões de dispositivos e aplicativos de back-end usando qualquer protocolo com suporte.</span><span class="sxs-lookup"><span data-stu-id="6acce-115">Therefore hello IP filter rules apply tooall connections from devices and back-end apps using any supported protocol.</span></span>
 
-<span data-ttu-id="66ab5-116">Todas as tentativas de conexão de um endereço IP que corresponde a uma regra IP de rejeição em seu Hub IoT recebem um código de status 401 não autorizado e uma descrição.</span><span class="sxs-lookup"><span data-stu-id="66ab5-116">Any connection attempt from an IP address that matches a rejecting IP rule in your IoT hub receives an unauthorized 401 status code and description.</span></span> <span data-ttu-id="66ab5-117">A mensagem de resposta não menciona a regra IP.</span><span class="sxs-lookup"><span data-stu-id="66ab5-117">The response message does not mention the IP rule.</span></span>
+<span data-ttu-id="6acce-116">Todas as tentativas de conexão de um endereço IP que corresponde a uma regra IP de rejeição em seu Hub IoT recebem um código de status 401 não autorizado e uma descrição.</span><span class="sxs-lookup"><span data-stu-id="6acce-116">Any connection attempt from an IP address that matches a rejecting IP rule in your IoT hub receives an unauthorized 401 status code and description.</span></span> <span data-ttu-id="6acce-117">mensagem de resposta de saudação não mencionar a regra de IP hello.</span><span class="sxs-lookup"><span data-stu-id="6acce-117">hello response message does not mention hello IP rule.</span></span>
 
-## <a name="default-setting"></a><span data-ttu-id="66ab5-118">Configuração padrão</span><span class="sxs-lookup"><span data-stu-id="66ab5-118">Default setting</span></span>
+## <a name="default-setting"></a><span data-ttu-id="6acce-118">Configuração padrão</span><span class="sxs-lookup"><span data-stu-id="6acce-118">Default setting</span></span>
 
-<span data-ttu-id="66ab5-119">Por padrão, a grade **Filtro IP** no portal de Hub IoT fica vazia.</span><span class="sxs-lookup"><span data-stu-id="66ab5-119">By default, the **IP Filter** grid in the portal for an IoT hub is empty.</span></span> <span data-ttu-id="66ab5-120">Essa configuração padrão significa que o hub aceita conexões de qualquer endereço IP.</span><span class="sxs-lookup"><span data-stu-id="66ab5-120">This default setting means that your hub accepts connections any IP address.</span></span> <span data-ttu-id="66ab5-121">Essa configuração padrão é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0.</span><span class="sxs-lookup"><span data-stu-id="66ab5-121">This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range.</span></span>
+<span data-ttu-id="6acce-119">Por padrão, Olá **filtro IP** grade no portal de saudação para um hub IoT está vazio.</span><span class="sxs-lookup"><span data-stu-id="6acce-119">By default, hello **IP Filter** grid in hello portal for an IoT hub is empty.</span></span> <span data-ttu-id="6acce-120">Essa configuração padrão significa que o hub aceita conexões de qualquer endereço IP.</span><span class="sxs-lookup"><span data-stu-id="6acce-120">This default setting means that your hub accepts connections any IP address.</span></span> <span data-ttu-id="6acce-121">Essa configuração padrão é a regra de tooa equivalente que aceita o intervalo de endereços IP hello 0.0.0.0/0.</span><span class="sxs-lookup"><span data-stu-id="6acce-121">This default setting is equivalent tooa rule that accepts hello 0.0.0.0/0 IP address range.</span></span>
 
 ![Configurações de filtro IP padrão do Hub IoT][img-ip-filter-default]
 
-## <a name="add-or-edit-an-ip-filter-rule"></a><span data-ttu-id="66ab5-123">Adicionar ou editar uma regra de filtro IP</span><span class="sxs-lookup"><span data-stu-id="66ab5-123">Add or edit an IP filter rule</span></span>
+## <a name="add-or-edit-an-ip-filter-rule"></a><span data-ttu-id="6acce-123">Adicionar ou editar uma regra de filtro IP</span><span class="sxs-lookup"><span data-stu-id="6acce-123">Add or edit an IP filter rule</span></span>
 
-<span data-ttu-id="66ab5-124">Quando você adiciona uma regra de filtro IP, os seguintes valores são solicitados:</span><span class="sxs-lookup"><span data-stu-id="66ab5-124">When you add an IP filter rule, you are prompted for the following values:</span></span>
+<span data-ttu-id="6acce-124">Quando você adiciona uma regra de filtro IP, você será solicitado para Olá valores a seguir:</span><span class="sxs-lookup"><span data-stu-id="6acce-124">When you add an IP filter rule, you are prompted for hello following values:</span></span>
 
-- <span data-ttu-id="66ab5-125">Um **nome de regra de filtro IP** que deve ser uma cadeia de caracteres alfanumérica exclusiva com até 128 caracteres que diferencia maiúsculas de minúsculas.</span><span class="sxs-lookup"><span data-stu-id="66ab5-125">An **IP filter rule name** that must be a unique, case-insensitive, alphanumeric string up to 128 characters long.</span></span> <span data-ttu-id="66ab5-126">Somente são aceitos caracteres alfanuméricos ASCII de 7 bits mais `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.</span><span class="sxs-lookup"><span data-stu-id="66ab5-126">Only the ASCII 7-bit alphanumeric characters plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` are accepted.</span></span>
-- <span data-ttu-id="66ab5-127">Selecione **rejeitar** ou **aceitar** como a **ação** para a regra de filtro IP.</span><span class="sxs-lookup"><span data-stu-id="66ab5-127">Select a **reject** or **accept** as the **action** for the IP filter rule.</span></span>
-- <span data-ttu-id="66ab5-128">Forneça um endereço IPv4 único ou um bloco de endereços IP na notação CIDR.</span><span class="sxs-lookup"><span data-stu-id="66ab5-128">Provide a single IPv4 address or a block of IP addresses in CIDR notation.</span></span> <span data-ttu-id="66ab5-129">Por exemplo, uma notação CIDR 192.168.100.0/22 representa os 1024 endereços IPv4 de 192.168.100.0 a 192.168.103.255.</span><span class="sxs-lookup"><span data-stu-id="66ab5-129">For example, in CIDR notation 192.168.100.0/22 represents the 1024 IPv4 addresses from 192.168.100.0 to 192.168.103.255.</span></span>
+- <span data-ttu-id="6acce-125">Um **nome de regra de filtro IP** que deve ser uma cadeia de caracteres exclusiva, diferencia maiusculas de minúsculas, alfanumérica backup too128 caracteres.</span><span class="sxs-lookup"><span data-stu-id="6acce-125">An **IP filter rule name** that must be a unique, case-insensitive, alphanumeric string up too128 characters long.</span></span> <span data-ttu-id="6acce-126">Somente caracteres alfanuméricos de saudação ASCII de 7 bits mais `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` são aceitas.</span><span class="sxs-lookup"><span data-stu-id="6acce-126">Only hello ASCII 7-bit alphanumeric characters plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` are accepted.</span></span>
+- <span data-ttu-id="6acce-127">Selecione um **rejeitar** ou **aceitar** como Olá **ação** para regra de filtro IP hello.</span><span class="sxs-lookup"><span data-stu-id="6acce-127">Select a **reject** or **accept** as hello **action** for hello IP filter rule.</span></span>
+- <span data-ttu-id="6acce-128">Forneça um endereço IPv4 único ou um bloco de endereços IP na notação CIDR.</span><span class="sxs-lookup"><span data-stu-id="6acce-128">Provide a single IPv4 address or a block of IP addresses in CIDR notation.</span></span> <span data-ttu-id="6acce-129">Por exemplo, CIDR notação 192.168.100.0/22 representa os endereços IPv4 Olá 1024 de 192.168.100.0 too192.168.103.255.</span><span class="sxs-lookup"><span data-stu-id="6acce-129">For example, in CIDR notation 192.168.100.0/22 represents hello 1024 IPv4 addresses from 192.168.100.0 too192.168.103.255.</span></span>
 
-![Adicionar uma regra de filtro IP a um Hub IoT][img-ip-filter-add-rule]
+![Adicionar um hub IoT do IP filtro regra tooan][img-ip-filter-add-rule]
 
-<span data-ttu-id="66ab5-131">Depois de salvar a regra, você verá um alerta informando que a atualização está em andamento.</span><span class="sxs-lookup"><span data-stu-id="66ab5-131">After you save the rule, you see an alert notifying you that the update is in progress.</span></span>
+<span data-ttu-id="6acce-131">Depois de salvar regra Olá, verá um alerta, notificando que essa atualização Olá estiver em andamento.</span><span class="sxs-lookup"><span data-stu-id="6acce-131">After you save hello rule, you see an alert notifying you that hello update is in progress.</span></span>
 
 ![Notificação sobre como salvar uma regra de filtro IP][img-ip-filter-save-new-rule]
 
-<span data-ttu-id="66ab5-133">A opção **Adicionar** é desabilitada quando você atinge o máximo de dez regras de filtro IP.</span><span class="sxs-lookup"><span data-stu-id="66ab5-133">The **Add** option is disabled when you reach the maximum of 10 IP filter rules.</span></span>
+<span data-ttu-id="6acce-133">Olá **adicionar** opção é desabilitada quando você atingir o máximo de saudação de 10 regras de filtro IP.</span><span class="sxs-lookup"><span data-stu-id="6acce-133">hello **Add** option is disabled when you reach hello maximum of 10 IP filter rules.</span></span>
 
-<span data-ttu-id="66ab5-134">Você pode editar uma regra existente clicando duas vezes na linha que contém a regra.</span><span class="sxs-lookup"><span data-stu-id="66ab5-134">You can edit an existing rule by double-clicking the row that contains the rule.</span></span>
+<span data-ttu-id="6acce-134">Você pode editar uma regra existente clicando duas vezes em linha hello que contém a regra de saudação.</span><span class="sxs-lookup"><span data-stu-id="6acce-134">You can edit an existing rule by double-clicking hello row that contains hello rule.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="66ab5-135">Rejeitar endereços IP pode impedir que outros serviços do Azure (como Stream Analytics do Azure, Máquinas Virtuais do Azure ou o Explorer de dispositivos no portal) interajam com o hub IoT.</span><span class="sxs-lookup"><span data-stu-id="66ab5-135">Rejecting IP addresses can prevent other Azure Services (such as Azure Stream Analytics, Azure Virtual Machines, or the Device Explorer in the portal) from interacting with the IoT hub.</span></span>
+> <span data-ttu-id="6acce-135">Rejeitar IP endereços podem impedir que outros serviços do Azure (como o Stream Analytics do Azure, máquinas virtuais do Azure ou Olá Gerenciador de dispositivo no portal de saudação) interagir com o hub IoT de saudação.</span><span class="sxs-lookup"><span data-stu-id="6acce-135">Rejecting IP addresses can prevent other Azure Services (such as Azure Stream Analytics, Azure Virtual Machines, or hello Device Explorer in hello portal) from interacting with hello IoT hub.</span></span>
 
 > [!WARNING]
-> <span data-ttu-id="66ab5-136">Se você usar o ASA (Azure Stream Analytics) para ler mensagens de um hub IoT com a filtragem de IP habilitada, use o nome compatível com o Hub-de Eventos e o ponto de extremidade do Hub IoT na cadeia de conexão ASA.</span><span class="sxs-lookup"><span data-stu-id="66ab5-136">If you use Azure Stream Analytics (ASA) to read messages from an IoT hub with IP filtering enabled, use the Event Hub-compatible name and endpoint of your IoT Hub in the ASA connection string.</span></span>
+> <span data-ttu-id="6acce-136">Se você usar mensagens de tooread de análise de fluxo do Azure (ASA) de um hub IoT com a filtragem de IP habilitado, use o nome de Hub de eventos-compatível com de Olá e ponto de extremidade do seu IoT Hub em Olá cadeia de caracteres de conexão ASA.</span><span class="sxs-lookup"><span data-stu-id="6acce-136">If you use Azure Stream Analytics (ASA) tooread messages from an IoT hub with IP filtering enabled, use hello Event Hub-compatible name and endpoint of your IoT Hub in hello ASA connection string.</span></span>
 
-## <a name="delete-an-ip-filter-rule"></a><span data-ttu-id="66ab5-137">Excluir uma regra de filtro IP</span><span class="sxs-lookup"><span data-stu-id="66ab5-137">Delete an IP filter rule</span></span>
+## <a name="delete-an-ip-filter-rule"></a><span data-ttu-id="6acce-137">Excluir uma regra de filtro IP</span><span class="sxs-lookup"><span data-stu-id="6acce-137">Delete an IP filter rule</span></span>
 
-<span data-ttu-id="66ab5-138">Para excluir uma regra de filtro IP, selecione uma ou mais regras na grade e clique em **Excluir**.</span><span class="sxs-lookup"><span data-stu-id="66ab5-138">To delete an IP filter rule, select one or more rules in the grid and click **Delete**.</span></span>
+<span data-ttu-id="6acce-138">toodelete uma regra de filtro IP, selecione uma ou mais regras no hello grade e clique em **excluir**.</span><span class="sxs-lookup"><span data-stu-id="6acce-138">toodelete an IP filter rule, select one or more rules in hello grid and click **Delete**.</span></span>
 
 ![Excluir uma regra de filtro IP de Hub IoT][img-ip-filter-delete-rule]
 
-## <a name="ip-filter-rule-evaluation"></a><span data-ttu-id="66ab5-140">Avaliação da regra de filtro IP</span><span class="sxs-lookup"><span data-stu-id="66ab5-140">IP filter rule evaluation</span></span>
+## <a name="ip-filter-rule-evaluation"></a><span data-ttu-id="6acce-140">Avaliação da regra de filtro IP</span><span class="sxs-lookup"><span data-stu-id="6acce-140">IP filter rule evaluation</span></span>
 
-<span data-ttu-id="66ab5-141">As regras de filtro IP são aplicadas na ordem e a primeira regra que corresponde ao endereço IP determina a ação de aceitar ou rejeitar.</span><span class="sxs-lookup"><span data-stu-id="66ab5-141">IP filter rules are applied in order and the first rule that matches the IP address determines the accept or reject action.</span></span>
+<span data-ttu-id="6acce-141">Regras de filtro IP são aplicadas na ordem e a primeira regra de saudação que corresponde ao endereço IP de saudação determina Olá aceitar ou rejeitar a ação.</span><span class="sxs-lookup"><span data-stu-id="6acce-141">IP filter rules are applied in order and hello first rule that matches hello IP address determines hello accept or reject action.</span></span>
 
-<span data-ttu-id="66ab5-142">Por exemplo, se você quiser aceitar endereços no intervalo 192.168.100.0/22 e rejeitar todo o resto, a primeira regra na grade deverá aceitar o intervalo de endereços 192.168.100.0/22.</span><span class="sxs-lookup"><span data-stu-id="66ab5-142">For example, if you want to accept addresses in the range 192.168.100.0/22 and reject everything else, the first rule in the grid should accept the address range 192.168.100.0/22.</span></span> <span data-ttu-id="66ab5-143">A próxima regra deve rejeitar todos os endereços usando o intervalo 0.0.0.0/0.</span><span class="sxs-lookup"><span data-stu-id="66ab5-143">The next rule should reject all addresses by using the range 0.0.0.0/0.</span></span>
+<span data-ttu-id="6acce-142">Por exemplo, se você quiser tooaccept endereços Olá intervalo 192.168.100.0/22 e rejeitar tudo, a primeira regra Olá na grade de saudação deve aceitar Olá endereço intervalo 192.168.100.0/22.</span><span class="sxs-lookup"><span data-stu-id="6acce-142">For example, if you want tooaccept addresses in hello range 192.168.100.0/22 and reject everything else, hello first rule in hello grid should accept hello address range 192.168.100.0/22.</span></span> <span data-ttu-id="6acce-143">próxima regra do Hello deve rejeitar todos os endereços usando o intervalo de saudação 0.0.0.0/0.</span><span class="sxs-lookup"><span data-stu-id="6acce-143">hello next rule should reject all addresses by using hello range 0.0.0.0/0.</span></span>
 
-<span data-ttu-id="66ab5-144">Você pode alterar a ordem de suas regras de filtro IP na grade clicando nos três pontos verticais no início de uma linha e usando arrastar e soltar.</span><span class="sxs-lookup"><span data-stu-id="66ab5-144">You can change the order of your IP filter rules in the grid by clicking the three vertical dots at the start of a row and using drag and drop.</span></span>
+<span data-ttu-id="6acce-144">Você pode alterar a ordem de saudação as regras de filtro IP na grade de saudação clicando em três pontos verticais Olá no início de saudação de uma linha e usando arrastar e soltar.</span><span class="sxs-lookup"><span data-stu-id="6acce-144">You can change hello order of your IP filter rules in hello grid by clicking hello three vertical dots at hello start of a row and using drag and drop.</span></span>
 
-<span data-ttu-id="66ab5-145">Para salvar a nova ordem das regras de filtro IP, clique em **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="66ab5-145">To save your new IP filter rule order, click **Save**.</span></span>
+<span data-ttu-id="6acce-145">filtro de seu novo IP toosave ordem de regras, clique em **salvar**.</span><span class="sxs-lookup"><span data-stu-id="6acce-145">toosave your new IP filter rule order, click **Save**.</span></span>
 
-![Alterar a ordem de suas regras de filtro IP de Hub IoT][img-ip-filter-rule-order]
+![Alterar a ordem das regras de filtro de IP de Hub IoT Olá][img-ip-filter-rule-order]
 
-## <a name="next-steps"></a><span data-ttu-id="66ab5-147">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="66ab5-147">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="6acce-147">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="6acce-147">Next steps</span></span>
 
-<span data-ttu-id="66ab5-148">Para explorar melhor as funcionalidades do Hub IoT, consulte:</span><span class="sxs-lookup"><span data-stu-id="66ab5-148">To further explore the capabilities of IoT Hub, see:</span></span>
+<span data-ttu-id="6acce-148">toofurther explorar recursos de saudação do IoT Hub, consulte:</span><span class="sxs-lookup"><span data-stu-id="6acce-148">toofurther explore hello capabilities of IoT Hub, see:</span></span>
 
-- <span data-ttu-id="66ab5-149">[Monitoramento de operações][lnk-monitor]</span><span class="sxs-lookup"><span data-stu-id="66ab5-149">[Operations monitoring][lnk-monitor]</span></span>
-- <span data-ttu-id="66ab5-150">[Métricas do Hub IoT][lnk-metrics]</span><span class="sxs-lookup"><span data-stu-id="66ab5-150">[IoT Hub metrics][lnk-metrics]</span></span>
+- <span data-ttu-id="6acce-149">[Monitoramento de operações][lnk-monitor]</span><span class="sxs-lookup"><span data-stu-id="6acce-149">[Operations monitoring][lnk-monitor]</span></span>
+- <span data-ttu-id="6acce-150">[Métricas do Hub IoT][lnk-metrics]</span><span class="sxs-lookup"><span data-stu-id="6acce-150">[IoT Hub metrics][lnk-metrics]</span></span>
 
 <!-- Images -->
 [img-ip-filter-default]: ./media/iot-hub-ip-filtering/ip-filter-default.png
@@ -103,7 +103,7 @@ ms.lasthandoff: 07/11/2017
 <!-- Links -->
 
 [IoT Hub developer guide]: iot-hub-devguide.md
-<span data-ttu-id="66ab5-151">[Azure ExpressRoute]:  https://azure.microsoft.com/en-us/documentation/articles/expressroute-faqs/#supported-services</span><span class="sxs-lookup"><span data-stu-id="66ab5-151">[Azure Express Route]:  https://azure.microsoft.com/en-us/documentation/articles/expressroute-faqs/#supported-services</span></span>
+[rota expressa do Azure]:  https://azure.microsoft.com/en-us/documentation/articles/expressroute-faqs/#supported-services
 
 [lnk-monitor]: iot-hub-operations-monitoring.md
 [lnk-metrics]: iot-hub-metrics.md

@@ -1,6 +1,6 @@
 ---
-title: "Como usar Hubs de Notificação com PHP"
-description: "Aprenda a usar Hubs de notificação do Azure de um back-end do PHP."
+title: "aaaHow toouse Hubs de notificação com o PHP"
+description: "Saiba como toouse Hubs de notificação do Azure de um back-end do PHP."
 services: notification-hubs
 documentationcenter: 
 author: ysxu
@@ -14,48 +14,48 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: yuaxu
-ms.openlocfilehash: c27b6308ff528224a0398e0ff40537db05417bb0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6cd426286a684006a07867fcf44a8ff71be7efa8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-notification-hubs-from-php"></a><span data-ttu-id="6410d-103">Como usar Hubs de Notificação no PHP</span><span class="sxs-lookup"><span data-stu-id="6410d-103">How to use Notification Hubs from PHP</span></span>
+# <a name="how-toouse-notification-hubs-from-php"></a><span data-ttu-id="2557b-103">Como toouse Hubs de notificação do PHP</span><span class="sxs-lookup"><span data-stu-id="2557b-103">How toouse Notification Hubs from PHP</span></span>
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-<span data-ttu-id="6410d-104">Você pode acessar todos os recursos dos Hubs de Notificação por meio de um back-end do Java/PHP/Ruby usando a interface REST do Hub de Notificação, conforme descrito no tópico do MSDN [APIs REST dos Hubs de Notificação](http://msdn.microsoft.com/library/dn223264.aspx).</span><span class="sxs-lookup"><span data-stu-id="6410d-104">You can access all Notification Hubs features from a Java/PHP/Ruby back-end using the Notification Hub REST interface as described in the MSDN topic [Notification Hubs REST APIs](http://msdn.microsoft.com/library/dn223264.aspx).</span></span>
+<span data-ttu-id="2557b-104">Você pode acessar todos os recursos de Hubs de notificação de um back-end do PHP/Java/Ruby usando a interface REST do Hub de notificação de hello conforme descrito no tópico do MSDN Olá [APIs de REST de Hubs de notificação](http://msdn.microsoft.com/library/dn223264.aspx).</span><span class="sxs-lookup"><span data-stu-id="2557b-104">You can access all Notification Hubs features from a Java/PHP/Ruby back-end using hello Notification Hub REST interface as described in hello MSDN topic [Notification Hubs REST APIs](http://msdn.microsoft.com/library/dn223264.aspx).</span></span>
 
-<span data-ttu-id="6410d-105">Neste tópico, mostramos como:</span><span class="sxs-lookup"><span data-stu-id="6410d-105">In this topic we show how to:</span></span>
+<span data-ttu-id="2557b-105">Neste tópico, mostramos como:</span><span class="sxs-lookup"><span data-stu-id="2557b-105">In this topic we show how to:</span></span>
 
-* <span data-ttu-id="6410d-106">Criar um cliente REST para recursos dos Hubs de Notificação no PHP;</span><span class="sxs-lookup"><span data-stu-id="6410d-106">Build a REST client for Notification Hubs features in PHP;</span></span>
-* <span data-ttu-id="6410d-107">Seguir o [Tutorial de introdução](notification-hubs-ios-apple-push-notification-apns-get-started.md) para sua plataforma móvel de escolha, implementando a parte sobre back-end no PHP.</span><span class="sxs-lookup"><span data-stu-id="6410d-107">Follow the [Get started tutorial](notification-hubs-ios-apple-push-notification-apns-get-started.md) for your mobile platform of choice, implementing the back-end portion in PHP.</span></span>
+* <span data-ttu-id="2557b-106">Criar um cliente REST para recursos dos Hubs de Notificação no PHP;</span><span class="sxs-lookup"><span data-stu-id="2557b-106">Build a REST client for Notification Hubs features in PHP;</span></span>
+* <span data-ttu-id="2557b-107">Siga Olá [tutorial de Introdução Get](notification-hubs-ios-apple-push-notification-apns-get-started.md) para sua plataforma móvel de preferência, Implementando a parte de back-end de saudação em PHP.</span><span class="sxs-lookup"><span data-stu-id="2557b-107">Follow hello [Get started tutorial](notification-hubs-ios-apple-push-notification-apns-get-started.md) for your mobile platform of choice, implementing hello back-end portion in PHP.</span></span>
 
-## <a name="client-interface"></a><span data-ttu-id="6410d-108">Interface do cliente</span><span class="sxs-lookup"><span data-stu-id="6410d-108">Client interface</span></span>
-<span data-ttu-id="6410d-109">A interface principal do cliente pode oferecer os mesmos métodos disponíveis no [SDK dos Hubs de Notificação do .NET](http://msdn.microsoft.com/library/jj933431.aspx); isso permite que você converta diretamente todos os tutoriais e exemplos disponíveis atualmente neste site, bem como aqueles enviados pela comunidade na internet.</span><span class="sxs-lookup"><span data-stu-id="6410d-109">The main client interface can provide the same methods that are available in the [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx), this will allow you to directly translate all the tutorials and samples currently available on this site, and contributed by the community on the internet.</span></span>
+## <a name="client-interface"></a><span data-ttu-id="2557b-108">Interface do cliente</span><span class="sxs-lookup"><span data-stu-id="2557b-108">Client interface</span></span>
+<span data-ttu-id="2557b-109">interface de saudação do cliente principal pode fornecer Olá mesmos métodos que estão disponíveis no hello [.NET SDK de Hubs de notificação](http://msdn.microsoft.com/library/jj933431.aspx), isso permitirá que você toodirectly converter todos os tutoriais hello e exemplos no momento disponíveis neste site, e contribuído pela comunidade de saudação em Olá internet.</span><span class="sxs-lookup"><span data-stu-id="2557b-109">hello main client interface can provide hello same methods that are available in hello [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx), this will allow you toodirectly translate all hello tutorials and samples currently available on this site, and contributed by hello community on hello internet.</span></span>
 
-<span data-ttu-id="6410d-110">Você pode encontrar todos os códigos disponíveis na [amostra do wrapper de PHP REST].</span><span class="sxs-lookup"><span data-stu-id="6410d-110">You can find all the code available in the [PHP REST wrapper sample].</span></span>
+<span data-ttu-id="2557b-110">Você pode encontrar todos os código Olá disponível no hello [exemplo de wrapper de PHP REST].</span><span class="sxs-lookup"><span data-stu-id="2557b-110">You can find all hello code available in hello [PHP REST wrapper sample].</span></span>
 
-<span data-ttu-id="6410d-111">Por exemplo, para criar um cliente:</span><span class="sxs-lookup"><span data-stu-id="6410d-111">For example, to create a client:</span></span>
+<span data-ttu-id="2557b-111">Por exemplo, toocreate um cliente:</span><span class="sxs-lookup"><span data-stu-id="2557b-111">For example, toocreate a client:</span></span>
 
     $hub = new NotificationHub("connection string", "hubname");    
 
-<span data-ttu-id="6410d-112">Para enviar uma notificação nativa do iOS:</span><span class="sxs-lookup"><span data-stu-id="6410d-112">To send an iOS native notification:</span></span>
+<span data-ttu-id="2557b-112">toosend uma notificação nativa do iOS:</span><span class="sxs-lookup"><span data-stu-id="2557b-112">toosend an iOS native notification:</span></span>
 
     $notification = new Notification("apple", '{"aps":{"alert": "Hello!"}}');
     $hub->sendNotification($notification, null);
 
-## <a name="implementation"></a><span data-ttu-id="6410d-113">Implementação</span><span class="sxs-lookup"><span data-stu-id="6410d-113">Implementation</span></span>
-<span data-ttu-id="6410d-114">Se ainda não fez isso, siga o nosso [tutorial Introdução] até a última seção, onde será necessário implementar o back-end.</span><span class="sxs-lookup"><span data-stu-id="6410d-114">If you did not already, please follow our [Get started tutorial] up to the last section where you have to implement the back-end.</span></span>
-<span data-ttu-id="6410d-115">Além disso, se quiser, você poderá usar o código da [amostra do wrapper de PHP REST] e ir diretamente para a seção [Concluir o tutorial](#complete-tutorial).</span><span class="sxs-lookup"><span data-stu-id="6410d-115">Also, if you want you can use the code from the [PHP REST wrapper sample] and go directly to the [Complete the tutorial](#complete-tutorial) section.</span></span>
+## <a name="implementation"></a><span data-ttu-id="2557b-113">Implementação</span><span class="sxs-lookup"><span data-stu-id="2557b-113">Implementation</span></span>
+<span data-ttu-id="2557b-114">Se você ainda não fez, siga nosso [tutorial de Introdução Get] até toohello última seção onde você tem tooimplement Olá back-end.</span><span class="sxs-lookup"><span data-stu-id="2557b-114">If you did not already, please follow our [Get started tutorial] up toohello last section where you have tooimplement hello back-end.</span></span>
+<span data-ttu-id="2557b-115">Além disso, se você quiser que você pode usar código de saudação do hello [exemplo de wrapper de PHP REST] e vá diretamente toohello [tutorial completo Olá](#complete-tutorial) seção.</span><span class="sxs-lookup"><span data-stu-id="2557b-115">Also, if you want you can use hello code from hello [PHP REST wrapper sample] and go directly toohello [Complete hello tutorial](#complete-tutorial) section.</span></span>
 
-<span data-ttu-id="6410d-116">Todos os detalhes para implementar um wrapper completo do REST podem ser encontrados em [MSDN](http://msdn.microsoft.com/library/dn530746.aspx).</span><span class="sxs-lookup"><span data-stu-id="6410d-116">All the details to implement a full REST wrapper can be found on [MSDN](http://msdn.microsoft.com/library/dn530746.aspx).</span></span> <span data-ttu-id="6410d-117">Nesta seção, descreveremos a implementação do PHP das principais etapas necessárias para acessar os pontos de extremidade de REST dos Hubs de Notificação:</span><span class="sxs-lookup"><span data-stu-id="6410d-117">In this section we will describe the PHP implementation of the main steps required to access Notification Hubs REST endpoints:</span></span>
+<span data-ttu-id="2557b-116">Todos Olá detalhes tooimplement um wrapper REST completo pode ser encontrado em [MSDN](http://msdn.microsoft.com/library/dn530746.aspx).</span><span class="sxs-lookup"><span data-stu-id="2557b-116">All hello details tooimplement a full REST wrapper can be found on [MSDN](http://msdn.microsoft.com/library/dn530746.aspx).</span></span> <span data-ttu-id="2557b-117">Nesta seção, descreveremos implementação PHP Olá Olá de etapas principais necessárias tooaccess pontos de extremidade REST de Hubs de notificação:</span><span class="sxs-lookup"><span data-stu-id="2557b-117">In this section we will describe hello PHP implementation of hello main steps required tooaccess Notification Hubs REST endpoints:</span></span>
 
-1. <span data-ttu-id="6410d-118">Analisar a cadeia de conexão</span><span class="sxs-lookup"><span data-stu-id="6410d-118">Parse the connection string</span></span>
-2. <span data-ttu-id="6410d-119">Gerar o token de autorização</span><span class="sxs-lookup"><span data-stu-id="6410d-119">Generate the authorization token</span></span>
-3. <span data-ttu-id="6410d-120">Realizar a chamada do HTTP</span><span class="sxs-lookup"><span data-stu-id="6410d-120">Perform the HTTP call</span></span>
+1. <span data-ttu-id="2557b-118">Analisar a cadeia de conexão Olá</span><span class="sxs-lookup"><span data-stu-id="2557b-118">Parse hello connection string</span></span>
+2. <span data-ttu-id="2557b-119">Gerar o token de autorização de saudação</span><span class="sxs-lookup"><span data-stu-id="2557b-119">Generate hello authorization token</span></span>
+3. <span data-ttu-id="2557b-120">Executar chamada hello HTTP</span><span class="sxs-lookup"><span data-stu-id="2557b-120">Perform hello HTTP call</span></span>
 
-### <a name="parse-the-connection-string"></a><span data-ttu-id="6410d-121">Analisar a cadeia de conexão</span><span class="sxs-lookup"><span data-stu-id="6410d-121">Parse the connection string</span></span>
-<span data-ttu-id="6410d-122">Aqui está a classe principal que implementa o cliente, cujo construtor analisa a cadeia de conexão:</span><span class="sxs-lookup"><span data-stu-id="6410d-122">Here is the main class implementing the client, whose constructor that parses the connection string:</span></span>
+### <a name="parse-hello-connection-string"></a><span data-ttu-id="2557b-121">Analisar a cadeia de conexão Olá</span><span class="sxs-lookup"><span data-stu-id="2557b-121">Parse hello connection string</span></span>
+<span data-ttu-id="2557b-122">Aqui é Olá classe principal implementação Olá cliente, cujo construtor analisa a cadeia de caracteres de conexão hello:</span><span class="sxs-lookup"><span data-stu-id="2557b-122">Here is hello main class implementing hello client, whose constructor that parses hello connection string:</span></span>
 
     class NotificationHub {
         const API_VERSION = "?api-version=2013-10";
@@ -90,9 +90,9 @@ ms.lasthandoff: 07/11/2017
     }
 
 
-### <a name="create-security-token"></a><span data-ttu-id="6410d-123">Criar token de segurança</span><span class="sxs-lookup"><span data-stu-id="6410d-123">Create security token</span></span>
-<span data-ttu-id="6410d-124">Os detalhes da criação de token de segurança estão disponíveis [aqui](http://msdn.microsoft.com/library/dn495627.aspx).</span><span class="sxs-lookup"><span data-stu-id="6410d-124">The details of the security token creation are available [here](http://msdn.microsoft.com/library/dn495627.aspx).</span></span>
-<span data-ttu-id="6410d-125">O método a seguir deve ser adicionado à classe **NotificationHub** para criar o token com base no URI da solicitação atual e as credenciais extraídas da cadeia de conexão.</span><span class="sxs-lookup"><span data-stu-id="6410d-125">The following method has to be added to the **NotificationHub** class to create the token based on the URI of the current request and the credentials extracted from the connection string.</span></span>
+### <a name="create-security-token"></a><span data-ttu-id="2557b-123">Criar token de segurança</span><span class="sxs-lookup"><span data-stu-id="2557b-123">Create security token</span></span>
+<span data-ttu-id="2557b-124">criação de token de segurança Olá Olá detalhes está disponíveis [aqui](http://msdn.microsoft.com/library/dn495627.aspx).</span><span class="sxs-lookup"><span data-stu-id="2557b-124">hello details of hello security token creation are available [here](http://msdn.microsoft.com/library/dn495627.aspx).</span></span>
+<span data-ttu-id="2557b-125">método Hello tem toobe adicionado toohello **NotificationHub** token de saudação toocreate classe com base em Olá URI da solicitação atual hello e credenciais de saudação extraídas da cadeia de caracteres de conexão de saudação.</span><span class="sxs-lookup"><span data-stu-id="2557b-125">hello following method has toobe added toohello **NotificationHub** class toocreate hello token based on hello URI of hello current request and hello credentials extracted from hello connection string.</span></span>
 
     private function generateSasToken($uri) {
         $targetUri = strtolower(rawurlencode(strtolower($uri)));
@@ -110,8 +110,8 @@ ms.lasthandoff: 07/11/2017
         return $token;
     }
 
-### <a name="send-a-notification"></a><span data-ttu-id="6410d-126">Enviar uma notificação</span><span class="sxs-lookup"><span data-stu-id="6410d-126">Send a notification</span></span>
-<span data-ttu-id="6410d-127">Primeiro, vamos definir uma classe que representa uma notificação.</span><span class="sxs-lookup"><span data-stu-id="6410d-127">First, let us define a class representing a notification.</span></span>
+### <a name="send-a-notification"></a><span data-ttu-id="2557b-126">Enviar uma notificação</span><span class="sxs-lookup"><span data-stu-id="2557b-126">Send a notification</span></span>
+<span data-ttu-id="2557b-127">Primeiro, vamos definir uma classe que representa uma notificação.</span><span class="sxs-lookup"><span data-stu-id="2557b-127">First, let us define a class representing a notification.</span></span>
 
     class Notification {
         public $format;
@@ -132,11 +132,11 @@ ms.lasthandoff: 07/11/2017
         }
     }
 
-<span data-ttu-id="6410d-128">Essa classe é um contêiner para um corpo de notificação nativa ou um conjunto de propriedade no caso de uma notificação de modelo, e um conjunto de cabeçalhos que contém propriedades específicas de formato (plataforma nativa ou modelo) e plataforma (como a propriedade de expiração da Apple e cabeçalhos WNS).</span><span class="sxs-lookup"><span data-stu-id="6410d-128">This class is a container for a native notification body, or a set of properties on case of a template notification, and a set of headers which contains format (native platform or template) and platform-specific properties (like Apple expiration property and WNS headers).</span></span>
+<span data-ttu-id="2557b-128">Essa classe é um contêiner para um corpo de notificação nativa ou um conjunto de propriedade no caso de uma notificação de modelo, e um conjunto de cabeçalhos que contém propriedades específicas de formato (plataforma nativa ou modelo) e plataforma (como a propriedade de expiração da Apple e cabeçalhos WNS).</span><span class="sxs-lookup"><span data-stu-id="2557b-128">This class is a container for a native notification body, or a set of properties on case of a template notification, and a set of headers which contains format (native platform or template) and platform-specific properties (like Apple expiration property and WNS headers).</span></span>
 
-<span data-ttu-id="6410d-129">Consulte a [documentação de APIs REST dos Hubs de Notificação](http://msdn.microsoft.com/library/dn495827.aspx) e os formatos específicos de notificação das plataformas para conhecer todas as opções disponíveis.</span><span class="sxs-lookup"><span data-stu-id="6410d-129">Please refer to the [Notification Hubs REST APIs documentation](http://msdn.microsoft.com/library/dn495827.aspx) and the specific notification platforms' formats for all the options available.</span></span>
+<span data-ttu-id="2557b-129">Consulte toohello [documentação de APIs de REST de Hubs de notificação](http://msdn.microsoft.com/library/dn495827.aspx) e Olá formatos das plataformas específicas de notificação para todas as opções disponíveis de hello.</span><span class="sxs-lookup"><span data-stu-id="2557b-129">Please refer toohello [Notification Hubs REST APIs documentation](http://msdn.microsoft.com/library/dn495827.aspx) and hello specific notification platforms' formats for all hello options available.</span></span>
 
-<span data-ttu-id="6410d-130">Armados com essa classe, agora podemos gravar os métodos de notificação de envio dentro da classe **NotificationHub** .</span><span class="sxs-lookup"><span data-stu-id="6410d-130">Armed with this class, we can now write the send notification methods inside of the **NotificationHub** class.</span></span>
+<span data-ttu-id="2557b-130">Essa classe de posse, agora podemos escrever Olá envio métodos de notificação dentro de saudação **NotificationHub** classe.</span><span class="sxs-lookup"><span data-stu-id="2557b-130">Armed with this class, we can now write hello send notification methods inside of hello **NotificationHub** class.</span></span>
 
     public function sendNotification($notification, $tagsOrTagExpression="") {
         if (is_array($tagsOrTagExpression)) {
@@ -180,7 +180,7 @@ ms.lasthandoff: 07/11/2017
             CURLOPT_POSTFIELDS => $notification->payload
         ));
 
-        // Send the request
+        // Send hello request
         $response = curl_exec($ch);
 
         // Check for errors
@@ -195,34 +195,34 @@ ms.lasthandoff: 07/11/2017
         }
     } 
 
-<span data-ttu-id="6410d-131">Os métodos acima enviam uma solicitação de HTTP POST para o ponto de extremidade /messages de seu hub de notificação, com o corpo e os cabeçalhos corretos para o envio da notificação.</span><span class="sxs-lookup"><span data-stu-id="6410d-131">The above methods send an HTTP POST request to the /messages endpoint of your notification hub, with the correct body and headers to send the notification.</span></span>
+<span data-ttu-id="2557b-131">Olá acima métodos enviar um HTTP POST solicitação toohello /messages ponto de extremidade de hub de notificação, com corpo correto hello e notificação de saudação toosend cabeçalhos.</span><span class="sxs-lookup"><span data-stu-id="2557b-131">hello above methods send an HTTP POST request toohello /messages endpoint of your notification hub, with hello correct body and headers toosend hello notification.</span></span>
 
-## <span data-ttu-id="6410d-132"><a name="complete-tutorial"></a>Concluir o tutorial</span><span class="sxs-lookup"><span data-stu-id="6410d-132"><a name="complete-tutorial"></a>Complete the tutorial</span></span>
-<span data-ttu-id="6410d-133">Agora você pode concluir o tutorial de introdução enviando a notificação por meio de um back-end do PHP.</span><span class="sxs-lookup"><span data-stu-id="6410d-133">Now you can complete the Get Started tutorial by sending the notification from a PHP back-end.</span></span>
+## <span data-ttu-id="2557b-132"><a name="complete-tutorial"></a>Tutorial de saudação concluída</span><span class="sxs-lookup"><span data-stu-id="2557b-132"><a name="complete-tutorial"></a>Complete hello tutorial</span></span>
+<span data-ttu-id="2557b-133">Agora você pode concluir o tutorial de Introdução hello, enviando a notificação de saudação de um back-end do PHP.</span><span class="sxs-lookup"><span data-stu-id="2557b-133">Now you can complete hello Get Started tutorial by sending hello notification from a PHP back-end.</span></span>
 
-<span data-ttu-id="6410d-134">Inicialize seu cliente dos Hubs de Notificação (substitua a cadeia de conexão e o nome do hub conforme indicado no [tutorial Introdução]):</span><span class="sxs-lookup"><span data-stu-id="6410d-134">Initialize your Notification Hubs client (substitute the connection string and hub name as instructed in the [Get started tutorial]):</span></span>
+<span data-ttu-id="2557b-134">Inicialize o cliente de Hubs de notificação (substitua o nome de hub e de cadeia de caracteres de conexão Olá conforme instruído no hello [tutorial de Introdução Get]):</span><span class="sxs-lookup"><span data-stu-id="2557b-134">Initialize your Notification Hubs client (substitute hello connection string and hub name as instructed in hello [Get started tutorial]):</span></span>
 
     $hub = new NotificationHub("connection string", "hubname");    
 
-<span data-ttu-id="6410d-135">Em seguida, adicione o código de envio dependendo da sua plataforma móvel de destino.</span><span class="sxs-lookup"><span data-stu-id="6410d-135">Then add the send code depending on your target mobile platform.</span></span>
+<span data-ttu-id="2557b-135">Adicione código de envio de saudação dependendo de sua plataforma móvel de destino.</span><span class="sxs-lookup"><span data-stu-id="2557b-135">Then add hello send code depending on your target mobile platform.</span></span>
 
-### <a name="windows-store-and-windows-phone-81-non-silverlight"></a><span data-ttu-id="6410d-136">Windows Store e Windows Phone 8.1 (não Silverlight)</span><span class="sxs-lookup"><span data-stu-id="6410d-136">Windows Store and Windows Phone 8.1 (non-Silverlight)</span></span>
+### <a name="windows-store-and-windows-phone-81-non-silverlight"></a><span data-ttu-id="2557b-136">Windows Store e Windows Phone 8.1 (não Silverlight)</span><span class="sxs-lookup"><span data-stu-id="2557b-136">Windows Store and Windows Phone 8.1 (non-Silverlight)</span></span>
     $toast = '<toast><visual><binding template="ToastText01"><text id="1">Hello from PHP!</text></binding></visual></toast>';
     $notification = new Notification("windows", $toast);
     $notification->headers[] = 'X-WNS-Type: wns/toast';
     $hub->sendNotification($notification, null);
 
-### <a name="ios"></a><span data-ttu-id="6410d-137">iOS</span><span class="sxs-lookup"><span data-stu-id="6410d-137">iOS</span></span>
+### <a name="ios"></a><span data-ttu-id="2557b-137">iOS</span><span class="sxs-lookup"><span data-stu-id="2557b-137">iOS</span></span>
     $alert = '{"aps":{"alert":"Hello from PHP!"}}';
     $notification = new Notification("apple", $alert);
     $hub->sendNotification($notification, null);
 
-### <a name="android"></a><span data-ttu-id="6410d-138">Android</span><span class="sxs-lookup"><span data-stu-id="6410d-138">Android</span></span>
+### <a name="android"></a><span data-ttu-id="2557b-138">Android</span><span class="sxs-lookup"><span data-stu-id="2557b-138">Android</span></span>
     $message = '{"data":{"msg":"Hello from PHP!"}}';
     $notification = new Notification("gcm", $message);
     $hub->sendNotification($notification, null);
 
-### <a name="windows-phone-80-and-81-silverlight"></a><span data-ttu-id="6410d-139">Silverlight para Windows Phone 8.0 e 8.1</span><span class="sxs-lookup"><span data-stu-id="6410d-139">Windows Phone 8.0 and 8.1 Silverlight</span></span>
+### <a name="windows-phone-80-and-81-silverlight"></a><span data-ttu-id="2557b-139">Silverlight para Windows Phone 8.0 e 8.1</span><span class="sxs-lookup"><span data-stu-id="2557b-139">Windows Phone 8.0 and 8.1 Silverlight</span></span>
     $toast = '<?xml version="1.0" encoding="utf-8"?>' .
                 '<wp:Notification xmlns:wp="WPNotification">' .
                    '<wp:Toast>' .
@@ -235,22 +235,22 @@ ms.lasthandoff: 07/11/2017
     $hub->sendNotification($notification, null);
 
 
-### <a name="kindle-fire"></a><span data-ttu-id="6410d-140">Kindle Fire</span><span class="sxs-lookup"><span data-stu-id="6410d-140">Kindle Fire</span></span>
+### <a name="kindle-fire"></a><span data-ttu-id="2557b-140">Kindle Fire</span><span class="sxs-lookup"><span data-stu-id="2557b-140">Kindle Fire</span></span>
     $message = '{"data":{"msg":"Hello from PHP!"}}';
     $notification = new Notification("adm", $message);
     $hub->sendNotification($notification, null);
 
-<span data-ttu-id="6410d-141">Executar o código PHP agora deve produzir uma notificação que aparece no dispositivo de destino.</span><span class="sxs-lookup"><span data-stu-id="6410d-141">Running your PHP code should produce now a notification appearing on your target device.</span></span>
+<span data-ttu-id="2557b-141">Executar o código PHP agora deve produzir uma notificação que aparece no dispositivo de destino.</span><span class="sxs-lookup"><span data-stu-id="2557b-141">Running your PHP code should produce now a notification appearing on your target device.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="6410d-142">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="6410d-142">Next Steps</span></span>
-<span data-ttu-id="6410d-143">Neste tópico, mostramos como criar um cliente REST simples do Java para Hubs de Notificação.</span><span class="sxs-lookup"><span data-stu-id="6410d-143">In this topic we showed how to create a simple Java REST client for Notification Hubs.</span></span> <span data-ttu-id="6410d-144">A partir daqui, você pode:</span><span class="sxs-lookup"><span data-stu-id="6410d-144">From here you can:</span></span>
+## <a name="next-steps"></a><span data-ttu-id="2557b-142">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="2557b-142">Next Steps</span></span>
+<span data-ttu-id="2557b-143">Neste tópico, mostramos como toocreate um Java simple REST cliente Hubs de notificação.</span><span class="sxs-lookup"><span data-stu-id="2557b-143">In this topic we showed how toocreate a simple Java REST client for Notification Hubs.</span></span> <span data-ttu-id="2557b-144">A partir daqui, você pode:</span><span class="sxs-lookup"><span data-stu-id="2557b-144">From here you can:</span></span>
 
-* <span data-ttu-id="6410d-145">Baixar a [amostra do wrapper de PHP REST]completa, que contém todos os códigos acima.</span><span class="sxs-lookup"><span data-stu-id="6410d-145">Download the full [PHP REST wrapper sample], which contains all the code above.</span></span>
-* <span data-ttu-id="6410d-146">Continuar a aprender sobre o recurso de criação de tags dos Hubs de Notificação no [tutorial Últimas Notícias]</span><span class="sxs-lookup"><span data-stu-id="6410d-146">Continue learning about Notification Hubs tagging feature in the [Breaking News tutorial]</span></span>
-* <span data-ttu-id="6410d-147">Aprender sobre como enviar notificações por push para usuários individuais no [tutorial Notificação de Usuários]</span><span class="sxs-lookup"><span data-stu-id="6410d-147">Learn about pushing notifications to individual users in [Notify Users tutorial]</span></span>
+* <span data-ttu-id="2557b-145">Baixar Olá completo [exemplo de wrapper de PHP REST], que contém todos os códigos de saudação acima.</span><span class="sxs-lookup"><span data-stu-id="2557b-145">Download hello full [PHP REST wrapper sample], which contains all hello code above.</span></span>
+* <span data-ttu-id="2557b-146">Saber mais sobre o recurso de indicação Olá [tutorial últimas notícias] de Hubs de notificação</span><span class="sxs-lookup"><span data-stu-id="2557b-146">Continue learning about Notification Hubs tagging feature in hello [Breaking News tutorial]</span></span>
+* <span data-ttu-id="2557b-147">Saiba mais sobre o envio por push usuários de tooindividual notificações [tutorial notificar usuários]</span><span class="sxs-lookup"><span data-stu-id="2557b-147">Learn about pushing notifications tooindividual users in [Notify Users tutorial]</span></span>
 
-<span data-ttu-id="6410d-148">Para saber mais, veja também a [Central de desenvolvedores do PHP](/develop/php/).</span><span class="sxs-lookup"><span data-stu-id="6410d-148">For more information, see also the [PHP Developer Center](/develop/php/).</span></span>
+<span data-ttu-id="2557b-148">Para obter mais informações, consulte também Olá [Centro de desenvolvedores PHP](/develop/php/).</span><span class="sxs-lookup"><span data-stu-id="2557b-148">For more information, see also hello [PHP Developer Center](/develop/php/).</span></span>
 
-<span data-ttu-id="6410d-149">[amostra do wrapper de PHP REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php</span><span class="sxs-lookup"><span data-stu-id="6410d-149">[PHP REST wrapper sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php</span></span>
-<span data-ttu-id="6410d-150">[tutorial Introdução]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/</span><span class="sxs-lookup"><span data-stu-id="6410d-150">[Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/</span></span>
+[exemplo de wrapper de PHP REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
+[tutorial de Introdução Get]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 

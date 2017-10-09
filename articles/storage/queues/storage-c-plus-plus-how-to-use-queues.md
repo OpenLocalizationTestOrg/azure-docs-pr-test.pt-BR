@@ -1,6 +1,6 @@
 ---
-title: Como usar o armazenamento de filas (C++) | Microsoft Docs
-description: "Saiba como usar o serviço de armazenamento de filas no Azure. As amostras são escritas em C++."
+title: armazenamento de fila aaaHow toouse (C++) | Microsoft Docs
+description: "Saiba como toouse Olá serviço de armazenamento de fila no Azure. As amostras são escritas em C++."
 services: storage
 documentationcenter: .net
 author: cbrooksmsft
@@ -14,22 +14,22 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: cbrooksmsft
-ms.openlocfilehash: 5e81d5e0af9871099b7f921f355cf94249e4d30c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b0cddf017878e9fab87f47d24b2906e40c9f4ad5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-queue-storage-from-c"></a><span data-ttu-id="4cdc0-104">Como usar o armazenamento de filas do C++</span><span class="sxs-lookup"><span data-stu-id="4cdc0-104">How to use Queue Storage from C++</span></span>
+# <a name="how-toouse-queue-storage-from-c"></a><span data-ttu-id="d9bbc-104">Como toouse armazenamento de fila de C++</span><span class="sxs-lookup"><span data-stu-id="d9bbc-104">How toouse Queue Storage from C++</span></span>
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a><span data-ttu-id="4cdc0-105">Visão geral</span><span class="sxs-lookup"><span data-stu-id="4cdc0-105">Overview</span></span>
-<span data-ttu-id="4cdc0-106">Este guia irá lhe mostrar como executar cenários comuns usando o armazenamento de fila do Azure.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-106">This guide will show you how to perform common scenarios using the Azure Queue storage service.</span></span> <span data-ttu-id="4cdc0-107">Os exemplos são escritos em C++ e usam a [Biblioteca do Cliente de Armazenamento do Azure para C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md).</span><span class="sxs-lookup"><span data-stu-id="4cdc0-107">The samples are written in C++ and use the [Azure Storage Client Library for C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md).</span></span> <span data-ttu-id="4cdc0-108">Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-108">The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**.</span></span>
+## <a name="overview"></a><span data-ttu-id="d9bbc-105">Visão geral</span><span class="sxs-lookup"><span data-stu-id="d9bbc-105">Overview</span></span>
+<span data-ttu-id="d9bbc-106">Este guia mostrará como tooperform cenários comuns usando Olá serviço de armazenamento de fila do Azure.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-106">This guide will show you how tooperform common scenarios using hello Azure Queue storage service.</span></span> <span data-ttu-id="d9bbc-107">exemplos de saudação são escritos em C++ e usam Olá [biblioteca de cliente de armazenamento do Azure para C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md).</span><span class="sxs-lookup"><span data-stu-id="d9bbc-107">hello samples are written in C++ and use hello [Azure Storage Client Library for C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md).</span></span> <span data-ttu-id="d9bbc-108">Olá cenários abordados incluem **inserindo**, **inspecionar**, **obtendo**, e **excluindo** Enfileirar mensagens, bem como  **criar e excluir filas**.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-108">hello scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="4cdc0-109">Este guia tem como alvo a Biblioteca do Cliente de Armazenamento do Azure para C++, versão 1.0.0 e superior.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-109">This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above.</span></span> <span data-ttu-id="4cdc0-110">A versão recomendada é a Biblioteca de Clientes de Armazenamento 2.2.0, que está disponível via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](http://github.com/Azure/azure-storage-cpp/).</span><span class="sxs-lookup"><span data-stu-id="4cdc0-110">The recommended version is Storage Client Library 2.2.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](http://github.com/Azure/azure-storage-cpp/).</span></span>
+> <span data-ttu-id="d9bbc-109">Destino dessa guia Olá biblioteca de cliente de armazenamento do Azure para a versão 1.0.0 de C++ e acima.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-109">This guide targets hello Azure Storage Client Library for C++ version 1.0.0 and above.</span></span> <span data-ttu-id="d9bbc-110">Olá recomendado versão é a biblioteca de cliente de armazenamento 2.2.0, que está disponível por meio de [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](http://github.com/Azure/azure-storage-cpp/).</span><span class="sxs-lookup"><span data-stu-id="d9bbc-110">hello recommended version is Storage Client Library 2.2.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](http://github.com/Azure/azure-storage-cpp/).</span></span>
 > 
 > 
 
@@ -37,57 +37,57 @@ ms.lasthandoff: 08/29/2017
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## <a name="create-a-c-application"></a><span data-ttu-id="4cdc0-111">Criar um aplicativo em C++</span><span class="sxs-lookup"><span data-stu-id="4cdc0-111">Create a C++ application</span></span>
-<span data-ttu-id="4cdc0-112">Neste guia, você usará os recursos de armazenamento que podem ser executados em um aplicativo C++.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-112">In this guide, you will use storage features which can be run within a C++ application.</span></span>
+## <a name="create-a-c-application"></a><span data-ttu-id="d9bbc-111">Criar um aplicativo em C++</span><span class="sxs-lookup"><span data-stu-id="d9bbc-111">Create a C++ application</span></span>
+<span data-ttu-id="d9bbc-112">Neste guia, você usará os recursos de armazenamento que podem ser executados em um aplicativo C++.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-112">In this guide, you will use storage features which can be run within a C++ application.</span></span>
 
-<span data-ttu-id="4cdc0-113">Para isso, você precisará instalar a Biblioteca do Cliente de Armazenamento do Azure para C++ e criar uma conta de armazenamento do Azure em sua assinatura do Azure.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-113">To do so, you will need to install the Azure Storage Client Library for C++ and create an Azure storage account in your Azure subscription.</span></span>
+<span data-ttu-id="d9bbc-113">toodo assim, você precisará tooinstall hello biblioteca de cliente de armazenamento do Azure para C++ e criar uma conta de armazenamento do Azure em sua assinatura do Azure.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-113">toodo so, you will need tooinstall hello Azure Storage Client Library for C++ and create an Azure storage account in your Azure subscription.</span></span>
 
-<span data-ttu-id="4cdc0-114">Para instalar a Biblioteca do Cliente de Armazenamento do Azure para C++, você pode usar os seguintes métodos:</span><span class="sxs-lookup"><span data-stu-id="4cdc0-114">To install the Azure Storage Client Library for C++, you can use the following methods:</span></span>
+<span data-ttu-id="d9bbc-114">Olá tooinstall biblioteca de cliente de armazenamento do Azure para C++, você pode usar o hello métodos a seguir:</span><span class="sxs-lookup"><span data-stu-id="d9bbc-114">tooinstall hello Azure Storage Client Library for C++, you can use hello following methods:</span></span>
 
-* <span data-ttu-id="4cdc0-115">**Linux:** siga as instruções dadas na página README da [Biblioteca do Cliente de Armazenamento do Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .</span><span class="sxs-lookup"><span data-stu-id="4cdc0-115">**Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.</span></span>
-* <span data-ttu-id="4cdc0-116">**Windows:** no Visual Studio, clique em **Ferramentas > Gerenciador de Pacotes do NuGet > Console do Gerenciador de Pacotes**.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-116">**Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**.</span></span> <span data-ttu-id="4cdc0-117">Digite o seguinte comando no console do [Gerenciador de Pacotes do NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e pressione **ENTER**.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-117">Type the following command into the [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.</span></span>
+* <span data-ttu-id="d9bbc-115">**Linux:** siga instruções Olá fornecidas em Olá [biblioteca de cliente de armazenamento do Azure para C++ Leiame](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) página.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-115">**Linux:** Follow hello instructions given in hello [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.</span></span>
+* <span data-ttu-id="d9bbc-116">**Windows:** no Visual Studio, clique em **Ferramentas > Gerenciador de Pacotes do NuGet > Console do Gerenciador de Pacotes**.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-116">**Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**.</span></span> <span data-ttu-id="d9bbc-117">Digite o seguinte Olá comando em Olá [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e pressione **ENTER**.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-117">Type hello following command into hello [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.</span></span>
 
 ```  
 Install-Package wastorage
 ```
 
-## <a name="configure-your-application-to-access-queue-storage"></a><span data-ttu-id="4cdc0-118">Configurar seu aplicativo para acessar o Armazenamento de Filas</span><span class="sxs-lookup"><span data-stu-id="4cdc0-118">Configure your application to access Queue Storage</span></span>
-<span data-ttu-id="4cdc0-119">Adicione as seguintes instruções include à parte superior do arquivo C++ no qual deseja usar as APIs de armazenamento do Azure para acessar as filas:</span><span class="sxs-lookup"><span data-stu-id="4cdc0-119">Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access queues:</span></span>  
+## <a name="configure-your-application-tooaccess-queue-storage"></a><span data-ttu-id="d9bbc-118">Configurar seu aplicativo tooaccess armazenamento de fila</span><span class="sxs-lookup"><span data-stu-id="d9bbc-118">Configure your application tooaccess Queue Storage</span></span>
+<span data-ttu-id="d9bbc-119">Adicione a seguinte Olá incluem superior de toohello de instruções do arquivo de C++ de saudação onde você deseja que as filas de tooaccess APIs de armazenamento do Azure Olá toouse:</span><span class="sxs-lookup"><span data-stu-id="d9bbc-119">Add hello following include statements toohello top of hello C++ file where you want toouse hello Azure storage APIs tooaccess queues:</span></span>  
 
 ```cpp
 #include <was/storage_account.h>
 #include <was/queue.h>
 ```
 
-## <a name="set-up-an-azure-storage-connection-string"></a><span data-ttu-id="4cdc0-120">Configurar uma cadeia de conexão de armazenamento do Azure</span><span class="sxs-lookup"><span data-stu-id="4cdc0-120">Set up an Azure storage connection string</span></span>
-<span data-ttu-id="4cdc0-121">Um cliente de armazenamento do Azure usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais para acessar serviços de gerenciamento de dados.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-121">An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services.</span></span> <span data-ttu-id="4cdc0-122">Ao ser executado em um aplicativo cliente, é necessário fornecer a cadeia de conexão de armazenamento no formato a seguir, usando o nome da sua conta de armazenamento e a chave de acesso de armazenamento da conta de armazenamento listada no [Portal do Azure](https://portal.azure.com) para os valores *AccountName* e *AccountKey*.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-122">When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the storage access key for the storage account listed in the [Azure Portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values.</span></span> <span data-ttu-id="4cdc0-123">Para obter informações sobre as contas de armazenamento e as chaves de acesso, consulte [Sobre as Contas de Armazenamento do Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="4cdc0-123">For information on storage accounts and access keys, see [About Azure Storage Accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).</span></span> <span data-ttu-id="4cdc0-124">Este exemplo mostra como você pode declarar um campo estático para armazenar a cadeia de conexão:</span><span class="sxs-lookup"><span data-stu-id="4cdc0-124">This example shows how you can declare a static field to hold the connection string:</span></span>  
+## <a name="set-up-an-azure-storage-connection-string"></a><span data-ttu-id="d9bbc-120">Configurar uma cadeia de conexão de armazenamento do Azure</span><span class="sxs-lookup"><span data-stu-id="d9bbc-120">Set up an Azure storage connection string</span></span>
+<span data-ttu-id="d9bbc-121">Um cliente de armazenamento do Azure usa um pontos de extremidade de toostore de cadeia de caracteres de conexão de armazenamento e as credenciais para acessar os serviços de gerenciamento de dados.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-121">An Azure storage client uses a storage connection string toostore endpoints and credentials for accessing data management services.</span></span> <span data-ttu-id="d9bbc-122">Quando em execução em um aplicativo cliente, você deve fornecer a cadeia de conexão de armazenamento Olá no hello formato a seguir, usando o nome de saudação da chave de acesso do armazenamento seu armazenamento conta e Olá Olá conta de armazenamento listada no hello [Portal do Azure](https://portal.azure.com)para Olá *AccountName* e *AccountKey* valores.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-122">When running in a client application, you must provide hello storage connection string in hello following format, using hello name of your storage account and hello storage access key for hello storage account listed in hello [Azure Portal](https://portal.azure.com) for hello *AccountName* and *AccountKey* values.</span></span> <span data-ttu-id="d9bbc-123">Para obter informações sobre as contas de armazenamento e as chaves de acesso, consulte [Sobre as Contas de Armazenamento do Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="d9bbc-123">For information on storage accounts and access keys, see [About Azure Storage Accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).</span></span> <span data-ttu-id="d9bbc-124">Este exemplo mostra como você pode declarar uma cadeia de caracteres de conexão do campo estático toohold hello:</span><span class="sxs-lookup"><span data-stu-id="d9bbc-124">This example shows how you can declare a static field toohold hello connection string:</span></span>  
 
 ```cpp
-// Define the connection-string with your values.
+// Define hello connection-string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-<span data-ttu-id="4cdc0-125">Para testar seu aplicativo no computador local do Windows, você pode usar o emulador de armazenamento do [Microsoft Azure](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) que é instalado com o [SDK do Azure](https://azure.microsoft.com/downloads/).</span><span class="sxs-lookup"><span data-stu-id="4cdc0-125">To test your application in your local Windows computer, you can use the Microsoft Azure [storage emulator](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) that is installed with the [Azure SDK](https://azure.microsoft.com/downloads/).</span></span> <span data-ttu-id="4cdc0-126">O emulador de armazenamento é um utilitário que simula os serviços Blob, fila e tabela disponíveis no Azure em sua máquina de desenvolvimento local.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-126">The storage emulator is a utility that simulates the Blob, Queue, and Table services available in Azure on your local development machine.</span></span> <span data-ttu-id="4cdc0-127">Este exemplo mostra como você pode declarar um campo estático para manter a cadeia de conexão em seu emulador de armazenamento local:</span><span class="sxs-lookup"><span data-stu-id="4cdc0-127">The following example shows how you can declare a static field to hold the connection string to your local storage emulator:</span></span>  
+<span data-ttu-id="d9bbc-125">tootest seu aplicativo no seu computador local do Windows, você pode usar o hello Microsoft Azure [emulador de armazenamento](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) que é instalada com hello [SDK do Azure](https://azure.microsoft.com/downloads/).</span><span class="sxs-lookup"><span data-stu-id="d9bbc-125">tootest your application in your local Windows computer, you can use hello Microsoft Azure [storage emulator](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) that is installed with hello [Azure SDK](https://azure.microsoft.com/downloads/).</span></span> <span data-ttu-id="d9bbc-126">emulador de armazenamento Olá é um utilitário que simula os serviços de Blob, fila e tabela de saudação disponíveis no Azure em sua máquina de desenvolvimento local.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-126">hello storage emulator is a utility that simulates hello Blob, Queue, and Table services available in Azure on your local development machine.</span></span> <span data-ttu-id="d9bbc-127">Olá exemplo a seguir mostra como você pode declarar um emulador de armazenamento local do campo estático toohold Olá cadeia de caracteres conexão tooyour:</span><span class="sxs-lookup"><span data-stu-id="d9bbc-127">hello following example shows how you can declare a static field toohold hello connection string tooyour local storage emulator:</span></span>  
 
 ```cpp
-// Define the connection-string with Azure Storage Emulator.
+// Define hello connection-string with Azure Storage Emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-<span data-ttu-id="4cdc0-128">Para iniciar o emulador de armazenamento do Azure, selecione o botão **Iniciar** ou pressione a tecla **Windows**.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-128">To start the Azure storage emulator, select the **Start** button or press the **Windows** key.</span></span> <span data-ttu-id="4cdc0-129">Comece digitando **Emulador de Armazenamento do Azure** e selecione **Emulador de Armazenamento do Microsoft Azure** na lista de aplicativos.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-129">Begin typing **Azure Storage Emulator**, and select **Microsoft Azure Storage Emulator** from the list of applications.</span></span>
+<span data-ttu-id="d9bbc-128">emulador de armazenamento do Azure toostart hello, selecione Olá **iniciar** Olá botão ou pressione **Windows** chave.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-128">toostart hello Azure storage emulator, select hello **Start** button or press hello **Windows** key.</span></span> <span data-ttu-id="d9bbc-129">Comece digitando **emulador de armazenamento do Azure**e selecione **emulador de armazenamento do Microsoft Azure** da lista de saudação de aplicativos.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-129">Begin typing **Azure Storage Emulator**, and select **Microsoft Azure Storage Emulator** from hello list of applications.</span></span>
 
-<span data-ttu-id="4cdc0-130">Os exemplos abaixo pressupõem que você usou um desses dois métodos para obter a cadeia de conexão do armazenamento.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-130">The following samples assume that you have used one of these two methods to get the storage connection string.</span></span>
+<span data-ttu-id="d9bbc-130">Olá exemplos a seguir pressupõem que você usou uma cadeia de conexão de armazenamento esses dois métodos tooget hello.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-130">hello following samples assume that you have used one of these two methods tooget hello storage connection string.</span></span>
 
-## <a name="retrieve-your-connection-string"></a><span data-ttu-id="4cdc0-131">Recuperar sua cadeia de conexão</span><span class="sxs-lookup"><span data-stu-id="4cdc0-131">Retrieve your connection string</span></span>
-<span data-ttu-id="4cdc0-132">É possível usar a classe **cloud_storage_account** para representar as informações da conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-132">You can use the **cloud_storage_account** class to represent your Storage Account information.</span></span> <span data-ttu-id="4cdc0-133">Para recuperar as informações da conta de armazenamento na cadeia de conexão de armazenamento, você pode usar o método **Analisar** .</span><span class="sxs-lookup"><span data-stu-id="4cdc0-133">To retrieve your storage account information from the storage connection string, you can use the **parse** method.</span></span>
+## <a name="retrieve-your-connection-string"></a><span data-ttu-id="d9bbc-131">Recuperar sua cadeia de conexão</span><span class="sxs-lookup"><span data-stu-id="d9bbc-131">Retrieve your connection string</span></span>
+<span data-ttu-id="d9bbc-132">Você pode usar o hello **cloud_storage_account** classe toorepresent suas informações de conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-132">You can use hello **cloud_storage_account** class toorepresent your Storage Account information.</span></span> <span data-ttu-id="d9bbc-133">tooretrieve informações de cadeia de caracteres de conexão de armazenamento Olá da conta de armazenamento, você pode usar o hello **analisar** método.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-133">tooretrieve your storage account information from hello storage connection string, you can use hello **parse** method.</span></span>
 
 ```cpp
 // Retrieve storage account from connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-## <a name="how-to-create-a-queue"></a><span data-ttu-id="4cdc0-134">Como criar uma fila</span><span class="sxs-lookup"><span data-stu-id="4cdc0-134">How to: Create a queue</span></span>
-<span data-ttu-id="4cdc0-135">Um objeto **cloud_queue_client** permite que você obtenha objetos de referência para as filas.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-135">A **cloud_queue_client** object lets you get reference objects for queues.</span></span> <span data-ttu-id="4cdc0-136">O código a seguir cria um objeto **cloud_queue_client**.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-136">The following code creates a **cloud_queue_client** object.</span></span>
+## <a name="how-to-create-a-queue"></a><span data-ttu-id="d9bbc-134">Como criar uma fila</span><span class="sxs-lookup"><span data-stu-id="d9bbc-134">How to: Create a queue</span></span>
+<span data-ttu-id="d9bbc-135">Um objeto **cloud_queue_client** permite que você obtenha objetos de referência para as filas.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-135">A **cloud_queue_client** object lets you get reference objects for queues.</span></span> <span data-ttu-id="d9bbc-136">Olá código a seguir cria um **cloud_queue_client** objeto.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-136">hello following code creates a **cloud_queue_client** object.</span></span>
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -97,115 +97,115 @@ azure::storage::cloud_storage_account storage_account = azure::storage::cloud_st
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 ```
 
-<span data-ttu-id="4cdc0-137">Use o objeto **cloud_queue_client** para obter uma referência para a fila que você deseja usar.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-137">Use the **cloud_queue_client** object to get a reference to the queue you want to use.</span></span> <span data-ttu-id="4cdc0-138">Você poderá criar a fila se ela não existir.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-138">You can create the queue if it doesn't exist.</span></span>
+<span data-ttu-id="d9bbc-137">Saudação de uso **cloud_queue_client** tooget uma fila de toohello de referência que você deseja toouse do objeto.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-137">Use hello **cloud_queue_client** object tooget a reference toohello queue you want toouse.</span></span> <span data-ttu-id="d9bbc-138">Você pode criar a fila de saudação se ele não existir.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-138">You can create hello queue if it doesn't exist.</span></span>
 
 ```cpp
-// Retrieve a reference to a queue.
+// Retrieve a reference tooa queue.
 azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
-// Create the queue if it doesn't already exist.
+// Create hello queue if it doesn't already exist.
  queue.create_if_not_exists();  
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a><span data-ttu-id="4cdc0-139">Como inserir uma mensagem em uma fila</span><span class="sxs-lookup"><span data-stu-id="4cdc0-139">How to: Insert a message into a queue</span></span>
-<span data-ttu-id="4cdc0-140">Para inserir uma mensagem em uma fila existente, primeiro crie uma nova **cloud_queue_message**.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-140">To insert a message into an existing queue, first create a new **cloud_queue_message**.</span></span> <span data-ttu-id="4cdc0-141">Em seguida, chame o método **add_message**.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-141">Next, call the **add_message** method.</span></span> <span data-ttu-id="4cdc0-142">Uma **cloud_queue_message** pode ser criada a partir de uma cadeia de caracteres ou de uma matriz de **bytes**.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-142">A **cloud_queue_message** can be created from either a string or a **byte** array.</span></span> <span data-ttu-id="4cdc0-143">Este é o código que cria uma fila (se ela não existir) e insere a mensagem 'Hello, World':</span><span class="sxs-lookup"><span data-stu-id="4cdc0-143">Here is code which creates a queue (if it doesn't exist) and inserts the message 'Hello, World':</span></span>
+## <a name="how-to-insert-a-message-into-a-queue"></a><span data-ttu-id="d9bbc-139">Como inserir uma mensagem em uma fila</span><span class="sxs-lookup"><span data-stu-id="d9bbc-139">How to: Insert a message into a queue</span></span>
+<span data-ttu-id="d9bbc-140">tooinsert uma mensagem em uma fila existente, primeiro crie um novo **cloud_queue_message**.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-140">tooinsert a message into an existing queue, first create a new **cloud_queue_message**.</span></span> <span data-ttu-id="d9bbc-141">Em seguida, chame Olá **add_message** método.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-141">Next, call hello **add_message** method.</span></span> <span data-ttu-id="d9bbc-142">Uma **cloud_queue_message** pode ser criada a partir de uma cadeia de caracteres ou de uma matriz de **bytes**.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-142">A **cloud_queue_message** can be created from either a string or a **byte** array.</span></span> <span data-ttu-id="d9bbc-143">Aqui está o código que cria uma fila (se não existir) e a mensagem de saudação inserções 'Hello, World':</span><span class="sxs-lookup"><span data-stu-id="d9bbc-143">Here is code which creates a queue (if it doesn't exist) and inserts hello message 'Hello, World':</span></span>
 
 ```cpp
 // Retrieve storage account from connection-string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the queue client.
+// Create hello queue client.
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 
-// Retrieve a reference to a queue.
+// Retrieve a reference tooa queue.
 azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
-// Create the queue if it doesn't already exist.
+// Create hello queue if it doesn't already exist.
 queue.create_if_not_exists();
 
-// Create a message and add it to the queue.
+// Create a message and add it toohello queue.
 azure::storage::cloud_queue_message message1(U("Hello, World"));
 queue.add_message(message1);  
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a><span data-ttu-id="4cdc0-144">Como inspecionar a próxima mensagem</span><span class="sxs-lookup"><span data-stu-id="4cdc0-144">How to: Peek at the next message</span></span>
-<span data-ttu-id="4cdc0-145">Você pode espiar a mensagem na frente de uma fila sem removê-la da fila chamando o método **peek_message**.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-145">You can peek at the message in the front of a queue without removing it from the queue by calling the **peek_message** method.</span></span>
+## <a name="how-to-peek-at-hello-next-message"></a><span data-ttu-id="d9bbc-144">Como: espiar a próxima mensagem de saudação</span><span class="sxs-lookup"><span data-stu-id="d9bbc-144">How to: Peek at hello next message</span></span>
+<span data-ttu-id="d9bbc-145">Você pode inspecionar mensagem de saudação na frente de saudação de uma fila sem removê-la da fila de saudação por chamada hello **peek_message** método.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-145">You can peek at hello message in hello front of a queue without removing it from hello queue by calling hello **peek_message** method.</span></span>
 
 ```cpp
 // Retrieve storage account from connection-string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the queue client.
+// Create hello queue client.
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 
-// Retrieve a reference to a queue.
+// Retrieve a reference tooa queue.
 azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
-// Peek at the next message.
+// Peek at hello next message.
 azure::storage::cloud_queue_message peeked_message = queue.peek_message();
 
-// Output the message content.
+// Output hello message content.
 std::wcout << U("Peeked message content: ") << peeked_message.content_as_string() << std::endl;
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a><span data-ttu-id="4cdc0-146">Como alterar o conteúdo de uma mensagem em fila</span><span class="sxs-lookup"><span data-stu-id="4cdc0-146">How to: Change the contents of a queued message</span></span>
-<span data-ttu-id="4cdc0-147">Você pode alterar o conteúdo de uma mensagem in-loco na fila.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-147">You can change the contents of a message in-place in the queue.</span></span> <span data-ttu-id="4cdc0-148">Se a mensagem representar uma tarefa de trabalho, você poderá usar esse recurso para atualizar o status da tarefa de trabalho.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-148">If the message represents a work task, you could use this feature to update the status of the work task.</span></span> <span data-ttu-id="4cdc0-149">O código a seguir atualiza a mensagem da fila com novo conteúdo e define o tempo limite de visibilidade para estender mais 60 segundos.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-149">The following code updates the queue message with new contents, and sets the visibility timeout to extend another 60 seconds.</span></span> <span data-ttu-id="4cdc0-150">Isso salva o estado do trabalho associado à mensagem e dá ao cliente mais um minuto para continuar trabalhando na mensagem.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-150">This saves the state of work associated with the message, and gives the client another minute to continue working on the message.</span></span> <span data-ttu-id="4cdc0-151">Você pode usar essa técnica para acompanhar fluxos de trabalho de várias etapas em mensagens em fila, sem a necessidade de começar desde o início, caso uma etapa de processamento falhar devido a uma falha de hardware ou de software.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-151">You could use this technique to track multi-step workflows on queue messages, without having to start over from the beginning if a processing step fails due to hardware or software failure.</span></span> <span data-ttu-id="4cdc0-152">Normalmente, você mantém uma contagem de repetições e, se a mensagem for repetida mais de n vezes, você a exclui.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-152">Typically, you would keep a retry count as well, and if the message is retried more than n times, you would delete it.</span></span> <span data-ttu-id="4cdc0-153">Isso protege contra uma mensagem que dispara um erro do aplicativo sempre que for processada.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-153">This protects against a message that triggers an application error each time it is processed.</span></span>
+## <a name="how-to-change-hello-contents-of-a-queued-message"></a><span data-ttu-id="d9bbc-146">Como: alterar o conteúdo de saudação de uma mensagem na fila</span><span class="sxs-lookup"><span data-stu-id="d9bbc-146">How to: Change hello contents of a queued message</span></span>
+<span data-ttu-id="d9bbc-147">Você pode alterar o conteúdo de saudação de um mensagem no local na fila de saudação.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-147">You can change hello contents of a message in-place in hello queue.</span></span> <span data-ttu-id="d9bbc-148">Se a mensagem de saudação representa uma tarefa de trabalho, você pode usar esse status do recurso tooupdate Olá da tarefa de trabalho hello.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-148">If hello message represents a work task, you could use this feature tooupdate hello status of hello work task.</span></span> <span data-ttu-id="d9bbc-149">saudação de código a seguir atualiza a mensagem da fila de saudação com novo conteúdo e conjuntos Olá tooextend de tempo limite de visibilidade outro 60 segundos.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-149">hello following code updates hello queue message with new contents, and sets hello visibility timeout tooextend another 60 seconds.</span></span> <span data-ttu-id="d9bbc-150">Isso salva o estado de saudação do trabalho associado à mensagem de saudação e fornece cliente Olá outro toocontinue minuto trabalhando na mensagem de saudação.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-150">This saves hello state of work associated with hello message, and gives hello client another minute toocontinue working on hello message.</span></span> <span data-ttu-id="d9bbc-151">Você pode usar esta técnica tootrack várias etapas os fluxos de trabalho na fila de mensagens, sem ter que toostart através do hello início se uma etapa de processamento falhar devido a falha de toohardware ou software.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-151">You could use this technique tootrack multi-step workflows on queue messages, without having toostart over from hello beginning if a processing step fails due toohardware or software failure.</span></span> <span data-ttu-id="d9bbc-152">Normalmente, você mantém uma contagem de tentativa e se a mensagem de saudação é repetida mais de n vezes, você deve excluí-lo.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-152">Typically, you would keep a retry count as well, and if hello message is retried more than n times, you would delete it.</span></span> <span data-ttu-id="d9bbc-153">Isso protege contra uma mensagem que dispara um erro do aplicativo sempre que for processada.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-153">This protects against a message that triggers an application error each time it is processed.</span></span>
 
 ```cpp
 // Retrieve storage account from connection-string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_conection_string);
 
-// Create the queue client.
+// Create hello queue client.
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 
-// Retrieve a reference to a queue.
+// Retrieve a reference tooa queue.
 azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
-// Get the message from the queue and update the message contents.
-// The visibility timeout "0" means make it visible immediately.
-// The visibility timeout "60" means the client can get another minute to continue
-// working on the message.
+// Get hello message from hello queue and update hello message contents.
+// hello visibility timeout "0" means make it visible immediately.
+// hello visibility timeout "60" means hello client can get another minute toocontinue
+// working on hello message.
 azure::storage::cloud_queue_message changed_message = queue.get_message();
 
 changed_message.set_content(U("Changed message"));
 queue.update_message(changed_message, std::chrono::seconds(60), true);
 
-// Output the message content.
+// Output hello message content.
 std::wcout << U("Changed message content: ") << changed_message.content_as_string() << std::endl;  
 ```
 
-## <a name="how-to-de-queue-the-next-message"></a><span data-ttu-id="4cdc0-154">Como remover a próxima mensagem da fila</span><span class="sxs-lookup"><span data-stu-id="4cdc0-154">How to: De-queue the next message</span></span>
-<span data-ttu-id="4cdc0-155">Seu código remove uma mensagem de um fila em duas etapas.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-155">Your code de-queues a message from a queue in two steps.</span></span> <span data-ttu-id="4cdc0-156">Ao chamar **get_message**, você recebe a próxima mensagem em uma fila.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-156">When you call **get_message**, you get the next message in a queue.</span></span> <span data-ttu-id="4cdc0-157">A mensagem retornada de **get_message** torna-se invisível para qualquer outro código que lê mensagens nessa fila.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-157">A message returned from **get_message** becomes invisible to any other code reading messages from this queue.</span></span> <span data-ttu-id="4cdc0-158">Para concluir a remoção da mensagem da fila, chame também **delete_message**.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-158">To finish removing the message from the queue, you must also call **delete_message**.</span></span> <span data-ttu-id="4cdc0-159">Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-159">This two-step process of removing a message assures that if your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again.</span></span> <span data-ttu-id="4cdc0-160">O código chama **delete_message** logo depois que a mensagem é processada.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-160">Your code calls **delete_message** right after the message has been processed.</span></span>
+## <a name="how-to-de-queue-hello-next-message"></a><span data-ttu-id="d9bbc-154">Como: eliminação da fila de mensagem de saudação do próxima</span><span class="sxs-lookup"><span data-stu-id="d9bbc-154">How to: De-queue hello next message</span></span>
+<span data-ttu-id="d9bbc-155">Seu código remove uma mensagem de um fila em duas etapas.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-155">Your code de-queues a message from a queue in two steps.</span></span> <span data-ttu-id="d9bbc-156">Quando você chama **get_message**, obter próxima mensagem de saudação em uma fila.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-156">When you call **get_message**, you get hello next message in a queue.</span></span> <span data-ttu-id="d9bbc-157">Uma mensagem retornada de **get_message** se torna invisível tooany outro código de leitura de mensagens dessa fila.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-157">A message returned from **get_message** becomes invisible tooany other code reading messages from this queue.</span></span> <span data-ttu-id="d9bbc-158">toofinish mensagem de saudação remover da fila hello, você também deve chamar **delete_message**.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-158">toofinish removing hello message from hello queue, you must also call **delete_message**.</span></span> <span data-ttu-id="d9bbc-159">Esse processo de duas etapas de remoção de uma mensagem garante que se seu código falha tooprocess que uma mensagem devido a falha de toohardware ou software, outra instância do seu código pode obter Olá a mesma mensagem e tente novamente.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-159">This two-step process of removing a message assures that if your code fails tooprocess a message due toohardware or software failure, another instance of your code can get hello same message and try again.</span></span> <span data-ttu-id="d9bbc-160">Seu código chama **delete_message** logo depois que a mensagem de saudação foi processada.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-160">Your code calls **delete_message** right after hello message has been processed.</span></span>
 
 ```cpp
 // Retrieve storage account from connection-string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the queue client.
+// Create hello queue client.
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 
-// Retrieve a reference to a queue.
+// Retrieve a reference tooa queue.
 azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
-// Get the next message.
+// Get hello next message.
 azure::storage::cloud_queue_message dequeued_message = queue.get_message();
 std::wcout << U("Dequeued message: ") << dequeued_message.content_as_string() << std::endl;
 
-// Delete the message.
+// Delete hello message.
 queue.delete_message(dequeued_message);
 ```
 
-## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a><span data-ttu-id="4cdc0-161">Como: aproveitar as opções adicionais para remover mensagens da fila</span><span class="sxs-lookup"><span data-stu-id="4cdc0-161">How to: Leverage additional options for de-queuing messages</span></span>
-<span data-ttu-id="4cdc0-162">Há duas maneiras de personalizar a recuperação da mensagem de uma fila.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-162">There are two ways you can customize message retrieval from a queue.</span></span> <span data-ttu-id="4cdc0-163">Primeiro, você pode obter um lote de mensagens (até 32).</span><span class="sxs-lookup"><span data-stu-id="4cdc0-163">First, you can get a batch of messages (up to 32).</span></span> <span data-ttu-id="4cdc0-164">Segundo, você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-164">Second, you can set a longer or shorter invisibility timeout, allowing your code more or less time to fully process each message.</span></span> <span data-ttu-id="4cdc0-165">O exemplo de código a seguir usa o método **get_messages** para receber 20 mensagens em uma chamada.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-165">The following code example uses the **get_messages** method to get 20 messages in one call.</span></span> <span data-ttu-id="4cdc0-166">Em seguida, ele processa cada mensagem usando um loop **for** .</span><span class="sxs-lookup"><span data-stu-id="4cdc0-166">Then it processes each message using a **for** loop.</span></span> <span data-ttu-id="4cdc0-167">Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-167">It also sets the invisibility timeout to five minutes for each message.</span></span> <span data-ttu-id="4cdc0-168">Observe que os 5 minutos começam para todas as mensagens ao mesmo tempo; portanto, depois de 5 minutos desde a chamada para **get_messages**, qualquer mensagem não excluída ficará visível novamente.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-168">Note that the 5 minutes starts for all messages at the same time, so after 5 minutes have passed since the call to **get_messages**, any messages which have not been deleted will become visible again.</span></span>
+## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a><span data-ttu-id="d9bbc-161">Como: aproveitar as opções adicionais para remover mensagens da fila</span><span class="sxs-lookup"><span data-stu-id="d9bbc-161">How to: Leverage additional options for de-queuing messages</span></span>
+<span data-ttu-id="d9bbc-162">Há duas maneiras de personalizar a recuperação da mensagem de uma fila.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-162">There are two ways you can customize message retrieval from a queue.</span></span> <span data-ttu-id="d9bbc-163">Primeiro, você pode obter um lote de mensagens (até too32).</span><span class="sxs-lookup"><span data-stu-id="d9bbc-163">First, you can get a batch of messages (up too32).</span></span> <span data-ttu-id="d9bbc-164">Em seguida, você pode definir um tempo limite de invisibilidade maiores ou menores, permitindo que o código mais ou menos tempo toofully processam cada mensagem.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-164">Second, you can set a longer or shorter invisibility timeout, allowing your code more or less time toofully process each message.</span></span> <span data-ttu-id="d9bbc-165">Olá, exemplo de código a seguir usa Olá **get_messages** mensagens tooget 20 de método em uma chamada.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-165">hello following code example uses hello **get_messages** method tooget 20 messages in one call.</span></span> <span data-ttu-id="d9bbc-166">Em seguida, ele processa cada mensagem usando um loop **for** .</span><span class="sxs-lookup"><span data-stu-id="d9bbc-166">Then it processes each message using a **for** loop.</span></span> <span data-ttu-id="d9bbc-167">Ele também define minutos de toofive de tempo limite de invisibilidade de saudação para cada mensagem.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-167">It also sets hello invisibility timeout toofive minutes for each message.</span></span> <span data-ttu-id="d9bbc-168">Observe que Olá 5 minutos é iniciado para todas as mensagens com hello a mesma hora, após 5 minutos se passaram desde chamada hello muito**get_messages**, qualquer mensagem que não foram excluídas se tornará visível novamente.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-168">Note that hello 5 minutes starts for all messages at hello same time, so after 5 minutes have passed since hello call too**get_messages**, any messages which have not been deleted will become visible again.</span></span>
 
 ```cpp
 // Retrieve storage account from connection-string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the queue client.
+// Create hello queue client.
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 
-// Retrieve a reference to a queue.
+// Retrieve a reference tooa queue.
 azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
 // Dequeue some queue messages (maximum 32 at a time) and set their visibility timeout to
@@ -213,61 +213,61 @@ azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sampl
 azure::storage::queue_request_options options;
 azure::storage::operation_context context;
 
-// Retrieve 20 messages from the queue with a visibility timeout of 300 seconds.
+// Retrieve 20 messages from hello queue with a visibility timeout of 300 seconds.
 std::vector<azure::storage::cloud_queue_message> messages = queue.get_messages(20, std::chrono::seconds(300), options, context);
 
 for (auto it = messages.cbegin(); it != messages.cend(); ++it)
 {
-    // Display the contents of the message.
+    // Display hello contents of hello message.
     std::wcout << U("Get: ") << it->content_as_string() << std::endl;
 }
 ```
 
-## <a name="how-to-get-the-queue-length"></a><span data-ttu-id="4cdc0-169">Como obter o comprimento da fila</span><span class="sxs-lookup"><span data-stu-id="4cdc0-169">How to: Get the queue length</span></span>
-<span data-ttu-id="4cdc0-170">Você pode obter uma estimativa do número de mensagens em uma fila.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-170">You can get an estimate of the number of messages in a queue.</span></span> <span data-ttu-id="4cdc0-171">O método **download_attributes** solicita que o serviço de fila recupere os atributos da fila, incluindo a contagem de mensagens.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-171">The **download_attributes** method asks the Queue service to retrieve the queue attributes, including the message count.</span></span> <span data-ttu-id="4cdc0-172">O método **approximate_message_count** obtém o número aproximado de mensagens na fila.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-172">The **approximate_message_count** method gets the approximate number of messages in the queue.</span></span>
+## <a name="how-to-get-hello-queue-length"></a><span data-ttu-id="d9bbc-169">Como: obter o comprimento da fila de saudação</span><span class="sxs-lookup"><span data-stu-id="d9bbc-169">How to: Get hello queue length</span></span>
+<span data-ttu-id="d9bbc-170">Você pode obter uma estimativa do número de saudação de mensagens em uma fila.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-170">You can get an estimate of hello number of messages in a queue.</span></span> <span data-ttu-id="d9bbc-171">Olá **download_attributes** método solicita tooretrieve de serviço de fila Olá atributos da fila hello, incluindo o número de mensagens de saudação.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-171">hello **download_attributes** method asks hello Queue service tooretrieve hello queue attributes, including hello message count.</span></span> <span data-ttu-id="d9bbc-172">Olá **approximate_message_count** método obtém o número aproximado de saudação de mensagens na fila de saudação.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-172">hello **approximate_message_count** method gets hello approximate number of messages in hello queue.</span></span>
 
 ```cpp
 // Retrieve storage account from connection-string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the queue client.
+// Create hello queue client.
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 
-// Retrieve a reference to a queue.
+// Retrieve a reference tooa queue.
 azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
-// Fetch the queue attributes.
+// Fetch hello queue attributes.
 queue.download_attributes();
 
-// Retrieve the cached approximate message count.
+// Retrieve hello cached approximate message count.
 int cachedMessageCount = queue.approximate_message_count();
 
 // Display number of messages.
 std::wcout << U("Number of messages in queue: ") << cachedMessageCount << std::endl;  
 ```
 
-## <a name="how-to-delete-a-queue"></a><span data-ttu-id="4cdc0-173">Como excluir uma fila</span><span class="sxs-lookup"><span data-stu-id="4cdc0-173">How to: Delete a queue</span></span>
-<span data-ttu-id="4cdc0-174">Para excluir uma fila e todas as mensagens contidas nela, chame o método **delete_queue_if_exists** no objeto de fila.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-174">To delete a queue and all the messages contained in it, call the **delete_queue_if_exists** method on the queue object.</span></span>
+## <a name="how-to-delete-a-queue"></a><span data-ttu-id="d9bbc-173">Como excluir uma fila</span><span class="sxs-lookup"><span data-stu-id="d9bbc-173">How to: Delete a queue</span></span>
+<span data-ttu-id="d9bbc-174">toodelete uma fila e todas as mensagens de saudação contidas nele, chamada hello **delete_queue_if_exists** método no objeto de fila de saudação.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-174">toodelete a queue and all hello messages contained in it, call hello **delete_queue_if_exists** method on hello queue object.</span></span>
 
 ```cpp
 // Retrieve storage account from connection-string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the queue client.
+// Create hello queue client.
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 
-// Retrieve a reference to a queue.
+// Retrieve a reference tooa queue.
 azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
-// If the queue exists and delete it.
+// If hello queue exists and delete it.
 queue.delete_queue_if_exists();  
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="4cdc0-175">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="4cdc0-175">Next steps</span></span>
-<span data-ttu-id="4cdc0-176">Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga estes links para saber mais sobre o armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="4cdc0-176">Now that you've learned the basics of Queue storage, follow these links to learn more about Azure Storage.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="d9bbc-175">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="d9bbc-175">Next steps</span></span>
+<span data-ttu-id="d9bbc-176">Agora que você aprendeu as Noções básicas de saudação do armazenamento de fila, siga essas toolearn links mais sobre o armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="d9bbc-176">Now that you've learned hello basics of Queue storage, follow these links toolearn more about Azure Storage.</span></span>
 
-* [<span data-ttu-id="4cdc0-177">Como usar o Armazenamento de Blobs do C++</span><span class="sxs-lookup"><span data-stu-id="4cdc0-177">How to use Blob Storage from C++</span></span>](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [<span data-ttu-id="4cdc0-178">Como usar o Armazenamento de Tabelas do C++</span><span class="sxs-lookup"><span data-stu-id="4cdc0-178">How to use Table Storage from C++</span></span>](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [<span data-ttu-id="4cdc0-179">Listar recursos de Armazenamento do Azure em C++</span><span class="sxs-lookup"><span data-stu-id="4cdc0-179">List Azure Storage Resources in C++</span></span>](../common/storage-c-plus-plus-enumeration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
-* [<span data-ttu-id="4cdc0-180">Referência da Biblioteca de Cliente de Armazenamento para C++</span><span class="sxs-lookup"><span data-stu-id="4cdc0-180">Storage Client Library for C++ Reference</span></span>](http://azure.github.io/azure-storage-cpp)
-* [<span data-ttu-id="4cdc0-181">Documentação do Armazenamento do Azure</span><span class="sxs-lookup"><span data-stu-id="4cdc0-181">Azure Storage Documentation</span></span>](https://azure.microsoft.com/documentation/services/storage/)
+* [<span data-ttu-id="d9bbc-177">Como toouse armazenamento de Blob de C++</span><span class="sxs-lookup"><span data-stu-id="d9bbc-177">How toouse Blob Storage from C++</span></span>](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [<span data-ttu-id="d9bbc-178">Como toouse o armazenamento de tabela do C++</span><span class="sxs-lookup"><span data-stu-id="d9bbc-178">How toouse Table Storage from C++</span></span>](../../cosmos-db/table-storage-how-to-use-c-plus.md)
+* [<span data-ttu-id="d9bbc-179">Listar recursos de Armazenamento do Azure em C++</span><span class="sxs-lookup"><span data-stu-id="d9bbc-179">List Azure Storage Resources in C++</span></span>](../common/storage-c-plus-plus-enumeration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+* [<span data-ttu-id="d9bbc-180">Referência da Biblioteca de Cliente de Armazenamento para C++</span><span class="sxs-lookup"><span data-stu-id="d9bbc-180">Storage Client Library for C++ Reference</span></span>](http://azure.github.io/azure-storage-cpp)
+* [<span data-ttu-id="d9bbc-181">Documentação do Armazenamento do Azure</span><span class="sxs-lookup"><span data-stu-id="d9bbc-181">Azure Storage Documentation</span></span>](https://azure.microsoft.com/documentation/services/storage/)

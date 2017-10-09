@@ -1,6 +1,6 @@
 ---
-title: Uso da CLI do Azure 2.0 com o Armazenamento do Azure | Microsoft Docs
-description: "Saiba como usar a CLI (Interface de Linha de Comando) do Azure 2.0 com o Armazenamento do Azure para criar e gerenciar contas de armazenamento, bem como trabalhar com blobs e arquivos do Azure. O CLI do Azure 2.0 é uma ferramenta de plataforma cruzada escrita em Python."
+title: "Olá aaaUsing 2.0 do CLI do Azure com o armazenamento do Azure | Microsoft Docs"
+description: "Saiba como toouse hello Azure Interface de linha de comando (CLI do Azure) 2.0 com toocreate de armazenamento do Azure e gerencie contas de armazenamento e trabalhar com arquivos e blobs do Azure. Olá 2.0 do CLI do Azure é uma ferramenta de plataforma cruzada escrita em Python."
 services: storage
 documentationcenter: na
 author: mmacy
@@ -14,40 +14,40 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: marsma
-ms.openlocfilehash: 6098216f7dd901ea48fb3ab969c7934cc288b247
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 38402373dcd87f1ef05471a02353c77d58f1a9fe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="using-the-azure-cli-20-with-azure-storage"></a><span data-ttu-id="dce3a-104">Uso da CLI do Azure 2.0 com o Armazenamento do Azure</span><span class="sxs-lookup"><span data-stu-id="dce3a-104">Using the Azure CLI 2.0 with Azure Storage</span></span>
+# <a name="using-hello-azure-cli-20-with-azure-storage"></a><span data-ttu-id="8b988-104">Usando Olá 2.0 do CLI do Azure com o armazenamento do Azure</span><span class="sxs-lookup"><span data-stu-id="8b988-104">Using hello Azure CLI 2.0 with Azure Storage</span></span>
 
-<span data-ttu-id="dce3a-105">A CLI do Azure 2.0 de software livre e plataforma cruzada fornece um conjunto de comandos para trabalhar com a Plataforma Azure.</span><span class="sxs-lookup"><span data-stu-id="dce3a-105">The open-source, cross-platform Azure CLI 2.0 provides a set of commands for working with the Azure platform.</span></span> <span data-ttu-id="dce3a-106">Ela fornece grande parte das mesmas funcionalidades encontradas no [Portal do Azure](https://portal.azure.com), incluindo acesso a dados avançado.</span><span class="sxs-lookup"><span data-stu-id="dce3a-106">It provides much of the same functionality found in the [Azure portal](https://portal.azure.com), including rich data access.</span></span>
+<span data-ttu-id="8b988-105">Olá código-fonte, a plataforma cruzada do Azure CLI 2.0 fornece um conjunto de comandos para trabalhar com hello plataforma Windows Azure.</span><span class="sxs-lookup"><span data-stu-id="8b988-105">hello open-source, cross-platform Azure CLI 2.0 provides a set of commands for working with hello Azure platform.</span></span> <span data-ttu-id="8b988-106">Ele fornece grande parte da saudação mesma funcionalidade encontrada no hello [portal do Azure](https://portal.azure.com), incluindo o acesso de dados avançados.</span><span class="sxs-lookup"><span data-stu-id="8b988-106">It provides much of hello same functionality found in hello [Azure portal](https://portal.azure.com), including rich data access.</span></span>
 
-<span data-ttu-id="dce3a-107">Neste guia, mostraremos como usar a [CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) para executar várias tarefas ao trabalhar com recursos na sua conta de Armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="dce3a-107">In this guide, we show you how to use the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) to perform several tasks working with resources in your Azure Storage account.</span></span> <span data-ttu-id="dce3a-108">É recomendável baixar e instalar ou atualizar para a versão mais recente da CLI 2.0 antes usar este guia.</span><span class="sxs-lookup"><span data-stu-id="dce3a-108">We recommend that you download and install or upgrade to the latest version of the CLI 2.0 before using this guide.</span></span>
+<span data-ttu-id="8b988-107">Neste guia, mostramos como Olá toouse [2.0 do CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) tooperform várias tarefas trabalhando com recursos em sua conta de armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="8b988-107">In this guide, we show you how toouse hello [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) tooperform several tasks working with resources in your Azure Storage account.</span></span> <span data-ttu-id="8b988-108">É recomendável baixar e instalar ou atualizar a versão mais recente toohello de saudação CLI 2.0 antes de usar este guia.</span><span class="sxs-lookup"><span data-stu-id="8b988-108">We recommend that you download and install or upgrade toohello latest version of hello CLI 2.0 before using this guide.</span></span>
 
-<span data-ttu-id="dce3a-109">Os exemplos neste guia supõem o uso do shell Bash no Ubuntu, mas outras plataformas devem funcionar de forma semelhante.</span><span class="sxs-lookup"><span data-stu-id="dce3a-109">The examples in the guide assume the use of the Bash shell on Ubuntu, but other platforms should perform similarly.</span></span> 
+<span data-ttu-id="8b988-109">exemplos de saudação guia Olá assumem uso Olá Olá shell Bash no Ubuntu, mas outras plataformas devem ser executadas da mesma forma.</span><span class="sxs-lookup"><span data-stu-id="8b988-109">hello examples in hello guide assume hello use of hello Bash shell on Ubuntu, but other platforms should perform similarly.</span></span> 
 
 [!INCLUDE [storage-cli-versions](../../includes/storage-cli-versions.md)]
 
-## <a name="prerequisites"></a><span data-ttu-id="dce3a-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="dce3a-110">Prerequisites</span></span>
-<span data-ttu-id="dce3a-111">Este guia pressupõe que você conhece os conceitos básicos do Armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="dce3a-111">This guide assumes that you understand the basic concepts of Azure Storage.</span></span> <span data-ttu-id="dce3a-112">Ele também pressupõe que você é capaz de satisfazer os requisitos de criação de conta especificados abaixo para o serviço do Azure e de Armazenamento.</span><span class="sxs-lookup"><span data-stu-id="dce3a-112">It also assumes that you're able to satisfy the account creation requirements that are specified below for Azure and the Storage service.</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="8b988-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="8b988-110">Prerequisites</span></span>
+<span data-ttu-id="8b988-111">Este guia pressupõe que você entender os conceitos básicos de saudação do armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="8b988-111">This guide assumes that you understand hello basic concepts of Azure Storage.</span></span> <span data-ttu-id="8b988-112">Ele também pressupõe que você é capaz de toosatisfy Olá conta criação requisitos especificados abaixo para o Azure e Olá serviço de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="8b988-112">It also assumes that you're able toosatisfy hello account creation requirements that are specified below for Azure and hello Storage service.</span></span>
 
-### <a name="accounts"></a><span data-ttu-id="dce3a-113">Contas</span><span class="sxs-lookup"><span data-stu-id="dce3a-113">Accounts</span></span>
-* <span data-ttu-id="dce3a-114">**Conta do Azure**: se você ainda não tiver uma assinatura do Azure, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/).</span><span class="sxs-lookup"><span data-stu-id="dce3a-114">**Azure account**: If you don't already have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/).</span></span>
-* <span data-ttu-id="dce3a-115">**Conta de armazenamento**: veja [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md).</span><span class="sxs-lookup"><span data-stu-id="dce3a-115">**Storage account**: See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).</span></span>
+### <a name="accounts"></a><span data-ttu-id="8b988-113">Contas</span><span class="sxs-lookup"><span data-stu-id="8b988-113">Accounts</span></span>
+* <span data-ttu-id="8b988-114">**Conta do Azure**: se você ainda não tiver uma assinatura do Azure, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/).</span><span class="sxs-lookup"><span data-stu-id="8b988-114">**Azure account**: If you don't already have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/).</span></span>
+* <span data-ttu-id="8b988-115">**Conta de armazenamento**: veja [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md).</span><span class="sxs-lookup"><span data-stu-id="8b988-115">**Storage account**: See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).</span></span>
 
-### <a name="install-the-azure-cli-20"></a><span data-ttu-id="dce3a-116">Instalar a CLI do Azure 2.0</span><span class="sxs-lookup"><span data-stu-id="dce3a-116">Install the Azure CLI 2.0</span></span>
+### <a name="install-hello-azure-cli-20"></a><span data-ttu-id="8b988-116">Instalar Olá 2.0 do CLI do Azure</span><span class="sxs-lookup"><span data-stu-id="8b988-116">Install hello Azure CLI 2.0</span></span>
 
-<span data-ttu-id="dce3a-117">Baixe e instale a CLI do Azure 2.0 seguindo as instruções descritas em [Instalar a CLI do Azure 2.0](/cli/azure/install-az-cli2).</span><span class="sxs-lookup"><span data-stu-id="dce3a-117">Download and install the Azure CLI 2.0 by following the instructions outlined in [Install Azure CLI 2.0](/cli/azure/install-az-cli2).</span></span>
+<span data-ttu-id="8b988-117">Baixe e instale o hello Azure CLI 2.0 seguindo as instruções Olá descritas no [instalar o Azure CLI 2.0](/cli/azure/install-az-cli2).</span><span class="sxs-lookup"><span data-stu-id="8b988-117">Download and install hello Azure CLI 2.0 by following hello instructions outlined in [Install Azure CLI 2.0](/cli/azure/install-az-cli2).</span></span>
 
 > [!TIP]
-> <span data-ttu-id="dce3a-118">Se você tiver problemas com a instalação, confira a seção [Solucionando problemas de instalação](/cli/azure/install-az-cli2#installation-troubleshooting) do artigo e o guia [Solucionar Problemas de Instalação](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) no GitHub.</span><span class="sxs-lookup"><span data-stu-id="dce3a-118">If you have trouble with the installation, check out the [Installation Troubleshooting](/cli/azure/install-az-cli2#installation-troubleshooting) section of the article, and the [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) guide on GitHub.</span></span>
+> <span data-ttu-id="8b988-118">Se você tiver problemas com a instalação Olá, confira Olá [solução de problemas de instalação](/cli/azure/install-az-cli2#installation-troubleshooting) seção do artigo hello e hello [instalar de solução de problemas](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) guia no GitHub.</span><span class="sxs-lookup"><span data-stu-id="8b988-118">If you have trouble with hello installation, check out hello [Installation Troubleshooting](/cli/azure/install-az-cli2#installation-troubleshooting) section of hello article, and hello [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) guide on GitHub.</span></span>
 >
 
-## <a name="working-with-the-cli"></a><span data-ttu-id="dce3a-119">Trabalhando com a CLI</span><span class="sxs-lookup"><span data-stu-id="dce3a-119">Working with the CLI</span></span>
+## <a name="working-with-hello-cli"></a><span data-ttu-id="8b988-119">Trabalhando com hello CLI</span><span class="sxs-lookup"><span data-stu-id="8b988-119">Working with hello CLI</span></span>
 
-<span data-ttu-id="dce3a-120">Depois de instalar a CLI, você poderá usar o comando `az` na sua interface de linha de comando (Bash, Terminal e Prompt de Comando) para acessar os comandos da CLI do Azure.</span><span class="sxs-lookup"><span data-stu-id="dce3a-120">Once you've installed the CLI, you can use the `az` command in your command-line interface (Bash, Terminal, Command Prompt) to access the Azure CLI commands.</span></span> <span data-ttu-id="dce3a-121">Digite o comando `az` para ver uma lista completa dos comandos de base (a saída de exemplo a seguir foi truncada):</span><span class="sxs-lookup"><span data-stu-id="dce3a-121">Type the `az` command to see a full list of the base commands (the following example output has been truncated):</span></span>
+<span data-ttu-id="8b988-120">Depois de instalar a saudação CLI, você pode usar o hello `az` comando em seus comandos de CLI do Azure de saudação de tooaccess de interface de linha de comando (Bash, Terminal, Prompt de comando).</span><span class="sxs-lookup"><span data-stu-id="8b988-120">Once you've installed hello CLI, you can use hello `az` command in your command-line interface (Bash, Terminal, Command Prompt) tooaccess hello Azure CLI commands.</span></span> <span data-ttu-id="8b988-121">Saudação de tipo `az` toosee comando uma lista completa de comandos de base hello (Olá saída de exemplo a seguir foi truncada):</span><span class="sxs-lookup"><span data-stu-id="8b988-121">Type hello `az` command toosee a full list of hello base commands (hello following example output has been truncated):</span></span>
 
 ```
      /\
@@ -57,9 +57,9 @@ ms.lasthandoff: 07/11/2017
  /_/    \_\/___|\__,_|_|  \___|
 
 
-Welcome to the cool new Azure CLI!
+Welcome toohello cool new Azure CLI!
 
-Here are the base commands:
+Here are hello base commands:
 
     account          : Manage subscriptions.
     acr              : Manage Azure container registries.
@@ -69,7 +69,7 @@ Here are the base commands:
     ...
 ```
 
-<span data-ttu-id="dce3a-122">Na sua interface de linha de comando, execute o comando `az storage --help` para listar os subgrupos do comando `storage`.</span><span class="sxs-lookup"><span data-stu-id="dce3a-122">In your command-line interface, execute the command `az storage --help` to list the `storage` command subgroups.</span></span> <span data-ttu-id="dce3a-123">As descrições dos subgrupos fornecem uma visão geral da funcionalidade que a CLI do Azure fornece para trabalhar com seus recursos de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="dce3a-123">The descriptions of the subgroups provide an overview of the functionality the Azure CLI provides for working with your storage resources.</span></span>
+<span data-ttu-id="8b988-122">Na sua interface de linha de comando, execute o comando Olá `az storage --help` Olá toolist `storage` subgrupos de comando.</span><span class="sxs-lookup"><span data-stu-id="8b988-122">In your command-line interface, execute hello command `az storage --help` toolist hello `storage` command subgroups.</span></span> <span data-ttu-id="8b988-123">descrições de saudação de subgrupos de saudação fornecem uma visão geral da saudação de funcionalidade Olá que CLI do Azure fornece para trabalhar com seus recursos de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="8b988-123">hello descriptions of hello subgroups provide an overview of hello functionality hello Azure CLI provides for working with your storage resources.</span></span>
 
 ```
 Group
@@ -82,27 +82,27 @@ Subgroups:
     cors     : Manage Storage service Cross-Origin Resource Sharing (CORS).
     directory: Manage file storage directories.
     entity   : Manage table storage entities.
-    file     : File shares that use the standard SMB 3.0 protocol.
+    file     : File shares that use hello standard SMB 3.0 protocol.
     logging  : Manage Storage service logging information.
     message  : Manage queue storage messages.
     metrics  : Manage Storage service metrics.
-    queue    : Use queues to effectively scale applications according to traffic.
+    queue    : Use queues tooeffectively scale applications according tootraffic.
     share    : Manage file shares.
     table    : NoSQL key-value storage using semi-structured datasets.
 ```
 
-## <a name="connect-the-cli-to-your-azure-subscription"></a><span data-ttu-id="dce3a-124">Conectar a CLI à assinatura do Azure</span><span class="sxs-lookup"><span data-stu-id="dce3a-124">Connect the CLI to your Azure subscription</span></span>
+## <a name="connect-hello-cli-tooyour-azure-subscription"></a><span data-ttu-id="8b988-124">Conecte-se Olá CLI tooyour assinatura do Azure</span><span class="sxs-lookup"><span data-stu-id="8b988-124">Connect hello CLI tooyour Azure subscription</span></span>
 
-<span data-ttu-id="dce3a-125">Para trabalhar com os recursos na sua assinatura do Azure, você deve primeiro fazer logon na conta do Azure com `az login`.</span><span class="sxs-lookup"><span data-stu-id="dce3a-125">To work with the resources in your Azure subscription, you must first log in to your Azure account with `az login`.</span></span> <span data-ttu-id="dce3a-126">Há várias maneiras de fazer logon:</span><span class="sxs-lookup"><span data-stu-id="dce3a-126">There are several ways you can log in:</span></span>
+<span data-ttu-id="8b988-125">toowork com recursos de saudação na sua assinatura do Azure, você deve primeiro fazer logon no tooyour conta do Azure com `az login`.</span><span class="sxs-lookup"><span data-stu-id="8b988-125">toowork with hello resources in your Azure subscription, you must first log in tooyour Azure account with `az login`.</span></span> <span data-ttu-id="8b988-126">Há várias maneiras de fazer logon:</span><span class="sxs-lookup"><span data-stu-id="8b988-126">There are several ways you can log in:</span></span>
 
-* <span data-ttu-id="dce3a-127">**Logon Interativo**: `az login`</span><span class="sxs-lookup"><span data-stu-id="dce3a-127">**Interactive login**: `az login`</span></span>
-* <span data-ttu-id="dce3a-128">**Faça logon com o nome de usuário e senha**: `az login -u johndoe@contoso.com -p VerySecret`</span><span class="sxs-lookup"><span data-stu-id="dce3a-128">**Log in with user name and password**: `az login -u johndoe@contoso.com -p VerySecret`</span></span>
-  * <span data-ttu-id="dce3a-129">Isso não funciona com contas da Microsoft ou contas que usam autenticação multifator.</span><span class="sxs-lookup"><span data-stu-id="dce3a-129">This doesn't work with Microsoft accounts or accounts that use multi-factor authentication.</span></span>
-* <span data-ttu-id="dce3a-130">**Faça logon com uma entidade de serviço**: `az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`</span><span class="sxs-lookup"><span data-stu-id="dce3a-130">**Log in with a service principal**: `az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`</span></span>
+* <span data-ttu-id="8b988-127">**Logon Interativo**: `az login`</span><span class="sxs-lookup"><span data-stu-id="8b988-127">**Interactive login**: `az login`</span></span>
+* <span data-ttu-id="8b988-128">**Faça logon com o nome de usuário e senha**: `az login -u johndoe@contoso.com -p VerySecret`</span><span class="sxs-lookup"><span data-stu-id="8b988-128">**Log in with user name and password**: `az login -u johndoe@contoso.com -p VerySecret`</span></span>
+  * <span data-ttu-id="8b988-129">Isso não funciona com contas da Microsoft ou contas que usam autenticação multifator.</span><span class="sxs-lookup"><span data-stu-id="8b988-129">This doesn't work with Microsoft accounts or accounts that use multi-factor authentication.</span></span>
+* <span data-ttu-id="8b988-130">**Faça logon com uma entidade de serviço**: `az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`</span><span class="sxs-lookup"><span data-stu-id="8b988-130">**Log in with a service principal**: `az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`</span></span>
 
-## <a name="azure-cli-20-sample-script"></a><span data-ttu-id="dce3a-131">Script de exemplo da CLI do Azure 2.0</span><span class="sxs-lookup"><span data-stu-id="dce3a-131">Azure CLI 2.0 sample script</span></span>
+## <a name="azure-cli-20-sample-script"></a><span data-ttu-id="8b988-131">Script de exemplo da CLI do Azure 2.0</span><span class="sxs-lookup"><span data-stu-id="8b988-131">Azure CLI 2.0 sample script</span></span>
 
-<span data-ttu-id="dce3a-132">Em seguida, trabalharemos com um pequeno script shell que emite alguns comandos básicos da CLI do Azure 2.0 para interagir com recursos do Armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="dce3a-132">Next, we'll work with a small shell script that issues a few basic Azure CLI 2.0 commands to interact with Azure Storage resources.</span></span> <span data-ttu-id="dce3a-133">Primeiro, o script cria um novo contêiner na sua conta de armazenamento e carrega um arquivo existente (como um blob) para esse contêiner.</span><span class="sxs-lookup"><span data-stu-id="dce3a-133">The script first creates a new container in your storage account, then uploads an existing file (as a blob) to that container.</span></span> <span data-ttu-id="dce3a-134">Ele lista todos os blobs no contêiner e, por fim, baixa o arquivo para um destino no computador local que você especificar.</span><span class="sxs-lookup"><span data-stu-id="dce3a-134">It then lists all blobs in the container, and finally, downloads the file to a destination on your local computer that you specify.</span></span>
+<span data-ttu-id="8b988-132">Em seguida, trabalharemos com um script de shell pequeno que emite alguns toointeract básica de comandos 2.0 do CLI do Azure com recursos de armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="8b988-132">Next, we'll work with a small shell script that issues a few basic Azure CLI 2.0 commands toointeract with Azure Storage resources.</span></span> <span data-ttu-id="8b988-133">script Hello primeiro cria um novo contêiner na conta de armazenamento, em seguida, carrega um contêiner existente de toothat de arquivo (como um blob).</span><span class="sxs-lookup"><span data-stu-id="8b988-133">hello script first creates a new container in your storage account, then uploads an existing file (as a blob) toothat container.</span></span> <span data-ttu-id="8b988-134">Ele listará todos os blobs no contêiner Olá e por fim, baixa Olá arquivo tooa de destino no computador local que você especificar.</span><span class="sxs-lookup"><span data-stu-id="8b988-134">It then lists all blobs in hello container, and finally, downloads hello file tooa destination on your local computer that you specify.</span></span>
 
 ```bash
 #!/bin/bash
@@ -116,54 +116,54 @@ export blob_name=<blob_name>
 export file_to_upload=<file_to_upload>
 export destination_file=<destination_file>
 
-echo "Creating the container..."
+echo "Creating hello container..."
 az storage container create --name $container_name
 
-echo "Uploading the file..."
+echo "Uploading hello file..."
 az storage blob upload --container-name $container_name --file $file_to_upload --name $blob_name
 
-echo "Listing the blobs..."
+echo "Listing hello blobs..."
 az storage blob list --container-name $container_name --output table
 
-echo "Downloading the file..."
+echo "Downloading hello file..."
 az storage blob download --container-name $container_name --name $blob_name --file $destination_file --output table
 
 echo "Done"
 ```
 
-<span data-ttu-id="dce3a-135">**Configurar e executar o script**</span><span class="sxs-lookup"><span data-stu-id="dce3a-135">**Configure and run the script**</span></span>
+<span data-ttu-id="8b988-135">**Configurar e executar o script hello**</span><span class="sxs-lookup"><span data-stu-id="8b988-135">**Configure and run hello script**</span></span>
 
-1. <span data-ttu-id="dce3a-136">Abra o editor de texto de sua preferência, e copie e cole o script anterior no editor.</span><span class="sxs-lookup"><span data-stu-id="dce3a-136">Open your favorite text editor, then copy and paste the preceding script into the editor.</span></span>
+1. <span data-ttu-id="8b988-136">Abra o editor de texto favorito, copiar e colar Olá precede o script no editor de saudação.</span><span class="sxs-lookup"><span data-stu-id="8b988-136">Open your favorite text editor, then copy and paste hello preceding script into hello editor.</span></span>
 
-2. <span data-ttu-id="dce3a-137">Em seguida, atualize as variáveis do script para refletir suas configurações.</span><span class="sxs-lookup"><span data-stu-id="dce3a-137">Next, update the script's variables to reflect your configuration settings.</span></span> <span data-ttu-id="dce3a-138">Substitua os seguintes valores conforme especificado:</span><span class="sxs-lookup"><span data-stu-id="dce3a-138">Replace the following values as specified:</span></span>
+2. <span data-ttu-id="8b988-137">Em seguida, atualize as configurações de tooreflect de variáveis do script hello.</span><span class="sxs-lookup"><span data-stu-id="8b988-137">Next, update hello script's variables tooreflect your configuration settings.</span></span> <span data-ttu-id="8b988-138">Substitua Olá valores conforme especificado a seguir:</span><span class="sxs-lookup"><span data-stu-id="8b988-138">Replace hello following values as specified:</span></span>
 
-   * <span data-ttu-id="dce3a-139">**\<storage_account_name\>** O nome da sua conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="dce3a-139">**\<storage_account_name\>** The name of your storage account.</span></span>
-   * <span data-ttu-id="dce3a-140">**\<storage_account_key\>** A tecla de acesso primária ou secundária para sua conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="dce3a-140">**\<storage_account_key\>** The primary or secondary access key for your storage account.</span></span>
-   * <span data-ttu-id="dce3a-141">**\<container_name\>** Um nome para o novo contêiner que será criado, como “azure-cli-sample-container”.</span><span class="sxs-lookup"><span data-stu-id="dce3a-141">**\<container_name\>** A name the new container to create, such as "azure-cli-sample-container".</span></span>
-   * <span data-ttu-id="dce3a-142">**\<blob_name\>** Um nome para o blob de destino no contêiner.</span><span class="sxs-lookup"><span data-stu-id="dce3a-142">**\<blob_name\>** A name for the destination blob in the container.</span></span>
-   * <span data-ttu-id="dce3a-143">**\<file_to_upload\>** O caminho para o pequeno arquivo no seu computador local, tal como “~/images/HelloWorld.png”.</span><span class="sxs-lookup"><span data-stu-id="dce3a-143">**\<file_to_upload\>** The path to small file on your local computer, such as "~/images/HelloWorld.png".</span></span>
-   * <span data-ttu-id="dce3a-144">**\<destination_file\>** O caminho do arquivo de destino, como “~/downloadedImage.png”.</span><span class="sxs-lookup"><span data-stu-id="dce3a-144">**\<destination_file\>** The destination file path, such as "~/downloadedImage.png".</span></span>
+   * <span data-ttu-id="8b988-139">**\<storage_account_name\>**  nome de saudação da sua conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="8b988-139">**\<storage_account_name\>** hello name of your storage account.</span></span>
+   * <span data-ttu-id="8b988-140">**\<storage_account_key\>**  chave de acesso primária ou secundária Olá para sua conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="8b988-140">**\<storage_account_key\>** hello primary or secondary access key for your storage account.</span></span>
+   * <span data-ttu-id="8b988-141">**\<container_name\>**  um nome hello novo toocreate de contêiner, como "azure-cli-exemplo-container".</span><span class="sxs-lookup"><span data-stu-id="8b988-141">**\<container_name\>** A name hello new container toocreate, such as "azure-cli-sample-container".</span></span>
+   * <span data-ttu-id="8b988-142">**\<blob_name\>**  um nome para o blob de destino Olá no contêiner de saudação.</span><span class="sxs-lookup"><span data-stu-id="8b988-142">**\<blob_name\>** A name for hello destination blob in hello container.</span></span>
+   * <span data-ttu-id="8b988-143">**\<file_to_upload\>**  Olá caminho toosmall arquivo no computador local, como "~ / images/HelloWorld.png".</span><span class="sxs-lookup"><span data-stu-id="8b988-143">**\<file_to_upload\>** hello path toosmall file on your local computer, such as "~/images/HelloWorld.png".</span></span>
+   * <span data-ttu-id="8b988-144">**\<destination_file\>**  Olá o caminho do arquivo de destino, como "~ / downloadedImage.png".</span><span class="sxs-lookup"><span data-stu-id="8b988-144">**\<destination_file\>** hello destination file path, such as "~/downloadedImage.png".</span></span>
 
-3. <span data-ttu-id="dce3a-145">Depois de atualizar as variáveis necessárias, salve o script e sair do editor.</span><span class="sxs-lookup"><span data-stu-id="dce3a-145">After you've updated the necessary variables, save the script and exit your editor.</span></span> <span data-ttu-id="dce3a-146">As próximas etapas pressupõem que você nomeou seu script como **my_storage_sample.sh**.</span><span class="sxs-lookup"><span data-stu-id="dce3a-146">The next steps assume you've named your script **my_storage_sample.sh**.</span></span>
+3. <span data-ttu-id="8b988-145">Depois que você atualizou variáveis necessárias Olá, Salvar script hello e sair de seu editor.</span><span class="sxs-lookup"><span data-stu-id="8b988-145">After you've updated hello necessary variables, save hello script and exit your editor.</span></span> <span data-ttu-id="8b988-146">as próximas etapas Olá supõem nomear seu script **my_storage_sample.sh**.</span><span class="sxs-lookup"><span data-stu-id="8b988-146">hello next steps assume you've named your script **my_storage_sample.sh**.</span></span>
 
-4. <span data-ttu-id="dce3a-147">Marque o script como executável, se necessário: `chmod +x my_storage_sample.sh`</span><span class="sxs-lookup"><span data-stu-id="dce3a-147">Mark the script as executable, if necessary: `chmod +x my_storage_sample.sh`</span></span>
+4. <span data-ttu-id="8b988-147">Marque o script hello como executável, se necessário:`chmod +x my_storage_sample.sh`</span><span class="sxs-lookup"><span data-stu-id="8b988-147">Mark hello script as executable, if necessary: `chmod +x my_storage_sample.sh`</span></span>
 
-5. <span data-ttu-id="dce3a-148">Execute o script.</span><span class="sxs-lookup"><span data-stu-id="dce3a-148">Execute the script.</span></span> <span data-ttu-id="dce3a-149">Por exemplo, no Bash:`./my_storage_sample.sh`</span><span class="sxs-lookup"><span data-stu-id="dce3a-149">For example, in Bash: `./my_storage_sample.sh`</span></span>
+5. <span data-ttu-id="8b988-148">Execute o script hello.</span><span class="sxs-lookup"><span data-stu-id="8b988-148">Execute hello script.</span></span> <span data-ttu-id="8b988-149">Por exemplo, no Bash:`./my_storage_sample.sh`</span><span class="sxs-lookup"><span data-stu-id="8b988-149">For example, in Bash: `./my_storage_sample.sh`</span></span>
 
-<span data-ttu-id="dce3a-150">Você deverá ver uma saída semelhante à seguinte e o **\<destination_file\>** especificado no script deve aparecer no computador local.</span><span class="sxs-lookup"><span data-stu-id="dce3a-150">You should see output similar to the following, and the **\<destination_file\>** you specified in the script should appear on your local computer.</span></span>
+<span data-ttu-id="8b988-150">Você deve ver saída semelhante toohello seguinte e Olá  **\<destination_file\>**  especificado no hello script deve aparecer no computador local.</span><span class="sxs-lookup"><span data-stu-id="8b988-150">You should see output similar toohello following, and hello **\<destination_file\>** you specified in hello script should appear on your local computer.</span></span>
 
 ```
-Creating the container...
+Creating hello container...
 {
   "created": true
 }
-Uploading the file...
+Uploading hello file...
 Percent complete: %100.0
-Listing the blobs...
+Listing hello blobs...
 Name       Blob Type      Length  Content Type              Last Modified
 ---------  -----------  --------  ------------------------  -------------------------
 README.md  BlockBlob        6700  application/octet-stream  2017-05-12T20:54:59+00:00
-Downloading the file...
+Downloading hello file...
 Name
 ---------
 README.md
@@ -171,13 +171,13 @@ Done
 ```
 
 > [!TIP]
-> <span data-ttu-id="dce3a-151">A saída anterior está no formato de **tabela**.</span><span class="sxs-lookup"><span data-stu-id="dce3a-151">The preceding output is in **table** format.</span></span> <span data-ttu-id="dce3a-152">Você pode especificar qual formato de saída deve ser usado definindo o argumento `--output` nos comandos da sua CLI ou defina-o globalmente usando `az configure`.</span><span class="sxs-lookup"><span data-stu-id="dce3a-152">You can specify which output format to use by specifying the `--output` argument in your CLI commands, or set it globally using `az configure`.</span></span>
+> <span data-ttu-id="8b988-151">Olá anterior de saída é em **tabela** formato.</span><span class="sxs-lookup"><span data-stu-id="8b988-151">hello preceding output is in **table** format.</span></span> <span data-ttu-id="8b988-152">Você pode especificar qual saída formato toouse especificando Olá `--output` argumento em seus comandos de CLI ou definido globalmente usando `az configure`.</span><span class="sxs-lookup"><span data-stu-id="8b988-152">You can specify which output format toouse by specifying hello `--output` argument in your CLI commands, or set it globally using `az configure`.</span></span>
 >
 
-## <a name="manage-storage-accounts"></a><span data-ttu-id="dce3a-153">Gerenciar contas de armazenamento</span><span class="sxs-lookup"><span data-stu-id="dce3a-153">Manage storage accounts</span></span>
+## <a name="manage-storage-accounts"></a><span data-ttu-id="8b988-153">Gerenciar contas de armazenamento</span><span class="sxs-lookup"><span data-stu-id="8b988-153">Manage storage accounts</span></span>
 
-### <a name="create-a-new-storage-account"></a><span data-ttu-id="dce3a-154">Criar uma nova conta de armazenamento</span><span class="sxs-lookup"><span data-stu-id="dce3a-154">Create a new storage account</span></span>
-<span data-ttu-id="dce3a-155">Para usar o Armazenamento do Azure, você precisa de uma conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="dce3a-155">To use Azure Storage, you need a storage account.</span></span> <span data-ttu-id="dce3a-156">Depois de configurar seu computador para se [conectar à sua assinatura](#connect-to-your-azure-subscription), você pode criar uma nova conta de Armazenamento do Azure.</span><span class="sxs-lookup"><span data-stu-id="dce3a-156">You can create a new Azure Storage account after you've configured your computer to [connect to your subscription](#connect-to-your-azure-subscription).</span></span>
+### <a name="create-a-new-storage-account"></a><span data-ttu-id="8b988-154">Criar uma nova conta de armazenamento</span><span class="sxs-lookup"><span data-stu-id="8b988-154">Create a new storage account</span></span>
+<span data-ttu-id="8b988-155">toouse armazenamento do Azure, você precisa de uma conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="8b988-155">toouse Azure Storage, you need a storage account.</span></span> <span data-ttu-id="8b988-156">Você pode criar uma nova conta de armazenamento do Azure depois que você tiver configurado seu computador muito[conectar assinatura tooyour](#connect-to-your-azure-subscription).</span><span class="sxs-lookup"><span data-stu-id="8b988-156">You can create a new Azure Storage account after you've configured your computer too[connect tooyour subscription](#connect-to-your-azure-subscription).</span></span>
 
 ```azurecli
 az storage account create \
@@ -187,25 +187,25 @@ az storage account create \
     --sku <account_sku>
 ```
 
-* <span data-ttu-id="dce3a-157">`--location` [Obrigatório]: local.</span><span class="sxs-lookup"><span data-stu-id="dce3a-157">`--location` [Required]: Location.</span></span> <span data-ttu-id="dce3a-158">Por exemplo, “Oeste dos EUA”.</span><span class="sxs-lookup"><span data-stu-id="dce3a-158">For example, "West US".</span></span>
-* <span data-ttu-id="dce3a-159">`--name` [Obrigatório]: o nome da conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="dce3a-159">`--name` [Required]: The storage account name.</span></span> <span data-ttu-id="dce3a-160">O nome deve conter entre 3 e 24 caracteres, usando apenas alfanuméricos minúsculo.</span><span class="sxs-lookup"><span data-stu-id="dce3a-160">The name must be 3 to 24 characters in length, and use only lowercase alphanumeric characters.</span></span>
-* <span data-ttu-id="dce3a-161">`--resource-group` [Obrigatório]: nome do grupo de recursos.</span><span class="sxs-lookup"><span data-stu-id="dce3a-161">`--resource-group` [Required]: Name of resource group.</span></span>
-* <span data-ttu-id="dce3a-162">`--sku` [Obrigatório]: o SKU da conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="dce3a-162">`--sku` [Required]: The storage account SKU.</span></span> <span data-ttu-id="dce3a-163">Valores permitidos:</span><span class="sxs-lookup"><span data-stu-id="dce3a-163">Allowed values:</span></span>
+* <span data-ttu-id="8b988-157">`--location` [Obrigatório]: local.</span><span class="sxs-lookup"><span data-stu-id="8b988-157">`--location` [Required]: Location.</span></span> <span data-ttu-id="8b988-158">Por exemplo, “Oeste dos EUA”.</span><span class="sxs-lookup"><span data-stu-id="8b988-158">For example, "West US".</span></span>
+* <span data-ttu-id="8b988-159">`--name`[Obrigatório]: nome de conta de armazenamento hello.</span><span class="sxs-lookup"><span data-stu-id="8b988-159">`--name` [Required]: hello storage account name.</span></span> <span data-ttu-id="8b988-160">Olá nome deve ter 3 caracteres too24 e usar apenas caracteres alfanuméricos minúsculos.</span><span class="sxs-lookup"><span data-stu-id="8b988-160">hello name must be 3 too24 characters in length, and use only lowercase alphanumeric characters.</span></span>
+* <span data-ttu-id="8b988-161">`--resource-group` [Obrigatório]: nome do grupo de recursos.</span><span class="sxs-lookup"><span data-stu-id="8b988-161">`--resource-group` [Required]: Name of resource group.</span></span>
+* <span data-ttu-id="8b988-162">`--sku`[Obrigatório]: Olá SKU de conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="8b988-162">`--sku` [Required]: hello storage account SKU.</span></span> <span data-ttu-id="8b988-163">Valores permitidos:</span><span class="sxs-lookup"><span data-stu-id="8b988-163">Allowed values:</span></span>
   * `Premium_LRS`
   * `Standard_GRS`
   * `Standard_LRS`
   * `Standard_RAGRS`
   * `Standard_ZRS`
 
-### <a name="set-default-azure-storage-account-environment-variables"></a><span data-ttu-id="dce3a-164">Definir as variáveis de ambiente da conta de armazenamento padrão do Azure</span><span class="sxs-lookup"><span data-stu-id="dce3a-164">Set default Azure storage account environment variables</span></span>
-<span data-ttu-id="dce3a-165">Você pode ter várias contas de armazenamento na sua assinatura do Azure.</span><span class="sxs-lookup"><span data-stu-id="dce3a-165">You can have multiple storage accounts in your Azure subscription.</span></span> <span data-ttu-id="dce3a-166">Para selecionar uma delas para usar em todos os comandos de armazenamento posteriores, você pode definir essas variáveis de ambiente:</span><span class="sxs-lookup"><span data-stu-id="dce3a-166">To select one of them to use for all subsequent storage commands, you can set these environment variables:</span></span>
+### <a name="set-default-azure-storage-account-environment-variables"></a><span data-ttu-id="8b988-164">Definir as variáveis de ambiente da conta de armazenamento padrão do Azure</span><span class="sxs-lookup"><span data-stu-id="8b988-164">Set default Azure storage account environment variables</span></span>
+<span data-ttu-id="8b988-165">Você pode ter várias contas de armazenamento na sua assinatura do Azure.</span><span class="sxs-lookup"><span data-stu-id="8b988-165">You can have multiple storage accounts in your Azure subscription.</span></span> <span data-ttu-id="8b988-166">tooselect um deles toouse para armazenamento subsequentes todos os comandos, você pode definir essas variáveis de ambiente:</span><span class="sxs-lookup"><span data-stu-id="8b988-166">tooselect one of them toouse for all subsequent storage commands, you can set these environment variables:</span></span>
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
 export AZURE_STORAGE_ACCESS_KEY=<key>
 ```
 
-<span data-ttu-id="dce3a-167">Outra forma de definir uma conta de armazenamento padrão é usar a cadeia de conexão.</span><span class="sxs-lookup"><span data-stu-id="dce3a-167">Another way to set a default storage account is by using a connection string.</span></span> <span data-ttu-id="dce3a-168">Em primeiro lugar, obtenha a cadeia de conexão com o comando `show-connection-string`:</span><span class="sxs-lookup"><span data-stu-id="dce3a-168">First, get the connection string with the `show-connection-string` command:</span></span>
+<span data-ttu-id="8b988-167">É uma conta de armazenamento padrão tooset de outra forma usando uma cadeia de caracteres de conexão.</span><span class="sxs-lookup"><span data-stu-id="8b988-167">Another way tooset a default storage account is by using a connection string.</span></span> <span data-ttu-id="8b988-168">Primeiro, obtenha a cadeia de caracteres de conexão de saudação com hello `show-connection-string` comando:</span><span class="sxs-lookup"><span data-stu-id="8b988-168">First, get hello connection string with hello `show-connection-string` command:</span></span>
 
 ```azurecli
 az storage account show-connection-string \
@@ -213,36 +213,36 @@ az storage account show-connection-string \
     --resource-group <resource_group>
 ```
 
-<span data-ttu-id="dce3a-169">Em seguida, copie a cadeia de conexão de saída e defina a variável de ambiente `AZURE_STORAGE_CONNECTION_STRING` (pode ser necessário circunscrever a cadeia de conexão entre aspas):</span><span class="sxs-lookup"><span data-stu-id="dce3a-169">Then copy the output connection string and set the `AZURE_STORAGE_CONNECTION_STRING` environment variable (you might need to enclose the connection string in quotes):</span></span>
+<span data-ttu-id="8b988-169">Em seguida, Olá de cópia de saída de cadeia de caracteres de conexão e defina Olá `AZURE_STORAGE_CONNECTION_STRING` variável de ambiente (talvez seja necessário tooenclose cadeia de conexão Olá entre aspas):</span><span class="sxs-lookup"><span data-stu-id="8b988-169">Then copy hello output connection string and set hello `AZURE_STORAGE_CONNECTION_STRING` environment variable (you might need tooenclose hello connection string in quotes):</span></span>
 
 ```azurecli
 export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 ```
 
 > [!NOTE]
-> <span data-ttu-id="dce3a-170">Todos os exemplos nas seções a seguir deste artigo pressupõem que você definiu as variáveis de ambiente `AZURE_STORAGE_ACCOUNT` e `AZURE_STORAGE_ACCESS_KEY`.</span><span class="sxs-lookup"><span data-stu-id="dce3a-170">All examples in the following sections of this article assume that you've set the `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_ACCESS_KEY` environment variables.</span></span>
+> <span data-ttu-id="8b988-170">Todos os exemplos na Olá seções deste artigo a seguir pressupõem que você definiu Olá `AZURE_STORAGE_ACCOUNT` e `AZURE_STORAGE_ACCESS_KEY` variáveis de ambiente.</span><span class="sxs-lookup"><span data-stu-id="8b988-170">All examples in hello following sections of this article assume that you've set hello `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_ACCESS_KEY` environment variables.</span></span>
 >
 
-## <a name="create-and-manage-blobs"></a><span data-ttu-id="dce3a-171">Criar e gerenciar blobs</span><span class="sxs-lookup"><span data-stu-id="dce3a-171">Create and manage blobs</span></span>
-<span data-ttu-id="dce3a-172">O Armazenamento de Blobs do Azure é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS.</span><span class="sxs-lookup"><span data-stu-id="dce3a-172">Azure Blob storage is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS.</span></span> <span data-ttu-id="dce3a-173">Esta seção pressupõe que você esteja familiarizado com o conceitos de Armazenamento de Blobs do Azure.</span><span class="sxs-lookup"><span data-stu-id="dce3a-173">This section assumes that you are already familiar with Azure Blob storage concepts.</span></span> <span data-ttu-id="dce3a-174">Para obter informações detalhadas, confira [Introdução ao Armazenamento de Blobs do Azure usando o .NET](storage-dotnet-how-to-use-blobs.md) e [Blob Service Concepts](/rest/api/storageservices/blob-service-concepts) (Conceitos do serviço Blob).</span><span class="sxs-lookup"><span data-stu-id="dce3a-174">For detailed information, see [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md) and [Blob Service Concepts](/rest/api/storageservices/blob-service-concepts).</span></span>
+## <a name="create-and-manage-blobs"></a><span data-ttu-id="8b988-171">Criar e gerenciar blobs</span><span class="sxs-lookup"><span data-stu-id="8b988-171">Create and manage blobs</span></span>
+<span data-ttu-id="8b988-172">Armazenamento de BLOBs do Azure é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acessados de qualquer lugar Olá, mundo via HTTP ou HTTPS.</span><span class="sxs-lookup"><span data-stu-id="8b988-172">Azure Blob storage is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in hello world via HTTP or HTTPS.</span></span> <span data-ttu-id="8b988-173">Esta seção pressupõe que você esteja familiarizado com o conceitos de Armazenamento de Blobs do Azure.</span><span class="sxs-lookup"><span data-stu-id="8b988-173">This section assumes that you are already familiar with Azure Blob storage concepts.</span></span> <span data-ttu-id="8b988-174">Para obter informações detalhadas, confira [Introdução ao Armazenamento de Blobs do Azure usando o .NET](storage-dotnet-how-to-use-blobs.md) e [Blob Service Concepts](/rest/api/storageservices/blob-service-concepts) (Conceitos do serviço Blob).</span><span class="sxs-lookup"><span data-stu-id="8b988-174">For detailed information, see [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md) and [Blob Service Concepts](/rest/api/storageservices/blob-service-concepts).</span></span>
 
-### <a name="create-a-container"></a><span data-ttu-id="dce3a-175">Criar um contêiner</span><span class="sxs-lookup"><span data-stu-id="dce3a-175">Create a container</span></span>
-<span data-ttu-id="dce3a-176">Todos os blobs no armazenamento do Azure devem residir em um contêiner.</span><span class="sxs-lookup"><span data-stu-id="dce3a-176">Every blob in Azure storage must be in a container.</span></span> <span data-ttu-id="dce3a-177">Você pode criar um contêiner usando o comando `az storage container create`:</span><span class="sxs-lookup"><span data-stu-id="dce3a-177">You can create a container by using the `az storage container create` command:</span></span>
+### <a name="create-a-container"></a><span data-ttu-id="8b988-175">Criar um contêiner</span><span class="sxs-lookup"><span data-stu-id="8b988-175">Create a container</span></span>
+<span data-ttu-id="8b988-176">Todos os blobs no armazenamento do Azure devem residir em um contêiner.</span><span class="sxs-lookup"><span data-stu-id="8b988-176">Every blob in Azure storage must be in a container.</span></span> <span data-ttu-id="8b988-177">Você pode criar um contêiner usando Olá `az storage container create` comando:</span><span class="sxs-lookup"><span data-stu-id="8b988-177">You can create a container by using hello `az storage container create` command:</span></span>
 
 ```azurecli
 az storage container create --name <container_name>
 ```
 
-<span data-ttu-id="dce3a-178">Você pode definir um dos três níveis de acesso de leitura para um novo contêiner especificando o argumento `--public-access` opcional:</span><span class="sxs-lookup"><span data-stu-id="dce3a-178">You can set one of three levels of read access for a new container by specifying the optional  `--public-access` argument:</span></span>
+<span data-ttu-id="8b988-178">Você pode definir um dos três níveis de acesso de leitura para um novo contêiner especificando Olá opcional `--public-access` argumento:</span><span class="sxs-lookup"><span data-stu-id="8b988-178">You can set one of three levels of read access for a new container by specifying hello optional  `--public-access` argument:</span></span>
 
-* <span data-ttu-id="dce3a-179">`off` (padrão): os dados do contêiner são privados para o proprietário da conta.</span><span class="sxs-lookup"><span data-stu-id="dce3a-179">`off` (default): Container data is private to the account owner.</span></span>
-* <span data-ttu-id="dce3a-180">`blob`: acesso de leitura público para blobs.</span><span class="sxs-lookup"><span data-stu-id="dce3a-180">`blob`: Public read access for blobs.</span></span>
-* <span data-ttu-id="dce3a-181">`container`: acesso de leitura e listagem público para todo o contêiner.</span><span class="sxs-lookup"><span data-stu-id="dce3a-181">`container`: Public read and list access to the entire container.</span></span>
+* <span data-ttu-id="8b988-179">`off`(padrão): os dados do contêiner são privado toohello proprietário da conta.</span><span class="sxs-lookup"><span data-stu-id="8b988-179">`off` (default): Container data is private toohello account owner.</span></span>
+* <span data-ttu-id="8b988-180">`blob`: acesso de leitura público para blobs.</span><span class="sxs-lookup"><span data-stu-id="8b988-180">`blob`: Public read access for blobs.</span></span>
+* <span data-ttu-id="8b988-181">`container`: Leitura e listagem acesso toohello todo contêiner público.</span><span class="sxs-lookup"><span data-stu-id="8b988-181">`container`: Public read and list access toohello entire container.</span></span>
 
-<span data-ttu-id="dce3a-182">Para obter mais informações, consulte [Gerenciar acesso anônimo de leitura aos contêineres e blobs](storage-manage-access-to-resources.md).</span><span class="sxs-lookup"><span data-stu-id="dce3a-182">For more information, see [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md).</span></span>
+<span data-ttu-id="8b988-182">Para obter mais informações, consulte [gerenciar o acesso de leitura anônimo toocontainers e blobs](storage-manage-access-to-resources.md).</span><span class="sxs-lookup"><span data-stu-id="8b988-182">For more information, see [Manage anonymous read access toocontainers and blobs](storage-manage-access-to-resources.md).</span></span>
 
-### <a name="upload-a-blob-to-a-container"></a><span data-ttu-id="dce3a-183">Carregar um blob para um contêiner</span><span class="sxs-lookup"><span data-stu-id="dce3a-183">Upload a blob to a container</span></span>
-<span data-ttu-id="dce3a-184">O Armazenamento de Blobs do Azure dá suporte a blobs de blocos, anexos e páginas.</span><span class="sxs-lookup"><span data-stu-id="dce3a-184">Azure Blob storage supports block, append, and page blobs.</span></span> <span data-ttu-id="dce3a-185">Carregue os blobs para um contêiner usando o comando `blob upload`:</span><span class="sxs-lookup"><span data-stu-id="dce3a-185">Upload blobs to a container by using the `blob upload` command:</span></span>
+### <a name="upload-a-blob-tooa-container"></a><span data-ttu-id="8b988-183">Carregar um contêiner de blob tooa</span><span class="sxs-lookup"><span data-stu-id="8b988-183">Upload a blob tooa container</span></span>
+<span data-ttu-id="8b988-184">O Armazenamento de Blobs do Azure dá suporte a blobs de blocos, anexos e páginas.</span><span class="sxs-lookup"><span data-stu-id="8b988-184">Azure Blob storage supports block, append, and page blobs.</span></span> <span data-ttu-id="8b988-185">Carregar blobs tooa contêiner usando Olá `blob upload` comando:</span><span class="sxs-lookup"><span data-stu-id="8b988-185">Upload blobs tooa container by using hello `blob upload` command:</span></span>
 
 ```azurecli
 az storage blob upload \
@@ -251,13 +251,13 @@ az storage blob upload \
     --name <blob_name>
 ```
 
- <span data-ttu-id="dce3a-186">Por padrão, o comando `blob upload` carrega os arquivos de *.vhd para blobs de página ou para blobs de blocos.</span><span class="sxs-lookup"><span data-stu-id="dce3a-186">By default, the `blob upload` command uploads *.vhd files to page blobs, or block blobs otherwise.</span></span> <span data-ttu-id="dce3a-187">Para especificar outro tipo ao carregar um blob, você pode usar o argumento `--type`; os valores permitido são `append`, `block` e `page`.</span><span class="sxs-lookup"><span data-stu-id="dce3a-187">To specify another type when you upload a blob, you can use the `--type` argument--allowed values are `append`, `block`, and `page`.</span></span>
+ <span data-ttu-id="8b988-186">Por padrão, Olá `blob upload` comando carrega os blobs de toopage arquivos VHD ou outra forma de blobs de bloco.</span><span class="sxs-lookup"><span data-stu-id="8b988-186">By default, hello `blob upload` command uploads *.vhd files toopage blobs, or block blobs otherwise.</span></span> <span data-ttu-id="8b988-187">toospecify outro tipo quando você carregar um blob, você pode usar o hello `--type` argumento--os valores permitido são `append`, `block`, e `page`.</span><span class="sxs-lookup"><span data-stu-id="8b988-187">toospecify another type when you upload a blob, you can use hello `--type` argument--allowed values are `append`, `block`, and `page`.</span></span>
 
- <span data-ttu-id="dce3a-188">Para obter mais informações sobre os blobs, consulte [Compreendendo os Blobs de Blocos, Anexos e Páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).</span><span class="sxs-lookup"><span data-stu-id="dce3a-188">For more information on the different blob types, see [Understanding Block Blobs, Append Blobs, and Page Blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).</span></span>
+ <span data-ttu-id="8b988-188">Para obter mais informações sobre tipos de blob diferente hello, consulte [Compreendendo Blobs de bloco, Blobs de acréscimo e Blobs de página](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).</span><span class="sxs-lookup"><span data-stu-id="8b988-188">For more information on hello different blob types, see [Understanding Block Blobs, Append Blobs, and Page Blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).</span></span>
 
 
-### <a name="download-a-blob-from-a-container"></a><span data-ttu-id="dce3a-189">Baixar um blob de um contêiner</span><span class="sxs-lookup"><span data-stu-id="dce3a-189">Download a blob from a container</span></span>
-<span data-ttu-id="dce3a-190">Este exemplo demonstra como baixar blobs de um contêiner:</span><span class="sxs-lookup"><span data-stu-id="dce3a-190">This example demonstrates how to download a blob from a container:</span></span>
+### <a name="download-a-blob-from-a-container"></a><span data-ttu-id="8b988-189">Baixar um blob de um contêiner</span><span class="sxs-lookup"><span data-stu-id="8b988-189">Download a blob from a container</span></span>
+<span data-ttu-id="8b988-190">Este exemplo demonstra como toodownload um blob de um contêiner:</span><span class="sxs-lookup"><span data-stu-id="8b988-190">This example demonstrates how toodownload a blob from a container:</span></span>
 
 ```azurecli
 az storage blob download \
@@ -266,9 +266,9 @@ az storage blob download \
     --file ~/mydownloadedblob.png
 ```
 
-### <a name="list-the-blobs-in-a-container"></a><span data-ttu-id="dce3a-191">Listar os blobs em um contêiner</span><span class="sxs-lookup"><span data-stu-id="dce3a-191">List the blobs in a container</span></span>
+### <a name="list-hello-blobs-in-a-container"></a><span data-ttu-id="8b988-191">Saudação de listar blobs em um contêiner</span><span class="sxs-lookup"><span data-stu-id="8b988-191">List hello blobs in a container</span></span>
 
-<span data-ttu-id="dce3a-192">Liste os blobs em um contêiner com o comando [az storage blob list](/cli/azure/storage/blob#list).</span><span class="sxs-lookup"><span data-stu-id="dce3a-192">List the blobs in a container with the [az storage blob list](/cli/azure/storage/blob#list) command.</span></span>
+<span data-ttu-id="8b988-192">Listar blobs Olá em um contêiner com hello [lista de blob de armazenamento az](/cli/azure/storage/blob#list) comando.</span><span class="sxs-lookup"><span data-stu-id="8b988-192">List hello blobs in a container with hello [az storage blob list](/cli/azure/storage/blob#list) command.</span></span>
 
 ```azurecli
 az storage blob list \
@@ -276,10 +276,10 @@ az storage blob list \
     --output table
 ```
 
-### <a name="copy-blobs"></a><span data-ttu-id="dce3a-193">Copiar blobs</span><span class="sxs-lookup"><span data-stu-id="dce3a-193">Copy blobs</span></span>
-<span data-ttu-id="dce3a-194">É possível copiar blobs em ou entre regiões e contas de armazenamento de modo assíncrono.</span><span class="sxs-lookup"><span data-stu-id="dce3a-194">You can copy blobs within or across storage accounts and regions asynchronously.</span></span>
+### <a name="copy-blobs"></a><span data-ttu-id="8b988-193">Copiar blobs</span><span class="sxs-lookup"><span data-stu-id="8b988-193">Copy blobs</span></span>
+<span data-ttu-id="8b988-194">É possível copiar blobs em ou entre regiões e contas de armazenamento de modo assíncrono.</span><span class="sxs-lookup"><span data-stu-id="8b988-194">You can copy blobs within or across storage accounts and regions asynchronously.</span></span>
 
-<span data-ttu-id="dce3a-195">O exemplo a seguir demonstra como copiar blobs de uma conta de armazenamento para outra.</span><span class="sxs-lookup"><span data-stu-id="dce3a-195">The following example demonstrates how to copy blobs from one storage account to another.</span></span> <span data-ttu-id="dce3a-196">Primeiro, criamos um contêiner na conta de armazenamento de origem, especificando o acesso de leitura público para seus blobs.</span><span class="sxs-lookup"><span data-stu-id="dce3a-196">We first create a container in the source storage account, specifying public read-access for its blobs.</span></span> <span data-ttu-id="dce3a-197">Em seguida, carregue um arquivo para o contêiner e, finalmente, copie o blob desse contêiner para um contêiner na conta de armazenamento de destino.</span><span class="sxs-lookup"><span data-stu-id="dce3a-197">Next, we upload a file to the container, and finally, copy the blob from that container into a container in the destination storage account.</span></span>
+<span data-ttu-id="8b988-195">Olá exemplo a seguir demonstra como blobs de toocopy do armazenamento de uma conta tooanother.</span><span class="sxs-lookup"><span data-stu-id="8b988-195">hello following example demonstrates how toocopy blobs from one storage account tooanother.</span></span> <span data-ttu-id="8b988-196">Primeiro criamos um contêiner na conta de armazenamento de origem hello, especificando o acesso de leitura público para seus blobs.</span><span class="sxs-lookup"><span data-stu-id="8b988-196">We first create a container in hello source storage account, specifying public read-access for its blobs.</span></span> <span data-ttu-id="8b988-197">Em seguida, podemos carregar um contêiner de toohello de arquivo e, finalmente, copiar o blob de saudação do contêiner em um contêiner na conta de armazenamento de destino hello.</span><span class="sxs-lookup"><span data-stu-id="8b988-197">Next, we upload a file toohello container, and finally, copy hello blob from that container into a container in hello destination storage account.</span></span>
 
 ```azurecli
 # Create container in source account
@@ -289,7 +289,7 @@ az storage container create \
     --name sourcecontainer \
     --public-access blob
 
-# Upload blob to container in source account
+# Upload blob toocontainer in source account
 az storage blob upload \
     --account-name sourceaccountname \
     --account-key sourceaccountkey \
@@ -297,7 +297,7 @@ az storage blob upload \
     --file ~/Pictures/sourcefile.png \
     --name sourcefile.png
 
-# Copy blob from source account to destination account (destcontainer must exist)
+# Copy blob from source account toodestination account (destcontainer must exist)
 az storage blob copy start \
     --account-name destaccountname \
     --account-key destaccountkey \
@@ -306,65 +306,65 @@ az storage blob copy start \
     --source-uri https://sourceaccountname.blob.core.windows.net/sourcecontainer/sourcefile.png
 ```
 
-<span data-ttu-id="dce3a-198">No exemplo acima, o contêiner de destino já deve existir na conta de armazenamento de destino para que a operação de cópia seja bem-sucedida.</span><span class="sxs-lookup"><span data-stu-id="dce3a-198">In the above example, the destination container must already exist in the destination storage account for the copy operation to succeed.</span></span> <span data-ttu-id="dce3a-199">Além disso, o blob de origem especificado no argumento `--source-uri` deve incluir um token SAS (Assinatura de Acesso Compartilhado) ou ser acessível ao público, como neste exemplo.</span><span class="sxs-lookup"><span data-stu-id="dce3a-199">Additionally, the source blob specified in the `--source-uri` argument must either include a shared access signature (SAS) token, or be publicly accessible, as in this example.</span></span>
+<span data-ttu-id="8b988-198">Em Olá exemplo acima, o contêiner de destino Olá já deve existir na conta de armazenamento de destino Olá para Olá toosucceed de operação de cópia.</span><span class="sxs-lookup"><span data-stu-id="8b988-198">In hello above example, hello destination container must already exist in hello destination storage account for hello copy operation toosucceed.</span></span> <span data-ttu-id="8b988-199">Além disso, Olá blob de origem especificado no hello `--source-uri` argumento deve incluir um token de assinatura (SAS) de acesso compartilhado ou ser acessíveis publicamente, como neste exemplo.</span><span class="sxs-lookup"><span data-stu-id="8b988-199">Additionally, hello source blob specified in hello `--source-uri` argument must either include a shared access signature (SAS) token, or be publicly accessible, as in this example.</span></span>
 
-### <a name="delete-a-blob"></a><span data-ttu-id="dce3a-200">Excluir um blob</span><span class="sxs-lookup"><span data-stu-id="dce3a-200">Delete a blob</span></span>
-<span data-ttu-id="dce3a-201">Para excluir um blob, use o comando `blob delete`:</span><span class="sxs-lookup"><span data-stu-id="dce3a-201">To delete a blob, use the `blob delete` command:</span></span>
+### <a name="delete-a-blob"></a><span data-ttu-id="8b988-200">Excluir um blob</span><span class="sxs-lookup"><span data-stu-id="8b988-200">Delete a blob</span></span>
+<span data-ttu-id="8b988-201">toodelete um blob, use Olá `blob delete` comando:</span><span class="sxs-lookup"><span data-stu-id="8b988-201">toodelete a blob, use hello `blob delete` command:</span></span>
 
 ```azurecli
 az storage blob delete --container-name <container_name> --name <blob_name>
 ```
 
-## <a name="create-and-manage-file-shares"></a><span data-ttu-id="dce3a-202">Criar e gerenciar compartilhamentos de arquivos</span><span class="sxs-lookup"><span data-stu-id="dce3a-202">Create and manage file shares</span></span>
-<span data-ttu-id="dce3a-203">O Armazenamento de Arquivos do Azure oferece armazenamento compartilhado para aplicativos que usam o protocolo SMB.</span><span class="sxs-lookup"><span data-stu-id="dce3a-203">Azure File storage offers shared storage for applications using the Server Message Block (SMB) protocol.</span></span> <span data-ttu-id="dce3a-204">As máquinas virtuais e os serviços de nuvem do Microsoft Azure, bem como aplicativos locais, podem compartilhar dados de arquivos por meio de compartilhamentos montados.</span><span class="sxs-lookup"><span data-stu-id="dce3a-204">Microsoft Azure virtual machines and cloud services, as well as on-premises applications, can share file data via mounted shares.</span></span> <span data-ttu-id="dce3a-205">Você pode gerenciar compartilhamentos de arquivos e dados de arquivos por meio da CLI do Azure.</span><span class="sxs-lookup"><span data-stu-id="dce3a-205">You can manage file shares and file data via the Azure CLI.</span></span> <span data-ttu-id="dce3a-206">Para obter mais informações sobre o Armazenamento de Arquivos do Azure, confira [Introdução ao Armazenamento de Arquivos do Azure no Windows](storage-dotnet-how-to-use-files.md) ou [Como usar o Armazenamento de Arquivos do Azure com o Linux](storage-how-to-use-files-linux.md).</span><span class="sxs-lookup"><span data-stu-id="dce3a-206">For more information on Azure File storage, see [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md) or [How to use Azure File storage with Linux](storage-how-to-use-files-linux.md).</span></span>
+## <a name="create-and-manage-file-shares"></a><span data-ttu-id="8b988-202">Criar e gerenciar compartilhamentos de arquivos</span><span class="sxs-lookup"><span data-stu-id="8b988-202">Create and manage file shares</span></span>
+<span data-ttu-id="8b988-203">Armazenamento de arquivo do Azure oferece armazenamento compartilhado para aplicativos que usam o protocolo de bloco de mensagens de servidor (SMB) saudação.</span><span class="sxs-lookup"><span data-stu-id="8b988-203">Azure File storage offers shared storage for applications using hello Server Message Block (SMB) protocol.</span></span> <span data-ttu-id="8b988-204">As máquinas virtuais e os serviços de nuvem do Microsoft Azure, bem como aplicativos locais, podem compartilhar dados de arquivos por meio de compartilhamentos montados.</span><span class="sxs-lookup"><span data-stu-id="8b988-204">Microsoft Azure virtual machines and cloud services, as well as on-premises applications, can share file data via mounted shares.</span></span> <span data-ttu-id="8b988-205">Você pode gerenciar compartilhamentos de arquivos e dados de arquivo por meio de saudação CLI do Azure.</span><span class="sxs-lookup"><span data-stu-id="8b988-205">You can manage file shares and file data via hello Azure CLI.</span></span> <span data-ttu-id="8b988-206">Para obter mais informações sobre o armazenamento de arquivo do Azure, consulte [Introdução ao armazenamento de arquivo do Azure no Windows](storage-dotnet-how-to-use-files.md) ou [como toouse armazenamento de arquivo do Azure com Linux](storage-how-to-use-files-linux.md).</span><span class="sxs-lookup"><span data-stu-id="8b988-206">For more information on Azure File storage, see [Get started with Azure File storage on Windows](storage-dotnet-how-to-use-files.md) or [How toouse Azure File storage with Linux](storage-how-to-use-files-linux.md).</span></span>
 
-### <a name="create-a-file-share"></a><span data-ttu-id="dce3a-207">Criar um compartilhamento de arquivos</span><span class="sxs-lookup"><span data-stu-id="dce3a-207">Create a file share</span></span>
-<span data-ttu-id="dce3a-208">Um compartilhamento de Arquivos do Azure é um compartilhamento de arquivos do SMB no Azure.</span><span class="sxs-lookup"><span data-stu-id="dce3a-208">An Azure File share is an SMB file share in Azure.</span></span> <span data-ttu-id="dce3a-209">Todos os arquivos e diretórios devem ser criados em um compartilhamento de arquivos.</span><span class="sxs-lookup"><span data-stu-id="dce3a-209">All directories and files must be created in a file share.</span></span> <span data-ttu-id="dce3a-210">Uma conta de armazenamento pode conter um número ilimitado de compartilhamentos, e um compartilhamento pode conter um número ilimitado de arquivos, até os limites de capacidade da conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="dce3a-210">An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account.</span></span> <span data-ttu-id="dce3a-211">O exemplo a seguir cria um compartilhamento de arquivos denominado **myshare**.</span><span class="sxs-lookup"><span data-stu-id="dce3a-211">The following example creates a file share named **myshare**.</span></span>
+### <a name="create-a-file-share"></a><span data-ttu-id="8b988-207">Criar um compartilhamento de arquivos</span><span class="sxs-lookup"><span data-stu-id="8b988-207">Create a file share</span></span>
+<span data-ttu-id="8b988-208">Um compartilhamento de Arquivos do Azure é um compartilhamento de arquivos do SMB no Azure.</span><span class="sxs-lookup"><span data-stu-id="8b988-208">An Azure File share is an SMB file share in Azure.</span></span> <span data-ttu-id="8b988-209">Todos os arquivos e diretórios devem ser criados em um compartilhamento de arquivos.</span><span class="sxs-lookup"><span data-stu-id="8b988-209">All directories and files must be created in a file share.</span></span> <span data-ttu-id="8b988-210">Uma conta pode conter um número ilimitado de compartilhamentos e um compartilhamento pode armazenar um número ilimitado de arquivos, se os limites de capacidade toohello Olá da conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="8b988-210">An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up toohello capacity limits of hello storage account.</span></span> <span data-ttu-id="8b988-211">Olá, exemplo a seguir cria um compartilhamento de arquivos chamado **MeuCompartilhamento**.</span><span class="sxs-lookup"><span data-stu-id="8b988-211">hello following example creates a file share named **myshare**.</span></span>
 
 ```azurecli
 az storage share create --name myshare
 ```
 
-### <a name="create-a-directory"></a><span data-ttu-id="dce3a-212">Criar um diretório</span><span class="sxs-lookup"><span data-stu-id="dce3a-212">Create a directory</span></span>
-<span data-ttu-id="dce3a-213">Um diretório fornece uma estrutura hierárquica para um compartilhamento de arquivos do Azure.</span><span class="sxs-lookup"><span data-stu-id="dce3a-213">A directory provides a hierarchical structure in an Azure file share.</span></span> <span data-ttu-id="dce3a-214">O exemplo a seguir cria um diretório denominado **myDir** no compartilhamento de arquivos.</span><span class="sxs-lookup"><span data-stu-id="dce3a-214">The following example creates a directory named **myDir** in the file share.</span></span>
+### <a name="create-a-directory"></a><span data-ttu-id="8b988-212">Criar um diretório</span><span class="sxs-lookup"><span data-stu-id="8b988-212">Create a directory</span></span>
+<span data-ttu-id="8b988-213">Um diretório fornece uma estrutura hierárquica para um compartilhamento de arquivos do Azure.</span><span class="sxs-lookup"><span data-stu-id="8b988-213">A directory provides a hierarchical structure in an Azure file share.</span></span> <span data-ttu-id="8b988-214">Olá, exemplo a seguir cria um diretório chamado **myDir** no compartilhamento de arquivo hello.</span><span class="sxs-lookup"><span data-stu-id="8b988-214">hello following example creates a directory named **myDir** in hello file share.</span></span>
 
 ```azurecli
 az storage directory create --name myDir --share-name myshare
 ```
 
-<span data-ttu-id="dce3a-215">O caminho de um diretório pode incluir vários níveis, por exemplo **dir1/dir2**.</span><span class="sxs-lookup"><span data-stu-id="dce3a-215">A directory path can include multiple levels, for example **dir1/dir2**.</span></span> <span data-ttu-id="dce3a-216">No entanto, você deve garantir a existência de todos os diretórios pai antes de criar um subdiretório.</span><span class="sxs-lookup"><span data-stu-id="dce3a-216">However, you must ensure that all parent directories exist before creating a subdirectory.</span></span> <span data-ttu-id="dce3a-217">Por exemplo, para o caminho **dir1/dir2**, você deve primeiro criar o diretório **dir1**, em seguida, criar o diretório **dir2**.</span><span class="sxs-lookup"><span data-stu-id="dce3a-217">For example, for path **dir1/dir2**, you must first create directory **dir1**, then create directory **dir2**.</span></span>
+<span data-ttu-id="8b988-215">O caminho de um diretório pode incluir vários níveis, por exemplo **dir1/dir2**.</span><span class="sxs-lookup"><span data-stu-id="8b988-215">A directory path can include multiple levels, for example **dir1/dir2**.</span></span> <span data-ttu-id="8b988-216">No entanto, você deve garantir a existência de todos os diretórios pai antes de criar um subdiretório.</span><span class="sxs-lookup"><span data-stu-id="8b988-216">However, you must ensure that all parent directories exist before creating a subdirectory.</span></span> <span data-ttu-id="8b988-217">Por exemplo, para o caminho **dir1/dir2**, você deve primeiro criar o diretório **dir1**, em seguida, criar o diretório **dir2**.</span><span class="sxs-lookup"><span data-stu-id="8b988-217">For example, for path **dir1/dir2**, you must first create directory **dir1**, then create directory **dir2**.</span></span>
 
-### <a name="upload-a-local-file-to-a-share"></a><span data-ttu-id="dce3a-218">Carregar um arquivo local para um compartilhamento</span><span class="sxs-lookup"><span data-stu-id="dce3a-218">Upload a local file to a share</span></span>
-<span data-ttu-id="dce3a-219">O exemplo a seguir carrega um arquivo de **~/temp/samplefile.txt** para a raiz do compartilhamento de arquivos **myshare**.</span><span class="sxs-lookup"><span data-stu-id="dce3a-219">The following example uploads a file from **~/temp/samplefile.txt** to root of the **myshare** file share.</span></span> <span data-ttu-id="dce3a-220">O argumento `--source` especifica o arquivo local existente para o upload.</span><span class="sxs-lookup"><span data-stu-id="dce3a-220">The `--source` argument specifies the existing local file to upload.</span></span>
+### <a name="upload-a-local-file-tooa-share"></a><span data-ttu-id="8b988-218">Carregar um compartilhamento de arquivo local tooa</span><span class="sxs-lookup"><span data-stu-id="8b988-218">Upload a local file tooa share</span></span>
+<span data-ttu-id="8b988-219">Olá, exemplo a seguir carrega um arquivo de **~/temp/samplefile.txt** tooroot de saudação **MeuCompartilhamento** compartilhamento de arquivos.</span><span class="sxs-lookup"><span data-stu-id="8b988-219">hello following example uploads a file from **~/temp/samplefile.txt** tooroot of hello **myshare** file share.</span></span> <span data-ttu-id="8b988-220">Olá `--source` argumento especifica tooupload de arquivo local existente hello.</span><span class="sxs-lookup"><span data-stu-id="8b988-220">hello `--source` argument specifies hello existing local file tooupload.</span></span>
 
 ```azurecli
 az storage file upload --share-name myshare --source ~/temp/samplefile.txt
 ```
 
-<span data-ttu-id="dce3a-221">Assim como na criação do diretório, você pode especificar um caminho de diretório no compartilhamento para carregar o arquivo para um diretório existente dentro do compartilhamento:</span><span class="sxs-lookup"><span data-stu-id="dce3a-221">As with directory creation, you can specify a directory path within the share to upload the file to an existing directory within the share:</span></span>
+<span data-ttu-id="8b988-221">Assim como acontece com a criação de diretório, você pode especificar um caminho de diretório Dentro Olá compartilhamento tooupload Olá arquivo tooan diretório existente no compartilhamento de saudação:</span><span class="sxs-lookup"><span data-stu-id="8b988-221">As with directory creation, you can specify a directory path within hello share tooupload hello file tooan existing directory within hello share:</span></span>
 
 ```azurecli
 az storage file upload --share-name myshare/myDir --source ~/temp/samplefile.txt
 ```
 
-<span data-ttu-id="dce3a-222">Um arquivo no compartilhamento pode ter até 1 TB.</span><span class="sxs-lookup"><span data-stu-id="dce3a-222">A file in the share can be up to 1 TB in size.</span></span>
+<span data-ttu-id="8b988-222">Pode ser um arquivo no compartilhamento de saudação até too1 TB de tamanho.</span><span class="sxs-lookup"><span data-stu-id="8b988-222">A file in hello share can be up too1 TB in size.</span></span>
 
-### <a name="list-the-files-in-a-share"></a><span data-ttu-id="dce3a-223">Listar os arquivos em um compartilhamento</span><span class="sxs-lookup"><span data-stu-id="dce3a-223">List the files in a share</span></span>
-<span data-ttu-id="dce3a-224">Você pode listar arquivos e diretórios em um compartilhamento usando o comando `az storage file list`:</span><span class="sxs-lookup"><span data-stu-id="dce3a-224">You can list files and directories in a share by using the `az storage file list` command:</span></span>
+### <a name="list-hello-files-in-a-share"></a><span data-ttu-id="8b988-223">Listar Olá arquivos em um compartilhamento</span><span class="sxs-lookup"><span data-stu-id="8b988-223">List hello files in a share</span></span>
+<span data-ttu-id="8b988-224">Você pode listar arquivos e diretórios em um compartilhamento usando Olá `az storage file list` comando:</span><span class="sxs-lookup"><span data-stu-id="8b988-224">You can list files and directories in a share by using hello `az storage file list` command:</span></span>
 
 ```azurecli
-# List the files in the root of a share
+# List hello files in hello root of a share
 az storage file list --share-name myshare --output table
 
-# List the files in a directory within a share
+# List hello files in a directory within a share
 az storage file list --share-name myshare/myDir --output table
 
-# List the files in a path within a share
+# List hello files in a path within a share
 az storage file list --share-name myshare --path myDir/mySubDir/MySubDir2 --output table
 ```
 
-### <a name="copy-files"></a><span data-ttu-id="dce3a-225">Copiar arquivos</span><span class="sxs-lookup"><span data-stu-id="dce3a-225">Copy files</span></span>      
-<span data-ttu-id="dce3a-226">Você pode copiar um arquivo para outro arquivo, um arquivo para um blob ou um blob para um arquivo.</span><span class="sxs-lookup"><span data-stu-id="dce3a-226">You can copy a file to another file, a file to a blob, or a blob to a file.</span></span> <span data-ttu-id="dce3a-227">Por exemplo, para copiar um arquivo para um diretório em um compartilhamento diferente:</span><span class="sxs-lookup"><span data-stu-id="dce3a-227">For example, to copy a file to a directory in a different share:</span></span>        
+### <a name="copy-files"></a><span data-ttu-id="8b988-225">Copiar arquivos</span><span class="sxs-lookup"><span data-stu-id="8b988-225">Copy files</span></span>      
+<span data-ttu-id="8b988-226">Você pode copiar um arquivo de tooanother, um blob de tooa de arquivo ou um arquivo de tooa de blob.</span><span class="sxs-lookup"><span data-stu-id="8b988-226">You can copy a file tooanother file, a file tooa blob, or a blob tooa file.</span></span> <span data-ttu-id="8b988-227">Por exemplo, um arquivo tooa diretório em um compartilhamento diferente de toocopy:</span><span class="sxs-lookup"><span data-stu-id="8b988-227">For example, toocopy a file tooa directory in a different share:</span></span>        
         
 ```azurecli
 az storage file copy start \
@@ -372,9 +372,9 @@ az storage file copy start \
 --destination-share share2 --destination-path dir2/file.txt     
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="dce3a-228">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="dce3a-228">Next steps</span></span>
-<span data-ttu-id="dce3a-229">Veja alguns recursos adicionais para aprender mais sobre como trabalhar com a CLI do Azure 2.0.</span><span class="sxs-lookup"><span data-stu-id="dce3a-229">Here are some additional resources for learning more about working with the Azure CLI 2.0.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="8b988-228">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="8b988-228">Next steps</span></span>
+<span data-ttu-id="8b988-229">Aqui estão alguns recursos adicionais para aprender mais sobre como trabalhar com hello 2.0 do CLI do Azure.</span><span class="sxs-lookup"><span data-stu-id="8b988-229">Here are some additional resources for learning more about working with hello Azure CLI 2.0.</span></span>
 
-* [<span data-ttu-id="dce3a-230">Introdução à CLI do Azure 2.0</span><span class="sxs-lookup"><span data-stu-id="dce3a-230">Get started with Azure CLI 2.0</span></span>](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-* [<span data-ttu-id="dce3a-231">Referência de comandos da CLI do Azure 2.0</span><span class="sxs-lookup"><span data-stu-id="dce3a-231">Azure CLI 2.0 command reference</span></span>](/cli/azure)
-* [<span data-ttu-id="dce3a-232">CLI do Azure 2.0 no GitHub</span><span class="sxs-lookup"><span data-stu-id="dce3a-232">Azure CLI 2.0 on GitHub</span></span>](https://github.com/Azure/azure-cli)
+* [<span data-ttu-id="8b988-230">Introdução à CLI do Azure 2.0</span><span class="sxs-lookup"><span data-stu-id="8b988-230">Get started with Azure CLI 2.0</span></span>](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [<span data-ttu-id="8b988-231">Referência de comandos da CLI do Azure 2.0</span><span class="sxs-lookup"><span data-stu-id="8b988-231">Azure CLI 2.0 command reference</span></span>](/cli/azure)
+* [<span data-ttu-id="8b988-232">CLI do Azure 2.0 no GitHub</span><span class="sxs-lookup"><span data-stu-id="8b988-232">Azure CLI 2.0 on GitHub</span></span>](https://github.com/Azure/azure-cli)

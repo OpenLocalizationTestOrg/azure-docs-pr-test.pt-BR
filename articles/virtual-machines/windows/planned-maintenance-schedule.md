@@ -1,6 +1,6 @@
 ---
-title: "Como agendar a manutenção de VMs do Windows no Azure | Microsoft Docs"
-description: "Saiba como agendar a manutenção planejada em VMs do Azure."
+title: "manutenção de tooschedule aaaHow para VMs do Windows no Azure | Microsoft Docs"
+description: "Saiba como tooschedule manutenção planejada em VMs do Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: igalf
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: igalf
-ms.openlocfilehash: 7c137d6709ec246fd93e70dd46eed78b4288d05a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: db8909239d7b6e4dcc58c229c0933c3d4ebd1233
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-schedule-planned-maintenance-on-azure-vms"></a><span data-ttu-id="cfaf3-103">Como agendar a manutenção planejada em VMs do Azure</span><span class="sxs-lookup"><span data-stu-id="cfaf3-103">How to Schedule Planned Maintenance on Azure VMs</span></span>
+# <a name="how-tooschedule-planned-maintenance-on-azure-vms"></a><span data-ttu-id="07562-103">Como tooSchedule manutenção planejada em VMs do Azure</span><span class="sxs-lookup"><span data-stu-id="07562-103">How tooSchedule Planned Maintenance on Azure VMs</span></span>
 > [!IMPORTANT]
-> <span data-ttu-id="cfaf3-104">O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="cfaf3-104">Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../resource-manager-deployment-model.md).</span></span> <span data-ttu-id="cfaf3-105">Este artigo aborda o uso do modelo de implantação Clássica.</span><span class="sxs-lookup"><span data-stu-id="cfaf3-105">This article covers using the Classic deployment model.</span></span> <span data-ttu-id="cfaf3-106">A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.</span><span class="sxs-lookup"><span data-stu-id="cfaf3-106">Microsoft recommends that most new deployments use the Resource Manager model.</span></span> <span data-ttu-id="cfaf3-107">Para obter informações sobre a manutenção planejada no modelo do Resource Manager, consulte [aqui](planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="cfaf3-107">For information about planned maintenance in the Resource Manager model, see [here](planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).</span></span>
+> <span data-ttu-id="07562-104">O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="07562-104">Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../resource-manager-deployment-model.md).</span></span> <span data-ttu-id="07562-105">Este artigo aborda usando o modelo de implantação clássico hello.</span><span class="sxs-lookup"><span data-stu-id="07562-105">This article covers using hello Classic deployment model.</span></span> <span data-ttu-id="07562-106">A Microsoft recomenda que mais novas implantações de usam o modelo do Gerenciador de recursos de saudação.</span><span class="sxs-lookup"><span data-stu-id="07562-106">Microsoft recommends that most new deployments use hello Resource Manager model.</span></span> <span data-ttu-id="07562-107">Para obter informações sobre a manutenção planejada no modelo do Gerenciador de recursos de hello, consulte [aqui](planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="07562-107">For information about planned maintenance in hello Resource Manager model, see [here](planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).</span></span>
 
 [!INCLUDE [virtual-machines-common-planned-maintenance-schedule](../../../includes/virtual-machines-common-planned-maintenance-schedule.md)]

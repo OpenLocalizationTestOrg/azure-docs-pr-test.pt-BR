@@ -1,5 +1,5 @@
 ---
-title: Amostras da CLI do Azure Service Fabric
+title: "aaaAzure exemplos de CLI do serviço de malha"
 description: Amostras da CLI do Azure Service Fabric
 services: service-fabric
 documentationcenter: service-fabric
@@ -16,18 +16,18 @@ ms.workload: service-fabric
 ms.date: 08/22/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: ffe94435d7d606506cbba2abb794f40fe9104df0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: dee855a78d9cc99c82cf720dbd79b0e2bf72a5d1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-service-fabric-cli-samples"></a><span data-ttu-id="0948d-103">Amostras da CLI do Azure Service Fabric</span><span class="sxs-lookup"><span data-stu-id="0948d-103">Azure Service Fabric CLI Samples</span></span>
+# <a name="azure-service-fabric-cli-samples"></a><span data-ttu-id="f4689-103">Amostras da CLI do Azure Service Fabric</span><span class="sxs-lookup"><span data-stu-id="f4689-103">Azure Service Fabric CLI Samples</span></span>
 
-<span data-ttu-id="0948d-104">A tabela a seguir contém links para exemplos de scripts do [CLI do Service Fabric](service-fabric-cli.md) que gerenciam clusters, aplicativos e serviços do Service Fabric.</span><span class="sxs-lookup"><span data-stu-id="0948d-104">The following table includes links to [Service Fabric CLI](service-fabric-cli.md) scripts samples that manage Service Fabric clusters, applications, and services.</span></span>
+<span data-ttu-id="f4689-104">Olá tabela a seguir inclui links muito[CLI de malha do serviço](service-fabric-cli.md) scripts de exemplos que gerenciem clusters, aplicativos e serviços do Service Fabric.</span><span class="sxs-lookup"><span data-stu-id="f4689-104">hello following table includes links too[Service Fabric CLI](service-fabric-cli.md) scripts samples that manage Service Fabric clusters, applications, and services.</span></span>
 
 | | |
 |-|-|
-| <span data-ttu-id="0948d-105">**Gerenciar aplicativos**</span><span class="sxs-lookup"><span data-stu-id="0948d-105">**Manage applications**</span></span> ||
-| [<span data-ttu-id="0948d-106">Implantar um aplicativo</span><span class="sxs-lookup"><span data-stu-id="0948d-106">Deploy an application</span></span>](./scripts/cli-deploy-application.md)| <span data-ttu-id="0948d-107">Implantar um aplicativo em um cluster.</span><span class="sxs-lookup"><span data-stu-id="0948d-107">Deploy an application to a cluster.</span></span>|
-| [<span data-ttu-id="0948d-108">Remover um aplicativo</span><span class="sxs-lookup"><span data-stu-id="0948d-108">Remove an application</span></span>](./scripts/cli-remove-application.md)| <span data-ttu-id="0948d-109">Remover um aplicativo de um cluster.</span><span class="sxs-lookup"><span data-stu-id="0948d-109">Remove an application from a cluster.</span></span>|
+| <span data-ttu-id="f4689-105">**Gerenciar aplicativos**</span><span class="sxs-lookup"><span data-stu-id="f4689-105">**Manage applications**</span></span> ||
+| [<span data-ttu-id="f4689-106">Implantar um aplicativo</span><span class="sxs-lookup"><span data-stu-id="f4689-106">Deploy an application</span></span>](./scripts/cli-deploy-application.md)| <span data-ttu-id="f4689-107">Implante um cluster de tooa do aplicativo.</span><span class="sxs-lookup"><span data-stu-id="f4689-107">Deploy an application tooa cluster.</span></span>|
+| [<span data-ttu-id="f4689-108">Remover um aplicativo</span><span class="sxs-lookup"><span data-stu-id="f4689-108">Remove an application</span></span>](./scripts/cli-remove-application.md)| <span data-ttu-id="f4689-109">Remover um aplicativo de um cluster.</span><span class="sxs-lookup"><span data-stu-id="f4689-109">Remove an application from a cluster.</span></span>|

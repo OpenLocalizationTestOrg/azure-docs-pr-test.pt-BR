@@ -1,6 +1,6 @@
 ---
-title: "Conjuntos de disponibilidade para as VMs clássicas do Linux | Microsoft Docs"
-description: "Configure um conjunto de disponibilidade para uma máquina virtual do Linux nova ou existente no modelo de implantação clássico usando o Portal do Azure e o Azure PowerShell."
+title: "Define aaaAvailability para VMs do Linux clássica | Microsoft Docs"
+description: "Configure uma conjunto de disponibilidade para uma máquina virtual nova ou existente Linux modelo de implantação clássico hello usando hello portal do Azure e o Azure PowerShell."
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 ms.author: cynthn
-ms.openlocfilehash: 41d427862150d17e1ad726afc51114d6f62f5a8e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8d8d041e3540e42a1921f5665469a2fdcaa30a29
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-configure-an-availability-set-for-linux-virtual-machines-in-the-classic-deployment-model"></a><span data-ttu-id="f4fc1-103">Como configurar um conjunto de disponibilidade para máquinas virtuais do Linux no modelo de implantação clássico</span><span class="sxs-lookup"><span data-stu-id="f4fc1-103">How to configure an availability set for Linux virtual machines in the classic deployment model</span></span>
+# <a name="how-tooconfigure-an-availability-set-for-linux-virtual-machines-in-hello-classic-deployment-model"></a><span data-ttu-id="0cf77-103">Como tooconfigure uma conjunto de disponibilidade para máquinas virtuais Linux no modelo de implantação clássico Olá</span><span class="sxs-lookup"><span data-stu-id="0cf77-103">How tooconfigure an availability set for Linux virtual machines in hello classic deployment model</span></span>
 > [!IMPORTANT] 
-> <span data-ttu-id="f4fc1-104">O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="f4fc1-104">Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md).</span></span> <span data-ttu-id="f4fc1-105">Este artigo aborda o uso do modelo de implantação Clássica.</span><span class="sxs-lookup"><span data-stu-id="f4fc1-105">This article covers using the Classic deployment model.</span></span> <span data-ttu-id="f4fc1-106">A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.</span><span class="sxs-lookup"><span data-stu-id="f4fc1-106">Microsoft recommends that most new deployments use the Resource Manager model.</span></span> <span data-ttu-id="f4fc1-107">Você também pode [configurar os conjuntos de disponibilidades](../../azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets) nas implantações do Gerenciador de Recursos.</span><span class="sxs-lookup"><span data-stu-id="f4fc1-107">You can also [configure availability sets](../../azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets) in Resource Manager deployments.</span></span>
+> <span data-ttu-id="0cf77-104">O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="0cf77-104">Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md).</span></span> <span data-ttu-id="0cf77-105">Este artigo aborda usando o modelo de implantação clássico hello.</span><span class="sxs-lookup"><span data-stu-id="0cf77-105">This article covers using hello Classic deployment model.</span></span> <span data-ttu-id="0cf77-106">A Microsoft recomenda que mais novas implantações de usam o modelo do Gerenciador de recursos de saudação.</span><span class="sxs-lookup"><span data-stu-id="0cf77-106">Microsoft recommends that most new deployments use hello Resource Manager model.</span></span> <span data-ttu-id="0cf77-107">Você também pode [configurar os conjuntos de disponibilidades](../../azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets) nas implantações do Gerenciador de Recursos.</span><span class="sxs-lookup"><span data-stu-id="0cf77-107">You can also [configure availability sets](../../azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets) in Resource Manager deployments.</span></span>
 
 [!INCLUDE [virtual-machines-common-classic-configure-availability](../../../../includes/virtual-machines-common-classic-configure-availability.md)]

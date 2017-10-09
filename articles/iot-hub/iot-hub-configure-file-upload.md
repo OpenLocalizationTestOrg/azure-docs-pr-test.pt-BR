@@ -1,6 +1,6 @@
 ---
-title: Usar o portal do Azure para configurar o carregamento do arquivo | Microsoft Docs
-description: "Como usar o Portal do Azure para configurar o Hub IoT a fim de habilitar transferências de arquivos de dispositivos conectados. Inclui informações sobre como configurar a conta de armazenamento do Azure de destino."
+title: "carregamento do arquivo aaaUse Olá tooconfigure portal do Azure | Microsoft Docs"
+description: "Como toouse Olá tooconfigure portal do Azure seu arquivo de tooenable de hub IoT carregamentos de dispositivos conectados. Inclui informações sobre como configurar a conta de armazenamento do Azure de destino hello."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 149dd84d7d8f4ff9cd30f9fc649ced3cb364cfb7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b90c3fbed47b4eb144d3cb7480068b7cfc776ba6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a><span data-ttu-id="85fd2-104">Configurar uploads de arquivo do Hub IoT usando o Portal do Azure</span><span class="sxs-lookup"><span data-stu-id="85fd2-104">Configure IoT Hub file uploads using the Azure portal</span></span>
+# <a name="configure-iot-hub-file-uploads-using-hello-azure-portal"></a><span data-ttu-id="3210b-104">Configurar o IoT Hub carregamentos de arquivo usando Olá portal do Azure</span><span class="sxs-lookup"><span data-stu-id="3210b-104">Configure IoT Hub file uploads using hello Azure portal</span></span>
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-## <a name="file-upload"></a><span data-ttu-id="85fd2-105">Upload de arquivos</span><span class="sxs-lookup"><span data-stu-id="85fd2-105">File upload</span></span>
+## <a name="file-upload"></a><span data-ttu-id="3210b-105">Upload de arquivos</span><span class="sxs-lookup"><span data-stu-id="3210b-105">File upload</span></span>
 
-<span data-ttu-id="85fd2-106">Para usar a [funcionalidade de upload de arquivo no Hub IoT][lnk-upload], primeiro você deve associar uma conta de Armazenamento do Azure ao hub.</span><span class="sxs-lookup"><span data-stu-id="85fd2-106">To use the [file upload functionality in IoT Hub][lnk-upload], you must first associate an Azure Storage account with your hub.</span></span> <span data-ttu-id="85fd2-107">Selecione **Upload de arquivo** para exibir uma lista de propriedades de upload de arquivo para o hub IoT que está sendo modificado.</span><span class="sxs-lookup"><span data-stu-id="85fd2-107">Select **File upload** to display a list of file upload properties for the IoT hub that is being modified.</span></span>
+<span data-ttu-id="3210b-106">Olá toouse [funcionalidade de carregamento de arquivo no IoT Hub][lnk-upload], primeiro você deve associar uma conta de armazenamento do Azure com o hub.</span><span class="sxs-lookup"><span data-stu-id="3210b-106">toouse hello [file upload functionality in IoT Hub][lnk-upload], you must first associate an Azure Storage account with your hub.</span></span> <span data-ttu-id="3210b-107">Selecione **carregamento do arquivo** toodisplay uma lista de propriedades de carregamento de arquivo para o hub IoT Olá que está sendo modificado.</span><span class="sxs-lookup"><span data-stu-id="3210b-107">Select **File upload** toodisplay a list of file upload properties for hello IoT hub that is being modified.</span></span>
 
-![Exibir configurações de upload de arquivo do Hub IoT no portal][13]
+![As configurações no portal de saudação de carregamento de arquivo de IoT Hub de exibição][13]
 
-<span data-ttu-id="85fd2-109">**Contêiner de armazenamento**: use o Portal do Azure para selecionar um contêiner de blobs em uma conta de Armazenamento do Azure na assinatura atual do Azure para associar ao Hub IoT.</span><span class="sxs-lookup"><span data-stu-id="85fd2-109">**Storage container**: Use the Azure portal to select a blob container in an Azure Storage account in your current Azure subscription to associate with your IoT Hub.</span></span> <span data-ttu-id="85fd2-110">Se for necessário, você pode criar uma conta de Armazenamento do Azure na folha **Contas de armazenamento** e um contêiner de blob na folha **Contêineres**.</span><span class="sxs-lookup"><span data-stu-id="85fd2-110">If necessary, you can create an Azure Storage account on the **Storage accounts** blade and blob container on the **Containers** blade.</span></span> <span data-ttu-id="85fd2-111">O Hub IoT gera automaticamente os URIs de SAS com permissões de gravação para esse contêiner de blob para dispositivos a serem usados ao carregar arquivos.</span><span class="sxs-lookup"><span data-stu-id="85fd2-111">IoT Hub automatically generates SAS URIs with write permissions to this blob container for devices to use when they upload files.</span></span>
+<span data-ttu-id="3210b-109">**Contêiner de armazenamento**: Use Olá tooselect portal do Azure de um contêiner de blob em uma conta de armazenamento do Azure no seu atual tooassociate de assinatura do Azure com o IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="3210b-109">**Storage container**: Use hello Azure portal tooselect a blob container in an Azure Storage account in your current Azure subscription tooassociate with your IoT Hub.</span></span> <span data-ttu-id="3210b-110">Se necessário, você pode criar uma conta de armazenamento do Azure no hello **contas de armazenamento** contêiner de blob e folha em Olá **contêineres** folha.</span><span class="sxs-lookup"><span data-stu-id="3210b-110">If necessary, you can create an Azure Storage account on hello **Storage accounts** blade and blob container on hello **Containers** blade.</span></span> <span data-ttu-id="3210b-111">IoT Hub gera automaticamente os URIs de SAS com contêiner de blob de toothis de permissões de gravação para dispositivos toouse ao carregar arquivos.</span><span class="sxs-lookup"><span data-stu-id="3210b-111">IoT Hub automatically generates SAS URIs with write permissions toothis blob container for devices toouse when they upload files.</span></span>
 
-![Exibir contêineres de armazenamento para upload de arquivos no portal][14]
+![Contêineres de armazenamento de modo de exibição para o carregamento do arquivo no portal de saudação][14]
 
-<span data-ttu-id="85fd2-113">**Receber notificações para os arquivos carregados**: habilitar ou desabilitar notificações de upload de arquivo por meio de um botão de opção.</span><span class="sxs-lookup"><span data-stu-id="85fd2-113">**Receive notifications for uploaded files**: Enable or disable file upload notifications via the toggle.</span></span>
+<span data-ttu-id="3210b-113">**Receber notificações para arquivos carregados**: habilitar ou desabilitar notificações de carregamento de arquivo por meio da alternância de saudação.</span><span class="sxs-lookup"><span data-stu-id="3210b-113">**Receive notifications for uploaded files**: Enable or disable file upload notifications via hello toggle.</span></span>
 
-<span data-ttu-id="85fd2-114">**TTL de SAS**: essa configuração é a vida útil dos URIs de SAS retornados para o dispositivo pelo Hub IoT.</span><span class="sxs-lookup"><span data-stu-id="85fd2-114">**SAS TTL**: This setting is the time-to-live of the SAS URIs returned to the device by IoT Hub.</span></span> <span data-ttu-id="85fd2-115">Definido para uma hora por padrão, mas pode ser personalizado para outros valores usando o controle deslizante.</span><span class="sxs-lookup"><span data-stu-id="85fd2-115">Set to one hour by default but can be customized to other values using the slider.</span></span>
+<span data-ttu-id="3210b-114">**SAS TTL**: essa configuração é hello tempo de vida da saudação SAS URIs retornados toohello dispositivo pelo IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="3210b-114">**SAS TTL**: This setting is hello time-to-live of hello SAS URIs returned toohello device by IoT Hub.</span></span> <span data-ttu-id="3210b-115">Definir tooone horas por padrão, mas podem ser personalizado tooother valores usando Olá controle deslizante.</span><span class="sxs-lookup"><span data-stu-id="3210b-115">Set tooone hour by default but can be customized tooother values using hello slider.</span></span>
 
-<span data-ttu-id="85fd2-116">**TTL de configurações de notificação de arquivo padrão**: a vida útil de uma notificação de upload de arquivo antes de sua expiração.</span><span class="sxs-lookup"><span data-stu-id="85fd2-116">**File notification settings default TTL**: The time-to-live of a file upload notification before it is expired.</span></span> <span data-ttu-id="85fd2-117">Definido para um dia por padrão, mas pode ser personalizado para outros valores usando o controle deslizante.</span><span class="sxs-lookup"><span data-stu-id="85fd2-117">Set to one day by default but can be customized to other values using the slider.</span></span>
+<span data-ttu-id="3210b-116">**Notificação de tempo de vida padrão de configurações de arquivo**: Olá tempo de vida de uma notificação de carregamento de arquivo antes de expirar.</span><span class="sxs-lookup"><span data-stu-id="3210b-116">**File notification settings default TTL**: hello time-to-live of a file upload notification before it is expired.</span></span> <span data-ttu-id="3210b-117">Definir dia tooone por padrão, mas podem ser personalizado tooother valores usando Olá controle deslizante.</span><span class="sxs-lookup"><span data-stu-id="3210b-117">Set tooone day by default but can be customized tooother values using hello slider.</span></span>
 
-<span data-ttu-id="85fd2-118">**Contagem de entrega máxima de notificação de arquivo**: o número de vezes que o Hub IoT tenta entregar uma notificação de carregamento de arquivo.</span><span class="sxs-lookup"><span data-stu-id="85fd2-118">**File notification maximum delivery count**: The number of times the IoT Hub attempts to deliver a file upload notification.</span></span> <span data-ttu-id="85fd2-119">Definido como 10 por padrão, mas pode ser personalizado para outros valores usando o controle deslizante.</span><span class="sxs-lookup"><span data-stu-id="85fd2-119">Set to 10 by default but can be customized to other values using the slider.</span></span>
+<span data-ttu-id="3210b-118">**Contagem máxima de entrega de notificação de arquivo**: Olá número de vezes Olá toodeliver tentativas de IoT Hub uma notificação de carregamento de arquivo.</span><span class="sxs-lookup"><span data-stu-id="3210b-118">**File notification maximum delivery count**: hello number of times hello IoT Hub attempts toodeliver a file upload notification.</span></span> <span data-ttu-id="3210b-119">Definir too10 por padrão, mas podem ser personalizado tooother valores usando Olá controle deslizante.</span><span class="sxs-lookup"><span data-stu-id="3210b-119">Set too10 by default but can be customized tooother values using hello slider.</span></span>
 
-![Configurar o upload de arquivos do Hub IoT no portal][15]
+![Configurar o carregamento do arquivo de IoT Hub no portal de saudação][15]
 
-## <a name="next-steps"></a><span data-ttu-id="85fd2-121">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="85fd2-121">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="3210b-121">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="3210b-121">Next steps</span></span>
 
-<span data-ttu-id="85fd2-122">Para saber mais sobre os recursos de upload de arquivo do Hub IoT, consulte [Carregar arquivos de um dispositivo][lnk-upload] no guia do desenvolvedor do Hub IoT.</span><span class="sxs-lookup"><span data-stu-id="85fd2-122">For more information about the file upload capabilities of IoT Hub, see [Upload files from a device][lnk-upload] in the IoT Hub developer guide.</span></span>
+<span data-ttu-id="3210b-122">Para obter mais informações sobre os recursos de carregamento de arquivo hello IoT Hub, consulte [carregar arquivos de um dispositivo] [ lnk-upload] em Olá guia do desenvolvedor de IoT Hub.</span><span class="sxs-lookup"><span data-stu-id="3210b-122">For more information about hello file upload capabilities of IoT Hub, see [Upload files from a device][lnk-upload] in hello IoT Hub developer guide.</span></span>
 
-<span data-ttu-id="85fd2-123">Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:</span><span class="sxs-lookup"><span data-stu-id="85fd2-123">Follow these links to learn more about managing Azure IoT Hub:</span></span>
+<span data-ttu-id="3210b-123">Siga essas toolearn links mais sobre como gerenciar o Azure IoT Hub:</span><span class="sxs-lookup"><span data-stu-id="3210b-123">Follow these links toolearn more about managing Azure IoT Hub:</span></span>
 
-* <span data-ttu-id="85fd2-124">[Gerenciamento em massa de dispositivos IoT][lnk-bulk]</span><span class="sxs-lookup"><span data-stu-id="85fd2-124">[Bulk manage IoT devices][lnk-bulk]</span></span>
-* <span data-ttu-id="85fd2-125">[Métricas do Hub IoT][lnk-metrics]</span><span class="sxs-lookup"><span data-stu-id="85fd2-125">[IoT Hub metrics][lnk-metrics]</span></span>
-* <span data-ttu-id="85fd2-126">[Monitoramento de operações][lnk-monitor]</span><span class="sxs-lookup"><span data-stu-id="85fd2-126">[Operations monitoring][lnk-monitor]</span></span>
+* <span data-ttu-id="3210b-124">[Gerenciamento em massa de dispositivos IoT][lnk-bulk]</span><span class="sxs-lookup"><span data-stu-id="3210b-124">[Bulk manage IoT devices][lnk-bulk]</span></span>
+* <span data-ttu-id="3210b-125">[Métricas do Hub IoT][lnk-metrics]</span><span class="sxs-lookup"><span data-stu-id="3210b-125">[IoT Hub metrics][lnk-metrics]</span></span>
+* <span data-ttu-id="3210b-126">[Monitoramento de operações][lnk-monitor]</span><span class="sxs-lookup"><span data-stu-id="3210b-126">[Operations monitoring][lnk-monitor]</span></span>
 
-<span data-ttu-id="85fd2-127">Para explorar melhor as funcionalidades do Hub IoT, consulte:</span><span class="sxs-lookup"><span data-stu-id="85fd2-127">To further explore the capabilities of IoT Hub, see:</span></span>
+<span data-ttu-id="3210b-127">toofurther explorar recursos de saudação do IoT Hub, consulte:</span><span class="sxs-lookup"><span data-stu-id="3210b-127">toofurther explore hello capabilities of IoT Hub, see:</span></span>
 
-* <span data-ttu-id="85fd2-128">[Guia do desenvolvedor do Hub IoT][lnk-devguide]</span><span class="sxs-lookup"><span data-stu-id="85fd2-128">[IoT Hub developer guide][lnk-devguide]</span></span>
-* <span data-ttu-id="85fd2-129">[Simulando um dispositivo com IoT Edge][lnk-iotedge]</span><span class="sxs-lookup"><span data-stu-id="85fd2-129">[Simulating a device with IoT Edge][lnk-iotedge]</span></span>
-* <span data-ttu-id="85fd2-130">[Proteger sua solução de IoT desde o início][lnk-securing]</span><span class="sxs-lookup"><span data-stu-id="85fd2-130">[Secure your IoT solution from the ground up][lnk-securing]</span></span>
+* <span data-ttu-id="3210b-128">[Guia do desenvolvedor do Hub IoT][lnk-devguide]</span><span class="sxs-lookup"><span data-stu-id="3210b-128">[IoT Hub developer guide][lnk-devguide]</span></span>
+* <span data-ttu-id="3210b-129">[Simulando um dispositivo com IoT Edge][lnk-iotedge]</span><span class="sxs-lookup"><span data-stu-id="3210b-129">[Simulating a device with IoT Edge][lnk-iotedge]</span></span>
+* <span data-ttu-id="3210b-130">[Proteger a sua solução de IoT da saudação de plano de fundo para cima][lnk-securing]</span><span class="sxs-lookup"><span data-stu-id="3210b-130">[Secure your IoT solution from hello ground up][lnk-securing]</span></span>
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
 [14]: ./media/iot-hub-configure-file-upload/file-upload-container-selection.png

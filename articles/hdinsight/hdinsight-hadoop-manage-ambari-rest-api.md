@@ -1,6 +1,6 @@
 ---
-title: "Monitorar e gerenciar o Hadoop com a API REST do Ambari – Azure HDInsight | Microsoft Docs"
-description: "Aprenda a usar o Ambari para monitorar e gerenciar clusters Hadoop no Azure HDInsight. Neste documento, você aprenderá a usar a API REST do Ambari incluída com clusters HDInsight."
+title: aaaMonitor e gerenciar Hadoop com API REST do Ambari - HDInsight do Azure | Microsoft Docs
+description: "Saiba como toouse Ambari toomonitor e gerenciar clusters Hadoop em HDInsight do Azure. Neste documento, você aprenderá como clusters de toouse Olá API REST do Ambari incluídos no HDInsight."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,74 +16,74 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 7960d83bce22d4f671d61e9aaf55561bc24308f8
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 1866a77c8e402231bccbcfba7174253aca41339b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a><span data-ttu-id="e1339-104">Gerenciar clusters HDInsight usando a API REST do Ambari</span><span class="sxs-lookup"><span data-stu-id="e1339-104">Manage HDInsight clusters by using the Ambari REST API</span></span>
+# <a name="manage-hdinsight-clusters-by-using-hello-ambari-rest-api"></a><span data-ttu-id="b8e6b-104">Gerenciar clusters HDInsight usando Olá Ambari REST API</span><span class="sxs-lookup"><span data-stu-id="b8e6b-104">Manage HDInsight clusters by using hello Ambari REST API</span></span>
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-<span data-ttu-id="e1339-105">Aprenda a usar a API REST do Ambari para gerenciar e monitorar clusters Hadoop no Azure HDInsight.</span><span class="sxs-lookup"><span data-stu-id="e1339-105">Learn how to use the Ambari REST API to manage and monitor Hadoop clusters in Azure HDInsight.</span></span>
+<span data-ttu-id="b8e6b-105">Saiba como toouse Olá toomanage Ambari REST API e monitorar clusters Hadoop em HDInsight do Azure.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-105">Learn how toouse hello Ambari REST API toomanage and monitor Hadoop clusters in Azure HDInsight.</span></span>
 
-<span data-ttu-id="e1339-106">O Apache Ambari simplifica o gerenciamento e monitoramento de um cluster Hadoop, fornecendo uma forma fácil de usar a interface do usuário da Web e a API REST.</span><span class="sxs-lookup"><span data-stu-id="e1339-106">Apache Ambari simplifies the management and monitoring of a Hadoop cluster by providing an easy to use web UI and REST API.</span></span> <span data-ttu-id="e1339-107">O Ambari é incluído em clusters HDInsight que usam o sistema operacional Linux.</span><span class="sxs-lookup"><span data-stu-id="e1339-107">Ambari is included on HDInsight clusters that use the Linux operating system.</span></span> <span data-ttu-id="e1339-108">Você pode usar o Ambari para monitorar o cluster e fazer alterações de configuração.</span><span class="sxs-lookup"><span data-stu-id="e1339-108">You can use Ambari to monitor the cluster and make configuration changes.</span></span>
+<span data-ttu-id="b8e6b-106">Apache Ambari simplifica o gerenciamento de saudação e monitoramento de um cluster de Hadoop, fornecendo a interface do usuário e REST API toouse fácil da web.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-106">Apache Ambari simplifies hello management and monitoring of a Hadoop cluster by providing an easy toouse web UI and REST API.</span></span> <span data-ttu-id="b8e6b-107">Ambari é incluído em clusters de HDInsight que usam o sistema de operacional Linux hello.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-107">Ambari is included on HDInsight clusters that use hello Linux operating system.</span></span> <span data-ttu-id="b8e6b-108">Você pode usar o cluster de saudação do Ambari toomonitor e fazer alterações de configuração.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-108">You can use Ambari toomonitor hello cluster and make configuration changes.</span></span>
 
-## <span data-ttu-id="e1339-109"><a id="whatis"></a>O que é o Ambari</span><span class="sxs-lookup"><span data-stu-id="e1339-109"><a id="whatis"></a>What is Ambari</span></span>
+## <span data-ttu-id="b8e6b-109"><a id="whatis"></a>O que é o Ambari</span><span class="sxs-lookup"><span data-stu-id="b8e6b-109"><a id="whatis"></a>What is Ambari</span></span>
 
-<span data-ttu-id="e1339-110">O [Apache Ambari](http://ambari.apache.org) fornece uma interface do usuário da Web que pode ser usada para provisionar, gerenciar e monitorar clusters Hadoop.</span><span class="sxs-lookup"><span data-stu-id="e1339-110">[Apache Ambari](http://ambari.apache.org) provides web UI that can be used to provision, manage, and monitor Hadoop clusters.</span></span> <span data-ttu-id="e1339-111">Os desenvolvedores podem integrar essas funcionalidades em seus aplicativos usando as [APIs REST do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).</span><span class="sxs-lookup"><span data-stu-id="e1339-111">Developers can integrate these capabilities into their applications by using the [Ambari REST APIs](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).</span></span>
+<span data-ttu-id="b8e6b-110">[Apache Ambari](http://ambari.apache.org) fornece a interface que pode ser usado tooprovision, gerenciar e monitorar clusters Hadoop da web.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-110">[Apache Ambari](http://ambari.apache.org) provides web UI that can be used tooprovision, manage, and monitor Hadoop clusters.</span></span> <span data-ttu-id="b8e6b-111">Os desenvolvedores podem integrar esses recursos em seus aplicativos usando Olá [APIs de REST do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).</span><span class="sxs-lookup"><span data-stu-id="b8e6b-111">Developers can integrate these capabilities into their applications by using hello [Ambari REST APIs](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).</span></span>
 
-<span data-ttu-id="e1339-112">Ambari é fornecido por padrão com os clusters HDInsight baseados em Linux.</span><span class="sxs-lookup"><span data-stu-id="e1339-112">Ambari is provided by default with Linux-based HDInsight clusters.</span></span>
+<span data-ttu-id="b8e6b-112">Ambari é fornecido por padrão com os clusters HDInsight baseados em Linux.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-112">Ambari is provided by default with Linux-based HDInsight clusters.</span></span>
 
-## <a name="how-to-use-the-ambari-rest-api"></a><span data-ttu-id="e1339-113">Como usar a API REST do Ambari</span><span class="sxs-lookup"><span data-stu-id="e1339-113">How to use the Ambari REST API</span></span>
-
-> [!IMPORTANT]
-> <span data-ttu-id="e1339-114">As informações e exemplos deste documento exigem um cluster HDInsight que usa o sistema operacional Linux.</span><span class="sxs-lookup"><span data-stu-id="e1339-114">The information and examples in this document require an HDInsight cluster that uses Linux operating system.</span></span> <span data-ttu-id="e1339-115">Para saber mais, confira [Introdução ao HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).</span><span class="sxs-lookup"><span data-stu-id="e1339-115">For more information, see [Get started with HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).</span></span>
-
-<span data-ttu-id="e1339-116">Os exemplos neste documento são fornecidos para o shell Bourne (bash) e o PowerShell.</span><span class="sxs-lookup"><span data-stu-id="e1339-116">The examples in this document are provided for both the Bourne shell (bash) and PowerShell.</span></span> <span data-ttu-id="e1339-117">O bash exemplos foram testados com GNU bash 4.3.11, mas devem funcionar com outros shells do Unix.</span><span class="sxs-lookup"><span data-stu-id="e1339-117">The bash examples were tested with GNU bash 4.3.11, but should work with other Unix shells.</span></span> <span data-ttu-id="e1339-118">Os exemplos do PowerShell foram testados com o PowerShell 5.0, mas devem funcionar com o PowerShell 3.0 ou superior.</span><span class="sxs-lookup"><span data-stu-id="e1339-118">The PowerShell examples were tested with PowerShell 5.0, but should work with PowerShell 3.0 or higher.</span></span>
-
-<span data-ttu-id="e1339-119">Se usar o __shell Bourne__ (Bash), você deve ter o seguinte instalado:</span><span class="sxs-lookup"><span data-stu-id="e1339-119">If using the __Bourne shell__ (Bash), you must have the following installed:</span></span>
-
-* <span data-ttu-id="e1339-120">[cURL](http://curl.haxx.se/): o cURL é um utilitário que pode ser usado para trabalhar com APIs REST na linha de comando.</span><span class="sxs-lookup"><span data-stu-id="e1339-120">[cURL](http://curl.haxx.se/): cURL is a utility that can be used to work with REST APIs from the command line.</span></span> <span data-ttu-id="e1339-121">Neste documento, ele é usado para se comunicar com a API REST do Ambari.</span><span class="sxs-lookup"><span data-stu-id="e1339-121">In this document, it is used to communicate with the Ambari REST API.</span></span>
-
-<span data-ttu-id="e1339-122">Se usar Bash ou o PowerShell, você também deverá ter o [jq](https://stedolan.github.io/jq/) instalado.</span><span class="sxs-lookup"><span data-stu-id="e1339-122">Whether using Bash or PowerShell, you must also have [jq](https://stedolan.github.io/jq/) installed.</span></span> <span data-ttu-id="e1339-123">Jq é um utilitário para trabalhar com documentos JSON.</span><span class="sxs-lookup"><span data-stu-id="e1339-123">Jq is a utility for working with JSON documents.</span></span> <span data-ttu-id="e1339-124">Ele é usado em **todos os** exemplos Bash, e **um** dos exemplos do PowerShell.</span><span class="sxs-lookup"><span data-stu-id="e1339-124">It is used in **all** the Bash examples, and **one** of the PowerShell examples.</span></span>
-
-### <a name="base-uri-for-ambari-rest-api"></a><span data-ttu-id="e1339-125">Base de URI para a API de Rest do Ambari</span><span class="sxs-lookup"><span data-stu-id="e1339-125">Base URI for Ambari Rest API</span></span>
-
-<span data-ttu-id="e1339-126">A URI de base para a API REST em clusters HDInsight é https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, em que **CLUSTERNAME** é o nome do seu cluster.</span><span class="sxs-lookup"><span data-stu-id="e1339-126">The base URI for the Ambari REST API on HDInsight is https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, where **CLUSTERNAME** is the name of your cluster.</span></span>
+## <a name="how-toouse-hello-ambari-rest-api"></a><span data-ttu-id="b8e6b-113">Como toouse Olá Ambari REST API</span><span class="sxs-lookup"><span data-stu-id="b8e6b-113">How toouse hello Ambari REST API</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="e1339-127">Embora o nome do cluster na parte do nome de domínio totalmente qualificado (FQDN) do URI (CLUSTERNAME.azurehdinsight.net) diferencie maiúsculas de minúsculas, outras ocorrências no URI diferenciam maiúsculas de minúsculas.</span><span class="sxs-lookup"><span data-stu-id="e1339-127">While the cluster name in the fully qualified domain name (FQDN) part of the URI (CLUSTERNAME.azurehdinsight.net) is case-insensitive, other occurrences in the URI are case-sensitive.</span></span> <span data-ttu-id="e1339-128">Por exemplo, se seu cluster se chamar `MyCluster`, os seguintes URIs serão válidos:</span><span class="sxs-lookup"><span data-stu-id="e1339-128">For example, if your cluster is named `MyCluster`, the following are valid URIs:</span></span>
+> <span data-ttu-id="b8e6b-114">informações de saudação e exemplos neste documento exigem um cluster HDInsight que usa o sistema operacional Linux.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-114">hello information and examples in this document require an HDInsight cluster that uses Linux operating system.</span></span> <span data-ttu-id="b8e6b-115">Para saber mais, confira [Introdução ao HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).</span><span class="sxs-lookup"><span data-stu-id="b8e6b-115">For more information, see [Get started with HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).</span></span>
+
+<span data-ttu-id="b8e6b-116">exemplos de saudação neste documento são fornecidos para o shell Bourne de saudação (bash) e o PowerShell.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-116">hello examples in this document are provided for both hello Bourne shell (bash) and PowerShell.</span></span> <span data-ttu-id="b8e6b-117">bash Olá exemplos foram testados com GNU bash 4.3.11, mas devem funcionar com outros shells do Unix.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-117">hello bash examples were tested with GNU bash 4.3.11, but should work with other Unix shells.</span></span> <span data-ttu-id="b8e6b-118">exemplos do PowerShell Olá foram testados com o PowerShell 5.0, mas devem funcionar com o PowerShell 3.0 ou superior.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-118">hello PowerShell examples were tested with PowerShell 5.0, but should work with PowerShell 3.0 or higher.</span></span>
+
+<span data-ttu-id="b8e6b-119">Se usar o hello __shell Bourne__ (Bash), você deve ter o seguinte Olá instalado:</span><span class="sxs-lookup"><span data-stu-id="b8e6b-119">If using hello __Bourne shell__ (Bash), you must have hello following installed:</span></span>
+
+* <span data-ttu-id="b8e6b-120">[cURL](http://curl.haxx.se/): Ondulação é um utilitário que pode ser usado toowork com APIs de REST da linha de comando de saudação.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-120">[cURL](http://curl.haxx.se/): cURL is a utility that can be used toowork with REST APIs from hello command line.</span></span> <span data-ttu-id="b8e6b-121">Neste documento, é usado toocommunicate com hello API REST do Ambari.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-121">In this document, it is used toocommunicate with hello Ambari REST API.</span></span>
+
+<span data-ttu-id="b8e6b-122">Se usar Bash ou o PowerShell, você também deverá ter o [jq](https://stedolan.github.io/jq/) instalado.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-122">Whether using Bash or PowerShell, you must also have [jq](https://stedolan.github.io/jq/) installed.</span></span> <span data-ttu-id="b8e6b-123">Jq é um utilitário para trabalhar com documentos JSON.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-123">Jq is a utility for working with JSON documents.</span></span> <span data-ttu-id="b8e6b-124">Ele é usado em **todos os** Olá Bash exemplos, e **um** de exemplos do PowerShell hello.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-124">It is used in **all** hello Bash examples, and **one** of hello PowerShell examples.</span></span>
+
+### <a name="base-uri-for-ambari-rest-api"></a><span data-ttu-id="b8e6b-125">Base de URI para a API de Rest do Ambari</span><span class="sxs-lookup"><span data-stu-id="b8e6b-125">Base URI for Ambari Rest API</span></span>
+
+<span data-ttu-id="b8e6b-126">Olá, URI de base para Olá API REST do Ambari no HDInsight é https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, onde **CLUSTERNAME** é o nome de saudação do cluster.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-126">hello base URI for hello Ambari REST API on HDInsight is https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, where **CLUSTERNAME** is hello name of your cluster.</span></span>
+
+> [!IMPORTANT]
+> <span data-ttu-id="b8e6b-127">Enquanto o nome do cluster Olá no hello totalmente qualificado parte do nome (FQDN) do domínio de saudação URI (CLUSTERNAME.azurehdinsight.net) diferencia maiusculas de minúsculas, outras ocorrências em Olá URI diferenciam maiusculas de minúsculas.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-127">While hello cluster name in hello fully qualified domain name (FQDN) part of hello URI (CLUSTERNAME.azurehdinsight.net) is case-insensitive, other occurrences in hello URI are case-sensitive.</span></span> <span data-ttu-id="b8e6b-128">Por exemplo, se o cluster é denominado `MyCluster`, Olá seguem URIs válidos:</span><span class="sxs-lookup"><span data-stu-id="b8e6b-128">For example, if your cluster is named `MyCluster`, hello following are valid URIs:</span></span>
 > 
 > `https://mycluster.azurehdinsight.net/api/v1/clusters/MyCluster`
 >
 > `https://MyCluster.azurehdinsight.net/api/v1/clusters/MyCluster`
 > 
-> <span data-ttu-id="e1339-129">Os URIs a seguir retornam um erro, pois a segunda ocorrência do nome não apresenta o uso correto de maiúsculas e minúsculas.</span><span class="sxs-lookup"><span data-stu-id="e1339-129">The following URIs return an error because the second occurrence of the name is not the correct case.</span></span>
+> <span data-ttu-id="b8e6b-129">seguir Olá URIs retornará um erro porque Olá segunda ocorrência do nome de saudação não é Olá corrija caso.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-129">hello following URIs return an error because hello second occurrence of hello name is not hello correct case.</span></span>
 > 
 > `https://mycluster.azurehdinsight.net/api/v1/clusters/mycluster`
 >
 > `https://MyCluster.azurehdinsight.net/api/v1/clusters/mycluster`
 
-### <a name="authentication"></a><span data-ttu-id="e1339-130">Autenticação</span><span class="sxs-lookup"><span data-stu-id="e1339-130">Authentication</span></span>
+### <a name="authentication"></a><span data-ttu-id="b8e6b-130">Autenticação</span><span class="sxs-lookup"><span data-stu-id="b8e6b-130">Authentication</span></span>
 
-<span data-ttu-id="e1339-131">Conectar-se ao Ambari no HDInsight requer HTTPS.</span><span class="sxs-lookup"><span data-stu-id="e1339-131">Connecting to Ambari on HDInsight requires HTTPS.</span></span> <span data-ttu-id="e1339-132">Use o nome da conta do administrador (o padrão é **admin**) e a senha fornecidos durante a criação do cluster.</span><span class="sxs-lookup"><span data-stu-id="e1339-132">Use the admin account name (the default is **admin**) and password you provided during cluster creation.</span></span>
+<span data-ttu-id="b8e6b-131">Conexão tooAmbari no HDInsight requer HTTPS.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-131">Connecting tooAmbari on HDInsight requires HTTPS.</span></span> <span data-ttu-id="b8e6b-132">Nome de conta de administrador use hello (Olá padrão é **admin**) e a senha fornecidos durante a criação do cluster.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-132">Use hello admin account name (hello default is **admin**) and password you provided during cluster creation.</span></span>
 
-## <a name="examples-authentication-and-parsing-json"></a><span data-ttu-id="e1339-133">Exemplos: Autenticação e analisando o JSON</span><span class="sxs-lookup"><span data-stu-id="e1339-133">Examples: Authentication and parsing JSON</span></span>
+## <a name="examples-authentication-and-parsing-json"></a><span data-ttu-id="b8e6b-133">Exemplos: Autenticação e analisando o JSON</span><span class="sxs-lookup"><span data-stu-id="b8e6b-133">Examples: Authentication and parsing JSON</span></span>
 
-<span data-ttu-id="e1339-134">Os exemplos a seguir demonstram como fazer uma solicitação GET em relação a API REST do Ambari base:</span><span class="sxs-lookup"><span data-stu-id="e1339-134">The following examples demonstrate how to make a GET request against the base Ambari REST API:</span></span>
+<span data-ttu-id="b8e6b-134">Olá exemplos a seguir demonstram como toomake uma solicitação GET hello base Ambari REST API:</span><span class="sxs-lookup"><span data-stu-id="b8e6b-134">hello following examples demonstrate how toomake a GET request against hello base Ambari REST API:</span></span>
 
 ```bash
 curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME"
 ```
 
 > [!IMPORTANT]
-> <span data-ttu-id="e1339-135">Os exemplos neste documento Bash fazem as seguintes suposições:</span><span class="sxs-lookup"><span data-stu-id="e1339-135">The Bash examples in this document make the following assumptions:</span></span>
+> <span data-ttu-id="b8e6b-135">exemplos de Bash Olá neste documento fazer Olá seguintes suposições:</span><span class="sxs-lookup"><span data-stu-id="b8e6b-135">hello Bash examples in this document make hello following assumptions:</span></span>
 >
-> * <span data-ttu-id="e1339-136">O nome de logon para o cluster é o valor padrão de `admin`.</span><span class="sxs-lookup"><span data-stu-id="e1339-136">The login name for the cluster is the default value of `admin`.</span></span>
-> * <span data-ttu-id="e1339-137">`$PASSWORD`contém a senha para o comando de logon do HDInsight.</span><span class="sxs-lookup"><span data-stu-id="e1339-137">`$PASSWORD` contains the password for the HDInsight login command.</span></span> <span data-ttu-id="e1339-138">Você pode definir esse valor usando `PASSWORD='mypassword'`.</span><span class="sxs-lookup"><span data-stu-id="e1339-138">You can set this value by using `PASSWORD='mypassword'`.</span></span>
-> * <span data-ttu-id="e1339-139">`$CLUSTERNAME` contém o nome do cluster.</span><span class="sxs-lookup"><span data-stu-id="e1339-139">`$CLUSTERNAME` contains the name of the cluster.</span></span> <span data-ttu-id="e1339-140">Você pode definir esse valor usando `set CLUSTERNAME='clustername'`</span><span class="sxs-lookup"><span data-stu-id="e1339-140">You can set this value by using `set CLUSTERNAME='clustername'`</span></span>
+> * <span data-ttu-id="b8e6b-136">nome de logon de Olá para cluster Olá é o valor padrão de saudação do `admin`.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-136">hello login name for hello cluster is hello default value of `admin`.</span></span>
+> * <span data-ttu-id="b8e6b-137">`$PASSWORD`contém a senha Olá Olá comando de login do HDInsight.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-137">`$PASSWORD` contains hello password for hello HDInsight login command.</span></span> <span data-ttu-id="b8e6b-138">Você pode definir esse valor usando `PASSWORD='mypassword'`.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-138">You can set this value by using `PASSWORD='mypassword'`.</span></span>
+> * <span data-ttu-id="b8e6b-139">`$CLUSTERNAME`contém o nome de saudação do cluster hello.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-139">`$CLUSTERNAME` contains hello name of hello cluster.</span></span> <span data-ttu-id="b8e6b-140">Você pode definir esse valor usando `set CLUSTERNAME='clustername'`</span><span class="sxs-lookup"><span data-stu-id="b8e6b-140">You can set this value by using `set CLUSTERNAME='clustername'`</span></span>
 
 ```powershell
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" `
@@ -92,12 +92,12 @@ $resp.Content
 ```
 
 > [!IMPORTANT]
-> <span data-ttu-id="e1339-141">Os exemplos do PowerShell neste documento fazem as seguintes suposições:</span><span class="sxs-lookup"><span data-stu-id="e1339-141">The PowerShell examples in this document make the following assumptions:</span></span>
+> <span data-ttu-id="b8e6b-141">exemplos do PowerShell Olá neste documento fazer Olá seguintes suposições:</span><span class="sxs-lookup"><span data-stu-id="b8e6b-141">hello PowerShell examples in this document make hello following assumptions:</span></span>
 >
-> * <span data-ttu-id="e1339-142">`$creds`é um objeto de credencial que contém o logon de administrador e a senha do cluster.</span><span class="sxs-lookup"><span data-stu-id="e1339-142">`$creds` is a credential object that contains the admin login and password for the cluster.</span></span> <span data-ttu-id="e1339-143">Você pode definir esse valor usando `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` e fornecer as credenciais quando solicitado.</span><span class="sxs-lookup"><span data-stu-id="e1339-143">You can set this value by using `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` and providing the credentials when prompted.</span></span>
-> * <span data-ttu-id="e1339-144">`$clusterName` é uma cadeia de caracteres que contém o nome do cluster.</span><span class="sxs-lookup"><span data-stu-id="e1339-144">`$clusterName` is a string that contains the name of the cluster.</span></span> <span data-ttu-id="e1339-145">Você pode definir esse valor usando `$clusterName="clustername"`.</span><span class="sxs-lookup"><span data-stu-id="e1339-145">You can set this value by using `$clusterName="clustername"`.</span></span>
+> * <span data-ttu-id="b8e6b-142">`$creds`é um objeto de credencial que contém o logon de administrador hello e a senha para o cluster hello.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-142">`$creds` is a credential object that contains hello admin login and password for hello cluster.</span></span> <span data-ttu-id="b8e6b-143">Você pode definir esse valor usando `$creds = Get-Credential -UserName "admin" -Message "Enter hello HDInsight login"` e fornecer credenciais de saudação quando solicitado.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-143">You can set this value by using `$creds = Get-Credential -UserName "admin" -Message "Enter hello HDInsight login"` and providing hello credentials when prompted.</span></span>
+> * <span data-ttu-id="b8e6b-144">`$clusterName`é uma cadeia de caracteres que contém o nome de saudação do cluster de saudação.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-144">`$clusterName` is a string that contains hello name of hello cluster.</span></span> <span data-ttu-id="b8e6b-145">Você pode definir esse valor usando `$clusterName="clustername"`.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-145">You can set this value by using `$clusterName="clustername"`.</span></span>
 
-<span data-ttu-id="e1339-146">Ambos os exemplos retornam um documento JSON que começa com informações semelhantes ao exemplo a seguir:</span><span class="sxs-lookup"><span data-stu-id="e1339-146">Both examples return a JSON document that begins with information similar to the following example:</span></span>
+<span data-ttu-id="b8e6b-146">Os dois exemplos retornam um documento JSON que começa com informações toohello semelhante exemplo a seguir:</span><span class="sxs-lookup"><span data-stu-id="b8e6b-146">Both examples return a JSON document that begins with information similar toohello following example:</span></span>
 
 ```json
 {
@@ -119,16 +119,16 @@ $resp.Content
     ...
 ```
 
-### <a name="parsing-json-data"></a><span data-ttu-id="e1339-147">Analisar dados JSON</span><span class="sxs-lookup"><span data-stu-id="e1339-147">Parsing JSON data</span></span>
+### <a name="parsing-json-data"></a><span data-ttu-id="b8e6b-147">Analisar dados JSON</span><span class="sxs-lookup"><span data-stu-id="b8e6b-147">Parsing JSON data</span></span>
 
-<span data-ttu-id="e1339-148">O exemplo a seguir usa `jq` para analisar o documento de resposta JSON e exibir apenas o `health_report` informações dos resultados.</span><span class="sxs-lookup"><span data-stu-id="e1339-148">The following example uses `jq` to parse the JSON response document and display only the `health_report` information from the results.</span></span>
+<span data-ttu-id="b8e6b-148">Olá exemplo a seguir usa `jq` tooparse Olá documento de resposta JSON e exibir somente Olá `health_report` informações dos resultados de saudação.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-148">hello following example uses `jq` tooparse hello JSON response document and display only hello `health_report` information from hello results.</span></span>
 
 ```bash
 curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME" \
 | jq '.Clusters.health_report'
 ```
 
-<span data-ttu-id="e1339-149">O PowerShell 3.0 e superior fornece o cmdlet `ConvertFrom-Json`, que converte o documento JSON em um objeto com que é mais fácil de trabalhar desde o PowerShell.</span><span class="sxs-lookup"><span data-stu-id="e1339-149">PowerShell 3.0 and higher provides the `ConvertFrom-Json` cmdlet, which converts the JSON document into an object that is easier to work with from PowerShell.</span></span> <span data-ttu-id="e1339-150">O exemplo a seguir usa `ConvertFrom-Json` para exibir somente as informações de `health_report` dos resultados.</span><span class="sxs-lookup"><span data-stu-id="e1339-150">The following example uses `ConvertFrom-Json` to display only the `health_report` information from the results.</span></span>
+<span data-ttu-id="b8e6b-149">PowerShell 3.0 e superior fornece Olá `ConvertFrom-Json` cmdlet, que converte o documento JSON de saudação em um objeto que é mais fácil toowork do PowerShell.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-149">PowerShell 3.0 and higher provides hello `ConvertFrom-Json` cmdlet, which converts hello JSON document into an object that is easier toowork with from PowerShell.</span></span> <span data-ttu-id="b8e6b-150">Olá exemplo a seguir usa `ConvertFrom-Json` Olá somente toodisplay `health_report` informações dos resultados de saudação.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-150">hello following example uses `ConvertFrom-Json` toodisplay only hello `health_report` information from hello results.</span></span>
 
 ```powershell
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" `
@@ -138,15 +138,15 @@ $respObj.Clusters.health_report
 ```
 
 > [!NOTE]
-> <span data-ttu-id="e1339-151">Enquanto a maioria dos exemplos deste documento usa `ConvertFrom-Json` para exibir elementos do documento de resposta, o exemplo [Atualizar configuração do Ambari](#example-update-ambari-configuration) usa jq.</span><span class="sxs-lookup"><span data-stu-id="e1339-151">While most examples in this document use `ConvertFrom-Json` to display elements from the response document, the [Update Ambari configuration](#example-update-ambari-configuration) example uses jq.</span></span> <span data-ttu-id="e1339-152">Jq é usado neste exemplo, para criar um novo modelo do documento de resposta JSON.</span><span class="sxs-lookup"><span data-stu-id="e1339-152">Jq is used in this example to construct a new template from the JSON response document.</span></span>
+> <span data-ttu-id="b8e6b-151">Embora a maioria dos exemplos deste documento usam `ConvertFrom-Json` toodisplay elementos do documento de resposta hello, Olá [Ambari de atualização de configuração](#example-update-ambari-configuration) exemplo usa jq.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-151">While most examples in this document use `ConvertFrom-Json` toodisplay elements from hello response document, hello [Update Ambari configuration](#example-update-ambari-configuration) example uses jq.</span></span> <span data-ttu-id="b8e6b-152">Jq é usado em tooconstruct Este exemplo um novo modelo de documento de resposta JSON hello.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-152">Jq is used in this example tooconstruct a new template from hello JSON response document.</span></span>
 
-<span data-ttu-id="e1339-153">Para obter uma referência completa da API REST, consulte [Referência de API do Ambari, V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).</span><span class="sxs-lookup"><span data-stu-id="e1339-153">For a complete reference of the REST API, see [Ambari API Reference V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).</span></span>
+<span data-ttu-id="b8e6b-153">Para obter uma referência completa de saudação API REST, consulte [V1 de referência de API do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).</span><span class="sxs-lookup"><span data-stu-id="b8e6b-153">For a complete reference of hello REST API, see [Ambari API Reference V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).</span></span>
 
-## <a name="example-get-the-fqdn-of-cluster-nodes"></a><span data-ttu-id="e1339-154">Exemplo: obter o FQDN de nós do cluster</span><span class="sxs-lookup"><span data-stu-id="e1339-154">Example: Get the FQDN of cluster nodes</span></span>
+## <a name="example-get-hello-fqdn-of-cluster-nodes"></a><span data-ttu-id="b8e6b-154">Exemplo: Obter Olá FQDN de nós de cluster</span><span class="sxs-lookup"><span data-stu-id="b8e6b-154">Example: Get hello FQDN of cluster nodes</span></span>
 
-<span data-ttu-id="e1339-155">Ao trabalhar com o HDInsight, você precisará saber o nome de domínio totalmente qualificado (FQDN) de um nó do cluster.</span><span class="sxs-lookup"><span data-stu-id="e1339-155">When working with HDInsight, you may need to know the fully qualified domain name (FQDN) of a cluster node.</span></span> <span data-ttu-id="e1339-156">Você pode recuperar facilmente o FQDN para vários nós no cluster usando os seguintes exemplos:</span><span class="sxs-lookup"><span data-stu-id="e1339-156">You can easily retrieve the FQDN for the various nodes in the cluster using the following examples:</span></span>
+<span data-ttu-id="b8e6b-155">Ao trabalhar com HDInsight, talvez seja necessário um nome de domínio totalmente qualificado de saudação tooknow (FQDN) de um nó de cluster.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-155">When working with HDInsight, you may need tooknow hello fully qualified domain name (FQDN) of a cluster node.</span></span> <span data-ttu-id="b8e6b-156">Você pode recuperar facilmente hello FQDN para Olá vários nós no cluster hello usando Olá exemplos a seguir:</span><span class="sxs-lookup"><span data-stu-id="b8e6b-156">You can easily retrieve hello FQDN for hello various nodes in hello cluster using hello following examples:</span></span>
 
-* <span data-ttu-id="e1339-157">**Todos os nós**</span><span class="sxs-lookup"><span data-stu-id="e1339-157">**All nodes**</span></span>
+* <span data-ttu-id="b8e6b-157">**Todos os nós**</span><span class="sxs-lookup"><span data-stu-id="b8e6b-157">**All nodes**</span></span>
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts" \
@@ -160,7 +160,7 @@ $respObj.Clusters.health_report
     $respObj.items.Hosts.host_name
     ```
 
-* <span data-ttu-id="e1339-158">**Nós de cabeçalho**</span><span class="sxs-lookup"><span data-stu-id="e1339-158">**Head nodes**</span></span>
+* <span data-ttu-id="b8e6b-158">**Nós de cabeçalho**</span><span class="sxs-lookup"><span data-stu-id="b8e6b-158">**Head nodes**</span></span>
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/HDFS/components/NAMENODE" \
@@ -174,7 +174,7 @@ $respObj.Clusters.health_report
     $respObj.host_components.HostRoles.host_name
     ```
 
-* <span data-ttu-id="e1339-159">**Nós de trabalho**</span><span class="sxs-lookup"><span data-stu-id="e1339-159">**Worker nodes**</span></span>
+* <span data-ttu-id="b8e6b-159">**Nós de trabalho**</span><span class="sxs-lookup"><span data-stu-id="b8e6b-159">**Worker nodes**</span></span>
 
     ```bash
     curl -u admin:PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE" \
@@ -188,7 +188,7 @@ $respObj.Clusters.health_report
     $respObj.host_components.HostRoles.host_name
     ```
 
-* <span data-ttu-id="e1339-160">**Nós do Zookeeper**</span><span class="sxs-lookup"><span data-stu-id="e1339-160">**Zookeeper nodes**</span></span>
+* <span data-ttu-id="b8e6b-160">**Nós do Zookeeper**</span><span class="sxs-lookup"><span data-stu-id="b8e6b-160">**Zookeeper nodes**</span></span>
 
     ```bash
     curl -u admin:PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" \
@@ -202,14 +202,14 @@ $respObj.Clusters.health_report
     $respObj.host_components.HostRoles.host_name
     ```
 
-## <a name="example-get-the-internal-ip-address-of-cluster-nodes"></a><span data-ttu-id="e1339-161">Exemplo: Obter o endereço IP interno de nós de cluster</span><span class="sxs-lookup"><span data-stu-id="e1339-161">Example: Get the internal IP address of cluster nodes</span></span>
+## <a name="example-get-hello-internal-ip-address-of-cluster-nodes"></a><span data-ttu-id="b8e6b-161">Exemplo: Obter o endereço IP interno de saudação de nós de cluster</span><span class="sxs-lookup"><span data-stu-id="b8e6b-161">Example: Get hello internal IP address of cluster nodes</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="e1339-162">Os endereços IP retornados pelos exemplos nesta seção não estão diretamente acessíveis pela internet.</span><span class="sxs-lookup"><span data-stu-id="e1339-162">The IP addresses returned by the examples in this section are not directly accessible over the internet.</span></span> <span data-ttu-id="e1339-163">Eles só são acessíveis na rede Virtual do Azure que contém o cluster HDInsight.</span><span class="sxs-lookup"><span data-stu-id="e1339-163">They are only accessible within the Azure Virtual Network that contains the HDInsight cluster.</span></span>
+> <span data-ttu-id="b8e6b-162">endereços IP de saudação retornados por exemplos Olá nesta seção são não diretamente acessível via Olá da internet.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-162">hello IP addresses returned by hello examples in this section are not directly accessible over hello internet.</span></span> <span data-ttu-id="b8e6b-163">Eles são acessíveis apenas dentro de saudação rede Virtual do Azure que contém o cluster do HDInsight hello.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-163">They are only accessible within hello Azure Virtual Network that contains hello HDInsight cluster.</span></span>
 >
-> <span data-ttu-id="e1339-164">Para saber mais sobre como trabalhar com o HDInsight e com as redes virtuais, veja [Estender os recursos do HDInsight usando a Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md).</span><span class="sxs-lookup"><span data-stu-id="e1339-164">For more information on working with HDInsight and virtual networks, see [Extend HDInsight capabilities by using a custom Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).</span></span>
+> <span data-ttu-id="b8e6b-164">Para saber mais sobre como trabalhar com o HDInsight e com as redes virtuais, veja [Estender os recursos do HDInsight usando a Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md).</span><span class="sxs-lookup"><span data-stu-id="b8e6b-164">For more information on working with HDInsight and virtual networks, see [Extend HDInsight capabilities by using a custom Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).</span></span>
 
-<span data-ttu-id="e1339-165">Para localizar o endereço IP, você deve saber o FQDN (nome de domínio totalmente qualificado) interno dos nós de cluster.</span><span class="sxs-lookup"><span data-stu-id="e1339-165">To find the IP address, you must know the internal fully qualified domain name (FQDN) of the cluster nodes.</span></span> <span data-ttu-id="e1339-166">Uma vez que o FQDN, em seguida, você pode obter o endereço IP do host.</span><span class="sxs-lookup"><span data-stu-id="e1339-166">Once you have the FQDN, you can then get the IP address of the host.</span></span> <span data-ttu-id="e1339-167">Os exemplos a seguir primeiro consultar o Ambari para o FQDN de todos os nós de host e consultar o Ambari para o endereço IP de cada host.</span><span class="sxs-lookup"><span data-stu-id="e1339-167">The following examples first query Ambari for the FQDN of all the host nodes, then query Ambari for the IP address of each host.</span></span>
+<span data-ttu-id="b8e6b-165">endereço IP de saudação toofind, você deve saber Olá interno nome totalmente qualificado (FQDN) do hello nós de cluster.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-165">toofind hello IP address, you must know hello internal fully qualified domain name (FQDN) of hello cluster nodes.</span></span> <span data-ttu-id="b8e6b-166">Depois que você tiver Olá FQDN, em seguida, você pode obter endereço IP de saudação do host de saudação.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-166">Once you have hello FQDN, you can then get hello IP address of hello host.</span></span> <span data-ttu-id="b8e6b-167">Olá exemplos a seguir primeiro consultar Ambari Olá FQDN de todos os nós de host hello e consultar Ambari para o endereço IP de saudação de cada host.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-167">hello following examples first query Ambari for hello FQDN of all hello host nodes, then query Ambari for hello IP address of each host.</span></span>
 
 ```bash
 for HOSTNAME in $(curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts" | jq -r '.items[].Hosts.host_name')
@@ -233,11 +233,11 @@ foreach($item in $respObj.items) {
 }
 ```
 
-## <a name="example-get-the-default-storage"></a><span data-ttu-id="e1339-168">Exemplo: Obtenha o armazenamento padrão</span><span class="sxs-lookup"><span data-stu-id="e1339-168">Example: Get the default storage</span></span>
+## <a name="example-get-hello-default-storage"></a><span data-ttu-id="b8e6b-168">Exemplo: Obter armazenamento padrão da saudação</span><span class="sxs-lookup"><span data-stu-id="b8e6b-168">Example: Get hello default storage</span></span>
 
-<span data-ttu-id="e1339-169">Quando você criar um cluster HDInsight, será necessário usar uma conta do Armazenamento do Azure ou o Data Lake Store como o armazenamento padrão para o cluster.</span><span class="sxs-lookup"><span data-stu-id="e1339-169">When you create an HDInsight cluster, you must use an Azure Storage Account or Data Lake Store as the default storage for the cluster.</span></span> <span data-ttu-id="e1339-170">Você pode usar o Ambari para recuperar essas informações após a criação do cluster.</span><span class="sxs-lookup"><span data-stu-id="e1339-170">You can use Ambari to retrieve this information after the cluster has been created.</span></span> <span data-ttu-id="e1339-171">Por exemplo, se você quiser ler/gravar dados no contêiner fora do HDInsight.</span><span class="sxs-lookup"><span data-stu-id="e1339-171">For example, if you want to read/write data to the container outside HDInsight.</span></span>
+<span data-ttu-id="b8e6b-169">Quando você cria um cluster HDInsight, você deve usar uma conta de armazenamento do Azure ou um repositório Data Lake como armazenamento de padrão de saudação para cluster hello.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-169">When you create an HDInsight cluster, you must use an Azure Storage Account or Data Lake Store as hello default storage for hello cluster.</span></span> <span data-ttu-id="b8e6b-170">Você pode usar essas informações de Ambari tooretrieve depois Olá cluster foi criado.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-170">You can use Ambari tooretrieve this information after hello cluster has been created.</span></span> <span data-ttu-id="b8e6b-171">Por exemplo, se você quiser que o contêiner de toohello tooread/gravação dados fora do HDInsight.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-171">For example, if you want tooread/write data toohello container outside HDInsight.</span></span>
 
-<span data-ttu-id="e1339-172">Os exemplos a seguir recuperar a configuração de armazenamento padrão do cluster:</span><span class="sxs-lookup"><span data-stu-id="e1339-172">The following examples retrieve the default storage configuration from the cluster:</span></span>
+<span data-ttu-id="b8e6b-172">Olá exemplos a seguir recuperar configuração de armazenamento padrão de saudação do cluster hello:</span><span class="sxs-lookup"><span data-stu-id="b8e6b-172">hello following examples retrieve hello default storage configuration from hello cluster:</span></span>
 
 ```bash
 curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -252,15 +252,15 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 ```
 
 > [!IMPORTANT]
-> <span data-ttu-id="e1339-173">Estes exemplos retornam a primeira configuração aplicada ao servidor (`service_config_version=1`) que contém essas informações.</span><span class="sxs-lookup"><span data-stu-id="e1339-173">These examples return the first configuration applied to the server (`service_config_version=1`) which contains this information.</span></span> <span data-ttu-id="e1339-174">Se você recuperar um valor que foi modificado após a criação do cluster, talvez seja necessário listar as versões de configuração e recuperar a mais recente.</span><span class="sxs-lookup"><span data-stu-id="e1339-174">If you retrieve a value that has been modified after cluster creation, you may need to list the configuration versions and retrieve the latest one.</span></span>
+> <span data-ttu-id="b8e6b-173">Esses exemplos retornam o primeiro servidor de toohello configuração aplicada hello (`service_config_version=1`) que contém essas informações.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-173">These examples return hello first configuration applied toohello server (`service_config_version=1`) which contains this information.</span></span> <span data-ttu-id="b8e6b-174">Se você recuperar um valor que foi modificado após a criação do cluster, você pode precisa toolist Olá configuração versões e recuperar hello mais recente.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-174">If you retrieve a value that has been modified after cluster creation, you may need toolist hello configuration versions and retrieve hello latest one.</span></span>
 
-<span data-ttu-id="e1339-175">O valor de retorno é semelhante a um dos exemplos a seguir:</span><span class="sxs-lookup"><span data-stu-id="e1339-175">The return value is similar to one of the following examples:</span></span>
+<span data-ttu-id="b8e6b-175">valor de retorno de saudação é semelhante tooone de saudação exemplos a seguir:</span><span class="sxs-lookup"><span data-stu-id="b8e6b-175">hello return value is similar tooone of hello following examples:</span></span>
 
-* <span data-ttu-id="e1339-176">`wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net`-Este valor indica que o cluster está usando uma conta de armazenamento do Azure para armazenamento padrão.</span><span class="sxs-lookup"><span data-stu-id="e1339-176">`wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net` - This value indicates that the cluster is using an Azure Storage account for default storage.</span></span> <span data-ttu-id="e1339-177">O valor `ACCOUNTNAME` é o nome da conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="e1339-177">The `ACCOUNTNAME` value is the name of the storage account.</span></span> <span data-ttu-id="e1339-178">O `CONTAINER` parte é o nome do contêiner de blob na conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="e1339-178">The `CONTAINER` portion is the name of the blob container in the storage account.</span></span> <span data-ttu-id="e1339-179">O contêiner é a raiz de armazenamento compatível com HDFS para o cluster.</span><span class="sxs-lookup"><span data-stu-id="e1339-179">The container is the root of the HDFS compatible storage for the cluster.</span></span>
+* <span data-ttu-id="b8e6b-176">`wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net`-Este valor indica que o cluster hello está usando uma conta de armazenamento do Azure para armazenamento padrão.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-176">`wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net` - This value indicates that hello cluster is using an Azure Storage account for default storage.</span></span> <span data-ttu-id="b8e6b-177">Olá `ACCOUNTNAME` valor é o nome de Olá Olá da conta de armazenamento.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-177">hello `ACCOUNTNAME` value is hello name of hello storage account.</span></span> <span data-ttu-id="b8e6b-178">Olá `CONTAINER` parte é o nome de Olá Olá do contêiner de blob na conta de armazenamento hello.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-178">hello `CONTAINER` portion is hello name of hello blob container in hello storage account.</span></span> <span data-ttu-id="b8e6b-179">contêiner de saudação é raiz Olá Olá armazenamento compatíveis do HDFS para cluster hello.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-179">hello container is hello root of hello HDFS compatible storage for hello cluster.</span></span>
 
-* <span data-ttu-id="e1339-180">`adl://home`-Este valor indica que o cluster está usando um Azure Data Lake Store para armazenamento padrão.</span><span class="sxs-lookup"><span data-stu-id="e1339-180">`adl://home` - This value indicates that the cluster is using an Azure Data Lake Store for default storage.</span></span>
+* <span data-ttu-id="b8e6b-180">`adl://home`-Este valor indica que o cluster hello está usando um repositório Data Lake do Azure para armazenamento padrão.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-180">`adl://home` - This value indicates that hello cluster is using an Azure Data Lake Store for default storage.</span></span>
 
-    <span data-ttu-id="e1339-181">Para localizar o nome da conta Data Lake Store, use os exemplos a seguir:</span><span class="sxs-lookup"><span data-stu-id="e1339-181">To find the Data Lake Store account name, use the following examples:</span></span>
+    <span data-ttu-id="b8e6b-181">Olá toofind nome de conta do repositório Data Lake, use Olá exemplos a seguir:</span><span class="sxs-lookup"><span data-stu-id="b8e6b-181">toofind hello Data Lake Store account name, use hello following examples:</span></span>
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -274,9 +274,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     $respObj.items.configurations.properties.'dfs.adls.home.hostname'
     ```
 
-    <span data-ttu-id="e1339-182">O valor de retorno é semelhante ao `ACCOUNTNAME.azuredatalakestore.net`, onde `ACCOUNTNAME` é o nome da conta de Data Lake Store.</span><span class="sxs-lookup"><span data-stu-id="e1339-182">The return value is similar to `ACCOUNTNAME.azuredatalakestore.net`, where `ACCOUNTNAME` is the name of the Data Lake Store account.</span></span>
+    <span data-ttu-id="b8e6b-182">Olá valor de retorno é semelhante muito`ACCOUNTNAME.azuredatalakestore.net`, onde `ACCOUNTNAME` é o nome de saudação do hello conta do repositório Data Lake.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-182">hello return value is similar too`ACCOUNTNAME.azuredatalakestore.net`, where `ACCOUNTNAME` is hello name of hello Data Lake Store account.</span></span>
 
-    <span data-ttu-id="e1339-183">Para localizar o diretório no Data Lake Store que contém o armazenamento do cluster, use os exemplos a seguir:</span><span class="sxs-lookup"><span data-stu-id="e1339-183">To find the directory within Data Lake Store that contains the storage for the cluster, use the following examples:</span></span>
+    <span data-ttu-id="b8e6b-183">diretório de saudação toofind dentro do repositório Data Lake que contém o armazenamento Olá Olá cluster, use Olá exemplos a seguir:</span><span class="sxs-lookup"><span data-stu-id="b8e6b-183">toofind hello directory within Data Lake Store that contains hello storage for hello cluster, use hello following examples:</span></span>
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -290,15 +290,15 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     $respObj.items.configurations.properties.'dfs.adls.home.mountpoint'
     ```
 
-    <span data-ttu-id="e1339-184">O valor de retorno é semelhante ao `/clusters/CLUSTERNAME/`.</span><span class="sxs-lookup"><span data-stu-id="e1339-184">The return value is similar to `/clusters/CLUSTERNAME/`.</span></span> <span data-ttu-id="e1339-185">Esse valor é um caminho dentro da conta de Data Lake Store.</span><span class="sxs-lookup"><span data-stu-id="e1339-185">This value is a path within the Data Lake Store account.</span></span> <span data-ttu-id="e1339-186">Esse caminho é a raiz do sistema de arquivos compatível com HDFS para o cluster.</span><span class="sxs-lookup"><span data-stu-id="e1339-186">This path is the root of the HDFS compatible file system for the cluster.</span></span> 
+    <span data-ttu-id="b8e6b-184">Olá valor de retorno é semelhante muito`/clusters/CLUSTERNAME/`.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-184">hello return value is similar too`/clusters/CLUSTERNAME/`.</span></span> <span data-ttu-id="b8e6b-185">Esse valor é um caminho dentro Olá conta do repositório Data Lake.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-185">This value is a path within hello Data Lake Store account.</span></span> <span data-ttu-id="b8e6b-186">Esse caminho é a raiz de saudação de sistema de arquivos compatíveis do HDFS para o cluster de saudação do hello.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-186">This path is hello root of hello HDFS compatible file system for hello cluster.</span></span> 
 
 > [!NOTE]
-> <span data-ttu-id="e1339-187">O cmdlet `Get-AzureRmHDInsightCluster` fornecido pelo [Azure PowerShell](/powershell/azure/overview) também retorna as informações de armazenamento de cluster.</span><span class="sxs-lookup"><span data-stu-id="e1339-187">The `Get-AzureRmHDInsightCluster` cmdlet provided by [Azure PowerShell](/powershell/azure/overview) also returns the storage information for the cluster.</span></span>
+> <span data-ttu-id="b8e6b-187">Olá `Get-AzureRmHDInsightCluster` cmdlet fornecido pelo [Azure PowerShell](/powershell/azure/overview) também retorna Olá informações de armazenamento de cluster hello.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-187">hello `Get-AzureRmHDInsightCluster` cmdlet provided by [Azure PowerShell](/powershell/azure/overview) also returns hello storage information for hello cluster.</span></span>
 
 
-## <a name="example-get-configuration"></a><span data-ttu-id="e1339-188">Exemplo: obter configuração</span><span class="sxs-lookup"><span data-stu-id="e1339-188">Example: Get configuration</span></span>
+## <a name="example-get-configuration"></a><span data-ttu-id="b8e6b-188">Exemplo: obter configuração</span><span class="sxs-lookup"><span data-stu-id="b8e6b-188">Example: Get configuration</span></span>
 
-1. <span data-ttu-id="e1339-189">Obtenha as configurações que estão disponíveis para o seu cluster.</span><span class="sxs-lookup"><span data-stu-id="e1339-189">Get the configurations that are available for your cluster.</span></span>
+1. <span data-ttu-id="b8e6b-189">Obter configurações de saudação que estão disponíveis para seu cluster.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-189">Get hello configurations that are available for your cluster.</span></span>
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
@@ -310,7 +310,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     $respObj.Content
     ```
 
-    <span data-ttu-id="e1339-190">Esse exemplo retorna um documento JSON contendo a configuração atual (identificada pelo valor *tag* ) para os componentes instalados no cluster.</span><span class="sxs-lookup"><span data-stu-id="e1339-190">This example returns a JSON document containing the current configuration (identified by the *tag* value) for the components installed on the cluster.</span></span> <span data-ttu-id="e1339-191">O exemplo a seguir é um trecho dos dados retornados de um tipo de cluster Spark.</span><span class="sxs-lookup"><span data-stu-id="e1339-191">The following example is an excerpt from the data returned from a Spark cluster type.</span></span>
+    <span data-ttu-id="b8e6b-190">Este exemplo retorna um documento JSON que contém a configuração atual da saudação (identificada pelo Olá *marca* valor) para componentes de saudação instalados no cluster hello.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-190">This example returns a JSON document containing hello current configuration (identified by hello *tag* value) for hello components installed on hello cluster.</span></span> <span data-ttu-id="b8e6b-191">Olá, exemplo a seguir é um trecho da saudação dados retornados de um tipo de cluster do Spark.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-191">hello following example is an excerpt from hello data returned from a Spark cluster type.</span></span>
    
    ```json
    "spark-metrics-properties" : {
@@ -330,7 +330,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
    }
    ```
 
-2. <span data-ttu-id="e1339-192">Obtenha a configuração para o componente em que você tem interesse.</span><span class="sxs-lookup"><span data-stu-id="e1339-192">Get the configuration for the component that you are interested in.</span></span> <span data-ttu-id="e1339-193">No exemplo a seguir, substitua `INITIAL` pelo valor retornado da solicitação anterior.</span><span class="sxs-lookup"><span data-stu-id="e1339-193">In the following example, replace `INITIAL` with the tag value returned from the previous request.</span></span>
+2. <span data-ttu-id="b8e6b-192">Obter a configuração Olá componente Olá que você está interessado.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-192">Get hello configuration for hello component that you are interested in.</span></span> <span data-ttu-id="b8e6b-193">Olá seguinte exemplo, substitua `INITIAL` com valor de marca Olá retornado da solicitação anterior de saudação.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-193">In hello following example, replace `INITIAL` with hello tag value returned from hello previous request.</span></span>
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=core-site&tag=INITIAL"
@@ -342,11 +342,11 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     $resp.Content
     ```
 
-    <span data-ttu-id="e1339-194">Este exemplo retorna um documento JSON que contém a configuração atual do componente `core-site`.</span><span class="sxs-lookup"><span data-stu-id="e1339-194">This example returns a JSON document containing the current configuration for the `core-site` component.</span></span>
+    <span data-ttu-id="b8e6b-194">Este exemplo retorna um documento JSON que contém a configuração atual Olá Olá `core-site` componente.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-194">This example returns a JSON document containing hello current configuration for hello `core-site` component.</span></span>
 
-## <a name="example-update-configuration"></a><span data-ttu-id="e1339-195">Exemplo: Atualizar a configuração</span><span class="sxs-lookup"><span data-stu-id="e1339-195">Example: Update configuration</span></span>
+## <a name="example-update-configuration"></a><span data-ttu-id="b8e6b-195">Exemplo: Atualizar a configuração</span><span class="sxs-lookup"><span data-stu-id="b8e6b-195">Example: Update configuration</span></span>
 
-1. <span data-ttu-id="e1339-196">Obtenha a configuração atual, que o Ambari armazena como a "configuração desejada":</span><span class="sxs-lookup"><span data-stu-id="e1339-196">Get the current configuration, which Ambari stores as the "desired configuration":</span></span>
+1. <span data-ttu-id="b8e6b-196">Obter a configuração atual do hello, que armazena o Ambari como hello "configuração desejada":</span><span class="sxs-lookup"><span data-stu-id="b8e6b-196">Get hello current configuration, which Ambari stores as hello "desired configuration":</span></span>
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
@@ -357,7 +357,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
         -Credential $creds
     ```
 
-    <span data-ttu-id="e1339-197">Esse exemplo retorna um documento JSON contendo a configuração atual (identificada pelo valor *tag* ) para os componentes instalados no cluster.</span><span class="sxs-lookup"><span data-stu-id="e1339-197">This example returns a JSON document containing the current configuration (identified by the *tag* value) for the components installed on the cluster.</span></span> <span data-ttu-id="e1339-198">O exemplo a seguir é um trecho dos dados retornados de um tipo de cluster Spark.</span><span class="sxs-lookup"><span data-stu-id="e1339-198">The following example is an excerpt from the data returned from a Spark cluster type.</span></span>
+    <span data-ttu-id="b8e6b-197">Este exemplo retorna um documento JSON que contém a configuração atual da saudação (identificada pelo Olá *marca* valor) para componentes de saudação instalados no cluster hello.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-197">This example returns a JSON document containing hello current configuration (identified by hello *tag* value) for hello components installed on hello cluster.</span></span> <span data-ttu-id="b8e6b-198">Olá, exemplo a seguir é um trecho da saudação dados retornados de um tipo de cluster do Spark.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-198">hello following example is an excerpt from hello data returned from a Spark cluster type.</span></span>
    
     ```json
     "spark-metrics-properties" : {
@@ -377,9 +377,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     }
     ```
    
-    <span data-ttu-id="e1339-199">Nesta lista, você precisa copiar o nome do componente (por exemplo, **spark\_thrift\_sparkconf** e o valor **tag**.</span><span class="sxs-lookup"><span data-stu-id="e1339-199">From this list, you need to copy the name of the component (for example, **spark\_thrift\_sparkconf** and the **tag** value.</span></span>
+    <span data-ttu-id="b8e6b-199">Nesta lista, você precisa toocopy nome de saudação do componente de saudação (por exemplo, **spark\_thrift\_sparkconf** e hello **marca** valor.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-199">From this list, you need toocopy hello name of hello component (for example, **spark\_thrift\_sparkconf** and hello **tag** value.</span></span>
 
-2. <span data-ttu-id="e1339-200">Recupere a configuração do componente e da marca usando os comandos a seguir:</span><span class="sxs-lookup"><span data-stu-id="e1339-200">Retrieve the configuration for the component and tag by using the following commands:</span></span>
+2. <span data-ttu-id="b8e6b-200">Recupere a configuração de saudação do componente hello e marca usando Olá comandos a seguir:</span><span class="sxs-lookup"><span data-stu-id="b8e6b-200">Retrieve hello configuration for hello component and tag by using hello following commands:</span></span>
    
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" \
@@ -396,21 +396,21 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     ```
 
     > [!NOTE]
-    > <span data-ttu-id="e1339-201">Substitua **spark-thrift-sparkconf** e **INITIAL** pelo componente e pela marcação cuja configuração você deseja recuperar.</span><span class="sxs-lookup"><span data-stu-id="e1339-201">Replace **spark-thrift-sparkconf** and **INITIAL** with the component and tag that you want to retrieve the configuration for.</span></span>
+    > <span data-ttu-id="b8e6b-201">Substituir **spark-thrift-sparkconf** e **inicial** com componente hello e marca que você deseja tooretrieve Olá configuração para.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-201">Replace **spark-thrift-sparkconf** and **INITIAL** with hello component and tag that you want tooretrieve hello configuration for.</span></span>
    
-    <span data-ttu-id="e1339-202">O jq é usado para transformar os dados recuperados do HDInsight em um novo modelo de configuração.</span><span class="sxs-lookup"><span data-stu-id="e1339-202">Jq is used to turn the data retrieved from HDInsight into a new configuration template.</span></span> <span data-ttu-id="e1339-203">Especificamente, esses exemplos executam as seguintes ações:</span><span class="sxs-lookup"><span data-stu-id="e1339-203">Specifically, these examples perform the following actions:</span></span>
+    <span data-ttu-id="b8e6b-202">Jq é recuperados do HDInsight em um novo modelo de configuração de dados de saudação tooturn usado.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-202">Jq is used tooturn hello data retrieved from HDInsight into a new configuration template.</span></span> <span data-ttu-id="b8e6b-203">Especificamente, esses exemplos executam Olá ações a seguir:</span><span class="sxs-lookup"><span data-stu-id="b8e6b-203">Specifically, these examples perform hello following actions:</span></span>
    
-    * <span data-ttu-id="e1339-204">Cria um valor exclusivo que contém a cadeia de caracteres "version" e a data, que é armazenada em `newtag`.</span><span class="sxs-lookup"><span data-stu-id="e1339-204">Creates a unique value containing the string "version" and the date, which is stored in `newtag`.</span></span>
+    * <span data-ttu-id="b8e6b-204">Cria um valor exclusivo que contém Olá cadeia de caracteres "versão" e a data de saudação, que é armazenada em `newtag`.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-204">Creates a unique value containing hello string "version" and hello date, which is stored in `newtag`.</span></span>
 
-    * <span data-ttu-id="e1339-205">Cria um documento raiz para a nova configuração desejada.</span><span class="sxs-lookup"><span data-stu-id="e1339-205">Creates a root document for the new desired configuration.</span></span>
+    * <span data-ttu-id="b8e6b-205">Cria um documento de raiz para a nova configuração de desejado hello.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-205">Creates a root document for hello new desired configuration.</span></span>
 
-    * <span data-ttu-id="e1339-206">Obtém o conteúdo da matriz `.items[]` e o adiciona sob o elemento **desired_config**.</span><span class="sxs-lookup"><span data-stu-id="e1339-206">Gets the contents of the `.items[]` array and adds it under the **desired_config** element.</span></span>
+    * <span data-ttu-id="b8e6b-206">Obtém Olá conteúdo da saudação `.items[]` de matriz e adiciona-o em Olá **desired_config** elemento.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-206">Gets hello contents of hello `.items[]` array and adds it under hello **desired_config** element.</span></span>
 
-    * <span data-ttu-id="e1339-207">Exclui os elementos `href`, `version` e `Config`, pois eles não são necessários para enviar uma nova configuração.</span><span class="sxs-lookup"><span data-stu-id="e1339-207">Deletes the `href`, `version`, and `Config` elements, as these elements aren't needed to submit a new configuration.</span></span>
+    * <span data-ttu-id="b8e6b-207">Olá exclusões `href`, `version`, e `Config` elementos, como esses elementos não são necessário toosubmit uma nova configuração.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-207">Deletes hello `href`, `version`, and `Config` elements, as these elements aren't needed toosubmit a new configuration.</span></span>
 
-    * <span data-ttu-id="e1339-208">Adiciona um elemento `tag` com um valor de `version#################`.</span><span class="sxs-lookup"><span data-stu-id="e1339-208">Adds a `tag` element with a value of `version#################`.</span></span> <span data-ttu-id="e1339-209">A parte numérica tem base na data atual.</span><span class="sxs-lookup"><span data-stu-id="e1339-209">The numeric portion is based on the current date.</span></span> <span data-ttu-id="e1339-210">Cada configuração deve ter uma marca exclusiva.</span><span class="sxs-lookup"><span data-stu-id="e1339-210">Each configuration must have a unique tag.</span></span>
+    * <span data-ttu-id="b8e6b-208">Adiciona um elemento `tag` com um valor de `version#################`.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-208">Adds a `tag` element with a value of `version#################`.</span></span> <span data-ttu-id="b8e6b-209">parte numérica Olá baseia Olá data atual.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-209">hello numeric portion is based on hello current date.</span></span> <span data-ttu-id="b8e6b-210">Cada configuração deve ter uma marca exclusiva.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-210">Each configuration must have a unique tag.</span></span>
      
-    <span data-ttu-id="e1339-211">Por fim, os dados são salvos no documento `newconfig.json`.</span><span class="sxs-lookup"><span data-stu-id="e1339-211">Finally, the data is saved to the `newconfig.json` document.</span></span> <span data-ttu-id="e1339-212">A estrutura do documento deve ser semelhante a este exemplo:</span><span class="sxs-lookup"><span data-stu-id="e1339-212">The document structure should appear similar to the following example:</span></span>
+    <span data-ttu-id="b8e6b-211">Por fim, os dados de saudação são salvos toohello `newconfig.json` documento.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-211">Finally, hello data is saved toohello `newconfig.json` document.</span></span> <span data-ttu-id="b8e6b-212">estrutura do documento Hello deve aparecer semelhante toohello exemplo a seguir:</span><span class="sxs-lookup"><span data-stu-id="b8e6b-212">hello document structure should appear similar toohello following example:</span></span>
      
      ```json
     {
@@ -428,14 +428,14 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     }
     ```
 
-3. <span data-ttu-id="e1339-213">Abra o documento `newconfig.json` e modifique/adicione valores no objeto `properties`.</span><span class="sxs-lookup"><span data-stu-id="e1339-213">Open the `newconfig.json` document and modify/add values in the `properties` object.</span></span> <span data-ttu-id="e1339-214">O exemplo a seguir altera o valor de `"spark.yarn.am.memory"` desde `"1g"` até `"3g"`.</span><span class="sxs-lookup"><span data-stu-id="e1339-214">The following example changes the value of `"spark.yarn.am.memory"` from `"1g"` to `"3g"`.</span></span> <span data-ttu-id="e1339-215">Ele também adiciona `"spark.kryoserializer.buffer.max"` com um valor de `"256m"`.</span><span class="sxs-lookup"><span data-stu-id="e1339-215">It also adds `"spark.kryoserializer.buffer.max"` with a value of `"256m"`.</span></span>
+3. <span data-ttu-id="b8e6b-213">Olá abrir `newconfig.json` documento e modificar ou adicionar valores em Olá `properties` objeto.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-213">Open hello `newconfig.json` document and modify/add values in hello `properties` object.</span></span> <span data-ttu-id="b8e6b-214">exemplo a seguir altera Olá Olá valor `"spark.yarn.am.memory"` de `"1g"` muito`"3g"`.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-214">hello following example changes hello value of `"spark.yarn.am.memory"` from `"1g"` too`"3g"`.</span></span> <span data-ttu-id="b8e6b-215">Ele também adiciona `"spark.kryoserializer.buffer.max"` com um valor de `"256m"`.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-215">It also adds `"spark.kryoserializer.buffer.max"` with a value of `"256m"`.</span></span>
    
         "spark.yarn.am.memory": "3g",
         "spark.kyroserializer.buffer.max": "256m",
    
-    <span data-ttu-id="e1339-216">Quando terminar de fazer modificações, salve o arquivo.</span><span class="sxs-lookup"><span data-stu-id="e1339-216">Save the file once you are done making modifications.</span></span>
+    <span data-ttu-id="b8e6b-216">Salve o arquivo de saudação quando terminar de fazer modificações.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-216">Save hello file once you are done making modifications.</span></span>
 
-4. <span data-ttu-id="e1339-217">Use os seguintes comandos para enviar a configuração atualizada ao Ambari.</span><span class="sxs-lookup"><span data-stu-id="e1339-217">Use the following commands to submit the updated configuration to Ambari.</span></span>
+4. <span data-ttu-id="b8e6b-217">Use Olá comandos toosubmit Olá atualizado configuração tooAmbari a seguir.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-217">Use hello following commands toosubmit hello updated configuration tooAmbari.</span></span>
    
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" -X PUT -d @newconfig.json "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME"
@@ -451,13 +451,13 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     $resp.Content
     ```
    
-    <span data-ttu-id="e1339-218">Esses comandos enviam o conteúdo do arquivo **newconfig.json** para o cluster como a nova configuração desejada.</span><span class="sxs-lookup"><span data-stu-id="e1339-218">These commands submit the contents of the **newconfig.json** file to the cluster as the new desired configuration.</span></span> <span data-ttu-id="e1339-219">A solicitação retorna um documento JSON.</span><span class="sxs-lookup"><span data-stu-id="e1339-219">The request returns a JSON document.</span></span> <span data-ttu-id="e1339-220">O elemento **versionTag** nesse documento deverá corresponder à versão enviada e o objeto **configs** conterá as alterações de configuração solicitadas.</span><span class="sxs-lookup"><span data-stu-id="e1339-220">The **versionTag** element in this document should match the version you submitted, and the **configs** object contains the configuration changes you requested.</span></span>
+    <span data-ttu-id="b8e6b-218">Esses comandos enviar conteúdo Olá Olá **newconfig.json** arquivo toohello cluster Olá desejado nova configuração.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-218">These commands submit hello contents of hello **newconfig.json** file toohello cluster as hello new desired configuration.</span></span> <span data-ttu-id="b8e6b-219">solicitação de saudação retorna um documento JSON.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-219">hello request returns a JSON document.</span></span> <span data-ttu-id="b8e6b-220">Olá **versionTag** elemento neste documento deve corresponder a versão de saudação enviada e Olá **configurações** objeto contém as alterações de configuração de saudação solicitado.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-220">hello **versionTag** element in this document should match hello version you submitted, and hello **configs** object contains hello configuration changes you requested.</span></span>
 
-### <a name="example-restart-a-service-component"></a><span data-ttu-id="e1339-221">Exemplo: reiniciar um componente de serviço</span><span class="sxs-lookup"><span data-stu-id="e1339-221">Example: Restart a service component</span></span>
+### <a name="example-restart-a-service-component"></a><span data-ttu-id="b8e6b-221">Exemplo: reiniciar um componente de serviço</span><span class="sxs-lookup"><span data-stu-id="b8e6b-221">Example: Restart a service component</span></span>
 
-<span data-ttu-id="e1339-222">Neste ponto, se você examinar a interface do usuário da Web do Ambari, o serviço do Spark indicará que ele precisa ser reiniciado para que a nova configuração entre em vigor.</span><span class="sxs-lookup"><span data-stu-id="e1339-222">At this point, if you look at the Ambari web UI, the Spark service indicates that it needs to be restarted before the new configuration can take effect.</span></span> <span data-ttu-id="e1339-223">Use as etapas a seguir para reiniciar o serviço.</span><span class="sxs-lookup"><span data-stu-id="e1339-223">Use the following steps to restart the service.</span></span>
+<span data-ttu-id="b8e6b-222">Neste ponto, se você observar Olá Ambari web da interface do usuário, Olá serviço Spark indicando que precisa toobe reiniciado para que a nova configuração de saudação entre em vigor.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-222">At this point, if you look at hello Ambari web UI, hello Spark service indicates that it needs toobe restarted before hello new configuration can take effect.</span></span> <span data-ttu-id="b8e6b-223">Use Olá serviço de saudação do toorestart as etapas a seguir.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-223">Use hello following steps toorestart hello service.</span></span>
 
-1. <span data-ttu-id="e1339-224">Use o seguinte para habilitar o modo de manutenção para o serviço do Spark:</span><span class="sxs-lookup"><span data-stu-id="e1339-224">Use the following to enable maintenance mode for the Spark service:</span></span>
+1. <span data-ttu-id="b8e6b-224">Use Olá tooenable modo de manutenção para Olá serviço Spark a seguir:</span><span class="sxs-lookup"><span data-stu-id="b8e6b-224">Use hello following tooenable maintenance mode for hello Spark service:</span></span>
 
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -474,7 +474,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     $resp.Content
     ```
    
-    <span data-ttu-id="e1339-225">Estes comandos enviam um documento JSON para o servidor que ativa o modo de manutenção.</span><span class="sxs-lookup"><span data-stu-id="e1339-225">These commands send a JSON document to the server that turns on maintenance mode.</span></span> <span data-ttu-id="e1339-226">Você pode verificar se o serviço está em modo de manutenção usando a seguinte solicitação:</span><span class="sxs-lookup"><span data-stu-id="e1339-226">You can verify that the service is now in maintenance mode using the following request:</span></span>
+    <span data-ttu-id="b8e6b-225">Estes comandos enviam um servidor de toohello de documento JSON que ativa o modo de manutenção.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-225">These commands send a JSON document toohello server that turns on maintenance mode.</span></span> <span data-ttu-id="b8e6b-226">Você pode verificar se o serviço de saudação está agora no modo de manutenção usando Olá solicitação a seguir:</span><span class="sxs-lookup"><span data-stu-id="b8e6b-226">You can verify that hello service is now in maintenance mode using hello following request:</span></span>
    
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -489,9 +489,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     $respObj.ServiceInfo.maintenance_state
     ```
    
-    <span data-ttu-id="e1339-227">O valor de retorno é `ON`.</span><span class="sxs-lookup"><span data-stu-id="e1339-227">The return value is `ON`.</span></span>
+    <span data-ttu-id="b8e6b-227">Olá valor de retorno é `ON`.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-227">hello return value is `ON`.</span></span>
 
-2. <span data-ttu-id="e1339-228">Em seguida, use o seguinte para desativar o serviço:</span><span class="sxs-lookup"><span data-stu-id="e1339-228">Next, use the following to turn off the service:</span></span>
+2. <span data-ttu-id="b8e6b-228">Em seguida, use Olá tooturn desativar serviço Olá a seguir:</span><span class="sxs-lookup"><span data-stu-id="b8e6b-228">Next, use hello following tooturn off hello service:</span></span>
 
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -508,7 +508,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     $resp.Content
     ```
     
-    <span data-ttu-id="e1339-229">A resposta é semelhante ao seguinte exemplo:</span><span class="sxs-lookup"><span data-stu-id="e1339-229">The response is similar to the following example:</span></span>
+    <span data-ttu-id="b8e6b-229">resposta de saudação é semelhante toohello exemplo a seguir:</span><span class="sxs-lookup"><span data-stu-id="b8e6b-229">hello response is similar toohello following example:</span></span>
    
     ```json
     {
@@ -521,9 +521,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     ```
     
     > [!IMPORTANT]
-    > <span data-ttu-id="e1339-230">O valor `href` retornado por esse URI usa o endereço IP interno do nó de cluster.</span><span class="sxs-lookup"><span data-stu-id="e1339-230">The `href` value returned by this URI is using the internal IP address of the cluster node.</span></span> <span data-ttu-id="e1339-231">Para usá-lo de fora do cluster, substitua a parte '10.0.0.18:8080' pelo FQDN do cluster.</span><span class="sxs-lookup"><span data-stu-id="e1339-231">To use it from outside the cluster, replace the \`10.0.0.18:8080' portion with the FQDN of the cluster.</span></span> 
+    > <span data-ttu-id="b8e6b-230">Olá `href` valor retornado por esse URI é usando o endereço IP interno de Olá Olá do nó do cluster.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-230">hello `href` value returned by this URI is using hello internal IP address of hello cluster node.</span></span> <span data-ttu-id="b8e6b-231">toouse-lo do cluster Olá externa, substituir a parte de saudação '10.0.0.18:8080' com hello FQDN do cluster de saudação.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-231">toouse it from outside hello cluster, replace hello \`10.0.0.18:8080' portion with hello FQDN of hello cluster.</span></span> 
     
-    <span data-ttu-id="e1339-232">Os comandos a seguir recuperam o status da solicitação:</span><span class="sxs-lookup"><span data-stu-id="e1339-232">The following commands retrieve the status of the request:</span></span>
+    <span data-ttu-id="b8e6b-232">Olá comandos a seguir recuperar o status de saudação da solicitação de saudação:</span><span class="sxs-lookup"><span data-stu-id="b8e6b-232">hello following commands retrieve hello status of hello request:</span></span>
 
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -538,9 +538,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     $respObj.Requests.request_status
     ```
 
-    <span data-ttu-id="e1339-233">Uma resposta de `COMPLETED` indica que a solicitação foi concluída.</span><span class="sxs-lookup"><span data-stu-id="e1339-233">A response of `COMPLETED` indicates that the request has finished.</span></span>
+    <span data-ttu-id="b8e6b-233">Uma resposta de `COMPLETED` indica que a solicitação Olá foi concluída.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-233">A response of `COMPLETED` indicates that hello request has finished.</span></span>
 
-3. <span data-ttu-id="e1339-234">Quando a solicitação anterior for concluída, use o seguinte para iniciar o serviço:</span><span class="sxs-lookup"><span data-stu-id="e1339-234">Once the previous request completes, use the following to start the service.</span></span>
+3. <span data-ttu-id="b8e6b-234">Após a conclusão da solicitação anterior hello, use Olá após toostart Olá serviço.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-234">Once hello previous request completes, use hello following toostart hello service.</span></span>
    
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -555,9 +555,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
         -Headers @{"X-Requested-By" = "ambari"} `
         -Body '{"RequestInfo":{"context":"_PARSE_.STOP.SPARK","operation_level":{"level":"SERVICE","cluster_name":"CLUSTERNAME","service_name":"SPARK"}},"Body":{"ServiceInfo":{"state":"STARTED"}}}'
     ```
-    <span data-ttu-id="e1339-235">O serviço agora está usando a nova configuração.</span><span class="sxs-lookup"><span data-stu-id="e1339-235">The service is now using the new configuration.</span></span>
+    <span data-ttu-id="b8e6b-235">serviço de saudação agora está usando a nova configuração de saudação.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-235">hello service is now using hello new configuration.</span></span>
 
-4. <span data-ttu-id="e1339-236">Por fim, use o seguinte para desativar o modo de manutenção:</span><span class="sxs-lookup"><span data-stu-id="e1339-236">Finally, use the following to turn off maintenance mode.</span></span>
+4. <span data-ttu-id="b8e6b-236">Por fim, use Olá tooturn desativar o modo de manutenção a seguir.</span><span class="sxs-lookup"><span data-stu-id="b8e6b-236">Finally, use hello following tooturn off maintenance mode.</span></span>
    
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -573,7 +573,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
         -Body '{"RequestInfo": {"context": "turning off maintenance mode for SPARK"},"Body": {"ServiceInfo": {"maintenance_state":"OFF"}}}'
     ```
 
-## <a name="next-steps"></a><span data-ttu-id="e1339-237">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="e1339-237">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="b8e6b-237">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="b8e6b-237">Next steps</span></span>
 
-<span data-ttu-id="e1339-238">Para obter uma referência completa da API REST, consulte [Referência de API do Ambari, V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).</span><span class="sxs-lookup"><span data-stu-id="e1339-238">For a complete reference of the REST API, see [Ambari API Reference V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).</span></span>
+<span data-ttu-id="b8e6b-238">Para obter uma referência completa de saudação API REST, consulte [V1 de referência de API do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).</span><span class="sxs-lookup"><span data-stu-id="b8e6b-238">For a complete reference of hello REST API, see [Ambari API Reference V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).</span></span>
 

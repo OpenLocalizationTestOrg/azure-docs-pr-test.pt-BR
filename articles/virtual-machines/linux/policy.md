@@ -1,6 +1,6 @@
 ---
-title: "Impor a segurança com políticas em VMs do Linux no Azure | Microsoft Docs"
-description: "Como aplicar uma política a uma Máquina Virtual Windows Linux do Azure Resource Manager"
+title: "segurança de aaaEnforce com as políticas em VMs do Linux no Azure | Microsoft Docs"
+description: "Como tooapply tooan uma diretiva Máquina Virtual do Azure Resource Manager Linux"
 services: virtual-machines-linux
 documentationcenter: 
 author: singhkays
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: singhkay
-ms.openlocfilehash: 58eaab4fa03afc1e6a5e38bef691cce62a921ea9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 5abd0c937578aba7e72b62c65b4eef9a9737aa2a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a><span data-ttu-id="03edb-103">Aplicar políticas a VMs Linux com o Azure Resource Manager</span><span class="sxs-lookup"><span data-stu-id="03edb-103">Apply policies to Linux VMs with Azure Resource Manager</span></span>
-<span data-ttu-id="03edb-104">Usando políticas, uma organização pode impor várias convenções e regras em toda a empresa.</span><span class="sxs-lookup"><span data-stu-id="03edb-104">By using policies, an organization can enforce various conventions and rules throughout the enterprise.</span></span> <span data-ttu-id="03edb-105">A imposição do comportamento desejado pode ajudar a reduzir o risco e contribui para o sucesso da organização.</span><span class="sxs-lookup"><span data-stu-id="03edb-105">Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization.</span></span> <span data-ttu-id="03edb-106">Neste artigo, descrevemos como você pode usar as políticas do Azure Resource Manager para definir o comportamento desejado das Máquinas Virtuais de sua organização.</span><span class="sxs-lookup"><span data-stu-id="03edb-106">In this article, we describe how you can use Azure Resource Manager policies to define the desired behavior for your organization's Virtual Machines.</span></span>
+# <a name="apply-policies-toolinux-vms-with-azure-resource-manager"></a><span data-ttu-id="4d0b3-103">Aplicar políticas tooLinux VMs com o Gerenciador de recursos do Azure</span><span class="sxs-lookup"><span data-stu-id="4d0b3-103">Apply policies tooLinux VMs with Azure Resource Manager</span></span>
+<span data-ttu-id="4d0b3-104">Usando políticas, uma organização pode aplicar várias convenções e regras em toda a empresa hello.</span><span class="sxs-lookup"><span data-stu-id="4d0b3-104">By using policies, an organization can enforce various conventions and rules throughout hello enterprise.</span></span> <span data-ttu-id="4d0b3-105">Imposição de comportamento de saudação desejado pode ajudar a reduzir o risco ao toohello sucesso da organização de saudação de contribuição.</span><span class="sxs-lookup"><span data-stu-id="4d0b3-105">Enforcement of hello desired behavior can help mitigate risk while contributing toohello success of hello organization.</span></span> <span data-ttu-id="4d0b3-106">Neste artigo, descreveremos como você pode usar o comportamento do Gerenciador de recursos do Azure políticas toodefine Olá desejado para as máquinas virtuais de sua organização.</span><span class="sxs-lookup"><span data-stu-id="4d0b3-106">In this article, we describe how you can use Azure Resource Manager policies toodefine hello desired behavior for your organization's Virtual Machines.</span></span>
 
-<span data-ttu-id="03edb-107">Para obter uma introdução às políticas, consulte [Usar a política para gerenciar recursos e controlar o acesso](../../azure-resource-manager/resource-manager-policy.md).</span><span class="sxs-lookup"><span data-stu-id="03edb-107">For an introduction to policies, see [Use Policy to manage resources and control access](../../azure-resource-manager/resource-manager-policy.md).</span></span>
+<span data-ttu-id="4d0b3-107">Para toopolicies uma introdução, consulte [recursos de toomanage de política de uso e controlar o acesso](../../azure-resource-manager/resource-manager-policy.md).</span><span class="sxs-lookup"><span data-stu-id="4d0b3-107">For an introduction toopolicies, see [Use Policy toomanage resources and control access](../../azure-resource-manager/resource-manager-policy.md).</span></span>
 
-## <a name="permitted-virtual-machines"></a><span data-ttu-id="03edb-108">Máquinas virtuais permitidas</span><span class="sxs-lookup"><span data-stu-id="03edb-108">Permitted Virtual Machines</span></span>
-<span data-ttu-id="03edb-109">Para garantir que as máquinas virtuais de sua organização são compatíveis com um aplicativo, você pode restringir os sistemas operacionais permitidos.</span><span class="sxs-lookup"><span data-stu-id="03edb-109">To ensure that virtual machines for your organization are compatible with an application, you can restrict the permitted operating systems.</span></span> <span data-ttu-id="03edb-110">No exemplo de política a seguir, você permite que apenas Máquinas Virtuais Ubuntu 14.04.2-LTS sejam criadas.</span><span class="sxs-lookup"><span data-stu-id="03edb-110">In the following policy example, you allow only Ubuntu 14.04.2-LTS Virtual Machines to be created.</span></span>
+## <a name="permitted-virtual-machines"></a><span data-ttu-id="4d0b3-108">Máquinas virtuais permitidas</span><span class="sxs-lookup"><span data-stu-id="4d0b3-108">Permitted Virtual Machines</span></span>
+<span data-ttu-id="4d0b3-109">tooensure que máquinas virtuais para a sua organização são compatíveis com um aplicativo, você pode restringir Olá permitido sistemas operacionais.</span><span class="sxs-lookup"><span data-stu-id="4d0b3-109">tooensure that virtual machines for your organization are compatible with an application, you can restrict hello permitted operating systems.</span></span> <span data-ttu-id="4d0b3-110">Olá política de exemplo a seguir, você permitir somente Ubuntu 14.04.2-LTS as máquinas virtuais toobe criado.</span><span class="sxs-lookup"><span data-stu-id="4d0b3-110">In hello following policy example, you allow only Ubuntu 14.04.2-LTS Virtual Machines toobe created.</span></span>
 
 ```json
 {
@@ -79,7 +79,7 @@ ms.lasthandoff: 08/18/2017
 }
 ```
 
-<span data-ttu-id="03edb-111">Use um curinga para modificar a política anterior a fim de permitir qualquer imagem do Ubuntu LTS:</span><span class="sxs-lookup"><span data-stu-id="03edb-111">Use a wild card to modify the preceding policy to allow any Ubuntu LTS image:</span></span> 
+<span data-ttu-id="4d0b3-111">Use uma saudação de toomodify curinga anterior política tooallow qualquer imagem Ubuntu LTS:</span><span class="sxs-lookup"><span data-stu-id="4d0b3-111">Use a wild card toomodify hello preceding policy tooallow any Ubuntu LTS image:</span></span> 
 
 ```json
 {
@@ -88,11 +88,11 @@ ms.lasthandoff: 08/18/2017
 }
 ```
 
-<span data-ttu-id="03edb-112">Para obter informações sobre campos de política, consulte [Aliases de política](../../azure-resource-manager/resource-manager-policy.md#aliases).</span><span class="sxs-lookup"><span data-stu-id="03edb-112">For information about policy fields, see [Policy aliases](../../azure-resource-manager/resource-manager-policy.md#aliases).</span></span>
+<span data-ttu-id="4d0b3-112">Para obter informações sobre campos de política, consulte [Aliases de política](../../azure-resource-manager/resource-manager-policy.md#aliases).</span><span class="sxs-lookup"><span data-stu-id="4d0b3-112">For information about policy fields, see [Policy aliases](../../azure-resource-manager/resource-manager-policy.md#aliases).</span></span>
 
-## <a name="managed-disks"></a><span data-ttu-id="03edb-113">Discos gerenciados</span><span class="sxs-lookup"><span data-stu-id="03edb-113">Managed disks</span></span>
+## <a name="managed-disks"></a><span data-ttu-id="4d0b3-113">Discos gerenciados</span><span class="sxs-lookup"><span data-stu-id="4d0b3-113">Managed disks</span></span>
 
-<span data-ttu-id="03edb-114">Para exigir o uso de discos gerenciados, use a seguinte política:</span><span class="sxs-lookup"><span data-stu-id="03edb-114">To require the use of managed disks, use the following policy:</span></span>
+<span data-ttu-id="4d0b3-114">toorequire Olá uso de discos gerenciados, use Olá diretiva a seguir:</span><span class="sxs-lookup"><span data-stu-id="4d0b3-114">toorequire hello use of managed disks, use hello following policy:</span></span>
 
 ```json
 {
@@ -138,11 +138,11 @@ ms.lasthandoff: 08/18/2017
 }
 ```
 
-## <a name="images-for-virtual-machines"></a><span data-ttu-id="03edb-115">Imagens de máquinas virtuais</span><span class="sxs-lookup"><span data-stu-id="03edb-115">Images for Virtual Machines</span></span>
+## <a name="images-for-virtual-machines"></a><span data-ttu-id="4d0b3-115">Imagens de máquinas virtuais</span><span class="sxs-lookup"><span data-stu-id="4d0b3-115">Images for Virtual Machines</span></span>
 
-<span data-ttu-id="03edb-116">Por motivos de segurança, você pode exigir que apenas imagens personalizadas aprovadas sejam implantadas em seu ambiente.</span><span class="sxs-lookup"><span data-stu-id="03edb-116">For security reasons, you can require that only approved custom images are deployed in your environment.</span></span> <span data-ttu-id="03edb-117">Você pode especificar o grupo de recursos que contém as imagens aprovadas ou as imagens aprovadas específicas.</span><span class="sxs-lookup"><span data-stu-id="03edb-117">You can specify either the resource group that contains the approved images, or the specific approved images.</span></span>
+<span data-ttu-id="4d0b3-116">Por motivos de segurança, você pode exigir que apenas imagens personalizadas aprovadas sejam implantadas em seu ambiente.</span><span class="sxs-lookup"><span data-stu-id="4d0b3-116">For security reasons, you can require that only approved custom images are deployed in your environment.</span></span> <span data-ttu-id="4d0b3-117">Você pode especificar o grupo de recursos de saudação que contém imagens Olá aprovado ou imagens aprovados específicas de saudação.</span><span class="sxs-lookup"><span data-stu-id="4d0b3-117">You can specify either hello resource group that contains hello approved images, or hello specific approved images.</span></span>
 
-<span data-ttu-id="03edb-118">O exemplo a seguir exige imagens de um grupo de recursos aprovado:</span><span class="sxs-lookup"><span data-stu-id="03edb-118">The following example requires images from an approved resource group:</span></span>
+<span data-ttu-id="4d0b3-118">saudação de exemplo a seguir exige imagens de um grupo de recursos aprovado:</span><span class="sxs-lookup"><span data-stu-id="4d0b3-118">hello following example requires images from an approved resource group:</span></span>
 
 ```json
 {
@@ -169,7 +169,7 @@ ms.lasthandoff: 08/18/2017
 } 
 ```
 
-<span data-ttu-id="03edb-119">O exemplo a seguir especifica as IDs de imagem aprovadas:</span><span class="sxs-lookup"><span data-stu-id="03edb-119">The following example specifies the approved image IDs:</span></span>
+<span data-ttu-id="4d0b3-119">Olá exemplo a seguir especifica a imagem de saudação aprovada IDs:</span><span class="sxs-lookup"><span data-stu-id="4d0b3-119">hello following example specifies hello approved image IDs:</span></span>
 
 ```json
 {
@@ -178,9 +178,9 @@ ms.lasthandoff: 08/18/2017
 }
 ```
 
-## <a name="virtual-machine-extensions"></a><span data-ttu-id="03edb-120">Extensões de Máquina Virtual</span><span class="sxs-lookup"><span data-stu-id="03edb-120">Virtual Machine extensions</span></span>
+## <a name="virtual-machine-extensions"></a><span data-ttu-id="4d0b3-120">Extensões de Máquina Virtual</span><span class="sxs-lookup"><span data-stu-id="4d0b3-120">Virtual Machine extensions</span></span>
 
-<span data-ttu-id="03edb-121">Talvez você queira proibir o uso de determinados tipos de extensões.</span><span class="sxs-lookup"><span data-stu-id="03edb-121">You may want to forbid usage of certain types of extensions.</span></span> <span data-ttu-id="03edb-122">Por exemplo, uma extensão pode não ser compatível com determinadas imagens de máquina virtual personalizadas.</span><span class="sxs-lookup"><span data-stu-id="03edb-122">For example, an extension may not be compatible with certain custom virtual machine images.</span></span> <span data-ttu-id="03edb-123">O exemplo a seguir mostra como bloquear uma extensão específica.</span><span class="sxs-lookup"><span data-stu-id="03edb-123">The following example shows how to block a specific extension.</span></span> <span data-ttu-id="03edb-124">Ele usa o publicador e o tipo para determinar qual extensão será bloqueada.</span><span class="sxs-lookup"><span data-stu-id="03edb-124">It uses publisher and type to determine which extension to block.</span></span>
+<span data-ttu-id="4d0b3-121">Talvez você queira tooforbid o uso de certos tipos de extensões.</span><span class="sxs-lookup"><span data-stu-id="4d0b3-121">You may want tooforbid usage of certain types of extensions.</span></span> <span data-ttu-id="4d0b3-122">Por exemplo, uma extensão pode não ser compatível com determinadas imagens de máquina virtual personalizadas.</span><span class="sxs-lookup"><span data-stu-id="4d0b3-122">For example, an extension may not be compatible with certain custom virtual machine images.</span></span> <span data-ttu-id="4d0b3-123">Olá mostrado no exemplo a seguir como tooblock uma extensão específica.</span><span class="sxs-lookup"><span data-stu-id="4d0b3-123">hello following example shows how tooblock a specific extension.</span></span> <span data-ttu-id="4d0b3-124">Ele usa o publicador e tipo toodetermine tooblock qual extensão.</span><span class="sxs-lookup"><span data-stu-id="4d0b3-124">It uses publisher and type toodetermine which extension tooblock.</span></span>
 
 ```json
 {
@@ -208,7 +208,7 @@ ms.lasthandoff: 08/18/2017
 ```
 
 
-## <a name="next-steps"></a><span data-ttu-id="03edb-125">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="03edb-125">Next steps</span></span>
-* <span data-ttu-id="03edb-126">Depois de definir uma regra de política (conforme mostrado nos exemplos anteriores), você precisará criar a definição de política e atribuí-la a um escopo.</span><span class="sxs-lookup"><span data-stu-id="03edb-126">After defining a policy rule (as shown in the preceding examples), you need to create the policy definition and assign it to a scope.</span></span> <span data-ttu-id="03edb-127">O escopo pode ser uma assinatura, grupo de recursos ou recurso.</span><span class="sxs-lookup"><span data-stu-id="03edb-127">The scope can be a subscription, resource group, or resource.</span></span> <span data-ttu-id="03edb-128">Para atribuir políticas por meio do portal, consulte [Usar o portal do Azure para atribuir e gerenciar políticas de recurso](../../azure-resource-manager/resource-manager-policy-portal.md).</span><span class="sxs-lookup"><span data-stu-id="03edb-128">To assign policies through the portal, see [Use Azure portal to assign and manage resource policies](../../azure-resource-manager/resource-manager-policy-portal.md).</span></span> <span data-ttu-id="03edb-129">Para atribuir políticas por meio da API REST, do PowerShell ou da CLI do Azure, consulte [Atribuir e gerenciar políticas por meio de script](../../azure-resource-manager/resource-manager-policy-create-assign.md).</span><span class="sxs-lookup"><span data-stu-id="03edb-129">To assign policies through REST API, PowerShell or Azure CLI, see [Assign and manage policies through script](../../azure-resource-manager/resource-manager-policy-create-assign.md).</span></span>
-* <span data-ttu-id="03edb-130">Para ver uma introdução às políticas de recurso, confira [Visão geral da política de recurso](../../azure-resource-manager/resource-manager-policy.md).</span><span class="sxs-lookup"><span data-stu-id="03edb-130">For an introduction to resource policies, see [Resource policy overview](../../azure-resource-manager/resource-manager-policy.md).</span></span>
-* <span data-ttu-id="03edb-131">Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](../../azure-resource-manager/resource-manager-subscription-governance.md).</span><span class="sxs-lookup"><span data-stu-id="03edb-131">For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](../../azure-resource-manager/resource-manager-subscription-governance.md).</span></span>
+## <a name="next-steps"></a><span data-ttu-id="4d0b3-125">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="4d0b3-125">Next steps</span></span>
+* <span data-ttu-id="4d0b3-126">Depois de definir uma regra de política (conforme mostrado no hello anterior exemplos), você precisa de definição de política de saudação toocreate e atribuí-la tooa escopo.</span><span class="sxs-lookup"><span data-stu-id="4d0b3-126">After defining a policy rule (as shown in hello preceding examples), you need toocreate hello policy definition and assign it tooa scope.</span></span> <span data-ttu-id="4d0b3-127">escopo de saudação pode ser uma assinatura, o grupo de recursos ou o recurso.</span><span class="sxs-lookup"><span data-stu-id="4d0b3-127">hello scope can be a subscription, resource group, or resource.</span></span> <span data-ttu-id="4d0b3-128">políticas de tooassign por meio do portal hello, consulte [tooassign portal do Azure de uso e gerenciar políticas de recursos](../../azure-resource-manager/resource-manager-policy-portal.md).</span><span class="sxs-lookup"><span data-stu-id="4d0b3-128">tooassign policies through hello portal, see [Use Azure portal tooassign and manage resource policies](../../azure-resource-manager/resource-manager-policy-portal.md).</span></span> <span data-ttu-id="4d0b3-129">políticas de tooassign por meio da API REST, PowerShell ou CLI do Azure, consulte [atribuir e gerenciar políticas por meio de script](../../azure-resource-manager/resource-manager-policy-create-assign.md).</span><span class="sxs-lookup"><span data-stu-id="4d0b3-129">tooassign policies through REST API, PowerShell or Azure CLI, see [Assign and manage policies through script](../../azure-resource-manager/resource-manager-policy-create-assign.md).</span></span>
+* <span data-ttu-id="4d0b3-130">Para políticas de tooresource uma introdução, consulte [visão geral do recurso política](../../azure-resource-manager/resource-manager-policy.md).</span><span class="sxs-lookup"><span data-stu-id="4d0b3-130">For an introduction tooresource policies, see [Resource policy overview](../../azure-resource-manager/resource-manager-policy.md).</span></span>
+* <span data-ttu-id="4d0b3-131">Para obter diretrizes sobre como as empresas podem usar o Gerenciador de recursos tooeffectively gerenciar assinaturas, consulte [scaffold enterprise do Azure - controle de assinatura prescritivas](../../azure-resource-manager/resource-manager-subscription-governance.md).</span><span class="sxs-lookup"><span data-stu-id="4d0b3-131">For guidance on how enterprises can use Resource Manager tooeffectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](../../azure-resource-manager/resource-manager-subscription-governance.md).</span></span>

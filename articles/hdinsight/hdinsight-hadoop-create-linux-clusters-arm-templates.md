@@ -1,6 +1,6 @@
 ---
-title: "Criar clusters Hadoop usando modelos – Azure HDInsight | Microsoft Docs"
-description: Aprenda a criar clusters para o HDInsight usando modelos do Resource Manager
+title: clusters de aaaCreate Hadoop usando modelos - HDInsight do Azure | Microsoft Docs
+description: Saiba como toocreate clusters de HDInsight usando modelos do Gerenciador de recursos
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -16,74 +16,74 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: jgao
-ms.openlocfilehash: b2cdc954530daea2a641599c946ce3787149e762
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 92a6c1d888e401a11537dba34f188245ac17f448
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a><span data-ttu-id="c6766-103">Criar clusters Hadoop no HDInsight usando modelos do Resource Manager</span><span class="sxs-lookup"><span data-stu-id="c6766-103">Create Hadoop clusters in HDInsight by using Resource Manager templates</span></span>
+# <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a><span data-ttu-id="2c645-103">Criar clusters Hadoop no HDInsight usando modelos do Resource Manager</span><span class="sxs-lookup"><span data-stu-id="2c645-103">Create Hadoop clusters in HDInsight by using Resource Manager templates</span></span>
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-<span data-ttu-id="c6766-104">Neste artigo, você aprenderá várias maneiras de criar clusters do Azure HDInsight com modelos do Azure Resource Manager.</span><span class="sxs-lookup"><span data-stu-id="c6766-104">In this article, you learn several ways to create Azure HDInsight clusters with Azure Resource Manager templates.</span></span> <span data-ttu-id="c6766-105">Para saber mais, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-template-deploy.md).</span><span class="sxs-lookup"><span data-stu-id="c6766-105">For more information, see [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md).</span></span> <span data-ttu-id="c6766-106">Para aprender sobre outros recursos e outras ferramentas de criação de cluster, clique no seletor de guia na parte superior dessa página ou consulte [Métodos de criação de cluster](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).</span><span class="sxs-lookup"><span data-stu-id="c6766-106">To learn about other cluster creation tools and features, click the tab selector on the top of this page or see [Cluster creation methods](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).</span></span>
+<span data-ttu-id="2c645-104">Neste artigo, você aprenderá várias maneiras toocreate HDInsight do Azure clusters com modelos do Gerenciador de recursos do Azure.</span><span class="sxs-lookup"><span data-stu-id="2c645-104">In this article, you learn several ways toocreate Azure HDInsight clusters with Azure Resource Manager templates.</span></span> <span data-ttu-id="2c645-105">Para saber mais, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-template-deploy.md).</span><span class="sxs-lookup"><span data-stu-id="2c645-105">For more information, see [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md).</span></span> <span data-ttu-id="2c645-106">toolearn sobre outras ferramentas de criação de cluster e recursos, clique no seletor de guia Olá na parte superior da saudação dessa página ou consulte [métodos de criação de Cluster](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).</span><span class="sxs-lookup"><span data-stu-id="2c645-106">toolearn about other cluster creation tools and features, click hello tab selector on hello top of this page or see [Cluster creation methods](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="c6766-107">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="c6766-107">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="2c645-107">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="2c645-107">Prerequisites</span></span>
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-<span data-ttu-id="c6766-108">Para seguir as instruções neste artigo, você precisará de:</span><span class="sxs-lookup"><span data-stu-id="c6766-108">To follow the instructions in this article, you'll need:</span></span>
+<span data-ttu-id="2c645-108">instruções de saudação toofollow neste artigo, você precisará:</span><span class="sxs-lookup"><span data-stu-id="2c645-108">toofollow hello instructions in this article, you'll need:</span></span>
 
-* <span data-ttu-id="c6766-109">Uma [assinatura do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).</span><span class="sxs-lookup"><span data-stu-id="c6766-109">An [Azure subscription](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).</span></span>
-* <span data-ttu-id="c6766-110">Azure PowerShell e/ou CLI do Azure.</span><span class="sxs-lookup"><span data-stu-id="c6766-110">Azure PowerShell and/or Azure CLI.</span></span>
+* <span data-ttu-id="2c645-109">Uma [assinatura do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).</span><span class="sxs-lookup"><span data-stu-id="2c645-109">An [Azure subscription](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).</span></span>
+* <span data-ttu-id="2c645-110">Azure PowerShell e/ou CLI do Azure.</span><span class="sxs-lookup"><span data-stu-id="2c645-110">Azure PowerShell and/or Azure CLI.</span></span>
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
-### <a name="resource-manager-templates"></a><span data-ttu-id="c6766-111">Modelos do Gerenciador de Recursos</span><span class="sxs-lookup"><span data-stu-id="c6766-111">Resource Manager templates</span></span>
-<span data-ttu-id="c6766-112">Um modelo do Resource Manager torna mais fácil criar o seguinte para o seu aplicativo, em uma única operação coordenada:</span><span class="sxs-lookup"><span data-stu-id="c6766-112">A Resource Manager template makes it easy to create the following for your application in a single, coordinated operation:</span></span>
-* <span data-ttu-id="c6766-113">Clusters HDInsight e seus recursos dependentes (tais como a conta de armazenamento padrão)</span><span class="sxs-lookup"><span data-stu-id="c6766-113">HDInsight clusters and their dependent resources (such as the default storage account)</span></span>
-* <span data-ttu-id="c6766-114">Outros recursos (tais como o Banco de Dados SQL do Azure para usar o Apache Sqoop)</span><span class="sxs-lookup"><span data-stu-id="c6766-114">Other resources (such as Azure SQL Database to use Apache Sqoop)</span></span>
+### <a name="resource-manager-templates"></a><span data-ttu-id="2c645-111">Modelos do Gerenciador de Recursos</span><span class="sxs-lookup"><span data-stu-id="2c645-111">Resource Manager templates</span></span>
+<span data-ttu-id="2c645-112">Um modelo do Gerenciador de recursos torna fácil toocreate Olá a seguir para seu aplicativo em uma única operação coordenado:</span><span class="sxs-lookup"><span data-stu-id="2c645-112">A Resource Manager template makes it easy toocreate hello following for your application in a single, coordinated operation:</span></span>
+* <span data-ttu-id="2c645-113">Clusters HDInsight e seus recursos dependentes (como a conta de armazenamento padrão Olá)</span><span class="sxs-lookup"><span data-stu-id="2c645-113">HDInsight clusters and their dependent resources (such as hello default storage account)</span></span>
+* <span data-ttu-id="2c645-114">Outros recursos (como o banco de dados do Azure SQL toouse Apache Sqoop)</span><span class="sxs-lookup"><span data-stu-id="2c645-114">Other resources (such as Azure SQL Database toouse Apache Sqoop)</span></span>
 
-<span data-ttu-id="c6766-115">No modelo, você deve definir os recursos que são necessários para o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="c6766-115">In the template, you define the resources that are needed for the application.</span></span> <span data-ttu-id="c6766-116">Você também pode especificar parâmetros de implantação para inserir valores para ambientes diferentes.</span><span class="sxs-lookup"><span data-stu-id="c6766-116">You also specify deployment parameters to input values for different environments.</span></span> <span data-ttu-id="c6766-117">O modelo consiste em JSON e expressões que você pode usar para criar valores para sua implantação.</span><span class="sxs-lookup"><span data-stu-id="c6766-117">The template consists of JSON and expressions that you use to construct values for your deployment.</span></span>
+<span data-ttu-id="2c645-115">No modelo de hello, você define os recursos de saudação que são necessários para o aplicativo hello.</span><span class="sxs-lookup"><span data-stu-id="2c645-115">In hello template, you define hello resources that are needed for hello application.</span></span> <span data-ttu-id="2c645-116">Você também pode especificar valores de tooinput de parâmetros de implantação para ambientes diferentes.</span><span class="sxs-lookup"><span data-stu-id="2c645-116">You also specify deployment parameters tooinput values for different environments.</span></span> <span data-ttu-id="2c645-117">Olá modelo consiste em JSON e expressões que você use tooconstruct valores para sua implantação.</span><span class="sxs-lookup"><span data-stu-id="2c645-117">hello template consists of JSON and expressions that you use tooconstruct values for your deployment.</span></span>
 
-<span data-ttu-id="c6766-118">É possível encontrar amostras de modelo do HDInsight em [Modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight).</span><span class="sxs-lookup"><span data-stu-id="c6766-118">You can find HDInsight template samples at [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?term=hdinsight).</span></span> <span data-ttu-id="c6766-119">Use o [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) de plataforma cruzada com a [extensão do Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) ou um editor de texto para salvar o modelo em um arquivo da estação de trabalho.</span><span class="sxs-lookup"><span data-stu-id="c6766-119">Use cross-platform [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) with the [Resource Manager extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) or a text editor to save the template into a file on your workstation.</span></span> <span data-ttu-id="c6766-120">Você aprende a chamar o modelo usando diferentes métodos.</span><span class="sxs-lookup"><span data-stu-id="c6766-120">You learn how to call the template by using different methods.</span></span>
+<span data-ttu-id="2c645-118">É possível encontrar amostras de modelo do HDInsight em [Modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight).</span><span class="sxs-lookup"><span data-stu-id="2c645-118">You can find HDInsight template samples at [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?term=hdinsight).</span></span> <span data-ttu-id="2c645-119">Usar da plataforma cruzada [código do Visual Studio](https://code.visualstudio.com/#alt-downloads) com hello [extensão do Gerenciador de recursos](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) ou um modelo do hello de toosave do editor de texto em um arquivo na estação de trabalho.</span><span class="sxs-lookup"><span data-stu-id="2c645-119">Use cross-platform [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) with hello [Resource Manager extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) or a text editor toosave hello template into a file on your workstation.</span></span> <span data-ttu-id="2c645-120">Você aprenderá como toocall Olá modelo usando métodos diferentes.</span><span class="sxs-lookup"><span data-stu-id="2c645-120">You learn how toocall hello template by using different methods.</span></span>
 
-<span data-ttu-id="c6766-121">Para obter mais informações sobre modelos do Resource Manager, consulte os seguintes artigos:</span><span class="sxs-lookup"><span data-stu-id="c6766-121">For more information about Resource Manager templates, see the following articles:</span></span>
+<span data-ttu-id="2c645-121">Para obter mais informações sobre modelos do Gerenciador de recursos, consulte Olá artigos a seguir:</span><span class="sxs-lookup"><span data-stu-id="2c645-121">For more information about Resource Manager templates, see hello following articles:</span></span>
 
-* [<span data-ttu-id="c6766-122">Criar modelos do Gerenciador de Recursos do Azure</span><span class="sxs-lookup"><span data-stu-id="c6766-122">Author Azure Resource Manager templates</span></span>](../azure-resource-manager/resource-group-authoring-templates.md)
-* [<span data-ttu-id="c6766-123">Implantar um aplicativo com o modelo do Azure Resource Manager</span><span class="sxs-lookup"><span data-stu-id="c6766-123">Deploy an application with Azure Resource Manager templates</span></span>](../azure-resource-manager/resource-group-template-deploy.md)
+* [<span data-ttu-id="2c645-122">Criar modelos do Gerenciador de Recursos do Azure</span><span class="sxs-lookup"><span data-stu-id="2c645-122">Author Azure Resource Manager templates</span></span>](../azure-resource-manager/resource-group-authoring-templates.md)
+* [<span data-ttu-id="2c645-123">Implantar um aplicativo com o modelo do Azure Resource Manager</span><span class="sxs-lookup"><span data-stu-id="2c645-123">Deploy an application with Azure Resource Manager templates</span></span>](../azure-resource-manager/resource-group-template-deploy.md)
 
-## <a name="generate-templates"></a><span data-ttu-id="c6766-124">Gerar modelos</span><span class="sxs-lookup"><span data-stu-id="c6766-124">Generate templates</span></span>
+## <a name="generate-templates"></a><span data-ttu-id="2c645-124">Gerar modelos</span><span class="sxs-lookup"><span data-stu-id="2c645-124">Generate templates</span></span>
 
-<span data-ttu-id="c6766-125">Usando o portal do Azure, é possível configurar todas as propriedades de um cluster e, em seguida, salvar o modelo antes de implantá-lo.</span><span class="sxs-lookup"><span data-stu-id="c6766-125">By using the Azure portal, you can configure all the properties of a cluster and then save the template before deploying it.</span></span> <span data-ttu-id="c6766-126">Você pode então reutilizar o modelo.</span><span class="sxs-lookup"><span data-stu-id="c6766-126">You can then reuse the template.</span></span>
+<span data-ttu-id="2c645-125">Usando Olá portal do Azure, você pode configurar todas as propriedades de saudação de um cluster e, em seguida, salve o modelo de saudação antes de implantá-lo.</span><span class="sxs-lookup"><span data-stu-id="2c645-125">By using hello Azure portal, you can configure all hello properties of a cluster and then save hello template before deploying it.</span></span> <span data-ttu-id="2c645-126">Em seguida, você pode reutilizar o modelo hello.</span><span class="sxs-lookup"><span data-stu-id="2c645-126">You can then reuse hello template.</span></span>
 
-<span data-ttu-id="c6766-127">**Para gerar um modelo usando o portal do Azure**</span><span class="sxs-lookup"><span data-stu-id="c6766-127">**To generate a template by using the Azure portal**</span></span>
+<span data-ttu-id="2c645-127">**toogenerate um modelo usando Olá portal do Azure**</span><span class="sxs-lookup"><span data-stu-id="2c645-127">**toogenerate a template by using hello Azure portal**</span></span>
 
-1. <span data-ttu-id="c6766-128">Entre no [Portal do Azure](https://portal.azure.com).</span><span class="sxs-lookup"><span data-stu-id="c6766-128">Sign in to the [Azure portal](https://portal.azure.com).</span></span>
-2. <span data-ttu-id="c6766-129">Clique em **Novo** no menu à esquerda, clique em **Inteligência + análise** e em **HDInsight**.</span><span class="sxs-lookup"><span data-stu-id="c6766-129">Click **New** on the left menu, click **Intelligence + analytics**, and then click **HDInsight**.</span></span>
-3. <span data-ttu-id="c6766-130">Siga as instruções para inserir propriedades.</span><span class="sxs-lookup"><span data-stu-id="c6766-130">Follow the instructions to enter properties.</span></span> <span data-ttu-id="c6766-131">É possível usar tanto a opção **Criação rápida** ou **Personalizado**.</span><span class="sxs-lookup"><span data-stu-id="c6766-131">You can use either the **Quick create** or the **Custom** option.</span></span>
-4. <span data-ttu-id="c6766-132">Na guia **Resumo**, clique em **Baixar modelo e parâmetros**:</span><span class="sxs-lookup"><span data-stu-id="c6766-132">On the **Summary** tab, click **Download template and parameters**:</span></span>
+1. <span data-ttu-id="2c645-128">Entrar toohello [portal do Azure](https://portal.azure.com).</span><span class="sxs-lookup"><span data-stu-id="2c645-128">Sign in toohello [Azure portal](https://portal.azure.com).</span></span>
+2. <span data-ttu-id="2c645-129">Clique em **novo** no menu esquerdo Olá **Intelligence + análise**e, em seguida, clique em **HDInsight**.</span><span class="sxs-lookup"><span data-stu-id="2c645-129">Click **New** on hello left menu, click **Intelligence + analytics**, and then click **HDInsight**.</span></span>
+3. <span data-ttu-id="2c645-130">Seguem Olá instruções tooenter propriedades.</span><span class="sxs-lookup"><span data-stu-id="2c645-130">Follow hello instructions tooenter properties.</span></span> <span data-ttu-id="2c645-131">Você pode usar o hello **criação rápida** ou hello **personalizado** opção.</span><span class="sxs-lookup"><span data-stu-id="2c645-131">You can use either hello **Quick create** or hello **Custom** option.</span></span>
+4. <span data-ttu-id="2c645-132">Em Olá **resumo** , clique em **baixar modelo e parâmetros de**:</span><span class="sxs-lookup"><span data-stu-id="2c645-132">On hello **Summary** tab, click **Download template and parameters**:</span></span>
 
     ![Criação de cluster de Download do modelo do Resource Manager pelo Hadoop HDInsight](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-download.png)
 
-    <span data-ttu-id="c6766-134">Você vê uma lista o arquivo de modelo, o arquivo de parâmetros e os exemplos de código para implantar o modelo:</span><span class="sxs-lookup"><span data-stu-id="c6766-134">You see a list of the template file, parameters file, and code samples used to deploy the template:</span></span>
+    <span data-ttu-id="2c645-134">Você verá uma lista de arquivo de modelo hello, arquivo de parâmetros e código amostras usadas toodeploy Olá modelo:</span><span class="sxs-lookup"><span data-stu-id="2c645-134">You see a list of hello template file, parameters file, and code samples used toodeploy hello template:</span></span>
 
     ![Criação de cluster de Opções de download do modelo do Resource Manager pelo Hadoop HDInsight](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-download-options.png)
 
-    <span data-ttu-id="c6766-136">Aqui, é possível baixar o modelo, salvá-lo na biblioteca de modelos ou implantá-lo.</span><span class="sxs-lookup"><span data-stu-id="c6766-136">From here, you can download the template, save it to your template library, or deploy the template.</span></span>
+    <span data-ttu-id="2c645-136">A partir daqui, baixar modelo hello, salvá-lo tooyour biblioteca de modelos ou implantar o modelo de saudação.</span><span class="sxs-lookup"><span data-stu-id="2c645-136">From here, you can download hello template, save it tooyour template library, or deploy hello template.</span></span>
 
-    <span data-ttu-id="c6766-137">Para acessar um modelo na biblioteca, clique em **Mais serviços** no menu à esquerda e clique em **Modelos** (na categoria **Outros**).</span><span class="sxs-lookup"><span data-stu-id="c6766-137">To access a template in your library, click **More services** from the left menu, and then click **Templates** (under the **Other** category).</span></span>
+    <span data-ttu-id="2c645-137">tooaccess um modelo de biblioteca, clique em **mais serviços** no menu esquerdo hello e clique **modelos** (em Olá **outros** categoria).</span><span class="sxs-lookup"><span data-stu-id="2c645-137">tooaccess a template in your library, click **More services** from hello left menu, and then click **Templates** (under hello **Other** category).</span></span>
 
     > [!Note]
-    > <span data-ttu-id="c6766-138">O arquivo de parâmetros e o modelo devem ser usados juntos.</span><span class="sxs-lookup"><span data-stu-id="c6766-138">The template and parameters file must be used together.</span></span> <span data-ttu-id="c6766-139">Caso contrário, você poderá obter resultados inesperados.</span><span class="sxs-lookup"><span data-stu-id="c6766-139">Otherwise, you might get unexpected results.</span></span> <span data-ttu-id="c6766-140">Por exemplo, o valor da propriedade **clusterKind** padrão é sempre **hadoop**, independentemente do que foi especificado antes de o modelo ser baixado.</span><span class="sxs-lookup"><span data-stu-id="c6766-140">For example, the default **clusterKind** property value is always **hadoop**, despite what you specify before you download the template.</span></span>
+    > <span data-ttu-id="2c645-138">arquivo de modelo e parâmetros de saudação deve ser usado juntas.</span><span class="sxs-lookup"><span data-stu-id="2c645-138">hello template and parameters file must be used together.</span></span> <span data-ttu-id="2c645-139">Caso contrário, você poderá obter resultados inesperados.</span><span class="sxs-lookup"><span data-stu-id="2c645-139">Otherwise, you might get unexpected results.</span></span> <span data-ttu-id="2c645-140">Por exemplo, Olá padrão **clusterKind** o valor da propriedade é sempre **hadoop**, apesar do que você especificar antes de baixar o modelo de saudação.</span><span class="sxs-lookup"><span data-stu-id="2c645-140">For example, hello default **clusterKind** property value is always **hadoop**, despite what you specify before you download hello template.</span></span>
 
 
 
-## <a name="deploy-with-powershell"></a><span data-ttu-id="c6766-141">Implantação com o PowerShell</span><span class="sxs-lookup"><span data-stu-id="c6766-141">Deploy with PowerShell</span></span>
+## <a name="deploy-with-powershell"></a><span data-ttu-id="2c645-141">Implantação com o PowerShell</span><span class="sxs-lookup"><span data-stu-id="2c645-141">Deploy with PowerShell</span></span>
 
-<span data-ttu-id="c6766-142">Esse procedimento cria um cluster Hadoop no HDInsight.</span><span class="sxs-lookup"><span data-stu-id="c6766-142">This procedure creates a Hadoop cluster in HDInsight.</span></span>
+<span data-ttu-id="2c645-142">Esse procedimento cria um cluster Hadoop no HDInsight.</span><span class="sxs-lookup"><span data-stu-id="2c645-142">This procedure creates a Hadoop cluster in HDInsight.</span></span>
 
-1. <span data-ttu-id="c6766-143">Salve o arquivo JSON encontrado no [Apêndice](#appx-a-arm-template) em sua estação de trabalho.</span><span class="sxs-lookup"><span data-stu-id="c6766-143">Save the JSON file in the [Appendix](#appx-a-arm-template) to your workstation.</span></span> <span data-ttu-id="c6766-144">No script do PowerShell, o nome do arquivo é `C:\HDITutorials-ARM\hdinsight-arm-template.json`.</span><span class="sxs-lookup"><span data-stu-id="c6766-144">In the PowerShell script, the file name is `C:\HDITutorials-ARM\hdinsight-arm-template.json`.</span></span>
-2. <span data-ttu-id="c6766-145">Defina as variáveis e os parâmetros, se necessário.</span><span class="sxs-lookup"><span data-stu-id="c6766-145">Set the parameters and variables if needed.</span></span>
-3. <span data-ttu-id="c6766-146">Execute o modelo usando o seguinte script do PowerShell:</span><span class="sxs-lookup"><span data-stu-id="c6766-146">Run the template by using the following PowerShell script:</span></span>
+1. <span data-ttu-id="2c645-143">Salve o arquivo JSON de saudação em Olá [apêndice](#appx-a-arm-template) tooyour estação de trabalho.</span><span class="sxs-lookup"><span data-stu-id="2c645-143">Save hello JSON file in hello [Appendix](#appx-a-arm-template) tooyour workstation.</span></span> <span data-ttu-id="2c645-144">Olá script do PowerShell, nome de arquivo hello é `C:\HDITutorials-ARM\hdinsight-arm-template.json`.</span><span class="sxs-lookup"><span data-stu-id="2c645-144">In hello PowerShell script, hello file name is `C:\HDITutorials-ARM\hdinsight-arm-template.json`.</span></span>
+2. <span data-ttu-id="2c645-145">Defina as variáveis e parâmetros de saudação se necessário.</span><span class="sxs-lookup"><span data-stu-id="2c645-145">Set hello parameters and variables if needed.</span></span>
+3. <span data-ttu-id="2c645-146">Execute o modelo hello usando Olá script do PowerShell a seguir:</span><span class="sxs-lookup"><span data-stu-id="2c645-146">Run hello template by using hello following PowerShell script:</span></span>
 
         ####################################
         # Set these variables
@@ -110,10 +110,10 @@ ms.lasthandoff: 08/03/2017
         #endregion
 
         ####################################
-        # Connect to Azure
+        # Connect tooAzure
         ####################################
-        #region - Connect to Azure subscription
-        Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+        #region - Connect tooAzure subscription
+        Write-Host "`nConnecting tooyour Azure subscription ..." -ForegroundColor Green
         try{Get-AzureRmContext}
         catch{Login-AzureRmAccount}
         #endregion
@@ -121,7 +121,7 @@ ms.lasthandoff: 08/03/2017
         # Create a resource group
         New-AzureRmResourceGroup -Name $resourceGroupName -Location $Location
 
-        # Create cluster and the dependent storage account
+        # Create cluster and hello dependent storage account
         $parameters = @{clusterName="$hdinsightClusterName"}
 
         New-AzureRmResourceGroupDeployment `
@@ -133,53 +133,53 @@ ms.lasthandoff: 08/03/2017
         # List cluster
         Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName
 
-    <span data-ttu-id="c6766-147">O script do PowerShell configura apenas o nome do cluster.</span><span class="sxs-lookup"><span data-stu-id="c6766-147">The PowerShell script configures only the cluster name.</span></span> <span data-ttu-id="c6766-148">O nome da conta de armazenamento está embutido em código no modelo.</span><span class="sxs-lookup"><span data-stu-id="c6766-148">The storage account name is hard-coded in the template.</span></span> <span data-ttu-id="c6766-149">Será solicitado que você insira a senha de usuário do cluster.</span><span class="sxs-lookup"><span data-stu-id="c6766-149">You are prompted to enter the cluster user password.</span></span> <span data-ttu-id="c6766-150">(O nome de usuário padrão é **admin**.) Também será solicitado que você insira a senha de usuário SSH.</span><span class="sxs-lookup"><span data-stu-id="c6766-150">(The default username is **admin**.) You are also prompted to enter the SSH user password.</span></span> <span data-ttu-id="c6766-151">(O nome de usuário SSH padrão é **sshuser**.)</span><span class="sxs-lookup"><span data-stu-id="c6766-151">(The default SSH username is **sshuser**.)</span></span>  
+    <span data-ttu-id="2c645-147">saudação de script do PowerShell configura apenas o nome de cluster hello.</span><span class="sxs-lookup"><span data-stu-id="2c645-147">hello PowerShell script configures only hello cluster name.</span></span> <span data-ttu-id="2c645-148">o nome de conta de armazenamento Olá é embutido no modelo de saudação.</span><span class="sxs-lookup"><span data-stu-id="2c645-148">hello storage account name is hard-coded in hello template.</span></span> <span data-ttu-id="2c645-149">Você está senha de usuário de cluster de saudação tooenter solicitada.</span><span class="sxs-lookup"><span data-stu-id="2c645-149">You are prompted tooenter hello cluster user password.</span></span> <span data-ttu-id="2c645-150">(nome de usuário saudação padrão é **admin**.) Você também é senha de usuário solicitada tooenter Olá SSH.</span><span class="sxs-lookup"><span data-stu-id="2c645-150">(hello default username is **admin**.) You are also prompted tooenter hello SSH user password.</span></span> <span data-ttu-id="2c645-151">(nome de usuário do SSH saudação padrão é **sshuser**.)</span><span class="sxs-lookup"><span data-stu-id="2c645-151">(hello default SSH username is **sshuser**.)</span></span>  
 
-<span data-ttu-id="c6766-152">Para obter mais informações, veja [Implantar com o PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy-local-template).</span><span class="sxs-lookup"><span data-stu-id="c6766-152">For more information, see  [Deploy with PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy-local-template).</span></span>
+<span data-ttu-id="2c645-152">Para obter mais informações, veja [Implantar com o PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy-local-template).</span><span class="sxs-lookup"><span data-stu-id="2c645-152">For more information, see  [Deploy with PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy-local-template).</span></span>
 
-## <a name="deploy-with-cli"></a><span data-ttu-id="c6766-153">Implantar com a CLI</span><span class="sxs-lookup"><span data-stu-id="c6766-153">Deploy with CLI</span></span>
-<span data-ttu-id="c6766-154">O exemplo a seguir usa a CLI (interface de linha de comando) do Azure.</span><span class="sxs-lookup"><span data-stu-id="c6766-154">The following sample uses Azure command-line interface (CLI).</span></span> <span data-ttu-id="c6766-155">Ele cria um cluster e os respectivos contêiner e conta de armazenamento dependente chamando um modelo do Resource Manager:</span><span class="sxs-lookup"><span data-stu-id="c6766-155">It creates a cluster and its dependent storage account and container by calling a Resource Manager template:</span></span>
+## <a name="deploy-with-cli"></a><span data-ttu-id="2c645-153">Implantar com a CLI</span><span class="sxs-lookup"><span data-stu-id="2c645-153">Deploy with CLI</span></span>
+<span data-ttu-id="2c645-154">saudação de exemplo a seguir usa a interface de linha de comando (CLI) do Azure.</span><span class="sxs-lookup"><span data-stu-id="2c645-154">hello following sample uses Azure command-line interface (CLI).</span></span> <span data-ttu-id="2c645-155">Ele cria um cluster e os respectivos contêiner e conta de armazenamento dependente chamando um modelo do Resource Manager:</span><span class="sxs-lookup"><span data-stu-id="2c645-155">It creates a cluster and its dependent storage account and container by calling a Resource Manager template:</span></span>
 
     azure login
     azure config mode arm
     azure group create -n hdi1229rg -l "East US"
     azure group deployment create --resource-group "hdi1229rg" --name "hdi1229" --template-file "C:\HDITutorials-ARM\hdinsight-arm-template.json"
 
-<span data-ttu-id="c6766-156">Será solicitado que você insira:</span><span class="sxs-lookup"><span data-stu-id="c6766-156">You are prompted to enter:</span></span>
-* <span data-ttu-id="c6766-157">O nome do cluster.</span><span class="sxs-lookup"><span data-stu-id="c6766-157">The cluster name.</span></span>
-* <span data-ttu-id="c6766-158">A senha de usuário do cluster.</span><span class="sxs-lookup"><span data-stu-id="c6766-158">The cluster user password.</span></span> <span data-ttu-id="c6766-159">(O nome de usuário padrão é **admin**.)</span><span class="sxs-lookup"><span data-stu-id="c6766-159">(The default username is **admin**.)</span></span>
-* <span data-ttu-id="c6766-160">A senha de usuário do SSH.</span><span class="sxs-lookup"><span data-stu-id="c6766-160">The SSH user password.</span></span> <span data-ttu-id="c6766-161">(O nome de usuário SSH padrão é **sshuser**.)</span><span class="sxs-lookup"><span data-stu-id="c6766-161">(The default SSH username is **sshuser**.)</span></span>
+<span data-ttu-id="2c645-156">Você está tooenter solicitada:</span><span class="sxs-lookup"><span data-stu-id="2c645-156">You are prompted tooenter:</span></span>
+* <span data-ttu-id="2c645-157">nome do cluster Hello.</span><span class="sxs-lookup"><span data-stu-id="2c645-157">hello cluster name.</span></span>
+* <span data-ttu-id="2c645-158">senha de usuário de cluster Hello.</span><span class="sxs-lookup"><span data-stu-id="2c645-158">hello cluster user password.</span></span> <span data-ttu-id="2c645-159">(nome de usuário saudação padrão é **admin**.)</span><span class="sxs-lookup"><span data-stu-id="2c645-159">(hello default username is **admin**.)</span></span>
+* <span data-ttu-id="2c645-160">senha de usuário SSH Hello.</span><span class="sxs-lookup"><span data-stu-id="2c645-160">hello SSH user password.</span></span> <span data-ttu-id="2c645-161">(nome de usuário do SSH saudação padrão é **sshuser**.)</span><span class="sxs-lookup"><span data-stu-id="2c645-161">(hello default SSH username is **sshuser**.)</span></span>
 
-<span data-ttu-id="c6766-162">O código a seguir fornece parâmetros embutidos:</span><span class="sxs-lookup"><span data-stu-id="c6766-162">The following code provides inline parameters:</span></span>
+<span data-ttu-id="2c645-162">saudação de código a seguir fornece parâmetros embutido:</span><span class="sxs-lookup"><span data-stu-id="2c645-162">hello following code provides inline parameters:</span></span>
 
     azure group deployment create --resource-group "hdi1229rg" --name "hdi1229" --template-file "c:\Tutorials\HDInsightARM\create-linux-based-hadoop-cluster-in-hdinsight.json" --parameters '{\"clusterName\":{\"value\":\"hdi1229\"},\"clusterLoginPassword\":{\"value\":\"Pass@word1\"},\"sshPassword\":{\"value\":\"Pass@word1\"}}'
 
-## <a name="deploy-with-the-rest-api"></a><span data-ttu-id="c6766-163">Implantar com a API REST</span><span class="sxs-lookup"><span data-stu-id="c6766-163">Deploy with the REST API</span></span>
-<span data-ttu-id="c6766-164">Veja [Implantar com a API REST](../azure-resource-manager/resource-group-template-deploy-rest.md).</span><span class="sxs-lookup"><span data-stu-id="c6766-164">See [Deploy with the REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).</span></span>
+## <a name="deploy-with-hello-rest-api"></a><span data-ttu-id="2c645-163">Implantar com hello API REST</span><span class="sxs-lookup"><span data-stu-id="2c645-163">Deploy with hello REST API</span></span>
+<span data-ttu-id="2c645-164">Consulte [implantar com a API REST de saudação](../azure-resource-manager/resource-group-template-deploy-rest.md).</span><span class="sxs-lookup"><span data-stu-id="2c645-164">See [Deploy with hello REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).</span></span>
 
-## <a name="deploy-with-visual-studio"></a><span data-ttu-id="c6766-165">Implantação com o Visual Studio</span><span class="sxs-lookup"><span data-stu-id="c6766-165">Deploy with Visual Studio</span></span>
- <span data-ttu-id="c6766-166">Use o Visual Studio para criar um projeto do grupo de recursos e implantá-lo ao Azure por meio da interface do usuário.</span><span class="sxs-lookup"><span data-stu-id="c6766-166">Use Visual Studio to create a resource group project and deploy it to Azure through the user interface.</span></span> <span data-ttu-id="c6766-167">Selecione o tipo de recursos a serem incluídos em seu projeto.</span><span class="sxs-lookup"><span data-stu-id="c6766-167">You select the type of resources to include in your project.</span></span> <span data-ttu-id="c6766-168">Esses recursos são adicionados automaticamente ao modelo do Resource Manager.</span><span class="sxs-lookup"><span data-stu-id="c6766-168">Those resources are automatically added to the Resource Manager template.</span></span> <span data-ttu-id="c6766-169">O projeto também fornece um script do PowerShell para implantar o modelo.</span><span class="sxs-lookup"><span data-stu-id="c6766-169">The project also provides a PowerShell script to deploy the template.</span></span>
+## <a name="deploy-with-visual-studio"></a><span data-ttu-id="2c645-165">Implantação com o Visual Studio</span><span class="sxs-lookup"><span data-stu-id="2c645-165">Deploy with Visual Studio</span></span>
+ <span data-ttu-id="2c645-166">Use o Visual Studio toocreate um projeto do grupo de recursos e implantá-lo tooAzure por meio da interface do usuário hello.</span><span class="sxs-lookup"><span data-stu-id="2c645-166">Use Visual Studio toocreate a resource group project and deploy it tooAzure through hello user interface.</span></span> <span data-ttu-id="2c645-167">Selecione o tipo de saudação de tooinclude de recursos em seu projeto.</span><span class="sxs-lookup"><span data-stu-id="2c645-167">You select hello type of resources tooinclude in your project.</span></span> <span data-ttu-id="2c645-168">Esses recursos são adicionados automaticamente o modelo do Gerenciador de recursos de toohello.</span><span class="sxs-lookup"><span data-stu-id="2c645-168">Those resources are automatically added toohello Resource Manager template.</span></span> <span data-ttu-id="2c645-169">projeto Olá também fornece um modelo de saudação do toodeploy de script do PowerShell.</span><span class="sxs-lookup"><span data-stu-id="2c645-169">hello project also provides a PowerShell script toodeploy hello template.</span></span>
 
-<span data-ttu-id="c6766-170">Para obter uma introdução ao uso do Visual Studio com grupos de recursos, veja [Criando e implantando grupos de recursos do Azure por meio do Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).</span><span class="sxs-lookup"><span data-stu-id="c6766-170">For an introduction to using Visual Studio with resource groups, see [Creating and deploying Azure resource groups through Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).</span></span>
+<span data-ttu-id="2c645-170">Para uma introdução toousing Visual Studio com grupos de recursos, consulte [criando e implantando grupos de recursos do Azure com o Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).</span><span class="sxs-lookup"><span data-stu-id="2c645-170">For an introduction toousing Visual Studio with resource groups, see [Creating and deploying Azure resource groups through Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).</span></span>
 
-## <a name="troubleshoot"></a><span data-ttu-id="c6766-171">Solucionar problemas</span><span class="sxs-lookup"><span data-stu-id="c6766-171">Troubleshoot</span></span>
+## <a name="troubleshoot"></a><span data-ttu-id="2c645-171">Solucionar problemas</span><span class="sxs-lookup"><span data-stu-id="2c645-171">Troubleshoot</span></span>
 
-<span data-ttu-id="c6766-172">Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](hdinsight-administer-use-portal-linux.md#create-clusters).</span><span class="sxs-lookup"><span data-stu-id="c6766-172">If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).</span></span>
+<span data-ttu-id="2c645-172">Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](hdinsight-administer-use-portal-linux.md#create-clusters).</span><span class="sxs-lookup"><span data-stu-id="2c645-172">If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="c6766-173">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="c6766-173">Next steps</span></span>
-<span data-ttu-id="c6766-174">Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight.</span><span class="sxs-lookup"><span data-stu-id="c6766-174">In this article, you have learned several ways to create an HDInsight cluster.</span></span> <span data-ttu-id="c6766-175">Para saber mais, consulte os seguintes artigos:</span><span class="sxs-lookup"><span data-stu-id="c6766-175">To learn more, see the following articles:</span></span>
+## <a name="next-steps"></a><span data-ttu-id="2c645-173">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="2c645-173">Next steps</span></span>
+<span data-ttu-id="2c645-174">Neste artigo, você aprendeu um cluster HDInsight toocreate de várias maneiras.</span><span class="sxs-lookup"><span data-stu-id="2c645-174">In this article, you have learned several ways toocreate an HDInsight cluster.</span></span> <span data-ttu-id="2c645-175">toolearn mais, consulte Olá artigos a seguir:</span><span class="sxs-lookup"><span data-stu-id="2c645-175">toolearn more, see hello following articles:</span></span>
 
-* <span data-ttu-id="c6766-176">Para obter um exemplo de como implantar recursos por meio da biblioteca de cliente do .NET, veja [Implantar recursos usando bibliotecas do .NET e um modelo](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="c6766-176">For an example of deploying resources through the .NET client library, see [Deploy resources by using .NET libraries and a template](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).</span></span>
-* <span data-ttu-id="c6766-177">Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de forma previsível no Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).</span><span class="sxs-lookup"><span data-stu-id="c6766-177">For an in-depth example of deploying an application, see [Provision and deploy microservices predictably in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).</span></span>
-* <span data-ttu-id="c6766-178">Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](../solution-dev-test-environments.md).</span><span class="sxs-lookup"><span data-stu-id="c6766-178">For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](../solution-dev-test-environments.md).</span></span>
-* <span data-ttu-id="c6766-179">Para saber mais sobre as seções do modelo do Azure Resource Manager, veja [Criando modelos](../azure-resource-manager/resource-group-authoring-templates.md).</span><span class="sxs-lookup"><span data-stu-id="c6766-179">To learn about the sections of the Azure Resource Manager template, see [Authoring templates](../azure-resource-manager/resource-group-authoring-templates.md).</span></span>
-* <span data-ttu-id="c6766-180">Para obter uma lista das funções que podem ser usadas em um modelo do Azure Resource Manager, veja [Funções do modelo](../azure-resource-manager/resource-group-template-functions.md).</span><span class="sxs-lookup"><span data-stu-id="c6766-180">For a list of the functions you can use in an Azure Resource Manager template, see [Template functions](../azure-resource-manager/resource-group-template-functions.md).</span></span>
+* <span data-ttu-id="2c645-176">Para obter um exemplo de implantação de recursos por meio da biblioteca de cliente .NET hello, consulte [implantar recursos usando as bibliotecas .NET e um modelo](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).</span><span class="sxs-lookup"><span data-stu-id="2c645-176">For an example of deploying resources through hello .NET client library, see [Deploy resources by using .NET libraries and a template](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).</span></span>
+* <span data-ttu-id="2c645-177">Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de forma previsível no Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).</span><span class="sxs-lookup"><span data-stu-id="2c645-177">For an in-depth example of deploying an application, see [Provision and deploy microservices predictably in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).</span></span>
+* <span data-ttu-id="2c645-178">Para obter orientação sobre a implantação de ambientes de toodifferent sua solução, consulte [ambientes de desenvolvimento e teste no Microsoft Azure](../solution-dev-test-environments.md).</span><span class="sxs-lookup"><span data-stu-id="2c645-178">For guidance on deploying your solution toodifferent environments, see [Development and test environments in Microsoft Azure](../solution-dev-test-environments.md).</span></span>
+* <span data-ttu-id="2c645-179">toolearn sobre seções de saudação do modelo do Azure Resource Manager hello, consulte [criar modelos](../azure-resource-manager/resource-group-authoring-templates.md).</span><span class="sxs-lookup"><span data-stu-id="2c645-179">toolearn about hello sections of hello Azure Resource Manager template, see [Authoring templates](../azure-resource-manager/resource-group-authoring-templates.md).</span></span>
+* <span data-ttu-id="2c645-180">Para obter uma lista de funções de saudação, você pode usar em um modelo do Gerenciador de recursos do Azure, consulte [funções de modelo](../azure-resource-manager/resource-group-template-functions.md).</span><span class="sxs-lookup"><span data-stu-id="2c645-180">For a list of hello functions you can use in an Azure Resource Manager template, see [Template functions](../azure-resource-manager/resource-group-template-functions.md).</span></span>
 
-## <a name="appendix-resource-manager-template-to-create-a-hadoop-cluster"></a><span data-ttu-id="c6766-181">Apêndice: modelo do Resource Manager para criar um cluster Hadoop</span><span class="sxs-lookup"><span data-stu-id="c6766-181">Appendix: Resource Manager template to create a Hadoop cluster</span></span>
-<span data-ttu-id="c6766-182">O modelo a seguir do Azure Resource Manager cria um cluster Hadoop baseado em Linux com a conta de armazenamento do Azure dependente.</span><span class="sxs-lookup"><span data-stu-id="c6766-182">The following Azure Resource Manager template creates a Linux-based Hadoop cluster with the dependent Azure storage account.</span></span>
+## <a name="appendix-resource-manager-template-toocreate-a-hadoop-cluster"></a><span data-ttu-id="2c645-181">Apêndice: Gerenciador de recursos modelo toocreate um cluster Hadoop</span><span class="sxs-lookup"><span data-stu-id="2c645-181">Appendix: Resource Manager template toocreate a Hadoop cluster</span></span>
+<span data-ttu-id="2c645-182">Hello seguinte modelo do Azure Resource Manager cria um cluster Hadoop baseado em Linux com conta de armazenamento do Azure dependentes hello.</span><span class="sxs-lookup"><span data-stu-id="2c645-182">hello following Azure Resource Manager template creates a Linux-based Hadoop cluster with hello dependent Azure storage account.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="c6766-183">Este exemplo inclui informações de configuração para o metastore do Hive e o metastore do Oozie.</span><span class="sxs-lookup"><span data-stu-id="c6766-183">This sample includes configuration information for Hive metastore and Oozie metastore.</span></span> <span data-ttu-id="c6766-184">Remova a seção ou configure a seção antes de usar o modelo.</span><span class="sxs-lookup"><span data-stu-id="c6766-184">Remove the section or configure the section before using the template.</span></span>
+> <span data-ttu-id="2c645-183">Este exemplo inclui informações de configuração para o metastore do Hive e o metastore do Oozie.</span><span class="sxs-lookup"><span data-stu-id="2c645-183">This sample includes configuration information for Hive metastore and Oozie metastore.</span></span> <span data-ttu-id="2c645-184">Remover seção hello ou configurar a seção Olá antes de usar o modelo de saudação.</span><span class="sxs-lookup"><span data-stu-id="2c645-184">Remove hello section or configure hello section before using hello template.</span></span>
 >
 >
 
@@ -190,33 +190,33 @@ ms.lasthandoff: 08/03/2017
         "clusterName": {
         "type": "string",
         "metadata": {
-            "description": "The name of the HDInsight cluster to create."
+            "description": "hello name of hello HDInsight cluster toocreate."
         }
         },
         "clusterLoginUserName": {
         "type": "string",
         "defaultValue": "admin",
         "metadata": {
-            "description": "These credentials can be used to submit jobs to the cluster and to log into cluster dashboards."
+            "description": "These credentials can be used toosubmit jobs toohello cluster and toolog into cluster dashboards."
         }
         },
         "clusterLoginPassword": {
         "type": "securestring",
         "metadata": {
-            "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+            "description": "hello password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
         }
         },
         "sshUserName": {
         "type": "string",
         "defaultValue": "sshuser",
         "metadata": {
-            "description": "These credentials can be used to remotely access the cluster."
+            "description": "These credentials can be used tooremotely access hello cluster."
         }
         },
         "sshPassword": {
         "type": "securestring",
         "metadata": {
-            "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+            "description": "hello password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
         }
         },
         "location": {
@@ -238,7 +238,7 @@ ms.lasthandoff: 08/03/2017
             "Australia Southeast"
         ],
         "metadata": {
-            "description": "The location where all azure resources will be deployed."
+            "description": "hello location where all azure resources will be deployed."
         }
         },
         "clusterType": {
@@ -251,14 +251,14 @@ ms.lasthandoff: 08/03/2017
             "spark"
         ],
         "metadata": {
-            "description": "The type of the HDInsight cluster to create."
+            "description": "hello type of hello HDInsight cluster toocreate."
         }
         },
         "clusterWorkerNodeCount": {
         "type": "int",
         "defaultValue": 2,
         "metadata": {
-            "description": "The number of nodes in the HDInsight cluster."
+            "description": "hello number of nodes in hello HDInsight cluster."
         }
         }
     },
@@ -382,11 +382,11 @@ ms.lasthandoff: 08/03/2017
     }
     }
 
-## <a name="appendix-resource-manager-template-to-create-a-spark-cluster"></a><span data-ttu-id="c6766-185">Apêndice: modelo do Resource Manager para criar um cluster Spark</span><span class="sxs-lookup"><span data-stu-id="c6766-185">Appendix: Resource Manager template to create a Spark cluster</span></span>
+## <a name="appendix-resource-manager-template-toocreate-a-spark-cluster"></a><span data-ttu-id="2c645-185">Apêndice: Gerenciador de recursos modelo toocreate um cluster Spark</span><span class="sxs-lookup"><span data-stu-id="2c645-185">Appendix: Resource Manager template toocreate a Spark cluster</span></span>
 
-<span data-ttu-id="c6766-186">Esta seção fornece um modelo do Azure Resource Manager que você pode usar para criar um cluster Spark do HDInsight.</span><span class="sxs-lookup"><span data-stu-id="c6766-186">This section provides a Resource Manager template that you can use to create an HDInsight Spark cluster.</span></span> <span data-ttu-id="c6766-187">Esse modelo inclui configurações para `spark-defaults` e `spark-thrift-sparkconf` (para clusters Spark 1.6) e `spark2-defaults` e `spark2-thrift-sparkconf` (para clusters Spark 2).</span><span class="sxs-lookup"><span data-stu-id="c6766-187">This template includes configurations for `spark-defaults` and `spark-thrift-sparkconf` (for Spark 1.6 clusters) and `spark2-defaults` and `spark2-thrift-sparkconf` (for Spark 2 clusters).</span></span> <span data-ttu-id="c6766-188">Além disso, o HDInsight calcula e define as configurações como `spark.executor.instances`, `spark.executor.memory` e `spark.executor.cores` com base no tamanho do cluster.</span><span class="sxs-lookup"><span data-stu-id="c6766-188">In addition to this, HDInsight calculates and sets configurations such as `spark.executor.instances`, `spark.executor.memory`, and `spark.executor.cores` based on the cluster size.</span></span> 
+<span data-ttu-id="2c645-186">Esta seção fornece um modelo do Gerenciador de recursos que você pode usar toocreate um cluster HDInsight Spark.</span><span class="sxs-lookup"><span data-stu-id="2c645-186">This section provides a Resource Manager template that you can use toocreate an HDInsight Spark cluster.</span></span> <span data-ttu-id="2c645-187">Esse modelo inclui configurações para `spark-defaults` e `spark-thrift-sparkconf` (para clusters Spark 1.6) e `spark2-defaults` e `spark2-thrift-sparkconf` (para clusters Spark 2).</span><span class="sxs-lookup"><span data-stu-id="2c645-187">This template includes configurations for `spark-defaults` and `spark-thrift-sparkconf` (for Spark 1.6 clusters) and `spark2-defaults` and `spark2-thrift-sparkconf` (for Spark 2 clusters).</span></span> <span data-ttu-id="2c645-188">Além disso, toothis, HDInsight calcula e define as configurações como `spark.executor.instances`, `spark.executor.memory`, e `spark.executor.cores` com base no tamanho do cluster hello.</span><span class="sxs-lookup"><span data-stu-id="2c645-188">In addition toothis, HDInsight calculates and sets configurations such as `spark.executor.instances`, `spark.executor.memory`, and `spark.executor.cores` based on hello cluster size.</span></span> 
 
-<span data-ttu-id="c6766-189">Se você definir qualquer parâmetro individual em uma seção como parte do modelo, HDInsight não calculará e definirá os outros parâmetros da mesma seção.</span><span class="sxs-lookup"><span data-stu-id="c6766-189">If you set any one parameter in a section as part of the template itself, HDInsight does not calculate and set the other parameters of the same section.</span></span> <span data-ttu-id="c6766-190">Por exemplo, o parâmetro `spark.executor.instances` está na configuração `spark-defaults`.</span><span class="sxs-lookup"><span data-stu-id="c6766-190">For example, parameter `spark.executor.instances` is in the  `spark-defaults` configuration.</span></span> <span data-ttu-id="c6766-191">Se você definir outro parâmetro (por exemplo, `spark.yarn.exector.memoryOverhead`) na configuração `spark-defaults`, o HDInsight não calculará nem definirá o parâmetro `spark.executor.instances` também.</span><span class="sxs-lookup"><span data-stu-id="c6766-191">If you set another parameter (for example, `spark.yarn.exector.memoryOverhead`) in the `spark-defaults` configuration, HDInsight does not calculate and set the `spark.executor.instances` parameter as well.</span></span>
+<span data-ttu-id="2c645-189">Se você definir qualquer um parâmetro em uma seção como parte do próprio modelo hello, HDInsight não calcular e definir Olá outros parâmetros de saudação mesma seção.</span><span class="sxs-lookup"><span data-stu-id="2c645-189">If you set any one parameter in a section as part of hello template itself, HDInsight does not calculate and set hello other parameters of hello same section.</span></span> <span data-ttu-id="2c645-190">Por exemplo, o parâmetro `spark.executor.instances` está em Olá `spark-defaults` configuração.</span><span class="sxs-lookup"><span data-stu-id="2c645-190">For example, parameter `spark.executor.instances` is in hello  `spark-defaults` configuration.</span></span> <span data-ttu-id="2c645-191">Se você definir outro parâmetro (por exemplo, `spark.yarn.exector.memoryOverhead`) no hello `spark-defaults` configuração HDInsight não calcular e definir Olá `spark.executor.instances` parâmetro também.</span><span class="sxs-lookup"><span data-stu-id="2c645-191">If you set another parameter (for example, `spark.yarn.exector.memoryOverhead`) in hello `spark-defaults` configuration, HDInsight does not calculate and set hello `spark.executor.instances` parameter as well.</span></span>
 
     {
     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
@@ -395,27 +395,27 @@ ms.lasthandoff: 08/03/2017
         "clusterName": {
             "type": "string",
             "metadata": {
-                "description": "The name of the HDInsight cluster to create."
+                "description": "hello name of hello HDInsight cluster toocreate."
             }
         },
         "clusterLoginUserName": {
             "type": "string",
             "defaultValue": "admin",
             "metadata": {
-                "description": "These credentials can be used to submit jobs to the cluster and to log into cluster dashboards."
+                "description": "These credentials can be used toosubmit jobs toohello cluster and toolog into cluster dashboards."
             }
         },
         "clusterLoginPassword": {
             "type": "securestring",
             "metadata": {
-                "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+                "description": "hello password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
             }
         },
         "location": {
             "type": "string",
             "defaultValue": "southcentralus",
             "metadata": {
-                "description": "The location where all azure resources will be deployed."
+                "description": "hello location where all azure resources will be deployed."
             }
         },
         "clusterVersion": {
@@ -429,27 +429,27 @@ ms.lasthandoff: 08/03/2017
             "type": "int",
             "defaultValue": 4,
             "metadata": {
-                "description": "The number of nodes in the HDInsight cluster."
+                "description": "hello number of nodes in hello HDInsight cluster."
             }
         },
         "clusterKind": {
             "type": "string",
             "defaultValue": "SPARK",
             "metadata": {
-                "description": "The type of the HDInsight cluster to create."
+                "description": "hello type of hello HDInsight cluster toocreate."
             }
         },
         "sshUserName": {
             "type": "string",
             "defaultValue": "sshuser",
             "metadata": {
-                "description": "These credentials can be used to remotely access the cluster."
+                "description": "These credentials can be used tooremotely access hello cluster."
             }
         },
         "sshPassword": {
             "type": "securestring",
             "metadata": {
-                "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+                "description": "hello password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
             }
         }
     },

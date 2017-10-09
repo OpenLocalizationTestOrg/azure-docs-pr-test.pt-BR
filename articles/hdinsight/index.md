@@ -1,6 +1,6 @@
 ---
-title: "Documentação do Azure HDInsight - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba mais sobre o Hadoop no HDInsight. A documentação mostra como usar o Hadoop, o Spark, o HBase, o Servidor R e muito mais para processar, analisar e obter informações de big data."
+title: "aaaAzure documentação do HDInsight - tutoriais, referência de API | Microsoft Docs"
+description: "Saiba mais sobre o Hadoop no HDInsight. Documentação mostra como toouse Hadoop, Spark, HBase, R Server e mais tooprocess, analisar e obtenha informações do big data."
 services: hdinsight
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 6f16d77f3590bedf9338afc784110c2acff80592
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 592c31863df2e90886c9e9596b1a24edea79e990
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="azure-hdinsight-documentation"></a>Documentação do HDInsight do Azure
 
-Saiba como usar o Hadoop na nuvem no HDInsight para analisar dados de streaming ou históricos. A documentação e os tutoriais mostram como criar clusters, processar e analisar big data e desenvolver soluções com o Hadoop, o Spark, o HBase, o Servidor R, o Storm e outras tecnologias no ecossistema do Hadoop.
+Saiba como toouse Hadoop no hello nuvem nos dados de streaming ou históricos tooanalyze HDInsight. A documentação e tutoriais mostram como toocreate clusters, processar e analisar dados grandes e desenvolver soluções com Hadoop, Spark, HBase, R Server, tempestade e outras tecnologias no ecossistema do Hadoop hello.
 
 <ul class="panelContent cardsFTitle">
     <li>

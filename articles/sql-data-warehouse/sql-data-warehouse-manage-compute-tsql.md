@@ -1,6 +1,6 @@
 ---
-title: Pausar, retomar, dimensionar com o T-SQL no Azure SQL Data Warehouse | Microsoft Docs
-description: "Tarefas de Transact-SQL (T-SQL) para escalar horizontalmente o desempenho ao ajustar DWUs. Reduzir custos por meio da redução durante horários que não sejam de pico."
+title: aaaPause, retomar, dimensionar com T-SQL no Azure SQL Data Warehouse | Microsoft Docs
+description: "Transact-SQL (T-SQL) tarefas tooscale desempenho ajustando DWUs. Reduzir custos por meio da redução durante horários que não sejam de pico."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 03/30/2017
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 9221d72ecf8ab2ba8b04e4bc97eeef7157817cca
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 84c6868acb673221d8853319ac9a05bb98b2b7c2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-compute-power-in-azure-sql-data-warehouse-t-sql"></a><span data-ttu-id="09aa6-104">Gerenciar poder de computação no SQL Data Warehouse do Azure (T-SQL)</span><span class="sxs-lookup"><span data-stu-id="09aa6-104">Manage compute power in Azure SQL Data Warehouse (T-SQL)</span></span>
+# <a name="manage-compute-power-in-azure-sql-data-warehouse-t-sql"></a><span data-ttu-id="01d5f-104">Gerenciar poder de computação no SQL Data Warehouse do Azure (T-SQL)</span><span class="sxs-lookup"><span data-stu-id="01d5f-104">Manage compute power in Azure SQL Data Warehouse (T-SQL)</span></span>
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="09aa6-105">Visão geral</span><span class="sxs-lookup"><span data-stu-id="09aa6-105">Overview</span></span>](sql-data-warehouse-manage-compute-overview.md)
-> * [<span data-ttu-id="09aa6-106">Portal</span><span class="sxs-lookup"><span data-stu-id="09aa6-106">Portal</span></span>](sql-data-warehouse-manage-compute-portal.md)
-> * [<span data-ttu-id="09aa6-107">PowerShell</span><span class="sxs-lookup"><span data-stu-id="09aa6-107">PowerShell</span></span>](sql-data-warehouse-manage-compute-powershell.md)
-> * [<span data-ttu-id="09aa6-108">REST</span><span class="sxs-lookup"><span data-stu-id="09aa6-108">REST</span></span>](sql-data-warehouse-manage-compute-rest-api.md)
-> * [<span data-ttu-id="09aa6-109">TSQL</span><span class="sxs-lookup"><span data-stu-id="09aa6-109">TSQL</span></span>](sql-data-warehouse-manage-compute-tsql.md)
+> * [<span data-ttu-id="01d5f-105">Visão geral</span><span class="sxs-lookup"><span data-stu-id="01d5f-105">Overview</span></span>](sql-data-warehouse-manage-compute-overview.md)
+> * [<span data-ttu-id="01d5f-106">Portal</span><span class="sxs-lookup"><span data-stu-id="01d5f-106">Portal</span></span>](sql-data-warehouse-manage-compute-portal.md)
+> * [<span data-ttu-id="01d5f-107">PowerShell</span><span class="sxs-lookup"><span data-stu-id="01d5f-107">PowerShell</span></span>](sql-data-warehouse-manage-compute-powershell.md)
+> * [<span data-ttu-id="01d5f-108">REST</span><span class="sxs-lookup"><span data-stu-id="01d5f-108">REST</span></span>](sql-data-warehouse-manage-compute-rest-api.md)
+> * [<span data-ttu-id="01d5f-109">TSQL</span><span class="sxs-lookup"><span data-stu-id="01d5f-109">TSQL</span></span>](sql-data-warehouse-manage-compute-tsql.md)
 >
 >
 
 <a name="current-dwu-bk"></a>
 
-## <a name="view-current-dwu-settings"></a><span data-ttu-id="09aa6-110">Exibir configurações atuais de DWU</span><span class="sxs-lookup"><span data-stu-id="09aa6-110">View current DWU settings</span></span>
-<span data-ttu-id="09aa6-111">Para exibir as configurações atuais de DWU para seus bancos de dados:</span><span class="sxs-lookup"><span data-stu-id="09aa6-111">To view the current DWU settings for your databases:</span></span>
+## <a name="view-current-dwu-settings"></a><span data-ttu-id="01d5f-110">Exibir configurações atuais de DWU</span><span class="sxs-lookup"><span data-stu-id="01d5f-110">View current DWU settings</span></span>
+<span data-ttu-id="01d5f-111">tooview Olá DWU configurações para seus bancos de dados:</span><span class="sxs-lookup"><span data-stu-id="01d5f-111">tooview hello current DWU settings for your databases:</span></span>
 
-1. <span data-ttu-id="09aa6-112">Abra o Pesquisador de Objetos do SQL Server no Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="09aa6-112">Open SQL Server Object Explorer in Visual Studio.</span></span>
-2. <span data-ttu-id="09aa6-113">Conecte-se ao banco de dados mestre associado ao servidor lógico do Banco de Dados SQL.</span><span class="sxs-lookup"><span data-stu-id="09aa6-113">Connect to the master database associated with the logical SQL Database server.</span></span>
-3. <span data-ttu-id="09aa6-114">Selecione do modo de exibição de gerenciamento dinâmico sys.database_service_objectives.</span><span class="sxs-lookup"><span data-stu-id="09aa6-114">Select from the sys.database_service_objectives dynamic management view.</span></span> <span data-ttu-id="09aa6-115">Veja um exemplo:</span><span class="sxs-lookup"><span data-stu-id="09aa6-115">Here is an example:</span></span> 
+1. <span data-ttu-id="01d5f-112">Abra o Pesquisador de Objetos do SQL Server no Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="01d5f-112">Open SQL Server Object Explorer in Visual Studio.</span></span>
+2. <span data-ttu-id="01d5f-113">Conecte o banco de dados mestre toohello associado ao servidor de banco de dados SQL lógico hello.</span><span class="sxs-lookup"><span data-stu-id="01d5f-113">Connect toohello master database associated with hello logical SQL Database server.</span></span>
+3. <span data-ttu-id="01d5f-114">Selecione na exibição de gerenciamento dinâmico Olá sys.database_service_objectives.</span><span class="sxs-lookup"><span data-stu-id="01d5f-114">Select from hello sys.database_service_objectives dynamic management view.</span></span> <span data-ttu-id="01d5f-115">Aqui está um exemplo:</span><span class="sxs-lookup"><span data-stu-id="01d5f-115">Here is an example:</span></span> 
 
 ```sql
 SELECT
@@ -53,13 +53,13 @@ JOIN
 <a name="scale-dwu-bk"></a>
 <a name="scale-compute-bk"></a>
 
-## <a name="scale-compute"></a><span data-ttu-id="09aa6-116">Computação de escala</span><span class="sxs-lookup"><span data-stu-id="09aa6-116">Scale compute</span></span>
+## <a name="scale-compute"></a><span data-ttu-id="01d5f-116">Computação de escala</span><span class="sxs-lookup"><span data-stu-id="01d5f-116">Scale compute</span></span>
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
-<span data-ttu-id="09aa6-117">Para alterar as DWUs:</span><span class="sxs-lookup"><span data-stu-id="09aa6-117">To change the DWUs:</span></span>
+<span data-ttu-id="01d5f-117">Olá toochange DWUs:</span><span class="sxs-lookup"><span data-stu-id="01d5f-117">toochange hello DWUs:</span></span>
 
-1. <span data-ttu-id="09aa6-118">Conecte-se ao banco de dados mestre associado ao seu servidor lógico do Banco de Dados SQL.</span><span class="sxs-lookup"><span data-stu-id="09aa6-118">Connect to the master database associated with your logical SQL Database server.</span></span>
-2. <span data-ttu-id="09aa6-119">Use a declaração TSQL [ALTER DATABASE][ALTER DATABASE].</span><span class="sxs-lookup"><span data-stu-id="09aa6-119">Use the [ALTER DATABASE][ALTER DATABASE] TSQL statement.</span></span> <span data-ttu-id="09aa6-120">O exemplo a seguir define o objetivo de nível de serviço como DW1000 para o banco de dados MySQLDW.</span><span class="sxs-lookup"><span data-stu-id="09aa6-120">The following example sets the service level objective to DW1000 for the database MySQLDW.</span></span> 
+1. <span data-ttu-id="01d5f-118">Conecte o banco de dados mestre toohello associado a seu servidor lógico do banco de dados SQL.</span><span class="sxs-lookup"><span data-stu-id="01d5f-118">Connect toohello master database associated with your logical SQL Database server.</span></span>
+2. <span data-ttu-id="01d5f-119">Saudação de uso [ALTER DATABASE] [ ALTER DATABASE] instrução TSQL.</span><span class="sxs-lookup"><span data-stu-id="01d5f-119">Use hello [ALTER DATABASE][ALTER DATABASE] TSQL statement.</span></span> <span data-ttu-id="01d5f-120">Olá, exemplo a seguir define serviço Olá nível tooDW1000 objetivo para o banco de dados Olá MySQLDW.</span><span class="sxs-lookup"><span data-stu-id="01d5f-120">hello following example sets hello service level objective tooDW1000 for hello database MySQLDW.</span></span> 
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -69,10 +69,10 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 <a name="check-database-state-bk"></a>
 
-## <a name="check-database-state-and-operation-progress"></a><span data-ttu-id="09aa6-121">Verificar estado do banco de dados e o progresso da operação</span><span class="sxs-lookup"><span data-stu-id="09aa6-121">Check database state and operation progress</span></span>
+## <a name="check-database-state-and-operation-progress"></a><span data-ttu-id="01d5f-121">Verificar estado do banco de dados e o progresso da operação</span><span class="sxs-lookup"><span data-stu-id="01d5f-121">Check database state and operation progress</span></span>
 
-1. <span data-ttu-id="09aa6-122">Conecte-se ao banco de dados mestre associado ao seu servidor lógico do Banco de Dados SQL.</span><span class="sxs-lookup"><span data-stu-id="09aa6-122">Connect to the master database associated with your logical SQL Database server.</span></span>
-2. <span data-ttu-id="09aa6-123">Enviar consulta para verificar o estado do banco de dados</span><span class="sxs-lookup"><span data-stu-id="09aa6-123">Submit query to check database state</span></span>
+1. <span data-ttu-id="01d5f-122">Conecte o banco de dados mestre toohello associado a seu servidor lógico do banco de dados SQL.</span><span class="sxs-lookup"><span data-stu-id="01d5f-122">Connect toohello master database associated with your logical SQL Database server.</span></span>
+2. <span data-ttu-id="01d5f-123">Enviar o estado do banco de dados de toocheck de consulta</span><span class="sxs-lookup"><span data-stu-id="01d5f-123">Submit query toocheck database state</span></span>
 
 ```sql
 SELECT *
@@ -80,7 +80,7 @@ FROM
 sys.databases
 ```
 
-3. <span data-ttu-id="09aa6-124">Enviar consulta para verificar o status da operação</span><span class="sxs-lookup"><span data-stu-id="09aa6-124">Submit query to check status of operation</span></span>
+3. <span data-ttu-id="01d5f-124">Enviar toocheck consultar o status da operação</span><span class="sxs-lookup"><span data-stu-id="01d5f-124">Submit query toocheck status of operation</span></span>
 
 ```sql
 SELECT *
@@ -92,14 +92,14 @@ AND
     major_resource_id = 'MySQLDW'
 ```
 
-<span data-ttu-id="09aa6-125">Esta DMV retorna informações sobre várias operações de gerenciamento no SQL Data Warehouse, como a operação e o estado da operação, que será IN_PROGRESS ou COMPLETED.</span><span class="sxs-lookup"><span data-stu-id="09aa6-125">This DMV will return information about various management operations on your SQL Data Warehouse such as the operation and the state of the operation, which will either be IN_PROGRESS or COMPLETED.</span></span>
+<span data-ttu-id="01d5f-125">Essa DMV retornará informações sobre várias operações de gerenciamento no Data Warehouse do SQL, como o estado de operação e Olá Olá da operação de saudação, que será IN_PROGRESS ou concluída.</span><span class="sxs-lookup"><span data-stu-id="01d5f-125">This DMV will return information about various management operations on your SQL Data Warehouse such as hello operation and hello state of hello operation, which will either be IN_PROGRESS or COMPLETED.</span></span>
 
 
 
 <a name="next-steps-bk"></a>
 
-## <a name="next-steps"></a><span data-ttu-id="09aa6-126">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="09aa6-126">Next steps</span></span>
-<span data-ttu-id="09aa6-127">Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][Management overview].</span><span class="sxs-lookup"><span data-stu-id="09aa6-127">For other management tasks, see [Management overview][Management overview].</span></span>
+## <a name="next-steps"></a><span data-ttu-id="01d5f-126">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="01d5f-126">Next steps</span></span>
+<span data-ttu-id="01d5f-127">Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][Management overview].</span><span class="sxs-lookup"><span data-stu-id="01d5f-127">For other management tasks, see [Management overview][Management overview].</span></span>
 
 <!--Image references-->
 
