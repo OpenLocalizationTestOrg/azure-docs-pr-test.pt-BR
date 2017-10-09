@@ -1,5 +1,5 @@
 ---
-title: "Perguntas frequentes sobre o registro automático de dispositivo do Azure Active Directory | Microsoft Docs"
+title: "aaaAzure registro de dispositivo automático do Active Directory perguntas Frequentes | Microsoft Docs"
 description: "Perguntas frequentes sobre o registro automático de dispositivo com o Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -14,140 +14,140 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 29751239ae2a26cd7b07ddd0d8a8e706d4056b68
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ba7f113fd3bc310def001a1f44d938b0be71dba8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-active-directory-automatic-device-registration-faq"></a><span data-ttu-id="6edcb-103">Perguntas frequentes sobre o registro automático de dispositivo do Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="6edcb-103">Azure Active Directory automatic device registration FAQ</span></span>
+# <a name="azure-active-directory-automatic-device-registration-faq"></a><span data-ttu-id="d34b4-103">Perguntas frequentes sobre o registro automático de dispositivo do Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="d34b4-103">Azure Active Directory automatic device registration FAQ</span></span>
 
-<span data-ttu-id="6edcb-104">**P: Registrei o dispositivo recentemente. Por que não consigo ver o dispositivo em minhas informações de usuário no Portal do Azure?**</span><span class="sxs-lookup"><span data-stu-id="6edcb-104">**Q: I registered the device recently. Why can’t I see the device under my user info in the Azure portal?**</span></span>
+<span data-ttu-id="d34b4-104">**P: posso registrar o dispositivo de saudação recentemente. Por que não é possível ver dispositivo Olá em minhas informações de usuário no portal do Azure de saudação?**</span><span class="sxs-lookup"><span data-stu-id="d34b4-104">**Q: I registered hello device recently. Why can’t I see hello device under my user info in hello Azure portal?**</span></span>
 
-<span data-ttu-id="6edcb-105">**R:** Dispositivos Windows 10 que ingressaram no domínio com o registro de dispositivo automático não aparecem nas informações de usuário.</span><span class="sxs-lookup"><span data-stu-id="6edcb-105">**A:** Windows 10 devices that are domain-joined with automatic device registration do not show up under the USER info.</span></span>
-<span data-ttu-id="6edcb-106">Você precisa usar o PowerShell para ver todos os dispositivos.</span><span class="sxs-lookup"><span data-stu-id="6edcb-106">You need to use PowerShell to see all devices.</span></span> 
+<span data-ttu-id="d34b4-105">**R:** dispositivos Windows 10 que ingressaram no domínio com o registro automático do dispositivo não aparecem em informações de saudação do usuário.</span><span class="sxs-lookup"><span data-stu-id="d34b4-105">**A:** Windows 10 devices that are domain-joined with automatic device registration do not show up under hello USER info.</span></span>
+<span data-ttu-id="d34b4-106">É necessário toouse PowerShell toosee todos os dispositivos.</span><span class="sxs-lookup"><span data-stu-id="d34b4-106">You need toouse PowerShell toosee all devices.</span></span> 
 
-<span data-ttu-id="6edcb-107">Apenas os seguintes dispositivos são listados nas informações de usuário:</span><span class="sxs-lookup"><span data-stu-id="6edcb-107">Only the following devices are listed under the USER info:</span></span>
+<span data-ttu-id="d34b4-107">Somente hello seguintes dispositivos são listados na informação de usuário hello:</span><span class="sxs-lookup"><span data-stu-id="d34b4-107">Only hello following devices are listed under hello USER info:</span></span>
 
-- <span data-ttu-id="6edcb-108">Todos os dispositivos pessoais que não são ingressados pela empresa</span><span class="sxs-lookup"><span data-stu-id="6edcb-108">All personal devices that are not enterprise joined</span></span> 
-- <span data-ttu-id="6edcb-109">Todos os não Windows 10/Windows Server 2016</span><span class="sxs-lookup"><span data-stu-id="6edcb-109">All non-Windows 10 / Windows Server 2016</span></span> 
-- <span data-ttu-id="6edcb-110">Todos os dispositivos não Windows</span><span class="sxs-lookup"><span data-stu-id="6edcb-110">All non-Windows devices</span></span> 
+- <span data-ttu-id="d34b4-108">Todos os dispositivos pessoais que não são ingressados pela empresa</span><span class="sxs-lookup"><span data-stu-id="d34b4-108">All personal devices that are not enterprise joined</span></span> 
+- <span data-ttu-id="d34b4-109">Todos os não Windows 10/Windows Server 2016</span><span class="sxs-lookup"><span data-stu-id="d34b4-109">All non-Windows 10 / Windows Server 2016</span></span> 
+- <span data-ttu-id="d34b4-110">Todos os dispositivos não Windows</span><span class="sxs-lookup"><span data-stu-id="d34b4-110">All non-Windows devices</span></span> 
 
 ---
 
-<span data-ttu-id="6edcb-111">**P: Por que não posso ver todos os dispositivos registrados no Azure Active Directory no Portal do Azure?**</span><span class="sxs-lookup"><span data-stu-id="6edcb-111">**Q: Why can I not see all the devices registered in Azure Active Directory in the Azure portal?**</span></span> 
+<span data-ttu-id="d34b4-111">**P: por que não posso ver todos os dispositivos de saudação registrados no Active Directory do Azure no portal do Azure de saudação?**</span><span class="sxs-lookup"><span data-stu-id="d34b4-111">**Q: Why can I not see all hello devices registered in Azure Active Directory in hello Azure portal?**</span></span> 
 
-<span data-ttu-id="6edcb-112">**R:** Atualmente, não há nenhuma maneira de ver todos os dispositivos registrados no Portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="6edcb-112">**A:** Currently, there is no way to see all registered devices in the Azure portal.</span></span> <span data-ttu-id="6edcb-113">Você pode usar o Azure PowerShell para localizar todos os dispositivos.</span><span class="sxs-lookup"><span data-stu-id="6edcb-113">You can use Azure PowerShell to find all devices.</span></span> <span data-ttu-id="6edcb-114">Para obter mais detalhes, consulte o cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0).</span><span class="sxs-lookup"><span data-stu-id="6edcb-114">For more details, see the [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.</span></span>
+<span data-ttu-id="d34b4-112">**R:** atualmente, não há nenhuma maneira toosee todos os dispositivos registrados no hello portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="d34b4-112">**A:** Currently, there is no way toosee all registered devices in hello Azure portal.</span></span> <span data-ttu-id="d34b4-113">Você pode usar o Azure PowerShell toofind todos os dispositivos.</span><span class="sxs-lookup"><span data-stu-id="d34b4-113">You can use Azure PowerShell toofind all devices.</span></span> <span data-ttu-id="d34b4-114">Para obter mais detalhes, consulte Olá [MsolDevice Get](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.</span><span class="sxs-lookup"><span data-stu-id="d34b4-114">For more details, see hello [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.</span></span>
 
 --- 
 
-<span data-ttu-id="6edcb-115">**P: Como saber qual é o estado de registro do dispositivo do cliente?**</span><span class="sxs-lookup"><span data-stu-id="6edcb-115">**Q: How do I know what the device registration state of the client is?**</span></span>
+<span data-ttu-id="d34b4-115">**P: como posso saber quais estado do registro de dispositivo saudação do cliente Olá é?**</span><span class="sxs-lookup"><span data-stu-id="d34b4-115">**Q: How do I know what hello device registration state of hello client is?**</span></span>
 
-<span data-ttu-id="6edcb-116">**R:** O estado de registro do dispositivo depende de:</span><span class="sxs-lookup"><span data-stu-id="6edcb-116">**A:** The device registration state depends on:</span></span>
+<span data-ttu-id="d34b4-116">**R:** depende do estado do registro de dispositivo hello:</span><span class="sxs-lookup"><span data-stu-id="d34b4-116">**A:** hello device registration state depends on:</span></span>
 
-- <span data-ttu-id="6edcb-117">O que é o dispositivo</span><span class="sxs-lookup"><span data-stu-id="6edcb-117">What the device is</span></span>
-- <span data-ttu-id="6edcb-118">Como ele foi registrado</span><span class="sxs-lookup"><span data-stu-id="6edcb-118">How it was registered</span></span> 
-- <span data-ttu-id="6edcb-119">Todos os detalhes relacionados a ele.</span><span class="sxs-lookup"><span data-stu-id="6edcb-119">Any details related to it.</span></span> 
+- <span data-ttu-id="d34b4-117">Qual dispositivo Olá é</span><span class="sxs-lookup"><span data-stu-id="d34b4-117">What hello device is</span></span>
+- <span data-ttu-id="d34b4-118">Como ele foi registrado</span><span class="sxs-lookup"><span data-stu-id="d34b4-118">How it was registered</span></span> 
+- <span data-ttu-id="d34b4-119">Todos os detalhes relacionados tooit.</span><span class="sxs-lookup"><span data-stu-id="d34b4-119">Any details related tooit.</span></span> 
  
 
 ---
 
-<span data-ttu-id="6edcb-120">**P: Por que um dispositivo que eu excluí no Portal do Azure ou usando o Windows PowerShell ainda está listado como registrado?**</span><span class="sxs-lookup"><span data-stu-id="6edcb-120">**Q: Why is a device I have deleted in the Azure portal or using Windows PowerShell still listed as registered?**</span></span>
+<span data-ttu-id="d34b4-120">**P: por que é um dispositivo que tenha excluído no hello Azure portal ou usando o Windows PowerShell ainda listados como registrado?**</span><span class="sxs-lookup"><span data-stu-id="d34b4-120">**Q: Why is a device I have deleted in hello Azure portal or using Windows PowerShell still listed as registered?**</span></span>
 
-<span data-ttu-id="6edcb-121">**R:** Esse comportamento é intencional.</span><span class="sxs-lookup"><span data-stu-id="6edcb-121">**A:** This is by design.</span></span> <span data-ttu-id="6edcb-122">O dispositivo não terá acesso aos recursos na nuvem.</span><span class="sxs-lookup"><span data-stu-id="6edcb-122">The device will not have access to resources in the cloud.</span></span> <span data-ttu-id="6edcb-123">Se você quiser remover o dispositivo e registre novamente, uma ação manual deve ser a ser executada no dispositivo.</span><span class="sxs-lookup"><span data-stu-id="6edcb-123">If you want to remove the device and register again, a manual action must be to be taken on the device.</span></span> 
+<span data-ttu-id="d34b4-121">**R:** Esse comportamento é intencional.</span><span class="sxs-lookup"><span data-stu-id="d34b4-121">**A:** This is by design.</span></span> <span data-ttu-id="d34b4-122">dispositivo Olá não terá acesso tooresources na nuvem hello.</span><span class="sxs-lookup"><span data-stu-id="d34b4-122">hello device will not have access tooresources in hello cloud.</span></span> <span data-ttu-id="d34b4-123">Se você quiser tooremove Olá dispositivo e registrar novamente, uma ação manual deve ser toobe efetuado no dispositivo de saudação.</span><span class="sxs-lookup"><span data-stu-id="d34b4-123">If you want tooremove hello device and register again, a manual action must be toobe taken on hello device.</span></span> 
 
-<span data-ttu-id="6edcb-124">Para Windows 10 e Windows Server 2016 que estão ingressados pelo domínio do AD local:</span><span class="sxs-lookup"><span data-stu-id="6edcb-124">For Windows 10 and Windows Server 2016 that are on-premises AD domain-joined:</span></span>
+<span data-ttu-id="d34b4-124">Para Windows 10 e Windows Server 2016 que estão ingressados pelo domínio do AD local:</span><span class="sxs-lookup"><span data-stu-id="d34b4-124">For Windows 10 and Windows Server 2016 that are on-premises AD domain-joined:</span></span>
 
-1.  <span data-ttu-id="6edcb-125">Abra o prompt de comando como administrador.</span><span class="sxs-lookup"><span data-stu-id="6edcb-125">Open the command prompt as an administrator.</span></span>
+1.  <span data-ttu-id="d34b4-125">Olá abrir o prompt de comando como administrador.</span><span class="sxs-lookup"><span data-stu-id="d34b4-125">Open hello command prompt as an administrator.</span></span>
 
-2.  <span data-ttu-id="6edcb-126">Digite `dsregcmd.exe /debug /leave`</span><span class="sxs-lookup"><span data-stu-id="6edcb-126">Type `dsregcmd.exe /debug /leave`</span></span>
+2.  <span data-ttu-id="d34b4-126">Digite `dsregcmd.exe /debug /leave`</span><span class="sxs-lookup"><span data-stu-id="d34b4-126">Type `dsregcmd.exe /debug /leave`</span></span>
 
-3.  <span data-ttu-id="6edcb-127">Sair e entrar para disparar a tarefa agendada que registra o dispositivo novamente.</span><span class="sxs-lookup"><span data-stu-id="6edcb-127">Sign out and sign in to trigger the scheduled task that registers the device again.</span></span> 
+3.  <span data-ttu-id="d34b4-127">Saia e entre em tootrigger Olá tarefa agendada que registra o dispositivo Olá novamente.</span><span class="sxs-lookup"><span data-stu-id="d34b4-127">Sign out and sign in tootrigger hello scheduled task that registers hello device again.</span></span> 
 
-<span data-ttu-id="6edcb-128">Para outras plataformas Windows que estão ingressadas pelo domínio do AD local:</span><span class="sxs-lookup"><span data-stu-id="6edcb-128">For other Windows platforms that are on-premises AD domain-joined:</span></span>
+<span data-ttu-id="d34b4-128">Para outras plataformas Windows que estão ingressadas pelo domínio do AD local:</span><span class="sxs-lookup"><span data-stu-id="d34b4-128">For other Windows platforms that are on-premises AD domain-joined:</span></span>
 
-1.  <span data-ttu-id="6edcb-129">Abra o prompt de comando como administrador.</span><span class="sxs-lookup"><span data-stu-id="6edcb-129">Open the command prompt as an administrator.</span></span>
-2.  <span data-ttu-id="6edcb-130">Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.</span><span class="sxs-lookup"><span data-stu-id="6edcb-130">Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.</span></span>
-3.  <span data-ttu-id="6edcb-131">Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.</span><span class="sxs-lookup"><span data-stu-id="6edcb-131">Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.</span></span>
-
----
-
-<span data-ttu-id="6edcb-132">**P: Por que vejo entradas de dispositivo duplicadas no Portal do Azure?**</span><span class="sxs-lookup"><span data-stu-id="6edcb-132">**Q: Why do I see duplicate device entries in Azure portal?**</span></span>
-
-<span data-ttu-id="6edcb-133">**R:**</span><span class="sxs-lookup"><span data-stu-id="6edcb-133">**A:**</span></span>
-
--   <span data-ttu-id="6edcb-134">Para Windows 10 e Windows Server 2016, se houver tentativas repetidas de cancelar o ingresso e ingressar novamente o mesmo dispositivo, poderá haver entradas duplicadas.</span><span class="sxs-lookup"><span data-stu-id="6edcb-134">For Windows 10 and Windows Server 2016, if they are repeated attempts to unjoin and re-join the same device, there might be duplicate entries.</span></span> 
-
--   <span data-ttu-id="6edcb-135">Se você tiver usado Adicionar Conta Corporativa ou de Estudante, cada usuário do Windows que usar Adicionar Conta Corporativa ou de Estudante criará um novo registro do dispositivo com o mesmo nome do dispositivo.</span><span class="sxs-lookup"><span data-stu-id="6edcb-135">If you have used Add Work or School Account, each windows user who uses Add Work or School Account will create a new device record with the same device name.</span></span>
-
--   <span data-ttu-id="6edcb-136">Outras plataformas Windows que são ingressadas pelo domínio do AD local usando o registro automático criarão um novo registro de dispositivo com o mesmo nome do dispositivo para cada usuário de domínio que faça logon no dispositivo.</span><span class="sxs-lookup"><span data-stu-id="6edcb-136">Other Windows platforms that are on-premises AD domain-joined using automatic registration will create a new device record with the same device name for each domain user who logs into the device.</span></span> 
-
--   <span data-ttu-id="6edcb-137">Um computador AADJ que foi apagado, reinstalado e reingressado com o mesmo nome aparecerá como outro registro com o mesmo nome do dispositivo.</span><span class="sxs-lookup"><span data-stu-id="6edcb-137">An AADJ machine that has been wiped, re-installed and re-joined with the same name, will show up as another record with the same device name.</span></span>
+1.  <span data-ttu-id="d34b4-129">Olá abrir o prompt de comando como administrador.</span><span class="sxs-lookup"><span data-stu-id="d34b4-129">Open hello command prompt as an administrator.</span></span>
+2.  <span data-ttu-id="d34b4-130">Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.</span><span class="sxs-lookup"><span data-stu-id="d34b4-130">Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.</span></span>
+3.  <span data-ttu-id="d34b4-131">Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.</span><span class="sxs-lookup"><span data-stu-id="d34b4-131">Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.</span></span>
 
 ---
 
-<span data-ttu-id="6edcb-138">**P: Por que um usuário ainda pode acessar recursos de um dispositivo que eu desabilitei no Portal do Azure?**</span><span class="sxs-lookup"><span data-stu-id="6edcb-138">**Q: Why can a user still access resources from a device I have disabled in the Azure portal?**</span></span>
+<span data-ttu-id="d34b4-132">**P: Por que vejo entradas de dispositivo duplicadas no Portal do Azure?**</span><span class="sxs-lookup"><span data-stu-id="d34b4-132">**Q: Why do I see duplicate device entries in Azure portal?**</span></span>
 
-<span data-ttu-id="6edcb-139">**R:** Pode demorar até uma hora para uma revogação ser aplicada.</span><span class="sxs-lookup"><span data-stu-id="6edcb-139">**A:** It can take up to an hour for a revoke to be applied.</span></span>
+<span data-ttu-id="d34b4-133">**R:**</span><span class="sxs-lookup"><span data-stu-id="d34b4-133">**A:**</span></span>
+
+-   <span data-ttu-id="d34b4-134">Para Windows 10 e Windows Server 2016, caso eles sejam repetidas tentativas toounjoin e una hello mesmo dispositivo, pode haver entradas duplicadas.</span><span class="sxs-lookup"><span data-stu-id="d34b4-134">For Windows 10 and Windows Server 2016, if they are repeated attempts toounjoin and re-join hello same device, there might be duplicate entries.</span></span> 
+
+-   <span data-ttu-id="d34b4-135">Se você tiver usado a adicionar conta corporativa ou escolar, cada usuário do windows que usa adicionar conta corporativa ou escolar criará um novo registro de dispositivo com hello mesmo nome de dispositivo.</span><span class="sxs-lookup"><span data-stu-id="d34b4-135">If you have used Add Work or School Account, each windows user who uses Add Work or School Account will create a new device record with hello same device name.</span></span>
+
+-   <span data-ttu-id="d34b4-136">Outras plataformas do Windows que estão no local usando o registro automático ingressado no domínio do AD criará um novo registro de dispositivo com hello mesmo nome de dispositivo para cada usuário de domínio que faz logon em um dispositivo de saudação.</span><span class="sxs-lookup"><span data-stu-id="d34b4-136">Other Windows platforms that are on-premises AD domain-joined using automatic registration will create a new device record with hello same device name for each domain user who logs into hello device.</span></span> 
+
+-   <span data-ttu-id="d34b4-137">Uma máquina AADJ foi apagada, reinstalado e Unido novamente com hello mesmo nome, será mostrada como outro registro com hello mesmo nome de dispositivo.</span><span class="sxs-lookup"><span data-stu-id="d34b4-137">An AADJ machine that has been wiped, re-installed and re-joined with hello same name, will show up as another record with hello same device name.</span></span>
+
+---
+
+<span data-ttu-id="d34b4-138">**P: por que um usuário ainda pode acessar recursos de um dispositivo que tenha desabilitado no hello portal do Azure?**</span><span class="sxs-lookup"><span data-stu-id="d34b4-138">**Q: Why can a user still access resources from a device I have disabled in hello Azure portal?**</span></span>
+
+<span data-ttu-id="d34b4-139">**R:** pode levar até horas tooan para um toobe revoke aplicado.</span><span class="sxs-lookup"><span data-stu-id="d34b4-139">**A:** It can take up tooan hour for a revoke toobe applied.</span></span>
 
 >[!Note] 
-><span data-ttu-id="6edcb-140">Para dispositivos perdidos, recomendamos apagar o dispositivo para garantir que os usuários não possam acessar o dispositivo.</span><span class="sxs-lookup"><span data-stu-id="6edcb-140">For lost devices, we recommend wiping the device to ensure that users cannot access the device.</span></span> <span data-ttu-id="6edcb-141">Para obter mais detalhes, consulte [Registrar dispositivos para gerenciamento no Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).</span><span class="sxs-lookup"><span data-stu-id="6edcb-141">For more details, see [Enroll devices for management in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).</span></span> 
+><span data-ttu-id="d34b4-140">Para dispositivos perdidos, recomendamos apagar Olá dispositivo tooensure que os usuários não poderão acessar o dispositivo hello.</span><span class="sxs-lookup"><span data-stu-id="d34b4-140">For lost devices, we recommend wiping hello device tooensure that users cannot access hello device.</span></span> <span data-ttu-id="d34b4-141">Para obter mais detalhes, consulte [Registrar dispositivos para gerenciamento no Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).</span><span class="sxs-lookup"><span data-stu-id="d34b4-141">For more details, see [Enroll devices for management in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).</span></span> 
 
 
 ---
 
-<span data-ttu-id="6edcb-142">**P: Por que meus usuários veem "Você não pode chegar lá daqui"?**</span><span class="sxs-lookup"><span data-stu-id="6edcb-142">**Q: Why do my users see “You can’t get there from here”?**</span></span>
+<span data-ttu-id="d34b4-142">**P: Por que meus usuários veem "Você não pode chegar lá daqui"?**</span><span class="sxs-lookup"><span data-stu-id="d34b4-142">**Q: Why do my users see “You can’t get there from here”?**</span></span>
 
-<span data-ttu-id="6edcb-143">**R:** Se você tiver configurado certas regras de acesso condicional para exigir um estado de dispositivo específico e o dispositivo não atender aos critérios, os usuários serão bloqueados e verão esta mensagem.</span><span class="sxs-lookup"><span data-stu-id="6edcb-143">**A:** If you have configured certain conditional access rules to require a specific device state and the device does not meet the criteria, users are blocked and see this message.</span></span> <span data-ttu-id="6edcb-144">Avalie as regras e verifique se o dispositivo é capaz de atender aos critérios para evitar esta mensagem.</span><span class="sxs-lookup"><span data-stu-id="6edcb-144">Please evaluate the rules and ensure that the device is able to meet the criteria to avoid this message.</span></span>
-
----
-
-
-<span data-ttu-id="6edcb-145">**P: Posso ver o registro de dispositivo nas informações do usuário no Portal do Azure e posso ver o estado como registrado no cliente. Estou configurado corretamente para usar o acesso condicional?**</span><span class="sxs-lookup"><span data-stu-id="6edcb-145">**Q: I see the device record under the USER info in the Azure portal and can see the state as registered on the client. Am I setup correctly for using conditional access?**</span></span>
-
-<span data-ttu-id="6edcb-146">**R:** O registro do dispositivo (deviceID) e o estado no Portal do Azure devem corresponder ao cliente e atender a todos os critérios de avaliação para acesso condicional.</span><span class="sxs-lookup"><span data-stu-id="6edcb-146">**A:** The device record (deviceID) and state on the Azure portal must match the client and meet any evaluation criteria for conditional access.</span></span> <span data-ttu-id="6edcb-147">Para obter mais informações, consulte [Introdução ao registro de dispositivos do Azure Active Directory](active-directory-device-registration.md).</span><span class="sxs-lookup"><span data-stu-id="6edcb-147">For more details, see [Get started with Azure Active Directory Device Registration](active-directory-device-registration.md).</span></span>
+<span data-ttu-id="d34b4-143">**R:** se você configurou certa regras de acesso condicional toorequire um estado específico do dispositivo e dispositivo Olá não atendem aos critérios de hello, os usuários estão bloqueados e verá esta mensagem.</span><span class="sxs-lookup"><span data-stu-id="d34b4-143">**A:** If you have configured certain conditional access rules toorequire a specific device state and hello device does not meet hello criteria, users are blocked and see this message.</span></span> <span data-ttu-id="d34b4-144">Avaliar regras hello e certifique-se de que o dispositivo Olá é capaz de toomeet Olá critérios tooavoid essa mensagem.</span><span class="sxs-lookup"><span data-stu-id="d34b4-144">Please evaluate hello rules and ensure that hello device is able toomeet hello criteria tooavoid this message.</span></span>
 
 ---
 
-<span data-ttu-id="6edcb-148">**P: Por que recebo uma mensagem de "nome de usuário ou senha está incorreta" para um dispositivo que acabei de ingressar no Azure AD?**</span><span class="sxs-lookup"><span data-stu-id="6edcb-148">**Q: Why do I get a "username or password is incorrect" message for a device I have just joined to Azure AD?**</span></span>
 
-<span data-ttu-id="6edcb-149">**R:** As razões comuns para esse cenário são:</span><span class="sxs-lookup"><span data-stu-id="6edcb-149">**A:** Common reasons for this scenario are:</span></span>
+<span data-ttu-id="d34b4-145">**P: posso ver Olá registro de dispositivo em informações de usuário Olá Olá portal do Azure e pode ver o estado de saudação conforme registrado no cliente de saudação. Estou configurado corretamente para usar o acesso condicional?**</span><span class="sxs-lookup"><span data-stu-id="d34b4-145">**Q: I see hello device record under hello USER info in hello Azure portal and can see hello state as registered on hello client. Am I setup correctly for using conditional access?**</span></span>
 
-- <span data-ttu-id="6edcb-150">Suas credenciais de usuário não são mais válidas.</span><span class="sxs-lookup"><span data-stu-id="6edcb-150">Your user credentials are no longer valid.</span></span>
-
-- <span data-ttu-id="6edcb-151">O computador não pode se comunicar com o Azure Active Directory.</span><span class="sxs-lookup"><span data-stu-id="6edcb-151">Your computer is unable to communicate with Azure Active Directory.</span></span> <span data-ttu-id="6edcb-152">Verifique se há problemas de conectividade de rede.</span><span class="sxs-lookup"><span data-stu-id="6edcb-152">Check for any network connectivity issues.</span></span>
-
-- <span data-ttu-id="6edcb-153">Os pré-requisitos de Ingresso no Azure AD não foram atendidos.</span><span class="sxs-lookup"><span data-stu-id="6edcb-153">The Azure AD Join pre-requisites were not met.</span></span> <span data-ttu-id="6edcb-154">Certifique-se de ter seguido as etapas de [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Ingresso do Azure Active Directory](active-directory-azureadjoin-overview.md).</span><span class="sxs-lookup"><span data-stu-id="6edcb-154">Please ensure that you have followed the steps for [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-overview.md).</span></span>  
-
-- <span data-ttu-id="6edcb-155">Os logons federados requerem que o servidor de federação dê suporte a um ponto de extremidade WS-Trust ativo.</span><span class="sxs-lookup"><span data-stu-id="6edcb-155">Federated logins requires your federation server to support a WS-Trust active endpoint.</span></span> 
+<span data-ttu-id="d34b4-146">**R:** registro de dispositivo da saudação (deviceID) e o estado em Olá portal do Azure devem corresponder cliente hello e atender a qualquer critério de avaliação de acesso condicional.</span><span class="sxs-lookup"><span data-stu-id="d34b4-146">**A:** hello device record (deviceID) and state on hello Azure portal must match hello client and meet any evaluation criteria for conditional access.</span></span> <span data-ttu-id="d34b4-147">Para obter mais informações, consulte [Introdução ao registro de dispositivos do Azure Active Directory](active-directory-device-registration.md).</span><span class="sxs-lookup"><span data-stu-id="d34b4-147">For more details, see [Get started with Azure Active Directory Device Registration](active-directory-device-registration.md).</span></span>
 
 ---
 
-<span data-ttu-id="6edcb-156">**P: Por que vejo a caixa de diálogo "Ocorreu um erro" quando tento ingressar meu computador?**</span><span class="sxs-lookup"><span data-stu-id="6edcb-156">**Q: Why do I see the “Oops… an error occurred!" dialog when I try do join my PC?**</span></span>
+<span data-ttu-id="d34b4-148">**P: por que recebo uma mensagem de "nome de usuário ou senha está incorreta" para um dispositivo tenha apenas Unido tooAzure AD?**</span><span class="sxs-lookup"><span data-stu-id="d34b4-148">**Q: Why do I get a "username or password is incorrect" message for a device I have just joined tooAzure AD?**</span></span>
 
-<span data-ttu-id="6edcb-157">**R:** Esse é um resultado da configuração de registro do Azure Active Directory como Intune.</span><span class="sxs-lookup"><span data-stu-id="6edcb-157">**A:** This is a result of setting up Azure Active Directory enrollment with Intune.</span></span> <span data-ttu-id="6edcb-158">Para obter mais detalhes, consulte [Configurar o gerenciamento do dispositivo Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).</span><span class="sxs-lookup"><span data-stu-id="6edcb-158">For more details, see [Set up Windows device management](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).</span></span>  
+<span data-ttu-id="d34b4-149">**R:** As razões comuns para esse cenário são:</span><span class="sxs-lookup"><span data-stu-id="d34b4-149">**A:** Common reasons for this scenario are:</span></span>
 
----
+- <span data-ttu-id="d34b4-150">Suas credenciais de usuário não são mais válidas.</span><span class="sxs-lookup"><span data-stu-id="d34b4-150">Your user credentials are no longer valid.</span></span>
 
-<span data-ttu-id="6edcb-159">**P: Por que minha tentativa de ingressar um computador falhou embora eu não tenha obtido nenhuma informação de erro?**</span><span class="sxs-lookup"><span data-stu-id="6edcb-159">**Q: Why did my attempt to join a PC fail although I didn't get any error information?**</span></span>
+- <span data-ttu-id="d34b4-151">O computador está toocommunicate não é possível com o Active Directory do Azure.</span><span class="sxs-lookup"><span data-stu-id="d34b4-151">Your computer is unable toocommunicate with Azure Active Directory.</span></span> <span data-ttu-id="d34b4-152">Verifique se há problemas de conectividade de rede.</span><span class="sxs-lookup"><span data-stu-id="d34b4-152">Check for any network connectivity issues.</span></span>
 
-<span data-ttu-id="6edcb-160">**R:** Uma causa provável é que o usuário está conectado ao dispositivo usando a conta de administrador interno.</span><span class="sxs-lookup"><span data-stu-id="6edcb-160">**A:** A likely cause is that the user is logged in to the device using the built-in administrator account.</span></span> <span data-ttu-id="6edcb-161">Crie uma conta local diferente antes de usar o Ingresso do Azure Active Directory para concluir a configuração.</span><span class="sxs-lookup"><span data-stu-id="6edcb-161">Please create a different local account before using Azure Active Directory Join to complete the setup.</span></span> 
+- <span data-ttu-id="d34b4-153">Olá junção do Azure AD pré-requisitos não foram atendidos.</span><span class="sxs-lookup"><span data-stu-id="d34b4-153">hello Azure AD Join pre-requisites were not met.</span></span> <span data-ttu-id="d34b4-154">Certifique-se de que você tiver seguido as etapas de saudação para [estendendo nuvem dispositivos de tooWindows 10 de recursos por meio de junção do Azure Active Directory](active-directory-azureadjoin-overview.md).</span><span class="sxs-lookup"><span data-stu-id="d34b4-154">Please ensure that you have followed hello steps for [Extending cloud capabilities tooWindows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-overview.md).</span></span>  
 
----
-
-<span data-ttu-id="6edcb-162">**P: onde posso encontrar instruções para a configuração de registro automático do dispositivo?**</span><span class="sxs-lookup"><span data-stu-id="6edcb-162">**Q: Where can I find instructions for the setup of automatic device registration?**</span></span>
-
-<span data-ttu-id="6edcb-163">**R:** Para obter as instruções detalhadas, confira [Como configurar o registro automático de dispositivos ingressados no domínio do Windows com o Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)</span><span class="sxs-lookup"><span data-stu-id="6edcb-163">**A:** For detailed instructions, see [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)</span></span>
+- <span data-ttu-id="d34b4-155">Logons federados requer o servidor de Federação toosupport um ponto de extremidade do WS-Trust ativo.</span><span class="sxs-lookup"><span data-stu-id="d34b4-155">Federated logins requires your federation server toosupport a WS-Trust active endpoint.</span></span> 
 
 ---
 
-<span data-ttu-id="6edcb-164">**P: Onde posso encontrar informações de solução de problemas sobre o registro de dispositivo automático?**</span><span class="sxs-lookup"><span data-stu-id="6edcb-164">**Q: Where can I find troubleshooting information about the automatic device registration?**</span></span>
+<span data-ttu-id="d34b4-156">**P: por que vejo hello "Opa... Ocorreu um erro!" caixa de diálogo quando tento ingressar em Meu computador?**</span><span class="sxs-lookup"><span data-stu-id="d34b4-156">**Q: Why do I see hello “Oops… an error occurred!" dialog when I try do join my PC?**</span></span>
 
-<span data-ttu-id="6edcb-165">**R:** Para encontrar informações de solução de problemas, consulte:</span><span class="sxs-lookup"><span data-stu-id="6edcb-165">**A:** For troubleshooting information, see:</span></span>
+<span data-ttu-id="d34b4-157">**R:** Esse é um resultado da configuração de registro do Azure Active Directory como Intune.</span><span class="sxs-lookup"><span data-stu-id="d34b4-157">**A:** This is a result of setting up Azure Active Directory enrollment with Intune.</span></span> <span data-ttu-id="d34b4-158">Para obter mais detalhes, consulte [Configurar o gerenciamento do dispositivo Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).</span><span class="sxs-lookup"><span data-stu-id="d34b4-158">For more details, see [Set up Windows device management](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).</span></span>  
 
-- [<span data-ttu-id="6edcb-166">Solução de problemas de registro automático de computadores ingressados no domínio do Azure AD – Windows 10 e Windows Server 2016</span><span class="sxs-lookup"><span data-stu-id="6edcb-166">Troubleshooting auto-registration of domain joined computers to Azure AD – Windows 10 and Windows Server 2016</span></span>](active-directory-device-registration-troubleshoot-windows.md)
+---
 
-- [<span data-ttu-id="6edcb-167">Solução de problemas com o registro automático de computadores ingressados no domínio do Azure AD para clientes de nível inferior do Windows</span><span class="sxs-lookup"><span data-stu-id="6edcb-167">Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients</span></span>](active-directory-device-registration-troubleshoot-windows-legacy.md)
+<span data-ttu-id="d34b4-159">**P: por que meu toojoin de tentativa de um computador falhar, embora não recebi qualquer informação de erro?**</span><span class="sxs-lookup"><span data-stu-id="d34b4-159">**Q: Why did my attempt toojoin a PC fail although I didn't get any error information?**</span></span>
+
+<span data-ttu-id="d34b4-160">**R:** uma causa provável é que esse usuário Olá é registrado no dispositivo toohello usando a conta de administrador interno hello.</span><span class="sxs-lookup"><span data-stu-id="d34b4-160">**A:** A likely cause is that hello user is logged in toohello device using hello built-in administrator account.</span></span> <span data-ttu-id="d34b4-161">Crie uma conta local diferente antes de usar a instalação de saudação toocomplete a junção do Azure Active Directory.</span><span class="sxs-lookup"><span data-stu-id="d34b4-161">Please create a different local account before using Azure Active Directory Join toocomplete hello setup.</span></span> 
+
+---
+
+<span data-ttu-id="d34b4-162">**P: onde posso encontrar instruções de instalação de saudação do registro automático do dispositivo?**</span><span class="sxs-lookup"><span data-stu-id="d34b4-162">**Q: Where can I find instructions for hello setup of automatic device registration?**</span></span>
+
+<span data-ttu-id="d34b4-163">**R:** para obter instruções detalhadas, consulte [como tooconfigure o registro automático do Windows ingressado no domínio dispositivos com o Active Directory do Azure](active-directory-conditional-access-automatic-device-registration-setup.md)</span><span class="sxs-lookup"><span data-stu-id="d34b4-163">**A:** For detailed instructions, see [How tooconfigure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)</span></span>
+
+---
+
+<span data-ttu-id="d34b4-164">**P: onde encontrar a solução de problemas informações sobre o registro de dispositivo automático Olá?**</span><span class="sxs-lookup"><span data-stu-id="d34b4-164">**Q: Where can I find troubleshooting information about hello automatic device registration?**</span></span>
+
+<span data-ttu-id="d34b4-165">**R:** Para encontrar informações de solução de problemas, consulte:</span><span class="sxs-lookup"><span data-stu-id="d34b4-165">**A:** For troubleshooting information, see:</span></span>
+
+- [<span data-ttu-id="d34b4-166">Solucionando problemas de registro automático de domínio Unido computadores tooAzure AD – Windows 10 e Windows Server 2016</span><span class="sxs-lookup"><span data-stu-id="d34b4-166">Troubleshooting auto-registration of domain joined computers tooAzure AD – Windows 10 and Windows Server 2016</span></span>](active-directory-device-registration-troubleshoot-windows.md)
+
+- [<span data-ttu-id="d34b4-167">Solucionando problemas de registro automático de domínio Unido computadores tooAzure AD para clientes de nível inferior do Windows</span><span class="sxs-lookup"><span data-stu-id="d34b4-167">Troubleshooting auto-registration of domain joined computers tooAzure AD for Windows down-level clients</span></span>](active-directory-device-registration-troubleshoot-windows-legacy.md)
  
 ---
 

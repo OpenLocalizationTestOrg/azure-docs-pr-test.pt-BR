@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory ao Predictix Ordering | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Predictix Ordering."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Predictix de ordenação."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,205 +14,205 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 8536a741f9b114ac6787c7aefb4c76ec6c4ed83e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 0418ef24d7942b6b751c0b4d64e7bd1fba1d6a56
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a><span data-ttu-id="68b37-103">Tutorial: Integração do Azure Active Directory com o Predictix Ordering</span><span class="sxs-lookup"><span data-stu-id="68b37-103">Tutorial: Azure Active Directory integration with Predictix Ordering</span></span>
+# <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a><span data-ttu-id="53e46-103">Tutorial: Integração do Azure Active Directory com o Predictix Ordering</span><span class="sxs-lookup"><span data-stu-id="53e46-103">Tutorial: Azure Active Directory integration with Predictix Ordering</span></span>
 
-<span data-ttu-id="68b37-104">Neste tutorial, você aprenderá como integrar o Predictix Ordering ao Azure AD (Azure Active Directory).</span><span class="sxs-lookup"><span data-stu-id="68b37-104">In this tutorial, you learn how to integrate Predictix Ordering with Azure Active Directory (Azure AD).</span></span>
+<span data-ttu-id="53e46-104">Neste tutorial, você aprenderá como toointegrate Predictix pedidos com o Azure Active Directory (AD do Azure).</span><span class="sxs-lookup"><span data-stu-id="53e46-104">In this tutorial, you learn how toointegrate Predictix Ordering with Azure Active Directory (Azure AD).</span></span>
 
-<span data-ttu-id="68b37-105">Integração do Predictix Ordering com o Azure AD oferece os seguintes benefícios:</span><span class="sxs-lookup"><span data-stu-id="68b37-105">Integrating Predictix Ordering with Azure AD provides you with the following benefits:</span></span>
+<span data-ttu-id="53e46-105">Integrar Predictix pedidos com o Azure AD oferece Olá benefícios a seguir:</span><span class="sxs-lookup"><span data-stu-id="53e46-105">Integrating Predictix Ordering with Azure AD provides you with hello following benefits:</span></span>
 
-- <span data-ttu-id="68b37-106">Você pode controlar no Azure AD quem tem acesso ao Predictix Ordering.</span><span class="sxs-lookup"><span data-stu-id="68b37-106">You can control in Azure AD who has access to Predictix Ordering.</span></span>
-- <span data-ttu-id="68b37-107">Você pode permitir que seus usuários façam logon automaticamente no Predictix Ordering (logon único) com suas contas do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="68b37-107">You can enable your users to automatically get signed-on to Predictix Ordering (Single Sign-On) with their Azure AD accounts.</span></span>
-- <span data-ttu-id="68b37-108">Você pode gerenciar suas contas em um único local central – o portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="68b37-108">You can manage your accounts in one central location - the Azure portal.</span></span>
+- <span data-ttu-id="53e46-106">Você pode controlar no AD do Azure que tenha acesso tooPredictix ordenação.</span><span class="sxs-lookup"><span data-stu-id="53e46-106">You can control in Azure AD who has access tooPredictix Ordering.</span></span>
+- <span data-ttu-id="53e46-107">Você pode habilitar seu usuários tooautomatically get conectado tooPredictix ordenação (logon único) com suas contas do AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="53e46-107">You can enable your users tooautomatically get signed-on tooPredictix Ordering (Single Sign-On) with their Azure AD accounts.</span></span>
+- <span data-ttu-id="53e46-108">Você pode gerenciar suas contas em um local central - Olá portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="53e46-108">You can manage your accounts in one central location - hello Azure portal.</span></span>
 
-<span data-ttu-id="68b37-109">Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="68b37-109">If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
+<span data-ttu-id="53e46-109">Se você quiser tooknow para obter mais detalhes sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).</span><span class="sxs-lookup"><span data-stu-id="53e46-109">If you want tooknow more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="68b37-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="68b37-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="53e46-110">Pré-requisitos</span><span class="sxs-lookup"><span data-stu-id="53e46-110">Prerequisites</span></span>
 
-<span data-ttu-id="68b37-111">Para configurar a integração do Azure AD ao Predictix Ordering, você precisará dos seguintes itens:</span><span class="sxs-lookup"><span data-stu-id="68b37-111">To configure Azure AD integration with Predictix Ordering, you need the following items:</span></span>
+<span data-ttu-id="53e46-111">tooconfigure integração do AD do Azure com a ordenação de Predictix, você precisa Olá itens a seguir:</span><span class="sxs-lookup"><span data-stu-id="53e46-111">tooconfigure Azure AD integration with Predictix Ordering, you need hello following items:</span></span>
 
-- <span data-ttu-id="68b37-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="68b37-112">An Azure AD subscription</span></span>
-- <span data-ttu-id="68b37-113">Uma assinatura habilitada do Predictix Ordering com logon único</span><span class="sxs-lookup"><span data-stu-id="68b37-113">A Predictix Ordering single sign-on enabled subscription</span></span>
+- <span data-ttu-id="53e46-112">Uma assinatura do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="53e46-112">An Azure AD subscription</span></span>
+- <span data-ttu-id="53e46-113">Uma assinatura habilitada do Predictix Ordering com logon único</span><span class="sxs-lookup"><span data-stu-id="53e46-113">A Predictix Ordering single sign-on enabled subscription</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="68b37-114">Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="68b37-114">To test the steps in this tutorial, we do not recommend using a production environment.</span></span>
+> <span data-ttu-id="53e46-114">Olá tootest as etapas neste tutorial, não recomendamos usar um ambiente de produção.</span><span class="sxs-lookup"><span data-stu-id="53e46-114">tootest hello steps in this tutorial, we do not recommend using a production environment.</span></span>
 
-<span data-ttu-id="68b37-115">Para testar as etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="68b37-115">To test the steps in this tutorial, you should follow these recommendations:</span></span>
+<span data-ttu-id="53e46-115">tootest Olá etapas deste tutorial, você deve seguir estas recomendações:</span><span class="sxs-lookup"><span data-stu-id="53e46-115">tootest hello steps in this tutorial, you should follow these recommendations:</span></span>
 
-- <span data-ttu-id="68b37-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="68b37-116">Do not use your production environment, unless it is necessary.</span></span>
-- <span data-ttu-id="68b37-117">Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="68b37-117">If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).</span></span>
+- <span data-ttu-id="53e46-116">Não use o ambiente de produção, a menos que seja necessário.</span><span class="sxs-lookup"><span data-stu-id="53e46-116">Do not use your production environment, unless it is necessary.</span></span>
+- <span data-ttu-id="53e46-117">Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).</span><span class="sxs-lookup"><span data-stu-id="53e46-117">If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).</span></span>
 
-## <a name="scenario-description"></a><span data-ttu-id="68b37-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="68b37-118">Scenario description</span></span>
-<span data-ttu-id="68b37-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="68b37-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="68b37-120">O cenário descrito neste tutorial consiste em dois blocos de construção principais:</span><span class="sxs-lookup"><span data-stu-id="68b37-120">The scenario outlined in this tutorial consists of two main building blocks:</span></span>
+## <a name="scenario-description"></a><span data-ttu-id="53e46-118">Descrição do cenário</span><span class="sxs-lookup"><span data-stu-id="53e46-118">Scenario description</span></span>
+<span data-ttu-id="53e46-119">Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.</span><span class="sxs-lookup"><span data-stu-id="53e46-119">In this tutorial, you test Azure AD single sign-on in a test environment.</span></span> <span data-ttu-id="53e46-120">cenário de saudação descrito neste tutorial consiste em dois elementos básicos:</span><span class="sxs-lookup"><span data-stu-id="53e46-120">hello scenario outlined in this tutorial consists of two main building blocks:</span></span>
 
-1. <span data-ttu-id="68b37-121">Adição do Predictix Ordering da galeria</span><span class="sxs-lookup"><span data-stu-id="68b37-121">Adding Predictix Ordering from the gallery</span></span>
-2. <span data-ttu-id="68b37-122">configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="68b37-122">Configuring and testing Azure AD single sign-on</span></span>
+1. <span data-ttu-id="53e46-121">Adicionando Predictix ordenação da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="53e46-121">Adding Predictix Ordering from hello gallery</span></span>
+2. <span data-ttu-id="53e46-122">Configurar e testar o logon único do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="53e46-122">Configuring and testing Azure AD single sign-on</span></span>
 
-## <a name="adding-predictix-ordering-from-the-gallery"></a><span data-ttu-id="68b37-123">Adição do Predictix Ordering da galeria</span><span class="sxs-lookup"><span data-stu-id="68b37-123">Adding Predictix Ordering from the gallery</span></span>
-<span data-ttu-id="68b37-124">Para configurar a integração do Predictix Ordering ao Azure AD, você precisa adicionar o Predictix Ordering da galeria à sua lista de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="68b37-124">To configure the integration of Predictix Ordering into Azure AD, you need to add Predictix Ordering from the gallery to your list of managed SaaS apps.</span></span>
+## <a name="adding-predictix-ordering-from-hello-gallery"></a><span data-ttu-id="53e46-123">Adicionando Predictix ordenação da Galeria de saudação</span><span class="sxs-lookup"><span data-stu-id="53e46-123">Adding Predictix Ordering from hello gallery</span></span>
+<span data-ttu-id="53e46-124">integração de Olá tooconfigure de ordenação Predictix no AD do Azure, você precisa tooadd Predictix ordenação da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.</span><span class="sxs-lookup"><span data-stu-id="53e46-124">tooconfigure hello integration of Predictix Ordering into Azure AD, you need tooadd Predictix Ordering from hello gallery tooyour list of managed SaaS apps.</span></span>
 
-<span data-ttu-id="68b37-125">**Para adicionar o Predictix Ordering da galeria, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="68b37-125">**To add Predictix Ordering from the gallery, perform the following steps:**</span></span>
+<span data-ttu-id="53e46-125">**tooadd Predictix ordenação da Galeria hello, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="53e46-125">**tooadd Predictix Ordering from hello gallery, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="68b37-126">No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="68b37-126">In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.</span></span> 
+1. <span data-ttu-id="53e46-126">Em Olá  **[portal do Azure](https://portal.azure.com)**, em Olá painel de navegação esquerdo, clique em **Active Directory do Azure** ícone.</span><span class="sxs-lookup"><span data-stu-id="53e46-126">In hello **[Azure portal](https://portal.azure.com)**, on hello left navigation panel, click **Azure Active Directory** icon.</span></span> 
 
-    ![O botão Azure Active Directory][1]
+    ![botão de Active Directory do Azure Olá][1]
 
-2. <span data-ttu-id="68b37-128">Navegue até **aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="68b37-128">Navigate to **Enterprise applications**.</span></span> <span data-ttu-id="68b37-129">Em seguida, vá para **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="68b37-129">Then go to **All applications**.</span></span>
+2. <span data-ttu-id="53e46-128">Navegue muito**aplicativos empresariais**.</span><span class="sxs-lookup"><span data-stu-id="53e46-128">Navigate too**Enterprise applications**.</span></span> <span data-ttu-id="53e46-129">Em seguida, acesse muito**todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="53e46-129">Then go too**All applications**.</span></span>
 
-    ![A folha Aplicativos empresariais][2]
+    ![folha de aplicativos de empresa Olá][2]
     
-3. <span data-ttu-id="68b37-131">Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.</span><span class="sxs-lookup"><span data-stu-id="68b37-131">To add new application, click **New application** button on the top of dialog.</span></span>
+3. <span data-ttu-id="53e46-131">tooadd novo aplicativo, clique em **novo aplicativo** botão na parte superior de saudação da caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="53e46-131">tooadd new application, click **New application** button on hello top of dialog.</span></span>
 
-    ![O botão Novo aplicativo][3]
+    ![Novo botão de aplicativo Hello][3]
 
-4. <span data-ttu-id="68b37-133">Na caixa de pesquisa, digite **Predictix Ordering**, selecione **Predictix Ordering** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.</span><span class="sxs-lookup"><span data-stu-id="68b37-133">In the search box, type **Predictix Ordering**, select **Predictix Ordering** from result panel then click **Add** button to add the application.</span></span>
+4. <span data-ttu-id="53e46-133">Na caixa de pesquisa hello, digite **Predictix ordenação**, selecione **Predictix ordenação** no painel de resultados e clique em **adicionar** botão aplicativo hello de tooadd.</span><span class="sxs-lookup"><span data-stu-id="53e46-133">In hello search box, type **Predictix Ordering**, select **Predictix Ordering** from result panel then click **Add** button tooadd hello application.</span></span>
 
-    ![Predictix Ordering na lista de resultados](./media/active-directory-saas-predictixordering-tutorial/tutorial_predictixordering_addfromgallery.png)
+    ![Ordenação Predictix na lista de resultados de saudação](./media/active-directory-saas-predictixordering-tutorial/tutorial_predictixordering_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a><span data-ttu-id="68b37-135">Configurar e testar logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="68b37-135">Configure and test Azure AD single sign-on</span></span>
+## <a name="configure-and-test-azure-ad-single-sign-on"></a><span data-ttu-id="53e46-135">Configurar e testar logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="53e46-135">Configure and test Azure AD single sign-on</span></span>
 
-<span data-ttu-id="68b37-136">Nesta seção, você configurará e testará o logon único do Azure AD com o Predictix Ordering, com base em uma usuária de teste chamada "Brenda Fernandes".</span><span class="sxs-lookup"><span data-stu-id="68b37-136">In this section, you configure and test Azure AD single sign-on with Predictix Ordering based on a test user called "Britta Simon".</span></span>
+<span data-ttu-id="53e46-136">Nesta seção, você configurará e testará o logon único do Azure AD com o Predictix Ordering, com base em uma usuária de teste chamada "Brenda Fernandes".</span><span class="sxs-lookup"><span data-stu-id="53e46-136">In this section, you configure and test Azure AD single sign-on with Predictix Ordering based on a test user called "Britta Simon".</span></span>
 
-<span data-ttu-id="68b37-137">Para que o logon único funcione, o Azure AD precisa saber qual usuário do Predictix Ordering é equivalente a um usuário do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="68b37-137">For single sign-on to work, Azure AD needs to know what the counterpart user in Predictix Ordering is to a user in Azure AD.</span></span> <span data-ttu-id="68b37-138">Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Predictix Ordering.</span><span class="sxs-lookup"><span data-stu-id="68b37-138">In other words, a link relationship between an Azure AD user and the related user in Predictix Ordering needs to be established.</span></span>
+<span data-ttu-id="53e46-137">Para toowork de logon único, o AD do Azure precisa tooknow que usuário de contraparte Olá na ordenação Predictix é tooa usuário no AD do Azure.</span><span class="sxs-lookup"><span data-stu-id="53e46-137">For single sign-on toowork, Azure AD needs tooknow what hello counterpart user in Predictix Ordering is tooa user in Azure AD.</span></span> <span data-ttu-id="53e46-138">Em outras palavras, uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação na ordenação Predictix precisa toobe estabelecida.</span><span class="sxs-lookup"><span data-stu-id="53e46-138">In other words, a link relationship between an Azure AD user and hello related user in Predictix Ordering needs toobe established.</span></span>
 
-<span data-ttu-id="68b37-139">No Predictix Ordering, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.</span><span class="sxs-lookup"><span data-stu-id="68b37-139">In Predictix Ordering, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.</span></span>
+<span data-ttu-id="53e46-139">Predictix ordenação, atribuir valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** tooestablish relação de link de saudação.</span><span class="sxs-lookup"><span data-stu-id="53e46-139">In Predictix Ordering, assign hello value of hello **user name** in Azure AD as hello value of hello **Username** tooestablish hello link relationship.</span></span>
 
-<span data-ttu-id="68b37-140">Para configurar e testar o logon único do Azure AD com o Predictix Ordering, conclua os seguintes blocos de construção:</span><span class="sxs-lookup"><span data-stu-id="68b37-140">To configure and test Azure AD single sign-on with Predictix Ordering, you need to complete the following building blocks:</span></span>
+<span data-ttu-id="53e46-140">tooconfigure e teste de logon único do AD do Azure com a ordenação de Predictix, você precisa Olá toocomplete blocos de construção a seguir:</span><span class="sxs-lookup"><span data-stu-id="53e46-140">tooconfigure and test Azure AD single sign-on with Predictix Ordering, you need toocomplete hello following building blocks:</span></span>
 
-1. <span data-ttu-id="68b37-141">**[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.</span><span class="sxs-lookup"><span data-stu-id="68b37-141">**[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.</span></span>
-2. <span data-ttu-id="68b37-142">**[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="68b37-142">**[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.</span></span>
-3. <span data-ttu-id="68b37-143">**[Criar um usuário de teste Predictix Ordering](#create-a-predictix-ordering-test-user)** – para ter um equivalente de Brenda Fernandes no Predictix Ordering vinculado à representação do usuário do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="68b37-143">**[Create a Predictix Ordering test user](#create-a-predictix-ordering-test-user)** - to have a counterpart of Britta Simon in Predictix Ordering that is linked to the Azure AD representation of user.</span></span>
-4. <span data-ttu-id="68b37-144">**[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.</span><span class="sxs-lookup"><span data-stu-id="68b37-144">**[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.</span></span>
-5. <span data-ttu-id="68b37-145">**[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.</span><span class="sxs-lookup"><span data-stu-id="68b37-145">**[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.</span></span>
+1. <span data-ttu-id="53e46-141">**[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  -tooenable toouse seus usuários esse recurso.</span><span class="sxs-lookup"><span data-stu-id="53e46-141">**[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - tooenable your users toouse this feature.</span></span>
+2. <span data-ttu-id="53e46-142">**[Criar um usuário de teste do AD do Azure](#create-an-azure-ad-test-user)**  -tootest AD do Azure-logon único com Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="53e46-142">**[Create an Azure AD test user](#create-an-azure-ad-test-user)** - tootest Azure AD single sign-on with Britta Simon.</span></span>
+3. <span data-ttu-id="53e46-143">**[Criar um usuário de teste ordenação Predictix](#create-a-predictix-ordering-test-user)**  -toohave um equivalente do Britta Simon em Predictix ordenação que é vinculado toohello AD do Azure representação do usuário.</span><span class="sxs-lookup"><span data-stu-id="53e46-143">**[Create a Predictix Ordering test user](#create-a-predictix-ordering-test-user)** - toohave a counterpart of Britta Simon in Predictix Ordering that is linked toohello Azure AD representation of user.</span></span>
+4. <span data-ttu-id="53e46-144">**[Atribuir um usuário de teste de saudação do AD do Azure](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse AD do Azure-logon único.</span><span class="sxs-lookup"><span data-stu-id="53e46-144">**[Assign hello Azure AD test user](#assign-the-azure-ad-test-user)** - tooenable Britta Simon toouse Azure AD single sign-on.</span></span>
+5. <span data-ttu-id="53e46-145">**[Testar o logon único](#test-single-sign-on)**  -tooverify Olá se os trabalhos de configuração.</span><span class="sxs-lookup"><span data-stu-id="53e46-145">**[Test single sign-on](#test-single-sign-on)** - tooverify whether hello configuration works.</span></span>
 
-### <a name="configure-azure-ad-single-sign-on"></a><span data-ttu-id="68b37-146">Configurar o logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="68b37-146">Configure Azure AD single sign-on</span></span>
+### <a name="configure-azure-ad-single-sign-on"></a><span data-ttu-id="53e46-146">Configurar o logon único do Azure AD</span><span class="sxs-lookup"><span data-stu-id="53e46-146">Configure Azure AD single sign-on</span></span>
 
-<span data-ttu-id="68b37-147">Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e configurará o logon único em seu aplicativo Predictix Ordering.</span><span class="sxs-lookup"><span data-stu-id="68b37-147">In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Predictix Ordering application.</span></span>
+<span data-ttu-id="53e46-147">Nesta seção, habilitar o AD do Azure-logon único no hello portal do Azure e configurar o logon único no aplicativo Predictix ordenação.</span><span class="sxs-lookup"><span data-stu-id="53e46-147">In this section, you enable Azure AD single sign-on in hello Azure portal and configure single sign-on in your Predictix Ordering application.</span></span>
 
-<span data-ttu-id="68b37-148">**Para configurar o logon único do Azure AD com o Predictix Ordering, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="68b37-148">**To configure Azure AD single sign-on with Predictix Ordering, perform the following steps:**</span></span>
+<span data-ttu-id="53e46-148">**tooconfigure AD do Azure-logon único com a ordenação Predictix, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="53e46-148">**tooconfigure Azure AD single sign-on with Predictix Ordering, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="68b37-149">No portal do Azure, na página de integração de aplicativos do **Predictix Ordering**, clique em **Logon único**.</span><span class="sxs-lookup"><span data-stu-id="68b37-149">In the Azure portal, on the **Predictix Ordering** application integration page, click **Single sign-on**.</span></span>
+1. <span data-ttu-id="53e46-149">Em Olá portal do Azure, Olá **Predictix ordenação** página de integração de aplicativos, clique em **o logon único**.</span><span class="sxs-lookup"><span data-stu-id="53e46-149">In hello Azure portal, on hello **Predictix Ordering** application integration page, click **Single sign-on**.</span></span>
 
     ![Link Configurar logon único][4]
 
-2. <span data-ttu-id="68b37-151">Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.</span><span class="sxs-lookup"><span data-stu-id="68b37-151">On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.</span></span>
+2. <span data-ttu-id="53e46-151">Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable-logon único.</span><span class="sxs-lookup"><span data-stu-id="53e46-151">On hello **Single sign-on** dialog, select **Mode** as   **SAML-based Sign-on** tooenable single sign-on.</span></span>
  
     ![Caixa de diálogo Logon único](./media/active-directory-saas-predictixordering-tutorial/tutorial_predictixordering_samlbase.png)
 
-3. <span data-ttu-id="68b37-153">Na seção **URLs e Domínio do Predictix Ordering**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="68b37-153">On the **Predictix Ordering Domain and URLs** section, perform the following steps:</span></span>
+3. <span data-ttu-id="53e46-153">Em Olá **Predictix ordenação de domínio e URLs** , execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="53e46-153">On hello **Predictix Ordering Domain and URLs** section, perform hello following steps:</span></span>
 
     ![Informações de logon único de URLs e Domínio do Predictix Ordering](./media/active-directory-saas-predictixordering-tutorial/tutorial_predictixordering_url.png)
 
-    <span data-ttu-id="68b37-155">a.</span><span class="sxs-lookup"><span data-stu-id="68b37-155">a.</span></span> <span data-ttu-id="68b37-156">Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname-pricing>.ordering.predictix.com/sso/request`</span><span class="sxs-lookup"><span data-stu-id="68b37-156">In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname-pricing>.ordering.predictix.com/sso/request`</span></span>
+    <span data-ttu-id="53e46-155">a.</span><span class="sxs-lookup"><span data-stu-id="53e46-155">a.</span></span> <span data-ttu-id="53e46-156">Em Olá **URL de logon** caixa de texto, digite um URL usando o saudação padrão a seguir:`https://<companyname-pricing>.ordering.predictix.com/sso/request`</span><span class="sxs-lookup"><span data-stu-id="53e46-156">In hello **Sign-on URL** textbox, type a URL using hello following pattern: `https://<companyname-pricing>.ordering.predictix.com/sso/request`</span></span>
 
-    <span data-ttu-id="68b37-157">b.</span><span class="sxs-lookup"><span data-stu-id="68b37-157">b.</span></span> <span data-ttu-id="68b37-158">Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:</span><span class="sxs-lookup"><span data-stu-id="68b37-158">In the **Identifier** textbox, type a URL using the following pattern:</span></span> 
+    <span data-ttu-id="53e46-157">b.</span><span class="sxs-lookup"><span data-stu-id="53e46-157">b.</span></span> <span data-ttu-id="53e46-158">Em Olá **identificador** caixa de texto, digite um URL usando o saudação padrão a seguir:</span><span class="sxs-lookup"><span data-stu-id="53e46-158">In hello **Identifier** textbox, type a URL using hello following pattern:</span></span> 
     | |
     |--|
     | `https://<companyname-pricing>.dev.ordering.predictix.com` |
     | `https://<companyname-pricing>.ordering.predictix.com` |
 
     > [!NOTE] 
-    > <span data-ttu-id="68b37-159">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="68b37-159">These values are not real.</span></span> <span data-ttu-id="68b37-160">Atualize esses valores com a URL de Entrada e o Identificador reais.</span><span class="sxs-lookup"><span data-stu-id="68b37-160">Update these values with the actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="68b37-161">Entre em contato com a [equipe de suporte do Cliente do Predictix Ordering](https://www.predix.io/support/) para obter esses valores.</span><span class="sxs-lookup"><span data-stu-id="68b37-161">Contact [Predictix Ordering Client support team](https://www.predix.io/support/) to get these values.</span></span> 
+    > <span data-ttu-id="53e46-159">Esses valores não são reais.</span><span class="sxs-lookup"><span data-stu-id="53e46-159">These values are not real.</span></span> <span data-ttu-id="53e46-160">Atualizar esses valores com hello real URL de logon e o identificador.</span><span class="sxs-lookup"><span data-stu-id="53e46-160">Update these values with hello actual Sign-On URL and Identifier.</span></span> <span data-ttu-id="53e46-161">Entre em contato com [equipe de suporte do cliente de ordenação de Predictix](https://www.predix.io/support/) tooget esses valores.</span><span class="sxs-lookup"><span data-stu-id="53e46-161">Contact [Predictix Ordering Client support team](https://www.predix.io/support/) tooget these values.</span></span> 
  
-4. <span data-ttu-id="68b37-162">Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.</span><span class="sxs-lookup"><span data-stu-id="68b37-162">On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.</span></span>
+4. <span data-ttu-id="53e46-162">Em Olá **o certificado de autenticação SAML** seção, clique em **certificado (Base64)** e, em seguida, salve o arquivo de certificado de saudação em seu computador.</span><span class="sxs-lookup"><span data-stu-id="53e46-162">On hello **SAML Signing Certificate** section, click **Certificate (Base64)** and then save hello certificate file on your computer.</span></span>
 
-    ![O link de download do Certificado](./media/active-directory-saas-predictixordering-tutorial/tutorial_predictixordering_certificate.png) 
+    ![link de download de certificado Olá](./media/active-directory-saas-predictixordering-tutorial/tutorial_predictixordering_certificate.png) 
 
-5. <span data-ttu-id="68b37-164">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="68b37-164">Click **Save** button.</span></span>
+5. <span data-ttu-id="53e46-164">Clique no botão **Salvar** .</span><span class="sxs-lookup"><span data-stu-id="53e46-164">Click **Save** button.</span></span>
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-predictixordering-tutorial/tutorial_general_400.png)
 
-6. <span data-ttu-id="68b37-166">Na seção **Configuração do Predictix Ordering**, clique em **Configurar Predictix Ordering** para abrir a janela **Configurar logon**.</span><span class="sxs-lookup"><span data-stu-id="68b37-166">On the **Predictix Ordering Configuration** section, click **Configure Predictix Ordering** to open **Configure sign-on** window.</span></span> <span data-ttu-id="68b37-167">Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**</span><span class="sxs-lookup"><span data-stu-id="68b37-167">Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**</span></span>
+6. <span data-ttu-id="53e46-166">Em Olá **Predictix ordenação configuração** seção, clique em **configurar Predictix ordenação** tooopen **configurar o logon** janela.</span><span class="sxs-lookup"><span data-stu-id="53e46-166">On hello **Predictix Ordering Configuration** section, click **Configure Predictix Ordering** tooopen **Configure sign-on** window.</span></span> <span data-ttu-id="53e46-167">Saudação de cópia **URL de logout, ID de entidade de SAML e Single Sign-On URL do serviço SAML** de saudação **seção de referência rápida.**</span><span class="sxs-lookup"><span data-stu-id="53e46-167">Copy hello **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from hello **Quick Reference section.**</span></span>
 
     ![Configuração do Predictix Ordering](./media/active-directory-saas-predictixordering-tutorial/tutorial_predictixordering_configure.png) 
 
-7. <span data-ttu-id="68b37-169">Para configurar o logon único no lado do **Predictix Ordering**, é necessário enviar o **Certificado (Base64)** baixado, a **URL de Saída, a ID da Entidade SAML e a URL do Serviço de Logon Único do SAML** para a [equipe de suporte do Predictix Ordering](https://www.predix.io/support/).</span><span class="sxs-lookup"><span data-stu-id="68b37-169">To configure single sign-on on **Predictix Ordering** side, you need to send the downloaded **Certificate (Base64)**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** to [Predictix Ordering support team](https://www.predix.io/support/).</span></span> <span data-ttu-id="68b37-170">Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.</span><span class="sxs-lookup"><span data-stu-id="68b37-170">They set this setting to have the SAML SSO connection set properly on both sides.</span></span>
+7. <span data-ttu-id="53e46-169">tooconfigure logon único no **Predictix ordenação** lado, você precisa toosend Olá baixado **certificado (Base64)**, **URL de logout, ID de entidade de SAML e SAML Single Sign-On URL do serviço**  muito[Predictix ordenação a equipe de suporte](https://www.predix.io/support/).</span><span class="sxs-lookup"><span data-stu-id="53e46-169">tooconfigure single sign-on on **Predictix Ordering** side, you need toosend hello downloaded **Certificate (Base64)**, **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** too[Predictix Ordering support team](https://www.predix.io/support/).</span></span> <span data-ttu-id="53e46-170">Eles definidos Olá de toohave essa configuração conexão SSO do SAML definido corretamente em ambos os lados.</span><span class="sxs-lookup"><span data-stu-id="53e46-170">They set this setting toohave hello SAML SSO connection set properly on both sides.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="68b37-171">É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!</span><span class="sxs-lookup"><span data-stu-id="68b37-171">You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!</span></span>  <span data-ttu-id="68b37-172">Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior.</span><span class="sxs-lookup"><span data-stu-id="68b37-172">After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom.</span></span> <span data-ttu-id="68b37-173">Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="68b37-173">You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
+> <span data-ttu-id="53e46-171">Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello!</span><span class="sxs-lookup"><span data-stu-id="53e46-171">You can now read a concise version of these instructions inside hello [Azure portal](https://portal.azure.com), while you are setting up hello app!</span></span>  <span data-ttu-id="53e46-172">Depois de adicionar a este aplicativo de saudação **do Active Directory > aplicativos empresariais** seção, basta clicar em Olá **Single Sign-On** Olá guia e acesso inseridos documentação por meio de saudação  **Configuração** seção na parte inferior da saudação.</span><span class="sxs-lookup"><span data-stu-id="53e46-172">After adding this app from hello **Active Directory > Enterprise Applications** section, simply click hello **Single Sign-On** tab and access hello embedded documentation through hello **Configuration** section at hello bottom.</span></span> <span data-ttu-id="53e46-173">Você pode ler mais sobre os recursos de documentação embedded Olá aqui: [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985)</span><span class="sxs-lookup"><span data-stu-id="53e46-173">You can read more about hello embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)</span></span>
 > 
 
-### <a name="create-an-azure-ad-test-user"></a><span data-ttu-id="68b37-174">Criar um usuário de teste do Azure AD</span><span class="sxs-lookup"><span data-stu-id="68b37-174">Create an Azure AD test user</span></span>
-<span data-ttu-id="68b37-175">O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="68b37-175">The objective of this section is to create a test user in the Azure portal called Britta Simon.</span></span>
+### <a name="create-an-azure-ad-test-user"></a><span data-ttu-id="53e46-174">Criar um usuário de teste do Azure AD</span><span class="sxs-lookup"><span data-stu-id="53e46-174">Create an Azure AD test user</span></span>
+<span data-ttu-id="53e46-175">Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="53e46-175">hello objective of this section is toocreate a test user in hello Azure portal called Britta Simon.</span></span>
 
 ![Criar um usuário de teste do Azure AD][100]
 
-<span data-ttu-id="68b37-177">**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="68b37-177">**To create a test user in Azure AD, perform the following steps:**</span></span>
+<span data-ttu-id="53e46-177">**toocreate um usuário de teste no AD do Azure, execute Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="53e46-177">**toocreate a test user in Azure AD, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="68b37-178">No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.</span><span class="sxs-lookup"><span data-stu-id="68b37-178">In the Azure portal, in the left pane, click the **Azure Active Directory** button.</span></span>
+1. <span data-ttu-id="53e46-178">No hello portal do Azure, no painel esquerdo do hello, clique em Olá **Active Directory do Azure** botão.</span><span class="sxs-lookup"><span data-stu-id="53e46-178">In hello Azure portal, in hello left pane, click hello **Azure Active Directory** button.</span></span>
 
-    ![O botão Azure Active Directory](./media/active-directory-saas-predictixordering-tutorial/create_aaduser_01.png)
+    ![botão de Active Directory do Azure Olá](./media/active-directory-saas-predictixordering-tutorial/create_aaduser_01.png)
 
-2. <span data-ttu-id="68b37-180">Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.</span><span class="sxs-lookup"><span data-stu-id="68b37-180">To display the list of users, go to **Users and groups**, and then click **All users**.</span></span>
+2. <span data-ttu-id="53e46-180">lista de saudação toodisplay de usuários, vá muito**usuários e grupos**e, em seguida, clique em **todos os usuários**.</span><span class="sxs-lookup"><span data-stu-id="53e46-180">toodisplay hello list of users, go too**Users and groups**, and then click **All users**.</span></span>
 
-    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/active-directory-saas-predictixordering-tutorial/create_aaduser_02.png)
+    ![Olá "Usuários e grupos" e "Todos os usuários" links](./media/active-directory-saas-predictixordering-tutorial/create_aaduser_02.png)
 
-3. <span data-ttu-id="68b37-182">Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.</span><span class="sxs-lookup"><span data-stu-id="68b37-182">To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.</span></span>
+3. <span data-ttu-id="53e46-182">Olá tooopen **usuário** caixa de diálogo, clique em **adicionar** na parte superior de saudação do hello **todos os usuários** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="53e46-182">tooopen hello **User** dialog box, click **Add** at hello top of hello **All Users** dialog box.</span></span>
 
-    ![O botão Adicionar](./media/active-directory-saas-predictixordering-tutorial/create_aaduser_03.png)
+    ![botão Adicionar de saudação](./media/active-directory-saas-predictixordering-tutorial/create_aaduser_03.png)
 
-4. <span data-ttu-id="68b37-184">Na caixa de diálogo **Usuário**, execute as seguintes etapas:</span><span class="sxs-lookup"><span data-stu-id="68b37-184">In the **User** dialog box, perform the following steps:</span></span>
+4. <span data-ttu-id="53e46-184">Em Olá **usuário** caixa de diálogo caixa, execute Olá etapas a seguir:</span><span class="sxs-lookup"><span data-stu-id="53e46-184">In hello **User** dialog box, perform hello following steps:</span></span>
 
-    ![A caixa de diálogo Usuário](./media/active-directory-saas-predictixordering-tutorial/create_aaduser_04.png)
+    ![caixa de diálogo de usuário Olá](./media/active-directory-saas-predictixordering-tutorial/create_aaduser_04.png)
 
-   <span data-ttu-id="68b37-186">a.</span><span class="sxs-lookup"><span data-stu-id="68b37-186">a.</span></span> <span data-ttu-id="68b37-187">Na caixa **Nome**, digite **BrendaFernandes**.</span><span class="sxs-lookup"><span data-stu-id="68b37-187">In the **Name** box, type **BrittaSimon**.</span></span>
+   <span data-ttu-id="53e46-186">a.</span><span class="sxs-lookup"><span data-stu-id="53e46-186">a.</span></span> <span data-ttu-id="53e46-187">Em Olá **nome** , digite **BrittaSimon**.</span><span class="sxs-lookup"><span data-stu-id="53e46-187">In hello **Name** box, type **BrittaSimon**.</span></span>
 
-   <span data-ttu-id="68b37-188">b.</span><span class="sxs-lookup"><span data-stu-id="68b37-188">b.</span></span> <span data-ttu-id="68b37-189">Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.</span><span class="sxs-lookup"><span data-stu-id="68b37-189">In the **User name** box, type the email address of user Britta Simon.</span></span>
+   <span data-ttu-id="53e46-188">b.</span><span class="sxs-lookup"><span data-stu-id="53e46-188">b.</span></span> <span data-ttu-id="53e46-189">Em Olá **nome de usuário** caixa tipo hello endereço de email do usuário Britta Simon.</span><span class="sxs-lookup"><span data-stu-id="53e46-189">In hello **User name** box, type hello email address of user Britta Simon.</span></span>
 
-   <span data-ttu-id="68b37-190">c.</span><span class="sxs-lookup"><span data-stu-id="68b37-190">c.</span></span> <span data-ttu-id="68b37-191">Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.</span><span class="sxs-lookup"><span data-stu-id="68b37-191">Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.</span></span>
+   <span data-ttu-id="53e46-190">c.</span><span class="sxs-lookup"><span data-stu-id="53e46-190">c.</span></span> <span data-ttu-id="53e46-191">Selecione Olá **Mostrar senha** caixa de seleção e anote o valor de saudação que é exibido no hello **senha** caixa.</span><span class="sxs-lookup"><span data-stu-id="53e46-191">Select hello **Show Password** check box, and then write down hello value that's displayed in hello **Password** box.</span></span>
 
-   <span data-ttu-id="68b37-192">d.</span><span class="sxs-lookup"><span data-stu-id="68b37-192">d.</span></span> <span data-ttu-id="68b37-193">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="68b37-193">Click **Create**.</span></span>
+   <span data-ttu-id="53e46-192">d.</span><span class="sxs-lookup"><span data-stu-id="53e46-192">d.</span></span> <span data-ttu-id="53e46-193">Clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="53e46-193">Click **Create**.</span></span>
  
-### <a name="create-a-predictix-ordering-test-user"></a><span data-ttu-id="68b37-194">Criar um usuário de teste do Predictix Ordering</span><span class="sxs-lookup"><span data-stu-id="68b37-194">Create a Predictix Ordering test user</span></span>
+### <a name="create-a-predictix-ordering-test-user"></a><span data-ttu-id="53e46-194">Criar um usuário de teste do Predictix Ordering</span><span class="sxs-lookup"><span data-stu-id="53e46-194">Create a Predictix Ordering test user</span></span>
 
-<span data-ttu-id="68b37-195">Nesta seção, você criará um usuário chamado Brenda Fernandes no Predictix Ordering.</span><span class="sxs-lookup"><span data-stu-id="68b37-195">In this section, you create a user called Britta Simon in Predictix Ordering.</span></span> <span data-ttu-id="68b37-196">Trabalhe com a [equipe de suporte do Predictix Ordering](https://www.predix.io/support/) para adicionar os usuários à plataforma Predictix Ordering.</span><span class="sxs-lookup"><span data-stu-id="68b37-196">Work with [Predictix Ordering support team](https://www.predix.io/support/) to add the users in the Predictix Ordering platform.</span></span>
+<span data-ttu-id="53e46-195">Nesta seção, você criará um usuário chamado Brenda Fernandes no Predictix Ordering.</span><span class="sxs-lookup"><span data-stu-id="53e46-195">In this section, you create a user called Britta Simon in Predictix Ordering.</span></span> <span data-ttu-id="53e46-196">Trabalhar com [Predictix ordenação a equipe de suporte](https://www.predix.io/support/) tooadd usuários de saudação na plataforma de ordenação Predictix hello.</span><span class="sxs-lookup"><span data-stu-id="53e46-196">Work with [Predictix Ordering support team](https://www.predix.io/support/) tooadd hello users in hello Predictix Ordering platform.</span></span>
 
-### <a name="assign-the-azure-ad-test-user"></a><span data-ttu-id="68b37-197">Atribuir o usuário de teste do Azure AD</span><span class="sxs-lookup"><span data-stu-id="68b37-197">Assign the Azure AD test user</span></span>
+### <a name="assign-hello-azure-ad-test-user"></a><span data-ttu-id="53e46-197">Atribuir um usuário de teste de saudação do AD do Azure</span><span class="sxs-lookup"><span data-stu-id="53e46-197">Assign hello Azure AD test user</span></span>
 
-<span data-ttu-id="68b37-198">Nesta seção, você habilitará Brenda Fernandes a usar o logon único do Azure concedendo acesso ao Predictix Ordering.</span><span class="sxs-lookup"><span data-stu-id="68b37-198">In this section, you enable Britta Simon to use Azure single sign-on by granting access to Predictix Ordering.</span></span>
+<span data-ttu-id="53e46-198">Nesta seção, você deve habilitar Britta Simon toouse logon único do Azure, concedendo acesso tooPredictix ordenação.</span><span class="sxs-lookup"><span data-stu-id="53e46-198">In this section, you enable Britta Simon toouse Azure single sign-on by granting access tooPredictix Ordering.</span></span>
 
-![Atribuir a função de usuário][200] 
+![Atribuir função de usuário Olá][200] 
 
-<span data-ttu-id="68b37-200">**Para atribuir Brenda Fernandes ao Predictix Ordering, execute as seguintes etapas:**</span><span class="sxs-lookup"><span data-stu-id="68b37-200">**To assign Britta Simon to Predictix Ordering, perform the following steps:**</span></span>
+<span data-ttu-id="53e46-200">**tooassign Britta Simon tooPredictix ordenação, executar Olá etapas a seguir:**</span><span class="sxs-lookup"><span data-stu-id="53e46-200">**tooassign Britta Simon tooPredictix Ordering, perform hello following steps:**</span></span>
 
-1. <span data-ttu-id="68b37-201">No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="68b37-201">In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.</span></span>
+1. <span data-ttu-id="53e46-201">No hello portal do Azure, abra a exibição dos aplicativos Olá e navegue toohello exibição de diretório e ir muito**aplicativos empresariais** , em seguida, clique em **todos os aplicativos**.</span><span class="sxs-lookup"><span data-stu-id="53e46-201">In hello Azure portal, open hello applications view, and then navigate toohello directory view and go too**Enterprise applications** then click **All applications**.</span></span>
 
     ![Atribuir usuário][201] 
 
-2. <span data-ttu-id="68b37-203">Na lista de aplicativos, selecione **Predictix Ordering**.</span><span class="sxs-lookup"><span data-stu-id="68b37-203">In the applications list, select **Predictix Ordering**.</span></span>
+2. <span data-ttu-id="53e46-203">Na lista de aplicativos hello, selecione **Predictix ordenação**.</span><span class="sxs-lookup"><span data-stu-id="53e46-203">In hello applications list, select **Predictix Ordering**.</span></span>
 
-    ![Link do Predictix Ordering na lista de aplicativos](./media/active-directory-saas-predictixordering-tutorial/tutorial_predictixordering_app.png)  
+    ![link de ordenação Predictix Olá na lista de aplicativos Olá](./media/active-directory-saas-predictixordering-tutorial/tutorial_predictixordering_app.png)  
 
-3. <span data-ttu-id="68b37-205">No menu à esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="68b37-205">In the menu on the left, click **Users and groups**.</span></span>
+3. <span data-ttu-id="53e46-205">No menu Olá Olá esquerda, clique em **usuários e grupos**.</span><span class="sxs-lookup"><span data-stu-id="53e46-205">In hello menu on hello left, click **Users and groups**.</span></span>
 
-    ![O link “Usuários e grupos”][202]
+    ![link de "Usuários e grupos" Hello][202]
 
-4. <span data-ttu-id="68b37-207">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="68b37-207">Click **Add** button.</span></span> <span data-ttu-id="68b37-208">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="68b37-208">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
+4. <span data-ttu-id="53e46-207">Clique no botão **Adicionar**.</span><span class="sxs-lookup"><span data-stu-id="53e46-207">Click **Add** button.</span></span> <span data-ttu-id="53e46-208">Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="53e46-208">Then select **Users and groups** on **Add Assignment** dialog.</span></span>
 
-    ![O painel Adicionar Atribuição][203]
+    ![Painel de atribuição adicionar Olá][203]
 
-5. <span data-ttu-id="68b37-210">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.</span><span class="sxs-lookup"><span data-stu-id="68b37-210">On **Users and groups** dialog, select **Britta Simon** in the Users list.</span></span>
+5. <span data-ttu-id="53e46-210">Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.</span><span class="sxs-lookup"><span data-stu-id="53e46-210">On **Users and groups** dialog, select **Britta Simon** in hello Users list.</span></span>
 
-6. <span data-ttu-id="68b37-211">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="68b37-211">Click **Select** button on **Users and groups** dialog.</span></span>
+6. <span data-ttu-id="53e46-211">Clique em **selecione** botão **usuários e grupos** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="53e46-211">Click **Select** button on **Users and groups** dialog.</span></span>
 
-7. <span data-ttu-id="68b37-212">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="68b37-212">Click **Assign** button on **Add Assignment** dialog.</span></span>
+7. <span data-ttu-id="53e46-212">Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.</span><span class="sxs-lookup"><span data-stu-id="53e46-212">Click **Assign** button on **Add Assignment** dialog.</span></span>
     
-### <a name="test-single-sign-on"></a><span data-ttu-id="68b37-213">Testar logon único</span><span class="sxs-lookup"><span data-stu-id="68b37-213">Test single sign-on</span></span>
+### <a name="test-single-sign-on"></a><span data-ttu-id="53e46-213">Testar logon único</span><span class="sxs-lookup"><span data-stu-id="53e46-213">Test single sign-on</span></span>
 
-<span data-ttu-id="68b37-214">O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.</span><span class="sxs-lookup"><span data-stu-id="68b37-214">The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.</span></span>
+<span data-ttu-id="53e46-214">Olá o objetivo desta seção é tootest sua configuração de logon único do AD do Azure usando Olá painel de acesso.</span><span class="sxs-lookup"><span data-stu-id="53e46-214">hello objective of this section is tootest your Azure AD single sign-on configuration using hello Access Panel.</span></span>
 
-<span data-ttu-id="68b37-215">Quando você clica no bloco Predictix Ordering no Painel de Acesso, deve ser conectado automaticamente ao seu aplicativo Predictix Ordering.</span><span class="sxs-lookup"><span data-stu-id="68b37-215">When you click the Predictix Ordering tile in the Access Panel, you should get automatically signed-on to your Predictix Ordering application.</span></span>
+<span data-ttu-id="53e46-215">Quando você clica em Olá Predictix ordenação lado a lado no painel de acesso de saudação, você deve obter tooyour automaticamente conectado no aplicativo Predictix pedidos.</span><span class="sxs-lookup"><span data-stu-id="53e46-215">When you click hello Predictix Ordering tile in hello Access Panel, you should get automatically signed-on tooyour Predictix Ordering application.</span></span>
 
 
-## <a name="additional-resources"></a><span data-ttu-id="68b37-216">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="68b37-216">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="53e46-216">Recursos adicionais</span><span class="sxs-lookup"><span data-stu-id="53e46-216">Additional resources</span></span>
 
-* [<span data-ttu-id="68b37-217">Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="68b37-217">List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
-* [<span data-ttu-id="68b37-218">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="68b37-218">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
+* [<span data-ttu-id="53e46-217">Lista de tutoriais sobre como tooIntegrate aplicativos SaaS com o Active Directory do Azure</span><span class="sxs-lookup"><span data-stu-id="53e46-217">List of Tutorials on How tooIntegrate SaaS Apps with Azure Active Directory</span></span>](active-directory-saas-tutorial-list.md)
+* [<span data-ttu-id="53e46-218">O que é o acesso a aplicativos e logon único com o Azure Active Directory?</span><span class="sxs-lookup"><span data-stu-id="53e46-218">What is application access and single sign-on with Azure Active Directory?</span></span>](active-directory-appssoaccess-whatis.md)
 
 
 

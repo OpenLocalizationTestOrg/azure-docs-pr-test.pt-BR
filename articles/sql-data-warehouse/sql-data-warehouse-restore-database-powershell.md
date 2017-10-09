@@ -1,5 +1,5 @@
 ---
-title: Restaurar um Azure SQL Data Warehouse (PowerShell) | Microsoft Docs
+title: aaaRestore um Data Warehouse do SQL Azure (PowerShell) | Microsoft Docs
 description: Tarefas do PowerShell para restaurar um Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,39 +15,39 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-ms.openlocfilehash: 6286c0e682bae2d3bf0435a25b8077a53b117b25
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: aa29a315080b1ed477cc6a051ce15a3202630cfa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="restore-an-azure-sql-data-warehouse-powershell"></a><span data-ttu-id="628d6-103">Restaurar um Azure SQL Data Warehouse (PowerShell)</span><span class="sxs-lookup"><span data-stu-id="628d6-103">Restore an Azure SQL Data Warehouse (PowerShell)</span></span>
+# <a name="restore-an-azure-sql-data-warehouse-powershell"></a><span data-ttu-id="41b31-103">Restaurar um Azure SQL Data Warehouse (PowerShell)</span><span class="sxs-lookup"><span data-stu-id="41b31-103">Restore an Azure SQL Data Warehouse (PowerShell)</span></span>
 > [!div class="op_single_selector"]
-> * <span data-ttu-id="628d6-104">[Visão geral][Overview]</span><span class="sxs-lookup"><span data-stu-id="628d6-104">[Overview][Overview]</span></span>
-> * <span data-ttu-id="628d6-105">[Portal][Portal]</span><span class="sxs-lookup"><span data-stu-id="628d6-105">[Portal][Portal]</span></span>
-> * <span data-ttu-id="628d6-106">[PowerShell][PowerShell]</span><span class="sxs-lookup"><span data-stu-id="628d6-106">[PowerShell][PowerShell]</span></span>
-> * <span data-ttu-id="628d6-107">[REST][REST]</span><span class="sxs-lookup"><span data-stu-id="628d6-107">[REST][REST]</span></span>
+> * <span data-ttu-id="41b31-104">[Visão geral][Overview]</span><span class="sxs-lookup"><span data-stu-id="41b31-104">[Overview][Overview]</span></span>
+> * <span data-ttu-id="41b31-105">[Portal][Portal]</span><span class="sxs-lookup"><span data-stu-id="41b31-105">[Portal][Portal]</span></span>
+> * <span data-ttu-id="41b31-106">[PowerShell][PowerShell]</span><span class="sxs-lookup"><span data-stu-id="41b31-106">[PowerShell][PowerShell]</span></span>
+> * <span data-ttu-id="41b31-107">[REST][REST]</span><span class="sxs-lookup"><span data-stu-id="41b31-107">[REST][REST]</span></span>
 > 
 > 
 
-<span data-ttu-id="628d6-108">Neste artigo, você aprenderá como restaurar um Azure SQL Data Warehouse usando o PowerShell.</span><span class="sxs-lookup"><span data-stu-id="628d6-108">In this article you will learn how to restore an Azure SQL Data Warehouse using PowerShell.</span></span>
+<span data-ttu-id="41b31-108">Neste artigo, você aprenderá como toorestore um Azure SQL Data Warehouse usando o PowerShell.</span><span class="sxs-lookup"><span data-stu-id="41b31-108">In this article you will learn how toorestore an Azure SQL Data Warehouse using PowerShell.</span></span>
 
-## <a name="before-you-begin"></a><span data-ttu-id="628d6-109">Antes de começar</span><span class="sxs-lookup"><span data-stu-id="628d6-109">Before you begin</span></span>
-<span data-ttu-id="628d6-110">**Verifique sua capacidade de DTU.**</span><span class="sxs-lookup"><span data-stu-id="628d6-110">**Verify your DTU capacity.**</span></span> <span data-ttu-id="628d6-111">Cada SQL Data Warehouse é hospedado por um servidor SQL (por exemplo, myserver.database.windows.net) que tem uma cota de DTU padrão.</span><span class="sxs-lookup"><span data-stu-id="628d6-111">Each SQL Data Warehouse is hosted by a SQL server (e.g. myserver.database.windows.net) which has a default DTU quota.</span></span>  <span data-ttu-id="628d6-112">Antes de restaurar um SQL Data Warehouse, verifique se o SQL Server tem cota de DTU suficiente restante para o banco de dados que está sendo restaurado.</span><span class="sxs-lookup"><span data-stu-id="628d6-112">Before you can restore a SQL Data Warehouse, verify that the your SQL server has enough remaining DTU quota for the database being restored.</span></span> <span data-ttu-id="628d6-113">Para saber como calcular a DTU necessária ou para solicitar mais DTU, veja [Solicitar uma alteração de cota de DTU][Request a DTU quota change].</span><span class="sxs-lookup"><span data-stu-id="628d6-113">To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change][Request a DTU quota change].</span></span>
+## <a name="before-you-begin"></a><span data-ttu-id="41b31-109">Antes de começar</span><span class="sxs-lookup"><span data-stu-id="41b31-109">Before you begin</span></span>
+<span data-ttu-id="41b31-110">**Verifique sua capacidade de DTU.**</span><span class="sxs-lookup"><span data-stu-id="41b31-110">**Verify your DTU capacity.**</span></span> <span data-ttu-id="41b31-111">Cada SQL Data Warehouse é hospedado por um servidor SQL (por exemplo, myserver.database.windows.net) que tem uma cota de DTU padrão.</span><span class="sxs-lookup"><span data-stu-id="41b31-111">Each SQL Data Warehouse is hosted by a SQL server (e.g. myserver.database.windows.net) which has a default DTU quota.</span></span>  <span data-ttu-id="41b31-112">Antes de poder restaurar um SQL Data Warehouse, verifique se esse saudação que do SQL server tem suficiente restante cota de DTU para o banco de dados de hello está sendo restaurado.</span><span class="sxs-lookup"><span data-stu-id="41b31-112">Before you can restore a SQL Data Warehouse, verify that hello your SQL server has enough remaining DTU quota for hello database being restored.</span></span> <span data-ttu-id="41b31-113">toolearn como toocalculate DTU necessário ou toorequest mais DTU, consulte [solicitar uma alteração de cota DTU][Request a DTU quota change].</span><span class="sxs-lookup"><span data-stu-id="41b31-113">toolearn how toocalculate DTU needed or toorequest more DTU, see [Request a DTU quota change][Request a DTU quota change].</span></span>
 
-### <a name="install-powershell"></a><span data-ttu-id="628d6-114">Instalar o PowerShell</span><span class="sxs-lookup"><span data-stu-id="628d6-114">Install PowerShell</span></span>
-<span data-ttu-id="628d6-115">Para usar o Azure PowerShell com o SQL Data Warehouse, você precisará instalar a versão 1.0 ou superior do Azure PowerShell.</span><span class="sxs-lookup"><span data-stu-id="628d6-115">In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0 or greater.</span></span>  <span data-ttu-id="628d6-116">Você pode verificar a versão executando **Get-Module -ListAvailable -Name AzureRM**.</span><span class="sxs-lookup"><span data-stu-id="628d6-116">You can check your version by running **Get-Module -ListAvailable -Name AzureRM**.</span></span>  <span data-ttu-id="628d6-117">A versão mais recente pode ser instalada pelo [Microsoft Web Platform Installer][Microsoft Web Platform Installer].</span><span class="sxs-lookup"><span data-stu-id="628d6-117">The latest version can be installed from  [Microsoft Web Platform Installer][Microsoft Web Platform Installer].</span></span>  <span data-ttu-id="628d6-118">Para obter mais informações sobre como instalar a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell][How to install and configure Azure PowerShell].</span><span class="sxs-lookup"><span data-stu-id="628d6-118">For more information on installing the latest version, see [How to install and configure Azure PowerShell][How to install and configure Azure PowerShell].</span></span>
+### <a name="install-powershell"></a><span data-ttu-id="41b31-114">Instalar o PowerShell</span><span class="sxs-lookup"><span data-stu-id="41b31-114">Install PowerShell</span></span>
+<span data-ttu-id="41b31-115">Ordem toouse PowerShell do Azure SQL Data warehouse, você precisará tooinstall Azure PowerShell versão 1.0 ou posterior.</span><span class="sxs-lookup"><span data-stu-id="41b31-115">In order toouse Azure PowerShell with SQL Data Warehouse, you will need tooinstall Azure PowerShell version 1.0 or greater.</span></span>  <span data-ttu-id="41b31-116">Você pode verificar a versão executando **Get-Module -ListAvailable -Name AzureRM**.</span><span class="sxs-lookup"><span data-stu-id="41b31-116">You can check your version by running **Get-Module -ListAvailable -Name AzureRM**.</span></span>  <span data-ttu-id="41b31-117">versão mais recente do Hello pode ser instalado do [Microsoft Web Platform Installer][Microsoft Web Platform Installer].</span><span class="sxs-lookup"><span data-stu-id="41b31-117">hello latest version can be installed from  [Microsoft Web Platform Installer][Microsoft Web Platform Installer].</span></span>  <span data-ttu-id="41b31-118">Para obter mais informações sobre como instalar a versão mais recente do hello, consulte [como tooinstall e configurar o Azure PowerShell][How tooinstall and configure Azure PowerShell].</span><span class="sxs-lookup"><span data-stu-id="41b31-118">For more information on installing hello latest version, see [How tooinstall and configure Azure PowerShell][How tooinstall and configure Azure PowerShell].</span></span>
 
-## <a name="restore-an-active-or-paused-database"></a><span data-ttu-id="628d6-119">Restaurar um banco de dados ativo ou pausado</span><span class="sxs-lookup"><span data-stu-id="628d6-119">Restore an active or paused database</span></span>
-<span data-ttu-id="628d6-120">Para restaurar um banco de dados por meio de um instantâneo, use o cmdlet do PowerShell [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].</span><span class="sxs-lookup"><span data-stu-id="628d6-120">To restore a database from a snapshot use the [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] PowerShell cmdlet.</span></span>
+## <a name="restore-an-active-or-paused-database"></a><span data-ttu-id="41b31-119">Restaurar um banco de dados ativo ou pausado</span><span class="sxs-lookup"><span data-stu-id="41b31-119">Restore an active or paused database</span></span>
+<span data-ttu-id="41b31-120">toorestore um banco de dados de um instantâneo usar Olá [restauração AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] cmdlet do PowerShell.</span><span class="sxs-lookup"><span data-stu-id="41b31-120">toorestore a database from a snapshot use hello [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] PowerShell cmdlet.</span></span>
 
-1. <span data-ttu-id="628d6-121">Abra o Windows PowerShell.</span><span class="sxs-lookup"><span data-stu-id="628d6-121">Open Windows PowerShell.</span></span>
-2. <span data-ttu-id="628d6-122">Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.</span><span class="sxs-lookup"><span data-stu-id="628d6-122">Connect to your Azure account and list all the subscriptions associated with your account.</span></span>
-3. <span data-ttu-id="628d6-123">Selecione a assinatura que contém o banco de dados a ser restaurado.</span><span class="sxs-lookup"><span data-stu-id="628d6-123">Select the subscription that contains the database to be restored.</span></span>
-4. <span data-ttu-id="628d6-124">Liste os pontos de restauração do banco de dados.</span><span class="sxs-lookup"><span data-stu-id="628d6-124">List the restore points for the database.</span></span>
-5. <span data-ttu-id="628d6-125">Selecione o ponto de restauração desejado usando o RestorePointCreationDate.</span><span class="sxs-lookup"><span data-stu-id="628d6-125">Pick the desired restore point using the RestorePointCreationDate.</span></span>
-6. <span data-ttu-id="628d6-126">Restaure o banco de dados para o ponto de restauração desejado.</span><span class="sxs-lookup"><span data-stu-id="628d6-126">Restore the database to the desired restore point.</span></span>
-7. <span data-ttu-id="628d6-127">Verifique se o banco de dados restaurado está online.</span><span class="sxs-lookup"><span data-stu-id="628d6-127">Verify that the restored database is online.</span></span>
+1. <span data-ttu-id="41b31-121">Abra o Windows PowerShell.</span><span class="sxs-lookup"><span data-stu-id="41b31-121">Open Windows PowerShell.</span></span>
+2. <span data-ttu-id="41b31-122">Conecte-se tooyour conta do Azure e listar todas as assinaturas de saudação associadas à sua conta.</span><span class="sxs-lookup"><span data-stu-id="41b31-122">Connect tooyour Azure account and list all hello subscriptions associated with your account.</span></span>
+3. <span data-ttu-id="41b31-123">Selecione a assinatura de saudação que contém a saudação toobe de banco de dados restaurado.</span><span class="sxs-lookup"><span data-stu-id="41b31-123">Select hello subscription that contains hello database toobe restored.</span></span>
+4. <span data-ttu-id="41b31-124">Olá lista pontos para banco de dados de saudação de restauração.</span><span class="sxs-lookup"><span data-stu-id="41b31-124">List hello restore points for hello database.</span></span>
+5. <span data-ttu-id="41b31-125">Selecione o ponto de restauração Olá desejado usando Olá RestorePointCreationDate.</span><span class="sxs-lookup"><span data-stu-id="41b31-125">Pick hello desired restore point using hello RestorePointCreationDate.</span></span>
+6. <span data-ttu-id="41b31-126">Ponto de restauração de toohello desejado Olá banco de dados de restauração.</span><span class="sxs-lookup"><span data-stu-id="41b31-126">Restore hello database toohello desired restore point.</span></span>
+7. <span data-ttu-id="41b31-127">Verifique se o que banco de dados restaurado de saudação está online.</span><span class="sxs-lookup"><span data-stu-id="41b31-127">Verify that hello restored database is online.</span></span>
 
 ```Powershell
 
@@ -61,13 +61,13 @@ Login-AzureRmAccount
 Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
-# List the last 10 database restore points
+# List hello last 10 database restore points
 ((Get-AzureRMSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName).RestorePointCreationDate)[-10 .. -1]
 
 # Or list all restore points
 Get-AzureRmSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 
-# Get the specific database to restore
+# Get hello specific database toorestore
 $Database = Get-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 
 # Pick desired restore point using RestorePointCreationDate
@@ -76,25 +76,25 @@ $PointInTime="<RestorePointCreationDate>"
 # Restore database from a restore point
 $RestoredDatabase = Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.$ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
 
-# Verify the status of restored database
+# Verify hello status of restored database
 $RestoredDatabase.status
 
 ```
 
 > [!NOTE]
-> <span data-ttu-id="628d6-128">Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo [Configurar o banco de dados após a recuperação][Configure your database after recovery].</span><span class="sxs-lookup"><span data-stu-id="628d6-128">After the restore has completed, you can configure your recovered database by following [Configure your database after recovery][Configure your database after recovery].</span></span>
+> <span data-ttu-id="41b31-128">Após a restauração hello, você pode configurar o banco de dados recuperado seguindo [configurar seu banco de dados após a recuperação][Configure your database after recovery].</span><span class="sxs-lookup"><span data-stu-id="41b31-128">After hello restore has completed, you can configure your recovered database by following [Configure your database after recovery][Configure your database after recovery].</span></span>
 > 
 > 
 
-## <a name="restore-a-deleted-database"></a><span data-ttu-id="628d6-129">Restaurar um banco de dados excluído</span><span class="sxs-lookup"><span data-stu-id="628d6-129">Restore a deleted database</span></span>
-<span data-ttu-id="628d6-130">Para restaurar um banco de dados excluído, use o cmdlet [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].</span><span class="sxs-lookup"><span data-stu-id="628d6-130">To restore a deleted database, use the [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] cmdlet.</span></span>
+## <a name="restore-a-deleted-database"></a><span data-ttu-id="41b31-129">Restaurar um banco de dados excluído</span><span class="sxs-lookup"><span data-stu-id="41b31-129">Restore a deleted database</span></span>
+<span data-ttu-id="41b31-130">toorestore um banco de dados excluído, use Olá [restauração AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] cmdlet.</span><span class="sxs-lookup"><span data-stu-id="41b31-130">toorestore a deleted database, use hello [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] cmdlet.</span></span>
 
-1. <span data-ttu-id="628d6-131">Abra o Windows PowerShell.</span><span class="sxs-lookup"><span data-stu-id="628d6-131">Open Windows PowerShell.</span></span>
-2. <span data-ttu-id="628d6-132">Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.</span><span class="sxs-lookup"><span data-stu-id="628d6-132">Connect to your Azure account and list all the subscriptions associated with your account.</span></span>
-3. <span data-ttu-id="628d6-133">Selecione a assinatura que contém o banco de dados excluído a ser restaurado.</span><span class="sxs-lookup"><span data-stu-id="628d6-133">Select the subscription that contains the deleted database to be restored.</span></span>
-4. <span data-ttu-id="628d6-134">Obtenha o banco de dados excluído em questão.</span><span class="sxs-lookup"><span data-stu-id="628d6-134">Get the specific deleted database.</span></span>
-5. <span data-ttu-id="628d6-135">Restaure o banco de dados excluído.</span><span class="sxs-lookup"><span data-stu-id="628d6-135">Restore the deleted database.</span></span>
-6. <span data-ttu-id="628d6-136">Verifique se o banco de dados restaurado está online.</span><span class="sxs-lookup"><span data-stu-id="628d6-136">Verify that the restored database is online.</span></span>
+1. <span data-ttu-id="41b31-131">Abra o Windows PowerShell.</span><span class="sxs-lookup"><span data-stu-id="41b31-131">Open Windows PowerShell.</span></span>
+2. <span data-ttu-id="41b31-132">Conecte-se tooyour conta do Azure e listar todas as assinaturas de saudação associadas à sua conta.</span><span class="sxs-lookup"><span data-stu-id="41b31-132">Connect tooyour Azure account and list all hello subscriptions associated with your account.</span></span>
+3. <span data-ttu-id="41b31-133">Excluir a assinatura de saudação Select que contém Olá toobe de banco de dados restaurado.</span><span class="sxs-lookup"><span data-stu-id="41b31-133">Select hello subscription that contains hello deleted database toobe restored.</span></span>
+4. <span data-ttu-id="41b31-134">Obter banco de dados específico Olá excluído.</span><span class="sxs-lookup"><span data-stu-id="41b31-134">Get hello specific deleted database.</span></span>
+5. <span data-ttu-id="41b31-135">Restaure o banco de dados de saudação excluído.</span><span class="sxs-lookup"><span data-stu-id="41b31-135">Restore hello deleted database.</span></span>
+6. <span data-ttu-id="41b31-136">Verifique se o que banco de dados restaurado de saudação está online.</span><span class="sxs-lookup"><span data-stu-id="41b31-136">Verify that hello restored database is online.</span></span>
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
@@ -107,55 +107,55 @@ Login-AzureRmAccount
 Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
-# Get the deleted database to restore
+# Get hello deleted database toorestore
 $DeletedDatabase = Get-AzureRmSqlDeletedDatabaseBackup -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 
 # Restore deleted database
 $RestoredDatabase = Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –DeletionDate $DeletedDatabase.DeletionDate -ResourceGroupName $DeletedDatabase.ResourceGroupName -ServerName $DeletedDatabase.ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $DeletedDatabase.ResourceID
 
-# Verify the status of restored database
+# Verify hello status of restored database
 $RestoredDatabase.status
 ```
 
 > [!NOTE]
-> <span data-ttu-id="628d6-137">Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo [Configurar o banco de dados após a recuperação][Configure your database after recovery].</span><span class="sxs-lookup"><span data-stu-id="628d6-137">After the restore has completed, you can configure your recovered database by following [Configure your database after recovery][Configure your database after recovery].</span></span>
+> <span data-ttu-id="41b31-137">Após a restauração hello, você pode configurar o banco de dados recuperado seguindo [configurar seu banco de dados após a recuperação][Configure your database after recovery].</span><span class="sxs-lookup"><span data-stu-id="41b31-137">After hello restore has completed, you can configure your recovered database by following [Configure your database after recovery][Configure your database after recovery].</span></span>
 > 
 > 
 
-## <a name="restore-from-an-azure-geographical-region"></a><span data-ttu-id="628d6-138">Restaurar por meio de uma região geográfica do Azure</span><span class="sxs-lookup"><span data-stu-id="628d6-138">Restore from an Azure geographical region</span></span>
-<span data-ttu-id="628d6-139">Para recuperar um banco de dados, use o cmdlet [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].</span><span class="sxs-lookup"><span data-stu-id="628d6-139">To recover a database, use the [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] cmdlet.</span></span>
+## <a name="restore-from-an-azure-geographical-region"></a><span data-ttu-id="41b31-138">Restaurar por meio de uma região geográfica do Azure</span><span class="sxs-lookup"><span data-stu-id="41b31-138">Restore from an Azure geographical region</span></span>
+<span data-ttu-id="41b31-139">toorecover um banco de dados, use Olá [restauração AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] cmdlet.</span><span class="sxs-lookup"><span data-stu-id="41b31-139">toorecover a database, use hello [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] cmdlet.</span></span>
 
-1. <span data-ttu-id="628d6-140">Abra o Windows PowerShell.</span><span class="sxs-lookup"><span data-stu-id="628d6-140">Open Windows PowerShell.</span></span>
-2. <span data-ttu-id="628d6-141">Conecte-se à sua conta do Azure e liste todas as assinaturas associadas à sua conta.</span><span class="sxs-lookup"><span data-stu-id="628d6-141">Connect to your Azure account and list all the subscriptions associated with your account.</span></span>
-3. <span data-ttu-id="628d6-142">Selecione a assinatura que contém o banco de dados a ser restaurado.</span><span class="sxs-lookup"><span data-stu-id="628d6-142">Select the subscription that contains the database to be restored.</span></span>
-4. <span data-ttu-id="628d6-143">Obtenha o banco de dados que você deseja recuperar.</span><span class="sxs-lookup"><span data-stu-id="628d6-143">Get the database you want to recover.</span></span>
-5. <span data-ttu-id="628d6-144">Crie a solicitação de recuperação para o banco de dados.</span><span class="sxs-lookup"><span data-stu-id="628d6-144">Create the recovery request for the database.</span></span>
-6. <span data-ttu-id="628d6-145">Verifique o status do banco de dados com restauração geográfica.</span><span class="sxs-lookup"><span data-stu-id="628d6-145">Verify the status of the geo-restored database.</span></span>
+1. <span data-ttu-id="41b31-140">Abra o Windows PowerShell.</span><span class="sxs-lookup"><span data-stu-id="41b31-140">Open Windows PowerShell.</span></span>
+2. <span data-ttu-id="41b31-141">Conecte-se tooyour conta do Azure e listar todas as assinaturas de saudação associadas à sua conta.</span><span class="sxs-lookup"><span data-stu-id="41b31-141">Connect tooyour Azure account and list all hello subscriptions associated with your account.</span></span>
+3. <span data-ttu-id="41b31-142">Selecione a assinatura de saudação que contém a saudação toobe de banco de dados restaurado.</span><span class="sxs-lookup"><span data-stu-id="41b31-142">Select hello subscription that contains hello database toobe restored.</span></span>
+4. <span data-ttu-id="41b31-143">Obter toorecover de saudação banco de dados.</span><span class="sxs-lookup"><span data-stu-id="41b31-143">Get hello database you want toorecover.</span></span>
+5. <span data-ttu-id="41b31-144">Crie solicitação de recuperação de saudação do banco de dados de saudação.</span><span class="sxs-lookup"><span data-stu-id="41b31-144">Create hello recovery request for hello database.</span></span>
+6. <span data-ttu-id="41b31-145">Verificar o status de saudação do banco de dados restaurado geográfica do hello.</span><span class="sxs-lookup"><span data-stu-id="41b31-145">Verify hello status of hello geo-restored database.</span></span>
 
 ```Powershell
 Login-AzureRmAccount
 Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
 
-# Get the database you want to recover
+# Get hello database you want toorecover
 $GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
 
 # Recover database
 $GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID
 
-# Verify that the geo-restored database is online
+# Verify that hello geo-restored database is online
 $GeoRestoredDatabase.status
 ```
 
 > [!NOTE]
-> <span data-ttu-id="628d6-146">Para configurar o banco de dados após a conclusão da restauração, veja [Configurar o banco de dados após a recuperação][Configure your database after recovery].</span><span class="sxs-lookup"><span data-stu-id="628d6-146">To configure your database after the restore has completed, see [Configure your database after recovery][Configure your database after recovery].</span></span>
+> <span data-ttu-id="41b31-146">tooconfigure seu banco de dados após a restauração hello, consulte [configurar seu banco de dados após a recuperação][Configure your database after recovery].</span><span class="sxs-lookup"><span data-stu-id="41b31-146">tooconfigure your database after hello restore has completed, see [Configure your database after recovery][Configure your database after recovery].</span></span>
 > 
 > 
 
-<span data-ttu-id="628d6-147">O banco de dados recuperado será habilitado para TDE se o banco de dados de origem for habilitado para TDE.</span><span class="sxs-lookup"><span data-stu-id="628d6-147">The recovered database will be TDE-enabled if the source database is TDE-enabled.</span></span>
+<span data-ttu-id="41b31-147">saudação de banco de dados recuperado será habilitado para TDE se o banco de dados de origem de saudação é habilitado para TDE.</span><span class="sxs-lookup"><span data-stu-id="41b31-147">hello recovered database will be TDE-enabled if hello source database is TDE-enabled.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="628d6-148">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="628d6-148">Next steps</span></span>
-<span data-ttu-id="628d6-149">Para saber mais sobre os recursos de continuidade dos negócios das edições do Banco de Dados SQL do Azure, leia a [Visão geral da continuidade dos negócios do Banco de Dados SQL do Azure][Azure SQL Database business continuity overview].</span><span class="sxs-lookup"><span data-stu-id="628d6-149">To learn about the business continuity features of Azure SQL Database editions, please read the [Azure SQL Database business continuity overview][Azure SQL Database business continuity overview].</span></span>
+## <a name="next-steps"></a><span data-ttu-id="41b31-148">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="41b31-148">Next steps</span></span>
+<span data-ttu-id="41b31-149">toolearn sobre recursos de continuidade de negócios Olá de edições de banco de dados de SQL do Azure, leia Olá [visão geral de continuidade de negócios do Azure SQL Database][Azure SQL Database business continuity overview].</span><span class="sxs-lookup"><span data-stu-id="41b31-149">toolearn about hello business continuity features of Azure SQL Database editions, please read hello [Azure SQL Database business continuity overview][Azure SQL Database business continuity overview].</span></span>
 
 <!--Image references-->
 
@@ -163,7 +163,7 @@ $GeoRestoredDatabase.status
 [Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
 [Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[How tooinstall and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Overview]: ./sql-data-warehouse-restore-database-overview.md
 [Portal]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md

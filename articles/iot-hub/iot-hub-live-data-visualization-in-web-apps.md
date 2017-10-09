@@ -1,6 +1,6 @@
 ---
-title: "Visualização de dados em tempo real de dados de sensor do seu Hub IoT do Azure – aplicativos Web | Microsoft Docs"
-description: "Use a funcionalidade do aplicativo Web do Serviço de Aplicativo do Microsoft Azure para visualizar dados de temperatura e umidade que são coletados do sensor e enviados para o seu Hub IoT."
+title: "tempo de aaaReal visualização de dados de sensor do seu hub IoT do Azure – aplicativos Web | Microsoft Docs"
+description: "Use o recurso de aplicativos Web de saudação do serviço de aplicativo do Microsoft Azure toovisualize temperatura e umidade dados coletados de sensor hello e enviados tooyour Iot hub."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -15,82 +15,82 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2017
 ms.author: xshi
-ms.openlocfilehash: e037f5c29cabf8e5d0d3e7ded187280a0652d5c3
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 72f2dffee1c2f975948820eee9f2e287c3f77255
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a><span data-ttu-id="6af68-104">Visualizar dados do sensor em tempo real de seu Hub IoT do Azure usando a funcionalidade de aplicativos Web do serviço de aplicativo do Azure</span><span class="sxs-lookup"><span data-stu-id="6af68-104">Visualize real-time sensor data from your Azure IoT hub by using the Web Apps feature of Azure App Service</span></span>
+# <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-hello-web-apps-feature-of-azure-app-service"></a><span data-ttu-id="7311c-104">Visualizar os dados de sensor em tempo real de seu hub IoT do Azure usando o recurso de aplicativos Web de saudação do serviço de aplicativo do Azure</span><span class="sxs-lookup"><span data-stu-id="7311c-104">Visualize real-time sensor data from your Azure IoT hub by using hello Web Apps feature of Azure App Service</span></span>
 
 ![Diagrama de ponta a ponta](media/iot-hub-get-started-e2e-diagram/5.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-## <a name="what-you-learn"></a><span data-ttu-id="6af68-106">O que você aprenderá</span><span class="sxs-lookup"><span data-stu-id="6af68-106">What you learn</span></span>
+## <a name="what-you-learn"></a><span data-ttu-id="7311c-106">O que você aprenderá</span><span class="sxs-lookup"><span data-stu-id="7311c-106">What you learn</span></span>
 
-<span data-ttu-id="6af68-107">Neste tutorial, você aprenderá como visualizar dados de sensor em tempo real que o seu Hub IoT recebe por meio da execução de um aplicativo Web hospedado em um aplicativo Web.</span><span class="sxs-lookup"><span data-stu-id="6af68-107">In this tutorial, you learn how to visualize real-time sensor data that your IoT hub receives by running a web application that is hosted on a web app.</span></span> <span data-ttu-id="6af68-108">Se você quiser tentar visualizar os dados em seu Hub IoT usando o Power BI, consulte [Usar o Power BI para visualizar dados de sensor em tempo real do Hub IoT do Azure](iot-hub-live-data-visualization-in-power-bi.md).</span><span class="sxs-lookup"><span data-stu-id="6af68-108">If you want to try to visualize the data in your IoT hub by using Power BI, see [Use Power BI to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).</span></span>
+<span data-ttu-id="7311c-107">Neste tutorial, você aprenderá como dados de sensor em tempo real toovisualize que recebe o hub IoT executando um aplicativo web que são hospedados em um aplicativo web.</span><span class="sxs-lookup"><span data-stu-id="7311c-107">In this tutorial, you learn how toovisualize real-time sensor data that your IoT hub receives by running a web application that is hosted on a web app.</span></span> <span data-ttu-id="7311c-108">Se quiser tootry toovisualize Olá dados em seu hub IoT usando o Power BI, consulte [dados de sensor em tempo real de toovisualize usar o Power BI do Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).</span><span class="sxs-lookup"><span data-stu-id="7311c-108">If you want tootry toovisualize hello data in your IoT hub by using Power BI, see [Use Power BI toovisualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-power-bi.md).</span></span>
 
-## <a name="what-you-do"></a><span data-ttu-id="6af68-109">O que fazer</span><span class="sxs-lookup"><span data-stu-id="6af68-109">What you do</span></span>
+## <a name="what-you-do"></a><span data-ttu-id="7311c-109">O que fazer</span><span class="sxs-lookup"><span data-stu-id="7311c-109">What you do</span></span>
 
-- <span data-ttu-id="6af68-110">Criar um aplicativo Web no portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="6af68-110">Create a web app in the Azure portal.</span></span>
-- <span data-ttu-id="6af68-111">Preparar seu Hub IoT para acesso a dados, adicionando um grupo de consumidores.</span><span class="sxs-lookup"><span data-stu-id="6af68-111">Get your IoT hub ready for data access by adding a consumer group.</span></span>
-- <span data-ttu-id="6af68-112">Configurar o aplicativo Web para ler dados de sensor de seu Hub IoT.</span><span class="sxs-lookup"><span data-stu-id="6af68-112">Configure the web app to read sensor data from your IoT hub.</span></span>
-- <span data-ttu-id="6af68-113">Carregar um aplicativo Web a ser hospedado pelo aplicativo Web.</span><span class="sxs-lookup"><span data-stu-id="6af68-113">Upload a web application to be hosted by the web app.</span></span>
-- <span data-ttu-id="6af68-114">Abrir o aplicativo Web para ver os dados de temperatura e umidade em tempo real de seu Hub IoT.</span><span class="sxs-lookup"><span data-stu-id="6af68-114">Open the web app to see real-time temperature and humidity data from your IoT hub.</span></span>
+- <span data-ttu-id="7311c-110">Crie um aplicativo web no hello portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="7311c-110">Create a web app in hello Azure portal.</span></span>
+- <span data-ttu-id="7311c-111">Preparar seu Hub IoT para acesso a dados, adicionando um grupo de consumidores.</span><span class="sxs-lookup"><span data-stu-id="7311c-111">Get your IoT hub ready for data access by adding a consumer group.</span></span>
+- <span data-ttu-id="7311c-112">Configure dados do sensor Olá web aplicativo tooread do seu hub IoT.</span><span class="sxs-lookup"><span data-stu-id="7311c-112">Configure hello web app tooread sensor data from your IoT hub.</span></span>
+- <span data-ttu-id="7311c-113">Carregar um toobe de aplicativo web hospedado pelo aplicativo web de saudação.</span><span class="sxs-lookup"><span data-stu-id="7311c-113">Upload a web application toobe hosted by hello web app.</span></span>
+- <span data-ttu-id="7311c-114">Abra Olá web toosee em tempo real temperatura e umidade dados de aplicativo do seu hub IoT.</span><span class="sxs-lookup"><span data-stu-id="7311c-114">Open hello web app toosee real-time temperature and humidity data from your IoT hub.</span></span>
 
-## <a name="what-you-need"></a><span data-ttu-id="6af68-115">O que você precisa</span><span class="sxs-lookup"><span data-stu-id="6af68-115">What you need</span></span>
+## <a name="what-you-need"></a><span data-ttu-id="7311c-115">O que você precisa</span><span class="sxs-lookup"><span data-stu-id="7311c-115">What you need</span></span>
 
-- <span data-ttu-id="6af68-116">[Configurar seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) que aborda os seguintes requisitos:</span><span class="sxs-lookup"><span data-stu-id="6af68-116">[Set up your device](iot-hub-raspberry-pi-kit-node-get-started.md), which covers the following requirements:</span></span>
-  - <span data-ttu-id="6af68-117">Uma assinatura ativa do Azure</span><span class="sxs-lookup"><span data-stu-id="6af68-117">An active Azure subscription</span></span>
-  - <span data-ttu-id="6af68-118">Um Hub IoT em sua assinatura</span><span class="sxs-lookup"><span data-stu-id="6af68-118">An Iot hub under your subscription</span></span>
-  - <span data-ttu-id="6af68-119">Um aplicativo cliente que envia mensagens para o seu Hub IoT</span><span class="sxs-lookup"><span data-stu-id="6af68-119">A client application that sends messages to your Iot hub</span></span>
-- [<span data-ttu-id="6af68-120">Baixar Git</span><span class="sxs-lookup"><span data-stu-id="6af68-120">Download Git</span></span>](https://www.git-scm.com/downloads)
+- <span data-ttu-id="7311c-116">[Configurar o seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md), que abrange Olá requisitos a seguir:</span><span class="sxs-lookup"><span data-stu-id="7311c-116">[Set up your device](iot-hub-raspberry-pi-kit-node-get-started.md), which covers hello following requirements:</span></span>
+  - <span data-ttu-id="7311c-117">Uma assinatura ativa do Azure</span><span class="sxs-lookup"><span data-stu-id="7311c-117">An active Azure subscription</span></span>
+  - <span data-ttu-id="7311c-118">Um Hub IoT em sua assinatura</span><span class="sxs-lookup"><span data-stu-id="7311c-118">An Iot hub under your subscription</span></span>
+  - <span data-ttu-id="7311c-119">Um aplicativo cliente que envia o hub de Iot tooyour mensagens</span><span class="sxs-lookup"><span data-stu-id="7311c-119">A client application that sends messages tooyour Iot hub</span></span>
+- [<span data-ttu-id="7311c-120">Baixar Git</span><span class="sxs-lookup"><span data-stu-id="7311c-120">Download Git</span></span>](https://www.git-scm.com/downloads)
 
-## <a name="create-a-web-app"></a><span data-ttu-id="6af68-121">Criar um aplicativo Web</span><span class="sxs-lookup"><span data-stu-id="6af68-121">Create a web app</span></span>
+## <a name="create-a-web-app"></a><span data-ttu-id="7311c-121">Criar um aplicativo Web</span><span class="sxs-lookup"><span data-stu-id="7311c-121">Create a web app</span></span>
 
-1. <span data-ttu-id="6af68-122">No [Portal do Azure](https://ms.portal.azure.com/), clique em **Novo** > **Web + Móvel** > **Aplicativo Web**.</span><span class="sxs-lookup"><span data-stu-id="6af68-122">In the [Azure portal](https://ms.portal.azure.com/), click **New** > **Web + Mobile** > **Web App**.</span></span>
-2. <span data-ttu-id="6af68-123">Insira um nome de trabalho exclusivo, verifique a assinatura, especifique um grupo de recursos e um local, selecione **Fixar no painel** e, em seguida, clique em **Criar**.</span><span class="sxs-lookup"><span data-stu-id="6af68-123">Enter a unique job name, verify the subscription, specify a resource group and a location, select **Pin to dashboard**, and then click **Create**.</span></span>
+1. <span data-ttu-id="7311c-122">Em Olá [portal do Azure](https://ms.portal.azure.com/), clique em **novo** > **Web + móvel** > **aplicativo Web**.</span><span class="sxs-lookup"><span data-stu-id="7311c-122">In hello [Azure portal](https://ms.portal.azure.com/), click **New** > **Web + Mobile** > **Web App**.</span></span>
+2. <span data-ttu-id="7311c-123">Insira um nome exclusivo do trabalho, verifique se a assinatura de saudação, especifique um grupo de recursos e um local, selecione **Pin toodashboard**e, em seguida, clique em **criar**.</span><span class="sxs-lookup"><span data-stu-id="7311c-123">Enter a unique job name, verify hello subscription, specify a resource group and a location, select **Pin toodashboard**, and then click **Create**.</span></span>
 
-   <span data-ttu-id="6af68-124">Recomendamos que você selecione o mesmo local do seu grupo de recursos.</span><span class="sxs-lookup"><span data-stu-id="6af68-124">We recommend that you select the same location as that of your resource group.</span></span> <span data-ttu-id="6af68-125">Isso ajuda a aumentar a velocidade de processamento e reduzir os custos de transferência de dados.</span><span class="sxs-lookup"><span data-stu-id="6af68-125">Doing so assists with processing speed and reduces the cost of data transfer.</span></span>
+   <span data-ttu-id="7311c-124">Recomendamos que você selecione Olá mesmo local que o grupo de recursos.</span><span class="sxs-lookup"><span data-stu-id="7311c-124">We recommend that you select hello same location as that of your resource group.</span></span> <span data-ttu-id="7311c-125">Isso ajuda a velocidade de processamento e reduz o custo de saudação de transferência de dados.</span><span class="sxs-lookup"><span data-stu-id="7311c-125">Doing so assists with processing speed and reduces hello cost of data transfer.</span></span>
 
    ![Criar um aplicativo Web](media/iot-hub-live-data-visualization-in-web-apps/2_create-web-app-azure.png)
 
 [!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
-## <a name="configure-the-web-app-to-read-data-from-your-iot-hub"></a><span data-ttu-id="6af68-127">Configurar o aplicativo Web para ler dados de sensor de seu Hub IoT</span><span class="sxs-lookup"><span data-stu-id="6af68-127">Configure the web app to read data from your IoT hub</span></span>
+## <a name="configure-hello-web-app-tooread-data-from-your-iot-hub"></a><span data-ttu-id="7311c-127">Configurar Olá web aplicativo tooread dados do seu hub IoT</span><span class="sxs-lookup"><span data-stu-id="7311c-127">Configure hello web app tooread data from your IoT hub</span></span>
 
-1. <span data-ttu-id="6af68-128">Abra o aplicativo Web que você acabou de provisionar.</span><span class="sxs-lookup"><span data-stu-id="6af68-128">Open the web app you’ve just provisioned.</span></span>
-2. <span data-ttu-id="6af68-129">Clique em **Configurações do aplicativo** e, em seguida, adicione os seguintes pares chave/valor em **Configurações do aplicativo**:</span><span class="sxs-lookup"><span data-stu-id="6af68-129">Click **Application settings**, and then, under **App settings**, add the following key/value pairs:</span></span>
+1. <span data-ttu-id="7311c-128">Abra o aplicativo de web de saudação que tiver acabado de provisionar.</span><span class="sxs-lookup"><span data-stu-id="7311c-128">Open hello web app you’ve just provisioned.</span></span>
+2. <span data-ttu-id="7311c-129">Clique em **configurações do aplicativo**e, em seguida, em **configurações do aplicativo**, adicionar Olá pares chave/valor a seguir:</span><span class="sxs-lookup"><span data-stu-id="7311c-129">Click **Application settings**, and then, under **App settings**, add hello following key/value pairs:</span></span>
 
-   | <span data-ttu-id="6af68-130">Chave</span><span class="sxs-lookup"><span data-stu-id="6af68-130">Key</span></span>                                   | <span data-ttu-id="6af68-131">Valor</span><span class="sxs-lookup"><span data-stu-id="6af68-131">Value</span></span>                                                        |
+   | <span data-ttu-id="7311c-130">Chave</span><span class="sxs-lookup"><span data-stu-id="7311c-130">Key</span></span>                                   | <span data-ttu-id="7311c-131">Valor</span><span class="sxs-lookup"><span data-stu-id="7311c-131">Value</span></span>                                                        |
    |---------------------------------------|--------------------------------------------------------------|
-   | <span data-ttu-id="6af68-132">Azure.IoT.IoTHub.ConnectionString</span><span class="sxs-lookup"><span data-stu-id="6af68-132">Azure.IoT.IoTHub.ConnectionString</span></span>     | <span data-ttu-id="6af68-133">Obtido de iothub-explorer</span><span class="sxs-lookup"><span data-stu-id="6af68-133">Obtained from iothub-explorer</span></span>                                |
-   | <span data-ttu-id="6af68-134">Azure.IoT.IoTHub.ConsumerGroup</span><span class="sxs-lookup"><span data-stu-id="6af68-134">Azure.IoT.IoTHub.ConsumerGroup</span></span>        | <span data-ttu-id="6af68-135">O nome do grupo de consumidores que você adiciona ao seu Hub IoT</span><span class="sxs-lookup"><span data-stu-id="6af68-135">The name of the consumer group that you add to your IoT hub</span></span>  |
+   | <span data-ttu-id="7311c-132">Azure.IoT.IoTHub.ConnectionString</span><span class="sxs-lookup"><span data-stu-id="7311c-132">Azure.IoT.IoTHub.ConnectionString</span></span>     | <span data-ttu-id="7311c-133">Obtido de iothub-explorer</span><span class="sxs-lookup"><span data-stu-id="7311c-133">Obtained from iothub-explorer</span></span>                                |
+   | <span data-ttu-id="7311c-134">Azure.IoT.IoTHub.ConsumerGroup</span><span class="sxs-lookup"><span data-stu-id="7311c-134">Azure.IoT.IoTHub.ConsumerGroup</span></span>        | <span data-ttu-id="7311c-135">nome de saudação do grupo de consumidores Olá que você adicione tooyour IoT hub</span><span class="sxs-lookup"><span data-stu-id="7311c-135">hello name of hello consumer group that you add tooyour IoT hub</span></span>  |
 
-   ![Adicionar configurações ao seu aplicativo Web com pares chave/valor](media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)
+   ![Adicionar configurações tooyour web app com pares chave/valor](media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)
 
-3. <span data-ttu-id="6af68-137">Clique em **Configurações do aplicativo**, em **Configurações gerais**, alternar a opção de **soquetes da Web** e, em seguida, clique em **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="6af68-137">Click **Application settings**, under **General settings**, toggle the **Web sockets** option, and then click **Save**.</span></span>
+3. <span data-ttu-id="7311c-137">Clique em **configurações do aplicativo**, em **configurações gerais**, Olá alternância **Web sockets** opção e, em seguida, clique em **salvar**.</span><span class="sxs-lookup"><span data-stu-id="7311c-137">Click **Application settings**, under **General settings**, toggle hello **Web sockets** option, and then click **Save**.</span></span>
 
-   ![Alternar a opção de soquetes da Web](media/iot-hub-live-data-visualization-in-web-apps/10_toggle_web_sockets.png)
+   ![Saudação de ativar/desativar opção de soquetes da Web](media/iot-hub-live-data-visualization-in-web-apps/10_toggle_web_sockets.png)
 
-## <a name="upload-a-web-application-to-be-hosted-by-the-web-app"></a><span data-ttu-id="6af68-139">Carregar um aplicativo Web a ser hospedado pelo aplicativo Web</span><span class="sxs-lookup"><span data-stu-id="6af68-139">Upload a web application to be hosted by the web app</span></span>
+## <a name="upload-a-web-application-toobe-hosted-by-hello-web-app"></a><span data-ttu-id="7311c-139">Carregar um toobe de aplicativo web hospedado pelo aplicativo web de saudação</span><span class="sxs-lookup"><span data-stu-id="7311c-139">Upload a web application toobe hosted by hello web app</span></span>
 
-<span data-ttu-id="6af68-140">No GitHub, foi disponibilizado um aplicativo Web que exibe dados de sensor em tempo real obtidos do seu Hub IoT.</span><span class="sxs-lookup"><span data-stu-id="6af68-140">On GitHub, we've made available a web application that displays real-time sensor data from your IoT hub.</span></span> <span data-ttu-id="6af68-141">Tudo que você precisa fazer é configurar o aplicativo Web para trabalhar com um repositório Git, baixar o aplicativo Web do GitHub e carregá-lo no Azure para ser hospedado pelo aplicativo Web.</span><span class="sxs-lookup"><span data-stu-id="6af68-141">All you need to do is configure the web app to work with a Git repository, download the web application from GitHub, and then upload it to Azure for the web app to host.</span></span>
+<span data-ttu-id="7311c-140">No GitHub, foi disponibilizado um aplicativo Web que exibe dados de sensor em tempo real obtidos do seu Hub IoT.</span><span class="sxs-lookup"><span data-stu-id="7311c-140">On GitHub, we've made available a web application that displays real-time sensor data from your IoT hub.</span></span> <span data-ttu-id="7311c-141">Você só precisa toodo é configurar Olá web aplicativo toowork com um repositório Git, baixar o aplicativo da web de saudação do GitHub e, em seguida, carregá-lo tooAzure para toohost de aplicativo web hello.</span><span class="sxs-lookup"><span data-stu-id="7311c-141">All you need toodo is configure hello web app toowork with a Git repository, download hello web application from GitHub, and then upload it tooAzure for hello web app toohost.</span></span>
 
-1. <span data-ttu-id="6af68-142">No aplicativo Web, clique em **Opções de Implantação** > **Escolher Fonte** > **Repositório Git Local**, e, em seguida, clique em **OK**.</span><span class="sxs-lookup"><span data-stu-id="6af68-142">In the web app, click **Deployment Options** > **Choose Source** > **Local Git Repository**, and then click **OK**.</span></span>
+1. <span data-ttu-id="7311c-142">No aplicativo da web de saudação, clique em **opções de implantação** > **Escolher fonte** > **repositório Git Local**e, em seguida, clique em **Okey**.</span><span class="sxs-lookup"><span data-stu-id="7311c-142">In hello web app, click **Deployment Options** > **Choose Source** > **Local Git Repository**, and then click **OK**.</span></span>
 
-   ![Configurar a implantação do seu aplicativo Web para usar o repositório Git local](media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
+   ![Configurar o repositório do Git web app implantação toouse Olá local](media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
 
-2. <span data-ttu-id="6af68-144">Clique em **Credenciais de Implantação**, crie um nome de usuário e senha que serão usados para conexão ao repositório Git no Azure e, em seguida, clique em **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="6af68-144">Click **Deployment Credentials**, create a user name and password to use to connect to the Git repository in Azure, and then click **Save**.</span></span>
+2. <span data-ttu-id="7311c-144">Clique em **credenciais de implantação**, crie um usuário nome e senha toouse tooconnect toohello repositório Git no Azure e, em seguida, clique em **salvar**.</span><span class="sxs-lookup"><span data-stu-id="7311c-144">Click **Deployment Credentials**, create a user name and password toouse tooconnect toohello Git repository in Azure, and then click **Save**.</span></span>
 
-3. <span data-ttu-id="6af68-145">Clique em **Visão geral** e anote o valor de **URL de clone do Git**.</span><span class="sxs-lookup"><span data-stu-id="6af68-145">Click **Overview**, and note the value of **Git clone url**.</span></span>
+3. <span data-ttu-id="7311c-145">Clique em **visão geral**e observe o valor de saudação do **url de clone de Git**.</span><span class="sxs-lookup"><span data-stu-id="7311c-145">Click **Overview**, and note hello value of **Git clone url**.</span></span>
 
-   ![Obter a URL de clone do Git de seu aplicativo Web](media/iot-hub-live-data-visualization-in-web-apps/7_web-app-git-clone-url-azure.png)
+   ![Obter URL de clone de Git de saudação do seu aplicativo web](media/iot-hub-live-data-visualization-in-web-apps/7_web-app-git-clone-url-azure.png)
 
-4. <span data-ttu-id="6af68-147">Abra uma janela de terminal ou de comando no computador local.</span><span class="sxs-lookup"><span data-stu-id="6af68-147">Open a command or terminal window on your local computer.</span></span>
+4. <span data-ttu-id="7311c-147">Abra uma janela de terminal ou de comando no computador local.</span><span class="sxs-lookup"><span data-stu-id="7311c-147">Open a command or terminal window on your local computer.</span></span>
 
-5. <span data-ttu-id="6af68-148">Baixe o aplicativo Web do GitHub e carregue-o no Azure para ser hospedado pelo aplicativo Web.</span><span class="sxs-lookup"><span data-stu-id="6af68-148">Download the web app from GitHub, and upload it to Azure for the web app to host.</span></span> <span data-ttu-id="6af68-149">Para fazer isso, execute os seguintes comandos:</span><span class="sxs-lookup"><span data-stu-id="6af68-149">To do so, run the following commands:</span></span>
+5. <span data-ttu-id="7311c-148">Baixar o aplicativo da web de saudação do GitHub e carregá-lo tooAzure para toohost de aplicativo web hello.</span><span class="sxs-lookup"><span data-stu-id="7311c-148">Download hello web app from GitHub, and upload it tooAzure for hello web app toohost.</span></span> <span data-ttu-id="7311c-149">toodo caso, execute hello comandos a seguir:</span><span class="sxs-lookup"><span data-stu-id="7311c-149">toodo so, run hello following commands:</span></span>
 
    ```bash
    git clone https://github.com/Azure-Samples/web-apps-node-iot-hub-data-visualization.git
@@ -100,24 +100,24 @@ ms.lasthandoff: 08/18/2017
    ```
 
    > [!NOTE]
-   > <span data-ttu-id="6af68-150">\<URL de clone do Git\> é a URL do repositório Git encontrado na página **Visão geral** do aplicativo Web.</span><span class="sxs-lookup"><span data-stu-id="6af68-150">\<Git clone URL\> is the URL of the Git repository found on the **Overview** page of the web app.</span></span>
+   > <span data-ttu-id="7311c-150">\<URL de clone de Git\> é Olá URL do repositório do Git Olá encontrado no hello **visão geral** página do aplicativo web de saudação.</span><span class="sxs-lookup"><span data-stu-id="7311c-150">\<Git clone URL\> is hello URL of hello Git repository found on hello **Overview** page of hello web app.</span></span>
 
-## <a name="open-the-web-app-to-see-real-time-temperature-and-humidity-data-from-your-iot-hub"></a><span data-ttu-id="6af68-151">Abrir o aplicativo Web para ver os dados de temperatura e umidade em tempo real de seu Hub IoT</span><span class="sxs-lookup"><span data-stu-id="6af68-151">Open the web app to see real-time temperature and humidity data from your IoT hub</span></span>
+## <a name="open-hello-web-app-toosee-real-time-temperature-and-humidity-data-from-your-iot-hub"></a><span data-ttu-id="7311c-151">Abrir Olá web toosee em tempo real temperatura e umidade dados de aplicativo do seu hub IoT</span><span class="sxs-lookup"><span data-stu-id="7311c-151">Open hello web app toosee real-time temperature and humidity data from your IoT hub</span></span>
 
-<span data-ttu-id="6af68-152">Na página **Visão geral** do seu aplicativo Web, clique na URL para abri-lo.</span><span class="sxs-lookup"><span data-stu-id="6af68-152">On the **Overview** page of your web app, click the URL to open the web app.</span></span>
+<span data-ttu-id="7311c-152">Em Olá **visão geral** página do seu aplicativo web, clique em Olá URL tooopen Olá web app.</span><span class="sxs-lookup"><span data-stu-id="7311c-152">On hello **Overview** page of your web app, click hello URL tooopen hello web app.</span></span>
 
-![Obter a URL do seu aplicativo web](media/iot-hub-live-data-visualization-in-web-apps/8_web-app-url-azure.png)
+![Obter URL de saudação do seu aplicativo web](media/iot-hub-live-data-visualization-in-web-apps/8_web-app-url-azure.png)
 
-<span data-ttu-id="6af68-154">Você deve ver os dados de temperatura e umidade em tempo real de seu Hub IoT.</span><span class="sxs-lookup"><span data-stu-id="6af68-154">You should see the real-time temperature and humidity data from your IoT hub.</span></span>
+<span data-ttu-id="7311c-154">Você deve ver dados de umidade e temperatura de saudação em tempo real do seu hub IoT.</span><span class="sxs-lookup"><span data-stu-id="7311c-154">You should see hello real-time temperature and humidity data from your IoT hub.</span></span>
 
 ![Página de aplicativo Web mostrando a umidade e a temperatura em tempo real](media/iot-hub-live-data-visualization-in-web-apps/9_web-app-page-show-real-time-temperature-humidity-azure.png)
 
 > [!NOTE]
-> <span data-ttu-id="6af68-156">Verifique se o aplicativo de exemplo está em execução em seu dispositivo.</span><span class="sxs-lookup"><span data-stu-id="6af68-156">Ensure the sample application is running on your device.</span></span> <span data-ttu-id="6af68-157">Se não, você receberá um gráfico em branco, você pode consultar os tutoriais em [configurar seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md).</span><span class="sxs-lookup"><span data-stu-id="6af68-157">If not, you will get a blank chart, you can refer to the tutorials under [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md).</span></span>
+> <span data-ttu-id="7311c-156">Certifique-se de que o aplicativo de exemplo hello está em execução no seu dispositivo.</span><span class="sxs-lookup"><span data-stu-id="7311c-156">Ensure hello sample application is running on your device.</span></span> <span data-ttu-id="7311c-157">Se não, você receberá um gráfico em branco, você poderá consultar toohello tutoriais em [configurar seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md).</span><span class="sxs-lookup"><span data-stu-id="7311c-157">If not, you will get a blank chart, you can refer toohello tutorials under [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md).</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="6af68-158">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="6af68-158">Next steps</span></span>
-<span data-ttu-id="6af68-159">Você usou com êxito seu aplicativo Web para visualizar dados do sensor em tempo real do seu Hub IoT.</span><span class="sxs-lookup"><span data-stu-id="6af68-159">You've successfully used your web app to visualize real-time sensor data from your IoT hub.</span></span>
+## <a name="next-steps"></a><span data-ttu-id="7311c-158">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="7311c-158">Next steps</span></span>
+<span data-ttu-id="7311c-159">Você usou com êxito seus dados de sensor em tempo real de toovisualize de aplicativo da web do seu hub IoT.</span><span class="sxs-lookup"><span data-stu-id="7311c-159">You've successfully used your web app toovisualize real-time sensor data from your IoT hub.</span></span>
 
-<span data-ttu-id="6af68-160">Para obter um modo alternativo para visualizar os dados de Hub IoT do Azure, consulte [Usar o Power BI para visualizar dados de sensor em tempo real do seu Hub IoT](iot-hub-live-data-visualization-in-power-bi.md).</span><span class="sxs-lookup"><span data-stu-id="6af68-160">For an alternative way to visualize data from Azure IoT Hub, see [Use Power BI to visualize real-time sensor data from your IoT hub](iot-hub-live-data-visualization-in-power-bi.md).</span></span>
+<span data-ttu-id="7311c-160">Para um modo alternativo toovisualize de dados do Azure IoT Hub, consulte [dados de sensor em tempo real de toovisualize usar o Power BI de seu hub IoT](iot-hub-live-data-visualization-in-power-bi.md).</span><span class="sxs-lookup"><span data-stu-id="7311c-160">For an alternative way toovisualize data from Azure IoT Hub, see [Use Power BI toovisualize real-time sensor data from your IoT hub](iot-hub-live-data-visualization-in-power-bi.md).</span></span>
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

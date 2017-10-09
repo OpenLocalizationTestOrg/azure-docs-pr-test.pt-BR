@@ -1,6 +1,6 @@
 ---
-title: Criar registros DNS personalizados para um aplicativo Web | Microsoft Docs
-description: "Como criar registros DNS de domínio personalizado para o aplicativo Web usando o DNS do Azure."
+title: aaaCreate registros de DNS personalizados para um aplicativo web | Microsoft Docs
+description: "Como o DNS de domínio personalizado toocreate registros para o aplicativo web usando o DNS do Azure."
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -13,75 +13,75 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
-ms.openlocfilehash: b054a41ecd69ee1c802d8403fe4b25128f016e3c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 070c808a55bab922eb624d99ae5c275d8eaa5aaa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a><span data-ttu-id="55422-103">Criar registros DNS para um aplicativo Web em um domínio personalizado</span><span class="sxs-lookup"><span data-stu-id="55422-103">Create DNS records for a web app in a custom domain</span></span>
+# <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a><span data-ttu-id="3a9b9-103">Criar registros DNS para um aplicativo Web em um domínio personalizado</span><span class="sxs-lookup"><span data-stu-id="3a9b9-103">Create DNS records for a web app in a custom domain</span></span>
 
-<span data-ttu-id="55422-104">Você pode usar o DNS do Azure para hospedar um domínio personalizado para seus aplicativos Web.</span><span class="sxs-lookup"><span data-stu-id="55422-104">You can use Azure DNS to host a custom domain for your web apps.</span></span> <span data-ttu-id="55422-105">Por exemplo, você está criando um aplicativo Web do Azure e quer que os usuários o acessem usando contoso.com ou www.contoso.com como FQDN.</span><span class="sxs-lookup"><span data-stu-id="55422-105">For example, you are creating an Azure web app and you want your users to access it by either using contoso.com, or www.contoso.com as an FQDN.</span></span>
+<span data-ttu-id="3a9b9-104">Você pode usar o DNS do Azure toohost um domínio personalizado para seus aplicativos web.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-104">You can use Azure DNS toohost a custom domain for your web apps.</span></span> <span data-ttu-id="3a9b9-105">Por exemplo, você está criando um aplicativo web do Azure e deseja que seus usuários tooaccess-lo pelo usando contoso.com ou www.contoso.com como um FQDN.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-105">For example, you are creating an Azure web app and you want your users tooaccess it by either using contoso.com, or www.contoso.com as an FQDN.</span></span>
 
-<span data-ttu-id="55422-106">Para isso, você precisa criar dois registros:</span><span class="sxs-lookup"><span data-stu-id="55422-106">To do this, you have to create two records:</span></span>
+<span data-ttu-id="3a9b9-106">toodo isso, você tem dois registros de toocreate:</span><span class="sxs-lookup"><span data-stu-id="3a9b9-106">toodo this, you have toocreate two records:</span></span>
 
-* <span data-ttu-id="55422-107">Um registro "A" raiz que aponta para contoso.com</span><span class="sxs-lookup"><span data-stu-id="55422-107">A root "A" record pointing to contoso.com</span></span>
-* <span data-ttu-id="55422-108">Um registro "CNAME" para o nome www que aponta para o registro A</span><span class="sxs-lookup"><span data-stu-id="55422-108">A "CNAME" record for the www name that points to the A record</span></span>
+* <span data-ttu-id="3a9b9-107">Um toocontoso.com de apontador registro raiz "A"</span><span class="sxs-lookup"><span data-stu-id="3a9b9-107">A root "A" record pointing toocontoso.com</span></span>
+* <span data-ttu-id="3a9b9-108">Um "" registro CNAME para o nome de www Olá que aponta toohello um registro</span><span class="sxs-lookup"><span data-stu-id="3a9b9-108">A "CNAME" record for hello www name that points toohello A record</span></span>
 
-<span data-ttu-id="55422-109">Tenha em mente que, se você criar um registro A para um aplicativo Web no Azure, o registro A deve ser manualmente atualizado se o endereço IP subjacente para o aplicativo Web for alterado.</span><span class="sxs-lookup"><span data-stu-id="55422-109">Keep in mind that if you create an A record for a web app in Azure, the A record must be manually updated if the underlying IP address for the web app changes.</span></span>
+<span data-ttu-id="3a9b9-109">Tenha em mente que, se você criar um registro para um aplicativo web no Azure, Olá que um registro deve ser atualizado manualmente se Olá subjacente endereço IP para alterações de aplicativo web hello.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-109">Keep in mind that if you create an A record for a web app in Azure, hello A record must be manually updated if hello underlying IP address for hello web app changes.</span></span>
 
-## <a name="before-you-begin"></a><span data-ttu-id="55422-110">Antes de começar</span><span class="sxs-lookup"><span data-stu-id="55422-110">Before you begin</span></span>
+## <a name="before-you-begin"></a><span data-ttu-id="3a9b9-110">Antes de começar</span><span class="sxs-lookup"><span data-stu-id="3a9b9-110">Before you begin</span></span>
 
-<span data-ttu-id="55422-111">Antes de começar, primeiro você deve criar uma zona DNS no DNS do Azure e delegar a zona no registrador para o DNS do Azure.</span><span class="sxs-lookup"><span data-stu-id="55422-111">Before you begin, you must first create a DNS zone in Azure DNS, and delegate the zone in your registrar to Azure DNS.</span></span>
+<span data-ttu-id="3a9b9-111">Antes de começar, deve primeiro criar uma zona DNS no DNS do Azure e delegar a zona Olá no seu registrador tooAzure DNS.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-111">Before you begin, you must first create a DNS zone in Azure DNS, and delegate hello zone in your registrar tooAzure DNS.</span></span>
 
-1. <span data-ttu-id="55422-112">Para criar uma zona DNS, siga as etapas em [Criar uma zona DNS](dns-getstarted-create-dnszone.md).</span><span class="sxs-lookup"><span data-stu-id="55422-112">To create a DNS zone, follow the steps in [Create a DNS zone](dns-getstarted-create-dnszone.md).</span></span>
-2. <span data-ttu-id="55422-113">Para delegar o DNS ao DNS do Azure, siga as etapas em [Delegação de domínio DNS](dns-domain-delegation.md).</span><span class="sxs-lookup"><span data-stu-id="55422-113">To delegate your DNS to Azure DNS, follow the steps in [DNS domain delegation](dns-domain-delegation.md).</span></span>
+1. <span data-ttu-id="3a9b9-112">toocreate uma zona DNS, execute as etapas de saudação em [criar uma zona DNS](dns-getstarted-create-dnszone.md).</span><span class="sxs-lookup"><span data-stu-id="3a9b9-112">toocreate a DNS zone, follow hello steps in [Create a DNS zone](dns-getstarted-create-dnszone.md).</span></span>
+2. <span data-ttu-id="3a9b9-113">toodelegate tooAzure seu DNS DNS, execute as etapas de saudação em [delegação de domínio DNS](dns-domain-delegation.md).</span><span class="sxs-lookup"><span data-stu-id="3a9b9-113">toodelegate your DNS tooAzure DNS, follow hello steps in [DNS domain delegation](dns-domain-delegation.md).</span></span>
 
-<span data-ttu-id="55422-114">Após criar uma zona e delegá-la ao DNS do Azure, você pode criar registros para seu domínio personalizado.</span><span class="sxs-lookup"><span data-stu-id="55422-114">After creating a zone and delegating it to Azure DNS, you can then create records for your custom domain.</span></span>
+<span data-ttu-id="3a9b9-114">Depois de criar uma zona e delegação de DNS de tooAzure, em seguida, você pode criar registros para seu domínio personalizado.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-114">After creating a zone and delegating it tooAzure DNS, you can then create records for your custom domain.</span></span>
 
-## <a name="1-create-an-a-record-for-your-custom-domain"></a><span data-ttu-id="55422-115">1. Criar um registro A para seu domínio personalizado</span><span class="sxs-lookup"><span data-stu-id="55422-115">1. Create an A record for your custom domain</span></span>
+## <a name="1-create-an-a-record-for-your-custom-domain"></a><span data-ttu-id="3a9b9-115">1. Criar um registro A para seu domínio personalizado</span><span class="sxs-lookup"><span data-stu-id="3a9b9-115">1. Create an A record for your custom domain</span></span>
 
-<span data-ttu-id="55422-116">Um registro A é usado para mapear um nome para seu endereço IP.</span><span class="sxs-lookup"><span data-stu-id="55422-116">An A record is used to map a name to its IP address.</span></span> <span data-ttu-id="55422-117">No exemplo a seguir, atribuiremos @ como um registro A para um endereço IPv4:</span><span class="sxs-lookup"><span data-stu-id="55422-117">In the following example we will assign @ as an A record to an IPv4 address:</span></span>
+<span data-ttu-id="3a9b9-116">Um registro é toomap usado um endereço IP do nome tooits.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-116">An A record is used toomap a name tooits IP address.</span></span> <span data-ttu-id="3a9b9-117">Saudação de exemplo a seguir é atribuirá como um tooan de registro de um endereço IPv4:</span><span class="sxs-lookup"><span data-stu-id="3a9b9-117">In hello following example we will assign @ as an A record tooan IPv4 address:</span></span>
 
-### <a name="step-1"></a><span data-ttu-id="55422-118">Etapa 1</span><span class="sxs-lookup"><span data-stu-id="55422-118">Step 1</span></span>
+### <a name="step-1"></a><span data-ttu-id="3a9b9-118">Etapa 1</span><span class="sxs-lookup"><span data-stu-id="3a9b9-118">Step 1</span></span>
 
-<span data-ttu-id="55422-119">Crie um registro A e atribuir a uma variável $rs</span><span class="sxs-lookup"><span data-stu-id="55422-119">Create an A record and assign to a variable $rs</span></span>
+<span data-ttu-id="3a9b9-119">Crie um registro e atribua tooa $rs variável</span><span class="sxs-lookup"><span data-stu-id="3a9b9-119">Create an A record and assign tooa variable $rs</span></span>
 
 ```powershell
 $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600
 ```
 
-### <a name="step-2"></a><span data-ttu-id="55422-120">Etapa 2</span><span class="sxs-lookup"><span data-stu-id="55422-120">Step 2</span></span>
+### <a name="step-2"></a><span data-ttu-id="3a9b9-120">Etapa 2</span><span class="sxs-lookup"><span data-stu-id="3a9b9-120">Step 2</span></span>
 
-<span data-ttu-id="55422-121">Adicione o valor IPv4 ao conjunto de registros criado anteriormente "@" usando a variável $rs atribuída.</span><span class="sxs-lookup"><span data-stu-id="55422-121">Add the IPv4 value to the previously created record set "@" using the $rs variable assigned.</span></span> <span data-ttu-id="55422-122">O valor IPv4 atribuído será o endereço IP do seu aplicativo Web.</span><span class="sxs-lookup"><span data-stu-id="55422-122">The IPv4 value assigned will be the IP address for your web app.</span></span>
+<span data-ttu-id="3a9b9-121">Adicionar conjunto de registros Olá IPv4 valor toohello criado anteriormente "@" usando a variável Olá $rs atribuído.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-121">Add hello IPv4 value toohello previously created record set "@" using hello $rs variable assigned.</span></span> <span data-ttu-id="3a9b9-122">Olá valor IPv4 atribuído será o endereço IP de saudação para seu aplicativo web.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-122">hello IPv4 value assigned will be hello IP address for your web app.</span></span>
 
-<span data-ttu-id="55422-123">Para localizar o endereço IP de um aplicativo Web, siga as etapas em [Configurar um nome de domínio personalizado no serviço de aplicativo do Azure](../app-service-web/app-service-web-tutorial-custom-domain.md).</span><span class="sxs-lookup"><span data-stu-id="55422-123">To find the IP address for a web app, follow the steps in [Configure a custom domain name in Azure App Service](../app-service-web/app-service-web-tutorial-custom-domain.md).</span></span>
+<span data-ttu-id="3a9b9-123">endereço IP de saudação toofind para um aplicativo web, siga as etapas de saudação em [configurar um nome de domínio personalizado no serviço de aplicativo do Azure](../app-service-web/app-service-web-tutorial-custom-domain.md).</span><span class="sxs-lookup"><span data-stu-id="3a9b9-123">toofind hello IP address for a web app, follow hello steps in [Configure a custom domain name in Azure App Service](../app-service-web/app-service-web-tutorial-custom-domain.md).</span></span>
 
 ```powershell
 Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address "<your web app IP address>"
 ```
 
-### <a name="step-3"></a><span data-ttu-id="55422-124">Etapa 3</span><span class="sxs-lookup"><span data-stu-id="55422-124">Step 3</span></span>
+### <a name="step-3"></a><span data-ttu-id="3a9b9-124">Etapa 3</span><span class="sxs-lookup"><span data-stu-id="3a9b9-124">Step 3</span></span>
 
-<span data-ttu-id="55422-125">Confirme as alterações no conjunto de registros.</span><span class="sxs-lookup"><span data-stu-id="55422-125">Commit the changes to the record set.</span></span> <span data-ttu-id="55422-126">Use `Set-AzureRMDnsRecordSet` para carregar as alterações no conjunto de registros para o DNS do Azure:</span><span class="sxs-lookup"><span data-stu-id="55422-126">Use `Set-AzureRMDnsRecordSet` to upload the changes to the record set to Azure DNS:</span></span>
+<span data-ttu-id="3a9b9-125">Confirme o conjunto de registros Olá alterações toohello.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-125">Commit hello changes toohello record set.</span></span> <span data-ttu-id="3a9b9-126">Use `Set-AzureRMDnsRecordSet` Olá tooupload altera toohello tooAzure de conjunto de registros DNS:</span><span class="sxs-lookup"><span data-stu-id="3a9b9-126">Use `Set-AzureRMDnsRecordSet` tooupload hello changes toohello record set tooAzure DNS:</span></span>
 
 ```powershell
 Set-AzureRMDnsRecordSet -RecordSet $rs
 ```
 
-## <a name="2-create-a-cname-record-for-your-custom-domain"></a><span data-ttu-id="55422-127">2. Criar um registro CNAME para seu domínio personalizado</span><span class="sxs-lookup"><span data-stu-id="55422-127">2. Create a CNAME record for your custom domain</span></span>
+## <a name="2-create-a-cname-record-for-your-custom-domain"></a><span data-ttu-id="3a9b9-127">2. Criar um registro CNAME para seu domínio personalizado</span><span class="sxs-lookup"><span data-stu-id="3a9b9-127">2. Create a CNAME record for your custom domain</span></span>
 
-<span data-ttu-id="55422-128">Se o domínio já é gerenciado pelo DNS do Azure (confira [Delegação de domínio ao DNS](dns-domain-delegation.md)), você pode usar o exemplo a seguir para criar um registro CNAME para contoso.azurewebsites.net.</span><span class="sxs-lookup"><span data-stu-id="55422-128">If your domain is already managed by Azure DNS (see [DNS domain delegation](dns-domain-delegation.md), you can use the following the example to create a CNAME record for contoso.azurewebsites.net.</span></span>
+<span data-ttu-id="3a9b9-128">Se o domínio já é gerenciado pelo DNS do Azure (consulte [delegação de domínio DNS](dns-domain-delegation.md), você pode usar Olá Olá exemplo toocreate um registro CNAME para contoso.azurewebsites.net a seguir.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-128">If your domain is already managed by Azure DNS (see [DNS domain delegation](dns-domain-delegation.md), you can use hello following hello example toocreate a CNAME record for contoso.azurewebsites.net.</span></span>
 
-### <a name="step-1"></a><span data-ttu-id="55422-129">Etapa 1</span><span class="sxs-lookup"><span data-stu-id="55422-129">Step 1</span></span>
+### <a name="step-1"></a><span data-ttu-id="3a9b9-129">Etapa 1</span><span class="sxs-lookup"><span data-stu-id="3a9b9-129">Step 1</span></span>
 
-<span data-ttu-id="55422-130">Abra o PowerShell, crie um novo conjunto de registros CNAME e atribua-o a uma variável $rs.</span><span class="sxs-lookup"><span data-stu-id="55422-130">Open PowerShell and create a new CNAME record set and assign to a variable $rs.</span></span> <span data-ttu-id="55422-131">Este exemplo cria um tipo de conjunto de registros CNAME com uma "vida útil" de 600 segundos na zona DNS denominada "contoso.com".</span><span class="sxs-lookup"><span data-stu-id="55422-131">This example will create a record set type CNAME with a "time to live" of 600 seconds in DNS zone named "contoso.com".</span></span>
+<span data-ttu-id="3a9b9-130">Abra o PowerShell e crie um novo conjunto de registros CNAME e atribua tooa $rs variável.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-130">Open PowerShell and create a new CNAME record set and assign tooa variable $rs.</span></span> <span data-ttu-id="3a9b9-131">Este exemplo criará um tipo de conjunto de registros CNAME com um "tempo toolive" de 600 segundos na zona DNS denominado "contoso.com".</span><span class="sxs-lookup"><span data-stu-id="3a9b9-131">This example will create a record set type CNAME with a "time toolive" of 600 seconds in DNS zone named "contoso.com".</span></span>
 
 ```powershell
 $rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
 ```
 
-<span data-ttu-id="55422-132">O exemplo a seguir é a resposta.</span><span class="sxs-lookup"><span data-stu-id="55422-132">The following example is the response.</span></span>
+<span data-ttu-id="3a9b9-132">saudação de exemplo a seguir é a resposta de saudação.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-132">hello following example is hello response.</span></span>
 
 ```
 Name              : www
@@ -94,17 +94,17 @@ Records           : {}
 Tags              : {}
 ```
 
-### <a name="step-2"></a><span data-ttu-id="55422-133">Etapa 2</span><span class="sxs-lookup"><span data-stu-id="55422-133">Step 2</span></span>
+### <a name="step-2"></a><span data-ttu-id="3a9b9-133">Etapa 2</span><span class="sxs-lookup"><span data-stu-id="3a9b9-133">Step 2</span></span>
 
-<span data-ttu-id="55422-134">Depois de criar o conjunto de registros CNAME, você precisa criar um valor de alias que apontará para o aplicativo Web.</span><span class="sxs-lookup"><span data-stu-id="55422-134">Once the CNAME record set is created, you need to create an alias value which will point to the web app.</span></span>
+<span data-ttu-id="3a9b9-134">Após Olá conjunto de registros CNAME é criado, você precisará toocreate um valor de alias que vai apontar toohello web app.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-134">Once hello CNAME record set is created, you need toocreate an alias value which will point toohello web app.</span></span>
 
-<span data-ttu-id="55422-135">Usando a variável "$rs" atribuída anteriormente, você pode usar o comando PowerShell a seguir para criar o alias para o aplicativo Web contoso.azurewebsites.net.</span><span class="sxs-lookup"><span data-stu-id="55422-135">Using the previously assigned variable "$rs" you can use the PowerShell command below to create the alias for the web app contoso.azurewebsites.net.</span></span>
+<span data-ttu-id="3a9b9-135">Usando Olá atribuídos previamente a variável "$rs" você pode usar o comando do PowerShell Olá abaixo alias de saudação toocreate para Olá web aplicativo contoso.azurewebsites.net.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-135">Using hello previously assigned variable "$rs" you can use hello PowerShell command below toocreate hello alias for hello web app contoso.azurewebsites.net.</span></span>
 
 ```powershell
 Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
 ```
 
-<span data-ttu-id="55422-136">O exemplo a seguir é a resposta.</span><span class="sxs-lookup"><span data-stu-id="55422-136">The following example is the response.</span></span>
+<span data-ttu-id="3a9b9-136">saudação de exemplo a seguir é a resposta de saudação.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-136">hello following example is hello response.</span></span>
 
 ```
     Name              : www
@@ -117,15 +117,15 @@ Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
     Tags              : {}
 ```
 
-### <a name="step-3"></a><span data-ttu-id="55422-137">Etapa 3</span><span class="sxs-lookup"><span data-stu-id="55422-137">Step 3</span></span>
+### <a name="step-3"></a><span data-ttu-id="3a9b9-137">Etapa 3</span><span class="sxs-lookup"><span data-stu-id="3a9b9-137">Step 3</span></span>
 
-<span data-ttu-id="55422-138">Confirme as alterações usando o cmdlet `Set-AzureRMDnsRecordSet` :</span><span class="sxs-lookup"><span data-stu-id="55422-138">Commit the changes using the `Set-AzureRMDnsRecordSet` cmdlet:</span></span>
+<span data-ttu-id="3a9b9-138">Confirmar alterações de saudação usando Olá `Set-AzureRMDnsRecordSet` cmdlet:</span><span class="sxs-lookup"><span data-stu-id="3a9b9-138">Commit hello changes using hello `Set-AzureRMDnsRecordSet` cmdlet:</span></span>
 
 ```powershell
 Set-AzureRMDnsRecordSet -RecordSet $rs
 ```
 
-<span data-ttu-id="55422-139">Você pode validar se o registro foi criado corretamente consultando "www.contoso.com" usando o nslookup, conforme mostrado abaixo:</span><span class="sxs-lookup"><span data-stu-id="55422-139">You can validate the record was created correctly by querying the "www.contoso.com" using nslookup, as shown below:</span></span>
+<span data-ttu-id="3a9b9-139">Você pode validar o registro de saudação foi criado corretamente consultando hello "www.contoso.com" usando nslookup, conforme mostrado abaixo:</span><span class="sxs-lookup"><span data-stu-id="3a9b9-139">You can validate hello record was created correctly by querying hello "www.contoso.com" using nslookup, as shown below:</span></span>
 
 ```
 PS C:\> nslookup
@@ -144,19 +144,19 @@ contoso.azurewebsites.net
 <instance of web app service>.vip.azurewebsites.windows.net
 ```
 
-## <a name="create-an-awverify-record-for-web-apps"></a><span data-ttu-id="55422-140">Criar um registro "awverify" para aplicativos Web</span><span class="sxs-lookup"><span data-stu-id="55422-140">Create an "awverify" record for web apps</span></span>
+## <a name="create-an-awverify-record-for-web-apps"></a><span data-ttu-id="3a9b9-140">Criar um registro "awverify" para aplicativos Web</span><span class="sxs-lookup"><span data-stu-id="3a9b9-140">Create an "awverify" record for web apps</span></span>
 
-<span data-ttu-id="55422-141">Se você decidir usar um registro A do seu aplicativo Web, deverá passar por um processo de verificação para garantir que você tem o domínio personalizado.</span><span class="sxs-lookup"><span data-stu-id="55422-141">If you decide to use an A record for your web app, you must go through a verification process to ensure you own the custom domain.</span></span> <span data-ttu-id="55422-142">Essa etapa de verificação é feita criando um registro CNAME especial chamado "awverify".</span><span class="sxs-lookup"><span data-stu-id="55422-142">This verification step is done by creating a special CNAME record named "awverify".</span></span> <span data-ttu-id="55422-143">Esta seção aplica-se somente a registros A.</span><span class="sxs-lookup"><span data-stu-id="55422-143">This section applies to A records only.</span></span>
+<span data-ttu-id="3a9b9-141">Se você decidir toouse um registro a para seu aplicativo web, você deve percorrer um tooensure do processo de verificação é domínio personalizado próprio hello.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-141">If you decide toouse an A record for your web app, you must go through a verification process tooensure you own hello custom domain.</span></span> <span data-ttu-id="3a9b9-142">Essa etapa de verificação é feita criando um registro CNAME especial chamado "awverify".</span><span class="sxs-lookup"><span data-stu-id="3a9b9-142">This verification step is done by creating a special CNAME record named "awverify".</span></span> <span data-ttu-id="3a9b9-143">Esta seção aplica-se somente os registros de tooA.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-143">This section applies tooA records only.</span></span>
 
-### <a name="step-1"></a><span data-ttu-id="55422-144">Etapa 1</span><span class="sxs-lookup"><span data-stu-id="55422-144">Step 1</span></span>
+### <a name="step-1"></a><span data-ttu-id="3a9b9-144">Etapa 1</span><span class="sxs-lookup"><span data-stu-id="3a9b9-144">Step 1</span></span>
 
-<span data-ttu-id="55422-145">Crie o registro "awverify".</span><span class="sxs-lookup"><span data-stu-id="55422-145">Create the "awverify" record.</span></span> <span data-ttu-id="55422-146">No exemplo a seguir, criaremos o registro "aweverify" para contoso.com verificar a propriedade do domínio personalizado.</span><span class="sxs-lookup"><span data-stu-id="55422-146">In the example below, we will create the "aweverify" record for contoso.com to verify ownership for the custom domain.</span></span>
+<span data-ttu-id="3a9b9-145">Crie registro de "awverify" hello.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-145">Create hello "awverify" record.</span></span> <span data-ttu-id="3a9b9-146">No exemplo hello abaixo, vamos criar registro de "aweverify" Olá para contoso.com tooverify propriedade para o domínio personalizado hello.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-146">In hello example below, we will create hello "aweverify" record for contoso.com tooverify ownership for hello custom domain.</span></span>
 
 ```powershell
 $rs = New-AzureRMDnsRecordSet -ZoneName "contoso.com" -ResourceGroupName "myresourcegroup" -Name "awverify" -RecordType "CNAME" -Ttl 600
 ```
 
-<span data-ttu-id="55422-147">O exemplo a seguir é a resposta.</span><span class="sxs-lookup"><span data-stu-id="55422-147">The following example is the response.</span></span>
+<span data-ttu-id="3a9b9-147">saudação de exemplo a seguir é a resposta de saudação.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-147">hello following example is hello response.</span></span>
 
 ```
 Name              : awverify
@@ -169,15 +169,15 @@ Records           : {}
 Tags              : {}
 ```
 
-### <a name="step-2"></a><span data-ttu-id="55422-148">Etapa 2</span><span class="sxs-lookup"><span data-stu-id="55422-148">Step 2</span></span>
+### <a name="step-2"></a><span data-ttu-id="3a9b9-148">Etapa 2</span><span class="sxs-lookup"><span data-stu-id="3a9b9-148">Step 2</span></span>
 
-<span data-ttu-id="55422-149">Após criar o conjunto de registros "awverify", atribua o alias do conjunto de registros CNAME.</span><span class="sxs-lookup"><span data-stu-id="55422-149">Once the record set "awverify" is created, assign the CNAME record set alias.</span></span> <span data-ttu-id="55422-150">No exemplo a seguir, atribuiremos o alias do conjunto de registros CNAMe a awverify.contoso.azurewebsites.net.</span><span class="sxs-lookup"><span data-stu-id="55422-150">In the example below, we will assign the CNAMe record set alias to awverify.contoso.azurewebsites.net.</span></span>
+<span data-ttu-id="3a9b9-149">Depois de criar o conjunto de registros "awverify" Olá, atribua o registro CNAME Olá alias definido.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-149">Once hello record set "awverify" is created, assign hello CNAME record set alias.</span></span> <span data-ttu-id="3a9b9-150">O exemplo hello abaixo, podemos atribuirá Olá tooawverify.contoso.azurewebsites.net de alias de conjunto de registros de CNAMe.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-150">In hello example below, we will assign hello CNAMe record set alias tooawverify.contoso.azurewebsites.net.</span></span>
 
 ```powershell
 Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
 ```
 
-<span data-ttu-id="55422-151">O exemplo a seguir é a resposta.</span><span class="sxs-lookup"><span data-stu-id="55422-151">The following example is the response.</span></span>
+<span data-ttu-id="3a9b9-151">saudação de exemplo a seguir é a resposta de saudação.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-151">hello following example is hello response.</span></span>
 
 ```
     Name              : awverify
@@ -190,14 +190,14 @@ Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites
     Tags              : {}
 ```
 
-### <a name="step-3"></a><span data-ttu-id="55422-152">Etapa 3</span><span class="sxs-lookup"><span data-stu-id="55422-152">Step 3</span></span>
+### <a name="step-3"></a><span data-ttu-id="3a9b9-152">Etapa 3</span><span class="sxs-lookup"><span data-stu-id="3a9b9-152">Step 3</span></span>
 
-<span data-ttu-id="55422-153">Confirme as alterações usando o `Set-AzureRMDnsRecordSet cmdlet`, conforme mostrado no comando abaixo.</span><span class="sxs-lookup"><span data-stu-id="55422-153">Commit the changes using the `Set-AzureRMDnsRecordSet cmdlet`, as shown in the command below.</span></span>
+<span data-ttu-id="3a9b9-153">Confirmar alterações de saudação usando Olá `Set-AzureRMDnsRecordSet cmdlet`, conforme mostrado no comando de saudação abaixo.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-153">Commit hello changes using hello `Set-AzureRMDnsRecordSet cmdlet`, as shown in hello command below.</span></span>
 
 ```powershell
 Set-AzureRMDnsRecordSet -RecordSet $rs
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="55422-154">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="55422-154">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="3a9b9-154">Próximas etapas</span><span class="sxs-lookup"><span data-stu-id="3a9b9-154">Next steps</span></span>
 
-<span data-ttu-id="55422-155">Siga as etapas em [Configurar um nome de domínio personalizado para o serviço de aplicativo](../app-service-web/web-sites-custom-domain-name.md) para configurar o aplicativo Web para usar um domínio personalizado.</span><span class="sxs-lookup"><span data-stu-id="55422-155">Follow the steps in [Configuring a custom domain name for App Service](../app-service-web/web-sites-custom-domain-name.md) to configure your web app to use a custom domain.</span></span>
+<span data-ttu-id="3a9b9-155">Siga as etapas de saudação em [Configurando um nome de domínio personalizado para o serviço de aplicativo](../app-service-web/web-sites-custom-domain-name.md) tooconfigure seu aplicativo de web toouse um domínio personalizado.</span><span class="sxs-lookup"><span data-stu-id="3a9b9-155">Follow hello steps in [Configuring a custom domain name for App Service](../app-service-web/web-sites-custom-domain-name.md) tooconfigure your web app toouse a custom domain.</span></span>
