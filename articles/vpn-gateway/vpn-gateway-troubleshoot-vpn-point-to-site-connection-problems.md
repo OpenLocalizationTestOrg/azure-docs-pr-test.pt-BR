@@ -1,6 +1,6 @@
 ---
-title: "Solucionar problemas de conexão de ponto a site do Azure | Microsoft Docs"
-description: "Saiba como solucionar problemas de conexão de ponto a site."
+title: "problemas de conexão aaaTroubleshoot Azure ponto a site | Microsoft Docs"
+description: "Saiba como tootroubleshoot problemas de conexão de ponto a site."
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
-ms.openlocfilehash: de37c8ffd47a2b8e201d18e3a20b5325d528ad59
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 98d66074be62ad8c7153a903f69cb0d01f988cd2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solução de problemas: problemas de conexão de ponto a site do Azure
 
@@ -28,52 +28,52 @@ Este artigo lista os problemas comuns de conexão de ponto a site que podem ocor
 
 ### <a name="symptom"></a>Sintoma
 
-Quando você tenta conectar-se à rede virtual do Azure usando o cliente VPN, recebe a seguinte mensagem de erro:
+Quando você tenta tooconnect tooan rede virtual do Azure usando saudação do cliente VPN, você receberá Olá a seguinte mensagem de erro:
 
 **Não foi possível encontrar um certificado que possa ser usado com este protocolo EAP. (Erro 798)**
 
 ### <a name="cause"></a>Causa
 
-Esse problema ocorrerá se o certificado do cliente estiver ausente em **Certificates – Current User\Personal\Certificates**.
+Esse problema ocorre se o certificado de cliente hello está ausente no **certificados - certificados atual**.
 
 ### <a name="solution"></a>Solução
 
-Verifique se o certificado do cliente está instalado no seguinte local do repositório de certificados (Certmgr.msc):
+Verifique se que esse certificado de cliente hello está instalado no hello local do repositório de certificados da saudação (Certmgr.msc) a seguir:
  
 **Certificates - Current User\Personal\Certificates**
 
-Para saber mais sobre como instalar o certificado do cliente, confira [Gerar e exportar certificados para conexões ponto a site](vpn-gateway-certificates-point-to-site.md).
+Para obter mais informações sobre como tooinstall Olá certificado de cliente, consulte [gerar e exportar certificados para conexões ponto a site](vpn-gateway-certificates-point-to-site.md).
 
 > [!NOTE]
-> Quando você importar o certificado do cliente, não selecione a opção **Habilitar a proteção de chave privada forte**.
+> Quando você importa o certificado de cliente hello, não selecione Olá **habilitar a proteção forte de chave privada** opção.
 
-## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>Erro de cliente VPN: a mensagem recebida foi inesperada ou formatada incorretamente
+## <a name="vpn-client-error-hello-message-received-was-unexpected-or-badly-formatted"></a>Erro de cliente VPN: mensagem de saudação recebida era inesperada ou formatada incorretamente
 
 ### <a name="symptom"></a>Sintoma
 
-Quando você tenta conectar-se à rede virtual do Azure usando o cliente VPN, recebe a seguinte mensagem de erro:
+Quando você tenta tooconnect tooan rede virtual do Azure usando saudação do cliente VPN, você receberá Olá a seguinte mensagem de erro:
 
-**A mensagem recebida era inesperada ou estava formatada incorretamente. (Erro 0x80090326)**
+**mensagem de saudação recebida era inesperada ou formatada incorretamente. (Erro 0x80090326)**
 
 ### <a name="cause"></a>Causa
 
-Esse problema ocorre se a chave pública do certificado raiz não é carregada para o gateway de VPN do Azure. Também poderá ocorrer se a chave estiver corrompida ou expirada.
+Esse problema ocorre se a chave pública do certificado de raiz de saudação não é carregada no gateway de VPN do Azure hello. Ele também pode ocorrer se a chave hello está corrompido ou expirado.
 
 ### <a name="solution"></a>Solução
 
-Para resolver esse problema, verifique o status do certificado raiz no portal do Azure para ver se ele foi revogado. Se não foi revogado, tente excluir o certificado raiz e carregá-lo novamente. Para saber mais, confira [Criar certificados](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
+tooresolve esse problema, verificar o status de saudação da raiz de saudação do certificado em Olá toosee portal do Azure se ele foi revogado. Se não for revogado, tente reupload e certificado de raiz toodelete hello. Para saber mais, confira [Criar certificados](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts).
 
 ## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>Erro de cliente VPN: uma cadeia de certificados foi processada, mas fechada 
 
 ### <a name="symptom"></a>Sintoma 
 
-Quando você tenta conectar-se à rede virtual do Azure usando o cliente VPN, recebe a seguinte mensagem de erro:
+Quando você tenta tooconnect tooan rede virtual do Azure usando saudação do cliente VPN, você receberá Olá a seguinte mensagem de erro:
 
-**Uma cadeia de certificados foi processada, mas terminou em um certificado raiz em que o provedor de confiabilidade não confia.**
+**Uma cadeia de certificados processada, mas terminou em um certificado raiz que não é confiável pelo provedor de confiança de saudação.**
 
 ### <a name="solution"></a>Solução
 
-1. Verifique se os certificados abaixo estão no local correto:
+1. Certifique-se de que Olá certificados a seguir estão no local correto hello:
 
     | Certificado | Local padrão |
     | ------------- | ------------- |
@@ -81,13 +81,13 @@ Quando você tenta conectar-se à rede virtual do Azure usando o cliente VPN, re
     | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
     | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
 
-2. Se os certificados estiverem no local, tente excluir os certificados e reinstalá-los. O certificado **azuregateway-*GUID*.cloudapp.net** está no pacote de configuração de cliente VPN que você baixou do portal do Azure. Você pode usar arquivadores para extrair os arquivos do pacote.
+2. Se certificados Olá já estão no local de hello, tente certificados de saudação toodelete e reinstalá-los. Olá  **azuregateway -*GUID*. cloudapp.net** certificado está no hello configuração pacote do cliente VPN que você baixou da saudação portal do Azure. Você pode usar archivers tooextract Olá arquivos do pacote de saudação.
 
 ## <a name="file-download-error-target-uri-is-not-specified"></a>Erro no download do arquivo: o URI de destino não foi especificado
 
 ### <a name="symptom"></a>Sintoma
 
-Você vê a seguinte mensagem de erro:
+Você receberá Olá a seguinte mensagem de erro:
 
 **Erro de download do arquivo. O URI de destino não foi especificado.**
 
@@ -97,56 +97,56 @@ Esse problema ocorre devido ao tipo de gateway incorreto.
 
 ### <a name="solution"></a>Solução
 
-O tipo de gateway de VPN deve ser **VPN**, enquanto o tipo de VPN deve ser **RouteBased**.
+Olá tipo de gateway VPN deve ser **VPN**, e deve ser Olá tipo VPN **RouteBased**.
 
 ## <a name="vpn-client-error-azure-vpn-custom-script-failed"></a>Erro de cliente VPN: falha de script personalizado do VPN Azure 
 
 ### <a name="symptom"></a>Sintoma
 
-Quando você tenta conectar-se à rede virtual do Azure usando o cliente VPN, recebe a seguinte mensagem de erro:
+Quando você tenta tooconnect tooan rede virtual do Azure usando saudação do cliente VPN, você receberá Olá a seguinte mensagem de erro:
 
-**Falha de script personalizado (para atualizar sua tabela de roteamento). (Erro 8007026f)**
+**Script personalizado (tooupdate sua tabela de roteamento) falhou. (Erro 8007026f)**
 
 ### <a name="cause"></a>Causa
 
-Esse problema poderá ocorrer se você estiver tentando abrir a conexão VPN site a ponto usando um atalho.
+Esse problema pode ocorrer se você estiver tentando conexão de VPN tooopen Olá ponto a site usando um atalho.
 
 ### <a name="solution"></a>Solução 
 
-Abra o pacote VPN diretamente em vez de abri-lo pelo atalho.
+Abra o pacote VPN de saudação diretamente, em vez de abri-lo do atalho hello.
 
-## <a name="cannot-install-the-vpn-client"></a>Não é possível instalar o cliente VPN
+## <a name="cannot-install-hello-vpn-client"></a>Não é possível instalar o cliente VPN Olá
 
 ### <a name="cause"></a>Causa 
 
-Um certificado adicional é necessário para confiar no gateway de VPN da sua rede virtual. O certificado está incluído no pacote de configuração de cliente VPN que é gerado no portal do Azure.
+Um certificado adicional será necessária tootrust gateway VPN Olá para sua rede virtual. Olá certificado está incluído no pacote configuração de cliente VPN de saudação que é gerado em Olá portal do Azure.
 
 ### <a name="solution"></a>Solução
 
-Extraia o pacote de configuração do cliente VPN e localize o arquivo .cer. Para instalar o certificado, siga estas etapas:
+Extraia o pacote de configuração de cliente VPN hello e localizar o arquivo. cer de saudação. Olá tooinstall do certificado, siga estas etapas:
 
 1. Abra mmc.exe.
-2. Adicione o snap-in **Certificados**.
-3. Selecione a conta **Computador** para o computador local.
-4. Clique com botão direito do mouse no nó **Autoridades de Certificação Confiáveis**. Clique em **All-Task** > **Import** e navegue até o arquivo .cer que você extraiu do pacote de configuração do cliente VPN.
-5. Reinicie o computador. 
-6. Tente instalar o cliente VPN.
+2. Adicionar Olá **certificados** snap-in.
+3. Selecione Olá **computador** de conta de computador local hello.
+4. Saudação de atalho **autoridades de certificação raiz confiáveis** nó. Clique em **todas as tarefas** > **importação**e procurar toohello. cer arquivos extraídos do pacote de configuração de cliente VPN hello.
+5. Reinicie o computador de saudação. 
+6. Tente tooinstall do cliente VPN hello.
 
-## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-data-is-invalid"></a>Erro de portal do Azure: falha ao salvar o gateway de VPN e os dados são inválidos
+## <a name="azure-portal-error-failed-toosave-hello-vpn-gateway-and-hello-data-is-invalid"></a>Erro de portal do Azure: falha do gateway VPN toosave hello e dados saudação são inválidos
 
 ### <a name="symptom"></a>Sintoma
 
-Quando você tenta salvar as alterações do gateway de VPN no portal do Azure, recebe a seguinte mensagem de erro:
+Quando você tenta toosave alterações de saudação de gateway VPN Olá Olá portal do Azure, você receberá Olá a seguinte mensagem de erro:
 
-**Falha ao salvar o gateway de rede virtual &lt;*nome do gateway*&gt;. Os dados para o certificado &lt;*ID do certificado*&gt; são inválidos.**
+**Gateway de rede virtual com falha toosave &lt;* nome do gateway*&gt;. Os dados para o certificado &lt;*ID do certificado*&gt; são inválidos.**
 
 ### <a name="cause"></a>Causa 
 
-Esse problema poderá ocorrer se a chave pública do certificado raiz que você carregou contiver caracteres inválidos, como espaço.
+Esse problema pode ocorrer se Olá raiz chave pública de certificado que você carregou contém um caractere inválido, como um espaço.
 
 ### <a name="solution"></a>Solução
 
-Verifique se os dados no certificado não contêm caracteres inválidos, como quebras de linha (retornos de carro). O valor inteiro deve estar em uma linha longa. O texto abaixo é um exemplo de certificado:
+Certifique-se de que dados Olá no certificado de saudação não contém caracteres inválidos, como quebras de linha (retorno de carro). valor inteiro Olá deve ser uma linha longa. Olá texto a seguir está um exemplo de certificado hello:
 
     -----BEGIN CERTIFICATE-----
     MIIC5zCCAc+gAwIBAgIQFSwsLuUrCIdHwI3hzJbdBjANBgkqhkiG9w0BAQsFADAW
@@ -167,91 +167,91 @@ Verifique se os dados no certificado não contêm caracteres inválidos, como qu
     e8Jcej7mzunzyjz4chN0/WVF94MtxbUkLkqP
     -----END CERTIFICATE-----
 
-## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-resource-name-is-invalid"></a>Erro do portal do Azure: falha ao salvar gateway de VPN e o nome do recurso é inválido
+## <a name="azure-portal-error-failed-toosave-hello-vpn-gateway-and-hello-resource-name-is-invalid"></a>Erro de portal do Azure: falha do gateway VPN toosave hello e Olá nome do recurso é inválido
 
 ### <a name="symptom"></a>Sintoma
 
-Quando você tenta salvar as alterações do gateway de VPN no portal do Azure, recebe a seguinte mensagem de erro: 
+Quando você tenta toosave alterações de saudação de gateway VPN Olá Olá portal do Azure, você receberá Olá a seguinte mensagem de erro: 
 
-**Falha ao salvar o gateway de rede virtual &lt;*nome do gateway*&gt;. Nome do recurso &lt;*o nome do certificado que você tenta carregar*&gt; é inválido**.
+**Gateway de rede virtual com falha toosave &lt;* nome do gateway*&gt;. Nome do recurso &lt; *nome do certificado que você tente tooupload* &gt; é inválido * *.
 
 ### <a name="cause"></a>Causa
 
-Esse problema ocorre porque o nome do certificado contém um caractere inválido, como um espaço. 
+Esse problema ocorre porque o nome de saudação do certificado Olá contém um caractere inválido, como um espaço. 
 
 ## <a name="azure-portal-error-vpn-package-file-download-error-503"></a>Erro 503 de portal do Azure: erro de download do arquivo do pacote VPN
 
 ### <a name="symptom"></a>Sintoma
 
-Ao tentar baixar o pacote de configuração de cliente VPN, você recebe a seguinte mensagem de erro:
+Ao testar o pacote de configuração de cliente VPN do toodownload hello, você recebe Olá a seguinte mensagem de erro:
 
-**Falha ao baixar o arquivo. Detalhes do erro: erro 503. O servidor está ocupado.**
+**Falha ao arquivo de saudação toodownload. Detalhes do erro: erro 503. Olá servidor está ocupado.**
  
 ### <a name="solution"></a>Solução
 
-Esse erro pode ser causado por um problema de rede temporário. Tente baixar o pacote VPN novamente após alguns minutos.
+Esse erro pode ser causado por um problema de rede temporário. Tente o pacote VPN Olá toodownload novamente após alguns minutos.
 
-## <a name="azure-vpn-gateway-upgrade-all-p2s-clients-are-unable-to-connect"></a>Atualização de Gateway de VPN do Azure: nenhum dos clientes P2S consegue se conectar
+## <a name="azure-vpn-gateway-upgrade-all-p2s-clients-are-unable-tooconnect"></a>A atualização de Gateway VPN do Azure: P2S todos os clientes são tooconnect não é possível
 
 ### <a name="cause"></a>Causa
 
-Se o certificado passou de 50% de seu tempo de vida, o certificado é substituído.
+Se o certificado Olá é mais de 50 por cento por meio de seu ciclo de vida, o certificado de saudação é rodado.
 
 ### <a name="solution"></a>Solução
 
-Para resolver esse problema, crie e redistribua os novos certificados para os clientes VPN. 
+tooresolve esse problema, crie e redistribuir novos clientes VPN toohello de certificados. 
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>Muitos clientes VPN conectados ao mesmo tempo
 
-Para cada gateway de VPN, o número máximo de conexões permitidas é de 128. Você pode ver o número total de clientes conectados no portal do Azure.
+Para cada gateway VPN, o número máximo de saudação de conexões permitidas é 128. Você pode ver o número total de saudação de clientes conectados em Olá portal do Azure.
 
-## <a name="point-to-site-vpn-incorrectly-adds-a-route-for-100008-to-the-route-table"></a>A VPN ponto a site adiciona incorretamente uma rota para 10.0.0.0/8 à tabela de rotas
+## <a name="point-to-site-vpn-incorrectly-adds-a-route-for-100008-toohello-route-table"></a>VPN ponto a site incorretamente adiciona uma rota para a tabela de rotas toohello 10.0.0.0/8
 
 ### <a name="symptom"></a>Sintoma
 
-Quando você disca a conexão VPN no cliente ponto a site, o cliente VPN deve adicionar uma rota para a rede virtual do Azure. O serviço auxiliar de IP deve adicionar uma rota para a sub-rede dos clientes VPN. 
+Quando você discar Olá conexão VPN no cliente de ponto para site Olá, do cliente VPN Olá deve adicionar uma rota de rede virtual do Azure de saudação. serviço do auxiliar de IP Hello deve adicionar uma rota para a sub-rede de saudação de clientes VPN de saudação. 
 
-O intervalo de cliente VPN pertence a uma sub-rede menor de 10.0.0.0/8, como 10.0.12.0/24. Em vez de uma rota para 10.0.12.0/24, é adicionada uma rota para 10.0.0.0/8 que tem prioridade mais alta. 
+Olá intervalo de cliente VPN pertence a menor sub-rede tooa 10.0.0.0/8 como 10.0.12.0/24. Em vez de uma rota para 10.0.12.0/24, é adicionada uma rota para 10.0.0.0/8 que tem prioridade mais alta. 
 
-Essa rota incorreta interrompe a conectividade com outras redes locais que podem pertencer a outra sub-rede dentro no intervalo 10.0.0.0/8, como 10.50.0.0/24, que não tenham uma rota específica definida. 
+Essa rota incorreta quebras de conectividade com outras redes locais que podem pertencer a sub-rede tooanother dentro do intervalo de 10.0.0.0/8 hello, como 10.50.0.0/24, que não têm uma rota específica de definidos. 
 
 ### <a name="cause"></a>Causa
 
-Esse comportamento ocorre por padrão para clientes do Windows. Quando o cliente usa o protocolo PPP IPCP, ele obtém o endereço IP para a interface de túnel do servidor (gateway de VPN, neste caso). No entanto, devido a uma limitação no protocolo, o cliente não tem a máscara de sub-rede. Como não há nenhuma outra forma de obtê-la, o cliente tenta adivinhar a máscara de sub-rede com base na classe do endereço IP da interface do túnel. 
+Esse comportamento ocorre por padrão para clientes do Windows. Quando Olá cliente usa o protocolo PPP IPCP Olá, ele obtém o endereço IP de Olá para interface de túnel de saudação do servidor de saudação (gateway VPN Olá neste caso). No entanto, devido a uma limitação no protocolo hello, o cliente de saudação não tem máscara de sub-rede de saudação. Porque não há nenhum outro tooget de maneira, cliente Olá tenta tooguess máscara de sub-rede de saudação com base na classe de saudação do endereço IP da interface de túnel hello. 
 
-Portanto, uma rota é adicionada com base no seguinte mapeamento estático: 
+Portanto, é adicionada uma rota com base em Olá mapeamento estático a seguir: 
 
-Se o endereço pertence à classe A--> aplicar /8
+Se o endereço pertence A tooclass--> Aplicar /8
 
-Se o endereço pertencer à classe B --> aplicar /16
+Se o endereço pertence tooclass--> B aplicar /16
 
-Se o endereço pertence à classe C--> aplicar /24
+Se o endereço pertence tooclass--> C aplicar /24
 
 ## <a name="vpn-client-cannot-access-network-file-shares"></a>O cliente VPN não pode acessar compartilhamentos de arquivos de rede
 
 ### <a name="symptom"></a>Sintoma
 
-O cliente VPN foi conectado à rede virtual do Azure. No entanto, o cliente não pode acessar compartilhamentos de rede.
+cliente VPN Olá conectou toohello rede virtual do Azure. No entanto, o cliente Olá não pode acessar compartilhamentos de rede.
 
 ### <a name="cause"></a>Causa
 
-O protocolo SMB é usado para acesso de compartilhamento de arquivos. Quando a conexão é iniciada, o cliente VPN adiciona as credenciais da sessão e a falha ocorre. Depois que a conexão é estabelecida, o cliente é forçado a usar as credenciais de cache para a autenticação Kerberos. Esse processo inicia consultas para o Centro de Distribuição de Chaves (um controlador de domínio) para obter um token. Uma vez que o cliente conecta-se pela Internet, ele pode não conseguir alcançar o controlador de domínio. Portanto, o cliente não pode fazer failover do Kerberos para NTLM. 
+Olá protocolo SMB é usado para acesso de compartilhamento de arquivos. Quando a conexão de saudação for iniciada, cliente VPN Olá adiciona credenciais de sessão de saudação e Olá falha ocorre. Depois de estabelecer conexão hello, cliente Olá é forçado toouse Olá cache as credenciais de autenticação Kerberos. Esse processo inicia consultas toohello Key Distribution Center (um controlador de domínio) tooget um token. Como cliente Olá se conecta de saudação à Internet, não pode ser tooreach capaz de controlador de domínio de saudação. Portanto, cliente Olá não é possível realizar failover da tooNTLM Kerberos. 
 
-A única vez em que o cliente é solicitado a fornecer uma credencial é quando ele tem um certificado válido (com SAN = UPN) emitido pelo domínio ao qual ele está associado. O cliente também deve estar fisicamente conectado à rede de domínio. Nesse caso, o cliente tenta usar o certificado e busca o controlador de domínio. Então o Centro de distribuição de chaves retorna um erro de "KDC_ERR_C_PRINCIPAL_UNKNOWN". O cliente é forçado a fazer failover para NTLM. 
+Olá apenas tempo que o cliente Olá é solicitado para uma credencial é quando ele tem um certificado válido (com SAN = UPN) emitido por Olá toowhich de domínio está associado. cliente Olá também deve ser conectada fisicamente toohello rede de domínio. Nesse caso, o cliente de Olá tenta toouse certificado de saudação e atinge toohello controlador de domínio. Olá Key Distribution Center retorna um erro de "KDC_ERR_C_PRINCIPAL_UNKNOWN". cliente de saudação é forçado toofail tooNTLM. 
 
 ### <a name="solution"></a>Solução
 
-Para contornar o problema, desabilite o cache de credenciais de domínio da seguinte subchave do registro: 
+toowork problema hello, desabilitar o cache de saudação de credenciais de domínio de saudação seguinte subchave do registro: 
 
-    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\DisableDomainCreds - Set the value to 1 
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\DisableDomainCreds - Set hello value too1 
 
 
-## <a name="cannot-find-the-point-to-site-vpn-connection-in-windows-after-reinstalling-the-vpn-client"></a>Não é possível localizar a conexão VPN ponto a site no Windows após a reinstalação do cliente VPN
+## <a name="cannot-find-hello-point-to-site-vpn-connection-in-windows-after-reinstalling-hello-vpn-client"></a>Não é possível localizar a conexão de VPN de ponto para site Olá no Windows após a reinstalação do cliente VPN Olá
 
 ### <a name="symptom"></a>Sintoma
 
-Você remove a conexão VPN ponto a site e reinstala o cliente VPN. Nessa situação, a conexão VPN não foi configurada com êxito. Você não vê a conexão VPN nas configurações **Conexões de rede** do Windows.
+Remover conexão de VPN de ponto para site hello e, em seguida, reinstalar o cliente VPN hello. Nessa situação, Olá conexão VPN não está configurado com êxito. Você não vir a conexão de VPN Olá no hello **conexões de rede** configurações do Windows.
 
 ### <a name="solution"></a>Solução
 
-Para resolver o problema, exclua os arquivos de configuração de cliente VPN antigos de **C:\Users\TheUserName\AppData\Roaming\Microsoft\Network\Connections** e execute novamente o instalador do cliente VPN.
+problema de saudação tooresolve, excluir Olá antigo VPN cliente arquivos de configuração de **C:\Users\TheUserName\AppData\Roaming\Microsoft\Network\Connections**, e execute o instalador do cliente VPN Olá novamente.

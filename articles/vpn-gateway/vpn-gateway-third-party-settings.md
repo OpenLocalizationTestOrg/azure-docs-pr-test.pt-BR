@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/04/2017
 ms.author: delhan
-ms.openlocfilehash: 79df187c9093eb01f18b3dfdc25d1d19a2f63c62
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c695d23167ddba11283f6e223769e29b18a5c7ba
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Configurações de dispositivo de firewall ou de VPN de terceiros sugeridas pela comunidade para o gateway de VPN do Azure
 
 Este artigo fornece várias soluções sugeridas para dispositivos de firewall ou de VPN de terceiros usados com o gateway de VPN do Azure.
 
 > [!Note]
-> O suporte técnico para dispositivos de firewall ou de VPN de terceiros é fornecido pelo fabricante do dispositivo. 
+> O suporte técnico para dispositivos de firewall ou VPN de terceiros é fornecido pelo fabricante do dispositivo de saudação. 
 
 ## <a name="more-information"></a>Mais informações
 
-A seguinte tabela lista vários dispositivos comuns e a ajuda relacionada:
+Olá, a tabela a seguir lista vários dispositivos comuns e ajuda relacionadas:
 
 |Produto    |Referência                                                |
 |-----------|-----------------------------------------------------------|

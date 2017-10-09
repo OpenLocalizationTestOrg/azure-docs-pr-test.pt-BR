@@ -1,6 +1,6 @@
 ---
-title: "Vários endereços IP para máquinas virtuais do Azure – PowerShell | Microsoft Docs"
-description: "Saiba como atribuir diversos endereços IP a uma máquina virtual usando o PowerShell | Resource Manager."
+title: "aaaMultiple endereços IP para máquinas virtuais do Azure - PowerShell | Microsoft Docs"
+description: "Saiba como tooassign vários endereços IP tooa virtual máquina usando o PowerShell | Gerenciador de recursos."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: 29f64aeefc2a7deb1f84d759c2323347536b9c27
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: df54c4386ce13521e660a3e7208c8c1ab1459bc2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Atribuir vários endereços IP a máquinas virtuais usando o PowerShell
+# <a name="assign-multiple-ip-addresses-toovirtual-machines-using-powershell"></a>Atribuir vários endereços IP máquinas toovirtual usando o PowerShell
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-Este artigo explica como criar uma máquina virtual (VM) por meio do Modelo de implantação do Azure Resource Manager usando o PowerShell. Múltiplos endereços IP não podem ser atribuídos a recursos criados por meio do modelo de implantação clássico. Para saber mais sobre modelos de implantação do Azure, leia o artigo [Compreender os modelos de implantação](../resource-manager-deployment-model.md).
+Este artigo explica como toocreate uma máquina virtual (VM) por meio da implantação do Azure Resource Manager Olá modelo usando o PowerShell. Tooresources criado por meio do modelo de implantação clássico Olá não podem ser atribuídos a vários endereços IP. toolearn mais sobre modelos de implantação do Azure, leia Olá [entender os modelos de implantação](../resource-manager-deployment-model.md) artigo.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Criar uma VM com vários endereços IP
 
-As etapas a seguir explicam como criar uma VM de exemplo com vários endereços IP, como descrito no cenário. Altere os valores da variável conforme exigido por sua implementação.
+etapas Olá que seguem explicam como toocreate um exemplo VM com IP vários endereços, conforme descrito no cenário de saudação. Altere os valores da variável conforme exigido por sua implementação.
 
-1. Abra um prompt de comando do PowerShell e siga as etapas restantes nesta seção dentro de uma única sessão do PowerShell. Se o Azure PowerShell ainda não foi instalado nem configurado, siga as etapas no artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) .
-2. Faça logon em sua conta com o comando `login-azurermaccount`.
+1. Abra um prompt de comando do PowerShell e as etapas de saudação completa restantes nesta seção dentro de uma única sessão do PowerShell. Se você ainda não tiver o PowerShell instalado e configurado, Olá concluir etapas no hello [como tooinstall e configurar o Azure PowerShell](/powershell/azure/overview) artigo.
+2. Conta de logon do tooyour com hello `login-azurermaccount` comando.
 3. Substitua *myResourceGroup* e *westus* por um nome e local de sua escolha. Crie um grupos de recursos. Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
 
     ```powershell
@@ -46,7 +46,7 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
     -Location $Location
     ```
 
-4. Crie uma rede virtual (VNet) e sub-rede no mesmo local que o grupo de recursos:
+4. Criar uma rede virtual (VNet) e a sub-rede no hello mesmo local que o grupo de recursos de saudação:
 
     ```powershell
     
@@ -63,11 +63,11 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
     -AddressPrefix 10.0.0.0/16 `
     -Subnet $subnetConfig
 
-    # Get the subnet object
+    # Get hello subnet object
     $Subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $SubnetConfig.Name -VirtualNetwork $VNet
     ```
 
-5. Crie um NSG (grupo de segurança de rede) e uma regra. O NSG protege a VM usando regras de entrada e saída. Nesse caso, uma regra de entrada é criada para a porta 3389, que permite conexões de área de trabalho remota.
+5. Crie um NSG (grupo de segurança de rede) e uma regra. Olá NSG protege Olá VM usando regras de entrada e saídas. Nesse caso, uma regra de entrada é criada para a porta 3389, que permite conexões de área de trabalho remota.
 
     ```powershell
     
@@ -91,9 +91,9 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
     -SecurityRules $NSGRule
     ```
 
-6. Defina a configuração de IP primário da NIC. Caso você não tenha usado o valor definido anteriormente, altere 10.0.0.4 para um endereço válido na sub-rede que você criou. Antes de atribuir um endereço IP estático, é recomendável que você primeiro confirme que ele ainda não está em uso. Digite o comando `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Se o endereço está disponível, a saída retorna *True*. Se não está disponível, a saída retorna *False* e uma lista de endereços disponíveis. 
+6. Definir a configuração de IP primária Olá para Olá NIC. Alteração 10.0.0.4 tooa válido na sub-rede Olá criado, se você não usou o valor de saudação definido anteriormente. Antes de atribuir um endereço IP estático, é recomendável que você primeiro confirme que ele ainda não está em uso. Digite o comando Olá `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Se o endereço Olá estiver disponível, Olá saída retorna *True*. Se não estiver disponível, Olá saída retorna *False* e uma lista de endereços que estão disponíveis. 
 
-    Nos comandos a seguir, **Substitua <substitua-por-seu-nome-exclusivo> pelo nome DNS exclusivo a utilizar.** O nome deve ser exclusivo entre todos os endereços IP públicos dentro de uma região do Azure. Este é um parâmetro opcional. Ele pode ser removido se você deseja conectar-se à VM usando o endereço IP público.
+    Em Olá comandos a seguir **substitua < substituir-com-seu-exclusivo-name > toouse de nome DNS exclusivo hello.** nome da saudação deve ser exclusivo entre todos os endereços IP públicos em uma região do Azure. Este é um parâmetro opcional. Ele pode ser removido se você quiser apenas tooconnect toohello VM usando o endereço IP público de saudação.
 
     ```powershell
     
@@ -105,7 +105,7 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
     -DomainNameLabel <replace-with-your-unique-name> `
     -AllocationMethod Static
         
-    #Create an IP configuration with a static private IP address and assign the public IP ddress to it
+    #Create an IP configuration with a static private IP address and assign hello public IP ddress tooit
     $IpConfigName1 = "IPConfig-1"
     $IpConfig1     = New-AzureRmNetworkInterfaceIpConfig `
     -Name $IpConfigName1 `
@@ -115,12 +115,12 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
     -Primary
     ```
 
-    Quando você atribuir várias configurações de IP a uma NIC, uma configuração deverá ser atribuída como a *-Primary*.
+    Quando você atribui vários tooa de configurações de IP NIC, uma configuração deve ser atribuída como Olá *-primário*.
 
     > [!NOTE]
-    > Endereços IP públicos têm um valor nominal. Para saber mais sobre preços de endereço IP, leia a página [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Há um limite para o número de endereços IP públicos que podem ser usados em uma assinatura. Para saber mais sobre os limites, leia o artigo [Limites do Azure](../azure-subscription-service-limits.md#networking-limits).
+    > Endereços IP públicos têm um valor nominal. toolearn mais sobre endereços IP de preços, ler Olá [preço do endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses) página. Há um número de toohello limite de endereços IP públicos que podem ser usados em uma assinatura. mais sobre os limites de Olá Olá de leitura de toolearn [Azure limita](../azure-subscription-service-limits.md#networking-limits) artigo.
 
-7. Defina as configurações de IP secundário da NIC. Você pode adicionar, remover ou alterar as configurações conforme necessário. Cada configuração de IP deve ter um endereço IP privado atribuído. Cada configuração pode, opcionalmente, ter um endereço IP público atribuído.
+7. Definir as configurações de IP secundárias Olá para Olá NIC. Você pode adicionar, remover ou alterar as configurações conforme necessário. Cada configuração de IP deve ter um endereço IP privado atribuído. Cada configuração pode, opcionalmente, ter um endereço IP público atribuído.
 
     ```powershell
     
@@ -131,7 +131,7 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
     -Location $Location `
     -AllocationMethod Static
         
-    #Create an IP configuration with a static private IP address and assign the public IP ddress to it
+    #Create an IP configuration with a static private IP address and assign hello public IP ddress tooit
     $IpConfigName2 = "IPConfig-2"
     $IpConfig2     = New-AzureRmNetworkInterfaceIpConfig `
     -Name $IpConfigName2 `
@@ -146,7 +146,7 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
     -PrivateIpAddress 10.0.0.6
     ```
 
-8. Criar a NIC e associar as três configurações de IP a ela:
+8. Criar hello NIC e associar Olá três tooit de configurações de IP:
 
     ```powershell
     
@@ -159,13 +159,13 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
     ```
 
     >[!NOTE]
-    >Embora todas as configurações estejam atribuídas a uma NIC neste artigo, você pode atribuir várias configurações de IP a cada NIC anexada à VM. Para saber como criar uma VM com vários NICs, leia o artigo [Criar uma VM com vários NICs](virtual-network-deploy-multinic-arm-ps.md).
+    >Embora todas as configurações são atribuídas tooone NIC neste artigo, você pode atribuir várias IP configurações tooevery NIC conectada toohello VM. toolearn como toocreate uma VM com várias NICs, ler Olá [criar uma VM com várias NICs](virtual-network-deploy-multinic-arm-ps.md) artigo.
 
-9. Crie a VM digitando os seguintes comandos:
+9. Crie hello VM inserindo Olá comandos a seguir:
 
     ```powershell
     
-    # Define a credential object. When you run these commands, you're prompted to enter a sername and password for the VM you're reating.
+    # Define a credential object. When you run these commands, you're prompted tooenter a sername and password for hello VM you're reating.
     $cred = Get-Credential
     
     # Create a virtual machine configuration
@@ -183,21 +183,21 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
     Add-AzureRmVMNetworkInterface `
     -Id $NIC.Id
     
-    # Create the VM
+    # Create hello VM
     New-AzureRmVM `
     -ResourceGroupName $RgName `
     -Location $Location `
     -VM $VmConfig
     ```
 
-10. Adicione os endereços IP privados ao sistema operacional da VM executando as etapas para seu sistema operacional na seção [Adicionar endereços IP ao sistema operacional de uma VM](#os-config) deste artigo. Não adicione os endereços IP públicos ao sistema operacional.
+10. IP privado de saudação adicionar endereços toohello sistema de operacional VM por etapas para seu sistema operacional no Olá Olá [tooa sistema de operacional VM de endereços de IP adicionar](#os-config) deste artigo. Não adicione Olá pública IP endereços toohello sistema operacional.
 
-## <a name="add"></a>Adicionar endereços IP a uma VM
+## <a name="add"></a>Adicionar endereços IP tooa VM
 
-Você pode adicionar endereços IP públicos e privados a um NIC executando as etapas a seguir. Os exemplos nas seções a seguir pressupõem que você já tem uma VM com as três configurações de IP descritas no [cenário](#Scenario) neste artigo, mas isso não é obrigatório.
+Você pode adicionar pública e privada tooa de endereços IP NIC completando as etapas de saudação que seguem. Olá exemplos Olá seções a seguir pressupõem que você já tem uma máquina virtual com configurações de IP hello três descritas em hello [cenário](#Scenario) neste artigo, mas ele não é necessário que você faça.
 
-1. Abra um prompt de comando do PowerShell e siga as etapas restantes nesta seção dentro de uma única sessão do PowerShell. Se o Azure PowerShell ainda não foi instalado nem configurado, siga as etapas no artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) .
-2. Altere os "valores" de $Variables a seguir para o nome do NIC ao qual você deseja adicionar os endereços IP e o grupo de recursos e a localização onde o NIC está:
+1. Abra um prompt de comando do PowerShell e as etapas de saudação completa restantes nesta seção dentro de uma única sessão do PowerShell. Se você ainda não tiver o PowerShell instalado e configurado, Olá concluir etapas no hello [como tooinstall e configurar o Azure PowerShell](/powershell/azure/overview) artigo.
+2. Alterar hello "valores" dos Olá após $Variables toohello nome da saudação NIC que você deseja tooadd IP endereço tooand Olá recurso grupo e local Olá em que NIC existe:
 
     ```powershell
     $NicName  = "MyNIC"
@@ -205,38 +205,38 @@ Você pode adicionar endereços IP públicos e privados a um NIC executando as e
     $Location = "westus"
     ```
 
-    Se você não souber o nome da NIC que você deseja alterar, digite os seguintes comandos e altere os valores das variáveis anteriores:
+    Se você não souber o nome de saudação do hello NIC que você deseja toochange, digite Olá comandos a seguir, altere os valores hello variáveis anteriores hello:
 
     ```powershell
     Get-AzureRmNetworkInterface | Format-Table Name, ResourceGroupName, Location
     ```
-3. Crie uma variável e defina-a para a NIC existente digitando o seguinte comando:
+3. Crie uma variável e defina-a como toohello existente NIC digitando Olá comando a seguir:
 
     ```powershell
     $MyNIC = Get-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $RgName
     ```
-4. Nos comandos a seguir, mude *MyVNet* e *MySubnet* para os nomes da VNet e da sub-rede às quais a NIC está conectada. Digite os comandos para recuperar os objetos de rede virtual e sub-rede aos quais o NIC está conectado:
+4. Olá comandos a seguir, alterar *MyVNet* e *MySubnet* toohello nomes de Olá Olá rede virtual e sub-rede NIC está conectada ao. Digite hello comandos tooretrieve Olá rede virtual e sub-rede objetos Olá A que NIC está conectada:
 
     ```powershell
     $MyVNet = Get-AzureRMVirtualnetwork -Name MyVNet -ResourceGroupName $RgName
     $Subnet = $MyVnet.Subnets | Where-Object { $_.Name -eq "MySubnet" }
     ```
-    Se você não souber o nome da rede virtual ou sub-rede à qual o NIC está conectado, digite o seguinte comando:
+    Se você não souber Olá redes ou sub-redes nome hello que NIC está conectada ao, digite Olá comando a seguir:
     ```powershell
     $MyNIC.IpConfigurations
     ```
-    Na saída, procure por texto semelhante à saída de exemplo a seguir:
+    Na saída de hello, procure texto toohello semelhante a saída de exemplo a seguir:
     
     ```
     "Id": "/subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/MyVNet/subnets/MySubnet"
     ```
-    Nessa saída, *MyVnet* é a VNet e *MySubnet* são, respectivamente, a rede virtual e a sub-rede às quais a NIC está conectada.
+    Na saída, *MyVnet* é hello VNet e *MySubnet* é Olá sub-rede hello NIC está conectada ao.
 
-5. Conclua as etapas em uma das seções a seguir, com base em seus requisitos:
+5. Conclua as etapas de saudação em uma das seguintes seções, com base nas necessidades de saudação:
 
     **Adicionar um endereço IP privado**
 
-    Para adicionar um endereço IP privado a um NIC, você deverá criar uma configuração de IP. O comando a seguir cria uma configuração com um endereço IP estático 10.0.0.7. Ao especificar um endereço IP estático, ele deve ser um endereço não usado para a sub-rede. É recomendável que você primeiro teste o endereço para garantir que ele está disponível digitando o comando `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet`. Se o endereço IP está disponível, a saída retorna *True*. Se não está disponível, a saída retorna *False* e uma lista de endereços disponíveis.
+    tooadd um tooa de endereço IP privado NIC, você deve criar uma configuração de IP. Olá comando a seguir cria uma configuração com um endereço IP estático de 10.0.0.7. Ao especificar um endereço IP estático, ele deve ser um endereço não usado para a sub-rede de saudação. É recomendável que você primeiro teste Olá endereço tooensure está disponível digitando Olá `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet` comando. Se o endereço IP hello estiver disponível, Olá saída retorna *True*. Se não estiver disponível, Olá saída retorna *False*e uma lista de endereços que estão disponíveis.
 
     ```powershell
     Add-AzureRmNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
@@ -244,19 +244,19 @@ Você pode adicionar endereços IP públicos e privados a um NIC executando as e
     ```
     Crie quantas configurações forem necessárias, usando nomes de configuração exclusivos e endereços IP privados (para configurações com endereços IP estáticos).
 
-    Adicione o endereço IP privado ao sistema operacional da VM executando as etapas para seu sistema operacional na seção [Adicionar endereços IP ao sistema operacional de uma VM](#os-config) deste artigo.
+    Adicionar Olá privada IP endereço toohello VM sistema operacional concluindo as etapas de saudação para seu sistema operacional no hello [tooa sistema de operacional VM de endereços de IP adicionar](#os-config) deste artigo.
 
     **Adicionar um endereço IP público**
 
-    Um endereço IP público é adicionado por meio da associação de um recurso de endereço IP público a uma nova configuração de IP ou a uma configuração de IP existente. Conclua as etapas em uma das seções a seguir, quando você precisar.
+    Um endereço IP público é adicionado ao associar um tooeither de recurso de endereço IP público, uma nova configuração de IP ou uma configuração de IP existente. Conclua as etapas de saudação em uma saudação próximas seções, você precisa.
 
     > [!NOTE]
-    > Endereços IP públicos têm um valor nominal. Para saber mais sobre preços de endereço IP, leia a página [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Há um limite para o número de endereços IP públicos que podem ser usados em uma assinatura. Para saber mais sobre os limites, leia o artigo [Limites do Azure](../azure-subscription-service-limits.md#networking-limits).
+    > Endereços IP públicos têm um valor nominal. toolearn mais sobre endereços IP de preços, ler Olá [preço do endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses) página. Há um número de toohello limite de endereços IP públicos que podem ser usados em uma assinatura. mais sobre os limites de Olá Olá de leitura de toolearn [Azure limita](../azure-subscription-service-limits.md#networking-limits) artigo.
     >
 
-    - **Associar o recurso de endereço IP público a uma nova configuração de IP**
+    - **Associar Olá pública recurso tooa novo IP configuração de endereço IP**
     
-        Sempre que você adicionar um endereço IP público em uma nova configuração de IP, também deverá adicionar um endereço IP privado, pois todas as configurações de IP devem ter um endereço IP privado. Você pode adicionar um recurso de endereço IP público existente ou criar um novo. Para criar um novo, insira o seguinte comando:
+        Sempre que você adicionar um endereço IP público em uma nova configuração de IP, também deverá adicionar um endereço IP privado, pois todas as configurações de IP devem ter um endereço IP privado. Você pode adicionar um recurso de endereço IP público existente ou criar um novo. toocreate uma nova, digite Olá comando a seguir:
     
         ```powershell
         $myPublicIp3 = New-AzureRmPublicIpAddress `
@@ -266,7 +266,7 @@ Você pode adicionar endereços IP públicos e privados a um NIC executando as e
         -AllocationMethod Static
         ```
 
-        Para criar uma nova configuração de IP com um endereço IP privado estático e o recurso de endereço IP público *myPublicIp3* associado, insira o seguinte comando:
+        toocreate uma nova configuração de IP com um endereço IP privado estático e Olá associados *myPublicIp3* IP público recurso de endereço, digite Olá comando a seguir:
 
         ```powershell
         Add-AzureRmNetworkInterfaceIpConfig `
@@ -277,15 +277,15 @@ Você pode adicionar endereços IP públicos e privados a um NIC executando as e
         -PublicIpAddress $myPublicIp3
         ```
 
-    - **Associar o recurso de endereço IP público a uma configuração de IP existente**
+    - **Associar Olá pública recurso tooan existente IP configuração de endereço IP**
 
-        Um recurso de endereço IP público só pode ser associado a uma configuração de IP que ainda não tenha um associado. Você pode determinar se uma configuração de IP tem um endereço IP público associado inserindo o seguinte comando:
+        Um recurso de endereço IP público só pode ser a configuração de IP tooan associado que ainda não tiver um associado. Você pode determinar se uma configuração de IP tem um endereço IP público associado inserindo Olá comando a seguir:
 
         ```powershell
         $MyNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
         ```
 
-        Você verá uma saída semelhante ao seguinte:
+        Consulte o seguinte de toohello semelhante de saída:
 
         ```     
         Name       PrivateIpAddress PublicIpAddress                                           Primary
@@ -295,7 +295,7 @@ Você pode adicionar endereços IP públicos e privados a um NIC executando as e
         IpConfig-3 10.0.0.6                                                                     False
         ```
 
-        Como a coluna **PublicIpAddress** para *IpConfig 3* está em branco, nenhum recurso de endereço IP público está associado a ele no momento. Você pode adicionar um recurso de endereço IP público existente como IpConfig-3 ou inserir o seguinte comando para criar um:
+        Desde Olá **PublicIpAddress** coluna para *IpConfig 3* está em branco, nenhum recurso de endereço IP público é tooit atualmente associado. Você pode adicionar um existente pública IP endereço recurso tooIpConfig-3, ou insira Olá toocreate comando um a seguir:
 
         ```powershell
         $MyPublicIp3 = New-AzureRmPublicIpAddress `
@@ -304,7 +304,7 @@ Você pode adicionar endereços IP públicos e privados a um NIC executando as e
         -Location $Location -AllocationMethod Static
         ```
 
-        Insira o comando a seguir para associar o recurso de endereço IP público à configuração de IP existente chamada *IpConfig-3*:
+        Digite hello recurso toohello existente IP configuração denominada do endereço IP público do tooassociate Olá de comando a seguir *3 IpConfig*:
     
         ```powershell
         Set-AzureRmNetworkInterfaceIpConfig `
@@ -314,17 +314,17 @@ Você pode adicionar endereços IP públicos e privados a um NIC executando as e
         -PublicIpAddress $myPublicIp3
         ```
 
-6. Defina o NIC com a nova configuração de IP digitando o seguinte comando:
+6. Defina Olá NIC com a nova configuração de IP hello inserindo Olá comando a seguir:
 
     ```powershell
     Set-AzureRmNetworkInterface -NetworkInterface $MyNIC
     ```
 
-7. Exiba os endereços IP privados e o recurso de endereço IP público atribuído ao NIC digitando o seguinte comando:
+7. Exibir endereços IP privados de saudação e Olá pública IP endereço recursos atribuído toohello NIC inserindo Olá o comando a seguir:
 
     ```powershell   
     $MyNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
     ```
-8. Adicione o endereço IP privado ao sistema operacional da VM executando as etapas para seu sistema operacional na seção [Adicionar endereços IP ao sistema operacional de uma VM](#os-config) deste artigo. Não adicione o endereço IP público ao sistema operacional.
+8. Adicionar Olá privada IP endereço toohello VM sistema operacional concluindo as etapas de saudação para seu sistema operacional no hello [tooa sistema de operacional VM de endereços de IP adicionar](#os-config) deste artigo. Não adicione Olá pública IP endereço toohello sistema operacional.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

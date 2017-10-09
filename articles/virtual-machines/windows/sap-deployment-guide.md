@@ -1,6 +1,6 @@
 ---
-title: "Implantação de Máquinas Virtuais do Azure para SAP no Windows | Microsoft Docs"
-description: "Saiba como implantar o software SAP em máquinas virtuais Windows no Azure."
+title: "aaaAzure implantação de máquinas virtuais para SAP no Windows | Microsoft Docs"
+description: "Saiba como toodeploy SAP software em máquinas virtuais do Windows no Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: MSSedusch
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ac7c1e3b015a21fe06f27205b27a53fc4d2f3df7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 121e317afc6498a896959e58ebfbdcbef9432ef5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-sap-on-windows-vms-in-azure"></a>Implantar SAP em VMs Windows no Azure
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -86,9 +86,9 @@ ms.lasthandoff: 07/11/2017
 [dbms-guide-3]:sap-dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3 (High availability and disaster recovery with Azure VMs)
 [dbms-guide-5.5.1]:sap-dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 (SQL Server 2012 SP1 CU4 and later)
 [dbms-guide-5.5.2]:sap-dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b (SQL Server 2012 SP1 CU3 and earlier releases)
-[dbms-guide-5.6]:sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 (Using a SQL Server image from the Azure Marketplace)
+[dbms-guide-5.6]:sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 (Using a SQL Server image from hello Azure Marketplace)
 [dbms-guide-5.8]:sap-dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30 (General SQL Server for SAP on Azure summary)
-[dbms-guide-5]:sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 (Specifics to SQL Server RDBMS)
+[dbms-guide-5]:sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 (Specifics tooSQL Server RDBMS)
 [dbms-guide-8.4.1]:sap-dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 (Storage configuration)
 [dbms-guide-8.4.2]:sap-dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d (Backup and restore)
 [dbms-guide-8.4.3]:sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c (Performance considerations for backup and restore)
@@ -108,24 +108,24 @@ ms.lasthandoff: 07/11/2017
 [deployment-guide]:sap-deployment-guide.md (Azure Virtual Machines deployment for SAP on Windows)
 [deployment-guide-2.2]:#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 (SAP resources)
 [deployment-guide-3.1.2]:#3688666f-281f-425b-a312-a77e7db2dfab (Deploying a VM by using a custom image)
-[deployment-guide-3.2]:#db477013-9060-4602-9ad4-b0316f8bb281 (Scenario 1: Deploying a VM from the Azure Marketplace for SAP)
+[deployment-guide-3.2]:#db477013-9060-4602-9ad4-b0316f8bb281 (Scenario 1: Deploying a VM from hello Azure Marketplace for SAP)
 [deployment-guide-3.3]:#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 (Scenario 2: Deploying a VM with a custom image for SAP)
 [deployment-guide-3.4]:#a9a60133-a763-4de8-8986-ac0fa33aa8c1 (Scenario 3: Moving a VM from on-premises using a non-generalized Azure VHD with SAP)
 [deployment-guide-3]:#b3253ee3-d63b-4d74-a49b-185e76c4088e (Deployment scenarios of VMs for SAP on Microsoft Azure)
 [deployment-guide-4.1]:#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (Deploying Azure PowerShell cmdlets)
 [deployment-guide-4.2]:#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e (Download and import SAP-relevant PowerShell cmdlets)
-[deployment-guide-4.3]:#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc (Join a VM to an on-premises domain - Windows only)
+[deployment-guide-4.3]:#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc (Join a VM tooan on-premises domain - Windows only)
 [deployment-guide-4.4.2]:#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 (Linux)
-[deployment-guide-4.4]:#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (Download, install, and enable the Azure VM Agent)
+[deployment-guide-4.4]:#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (Download, install, and enable hello Azure VM Agent)
 [deployment-guide-4.5.1]:#987cf279-d713-4b4c-8143-6b11589bb9d4 (Azure PowerShell)
 [deployment-guide-4.5.2]:#408f3779-f422-4413-82f8-c57a23b4fc2f (Azure CLI)
-[deployment-guide-4.5]:#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (Configure the Azure Enhanced Monitoring Extension for SAP)
+[deployment-guide-4.5]:#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (Configure hello Azure Enhanced Monitoring Extension for SAP)
 [deployment-guide-5.1]:#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (Readiness check for Azure Enhanced Monitoring for SAP)
-[deployment-guide-5.2]:#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Health check for the Azure monitoring infrastructure)
+[deployment-guide-5.2]:#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Health check for hello Azure monitoring infrastructure)
 [deployment-guide-5.3]:#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (Troubleshooting Azure monitoring for SAP)
 
 [deployment-guide-configure-monitoring-scenario-1]:#ec323ac3-1de9-4c3a-b770-4ff701def65b (Configure monitoring)
-[deployment-guide-configure-proxy]:#baccae00-6f79-4307-ade4-40292ce4e02d (Configure the proxy)
+[deployment-guide-configure-proxy]:#baccae00-6f79-4307-ade4-40292ce4e02d (Configure hello proxy)
 [deployment-guide-figure-100]:./media/virtual-machines-shared-sap-deployment-guide/100-deploy-vm-image.png
 [deployment-guide-figure-1000]:./media/virtual-machines-shared-sap-deployment-guide/1000-service-properties.png
 [deployment-guide-figure-11]:#figure-11
@@ -182,21 +182,21 @@ ms.lasthandoff: 07/11/2017
 [planning-guide-11]:sap-planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058 (High availability and disaster recovery for SAP NetWeaver running on Azure Virtual Machines)
 [planning-guide-11.4.1]:sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 (High availability for SAP Application Servers)
 [planning-guide-11.5]:sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f (Using Autostart for SAP instances)
-[planning-guide-2.1]:sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 (Cloud-only - Virtual Machine deployments in Azure without dependencies on the on-premises customer network)
-[planning-guide-2.2]:sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 (Cross-premises - Deployment of single or multiple SAP VMs in Azure fully integrated with the on-premises network)
+[planning-guide-2.1]:sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 (Cloud-only - Virtual Machine deployments in Azure without dependencies on hello on-premises customer network)
+[planning-guide-2.2]:sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 (Cross-premises - Deployment of single or multiple SAP VMs in Azure fully integrated with hello on-premises network)
 [planning-guide-3.1]:sap-planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a (Azure regions)
 [planning-guide-3.2.1]:sap-planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 (Fault domains)
 [planning-guide-3.2.2]:sap-planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 (Upgrade domains)
 [planning-guide-3.2.3]:sap-planning-guide.md#18810088-f9be-4c97-958a-27996255c665 (Azure availability sets)
 [planning-guide-3.2]:sap-planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 (Microsoft Azure virtual machines concept)
 [planning-guide-3.3.2]:sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Azure Premium Storage)
-[planning-guide-5.1.1]:sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 (Moving a VM from on-premises to Azure with a non-generalized disk)
+[planning-guide-5.1.1]:sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 (Moving a VM from on-premises tooAzure with a non-generalized disk)
 [planning-guide-5.1.2]:sap-planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c (Deploying a VM with a customer specific image)
-[planning-guide-5.2.1]:sap-planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef (Preparation for moving a VM from on-premises to Azure with a non-generalized disk)
+[planning-guide-5.2.1]:sap-planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef (Preparation for moving a VM from on-premises tooAzure with a non-generalized disk)
 [planning-guide-5.2.2]:sap-planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3 (Preparation for deploying a VM with a customer specific image for SAP)
 [planning-guide-5.2]:sap-planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7 (Preparing VMs with SAP for Azure)
 [planning-guide-5.3.1]:sap-planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79 (Difference between an Azure disk and an Azure image)
-[planning-guide-5.3.2]:sap-planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a (Uploading a VHD from on-premises to Azure)
+[planning-guide-5.3.2]:sap-planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a (Uploading a VHD from on-premises tooAzure)
 [planning-guide-5.4.2]:sap-planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 (Copying disks between Azure Storage accounts)
 [planning-guide-5.5.1]:sap-planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 (VM/VHD structure for SAP deployments)
 [planning-guide-5.5.3]:sap-planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d (Setting automount for attached disks)
@@ -257,7 +257,7 @@ ms.lasthandoff: 07/11/2017
 [virtual-machines-azure-resource-manager-architecture]:../../resource-manager-deployment-model.md
 [virtual-machines-azurerm-versus-azuresm]:virtual-machines-windows-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../virtual-machines-windows-classic-configure-oracle-data-guard.md
-[virtual-machines-linux-cli-deploy-templates]:../linux/cli-deploy-templates.md (Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI)
+[virtual-machines-linux-cli-deploy-templates]:../linux/cli-deploy-templates.md (Deploy and manage virtual machines by using Azure Resource Manager templates and hello Azure CLI)
 [virtual-machines-deploy-rmtemplates-powershell]:../virtual-machines-windows-ps-manage.md (Manage virtual machines using Azure Resource Manager and PowerShell)
 [virtual-machines-linux-agent-user-guide]:../linux/agent-user-guide.md
 [virtual-machines-linux-agent-user-guide-command-line-options]:../linux/agent-user-guide.md#command-line-options
@@ -305,66 +305,66 @@ ms.lasthandoff: 07/11/2017
 [xplat-cli]:../../cli-install-nodejs.md
 [xplat-cli-azure-resource-manager]:../../xplat-cli-azure-resource-manager.md
 
-As Máquinas Virtuais do Azure são a solução para as organizações que precisam de recursos de computação e armazenamento, no mínimo de tempo e sem ciclos de compra longos. Você pode usar máquinas virtuais do Azure para implantar aplicativos clássicos, como aplicativos baseados no SAP NetWeaver, no Azure. Estenda a confiabilidade e a disponibilidade de um aplicativo sem recursos locais adicionais. As Máquinas Virtuais do Azure dão suporte à conectividade entre locais, o que permite que você integre as Máquinas Virtuais do Azure aos seus domínios locais, a nuvens privadas e à estrutura do sistema SAP.
+Máquinas virtuais do Azure é a solução de hello para empresas que precisam de recursos de computação e armazenamento, no mínimo de tempo e sem ciclos de compra longos. Você pode usar aplicativos clássico, máquinas virtuais do Azure toodeploy, como aplicativos baseados no SAP NetWeaver no Azure. Estenda a confiabilidade e a disponibilidade de um aplicativo sem recursos locais adicionais. As Máquinas Virtuais do Azure dão suporte à conectividade entre locais, o que permite que você integre as Máquinas Virtuais do Azure aos seus domínios locais, a nuvens privadas e à estrutura do sistema SAP.
 
-Neste artigo, abordaremos as etapas para implantar aplicativos SAP em VMs (máquinas virtuais) Windows no Azure. Este artigo se baseia nas informações de [Planejamento e implementação de Máquinas Virtuais do Azure para SAP no Windows][planning-guide]. Isso também complementa a documentação de instalação do SAP e as Notas SAP, que são os principais recursos de instalação e implantação de software SAP.
+Neste artigo, abordaremos a aplicativos do SAP toodeploy Olá etapas em máquinas virtuais do Windows (VMs) no Azure. Este artigo é baseado em informações de saudação do [máquinas virtuais do Azure planejamento e implementação para SAP no Windows][planning-guide]. Ele também complementa a documentação de instalação do SAP e observações sobre o SAP, que são recursos de saudação principal de instalação e implantação de software SAP.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-A configuração de uma máquina virtual do Azure para implantação de software SAP envolve várias etapas e recursos. Antes de começar, verifique se você atende aos pré-requisitos para instalar o software SAP em máquinas virtuais Windows no Azure.
+A configuração de uma máquina virtual do Azure para implantação de software SAP envolve várias etapas e recursos. Antes de começar, certifique-se de que você atenda aos pré-requisitos de saudação para instalar o software SAP em máquinas virtuais do Windows no Azure.
 
 ### <a name="local-computer"></a>Computador local
-Para gerenciar VMs Windows ou Linux, você pode usar um script do PowerShell e o portal do Azure. Para ambas as ferramentas, você precisa de um computador local que execute o Windows 7 ou uma versão posterior do Windows. Se desejar gerenciar apenas VMs do Linux e usar um computador Linux para essa tarefa, você poderá usar a CLI do Azure.
+toomanage Windows ou Linux VMs, você pode usar um script do PowerShell e hello portal do Azure. Para ambas as ferramentas, você precisa de um computador local que execute o Windows 7 ou uma versão posterior do Windows. Se você quiser toomanage somente VMs do Linux e você desejar toouse um computador Linux para esta tarefa, você pode usar a CLI do Azure.
 
 ### <a name="internet-connection"></a>Conexão com a Internet
-Para baixar e executar as ferramentas e scripts que são necessários para a implantação de software SAP, você deve estar conectado à Internet. A VM do Azure que está executando a Extensão de Monitoramento Avançado do Azure para SAP também precisa de acesso à Internet. Se a VM do Azure fizer parte de um domínio local ou de rede virtual do Azure, verifique se as configurações de proxy relevantes estão definidas, conforme descrito em [Configurar o proxy][deployment-guide-configure-proxy].
+toodownload e execução Olá ferramentas e scripts que são necessários para a implantação de software SAP, você deve ser conectado toohello da Internet. Olá VM do Azure que está executando o hello Azure extensão de monitoramento aprimorada para SAP também precisa toohello de acesso à Internet. Se hello Azure VM é parte de uma rede virtual do Azure ou o domínio local, certifique-se de que as configurações de proxy relevantes de saudação forem definidas, conforme descrito em [configurar proxy Olá][deployment-guide-configure-proxy].
 
 ### <a name="microsoft-azure-subscription"></a>Uma assinatura do Microsoft Azure
 Você precisa de uma conta ativa do Azure.
 
 ### <a name="topology-and-networking"></a>Topologia e rede
-Você precisa definir a topologia e a arquitetura da implantação do SAP no Azure:
+Você precisa de topologia de saudação toodefine e arquitetura de saudação implantação SAP no Azure:
 
-* Contas de armazenamento do Azure a serem usadas
-* Rede virtual em que você deseja implantar o sistema SAP
-* Grupo de recursos no qual você deseja implantar o sistema SAP
-* Região do Azure em que você deseja implantar o sistema SAP
+* Toobe de contas de armazenamento do Azure usado
+* Rede virtual onde deseja que o sistema SAP toodeploy Olá
+* Toowhich de grupo de recursos, você deseja toodeploy Olá SAP sistema
+* Região do Azure onde deseja que o sistema SAP toodeploy Olá
 * Configuração do SAP (duas ou três camadas)
-* Tamanhos de VM e número de VHDs (discos rígidos virtuais) adicionais a serem montados nas VMs
+* Tamanhos de VM e número de saudação do toobe adicionais discos rígidos virtuais (VHDs) montar toohello VMs
 * Configuração do SAP CTS (Correction and Transport System)
 
-Criar e configurar contas de armazenamento do Azure ou redes virtuais do Azure antes de começar o processo de implantação de software SAP. Para obter informações sobre como criar e configurar esses recursos, confira [Planejamento e implementação de Máquinas Virtuais do Azure para SAP no Windows][planning-guide].
+Criar e configurar contas de armazenamento do Azure ou redes virtuais do Azure antes de começar o processo de implantação de software SAP hello. Para obter informações sobre como toocreate e configurar esses recursos, consulte [máquinas virtuais do Azure planejamento e implementação para SAP no Windows][planning-guide].
 
 ### <a name="sap-sizing"></a>Dimensionamento do SAP
-Saiba as informações a seguir para dimensionamento do SAP:
+Sabe Olá seguintes informações de dimensionamento do SAP:
 
-* Carga de trabalho projetada do SAP, por exemplo, usando a ferramenta SAP Quick Sizer e o número SAPS (SAP Application Performance Standard)
-* Consumo necessário de memória e recursos de CPU do sistema SAP
+* Projetada a carga de trabalho do SAP, por exemplo, usando a ferramenta de dimensionar rápida do SAP de saudação e Olá SAP aplicativo desempenho padrão (SAPS) número
+* Necessário consumo de memória e recursos de CPU do sistema SAP de saudação
 * Operações de entrada/saída (E/S) necessárias por segundo
 * Largura de banda necessária de comunicação eventual entre VMs no Azure
-* Largura de banda necessária entre ativos locais e do sistema SAP implantado do Azure
+* Largura de banda de rede necessária entre os ativos locais e hello sistema SAP implantado do Azure
 
 ### <a name="resource-groups"></a>Grupos de recursos
-No Azure Resource Manager, você pode usar grupos de recursos para gerenciar todos os recursos do aplicativo em sua assinatura do Azure. Para saber mais, confira [Visão geral do Azure Resource Manager][resource-group-overview].
+No Gerenciador de recursos do Azure, você pode usar recursos grupos toomanage todos os recursos de aplicativo hello em sua assinatura do Azure. Para saber mais, confira [Visão geral do Azure Resource Manager][resource-group-overview].
 
 ## <a name="resources"></a>Recursos
 
 ### <a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>Recursos do SAP
-Ao configurar a implantação de software SAP, são necessários os seguintes recursos do SAP:
+Quando você estiver configurando a implantação de software SAP, você precisa Olá recursos SAP a seguir:
 
 * A Nota SAP [1928533], que tem:
-  * Lista de tamanhos de VM do Azure que têm suporte para a implantação de software SAP
+  * Lista de tamanhos de VM do Azure que têm suporte para implantação de saudação do software SAP
   * Informações importantes sobre capacidade para tamanhos de VM do Azure
   * Software SAP e combinações de SO (sistema operacional) e banco de dados com suporte
   * A versão do kernel do SAP necessária para Windows e para Linux no Microsoft Azure
 
 * A Nota SAP [2015553] lista pré-requisitos para implantações de software SAP com suporte do SAP no Azure.
 * A Nota SAP [2178632] contém informações detalhadas sobre todas as métricas de monitoramentos relatadas para o SAP no Azure.
-* A Nota SAP [1409604] tem a versão necessária do SAP Host Agent para Windows no Azure.
-* A Nota SAP [2191498] tem a versão necessária do SAP Host Agent para Linux no Azure.
+* Nota da SAP [1409604] Olá exigiu versão SAP Host Agent para Windows no Azure.
+* Nota da SAP [2191498] Olá exigiu versão SAP Host Agent para Linux no Azure.
 * A Nota SAP [2243692] tem informações sobre o licenciamento do SAP no Linux no Azure.
 * A Nota SAP [1984787] tem informações gerais sobre o SUSE Linux Enterprise Server 12.
 * A Nota SAP [2002167] tem informações gerais sobre o Red Hat Enterprise Linux 7.x.
-* A Nota SAP [1999351] tem informações de solução de problemas adicionais para a Extensão de Monitoramento Avançado do Azure para SAP.
+* Nota da SAP [1999351] tem informações adicionais de solução de problemas para hello Azure extensão de monitoramento aprimorada para SAP.
 * [WIKI da comunidade do SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as Notas SAP necessárias para Linux.
 * Cmdlets do PowerShell específicos para SAP que fazem parte do [Azure PowerShell][azure-ps]
 * Comandos de CLI do Azure específicos do SAP que fazem parte da [CLI do Azure][azure-cli].
@@ -380,196 +380,196 @@ Estes artigos da Microsoft abordam as implantações do SAP no Azure:
 * [Portal do Azure][azure-portal]
 
 ## <a name="b3253ee3-d63b-4d74-a49b-185e76c4088e"></a>Cenários de implantação do software SAP em VMs do Azure
-Você tem várias opções para implantar máquinas virtuais e discos associados no Azure. É importante entender as diferenças entre as opções de implantação, pois você pode seguir diferentes etapas para preparar as VMs para implantação com base no tipo de implantação que escolher.
+Você tem várias opções para implantar máquinas virtuais e discos associados no Azure. É toounderstand importantes diferenças de saudação entre as opções de implantação, porque pode levar a diferentes etapas tooprepare suas VMs para implantação com base no tipo de implantação Olá escolhido.
 
-### <a name="db477013-9060-4602-9ad4-b0316f8bb281"></a>Cenário 1: implantando uma VM do Azure Marketplace para SAP
-Você pode usar uma imagem fornecida pela Microsoft ou por terceiros no Azure Marketplace para implantar a VM. O Marketplace oferece algumas imagens de SO padrão do Windows Server e diferentes distribuições do Linux. Você também pode implantar uma imagem que inclua SKUs de DBMS (gerenciamento de banco de dados do sistema), por exemplo, o Microsoft SQL Server. Para obter mais informações sobre como usar imagens com SKUs do DBMS, confira [Implantação de DBMS de Máquinas Virtuais do Azure para SAP no Linux][dbms-guide].
+### <a name="db477013-9060-4602-9ad4-b0316f8bb281"></a>Cenário 1: Implantando uma VM do hello Azure Marketplace para SAP
+Você pode usar uma imagem fornecida pela Microsoft ou por terceiros em hello Azure Marketplace toodeploy sua VM. Olá Marketplace oferece algumas imagens de SO padrão do Windows Server e várias distribuições do Linux. Você também pode implantar uma imagem que inclua SKUs de DBMS (gerenciamento de banco de dados do sistema), por exemplo, o Microsoft SQL Server. Para obter mais informações sobre como usar imagens com SKUs do DBMS, confira [Implantação de DBMS de Máquinas Virtuais do Azure para SAP no Linux][dbms-guide].
 
-O seguinte fluxograma mostra a sequência de etapas específicas do SAP para implantar uma VM do Azure Marketplace:
+Olá fluxograma a seguir mostra sequência do SAP específico Olá das etapas para implantar uma VM do hello Azure Marketplace:
 
-![Fluxograma de implantação de VM para sistemas SAP usando uma imagem de VM do Azure Marketplace][deployment-guide-figure-100]
+![Fluxograma de implantação de VM para sistemas SAP usando uma imagem de VM do hello Azure Marketplace][deployment-guide-figure-100]
 
-#### <a name="create-a-virtual-machine-by-using-the-azure-portal"></a>Criar uma máquina virtual usando o portal do Azure
-A maneira mais fácil de criar uma nova máquina virtual com uma imagem com origem no Azure Marketplace é usar o Portal do Azure.
+#### <a name="create-a-virtual-machine-by-using-hello-azure-portal"></a>Criar uma máquina virtual usando Olá portal do Azure
+toocreate de maneira mais fácil de saudação uma nova máquina virtual com uma imagem de saudação do Azure Marketplace é usando Olá portal do Azure.
 
-1.  Acesse <https://portal.azure.com/#create>.  Ou, no menu do portal do Azure, selecione **+Novo**.
-2.  Selecione **Computação** e selecione o tipo de sistema operacional que você deseja implantar. Por exemplo, o Windows Server 2012 R2, o SUSE Linux Enterprise Server 12 (SLES 12) ou o Red Hat Enterprise Linux (RHEL 7.2) 7.2. O modo de exibição de lista padrão não mostra todos os sistemas operacionais com suporte. Selecione **ver todos** para obter uma lista completa. Para obter mais informações sobre sistemas operacionais com suporte para implantação de software SAP, confira a Nota SAP [1928533].
-3.  Na próxima página, examine os termos e as condições.
-4.  Na caixa **Selecionar um modelo de implantação**, selecione **Gerenciador de Recursos**.
+1.  Vá muito<https://portal.azure.com/#create>.  Ou, no menu do portal do Azure de Olá, selecione **+ novo**.
+2.  Selecione **de computação**e, em seguida, selecione o tipo de saudação de deseja toodeploy do sistema operacional. Por exemplo, o Windows Server 2012 R2, o SUSE Linux Enterprise Server 12 (SLES 12) ou o Red Hat Enterprise Linux (RHEL 7.2) 7.2. exibição de lista padrão de saudação não mostra que todos os sistemas operacionais com suporte. Selecione **ver todos** para obter uma lista completa. Para obter mais informações sobre sistemas operacionais com suporte para implantação de software SAP, confira a Nota SAP [1928533].
+3.  Na página seguinte do hello, rever os termos e condições.
+4.  Em Olá **selecionar um modelo de implantação** , selecione **Gerenciador de recursos**.
 5.  Selecione **Criar**.
 
-O assistente orienta você durante a configuração de parâmetros necessários para criar a máquina virtual, além de todos os recursos necessários, como interfaces de rede e contas de armazenamento. Alguns desses parâmetros são:
+Olá guiará você pela configuração de máquina virtual do hello necessários parâmetros toocreate hello, além de tooall necessários recursos, como interfaces de rede e contas de armazenamento. Alguns desses parâmetros são:
 
 1. **Noções básicas**:
-  * **Nome**: o nome do recurso (o nome da máquina virtual).
- * **Nome de usuário e senha** ou **chave pública SSH**: insira o nome de usuário e a senha do usuário que é criado durante o provisionamento. Para uma máquina virtual Linux, você pode inserir a chave pública do SSH (Secure Shell) que usa para entrar na máquina.
- * **Assinatura**: selecione a assinatura que deseja usar para provisionar a nova máquina virtual.
- * **Grupo de recursos**: o nome do grupo de recursos da VM. Você pode inserir o nome de um novo grupo de recursos ou o nome de um grupo de recursos que já existe.
- * **Local**: onde implantar a nova máquina virtual. Se quiser conectar a máquina virtual à a rede local, selecione o local da rede virtual que conecta o Azure à a rede local. Para obter mais informações, confira [Rede do Microsoft Azure][planning-guide-microsoft-azure-networking] em [Planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide].
+  * **Nome**: nome de saudação do recurso de saudação (nome da máquina virtual Olá).
+ * **Nome de usuário e senha** ou **chave pública SSH**: insira Olá nome de usuário e senha do usuário de saudação que é criado durante o provisionamento de saudação. Para uma máquina virtual Linux, você pode inserir Olá Secure Shell (SSH) de virtualização que você use toosign toohello máquina.
+ * **Assinatura**: selecione Olá assinatura que você deseja toouse tooprovision Olá nova máquina virtual.
+ * **Grupo de recursos**: nome de Olá Olá do grupo de recursos para Olá VM. Você pode inserir qualquer nome de saudação de um novo recurso Olá nome de grupo ou um grupo de recursos já existe.
+ * **Local**: onde toodeploy Olá nova máquina virtual. Se você deseja que tooconnect Olá máquina virtual tooyour local na rede, certifique-se de que selecionar Olá local de rede virtual de saudação que se conecta a rede de local de tooyour do Azure. Para obter mais informações, confira [Rede do Microsoft Azure][planning-guide-microsoft-azure-networking] em [Planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide].
 2. **Tamanho**:
 
-     Para obter uma lista dos tipos de VM com suporte, confira a Nota SAP [1928533]. Selecione o tipo correto de VM se você quiser usar o Armazenamento Premium do Azure. Nem todos os tipos VM dão suporte ao Armazenamento Premium. Para obter mais informações, confira [Armazenamento: Armazenamento do Microsoft Azure e discos de dados][planning-guide-storage-microsoft-azure-storage-and-data-disks] e [Armazenamento Premium do Azure][planning-guide-azure-premium-storage] em [Planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide].
+     Para obter uma lista dos tipos de VM com suporte, confira a Nota SAP [1928533]. Certifique-se de que você selecionar o tipo correto de VM Olá se você quiser toouse armazenamento Premium do Azure. Nem todos os tipos VM dão suporte ao Armazenamento Premium. Para obter mais informações, confira [Armazenamento: Armazenamento do Microsoft Azure e discos de dados][planning-guide-storage-microsoft-azure-storage-and-data-disks] e [Armazenamento Premium do Azure][planning-guide-azure-premium-storage] em [Planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide].
 
 3. **Configurações**:
    * **Conta de armazenamento**: selecione uma conta de armazenamento existente ou crie uma nova. Nem todos os tipos de armazenamento funcionam para a execução de aplicativos SAP. Para obter mais informações sobre tipos de armazenamento, confira [Armazenamento do Microsoft Azure][dbms-guide-2.3] na [Implantação de DBMS de Máquinas Virtuais do Azure para SAP no Linux][dbms-guide].
-   * **Rede virtual** e **sub-rede**: para integrar a máquina virtual à intranet, selecione a rede virtual que está conectada à rede local.
-   * **Endereço IP público**: selecione o endereço IP público que você deseja usar ou insira os parâmetros para criar um novo endereço IP público. Você pode usar um endereço IP público para acessar a máquina virtual pela Internet. Verifique se você também pode criar um grupo de segurança de rede para ajudar a proteger o acesso à máquina virtual.
+   * **Rede virtual** e **sub-rede**: toointegrate Olá VM com a sua intranet, selecione Olá rede virtual conectado tooyour rede de local.
+   * **Endereço IP público**: selecione Olá endereço IP público que você deseja toouse ou insira parâmetros toocreate um novo endereço IP público. Você pode usar um tooaccess de endereço IP público sua máquina virtual Olá da Internet. Certifique-se de que você também pode criar uma máquina de virtual rede segurança grupo toohelp acesso seguro tooyour.
    * **Grupo de segurança de rede**: para obter mais informações, confira [Controlar o fluxo de tráfego de rede com grupos de segurança de rede][virtual-networks-nsg].
-   * **Disponibilidade**: selecione um conjunto de disponibilidade ou insira os parâmetros para criar um novo conjunto de disponibilidade. Para obter mais informações, confira [Conjuntos de disponibilidade do Azure][planning-guide-3.2.3].
-   * **Monitoramento**: você pode selecionar **Desabilitar** para monitoramento de diagnóstico. Ela será habilitada automaticamente quando você executar os comandos para habilitar a Extensão de Monitoramento Avançado do Azure, conforme descrito em [Configurar o monitoramento][deployment-guide-configure-monitoring-scenario-1].
+   * **Disponibilidade**: selecione um conjunto de disponibilidade ou digite Olá parâmetros toocreate uma nova disponibilidade definida. Para obter mais informações, confira [Conjuntos de disponibilidade do Azure][planning-guide-3.2.3].
+   * **Monitoramento**: você pode selecionar **Desabilitar** para monitoramento de diagnóstico. Ele é habilitado automaticamente quando você executa Olá comandos tooenable hello Azure extensão de monitoramento aprimorada, conforme descrito em [configurar monitoramento][deployment-guide-configure-monitoring-scenario-1].
 
 4. **Resumo**:
 
   Examine suas seleções e selecione **OK**.
 
-Sua máquina virtual é implantada no grupo de recursos selecionado.
+Sua máquina virtual é implantada no grupo de recursos de saudação selecionado.
 
 #### <a name="create-a-virtual-machine-by-using-a-template"></a>Criar uma máquina virtual usando um modelo
-Você pode criar uma máquina virtual usando um dos modelos do SAP publicados no [Repositório do GitHub azure-quickstart-templates][azure-quickstart-templates-github]. Você também pode criar manualmente uma máquina virtual usando o [portal do Azure][virtual-machines-windows-tutorial], o [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms] ou a [CLI do Azure][virtual-machines-linux-tutorial].
+Você pode criar uma máquina virtual usando um dos modelos SAP Olá publicados em hello [repositório GitHub de modelos do azure-quickstart][azure-quickstart-templates-github]. Você também pode criar manualmente uma máquina virtual usando Olá [portal do Azure][virtual-machines-windows-tutorial], [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms], ou [CLI do Azure ][virtual-machines-linux-tutorial].
 
 * [**Modelo de configuração de duas camadas (apenas uma máquina virtual)** (sap-2-tier-marketplace-image)][sap-templates-2-tier-marketplace-image]
 
-  Para criar um sistema de duas camadas, usando apenas uma máquina virtual, use este modelo.
+  toocreate um sistema de duas camadas, usando apenas uma máquina virtual, use este modelo.
 * [**Modelo de configuração de três camadas (várias máquinas virtuais)** (sap-3-tier-marketplace-image)][sap-templates-3-tier-marketplace-image]
 
-  Para criar um sistema de três camadas com várias máquinas virtuais, use este modelo.
+  toocreate um sistema de três camadas usando várias máquinas virtuais, use este modelo.
 
-No portal do Azure, insira os seguintes parâmetros para o modelo:
+No hello portal do Azure, digite Olá parâmetros de modelo Olá a seguir:
 
 1. **Noções básicas**:
-  * **Assinatura**: a assinatura a ser usada para implantar o modelo.
-  * **Grupo de recursos**: o grupo de recursos a ser usado para implantar o modelo. Você pode criar um novo grupo de recursos ou selecionar um existente na assinatura selecionada.
-  * **Local**: onde implantar o modelo. Se você tiver selecionado um grupo de recursos existente, a localização desse grupo de recursos será usada.
+  * **Assinatura**: modelo de Olá Olá assinatura toouse toodeploy.
+  * **Grupo de recursos**: modelo de Olá Olá recurso grupo toouse toodeploy. Você pode criar um novo grupo de recursos, ou você pode selecionar um grupo de recursos existente na assinatura de saudação.
+  * **Local**: onde toodeploy Olá modelo. Se você selecionou um grupo de recursos existente, o local de saudação desse grupo de recursos é usado.
 
 2. **Configurações**:
-  * **ID do sistema SAP**: a ID do sistema SAP (SID).
-  * **Tipo de SO**: o sistema operacional que você deseja implantar, por exemplo, o Windows Server 2012 R2, o SUSE Linux Enterprise Server 12 (SLES 12) ou o Red Hat Enterprise Linux (RHEL 7.2) 7.2.
+  * **ID do sistema SAP**: Olá ID de sistema SAP (SID).
+  * **Tipo de SO**: Olá o sistema operacional que você deseja toodeploy, por exemplo, Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (12 SLES) ou Red Hat Enterprise Linux 7.2 (RHEL 7.2).
 
-    O modo de exibição de lista padrão não mostra todos os sistemas operacionais com suporte. Selecione **ver todos** para obter uma lista completa. Para obter mais informações sobre sistemas operacionais com suporte para implantação de software SAP, confira a Nota SAP [1928533].
-  * **Tamanho do Sistema SAP**: o tamanho do sistema SAP.
+    exibição de lista padrão de saudação não mostra que todos os sistemas operacionais com suporte. Selecione **ver todos** para obter uma lista completa. Para obter mais informações sobre sistemas operacionais com suporte para implantação de software SAP, confira a Nota SAP [1928533].
+  * **Tamanho do sistema SAP**: Olá tamanho de saudação sistema SAP.
 
-    O número de SAPS que o novo sistema fornece. Se não tiver certeza de quantos SAPS o sistema precisará, pergunte ao Parceiro de Tecnologia SAP ou ao Integrador de Sistemas.
-  * **Disponibilidade do sistema** (somente modelo de três camadas): a disponibilidade do sistema.
+    Olá número de SAPS Olá novo sistema fornece. Se não tiver certeza do sistema de saudação SAPS quantos requer, peça ao seu parceiro de tecnologia do SAP ou o integrador de sistema.
+  * **Disponibilidade do sistema** (apenas modelo de três camadas): Olá a disponibilidade do sistema.
 
     Selecione **HA** para obter uma configuração adequada a uma instalação de alta disponibilidade. Dois servidores de banco de dados e dois servidores para ASCS (ABAP SAP Central Services) são criados.
-  * **Tipo de armazenamento** (modelo de duas camadas somente): o tipo de armazenamento a ser usado.
+  * **Tipo de armazenamento** (apenas modelo de duas camadas): Olá tipo de armazenamento toouse.
 
     Em sistemas maiores, é altamente recomendável usar o Armazenamento do Azure Premium. Para obter mais informações sobre tipos de armazenamento, confira estes recursos:
       * [Uso do Armazenamento SSD Premium do Azure para instância do SAP DBMS][2367194]
       * [Armazenamento do Microsoft Azure][dbms-guide-2.3] na [implantação de DBMS de Máquinas Virtuais do Azure para SAP no Linux][dbms-guide]
       * [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de Máquina Virtual do Azure][storage-premium-storage-preview-portal]
-      * [Introdução ao Armazenamento do Microsoft Azure][storage-introduction]
+      * [Introdução tooMicrosoft armazenamento do Azure][storage-introduction]
   * **Nome de Usuário do Administrador** e **Senha do Administrador**: nome de usuário e senha.
-    Um novo usuário é criado para entrar na máquina virtual.
-  * **Sub-rede nova ou existente**: determina se uma nova rede virtual e uma sub-rede são criadas ou uma sub-rede existente é usada. Se já tiver uma rede virtual conectada à rede local, selecione **Existente**.
-  * **ID de sub-rede**: a ID da sub-rede à qual as máquinas virtuais se conectarão. Selecione a sub-rede da sua VPN (rede privada virtual) ou rede virtual Azure ExpressRoute a ser usada para conectar a máquina virtual à a rede local. A ID geralmente tem esta aparência: /subscriptions/&lt;id da assinatura>/resourceGroups/&lt;nome do grupo de recursos>/providers/Microsoft.Network/virtualNetworks/&lt;nome de rede virtual> /subnets/&lt;nome da sub-rede>
+    Um novo usuário é criado para a assinatura na máquina virtual de toohello.
+  * **Sub-rede nova ou existente**: determina se uma nova rede virtual e uma sub-rede são criadas ou uma sub-rede existente é usada. Se você já tiver uma rede virtual que é a rede de local tooyour conectado, selecione **existente**.
+  * **ID de sub-rede**: Olá ID das máquinas virtuais do hello sub-rede Olá se conectará. Selecione a sub-rede de saudação de sua rede virtual privada (VPN) ou rota expressa do Azure rede virtual toouse tooconnect Olá tooyour local na rede da máquina virtual. ID de saudação geralmente tem esta aparência: /subscriptions/&lt;id da assinatura > /resourceGroups/&lt;nome do grupo de recursos > /providers/Microsoft.Network/virtualNetworks/&lt;nome de rede virtual > /subnets/&lt;nome do subrede >
 
 3. **Termos e condições**:  
-    Examine e aceite o termos legais.
+    Leia e aceite os termos legais hello.
 
 4.  Selecione **Comprar**.
 
-O Agente de VM do Azure é implantado por padrão quando você usa uma imagem do Azure Marketplace.
+Hello Azure VM Agent é implantado por padrão quando você usar uma imagem de saudação do Azure Marketplace.
 
 #### <a name="configure-proxy-settings"></a>Definir configurações de proxy
-Dependendo de como a rede local estiver configurada, talvez você precise configurar o proxy na VM. Se a VM está conectada à a rede local por meio de VPN ou ExpressRoute, talvez a VM não possa acessar a Internet e não consiga baixar as extensões necessárias ou coletar dados de monitoramento. Para obter mais informações, confira [Configurar o proxy][deployment-guide-configure-proxy].
+Dependendo de como sua rede local é configurado, talvez seja necessário tooset proxy Olá na sua VM. Se sua VM é a rede de local de tooyour conectados por meio de VPN ou rota expressa, Olá VM pode não ser capaz de tooaccess Olá Internet e não ser capaz de toodownload extensões Olá necessário ou coletar dados de monitoramento. Para obter mais informações, consulte [configurar proxy Olá][deployment-guide-configure-proxy].
 
 #### <a name="join-a-domain-windows-only"></a>Ingressar em um domínio (somente Windows)
-Se a implantação do Azure está conectada a uma instância do DNS ou Active Directory local por meio de uma conexão VPN site a site do Azure ou ExpressRoute (isso é chamado de *entre instalações* em [planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide]), espera-se que a VM ingresse em um domínio local. Para obter mais informações sobre as considerações para essa tarefa, confira [Associar uma VM a um domínio local (somente Windows)][deployment-guide-4.3].
+Se sua implantação do Azure é a instância DNS ou Active Directory de local de tooan conectado via uma conexão de VPN site a site do Azure, ou rota expressa (Isso é chamado de *entre locais* na [planejamento de máquinas virtuais do Azure e a implementação de SAP no Linux][planning-guide]), espera-se que Olá VM estiver ingressando em um domínio local. Para obter mais informações sobre as considerações para essa tarefa, consulte [ingressar em um domínio de local de tooan VM (somente Windows)][deployment-guide-4.3].
 
 #### <a name="ec323ac3-1de9-4c3a-b770-4ff701def65b"></a>Configurar monitoramento
-Para garantir que o ambiente dê suporte ao SAP, configure a Extensão de Monitoramento do Azure para SAP conforme descrito em [Configurar a Extensão de Monitoramento Avançado do Azure para SAP][deployment-guide-4.5]. Verifique os pré-requisitos para o monitoramento do SAP e as versões mínimas necessárias do Kernel do SAP e do Agente de Host do SAP nos recursos listados em [Recursos de SAP][deployment-guide-2.2].
+toobe se seu ambiente dá suporte a SAP, configure Olá extensão de monitoramento do Azure para SAP, conforme descrito em [configurar hello Azure extensão de monitoramento aprimorada para SAP][deployment-guide-4.5]. Verificar pré-requisitos Olá para monitoramento do SAP e as versões mínimas necessárias de Kernel do SAP e SAP Host Agent, em recursos Olá listados em [recursos SAP][deployment-guide-2.2].
 
 #### <a name="monitoring-check"></a>Verificação de monitoramento
 Verifique se o monitoramento está funcionando, conforme descrito em [Verificações e solução de problemas para configurar o monitoramento de ponta a ponta][deployment-guide-troubleshooting-chapter].
 
 #### <a name="post-deployment-steps"></a>Etapas de pós-implantação
-Após criar a VM e implantá-la, você precisa instalar os componentes de software necessários na VM. Devido a sequência de instalação de implantação de software nesse tipo de implantação de VM, o software a ser instalado já deve estar disponível no Azure, em outra VM ou como um disco que pode ser anexado. Ou então, considere o uso de um cenário entre locais, em que a conectividade aos ativos locais (compartilhamentos de instalação) é fornecida.
+Depois de criar hello VM e Olá VM é implantado, é necessário tooinstall Olá necessários componentes de software em Olá VM. Devido a sequência de instalação de software/implantação Olá nesse tipo de implantação de VM, Olá software toobe instalado já deve estar disponível no Azure, na outra VM, ou como um disco que pode ser anexado. Ou então, considere usar um cenário entre locais, na qual conectividade toohello local ativos (compartilhamentos de instalação) é fornecido.
 
-Depois de implantar a VM no Azure, siga as mesmas diretrizes e ferramentas para instalar o software SAP na VM como você faria em um ambiente local. Para instalar o software SAP em uma VM do Azure, a SAP e a Microsoft recomendam carregar e armazenar a mídia de instalação do SAP em VHDs do Azure ou criar uma VM do Azure que funcione como um servidor de arquivos com toda a mídia de instalação SAP necessária.
+Depois de implantar a VM no Azure, siga Olá mesmas diretrizes e ferramentas tooinstall Olá software SAP em sua VM como você faria em um ambiente local. software SAP de tooinstall em uma VM do Azure, ambos SAP e a Microsoft recomendam que você deseja carrega e armazena a mídia de instalação do hello SAP em VHDs do Azure, ou que você crie uma VM do Azure que funciona como um servidor de arquivos que tem todos os Olá necessário mídia de instalação do SAP.
 
-[comment]: <> (MSSedusch TODO: por que precisamos recomendar um gerenciamento de arquivos, por exemplo, Servidor de Arquivos ou VHD? Isso é tão diferente da versão local?)
+[comment]: <> (TODO MSSedusch por que preciso toorecommend um gerenciamento de arquivos, por exemplo, o servidor de arquivos ou o VHD? Isso é tão diferente da versão local?)
 
 ### <a name="54a1fc6d-24fd-4feb-9c57-ac588a55dff2"></a>Cenário 2: Implantando uma VM com uma imagem personalizada para SAP
-Como diferentes versões de um sistema operacional ou DBMS têm requisitos de patch diferentes, as imagens que você encontrar no Azure Marketplace poderão não atender às suas necessidades. Em vez disso, talvez você queira criar uma VM usando sua própria imagem de VM do DBMS/sistema operacional, que pode implantar novamente mais tarde.
-Você usa diferentes etapas para criar uma imagem privada para Linux em vez de criar uma para o Windows.
+Como diferentes versões de um sistema operacional ou DBMS têm requisitos diferentes de patch, imagens Olá que encontrar no hello Azure Marketplace podem não atender às suas necessidades. Em vez disso, você poderá toocreate uma VM usando sua própria imagem de VM do SO/DBMS, que você pode implantar novamente mais tarde.
+Você pode usar etapas diferentes toocreate uma imagem privada para Linux que toocreate para Windows.
 
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> Para preparar uma imagem do Windows que você pode usar para implantar várias máquinas virtuais, as configurações do Windows (como o nome de host e SID do Windows) devem ser abstraídas ou generalizadas na VM local. Você pode usar [sysprep](https://msdn.microsoft.com/library/hh825084.aspx) para fazer isso.
+> tooprepare uma imagem do Windows que você pode usar toodeploy várias máquinas virtuais, configurações do Windows hello (como o SID do Windows e o nome de host) devem ser abstraídas ou generalizado em Olá VM no local. Você pode usar [sysprep](https://msdn.microsoft.com/library/hh825084.aspx) toodo isso.
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Para preparar uma imagem do Linux que você pode usar para implantar várias máquinas virtuais, algumas configurações do Linux devem ser abstraídas ou generalizadas na VM local. Você pode usar `waagent -deprovision` para fazer isso. Para obter mais informações, confira [Capturar uma máquina virtual Linux em execução no Azure][virtual-machines-linux-capture-image] e [Guia do usuário do agente Linux do Azure][virtual-machines-linux-agent-user-guide-command-line-options].
+> tooprepare uma imagem do Linux que você pode usar toodeploy várias máquinas virtuais, algumas configurações do Linux devem ser Olá abstraída ou generalizado na VM local. Você pode usar `waagent -deprovision` toodo isso. Para obter mais informações, consulte [capturar uma máquina virtual do Linux em execução no Azure] [ virtual-machines-linux-capture-image] e hello [guia do usuário do agente Linux do Azure][virtual-machines-linux-agent-user-guide-command-line-options].
 >
 >
 
 - - -
-Você pode preparar e criar uma imagem personalizada e usá-la para criar várias novas VMs. Isso é descrito em [Planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide]. Configure o conteúdo do banco de dados usando o Gerenciador de Provisionamento de Software SAP para instalar um novo sistema SAP, para restaurar um backup de banco de dados de um VHD anexado à máquina virtual ou para restaurar diretamente um backup de banco de dados do Armazenamento do Azure se o DBMS der suporte a isso. Para obter mais informações, confira [Implantação de DBMS de Máquinas Virtuais do Azure para SAP no Linux][dbms-guide]. Se um sistema SAP já estiver instalado na VM local (especialmente para sistemas de duas camadas), você poderá adaptar as configurações do sistema SAP após a implantação da VM do Azure usando o procedimento de Renomeação do Sistema ao qual o Gerenciador de Provisionamento de Software SAP dá suporte (Nota SAP [1619720]). Caso contrário, você pode instalar o software SAP depois de implantar a VM do Azure.
+Você pode preparar e criar uma imagem personalizada e, em seguida, usá-lo toocreate várias novas VMs. Isso é descrito em [Planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide]. Configurar o banco de dados de conteúdo usando o SAP Software Provisioning Manager tooinstall um novo sistema SAP (restaura um backup de banco de dados de um VHD de máquina virtual de toohello anexado) ou diretamente restaurando um backup de banco de dados do armazenamento do Azure, se o DBMS oferece suporte a ele. Para obter mais informações, confira [Implantação de DBMS de Máquinas Virtuais do Azure para SAP no Linux][dbms-guide]. Se você já tiver instalado um sistema SAP em sua VM local (especialmente para sistemas de duas camadas), você pode adaptar configurações do sistema SAP Olá após a implantação de saudação do hello VM do Azure usando o procedimento de renomeação de saudação suportado pelo SAP Software Provisioning Manager (nota da SAP [1619720]). Caso contrário, você pode instalar o software SAP de saudação depois de implantar Olá VM do Azure.
 
-O seguinte fluxograma mostra a sequência de etapas para implantar uma VM por meio de uma imagem personalizada específica do SAP:
+Olá, fluxograma a seguir mostra Olá sequência de SAP específico de etapas para implantar uma VM de uma imagem personalizada:
 
 ![Fluxograma de implantação de VM para sistemas SAP usando uma imagem de VM do Marketplace privado][deployment-guide-figure-300]
 
-#### <a name="create-the-virtual-machine"></a>Criar a máquina virtual
-Para criar uma implantação usando uma imagem de SO particular do portal do Azure, use um dos modelos do SAP a seguir. Esses modelos são publicados no [repositório azure-quickstart-templates do GitHub][azure-quickstart-templates-github]. Você também pode criar manualmente uma máquina virtual usando o [PowerShell][virtual-machines-upload-image-windows-resource-manager].
+#### <a name="create-hello-virtual-machine"></a>Criar a máquina virtual de saudação
+toocreate uma implantação usando uma imagem de SO particular de saudação portal do Azure, use um dos Olá modelos SAP a seguir. Esses modelos são publicados no hello [repositório GitHub de modelos do azure-quickstart][azure-quickstart-templates-github]. Você também pode criar manualmente uma máquina virtual usando o [PowerShell][virtual-machines-upload-image-windows-resource-manager].
 
 * [**Modelo de configuração de duas camadas (apenas uma máquina virtual)** (sap-2-tier-user-image)][sap-templates-2-tier-user-image]
 
-  Para criar um sistema de duas camadas, usando apenas uma máquina virtual, use este modelo.
+  toocreate um sistema de duas camadas, usando apenas uma máquina virtual, use este modelo.
 * [**Modelo de configuração de três camadas (várias máquinas virtuais)** (sap-3-tier-user-image)][sap-templates-3-tier-user-image]
 
-  Para criar um sistema de três camadas usando várias máquinas virtuais ou sua própria imagem de SO, use este modelo.
+  toocreate um sistema de três camadas usando várias máquinas virtuais ou sua própria imagem do sistema operacional, use este modelo.
 
-No portal do Azure, insira os seguintes parâmetros para o modelo:
+No hello portal do Azure, digite Olá parâmetros de modelo Olá a seguir:
 
 1. **Noções básicas**:
-  * **Assinatura**: a assinatura a ser usada para implantar o modelo.
-  * **Grupo de recursos**: o grupo de recursos a ser usado para implantar o modelo. Você pode criar um novo grupo de recursos ou selecionar um existente na assinatura.
-  * **Local**: onde implantar o modelo. Se você tiver selecionado um grupo de recursos existente, a localização desse grupo de recursos será usada.
+  * **Assinatura**: modelo de Olá Olá assinatura toouse toodeploy.
+  * **Grupo de recursos**: modelo de Olá Olá recurso grupo toouse toodeploy. Você pode criar um novo grupo de recursos ou selecionar um grupo de recursos existente na assinatura de saudação.
+  * **Local**: onde toodeploy Olá modelo. Se você selecionou um grupo de recursos existente, o local de saudação desse grupo de recursos é usado.
 2. **Configurações**:
-  * **ID do Sistema SAP**: a ID do Sistema SAP.
-  * **Tipo de SO**: o tipo de sistema operacional que você deseja implantar (Windows ou Linux).
-  * **Tamanho do Sistema SAP**: o tamanho do sistema SAP.
+  * **ID do sistema SAP**: Olá ID do sistema SAP.
+  * **Tipo de SO**: Olá tipo de sistema operacional que você deseja toodeploy (Windows ou Linux).
+  * **Tamanho do sistema SAP**: Olá tamanho de saudação sistema SAP.
 
-    O número de SAPS que o novo sistema fornece. Se não tiver certeza de quantos SAPS o sistema precisará, pergunte ao Parceiro de Tecnologia SAP ou ao Integrador de Sistemas.
-  * **Disponibilidade do sistema** (somente modelo de três camadas): a disponibilidade do sistema.
+    Olá número de SAPS Olá novo sistema fornece. Se não tiver certeza do sistema de saudação SAPS quantos requer, peça ao seu parceiro de tecnologia do SAP ou o integrador de sistema.
+  * **Disponibilidade do sistema** (apenas modelo de três camadas): Olá a disponibilidade do sistema.
 
     Selecione **HA** para obter uma configuração adequada a uma instalação de alta disponibilidade. Dois servidores de banco de dados e dois para ASCS são criados.
-  * **Tipo de armazenamento** (modelo de duas camadas somente): o tipo de armazenamento a ser usado.
+  * **Tipo de armazenamento** (apenas modelo de duas camadas): Olá tipo de armazenamento toouse.
 
-    Em sistemas maiores, é altamente recomendável usar o Armazenamento do Azure Premium. Para obter mais informações sobre tipos de armazenamento, confira os seguintes recursos:
+    Em sistemas maiores, é altamente recomendável usar o Armazenamento do Azure Premium. Para obter mais informações sobre tipos de armazenamento, consulte Olá recursos a seguir:
       * [Uso do Armazenamento SSD Premium do Azure para instância do SAP DBMS][2367194]
       * [Armazenamento do Microsoft Azure][dbms-guide-2.3] na [implantação de DBMS de Máquinas Virtuais do Azure para SAP no Linux][dbms-guide]
       * [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de Máquina Virtual do Azure][storage-premium-storage-preview-portal]
-      * [Introdução ao Armazenamento do Microsoft Azure][storage-introduction]
-  * **URI do VHD de imagem de usuário**: o URI do SO particular de imagem de VHD, por exemplo, https://&lt;accountname>.blob.core.windows.net/vhds/userimage.vhd.
-  * **Conta de armazenamento de imagem do usuário**: o nome da conta de armazenamento em que a imagem de sistema operacional privada é armazenada, por exemplo, &lt;accountname> in https://&lt;accountname>.blob.core.windows.net/vhds/userimage.vhd.
-  * **Nome de usuário do administrador** e **Senha do administrador**: nome de usuário e senha.
+      * [Introdução tooMicrosoft armazenamento do Azure][storage-introduction]
+  * **Imagem de usuário URI do VHD**: Olá URI da imagem do sistema operacional privada Olá VHD, por exemplo, https://&lt;accountname >.blob.core.windows.net/vhds/userimage.vhd.
+  * **Conta de armazenamento de imagem de usuário**: nome Olá Olá da conta de armazenamento onde Olá privada imagem do SO é armazenada, por exemplo, &lt;accountname > em https://&lt;accountname >.blob.core.windows.net/vhds/userimage.vhd.
+  * **Nome de usuário Admin** e **senha do administrador**: Olá nome de usuário e senha.
 
-    Um novo usuário é criado para entrar na máquina virtual.
-  * **Sub-rede nova ou existente**: determina se uma nova rede virtual e uma sub-rede são criadas ou uma sub-rede existente é usada. Se já tiver uma rede virtual conectada à rede local, selecione **Existente**.
-  * **ID de sub-rede**: a ID da sub-rede à qual as máquinas virtuais se conectarão. Selecione a sub-rede da sua VPN ou a rede virtual da ExpressRoute a ser usada para conectar a máquina virtual à rede local. A ID geralmente tem esta aparência:
+    Um novo usuário é criado para a assinatura na máquina virtual de toohello.
+  * **Sub-rede nova ou existente**: determina se uma nova rede virtual e uma sub-rede são criadas ou uma sub-rede existente é usada. Se você já tiver uma rede virtual que é a rede de local tooyour conectado, selecione **existente**.
+  * **ID de sub-rede**: Olá ID das máquinas virtuais do hello sub-rede toowhich Olá se conectará. Selecione a sub-rede de saudação de sua VPN ou rota expressa rede virtual toouse tooconnect Olá máquina virtual tooyour na rede local. ID de saudação geralmente tem esta aparência:
 
     /subscriptions/&lt;subscription id>/resourceGroups/&lt;resource group name>/providers/Microsoft.Network/virtualNetworks/&lt;virtual network name>/subnets/&lt;subnet name>
 
 3. **Termos e condições**:  
-    Examine e aceite o termos legais.
+    Leia e aceite os termos legais hello.
 
 4.  Selecione **Comprar**.
 
-#### <a name="install-the-vm-agent-linux-only"></a>Instale o Agente VM (somente no Linux)
-Para usar os modelos descritos na seção anterior, o agente do Linux já deve estar instalado na imagem do usuário, ou a implantação falhará. Baixe e instale o Agente de VM na imagem do usuário, conforme descrito em [Baixar, instalar e habilitar o Agente de VM do Azure][deployment-guide-4.4]. Se não usar os modelos, você também poderá instalar o Agente de VM mais tarde.
+#### <a name="install-hello-vm-agent-linux-only"></a>Instalar Olá agente de VM (Linux)
+modelos de saudação do toouse descritos na saudação anterior seção, Olá que agente Linux já deve estar instalado na imagem do usuário hello ou implantação Olá falhará. Baixe e instale o hello agente de VM na imagem de usuário Olá conforme descrito em [baixar, instalar e habilitar hello Azure VM Agent][deployment-guide-4.4]. Se você não usar modelos hello, você também pode instalar Olá agente de VM mais tarde.
 
 #### <a name="join-a-domain-windows-only"></a>Ingressar em um domínio (somente Windows)
-Se a implantação do Azure está conectada a uma instância do DNS ou Active Directory local por meio de uma conexão VPN site a site do Azure ou Azure ExpressRoute (isso é chamado de *entre instalações* em [planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide]), espera-se que a VM ingresse em um domínio local. Para obter mais informações sobre as considerações para essa etapa, confira [Associar uma VM a um domínio local (somente Windows)][deployment-guide-4.3].
+Se sua implantação do Azure é a instância DNS ou Active Directory de local de tooan conectado via uma conexão de VPN site a site do Azure ou rota expressa do Azure (Isso é chamado de *entre locais* na [máquinas virtuais do Azure planejamento e implementação para SAP no Linux][planning-guide]), espera-se que Olá VM estiver ingressando em um domínio local. Para obter mais informações sobre as considerações para esta etapa, consulte [ingressar em um domínio de local de tooan VM (somente Windows)][deployment-guide-4.3].
 
 #### <a name="configure-proxy-settings"></a>Definir configurações de proxy
-Dependendo de como a rede local estiver configurada, talvez você precise configurar o proxy na VM. Se a VM está conectada à a rede local por meio de VPN ou ExpressRoute, talvez a VM não possa acessar a Internet e não consiga baixar as extensões necessárias ou coletar dados de monitoramento. Para obter mais informações, confira [Configurar o proxy][deployment-guide-configure-proxy].
+Dependendo de como sua rede local é configurado, talvez seja necessário tooset proxy Olá na sua VM. Se sua VM é a rede de local de tooyour conectados por meio de VPN ou rota expressa, Olá VM pode não ser capaz de tooaccess Olá Internet e não ser capaz de toodownload extensões Olá necessário ou coletar dados de monitoramento. Para obter mais informações, consulte [configurar proxy Olá][deployment-guide-configure-proxy].
 
 #### <a name="configure-monitoring"></a>Configurar monitoramento
-Para garantir que o ambiente dê suporte ao SAP, configure a Extensão de Monitoramento do Azure para SAP conforme descrito em [Configurar a Extensão de Monitoramento Avançado do Azure para SAP][deployment-guide-4.5]. Verifique os pré-requisitos para o monitoramento do SAP e as versões mínimas necessárias do Kernel do SAP e do Agente de Host do SAP nos recursos listados em [Recursos de SAP][deployment-guide-2.2].
+toobe se seu ambiente dá suporte a SAP, configure Olá extensão de monitoramento do Azure para SAP, conforme descrito em [configurar hello Azure extensão de monitoramento aprimorada para SAP][deployment-guide-4.5]. Verificar pré-requisitos Olá para monitoramento do SAP e as versões mínimas necessárias de Kernel do SAP e SAP Host Agent, em recursos Olá listados em [recursos SAP][deployment-guide-2.2].
 
 #### <a name="monitoring-check"></a>Verificação de monitoramento
 Verifique se o monitoramento está funcionando, conforme descrito em [Verificações e solução de problemas para configurar o monitoramento de ponta a ponta][deployment-guide-troubleshooting-chapter].
@@ -578,11 +578,11 @@ Verifique se o monitoramento está funcionando, conforme descrito em [Verificaç
 
 
 ### <a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>Cenário 3: mover uma VM local usando um VHD do Azure não generalizado com o SAP
-Nesse cenário, você planeja mover um sistema SAP específico de um ambiente local para o Azure. Você pode fazer isso carregando o VHD que tenha o sistema operacional, os binários SAP e, eventualmente, os binários DBMS, mais os VHDs com os arquivos de dados e de log do DBMS no Azure. Diferentemente do cenário descrito em [Cenário 2: implantar uma VM com uma imagem personalizada para SAP][deployment-guide-3.3], nesse caso, mantenha o nome de host, o SID do SAP e contas de usuário SAP na VM do Azure, pois eles foram configurados no ambiente local. Você não precisa generalizar o sistema operacional. Esse cenário se aplica com mais frequência a cenários entre locais em que parte da estrutura SAP é executada no local e parte dela é executado no Azure.
+Nesse cenário, você planejar toomove um sistema SAP específico de um tooAzure do ambiente local. Você pode fazem isso Carregando Olá VHD que tenha Olá SO, binários SAP Olá, e, eventualmente, Olá binários DBMS, além de saudação VHDs com dados hello e arquivos de log de saudação DBMS, tooAzure. Ao contrário do cenário de saudação descrito em [cenário 2: Implantando uma VM com uma imagem personalizada para SAP][deployment-guide-3.3], nesse caso, manter Olá hostname, o SID do SAP, e contas de usuário do SAP em Olá VM do Azure, porque eles foram definida no ambiente de local de saudação. Não é necessário toogeneralize Olá sistema operacional. Esta situação se aplica a maioria das vezes, cenários de toocross locais em que parte do hello estrutura SAP é executada no local e parte dele é executado no Azure.
 
-Nesse cenário, o Agente de VM não é instalado automaticamente durante a implantação. Como o Agente de VM e a extensão e o Monitoramento Avançado do Azure para SAP são necessários para executar o SAP, você precisa baixar, instalar e habilitar os dois componentes manualmente depois de criar a máquina virtual.
+Nesse cenário, Olá agente de VM não é instalado automaticamente durante a implantação. Como Olá agente de VM e hello Azure extensão de monitoramento aprimorada para SAP é necessário para toorun SAP, é necessário toodownload, instalar e habilitar os dois componentes manualmente depois de criar a máquina virtual de saudação.
 
-Para obter mais informações sobre o Agente de VM do Azure, confira os recursos a seguir.
+Para obter mais informações sobre hello Azure VM Agent, consulte Olá recursos a seguir.
 
 [comment]: <> (MSSedusch TODO: atualizar link do Windows abaixo)
 
@@ -599,158 +599,158 @@ Para obter mais informações sobre o Agente de VM do Azure, confira os recursos
 
 - - -
 
-O seguinte fluxograma mostra a sequência de etapas para mover uma VM local usando um VHD do Azure não generalizado:
+Olá fluxograma a seguir mostra a sequência de saudação de etapas para mover uma VM local usando um VHD do Azure não generalizado:
 
 ![Fluxograma de implantação de VM para sistemas SAP usando um disco de VM][deployment-guide-figure-400]
 
-Supondo que o disco já tenha sido carregado e definido no Azure (confira [Planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide]), execute as tarefas descritas nas próximas seções.
+Supondo que hello disco já está carregado e definido no Azure (consulte [máquinas virtuais do Azure planejamento e implementação para SAP no Linux][planning-guide]), fazer Olá tarefas descritas nas Olá lado seções.
 
 #### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
-Para criar uma implantação usando um disco de sistema operacional privado por meio do portal do Azure, use o modelo SAP publicado no [repositório azure-quickstart-templates do GitHub][azure-quickstart-templates-github]. Você também pode criar manualmente uma máquina virtual usando o PowerShell.
+toocreate uma implantação usando um disco de SO particular por meio de saudação portal do Azure, use o modelo SAP de Olá publicado em Olá [repositório GitHub de modelos do azure-quickstart][azure-quickstart-templates-github]. Você também pode criar manualmente uma máquina virtual usando o PowerShell.
 
 * [**Modelo de configuração de duas camadas (apenas uma máquina virtual)** (sap-2-tier-user-disk)][sap-templates-2-tier-os-disk]
 
-  Para criar um sistema de duas camadas, usando apenas uma máquina virtual, use este modelo.
+  toocreate um sistema de duas camadas, usando apenas uma máquina virtual, use este modelo.
 
-No portal do Azure, insira os seguintes parâmetros para o modelo:
+No hello portal do Azure, digite Olá parâmetros de modelo Olá a seguir:
 
 1. **Noções básicas**:
-  * **Assinatura**: a assinatura a ser usada para implantar o modelo.
-  * **Grupo de recursos**: o grupo de recursos a ser usado para implantar o modelo. Você pode criar um novo grupo de recursos ou selecionar um existente na assinatura.
-  * **Local**: onde implantar o modelo. Se você tiver selecionado um grupo de recursos existente, a localização desse grupo de recursos será usada.
+  * **Assinatura**: modelo de Olá Olá assinatura toouse toodeploy.
+  * **Grupo de recursos**: modelo de Olá Olá recurso grupo toouse toodeploy. Você pode criar um novo grupo de recursos ou selecionar um grupo de recursos existente na assinatura de saudação.
+  * **Local**: onde toodeploy Olá modelo. Se você selecionou um grupo de recursos existente, o local de saudação desse grupo de recursos é usado.
 2. **Configurações**:
-  * **ID do Sistema SAP**: a ID do Sistema SAP.
-  * **Tipo de SO**: o tipo de sistema operacional que você deseja implantar (Windows ou Linux).
-  * **Tamanho do Sistema SAP**: o tamanho do sistema SAP.
+  * **ID do sistema SAP**: Olá ID do sistema SAP.
+  * **Tipo de SO**: Olá tipo de sistema operacional que você deseja toodeploy (Windows ou Linux).
+  * **Tamanho do sistema SAP**: Olá tamanho de saudação sistema SAP.
 
-    O número de SAPS que o novo sistema fornece. Se não tiver certeza de quantos SAPS o sistema precisará, pergunte ao Parceiro de Tecnologia SAP ou ao Integrador de Sistemas.
-  * **Tipo de armazenamento** (modelo de duas camadas somente): o tipo de armazenamento a ser usado.
+    Olá número de SAPS Olá novo sistema fornece. Se não tiver certeza do sistema de saudação SAPS quantos requer, peça ao seu parceiro de tecnologia do SAP ou o integrador de sistema.
+  * **Tipo de armazenamento** (apenas modelo de duas camadas): Olá tipo de armazenamento toouse.
 
-    Em sistemas maiores, é altamente recomendável usar o Armazenamento do Azure Premium. Para obter mais informações sobre tipos de armazenamento, confira os seguintes recursos:
+    Em sistemas maiores, é altamente recomendável usar o Armazenamento do Azure Premium. Para obter mais informações sobre tipos de armazenamento, consulte Olá recursos a seguir:
       * [Uso do Armazenamento SSD Premium do Azure para instância do SAP DBMS][2367194]
       * [Armazenamento do Microsoft Azure][dbms-guide-2.3] na [implantação de DBMS de Máquina Virtual do Azure para SAP no Linux][dbms-guide]
       * [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de Máquina Virtual do Azure][storage-premium-storage-preview-portal]
-      * [Introdução ao Armazenamento do Microsoft Azure][storage-introduction]
-  * **URI do VHD de disco do sistema operacional**: o URI do disco do SO particular, por exemplo, https://&lt;accountname>.blob.core.windows.net/vhds/osdisk.vhd.
-  * **Sub-rede nova ou existente**: determina se uma nova rede virtual e uma sub-rede são criadas ou uma sub-rede existente é usada. Se já tiver uma rede virtual conectada à rede local, selecione **Existente**.
-  * **ID de sub-rede**: a ID da sub-rede à qual as máquinas virtuais se conectarão. Selecione a sub-rede da sua VPN ou a rede virtual Azure ExpressRoute para conectar a máquina virtual à a rede local. A ID geralmente tem esta aparência:
+      * [Introdução tooMicrosoft armazenamento do Azure][storage-introduction]
+  * **URI do VHD de disco do sistema operacional**: Olá URI do disco do sistema operacional privado hello, por exemplo, https://&lt;accountname >.blob.core.windows.net/vhds/osdisk.vhd.
+  * **Sub-rede nova ou existente**: determina se uma nova rede virtual e uma sub-rede são criadas ou uma sub-rede existente é usada. Se você já tiver uma rede virtual que é a rede de local tooyour conectado, selecione **existente**.
+  * **ID de sub-rede**: Olá ID das máquinas virtuais do hello sub-rede toowhich Olá se conectará. Selecione a sub-rede de saudação de sua VPN ou rota expressa do Azure rede virtual toouse tooconnect Olá máquina virtual tooyour na rede local. ID de saudação geralmente tem esta aparência:
 
     /subscriptions/&lt;subscription id>/resourceGroups/&lt;resource group name>/providers/Microsoft.Network/virtualNetworks/&lt;virtual network name>/subnets/&lt;subnet name>
 
 3. **Termos e condições**:  
-    Examine e aceite o termos legais.
+    Leia e aceite os termos legais hello.
 
 4.  Selecione **Comprar**.
 
-#### <a name="install-the-vm-agent"></a>Instalar o Agente VM
-Para usar os modelos descritos na seção anterior, o Agente de VM deve estar instalado no disco do sistema operacional, ou a implantação falhará. Baixe e instale o Agente de VM na VM, conforme descrito em [Baixar, instalar e habilitar o Agente de VM do Azure][deployment-guide-4.4].
+#### <a name="install-hello-vm-agent"></a>Instalar Olá agente de VM
+Olá de Olá toouse modelos descritos na seção anterior, hello VM Agent deve ser instalado no disco Olá SO ou Olá implantação falhará. Baixar e instalar Olá agente de VM em Olá VM, conforme descrito em [baixar, instalar e habilitar hello Azure VM Agent][deployment-guide-4.4].
 
-Se não usar os modelos descritos na seção anterior, você também poderá instalar o Agente de VM posteriormente.
+Se você não usar modelos de saudação descritos na saudação anterior seção, você também pode instalar Olá agente de VM posteriormente.
 
 #### <a name="join-a-domain-windows-only"></a>Ingressar em um domínio (somente Windows)
-Se a implantação do Azure está conectada a uma instância do DNS ou Active Directory local por meio de uma conexão VPN site a site do Azure ou ExpressRoute (isso é chamado de *entre instalações* em [planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide]), espera-se que a VM ingresse em um domínio local. Para obter mais informações sobre as considerações para essa tarefa, confira [Associar uma VM a um domínio local (somente Windows)][deployment-guide-4.3].
+Se sua implantação do Azure é a instância DNS ou Active Directory de local de tooan conectado via uma conexão de VPN site a site do Azure, ou rota expressa (Isso é chamado de *entre locais* na [planejamento de máquinas virtuais do Azure e a implementação de SAP no Linux][planning-guide]), espera-se que Olá VM estiver ingressando em um domínio local. Para obter mais informações sobre as considerações para essa tarefa, consulte [ingressar em um domínio de local de tooan VM (somente Windows)][deployment-guide-4.3].
 
 #### <a name="configure-proxy-settings"></a>Definir configurações de proxy
-Dependendo de como a rede local estiver configurada, talvez você precise configurar o proxy na VM. Se a VM está conectada à a rede local por meio de VPN ou ExpressRoute, talvez a VM não possa acessar a Internet e não consiga baixar as extensões necessárias ou coletar dados de monitoramento. Para obter mais informações, confira [Configurar o proxy][deployment-guide-configure-proxy].
+Dependendo de como sua rede local é configurado, talvez seja necessário tooset proxy Olá na sua VM. Se sua VM é a rede de local de tooyour conectados por meio de VPN ou rota expressa, Olá VM pode não ser capaz de tooaccess Olá Internet e não ser capaz de toodownload extensões Olá necessário ou coletar dados de monitoramento. Para obter mais informações, consulte [configurar proxy Olá][deployment-guide-configure-proxy].
 
 #### <a name="configure-monitoring"></a>Configurar monitoramento
-Para garantir que o ambiente dê suporte ao SAP, configure a Extensão de Monitoramento do Azure para SAP conforme descrito em [Configurar a Extensão de Monitoramento Avançado do Azure para SAP][deployment-guide-4.5]. Verifique os pré-requisitos para o monitoramento do SAP e as versões mínimas necessárias do Kernel do SAP e do Agente de Host do SAP nos recursos listados em [Recursos de SAP][deployment-guide-2.2].
+toobe se seu ambiente dá suporte a SAP, configure Olá extensão de monitoramento do Azure para SAP, conforme descrito em [configurar hello Azure extensão de monitoramento aprimorada para SAP][deployment-guide-4.5]. Verificar pré-requisitos Olá para monitoramento do SAP e as versões mínimas necessárias de Kernel do SAP e SAP Host Agent, em recursos Olá listados em [recursos SAP][deployment-guide-2.2].
 
 #### <a name="monitoring-check"></a>Verificação de monitoramento
 Verifique se o monitoramento está funcionando, conforme descrito em [Verificações e solução de problemas para configurar o monitoramento de ponta a ponta][deployment-guide-troubleshooting-chapter].
 
-## <a name="update-the-monitoring-configuration-for-sap"></a>Atualizar a configuração de monitoramento para SAP
-Atualize a configuração de monitoramento do SAP em qualquer um dos seguintes cenários:
-* A equipe Microsoft/SAP conjunta estende os recursos de monitoramento e solicita mais ou menos contadores.
-* A Microsoft apresenta uma nova versão da infraestrutura subjacente do Azure que fornece os dados de monitoramento e a Extensão de Monitoramento Avançado do Azure para SAP precisa se adaptar a essas alterações.
-* Você pode montar VHDs adicionais em sua VM do Azure ou remover um VHD. Nesse cenário, atualize a coleta de dados relacionados ao armazenamento. A alteração da configuração adicionando ou excluindo pontos de extremidade ou atribuindo endereços IP a uma VM não afeta a configuração de monitoramento.
-* Altere o tamanho da VM do Azure, por exemplo, do tamanho A5 para qualquer outro tamanho de VM.
-* Você adiciona novas interfaces de rede à a VM do Azure.
+## <a name="update-hello-monitoring-configuration-for-sap"></a>Atualizar Olá configuração de monitoramento para SAP
+Atualize a configuração de monitoramento Olá SAP em qualquer um dos seguintes cenários de saudação:
+* equipe de Microsoft/SAP conjunta Olá estende os recursos de monitoramento de saudação e solicita contadores mais ou menos.
+* A Microsoft introduz uma nova versão do hello infraestrutura subjacente do Azure que fornece dados de monitoramento de saudação e hello extensão de monitoramento aprimorada do Azure para SAP necessidades toobe adaptado toothose alterações.
+* Montar tooyour de VHDs adicional VM do Azure ou remove um VHD. Nesse cenário, atualize a coleção de saudação de dados relacionados ao armazenamento. Alterar sua configuração, adicionando ou excluindo pontos de extremidade ou atribuindo IP endereços tooa VM não afeta configuração de monitoramento de saudação.
+* Você alterar Olá tamanho da VM do Azure, por exemplo, do tamanho A5 tooany outro tamanho VM.
+* Adicionar novo tooyour de interfaces de rede VM do Azure.
 
-Para atualizar as configurações de monitoramento, atualize a infraestrutura de monitoramento seguindo as etapas em [Configurar a Extensão de Monitoramento Avançado do Azure para SAP][deployment-guide-4.5].
+tooupdate monitoramento de configurações de atualização Olá monitoramento da infraestrutura por Olá a seguir as etapas em [configurar hello Azure extensão de monitoramento aprimorada para SAP][deployment-guide-4.5].
 
 ## <a name="detailed-tasks-for-sap-software-deployment-on-a-windows-vm"></a>Tarefas detalhadas para a implantação de software SAP em uma VM Windows
-Esta seção tem etapas detalhadas para realizar tarefas específicas no processo de configuração e implantação.
+Esta seção tem etapas detalhadas para realizar tarefas específicas no processo de implantação e configuração de saudação.
 
 ### <a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Implantar cmdlets do Azure PowerShell
-1.  Acesse [Downloads do Microsoft Azure](https://azure.microsoft.com/downloads/).
+1.  Vá muito[Downloads do Microsoft Azure](https://azure.microsoft.com/downloads/).
 2.  Em **Ferramentas de linha de comando**, em **PowerShell**, selecione **Instalar Windows**.
-3.  Na caixa de diálogo Gerenciador de Download da Microsoft, para o arquivo baixado (por exemplo, WindowsAzurePowershellGet.3f.3f.3fnew.exe), selecione **Executar**.
-4.  Para executar o Microsoft Web Platform Installer (Microsoft Web PI), selecione **Sim**.
+3.  Na caixa de diálogo Gerenciador de Download da Microsoft hello, para o arquivo hello baixado (por exemplo, WindowsAzurePowershellGet.3f.3f.3fnew.exe), selecione **executar**.
+4.  toorun Microsoft Web Platform Installer (Microsoft Web PI), selecione **Sim**.
 5.  É exibida uma página como esta:
 
   ![Página de instalação para cmdlets do Azure PowerShell][deployment-guide-figure-500]<a name="figure-5"></a>
 
-6.  Selecione **Instalar**e aceite os Termos de Licença de Software da Microsoft.
-7.  O PowerShell é instalado. Selecione **Concluir** para fechar o assistente de instalação.
+6.  Selecione **instalar**e, em seguida, aceite Olá Microsoft Software License Terms.
+7.  O PowerShell é instalado. Selecione **concluir** tooclose Assistente de instalação de saudação.
 
-Verifique frequentemente se há atualizações nos cmdlets do PowerShell, que geralmente são atualizados mensalmente. A maneira mais fácil de verificar se há atualizações é executar as etapas de instalação anteriores, até a página de instalação mostrada na etapa 5. O número de data e a versão de lançamento dos cmdlets são incluídos na página mostrada na etapa 5. Salvo indicação em contrário na Nota SAP [1928533] ou na Nota SAP [2015553], é recomendável que você trabalhe com a versão mais recente dos cmdlets do Azure PowerShell.
+Verifique com frequência para atualizações toohello cmdlets do PowerShell, que geralmente são atualizados mensalmente. Olá toocheck de maneira mais fácil para atualizações é Olá toodo etapas de instalação, página de instalação toohello mostrado na etapa 5 anteriores. Olá data e a versão de número da versão dos cmdlets de saudação é incluído na página Olá mostrada na etapa 5. Salvo indicação em contrário na nota da SAP [1928533] ou nota da SAP [2015553], é recomendável que você trabalhe com a versão mais recente Olá de cmdlets do PowerShell do Azure.
 
-Para verificar a versão dos cmdlets do Azure PowerShell que estão instalados em seu computador, execute este comando do PowerShell:
+toocheck versão Olá Olá cmdlets do PowerShell do Azure que são instalados em seu computador, execute este comando do PowerShell:
 ```powershell
 Import-Module Azure
 (Get-Module Azure).Version
 ```
-O resultado é semelhante a:
+resultado de saudação tem esta aparência:
 
 ![Resultado da verificação de versão de cmdlet do Azure PowerShell][deployment-guide-figure-600]
 <a name="figure-6"></a>
 
-Se a versão do cmdlet do Azure instalada no computador for a versão atual, a primeira página do assistente de instalação o indicará adicionando **(Instalado)** ao título do produto (confira a captura de tela a seguir). Seus cmdlets do PowerShell Azure estão atualizados. Para fechar o assistente de instalação, selecione **Sair**.
+Se Olá cmdlet do Azure versão instalada no computador for Olá atual, a primeira página saudação do Assistente de instalação Olá indica adicionando **(instalado)** toohello título do produto (consulte Olá captura de tela a seguir). Seus cmdlets do PowerShell Azure estão atualizados. Assistente de instalação Olá tooclose, selecione **saída**.
 
-![Página de instalação para cmdlets do Azure PowerShell indicando que a versão mais recente dos cmdlets do Azure PowerShell está instalada][deployment-guide-figure-700]
+![Página de instalação para cmdlets do PowerShell do Azure que indica a versão mais recente Olá de cmdlets do PowerShell do Azure estão instalados][deployment-guide-figure-700]
 <a name="figure-7"></a>
 
 ### <a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>Implantar a CLI do Azure
-1.  Acesse [Downloads do Microsoft Azure](https://azure.microsoft.com/downloads/).
-2.  Em **Ferramentas de linha de comando**, em **Interface de linha de comando do Azure**, selecione o link **Instalar** para seu sistema operacional.
-3.  Na caixa de diálogo Gerenciador de Download da Microsoft, para o arquivo baixado (por exemplo, WindowsAzureXPlatCLI.3f.3f.3fnew.exe), selecione **Executar**.
-4.  Para executar o Microsoft Web Platform Installer (Microsoft Web PI), selecione **Sim**.
+1.  Vá muito[Downloads do Microsoft Azure](https://azure.microsoft.com/downloads/).
+2.  Em **ferramentas de linha de comando**, em **interface de linha de comando do Azure**, selecione Olá **instalar** link para seu sistema operacional.
+3.  Na caixa de diálogo Gerenciador de Download da Microsoft hello, para o arquivo hello baixado (por exemplo, WindowsAzureXPlatCLI.3f.3f.3fnew.exe), selecione **executar**.
+4.  toorun Microsoft Web Platform Installer (Microsoft Web PI), selecione **Sim**.
 5.  É exibida uma página como esta:
 
   ![Página de instalação para cmdlets do Azure PowerShell][deployment-guide-figure-500]<a name="figure-5"></a>
 
-6.  Selecione **Instalar**e aceite os Termos de Licença de Software da Microsoft.
-7.  A CLI do Azure está instalada. Selecione **Concluir** para fechar o assistente de instalação.
+6.  Selecione **instalar**e, em seguida, aceite Olá Microsoft Software License Terms.
+7.  A CLI do Azure está instalada. Selecione **concluir** tooclose Assistente de instalação de saudação.
 
-Verifique frequentemente se há atualizações na CLI do Azure, que geralmente é atualizada mensalmente. A maneira mais fácil de verificar se há atualizações é executar as etapas de instalação anteriores, até a página de instalação mostrada na etapa 5.
+Verifique com frequência para atualizações tooAzure CLI, que geralmente é atualizada mensalmente. Olá toocheck de maneira mais fácil para atualizações é Olá toodo etapas de instalação, página de instalação toohello mostrado na etapa 5 anteriores.
 
 
-Para verificar a versão da CLI do Azure que está instalada no computador, execute este comando:
+versão de hello toocheck da CLI do Azure que está instalado no seu computador, execute este comando:
 ```
 azure --version
 ```
 
-O resultado é semelhante a:
+resultado de saudação tem esta aparência:
 
 ![Resultado da verificação de versão da CLI do Azure][deployment-guide-figure-760]
 <a name="0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda"></a>
 
-### <a name="31d9ecd6-b136-4c73-b61e-da4a29bbc9cc"></a>Associar uma VM a um domínio local (somente Windows)
-Se você implantar VMs SAP em um cenário entre locais, em que o DNS e Active Directory local são estendidos no Azure, espera-se que as VMs ingressem em um domínio local. As etapas detalhadas para associar uma VM a um domínio local e o software adicional necessário para ser membro de um domínio local variam de acordo com o cliente. Normalmente, para associar uma VM a um domínio local, você precisa instalar software adicional, como o software antimalware e software de backup ou de monitoramento.
+### <a name="31d9ecd6-b136-4c73-b61e-da4a29bbc9cc"></a>Ingressar em um domínio de local de tooan VM (somente Windows)
+Se você implantar VMs SAP em um cenário entre locais, onde o DNS e Active Directory no local são estendidos no Azure, é esperado que Olá VMs são ingressar em um domínio local. Olá etapas detalhadas que você tomar toojoin um domínio de local de tooan VM e hello necessário software adicional toobe um membro de um domínio local, varia por cliente. Normalmente, toojoin tooan uma VM domínio local, é necessário software adicional tooinstall, como software antimalware e o software de backup ou de monitoramento.
 
-Nesse cenário, você também precisa garantir que se as configurações de proxy da Internet forem forçadas quando uma VM ingressar em um domínio no seu ambiente, a Conta do Sistema Local do Windows (S-1-5-18) na VM convidada tenha as mesmas configurações de proxy. A opção mais fácil é forçar o proxy usando uma Política de Grupo de domínio, que se aplica aos sistemas no domínio.
+Nesse cenário, você também precisa toomake-se de que, se as configurações de proxy da Internet são forçadas quando uma VM ingressa em um domínio em seu ambiente, Windows hello conta Sistema Local (S-1-5-18) no hello convidado VM tem Olá mesmas configurações de proxy. opção mais fácil de saudação é proxy de saudação tooforce usando um política de grupo, que se aplica a toosystems no domínio de saudação do domínio.
 
-### <a name="c7cbb0dc-52a4-49db-8e03-83e7edc2927d"></a>Baixar, instalar e habilitar o Agente de VM do Azure
-Para máquinas virtuais implantadas por meio de uma imagem do sistema operacional que não seja generalizada (por exemplo, uma imagem que não se origina na ferramenta de Preparação do Sistema do Windows, ou sysprep,), você precisa baixar, instalar e habilitar o Agente de VM do Azure manualmente.
+### <a name="c7cbb0dc-52a4-49db-8e03-83e7edc2927d"></a>Baixar, instalar e habilitar hello Azure VM Agent
+Para máquinas virtuais implantados por meio de uma imagem do sistema operacional que não seja generalizada (por exemplo, uma imagem que não se originam na ferramenta de preparação do sistema do Windows ou sysprep, Olá), você precisa toomanually download, instalar e habilitar hello Azure VM Agent.
 
-Se você implantar uma VM do Azure Marketplace, esta etapa não será necessária. Imagens do Azure Marketplace já têm o Agente de VM do Azure.
+Se você implantar uma VM do hello Azure Marketplace, esta etapa não será necessária. Imagens de saudação do Azure Marketplace já hello Azure VM Agent.
 
 #### <a name="b2db5c9a-a076-42c6-9835-16945868e866"></a>Windows
-1.  Baixe o Agente de VM do Azure:
-  1.  Baixe o [pacote do instalador do Agente de VM do Azure](https://go.microsoft.com/fwlink/?LinkId=394789).
-  2.  Armazene o pacote de MSI do Agente de VM localmente em um servidor ou computador pessoal.
-2.  Instale o Agente de VM do Azure:
-  1.  Conecte-se à VM do Azure implantada usando o RDP (Protocolo de Área de Trabalho Remota).
-  2.  Abra uma janela do Windows Explorer na VM e selecione um diretório de destino para o arquivo MSI do Agente de VM.
-  3.  Arraste o arquivo MSI do Instalador do Agente de VM do Azure para o computador local/servidor, para o diretório de destino do Agente de VM na VM.
-  4.  Clique duas vezes no arquivo MSI na VM.
-3.  Para VMs que fazem parte de domínios locais, verifique se as configurações de proxy da Internet eventuais também se aplicam à conta do Sistema Local do Windows (S-1-5-18) na VM, conforme descrito em [Configurar o proxy][deployment-guide-configure-proxy]. O Agente de VM é executado nesse contexto e precisa ser capaz de se conectar ao Azure.
+1.  Baixe hello Azure VM Agent:
+  1.  Baixar Olá [pacote de instalador do agente de VM do Azure](https://go.microsoft.com/fwlink/?LinkId=394789).
+  2.  Armazenar um pacote MSI de agente de VM Olá localmente em um servidor ou computador pessoal.
+2.  Instale hello Azure VM Agent:
+  1.  Conecte-se toohello implantado a VM do Azure usando o protocolo de área de trabalho remota (RDP).
+  2.  Abra uma janela de Windows Explorer em Olá VM e o diretório de destino select Olá para arquivo MSI Olá Olá agente de VM.
+  3.  Arraste hello Azure VM Agent instalador MSI de seu diretório de destino do computador local/servidor toohello de saudação agente de VM na VM de saudação.
+  4.  Clique duas vezes no arquivo MSI de saudação em Olá VM.
+3.  Para VMs que são unidas tooon local domínios, certifique-se eventuais configurações de proxy de Internet também aplicam toohello conta de sistema Local do Windows (S-1-5-18) no hello VM, conforme descrito em [configurar proxy Olá] [ deployment-guide-configure-proxy]. Olá VM Agent é executado nesse contexto e precisa toobe capaz de tooconnect tooAzure.
 
-Nenhuma interação do usuário é necessária para atualizar o Agente de VM do Azure. O Agente de VM é atualizado automaticamente e não requer uma reinicialização da VM.
+Nenhuma interação do usuário é necessária tooupdate hello Azure VM Agent. Olá agente VM é atualizada automaticamente e não requer uma reinicialização VM.
 
 #### <a name="6889ff12-eaaf-4f3c-97e1-7c9edc7f7542"></a>Linux
-Use os seguintes comandos para instalar o Agente de VM para Linux:
+Use Olá seguindo comandos tooinstall Olá agente de VM para Linux:
 
 * **SLES (SUSE Linux Enterprise Server)**
 
@@ -764,109 +764,109 @@ Use os seguintes comandos para instalar o Agente de VM para Linux:
   sudo yum install WALinuxAgent
   ```
 
-Se o agente já estiver instalado, para atualizar o agente Linux do Azure, siga as etapas descritas em [Atualizar o Agente Linux do Azure em uma VM para a versão mais recente do GitHub][virtual-machines-linux-update-agent].
+Se o agente de saudação já está instalado, Olá tooupdate agente Linux do Azure, Olá etapas descritas em [Olá atualização agente Linux do Azure em uma versão mais recente do VM toohello do GitHub][virtual-machines-linux-update-agent].
 
-### <a name="baccae00-6f79-4307-ade4-40292ce4e02d"></a>Configurar o proxy
-As etapas para configurar o proxy do Windows são diferentes da maneira como você configura o proxy no Linux.
+### <a name="baccae00-6f79-4307-ade4-40292ce4e02d"></a>Configurar o proxy de saudação
+etapas de saudação que levar o proxy de saudação tooconfigure no Windows são diferentes da saudação que configurar proxy Olá no Linux.
 
 #### <a name="windows"></a>Windows
-As configurações de proxy devem ser definidas corretamente para que a conta do Sistema Local acesse a Internet. Se as configurações de proxy não forem definidas pela Política de Grupo, você poderá configurá-las para a conta LocalSystem.
+As configurações de proxy devem ser configuradas corretamente para Olá conta Sistema Local tooaccess Olá da Internet. Se as configurações de proxy não são definidas pela política de grupo, você pode definir configurações de saudação para Olá conta Sistema Local.
 
-1. Vá para **Iniciar**, digite **gpedit.msc** e selecione **Enter**.
-2. Selecione **Configuração do computador** > **Modelos Administrativos** > **Componentes do Windows** > **Internet Explorer**. Verifique se a configuração **Definir as configurações de proxy por computador (não por usuário)** está desabilitada ou não definida.
-3. Em **Painel de Controle**, acesse **Central de Rede e Compartilhamento** > **Opções da Internet**.
-4. Na guia **Conexões**, marque o botão **Configurações da LAN**.
-5. Desmarque a caixa de seleção **Detectar automaticamente as configurações**.
-6. Marque acaixa de seleção **Usar um servidor proxy para a rede local** e digite o endereço de proxy e a porta.
-7. Selecione o botão **Avançado**.
-8. Na caixa **Exceções**, digite o endereço IP **168.63.129.16**. Selecione **OK**.
+1. Vá muito**iniciar**, digite **gpedit.msc**e, em seguida, selecione **Enter**.
+2. Selecione **Configuração do computador** > **Modelos Administrativos** > **Componentes do Windows** > **Internet Explorer**. Certifique-se de que configuração de saudação **fazer proxy configurações por computador (em vez de por usuário)** está desabilitado ou não configurado.
+3. Em **painel de controle**, ir muito**Central de rede e compartilhamento** > **opções da Internet**.
+4. Em Olá **conexões** guia, selecione Olá **configurações da LAN** botão.
+5. Olá limpar **detectar automaticamente as configurações** caixa de seleção.
+6. Selecione Olá **usar um servidor proxy para a rede local** caixa de seleção e, em seguida, digite Olá endereço e porta proxy.
+7. Selecione Olá **avançado** botão.
+8. Em Olá **exceções** , digite o endereço IP hello **168.63.129.16**. Selecione **OK**.
 
 
 #### <a name="linux"></a>Linux
-Defina o proxy correto no arquivo de configuração do Agente Convidado do Microsoft Azure, que fica localizado em \\etc\\waagent.conf.
+Configurar proxy corretas Olá no arquivo de configuração de saudação do hello o agente de convidado do Microsoft Azure, que está localizado no \\etc\\waagent.conf.
 
-Defina os seguintes parâmetros:
+Saudação de conjunto de parâmetros a seguir:
 
-1.  **Host de proxy HTTP**. Por exemplo, defina como **proxy.corp.local**.
+1.  **Host de proxy HTTP**. Por exemplo, defina-o muito**proxy.corp.local**.
   ```
   HttpProxy.Host=<proxy host>
 
   ```
-2.  **Porta de proxy HTTP**. Por exemplo, defina como **80**.
+2.  **Porta de proxy HTTP**. Por exemplo, defina-o muito**80**.
   ```
-  HttpProxy.Port=<port of the proxy host>
+  HttpProxy.Port=<port of hello proxy host>
 
   ```
-3.  Reinicie o agente.
+3.  Reinicie o agente de saudação.
 
   ```
   sudo service waagent restart
   ```
 
-As configurações de proxy em \\etc\\waagent.conf também se aplicam às extensões de VM necessárias. Se quiser usar os repositórios do Azure, certifique-se de que o tráfego para esses repositórios não passe pela intranet local. Se tiver criado rotas definidas pelo usuário para habilitar o túnel forçado, adicione uma rota que encaminhe o tráfego para os repositórios diretamente pela Internet, sem passar por sua conexão VPN site a site.
+Olá configurações de proxy no \\etc\\waagent.conf também se aplicam a extensões de VM toohello necessário. Se você quiser toouse Olá repositórios do Azure, certifique-se de que repositórios de toothese tráfego Olá não está passando por sua intranet local. Se você tiver criado definido pelo usuário tooenable rotas túnel forçado, certifique-se de que você adicione uma rota que roteia repositórios do tráfego toohello toohello diretamente da Internet e não por meio de sua conexão de VPN site a site.
 
 * **SLES**
 
-  Você também precisa adicionar rotas para os endereços IP listados em \\etc\\regionserverclnt.cfg. A seguinte figura mostra um exemplo:
+  Também é necessário tooadd rotas para endereços IP hello listada em \\etc\\regionserverclnt.cfg. Olá figura a seguir mostra um exemplo:
 
   ![Túnel forçado][deployment-guide-figure-50]
 
 
 * **RHEL**
 
-  Também é necessário adicionar rotas para os endereços IP dos hosts listados em \\etc\\yum.repos.d\\rhui-load-balancers. Para obter um exemplo, confira a figura anterior.
+  Também é necessário tooadd rotas para endereços IP de saudação de hosts Olá listada em \\etc\\yum.repos.d\\rhui balanceadores de carga. Para obter um exemplo, consulte Olá anterior figura.
 
 Para saber mais sobre Rotas definidas pelo usuário, confira [Rotas definidas pelo usuário e encaminhamento IP][virtual-networks-udr-overview].
 
-### <a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Configurar a extensão de monitoramento aprimorado do Azure para SAP
-Quando você tiver preparado a VM conforme descrito em [Cenários de implantação de VMs para SAP no Azure][deployment-guide-3], o agente estará instalado na máquina virtual. A próxima etapa é implantar a Extensão de Monitoramento Avançado do Azure para SAP, que está disponível no Repositório de extensões do Azure em data centers globais do Azure. Para obter mais informações, confira [Planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide-9.1].
+### <a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Configurar hello Azure extensão de monitoramento aprimorada para SAP
+Quando você preparou Olá VM conforme descrito em [cenários de implantação de VMs para SAP no Azure][deployment-guide-3], hello Azure VM Agent está instalado na máquina virtual de saudação. Olá próxima etapa é toodeploy hello Azure extensão de monitoramento aprimorada para SAP, que está disponível no hello repositório de extensão do Azure no hello data centers globais do Azure. Para obter mais informações, confira [Planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide-9.1].
 
-Você pode usar o PowerShell ou a CLI do Azure para instalar e configurar a Extensão de Monitoramento Avançado do Azure para SAP. Para instalar a extensão em uma VM Windows ou Linux usando uma máquina Windows, confira [Azure PowerShell][deployment-guide-4.5.1]. Para instalar a extensão em uma VM Linux usando uma área de trabalho do Linux, confira [CLI do Azure][deployment-guide-4.5.2].
+Você pode usar tooinstall PowerShell ou CLI do Azure e configurar hello Azure extensão de monitoramento aprimorada para SAP. extensão de saudação tooinstall em um Windows ou a VM do Linux usando um computador Windows, consulte [Azure PowerShell][deployment-guide-4.5.1]. extensão de saudação tooinstall em uma VM do Linux usando uma área de trabalho do Linux, consulte [CLI do Azure][deployment-guide-4.5.2].
 
 #### <a name="987cf279-d713-4b4c-8143-6b11589bb9d4"></a>Azure PowerShell para VMs Linux e Windows
-Para instalar a Extensão de Monitoramento Avançado do Azure para SAP usando o PowerShell:
+Olá tooinstall aprimorada extensão de monitoramento Azure para SAP usando o PowerShell:
 
-1. Verifique se tem a versão mais recente do cmdlet do Azure PowerShell instalada. Para obter mais informações, confira [Implantando cmdlets do Azure PowerShell][deployment-guide-4.1].  
-2. Execute o seguinte cmdlet do PowerShell.
-  Para obter uma lista dos ambientes disponíveis, execute `commandlet Get-AzureRmEnvironment`. Se quiser usar o Azure público, o ambiente será **AzureCloud**. Para o Azure na China, selecione **AzureChinaCloud**.
+1. Certifique-se de que você instalou a versão mais recente de saudação do cmdlet do PowerShell do Azure hello. Para obter mais informações, confira [Implantando cmdlets do Azure PowerShell][deployment-guide-4.1].  
+2. Execute Olá cmdlet do PowerShell a seguir.
+  Para obter uma lista dos ambientes disponíveis, execute `commandlet Get-AzureRmEnvironment`. Se você quiser toouse público Azure, seu ambiente é **AzureCloud**. Para o Azure na China, selecione **AzureChinaCloud**.
 
 
       ```powershell
-      $env = Get-AzureRmEnvironment -Name <name of the environment>
+      $env = Get-AzureRmEnvironment -Name <name of hello environment>
       Login-AzureRmAccount -Environment $env
       Set-AzureRmContext -SubscriptionName <subscription name>
 
       Set-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
       ```
 
-Depois que você inserir dados da conta e identificar a máquina virtual do Azure, o script implantará as extensões necessárias e habilitará os recursos necessários. Isso pode levar vários minutos.
+Depois de inserir os dados da conta e identificar Olá máquina virtual do Azure, o script hello implanta extensões Olá necessário e habilita os recursos de Olá necessário. Isso pode levar vários minutos.
 Para obter mais informações sobre `Set-AzureRmVMAEMExtension`, confira [Set-AzureRmVMAEMExtension][msdn-set-azurermvmaemextension].
 
 ![Execução bem-sucedida do cmdlet do Azure específico para SAP Set-AzureRmVMAEMExtension][deployment-guide-figure-900]
 
-A configuração `Set-AzureRmVMAEMExtension` realiza todas as etapas para configurar o host de monitoramento para SAP.
+Olá `Set-AzureRmVMAEMExtension` configuração todos os hosts de saudação etapas tooconfigure monitoramento para SAP.
 
-A saída do script inclui as seguintes informações:
+saída do script Hello inclui Olá informações a seguir:
 
-* Confirmação de que o monitoramento para a base de VHD (com o sistema operacional) e todos os VHDs adicionais montados na VM foram configurados.
-* As duas próximas mensagens confirmam a configuração das métricas de armazenamento para uma conta de armazenamento específica.
-* Uma linha de saída fornece o status da atualização real da configuração de monitoramento.
-* Outra linha de saída confirma que a configuração foi implantada ou atualizada.
-* A última linha da saída é informativa. Ele mostra as opções para testar a configuração de monitoramento.
+* Confirmação de que o monitoramento para Olá base VHD (com hello SO) e todos os VHDs adicionais montados toohello que VM tiver sido configurada.
+* duas próximas mensagens de saudação Confirmar configuração de saudação de métricas de armazenamento para uma conta de armazenamento específico.
+* Uma linha de saída fornece o status de saudação da atualização real do hello da configuração de monitoramento de saudação.
+* Outra linha de saída confirma que a configuração Olá foi implantada ou atualizada.
+* a última linha Hello de saída é informativa. Ele mostra as opções de configuração de monitoramento Olá testes.
 
-Para verificar se todas as etapas do Monitoramento Avançado do Azure foram executadas com êxito e se a infraestrutura do Azure fornece os dados necessários, faça a verificação de preparação para a Extensão de Monitoramento Avançado do Azure para SAP, conforme descrito em [Verificação de preparação para o Monitoramento Avançado do Azure para SAP][deployment-guide-5.1]. Aguarde 15 a 30 minutos para que o Diagnóstico do Azure colete os dados relevantes.
+toocheck que todas as etapas de monitoramento aprimorado do Azure foram executadas com êxito e que Olá infraestrutura do Azure fornece os dados necessários hello, prosseguir com a verificação de preparação de saudação para hello Azure extensão de monitoramento aprimorada para SAP, conforme descrito em [Verificação de preparação para o monitoramento aprimorado do Azure para SAP][deployment-guide-5.1]. Aguarde 15 a 30 minutos para dados do diagnóstico do Azure toocollect Olá relevantes.
 
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>CLI do Azure para VMs Linux
-Para instalar a Extensão de Monitoramento Avançado do Azure para SAP usando a CLI do Azure:
+Olá tooinstall aprimorada extensão de monitoramento Azure para SAP usando a CLI do Azure:
 
-1. Instale a CLI do Azure conforme descrito em [instalar a CLI do Azure][azure-cli].
+1. Instalar a CLI do Azure, conforme descrito em [instalação Olá CLI do Azure][azure-cli].
 2. Entre usando sua conta do Azure:
 
   ```
   azure login
   ```
 
-3. Mude para o modo do Azure Resource Manager:
+3. Alternar o modo do Gerenciador de recursos de tooAzure:
 
   ```
   azure config mode arm
@@ -878,12 +878,12 @@ Para instalar a Extensão de Monitoramento Avançado do Azure para SAP usando a 
   azure vm enable-aem <resource-group-name> <vm-name>
   ```
 
-5. Verifique se a Extensão de Monitoramento Aprimorado do Azure está ativa na VM Linux do Azure. Verifique se o arquivo \\var\\lib\\AzureEnhancedMonitor\\PerfCounters existe. Se ele existir, no prompt de comando, execute este comando para exibir as informações coletadas pelo Monitor Avançado do Azure:
+5. Verifique se que essa extensão de monitoramento aprimorada do Azure hello está ativo no hello VM do Linux do Azure. Verificação se Olá arquivo \\var\\lib\\AzureEnhancedMonitor\\PerfCounters existe. Se ele existir, no prompt de comando, execute estes comando toodisplay as informações coletadas pelo Olá Monitor aprimorado do Azure:
 ```
 cat /var/lib/AzureEnhancedMonitor/PerfCounters
 ```
 
-A saída se parece com esta:
+saída de Hello tem esta aparência:
 ```
 2;cpu;Current Hw Frequency;;0;2194.659;MHz;60;1444036656;saplnxmon;
 2;cpu;Max Hw Frequency;;0;2194.659;MHz;0;1444036656;saplnxmon;
@@ -892,190 +892,190 @@ A saída se parece com esta:
 ```
 
 ## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Verificações e solução de problemas para o monitoramento de ponta a ponta
-Depois de ter implantado a VM do Azure e ter configurado a infraestrutura relevante de monitoramento do Azure, verifique se todos os componentes da Extensão de Monitoramento Avançado do Azure estão funcionando conforme esperado.
+Depois de implantar a VM do Azure e configurar a infraestrutura de monitoramento do Azure relevante hello, verifique se todos os componentes de saudação do hello extensão de monitoramento aprimorada do Azure estão funcionando conforme o esperado.
 
-Execute a verificação de preparação para a Extensão de Monitoramento Avançado do Azure para SAP, conforme descrito em [Verificação de preparação para a Extensão de Monitoramento Avançado do Azure para SAP][deployment-guide-5.1]. Se todos os resultados da verificação de preparação forem positivos e todos os contadores de desempenho estiverem corretos, o monitoramento do Azure foi configurado com êxito. Você pode prosseguir com a instalação do Agente de Host do SAP descrita nas Notas SAP em [Recursos do SAP][deployment-guide-2.2]. Se a verificação de preparação indicar que os contadores estão ausentes, execute a verificação de integridade da infraestrutura de monitoramento do Azure, conforme descrito em [Verificação de integridade da configuração de infraestrutura de monitoramento do Azure][deployment-guide-5.2]. Para obter mais opções de solução de problemas, confira [Solucionando problemas de monitoramento do Azure para SAP][deployment-guide-5.3].
+Executar verificação de preparação de saudação para hello Azure extensão de monitoramento aprimorada para SAP conforme descrito em [verificação de preparação para hello Azure extensão de monitoramento aprimorada para SAP][deployment-guide-5.1]. Se todos os resultados da verificação de preparação forem positivos e todos os contadores de desempenho estiverem corretos, o monitoramento do Azure foi configurado com êxito. Você pode prosseguir com a instalação de saudação do SAP Host Agent descrito nas notas de SAP Olá em [recursos SAP][deployment-guide-2.2]. Se a verificação de preparação de saudação indica que contadores estão ausentes, execute a verificação de integridade de saudação do hello infraestrutura de monitoramento do Azure, conforme descrito na [verificação de integridade para configuração de infraestrutura de monitoramento do Azure] [ deployment-guide-5.2]. Para obter mais opções de solução de problemas, confira [Solucionando problemas de monitoramento do Azure para SAP][deployment-guide-5.3].
 
-### <a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>Verificação de preparação para a Extensão de Monitoramento Avançado do Azure para SAP
-Essa verificação garante que todas as métricas de desempenho que aparecem no aplicativo SAP sejam fornecidas pela infraestrutura de monitoramento do Azure subjacente.
+### <a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>Verificação de preparação para hello Azure extensão de monitoramento aprimorada para SAP
+Essa verificação garante que todas as métricas de desempenho que aparecem dentro de seu aplicativo SAP são fornecidas pelo Olá subjacente a infra-estrutura de monitoramento do Azure.
 
-#### <a name="run-the-readiness-check-on-a-windows-vm"></a>Executar a verificação de preparação em uma VM Windows
+#### <a name="run-hello-readiness-check-on-a-windows-vm"></a>Executar verificação de preparação de saudação em uma VM do Windows
 
-1.  Entre na máquina virtual do Azure (não é necessário usar uma conta do administrador).
+1.  Entrar no toohello máquina virtual do Azure (usar uma conta de administrador não é necessário).
 2.  Abra uma janela de Prompt de Comando.
-3.  No prompt de comando, altere o diretório para a pasta de instalação da Extensão de Monitoramento Avançado do Azure para SAP: C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;version>\\drop
+3.  No prompt de comando Olá, alterar pasta de instalação de toohello de diretório de saudação do hello Azure extensão de monitoramento aprimorada para SAP: c:\\pacotes\\plug-ins\\ Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;versão >\\drop
 
-  A *versão* no caminho para a extensão de monitoramento pode variar. Se houver pastas para várias versões da extensão de monitoramento na pasta de instalação, verifique a configuração do serviço AzureEnhancedMonitoring Windows e alterne para a pasta indicada como *Caminho do executável*.
+  Olá *versão* em Olá caminho toohello extensão de monitoramento pode variar. Se você ver pastas várias versões de saudação extensão na pasta de instalação do hello, verifique a configuração de saudação do hello AzureEnhancedMonitoring Windows service, de monitoramento e, em seguida, o comutador toohello pasta indicada como *tooexecutable de caminho* .
 
-  ![Propriedades do serviço que executa a Extensão de Monitoramento Avançado do para SAP][deployment-guide-figure-1000]
+  ![Propriedades do serviço em execução hello Azure extensão de monitoramento aprimorada para SAP][deployment-guide-figure-1000]
 
-4.  No prompt de comando, execute **azperflib.exe** sem parâmetros.
+4.  No prompt de comando hello, execute **azperflib.exe** sem parâmetros.
 
   > [!NOTE]
-  > Azperflib.exe é executado em um loop e atualiza os contadores coletados a cada 60 segundos. Para encerrar o loop, feche a janela de Prompt de comando.
+  > Azperflib.exe é executado em um loop e atualiza contadores Olá coletado a cada 60 segundos. loop de saudação tooend, janela de Prompt de comando Fechar hello.
   >
   >
 
-Se a Extensão de Monitoramento Avançado do Azure não estiver instalada ou o serviço AzureEnhancedMonitoring não estiver em execução, a extensão não foi configurada corretamente. Para obter informações detalhadas sobre como implantar a extensão, confira [Solução de problemas de infraestrutura de monitoramento do Azure para SAP][deployment-guide-5.3].
+Se Olá que extensão de monitoramento aprimorada do Azure não está instalado ou Olá AzureEnhancedMonitoring service não está em execução, a extensão de saudação não foi configurado corretamente. Para obter informações detalhadas sobre como toodeploy Olá extensão, consulte [solução de problemas hello infraestrutura de monitoramento do Azure para SAP][deployment-guide-5.3].
 
-##### <a name="check-the-output-of-azperflibexe"></a>Verifique a saída de azperflib.exe
-A saída de azperflib.exe mostra que todos os contadores de desempenho do Azure para SAP populados. Na parte inferior da lista de contadores coletados, um indicador de integridade e resumo mostra o status de monitoramento do Azure.
+##### <a name="check-hello-output-of-azperflibexe"></a>Verifique a saída de saudação de azperflib.exe
+A saída de azperflib.exe mostra que todos os contadores de desempenho do Azure para SAP populados. Final Olá Olá lista de contadores coletados, um indicador de integridade e o resumo de mostrar o status de saudação do monitoramento do Azure.
 
 ![Saída da verificação de integridade executando azperflib.exe, que indica que não há problemas][deployment-guide-figure-1100]
 <a name="figure-11"></a>
 
-Verifique o resultado retornado para a saída de **Total de contadores**, que é relatada como vazia, e para **Status de integridade**, conforme mostrado na figura anterior.
+Verificar Olá resultado retornado para Olá **total de contadores** saída, que é relatada como vazios e para **status de integridade**, conforme mostrado no hello anterior figura.
 
-Interprete os valores resultantes da seguinte maneira:
+Interprete os valores resultantes da saudação da seguinte maneira:
 
 | Valores resultantes de Azperflib.exe | Status da integridade do monitoramento do Azure |
 | --- | --- |
-| **Chamadas à API – não disponíveis** | Os contadores que não estão disponíveis podem não ser aplicáveis à configuração de máquina virtual ou podem ser erros. Confira **Status de integridade**. |
-| **Total de contadores - vazio** |Os seguintes dois contadores de armazenamento do Azure podem estar vazios: <ul><li>Latência do servidor de operações de leitura de armazenamento (ms)</li><li>Latência E2E de operações de leitura de armazenamento (ms)</li></ul>Todos os outros contadores devem ter valores. |
+| **Chamadas à API – não disponíveis** | Os contadores não estão disponíveis podem ser qualquer uma das configurações de máquina virtual não aplicável toohello ou erros. Confira **Status de integridade**. |
+| **Total de contadores - vazio** |Olá dois contadores de armazenamento do Azure a seguir pode ser vazia: <ul><li>Latência do servidor de operações de leitura de armazenamento (ms)</li><li>Latência E2E de operações de leitura de armazenamento (ms)</li></ul>Todos os outros contadores devem ter valores. |
 | **Status de integridade** |OK somente se o status retornado mostrar **OK**. |
 | **Diagnostics** |Informações detalhadas sobre o status da integridade. |
 
-Se o valor de **Status de integridade** não for **OK**, siga as instruções em [Verificação de integridade para configuração de infraestrutura de monitoramento do Azure][deployment-guide-5.2].
+Se hello **status de integridade** valor não é **Okey**, siga as instruções de saudação em [verificação de integridade para configuração de infraestrutura de monitoramento do Azure] [ deployment-guide-5.2].
 
-#### <a name="run-the-readiness-check-on-a-linux-vm"></a>Executar a verificação de preparação em uma VM Linux
+#### <a name="run-hello-readiness-check-on-a-linux-vm"></a>Executar verificação de preparação de saudação em uma VM do Linux
 
-1.  Conecte-se à Máquina Virtual do Azure usando o SSH.
+1.  Conecte-se toohello Máquina Virtual do Azure usando o SSH.
 
-2.  Verifique a saída da Extensão de Monitoramento Avançado do Azure.
+2.  Verifique a saída de saudação do hello extensão de monitoramento aprimorada do Azure.
 
   a.  Execute o `more /var/lib/AzureEnhancedMonitor/PerfCounters`
 
-   **Resultado esperado**: retorna a lista de contadores de desempenho. O arquivo não deve estar vazio.
+   **Resultado esperado**: retorna a lista de contadores de desempenho. arquivo Hello não deve ficar vazio.
 
  b. Execute o `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error`
 
-   **Resultado esperado**: retorna a linha em que o erro é **none**; por exemplo, **3;config;Error;;0;0;none;0;1456416792;tst-servercs;**
+   **Esperado um resultado**: uma linha de retorna onde é o erro de saudação **nenhum**, por exemplo, **3; config; Erro; 0; 0; Nenhum; 0; 1456416792; tst-servercs;**
 
   c. Execute o `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord`
 
     **Resultado esperado**: retorna como vazio ou não existe.
 
-Se a verificação anterior não for bem-sucedida, execute estas verificações adicionais:
+Se hello verificação anterior não foi bem-sucedida, execute essas verificações adicionais:
 
-1.  Verifique se waagent está instalado e habilitado.
+1.  Certifique-se de que waagent hello está instalado e habilitado.
 
   a.  Execute o `sudo ls -al /var/lib/waagent/`
 
-      **Resultado esperado**: lista o conteúdo do diretório waagent.
+      **Esperado um resultado**: lista o conteúdo de saudação do diretório de waagent hello.
 
   b.  Execute o `ps -ax | grep waagent`
 
    **Resultado esperado**: exibe uma entrada semelhante a: `python /usr/sbin/waagent -daemon`
 
-2. Verifique se a extensão de Diagnóstico do Linux está instalada e habilitada.
+2. Certifique-se de que Olá extensão de diagnóstico do Linux está instalado e habilitado.
 
   a.  Execute o `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-'`
 
-   **Resultado esperado**: lista o conteúdo do diretório de Extensão de Diagnóstico do Linux.
+   **Esperado um resultado**: lista o conteúdo de saudação do diretório de extensão de diagnóstico do Linux hello.
 
  b. Execute o `ps -ax | grep diagnostic`
 
    **Resultado esperado**: exibe uma entrada semelhante a: `python /var/lib/waagent/Microsoft.OSTCExtensions.LinuxDiagnostic-2.0.92/diagnostic.py -daemon`
 
-3.   Verifique se a Extensão de Monitoramento Avançado do Azure está instalada e em execução.
+3.   Certifique-se de que Olá extensão de monitoramento aprimorada do Azure está instalado e em execução.
 
   a.  Execute o `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-/'`
 
-    **Resultado esperado**: lista o conteúdo do diretório de Extensão de Monitoramento Avançado do Azure.
+    **Esperado um resultado**: lista o conteúdo de saudação do diretório de extensão de monitoramento aprimorada do Azure hello.
 
   b. Execute o `ps -ax | grep AzureEnhanced`
 
      **Resultado esperado**: exibe uma entrada semelhante a: `python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
 
-3. Instale o Agente de Host do SAP conforme descrito na Nota SAP [1031096] e verifique a saída de `saposcol`.
+3. Instalar o agente de Host do SAP, conforme descrito na nota da SAP [1031096]e verifique a saída de saudação do `saposcol`.
 
   a.  Execute o `/usr/sap/hostctrl/exe/saposcol -d`
 
   b.  Execute o `dump ccm`
 
-  c.  Verifique se a métrica **Virtualization_Configuration\Enhanced monitoramento acesso** é **true**.
+  c.  Verifique se Olá **Virtualization_Configuration\Enhanced monitoramento acesso** métrica é **true**.
 
 Se já tiver um servidor de aplicativos ABAP do SAP NetWeaver instalado, abra a transação ST06 e verifique se o monitoramento avançado está habilitado.
 
-Se qualquer uma dessas verificações falhar, e para obter informações detalhadas sobre como reimplantar a extensão, confira [Solução de problemas de infraestrutura de monitoramento do Azure para SAP][deployment-guide-5.3].
+Se qualquer uma dessas verificações falharem e para obter informações detalhadas sobre como tooredeploy Olá extensão, consulte [solução de problemas hello infraestrutura de monitoramento do Azure para SAP][deployment-guide-5.3].
 
-### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Verificação de integridade para a configuração de infraestrutura de monitoramento do Azure
-Se parte do monitoramento de dados não for entregue corretamente, conforme indicado pelo teste descrito em [Verificação de preparação do Monitoramento Avançado do Azure para SAP][deployment-guide-5.1] acima, execute o cmdlet `Test-AzureRmVMAEMExtension` para testar se a configuração atual da infraestrutura de monitoramento do Azure e da extensão de monitoramento para SAP está correta.
+### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Verificação de integridade para Olá configuração de infraestrutura de monitoramento do Azure
+Se alguns dos dados de monitoramento de saudação não for fornecido corretamente, conforme indicado pelo teste Olá descritas [verificação de preparação para o monitoramento aprimorado do Azure para SAP][deployment-guide-5.1], execute hello `Test-AzureRmVMAEMExtension` toocheck do cmdlet Se Olá Olá extensão de monitoramento para SAP e infraestrutura de monitoramento do Azure está configurado corretamente.
 
-1.  Verifique se você instalou a última versão do cmdlet do Azure PowerShell, conforme descrito em [Implantando cmdlets do Azure PowerShell][deployment-guide-4.1].
-2.  Execute o seguinte cmdlet do PowerShell. Para obter a lista de ambientes disponíveis, execute o cmdlet `Get-AzureRmEnvironment`. Para usar o Azure público, selecione o ambiente **AzureCloud**. Para o Azure na China, selecione **AzureChinaCloud**.
+1.  Certifique-se de que você instalou a versão mais recente de saudação do cmdlet do PowerShell do Azure hello, conforme descrito em [cmdlets do PowerShell do Azure implantar][deployment-guide-4.1].
+2.  Execute Olá cmdlet do PowerShell a seguir. Para obter uma lista de ambientes disponíveis, execute o cmdlet de saudação `Get-AzureRmEnvironment`. Selecione do Azure, do público toouse Olá **AzureCloud** ambiente. Para o Azure na China, selecione **AzureChinaCloud**.
   ```powershell
-  $env = Get-AzureRmEnvironment -Name <name of the environment>
+  $env = Get-AzureRmEnvironment -Name <name of hello environment>
   Login-AzureRmAccount -Environment $env
   Set-AzureRmContext -SubscriptionName <subscription name>
   Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
   ```
 
-3.  Insira os dados da conta e identifique a máquina virtual do Azure.
+3.  Insira os dados da conta e identificar Olá máquina virtual do Azure.
 
   ![Página de entrada do cmdlet do Azure específico para SAP Test-VMConfigForSAP_GUI][deployment-guide-figure-1200]
 
-4. O script testa a configuração da máquina virtual que você seleciona.
+4. Olá script testes Olá configuração Olá máquina virtual que você selecionar.
 
-  ![Saída de um teste bem-sucedido da infraestrutura de monitoramento do Azure para SAP][deployment-guide-figure-1300]
+  ![Saída do teste bem-sucedido da saudação infraestrutura de monitoramento do Azure para SAP][deployment-guide-figure-1300]
 
-Verifique se cada resultado da verificação de integridade é **OK**. Se algumas verificações não exibirem **OK**, execute o cmdlet de atualização, conforme descrito em [Configurar a Extensão de Monitoramento Avançado do Azure para SAP][deployment-guide-4.5]. Aguarde 15 minutos e repita as verificações descritas em [Verificação de preparação de Monitoramento Avançado do Azure para SAP][deployment-guide-5.1] e [Verificação de integridade para Configuração de Infraestrutura de Monitoramento do Azure][deployment-guide-5.2]. Se as verificações ainda indicarem um problema em alguns dos contadores ou todos eles, confira [Solução de problemas da infraestrutura de monitoramento do Azure para SAP][deployment-guide-5.3].
+Verifique se cada resultado da verificação de integridade é **OK**. Se algumas verificações não forem exibidos **Okey**, execute o cmdlet update hello, conforme descrito na [configurar hello Azure extensão de monitoramento aprimorada para SAP][deployment-guide-4.5]. Aguarde 15 minutos e repita Olá verificações descritas na [verificação de preparação para o monitoramento aprimorado do Azure para SAP] [ deployment-guide-5.1] e [verificação de integridade para configuração de infraestrutura de monitoramento do Azure] [deployment-guide-5.2]. Se Olá verificações ainda indicarem um problema com alguns ou todos os contadores, consulte [solução de problemas hello infraestrutura de monitoramento do Azure para SAP][deployment-guide-5.3].
 
-### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Solucionando problemas de infraestrutura de monitoramento do Azure para SAP
+### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Solução de problemas Olá infraestrutura de monitoramento do Azure para SAP
 
 #### <a name="windowslogowindows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Os contadores de desempenho do Azure não aparecem
-O serviço AzureEnhancedMonitoring Windows coleta métricas de desempenho no Azure. Se o serviço não tiver sido instalado corretamente ou não estiver em execução na VM, nenhuma métrica de desempenho poderá ser coletada.
+saudação de serviço do AzureEnhancedMonitoring Windows coleta métricas de desempenho no Azure. Se o serviço de saudação não foi instalado corretamente ou se ele não está em execução em sua VM, nenhuma métrica de desempenho pode ser coletada.
 
-##### <a name="the-installation-directory-of-the-azure-enhanced-monitoring-extension-is-empty"></a>O diretório de instalação da Extensão de Monitoramento Avançado do Azure está vazio
+##### <a name="hello-installation-directory-of-hello-azure-enhanced-monitoring-extension-is-empty"></a>diretório de instalação de saudação do hello extensão de monitoramento aprimorada do Azure está vazio
 
 ###### <a name="issue"></a>Problema
-O diretório de instalação C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;version>\\drop está vazio.
+diretório de instalação Olá c:\\pacotes\\plug-ins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;versão >\\drop está vazio.
 
 ###### <a name="solution"></a>Solução
-A extensão não está instalada. Determine se esse é um problema de proxy (conforme descrito anteriormente). Talvez seja necessário reiniciar a máquina ou executar novamente o script de configuração `Set-AzureRmVMAEMExtension`.
+extensão de saudação não está instalado. Determine se esse é um problema de proxy (conforme descrito anteriormente). Talvez seja necessário toorestart máquina de saudação ou execute Olá `Set-AzureRmVMAEMExtension` script de configuração.
 
 ##### <a name="service-for-azure-enhanced-monitoring-does-not-exist"></a>O serviço de Monitoramento Avançado do Azure não existe
 
 ###### <a name="issue"></a>Problema
-O serviço AzureEnhancedMonitoring Windows não existe.
+Olá AzureEnhancedMonitoring Windows service não existe.
 
 A saída de Azperflib.exe gera um erro:
 
-![A execução de azperflib.exe indica que o serviço da Extensão de Monitoramento Avançado do Azure para SAP não está em execução][deployment-guide-figure-1400]
+![A execução de azperflib.exe indica que não está executando o serviço de saudação do hello extensão de monitoramento aprimorada do Azure para SAP][deployment-guide-figure-1400]
 <a name="figure-14"></a>
 
 ###### <a name="solution"></a>Solução
-Se o serviço não existir, a Extensão de Monitoramento Avançado do Azure para SAP não foi instalada corretamente. Reimplante a extensão usando as etapas descritas para seu cenário de implantação em [Cenários de implantação de VMs para SAP no Azure][deployment-guide-3].
+Se o serviço de saudação não existir, hello Azure extensão de monitoramento aprimorada para SAP não foi instalado corretamente. Reimplante a extensão de saudação usando Olá etapas descritas para seu cenário de implantação no [cenários de implantação de VMs para SAP no Azure][deployment-guide-3].
 
-Depois de implantar a extensão, após uma hora, verifique novamente se os contadores de desempenho do Azure são fornecidos na VM do Azure.
+Depois de implantar a extensão hello, após uma hora, verifique novamente se contadores de desempenho do Azure Olá são fornecidos nos Olá VM do Azure.
 
-##### <a name="service-for-azure-enhanced-monitoring-exists-but-fails-to-start"></a>O serviço de Monitoramento Avançado do Azure existe, mas não pode ser iniciado
+##### <a name="service-for-azure-enhanced-monitoring-exists-but-fails-toostart"></a>Serviço de monitoramento aprimorado do Azure existe, mas não toostart
 
 ###### <a name="issue"></a>Problema
-O serviço Windows AzureEnhancedMonitoring existe e está habilitado, mas não é iniciado. Para obter mais informações, confira o log de eventos do aplicativo.
+Olá serviço AzureEnhancedMonitoring Windows existe e está habilitado, mas falha toostart. Para obter mais informações, verifique o log de eventos do aplicativo hello.
 
 ###### <a name="solution"></a>Solução
-A configuração está incorreta. Reinicie a extensão de monitoramento para a VM, conforme descrito em [Configurar a Extensão de Monitoramento Avançado do Azure para SAP][deployment-guide-4.5].
+Olá configuração está incorreta. Reiniciar Olá monitoramento de extensão para Olá VM, conforme descrito em [configurar hello Azure extensão de monitoramento aprimorada para SAP][deployment-guide-4.5].
 
 #### <a name="windowslogowindows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] Faltam alguns contadores de desempenho do Azure
-O serviço AzureEnhancedMonitoring Windows coleta métricas de desempenho no Azure. O serviço obtém dados de várias fontes. Alguns dados de configuração são coletados localmente e algumas métricas de desempenho são lidas do Diagnóstico do Azure. Contadores de armazenamento são utilizados de seu logon no nível de assinatura de armazenamento.
+saudação de serviço do AzureEnhancedMonitoring Windows coleta métricas de desempenho no Azure. serviço de saudação obtém dados de várias fontes. Alguns dados de configuração são coletados localmente e algumas métricas de desempenho são lidas do Diagnóstico do Azure. Contadores de armazenamento são usados a partir de seu logon no nível de assinatura de armazenamento hello.
 
-Se estiver solucionando problemas usando a Nota SAP [1999351] e isso não resolver o problema, execute novamente o script de configuração `Set-AzureRmVMAEMExtension`. Talvez você precise esperar por uma hora porque os contadores de diagnóstico ou análise de armazenamento podem não ser criados imediatamente depois de terem sido habilitados. Se o problema persistir, abra uma mensagem de suporte ao cliente SAP no componente BC-OP-NT-AZR para Windows ou BC-OP-LNX-AZR para uma máquina virtual Linux.
+Se a solução de problemas com a nota SAP [1999351] não resolver o problema de hello, execute novamente a saudação `Set-AzureRmVMAEMExtension` script de configuração. Você pode ter toowait hora porque contadores de diagnóstico ou de análise de armazenamento não podem ser criados imediatamente depois que elas estão habilitadas. Se Olá problema persistir, abra uma mensagem de suporte de cliente SAP em Olá componente BC-OP-NT-AZR para Windows ou BC-OP-LNX-AZR para uma máquina virtual Linux.
 
 #### <a name="linuxlogolinux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Os contadores de desempenho do Azure não aparecem
-Métricas de desempenho no Azure são coletadas por um daemon. Se o daemon não estiver em execução, nenhuma métrica de desempenho poderá ser coletada.
+Métricas de desempenho no Azure são coletadas por um daemon. Se o daemon de saudação não está em execução, nenhuma métrica de desempenho pode ser coletada.
 
-##### <a name="the-installation-directory-of-the-azure-enhanced-monitoring-extension-is-empty"></a>O diretório de instalação da Extensão de Monitoramento Avançado do Azure está vazio
+##### <a name="hello-installation-directory-of-hello-azure-enhanced-monitoring-extension-is-empty"></a>diretório de instalação de saudação do hello extensão de monitoramento aprimorado do Azure está vazio
 
 ###### <a name="issue"></a>Problema
-O diretório \\var\\lib\\waagent\\ não tem um subdiretório para a extensão de Monitoramento Avançado do Azure.
+diretório de saudação \\var\\lib\\waagent\\ não tem um subdiretório para Olá extensão de monitoramento aprimorado do Azure.
 
 ###### <a name="solution"></a>Solução
-A extensão não está instalada. Determine se esse é um problema de proxy (conforme descrito anteriormente). Talvez seja necessário reiniciar a máquina e/ou executar novamente o script de configuração `Set-AzureRmVMAEMExtension`.
+extensão de saudação não está instalado. Determine se esse é um problema de proxy (conforme descrito anteriormente). Talvez seja necessário toorestart hello e / execute Olá `Set-AzureRmVMAEMExtension` script de configuração.
 
 #### <a name="linuxlogolinux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Faltam alguns contadores de desempenho do Azure
-Métricas de desempenho no Azure são coletadas por um daemon, que obtém os dados de várias fontes. Alguns dados de configuração são coletados localmente e algumas métricas de desempenho são lidas do Diagnóstico do Azure. Contadores de armazenamento vêm dos logs em sua assinatura de armazenamento.
+Métricas de desempenho no Azure são coletadas por um daemon, que obtém os dados de várias fontes. Alguns dados de configuração são coletados localmente e algumas métricas de desempenho são lidas do Diagnóstico do Azure. Contadores de armazenamento são provenientes Olá logs na sua assinatura de armazenamento.
 
 Para obter uma lista completa e atualizada dos problemas conhecidos, confira a Nota SAP [1999351], que tem informações adicionais de solução de problemas para o Monitoramento Avançado do Azure para SAP.
 
-Se estiver solucionando problemas usando a Nota SAP [1999351] e isso não resolver o problema, execute novamente o script de configuração `Set-AzureRmVMAEMExtension`, conforme descrito em [Configurar a Extensão de Monitoramento Avançado do Azure para SAP][deployment-guide-4.5]. Talvez você precise esperar por uma hora porque os contadores de diagnóstico ou análise de armazenamento podem não ser criados imediatamente depois de terem sido habilitados. Se o problema persistir, abra uma mensagem de suporte ao cliente SAP no componente BC-OP-NT-AZR para Windows ou BC-OP-LNX-AZR para uma máquina virtual Linux.
+Se a solução de problemas com a nota SAP [1999351] não resolver o problema de saudação, execute novamente a saudação `Set-AzureRmVMAEMExtension` script de configuração, conforme descrito em [configurar hello Azure extensão de monitoramento aprimorada para SAP][deployment-guide-4.5]. Você pode ter toowait para uma hora porque contadores de diagnóstico ou de análise de armazenamento não podem ser criados imediatamente depois que elas estão habilitadas. Se Olá problema persistir, abra uma mensagem de suporte de cliente SAP em Olá componente BC-OP-NT-AZR para Windows ou BC-OP-LNX-AZR para uma máquina virtual Linux.

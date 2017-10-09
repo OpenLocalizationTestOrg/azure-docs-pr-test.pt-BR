@@ -1,5 +1,5 @@
 ---
-title: Implementar Oracle Golden Gate em uma VM Linux do Azure | Microsoft Docs
+title: aaaImplement Oracle Golden Gate em uma VM do Linux do Azure | Microsoft Docs
 description: Coloque rapidamente em funcionamento um Oracle Golden Gate no seu ambiente do Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: rclaus
-ms.openlocfilehash: a05711357d345267647c02e42336fd37c09e1bff
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 320cafd5d23ee472f0af9f92577bc6f432f65778
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementar Oracle Golden Gate em uma VM Linux do Azure 
 
-A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Esse guia detalha como usar a CLI do Azure para implantar um banco de dados Oracle 12c por meio da imagem na galeria do Marketplace do Azure. 
+Olá CLI do Azure é usado toocreate e gerenciar recursos do Azure Olá linha de comando ou em scripts. Esses detalhes de guia como toouse Olá CLI do Azure toodeploy um Oracle 12c banco de dados de imagem da Galeria hello Azure Marketplace. 
 
-Este documento mostra passo a passo sobre como criar, instalar e configurar o Oracle Golden Gate em uma VM do Azure.
+Este documento mostra passo a passo como toocreate, instalar e configurar o Oracle Golden Gate em uma VM do Azure.
 
-Antes de começar, certifique-se de que a CLI do Azure foi instalada. Para obter mais informações, consulte o [Guia de instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Antes de começar, certifique-se que Olá que CLI do Azure foi instalado. Para obter mais informações, consulte o [Guia de instalação da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-## <a name="prepare-the-environment"></a>Preparar o ambiente
+## <a name="prepare-hello-environment"></a>Preparar o ambiente de saudação
 
-Para executar a instalação do Oracle Golden Gate, você precisa criar duas VMs do Azure no mesmo conjunto de disponibilidade. A imagem do Marketplace usada para criar as VMs é **Oracle:Oracle-Database-Ee:12.1.0.2:latest**.
+instalação de Oracle Golden Gate do tooperform Olá, você precisa toocreate duas VMs do Azure Olá mesmo conjunto de disponibilidade. imagem do Marketplace Olá usar toocreate Olá VMs é **Oracle: Oracle-banco de dados-Ee:12.1.0.2:latest**.
 
-Você também precisa estar familiarizado com Unix editor vi e ter um entendimento básico de x11 (X Windows).
+Você também precisa toobe familiarizado com Unix editor vi e ter um entendimento básico de x11 (X Windows).
 
-Este é um resumo da configuração do ambiente:
+a seguir Olá é um resumo da configuração do ambiente de saudação:
 > 
 > |  | **Site primário** | **Replicar site** |
 > | --- | --- | --- |
@@ -48,9 +48,9 @@ Este é um resumo da configuração do ambiente:
 > | **Processo de Golden Gate** |EXTORA |REPORA|
 
 
-### <a name="sign-in-to-azure"></a>Entrar no Azure 
+### <a name="sign-in-tooazure"></a>Entrar tooAzure 
 
-Entre na sua assinatura do Azure como comando [az login](/cli/azure/#login). Em seguida, execute as instruções na tela.
+Entrar tooyour assinatura do Azure com hello [logon az](/cli/azure/#login) comando. Em seguida, siga Olá na tela instruções.
 
 ```azurecli
 az login
@@ -58,9 +58,9 @@ az login
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e a partir do qual podem ser gerenciados. 
+Criar um grupo de recursos com hello [criar grupo az](/cli/azure/group#create) comando. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e a partir do qual podem ser gerenciados. 
 
-O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `westus`.
+Olá, exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` em Olá `westus` local.
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -68,7 +68,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
 
-Esta etapa é opcional, mas recomendada. Para obter mais informações, confira [Guia de conjuntos de disponibilidade do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
+Olá após a etapa é opcional, mas recomendado. Para obter mais informações, confira [Guia de conjuntos de disponibilidade do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
 
 ```azurecli
 az vm availability-set create \
@@ -80,9 +80,9 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-Crie uma VM com o comando [az vm create](/cli/azure/vm#create). 
+Criar uma VM com hello [criar vm az](/cli/azure/vm#create) comando. 
 
-O exemplo a seguir cria duas VMs, chamadas `myVM1` e `myVM2`. Crie chaves SSH, se elas ainda não existirem em um local de chave padrão. Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`.
+Olá, exemplo a seguir cria duas VMs denominadas `myVM1` e `myVM2`. Crie chaves SSH, se elas ainda não existirem em um local de chave padrão. toouse um conjunto específico de chaves, use Olá `--ssh-key-value` opção.
 
 #### <a name="create-myvm1-primary"></a>Criar myVM1 (primário):
 ```azurecli
@@ -95,7 +95,7 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-Quando a VM tiver sido criada, a CLI do Azure mostra informações semelhantes ao exemplo a seguir. (Anote `publicIpAddress`. Esse endereço é usado para acessar a VM.)
+Depois de Olá que VM foi criada, Olá CLI do Azure mostra informações toohello semelhante exemplo a seguir. (Observe Olá `publicIpAddress`. Esse endereço é usado tooaccess Olá VM).
 
 ```azurecli
 {
@@ -121,13 +121,13 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-Anote o `publicIpAddress` também após ele ter sido criado.
+Anote Olá `publicIpAddress` também após ele ter sido criado.
 
-### <a name="open-the-tcp-port-for-connectivity"></a>Abrir a porta TCP para conectividade
+### <a name="open-hello-tcp-port-for-connectivity"></a>Abra a porta TCP para conectividade Olá
 
-A próxima etapa é configurar pontos de extremidade externos, que permitem acessar remotamente o banco de dados Oracle. Para configurar os pontos de extremidade externos, execute os comandos a seguir.
+Olá próxima etapa é tooconfigure pontos de extremidade externos, que permitem o banco de dados do Oracle tooaccess Olá remotamente. tooconfigure Olá pontos de extremidade externos, execute Olá comandos a seguir.
 
-#### <a name="open-the-port-for-myvm1"></a>Abrir porta para myVM1:
+#### <a name="open-hello-port-for-myvm1"></a>Abra a porta Olá para myVM1:
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
@@ -137,7 +137,7 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-O resultado deve ser semelhante à seguinte resposta:
+Olá resultados são semelhante toohello resposta a seguir:
 
 ```bash
 {
@@ -158,7 +158,7 @@ O resultado deve ser semelhante à seguinte resposta:
 }
 ```
 
-#### <a name="open-the-port-for-myvm2"></a>Abra a porta para myVM2:
+#### <a name="open-hello-port-for-myvm2"></a>Abra a porta Olá para myVM2:
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
@@ -168,25 +168,25 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-### <a name="connect-to-the-virtual-machine"></a>Conectar-se à máquina virtual
+### <a name="connect-toohello-virtual-machine"></a>Conecte-se a máquina virtual de toohello
 
-Use o seguinte comando para criar uma sessão SSH com a máquina virtual. Substitua o endereço IP pelo `publicIpAddress` de sua máquina virtual.
+A seguir Olá Use o comando toocreate uma sessão SSH com a máquina virtual de saudação. Substitua o endereço IP de saudação com hello `publicIpAddress` de sua máquina virtual.
 
 ```bash 
 ssh <publicIpAddress>
 ```
 
-### <a name="create-the-database-on-myvm1-primary"></a>Crie banco de dados myVM1 (primário)
+### <a name="create-hello-database-on-myvm1-primary"></a>Criar banco de dados de saudação myVM1 (primário)
 
-O software Oracle já está instalado na imagem do Marketplace, portanto, a próxima etapa é instalar o banco de dados. 
+Olá software Oracle já está instalado na imagem do Marketplace hello, portanto Olá próxima etapa é o banco de dados do tooinstall hello. 
 
-Execute o software como o superusuário 'oracle':
+Execute software hello como superusuário de 'oracle' hello:
 
 ```bash
 sudo su - oracle
 ```
 
-Crie o banco de dados:
+Crie banco de dados de saudação:
 
 ```bash
 $ dbca -silent \
@@ -207,7 +207,7 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
-A saída deve ser semelhante à seguinte resposta:
+Saídas devem parecer semelhante toohello resposta a seguir:
 
 ```bash
 Copying database files
@@ -236,10 +236,10 @@ Completing Database Creation
 Creating Pluggable Databases
 78% complete
 100% complete
-Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for more details.
+Look at hello log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for more details.
 ```
 
-Defina as variáveis ORACLE_SID e ORACLE_HOME.
+Definir variáveis ORACLE_SID e ORACLE_HOME hello.
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
@@ -247,7 +247,7 @@ $ ORACLE_SID=gg1; export ORACLE_SID
 $ LD_LIBRARY_PATH=ORACLE_HOME/lib; export LD_LIBRARY_PATH
 ```
 
-Opcionalmente, você pode adicionar ORACLE_HOME e ORACLE_SID ao arquivo .bashrc, de maneira que essas configurações sejam salvas para logons futuros:
+Opcionalmente, você pode adicionar ORACLE_HOME e ORACLE_SID toohello. bashrc arquivo, para que essas configurações são salvas para futuras entradas:
 
 ```bash
 # add oracle home
@@ -264,12 +264,12 @@ $ sudo su - oracle
 $ lsnrctl start
 ```
 
-### <a name="create-the-database-on-myvm2-replicate"></a>Crie banco de dados myVM2 (replicação)
+### <a name="create-hello-database-on-myvm2-replicate"></a>Criar banco de dados de saudação myVM2 (replicação)
 
 ```bash
 sudo su - oracle
 ```
-Crie o banco de dados:
+Crie banco de dados de saudação:
 
 ```bash
 $ dbca -silent \
@@ -290,7 +290,7 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
-Defina as variáveis ORACLE_SID e ORACLE_HOME.
+Definir variáveis ORACLE_SID e ORACLE_HOME hello.
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
@@ -298,7 +298,7 @@ $ ORACLE_SID=cdb1; export ORACLE_SID
 $ LD_LIBRARY_PATH=ORACLE_HOME/lib; export LD_LIBRARY_PATH
 ```
 
-Opcionalmente, você pode adicionar ORACLE_HOME e ORACLE_SID ao arquivo .bashrc, de maneira que essas configurações sejam salvas para logons futuros.
+Opcionalmente, você pode ORACLE_HOME e ORACLE_SID toohello. bashrc arquivo adicionado, para que essas configurações são salvas para futuras entradas.
 
 ```bash
 # add oracle home
@@ -316,7 +316,7 @@ $ lsnrctl start
 ```
 
 ## <a name="configure-golden-gate"></a>Configurar o Golden Gate 
-Para configurar Golden Gate, execute as etapas nesta seção.
+tooconfigure Golden Gate etapas Olá nesta seção.
 
 ### <a name="enable-archive-log-mode-on-myvm1-primary"></a>Habilitar o modo de log de arquivo morto em myVM1 (primário)
 
@@ -346,24 +346,24 @@ SQL> EXIT;
 ```
 
 ### <a name="download-golden-gate-software"></a>Baixar o software de Golden Gate
-Para baixar e preparar o software de Oracle Golden Gate, conclua as seguintes etapas:
+toodownload e preparar o software Oracle Golden Gate hello, Olá concluir as etapas a seguir:
 
-1. Baixe o arquivo **fbo_ggs_Linux_x64_shiphome.zip** da [página de download do Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Sob o título do download **12.x.x.x do Oracle GoldenGate para Oracle Linux x86-64**, deve haver um conjunto de arquivos. zip para download.
+1. Baixar Olá **fbo_ggs_Linux_x64_shiphome.zip** arquivo hello [página de download do Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Em Olá baixar título **12.x.x.x do Oracle GoldenGate para Oracle Linux x86-64**, deve haver um conjunto de toodownload de arquivos. zip.
 
-2. Depois de baixar os arquivos .zip para o computador cliente, você poderá usar o protocolo SCP para copiar os arquivos na sua VM:
+2. Depois de baixar o computador cliente do hello. zip arquivos tooyour, use o protocolo de cópia seguro (SCP) toocopy Olá arquivos tooyour VM:
 
   ```bash
   $ scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
   ```
 
-3. Mova os arquivos .zip para a pasta **/opt**. Em seguida, altere o proprietário dos arquivos da seguinte maneira:
+3. Mover hello. zip arquivos toohello **/opt** pasta. Em seguida, altere o proprietário de saudação dos arquivos de saudação da seguinte maneira:
 
   ```bash
   $ sudo su -
   # mv <folder>/*.zip /opt
   ```
 
-4. Descompacte os arquivos (instale o utilitário unzip do Linux se ele ainda não estiver instalado):
+4. Descompacte arquivos hello (Olá instalação Linux Descompacte utilitário se ele ainda não estiver instalado):
 
   ```bash
   # yum install unzip
@@ -377,24 +377,24 @@ Para baixar e preparar o software de Oracle Golden Gate, conclua as seguintes et
   # chown -R oracle:oinstall /opt/fbo_ggs_Linux_x64_shiphome
   ```
 
-### <a name="prepare-the-client-and-vm-to-run-x11-for-windows-clients-only"></a>Prepare o cliente e a VM para executar X11 (somente para clientes Windows)
+### <a name="prepare-hello-client-and-vm-toorun-x11-for-windows-clients-only"></a>Preparar o cliente hello e VM toorun x11 (para clientes do Windows somente)
 Esta é uma etapa opcional. Essa é uma etapa opcional, você pode ignorá-la se estiver usando um cliente do Linux ou já tiver a instalação do x11.
 
-1. Baixe o PuTTY e o Xming em seu computador Windows:
+1. Baixe o PuTTY e Xming tooyour computador com Windows:
 
   * [Baixar PuTTY](http://www.putty.org/)
   * [Baixar Xming](https://xming.en.softonic.com/)
 
-2.  Depois de instalar o PuTTY, na pasta PuTTY (por exemplo, C:\Arquivos de Programa\PuTTY), execute puttygen.exe (Gerador de Chave PuTTY).
+2.  Depois de instalar o PuTTY, em Olá PuTTY pasta (por exemplo, C:\Program Files\PuTTY), execute puttygen.exe (gerador de chave PuTTY).
 
 3.  No Gerador de Chave PuTTY:
 
-  - Para gerar uma chave, selecione o botão **Gerar**.
-  - Copie o conteúdo da chave (**Ctrl+C**).
-  - Selecione o botão **Salvar chave privada**.
-  - Ignore o aviso que aparece e selecione **OK**.
+  - toogenerate uma saudação de chave, selecione **gerar** botão.
+  - Copiar conteúdo de saudação da chave de saudação (**Ctrl + C**).
+  - Selecione Olá **salva a chave privada** botão.
+  - Ignorar aviso de saudação que aparece e, em seguida, selecione **Okey**.
 
-    ![Captura de tela da página do gerador de chave PuTTY](./media/oracle-golden-gate/puttykeygen.png)
+    ![Captura de tela da página de gerador de chave PuTTY Olá](./media/oracle-golden-gate/puttykeygen.png)
 
 4.  Em sua VM, execute estes comandos:
 
@@ -404,61 +404,61 @@ Esta é uma etapa opcional. Essa é uma etapa opcional, você pode ignorá-la se
   $ cd .ssh
   ```
 
-5. Crie um arquivo chamado **authorized_keys**. Cole o conteúdo da chave nesse arquivo e salve-o.
+5. Crie um arquivo chamado **authorized_keys**. Cole o conteúdo de saudação da chave Olá neste arquivo e, em seguida, salve o arquivo hello.
 
   > [!NOTE]
-  > A chave deve conter a cadeia de caracteres `ssh-rsa`. Além disso, o conteúdo da chave deve ser uma única linha de texto.
+  > chave de saudação deve conter a cadeia de caracteres de saudação `ssh-rsa`. Além disso, o conteúdo de saudação da chave Olá deve ser uma única linha de texto.
   >  
 
-6. Inicie o PuTTY. No painel **Categoria**, selecione **Conexão** > **SSH** > **Autenticação**. Na caixa **Arquivo de chave privada para autenticação**, navegue até a chave que você gerou anteriormente.
+6. Inicie o PuTTY. Em Olá **categoria** painel, selecione **Conexão** > **SSH** > **Auth**. Em Olá **arquivo de chave privada para autenticação** caixa, procure toohello chave gerada anteriormente.
 
-  ![Captura de tela da página Instalar chave privada](./media/oracle-golden-gate/setprivatekey.png)
+  ![Captura de tela da página de definir a chave privada de saudação](./media/oracle-golden-gate/setprivatekey.png)
 
-7. No painel **Categoria**, selecione **Conexão** > **SSH** > **X11**. Em seguida, selecione a caixa **Habilitar encaminhamento X11**.
+7. Em Olá **categoria** painel, selecione **Conexão** > **SSH** > **X11**. Em seguida, selecione Olá **ativar X11 encaminhamento** caixa.
 
-  ![Captura de tela da página Habilitar X11](./media/oracle-golden-gate/enablex11.png)
+  ![Captura de tela da página de habilitar X11 Olá](./media/oracle-golden-gate/enablex11.png)
 
-8. No painel **Categoria**, vá para **Sessão**. Insira as informações do host e selecione **Abrir**.
+8. Em Olá **categoria** painel, ir muito**sessão**. Insira as informações de host hello e, em seguida, selecione **abrir**.
 
-  ![Captura de tela da página de sessão](./media/oracle-golden-gate/puttysession.png)
+  ![Captura de tela da página de sessão Olá](./media/oracle-golden-gate/puttysession.png)
 
 ### <a name="install-golden-gate-software"></a>Instalar o software de Golden Gate
 
-Para instalar o Oracle Golden Gate, conclua as etapas a seguir:
+tooinstall Oracle Golden Gate, Olá concluir as etapas a seguir:
 
-1. Entre como oracle. (Você deve ser capaz de entrar sem inserir uma senha.) Verifique se Xming está em execução antes de iniciar a instalação.
+1. Entre como oracle. (Você deve ser capaz de toosign em sem inserir uma senha.) Certifique-se de que Xming está em execução antes de começar a instalação de saudação.
  
   ```bash
   $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
   $ ./runInstaller
   ```
-2. Selecione 'Oracle GoldenGate para o banco de dados Oracle 12c'. Em seguida, selecione **Avançar** para continuar.
+2. Selecione 'Oracle GoldenGate para o banco de dados Oracle 12c'. Em seguida, selecione **próximo** toocontinue.
 
-  ![Captura de tela da página Selecionar Instalação do instalador](./media/oracle-golden-gate/golden_gate_install_01.png)
+  ![Captura de tela da página de selecione instalação do instalador Olá](./media/oracle-golden-gate/golden_gate_install_01.png)
 
-3. Altere o local do software. Em seguida, selecione a caixa **Iniciar Gerenciador** e insira o local do banco de dados. Selecione **Avançar** para continuar.
+3. Alterar o local de saudação do software. Em seguida, selecione Olá **iniciar Gerenciador** caixa e insira o local do banco de dados de saudação. Selecione **próximo** toocontinue.
 
-  ![Captura de tela da página Selecionar Instalação](./media/oracle-golden-gate/golden_gate_install_02.png)
+  ![Captura de tela da página de instalação selecione Olá](./media/oracle-golden-gate/golden_gate_install_02.png)
 
-4. Altere o diretório de inventário e, em seguida, selecione **Avançar** para continuar.
+4. Altere o diretório de inventário hello e, em seguida, selecione **próximo** toocontinue.
 
-  ![Captura de tela da página Selecionar Instalação](./media/oracle-golden-gate/golden_gate_install_03.png)
+  ![Captura de tela da página de instalação selecione Olá](./media/oracle-golden-gate/golden_gate_install_03.png)
 
-5. Na tela de **Resumo**, selecione **Instalar** para continuar.
+5. Em Olá **resumo** tela, selecione **instalar** toocontinue.
 
-  ![Captura de tela da página Selecionar Instalação do instalador](./media/oracle-golden-gate/golden_gate_install_04.png)
+  ![Captura de tela da página de selecione instalação do instalador Olá](./media/oracle-golden-gate/golden_gate_install_04.png)
 
-6. Pode ser solicitado que você execute um script como 'root'. Nesse caso, abra uma sessão separada, ssh para a VM, sudo para a raiz e, em seguida, execute o script. Selecione **OK** para continuar.
+6. Você pode ser solicitado toorun um script como 'root'. Nesse caso, abra uma sessão separada, ssh toohello VM, sudo tooroot e, em seguida, execute o script hello. Selecione **OK** para continuar.
 
-  ![Captura de tela da página Selecionar Instalação](./media/oracle-golden-gate/golden_gate_install_05.png)
+  ![Captura de tela da página de instalação selecione Olá](./media/oracle-golden-gate/golden_gate_install_05.png)
 
-7. Quando a instalação for concluída, selecione **Fechar** para concluir o processo.
+7. Quando a instalação Olá terminar, selecione **fechar** toocomplete processo de saudação.
 
-  ![Captura de tela da página Selecionar Instalação](./media/oracle-golden-gate/golden_gate_install_06.png)
+  ![Captura de tela da página de instalação selecione Olá](./media/oracle-golden-gate/golden_gate_install_06.png)
 
 ### <a name="set-up-service-on-myvm1-primary"></a>Configuração de serviço no myVM1 (primário)
 
-1. Criar ou atualizar o arquivo tnsnames.ora:
+1. Criar ou atualizar o arquivo tnsnames.ora de saudação:
 
   ```bash
   $ cd $ORACLE_HOME/network/admin
@@ -491,29 +491,29 @@ Para instalar o Oracle Golden Gate, conclua as etapas a seguir:
     )
   ```
 
-2. Crie as contas de usuário e de proprietário de Golden Gate.
+2. Crie hello Golden Gate contas de usuário e de proprietário.
 
   > [!NOTE]
-  > A conta do proprietário deve ter o prefixo de C##.
+  > conta de proprietário de Olá deve ter o prefixo de C# #.
   >
 
     ```bash
     $ sqlplus / as sysdba
     SQL> CREATE USER C##GGADMIN identified by ggadmin;
     SQL> EXEC dbms_goldengate_auth.grant_admin_privilege('C##GGADMIN',container=>'ALL');
-    SQL> GRANT DBA to C##GGADMIN container=all;
+    SQL> GRANT DBA tooC##GGADMIN container=all;
     SQL> connect C##GGADMIN/ggadmin
     SQL> ALTER SESSION SET CONTAINER=PDB1;
     SQL> EXIT;
     ```
 
-3. Crie a conta de usuário de teste Golden Gate:
+3. Crie conta de usuário de teste de Golden Gate hello:
 
   ```bash
   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
   $ sqlplus system/OraPasswd1@pdb1
   SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
-  SQL> GRANT connect, resource, dba TO test;
+  SQL> GRANT connect, resource, dba tootest;
   SQL> ALTER USER test QUOTA 100M on USERS;
   SQL> connect test/test@pdb1
   SQL> @demo_ora_create
@@ -521,9 +521,9 @@ Para instalar o Oracle Golden Gate, conclua as etapas a seguir:
   SQL> EXIT;
   ```
 
-4. Configure o arquivo de parâmetro de extração.
+4. Configure o arquivo de parâmetro de extração de saudação.
 
- Inicie a interface de linha de comando de Golden Gate (ggsci):
+ Inicie a interface de linha de comando de portão dourada hello (ggsci):
 
   ```bash
   $ sudo su - oracle
@@ -537,7 +537,7 @@ Para instalar o Oracle Golden Gate, conclua as etapas a seguir:
 
   GGSCI> EDIT PARAMS EXTORA
   ```
-5. Adicione o seguinte para o arquivo de parâmetro de EXTRAÇÃO (usando comandos vi). Pressione a tecla Esc, ': wq!' para salvar o arquivo. 
+5. Adicione Olá toohello EXTRAIA o arquivo de parâmetro a seguir (por meio de comandos vi). Pressione a tecla Esc, ': wq!' arquivo toosave. 
 
   ```bash
   EXTRACT EXTORA
@@ -578,7 +578,7 @@ Para instalar o Oracle Golden Gate, conclua as etapas a seguir:
 
   GGSCI>  START EXTRACT EXTORA
 
-  Sending START request to MANAGER ...
+  Sending START request tooMANAGER ...
   EXTRACT EXTORA starting
 
   GGSCI > info all
@@ -588,7 +588,7 @@ Para instalar o Oracle Golden Gate, conclua as etapas a seguir:
   MANAGER     RUNNING
   EXTRACT     RUNNING     EXTORA      00:00:11      00:00:04
   ```
-Nesta etapa, você deve encontrar o SCN inicial, que será usado mais tarde, em uma seção diferente:
+Nesta etapa, você deve encontrar hello iniciando SCN, que será usado mais tarde, em uma seção diferente:
 
   ```bash
   $ sqlplus / as sysdba
@@ -620,7 +620,7 @@ Nesta etapa, você deve encontrar o SCN inicial, que será usado mais tarde, em 
 ### <a name="set-up-service-on-myvm2-replicate"></a>Configuração de serviço no myVM2 (replicação)
 
 
-1. Criar ou atualizar o arquivo tnsnames.ora:
+1. Criar ou atualizar o arquivo tnsnames.ora de saudação:
 
   ```bash
   $ cd $ORACLE_HOME/network/admin
@@ -659,7 +659,7 @@ Nesta etapa, você deve encontrar o SCN inicial, que será usado mais tarde, em 
   $ sqlplus / as sysdba
   SQL> alter session set container = pdb1;
   SQL> create user repuser identified by rep_pass container=current;
-  SQL> grant dba to repuser;
+  SQL> grant dba toorepuser;
   SQL> exec dbms_goldengate_auth.grant_admin_privilege('REPUSER',container=>'PDB1');
   SQL> connect repuser/rep_pass@pdb1 
   SQL> EXIT;
@@ -671,14 +671,14 @@ Nesta etapa, você deve encontrar o SCN inicial, que será usado mais tarde, em 
   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
   $ sqlplus system/OraPasswd1@pdb1
   SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
-  SQL> GRANT connect, resource, dba TO test;
+  SQL> GRANT connect, resource, dba tootest;
   SQL> ALTER USER test QUOTA 100M on USERS;
   SQL> connect test/test@pdb1
   SQL> @demo_ora_create
   SQL> EXIT;
   ```
 
-4. Arquivo de parâmetro de réplicas para replicar as alterações: 
+4. Alterações de tooreplicate de arquivo de parâmetro de réplicas: 
 
   ```bash
   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -718,22 +718,22 @@ Nesta etapa, você deve encontrar o SCN inicial, que será usado mais tarde, em 
   GGSCI> ADD REPLICAT INITREP, SPECIALRUN
   ```
 
-### <a name="set-up-the-replication-myvm1-and-myvm2"></a>Configurar a replicação (myVM1 e myVM2)
+### <a name="set-up-hello-replication-myvm1-and-myvm2"></a>Configurar a replicação de saudação (myVM1 e myVM2)
 
-#### <a name="1-set-up-the-replication-on-myvm2-replicate"></a>1. Configurar a replicação em myVM2 (replicação)
+#### <a name="1-set-up-hello-replication-on-myvm2-replicate"></a>1. Configurar a replicação de saudação em myVM2 (replicação)
 
   ```bash
   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
   $ ./ggsci
   GGSCI> EDIT PARAMS MGR
   ```
-Atualize o arquivo com o seguinte:
+Atualize o arquivo de saudação com os seguintes hello:
 
   ```bash
   PORT 7809
   ACCESSRULE, PROG *, IPADDR *, ALLOW
   ```
-Em seguida, reinicie o serviço do Gerenciador:
+Reinicie o serviço de Gerenciador de saudação:
 
   ```bash
   GGSCI> STOP MGR
@@ -741,9 +741,9 @@ Em seguida, reinicie o serviço do Gerenciador:
   GGSCI> EXIT
   ```
 
-#### <a name="2-set-up-the-replication-on-myvm1-primary"></a>2. Configurar a replicação em myVM1 (primário)
+#### <a name="2-set-up-hello-replication-on-myvm1-primary"></a>2. Configurar a replicação de saudação em myVM1 (primário)
 
-Inicie o carregamento inicial e verifique se há erros:
+Inicie o carregamento inicial hello e verifique se há erros:
 
 ```bash
 $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -751,53 +751,53 @@ $ ./ggsci
 GGSCI> START EXTRACT INITEXT
 GGSCI> VIEW REPORT INITEXT
 ```
-#### <a name="3-set-up-the-replication-on-myvm2-replicate"></a>3. Configurar a replicação em myVM2 (replicação)
+#### <a name="3-set-up-hello-replication-on-myvm2-replicate"></a>3. Configurar a replicação de saudação em myVM2 (replicação)
 
-Alteração de número SCN com o número obtido antes:
+Alterar Olá número SCN com número de saudação obtido antes de:
 
   ```bash
   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
   $ ./ggsci
   START REPLICAT REPORA, AFTERCSN 1857887
   ```
-A replicação foi iniciada e você pode testá-la, inserindo novos registros em tabelas de TESTE.
+replicação de saudação foi iniciado e você pode testá-lo pela inserção de novas tabelas tooTEST de registros.
 
 
 ### <a name="view-job-status-and-troubleshooting"></a>Exibir o status do trabalho e solução de problemas
 
 #### <a name="view-reports"></a>Exibir relatórios
-Para exibir relatórios em myVM1, execute os seguintes comandos:
+tooview relata myVM1, execute Olá comandos a seguir:
 
   ```bash
   GGSCI> VIEW REPORT EXTORA 
   ```
  
-Para exibir relatórios em myVM2, execute os seguintes comandos:
+tooview relata myVM2, execute Olá comandos a seguir:
 
   ```bash
   GGSCI> VIEW REPORT REPORA
   ```
 
 #### <a name="view-status-and-history"></a>Exibir o status e histórico
-Para exibir o status e histórico em myVM1, execute os seguintes comandos:
+tooview status e o histórico no myVM1, execute Olá comandos a seguir:
 
   ```bash
   GGSCI> dblogin userid c##ggadmin, password ggadmin 
   GGSCI> INFO EXTRACT EXTORA, DETAIL
   ```
 
-Para exibir o status e histórico em myVM2, execute os seguintes comandos:
+tooview status e o histórico no myVM2, execute Olá comandos a seguir:
 
   ```bash
   GGSCI> dblogin userid repuser@pdb1 password rep_pass 
   GGSCI> INFO REP REPORA, DETAIL
   ```
-Isso conclui a instalação e configuração do Golden Gate no Oracle linux.
+Isso conclui a saudação instalação e configuração de porta de Golden em Oracle linux.
 
 
-## <a name="delete-the-virtual-machine"></a>Excluir a máquina virtual
+## <a name="delete-hello-virtual-machine"></a>Excluir a máquina virtual de saudação
 
-Quando não é mais necessário, o comando a seguir pode ser usado para remover o grupo de recursos, a VM e todos os recursos relacionados.
+Quando ele não for mais necessário, Olá comando a seguir pode ser usado tooremove grupo de recursos de saudação, VM e recursos todos relacionados.
 
 ```azurecli
 az group delete --name myResourceGroup

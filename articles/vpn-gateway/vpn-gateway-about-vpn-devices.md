@@ -1,6 +1,6 @@
 ---
-title: "Sobre dispositivos VPN para conexões do Azure entre locais | Microsoft Docs"
-description: "Este artigo discute dispositivos VPN e os parâmetros de IPsec para conexões de Gateway de VPN S2S entre locais. São fornecidos links para exemplos e instruções de configuração."
+title: "aaaAbout dispositivos VPN para conexões do Azure entre locais | Microsoft Docs"
+description: "Este artigo discute dispositivos VPN e os parâmetros de IPsec para conexões de Gateway de VPN S2S entre locais. Links são fornecidos exemplos e instruções de tooconfiguration."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: yushwang;cherylmc
-ms.openlocfilehash: c8e1db0a5488b1296206a4d557e47599edc59a88
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8b84afbf93d807342ecd56ab369d5909a13343e9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Sobre dispositivos VPN e os parâmetros IPsec/IKE para conexões do Gateway de VPN site a site
 
-Um dispositivo VPN é necessário para configurar uma conexão de VPN Site a Site (S2S) entre locais usando um gateway de VPN. As conexões Site a Site podem ser usadas para criar uma solução híbrida, ou sempre que você quiser uma conexão segura entre suas redes locais e virtuais. Este artigo fornece uma lista dispositivos de VPN validados e uma lista de parâmetros IPsec/IKE para gateways de VPN.
+Um dispositivo VPN é tooconfigure necessária uma conexão de VPN Site a Site (S2S) entre locais usando um gateway VPN. Conexões site a Site podem ser usado toocreate uma solução híbrida ou sempre que quiser conexões seguras entre suas redes locais e suas redes virtuais. Este artigo fornece uma lista dispositivos de VPN validados e uma lista de parâmetros IPsec/IKE para gateways de VPN.
 
 > [!IMPORTANT]
-> Consulte [Problemas conhecidos de compatibilidade de dispositivos](#known) se você estiver com problemas de conectividade entre os dispositivos VPN locais e os gateways de VPN.
+> Se você estiver tendo problemas de conectividade entre os dispositivos VPN de local e gateways de VPN, consulte muito[problemas de compatibilidade de dispositivo](#known).
 >
 >
 
-### <a name="items-to-note-when-viewing-the-tables"></a>Itens a ser observados ao exibir as tabelas:
+### <a name="items-toonote-when-viewing-hello-tables"></a>Itens toonote ao exibir tabelas hello:
 
-* Houve uma mudança de terminologia para os gateways de VPN do Azure. Somente os nomes mudaram. Não há nenhuma alteração de funcionalidade.
+* Houve uma mudança de terminologia para os gateways de VPN do Azure. Somente os nomes de saudação foram alterados. Não há nenhuma alteração de funcionalidade.
   * Roteamento estático = PolicyBased
   * Roteamento dinâmico = RouteBased
-* As especificações de gateway de VPN de Alto Desempenho e de gateway de VPN RouteBased são as mesmas, salvo indicação em contrário. Por exemplo, os dispositivos VPN validados compatíveis com os gateways de VPN RouteBased também são compatíveis com o gateway de VPN de Alto Desempenho.
+* Especificações de gateway VPN HighPerformance e gateway VPN RouteBased são Olá mesmo, a menos que indicado o contrário. Por exemplo, dispositivos VPN Olá validado que são compatíveis com gateways de VPN RouteBased também são compatíveis com hello gateway HighPerformance VPN.
 
 ## <a name="devicetable"></a>Dispositivos VPN validados e guias de configuração do dispositivo
 
@@ -43,9 +43,9 @@ Um dispositivo VPN é necessário para configurar uma conexão de VPN Site a Sit
 > Ao configurar uma conexão Site a Site, um endereço IP IPv4 público é necessário para seu dispositivo VPN.
 >
 
-Validamos um conjunto de dispositivos VPN padrão em parceria com fornecedores de dispositivos. Todos os dispositivos nas famílias de dispositivos na lista abaixo devem funcionar com os gateways de VPN. Consulte [Sobre configurações de Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md#vpntype) para entender o uso do tipo de VPN (PolicyBased ou RouteBased) para a solução de Gateway de VPN que você deseja configurar.
+Validamos um conjunto de dispositivos VPN padrão em parceria com fornecedores de dispositivos. Todos os dispositivos de saudação em famílias de dispositivos de saudação em Olá lista a seguir devem funcionar com gateways de VPN. Consulte [sobre configurações de Gateway VPN](vpn-gateway-about-vpn-gateway-settings.md#vpntype) toounderstand Olá VPN digite use (PolicyBased ou RouteBased) para Olá deseja tooconfigure de solução de Gateway de VPN.
 
-Para ajudar a configurar seu dispositivo VPN, veja os links que correspondem à família de dispositivos apropriada. Os links para as instruções de configuração são fornecidos em uma base de melhor esforço. Para obter suporte ao dispositivo VPN, entre em contato com o fabricante do dispositivo.
+toohelp configurar seu dispositivo VPN, consulte os links de toohello que correspondem a família do dispositivo tooappropriate. são fornecidas instruções de tooconfiguration de links de saudação em uma base de melhor esforço. Para obter suporte ao dispositivo VPN, entre em contato com o fabricante do dispositivo.
 
 |**Fornecedor**          |**Família do dispositivo**     |**Versão mínima do sistema operacional** |**Instruções de configuração PolicyBased** |**Instruções de configuração RouteBased** |
 | ---                | ---                  | ---                   | ---            | ---           |
@@ -77,16 +77,16 @@ Para ajudar a configurar seu dispositivo VPN, veja os links que correspondem à 
 
 ## <a name="additionaldevices"></a>Dispositivos VPN não validados
 
-Se você não vir seu dispositivo listado na tabela de dispositivos VPN Validados, ele ainda pode funcionar com uma conexão Site a Site. Entre em contato com o fabricante do dispositivo para obter instruções adicionais de configuração e suporte.
+Se você não encontrar seu dispositivo listado na tabela de dispositivos VPN validados hello, seu dispositivo ainda pode trabalhar com uma conexão Site a Site. Entre em contato com o fabricante do dispositivo para obter instruções adicionais de configuração e suporte.
 
 ## <a name="editing"></a>Edição de exemplos de configuração de dispositivo
 
-Depois de baixar o exemplo de configuração de dispositivo VPN fornecido, você precisará substituir alguns dos valores para refletir as configurações do seu ambiente.
+Depois de baixar o exemplo de configuração de dispositivo VPN Olá fornecido, será necessário tooreplace alguns Olá valores tooreflect configurações de saudação para seu ambiente.
 
-### <a name="to-edit-a-sample"></a>Para editar um exemplo:
+### <a name="tooedit-a-sample"></a>tooedit um exemplo:
 
-1. Abra o exemplo usando o Bloco de Notas.
-2. Pesquise e substitua todas as cadeias de caracteres de <*texto*> por valores condizentes com seu ambiente. Inclua < e >. Quando um nome é especificado, o nome que você selecionar deve ser exclusivo. Se um comando não funcionar, consulte a documentação do fabricante do dispositivo.
+1. Abra o exemplo hello usando o bloco de notas.
+2. Pesquisar e substituir tudo <*texto*> cadeias de caracteres com valores hello pertinentes tooyour ambiente. Ser tooinclude se < e >. Quando um nome é especificado, o nome de saudação que você selecionar deve ser exclusivo. Se um comando não funcionar, consulte a documentação do fabricante do dispositivo.
 
 | **Texto de exemplo** | **Alterar para** |
 | --- | --- |
@@ -99,17 +99,17 @@ Depois de baixar o exemplo de configuração de dispositivo VPN fornecido, você
 | &lt;SP_AzureNetworkSubnetMask&gt; |Especificar máscara de sub-rede. Exemplo: 255.255.0.0 |
 | &lt;SP_OnPremisesNetworkIpRange&gt; |Especifique o intervalo local. Exemplo: 10.2.1.0 |
 | &lt;SP_OnPremisesNetworkSubnetMask&gt; |Especifique a máscara de sub-rede local. Exemplo: 255.255.255.0 |
-| &lt;SP_AzureGatewayIpAddress&gt; |Estas informações são específicas à sua rede virtual e estão localizadas no Portal de Gerenciamento como o **endereço IP do Gateway**. |
-| &lt;SP_PresharedKey&gt; |Essas informações são específicas da sua rede virtual e estão localizadas no Portal de Gerenciamento como Gerenciar Chave. |
+| &lt;SP_AzureGatewayIpAddress&gt; |Esta rede virtual de tooyour específicas de informações e está localizado no Portal de gerenciamento de saudação como **endereço IP do Gateway**. |
+| &lt;SP_PresharedKey&gt; |Essas informações é a rede virtual específico tooyour e estão localizadas no Portal de gerenciamento como gerenciar chave de saudação. |
 
 ## <a name="ipsec"></a>Parâmetros IPsec/IKE
 
 > [!NOTE]
-> Embora os valores listados na tabela a seguir sejam suportados pelo gateway de VPN, atualmente, não há um mecanismo para especificar nem selecionar uma combinação específica de algoritmos ou parâmetros no gateway de VPN. Você deve especificar quaisquer restrições no dispositivo VPN local. Além disso, você deve fixar **MSS** em **1350**.
+> Embora Olá valores listados no Olá a tabela a seguir têm suporte pelo gateway VPN Olá, atualmente há não é nenhum mecanismo para que você toospecify ou selecione uma combinação específica de algoritmos ou parâmetros de gateway VPN hello. Você deve especificar quaisquer restrições de dispositivo VPN de local de saudação. Além disso, você deve fixar **MSS** em **1350**.
 > 
 >
 
-Nas tabelas a seguir:
+Em Olá tabelas a seguir:
 
 * SA = Associação de segurança
 * Fase 1 de IKE também é chamada de "Modo Principal"
@@ -139,7 +139,7 @@ Nas tabelas a seguir:
 
 ### <a name ="RouteBasedOffers"></a>Ofertas de associação de segurança de VPN RouteBased (SA IKE Modo Rápido)
 
-A tabela a seguir lista as ofertas de SA do IPsec (IKE Modo Rápido). Ofertas estão listadas na ordem de preferência que a oferta é apresentada ou aceita.
+Olá tabela a seguir lista as ofertas de SA do IPsec (IKE modo rápido). Ofertas são ordem Olá listados de preferência oferta Olá é apresentada ou aceita.
 
 #### <a name="azure-gateway-as-initiator"></a>Gateway do Azure como iniciador
 
@@ -183,20 +183,20 @@ A tabela a seguir lista as ofertas de SA do IPsec (IKE Modo Rápido). Ofertas es
 | 25|AES128        |SHA256            |14           |
 | 26|3DES          |SHA1              |14           |
 
-* Você pode especificar a criptografia NULL de IPsec ESP com gateways de VPN RouteBased e de Alto Desempenho. Criptografia com base em nulo não oferece proteção para dados em trânsito, devendo ser usada apenas quando for exigido o máximo de taxa de transferência com o mínimo de latência mínima. Os clientes podem optar por usar isso nos cenários de comunicação entre VNets ou quando a criptografia está sendo aplicada em outro lugar na solução.
-* Para a conectividade entre locais através da Internet, use as configurações padrão de gateway de VPN do Azure com criptografia e algoritmos de hash listados nas tabelas acima para garantir a segurança da comunicação crítica.
+* Você pode especificar a criptografia NULL de IPsec ESP com gateways de VPN RouteBased e de Alto Desempenho. Criptografia com base em nulo não oferece proteção toodata em trânsito e só deve ser usada quando o máximo é exigida latência mínima e de taxa de transferência. Clientes podem escolher toouse isso em cenários de comunicação VNet para VNet, ou quando a criptografia está sendo aplicada em outro lugar na solução de saudação.
+* Para conectividade entre locais através de saudação à Internet, use configurações de gateway de VPN do Azure saudação padrão com criptografia e algoritmos de hash listados nas tabelas de saudação acima tooensure segurança da comunicação crítica.
 
 ## <a name="known"></a>Problemas conhecidos de compatibilidade de dispositivos
 
 > [!IMPORTANT]
-> Estes são os problemas conhecidos de compatibilidade entre dispositivos VPN de terceiros e gateways de VPN do Azure. A equipe do Azure está trabalhando ativamente com os fornecedores para resolver os problemas listados aqui. Depois que os problemas forem resolvidos, esta página será atualizada com as informações mais recentes. Verifique periodicamente.
+> Esses são Olá problemas de compatibilidade conhecidos entre dispositivos VPN de terceiros e gateways de VPN do Azure. Olá, equipe do Azure está trabalhando ativamente com fornecedores de saudação tooaddress Olá problemas listados aqui. Quando problemas de saudação são resolvidos, essa página será atualizada com as informações mais atualizadas hello. Verifique periodicamente.
 >
 >
 
 ### <a name="feb-16-2017"></a>16 de fevereiro de 2017
 
-**Dispositivos Palo Alto Networks com versão anterior à 7.1.4** para VPN do Azure baseada em rota: se você estiver usando dispositivos VPN da Palo Alto Networks com versão do PAN-OS anterior à 7.1.4 e estiver com problemas de conectividade com os gateways de VPN do Azure baseados em rota, execute as seguintes etapas:
+**Dispositivos de redes Palo Alto com too7.1.4 anterior da versão** para VPN do Azure baseadas em rota: se você estiver usando dispositivos VPN de redes Palo Alto com PAN-OS versão anterior too7.1.4 e estiver enfrentando conectividade emite tooAzure baseadas em rota gateways VPN, Execute Olá etapas a seguir:
 
-1. Verifique a versão do firmware do dispositivo Palo Alto Networks. Se a versão do PAN-OS for anterior à 7.1.4, atualize para a 7.1.4.
-2. No dispositivo Palo Alto Networks, altere o tempo de vida da SA da Fase 2 (ou SA de Modo Rápido) para 28.800 segundos (8 horas) ao conectar-se com o gateway de VPN do Azure.
-3. Se você ainda estiver tendo problemas de conectividade, abra uma solicitação de suporte no portal do Azure.
+1. Verificar a versão do firmware de saudação do seu dispositivo Palo Alto Networks. Se sua versão PAN-OS mais antigo que 7.1.4, atualize too7.1.4.
+2. No dispositivo de redes Palo Alto hello, alterar Olá too28 tempo de vida do SA de fase 2 (ou SA de modo rápido), 800 segundos (8 horas) ao conectar-se toohello gateway de VPN do Azure.
+3. Se você ainda estiver tendo problemas de conectividade, abra uma solicitação de suporte de saudação portal do Azure.

@@ -1,5 +1,5 @@
 ---
-title: Gerenciar recursos do Armazenamento de Blobs do Azure com o Gerenciador de Armazenamento (Preview) | Microsoft Docs
+title: "aaaManage recursos de armazenamento de BLOBs do Azure com o Gerenciador de armazenamento (visualização) | Microsoft Docs"
 description: "Gerenciar os contêineres de blob e blobs do Azure com o Gerenciador de Armazenamento (Preview)"
 services: storage
 documentationcenter: na
@@ -14,206 +14,206 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: kraigb
-ms.openlocfilehash: f833027203441e12340bd93f3570de073d297223
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 503dd061b205875da127378ab48e8d465800fc09
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer-preview"></a>Gerenciar os recursos de Armazenamento de Blobs do Azure com o Gerenciador de Armazenamento (Preview)
 ## <a name="overview"></a>Visão geral
-O [Armazenamento de Blobs do Azure](storage/blobs/storage-dotnet-how-to-use-blobs.md) é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS.
-Você pode usar o armazenamento de Blob para expor dados publicamente para o mundo ou para armazenar dados do aplicativo de forma privada. Neste artigo, você aprenderá a usar o Gerenciador de Armazenamento (Preview) para trabalhar com contêineres de blob e blobs.
+[Armazenamento de BLOBs do Azure](storage/blobs/storage-dotnet-how-to-use-blobs.md) é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acessados de qualquer lugar Olá, mundo via HTTP ou HTTPS.
+Você pode usar dados de tooexpose de armazenamento de Blob publicamente toohello mundo ou toostore dados de aplicativo em particular. Neste artigo, você aprenderá como toouse toowork de Gerenciador de armazenamento (visualização) com os contêineres de blob e blobs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para concluir as etapas neste artigo, você precisará do seguinte:
+toocomplete Olá etapas neste artigo, você precisará seguir hello:
 
 * [Baixe e instale o Gerenciador de Armazenamento (preview)](http://www.storageexplorer.com)
-* [Conectar-se a uma conta de armazenamento ou serviço do Azure](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
+* [Conecte-se a conta de armazenamento do Azure tooa ou serviço](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Criar um contêiner de blob
 Todos os blobs devem residir em um contêiner de blob, que é simplesmente um agrupamento lógico de blobs. Uma conta pode conter um número ilimitado de contêineres, e cada contêiner pode armazenar um número ilimitado de blobs.
 
-As etapas a seguir ilustram como criar um contêiner de blobs no Gerenciador de Armazenamento (Preview).
+Olá etapas a seguir ilustram como toocreate um contêiner de blob no Gerenciador de armazenamento (visualização).
 
 1. Abra o Gerenciador de Armazenamento (Preview).
-2. No painel esquerdo, expanda a conta de armazenamento na qual você deseja criar o contêiner de blobs.
-3. Clique com botão direito em **Contêineres de Blob** e, no menu de contexto, selecione **Criar Contêiner de Blobs**.
+2. No painel esquerdo do hello, expanda conta de armazenamento hello dentro da qual você deseja que o contêiner de blob toocreate hello.
+3. Clique com botão direito **contêineres de Blob**e - no menu de contexto Olá - selecione **criar contêiner de Blob**.
 
    ![Menu de contexto Criar contêineres de blob][0]
-4. Uma caixa de texto será exibida abaixo da pasta **Contêineres de Blob** . Insira o nome de seu contêiner de blobs. Confira a seção [Regras de nomenclatura do contêiner](storage/blobs/storage-dotnet-how-to-use-blobs.md#create-a-container) para obter uma lista de regras e restrições sobre como nomear os contêineres de blob.
+4. Será exibida uma caixa de texto abaixo Olá **contêineres de Blob** pasta. Insira o nome de saudação para seu contêiner de blob. Consulte Olá [as regras de nomenclatura do contêiner](storage/blobs/storage-dotnet-how-to-use-blobs.md#create-a-container) seção para obter uma lista de regras e restrições de nomenclatura de contêineres de blob.
 
    ![Caixa de texto Criar Contêineres de Blob][1]
-5. Pressione **Enter** quanto terminar de criar o contêiner de blobs ou **Esc** para cancelar. Após a criação do contêiner de blobs, ele será exibido na pasta **Contêineres de Blob** da conta de armazenamento selecionada.
+5. Pressione **Enter** quando terminar de contêiner de blob do toocreate hello, ou **Esc** toocancel. Depois que o contêiner de blob Olá foi criado com êxito, ele será exibido em Olá **contêineres de Blob** pasta para Olá selecionada a conta de armazenamento.
 
    ![Contêiner de blob criado][2]
 
 ## <a name="view-a-blob-containers-contents"></a>Exibir o conteúdo de um contêiner de blobs
 Os contêineres de blob contêm blobs e pastas (que também podem conter blobs).
 
-As etapas a seguir ilustram como exibir o conteúdo de um contêiner de blobs no Gerenciador de Armazenamento (Preview):
+Olá etapas a seguir ilustram como conteúdo de saudação do tooview de um contêiner de blob no Gerenciador de armazenamento (visualização):
 
 1. Abra o Gerenciador de Armazenamento (Preview).
-2. No painel esquerdo, expanda a conta de armazenamento que contém o contêiner de blobs que você deseja exibir.
-3. Expanda os **Contêineres de Blob**da conta de armazenamento.
-4. Clique com o botão direito no contêiner de blob que você deseja exibir e, no menu de contexto, selecione **Abrir Editor do Contêiner de Blobs**.
-   Você também pode clicar duas vezes no contêiner de blobs que deseja exibir.
+2. No painel esquerdo do hello, expanda conta de armazenamento Olá que contém o contêiner de blob Olá desejar tooview.
+3. Expanda a conta de armazenamento Olá **contêineres de Blob**.
+4. Contêiner de blob de saudação do botão direito do mouse seu gosto tooview e - no menu de contexto Olá - selecione **abrir Editor de contêiner de Blob**.
+   Você também pode clicar duas vezes desejar tooview de contêiner de blob hello.
 
    ![Menu de contexto Abrir editor do contêiner de blobs][19]
-5. O painel principal exibirá o conteúdo do contêiner de blobs.
+5. painel principal Olá exibirá o conteúdo do contêiner de blob hello.
 
    ![Editor do Contêiner de blobs][3]
 
 ## <a name="delete-a-blob-container"></a>Excluir um contêiner de blob
-Os contêineres de blob podem ser facilmente criados e excluídos conforme o necessário. (Para saber como excluir blobs individuais, confira a seção [Gerenciando blobs em um contêiner de blobs](#managing-blobs-in-a-blob-container).)
+Os contêineres de blob podem ser facilmente criados e excluídos conforme o necessário. (toosee como blobs toodelete individuais, consulte a seção toohello, [Gerenciando blobs em um contêiner de blob](#managing-blobs-in-a-blob-container).)
 
-As etapas a seguir ilustram como excluir um contêiner de blobs no Gerenciador de Armazenamento (Preview):
+Olá etapas a seguir ilustram como toodelete um contêiner de blob no Gerenciador de armazenamento (visualização):
 
 1. Abra o Gerenciador de Armazenamento (Preview).
-2. No painel esquerdo, expanda a conta de armazenamento que contém o contêiner de blobs que você deseja exibir.
-3. Expanda os **Contêineres de Blob**da conta de armazenamento.
-4. Clique com o botão direito no contêiner de blobs que você deseja excluir e, no menu de contexto, escolha **Excluir**.
-   Você também pode pressionar **Excluir** para excluir o contêiner de blobs selecionado atualmente.
+2. No painel esquerdo do hello, expanda conta de armazenamento Olá que contém o contêiner de blob Olá desejar tooview.
+3. Expanda a conta de armazenamento Olá **contêineres de Blob**.
+4. Contêiner de blob de saudação do botão direito do mouse seu gosto toodelete e - no menu de contexto Olá - selecione **excluir**.
+   Você também pode pressionar **excluir** contêiner de blob atualmente selecionado Olá toodelete.
 
    ![Menu de contexto Excluir contêiner de blobs][4]
-5. Escolha **Sim** na caixa de diálogo de confirmação.
+5. Selecione **Sim** toohello caixa de diálogo de confirmação.
 
    ![Confirmação de exclusão do contêiner de blobs][5]
 
 ## <a name="copy-a-blob-container"></a>Copiar um contêiner de blobs
-O Gerenciador de Armazenamento (Preview) permite que você copie um contêiner de blobs na área de transferência e cole esse contêiner de blobs em outra conta de armazenamento. (Para saber como copiar blobs individuais, confira a seção [Gerenciando blobs em um contêiner de blobs](#managing-blobs-in-a-blob-container).)
+O Gerenciador de armazenamento (visualização) permite que você toocopy uma área de transferência de toohello de contêiner de blob e cole que o contêiner de blob em outra conta de armazenamento. (toosee como blobs toocopy individuais, consulte a seção toohello, [Gerenciando blobs em um contêiner de blob](#managing-blobs-in-a-blob-container).)
 
-As etapas a seguir ilustram como copiar um contêiner de blobs de uma conta de armazenamento para outra.
+Olá, as etapas a seguir ilustra como toocopy um contêiner de blob do armazenamento de uma conta tooanother.
 
 1. Abra o Gerenciador de Armazenamento (Preview).
-2. No painel esquerdo, expanda a conta de armazenamento que contém o contêiner de blobs que você deseja copiar.
-3. Expanda os **Contêineres de Blob**da conta de armazenamento.
-4. Clique com o botão direito no contêiner de blobs que você deseja copiar e, no menu de contexto, escolha **Copiar Contêiner de Blobs**.
+2. No painel esquerdo do hello, expanda conta de armazenamento Olá que contém o contêiner de blob Olá desejar toocopy.
+3. Expanda a conta de armazenamento Olá **contêineres de Blob**.
+4. Contêiner de blob de saudação do botão direito do mouse seu gosto toocopy e - no menu de contexto Olá - selecione **contêiner de Blob de cópia**.
 
    ![Menu de contexto Copiar contêiner de blobs][6]
-5. Clique com botão direito na conta de armazenamento de "destino" na qual você deseja colar o contêiner de blobs e, no menu de contexto, escolha **Colar Contêiner de Blobs**.
+5. Clique em destino"hello desejado" conta de armazenamento no qual você deseja contêiner de blob toopaste Olá e - no menu de contexto Olá - selecione **contêiner de Blob de colar**.
 
    ![Menu de contexto Colar contêiner de blobs][7]
 
-## <a name="get-the-sas-for-a-blob-container"></a>Obter a SAS para um contêiner de blob
-Uma [SAS (Assinatura de Acesso Compartilhado)](storage/common/storage-dotnet-shared-access-signature-part-1.md) fornece acesso delegado aos recursos da sua conta de armazenamento.
-Isso significa que você pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento por um período especificado e com um conjunto determinado de permissões, sem precisar compartilhar suas chaves de acesso de conta.
+## <a name="get-hello-sas-for-a-blob-container"></a>Obter Olá SAS para um contêiner de blob
+Um [assinatura de acesso compartilhado (SAS)](storage/common/storage-dotnet-shared-access-signature-part-1.md) fornece acesso delegado tooresources na sua conta de armazenamento.
+Isso significa que você pode conceder a que um cliente limitada tooobjects permissões na conta de armazenamento para um determinado período de tempo e com um conjunto especificado de permissões, sem a necessidade de compartilhar as chaves de acesso da conta.
 
-As etapas a seguir ilustram como criar uma SAS para um contêiner de blobs:
+Olá etapas a seguir ilustram como toocreate um SAS para um contêiner de blob:
 
 1. Abra o Gerenciador de Armazenamento (Preview).
-2. No painel esquerdo, expanda a conta de armazenamento que contém o contêiner de blobs para o qual você deseja obter uma SAS.
-3. Expanda os **Contêineres de Blob**da conta de armazenamento.
-4. Clique com o botão direito no contêiner de blobs desejado e, no menu de contexto, escolha **Obter Assinatura de Acesso Compartilhado**.
+2. No painel esquerdo do hello, expanda a conta de armazenamento Olá que contém o contêiner de blob Olá para o qual você deseja tooget uma SAS.
+3. Expanda a conta de armazenamento Olá **contêineres de Blob**.
+4. Contêiner de BLOBs desejado hello e - no menu de contexto Olá - selecione **obter assinatura de acesso compartilhado**.
 
    ![Menu de contexto Obter SAS][8]
-5. Na caixa de diálogo **Assinatura de Acesso Compartilhado** , especifique a política, as datas de início e de vencimento, o fuso horário e os níveis de acesso que você deseja para o recurso.
+5. Em Olá **assinatura de acesso compartilhado** caixa de diálogo, especifique política hello, datas de início e vencimento, fuso horário e você deseja para o recurso de saudação de níveis de acesso.
 
    ![Opções de Obter SAS][9]
-6. Ao terminar de especificar as opções de SAS, escolha **Criar**.
-7. Uma segunda caixa de diálogo de **Assinatura de Acesso Compartilhado** será exibida listando o contêiner de blobs juntamente com a URL e as QueryStrings que você pode usar para acessar o recurso de armazenamento.
-   Escolha **Copiar** próximo à URL que você deseja copiar na área de transferência.
+6. Quando tiver terminado de especificar opções de SAS hello, selecione **criar**.
+7. Um segundo **assinatura de acesso compartilhado** caixa de diálogo, em seguida, exibirá que listas Olá contêiner de blob juntamente com a URL de saudação e QueryStrings que você pode usar tooaccess Olá recurso de armazenamento.
+   Selecione **cópia** próximo URL toohello desejar toocopy toohello da área de transferência.
 
    ![Copiar URLs de SAS][10]
 8. Ao terminar, escolha **Fechar**.
 
 ## <a name="manage-access-policies-for-a-blob-container"></a>Gerenciar políticas de acesso para um contêiner de blobs
-As etapas a seguir ilustram como gerenciar (adicionar e remover) políticas de acesso para um contêiner de blobs:
+Olá etapas a seguir ilustram como toomanage (Adicionar e remover) políticas de acesso para um contêiner de blob:
 
 1. Abra o Gerenciador de Armazenamento (Preview).
-2. No painel esquerdo, expanda a conta de armazenamento que contém o contêiner de blobs cujas políticas de acesso você deseja gerenciar.
-3. Expanda os **Contêineres de Blob**da conta de armazenamento.
-4. Escolha o contêiner de blobs desejado e, no menu de contexto, escolha **Gerenciar Políticas de Acesso**.
+2. No painel esquerdo do hello, expanda que contém o contêiner de blob Olá cujas desejar toomanage as políticas de acesso de conta de armazenamento hello.
+3. Expanda a conta de armazenamento Olá **contêineres de Blob**.
+4. Selecione o contêiner de BLOBs desejado hello e - no menu de contexto Olá - selecione **gerenciar políticas de acesso**.
 
    ![Menu de contexto Gerenciar políticas de acesso][11]
-5. A caixa de diálogo **Políticas de Acesso** listará todas as políticas de acesso que já foram criadas para o contêiner de blobs selecionado.
+5. Olá **políticas de acesso** diálogo listará todas as políticas de acesso já foi criadas para o contêiner de BLOBs selecionados hello.
 
    ![Opções de Política de Acesso][12]        
-6. Execute estas etapas, dependendo da tarefa de gerenciamento de política de acesso:
+6. Siga estas etapas, dependendo da tarefa de gerenciamento de política de acesso de saudação:
 
-   * **Adicionar uma nova política de acesso** — escolha **Adicionar**. Uma vez gerada, a caixa de diálogo **Políticas de Acesso** exibirá a política de acesso recém-adicionada (com configurações padrão).
+   * **Adicionar uma nova política de acesso** — escolha **Adicionar**. Uma vez gerado, Olá **políticas de acesso** caixa de diálogo exibirá Olá recém-adicionado acessar política (com configurações padrão).
    * **Editar uma política de acesso** — faça as edições desejadas e escolha **Salvar**.
-   * **Remover uma política de acesso** — escolha **Remover** ao lado da política de acesso que você deseja remover.
+   * **Remover uma política de acesso** - selecione **remover** próximo toohello de política de acesso você deseja tooremove.
 
-## <a name="set-the-public-access-level-for-a-blob-container"></a>Definir o nível de acesso público para um contêiner de blobs
-Por padrão, cada contêiner de blobs é definido como "Sem acesso público".
+## <a name="set-hello-public-access-level-for-a-blob-container"></a>Saudação de conjunto de nível de acesso público para um contêiner de blob
+Por padrão, cada contêiner de blob está definido muito "Nenhum acesso público".
 
-As etapas a seguir ilustram como especificar um nível de acesso público para um contêiner de blobs.
+Olá etapas a seguir ilustram como toospecify um público acesso nível para um contêiner de blob.
 
 1. Abra o Gerenciador de Armazenamento (Preview).
-2. No painel esquerdo, expanda a conta de armazenamento que contém o contêiner de blobs cujas políticas de acesso você deseja gerenciar.
-3. Expanda os **Contêineres de Blob**da conta de armazenamento.
-4. Escolha o contêiner de blobs desejado e, no menu de contexto, escolha **Definir o Nível de Acesso Público**.
+2. No painel esquerdo do hello, expanda que contém o contêiner de blob Olá cujas desejar toomanage as políticas de acesso de conta de armazenamento hello.
+3. Expanda a conta de armazenamento Olá **contêineres de Blob**.
+4. Selecione o contêiner de BLOBs desejado hello e - no menu de contexto Olá - selecione **definir o nível de acesso público**.
 
    ![Menu de contexto Definir nível de acesso público][13]
-5. Na caixa de diálogo **Definir o Nível de Acesso Público do Contêiner** , especifique o nível de acesso desejado.
+5. Em Olá **definir o nível de acesso público de contêiner** caixa de diálogo, especifique o nível de acesso de saudação desejada.
 
    ![Opções de Definir nível de acesso público][14]
 6. Escolha **Aplicar**.
 
 ## <a name="managing-blobs-in-a-blob-container"></a>Gerenciamento de blobs em um contêiner de blobs
-Depois de criar um contêiner de blob, você pode carregar um blob nesse contêiner de blob, baixar um blob em seu computador local, abrir um blob em seu computador local e muito mais.
+Depois de criar um contêiner de blob, você pode carregar um contêiner de blob do blob toothat, fazer o download de um computador local do blob tooyour, abrir um blob em seu computador local e muito mais.
 
-As etapas a seguir ilustram como gerenciar os blobs (e pastas) dentro de um contêiner de blobs.
+Olá, as etapas a seguir ilustra como toomanage Olá blobs (e pastas) em um contêiner de blob.
 
 1. Abra o Gerenciador de Armazenamento (Preview).
-2. No painel esquerdo, expanda a conta de armazenamento que contém o contêiner de blobs que você deseja gerenciar.
-3. Expanda os **Contêineres de Blob**da conta de armazenamento.
-4. Clique duas vezes no contêiner de blobs que você deseja exibir.
-5. O painel principal exibirá o conteúdo do contêiner de blobs.
+2. No painel esquerdo do hello, expanda conta de armazenamento Olá que contém o contêiner de blob Olá desejar toomanage.
+3. Expanda a conta de armazenamento Olá **contêineres de Blob**.
+4. Clique duas vezes no contêiner de blob Olá desejar tooview.
+5. painel principal Olá exibirá o conteúdo do contêiner de blob hello.
 
    ![Exibir contêiner de blobs][3]
-6. O painel principal exibirá o conteúdo do contêiner de blobs.
-7. Execute estas etapas, dependendo da tarefa que deseja executar:
+6. painel principal Olá exibirá o conteúdo do contêiner de blob hello.
+7. Siga estas que etapas, dependendo da tarefa Olá desejar tooperform:
 
-   * **Carregar arquivos em um contêiner de blobs**
+   * **Carregar o contêiner de blob tooa arquivos**
 
-     1. Na barra de ferramentas do painel principal, escolha **Carregar** e **Carregar Arquivos** no menu suspenso.
+     1. Na barra de ferramentas do painel Olá principal, selecione **carregar**e, em seguida, **carregar arquivos** do menu suspenso de saudação.
 
         ![Menu Carregar arquivos][15]
-     2. Na caixa de diálogo **Carregar arquivos**, escolha o botão de reticências (**...**) no lado direito da caixa de texto **Arquivos** para selecionar os arquivos que você deseja carregar.
+     2. Em Olá **carregar arquivos** caixa de diálogo, reticências Olá select (**...** ) botão no lado direito de saudação do hello **arquivos** tooselect Olá arquivos desejar tooupload da caixa de texto.
 
         ![Opções de Carregar arquivos][16]
-     3. Especifique o tipo de **Tipo de blob**. O artigo [Introdução ao Armazenamento de Blobs do Azure usando o .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explica as diferenças entre os vários tipos de blob.
-     4. Como opção, especifique uma pasta de destino na qual os arquivos selecionados serão carregados. Se a pasta de destino não existir, ela será criada.
+     3. Especificar o tipo de saudação do **Blob tipo**. artigo Olá [Introdução ao armazenamento de BLOBs do Azure usando o .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explica as diferenças de saudação entre hello vários tipos de blob.
+     4. Opcionalmente, especifique uma pasta de destino na qual arquivos selecionados hello serão carregados. Se a pasta de destino de saudação não existir, ele será criado.
      5. Escolha **Carregar**.
-   * **Carregar uma pasta em um contêiner de blobs**
+   * **Carregar um contêiner de blob de tooa de pasta**
 
-     1. Na barra de ferramentas do painel principal, escolha **Carregar** e **Carregar Pasta** no menu suspenso.
+     1. Na barra de ferramentas do painel Olá principal, selecione **carregar**e, em seguida, **carregar pasta** do menu suspenso de saudação.
 
         ![Menu Carregar pasta][17]
-     2. Na caixa de diálogo **Carregar pasta**, escolha o botão de reticências (**...**) no lado direito da caixa de texto **Pasta** para selecionar a pasta cujo conteúdo você deseja carregar.
+     2. Em Olá **pasta carregamento** caixa de diálogo, reticências Olá select (**...** ) botão no lado direito de saudação do hello **pasta** pasta de saudação de tooselect de caixa de texto cujo conteúdo você deseja tooupload.
 
         ![Opções de Carregar pasta][18]
-     3. Especifique o tipo de **Tipo de blob**. O artigo [Introdução ao Armazenamento de Blobs do Azure usando o .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explica as diferenças entre os vários tipos de blob.
-     4. Como opção, especifique uma pasta de destino na qual o conteúdo da pasta selecionada será carregado. Se a pasta de destino não existir, ela será criada.
+     3. Especificar o tipo de saudação do **Blob tipo**. artigo Olá [Introdução ao armazenamento de BLOBs do Azure usando o .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explica as diferenças de saudação entre hello vários tipos de blob.
+     4. Opcionalmente, especifique uma pasta de destino no qual Olá conteúdo da pasta selecionada será carregado. Se a pasta de destino de saudação não existir, ele será criado.
      5. Escolha **Carregar**.
-   * **Baixar um blob em seu computador local**
+   * **Fazer o download de um computador local do blob tooyour**
 
-     1. Selecione o blob que você deseja baixar.
-     2. Na barra de ferramentas do painel principal, escolha **Baixar**.
-     3. Na caixa de diálogo **Especifique onde salvar o blob baixado** , especifique o local onde você deseja baixar o blob, e o nome que deseja dar a ele.  
+     1. Selecione blob Olá desejar toodownload.
+     2. Na barra de ferramentas do painel Olá principal, selecione **baixar**.
+     3. Em Olá **especifique onde toosave Olá baixou blob** caixa de diálogo, especifique Olá local onde você deseja que o blob Olá baixado e Olá nome você deseja toogive-lo.  
      4. Selecione **Salvar**.
    * **Abrir um blob em seu computador local**
 
-     1. Selecione o blob que você deseja abrir.
-     2. Na barra de ferramentas do painel principal, escolha **Abrir**.
-     3. O blob será baixado e aberto usando o aplicativo associado ao tipo de arquivo subjacente do blob.
-   * **Copiar um blob na área de transferência**
+     1. Selecione blob Olá desejar tooopen.
+     2. Na barra de ferramentas do painel Olá principal, selecione **abrir**.
+     3. blob Olá será baixado e aberto usando o aplicativo hello associado com o tipo subjacente de arquivo do blob hello.
+   * **Copiar uma área de transferência do blob toohello**
 
-     1. Escolha o blob que você deseja copiar.
-     2. Na barra de ferramentas do painel principal, escolha **Copiar**.
-     3. No painel esquerdo, navegue até outro contêiner de blobs e clique duas vezes nele para exibi-lo no painel principal.
-     4. Na barra de ferramentas do painel principal, escolha **Colar** para criar uma cópia do blob.
+     1. Selecione blob Olá desejar toocopy.
+     2. Na barra de ferramentas do painel Olá principal, selecione **cópia**.
+     3. No painel esquerdo do hello, navegar tooanother contêiner de blob e clique duas vezes nele tooview-lo no painel principal hello.
+     4. Na barra de ferramentas do painel Olá principal, selecione **colar** toocreate uma cópia de blob de saudação.
    * **Excluir um blob**
 
-     1. Selecione o blob que você deseja excluir.
-     2. Na barra de ferramentas do painel principal, escolha **Excluir**.
-     3. Escolha **Sim** na caixa de diálogo de confirmação.
+     1. Selecione blob Olá desejar toodelete.
+     2. Na barra de ferramentas do painel Olá principal, selecione **excluir**.
+     3. Selecione **Sim** toohello caixa de diálogo de confirmação.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Veja as [Notas de versão e vídeos mais recentes do Gerenciador de Armazenamento (Preview)](http://www.storageexplorer.com).
-* Saiba como [criar aplicativos usando os blobs, tabelas, filas e arquivos do Azure](https://azure.microsoft.com/documentation/services/storage/).
+* Saudação de exibição [notas de versão do Gerenciador de armazenamento (visualização) e vídeos mais recentes](http://www.storageexplorer.com).
+* Saiba como muito[criar aplicativos usando blobs do Azure, tabelas, filas e arquivos](https://azure.microsoft.com/documentation/services/storage/).
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png
 [1]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-create.png

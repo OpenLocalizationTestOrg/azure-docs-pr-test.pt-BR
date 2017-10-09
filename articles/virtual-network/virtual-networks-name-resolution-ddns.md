@@ -1,6 +1,6 @@
 ---
-title: "Usando o DNS Dinâmico para registrar nomes de host"
-description: "Esta página fornece detalhes sobre como configurar o DNS dinâmico para registrar os nomes de host em seus próprios servidores DNS."
+title: "aaaUsing nomes de host DNS dinâmico tooregister"
+description: "Esta página fornece detalhes sobre como tooset a nomes de host DNS dinâmico tooregister em seus próprios servidores DNS."
 services: dns
 documentationcenter: na
 author: GarethBradshawMSFT
@@ -14,31 +14,31 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: garbrad
-ms.openlocfilehash: 440a062e5fff73526b2d77d7d0a7c52ca72a66f1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8d4b44265714e6976f26bfb3446e8101aa70996a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="using-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Usando o DNS dinâmico para registrar os nomes de host em seu próprio servidor DNS
-[Azure fornece resolução de nomes](virtual-networks-name-resolution-for-vms-and-role-instances.md) para VMs (máquinas virtuais) e instâncias de função. Contudo, quando a resolução de nome precisar ir além do que é fornecido pelo Azure, você pode fornecer seus próprios servidores DNS. Isso permite que você personalize sua solução DNS para ajustá-la às suas próprias necessidades específicas. Por exemplo, você poderá precisar acessar recursos locais por meio do controlador de domínio Active Directory.
+# <a name="using-dynamic-dns-tooregister-hostnames-in-your-own-dns-server"></a>Usando nomes de host DNS dinâmico tooregister em seu próprio servidor DNS
+[Azure fornece resolução de nomes](virtual-networks-name-resolution-for-vms-and-role-instances.md) para VMs (máquinas virtuais) e instâncias de função. Contudo, quando a resolução de nome precisar ir além do que é fornecido pelo Azure, você pode fornecer seus próprios servidores DNS. Isso dá a você Olá power tootailor seu toosuit de solução DNS suas necessidades específicas. Por exemplo, talvez seja necessário tooaccess recursos de locais por meio do controlador de domínio do Active Directory.
 
-Quando os servidores DNS personalizados forem hospedados como VMs do Azure, você poderá encaminhar consultas de nome de host para a mesma rede virtual do Azure para resolver nomes de host. Se você não desejar usar essa rota, você poderá registrar os nomes de host da VM no servidor DNS usando o DNS Dinâmico.  O Azure não tem a capacidade (por exemplo, credenciais) para criar diretamente registros nos servidores DNS, de modo que organizações alternativas são muitas vezes necessárias. Aqui estão alguns cenários comuns com alternativas.
+Quando seus servidores DNS personalizados são hospedados como máquinas virtuais do Azure que você pode encaminhar hostname consulta Olá mesmo vnet tooAzure tooresolve nomes de host. Se você não desejar toouse essa rota, você pode registrar seu nome de host VM no seu servidor DNS usando DNS dinâmico.  Azure não tem Olá capacidade (por exemplo, credenciais) toodirectly criar registros em seus servidores DNS, para que organizações alternativas costumam ser necessárias. Aqui estão alguns cenários comuns com alternativas.
 
 ## <a name="windows-clients"></a>Clientes do Windows
-Clientes do Windows não unidos por domínio tentam atualizações não seguras de DNS dinâmico (DDNS) quando eles são inicializados ou quando seu endereço IP for alterado. O nome DNS é o nome do host mais o sufixo DNS primário. O Azure deixa o sufixo DNS primário em branco, mas você pode configurá-lo na VM, por meio da [interface do usuário](https://technet.microsoft.com/library/cc794784.aspx) ou [usando a automação](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).
+Clientes do Windows não unidos por domínio tentam atualizações não seguras de DNS dinâmico (DDNS) quando eles são inicializados ou quando seu endereço IP for alterado. nome DNS de saudação é hostname hello mais sufixo DNS primário de saudação. Azure deixa o sufixo DNS primário de saudação em branco, mas você pode definir isso em Olá VM, por meio de saudação [UI](https://technet.microsoft.com/library/cc794784.aspx) ou [usando automação](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).
 
-Os clientes unidos por domínio do Windows registram seus endereços IP com o controlador de domínio usando o DNS dinâmico seguro. O processo de ingresso no domínio define o sufixo DNS primário no cliente e cria e mantém a relação de confiança.
+Clientes do Windows ingressado no domínio registrem seus endereços IP com o controlador de domínio hello usando DNS dinâmico seguro. processo de associação de domínio Olá define o sufixo DNS primário Olá no cliente de saudação e cria e mantém a relação de confiança de saudação.
 
 ## <a name="linux-clients"></a>Clientes Linux
-Clientes Linux geralmente não se registram no servidor DNS na inicialização, eles supõem que o servidor DHCP faça isso. Os servidores DHCP do Azure não são capazes ou não tem as credenciais para manter os registros no seu servidor DNS.  Você pode usar uma ferramenta chamada *nsupdate*, que está incluída no pacote de Associação, para enviar atualizações do DNS dinâmico. Como o protocolo DNS dinâmico é padronizado, você pode usar *nsupdate* mesmo quando não estiver usando Associação no servidor DNS.
+Os clientes do Linux geralmente não se registraram com o servidor DNS Olá na inicialização, ele assume um servidor DHCP de saudação faz isso. Os servidores DHCP do Azure não tem capacidade de saudação ou registros de tooregister de credenciais no seu servidor DNS.  Você pode usar uma ferramenta chamada *nsupdate*, que está incluído no pacote de ligação hello, atualizações de DNS dinâmico toosend. Olá protocolo DNS dinâmico é padronizado, você pode usar *nsupdate* mesmo quando você não estiver usando Bind no servidor DNS hello.
 
-Você pode usar os ganchos que são fornecidos pelo cliente DHCP para criar e manter a entrada do nome do host no servidor DNS. Durante o ciclo DHCP, o cliente executa os scripts em */etc/dhcp/dhclient-exit-hooks.d/*. Isso pode ser usado para registrar o novo endereço IP usando *nsupdate*. Por exemplo:
+Você pode usar ganchos de saudação que são fornecidos pelo toocreate de cliente DHCP hello e manter Olá entrada de nome de host do servidor DNS de saudação. Durante o ciclo DHCP Olá, o cliente de saudação executa scripts Olá */etc/dhcp/dhclient-exit-hooks.d/*. Isso pode ser usado tooregister Olá novo endereço IP usando *nsupdate*. Por exemplo:
 
         #!/bin/sh
         requireddomain=mydomain.local
 
-        # only execute on the primary nic
+        # only execute on hello primary nic
         if [ "$interface" != "eth0" ]
         then
             return
@@ -60,11 +60,11 @@ Você pode usar os ganchos que são fornecidos pelo cliente DHCP para criar e ma
         
         
 
-Você também pode usar o comando *nsupdate* para executar atualizações DNS Dinâmicas. Por exemplo, quando você estiver usando um servidor DNS de associação, um par de chaves públicas-privadas será [gerado](http://linux.yyz.us/nsupdate/).  O servidor DNS é [configurado](http://linux.yyz.us/dns/ddns-server.html) com a parte pública da chave para que ele possa verificar a assinatura da solicitação. Você deve usar a opção *-k* para fornecer o par de chaves para *nsupdate* para que o DNS dinâmico atualize a solicitação a ser assinada.
+Você também pode usar o hello *nsupdate* tooperform de comando de atualizações de DNS dinâmico seguro. Por exemplo, quando você estiver usando um servidor DNS de associação, um par de chaves públicas-privadas será [gerado](http://linux.yyz.us/nsupdate/).  servidor de DNS Olá [configurado](http://linux.yyz.us/dns/ddns-server.html) com a parte pública de saudação da chave Olá para que ele possa verificar se a assinatura de saudação na solicitação de saudação. Você deve usar o hello *-k* tooprovide opção Olá par de chaves muito*nsupdate* em ordem para Olá toobe solicitação assinado de atualização de DNS dinâmico.
 
-Quando estiver usando um servidor DNS do Windows, você poderá usar a autenticação Kerberos com o parâmetro *-g* em *nsupdate* (não está disponível na versão do Windows *nsupdate*). Para fazer isso, use *kinit* para carregar as credenciais (por exemplo, um [arquivo keytab](http://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)). Em seguida, *nsupdate -g* selecionará as credenciais do cache.
+Quando você estiver usando um servidor DNS do Windows, você pode usar a autenticação Kerberos com hello *-g* parâmetro em *nsupdate* (não disponível na versão do Windows de saudação *nsupdate* ). toodo isso, use *kinit* credenciais de saudação tooload (por exemplo, de um [arquivo keytab](http://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)). Em seguida, *nsupdate -g* assumirão a credenciais de saudação do cache de saudação.
 
-Se necessário, você pode adicionar um sufixo de pesquisa DNS em suas VMs. O sufixo DNS é especificado no arquivo */etc/resolv.conf* . A maioria das distribuições de Linux gerencia automaticamente o conteúdo desse arquivo, então, normalmente você não pode editá-lo. No entanto, você pode substituir o sufixo, usando o comando *substituem* do cliente DHCP. Para fazer isso, em */etc/dhcp/dhclient.conf*, adicione:
+Se necessário, você pode adicionar uma tooyour de sufixo de pesquisa DNS VMs. sufixo DNS Olá é especificado em Olá */etc/resolv.conf* arquivo. A maioria das distribuições de Linux gerenciam automaticamente o conteúdo de saudação desse arquivo, então, normalmente você não pode editá-lo. No entanto, você pode substituir o sufixo Olá por meio do cliente do DHCP Olá *substituem* comando. toodo isso, na */etc/dhcp/dhclient.conf*, adicionar:
 
         supersede domain-name <required-dns-suffix>;
 

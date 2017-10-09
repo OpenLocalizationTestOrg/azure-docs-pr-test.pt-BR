@@ -1,5 +1,5 @@
 ---
-title: "Sobre os requisitos criptográficos e os gateways de VPN do Azure| Microsoft Docs"
+title: aaaAbout requisitos de criptografia e gateways de VPN do Azure | Microsoft Docs
 description: "Este artigo discute os requisitos criptográficos e os gateways de VPN do Azure"
 services: vpn-gateway
 documentationcenter: na
@@ -15,39 +15,39 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/22/2017
 ms.author: yushwang
-ms.openlocfilehash: c789e6c278fc0c58c64f5d96e57f94aee5a6cefc
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: af5f14d66beeea5316218f9788c4ad7876826162
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Sobre os requisitos criptográficos e os gateways de VPN do Azure
 
-Este artigo discute como é possível configurar os gateways de VPN do Azure para satisfazer seus requisitos criptográficos para ambos os túneis de VPN S2S entre instalações e as conexões Rede Virtual a Rede Virtual no Azure. 
+Este artigo descreve como você pode configurar toosatisfy de gateways de VPN do Azure seus requisitos de criptografia para conexões de VNet para VNet no Azure e de túneis de VPN S2S entre locais. 
 
 ## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>Sobre os parâmetros de política IKE e IPsec para os gateways de VPN do Azure
-O padrão de protocolo IKE e IPsec suporta uma ampla gama de algoritmos criptográficos em várias combinações. Se os clientes não solicitarem uma combinação específica de parâmetros e algoritmos criptográficos, os gateways de VPN do Azure utilizarão um conjunto de propostas padrão. Os conjuntos de políticas padrão foram escolhidos para maximizar a interoperabilidade com uma ampla gama de dispositivos de VPN de terceiros em configurações padrão. Como resultado, as políticas e o número de propostas não podem abranger todas as combinações possíveis de intensidades de chave e algoritmos criptográficos disponíveis.
+O padrão de protocolo IKE e IPsec suporta uma ampla gama de algoritmos criptográficos em várias combinações. Se os clientes não solicitarem uma combinação específica de parâmetros e algoritmos criptográficos, os gateways de VPN do Azure utilizarão um conjunto de propostas padrão. conjuntos de política padrão Olá foram escolhidos toomaximize interoperabilidade com uma ampla variedade de dispositivos VPN de terceiros nas configurações padrão. Como resultado, políticas hello e número de saudação de propostas não podem abranger todas as combinações possíveis de algoritmos de criptografia disponíveis e restrições de chave.
 
-O conjunto de políticas padrão para o gateway de VPN do Azure está listado no documento: [Sobre dispositivos de VPN e parâmetros de IPsec/IKE para conexões de Gateway de VPN Site a Site](vpn-gateway-about-vpn-devices.md).
+Olá política padrão definida para o gateway de VPN do Azure está listado no documento hello: [sobre dispositivos VPN e os parâmetros de IPsec/IKE para conexões de Gateway de VPN Site a Site](vpn-gateway-about-vpn-devices.md).
 
 ## <a name="cryptographic-requirements"></a>Requisitos criptográficos
-Para comunicações que exigem parâmetros ou algoritmos criptográficos específicos, geralmente, devido a requisitos de segurança ou conformidade, os clientes agora podem configurar seus gateways de VPN do Azure para utilizar uma política de IPsec/IKE personalizada com algoritmos criptográficos específicos e intensidades de chave, em vez dos conjuntos de políticas padrão do Azure.
+Para comunicações que exigem algoritmos criptográficos específicos ou parâmetros, normalmente devido a requisitos de segurança ou toocompliance, os clientes agora podem configurar sua toouse de gateways de VPN do Azure uma política personalizada do IPsec/IKE com específico criptográfico algoritmos e restrições de chave, em vez de conjuntos de política saudação padrão do Azure.
 
-Por exemplo, as políticas de modo principal do IKEv2 para os gateways de VPN do Azure utilizam apenas o Grupo Diffie-Hellman 2 (1024 bits), enquanto os clientes podem precisar especificar grupos mais fortes a serem utilizados no IKE, como o Grupo 14 (2048 bits), o Grupo 24 (Grupo MODP de 2048 bits) ou o ECP (grupos de curvas elípticas) 256 ou 384 bits (Grupo 19 e Grupo 20, respectivamente). Requisitos semelhantes aplicam-se também às políticas de modo rápido do IPsec.
+Por exemplo, políticas de modo principal Olá IKEv2 para gateways de VPN do Azure utilizam apenas Diffie-Hellman grupo 2 (1024 bits), enquanto que os clientes podem precisar toospecify mais forte grupos toobe usado no IKE, como 14 de grupo (2048 bits), grupo 24 (grupo de MODP de 2048 bits) ou ECP (elíptica curva grupos) 384 ou 256 bits (grupo 19 e 20 de grupo, respectivamente). Requisitos semelhantes de aplicam políticas de modo rápido de tooIPsec também.
 
 ## <a name="custom-ipsecike-policy-with-azure-vpn-gateways"></a>Política de IPsec/IKE personalizada com gateways de VPN do Azure
-Os gateways de VPN agora suportam política de IPsec/IKE personalizada por conexão. Para uma conexão Site a Site ou Rede Virtual a Rede Virtual, você pode escolher uma combinação específica de algoritmos criptográficos para IPsec e IKE com a intensidade de chave desejada, como mostrado neste exemplo:
+Os gateways de VPN agora suportam política de IPsec/IKE personalizada por conexão. Para um Site a Site ou a conexão de rede virtual a rede, você pode escolher uma combinação específica de algoritmos de criptografia de IPsec e IKE com restrição de chave de saudação desejada, conforme mostrado no exemplo a seguir de saudação:
 
 ![ipsec-ike-policy](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
 
-Você pode criar uma política de IPsec/IKE e aplicar a uma conexão nova ou existente. 
+Você pode criar uma política de IPsec/IKE e aplicar tooa conexão de novo ou existente. 
 
 ### <a name="workflow"></a>Fluxo de trabalho
 
-1. Crie redes virtuais, gateways de VPN ou gateways de rede locais para a sua topologia de conectividade, conforme descrito em outros documentos de instruções
+1. Criar redes virtuais Olá, gateways de VPN ou gateways de rede local para a sua topologia de conectividade, conforme descrito em outras toodocuments como
 2. Criar uma política de IPsec/IKE
-3. Você pode aplicar a política ao criar uma conexão VNet-to-VNet ou S2S
-4. Se a conexão já foi criada, você poderá aplicar ou atualizar a política para uma conexão existente
+3. Você pode aplicar a política de hello quando você cria uma conexão S2S ou VNet para VNet
+4. Se a conexão de saudação já foi criado, você pode aplicar ou atualizar a conexão existente do hello política tooan
 
 
 ## <a name="ipsecike-policy-faq"></a>FAQ sobre a política de IPsec/IKE
@@ -58,4 +58,4 @@ Você pode criar uma política de IPsec/IKE e aplicar a uma conexão nova ou exi
 ## <a name="next-steps"></a>Próximas etapas
 Consulte [Configurar a política de IPsec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md) para obter as instruções passo a passo sobre a configuração da política de IPsec/IKE personalizada em uma conexão.
 
-Consulte também [Conectar vários dispositivos de VPN baseados em políticas](vpn-gateway-connect-multiple-policybased-rm-ps.md) para saber mais sobre a opção UsePolicyBasedTrafficSelectors.
+Consulte também [conectar vários dispositivos VPN com base na política](vpn-gateway-connect-multiple-policybased-rm-ps.md) toolearn mais sobre Olá UsePolicyBasedTrafficSelectors opção.

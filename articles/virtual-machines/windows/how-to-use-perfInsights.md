@@ -1,6 +1,6 @@
 ---
-title: Como usar PerfInsights no Microsoft Azure | Microsoft Docs
-description: Aprenda a usar o PerfInsights para solucionar problemas de desempenho da VM do Windows.
+title: aaaHow toouse PerfInsights no Microsoft Azure | Microsoft Docs
+description: Aprende como problemas de desempenho do toouse PerfInsights tootroubleshoot VM do Windows.
 services: virtual-machines-windows'
 documentationcenter: 
 author: genlin
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: genli
-ms.openlocfilehash: f22bd42302b96118dba0d4e5e387c6798a0b8777
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f23ff7708c0c63bd02674b1bdc07753e8a89d9be
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-perfinsights"></a>Como usar o PerfInsights 
+# <a name="how-toouse-perfinsights"></a>Como toouse PerfInsights 
 
-O [PerfInsights](http://aka.ms/perfinsightsdownload) é um script automatizado que coleta informações de diagnóstico úteis, executa cargas de estresse de E/S e fornece um relatório de análise para ajudar a solucionar problemas de desempenho de VM do Windows no Microsoft Azure. 
+[PerfInsights](http://aka.ms/perfinsightsdownload) é um script automatizado que coleta informações de diagnósticas úteis, executa as cargas de estresse de e/s e fornece um toohelp do relatório de análise solucionar problemas de desempenho de VM do Windows no Microsoft Azure. 
 
 É recomendável executar esse script antes de abrir um chamado de suporte com a Microsoft para problemas de desempenho da VM.
 
@@ -32,7 +32,7 @@ O PerfInsights pode coletar e analisar vários tipos de informações que são a
 
 ### <a name="collect-disk-configuration"></a>Coletar configuração de disco 
 
-Esse cenário coleta a configuração do disco e outras informações importantes, incluindo os seguintes itens:
+Este cenário coleta a configuração de disco hello e outras informações importantes, incluindo Olá itens a seguir:
 
 -   Logs de eventos
 
@@ -40,11 +40,11 @@ Esse cenário coleta a configuração do disco e outras informações importante
 
 -   Definições de configuração de firewall e rede
 
--   Lista de tarefas para todos os aplicativos que estão sendo executados no sistema no momento
+-   Lista de tarefas para todos os aplicativos que estão sendo executados no sistema de saudação
 
--   Arquivo de informações criado pelo msinfo32 para a VM (máquina virtual)
+-   Arquivo de informações criado pelo msinfo32 para Olá VM (máquina virtual)
 
--   Definições de configuração do banco de dados Microsoft SQL Server (se a VM for identificada como um servidor que execute o SQL Server)
+-   Definições de configuração do banco de dados do Microsoft SQL Server (se Olá VM é identificado como um servidor que executa o SQL Server)
 
 -   Contadores de confiabilidade do armazenamento
 
@@ -52,34 +52,34 @@ Esse cenário coleta a configuração do disco e outras informações importante
 
 -   Drivers de filtro instalados
 
-Esta é uma coleção de passiva de informações que não devem afetar o sistema. 
+Esta é uma coleção de passiva de informações que não devem afetar o sistema hello. 
 
 >[!Note]
->Esse cenário é incluído automaticamente em cada um dos cenários a seguir.
+>Este cenário é incluído automaticamente em cada um dos seguintes cenários de saudação.
 
 ### <a name="benchmarkstorage-performance-test"></a>Teste de desempenho de armazenamento/parâmetro de comparação
 
-Este cenário executa o teste de parâmetro de comparação [diskspd](https://github.com/Microsoft/diskspd) (IOPS e MBPS) para todas as unidades anexadas à VM. 
+Este cenário é executado Olá [diskspd](https://github.com/Microsoft/diskspd) avaliar o desempenho de teste (IOPS e MBPS) para todas as unidades que são anexadas toohello VM. 
 
 > [!Note]
-> Esse cenário pode afetar o sistema e não deve ser executado em um sistema de produção ativo. Se necessário, execute este cenário em uma janela de manutenção dedicada para evitar problemas. Uma carga de trabalho maior causada por um teste de parâmetro de comparação ou rastreamento pode afetar adversamente o desempenho da VM.
+> Esse cenário pode afetar o sistema hello e não deve ser executado em um sistema de produção. Se necessário, execute este cenário em um tooavoid da janela de manutenção dedicada quaisquer problemas. Uma carga de trabalho maior é causada por um teste de rastreamento ou parâmetro de comparação pode afetar adversamente o desempenho de saudação da VM.
 >
 
 ### <a name="general-vm-slow-analysis"></a>Análise geral de VM lenta 
 
-Este cenário executa um rastreamento de [contador de desempenho](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) usando os contadores especificados no arquivo Generalcounters.txt. Se a VM for identificada como um servidor que executa o SQL Server, ela executará um rastreamento do contador de desempenho usando os contadores encontrados no arquivo Sqlcounters.txt. Também inclui dados de Diagnóstico de Desempenho.
+Este cenário é executada uma [contador de desempenho](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) rastreamento usando os contadores de saudação que são especificados no arquivo de Generalcounters.txt hello. Se hello VM for identificada como um servidor que executa o SQL Server, ele é executado um rastreamento de contador de desempenho usando contadores de saudação que são encontrados no arquivo de Sqlcounters.txt hello. Também inclui dados de Diagnóstico de Desempenho.
 
 ### <a name="vm-slow-analysis-and-benchmark"></a>Parâmetro de comparação e análise de VM lenta
 
 Este cenário executa um rastreamento do [contador de desempenho](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) que é seguido pelo teste de parâmetro de comparação [diskspd](https://github.com/Microsoft/diskspd). 
 
 > [!Note]
-> Esse cenário pode afetar o sistema e não deve ser executado em um sistema de produção ativo. Se necessário, execute este cenário em uma janela de manutenção dedicada para evitar problemas. Uma carga de trabalho maior causada por um teste de parâmetro de comparação ou rastreamento pode afetar adversamente o desempenho da VM.
+> Esse cenário pode afetar o sistema hello e não deve ser executado em um sistema de produção. Se necessário, execute este cenário em um tooavoid da janela de manutenção dedicada quaisquer problemas. Uma carga de trabalho maior é causada por um teste de rastreamento ou parâmetro de comparação pode afetar adversamente o desempenho de saudação da VM.
 >
 
 ### <a name="azure-files-analysis"></a>Análise de Arquivos do Azure 
 
-Este cenário executa uma captura de contador de desempenho especial junto com um rastreamento de rede. A captura inclui todos os contadores de "Compartilhamentos de Cliente SMB". A seguir estão alguns contadores de desempenho de compartilhamento de cliente SMB que fazem parte da captura:
+Este cenário executa uma captura de contador de desempenho especial junto com um rastreamento de rede. A captura inclui todos os contadores de "Compartilhamentos de cliente SMB" hello. Olá seguem alguns chave SMB cliente compartilhamento contadores de desempenho que fazem parte da captura de saudação:
 
 | **Tipo**     | **Contador de compartilhamentos de cliente SMB** |
 |--------------|-------------------------------|
@@ -101,15 +101,15 @@ Este cenário executa uma captura de contador de desempenho especial junto com u
 
 ### <a name="custom-configuration"></a>Configuração personalizada 
 
-Quando você executa uma configuração personalizada, está executando todos os rastreamentos (diagnóstico de desempenho, contador de desempenho, xperf, rede, storport) em paralelo, dependendo de quantos rastreamentos diferentes são selecionados. Após o rastreamento estar concluído, a ferramenta executará o parâmetro de comparação diskspd, se ele estiver selecionado. 
+Quando você executa uma configuração personalizada, está executando todos os rastreamentos (diagnóstico de desempenho, contador de desempenho, xperf, rede, storport) em paralelo, dependendo de quantos rastreamentos diferentes são selecionados. Após o rastreamento, ferramenta Olá executa Olá diskspd de parâmetro de comparação se estiver selecionada. 
 
 > [!Note]
-> Esse cenário pode afetar o sistema e não deve ser executado em um sistema de produção ativo. Se necessário, execute este cenário em uma janela de manutenção dedicada para evitar problemas. Uma carga de trabalho maior causada por um teste de parâmetro de comparação ou rastreamento pode afetar adversamente o desempenho da VM.
+> Esse cenário pode afetar o sistema hello e não deve ser executado em um sistema de produção. Se necessário, execute este cenário em um tooavoid da janela de manutenção dedicada quaisquer problemas. Uma carga de trabalho maior é causada por um teste de rastreamento ou parâmetro de comparação pode afetar adversamente o desempenho de saudação da VM.
 >
 
-## <a name="what-kind-of-information-is-collected-by-the-script"></a>Que tipo de informações é coletado pelo script?
+## <a name="what-kind-of-information-is-collected-by-hello-script"></a>Que tipo de informações é coletado pelo script hello?
 
-Informações sobre VM do Windows, configuração de discos ou pools de armazenamento, contadores de desempenho, logs e vários rastreamentos são coletadas dependendo do cenário de desempenho usado:
+Configuração de pools de informações sobre a máquina virtual do Windows, discos ou armazenamento, contadores de desempenho, logs e vários rastreamentos são coletados dependendo do cenário de desempenho Olá usado:
 
 |Dados coletados                              |  |  | Cenários de desempenho |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
@@ -139,19 +139,19 @@ Informações sobre VM do Windows, configuração de discos ou pools de armazena
 
 ### <a name="performance-diagnostics-trace-"></a>Rastreamento de diagnóstico de desempenho (*)
 
-Executa um mecanismo baseado em regras no segundo plano para coletar dados e diagnosticar problemas de desempenho em andamento. No momento, há suporte para regras a seguir:
+Executa um mecanismo de regra nos dados de toocollect do plano de fundo hello e diagnosticar problemas de desempenho em andamento. Olá regras a seguir é atualmente suportado:
 
-- Regra de HighCpuUsage: detecta períodos de uso elevado de CPU e mostra os principais consumidores de uso da CPU durante esses períodos.
-- Regra de HighDiskUsage: detecta períodos de uso elevado de disco em discos físicos e mostra os principais consumidores de uso de disco durante esses períodos.
-- Regra de HighResolutionDiskMetric: mostra IOPS, taxa de transferência e métricas de latência de E/S por 50 milissegundos para cada disco físico. Isso ajuda a identificar rapidamente os períodos de limitação de disco.
-- Regra de HighMemoryUsage: detecta os períodos de uso elevado de memória e mostra os principais consumidores de uso de memória durante esses períodos.
+- Regra de HighCpuUsage: detecta longos períodos de uso de CPU e mostra os principais consumidores de uso de CPU Olá durante esses períodos.
+- Regra de HighDiskUsage: detecta os períodos de uso alto de disco em discos físicos e mostra os consumidores de uso de disco superior Olá durante esses períodos.
+- Regra de HighResolutionDiskMetric: mostra IOPS, taxa de transferência e métricas de latência de E/S por 50 milissegundos para cada disco físico. Ele ajuda a tooquickly identificar períodos de limitação de disco.
+- Regra de HighMemoryUsage: detecta os períodos de uso de memória alta e mostra os consumidores de uso de memória superior Olá durante esses períodos.
 
 > [!NOTE] 
-> Atualmente, há suporte para versões do Windows que incluem .NET Framework 3.5 ou versões posteriores.
+> Atualmente, as versões do Windows que incluem a saudação do .NET Framework 3.5 ou versões posteriores têm suporte.
 
 ### <a name="performance-counter-trace-"></a>Rastreamento do contador de desempenho (**)
 
-Coleta os seguintes contadores de desempenho:
+Saudação de coleta contadores de desempenho a seguir:
 
 - \Process, \Processor, \Memory, \Thread, \PhysicalDisk, \LogicalDisk
 - \Cache\Dirty Pages, \Cache\Lazy Write Flushes/sec, \Server\Pool Nonpaged, Failures, \Server\Pool Paged Failures
@@ -168,117 +168,117 @@ Coleta os seguintes contadores de desempenho:
 ### <a name="diskspd-benchmark-trace-"></a>Rastreamento de parâmetro de comparação de Diskspd (***)
 Testes de carga de trabalho de E/S do Diskspd [disco do SO (gravação) e unidades de pool (leitura/gravação)]
 
-## <a name="run-the-perfinsights-on-your-vm"></a>Execute o PerfInsights na sua VM
+## <a name="run-hello-perfinsights-on-your-vm"></a>Executar Olá PerfInsights na sua VM
 
-### <a name="what-do-i-have-to-know-before-i-run-the-script"></a>O que eu preciso saber antes de executar o script? 
+### <a name="what-do-i-have-tooknow-before-i-run-hello-script"></a>O que é necessário tooknow antes de executar script hello? 
 
 **Requisitos de script**
 
-1.  Esse script deve ser executado na VM que tem o problema de desempenho. 
+1.  Esse script deve ser executado em Olá VM que tem um problema de desempenho de saudação. 
 
-2.  Há suporte para os SOs a seguir: Windows Server 2008 R2, 2012, 2012 R2, 2016; Windows 8.1 e Windows 10.
+2.  Olá OSes seguir têm suporte: Windows Server 2008 R2, 2012, 2012 R2, 2016; Windows 8.1 e Windows 10.
 
-**Possíveis problemas ao executar o script em VMs de produção:**
+**Possíveis problemas quando você executa o script hello em produção VMs:**
 
-1.  O script pode afetar negativamente o desempenho da VM quando ela for usada junto com o cenário de "Parâmetro de Comparação" ou "Personalizado" configurado usando XPerf ou DiskSpd. Tenha cuidado ao executar o script em um ambiente de produção.
+1.  script Hello pode afetar negativamente o desempenho de saudação do hello VM quando ela é usada junto com o cenário de "Parâmetro de comparação" ou "Custom" hello configurado usando XPerf ou DiskSpd. Tenha cuidado ao executar o script hello em um ambiente de produção.
 
-2.  Quando você usar o script junto com o cenário "Parâmetro de Comparação" ou "Personalizado" configurado usando o DiskSpd, certifique-se de que nenhuma outra atividade em segundo plano interfira na carga de trabalho de E/S nos discos testados.
+2.  Quando você usa o script hello junto com o cenário de "Parâmetro de comparação" ou "Custom" hello que é configurado usando o DiskSpd, certifique-se de que nenhuma outra atividade de plano de fundo interfere com carga de trabalho de e/s de saudação em discos Olá testado.
 
-3.  Por padrão, o script usa a unidade de armazenamento temporário para coletar dados. Se o rastreamento permanecer habilitado por mais tempo, a quantidade de dados coletados poderá ser relevante. Isso pode reduzir a disponibilidade de espaço no disco temporário, afetando, portanto, qualquer aplicativo que dependa dessa unidade.
+3.  Por padrão, o script hello usa dados de toocollect de unidade de armazenamento temporário de saudação. Se o rastreamento permaneça habilitada por mais tempo, quantidade Olá dos dados coletados pode ser relevante. Isso pode reduzir a disponibilidade de saudação do espaço em disco temporário do hello, afetando, portanto, qualquer aplicativo que depende dessa unidade.
 
 ### <a name="how-do-i-run-perfinsights"></a>Como fazer para executar o PerfInsights? 
 
-Para executar o script, siga estas etapas:
+toorun Olá script, siga estas etapas:
 
 1. Baixe [PerfInsights.zip](http://aka.ms/perfinsightsdownload).
 
-2. Desbloqueie o arquivo PerfInsights.zip. Para fazer isso, clique com o botão direito do mouse no arquivo PerfInsights.zip e selecione **Propriedades**. Na guia **Geral**, selecione **Desbloquear** e, em seguida, selecione **OK**. Isso garantirá que o script seja executado sem prompts de segurança adicionais.  
+2. Desbloquear o arquivo de PerfInsights.zip hello. toodo isso, o arquivo de PerfInsights.zip de saudação com o botão direito, selecione **propriedades**. Em Olá **geral** guia, selecione **desbloquear** e, em seguida, selecione **Okey**. Isso irá assegurar que o script hello é executado sem prompts de segurança adicional.  
 
-    ![Desbloquear o arquivo zip](media/how-to-use-perfInsights/unlock-file.png)
+    ![Desbloquear o arquivo zip de saudação](media/how-to-use-perfInsights/unlock-file.png)
 
-3.  Expanda o arquivo PerfInsights.zip compactado na unidade temporária (por padrão, costuma ser a unidade D). O arquivo compactado deve conter os seguintes arquivos e pastas:
+3.  Expanda Olá compactado PerfInsights.zip arquivo na unidade temporária (por padrão, geralmente a unidade Olá D). Olá arquivo compactado deve conter Olá seguinte arquivos e pastas:
 
-    ![arquivos na pasta zip](media/how-to-use-perfInsights/file-folder.png)
+    ![arquivos na pasta de zip Olá](media/how-to-use-perfInsights/file-folder.png)
 
-4.  Abra o Windows PowerShell como administrador e execute o script PerfInsights.ps1.
+4.  Abra o Windows PowerShell como administrador e, em seguida, execute o script de PerfInsights.ps1 de saudação.
 
     ```
-    cd <the path of PerfInsights folder >
+    cd <hello path of PerfInsights folder >
     Powershell.exe -ExecutionPolicy UnRestricted -NoProfile -File .\\PerfInsights.ps1
     ```
 
-    Pode ser necessário digitar "y" se você for solicitado a confirmar se deseja alterar a política de execução.
+    Você pode ter tooenter "y" tooif tiver solicitado tooconfirm que você deseja toochange política de execução de saudação.
 
-    Na caixa de diálogo Aviso de Isenção de Responsabilidade, você terá a opção de compartilhar informações de diagnóstico com o Suporte da Microsoft. Você também deve concordar com o contrato de licença para continuar. Faça suas seleções e, em seguida, clique em **Executar Script**.
+    Na caixa de diálogo de aviso de isenção de saudação, você terá Olá opção tooshare informações de diagnóstico com a Microsoft Support. Você também deve consentir toohello toocontinue de contrato de licença. Faça suas seleções e, em seguida, clique em **Executar Script**.
 
     ![Caixa de diálogo Aviso de Isenção de Responsabilidade](media/how-to-use-perfInsights/disclaimer.png)
 
-5.  Envie o número do caso, se ele estiver disponível, ao executar o script (isso é para nossas estatísticas). Em seguida, clique em **OK**.
+5.  Envie o número do caso hello, se ele estiver disponível, ao executar o script hello (Isso é para nosso estatísticas). Em seguida, clique em **OK**.
     
     ![inserir ID de suporte](media/how-to-use-perfInsights/enter-support-number.png)
 
-6.  Selecione a unidade de armazenamento temporário. O Script pode detectar automaticamente a letra da unidade. Se houver problemas nesse estágio, você poderá ser solicitado a selecionar a unidade (a unidade padrão é D). Os logs gerados são armazenados aqui na pasta log\_collection. Depois que você insere ou aceita a letra da unidade, clique em **OK**.
+6.  Selecione a unidade de armazenamento temporário. Olá Script pode detectar automaticamente letra Olá da unidade de saudação. Se houver problemas neste estágio, você pode ser solicitado a unidade de saudação tooselect (a unidade padrão de saudação é D). Os logs gerados são armazenados aqui no log de saudação\_pasta da coleção. Depois que você insira ou aceite a letra da unidade hello, clique em **Okey**.
 
     ![inerir unidade](media/how-to-use-perfInsights/enter-drive.png)
 
-7.  Selecione um cenário de solução de problemas na lista fornecida.
+7.  Selecione um cenário de solução de problemas da saudação lista.
 
        ![Selecionar cenários de suporte](media/how-to-use-perfInsights/select-scenarios.png)
 
 8.  Você também pode executar PerfInsights sem interface do usuário.
 
-    O comando a seguir executa o cenário de solução de problemas “Análise geral de VM lenta” sem um aviso de interface do usuário ou captura dados por 30 segundos. Ele solicita que você concorde com o mesmo aviso de isenção de responsabilidade e EULA mencionados na etapa 4.
+    seguir Olá Olá execuções de comando "Análise de geral lenta de VM" cenário sem um prompt de interface do usuário de solução de problemas ou captura dados de 30 segundos. Solicita tooconsent toohello mesmo isenção de responsabilidade e EULA mencionados na etapa 4.
 
         powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30"
 
-    Se você quiser que o PerfInsights seja executado no modo sem confirmação, use o parâmetro **-AcceptDisclaimerAndShareDiagnostics**. Por exemplo, use o seguinte comando:
+    Se você quiser PerfInsights toorun no modo silencioso, use o **- AcceptDisclaimerAndShareDiagnostics** parâmetro. Por exemplo, use Olá comando a seguir:
 
         powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30 -AcceptDisclaimerAndShareDiagnostics"
 
-### <a name="how-do-i-troubleshoot-issues-while-running-the-script"></a>Como fazer para solucionar os problemas durante a execução do script?
+### <a name="how-do-i-troubleshoot-issues-while-running-hello-script"></a>Como solucionar os problemas durante a execução do script hello?
 
-Se o script terminar de maneira anormal, você poderá limpar um estado divergente executando o script em conjunto com a opção -Cleanup da seguinte maneira:
+Se o script hello terminado de maneira anormal, é possível limpar um estado inconsistente, executando o script hello junto com hello - comutador de limpeza, da seguinte maneira:
 
     powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -Cleanup"
 
-Se houver problemas durante a detecção automática da unidade temporária, você poderá ser solicitado a selecionar a unidade (a unidade padrão é a D).
+Se houver problemas durante a detecção automática de unidade temporária Olá Olá, talvez seja solicitado a unidade de saudação tooselect (a unidade padrão de saudação é D).
 
 ![enter-drive](media/how-to-use-perfInsights/enter-drive.png)
 
-O script desinstala as ferramentas do utilitário e remove as pastas temporárias.
+script Hello desinstala ferramentas de utilitários hello e remove as pastas temporárias.
 
 ### <a name="troubleshooting-other-script-issues"></a>Solução de outros problemas de script 
 
-Se ocorrerem problemas quando você executar o script, pressione Ctrl+C para interromper a execução do script. Para remover objetos temporários, consulte a seção "Limpeza após o encerramento anormal".
+Se houver problemas ao executar o script hello, pressione Ctrl + C execução do script de saudação do toointerrupt. tooremove de objetos temporários, consulte a seção de "Limpeza após o encerramento anormal" hello.
 
-Se você continuar a encontrar a falha de script mesmo após várias tentativas, é recomendável executar o script no "modo de depuração" usando a opção de parâmetro "-Debug" na inicialização.
+Se você continuar a falha do script tooexperience mesmo após várias tentativas, é recomendável que você execute o script hello no "modo de depuração" usando hello "-Debug" opção de parâmetro na inicialização.
 
-Após a falha ocorrer, copie a saída completa do console do PowerShell e envie-a ao agente de Suporte da Microsoft que o está ajudando a solucionar o problema.
+Depois de falha de saudação ocorre, cópia Olá completo saída do console do PowerShell Olá e envie-o agente do Microsoft Support toohello que está ajudando você toohelp solucionar problema de saudação.
 
-### <a name="how-do-i-run-the-script-in-custom-configuration-mode"></a>Como fazer para executar o script no modo de configuração personalizada?
+### <a name="how-do-i-run-hello-script-in-custom-configuration-mode"></a>Como executar o script hello no modo de configuração personalizado?
 
-Ao selecionar a configuração **Personalizado**, você pode habilitar vários rastreamentos em paralelo (use Shift para selecionar vários):
+Selecionando Olá **personalizado** configuração, você pode habilitar vários rastreamentos em paralelo (use Shift toomulti-selecione):
 
 ![selecionar cenários](media/how-to-use-perfInsights/select-scenario.png)
 
-Quando você selecionar o cenário Diagnóstico de Desempenho, Rastreamento do Contador de Desempenho, Rastreamento de XPerf, Rastreamento de Rede ou Rastreamento de Storport, siga as instruções nas caixas de diálogo e tente reproduzir o problema de desempenho lento depois de iniciar os rastreamentos.
+Quando você seleciona Olá diagnóstico de desempenho, rastreamento de contador de desempenho, XPerf rastreamento, rastreamento de rede ou cenários de rastreamento Storport, siga as instruções de Olá Olá caixas de diálogo e tente a problemas de desempenho lento Olá tooreproduce depois que você inicie os rastreamentos de saudação.
 
-A caixa de diálogo a seguir permite que você inicie um rastreamento:
+Olá, caixa de diálogo a seguir permite que você iniciar um rastreamento:
 
 ![start-trace](media/how-to-use-perfInsights/start-trace-message.png)
 
-Para interromper os rastreamentos, você precisa confirmar o comando em uma segunda caixa de diálogo.
+rastreamentos, a saudação toostop tiver tooconfirm comando de saudação em uma segunda caixa de diálogo.
 
 ![stop-trace](media/how-to-use-perfInsights/stop-trace-message.png)
 ![stop-trace](media/how-to-use-perfInsights/ok-trace-message.png)
 
-Quando os rastreamentos ou as operações forem concluídos, um novo arquivo será gerado em D:\\log\_collection (ou unidade temporária) com o nome **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip.** Você pode enviar esse arquivo para o agente de Suporte para análise.
+Quando Olá rastreamentos ou operações serem concluídas, um novo arquivo é gerado em d:\\log\_coleção (ou unidade temporária Olá) nomeada **CollectedData\_AAAA-MM-dd\_hh\_mm \_ss.zip.** Você pode enviar o agente de suporte de toohello esse arquivo para análise.
 
-## <a name="review-the-diagnostics-report-created-by-perfinsights"></a>Examine o relatório de diagnóstico criado pelo PerfInsights
+## <a name="review-hello-diagnostics-report-created-by-perfinsights"></a>Examine o relatório de diagnóstico de saudação criado pelo PerfInsights
 
-No arquivo **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip,** que é gerado pelo PerfInsights, você pode localizar um relatório HTML com detalhes sobre as descobertas do PerfInsights. Para examinar o relatório, expanda o arquivo **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** e, em seguida, abra o arquivo **PerfInsights Report.html**.
+Dentro de saudação **CollectedData\_AAAA-MM-dd\_hh\_mm\_ss.zip arquivo,** que é gerado pelo PerfInsights, você pode localizar um relatório HTML que fornece detalhes sobre as descobertas de saudação do PerfInsights. tooreview Olá relatório, expanda Olá **CollectedData\_AAAA-MM-dd\_hh\_mm\_ss.zip** de arquivo e abra Olá **PerfInsights Report.html**arquivo.
 
-Selecione a guia **Descobertas**.
+Selecione Olá **descobertas** guia.
 
 ![guia localizar](media/how-to-use-perfInsights/findingtab.png)
 
@@ -290,62 +290,62 @@ Selecione a guia **Descobertas**.
 
 -   As mensagens em azul são somente instruções informativas.
 
-Examine os links HTTP para todas as mensagens de erro em vermelho para obter informações mais detalhadas sobre as descobertas e como elas podem afetar o desempenho ou as práticas recomendadas para configurações otimizadas para desempenho.
+Saudação de revisão links HTTP para todas as mensagens de erro em vermelho tooget mais informações detalhadas sobre descobertas hello e como eles podem afetar o desempenho de saudação ou práticas recomendadas para configurações de otimização de desempenho.
 
 ### <a name="disk-configuration-tab"></a>Guia Configuração de Disco
 
-A seção **Visão Geral** exibe as exibições da configuração de armazenamento, incluindo informações de Diskpart e Espaços de Armazenamento
+Olá **visão geral** seção exibe os diferentes modos de exibição da configuração de armazenamento de hello, incluindo informações de Diskpart e espaços de armazenamento
 
-As seções **DiskMap** e **VolumeMap** descrevem em uma perspectiva dupla como volumes lógicos e discos físicos estão relacionados uns aos outros.
+Olá **DiskMap** e **VolumeMap** seções descrevem em uma perspectiva dupla lógica como volumes e discos físicos são relacionada tooeach outros.
 
-Na perspectiva PhysicalDisk (DiskMap), a tabela mostra todos os volumes lógicos que estão em execução no disco. No exemplo a seguir, PhysicalDrive2 executa dois Volumes Lógicos criados em várias partições (J e H):
+Olá PhysicalDisk perspectiva (DiskMap), tabela Olá mostra todos os volumes lógicos que estão em execução no disco hello. Saudação de exemplo a seguir, PhysicalDrive2 é executada 2 Volumes lógicos criado em várias partições (J e H):
 
 ![guia dados](media/how-to-use-perfInsights/disktab.png)
 
-Na perspectiva Volume (*VolumeMap*), as tabelas mostram todos os discos físicos em cada volume lógico. Observe que, para discos RAID/Dinâmicos, você pode executar um volume lógico em vários discos físicos. No exemplo a seguir *C:\\mount* é configurado como um ponto de montagem como *SpannedDisk* em PhysicalDisks \#2 e \#3:
+Em Olá perspectiva de Volume (*VolumeMap*), tabelas de saudação mostram todos os discos físicos de saudação em cada volume lógico. Observe que, para discos RAID/Dinâmicos, você pode executar um volume lógico em vários discos físicos. Em Olá exemplo a seguir *c:\\montar* é configurado como um ponto de montagem *SpannedDisk* na PhysicalDisks \#2 e \#3:
 
 ![Guia de volume](media/how-to-use-perfInsights/volumetab.png)
 
 ### <a name="sql-server-tab"></a>Guia SQL Server
 
-Se a VM de destino hospedar alguma instância do SQL Server, você verá uma guia adicional no relatório chamada **SQL Server**:
+Se a VM de destino Olá hospeda todas as instâncias do SQL Server, você verá uma guia adicional no relatório Olá denominado **do SQL Server**:
 
 ![guia sql](media/how-to-use-perfInsights/sqltab.png)
 
-Esta seção contém uma "visão geral" e subguias adicionais para cada uma das instâncias do SQL Server hospedadas na VM.
+Esta seção contém uma visão "geral" e guias sub adicionais para cada uma das instâncias do SQL Server Olá hospedadas em Olá VM.
 
-A seção "Visão Geral" contém uma tabela útil que resume todos os discos físicos (discos de sistema e dados) que estão em execução e que contêm uma mistura de arquivos de dados e arquivos de log de transações.
+Olá seção "Visão geral" contém uma tabela útil que resume todos os Olá discos físicos (discos de sistema e dados) que estão em execução e que contêm uma mistura de arquivos de dados e arquivos de log de transações.
 
-No exemplo a seguir, *PhysicalDrive0* (executando a unidade C) é exibida porque os arquivos *modeldev* e *modellog* estão ambos localizados na unidade C e são de tipos diferentes (como Arquivo de Dados e Log de Transações, respectivamente):
+Em Olá seguinte exemplo, *PhysicalDrive0* (executando a unidade C do hello) é exibida porque ambos Olá *modeldev* e *modellog* arquivos estão localizados na unidade C do hello, e elas são de tipos diferentes (como arquivo de dados e Log de transações, respectivamente):
 
 ![loginfo](media/how-to-use-perfInsights/loginfo.png)
 
-As guias específicas da instância do SQL Server contêm uma seção geral que exibe informações básicas sobre a instância selecionada e seções adicionais para informações avançadas, incluindo Configurações, Definições e Opções do Usuário.
+guias de específicos da instância do SQL Server Olá contêm uma seção geral que exibe informações básicas sobre a instância selecionada do hello e seções adicionais para obter informações avançadas, incluindo configurações, as configurações e opções do usuário.
 
-## <a name="references-to-the-external-tools-used"></a>Referências às ferramentas externas usadas
+## <a name="references-toohello-external-tools-used"></a>Faz referência a toohello ferramentas externas usadas
 
 ### <a name="diskspd"></a>Diskspd
 
-DISKSPD é um gerador de carga de armazenamento e uma ferramenta de teste de desempenho do Windows e das equipes de engenharia de Infraestrutura do Windows Server e Cloud Server. Para obter mais informações, consulte [Diskspd](https://github.com/Microsoft/diskspd).
+DISKSPD é uma carga gerador e desempenho teste ferramenta armazenamento das equipes de engenharia Windows e Windows Server e infraestrutura de servidor de nuvem hello. Para obter mais informações, consulte [Diskspd](https://github.com/Microsoft/diskspd).
 
 ### <a name="xperf"></a>XPerf
 
-XPerf é uma ferramenta de linha de comando para capturar rastreamentos do Kit de Ferramentas de Desempenho do Windows.
+XPerf é rastreamentos de toocapture uma ferramenta de linha de comando do hello Kit de ferramentas de desempenho do Windows.
 
 Para obter mais informações, consulte [Windows Performance Toolkit – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-### <a name="upload-diagnostics-logs-and-reports-to-microsoft-support-for-further-review"></a>Carregar relatórios e logs de diagnóstico para o Suporte da Microsoft para mais exame
+### <a name="upload-diagnostics-logs-and-reports-toomicrosoft-support-for-further-review"></a>Carregar logs de diagnóstico e relatórios tooMicrosoft suporte para análise
 
-Ao trabalhar com a equipe do Suporte da Microsoft, você pode ser solicitado a transmitir a saída gerada por PerfInsights para auxiliar no processo de solução de problemas.
+Quando você trabalha com hello da equipe do Microsoft Support, pode ser saída de hello tootransmit solicitada que é gerada pelo PerfInsights tooassist Olá Solucionando problemas do processo.
 
-O agente de suporte criará um espaço de trabalho DTM para você e você receberá uma mensagem de email incluindo um link para o portal DTM (https://filetransfer.support.microsoft.com/EFTClient/Account/Login.htm) e uma ID de usuário e senha únicos.
+o agente de suporte Olá criará um espaço de trabalho DTM para você, e você receberá uma mensagem de email que inclui um toohello link [DTM portal (https://filetransfer.support.microsoft.com/EFTClient/Account/Login.htm) e uma ID exclusiva de usuário e senha.
 
 Esta mensagem será enviada de **Serviços de Diagnóstico Automatizados CTS** (ctsadiag@microsoft.com).
 
-![Exemplo da mensagem](media/how-to-use-perfInsights/supportemail.png)
+![Exemplo de mensagem de saudação](media/how-to-use-perfInsights/supportemail.png)
 
-Para segurança adicional, você será solicitado a alterar sua senha no primeiro uso.
+Para obter segurança adicional, será necessário toochange sua senha no primeiro usar.
 
-Após fazer logon no DTM, você verá uma caixa de diálogo para carregar o arquivo **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** coletado por PerfInsights.
+Depois de efetuar login tooDTM, você encontrará uma saudação de tooupload de caixa de diálogo **CollectedData\_AAAA-MM-dd\_hh\_mm\_ss.zip** arquivo foi coletado por PerfInsights.

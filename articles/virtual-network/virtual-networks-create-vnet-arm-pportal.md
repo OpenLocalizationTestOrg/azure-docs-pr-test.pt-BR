@@ -1,6 +1,6 @@
 ---
-title: "Criar uma rede virtual do Azure com várias sub-redes | Microsoft Docs"
-description: "Saiba como criar uma rede virtual com várias sub-redes no Azure."
+title: "uma rede virtual do Azure com várias sub-redes do aaaCreate | Microsoft Docs"
+description: "Saiba como toocreate uma rede virtual com várias sub-redes no Azure."
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -16,25 +16,25 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: a31f0524a6fa1de45498f340a27b863a3c627e04
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 0f56fa6ac24537d33b8e217f5b03f387826ab487
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets"></a>Criar uma rede virtual com várias sub-redes
 
-Neste tutorial, aprenda como criar uma rede virtual do Azure básica com sub-redes públicas e privadas separadas. Você pode criar recursos do Azure, como máquinas virtuais, ambientes de Serviço de Aplicativo, conjuntos de dimensionamento de máquina virtual, Azure HDInsight e serviços de nuvem em uma sub-rede. Os recursos em redes virtuais podem se comunicar entre si e com os recursos em outras redes conectadas a uma rede virtual.
+Neste tutorial, saiba como toocreate uma rede virtual do Azure básico que tenha separada subredes públicas e privadas. Você pode criar recursos do Azure, como máquinas virtuais, ambientes de Serviço de Aplicativo, conjuntos de dimensionamento de máquina virtual, Azure HDInsight e serviços de nuvem em uma sub-rede. Recursos em redes virtuais podem se comunicar entre si e com recursos em outra rede virtual de tooa conectado de redes.
 
-As seções a seguir incluem etapas que você pode executar para criar uma rede virtual usando o [Portal do Azure](#portal), a interface de linha de comando do Azure ([CLI do Azure](#azure-cli)), [Azure PowerShell](#powershell)e um [modelo do Azure Resource Manager](#resource-manager-template). O resultado é o mesmo, não importa a ferramenta que você usa para criar a rede virtual. Clique no link da ferramenta para ir para essa seção do tutorial. Saiba mais sobre todas as configurações de [rede virtual](virtual-network-manage-network.md) e [sub-rede](virtual-network-manage-subnet.md).
+Olá, seções a seguir incluem etapas que você pode colocar toocreate uma rede virtual usando Olá [portal do Azure](#portal), Olá interface de linha de comando do Azure ([CLI do Azure](#azure-cli)), [PowerShell do Azure ](#powershell)e um [modelo do Azure Resource Manager](#resource-manager-template). resultado de saudação é Olá mesmo, independentemente de qual ferramenta você usar rede virtual do toocreate hello. Clique em uma seção de toothat ferramenta link toogo tutorial hello. Saiba mais sobre todas as configurações de [rede virtual](virtual-network-manage-network.md) e [sub-rede](virtual-network-manage-subnet.md).
 
-Este artigo fornece etapas para criar uma rede virtual usando o modelo de implantação do Resource Manager, que é o modelo de implantação recomendado ao criar novas redes virtuais. Se você precisar criar uma rede virtual (clássica), confira [Criar uma rede virtual (clássica)](create-virtual-network-classic.md). Se você não estiver familiarizado com os modelos de implantação do Azure, confira [Entender os modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Este artigo fornece etapas toocreate uma rede virtual por meio do modelo de implantação do Gerenciador de recursos hello, que é o modelo de implantação de Olá, que é recomendável usar ao criar novas redes virtuais. Se você precisar toocreate uma rede virtual (clássica), consulte [criar uma rede virtual (clássica)](create-virtual-network-classic.md). Se você não estiver familiarizado com os modelos de implantação do Azure, confira [Entender os modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="portal"></a>Portal do Azure
 
-1. Em um navegador da Internet, vá para o [portal do Azure](https://portal.azure.com). Faça logon usando sua [conta do Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Se não tiver uma conta do Azure, você poderá assinar uma versão de [avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p).
-2. No portal, clique em **+ Novo** > **Rede** > **Rede virtual**.
-3. Na folha **Criar rede virtual**, insira os valores a seguir e clique em **Criar**:
+1. Em um navegador da Internet, vá toohello [portal do Azure](https://portal.azure.com). Faça logon usando sua [conta do Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Se não tiver uma conta do Azure, você poderá assinar uma versão de [avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p).
+2. No portal de saudação, clique em **+ novo** > **rede** > **rede Virtual**.
+3. Em Olá **criar rede virtual** folha, digite Olá valores a seguir e, em seguida, clique em **criar**:
 
     |Configuração|Valor|
     |---|---|
@@ -45,21 +45,21 @@ Este artigo fornece etapas para criar uma rede virtual usando o modelo de implan
     |Grupo de recursos|Deixe **Criar novo** selecionado e digite **myResourceGroup**.|
     |Assinatura e localização|Selecione sua assinatura e localização.
 
-    Se você for novo no Azure, saiba mais sobre [grupos de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [assinaturas](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) e [locais](https://azure.microsoft.com/regions) (também conhecido como *regiões*).
-4. No portal, você pode criar apenas uma sub-rede quando você criar uma rede virtual. Neste tutorial, você cria uma segunda sub-rede após criar a rede virtual. Posteriormente, você pode criar recursos acessíveis pela Internet na sub-rede **Pública**. Você também pode criar recursos que não são acessíveis pela Internet para na sub-rede **Privada**. Para criar a segunda sub-rede, na caixa **Pesquisar recursos** na parte superior da página, digite **myVnet**. Nos resultados da pesquisa, clique em **myVnet**. Se você tiver várias redes virtuais com o mesmo nome em sua assinatura, verifique os grupos de recursos que estão listados em cada rede virtual. Certifique-se de que você clique o resultado de pesquisa **myVnet** que tem o grupo de recursos **myResourceGroup**.
-5. Na folha **myVnet**, em **CONFIGURAÇÕES**, clique em **Sub-redes**.
-6. Na folha **myVnet – Sub-redes**, clique em **+Sub-rede**.
-7. Na folha **Adicionar sub-rede**, para **Nome**, insira **Privada**. Para **Intervalo de endereços**, digite **10.0.1.0/24**.  Clique em **OK**.
-8. Na folha **myVnet – Sub-Redes**, examine as sub-redes. Você pode ver as sub-redes **Pública** e **Privada** que você criou.
-9. **Opcional**: Para excluir os recursos criados neste tutorial, conclua as etapas em [Excluir recursos](#delete-portal) deste artigo.
+    Se você for novo tooAzure, saiba mais sobre [grupos de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [assinaturas](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription), e [locais](https://azure.microsoft.com/regions) (também chamado tooas *regiões*).
+4. No portal de saudação, você pode criar apenas uma sub-rede quando você criar uma rede virtual. Neste tutorial, você criará uma segunda sub-rede depois que você criar rede virtual hello. Você pode criar mais tarde recursos acessíveis pela Internet Olá **pública** sub-rede. Você também pode criar recursos que não estão acessíveis da saudação da Internet no hello **privada** sub-rede. toocreate Olá segunda sub-rede, Olá **pesquisar recursos** na parte superior de saudação da página hello, digite **myVnet**. Nos resultados da pesquisa de saudação, clique em **myVnet**. Se você tiver várias redes virtuais com hello o mesmo nome em sua assinatura, verifique os grupos de recursos de saudação são listados em cada rede virtual. Certifique-se de que você clicar em Olá **myVnet** pesquisa resultados que tem o grupo de recursos de saudação **myResourceGroup**.
+5. Em Olá **myVnet** folha, em **configurações**, clique em **sub-redes**.
+6. Em Olá **myVnet - sub-redes** folha, clique em **+ sub-rede**.
+7. Em Olá **Adicionar sub-rede** folha, para **nome**, digite **particular**. Para **Intervalo de endereços**, digite **10.0.1.0/24**.  Clique em **OK**.
+8. Em Olá **myVnet - sub-redes** folha, examine Olá sub-redes. Você pode ver Olá **pública** e **privada** sub-redes que você criou.
+9. **Opcional:** toodelete recursos Olá criados por você neste tutorial, Olá concluir as etapas em [excluir recursos](#delete-portal) neste artigo.
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-Comandos da CLI do Azure são os mesmos, se você executar os comandos do Windows, Linux ou macOS. No entanto, há diferenças de script entre shells de sistema operacional. O script nas etapas a seguir é executado em um shell Bash. 
+Comandos da CLI do Azure são Olá mesmo, se você executar os comandos de saudação do Windows, Linux ou macOS. No entanto, há diferenças de script entre shells de sistema operacional. executa script Olá Olá seguindo as etapas em um shell Bash. 
 
-1. [Instalar e configurar a CLI do Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Verifique se você tem a versão mais recente da CLI do Azure instalada. Para obter ajuda sobre os comandos da CLI, digite `az <command> --help`. Em vez de instalar a CLI e seus pré-requisitos, use o Azure Cloud Shell. O Azure Cloud Shell é um shell Bash gratuito que podem ser executado diretamente no portal do Azure. O Cloud Shell tem a CLI do Azure pré-instalada e configurada para uso com sua conta. Para usar o Cloud Shell, clique no botão Cloud Shell (**> _**) na parte superior do [portal](https://portal.azure.com), ou simplesmente clique no botão *Experimentar* nas etapas a seguir. 
-2. Se você estiver executando a CLI localmente, faça logon no Azure com o comando `az login`. Se estiver usando o Cloud Shell, você já estará conectado.
-3. Confira o script a seguir e seus comentários. No navegador, copie o script e cole-o em sua sessão da CLI:
+1. [Instalar e configurar Olá CLI do Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Certifique-se de que você tem a versão mais recente de saudação do hello CLI do Azure instalado. tooget ajuda para comandos CLI, digite `az <command> --help`. Em vez de instalar Olá CLI e seus pré-requisitos, você pode usar o hello Shell de nuvem do Azure. Olá Shell de nuvem do Azure é um shell Bash livre que podem ser executados diretamente no hello portal do Azure. Olá Shell de nuvem tem Olá CLI do Azure pré-instalado e configurado toouse com sua conta. Olá toouse Shell de nuvem, clique em Olá nuvem Shell (**> _**) botão na parte superior de saudação do hello [portal](https://portal.azure.com) ou simplesmente clicar Olá *Experimente* botão nas etapas Olá seguir. 
+2. Se executado localmente Olá CLI, faça logon tooAzure com hello `az login` comando. Se usar Olá Shell de nuvem, você já está conectado.
+3. Saudação de revisão script e seus comentários a seguir. No navegador, copie o script hello e cole-o em sua sessão CLI:
 
     ```azurecli-interactive
     #!/bin/bash
@@ -75,7 +75,7 @@ Comandos da CLI do Azure são os mesmos, se você executar os comandos do Window
       --resource-group myResourceGroup \
       --subnet-name Public
     
-    # Create an additional subnet named Private in the virtual network.
+    # Create an additional subnet named Private in hello virtual network.
     az network vnet subnet create \
       --name Private \
       --address-prefix 10.0.1.0/24 \
@@ -83,20 +83,20 @@ Comandos da CLI do Azure são os mesmos, se você executar os comandos do Window
       --resource-group myResourceGroup
     ```
     
-4. Após a conclusão da execução do script, examine as sub-redes da rede virtual. Copie o comando a seguir, e cole-o em sua sessão da CLI:
+4. Quando o script hello for concluída em execução, examine as sub-redes Olá para rede virtual hello. Copie Olá comando a seguir e, em seguida, cole-o em sua sessão CLI:
 
     ```azurecli
     az network vnet subnet list --resource-group myResourceGroup --vnet-name myVnet --output table
     ```
 
-5. **Opcional**: Para excluir os recursos criados neste tutorial, conclua as etapas em [Excluir recursos](#delete-cli) deste artigo.
+5. **Opcional**: toodelete recursos Olá criados por você neste tutorial, Olá concluir as etapas em [excluir recursos](#delete-cli) neste artigo.
 
 ## <a name="powershell"></a>PowerShell
 
-1. Instale a última versão do módulo [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) do PowerShell. Se você for novo no Azure PowerShell, consulte [Visão geral do Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. Em uma sessão do PowerShell, faça logon no Azure com sua [conta do Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account) usando o comando `login-azurermaccount`.
+1. Instale a versão mais recente Olá de saudação do PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) módulo. Se você for novo tooAzure PowerShell, consulte [visão geral do Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Em uma sessão do PowerShell, faça logon no tooAzure com seus [conta do Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account) usando Olá `login-azurermaccount` comando.
 
-3. Confira o script a seguir e seus comentários. No navegador, copie o script e cole-o em sua sessão do PowerShell:
+3. Saudação de revisão script e seus comentários a seguir. No navegador, copie o script hello e colá-lo em sua sessão do PowerShell:
 
     ```powershell
     # Create a resource group.
@@ -104,7 +104,7 @@ Comandos da CLI do Azure são os mesmos, se você executar os comandos do Window
       -Name myResourceGroup `
       -Location eastus
     
-    # Create the public and private subnets.
+    # Create hello public and private subnets.
     $Subnet1 = New-AzureRmVirtualNetworkSubnetConfig `
       -Name Public `
       -AddressPrefix 10.0.0.0/24
@@ -121,26 +121,26 @@ Comandos da CLI do Azure são os mesmos, se você executar os comandos do Window
       -Subnet $Subnet1,$Subnet2
     ```
 
-4. Para examinar as sub-redes para a rede virtual, copie o seguinte comando e, depois, cole-o em sua sessão do PowerShell:
+4. sub-redes de saudação tooreview para rede virtual do hello, copie Olá comando a seguir e, em seguida, cole-o em sua sessão do PowerShell:
 
     ```powershell
     $Vnet.subnets | Format-Table Name, AddressPrefix
     ```
 
-5. **Opcional**: Para excluir os recursos criados neste tutorial, conclua as etapas em [Excluir recursos](#delete-powershell) deste artigo.
+5. **Opcional**: toodelete recursos Olá criados por você neste tutorial, Olá concluir as etapas em [excluir recursos](#delete-powershell) neste artigo.
 
 ## <a name="resource-manager-template"></a>Modelo do Resource Manager
 
-Você pode implantar uma rede virtual usando um modelo do Azure Resource Manager. Para saber mais sobre modelos, consulte [O que é o Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#template-deployment). Para acessar o modelo e saber mais sobre seus parâmetros, consulte o modelo [Criar uma rede virtual com duas sub-redes](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/). Você pode implantar o modelo usando [portal](#template-portal), [CLI do Azure](#template-cli) ou [PowerShell](#template-powershell).
+Você pode implantar uma rede virtual usando um modelo do Azure Resource Manager. toolearn mais sobre modelos, consulte [o que é o Gerenciador de recursos](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#template-deployment). modelo de saudação tooaccess e toolearn sobre seus parâmetros, consulte Olá [criar uma rede virtual com duas sub-redes](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) modelo. Você pode implantar o modelo de saudação usando Olá [portal](#template-portal), [CLI do Azure](#template-cli), ou [PowerShell](#template-powershell).
 
-**Opcional**: Para excluir os recursos criados neste tutorial, conclua as etapas em quaisquer subseções de [Excluir recursos](#delete) deste artigo.
+**Opcional:** toodelete recursos Olá criados por você neste tutorial, Olá concluir as etapas em qualquer subseções [excluir recursos](#delete) neste artigo.
 
 ### <a name="template-portal"></a>Portal do Azure
 
-1. No seu navegador, abra a [página modelo](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets).
-2. Clique no botão **Implantar no Azure**. Se você ainda não estiver conectado ao Azure, faça logon na tela de logon do Portal do Azure que é exibida.
-3. Entre no portal usando sua [conta do Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Se não tiver uma conta do Azure, você poderá assinar uma versão de [avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p).
-4. Insira os seguintes valores para os parâmetros:
+1. No navegador, abra Olá [página modelo](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets).
+2. Clique em Olá **implantar tooAzure** botão. Se você ainda não estiver logado tooAzure, entrar na tela de logon do portal do Azure Olá que aparece.
+3. Entre no portal de toohello usando seu [conta do Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Se não tiver uma conta do Azure, você poderá assinar uma versão de [avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p).
+4. Digite hello valores hello parâmetros a seguir:
 
     |Parâmetro|Valor|
     |---|---|
@@ -154,62 +154,62 @@ Você pode implantar uma rede virtual usando um modelo do Azure Resource Manager
     |Subnet2Prefix|10.0.1.0/24|
     |Subnet2Name|Privado|
 
-5. Concorde com os termos e condições, clique em **Comprar** para implantar uma rede virtual.
+5. Aceite toohello termos e condições e, em seguida, clique em **compra** rede virtual do toodeploy hello.
 
 ### <a name="template-cli"></a>Azure CLI
 
-1. [Instalar e configurar a CLI do Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Verifique se você tem a versão mais recente da CLI do Azure instalada. Para obter ajuda sobre os comandos da CLI, digite `az <command> --help`. Em vez de instalar a CLI e seus pré-requisitos, use o Azure Cloud Shell. O Azure Cloud Shell é um shell Bash gratuito que podem ser executado diretamente no portal do Azure. O Cloud Shell tem a CLI do Azure pré-instalada e configurada para uso com sua conta. Para usar o Cloud Shell, clique no botão Cloud Shell **>_** na parte superior do [portal](https://portal.azure.com), ou simplesmente clique no botão **Experimentar** nas etapas a seguir. 
-2. Se você estiver executando a CLI localmente, faça logon no Azure com o comando `az login`. Se estiver usando o Cloud Shell, você já estará conectado.
-3. Para criar um grupo de recursos para a rede virtual, copie o seguinte comando e cole-o em sua sessão da CLI:
+1. [Instalar e configurar Olá CLI do Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Certifique-se de que você tem a versão mais recente de saudação do hello CLI do Azure instalado. tooget ajuda para comandos CLI, digite `az <command> --help`. Em vez de instalar Olá CLI e seus pré-requisitos, você pode usar o hello Shell de nuvem do Azure. Olá Shell de nuvem do Azure é um shell Bash livre que podem ser executados diretamente no hello portal do Azure. Olá Shell de nuvem tem Olá CLI do Azure pré-instalado e configurado toouse com sua conta. Olá toouse Shell de nuvem, clique em Olá nuvem Shell **> _** botão na parte superior de saudação do hello [portal](https://portal.azure.com), ou simplesmente clicar Olá **Experimente** botão nas etapas Olá seguir. 
+2. Se executado localmente Olá CLI, faça logon tooAzure com hello `az login` comando. Se usar Olá Shell de nuvem, você já está conectado.
+3. toocreate um grupo de recursos de rede virtual Olá, seguinte de saudação de cópia de comando e cole-o em sua sessão CLI:
 
     ```azurecli-interactive
     az group create --name myResourceGroup --location eastus
     ```
     
-4. Você pode implantar o modelo, usando uma das seguintes opções de parâmetros:
-    - **Valores do parâmetro padrão**. Digite o seguinte comando:
+4. Você pode implantar o modelo de saudação usando uma saudação as opções de parâmetros a seguir:
+    - **Valores do parâmetro padrão**. Digite hello comando a seguir:
     
         ```azurecli-interactive
         az group deployment create --resource-group myResourceGroup --name VnetTutorial --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json`
         ```
-    - **Valores do parâmetro personalizado**. Baixe e modifique o modelo antes de implantar o modelo. Você também pode implantar o modelo usando os parâmetros na linha de comando, ou implantar o modelo com um arquivo de parâmetros separados. Para baixar os arquivos de modelo e parâmetro, clique no botão **Procurar no GitHub** na página de modelo [Criar uma rede virtual com duas sub-redes](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/). No GitHub, clique no arquivo **azuredeploy.parameters.json** ou **azuredeploy.json**. Em seguida, clique no botão **Raw** para exibir o arquivo. No seu navegador, copie os conteúdos do arquivo. Salve os conteúdos em um arquivo no seu computador. Você pode modificar os valores de parâmetro no modelo, ou implantar o modelo com um arquivo de parâmetros separado.  
+    - **Valores do parâmetro personalizado**. Baixe e modificar o modelo de saudação antes de implantar o modelo de saudação. Também pode implantar modelo hello usando parâmetros na linha de comando hello, ou implantar o modelo de saudação com um arquivo de parâmetros separados. toodownload Olá modelo e parâmetros de arquivos, clique em Olá **procurar no GitHub** botão Olá [criar uma rede virtual com duas sub-redes](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) página de modelo. No GitHub, clique em Olá **azuredeploy.parameters.json** ou **azuredeploy.json** arquivo. Em seguida, clique em Olá **Raw** arquivo de saudação do botão toodisplay. No navegador, copie o conteúdo de saudação do arquivo hello. Salve o arquivo de tooa de conteúdo de saudação em seu computador. Você pode modificar os valores de parâmetro hello no modelo de saudação ou implantar o modelo de saudação com um arquivo de parâmetros separados.  
 
-    Para saber mais sobre como implantar modelos usando esses métodos, digite `az group deployment create --help`.
+    Saiba mais sobre toolearn como toodeploy modelos usando esses métodos, digite `az group deployment create --help`.
 
 ### <a name="template-powershell"></a>PowerShell
 
-1. Instale a última versão do módulo [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) do PowerShell. Se você for novo no Azure PowerShell, consulte [Visão geral do Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. Na sessão do PowerShell, para entrar com sua [conta do Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account), insira `login-azurermaccount`.
-3. Para criar um grupo de recursos para a rede virtual, digite o seguinte comando:
+1. Instale a versão mais recente Olá de saudação do PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) módulo. Se você for novo tooAzure PowerShell, consulte [visão geral do Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Em uma sessão do PowerShell, toosign com seus [conta do Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account), digite `login-azurermaccount`.
+3. toocreate um grupo de recursos de rede virtual do hello, digite Olá comando a seguir:
 
     ```powershell
     New-AzureRmResourceGroup -Name myResourceGroup -Location eastus
     ```
     
-4. Você pode implantar o modelo, usando uma das seguintes opções de parâmetros:
-    - **Valores do parâmetro padrão**. Digite o seguinte comando:
+4. Você pode implantar o modelo de saudação usando uma saudação as opções de parâmetros a seguir:
+    - **Valores do parâmetro padrão**. Digite hello comando a seguir:
     
         ```powershell
         New-AzureRmResourceGroupDeployment -Name VnetTutorial -ResourceGroupName myResourceGroup -TemplateUri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vnet-two-subnets/azuredeploy.json
         ```
         
-    - **Valores do parâmetro personalizado**. Baixe e modifique o modelo antes de implantá-lo. Você também pode implantar o modelo usando os parâmetros na linha de comando, ou implantar o modelo com um arquivo de parâmetros separados. Para baixar os arquivos de modelo e parâmetro, clique no botão **Procurar no GitHub** na página de modelo [Criar uma rede virtual com duas sub-redes](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/). No GitHub, clique no arquivo **azuredeploy.parameters.json** ou **azuredeploy.json**. Em seguida, clique no botão **Raw** para exibir o arquivo. No seu navegador, copie os conteúdos do arquivo. Salve os conteúdos em um arquivo no seu computador. Você pode modificar os valores de parâmetro no modelo, ou implantar o modelo com um arquivo de parâmetros separado.  
+    - **Valores do parâmetro personalizado**. Baixe e modificar o modelo de saudação antes de implantá-lo. Também pode implantar modelo hello usando parâmetros na linha de comando hello, ou implantar o modelo de saudação com um arquivo de parâmetros separados. toodownload Olá modelo e parâmetros de arquivos, clique em Olá **procurar no GitHub** botão Olá [criar uma rede virtual com duas sub-redes](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) página de modelo. No GitHub, clique em Olá **azuredeploy.parameters.json** ou **azuredeploy.json** arquivo. Em seguida, clique em Olá **Raw** arquivo de saudação do botão toodisplay. No navegador, copie o conteúdo de saudação do arquivo hello. Salve o arquivo de tooa de conteúdo de saudação em seu computador. Você pode modificar os valores de parâmetro hello no modelo de saudação ou implantar o modelo de saudação com um arquivo de parâmetros separados.  
 
-    Para saber mais sobre como implantar modelos usando esses métodos, digite `Get-Help New-AzureRmResourceGroupDeployment`. 
+    Saiba mais sobre toolearn como toodeploy modelos usando esses métodos, digite `Get-Help New-AzureRmResourceGroupDeployment`. 
 
 ## <a name="delete"></a>Excluir recursos
 
-Após a conclusão este tutorial, convém excluir os recursos criados, para não incorrer em encargos de uso. A exclusão de um grupo de recursos também exclui todos os recursos que estão no grupo de recursos.
+Quando você concluir este tutorial, você pode desejar que recursos de saudação toodelete que você criou, para que você não incorrer em encargos de uso. Excluir um grupo de recursos também exclui todos os recursos que estão no grupo de recursos de saudação.
 
 ### <a name="delete-portal"></a>Portal do Azure
 
-1. Na caixa de pesquisa do portal, insira **myResourceGroup**. Nos resultados da pesquisa, clique em **myResourceGroup**.
-2. Na folha **myResourceGroup**, clique no ícone **Excluir**.
-3. Para confirmar a exclusão, na caixa **DIGITAR O NOME DO GRUPO DE RECURSOS**, insira **myResourceGroup** e, depois, clique em **Excluir**.
+1. Na caixa de pesquisa do portal hello, insira **myResourceGroup**. Nos resultados da pesquisa de saudação, clique em **myResourceGroup**.
+2. Em Olá **myResourceGroup** folha, clique em Olá **excluir** ícone.
+3. tooconfirm Olá exclusão, Olá **Olá tipo nome do grupo de recursos** , digite **myResourceGroup**e, em seguida, clique em **excluir**.
 
 ### <a name="delete-cli"></a>Azure CLI
 
-Em uma sessão da CLI, insira o seguinte comando:
+Em uma sessão CLI, digite Olá comando a seguir:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
@@ -217,7 +217,7 @@ az group delete --name myResourceGroup --yes
 
 ### <a name="delete-powershell"></a>PowerShell
 
-Em uma sessão do PowerShell, insira o seguinte comando:
+Em uma sessão do PowerShell, digite Olá comando a seguir:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
@@ -225,8 +225,8 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre todas as configurações de sub-rede e rede virtual, confira [Gerenciar redes virtuais](virtual-network-manage-network.md#view-vnet) e [Gerenciar sub-redes da rede virtual](virtual-network-manage-subnet.md#create-subnet). Você tem várias opções para o uso de redes virtuais e sub-redes em um ambiente de produção para atender aos requisitos diferentes.
-- Para filtrar o tráfego de entrada e saída da sub-rede, crie e aplique [grupos de segurança de rede](virtual-networks-nsg.md) às sub-redes.
-- Crie uma máquina virtual [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e a conecte a uma rede virtual existente.
-- Para conectar duas redes virtuais no mesmo local do Azure, crie um [emparelhamento de rede virtual](virtual-network-peering-overview.md) entre as redes virtuais.
-- Conecte a rede virtual a uma rede local usando um [Gateway de VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou circuito do [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Consulte toolearn sobre todas as configurações de sub-rede e rede virtual [gerenciar redes virtuais](virtual-network-manage-network.md#view-vnet) e [gerenciar sub-redes de rede virtual](virtual-network-manage-subnet.md#create-subnet). Você tem várias opções para o uso de redes virtuais e sub-redes em uma produção toomeet diferente dos requisitos do ambiente.
+- toofilter entrada e saída de tráfego de sub-rede, criar e aplicar [grupos de segurança de rede](virtual-networks-nsg.md) toosubnets.
+- Criar um [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou um [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) máquina virtual e, em seguida, conecte-o rede virtual existente do tooan.
+- redes virtuais tooconnect dois em Olá mesmo local do Azure, crie um [emparelhamento de rede virtual](virtual-network-peering-overview.md) entre redes virtuais hello.
+- Conectar-se a rede de local de tooan Olá rede virtual usando um [Gateway VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [rota expressa do Azure](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) circuito.

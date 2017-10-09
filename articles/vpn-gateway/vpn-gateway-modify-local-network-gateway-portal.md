@@ -1,6 +1,6 @@
 ---
-title: "Modificar os prefixos de endereço IP do gateway de rede local e o endereço IP do Gateway de VPN | Azure | Portal | Microsoft Docs"
-description: "Este artigo mostra o passo a passo da alteração dos prefixos de endereço IP do seu gateway de rede local usando o portal do Azure"
+title: "Modificar prefixos de endereço IP do gateway de rede local hello e endereço de IP do Gateway de VPN Olá | Azure | Portal | Microsoft Docs"
+description: "Este artigo orienta a alteração prefixos de endereço IP do seu gateway de rede local usando Olá portal do Azure."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.openlocfilehash: bdd6f90fe97408bd45a72adf58bfdc190207de46
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 001df7b748ccc234d87aab3501a4f0e4ddfe60f5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Modificar as configurações de gateway de rede local usando o portal do Azure
+# <a name="modify-local-network-gateway-settings-using-hello-azure-portal"></a>Modificar as configurações de gateway de rede local usando Olá portal do Azure
 
-Às vezes, as configurações do seu gateway de rede local AddressPrefix ou GatewayIPAddress mudam. Este artigo mostra como modificar as configurações de gateway de rede local. Também é possível modificar essas configurações usando um método diferente, selecionando uma opção diferente da lista a seguir:
+Às vezes, alteram configurações de saudação do seu gateway de rede local AddressPrefix ou GatewayIPAddress. Este artigo mostra como toomodify suas configurações de gateway de rede local. Você também pode modificar essas configurações usando um método diferente, selecionando uma opção diferente de saudação lista a seguir:
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](vpn-gateway-modify-local-network-gateway-portal.md)
@@ -35,13 +35,13 @@ ms.lasthandoff: 08/18/2017
 
 ## <a name="ipaddprefix"></a>Modificar os prefixos de endereço IP
 
-Quando você modifica os prefixos de endereço IP, as etapas a que seguir dependem se o gateway de rede local tem uma conexão.
+Quando você modifica os prefixos de endereço IP, etapas de saudação que seguir dependem se o gateway de rede local tem uma conexão.
 
 [!INCLUDE [modify prefix](../../includes/vpn-gateway-modify-ip-prefix-portal-include.md)]
 
-## <a name="gwip"></a>Modificar o endereço IP do gateway
+## <a name="gwip"></a>Modificar o endereço IP do gateway Olá
 
-Se o dispositivo VPN ao qual você deseja se conectar mudou seu endereço IP público, você precisará modificar o gateway de rede local para refletir essa alteração. Quando você altera o endereço IP público, as etapas a seguir dependem se o gateway de rede local possui uma conexão.
+Se o dispositivo VPN Olá que você deseja tooconnect toohas alterado seu endereço IP público, você precisa toomodify Olá local de rede gateway tooreflect que alteram. Quando você altera o endereço IP público de hello, etapas de saudação que seguir dependem se o gateway de rede local tem uma conexão.
 
 [!INCLUDE [modify gateway IP](../../includes/vpn-gateway-modify-lng-gateway-ip-portal-include.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Proteger o IIS com certificados SSL no Azure | Microsoft Docs
-description: Saiba como proteger o servidor Web do IIS com certificados SSL em uma VM do Windows Azure
+title: certificados de aaaSecure IIS com SSL no Azure | Microsoft Docs
+description: "Saiba como toosecure Olá IIS web server com certificados SSL em uma VM do Windows Azure"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,32 +16,32 @@ ms.workload: infrastructure
 ms.date: 07/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6567853e9ef3cad63595dc0afe7a793bdc5d972c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7a9e0ce07be2f55095fdb5347b64faf5caa4f7e3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="secure-iis-web-server-with-ssl-certificates-on-a-windows-virtual-machine-in-azure"></a>Proteger o servidor Web do IIS com certificados SSL em uma máquina virtual do Windows no Azure
-Para proteger os servidores Web, um certificado SSL (Secure Sockets Layer) pode ser usado para criptografar o tráfego da Web. Esses certificados SSL podem ser armazenados no Azure Key Vault e permitem implantações seguras de certificados em VMs (máquinas virtuais) do Windows no Azure. Neste tutorial, você aprenderá a:
+servidores de web toosecure, um certificado mais tarde SSL (Secure Sockets) pode ser usado tooencrypt o tráfego da web. Esses certificados SSL podem ser armazenados no cofre de chaves do Azure e permitem implantações seguras de certificados tooWindows (máquinas virtuais) no Azure. Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
 > * Criar um Cofre de chaves do Azure
-> * Gerar ou carregar um certificado para o Cofre da Chave
-> * Criar uma VM e instalar o servidor Web do IIS
-> * Inserir o certificado na VM e configurar o IIS com uma associação de SSL
+> * Gerar ou carregar um certificado toohello Cofre de chaves
+> * Criar uma máquina virtual e instalar o servidor de web IIS Olá
+> * Injetar certificado Olá Olá VM e configurar o IIS com uma associação SSL.
 
-Este tutorial requer o módulo do Azure PowerShell, versão 3.6 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Este tutorial requer hello Azure PowerShell versão 3.6 ou posterior do módulo. Executar ` Get-Module -ListAvailable AzureRM` toofind versão de saudação. Se você precisar tooupgrade, consulte [instalar o módulo PowerShell Azure](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="overview"></a>Visão geral
-O cofre da chave do Azure protege chaves criptográficas e segredos, esses certificados ou senhas. O Key Vault simplifica o processo de gerenciamento de certificados e permite que você mantenha o controle das chaves que acessam esses certificados. Você pode criar um certificado autoassinado no Key Vault ou carregar um certificado confiável existente que você já tenha.
+O cofre da chave do Azure protege chaves criptográficas e segredos, esses certificados ou senhas. Cofre de chaves ajuda a simplificar o processo de gerenciamento de certificado hello e permite que você controle toomaintain de chaves que acessam esses certificados. Você pode criar um certificado autoassinado no Key Vault ou carregar um certificado confiável existente que você já tenha.
 
-Em vez de usar uma imagem de VM personalizada que inclui certificados incorporados, você injeta certificados em uma VM em execução. Esse processo garante que os certificados mais recentes sejam instalados em um servidor Web durante a implantação. Se você renova ou substitui um certificado, também não precisa criar uma nova imagem de VM personalizada. Os certificados mais recentes são inseridos automaticamente, conforme você cria outras VMs. Durante todo o processo, os certificados nunca deixam a plataforma do Azure ou são expostos em um script, no histórico da linha de comando ou no modelo.
+Em vez de usar uma imagem de VM personalizada que inclui certificados incorporados, você injeta certificados em uma VM em execução. Esse processo garante que os certificados de mais atualizados de saudação são instalados em um servidor web durante a implantação. Se você renova ou substituir um certificado, você não tem também toocreate uma nova imagem VM personalizada. certificados mais recentes Olá são automaticamente inseridos ao criar VMs adicionais. Durante todo o processo Olá, certificados de saudação nunca deixam Olá plataforma Windows Azure ou são expostos em um modelo, histórico de linha de comando ou script.
 
 
 ## <a name="create-an-azure-key-vault"></a>Criar um Cofre de chaves do Azure
-Antes de criar um Key Vault e certificados, crie um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupSecureWeb* no local *Leste dos EUA*:
+Antes de criar um Key Vault e certificados, crie um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Olá, exemplo a seguir cria um grupo de recursos denominado *myResourceGroupSecureWeb* em Olá *Leste dos EUA* local:
 
 ```powershell
 $resourceGroup = "myResourceGroupSecureWeb"
@@ -49,7 +49,7 @@ $location = "East US"
 New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-Em seguida, crie um Key Vault com [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault). Cada Cofre de Chave requer um nome exclusivo e deve estar escrito com todas as letras minúsculas. Substitua `<mykeyvault>` no exemplo a seguir com seu próprio nome exclusivo de Cofre da Chave:
+Em seguida, crie um Key Vault com [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault). Cada Cofre de Chave requer um nome exclusivo e deve estar escrito com todas as letras minúsculas. Substitua `<mykeyvault>` no hello exemplo com seu próprio nome exclusivo do Cofre de chaves a seguir:
 
 ```powershell
 $keyvaultName="<mykeyvault>"
@@ -60,7 +60,7 @@ New-AzureRmKeyVault -VaultName $keyvaultName `
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>Gerar um certificado e armazenar no Key Vault
-Para uso em produção, você deve importar um certificado válido assinado por um fornecedor confiável com [Import-AzureKeyVaultCertificate](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate). Para este tutorial, o exemplo a seguir mostra como você pode gerar um certificado autoassinado com [Add-AzureKeyVaultCertificate](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificate), que usa a política de certificado padrão de [New-AzureKeyVaultCertificatePolicy](/powershell/module/azurerm.keyvault/new-azurekeyvaultcertificatepolicy). 
+Para uso em produção, você deve importar um certificado válido assinado por um fornecedor confiável com [Import-AzureKeyVaultCertificate](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate). Para este tutorial, hello exemplo a seguir mostra como você pode gerar um certificado autoassinado com [adicionar AzureKeyVaultCertificate](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificate) usa Olá a diretiva de certificado padrão de [ Novo AzureKeyVaultCertificatePolicy](/powershell/module/azurerm.keyvault/new-azurekeyvaultcertificatepolicy). 
 
 ```powershell
 $policy = New-AzureKeyVaultCertificatePolicy `
@@ -77,13 +77,13 @@ Add-AzureKeyVaultCertificate `
 
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
-Defina o nome de usuário e a senha de um administrador para a VM com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Definir um nome de usuário administrador e a senha para Olá VM com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```powershell
 $cred = Get-Credential
 ```
 
-Agora você pode criar uma VM com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). O exemplo a seguir cria os componentes de rede virtual necessários, a configuração do SO e, em seguida, cria uma VM chamada *myVM*:
+Agora você pode criar hello VM com [AzureRmVM novo](/powershell/module/azurerm.compute/new-azurermvm). Olá exemplo a seguir cria componentes de rede virtual Olá necessários, configuração Olá sistema operacional e, em seguida, cria uma VM denominada *myVM*:
 
 ```powershell
 # Create a subnet configuration
@@ -157,7 +157,7 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 # Create virtual machine
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
-# Use the Custom Script Extension to install IIS
+# Use hello Custom Script Extension tooinstall IIS
 Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -ExtensionName "IIS" `
     -VMName "myVM" `
@@ -168,11 +168,11 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server -IncludeManagementTools"}'
 ```
 
-A criação da VM demora alguns minutos. A última etapa usa a Extensão de Script Personalizado do Azure para instalar o servidor Web do IIS com [Set-AzureRmVmExtension](/powershell/module/azurerm.compute/set-azurermvmextension).
+Leva alguns minutos para Olá VM toobe criado. última etapa Hello usa Olá extensão de Script personalizado do Azure tooinstall Olá servidor web do IIS com [AzureRmVmExtension conjunto](/powershell/module/azurerm.compute/set-azurermvmextension).
 
 
-## <a name="add-a-certificate-to-vm-from-key-vault"></a>Adicionar um certificado à VM a partir do Key Vault
-Para adicionar o certificado a partir do Key Vault para uma VM, obtenha a ID de seu certificado com [Get-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret). Adicione o certificado à VM com [Add-AzureRmVMSecret](/powershell/module/azurerm.compute/add-azurermvmsecret):
+## <a name="add-a-certificate-toovm-from-key-vault"></a>Adicionar um certificado tooVM do Cofre de chaves
+tooadd certificado de saudação do Cofre de chaves tooa VM, obter a ID de saudação do seu certificado com [Get-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret). Adicionar certificado de saudação toohello VM com [adicionar AzureRmVMSecret](/powershell/module/azurerm.compute/add-azurermvmsecret):
 
 ```powershell
 $certURL=(Get-AzureKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
@@ -185,8 +185,8 @@ Update-AzureRmVM -ResourceGroupName $resourceGroup -VM $vm
 ```
 
 
-## <a name="configure-iis-to-use-the-certificate"></a>Configurar o IIS para usar o certificado
-Use a Extensão de Script Personalizado novamente com [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) para atualizar a configuração do IIS. Esta atualização aplica o certificado inserido do Key Vault para o IIS e configura a associação da Web:
+## <a name="configure-iis-toouse-hello-certificate"></a>Configurar IIS toouse Olá certificado
+Use Olá extensão de Script personalizado novamente com [AzureRmVMExtension conjunto](/powershell/module/azurerm.compute/set-azurermvmextension) tooupdate a configuração do IIS hello. Esta atualização aplica-se o certificado Olá injetado do Cofre de chaves tooIIS e configura a associação de web hello:
 
 ```powershell
 $PublicSettings = '{
@@ -205,18 +205,18 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 ```
 
 
-### <a name="test-the-secure-web-app"></a>Testar o aplicativo Web protegido
-Obtenha os endereços IP públicos da VM com [Get-AzureRmPublicIPAddress](/powershell/resourcemanager/azurerm.network/get-azurermpublicipaddress). O exemplo a seguir obtém o endereço IP para `myPublicIP` criado anteriormente:
+### <a name="test-hello-secure-web-app"></a>Aplicativo de teste na web segura de Olá
+Obter o endereço IP público de saudação da VM com [Get-AzureRmPublicIPAddress](/powershell/resourcemanager/azurerm.network/get-azurermpublicipaddress). Olá, exemplo a seguir obtém endereço IP hello `myPublicIP` criado anteriormente:
 
 ```powershell
 Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIP" | select "IpAddress"
 ```
 
-Agora, abra um navegador da Web e digite `https://<myPublicIP>` na barra de endereços. Para aceitar o aviso de segurança se você usou um certificado autoassinado, selecione **Detalhes** e **Prosseguir para a página da Web**:
+Agora você pode abrir um navegador da web e digite `https://<myPublicIP>` na barra de endereços de saudação. Aviso de segurança de saudação tooaccept se você usou um certificado autoassinado, selecione **detalhes** e **ir na página da Web de toohello**:
 
 ![Aceite o aviso de segurança do navegador da web](./media/tutorial-secure-web-server/browser-warning.png)
 
-Seu site de IIS protegido é exibido, como no exemplo a seguir:
+O site seguro do IIS, em seguida, é exibido como Olá exemplo a seguir:
 
 ![Exibir o site de IIS protegido em execução](./media/tutorial-secure-web-server/secured-iis.png)
 
@@ -227,11 +227,11 @@ Neste tutorial, você protegeu um servidor Web de IIS com um certificado SSL arm
 
 > [!div class="checklist"]
 > * Criar um Cofre de chaves do Azure
-> * Gerar ou carregar um certificado para o Cofre da Chave
-> * Criar uma VM e instalar o servidor Web do IIS
-> * Inserir o certificado na VM e configurar o IIS com uma associação de SSL
+> * Gerar ou carregar um certificado toohello Cofre de chaves
+> * Criar uma máquina virtual e instalar o servidor de web IIS Olá
+> * Injetar certificado Olá Olá VM e configurar o IIS com uma associação SSL.
 
-Siga este link para ver exemplos de script de máquina virtual predefinido.
+Siga este toosee link pré-criadas exemplos de script da máquina virtual.
 
 > [!div class="nextstepaction"]
 > [Exemplos de script de máquina virtual do Windows](./powershell-samples.md)
