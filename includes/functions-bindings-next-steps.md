@@ -1,0 +1,2 @@
+<span data-ttu-id="eb8b3-101">Para saber mais sobre outras associações e gatilhos para Azure Functions, veja [Referência do desenvolvedor sobre gatilhos e associações do Azure Functions](../articles/azure-functions/functions-triggers-bindings.md).</span><span class="sxs-lookup"><span data-stu-id="eb8b3-101">For information about other bindings and triggers for Azure Functions, see [Azure Functions triggers and bindings developer reference](../articles/azure-functions/functions-triggers-bindings.md).</span></span>
+

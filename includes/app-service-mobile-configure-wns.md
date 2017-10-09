@@ -1,0 +1,7 @@
+
+1. <span data-ttu-id="ae7f8-101">Em Olá [portal do Azure](https://portal.azure.com/), clique em **procurar todos os** > **serviços de aplicativos**e clique em seu back-end de aplicativos móveis.</span><span class="sxs-lookup"><span data-stu-id="ae7f8-101">In hello [Azure portal](https://portal.azure.com/), click **Browse All** > **App Services**, and click your Mobile Apps back end.</span></span> <span data-ttu-id="ae7f8-102">Em **Configurações**, clique em **Push do Serviço de Aplicativo** e clique no nome do hub de notificação.</span><span class="sxs-lookup"><span data-stu-id="ae7f8-102">Under **Settings**, click **App Service Push**, and then click your notification hub name.</span></span>
+2. <span data-ttu-id="ae7f8-103">Vá muito**Windows (WNS)**, digite Olá **chave de segurança** (segredo do cliente) e **SID do pacote** que você obteve do site de serviços do Live hello e, em seguida, clique em  **Salvar**.</span><span class="sxs-lookup"><span data-stu-id="ae7f8-103">Go too**Windows (WNS)**, enter hello **Security key** (client secret) and **Package SID** that you obtained from hello Live Services site, and then click **Save**.</span></span>
+
+    ![Definir chave WNS Olá no portal de saudação](./media/app-service-mobile-configure-wns/mobile-push-wns-credentials.png)
+
+<span data-ttu-id="ae7f8-105">Seu back-end agora é configurado toouse WNS toosend push notificações.</span><span class="sxs-lookup"><span data-stu-id="ae7f8-105">Your back end is now configured toouse WNS toosend push notifications.</span></span>

@@ -1,7 +1,7 @@
 
-1. <span data-ttu-id="b74ef-101">Abra o projeto no Android Studio.</span><span class="sxs-lookup"><span data-stu-id="b74ef-101">Open the project in Android Studio.</span></span>
+1. <span data-ttu-id="7d37b-101">Abra o projeto de saudação no Android Studio.</span><span class="sxs-lookup"><span data-stu-id="7d37b-101">Open hello project in Android Studio.</span></span>
 
-2. <span data-ttu-id="b74ef-102">No **Gerenciador de projetos** , no Android Studio, abra o arquivo ToDoActivity.java e adicione as seguintes instruções de importação:</span><span class="sxs-lookup"><span data-stu-id="b74ef-102">In **Project Explorer** in Android Studio, open the ToDoActivity.java file and add the following import statements:</span></span>
+2. <span data-ttu-id="7d37b-102">Em **Explorador de projeto** no Android Studio, abra o arquivo de ToDoActivity.java de saudação e adicione Olá seguindo as instruções de importação:</span><span class="sxs-lookup"><span data-stu-id="7d37b-102">In **Project Explorer** in Android Studio, open hello ToDoActivity.java file and add hello following import statements:</span></span>
 
         import java.util.concurrent.ExecutionException;
         import java.util.concurrent.atomic.AtomicBoolean;
@@ -13,13 +13,13 @@
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 
-3. <span data-ttu-id="b74ef-103">Adicione o método a seguir à classe **ToDoActivity** :</span><span class="sxs-lookup"><span data-stu-id="b74ef-103">Add the following method to the **ToDoActivity** class:</span></span>
+3. <span data-ttu-id="7d37b-103">Adicionar Olá após o método toohello **ToDoActivity** classe:</span><span class="sxs-lookup"><span data-stu-id="7d37b-103">Add hello following method toohello **ToDoActivity** class:</span></span>
 
-        // You can choose any unique number here to differentiate auth providers from each other. Note this is the same code at login() and onActivityResult().
+        // You can choose any unique number here toodifferentiate auth providers from each other. Note this is hello same code at login() and onActivityResult().
         public static final int GOOGLE_LOGIN_REQUEST_CODE = 1;
 
         private void authenticate() {
-            // Login using the Google provider.
+            // Login using hello Google provider.
             mClient.login("Google", "{url_scheme_of_your_app}", GOOGLE_LOGIN_REQUEST_CODE);
         }
 
@@ -27,7 +27,7 @@
         protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             // When request completes
             if (resultCode == RESULT_OK) {
-                // Check the request code matches the one we send in the login request
+                // Check hello request code matches hello one we send in hello login request
                 if (requestCode == GOOGLE_LOGIN_REQUEST_CODE) {
                     MobileServiceActivityResult result = mClient.onActivityResult(data);
                     if (result.isLoggedIn()) {
@@ -35,7 +35,7 @@
                         createAndShowDialog(String.format("You are now logged in - %1$2s", mClient.getCurrentUser().getUserId()), "Success");
                         createTable();
                     } else {
-                        // login failed, check the error message
+                        // login failed, check hello error message
                         String errorMessage = result.getErrorMessage();
                         createAndShowDialog(errorMessage, "Error");
                     }
@@ -43,36 +43,36 @@
             }
         }
 
-    <span data-ttu-id="b74ef-104">Esse código cria um novo método para manipular o processo de autenticação.</span><span class="sxs-lookup"><span data-stu-id="b74ef-104">This code creates a method to handle the Google authentication process.</span></span> <span data-ttu-id="b74ef-105">Um diálogo exibe a ID do usuário autenticado.</span><span class="sxs-lookup"><span data-stu-id="b74ef-105">A dialog displays the ID of the authenticated user.</span></span> <span data-ttu-id="b74ef-106">Você só pode continuar em uma autenticação bem-sucedida.</span><span class="sxs-lookup"><span data-stu-id="b74ef-106">You can only proceed on a successful authentication.</span></span>
+    <span data-ttu-id="7d37b-104">Esse código cria uma saudação do método toohandle processo de autenticação do Google.</span><span class="sxs-lookup"><span data-stu-id="7d37b-104">This code creates a method toohandle hello Google authentication process.</span></span> <span data-ttu-id="7d37b-105">Uma caixa de diálogo exibe a ID de saudação do usuário Olá autenticado.</span><span class="sxs-lookup"><span data-stu-id="7d37b-105">A dialog displays hello ID of hello authenticated user.</span></span> <span data-ttu-id="7d37b-106">Você só pode continuar em uma autenticação bem-sucedida.</span><span class="sxs-lookup"><span data-stu-id="7d37b-106">You can only proceed on a successful authentication.</span></span>
 
     > [!NOTE]
-    > <span data-ttu-id="b74ef-107">Se você estiver usando um provedor de identidade diferente do Google, altere o valor passado ao método **login** para um dos valores a seguir: _MicrosoftAccount_, _Facebook_, _Twitter_ ou _windowsazureactivedirectory_.</span><span class="sxs-lookup"><span data-stu-id="b74ef-107">If you are using an identity provider other than Google, change the value passed to the **login** method to one of the following values: _MicrosoftAccount_, _Facebook_, _Twitter_, or _windowsazureactivedirectory_.</span></span>
+    > <span data-ttu-id="7d37b-107">Se você estiver usando um provedor de identidade que não seja o Google, altere o valor de saudação passado toohello **logon** tooone de método de saudação valores a seguir: _MicrosoftAccount_, _Facebook_, _Twitter_, ou _windowsazureactivedirectory_.</span><span class="sxs-lookup"><span data-stu-id="7d37b-107">If you are using an identity provider other than Google, change hello value passed toohello **login** method tooone of hello following values: _MicrosoftAccount_, _Facebook_, _Twitter_, or _windowsazureactivedirectory_.</span></span>
 
-4. <span data-ttu-id="b74ef-108">No método **OnCreate**, adicione a linha de código a seguir após o código que cria uma instância do objeto `MobileServiceClient`.</span><span class="sxs-lookup"><span data-stu-id="b74ef-108">In the **onCreate** method, add the following line of code after the code that instantiates the `MobileServiceClient` object.</span></span>
+4. <span data-ttu-id="7d37b-108">Em Olá **onCreate** método, adicionar Olá a seguinte linha de código após código Olá que instancia Olá `MobileServiceClient` objeto.</span><span class="sxs-lookup"><span data-stu-id="7d37b-108">In hello **onCreate** method, add hello following line of code after hello code that instantiates hello `MobileServiceClient` object.</span></span>
 
         authenticate();
 
-    <span data-ttu-id="b74ef-109">Essa chamada inicia o processo de autenticação.</span><span class="sxs-lookup"><span data-stu-id="b74ef-109">This call starts the authentication process.</span></span>
+    <span data-ttu-id="7d37b-109">Essa chamada inicia o processo de autenticação de saudação.</span><span class="sxs-lookup"><span data-stu-id="7d37b-109">This call starts hello authentication process.</span></span>
 
-5. <span data-ttu-id="b74ef-110">Mova o código restante após `authenticate();` no método **OnCreate** para um novo método **CreateTable**:</span><span class="sxs-lookup"><span data-stu-id="b74ef-110">Move the remaining code after `authenticate();` in the **onCreate** method to a new **createTable** method:</span></span>
+5. <span data-ttu-id="7d37b-110">Olá restantes código depois de mover `authenticate();` em Olá **onCreate** método tooa novo **createTable** método:</span><span class="sxs-lookup"><span data-stu-id="7d37b-110">Move hello remaining code after `authenticate();` in hello **onCreate** method tooa new **createTable** method:</span></span>
 
         private void createTable() {
 
-            // Get the table instance to use.
+            // Get hello table instance toouse.
             mToDoTable = mClient.getTable(ToDoItem.class);
 
             mTextNewToDo = (EditText) findViewById(R.id.textNewToDo);
 
-            // Create an adapter to bind the items with the view.
+            // Create an adapter toobind hello items with hello view.
             mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
             ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
             listViewToDo.setAdapter(mAdapter);
 
-            // Load the items from Azure.
+            // Load hello items from Azure.
             refreshItemsFromTable();
         }
 
-6. <span data-ttu-id="b74ef-111">Para garantir que o redirecionamento funcione conforme o esperado, adicione o seguinte trecho de _RedirectUrlActivity_ a _AndroidManifest.xml_:</span><span class="sxs-lookup"><span data-stu-id="b74ef-111">To ensure redirection works as expected, add the following snippet of _RedirectUrlActivity_ to _AndroidManifest.xml_:</span></span>
+6. <span data-ttu-id="7d37b-111">tooensure redirecionamento funciona conforme o esperado, adicionar Olá seguindo o trecho de _RedirectUrlActivity_ too_AndroidManifest.xml_:</span><span class="sxs-lookup"><span data-stu-id="7d37b-111">tooensure redirection works as expected, add hello following snippet of _RedirectUrlActivity_ too_AndroidManifest.xml_:</span></span>
 
         <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
             <intent-filter>
@@ -84,7 +84,7 @@
             </intent-filter>
         </activity>
 
-7. <span data-ttu-id="b74ef-112">Adicione redirectUriScheme a _build.gradle_ de seu aplicativo Android.</span><span class="sxs-lookup"><span data-stu-id="b74ef-112">Add redirectUriScheme to _build.gradle_ of your Android application.</span></span>
+7. <span data-ttu-id="7d37b-112">Adicione too_build.gradle_ redirectUriScheme do seu aplicativo Android.</span><span class="sxs-lookup"><span data-stu-id="7d37b-112">Add redirectUriScheme too_build.gradle_ of your Android application.</span></span>
 
         android {
             buildTypes {
@@ -99,13 +99,13 @@
             }
         }
 
-8. <span data-ttu-id="b74ef-113">Adicione com.android.support:customtabs:23.0.1 às dependências em seu build.gradle:</span><span class="sxs-lookup"><span data-stu-id="b74ef-113">Add com.android.support:customtabs:23.0.1 to the dependencies in your build.gradle:</span></span>
+8. <span data-ttu-id="7d37b-113">Adicione o gradle com.android.support:customtabs:23.0.1 toohello dependências:</span><span class="sxs-lookup"><span data-stu-id="7d37b-113">Add com.android.support:customtabs:23.0.1 toohello dependencies in your build.gradle:</span></span>
 
-      <span data-ttu-id="b74ef-114">dependências {        // ...        compile 'com.android.support:customtabs:23.0.1'    }</span><span class="sxs-lookup"><span data-stu-id="b74ef-114">dependencies {        // ...        compile 'com.android.support:customtabs:23.0.1'    }</span></span>
+      <span data-ttu-id="7d37b-114">dependências {        // ...        compile 'com.android.support:customtabs:23.0.1'    }</span><span class="sxs-lookup"><span data-stu-id="7d37b-114">dependencies {        // ...        compile 'com.android.support:customtabs:23.0.1'    }</span></span>
 
-9. <span data-ttu-id="b74ef-115">No menu **Executar**, clique em **Executar aplicativo** para iniciar o aplicativo e entrar com seu provedor de identidade escolhido.</span><span class="sxs-lookup"><span data-stu-id="b74ef-115">From the **Run** menu, click **Run app** to start the app and sign in with your chosen identity provider.</span></span>
+9. <span data-ttu-id="7d37b-115">De saudação **executar** menu, clique em **executar aplicativo** toostart Olá aplicativo e entre com seu provedor de identidade escolhido.</span><span class="sxs-lookup"><span data-stu-id="7d37b-115">From hello **Run** menu, click **Run app** toostart hello app and sign in with your chosen identity provider.</span></span>
 
 > [!WARNING]
-> <span data-ttu-id="b74ef-116">O esquema de URL mencionado diferencia maiúsculas de minúsculas.</span><span class="sxs-lookup"><span data-stu-id="b74ef-116">The URL Scheme mentioned is case-sensitive.</span></span>  <span data-ttu-id="b74ef-117">Certifique-se de que todas as ocorrências de `{url_scheme_of_you_app}` a mesma formatação, maiúsculas ou minúsculas.</span><span class="sxs-lookup"><span data-stu-id="b74ef-117">Ensure that all occurrences of `{url_scheme_of_you_app}` use the same case.</span></span>
+> <span data-ttu-id="7d37b-116">Olá mencionado o esquema de URL diferencia maiusculas de minúsculas.</span><span class="sxs-lookup"><span data-stu-id="7d37b-116">hello URL Scheme mentioned is case-sensitive.</span></span>  <span data-ttu-id="7d37b-117">Certifique-se de que todas as ocorrências de `{url_scheme_of_you_app}` uso Olá mesmo caso.</span><span class="sxs-lookup"><span data-stu-id="7d37b-117">Ensure that all occurrences of `{url_scheme_of_you_app}` use hello same case.</span></span>
 
-<span data-ttu-id="b74ef-118">Ao entrar com êxito, o aplicativo deve ser executado sem erros e você deve ser capaz de consultar o serviço de back-end e fazer atualizações nos dados.</span><span class="sxs-lookup"><span data-stu-id="b74ef-118">When you are successfully signed in, the app should run without errors, and you should be able to query the back-end service and make updates to data.</span></span>
+<span data-ttu-id="7d37b-118">Quando você estiver entrado com êxito, Olá aplicativo deve ser executado sem erros, e você deve ser capaz de tooquery serviço de back-end de saudação e fazer atualizações toodata.</span><span class="sxs-lookup"><span data-stu-id="7d37b-118">When you are successfully signed in, hello app should run without errors, and you should be able tooquery hello back-end service and make updates toodata.</span></span>

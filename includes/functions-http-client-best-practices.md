@@ -1,0 +1,4 @@
+> [!TIP]
+>
+> <span data-ttu-id="5bc6d-101">Se você planeja toouse Olá HTTP ou associações de WebHook, planejar tooavoid esgotamento de porta que pode ser causado por inadequada instanciação de `HttpClient`.</span><span class="sxs-lookup"><span data-stu-id="5bc6d-101">If you plan toouse hello HTTP or WebHook bindings, plan tooavoid port exhaustion that can be caused by improper instantiation of `HttpClient`.</span></span> <span data-ttu-id="5bc6d-102">Para obter mais informações, examine o artigo Olá [antipattern instanciação inadequada](https://docs.microsoft.com/en-us/azure/architecture/antipatterns/improper-instantiation/).</span><span class="sxs-lookup"><span data-stu-id="5bc6d-102">For more information, review hello article [Improper Instantiation antipattern](https://docs.microsoft.com/en-us/azure/architecture/antipatterns/improper-instantiation/).</span></span>
+>

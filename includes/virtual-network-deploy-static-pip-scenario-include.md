@@ -1,0 +1,9 @@
+## <a name="scenario"></a><span data-ttu-id="bdce7-101">Cenário</span><span class="sxs-lookup"><span data-stu-id="bdce7-101">Scenario</span></span>
+<span data-ttu-id="bdce7-102">Este documento vai orientá por meio de uma implantação que usa um endereço IP público estático alocado tooa VM (máquina virtual).</span><span class="sxs-lookup"><span data-stu-id="bdce7-102">This document will walk through a deployment that uses a static public IP address allocated tooa virtual machine (VM).</span></span> <span data-ttu-id="bdce7-103">Nesse cenário, você tem uma única VM com seu próprio endereço IP estático.</span><span class="sxs-lookup"><span data-stu-id="bdce7-103">In this scenario, you have a single VM with its own static public IP address.</span></span> <span data-ttu-id="bdce7-104">Olá VM faz parte de uma sub-rede denominada **front-end** e também tem um endereço IP privado estático (**192.168.1.101**) nessa sub-rede.</span><span class="sxs-lookup"><span data-stu-id="bdce7-104">hello VM is part of a subnet named **FrontEnd** and also has a static private IP address (**192.168.1.101**) in that subnet.</span></span>
+
+<span data-ttu-id="bdce7-105">Talvez seja necessário um endereço IP estático para servidores web que exigirem conexões SSL em qual Olá SSL certificado é vinculado tooan IP endereço.</span><span class="sxs-lookup"><span data-stu-id="bdce7-105">You may need a static IP address for web servers that require SSL connections in which hello SSL certificate is linked tooan IP address.</span></span> 
+
+![DESCRIÇÃO DA IMAGEM](./media/virtual-network-deploy-static-pip-scenario-include/figure1.png)
+
+<span data-ttu-id="bdce7-107">Você pode seguir as etapas de saudação abaixo toodeploy ambiente de saudação mostrado na figura acima a saudação.</span><span class="sxs-lookup"><span data-stu-id="bdce7-107">You can follow hello steps below toodeploy hello environment shown in hello figure above.</span></span>
+

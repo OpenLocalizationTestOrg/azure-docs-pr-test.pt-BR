@@ -1,45 +1,45 @@
-#### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a><span data-ttu-id="9832b-101">Para criar pontos de extremidade públicos no dispositivo de nuvem</span><span class="sxs-lookup"><span data-stu-id="9832b-101">To create public endpoints on the cloud appliance</span></span>
+#### <a name="toocreate-public-endpoints-on-hello-cloud-appliance"></a><span data-ttu-id="a9904-101">pontos de extremidade públicos no dispositivo de nuvem Olá toocreate</span><span class="sxs-lookup"><span data-stu-id="a9904-101">toocreate public endpoints on hello cloud appliance</span></span>
 
-1. <span data-ttu-id="9832b-102">Entre no Portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="9832b-102">Sign in to the Azure portal.</span></span>
-2. <span data-ttu-id="9832b-103">Acesse **Máquinas Virtuais** e selecione a máquina virtual que está sendo usada como seu dispositivo de nuvem.</span><span class="sxs-lookup"><span data-stu-id="9832b-103">Go to **Virtual Machines**, and then select and click the virtual machine that is being used as your cloud appliance.</span></span>
+1. <span data-ttu-id="a9904-102">Entrar toohello portal do Azure.</span><span class="sxs-lookup"><span data-stu-id="a9904-102">Sign in toohello Azure portal.</span></span>
+2. <span data-ttu-id="a9904-103">Vá muito**máquinas virtuais**, selecione e clique em máquina virtual Olá que está sendo usada como o dispositivo de nuvem.</span><span class="sxs-lookup"><span data-stu-id="a9904-103">Go too**Virtual Machines**, and then select and click hello virtual machine that is being used as your cloud appliance.</span></span>
     
-3. <span data-ttu-id="9832b-104">Você precisa criar uma regra de NSG (grupo de segurança de rede) para controlar o fluxo de entrada e saída de tráfego de sua máquina virtual.</span><span class="sxs-lookup"><span data-stu-id="9832b-104">You need to create a network security group (NSG) rule to control the flow of traffic in and out of your virtual machine.</span></span> <span data-ttu-id="9832b-105">Execute as etapas a seguir para criar uma regra de NSG.</span><span class="sxs-lookup"><span data-stu-id="9832b-105">Perform the following steps to create an NSG rule.</span></span>
-    1. <span data-ttu-id="9832b-106">Selecione **Grupo de segurança de rede**.</span><span class="sxs-lookup"><span data-stu-id="9832b-106">Select **Network security group**.</span></span>
+3. <span data-ttu-id="a9904-104">É necessário toocreate um fluxo de saudação rede segurança grupo (NSG) regra toocontrol de tráfego dentro e fora de sua máquina virtual.</span><span class="sxs-lookup"><span data-stu-id="a9904-104">You need toocreate a network security group (NSG) rule toocontrol hello flow of traffic in and out of your virtual machine.</span></span> <span data-ttu-id="a9904-105">Execute Olá seguindo as etapas toocreate uma regra NSG.</span><span class="sxs-lookup"><span data-stu-id="a9904-105">Perform hello following steps toocreate an NSG rule.</span></span>
+    1. <span data-ttu-id="a9904-106">Selecione **Grupo de segurança de rede**.</span><span class="sxs-lookup"><span data-stu-id="a9904-106">Select **Network security group**.</span></span>
         ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt1.png)
 
-    2. <span data-ttu-id="9832b-107">Clique no grupo de segurança de rede padrão apresentado.</span><span class="sxs-lookup"><span data-stu-id="9832b-107">Click the default network security group that is presented.</span></span>
+    2. <span data-ttu-id="a9904-107">Clique em saudação padrão grupo de segurança que é apresentado.</span><span class="sxs-lookup"><span data-stu-id="a9904-107">Click hello default network security group that is presented.</span></span>
         ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt2.png)
 
-    3. <span data-ttu-id="9832b-108">Selecione **Regras de segurança de entrada**.</span><span class="sxs-lookup"><span data-stu-id="9832b-108">Select **Inbound security rules**.</span></span>
+    3. <span data-ttu-id="a9904-108">Selecione **Regras de segurança de entrada**.</span><span class="sxs-lookup"><span data-stu-id="a9904-108">Select **Inbound security rules**.</span></span>
         ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt3.png)
 
-    4. <span data-ttu-id="9832b-109">Clique em **+ Adicionar** para criar uma regra de segurança de entrada.</span><span class="sxs-lookup"><span data-stu-id="9832b-109">Click **+ Add** to create an inbound security rule.</span></span>
+    4. <span data-ttu-id="a9904-109">Clique em **+ adicionar** toocreate uma regra de segurança de entrada.</span><span class="sxs-lookup"><span data-stu-id="a9904-109">Click **+ Add** toocreate an inbound security rule.</span></span>
         ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt4.png)
 
-        <span data-ttu-id="9832b-110">Na folha Adicionar regra de segurança de entrada:</span><span class="sxs-lookup"><span data-stu-id="9832b-110">In the Add inbound security rule blade:</span></span>
+        <span data-ttu-id="a9904-110">Na folha de regra de segurança de entrada do hello adicionar:</span><span class="sxs-lookup"><span data-stu-id="a9904-110">In hello Add inbound security rule blade:</span></span>
 
-        1. <span data-ttu-id="9832b-111">Para o **Nome**, digite o seguinte nome para o ponto de extremidade: WinRMHttps.</span><span class="sxs-lookup"><span data-stu-id="9832b-111">For the **Name**, type the following name for the endpoint: WinRMHttps.</span></span>
+        1. <span data-ttu-id="a9904-111">Para Olá **nome**, digite o seguinte Olá nome para o ponto de extremidade de saudação: WinRMHttps.</span><span class="sxs-lookup"><span data-stu-id="a9904-111">For hello **Name**, type hello following name for hello endpoint: WinRMHttps.</span></span>
         
-        2. <span data-ttu-id="9832b-112">Para a **Prioridade**, selecione um número menor do que 1000 (que é a prioridade para a regra padrão).</span><span class="sxs-lookup"><span data-stu-id="9832b-112">For the **Priority**, select a number lesser than 1000 (which is the priority for the default rule).</span></span> <span data-ttu-id="9832b-113">Quanto maior o valor, menor a prioridade.</span><span class="sxs-lookup"><span data-stu-id="9832b-113">Higher the value, lower the priority.</span></span>
+        2. <span data-ttu-id="a9904-112">Para Olá **prioridade**, selecione um número menor que 1000 (que é a prioridade de saudação de regra padrão de saudação).</span><span class="sxs-lookup"><span data-stu-id="a9904-112">For hello **Priority**, select a number lesser than 1000 (which is hello priority for hello default rule).</span></span> <span data-ttu-id="a9904-113">Valor mais alto do hello, prioridade inferior a saudação.</span><span class="sxs-lookup"><span data-stu-id="a9904-113">Higher hello value, lower hello priority.</span></span>
 
-        3. <span data-ttu-id="9832b-114">Defina **Fonte** como **Qualquer**.</span><span class="sxs-lookup"><span data-stu-id="9832b-114">Set the **Source** to **Any**.</span></span>
+        3. <span data-ttu-id="a9904-114">Saudação de conjunto **fonte** muito**qualquer**.</span><span class="sxs-lookup"><span data-stu-id="a9904-114">Set hello **Source** too**Any**.</span></span>
 
-        4. <span data-ttu-id="9832b-115">Para **Serviço**, selecione **WinRM**.</span><span class="sxs-lookup"><span data-stu-id="9832b-115">For the **Service**, select **WinRM**.</span></span> <span data-ttu-id="9832b-116">O **Protocolo** é definido automaticamente como **TCP**, e **Intervalo de portas** é definido como **5986**.</span><span class="sxs-lookup"><span data-stu-id="9832b-116">The **Protocol** is automatically set to **TCP** and the **Port range** is set to **5986**.</span></span>
+        4. <span data-ttu-id="a9904-115">Para Olá **Service**, selecione **WinRM**.</span><span class="sxs-lookup"><span data-stu-id="a9904-115">For hello **Service**, select **WinRM**.</span></span> <span data-ttu-id="a9904-116">Olá **protocolo** é definida automaticamente muito**TCP** e hello **intervalo de portas** está definido muito**5986**.</span><span class="sxs-lookup"><span data-stu-id="a9904-116">hello **Protocol** is automatically set too**TCP** and hello **Port range** is set too**5986**.</span></span>
 
-        5. <span data-ttu-id="9832b-117">Clique em **OK** para criar a regra.</span><span class="sxs-lookup"><span data-stu-id="9832b-117">Click **OK** to create the rule.</span></span>
+        5. <span data-ttu-id="a9904-117">Clique em **Okey** toocreate regra de saudação.</span><span class="sxs-lookup"><span data-stu-id="a9904-117">Click **OK** toocreate hello rule.</span></span>
 
             ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt5.png)
 
-4. <span data-ttu-id="9832b-118">A etapa final é associar o grupo de segurança de rede com uma sub-rede ou uma interface de rede específica.</span><span class="sxs-lookup"><span data-stu-id="9832b-118">Your final step is to associate your network security group with a subnet or a specific network interface.</span></span> <span data-ttu-id="9832b-119">Execute as seguintes etapas para associar o grupo de segurança de rede a uma sub-rede.</span><span class="sxs-lookup"><span data-stu-id="9832b-119">Perform the following steps to associate your network security group with a subnet.</span></span>
-    1. <span data-ttu-id="9832b-120">Acesse **Sub-redes**.</span><span class="sxs-lookup"><span data-stu-id="9832b-120">Go to **Subnets**.</span></span>
-    2. <span data-ttu-id="9832b-121">Clique em **+ Associar**.</span><span class="sxs-lookup"><span data-stu-id="9832b-121">Click **+ Associate**.</span></span>
+4. <span data-ttu-id="a9904-118">A etapa final é tooassociate ao grupo de segurança da sua rede com uma sub-rede ou uma interface de rede específico.</span><span class="sxs-lookup"><span data-stu-id="a9904-118">Your final step is tooassociate your network security group with a subnet or a specific network interface.</span></span> <span data-ttu-id="a9904-119">Execute Olá tooassociate as etapas a seguir em seu grupo de segurança de rede com uma sub-rede.</span><span class="sxs-lookup"><span data-stu-id="a9904-119">Perform hello following steps tooassociate your network security group with a subnet.</span></span>
+    1. <span data-ttu-id="a9904-120">Vá muito**sub-redes**.</span><span class="sxs-lookup"><span data-stu-id="a9904-120">Go too**Subnets**.</span></span>
+    2. <span data-ttu-id="a9904-121">Clique em **+ Associar**.</span><span class="sxs-lookup"><span data-stu-id="a9904-121">Click **+ Associate**.</span></span>
         ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt7.png)
 
-    3. <span data-ttu-id="9832b-122">Selecione sua rede virtual e selecione a sub-rede apropriada.</span><span class="sxs-lookup"><span data-stu-id="9832b-122">Select your virtual network, and then select the appropriate subnet.</span></span>
-    4. <span data-ttu-id="9832b-123">Clique em **OK** para criar a regra.</span><span class="sxs-lookup"><span data-stu-id="9832b-123">Click **OK** to create the rule.</span></span>
+    3. <span data-ttu-id="a9904-122">Selecione a rede virtual e selecione sub-rede apropriada hello.</span><span class="sxs-lookup"><span data-stu-id="a9904-122">Select your virtual network, and then select hello appropriate subnet.</span></span>
+    4. <span data-ttu-id="a9904-123">Clique em **Okey** toocreate regra de saudação.</span><span class="sxs-lookup"><span data-stu-id="a9904-123">Click **OK** toocreate hello rule.</span></span>
 
         ![](./media/storsimple-8000-create-public-endpoints-cloud-appliance/sca-create-public-endpt11.png)
 
-<span data-ttu-id="9832b-124">Após a criação da regra, você poderá exibir seus detalhes para determinar o endereço VIP (IP Virtual Público).</span><span class="sxs-lookup"><span data-stu-id="9832b-124">After the rule is created, you can view its details to determine the Public Virtual IP (VIP) address.</span></span> <span data-ttu-id="9832b-125">Registre esse endereço.</span><span class="sxs-lookup"><span data-stu-id="9832b-125">Record this address.</span></span>
+<span data-ttu-id="a9904-124">Depois Olá regra for criada, você pode exibir seu endereço de IP Virtual público (VIP) detalhes toodetermine hello.</span><span class="sxs-lookup"><span data-stu-id="a9904-124">After hello rule is created, you can view its details toodetermine hello Public Virtual IP (VIP) address.</span></span> <span data-ttu-id="a9904-125">Registre esse endereço.</span><span class="sxs-lookup"><span data-stu-id="a9904-125">Record this address.</span></span>
 
 

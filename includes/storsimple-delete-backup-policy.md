@@ -1,0 +1,10 @@
+
+<!--author=SharS last changed: 11/06/15-->
+
+#### <a name="toodelete-a-storsimple-backup-policy"></a><span data-ttu-id="247b1-101">toodelete uma política de backup do StorSimple</span><span class="sxs-lookup"><span data-stu-id="247b1-101">toodelete a StorSimple backup policy</span></span>
+1. <span data-ttu-id="247b1-102">No dispositivo Olá **início rápido** , clique em Olá **políticas de Backup** guia. Isso o levará toohello **políticas de Backup** página.</span><span class="sxs-lookup"><span data-stu-id="247b1-102">On hello device **Quick Start** page, click hello **Backup Policies** tab. This will take you toohello **Backup Policies** page.</span></span>
+2. <span data-ttu-id="247b1-103">Selecione a política de saudação clicando em qualquer lugar na linha de saudação correspondente, exceto a primeira coluna de saudação e, em seguida, clique em **excluir** final Olá Olá página.</span><span class="sxs-lookup"><span data-stu-id="247b1-103">Select hello policy by clicking anywhere in hello corresponding row except for hello first column, and then click **Delete** at hello bottom of hello page.</span></span>
+3. <span data-ttu-id="247b1-104">Será solicitada a sua confirmação.</span><span class="sxs-lookup"><span data-stu-id="247b1-104">You will be prompted for confirmation.</span></span> <span data-ttu-id="247b1-105">Tenha em mente que a exclusão de uma política de backup excluirá Olá todos os backups associados.</span><span class="sxs-lookup"><span data-stu-id="247b1-105">Keep in mind that deleting a backup policy will delete all hello associated backups.</span></span> <span data-ttu-id="247b1-106">Clique em **Sim** toodelete.</span><span class="sxs-lookup"><span data-stu-id="247b1-106">Click **Yes** toodelete.</span></span>
+
+<span data-ttu-id="247b1-107">Olá **políticas de Backup** página será atualizada toodisplay Olá nova lista de políticas.</span><span class="sxs-lookup"><span data-stu-id="247b1-107">hello **Backup Policies** page will be updated toodisplay hello new list of policies.</span></span>
+

@@ -1,0 +1,4 @@
+<span data-ttu-id="508ab-101">tooenable porta não SSL Olá [procurar](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) tooyour cache Olá [portal do Azure](https://portal.azure.com) e clique em **configurações avançadas**.</span><span class="sxs-lookup"><span data-stu-id="508ab-101">tooenable hello non-SSL port, [browse](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) tooyour cache in hello [Azure portal](https://portal.azure.com) and click **Advanced settings**.</span></span> <span data-ttu-id="508ab-102">Clique em **não** para **permitir acesso somente via SSL** em Olá **configurações avançadas** folha e depois clique em **salvar**.</span><span class="sxs-lookup"><span data-stu-id="508ab-102">Click **No** for **Allow access only via SSL** on hello **Advanced settings** blade and then click **Save**.</span></span>
+
+![Configurações de Cache Redis](media/redis-cache-non-ssl-port/redis-cache-non-ssl-port.png)
+

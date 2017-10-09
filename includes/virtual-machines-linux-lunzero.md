@@ -1,0 +1,21 @@
+<span data-ttu-id="d96cb-101">Ao adicionar discos de dados tooa VM do Linux, você poderá encontrar erros se um disco não existe no LUN 0.</span><span class="sxs-lookup"><span data-stu-id="d96cb-101">When adding data disks tooa Linux VM, you may encounter errors if a disk does not exist at LUN 0.</span></span> <span data-ttu-id="d96cb-102">Se você estiver adicionando um disco manualmente usando Olá `azure vm disk attach-new` comando e especificar um LUN (`--lun`) em vez de permitir Olá toodetermine da plataforma Windows Azure Olá LUN apropriado, lembre-se que um disco já existe / existirão no LUN 0.</span><span class="sxs-lookup"><span data-stu-id="d96cb-102">If you are adding a disk manually using hello `azure vm disk attach-new` command and you specify a LUN (`--lun`) rather than allowing hello Azure platform toodetermine hello appropriate LUN, take care that a disk already exists / will exist at LUN 0.</span></span> 
+
+<span data-ttu-id="d96cb-103">Considere Olá seguinte exemplo mostra um trecho de código de saída de saudação do `lsscsi`:</span><span class="sxs-lookup"><span data-stu-id="d96cb-103">Consider hello following example showing a snippet of hello output from `lsscsi`:</span></span>
+
+```bash
+[5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc 
+[5:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdd 
+```
+
+<span data-ttu-id="d96cb-104">discos de dados Olá dois existem na LUN 0 e 1 de LUN (primeira coluna Olá Olá `lsscsi` detalhes de saída `[host:channel:target:lun]`).</span><span class="sxs-lookup"><span data-stu-id="d96cb-104">hello two data disks exist at LUN 0 and LUN 1 (hello first column in hello `lsscsi` output details `[host:channel:target:lun]`).</span></span> <span data-ttu-id="d96cb-105">Ambos os discos devem ser accessbile de dentro de saudação VM.</span><span class="sxs-lookup"><span data-stu-id="d96cb-105">Both disks should be accessbile from within hello VM.</span></span> <span data-ttu-id="d96cb-106">Se manualmente especificadas Olá primeiro disco toobe adicionado no LUN 1 e o segundo disco Olá em LUN 2, você poderá consultar não discos Olá corretamente a partir de sua VM.</span><span class="sxs-lookup"><span data-stu-id="d96cb-106">If you had manually specified hello first disk toobe added at LUN 1 and hello second disk at LUN 2, you may not see hello disks correctly from within your VM.</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="d96cb-107">Hello Azure `host` valor seja 5 nestes exemplos, mas isso pode variar dependendo do tipo de saudação de armazenamento que você selecionar.</span><span class="sxs-lookup"><span data-stu-id="d96cb-107">hello Azure `host` value is 5 in these examples, but this may vary depending on hello type of storage you select.</span></span>
+> 
+> 
+
+<span data-ttu-id="d96cb-108">Esse comportamento de disco não é um problema do Azure, mas a maneira Olá quais Olá Linux kernel segue as especificações de SCSI hello.</span><span class="sxs-lookup"><span data-stu-id="d96cb-108">This disk behavior is not an Azure problem, but hello way in which hello Linux kernel follows hello SCSI specifications.</span></span> <span data-ttu-id="d96cb-109">Quando o kernel do Linux Olá examina o barramento SCSI de saudação para dispositivos conectados, um dispositivo deve ser encontrado em LUN 0 para que Olá sistema toocontinue verificação de dispositivos adicionais.</span><span class="sxs-lookup"><span data-stu-id="d96cb-109">When hello Linux kernel scans hello SCSI bus for attached devices, a device must be found at LUN 0 in order for hello system toocontinue scanning for additional devices.</span></span> <span data-ttu-id="d96cb-110">Assim:</span><span class="sxs-lookup"><span data-stu-id="d96cb-110">As such:</span></span>
+
+* <span data-ttu-id="d96cb-111">Examine a saída de saudação do `lsscsi` depois de adicionar um tooverify de disco de dados que você tenha um disco na LUN 0.</span><span class="sxs-lookup"><span data-stu-id="d96cb-111">Review hello output of `lsscsi` after adding a data disk tooverify that you have a disk at LUN 0.</span></span>
+* <span data-ttu-id="d96cb-112">Se o disco não aparecer corretamente para a VM, verifique se existe um disco no LUN 0.</span><span class="sxs-lookup"><span data-stu-id="d96cb-112">If your disk does not show up correctly within your VM, verify a disk exists at LUN 0.</span></span>
+

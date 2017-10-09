@@ -1,6 +1,6 @@
 ---
-title: "Criar uma máquina virtual com um endereço IP público estático - 1.0 da CLI do Azure | Microsoft Docs"
-description: "Saiba como criar uma VM com um endereço IP público estático usando a CLI (interface de linha de comando) do Azure 1.0."
+title: "aaaCreate uma VM com um endereço IP público estático - 1.0 da CLI do Azure | Microsoft Docs"
+description: "Saiba como toocreate uma VM com um estático público endereço IP usando hello Azure interface de linha de comando (CLI) 1.0."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,40 +16,40 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a373c32271096308678fe3402e8420cc14fe5935
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3ee906b65735830757b455df00f9f8d4373be3dd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-10"></a><span data-ttu-id="429d3-103">Criar uma VM com um IP público estático usando a CLI do Azure 1.0</span><span class="sxs-lookup"><span data-stu-id="429d3-103">Create a VM with a static public IP address using the Azure CLI 1.0</span></span>
+# <a name="create-a-vm-with-a-static-public-ip-address-using-hello-azure-cli-10"></a><span data-ttu-id="6b8fa-103">Criar uma VM com um endereço IP público estático usando Olá 1.0 da CLI do Azure</span><span class="sxs-lookup"><span data-stu-id="6b8fa-103">Create a VM with a static public IP address using hello Azure CLI 1.0</span></span>
 
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="429d3-104">Portal do Azure</span><span class="sxs-lookup"><span data-stu-id="429d3-104">Azure portal</span></span>](virtual-network-deploy-static-pip-arm-portal.md)
-> * [<span data-ttu-id="429d3-105">PowerShell</span><span class="sxs-lookup"><span data-stu-id="429d3-105">PowerShell</span></span>](virtual-network-deploy-static-pip-arm-ps.md)
-> * [<span data-ttu-id="429d3-106">CLI 2.0 do Azure</span><span class="sxs-lookup"><span data-stu-id="429d3-106">Azure CLI 2.0</span></span>](virtual-network-deploy-static-pip-arm-cli.md)
-> * [<span data-ttu-id="429d3-107">CLI 1.0 do Azure</span><span class="sxs-lookup"><span data-stu-id="429d3-107">Azure CLI 1.0</span></span>](virtual-network-deploy-static-pip-cli-nodejs.md)
-> * [<span data-ttu-id="429d3-108">Modelo</span><span class="sxs-lookup"><span data-stu-id="429d3-108">Template</span></span>](virtual-network-deploy-static-pip-arm-template.md)
-> * [<span data-ttu-id="429d3-109">PowerShell (Clássico)</span><span class="sxs-lookup"><span data-stu-id="429d3-109">PowerShell (Classic)</span></span>](virtual-networks-reserved-public-ip.md)
+> * [<span data-ttu-id="6b8fa-104">Portal do Azure</span><span class="sxs-lookup"><span data-stu-id="6b8fa-104">Azure portal</span></span>](virtual-network-deploy-static-pip-arm-portal.md)
+> * [<span data-ttu-id="6b8fa-105">PowerShell</span><span class="sxs-lookup"><span data-stu-id="6b8fa-105">PowerShell</span></span>](virtual-network-deploy-static-pip-arm-ps.md)
+> * [<span data-ttu-id="6b8fa-106">CLI 2.0 do Azure</span><span class="sxs-lookup"><span data-stu-id="6b8fa-106">Azure CLI 2.0</span></span>](virtual-network-deploy-static-pip-arm-cli.md)
+> * [<span data-ttu-id="6b8fa-107">CLI 1.0 do Azure</span><span class="sxs-lookup"><span data-stu-id="6b8fa-107">Azure CLI 1.0</span></span>](virtual-network-deploy-static-pip-cli-nodejs.md)
+> * [<span data-ttu-id="6b8fa-108">Modelo</span><span class="sxs-lookup"><span data-stu-id="6b8fa-108">Template</span></span>](virtual-network-deploy-static-pip-arm-template.md)
+> * [<span data-ttu-id="6b8fa-109">PowerShell (Clássico)</span><span class="sxs-lookup"><span data-stu-id="6b8fa-109">PowerShell (Classic)</span></span>](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
 > [!NOTE]
-> <span data-ttu-id="429d3-110">O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="429d3-110">Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md).</span></span> <span data-ttu-id="429d3-111">Este artigo aborda usando o modelo de implantação do Gerenciador de Recursos, que a Microsoft recomenda para a maioria das novas implantações em vez de do modelo de implantação clássico.</span><span class="sxs-lookup"><span data-stu-id="429d3-111">This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the classic deployment model.</span></span>
+> <span data-ttu-id="6b8fa-110">O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="6b8fa-110">Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md).</span></span> <span data-ttu-id="6b8fa-111">Este artigo aborda usando o modelo de implantação do hello Gerenciador de recursos, a Microsoft recomenda para a maioria das novas implantações em vez do modelo de implantação clássico hello.</span><span class="sxs-lookup"><span data-stu-id="6b8fa-111">This article covers using hello Resource Manager deployment model, which Microsoft recommends for most new deployments instead of hello classic deployment model.</span></span>
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-<span data-ttu-id="429d3-112">Você pode concluir esta tarefa usando a CLI do Azure 1.0 (este artigo) ou a [CLI do Azure 2.0](virtual-network-deploy-static-pip-arm-cli.md).</span><span class="sxs-lookup"><span data-stu-id="429d3-112">You can complete this task using the Azure CLI 1.0 (this article) or the [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md).</span></span> 
+<span data-ttu-id="6b8fa-112">Você pode concluir essa tarefa usando Olá CLI do Azure 1.0 (Este artigo) ou hello [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md).</span><span class="sxs-lookup"><span data-stu-id="6b8fa-112">You can complete this task using hello Azure CLI 1.0 (this article) or hello [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md).</span></span> 
 
-## <span data-ttu-id="429d3-113"><a name = "create"></a>Etapa 1 – Iniciar o script</span><span class="sxs-lookup"><span data-stu-id="429d3-113"><a name = "create"></a>Step 1 - Start your script</span></span>
-<span data-ttu-id="429d3-114">Você pode baixar o script bash completo usado [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh).</span><span class="sxs-lookup"><span data-stu-id="429d3-114">You can download the full bash script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh).</span></span> <span data-ttu-id="429d3-115">Realize as seguintes etapas para alterar o script para funcionar em seu ambiente:</span><span class="sxs-lookup"><span data-stu-id="429d3-115">Complete the following steps to change the script to work in your environment:</span></span>
+## <span data-ttu-id="6b8fa-113"><a name = "create"></a>Etapa 1 – Iniciar o script</span><span class="sxs-lookup"><span data-stu-id="6b8fa-113"><a name = "create"></a>Step 1 - Start your script</span></span>
+<span data-ttu-id="6b8fa-114">Você pode baixar o script de bash completo Olá usado [aqui](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh).</span><span class="sxs-lookup"><span data-stu-id="6b8fa-114">You can download hello full bash script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh).</span></span> <span data-ttu-id="6b8fa-115">Olá concluir etapas toochange Olá script toowork em seu ambiente a seguir:</span><span class="sxs-lookup"><span data-stu-id="6b8fa-115">Complete hello following steps toochange hello script toowork in your environment:</span></span>
 
-<span data-ttu-id="429d3-116">Altere os valores das variáveis a seguir de acordo com os valores que deseja usar para sua implantação.</span><span class="sxs-lookup"><span data-stu-id="429d3-116">Change the values of the variables below based on the values you want to use for your deployment.</span></span> <span data-ttu-id="429d3-117">Os seguintes valores são mapeados para o cenário usado neste artigo:</span><span class="sxs-lookup"><span data-stu-id="429d3-117">The following values map to the scenario used in this article:</span></span>
+<span data-ttu-id="6b8fa-116">Alterar Olá valores de variáveis de saudação abaixo com base nos valores hello, você deseja toouse para sua implantação.</span><span class="sxs-lookup"><span data-stu-id="6b8fa-116">Change hello values of hello variables below based on hello values you want toouse for your deployment.</span></span> <span data-ttu-id="6b8fa-117">Olá seguindo o cenário de toohello de mapa de valores usado neste artigo:</span><span class="sxs-lookup"><span data-stu-id="6b8fa-117">hello following values map toohello scenario used in this article:</span></span>
 
 ```azurecli
-# Set variables for the new resource group
+# Set variables for hello new resource group
 rgName="IaaSStory"
 location="westus"
 
@@ -79,16 +79,16 @@ pipName="PIPWEB1"
 dnsName="iaasstoryws1"
 ```
 
-## <a name="step-2---create-the-necessary-resources-for-your-vm"></a><span data-ttu-id="429d3-118">Etapa 2: criar os recursos necessários para sua VM</span><span class="sxs-lookup"><span data-stu-id="429d3-118">Step 2 - Create the necessary resources for your VM</span></span>
-<span data-ttu-id="429d3-119">Antes de criar uma máquina virtual, você precisa de um grupo de recursos, rede virtual, IP público e NIC a serem usados pela VM.</span><span class="sxs-lookup"><span data-stu-id="429d3-119">Before creating a VM, you need a resource group, VNet, public IP, and NIC to be used by the VM.</span></span>
+## <a name="step-2---create-hello-necessary-resources-for-your-vm"></a><span data-ttu-id="6b8fa-118">Etapa 2: criar hello recursos necessários para sua VM</span><span class="sxs-lookup"><span data-stu-id="6b8fa-118">Step 2 - Create hello necessary resources for your VM</span></span>
+<span data-ttu-id="6b8fa-119">Antes de criar uma máquina virtual, você precisa de um grupo de recursos, redes, pública IP e NIC toobe usado pelo Olá VM.</span><span class="sxs-lookup"><span data-stu-id="6b8fa-119">Before creating a VM, you need a resource group, VNet, public IP, and NIC toobe used by hello VM.</span></span>
 
-1. <span data-ttu-id="429d3-120">Criar um novo grupo de recursos.</span><span class="sxs-lookup"><span data-stu-id="429d3-120">Create a new resource group.</span></span>
+1. <span data-ttu-id="6b8fa-120">Crie um novo grupo de recursos.</span><span class="sxs-lookup"><span data-stu-id="6b8fa-120">Create a new resource group.</span></span>
 
     ```azurecli
     azure group create $rgName $location
     ```
 
-2. <span data-ttu-id="429d3-121">Crie a Rede Virtual e sub-rede.</span><span class="sxs-lookup"><span data-stu-id="429d3-121">Create the VNet and subnet.</span></span>
+2. <span data-ttu-id="6b8fa-121">Criar Olá a rede virtual e sub-rede.</span><span class="sxs-lookup"><span data-stu-id="6b8fa-121">Create hello VNet and subnet.</span></span>
 
     ```azurecli
     azure network vnet create --resource-group $rgName \
@@ -101,7 +101,7 @@ dnsName="iaasstoryws1"
         --address-prefix $subnetPrefix
     ```
 
-3. <span data-ttu-id="429d3-122">Crie o recurso de IP público.</span><span class="sxs-lookup"><span data-stu-id="429d3-122">Create the public IP resource.</span></span>
+3. <span data-ttu-id="6b8fa-122">Crie recurso IP público de saudação.</span><span class="sxs-lookup"><span data-stu-id="6b8fa-122">Create hello public IP resource.</span></span>
 
     ```azurecli
     azure network public-ip create --resource-group $rgName \
@@ -111,7 +111,7 @@ dnsName="iaasstoryws1"
         --domain-name-label $dnsName
     ```
 
-4. <span data-ttu-id="429d3-123">Crie a NIC (placa de interface de rede) para a VM na sub-rede criada acima, com o IP público.</span><span class="sxs-lookup"><span data-stu-id="429d3-123">Create the network interface (NIC) for the VM in the subnet created above, with the public IP.</span></span> <span data-ttu-id="429d3-124">Observe que o primeiro conjunto de comandos são usados para recuperar a **Id** da sub-rede criada acima.</span><span class="sxs-lookup"><span data-stu-id="429d3-124">Notice the first set of commands are used to retrieve the **Id** of the subnet created above.</span></span>
+4. <span data-ttu-id="6b8fa-123">Crie interface de rede (NIC) do hello para Olá VM na sub-rede Olá criado acima, com o IP público hello.</span><span class="sxs-lookup"><span data-stu-id="6b8fa-123">Create hello network interface (NIC) for hello VM in hello subnet created above, with hello public IP.</span></span> <span data-ttu-id="6b8fa-124">Aviso Olá primeiro conjunto de comandos são usados tooretrieve Olá **Id** da sub-rede Olá criado acima.</span><span class="sxs-lookup"><span data-stu-id="6b8fa-124">Notice hello first set of commands are used tooretrieve hello **Id** of hello subnet created above.</span></span>
 
     ```azurecli
     subnetId="$(azure network vnet subnet show --resource-group $rgName \
@@ -129,10 +129,10 @@ dnsName="iaasstoryws1"
     ```
 
    > [!TIP]
-   > <span data-ttu-id="429d3-125">O primeiro comando acima usa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) e [manipulação de cadeia de caracteres](http://tldp.org/LDP/abs/html/string-manipulation.html) (mais especificamente, a remoção de subcadeia de caracteres).</span><span class="sxs-lookup"><span data-stu-id="429d3-125">The first command above uses [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) and [string manipulation](http://tldp.org/LDP/abs/html/string-manipulation.html) (more specifically, substring removal).</span></span>
+   > <span data-ttu-id="6b8fa-125">Olá primeiro comando acima usa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) e [manipulação de cadeia de caracteres](http://tldp.org/LDP/abs/html/string-manipulation.html) (mais especificamente, a remoção de subcadeia de caracteres).</span><span class="sxs-lookup"><span data-stu-id="6b8fa-125">hello first command above uses [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) and [string manipulation](http://tldp.org/LDP/abs/html/string-manipulation.html) (more specifically, substring removal).</span></span>
    >
 
-5. <span data-ttu-id="429d3-126">Crie uma conta de armazenamento para hospedar a unidade do SO da VM.</span><span class="sxs-lookup"><span data-stu-id="429d3-126">Create a storage account to host the VM OS drive.</span></span>
+5. <span data-ttu-id="6b8fa-126">Crie uma saudação de toohost de conta de armazenamento unidade do sistema operacional da VM.</span><span class="sxs-lookup"><span data-stu-id="6b8fa-126">Create a storage account toohost hello VM OS drive.</span></span>
 
     ```azurecli
     azure storage account create $stdStorageAccountName \
@@ -140,10 +140,10 @@ dnsName="iaasstoryws1"
         --location $location --type LRS
     ```
 
-## <a name="step-3---create-the-vm"></a><span data-ttu-id="429d3-127">Etapa 3: criar a VM</span><span class="sxs-lookup"><span data-stu-id="429d3-127">Step 3 - Create the VM</span></span>
-<span data-ttu-id="429d3-128">Agora que todos os recursos necessários estão prontos, você pode criar uma nova VM.</span><span class="sxs-lookup"><span data-stu-id="429d3-128">Now that all necessary resources are in place, you can create a new VM.</span></span>
+## <a name="step-3---create-hello-vm"></a><span data-ttu-id="6b8fa-127">Etapa 3 – crie Olá VM</span><span class="sxs-lookup"><span data-stu-id="6b8fa-127">Step 3 - Create hello VM</span></span>
+<span data-ttu-id="6b8fa-128">Agora que todos os recursos necessários estão prontos, você pode criar uma nova VM.</span><span class="sxs-lookup"><span data-stu-id="6b8fa-128">Now that all necessary resources are in place, you can create a new VM.</span></span>
 
-1. <span data-ttu-id="429d3-129">Crie a VM.</span><span class="sxs-lookup"><span data-stu-id="429d3-129">Create the VM.</span></span>
+1. <span data-ttu-id="6b8fa-129">Crie hello VM.</span><span class="sxs-lookup"><span data-stu-id="6b8fa-129">Create hello VM.</span></span>
 
     ```azurecli
     azure vm create --resource-group $rgName \
@@ -160,18 +160,18 @@ dnsName="iaasstoryws1"
         --admin-username $username \
         --admin-password $password
     ```
-2. <span data-ttu-id="429d3-130">Salve o arquivo de script.</span><span class="sxs-lookup"><span data-stu-id="429d3-130">Save the script file.</span></span>
+2. <span data-ttu-id="6b8fa-130">Salve o arquivo de script hello.</span><span class="sxs-lookup"><span data-stu-id="6b8fa-130">Save hello script file.</span></span>
 
-## <a name="step-4---run-the-script"></a><span data-ttu-id="429d3-131">Etapa 4 – Executar o script</span><span class="sxs-lookup"><span data-stu-id="429d3-131">Step 4 - Run the script</span></span>
-<span data-ttu-id="429d3-132">Depois de fazer quaisquer alterações necessárias e de compreender o script mostrado acima, execute o script.</span><span class="sxs-lookup"><span data-stu-id="429d3-132">After making any necessary changes, and understanding the script show above, run the script.</span></span>
+## <a name="step-4---run-hello-script"></a><span data-ttu-id="6b8fa-131">Etapa 4: executar o script de saudação</span><span class="sxs-lookup"><span data-stu-id="6b8fa-131">Step 4 - Run hello script</span></span>
+<span data-ttu-id="6b8fa-132">Depois de fazer as alterações necessárias e Noções básicas sobre o script hello Mostrar acima, execute o script hello.</span><span class="sxs-lookup"><span data-stu-id="6b8fa-132">After making any necessary changes, and understanding hello script show above, run hello script.</span></span>
 
-1. <span data-ttu-id="429d3-133">Em um console do bash, execute o script acima.</span><span class="sxs-lookup"><span data-stu-id="429d3-133">From a bash console, run the script above.</span></span>
+1. <span data-ttu-id="6b8fa-133">Em um console bash, execute o script de saudação acima.</span><span class="sxs-lookup"><span data-stu-id="6b8fa-133">From a bash console, run hello script above.</span></span>
 
     ```azurecli
     sh myscript.sh
     ```
 
-2. <span data-ttu-id="429d3-134">A saída abaixo deve ser exibida após alguns minutos.</span><span class="sxs-lookup"><span data-stu-id="429d3-134">The output below should be displayed after a few minutes.</span></span>
+2. <span data-ttu-id="6b8fa-134">saída de Hello abaixo deve ser exibida após alguns minutos.</span><span class="sxs-lookup"><span data-stu-id="6b8fa-134">hello output below should be displayed after a few minutes.</span></span>
 
         info:    Executing command group create
         info:    Getting resource group IaaSStory
@@ -197,9 +197,9 @@ dnsName="iaasstoryws1"
         data:      192.168.0.0/16
         info:    network vnet create command OK
         info:    Executing command network vnet subnet create
-        info:    Looking up the subnet "FrontEnd"
+        info:    Looking up hello subnet "FrontEnd"
         info:    Creating subnet "FrontEnd"
-        info:    Looking up the subnet "FrontEnd"
+        info:    Looking up hello subnet "FrontEnd"
         data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
         data:    Type                            : Microsoft.Network/virtualNetworks/subnets
         data:    ProvisioningState               : Succeeded
@@ -208,9 +208,9 @@ dnsName="iaasstoryws1"
         data:
         info:    network vnet subnet create command OK
         info:    Executing command network public-ip create
-        info:    Looking up the public ip "PIPWEB1"
+        info:    Looking up hello public ip "PIPWEB1"
         info:    Creating public ip address "PIPWEB1"
-        info:    Looking up the public ip "PIPWEB1"
+        info:    Looking up hello public ip "PIPWEB1"
         data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/publicIPAddresses/PIPWEB1
         data:    Name                            : PIPWEB1
         data:    Type                            : Microsoft.Network/publicIPAddresses
@@ -223,10 +223,10 @@ dnsName="iaasstoryws1"
         data:    FQDN                            : iaasstoryws1.westus.cloudapp.azure.com
         info:    network public-ip create command OK
         info:    Executing command network nic create
-        info:    Looking up the network interface "NICWEB1"
-        info:    Looking up the public ip "PIPWEB1"
+        info:    Looking up hello network interface "NICWEB1"
+        info:    Looking up hello public ip "PIPWEB1"
         info:    Creating network interface "NICWEB1"
-        info:    Looking up the network interface "NICWEB1"
+        info:    Looking up hello network interface "NICWEB1"
         data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/networkInterfaces/NICWEB1
         data:    Name                            : NICWEB1
         data:    Type                            : Microsoft.Network/networkInterfaces
@@ -246,10 +246,10 @@ dnsName="iaasstoryws1"
         info:    Creating storage account
         info:    storage account create command OK
         info:    Executing command vm create
-        info:    Looking up the VM "WEB1"
-        info:    Using the VM Size "Standard_A1"
-        info:    The [OS, Data] Disk or image configuration requires storage account
-        info:    Looking up the storage account iaasstorystorage
-        info:    Looking up the NIC "NICWEB1"
+        info:    Looking up hello VM "WEB1"
+        info:    Using hello VM Size "Standard_A1"
+        info:    hello [OS, Data] Disk or image configuration requires storage account
+        info:    Looking up hello storage account iaasstorystorage
+        info:    Looking up hello NIC "NICWEB1"
         info:    Creating VM "WEB1"
         info:    vm create command OK

@@ -1,0 +1,12 @@
+> [!IMPORTANT] 
+> <span data-ttu-id="3545e-101">A partir de 1 de março de 2017, você não pode criar novos circuitos de rota expressa no modelo de implantação clássico hello.</span><span class="sxs-lookup"><span data-stu-id="3545e-101">As of March 1, 2017, you can't create new ExpressRoute circuits in hello classic deployment model.</span></span>
+> 
+> - <span data-ttu-id="3545e-102">Você pode mover um circuito de rota expressa existente do modelo de implantação do Gerenciador de recursos de toohello do hello implantação clássica modelo sem se deparar com conectividade de qualquer tempo de inatividade.</span><span class="sxs-lookup"><span data-stu-id="3545e-102">You can move an existing ExpressRoute circuit from hello classic deployment model toohello Resource Manager deployment model without experiencing any connectivity down time.</span></span> <span data-ttu-id="3545e-103">Para saber mais, veja [Mover um circuito existente](../articles/expressroute/expressroute-move.md).</span><span class="sxs-lookup"><span data-stu-id="3545e-103">For more information, see [Move an existing circuit](../articles/expressroute/expressroute-move.md).</span></span>
+> - <span data-ttu-id="3545e-104">Você pode se conectar a redes de toovirtual no modelo de implantação clássico Olá definindo **allowClassicOperations** tooTRUE.</span><span class="sxs-lookup"><span data-stu-id="3545e-104">You can connect toovirtual networks in hello classic deployment model by setting **allowClassicOperations** tooTRUE.</span></span>
+> 
+> <span data-ttu-id="3545e-105">Use Olá toocreate links a seguir e gerenciar circuitos do ExpressRoute no modelo de implantação do Gerenciador de recursos de saudação:</span><span class="sxs-lookup"><span data-stu-id="3545e-105">Use hello following links toocreate and manage ExpressRoute circuits in hello Resource Manager deployment model:</span></span>
+
+> - [<span data-ttu-id="3545e-106">Criar e gerenciar circuitos de ExpressRoute</span><span class="sxs-lookup"><span data-stu-id="3545e-106">Create and manage ExpressRoute circuits</span></span>](../articles/expressroute/expressroute-howto-circuit-portal-resource-manager.md)<br>
+> - [<span data-ttu-id="3545e-107">Configurar o roteamento (emparelhamento) para circuitos ExpressRoute</span><span class="sxs-lookup"><span data-stu-id="3545e-107">Configure routing (peering) for ExpressRoute circuits</span></span>](../articles/expressroute/expressroute-howto-routing-portal-resource-manager.md)
+>
+>

@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> <span data-ttu-id="4565b-101">Antes de trabalhar com recursos do Azure, se familiarizar com os modelos de implantação Olá: [Gerenciador de recursos e clássico](../articles/azure-resource-manager/resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="4565b-101">Before you work with Azure resources, get familiar with hello deployment models: [Resource Manager, and classic](../articles/azure-resource-manager/resource-manager-deployment-model.md).</span></span>

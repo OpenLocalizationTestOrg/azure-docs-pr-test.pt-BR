@@ -1,25 +1,25 @@
-## <a name="create-a-simulated-device-app"></a><span data-ttu-id="c398c-101">Criar um aplicativo de dispositivo simulado</span><span class="sxs-lookup"><span data-stu-id="c398c-101">Create a simulated device app</span></span>
-<span data-ttu-id="c398c-102">Nesta seção, você:</span><span class="sxs-lookup"><span data-stu-id="c398c-102">In this section, you:</span></span>
+## <a name="create-a-simulated-device-app"></a><span data-ttu-id="8b7f5-101">Criar um aplicativo de dispositivo simulado</span><span class="sxs-lookup"><span data-stu-id="8b7f5-101">Create a simulated device app</span></span>
+<span data-ttu-id="8b7f5-102">Nesta seção, você:</span><span class="sxs-lookup"><span data-stu-id="8b7f5-102">In this section, you:</span></span>
 
-* <span data-ttu-id="c398c-103">Criar um aplicativo de console do Node.js que responde a um método direto chamado pela nuvem</span><span class="sxs-lookup"><span data-stu-id="c398c-103">Create a Node.js console app that responds to a direct method called by the cloud</span></span>
-* <span data-ttu-id="c398c-104">Disparar uma atualização de firmware simulada</span><span class="sxs-lookup"><span data-stu-id="c398c-104">Trigger a simulated firmware update</span></span>
-* <span data-ttu-id="c398c-105">Usar as propriedades relatadas para habilitar consultas de dispositivo gêmeo para identificar dispositivos e quando foi a última atualização de firmware concluída</span><span class="sxs-lookup"><span data-stu-id="c398c-105">Use the reported properties to enable device twin queries to identify devices and when they last completed a firmware update</span></span>
+* <span data-ttu-id="8b7f5-103">Criar um aplicativo de console do Node. js que responde tooa método direto chamado pela nuvem Olá</span><span class="sxs-lookup"><span data-stu-id="8b7f5-103">Create a Node.js console app that responds tooa direct method called by hello cloud</span></span>
+* <span data-ttu-id="8b7f5-104">Disparar uma atualização de firmware simulada</span><span class="sxs-lookup"><span data-stu-id="8b7f5-104">Trigger a simulated firmware update</span></span>
+* <span data-ttu-id="8b7f5-105">Olá Use relatado propriedades tooenable dispositivos duas consultas tooidentify dispositivos e quando eles concluído pela última vez uma atualização de firmware</span><span class="sxs-lookup"><span data-stu-id="8b7f5-105">Use hello reported properties tooenable device twin queries tooidentify devices and when they last completed a firmware update</span></span>
 
-<span data-ttu-id="c398c-106">Etapa 1: crie uma pasta vazia denominada **manageddevice**.</span><span class="sxs-lookup"><span data-stu-id="c398c-106">Step 1: Create an empty folder called **manageddevice**.</span></span>  <span data-ttu-id="c398c-107">Na pasta **manageddevice**, crie um arquivo package.json usando o comando a seguir no prompt de comando.</span><span class="sxs-lookup"><span data-stu-id="c398c-107">In the **manageddevice** folder, create a package.json file using the following command at your command prompt.</span></span> <span data-ttu-id="c398c-108">Aceite todos os padrões:</span><span class="sxs-lookup"><span data-stu-id="c398c-108">Accept all the defaults:</span></span>
+<span data-ttu-id="8b7f5-106">Etapa 1: crie uma pasta vazia denominada **manageddevice**.</span><span class="sxs-lookup"><span data-stu-id="8b7f5-106">Step 1: Create an empty folder called **manageddevice**.</span></span>  <span data-ttu-id="8b7f5-107">Em Olá **manageddevice** pasta, crie um arquivo Package. JSON usando Olá comando no prompt de comando a seguir.</span><span class="sxs-lookup"><span data-stu-id="8b7f5-107">In hello **manageddevice** folder, create a package.json file using hello following command at your command prompt.</span></span> <span data-ttu-id="8b7f5-108">Aceite todos os padrões de saudação:</span><span class="sxs-lookup"><span data-stu-id="8b7f5-108">Accept all hello defaults:</span></span>
    
     ```
     npm init
     ```
 
-<span data-ttu-id="c398c-109">Etapa 2: no prompt de comando na pasta **manageddevice**, execute o seguinte comando para instalar os pacotes **azure-iot-device** e **azure-iot-device-mqtt** do SDK do Dispositivo:</span><span class="sxs-lookup"><span data-stu-id="c398c-109">Step 2: At your command prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** Device SDK packages:</span></span>
+<span data-ttu-id="8b7f5-109">Etapa 2: no prompt de comando no hello **manageddevice** pasta, execute Olá Olá de tooinstall de comando a seguir **dispositivo de iot do azure** e **azure iot-dispositivo mqtt** dispositivo Pacotes do SDK:</span><span class="sxs-lookup"><span data-stu-id="8b7f5-109">Step 2: At your command prompt in hello **manageddevice** folder, run hello following command tooinstall hello **azure-iot-device** and **azure-iot-device-mqtt** Device SDK packages:</span></span>
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-<span data-ttu-id="c398c-110">Etapa 3: usando um editor de texto, crie um arquivo **dmpatterns_fwupdate_device.js** na pasta **manageddevice**.</span><span class="sxs-lookup"><span data-stu-id="c398c-110">Step 3: Using a text editor, create a **dmpatterns_fwupdate_device.js** file in the **manageddevice** folder.</span></span>
+<span data-ttu-id="8b7f5-110">Etapa 3: Usando um editor de texto, crie um **dmpatterns_fwupdate_device.js** arquivo hello **manageddevice** pasta.</span><span class="sxs-lookup"><span data-stu-id="8b7f5-110">Step 3: Using a text editor, create a **dmpatterns_fwupdate_device.js** file in hello **manageddevice** folder.</span></span>
 
-<span data-ttu-id="c398c-111">Etapa 4: adicione as seguintes instruções "require" no início do arquivo **dmpatterns_fwupdate_device.js**:</span><span class="sxs-lookup"><span data-stu-id="c398c-111">Step 4: Add the following 'require' statements at the start of the **dmpatterns_fwupdate_device.js** file:</span></span>
+<span data-ttu-id="8b7f5-111">Etapa 4: Adicionar instruções no início de saudação do hello seguinte Olá 'requer' **dmpatterns_fwupdate_device.js** arquivo:</span><span class="sxs-lookup"><span data-stu-id="8b7f5-111">Step 4: Add hello following 'require' statements at hello start of hello **dmpatterns_fwupdate_device.js** file:</span></span>
    
     ```
     'use strict';
@@ -27,14 +27,14 @@
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-<span data-ttu-id="c398c-112">Etapa 5: adicione uma variável **connectionString** e use-a para criar uma instância **Cliente**.</span><span class="sxs-lookup"><span data-stu-id="c398c-112">Step 5: Add a **connectionString** variable and use it to create a **Client** instance.</span></span> <span data-ttu-id="c398c-113">Substitua o `{yourdeviceconnectionstring}` espaço reservado com a cadeia de conexão que você anotou na seção "Criar uma identidade de dispositivo" anteriormente:</span><span class="sxs-lookup"><span data-stu-id="c398c-113">Replace the `{yourdeviceconnectionstring}` placeholder with the connection string you previously made a note of in the "Create a device identity" section previously:</span></span>
+<span data-ttu-id="8b7f5-112">Etapa 5: Adicionar um **connectionString** variável e use-toocreate uma **cliente** instância.</span><span class="sxs-lookup"><span data-stu-id="8b7f5-112">Step 5: Add a **connectionString** variable and use it toocreate a **Client** instance.</span></span> <span data-ttu-id="8b7f5-113">Substituir saudação `{yourdeviceconnectionstring}` espaço reservado com a cadeia de caracteres de conexão de saudação feitas anteriormente uma nota na seção "Criar uma identidade de dispositivo", Olá anteriormente:</span><span class="sxs-lookup"><span data-stu-id="8b7f5-113">Replace hello `{yourdeviceconnectionstring}` placeholder with hello connection string you previously made a note of in hello "Create a device identity" section previously:</span></span>
    
     ```
     var connectionString = '{yourdeviceconnectionstring}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
-<span data-ttu-id="c398c-114">Etapa 6: adicione a seguinte função, que será usada para atualizar as propriedades relatadas:</span><span class="sxs-lookup"><span data-stu-id="c398c-114">Step 6: Add the following function that is used to update reported properties:</span></span>
+<span data-ttu-id="8b7f5-114">Etapa 6: Adicionar a seguinte Olá função que é usado tooupdate relatado propriedades:</span><span class="sxs-lookup"><span data-stu-id="8b7f5-114">Step 6: Add hello following function that is used tooupdate reported properties:</span></span>
    
     ```
     var reportFWUpdateThroughTwin = function(twin, firmwareUpdateValue) {
@@ -51,7 +51,7 @@
     };
     ```
 
-<span data-ttu-id="c398c-115">Etapa 7: adicione as seguintes funções que simulam baixar e aplicar a imagem do firmware:</span><span class="sxs-lookup"><span data-stu-id="c398c-115">Step 7: Add the following functions that simulate downloading and applying the firmware image:</span></span>
+<span data-ttu-id="8b7f5-115">Etapa 7: Adicione Olá funções que simulam baixar e aplicar imagem do firmware Olá a seguir:</span><span class="sxs-lookup"><span data-stu-id="8b7f5-115">Step 7: Add hello following functions that simulate downloading and applying hello firmware image:</span></span>
    
     ```
     var simulateDownloadImage = function(imageUrl, callback) {
@@ -74,7 +74,7 @@
     }
     ```
 
-<span data-ttu-id="c398c-116">Etapa 8: adicione a seguinte função, que atualizará o status da atualização de firmware por meio das propriedades relatadas para **aguardando**.</span><span class="sxs-lookup"><span data-stu-id="c398c-116">Step 8: Add the following function that updates the firmware update status through the reported properties to **waiting**.</span></span> <span data-ttu-id="c398c-117">Normalmente, os dispositivos serão informados sobre uma atualização disponível e uma política definida pelo administrador fará com que o dispositivo inicie o download e aplique a atualização.</span><span class="sxs-lookup"><span data-stu-id="c398c-117">Typically, devices are informed of an available update and an administrator defined policy causes the device to start downloading and applying the update.</span></span> <span data-ttu-id="c398c-118">Essa função é onde a lógica para habilitar essa política deve ser executado.</span><span class="sxs-lookup"><span data-stu-id="c398c-118">This function is where the logic to enable that policy should run.</span></span> <span data-ttu-id="c398c-119">Para simplificar, o exemplo aguarda quatro segundos antes de continuar a baixar a imagem do firmware:</span><span class="sxs-lookup"><span data-stu-id="c398c-119">For simplicity, the sample waits for four seconds before proceeding to download the firmware image:</span></span>
+<span data-ttu-id="8b7f5-116">Etapa 8: Adicionar Olá após a função que o status de atualização de firmware atualizações Olá por meio de saudação relatados propriedades muito**esperando**.</span><span class="sxs-lookup"><span data-stu-id="8b7f5-116">Step 8: Add hello following function that updates hello firmware update status through hello reported properties too**waiting**.</span></span> <span data-ttu-id="8b7f5-117">Normalmente, dispositivos serão informados sobre uma atualização disponível e um administrador definida política faz com que Olá dispositivo toostart baixar e aplicar atualização hello.</span><span class="sxs-lookup"><span data-stu-id="8b7f5-117">Typically, devices are informed of an available update and an administrator defined policy causes hello device toostart downloading and applying hello update.</span></span> <span data-ttu-id="8b7f5-118">Essa função é onde Olá tooenable lógica que política deve ser executado.</span><span class="sxs-lookup"><span data-stu-id="8b7f5-118">This function is where hello logic tooenable that policy should run.</span></span> <span data-ttu-id="8b7f5-119">Para simplificar, o exemplo hello aguarda quatro segundos antes de imagem do firmware continuar toodownload hello:</span><span class="sxs-lookup"><span data-stu-id="8b7f5-119">For simplicity, hello sample waits for four seconds before proceeding toodownload hello firmware image:</span></span>
    
     ```
     var waitToDownload = function(twin, fwPackageUriVal, callback) {
@@ -90,7 +90,7 @@
     };
     ```
 
-<span data-ttu-id="c398c-120">Etapa 9: adicione a seguinte função, que atualizará o status da atualização de firmware por meio das propriedades relatadas para **baixando**.</span><span class="sxs-lookup"><span data-stu-id="c398c-120">Step 9: Add the following function that updates the firmware update status through the reported properties to **downloading**.</span></span> <span data-ttu-id="c398c-121">A função, em seguida, simula um download de firmware e finalmente atualiza o status de atualização do firmware para o **downloadFailed** ou **downloadComplete**:</span><span class="sxs-lookup"><span data-stu-id="c398c-121">The function then simulates a firmware download and finally updates the firmware update status to either **downloadFailed** or **downloadComplete**:</span></span>
+<span data-ttu-id="8b7f5-120">Etapa 9: Adicionar Olá após a função que o status de atualização de firmware atualizações Olá por meio de saudação relatados propriedades muito**download**.</span><span class="sxs-lookup"><span data-stu-id="8b7f5-120">Step 9: Add hello following function that updates hello firmware update status through hello reported properties too**downloading**.</span></span> <span data-ttu-id="8b7f5-121">Olá função, em seguida, simula um download de firmware e finalmente atualizações Olá tooeither de status de atualização de firmware **downloadFailed** ou **downloadComplete**:</span><span class="sxs-lookup"><span data-stu-id="8b7f5-121">hello function then simulates a firmware download and finally updates hello firmware update status tooeither **downloadFailed** or **downloadComplete**:</span></span>
    
     ```
     var downloadImage = function(twin, fwPackageUriVal, callback) {
@@ -128,7 +128,7 @@
     }
     ```
 
-<span data-ttu-id="c398c-122">Etapa 10: adicione a seguinte função, que atualizará o status da atualização de firmware por meio das propriedades relatadas para **aplicando**.</span><span class="sxs-lookup"><span data-stu-id="c398c-122">Step 10: Add the following function that updates the firmware update status through the reported properties to **applying**.</span></span> <span data-ttu-id="c398c-123">A função simula a aplicação da imagem de firmware e finalmente atualiza o status de atualização do firmware para o **applyFailed** ou **applyComplete**:</span><span class="sxs-lookup"><span data-stu-id="c398c-123">The function then simulates applying the firmware image and finally updates the firmware update status to either **applyFailed** or **applyComplete**:</span></span>
+<span data-ttu-id="8b7f5-122">Etapa 10: Adicionar Olá após a função que o status de atualização de firmware atualizações Olá por meio de saudação relatados propriedades muito**aplicação**.</span><span class="sxs-lookup"><span data-stu-id="8b7f5-122">Step 10: Add hello following function that updates hello firmware update status through hello reported properties too**applying**.</span></span> <span data-ttu-id="8b7f5-123">Olá função, em seguida, simula aplicar imagem do firmware hello e finalmente atualizações Olá tooeither de status de atualização de firmware **applyFailed** ou **applyComplete**:</span><span class="sxs-lookup"><span data-stu-id="8b7f5-123">hello function then simulates applying hello firmware image and finally updates hello firmware update status tooeither **applyFailed** or **applyComplete**:</span></span>
     
     ```
     var applyImage = function(twin, imageData, callback) {
@@ -166,31 +166,31 @@
     }
     ```
 
-<span data-ttu-id="c398c-124">Etapa 11: adicione a seguinte função que manipula o método direto **firmwareUpdate** e inicia a atualização de firmware de vários estágios de processo:</span><span class="sxs-lookup"><span data-stu-id="c398c-124">Step 11: Add the following function that handles the **firmwareUpdate** direct method and initiates the multi-stage firmware update process:</span></span>
+<span data-ttu-id="8b7f5-124">Etapa 11: Adicionar a função a seguir de Olá Olá que identificadores **firmwareUpdate** método direto e firmware de vários estágios Olá inicia o processo de atualização:</span><span class="sxs-lookup"><span data-stu-id="8b7f5-124">Step 11: Add hello following function that handles hello **firmwareUpdate** direct method and initiates hello multi-stage firmware update process:</span></span>
     
     ```
     var onFirmwareUpdate = function(request, response) {
     
-      // Respond the cloud app for the direct method
+      // Respond hello cloud app for hello direct method
       response.send(200, 'FirmwareUpdate started', function(err) {
         if (!err) {
           console.error('An error occured when sending a method response:\n' + err.toString());
         } else {
-          console.log('Response to method \'' + request.methodName + '\' sent successfully.');
+          console.log('Response toomethod \'' + request.methodName + '\' sent successfully.');
         }
       });
     
-      // Get the parameter from the body of the method request
+      // Get hello parameter from hello body of hello method request
       var fwPackageUri = request.payload.fwPackageUri;
     
-      // Obtain the device twin
+      // Obtain hello device twin
       client.getTwin(function(err, twin) {
         if (err) {
           console.error('Could not get device twin.');
         } else {
           console.log('Device twin acquired.');
     
-          // Start the multi-stage firmware update
+          // Start hello multi-stage firmware update
           waitToDownload(twin, fwPackageUri, function() {
             downloadImage(twin, fwPackageUri, function(imageData) {
               applyImage(twin, imageData, function() {});    
@@ -202,14 +202,14 @@
     }
     ```
 
-<span data-ttu-id="c398c-125">Etapa 12: finalmente, adicione o seguinte código que se conecta ao seu hub IoT:</span><span class="sxs-lookup"><span data-stu-id="c398c-125">Step 12: Finally, add the following code that connects to your IoT hub:</span></span>
+<span data-ttu-id="8b7f5-125">Etapa 12: Finalmente, adicione Olá código que se conecta tooyour IoT hub a seguir:</span><span class="sxs-lookup"><span data-stu-id="8b7f5-125">Step 12: Finally, add hello following code that connects tooyour IoT hub:</span></span>
     
     ```
     client.open(function(err) {
       if (err) {
-        console.error('Could not connect to IotHub client');
+        console.error('Could not connect tooIotHub client');
       }  else {
-        console.log('Client connected to IoT Hub.  Waiting for firmwareUpdate direct method.');
+        console.log('Client connected tooIoT Hub.  Waiting for firmwareUpdate direct method.');
       }
     
       client.onDeviceMethod('firmwareUpdate', onFirmwareUpdate);
@@ -217,6 +217,6 @@
     ```
 
 > [!NOTE]
-> <span data-ttu-id="c398c-126">Para simplificar, este tutorial não implementa nenhuma política de repetição.</span><span class="sxs-lookup"><span data-stu-id="c398c-126">To keep things simple, this tutorial does not implement any retry policy.</span></span> <span data-ttu-id="c398c-127">No código de produção, implemente políticas de repetição (como uma retirada exponencial), conforme sugerido no artigo [Tratamento de falhas transitórias](https://msdn.microsoft.com/library/hh675232.aspx) do MSDN.</span><span class="sxs-lookup"><span data-stu-id="c398c-127">In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling](https://msdn.microsoft.com/library/hh675232.aspx).</span></span>
+> <span data-ttu-id="8b7f5-126">coisas tookeep simples, este tutorial não implementa nenhuma política de repetição.</span><span class="sxs-lookup"><span data-stu-id="8b7f5-126">tookeep things simple, this tutorial does not implement any retry policy.</span></span> <span data-ttu-id="8b7f5-127">No código de produção, você deve implementar políticas de repetição (por exemplo, uma retirada exponencial), conforme sugerido no artigo do MSDN Olá [tratamento de falhas transitórias](https://msdn.microsoft.com/library/hh675232.aspx).</span><span class="sxs-lookup"><span data-stu-id="8b7f5-127">In production code, you should implement retry policies (such as an exponential backoff), as suggested in hello MSDN article [Transient Fault Handling](https://msdn.microsoft.com/library/hh675232.aspx).</span></span>
 > 
 > 

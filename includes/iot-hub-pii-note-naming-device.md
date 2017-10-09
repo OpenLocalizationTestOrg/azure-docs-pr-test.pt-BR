@@ -1,3 +1,3 @@
 > [!IMPORTANT]
-> <span data-ttu-id="bc985-101">A ID do dispositivo pode estar visível nos logs coletados para o atendimento ao cliente e à solução de problemas. Portanto, evite informações confidenciais ao nomear.</span><span class="sxs-lookup"><span data-stu-id="bc985-101">The device ID may be visible in the logs collected for customer support and troubleshooting, so make sure to avoid any sensitive information while naming it.</span></span>
+> <span data-ttu-id="6bc7d-101">dispositivo Olá ID pode estar visível nos logs de saudação coletados para o atendimento ao cliente e a solução de problemas, então certifique tooavoid-se de que nenhuma informação confidencial ao nomeá-lo.</span><span class="sxs-lookup"><span data-stu-id="6bc7d-101">hello device ID may be visible in hello logs collected for customer support and troubleshooting, so make sure tooavoid any sensitive information while naming it.</span></span>
 >

@@ -1,2 +1,2 @@
-<span data-ttu-id="870b2-101">Para usar esse recurso e outros novos recursos do Azure, inscreva-se na [visualização gratuita](https://account.windowsazure.com/PreviewFeatures).</span><span class="sxs-lookup"><span data-stu-id="870b2-101">To use this feature and other new Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).</span></span>
+<span data-ttu-id="775e1-101">toouse esse recurso e outros recursos novos do Azure, inscreva-se para Olá [visualização grátis](https://account.windowsazure.com/PreviewFeatures).</span><span class="sxs-lookup"><span data-stu-id="775e1-101">toouse this feature and other new Azure capabilities, sign up for hello [free preview](https://account.windowsazure.com/PreviewFeatures).</span></span>
 

@@ -1,0 +1,8 @@
+
+<span data-ttu-id="063b0-101">toodeploy Olá recursos tooAzure, você deve estar conectado no tooyour conta do Azure e você deve usar o módulo do Azure Resource Manager hello.</span><span class="sxs-lookup"><span data-stu-id="063b0-101">toodeploy hello resources tooAzure, you must be logged in tooyour Azure account and you must use hello Azure Resource Manager module.</span></span> <span data-ttu-id="063b0-102">toolearn sobre como usar o Gerenciador de recursos do Azure com o Azure PowerShell ou CLI do Azure, consulte:</span><span class="sxs-lookup"><span data-stu-id="063b0-102">toolearn about using Azure Resource Manager with either Azure PowerShell or Azure CLI, see:</span></span>
+
+* [<span data-ttu-id="063b0-103">Usando o Azure PowerShell com o Gerenciador de Recursos do Azure</span><span class="sxs-lookup"><span data-stu-id="063b0-103">Using Azure PowerShell with Azure Resource Manager</span></span>](../articles/azure-resource-manager/powershell-azure-resource-manager.md)
+* <span data-ttu-id="063b0-104">[Usando hello CLI do Azure para Mac, Linux e Windows com o gerenciamento de recursos do Azure](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md).</span><span class="sxs-lookup"><span data-stu-id="063b0-104">[Using hello Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md).</span></span>
+
+<span data-ttu-id="063b0-105">Olá exemplos a seguir pressupõe que você já tiver um grupo de recursos em sua conta com o nome especificado da saudação.</span><span class="sxs-lookup"><span data-stu-id="063b0-105">hello following examples assume you already have a resource group in your account with hello specified name.</span></span> 
+

@@ -1,0 +1,10 @@
+1. <span data-ttu-id="77b77-101">Olá abrir Gerenciador de SDK do Android Olá ícone na barra de ferramentas de saudação do Android Studio, ou clicando em **ferramentas** > **Android** > **Manager SDK**no menu de saudação.</span><span class="sxs-lookup"><span data-stu-id="77b77-101">Open hello Android SDK Manager by clicking hello icon on hello toolbar of Android Studio, or by clicking **Tools** > **Android** > **SDK Manager** on hello menu.</span></span> <span data-ttu-id="77b77-102">Clique em Olá **iniciar Gerenciador de SDK autônomo** link.</span><span class="sxs-lookup"><span data-stu-id="77b77-102">Click hello **Launch Standalone SDK Manager** link.</span></span>
+2. <span data-ttu-id="77b77-103">Localize a versão de destino de saudação do hello SDK do Android que é usado em seu projeto e abri-lo.</span><span class="sxs-lookup"><span data-stu-id="77b77-103">Locate hello target version of hello Android SDK that is used in your project, and open it.</span></span> <span data-ttu-id="77b77-104">Se as **APIs do Google** ainda não estiverem instaladas, selecione-as e clique em **Instalar pacotes...**.</span><span class="sxs-lookup"><span data-stu-id="77b77-104">If **Google APIs** is not already installed, then select it and click **Install packages...**.</span></span>
+3. <span data-ttu-id="77b77-105">No Android Studio, escolha **Arquivo** > **Estrutura do Projeto**.</span><span class="sxs-lookup"><span data-stu-id="77b77-105">In Android Studio, choose **File** > **Project Structure**.</span></span> <span data-ttu-id="77b77-106">Selecione **Notificações**, selecione **Google Cloud Messaging** e clique em **OK**.</span><span class="sxs-lookup"><span data-stu-id="77b77-106">Select **Notifications**, select **Google Cloud Messaging**, and then click **OK**.</span></span>
+
+<!--
+3. Open **AndroidManifest.xml** and add this tag toohello *application* tag.
+
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+-->
