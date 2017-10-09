@@ -1,6 +1,6 @@
 ---
-title: "Configurar o agendamento de aplicação de patch no SO para clusters HDInsight baseados em Linux – Azure | Microsoft Docs"
-description: "Saiba como configurar o agendamento de aplicação de patch no SO para clusters HDInsight baseados em Linux."
+title: "agendamento de aplicação de patch aaaConfigure OS clusters HDInsight baseados em Linux - Azure | Microsoft Docs"
+description: "Saiba como clusters de agendamento de aplicação de patch tooconfigure SO para HDInsight baseados em Linux."
 services: hdinsight
 documentationcenter: 
 author: bprakash
@@ -15,39 +15,38 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: bhanupr
-ms.openlocfilehash: af3c5a19ae8e2e606e4b0506f9f6dddb41192e40
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1598d64e594d7e8a68573fc63dd86051a5a9d025
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="os-patching-for-hdinsight"></a>Aplicação de patch no HDInsight 
-Como um serviço Hadoop gerenciado, o HDInsight se encarrega da aplicação de patch no SO das VMs subjacentes usadas por clusters HDInsight. Desde 1º de agosto de 2016, alteramos a política de aplicação de patch no SO convidado para clusters HDInsight baseados em Linux (versão 3.4 ou superior). O objetivo da nova política é reduzir significativamente o número de reinicializações devido à aplicação de patch. A nova política continuará corrigindo VMs (máquinas virtuais) em clusters Linux todas as segundas-feiras ou quintas-feiras, começando às 0:00 UTC de maneira irregular entre nós em qualquer cluster determinado. No entanto, qualquer determinada VM será reinicializada somente, no máximo, uma vez a cada 30 dias devido à aplicação de patch do SO convidado. Além disso, a primeira reinicialização para um cluster recém-criado não ocorrerá antes de 30 dias a contar da data de criação do cluster. Os patches terão efeito após a reinicialização das VMs.
+Como um serviço gerenciado do Hadoop, HDInsight cuida de aplicação de patch Olá SO de saudação VMs subjacentes usadas pelo clusters de HDInsight. A partir de 1º de agosto de 2016, alteramos política aplicação de patch de sistema operacional do convidado de saudação para clusters HDInsight baseados em Linux (versão 3.4 ou superior). meta de saudação da nova política de saudação é toosignificantly reduzir o número de saudação de reinicializações toopatching vencimento. nova política de saudação continuará toopatch máquinas virtuais () no Linux clusters toda segunda-feira ou quinta-feira, começando em 12: 00 UTC em uma sobreposição entre nós em qualquer cluster específico. No entanto, qualquer determinada VM reiniciará apenas no máximo uma vez a cada 30 dias, devido a aplicação de patch tooguest sistema operacional. Além disso, a primeira reinicialização Olá para um cluster recém-criado não ocorrerá mais 30 dias a partir da data de criação de cluster hello. Patches será efetivos quando Olá VMs são reiniciadas.
 
-## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Como configurar o agendamento de aplicação de patch no SO para clusters HDInsight baseados em Linux
-As máquinas virtuais em um cluster HDInsight precisam ser reinicializadas ocasionalmente para que os patches de segurança importantes possam ser instalados. Desde 1º de agosto de 2016, novos clusters HDInsight baseados em Linux (versão 3.4 ou superior) são reinicializados usando a seguinte agenda:
+## <a name="how-tooconfigure-hello-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Como tooconfigure Olá agenda de aplicação de patch de sistema operacional para clusters HDInsight baseados em Linux
+máquinas virtuais de saudação em um cluster HDInsight necessário toobe ocasionalmente reinicializado para que os patches de segurança importante que podem ser instalados. A partir de 1º de agosto de 2016, novos clusters HDInsight baseados em Linux (versão 3.4 ou superior) serão reiniciados usando Olá agenda a seguir:
 
-1. Uma máquina virtual no cluster só pode ser reinicializada para patches no máximo uma vez a cada 30 dias.
-2. A reinicialização começa à 00h UTC.
-3. O processo de reinicialização é realizado em estágios entre as máquinas virtuais no cluster, assim o cluster ainda fica disponível durante o processo de reinicialização.
-4. A primeira reinicialização de um cluster recém-criado não ocorrerá antes de 30 dias a contar da data de criação do cluster.
+1. Uma máquina virtual no cluster Olá só pode reinicializar para patches no máximo, uma vez dentro de um período de 30 dias.
+2. reinicialização de saudação ocorre iniciando em 12: 00 UTC.
+3. processo de reinicialização de saudação é gradativa máquinas virtuais em cluster hello, para que o cluster Olá ainda está disponível durante o processo de reinicialização de saudação.
+4. a primeira reinicialização Olá para um cluster recém-criado não ocorrerá mais 30 dias após a data de criação de cluster hello.
 
-Com a ação de script descrita neste artigo, você pode modificar a agenda de aplicação de patch no SO da seguinte maneira:
+Usando a ação de script hello descrita neste artigo, você pode modificar agendamento de aplicação de patch Olá SO da seguinte maneira:
 1. Habilitar ou desabilitar reinicializações automáticas
-2. Definir a frequência de reinicializações (dias entre reinicializações)
-3. Definir o dia da semana no qual uma reinicialização ocorre
+2. Frequência de saudação do conjunto de reinicialização (dias entre reinicializações)
+3. Definir Olá dia da semana hello quando ocorre uma reinicialização
 
 > [!NOTE]
 > Essa ação de script só funcionará com clusters HDInsight baseados em Linux criados após 1º de agosto de 2016. Os patches terão efeito somente após a reinicialização das VMs. 
 >
 
-## <a name="how-to-use-the-script"></a>Como usar o script 
+## <a name="how-toouse-hello-script"></a>Como toouse Olá script 
 
-Ao usar esse script você precisará das seguintes informações:
-1. O local de script: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.
-    O HDInsight usa esse URI para localizar e executar o script em todas as máquinas virtuais no cluster.
+Quando usar esse script requer Olá informações a seguir:
+1. Olá local do script: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.  HDInsight usa esse URI toofind e execute o script de saudação em todas as máquinas virtuais de saudação em cluster hello.
   
-2. Os tipos de nós do cluster ao qual o script é aplicado: nó de cabeçalho, nó de trabalho, zookeeper. Esse script deve ser aplicado a todos os tipos de nó do cluster. Se não for aplicado a um tipo de nó, as máquinas virtuais desse tipo de nó continuarão a usar a agenda anterior de aplicação de patches.
+2. Olá tipos de nós de cluster que o script hello é aplicado a: um nó principal, workernode, zookeeper. Esse script deve ser tooall aplicados tipos de nós no cluster de saudação. Se não for o tipo de nó tooa aplicado, em seguida, Olá virtual máquinas para esse tipo de nó continuarão a agenda de aplicação de patch anterior toouse hello.
 
 
 3.  Parâmetro: esse script aceita três parâmetros numéricos:
@@ -55,18 +54,18 @@ Ao usar esse script você precisará das seguintes informações:
     | . | Definição |
     | --- | --- |
     | Habilitar/desabilitar reinicializações automáticas |0 ou 1. Um valor 0 desabilita reinicializações automáticas, enquanto 1 habilita as reinicializações automáticas. |
-    | Frequência |7 a 90 (inclusive). O número de dias a aguardar antes de reinicializar as máquinas virtuais, para patches que exijam uma reinicialização. |
-    | Dia da semana |1 a 7 (inclusive). Um valor 1 indica que a reinicialização deve ocorrer em uma segunda-feira, e 7 indica domingo. For exemplo, usar os parâmetros 1 60 2 resulta em reinicializações automáticas a cada 60 dias (no máximo), às terças-feiras. |
-    | Persistência |Ao aplicar uma ação de script em um cluster existente, você pode marcar o script como persistente. Os scripts persistentes são aplicados quando novos nós de trabalho são adicionados ao cluster por meio de operações de dimensionamento. |
+    | Frequência |too90 7 (inclusivo). número de saudação de toowait dias antes de reinicializar as máquinas virtuais de saudação patches que exigem uma reinicialização. |
+    | Dia da semana |1 too7 (inclusivo). Um valor de 1 indica reinicialização Olá deve ocorrer em uma segunda-feira e 7 indica um exemplo de Sunday.For, usando parâmetros de 1 a 2 de 60 resulta em automático reinicia a cada 60 dias (no máximo) na terça-feira. |
+    | Persistência |Ao aplicar um cluster existente do tooan de ação de script, você pode marcar script hello persistente. Scripts persistentes são aplicadas quando workernodes novos são adicionados toohello cluster por meio de operações de dimensionamento. |
 
 > [!NOTE]
-> Marque esse script como persistente ao aplicar a um cluster existente. Caso contrário, quaisquer nós novos criado por meio de operações de dimensionamento usarão o agendamento de aplicação de patch padrão.
-Se você aplicar o script como parte do processo de criação de cluster, ele será persistido automaticamente.
+> Você deve marcar este script persistente ao aplicar o cluster existente tooan. Caso contrário, novos nós criados por meio de operações de dimensionamento usará o padrão de saudação agenda de aplicação de patch.
+Se você aplicar o script hello como parte do processo de criação de cluster hello, ele é mantido automaticamente.
 >
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para conhecer as etapas específicas sobre como usar a ação de script, confira as seções a seguir em [Personalizar clusters HDInsight baseados em Linux usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md):
+Para etapas específicas sobre como usar a ação de script hello, Olá Olá seções a seguir, consulte [usando a ação de script de clusters de HDInsight com base em Personalizar Linuz](hdinsight-hadoop-customize-cluster-linux.md):
 
 * [Usar uma ação de script durante a criação do cluster](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
-* [Aplicar uma ação de script em um cluster em execução](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)
+* [Aplicar um tooa de ação de script executando cluster](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)

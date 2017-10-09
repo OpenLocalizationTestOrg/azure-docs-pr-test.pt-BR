@@ -1,6 +1,6 @@
 ---
-title: "Conectar o Raspberry Pi (Nó) ao IoT do Azure - Lição 3: armazenamento de tabelas | Microsoft Docs"
-description: "Monitore as mensagens do dispositivo para a nuvem conforme elas são gravadas no armazenamento de tabelas do Azure."
+title: "Connect Raspberry PI (C) tooAzure IoT – lição 3: armazenamento de tabela | Microsoft Docs"
+description: "Monitorar mensagens de saudação do dispositivo para nuvem, como eles são gravados tooyour armazenamento de tabela do Azure."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,36 +17,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 16b7f2e38bfe3b40d199cb6e07976433aa54ea32
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 307ce2bc595339790db7379cc011fe262c2b8734
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="read-messages-persisted-in-azure-storage"></a>Ler mensagens mantidas no Armazenamento do Azure
 ## <a name="what-you-will-do"></a>O que você fará
-Monitore as mensagens do dispositivo para a nuvem enviadas do Raspberry Pi 3 para o hub IoT conforme elas são gravadas no armazenamento de tabelas do Azure. Se você tiver problemas, procure as soluções na [página de solução de problemas](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
+Mensagens de dispositivo para nuvem de saudação do monitor que são enviadas de framboesa Pi 3 tooyour IoT hub como mensagens de saudação são gravadas tooyour armazenamento de tabela do Azure. Se você tiver problemas, procure por soluções em Olá [página de solução de problemas](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>O que você aprenderá
-Neste artigo, você aprenderá como usar a tarefa read-message do gulp para ler mensagens mantidas no armazenamento de tabelas do Azure.
+Neste artigo, você aprenderá como mensagens de tooread toouse saudação gulp tarefa Ler mensagem persistente em seu armazenamento de tabela do Azure.
 
 ## <a name="what-you-need"></a>O que você precisa
-Antes de iniciar esse processo você deve ter concluído com sucesso [Executar o aplicativo de exemplo de piscar do Azure em seu Raspberry Pi 3](iot-hub-raspberry-pi-kit-c-lesson3-run-azure-blink.md).
+Antes de iniciar esse processo, você deve foi concluído com êxito [executar o aplicativo de exemplo hello intermitência do Azure em framboesa Pi 3](iot-hub-raspberry-pi-kit-c-lesson3-run-azure-blink.md).
 
 ## <a name="read-new-messages-from-your-storage-account"></a>Ler novas mensagens de sua conta de armazenamento
-No artigo anterior, você executou um aplicativo de exemplo no Pi. O aplicativo de exemplo envia mensagens para o hub IoT do Azure. As mensagens enviadas para o Hub IoT são armazenadas em seu armazenamento de tabelas do Azure por meio do aplicativo de funções do Azure. Você precisa da cadeia de conexão do Armazenamento do Azure para ler mensagens de seu armazenamento de tabelas do Azure.
+Artigo anterior de saudação, você executou um aplicativo de exemplo em Pi. Olá exemplo aplicativo enviado mensagens tooyour Azure IoT hub. mensagens de saudação enviadas tooyour IoT hub são armazenadas em seu armazenamento de tabela do Azure por meio do aplicativo de função do Azure hello. Você precisa de armazenamento do Azure conexão cadeia de caracteres tooread mensagens de saudação do seu armazenamento de tabela do Azure.
 
-Para ler as mensagens armazenadas em seu armazenamento de tabelas do Azure, siga estas etapas:
+mensagens de tooread armazenadas em seu armazenamento de tabela do Azure, siga estas etapas:
 
-1. Obtenha a cadeia de conexão executando os seguintes comandos:
+1. Obter cadeia de caracteres de conexão Olá executando Olá comandos a seguir:
 
    ```bash
    az storage account list -g iot-sample --query [].name
    az storage account show-connection-string -g iot-sample -n {storage name}
    ```
 
-   O primeiro comando recupera o `storage name` usado no segundo comando para obter a cadeia de conexão. Use `iot-sample` como o valor de `{resource group name}` se não tiver alterado o valor.
-2. Abra o arquivo de configuração `config-raspberrypi.json` no Visual Studio Code executando o seguinte comando:
+   Olá primeiro comando recupera Olá `storage name` que é usado em Olá segundo comando tooget Olá conexão cadeia de caracteres. Use `iot-sample` como valor de saudação do `{resource group name}` se você não alterar o valor de saudação.
+2. Arquivo de configuração de saudação abrir `config-raspberrypi.json` no código do Visual Studio executando Olá comando a seguir:
 
    ```bash
    # For Windows command prompt
@@ -55,21 +55,21 @@ Para ler as mensagens armazenadas em seu armazenamento de tabelas do Azure, siga
    # For MacOS or Ubuntu
    code ~/.iot-hub-getting-started/config-raspberrypi.json
    ```
-3. Substitua `[Azure storage connection string]` pela cadeia de conexão obtida na etapa 1.
-4. Salve o arquivo `config-raspberrypi.json`.
-5. Envie mensagens novamente e leia-as de seu armazenamento de tabelas do Azure executando o seguinte comando:
+3. Substituir `[Azure storage connection string]` com a cadeia de caracteres de conexão de saudação você obteve na etapa 1.
+4. Salvar Olá `config-raspberrypi.json` arquivo.
+5. Enviar mensagens novamente e lê-los do seu armazenamento de tabela do Azure executando Olá comando a seguir:
    
    ```bash
    gulp run --read-storage
    ```
    
-   A lógica para leitura do armazenamento de tabelas do Azure está no arquivo `azure-table.js`.
+   Olá lógica para leitura do armazenamento de tabela do Azure está em Olá `azure-table.js` arquivo.
    
    ![gulp run --read-storage](media/iot-hub-raspberry-pi-lessons/lesson3/gulp_read_message_c.png)
 
 ## <a name="summary"></a>Resumo
-Você conectou com sucesso o Pi ao Hub IoT na nuvem e usou o aplicativo de exemplo de piscar para enviar mensagens do dispositivo para a nuvem. Você também usou o aplicativo de funções do Azure para armazenar mensagens do hub IoT recebidas em seu armazenamento de tabelas do Azure. Agora você pode enviar mensagens de nuvem para dispositivo do Hub IoT para o Pi.
+Já conectado Pi tooyour IoT hub de nuvem hello e usado mensagens de dispositivo para nuvem toosend do aplicativo de exemplo de intermitência Olá com êxito. Você também usou hello Azure função aplicativo toostore entrada IoT hub mensagens tooyour Azure armazenamento de tabela. Agora você pode enviar mensagens de nuvem para dispositivo de sua tooPi de hub IoT.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Executar um aplicativo de exemplo para receber mensagens da nuvem para o dispositivo](iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages.md)
+[Executar um tooreceive do aplicativo de exemplo mensagens de nuvem para dispositivo](iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages.md)
 

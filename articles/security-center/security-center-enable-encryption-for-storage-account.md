@@ -1,6 +1,6 @@
 ---
-title: "Habilitar criptografia para conta de armazenamento na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar as recomendações da Central de Segurança do Azure **Habilitar criptografia para Conta de Armazenamento do Azure**."
+title: "criptografia aaaEnable conta de armazenamento no Centro de segurança do Azure | Microsoft Docs"
+description: "Este documento mostra como tooimplement Olá recomendações da Central de segurança do Azure * * habilitar a criptografia para o Azure Storage conta * *."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2016
 ms.author: terrylan
-ms.openlocfilehash: b7b2e8a12cbab68da9c8fcc348e8e3c543607007
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: c5cbafbf3a8be86f213dcf1c0c0ddcc0222b3d95
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Habilitar criptografia para conta de armazenamento do Azure na Central de Segurança do Azure
 A Central de Segurança do Azure pode aconselhar você a habilitar a Criptografia do Serviço de Armazenamento do Azure para dados em repouso.
 
-A SSE (Criptografia do Serviço de Armazenamento) funciona criptografando os dados quando eles são gravados no armazenamento do Azure e descriptografando-os antes da recuperação.  Atualmente, a SSE está disponível somente para o serviço Blob do Azure e pode ser usada para blobs de blocos, blobs de páginas e blobs de acréscimo.  Para saber mais, confira [Criptografia do Serviço de Armazenamento para dados em repouso](../storage/common/storage-service-encryption.md).
+Criptografia de serviço de armazenamento (SSE) funciona criptografando dados saudação quando ele está escrito tooAzure armazenamento e descriptografando dados Olá antes da recuperação.  SSE está disponível somente para Olá serviço Blob do Azure e pode ser usado para blobs de bloco, blobs de página e blobs de acréscimo.  mais, consulte toolearn [criptografia do serviço de armazenamento de dados em repouso](../storage/common/storage-service-encryption.md).
 
 
 > [!Note]
-> Depois de habilitar a criptografia, somente dados novos serão criptografados. Todos os blobs existentes em sua conta de armazenamento permanecem descriptografados. Para criptografar os blobs existentes, confira as [perguntas frequentes sobre a Criptografia do Serviço de Armazenamento](../storage/common/storage-service-encryption.md#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
+> Depois de habilitar a criptografia, somente dados novos serão criptografados. Todos os blobs existentes em sua conta de armazenamento permanecem descriptografados. tooencrypt de blobs existentes, consulte Olá [perguntas frequentes sobre a criptografia de serviços de armazenamento](../storage/common/storage-service-encryption.md#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
 >
 >
 
-A Criptografia do Serviço de Armazenamento é compatível apenas com contas de armazenamento do Resource Manager. Atualmente, não há suporte para contas de armazenamento clássicas. Para entender os modelos de implantação clássicos e do Resource Manager, confira [Modelos de implantação do Azure](../azure-classic-rm.md).
+A Criptografia do Serviço de Armazenamento é compatível apenas com contas de armazenamento do Resource Manager. Atualmente, não há suporte para contas de armazenamento clássicas. saudação de toounderstand clássica e modelos de implantação do Gerenciador de recursos, consulte [modelos de implantação do Azure](../azure-classic-rm.md).
 
 > [!NOTE]
-> Este documento apresenta o serviço usando uma implantação de exemplo.  Este documento não é um guia passo a passo.
+> Este documento apresenta serviço hello usando um exemplo de implantação.  Este documento não é um guia passo a passo.
 >
 >
 
-## <a name="implement-the-recommendation"></a>Implementar a recomendação
-1. Na folha **Recomendações**, escolha **Habilitar criptografia para Conta de Armazenamento do Azure**.
+## <a name="implement-hello-recommendation"></a>Implementar a recomendação de saudação
+1. Em Olá **recomendações** folha, selecione **habilitar a criptografia para a conta de armazenamento do Azure**.
    ![Habilitar a criptografia para a conta de armazenamento][1]
-2. A folha **Habilitar criptografia de armazenamento** é aberta. Essa folha lista as contas de armazenamento do Azure em que a criptografia de armazenamento está desabilitada. Neste exemplo, vamos selecionar **storageacct1**.
+2. Olá **habilitar a criptografia de armazenamento** folha é aberta. Esta folha lista de contas de armazenamento do Azure Olá em que a criptografia de armazenamento está desabilitada. Neste exemplo, vamos selecionar **storageacct1**.
    ![Habilitar criptografia de armazenamento][2]
-3. A folha **Criptografia** de **storageacct1** é aberta. Selecione **Habilitado**.
+3. Olá **criptografia** folha para **storageacct1** abre. Selecione **Habilitado**.
    ![Folha Criptografia][3]
 4. Selecione **Salvar**.
 
@@ -51,17 +51,17 @@ Agora, você habilitou a criptografia de armazenamento para **storageacct1**.
 
 
 ## <a name="see-also"></a>Consulte também
-Este documento mostrou como implementar a recomendação da Central de Segurança do Azure "Habilitar criptografia para Conta de Armazenamento do Azure". Para saber mais sobre a Criptografia do Serviço de Armazenamento do Azure, confira:
+Este documento lhe mostrou como tooimplement Olá Central de segurança recomendação "Habilitar criptografia para a conta de armazenamento do Azure". toolearn mais informações sobre criptografia de serviço de armazenamento do Azure, consulte o seguinte hello:
 
 * [Criptografia do Serviço de Armazenamento do Azure para dados em repouso](../storage/common/storage-service-encryption.md)
 
-Para saber mais sobre a Central de Segurança, confira o seguinte:
+toolearn mais sobre o Centro de segurança, consulte o seguinte hello:
 
-* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
-* [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e responder aos alertas de segurança.
+* [Definir políticas de segurança na Central de segurança do Azure](security-center-policies.md) -Saiba como tooconfigure as políticas de segurança para sua assinatura do Azure e grupos de recursos.
+* [Monitoramento de integridade de segurança na Central de segurança do Azure](security-center-monitoring.md) -Saiba como toomonitor Olá a integridade de seus recursos do Azure.
+* [Gerenciando e respondendo toosecurity alertas na Central de segurança do Azure](security-center-managing-and-responding-alerts.md) -Saiba como alertas de toosecurity toomanage e responder.
 * [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md): saiba como as recomendações ajudam a proteger os recursos do Azure.
-* [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
+* [Perguntas frequentes sobre o Centro de segurança do Azure](security-center-faq.md) -perguntas frequentes sobre como usar o serviço de saudação de localizar.
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): encontre postagens no blog sobre conformidade e segurança do Azure.
 
 <!--Image references-->

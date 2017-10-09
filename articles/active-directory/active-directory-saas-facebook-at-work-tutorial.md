@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory com o Workplace by Facebook| Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Workplace by Facebook."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e o local de trabalho pelo Facebook."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,165 +14,165 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 27e62a00832484667117d8718db9f2fc05e2f4e2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fd19b3f178a2aee7dd2f204d6d3cf6df8fe6b444
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Tutorial: Integração do Azure Active Directory com o Workplace by Facebook
 
-Neste tutorial, você aprenderá a integrar o Workplace by Facebook ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como toointegrate no local de trabalho pelo Facebook com o Azure Active Directory (AD do Azure).
 
-A integração do Workplace by Facebook ao Azure AD oferece os seguintes benefícios:
+Integração do local de trabalho pelo Facebook com o Azure AD oferece Olá benefícios a seguir:
 
-- No Azure AD, você pode controlar quem tem acesso ao Workplace by Facebook.
-- Você pode habilitar o logon automático de seus usuários no Workplace by Facebook (logon único) com as contas do Azure AD.
-- Gerencie suas contas em um único local: o portal do Azure.
+- Você pode controlar no AD do Azure que tenha acesso tooWorkplace pelo Facebook.
+- Você pode permitir que os usuários tooautomatically obter conectado tooWorkplace pelo Facebook (logon único) com suas contas do AD do Azure.
+- Você pode gerenciar suas contas em um local central: Olá portal do Azure.
 
 Para obter mais detalhes sobre a integração de aplicativos de SaaS (software como serviço) ao Azure AD, consulte [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com o Workplace by Facebook, são necessários os seguintes itens:
+tooconfigure integração do AD do Azure com o local de trabalho pelo Facebook, você precisa Olá itens a seguir:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura do Workplace by Facebook habilitada para SSO (logon único)
 
-Para testar as etapas neste tutorial, siga estas recomendações:
+etapas de saudação tootest neste tutorial, siga estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testa o SSO do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testa o SSO do Azure AD em um ambiente de teste. cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
 
-1. Adicionar o Workplace by Facebook da galeria.
+1. Adicione espaço de trabalho pelo Facebook da Galeria de saudação.
 2. Configurar e testar logon único do Azure AD.
 
-## <a name="add-workplace-by-facebook-from-the-gallery"></a>Adicionar o Workplace by Facebook da galeria
-Para configurar a integração do Workplace by Facebook ao Azure AD, adicione o Workplace by Facebook da galeria à sua lista de aplicativos SaaS gerenciados.
+## <a name="add-workplace-by-facebook-from-hello-gallery"></a>Adicione o local de trabalho pelo Facebook da Galeria de saudação
+tooconfigure Olá a integração da área de trabalho pelo Facebook AD do Azure, adicione no local de trabalho pelo Facebook na lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
 
-1. No [Portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**. 
+1. Em Olá [portal do Azure](https://portal.azure.com), no hello painel esquerdo, selecione **Active Directory do Azure**. 
 
-    ![O botão Azure Active Directory][1]
+    ![botão de Active Directory do Azure Olá][1]
 
-2. Navegue até **Aplicativos empresariais** > **Todos os aplicativos**.
+2. Procurar muito**aplicativos empresariais** > **todos os aplicativos**.
 
-    ![A folha Aplicativos empresariais][2]
+    ![folha de aplicativos de empresa Olá][2]
     
-3. Para adicionar o novo aplicativo, selecione **Novo aplicativo** na parte superior da caixa de diálogo.
+3. tooadd Olá novo aplicativo, selecione **novo aplicativo** na parte superior de Olá Olá da caixa de diálogo.
 
-    ![O botão Novo aplicativo][3]
+    ![Novo botão de aplicativo Hello][3]
 
-4. Na caixa de pesquisa, digite **Workplace by Facebook** e selecione **Workplace by Facebook** nos resultados. Em seguida, selecione **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa hello, digite **no local de trabalho pelo Facebook**e selecione **no local de trabalho pelo Facebook** dos resultados. Em seguida, selecione **adicionar**, aplicativo de hello tooadd.
 
-    ![Workplace by Facebook na lista de resultados](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_search.png)
+    ![Local de trabalho pelo Facebook na lista de resultados de saudação](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_search.png)
 
 ##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 Nesta seção, você configurará e testará o SSO do Azure AD com o Workplace by Facebook, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o SSO funcione, o Azure AD precisa saber qual usuário do Workplace by Facebook é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Workplace by Facebook.
+Para SSO toowork, o AD do Azure precisa tooknow que usuário de contraparte Olá na área de trabalho pelo Facebook é tooa usuário no AD do Azure. Em outras palavras, uma relação entre um usuário do AD do Azure e o usuário relacionado de saudação na área de trabalho pelo Facebook de vinculado deve ser estabelecida.
 
-Estabeleça essa relação atribuindo o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** no Workplace by Facebook.
+Estabelecer essa relação, atribuindo o valor Olá Olá **nome de usuário** no AD do Azure como valor de saudação do hello **Username** na área de trabalho pelo Facebook.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você habilitará o SSO do Azure AD no Portal do Azure e configurará o SSO no aplicativo Workplace by Facebook.
+Nesta seção, você habilitar o SSO do AD do Azure no portal do Azure de saudação e configurar SSO na área de trabalho pelo aplicativo do Facebook.
 
-1. No Portal do Azure, na página de integração de aplicativos do **Workplace by Facebook**, selecione **Logon único**.
+1. Em Olá portal do Azure, Olá **no local de trabalho pelo Facebook** página de integração de aplicativos, selecione **o logon único**.
 
     ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione o **Modo** **Logon baseado em SAML** para habilitar o SSO.
+2. Em Olá **o logon único** caixa de diálogo, selecione **modo** como **baseado no SAML logon** tooenable SSO.
  
     ![Caixa de diálogo Logon único](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_samlbase.png)
 
-3. Na seção **Domínio e URLs do Workplace by Facebook**, faça o seguinte:
+3. Em Olá **no local de trabalho pelo domínio do Facebook e URLs** seção, Olá a seguir:
 
-    a. Na caixa de texto **URL de Entrada**, digite uma URL que usa o seguinte padrão: `https://<company subdomain>.facebook.com`
+    a. Em Olá **URL de logon** caixa de texto, digite uma URL que usa o saudação padrão a seguir:`https://<company subdomain>.facebook.com`
 
-    b. Na caixa de texto **Identificador**, digite uma URL que usa o seguinte padrão: `https://www.facebook.com/company/<scim company id>`
+    b. Em Olá **identificador** caixa de texto, digite uma URL que usa o saudação padrão a seguir:`https://www.facebook.com/company/<scim company id>`
 
     > [!NOTE]
-    > Esses valores são apenas um exemplo. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [Equipe de suporte ao cliente do Workplace by Facebook](https://workplace.fb.com/faq/) para obter esses valores. 
+    > Esses valores são apenas um exemplo. Atualize esses valores com URL de logon real hello e o identificador. Olá contato [no local de trabalho pela equipe de suporte de cliente do Facebook](https://workplace.fb.com/faq/) tooget esses valores. 
 
-4. Na seção **Certificado de Autenticação SAML**, selecione **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+4. Em Olá **o certificado de autenticação SAML** seção, selecione **certificado (Base64)**e, em seguida, salve o arquivo de certificado de saudação em seu computador.
 
-    ![O link de download do Certificado](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_certificate.png) 
+    ![link de download de certificado Olá](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_certificate.png) 
 
 5. Selecione **Salvar**.
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Workplace by Facebook**, selecione **Configurar o Workplace by Facebook** para abrir a janela **Configurar logon**. Copie a **URL de Saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da seção **Referência Rápida**.
+6. Em Olá **no local de trabalho pela configuração do Facebook** seção, selecione **configurar o local de trabalho pelo Facebook** tooopen Olá **configurar o logon** janela. Saudação de cópia **URL de logout, ID de entidade de SAML e Single Sign-On URL do serviço SAML** de saudação **referência rápida** seção.
 
     ![Configuração do Workplace by Facebook](./media/active-directory-saas-facebook-at-work-tutorial/config.png) 
 
-7. Em outra janela do navegador da Web, entre em seu site da empresa do Workplace by Facebook como administrador.
+7. Em uma janela de navegador web diferente, entre tooyour no local de trabalho por site de empresa do Facebook como um administrador.
   
    > [!NOTE] 
-   > Como parte do processo de autenticação SAML, o Workplace poderá utilizar cadeias de consulta de até 2,5 quilobytes para passar parâmetros para o Azure AD.
+   > Como parte da saudação o processo de autenticação SAML, o local de trabalho pode usar cadeias de caracteres de consulta de backup too2.5 quilobytes de tamanho em ordem toopass parâmetros tooAzure AD.
 
-8. No **Painel da Empresa**, acesse a guia **Autenticação**.
+8. Em Olá **empresa painel**, vá toohello **autenticação** guia.
 
-9. Em **Autenticação SAML**, selecione **Somente SSO** na lista suspensa.
+9. Em **autenticação SAML**, selecione **SSO apenas** da lista suspensa de saudação.
 
-10. Insira os valores copiados da seção **Configuração do Workplace by Facebook** do Portal do Azure nos campos correspondentes:
+10. Insira valores hello copiados da saudação **no local de trabalho pela configuração do Facebook** seção Olá portal do Azure nos campos correspondentes hello:
 
-    *   Na caixa de texto **URL de SAML**, cole o valor da **URL do Serviço de Logon Único** copiado do Portal do Azure.
-    *   Na caixa de texto **URL do Emissor SAML**, cole o valor da **ID da Entidade SAML** copiado do Portal do Azure.
-    *   Em **Redirecionamento de Logoff SAML (opcional)**, cole o valor da **URL de Saída** que foi copiado do Portal do Azure.
-    *   Abra o **Certificado codificado Base 64** no Bloco de notas, baixado do Portal do Azure. Copie o conteúdo dele para sua área de transferência e, em seguida, cole-o na caixa de texto **Certificado SAML**.
+    *   No **URL SAML** caixa de texto valor Olá colar **o URL de serviço de logon único**, que você copiou de saudação portal do Azure.
+    *   No **URL do emissor SAML** caixa de texto valor Olá colar **ID da entidade SAML**, que você copiou de saudação portal do Azure.
+    *   Em **redirecionamento de Logout de SAML (opcional)**, cole o valor de saudação do **URL de logout**, que você copiou de saudação portal do Azure.
+    *   Abra o **certificado codificado na base 64** no bloco de notas, baixado do hello portal do Azure. Copie o conteúdo de saudação para sua área de transferência e, em seguida, cole-o toothe **certificado SAML** caixa de texto.
 
-11. Talvez seja necessário inserir a URL do público-alvo, a URL do destinatário e a URL do ACS (Serviço do Consumidor de Declaração) listadas na seção **Configuração do SAML**.
+11. Talvez seja necessário público de saudação tooenter URL destinatário URL e o ACS (serviço do consumidor de declaração) URL, listado em Olá **configuração SAML** seção.
 
-12. Role até o final da seção e selecione **Testar SSO**. Uma janela pop-up será exibida, com a página de entrada do Azure AD. Para se autenticar, insira suas credenciais como de costume. Verifique se o endereço de email retornado do Azure AD é o mesmo da conta do Workplace na qual você está conectado.
+12. Role toohello inferior da seção hello e selecione **teste SSO**. Uma janela pop-up será exibida, com a página de entrada hello AD do Azure. tooauthenticate, insira suas credenciais como normal. Certifique-se de endereço de email Olá retornado pelo AD do Azure é Olá mesmo Olá você efetuou logon com conta da empresa.
 
-13. Se o teste for concluído com êxito, role até a parte inferior da página e selecione **Salvar**.
+13. Se o teste de saudação foi concluído com êxito, role toohello inferior da página hello e selecione **salvar**.
 
 14. Agora, todas as pessoas que usam o Workplace verão a página de entrada do Azure AD para autenticação.
 
-Você pode optar por configurar uma URL de logoff SAML, que pode ser usada para apontar para a página de logoff do Azure AD. Quando essa configuração estiver habilitada e configurada, o usuário não será mais direcionado para a página de logoff do Workplace. Em vez disso, ele será redirecionado para a URL que foi adicionada à configuração de redirecionamento de logoff SAML.
+Você pode escolher tooconfigure uma URL, que pode ser usado toopoint na página de logout de saudação do AD do Azure de logout do SAML. Quando essa configuração é habilitada e configurada, Olá usuário não é mais direcionado toohello página de saída de local de trabalho. Em vez disso, o usuário de saudação é URL redirecionada toohello que foi adicionado na configuração de redirecionamento de saída do SAML hello.
 
 
 > [!TIP]
-> Agora, é possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo. Depois de adicionar esse aplicativo da seção **Active Directory** > **Aplicativos Empresariais**, basta selecionar a guia **Logon Único** e acessar a documentação inserida na seção **Configuração**, na parte inferior. Saiba mais sobre o recurso de documentação inserida na [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> Agora você pode ler uma versão concisa dessas instruções dentro de saudação [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo hello. Depois de adicionar a este aplicativo de saudação **do Active Directory** > **aplicativos empresariais** seção, basta selecionar Olá **Single Sign-On** guia e saudação de acesso inserido documentação por meio de saudação **configuração** seção na parte inferior da saudação. Você pode ler mais sobre recurso de documentação embedded Olá no hello [AD do Azure inseridos documentação]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### <a name="configure-reauthentication-frequency"></a>Configurar a frequência de reautenticação
 
-É possível configurar o Workplace para solicitar uma verificação SAML todos os dias, a cada três dias, toda semana, a cada duas semanas, todos os meses ou nunca.
+Você pode configurar o local de trabalho tooprompt uma verificação de SAML diariamente, três dias, uma semana, duas semanas, um mês, ou nunca.
 
 > [!NOTE] 
->O valor mínimo para a verificação SAML em aplicativos móveis é definido como uma semana.
+>Olá valor mínimo para a seleção SAML Olá em aplicativos móveis é definido tooone semana.
 
-Você também pode forçar uma redefinição de SAML para todos os usuários. Para fazer isso, use o botão **Exigir autenticação SAML para todos os usuários agora**.
+Você também pode forçar uma redefinição de SAML para todos os usuários. toodo hello, use **exigem autenticação SAML para todos os usuários agora** botão.
 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Olá objetivo desta seção é toocreate um usuário de teste no hello chamado Britta Simon de portal do Azure.
 
 ![Criar um usuário do AD do Azure][100]
 
-1. No **Portal do Azure**, no painel esquerdo, selecione **Azure Active Directory**.
+1. Em Olá **portal do Azure**, no hello painel esquerdo, selecione **Active Directory do Azure**.
 
-    ![O botão Azure Active Directory](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_01.png) 
+    ![botão de Active Directory do Azure Olá](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_01.png) 
 
-2. Para exibir a lista de usuários, acesse **Usuários e grupos** e selecione **Todos os usuários**.
+2. lista de saudação toodisplay de usuários, vá muito**usuários e grupos**e selecione **todos os usuários**.
     
-    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_02.png) 
+    ![Olá "Usuários e grupos" e "Todos os usuários" links](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, selecione **Adicionar**.
+3. Olá tooopen **usuário** caixa de diálogo, selecione **adicionar**.
  
-    ![O botão Adicionar](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_03.png) 
+    ![botão Adicionar de saudação](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_03.png) 
 
-4. Na caixa de diálogo **Usuário**, faça o seguinte:
+4. Em Olá **usuário** caixa de diálogo caixa, Olá a seguir:
  
-    ![A caixa de diálogo Usuário](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_04.png) 
+    ![caixa de diálogo de usuário Olá](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **BrendaFernandes**.
+    a. Em Olá **nome** caixa de texto, digite **BrittaSimon**.
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** de BrendaFernandes.
+    b. Em Olá **nome de usuário** caixa de texto, Olá tipo **endereço de email** de BrittaSimon.
 
     c. Selecione **Mostrar Senha** e tome nota.
 
@@ -182,50 +182,50 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, um usuário chamado Brenda Fernandes será criado no Workplace by Facebook. O Workplace by Facebook dá suporte ao provisionamento Just-In-Time, que está habilitado por padrão.
 
-Não há nenhuma ação para você nesta seção. Se um usuário ainda não existir no Workplace by Facebook, um novo será criado quando você tentar acessar o Workplace by Facebook.
+Não há nenhuma ação para você nesta seção. Se um usuário não existe no local de trabalho pelo Facebook, um novo será criado quando você tenta tooaccess no local de trabalho pelo Facebook.
 
 >[!Note]
->Se precisar criar um usuário manualmente, entre em contato com a [Equipe de suporte ao cliente do Workplace by Facebook](https://workplace.fb.com/faq/).
+>Se você precisar toocreate um usuário manualmente, entre em contato com o hello [no local de trabalho pela equipe de suporte de cliente do Facebook](https://workplace.fb.com/faq/).
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
 
-Nesta seção, você permitirá que Brenda Fernandes use o SSO do Azure concedendo acesso ao Workplace by Facebook.
+Nesta seção, você pode habilitar Britta Simon toouse SSO do Azure, concedendo acesso tooWorkplace pelo Facebook.
 
 ![Atribuir usuário][200] 
 
-1. No Portal do Azure, abra o modo de exibição de aplicativos. Vá até o odo de exibição de diretório, vá até **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Hello Azure exibir aplicativos de portal, abra hello. Acesse o modo de exibição de diretório toohello, vá muito**aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Workplace by Facebook**.
+2. Na lista de aplicativos hello, selecione **no local de trabalho pelo Facebook**.
 
-    ![O link Workplace by Facebook na lista Aplicativos](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_app.png) 
+    ![Olá no local de trabalho por um link do Facebook na lista de aplicativos Olá](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_app.png) 
 
-3. No menu à esquerda, selecione **Usuários e grupos**.
+3. No menu Olá Olá esquerda, selecione **usuários e grupos**.
 
-    ![O link “Usuários e grupos”][202] 
+    ![link de "Usuários e grupos" Hello][202] 
 
-4. Selecione **Adicionar**. Em seguida, no painel **Adicionar Atribuição**, selecione **Usuários e grupos**.
+4. Selecione **Adicionar**. Em seguida, no hello **Adicionar atribuição** painel, selecione **usuários e grupos**.
 
-    ![O painel Adicionar Atribuição][203]
+    ![Painel de atribuição adicionar Olá][203]
 
-5. Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista de usuários.
+5. Em Olá **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários de saudação.
 
-6. Na caixa de diálogo **Usuários e grupos**, selecione **Selecionar**.
+6. Em Olá **usuários e grupos** caixa de diálogo, selecione **selecione**.
 
-7. Na caixa de diálogo **Adicionar Atribuição**, selecione **Atribuir**.
+7. Em Olá **Adicionar atribuição** caixa de diálogo, selecione **atribuir**.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
-Se você quiser testar suas configurações de SSO, abra o Painel de Acesso.
-Para saber mais, confira [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Se você quiser tootest suas configurações de SSO, abra Olá painel de acesso.
+Para obter mais informações, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Consulte a [lista de tutoriais sobre como integrar aplicativos de SaaS ao Azure Active Directory](active-directory-saas-tutorial-list.md).
+* Consulte Olá [lista de tutoriais sobre como toointegrate aplicativos SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md).
 * Leia [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
-* Saiba mais sobre como [configurar o provisionamento de usuário](active-directory-saas-facebook-at-work-provisioning-tutorial.md).
+* Saiba mais sobre como muito[configurar provisionamento de usuário](active-directory-saas-facebook-at-work-provisioning-tutorial.md).
 
 
 

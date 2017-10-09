@@ -1,6 +1,6 @@
 ---
-title: "Criar uma função no Azure disparada por mensagens na fila | Microsoft Docs"
-description: "Use o Azure Functions para criar uma função sem servidor que é invocada por uma mensagem enviada para uma fila do Armazenamento do Azure."
+title: "uma função no Azure acionado por mensagens da fila de aaaCreate | Microsoft Docs"
+description: "Use funções do Azure toocreate uma função sem servidor que é invocada por uma mensagem enviada tooan fila de armazenamento do Azure."
 services: azure-functions
 documentationcenter: na
 author: ggailey777
@@ -16,23 +16,23 @@ ms.workload: na
 ms.date: 08/17/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 57c59273a9da55f3e357764c522b444ae2d73cb5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 44db90fa80bf77e31bf53dddabd7136de5800b11
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Adicionar mensagens a uma fila do Armazenamento do Azure usando o Functions
+# <a name="add-messages-tooan-azure-storage-queue-using-functions"></a>Adicionar a fila mensagens tooan armazenamento do Azure usando funções
 
-No Azure Functions, associações de entrada e saída fornecem uma maneira declarativa para se conectar a dados de serviço externo de sua função. Neste tópico, aprenda como atualizar uma função existente, adicionando uma associação de saída que envia mensagens para o Armazenamento de Filas do Azure.  
+Em funções do Azure, as associações de entrada e saídas fornecem um forma declarativa tooconnect tooexternal serviço de dados de sua função. Neste tópico, Aprenda como tooupdate uma função existente, adicionando uma saída de associação que envia mensagens tooAzure armazenamento de fila.  
 
-![Exiba a mensagem nos logs.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
+![Exibir mensagem nos logs de saudação.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
 [!INCLUDE [Previous topics](../../includes/functions-quickstart-previous-topics.md)]
 
-* Instale o Experimente usar o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/).
+* Instalar Olá [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
 ## <a name="add-binding"></a>Adicionar uma associação de saída
  
@@ -40,27 +40,27 @@ No Azure Functions, associações de entrada e saída fornecem uma maneira decla
 
 2. Selecione **Integrar** e **+ Nova saída**, escolha **Armazenamento de filas do Azure** e escolha **Selecionar**.
     
-    ![Adicione uma associação de saída de Armazenamento de Filas a uma função no Portal do Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
+    ![Adicione uma função de tooa fila armazenamento saída associação em Olá portal do Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Use as configurações conforme especificado na tabela: 
+3. Usar configurações de saudação conforme especificado na tabela de saudação: 
 
-    ![Adicione uma associação de saída de Armazenamento de Filas a uma função no Portal do Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
+    ![Adicione uma função de tooa fila armazenamento saída associação em Olá portal do Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
     | Configuração      |  Valor sugerido   | Descrição                              |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Nome da fila**   | myqueue-items    | Nome da fila à qual se conectar em sua conta de armazenamento. |
-    | **Conexão da conta de armazenamento** | AzureWebJobStorage | Você pode usar a conexão da conta de armazenamento que já está sendo usada por seu aplicativo de funções ou criar uma nova.  |
-    | **Nome do parâmetro de mensagem** | outputQueueItem | O nome do parâmetro de associação de saída. | 
+    | **Nome da fila**   | myqueue-items    | nome de saudação do hello fila tooconnect tooin sua conta de armazenamento. |
+    | **Conexão da conta de armazenamento** | AzureWebJobStorage | Você pode usar a conexão de conta de armazenamento Olá já está sendo usado pelo seu aplicativo de função ou criar um novo.  |
+    | **Nome do parâmetro de mensagem** | outputQueueItem | nome de Olá Olá associação de parâmetro de saída. | 
 
-4. Clique em **Salvar** para adicionar a associação.
+4. Clique em **salvar** tooadd associação de saudação.
  
-Agora que você tem uma associação de saída definida, você precisa atualizar o código para usar a associação para adicionar mensagens a uma fila.  
+Agora que você tem uma associação de saída definida, você precisa tooupdate Olá código toouse Olá associação tooadd tooa fila de mensagens.  
 
-## <a name="update-the-function-code"></a>Atualizar o código de função
+## <a name="update-hello-function-code"></a>Atualizar o código de função hello
 
-1. Selecione sua função para exibir o código de função no editor. 
+1. Selecione o código de função hello função toodisplay no editor de saudação. 
 
-2. Para uma função C#, atualize sua definição de função como demonstrado a seguir para adicionar o parâmetro de associação de armazenamento **outputQueueItem**. Ignore esta etapa para uma função JavaScript.
+2. Para uma função c#, atualize sua definição de função, da seguinte maneira Olá tooadd **outputQueueItem** parâmetro de associação de armazenamento. Ignore esta etapa para uma função JavaScript.
 
     ```cs   
     public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
@@ -70,48 +70,48 @@ Agora que você tem uma associação de saída definida, você precisa atualizar
     }
     ```
 
-3. Adicione o código a seguir à função logo antes do método retornar. Use o trecho de código apropriado para a linguagem de programação de sua função.
+3. Adicione Olá função toohello de código a seguir antes de método hello retorna. Use trecho apropriado Olá para o idioma de saudação da sua função.
 
     ```javascript
-    context.bindings.outputQueueItem = "Name passed to the function: " + 
+    context.bindings.outputQueueItem = "Name passed toohello function: " + 
                 (req.query.name || req.body.name);
     ```
 
     ```cs
-    outputQueueItem.Add("Name passed to the function: " + name);     
+    outputQueueItem.Add("Name passed toohello function: " + name);     
     ```
 
-4. Selecione **Salvar** para salvar as alterações.
+4. Selecione **salvar** toosave alterações.
 
-O valor passado para o gatilho HTTP é incluído em uma mensagem adicionada à fila.
+valor de saudação passado toohello gatilho HTTP é incluído em uma fila de mensagens toohello adicionado.
  
-## <a name="test-the-function"></a>Testar a função 
+## <a name="test-hello-function"></a>Função de saudação do teste 
 
-1. Depois que as alterações de código forem salvas, selecione **Executar**. 
+1. Depois que as alterações de código Olá são salvos, selecione **executar**. 
 
-    ![Adicione uma associação de saída de Armazenamento de Filas a uma função no Portal do Azure.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
+    ![Adicione uma função de tooa fila armazenamento saída associação em Olá portal do Azure.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-2. Confira os logs para verificar se a função foi bem-sucedida. Uma nova fila denominada **outqueue** é criada na sua conta de armazenamento pelo tempo de execução do Functions quando a associação de saída é usada pela primeira vez.
+2. Verifique Olá logs toomake-se de que a função hello teve êxito. Uma nova fila denominada **outqueue** é criado na sua conta de armazenamento por Olá funções em tempo de execução quando a associação de saída de saudação é usado pela primeira vez.
 
-Em seguida, você pode se conectar à sua conta de armazenamento para verificar a nova fila e a mensagem que você adicionou a ela. 
+Em seguida, você pode conectar tooyour armazenamento conta tooverify Olá nova fila e mensagem de saudação adicionado tooit. 
 
-## <a name="connect-to-the-queue"></a>Conectar-se à fila
+## <a name="connect-toohello-queue"></a>Conecte-se a fila de toohello
 
-Ignore as três primeiras etapas se você já tiver instalado o Gerenciador de Armazenamento e o conectado à sua conta de armazenamento.    
+Ignorar Olá três primeiras etapas, se você já tiver instalado o Gerenciador de armazenamento e conectados a ele tooyour conta de armazenamento.    
 
-1. Em sua função, escolha **Integrar** e na nova associação de saída **Armazenamento de Filas do Azure**, em seguida, expanda **Documentação**. Copie o **Nome da conta** e a **Chave de conta**. Você usa essas credenciais para conectar-se à conta de armazenamento.
+1. Em sua função, escolha **integrar** e hello novo **armazenamento de fila do Azure** associação de saída, e então expanda **documentação**. Copie o **Nome da conta** e a **Chave de conta**. Você usar a conta de armazenamento essas credenciais tooconnect toohello.
  
-    ![Obtenha as credenciais de conexão da conta de armazenamento.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
+    ![Obter credenciais de conexão de conta de armazenamento hello.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
 
-2. Execute a ferramenta [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/), selecione o ícone conectar-se à esquerda, escolha **Usar um nome e chave de conta de armazenamento** e selecione **Avançar**.
+2. Executar Olá [Microsoft Azure Storage Explorer](http://storageexplorer.com/) ferramenta, Olá selecione conectar ícone Olá esquerda, escolha **usar um nome de conta de armazenamento e chave**e selecione **próximo**.
 
-    ![Execute a ferramenta Gerenciador de Conta de Armazenamento.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
+    ![Execute a ferramenta de Gerenciador de conta de armazenamento de saudação.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
     
-3. Cole o **Nome da conta** e a **Chave de conta** da etapa 1 em seus campos correspondentes e selecione **Avançar** e **Conectar**. 
+3. Saudação de colar **nome da conta** e **chave de conta** da etapa 1 para seus campos correspondentes, em seguida, selecione **próximo**, e **conectar**. 
   
-    ![Cole as credenciais de armazenamento e conecte-se.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
+    ![Cole as credenciais de armazenamento hello e conecte-se.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
-4. Expanda a conta de armazenamento anexada, expanda **Filas** e verifique a existência de uma fila chamada **myqueue-items**. Você também deverá ver uma mensagem já presente na fila.  
+4. Expanda a conta de armazenamento Olá anexado, **filas** e verifique se que uma fila denominada **myqueue itens** existe. Você também verá uma mensagem já na fila de saudação.  
  
     ![Crie uma fila de armazenamento.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  
@@ -122,11 +122,11 @@ Ignore as três primeiras etapas se você já tiver instalado o Gerenciador de A
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você adicionou uma associação de saída a uma função existente. 
+Você adicionou uma função existente do tooan de associação de saída. 
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-Para obter mais informações sobre associação a Armazenamento de Filas, consulte [Associações de fila do Armazenamento do Azure Functions](functions-bindings-storage-queue.md). 
+Para obter mais informações sobre o armazenamento de tooQueue de associação, consulte [associações de fila de armazenamento do Azure funções](functions-bindings-storage-queue.md). 
 
 
 

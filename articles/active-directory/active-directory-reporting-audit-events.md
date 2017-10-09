@@ -1,5 +1,5 @@
 ---
-title: "Eventos do relatório de auditoria do Azure Active Directory | Microsoft Docs"
+title: "eventos de relatório de auditoria de Active Directory aaaAzure | Microsoft Docs"
 description: "Eventos de auditoria que estão disponíveis para exibição e download no Active Directory do Azure"
 services: active-directory
 documentationcenter: 
@@ -14,107 +14,107 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/16/2017
 ms.author: dhanyahk;markvi
-ms.openlocfilehash: 1620d917acf5a2c36767b5b03750c405f3631ee2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4a84cce2be56bde006164abf10ad1e72ca6e99bf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-audit-report-events"></a>Eventos de relatório de auditoria do Azure Active Directory
-*Esta documentação é parte do [Guia de Relatórios do Azure Active Directory](active-directory-reporting-guide.md).*
+*Esta documentação é parte da saudação [do Azure Active Directory Reporting guia](active-directory-reporting-guide.md).*
 
-O relatório de auditoria do Active Directory do Azure ajuda os clientes a identificar ações privilegiadas que ocorreram nos seus respectivos Active Directory do Azure. Ações com privilégios incluem alterações de elevação (por exemplo, criação de funções ou redefinições de senha), alteração de configurações de política (por exemplo, políticas de senha) ou alterações na configuração de diretório (por exemplo, as alterações às configurações de federação de domínio). Os relatórios fornecem o registro de auditoria para o nome do evento, o ator que executou a ação, o recurso de destino afetado pela alteração e a data e hora (em UTC). Os clientes são capazes de recuperar a lista dos eventos de auditoria para o Azure Active Directory por meio de [Portal do Azure](https://portal.azure.com/), como descrito em [Exibir seus Logs de Auditoria](active-directory-reporting-azure-portal.md).
+Olá relatório de auditoria do Azure Active Directory ajuda os clientes a identificar as ações privilegiadas que ocorreram no seu Active Directory do Azure. Ações privilegiadas incluem alterações de elevação (por exemplo, criação de função ou redefinições de senha), alterar configurações de política (por exemplo políticas de senha), ou a configuração de toodirectory de alterações (por exemplo, alterações toodomain configurações de federação). relatórios de Olá fornecem o registro de auditoria Olá para o nome do evento hello, ator Olá que executou a ação hello, o recurso de destino Olá afetada pela alteração Olá e data de saudação (em UTC). Os clientes são tooretrieve capaz de lista de saudação de eventos de auditoria para seu Azure Active Directory por meio de saudação [Portal do Azure](https://portal.azure.com/), conforme descrito em [Exibir Logs de auditoria](active-directory-reporting-azure-portal.md).
 
 ## <a name="list-of-audit-report-events"></a>Lista de eventos de relatório de auditoria
-<!--- audit event descriptions should be in the past tense --->
+<!--- audit event descriptions should be in hello past tense --->
 
 | Eventos | Descrição do evento |
 | --- | --- |
 | **Eventos de usuário** | |
-| Adicionar usuário |Um usuário foi adicionado ao diretório. |
-| Excluir usuário |Um usuário foi excluído do diretório. |
-| Definir propriedades de licença |Defina as propriedades de licença para um usuário no diretório. |
-| Redefinir senha de usuário |Redefina a senha de um usuário no diretório. |
-| Alterar senha de usuário |A senha de um usuário no diretório foi alterada. |
-| Alterar licença de usuário |A licença atribuída a um usuário no diretório foi alterada. Para ver quais licenças foram atualizadas, examine as propriedades de [Atualizar usuário](#update-user-attributes) abaixo |
-| Atualizar usuário |Um usuário no diretório foi atualizado. [Veja abaixo](#update-user-attributes) os atributos que podem ser atualizados. |
-| Definir alteração forçada de senha de usuário |Defina a propriedade que força o usuário a alterar sua senha no logon. |
-| Atualizar credenciais de usuário |O usuário alterou a senha |
+| Adicionar usuário |Adicionar um diretório de toohello do usuário. |
+| Excluir usuário |Excluir um usuário do diretório de saudação. |
+| Definir propriedades de licença |Definir propriedades de licença de saudação para um usuário no diretório de saudação. |
+| Redefinir senha de usuário |Redefina a senha de saudação para um usuário no diretório de saudação. |
+| Alterar senha de usuário |Olá senha para um usuário no diretório Olá alterada. |
+| Alterar licença de usuário |Alterado licença Olá tooa usuário no diretório Olá atribuída. toosee quais licenças foram atualizadas, procure no hello [atualizar usuário](#update-user-attributes) propriedades abaixo |
+| Atualizar usuário |Atualizar um usuário no diretório de saudação. [Veja abaixo](#update-user-attributes) os atributos que podem ser atualizados. |
+| Definir alteração forçada de senha de usuário |Defina propriedade de saudação que força um usuário toochange sua senha no logon. |
+| Atualizar credenciais de usuário |Senha do usuário Olá alterada |
 | **Eventos de grupo** | |
-| Adicionar grupo |Criou um grupo no diretório. |
-| Atualizar grupo |Atualizou um grupo no diretório. Para ver quais propriedades de grupo foram atualizadas, veja [Propriedades do Grupo Auditadas](#update-group-attributes) na seção abaixo |
-| Excluir grupo |Excluiu um grupo no diretório. |
+| Adicionar grupo |Criado um grupo no diretório de saudação. |
+| Atualizar grupo |Um grupo no diretório Olá atualizado. toosee quais propriedades de grupo foram atualizadas, consulte muito[auditada de propriedades de grupo](#update-group-attributes) Olá abaixo na seção |
+| Excluir grupo |Excluiu um grupo do diretório de saudação. |
 | CreateGroupSettings |Configurações de grupo criadas |
-| UpdateGroupSettings |Configurações de grupo atualizadas. Para ver quais configurações de grupo foram atualizadas, veja [Propriedades de Grupo Auditadas](#update-group-attributes) na seção abaixo |
+| UpdateGroupSettings |Configurações de grupo atualizadas. toosee quais configurações de grupo foram atualizadas, consulte muito[auditada de propriedades de grupo](#update-group-attributes) Olá abaixo na seção |
 | DeleteGroupSettings |Configurações de grupo excluídas |
 | SetGroupLicense |Definir licença de grupo. |
-| SetGroupManagedBy |Definir grupo a ser gerenciado pelo usuário |
-| AddGroupMember |Membro adicionado ao grupo |
+| SetGroupManagedBy |Definir toobe grupo gerenciado por usuário |
+| AddGroupMember |Membro adicionado toogroup |
 | RemoveGroupMember |Remover membro do grupo |
-| AddGroupOwner |Proprietário adicionado ao grupo |
+| AddGroupOwner |Proprietário adicionado toogroup |
 | RemoveGroupOwner |Proprietário removido do grupo |
 | **Eventos de aplicativo** | |
-| Adicionar entidade de serviço |Uma entidade de serviço foi adicionada ao diretório. |
-| Remover entidade de serviço |Uma entidade de serviço foi removida do diretório. |
-| Adicionar credenciais de entidade de serviço |Credenciais adicionadas a uma entidade de serviço. |
+| Adicionar entidade de serviço |Adicionar um diretório de toohello principal do serviço. |
+| Remover entidade de serviço |Removidos uma entidade de serviço do diretório de saudação. |
+| Adicionar credenciais de entidade de serviço |Entidade de serviço tooa adicional de credenciais. |
 | Remover credenciais de entidade de serviço |Credenciais removidas de uma entidade de serviço. |
-| Adicionar entrada de delegação |[OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) criado no diretório. |
-| Definir entrada de delegação |[OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) atualizado no diretório. |
-| Remover entrada de delegação |[OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) excluído do diretório. |
+| Adicionar entrada de delegação |Criado um [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) no diretório de saudação. |
+| Definir entrada de delegação |Atualizar um [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) no diretório de saudação. |
+| Remover entrada de delegação |Excluir um [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) no diretório de saudação. |
 | **Eventos de função** | |
-| Adicionar um membro da função à Função |Um usuário foi adicionado a uma função de diretório. |
+| Adicionar função membro tooRole |Adicionada uma função de diretório do usuário tooa. |
 | Remover membro de função da Função |Um usuário foi removido de uma função de diretório. |
 | AddRoleDefinition |Obter definição da função. |
-| UpdateRoleDefinition |Atualizar definição de função. Para ver quais configurações de função foram atualizadas, veja [Propriedades de Definição da Função Auditadas](#update-role-definition-attributes) na seção abaixo |
+| UpdateRoleDefinition |Atualizar definição de função. toosee quais definições de função foram atualizadas, consulte muito[auditada de propriedades de definição de função](#update-role-definition-attributes) na seção de saudação abaixo |
 | DeleteRoleDefinition |Definição de função excluída. |
-| AddRoleAssignmentToRoleDefinition |Atribuição de função adicionada à definição de função. |
+| AddRoleAssignmentToRoleDefinition |Adicionar definição de toorole de atribuição de função. |
 | RemoveRoleAssignmentFromRoleDefinition |Atribuição de função removida da definição de função. |
 | AddRoleFromTemplate |Função adicionada de modelo. |
 | UpdateRole |Função atualizada. |
-| AddRoleScopeMemberToRole |Membro de escopo adicionado à função. |
+| AddRoleScopeMemberToRole |Adicionado toorole no escopo do membro. |
 | RemoveRoleScopedMemberFromRole |Membro de escopo removido da função. |
 | **Eventos de Dispositivo (todos os novos eventos)** | |
 | AddDevice |Dispositivo adicionado. |
-| UpdateDevice |Dispositivo atualizado. Para ver quais propriedades de dispositivo foram atualizadas, veja [Propriedades de Dispositivo Auditadas](#update-device-attributes) na seção abaixo |
+| UpdateDevice |Dispositivo atualizado. toosee quais propriedades do dispositivo foram atualizadas, consulte muito[propriedades do dispositivo auditadas](#update-device-attributes) Olá abaixo na seção |
 | DeleteDevice |Dispositivo excluído. |
 | AddDeviceConfiguration |Configuração de dispositivo adicionado. |
-| UpdateDeviceConfiguration |Configuração de dispositivo atualizado. Para ver quais propriedades de configuração de dispositivo foram atualizadas, veja [Propriedades de Configuração de Dispositivo Auditadas](#update-device-configuration-attributes) na seção abaixo |
+| UpdateDeviceConfiguration |Configuração de dispositivo atualizado. toosee quais propriedades de configuração do dispositivo foram atualizadas, consulte muito[propriedades de configuração de dispositivo auditadas](#update-device-configuration-attributes) Olá abaixo na seção |
 | DeleteDeviceConfiguration |Configuração de dispositivo excluído. |
-| AddRegisteredOwner |Proprietário registrado adicionado ao dispositivo. |
-| AddRegisteredUsers |Usuários registrados adicionados ao dispositivo. |
+| AddRegisteredOwner |Adicionado toodevice proprietário registrado. |
+| AddRegisteredUsers |Adicionado toodevice usuários registrados. |
 | RemoveRegisteredOwner |Remover proprietário registrado do dispositivo. |
 | RemoveRegisteredUsers |Remover usuários registrados do dispositivo. |
 | RemoveDeviceCredentials |Remover credenciais de dispositivo. |
 | **Eventos B2B** | |
-| Convites do Lote carregados. |Um administrador carregou um arquivo que contém os convites a serem enviados para os usuários do parceiro. |
-| Convites do Lote processados. |Um arquivo que contém os convites para os usuários do parceiro foi processado. |
-| Convide um usuário externo. |Um usuário externo foi convidado para o diretório. |
-| Resgate um convite para usuário externo. |Um usuário externo resgatou seu convite para o diretório. |
-| Adicione o usuário externo ao grupo. |Um usuário externo recebeu associação a um grupo no diretório. |
-| Atribua um usuário externo ao aplicativo. |Um usuário externo recebeu acesso direto a um aplicativo. |
-| Criação de locatário viral. |Um novo locatário foi criado no AD do Azure pelo resgate do convite. |
-| Criação de usuário viral. |Um usuário foi criado em um locatário existente no AD do Azure pelo resgate do convite. |
+| Convites do Lote carregados. |Um administrador tiver carregado um arquivo que contém toobe convites enviado toopartner usuários. |
+| Convites do Lote processados. |Um arquivo que contém os usuários toopartner de convites foi processado. |
+| Convide um usuário externo. |Um usuário externo foi convidado toohello directory. |
+| Resgate um convite para usuário externo. |Um usuário externo foi resgatado seu diretório de toohello do convite. |
+| Adicione toogroup de usuário externo. |Grupo de tooa de associação no diretório Olá foi atribuído um usuário externo. |
+| Atribua tooapplication de usuário externo. |Um usuário externo recebeu o aplicativo de tooan acesso direto. |
+| Criação de locatário viral. |Um novo locatário foi criado no AD do Azure pelo resgate de convite hello. |
+| Criação de usuário viral. |Um usuário foi criado em um locatário existente no AD do Azure pelo resgate de convite hello. |
 | **Unidades Administrativas (todos os novos eventos)** | |
 | AddAdministrativeUnit |Adicionar unidade administrativa. |
-| UpdateAdministrativeUnit |Atualizar unidade administrativa. Para ver quais propriedades de unidade administrativa foram atualizadas, veja [Propriedades de Unidade Administrativa Auditadas](#update-administrative-unit-attributes) na seção abaixo |
+| UpdateAdministrativeUnit |Atualizar unidade administrativa. toosee quais propriedades de unidade administrativa foram atualizadas, consulte muito[propriedades de unidade administrativa auditada](#update-administrative-unit-attributes) Olá abaixo na seção |
 | DeleteAdministrativeUnit |Excluir unidade administrativa. |
-| AddMemberToAdministrativeUnit |Adicionar membro a unidade administrativa. |
+| AddMemberToAdministrativeUnit |Adicione membro tooadministrative unidade. |
 | RemoveMemberFromAdministrativeUnit |Remover membro de unidade administrativa. |
 | **Eventos de diretório** | |
-| Adicionar um parceiro à empresa |Um parceiro foi adicionado ao diretório. |
-| Remover o parceiro da empresa |Um parceiro foi removido do diretório. |
+| Adicionar toocompany de parceiro |Adicionar um diretório de toohello do parceiro. |
+| Remover o parceiro da empresa |Removido um parceiro do diretório de saudação. |
 | DemotePartner |Rebaixar parceiro. |
-| Adicionar domínio a empresa |Um domínio foi adicionado ao diretório. |
-| Remover o domínio da empresa |Um domínio foi removido do diretório. |
-| Domínio de atualização |Um domínio no diretório foi atualizado. Para ver quais propriedades de Domínio foram atualizadas, veja [Propriedades de Domínio Auditadas](#update-domain-attributes) na seção abaixo |
-| Definir a autenticação de domínio |A configuração de domínio padrão para a empresa foi alterada. |
+| Adicionar domínio toocompany |Adicionar um diretório de toohello do domínio. |
+| Remover o domínio da empresa |Um domínio foi removido do diretório de saudação. |
+| Domínio de atualização |Atualizar um domínio no diretório de saudação. toosee quais propriedades de domínio foram atualizadas, consulte muito[propriedades do domínio auditada](#update-domain-attributes) Olá abaixo na seção |
+| Definir a autenticação de domínio |Alterar a configuração de domínio de padrão de saudação do empresa hello. |
 | Definir informações de contato da empresa |Defina preferências de contato do nível da empresa. Isso inclui endereços de email para marketing, bem como notificações técnicas sobre os Serviços Online da Microsoft. |
-| Definir configurações de federação no domínio |As configurações de federação para um domínio foram atualizadas. |
-| Verificar domínio |Um domínio no diretório foi verificado. |
-| Verificar domínio por email |Um domínio no diretório foi verificado usando verificação por email. |
-| Definir o sinalizador DirSyncEnabled na empresa |Defina a propriedade que habilita um diretório para o Azure AD Sync. |
+| Definir configurações de federação no domínio |Configurações de Federação Olá atualizado para um domínio. |
+| Verificar domínio |Verificar um domínio no diretório de saudação. |
+| Verificar domínio por email |Verificar um domínio no diretório hello usando a verificação de email. |
+| Definir o sinalizador DirSyncEnabled na empresa |Definir a propriedade Olá que permite que um diretório para sincronização do AD do Azure. |
 | Definir política de senha |Defina as restrições de comprimento e de caractere para senhas de usuário. |
-| Definir informações da empresa |Atualizadas as informações de nível de empresa. Consulte o cmdlet [Get-MsolCompanyInformation](https://msdn.microsoft.com/library/azure/dn194126.aspx) do PowerShell para obter mais detalhes. |
+| Definir informações da empresa |Informações de nível de empresa Olá atualizado. Consulte Olá [Get-MsolCompanyInformation](https://msdn.microsoft.com/library/azure/dn194126.aspx) cmdlet do PowerShell para obter mais detalhes. |
 | SetCompanyAllowedDataLocation |Definir local de dados permitidos da empresa. |
 | SetCompanyDirSyncEnabled |Definir sinalizador DirSyncEnabled. |
 | SetCompanyDirSyncFeature |Definir recurso DirSync. |
@@ -123,7 +123,7 @@ O relatório de auditoria do Active Directory do Azure ajuda os clientes a ident
 | SetDirectoryFeatureOnTenant |Definir recurso de diretório no locatário. |
 | SetTenantLicenseProperties |Definir propriedades de licença de locatário. |
 | CreateCompanySettings |Criar configurações da empresa |
-| UpdateCompanySettings |Atualizar configurações da empresa. Para ver quais propriedades de Empresa foram atualizadas, veja [Propriedades de Empresa Auditadas](#update-company-attributes) na seção abaixo |
+| UpdateCompanySettings |Atualizar configurações da empresa. toosee quais propriedades da empresa foram atualizadas, consulte muito[propriedades de empresa auditada](#update-company-attributes) Olá abaixo na seção |
 | DeleteCompanySettings |Excluir configurações da empresa |
 | SetAccidentalDeletionThreshold |Definir limite de exclusão acidental. |
 | SetRightsManagementProperties |Definir propriedades de gerenciamento de direitos. |
@@ -133,198 +133,198 @@ O relatório de auditoria do Active Directory do Azure ajuda os clientes a ident
 | AddPolicy |Adicionar política. |
 | UpdatePolicy |Atualizar política. |
 | DeletePolicy |Excluir política. |
-| AddDefaultPolicyApplication |Adicionar política ao aplicativo. |
-| AddDefaultPolicyServicePrincipal |Adicionar política à entidade de serviço. |
+| AddDefaultPolicyApplication |Adicione política tooapplication. |
+| AddDefaultPolicyServicePrincipal |Adicione política tooservice entidade. |
 | RemoveDefaultPolicyApplication |Remover política do aplicativo. |
 | RemoveDefaultPolicyServicePrincipal |Remover política da entidade de serviço. |
 | RemovePolicyCredentials |Remover credenciais de política. |
 
 ## <a name="audit-report-retention"></a>Retenção do relatório de auditoria
 
-Para obter as informações mais recentes sobre retenção, consulte [Políticas de retenção de relatório do Azure Active Directory](active-directory-reporting-retention.md).
+Para obter informações mais recentes sobre retenção hello, consulte [políticas de retenção de relatório do Active Directory do Azure](active-directory-reporting-retention.md).
 
 
-Para clientes interessados no armazenamento de seus eventos de auditoria por períodos mais longos, a API de Relatório pode ser usada regularmente receber eventos de auditoria em um armazenamento de dados separado. Confira [Introdução à API de Relatório](active-directory-reporting-api-getting-started.md) para obter detalhes.
+Para clientes interessados no armazenamento de seus eventos de auditoria por longos períodos de retenção, hello API de relatório pode ser usado tooregularly eventos de auditoria de pull em um repositório de dados separado. Consulte [Getting Started with Olá Reporting API](active-directory-reporting-api-getting-started.md) para obter detalhes.
 
 ## <a name="properties-included-with-each-audit-event"></a>Propriedades incluídas com cada evento de auditoria
 | Propriedade | Descrição |
 | --- | --- |
-| Data e hora |A data e hora em que o evento de auditoria ocorreu |
-| Ator |O usuário ou a entidade de serviço que executou a ação |
-| Ação |A ação que foi executada |
-| Destino |O usuário ou a entidade de serviço em que a ação foi executada |
+| Data e hora |Data de saudação e a hora que Olá eventos de auditoria ocorreu |
+| Ator |usuário Hello ou entidade de serviço que executou a ação de saudação |
+| Ação |ação de saudação que foi executada |
+| Destino |usuário de saudação ou entidade de serviço Olá ação foi executada em |
 
 ## <a name="update-user-attributes"></a>Atributos de “Atualizar Usuário”
-O evento de auditoria "Atualizar usuário" inclui informações adicionais sobre quais atributos de usuário foram atualizados. Para cada atributo, o valor anterior e o novo valor são ambos incluídos.
+evento de auditoria Hello "usuário" inclui informações adicionais sobre quais atributos de usuário foram atualizados. Para cada atributo, ambos Olá valor anterior e Olá novo valor é incluído.
 
 | Atributo | Descrição |
 | --- | --- |
-| AccountEnabled |O usuário pode entrar. |
-| AssignedLicense |Todas as licenças que foram atribuídas ao usuário. |
-| AssignedPlan |Planos de serviço resultante das licenças atribuídas ao usuário. |
-| LicenseAssignmentDetail |Detalhes sobre licenças atribuídas ao usuário. Por exemplo, se o licenciamento baseado em grupo estava envolvido, isso inclui o grupo que concedeu a licença. |
-| Móvel |O celular do usuário. |
-| OtherMail |O endereço de email alternativo do usuário. |
-| OtherMobile |O celular alternativo do usuário. |
-| StrongAuthenticationMethod |Uma lista de métodos de verificação configurados pelo usuário para Multi-Factor Authentication, como o código de chamada de voz, SMS ou verificação de um aplicativo móvel. |
+| AccountEnabled |Olá usuário possa acessar. |
+| AssignedLicense |Todas as licenças que foram atribuídas toohello usuário. |
+| AssignedPlan |Planos de serviço resultante de licenças Olá atribuído toohello usuário. |
+| LicenseAssignmentDetail |Obter detalhes sobre licenças atribuídas toohello usuário. Por exemplo, se o licenciamento baseado em grupo estava envolvido, isso inclui grupo Olá Olá concedida licença. |
+| Móvel |celular do usuário Hello. |
+| OtherMail |Olá endereço de email alternativo do usuário. |
+| OtherMobile |Olá celular alternativo do usuário. |
+| StrongAuthenticationMethod |Uma lista de métodos de verificação configurado pelo usuário Olá para autenticação multifator, como o código de chamada de voz, SMS ou verificação de um aplicativo móvel. |
 | StrongAuthenticationRequirement |Se a Multi-Factor Authentication é imposta, habilitada ou desabilitada para este usuário. |
-| StrongAuthenticationUserDetails |Número de telefone do usuário, número de telefone alternativo e endereço de email usado para verificação de Multi-Factor Authentication e redefinição de senha. |
-| StrongAuthenticationPhoneAppDetail |Detalhes de aplicativos registrados para executar logon no 2FA |
-| TelephoneNumber |O número de telefone do usuário. |
-| AlternativeSecurityId |Uma ID de segurança alternativa para o objeto. |
-| CreationType |Método de criação do usuário (seja por convite ou viral). |
-| InviteTicket |Lista de tíquetes de convite para o usuário. |
-| InviteReplyUrl |Lista de urls para responder mediante a aceitação do convite. |
-| InviteResources |Lista de recursos aos quais o usuário foi convidado. |
-| LastDirSyncTime |Última vez em que o objeto foi atualizado devido à sincronização do diretório autoritativo (cliente, local). |
-| MSExchRemoteRecipientType |Mapeia para tipos de destinatário do MSO. Consulte [tipos de destinatário MSO] https://msdn.microsoft.com/library/microsoft.office.interop.outlook.recipient.type.aspx para ver os tipos de destinatário |
-| PreferredDataLocation |O local preferido dos dados do usuário, do grupo, do contato, da pasta pública ou do dispositivo. |
-| ProxyAddresses |O endereço pelo qual um objeto de destinatário do Exchange Server é reconhecido em um sistema de email externo. |
+| StrongAuthenticationUserDetails |usuário Olá telefone email e número de telefone alternativo, número de endereço usado para autenticação multifator e verificação de redefinição de senha. |
+| StrongAuthenticationPhoneAppDetail |Aplicativos de telefone forof detalhes registrado tooperform 2FA logon |
+| TelephoneNumber |número de telefone do usuário Hello. |
+| AlternativeSecurityId |Uma ID de segurança alternativa para o objeto de saudação. |
+| CreationType |Método de criação de usuário hello (ou por convite viral). |
+| InviteTicket |Lista de permissões de convite para usuário hello. |
+| InviteReplyUrl |Lista de urls tooreply mediante a aceitação de convite. |
+| InviteResources |Lista de recursos toowhich Olá usuários foi convidada. |
+| LastDirSyncTime |Hora da última hello objeto foi atualizado devido a sincronização de saudação autoridade (local cliente) directory. |
+| MSExchRemoteRecipientType |Mapeia os tipos de destinatário tooMSO. Consulte também https://msdn.microsoft.com/library/microsoft.office.interop.outlook.recipient.type.aspx [tipos de destinatário MSO] para tipos de destinatário |
+| PreferredDataLocation |Olá local preferido para do usuário hello, do grupo, contato, pasta pública, ou dados do dispositivo. |
+| ProxyAddresses |endereço de saudação pelo qual um objeto de destinatário do Exchange Server é reconhecido em um sistema de email externos. |
 | StsRefreshTokensValidFrom |Carrega informações de revogação de token de atualização - qualquer token de atualização STS emitido antes desse momento serão considerados como expirados. |
-| UserPrincipalName |O UPN é um nome de logon do estilo da Internet para um usuário. |
+| UserPrincipalName |Olá UPN é um nome de logon de estilo da Internet para um usuário. |
 | UserState |Status de User PendingApproval/PendingAcceptance/Accepted/PendingVerification. |
-| UserStateChangedOn |Carimbo de data/hora da última alteração feita em UserState. Usado para disparar fluxos de trabalho do ciclo de vida. |
+| UserStateChangedOn |Carimbo de hora do último tooUserState de alteração. Fluxos de trabalho de ciclo de vida tootrigger usado. |
 | UserType |Tipo de usuário. Membro (0), Convidado (1), Viral(2). |
 
 ## <a name="update-group-attributes"></a>Atributos de "Atualizar Grupo"
 | Atributo | Descrição |
 | --- | --- |
-| Classificação |A classificação de um Grupo Unificado (ICA, ICM etc). |
-| Descrição |Frases descritivas legíveis sobre o objeto. |
-| DisplayName |O nome de exibição para um objeto |
+| classificação |classificação de saudação para um grupo unificado (alto impacto nos negócios, ICM etc.). |
+| Descrição |Legível frases descritivos sobre o objeto de saudação. |
+| DisplayName |nome de exibição de saudação para um objeto |
 | DirSyncEnabled |Indica se a sincronização ocorre de um diretório autoritativo (cliente, local). |
 | GroupLicenseAssignment |Atribuição de licença de um grupo |
 | GroupType |Tipo de Grupo, Unificado (0) |
-| IsMembershipRuleLocked |Indica que a propriedade MembershipRule é definida pelo serviço de gerenciamento de grupos de autoatendimento e não pode ser alterada pelos usuários. Aplicável apenas a grupos onde GroupType inclui GroupType.DynamicMembership |
-| IsPublic |Sinalizador para indicar se o grupo é público/privado. |
-| LastDirSyncTime |Última vez em que o objeto foi atualizado como resultado da sincronização do diretório autoritativo (cliente, local). |
+| IsMembershipRuleLocked |Indica que hello MembershipRule propriedade é definida pelo serviço de gerenciamento de grupo de autoatendimento hello e não pode ser alterado pelos usuários. Aplicável toogroups somente onde GroupType inclui GroupType.DynamicMembership |
+| IsPublic |Sinalizador tooindicate se o grupo de saudação é pública/privada. |
+| LastDirSyncTime |Hora da última hello objeto foi atualizado como resultado da sincronização de saudação autoritativa (cliente, no local) directory. |
 | Email |Endereço de email principal |
 | MailEnabled |Indica se este grupo tem a funcionalidade de email. |
-| MailNickname |Moniker para um objeto do catálogo de endereços, geralmente, a parte de seu nome de email precedida do símbolo “@”. |
-| MembershipRule |Uma cadeia de caracteres que expressa os critérios usados pelo serviço de gerenciamento de grupos de autoatendimento para determinar quais membros deverão pertencer a esse grupo. Veja também IsMembershipRuleLocked. Aplicável somente aos grupos onde GroupType inclui GroupType.DynamicMembership. |
-| MembershipRuleProcessingState |Um valor de enumeração definido pelo serviço de gerenciamento de grupos de autoatendimento que define o status de processamento de associação para esse grupo. Aplicável somente aos grupos onde GroupType inclui GroupType.DynamicMembership. |
-| ProxyAddresses |O endereço pelo qual um objeto de destinatário do Exchange Server é reconhecido em um sistema de email externo. |
+| MailNickname |Moniker para um objeto de catálogo de endereços, normalmente parte de saudação do seu nome de email que precede hello "@" símbolo. |
+| MembershipRule |Uma cadeia de caracteres expressar critérios Olá usados pelo toodetermine de serviço de gerenciamento de grupo de autoatendimento Olá quais membros devem pertencer toothis grupo. Veja também IsMembershipRuleLocked. Aplicável somente toogroups onde GroupType inclui GroupType.DynamicMembership. |
+| MembershipRuleProcessingState |Um valor de enumeração definido pelo serviço de gerenciamento de grupo de autoatendimento Olá definindo status de saudação da associação de processamento para esse grupo. Aplicável somente toogroups onde GroupType inclui GroupType.DynamicMembership. |
+| ProxyAddresses |endereço de saudação pelo qual um objeto de destinatário do Exchange Server é reconhecido em um sistema de email externos. |
 | RenewedDateTime |Registro de carimbo de data/hora de quando um grupo foi renovado pela última vez. |
-| SecurityEnabled |Indica se a associação ao grupo pode influenciar as decisões de autorização. |
+| SecurityEnabled |Indica se a associação no grupo de saudação pode influenciar as decisões de autorização. |
 | WellKnownObject |Rotula um objeto de diretório, indicando-o como parte de um conjunto predefinido. |
 
 ## <a name="update-device-attributes"></a>Atributos de "Atualizar Dispositivo"
 | Atributo | Descrição |
 | --- | --- |
 | AccountEnabled |Indica se uma entidade de segurança pode ser autenticada. |
-| CloudAccountEnabled |Indica se uma entidade de segurança pode ser autenticada. Gravado pelo InTune quando o dispositivo é controlado no local. |
-| CloudDeviceOSType |Tipo de dispositivo com base no sistema operacional, por exemplo, Windows RT, iOS. Quando definido por um serviço de nuvem (como o Intune), este atributo se torna autoritativo no diretório para DeviceOSType. |
-| CloudDeviceOSVersion |Versão do sistema operacional. Quando definido por um serviço de nuvem (como o Intune), este atributo se torna autoritativo no diretório para DeviceOSVersion. |
-| CloudDisplayName |Valor do atributo LDAP displayName. Quando definido por um serviço de nuvem (como o Intune), este atributo se torna autoritativo no diretório de displayName. |
-| CloudCreated |Indica se o objeto foi criado por serviços de nuvem. |
+| CloudAccountEnabled |Indica se uma entidade de segurança pode ser autenticada. Gravados pelo InTune quando o dispositivo de saudação é controlado no local. |
+| CloudDeviceOSType |Tipo de dispositivo de saudação com base em Olá SO, por exemplo, o Windows RT, iOS. Quando definido por um serviço de nuvem (por exemplo, o Intune), esse atributo se torna autoritativo no diretório de saudação para DeviceOSType. |
+| CloudDeviceOSVersion |Versão do SO de saudação. Quando definido por um serviço de nuvem (por exemplo, o Intune), esse atributo se torna autoritativo no diretório de saudação para DeviceOSVersion. |
+| CloudDisplayName |Valor do atributo LDAP Olá displayName. Quando definido por um serviço de nuvem (por exemplo, o Intune), esse atributo se torna autoritativo no diretório de saudação do displayName. |
+| CloudCreated |Indica se o objeto de saudação foi criado pelos serviços de nuvem. |
 | CompliantUntil |Até que horas o dispositivo será considerado compatível. |
-| DeviceMetadata |Metadados personalizados para o dispositivo |
-| DeviceObjectVersion |Este atributo é usado para identificar a versão do esquema do dispositivo. |
-| DeviceOSType |Tipo de dispositivo com base no sistema operacional, por exemplo, Windows RT, iOS. Gravado pelo Serviço de Registro e se destina a ser atualizado pelo serviço de gerenciamento do MDM ou pelo serviço de gerenciamento leve do STS. |
-| DeviceOSVersion |Versão do sistema operacional. Gravado pelo Serviço de Registro e se destina a ser atualizado pelo serviço de gerenciamento do MDM ou pelo serviço de gerenciamento leve do STS. |
-| DevicePhysicalIds |Atributo com diversos valores para armazenar identificadores do dispositivo físico. Isso pode incluir IDs de BIOS, impressões digitais de TPM, IDs específicas do hardware etc. |
+| DeviceMetadata |Metadados personalizados para dispositivo Olá |
+| DeviceObjectVersion |Esse atributo é usado tooidentify Olá esquema versão dispositivo hello. |
+| DeviceOSType |Tipo de dispositivo de saudação com base em Olá SO, por exemplo, o Windows RT, iOS. Gravados pelo hello toobe pretendido e serviço de registro atualizado por Olá serviço de gerenciamento do MDM ou STS claro o serviço de gerenciamento. |
+| DeviceOSVersion |Versão do SO de saudação. Gravados pelo hello toobe pretendido e serviço de registro atualizado por Olá serviço de gerenciamento do MDM ou STS claro o serviço de gerenciamento. |
+| DevicePhysicalIds |Atributo multivalorado deve toostore identificadores de dispositivo físico hello. Isso pode incluir IDs de BIOS, impressões digitais de TPM, IDs específicas do hardware etc. |
 | DirSyncEnabled |Indica se a sincronização ocorre de um diretório autoritativo (cliente, local). |
-| DisplayName |O nome de exibição para um objeto |
-| IsCompliant |Este atributo é usado para gerenciar o status de gerenciamento de dispositivos móveis do dispositivo. |
-| IsManaged |Este atributo é usado para indicar que o dispositivo é gerenciado por um MDM de nuvem. |
-| LastDirSyncTime |Última vez em que o objeto foi atualizado devido à sincronização do diretório autoritativo (cliente, local). |
+| DisplayName |nome de exibição de saudação para um objeto |
+| IsCompliant |Esse atributo é o status de gerenciamento de dispositivo móvel toomanage usado Olá do dispositivo hello. |
+| IsManaged |Este atributo é usado tooindicate dispositivo de saudação é gerenciado por uma nuvem de MDM. |
+| LastDirSyncTime |Hora da última hello objeto foi atualizado devido a sincronização de saudação autoritativa (cliente, no local) directory. |
 
 ## <a name="update-device-configuration-attributes"></a>Atributos de "Atualizar Configuração do Dispositivo"
 | Atributo | Descrição |
 | --- | --- |
-| MaximumRegistrationInactivityPeriod |O número máximo de dias que um dispositivo pode ficar inativo antes de ser considerado para remoção. |
-| RegistrationQuota |Política usada para limitar o número de registros de dispositivos permitidos para um único usuário. |
+| MaximumRegistrationInactivityPeriod |número máximo de saudação de dias de um dispositivo pode ficar inativo antes de ser considerada para remoção. |
+| RegistrationQuota |Política usada toolimit número de saudação de registros de dispositivo permitido para um único usuário. |
 
 ## <a name="update-service-principal-configuration-attributes"></a>Atributos de "Atualizar Configuração de Entidade de Serviço"
 | Atributo | Descrição |
 | --- | --- |
 | AccountEnabled |Indica se uma entidade de segurança pode ser autenticada. |
 | AppPrincipalId |Identidade externa, definida pelo aplicativo para uma entidade de segurança. |
-| DisplayName |O nome de exibição para um objeto |
-| ServicePrincipalName |Um nome de entidade de serviço que contém "nome/autoridade", onde o nome especifica um valor de classe do aplicativo e a autoridade contém pelo menos nomedohost[:porta] ou "nome", que especifica um identificador para a entidade de serviço. |
+| DisplayName |nome de exibição de saudação para um objeto |
+| ServicePrincipalName |Um nome principal do serviço, que contém "nome/autoridade" onde nome Especifica um valor de classe do aplicativo e autoridade contém pelo menos hostname [: porta] ou "name" que especifica um identificador para a entidade de serviço hello. |
 
 ## <a name="update-app-attributes"></a>Atributos de "Atualizar Aplicativo"
 | Atributo | Descrição |
 | --- | --- |
-| AppAddress |O conjunto de endereços (URLs de redirecionamento) atribuídos a uma entidade de serviço. |
-| AppId |ID do Aplicativo do Aplicativo |
-| AppIdentifierUri |URI do Aplicativo, que identifica o aplicativo.  Geralmente, é a URL de acesso do aplicativo. |
-| AppLogoUrl |A url para a imagem de logotipo do aplicativo armazenada em uma CDN. |
-| AvailableToOtherTenants |Se verdadeiro, o aplicativo é um aplicativo multilocatário (ou seja, pode ser usado por outros locatários). |
-| DisplayName |O nome de exibição para um Nome de Aplicativo |
+| AppAddress |conjunto de saudação de endereços (URLs de redirecionamento) que são atribuídos a entidade de serviço tooa. |
+| AppId |ID do aplicativo de saudação |
+| AppIdentifierUri |Aplicativo URI que identifica o aplicativo hello.  É normalmente Olá URL de acesso do aplicativo. |
+| AppLogoUrl |Olá url de imagem de logotipo do aplicativo hello armazenada em uma CDN. |
+| AvailableToOtherTenants |Olá True é aplicativo multilocatário (ou seja, pode ser usado por outros locatários). |
+| DisplayName |nome para exibição Olá para um nome de aplicativo |
 | Direito |Lista de direitos do aplicativo. |
 | ExternalUserAccountDelegationsAllowed |Sinalizador que indica se o aplicativo de recurso é confiável e se pode criar entradas de delegação para contas de usuário externo. |
-| GroupMembershipClaims |A política de declarações de associação de grupo. |
-| PublicClient |Se verdadeiro, o cliente não pode ser mantido em segredo (ou seja, cliente não confidencial no OAuth 2.0) |
-| RecordConsentConditions |Tipos de condições de consentimento, conforme definido pelos termos do contrato: None (0), SilentConsentForPartnerManagedApp(1). Esse valor será exposto no esquema da API do Graph e só pode ser definido/alterado por administradores de locatários. |
-| RequiredResourceAccess |Conteúdo XML de um Valor da propriedade RequiredResourceAccess. |
+| GroupMembershipClaims |associação de grupo Olá declarações de política. |
+| PublicClient |True se o cliente Olá não é possível manter em segredo (ou seja, não confidenciais do cliente no OAuth 2.0) |
+| RecordConsentConditions |Tipos de condições de consentimento, conforme definido pelo Olá termos do contrato: None (0), SilentConsentForPartnerManagedApp(1). Esse valor será exposta no esquema de API do Graph hello e só pode ser definido/alterado por administradores de inquilinos. |
+| RequiredResourceAccess |Conteúdo XML de um valor da propriedade RequiredResourceAccess de saudação. |
 | WebApp |Se verdadeiro, indica que esse aplicativo é um aplicativo Web. |
-| WwwHomepage |A página da Web principal. |
+| WwwHomepage |Olá a página da Web principal. |
 
 ## <a name="update-role-attributes"></a>Atributos de "Atualizar Função"
 | Atributo | Descrição |
 | --- | --- |
-| AppAddress |O conjunto de endereços (URLs de redirecionamento) atribuídos a uma entidade de serviço. |
-| BelongsToFirstLoginObjectSet |Se for verdadeiro, indica que esse objeto pertence ao conjunto de objetos necessários para habilitar o logon do primeiro administrador de um novo locatário. |
-| Builtin |Indica se o tempo de vida de um objeto é de propriedade do sistema. |
-| Descrição |Frases descritivas legíveis sobre o objeto. |
-| DisplayName |O nome de exibição para um objeto |
-| MailNickname |Moniker para um objeto do catálogo de endereços, geralmente, a parte de seu nome de email precedida do símbolo “@”. |
-| RoleDisabled |Indica se a função deve ser ignorada para fins de verificações de acesso. |
-| RoleTemplateId |Identidade do modelo de função. |
-| ServiceInfo |Informações de provisionamento específicas do serviço que podem ser consumidas pelo MOAC e/ou por outras instâncias de serviço (do mesmo tipo de serviço ou de tipos diferentes). |
+| AppAddress |conjunto de saudação de endereços (URLs de redirecionamento) que são atribuídos a entidade de serviço tooa. |
+| BelongsToFirstLoginObjectSet |Se for true, indica que esse objeto pertence toohello conjunto do logon de tooenable necessário de objetos de saudação primeiro administrador de um novo locatário. |
+| Builtin |Indica se tempo de vida de saudação de um objeto é de propriedade de sistema hello. |
+| Descrição |Legível frases descritivos sobre o objeto de saudação. |
+| DisplayName |nome de exibição de saudação para um objeto |
+| MailNickname |Moniker para um objeto de catálogo de endereços, normalmente parte de saudação do seu nome de email que precede hello "@" símbolo. |
+| RoleDisabled |Indica se a função hello deve ser ignorada para fins de verificações de acesso. |
+| RoleTemplateId |Identidade do modelo de função hello. |
+| ServiceInfo |Informações que podem ser consumidas por MOAC e/ou em outras instâncias do serviço de provisionamento específico ao serviço (de saudação iguais ou diferente tipos de serviço). |
 | TaskSetScopeReference |Identifica um TaskSet e um conjunto de Escopos associados a uma Função ou RoleTemplate. |
-| ValidationError |As informações publicadas por um serviço federado que descreve um erro não transitório específico do serviço relacionado às propriedades ou vinculado de uma ação de administrador de objetos a ser resolvida. |
+| ValidationError |Informações publicadas por um serviço federado que descreve um erro não transitório, específico do serviço sobre propriedades de saudação ou link de um tooresolve de ação do administrador de objeto. |
 | WellKnownObject |Rotula um objeto de diretório, indicando-o como parte de um conjunto predefinido. |
 
 ## <a name="update-role-definition-attributes"></a>Atributos "Atualizar Definição de Função"
 | Atributo | Descrição |
 | --- | --- |
-| AssignableScopes |Coleção de escopos de autorização que podem ser referenciados na atribuição dessa RoleDefinition a uma entidade de segurança. |
-| DisplayName |O nome de exibição para um objeto |
+| AssignableScopes |Coleção de escopos de autorização que podem ser referenciados ao atribuir essa entidade de segurança de tooa RoleDefinition. |
+| DisplayName |nome de exibição de saudação para um objeto |
 | GrantedPermissions |Permissões concedidas por esta RoleDefinition. |
 
 ## <a name="update-administrative-unit-attributes"></a>Atributos de "Atualizar Unidade Administrativa"
 | Atributo | Descrição |
 | --- | --- |
-| Descrição |Essa propriedade é atualizada quando você altera a descrição de uma unidade administrativa. |
-| DisplayName |Essa propriedade é atualizada quando você altera o nome de uma unidade administrativa. |
+| Descrição |Essa propriedade é atualizada quando você alterar a descrição de saudação de uma unidade administrativa. |
+| DisplayName |Essa propriedade é atualizada quando você alterar o nome de saudação de uma unidade administrativa. |
 
 ## <a name="update-company-attributes"></a>Atributos de "Atualizar Empresa"
 | Atributo | Descrição |
 | --- | --- |
-| AllowedDataLocation |Um local em que os usuários da empresa podem ser provisionados. |
-| AuthorizedServiceInstance |Nomes de instâncias de serviço em que um plano pode ser implantado. |
+| AllowedDataLocation |Um local no qual Olá usuários da empresa são permitidos toobe provisionado. |
+| AuthorizedServiceInstance |Nomes de instâncias de serviço toowhich um plano podem ser implantados. |
 | DirSyncEnabled |Indica se a sincronização ocorre de um diretório autoritativo (cliente, local). |
-| DirSyncStatus |Indica se a sincronização de objetos de catálogo de endereços neste contexto de locatário ocorre de um diretório autoritativo (cliente, local); uma expansão da propriedade DirSyncEnabled em objetos Empresa. |
-| DirSyncFeatures |Sinalizador de bits para manter o controle de recursos de dirsync habilitados e desabilitados para o locatário. |
+| DirSyncStatus |Indica se a sincronização de objetos de catálogo de endereços neste contexto de locatário ocorre de um autoridade (cliente, no local) diretório; uma expansão da saudação DirSyncEnabled propriedade em objetos da empresa. |
+| DirSyncFeatures |Faixa de tookeep de sinalizador de bit do conjunto de recursos de dirsync habilitados e desabilitados para o locatário hello. |
 | DirectoryFeatures |Recursos de diretório habilitados/desabilitados. |
-| DirSyncConfiguration |Contém todas as configurações de DirSync específicos do locatário atual. |
-| DisplayName |O nome de exibição para um objeto |
-| IsMnc |Um sinalizador Booliano definido como "true" caso a empresa esteja habilitada para o recurso de empresa multinacional. |
-| ObjectSettings |Uma coleção de configurações aplicáveis ao escopo do objeto. |
-| PartnerCommerceUrl |URL para o site de comércio do Parceiro. |
-| PartnerHelpUrl |URL para o site de Ajuda do Parceiro. |
-| PartnerSupportEmail |URL para o email de suporte do Parceiro. |
-| PartnerSupportTelephone |URL para o telefone de suporte do Parceiro. |
-| PartnerSupportUrl |URL para o site de suporte do Parceiro. |
-| StrongAuthenticationDetails |Detalhes relacionados a StrongAuthentication. |
-| StrongAuthenticationPolicy |Política de autenticação forte para a empresa. |
-| TechnicalNotificationMail |O endereço de email para notificar problemas técnicos relativos a uma empresa. |
-| TelephoneNumber |Os números de telefone em conformidade com a recomendação E.123 da ITU. |
-| TenantType |O tipo de um locatário. Se esse valor não for especificado, o locatário será uma Empresa. Caso contrário, os valores possíveis são: MicrosoftSupport (0), SyndicatePartner (1), BreadthPartner (2) BreadthPartnerDelegatedAdmin (3) ResellerPartnerDelegatedAdmin (4) ValueAddedResellerPartnerDelegatedAdmin (5). |
-| VerifiedDomain |Um conjunto de nomes de domínio DNS associado a uma Empresa. |
+| DirSyncConfiguration |Contém todos os DirSync configuração toohello específico locatário atual. |
+| DisplayName |nome de exibição de saudação para um objeto |
+| IsMnc |Uma empresa de saudação do sinalizador booliano conjunto muito "verdadeiro" se está habilitada para o recurso de empresa multinacional de saudação. |
+| ObjectSettings |Uma coleção de escopo de toohello aplicável de configurações de objeto de saudação. |
+| PartnerCommerceUrl |Site de comércio do parceiro de toohello URL. |
+| PartnerHelpUrl |Site de Ajuda do parceiro de toohello URL. |
+| PartnerSupportEmail |Email de suporte do parceiro de toohello URL. |
+| PartnerSupportTelephone |Telefone de suporte do parceiro de toohello URL. |
+| PartnerSupportUrl |Site de suporte do parceiro de toohello URL. |
+| StrongAuthenticationDetails |Detalhes relacionados à tooStrongAuthentication. |
+| StrongAuthenticationPolicy |Política de autenticação forte para a empresa de saudação. |
+| TechnicalNotificationMail |Email endereço toonotify problemas técnicos relativos tooa empresa. |
+| TelephoneNumber |Números de telefone que estão em conformidade com hello e. 123 de recomendação ITU. |
+| TenantType |tipo de saudação de um locatário. Se esse valor não for especificado, o locatário Olá é uma empresa. Caso contrário, os valores possíveis são: MicrosoftSupport (0), SyndicatePartner (1), BreadthPartner (2) BreadthPartnerDelegatedAdmin (3) ResellerPartnerDelegatedAdmin (4) ValueAddedResellerPartnerDelegatedAdmin (5). |
+| VerifiedDomain |Um conjunto de nomes de domínio DNS associado tooa da empresa. |
 
 ## <a name="update-domain-attributes"></a>Atributos de "Atualizar Domínio"
 | Atributo | Descrição |
 | --- | --- |
-| Funcionalidades |Sinalizadores de bits que descrevem os recursos do domínio, se houver. |
-| Padrão |Indica se o domínio é o valor padrão; por exemplo, o sufixo padrão UserPrincipalName quando um administrador cria um novo usuário no MOAC. |
-| Inicial |Indica se o domínio é o domínio inicial para a empresa, como alocado pelo OCP. O domínio inicial é um subdomínio exclusivo de um domínio Microsoft Online; por exemplo, contoso3.microsoftonline.com. |
-| LiveType |Tipo do namespace do Windows Live correspondente, se houver. |
-| Nome |Identificador para o ponto de extremidade. |
-| PasswordNotificationWindowDays |O número de dias antes que uma senha expire em que o usuário será notificado. |
-| PasswordValidityPeriodDays |O número de dias que uma senha valerá antes de ter de ser alterada. |
+| Funcionalidades |Os sinalizadores de bit que descreve recursos de saudação do domínio hello, se houver. |
+| Padrão |Indica se o domínio de saudação é o valor de padrão de saudação; Por exemplo, Olá UserPrincipalName sufixo padrão quando um administrador cria um novo usuário em MOAC. |
+| Inicial |Indica se Olá domínio é saudação inicial para a empresa hello, como alocado pelo OCP. domínio de saudação inicial é um subdomínio exclusivo de um domínio do Microsoft Online; e.g.contoso3.microsoftonline.com. |
+| LiveType |Tipo de saudação do Windows Live namespace correspondente, se houver. |
+| Nome |Identificador de ponto de extremidade de saudação. |
+| PasswordNotificationWindowDays |número de saudação de dias antes que uma senha expire usuário Olá é notificado. |
+| PasswordValidityPeriodDays |Olá o número de dias que é bom para uma senha antes que deva ser alterada. |
 
-Registros de auditoria são um controle necessário para muitas regulamentações de conformidade. Para clientes que usam o Relatório de Auditoria do Azure Active Directory para atender aos seus regulamentos de conformidade, recomenda-se que o cliente envie uma cópia deste tópico de ajuda com a cópia do relatório de auditoria exportado do cliente para ajudar a explicar os detalhes do relatório. Se o auditor gostaria de entender os regulamentos de conformidade que o Azure atende atualmente, indique a [Página de conformidade](https://azure.microsoft.com/support/trust-center/compliance/) da Central de confiabilidade do Microsoft Azure ao auditor.
+Registros de auditoria são um controle necessário para muitas regulamentações de conformidade. Para clientes que usam hello Azure Active Directory auditoria relatório toomeet suas regulamentações de conformidade, é recomendável cliente Olá enviar uma cópia deste tópico de ajuda com cópia de saudação do cliente hello exportada toohelp explicam o relatório de saudação do relatório de auditoria detalhes. Se auditor Olá gostaria regulamentações de conformidade do hello toounderstand Azure atende atualmente, direcionar Olá auditor toohello [página conformidade](https://azure.microsoft.com/support/trust-center/compliance/) de saudação do Microsoft Azure Trust Center.
 

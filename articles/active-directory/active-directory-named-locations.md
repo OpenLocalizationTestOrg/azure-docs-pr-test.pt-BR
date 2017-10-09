@@ -1,6 +1,6 @@
 ---
-title: "Localizações nomeadas no Azure Active Directory | Microsoft Docs"
-description: "Ao configurar localizações nomeadas, você pode evitar que endereços IP que pertencem à sua organização gerem falsos positivos para o tipo de evento de risco Viagem impossível a localizações atípicas."
+title: locais de aaaNamed no Active Directory do Azure | Microsoft Docs
+description: "Configurando denominado locais, você poderá evitar IP endereços pertencentes a sua organização geram falsos positivos para locais de tooatypical viagem impossível Olá corre o risco de tipo de evento."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -14,48 +14,48 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ff31ded1d9d60e47e0ae5f01119de78cd7f2df38
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 591e4b94b2ec9d45e20c01711e922f9972e047e5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Localizações nomeadas no Azure Active Directory
 
-Com o recurso de localizações nomeadas do Azure Active Directory, você pode rotular os intervalos de endereços IP confiáveis em suas organizações. Em seu ambiente, você pode usar localizações nomeadas no contexto da detecção de [eventos de risco](active-directory-reporting-risk-events.md). O recurso ajuda a reduzir o número de falsos positivos relatados para o tipo de evento de risco *Impossível viajar para localizações atípicas*. 
+Com hello denominado recursos locais do Active Directory do Azure, você pode rotular intervalos de endereço IP confiável em sua organização. Em seu ambiente, você pode usar locais nomeadas no contexto de saudação da detecção de saudação do [eventos de risco](active-directory-reporting-risk-events.md). recurso de saudação ajuda a reduzir o número de saudação de relatado falsos positivos para Olá *viagem impossível tooatypical locais* corre o risco de tipo de evento. 
 
 ## <a name="configuration"></a>Configuração
 
-Para configurar uma localização nomeada:
+tooconfigure um local nomeado:
 
-1. Entre no [Portal do Azure](https://portal.azure.com) como administrador global.
+1. Entrar toohello [portal do Azure](https://portal.azure.com) como administrador global.
 
-2. No painel esquerdo, clique em **Azure Active Directory**.
+2. No painel esquerdo do hello, clique em **Active Directory do Azure**.
 
-    ![O link do Azure Active Directory no painel esquerdo](./media/active-directory-named-locations/01.png)
+    ![link do Active Directory do Azure Olá no painel esquerdo da saudação](./media/active-directory-named-locations/01.png)
 
-3. Na folha **Azure Active Directory**, na seção **Segurança**, clique em **Acesso condicional**.
+3. Em Olá **Active Directory do Azure** folha em Olá **segurança** seção, clique em **acesso condicional**.
 
-    ![O comando Acesso condicional](./media/active-directory-named-locations/05.png)
-
-
-4. Na folha **Acesso Condicional**, na seção **Gerenciar**, clique em **Localizações nomeadas**.
-
-    ![O comando Localizações nomeadas](./media/active-directory-named-locations/06.png)
+    ![Olá comando de acesso condicional](./media/active-directory-named-locations/05.png)
 
 
-5. Na folha **Localizações nomeadas**, clique em **Novo local**.
+4. Em Olá **acesso condicional** folha em Olá **gerenciar** seção, clique em **chamado locais**.
 
-    ![O comando Novo local](./media/active-directory-named-locations/07.png)
+    ![Olá nomeados locais comando](./media/active-directory-named-locations/06.png)
 
 
-6. Na folha **Novo**, faça o seguinte:
+5. Em Olá **chamado locais** folha, clique em **novo local**.
 
-    ![A Nova folha](./media/active-directory-named-locations/08.png)
+    ![Olá novo comando de local](./media/active-directory-named-locations/07.png)
 
-    a. Na caixa **Nome**, digite um nome para a localização nomeada.
 
-    b. Na caixa **Intervalos de IP**, digite um intervalo de IP. O intervalo de IP precisa estar no formato *CIDR* (Roteamento Entre Domínios Sem Classe).  
+6. Em Olá **novo** folha, Olá a seguir:
+
+    ![blade de nova Olá](./media/active-directory-named-locations/08.png)
+
+    a. Em Olá **nome** , digite um nome para seu local nomeada.
+
+    b. Em Olá **intervalos IP** , digite um intervalo de IP. intervalo IP Hello precisa toobe em Olá *CIDR* formato (CIDR).  
 
     c. Clique em **Criar**.
 
@@ -63,15 +63,15 @@ Para configurar uma localização nomeada:
 
 ## <a name="what-you-should-know"></a>O que você deve saber
 
-**Atualizações em massa**: quando você cria ou atualiza localizações nomeadas, para atualizações em massa, você pode carregar ou baixar um arquivo CSV com os intervalos de IP. Um carregamento adiciona os intervalos de IP no arquivo à lista em vez de substituir a lista.
+**Atualizações em massa**: quando você cria ou atualiza locais nomeadas, as atualizações em massa, você pode carregar ou baixar um arquivo CSV com os intervalos IP hello. Um carregamento adiciona intervalos IP hello na lista de toohello Olá arquivos em vez de substituir a lista de saudação.
 
-![Os links para carregar e baixar arquivos](./media/active-directory-named-locations/09.png)
+![Olá Upload e Download de links](./media/active-directory-named-locations/09.png)
 
 
-**Limitações**: você pode definir um máximo de 60 localizações nomeadas com um intervalo de IP atribuído a cada uma delas. Se você tiver apenas uma localização nomeada configurada, poderá definir até 500 intervalos de IP para ela.
+**Limitações**: você pode definir um máximo de 60 locais nomeados, com um tooeach de intervalo atribuído IP deles. Se você tiver apenas um local nomeado configurado, você pode definir intervalos IP too500 para ele.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre eventos de risco, veja [Eventos de risco do Azure Active Directory](active-directory-reporting-risk-events.md).
+toolearn mais informações sobre eventos de risco, consulte [eventos de risco do Active Directory do Azure](active-directory-reporting-risk-events.md).
 

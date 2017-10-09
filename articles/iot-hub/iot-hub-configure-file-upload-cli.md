@@ -1,6 +1,6 @@
 ---
-title: Configurar o upload de arquivo para o Hub IoT usando a CLI do Azure (az.py) | Microsoft Docs
-description: Como configurar uploads de arquivo para o Hub IoT do Azure usando a CLI 2.0 do Azure (az.py) de plataforma cruzada.
+title: tooIoT de carregamento de arquivo aaaConfigure Hub usando a CLI do Azure (az.py) | Microsoft Docs
+description: "Como tooconfigure fileuploads tooAzure Hub IoT usando Olá plataforma cruzada do Azure CLI 2.0 (az.py)."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: a9af26d7ebacf5513952786621aaa92f64be263b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 390113df2d96df9833b6aa383ed66805528614a0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Configurar uploads de arquivo do Hub IoT usando a CLI do Azure
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-Para usar a [funcionalidade de upload de arquivo no Hub IoT][lnk-upload], primeiro associe uma conta de Armazenamento do Azure ao hub IoT. Você pode usar uma conta de armazenamento existente ou criar uma nova.
+Olá toouse [funcionalidade de carregamento de arquivo no IoT Hub][lnk-upload], primeiro você deve associar uma conta de armazenamento do Azure com o hub IoT. Você pode usar uma conta de armazenamento existente ou criar uma nova.
 
-Para concluir este tutorial, você precisará do seguinte:
+toocomplete neste tutorial, você precisa Olá a seguir:
 
 * Uma conta ativa do Azure. Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
 * [CLI do Azure 2.0][lnk-CLI-install].
-* Um Hub IoT do Azure. Se você não tiver um Hub IoT, poderá usar o `az iot hub create` [comando][lnk-cli-create-iothub] para criar um ou usar o portal para [Criar um hub IoT][lnk-portal-hub].
-* Uma conta de armazenamento do Azure. Se você não tiver uma conta de Armazenamento do Azure, poderá usar a [CLI do Azure 2.0 – Gerenciar contas de armazenamento][lnk-manage-storage] para criar uma ou usar o portal para [Criar uma conta de armazenamento][lnk-portal-storage].
+* Um Hub IoT do Azure. Se você não tiver um hub IoT, você pode usar o hello `az iot hub create` [comando] [ lnk-cli-create-iothub] toocreate um ou use Olá portal muito [criar um hub IoT] [hub de portal lnk].
+* Uma conta de armazenamento do Azure. Se você não tiver uma conta de armazenamento do Azure, você pode usar o hello [2.0 do CLI do Azure - gerenciar contas de armazenamento] [ lnk-manage-storage] toocreate um ou use Olá portal muito[criar uma conta de armazenamento] [lnk-portal-storage].
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Entre e configure sua conta do Azure
 
-Entre na sua conta do Azure e selecione sua assinatura.
+Entre no tooyour conta do Azure e selecione sua assinatura.
 
-1. Ao prompt de comando, execute o [comando de logon][lnk-login-command]:
+1. No prompt de comando do hello, execute Olá [comando login][lnk-login-command]:
 
     ```azurecli
     az login
     ```
 
-    Siga as instruções de autenticação usando o código e entre em sua conta do Azure por meio de um navegador da Web.
+    Siga Olá instruções tooauthenticate usando código hello e entrar tooyour conta do Azure por meio de um navegador da web.
 
-1. Se você tiver várias assinaturas do Azure, entrar o Azure lhe dará acesso a todas as contas do Azure associadas às suas credenciais. Use o seguinte [comando para listar as contas do Azure][lnk-az-account-command] disponíveis para você:
+1. Se você tiver várias assinaturas do Azure, entrar tooAzure concede acesso tooall Olá associadas com suas credenciais de contas do Azure. Use os seguintes Olá [toolist comando Olá contas do Azure] [ lnk-az-account-command] disponíveis para você toouse:
 
     ```azurecli
     az account list
     ```
 
-    Use o comando a seguir para selecionar a assinatura que você deseja usar para executar os comandos e criar seu Hub IoT. Você pode usar a ID ou nome da assinatura da saída do comando anterior:
+    Use Olá assinatura tooselect de comando que você deseja toouse toorun Olá comandos toocreate seu hub IoT a seguir. Você pode usar a ID ou nome de assinatura de saudação da saída de saudação do comando anterior hello:
 
     ```azurecli
     az account set --subscription {your subscription name or id}
@@ -59,25 +59,25 @@ Entre na sua conta do Azure e selecione sua assinatura.
 
 ## <a name="retrieve-your-storage-account-details"></a>Recupere os detalhes da sua conta de armazenamento
 
-As etapas a seguir pressupõem que você criou sua conta de armazenamento usando o modelo de implantação do **Resource Manager** e não o modelo de implantação **Clássico**.
+Olá etapas a seguir pressupõem que você criou sua conta de armazenamento usando Olá **Gerenciador de recursos de** modelo de implantação e não hello **clássico** modelo de implantação.
 
-Para configurar os uploads de arquivos dos seus dispositivos, você precisa da cadeia de conexão de uma conta de armazenamento do Azure. A conta de armazenamento deve estar nas mesmas região e assinatura que seu Hub IoT. Você também precisa do nome de um contêiner de blob na conta de armazenamento. Use o comando a seguir para recuperar as chaves da conta de armazenamento:
+arquivo tooconfigure carregamentos de seus dispositivos, você precisa de cadeia de caracteres de conexão Olá para uma conta de armazenamento do Azure. conta de armazenamento Olá deve estar no hello mesma assinatura que o hub IoT. Você também precisa de nome de saudação de um contêiner de blob na conta de armazenamento hello. Use suas chaves de conta de armazenamento de Olá tooretrieve de comando a seguir:
 
 ```azurecli
 az storage account show-connection-string --name {your storage account name} --resource-group {your storage account resource group}
 ```
 
-Anote o valor da **connectionString**. Ele é necessário nas etapas a seguir.
+Anote Olá **connectionString** valor. Necessário em Olá etapas a seguir.
 
 Você pode usar um contêiner de blob existente para os uploads de arquivo ou criar um novo:
 
-* Para listar os contêineres de blob existentes em sua conta de armazenamento, use o seguinte comando:
+* toolist Olá existente contêineres de blob em sua conta de armazenamento, use Olá comando a seguir:
 
     ```azurecli
     az storage container list --connection-string "{your storage account connection string}"
     ```
 
-* Para criar um contêiner de blob em sua conta de armazenamento, use o seguinte comando:
+* toocreate um contêiner de blob em sua conta de armazenamento, use Olá comando a seguir:
 
     ```azurecli
     az storage container create --name {container name} --connection-string "{your storage account connection string}"
@@ -85,21 +85,21 @@ Você pode usar um contêiner de blob existente para os uploads de arquivo ou cr
 
 ## <a name="file-upload"></a>Upload de arquivos
 
-Agora você pode configurar seu Hub IoT para habilitar a [funcionalidade de upload de arquivos][lnk-upload] usando os detalhes da conta de armazenamento.
+Agora você pode configurar seu tooenable de hub IoT [funcionalidade de carregamento de arquivo] [ lnk-upload] usando os detalhes da conta de armazenamento.
 
-A configuração requer os seguintes valores:
+configuração de saudação requer Olá valores a seguir:
 
-**Contêiner de armazenamento**: um contêiner de blob em uma conta de armazenamento do Azure na assinatura atual do Azure para associar ao Hub IoT. Você recuperou as informações da conta de armazenamento necessárias na seção anterior. O Hub IoT gera automaticamente os URIs de SAS com permissões de gravação para esse contêiner de blob para dispositivos a serem usados ao carregar arquivos.
+**Contêiner de armazenamento**: um contêiner de blob em uma conta de armazenamento do Azure no seu atual tooassociate de assinatura do Azure com o hub IoT. Você recuperar informações de conta de armazenamento necessários Olá em Olá anterior da seção. IoT Hub gera automaticamente os URIs de SAS com contêiner de blob de toothis de permissões de gravação para dispositivos toouse ao carregar arquivos.
 
 **Receber notificações para os arquivos carregados**: habilitar ou desabilitar notificações de upload de arquivo.
 
-**TTL de SAS**: essa configuração é o tempo de vida dos URIs de SAS retornados para o dispositivo pelo Hub IoT. Defina como uma hora por padrão.
+**SAS TTL**: essa configuração é hello tempo de vida da saudação SAS URIs retornados toohello dispositivo pelo IoT Hub. Definir hora tooone por padrão.
 
-**TTL de configurações de notificação de arquivo padrão**: o tempo de vida de uma notificação de upload de arquivo antes de sua expiração. Defina como um dia por padrão.
+**Notificação de tempo de vida padrão de configurações de arquivo**: Olá tempo de vida de uma notificação de carregamento de arquivo antes de expirar. Definir dia tooone por padrão.
 
-**Contagem de entrega máxima de notificação de arquivo**: o número de vezes que o Hub IoT tenta entregar uma notificação de carregamento de arquivo. Defina como 10 por padrão.
+**Contagem máxima de entrega de notificação de arquivo**: Olá número de vezes Olá toodeliver tentativas de IoT Hub uma notificação de carregamento de arquivo. Definir too10 por padrão.
 
-Use os seguintes comandos da CLI do Azure para definir as configurações de upload de arquivo no seu hub IoT:
+Use configurações de carregamento de arquivo tooconfigure Olá do CLI do Azure comandos a seguir em seu hub IoT de saudação:
 
 Em um shell de busca, use:
 
@@ -125,7 +125,7 @@ az iot hub update --name {your iot hub name} --set properties.messagingEndpoints
 az iot hub update --name {your iot hub name} --set properties.messagingEndpoints.fileNotifications.ttlAsIso8601=PT1H0M0S
 ```
 
-Você pode examinar a configuração de upload de arquivo em seu hub IoT usando o seguinte comando:
+Você pode examinar a configuração de carregamento de arquivo hello em seu hub IoT usando Olá comando a seguir:
 
 ```azurecli
 az iot hub show --name {your iot hub name}
@@ -133,19 +133,19 @@ az iot hub show --name {your iot hub name}
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre os recursos de upload de arquivo do Hub IoT, consulte [Carregar arquivos de um dispositivo][lnk-upload].
+Para obter mais informações sobre os recursos de carregamento de arquivo hello IoT Hub, consulte [carregar arquivos de um dispositivo][lnk-upload].
 
-Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
+Siga essas toolearn links mais sobre como gerenciar o Azure IoT Hub:
 
 * [Gerenciamento em massa de dispositivos IoT][lnk-bulk]
 * [Métricas do Hub IoT][lnk-metrics]
 * [Monitoramento de operações][lnk-monitor]
 
-Para explorar melhor as funcionalidades do Hub IoT, consulte:
+toofurther explorar recursos de saudação do IoT Hub, consulte:
 
 * [Guia do desenvolvedor do Hub IoT][lnk-devguide]
 * [Simulando um dispositivo com IoT Edge][lnk-iotedge]
-* [Proteger sua solução de IoT desde o início][lnk-securing]
+* [Proteger a sua solução de IoT da saudação de plano de fundo para cima][lnk-securing]
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
 [14]: ./media/iot-hub-configure-file-upload/file-upload-container-selection.png

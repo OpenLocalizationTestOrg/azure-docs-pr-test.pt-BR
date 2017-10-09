@@ -1,6 +1,6 @@
 ---
-title: "Serviços de Domínio do Azure AD: comparar os Serviços de Domínio do Azure AD com os controladores de domínio DIY | Microsoft Docs"
-description: "Comparação dos Azure Active Directory Domain Services com controladores de domínio DIY"
+title: "Serviços de domínio do AD do Azure: Controladores de domínio serviços de domínio de AD do Azure comparar tooDIY | Microsoft Docs"
+description: "Comparando os controladores de domínio do Azure Active Directory Domain Services tooDIY"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 09a68c7f4e7169a6ca02e33e89e0f048155fa88c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5e384f6a676e76e4f22ff62d4aeb578bc8481ef7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Como decidir se os Azure AD Domain Services são adequados ao seu caso de uso
-Com o Azure AD Domain Services, você pode implantar suas cargas de trabalho nos Serviços de Infraestrutura do Azure sem precisar se preocupar em manter a infraestrutura de identidade no Azure. Esse serviço gerenciado é diferente de uma implantação típica do Windows Server Active Directory que você implanta e administra sozinho. O serviço é fácil de implantar e oferece monitoramento de integridade e correção automatizados. Estamos constantemente evoluindo o serviço a fim de adicionar suporte para cenários comuns de implantação.
+# <a name="how-toodecide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Como toodecide se serviços de domínio do AD do Azure é adequada para seu caso de uso
+Com os serviços de domínio do AD do Azure, você pode implantar suas cargas de trabalho nos serviços de infraestrutura do Azure, sem ter que tooworry sobre a manutenção da infraestrutura de identidade no Azure. Esse serviço gerenciado é diferente de uma implantação típica do Windows Server Active Directory que você implanta e administra sozinho. serviço de saudação é fácil toodeploy e fornece monitoramento de integridade automatizada e correção. Podemos estão em constante evolução Olá serviço tooadd suporte a cenários comuns de implantação.
 
-Para decidir se deseja usar o Azure AD Domain Services, recomendamos que você leia o material a seguir:
+toodecide se os serviços de domínio do AD do Azure toouse recomendamos Olá material de leitura a seguir:
 
-* Veja a lista de [funcionalidades oferecidas pelos Azure AD Domain Services](active-directory-ds-features.md).
+* Consulte a lista de saudação do [recursos oferecidos pelos serviços de domínio do AD do Azure](active-directory-ds-features.md).
 * Examine os [Cenários de implantação comuns dos Azure AD Domain Services](active-directory-ds-scenarios.md).
-* Por fim, [compare os Azure AD Domain Services a uma opção de AD do tipo faça você mesmo](active-directory-ds-comparison.md#compare-azure-ad-domain-services-to-diy-ad-domain-in-azure).
+* Por fim, [comparar a opção de serviços de domínio do AD do Azure de tooa AD tipo faça você mesmo](active-directory-ds-comparison.md#compare-azure-ad-domain-services-to-diy-ad-domain-in-azure).
 
-## <a name="compare-azure-ad-domain-services-to-diy-ad-domain-in-azure"></a>Compare os Azure AD Domain Services ao domínio do AD DIY no Azure
-A tabela a seguir ajuda você a decidir entre usar os Azure AD Domain Services e gerenciar sua própria infraestrutura do Azure AD.
+## <a name="compare-azure-ad-domain-services-toodiy-ad-domain-in-azure"></a>Comparar o domínio de tooDIY AD de serviços de domínio do AD do Azure no Azure
+Olá tabela a seguir ajuda você a decidir entre usar serviços de domínio do AD do Azure e gerenciar sua própria infraestrutura do AD no Azure.
 
 | **Recurso** | **Azure AD Domain Services** | **AD "faça você mesmo" em VMs do Azure** |
 | --- |:---:|:---:|
 | [**Serviço gerenciado**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
-| [**Implantações seguras**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |O administrador precisa proteger a implantação. |
+| [**Implantações seguras**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |Administrador precisa de implantação de saudação toosecure. |
 | [**Servidor DNS**](active-directory-ds-comparison.md#dns-server) |**&#x2713;** (serviço gerenciado) |**&#x2713;** |
 | [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
 | [**Ingresso no domínio**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
@@ -51,69 +51,69 @@ A tabela a seguir ajuda você a decidir entre usar os Azure AD Domain Services e
 | [**Implantações com distribuição geográfica**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
 
 #### <a name="managed-service"></a>Serviço gerenciado
-Os domínios dos Azure AD Domain Services são gerenciados pela Microsoft. Você não precisa se preocupar com a aplicação de patches, atualizações, monitoramento, backups e em garantir a disponibilidade de seu domínio. Essas tarefas de gerenciamento são oferecidas como um serviço pelo Microsoft Azure para seus domínios gerenciados.
+Os domínios dos Azure AD Domain Services são gerenciados pela Microsoft. Você não tem tooworry sobre a aplicação de patches, atualizações, monitoramento, backups e garantir a disponibilidade do seu domínio. Essas tarefas de gerenciamento são oferecidas como um serviço pelo Microsoft Azure para seus domínios gerenciados.
 
 #### <a name="secure-deployments"></a>Implantações seguras
-O domínio gerenciado é bloqueado com segurança, de acordo com as recomendações de segurança da Microsoft para implantações do AD. Essas recomendações derivam de décadas de experiência da equipe de produto do AD com engenharia e suporte a implantações do AD. Para implantações do tipo faça você mesmo, é necessário executar etapas de implantação específicas para bloquear/proteger sua implantação.
+domínio gerenciado Olá com segurança é bloqueado de acordo com as recomendações de segurança da Microsoft para implantações do AD. Essas recomendações derivam de décadas da equipe de produto Olá AD de experiência de engenharia e suporte a implantações do AD. Para implantações de tipo faça você mesmo, você precisa tootake específicas de implantação etapas toolock para baixo/proteger a implantação.
 
 #### <a name="dns-server"></a>Servidor DNS
-Um domínio gerenciado dos Azure AD Domain Services inclui serviços de DNS gerenciados. Os membros do grupo "Administradores de controlador de domínio AAD" podem gerenciar o DNS no domínio gerenciado. Os membros desse grupo recebem privilégios totais de Administração do DNS no domínio gerenciado. O gerenciamento de DNS pode ser executado usando o "Console de administração do DNS" incluído no pacote RSAT (Ferramentas de administração de servidor remoto).
+Um domínio gerenciado dos Azure AD Domain Services inclui serviços de DNS gerenciados. Membros Olá ' AAD DC' do grupo de administradores podem gerenciar DNS no domínio Olá gerenciado. Os membros deste grupo recebem privilégios totais de administração do DNS para o domínio gerenciado hello. Gerenciamento de DNS pode ser executado usando Olá 'Console de administração do DNS' incluído no pacote de ferramentas de administração de servidor remoto (RSAT) hello.
 [Mais informações](active-directory-ds-admin-guide-administer-dns.md)
 
 #### <a name="domain-or-enterprise-administrator-privileges"></a>Privilégios de administrador corporativo ou de domínio
-Esses privilégios elevados não são oferecidos em um domínio gerenciado de DS AAD. Aplicativos que exigem esses privilégios elevados não podem ser implantados em domínios gerenciados do AAD DS. Um subconjunto menor de privilégios administrativos está disponível para os membros do grupo de administração delegada chamado "Administradores de DC AAD". Esses privilégios incluem privilégios de configuração do DNS, configuração de política de grupo, obtenção de privilégios de administrador em computadores que ingressaram em domínio etc.
+Esses privilégios elevados não são oferecidos em um domínio gerenciado de DS AAD. Aplicativos que exigem esses privilégios elevados não podem ser implantados em domínios gerenciados do AAD DS. Um subconjunto menor de privilégios administrativos é toomembers disponíveis do grupo de administração delegada Olá chamado 'Administradores de controlador de domínio do AAD'. Esses privilégios incluem privilégios tooconfigure DNS, configurar a política de grupo, obtém privilégios de administrador em computadores que ingressaram no domínio etc.
 
 #### <a name="domain-join"></a>Ingresso no domínio
-Você pode ingressar máquinas virtuais no domínio gerenciado de uma maneira parecida com o ingresso de computadores a um domínio do AD.
+Você pode adicionar máquinas virtuais toohello gerenciados domínio toohow semelhante unir o domínio dos computadores tooan AD.
 
 #### <a name="domain-authentication-using-ntlm-and-kerberos"></a>Autenticação de domínio usando Kerberos e NTLM
-Com os Azure AD Domain Services, você pode usar suas credenciais corporativas para autenticar com o domínio gerenciado. As credenciais são mantidas em sincronia com seu locatário do Azure AD. Para locatários sincronizados, o Azure AD Connect garante que as alterações feitas nas credenciais localmente sejam sincronizadas com o Azure AD. Com uma configuração de domínio do tipo faça você mesmo, talvez seja necessário configurar uma relação de confiança de domínio do AD com seu AD local para os usuários se autenticarem usando suas credenciais corporativas. Como alternativa, talvez seja necessário configurar a replicação do AD a fim de garantir que as senhas de usuário sejam sincronizadas com suas máquinas de virtuais do controlador de domínio do Azure.
+Com os serviços de domínio do AD do Azure, você pode usar tooauthenticate suas credenciais corporativas com domínio gerenciado hello. As credenciais são mantidas em sincronia com seu locatário do Azure AD. Para locatários sincronizados, do Azure AD Connect garante que as alterações feitas de toocredentials local sincronizado tooAzure AD. Com uma configuração de tipo faça você mesmo domínio, talvez seja necessário tooset um domínio de AD relação de confiança com suas instalações AD para usuários tooauthenticate com suas credenciais corporativas. Como alternativa, talvez seja necessário tooset backup tooensure de replicação do AD que as senhas de usuário sincronizem tooyour máquinas de virtuais de controladores de domínio do Azure.
 
 #### <a name="kerberos-constrained-delegation"></a>Delegação restrita de Kerberos
-Você não tem privilégios de "Administrador do Domínio" em um domínio gerenciado pelo Active Directory Domain Services. Portanto, você não pode configurar a delegação restrita do Kerberos baseada em conta (tradicional). No entanto, é possível configurar a delegação restrita baseada em recursos mais segura.
+Você não tem privilégios de "Administrador do Domínio" em um domínio gerenciado pelo Active Directory Domain Services. Portanto, você não pode configurar a delegação restrita do Kerberos baseada em conta (tradicional). No entanto, você pode configurar hello mais segura baseada em recursos de delegação restrita.
 [Mais informações](active-directory-ds-enable-kcd.md)
 
 #### <a name="custom-ou-structure"></a>Estrutura de UO personalizada
-Os membros do grupo "Administradores de controlador de domínio do AAD" podem criar UOs personalizadas dentro do domínio gerenciado. Usuários que criam unidades organizacionais personalizadas recebem privilégios administrativos totais sobre a unidade organizacional.
+Membros Olá ' AAD DC' do grupo de administradores podem criar UOs personalizados no domínio Olá gerenciado. Os usuários que criam UOs personalizados recebem privilégios administrativos completos sobre Olá UO.
 [Mais informações](active-directory-ds-admin-guide-create-ou.md)
 
 #### <a name="schema-extensions"></a>Extensões de esquema
-Você não pode estender o esquema de base de um domínio gerenciado dos Azure AD Domain Services. Portanto, os aplicativos que dependem de extensões ao esquema do AD (por exemplo, novos atributos no objeto do usuário) não podem ser deslocados para domínios do AAD-DS.
+Você não pode estender o esquema de base de saudação de um domínio gerenciado do serviços de domínio do AD do Azure. Portanto, aplicativos que dependem do esquema de tooAD extensões (por exemplo, novos atributos no objeto de usuário Olá) não podem ser eliminados e deslocada domínios tooAAD DS.
 
 #### <a name="ad-domain-or-forest-trusts"></a>Relações de confiança de floresta ou domínio do AD
-Os domínios gerenciados não podem ser configurados para estabelecer relações de confiança com outros domínios (entrada/saída). Portanto, cenários de implantação de florestas de recursos não podem usar o Azure AD Domain Services. De forma semelhante, implantações em que você preferir não sincronizar senhas para o Azure AD não poderão usar o Azure AD Domain Services.
+Domínios gerenciados não podem ser configurado tooset (entrada/saída) de relacionamentos de confiança com outros domínios. Portanto, cenários de implantação de florestas de recursos não podem usar o Azure AD Domain Services. Da mesma forma, as implantações em que você preferir não toosynchronize senhas tooAzure AD não podem usar os serviços de domínio do AD do Azure.
 
 #### <a name="ldap-read"></a>Leitura LDAP
-O domínio gerenciado oferece suporte a cargas de trabalho de leitura de LDAP. Portanto, você pode implantar aplicativos que realizam operações de leitura LDAP no domínio gerenciado.
+Olá gerenciados domínio oferece suporte a LDAP ler cargas de trabalho. Portanto, você pode implantar aplicativos que executam operações em relação ao domínio gerenciado Olá de leitura de LDAP.
 
 #### <a name="secure-ldap"></a>LDAP seguro
-Você pode configurar os Azure AD Domain Services para fornecer acesso seguro do LDAP ao seu domínio gerenciado, incluindo pela internet.
+Você pode configurar os serviços de domínio do AD do Azure tooprovide segura LDAP acesso tooyour gerenciado Olá de domínio, inclusive pela internet.
 [Mais informações](active-directory-ds-admin-guide-configure-secure-ldap.md)
 
 #### <a name="ldap-write"></a>Gravação LDAP
-O domínio gerenciado é somente leitura para objetos de usuário. Portanto, os aplicativos que executam operações de gravação LDAP em atributos do objeto do usuário não funcionam em um domínio gerenciado. Além disso, as senhas de usuário não podem ser alteradas dentro do domínio gerenciado. Outro exemplo seria a modificação das associações de grupo ou atributos de grupo dentro do domínio gerenciado, o que não é permitido. No entanto, quaisquer alterações em atributos de usuário ou senhas feitas no Azure AD (por meio do Portal do Azure/PowerShell) ou no AD local são sincronizadas com o domínio gerenciado do AAD-DS.
+domínio gerenciado Olá é somente leitura para objetos de usuário. Portanto, os aplicativos que executam operações de gravação de LDAP em atributos de objeto de usuário de saudação não funcionam em um domínio gerenciado. Além disso, as senhas de usuário não podem ser alteradas no domínio gerenciado hello. Outro exemplo seria a modificação de associações de grupo ou atributos de grupo no domínio gerenciado hello, que não é permitido. No entanto, todas as alterações toouser atributos ou senhas feitas no AD do Azure (por meio do portal do Azure PowerShell /) ou AD são sincronizados no local toohello AAD DS gerenciados domínio.
 
 #### <a name="group-policy"></a>Política de grupo
-Há um GPO interno para os contêineres "Computadores AADDC" e "Usuários AADDC". É possível personalizar esses GPOs internos para configurar a política de grupo. Membros do grupo "Administradores do DC do AAD" também podem criar GPOs personalizados e vinculá-los a unidades organizacionais existentes (incluindo unidades organizacionais personalizadas).
+Há um interno GPO cada para contêineres de "Computadores AADDC" e "AADDC Users" hello. Você pode personalizar esses política de grupo tooconfigure GPOs internos. Membros Olá ' AAD DC' do grupo de administradores também podem criar GPOs personalizadas e vinculá-los em OUs tooexisting (incluindo OUs personalizadas).
 [Mais informações](active-directory-ds-admin-guide-administer-group-policy.md)
 
 #### <a name="geo-dispersed-deployments"></a>Implantações geograficamente dispersas
-Os domínios gerenciados dos Azure AD Domain Services estão disponíveis em uma única rede virtual no Azure. Para os cenários que exigem a disponibilidade de controladores de domínio em várias regiões do Azure no mundo todo, configurar controladores de domínio em VMs IaaS do Azure pode ser a melhor alternativa.
+Os domínios gerenciados dos Azure AD Domain Services estão disponíveis em uma única rede virtual no Azure. Para cenários que exigem os toobe do controladores de domínio disponível em várias regiões do Azure em Olá, mundo, configurar controladores de domínio em VMs de IaaS do Azure pode ser melhor alternativa de saudação.
 
 
 ## <a name="do-it-yourself-diy-ad-deployment-options"></a>Opções de implantação de AD do tipo DIY (faça você mesmo)
-Você pode ter casos de uso de implantação nos quais precisa de alguns dos recursos oferecidos por uma instalação de AD do Windows Server. Nesses casos, considere uma das seguintes opções de DIY (faça você mesmo):
+Você pode ter os casos de uso de implantação em que você precisa de alguns dos recursos de saudação oferecidos por uma instalação do AD do Windows Server. Nesses casos, considere uma saudação tipo faça você mesmo (DIY) as opções a seguir:
 
-* **Domínio de nuvem autônomo:** você pode configurar um "domínio de nuvem" autônomo usando máquinas virtuais do Azure que foram configuradas como controladores de domínio. Essa infraestrutura não se integra ao seu ambiente local do AD. Essa opção exigiria um conjunto diferente de "credenciais de nuvem" para fazer logon/administrar VMs na nuvem.
-* **Implantação de floresta de recursos:** você pode configurar um domínio na topologia de floresta de recursos, usando máquinas virtuais do Azure configuradas como controladores de domínio. Em seguida, você pode configurar uma relação de confiança do AD com seu ambiente local do AD. Você pode ingressar computadores em domínio (VMs do Azure) nessa floresta de recursos na nuvem. A autenticação do usuário acontece em um uma conexão de VPN/ExpressRoute para seu diretório local.
-* **Estender seu domínio local para o Azure:** você pode conectar uma rede virtual do Azure à sua rede local usando uma conexão VPN/ExpressRoute. Essa configuração permite que VMs do Azure sejam ingressadas em seu AD local. Outra alternativa é promover uma réplica dos controladores de domínio de seu domínio local no Azure como uma VM. Você pode configurá-lo para replicar em uma conexão de VPN/ExpressRoute para seu diretório local. Esse modo de implantação estende efetivamente seu domínio local para o Azure.
+* **Domínio de nuvem autônomo:** você pode configurar um "domínio de nuvem" autônomo usando máquinas virtuais do Azure que foram configuradas como controladores de domínio. Essa infraestrutura não se integra ao seu ambiente local do AD. Essa opção requer um conjunto diferente de credenciais de nuvem toologin/administrar VMs em nuvem hello.
+* **Implantação de floresta de recursos:** você pode configurar um domínio na topologia de floresta de recurso hello, usando máquinas virtuais do Azure configuradas como controladores de domínio. Em seguida, você pode configurar uma relação de confiança do AD com seu ambiente local do AD. Você pode floresta de recursos de toothis-ingresso no domínio (máquinas virtuais do Azure) de computadores na nuvem hello. Autenticação de usuário ocorra em um um diretório local de tooyour de conexão de VPN/rota expressa.
+* **Estender seu tooAzure de domínio local:** você pode se conectar a uma rede de local de tooyour de rede virtual do Azure usando uma conexão VPN/rota expressa. Essa configuração permite que máquinas virtuais do Azure toobe tooyour unidas AD local. Outra alternativa é toopromote réplicas de controladores de domínio do seu domínio local no Azure como uma máquina virtual. Você pode, em seguida, configurá-lo tooreplicate em um diretório local de tooyour de conexão de VPN/rota expressa. Este modo de implantação efetivamente estende sua tooAzure de domínio local.
 
 > [!NOTE]
-> Você pode determinar se uma opção de DIY é mais adequada para seus casos de uso de implantação. Considere [compartilhar comentários](active-directory-ds-contact-us.md) para nos ajudar a entender quais recursos ajudariam você a escolher os Azure AD Domain Services no futuro. Esses comentários nos ajudam a desenvolver o serviço a fim de atender melhor às suas necessidades de implantação e casos de uso.
+> Você pode determinar se uma opção de DIY é mais adequada para seus casos de uso de implantação. Considere [compartilhar comentário](active-directory-ds-contact-us.md) toohelp nos entender o que ajuda a recursos você escolheu o serviços de domínio do AD do Azure no hello futuras. Esses comentários nos ajudam a desenvolver naipe de toobetter serviço Olá que necessidades de sua implantação e casos de uso.
 >
 >
 
-Publicamos [Diretrizes para implantação do Windows Server Active Directory em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx) para facilitar as instalações DIY.
+Publicadas [diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx) toohelp facilitar DIY instalações.
 
 ## <a name="related-content"></a>Conteúdo relacionado
 * [Recursos – Azure AD Domain Services](active-directory-ds-features.md)

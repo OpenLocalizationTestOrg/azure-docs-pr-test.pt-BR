@@ -1,5 +1,5 @@
 ---
-title: "Notas de versão do Gateway de Gerenciamento de Dados | Microsoft Docs"
+title: Notas de aaaRelease do Gateway de gerenciamento de dados | Microsoft Docs
 description: "Notas de versão do Gateway de Gerenciamento de Dados"
 services: data-factory
 author: nabhishek
@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: abnarain
 published: True
-ms.openlocfilehash: c052d7e9f757164429ce867201b96305e405dce9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3165d7537410a0531e0bb7f7fe584767f9155574
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de versão para o Gateway de Gerenciamento de Dados
-Um dos desafios da integração de dados moderna é mover dados entre o local e a nuvem. O Data Factory faz essa integração com o Gateway de Gerenciamento de Dados, que é um agente que você pode instalar localmente para habilitar a movimentação de dados híbridos.
+Um dos desafios Olá para integração de dados modernos é toomove dados tooand de toocloud local. Fábrica de dados torna essa integração com o Gateway de gerenciamento de dados, que é um agente que você pode instalar o movimento de dados local tooenable híbrida.
 
-Veja os artigos a seguir para obter informações detalhadas sobre o Gateway de Gerenciamento de Dados e como usá-lo:
+Consulte Olá seguintes artigos para obter informações detalhadas sobre o Gateway de gerenciamento de dados e como toouse-lo:
 
 *  [Gateway de gerenciamento de dados](data-factory-data-management-gateway.md)
 *  [Mover dados entre o local e a nuvem usando a Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
@@ -32,9 +32,9 @@ Veja os artigos a seguir para obter informações detalhadas sobre o Gateway de 
 ## <a name="current-version-21063477"></a>VERSÃO ATUAL (2.10.6347.7)
 
 ### <a name="enhancements-"></a>Melhorias-
-- Adicione as entradas DNS à lista de permissões do barramento de serviço, em vez de colocar na lista de permissões todos os endereços IP do Azure do firewall (se necessário). Você pode encontrar a entrada DNS respectiva no Portal do Azure (Data Factory -> 'Criar e Implantar' -> 'Gateways' -> "serviceUrls" (no JSON)
+- Você pode adicionar o barramento de serviço do DNS entradas toowhitelist em vez de lista branca de todos os endereços IP do Azure do seu firewall (se necessário). Você pode encontrar a entrada DNS respectiva no Portal do Azure (Data Factory -> 'Criar e Implantar' -> 'Gateways' -> "serviceUrls" (no JSON)
 - Agora, o conector HDFS dá suporte ao certificado público autoassinado, permitindo que você ignore a validação de SSL.
-- Corrigido: problema com gateway offline durante a atualização (devido à distorção do relógio)
+- Corrigido: Problema com gateway offline durante a atualização (devido a distorção tooclock)
 
 
 
@@ -42,12 +42,12 @@ Veja os artigos a seguir para obter informações detalhadas sobre o Gateway de 
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>Melhorias-
--   Adicione as entradas DNS à lista de permissões do Barramento de Serviço, em vez de colocar na lista de permissões todos os endereços IP do Azure do firewall (se necessário). Mais detalhes aqui.
--   Agora você pode copiar dados de/para um único blob de blocos de até 4,75 TB, que é o tamanho máximo com suporte no blob de blocos. (o limite anterior era de 195 GB).
+-   Você pode adicionar entradas DNS toowhitelist barramento de serviço em vez de lista branca de todos os endereços IP do Azure do seu firewall (se necessário). Mais detalhes aqui.
+-   Agora você pode copiar dados para/de um blob de bloco único backup too4.75 TB, que é o tamanho de saudação máximo com suporte de blob de blocos. (o limite anterior era de 195 GB).
 -   Correção: problema de memória insuficiente ao descompactar vários arquivos pequenos durante a atividade de cópia.
--   Correção: problema de índice fora do intervalo durante a cópia do DocumentDB para o SQL Server local com o recurso de idempotência.
+-   Correção: Índice fora do problema de intervalo durante a cópia do banco de dados de documento tooan local do SQL Server com o recurso idempotência.
 -   Correção: o script de limpeza do SQL não funcionava no SQL Server local no Assistente de Cópia.
--   Correção: um nome de coluna com espaço no final não funcionava na atividade de cópia.
+-   Correção: Nome da coluna espaço Olá final não funciona na atividade de cópia.
 
 ## <a name="28662833"></a>2.8.66283.3
 ### <a name="enhancements-"></a>Melhorias-
@@ -71,58 +71,58 @@ Veja os artigos a seguir para obter informações detalhadas sobre o Gateway de 
 
 ## <a name="2561641"></a>2.5.6164.1
 ### <a name="enhancements"></a>Melhorias
-- Experiência de registro de gateway melhor e mais robusta – agora você pode acompanhar o status do progresso durante o processo de registro de gateway, o que torna a experiência de registro mais dinâmica.
-- Melhoria no Processo de Restauração de Gateway – você ainda poderá recuperar o gateway, mesmo que não tenha o arquivo de backup do gateway com essa atualização. Isso exigiria a redefinição das credenciais de Serviço Vinculado no Portal.
+- Melhor e mais robusta Gateway registro experiência-agora você pode acompanhar o status do andamento durante o processo de registro de Gateway hello, que torna a experiência de registro hello mais ágil na resposta.
+- Melhoria no Gateway restaurar processo - você ainda poderá recuperar o gateway mesmo se você não tiver o arquivo de backup Olá gateway com essa atualização. Isso exigiria tooreset credenciais de serviço vinculado no Portal.
 - Correção de bug.
 
 ## <a name="2461511"></a>2.4.6151.1
 
 ### <a name="whats-new"></a>O que há de novo
 
-- Agora você pode armazenar credenciais de fonte de dados localmente. As credenciais são criptografadas. As credenciais da fonte de dados podem ser recuperadas e restauradas usando o arquivo de backup que pode ser exportado do Gateway existente, tudo localmente.
+- Agora você pode armazenar credenciais de fonte de dados localmente. Olá credenciais são criptografadas. credenciais de fonte de dados Olá podem ser recuperadas e restaurados usando o arquivo de backup de saudação que pode ser exportado do hello existente Gateway, todos os locais.
 
 ### <a name="enhancements-"></a>Melhorias-
 
 - Experiência de registro de Gateway melhorada e mais robusta.
-- Suporte à detecção automática da configuração de QuoteChar para formato de Texto no assistente de cópia e melhoria da precisão de detecção do formato geral.
+- Suporte a detecção automática da configuração de QuoteChar para formato de texto no Assistente para copiar e melhorar Olá formato geral a precisão da detecção.
 
 ## <a name="2361002"></a>2.3.6100.2
 
 - Suporte à detecção automática de firstRowAsHeader e SkipLineCount no assistente de cópia para arquivos de texto em HDFS e no sistema de arquivos local.
-- Melhoria da estabilidade da conexão de rede entre o gateway e o Barramento de Serviço
+- Aprimorar a estabilidade de saudação da conexão de rede entre o gateway e o barramento de serviço
 - Algumas correções de bug
 
 
 ## <a name="2260721"></a>2.2.6072.1
 
-*  Permite a configuração do proxy HTTP para o gateway usando o Gerenciador de Configurações do Gateway. Se configurado, o Blob do Azure, a Tabela do Azure, o Azure Data Lake e o DocumentDB serão acessados por meio do proxy HTTP.
-*  Dá suporte ao tratamento de cabeçalho para TextFormat na cópia de dados dentro e fora do Blob do Azure, Azure Data Lake Store, Sistema de Arquivos Local e HDFS local.
-*  Dá suporte à cópia de dados do Blob de Acréscimos e Blob de Páginas com o Blob de Blocos já com suporte.
-*  Introduz um novo status de gateway **Online (Limitado)**, que indica se a funcionalidade principal do gateway funciona, com exceção do suporte à operação interativa do Assistente de Cópia.
-*  Aprimora a robustez do registro de gateway usando a chave do Registro.
+*  Oferece suporte ao configurar o proxy HTTP para usar o gateway Olá Olá Gateway Configuration Manager. Se configurado, o Blob do Azure, a Tabela do Azure, o Azure Data Lake e o DocumentDB serão acessados por meio do proxy HTTP.
+*  Cabeçalho dá suporte ao tratamento de TextFormat ao copiar dados do sistema de arquivos local e HDFS local tooAzure Blob, repositório Azure Data Lake,.
+*  Oferece suporte à cópia de dados de Blob de acréscimo e blobs de página juntamente com hello já suporte para o Blob de blocos.
+*  Apresenta um novo status do gateway **Online (limitado)**, que indica que essa funcionalidade principal de saudação do gateway de saudação funciona exceto o suporte da operação interativa Olá para o Assistente para cópia.
+*  Melhora a robustez de saudação do registro de gateway usando a chave de registro.
 
 ## <a name="216040"></a>2.1.6040.
 
-*  O driver DB2 agora está incluído no pacote de instalação do gateway. Você não precisa instalá-lo separadamente.
-*  O driver DB2 agora oferece suporte ao z/OS e DB2 para i (AS/400) junto com as plataformas já suportadas (Linux, Unix e Windows).
+*  Driver do DB2 está incluído no pacote de instalação do gateway Olá agora. Não é necessário tooinstall-lo separadamente.
+*  Driver de DB2 agora dá suporte a z/OS e DB2 para i (AS / 400) junto com hello plataformas já com suporte (Linux, Unix e Windows).
 *  Dá suporte ao uso do Azure Cosmos DB como uma origem ou um destino para armazenamentos de dados locais
-*  Dá suporte à cópia dos dados de/para o armazenamento de blobs quente/frio junto com a conta de armazenamento de uso geral já com suporte.
-*  Permite que você conecte o SQL Server local por meio do gateway com privilégios de logon remoto.  
+*  Dá suporte ao copiar o armazenamento de blob do/toocold/hot dados junto com hello já suporte para a conta de armazenamento de uso geral.
+*  Permite que você tooconnect tooon-local do SQL Server por meio do gateway com privilégios de logon remoto.  
 
 ## <a name="2060131"></a>2.0.6013.1
 
-*  Você pode selecionar o idioma/cultura a ser usada por um gateway durante a instalação manual.
+*  Você pode selecionar Olá toobe de cultura do idioma usado por um gateway durante a instalação manual.
 
-*  Quando o gateway não funcionar conforme o esperado, você poderá optar por enviar logs de gateway dos últimos sete dias à Microsoft para facilitar a solução do problema. Se gateway não estiver conectado ao serviço de nuvem, você poderá optar por salvar e arquivar logs de gateway.  
+*  Quando o gateway não funciona conforme o esperado, você pode escolher toosend logs do gateway de últimos sete dias tooMicrosoft toofacilitate solução do problema de saudação. Se o gateway não está conectado toohello serviço de nuvem, você pode escolher toosave e arquivar os logs do gateway.  
 
 *  Aprimoramentos na interface do usuário para o gerenciador de configuração de gateway:
 
-    *  Torne o status do gateway mais visível na guia Página Inicial.
+    *  Verifique o status do gateway mais visível na guia de início de saudação.
 
     *  Controles reorganizados e simplificados.
 
-    *  Você pode copiar dados de um armazenamento usando a [ferramenta de visualização de cópia sem código](data-factory-copy-data-wizard-tutorial.md). Confira [Cópia em Etapas](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes gerais sobre esse recurso.
-*  Você pode aproveitar o Gateway de Gerenciamento de Dados para inserir dados diretamente de um banco de dados SQL Server local no Azure Machine Learning.
+    *  Você pode copiar dados de um armazenamento usando Olá [ferramenta de visualização de cópia sem código](data-factory-copy-data-wizard-tutorial.md). Confira [Cópia em Etapas](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes gerais sobre esse recurso.
+*  Você pode usar dados de tooingress de Gateway de gerenciamento de dados diretamente de um banco de dados do SQL Server local no aprendizado de máquina do Azure.
 
 *  Aprimoramentos de desempenho
 
@@ -134,9 +134,9 @@ Veja os artigos a seguir para obter informações detalhadas sobre o Gateway de 
 
 ## <a name="11159181"></a>1.11.5918.1
 
-*  O tamanho máximo do log de eventos do gateway foi aumentado de 1 MB para 40 MB.
+*  Tamanho máximo do log de eventos do gateway Olá foi aumentado de 1 MB too40 MB.
 
-*  Uma caixa de diálogo de aviso é exibida caso uma reinicialização seja necessária durante a atualização automática do gateway. Você pode optar por reiniciar logo em seguida ou mais tarde.
+*  Uma caixa de diálogo de aviso é exibida caso uma reinicialização seja necessária durante a atualização automática do gateway. Você pode escolher toorestart direita, em seguida, ou posterior.
 
 *  Em caso de falha da atualização automática, o instalador do gateway recupera a atualização automática três vezes no máximo.
 
@@ -156,8 +156,8 @@ Veja os artigos a seguir para obter informações detalhadas sobre o Gateway de 
 
 *  Capacidade de atualização automática zero touch
 *  Novo ícone de bandeja com indicadores de status do gateway
-*  Capacidade de "Atualizar agora" do cliente
-*  Capacidade de definir o horário da agenda de atualização
+*  Capacidade muito "Atualizar agora" de cliente Olá
+*  Hora de agendamento de atualização de tooset de capacidade
 *  Script do PowerShell para ativar/desativar a atualização automática
 *  Suporte para o formato JSON  
 *  Aprimoramentos de desempenho
@@ -237,12 +237,12 @@ Veja os artigos a seguir para obter informações detalhadas sobre o Gateway de 
 ### <a name="1454921"></a>1.4.5492.1
 
 *  Binário unificado que dá suporte aos serviços Microsoft Azure Data Factory e Office 365 Power BI
-*  Refinar a interface do usuário de Configuração e o processo de registro
+*  Refinar o processo de configuração da interface do usuário e o registro de saudação
 *  Azure Data Factory – suporte a Ingresso e Egresso do Azure para fonte de dados do SQL Server
 
 ### <a name="1253031"></a>1.2.5303.1
 
-*  Correção do problema de tempo limite para dar suporte a conexões de fontes de dados mais demoradas.
+*  Corrigi toosupport de problema de tempo limite mais demorado conexões de fonte de dados.
 
 ### <a name="1155268"></a>1.1.5526.8
 

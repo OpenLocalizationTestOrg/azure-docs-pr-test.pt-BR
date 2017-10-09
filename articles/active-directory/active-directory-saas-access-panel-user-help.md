@@ -1,6 +1,6 @@
 ---
-title: Precisa de ajuda com o portal Meus Aplicativos no Azure Active Directory? | Microsoft Docs
-description: "Obtenha instruções sobre como executar tarefas comuns ao trabalhar com o painel de acesso."
+title: "aaaDo precisar de ajuda com o portal de meus aplicativos Olá no Active Directory do Azure | Microsoft Docs"
+description: "Obter tarefas comuns de tooperform instruções ao trabalhar com o painel de acesso de saudação."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,97 +15,97 @@ ms.topic: article
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 613c68d5c13793a3b696b6afbfc0e1a31595e201
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 5c9a820ab434e068abdab615cd4065a42b28d88c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="do-you-need-help-with-the-my-apps-portal"></a>Precisa de ajuda com o portal Meus Aplicativos?
+# <a name="do-you-need-help-with-hello-my-apps-portal"></a>Você precisa de ajuda com o portal de meus aplicativos Olá?
 
-Provavelmente, você chegou a esta página porque infelizmente se deparou com um problema ao usar o portal Meus Aplicativos. Embora haja casos em que é necessário entrar em contato com a assistência técnica ou com seu administrador para que um problema seja resolvido, temos aqui alguns tópicos de solução de problemas que poderão ajudá-lo primeiro.
+Provavelmente você chegou nesta página porque Infelizmente estivesse executando em um problema ao usar o portal de meus aplicativos hello. Embora haja casos que exigem que você toocontact helpdesk ou seu administrador tooget um problema resolvido, aqui estão alguns tópicos de solução de problemas que podem ser capaz de toohelp, primeiro.
 
-## <a name="i-am-having-trouble-signing-into-the-my-apps-portal"></a>Estou com problemas para entrar no portal Meus Aplicativos
+## <a name="i-am-having-trouble-signing-into-hello-my-apps-portal"></a>Estou tendo problemas para entrar no portal do hello meus aplicativos
 
-Problemas gerais a serem verificados:
+Problemas gerais toocheck:
 
-- Verifique se você está entrando na URL correta: [https://myapps.microsoft.com](https://myapps.microsoft.com)
+- Toosee de seleção se você está entrando no hello corrigir URL: [https://myapps.microsoft.com](https://myapps.microsoft.com)
 
-- Tente adicionar a URL aos sites confiáveis de seu navegador.
+- Tente adicionar sites confiáveis do navegador do hello URL tooyour.
 
-- Verifique se sua senha não está expirada ou foi esquecida. Veja [aqui](active-directory-passwords-update-your-own-password.md) mais detalhes de como atualizar sua senha.
+- Verifique se sua senha não está expirada ou foi esquecida. Verificar [aqui](active-directory-passwords-update-your-own-password.md) para obter mais detalhes sobre como tooupdate sua senha.
 
-- Verifique se suas informações de contato de autenticação estão atualizadas e não estão bloqueando o acesso. Veja [aqui](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) mais detalhes de como configurar suas informações de autenticação.
+- Verifique toosee se suas informações de contato de autenticação são toodate e não bloqueando o acesso. Veja [aqui](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) mais detalhes de como configurar suas informações de autenticação.
 
-- Tente limpar os cookies do navegador e tente entrar novamente.
+- Tente eliminar os cookies do seu navegador e, em seguida, tente novamente toosign no.
 
-Se ainda tiver problemas ao tentar entrar, entre em contato com seu administrador para obter ajuda.
+Se ainda tiver problemas durante a tentativa de toosign em, entre em contato com seu administrador para obter ajuda.
 
 
 ## <a name="how-do-i-update-my-password"></a>Como fazer para atualizar minha senha?
 
-Caso você tenha esquecido sua senha, nunca tenha recebido uma de sua equipe de TI, sua conta tenha sido bloqueada ou você queira alterar a senha, consulte [Preciso de ajuda, esqueci minha senha do Azure AD](active-directory-passwords-update-your-own-password.md) para obter mais detalhes.
+Se você esqueceu sua senha, nunca recebeu um da sua equipe de TI, foi bloqueada para sua conta, ou quiser toochange it, consulte [ajuda, esqueci minha senha do AD do Azure](active-directory-passwords-update-your-own-password.md) para obter mais detalhes.
 
 ## <a name="how-do-i-register-for-password-reset"></a>Como fazer para registrar-me para a redefinição de senha?
 
-Como um usuário final, você poderá redefinir sua senha ou desbloquear sua conta sem precisar falar com uma pessoa usando a SSPR (redefinição de senha de autoatendimento). Antes de usar essa funcionalidade, você precisa registrar métodos de autenticação ou confirmar os métodos de autenticação predefinidos que administrador preencheu. Para obter mais detalhes, consulte [Registrar-se para redefinição de senha de por autoatendimento](active-directory-passwords-reset-register.md).
+Como um usuário final, você pode redefinir sua senha ou desbloquear sua conta sem ter que toospeak tooa pessoa usando a redefinição de senha de autoatendimento (SSPR). Antes de usar essa funcionalidade, você tem métodos de autenticação tooregister ou confirme os métodos de autenticação Olá predefinido o administrador tenha populada. Para obter mais detalhes, consulte [Registrar-se para redefinição de senha de por autoatendimento](active-directory-passwords-reset-register.md).
 
 
-## <a name="i-am-having-trouble-installing-the-my-apps-portal-browser-extension"></a>Estou com problemas para instalar a extensão de navegador do portal Meus Aplicativos
+## <a name="i-am-having-trouble-installing-hello-my-apps-portal-browser-extension"></a>Estou tendo problemas ao instalar Olá extensão de navegador portal meus aplicativos
 
-Verifique se você está atendendo aos requisitos de navegador:
+Verificar toosee se você está atendendo aos requisitos de navegador:
 
-- O portal exige um navegador com suporte para JavaScript e com CSS habilitado. Se você estiver usando aplicativos de logon único baseado em senha, a extensão associada também precisará ser instalada. Essa extensão é baixada automaticamente quando você inicia um aplicativo configurado para aplicativos de logon único baseado em senha.
+- portal de saudação requer um navegador que ofereça suporte ao JavaScript e CSS habilitou. Se você estiver usando baseada em senha únicos aplicativos de logon, Olá que acompanha a extensão deve ser instalado também. Essa extensão é baixada automaticamente quando você inicia um aplicativo configurado para aplicativos de logon único baseado em senha.
 
-- Os requisitos de navegador da extensão são:
+- requisitos de navegador Olá para extensão Olá são:
     - Internet Explorer 8, 9, 10 ou 11 no Windows 7 ou posterior
     - Edge no Windows 10 Anniversary Edition ou posterior
     - Chrome no Windows 7 ou posterior e no MacOS X ou posterior
     - Firefox 26.0 ou posterior no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
 
-Também é possível baixar a extensão para Chrome e Edge diretamente pelos links abaixo:
+Você também pode baixar a extensão de Olá para Chrome e borda de links diretos da saudação abaixo:
 
 - [Extensão para Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
 - [Extensão para Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
-Após a instalação, tente executar estas etapas se houver problemas:
+Após a saudação de tentativa de instalação seguindo as etapas se estiver encontrando problemas:
 
-- Verifique nas configurações de extensão do navegador se a extensão está habilitada.
+- Verifique tooin as configurações de extensão de navegador que Olá extensão está habilitada.
 
-- Reinicie seu navegador e entre no portal Meus Aplicativos.
+- Reinicie seu navegador e entrar no portal de meus aplicativos toohello.
 
-- Limpe os cookies do navegador e entre no portal Meus Aplicativos.
+- Limpar os cookies do seu navegador e entre no portal de meus aplicativos toohello.
 
 ## <a name="how-do-i-add-a-new-app"></a>Como fazer para adicionar um novo aplicativo?
 
-1.  Na página **Aplicativos**, clique em **Adicionar Aplicativo**.
+1.  Em Olá **aplicativos** , clique em **Adicionar aplicativo**.
 
-2.  Pesquise pelo aplicativo que deseja adicionar e clique em **Adicionar**.
+2.  Pesquisa Olá aplicativo você deseja tooadd e, em seguida, clique em **adicionar**.
 
 **Comentários:**
 
-- Você terá acesso a essa opção apenas se seu administrador a tiver habilitado para sua conta.
+- Você tem acesso toothis opção somente se o administrador tiver habilitado isso para sua conta.
 
-- Se o aplicativo exigir uma permissão, talvez seja necessário aguardar a aprovação do administrador.
+- Se o aplicativo hello requer a permissão, talvez seja necessário toowait para aprovação do administrador.
 
 
 ## <a name="how-do-i-manage-my-group-memberships"></a>Como fazer para gerenciar as associações de grupo?
 
-1. Clique no bloco do aplicativo Grupos. 
-2. Para criar um grupo, em Grupos que possuo, clique em Criar grupo e siga as instruções.
-3. Para entrar para um grupo, em Grupos nos quais estou, clique em Entrar para grupo e siga as instruções.
+1. Clique em bloco de aplicativo hello grupos. 
+2. toocreate um grupo, em grupos que possuem, clique em criar grupo e siga as instruções de saudação.
+3. toojoin um grupo, em grupos que estou em, clique em ingressar no grupo e siga as instruções de saudação.
 
 **Comentários:**
 
-- Você terá acesso a essa opção apenas se seu administrador a tiver habilitado para sua conta.
+- Você tem acesso toothis opção somente se o administrador tiver habilitado isso para sua conta.
 
-- Os grupos de que você é membro permitem exibir detalhes e sair do grupo.
+- Grupos que são membros de permitir que os detalhes de tooview e deixam hello.
 
-- Os grupos de que você é proprietário permitem exibir detalhes, adicionar ou remover membros e sair do grupo.
+- Grupos que são proprietários permite tooview detalhes, adicionar ou remover membros e deixam o grupo de saudação.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para solucionar problemas de informações relacionadas, consulte [Problemas ao usar o site do painel de acesso do aplicativo ou o aplicativo móvel](active-directory-application-access-panel-content-map.md)
+Para solucionar problemas de informações relacionadas, consulte [problemas usando o acesso ao aplicativo hello painel site ou aplicativo móvel](active-directory-application-access-panel-content-map.md)
 

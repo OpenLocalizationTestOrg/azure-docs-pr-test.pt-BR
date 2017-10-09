@@ -1,6 +1,6 @@
 ---
-title: "Amostra de script da CLI do Azure – Copiar (mover) um instantâneo de um disco gerenciado para a mesma ou outra assinatura com CLI | Microsoft Docs"
-description: "Amostra de script da CLI do Azure – Copiar (mover) um instantâneo de um disco gerenciado para a mesma ou outra assinatura com CLI"
+title: "Exemplo de Script CLI - instantâneo de cópia (mover) de um disco gerenciado toosame ou assinatura diferente com CLI de aaaAzure | Microsoft Docs"
+description: "Exemplo de Script CLI do Azure - instantâneo de cópia (mover) de um disco gerenciado toosame ou assinatura diferente com CLI"
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
-ms.openlocfilehash: 0127e342bd0c3afbe9de775399f5510814bff499
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 4a21fd2435181a033b563100888aba0c5834496d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>Copiar um instantâneo de um disco gerenciado para a mesma assinatura ou outra assinatura com a CLI
+# <a name="copy-snapshot-of-a-managed-disk-toosame-or-different-subscription-with-cli"></a>Copiar um instantâneo de um disco gerenciado toosame ou uma assinatura diferente com CLI
 
-Esse script copia um instantâneo de um disco gerenciado para a mesma assinatura ou outra assinatura. Use este script para mover um instantâneo para outra assinatura na mesma região do instantâneo pai.
+Esse script copia um instantâneo de um disco gerenciado toosame ou uma assinatura diferente. Use toomove este script uma assinatura do instantâneo toodifferent Olá mesma região que o instantâneo do hello pai.
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -32,22 +32,22 @@ Esse script copia um instantâneo de um disco gerenciado para a mesma assinatura
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli[main](../../../cli_scripts/storage/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.sh "Copiar instantâneo")]
+[!code-azurecli[main](../../../cli_scripts/storage/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.sh "Copy snapshot")]
 
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Esse script usa os comandos a seguir para criar um instantâneo na assinatura de destino usando a ID do instantâneo de origem. Cada comando na tabela redireciona para a documentação específica do comando.
+Esse script usa a seguinte comandos toocreate um instantâneo na assinatura de destino hello usando Olá Id do instantâneo de origem hello. Cada comando na documentação específica do toocommand Olá tabela links.
 
 | Command | Observações |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#show) | Obtém todas as propriedades de um instantâneo usando o nome e as propriedades do grupo de recursos do instantâneo. A propriedade de ID é usada para copiar o instantâneo para uma assinatura diferente.  |
-| [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot#create) | Copia um instantâneo criando um instantâneo na assinatura diferente usando a Id e o nome do instantâneo pai.  |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#show) | Obtém todas as propriedades de saudação de um instantâneo usando o nome hello e propriedades de grupo de recursos de instantâneo de saudação. Propriedade ID é usada toocopy Olá instantâneo toodifferent assinatura.  |
+| [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot#create) | Copia um instantâneo ao criar um instantâneo na assinatura diferente usando Olá Id e nome do hello instantâneo pai.  |
 
 ## <a name="next-steps"></a>Próximas etapas
 
 [Criar uma máquina virtual com base em um instantâneo](./../../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre Olá CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Os exemplos adicionais de script da CLI de máquina virtual e discos gerenciados podem ser encontrados na [documentação da VM Linux do Azure](../../virtual-machines/linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Máquinas virtuais adicionais e exemplos de script CLI de discos gerenciados podem ser encontrados no hello [documentação de VM do Linux Azure](../../virtual-machines/linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

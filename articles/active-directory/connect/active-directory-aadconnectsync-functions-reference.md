@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 926f52ef64eb79205dbfb344edc7d9bece2a6947
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: fbe0df856ca2efda965650fb85c7e831a0be32c2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: referência de funções
-No Azure Active Directory Sync, as funções são usadas para manipular um valor de atributo durante a sincronização.  
-A sintaxe das funções é expressa usando o seguinte formato:   
+No Azure AD Connect, funções são toomanipulate usado um valor de atributo durante a sincronização.  
+Olá sintaxe de funções de saudação é expressa usando Olá formato a seguir:  
 `<output type> FunctionName(<input type> <position name>, ..)`
 
 Se uma função está sobrecarregada e aceita diversas sintaxes, todas as sintaxes válidas são listadas.  
-As funções são fortemente tipadas e verificam que o tipo passado corresponde ao tipo documentado.  
-Se o tipo não corresponder, um erro será gerado.
+Olá funções são fortemente tipadas e verificam que tipo de saudação passado no tipo de Olá documentado de correspondências.  
+Se o tipo de saudação não corresponder, um erro será lançado.
 
-Os tipos são expressos com a seguinte sintaxe:
+Olá tipos são expressos com hello sintaxe a seguir:
 
 * **bin** - binário
 * **bool** - booliano
 * **dt** - data/hora UTC
 * **enum** - enumeração das constantes conhecidas
-* **exp** - expressão, que espera-se que seja avaliada como um valor Booliano
+* **EXP** – expressão, que é esperado tooevaluate tooa booliano
 * **mvbin** - Binário de Valores Múltiplos
 * **mvstr** - Cadeia de Caracteres de Valores Múltiplos
 * **mvstr** - Referência de Valores Múltiplos
@@ -45,7 +45,7 @@ Os tipos são expressos com a seguinte sintaxe:
 * **var** - uma variante de (quase) qualquer outro tipo
 * **void** - não retorna um valor
 
-As funções com os tipos **mvbin**, **mvstr** e **mvref** funcionam somente nos atributos de valores múltiplos. As funções com **bin**, **str** e **ref** funcionam nos atributos de valor único e valores múltiplos.
+Olá funções com tipos de saudação **mvbin**, **mvstr**, e **mvref** funciona somente em atributos com valores múltiplos. As funções com **bin**, **str** e **ref** funcionam nos atributos de valor único e valores múltiplos.
 
 ## <a name="functions-reference"></a>Referência de funções
 | Lista de funções |  |  |  |  |
@@ -88,7 +88,7 @@ As funções com os tipos **mvbin**, **mvstr** e **mvref** funcionam somente nos
 - - -
 ### <a name="bitand"></a>BitAnd
 **Descrição:**  
-a função BitAnd define os bits especificados em um valor.
+Olá função BitAnd define bits específicos em um valor.
 
 **Sintaxe:**  
 `num BitAnd(num value1, num value2)`
@@ -96,21 +96,21 @@ a função BitAnd define os bits especificados em um valor.
 * value1, value2: os valores numéricos que devem ser agrupados com AND
 
 **Comentários:**  
-esta função converte ambos os parâmetros na representação binária e define um bit para:
+Esta função converte ambos os representação binária de toohello parâmetros e define um bit:
 
-* 0 - se um ou ambos os bits correspondentes na *máscara* e no *sinalizador* forem 0
-* 1 - se ambos os bits correspondentes são 1.
+* 0 - se uma ou ambas Olá bits correspondentes em *máscara* e *sinalizador* são 0
+* 1 - se dois bits correspondentes Olá são 1.
 
-Em outras palavras, ele retorna 0 em todos os casos, exceto quando os bits correspondentes de ambos os parâmetros são 1.
+Em outras palavras, ele retorna 0 em todos os casos, exceto quando o bits correspondentes de saudação de ambos os parâmetros são 1.
 
 **Exemplo:**  
 `BitAnd(&HF, &HF7)`  
-Retorna 7, já que os hexadecimais "F" AND "F7" são avaliados como esse valor.
+Retorna 7 porque hexadecimal "F" e "F7" avaliam o valor de toothis.
 
 - - -
 ### <a name="bitor"></a>BitOr
 **Descrição:**  
-a função BitOr define os bits especificados em um valor.
+Olá função BitOr define bits específicos em um valor.
 
 **Sintaxe:**  
 `num BitOr(num value1, num value2)`
@@ -118,28 +118,28 @@ a função BitOr define os bits especificados em um valor.
 * value1, value2: valores numéricos que devem ser agrupados com OR
 
 **Comentários:**  
-esta função converte ambos os parâmetros na representação binária e define um bit para 1 se um ou ambos os bits correspondentes na máscara e no sinalizador são 1; e para 0 se ambos os bits correspondentes são 0. Em outras palavras, ele retorna 1 em todos os casos, exceto naqueles em que os bits correspondentes de ambos os parâmetros são 0.
+Esta função converte ambos os representação binária de toohello parâmetros e define um bit too1 se um ou os dois bits correspondentes de saudação da máscara e o sinalizador são 1 e too0 se os dois bits correspondentes Olá são 0. Em outras palavras, ele retornará 1 em todos os casos, exceto onde os bits correspondentes de saudação de ambos os parâmetros são 0.
 
 - - -
 ### <a name="cbool"></a>CBool
 **Descrição:**  
-a função CBool retorna um valor booliano com base na expressão avaliada
+Olá Função CBool retorna que um valor booleano com base na expressão Olá avaliada
 
 **Sintaxe:**  
 `bool CBool(exp Expression)`
 
 **Comentários:**  
-se a expressão é avaliada como um valor diferente de zero, CBool retorna True; caso contrário, retorna False.
+Se Olá avalia tooa de valor diferente de zero, então o CBool retorna True, caso contrário retornará False.
 
 **Exemplo:**  
 `CBool([attrib1] = [attrib2])`  
 
-Retorna True se ambos os atributos têm o mesmo valor.
+Retorna True se ambos os atributos têm Olá mesmo valor.
 
 - - -
 ### <a name="cdate"></a>CDate
 **Descrição:**  
-a função CDate retorna um DateTime UTC a partir de uma cadeia de caracteres. DateTime não é um tipo de atributo nativo no Sync, mas é usado por algumas funções.
+Olá função CDate retorna um DateTime UTC de uma cadeia de caracteres. DateTime não é um tipo de atributo nativo no Sync, mas é usado por algumas funções.
 
 **Sintaxe:**  
 `dt CDate(str value)`
@@ -147,11 +147,11 @@ a função CDate retorna um DateTime UTC a partir de uma cadeia de caracteres. D
 * Value: uma cadeia de caracteres com uma data, hora e opcionalmente um fuso horário
 
 **Comentários:**  
-a cadeia de caracteres retornada é sempre em UTC.
+Olá retornou uma cadeia de caracteres é sempre UTC.
 
 **Exemplo:**  
 `CDate([employeeStartTime])`  
-retorna um DateTime com base na hora de início do funcionário
+Retorna um DateTime com base na hora de início do funcionário Olá
 
 `CDate("2013-01-10 4:00 PM -8")`  
 Retorna um DateTime que representa "11/01/2013 12:00"
@@ -166,198 +166,198 @@ Retorna um DateTime que representa "11/01/2013 12:00"
 - - -
 ### <a name="certextensionoids"></a>CertExtensionOids
 **Descrição:**  
-Retorna os valores de OID de todas as extensões críticas de um objeto de certificado.
+Retorna Olá valores de Oid de todas as extensões críticas de saudação de um objeto de certificado.
 
 **Sintaxe:**  
 `mvstr CertExtensionOids(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
 
 - - -
 ### <a name="certformat"></a>CertFormat
 **Descrição:**  
-Retorna o nome do formato desse certificado X.509v3.
+Retorna Olá nome do formato de saudação do certificado x. 509v3.
 
 **Sintaxe:**  
 `str CertFormat(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
 
 - - -
 ### <a name="certfriendlyname"></a>CertFriendlyName
 **Descrição:**  
-Retorna o alias associado de um certificado.
+Retorna a saudação alias associada um certificado.
 
 **Sintaxe:**  
 `str CertFriendlyName(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
 
 - - -
 ### <a name="certhashstring"></a>CertHashString
 **Descrição:**  
-Retorna o valor de hash SHA1 do certificado X.509v3 como uma cadeia de caracteres hexadecimal.
+Retorna Olá valor de hash SHA1 para certificado de x. 509v3 hello como uma cadeia de caracteres hexadecimal.
 
 **Sintaxe:**  
 `str CertHashString(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
 
 - - -
 ### <a name="certissuer"></a>CertIssuer
 **Descrição:**  
-Retorna o nome da autoridade de certificação que emitiu o certificado X.509v3.
+Retorna Olá nome da autoridade de certificação de saudação que emitiu o certificado x. 509v3 de saudação.
 
 **Sintaxe:**  
 `str CertIssuer(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
 
 - - -
 ### <a name="certissuerdn"></a>CertIssuerDN
 **Descrição:**  
-Retorna o nome diferenciado do emissor do certificado.
+Retorna Olá nome diferenciado do emissor do certificado hello.
 
 **Sintaxe:**  
 `str CertIssuerDN(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
 
 - - -
 ### <a name="certissueroid"></a>CertIssuerOid
 **Descrição:**  
-Retorna o OID do emissor do certificado.
+Retorna Olá Oid de emissor do certificado hello.
 
 **Sintaxe:**  
 `str CertIssuerOid(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
 
 - - -
 ### <a name="certkeyalgorithm"></a>CertKeyAlgorithm
 **Descrição:**  
-Retorna as informações de algoritmo de chave do certificado X.509v3 como uma cadeia de caracteres.
+Retorna informações de algoritmo de chave de saudação do certificado x. 509v3 como uma cadeia de caracteres.
 
 **Sintaxe:**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
 
 - - -
 ### <a name="certkeyalgorithmparams"></a>CertKeyAlgorithmParams
 **Descrição:**  
-Retorna os parâmetros de algoritmo de chave do certificado X.509v3 como uma cadeia de caracteres hexadecimal.
+Retorna os parâmetros de algoritmo de chave de saudação do certificado x. 509v3 de saudação como uma cadeia de caracteres hexadecimal.
 
 **Sintaxe:**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
 
 - - -
 ### <a name="certnameinfo"></a>CertNameInfo
 **Descrição:**  
-Retorna os nomes de entidade e emissor de um certificado.
+Retorna emissor e assunto Olá nomes de um certificado.
 
 **Sintaxe:**  
 `str CertNameInfo(binary certificateRawData, str x509NameType, bool includesIssuerName)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
-*   X509NameType: o valor de X509NameType para a entidade.
-*   includesIssuerName: verdadeiro para incluir o nome do emissor; caso contrário, falso.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
+*   X509NameType: Olá valor X509NameType assunto hello.
+*   includesIssuerName: nome do emissor Olá tooinclude true; Caso contrário, false.
 
 - - -
 ### <a name="certnotafter"></a>CertNotAfter
 **Descrição:**  
-Retorna a data, em hora local, depois da qual um certificado não será mais válido.
+Retorna a data de saudação na hora local depois que um certificado não é válido.
 
 **Sintaxe:**  
 `dt CertNotAfter(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
 
 - - -
 ### <a name="certnotbefore"></a>CertNotBefore
 **Descrição:**  
-Retorna a data, em hora local, na qual um certificado se torna válido.
+Retorna a data de saudação na hora local no qual o certificado é validado.
 
 **Sintaxe:**  
 `dt CertNotBefore(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
 
 - - -
 ### <a name="certpublickeyoid"></a>CertPublicKeyOid
 **Descrição:**  
-Retorna o OID da chave pública do certificado X.509v3.
+Retorna Olá Oid de chave pública Olá certificado x. 509v3 de saudação.
 
 **Sintaxe:**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
 
 - - -
 ### <a name="certpublickeyparametersoid"></a>CertPublicKeyParametersOid
 **Descrição:**  
-Retorna o OID dos parâmetros de chave pública do certificado X.509v3.
+Retorna Olá Oid de parâmetros de chave pública Olá para o certificado x. 509v3 de saudação.
 
 **Sintaxe:**  
 `str CertPublicKeyParametersOid(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
 
 - - -
 ### <a name="certserialnumber"></a>CertSerialNumber
 **Descrição:**  
-Retorna o número de série do certificado X.509v3.
+Retorna o número de série de saudação do certificado x. 509v3 de saudação.
 
 **Sintaxe:**  
 `str CertSerialNumber(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
 
 - - -
 ### <a name="certsignaturealgorithmoid"></a>CertSignatureAlgorithmOid
 **Descrição:**  
-Retorna o OID do algoritmo usado para criar a assinatura de um certificado.
+Olá retorna Oid do algoritmo Olá usado toocreate assinatura de saudação de um certificado.
 
 **Sintaxe:**  
 `str CertSignatureAlgorithmOid(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
 
 - - -
 ### <a name="certsubject"></a>CertSubject
 **Descrição:**  
-Obtém o nome diferenciado da entidade de um certificado.
+Obtém Olá nome diferenciado do assunto de um certificado.
 
 **Sintaxe:**  
 `str CertSubject(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
 
 - - -
 ### <a name="certsubjectnamedn"></a>CertSubjectNameDN
 **Descrição:**  
-Retorna o nome diferenciado da entidade de um certificado.
+Retorna Olá nome diferenciado do assunto de um certificado.
 
 **Sintaxe:**  
 `str CertSubjectNameDN(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
 
 - - -
 ### <a name="certsubjectnameoid"></a>CertSubjectNameOid
 **Descrição:**  
-Retorna o OID do nome da entidade de um certificado.
+Retorna Olá Oid do nome da entidade de saudação de um certificado.
 
 **Sintaxe:**  
 `str CertSubjectNameOid(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
 
 - - -
 ### <a name="certthumbprint"></a>CertThumbprint
 **Descrição:**  
-Retorna a impressão digital de um certificado.
+Retorna Olá impressão digital de um certificado.
 
 **Sintaxe:**  
 `str CertThumbprint(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
 
 - - -
 ### <a name="certversion"></a>CertVersion
 **Descrição:**  
-Retorna a versão do formato X.509 de um certificado.
+Retorna Olá x. 509 versão de formato de um certificado.
 
 **Sintaxe:**  
 `str CertThumbprint(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
 
 - - -
 ### <a name="cguid"></a>CGuid
 **Descrição:**  
-a função CGuid converte a representação da cadeia de caracteres de um GUID em sua representação binária.
+Olá função CGuid converte a representação de cadeia de caracteres de saudação de uma representação binária do GUID tooits.
 
 **Sintaxe:**  
 `bin CGuid(str GUID)`
@@ -367,31 +367,31 @@ a função CGuid converte a representação da cadeia de caracteres de um GUID e
 - - -
 ### <a name="contains"></a>Contém:
 **Descrição:**  
-a função Contains localiza uma cadeia de caracteres dentro de um atributo de valores múltiplos
+função do Hello Contains localiza uma cadeia de caracteres dentro de um atributo com vários valores
 
 **Sintaxe:**  
 `num Contains (mvstring attribute, str search)` - diferencia letras maiúsculas de minúsculas  
 `num Contains (mvstring attribute, str search, enum Casetype)`  
 `num Contains (mvref attribute, str search)` - diferencia letras maiúsculas de minúsculas
 
-* attribute: o atributo de valores múltiplos para a pesquisa.
-* search: a cadeia de caracteres a localizar no atributo.
+* atributo: Olá toosearch de atributo com vários valores.
+* pesquisa: toofind no atributo de saudação de cadeia de caracteres.
 * Casetype: CaseInsensitive ou CaseSensitive.
 
-Retorna o índice no atributo com vários valores em que a cadeia de caracteres foi encontrada. Se a cadeia de caracteres não for encontrada, 0 será retornado.
+Retorna o índice no atributo de múltiplos Olá onde a cadeia de caracteres de saudação foi encontrada. Se a cadeia de caracteres de saudação não for encontrada, será retornado 0.
 
 **Comentários:**  
-para os atributos da cadeia de caracteres de valores múltiplos, a pesquisa encontra as subcadeias nos valores.  
-Para atributos de referência, a cadeia de caracteres pesquisada deve corresponder exatamente ao valor para que sejam considerados como uma correspondência.
+Para atributos com vários valores de cadeia de caracteres, pesquisa Olá localiza subcadeias de caracteres em valores hello.  
+Para atributos de referência, hello cadeia de caracteres pesquisada deve corresponder exatamente ao Olá valor toobe considerado uma correspondência.
 
 **Exemplo:**  
 `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))`  
-se o atributo proxyAddresses tiver um endereço de email principal (indicado pelas letras maiúsculas "SMTP:"), o atributo proxyAddress será retornado; caso contrário, um erro será retornado.
+Se o atributo proxyAddresses de saudação tem um endereço de email primário (indicado por letras maiusculas "SMTP:"), em seguida, retornar o atributo proxyAddress de saudação, caso contrário, retornará um erro.
 
 - - -
 ### <a name="convertfrombase64"></a>ConvertFromBase64
 **Descrição:**  
-a função ConvertFromBase64 converte o valor codificado base64 especificado em uma cadeia de caracteres regular.
+Olá ConvertFromBase64 função converte Olá especificado codificado na base64 valor tooa cadeia de caracteres regulares.
 
 **Sintaxe:**  
 `str ConvertFromBase64(str source)` - adota Unicode para codificação  
@@ -409,7 +409,7 @@ Ambos os exemplos retornam "*Hello world!*"
 - - -
 ### <a name="convertfromutf8hex"></a>ConvertFromUTF8Hex
 **Descrição:**  
-a função ConvertFromUTF8Hex converte o valor codificado em UTF8 hexadecimal especificado em uma cadeia de caracteres.
+Olá ConvertFromUTF8Hex função converte Olá especificado a cadeia de caracteres hexadecimal UTF8 codificado valor tooa.
 
 **Sintaxe:**  
 `str ConvertFromUTF8Hex(str source)`
@@ -417,7 +417,7 @@ a função ConvertFromUTF8Hex converte o valor codificado em UTF8 hexadecimal es
 * source: cadeia de caracteres codificada em UTF8 de 2 bytes
 
 **Comentários:**  
-A diferença entre essa função e ConvertFromBase64([],UTF8) é que o resultado é amigável para o atributo DN.  
+Olá diferença entre esta função e ConvertFromBase64([],UTF8) que resultam de saudação é amigável para o atributo DN de saudação.  
 Esse formato é usado pelo Active Directory do Azure como DN.
 
 **Exemplo:**  
@@ -427,8 +427,8 @@ retorna "*Hello world!*"
 - - -
 ### <a name="converttobase64"></a>ConvertToBase64
 **Descrição:**  
-a função ConvertToBase64 converte uma cadeia de caracteres em uma cadeia de caracteres Unicode em base64.  
-Converte o valor de uma matriz de inteiros em sua representação equivalente de cadeia de caracteres, que é codificada com dígitos em base 64.
+Olá função ConvertToBase64 converte uma cadeia de caracteres de base64 Unicode de tooa de cadeia de caracteres.  
+Converte o valor de saudação de uma matriz de representação de cadeia de caracteres equivalente de tooits inteiros que é codificada com dígitos de base 64.
 
 **Sintaxe:**  
 `str ConvertToBase64(str source)`
@@ -440,13 +440,13 @@ retorna "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
 - - -
 ### <a name="converttoutf8hex"></a>ConvertToUTF8Hex
 **Descrição:**  
-a função ConvertToUTF8Hex converte uma cadeia de caracteres em um valor codificado em UTF8 hexadecimal.
+Olá função ConvertToUTF8Hex converte uma cadeia de caracteres de tooa valor hexadecimal UTF8 codificado.
 
 **Sintaxe:**  
 `str ConvertToUTF8Hex(str source)`
 
 **Comentários:**  
-o formato de saída dessa função é usado pelo Azure Active Directory como o formato do atributo DN.
+saudação de formato de saída dessa função é usado pelo Active Directory do Azure como o formato do atributo DN.
 
 **Exemplo:**  
 `ConvertToUTF8Hex("Hello world!")`  
@@ -455,7 +455,7 @@ retorna 48656C6C6F20776F726C6421
 - - -
 ### <a name="count"></a>Contagem
 **Descrição:**  
-a função Count retorna o número de elementos em um atributo de valores múltiplos
+Olá função Count retorna o número de saudação de elementos em um atributo com valores múltiplos
 
 **Sintaxe:**  
 `num Count(mvstr attribute)`
@@ -463,7 +463,7 @@ a função Count retorna o número de elementos em um atributo de valores múlti
 - - -
 ### <a name="cnum"></a>CNum
 **Descrição:**  
-a função CNum obtém uma cadeia de caracteres e retorna um tipo de dados numérico.
+Olá função CNum usa uma cadeia de caracteres e retorna um tipo de dados numérico.
 
 **Sintaxe:**  
 `num CNum(str value)`
@@ -471,7 +471,7 @@ a função CNum obtém uma cadeia de caracteres e retorna um tipo de dados numé
 - - -
 ### <a name="cref"></a>CRef
 **Descrição:**  
-converte uma cadeia de caracteres em um atributo de referência
+Converte um atributo de cadeia de caracteres de referência tooa
 
 **Sintaxe:**  
 `ref CRef(str value)`
@@ -482,7 +482,7 @@ converte uma cadeia de caracteres em um atributo de referência
 - - -
 ### <a name="cstr"></a>CStr
 **Descrição:**  
-a função CStr converte em um tipo de dados da cadeia de caracteres.
+Olá função CStr converte o tipo de dados de cadeia de caracteres tooa.
 
 **Sintaxe:**  
 `str CStr(num value)`  
@@ -498,12 +498,12 @@ poderia retornar "cn=Joe,dc=contoso,dc=com"
 - - -
 ### <a name="dateadd"></a>DateAdd
 **Descrição:**  
-retorna um Date contendo uma data à qual um intervalo de tempo especificado foi adicionado.
+Retorna uma data que contém um toowhich data que um intervalo de tempo especificado foi adicionado.
 
 **Sintaxe:**  
 `dt DateAdd(str interval, num value, dt date)`
 
-* interval: expressão de cadeia de caracteres que é o intervalo de tempo que você deseja adicionar. A cadeia de caracteres deve ter um dos seguintes valores:
+* intervalo: expressão que é o intervalo de tempo que deseja tooadd de saudação de cadeia de caracteres. cadeia de caracteres de saudação deve ter uma saudação valores a seguir:
   * aaaa Ano
   * q - Trimestre
   * m - Mês
@@ -514,8 +514,8 @@ retorna um Date contendo uma data à qual um intervalo de tempo especificado foi
   * h - Hora
   * m - Minuto
   * s - Segundo
-* valor: O número de unidades que você deseja adicionar. Ele pode ser positivo (para obter datas no futuro) ou negativo (para obter datas no passado).
-* date: DateTime, representando a data à qual o intervalo é adicionado.
+* valor: Olá o número de unidades que você deseja tooadd. Pode ser positivo (tooget datas em Olá futuro) ou negativo (tooget datas em Olá anterior).
+* Data: DateTime representando data toowhich Olá intervalo é adicionado.
 
 **Exemplo:**  
 `DateAdd("m", 3, CDate("2001-01-01"))`  
@@ -524,7 +524,7 @@ adiciona três meses e retorna um DateTime que representa "01/04/2001".
 - - -
 ### <a name="datefromnum"></a>DateFromNum
 **Descrição:**  
-a função DateFromNum converte um valor, no formato de data do AD, em um tipo DateTime.
+Olá função DateFromNum converte um valor em tooa de formato de data do AD tipo DateTime.
 
 **Sintaxe:**  
 `dt DateFromNum(num value)`
@@ -537,13 +537,13 @@ retorna um DateTime que representa 01/01/2012 23:00:00
 - - -
 ### <a name="dncomponent"></a>DNComponent
 **Descrição:**  
-a função DNComponent retorna o valor de um componente DN especificado saindo da esquerda.
+Olá função DNComponent retorna o valor de saudação de um componente DN especificado vindo da esquerda.
 
 **Sintaxe:**  
 `str DNComponent(ref dn, num ComponentNumber)`
 
-* dn: o atributo de referência a interpretar
-* ComponentNumber: o componente no DN a retornar
+* DN: Olá toointerpret de atributo de referência
+* ComponentNumber: componente Olá Olá DN tooreturn
 
 **Exemplo:**  
 `DNComponent([dn],1)`  
@@ -552,14 +552,14 @@ se dn é “cn=Joe,ou=…,” ele retorna Joe
 - - -
 ### <a name="dncomponentrev"></a>DNComponentRev
 **Descrição:**  
-a função DNComponentRev retorna o valor de um componente DN especificado saindo da direita (o final).
+Olá função DNComponentRev retorna o valor de saudação de um componente DN especificado vindo da direita (fim Olá).
 
 **Sintaxe:**  
 `str DNComponentRev(ref dn, num ComponentNumber)`  
 `str DNComponentRev(ref dn, num ComponentNumber, enum Options)`
 
-* dn: o atributo de referência a interpretar
-* ComponentNumber - o componente no DN a retornar
+* DN: Olá toointerpret de atributo de referência
+* ComponentNumber - componente Olá Olá DN tooreturn
 * Opções: DC – ignorar todos os componentes com “dc=”
 
 **Exemplo:**  
@@ -571,40 +571,40 @@ ambos retornam US.
 - - -
 ### <a name="error"></a>Erro
 **Descrição:**  
-a função Error é usada para retornar um erro personalizado.
+Olá função Error é usada tooreturn um erro personalizado.
 
 **Sintaxe:**  
 `void Error(str ErrorMessage)`
 
 **Exemplo:**  
 `IIF(IsPresent([accountName]),[accountName],Error("AccountName is required"))`  
-se o atributo accountName não estiver presente, gere um erro no objeto.
+Se Olá atributo accountName não estiver presente, gera um erro no objeto de saudação.
 
 - - -
 ### <a name="escapedncomponent"></a>EscapeDNComponent
 **Descrição:**  
-a função EscapeDNComponent obtém um componente de um DN e aplica o escape para que ele possa ser representado no LDAP.
+Olá função EscapeDNComponent usa um componente de um DN e foge de forma que ele pode ser representado no LDAP.
 
 **Sintaxe:**  
 `str EscapeDNComponent(str value)`
 
 **Exemplo:**  
 `EscapeDNComponent("cn=" & [displayName]) & "," & %ForestLDAP%)`  
-garante que o objeto possa ser criado em um diretório LDAP, mesmo que o atributo displayName tenha caracteres que devam ter o escape aplicado no LDAP.
+Verifica se o objeto de saudação pode ser criado em um diretório LDAP, mesmo se o atributo de displayName Olá tem caracteres que devem ser substituídos no LDAP.
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
 **Descrição:**  
-a função FormatDateTime é usada para formatar um DateTime para uma cadeia de caracteres com um formato especificado
+função FormatDateTime de saudação é usado tooformat uma cadeia de caracteres de tooa DateTime com um formato especificado
 
 **Sintaxe:**  
 `str FormatDateTime(dt value, str format)`
 
-* value: um valor no formato DateTime
-* format: uma cadeia de caracteres que representa o formato para o qual converter.
+* valor: um valor no formato de data e hora Olá
+* formato: uma cadeia de caracteres que representa a saudação formato tooconvert para.
 
 **Comentários:**  
-Os possíveis valores para o formato podem ser encontrados aqui: [Formatos de Data/Hora Definidos pelo Usuário (Função Format)](http://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
+Olá os valores possíveis para o formato de saudação pode ser encontrado aqui: [definida pelo usuário (função Format) de formatos de data/hora](http://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
 
 **Exemplo:**  
 
@@ -617,7 +617,7 @@ pode resultar em "20140905081453.0Z"
 - - -
 ### <a name="guid"></a>GUID
 **Descrição:**  
-a função GUID gera um novo GUID aleatório
+GUID da função Hello gera um novo GUID aleatório
 
 **Sintaxe:**  
 `str GUID()`
@@ -625,23 +625,23 @@ a função GUID gera um novo GUID aleatório
 - - -
 ### <a name="iif"></a>IIF
 **Descrição:**  
-a função IIF retorna um valor de um conjunto de valores possíveis com base em uma condição especificada.
+Olá função IIF retorna um de um conjunto de valores possíveis com base em uma condição especificada.
 
 **Sintaxe:**  
 `var IIF(exp condition, var valueIfTrue, var valueIfFalse)`
 
-* condition: qualquer valor ou expressão que pode ser avaliada como true ou false.
-* valueIfTrue: se a condição for avaliada como true, o valor será retornado.
-* valueIfFalse: se a condição for avaliada como false, o valor será retornado.
+* condição: qualquer valor ou expressão que pode ser avaliada tootrue ou false.
+* ValorSeVerdadeiro: se a condição de saudação avalia tootrue, Olá retornou o valor.
+* ValorSeFalso: se a condição de saudação avalia toofalse, Olá retornou o valor.
 
 **Exemplo:**  
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
- se o usuário for um estagiário, retornará o alias de um usuário com "t-" adicionado ao início; caso contrário, retornará o alias do usuário como está.
+ Se o usuário Olá for um estagiário, retorna Olá alias de um usuário com"t" adicionado toohello a partir dele, else retorna o alias do usuário hello como é.
 
 - - -
 ### <a name="instr"></a>InStr
 **Descrição:**  
-a função InStr localiza a primeira ocorrência de uma subcadeia de caracteres em uma cadeia de caracteres
+Olá função InStr localiza a primeira ocorrência de saudação de uma subcadeia de caracteres em uma cadeia de caracteres
 
 **Sintaxe:**  
 
@@ -649,38 +649,38 @@ a função InStr localiza a primeira ocorrência de uma subcadeia de caracteres 
 `num InStr(str stringcheck, str stringmatch, num start)`  
 `num InStr(str stringcheck, str stringmatch, num start , enum compare)`
 
-* stringcheck: cadeia de caracteres a ser pesquisada
-* stringmatch: cadeia de caracteres a ser localizada
-* start: posição inicial para se localizar a subcadeia de caracteres
+* stringcheck: toobe pesquisado de cadeia de caracteres
+* stringmatch: cadeia de caracteres toobe encontrado
+* Iniciar: Iniciando posição toofind Olá substring
 * compare: vbTextCompare ou vbBinaryCompare
 
 **Comentários:**  
-retorna a posição onde a subcadeia de caracteres foi encontrada ou 0, se não foi encontrada.
+Posição de saudação retorna onde a subcadeia de caracteres hello foi encontrada ou 0 se não encontrado.
 
 **Exemplo:**  
-`InStr("The quick brown fox","quick")`  
-é avaliado como 5
+`InStr("hello quick brown fox","quick")`  
+/ / Avalia too5
 
 `InStr("repEated","e",3,vbBinaryCompare)`  
-é avaliado como 7
+Avalia too7
 
 - - -
 ### <a name="instrrev"></a>InStrRev
 **Descrição:**  
-a função InStrRev localiza a última ocorrência de uma subcadeia de caracteres em uma cadeia de caracteres
+Olá função InStrRev localiza a última ocorrência de saudação de uma subcadeia de caracteres em uma cadeia de caracteres
 
 **Sintaxe:**  
 `num InstrRev(str stringcheck, str stringmatch)`  
 `num InstrRev(str stringcheck, str stringmatch, num start)`  
 `num InstrRev(str stringcheck, str stringmatch, num start, enum compare)`
 
-* stringcheck: cadeia de caracteres a ser pesquisada
-* stringmatch: cadeia de caracteres a ser localizada
-* start: posição inicial para se localizar a subcadeia de caracteres
+* stringcheck: toobe pesquisado de cadeia de caracteres
+* stringmatch: cadeia de caracteres toobe encontrado
+* Iniciar: Iniciando posição toofind Olá substring
 * compare: vbTextCompare ou vbBinaryCompare
 
 **Comentários:**  
-retorna a posição onde a subcadeia de caracteres foi encontrada ou 0, se não foi encontrada.
+Posição de saudação retorna onde a subcadeia de caracteres hello foi encontrada ou 0 se não encontrado.
 
 **Exemplo:**  
 `InStrRev("abbcdbbbef","bb")`  
@@ -689,40 +689,40 @@ retorna 7
 - - -
 ### <a name="isbitset"></a>IsBitSet
 **Descrição:**  
-a função IsBitSet testa se um bit está definido ou não
+função Hello IsBitSet testa se um bit é definida ou não
 
 **Sintaxe:**  
 `bool IsBitSet(num value, num flag)`
 
-* value: um valor numérico que é evaluated.flag: um valor numérico que contém o bit a ser avaliado
+* valor: um valor numérico que é evaluated. Flag: um valor numérico que tem Olá bit toobe avaliada
 
 **Exemplo:**  
 `IsBitSet(&HF,4)`  
-retorna True porque o bit "4" está definido no valor hexadecimal "F"
+Retorna True porque o bit "4" está definido no valor hexadecimal da saudação "F"
 
 - - -
 ### <a name="isdate"></a>IsDate
 **Descrição:**  
-se a expressão puder ser avaliada como um tipo DateTime, a função IsDate será avaliada como True.
+Se Olá expressão pode ser é avaliada como um tipo DateTime, Olá função IsDate avalia tooTrue.
 
 **Sintaxe:**  
 `bool IsDate(var Expression)`
 
 **Comentários:**  
-usada para determinar se CDate() pode ter êxito.
+Usado toodetermine se CDate () pode ser bem-sucedida.
 
 - - -
 ### <a name="iscert"></a>IsCert
 **Descrição:**  
-Retorna verdadeiro se os dados brutos puderem ser serializados no objeto de certificado .NET X509Certificate2.
+Retorna true se os dados brutos Olá podem ser serializados para o objeto de certificado X509Certificate2 .NET.
 
 **Sintaxe:**  
 `bool CertThumbprint(binary certificateRawData)`  
-*   certificateRawData: representação de matriz de bytes de um certificado X.509. A matriz de bytes pode ser codificada binária (DER) ou de dados X.509 codificados em Base64.
+*   certificateRawData: representação de matriz de bytes de um certificado X.509. matriz de bytes de saudação pode ser codificada binária (DER) ou dados x. 509 codificado na Base64.
 - - -
 ### <a name="isempty"></a>IsEmpty
 **Descrição:**  
-se o atributo estiver presente no CS ou no MV, mas for avaliado como uma cadeia de caracteres vazia, a função IsEmpty será avaliada como True.
+Se o atributo hello está presente no hello CS ou MV mas é avaliada tooan cadeia de caracteres vazia, função do hello IsEmpty avalia tooTrue.
 
 **Sintaxe:**  
 `bool IsEmpty(var Expression)`
@@ -730,7 +730,7 @@ se o atributo estiver presente no CS ou no MV, mas for avaliado como uma cadeia 
 - - -
 ### <a name="isguid"></a>IsGuid
 **Descrição:**  
-se a cadeia de caracteres puder ser convertida em um GUID, a função IsGuid será avaliada como true.
+Se a cadeia de caracteres hello pode ser convertido tooa GUID, função de isguid avalia Olá avaliada tootrue.
 
 **Sintaxe:**  
 `bool IsGuid(str GUID)`
@@ -738,75 +738,75 @@ se a cadeia de caracteres puder ser convertida em um GUID, a função IsGuid ser
 **Comentários:**  
 um GUID é definido como uma cadeia de caracteres seguindo um destes padrões: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx ou {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
-Usada para determinar se CGuid() pode ter êxito.
+Usado toodetermine se cguid () pode ser bem-sucedida.
 
 **Exemplo:**  
 `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)`  
-se StrAttribute tiver um formato de GUID, retornará uma representação binária; caso contrário, retornará Null.
+Se Olá StrAttribute tem um formato GUID, retorna uma representação binária, caso contrário, retornará um valor nulo.
 
 - - -
 ### <a name="isnull"></a>IsNull
 **Descrição:**  
-se a expressão for avaliada como Null, a função IsNull retornará true.
+Se a expressão Olá avalia tooNull, a função IsNull de saudação retorna true.
 
 **Sintaxe:**  
 `bool IsNull(var Expression)`
 
 **Comentários:**  
-para um atributo, um valor Null é expresso pela ausência do atributo.
+Para um atributo, um valor nulo é expressa pela ausência de saudação do atributo hello.
 
 **Exemplo:**  
 `IsNull([displayName])`  
-retornará True se o atributo não estiver presente no CS ou no MV.
+Retornará True se o atributo de saudação não está presente no hello CS ou MV.
 
 - - -
 ### <a name="isnullorempty"></a>IsNullOrEmpty
 **Descrição:**  
-se a expressão for nula ou uma cadeia de caracteres vazia, a função IsNullOrEmpty retornará true.
+Se a expressão de saudação é nulo ou uma cadeia de caracteres vazia, a função IsNullOrEmpty de saudação retorna true.
 
 **Sintaxe:**  
 `bool IsNullOrEmpty(var Expression)`
 
 **Comentários:**  
-para um atributo, isso seria avaliado como True se o atributo estivesse ausente ou presente, mas fosse uma cadeia de caracteres vazia.  
-O inverso dessa função é chamado de IsPresent.
+Para um atributo, isso seria avaliado tooTrue se Olá atributo está ausente ou está presente, mas uma cadeia de caracteres vazia.  
+Olá inverso dessa função é chamado IsPresent.
 
 **Exemplo:**  
 `IsNullOrEmpty([displayName])`  
-retornará True se o atributo não estiver presente ou for uma cadeia de caracteres vazia no CS ou no MV.
+Retornará True se o atributo de saudação não está presente ou é uma cadeia de caracteres vazia Olá CS ou MV.
 
 - - -
 ### <a name="isnumeric"></a>IsNumeric
 **Descrição:**  
-a função IsNumeric retorna um valor booliano que indica se uma expressão pode ser avaliada como um tipo numérico.
+Olá função IsNumeric retorna um valor booliano que indica se uma expressão pode ser avaliada como um tipo numérico.
 
 **Sintaxe:**  
 `bool IsNumeric(var Expression)`
 
 **Comentários:**  
-usada para determinar se CNum() pode ter êxito ao analisar a expressão.
+Usado toodetermine se cnum () pode ser uma expressão de saudação tooparse com êxito.
 
 - - -
 ### <a name="isstring"></a>IsString
 **Descrição:**  
-se a expressão puder ser avaliada como um tipo de cadeia de caracteres, a função IsString será avaliada como True.
+Se a expressão Olá pode ser avaliada tooa tipo string, função IsString de saudação avalia tooTrue.
 
 **Sintaxe:**  
 `bool IsString(var expression)`
 
 **Comentários:**  
-usada para determinar se CStr() pode ter êxito ao analisar a expressão.
+Usado toodetermine se CStr () pode ser uma expressão de saudação tooparse com êxito.
 
 - - -
 ### <a name="ispresent"></a>IsPresent
 **Descrição:**  
-se a expressão for avaliada como uma cadeia de caracteres que não é Null nem vazia, a função IsPresent retornará true.
+Se Olá avalia tooa de cadeia de caracteres que não seja nulo e não está vazio, em seguida, Olá IsPresent função retorna true.
 
 **Sintaxe:**  
 `bool IsPresent(var expression)`
 
 **Comentários:**  
-o inverso dessa função é chamado de IsNullOrEmpty.
+Olá inverso dessa função é chamado IsNullOrEmpty.
 
 **Exemplo:**  
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
@@ -814,53 +814,53 @@ o inverso dessa função é chamado de IsNullOrEmpty.
 - - -
 ### <a name="item"></a>Item
 **Descrição:**  
-a função Item retorna um item de um atributo/cadeia de caracteres de valores múltiplos.
+Olá função Item Retorna um item de um cadeia de caracteres/atributo com vários valores.
 
 **Sintaxe:**  
 `var Item(mvstr attribute, num index)`
 
 * attribute: atributo com valores múltiplos
-* index: índice para um item na cadeia de caracteres com vários valores.
+* índice: índice tooan item da cadeia de caracteres com valores múltiplos hello.
 
 **Comentários:**  
-a função Item é útil com a função Contains, desde que a última função retorne o índice para um item no atributo de valores múltiplos.
+Olá função Item é útil junto com hello função Contains como função último hello retorna Olá índice tooan item no atributo de múltiplos hello.
 
 Gera um erro se o índice está fora dos limites.
 
 **Exemplo:**  
 `Mid(Item([proxyAddress],Contains([proxyAddress], "SMTP:")),6)`  
-retorna o endereço de email principal.
+Retorna Olá endereço de email principal.
 
 - - -
 ### <a name="itemornull"></a>ItemOrNull
 **Descrição:**  
-a função ItemOrNull retorna um item de um atributo/cadeia de caracteres de valores múltiplos.
+Olá função ItemOrNull retorna um item de um cadeia de caracteres/atributo com vários valores.
 
 **Sintaxe:**  
 `var ItemOrNull(mvstr attribute, num index)`
 
 * attribute: atributo com valores múltiplos
-* index: índice para um item na cadeia de caracteres com vários valores.
+* índice: índice tooan item da cadeia de caracteres com valores múltiplos hello.
 
 **Comentários:**  
-a função ItemOrNull é útil com a função Contains, desde que a última função retorne o índice para um item no atributo de valores múltiplos.
+Olá função ItemOrNull é útil junto com hello função Contains, como função último hello retorna Olá índice tooan item no atributo de múltiplos hello.
 
 Se o índice estiver fora dos limites, retornará um valor Null.
 
 - - -
 ### <a name="join"></a>Join
 **Descrição:**  
-a função Join obtém uma cadeia de caracteres de valores múltiplos e retorna uma cadeia de caracteres de um único valor com um separador especificado inserido entre cada item.
+função Hello usa uma cadeia de caracteres com valores múltiplos e retorna uma cadeia de caracteres de valor único com o separador especificado inserido entre cada item.
 
 **Sintaxe:**  
 `str Join(mvstr attribute)`  
 `str Join(mvstr attribute, str Delimiter)`
 
-* attribute: um atributo de valores múltiplos contendo cadeias de caracteres a serem unidas.
-* delimiter: qualquer cadeia de caracteres usada para separar as subcadeias de caracteres na cadeia de caracteres retornada. Se omitido, o caractere de espaço (" ") é usado. Se o Delimitador é uma cadeia de caracteres de comprimento zero ("") ou Nada, todos os itens na lista são concatenados sem delimitadores.
+* atributo: atributo com valores múltiplos contendo cadeias de caracteres toobe associado.
+* delimitador: qualquer cadeia de caracteres, tooseparate usado Olá subcadeias de caracteres em Olá retornou uma cadeia. Se omitido, Olá caractere de espaço ("") é usado. Se o delimitador é uma cadeia de caracteres de comprimento zero ("") ou nada, todos os itens na lista de saudação são concatenados sem delimitadores.
 
 **Comentários**  
-há paridade entre as funções Join e Split. A função Join pega uma matriz de cadeias de caracteres e une-as usando uma cadeia de caracteres do delimitador, para retornar uma única cadeia de caracteres. A função Split pega uma cadeia de caracteres e a separa no delimitador, para retornar uma matriz de cadeias de caracteres. No entanto, uma diferença importante é que a Join pode concatenar cadeias de caracteres com qualquer cadeia de caracteres delimitadora, enquanto Split só pode separar cadeias de caracteres usando um único caractere delimitador.
+Há uma paridade entre hello associação e funções de divisão. Olá função Join pega uma matriz de cadeias de caracteres e associa usando uma cadeia de caracteres delimitadora, tooreturn uma única cadeia de caracteres. Olá função Split usa uma cadeia de caracteres e separa no delimitador hello, tooreturn uma matriz de cadeias de caracteres. No entanto, uma diferença importante é que a Join pode concatenar cadeias de caracteres com qualquer cadeia de caracteres delimitadora, enquanto Split só pode separar cadeias de caracteres usando um único caractere delimitador.
 
 **Exemplo:**  
 `Join([proxyAddresses],",")`  
@@ -869,7 +869,7 @@ Poderia retornar: "SMTP:john.doe@contoso.com,smtp:jd@contoso.com"
 - - -
 ### <a name="lcase"></a>LCase
 **Descrição:**  
-a função LCase converte todos os caracteres de uma cadeia de caracteres em letras minúsculas.
+Olá Função LCase converte todos os caracteres no caso de toolower cadeia de caracteres.
 
 **Sintaxe:**  
 `str LCase(str value)`
@@ -881,22 +881,22 @@ retorna "test".
 - - -
 ### <a name="left"></a>Left
 **Descrição:**  
-a função Left retorna um número especificado de caracteres a partir da esquerda de uma cadeia de caracteres.
+função Left Olá retorna um número especificado de caracteres da esquerda de saudação de uma cadeia de caracteres.
 
 **Sintaxe:**  
 `str Left(str string, num NumChars)`
 
-* string: a cadeia de caracteres da qual retornar caracteres
-* NumChars: um número que identifica o número de caracteres a ser retroando do início (esquerda) da cadeia de caracteres
+* cadeia de caracteres: Olá tooreturn caracteres de
+* NumChars: um número que identifica Olá número de caracteres tooreturn desde o início de saudação (à esquerda) da cadeia de caracteres
 
 **Comentários:**  
-uma cadeia de caracteres que contém os primeiros caracteres numChars na cadeia de caracteres:
+Uma cadeia de caracteres que contém a saudação primeiro os caracteres numChars na cadeia de caracteres:
 
 * Se numChars = 0, retorne a cadeia de caracteres vazia.
 * Se numChars < 0, retorne a cadeia de caracteres de entrada.
 * Se a cadeia de caracteres for nula, retorne a cadeia de caracteres vazia.
 
-Se a cadeia de caracteres contiver menos caracteres que o número especificado em numChars, uma cadeia de caracteres idêntica à cadeia (ou seja, que contém todos os caracteres no parâmetro 1) será retornada.
+Se a cadeia de caracteres contém caracteres menores do que o número de saudação especificado em numChars, uma toostring idênticos de cadeia de caracteres (isto é, que contém todos os caracteres no parâmetro 1) será retornado.
 
 **Exemplo:**  
 `Left("John Doe", 3)`  
@@ -905,7 +905,7 @@ retorna "Joh".
 - - -
 ### <a name="len"></a>Len
 **Descrição:**  
-a função Len retorna o número de caracteres em uma cadeia de caracteres.
+Olá função Len retorna o número de caracteres em uma cadeia de caracteres.
 
 **Sintaxe:**  
 `num Len(str value)`
@@ -917,7 +917,7 @@ retorna 8
 - - -
 ### <a name="ltrim"></a>LTrim
 **Descrição:**  
-a função LTrim remove os espaços em branco à esquerda de uma cadeia de caracteres.
+Olá função LTrim remove espaços em branco à esquerda de uma cadeia de caracteres.
 
 **Sintaxe:**  
 `str LTrim(str value)`
@@ -929,14 +929,14 @@ retorna "Test"
 - - -
 ### <a name="mid"></a>Mid
 **Descrição:**  
-a função Mid retorna um número especificado de caracteres a partir de uma posição especificada em uma cadeia de caracteres.
+Olá Mid função retorna um número especificado de caracteres de uma posição especificada em uma cadeia de caracteres.
 
 **Sintaxe:**  
 `str Mid(str string, num start, num NumChars)`
 
-* string: a cadeia de caracteres da qual retornar caracteres
-* start: um número que identifica a posição inicial na cadeia de caracteres da qual retornar caracteres
-* NumChars: um número que identifica o número de caracteres a ser retornado da posição
+* cadeia de caracteres: Olá tooreturn caracteres de
+* Iniciar: um número que identifica a saudação em caracteres de tooreturn de cadeia de caracteres do início
+* NumChars: um número que identifica Olá número de caracteres tooreturn da posição na cadeia de caracteres
 
 **Comentários:**  
 retorna os caracteres numChars começando na posição inicial da cadeia de caracteres.  
@@ -944,7 +944,7 @@ Uma cadeia de caracteres contendo caracteres numChars desde a posição inicial 
 
 * Se numChars = 0, retorne a cadeia de caracteres vazia.
 * Se numChars < 0, retorne a cadeia de caracteres de entrada.
-* Se start > o comprimento da cadeia de caracteres, retorne a cadeia de caracteres de entrada.
+* Se Iniciar > Olá comprimento da cadeia de caracteres, retorna a cadeia de caracteres de entrada.
 * Se start <= 0, retorne a cadeia de caracteres de entrada.
 * Se a cadeia de caracteres for nula, retorne a cadeia de caracteres vazia.
 
@@ -960,7 +960,7 @@ retorna "Doe"
 - - -
 ### <a name="now"></a>Now
 **Descrição:**  
-a função Now retorna um DateTime especificando a data e a hora atuais, de acordo com a data e a hora do sistema do seu computador.
+Olá agora função retorna um DateTime especifico Olá atual data e hora, tooyour data do sistema do computador e a hora de acordo com.
 
 **Sintaxe:**  
 `dt Now()`
@@ -968,7 +968,7 @@ a função Now retorna um DateTime especificando a data e a hora atuais, de acor
 - - -
 ### <a name="numfromdate"></a>NumFromDate
 **Descrição:**  
-a função NumFromDate retorna uma data no formato de data do AD.
+Olá função NumFromDate retorna uma data no formato de data do AD.
 
 **Sintaxe:**  
 `num NumFromDate(dt value)`
@@ -980,23 +980,23 @@ retorna 129699324000000000
 - - -
 ### <a name="padleft"></a>PadLeft
 **Descrição:**  
-a função PadLeft preenche à esquerda uma cadeia de caracteres até um tamanho especificado usando um caractere de preenchimento fornecido.
+Olá PadLeft preenche à esquerda de função um tooa de cadeia de caracteres especificada comprimento usando um caractere de preenchimento fornecido.
 
 **Sintaxe:**  
 `str PadLeft(str string, num length, str padCharacter)`
 
-* string: a cadeia de caracteres a preencher.
-* length: um inteiro que representa o comprimento da cadeia de caracteres desejado.
-* padCharacter: uma cadeia de caracteres que consiste em um único caractere a ser usado como o caractere de preenchimento
+* cadeia de caracteres: Olá toopad de cadeia de caracteres.
+* comprimento: um inteiro que representa a saudação desejado comprimento da cadeia de caracteres.
+* padCharacter: uma cadeia de caracteres que consiste em toouse um único caractere como caractere de preenchimento de saudação
 
 **Comentários:**
 
-* Se o comprimento da cadeia de caracteres for menor que length, padCharacter será acrescentado repetidamente ao início (esquerda) da cadeia de caracteres até que ela tenha um comprimento igual a length.
+* Se o comprimento de saudação de cadeia de caracteres for menor que o comprimento, padCharacter é repetidamente anexado toohello início (à esquerda) da cadeia de caracteres até que tenha uma toolength de comprimento igual.
 * PadCharacter pode ser um caractere de espaço, mas não pode ser um valor nulo.
-* Se o comprimento da cadeia de caracteres é igual ou maior que length, a cadeia de caracteres é retornada inalterada.
-* Se a cadeia de caracteres tem um comprimento maior que ou igual a length, uma cadeia de caracteres idêntica à cadeia de caracteres em questão será retornada.
-* Se o comprimento da cadeia de caracteres for menor que length, uma nova cadeia de caracteres do comprimento desejado é retornada, contendo a cadeia de caracteres preenchida com um padCharacter.
-* Se a cadeia de caracteres é nula, a função retorna uma cadeia de caracteres vazia.
+* Se o comprimento de Olá de cadeia de caracteres for maior que o comprimento de tooor igual, a cadeia de caracteres é retornada inalterada.
+* Se a cadeia de caracteres tem um comprimento maior que ou igual toolength, será retornado um toostring idênticos de cadeia de caracteres.
+* Se o comprimento de saudação de cadeia de caracteres for menor que o comprimento, uma nova cadeia de caracteres de saudação desejado comprimento é retornado que contém a cadeia de caracteres preenchida com um padCharacter.
+* Se a cadeia de caracteres for nula, a função hello retorna uma cadeia de caracteres vazia.
 
 **Exemplo:**  
 `PadLeft("User", 10, "0")`  
@@ -1005,23 +1005,23 @@ retorna "000000User".
 - - -
 ### <a name="padright"></a>PadRight
 **Descrição:**  
-a função PadRight preenche à direita uma cadeia de caracteres até um comprimento especificado usando um caractere de preenchimento fornecido.
+Olá PadRight preenche à direita de função um tooa de cadeia de caracteres especificada comprimento usando um caractere de preenchimento fornecido.
 
 **Sintaxe:**  
 `str PadRight(str string, num length, str padCharacter)`
 
-* string: a cadeia de caracteres a preencher.
-* length: um inteiro que representa o comprimento da cadeia de caracteres desejado.
-* padCharacter: uma cadeia de caracteres que consiste em um único caractere a ser usado como o caractere de preenchimento
+* cadeia de caracteres: Olá toopad de cadeia de caracteres.
+* comprimento: um inteiro que representa a saudação desejado comprimento da cadeia de caracteres.
+* padCharacter: uma cadeia de caracteres que consiste em toouse um único caractere como caractere de preenchimento de saudação
 
 **Comentários:**
 
-* Se o comprimento da cadeia de caracteres for menor que length, padCharacter será acrescentado repetidamente ao final (direita) da cadeia de caracteres até que ela tenha um comprimento igual a length.
+* Se o comprimento de saudação de cadeia de caracteres for menor que o comprimento, padCharacter é repetidamente anexado toohello final (à direita) da cadeia de caracteres até que tenha uma toolength de comprimento igual.
 * PadCharacter pode ser um caractere de espaço, mas não pode ser um valor nulo.
-* Se o comprimento da cadeia de caracteres é igual ou maior que length, a cadeia de caracteres é retornada inalterada.
-* Se a cadeia de caracteres tem um comprimento maior que ou igual a length, uma cadeia de caracteres idêntica à cadeia de caracteres em questão será retornada.
-* Se o comprimento da cadeia de caracteres for menor que length, uma nova cadeia de caracteres do comprimento desejado é retornada, contendo a cadeia de caracteres preenchida com um padCharacter.
-* Se a cadeia de caracteres é nula, a função retorna uma cadeia de caracteres vazia.
+* Se o comprimento de Olá de cadeia de caracteres for maior que o comprimento de tooor igual, a cadeia de caracteres é retornada inalterada.
+* Se a cadeia de caracteres tem um comprimento maior que ou igual toolength, será retornado um toostring idênticos de cadeia de caracteres.
+* Se o comprimento de saudação de cadeia de caracteres for menor que o comprimento, uma nova cadeia de caracteres de saudação desejado comprimento é retornado que contém a cadeia de caracteres preenchida com um padCharacter.
+* Se a cadeia de caracteres for nula, a função hello retorna uma cadeia de caracteres vazia.
 
 **Exemplo:**  
 `PadRight("User", 10, "0")`  
@@ -1030,14 +1030,14 @@ retorna "User000000".
 - - -
 ### <a name="pcase"></a>PCase
 **Descrição:**  
-a função PCase converte em letras maiúsculas o primeiro caractere de cada palavra delimitada por espaço em uma cadeia de caracteres, enquanto todos os outros caracteres são convertidos em letras minúsculas.
+Olá função PCase converte Olá primeiro caractere de cada palavra delimitada por espaço em um caso de tooupper de cadeia de caracteres, e todos os outros caracteres são convertidos toolower caso.
 
 **Sintaxe:**  
 `String PCase(string)`
 
 **Comentários:**
 
-* Essa função atualmente não fornece o uso de maiúsculas apropriado para converter uma palavra que está totalmente em letras maiúsculas, como um acrônimo.
+* Essa função no momento não oferece tooconvert de maiusculas e minúsculas adequadas uma palavra que está totalmente em letras maiusculas, como um acrônimo.
 
 **Exemplo:**  
 `PCase("TEsT")`  
@@ -1049,13 +1049,13 @@ Retorna "Test"
 - - -
 ### <a name="randomnum"></a>RandomNum
 **Descrição:**  
-a função RandomNum retorna um número aleatório em um intervalo especificado.
+Olá função RandomNum retorna um número aleatório entre um intervalo especificado.
 
 **Sintaxe:**  
 `num RandomNum(num start, num end)`
 
-* start: um número que identifica o limite inferior do valor aleatório a ser gerado
-* end: um número que identifica o limite superior do valor aleatório a gerar
+* Iniciar: um número identificação Olá limite inferior de saudação valor aleatório toogenerate
+* fim: um número identificação Olá limite superior de saudação valor aleatório toogenerate
 
 **Exemplo:**  
 `Random(100,999)`  
@@ -1064,7 +1064,7 @@ pode retornar 734.
 - - -
 ### <a name="removeduplicates"></a>RemoveDuplicates
 **Descrição:**  
-a função RemoveDuplicates obtém uma cadeia de caracteres de valores múltiplos e verifica se cada valor é exclusivo.
+Olá função RemoveDuplicates usa uma cadeia de caracteres com valores múltiplos e certificar-se de que cada valor é exclusivo.
 
 **Sintaxe:**  
 `mvstr RemoveDuplicates(mvstr attribute)`
@@ -1076,17 +1076,17 @@ retorna um atributo proxyAddress corrigido no qual todos os valores duplicados f
 - - -
 ### <a name="replace"></a>Substitua
 **Descrição:**  
-a função Replace substitui todas as ocorrências de uma cadeia de caracteres por outra cadeia de caracteres.
+Olá função Replace substitui todas as ocorrências de uma cadeia de caracteres de tooanother de cadeia de caracteres.
 
 **Sintaxe:**  
 `str Replace(str string, str OldValue, str NewValue)`
 
-* string: uma cadeia de caracteres na qual substituir valores.
-* OldValue: a cadeia de caracteres pela qual pesquisar e a qual substituir.
-* NewValue: a cadeia de caracteres a substituir.
+* cadeia de caracteres: uma cadeia de caracteres tooreplace valores em.
+* OldValue: Olá toosearch de cadeia de caracteres para e tooreplace.
+* NewValue: Olá tooreplace de cadeia de caracteres para.
 
 **Comentários:**  
-a função reconhece os seguintes monikers especiais:
+função Hello reconhece Olá monikers especiais a seguir:
 
 * \n - Nova linha
 * \r - Retorno de carro
@@ -1094,31 +1094,31 @@ a função reconhece os seguintes monikers especiais:
 
 **Exemplo:**  
 `Replace([address],"\r\n",", ")`  
-substitui CRLF por uma vírgula e espaço, e pode levar a "One Microsoft Way, Redmond, WA, USA"
+Substitui CRLF com uma vírgula e um espaço e pode levar muito "One Microsoft maneira, Redmond, WA, EUA"
 
 - - -
 ### <a name="replacechars"></a>ReplaceChars
 **Descrição:**  
-a função ReplaceChars substitui todas as ocorrências de caracteres encontradas na cadeia de caracteres ReplacePattern.
+Olá função ReplaceChars substitui todas as ocorrências de caracteres encontradas na cadeia de caracteres ReplacePattern de saudação.
 
 **Sintaxe:**  
 `str ReplaceChars(str string, str ReplacePattern)`
 
-* string: uma cadeia de caracteres na qual substituir caracteres.
-* ReplacePattern: uma cadeia de caracteres que contém um dicionário com caracteres a substituir.
+* cadeia de caracteres: caracteres tooreplace uma cadeia de caracteres.
+* ReplacePattern: uma cadeia de caracteres que contém um dicionário com caracteres tooreplace.
 
-O formato é {origem1}:{destino1},{origem2}:{destino2},{origemN},{destinoN}, em que a origem é o caractere a localizar e destino é a cadeia de caracteres com a qual trabalhar.
+Olá formato é {source1}: {target1}, {source2}: {target2}, {sourceN}, {targetN} em que a fonte é Olá caractere toofind e destino Olá cadeia de caracteres tooreplace com.
 
 **Comentários:**
 
-* A função considera cada ocorrência de origens definidas e as substitui pelos destinos.
-* A origem deve ter exatamente um caractere (unicode).
-* A origem não pode ser vazia nem maior que um caractere (erro de análise).
-* O destino pode ter vários caracteres, por exemplo, ö:oe, β:ss.
-* O destino pode ser vazio, o que indica que o caractere deve ser removido.
-* A origem diferencia as letras maiúsculas de minúsculas e deve ser uma correspondência exata.
-* A , (vírgula) e : (dois-pontos) são caracteres reservados e não podem ser substituídos usando essa função.
-* Espaços e outros caracteres em branco na cadeia de caracteres ReplacePattern são ignorados.
+* função Hello usa cada ocorrência de fontes definidas e substitui-los com os destinos de saudação.
+* fonte de saudação deve estar exatamente um caractere (unicode).
+* origem de saudação não pode ser vazio ou maior que o caractere (erro de análise).
+* destino de saudação pode ter vários caracteres, por exemplo, OE, β: ss.
+* Olá destino pode ser vazio, indicando que o caractere de saudação deve ser removida.
+* origem de saudação diferencia maiusculas de minúsculas e deve ser uma correspondência exata.
+* Olá, (vírgula) e: (dois-pontos) são caracteres reservados e não podem ser substituídos usando essa função.
+* Espaços e outros caracteres em branco na cadeia de caracteres ReplacePattern de saudação é ignorado.
 
 **Exemplo:**  
 `%ReplaceString% = ’:,Å:A,Ä:A,Ö:O,å:a,ä:a,ö,o`
@@ -1127,29 +1127,29 @@ O formato é {origem1}:{destino1},{origem2}:{destino2},{origemN},{destinoN}, em 
 retorna Raksmorgas
 
 `ReplaceChars("O’Neil",%ReplaceString%)`  
-retorna "ONeil", o único tique é definido para ser removido.
+Retorna "ONeil", o único tique de saudação é definido toobe removido.
 
 - - -
 ### <a name="right"></a>Right
 **Descrição:**  
-a função Right retorna um número especificado de caracteres a partir da direita (final) de uma cadeia de caracteres.
+função Right Olá retorna um número especificado de caracteres de saudação à direita (fim) de uma cadeia de caracteres.
 
 **Sintaxe:**  
 `str Right(str string, num NumChars)`
 
-* string: a cadeia de caracteres da qual retornar caracteres
-* NumChars: um número que identifica o número de caracteres a ser retornado  do final (direita) da cadeia de caracteres
+* cadeia de caracteres: Olá tooreturn caracteres de
+* NumChars: um número que identifica Olá número de caracteres tooreturn de término hello (à direita) da cadeia de caracteres
 
 **Comentários:**  
-os caracteres de NumChars são retornados a partir da última posição da cadeia de caracteres.
+Os caracteres NumChars são retornados da última posição Olá de cadeia de caracteres.
 
-Uma cadeia de caracteres que contém os últimos caracteres numChars na cadeia de caracteres:
+Uma cadeia de caracteres que contém os últimos caracteres numChars Olá na cadeia de caracteres:
 
 * Se numChars = 0, retorne a cadeia de caracteres vazia.
 * Se numChars < 0, retorne a cadeia de caracteres de entrada.
 * Se a cadeia de caracteres for nula, retorne a cadeia de caracteres vazia.
 
-Se a cadeia de caracteres contém menos caracteres do que o número especificado em NumChars, uma cadeia de caracteres idêntica à cadeia de caracteres será retornada.
+Se a cadeia de caracteres contiver menos caracteres que Olá número especificado no NumChars, uma toostring idênticos de cadeia de caracteres é retornado.
 
 **Exemplo:**  
 `Right("John Doe", 3)`  
@@ -1158,7 +1158,7 @@ retorna "Doe".
 - - -
 ### <a name="rtrim"></a>RTrim
 **Descrição:**  
-a função RTrim remove os espaços em branco à direita de uma cadeia de caracteres.
+Olá função RTrim remove espaços em branco à direita de uma cadeia de caracteres.
 
 **Sintaxe:**  
 `str RTrim(str value)`
@@ -1176,36 +1176,36 @@ Processa todos os valores em um atributo de valores múltiplos (ou a saída de u
 `mvattr Select(variable item, mvattr attribute, func function)`  
 `mvattr Select(variable item, exp expression, func function)`
 
-* item: representa um elemento no atributo de valores múltiplos
-* attribute: o atributo de valores múltiplos
+* item: representa um elemento no atributo de múltiplos Olá
+* atributo: atributo de múltiplos Olá
 * expression: uma expressão que retorna uma coleção de valores
-* condition: qualquer função que possa processar um item no atributo
+* condição: qualquer função que pode processar um item no atributo Olá
 
 **Exemplos:**  
 `Select($item,[otherPhone],Replace($item,“-”,“”))`  
-Retorna todos os valores no atributo de valores múltiplos otherPhone depois que os hifens (-) foram removidos.
+Retorne todos os valores de Olá no otherPhone de atributo com vários valores hello depois hifens (-) foram removidos.
 
 - - -
 ### <a name="split"></a>Divisão
 **Descrição:**  
-a função Split obtém uma cadeia de caracteres separada por um delimitador e transforma-a em uma cadeia de caracteres de valores múltiplos.
+Olá função Split usa uma cadeia de caracteres separada por um delimitador e facilita uma cadeia de caracteres com valores múltiplos.
 
 **Sintaxe:**  
 `mvstr Split(str value, str delimiter)`  
 `mvstr Split(str value, str delimiter, num limit)`
 
-* valor: a cadeia de caracteres com um caractere delimitador para separar.
-* delimitador: um único caractere a ser usado como o delimitador.
+* valor: Olá a cadeia de caracteres com um tooseparate de caractere delimitador.
+* delimitador: único toobe caractere usado como Olá delimitador.
 * limite: o número máximo de valores que podem ser retornados.
 
 **Exemplo:**  
 `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")`  
-retorna uma cadeia de caracteres de valores múltiplos com dois elementos úteis para o atributo proxyAddress.
+Retorna uma cadeia de caracteres com valores múltiplos com 2 elementos úteis para o atributo proxyAddress de saudação.
 
 - - -
 ### <a name="stringfromguid"></a>StringFromGuid
 **Descrição:**  
-a função StringFromGuid obtém um GUID binário e converte-o em uma cadeia de caracteres
+Olá função StringFromGuid usa um GUID binário e converte-a cadeia de caracteres tooa
 
 **Sintaxe:**  
 `str StringFromGuid(bin GUID)`
@@ -1213,7 +1213,7 @@ a função StringFromGuid obtém um GUID binário e converte-o em uma cadeia de 
 - - -
 ### <a name="stringfromsid"></a>StringFromSid
 **Descrição:**  
-a função StringFromSid converte uma matriz de bytes, que contém um identificador de segurança, em uma cadeia de caracteres.
+Olá função StringFromSid converte uma matriz de bytes que contém uma cadeia de caracteres de tooa de identificador de segurança.
 
 **Sintaxe:**  
 `str StringFromSid(bin ObjectSID)`  
@@ -1221,36 +1221,36 @@ a função StringFromSid converte uma matriz de bytes, que contém um identifica
 - - -
 ### <a name="switch"></a>Switch
 **Descrição:**  
-a função Switch é usada para retornar um único valor com base nas condições avaliadas.
+função de comutador Hello é tooreturn usado um único valor com base nas condições avaliadas.
 
 **Sintaxe:**  
 `var Switch(exp expr1, var value1[, exp expr2, var value … [, exp expr, var valueN]])`
 
-* expr: expressão variante que você deseja avaliar.
-* value: valor a ser retornado se a expressão correspondente for True.
+* expr: expressão Variant que você deseja tooevaluate.
+* valor: toobe do valor retornado se a expressão correspondente Olá é True.
 
 **Comentários:**  
-a lista de argumentos da função Switch consiste em pares de expressões e valores. As expressões são avaliadas da esquerda para a direita e o valor associado à primeira expressão avaliada como True é retornado. Se as partes não tiverem pares adequados, ocorrerá um erro em tempo de execução.
+Olá argumento da função Switch consiste em pares de expressões e valores. Olá expressões são avaliadas da esquerda tooright e valor Olá associado Olá primeira expressão tooevaluate tooTrue será retornado. Se partes da saudação não tiverem pares adequados, ocorrerá um erro de tempo de execução.
 
 Por exemplo, se expr1 for True, o comutador retornará valor1. Se expr-1 for False, mas expr-2 for True, Switch retorna valor-2 e assim por diante.
 
 Switch retorna um Nothing se:
 
-* Nenhuma das expressões são True.
-* A primeira expressão True tem um valor correspondente que é Null.
+* Nenhuma das expressões Olá forem True.
+* primeira expressão True de saudação tem um valor correspondente que é Null.
 
-Switch avalia todas as expressões, mesmo que retorne apenas uma delas. Por essa razão, você deve tomar cuidado com efeitos colaterais indesejáveis. Por exemplo, se a avaliação de qualquer expressão resulta em um erro de divisão por zero, ocorrerá um erro.
+Switch avalia todas as expressões, mesmo que retorne apenas uma delas. Por essa razão, você deve tomar cuidado com efeitos colaterais indesejáveis. Por exemplo, se a avaliação de saudação de qualquer expressão resulta em uma divisão por zero, ocorrerá um erro.
 
-O valor também pode ser a função Error, que retornaria uma cadeia de caracteres personalizada.
+Valor também pode ser a função de erro hello, que retorna uma cadeia de caracteres personalizada.
 
 **Exemplo:**  
 `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))`  
-retorna o idioma falado em algumas das maiores cidades; caso contrário, retorna um Erro.
+Retorna Olá idioma falado em algumas cidades, caso contrário, retornará um erro.
 
 - - -
 ### <a name="trim"></a>Trim
 **Descrição:**  
-a função Trim remove os espaços em branco à esquerda e à direita de uma cadeia de caracteres.
+função Trim Olá remove espaços à direita e branco de uma cadeia de caracteres.
 
 **Sintaxe:**  
 `str Trim(str value)`  
@@ -1260,12 +1260,12 @@ a função Trim remove os espaços em branco à esquerda e à direita de uma cad
 retorna "test".
 
 `Trim([proxyAddresses])`  
-remove espaços à direita e à esquerda para cada valor no atributo proxyAddress.
+Remove espaços à direita e para cada valor no atributo proxyAddress de saudação.
 
 - - -
 ### <a name="ucase"></a>UCase
 **Descrição:**  
-a função UCase converte todos os caracteres de uma cadeia de caracteres em letras maiúsculas.
+Olá função UCase converte todos os caracteres no caso de tooupper cadeia de caracteres.
 
 **Sintaxe:**  
 `str UCase(str string)`
@@ -1283,23 +1283,23 @@ Retorna um subconjunto de valores de um atributo de valores múltiplos (ou a sa�
 **Sintaxe:**  
 `mvattr Where(variable item, mvattr attribute, exp condition)`  
 `mvattr Where(variable item, exp expression, exp condition)`  
-* item: representa um elemento no atributo de valores múltiplos
-* attribute: o atributo de valores múltiplos
-* condition: qualquer expressão que possa ser avaliada como verdadeira ou falsa
+* item: representa um elemento no atributo de múltiplos Olá
+* atributo: atributo de múltiplos Olá
+* condição: qualquer expressão que pode ser avaliada tootrue ou false
 * expression: uma expressão que retorna uma coleção de valores
 
 **Exemplo:**  
 `Where($item,[userCertificate],CertNotAfter($item)>Now())`  
-Retorna os valores do certificado no atributo de valores múltiplos userCertificate que não estão expirados.
+Retorne valores de certificado Olá Olá userCertificate de atributo com vários valores que não estão expiradas.
 
 - - -
 ### <a name="with"></a>With
 **Descrição:**  
-A função With fornece uma maneira para simplificar uma expressão complexa, usando uma variável para representar uma subexpressão que aparece uma ou mais vezes na expressão complexa.
+Olá com função fornece uma maneira toosimplify uma expressão complexa usando uma variável toorepresent uma subexpressão que aparece uma ou mais vezes na expressão complexa hello.
 
 **Sintaxe:**
 `With(var variable, exp subExpression, exp complexExpression)`  
-* variable: representa a subexpressão.
+* variável: representa Olá subexpressão.
 * subExpression: a subexpressão representada pela variável.
 * complexExpression: uma expressão complexa.
 
@@ -1307,23 +1307,23 @@ A função With fornece uma maneira para simplificar uma expressão complexa, us
 `With($unExpiredCerts,Where($item,[userCertificate],CertNotAfter($item)>Now()),IIF(Count($unExpiredCerts)>0,$unExpiredCerts,NULL))`  
 É funcionalmente equivalente à:  
 `IIF (Count(Where($item,[userCertificate],CertNotAfter($item)>Now()))>0, Where($item,[userCertificate],CertNotAfter($item)>Now()),NULL)`  
-Que retorna apenas os valores de certificado não expirados no atributo userCertificate.
+Que retorna apenas os valores de certificado não expirados no atributo de userCertificate hello.
 
 
 - - -
 ### <a name="word"></a>Word
 **Descrição:**  
-a função Word retorna uma palavra contida em uma cadeia de caracteres com base nos parâmetros que descrevem os delimitadores a serem usados e o número de palavras a serem retornadas.
+Olá função Word retorna uma palavra contida em uma cadeia de caracteres, com base nos parâmetros que descrevem Olá delimitadores toouse e hello word número tooreturn.
 
 **Sintaxe:**  
 `str Word(str string, num WordNumber, str delimiters)`
 
-* string: a cadeia de caracteres da qual retornar uma palavra
+* cadeia de caracteres: Olá tooreturn de cadeia de caracteres de uma palavra.
 * WordNumber: um número que identifica qual número de palavras deve retornar.
-* delimitadores: uma cadeia de caracteres que representa o delimitador(es) que deve ser usado para identificar palavras
+* delimitadores: uma cadeia de caracteres que representa a saudação delimiter(s) que deve ser usado tooidentify palavras
 
 **Comentários:**  
-cada cadeia de caracteres separada por um dos caracteres delimitadores na cadeia de caracteres é identificada como palavra:
+Cada cadeia de caracteres na cadeia de caracteres separados por Olá um Olá caracteres delimitadores são identificados como palavras:
 
 * Se number < 1, retorna uma cadeia de caracteres vazia.
 * Se a cadeia de caracteres for nula, retorna a cadeia de caracteres vazia.
@@ -1331,7 +1331,7 @@ cada cadeia de caracteres separada por um dos caracteres delimitadores na cadeia
 Se a cadeia de caracteres for menor que o número de palavras ou a cadeia não contiver nenhuma palavra identificada por delimitadores, uma cadeia de caracteres vazia será retornada.
 
 **Exemplo:**  
-`Word("The quick brown fox",3," ")`  
+`Word("hello quick brown fox",3," ")`  
 retorna "brown"
 
 `Word("This,string!has&many separators",3,",!&#")`  

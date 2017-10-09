@@ -1,6 +1,6 @@
 ---
-title: Como consultar com SQL no Azure Cosmos DB? | Microsoft Docs
-description: Aprenda a consulta com os dados do DocumentDB com o SQL no Azure Cosmos DB
+title: aaaHow tooquery com SQL no banco de dados do Azure Cosmos? | Microsoft Docs
+description: Saiba tooquery com dados de documentos com SQL no banco de dados do Azure Cosmos
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -16,24 +16,24 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: a2a562c06c6302b9548e758b4c6754ec13b6001d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d3dc51acf92cb78d4f4d9dbac7ec54b1382431cc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-cosmos-db-how-to-query-using-sql"></a>Azure Cosmos DB: Como consultar usando SQL?
+# <a name="azure-cosmos-db-how-tooquery-using-sql"></a>Cosmos do Azure DB: Como tooquery usando SQL?
 
-A [API do DocumentDB](documentdb-introduction.md) do Azure Cosmos DB oferece suporte à consulta de documentos usando SQL. Este artigo fornece um exemplo de documento e dois exemplos de consultas SQL e resultados.
+Olá banco de dados do Azure Cosmos [API DocumentDB](documentdb-introduction.md) dá suporte a consultar documentos usando SQL. Este artigo fornece um exemplo de documento e dois exemplos de consultas SQL e resultados.
 
-Este artigo aborda as seguintes tarefas: 
+Este artigo aborda Olá tarefas a seguir: 
 
 > [!div class="checklist"]
 > * Consultar dados com SQL
 
 ## <a name="sample-document"></a>Exemplo de documento
 
-As consultas de SQL neste artigo usam o seguinte exemplo de documento.
+consultas SQL Olá neste artigo utilizar Olá documento de exemplo a seguir.
 
 ```json
 {
@@ -65,18 +65,18 @@ As consultas de SQL neste artigo usam o seguinte exemplo de documento.
 ```
 ## <a name="where-can-i-run-sql-queries"></a>Onde é possível executar consultas SQL?
 
-Você pode executar consultas usando o Data Explorer no Portal do Azure, por meio da [API REST e SDKs](documentdb-sdk-dotnet.md) e até mesmo o [Playground de consultas](https://www.documentdb.com/sql/demo), que executa consultas em um conjunto existente de dados de exemplo.
+Você pode executar consultas usando Olá Explorador de dados em Olá portal do Azure, por meio de saudação [API REST e SDKs](documentdb-sdk-dotnet.md)e até mesmo hello [parque de consulta](https://www.documentdb.com/sql/demo), que executa consultas em um conjunto de dados de exemplo existentes.
 
 Para saber mais sobre consultas SQL, confira:
 * [Consulta e sintaxe SQL](documentdb-sql-query.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial presume que você tem uma conta e uma coleção do Azure Cosmos DB. Não tenho nenhum deles? Complete o [Guia de início rápido de cinco minutos](create-mongodb-nodejs.md) ou o [tutorial de desenvolvedor](tutorial-develop-mongodb.md) para criar uma conta e uma coleção.
+Este tutorial presume que você tem uma conta e uma coleção do Azure Cosmos DB. Não tenho nenhum deles? Olá completa [início rápido de 5 minutos](create-mongodb-nodejs.md) ou hello [tutorial de desenvolvedor](tutorial-develop-mongodb.md) toocreate uma conta e uma coleção.
 
 ## <a name="example-query-1"></a>Exemplo de consulta 1
 
-Com base no exemplo de documento de família acima, a consulta SQL a seguir retorna os documentos cujo campo de id corresponde a `WakefieldFamily`. Por se tratar de uma instrução `SELECT *`, a saída da consulta será todo o documento JSON:
+Dado documento família de exemplo de hello acima, consulta SQL a seguir retorna Olá documentos em que o campo de id de saudação corresponde `WakefieldFamily`. Uma vez que ele é um `SELECT *` declaração de saída de saudação da consulta de saudação é documento JSON completo hello:
 
 **Consulta**
 
@@ -117,7 +117,7 @@ Com base no exemplo de documento de família acima, a consulta SQL a seguir reto
 
 ## <a name="example-query-2"></a>Exemplo de consulta 2
 
-A próxima consulta retorna todos os nomes dos filhos na família cuja identificação corresponde ao `WakefieldFamily` organizado por nota.
+consulta seguinte Olá retorna todos os nomes de fornecido de saudação de filhos na família Olá cuja id corresponde `WakefieldFamily` ordenados por sua classificação.
 
 **Consulta**
 
@@ -137,12 +137,12 @@ A próxima consulta retorna todos os nomes dos filhos na família cuja identific
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você fez o seguinte:
+Neste tutorial, você fez a seguir hello:
 
 > [!div class="checklist"]
-> * Aprendeu a consultar usando SQL  
+> * Aprendeu como tooquery usando SQL  
 
-Agora você pode prosseguir para o próximo tutorial e aprender a distribuir seus dados globalmente.
+Você pode continuar toolearn tutorial do próximo toohello como toodistribute seus dados globalmente.
 
 > [!div class="nextstepaction"]
 > [Distribuir os dados globalmente](tutorial-global-distribution-documentdb.md)

@@ -10,8 +10,8 @@
 ## [Inscrever-se no Azure AD Premium](active-directory-get-started-premium.md)
 ## [Como adicionar um nome de domínio personalizado](add-custom-domain.md)
 ## [Configurar a identidade visual da empresa](customize-branding.md)
-## [Adicionar usuários ao Azure AD](add-users-azure-active-directory.md)
-## [Atribuir licenças aos usuários](license-users-groups.md)
+## [Adicionar usuários tooAzure AD](add-users-azure-active-directory.md)
+## [Atribuir licenças toousers](license-users-groups.md)
 ## [Como configurar a redefinição de senha de autoatendimento](active-directory-passwords-getting-started.md)
 
 
@@ -38,9 +38,9 @@
 
 ## Gerenciar usuários
 ### [Atribuir licenças usando os grupos](active-directory-licensing-whatis-azure-portal.md)
-#### [Atribuir licenças a um grupo](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Atribuir licenças tooa grupo](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identificar e resolver problemas de licença em um grupo](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Migrar usuários individuais licenciados para licenciamento baseado em grupo](active-directory-licensing-group-migration-azure-portal.md)
+#### [Migrar usuários licenciados individuais com base em toogroup licenciamento](active-directory-licensing-group-migration-azure-portal.md)
 #### [Cenários adicionais para licenciamento baseado em grupos](active-directory-licensing-group-advanced.md)
 #### [Exemplos do PowerShell para licenciamento baseado em grupo](active-directory-licensing-ps-examples.md)
 ### [Adicionar usuários de outros diretórios (portal clássico)](active-directory-create-users-external.md)
@@ -60,15 +60,15 @@
 ### [Gerenciar proprietários do grupo](active-directory-accessmanagement-managing-group-owners.md)
 ### [Gerenciar associação ao grupo](active-directory-groups-membership-azure-portal.md)
 ### [Atribuir licenças usando os grupos](active-directory-licensing-whatis-azure-portal.md)
-#### [Atribuir licenças a um grupo](active-directory-licensing-group-assignment-azure-portal.md)
+#### [Atribuir licenças tooa grupo](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identificar e resolver problemas de licença em um grupo](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Migrar usuários individuais licenciados para licenciamento baseado em grupo](active-directory-licensing-group-migration-azure-portal.md)
+#### [Migrar usuários licenciados individuais com base em toogroup licenciamento](active-directory-licensing-group-migration-azure-portal.md)
 #### [Cenários adicionais para licenciamento baseado em grupos](active-directory-licensing-group-advanced.md)
 #### [Exemplos do PowerShell para licenciamento baseado em grupo](active-directory-licensing-ps-examples.md)
 ### [Configurar a expiração de grupos do Office 365](active-directory-groups-lifecycle-azure-portal.md)
 ### [Exibir todos os grupos](active-directory-groups-view-azure-portal.md)
 ### [Habilitar grupos dedicados](active-directory-accessmanagement-dedicated-groups.md)
-### [Adicionar grupo de acesso a aplicativos SaaS](active-directory-accessmanagement-group-saasapps.md)
+### [Adicionar grupo acesso tooSaaS aplicativos](active-directory-accessmanagement-group-saasapps.md)
 ### [Restaurar um grupo excluído do Office 365](active-directory-groups-restore-azure-portal.md)
 ### Gerenciar configurações de grupo
 #### [Portal do Azure](active-directory-groups-settings-azure-portal.md)
@@ -89,7 +89,7 @@
 ### Tarefas
 #### [Configurar localizações nomeadas](active-directory-named-locations.md)
 #### [Localizar relatórios de atividades](active-directory-reporting-migration.md)
-#### [Usar o Pacote de Conteúdo do Power BI do Active Directory do Azure](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Use Olá pacote conteúdo do Azure Active Directory Power BI](active-directory-reporting-power-bi-content-pack-how-to.md)
 ### Referência
 #### [Retenção](active-directory-reporting-retention.md)
 #### [Latências](active-directory-reporting-latencies-azure-portal.md)
@@ -131,7 +131,7 @@
 
 ## Gerenciar dispositivos
 ### [Introdução](device-management-introduction.md)
-### [Usando o portal do Azure](device-management-azure-portal.md)
+### [Usando Olá portal do Azure](device-management-azure-portal.md)
 ### [Perguntas frequentes](device-management-faq.md)
 ### Tarefas
 #### [Configurar dispositivos híbridos adicionados ao Azure AD](device-management-hybrid-azuread-joined-devices-setup.md) 
@@ -188,7 +188,7 @@
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Equipes da Microsoft](application-proxy-teams.md)
 #### [Solucionar problemas](active-directory-application-proxy-troubleshoot.md)
-#### Usar o portal clássico
+#### Use o portal clássico Olá
 ##### [Baixar conectores](application-proxy-enable-classic-portal.md)
 ##### [Publicar aplicativos](active-directory-application-proxy-publish.md)
 ##### [Usar conectores](active-directory-application-proxy-connectors.md)
@@ -202,7 +202,7 @@
 #### [Exibir todos os meus aplicativos](active-directory-coreapps-view-azure-portal.md)
 #### [Gerenciar o provisionamento de conta de usuário](active-directory-enterprise-apps-manage-provisioning.md)
 
-### [Gerenciar o acesso aos aplicativos](active-directory-managing-access-to-apps.md)
+### [Gerenciar acesso tooapps](active-directory-managing-access-to-apps.md)
 #### [Acesso de autoatendimento](active-directory-self-service-application-access.md)
 #### [Acesso SSO](active-directory-appssoaccess-whatis.md)
 #### [Certificados para SSO](active-directory-sso-certs.md)
@@ -253,7 +253,7 @@
 #### [Como adicionar usuários de B2B sem um convite](active-directory-b2b-add-user-without-invite.md)
 #### [Acesso condicional para B2B](active-directory-b2b-mfa-instructions.md)
 #### [Políticas de compartilhamento B2B](active-directory-b2b-delegate-invitations.md)
-#### [Adicionar um usuário B2B a uma função](active-directory-b2b-add-guest-to-role.md)
+#### [Adicionar uma função tooa B2B](active-directory-b2b-add-guest-to-role.md)
 #### [Grupos dinâmicos e usuários B2B](active-directory-b2b-dynamic-groups.md)
 #### [Auditoria e relatórios](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B e compartilhamento externo do Office 365](active-directory-b2b-o365-external-user.md)
@@ -261,16 +261,16 @@
 #### [Limitações atuais](active-directory-b2b-current-limitations.md)
 #### [Perguntas frequentes](active-directory-b2b-faq.md)
 #### [Solucionando problemas do B2B](active-directory-b2b-troubleshooting.md)
-#### [Entender o usuário B2B](active-directory-b2b-user-properties.md)
+#### [Entender o usuário Olá B2B](active-directory-b2b-user-properties.md)
 #### [Token do usuário B2B](active-directory-b2b-user-token.md)
 #### [B2B para aplicativos integrados do Azure AD](active-directory-b2b-configure-saas-apps.md)
 #### [Mapeamento de declarações do usuário B2B](active-directory-b2b-claims-mapping.md)
-#### [Comparar a colaboração B2B com B2C](active-directory-b2b-compare-b2c.md)
+#### [Comparar tooB2C de colaboração B2B](active-directory-b2b-compare-b2c.md)
 #### [Obtendo suporte para B2B](active-directory-b2b-support.md)
 
 ### [Integrar identidades locais usando o Azure AD Connect](./connect/active-directory-aadconnect.md)
 
-## Delegar acesso aos recursos
+## Delegar acesso tooresources
 ### [Funções de administrador](active-directory-assign-admin-roles.md)
 #### [Atribuir funções de administrador](active-directory-users-assign-role-azure-portal.md)
 ### [Unidades administrativas](active-directory-administrative-units-management.md)
@@ -283,7 +283,7 @@
 #### [Funções personalizadas](role-based-access-control-custom-roles.md)
 #### [Atribuir funções personalizadas para usuários internos e externos](role-based-access-control-create-custom-roles-for-internal-external-users.md)
 #### [Relatórios](role-based-access-control-access-change-history-report.md)
-#### Mais maneiras de gerenciar funções
+#### Funções de toomanage mais maneiras
 ##### [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)
 ##### [PowerShell](role-based-access-control-manage-access-powershell.md)
 ##### [REST](role-based-access-control-manage-access-rest.md)
@@ -299,7 +299,7 @@
 #### [Referência técnica](active-directory-conditional-access-technical-reference.md)
 #### [Aplicativos com suporte](active-directory-conditional-access-supported-apps.md)
 #### [Entender as políticas de dispositivo](active-directory-conditional-access-device-policies.md)
-#### [Configurar o acesso a aplicativos conectados](active-directory-conditional-access-policy-connected-applications.md)
+#### [Configurar acesso tooconnected aplicativos](active-directory-conditional-access-policy-connected-applications.md)
 #### [Correção](active-directory-conditional-access-device-remediation.md)
 #### [Perguntas frequentes](active-directory-conditional-faqs.md)
 #### [Portal clássico](active-directory-conditional-access.md)

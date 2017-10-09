@@ -1,5 +1,5 @@
 ---
-title: "Perguntas frequentes sobre o registro automático de dispositivo do Azure Active Directory | Microsoft Docs"
+title: "aaaAzure registro de dispositivo automático do Active Directory perguntas Frequentes | Microsoft Docs"
 description: "Perguntas frequentes sobre o registro automático de dispositivo com o Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -14,20 +14,20 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 29751239ae2a26cd7b07ddd0d8a8e706d4056b68
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ba7f113fd3bc310def001a1f44d938b0be71dba8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-automatic-device-registration-faq"></a>Perguntas frequentes sobre o registro automático de dispositivo do Azure Active Directory
 
-**P: Registrei o dispositivo recentemente. Por que não consigo ver o dispositivo em minhas informações de usuário no Portal do Azure?**
+**P: posso registrar o dispositivo de saudação recentemente. Por que não é possível ver dispositivo Olá em minhas informações de usuário no portal do Azure de saudação?**
 
-**R:** Dispositivos Windows 10 que ingressaram no domínio com o registro de dispositivo automático não aparecem nas informações de usuário.
-Você precisa usar o PowerShell para ver todos os dispositivos. 
+**R:** dispositivos Windows 10 que ingressaram no domínio com o registro automático do dispositivo não aparecem em informações de saudação do usuário.
+É necessário toouse PowerShell toosee todos os dispositivos. 
 
-Apenas os seguintes dispositivos são listados nas informações de usuário:
+Somente hello seguintes dispositivos são listados na informação de usuário hello:
 
 - Todos os dispositivos pessoais que não são ingressados pela empresa 
 - Todos os não Windows 10/Windows Server 2016 
@@ -35,38 +35,38 @@ Apenas os seguintes dispositivos são listados nas informações de usuário:
 
 ---
 
-**P: Por que não posso ver todos os dispositivos registrados no Azure Active Directory no Portal do Azure?** 
+**P: por que não posso ver todos os dispositivos de saudação registrados no Active Directory do Azure no portal do Azure de saudação?** 
 
-**R:** Atualmente, não há nenhuma maneira de ver todos os dispositivos registrados no Portal do Azure. Você pode usar o Azure PowerShell para localizar todos os dispositivos. Para obter mais detalhes, consulte o cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0).
+**R:** atualmente, não há nenhuma maneira toosee todos os dispositivos registrados no hello portal do Azure. Você pode usar o Azure PowerShell toofind todos os dispositivos. Para obter mais detalhes, consulte Olá [MsolDevice Get](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
 --- 
 
-**P: Como saber qual é o estado de registro do dispositivo do cliente?**
+**P: como posso saber quais estado do registro de dispositivo saudação do cliente Olá é?**
 
-**R:** O estado de registro do dispositivo depende de:
+**R:** depende do estado do registro de dispositivo hello:
 
-- O que é o dispositivo
+- Qual dispositivo Olá é
 - Como ele foi registrado 
-- Todos os detalhes relacionados a ele. 
+- Todos os detalhes relacionados tooit. 
  
 
 ---
 
-**P: Por que um dispositivo que eu excluí no Portal do Azure ou usando o Windows PowerShell ainda está listado como registrado?**
+**P: por que é um dispositivo que tenha excluído no hello Azure portal ou usando o Windows PowerShell ainda listados como registrado?**
 
-**R:** Esse comportamento é intencional. O dispositivo não terá acesso aos recursos na nuvem. Se você quiser remover o dispositivo e registre novamente, uma ação manual deve ser a ser executada no dispositivo. 
+**R:** Esse comportamento é intencional. dispositivo Olá não terá acesso tooresources na nuvem hello. Se você quiser tooremove Olá dispositivo e registrar novamente, uma ação manual deve ser toobe efetuado no dispositivo de saudação. 
 
 Para Windows 10 e Windows Server 2016 que estão ingressados pelo domínio do AD local:
 
-1.  Abra o prompt de comando como administrador.
+1.  Olá abrir o prompt de comando como administrador.
 
 2.  Digite `dsregcmd.exe /debug /leave`
 
-3.  Sair e entrar para disparar a tarefa agendada que registra o dispositivo novamente. 
+3.  Saia e entre em tootrigger Olá tarefa agendada que registra o dispositivo Olá novamente. 
 
 Para outras plataformas Windows que estão ingressadas pelo domínio do AD local:
 
-1.  Abra o prompt de comando como administrador.
+1.  Olá abrir o prompt de comando como administrador.
 2.  Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
 3.  Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
@@ -76,78 +76,78 @@ Para outras plataformas Windows que estão ingressadas pelo domínio do AD local
 
 **R:**
 
--   Para Windows 10 e Windows Server 2016, se houver tentativas repetidas de cancelar o ingresso e ingressar novamente o mesmo dispositivo, poderá haver entradas duplicadas. 
+-   Para Windows 10 e Windows Server 2016, caso eles sejam repetidas tentativas toounjoin e una hello mesmo dispositivo, pode haver entradas duplicadas. 
 
--   Se você tiver usado Adicionar Conta Corporativa ou de Estudante, cada usuário do Windows que usar Adicionar Conta Corporativa ou de Estudante criará um novo registro do dispositivo com o mesmo nome do dispositivo.
+-   Se você tiver usado a adicionar conta corporativa ou escolar, cada usuário do windows que usa adicionar conta corporativa ou escolar criará um novo registro de dispositivo com hello mesmo nome de dispositivo.
 
--   Outras plataformas Windows que são ingressadas pelo domínio do AD local usando o registro automático criarão um novo registro de dispositivo com o mesmo nome do dispositivo para cada usuário de domínio que faça logon no dispositivo. 
+-   Outras plataformas do Windows que estão no local usando o registro automático ingressado no domínio do AD criará um novo registro de dispositivo com hello mesmo nome de dispositivo para cada usuário de domínio que faz logon em um dispositivo de saudação. 
 
--   Um computador AADJ que foi apagado, reinstalado e reingressado com o mesmo nome aparecerá como outro registro com o mesmo nome do dispositivo.
+-   Uma máquina AADJ foi apagada, reinstalado e Unido novamente com hello mesmo nome, será mostrada como outro registro com hello mesmo nome de dispositivo.
 
 ---
 
-**P: Por que um usuário ainda pode acessar recursos de um dispositivo que eu desabilitei no Portal do Azure?**
+**P: por que um usuário ainda pode acessar recursos de um dispositivo que tenha desabilitado no hello portal do Azure?**
 
-**R:** Pode demorar até uma hora para uma revogação ser aplicada.
+**R:** pode levar até horas tooan para um toobe revoke aplicado.
 
 >[!Note] 
->Para dispositivos perdidos, recomendamos apagar o dispositivo para garantir que os usuários não possam acessar o dispositivo. Para obter mais detalhes, consulte [Registrar dispositivos para gerenciamento no Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+>Para dispositivos perdidos, recomendamos apagar Olá dispositivo tooensure que os usuários não poderão acessar o dispositivo hello. Para obter mais detalhes, consulte [Registrar dispositivos para gerenciamento no Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
 
 ---
 
 **P: Por que meus usuários veem "Você não pode chegar lá daqui"?**
 
-**R:** Se você tiver configurado certas regras de acesso condicional para exigir um estado de dispositivo específico e o dispositivo não atender aos critérios, os usuários serão bloqueados e verão esta mensagem. Avalie as regras e verifique se o dispositivo é capaz de atender aos critérios para evitar esta mensagem.
+**R:** se você configurou certa regras de acesso condicional toorequire um estado específico do dispositivo e dispositivo Olá não atendem aos critérios de hello, os usuários estão bloqueados e verá esta mensagem. Avaliar regras hello e certifique-se de que o dispositivo Olá é capaz de toomeet Olá critérios tooavoid essa mensagem.
 
 ---
 
 
-**P: Posso ver o registro de dispositivo nas informações do usuário no Portal do Azure e posso ver o estado como registrado no cliente. Estou configurado corretamente para usar o acesso condicional?**
+**P: posso ver Olá registro de dispositivo em informações de usuário Olá Olá portal do Azure e pode ver o estado de saudação conforme registrado no cliente de saudação. Estou configurado corretamente para usar o acesso condicional?**
 
-**R:** O registro do dispositivo (deviceID) e o estado no Portal do Azure devem corresponder ao cliente e atender a todos os critérios de avaliação para acesso condicional. Para obter mais informações, consulte [Introdução ao registro de dispositivos do Azure Active Directory](active-directory-device-registration.md).
+**R:** registro de dispositivo da saudação (deviceID) e o estado em Olá portal do Azure devem corresponder cliente hello e atender a qualquer critério de avaliação de acesso condicional. Para obter mais informações, consulte [Introdução ao registro de dispositivos do Azure Active Directory](active-directory-device-registration.md).
 
 ---
 
-**P: Por que recebo uma mensagem de "nome de usuário ou senha está incorreta" para um dispositivo que acabei de ingressar no Azure AD?**
+**P: por que recebo uma mensagem de "nome de usuário ou senha está incorreta" para um dispositivo tenha apenas Unido tooAzure AD?**
 
 **R:** As razões comuns para esse cenário são:
 
 - Suas credenciais de usuário não são mais válidas.
 
-- O computador não pode se comunicar com o Azure Active Directory. Verifique se há problemas de conectividade de rede.
+- O computador está toocommunicate não é possível com o Active Directory do Azure. Verifique se há problemas de conectividade de rede.
 
-- Os pré-requisitos de Ingresso no Azure AD não foram atendidos. Certifique-se de ter seguido as etapas de [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Ingresso do Azure Active Directory](active-directory-azureadjoin-overview.md).  
+- Olá junção do Azure AD pré-requisitos não foram atendidos. Certifique-se de que você tiver seguido as etapas de saudação para [estendendo nuvem dispositivos de tooWindows 10 de recursos por meio de junção do Azure Active Directory](active-directory-azureadjoin-overview.md).  
 
-- Os logons federados requerem que o servidor de federação dê suporte a um ponto de extremidade WS-Trust ativo. 
+- Logons federados requer o servidor de Federação toosupport um ponto de extremidade do WS-Trust ativo. 
 
 ---
 
-**P: Por que vejo a caixa de diálogo "Ocorreu um erro" quando tento ingressar meu computador?**
+**P: por que vejo hello "Opa... Ocorreu um erro!" caixa de diálogo quando tento ingressar em Meu computador?**
 
 **R:** Esse é um resultado da configuração de registro do Azure Active Directory como Intune. Para obter mais detalhes, consulte [Configurar o gerenciamento do dispositivo Windows](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
 
 ---
 
-**P: Por que minha tentativa de ingressar um computador falhou embora eu não tenha obtido nenhuma informação de erro?**
+**P: por que meu toojoin de tentativa de um computador falhar, embora não recebi qualquer informação de erro?**
 
-**R:** Uma causa provável é que o usuário está conectado ao dispositivo usando a conta de administrador interno. Crie uma conta local diferente antes de usar o Ingresso do Azure Active Directory para concluir a configuração. 
-
----
-
-**P: onde posso encontrar instruções para a configuração de registro automático do dispositivo?**
-
-**R:** Para obter as instruções detalhadas, confira [Como configurar o registro automático de dispositivos ingressados no domínio do Windows com o Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
+**R:** uma causa provável é que esse usuário Olá é registrado no dispositivo toohello usando a conta de administrador interno hello. Crie uma conta local diferente antes de usar a instalação de saudação toocomplete a junção do Azure Active Directory. 
 
 ---
 
-**P: Onde posso encontrar informações de solução de problemas sobre o registro de dispositivo automático?**
+**P: onde posso encontrar instruções de instalação de saudação do registro automático do dispositivo?**
+
+**R:** para obter instruções detalhadas, consulte [como tooconfigure o registro automático do Windows ingressado no domínio dispositivos com o Active Directory do Azure](active-directory-conditional-access-automatic-device-registration-setup.md)
+
+---
+
+**P: onde encontrar a solução de problemas informações sobre o registro de dispositivo automático Olá?**
 
 **R:** Para encontrar informações de solução de problemas, consulte:
 
-- [Solução de problemas de registro automático de computadores ingressados no domínio do Azure AD – Windows 10 e Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
+- [Solucionando problemas de registro automático de domínio Unido computadores tooAzure AD – Windows 10 e Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
 
-- [Solução de problemas com o registro automático de computadores ingressados no domínio do Azure AD para clientes de nível inferior do Windows](active-directory-device-registration-troubleshoot-windows-legacy.md)
+- [Solucionando problemas de registro automático de domínio Unido computadores tooAzure AD para clientes de nível inferior do Windows](active-directory-device-registration-troubleshoot-windows-legacy.md)
  
 ---
 

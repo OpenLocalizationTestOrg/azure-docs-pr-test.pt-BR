@@ -1,6 +1,6 @@
 ---
-title: "Entradas de várias regiões geográficas"
-description: "Um relatório que indica aos usuários quando duas entradas parecem ter sido originadas de diferentes regiões e a diferença de tempo entre as duas entradas torna impossível para o usuário ter viajado entre tais regiões."
+title: "aaaSign conexões a partir de várias regiões geográficas"
+description: "Um relatório que indica onde duas entradas de usuários apareceu toooriginate de regiões diferentes e tempo de saudação entre Olá que entradas tornar impossível Olá usuário toohave viajado entre essas regiões."
 services: active-directory
 documentationcenter: 
 author: SSalahAhmed
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
-ms.openlocfilehash: 1de57f64692ade442f9ef8d1e3b587ffee35d7cf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8f7c2e9589558476f36f6ae319f807f151b6144e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sign-ins-from-multiple-geographies"></a>Entradas de várias geografias
-Este relatório inclui entradas bem-sucedidas de um usuário, em que duas entradas parecem ter sido originadas de diferentes regiões e a diferença de tempo entre as duas entradas torna impossível para o usuário ter viajado entre tais regiões. Entre as possíveis causas estão:
+Este relatório inclui entradas bem-sucedida de um usuário em que duas entradas apareceram toooriginate de regiões diferentes e tempo de saudação entre Olá entradas torna impossível Olá usuário toohave percorrida entre essas regiões. Entre as possíveis causas estão:
 
 * O usuário está compartilhando sua senha com outros usuários
-* O usuário está usando uma área de trabalho remota para iniciar um navegador da Web para a entrada
-* Um hacker entrou na conta de um usuário em um país diferente
+* Usuário está usando um toolaunch de área de trabalho remota um navegador da web para entrar
+* Um hacker entrou na conta toohello de um usuário em um país diferente
 * O usuário está usando uma VPN ou um proxy
-* O usuário está conectado em vários dispositivos ao mesmo tempo, como uma área de trabalho e um telefone celular, e o endereço IP do telefone celular é incomum.
+* Usuário está conectado em vários dispositivos em Olá ao mesmo tempo, como uma área de trabalho e um telefone celular e Olá IP endereço do celular Olá é incomum.
 
-Os resultados desse relatório mostrarão os eventos de entrada bem-sucedida, junto com a diferença de tempo entre as entradas, as regiões em que as entradas parecem ter se originado e o tempo de viagem estimado entre tais regiões. O tempo de viagem mostrado é apenas uma estimativa e pode ser diferente do tempo de viagem real entre os locais.
+Os resultados desse relatório mostrará Olá eventos de conexão bem-sucedida, junto com o tempo de saudação entre Olá entradas, Olá regiões onde Olá entradas apareceram toooriginate do e Olá estimado tempo de viagem entre essas regiões. tempo de viagem de saudação mostrado é apenas uma estimativa e pode ser diferente do tempo de viagem real Olá entre locais de saudação.
 
 ![Entradas de várias regiões geográficas](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
 

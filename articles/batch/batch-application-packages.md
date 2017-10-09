@@ -1,6 +1,6 @@
 ---
-title: "Instalar pacotes de aplicativos em nós de computação - Azure Batch | Microsoft Docs"
-description: "Use o recurso de pacotes de aplicativos do Lote do Azure para gerenciar facilmente vários aplicativos e versões para instalação nos nós de computação do Lote."
+title: "pacotes de aplicativos aaaInstall em nós de computação - lote do Azure | Microsoft Docs"
+description: "Recurso de pacotes de aplicativos Use saudação do lote do Azure tooeasily gerenciar vários aplicativos e nós de computação de versões para instalação em lote."
 services: batch
 documentationcenter: .net
 author: tamram
@@ -15,197 +15,197 @@ ms.workload: big-compute
 ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afcc04c80ec15872a22de5d5969a7ef6a583562f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 683be7b7f1bd5db7835332016f6dccb72f45c3b5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implantar aplicativos em nós de computação com pacotes de aplicativos do Lote
+# <a name="deploy-applications-toocompute-nodes-with-batch-application-packages"></a>Implantar aplicativos toocompute nós com pacotes de aplicativos de lote
 
-O recurso de pacotes de aplicativos do Lote do Azure fornece um fácil gerenciamento dos aplicativos de tarefa e sua implantação para os nós de computação em seu pool. Com os pacotes de aplicativos, você pode carregar e gerenciar diversas versões dos aplicativos que suas tarefas executam, incluindo seus arquivos de suporte. Você pode implantar automaticamente um ou mais desses aplicativos nos nós de computação em seu pool.
+recurso de pacotes de aplicativos de saudação do lote do Azure fornece fácil gerenciamento de aplicativos de tarefa e sua implantação toohello nós de computação em seu pool. Com pacotes de aplicativos, você pode carregar e gerenciar várias versões de aplicativos Olá que executar suas tarefas, incluindo seus arquivos de suporte. Automaticamente, em seguida, pode implantar um ou mais desses aplicativos toohello nós de computação em seu pool.
 
-Neste artigo, você aprenderá como carregar e gerenciar os pacotes de aplicativos usando o portal do Azure. Em seguida, aprenderá como instalá-los nos nós de computação de um pool com a biblioteca [.NET do Lote][api_net].
+Neste artigo, você aprenderá como tooupload e gerenciar pacotes de aplicativos no hello portal do Azure. Em seguida, você aprenderá como tooinstall-los em um pool nós de computação com hello [Batch .NET] [ api_net] biblioteca.
 
 > [!NOTE]
 > 
-> Os pacotes de aplicativos têm suporte em todos os pools do Lote criados após 5 de julho de 2017. Elas só terão suporte em pools do Lote criados entre 10 de março de 2016 e 5 de julho de 2017 se o pool tiver sido criado usando uma configuração de Serviço de Nuvem. Os pools do Lote criados antes de 10 de março de 2016 não dão suporte a pacotes de aplicativos.
+> Os pacotes de aplicativos têm suporte em todos os pools do Lote criados após 5 de julho de 2017. Eles têm suporte em pools de lote criados entre 10 de março de 2016 e 5 de julho de 2017 somente se o pool de saudação foi criado usando uma configuração de serviço de nuvem. Pools de lote criados too10 anterior de março de 2016 não dão suporte a pacotes de aplicativos.
 >
-> As APIs para criar e gerenciar pacotes de aplicativos fazem parte da biblioteca [Batch Management .NET][[api_net_mgmt]]. As APIs para instalar pacotes de aplicativos em um nó de computação fazem parte da biblioteca [Batch .NET][api_net].  
+> Olá, APIs para criar e gerenciar pacotes de aplicativos fazem parte da saudação [Batch Management .NET] [[api_net_mgmt]] biblioteca. APIs para instalar os pacotes de aplicativo em um nó de computação Hello fazem parte da saudação [Batch .NET] [ api_net] biblioteca.  
 >
-> O recurso de pacotes de aplicativos descrito aqui substitui o recurso Aplicativos do Lote, disponível nas versões anteriores do serviço.
+> recurso de pacotes de aplicativo Hello descrito aqui substitui o recurso de aplicativos em lotes Olá disponível em versões anteriores do serviço de saudação.
 > 
 > 
 
 ## <a name="application-package-requirements"></a>Requisitos do pacote de aplicativos
-Para usar pacotes de aplicativos, você deve [vincular uma conta de Armazenamento do Azure](#link-a-storage-account) à sua conta do Lote.
+pacotes de aplicativos toouse, é necessário muito[vincular uma conta de armazenamento do Azure](#link-a-storage-account) tooyour conta do lote.
 
-Esse recurso foi introduzido na [API REST do Lote][api_rest] versão 2015-12-01.2.2 e na biblioteca [.NET do Lote][api_net] correspondente, versão 3.1.0. É recomendável sempre usar a versão da API mais recente ao trabalhar com o Lote.
+Este recurso foi introduzido no [API REST do lote] [ api_rest] versão 2015-12-01.2.2 e Olá correspondente [Batch .NET] [ api_net] versão da biblioteca 3.1.0. É recomendável que você sempre use mais recente versão da API Olá ao trabalhar com o lote.
 
 > [!NOTE]
-> Os pacotes de aplicativos têm suporte em todos os pools do Lote criados após 5 de julho de 2017. Elas só terão suporte em pools do Lote criados entre 10 de março de 2016 e 5 de julho de 2017 se o pool tiver sido criado usando uma configuração de Serviço de Nuvem. Os pools do Lote criados antes de 10 de março de 2016 não dão suporte a pacotes de aplicativos.
+> Os pacotes de aplicativos têm suporte em todos os pools do Lote criados após 5 de julho de 2017. Eles têm suporte em pools de lote criados entre 10 de março de 2016 e 5 de julho de 2017 somente se o pool de saudação foi criado usando uma configuração de serviço de nuvem. Pools de lote criados too10 anterior de março de 2016 não dão suporte a pacotes de aplicativos.
 >
 >
 
 ## <a name="about-applications-and-application-packages"></a>Sobre aplicativos e pacotes de aplicativos
-No Lote do Azure, um *aplicativo* refere-se a um conjunto de binários com versão que podem ser baixados automaticamente para os nós de computação no pool. Um *pacote de aplicativos* refere-se a um *conjunto específico* desses binários e representa uma determinada *versão* do aplicativo.
+Em lote do Azure, uma *aplicativo* refere-se o conjunto de tooa de binários com controle de versão que podem ser baixados automaticamente toohello nós de computação no pool de. Um *pacote de aplicativo* refere-se tooa *conjunto específico* desses binários e representa um determinado *versão* do aplicativo hello.
 
 ![Diagrama de alto nível de aplicativos e pacotes de aplicativos][1]
 
 ### <a name="applications"></a>Aplicativos
-Um aplicativo no Lote contém um ou mais pacotes de aplicativos e especifica as opções de configuração para o aplicativo. Por exemplo, um aplicativo pode especificar a versão do pacote de aplicativos padrão para instalar nos nós de computação e se seus pacotes podem ser atualizados ou excluídos.
+Um aplicativo em lote contém uma ou mais aplicativos, pacotes e especifica opções de configuração para o aplicativo hello. Por exemplo, um aplicativo pode especificar o saudação padrão aplicativo pacote versão tooinstall em nós de computação e se seus pacotes podem ser atualizados ou excluídos.
 
 ### <a name="application-packages"></a>pacotes de aplicativos
-Um pacote de aplicativos é um arquivo .zip contendo os binários de aplicativo e arquivos de suporte exigidos para que suas tarefas executem o aplicativo. Cada pacote de aplicativos representa uma versão específica do aplicativo.
+Um pacote de aplicativo é um arquivo. zip que contém os binários do aplicativo hello e arquivos de suporte que são necessários para seu aplicativo de saudação do toorun de tarefas. Cada pacote de aplicativo representa uma versão específica do aplicativo hello.
 
-Você pode especificar os pacotes de aplicativos no nível do pool e no de tarefa. Você pode especificar um ou mais desses pacotes e (opcionalmente) uma versão quando você cria uma tarefa ou um pool.
+Você pode especificar os pacotes de aplicativos em níveis de pool e tarefa hello. Você pode especificar um ou mais desses pacotes e (opcionalmente) uma versão quando você cria uma tarefa ou um pool.
 
-* **Pacotes de aplicativos do pool** são implantados em *cada* nó no pool. Os aplicativos são implantados quando um nó ingressa em um pool e quando ele é reinicializado ou tem a imagem recriada.
+* **Pacotes de aplicativos do pool** são implantados muito*cada* nó no pool de saudação. Os aplicativos são implantados quando um nó ingressa em um pool e quando ele é reinicializado ou tem a imagem recriada.
   
-    Os pacotes de aplicativos do pool são adequados quando todos os nós em um pool executam as tarefas de um trabalho. Você pode especificar um ou mais pacotes de aplicativos quando cria um pool e pode adicionar ou atualizar os pacotes de um pool existente. Se você atualizar os pacotes de aplicativos de um pool existente, deverá reiniciar os nós para instalar o novo pacote.
-* **pacotes de aplicativos de tarefa** são implantados somente em um nó de computação programado para executar uma tarefa, logo antes de executar a linha de comando da tarefa. Se o pacote de aplicativos especificado e a versão já estiverem no nó, ele não será reimplantado e o pacote existente será usado.
+    Os pacotes de aplicativos do pool são adequados quando todos os nós em um pool executam as tarefas de um trabalho. Você pode especificar um ou mais pacotes de aplicativos quando cria um pool e pode adicionar ou atualizar os pacotes de um pool existente. Se você atualizar os pacotes de aplicativos de um pool existente, você deve reiniciar o novo pacote seus nós tooinstall hello.
+* **Pacotes de aplicativos de tarefas** são implantados somente do nó de computação tooa toorun um tarefa agendada, apenas antes de executar a linha de comando da tarefa de saudação. Se especificado de saudação versão e o pacote de aplicativo já está no nó de saudação, ele não for reimplantado e pacote existente de saudação é usado.
   
-    Os pacotes de aplicativos de tarefa são úteis nos ambientes de pool compartilhado, onde diferentes trabalhos são executados em um pool, e o pool não é excluído quando um trabalho é concluído. Se o trabalho tiver menos tarefas do que os nós no pool, pacotes de aplicativos de tarefa poderão minimizar a transferência de dados, pois o aplicativo é implantado apenas para os nós que executam tarefas.
+    Pacotes de aplicativos de tarefas são úteis em ambientes de pool compartilhado, onde diferentes trabalhos são executados em um pool e pool de saudação não será excluído quando um trabalho é concluído. Se o trabalho tiver menos tarefas que os nós no pool hello, pacotes de aplicativos de tarefa podem minimizar transferência de dados desde que o aplicativo é implantado toohello apenas nós que executam tarefas.
   
-    Outros cenários que podem aproveitar os pacotes de aplicativos de tarefa são os trabalhos que executam um aplicativo grande, mas para um pequeno número de tarefas. Por exemplo, uma fase de pré-processamento ou uma tarefa de mesclagem na qual o aplicativo pré-processamento ou mesclagem é pesado pode beneficiar-se do uso de pacotes de aplicativos de tarefa.
+    Outros cenários que podem aproveitar os pacotes de aplicativos de tarefa são os trabalhos que executam um aplicativo grande, mas para um pequeno número de tarefas. Por exemplo, uma fase de pré-processamento ou uma tarefa de mesclagem, onde o aplicativo hello de pré-processamento ou de mesclagem é pesado, pode se beneficiar do uso pacotes de aplicativos de tarefa.
 
 > [!IMPORTANT]
-> Há restrições ao número de aplicativos e pacotes de aplicativos em uma conta do Lote, bem como ao tamanho máximo do pacote de aplicativos. Consulte [Cotas e limites para o serviço do Lote do Azure](batch-quota-limit.md) para obter detalhes sobre esses limites.
+> Há restrições no número de saudação de aplicativos e pacotes de aplicativos dentro de uma conta de lote e no tamanho de pacote de aplicativo máximo hello. Consulte [cotas e limites de saudação do serviço Azure Batch](batch-quota-limit.md) para obter detalhes sobre esses limites.
 > 
 > 
 
 ### <a name="benefits-of-application-packages"></a>Benefícios dos pacotes de aplicativos
-Os pacotes de aplicativos podem simplificar o código em sua solução de Lote e reduzir a sobrecarga exigida para gerenciar os aplicativos que suas tarefas executam.
+Pacotes de aplicativos podem simplificar o código de saudação em sua solução de lote e aplicativos do hello de sobrecarga toomanage necessário Olá inferiores executar suas tarefas.
 
-Com pacotes de aplicativos, a tarefa de inicialização do pool não precisa especificar uma longa lista de arquivos de recursos individuais para instalar nos nós. Não é preciso gerenciar manualmente diversas versões dos arquivos do aplicativo no Armazenamento do Azure nem em seus nós. E você não precisa preocupar-se com a geração de [URLs SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md) para fornecer acesso aos arquivos em sua conta de Armazenamento. O Lote funciona em segundo plano com o Armazenamento do Azure para armazenar os pacotes de aplicativos e implantá-los nos nós de computação.
+Com pacotes de aplicativos, tarefas do início do pool não tem toospecify uma longa lista de recursos individuais arquivos tooinstall em nós de saudação. Você não tem toomanually gerenciar várias versões dos seus arquivos de aplicativo no armazenamento do Azure ou em seus nós. E, você não precisa tooworry sobre como gerar [URLs da SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md) tooprovide acessar toohello arquivos em sua conta de armazenamento. Lote funciona no plano de fundo de saudação com pacotes de aplicativos de toostore de armazenamento do Azure e implantá-las toocompute nós.
 
 > [!NOTE] 
-> O tamanho total de uma tarefa de início deve ser menor ou igual a 32768 caracteres, incluindo arquivos de recurso e variáveis de ambiente. Se a tarefa de inicialização exceder esse limite, usar pacotes de aplicativos é outra opção. Você pode também criar um arquivo compactado contendo os arquivos de recurso, carregá-lo como um blob no armazenamento do Azure e descompactá-lo na linha de comando da tarefa inicial. 
+> Olá tamanho total de uma tarefa de início deve ser menor ou igual too32768 caracteres, incluindo arquivos de recurso e variáveis de ambiente. Se a tarefa de inicialização exceder esse limite, usar pacotes de aplicativos é outra opção. Você pode também criar um arquivo compactado que contém os arquivos de recurso, carregá-lo como um blob de tooAzure armazenamento e descompacte-o na linha de comando de saudação da tarefa inicial. 
 >
 >
 
 ## <a name="upload-and-manage-applications"></a>Carregar e gerenciar aplicativos
-Você pode usar o [Portal do Azure][portal] ou a biblioteca [.NET de Gerenciamento do Lote](batch-management-dotnet.md) para gerenciar os pacotes de aplicativos em sua conta do Lote. Nas próximas seções, primeiro vincularemos uma conta de Armazenamento e analisaremos como adicionar aplicativos e pacotes e como gerenciá-los com o portal.
+Você pode usar o hello [portal do Azure] [ portal] ou hello [Batch Management .NET](batch-management-dotnet.md) pacotes de aplicativos de biblioteca toomanage Olá em sua conta do lote. Em seguida Olá seções, primeiro, mostramos como toolink uma conta de armazenamento, em seguida, discuta adicionar aplicativos e pacotes e gerenciá-las com hello portal.
 
 ### <a name="link-a-storage-account"></a>Vincular uma conta de armazenamento
-Para usar pacotes de aplicativos, em primeiro lugar, você deve vincular uma conta de armazenamento do Azure à sua conta do Lote. Se você ainda não configurou uma conta de Armazenamento, o portal do Azure exibe um aviso na primeira vez em que clicar no bloco **Aplicativos** na folha **Conta do Lote**.
+toouse pacotes de aplicativos, primeiro você deve vincular uma conta de armazenamento do Azure tooyour conta do lote. Se você ainda não tiver configurado uma conta de armazenamento, hello portal do Azure exibe uma saudação aviso primeira vez que você clicar em Olá **aplicativos** lado a lado no hello **conta de lote** folha.
 
 > [!IMPORTANT]
-> No momento, o Lote dá suporte *somente* ao tipo de conta de armazenamento de **Uso geral**, conforme descrito na etapa 5 [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/common/storage-create-storage-account.md). Ao vincular uma conta de Armazenamento do Azure à sua conta do Lote, você vincula *somente* uma conta de armazenamento de **Finalidade geral**.
+> Lote atualmente oferece suporte a *somente* Olá **geral** tipo de conta de armazenamento, conforme descrito na etapa 5, [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account), na [sobre o Azure contas de armazenamento](../storage/common/storage-create-storage-account.md). Vincular ao vincular uma conta de armazenamento do Azure tooyour conta em lotes, *somente* um **geral** conta de armazenamento.
 > 
 > 
 
 ![Aviso de 'Nenhuma conta de armazenamento configurada' no portal do Azure][9]
 
-O serviço de Lote usa a conta de Armazenamento associada para armazenar os pacotes de aplicativos. Depois que você tiver vinculado as duas contas, o Lote poderá implantar automaticamente os pacotes armazenados na conta de armazenamento vinculada nos nós de computação. Para vincular uma conta de armazenamento à sua conta do Lote, clique em **Configurações da conta de armazenamento** na folha **Aviso** e clique em **Conta de Armazenamento** na folha **Conta de Armazenamento**.
+Olá lote serviço usa Olá associados toostore da conta de armazenamento seus pacotes de aplicativos. Depois de vincular duas contas de hello, lote pode implantar automaticamente pacotes de saudação armazenados em nós de computação tooyour do conta de armazenamento Olá vinculado. toolink uma conta de armazenamento tooyour conta do lote, clique em **configurações de conta de armazenamento** em Olá **aviso** folha e depois clique em **conta de armazenamento** em Olá **Conta de armazenamento** folha.
 
 ![Folha Escolher conta de armazenamento no portal do Azure][10]
 
-Recomendamos que você crie uma conta de armazenamento para usar *especificamente* com sua conta do Lote e que a selecione aqui. Para obter detalhes sobre como criar uma conta de armazenamento, consulte "Criar uma Conta de Armazenamento" em [Sobre contas de Armazenamento do Azure](../storage/common/storage-create-storage-account.md). Depois de ter criado uma conta de Armazenamento, você poderá vinculá-la à sua conta do Lote usando a folha **Conta de Armazenamento** .
+Recomendamos que você crie uma conta de armazenamento para usar *especificamente* com sua conta do Lote e que a selecione aqui. Para obter detalhes sobre como toocreate uma conta de armazenamento, consulte "Criar uma conta de armazenamento" [contas de armazenamento do Azure sobre](../storage/common/storage-create-storage-account.md). Depois de criar uma conta de armazenamento, você pode, em seguida, vinculá-lo tooyour conta do lote usando Olá **conta de armazenamento** folha.
 
 > [!WARNING]
-> O serviço de Lote usa o Armazenamento do Azure para armazenar os pacotes de aplicativos como blobs de blocos. Você é [cobrado normalmente][storage_pricing] pelos dados de blob de blocos. Não se esqueça de considerar o tamanho e o número de pacotes de aplicativos e, periodicamente, remova pacotes preteridos para minimizar o custo.
+> Olá serviço de lote usa toostore de armazenamento do Azure seus pacotes de aplicativos como blobs de bloco. Você está [cobrada como normal] [ storage_pricing] para dados de blob de bloco hello. Ter certeza de que tamanho de saudação de tooconsider e número de seus pacotes de aplicativos e remover periodicamente os custos de toominimize pacotes substituídos.
 > 
 > 
 
 ### <a name="view-current-applications"></a>Exibir aplicativos atuais
-Para exibir os aplicativos em sua conta do Lote, clique no item de menu **Aplicativos** no menu à esquerda enquanto exibe a folha **Conta do Lote**.
+aplicativos de saudação tooview em sua conta de lote, clique em Olá **aplicativos** item de menu no menu esquerdo de saudação ao exibir hello **conta de lote** folha.
 
 ![Bloco Aplicativos][2]
 
-Selecionar essa opção de menu abre a folha **Aplicativos**:
+Selecionar essa opção de menu abre Olá **aplicativos** folha:
 
 ![Listar aplicativos][3]
 
-A folha **Aplicativos** exibe a ID de cada aplicativo em sua conta e as seguintes propriedades:
+Olá **aplicativos** folha exibe Olá ID de cada aplicativo em sua conta e Olá propriedades a seguir:
 
-* **Pacotes**: o número de versões associadas a este aplicativo.
-* **Versão padrão**: a versão do aplicativo que será instalada se você não indicar uma versão ao especificar o aplicativo para um pool. Essa configuração é opcional.
-* **Permitir atualizações**: o valor que especifica se são permitidas as atualizações, exclusões e adições do pacote. Se isso estiver definido para **Não**, as exclusões e atualizações do pacote ficarão desabilitadas para o aplicativo. Apenas novas versões do pacote de aplicativos poderão ser adicionadas. O padrão é **Sim**.
+* **Pacotes**: Olá número de versões associadas a este aplicativo.
+* **Versão padrão**: versão do aplicativo hello instalado se você não indica uma versão quando você especificar o aplicativo hello para um pool. Essa configuração é opcional.
+* **Permitir atualizações**: valor de saudação que especifica se o pacote de atualizações, exclusões e adições são permitidos. Se isso for definido muito**não**, exclusões e atualizações de pacote estão desabilitadas para o aplicativo hello. Apenas novas versões do pacote de aplicativos poderão ser adicionadas. saudação padrão é **Sim**.
 
 ### <a name="view-application-details"></a>Exibir detalhes do aplicativo
-Clique em um aplicativo na folha **Aplicativos** para abrir a folha que inclui os detalhes desse aplicativo.
+folha de saudação tooopen que inclui detalhes de saudação para um aplicativo hello de aplicativo, selecione em Olá **aplicativos** folha.
 
 ![Detalhes do aplicativo][4]
 
-Na folha de detalhes do aplicativo, você pode configurar as definições a seguir para o aplicativo.
+Na folha de detalhes do aplicativo hello, você pode configurar Olá seguindo as configurações para seu aplicativo.
 
 * **Permitir atualizações**: especifique se seus pacotes de aplicativos podem ser atualizados ou excluídos. Consulte "Atualizar ou excluir um pacote de aplicativos" mais adiante neste artigo.
-* **Versão padrão**: especifique um pacote de aplicativos padrão para implantar nos nós de computação.
-* **Nome de exibição**: especifique um nome amigável que sua solução de Lote pode usar ao exibir informações sobre o aplicativo, como na interface do usuário de um serviço que você fornece aos clientes por meio do Lote.
+* **Versão padrão**: especificar um padrão aplicativo pacote toodeploy toocompute nós.
+* **Nome de exibição**: especificar amigável para um nome que sua solução pode usar quando ele exibe informações sobre o aplicativo hello, por exemplo, no hello da interface do usuário de um serviço que você fornecer tooyour clientes por meio de lote de lote.
 
 ### <a name="add-a-new-application"></a>Adicionar um novo aplicativo
-Para criar um novo aplicativo, adicione um pacote de aplicativos e especifique uma ID de aplicativo nova e exclusiva. O primeiro pacote de aplicativos que você adiciona com a nova ID de aplicativo também cria o novo aplicativo.
+toocreate um novo aplicativo, adicione um pacote de aplicativos e especifique uma ID de aplicativo nova e exclusiva. Olá primeiro pacote de aplicativos que você adicionar a nova ID de aplicativo hello também cria Olá novo aplicativo.
 
-Clique em **Adicionar** na folha **Aplicativos** para abrir a folha **Novo aplicativo**.
+Clique em **adicionar** em Olá **aplicativos** saudação do folha tooopen **novo aplicativo** folha.
 
 ![Folha Novo aplicativo no portal do Azure][5]
 
-A folha **Novo aplicativo** fornece os campos a seguir para especificar as configurações do seu novo aplicativo e do pacote de aplicativos.
+Olá **novo aplicativo** folha fornece a seguinte Olá campos toospecify configurações de saudação do seu pacote de aplicativos e o novo aplicativo.
 
 **ID do aplicativo**
 
-Este campo especifica a ID do novo aplicativo, que está sujeita às regras de validação padrão de ID do Lote do Azure. As regras para fornecer uma ID de aplicativo são conforme descrito a seguir:
+Este campo especifica a ID de saudação do seu novo aplicativo, que é o assunto toohello padrão ID de lote do Azure as regras de validação. regras de saudação para fornecer uma ID de aplicativo são da seguinte maneira:
 
-* Em nós do Windows, a ID pode conter qualquer combinação de caracteres alfanuméricos, hifens e sublinhados. Em nós do Linux, são permitidos somente caracteres alfanuméricos e sublinhados.
+* Em nós do Windows, Olá ID pode conter qualquer combinação de caracteres alfanuméricos, hifens e sublinhados. Em nós do Linux, são permitidos somente caracteres alfanuméricos e sublinhados.
 * Não pode conter mais de 64 caracteres.
-* Deve ser exclusiva na conta do Lote.
+* Deve ser exclusivo dentro de saudação conta do lote.
 * Não diferencia maiúsculas de minúsculas e preserva maiúsculas e minúsculas.
 
 **Versão**
 
-Este campo especifica a versão do pacote de aplicativos que você está carregando. As cadeias de caracteres da versão estão sujeitas às seguintes regras de validação:
+Este campo especifica a versão de Olá Olá do pacote de aplicativo que está carregando. Cadeias de caracteres de versão são toohello assunto regras de validação a seguir:
 
-* Em nós do Windows, a cadeia de caracteres de versão pode conter qualquer combinação de caracteres alfanuméricos, hifens, sublinhados e pontos. Em nós do Linux, a cadeia de caracteres de versão pode conter somente caracteres alfanuméricos e sublinhados.
+* Em nós do Windows, a cadeia de caracteres de versão Olá pode conter qualquer combinação de caracteres alfanuméricos, hifens, sublinhados e pontos. Em nós do Linux, a cadeia de caracteres de versão Olá pode conter apenas caracteres alfanuméricos e sublinhados.
 * Não pode conter mais de 64 caracteres.
-* Devem ser exclusivas no aplicativo.
+* Deve ser exclusivo dentro do aplicativo hello.
 * Não diferenciam maiúsculas de minúsculas e preservam maiúsculas e minúsculas.
 
 **Pacote de aplicativos**
 
-Esse campo especifica o arquivo .zip que contém os binários do aplicativo e os arquivos de suporte que necessários à execução do aplicativo. Clique na caixa **Selecionar um arquivo** ou no ícone de pasta para procurar e selecionar um arquivo .zip que contém os arquivos do seu aplicativo.
+Este campo especifica um arquivo. zip Olá que contém os binários do aplicativo hello e arquivos de suporte que são necessários tooexecute Olá aplicativo. Clique em Olá **selecionar um arquivo** caixa ou hello pasta ícone toobrowse tooand selecionar um arquivo. zip que contém os arquivos do aplicativo.
 
-Depois de ter selecionado um arquivo, clique em **OK** para começar a carregar no Armazenamento do Azure. Quando a operação de upload for concluída, o portal exibirá uma notificação e fechará a folha. Dependendo do tamanho do arquivo que você estiver carregando e da velocidade da conexão de rede, essa operação pode demorar um pouco.
+Depois de selecionar um arquivo, clique em **Okey** toobegin Olá carregamento tooAzure armazenamento. Quando a operação de carregamento de saudação for concluída, o portal de saudação exibe uma notificação e fecha a folha de saudação. Dependendo do tamanho de saudação do arquivo hello que você está carregando e Olá a velocidade de sua conexão de rede, essa operação pode levar algum tempo.
 
 > [!WARNING]
-> Não feche a folha **Novo aplicativo** antes de a operação de carregamento estar concluída. Isso interromperá o processo de carregamento.
+> Não feche Olá **novo aplicativo** folha antes da operação de carregamento de saudação conclusão. Isso irá parar o processo de carregamento de saudação.
 > 
 > 
 
 ### <a name="add-a-new-application-package"></a>Adicionar um novo pacote de aplicativos
-Para adicionar uma nova versão do pacote de aplicativos a um aplicativo existente, selecione um aplicativo na folha **Aplicativos**, clique em **Pacotes** e **Adicionar** para abrir a folha **Adicionar pacote**.
+tooadd uma nova versão do pacote de aplicativo para um aplicativo existente, selecione um aplicativo no hello **aplicativos** folha, clique em **pacotes**, em seguida, clique em **adicionar** tooopen Olá **Adicionar pacote** folha.
 
 ![Folha Adicionar pacote de aplicativos no portal do Azure][8]
 
-Como você pode ver, os campos correspondem aos da folha **Novo aplicativo**, mas a caixa **ID do Aplicativo** fica desabilitada. Assim como para o novo aplicativo, especifique a **Versão** do novo pacote, procure o arquivo .zip do **Pacote de aplicativos** e clique em **OK** para carregar o pacote.
+Como você pode ver, campos de saudação correspondem da saudação **novo aplicativo** folha, mas Olá **id do aplicativo** caixa está desabilitada. Como você fez para o novo aplicativo de hello, especifique Olá **versão** para o novo pacote, procurar tooyour **pacote de aplicativo** . zip do arquivo, em seguida, clique em **Okey** Olá tooupload pacote.
 
 ### <a name="update-or-delete-an-application-package"></a>Atualizar ou excluir um pacote de aplicativos
-Para atualizar ou excluir um pacote de aplicativos existente, abra a folha de detalhes do aplicativo, clique em **Pacotes** para abrir a folha **Pacotes**, clique nas **reticências** na linha do pacote de aplicativos que você deseja modificar e selecione a ação que deseja executar.
+tooupdate ou excluir um pacote de aplicativo existente, folha de detalhes aberta Olá para o aplicativo hello, clique em **pacotes** tooopen Olá **pacotes** folha, clique em Olá **reticências**na linha de saudação saudação do pacote de aplicativo que você deseja toomodify e selecione Olá ação que você deseja tooperform.
 
 ![Atualizar ou excluir pacote no portal do Azure][7]
 
 **Atualizar**
 
-Quando você clica em **Atualizar**, a folha *Atualizar pacote* é exibida. Essa folha é semelhante à folha *Novo pacote de aplicativos*. No entanto, somente o campo de seleção de pacotes está habilitado, permitindo que você especifique um novo arquivo ZIP a carregar.
+Quando você clica em **atualização**, Olá *pacote de atualização* folha é exibida. Esta folha é semelhante toohello *novo pacote de aplicativo* folha, no entanto, somente o campo seleção do pacote hello estiver habilitado, permitindo que você toospecify um novo tooupload de arquivo ZIP.
 
 ![Folha do pacote de atualização no portal do Azure][11]
 
 **Excluir**
 
-Quando você clica em **Excluir**, é preciso confirmar a exclusão da versão do pacote e o Lote exclui o pacote do Armazenamento do Azure. Se você excluir a versão padrão de um aplicativo, a configuração da **Versão padrão** será removida para o aplicativo.
+Quando você clica em **excluir**, você será solicitado a exclusão da versão do pacote de saudação Olá tooconfirm e lote exclui o pacote de saudação do armazenamento do Azure. Se você excluir a versão padrão de saudação de um aplicativo, Olá **versão padrão** configuração é removida para o aplicativo hello.
 
 ![Excluir aplicativo ][12]
 
 ## <a name="install-applications-on-compute-nodes"></a>Instalar aplicativos em nós de computação
-Agora que você aprendeu como gerenciar os pacotes de aplicativos com o portal do Azure, podemos analisar como implantá-los para os nós de computação e executá-los com tarefas em Lote.
+Agora que você aprendeu como o aplicativo toomanage pacotes com hello portal do Azure, podemos discutir como toodeploy-los toocompute nós e executá-los com as tarefas em lote.
 
 ### <a name="install-pool-application-packages"></a>Instalar pacotes de aplicativos do pool
-Para instalar um pacote de aplicativos em todos os nós de computação em um pool, especifique uma ou mais *referências* do pacote de aplicativos para o pool. Os pacotes de aplicativo que você especifica para um pool são instalados em cada nó de computação quando esse nó se une ao pool, e quando o nó é reinicializado ou tem sua imagem refeita.
+tooinstall um pacote de aplicativo em todos os nós de computação em um pool, especifique um ou mais pacotes de aplicativo *referências* para pool de saudação. pacotes de aplicativos de saudação que você especificar para um pool são instalados em cada nó de computação ao nó une pool hello e ao nó de saudação é reinicializado ou recriar a imagem.
 
-No .NET do Lote, especifique um ou mais [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref] quando você criar um novo pool ou para um pool existente. A classe [ApplicationPackageReference][net_pkgref] especifica uma ID e versão do aplicativo para instalar nos nós de computação de um pool.
+No .NET do Lote, especifique um ou mais [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref] quando você criar um novo pool ou para um pool existente. Olá [ApplicationPackageReference] [ net_pkgref] classe especifica uma ID de aplicativo e a versão tooinstall em um pool de nós de computação.
 
 ```csharp
-// Create the unbound CloudPool
+// Create hello unbound CloudPool
 CloudPool myCloudPool =
     batchClient.PoolOperations.CreatePool(
         poolId: "myPool",
@@ -213,7 +213,7 @@ CloudPool myCloudPool =
         virtualMachineSize: "small",
         cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
 
-// Specify the application and version to install on the compute nodes
+// Specify hello application and version tooinstall on hello compute nodes
 myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 {
     new ApplicationPackageReference {
@@ -221,20 +221,20 @@ myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
         Version = "1.1001.2b" }
 };
 
-// Commit the pool so that it's created in the Batch service. As the nodes join
-// the pool, the specified application package is installed on each.
+// Commit hello pool so that it's created in hello Batch service. As hello nodes join
+// hello pool, hello specified application package is installed on each.
 await myCloudPool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Se uma implantação do pacote de aplicativos falhar por algum motivo, o serviço do Lote marcará o nó como [inutilizável][net_nodestate] e nenhuma tarefa será agendada para a execução nesse nó. Nesse caso, você deve **reiniciar** o nó para reiniciar a implantação do pacote. A reinicialização do nó também habilita novamente nele o agendamento de tarefas.
+> Se uma implantação de pacote do aplicativo falhar por algum motivo, marcas de serviço de lote Olá Olá nó [inutilizável][net_nodestate], e nenhum tarefas estão agendadas para execução nesse nó. Nesse caso, você deve **reiniciar** Olá implantação de pacote de saudação do nó tooreinitiate. Nó de saudação reiniciar também permite que agendamento de tarefas no nó Olá novamente.
 > 
 > 
 
 ### <a name="install-task-application-packages"></a>Instalar pacotes de aplicativos de tarefa
-Semelhante a um pool, você especifica as *referências* do pacote de aplicativos para uma tarefa. Quando uma tarefa está agendada para ser executada em um nó, o pacote é baixado e extraído um pouco antes da linha de comando da tarefa ser executada. Se o pacote especificado e a versão já estiverem instalados no nó, o pacote não será baixado e o pacote existente será usado.
+Pool tooa semelhante, que você especifique o pacote de aplicativos *referências* para uma tarefa. Quando uma tarefa está agendada toorun em um nó, pacote de saudação é baixado e extraído antes de linha de comando da tarefa Olá é executada. Se um pacote especificado e a versão já estiver instalado no nó hello, pacote de saudação não é baixado e pacote existente Olá é usado.
 
-Para instalar um pacote de aplicativos de tarefa, configure a propriedade [CloudTask][net_cloudtask].[ApplicationPackageReferences][net_cloudtask_pkgref] da tarefa:
+tooinstall um pacote de aplicativo de tarefas, configurar da tarefa Olá [CloudTask][net_cloudtask].[ ApplicationPackageReferences] [ net_cloudtask_pkgref] propriedade:
 
 ```csharp
 CloudTask task =
@@ -252,44 +252,44 @@ task.ApplicationPackageReferences = new List<ApplicationPackageReference>
 };
 ```
 
-## <a name="execute-the-installed-applications"></a>Executar os aplicativos instalados
-Os pacotes que você especificou para uma tarefa ou um pool são baixados e extraídos para um diretório nomeado dentro do `AZ_BATCH_ROOT_DIR` do nó. O Lote também cria uma variável de ambiente que contém o caminho para o diretório nomeado. As linhas de comando da tarefa usam essa variável de ambiente ao referenciar o aplicativo no nó. 
+## <a name="execute-hello-installed-applications"></a>Executar aplicativos Olá instalado
+Hello pacotes que você especificou para uma tarefa ou um pool são baixados e extraídos tooa chamado diretório dentro de saudação `AZ_BATCH_ROOT_DIR` do nó de saudação. Lote também cria uma variável de ambiente que contém a saudação caminho toohello chamado de diretório. As linhas de comando da tarefa use essa variável de ambiente ao referenciar o aplicativo hello no nó de saudação. 
 
-Em nós do Windows, a variável está no seguinte formato:
+Em nós do Windows, a variável de saudação está no hello formato a seguir:
 
 ```
 Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-Em nós do Linux, o formato é ligeiramente diferente. Pontos (.), hifens (-) e teclas jogo da velha (#) são transformados em sublinhados na variável de ambiente. Por exemplo:
+Em nós do Linux, o formato de saudação é ligeiramente diferente. Pontos (.), hifens (-) e sinais numéricos (#) são toounderscores bidimensional na variável de ambiente hello. Por exemplo:
 
 ```
 Linux:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID_version
 ```
 
-`APPLICATIONID` e `version` são os valores que correspondem à versão do aplicativo e do pacote que você especificou para a implantação. Por exemplo, se você especificou que a versão 2.7 do *blender* de aplicativos deve ser instalada em nós do Windows, as linhas de comando da tarefa usarão essa variável de ambiente para acessar seus arquivos:
+`APPLICATIONID`e `version` são valores que correspondem a toohello aplicativo e a versão do pacote que você especificou para implantação. Por exemplo, se você tiver especificado que a versão 2.7 do aplicativo *blender* devem ser instalados em nós do Windows, as linhas de comando da tarefa usaria essa tooaccess de variável de ambiente seus arquivos:
 
 ```
 Windows:
 AZ_BATCH_APP_PACKAGE_BLENDER#2.7
 ```
 
-Em nós do Linux, especifique a variável de ambiente neste formato:
+Em nós do Linux, especifique a variável de ambiente Olá neste formato:
 
 ```
 Linux:
 AZ_BATCH_APP_PACKAGE_BLENDER_2_7
 ``` 
 
-Quando você carrega um pacote de aplicativos, você pode especificar uma versão padrão para implantar em seus nós de computação. Se você tiver especificado uma versão padrão para um aplicativo, poderá omitir o sufixo da versão ao referenciar o aplicativo. Você pode especificar a versão padrão do aplicativo no portal do Azure, na folha de Aplicativos, como mostrado em [Carregue e gerencie aplicativos](#upload-and-manage-applications).
+Quando você carrega um pacote de aplicativo, você pode especificar um tooyour de toodeploy de versão do padrão de nós de computação. Se você tiver especificado uma versão padrão para um aplicativo, você pode omitir o sufixo da versão de hello quando você referenciar o aplicativo hello. Você pode especificar versão do aplicativo saudação padrão em Olá portal do Azure, na folha de aplicativos hello, conforme mostrado no [carregar e gerenciar aplicativos](#upload-and-manage-applications).
 
-Por exemplo, se você definiu "2.7" como a versão padrão do *blender* de aplicativos e suas tarefas referenciam a variável de ambiente a seguir, seus nós do Windows executarão a versão 2.7:
+Por exemplo, se você definir "2.7" como versão padrão de saudação para o aplicativo *blender*e suas tarefas de referenciam Olá variável de ambiente a seguir, os nós do Windows executará a versão 2.7:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
-O trecho de código a seguir mostra uma linha de comando da tarefa de exemplo que inicializa a versão padrão do *blender* de aplicativos:
+Olá, trecho de código a seguir mostra uma linha de comando do exemplo tarefa que inicia a versão padrão Olá Olá *blender* aplicativo:
 
 ```csharp
 string taskId = "blendertask01";
@@ -299,18 +299,18 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
 > [!TIP]
-> Consulte [Configurações do ambiente para tarefas](batch-api-basics.md#environment-settings-for-tasks) na [Visão geral do recurso de Lote](batch-api-basics.md) para saber mais sobre as configurações do ambiente do nó de computação.
+> Consulte [configurações de ambiente para tarefas](batch-api-basics.md#environment-settings-for-tasks) em Olá [visão geral do recurso de lote](batch-api-basics.md) para obter mais informações sobre configurações de ambiente do nó de computação.
 > 
 > 
 
 ## <a name="update-a-pools-application-packages"></a>Atualizar pacotes de aplicativos de um pool
-Se um pool existente já tiver sido configurado com um pacote de aplicativos, você poderá especificar um novo pacote para o pool. Se você especificar uma nova referência de pacote para um pool, o seguinte se aplicará:
+Se um pool existente já tiver sido configurado com um pacote de aplicativo, você pode especificar um novo pacote para o pool de saudação. Se você especificar uma nova referência de pacote para um pool, Olá aplicar a seguir:
 
-* O serviço de Lote instala o pacote recém-especificado em todos os novos nós que ingressam no pool e em qualquer nó existente que seja reinicializado ou cuja imagem seja refeita.
-* Os nós de computação que já estão no pool quando você atualiza as referências do pacote não instalam automaticamente o novo pacote de aplicativos. Esses nós de computação devem ser reinicializados ou ter sua imagem recriada para receber o novo pacote.
-* Quando um novo pacote é implantado, as variáveis de ambiente criadas refletem as novas referências do pacote de aplicativos.
+* Olá serviço de lote instala o pacote de especificado mais recentemente de saudação em todos os nós que unem pool hello e em qualquer nó existente que é reinicializado ou recriar a imagem.
+* Computação nós que já estão no pool hello quando você atualizar referências de pacote de saudação não instalam automaticamente o novo pacote de aplicativo hello. Esses computação nós devem ser reinicializados ou imagem recriada tooreceive Olá novo pacote.
+* Quando um novo pacote é implantado, Olá criar variáveis de ambiente refletem novas referências de pacote de aplicativo hello.
 
-Neste exemplo, o pool existente tem a versão 2.7 do aplicativo *blender* configurada como um de seus [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref]. Para atualizar os nós do pool com a versão 2.76b, especifique um novo [ApplicationPackageReference][net_pkgref] com a nova versão e confirme a mudança.
+Neste exemplo, pool existente Olá tem versão 2.7 do hello *blender* aplicativo configurado como um de seus [CloudPool][net_cloudpool].[ ApplicationPackageReferences][net_cloudpool_pkgref]. nós do pool de saudação tooupdate com a versão 2.76b, especifique um novo [ApplicationPackageReference] [ net_pkgref] com hello nova versão e alterações de saudação de confirmação.
 
 ```csharp
 string newVersion = "2.76b";
@@ -324,13 +324,13 @@ boundPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await boundPool.CommitAsync();
 ```
 
-Agora que a nova versão foi configurada, o serviço de Lote instala a versão 2.76b em qualquer nó *novo* que ingresse no pool. Para instalar a versão 2.76b nos nós que já *estão* no pool, reinicialize-os ou refaça a imagem deles. Observe que os nós reinicializados retém os arquivos das implantações anteriores do pacote.
+Agora que hello nova versão tiver sido configurado, Olá serviço de lote instala a versão 2.76b tooany *novo* nó que une Olá pool. tooinstall 2.76b em nós Olá *já* no pool de hello, reinicializar ou refazer imagem-los. Observe que nós reinicializada mantenham arquivos Olá de implantações de pacote anterior.
 
-## <a name="list-the-applications-in-a-batch-account"></a>Listar os aplicativos em uma conta do Lote
-Você pode listar os aplicativos e seus pacotes em uma conta do Lote usando o método [ApplicationOperations][net_appops].[ListApplicationSummaries][net_appops_listappsummaries].
+## <a name="list-hello-applications-in-a-batch-account"></a>Lista de aplicativos de saudação em uma conta de lote
+Você pode listar aplicativos hello e seus pacotes em uma conta de lote usando Olá [ApplicationOperations][net_appops].[ ListApplicationSummaries] [ net_appops_listappsummaries] método.
 
 ```csharp
-// List the applications and their application packages in the Batch account.
+// List hello applications and their application packages in hello Batch account.
 List<ApplicationSummary> applications = await batchClient.ApplicationOperations.ListApplicationSummaries().ToListAsync();
 foreach (ApplicationSummary app in applications)
 {
@@ -344,11 +344,11 @@ foreach (ApplicationSummary app in applications)
 ```
 
 ## <a name="wrap-up"></a>Conclusão
-Com os pacotes de aplicativos, você pode fornecer ajudar seus clientes a escolher os aplicativos para seus trabalhos e especificar a versão exata a ser usada ao processar trabalhos com o serviço habilitado para o Lote. Você também pode fornecer aos clientes a capacidade de carregar e rastrear os próprios aplicativos no serviço.
+Com pacotes de aplicativos, você pode ajudar seus clientes selecione Olá aplicativos para seus trabalhos e especifique Olá versão exata toouse durante o processamento de trabalhos com o serviço de lote habilitado. Você também pode fornecer capacidade Olá para tooupload seus clientes e controlar seus próprios aplicativos em seu serviço.
 
 ## <a name="next-steps"></a>Próximas etapas
-* A [API REST do Lote][api_rest] também dá suporte ao trabalho com pacotes de aplicativos. Por exemplo, consulte o elemento [applicationPackageReferences][rest_add_pool_with_packages] em [Adicionar um pool a uma conta][rest_add_pool] para obter informações sobre como especificar os pacotes a instalar usando a API REST. Consulte [Aplicativos][rest_applications] para obter detalhes sobre como obter informações do aplicativo usando a API REST do Lote.
-* Aprenda a [gerenciar de modo programático as contas e as cotas do Lote do Azure com o .NET de Gerenciamento do Lote](batch-management-dotnet.md). A biblioteca [.NET de Gerenciamento do Lote][api_net_mgmt] pode permitir os recursos de criação e exclusão de conta para seu aplicativo ou serviço do Lote.
+* Olá [API REST do lote] [ api_rest] também fornece suporte toowork com pacotes de aplicativos. Por exemplo, consulte Olá [applicationPackageReferences] [ rest_add_pool_with_packages] elemento [adicionar uma conta do pool de tooan] [ rest_add_pool] para obter informações sobre como toospecify tooinstall de pacotes usando Olá API REST. Consulte [aplicativos] [ rest_applications] para obter detalhes sobre como informações do aplicativo tooobtain usando Olá API REST do lote.
+* Saiba como tooprogrammatically [gerenciar contas de lote do Azure e cotas com o Batch Management .NET](batch-management-dotnet.md). Olá [Batch Management .NET][api_net_mgmt] biblioteca pode habilitar os recursos de criação e exclusão de conta para o lote de aplicativo ou serviço.
 
 [api_net]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/client?view=azure-dotnet
 [api_net_mgmt]: https://docs.microsoft.com/dotnet/api/overview/azure/batch/management?view=azure-dotnet

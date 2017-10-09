@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: billmath
-ms.openlocfilehash: d34ccd40082edbe036d963ad548bff648119bdd4
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ffcebee572a9ba2840e81250651dea45599d65d3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticação de Passagem do Azure Active Directory: aprofundamento técnico
 
@@ -27,28 +27,28 @@ ms.lasthandoff: 08/03/2017
 
 ## <a name="how-does-azure-active-directory-pass-through-authentication-work"></a>Como a Autenticação de Passagem do Azure Active Directory funciona?
 
-Quando um usuário tenta entrar em um aplicativo protegido pelo Azure AD (Azure Active Directory) e se a Autenticação de Passagem está habilitada no locatário, ocorrem as seguintes etapas:
+Quando um usuário tenta toosign em um aplicativo protegido pelo Azure Active Directory (AD do Azure) e se a autenticação de passagem está habilitada no locatário hello, Olá ocorrem as seguintes etapas:
 
-1. O usuário tenta acessar um aplicativo (por exemplo, o Outlook Web App – https://outlook.office365.com/owa/).
-2. Se o usuário ainda não tiver entrado, ele será redirecionado para a página de entrada do Azure AD.
-3. O usuário insere o nome de usuário e a senha na página de entrada do Azure AD e clica no botão "Entrar".
-4. O Azure AD, ao receber a solicitação de entrada, coloca o nome de usuário e a senha (criptografada com o uso de uma chave pública) em uma fila.
-5. Um agente de Autenticação de Passagem local faz uma chamada de saída à fila e recupera o nome de usuário e a senha criptografada.
-6. O agente descriptografa a senha usando sua chave privada.
-7. Em seguida, o agente valida o nome de usuário e a senha no Active Directory usando APIs padrão do Windows (um mecanismo semelhante ao que é usado pelos Serviços de Federação do Active Directory (AD FS)). O nome de usuário pode ser o nome de usuário local padrão (normalmente `userPrincipalName`) ou outro atributo configurado no Azure AD Connect (também conhecido como `Alternate ID`).
-8. Em seguida, o DC (Controlador de Domínio) do Active Directory local avalia a solicitação e retorna a resposta apropriada (êxito, falha, senha expirada ou usuário bloqueado) para o agente.
-9. O agente, por sua vez, envia essa resposta de volta ao Azure AD.
-10. O Azure AD avalia a resposta e responde ao usuário conforme apropriado – por exemplo, ele conecta o usuário imediatamente ou solicita a MFA (Autenticação Multifator).
-11. Se a entrada do usuário for bem-sucedida, ele será capaz de acessar o aplicativo.
+1. usuário de saudação tenta tooaccess um aplicativo (por exemplo, Olá Outlook Web App - https://outlook.office365.com/owa/).
+2. Se o usuário Olá não tiver entrado, usuário Olá é redirecionado toohello AD do Azure-página de entrada.
+3. usuário Olá insere seu nome de usuário e senha na página de entrada do AD do Azure de saudação e clica em botão de "Entrar" hello.
+4. AD do Azure, durante o recebimento de saudação solicitação de entrada, coloca Olá nome de usuário e senha (criptografada usando uma chave pública) em uma fila.
+5. Um agente de autenticação de passagem do local faz com que uma fila de toohello de chamada de saída e recupera Olá nome de usuário e a senha criptografada.
+6. Agente de saudação descriptografa senha hello usando sua chave privada.
+7. Agente de Hello, em seguida, valida a saudação de nome de usuário e senha no Active Directory usando APIs padrão do Windows (um toowhat mecanismo semelhante é usado pelos serviços de Federação do Active Directory). Olá nome de usuário pode ser qualquer nome de usuário Olá no local padrão (geralmente `userPrincipalName`) ou outro atributo configurado no Azure AD Connect (conhecido como `Alternate ID`).
+8. Olá Active Directory Domain Controller (DC) local, em seguida, avalia Olá solicitação e retorna Olá resposta apropriada (êxito, falha, a senha expirou ou usuário bloqueado) toohello agente.
+9. Agente de Hello, por sua vez, retorna esse tooAzure voltar de resposta AD.
+10. AD do Azure avalia resposta hello e responde toohello usuário conforme apropriado - por exemplo, ele entra usuário Olá imediatamente ou solicitações de autenticação multifator (MFA).
+11. Se Olá usuário entrar for bem-sucedida, o usuário de saudação é tooaccess capaz de aplicativo de hello.
 
-O diagrama a seguir ilustra a todos os componentes e as etapas envolvidas.
+Olá diagrama a seguir ilustra todos os componentes de saudação e etapas de saudação envolvidos.
 
 ![Autenticação de Passagem](./media/active-directory-aadconnect-pass-through-authentication/pta2.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 - [**Limitações atuais**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) – esse recurso está na versão prévia no momento. Saiba quais cenários têm suporte e quais não têm.
 - [**Início rápido**](active-directory-aadconnect-pass-through-authentication-quick-start.md) – instale e execute a autenticação de passagem do Azure AD.
-- [**Perguntas frequentes**](active-directory-aadconnect-pass-through-authentication-faq.md) – respostas para perguntas frequentes.
-- [**Solução de problemas**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) – Saiba como resolver problemas comuns do recurso.
+- [**Perguntas frequentes sobre** ](active-directory-aadconnect-pass-through-authentication-faq.md) -respostas toofrequently perguntas frequentes.
+- [**Solucionar problemas de** ](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) -Saiba como tooresolve comum problemas com o recurso de saudação.
 - [**SSO contínuo do Azure AD**](active-directory-aadconnect-sso.md) – Saiba mais sobre esse recurso complementar.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – para registrar solicitações de novos recursos.

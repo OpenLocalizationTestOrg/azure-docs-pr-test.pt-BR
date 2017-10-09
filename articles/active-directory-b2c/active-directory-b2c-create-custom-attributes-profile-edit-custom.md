@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory B2C: Como adicionar seus próprios atributos a políticas personalizadas e usar na edição de perfil | Microsoft Docs"
-description: "Um passo a passo sobre como usar propriedades de extensão, atributos personalizados e incluí-los na interface de usuário"
+title: "B2C de diretório ativo do Azure: Adicionar suas próprias políticas de toocustom de atributos e usar no perfil Editar | Microsoft Docs"
+description: "Um passo a passo sobre como usar propriedades de extensão, os atributos personalizados e incluí-los na interface do usuário Olá"
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja
@@ -14,63 +14,63 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
-ms.openlocfilehash: 67c9f6eca18e2dd77e00b8bc8c7bcc546ea3936e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8cc9c6a38d7652797ba54a3e02078ac2bf4a693b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Como criar e usar atributos personalizados em uma política e edição de perfil personalizado
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Neste artigo, você criará um atributo personalizado no seu diretório do Azure AD B2C e usará esse novo atributo como uma declaração personalizada de percurso do usuário de edição de perfil.
+Neste artigo, você cria um atributo personalizado em seu diretório do Azure AD B2C e usar esse novo atributo como uma declaração personalizada em jornada de usuário de edição de perfil de saudação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua as etapas no artigo [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).
+Olá concluído as etapas no artigo de saudação [guia de Introdução com as políticas personalizadas](active-directory-b2c-get-started-custom.md).
 
-## <a name="use-custom-attributes-to-collect-information-about-your-customers-in-azure-active-directory-b2c-using-custom-policies"></a>Use atributos personalizados para coletar informações sobre seus clientes no Azure Active Directory B2C usando políticas personalizadas
-O diretório do Azure Active Directory (Azure AD) B2C é fornecido com um conjunto interno de atributos: Nome, Sobrenome, Cidade e CEP, entre outros atributos.  Geralmente, você precisa criar seus próprios atributos.  Por exemplo:
-* Um aplicativo voltado para o cliente precisa manter um atributo, como "LoyaltyNumber".
+## <a name="use-custom-attributes-toocollect-information-about-your-customers-in-azure-active-directory-b2c-using-custom-policies"></a>Use os atributos personalizados toocollect informações sobre os clientes no Azure Active Directory B2C usa políticas personalizadas
+O diretório do Azure Active Directory (Azure AD) B2C é fornecido com um conjunto interno de atributos: Nome, Sobrenome, Cidade e CEP, entre outros atributos.  Muitas vezes é preciso toocreate seus próprios atributos.  Por exemplo:
+* Um aplicativo voltado para o cliente precisa toopersist um atributo como "LoyaltyNumber".
 * Um provedor de identidade tem um identificador exclusivo do usuário que deve ser salvo como "uniqueUserGUID".
-* Um percurso do usuário personalizado precisa manter o estado do usuário, como "migrationStatus".
+* Jornada de um usuário personalizado precisa toopersist estado de saudação do usuário, como "migrationStatus".
 
-Com o Azure AD B2C, você pode estender o conjunto de atributos armazenados em cada conta de usuário. Você também pode ler e gravar esses atributos usando a [API do Graph do Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md).
+Com o Azure AD B2C, você pode estender o conjunto de saudação de atributos armazenados em cada conta de usuário. Você também pode ler e gravar esses atributos usando Olá [do Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md).
 
-Propriedades de extensão estendem o esquema dos objetos de usuário no diretório.  A propriedade de extensão de termos, atributo personalizado e declaração personalizada, se referem à mesma coisa no contexto deste artigo, e o nome varia dependendo do contexto (aplicativo, objeto, política).
+Propriedades de extensão estendem o esquema de Olá Olá de objetos de usuário no diretório de saudação.  propriedade de extensão de termos Hello, atributo personalizado e declarações personalizadas, consulte toohello mesmo significado no contexto de saudação desse nome de artigo e hello varia dependendo de contexto de saudação (aplicativo, objeto, política).
 
-As propriedades de extensão só podem ser registradas em um objeto do aplicativo, ainda que contenham dados de um usuário. A propriedade é anexada ao aplicativo. O objeto do aplicativo precisa obter acesso de gravação para registrar uma propriedade de extensão. É possível gravar 100 propriedades de extensão (entre TODOS os tipos e TODOS os aplicativos) em um único objeto. As propriedades de extensão são adicionadas para o tipo de diretório de destino e tornam-se imediatamente acessíveis no locatário de diretório do Azure AD B2C.
-Se o aplicativo for excluído, tanto as propriedades de extensão quanto os dados contidos nelas para todos os usuários serão removidos. Se uma propriedade de extensão for excluída pelo aplicativo, ela será removida nos objetos do diretório de destino, e os dados valores serão excluídos.
+As propriedades de extensão só podem ser registradas em um objeto do aplicativo, ainda que contenham dados de um usuário. propriedade Olá é aplicativo toohello anexado. objeto de aplicativo Hello deve ser concedido acesso de gravação tooregister uma propriedade de extensão. Propriedades de extensão 100 (entre todos os tipos e todos os aplicativos) podem ser gravadas tooany único objeto. Propriedades de extensão são adicionadas toohello tipo de diretório de destino e se torna acessíveis imediatamente no locatário de diretório de saudação do Azure AD B2C.
+Se o aplicativo hello é excluído, as propriedades de extensão juntamente com todos os dados contidos neles para todos os usuários também serão removidas. Se uma propriedade de extensão for excluída pelo Olá aplicativo, ele será removido em Olá objetos de diretório de destino e Olá valores excluídos.
 
-As propriedades de extensão existem apenas no contexto de um aplicativo registrado no locatário. O id de objeto desse Aplicativo deve ser incluído no TechnicalProfile que o usa.
+Propriedades de extensão existem apenas em um contexto de um aplicativo registrado no locatário Olá Olá. id do objeto de saudação do aplicativo deve ser incluído no hello TechnicalProfile que usá-lo.
 
 >[!NOTE]
->O diretório do Azure AD B2C geralmente inclui um aplicativo Web chamado `b2c-extensions-app`.  Este aplicativo é usado principalmente pelas políticas internas b2c para as declarações personalizadas criadas por meio do portal do Azure.  Recomenda-se que apenas usuários avançados usem este aplicativo para registrar extensões para as políticas personalizadas b2c.  As instruções para isso são incluídas na seção Próximas etapas neste artigo.
+>diretório de saudação do Azure AD B2C geralmente inclui um aplicativo Web chamado `b2c-extensions-app`.  Este aplicativo é usado principalmente por políticas internas do hello b2c para declarações personalizadas de saudação criadas por meio de saudação portal do Azure.  Usando extensões de tooregister esse aplicativo para políticas personalizadas b2c é recomendada somente para usuários avançados.  Instruções para isso são incluídas no hello seção próximas etapas neste artigo.
 
 
-## <a name="creating-a-new-application-to-store-the-extension-properties"></a>Criação de um aplicativo novo para armazenar as propriedades de extensão
+## <a name="creating-a-new-application-toostore-hello-extension-properties"></a>Criando um novo toostore de aplicativo propriedades de extensão Olá
 
-1. Abra uma sessão de navegação e navegue até o [portal do Azure](https://portal.azure.com) e entre com as credenciais administrativas do diretório do B2C que deseja configurar.
-1. Clique em **Azure Active Directory** no menu de navegação à esquerda. Talvez seja necessário localizá-lo, para isso, selecione Mais serviços>.
+1. Abra uma sessão de navegação e navegue toohello [portal do Azure](https://portal.azure.com) e entrar com credenciais administrativas de saudação Directory B2C desejar tooconfigure.
+1. Clique em **Active Directory do Azure** no menu de navegação à esquerda de saudação. Talvez seja necessário toofind-lo selecionando mais services >.
 1. Selecione **Registros de aplicativo** e clique em **Novo registro de aplicativo**
-1. Forneça as seguintes entradas recomendadas:
-  * Especifique um nome para o aplicativo Web: **WebApp-GraphAPI-DirectoryExtensions**
+1. Forneça a seguinte Olá recomendado entradas:
+  * Especifique um nome para o aplicativo da web hello: **WebApp-GraphAPI-DirectoryExtensions**
   * Tipo de aplicativo: API/Aplicativo Web
   * Logon URL:https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions
-1. Selecione **Criar. A conclusão bem-sucedida aparece nas **notificações**
-1. Selecione o aplicativo Web criado recentemente: **WebApp-GraphAPI-DirectoryExtensions**
+1. Selecione **Criar. Conclusão bem-sucedida é exibida no hello **notificações**
+1. Selecionar aplicativo web de saudação recém-criado: **WebApp-GraphAPI-DirectoryExtensions**
 1. Selecione as configurações: **Permissões necessárias**
 1. Selecione a API **Active Directory do Windows**
 1. Coloque uma marca de seleção em Permissões de Aplicativo: **Ler e gravar dados do diretório** e **Salvar**
 1. Escolha **Conceder permissões** e confirme **Sim**.
-1. Copie para a área de transferência e salve os seguintes identificadores de WebApp-GraphAPI-DirectoryExtensions>Settings>Properties>
+1. Copiar na área de transferência tooyour e salvar Olá seguir identificadores de WebApp-GraphAPI-DirectoryExtensions > Configurações > Propriedades >
 *  **ID do aplicativo**. Exemplo: `103ee0e6-f92d-4183-b576-8c3739027780`
 * **ID de objeto**. Exemplo: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
 
 
 
-## <a name="modifying-your-custom-policy-to-add-the-applicationobjectid"></a>Modificar a política personalizada para adicionar o ApplicationObjectId
+## <a name="modifying-your-custom-policy-tooadd-hello-applicationobjectid"></a>Modificando a saudação de tooadd de política personalizada ApplicationObjectId
 
 ```xml
     <ClaimsProviders>
@@ -96,16 +96,16 @@ As propriedades de extensão existem apenas no contexto de um aplicativo registr
 ```
 
 >[!NOTE]
->O <TechnicalProfile Id="AAD-Common"> é conhecido como "comum", pois seus elementos são incluídos e reutilizados em todos os TechnicalProfiles do Azure Active Directory usando o elemento: `<IncludeTechnicalProfile ReferenceId="AAD-Common" />`
+>Olá <TechnicalProfile Id="AAD-Common"> é chamado tooas "comum" porque seus elementos estão incluídos no e reutilizados em todos os Olá TechnicalProfiles do Azure Active Directory usando o elemento de saudação:`<IncludeTechnicalProfile ReferenceId="AAD-Common" />`
 
 >[!NOTE]
->Às vezes, quando o TechnicalProfile grava pela primeira vez para a propriedade de extensão recém-criada, pode ocorrer um erro ocasional.  A propriedade de extensão é criada na primeira vez que ela é usada.  
+>Quando hello TechnicalProfile grava para propriedade de extensão para Olá primeiro tempo toohello recentemente criado, você pode enfrentar um erro de uso único.  propriedade de extensão de saudação é criada Olá primeira vez que ele é usado.  
 
-## <a name="using-the-new-extension-property--custom-attribute-in-a-user-journey"></a>Como usar a nova propriedade de extensão / atributo personalizado em um percurso do usuário
+## <a name="using-hello-new-extension-property--custom-attribute-in-a-user-journey"></a>Usando a nova propriedade de extensão Olá / atributo personalizado em uma viagem de usuário
 
 
-1. Abra o arquivo da terceira parte confiável (RP) que descreve o seu percurso do usuário de edição da política.  Se você estiver começando, pode ser aconselhável baixar a versão já configurada do arquivo RP-PolicyEdit diretamente na seção Política de Personalização do Azure B2C no portal do Azure.  Como alternativa, abra o arquivo XML da pasta de armazenamento.
-2. Adicione uma declaração personalizada `loyaltyId`.  Ao incluir uma declaração personalizada no elemento `<RelyingParty>`, ela será indicada como parâmetro para o TechnicalProfiles de percurso do usuário, além de ser incluída no token para o aplicativo.
+1. Olá abrir arquivo terceira Party(RP) que descreve a política Editar jornada de usuário.  Se você estiver começando, talvez seja aconselhável toodownload sua versão já configurado do hello RP PolicyEdit arquivo diretamente da saudação seção política do Azure B2C personalizada Olá portal do Azure.  Como alternativa, abra o arquivo XML da pasta de armazenamento.
+2. Adicione uma declaração personalizada `loyaltyId`.  Incluindo Olá personalizado de declaração em Olá `<RelyingParty>` elemento, ele é passado como um parâmetro toohello UserJourney TechnicalProfiles e incluído no token Olá para o aplicativo hello.
 ```xml
 <RelyingParty>
    <DefaultUserJourney ReferenceId="ProfileEdit" />
@@ -123,7 +123,7 @@ As propriedades de extensão existem apenas no contexto de um aplicativo registr
    </TechnicalProfile>
  </RelyingParty>
  ```
-3. Adicione uma definição de declaração ao arquivo de política de extensão `TrustFrameworkExtensions.xml` dentro do elemento `<ClaimsSchema>`, conforme mostrado.
+3. Adicionar um arquivo de política da extensão declaração definição toohello `TrustFrameworkExtensions.xml` dentro Olá `<ClaimsSchema>` elemento conforme mostrado.
 ```xml
 <ClaimsSchema>
         <ClaimType Id="extension_loyaltyId">
@@ -134,10 +134,10 @@ As propriedades de extensão existem apenas no contexto de um aplicativo registr
         </ClaimType>
 </ClaimsSchema>
 ```
-4. Adicione a mesma definição de declaração ao arquivo de política base `TrustFrameworkBase.xml`.  
->Geralmente, não é necessário adicionar uma definição `ClaimType` nos arquivos de extensões e de base, no entanto, como as próximas etapas adicionarão o extension_loyaltyId ao TechnicalProfiles no Arquivo Base, o validador de política rejeitará o upload do arquivo base sem ela.
->Poderá ser útil rastrear a execução do percurso do usuário chamado "ProfileEdit" no arquivo TrustFrameworkBase.xml.  Pesquise o percurso do usuário do mesmo nome no seu editor e observe que a orquestração da etapa 5 invoca o TechnicalProfileReferenceID="SelfAsserted-ProfileUpdate".  Pesquise e inspecione esse TechnicalProfile para se familiarizar com o fluxo.
-5. Adicione o loyaltyId como declaração de entrada e saída no TechnicalProfile "SelfAsserted-ProfileUpdate"
+4. Adicionar Olá mesma declaração de arquivo de definição de política Base toohello `TrustFrameworkBase.xml`.  
+>Adicionando um `ClaimType` definição na base de saudação e o arquivo de extensões de saudação normalmente não é necessária, no entanto, desde que as próximas etapas Olá adicionará Olá extension_loyaltyId tooTechnicalProfiles no arquivo de Base Olá, validação de política de saudação rejeitará carregamento Olá do arquivo básico de saudação sem ele.
+>Talvez seja útil tootrace execução Olá Olá jornada de usuário chamada "ProfileEdit" no arquivo de TrustFrameworkBase.xml hello.  Pesquise a jornada de usuário de saudação de saudação de mesmo nome em seu editor e observe a etapa 5 da orquestração invoca Olá TechnicalProfileReferenceID = "SelfAsserted ProfileUpdate".  Pesquisar e inspecionar esse toofamiliarize TechnicalProfile com fluxo hello.
+5. Adicionar loyaltyId como declarações de entrada e saída no hello TechnicalProfile "SelfAsserted ProfileUpdate"
 ```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
           <DisplayName>User ID signup</DisplayName>
@@ -151,8 +151,8 @@ As propriedades de extensão existem apenas no contexto de um aplicativo registr
             <InputClaim ClaimTypeReferenceId="alternativeSecurityId" />
             <InputClaim ClaimTypeReferenceId="userPrincipalName" />
 
-            <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+            <!-- Optional claims. These claims are collected from hello user and can be modified. Any claim added here should be updated in the
+                 ValidationTechnicalProfile referenced below so it can be written toodirectory after being updateed by hello user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <InputClaim ClaimTypeReferenceId="givenName" />
             <InputClaim ClaimTypeReferenceId="surname" />
             <InputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -161,8 +161,8 @@ As propriedades de extensão existem apenas no contexto de um aplicativo registr
             <!-- Required claims -->
             <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
 
-            <!-- Optional claims. These claims are collected from the user and can be modified. Any claim added here should be updated in the
-                 ValidationTechnicalProfile referenced below so it can be written to directory after being updateed by the user, i.e. AAD-UserWriteProfileUsingObjectId. -->
+            <!-- Optional claims. These claims are collected from hello user and can be modified. Any claim added here should be updated in the
+                 ValidationTechnicalProfile referenced below so it can be written toodirectory after being updateed by hello user, i.e. AAD-UserWriteProfileUsingObjectId. -->
             <OutputClaim ClaimTypeReferenceId="givenName" />
             <OutputClaim ClaimTypeReferenceId="surname" />
             <OutputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -172,7 +172,7 @@ As propriedades de extensão existem apenas no contexto de um aplicativo registr
           </ValidationTechnicalProfiles>
         </TechnicalProfile>
 ```
-6. Adicione a declaração no TechnicalProfile "AAD-UserWriteProfileUsingObjectId" para manter o valor da declaração na propriedade de extensão para o usuário atual no diretório.
+6. Adicione a declaração no valor de saudação toopersist TechnicalProfile "UserWriteProfileUsingObjectId AAD" da declaração de saudação na propriedade de extensão hello, para o usuário atual do hello no diretório de saudação.
 ```xml
 <TechnicalProfile Id="AAD-UserWriteProfileUsingObjectId">
           <Metadata>
@@ -197,10 +197,10 @@ As propriedades de extensão existem apenas no contexto de um aplicativo registr
           <IncludeTechnicalProfile ReferenceId="AAD-Common" />
         </TechnicalProfile>
 ```
-7. Adicione a declaração no TechnicalProfile "AAD-UserReadUsingObjectId" para ler o valor do atributo de extensão sempre que um usuário fizer logon. Até o momento, os TechnicalProfiles só foram alterados no fluxo de contas locais.  Se quiser o novo atributo no fluxo de uma conta social/federada, será necessário alterar um conjunto diferente de TechnicalProfiles. Confira as Próximas etapas.
+7. Adicione declaração no valor de saudação tooread TechnicalProfile "UserReadUsingObjectId AAD" do atributo de extensão Olá toda vez que um usuário fizer logon. Até o momento Olá TechnicalProfiles foram alteradas no fluxo de saudação do somente para contas locais.  Se desejar fazer novo atributo de saudação no fluxo de saudação de uma conta social/federado, um conjunto diferente de TechnicalProfiles precisa toobe alterado. Confira as Próximas etapas.
 
 ```xml
-<!-- The following technical profile is used to read data after user authenticates. -->
+<!-- hello following technical profile is used tooread data after user authenticates. -->
      <TechnicalProfile Id="AAD-UserReadUsingObjectId">
        <Metadata>
          <Item Key="Operation">Read</Item>
@@ -225,14 +225,14 @@ As propriedades de extensão existem apenas no contexto de um aplicativo registr
 
 
 >[!IMPORTANT]
->O elemento IncludeTechnicalProfile adiciona todos os elementos do AAD comum para esse TechnicalProfile.
+>elemento de IncludeTechnicalProfile Olá adiciona todos os elementos de saudação do AAD comuns toothis TechnicalProfile.
 
-## <a name="test-the-custom-policy-using-run-now"></a>Teste a política personalizada usando a opção "Executar Agora"
-1. Abra a **Folha B2C do Azure AD** e navegue até **Identity Experience Framework > Políticas personalizadas**.
-1. Selecione a política personalizada carregada e clique no botão **Executar agora**.
-1. Você deverá conseguir se inscrever usando um endereço de email.
+## <a name="test-hello-custom-policy-using-run-now"></a>Testar a política personalizada do hello usando "Executar agora"
+1. Olá abrir **folha do Azure AD B2C** e navegue muito**identidade experiência Framework > políticas personalizadas**.
+1. Selecione Olá política personalizada que você carregou e, em seguida, clique em Olá **executar agora** botão.
+1. Você deve ser capaz de toosign usando um endereço de email.
 
-O token de id enviado novamente para o seu aplicativo inclui a propriedade de extensão nova como uma declaração personalizada precedida por extension_loyaltyId. Confira o exemplo.
+token de id de saudação enviada de volta tooyour aplicativo inclui a nova propriedade de extensão hello como uma declaração personalizada precedida por extension_loyaltyId. Confira o exemplo.
 
 ```
 {
@@ -253,18 +253,18 @@ O token de id enviado novamente para o seu aplicativo inclui a propriedade de ex
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Adicione a nova declaração aos fluxos para logons de conta social alterando os TechnicalProfiles listados. Esses dois TechnicalProfiles são usados por logons de conta social/federados para gravar e ler os dados do usuário usando o alternativeSecurityId como o localizador do objeto de usuário.
+Adicione Olá novos declaração toohello fluxos para logons de conta social alterando Olá TechnicalProfiles listados. Esses dois TechnicalProfiles são usados pelo toowrite de logons de conta social/federado e ler dados do usuário hello usando alternativeSecurityId Olá Olá localizador de saudação do objeto de usuário.
 ```
   <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
   <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
 ```
 
-Usando os mesmos atributos de extensão entre políticas internas e personalizadas.
-Quando você adiciona atributos de extensão (também conhecido como atributos personalizados) por meio da experiência do portal, esses atributos são registrados usando o **b2c-extensions-app que existe em cada locatário B2C.  Para usar esses atributos de extensão em sua política personalizada:
-1. Em seu locatário B2C no portal.azure.com, navegue até **Azure Active Directory** e selecione **Registros de aplicativo**
+Usando Olá os mesmos atributos de extensão entre políticas internas e personalizadas.
+Quando você adiciona atributos de extensão (também conhecido como atributos personalizados) por meio de experiência do portal hello, esses atributos são registrados usando hello * * b2c extensões-aplicativo que existe em cada locatário b2c.  toouse esses atributos de extensão em sua política personalizada:
+1. Em seu locatário b2c em portal.azure.com, navegue muito**Active Directory do Azure** e selecione **registros do aplicativo**
 2. Localize seu **b2c-extensions-app** e selecione-o
-3. Em "Essentials" registre a **ID do aplicativo** e a **ID do objeto**
+3. Sob saudação do registro 'Essentials' **ID do aplicativo** e hello **ID de objeto**
 4. Inclua-os em seus metadados de perfil técnico comuns do AAD da seguinte maneira:
 
 ```xml
@@ -276,25 +276,25 @@ Quando você adiciona atributos de extensão (também conhecido como atributos p
               <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
               <!-- Provide objectId and appId before using extension properties. -->
               <Metadata>
-                <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
-                <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
+                <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is hello "Object ID" from hello "b2c-extensions-app"-->
+                <Item Key="ClientId">insert appId here</Item> <!--This is hello "Application ID" from hello "b2c-extensions-app"-->
               </Metadata>
 ```
 
-Para manter a consistência com a experiência do portal, crie esses atributos usando a interface do usuário do portal *antes* de usá-los em suas políticas personalizadas.  Quando você cria um atributo "ActivationStatus" no portal, é necessário fazer referência a ele da seguinte maneira:
+tookeep consistência com a experiência do portal hello, crie esses atributos usando a interface de usuário do portal Olá *antes de* usá-los em suas políticas personalizadas.  Quando você criar um atributo "ActivationStatus" no portal de saudação, você deve se referir tooit da seguinte maneira:
 
 ```
-extension_ActivationStatus in the custom policy
-extension_<app-guid>_ActivationStatus via the Graph API.
+extension_ActivationStatus in hello custom policy
+extension_<app-guid>_ActivationStatus via hello Graph API.
 ```
 
 
 ## <a name="reference"></a>Referência
 
-* O **Perfil técnico (TP)** é um tipo de elemento que pode ser pensado como uma *função* que define o nome de um ponto de extremidade, seus metadados, seu protocolo e os detalhes da troca de declarações que o Identity Experience Framework deve executar.  Quando essa *função* é chamada em uma etapa de orquestração ou de outro TechnicalProfile, o InputClaims e o OutputClaims são fornecidos como parâmetros pelo chamador.
+* Um **perfil técnica (TP)** é um tipo de elemento que pode ser pensado como um *função* que define o nome de um ponto de extremidade, seus metadados, seu protocolo e detalhes Olá troca de declarações que Olá identidade Experiência Framework deve ser executadas.  Quando isso *função* é chamado em uma etapa de orquestração ou de outro TechnicalProfile, Olá InputClaims e OutputClaims são fornecidos como parâmetros pelo chamador hello.
 
 
-* Para tratamento completo em propriedades de extensão, confira o artigo [EXTENSÕES DE ESQUEMA DE DIRETÓRIO | CONCEITOS DA API DO GRAPH](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)
+* Tratamento completo nas propriedades de extensão, consulte o artigo Olá [extensões de esquema de diretório | CONCEITOS DA API DO GRAPH](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)
 
 >[!NOTE]
->Atributos de extensão na API do Graph são nomeados usando a convenção `extension_ApplicationObjectID_attributename`. Políticas personalizadas se referem aos atributos de extensões como extension_attributename, omitindo o ApplicationObjectId no XML
+>Atributos de extensão na Graph API são nomeados usando a convenção de saudação `extension_ApplicationObjectID_attributename`. Políticas personalizadas consulte tooextensions atributos como extension_attributename, omitindo assim Olá ApplicationObjectId em Olá XML

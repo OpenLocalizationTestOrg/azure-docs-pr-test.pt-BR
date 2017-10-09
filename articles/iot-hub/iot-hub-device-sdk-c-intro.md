@@ -1,6 +1,6 @@
 ---
-title: O SDK do dispositivo IoT do Azure para C | Microsoft Docs
-description: Como usar o SDK do dispositivo IoT do Azure para C e saiba como criar aplicativos de dispositivos que se comunicam com um Hub IoT.
+title: dispositivo SDK do Azure IoT aaaThe para C | Microsoft Docs
+description: "Introdução ao dispositivo do hello IoT do Azure SDK para C e saiba como toocreate aplicativos de dispositivos que se comunicam com um hub IoT."
 services: iot-hub
 documentationcenter: 
 author: olivierbloch
@@ -14,108 +14,108 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 459b630f28fe48064f4ba280974f3fdbdb82f0a6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9e20742e6ea513c124bfaf28f02f6fba86170daf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK do dispositivo IoT do Azure para C
 
-O **SDK do dispositivo IoT do Azure** é um conjunto de bibliotecas projetadas para simplificar o processo de envio e o recebimento de mensagens do serviço **Hub IoT do Azure**. Existem diferentes variações do SDK, cada uma visando uma plataforma específica, mas este artigo descreve o **SDK do dispositivo IoT do Azure para C**.
+Olá **dispositivo IoT do Azure SDK** é um conjunto de bibliotecas projetou o processo de saudação do toosimplify de envio de mensagens tooand recebendo mensagens de saudação **Azure IoT Hub** serviço. Há diferentes variações de saudação SDK, cada um direcionado para uma plataforma específica, mas este artigo descreve Olá **dispositivo IoT do Azure SDK para C**.
 
-O SDK do dispositivo IoT do Azure para C foi escrito em ANSI (C99) para maximizar a portabilidade. Esse recurso torna as bibliotecas bastante adequado para a operação em vários dispositivos e plataformas, especialmente quando a minimização do volume de disco e de memória for uma prioridade.
+dispositivo SDK do Azure IoT Olá para C é gravado em ANSI C (C99) toomaximize portabilidade. Este recurso torna Olá bibliotecas adequado toooperate em várias plataformas e dispositivos, especialmente onde minimizando o disco e volume de memória é uma prioridade.
 
-Há uma ampla variedade de plataformas nas quais o SDK foi testado (confira o [Catálogo de dispositivos certificados pelo Azure para IoT](https://catalog.azureiotsuite.com/) para obter detalhes). Embora este artigo inclua explicações de exemplo de código em execução na plataforma Windows, o código descrito neste artigo é idêntico entre as várias plataformas com suporte.
+Há uma ampla variedade de plataformas na qual Olá SDK foi testado (consulte Olá [Azure Certified para catálogo de dispositivo IoT](https://catalog.azureiotsuite.com/) para obter detalhes). Embora este artigo inclui instruções passo a passo do código de exemplo em execução na plataforma do Windows hello, código de saudação descrito neste artigo é idêntico em intervalo de saudação de plataformas com suporte.
 
-Este artigo apresenta a arquitetura do SDK do dispositivo IoT do Azure para C. Ele demonstra como inicializar a biblioteca de dispositivo, enviar dados para o Hub IoT e receber mensagens dele. As informações neste artigo devem ser suficientes para começar a usar o SDK, mas também há indicações para se saber mais sobre as bibliotecas.
+Este artigo apresenta toohello arquitetura do dispositivo do hello IoT do Azure SDK para C. Ele demonstra como enviar dados tooIoT Hub tooinitialize biblioteca de dispositivo Olá e receber mensagens dela. informações de saudação neste artigo devem ser suficiente tooget iniciado usando Olá SDK, mas também fornece ponteiros tooadditional informações sobre as bibliotecas de saudação.
 
 ## <a name="sdk-architecture"></a>Arquitetura do SDK
 
-Você pode encontrar o [**SDK do dispositivo IoT do Azure para C**](https://github.com/Azure/azure-iot-sdk-c) no repositório GitHub e exibir os detalhes da API [na referência da API do C](https://azure.github.io/azure-iot-sdk-c/index.html).
+Você pode encontrar hello [ **dispositivo IoT do Azure SDK para C** ](https://github.com/Azure/azure-iot-sdk-c) GitHub repositório e exibir os detalhes de saudação API no hello [referência da API C](https://azure.github.io/azure-iot-sdk-c/index.html).
 
-A versão mais recente das bibliotecas pode ser encontrada na ramificação **mestre** deste repositório:
+Olá a versão mais recente das bibliotecas de saudação pode ser encontrada Olá **mestre** ramificação do repositório de saudação:
 
   ![](media/iot-hub-device-sdk-c-intro/01-MasterBranch.PNG)
 
-* A implementação principal do SDK fica na pasta **iothub\_client**, que contém a implementação da camada de API mais baixa no SDK: a biblioteca **IoTHubClient**. A biblioteca **IoTHubClient** contém APIs que implementam mensagens brutas para enviar mensagens para o Hub IoT, além de receber mensagens dele. Ao usar essa biblioteca, você será o responsável por implementar a serialização de mensagens, mas outros detalhes de comunicação com o Hub IoT serão tratados para você.
-* A pasta **serializador** contém funções auxiliares e exemplos que mostram como serializar os dados antes de enviar para o Hub IoT do Azure usando a biblioteca de cliente. O uso do serializador não é obrigatório e só é fornecido como uma conveniência. Para usar a biblioteca **serializer**, defina um modelo que especifica os dados para envio ao Hub IoT e as mensagens que você espera receber dele. Depois que o modelo é definido, o SDK fornece uma superfície de API que permite a você trabalhar facilmente com mensagens de dispositivo para nuvem e de nuvem para dispositivo sem se preocupar com os detalhes de serialização. A biblioteca depende de outras bibliotecas de software livre que implementam o transporte usando protocolos como MQTT e AMQP.
-* A biblioteca **IoTHubClient** depende de outras bibliotecas de software livre:
-  * A biblioteca de [utilitários compartilhados do Azure C](https://github.com/Azure/azure-c-shared-utility), que fornece funcionalidades comuns para tarefas básicas (como cadeia de caracteres, manipulação de listas e E/S) necessárias entre vários SDKs para C relacionados ao Azure.
-  * A biblioteca [uAMQP do Azure](https://github.com/Azure/azure-uamqp-c) é uma implementação do lado do cliente do AMQP otimizada para dispositivos com restrição de recursos.
-  * A biblioteca [uMQTT do Azure](https://github.com/Azure/azure-umqtt-c) , que é uma biblioteca de finalidade geral, com o protocolo MQTT implementado e otimizada para dispositivos com restrição de recursos.
+* Olá implementação básica do hello SDK está em Olá **hub IOT\_cliente** pasta que contém a implementação de saudação da camada de API mais baixa Olá no hello SDK: Olá **IoTHubClient** biblioteca. Olá **IoTHubClient** biblioteca contém APIs implementando bruto de mensagens para enviar mensagens tooIoT Hub e receber mensagens de IoT Hub. Ao usar essa biblioteca, você será o responsável por implementar a serialização de mensagens, mas outros detalhes de comunicação com o Hub IoT serão tratados para você.
+* Olá **serializador** pasta contém exemplos que mostram como dados tooserialize antes de enviar tooAzure Hub IoT usando Olá biblioteca de cliente e funções auxiliares. uso de saudação do serializador Olá não é obrigatório e é fornecido como uma conveniência. Olá toouse **serializador** biblioteca, você define um modelo que especifica dados toosend tooIoT Hub e hello mensagens de saudação esperado tooreceive dele. Após a definição de modelo hello, Olá SDK fornece uma superfície de API que permite que você tooeasily trabalham com o dispositivo para nuvem e mensagens de nuvem para dispositivo sem se preocupar Olá detalhes de serialização. biblioteca de saudação depende de outras bibliotecas de código-fonte aberto que implementam o transporte usando protocolos como MQTT e AMQP.
+* Olá **IoTHubClient** biblioteca depende de outras bibliotecas de código-fonte aberto:
+  * Olá [C Azure compartilhado utilitário](https://github.com/Azure/azure-c-shared-utility) library, que fornece a funcionalidade comum para as tarefas básicas (como cadeias de caracteres, manipulação de lista e e/s) necessária em vários SDKs de C relacionadas ao Azure.
+  * Olá [uAMQP Azure](https://github.com/Azure/azure-uamqp-c) biblioteca, que é uma implementação de cliente do AMQP otimizado para dispositivos de recurso restringido.
+  * Olá [uMQTT Azure](https://github.com/Azure/azure-umqtt-c) biblioteca, que é uma biblioteca de finalidade geral implementando Olá MQTT protocolo e otimizado para dispositivos de recurso restringido.
 
-O uso dessas bibliotecas fica mais fácil de entender examinando exemplos de código. As seções a seguir explicam alguns exemplos de aplicativo incluídos no SDK. O passo a passo deve dar uma boa ideia dos vários recursos das camadas de arquitetura do SDK, bem como uma introdução ao funcionamento da API.
+Uso dessas bibliotecas é mais fácil toounderstand examinando o código de exemplo. Olá seções a seguir orientam você durante vários aplicativos de exemplo hello que estão incluídos no SDK do hello. Este passo a passo deve fornecer uma boa sinta-se para Olá diversos recursos das camadas de arquitetura de saudação de hello SDK e uma saudação de toohow Introdução APIs funcionam.
 
-## <a name="before-you-run-the-samples"></a>Antes de executar os exemplos
+## <a name="before-you-run-hello-samples"></a>Antes de executar os exemplos de saudação
 
-Antes de executar os exemplos no SDK do dispositivo IoT do Azure para C, você deverá [criar uma instância do serviço Hub IoT](iot-hub-create-through-portal.md) em sua assinatura do Azure. Em seguida, conclua as seguintes tarefas:
+Antes de executar os exemplos de saudação no dispositivo do hello IoT do Azure SDK para C, você deve [criar uma instância de serviço de IoT Hub de hello](iot-hub-create-through-portal.md) na sua assinatura do Azure. Em seguida, conclua Olá tarefas a seguir:
 
 * Preparar seu ambiente de desenvolvimento
 * Obtenha as credenciais do dispositivo.
 
 ### <a name="prepare-your-development-environment"></a>Preparar seu ambiente de desenvolvimento
 
-Os pacotes são fornecidos para plataformas comuns (como o NuGet para Windows ou apt_get para Debian e Ubuntu) e os exemplos usam esses pacotes, quando disponíveis. Em alguns casos, você precisa compilar o SDK para ou em seu dispositivo. Se você precisa compilar o SDK, consulte [Preparar o ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) no repositório do GitHub.
+Os pacotes são fornecidos para plataformas comuns (como NuGet para Windows ou apt_get para Debian e Ubuntu) e exemplos de saudação usam esses pacotes, quando disponível. Em alguns casos, você precisa toocompile Olá SDK para ou em seu dispositivo. Se você precisar toocompile Olá SDK, consulte [preparar seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) no repositório do GitHub hello.
 
-Para obter o código do aplicativo de exemplo, baixe uma cópia do SDK do GitHub. Obtenha uma cópia da origem na ramificação **master** do [repositório GitHub](https://github.com/Azure/azure-iot-sdk-c).
+código de aplicativo de exemplo de hello tooobtain, baixar uma cópia da saudação SDK do GitHub. Obter sua cópia da fonte de saudação do hello **mestre** ramificação da saudação [repositório GitHub](https://github.com/Azure/azure-iot-sdk-c).
 
 
-### <a name="obtain-the-device-credentials"></a>Obter credenciais do dispositivo
+### <a name="obtain-hello-device-credentials"></a>Obter credenciais de dispositivo Olá
 
-Agora que você tem o código-fonte, a próxima coisa a fazer é obter um conjunto de credenciais do dispositivo. Para um dispositivo poder acessar um Hub IoT, primeiro você deverá adicionar o dispositivo ao registro de identidade do Hub IoT. Quando você adiciona seu dispositivo, obtém um conjunto de credenciais de dispositivo necessário para que ele seja capaz de se conectar ao Hub IoT. Os aplicativos de exemplo abordados na próxima seção esperam essas credenciais na forma de uma **cadeia de conexão de dispositivo**.
+Agora que você tem o código-fonte exemplo hello, Olá próxima coisa toodo é tooget um conjunto de credenciais do dispositivo. Para um dispositivo toobe capaz de tooaccess um hub IoT, primeiro você deve adicionar Olá dispositivo toohello registro de identidade de IoT Hub. Quando você adiciona seu dispositivo, você pode obter um conjunto de credenciais de dispositivo necessários para o hub de IoT Olá dispositivo toobe capaz de tooconnect toohello. aplicativos de exemplo Hello discutidos na próxima seção, Olá esperam essas credenciais na forma de saudação de um **cadeia de caracteres de conexão de dispositivo**.
 
-Há várias ferramentas de código-fonte aberto para ajudá-lo a gerenciar seu Hub IoT.
+Há várias toohelp de ferramentas de software livre gerenciar seu hub IoT.
 
 * Um aplicativo do Windows chamado [Gerenciador de Dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 * Uma ferramenta CLI de plataforma cruzada Node.js chamada [iothub-explorer](https://github.com/azure/iothub-explorer).
 
-Este tutorial usa a ferramenta gráfica *Gerenciador de Dispositivos*. Você também pode usar a ferramenta *iothub-explorer* se preferir usar uma ferramenta CLI.
+Este tutorial usa Olá gráfica *explorer dispositivo* ferramenta. Você também pode usar o hello *Gerenciador de Hub IOT* ferramenta se você preferir toouse uma ferramenta CLI.
 
-A ferramenta Gerenciador de Dispositivos usa as bibliotecas de serviço IoT do Azure para executar várias funções no Hub IoT, incluindo a adição de dispositivos. Se você usar a ferramenta Gerenciador de Dispositivos para adicionar um dispositivo, você obterá uma cadeia de conexão para seu dispositivo. Você precisa dessa cadeia de conexão para executar os aplicativos de exemplo.
+ferramenta de Gerenciador de dispositivo Olá usa hello Azure IoT serviço bibliotecas tooperform várias funções no IoT Hub, incluindo a adição de dispositivos. Se você usar Olá dispositivo explorer ferramenta tooadd um dispositivo, você obtém uma cadeia de caracteres de conexão para seu dispositivo. Você precisa de aplicativos de exemplo essa conexão cadeia de caracteres toorun hello.
 
-Caso você não esteja familiarizado com a ferramenta Gerenciador de Dispositivos, o procedimento a seguir descreve como usá-la para adicionar um dispositivo e obter uma cadeia de conexão de dispositivo.
+Se você não estiver familiarizado com a ferramenta de Gerenciador de dispositivo hello, Olá procedimento a seguir descreve como toouse-tooadd um dispositivo e obter uma cadeia de caracteres de conexão do dispositivo.
 
-Para instalar a ferramenta Gerenciador de Dispositivos, consulte [Como usar o Gerenciador de Dispositivos para dispositivos Hub IoT](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+ferramenta de Gerenciador de dispositivo do tooinstall hello, consulte [como toouse Olá Gerenciador de dispositivo para dispositivos de IoT Hub](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 
-Ao executar o programa, você verá esta interface:
+Quando você executar o programa de saudação, você verá essa interface:
 
   ![](media/iot-hub-device-sdk-c-intro/03-DeviceExplorer.PNG)
 
-Insira a **Cadeia de Conexão do Hub IoT** no primeiro campo e clique em **Atualizar**. Essa etapa configura a ferramenta para que ela possa se comunicar com o Hub IoT.
+Insira seu **cadeia de caracteres de Conexão de Hub IoT** no hello primeiro campo e clique em **atualização**. Esta etapa configura a ferramenta de saudação para que ele possa se comunicar com o IoT Hub.
 
-Depois que a cadeia de conexão do Hub IoT for configurada, clique na guia **Gerenciamento**:
+Quando Olá cadeia de caracteres de conexão de IoT Hub é configurado, clique em Olá **gerenciamento** guia:
 
   ![](media/iot-hub-device-sdk-c-intro/04-ManagementTab.PNG)
 
-Essa guia é o local onde você gerencia os dispositivos registrados no seu Hub IoT.
+Essa guia é onde você gerencia dispositivos Olá registrados em seu hub IoT.
 
-Crie um dispositivo clicando no botão **Criar** . Um diálogo é exibido com um conjunto de chaves pré-populadas (primárias e secundárias). Insira uma **ID de dispositivo** e clique em **Criar**.
+Crie um dispositivo clicando Olá **criar** botão. Um diálogo é exibido com um conjunto de chaves pré-populadas (primárias e secundárias). Insira uma **ID de dispositivo** e clique em **Criar**.
 
   ![](media/iot-hub-device-sdk-c-intro/05-CreateDevice.PNG)
 
-Depois que o dispositivo for criado, a lista Dispositivos será atualizada com todos os dispositivos registrados, incluindo o que você acabou de criar. Se você clicar com o botão direito do mouse no novo dispositivo, este menu será exibido:
+Quando o dispositivo de saudação é criado, Olá dispositivos listam atualizações com todos os dispositivos de saudação registrado, incluindo Olá que aquele que você acabou de criar. Se você clicar com o botão direito do mouse no novo dispositivo, este menu será exibido:
 
   ![](media/iot-hub-device-sdk-c-intro/06-RightClickDevice.PNG)
 
-Se você escolher **Copiar cadeia de conexão para o dispositivo selecionado**, a cadeia de conexão do dispositivo será copiada para a área de transferência. Manter uma cópia da cadeia de conexão do dispositivo. Você precisará dela ao executar os aplicativos de exemplo descritos nas próximas seções.
+Se você escolher **copiar a cadeia de caracteres de conexão para o dispositivo selecionado**, cadeia de caracteres de conexão de dispositivo Olá é toohello copiado na área de transferência. Manter uma cópia de cadeia de caracteres de conexão de dispositivo hello. É necessário ao executar aplicativos de exemplo hello descritos Olá seções a seguir.
 
-Após concluir as etapas acima, você estará pronto para começar a executar códigos. Ambos os exemplos têm uma constante na parte superior do arquivo de origem principal que permite inserir uma cadeia de conexão. Por exemplo, a linha correspondente do **iothub\_client\_sample\_mqtt** aparece da forma a seguir.
+Quando tiver concluído as etapas de saudação acima, você está pronto toostart executando algum código. Os dois exemplos de tem uma constante na parte superior de Olá Olá principal do arquivo de origem que permite que você tooenter uma cadeia de caracteres de conexão. Olá, por exemplo, a linha correspondente da saudação **hub IOT\_cliente\_exemplo\_mqtt** aplicativo aparece da seguinte maneira.
 
 ```c
 static const char* connectionString = "[device connection string]";
 ```
 
-## <a name="use-the-iothubclient-library"></a>Usar a biblioteca IoTHubClient
+## <a name="use-hello-iothubclient-library"></a>Use a biblioteca de IoTHubClient Olá
 
-Na pasta **iothub\_client** no repositório [azure-iot-sdk-c](https://github.com/azure/azure-iot-sdk-c), há uma pasta **samples** que contém um aplicativo chamado **iothub\_client\_sample\_mqtt**.
+Dentro de saudação **hub IOT\_cliente** pasta Olá [iot do azure-c sdk](https://github.com/azure/azure-iot-sdk-c) repositório, há um **exemplos** pasta que contém um aplicativo chamado **hub IOT\_cliente\_exemplo\_mqtt**.
 
-A versão do Windows do aplicativo **iothub\_client\_sample\_mqtt** inclui a seguinte solução do Visual Studio:
+versão do Windows Hello de saudação **hub IOT\_cliente\_exemplo\_mqtt** aplicativo inclui Olá após a solução do Visual Studio:
 
   ![](media/iot-hub-device-sdk-c-intro/12-iothub-client-sample-mqtt.PNG)
 
 > [!NOTE]
-> Se você abrir esse projeto no Visual Studio 2017, aceite os prompts a fim de redirecionar o projeto para a versão mais recente.
+> Se você abrir este projeto no Visual Studio de 2017, aceite Olá prompts tooretarget Olá toohello mais recente versão do projeto.
 
 Essa solução contém um único projeto. Há quatro pacotes NuGet instalados na solução:
 
@@ -124,18 +124,18 @@ Essa solução contém um único projeto. Há quatro pacotes NuGet instalados na
 * Microsoft.Azure.IoTHub.IoTHubClient
 * Microsoft.Azure.umqtt
 
-Você sempre precisará do pacote **Microsoft.Azure.C.SharedUtility** quando estiver trabalhando com o SDK. Este exemplo usa o protocolo MQTT e, portanto, você deve incluir os pacotes **Microsoft.Azure.umqtt** e **Microsoft.Azure.IoTHub.MqttTransport** (há pacotes equivalentes para AMQP e HTTP). Como o exemplo usa a biblioteca **IoTHubClient**, você também deverá incluir o pacote **Microsoft.Azure.IoTHub.IoTHubClient** em sua solução.
+Você sempre precisa Olá **Microsoft.Azure.C.SharedUtility** pacote quando você estiver trabalhando com hello SDK. Este exemplo usa o protocolo MQTT de hello, portanto você deve incluir Olá **Microsoft.Azure.umqtt** e **Microsoft.Azure.IoTHub.MqttTransport** pacotes (há pacotes equivalentes para AMQP e HTTP ). Como exemplo hello usa Olá **IoTHubClient** biblioteca, você também deve incluir Olá **Microsoft.Azure.IoTHub.IoTHubClient** pacote em sua solução.
 
-Você pode encontrar a implementação do aplicativo de exemplo no arquivo de origem **iothub\_client\_sample\_mqtt.c**.
+Você pode encontrar a implementação Olá para o aplicativo de exemplo hello no hello **hub IOT\_cliente\_exemplo\_mqtt.c** arquivo de origem.
 
-As etapas a seguir usam esse exemplo de aplicativo para explicar o que é necessário para usar a biblioteca **IoTHubClient** .
+Olá, etapas a seguir usam esta toowalk do aplicativo de exemplo você durante o que é necessário Olá toouse **IoTHubClient** biblioteca.
 
-### <a name="initialize-the-library"></a>Inicializar a biblioteca
+### <a name="initialize-hello-library"></a>Inicializar a biblioteca de saudação
 
 > [!NOTE]
-> Antes de começar a trabalhar com as bibliotecas, talvez seja necessário executar alguma inicialização específica de plataforma. Por exemplo, se você planeja usar o AMQP no Linux, você deverá inicializar a biblioteca OpenSSL. Os exemplos de [repositório GitHub](https://github.com/Azure/azure-iot-sdk-c) chamam a função de utilitário **platform\_init** quando o cliente inicia, e chamam a função **platform\_deinit** antes de encerrar. Essas funções são declaradas no arquivo de cabeçalho platform.h. Examine as definições dessas funções para sua plataforma de destino no [repositório](https://github.com/Azure/azure-iot-sdk-c) para determinar se é necessário incluir algum código de inicialização específico de plataforma no seu cliente.
+> Antes de começar a trabalhar com bibliotecas de saudação, talvez seja necessário tooperform alguns plataforma específica. Por exemplo, se você planeja toouse AMQP Linux, você deverá inicializar biblioteca OpenSSL de saudação. Olá amostras Olá [repositório GitHub](https://github.com/Azure/azure-iot-sdk-c) chamar a função de utilitário hello **plataforma\_init** quando Olá cliente inicia e chamar hello **plataforma\_deinit**  função antes de sair. Essas funções são declaradas no arquivo de cabeçalho platform.h hello. Examine as definições de saudação dessas funções para sua plataforma de destino no hello [repositório](https://github.com/Azure/azure-iot-sdk-c) toodetermine se precisar tooinclude qualquer código de inicialização específico da plataforma no seu cliente.
 
-Para começar a trabalhar com as bibliotecas, primeiro aloque um identificador de cliente do Hub IoT:
+toostart trabalhando com bibliotecas hello, primeiro alocar um identificador de cliente de IoT Hub:
 
 ```c
 if ((iotHubClientHandle = IoTHubClient_LL_CreateFromConnectionString(connectionString, MQTT_Protocol)) == NULL)
@@ -147,16 +147,16 @@ else
     ...
 ```
 
-Passe uma cópia da cadeia de conexão do dispositivo obtido da ferramenta Gerenciador de Dispositivos para essa função. Você também pode designar o protocolo de comunicação a ser usado. Este exemplo usa MQTT, mas AMQP e HTTP também são opções.
+Você passar uma cópia da cadeia de conexão do dispositivo Olá que você obteve da função de toothis hello dispositivo explorer ferramenta. Você também pode designar Olá toouse de protocolo de comunicação. Este exemplo usa MQTT, mas AMQP e HTTP também são opções.
 
-Quando você tiver um **IOTHUB\_CLIENT\_HANDLE** válido, será possível iniciar a chamada a APIs para enviar e receber mensagens do Hub IoT.
+Quando você tem uma opção válida **hub IOT\_cliente\_tratar**, você pode iniciar uma chamada hello APIs toosend e receber mensagens tooand de IoT Hub.
 
 ### <a name="send-messages"></a>Enviar mensagens
 
-O aplicativo de exemplo configura um loop para enviar mensagens para o Hub IoT. O seguinte trecho de código:
+aplicativo de exemplo Hello configura um hub IoT do loop toosend mensagens tooyour. saudação de trecho de código a seguir:
 
 - Cria uma mensagem.
-- Adiciona uma propriedade à mensagem.
+- Adiciona uma mensagem de toohello de propriedade.
 - Envia uma mensagem.
 
 Em primeiro lugar, crie uma mensagem:
@@ -188,7 +188,7 @@ do
             }
             else
             {
-                (void)printf("IoTHubClient_LL_SendEventAsync accepted message [%d] for transmission to IoT Hub.\r\n", (int)iterator);
+                (void)printf("IoTHubClient_LL_SendEventAsync accepted message [%d] for transmission tooIoT Hub.\r\n", (int)iterator);
             }
         }
     }
@@ -199,7 +199,7 @@ do
 } while (g_continueRunning);
 ```
 
-Sempre que você enviar uma mensagem, será possível especificar uma referência a uma função de retorno de chamada que é invocada quando os dados são enviados. Neste exemplo, a função de retorno de chamada se chama **SendConfirmationCallback**. O trecho abaixo mostra essa função de retorno de chamada:
+Toda vez que você enviar uma mensagem, você pode especificar uma função de retorno de chamada de tooa de referência que é invocada quando dados saudação são enviados. Neste exemplo, é chamada de função de retorno de chamada hello **SendConfirmationCallback**. saudação de trecho de código a seguir mostra essa função de retorno de chamada:
 
 ```c
 static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCallback)
@@ -212,11 +212,11 @@ static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, v
 }
 ```
 
-Observe a chamada à função **IoTHubMessage\_Destroy** quando terminar com a mensagem. Essa função libera os recursos alocados ao criar a mensagem.
+Observe Olá chamada toohello **IoTHubMessage\_destruir** funcionar quando você terminar com a mensagem de saudação. Essa função libera os recursos de saudação alocados ao criar mensagem de saudação.
 
 ### <a name="receive-messages"></a>Receber mensagens
 
-O recebimento de uma mensagem é uma operação assíncrona. Primeiro, você registra o retorno de chamada a ser invocado quando o dispositivo recebe uma mensagem:
+O recebimento de uma mensagem é uma operação assíncrona. Primeiro, é registrar Olá tooinvoke de retorno de chamada quando o dispositivo Olá recebe uma mensagem:
 
 ```c
 if (IoTHubClient_LL_SetMessageCallback(iotHubClientHandle, ReceiveMessageCallback, &receiveContext) != IOTHUB_CLIENT_OK)
@@ -229,13 +229,13 @@ else
 ...
 ```
 
-O último parâmetro é um ponteiro nulo para o que você quiser. No exemplo, é um ponteiro para um inteiro, mas poderia ser um ponteiro para uma estrutura de dados mais complexa. Esse parâmetro permite que a função de retorno de chamada opere em estado compartilhado com o chamador dessa função.
+Olá último parâmetro é um toowhatever de ponteiro nulo desejado. No exemplo hello, é um número inteiro tooan de ponteiro, mas pode ser um ponteiro tooa a estrutura de dados mais complexa. Este parâmetro permite Olá toooperate de função de retorno de chamada no estado compartilhado com chamador Olá dessa função.
 
-Quando o dispositivo receber uma mensagem, a função de retorno de chamada registrada será invocada. Essa função de retorno de chamada recupera:
+Quando o dispositivo Olá recebe uma mensagem, hello função de retorno de chamada registrado é invocada. Essa função de retorno de chamada recupera:
 
-* A ID da mensagem e a ID de correlação da mensagem.
-* O conteúdo da mensagem.
-* Todas as propriedades personalizadas da mensagem.
+* id de mensagem de saudação e id de correlação da mensagem de saudação.
+* conteúdo da mensagem de saudação.
+* Todas as propriedades personalizadas da mensagem de saudação.
 
 ```c
 static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -261,19 +261,19 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
     // Message content
     if (IoTHubMessage_GetByteArray(message, (const unsigned char**)&buffer, &size) != IOTHUB_MESSAGE_OK)
     {
-        (void)printf("unable to retrieve the message data\r\n");
+        (void)printf("unable tooretrieve hello message data\r\n");
     }
     else
     {
         (void)printf("Received Message [%d]\r\n Message ID: %s\r\n Correlation ID: %s\r\n Data: <<<%.*s>>> & Size=%d\r\n", *counter, messageId, correlationId, (int)size, buffer, (int)size);
-        // If we receive the work 'quit' then we stop running
+        // If we receive hello work 'quit' then we stop running
         if (size == (strlen("quit") * sizeof(char)) && memcmp(buffer, "quit", size) == 0)
         {
             g_continueRunning = false;
         }
     }
 
-    // Retrieve properties from the message
+    // Retrieve properties from hello message
     mapProperties = IoTHubMessage_Properties(message);
     if (mapProperties != NULL)
     {
@@ -302,34 +302,34 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 }
 ```
 
-Use a função **IoTHubMessage\_GetByteArray** para recuperar a mensagem que, neste exemplo, é uma cadeia de caracteres.
+Saudação de uso **IoTHubMessage\_GetByteArray** mensagem de saudação do função tooretrieve, que neste exemplo é uma cadeia de caracteres.
 
-### <a name="uninitialize-the-library"></a>Não inicializar a biblioteca
+### <a name="uninitialize-hello-library"></a>Não inicializar a biblioteca de saudação
 
-Quando acabar de enviar eventos e de receber mensagens, você poderá cancelar a inicialização da biblioteca IoT. Para fazer isso, emita a seguinte chamada de função:
+Quando você terminar de enviar eventos e receber mensagens, você pode não inicializar Olá IoT biblioteca. toodo assim, emita Olá chamada de função a seguir:
 
 ```
 IoTHubClient_LL_Destroy(iotHubClientHandle);
 ```
 
-Essa chamada libera os recursos anteriormente alocados pela função **IoTHubClient\_CreateFromConnectionString**.
+Essa chamada libera recursos Olá anteriormente alocados pelo Olá **IoTHubClient\_CreateFromConnectionString** função.
 
-Como você pode ver, é fácil enviar e receber mensagens com a biblioteca **IoTHubClient** . A biblioteca lida com os detalhes de comunicação com o Hub IoT, incluindo o protocolo a ser usado (da perspectiva do desenvolvedor, isso é uma opção de configuração simples).
+Como você pode ver, é fácil toosend e receber mensagens de saudação **IoTHubClient** biblioteca. biblioteca Hello trata os detalhes de saudação de se comunicar com o IoT Hub, incluindo qual protocolo toouse (da perspectiva de saudação do desenvolvedor hello, essa é uma opção de configuração simples).
 
-A biblioteca **IoTHubClient** também fornece controle preciso sobre como serializar os dados que o seu dispositivo envia ao Hub IoT. Em alguns casos, esse nível de controle é uma vantagem, mas em outros, é um detalhe de implementação com que você não quer se preocupar. Se for esse o caso, você poderá considerar usar a biblioteca **serializer** , que está descrita na seção a seguir.
+Olá **IoTHubClient** biblioteca também fornece um controle preciso sobre como dados de saudação tooserialize o dispositivo envia tooIoT Hub. Em alguns casos, esse nível de controle é uma vantagem, mas em outros é um detalhe de implementação que você não deseja toobe preocupada com. Se esse for o caso de Olá, você pode considerar o uso Olá **serializador** biblioteca, o que é descrita na próxima seção, Olá.
 
-## <a name="use-the-serializer-library"></a>Usar a biblioteca do serializador
+## <a name="use-hello-serializer-library"></a>Usar a biblioteca de serializador Olá
 
-Conceitualmente, a biblioteca **serializer** fica acima da biblioteca **IoTHubClient** no SDK. Ela usa a biblioteca **IoTHubClient** para a comunicação subjacente com o Hub IoT, mas adiciona recursos de modelagem que removem a sobrecarga de lidar com a serialização de mensagens do desenvolvedor. O funcionamento dessa biblioteca é mais bem demonstrado por um exemplo.
+Olá conceitualmente **serializador** biblioteca fica na parte superior Olá **IoTHubClient** biblioteca no hello SDK. Ele usa Olá **IoTHubClient** biblioteca para Olá subjacente a comunicação com o IoT Hub, mas ele adiciona recursos de modelagem que remove a carga de saudação de lidar com a serialização da mensagem de desenvolvedor hello. O funcionamento dessa biblioteca é mais bem demonstrado por um exemplo.
 
-Na pasta **serializer** do [repositório azure-iot-sdk](https://github.com/Azure/azure-iot-sdk-c), há uma pasta **samples** que contém um aplicativo chamado **simplesample\_mqtt**. A versão para Windows deste exemplo inclui a seguinte solução do Visual Studio:
+Olá interna **serializador** pasta Olá [repositório do azure-iot-sdk-c](https://github.com/Azure/azure-iot-sdk-c), é um **exemplos** pasta que contém um aplicativo chamado **simplesample \_mqtt**. versão do Windows Hello deste exemplo inclui Olá após a solução do Visual Studio:
 
   ![](media/iot-hub-device-sdk-c-intro/14-simplesample_mqtt.PNG)
 
 > [!NOTE]
-> Se você abrir esse projeto no Visual Studio 2017, aceite os prompts a fim de redirecionar o projeto para a versão mais recente.
+> Se você abrir este projeto no Visual Studio de 2017, aceite Olá prompts tooretarget Olá toohello mais recente versão do projeto.
 
-Assim como no exemplo anterior, este inclui vários pacotes NuGet:
+Como com o exemplo anterior de hello, este inclui vários pacotes do NuGet:
 
 * Microsoft.Azure.C.SharedUtility
 * Microsoft.Azure.IoTHub.MqttTransport
@@ -337,15 +337,15 @@ Assim como no exemplo anterior, este inclui vários pacotes NuGet:
 * Microsoft.Azure.IoTHub.Serializer
 * Microsoft.Azure.umqtt
 
-Você viu a maior parte desses pacotes no exemplo anterior, mas **Microsoft.Azure.IoTHub.Serializer** é novo. Este pacote é necessário quando você usa a biblioteca **serializer**.
+Você viu a maioria desses pacotes no exemplo anterior de saudação, mas **Microsoft.Azure.IoTHub.Serializer** é novo. Este pacote é necessário quando você usar o hello **serializador** biblioteca.
 
-A implementação do aplicativo de exemplo pode ser encontrada no arquivo **simplesample\_mqtt.c**.
+Você pode encontrar a implementação de saudação do aplicativo de exemplo hello no hello **simplesample\_mqtt.c** arquivo.
 
-As seções a seguir explicam as principais partes desse exemplo.
+Olá seções a seguir orientam você durante partes-chave Olá deste exemplo.
 
-### <a name="initialize-the-library"></a>Inicializar a biblioteca
+### <a name="initialize-hello-library"></a>Inicializar a biblioteca de saudação
 
-Para começar a trabalhar com a biblioteca **serializer**, chame as APIs de inicialização:
+toostart trabalhando com hello **serializador** biblioteca, chamada hello inicialização APIs:
 
 ```c
 if (serializer_init(NULL) != SERIALIZER_OK)
@@ -374,13 +374,13 @@ else
 ...
 ```
 
-A chamada à função **serializer\_init** é uma chamada única e inicializa a biblioteca subjacente. Então, você chama a função **IoTHubClient\_LL\_CreateFromConnectionString**, que é a mesma API do exemplo **IoTHubClient**. Essa chamada define a cadeia de conexão de dispositivo (ela é também onde você escolhe o protocolo que quer usar). Este exemplo usa MQTT como transporte, mas pode usar AMQP ou HTTP.
+Olá chamada toohello **serializador\_init** função é uma única chamada e inicializa Olá biblioteca subjacente. Em seguida, você pode chamar hello **IoTHubClient\_LL\_CreateFromConnectionString** função, que é Olá a mesma API como Olá **IoTHubClient** exemplo. Essa chamada define a cadeia de caracteres de conexão do dispositivo (essa chamada também é onde você escolher o protocolo de saudação desejado toouse). Este exemplo usa MQTT como transporte hello, mas pode usar AMQP ou HTTP.
 
-Por fim, chame a função **CREATE\_MODEL\_INSTANCE**. **WeatherStation** é o namespace do modelo e **ContosoAnemometer** é o nome do modelo. Depois que a instância do modelo for definida, você poderá usá-lo para começar a enviar e a receber mensagens. No entanto, em primeiro lugar, é importante entender o que é um modelo.
+Finalmente, chame Olá **criar\_modelo\_instância** função. **WeatherStation** é o namespace de saudação do modelo de saudação e **ContosoAnemometer** é nome de saudação do modelo de saudação. Depois de criar a instância de modelo hello, você pode usá-lo toostart enviando e recebendo mensagens. No entanto, é importante toounderstand é que um modelo.
 
-### <a name="define-the-model"></a>Definir o modelo
+### <a name="define-hello-model"></a>Definir modelo Olá
 
-Um modelo na biblioteca **serializer** define as mensagens que seu dispositivo pode enviar ao Hub IoT e as mensagens, chamadas de *ações* na linguagem de modelagem, que ele pode receber. Defina um modelo usando um conjunto de macros C, como no exemplo de aplicativo **simplesample\_mqtt**:
+Um modelo no hello **serializador** biblioteca define as mensagens de saudação seu dispositivo pode enviar tooIoT mensagens de Hub e hello, chamadas *ações* em Olá linguagem, que pode receber de modelagem. Definir um modelo usando um conjunto de macros C como Olá **simplesample\_mqtt** aplicativo de exemplo:
 
 ```c
 BEGIN_NAMESPACE(WeatherStation);
@@ -396,29 +396,29 @@ WITH_ACTION(SetAirResistance, int, Position)
 END_NAMESPACE(WeatherStation);
 ```
 
-As macros **BEGIN\_NAMESPACE** e **END\_NAMESPACE** usam o namespace do modelo como um argumento. Espera-se que qualquer coisa entre essas macros seja a definição de seus modelos e as estruturas de dados que os modelos usam.
+Olá **começar\_NAMESPACE** e **final\_NAMESPACE** ambas as macros levar Olá namespace de modelo hello como um argumento. Espera-se que qualquer coisa entre essas macros é a definição de saudação do seu modelo ou modelos e estruturas de dados de Olá Olá modelos usam.
 
-Neste exemplo, há um único modelo chamado **ContosoAnemometer**. Esse modelo define dois dados que o dispositivo pode enviar ao Hub IoT: **DeviceId** e **WindSpeed**. Ele também define três ações (mensagens) que o dispositivo pode receber: **TurnFanOn**, **TurnFanOff** e **SetAirResistance**. Cada elemento de dados tem um tipo, e cada ação tem um nome (e, opcionalmente, um conjunto de parâmetros).
+Neste exemplo, há um único modelo chamado **ContosoAnemometer**. Esse modelo define duas partes de dados que o dispositivo pode enviar tooIoT Hub: **DeviceId** e **WindSpeed**. Ele também define três ações (mensagens) que o dispositivo pode receber: **TurnFanOn**, **TurnFanOff** e **SetAirResistance**. Cada elemento de dados tem um tipo, e cada ação tem um nome (e, opcionalmente, um conjunto de parâmetros).
 
-Os dados e ações definidos no modelo definem uma superfície de API que você pode usar para enviar mensagens ao Hub IoT, bem como para responder a mensagens enviadas ao dispositivo. O uso desse modelo é compreendido melhor por meio de um exemplo.
+dados saudação e as ações definidas no modelo de saudação definem uma superfície de API que você pode usar toosend mensagens tooIoT Hub e responder toomessages enviados toohello dispositivo. O uso desse modelo é compreendido melhor por meio de um exemplo.
 
 ### <a name="send-messages"></a>Enviar mensagens
 
-O modelo define os dados que você pode enviar ao Hub IoT. Neste exemplo, isso significa um dos dois itens de dados definidos usando a macro **WITH_DATA**. Há várias etapas necessárias para enviar os valores **DeviceId** e **WindSpeed** para um Hub IoT. A primeira é definir os dados que deseja enviar:
+modelo de Olá define dados Olá pode enviar tooIoT Hub. Neste exemplo, isso significa que uma saudação dois itens de dados definidos usando Olá **WITH_DATA** macro. Há várias etapas e necessário toosend **DeviceId** e **WindSpeed** hub de IoT tooan valores. Olá é primeiro tooset Olá dados toosend:
 
 ```c
 myWeather->DeviceId = "myFirstDevice";
 myWeather->WindSpeed = avgWindSpeed + (rand() % 4 + 2);
 ```
 
-O modelo que você definiu anteriormente permite que você defina os valores definindo membros de uma **struct**. Em seguida, serialize a mensagem que deseja enviar:
+Olá modelo definido anteriormente permite que você os valores hello tooset definindo membros de um **struct**. Em seguida, serialize a mensagem de saudação desejado toosend:
 
 ```c
 unsigned char* destination;
 size_t destinationSize;
 if (SERIALIZE(&destination, &destinationSize, myWeather->DeviceId, myWeather->WindSpeed) != CODEFIRST_OK)
 {
-    (void)printf("Failed to serialize\r\n");
+    (void)printf("Failed tooserialize\r\n");
 }
 else
 {
@@ -427,7 +427,7 @@ else
 }
 ```
 
-Esse código serializa o dispositivo-para-nuvem em um buffer (conhecido como **destination**). O código chama a função **sendMessage** para enviar a mensagem para o Hub IoT:
+Esse código serializa o buffer de dispositivo para nuvem tooa hello (referenciado por **destino**). código de Hello, em seguida, invoca Olá **sendMessage** função tooIoT de mensagem de saudação toosend Hub:
 
 ```c
 static void sendMessage(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
@@ -436,17 +436,17 @@ static void sendMessage(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const unsign
     IOTHUB_MESSAGE_HANDLE messageHandle = IoTHubMessage_CreateFromByteArray(buffer, size);
     if (messageHandle == NULL)
     {
-        printf("unable to create a new IoTHubMessage\r\n");
+        printf("unable toocreate a new IoTHubMessage\r\n");
     }
     else
     {
         if (IoTHubClient_LL_SendEventAsync(iotHubClientHandle, messageHandle, sendCallback, (void*)(uintptr_t)messageTrackingId) != IOTHUB_CLIENT_OK)
         {
-            printf("failed to hand over the message to IoTHubClient");
+            printf("failed toohand over hello message tooIoTHubClient");
         }
         else
         {
-            printf("IoTHubClient accepted the message for delivery\r\n");
+            printf("IoTHubClient accepted hello message for delivery\r\n");
         }
         IoTHubMessage_Destroy(messageHandle);
     }
@@ -455,7 +455,7 @@ static void sendMessage(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const unsign
 ```
 
 
-Do segundo ao último parâmetro de **IoTHub\_LL\_ClientSendEventAsync** é uma referência a uma função de retorno de chamada que é chamada quando os dados são enviados com êxito. Aqui está a função de retorno de chamada no exemplo:
+Olá segundo parâmetro toolast de **IoTHubClient\_LL\_SendEventAsync** é uma função de retorno de chamada de tooa de referência que é chamada quando dados saudação são enviados com êxito. Aqui está a função de retorno de chamada hello no exemplo hello:
 
 ```c
 void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCallback)
@@ -468,25 +468,25 @@ void sendCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCal
 }
 ```
 
-O segundo parâmetro é um ponteiro para contexto do usuário, o mesmo ponteiro que passamos para **IoTHubClient\_LL\_SendEventAsync**. Nesse caso, esse contexto é um contador simples, mas ele pode ser o que você quiser.
+Olá segundo parâmetro é um contexto de toouser ponteiro; Olá ponteiro mesmo passado muito**IoTHubClient\_LL\_SendEventAsync**. Nesse caso, o contexto de saudação é um contador simple, mas pode ser qualquer coisa que você deseja.
 
-Isso é tudo para enviar mensagens de dispositivo para nuvem. Agora nos resta falar sobre o recebimento de mensagens.
+Isso é tudo que há mensagens de dispositivo para nuvem toosending. Olá somente coisa toocover é como tooreceive mensagens.
 
 ### <a name="receive-messages"></a>Receber mensagens
 
-O recebimento de uma mensagem funciona de forma semelhante a como as mensagens funcionam na biblioteca **IoTHubClient** . Primeiramente, você registra uma função de retorno de chamada de mensagem:
+Receber uma mensagem de funcionamento da mesma forma toohello mensagens funcionam no hello **IoTHubClient** biblioteca. Primeiramente, você registra uma função de retorno de chamada de mensagem:
 
 ```c
 if (IoTHubClient_LL_SetMessageCallback(iotHubClientHandle, IoTHubMessage, myWeather) != IOTHUB_CLIENT_OK)
 {
-    printf("unable to IoTHubClient_SetMessageCallback\r\n");
+    printf("unable tooIoTHubClient_SetMessageCallback\r\n");
 }
 else
 {
 ...
 ```
 
-Em seguida, você grava a função de retorno de chamada que é invocada quando uma mensagem é recebida:
+Em seguida, você escrever a função de retorno de chamada de saudação que é invocada quando uma mensagem é recebida:
 
 ```c
 static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -496,7 +496,7 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE mess
     size_t size;
     if (IoTHubMessage_GetByteArray(message, &buffer, &size) != IOTHUB_MESSAGE_OK)
     {
-        printf("unable to IoTHubMessage_GetByteArray\r\n");
+        printf("unable tooIoTHubMessage_GetByteArray\r\n");
         result = IOTHUBMESSAGE_ABANDONED;
     }
     else
@@ -505,7 +505,7 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE mess
         char* temp = malloc(size + 1);
         if (temp == NULL)
         {
-            printf("failed to malloc\r\n");
+            printf("failed toomalloc\r\n");
             result = IOTHUBMESSAGE_ABANDONED;
         }
         else
@@ -524,9 +524,9 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE mess
 }
 ```
 
-Esse código é clichê, é o mesmo para qualquer solução. Essa função recebe a mensagem e cuida de encaminhá-la à função apropriada por meio da chamada a **EXECUTE\_COMMAND**. A função chamada nesse ponto depende da definição das ações em seu modelo.
+Esse código é clichê - ele tem hello mesmo para qualquer solução. Esta função recebe a mensagem de saudação e cuida de roteamento a função apropriada toohello por meio da chamada de saudação muito**EXECUTE\_comando**. função Hello chamada neste ponto depende da definição Olá das ações de saudação em seu modelo.
 
-Ao definir uma ação em seu modelo, você precisa implementar uma função que é chamada quando o dispositivo recebe a mensagem correspondente. Por exemplo, se o seu modelo definir esta ação:
+Quando você define uma ação em seu modelo, será necessário tooimplement uma função que é chamada quando o dispositivo recebe a mensagem de saudação do correspondente. Por exemplo, se o seu modelo definir esta ação:
 
 ```c
 WITH_ACTION(SetAirResistance, int, Position)
@@ -538,18 +538,18 @@ Defina uma função com esta assinatura:
 EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 {
     (void)device;
-    (void)printf("Setting Air Resistance Position to %d.\r\n", Position);
+    (void)printf("Setting Air Resistance Position too%d.\r\n", Position);
     return EXECUTE_COMMAND_SUCCESS;
 }
 ```
 
-Observe como o nome da função corresponde ao nome da ação no modelo e que os parâmetros da função correspondem aos parâmetros especificados para a ação. O primeiro parâmetro é sempre obrigatório e contém um ponteiro para a instância do seu modelo.
+Observe como o nome de saudação do função hello corresponde o nome de Olá da ação Olá no modelo de saudação e que Olá da função hello correspondem Olá parâmetros especificados para a ação de saudação. Olá primeiro parâmetro é sempre necessário e contém uma instância de toohello ponteiro do seu modelo.
 
-Quando o dispositivo recebe uma mensagem que corresponde a essa assinatura, a função correspondente é chamada. Portanto, além de ter que incluir o código clichê de **IoTHubMessage**, receber mensagens será apenas uma questão de definir uma função simples para cada ação definida no seu modelo.
+Quando o dispositivo Olá recebe uma mensagem que corresponde a essa assinatura, função correspondente Olá é chamada. Portanto, além de ter tooinclude Olá boilerplate código de **IoTHubMessage**, recebendo mensagens é apenas uma questão de definir uma função simples para cada ação definida no modelo.
 
-### <a name="uninitialize-the-library"></a>Não inicializar a biblioteca
+### <a name="uninitialize-hello-library"></a>Não inicializar a biblioteca de saudação
 
-Quando acabar de enviar dados e de receber mensagens, você poderá cancelar a inicialização da biblioteca IoT:
+Quando você terminar de envio de dados e receber mensagens, você pode não inicializar Olá IoT biblioteca:
 
 ```c
 ...
@@ -560,15 +560,15 @@ Quando acabar de enviar dados e de receber mensagens, você poderá cancelar a i
 serializer_deinit();
 ```
 
-Cada uma dessas três funções se alinha às três funções de inicialização descritas anteriormente. Chamar essas APIs garante a liberação dos recursos alocados anteriormente.
+Cada uma dessas três funções de acordo com hello três funções de inicialização descritas anteriormente. Chamar essas APIs garante a liberação dos recursos alocados anteriormente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo abordou os conceitos básicos de como usar as bibliotecas no **SDK do dispositivo IoT do Azure para C**. Ele forneceu informações suficientes para entender o que está incluído no SDK, sua arquitetura e como começar a trabalhar com os exemplos do Windows. O próximo artigo continua a descrição do SDK, explicando [mais sobre a biblioteca IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
+Este artigo coberto Noções básicas de saudação do uso de bibliotecas de saudação em Olá **dispositivo IoT do Azure SDK para C**. Ele acompanha suficiente toounderstand informações que está incluído na Olá SDK, sua arquitetura e como tooget começaram a funcionar com hello exemplos do Windows. artigo Avançar Olá continua descrição Olá Olá SDK explicando [mais informações sobre a biblioteca de IoTHubClient Olá](iot-hub-device-sdk-c-iothubclient.md).
 
-Para saber mais sobre como desenvolver para o Hub IoT, consulte os [SDKs do Azure IoT][lnk-sdks].
+toolearn mais sobre como desenvolver para o IoT Hub, consulte Olá [SDKs do Azure IoT][lnk-sdks].
 
-Para explorar melhor as funcionalidades do Hub IoT, consulte:
+toofurther explorar recursos de saudação do IoT Hub, consulte:
 
 * [Simulando um dispositivo com Azure IoT Edge][lnk-iotedge]
 

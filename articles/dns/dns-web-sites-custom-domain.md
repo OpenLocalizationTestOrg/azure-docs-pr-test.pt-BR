@@ -1,6 +1,6 @@
 ---
-title: Criar registros DNS personalizados para um aplicativo Web | Microsoft Docs
-description: "Como criar registros DNS de domínio personalizado para o aplicativo Web usando o DNS do Azure."
+title: aaaCreate registros de DNS personalizados para um aplicativo web | Microsoft Docs
+description: "Como o DNS de domínio personalizado toocreate registros para o aplicativo web usando o DNS do Azure."
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -13,39 +13,39 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
-ms.openlocfilehash: b054a41ecd69ee1c802d8403fe4b25128f016e3c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 070c808a55bab922eb624d99ae5c275d8eaa5aaa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a>Criar registros DNS para um aplicativo Web em um domínio personalizado
 
-Você pode usar o DNS do Azure para hospedar um domínio personalizado para seus aplicativos Web. Por exemplo, você está criando um aplicativo Web do Azure e quer que os usuários o acessem usando contoso.com ou www.contoso.com como FQDN.
+Você pode usar o DNS do Azure toohost um domínio personalizado para seus aplicativos web. Por exemplo, você está criando um aplicativo web do Azure e deseja que seus usuários tooaccess-lo pelo usando contoso.com ou www.contoso.com como um FQDN.
 
-Para isso, você precisa criar dois registros:
+toodo isso, você tem dois registros de toocreate:
 
-* Um registro "A" raiz que aponta para contoso.com
-* Um registro "CNAME" para o nome www que aponta para o registro A
+* Um toocontoso.com de apontador registro raiz "A"
+* Um "" registro CNAME para o nome de www Olá que aponta toohello um registro
 
-Tenha em mente que, se você criar um registro A para um aplicativo Web no Azure, o registro A deve ser manualmente atualizado se o endereço IP subjacente para o aplicativo Web for alterado.
+Tenha em mente que, se você criar um registro para um aplicativo web no Azure, Olá que um registro deve ser atualizado manualmente se Olá subjacente endereço IP para alterações de aplicativo web hello.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Antes de começar, primeiro você deve criar uma zona DNS no DNS do Azure e delegar a zona no registrador para o DNS do Azure.
+Antes de começar, deve primeiro criar uma zona DNS no DNS do Azure e delegar a zona Olá no seu registrador tooAzure DNS.
 
-1. Para criar uma zona DNS, siga as etapas em [Criar uma zona DNS](dns-getstarted-create-dnszone.md).
-2. Para delegar o DNS ao DNS do Azure, siga as etapas em [Delegação de domínio DNS](dns-domain-delegation.md).
+1. toocreate uma zona DNS, execute as etapas de saudação em [criar uma zona DNS](dns-getstarted-create-dnszone.md).
+2. toodelegate tooAzure seu DNS DNS, execute as etapas de saudação em [delegação de domínio DNS](dns-domain-delegation.md).
 
-Após criar uma zona e delegá-la ao DNS do Azure, você pode criar registros para seu domínio personalizado.
+Depois de criar uma zona e delegação de DNS de tooAzure, em seguida, você pode criar registros para seu domínio personalizado.
 
 ## <a name="1-create-an-a-record-for-your-custom-domain"></a>1. Criar um registro A para seu domínio personalizado
 
-Um registro A é usado para mapear um nome para seu endereço IP. No exemplo a seguir, atribuiremos @ como um registro A para um endereço IPv4:
+Um registro é toomap usado um endereço IP do nome tooits. Saudação de exemplo a seguir é atribuirá como um tooan de registro de um endereço IPv4:
 
 ### <a name="step-1"></a>Etapa 1
 
-Crie um registro A e atribuir a uma variável $rs
+Crie um registro e atribua tooa $rs variável
 
 ```powershell
 $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600
@@ -53,9 +53,9 @@ $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -
 
 ### <a name="step-2"></a>Etapa 2
 
-Adicione o valor IPv4 ao conjunto de registros criado anteriormente "@" usando a variável $rs atribuída. O valor IPv4 atribuído será o endereço IP do seu aplicativo Web.
+Adicionar conjunto de registros Olá IPv4 valor toohello criado anteriormente "@" usando a variável Olá $rs atribuído. Olá valor IPv4 atribuído será o endereço IP de saudação para seu aplicativo web.
 
-Para localizar o endereço IP de um aplicativo Web, siga as etapas em [Configurar um nome de domínio personalizado no serviço de aplicativo do Azure](../app-service-web/app-service-web-tutorial-custom-domain.md).
+endereço IP de saudação toofind para um aplicativo web, siga as etapas de saudação em [configurar um nome de domínio personalizado no serviço de aplicativo do Azure](../app-service-web/app-service-web-tutorial-custom-domain.md).
 
 ```powershell
 Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address "<your web app IP address>"
@@ -63,7 +63,7 @@ Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address "<your web app IP address
 
 ### <a name="step-3"></a>Etapa 3
 
-Confirme as alterações no conjunto de registros. Use `Set-AzureRMDnsRecordSet` para carregar as alterações no conjunto de registros para o DNS do Azure:
+Confirme o conjunto de registros Olá alterações toohello. Use `Set-AzureRMDnsRecordSet` Olá tooupload altera toohello tooAzure de conjunto de registros DNS:
 
 ```powershell
 Set-AzureRMDnsRecordSet -RecordSet $rs
@@ -71,17 +71,17 @@ Set-AzureRMDnsRecordSet -RecordSet $rs
 
 ## <a name="2-create-a-cname-record-for-your-custom-domain"></a>2. Criar um registro CNAME para seu domínio personalizado
 
-Se o domínio já é gerenciado pelo DNS do Azure (confira [Delegação de domínio ao DNS](dns-domain-delegation.md)), você pode usar o exemplo a seguir para criar um registro CNAME para contoso.azurewebsites.net.
+Se o domínio já é gerenciado pelo DNS do Azure (consulte [delegação de domínio DNS](dns-domain-delegation.md), você pode usar Olá Olá exemplo toocreate um registro CNAME para contoso.azurewebsites.net a seguir.
 
 ### <a name="step-1"></a>Etapa 1
 
-Abra o PowerShell, crie um novo conjunto de registros CNAME e atribua-o a uma variável $rs. Este exemplo cria um tipo de conjunto de registros CNAME com uma "vida útil" de 600 segundos na zona DNS denominada "contoso.com".
+Abra o PowerShell e crie um novo conjunto de registros CNAME e atribua tooa $rs variável. Este exemplo criará um tipo de conjunto de registros CNAME com um "tempo toolive" de 600 segundos na zona DNS denominado "contoso.com".
 
 ```powershell
 $rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
 ```
 
-O exemplo a seguir é a resposta.
+saudação de exemplo a seguir é a resposta de saudação.
 
 ```
 Name              : www
@@ -96,15 +96,15 @@ Tags              : {}
 
 ### <a name="step-2"></a>Etapa 2
 
-Depois de criar o conjunto de registros CNAME, você precisa criar um valor de alias que apontará para o aplicativo Web.
+Após Olá conjunto de registros CNAME é criado, você precisará toocreate um valor de alias que vai apontar toohello web app.
 
-Usando a variável "$rs" atribuída anteriormente, você pode usar o comando PowerShell a seguir para criar o alias para o aplicativo Web contoso.azurewebsites.net.
+Usando Olá atribuídos previamente a variável "$rs" você pode usar o comando do PowerShell Olá abaixo alias de saudação toocreate para Olá web aplicativo contoso.azurewebsites.net.
 
 ```powershell
 Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
 ```
 
-O exemplo a seguir é a resposta.
+saudação de exemplo a seguir é a resposta de saudação.
 
 ```
     Name              : www
@@ -119,13 +119,13 @@ O exemplo a seguir é a resposta.
 
 ### <a name="step-3"></a>Etapa 3
 
-Confirme as alterações usando o cmdlet `Set-AzureRMDnsRecordSet` :
+Confirmar alterações de saudação usando Olá `Set-AzureRMDnsRecordSet` cmdlet:
 
 ```powershell
 Set-AzureRMDnsRecordSet -RecordSet $rs
 ```
 
-Você pode validar se o registro foi criado corretamente consultando "www.contoso.com" usando o nslookup, conforme mostrado abaixo:
+Você pode validar o registro de saudação foi criado corretamente consultando hello "www.contoso.com" usando nslookup, conforme mostrado abaixo:
 
 ```
 PS C:\> nslookup
@@ -146,17 +146,17 @@ contoso.azurewebsites.net
 
 ## <a name="create-an-awverify-record-for-web-apps"></a>Criar um registro "awverify" para aplicativos Web
 
-Se você decidir usar um registro A do seu aplicativo Web, deverá passar por um processo de verificação para garantir que você tem o domínio personalizado. Essa etapa de verificação é feita criando um registro CNAME especial chamado "awverify". Esta seção aplica-se somente a registros A.
+Se você decidir toouse um registro a para seu aplicativo web, você deve percorrer um tooensure do processo de verificação é domínio personalizado próprio hello. Essa etapa de verificação é feita criando um registro CNAME especial chamado "awverify". Esta seção aplica-se somente os registros de tooA.
 
 ### <a name="step-1"></a>Etapa 1
 
-Crie o registro "awverify". No exemplo a seguir, criaremos o registro "aweverify" para contoso.com verificar a propriedade do domínio personalizado.
+Crie registro de "awverify" hello. No exemplo hello abaixo, vamos criar registro de "aweverify" Olá para contoso.com tooverify propriedade para o domínio personalizado hello.
 
 ```powershell
 $rs = New-AzureRMDnsRecordSet -ZoneName "contoso.com" -ResourceGroupName "myresourcegroup" -Name "awverify" -RecordType "CNAME" -Ttl 600
 ```
 
-O exemplo a seguir é a resposta.
+saudação de exemplo a seguir é a resposta de saudação.
 
 ```
 Name              : awverify
@@ -171,13 +171,13 @@ Tags              : {}
 
 ### <a name="step-2"></a>Etapa 2
 
-Após criar o conjunto de registros "awverify", atribua o alias do conjunto de registros CNAME. No exemplo a seguir, atribuiremos o alias do conjunto de registros CNAMe a awverify.contoso.azurewebsites.net.
+Depois de criar o conjunto de registros "awverify" Olá, atribua o registro CNAME Olá alias definido. O exemplo hello abaixo, podemos atribuirá Olá tooawverify.contoso.azurewebsites.net de alias de conjunto de registros de CNAMe.
 
 ```powershell
 Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
 ```
 
-O exemplo a seguir é a resposta.
+saudação de exemplo a seguir é a resposta de saudação.
 
 ```
     Name              : awverify
@@ -192,7 +192,7 @@ O exemplo a seguir é a resposta.
 
 ### <a name="step-3"></a>Etapa 3
 
-Confirme as alterações usando o `Set-AzureRMDnsRecordSet cmdlet`, conforme mostrado no comando abaixo.
+Confirmar alterações de saudação usando Olá `Set-AzureRMDnsRecordSet cmdlet`, conforme mostrado no comando de saudação abaixo.
 
 ```powershell
 Set-AzureRMDnsRecordSet -RecordSet $rs
@@ -200,4 +200,4 @@ Set-AzureRMDnsRecordSet -RecordSet $rs
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Siga as etapas em [Configurar um nome de domínio personalizado para o serviço de aplicativo](../app-service-web/web-sites-custom-domain-name.md) para configurar o aplicativo Web para usar um domínio personalizado.
+Siga as etapas de saudação em [Configurando um nome de domínio personalizado para o serviço de aplicativo](../app-service-web/web-sites-custom-domain-name.md) tooconfigure seu aplicativo de web toouse um domínio personalizado.

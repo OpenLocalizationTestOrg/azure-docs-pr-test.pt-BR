@@ -1,6 +1,6 @@
 ---
-title: "Como migrar aplicativos lógicos para a versão de esquema 2015-08-01-preview | Microsoft Docs"
-description: "Você pode facilmente migrar aplicativos lógicos para a última versão do esquema. Basta seguir estas etapas."
+title: "aaaHow toomigrate lógica aplicativos tooschema versão 2015-08-01-preview | Microsoft Docs"
+description: "Você pode facilmente migrar sua versão de esquema mais recente do lógica aplicativos toohello. Basta seguir estas etapas."
 services: logic-apps
 documentationcenter: 
 author: MSFTMAN
@@ -15,33 +15,33 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/23/2016
 ms.author: deonhe
-ms.openlocfilehash: a5a73a9f124e5339b61dbc49021444a208a471f0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c7b42aaec547eddd28b0c649a3c0625047f9f805
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-migrate-logic-apps-to-schema-version-2015-08-01-preview"></a>Como migrar aplicativos lógicos para a versão de esquema 2015-08-01-preview
-Para mover aplicativos lógicos existentes para o novo esquema, faça o seguinte:  
+# <a name="how-toomigrate-logic-apps-tooschema-version-2015-08-01-preview"></a>Como toomigrate lógica aplicativos tooschema versão 2015-08-01-preview
+toomove sua lógica aplicativos toohello novo esquema existente, Olá a seguir:  
 
-1. Abra o aplicativo lógico no portal do Azure  
+1. Abra o aplicativo lógica no hello portal do Azure  
 2. Clique em Atualizar Esquema:
    
    ![Ícone de API][step1]   
-   A página Atualizar Esquema exibe e fornece um link para um documento que fornece detalhes sobre os aperfeiçoamentos no novo esquema: ![Ícone de API][step2]
+   página de atualização de esquema Olá exibe e fornece um link tooa documento que fornecem detalhes sobre as melhorias de saudação no novo esquema de saudação: ![ícone da API][step2]
 
 > [!NOTE]
-> Quando você seleciona **Atualizar Esquema**, executamos automaticamente as etapas de migração e lhe fornecemos o código de saída. Você pode usar isso para atualizar sua definição. No entanto, siga as práticas recomendadas de codificação, como as descritas na seção **Práticas recomendadas** abaixo.
+> Quando você seleciona **atualizar esquema**, automaticamente executar etapas de migração hello e fornecer saída de saudação de código para você. Você pode usar este tooupdate sua definição, no entanto, certifique-se de seguir boas práticas de codificação, como aqueles indicados no hello **práticas recomendadas** seção abaixo.
 > 
 > 
 
-## <a name="best-practices-when-migrating-your-logic-apps-to-the-latest-schema-version"></a>Práticas recomendadas ao migrar aplicativos lógicos para a última versão do esquema:
-* Copie o script migrado para um novo aplicativo lógico - não substitua o antigo até concluir o teste e confirmar que o aplicativo migrado funciona conforme o esperado.
+## <a name="best-practices-when-migrating-your-logic-apps-toohello-latest-schema-version"></a>Práticas recomendadas ao migrar sua versão de esquema mais recente do lógica aplicativos toohello:
+* Saudação de cópia migrados script tooa nova lógica de aplicativo - não substituir Olá antigo um até ter concluído seu aplicativo migrado de teste e confirmado hello funciona conforme o esperado.
 * Testar o aplicativo lógico **antes** de colocá-lo em produção
-* Após a conclusão da migração, comece a atualizar os Aplicativos Lógicos para usar as [APIs gerenciadas](apis-list.md) sempre que possível. Por exemplo, você pode começar a usar o Dropbox v2 em todos os casos em que usa o DropBox v1.
+* Após a conclusão da migração, iniciar a saudação de toouse aplicativos lógica [APIs gerenciadas](apis-list.md) sempre que possível. Por exemplo, você pode começar a usar o Dropbox v2 em todos os casos em que usa o DropBox v1.
 
 ## <a name="whats-next"></a>O que vem a seguir
-* [Saiba como migrar manualmente os aplicativos lógicos](../logic-apps/logic-apps-schema-2015-08-01.md)
+* [Saiba como toomanually migrar seus aplicativos lógicos](../logic-apps/logic-apps-schema-2015-08-01.md)
 
 <!--Icon references-->
 [step1]: ./media/connectors-schema-migration/migrateschema1.png

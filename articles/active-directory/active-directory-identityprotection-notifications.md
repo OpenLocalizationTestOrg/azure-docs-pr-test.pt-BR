@@ -1,5 +1,5 @@
 ---
-title: "Notificações do Azure Active Directory Identity Protection | Microsoft Docs"
+title: "notificações de proteção de identidade do Active Directory aaaAzure | Microsoft Docs"
 description: "Saiba como as notificações dão suporte às suas atividades de investigação."
 services: active-directory
 keywords: "azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
@@ -16,29 +16,29 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 079d16bbf75cd2b3b94269d684e1ae1a0e6aa967
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 19e62374873f034591c658a779f97d935766c612
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notificações do Azure Active Directory Identity Protection
-O Azure AD Identity Protection envia dois tipos de emails de notificação automatizados para ajudar você a gerenciar o risco do usuário e eventos de risco:
+O Azure AD Identity Protection envia emails em dois tipos de notificação automatizado toohelp você gerenciar eventos de risco e risco do usuário:
 
 * Email de alerta de usuário comprometido
 * Email de resumo semanal
 
 ## <a name="user-compromised-alert-email"></a>Email de alerta de usuário comprometido
-Um email de alerta de usuário comprometido é gerado quando o Azure AD Identity Protection identifica uma conta como comprometida. O email inclui um link para os Usuários sinalizados para o relatório de risco no painel do Identity Protection. É recomendável investigar imediatamente as notificações das contas comprometidas.
+Um email de alerta de usuário comprometido é gerado quando o Azure AD Identity Protection identifica uma conta como comprometida. email de saudação inclui toohello um link que os usuários sinalizados para relatório de risco no painel de proteção de identidade de saudação. É recomendável investigar imediatamente as notificações das contas comprometidas.
 
 ## <a name="weekly-digest-email"></a>Email de resumo semanal
-O email de resumo semanal contém um resumo dos novos eventos de risco.<br>
+email de resumo semanal Olá contém um resumo dos novos eventos de risco.<br>
 Ele inclui:
 
 * Usuários em risco
 * Atividades suspeitas
 * Vulnerabilidades detectadas
-* Links para os relatórios relacionados no Identity Protection
+* Toohello links relacionados a relatórios na proteção de identidade
 
 <br>
 ![Correção](./media/active-directory-identityprotection-notifications/400.png "correção")
@@ -49,13 +49,13 @@ Ele inclui:
 ![Riscos de usuário](./media/active-directory-identityprotection-notifications/62.png "riscos de usuário")
 <br>
 
-**Para abrir o diálogo de configurações relacionadas**:
+**caixa de diálogo de configuração relacionados de saudação tooopen**:
 
-1. Na folha **Azure AD Identity Protection**, clique em **Configurações**.
+1. Em Olá **Azure AD Identity Protection** folha, clique em **configurações**.
    <br><br>
    ![Política de risco do usuário](./media/active-directory-identityprotection-notifications/401.png "política de risco do usuário")
    <br>
-2. Na seção **Geral**, clique em **Notificações**.
+2. Em Olá **geral** seção, clique em **notificações**.
    <br><br>
    ![Política de risco do usuário](./media/active-directory-identityprotection-notifications/405.png "política de risco do usuário")
    <br>

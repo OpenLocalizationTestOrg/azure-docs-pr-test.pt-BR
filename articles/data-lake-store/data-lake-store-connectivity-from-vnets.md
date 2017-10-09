@@ -1,6 +1,6 @@
 ---
-title: Conectar-se ao Azure Data Lake Store por Redes Virtuais | Microsoft Docs
-description: Conectar-se ao Azure Data Lake Store pelas Redes Virtuais do Azure
+title: "aaaConnect tooAzure repositório Data Lake do VNETs | Microsoft Docs"
+description: "Conecte-se o repositório tooAzure Data Lake do Azure VNETs"
 services: data-lake-store,data-catalog
 documentationcenter: 
 author: nitinme
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/10/2017
 ms.author: nitinme
-ms.openlocfilehash: ff7d28d7b53e872b804788647b1e672fafcf6995
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c695dcf49fe4e1a87a90729cf085a938f3b51fe3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="access-azure-data-lake-store-from-vms-within-an-azure-vnet"></a>Acessar o Azure Data Lake Store por VMs em uma Rede Virtual do Azure
-O Azure Data Lake Store é um serviço de PaaS executado em endereços de IP de Internet públicos. Em geral, qualquer servidor que pode se conectar à Internet pública também pode se conectar a pontos de extremidade do Azure Data Lake Store. Por padrão, todas as VMs que estão em Redes Virtuais do Azure podem acessar a Internet e, portanto, podem acessar o Azure Data Lake Store. No entanto, é possível configurar VMs em uma Rede Virtual para que ela não tenha acesso à Internet. Para essas VMs, o acesso ao Azure Data Lake Store também é restrito. O bloqueio do acesso à Internet pública para VMs em Redes Virtuais do Azure pode ser feito usando uma das abordagens a seguir.
+O Azure Data Lake Store é um serviço de PaaS executado em endereços de IP de Internet públicos. Qualquer servidor que pode se conectar pode de Internet pública toohello normalmente conectar tooAzure repositório Data Lake pontos de extremidade também. Por padrão, todas as máquinas virtuais que estão em VNETs do Azure podem acessar a saudação da Internet e, portanto, podem acessar o repositório Azure Data Lake. No entanto, é possível tooconfigure VMs em uma rede virtual toonot ter toohello de acesso à Internet. Para essas VMs, repositório Data Lake do acesso tooAzure é restrito também. Bloquear o acesso público à Internet para máquinas virtuais em VNETs do Azure pode ser feito usando qualquer um dos Olá abordagem a seguir.
 
 * Configurando NSGs (Grupos de Segurança de Rede)
 * Configurando UDRs (Rotas Definidas pelo Usuário)
-* Trocando rotas pelo protocolo BGP (protocolo de roteamento dinâmico padrão do setor) quando o ExpressRoute é usado e que bloqueia o acesso à Internet
+* Trocando rotas por meio de BGP (protocolo padrão da indústria dinâmico roteamento) quando a rota expressa é usada esse bloco acessar toohello da Internet
 
-Neste artigo, você saberá como habilitar o acesso ao Azure Data Lake Store em VMs do Azure que foram restritas para acessar os recursos, usando um dos três métodos listados acima.
+Neste artigo, você aprenderá como tooenable acessar o repositório toohello Azure Data Lake de VMs do Azure que foram tooaccess restrito usando um dos três métodos de saudação os recursos listados acima.
 
-## <a name="enabling-connectivity-to-azure-data-lake-store-from-vms-with-restricted-connectivity"></a>Habilitando a conectividade com o Azure Data Lake Store em VMs com conectividade restrita
-Para acessar o Azure Data Lake Store nessas VMs, você deve configurá-las para acessar o endereço IP em que a conta do Azure Data Lake Store está disponível. Identifique os endereços IP das contas do Data Lake Store resolvendo os nomes DNS das contas (`<account>.azuredatalakestore.net`). Para isso, use ferramentas como **nslookup**. Abra um prompt de comando no computador e execute o comando a seguir.
+## <a name="enabling-connectivity-tooazure-data-lake-store-from-vms-with-restricted-connectivity"></a>Habilitando a conectividade tooAzure repositório Data Lake de VMs com conectividade restrita
+tooaccess do Azure Data Lake armazenar essas VMs, você deve configurar endereço IP de saudação tooaccess onde Olá conta do repositório Azure Data Lake está disponível. Você pode identificar os endereços IP de saudação para suas contas do repositório Data Lake Resolvendo nomes DNS Olá das suas contas (`<account>.azuredatalakestore.net`). Para isso, use ferramentas como **nslookup**. Abra um prompt de comando no computador e execute Olá comando a seguir.
 
     nslookup mydatastore.azuredatalakestore.net
 
-A saída é semelhante ao mostrado a seguir. O valor na propriedade **Address** é o endereço IP associado à sua conta do Data Lake Store.
+saída de Hello é semelhante a seguinte hello. Olá valor contra **endereço** propriedade é o endereço IP hello associado à sua conta do repositório Data Lake.
 
     Non-authoritative answer:
     Name:    1434ceb1-3a4b-4bc0-9c69-a0823fd69bba-mydatastore.projectcabostore.net
@@ -43,13 +43,13 @@ A saída é semelhante ao mostrado a seguir. O valor na propriedade **Address** 
 
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-nsg"></a>Habilitando a conectividade em VMs restritas usando o NSG
-Quando uma regra do NSG é usada para bloquear o acesso à Internet, é possível criar outro NSG que permite o acesso ao Endereço IP do Data Lake Store. Mais informações sobre as regras do NSG estão disponíveis em [O que é um Grupo de Segurança de Rede?](../virtual-network/virtual-networks-nsg.md). Para obter instruções sobre como criar NSGs, consulte [Como gerenciar NSGs usando o portal do Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+Quando uma regra NSG é usada tooblock acesso toohello Internet, em seguida, você pode criar outro NSG que permite acesso toohello endereço de IP de repositório Data Lake. Mais informações sobre as regras do NSG estão disponíveis em [O que é um Grupo de Segurança de Rede?](../virtual-network/virtual-networks-nsg.md). Para obter instruções sobre como ver toocreate NSGs [como toomanage NSGs usando Olá portal do Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-udr-or-expressroute"></a>Habilitando a conectividade em VMs restritas usando a UDR ou o ExpressRoute
-Quando rotas, sejam UDRs ou rotas trocadas pelo protocolo BGP, são usadas para bloquear o acesso à Internet, uma rota especial precisa ser configurada para que as VMs nessas sub-redes possam acessar os pontos de extremidade do Data Lake Store. Para obter mais informações, consulte [O que são Rotas Definidas pelo Usuário?](../virtual-network/virtual-networks-udr-overview.md). Para obter instruções sobre como criar UDRs, consulte [Criar UDRs no Gerenciador de Recursos](../virtual-network/virtual-network-create-udr-arm-ps.md).
+Quando rotas, UDRs ou trocados BGP rotas, são usadas tooblock toohello de acesso à Internet, uma rota especial deve toobe configurado de forma que as VMs nessas sub-redes podem acessar pontos de extremidade do repositório Data Lake. Para obter mais informações, consulte [O que são Rotas Definidas pelo Usuário?](../virtual-network/virtual-networks-udr-overview.md). Para obter instruções sobre como criar UDRs, consulte [Criar UDRs no Gerenciador de Recursos](../virtual-network/virtual-network-create-udr-arm-ps.md).
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-expressroute"></a>Habilitando a conectividade em VMs restritas usando o ExpressRoute
-Quando um circuito do ExpressRoute está configurado, os servidores locais podem acessar o Data Lake Store por meio do emparelhamento público. Mais detalhes sobre como configurar o emparelhamento público no ExpressRoute está disponível em [Perguntas frequentes sobre o ExpressRoute](../expressroute/expressroute-faqs.md).
+Quando um circuito de rota expressa é configurado, servidores de locais de saudação podem acessar o repositório Data Lake por meio de emparelhamento público. Mais detalhes sobre como configurar o emparelhamento público no ExpressRoute está disponível em [Perguntas frequentes sobre o ExpressRoute](../expressroute/expressroute-faqs.md).
 
 ## <a name="see-also"></a>Confira também
 * [Visão geral do Repositório Azure Data Lake](data-lake-store-overview.md)

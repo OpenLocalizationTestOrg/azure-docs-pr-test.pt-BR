@@ -1,6 +1,6 @@
 ---
-title: "Conectar Raspberry Pi (C) ao IoT do Azure - Lição 2: ferramentas do Azure (Windows) | Microsoft Docs"
-description: "Instale o Python e a interface de linha de comando do Azure (CLI do Azure) no Windows 7 e versões posteriores."
+title: "Connect Raspberry PI (C) tooAzure IoT - lição 2: ferramentas do Azure (Windows) | Microsoft Docs"
+description: "Instale o Python e hello Azure interface de linha de comando (CLI do Azure) no Windows 7 e versões posteriores."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: aa96000cb676c088a90f2b3d45c159913185a2e1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1819d61fafbee6ac42a1bea5c16437cd8bf43af9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-azure-tools-windows-7-and-later"></a>Obtenha as ferramentas do Azure (Windows 7 e superior)
 > [!div class="op_single_selector"]
@@ -30,46 +30,46 @@ ms.lasthandoff: 07/11/2017
 > * [macOS 10.10](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-mac.md)
 
 ## <a name="what-you-will-do"></a>O que você fará
-Instale o Python e a Interface de linha de comando do Azure (CLI do Azure). Se você tiver problemas, procure as soluções na [página de solução de problemas](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
+Instale o Python e hello Azure interface de linha de comando (CLI do Azure). Se você tiver problemas, procure por soluções em Olá [página de solução de problemas](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>O que você aprenderá
 Neste artigo, você aprenderá:
-* Como instalar o Python.
-* Como instalar a CLI do Azure.
+* Como tooinstall Python.
+* Como tooinstall Olá CLI do Azure.
 
 ## <a name="what-you-need"></a>O que você precisa
 * Um computador Windows com conexão com a Internet.
 * Uma assinatura ativa do Azure. Se não tiver uma conta do Azure, crie uma [conta gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 
 ## <a name="install-python"></a>Instalar o Python
-[Instale o Python](https://www.python.org/downloads/) no seu computador Windows. Você pode instalar o Python 2.7, 3.4 ou 3.5. Esse tutorial se baseia no Python 2.7. Se você já tiver instalado o Python, vá para a próxima seção e instale a CLI do Azure.
+[Instale o Python](https://www.python.org/downloads/) no seu computador Windows. Você pode instalar o Python 2.7, 3.4 ou 3.5. Esse tutorial se baseia no Python 2.7. Se você já tiver instalado o Python, vá toohello próxima seção e instale Olá CLI do Azure.
 
-Você também precisa adicionar o caminho das pastas em que python.exe e pip.exe estão instalados na variável de ambiente `PATH` do sistema. Por padrão, python.exe é instalado em `C:\Python27` e pip.exe é instalado em `C:\Python27\Scripts`.
+Você também precisa de caminho de saudação tooadd pastas Olá onde python.exe e pip.exe estão instalados toohello sistema `PATH` variável de ambiente. Por padrão, python.exe é instalado em `C:\Python27` e pip.exe é instalado em `C:\Python27\Scripts`.
 
-## <a name="install-the-azure-cli"></a>Instalar a CLI do Azure
-A CLI do Azure fornece uma experiência de linha de comando multiplataforma do Azure. Você trabalha diretamente a partir de sua linha de comando para provisionar e gerenciar recursos.
+## <a name="install-hello-azure-cli"></a>Instalar Olá CLI do Azure
+Olá CLI do Azure fornece uma experiência de linha de comando em várias plataformas para o Azure. Trabalhar diretamente no seu tooprovision de linha de comando e gerenciar recursos.
 
-Para instalar a CLI do Azure, siga estas etapas:
+Olá tooinstall CLI do Azure, siga estas etapas:
 
 1. Abra uma janela de Prompt de comando como administrador.
-2. Execute os seguintes comandos:
+2. Execute Olá comandos a seguir:
 
    ```bash
    pip install --upgrade azure-cli
    pip install --upgrade azure-cli-iot
    ```
-3. Verifique a instalação executando o comando a seguir:
+3. Verificar a instalação de saudação executando Olá comando a seguir:
 
    ```bash
    az iot -h
    ```
 
-Você verá a seguinte saída se a instalação foi bem-sucedida.
+Você verá a seguinte Olá saída se a instalação de saudação foi bem-sucedida.
 
 ![Saída que indica êxito](media/iot-hub-raspberry-pi-lessons/lesson2/az_iot_help_win.png)
 
 ## <a name="summary"></a>Resumo
-Você instalou a CLI do Azure. Sua próxima tarefa é criar sua identidade de dispositivo e Hub IoT do Azure usando a CLI do Azure.
+Você instalou Olá CLI do Azure. A próxima tarefa toocreate sua identidade de dispositivo e o hub IoT do Azure usando Olá CLI do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar seu Hub IoT e registrar seu Raspberry Pi 3](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md)

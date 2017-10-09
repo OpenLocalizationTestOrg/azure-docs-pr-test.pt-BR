@@ -1,5 +1,5 @@
 ---
-title: "Considerações de topologia de rede ao usar o Proxy de Aplicativo do Azure Active Directory | Microsoft Docs"
+title: "Considerações sobre a topologia aaaNetwork ao usar o Proxy de aplicativo do Azure Active Directory | Microsoft Docs"
 description: "Cobre as considerações de topologia de rede ao usar o Proxy de Aplicativo do Azure AD."
 services: active-directory
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.date: 07/28/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 11244e0044eef8441e3a37ab8aeff0da30dacdb8
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 9b8cdd2196efeb92a74e44dde6511f7d3091a968
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considerações de topologia de rede ao usar o Proxy de Aplicativo do Azure Active Directory
 
@@ -27,148 +27,148 @@ Este artigo explica as considerações de topologia de rede ao usar o Proxy de A
 
 ## <a name="traffic-flow"></a>Fluxo de tráfego
 
-Quando um aplicativo é publicado por meio do Proxy de Aplicativo do Azure AD, o tráfego dos usuários para os aplicativos flui por meio de três conexões:
+Quando um aplicativo é publicado por meio do Proxy de aplicativo do Azure AD, o tráfego de aplicativos de toohello usuários Olá flui três conexões:
 
-1. O usuário se conecta ao ponto de extremidade público do serviço Proxy de Aplicativo do Azure AD no Azure
-2. O serviço Proxy de Aplicativo se conecta ao conector de Proxy de Aplicativo
-3. O conector de Proxy de Aplicativo se conecta ao aplicativo de destino
+1. usuário Olá conecta toohello Proxy de aplicativo do Azure AD serviço ponto de extremidade público no Azure
+2. Olá serviço Proxy de aplicativo se conecta toohello conector de Proxy de aplicativo
+3. conector de Proxy de aplicativo Hello conecta-se o aplicativo de destino toohello
 
-![Diagrama mostrando o fluxo de tráfego de usuário para o aplicativo de destino](./media/application-proxy-network-topologies/application-proxy-three-hops.png)
+![Diagrama mostrando o fluxo de tráfego de aplicativo do usuário tootarget](./media/application-proxy-network-topologies/application-proxy-three-hops.png)
 
 ## <a name="tenant-location-and-application-proxy-service"></a>Local do locatário e serviço Proxy de Aplicativo
 
-Quando você se inscreve para um locatário do Azure AD, a região do seu locatário é determinada pelo país especificado. Quando você habilita o Proxy de Aplicativo, as instâncias do serviço Proxy de Aplicativo de seu locatário são escolhidas ou criadas na mesma região que seu locatário do Azure AD, ou na região mais próxima a ele.
+Quando você se inscrever para um locatário Azure AD, região de saudação do seu locatário é determinado pelo país Olá que você especificar. Quando você habilita o Proxy de aplicativo, instâncias de serviço de Proxy de aplicativo hello para seu locatário são escolhidas ou criadas no hello mesmo região do seu locatário do Azure AD ou Olá tooit de região mais próximo.
 
-Por exemplo, se a região do seu locatário do Azure AD é a UE (União Europeia), todos os conectores de Proxy de Aplicativo usam instâncias de serviço em datacenters do Azure na UE. Quando seus usuários acessarem aplicativos publicados, o tráfego deles passará por instâncias do serviço Proxy de Aplicativo nessa localização.
+Por exemplo, se a região do seu locatário AD do Azure é hello (união), todos os conectores de Proxy de aplicativo usam instâncias de serviço em datacenters do Azure no hello da UE. Quando seus usuários acesso de aplicativos publicados, o tráfego passa por instâncias de serviço de Proxy de aplicativo hello neste local.
 
 ## <a name="considerations-for-reducing-latency"></a>Considerações para redução da latência
 
-Todas as soluções de proxy introduzem a latência em sua conexão de rede. Não importa a solução de proxy ou VPN escolhida como sua solução de acesso remoto, ela sempre incluirá um conjunto de servidores, permitindo a conexão dentro de sua rede corporativa.
+Todas as soluções de proxy introduzem a latência em sua conexão de rede. Não importa qual proxy ou solução VPN que desejar como sua solução de acesso remoto, ele sempre inclui um conjunto de servidores, permitindo a saudação conexão tooinside sua rede corporativa.
 
-As organizações geralmente incluem pontos de extremidade do servidor em sua rede de perímetro. No entanto, com o Proxy de Aplicativo do Azure AD, o tráfego flui por meio do serviço de proxy na nuvem, enquanto os conectores residem em sua rede corporativa. Nenhuma rede de perímetro é necessária.
+As organizações geralmente incluem pontos de extremidade do servidor em sua rede de perímetro. Com o Proxy de aplicativo do AD do Azure, no entanto, o tráfego passa pelo serviço de proxy de saudação na nuvem Olá enquanto conectores Olá residem em sua rede corporativa. Nenhuma rede de perímetro é necessária.
 
-As seções a seguir contêm sugestões adicionais para ajudá-lo a reduzir a latência ainda mais. 
+seções a seguir Olá contêm sugestões adicionais toohelp reduzir ainda mais a latência. 
 
 ### <a name="connector-placement"></a>Posicionamento do conector
 
-O serviço Proxy de Aplicativo escolhe o local das instâncias para você, com base no local de seu locatário. Entretanto, você pode decidir onde instalar o conector, permitindo que você defina as características de latência de seu tráfego de rede.
+Proxy de aplicativo escolhe local Olá de instâncias para você, com base em seu local de locatário. Porém, você obterá toodecide onde tooinstall conector de hello, fornecendo Olá power toodefine Olá latência de seu tráfego de rede.
 
-Ao configurar o serviço de Proxy de Aplicativo, faça as seguintes perguntas:
+Ao configurar o serviço Proxy de aplicativo de saudação, pergunte a saudação perguntas a seguir:
 
-* Onde o aplicativo está localizado?
-* Onde está localizada a maioria dos usuários que acessam o aplicativo?
-* Onde a instância do Proxy de Aplicativo está localizada?
-* Você já tem uma conexão de rede dedicada com os data centers configurados do Azure, por exemplo, o Azure ExpressRoute ou uma VPN semelhante?
+* Onde o aplicativo hello está localizado?
+* Onde estão a maioria dos usuários que acessam o aplicativo hello localizado?
+* Onde a instância do Proxy de aplicativo hello está localizada?
+* Você já tem uma rede dedicada conexão tooAzure datacenters que configurar como o Azure ExpressRoute ou VPN semelhante?
 
-O conector tem de se comunicar com o Azure e seus aplicativos (as etapas 2 e 3 no diagrama de fluxo Tráfego), de modo que o posicionamento do conector afeta a latência dessas duas conexões. Ao avaliar o posicionamento do conector, tenha em mente os seguintes pontos:
+conector de saudação tem toocommunicate com o Azure e seus aplicativos (etapas 2 e 3 no diagrama de fluxo de tráfego de saudação), portanto Olá posicionamento de latência de saudação do hello conector afeta essas duas conexões. Ao avaliar o posicionamento de saudação do conector hello, lembre-Olá mente pontos a seguir:
 
-* Se você quiser usar a delegação restrita de Kerberos (KCD) para logon único, o conector precisará de uma linha de visão para um datacenter. Além disso, o servidor do conector deve ser ingressado no domínio.  
-* Em caso de dúvida, instale o conector mais próximo ao aplicativo.
+* Se você quiser toouse restrita de Kerberos (KCD) para o logon único, o conector Olá precisa um data center tooa de linha de visão. Além disso, o servidor de conector de saudação precisa toobe integrado ao domínio.  
+* Em caso de dúvida, instale o aplicativo de toohello hello conector mais próximo.
 
-### <a name="general-approach-to-minimize-latency"></a>Abordagem geral para minimizar a latência
+### <a name="general-approach-toominimize-latency"></a>Latência de toominimize abordagem geral
 
-Você pode minimizar a latência do tráfego de ponta a ponta otimizando cada conexão de rede. Cada conexão pode ser otimizada com:
+Você pode minimizar a latência de saudação do tráfego de ponta a ponta Olá otimizando a cada conexão de rede. Cada conexão pode ser otimizada com:
 
-* Reduzindo a distância entre as duas extremidades do salto.
-* Escolhendo a rede certa para percorrer. Por exemplo, percorrer uma rede privada, em vez da Internet pública, pode ser mais rápido devido aos links dedicados.
+* Reduzindo a distância de saudação entre duas extremidades de saudação do salto hello.
+* Escolhendo Olá tootraverse de rede correto. Por exemplo, percorrendo uma rede privada em vez de saudação Internet pública pode ser mais rápida, devido a toodedicated links.
 
-Se você tiver um link dedicado de VPN ou do ExpressRoute entre o Azure e sua rede corporativa, convém usá-lo.
+Se você tiver um link dedicado de rota expressa ou VPN entre o Azure e sua rede corporativa, convém toouse que.
 
 ## <a name="focus-your-optimization-strategy"></a>Concentrar-se em sua estratégia de otimização
 
-Não há muito que você pode fazer para controlar a conexão entre os usuários e o serviço Proxy de Aplicativo. Os usuários podem acessar seus aplicativos de uma rede doméstica, de uma cafeteria ou de um país diferente. Em vez disso, você pode otimizar as conexões do serviço Proxy de Aplicativo para os conectores de Proxy de Aplicativo para os aplicativos. Considere a possibilidade de incorporar os padrões a seguir em seu ambiente.
+Não há muito que você pode fazer a conexão de saudação toocontrol entre usuários e Olá serviço Proxy de aplicativo. Os usuários podem acessar seus aplicativos de uma rede doméstica, de uma cafeteria ou de um país diferente. Em vez disso, você pode otimizar as conexões de saudação do serviço de Proxy de aplicativo hello toohello Proxy de aplicativo conectores toohello aplicativos. Considere incorporar Olá padrões em seu ambiente a seguir.
 
-### <a name="pattern-1-put-the-connector-close-to-the-application"></a>Padrão 1: colocar o conector perto do aplicativo
+### <a name="pattern-1-put-hello-connector-close-toohello-application"></a>Padrão de 1: Put Olá conector toohello fechar aplicativo
 
-Coloque o conector perto do aplicativo de destino na rede do cliente. Essa configuração minimiza a etapa 3 no diagrama de topografia porque o conector e o aplicativo estão próximos. 
+Local Olá conector toohello fechar aplicativo de destino na rede de cliente hello. Essa configuração minimiza a etapa 3 no diagrama de topografia hello, como aplicativos e o conector de saudação são fechar. 
 
-Se seu conector precisar de uma linha de visão para o controlador de domínio, então esse padrão será vantajoso. A maioria de nossos clientes usa esse padrão, porque ele funciona bem para a maioria dos cenários. Esse padrão também pode ser combinado com o padrão 2 para otimizar o tráfego entre o serviço e o conector.
+Se seu conector precisa de um controlador de domínio de toohello de linha de visão, é vantajoso esse padrão. A maioria de nossos clientes usa esse padrão, porque ele funciona bem para a maioria dos cenários. Esse padrão também pode ser combinado com o tráfego de toooptimize 2 padrão entre o serviço de saudação e conector hello.
 
 ### <a name="pattern-2-take-advantage-of-expressroute-with-public-peering"></a>Padrão 2: Aproveitar o ExpressRoute com o emparelhamento público
 
-Se você tiver configurado com o emparelhamento público do ExpressRoute, você poderá usar a conexão do ExpressRoute mais rápida para o tráfego entre o Proxy de Aplicativo e o conector. O conector ainda está em sua rede, perto do aplicativo.
+Se você tiver configurado com o emparelhamento público de rota expressa, você pode usar a conexão de rota expressa mais rápido Olá para o tráfego entre o Proxy de aplicativo e o conector de saudação. conector Olá ainda está na sua rede, o aplicativo fechar toohello.
 
 ### <a name="pattern-3-take-advantage-of-expressroute-with-private-peering"></a>Padrão 3: Aproveitar o ExpressRoute com o emparelhamento privado
 
-Se você tiver uma configuração de VPN ou ExpressRoute dedicada com emparelhamento privado entre o Azure e sua rede corporativa, terá outra opção. Nessa configuração, a rede virtual no Azure é geralmente considerada uma extensão da rede corporativa. Portanto, você pode instalar o conector no data center do Azure e ainda atender aos requisitos de baixa latência da conexão entre o aplicativo e o conector.
+Se você tiver uma configuração de VPN ou ExpressRoute dedicada com emparelhamento privado entre o Azure e sua rede corporativa, terá outra opção. Nessa configuração, a rede virtual Olá no Azure geralmente é considerada uma extensão da rede corporativa hello. Então você pode instalar o conector Olá Olá datacenter do Azure e ainda atender aos requisitos de baixa latência de saudação de conexão do conector para o aplicativo hello.
 
-A latência não é comprometida, pois o tráfego está fluindo por uma conexão dedicada. Você também obtém uma menor latência de serviço para o conector do Proxy de Aplicativo porque o conector está instalado em um datacenter do Azure perto da localização do locatário do Azure AD.
+A latência não é comprometida, pois o tráfego está fluindo por uma conexão dedicada. Você também obtém maior latência de conector de serviço de Proxy de aplicativo porque o conector hello está instalado em tooyour de fechar um datacenter do Azure local do locatário do AD do Azure.
 
 ![Diagrama mostrando o conector instalado em um datacenter do Azure](./media/application-proxy-network-topologies/application-proxy-expressroute-private.png)
 
 ### <a name="other-approaches"></a>Outras abordagens
 
-Embora o foco deste artigo é a instalação, você também pode alterar o posicionamento do aplicativo para obter os melhores características de latência.
+Embora Olá foco deste artigo é a instalação, você também pode alterar posicionamento Olá características tooget latência melhor aplicativo hello.
 
-As organizações estão cada vez mais migrando suas redes para ambientes hospedados. Isso permite colocar os aplicativos em um ambiente hospedado que também faz parte da rede corporativa, e ainda ser dentro do domínio. Nesse caso, os padrões discutidos nas seções anteriores podem ser aplicados para o novo local do aplicativo. Se você estiver considerando essa opção, consulte [Serviços de Domínio do Azure AD](../active-directory-domain-services/active-directory-ds-overview.md).
+As organizações estão cada vez mais migrando suas redes para ambientes hospedados. Isso permite tooplace seus aplicativos em um ambiente hospedado que também faz parte de sua rede corporativa e ainda estar dentro do domínio de saudação. Nesse caso, padrões Olá abordados Olá anterior seções podem ser aplicado toohello novo aplicativo local. Se você estiver considerando essa opção, consulte [Serviços de Domínio do Azure AD](../active-directory-domain-services/active-directory-ds-overview.md).
 
-Além disso, considere a possibilidade de organizar seus conectores usando [grupos de conectores](active-directory-application-proxy-connectors.md) para ter como destino aplicativos que estejam em locais e redes diferentes. 
+Além disso, considere a possibilidade de organizar seus conectores usando [grupos de conector](active-directory-application-proxy-connectors.md) tootarget aplicativos que estão em diferentes locais e redes. 
 
 ## <a name="common-use-cases"></a>Casos de uso comuns
 
-Nesta seção, veremos alguns cenários comuns. Suponha que o locatário do Azure AD (e, portanto, ponto de extremidade de serviço de proxy) está localizado nos Estados Unidos (EUA). As considerações discutidas nesses casos de uso também se aplicam a outras regiões pelo mundo.
+Nesta seção, veremos alguns cenários comuns. Suponha que Olá locatário do Azure AD (e, portanto, o ponto de extremidade de serviço proxy) está localizado no hello United States (US). Olá considerações discutidas esses casos de uso também se aplicam a regiões tooother mundo hello.
 
 Nesses cenários, chamamos cada conexão de um "salto" e os numeramos para uma discussão mais fácil:
 
-- **Salto 1**: usuário para o serviço Proxy de Aplicativo
-- **Salto 2**: Serviço de Proxy de Aplicativo para o conector de Proxy de Aplicativo
-- **Salto 3**: Conector de Proxy de Aplicativo para o aplicativo de destino 
+- **Saltar 1**: usuário toohello serviço Proxy de aplicativo
+- **Saltar 2**: conector de Proxy de aplicativo de serviço toohello de Proxy de aplicativo
+- **Saltar 3**: aplicativo de destino do Proxy de aplicativo conector toohello 
 
 ### <a name="use-case-1"></a>Caso de uso 1
 
-**Cenário:** o aplicativo está na rede da organização nos EUA, com usuários na mesma região. Não há um ExpressRoute ou uma VPN entre o data center do Azure e a rede corporativa.
+**Cenário:** Olá aplicativo é na rede de uma organização da saudação nós, com usuários em Olá mesma região. Nenhuma rota expressa ou VPN existe entre hello datacenter do Azure e a rede corporativa hello.
 
-**Recomendação:** siga o padrão 1, explicado na seção anterior. Para melhorar a latência, considere o uso do ExpressRoute, se necessário.
+**Recomendação:** siga padrão 1, explicado na seção anterior hello. Para melhorar a latência, considere o uso do ExpressRoute, se necessário.
 
-Este é um padrão simples. Você otimiza o salto 3 colocando o conector perto do aplicativo. Essa também é uma opção natural, pois o conector normalmente é instalado com uma linha de visão para o aplicativo e com o data center para executar operações KCD.
+Este é um padrão simples. Otimizar o salto 3 colocando conector Olá próximo aplicativo hello. Isso também é uma opção natural, porque o conector Olá geralmente é instalado com a linha de visão toohello aplicativo e toohello tooperform KCD operações do data center.
 
-![Diagrama mostrando que usuários, proxy, conector e aplicativo estão todos nos EUA](./media/application-proxy-network-topologies/application-proxy-pattern1.png)
+![Diagrama mostrando o que os usuários, proxy, conector e aplicativo estão todos em Olá nos](./media/application-proxy-network-topologies/application-proxy-pattern1.png)
 
 ### <a name="use-case-2"></a>Caso de uso 2
 
-**Cenário:** o aplicativo está na rede da organização nos EUA, com usuários distribuídos globalmente. Não há um ExpressRoute ou uma VPN entre o data center do Azure e a rede corporativa.
+**Cenário:** Olá aplicativo é na rede de uma organização da saudação nós, com usuários distribuídos globalmente. Nenhuma rota expressa ou VPN existe entre hello datacenter do Azure e a rede corporativa hello.
 
-**Recomendação:** siga o padrão 1, explicado na seção anterior. 
+**Recomendação:** siga padrão 1, explicado na seção anterior hello. 
 
-Novamente, o padrão mais comum é otimizar o salto 3, onde você coloca o conector perto do aplicativo. O salto 3 não costuma ser caro, se tudo estiver dentro da mesma região. No entanto, o salto 1 poderá ser mais caro dependendo de onde o usuário estiver, pois os usuários pelo mundo precisarão acessar a instância do Proxy de Aplicativo nos EUA. Vale a pena observar que qualquer solução de proxy tem características semelhantes sobre os usuários que estão sendo distribuídos globalmente.
+Novamente, o padrão comum de saudação é toooptimize salto 3, onde você coloca o conector Olá próximo aplicativo hello. Salto 3 não será normalmente caro, se ele for Olá todos no mesmo região. No entanto, salto 1 pode ser mais caro, dependendo de onde está o usuário hello, pois os usuários em Olá, mundo devem acessar a instância do Proxy de aplicativo hello em Olá dos EUA. Vale a pena observar que qualquer solução de proxy tem características semelhantes sobre os usuários que estão sendo distribuídos globalmente.
 
-![Diagrama mostrando que os usuários estão distribuídos globalmente, mas o proxy, o conector e o aplicativo estão nos EUA](./media/application-proxy-network-topologies/application-proxy-pattern2.png)
+![Diagrama mostrando que os usuários são distribuídos globalmente, mas o aplicativo, o conector e o proxy de saudação estão em Olá dos EUA](./media/application-proxy-network-topologies/application-proxy-pattern2.png)
 
 ### <a name="use-case-3"></a>Caso de uso 3
 
-**Cenário:** o aplicativo está na rede da organização nos EUA. Há a ExpressRoute com emparelhamento público entre o Azure e a rede corporativa.
+**Cenário:** aplicativo hello é na rede de uma organização da saudação nos. Rota expressa com emparelhamento público existe entre o Azure e hello rede corporativa.
 
-**Recomendação:** siga os padrões 1 e 2, explicados na seção anterior.
+**Recomendação:** siga padrões 1 e 2, como explicado na seção anterior hello.
 
-Primeiro, coloque o conector mais próximo possível do aplicativo. O sistema usará automaticamente o ExpressRoute para o salto 2. 
+Primeiro, coloque o conector hello mais próximo possível toohello aplicativo. Em seguida, Olá usar ExpressRoute de salto 2. 
 
-Se o link de ExpressRoute estiver usando o emparelhamento público, o tráfego entre o proxy e o conector flui por esse link. O salto 2 tem latência otimizada.
+Se estiver usando o link de rota expressa Olá emparelhamento público, fluxos de tráfego Olá entre o proxy de saudação e conector Olá nesse link. O salto 2 tem latência otimizada.
 
-![Diagrama mostrando o ExpressRoute entre o proxy e o conector](./media/application-proxy-network-topologies/application-proxy-pattern3.png)
+![Diagrama mostrando a rota expressa entre o conector e o proxy Olá](./media/application-proxy-network-topologies/application-proxy-pattern3.png)
 
 ### <a name="use-case-4"></a>Caso de uso 4
 
-**Cenário:** o aplicativo está na rede da organização nos EUA. Há a ExpressRoute com emparelhamento privado entre o Azure e a rede corporativa.
+**Cenário:** aplicativo hello é na rede de uma organização da saudação nos. Rota expressa com emparelhamento privado existe entre o Azure e hello rede corporativa.
 
-**Recomendação:** siga o padrão 3, explicado na seção anterior.
+**Recomendação:** siga padrão 3, explicado na seção anterior hello.
 
-Coloque o conector no data center do Azure que está conectado à rede corporativa por meio de emparelhamento privado do ExpressRoute. 
+Coloca o conector de saudação em Olá datacenter do Azure que está conectada toohello a rede corporativa por meio de emparelhamento privado da rota expressa. 
 
-O conector pode ser colocado no datacenter do Azure. Como o conector ainda tem uma linha de visão para o aplicativo e o data center por meio da rede privada, o salto 3 permanece otimizado. Além disso, o salto 2 é ainda mais otimizado.
+conector de saudação pode ser colocado em Olá datacenter do Azure. Como conector Olá ainda tem um aplicativo de toohello de linha de visão e Olá datacenter por meio da rede privada hello, salto 3 permanece otimizado. Além disso, o salto 2 é ainda mais otimizado.
 
-![Diagrama mostrando o conector em um datacenter do Azure e o ExpressRoute entre o conector e o aplicativo](./media/application-proxy-network-topologies/application-proxy-pattern4.png)
+![Diagrama mostrando o conector de saudação em um datacenter do Azure e rota expressa entre o aplicativo e o conector Olá](./media/application-proxy-network-topologies/application-proxy-pattern4.png)
 
 ### <a name="use-case-5"></a>Caso de uso 5
 
-**Cenário:** o aplicativo está na rede da organização na UE, com a instância do Proxy de Aplicativo e a maioria dos usuários nos Estados Unidos.
+**Cenário:** aplicativo hello é na rede de uma organização da saudação da Europa, com a instância do Proxy de aplicativo hello e a maioria dos usuários em Olá nos.
 
-**Recomendação:** coloque o conector próximo ao aplicativo. Como os usuários dos Estados Unidos estão acessando uma instância do Proxy de Aplicativo que está na mesma região, o salto 1 não é muito caro. O salto 3 está otimizado. Considere a possibilidade de usar o ExpressRoute para otimizar o salto 2. 
+**Recomendação:** conector de saudação do local próximo aplicativo hello. Como os usuários dos EUA estão acessando uma instância do Proxy de aplicativo que acontece toobe em Olá mesma região, salto 1 não é muito caro. O salto 3 está otimizado. Considere o uso de rota expressa toooptimize salto 2. 
 
-![Diagrama mostrando o proxy e usuários nos EUA, com o conector e o aplicativo na UE](./media/application-proxy-network-topologies/application-proxy-pattern5b.png)
+![Diagrama mostrando o usuários e proxy Olá dos EUA, com conector hello e aplicativo hello da Europa](./media/application-proxy-network-topologies/application-proxy-pattern5b.png)
 
-Você também pode considerar o uso de uma outra variante nessa situação. Se a maioria dos usuários na organização estiver nos EUA, provavelmente sua rede se “estende” também para os EUA. Coloque o conector nos EUA e use a linha de rede corporativa interna dedicada para o aplicativo na UE. Desta forma, os saltos 2 e 3 são otimizados.
+Você também pode considerar o uso de uma outra variante nessa situação. Se a maioria dos usuários na organização Olá estiverem em Olá nós, a probabilidade é que sua rede estende toohello nos também. Colocar o conector de saudação em Olá dos EUA e use o aplicativo de toohello de linha de rede corporativa interna de hello dedicado no hello da Europa. Desta forma, os saltos 2 e 3 são otimizados.
 
-![Diagrama mostrando os usuários, o proxy e o conector nos EUA e o aplicativo na UE](./media/application-proxy-network-topologies/application-proxy-pattern5c.png)
+![Diagrama mostrando os usuários, o proxy e o conector em Olá dos EUA, o aplicativo hello da Europa](./media/application-proxy-network-topologies/application-proxy-pattern5c.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

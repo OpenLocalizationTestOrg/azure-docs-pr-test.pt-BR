@@ -1,6 +1,6 @@
 ---
-title: "Atribuir licenças a um grupo no Azure Active Directory | Microsoft Docs"
-description: "Como atribuir licenças a usuários com o licenciamento de grupo do Azure Active Directory"
+title: "grupo de tooa aaaAssign licenças no Active Directory do Azure | Microsoft Docs"
+description: "Como tooassign licenças toousers por meio de licenciamento de grupo do Active Directory do Azure"
 services: active-directory
 keywords: Licenciamento do AD do Azure
 documentationcenter: 
@@ -16,95 +16,95 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 42b18eab9cb419e6ada72ba72dc8be8d7f7b2eed
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 148fe1bdd6c7f477a00c1f76bd8fa7d29c7b1f2c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Atribuir licenças a usuários por meio da associação a grupos no Azure Active Directory
+# <a name="assign-licenses-toousers-by-group-membership-in-azure-active-directory"></a>Atribuir licenças toousers pela associação de grupo no Active Directory do Azure
 
-Este artigo descreve como atribuir licenças de produtos para um grupo de usuários no Azure AD (Azure Active Directory) e, em seguida, verificar se eles estão licenciados corretamente.
+Este artigo o orienta por meio de atribuição de grupo de tooa de licenças de produto de usuários no Azure Active Directory (AD do Azure) e, em seguida, verificar se estão licenciados corretamente.
 
-Neste exemplo, o locatário contém um grupo de segurança chamado **Departamento de RH**. Esse grupo inclui todos os membros do departamento de recursos humanos (cerca de 1.000 usuários). Você deseja atribuir licenças do Office 365 Enterprise E3 para todo o departamento. O serviço Yammer Enterprise, que está incluído no produto, precisa ser desabilitado temporariamente até que o departamento esteja pronto para começar a usá-lo. Você também deseja implantar licenças do Enterprise Mobility + Security para o mesmo grupo de usuários.
+Neste exemplo, o locatário Olá contém um grupo de segurança chamado **departamento de RH**. Esse grupo inclui todos os membros do departamento de recursos humanos da saudação (cerca de 1.000 usuários). Você deseja tooassign Office 365 Enterprise E3 licenças toohello todo o departamento. Olá serviço Yammer Enterprise que está incluído no produto Olá deve ser desabilitada temporariamente até que o departamento de saudação está pronto toostart usá-lo. Você também deseja toodeploy mobilidade corporativa + segurança licenças toohello mesmo grupo de usuários.
 
 > [!NOTE]
-> Alguns serviços da Microsoft não estão disponíveis em todos os locais. Para que uma licença possa ser atribuída a um usuário, o administrador precisa especificar a propriedade “Local de uso” para o usuário.
+> Alguns serviços da Microsoft não estão disponíveis em todos os locais. Usuário tooa possa ser atribuídos uma licença, o administrador de Olá tem propriedade de local de uso toospecify Olá no usuário hello.
 
-> Para a atribuição de licenças de grupo, qualquer usuário sem um local de uso especificado herdará o local do diretório. Se você tiver usuários em vários locais, é recomendável sempre definir o local de uso como parte de seu fluxo de criação do usuário no Azure AD (por exemplo, por meio da configuração do AAD Connect) – isso garantirá que o resultado da atribuição de licenças sempre seja correto e que os usuários não recebam serviços em locais que não são permitidos.
+> Para atribuição de grupo de licença, todos os usuários sem um local de uso especificado herdará o local de saudação do diretório de saudação. Se você tiver usuários em vários locais, recomendamos que você sempre defina local de uso como parte de seu fluxo de criação de usuário no AD do Azure (por exemplo, por meio de configuração do AAD Connect) - que garantirá o resultado de saudação da atribuição de licença sempre está correto e os usuários não receberão serviços em locais que não são permitidos.
 
-## <a name="step-1-assign-the-required-licenses"></a>Etapa 1: Atribuir as licenças necessárias
+## <a name="step-1-assign-hello-required-licenses"></a>Etapa 1: Atribuir licenças Olá necessária
 
-1. Entre no [**portal do Azure**](https://portal.azure.com) com uma conta Administrador. Para gerenciar licenças, a conta precisa ter função de administrador global ou de administrador da conta de usuário.
+1. Entrar toohello [ **portal do Azure** ](https://portal.azure.com) com uma conta de administrador. licenças de toomanage, conta Olá deve ser um administrador de conta de usuário ou função de administrador global.
 
-2. Selecione **Mais serviços** no painel de navegação do lado esquerdo e selecione **Azure Active Directory**. Você pode adicionar essa folha aos Favoritos ou fixá-la no painel do portal.
+2. Selecione **mais serviços** Olá painel de navegação esquerdo e, em seguida, selecione **Active Directory do Azure**. Você pode adicionar esse tooFavorites folha ou fixá-lo toohello painel do portal.
 
-3. Sobre o **Azure Active Directory** folha, selecione **licenças**. Isso abrirá uma folha no qual você pode ver e gerenciar todos os produtos licenciados no locatário.
+3. Em Olá **Active Directory do Azure** folha, selecione **licenças**. Isso abrirá uma folha de onde você pode ver e gerenciar todos os produtos licenciados por locatário hello.
 
-4. Em **todos os produtos**, selecione o Office 365 Enterprise E3 e o Enterprise Mobility + Security selecionando os nomes de produto. Para iniciar a atribuição, selecione **Atribuir** na parte superior da folha.
+4. Em **todos os produtos**, selecione o Office 365 Enterprise E3 e mobilidade corporativa + segurança selecionando nomes de produto hello. atribuição de saudação toostart, selecione **atribuir** na parte superior de saudação da folha de saudação.
 
    ![Todos os produtos, atribuir licença](media/active-directory-licensing-group-assignment-azure-portal/all-products-assign.png)
 
-5. Na folha **Atribuir licença**, clique em **Usuários e grupos** para abrir a folha de **Usuários e grupos**. Procure o nome do grupo *departamento de RH*, selecione o grupo e, em seguida, certifique-se de confirmar clicando **selecione** na parte inferior da folha.
+5. Em Olá **atribuir licenças** folha, clique em **usuários e grupos** tooopen Olá **usuários e grupos** folha. Pesquisa de nome de grupo Olá *departamento de RH*, selecione o grupo hello e, em seguida, ser tooconfirm se clicando **selecione** na parte inferior da saudação da folha de saudação.
 
    ![Selecione um grupo](media/active-directory-licensing-group-assignment-azure-portal/select-a-group.png)
 
-6. Na folha **Atribuir licença**, clique em **Opções de atribuição (opcionais)**, que exibe todos os planos de serviço incluídos nos dois produtos que foram selecionados anteriormente. Localize **Yammer Enterprise** e **desative** para desabilitar esse serviço de licença do produto. Confirme clicando em **OK** na parte inferior das **opções de Atribuição**.
+6. Em Olá **atribuir licenças** folha, clique em **opções de atribuição (opcionais)**, que exibe todos os planos de serviço incluídos no hello dois produtos são selecionados anteriormente. Localizar **Yammer Enterprise** e ativá-la **Off** toodisable do serviço de licença do produto hello. Confirmar clicando **Okey** na parte inferior de saudação do **opções atribuição**.
 
    ![Opções de atribuição](media/active-directory-licensing-group-assignment-azure-portal/assignment-options.png)
 
-7. Para concluir a atribuição, na folha **Atribuir licença**, clique em **Atribuir** na parte inferior da folha.
+7. atribuição de saudação toocomplete, em Olá **atribuir licenças** folha, clique em **atribuir** na parte inferior da saudação da folha de saudação.
 
-8. Uma notificação é exibida no canto superior direito mostrando o status e o resultado do processo. Se a atribuição para o grupo não pode ser concluída (por exemplo, devido a licenças já existentes no grupo), clique na notificação para exibir detalhes da falha.
+8. É exibida uma notificação no canto superior direito de saudação que mostra o status de saudação e o resultado do processo de saudação. Se o grupo de toohello Olá atribuição não pôde ser concluído (por exemplo, devido a licenças já existentes no grupo de saudação), clique em detalhes de tooview Olá notificação de falha de saudação.
 
-Agora podemos ter especificado um modelo de licença no grupo de departamento de RH. Um processo em segundo plano no Azure AD foi iniciado para processar todos os membros existentes do grupo. Essa operação inicial pode levar algum tempo, dependendo do tamanho atual do grupo. Na próxima etapa, descreveremos como verificar se o processo foi concluído e como determinar se atenção adicional é necessária para resolver problemas.
+Agora, especificamos um modelo de licença para o grupo de saudação do departamento de RH. Um processo em segundo plano no AD do Azure foi iniciada tooprocess todos os membros desse grupo existentes. Esta operação inicial pode levar algum tempo, dependendo do tamanho atual de saudação do grupo de saudação. Na próxima etapa de Olá, vamos descrevem como tooverify esse processo Olá foi concluído e determinar se atenção adicional é necessário tooresolve problemas.
 
 > [!NOTE]
-> A mesma atribuição pode ser iniciada a partir de um local alternativo: **Usuários e grupos** no Azure AD. Vá para **Azure Active Directory** > **Usuários e grupos** > **Todos os grupos**. Localize o grupo, selecione-o e acesse a guia **Licenças**. O botão **Atribuir** na parte superior da folha abrirá a folha de atribuição de licenças.
+> Você pode iniciar Olá mesma atribuição de um local alternativo: **usuários e grupos** no AD do Azure. Vá muito**Active Directory do Azure** > **usuários e grupos** > **todos os grupos de**. Localize o grupo de saudação, selecioná-la e ir toohello **licenças** Olá guia **atribuir** botão na parte superior da folha de saudação abre a folha de atribuição de licença de saudação.
 
-## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Etapa 2: Verificar se a atribuição inicial foi concluída
+## <a name="step-2-verify-that-hello-initial-assignment-has-finished"></a>Etapa 2: Verificar se a atribuição de saudação inicial foi concluída
 
-1. Vá para **Azure Active Directory** > **Usuários e grupos** > **Todos os grupos**. Localize o grupo do **Departamento de RH** cujas licenças foram atribuídas.
+1. Vá muito**Active Directory do Azure** > **usuários e grupos** > **todos os grupos de**. Em seguida, localize Olá **departamento de RH** licenças atribuídas ao grupo.
 
-2. Sobre o **departamento de RH** folha de grupo, selecione **licenças**. Isso lhe permite confirmar rapidamente se as licenças foram totalmente atribuídas a usuários e se houve erros que exigem atenção. As informações a seguir estão disponíveis:
+2. Em Olá **departamento de RH** folha de grupo, selecione **licenças**. Isso permite confirmar rapidamente se licenças tiverem sido atribuídas totalmente toousers e se houver erros que você precisa toolook em. Olá informações a seguir está disponível:
 
-   - Lista de licenças de produtos que estão atualmente atribuídas ao grupo. Selecione uma entrada para mostrar a serviços específicos que foram habilitada e fazer alterações.
+   - Lista de licenças de produtos que estão atualmente atribuídos toohello grupo. Selecione uma entrada tooshow Olá serviços específicos que foram habilitados e toomake é alterado.
 
-   - Status das alterações mais recentes de licença que foram feitas para o grupo (se as alterações estão sendo processadas ou o processamento foi concluído para todos os membros de usuário).
+   - Status da saudação mais recente licença alterações feitas toohello grupo (se alterações Olá estão sendo processadas ou se a conclusão do processamento de todos os membros de usuário).
 
-   - Informações sobre os usuários que estão em um estado de erro porque não foi possível atribuir licenças a eles.
+   - Informações sobre os usuários que estão em um estado de erro porque não podem ser atribuídas a licenças toothem.
 
    ![Opções de atribuição](media/active-directory-licensing-group-assignment-azure-portal/assignment-errors.png)
 
-3. Confira informações mais detalhadas sobre a licença de processamento em **Azure Active Directory** > **Usuários e grupos** > *Nome do grupo* > **Logs de auditoria**. Observe as seguintes atividades:
+3. Confira informações mais detalhadas sobre a licença de processamento em **Azure Active Directory** > **Usuários e grupos** > *Nome do grupo* > **Logs de auditoria**. Observe Olá atividades a seguir:
 
-   - Atividade: **começar a aplicar a licença de grupo com base para usuários**. Isso é registrado quando o sistema identifica a alteração de atribuição de licença no grupo e começa a aplicá-la a todos os membros de usuário. Ele contém informações sobre a alteração foi feita.
+   - Atividade: **começar a aplicar toousers de licença de grupo com base em**. Isso é registrado quando o sistema Olá pega Olá alterações de atribuição de licença no grupo de saudação e inicia aplicá-la tooall membros de usuário. Ele contém informações sobre Olá alteração foi feita.
 
-   - Atividade: **terminar de aplicar a licença de grupo com base para usuários**. Isso é registrado quando o sistema conclui o processamento de todos os usuários no grupo. Ele contém um resumo de quantos usuários foram processados com êxito e quantos usuários não puderam ter licenças de grupo atribuídas.
+   - Atividade: **concluir a aplicação toousers de licença de grupo com base em**. Isso é registrado quando o sistema Olá termina de processar todos os usuários no grupo de saudação. Ele contém um resumo de quantos usuários foram processados com êxito e quantos usuários não puderam ter licenças de grupo atribuídas.
 
-   [Leia esta seção](./active-directory-licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) para saber mais sobre como logs de auditoria podem ser usados para analisar alterações feitas pelo licenciamento baseado em grupo.
+   [Leia esta seção](./active-directory-licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) toolearn mais informações sobre como os logs de auditoria podem ser tooanalyze usado alterações feitas pelo licenciamento baseado em grupo.
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Etapa 3: verificar problemas de licença e resolvê-los
 
-1. Vá para **Azure Active Directory** > **Usuários e grupos** > **Todos os grupos** e localize o grupo do **Departamento de RH** ao qual as licenças foram atribuídas.
-2. Sobre o **departamento de RH** folha de grupo, selecione **licenças**. A notificação sobre a folha mostra que há 10 usuários cujas licenças não puderam ser atribuídas. Clicar nela abre uma lista de todos os usuários com um estado de erro para esse grupo.
-3. A coluna **Atribuições com falha** informa que ambas as licenças de produtos não puderam ser atribuídas aos usuários. A coluna **Principal motivo para falha** contém a causa da falha. Nesse caso, **Planos de serviço conflitante**.
+1. Vá muito**Active Directory do Azure** > **usuários e grupos** > **todos os grupos de**e localize Olá **departamento de RH**licenças atribuídas ao grupo.
+2. Em Olá **departamento de RH** folha de grupo, selecione **licenças**. notificação de saudação na parte superior da folha de saudação mostra que há 10 usuários que não foi possível atribuir licenças para. Clicar nela abre uma lista de todos os usuários com um estado de erro para esse grupo.
+3. Olá **falha atribuições** coluna indica que ambas as licenças de produto não foi possível atribuir usuários toohello. Olá **principais o motivo da falha** coluna contém causa falha Olá Olá. Nesse caso, **Planos de serviço conflitante**.
 
    ![Atribuições com falha](media/active-directory-licensing-group-assignment-azure-portal/failed-assignments.png)
 
-4. Selecione um usuário para abrir a folha **Licenças**. Esta folha mostra todas as licenças que estão atualmente atribuídas ao usuário. Neste exemplo, o usuário tem a licença Office 365 Enterprise E1 herdada do grupo **Usuários do quiosque**. Isso está em conflito com a licença E3 que o sistema tentou aplicar a partir do grupo **Departamento de RH**. Como resultado, nenhuma das licenças do grupo foram atribuídas ao usuário.
+4. Selecione uma saudação do usuário tooopen **licenças** folha. Esta folha mostra todas as licenças atribuídas atualmente toohello usuário. Neste exemplo, o usuário de saudação tem licença de saudação do Office 365 Enterprise E1 que foi herdada de saudação **os usuários do quiosque** grupo. Isso está em conflito com licença Olá E3 Olá tooapply sistema tentativa de saudação **departamento de RH** grupo. Como resultado, nenhuma das licenças de saudação do grupo recebeu toohello usuário.
 
    ![Exibir as licenças para um usuário](media/active-directory-licensing-group-assignment-azure-portal/user-license-view.png)
 
-5. Para resolver este conflito, podemos remover o usuário do grupo **Usuários do quiosque**. Após a alteração do Azure AD processa o **departamento de RH** licenças são atribuídas corretamente.
+5. toosolve este conflito, remover usuário Olá Olá **os usuários do quiosque** grupo. Depois que o AD do Azure processa alterações Olá, Olá **departamento de RH** licenças são atribuídas corretamente.
 
    ![Licença atribuída corretamente](media/active-directory-licensing-group-assignment-azure-portal/license-correctly-assigned.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o conjunto de recursos de gerenciamento de licenças por meio de grupos, consulte os artigos a seguir:
+toolearn mais sobre o recurso de saudação definida para o gerenciamento de licenças por meio de grupos, consulte Olá artigos a seguir:
 
 * [O que é o licenciamento baseado em grupo no Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
 * [Identificar e resolver problemas de licença para um grupo no Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
-* [Como migrar usuários individuais licenciados para licenciamento baseado em grupo no Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
+* [Como indivíduo toomigrate licenciado usuários licenciamento no Azure Active Directory com base em toogroup](active-directory-licensing-group-migration-azure-portal.md)
 * [Cenários adicionais de licenciamento baseado em grupo do Azure Active Directory](active-directory-licensing-group-advanced.md)

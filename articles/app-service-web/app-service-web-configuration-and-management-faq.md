@@ -1,6 +1,6 @@
 ---
-title: "Perguntas frequentes de configuração para aplicativos web do Azure | Microsoft Docs"
-description: "Obtenha respostas para perguntas frequentes sobre problemas de configuração e gerenciamento para a funcionalidade do Aplicativos Web do Serviço de Aplicativo do Azure."
+title: aaaConfiguration perguntas frequentes para aplicativos web do Azure | Microsoft Docs
+description: "Obtenha respostas toofrequently perguntas frequentes sobre problemas de configuração e gerenciamento de recursos de aplicativos Web de saudação do serviço de aplicativo do Azure."
 services: app-service\web
 documentationcenter: 
 author: genlin
@@ -15,161 +15,161 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/10/2017
 ms.author: genli
-ms.openlocfilehash: 8465454ac95150a5952039ff13733e90a5ca018d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 5aa405582813291a4aaf144d2f821ecb20a5edcb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre configuração e gerenciamento de aplicativos Web no Azure
 
-Este artigo apresenta perguntas frequentes (FAQs) sobre problemas de configuração e gerenciamento para a [funcionalidade do Aplicativos Web do Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/web/).
+Este artigo possui respostas toofrequently perguntas frequentes (FAQs) sobre problemas de configuração e gerenciamento de saudação [recurso de aplicativos Web do serviço de aplicativo do Azure](https://azure.microsoft.com/services/app-service/web/).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="are-there-limitations-i-should-be-aware-of-if-i-want-to-move-app-service-resources"></a>Há limitações que devo estar atento se eu quiser mover os recursos do Serviço de Aplicativo?
+## <a name="are-there-limitations-i-should-be-aware-of-if-i-want-toomove-app-service-resources"></a>Há limitações que deve estar atento se desejar toomove recursos de serviço de aplicativo?
 
-Se você planeja mover os recursos do Serviço de Aplicativo para um novo grupo de recursos ou assinatura, há algumas limitações a serem consideradas. Para saber mais informações, consulte [Limitações do Serviço de Aplicativo](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations).
+Se você planejar toomove do serviço de aplicativo recursos tooa novo grupo de recursos ou assinatura, alguns toobe de limitações estão cientes de. Para saber mais informações, consulte [Limitações do Serviço de Aplicativo](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations).
 
 ## <a name="how-do-i-use-a-custom-domain-name-for-my-web-app"></a>Como usar um nome de domínio personalizado para meu aplicativo Web?
 
-Para respostas para perguntas comuns sobre como usar um nome de domínio personalizado com seu aplicativo web do Azure, consulte nosso vídeo de sete minutos [Adicionar um nome de domínio personalizado](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name). O vídeo oferece uma explicação passo a passo de como adicionar um nome de domínio personalizado. Descreve como usar sua própria URL em vez da URL *. azurewebsites.net com seu aplicativo web do Serviço de Aplicativo. Você também pode ver uma explicação detalhada de [como mapear um nome de domínio personalizado](web-sites-custom-domain-name.md).
+Para respostas toocommon perguntas sobre como usar um nome de domínio personalizado com seu aplicativo web do Azure, consulte nosso vídeo de sete minutos [adicionar um nome de domínio personalizado](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name). Olá vídeo oferece uma explicação passo a passo de como tooadd um nome de domínio personalizado. Descreve como toouse sua própria URL em vez da saudação *. azurewebsites.net URL com seu aplicativo do serviço de aplicativo web. Você também pode ver uma explicação detalhada de [como um nome de domínio personalizado de toomap](web-sites-custom-domain-name.md).
 
 
 ## <a name="how-do-i-purchase-a-new-custom-domain-for-my-web-app"></a>Como comprar um novo domínio personalizado para meu aplicativo web?
 
-Para saber como adquirir e configurar um domínio personalizado para seu aplicativo web do Serviço de Aplicativo, consulte [Comprar e configurar um nome de domínio personalizado no Serviço de Aplicativo](custom-dns-web-site-buydomains-web-app.md).
+toolearn como toopurchase e configurar um domínio personalizado para seu aplicativo do serviço de aplicativo web, consulte [comprar e configurar um nome de domínio personalizado no serviço de aplicativo](custom-dns-web-site-buydomains-web-app.md).
 
 
 ## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>Como carregar e configurar um certificado SSL existente para meu aplicativo web?
 
-Para saber como carregar e configurar um certificado SSL personalizado existente, consulte [Associar um certificado SSL personalizado existente para um aplicativo web do Azure](app-service-web-tutorial-custom-ssl.md#upload).
+toolearn como tooupload e configurar um certificado SSL personalizado existente, consulte [associar um existente personalizado SSL certificado tooan aplicativo web do Azure](app-service-web-tutorial-custom-ssl.md#upload).
 
 
 ## <a name="how-do-i-purchase-and-configure-a-new-ssl-certificate-in-azure-for-my-web-app"></a>Como comprar e configurar um novo certificado SSL no Azure para meu aplicativo web?
 
-Para saber como adquirir e configurar um certificado SSL para seu aplicativo web do Serviço de Aplicativo, consulte [Adicionar um certificado SSL ao seu aplicativo do Serviço de Aplicativo](web-sites-purchase-ssl-web-site.md).
+toolearn como toopurchase e configurar um certificado SSL para o aplicativo do serviço de aplicativo web, consulte [adicionar um certificado SSL tooyour aplicativo de serviço de aplicativo](web-sites-purchase-ssl-web-site.md).
 
 
 ## <a name="how-do-i-move-application-insights-resources"></a>Como mover recursos do Application Insights?
 
-No momento, o Azure Application Insights não oferece suporte para a operação de movimentação. Se o grupo de recursos original inclui um recurso do Application Insights, você não pode mover esse recurso. Se você incluir o recurso Application Insights ao tentar mover um aplicativo do Serviço de Aplicativo, toda a operação de movimentação falhará. No entanto, o Application Insights e o plano do Serviço de Aplicativo não precisam residir no mesmo grupo de recursos que o aplicativo para que o aplicativo funcione corretamente.
+Atualmente, informações de aplicativo do Azure não dá suporte a operação de movimentação de saudação. Se o grupo de recursos original inclui um recurso do Application Insights, você não pode mover esse recurso. Se você incluir o recurso do Application Insights hello quando você tentar toomove um aplicativo de serviço de aplicativo, Olá todo mover haverá falha na operação. No entanto, Olá plano não é necessário toobe do serviço de aplicativo e o Application Insights Olá mesmo grupo de recursos aplicativo hello para Olá aplicativo toofunction corretamente.
 
 Para saber mais informações, consulte [Limitações do Serviço de Aplicativo](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations).
 
 ## <a name="where-can-i-find-a-guidance-checklist-and-learn-more-about-resource-move-operations"></a>Onde posso encontrar uma lista de verificação de orientação e saber mais sobre o recurso para mover operações?
 
-[Limitações do Serviço de Aplicativo](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations) mostra como mover recursos para uma nova assinatura ou para um novo grupo de recursos na mesma assinatura. Você pode obter informações sobre a lista de verificação de movimentação de recursos, saber quais serviços de suporte para a operação de movimentação e saber mais sobre as limitações do Serviço de Aplicativo e outros tópicos.
+[Limitações do serviço de aplicativo](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations) mostra como toomove recursos tooeither um novo recurso de assinatura ou tooa novo grupo no hello mesma assinatura. Você pode obter informações sobre a lista de verificação de movimentação de recursos hello, saber quais serviços de suporte para operação de movimentação de saudação e saber mais sobre as limitações do serviço de aplicativo e outros tópicos.
 
-## <a name="how-do-i-set-the-server-time-zone-for-my-web-app"></a>Como definir o fuso horário do servidor para o meu aplicativo web?
+## <a name="how-do-i-set-hello-server-time-zone-for-my-web-app"></a>Como definir o fuso horário servidor Olá para meu aplicativo web?
 
-Para definir o fuso horário do servidor para o meu aplicativo web:
+tooset Olá fuso horário do servidor para seu aplicativo web:
 
-1. No portal do Azure, na sua assinatura do Serviço de Aplicativo, vá até o menu **Configurações de aplicativo**.
+1. No hello portal do Azure, na sua assinatura do serviço de aplicativo, vá toohello **configurações de aplicativo** menu.
 2. Em **Configurações do aplicativo**, adicionar essa configuração:
     * Chave = WEBSITE_TIME_ZONE
-    * Valor = *o fuso horário que você deseja*
+    * Valor = *Olá fuso horário desejado*
 3. Selecione **Salvar**.
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Por que meus WebJobs contínuos às vezes falham?
 
-Por padrão, os aplicativos Web serão descarregados se estiverem ociosos por um período de tempo definido. Isso permite ao sistema conservar recursos. Em planos básico e padrão, você pode ativar a configuração **Sempre Ativo** para manter o aplicativo web carregado o tempo todo. Se seu aplicativo web executar continuamente WebJobs, você deve habilitar a opção **Sempre Ativo**; ou é possível que os WebJobs não sejam executados com segurança. Para obter mais informações, consulte [Criar um WebJob de execução contínua](web-sites-create-web-jobs.md#CreateContinuous).
+Por padrão, os aplicativos Web serão descarregados se estiverem ociosos por um período de tempo definido. Isso permite que o sistema Olá conservar recursos. Nos planos básico e padrão, você pode ativar Olá **AlwaysOn** configuração tookeep Olá web aplicativo carregado todo o tempo de saudação. Se seu aplicativo web é executado trabalhos Web contínuos, você deve ativar **AlwaysOn**, ou Olá trabalhos Web pode não ser executados com segurança. Para obter mais informações, consulte [Criar um WebJob de execução contínua](web-sites-create-web-jobs.md#CreateContinuous).
 
-## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>Como obter o endereço IP de saída para o meu aplicativo web?
+## <a name="how-do-i-get-hello-outbound-ip-address-for-my-web-app"></a>Como obter endereço IP da saída Olá meu aplicativo web?
 
-Para obter a lista de endereços IP de saída para seu aplicativo web:
+lista de saudação tooget de saída endereços IP para seu aplicativo web:
 
-1. No portal do Azure, na folha seu aplicativo web, vá até o menu **Propriedades**.
+1. No hello portal do Azure, na folha seu aplicativo web, vá toohello **propriedades** menu.
 2. Pesquisar **endereços IP de saída**.
 
-A lista de endereços IP de saída é exibida.
+saudação de lista de endereços IP de saída é exibida.
 
-Se seu site estiver hospedado em um ambiente de Serviço de Aplicativo para o PowerApps, para saber como obter seu endereço IP de saída, consulte [Endereços de rede de saída](app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
+Se seu site estiver hospedado em um ambiente de serviço de aplicativo para o PowerApps, toolearn como tooget seu endereço IP de saída, consulte [endereços de rede de saída](app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
 
 ## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>Como obter um endereço IP de entrada dedicado ou reservado para meu aplicativo Web?
 
-Para configurar um endereço IP dedicado ou reservado para chamadas de entrada feitas para o site de aplicativo do Azure, instale e configure um certificado SSL com base em IP.
+tooset um endereço IP dedicado ou reservado para chamadas de entrada feitas tooyour site de aplicativo do Azure, instale e configure um certificado SSL com base em IP.
 
-Observe que, para usar um endereço IP dedicado ou reservado para chamadas de entrada, o plano do Serviço de Aplicativo deve ser em um plano de serviço básico ou superior.
+Observe que toouse dedicado ou endereço IP reservado para chamadas de entrada, o plano de serviço de aplicativo deve estar em um plano de serviço básico ou superior.
 
-## <a name="can-i-export-my-app-service-certificate-to-use-outside-azure-such-as-for-a-website-hosted-elsewhere"></a>Posso exportar meu certificado do Serviço de Aplicativo para uso fora do Azure, como um site hospedado em outro lugar? 
+## <a name="can-i-export-my-app-service-certificate-toouse-outside-azure-such-as-for-a-website-hosted-elsewhere"></a>Pode exportar o meu toouse do certificado de serviço de aplicativo fora do Azure, como para um site hospedado em outro lugar? 
 
-Certificados de Serviço de Aplicativo são considerados recursos do Azure. Eles não estão previstos para ser usados fora de seus serviços do Azure. Você não pode exportá-los para usar fora do Azure. Para obter mais informações, consulte [Perguntas frequentes para certificados de Serviço de Aplicativo e domínios personalizados](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
+Certificados de Serviço de Aplicativo são considerados recursos do Azure. Eles não são toouse pretendido fora de seus serviços do Azure. Você não pode exportá-los toouse fora do Azure. Para obter mais informações, consulte [Perguntas frequentes para certificados de Serviço de Aplicativo e domínios personalizados](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
 
-## <a name="can-i-export-my-app-service-certificate-to-use-with-other-azure-cloud-services"></a>Posso exportar o certificado do Serviço de Aplicativo para usar com outros serviços de nuvem do Azure?
+## <a name="can-i-export-my-app-service-certificate-toouse-with-other-azure-cloud-services"></a>Posso exportar meu toouse do certificado de serviço de aplicativo com outros serviços de nuvem do Azure?
 
-O portal fornece uma experiência de primeira classe para implantar um certificado de Serviço de Aplicativo por meio do Azure Key Valut para aplicativos de Serviço de Aplicativo. No entanto, podemos ter recebido solicitações de clientes para usar esses certificados fora da plataforma do Serviço de Aplicativo, por exemplo, com as máquinas virtuais do Azure. Para saber como criar uma cópia local do PFX do seu certificado do Serviço de Aplicativo, você pode usar o certificado com outros recursos do Azure, consulte [Criar uma cópia local do PFX de um certificado de Serviço de Aplicativo](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
+portal de saudação fornece uma experiência de primeira classe para implantar um certificado de serviço de aplicativo por meio de aplicativos de serviço do Azure Key Vault tooApp. No entanto, podemos tem recebido solicitações de clientes toouse esses certificados fora Olá plataforma do serviço de aplicativo, por exemplo, com as máquinas virtuais do Azure. toolearn como toocreate uma cópia local do PFX de seu serviço de aplicativo de certificado, você pode usar o certificado de saudação com outros recursos do Azure, consulte [criar uma cópia local do PFX de um certificado de serviço de aplicativo](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
 
 Para obter mais informações, consulte [Perguntas frequentes para certificados de Serviço de Aplicativo e domínios personalizados](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
 
 
-## <a name="why-do-i-see-the-message-partially-succeeded-when-i-try-to-back-up-my-web-app"></a>Por que vejo a mensagem "Foi parcialmente bem-sucedida" ao tentar fazer backup de meu aplicativo web?
+## <a name="why-do-i-see-hello-message-partially-succeeded-when-i-try-tooback-up-my-web-app"></a>Por que vejo a mensagem de saudação "Foi parcialmente bem-sucedida" quando tento tooback o meu aplicativo web?
 
-Uma causa comum de falha de backup é que alguns arquivos estão em uso pelo aplicativo. Arquivos que estão em uso estão bloqueados durante a realização do backup. Isso impede a realização de backup desses arquivos e pode resultar em um status "Foi parcialmente bem-sucedida". Você pode potencialmente evitar que isso ocorra, excluindo arquivos do processo de backup. Você pode optar por fazer backup somente do que for necessário. Para obter mais informações, consulte [Fazer backup apenas das partes importantes do seu site com aplicativos web do Azure](http://www.zainrizvi.io/2015/06/05/creating-partial-backups-of-your-site-with-azure-web-apps/).
+Uma causa comum de falha de backup é que alguns arquivos estão em uso pelo aplicativo hello. Arquivos que estão em uso são bloqueados enquanto você executa o backup de saudação. Isso impede a realização de backup desses arquivos e pode resultar em um status "Foi parcialmente bem-sucedida". Você pode potencialmente evitar que isso ocorra, excluindo arquivos de saudação do processo de backup. Você pode escolher tooback backup apenas o que é necessário. Para obter mais informações, consulte [Backup apenas Olá partes importantes do seu site com aplicativos web do Azure](http://www.zainrizvi.io/2015/06/05/creating-partial-backups-of-your-site-with-azure-web-apps/).
 
-## <a name="how-do-i-remove-a-header-from-the-http-response"></a>Como remover um cabeçalho de resposta HTTP?
+## <a name="how-do-i-remove-a-header-from-hello-http-response"></a>Como remover um cabeçalho de resposta HTTP de Olá?
 
-Para remover os cabeçalhos de resposta HTTP, atualize o arquivo web.config do seu site. Para obter mais informações, consulte [Remover cabeçalhos de servidor padrão em seus sites do Azure](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
+tooremove cabeçalhos Olá Olá resposta HTTP, atualizar o arquivo. config do site. Para obter mais informações, consulte [Remover cabeçalhos de servidor padrão em seus sites do Azure](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
 
 ## <a name="is-app-service-compliant-with-pci-standard-30-and-31"></a>O Serviço de Aplicativo é compatível com o PCI Standard 3.0 e 3.1?
 
-No momento, a funcionalidade de aplicativos Web do Serviço de Aplicativo do Azure está em conformidade com os dados segurança padrão (DSS) PCI versão 3.0 nível 1. PCI DSS versão 3.1 está em nosso roteiro. Planejamento já está em andamento para adoção do padrão mais recente.
+Atualmente, Olá recurso de aplicativos Web do serviço de aplicativo do Azure está em conformidade com a versão de PCI dados segurança padrão (DSS) 3.0 nível 1. PCI DSS versão 3.1 está em nosso roteiro. Planejamento já está em andamento para como a adoção do padrão mais recente Olá continuará.
 
-A certificação de versão 3.1 PCI DSS requer a desabilitação do protocolo TLS (TLS) 1.0. Atualmente, desabilitar o TLS 1.0 não é uma opção para a maioria dos planos de Serviço de Aplicativo. No entanto, se você usar o ambiente de Serviço de Aplicativo ou está disposto a migrar sua carga de trabalho para o ambiente de Serviço de Aplicativo, você pode obter maior controle do seu ambiente. Isso envolve desabilitar o TLS 1.0 entrando em contato com o suporte do Azure. Em breve, planejamos disponibilizar essas configurações para os usuários.
+A certificação de versão 3.1 PCI DSS requer a desabilitação do protocolo TLS (TLS) 1.0. Atualmente, desabilitar o TLS 1.0 não é uma opção para a maioria dos planos de Serviço de Aplicativo. No entanto, se você usar o ambiente de serviço de aplicativo ou está disposto toomigrate tooApp sua carga de trabalho ambiente de serviço, você pode obter maior controle do seu ambiente. Isso envolve desabilitar o TLS 1.0 entrando em contato com o suporte do Azure. Olá futuro próximo, estamos planejando toomake toousers de acessível essas configurações.
 
 Para obter mais informações, consulte [Conformidade do aplicativo web do Serviço de Aplicativo do Microsoft Azure com o PCI Standard 3.0 e 3.1](https://support.microsoft.com/help/3124528).
 
-## <a name="how-do-i-use-the-staging-environment-and-deployment-slots"></a>Como usar os slots de implantação e o ambiente de preparo?
+## <a name="how-do-i-use-hello-staging-environment-and-deployment-slots"></a>Como usar o ambiente e slots de implantação de preparo de saudação?
 
-Nos planos Standard e Premium do Serviço de Aplicativo, ao implantar seu aplicativo web a Serviço de Aplicativo, você pode implantar um slot de implantação separado em vez de no slot de produção padrão. Os slots de implantação são aplicativos Web dinâmicos com seus próprios nomes de host. Os elementos de configuração e conteúdo de aplicativo Web podem ser permutados entre dois slots de implantação, incluindo o slot de produção.
+Nos planos Standard e Premium do serviço de aplicativo, quando você implantar seu aplicativo de web tooApp serviço, você pode implantar tooa slot de implantação separado em vez de slot de produção toohello padrão. Os slots de implantação são aplicativos Web dinâmicos com seus próprios nomes de host. Elementos de conteúdo e configuração de aplicativo da Web podem ser trocados entre os dois slots de implantação, incluindo o slot de produção de hello.
 
 Para obter mais informações sobre como usar os slots de implantação, consulte [Configurar um ambiente de preparo no Serviço de Aplicativo](web-sites-staged-publishing.md).
 
 ## <a name="how-do-i-access-and-review-webjob-logs"></a>Como acessar e examine os logs de WebJob?
 
-Para examinar os logs do WebJob:
+logs de trabalho Web tooreview:
 
-1. Entre no seu [site Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
-2. Selecione o WebJob.
-3. Selecione o botão **Alternar saída**.
-4. Para baixar o arquivo de saída, selecione o link **Baixar**.
+1. Entrar tooyour [site Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
+2. Selecione Olá WebJob.
+3. Selecione Olá **alternar saída** botão.
+4. arquivo de saída toodownload hello, selecione Olá **baixar** link.
 5. Para execuções individuais, selecione **Invocar individuais**.
-6. Selecione o botão **Alternar saída**.
-7. Selecione o link Baixar.
+6. Selecione Olá **alternar saída** botão.
+7. Selecione Olá link de download.
 
-## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>Estou tentando usar conexões híbridas com o SQL Server. Por que vejo a mensagem "System. OverflowException: operação aritmética resultou em um excesso"?
+## <a name="im-trying-toouse-hybrid-connections-with-sql-server-why-do-i-see-hello-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>Estou tentando toouse híbrida conexões com o SQL Server. Por que vejo a mensagem de saudação do "System. OverflowException: operação aritmética resultou em um estouro"?
 
-Se você usar conexões híbridas para acessar o SQL Server, uma atualização do Microsoft .NET em 10 de maio de 2016 pode causar falha nas conexões. Você verá esta mensagem:
+Se você usar conexões híbridas tooaccess do SQL Server, uma atualização do Microsoft .NET em 10 de maio de 2016, pode causar toofail de conexões. Você verá esta mensagem:
 
 ```
-Exception: System.Data.Entity.Core.EntityException: The underlying provider failed on Open. —> System.OverflowException: Arithmetic operation resulted in an overflow. or (64 bit Web app) System.OverflowException: Array dimensions exceeded supported range, at System.Data.SqlClient.TdsParser.ConsumePreLoginHandshake
+Exception: System.Data.Entity.Core.EntityException: hello underlying provider failed on Open. —> System.OverflowException: Arithmetic operation resulted in an overflow. or (64 bit Web app) System.OverflowException: Array dimensions exceeded supported range, at System.Data.SqlClient.TdsParser.ConsumePreLoginHandshake
 ```
 
 ### <a name="resolution"></a>Resolução
 
-Estamos trabalhando para atualizar o Gerenciador de Conexões Híbrido para corrigir esse problema. Para soluções alternativas, consulte [erro de conexões híbridas com o SQL Server: System. OverflowException: operação aritmética resultou em um excesso](https://blogs.msdn.microsoft.com/waws/2016/05/17/hybrid-connection-error-with-sql-server-system-overflowexception-arithmetic-operation-resulted-in-an-overflow/).
+Estamos trabalhando tooupdate toofix do Gerenciador de Conexão híbrida esse problema. Para soluções alternativas, consulte [erro de conexões híbridas com o SQL Server: System. OverflowException: operação aritmética resultou em um excesso](https://blogs.msdn.microsoft.com/waws/2016/05/17/hybrid-connection-error-with-sql-server-system-overflowexception-arithmetic-operation-resulted-in-an-overflow/).
 
 ## <a name="how-do-i-add-or-edit-a-url-rewrite-rule"></a>Como adicionar ou editar uma regra de regravação de URL?
 
-Para adicionar ou editar uma regra de regravação de URL:
+tooadd ou editar uma regra de regravação de URL:
 
-1. Configure o Gerenciador de Serviços de Informações da Internet (IIS) para que ele se conecte ao seu aplicativo web do Serviço de Aplicativo. Para saber como conectar o Gerenciador do IIS para o Serviço de Aplicativo, consulte [Administração remota de sites do Azure usando o Gerenciador do IIS](https://azure.microsoft.com/blog/remote-administration-of-windows-azure-websites-using-iis-manager/).
-2. No Gerenciador do IIS, adicione ou edite uma regra de regravação de URL. Para saber como adicionar ou editar uma regra de regravação de URL, consulte [Criar regras de regravação para o módulo de regravação de URL](https://www.iis.net/learn/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module).
+1. Configure o Gerenciador de serviços de informações da Internet (IIS) para que ele se conecta tooyour aplicativo do serviço de aplicativo web. toolearn como tooconnect serviço tooApp do Gerenciador do IIS, consulte [administração remota de sites do Azure usando o Gerenciador do IIS](https://azure.microsoft.com/blog/remote-administration-of-windows-azure-websites-using-iis-manager/).
+2. No Gerenciador do IIS, adicione ou edite uma regra de regravação de URL. toolearn como tooadd ou editar uma URL rewrite regra, consulte [criar regras de reescrita de URL Olá reescreva módulo](https://www.iis.net/learn/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module).
 
-## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>Como controlar o tráfego de entrada para o Serviço de Aplicativo?
+## <a name="how-do-i-control-inbound-traffic-tooapp-service"></a>Como controlar o tráfego de entrada tooApp serviço?
 
-No nível do site, você tem duas opções para controlar o tráfego de entrada para o Serviço de Aplicativo:
+No nível de site hello, você tem duas opções para controlar o tráfego de entrada tooApp serviço:
 
-* Ative restrições de IP dinâmico. Para saber como ativar restrições de IP dinâmico, consulte [restrições de domínio e IP para sites do Azure](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/).
-* Ative a Segurança de Módulo. Para saber como ativar a Segurança de Módulo, consulte [ModSecurity firewall do aplicativo web em sites do Azure](https://azure.microsoft.com/blog/modsecurity-for-azure-websites/).
+* Ative restrições de IP dinâmico. toolearn como tooturn em restrições de IP dinâmico, consulte [restrições de IP e domínio para sites do Azure](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/).
+* Ative a Segurança de Módulo. toolearn como tooturn no módulo de segurança, consulte [ModSecurity firewall do aplicativo web em sites do Azure](https://azure.microsoft.com/blog/modsecurity-for-azure-websites/).
 
 Se você usar o ambiente de Serviço de Aplicativo, você pode usar o [firewall Barracuda](https://azure.microsoft.com/blog/configuring-barracuda-web-application-firewall-for-azure-app-service-environment/).
 
 ## <a name="how-do-i-block-ports-in-an-app-service-web-app"></a>Como bloquear portas em um aplicativo web do Serviço de Aplicativo?
 
-No ambiente do locatário compartilhado do Serviço de Aplicativo, não é possível bloquear portas específicas devido à natureza da infraestrutura. As portas TCP 4016, 4018 e 4020 também podem ser abertas para depuração remota do Visual Studio.
+Saudação do serviço de aplicativo compartilhado ambiente de locatário, não é possível tooblock portas devido à natureza de saudação da infraestrutura de saudação. As portas TCP 4016, 4018 e 4020 também podem ser abertas para depuração remota do Visual Studio.
 
-No ambiente de Serviço de Aplicativo, você tem controle total sobre o tráfego de entrada e saído. Você pode usar Grupos de segurança de rede para restringir ou bloquear portas específicas. Para obter mais informações sobre o ambiente de Serviço de Aplicativo, consulte [apresentando o ambiente de Serviço de Aplicativo](https://azure.microsoft.com/blog/introducing-app-service-environment/).
+No ambiente de Serviço de Aplicativo, você tem controle total sobre o tráfego de entrada e saído. Você pode usar grupos de segurança de rede toorestrict ou bloquear portas específicos. Para obter mais informações sobre o ambiente de Serviço de Aplicativo, consulte [apresentando o ambiente de Serviço de Aplicativo](https://azure.microsoft.com/blog/introducing-app-service-environment/).
 
 ## <a name="how-do-i-capture-an-f12-trace"></a>Como capturar um rastreamento F12?
 
@@ -180,60 +180,60 @@ Você tem duas opções para capturar um rastreamento F12:
 
 ### <a name="f12-http-trace"></a>Rastreamento de HTTP F12
 
-1. No Internet Explorer, vá para o seu site. É importante entrar antes de fazer as próximas etapas. Caso contrário, o rastreamento F12 captura dados confidenciais de entrada.
+1. No Internet Explorer, vá tooyour site. É importante toosign antes de que Olá próximas etapas. Caso contrário, Olá F12 rastreamento captura dados confidenciais de entrada.
 2. Pressione F12.
-3. Verifique se a guia **Rede** está selecionada e, em seguida, selecione o botão verde **Reproduzir**.
-4. Siga as etapas que reproduza o problema.
-5. Selecione o botão vermelho **Parar**.
-6. Selecione o botão **Salvar** (ícone de disco) e, em seguida, salve o arquivo HAR (no Internet Explorer e Edge) *ou* clique com o botão direito no arquivo HAR e, em seguida, selecione **Salvar como HAR com conteúdo** (no Chrome).
+3. Verifique se esse Olá **rede** guia é selecionada e, em seguida, selecione Olá verde **reproduzir** botão.
+4. Olá etapas que reproduza o problema de saudação.
+5. Selecione Olá vermelho **parar** botão.
+6. Selecione Olá **salvar** botão (ícone de disco) e, em seguida, salve o arquivo HAR de saudação (no Internet Explorer e borda) *ou* arquivo HAR de saudação e, em seguida, selecione **Salvar como HAR com conteúdo** ( no Chrome).
 
 ### <a name="f12-console-output"></a>Saída do console F12
 
-1. Selecione a guia **Console**.
-2. Para cada guia que contém itens de maior que zero, selecione a guia (**Erro**, **Aviso**, ou **Informações**). Se a guia não estiver selecionada, o ícone de guia é cinza ou preto quando você move o cursor para longe dela.
-3. Clique com o botão direito na área de mensagem do painel e, em seguida, selecione **Copiar tudo**.
-4. Cole o texto copiado em um arquivo e, em seguida, salve o arquivo.
+1. Selecione Olá **Console** guia.
+2. Para cada guia que contém itens de maior que zero, selecione a guia de saudação (**erro**, **aviso**, ou **informações**). Se guia Olá não estiver selecionado, o ícone de guia de hello está cinza ou preto quando você move o cursor Olá longe-lo.
+3. Na área de mensagem de saudação do painel de saudação e, em seguida, selecione **copiar todos os**.
+4. Saudação de colar texto copiado em um arquivo e, em seguida, salve o arquivo hello.
 
-Para exibir um arquivo HAR, você pode usar o [Visualizador HAR](http://www.softwareishard.com/har/viewer/).
+tooview um arquivo HAR, você pode usar o hello [visualizador HAR](http://www.softwareishard.com/har/viewer/).
 
-## <a name="why-do-i-get-an-error-when-i-try-to-connect-an-app-service-web-app-to-a-virtual-network-that-is-connected-to-expressroute"></a>Por que recebo um erro ao tentar se conectar a um aplicativo web do Serviço de Aplicativo em uma rede virtual que está conectado ao ExpressRoute?
+## <a name="why-do-i-get-an-error-when-i-try-tooconnect-an-app-service-web-app-tooa-virtual-network-that-is-connected-tooexpressroute"></a>Por que recebo um erro quando tento tooconnect um aplicativo de serviço web aplicativo tooa rede virtual que está conectada tooExpressRoute?
 
-Se você tentar conectar um aplicativo web do Azure a uma rede virtual que está conectada ao ExpressRoute do Azure, ele falhará. A seguinte mensagem será exibida: "O Gateway não é um gateway de VPN."
+Se você tentar tooconnect uma web do Azure aplicativo tooa rede virtual que tenha se conectado tooAzure rota expressa, ele falha. Olá seguinte mensagem será exibida: "O Gateway não é um gateway de VPN."
 
-No momento, você não pode ter conexões VPN de ponto para site a uma rede virtual que está conectado ao ExpressRoute. A VPN de ponto a site e o ExpressRoute não podem coexistir para a mesma rede virtual. Para obter mais informações, consulte [Limites e limitações de conexões VPN site a site e ExpressRoute](../expressroute/expressroute-howto-coexist-classic.md#limits-and-limitations).
+No momento, você não pode ter ponto a site VPN conexões tooa rede virtual que está conectada tooExpressRoute. Uma VPN de ponto para site e ExpressRoute não podem coexistir para Olá mesma rede virtual. Para obter mais informações, consulte [Limites e limitações de conexões VPN site a site e ExpressRoute](../expressroute/expressroute-howto-coexist-classic.md#limits-and-limitations).
 
-## <a name="how-do-i-connect-an-app-service-web-app-to-a-virtual-network-that-has-a-static-routing-policy-based-gateway"></a>Como conectar um aplicativo web do Serviço de Aplicativo a uma rede virtual que tem um gateway de roteamento estático (baseado em políticas)?
+## <a name="how-do-i-connect-an-app-service-web-app-tooa-virtual-network-that-has-a-static-routing-policy-based-gateway"></a>Como se conectar uma serviço de aplicativo web aplicativo tooa rede virtual que tem um gateway de (baseado em políticas) roteamento estático?
 
-No momento, não há suporte para conectar um aplicativo web do Serviço de Aplicativo a uma rede virtual que tem um gateway de roteamento estático (baseado em políticas). Se a sua rede virtual de destino já existe, ela deve ter a VPN ponto a site habilitada com um gateway de roteamento dinâmico antes que possa ser conectada a um aplicativo. Se o gateway é definido como o roteamento estático, não é possível ativar uma VPN ponto a site. 
+No momento, não há suporte para se conectar a uma serviço de aplicativo web aplicativo tooa rede virtual que tem um gateway de (baseado em políticas) roteamento estático. Se sua rede virtual de destino já existir, ele deve ter habilitado, com um gateway de roteamento dinâmico, para que possa ser conectada tooan aplicativo VPN de ponto para site. Se o gateway estiver definido toostatic roteamento, você não pode ativar uma VPN ponto a site. 
 
 Para obter mais informações, consulte [Integrar um aplicativo a uma rede virtual do Azure](web-sites-integrate-with-vnet.md#getting-started).
 
 ## <a name="in-my-app-service-environment-why-can-i-create-only-one-app-service-plan-even-though-i-have-two-workers-available"></a>Em meu Ambiente do Serviço de Aplicativo, por que só posso criar um Plano do Serviço de Aplicativo, embora tenha dois processadores disponíveis?
 
-Para proporcionar tolerância a falhas, um Ambiente do Serviço de Aplicativo exige pelo menos um recurso de computação adicional alocado para cada pool de trabalho. O recurso de computação adicional não pode ser atribuído a uma carga de trabalho.
+tooprovide tolerância a falhas, o ambiente de serviço de aplicativo requer que cada pool de trabalho precisa de pelo menos um recurso de computação adicionais. recursos de computação adicionais Olá não podem ser atribuído a uma carga de trabalho.
 
-Para obter mais informações, consulte [Como criar um Ambiente do Serviço de Aplicativo](app-service-web-how-to-create-an-app-service-environment.md).
+Para obter mais informações, consulte [como toocreate um ambiente de serviço de aplicativo](app-service-web-how-to-create-an-app-service-environment.md).
 
-## <a name="why-do-i-see-timeouts-when-i-try-to-create-an-app-service-environment"></a>Por que vejo tempos limite ao tentar criar um Ambiente de Serviço de Aplicativo?
+## <a name="why-do-i-see-timeouts-when-i-try-toocreate-an-app-service-environment"></a>Por que vejo tempos limite quando tento toocreate um ambiente de serviço de aplicativo?
 
-Às vezes, a criação de um Ambiente do Serviço de Aplicativo falhará. Nesse caso, você pode ver o seguinte erro nos logs de atividade:
+Às vezes, a criação de um Ambiente do Serviço de Aplicativo falhará. Nesse caso, você pode ver Olá erro no hello que dos logs de atividades a seguir:
 ```
 ResourceID: /subscriptions/{SubscriptionID}/resourceGroups/Default-Networking/providers/Microsoft.Web/hostingEnvironments/{ASEname}
-Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provision operation did not complete within the allowed timeout period.”}}
+Error:{"error":{"code":"ResourceDeploymentFailure","message":"hello resource provision operation did not complete within hello allowed timeout period.”}}
 ```
 
-Para resolver esse problema, certifique-se de que nenhuma das seguintes condições é verdadeira:
-* A sub-rede é muito pequena.
-* A sub-rede não está vazia.
-* O ExpressRoute impede os requisitos de conectividade de rede de um Ambiente de Serviço de Aplicativo.
-* Um Grupo de segurança de rede incorreto impede os requisitos de conectividade de rede de um Ambiente de Serviço de Aplicativo.
+tooresolve isso, certifique-se de que nenhuma das Olá seguintes condições for verdadeira:
+* subrede Olá é muito pequeno.
+* Olá sub-rede não está vazia.
+* Rota expressa impede que os requisitos de conectividade de rede de saudação de um ambiente de serviço de aplicativo.
+* Um grupo de segurança de rede incorreta impede que os requisitos de conectividade de rede de saudação de um ambiente de serviço de aplicativo.
 * O túnel forçado é ativado.
 
 Para obter mais informações, consulte [Problemas frequentes ao implantar (criar) um novo Ambiente do Serviço de Aplicativo do Azure](https://blogs.msdn.microsoft.com/waws/2016/05/13/most-frequent-issues-when-deploying-creating-a-new-azure-app-service-environment-ase/).
 
 ## <a name="why-cant-i-delete-my-app-service-plan"></a>Por que não consigo excluir meu plano do Serviço de Aplicativo?
 
-Você não pode excluir um plano do Serviço de Aplicativo se todos os aplicativos do Serviço de Aplicativo estão associados ao plano do Serviço de Aplicativo. Antes de excluir um plano do Serviço de Aplicativo, remova todos os aplicativos do Serviço de Aplicativo associados do plano do Serviço de Aplicativo.
+Se todos os aplicativos do serviço de aplicativo associados a saudação plano de serviço de aplicativo, você não pode excluir um plano de serviço de aplicativo. Antes de excluir um plano de serviço de aplicativo, remova todos os aplicativos de serviço de aplicativo associados Olá plano de serviço de aplicativo.
 
 ## <a name="how-do-i-schedule-a-webjob"></a>Como agendar um WebJob?
 
@@ -244,28 +244,28 @@ Você pode criar um WebJob agendado usando expressões CRON:
     ```
     { "schedule": "{second}
     {minute} {hour} {day}
-    {month} {day of the week}" }
+    {month} {day of hello week}" }
     ```
 
 Para obter mais informações sobre WebJobs agendados, consulte [Criar um WebJob agendado usando uma expressão Cron](web-sites-create-web-jobs.md#CreateScheduledCRON).
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>Como executar testes de penetração para meu aplicativo de Serviço de Aplicativo?
 
-Para executar o teste de penetração, [enviar uma solicitação](https://security-forms.azure.com/penetration-testing/terms).
+teste de penetração tooperform, [enviar uma solicitação](https://security-forms.azure.com/penetration-testing/terms).
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Como configurar um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo usando o Gerenciador de Tráfego?
 
-Para saber como usar um nome de domínio personalizado com um aplicativo de Serviço de Aplicativo que usa o Azure Traffic Manager para balanceamento de carga, consulte [Configurar um nome de domínio personalizado para um aplicativo web do Azure com o Gerenciador de Tráfego](web-sites-traffic-manager-custom-domain-name.md).
+toolearn como toouse um nome de domínio personalizado com um aplicativo de serviço de aplicativo que usa o Azure Traffic Manager para balanceamento de carga, consulte [configurar um nome de domínio personalizado para um aplicativo web do Azure com o Gerenciador de tráfego](web-sites-traffic-manager-custom-domain-name.md).
 
 ## <a name="my-app-service-certificate-is-flagged-for-fraud-how-do-i-resolve-this"></a>Meu certificado de Serviço de Aplicativo está sinalizado para fraude. Como resolver isso?
 
-Durante a verificação de domínio de uma compra de certificado de Serviço de Aplicativo, você poderá ver a seguinte mensagem:
+Durante a verificação de domínio de saudação de uma compra de certificado do serviço de aplicativo, você poderá ver a seguinte mensagem de saudação:
 
-"Seu certificado foi sinalizado para uma possível fraude. A solicitação está sendo examinada. Se o certificado não se tornar utilizável dentro de 24 horas, entre em contato com o suporte do Azure.”
+"Seu certificado foi sinalizado para uma possível fraude. solicitação de saudação atualmente está sendo avaliada. Se o certificado de saudação não se tornará utilizável dentro de 24 horas, entre em contato com o suporte do Azure."
 
-Como a mensagem indica, esse processo de verificação de fraude pode levar até 24 horas para ser concluído. Durante esse tempo, você continuará vendo a mensagem.
+Como mensagem de saudação indica, esse processo de verificação de fraude pode levar até too24 horas toocomplete. Durante esse tempo, você continuará a mensagem de saudação do toosee.
 
-Se seu certificado de Serviço de Aplicativo continua mostrando esta mensagem após 24 horas, execute o seguinte script do PowerShell. O script contata o [provedor de certificado](https://www.godaddy.com/) diretamente para resolver o problema.
+Se seu certificado de serviço de aplicativo continuar tooshow esta mensagem após 24 horas, execute Olá script do PowerShell a seguir. saudação de contatos de script Hello [provedor certificate](https://www.godaddy.com/) problema de saudação tooresolve diretamente.
 
 ```
 Login-AzureRmAccount
@@ -278,36 +278,36 @@ Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resour
 
 ## <a name="how-do-authentication-and-authorization-work-in-app-service"></a>Como funcionam a autenticação e autorização no Serviço de Aplicativo?
 
-Para obter documentação detalhada para autenticação e autorização no Serviço de Aplicativo, consulte [Segurança do Serviço de Aplicativo](../app-service/app-service-security-readme.md). A documentação também tem informações sobre como configurar o Serviço de Aplicativo para usar vários entradas do provedor de identidade:
+Para obter documentação detalhada para autenticação e autorização no Serviço de Aplicativo, consulte [Segurança do Serviço de Aplicativo](../app-service/app-service-security-readme.md). documentação de saudação também tem informações sobre como configurar o serviço de aplicativo toouse vários identificam entradas do provedor:
 * [Active Directory do Azure](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [Facebook](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md)
 * [Google](../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md)
 * [Conta da Microsoft](../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md)
 * [Twitter](../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md)
 
-## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Como redirecionar o domínio padrão *. azurewebsites.net para o domínio personalizado do meu aplicativo web do Azure?
+## <a name="how-do-i-redirect-hello-default-azurewebsitesnet-domain-toomy-azure-web-apps-custom-domain"></a>Como redirecionar a padrão hello *. domínio personalizado do aplicativo do Azure web toomy domínio azurewebsites.net?
 
-Quando você cria um novo site por meio de aplicativos Web no Azure, um domínio padrão *sitename*.azurewebsites.net é atribuído ao seu site. Se você adicionar um nome do host personalizado para seu site e não deseja que os usuários possam acessar seu padrão domínio *. azurewebsites.net, você pode redirecionar a URL padrão. Para saber como redirecionar todo o tráfego do domínio de padrão do seu site para seu domínio personalizado, consulte [Redirecionar o domínio padrão para seu domínio personalizado em aplicativos web do Azure](http://www.zainrizvi.io/2016/04/07/block-default-azure-websites-domain/).
+Quando você cria um novo site por meio de aplicativos Web no Azure, um padrão *sitename*. domínio azurewebsites.net recebe tooyour site. Se você adicionar um site de tooyour do nome de host personalizado e não quiser que os usuários toobe capaz de tooaccess padrão *. azurewebsites.net de domínio, você pode redirecionar a URL da saudação padrão. toolearn como tooredirect todos os tráfego do seu domínio do site padrão domínio tooyour personalizado, consulte [saudação padrão domínio tooyour personalizado domínio de redirecionamento em aplicativos web do Azure](http://www.zainrizvi.io/2016/04/07/block-default-azure-websites-domain/).
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Como determinar qual versão do .NET versão está instalada no Serviço de Aplicativo?
 
-É a maneira mais rápida de localizar a versão do Microsoft .NET que está instalada no Serviço de Aplicativo usando o console do Kudu. Você pode acessar o console do Kudu no portal ou usando a URL do seu aplicativo de Serviço de Aplicativo. Para obter instruções detalhadas, consulte [Determinar a versão instalada do .NET no Serviço de Aplicativo](https://blogs.msdn.microsoft.com/waws/2016/11/02/how-to-determine-the-installed-net-version-in-azure-app-services/).
+Olá mais rápida maneira toofind Olá versão do Microsoft .NET é instalado no serviço de aplicativo está usando o console do Kudu Olá. Você pode acessar o console de Kudu de saudação do portal de saudação ou usando a URL de saudação do seu aplicativo de serviço de aplicativo. Para obter instruções detalhadas, consulte [Determine Olá instalado a versão do .NET no serviço de aplicativo](https://blogs.msdn.microsoft.com/waws/2016/11/02/how-to-determine-the-installed-net-version-in-azure-app-services/).
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>Por que o dimensionamento automático não está funcionando conforme o esperado?
 
-Se o dimensionamento automático do Azure não aumentou ou diminuiu a instância de aplicativo Web conforme o esperado, você pode estar executando em um cenário no qual escolhemos intencionalmente por não dimensionar para evitar um loop infinito devido a "oscilações." Isso geralmente acontece quando não há uma margem suficiente entre os limites de escalabilidade horizontal e escala. Para saber como evitar "oscilações" e ler sobre outras práticas recomendadas de dimensionamento automático, consulte [Práticas recomendadas de dimensionamento automático](../monitoring-and-diagnostics/insights-autoscale-best-practices.md#autoscale-best-practices).
+Se Azure AutoEscala não expandida em ou expandida de instância de aplicativo web hello conforme o esperado, talvez você esteja executando em um cenário em que podemos escolher intencionalmente não tooscale tooavoid um loop infinito devido muito "oscilando". Isso geralmente acontece quando não houver uma margem suficiente entre os limites de escalabilidade horizontal e escala no hello. toolearn como tooavoid "oscilando" e tooread sobre outras práticas recomendadas de dimensionamento automático, consulte [práticas recomendadas de dimensionamento automático](../monitoring-and-diagnostics/insights-autoscale-best-practices.md#autoscale-best-practices).
 
 ## <a name="why-does-autoscale-sometimes-scale-only-partially"></a>Por que o dimensionamento automático, às vezes, dimensiona apenas parcialmente?
 
-Dimensionamento automático é acionado quando métricas excedem os limites pré-configurados. Às vezes, você pode notar que a capacidade é apenas parcialmente preenchida em comparação com o esperado. Isso pode ocorrer quando o número de instâncias que você deseja não está disponível. Nesse cenário, o dimensionamento automático preenche parcialmente com o número de instâncias disponíveis. Dimensionamento automático, em seguida, executa a lógica de rebalanceamento para obter maior capacidade. Aloca as instâncias restantes. Observe que isso pode levar alguns minutos.
+Dimensionamento automático é acionado quando métricas excedem os limites pré-configurados. Às vezes, você poderá notar que capacidade Olá é preenchida apenas parcialmente toowhat em comparação com o esperado. Isso pode ocorrer quando o número de saudação de instâncias não está disponível. Nesse cenário, AutoEscala parcialmente preenchido com o número de instâncias disponíveis hello. Dimensionamento automático, em seguida, executa Olá rebalanceie lógica tooget mais capacidade. Aloca Olá restantes instâncias. Observe que isso pode levar alguns minutos.
 
-Se você não vir o número de instâncias esperado após alguns minutos, pode ser porque a recarga parcial foi suficiente para trazer as métricas dentro dos limites. Ou, o dimensionamento automático pode ter reduzido porque atingiu o limite inferior de métricas.
+Se você não vir o número esperado de saudação de instâncias após alguns minutos, pode ser porque a recarga parcial Olá foi suficiente métricas de saudação toobring dentro dos limites de saudação. Ou então, dimensionamento automático pode ter reduzida porque atingiu o limite inferior de métricas hello.
 
-Se nenhuma dessas condições se aplicam, e o problema persistir, envie uma solicitação de suporte.
+Se nenhuma dessas condições se aplicam e Olá o problema persistir, envie uma solicitação de suporte.
 
 ## <a name="how-do-i-turn-on-http-compression-for-my-content"></a>Como ativar a compactação HTTP para o conteúdo?
 
-Para ativar a compactação para tipos de conteúdo estáticos e dinâmicos, adicione o seguinte código ao arquivo web.config do nível do aplicativo:
+tooturn na compactação para tipos de conteúdo estáticos e dinâmicos, adicione Olá código toohello nível do aplicativo Web. config a seguir:
 
 ```
 <system.webServer>
@@ -315,8 +315,8 @@ Para ativar a compactação para tipos de conteúdo estáticos e dinâmicos, adi
 < /system.webServer>
 ```
 
-Você também pode especificar os tipos MIME específicos para dinâmico e estáticos que você deseja compactar. Para obter mais informações, consulte nossa resposta a uma pergunta de Fórum no [Configurações de compactação http em um site do Azure simples](https://social.msdn.microsoft.com/Forums/azure/890b6d25-f7dd-4272-8970-da7798bcf25d/httpcompression-settings-on-a-simple-azure-website?forum=windowsazurewebsitespreview).
+Você também pode especificar dinâmico específico hello e tipos de MIME estático que você deseja toocompress. Para obter mais informações, consulte nossa resposta tooa fórum pergunta [httpCompression configurações em um site do Azure simple](https://social.msdn.microsoft.com/Forums/azure/890b6d25-f7dd-4272-8970-da7798bcf25d/httpcompression-settings-on-a-simple-azure-website?forum=windowsazurewebsitespreview).
 
-## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>Como migrar de um ambiente local para o ambiente do Serviço de Aplicativo?
+## <a name="how-do-i-migrate-from-an-on-premises-environment-tooapp-service"></a>Como migrar de um ambiente de local tooApp serviço?
 
-Para migrar sites de servidores de web do Windows e Linux para o Serviço de Aplicativo, você pode usar o Assistente de Migração do Serviço de Aplicativo do Azure. A ferramenta de migração cria bancos de dados e aplicativos web no Azure, conforme necessário e, em seguida, publica o conteúdo. Para saber mais, consulte [Assistente de Migração do Serviço de Aplicativo do Azure](https://www.movemetothecloud.net/).
+toomigrate sites do Windows e Linux tooApp de servidores de web Service, você pode usar Assistente de migração do serviço de aplicativo do Azure. ferramenta de migração de saudação cria bancos de dados e aplicativos web no Azure, conforme necessário e, em seguida, publica o conteúdo de saudação. Para saber mais, consulte [Assistente de Migração do Serviço de Aplicativo do Azure](https://www.movemetothecloud.net/).

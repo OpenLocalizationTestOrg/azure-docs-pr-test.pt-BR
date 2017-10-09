@@ -1,7 +1,7 @@
 ---
 layout: LandingPage
-description: "Saiba mais sobre como sincronizar diretórios e habilitar o logon único. A documentação mostra como integrar um conjunto completo de recursos de gerenciamento de identidades."
-title: "Documentação do Azure Active Directory - Tutoriais, Referência de API | Microsoft Docs"
+description: "Saiba como habilitar e diretórios toosynchronize logon único. Documentação mostra como toointegrate um conjunto completo de recursos de gerenciamento de identidade."
+title: "aaaAzure documentação do Active Directory - tutoriais, referência de API | Microsoft Docs"
 services: active-directory
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 8933c77013d7b0d886d3e309dc0b1a72026eb677
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a99aa3cc979a518c5b53cb1540f037b6776fb157
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-documentation"></a>Documentação do Azure Active Directory
 
-Saiba como sincronizar os diretórios e habilitar o logon único com o Azure AD (Azure Active Directory). Os tutoriais, as referências de API e outras documentações mostram como integrar os recursos de gerenciamento de identidades, incluindo a autenticação multifator, o registro de dispositivos, o controle de acesso baseado em função e o monitoramento de segurança e os alertas.
+Saiba como diretórios toosynchronize e habilitar logon único com o Azure Active Directory (AD do Azure). Tutoriais, referências de API e outras documentações mostram como controlam recursos de gerenciamento de identidade toointegrate incluindo autenticação multifator, o registro de dispositivo, o acesso baseado em função e o monitoramento de segurança e alertas.
 
 <ul class="panelContent cardsFTitle">
     <li>

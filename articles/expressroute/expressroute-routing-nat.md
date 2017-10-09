@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: osamam
-ms.openlocfilehash: 5c039a80b24feda61da0793fa64b48cb4783c3f1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7a8b760df90b545b5fbde2f614aef62dd3985bb6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="nat-for-expressroute"></a>NAT para ExpressRoute
 
-Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, você precisará configurar e gerenciar o roteamento. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de roteamento como um serviço gerenciado. Verifique se o seu provedor de conectividade oferece esse serviço. Se não oferecer, você deverá atender aos requisitos a seguir. 
+tooconnect tooMicrosoft serviços de nuvem usando o ExpressRoute, você precisa tooset backup e gerenciar o roteamento. Alguns provedores de conectividade oferecem a configuração e o gerenciamento de roteamento como um serviço gerenciado. Verifique com seu toosee do provedor de conectividade se eles oferecem esse serviço. Caso contrário, é preciso cumprir toohello requisitos a seguir. 
 
-Consulte o artigo [Circuitos e domínios de roteamento](expressroute-circuit-peerings.md) para ver uma descrição das sessões de roteamento que precisam ser configuradas para facilitar a conectividade.
+Consulte toohello [circuitos e domínios de roteamento](expressroute-circuit-peerings.md) artigo para obter uma descrição de roteamento Olá sessões que precisam toobe configurar conectividade toofacilitate.
 
 > [!NOTE]
 > A Microsoft não dá suporte aos protocolos de redundância do roteador (por exemplo, HSRP e VRRP) para as configurações de alta disponibilidade. Contamos com um par redundante de sessões BGP por emparelhamento para alta disponibilidade.
@@ -33,56 +33,56 @@ Consulte o artigo [Circuitos e domínios de roteamento](expressroute-circuit-pee
 
 ## <a name="ip-addresses-used-for-peerings"></a>Endereços IP usados para emparelhamentos
 
-Você precisa reservar alguns blocos de endereços IP para configurar o roteamento entre a rede e os roteadores de borda (MSEEs) corporativos da Microsoft. Esta seção fornece uma lista de requisitos e descreve as regras para a maneira como esses endereços IP devem ser adquiridos e usados.
+Você precisa tooreserve alguns blocos de IP endereços tooconfigure roteamento entre sua rede e roteadores de borda (MSEEs) corporativos da Microsoft. Esta seção fornece uma lista de requisitos e descreve Olá regras sobre como esses endereços IP devem ser adquiridos e usados.
 
 ### <a name="ip-addresses-used-for-azure-private-peering"></a>Endereços IP usados para o emparelhamento privado do Azure
 
-Você pode usar endereços IP privados ou endereços IP públicos para configurar os emparelhamentos. O intervalo de endereços usado para configurar rotas não deve se sobrepor aos intervalos de endereços usados para criar redes virtuais no Azure. 
+Você pode usar endereços IP particulares ou públicos endereços tooconfigure Olá emparelhamentos IP. intervalo de endereços Olá usado para configurar rotas não deve sobrepor endereço intervalos usados toocreate redes virtuais no Azure. 
 
 * Você deve reservar uma sub-rede /29 ou duas sub-redes /30 para interfaces de roteamento.
-* As sub-redes usadas para roteamento podem ser endereços IP privados ou endereços IP públicos.
-* As sub-redes não devem entrar em conflito com o intervalo reservado pelo cliente para uso na nuvem da Microsoft.
+* sub-redes de saudação para roteamento podem ser endereços IP privados ou endereços IP públicos.
+* sub-redes de saudação não devem entrar em conflito com intervalo de saudação reservado pelo cliente Olá para uso em nuvem da Microsoft hello.
 * Se uma sub-rede /29 for usada, será dividida em duas sub-redes /30. 
-  * A primeira sub-rede /30 será usada para o link principal e a segunda sub-rede /30 será usada para o link secundário.
-  * Para cada uma das sub-redes /30, é necessário usar o primeiro endereço IP da sub-rede /30 em seu roteador. A Microsoft usará o segundo endereço IP da sub-rede /30 para configurar uma sessão BGP.
-  * Você deve configurar ambas as sessões BGP para que nosso [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) seja válido.  
+  * Olá primeiro/30 sub-rede será usada para o link primário hello e Olá /30 segunda sub-rede será usada para o link secundário hello.
+  * Para cada uma das sub-redes Olá /30, você deve usar o primeiro endereço IP hello da sub-rede Olá /30 no roteador. A Microsoft usará o endereço IP da segunda Olá de saudação /30 sub-rede tooset uma sessão BGP.
+  * Você deve configurar ambas as sessões BGP para nosso [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) toobe válido.  
 
 #### <a name="example-for-private-peering"></a>Exemplo para emparelhamento privado
 
-Se você optar por usar a.b.c.d/29 para configurar o emparelhamento, ela será dividida em duas sub-redes /30. No exemplo a seguir, veremos como a sub-rede a.b.c.d/29 é usada. 
+Se você escolher toouse a.b.c.d/29 tooset backup Olá emparelhamento, ele será dividido em dois /30 sub-redes. O exemplo hello abaixo, examinaremos como subrede a.b.c.d/29 Olá é usado. 
 
-a.b.c.d/29 será dividida em a.b.c.d/30 e a.b.c.d+4/30 e passada à Microsoft por meio das APIs de provisionamento. Você usará a.b.c.d+1 como o IP VRF para o PE Primário, e a Microsoft consumirá a.b.c.d+2 como o IP VRF para o MSEE primário. Você usará a.b.c.d+5 como o IP VRF para o PE secundário, e a Microsoft usará a.b.c.d+6 como o IP VRF para o MSEE secundário.
+a.b.c.d/29 será dividido tooa.b.c.d/30 e a.b.c.d+4/30 e passada tooMicrosoft por meio de APIs de provisionamento de saudação. Você usará a.b.c.d+1 como Olá VRF IP para hello PE primário e Microsoft consumirá a.b.c.d+2 como Olá VRF IP para Olá MSEE primário. Você usará a.b.c.d+5 como hello VRF IP para hello PE secundário e a Microsoft usará a.b.c.d+6 como Olá VRF IP para Olá MSEE secundário.
 
-Considere um caso em que você seleciona 192.168.100.128/29 para configurar o emparelhamento privado. 192.168.100.128/29 inclui os endereços de 192.168.100.128 a 192.168.100.135, entre os quais:
+Considere um caso em que você selecionar tooset 192.168.100.128/29 o emparelhamento privado. 192.168.100.128/29 inclui endereços de 192.168.100.128 too192.168.100.135, entre os quais:
 
-* 192.168.100.128/30 será atribuído ao link1, com o provedor usando 192.168.100.129 e a Microsoft usando 192.168.100.130.
-* 192.168.100.132/30 será atribuído ao link2, com o provedor usando 192.168.100.133 e a Microsoft usando 192.168.100.134.
+* 192.168.100.128/30 será atribuído toolink1, com o provedor usando 192.168.100.129 e Microsoft usando 192.168.100.130.
+* 192.168.100.132/30 será atribuído toolink2, com o provedor usando 192.168.100.133 e Microsoft usando 192.168.100.134.
 
 ### <a name="ip-addresses-used-for-azure-public-and-microsoft-peering"></a>Endereços IP usados para o emparelhamento público do Azure e o emparelhamento da Microsoft
 
-Você deve usar endereços IP públicos que possui para configurar as sessões BGP. A Microsoft deve ser capaz de verificar a propriedade dos endereços IP por meio de Registros da Internet de Roteamento e Registros de Roteamento da Internet. 
+Você deve usar endereços IP públicos que você possui para configurar sessões BGP hello. Microsoft deve ser de propriedade de saudação tooverify capaz de endereços IP hello por meio de registros de roteamento de Internet e roteamento de registros de Internet. 
 
-* Você deve usar uma sub-rede /29 exclusiva ou duas sub-redes /30 para configurar o emparelhamento BGP para cada emparelhamento por circuito da Rota Expressa (se houver mais de um). 
+* Você deve usar uma única/29 sub-rede ou tooset duas /30 sub-redes a saudação BGP de emparelhamento para cada emparelhamento por circuito de rota expressa (se você tiver mais de um). 
 * Se uma sub-rede /29 for usada, será dividida em duas sub-redes /30. 
-  * A primeira sub-rede /30 será usada para o link principal e a segunda sub-rede /30 será usada para o link secundário.
-  * Para cada uma das sub-redes /30, é necessário usar o primeiro endereço IP da sub-rede /30 em seu roteador. A Microsoft usará o segundo endereço IP da sub-rede /30 para configurar uma sessão BGP.
-  * Você deve configurar ambas as sessões BGP para que nosso [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) seja válido.
+  * Olá primeiro/30 sub-rede será usada para o link primário hello e Olá /30 segunda sub-rede será usada para o link secundário hello.
+  * Para cada uma das sub-redes Olá /30, você deve usar o primeiro endereço IP hello da sub-rede Olá /30 no roteador. A Microsoft usará o endereço IP da segunda Olá de saudação /30 sub-rede tooset uma sessão BGP.
+  * Você deve configurar ambas as sessões BGP para nosso [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) toobe válido.
 
 ## <a name="public-ip-address-requirement"></a>Requisito do endereço IP público
 
 ### <a name="private-peering"></a>Emparelhamento privado
 
-Você pode optar por usar os endereços IPv4 públicos ou privados para o emparelhamento privado. Podemos fornecer um isolamento de ponta a ponta do tráfego para que a sobreposição dos endereços com outros clientes não seja possível no caso do emparelhamento privado. Esses endereços não são divulgados na Internet. 
+Você pode escolher toouse públicos ou privados endereços IPv4 para emparelhamento privado. Podemos fornecer um isolamento de ponta a ponta do tráfego para que a sobreposição dos endereços com outros clientes não seja possível no caso do emparelhamento privado. Estes endereços não são tooInternet anunciado. 
 
 ### <a name="public-peering"></a>Emparelhamento público
 
-O caminho do emparelhamento público do Azure permite que você se conecte a todos os serviços hospedados no Azure por meio de seus endereços IP públicos. Isso inclui os serviços listados nas [Perguntas Frequentes sobre a Rota Expressa](expressroute-faqs.md) e quaisquer serviços hospedados por ISVs no Microsoft Azure. A conectividade com os serviços do Microsoft Azure no emparelhamento público é sempre iniciada de sua rede para a rede da Microsoft. Você deve usar os endereços IP Públicos para o tráfego destinado à rede da Microsoft.
+Olá caminho de emparelhamento público do Azure permite que você tooconnect tooall serviços hospedados no Azure em seus endereços IP públicos. Isso inclui serviços listados na Olá [ExpessRoute perguntas frequentes sobre](expressroute-faqs.md) e todos os serviços hospedados por ISVs no Microsoft Azure. Serviços de conectividade tooMicrosoft Azure público emparelhamento é iniciada sempre da rede na rede da Microsoft hello. Você deve usar endereços IP públicos para Olá tráfego destinado tooMicrosoft de rede.
 
 ### <a name="microsoft-peering"></a>Emparelhamento da Microsoft
 
-O caminho de emparelhamento da Microsoft permite que você se conecte a serviços de nuvem da Microsoft que não têm suporte por meio do caminho de emparelhamento público do Azure. A lista de serviços inclui serviços do Office 365, como o Exchange Online, o SharePoint Online, o Skype for Business e o Dynamics 365. A Microsoft dá suporte à conectividade bidirecional no emparelhamento da Microsoft. O tráfego destinado aos serviços de nuvem da Microsoft deve usar os endereços IPv4 públicos válidos antes de entrar na rede da Microsoft.
+caminho de emparelhamento de Microsoft Hello permite a conexão tooMicrosoft serviços de nuvem que não são suportados por meio de saudação caminho de emparelhamento público do Azure. lista de saudação de serviços inclui serviços do Office 365, como o Exchange Online, SharePoint Online, Skype for Business e Dynamics 365. A Microsoft oferece suporte conectividade bidirecional Olá emparelhamento da Microsoft. Serviços de nuvem do tráfego destinado tooMicrosoft devem usar endereços IPv4 públicos válidos antes que eles entrem na rede do Microsoft hello.
 
-Verifique se o endereço IP e o número de AS estão registrados em um dos registros listados abaixo.
+Certifique-se de que seu endereço IP e como número são tooyou registrado em um dos registros de saudação listados abaixo.
 
 * [ARIN](https://www.arin.net/)
 * [APNIC](https://www.apnic.net/)
@@ -93,57 +93,57 @@ Verifique se o endereço IP e o número de AS estão registrados em um dos regis
 * [ALTDB](http://altdb.net/)
 
 > [!IMPORTANT]
-> Os endereços IP Públicos anunciados na Microsoft por meio do ExpressRoute não devem ser anunciados na Internet. Isso pode interromper a conectividade com outros serviços da Microsoft. No entanto, os endereços IP Públicos usados pelos servidores em sua rede que se comunicam com os pontos de extremidade do O365 da Microsoft podem ser divulgados no ExpressRoute. 
+> IP público endereços anunciado tooMicrosoft através do ExpressRoute não deve ser anunciado toohello da Internet. Isso pode interromper os serviços de conectividade do Microsoft tooother. No entanto, os endereços IP Públicos usados pelos servidores em sua rede que se comunicam com os pontos de extremidade do O365 da Microsoft podem ser divulgados no ExpressRoute. 
 > 
 > 
 
 ## <a name="dynamic-route-exchange"></a>Intercâmbio de roteamento dinâmico
 
-O intercâmbio de roteamento será por meio do protocolo eBGP. As sessões EBGP são estabelecidas entre os MSEEs e os roteadores. A autenticação de sessões BGP não é um requisito. Se necessário, um hash MD5 pode ser configurado. Consulte [Configurar roteamento](expressroute-howto-routing-classic.md) e [luxos de trabalho de provisionamento e estados do circuito](expressroute-workflows.md) para obter informações sobre como configurar as sessões BGP.
+O intercâmbio de roteamento será por meio do protocolo eBGP. As sessões EBGP são estabelecidas entre MSEEs hello e os roteadores. A autenticação de sessões BGP não é um requisito. Se necessário, um hash MD5 pode ser configurado. Consulte Olá [Configurar roteamento](expressroute-howto-routing-classic.md) e [circuito fluxos de trabalho de provisionamento e estados de circuito](expressroute-workflows.md) para obter informações sobre como configurar sessões BGP.
 
 ## <a name="autonomous-system-numbers"></a>Números de sistema autônomos
 
-A Microsoft usará AS 12076 para o emparelhamento público do Azure, o emparelhamento privado do Azure e o emparelhamento da Microsoft . Reservamos os ASNs de 65515 a 65520 para o uso interno. Há suporte para números AS de 16 e 32 bits.
+A Microsoft usará AS 12076 para o emparelhamento público do Azure, o emparelhamento privado do Azure e o emparelhamento da Microsoft . Nós reservamos ASNs de too65520 65515 para uso interno. Há suporte para números AS de 16 e 32 bits.
 
-Não há requisitos de simetria de transferência de dados. Os caminhos de encaminhamento e retorno podem atravessar pares de roteadores diferentes. Rotas idênticas devem ser anunciadas de qualquer um dos lados entre vários pares de circuitos que pertencem a você. As métricas de rotas não precisam ser idênticas.
+Não há requisitos de simetria de transferência de dados. caminhos de avanço e retorno Olá podem atravessar pares diferentes do roteador. Rotas idênticas devem ser anunciadas de qualquer um dos lados entre vários pares de circuitos que pertencem a você. Métrica não é necessária toobe idêntico.
 
 ## <a name="route-aggregation-and-prefix-limits"></a>Agregação de rotas e limites de prefixo
 
-Damos suporte a até 4.000 prefixos anunciados a nós por meio do emparelhamento privado do Azure. Esse número poderá ser aumentado para até 10.000 prefixos se o complemento Premium da Rota Expressa estiver habilitado. Aceitamos até 200 prefixos por sessão BGP para o emparelhamento público do Azure e o emparelhamento da Microsoft. 
+Há suporte para backup too4000 prefixos anunciados toous por meio de saudação emparelhamento particular do Azure. Isso pode ser aumentado se too10, prefixos 000 se o complemento do premium Olá ExpressRoute está habilitado. Podemos aceitar too200 prefixos por sessão BGP para o público do Azure e emparelhamento da Microsoft. 
 
-A sessão BGP será descartada se o número de prefixos exceder o limite. Aceitaremos rotas padrão somente no link de emparelhamento privado. O provedor deve filtrar a rota padrão e endereços IP privados (RFC 1918) dos caminhos de emparelhamento público do Azure e emparelhamento da Microsoft. 
+sessão BGP de saudação será removida se o número de saudação de prefixos excede o limite de saudação. Aceitaremos em Olá emparelhamento link privado apenas as rotas padrão. Provedor deve filtrar a rota padrão e endereços IP privados (RFC 1918) do hello pública do Azure e caminhos de emparelhamento da Microsoft. 
 
 ## <a name="transit-routing-and-cross-region-routing"></a>Roteamento de tráfego e de roteamento entre regiões
 
-A Rota Expressa não pode ser configurada como roteadores de tráfego. Você precisará contar com seu provedor de conectividade para serviços de roteamento de tráfego.
+A Rota Expressa não pode ser configurada como roteadores de tráfego. Você terá toorely no seu provedor de conectividade para serviços de roteamento de tráfego.
 
 ## <a name="advertising-default-routes"></a>Anunciando rotas padrão
 
-As rotas padrão são permitidas apenas em sessões de emparelhamento privado do Azure. Nesse caso, rotearemos todo o tráfego das redes virtuais associadas para sua rede. Anunciar rotas padrão para emparelhamento privado fará com que o caminho da Internet do Azure seja bloqueado. Você deve contar com sua borda corporativa para rotear o tráfego de e para a Internet para serviços hospedados no Azure. 
+As rotas padrão são permitidas apenas em sessões de emparelhamento privado do Azure. Nesse caso, estamos roteará todo o tráfego de rede de tooyour Olá redes virtuais associadas. Anunciar rotas padrão para emparelhamento privado resultará no caminho de internet de saudação do Azure que está sendo bloqueado. Você deve se basear em seu tráfego de tooroute de borda corporativo do e toohello internet para serviços hospedados no Azure. 
 
- Para habilitar a conectividade com outros serviços do Azure e serviços de infraestrutura, verifique se um dos seguintes itens está em vigor:
+ tooenable tooother de conectividade do Azure services e serviços de infraestrutura, você deve verificar se um dos itens a seguir de saudação está em vigor:
 
-* O emparelhamento público do Azure está habilitado para rotear o tráfego para pontos de extremidade públicos
-* Você usa o roteamento definido pelo usuário para permitir a conectividade da Internet para cada sub-rede que requer conectividade com a Internet.
+* O emparelhamento público do Azure é habilitado tooroute tráfego toopublic pontos de extremidade
+* Você pode usar definido pelo usuário roteamento tooallow conectividade com a internet cada sub-rede que exigem conectividade da Internet.
 
 > [!NOTE]
-> Anunciar rotas padrão irá interromper o Windows e outra ativação de licença da VM. Siga as instruções [aqui](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) para solucionar esse problema.
+> Anunciar rotas padrão irá interromper o Windows e outra ativação de licença da VM. Siga as instruções [aqui](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) toowork esse problema.
 > 
 > 
 
 ## <a name="support-for-bgp-communities-preview"></a>Suporte a comunidades BGP (visualização)
 
-Esta seção fornece uma visão geral de como as comunidades BGP serão usadas com a Rota Expressa. A Microsoft anunciará rotas nos caminhos de emparelhamento público e da Microsoft com rotas marcadas com valores de comunidade apropriados. A lógica para fazer isso e os detalhes de valores de comunidade são descritos abaixo. No entanto, a Microsoft não adotará valores de comunidade marcados para rotas anunciadas à Microsoft.
+Esta seção fornece uma visão geral de como as comunidades BGP serão usadas com a Rota Expressa. Microsoft anunciará rotas hello público e caminhos de emparelhamento da Microsoft com rotas marcadas com valores apropriados de comunidade. Olá lógica para fazer isso e Olá detalhes na comunidade valores são descritos abaixo. Microsoft, no entanto, não aceita qualquer comunidade tooroutes marcado valores anunciado tooMicrosoft.
 
-Se estiver se conectando à Microsoft por meio da Rota Expressa em qualquer local de emparelhamento dentro de uma região geopolítica, você terá acesso a todos os serviços de nuvem da Microsoft em todas as regiões dentro dos limites geopolíticos. 
+Se você estiver se conectando tooMicrosoft por meio de rota expressa em qualquer um emparelhamento local dentro de uma região geopolíticas, você terá acesso tooall serviços em nuvem Microsoft em todas as regiões dentro de limites geopolíticas hello. 
 
-Por exemplo, se você estiver conectado à Microsoft em Amsterdã por meio da Rota Expressa, terá acesso a todos os serviços de nuvem da Microsoft hospedados no Norte da Europa e na Europa Ocidental. 
+Por exemplo, se você conectou tooMicrosoft em Amsterdã por meio de rota expressa, você terá serviços de nuvem do acesso tooall Microsoft hospedados na Europa Norte e Europa Ocidental. 
 
-Consulte a página [Locais de emparelhamento e parceiros da Rota Expressa](expressroute-locations.md) para obter uma lista detalhada das regiões geopolíticas, regiões associadas do Azure e locais de emparelhamento correspondentes da Rota Expressa.
+Consulte toohello [ExpressRoute locais de emparelhamento e parceiros](expressroute-locations.md) página para uma lista detalhada das regiões geopolíticas, regiões do Azure associados e rota expressa correspondente emparelhamento locais.
 
-Você pode adquirir mais de um circuito da Rota Expressa por região geopolítica. Ter várias conexões oferece vantagens significativas para a alta disponibilidade devido à redundância geográfica. Em casos em que há vários circuitos da Rota Expressa, você recebe o mesmo conjunto de prefixos anunciados da Microsoft nos caminhos de emparelhamento público e da Microsoft. Isso significa que você terá vários caminhos de sua rede até a Microsoft. Potencialmente, isso pode fazer com que decisões de roteamento não ideais sejam tomadas em sua rede. Como resultado, você pode ter experiências de conectividade não ideal para diferentes serviços. 
+Você pode adquirir mais de um circuito da Rota Expressa por região geopolítica. Ter várias conexões oferece benefícios significativos em alta disponibilidade toogeo devido a redundância. Em casos em que você tiver vários circuitos de rota expressa, você receberá Olá mesmo conjunto de prefixos anunciado da Microsoft no emparelhamento público do hello e caminhos de emparelhamento da Microsoft. Isso significa que você terá vários caminhos de sua rede até a Microsoft. Isso pode causar roteamento abaixo do ideal toobe de decisões feita em sua rede. Como resultado, você pode enfrentar conectividade abaixo do ideal experiências toodifferent serviços. 
 
-A Microsoft marcará prefixos anunciados por meio do emparelhamento público e do emparelhamento da Microsoft com valores de comunidade BGP apropriados indicando a região em que os prefixos estão hospedados. Você pode contar com os valores de comunidade para tomar decisões de roteamento apropriadas e oferecer o [roteamento ideal aos clientes](expressroute-optimize-routing.md).
+Microsoft marcar os prefixos anunciados através do emparelhamento público e Microsoft emparelhamento com valores apropriados de comunidade BGP indicando prefixos de Olá Olá região é hospedado em. Você pode confiar em Olá comunidade valores toomake apropriado roteamento decisões toooffer [toocustomers roteamento ideal](expressroute-optimize-routing.md).
 
 | **Região Geopolítica** | **Região do Microsoft Azure** | **Valor de comunidade BGP** |
 | --- | --- | --- |
@@ -177,14 +177,14 @@ A Microsoft marcará prefixos anunciados por meio do emparelhamento público e d
 | Oeste da Índia |12076:51018 | |
 | Centro da Índia |12076:51017 | |
 
-Todas as rotas anunciadas pela Microsoft serão marcadas com o valor de comunidade apropriado. 
+Todas as rotas anunciadas da Microsoft serão marcadas com o valor de comunidade apropriado hello. 
 
 > [!IMPORTANT]
 > Os prefixos globais serão marcados com um valor apropriado de comunidade e serão anunciados somente quando o complemento premium da Rota Expressa estiver habilitado.
 > 
 > 
 
-Além disso, a Microsoft também marcará prefixos com base no serviço ao qual eles pertencem. Isso se aplica somente ao emparelhamento da Microsoft. A tabela a seguir fornece um mapeamento de serviço para o valor de comunidade BGP.
+Além disso toohello acima, Microsoft será também marca prefixos com base no serviço Olá pertencerem a. Isso se aplica somente emparelhamento da Microsoft toohello. Olá tabela a seguir fornece um mapeamento de valor de comunidade do serviço tooBGP.
 
 | **Serviço** | **Valor de comunidade BGP** |
 | --- | --- |
@@ -195,7 +195,7 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 | **Outros serviços do Office 365** |12076:5100 |
 
 > [!NOTE]
-> A Microsoft não atende a valores de comunidade BGP definidos por você nas rotas anunciadas para a Microsoft.
+> Microsoft não aceita valores de comunidade BGP definida Olá rotas anunciado tooMicrosoft.
 > 
 > 
 
@@ -203,7 +203,7 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 
 * Configurar sua conexão da Rota Expressa.
   
-  * [Criar um circuito do ExpressRoute para o modelo de implantação clássico](expressroute-howto-circuit-classic.md) ou [Criar e modificar um circuito do ExpressRoute usando o Azure Resource Manager](expressroute-howto-circuit-arm.md)
-  * [Configurar o roteamento para o modelo de implantação clássico](expressroute-howto-routing-classic.md) ou [Configurar o roteamento para o modelo de implantação do Resource Manager](expressroute-howto-routing-arm.md)
-  * [Vincular uma VNet clássica a um circuito do ExpressRoute](expressroute-howto-linkvnet-classic.md) ou [Vincular uma VNet do Resource Manager a um circuito do ExpressRoute](expressroute-howto-linkvnet-arm.md)
+  * [Criar um circuito de rota expressa para o modelo de implantação clássico Olá](expressroute-howto-circuit-classic.md) ou [criar e modificar um circuito de rota expressa usando o Gerenciador de recursos do Azure](expressroute-howto-circuit-arm.md)
+  * [Configurar o roteamento para o modelo de implantação clássico Olá](expressroute-howto-routing-classic.md) ou [configurar o roteamento para o modelo de implantação do Gerenciador de recursos de saudação](expressroute-howto-routing-arm.md)
+  * [Vincular um tooan de rede virtual circuito de rota expressa clássico](expressroute-howto-linkvnet-classic.md) ou [Link tooan um Gerenciador de recursos de VNet circuito de rota expressa](expressroute-howto-linkvnet-arm.md)
 

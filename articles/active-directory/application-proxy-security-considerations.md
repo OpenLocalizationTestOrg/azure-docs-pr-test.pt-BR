@@ -1,5 +1,5 @@
 ---
-title: "Considerações de segurança para o Proxy de Aplicativo do Azure AD | Microsoft Docs"
+title: "Considerações de aaaSecurity para Proxy de aplicativo do Azure AD | Microsoft Docs"
 description: "Aborda considerações de segurança para usar o Proxy de Aplicativo do Azure AD"
 services: active-directory
 documentationcenter: 
@@ -15,51 +15,51 @@ ms.date: 08/03/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: c6ead651133eb17fd55f7567cdb14dc3bcd64245
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: ebd14b9d1fc8f4629c5916e5a910595727d935d5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerações de segurança para acessar aplicativos remotamente com o Proxy de Aplicativo do Azure AD
 
 Este artigo explica como o Proxy de Aplicativo do Azure Active Directory fornece um serviço seguro para publicar e acessar aplicativos remotamente.
 
-O diagrama a seguir mostra como o Azure AD permite acesso remoto seguro aos aplicativos locais.
+Olá seguinte diagrama mostra como o Azure AD permite que aplicativos de locais de tooyour de acesso remoto seguro.
 
  ![Diagrama de acesso remoto por meio do Proxy de Aplicativo do Azure AD](./media/application-proxy-security-considerations/secure-remote-access.png)
 
 ## <a name="security-benefits"></a>Benefícios de segurança
 
-O Proxy de Aplicativo do Azure AD oferece os seguintes benefícios de segurança:
+Proxy de aplicativo do Azure AD oferece Olá benefícios de segurança a seguir:
 
 ### <a name="authenticated-access"></a>Acesso autenticado 
 
-Se você optar por usar a pré-autenticação do Azure Active Directory, somente conexões autenticadas podem acessar sua rede.
+Se você escolher toouse Active Directory do Azure pré-autenticação, somente conexões autenticadas podem acessar sua rede.
 
-Proxy de Aplicativo do Azure AD depende do Azure AD serviço de token de segurança (STS) para todas as autenticações.  A pré-autenticação, por sua própria natureza, bloqueia um número significativo de ataques anônimos, pois somente identidades autenticadas podem acessar o aplicativo de back-end.
+Proxy de aplicativo do Azure AD depende de saudação do AD do Azure serviço de token segurança (STS) para todas as autenticações.  Pré-autenticação, por natureza, bloqueia um número significativo de ataques anônimos, porque somente identidades autenticadas podem acessar o aplicativo de back-end de saudação.
 
 Se você escolher Passagem como seu método de pré-autenticação, não terá esse benefício. 
 
 ### <a name="conditional-access"></a>Acesso condicional
 
-Aplique controles de política mais rígidos antes que as conexões com sua rede sejam estabelecidas.
+Aplica controles de política mais ricas antes de conexões de rede tooyour são estabelecidas.
 
-Com [acesso condicional](active-directory-conditional-access-azuread-connected-apps.md), você pode definir restrições em relação ao que o tráfego pode acessar nos seus aplicativos de back-end. É possível criar políticas que restrinjam entradas com base no local, na força da autenticação e no perfil de risco do usuário.
+Com [acesso condicional](active-directory-conditional-access-azuread-connected-apps.md), você pode definir restrições em que o tráfego é permitido tooaccess seus aplicativos de back-end. É possível criar políticas que restrinjam entradas com base no local, na força da autenticação e no perfil de risco do usuário.
 
-Você também pode usar o acesso condicional para configurar políticas de Autenticação Multifator, adicionando outra camada de segurança para suas autenticações de usuário. 
+Você também pode usar políticas de autenticação multifator de tooconfigure de acesso condicional, adicionando outra camada de autenticações de usuário de tooyour de segurança. 
 
 ### <a name="traffic-termination"></a>Encerramento de tráfego
 
-Todo o tráfego é encerrado na nuvem.
+Todo o tráfego é terminado em nuvem hello.
 
-Como o Proxy de Aplicativo do Azure AD é um proxy reverso, todo o tráfego para os aplicativos de back-end é encerrado no serviço. A sessão pode obter restabelecida apenas com o servidor de back-end, o que significa que seus servidores back-end não são expostos para o tráfego HTTP direto. Essa configuração significa que você terá uma proteção melhor contra ataques direcionados.
+Como o Proxy de aplicativo do Azure AD é um proxy reverso, todos os aplicativos de tooback a fim de tráfego é finalizada com serviço de saudação. Olá sessão pode obter restabelecida com o servidor de back-end hello, que significa que os servidores de back-end não são expostos tráfego toodirect HTTP. Essa configuração significa que você terá uma proteção melhor contra ataques direcionados.
 
 ### <a name="all-access-is-outbound"></a>Todo o acesso é de saída 
 
-Não é necessário abrir as conexões de entrada para a rede corporativa.
+Rede corporativa do toohello tooopen conexões de entrada não é necessário.
 
-Os Conectores do Proxy de Aplicativo utilizam apenas conexões de saída para o serviço de Proxy de Aplicativo do Azure AD, o que significa que não há necessidade de abrir portas de firewall para conexões de entrada. As abordagens tradicionais exigiam uma rede de perímetro (também conhecida como *DMZ*, *zona desmilitarizada*, ou *sub-rede filtrada*) e permitiam acesso a conexões não autenticadas na borda da rede. Esse cenário exigiu muitos investimentos adicionais em produtos de firewall de aplicativo Web para analisar o tráfego e oferecer proteções extras ao ambiente. Com o Proxy de Aplicativo, você não precisa de uma rede de perímetro porque todas as conexões são de saída e ocorrem por um canal seguro.
+Conectores de Proxy de aplicativo só usam toohello AD do Azure serviço de Proxy de aplicativo conexões de saída, o que significa que não é necessário tooopen portas de firewall para conexões de entrada. Proxies tradicionais necessária uma rede de perímetro (também conhecido como *DMZ*, *zona desmilitarizada*, ou *sub-rede filtrada*) e a permissão de acesso toounauthenticated conexões na borda da rede de saudação. Neste cenário necessárias muitos investimentos adicionais em aplicativo web tráfego de tooanalyze produtos de firewall e oferecem adição proteções toohello ambiente. Com o Proxy de Aplicativo, você não precisa de uma rede de perímetro porque todas as conexões são de saída e ocorrem por um canal seguro.
 
 Para saber mais sobre conectores, veja [Noções básicas sobre conectores de proxy de aplicativo do Azure AD](application-proxy-understand-connectors.md).
 
@@ -67,109 +67,109 @@ Para saber mais sobre conectores, veja [Noções básicas sobre conectores de pr
 
 Obtenha proteção de segurança de ponta.
 
-Porque ele é parte do Azure Active Directory, o Proxy de Aplicativo pode aproveitar o [Azure AD Identity Protection](active-directory-identityprotection.md) com inteligência com base em aprendizado de máquina e dados do Microsoft Security Response Center e da Digital Crimes Unit. Juntos, identificamos proativamente contas comprometidas e oferecemos proteção em tempo real em conexões de alto risco. Levamos em consideração vários fatores, como acesso de dispositivos infectados por meio de redes que mantêm o anonimato, bem como de locais atípicos e improváveis.
+Porque ele é parte do Active Directory do Azure, o Proxy de aplicativo pode aproveitar [Azure AD Identity Protection](active-directory-identityprotection.md)com inteligência com base em aprendizado de máquina e dados de saudação Microsoft Security Response Center e Digital Crimes Unit. Juntos, identificamos proativamente contas comprometidas e oferecemos proteção em tempo real em conexões de alto risco. Levamos em consideração vários fatores, como acesso de dispositivos infectados por meio de redes que mantêm o anonimato, bem como de locais atípicos e improváveis.
 
 Muitos desses relatórios e eventos já estão disponíveis por meio de uma API para integração com as informações de segurança e sistemas de gerenciamento (SIEM) do evento.
 
 ### <a name="remote-access-as-a-service"></a>Acesso remoto como serviço
 
-Você não precisa se preocupar com a manutenção e a aplicação de patches em servidores locais.
+Você não tem tooworry sobre manutenção e aplicação de patch servidores locais.
 
-A não aplicação de patches no software ainda é responsável por um grande número de ataques. O Proxy de Aplicativo do Azure AD é um serviço em escala de Internet da Microsoft. Sendo assim, você sempre obterá os patches e as atualizações de segurança mais recentes.
+A não aplicação de patches no software ainda é responsável por um grande número de ataques. Proxy de aplicativo do Azure AD é um serviço de escala da Internet que possui a Microsoft, assim você sempre obter atualizações e patches de segurança mais recentes do hello.
 
-Para melhorar a segurança dos aplicativos publicados pelo Proxy de Aplicativo do Azure AD, bloquearemos robôs do rastreador da Web de indexação e o arquivamento de seus aplicativos. Cada vez que um robô rastreador da Web tentar recuperar as configurações de robôs para um aplicativo publicado, o Proxy de Aplicativo responderá com um arquivo robots.txt que inclui `User-agent: * Disallow: /`.
+segurança de saudação tooimprove de aplicativos publicados pelo Proxy de aplicativo do Azure AD, podemos bloquear robôs do rastreador da web de indexação e o arquivamento de seus aplicativos. Cada vez que um robô rastreador da Web tentar recuperar as configurações de robôs para um aplicativo publicado, o Proxy de Aplicativo responderá com um arquivo robots.txt que inclui `User-agent: * Disallow: /`.
 
-## <a name="under-the-hood"></a>Nos bastidores
+## <a name="under-hello-hood"></a>Bastidores Olá
 
 O Proxy de Aplicativo do Azure AD consiste em duas partes:
 
-* O serviço baseado em nuvem: este serviço é executado no Azure e é onde as conexões de cliente/usuário externo são feitas.
-* [O conector local](application-proxy-understand-connectors.md): componente local, o conector escuta solicitações das conexões de serviço e identificadores de Proxy de Aplicativo do Azure AD para aplicativos internos. 
+* Olá serviço baseado em nuvem: este serviço é executado no Azure e é onde as conexões de cliente/usuário externo de saudação são feitas.
+* [Olá conector local](application-proxy-understand-connectors.md): um componente de local, conector Olá escuta solicitações de serviço de Proxy de aplicativo de saudação do AD do Azure e gerencia aplicativos internos de toohello de conexões. 
 
-Um fluxo entre o conector e o serviço de Proxy de Aplicativo é estabelecido quando:
+Um fluxo entre conector hello e serviço de Proxy de aplicativo hello é estabelecido quando:
 
-* O conector é configurado pela primeira vez.
-* O conector extrai informações de configuração do serviço de Proxy de Aplicativo.
+* conector de saudação é configurada pela primeira vez.
+* conector de saudação extrai informações de configuração de saudação serviço Proxy de aplicativo.
 * Um usuário acessa um aplicativo publicado.
 
 >[!NOTE]
->Todas as comunicações ocorrem por SSL e sempre originam-se no conector para o serviço de Proxy de Aplicativo. O serviço é apenas de saída.
+>Todas as comunicações ocorrem por SSL, e eles sempre são originadas Olá conector toohello serviço Proxy de aplicativo. serviço de saudação é de saída apenas.
 
-O conector usa um certificado de cliente para autenticar o serviço de Proxy de Aplicativo para quase todas as chamadas. A única exceção deste processo é a etapa de configuração inicial em que o certificado de cliente é estabelecido.
+conector de saudação usa um toohello de tooauthenticate de certificado de cliente serviço de Proxy de aplicativo para quase todas as chamadas. Olá somente exceção toothis processo é etapa de configuração inicial do hello, em que o certificado de cliente Olá é estabelecido.
 
-### <a name="installing-the-connector"></a>Instalação do conector
+### <a name="installing-hello-connector"></a>Instalar o conector do hello
 
-Quando o conector é configurado pela primeira vez, ocorrem os seguintes eventos de fluxo:
+Quando o conector de saudação é configurado pela primeira vez, Olá eventos de fluxo a seguir ocorrem:
 
-1. O registro do conector para o serviço ocorre como parte da instalação do conector. Os usuários são solicitados a digitar suas credenciais de administrador do Azure AD. O token adquirido dessa autenticação é então apresentado ao serviço de Proxy de Aplicativo do Azure AD.
-2. O serviço de Proxy de Aplicativo avalia o token. Isso garante que o usuário é um administrador da empresa no locatário para o qual o token foi emitido. Se o usuário não for um administrador, o processo será encerrado.
-3. O conector gera uma solicitação de certificado de cliente e a passa, juntamente com o token, para o serviço de Proxy de Aplicativo. O serviço, por sua vez, verifica o token e faz a solicitação do certificado de cliente.
-4. O conector usa o certificado de cliente para comunicação futura com o serviço de Proxy de Aplicativo.
-5. O conector realiza uma extração inicial dos dados de configuração do sistema do serviço usando o respectivo certificado de cliente e está pronto para receber solicitações.
+1. serviço de toohello de registro do conector Olá ocorre como parte da instalação de saudação do conector de saudação. Os usuários é solicitado tooenter suas credenciais de administrador do AD do Azure. O token obtido dessa autenticação é apresentado toohello serviço de Proxy de aplicativo do Azure AD.
+2. Olá serviço Proxy de aplicativo avalia token hello. Isso garante que um administrador da empresa no locatário Olá Olá token foi emitido para o usuário hello está. Se o usuário de saudação não for um administrador, o processo de saudação é encerrado.
+3. conector Hello gera uma solicitação de certificado de cliente e passá-lo, juntamente com toohello de token, Olá serviço Proxy de aplicativo. por sua vez, serviço Olá verifica o token hello e faz a solicitação de certificado de cliente de saudação.
+4. conector de Olá usa o certificado de cliente Olá para comunicação futura com hello serviço Proxy de aplicativo.
+5. conector de saudação realiza uma recepção inicial dos dados de configuração do sistema de saudação do serviço hello usando seu certificado de cliente, e agora está pronto tootake solicitações.
 
-### <a name="updating-the-configuration-settings"></a>Atualização das definições da configuração
+### <a name="updating-hello-configuration-settings"></a>Atualizando as definições de configuração de saudação
 
-Sempre que o serviço de Proxy de Aplicativo atualiza as definições de configuração, ocorrem os seguintes eventos de fluxo:
+Sempre que Olá serviço Proxy de aplicativo de atualizações de definições de configuração de saudação, Olá eventos de fluxo a seguir ocorrem:
 
-1. O conector se conecta ao ponto de extremidade de configuração no serviço de Proxy de Aplicativo usando seu certificado de cliente.
-2. Depois que o certificado de cliente tiver sido validado, o serviço de Proxy de Aplicativo retorna dados de configuração ao conector (por exemplo, o grupo de conectores do qual esse conector deve fazer parte).
-3. Se o certificado atual tiver mais de 180 dias, o conector gerará uma nova solicitação de certificado, que atualiza efetivamente o certificado de cliente a cada 180 dias.
+1. conector Olá conecta toohello configuração os pontos de extremidade Olá serviço Proxy de aplicativo usando seu certificado de cliente.
+2. Depois que o certificado de cliente Olá foi validado, Olá serviço Proxy de aplicativo retorna toohello conector de dados da configuração (por exemplo, grupo de conector Olá Olá conector deve ser parte do).
+3. Se o certificado atual Olá é mais de 180 dias, o conector hello gera uma nova solicitação de certificado, que efetivamente atualiza o certificado de cliente de saudação a cada 180 dias.
 
 ### <a name="accessing-published-applications"></a>Acesso a aplicativos publicados
 
-Quando os usuários acessam um aplicativo publicado, os seguintes eventos ocorrem entre o serviço de Proxy de Aplicativo e o conector de Proxy de Aplicativo:
+Quando os usuários acessam um aplicativo publicado, hello seguintes eventos ocorrem entre o serviço de Proxy de aplicativo hello e o conector de Proxy de aplicativo hello:
 
-1. [O serviço autentica o usuário para o aplicativo](#the-service-checks-the-configuration-settings-for-the-app)
-2. [O serviço faz uma solicitação na fila do conector](#The-service-places-a-request-in-the-connector-queue)
-3. [Um conector processa a solicitação da fila](#the-connector-receives-the-request-from-the-queue)
-4. [O conector aguarda uma resposta](#the-connector-waits-for-a-response)
-5. [O serviço transmite dados para o usuário](#the-service-streams-data-to-the-user)
+1. [serviço de saudação autentica o usuário Olá para o aplicativo hello](#the-service-checks-the-configuration-settings-for-the-app)
+2. [serviço de saudação faz uma solicitação na fila de conector Olá](#The-service-places-a-request-in-the-connector-queue)
+3. [Um conector processa a solicitação de saudação da fila de saudação](#the-connector-receives-the-request-from-the-queue)
+4. [conector de saudação aguarda uma resposta](#the-connector-waits-for-a-response)
+5. [usuário de toohello de dados do Hello serviço fluxos](#the-service-streams-data-to-the-user)
 
-Para saber mais sobre o que acontece em cada uma dessas etapas, continue lendo.
-
-
-#### <a name="1-the-service-authenticates-the-user-for-the-app"></a>1. O serviço autentica o usuário para o aplicativo
-
-Se você configurou o aplicativo para usar Passagem como seu método de pré-autenticação, as etapas nesta seção são ignoradas.
-
-Se você configurou o aplicativo para pré-autenticar com o Azure AD, os usuários são redirecionados para o STS do Azure AD para autenticar e as seguintes etapas são executadas:
-
-1. O Proxy de Aplicativo verifica todos os requisitos da política de acesso condicional para o aplicativo específico. Esta etapa garante que o usuário foi atribuído ao aplicativo. Se uma verificação em duas etapas for necessária, a sequência de autenticação solicitará ao usuário um segundo método de autenticação.
-
-2. Depois de realizadas todas as verificações, o STS do Azure AD emite um token assinado para o aplicativo e redireciona o usuário de volta ao serviço de Proxy de Aplicativo.
-
-3. O Proxy de Aplicativo verifica se o token foi emitido para corrigir o aplicativo. Ele também faz outras verificações, como ao garantir que o token foi assinado pelo Azure AD, e que ainda está dentro da janela de validade.
-
-4. O Proxy de Aplicativo define um cookie de autenticação criptografado para indicar que a autenticação para o aplicativo ocorreu. Esse cookie inclui um carimbo de data/hora de expiração com base no token do Azure AD e outros dados, como o nome do usuário na qual se baseia a autenticação. O cookie é criptografado com uma chave privada conhecida apenas pelo serviço de Proxy de Aplicativo.
-
-5. O Proxy de Aplicativo redireciona o usuário de volta para a URL originalmente solicitada.
-
-Se qualquer parte das etapas da pré-autenticação falhar, a solicitação do usuário será negada e o usuário verá uma mensagem indicando a origem do problema.
+toolearn mais sobre o que acontece em cada uma dessas etapas, continue lendo.
 
 
-#### <a name="2-the-service-places-a-request-in-the-connector-queue"></a>2. O serviço faz uma solicitação na fila do conector
+#### <a name="1-hello-service-authenticates-hello-user-for-hello-app"></a>1. serviço de Olá autentica o usuário de saudação para o aplicativo hello
 
-Os conectores mantêm uma conexão de saída aberta ao serviço de Proxy de Aplicativo. Quando uma solicitação chega, o serviço enfileira a solicitação em uma das conexões abertas para escolha do conector.
+Se você configurou Olá aplicativo toouse passagem como seu método de pré-autenticação, etapas Olá nesta seção serão ignoradas.
 
-A solicitação inclui itens do aplicativo, como os cabeçalhos da solicitação, os dados do cookie criptografado, o usuário que faz a solicitação e a ID de solicitação. Embora os dados do cookie criptografado sejam enviados com a solicitação, o cookie de autenticação não é.
+Se você configurou Olá toopreauthenticate de aplicativo com o AD do Azure, os usuários são redirecionado toohello tooauthenticate de STS do AD do Azure e hello etapas a seguir ocorrem:
 
-#### <a name="3-the-connector-processes-the-request-from-the-queue"></a>3. O conector processa a solicitação da fila. 
+1. Proxy de aplicativo procura qualquer requisitos de política de acesso condicional para aplicativos específicos hello. Essa etapa garante que Olá foi atribuída ao usuário toohello aplicativo. Se a verificação em duas etapas é necessária, sequência de autenticação Olá solicita Olá usuário um segundo método de autenticação.
 
-Com base na solicitação, o Proxy de Aplicativo executa uma das seguintes ações:
+2. Depois que todas as verificações foram aprovadas, Olá STS do AD do Azure emite um token assinado para o aplicativo hello e redireciona Olá usuário back toohello serviço Proxy de aplicativo.
 
-* Se a solicitação for uma operação simples (por exemplo, não há dados no corpo como acontece com uma solicitação *GET* RESTful), o conector fará uma conexão com o recurso interno de destino e aguardará uma resposta.
+3. Proxy de aplicativo verifica que esse token Olá foi emitido aplicativo hello de toocorrect. Ele executa outras verificações também, como garantir que Olá token foi assinado pelo AD do Azure e que ele ainda estiver dentro de janela válido hello.
 
-* Se a solicitação tiver dados associados a ela no corpo, por exemplo, uma operação *POST* RESTful, o conector fará uma conexão de saída usando o certificado de cliente com a instância do Proxy de Aplicativo. Ele faz essa conexão para solicitar os dados e abrir uma conexão com o recurso interno. No recebimento da solicitação do conector, o serviço de Proxy de Aplicativo começa aceitando o conteúdo do usuário e encaminha os dados ao conector. O conector, por sua vez, encaminha os dados para o recurso interno.
+4. Proxy de aplicativo define uma tooindicate de cookie de autenticação criptografada que o aplicativo de toohello autenticação ocorreu. Olá cookie inclui um carimbo de hora de expiração é baseado em token de saudação do AD do Azure e outros dados, como nome de usuário Olá Olá autenticação se baseia. Olá cookie é criptografado com uma chave privada conhecida toohello serviço Proxy de aplicativo.
 
-#### <a name="4-the-connector-waits-for-a-response"></a>4. O conector aguarda uma resposta.
+5. Aplicativo Proxy redirecionamentos Olá usuário toohello back solicitou o URL.
 
-Depois de concluída a solicitação/transmissão de todo o conteúdo ao back-end, o conector espera uma resposta.
+Se qualquer parte das etapas de pré-autenticação Olá falhar, solicitação de saudação do usuário foi negada e usuário Olá é mostrado uma mensagem indicando a origem de saudação de problema de saudação.
 
-Depois de receber a resposta, o conector faz uma conexão de saída com o serviço de Proxy de Aplicativo para retornar os detalhes do cabeçalho e iniciar a transmissão dos dados de retorno.
 
-#### <a name="5-the-service-streams-data-to-the-user"></a>5. O serviço transmite dados para o usuário. 
+#### <a name="2-hello-service-places-a-request-in-hello-connector-queue"></a>2. serviço Olá faz uma solicitação na fila de conector Olá
 
-Algum processamento do aplicativo pode ocorrer aqui. Se você configurou o Proxy de Aplicativo para converter cabeçalhos ou URLs em seu aplicativo, esse processamento ocorre conforme necessário durante esta etapa.
+Os conectores mantêm toohello de abrir uma conexão de saída serviço Proxy de aplicativo. Quando uma solicitação chega, serviço Olá enfileira solicitação Olá em uma das conexões de abrir Olá para Olá conector toopick backup.
+
+solicitação Olá inclui itens de aplicativo hello, como cabeçalhos de solicitação hello, dados do cookie Olá criptografado, Olá usuário fazer Olá solicitação e Olá ID da solicitação Embora os dados do cookie criptografado Olá são enviados com solicitação hello, cookie de autenticação de saudação em si não é.
+
+#### <a name="3-hello-connector-processes-hello-request-from-hello-queue"></a>3. conector Olá processa a solicitação de saudação da fila de saudação. 
+
+Proxy de aplicativo com base na solicitação de Olá, executa uma das seguintes ações de saudação:
+
+* Se a solicitação de saudação é uma operação simples (por exemplo, não há nenhum dado dentro do corpo de hello, sem um RESTful *obter* solicitação), conector de saudação faz um recurso interno do destino de toohello de conexão e, em seguida, aguarda uma resposta.
+
+* Se a solicitação de saudação tiver dados associados a ele no corpo da saudação (por exemplo, um RESTful *POST* operação), conector Olá faz uma conexão de saída por meio de instância de Proxy de aplicativo hello cliente certificado toohello. Ele faz com que dados conexão toorequest hello e abrir um recurso interno de toohello de conexão. Depois de receber a solicitação de saudação do conector de saudação, o serviço de Proxy de aplicativo hello começa a aceitar o conteúdo de usuário hello e encaminha toohello o conector de dados. conector de Hello, por sua vez, encaminha os recursos internos do hello dados toohello.
+
+#### <a name="4-hello-connector-waits-for-a-response"></a>4. conector de Olá aguarda uma resposta.
+
+Depois de fazer a solicitação hello e transmissão de toohello todo o conteúdo final é concluído, conector Olá aguarda uma resposta.
+
+Depois de receber uma resposta, conector Olá faz com que um serviço de Proxy de aplicativo de toohello de conexão de saída, tooreturn Olá detalhes do cabeçalho e iniciar o fluxo de dados de retorno de saudação.
+
+#### <a name="5-hello-service-streams-data-toohello-user"></a>5. Olá serviço fluxos dados toohello o usuário. 
+
+Algum processamento do aplicativo hello pode ocorrer aqui. Se você configurou URLs ou cabeçalhos de tootranslate do Proxy de aplicativo em seu aplicativo, o que o processamento ocorre conforme necessário durante esta etapa.
 
 
 ## <a name="next-steps"></a>Próximas etapas

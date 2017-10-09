@@ -1,6 +1,6 @@
 ---
-title: "Aviso de desativação da família 1 de SOs convidados | Microsoft Docs"
-description: "Fornece informações sobre quando ocorreu a desativação da família 1 sistemas operacionais convidados do Azure e determinar se você foi afetado"
+title: "aaaGuest sistema operacional família 1 desativação Observe | Microsoft Docs"
+description: "Fornece informações sobre quando a desativação de hello Azure SO convidado família 1 aconteceu e como toodetermine se você for afetado"
 services: cloud-services
 documentationcenter: na
 author: raiye
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: 3178a09dab1cb972a3460d54dc9908fb95cce68b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fa8b904c6560dbbe4982c301f818c7a5cbc4eacb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Aviso de desativação da família 1 de SO convidados
-A desativação da família 1 do sistema operacional foi anunciada em 1º de junho de 2013.
+desativação de saudação da família 1 do SO foi anunciada em 1 de junho de 2013.
 
-**2 de setembro de 2014** A família 1.x do sistema operacional convidado do Azure (SO convidado), que se baseia no sistema operacional Windows Server 2008, foi oficialmente desativada. Todas as tentativas para implantar novos serviços ou atualizar serviços existentes usando a família 1 falharão com uma mensagem de erro informando que a família 1 dos sistemas operacionais convidados foi desativada.
+**2 de setembro de 2014** Olá o sistema operacional de convidado do Azure (SO convidado) família 1. x, que é baseado no sistema operacional de saudação do Windows Server 2008, foi oficialmente desativado. Todas as tentativas toodeploy novos serviços ou atualizações serviços existentes usando a família 1 falharão com uma mensagem de erro informando que Olá que SO convidado família 1 foi desativado.
 
-**3 de novembro de 2014** O suporte estendido para a família 1 dos sistemas operacionais convidados terminou e está totalmente desativado. Todos os serviços que ainda estão na família 1 serão afetados. Podemos interromper esses serviços a qualquer momento. Não há nenhuma garantia de que seus serviços continuarão sendo executados, a menos que você os atualize manualmente por conta própria.
+**3 de novembro de 2014** O suporte estendido para a família 1 dos sistemas operacionais convidados terminou e está totalmente desativado. Todos os serviços que ainda estão na família 1 serão afetados. Podemos interromper esses serviços a qualquer momento. Não há nenhuma garantia que os serviços continuarão toorun, a menos que você atualize-os manualmente por conta própria.
 
-Se você tiver outras dúvidas, visite os [Fóruns dos Serviços de Nuvem](http://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) ou [entre em contato com o suporte do Azure](https://azure.microsoft.com/support/options/).
+Se você tiver outras perguntas, visite Olá [fóruns de serviços de nuvem](http://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) ou [entre em contato com o suporte do Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="are-you-affected"></a>Você foi afetado?
-Os Serviços de Nuvem são afetados se qualquer uma das opções a seguir se aplicar:
+Os serviços de nuvem são afetados se qualquer um dos seguintes Olá se aplica:
 
-1. Você tem um valor de "osFamily = "1" explicitamente especificado no arquivo ServiceConfiguration.cscfg para seu serviço de nuvem.
-2. Você não tem um valor para osFamily especificado explicitamente no arquivo ServiceConfiguration.cscfg para seu serviço de nuvem. Atualmente, o sistema usa o valor padrão de "1" nesse caso.
-3. O Portal do Azure lista o valor da família do Sistema Operacional Convidado como "Windows Server 2008".
+1. Você tem um valor de "osFamily ="1"explicitamente especificado no arquivo ServiceConfiguration cscfg Olá para seu serviço de nuvem.
+2. Você não tem um valor de osFamily especificado explicitamente no arquivo ServiceConfiguration cscfg Olá para seu serviço de nuvem. Atualmente, sistema Olá usa saudação padrão valor de "1" neste caso.
+3. Olá portal do Azure lista o valor da família do sistema operacional convidado como "Windows Server 2008".
 
-Para definir quais dos serviços de nuvem estão executando qual família de SO, execute o script a seguir no Azure PowerShell, embora você deva [configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) primeiro. Para saber mais sobre o script, consulte [Fim da vida útil da família 1 dos sistemas operacionais convidados do Azure: junho de 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
+toofind quais dos seus serviços de nuvem estão executando quais famílias de sistema operacional, você pode executar Olá seguinte script do PowerShell do Azure, embora você deva [configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) primeiro. Para obter mais informações sobre o script hello, consulte [Azure convidado sistema operacional família 1 fim da vida útil: junho de 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
@@ -48,28 +48,28 @@ foreach($subscription in Get-AzureSubscription) {
 }
 ```
 
-Os serviços de nuvem serão afetados pela desativação da família 1 do sistema operacional se a coluna osFamily na saída do script estiver vazia ou contiver um "1".
+Os serviços de nuvem serão afetados pela desativação da família 1 do SO se a coluna de osFamily Olá na saída do script hello está vazia ou contém um "1".
 
 ## <a name="recommendations-if-you-are-affected"></a>Recomendações se você for afetado
-Recomendamos que você migre suas funções de serviço de nuvem para uma das famílias dos sistemas operacionais convidados com suporte:
+Recomendamos que você migre seu tooone de funções de serviço de nuvem de famílias de SO convidado Olá com suporte:
 
 **Família 4.x dos SOs convidados** - Windows Server 2012 R2 *(recomendado)*
 
 1. Certifique-se de que seu aplicativo esteja usando o SDK 2.1 ou posterior com o .NET Framework 4.0, 4.5 ou 4.5.1.
-2. Defina o atributo osFamily para "4" no arquivo ServiceConfiguration.cscfg e reimplante o serviço de nuvem.
+2. Definir o arquivo de ServiceConfiguration. cscfg do hello osFamily atributo muito "4" hello em e reimplante o serviço de nuvem.
 
 **Família 3.x dos SOs convidados** - Windows Server 2012
 
 1. Certifique-se de que seu aplicativo esteja usando o SDK 1.8 ou posterior com o .NET Framework 4.0 ou 4.5.
-2. Defina o atributo osFamily como "3" no arquivo ServiceConfiguration.cscfg e reimplante o serviço de nuvem.
+2. Definir o arquivo de ServiceConfiguration. cscfg do hello osFamily atributo muito "3" hello em e reimplante o serviço de nuvem.
 
 **Família 2.x dos SOs convidados** - Windows Server 2008 R2
 
 1. Certifique-se de que seu aplicativo esteja usando o SDK 1.3 e posterior com o .NET Framework 3.5 ou 4.0.
-2. Defina o atributo osFamily para "2" no arquivo ServiceConfiguration.cscfg e reimplante o serviço de nuvem.
+2. Definir o arquivo de ServiceConfiguration. cscfg do hello osFamily atributo muito "2" hello em e reimplante o serviço de nuvem.
 
 ## <a name="extended-support-for-guest-os-family-1-ended-nov-3-2014"></a>O suporte estendido para a Família 1 dos sistemas operacionais convidados terminou em 3 de novembro de 2014
-Não há mais suporte para serviços de nuvem na família 1 dos sistemas operacionais convidados. Migre da família 1 assim que possível para evitar a interrupção do serviço.  
+Não há mais suporte para serviços de nuvem na família 1 dos sistemas operacionais convidados. Migre da família 1 assim tooavoid possíveis interrupções de serviço.  
 
 ## <a name="next-steps"></a>Próximas etapas
-Examine as últimas [versões do SO convidado](cloud-services-guestos-update-matrix.md).
+Saudação de revisão mais recente [versões de sistema operacional convidado](cloud-services-guestos-update-matrix.md).

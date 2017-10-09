@@ -1,6 +1,6 @@
 ---
-title: "Solução de problemas: dados ausentes no log de atividades do Azure Active Directory | Microsoft Docs"
-description: "Lista os diversos relatórios disponíveis no Azure Active Directory"
+title: "Solução de problemas: Faltando dados no log de atividades do Active Directory do Azure Olá | Microsoft Docs"
+description: "Listas hello vários relatórios disponíveis para o Active Directory do Azure"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,31 +15,31 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 47617f8f727027de113a0f503308c8accc58859e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7bbec94ab42eb5b54a7e65e124060d057b4a1a34
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="i-cant-find-some-actions-that-i-performed-in-the-azure-active-directory-activity-log"></a>Não consigo localizar algumas ações que executei no log de atividades do Azure Active Directory
+# <a name="i-cant-find-some-actions-that-i-performed-in-hello-azure-active-directory-activity-log"></a>Não é possível localizar algumas ações executadas no log de atividades do Active Directory do Azure Olá
 
 
 ## <a name="symptoms"></a>Sintomas
 
-Eu executei algumas ações no portal do Azure e esperava ver os logs de auditoria para essas ações na folha `Activity logs > Audit Logs`, mas não é possível encontrá-los.
+Eu executou algumas ações no portal do Azure de saudação e esperado logs de auditoria de saudação toosee para essas ações em Olá `Activity logs > Audit Logs` folha, mas não é possível encontrá-los.
 
  ![Relatórios](./media/active-directory-reporting-troubleshoot-missing-audit-data/01.png)
  
 
 ## <a name="cause"></a>Causa
 
-As ações não são exibidas imediatamente no log de Auditoria da Atividade. Ele pode levar de 15 minutos a uma hora para ver os logs de auditoria no portal desde o momento em que a operação é executada.
+Ações não são exibidas imediatamente no log de auditoria da atividade de saudação. Ele pode levar de 15 minutos, os logs de auditoria de saudação do tooan hora toosee no portal de saudação do tempo de saudação Olá operação é executada.
 
 ## <a name="resolution"></a>Resolução
 
-Aguarde de 15 minutos a uma hora e verifique se as ações aparecem no log. Se você ainda não os vê, gere um tíquete de suporte conosco e verificaremos o problema.
+Aguardar a hora de tooan de 15 minutos e verificar se as ações de saudação são exibidos no log de saudação. Se você ainda não os vê, gere um tíquete de suporte conosco e verificaremos o problema.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Veja as [Perguntas frequentes sobre os relatórios do Azure Active Directory](active-directory-reporting-faq.md).
+Consulte Olá [reporting perguntas frequentes sobre o Active Directory do Azure](active-directory-reporting-faq.md).
 

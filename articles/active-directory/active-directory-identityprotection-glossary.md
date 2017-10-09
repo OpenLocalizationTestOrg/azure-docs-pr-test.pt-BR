@@ -1,5 +1,5 @@
 ---
-title: "Glossário do Azure Active Directory Identity Protection | Microsoft Docs"
+title: "aaaAzure Glossário de proteção do Active Directory identidade | Microsoft Docs"
 description: "Glossário do Azure Active Directory Identity Protection"
 services: active-directory
 keywords: "azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança, glossário"
@@ -15,33 +15,33 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 2cf64925cff9a78cf83532a1cfd231f7a1d98304
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ff2e96d20e2a3f1df24b78e66be5a0c6807e60a3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossário do Azure Active Directory Identity Protection
 ### <a name="at-risk-user"></a>Em risco (Usuário)
 Um usuário com um ou mais eventos de risco ativos. 
 
 ### <a name="atypical-sign-in-location"></a>Local de entrada atípico
-Uma entrada de um local geográfico incomum para o usuário específico, usuários semelhantes ou o locatário.
+Uma entrada de um local geográfico que não é comum para usuário específico hello, usuários semelhantes ou Locatário hello.
 
 ### <a name="azure-ad-identity-protection"></a>Azure AD Identity Protection
 Um módulo de segurança do Azure Active Directory que fornece uma exibição consolidada dos eventos de risco e das possíveis vulnerabilidades que afetam as identidades de uma organização.
 
 ### <a name="conditional-access"></a>Acesso condicional
-Uma política para proteger o acesso aos recursos. Regras de acesso condicional são armazenadas no Azure Active Directory e são avaliadas pelo Azure AD antes de conceder acesso ao recurso.  As regras de exemplo incluem restrição baseada na localização do usuário, integridade do dispositivo ou método de autenticação do usuário.
+Uma política para a proteção de acesso tooresources. Regras de acesso condicional são armazenadas em Olá Active Directory do Azure e são avaliadas pelo AD do Azure antes de conceder acesso toohello recursos.  As regras de exemplo incluem restrição baseada na localização do usuário, integridade do dispositivo ou método de autenticação do usuário.
 
 ### <a name="credentials"></a>Credenciais
-Informações que incluem a identificação e prova de identificação usadas para obter acesso ao local e aos recursos da rede. Exemplos de credenciais são nomes de usuário e senhas, cartões inteligentes e certificados.
+Informações que incluem identificação e prova de identificação que é usado toogain acesso toolocal e recursos de rede. Exemplos de credenciais são nomes de usuário e senhas, cartões inteligentes e certificados.
 
 ### <a name="event"></a>Evento
 Um registro de uma atividade no Azure Active Directory.
 
 ### <a name="false-positive-risk-event"></a>Falsos positivos (evento de risco)
-Um status de evento de risco definido manualmente por um usuário do Identity Protection que indica que o evento foi investigado e foi marcado incorretamente como um evento de risco.
+Um status de evento de risco definido manualmente por um usuário de proteção de identidade, que indica que eventos de risco Olá foi investigado e foi marcado incorretamente como um evento de risco.
 
 ### <a name="identity"></a>Identidade
 Uma pessoa ou entidade que deve ser verificada por meio de autenticação com base em critérios como senha ou certificado.
@@ -50,88 +50,88 @@ Uma pessoa ou entidade que deve ser verificada por meio de autenticação com ba
 Um evento AAD que foi marcado como anômalo pelo Identity Protection e pode indicar que uma identidade foi comprometida.
 
 ### <a name="ignored-risk-event"></a>Ignorado (evento de risco)
-Um status de evento de risco definido manualmente por um usuário do Identity Protection que indica que o evento foi fechado sem realizar uma ação de correção.
+Um status de evento de risco definido manualmente por um usuário de proteção de identidade, que indica que eventos de risco hello está fechado sem executar uma ação de correção.
 
 ### <a name="impossible-travel-from-atypical-locations"></a>Viagem impossível de locais atípicos
-Um evento de risco disparado quando duas entradas para o mesmo usuário são detectadas, sendo pelo menos uma delas de um local de entrada atípico e em que o tempo entre as entradas é menor do que o tempo mínimo necessário para viajar fisicamente entre esses locais.  
+Um evento de risco disparado quando duas entradas para Olá mesmo usuário são detectados, onde pelo menos um deles é um logon local atípico e onde o tempo de saudação entre Olá entradas é menor que Olá mínimo tempo levaria toophysically passam entre eles locais.  
 
 ### <a name="investigation"></a>Investigação
-O processo de revisão de atividades, logs e outras informações relevantes relacionadas a um evento de risco para decidir se as etapas de correção e mitigação são necessárias, como a identidade foi comprometida e entender como ela foi usada.
+Olá processo de revisão Olá atividades, logs e outras informações relevantes relacionados tooa toodecide de evento de risco se são necessárias etapas de correção ou de redução, compreender se e como identidade Olá foi comprometido e compreender como Olá identidade comprometida foi usada.
 
 ### <a name="leaked-credentials"></a>Credenciais vazadas
-Um evento de risco disparado quando as credenciais do usuário atual (nome de usuário e senha) são encontradas como postadas publicamente por nossos pesquisadores na Dark Web.
+Um evento de risco disparado quando as credenciais do usuário atual (nome de usuário e senha) são encontradas lançado publicamente no Olá web escuro pelos nossos pesquisadores.
 
 ### <a name="mitigation"></a>Redução
-Uma ação que visa limitar ou eliminar a capacidade de um invasor explorar uma identidade ou um dispositivo comprometidos sem restaurá-los para um estado seguro. Uma mitigação não resolve eventos de risco anteriores associados à identidade ou ao dispositivo.
+Uma ação toolimit ou elimine a capacidade de saudação de um invasor tooexploit uma identidade comprometida ou dispositivo sem estado de restauração Olá identidade ou dispositivo tooa seguro. Uma redução não resolver anterior eventos de risco associados à identidade hello ou dispositivo.
 
 ### <a name="multi-factor-authentication"></a>Autenticação multifator
-Um método de autenticação que exige dois ou mais métodos de autenticação, que podem incluir algo que o usuário tem, como um certificado; algo que o usuário conhece, como nomes de usuário, senhas ou frases secretas; atributos físicos, como uma impressão digital; e atributos pessoais, como uma assinatura pessoal.
+Um método de autenticação que requer dois ou mais métodos de autenticação, que podem incluir algo Olá usuário tem, certificado; algo usuário Olá sabe, como nomes de usuário, senhas ou frases secretas; atributos físicos, como uma impressão digital; e atributos pessoais, como uma assinatura pessoal.
 
 ### <a name="offline-detection"></a>Detecção offline
-A detecção de anomalias e a avaliação do risco de um evento, tal como uma tentativa de entrada após o ocorrido, para um evento que já aconteceu.
+detecção de saudação de anomalias e avaliação de risco de saudação de um evento, como a tentativa de logon depois de fato hello, para um evento que já tenha ocorrido.
 
 ### <a name="policy-condition"></a>Condição da política
-Uma parte de uma política de segurança que define as entidades (grupos, usuários, aplicativos, plataformas de dispositivos, Estados de dispositivo, intervalos de IP e tipos de cliente) incluídas na política ou excluídas dela.
+Uma parte de uma política de segurança que define as entidades de saudação (grupos, usuários, aplicativos, plataformas de dispositivo, estados de dispositivo, os intervalos de IP, tipos de clientes) incluída na política de saudação ou excluídos dela.
 
 ### <a name="policy-rule"></a>Regra de política
-A parte de uma política de segurança que descreve as circunstâncias que vai disparar a política e as ações executadas quando ela é acionada.
+parte de saudação de uma política de segurança que descreve circunstâncias Olá que irá disparar política Olá e as ações de Olá tomadas quando Olá política é acionada.
 
 ### <a name="prevention"></a>Prevenção
-Uma ação para evitar danos à organização por abuso de uma identidade ou dispositivo que sofreu comprometimento conhecido ou suspeito. Uma ação de prevenção não protege o dispositivo ou a identidade, e não resolve eventos de risco anteriores.
+Uma ação tooprevent danos toohello organização por abuso de um dispositivo ou a identidade suspeita ou saber toobe comprometida. Uma ação de prevenção não proteger o dispositivo hello ou identidade e não resolve os eventos de risco anteriores.
 
 ### <a name="privileged-user"></a>Privilegiado (usuário)
-Um usuário que, no momento de um evento de risco, tinha permissões de administrador permanentes ou temporárias a um ou mais recursos no Azure Active Directory, como um Administrador Global, Administrador de Cobrança, Administrador de Serviços, Administrador de Usuários e Administrador de Senha. 
+Um usuário em tempo de saudação de um evento de risco tooone de permissões de administrador permanente ou temporária ou mais recursos no Azure Active Directory, como um Administrador Global, administrador de cobrança, administrador de serviço, o administrador de usuário e senha Administrador. 
 
 ### <a name="real-time"></a>Tempo real
 Consulte Detecção em tempo real.
 
 ### <a name="real-time-detection"></a>Detecção em tempo real.
-A detecção de anomalias e a avaliação do risco de um evento, tal como uma tentativa de entrada antes de permitir que o evento prossiga.
+a detecção de anomalias Hello e avaliação de risco de saudação de um evento, como a tentativa de logon antes do evento de saudação é permitida tooproceed.
 
 ### <a name="remediated-risk-event"></a>Corrigido (evento de risco)
-Um status de evento de risco definido automaticamente pelo Identity Protection, que indica que o evento foi corrigido usando a ação de correção padrão para esse tipo de evento de risco. Por exemplo, quando a senha do usuário é redefinida, muitos eventos de risco que indicam que a senha anterior foi comprometida são corrigidos automaticamente.
+Um status de evento de risco definido automaticamente pela proteção de identidade, que indica que eventos de risco Olá foi corrigido usando a ação de correção padrão Olá para esse tipo de evento de risco. Por exemplo, quando a redefinição de senha de usuário do hello, muitos eventos de risco que indicam a que senha anterior Olá foi comprometida são automaticamente reparados.
 
 ### <a name="remediation"></a>Correção
-Uma ação que visa proteger uma identidade ou um dispositivo que sofreu comprometimento conhecido ou suspeito anteriormente. Uma correção restaura a identidade ou dispositivo para um estado seguro e resolve eventos de risco anteriores associados à identidade ou ao dispositivo.
+Uma ação toosecure uma identidade ou um dispositivo que foram anteriormente suspeita ou toobe comprometidos. Uma ação de correção restaura Olá identidade ou dispositivo tooa seguro estado e resolve anterior eventos de risco associados à identidade hello ou dispositivo.
 
 ### <a name="resolved-risk-event"></a>Resolvido (evento de risco)
-Um status de evento de risco definido manualmente por um usuário do Identity Protection que indica que o usuário executou uma ação de correção apropriada fora do Identity Protection e que o evento deve ser considerado fechado.
+Um status de evento de risco definido manualmente por um usuário de proteção de identidade, indicando que o usuário Olá levou a uma ação de correção apropriada sem proteção de identidade e esse evento de risco Olá deve ser considerado fechadas.
 
 ### <a name="risk-event-status"></a>Status de evento de risco
-Uma propriedade de um evento de risco que indica se o evento está ativo e, se fechado, o motivo para estar fechado.
+Uma propriedade de um evento de risco, que indica se o evento hello está ativo e se fechado, motivo Olá para fechá-lo.
 
 ### <a name="risk-event-type"></a>Tipo de evento de risco
-Uma categoria para o evento de risco que indica o tipo de anomalia que fez com que o evento fosse considerado arriscado.
+Uma categoria para Olá corre o risco de evento, indicando que o tipo de saudação de anomalias que causou a saudação evento toobe considerado arriscado.
 
 ### <a name="risk-level-risk-event"></a>Nível de risco (evento de risco)
-Uma indicação (Alta, Média ou Baixa) da severidade do evento de risco para ajudar os usuários do Identity Protection a priorizar as ações tomadas para reduzir o risco para a organização. 
+Uma indicação (alto, médio ou baixo) de severidade de saudação de usuários de proteção de identidade Olá risco evento toohelp priorizar ações de saudação que levam a organização de tootheir tooreduce Olá risco. 
 
 ### <a name="risk-level-sign-in"></a>Nível de risco (entrada)
-Uma indicação (Alta, Média ou Baixa) da probabilidade de que outra pessoa esteja tentando usar a identidade do usuário para uma entrada específica.
+Uma indicação (alto, médio ou baixo) de probabilidade Olá que para um sign-in específico, alguém está tentando toouse Olá a identidade de usuário.
 
 ### <a name="risk-level-user-compromise"></a>Nível de risco (comprometimento do usuário)
-Uma indicação (Alta, Média ou Baixa) da probabilidade de uma identidade ter sido comprometida.
+Uma indicação (alto, médio ou baixo) de probabilidade Olá que uma identidade tiver sido comprometida.
 
 ### <a name="risk-level-vulnerability"></a>Nível de risco (vulnerabilidade)
-Uma indicação (Alta, Média ou Baixa) da severidade da vulnerabilidade para ajudar os usuários do Identity Protection a priorizar as ações tomadas para reduzir o risco para a organização.
+Uma indicação (alto, médio ou baixo) de severidade de saudação de usuários de proteção de identidade Olá vulnerabilidade toohelp priorizar ações de Olá que levam a organização de tootheir tooreduce Olá risco.
 
 ### <a name="secure-identity"></a>Proteger (identidade)
-Realizar uma ação de correção como uma alteração de senha ou reimplantação da imagem no computador para restaurar uma identidade potencialmente comprometida para um estado não comprometido.
+Correção de agir como uma alteração de senha ou máquina Refazer toorestore um estado de tooan seguras identidade potencialmente comprometidos.
 
 ### <a name="security-policy"></a>Política de segurança
-Uma coleção de regras e condição da política. Uma política pode ser aplicada a entidades como usuários, grupos, aplicativos, dispositivos, plataformas de dispositivos, estados de dispositivo, intervalos de IP e tipos de cliente do Auth2.0. Quando uma política está habilitada, ela é avaliada sempre que um token para um recurso é emitido para uma entidade incluída na política.
+Uma coleção de regras e condição da política. Uma política pode ser aplicada tooentities como usuários, grupos, aplicativos, dispositivos, plataformas de dispositivo, estados de dispositivo, intervalos de IP e os tipos de cliente Auth2.0. Quando uma política estiver habilitada, ela é avaliada sempre que uma entidade incluída na política de saudação é emitida um token para um recurso.
 
 ### <a name="sign-in-v"></a>Entrar (v)
-Autenticar-se em uma identidade no Azure Active Directory.
+identidade de tooan tooauthenticate no Active Directory do Azure.
 
 ### <a name="sign-in-n"></a>Entrada (n)
-O processo ou a ação de autenticar uma identidade no Azure Active Directory e o evento que captura essa operação.
+processo de saudação ou ação de autenticar uma identidade no Active Directory do Azure e evento Olá que essa operação de captura.
 
 ### <a name="sign-in-from-anonymous-ip-address"></a>Entrada de um endereço IP anônimo
 Um evento de risco disparado após uma entrada bem-sucedida de um endereço IP que foi identificado como um endereço IP de proxy anônimo.
 
 ### <a name="sign-in-from-infected-device"></a>Entradas de um dispositivo infectado
-Um evento de risco disparado em que uma entrada origina um endereço IP conhecido por ser usado por um ou mais dispositivos comprometidos, que estão tentando ativamente comunicar-se com um servidor de bot.
+Um evento de risco disparado quando uma entrada se origina de um endereço IP que é conhecido toobe usado por um ou mais dispositivos comprometidos, que são ativamente tentar toocommunicate com um servidor de bot.
 
 ### <a name="sign-in-from-ip-address-with-suspicious-activity"></a>Entrada de um endereço IP com atividade suspeita
 Um evento de risco acionado depois de uma entrada bem-sucedida de um endereço IP com um grande número de tentativas de logon com falha em várias contas de usuário em um curto período de tempo.
@@ -143,7 +143,7 @@ Um evento de risco disparado quando um usuário entra com êxito de um novo loca
 Consulte Nível de risco (entrada)
 
 ### <a name="sign-in-risk-policy"></a>Política de risco de entrada
-Uma política de acesso condicional que avalia o risco de uma entrada específica e aplica mitigações com base em regras e condições predefinidas.
+Uma política de acesso condicional que é avaliada Olá risco tooa sign-in específico e aplica atenuações com base em regras e condições predefinidas.
 
 ### <a name="user-compromise-risk"></a>Risco de comprometimento do usuário
 Consulte Nível de risco (comprometimento do usuário)
@@ -152,14 +152,14 @@ Consulte Nível de risco (comprometimento do usuário)
 Consulte Nível de risco (comprometimento do usuário).
 
 ### <a name="user-risk-policy"></a>Política de risco do usuário
-Uma política de acesso condicional que considera a entrada e aplica mitigações com base em regras e condições predefinidas.
+Uma política de acesso condicional que considera Olá entrar e aplica atenuações com base em regras e condições predefinidas.
 
 ### <a name="users-flagged-for-risk"></a>Usuários sinalizados por risco
 Usuários que têm eventos de risco ativos ou corrigidos
 
 ### <a name="vulnerability"></a>Vulnerabilidade
-Uma configuração ou condição no Azure Active Directory que torna o diretório suscetível a vulnerabilidades e ameaças.
+Uma configuração ou a condição no Active Directory do Azure que torna Olá directory suscetíveis tooexploits ou ameaças.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 

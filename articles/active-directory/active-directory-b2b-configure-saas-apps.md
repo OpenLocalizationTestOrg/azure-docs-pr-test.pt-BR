@@ -1,5 +1,5 @@
 ---
-title: "Configurar aplicativos SaaS para colaboração B2B no Azure Active Directory | Microsoft Docs"
+title: "aplicativos de SaaS aaaConfigure para colaboração B2B no Active Directory do Azure | Microsoft Docs"
 description: "Exemplos de código e do PowerShell para colaboração B2B do Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 149a493f7b369415f0a2726dd6a576f0195c13d9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c3f22f81567c04ac23ef2316c09de718ecb15d26
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurar aplicativos SaaS para colaboração B2B
 
@@ -27,86 +27,86 @@ A colaboração B2B do Azure Active Directory (Azure AD) funciona com a maioria 
 
 Antes de examinarmos as instruções específicas do aplicativo, aqui estão algumas regras gerais:
 
-* Para a maioria dos aplicativos, a configuração do usuário precisa acontecer manualmente. Ou seja, os usuários devem ser criados manualmente no aplicativo também.
+* Para a maioria dos aplicativos hello, configuração do usuário precisa toohappen manualmente. Ou seja, os usuários devem ser criados manualmente no aplicativo de saudação também.
 
-* Para os aplicativos que oferecem suporte para a configuração automática, como o Dropbox, convites separados são criados a partir dos aplicativos. Os usuários devem aceitar cada convite.
+* Para aplicativos que dão suporte a instalação automática, como o Dropbox, convites separados são criados nos aplicativos de saudação. Os usuários deve ser tooaccept-se de que cada convite.
 
-* Nos atributos do usuário, para atenuar problemas com o disco de perfil do usuário (UDP) danificado nos usuários convidados, sempre defina o **Identificador do Usuário** para **user.mail**.
+* Em atributos de usuário hello, toomitigate quaisquer problemas com o disco de perfil de usuário danificado (UDP) em usuários convidados, sempre defina **identificador de usuário** muito**user.mail**.
 
 
 ## <a name="dropbox-business"></a>Dropbox Business
 
-Para permitir que os usuários façam logon usando suas contas da organização, você deve configurar manualmente o Dropbox Business para usar o Azure AD como um provedor de identidade SAML (Security Assertion Markup Language). Se o Dropbox Business não foi configurado para fazer isso, não poderá solicitar ou, caso contrário, permitirá que os usuários façam logon usando o Azure AD.
+tooenable toosign de usuários usando sua conta de organização, você deve configurar manualmente Dropbox Business toouse AD do Azure como um provedor de identidade SAML Security Assertion Markup Language (). Se Dropbox Business não foi configurado toodo assim, ele não é possível solicitar ou permitam toosign usuários usando AD do Azure.
 
-1. Para adicionar o aplicativo Dropbox Business no Azure AD, selecione **Aplicativos da empresa** no painel esquerdo, em seguida, clique em **Adicionar**.
+1. aplicativo de negócios Dropbox Olá tooadd no AD do Azure, selecione **aplicativos empresariais** Olá painel esquerdo e, em seguida, clique em **adicionar**.
 
-  ![Botão "Adicionar" na página Aplicativos da empresa](media/active-directory-b2b-configure-saas-apps/add-dropbox.png)
+  ![botão de "Adicionar" Hello na página de aplicativos da empresa de saudação](media/active-directory-b2b-configure-saas-apps/add-dropbox.png)
 
-2. Na janela **Adicionar um aplicativo**, digite **dropbox** na caixa de pesquisa, em seguida, selecione **Dropbox for Business** na lista de resultados.
+2. Em Olá **adicionar um aplicativo** janela, digite **dropbox** Olá caixa de pesquisa e, em seguida, selecione **Dropbox for Business** na lista de resultados de saudação.
 
-  ![Procurar "dropbox" na página Adicionar um aplicativo](media/active-directory-b2b-configure-saas-apps/add-app-dialog.png)
+  ![Pesquise "dropbox" em Olá adicionar uma página de aplicativo](media/active-directory-b2b-configure-saas-apps/add-app-dialog.png)
 
-3. Na página **Logon único**, selecione **Logon único** no painel esquerdo, em seguida, digite **user.mail** na caixa **Identificador do Usuário**. (É definido como UPN por padrão.)
+3. Em Olá **o logon único** página, selecione **o logon único** Olá painel esquerdo e, em seguida, digite **user.mail** em hello **identificador de usuário** caixa. (É definido como UPN por padrão.)
 
-  ![Configurar o logon único para o aplicativo](media/active-directory-b2b-configure-saas-apps/configure-app-sso.png)
+  ![Configurar o logon único para o aplicativo hello](media/active-directory-b2b-configure-saas-apps/configure-app-sso.png)
 
-4. Para baixar o certificado a usar para a configuração do Dropbox, selecione **Configurar DropBox**, em seguida, selecione a **URL do Serviço de Logon Único da SAML** na lista.
+4. toodownload Olá certificado toouse para configuração do Dropbox, selecione **configurar DropBox**e, em seguida, selecione **SAML Service URL de logon único** na lista de saudação.
 
-  ![Baixar o certificado para a configuração do Dropbox](media/active-directory-b2b-configure-saas-apps/download-certificate.png)
+  ![Baixando certificado Olá para configuração do Dropbox](media/active-directory-b2b-configure-saas-apps/download-certificate.png)
 
-5. Entre no Dropbox com a URL de logon na página **Logon único**.
+5. Entrar tooDropbox com hello URL de logon da saudação **o logon único** página.
 
-  ![Página de entrada do Dropbox](media/active-directory-b2b-configure-saas-apps/sign-in-to-dropbox.png)
+  ![página Olá entrar no Dropbox](media/active-directory-b2b-configure-saas-apps/sign-in-to-dropbox.png)
 
-6. No menu, selecione **Console Admin**.
+6. No menu de saudação, selecione **Console de administração**.
 
-  ![Link "Console Admin" no menu Dropbox](media/active-directory-b2b-configure-saas-apps/dropbox-menu.png)
+  ![link de "Console de administração" Hello no menu do Dropbox Olá](media/active-directory-b2b-configure-saas-apps/dropbox-menu.png)
 
-7. Na caixa de diálogo **Autenticação**, selecione **Mais**, carregue o certificado, em seguida, na caixa **URL de Logon**, digite a URL de logon único da SAML.
+7. Em Olá **autenticação** caixa de diálogo, selecione **mais**, carregar certificado hello e, em seguida, em Olá **URL de logon** , digite a URL de saudação SAML SSO.
 
-  ![Link "Mais" na caixa de diálogo Autenticação recolhida](media/active-directory-b2b-configure-saas-apps/dropbox-auth-01.png)
+  ![Olá link "Mais" na caixa de diálogo de autenticação Olá recolhido](media/active-directory-b2b-configure-saas-apps/dropbox-auth-01.png)
 
-  ![A "URL de Logon" na caixa de diálogo Autenticação expandida](media/active-directory-b2b-configure-saas-apps/paste-single-sign-on-URL.png)
+  ![Olá "URL de entrada" no hello expandido a caixa de diálogo de autenticação](media/active-directory-b2b-configure-saas-apps/paste-single-sign-on-URL.png)
 
-8. Para configurar a definição automática do usuário no portal do Azure, selecione **Provisionamento** no painel esquerdo, selecione **Automático** na caixa **Modo de Provisionamento**, em seguida, selecione **Autorizar**.
+8. configuração de usuário automático de tooconfigure no hello portal do Azure, selecione **provisionamento** no painel esquerdo do hello, selecione **automático** em Olá **modo de provisionamento** caixa e, em seguida, selecione **Autorizar**.
 
-  ![Configurar o provisionamento automático do usuário no portal do Azure](media/active-directory-b2b-configure-saas-apps/set-up-automatic-provisioning.png)
+  ![Configurar o provisionamento automático de usuário no portal do Azure de saudação](media/active-directory-b2b-configure-saas-apps/set-up-automatic-provisioning.png)
 
-Depois dos usuários convidados ou membros terem sido configurados no aplicativo Dropbox, eles receberão um convite separado do Dropbox. Para usar o logon único do Dropbox, os convidados devem aceitar o convite clicando em um link.
+Depois usuários convidados ou membro foi configurados no aplicativo do Dropbox hello, eles recebem um convite separado do Dropbox. toouse logon único Dropbox, convidados devem aceitar o convite Olá clicando no link nele.
 
 ## <a name="box"></a>Box
-Você pode permitir que os usuários autentiquem os usuários convidados do Box com sua conta do Azure AD usando a federação com base no protocolo SAML. Neste procedimento, é possível carregar os metadados no Box.com.
+Você pode habilitar os usuários tooauthenticate caixa convidados com suas contas do AD do Azure usando federação com base no protocolo SAML de saudação. Neste procedimento, você deve carregar metadados tooBox.com.
 
-1. Adicione o aplicativo Box a partir dos aplicativos da empresa.
+1. Adicione Olá caixa aplicativo de aplicativos corporativos de saudação.
 
-2. Configure o logon único na seguinte ordem:
+2. Configure o logon único Olá ordem a seguir:
 
   ![Configurar logon único do Box](media/active-directory-b2b-configure-saas-apps/configure-box-sso.png)
 
- a. Na caixa **URL de Logon**, verifique se a URL de Logon está definida corretamente para o Box no portal do Azure. Essa é a URL do seu locatário Box.com. Ela deve seguir a convenção de nomenclatura *https://.box.com*.  
- O **Identificador** não se aplica a esse aplicativo, mas ainda aparece como um campo obrigatório.
+ a. Em Olá **URL de logon** caixa, certifique-se de que o URL de entrada hello está definida corretamente para caixa em Olá portal do Azure. Essa URL é saudação do seu locatário Box.com. Você deve seguir a convenção de nomenclatura Olá *https://.box.com*.  
+ Olá **identificador** não se aplica a toothis aplicativo, mas ela ainda aparecerá como um campo obrigatório.
 
- b. Na caixa **Identificador do usuário**, digite **user.mail** (para o SSO das contas de convidado).
+ b. Em Olá **identificador de usuário** , digite **user.mail** (para o SSO para contas de convidado).
 
  c. Em **Certificado de Assinatura de SAML**, clique em **Criar novo certificado**.
 
- d. Para começar a configurar seu locatário Box.com para usar o Azure AD como um provedor de identidade, baixe o arquivo de metadados e salve-o em sua unidade local.
+ d. toobegin configurar seu locatário de Box.com toouse AD do Azure como um provedor de identidade, baixe o arquivo de metadados de saudação e salve-a como unidade local tooyour.
 
- e. Encaminhe o arquivo de metadados para a equipe de suporte do Box, que configura o logon único para você.
+ e. Encaminhe Olá metadados arquivo toohello caixa equipe de suporte, que configura o logon único para você.
 
-3. Para a configuração automática do usuário do Azure AD, no painel esquerdo, selecione **Provisionamento**, em seguida, selecione **Autorizar**.
+3. Para a instalação automática de usuários do AD do Azure, no painel esquerdo do hello, selecione **provisionamento**e, em seguida, selecione **autorizar**.
 
-  ![Autorizar o Azure AD a conectar o Box](media/active-directory-b2b-configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
+  ![Autorizar o Azure AD tooconnect tooBox](media/active-directory-b2b-configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
 
-Como os convidados do Dropbox, os convidados do Box também devem resgatar seu convite no aplicativo Box.
+Como convidados Dropbox, convidados caixa devem resgatar seu convite de saudação caixa aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte os seguintes artigos na colaboração B2B do Azure AD:
+Consulte Olá artigos colaboração B2B do Azure AD a seguir:
 
 * [O que é a colaboração B2B do AD do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Propriedades de usuário de colaboração B2B](active-directory-b2b-user-properties.md)
-* [Como adicionar um usuário de colaboração B2B a uma função](active-directory-b2b-add-guest-to-role.md)
+* [Adicionando uma função de tooa de usuário de colaboração B2B](active-directory-b2b-add-guest-to-role.md)
 * [Delegação de convites de colaboração B2B](active-directory-b2b-delegate-invitations.md)
 * [Grupos dinâmicos e colaboração B2B](active-directory-b2b-dynamic-groups.md)
 * [Código de colaboração B2B e exemplos do PowerShell](active-directory-b2b-code-samples.md)
